@@ -1,0 +1,33 @@
+    .shade {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+    }
+
+    .shade-gradient {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+    }
+
+    .shade-container {
+      position: relative;
+      height: 100%;
+      margin: 0 3px;
+    }
+
+    .shade-pointer {
+      position: absolute;
+    }
+
+    .shade-slider {
+      width: 4px;
+      border-radius: 1px;
+      height: 8px;
+      margin-top: 1px;
+      transform: translateX(-2px);
+    }

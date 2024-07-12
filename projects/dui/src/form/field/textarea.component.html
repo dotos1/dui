@@ -1,0 +1,26 @@
+
+
+<ng-container *ngIf="field.options||field.remote;else noAutocomplete">
+  <textarea matInput [id]="id" flex #autoCompleteInput  [type]="field.type || 'text'" [readonly]="field.readonly"
+    [errorStateMatcher]="errorStateMatcher" [formControl]="formControl"
+    [formAttributes]="field" (keypress)="onKeyPress($event)" [tabindex]="field.tabindex || 0"
+    [placeholder]="field.placeholder|translate" matTooltip={{toolTip|translate}}  matTooltipPosition='below'
+    [matAutocomplete]="auto" [value]="field.inputValue ?field.inputValue:''"   autocomplete="'on'">
+  </textarea>
+  <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+    <mat-option *ngFor="let option of filteredOptions | async" [value]="getValue(option)">
+      {{getLabel(option)}}
+    </mat-option>
+  </mat-autocomplete>
+</ng-container>
+<ng-template #noAutocomplete>
+  <ng-container>
+    <textarea matInput [id]="id" [name]="name" [readonly]="field.readonly" [formControl]="formControl"
+        [errorStateMatcher]="errorStateMatcher"
+      [cols]="field.cols" [rows]="field.rows"  [tabindex]="field.tabindex || 0"
+      [placeholder]="field.placeholder|translate" [formAttributes]="field" [cdkTextareaAutosize]="field.autosize"
+      [cdkAutosizeMinRows]="field.autosizeMinRows" [cdkAutosizeMaxRows]="field.autosizeMaxRows"
+      [class.cdk-textarea-autosize]="field.autosize" autocomplete="off">
+    </textarea>
+  </ng-container>
+</ng-template>

@@ -1,0 +1,11 @@
+<div duiMessageContainer></div>
+<ng-template>
+  <div class="dui-message-wrapper">
+    <mat-icon class="dui-message-icon">{{ icon }}</mat-icon>
+    <div class="dui-message-labels">
+      <div *ngIf="label" class="dui-message-label">{{ label }}</div>
+      <div *ngIf="sublabel" class="dui-message-sublabel">{{ sublabel }}</div>
+    </div>
+    <ng-content select="[dui-message-actions]"></ng-content>
+  </div>
+</ng-template>

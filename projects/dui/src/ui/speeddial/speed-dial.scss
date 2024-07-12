@@ -1,0 +1,242 @@
+@mixin speed-dial-container($box-orient, $flex-direction) {
+    -webkit-box-orient: $box-orient;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: $flex-direction;
+    flex-direction: $flex-direction;
+}
+
+@mixin speed-dial-box-order($ordinal-group, $order) {
+    -webkit-box-ordinal-group: $ordinal-group;
+    -webkit-order: $order;
+    order: $order;
+}
+
+@mixin speed-dial-actions($box-orient, $box-direction, $flex-direction, $ordinal-group, $order, $action-item-margin-direction) {
+    -webkit-box-orient: $box-orient;
+    -webkit-box-direction: $box-direction;
+    -webkit-flex-direction: $flex-direction;
+    flex-direction: $flex-direction;
+    @include speed-dial-box-order($ordinal-group, $order);
+
+    & .action-item {
+        margin-#{$action-item-margin-direction}: 13px;
+    }
+}
+
+speed-dial {
+    display: inline-block;
+
+    &.eco-opened {
+        .speed-dial-container {
+            speed-dial-trigger.eco-spin {
+                .spin180 {
+                    -webkit-transform: rotate(180deg);
+                    transform: rotate(180deg);
+                }
+                .spin360 {
+                    -webkit-transform: rotate(360deg);
+                    transform: rotate(360deg);
+                }
+            }
+        }
+    }
+
+    .speed-dial-container {
+        position: relative;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-align: center;
+        -webkit-align-items: center;
+        align-items: center;
+        z-index: 20;
+
+        speed-dial-trigger {
+            pointer-events: auto;
+            z-index: 24;
+
+            &.eco-spin {
+                .spin180, .spin360 {
+                    -webkit-transition: all .6s cubic-bezier(.4, 0, .2, 1);
+                    transition: all .6s cubic-bezier(.4, 0, .2, 1);
+                }
+            }
+        }
+
+        speed-dial-actions {
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: flex;
+            position: absolute;
+            height: 0;
+            width: 0
+        }
+    }
+
+    &.eco-fling {
+        .speed-dial-container {
+            speed-dial-actions {
+                & .action-item {
+                    display: block;
+                    opacity: 1;
+                    -webkit-transition: all .3s cubic-bezier(.55, 0, .55, .2);
+                    transition: all .3s cubic-bezier(.55, 0, .55, .2);
+                }
+            }
+        }
+    }
+
+    &.eco-scale {
+        .speed-dial-container {
+            speed-dial-actions {
+                & .action-item {
+                    -webkit-transform: scale(0);
+                    transform: scale(0);
+                    -webkit-transition: all .3s cubic-bezier(.55, 0, .55, .2);
+                    transition: all .3s cubic-bezier(.55, 0, .55, .2);
+                    -webkit-transition-duration: .14286s;
+                    transition-duration: .14286s;
+                }
+            }
+        }
+    }
+
+    &.eco-down {
+
+        speed-dial-actions {
+            bottom: 2px;
+            left: 3px;
+        }
+
+        .speed-dial-container {
+            @include speed-dial-container(vertical, column);
+
+            & speed-dial-trigger {
+                @include speed-dial-box-order(2, 1);
+            }
+
+            & speed-dial-actions {
+                @include speed-dial-actions(vertical, normal, column, 3, 2, top);
+            }
+        }
+    }
+
+    &.eco-up {
+        speed-dial-actions {
+            top: 2px;
+            left: 3px;
+        }
+
+        .speed-dial-container {
+            @include speed-dial-container(vertical, column);
+
+            & speed-dial-trigger {
+                @include speed-dial-box-order(3, 2);
+            }
+
+            & speed-dial-actions {
+                @include speed-dial-actions(vertical, reverse, column-reverse, 2, 1, bottom);
+            }
+        }
+    }
+
+    &.eco-left {
+        speed-dial-actions {
+            top: 3px;
+            left: 2px;
+        }
+
+        .speed-dial-container {
+            @include speed-dial-container(horizontal, row);
+
+            & speed-dial-trigger {
+                @include speed-dial-box-order(3, 2);
+            }
+
+            & speed-dial-actions {
+                @include speed-dial-actions(horizontal, normal, row-reverse, 2, 1, right);
+            }
+        }
+    }
+
+    &.eco-right {
+        speed-dial-actions {
+            top: 3px;
+            right: 2px;
+        }
+        .speed-dial-container {
+            @include speed-dial-container(horizontal, row);
+            & speed-dial-trigger {
+                @include speed-dial-box-order(2, 1);
+            }
+            & speed-dial-actions {
+                @include speed-dial-actions(horizontal, normal, row, 3, 2, left);
+            }
+        }
+    }
+
+    &.eco-mini-down {
+        speed-dial-actions {
+            bottom: 0px;
+            left: 0px;
+        }
+        .speed-dial-container {
+            @include speed-dial-container(vertical, column);
+            & speed-dial-trigger {
+                @include speed-dial-box-order(2, 1);
+            }
+            & speed-dial-actions {
+                @include speed-dial-actions(vertical, normal, column, 3, 2, top);
+            }
+        }
+    }
+
+    &.eco-mini-up {
+        speed-dial-actions {
+            top: 0px;
+            left: 0px;
+        }
+        .speed-dial-container {
+            @include speed-dial-container(vertical, column);
+            & speed-dial-trigger {
+                @include speed-dial-box-order(3, 2);
+            }
+            & speed-dial-actions {
+                @include speed-dial-actions(vertical, reverse, column-reverse, 2, 1, bottom);
+            }
+        }
+    }
+
+    &.eco-mini-left {
+        speed-dial-actions {
+            top: 0px;
+            left: 0px;
+        }
+        .speed-dial-container {
+            @include speed-dial-container(horizontal, row);
+            & speed-dial-trigger {
+                @include speed-dial-box-order(3, 2);
+            }
+            & speed-dial-actions {
+                @include speed-dial-actions(horizontal, normal, row-reverse, 2, 1, right);
+            }
+        }
+    }
+
+    &.eco-mini-right {
+        speed-dial-actions {
+            top: 0px;
+            right: 0px;
+        }
+        .speed-dial-container {
+            @include speed-dial-container(horizontal, row);
+            & speed-dial-trigger {
+                @include speed-dial-box-order(2, 1);
+            }
+            & speed-dial-actions {
+                @include speed-dial-actions(horizontal, normal, row, 3, 2, left);
+            }
+        }
+    }
+}
+

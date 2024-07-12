@@ -1,0 +1,39 @@
+$dui-topbar-height: 48px !default;
+$dui-topbar-single-row-height: 64px !default;
+$dui-topbar-font-size: 14px !default;
+$dui-topbar-padding: 16px !default;
+
+.dui-topbar {
+  &--spacer {
+    flex: 1 1 auto;
+  }
+
+  &-title {
+    overflow: hidden;
+    display: flex;
+    width: 100%;
+  }
+
+  .mat-toolbar {
+    min-height: $dui-topbar-height;
+  }
+
+  .mat-toolbar-row {
+    height: $dui-topbar-height;
+    font-size: $dui-topbar-font-size;
+    white-space: normal;
+  }
+
+  .mat-toolbar-single-row {
+    padding: 0 $dui-topbar-padding;
+    height: $dui-topbar-single-row-height;
+  }
+
+  &.dui-topbar--inline {
+    .mat-toolbar {
+      background-color: inherit;
+      border: none !important;
+      padding: 0;
+    }
+  }
+}

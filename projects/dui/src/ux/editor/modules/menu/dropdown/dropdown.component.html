@@ -1,0 +1,12 @@
+<div class="Editor__Dropdown--Text" [class.Editor__Dropdown--Selected]="isSelected"
+  [class.Editor--Disabled]="isDropdownDisabled" (mousedown)="toggleDropdown($event)">
+  {{getName(activeItem || group)}}
+</div>
+
+<div class="Editor__Dropdown--DropdownMenu" *ngIf="isDropdownOpen">
+  <div class="Editor__Dropdown--Item" *ngFor="let item of items; trackBy: trackByIndex"
+    (mousedown)="onClick($event, item)"
+    [ngClass]="{'Editor__Dropdown--Active': item === activeItem, 'Editor--Disabled':disabledItems.includes(item)}">
+    {{getName(item)}}
+  </div>
+</div>

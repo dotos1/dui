@@ -1,0 +1,43 @@
+<ng-container>
+    <mat-datetimepicker #datetimePicker
+        [openOnFocus]="true"
+        [startAt]="field.startAt"
+        [startView]="field.startView"
+        [timeInterval]="field.timeInterval"
+        [type]="field.type"
+        [disabled]="field.readonly"
+        [touchUi]="field.touchUi"
+        [mode]="field.mode?field.mode:'landscape'"
+        (selectedChanged)=change($event)>
+    </mat-datetimepicker>
+    <input  matInput flex
+      [id]="id"
+      [type]="'text'"
+      [readonly]="field.readonly"
+      [placeholder]="field.placeholder|translate"
+      [errorStateMatcher]="errorStateMatcher"
+      [matDatetimepicker]="datetimePicker"
+      [formControl]="formControl"
+      [formAttributes]="field"
+      [max]="field.max"
+      [min]="field.min"
+      [required]="field.required"
+      [tabindex]="field.tabindex || 0"
+      autocomplete="off"
+      [readonly]="field.readonly"
+      matTooltip={{toolTip|translate}}
+      matTooltipPosition='below'
+    >
+    <ng-template #matPrefix>
+      <button mat-icon-button type="button" [attr.aria-label]="_intl.openCalendarLabel"
+        [disabled]="disabled"   matDatetimepicker="datetimePicker" >
+        <mat-icon *ngIf="field.type==='date'||field.type==='month'" style="padding-right: 30px"  >today</mat-icon>
+        <mat-icon *ngIf="field.type==='time'||field.type==='datetime'" style="padding-right: 30px"  >schedule</mat-icon>
+      </button>
+    </ng-template>
+    <ng-template #matSuffix>
+      <div  class="mat-mdc-select-arrow-wrapper"  matDatetimepicker="datetimePicker" ><div class="mat-mdc-select-arrow"></div></div>
+    </ng-template>
+</ng-container>
+
+

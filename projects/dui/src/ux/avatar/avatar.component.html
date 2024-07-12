@@ -1,0 +1,21 @@
+
+    <div
+      (click)="onAvatarClicked()"
+      class="avatar-container"
+      [ngStyle]="hostStyle"
+    >
+      <img #imageAvatar *ngIf="isImageAvatar; else textAvatar"
+        [src]="avatarSrc"
+        [width]="size"
+        [height]="size"
+        [ngStyle]="avatarStyle"
+        (error)="fetchAvatarSource()"
+        class="avatar-content"
+        loading="lazy"
+      />
+      <ng-template #textAvatar>
+        <div *ngIf="avatarText" class="avatar-content" [ngStyle]="avatarStyle">
+          {{ avatarText }}
+        </div>
+      </ng-template>
+    </div>

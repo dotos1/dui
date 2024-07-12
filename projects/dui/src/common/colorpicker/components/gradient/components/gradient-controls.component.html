@@ -1,0 +1,34 @@
+<div  [ngStyle]="{'padding-left': hideGradientType ? 4 : 0}"  style="margin-top: 12;margin-bottom: -4;justify-content: 'space-between';" 
+id="rbgcp-gradient-controls-wrap" ngClass="context.classes.rbgcpControlBtnWrapper"> 
+<ng-container *ngIf="!hideGradientType">
+  <div  [ngClass]="context.classes.rbgcpControlBtnWrapper">
+    <div  (click)="handleLinear()"  id="rbgcp-linear-btn" [ngClass]='getLinearClass()'>
+      <mat-icon [color]="isLinear ? '#568CF5' : ''"></mat-icon>
+    </div>
+    <div (click)="handleRadial()"  id="rbgcp-radial-btn"   [ngClass]='getRadialClass()'>
+      <!-- <RadialIcon color={isRadial ? '#568CF5' : ''} ></RadialIcon> -->
+    </div>
+  </div>
+</ng-container>
+<div style="width: 53">
+  <ng-container *ngIf="!hideGradientAngle&& context.gradientType === 'linear-gradient'">
+          <div  [ngClass]='getGradientAngleClass()'>
+          <!-- <DegreesIcon /> -->
+          <input  value={degrees}  id="rbgcp-degree-input"  (change)= "handleDegrees($event)"  
+           [ngClass]="getGradientDegreeClass()"/> 
+          <div [ngStyle]="{right: context.degrees > 99 ? 0 :context. degrees < 10 ? 7 : 3}"  style="position: 'absolute';top: 1;font-weight: 400;font-size: 13"
+            [ngClass]="context.classes.rbgcpDegreeIcon" > °
+          </div>
+        </div>
+  </ng-container>
+</div>
+<ng-container *ngIf="!hideGradientStop">
+  <div  [ngClass]='getStopClass()'  style="padding-left: 8" >
+      <!-- <StopIcon /> -->
+      <input  value={currentLeft}   id="rbgcp-stop-input"   (onChange)="handleMove($event)"   [ngClass]='getStopInputClass()' />
+    </div>
+</ng-container>
+<div (click)="deletePoint()" style="width: 28" id="rbgcp-point-delete-btn"  [ngClass]="controlBtnStyles(false,context.classes)" >
+<!-- <TrashIcon /> -->
+</div>
+</div>

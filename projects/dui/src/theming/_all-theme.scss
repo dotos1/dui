@@ -1,0 +1,10 @@
+
+
+@import './_all-typography';
+@import '../ux/highlight/highlight-theme';
+
+@mixin dui-theme() {
+
+  @include covalent-highlight-theme();
+}
+@include dui-typography();

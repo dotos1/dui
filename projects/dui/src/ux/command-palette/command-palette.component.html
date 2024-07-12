@@ -1,0 +1,23 @@
+<div class="command-palette__overlay">
+
+  <div class="command-palette__body">
+    <command-palette-header
+      (searchedValue$)="onSearchedValue($event)"
+      (keyDownPressed$)="onSelectNextItem()"
+      (keyUpPressed$)="onSelectPreviousItem()"
+      (keyEnterPressed$)="onCallCallbackItem()"
+      class="command-palette__header">
+    </command-palette-header>
+
+    <command-palette-content
+      [groups]="filteredGroups"
+      [selectedItemIndex]="selectedItemIndex"
+      (itemVisited$)="onSelectItem($event)"
+      (itemClicked$)="onCallCallbackItem($event)"
+      class="command-palette__content">
+    </command-palette-content>
+
+    <div class="command-palette__footer"></div>
+  </div>
+
+</div>

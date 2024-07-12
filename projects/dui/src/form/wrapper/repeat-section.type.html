@@ -1,0 +1,27 @@
+<div fxLayout='column' fxFlex style='overflow:hidden'>
+  <div fxLayout='row' style='overflow:hidden;height:40px'>
+    <span class="repeat-label" style='margin-top:8px;margin-bottom:8px'> {{field.label|translate}}</span>
+    <span style='flex: 1 1 auto;'></span>
+    <dui-button *ngIf="field.showAdd" [config]="field.button" [ownerCt]="this"></dui-button>
+  </div>
+  <mat-divider ></mat-divider>
+  <mat-accordion togglePosition="before" displayMode="flat" multi="true" [hideToggle]="field.hideToggle">
+    <mat-expansion-panel *ngFor="let item of field.fieldGroup; let i = index;" [expanded]="field.hideToggle">
+      <mat-expansion-panel-header class="expansion-panel-header" collapsedHeight="40px">
+        <mat-panel-title>
+          <span style='margin-top:8px;margin-bottom:8px;font-size: 15px;'>{{getTitle(i)|translate}}</span>
+          <span style='flex: 1 1 auto;'></span>
+          <button *ngIf="field.showVisible" mat-icon-button class="delete-button">
+            <mat-icon>visibility</mat-icon>
+          </button>
+          <button *ngIf="field.showAdd" mat-icon-button class="delete-button" (click)="remove(i)">
+            <mat-icon>delete_outline</mat-icon>
+          </button>
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <div fxLayout="row wrap" fxLayoutAlign="start center">
+        <dui-field [field]="item"></dui-field>
+      </div>
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>

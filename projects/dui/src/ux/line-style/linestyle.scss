@@ -1,0 +1,32 @@
+.line-style-option .mat-option-text{
+  display: flex;
+  flex-grow: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+line-style-field .mat-mdc-select .mat-mdc-select-trigger .mat-mdc-select-value{
+    padding-top: 8px;
+    padding-right: 10px;
+    padding-left: 10px;
+}
+line-size-field .mat-mdc-select .mat-mdc-select-trigger .mat-mdc-select-value{
+  padding-top: 8px;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+.line-plan-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  overflow: hidden;
+  width: 100%;
+}
+.line-size-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: auto;
+  overflow: hidden;
+  margin-bottom: 4px;
+}
+

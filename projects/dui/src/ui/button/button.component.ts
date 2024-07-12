@@ -1,0 +1,105 @@
+import {
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+  Component,
+  ComponentFactoryResolver,
+  DoCheck,
+  ElementRef,
+  EventEmitter,
+  Injector,
+  Input,
+  OnChanges,
+  Output,
+  QueryList,
+  Renderer2,
+  SimpleChanges,
+  ViewChild,
+  ViewChildren,
+  ViewContainerRef,
+  ViewEncapsulation
+} from '@angular/core';
+
+import { MatMenuTrigger } from '@angular/material/menu';
+import { MatTooltip } from '@angular/material/tooltip';
+import { TranslateService } from '@dotos/dui/i18n';
+import { ButtonBase } from './button.base';
+
+
+@Component({
+  selector: 'dui-button',
+  styleUrls: ['./button.component.scss'],
+  templateUrl: './button.component.html',
+  host: {
+    '[style.display]': 'flex'
+  },
+  providers:[TranslateService],
+  encapsulation: ViewEncapsulation.None,
+  changeDetection: ChangeDetectionStrategy.Default
+})
+export class ButtonComponent extends ButtonBase implements OnChanges,DoCheck {
+
+  @ViewChild(MatTooltip)  override matTooltip: MatTooltip;
+
+  @Input() override config: any = {};
+
+  @Input() override data: any;
+
+  @Input() override ownerCt: any;
+
+  @Input() iconStyle: any;
+
+  @Input()  hasMenu=false;
+  
+  @Output() override click = new EventEmitter<any>();
+
+  public showIcon=true;
+
+  public onlyIcon=false;
+
+  @ViewChild('container', { read: ViewContainerRef }) public override _container: ViewContainerRef;
+
+  @ViewChildren(MatMenuTrigger) override triggers: QueryList<MatMenuTrigger>;
+
+  constructor(
+    public override _element: ElementRef,
+    public override renderer: Renderer2,
+    public override changeDetectorRef: ChangeDetectorRef,
+    public override resolver: ComponentFactoryResolver,
+    public override injector: Injector,) {
+    super(_element,renderer,changeDetectorRef,resolver,injector);
+  }
+
+  override ngDoCheck() {
+    super.ngDoCheck();
+    this.checkExpressionChange();
+  }
+
+  override ngOnChanges(changes: SimpleChanges) {
+    if (changes['config']) {
+      this.init(this.config);
+    }
+  }
+
+  override getEl() {
+    return this._element.nativeElement;
+  }
+
+  override onClick(e) {
+    if (e) {
+      e.preventDefault();
+      if (this.matTooltip.message!='') {
+        e.stopPropagation();
+        e.stopImmediatePropagation();
+        this.matTooltip.hide();
+      }
+    }
+    if (!this.disabled) {
+      setTimeout(() => {
+        if (this.handler) {
+          this.handler.call(this, this.data || this, e);
+        }
+        this.click.emit(e);
+      }, 50);
+    }
+  }
+}

@@ -1,0 +1,30 @@
+<dui-info-drawer-layout>
+  <div *ngIf="title" info-drawer-title>{{ title | translate }}</div>
+  <ng-content *ngIf="!title" info-drawer-title select="[info-drawer-title]"></ng-content>
+  <button mat-icon-button info-drawer-buttons (click)="close()">
+    <mat-icon>clear</mat-icon>
+  </button>
+  <ng-content info-drawer-buttons select="[info-drawer-buttons]"></ng-content>
+
+  <ng-container info-drawer-content *ngIf="showTabLayout(); then tabLayout else singleLayout"></ng-container>
+
+  <ng-template #tabLayout>
+    <mat-tab-group mat-stretch-tabs="false" [(selectedIndex)]="selectedIndex" class="dui-info-drawer-tabs"
+      (selectedTabChange)="onTabChange($event)">
+      <mat-tab *ngFor="let contentBlock of contentBlocks" [label]="contentBlock.label | translate"
+        class="dui-info-drawer-tab">
+
+        <ng-template mat-tab-label>
+          <mat-icon *ngIf="contentBlock.icon">{{ contentBlock.icon }}</mat-icon>
+          <span *ngIf="contentBlock.label">{{ contentBlock.label | translate }}</span>
+        </ng-template>
+
+        <ng-container *ngTemplateOutlet="contentBlock.content"></ng-container>
+      </mat-tab>
+    </mat-tab-group>
+  </ng-template>
+
+  <ng-template #singleLayout>
+    <ng-content ></ng-content>
+  </ng-template>
+</dui-info-drawer-layout>

@@ -1,0 +1,50 @@
+<div class="gradient-fields">
+  <div class="gradient-double">
+    <color-editable-input
+      [style]="{ input: input, label: label }"
+      label="hex"
+      [value]="hex.replace('#', '')"
+      (onChange)="handleChange($event)"
+    ></color-editable-input>
+  </div>
+  <div class="gradient-single">
+    <color-editable-input
+      [style]="{ input: input, label: label }"
+      label="r"
+      [value]="rgb.r"
+      (onChange)="handleChange($event)"
+      [dragLabel]="true"
+      [dragMax]="255"
+    ></color-editable-input>
+  </div>
+  <div class="gradient-single">
+    <color-editable-input
+      [style]="{ input: input, label: label }"
+      label="g"
+      [value]="rgb.g"
+      (onChange)="handleChange($event)"
+      [dragLabel]="true"
+      [dragMax]="255"
+    ></color-editable-input>
+  </div>
+  <div class="gradient-single">
+    <color-editable-input
+      [style]="{ input: input, label: label }"
+      label="b"
+      [value]="rgb.b"
+      (onChange)="handleChange($event)"
+      [dragLabel]="true"
+      [dragMax]="255"
+    ></color-editable-input>
+  </div>
+  <div class="gradient-alpha" *ngIf="disableAlpha === false">
+    <color-editable-input
+      [style]="{ input: input, label: label }"
+      label="a"
+      [value]="round(rgb.a * 100)"
+      (onChange)="handleChange($event)"
+      [dragLabel]="true"
+      [dragMax]="100"
+    ></color-editable-input>
+  </div>
+</div>

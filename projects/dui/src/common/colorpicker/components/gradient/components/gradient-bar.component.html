@@ -1,0 +1,8 @@
+
+    <div   style=" width: '100%';margin-top: 17;  margin-bottom: 4;position: 'relative'"  id="gradient-bar">
+      <div [ngStyle]="{'width': conext.squareWidth,'height': 14,'background-image': force90degLinear(conext.value),borderRadius: 10}"
+        (mousedown)="handleDown($event)" (mousemove)="handleMove($event)" ></div>
+        <gradient-bar-handle   *ngFor="let color of conext.colors; let i=index" [i]="i" [left]="color.left" [setInFocus]="setInFocus"  [setDragging]="setDragging">
+
+        </gradient-bar-handle>
+    </div>

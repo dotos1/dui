@@ -1,0 +1,11 @@
+<dui-dialog>
+  <ng-container duiDialogTitle *ngIf="title">{{ title|translate }}</ng-container>
+  <ng-container duiDialogContent>
+    <span class="dui-dialog-message">{{ message|translate }}</span>
+  </ng-container>
+  <ng-container duiDialogActions>
+    <button mat-button color="accent" (click)="close()">
+      {{ closeButton|translate }}
+    </button>
+  </ng-container>
+</dui-dialog>

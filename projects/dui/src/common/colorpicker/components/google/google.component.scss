@@ -1,0 +1,280 @@
+:host {
+  user-select: none;
+  visibility: visible;
+}
+
+.docs-colormenuitems .goog-menu {
+  padding: 10px;
+}
+
+.docs-gm .goog-menu {
+  border: 1px solid transparent;
+  border-radius: 4px;
+  overflow-y: auto;
+}
+
+.sketch-colors{
+  display: flex;
+  flex-wrap:wrap;
+  max-width: 221px;
+  min-width: 183px;
+}
+.goog-menu {
+  z-index: 1003;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+  -webkit-transition: opacity 0.218s;
+  -moz-transition: opacity 0.218s;
+  -o-transition: opacity 0.218s;
+  transition: opacity 0.218s;
+  cursor: default;
+  font-size: 13px;
+  margin: 0;
+  outline: none;
+  padding: 6px 0;
+  position: absolute;
+}
+
+.docs-gm .docs-colormenuitems-scheme-header {
+  box-sizing: border-box;
+  overflow: hidden;
+  padding-right: 35px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 100%;
+}
+
+.docs-gm .docs-colormenuitems .docs-colormenuitems-scheme-header,
+.docs-gm .docs-colormenuitems .docs-colormenuitems-custom-header {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: .8px;
+  padding-left: 0px;
+  text-transform: uppercase;
+}
+
+.docs-gm .docs-colormenuitems-scheme-header {
+  padding: 4px 0 4px 5px;
+}
+
+.docs-gm .colormenuitems-custom-header-add-button .docs-colormenuitems-custom-header,
+.docs-gm .docs-colormenuitems-scheme-header {
+  margin-left: 5px;
+}
+
+.goog-inline-block {
+  position: relative;
+  display: -moz-inline-box;
+  display: inline-block;
+}
+
+.colormenuitems-ob-order .goog-menuitem.goog-inline-block.waffle-colormenuitems-scheme-header-edit-button {
+  margin-left: -35px;
+  vertical-align: top;
+}
+
+.goog-menuitem.goog-inline-block.waffle-colormenuitems-scheme-header-edit-button.goog-menuitem-highlight {
+  border-width: 0;
+}
+
+.docs-colormenuitems .goog-menuitem.goog-inline-block.waffle-colormenuitems-scheme-header-edit-button {
+  border-radius: 4px;
+  border-width: 1px 0;
+  height: 22px;
+  margin-left: 4px;
+  padding: 0;
+  width: 24px;
+}
+
+.docs-gm .goog-menu .goog-menuitem {
+  padding: 6px 15px 6px 38px;
+}
+
+.docs-material.goog-menu .goog-menuitem {
+  padding-left: 36px;
+}
+
+.docs-gm .goog-menuitem-highlight {
+  border: none;
+}
+
+.docs-gm .goog-menuitem {
+  font-size: 14px;
+  letter-spacing: .2px;
+  line-height: 20px;
+}
+
+.goog-menu-noaccel .goog-menuitem {
+  padding-right: 44px;
+}
+
+.goog-menuitem-highlight,
+.goog-menuitem-hover {
+  border-style: dotted;
+  border-width: 1px 0;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.goog-menuitem,
+.goog-tristatemenuitem,
+.goog-filterobsmenuitem {
+  position: relative;
+  cursor: pointer;
+  list-style: none;
+  margin: 0;
+  padding: 6px 8em 6px 30px;
+  white-space: nowrap;
+}
+
+.docs-gm .goog-menuitem .goog-menuitem-content {
+  min-height: 20px;
+}
+
+.docs-material .docs-icon,
+.docs-material .goog-color-menu-button-indicator .docs-icon,
+.docs-material .sketchy-toolbar-color-menu-button .goog-toolbar-menu-button-caption .docs-icon {
+  height: 18px;
+  width: 18px;
+  margin: 1px 2px 2px 1px;
+}
+
+.docs-icon {
+  direction: ltr;
+  text-align: left;
+  /* height: 21px; */
+  /* width: 21px; */
+  overflow: hidden;
+  vertical-align: middle;
+  height: 18px;
+  width: 18px;
+  margin: 1px 2px 2px 1px;
+}
+
+.docs-material .docs-icon-line-color {
+  left: -20px;
+  top: -1858px;
+}
+.docs-icon-no-color {
+  left: -20px;
+  top: -3144px;
+}
+.docs-icon-img {
+  content: url(//ssl.gstatic.com/docs/common/material_common_sprite342_grey_medium.svg);
+}
+.docs-icon-line-color {
+  left: -21px;
+  top: -2694px;
+}
+
+.docs-icon-img-container {
+  height: 8534px;
+  position: absolute;
+  width: 74px;
+}
+
+.docs-material-colorpalette {
+  outline: none;
+}
+
+.docs-material-colorpalette-table {
+  border-spacing: 1px;
+  padding: 1px 0;
+}
+
+.docs-material-colorpalette-cell {
+  border-radius: 50%;
+}
+
+.docs-material-colorpalette-colorswatch,
+.docs-material-colorpalette-colorswatch-translucent-wrapper {
+  border-radius: 50%;
+  box-sizing: border-box;
+  cursor: pointer;
+  height: 20px;
+  margin: 1px 1px 0 0;
+  width: 20px;
+  position: relative;
+}
+
+.docs-gm .docs-colormenuitems .goog-menuseparator,
+.docs-gm .waffle-conditionalformat-default-menu .goog-menuseparator {
+  margin-left: 0;
+}
+
+.docs-gm .goog-menuseparator {
+  margin: 8px 0 8px 36px;
+}
+
+.goog-menuseparator {
+  margin-top: 6px;
+  margin-bottom: 6px;
+}
+
+.docs-gm .docs-colormenuitems .goog-menuitem.colormenuitems-custom-header-add-button {
+  border-radius: 4px;
+  font-size: 13px;
+  padding: 2px 0;
+}
+
+.goog-menuitem,
+.goog-tristatemenuitem,
+.goog-filterobsmenuitem {
+  position: relative;
+  cursor: pointer;
+  list-style: none;
+  margin: 0;
+  padding: 6px 8em 6px 30px;
+  white-space: nowrap;
+}
+
+.docs-icon-add-item {
+  left: -20px;
+  top: -4658px;
+}
+
+.docs-material-colorpalette-cell-selected .docs-material-colorpalette-colorswatch.docs-material-colorpalette-colorswatch-dark {
+  background: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNnB4IiBoZWlnaHQ9IjE2cHgiIHZpZXdCb3g9IjAgMCA0OCA0OCIgZmlsbD0iI0ZGRkZGRiI+PHBhdGggZD0iTTAgMGg0OHY0OEgweiIgZmlsbD0ibm9uZSIvPjxwYXRoIGQ9Ik0xOCAzMi4zNEw5LjY2IDI0bC0yLjgzIDIuODNMMTggMzhsMjQtMjQtMi44My0yLjgzeiIvPjwvc3ZnPg==);
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.docs-material-colorpalette-cell-selected {
+  background: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNnB4IiBoZWlnaHQ9IjE2cHgiIHZpZXdCb3g9IjAgMCA0OCA0OCIgZmlsbD0iIzAwMDAwMCI+PGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMSwgMCwgMCwgMSkiPjxwYXRoIGQ9Ik0wIDBoNDh2NDhIMHoiIGZpbGw9Im5vbmUiLz48cGF0aCBkPSJNMTggMzIuMzRMOS42NiAyNGwtMi44MyAyLjgzTDE4IDM4bDI0LTI0LTIuODMtMi44M3oiLz48L2c+PC9zdmc+);
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.goog-menuitem.colormenuitems-no-color {
+  border-radius: 15px;
+  box-sizing: border-box;
+  margin-top: 10px;
+  padding: 3px 15px 3px 15px;
+  text-align: center;
+}
+
+.goog-menuitem.colormenuitems-no-color .docs-icon {
+  left: auto;
+  margin: 0;
+  position: relative;
+  right: auto;
+  top: auto;
+  vertical-align: middle;
+}
+
+.docs-icon.goog-menuitem-icon {
+  position: absolute;
+}
+
+.goog-menuitem-checkbox,
+.goog-menuitem-icon {
+  background-repeat: no-repeat;
+  height: 21px;
+  left: 3px;
+  position: absolute;
+  right: auto;
+  top: 3px;
+  vertical-align: middle;
+  width: 21px;
+}

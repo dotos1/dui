@@ -1,0 +1,10 @@
+<div style="position: 'relative' ">
+  <div (mouseup)="stopDragging()" (touchend)="stopDragging()"  (mousedown)="handleCanvasDown($event)"
+     (touchstart)="handleCanvasDown($event)"  (mousemove)="handleMove($event)"  style="position: 'relative'; cursor: 'ew-cross' " >
+    <div [ngClass]="conext.classes.rbgcpHandle"  [ngStyle]="{ left: dragPos?.x, top: dragPos?.y}"  (mousedown)="handleMouseDown()" 
+      role="button" tabIndex="0" ></div>
+    <div [ngClass]="conext.classes.rbgcpCanvasWrapper"  [ngStyle]="{ height: conext.squareHeight }"  (click)="handleClick($event)">
+      <canvas ref="canvas"  #paintSquare width='{${conext.squareWidth}px}'  height="{`${conext.squareHeight}px`}" ></canvas>
+    </div>
+  </div>
+</div>

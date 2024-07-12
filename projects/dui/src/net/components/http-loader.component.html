@@ -1,0 +1,3 @@
+<div id="spinner" *ngIf="entryComponent&&isVisible$ | async" [class.backdrop]="backdrop" [style.opacity]="opacity">
+  <ng-container *ngComponentOutlet="entryComponent"></ng-container>
+</div>

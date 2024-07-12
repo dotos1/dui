@@ -1,0 +1,40 @@
+<div fxFlexFill fxLayout="column" fxFlex style='overflow:hidden'>
+  <mat-card fxFlex >
+    <div fxFlexFill  fxLayout="column">
+      <mat-card-header style="width:100%">
+        <mat-card-title *ngIf="!hideHead&&(title || ltbar|| rtbar)" fxLayout='row'  style="width:100%">
+              <span >
+                <ng-container #lefttopbar></ng-container>
+                {{title|translate}}
+              </span>
+              <span fxFlex></span>
+              <ng-container #righttopbar></ng-container>
+        </mat-card-title>
+        <mat-card-subtitle *ngIf="subtitle">{{subtitle|translate}}</mat-card-subtitle>
+      </mat-card-header>
+      <mat-divider *ngIf="title || subtitle || ltbar|| rtbar" ></mat-divider>
+      <mat-card-content fxFlex>
+        <div fxFlexFill fxLayout="column">
+          <dui-datatable #gridView [rows]="rowData" [count]="totalCount" [columns]="columns" [config]="viewConfig"
+            [selectionType]="selectionType" [selectAllRowsOnPage]="false" [loadingIndicator]="loadingIndicator"
+            [displayCheck]="displayCheck" (activate)="onActivate($event)" (select)='onSelect($event)'
+            (page)='onPage($event)' (scroll)='onScroll($event)' (sort)='onSort($event)' (reorder)='onReorder($event)'
+            (resize)='onResize($event)' (tableContextmenu)='onTableContextmenu($event)'
+            (treeAction)='onTreeAction($event)' fxFlex>
+          </dui-datatable>
+          <ng-content></ng-content>
+        </div>
+        <span class="righttop">
+          <ng-container #rightopfab></ng-container>
+        </span>
+        <span class="rightbottom">
+          <ng-container #righbottomfab></ng-container>
+        </span>
+      </mat-card-content>
+      <mat-divider *ngIf="buttons&&buttons.length>0" inset='true'></mat-divider>
+      <mat-card-actions  *ngIf="buttons&&buttons.length>0" align="end">
+        <ng-container #actionbar></ng-container>
+      </mat-card-actions>
+    </div>
+  </mat-card>
+</div>

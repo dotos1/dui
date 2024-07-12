@@ -1,0 +1,47 @@
+.dui-loading-wrapper {
+  position: relative;
+  display: block;
+
+  &.dui-fullscreen {
+    position: inherit;
+  }
+
+  .dui-loading {
+    // layout
+    box-sizing: border-box;
+    display: flex;
+    // [layout="row"]
+    flex-direction: row;
+    // [layout-align="center center"]
+    align-items: center;
+    align-content: center;
+    max-width: 100%;
+    justify-content: center;
+    // flex
+    flex: 1;
+  }
+
+  &.dui-overlay {
+    .dui-loading {
+      position: absolute;
+      margin: 0;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+
+      mat-progress-bar {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+      }
+    }
+  }
+
+  &.dui-overlay-circular {
+    .dui-loading {
+      bottom: 0;
+    }
+  }
+}

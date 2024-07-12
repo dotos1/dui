@@ -1,0 +1,17 @@
+.dui-context-menu {
+    min-width: 180px;
+    min-height: 36px;
+    .mat-mdc-menu-item {
+      height: 36px;
+      line-height: 36px;
+    }
+  }
+  .mat-mdc-menu-item {
+    .menu-bar-item-menu-item--command {
+      float: right;
+    }
+  }
+  mat-divider {
+    margin: 8px 0;
+  }
+

@@ -1,0 +1,25 @@
+<dui-dialog>
+  <ng-container duiDialogTitle *ngIf="title">{{ title|translate }}</ng-container>
+  <ng-container duiDialogContent>
+    <span class="dui-dialog-message">{{ message |translate}}</span>
+  </ng-container>
+  <ng-container duiDialogActions>
+    <button
+      mat-button
+      #closeBtn
+      (keydown.arrowright)="acceptBtn.focus()"
+      (click)="cancel()"
+    >
+      {{ cancelButton|translate }}
+    </button>
+    <button
+      mat-button
+      [color]="isDestructive ? 'warn' : 'accent'"
+      #acceptBtn
+      (keydown.arrowleft)="closeBtn.focus()"
+      (click)="accept()"
+    >
+      {{ acceptButton|translate }}
+    </button>
+  </ng-container>
+</dui-dialog>

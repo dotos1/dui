@@ -1,0 +1,610 @@
+.dui-datatable {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+  height: 100%;
+
+  .datatable-container {
+    flex: 1;
+    display: flex;
+    height: 100%;
+    width: 100%;
+    flex-direction: column;
+  }
+
+  [hidden] {
+    display: none !important;
+  }
+
+  *,
+  *:before,
+  *:after {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+
+
+  &.scroll-vertical {
+    .datatable-body {
+      overflow-y: auto;
+    }
+
+    &.virtualized {
+      .datatable-body {
+        .datatable-row-wrapper {
+          position: absolute;
+        }
+      }
+    }
+  }
+
+  &.scroll-horz {
+    .datatable-body {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+  }
+
+
+  &.fixed-header {
+    .datatable-header {
+      .datatable-header-inner {
+        white-space: nowrap;
+
+        .datatable-header-cell {
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          -webkit-touch-callout: none;
+          -webkit-user-select: none;
+          -khtml-user-select: none;
+          -moz-user-select: none;
+          -ms-user-select: none;
+          user-select: none;
+        }
+      }
+    }
+  }
+
+  /**
+   * Fixed row height adjustments
+   */
+  &.fixed-row {
+    .datatable-scroll {
+      white-space: nowrap;
+
+      .datatable-body-row {
+        white-space: nowrap;
+
+        .datatable-body-cell {
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+        }
+
+        .datatable-body-group-cell {
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+        }
+      }
+    }
+  }
+
+  /**
+   * Shared Styles
+   */
+  .datatable-body-row,
+  .datatable-row-center,
+  .datatable-header-inner {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+
+    flex-direction: row;
+    -webkit-flex-flow: row;
+    -moz-flex-flow: row;
+    -ms-flex-flow: row;
+    -o-flex-flow: row;
+    flex-flow: row;
+  }
+
+  .datatable-body-cell,
+  .datatable-header-cell {
+    overflow-x: hidden;
+    vertical-align: top;
+    display: inline-block;
+    line-height: 1.625;
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  .datatable-row-left,
+  .datatable-row-right {
+    z-index: 9;
+  }
+
+  .datatable-row-left,
+  .datatable-row-center,
+  .datatable-row-group,
+  .datatable-row-right {
+    position: relative;
+  }
+
+  /**
+   * Header Styles
+   */
+  .datatable-header {
+    display: block;
+    overflow: hidden;
+
+    .datatable-header-inner {
+      align-items: stretch;
+      -webkit-align-items: stretch;
+    }
+
+    .datatable-header-cell {
+      position: relative;
+      display: inline-block;
+
+      &.sortable {
+        .datatable-header-cell-wrapper {
+          cursor: pointer;
+        }
+      }
+
+      &.longpress .datatable-header-cell-wrapper {
+        cursor: move;
+      }
+
+      .sort-btn {
+        line-height: 100%;
+        vertical-align: middle;
+        display: inline-block;
+        cursor: pointer;
+      }
+
+      .resize-handle,
+      .resize-handle--not-resizable {
+        display: inline-block;
+        position: absolute;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        width: 5px;
+        padding: 0 4px;
+        visibility: hidden;
+      }
+
+      .resize-handle {
+        cursor: ew-resize;
+      }
+
+      &.resizeable:hover {
+        .resize-handle {
+          visibility: visible;
+        }
+      }
+
+      &:hover {
+        .resize-handle--not-resizable {
+          visibility: visible;
+        }
+      }
+
+      .targetMarker {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+
+        &.dragFromLeft {
+          right: 0;
+        }
+
+        &.dragFromRight {
+          left: 0;
+        }
+      }
+
+      .datatable-header-cell-template-wrap {
+        height: inherit;
+      }
+    }
+  }
+
+  /**
+   * Body Styles
+   */
+  .datatable-body {
+    position: relative;
+    z-index: 10;
+    display: block;
+    flex: 1;
+    overflow: auto;
+
+    .datatable-scroll {
+      width: 100%;
+      display: inline-block;
+    }
+
+    .datatable-row-detail {
+      overflow-y: hidden;
+    }
+
+    .datatable-row-wrapper {
+      display: -webkit-box;
+      display: -moz-box;
+      display: -ms-flexbox;
+      display: -webkit-flex;
+      display: flex;
+
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -webkit-flex-direction: column;
+      -moz-box-orient: vertical;
+      -moz-box-direction: normal;
+      -ms-flex-direction: column;
+      flex-direction: column;
+    }
+
+    .datatable-body-row {
+      outline: none;
+
+      >div {
+        display: -webkit-box;
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+      }
+    }
+  }
+
+  /**
+   * Footer Styles
+   */
+  .datatable-footer {
+    display: block;
+    width: 100%;
+
+    .datatable-footer-inner {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      -webkit-touch-callout: none;
+      -webkit-user-select: none;
+      -khtml-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+
+    .selected-count {
+      .page-count {
+        flex: 1 1 40%;
+      }
+    }
+
+    .page-count {
+      flex: 1 1 20%;
+    }
+  }
+}
+
+/**
+ * Checkboxes
+**/
+.datatable-checkbox {
+  position: relative;
+  margin: 0;
+  cursor: pointer;
+  vertical-align: middle;
+  display: inline-block;
+  box-sizing: border-box;
+  padding: 0;
+
+  input[type='checkbox'] {
+    position: relative;
+    margin: 0 1rem 0 0;
+    cursor: pointer;
+    outline: none;
+
+    &:before {
+      -webkit-transition: all 0.3s ease-in-out;
+      -moz-transition: all 0.3s ease-in-out;
+      transition: all 0.3s ease-in-out;
+      content: "";
+      position: absolute;
+      left: 0;
+      z-index: 1;
+    }
+
+    &:checked:before {
+      -webkit-transform: rotate(-45deg);
+      -moz-transform: rotate(-45deg);
+      -ms-transform: rotate(-45deg);
+      transform: rotate(-45deg);
+      border-top-style: none;
+      border-right-style: none;
+    }
+
+    &:after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      cursor: pointer;
+    }
+  }
+
+  &:not(.cell-selection) {
+    .datatable-body-row {
+
+      &:hover,
+      &:hover .datatable-row-group {
+        transition-property: background;
+        transition-duration: .3s;
+        transition-timing-function: linear;
+      }
+    }
+  }
+
+  &.cell-selection {
+    .datatable-body-cell {
+
+      &:hover,
+      &:hover .datatable-row-group {
+        transition-property: background;
+        transition-duration: .3s;
+        transition-timing-function: linear;
+      }
+    }
+  }
+
+  .empty-row {
+    text-align: left;
+    vertical-align: top;
+    border-top: 0;
+  }
+
+  .loading-row {
+    text-align: left;
+    vertical-align: top;
+    border-top: 0;
+  }
+
+  /**
+	 * Global Row Styles
+	 */
+  .datatable-header,
+  .datatable-body {
+    .datatable-row-left {
+      background-position: 100% 0;
+      background-repeat: repeat-y;
+      background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAABCAYAAAD5PA/NAAAAFklEQVQIHWPSkNeSBmJhTQVtbiDNCgASagIIuJX8OgAAAABJRU5ErkJggg==);
+    }
+
+    .datatable-row-right {
+      background-position: 0 0;
+      background-repeat: repeat-y;
+      background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAABCAYAAAD5PA/NAAAAFklEQVQI12PQkNdi1VTQ5gbSwkAsDQARLAIGtOSFUAAAAABJRU5ErkJggg==);
+    }
+  }
+
+  /**
+	 * Header Styles
+	 */
+  .datatable-header {
+
+
+    .datatable-header-cell {
+      text-align: left;
+      vertical-align: bottom;
+
+      .datatable-header-cell-wrapper {
+        position: relative;
+      }
+
+      &.longpress {
+        .draggable::after {
+          transition: transform 400ms ease, opacity 400ms ease;
+          opacity: .5;
+          transform: scale(1);
+        }
+      }
+
+      .draggable::after {
+        content: " ";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        border-radius: 100%;
+        opacity: 1;
+        filter: none;
+        transform: scale(0);
+        z-index: 9999;
+        pointer-events: none;
+      }
+
+      &.dragging {
+        .resize-handle {
+          border-right: none;
+        }
+      }
+    }
+  }
+
+  /**
+	 * Body Styles
+	 */
+  .datatable-body {
+
+
+    .datatable-body-row {
+      .datatable-body-cell {
+        text-align: left;
+        vertical-align: top;
+        border-top: 0;
+        transition: width 0.3s ease;
+
+        // cell active class
+        // &.active {
+        //  background: #0829e0
+        // }
+      }
+
+      .datatable-body-group-cell {
+        text-align: left;
+        vertical-align: top;
+        border-top: 0;
+        transition: width 0.3s ease;
+      }
+    }
+
+    .progress-linear {
+      display: block;
+      position: relative;
+      width: 100%;
+      padding: 0;
+      margin: 0;
+      position: absolute;
+
+      .container {
+        display: block;
+        position: relative;
+        overflow: hidden;
+        width: 100%;
+        -webkit-transform: translate(0, 0) scale(1, 1);
+        transform: translate(0, 0) scale(1, 1);
+
+        .bar {
+          transition: all .2s linear;
+          -webkit-animation: query .8s infinite cubic-bezier(.39, .575, .565, 1);
+          animation: query .8s infinite cubic-bezier(.39, .575, .565, 1);
+
+          transition: -webkit-transform .2s linear;
+          transition: transform .2s linear;
+
+          position: absolute;
+          left: 0;
+          top: 0;
+          bottom: 0;
+          width: 100%;
+        }
+      }
+    }
+  }
+
+
+  // Summary row styles
+  .datatable-summary-row {
+    .datatable-body-row {
+      .datatable-body-cell {
+        font-weight: bold;
+      }
+    }
+  }
+}
+
+/**
+ * Progress bar animations
+ */
+@keyframes query {
+  0% {
+    opacity: 1;
+    transform: translateX(35%) scale(.3, 1);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateX(-50%) scale(0, 1);
+  }
+}
+
+
+.dui-datatable {
+  .empty-row {
+    height: 50px;
+    padding: .5rem 1.2rem;
+  }
+
+  .loading-row {
+    padding: .5rem 1.2rem;
+  }
+
+
+  .datatable-header {
+    height: 48px;
+    width: 100%;
+
+    .datatable-header-cell {
+      padding: .9rem 1.2rem;
+      font-weight: 400;
+      font-size: 12px;
+      font-weight: 500;
+
+      .draggable::after {
+        margin: -30px 0 0 -30px;
+        height: 60px;
+        width: 60px;
+      }
+    }
+  }
+
+
+  .datatable-body {
+    width: 100%;
+    height: auto;
+
+    .datatable-row-detail {
+      padding: 10px;
+    }
+
+    .datatable-body-row {
+      .datatable-body-cell {
+        padding: .9rem 1.2rem;
+        font-size: 14px;
+        font-weight: 400;
+      }
+
+      .datatable-body-group-cell {
+        padding: .9rem 1.2rem;
+        color: rgba(0, 0, 0, .87);
+        font-size: 14px;
+        font-weight: 400;
+      }
+    }
+
+    .progress-linear {
+      height: 5px;
+
+      .container {
+        height: 5px;
+
+        .bar {
+          height: 5px;
+        }
+      }
+    }
+  }
+
+
+  .datatable-footer {
+    font-size: 12px;
+    font-weight: 400;
+
+    .page-count {
+      line-height: 50px;
+      height: 50px;
+      padding: 0 1.2rem;
+    }
+  }
+}

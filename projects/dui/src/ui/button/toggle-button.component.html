@@ -1,0 +1,12 @@
+<mat-button-toggle-group *ngIf="items&&items.length>0&&hidden!==true" 
+   #group="matButtonToggleGroup" [appearance]="appearance"  [hideMultipleSelectionIndicator]="true"   [hideSingleSelectionIndicator]="true" 
+   [multiple]="multiple" [name]="name" [vertical]="vertical" [value]="value" [disabled]="disabled" (change)="change($event)">
+  <ng-container *ngFor="let child of items; let i = index">
+    <mat-button-toggle *ngIf="child.hidden!==true"     [appearance]="child.appearance" [checked]="child.checked" [id]="child.id" [name]="child.name"   [value]="child.value" [disabled]="child.disabled" [disableRipple]="child.disableRipple"  [matTooltip]="child.text| translate "  matTooltipPosition='below'  (click)="onClick(child,$event)">
+      <dui-icon [value]="child.icon"></dui-icon>
+    </mat-button-toggle>
+  </ng-container>
+</mat-button-toggle-group>
+  <mat-button-toggle  *ngIf="items.length===0&&!hidden"  [appearance]="appearance" [checked]="checked" [id]="id" [name]="name"   [value]="value" [disabled]="disabled" [disableRipple]="disableRipple"  [matTooltip]="text| translate"  matTooltipPosition='below'  (click)="onClick(this,$event)" (change)="change($event.source.checked)">
+    <dui-icon [value]="icon" [disabled]="disabled"></dui-icon>
+  </mat-button-toggle>

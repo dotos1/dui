@@ -1,0 +1,142 @@
+import {
+  Component, Input, HostBinding, ChangeDetectionStrategy,
+  ViewChild, ElementRef, AfterContentInit
+} from '@angular/core';
+
+export enum NotificationCountPositionY {
+  Top = 'top',
+  Bottom = 'bottom',
+  Center = 'center',
+}
+
+export enum NotificationCountPositionX {
+  Before = 'before',
+  After = 'after',
+  Center = 'center',
+}
+
+export const DEFAULT_NOTIFICATION_LIMIT: number = 99;
+
+@Component({
+  selector: 'dui-notification-count',
+  styleUrls: ['./notification-count.component.scss'],
+  templateUrl: './notification-count.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+})
+export class NotificationCountComponent implements AfterContentInit {
+
+  private _notifications: number | boolean = 0;
+  private _positionY: NotificationCountPositionY;
+  private _positionX: NotificationCountPositionX;
+  private _limit: number = DEFAULT_NOTIFICATION_LIMIT;
+
+  /**
+   * Div content wrapper of `ng-content`.
+   */
+  @ViewChild('content') content: ElementRef;
+
+  /**
+   * color?: "primary" | "accent" | "warn"
+   * Sets the theme color of the notification tip. Defaults to "warn"
+   */
+  @Input() color: 'primary' | 'accent' | 'warn' = 'warn';
+
+  /**
+   * positionX?: NotificationCountPositionX or "before" | "after" | "center"
+   * Sets the X position of the notification tip.
+   * Defaults to "after" if it has content, else 'center'.
+   */
+  @Input()
+  set positionX(positionX: NotificationCountPositionX) {
+    this._positionX = positionX;
+  }
+  get positionX(): NotificationCountPositionX {
+    return this._positionX;
+  }
+
+  /**
+   * positionY?: NotificationCountPositionY or "top" | "bottom" | "center"
+   * Sets the Y position of the notification tip.
+   * Defaults to "top" if it has content, else 'center'.
+   */
+  @Input()
+  set positionY(positionY: NotificationCountPositionY) {
+    this._positionY = positionY;
+  }
+  get positionY(): NotificationCountPositionY {
+    return this._positionY;
+  }
+
+  /**
+   * notifications?: number | boolean
+   * Number for the notification count. Shows component only if the input is a positive number or 'true'
+   */
+  @Input()
+  set notifications(notifications: number | boolean) {
+    this._notifications = notifications;
+  }
+
+  /**
+   * limit?: number
+   * Limit for notification count. If the number of notifications is greater than limit, then + will be added. Defaults to 99.
+   */
+  @Input()
+  set limit(limit: number) {
+    this._limit = limit;
+  }
+
+  @HostBinding('class.dui-notification-hidden')
+  get hideHost(): boolean {
+    return !this.show && !this._hasContent();
+  }
+
+  /**
+   * Sets the component in its 'noCount' state if [notifications] is a boolean 'true'.
+   * Makes the notification tip show without a count.
+   */
+  get noCount(): string | boolean {
+    return this._notifications === true;
+  }
+
+  /**
+   * Notification display string when a count is available.
+   * Anything over 99 gets set as 99+
+   */
+  get notificationsDisplay(): string {
+    if (this._notifications > this._limit) {
+      return `${this._limit}+`;
+    }
+    return this._notifications.toString();
+  }
+
+  /**
+   * Shows notification tip only when [notifications] is true or a positive integer.
+   */
+  get show(): boolean {
+    return this._notifications === true || (!isNaN(<any>this._notifications) && this._notifications > 0);
+  }
+
+  /**
+   * Check if [positionX] and [positionY] have been set as inputs, else use defaults depending on component content.
+   */
+  ngAfterContentInit(): void {
+    if (!this._positionX) {
+      this.positionX = this._hasContent() ? NotificationCountPositionX.After : NotificationCountPositionX.Center;
+    }
+    if (!this._positionY) {
+      this.positionY = this._hasContent() ? NotificationCountPositionY.Top : NotificationCountPositionY.Center;
+    }
+  }
+
+  /**
+   * Method to check if element has any kind of content (elements or text)
+   */
+  private _hasContent(): boolean {
+    if (this.content) {
+      let contentElement: HTMLElement = this.content.nativeElement;
+      return contentElement && (contentElement.children.length > 0 || !!contentElement.textContent.trim());
+    }
+    return false;
+  }
+
+}

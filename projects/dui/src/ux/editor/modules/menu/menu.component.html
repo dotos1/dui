@@ -1,0 +1,47 @@
+<div class="Editor__MenuBar"
+  [ngClass]="{'Editor--Disabled': disabled, 'Editor__MenuBar--Reverse': dropdownPlacement === 'top'}">
+
+  <ng-container *ngFor="let toolbarItem of toolbar; let lastToolbarItem = last; trackBy: trackByIndex">
+    <ng-container *ngFor="let item of toolbarItem; let lastItem = last; trackBy: trackByIndex">
+
+      <!-- toggle icons -->
+      <ux-toggle-command [toolbarItem]="item" [class]="iconContainerClass" *ngIf="toggleCommands.includes(item)">
+      </ux-toggle-command>
+
+      <ux-insert-command [toolbarItem]="item" [class]="iconContainerClass" *ngIf="insertCommands.includes(item)">
+      </ux-insert-command>
+
+      <!-- link -->
+      <ux-link [class]="iconContainerClass" *ngIf="item === 'link'"></ux-link>
+
+      <!-- image -->
+      <ux-image [class]="iconContainerClass" *ngIf="item === 'image'">
+      </ux-image>
+
+      <!-- dropdown -->
+      <ng-container *ngIf="isDropDown(item)">
+        <ux-dropdown *ngFor="let dropdownItem of getDropdownItems(item) | keyvalue; trackBy: trackByIndex"
+          [class]="dropdownContainerClass" [group]="dropdownItem.key" [items]="dropdownItem.value">
+        </ux-dropdown>
+      </ng-container>
+
+      <!-- text color picker -->
+      <ux-color-picker [class]="iconContainerClass" *ngIf="item === 'text_color'" type="text_color"
+        [presets]="presets">
+      </ux-color-picker>
+      <!-- background color picker -->
+      <ux-color-picker [class]="iconContainerClass" *ngIf="item === 'background_color'" type="background_color"
+        [presets]="presets">
+      </ux-color-picker>
+
+      <!-- seperator -->
+      <div [class]="seperatorClass" *ngIf="lastItem && !lastToolbarItem"></div>
+    </ng-container>
+  </ng-container>
+
+  <!-- custom menu -->
+  <ng-container *ngIf="customMenuRef">
+    <ng-container [ngTemplateOutlet]="customMenuRef"></ng-container>
+  </ng-container>
+
+</div>

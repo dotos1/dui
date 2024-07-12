@@ -1,0 +1,31 @@
+:host {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.truncate {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.dui-window-dialog-toolbar {
+  background: none;
+}
+
+.dui-window-dialog-title {
+  margin-bottom: 0;
+}
+
+.dui-window-dialog-close {
+  margin-right: -8px;
+}
+
+::ng-deep {
+  .dui-window-dialog {
+    .mat-mdc-dialog-container {
+      padding: 0;
+    }
+  }
+}

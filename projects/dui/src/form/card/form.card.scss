@@ -1,0 +1,33 @@
+:host {
+  flex: 1;
+  .mat-mdc-card-title {
+    margin-bottom: 6px;
+  }
+
+  .mat-mdc-card .mat-divider-horizontal {
+    position: relative;
+    margin: 0;
+  }
+
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+
+.rightbottom {
+  position: absolute;
+  display: inline-block;
+  bottom: 120px;
+  right: 120px;
+  color: white;
+}
+
+.righttop {
+  position: absolute;
+  display: inline-block;
+  top: 100px;
+  right: 80px;
+  color: white;
+}
