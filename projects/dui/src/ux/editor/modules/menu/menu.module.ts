@@ -1,0 +1,46 @@
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { ReactiveFormsModule } from '@angular/forms';
+
+import { BubbleComponent } from './bubble/bubble.component';
+import { ColorPickerComponent } from './color-picker/color-picker.component';
+import { DropdownComponent } from './dropdown/dropdown.component';
+import { FloatingMenuComponent } from './floating-menu/floating-menu.component';
+import { ImageComponent } from './image/image.component';
+import { InsertCommandComponent } from './insert-command/insert-command.component';
+import { LinkComponent } from './link/link.component';
+import { ToggleCommandComponent } from './toggle-command/toggle-command.component';
+
+import { MenuComponent } from './menu.component';
+import { SanitizeHtmlPipe } from '../../pipes/sanitize/sanitize-html.pipe';
+
+@NgModule({
+  imports: [
+    CommonModule,
+    ReactiveFormsModule,
+  ],
+  declarations: [
+    // pipes
+    SanitizeHtmlPipe,
+
+    // components
+    MenuComponent,
+    ToggleCommandComponent,
+    InsertCommandComponent,
+    LinkComponent,
+    DropdownComponent,
+    ImageComponent,
+    ColorPickerComponent,
+
+    FloatingMenuComponent,
+    BubbleComponent,
+  ],
+  providers: [
+    SanitizeHtmlPipe,
+  ],
+  exports: [
+    MenuComponent,
+    FloatingMenuComponent,
+  ],
+})
+export class EditorMenuModule { }

@@ -1,0 +1,21 @@
+<ng-container *ngIf="field.options||field.remote;else noAutocomplete">
+  <input matInput flex #autoCompleteInput [id]="id" [type]="field.type || 'text'" [readonly]="field.readonly"
+    [errorStateMatcher]="errorStateMatcher" [formControl]="formControl"
+    [formAttributes]="field" (keypress)="onKeyPress($event)" [tabindex]="field.tabindex || 0"
+    [placeholder]="field.placeholder|translate" matTooltip={{toolTip|translate}}  matTooltipPosition='below'
+    [matAutocomplete]="auto" [value]="field.inputValue ?field.inputValue:''"   
+    autocomplete="'on'" (click)="openChanged($event)"/>
+  <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete" > 
+    <mat-option *ngFor="let option of filteredOptions | async" [value]="getValue(option)">
+      {{getLabel(option)}}
+    </mat-option>
+  </mat-autocomplete>
+</ng-container>
+<ng-template #noAutocomplete>
+  <ng-container>
+    <input matInput flex [id]="id" [type]="field.type || 'text'" [readonly]="field.readonly"
+      [errorStateMatcher]="errorStateMatcher" [formControl]="formControl" [formAttributes]="field"
+      (keypress)="onKeyPress($event)" [tabindex]="field.tabindex || 0" [placeholder]="field.placeholder|translate"
+      matTooltip={{toolTip|translate}} [value]="field.inputValue ?field.inputValue:''"  matTooltipPosition='below' autocomplete="off"  />
+  </ng-container>
+</ng-template>

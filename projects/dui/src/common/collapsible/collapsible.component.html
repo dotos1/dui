@@ -1,0 +1,8 @@
+<mat-list-item style="display: flex;flex-direction: row;">
+    <h4 matListItemTitle style=" flex:1">{{title|translate}}</h4>
+    <mat-icon class="dui-chevron" mat-list-avatar duiCollapse [target]="content"
+    [collapsed]="collapsed">expand_more</mat-icon>
+  </mat-list-item>
+  <div #content>
+    <ng-content></ng-content>
+</div>

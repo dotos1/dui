@@ -1,0 +1,43 @@
+<div class="dui-property-label"
+  *ngIf="showProperty() || isEditable()">
+  {{ property.label | translate }}
+</div>
+
+<div class="dui-property-value dui-property-value-padding-top">
+  <span *ngIf="!isEditable()" [attr.data-automation-id]="'card-' + property.type + '-value-' + property.key">
+    <span [attr.data-automation-id]="'card-dateitem-' + property.key">
+      <span *ngIf="showProperty()" (dblclick)="copyToClipboard(property.displayValue)" matTooltipShowDelay="1000"
+        [matTooltip]="'METADATA.ACTIONS.COPY_TO_CLIPBOARD' | translate">{{ property.displayValue }}</span>
+    </span>
+    <div class="dui-datetime-underline"></div>
+  </span>
+  <div *ngIf="isEditable()" class="dui-dateitem-editable">
+    <div class="dui-dateitem-editable-controls">
+      <span class="dui-datepicker-toggle" [attr.data-automation-id]="'datepicker-label-toggle-' + property.key"
+        (click)="showDatePicker()">
+        <span *ngIf="showProperty(); else elseEmptyValueBlock"
+          [attr.data-automation-id]="'card-' + property.type + '-value-' + property.key">{{ property.displayValue }}</span>
+      </span>
+
+      <mat-icon *ngIf="showClearAction()" class="dui-date-reset-icon" (click)="onDateClear()"
+        [attr.title]="'METADATA.ACTIONS.CLEAR' | translate"
+        [attr.data-automation-id]="'datepicker-date-clear-' + property.key">
+        clear
+      </mat-icon>
+
+      <mat-datetimepicker-toggle [attr.tabindex]="-1" [attr.title]="'METADATA.ACTIONS.EDIT' | translate"
+        [attr.data-automation-id]="'datepickertoggle-' + property.key" [for]="datetimePicker">
+      </mat-datetimepicker-toggle>
+    </div>
+
+    <input class="dui-invisible-date-input" [attr.tabIndex]="-1" [matDatetimepicker]="datetimePicker"
+      [value]="valueDate" (dateChange)="onDateChanged($event)">
+
+    <mat-datetimepicker #datetimePicker [type]="property.type" [timeInterval]="5"
+      [attr.data-automation-id]="'datepicker-' + property.key" [startAt]="valueDate">
+    </mat-datetimepicker>
+  </div>
+  <ng-template #elseEmptyValueBlock>
+    {{ property.default | translate }}
+  </ng-template>
+</div>

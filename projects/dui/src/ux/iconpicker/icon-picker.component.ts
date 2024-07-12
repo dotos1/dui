@@ -1,0 +1,222 @@
+import { Component, ElementRef, Renderer2, ComponentFactoryResolver, Injector, OnInit, ViewChild, ChangeDetectorRef, ViewEncapsulation, ChangeDetectionStrategy, OnDestroy, Inject } from '@angular/core';
+
+import { HttpClient } from '@angular/common/http';
+import { ESCAPE } from '@angular/cdk/keycodes';
+import { MatIconRegistry } from "@angular/material/icon";
+import { DomSanitizer } from "@angular/platform-browser";
+import { Subject } from 'rxjs';
+
+import { TranslateService } from '@dotos/dui/i18n';
+import { TriggerPopup } from '@dotos/dui/common/trigger';
+import { FontLoaderService } from './font-loader.service';
+import { IconPickerService } from './icon-picker.service';
+import { Icon, SVGIcon, IconType } from './icon';
+import { ThemeService } from '@dotos/dui/theme';
+@Component({
+  selector: 'icon-picker',
+  templateUrl: 'icon-picker.component.html',
+  styleUrls: ['icon-picker.component.scss'],
+  host: {
+    'class': 'icon-picker',
+    '(keydown)': '_handleKeydown($event)',
+  },
+  encapsulation: ViewEncapsulation.None,
+  changeDetection: ChangeDetectionStrategy.OnPush,
+})
+
+export class IconPickerComponent implements TriggerPopup, OnInit, OnDestroy {
+
+  host: any;
+  params: any;
+
+  private _unsubscribeAll: Subject<void>;
+
+  public iconType = IconType;
+
+  public iconPack = ['material', 'font', 'svg'];
+
+  public currentIconPack = 'material';
+
+  @ViewChild('dialogPopup') dialogElement: any;
+
+  dirs: any = [];
+
+  fontdirs: any = [];
+
+  icons: Icon[] = [];
+  svgIcons: SVGIcon[] = [];
+  fontIcons:any[]=[];
+
+  search = '';
+  label = '';
+
+  svgdir='common';
+
+  public style={};
+
+  constructor(
+    protected _element: ElementRef,
+    protected renderer: Renderer2,
+    public resolver: ComponentFactoryResolver,
+    public injector: Injector,
+    protected _changeDetectorRef: ChangeDetectorRef,
+    public http: HttpClient,
+    private service: IconPickerService,
+    private matIconRegistry: MatIconRegistry,
+    private domSanitizer: DomSanitizer,
+    protected translate: TranslateService,
+    public themeService: ThemeService,
+    protected fontLoaderService:FontLoaderService,
+    @Inject('apiBase') protected _apiBase: string) {
+    this._unsubscribeAll = new Subject();
+  }
+
+  ngOnInit() {
+    if (this.params.allow) {
+      this.currentIconPack =this.params.allow[0];
+    }
+    this.getIcons(this.currentIconPack);
+  }
+
+  setSearch(val: string) {
+    this.search = val;
+  }
+
+  tabChanged(tab) {
+    if(tab.tab.textLabel==this.translate.instant('UX.EXTRAFONTICON')){
+      this.currentIconPack ='font';
+    }else if(tab.tab.textLabel==this.translate.instant('UX.SVGICON')){
+      this.currentIconPack ='svg';
+    }else{
+      this.currentIconPack ='material';
+    }
+    this.getIcons(this.currentIconPack);
+  }
+
+  getIcons(iconPack) {
+
+    if (iconPack == 'svg') {
+      this.http.get(this._apiBase + '/lib/iconpicker', {
+        responseType: 'json',
+        params:{iconpath:this.params.iconpath}
+      }).subscribe(
+        val => {
+          this.dirs = val
+          this.service.getSVGIcons(this.dirs[0],this.params.iconpath).subscribe(data => {
+            for (let i = 0; i < data.length; i++) {
+              this.addIcons(data[i]);
+            }
+            this.svgIcons = data;
+            this._changeDetectorRef.detectChanges();
+          })
+        }
+      )
+    } else if(iconPack == 'material') {
+      this.icons = this.service.getIcons(iconPack);
+    }else{
+      this.http.get(this._apiBase + '/lib/fonticonpicker', {
+        responseType: 'json',
+        params:{fontpath:this.params.fontpath}
+      }).subscribe(
+        val => {
+          this.fontdirs = val;
+          this.loadFontFace(this.fontdirs[0]);
+        }
+      )
+    }
+  }
+  changeFontDir(event){
+    this.service.getFontIcons(event.value,this.params.fontpath).subscribe(() => {
+      this.loadFontFace(event.value);
+    })
+  }
+  private loadFontFace(dir){
+    this.service.getFontIcons(dir,this.params.fontpath).subscribe(data => {
+      data.name=data.name.replace('&','');
+      this.fontLoaderService.loadFonts(data.name,data.url,700).then(()=>{
+        let ranges=data.range;
+        this.style={"font-family":data.name};
+        this.fontIcons=[];
+        for(let k=0;k<ranges.length;k++){
+            let range=ranges[k];
+            let start=parseInt(range.start,16);
+            let end=parseInt(range.end,16);
+            for(let i=start;i<end;i++){
+              let fontIcon={
+                id:String.fromCharCode(i),
+                name:data.name,
+                url:data.url
+              }
+              this.fontIcons.push(fontIcon);
+            }
+        }
+        this._changeDetectorRef.detectChanges();
+      });
+    })
+  }
+  changeDir(event) {
+    this.svgdir=event.value;
+    this.service.getSVGIcons(event.value,this.params.iconpath).subscribe(data => {
+      for (let i = 0; i < data.length; i++) {
+        this.addIcons(data[i]);
+      }
+      this.svgIcons = data;
+      this._changeDetectorRef.detectChanges();
+    })
+  }
+
+  addIcons(icon: SVGIcon) {
+    this.matIconRegistry.addSvgIcon(
+      icon.name,
+      this.domSanitizer.bypassSecurityTrustResourceUrl(icon.url)
+    );
+  }
+
+  ngOnDestroy(): void {
+    this._unsubscribeAll.next();
+    this._unsubscribeAll.complete();
+  }
+
+  selectIcon(icon: Icon) {
+    let val = {};
+    val['type'] = 'FONT';
+    val['value'] = 'FONT:' + icon.id;
+    val['text'] = icon.id;
+    this.host._selectAndClose(val);
+    this.host.close();
+  }
+
+  selectSVGIcon(icon: SVGIcon) {
+    let val = {};
+    val['type'] = 'SVG';
+    val['value'] = 'SVG:' + icon.name + ':' + icon.url;
+    val['text'] = icon.name;
+    this.host._selectAndClose(val);
+    this.host.close();
+  }
+
+  selectFontIcon(icon:any){
+    let val = {};
+    val['type'] = 'EXTRA';
+    let id=this.toHex(icon.id.charCodeAt(0));
+
+    val['value'] = 'EXTRA:' + icon.name + ':'+ id + ':' + icon.url;
+    val['text'] = icon.name;
+    this.host._selectAndClose(val);
+    this.host.close();
+  }
+   toHex(d) {
+    return  ("0"+(Number(d).toString(16))).slice(-2).toUpperCase()
+  }
+  _handleKeydown(event: KeyboardEvent): void {
+    switch (event.keyCode) {
+      case ESCAPE:
+        this.host.close();
+        break;
+      default:
+        /* Return so that we don't preventDefault on keys that are not explicitly handled. */
+        return;
+    }
+    event.preventDefault();
+  }
+}

@@ -1,0 +1,15 @@
+<input matInput #input [id]="id" [tabindex]="tabindex" [attr.disabled]="disabled" [formControl]="formControl"
+  [errorStateMatcher]="errorStateMatcher" [formAttributes]="field"  [value]="field.inputValue ?field.inputValue:''"  
+  [required]="required" autocomplete="off" (click)="_handleFocus()" fxFlex matTooltip={{toolTip|translate}}
+  matTooltipPosition='below' flex />
+
+<ng-template #matPrefix>
+  <mat-icon *ngIf="field.icon.indexOf('svg')===-1" style="padding-right: 30px" (click)="open()">{{field.icon}}</mat-icon>
+  <mat-icon *ngIf="field.icon.indexOf('svg')!==-1" svgIcon="{{field.icon}}" (click)="open()"></mat-icon>
+</ng-template>
+
+<ng-template #matSuffix>
+  <div class="mat-mdc-select-arrow-wrapper" (click)="open()">
+    <div class="mat-mdc-select-arrow"></div>
+  </div>
+</ng-template>

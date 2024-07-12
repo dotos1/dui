@@ -1,0 +1,56 @@
+@import '../../theming/styles/variables';
+@import '../../theming/styles/elevation';
+
+.expansion-panel {
+  @include mat-elevation-transition;
+  box-sizing: content-box;
+  display: flex;
+  margin: 0;
+  flex-direction: column;
+  transition: margin 225ms $mat-fast-out-slow-in-timing-function;
+}
+
+.expansion-panel-content {
+  .dui-expanded & {
+    overflow: visible;
+  }
+
+  &,
+  &.ng-aniexting {
+    overflow: hidden;
+  }
+}
+
+.expansion-panel-body {
+  padding: 0 24px 16px;
+}
+
+.expansion-panel-spacing {
+  margin: 16px 0;
+
+  .accordion &:first-child {
+    margin-top: 0;
+  }
+
+  .accordion &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.dui-action-row {
+  border-top-style: solid;
+  border-top-width: 1px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  padding: 16px 8px 16px 24px;
+
+  button.dui-button {
+    margin-left: 8px;
+
+    [dir='rtl'] & {
+      margin-left: 0;
+      margin-right: 8px;
+    }
+  }
+}

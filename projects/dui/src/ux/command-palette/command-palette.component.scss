@@ -1,0 +1,133 @@
+@mixin truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@mixin media-screen($breakpoint) {
+  @media (min-width: $breakpoint) {
+    @content;
+  }
+}
+.command-palette {
+  &__overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--command-palette-overlay-bg-color);
+    z-index: 1000;
+  }
+
+  &__body {
+    position: fixed;
+    margin: 10vh auto;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 448px;
+    border-color: 1 px solid unset;
+    border-radius: 8px;
+    background: var(--command-palette-body-bg-color);
+    font-size: 14px;
+    font-family: sans-serif;
+
+    @include media-screen(768px) {width: 512px;}
+    @include media-screen(1012px) {width: 640px}
+    @include media-screen(1280px) {width: 720px}
+  }
+
+  &__header {
+    display: flex;
+    align-content: center;
+    padding: 8px 16px;
+    border-bottom: 1px solid var(--command-palette-group-border-color);
+
+    &-icon {
+      width: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--command-palette-icon-color);
+    }
+
+    &-input-group {
+      position: relative;
+      display: flex;
+      flex: 1;
+      padding: 4px 12px;
+    }
+
+    &-input {
+      border: none;
+      outline: none;
+      width: 100%;
+      padding: 4px 0;
+      font-size: 14px;
+      line-height: 20px;
+    }
+
+    &-selected-item {
+      pointer-events: none;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+
+    &-clear-btn {
+      width: 24px;
+      cursor: pointer;
+      border: none;
+      background: none;
+      color: var(--command-palette-icon-color);
+    }
+  }
+
+  &__content {
+    display: block;
+    padding: 8px;
+    max-height: 70vh;
+    overflow: auto;
+
+    &-item-group-header {
+      padding: 8px;
+      color: var(--command-palette-content-item-group-header-color);
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    &-item {
+      display: flex;
+      align-items: center;
+      padding:  8px;
+      @include truncate;
+
+      &:hover {
+        cursor: pointer;
+      }
+
+      &--selected {
+        border-radius: 8px;
+        background: var(--command-palette-content-item-hover-bg-color);
+      }
+
+      &-text {
+        line-height: 24px;
+        color: var(--command-palette-content-item-text-color)
+      }
+
+      &-icon {
+        width: 16px;
+        height: 24px;
+        margin-right: 8px;
+        display: flex;
+        align-items: center;
+      }
+    }
+    &-item-no-results {
+      padding:  8px;
+      color: var(--command-palette-content-item-text-color)
+    }
+  }
+}

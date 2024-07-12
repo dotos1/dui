@@ -1,0 +1,60 @@
+*,
+*::before,
+*::after{
+  box-sizing: border-box;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+}
+
+.Editor__ImageWrapper {
+  position: relative;
+  display: inline-block;
+  line-height: 0;
+  padding: 2px;
+
+  &.Editor__Resizer--Active {
+    padding: 1px;
+  }
+
+  .Editor__ResizeHandle {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+
+    .Editor__ResizeHandle--TL,
+    .Editor__ResizeHandle--BL,
+    .Editor__ResizeHandle--TR,
+    .Editor__ResizeHandle--BR {
+      position: absolute;
+      width: 7px;
+      height: 7px;
+    }
+
+    .Editor__ResizeHandle--BR {
+      bottom: -5px;
+      right: -5px;
+      cursor: se-resize;
+    }
+
+    .Editor__ResizeHandle--TR {
+      top: -5px;
+      right: -5px;
+      cursor: ne-resize;
+    }
+
+    .Editor__ResizeHandle--TL {
+      top: -5px;
+      left: -5px;
+      cursor: nw-resize;
+    }
+
+    .Editor__ResizeHandle--BL {
+      bottom: -5px;
+      left: -5px;
+      cursor: sw-resize;
+    }
+  }
+}

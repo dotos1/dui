@@ -1,0 +1,11 @@
+dist/
+node_modules/
+node_modulesx/
+e2e/.editorconfig
+.angular/
+
+.angular
+
+.nx/cache
+.nx/workspace-data
+.vscode/

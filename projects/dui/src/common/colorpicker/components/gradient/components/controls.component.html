@@ -1,0 +1,39 @@
+<ng-container *ngIf="allControlsHidden">
+  <ng-container *ngIf=" conext.isGradient && !hideGradientControls">
+        <gradient-controls-component 
+            [hideGradientType]="hideGradientType" 
+            [hideGradientAngle]="hideGradientAngle" 
+            [hideGradientStop]="hideGradientStop"  
+      ></gradient-controls-component>
+  </ng-container>
+</ng-container>
+<ng-container *ngIf="!allControlsHidden">
+  <div style="padding-top: 12; padding-bottom: 4">
+    <div style="width: '100%'"  [ngClass]="getClass()">
+      <ng-container *ngIf="hideColorTypeBtns" >
+        <div style="width: 1"></div>
+      </ng-container>
+      <ng-container *ngIf="!hideColorTypeBtns" >
+        <div [ngClass]="getControlClass()">
+          <div   (click)="setSolid()" id="rbgcp-solid-btn"  [ngClass]="colorTypeBtnStyles(!isGradient,conext.classes)" >
+            {{"CONTROLS?.SOLID"}}
+          </div>
+          <div  (click)="setGradient()"  id="rbgcp-gradient-btn"  [ngClass]="colorTypeBtnStyles(isGradient || false, conext.classes)">
+            {{"CONTROLS?.GRADIENT"}}
+          </div>
+        </div>
+      </ng-container>
+      <ng-container *ngIf="!allRightControlsHidden" >
+            <div [ngStyle]="{display: noTools ? 'none' : ''}"  [ngClass]="getControlClass()">
+              <eye-dropper-component *ngIf="!hideEyeDrop" [onSelect]="conext.handleChange"> </eye-dropper-component>
+             </div>
+      </ng-container>
+    </div>
+    <gradient-controls-component isGradient && !hideGradientControls 
+          [hideGradientType]="hideGradientType" 
+          [hideGradientAngle]="hideGradientAngle" 
+          [hideGradientStop]="hideGradientStop"  
+  ></gradient-controls-component>
+  </div>
+</ng-container>
+

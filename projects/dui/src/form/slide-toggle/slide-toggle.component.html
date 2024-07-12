@@ -1,0 +1,19 @@
+  <mat-slide-toggle
+       [id]="id"
+       [style.width]="'100%'"
+       [formControl]="formControl"
+       [name]="name"
+       [color]="field.color"
+       [checked]="formControl.value"
+       [formAttributes]="field"
+       (change)="field.change && field.change(field, formControl)"
+       [labelPosition]="field.labelPosition"
+       matTooltip={{toolTip|translate}}
+       matTooltipPosition='below'
+       (click)="click($event)" 
+       style="padding-bottom:20px;"
+       fxFlex>
+    {{field.label|translate}}
+  </mat-slide-toggle>
+
+  <input type="hidden"  class="mdc-text-field__input"/>

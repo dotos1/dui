@@ -1,0 +1,8 @@
+<div class="shade" [style.border-radius]="radius">
+  <div class="shade-gradient" [ngStyle]="gradient" [style.box-shadow]="shadow" [style.border-radius]="radius"></div>
+  <div ngx-color-coordinates (coordinatesChange)="handleChange($event)" class="shade-container">
+    <div class="shade-pointer" [style.left.%]="pointerLeft" [style.top.%]="pointerTop">
+      <div class="shade-slider" [ngStyle]="pointer"></div>
+    </div>
+  </div>
+</div>

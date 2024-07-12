@@ -1,0 +1,74 @@
+/*----------------------------------------------------------------*/
+/*  Reset
+/*----------------------------------------------------------------*/
+* {
+    box-sizing: border-box;
+    &:before, &:after {
+        box-sizing: border-box;
+    }
+    // Remove focus outline
+    &:focus {
+        outline: none;
+    }
+}
+
+// Reset non angular-material input's default browser/os styles
+*:not(mat-form-field) {
+
+    > input {
+        border: none;
+        border-radius: 0;
+        padding: 0;
+        margin: 0;
+    }
+
+    > input[type="text"],
+    > input[type="tel"],
+    > input[type="email"],
+    > input[type="search"],
+    > input[type="password"],
+    > input[type="button"],
+    > button,
+    > input[type="submit"],
+    > input[type="image"],
+    > textarea {
+        border: none;
+        border-radius: 0;
+        padding: 0;
+        margin: 0;
+    }
+}
+*:not(mat-form-field) {
+    > input[type="button"],
+    > button,
+    > input[type="submit"] {
+        background: none;
+    }
+}
+// .mat-mdc-card-title{
+//     padding: 6px 16px 6px !important
+// }
+
+// .mat-mdc-card-header{
+//     padding: 8px 16px 8px !important
+// }
+.mat-mdc-dialog-surface{
+    padding:16px;
+}
+button {
+    border-radius: 0;
+    font-family: inherit;
+    font-size: inherit;
+    padding: 0;
+    margin: 0;
+}
+
+img {
+    height: auto;
+    vertical-align: top;
+    border: none;
+}
+
+.mat-mdc-form-field-has-icon-prefix .mat-mdc-text-field-wrapper{
+    --mat-mdc-form-field-label-offset-x: -8px !important;
+}

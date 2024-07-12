@@ -1,0 +1,25 @@
+  <button *ngIf="type==='mat-fab'&&items.length===0" mat-fab [disabled]="disabled" [color]="color" [ngStyle]='style'
+    [disableRipple]="disableRipple" (click)="onClick($event)" [matTooltip]="text| translate" matTooltipPosition='below'>
+    <dui-icon [value]="icon" [iconStyle]="style"></dui-icon>
+  </button>
+  <button *ngIf="type==='mat-mini-fab'&&items.length===0" mat-mini-fab [disabled]="disabled" [color]="color"
+    [ngStyle]='style' [disableRipple]="disableRipple" (click)="onClick($event)" [matTooltip]="text| translate"
+    matTooltipPosition='below'>
+    <dui-icon [value]="icon" [iconStyle]="style"></dui-icon>
+  </button>
+  <span *ngIf="type==='mat-fab'&&items.length>0">
+    <button mat-fab [disabled]="disabled" [color]="color" [ngStyle]='style' [disableRipple]="disableRipple"
+      [matTooltip]="text| translate" matTooltipPosition='below'
+      [matMenuTriggerFor]="menu.childMenu">
+      <dui-icon [value]="icon" [iconStyle]="style"></dui-icon>
+    </button>
+    <dui-menu-item #menu [children]="items" [ownerCt]='ownerCt'></dui-menu-item>
+  </span>
+  <span *ngIf="type==='mat-mini-fab'&&items.length>0">
+    <button mat-mini-fab [disabled]="disabled" [color]="color" [ngStyle]='style' [disableRipple]="disableRipple"
+      [matTooltip]="text| translate" matTooltipPosition='below'
+      [matMenuTriggerFor]="menu.childMenu">
+      <dui-icon [value]="icon" [iconStyle]="style"></dui-icon>
+    </button>
+    <dui-menu-item #menu [children]="items" [ownerCt]='ownerCt'></dui-menu-item>
+  </span>

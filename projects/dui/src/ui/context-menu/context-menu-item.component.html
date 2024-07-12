@@ -1,0 +1,31 @@
+<div class="dui-context-menu">
+    <ng-container *ngIf="!menuItem.hidden&&menuItem.type==='menu'&&menuItem.children && menuItem.children.length > 0">
+      <button mat-menu-item [id]="menuItem.id" [matMenuTriggerFor]="childMenu"  [disabled]="menuItem.disable" (contextmenu)="contextMenu()">
+        <dui-icon [value]="menuItem.icon" style="padding-top: 6px;"></dui-icon>
+        <span>{{ menuItem.title | translate }}</span>
+      </button>
+      <mat-menu #childMenu="matMenu">
+        <ng-container *ngFor="let child of menuItem.children; ">
+          <dui-context-menu-item [menuItem]="child"></dui-context-menu-item>
+        </ng-container>
+      </mat-menu>
+    </ng-container>
+    <ng-container *ngIf="!menuItem.hidden&&(menuItem.children===undefined || menuItem.children.length===0)">
+    <ng-container *ngIf="!menuItem.hidden&&menuItem.type==='divider'">
+      <mat-divider></mat-divider>
+    </ng-container>
+    <ng-container *ngIf="!menuItem.hidden&&menuItem.type==='custom'"  >
+      <button mat-menu-item  style="padding:0 0px !important" [disabled]="menuItem.disable" (contextmenu)="contextMenu()">
+        <dui-dynamic-component class="dynamic-menu" *ngIf="menuItem.hidden!==true" [config]="menuItem" [xtype]="menuItem.xtype"></dui-dynamic-component>
+     </button>
+    </ng-container>
+    <ng-container *ngIf="(menuItem.type!=='divider'&&menuItem.type!=='menu'&&menuItem.type!=='custom')">
+      <button mat-menu-item color="primary" [id]="menuItem.id" (click)="runAction(menuItem,$event)"  [disabled]="menuItem.disable" (contextmenu)="contextMenu()">
+        <dui-icon [value]="menuItem.icon"  style="padding-top: 6px;"></dui-icon>
+        <span>{{ menuItem.title | translate }}</span>
+        <span *ngIf="menuItem.shortcut" style='flex: 1 1 auto;'></span>
+        <span *ngIf="menuItem.shortcut">{{menuItem.shortcut| translate}}</span>
+      </button>
+    </ng-container>
+  </ng-container>
+</div>

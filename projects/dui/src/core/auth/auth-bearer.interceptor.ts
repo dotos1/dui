@@ -1,0 +1,85 @@
+
+import { throwError as observableThrowError, Observable, Observer } from 'rxjs';
+import { Injectable} from '@angular/core';
+import {
+  HttpHandler, HttpInterceptor, HttpRequest,
+  HttpSentEvent, HttpHeaderResponse, HttpProgressEvent, HttpResponse, HttpUserEvent, HttpHeaders
+} from '@angular/common/http';
+import { catchError, mergeMap } from 'rxjs/operators';
+import { StorageService } from '@dotos/dui/core/services';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class AuthBearerInterceptor implements HttpInterceptor {
+  private excludedUrlsRegex: RegExp[];
+
+  private bearerExcludedUrls: string[] = ['auth/realms','oauth/token', 'resources/', 'assets/', '.json'];
+
+  constructor(
+    private storageService: StorageService) {
+  }
+
+  private loadExcludedUrlsRegex() {
+    const excludedUrls: string[] = this.getBearerExcludedUrls();
+    this.excludedUrlsRegex = excludedUrls.map(urlPattern => new RegExp(urlPattern, 'gi')) || [];
+  }
+
+  intercept(req: HttpRequest<any>, next: HttpHandler):
+    Observable<HttpSentEvent | HttpHeaderResponse | HttpProgressEvent | HttpResponse<any> | HttpUserEvent<any>> {
+      
+    const urlRequest = req.url;
+    if (!this.getBearerExcludedUrls()) {
+      return next.handle(req);
+    }
+
+    if (!this.excludedUrlsRegex) {
+      this.loadExcludedUrlsRegex();
+    }
+    const shallPass: boolean = !!this.excludedUrlsRegex.find(regex => regex.test(urlRequest));
+    if (shallPass) {
+      return next.handle(req)
+        .pipe(
+          catchError((error) => observableThrowError(error))
+        );
+    }
+
+    return this.addTokenToHeader(req.headers)
+      .pipe(
+        mergeMap((headersWithBearer) => {
+          const headerWithContentType = this.appendJsonContentType(headersWithBearer);
+
+          const kcReq = req.clone({ headers: headerWithContentType});
+          return next.handle(kcReq)
+            .pipe(
+              catchError((error) => {
+                return observableThrowError(error);
+              })
+           );
+      })
+      );
+  }
+  getBearerExcludedUrls(): string[] {
+    return this.bearerExcludedUrls;
+}
+  private appendJsonContentType(headers: HttpHeaders): HttpHeaders {
+    return headers;
+ //   return headers.set('Content-Type', 'application/json;charset=UTF-8');
+  }
+  addTokenToHeader(headersArg?: HttpHeaders): Observable<HttpHeaders> {
+    return new Observable((observer: Observer<any>) => {
+        let headers = headersArg;
+        if (!headers) {
+            headers = new HttpHeaders();
+        }
+        try {
+            const token: string =  this.storageService.getItem('access_token'); 
+            headers = headers.set('Authorization', 'Bearer ' + token);
+            observer.next(headers);
+            observer.complete();
+        } catch (error) {
+            observer.error(error);
+        }
+    });
+}
+}

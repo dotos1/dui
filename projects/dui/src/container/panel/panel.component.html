@@ -1,0 +1,13 @@
+
+<div  #containerOutlet [fxLayout]="fxLayout" [ngStyle]='style' fxFlexFill>
+    <ng-container *ngTemplateOutlet="contentTpl"></ng-container>
+</div>
+<ng-template #contentTpl>
+        <ng-container  #panel></ng-container>
+        <ng-template  ngFor let-area [ngForOf]="displayedAreas" let-index="index" let-last="last">
+          <split-gutter class="split-gutter" *ngIf="last === false && area.comp.split" [order]="index*2+1" [direction]="fxLayout"  [useTransition]="useTransition" [size]="gutterSize" [disabled]="disabled" 
+          (mousedown)="startDragging($event, index*2+1, index+1)"></split-gutter>
+        </ng-template>
+        <ng-container *ngTemplateOutlet="panelContentTpl"></ng-container>
+ </ng-template>
+ <ng-template #panelContentTpl>  <ng-content></ng-content> </ng-template>

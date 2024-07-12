@@ -1,0 +1,6 @@
+<mat-progress-spinner *ngIf="!template"  mode="indeterminate" diameter=24 strokeWidth=3>
+</mat-progress-spinner>
+<ng-container
+  [ngTemplateOutlet]="template"
+  [ngTemplateOutletContext]="{ $implicit: node }">
+</ng-container>

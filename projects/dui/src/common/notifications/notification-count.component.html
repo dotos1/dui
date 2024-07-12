@@ -1,0 +1,9 @@
+<div #content class="dui-notification-content">
+  <ng-content></ng-content>
+</div>
+<div *ngIf="show" class="dui-notification-count mat-{{color}}" [class.dui-notification-top]="positionY === 'top'"
+  [class.dui-notification-bottom]="positionY === 'bottom'" [class.dui-notification-before]="positionX === 'before'"
+  [class.dui-notification-after]="positionX === 'after'" [class.dui-notification-center-y]="positionY === 'center'"
+  [class.dui-notification-center-x]="positionX === 'center'" [class.dui-notification-no-count]="noCount">
+  {{noCount ? '' : notificationsDisplay}}
+</div>

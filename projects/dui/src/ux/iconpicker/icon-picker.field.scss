@@ -1,0 +1,63 @@
+
+$icon-picker-field-icon-picker-height: 30px !default;
+$icon-picker-field-icon-picker-min-width: 168px !default;
+$icon-picker-field-arrow-size: 5px !default;
+$icon-picker-field-arrow-margin: 4px !default;
+$icon-picker-field-date-cell-size: 40px !default;
+$icon-picker-field-calendar-height: 280px !default;
+
+icon-picker-field {
+  position: relative;
+  display: inline-block;
+  min-width: 175px;
+  outline: none;
+  backface-visibility: hidden;
+  width: 100%;
+  &.icon-picker-field-disabled {
+    pointer-events: none;
+    cursor: default;
+  }
+}
+
+.icon-picker-field-icon-picker {
+  display: block;
+  padding: 18px 0 4px 46px;
+  white-space: nowrap;
+}
+
+.icon-picker-field-button {
+  display: inline-block;
+  fill: currentColor;
+  border: 0;
+  border-radius: 50%;
+  outline: none;
+  user-select: none;
+  cursor: pointer;
+  box-sizing: border-box;
+  background: none;
+  vertical-align: middle;
+  align-items: center;
+  text-align: center;
+  height: 0.675em !important;
+  width: 0.675em !important;
+  min-height: 0.675em !important;
+}
+
+.icon-picker-select-arrow-wrapper {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.icon-picker-select-arrow {
+  border-left: 4px solid transparent !important;
+  border-right: 4px solid transparent !important;
+  border-top: 4px solid !important;
+}
+.icon-picker-select-arrow {
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid;
+  margin: 0 4px;
+}

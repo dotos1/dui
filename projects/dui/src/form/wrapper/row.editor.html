@@ -1,0 +1,22 @@
+<div fxLayout='column' fxFlex style='overflow:hidden'>
+  <mat-divider ></mat-divider>
+  <div *ngIf='field.label' fxLayout='row' style='overflow:hidden;height:40px;'>
+    <span class="section-label" style='margin-top:12px;margin-bottom:18px'> {{field.label|translate}}</span>
+    <span style='flex: 1 1 auto;'></span>
+  </div>
+  <div fxLayout='column' style="padding-top:10px;">
+    <div *ngFor="let item of field.fieldGroup; let i = index;" fxLayout='row' >
+      <div fxLayout='column' fxFlex>
+        <dui-field [field]="item"></dui-field>
+      </div>
+      <button mat-icon-button class="delete-button" (click)="remove(i)">
+        <mat-icon>delete_outline</mat-icon>
+      </button>
+    </div>
+  </div>
+  <div>
+    <div style="text-align: center;">
+      <button mat-button style="width: 100%;" (click)="add()">{{'FORM.ADD'|translate}}</button>
+    </div>
+  </div>
+</div>

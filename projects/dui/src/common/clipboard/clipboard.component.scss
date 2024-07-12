@@ -1,0 +1,16 @@
+.dui-copy-tooltip {
+  position: absolute;
+  padding: 2px 5px;
+  border-radius: 5px;
+  bottom: 93%;
+  left: 0;
+  z-index: 1001;
+  min-height: 20px;
+}
+
+.dui-sticky-header {
+  .dui-copy-tooltip {
+    top: 85% !important;
+    bottom: 0 !important;
+  }
+}

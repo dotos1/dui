@@ -1,0 +1,10 @@
+
+    <div  style="display: 'flex'; margin-top: 14; justify-content: 'space-between' ">
+      <div  [ngStyle]="{background: context.value}"  style=" width: 50; height: 50;  border-radius: 6; flex-shrink: 0"></div>
+      <div [ngStyle]="{width: context.squareWidth - 66}"   style="display: 'flex'; flex-wrap: 'wrap'; justify-content: 'space-between'" >
+          <div   *ngFor="let p of getPresets() | keyvalue"  key={`${p}-${keyvalue}`}  
+            [ngStyle]="getStyle(p)"     style=" height: 23; width: '10.2%'; border-radius: 4; margin-bottom: 2;"
+            (click)="handlePresetClick(p)"
+          ></div>
+      </div>
+    </div>

@@ -1,0 +1,15 @@
+<mat-select fxFlex [id]="id" [formControl]="formControl"  [formAttributes]="field" [tabindex]="field.tabindex || 0"
+  [placeholder]="field.placeholder" [compareWith]="field.compareWith || compareWith" [multiple]="field.multiple"
+  (selectionChange)="change($event)" [errorStateMatcher]="errorStateMatcher" (opened)="openedChange()">
+  <mat-select-trigger #matSelectTrigger>
+    <canvas #lineStyleTrigger style="flex:1;" width="250" height="16"></canvas>
+  </mat-select-trigger>
+  <ng-container *ngFor="let item of styleOptions">
+    <mat-option class="line-style-option" [value]="item.value">
+      <div class="line-plan-row">
+        <canvas #linestyle style="flex:1;" width="250" height="16"></canvas>
+      </div>
+    </mat-option>
+  </ng-container>
+</mat-select>
+<input type="hidden"  class="mdc-text-field__input"  [value]="true"/>

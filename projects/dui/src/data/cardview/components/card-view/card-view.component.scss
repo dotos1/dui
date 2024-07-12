@@ -1,0 +1,41 @@
+.dui-property-list {
+  display: flex;
+  flex-direction: column;
+  .dui-property {
+    padding-bottom: 20px;
+    .dui-property-value-padding-top {
+      margin-top: 4px;
+    }
+    .dui-property-field {
+      width: 100%;
+      // margin-bottom: -25px;
+      .mat-mdc-form-field-infix {
+        border-top-width: 0;
+      }
+      .mat-mdc-form-field-label {
+        margin-top: 6px;
+      }
+      .dui-property-read-only {
+        .mat-mdc-form-field-underline {
+          display: none;
+        }
+      }
+    }
+
+    .dui-property-read-only {
+      .mat-mdc-form-field-underline {
+        display: none;
+      }
+    }
+
+    .dui-property-label {
+      font-size: 12px;
+      word-wrap: break-word;
+    }
+
+    .dui-property-value,
+    .mat-mdc-form-field-label {
+      font-size: 14px;
+    }
+  }
+}

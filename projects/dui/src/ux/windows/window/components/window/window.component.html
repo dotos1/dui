@@ -1,0 +1,11 @@
+<ng-content select="dui-title-bar"></ng-content>
+
+<div class="dui-window-body">
+    <dui-scroll-view
+        [isVerticalScrollEnabled]="true"
+        [isHorizontalScrollEnabled]="true"
+        [style]="scrollViewStyle"
+        [styleClass]="scrollViewStyleClass">
+        <ng-content></ng-content>
+    </dui-scroll-view>
+</div>

@@ -1,0 +1,61 @@
+@import '../../theming/styles/elevation';
+
+$selectrole-padding: 16px;
+$selectrole-cell-size: 40px;
+$selectrole-portrait-width: $selectrole-cell-size * 9+$selectrole-padding * 2;
+$selectrole-landscape-width: 446px;
+$selectrole-portrait-height: 480px;
+$selectrole-landscape-height: 328px;
+
+.icon-picker {
+
+  display: block;
+  border-radius: 2px;
+  overflow: auto;
+  padding: $selectrole-padding;
+  width: $selectrole-portrait-width;
+  height: $selectrole-portrait-height;
+
+  &[mode='landscape'] {
+    width: $selectrole-landscape-width;
+    height: $selectrole-landscape-height;
+  }
+
+  // position: absolute;
+  z-index: 100000;
+  cursor: default;
+  user-select: none;
+
+
+  div.icon-search {
+    padding: 5px;
+  }
+
+  div.icon-grid {
+    display: flex;
+    overflow-y: auto;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 5px;
+
+    div {
+      margin: 2px;
+      button {
+        border-radius: 2px;
+        padding: 8px;
+      }
+    }
+  }
+}
+
+.btn-default {
+  cursor: pointer;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+#icon-button:hover {
+  border-radius: 2px;
+}
+

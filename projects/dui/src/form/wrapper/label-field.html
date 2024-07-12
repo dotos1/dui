@@ -1,0 +1,9 @@
+<div class="dynamic-slider-wrapper relative push-top" fxFlex fxLayout="row" >
+  <div fxLayout="column" fxLayoutAlign ="start top" fxFlex >
+      {{ field.label |translate}}
+    <ng-container #fieldComponent></ng-container>
+    <mat-hint align="start" *ngIf="showUnder">
+      <span >{{underTip|translate}}</span>
+    </mat-hint>
+  </div>
+</div>

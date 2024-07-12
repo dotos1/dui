@@ -1,0 +1,55 @@
+
+$trigger-field-trigger-height: 30px !default;
+$trigger-field-trigger-min-width: 168px !default;
+$trigger-field-arrow-size: 5px !default;
+$trigger-field-arrow-margin: 4px !default;
+$trigger-field-date-cell-size: 40px !default;
+$trigger-field-calendar-height: 280px !default;
+
+trigger-field {
+  position: relative;
+  display: inline-block;
+  min-width: 175px;
+  outline: none;
+  backface-visibility: hidden;
+  width: 100%;
+  &.trigger-field-disabled {
+    pointer-events: none;
+    cursor: default;
+  }
+  &.mat-mdc-form-field-has-icon-prefix .mat-mdc-text-field-wrapper{
+    --mat-mdc-form-field-label-offset-x:18px !important;
+  }
+}
+
+.trigger-field-trigger {
+  display: block;
+  padding: 18px 0 4px 46px;
+  white-space: nowrap;
+}
+
+.trigger-field-button {
+  display: inline-block;
+  color: rgba(black, 0.54);
+  fill: currentColor;
+  border: 0;
+  border-radius: 50%;
+  outline: none;
+  user-select: none;
+  cursor: pointer;
+  box-sizing: border-box;
+  background: none;
+  vertical-align: middle;
+  align-items: center;
+  text-align: center;
+  height: 0.675em !important;
+  width: 0.675em !important;
+  min-height: 0.675em !important;
+  &:focus {
+    background-color: rgba(158, 158, 158, 0.2);
+  }
+  .trigger-field-disabled & {
+    color: rgba(black, 0.38);
+  }
+}
+
