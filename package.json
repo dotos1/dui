@@ -1,6 +1,6 @@
 {
   "name": "dui",
-  "version": "6.0.0",
+  "version": "7.0.0",
   "license": "MIT",
   "scripts": {
     "ng": "ng",
@@ -9,7 +9,7 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "watch-dui": "ng build dui  --configuration production --watch",
-    "build-dui": "ng build dui  --configuration production",
+    "build-dui": "ng build dui --configuration production",
     "npm_pack": "cd dist/dui && npm pack",
     "package": "npm run build-dui && npm run npm_pack"
 

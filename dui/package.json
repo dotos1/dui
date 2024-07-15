@@ -1,0 +1,36 @@
+{
+  "name": "@dotos/dui",
+  "version": "7.0.0",
+  "license": "MIT",
+  "description": "DUI components based on Angular",
+  "keywords": [
+    "angular",
+    "dui",
+    "frontend"
+  ],
+  "homepage": "https://www.dotos.com",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bizdict/dui"
+  },
+  "bugs": {
+    "url": "https://github.com/bizdict/dui/issues"
+  },
+  "dependencies": {
+    "@angular/cdk": "^18.0.3",
+    "lodash": "^4.17.21",
+    "monaco-editor": "0.50.0",
+    "tslib": "^2.3.1"
+  },
+  "peerDependencies": {
+    "@angular/animations": "^18.0.3",
+    "@angular/common": "^18.0.3",
+    "@angular/core": "^18.0.3",
+    "@angular/forms": "^18.0.3"
+  },
+  "exports": {
+    "./theming": {
+      "style": "./theming"
+    }
+  }
+}

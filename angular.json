@@ -4,30 +4,29 @@
   "newProjectRoot": "projects",
   "projects": {
     "dui": {
+      "root": "dui",
+      "sourceRoot": "dui",
       "projectType": "library",
-      "root": "projects/dui",
-      "sourceRoot": "projects/dui/src",
       "prefix": "lib",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": {
-            "project": "projects/dui/src/ng-package.json"
+            "project": "dui/ng-package.json"
           },
           "configurations": {
             "production": {
-              "tsConfig": "projects/dui/tsconfig.lib.prod.json"
+              "tsConfig": "dui/tsconfig.lib.prod.json"
             },
             "development": {
-              "tsConfig": "projects/dui/tsconfig.lib.json"
+              "tsConfig": "dui/tsconfig.lib.json"
             }
-          },
-          "defaultConfiguration": "production"
+          }
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "tsConfig": "projects/dui/tsconfig.spec.json",
+            "tsConfig": "dui/tsconfig.spec.json",
             "polyfills": [
               "zone.js",
               "zone.js/testing"
