@@ -3,8 +3,8 @@
     <mat-card-header>
       <mat-card-title *ngIf="!hideHead&&(title || ltbar|| rtbar)" style='flex-shrink: 0;'>
           <div fxLayout='row'>
-            <span style='flex: 0 0 auto; align-self: center;display: -webkit-box;-webkit-box-align: center;'>
-              <ng-container #lefttopbar></ng-container>
+            <ng-container #lefttopbar></ng-container>
+            <span style='flex: 0 0 auto; align-self: center;display: -webkit-box;-webkit-box-align: center;margin:auto'>
               {{title|translate}}
             </span>
             <span style='flex: 1 1 auto;'></span>

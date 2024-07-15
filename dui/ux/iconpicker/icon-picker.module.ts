@@ -23,12 +23,13 @@ import { SearchIconPipe } from './search-icon.pipe';
 import { TextDirective } from './text.directive';
 import { TranslateModule, TranslationService } from '@dotos/dui/i18n';
 import { FontLoaderService } from './font-loader.service';
+import { IconModule } from '@dotos/dui/common/icon';
 
 
 @NgModule({
   imports: [
     CommonModule,
-     
+    IconModule,
     OverlayModule,
     ReactiveFormsModule,
     MatTooltipModule,

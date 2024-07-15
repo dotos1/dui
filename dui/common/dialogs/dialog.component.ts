@@ -4,8 +4,11 @@ import {
   ContentChildren,
   QueryList,
   AfterContentInit,
+  OnInit,
+  OnDestroy,
 } from '@angular/core';
-
+import { DotosConfig, DotosConfigService, duiDialogTheme, ThemeService } from '@dotos/dui/theme';
+import { Subject, takeUntil } from 'rxjs';
 @Directive({ selector: '[duiDialogTitle]' })
 export class duiDialogTitleDirective {}
 
@@ -23,7 +26,7 @@ export class duiDialogStatusDirective {}
   templateUrl: './dialog.component.html',
   styleUrls: ['./dialog.component.scss'],
 })
-export class duiDialogComponent implements AfterContentInit {
+export class duiDialogComponent implements AfterContentInit ,OnInit,OnDestroy{
   @ContentChildren(duiDialogTitleDirective, { descendants: true })
   dialogTitle!: QueryList<duiDialogTitleDirective>;
   @ContentChildren(duiDialogContentDirective, { descendants: true })
@@ -33,6 +36,39 @@ export class duiDialogComponent implements AfterContentInit {
   @ContentChildren(duiDialogStatusDirective, { descendants: true })
   dialogStatus!: QueryList<duiDialogStatusDirective>;
 
+  private _unsubscribeAll: Subject<void>;
+  constructor(
+    private _dotosConfigService: DotosConfigService,
+    protected _themeService: ThemeService,
+  ) {
+    this._unsubscribeAll = new Subject();
+  }
+  async ngOnInit() {
+
+    this._dotosConfigService.config
+      .pipe(takeUntil(this._unsubscribeAll))
+      .subscribe((config) => {
+        this.setTheme(config);
+        this._themeService.loadTheme(duiDialogTheme);
+    });
+  }
+
+  setTheme(config:DotosConfig) {
+    let type = config.theme.type;
+    let primary = config.theme.primary;
+    let accent = config.theme.accent;
+    let warn = config.theme.warn;
+    let page = config.layout.pagemodel;
+    let formType = config.theme.formType;
+    this._themeService.changeTheme(primary, accent, warn, type, page,formType);
+  }
+
+  ngOnDestroy() {
+    this._unsubscribeAll.next();
+    this._unsubscribeAll.complete();
+  }
+
+  
   ngAfterContentInit(): void {
     if (this.dialogTitle.length > 1) {
       throw new Error('Duplicate dui-dialog-title component at in dui-dialog.');

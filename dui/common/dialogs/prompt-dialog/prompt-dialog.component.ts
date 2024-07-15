@@ -21,7 +21,6 @@ import { ThemeService } from '@dotos/dui/theme';
 export class PromptDialogComponent implements AfterViewInit, OnDestroy {
   title?: string;
   message?: string;
-  value?: string;
   name: string;
 
   cancelButton = 'CANCEL';
@@ -101,6 +100,6 @@ export class PromptDialogComponent implements AfterViewInit, OnDestroy {
   }
 
   accept(): void {
-    this._dialogRef.close(this.value);
+    this._dialogRef.close(this.formControl.value);
   }
 }

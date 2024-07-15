@@ -45,15 +45,10 @@
         background: none;
     }
 }
-// .mat-mdc-card-title{
-//     padding: 6px 16px 6px !important
-// }
 
-// .mat-mdc-card-header{
-//     padding: 8px 16px 8px !important
-// }
 .mat-mdc-dialog-surface{
-    padding:16px;
+    padding:8px;
+    overflow: hidden !important;
 }
 button {
     border-radius: 0;

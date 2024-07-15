@@ -69,6 +69,7 @@ function color(theme: Theme): Object {
 }
 
 function density(theme: Theme): Object {
+
   return{
     ...keys.declare_custom_properties(button_theme(mdc_text.get_density_tokens(theme)),mdc_text.$custom_property_prefix),
     ...keys.declare_custom_properties(button_theme(mdc_filled.get_density_tokens(theme)),mdc_filled.$custom_property_prefix),
@@ -99,6 +100,7 @@ export function matButtonTheme(theme: Theme): Object {
 
   return {
     ".mat-mdc-button": {
+      "min-height":"var(--mdc-text-button-container-height)",
       "&.mat-primary": {
         ..._text_button_variant(theme, "primary")
       },
@@ -110,6 +112,7 @@ export function matButtonTheme(theme: Theme): Object {
       }
     },
     ".mat-mdc-unelevated-button": {
+      "min-height":"var(--mdc-filled-button-container-height)",
       "&.mat-primary": {
         ..._filled_button_variant(theme, "primary")
       },
@@ -121,6 +124,7 @@ export function matButtonTheme(theme: Theme): Object {
       }
     },
     ".mat-mdc-raised-button": {
+      "min-height":"var( --mdc-protected-button-container-height: 32px)",
       "&.mat-primary": {
         ..._protected_button_variant(theme, "primary")
       },
@@ -132,6 +136,7 @@ export function matButtonTheme(theme: Theme): Object {
       }
     },
     ".mat-mdc-outlined-button": {
+      "min-height":"var(--mdc-outlined-button-container-height)",
       "&.mat-primary": {
         ..._outlined_button_variant(theme, "primary")
       },
@@ -146,7 +151,7 @@ export function matButtonTheme(theme: Theme): Object {
       ...base(theme),
       ...color(theme),
       ...density(theme),
-      ...typography(theme.typography)
+      ...typography(theme.typography),     
     }
   };
 }

@@ -145,6 +145,7 @@ export class ResizableDraggableDialog {
 
         const icon: HTMLElement = this._renderer2.createElement('i');
         this._renderer2.addClass(icon, 'material-icons');
+        this._renderer2.addClass(icon, 'resize-icons');
         this._renderer2.appendChild(
           icon,
           this._renderer2.createText('filter_list')
