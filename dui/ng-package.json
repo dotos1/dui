@@ -1,0 +1,15 @@
+{
+  "$schema": "../node_modules/ng-packagr/ng-package.schema.json",
+  "dest": "../dist/dui",
+  "lib": {
+    "entryFile": "./index.ts"
+  },
+  "assets":[
+    "./theming"
+  ],
+  "allowedNonPeerDependencies": [
+    "@angular/cdk",
+    "lodash",
+    "monaco-editor"
+  ]
+}
