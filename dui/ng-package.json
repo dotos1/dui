@@ -8,8 +8,6 @@
     "./theming"
   ],
   "allowedNonPeerDependencies": [
-    "@angular/cdk",
-    "lodash",
-    "monaco-editor"
+
   ]
 }

@@ -6,6 +6,13 @@ $trigger-field-arrow-margin: 4px !default;
 $trigger-field-date-cell-size: 40px !default;
 $trigger-field-calendar-height: 280px !default;
 
+.trigger-form-field .mat-mdc-text-field-wrapper {
+        --mat-mdc-form-field-label-offset-x:24px !important
+}
+  .mat-mdc-text-field-wrapper.mdc-text-field--outlined .mdc-text-field__input{
+    padding-left: 8px;
+  }
+
 trigger-field {
   position: relative;
   display: inline-block;

@@ -1,4 +1,4 @@
-<div fxLayout="row wrap" fxLayoutAlign="start center">
+<div fxLayout="row wrap" fxLayoutAlign="start center" style="padding-top:8px;">
   <ng-template let-item ngFor [ngForOf]="items">
     <div *ngIf="item.xtype!=='hidden-field'" class="pad-xs" [fxFlex]="item.flex ? item.flex : 100"
       [ngStyle]="getStyle(item)">

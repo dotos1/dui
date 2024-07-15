@@ -1,11 +1,11 @@
 <div fxFlexFill fxLayout="column" fxFlex style='overflow:hidden'>
   <mat-card fxFlex fxLayout="column" [ngStyle]='cardStyle'>
     <mat-card-header >
-      <mat-card-title *ngIf="title || ltbar|| rtbar"  fxLayout='row'  style="width:100%;">
+      <mat-card-title *ngIf="title || ltbar|| rtbar"  fxLayout='row'  style="width:100%;  ">
           <div fxLayout='row' fxFlex>
             <span style='flex: 0 0 auto; align-self: center;display:flex;'>
               <ng-container #lefttopbar></ng-container>
-              <div  style='padding-top: 12px;'> {{title|translate }}</div>
+              <div  style="margin:auto"> {{title|translate }}</div>
             </span>
             <span style='flex: 1'></span>
             <ng-content select="dui-search-box"></ng-content>

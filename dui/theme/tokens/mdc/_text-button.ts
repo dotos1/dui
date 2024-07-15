@@ -42,9 +42,9 @@ export function get_density_tokens($theme) {
   return {
     'container-height': {
       '0': '36px',
-      '-1': '32px',
-      '-2': '28px',
-      '-3': '24px',
+      '-1': '34px',
+      '-2': '32px',
+      '-3': '30px',
     }[$scale]
   };
 }

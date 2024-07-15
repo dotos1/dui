@@ -13,9 +13,7 @@
           matTooltip={{toolTip}} matTooltipPosition='below' />
 
   <ng-template #matPrefix>
-      <mat-icon *ngIf="_type==='FONT'" style="padding-right: 30px"  (click)="open()">{{icon}}</mat-icon>
-      <mat-icon *ngIf="_type==='SVG'" svgIcon="{{icon}}" (click)="open()"></mat-icon>
-      <mat-icon *ngIf="_type==='EXTRA'" [ngStyle]="fontStyle"  (click)="open()">{{icon}}</mat-icon>
+    <dui-icon [value]="icon" [disabled]="disabled" style="padding-left:8px;padding-bottom:0px"></dui-icon>
   </ng-template>
 
   <ng-template #matSuffix>

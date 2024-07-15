@@ -287,21 +287,7 @@ export class DialogService {
     return dialogConfig;
   }
 
-  /**
-   * params:
-   * - config: IStatusConfig {
-   *     closeButton?: string;
-   *     details?: string;
-   *     detailsLabels?: TdStatusDialogDetailsLabels;
-   *     message: string;
-   *     state?: 'error' | 'positive' | 'warning'
-   *     title?: string;
-   *     viewContainerRef?: ViewContainerRef;
-   * }
-   *
-   * Opens a status dialog with the provided config.
-   * Returns an MatDialogRef<TdStatusDialogComponent> object.
-   */
+
   public openStatus(
     config: IStatusConfig
   ): MatDialogRef<StatusDialogComponent> {

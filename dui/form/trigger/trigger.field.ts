@@ -83,6 +83,7 @@ export class TriggerField extends AbstractTrigger implements AfterViewInit {
       this.field.icon = iconName;
     }
     Dui.applyIf(this, this.field);
+    this.field['classFormField']="trigger-form-field";
   }
 
   override ngAfterViewInit() {

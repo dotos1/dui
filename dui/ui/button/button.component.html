@@ -1,12 +1,12 @@
 <button *ngIf="type==='mat-raised-button'&&items.length===0&&!hidden" mat-raised-button [disabled]="disabled"
   [color]="color" [ngStyle]='style' [disableRipple]="disableRipple" (click)="onClick($event)"
   [matTooltip]="toolTip| translate" matTooltipPosition='below'>
-  <dui-icon [value]="icon" [disabled]="disabled" [style]="iconStyle"></dui-icon>
+  <dui-icon [value]="icon" [disabled]="disabled" [style]="iconStyle" style="width:100%"></dui-icon>
   {{(title||text)| translate}}
 </button>
 <button *ngIf="type==='mat-button'&&items.length===0&&!hidden" mat-button [disabled]="disabled" [color]="color"
   [ngStyle]='style' [disableRipple]="disableRipple" (click)="onClick($event)" [matTooltip]="toolTip| translate"
-  [attr.data-level]="1">
+  [attr.data-level]="1" style="height:100%;width:100%">
   <dui-icon *ngIf="icon&&iconPosition==='before'" [value]="icon" [disabled]="disabled" [style]="iconStyle"></dui-icon>
   {{(title||text)| translate}}
   <dui-icon *ngIf="icon&&iconPosition==='after'" [value]="icon" [disabled]="disabled" [style]="iconStyle"></dui-icon>
@@ -19,7 +19,7 @@
 
 <ng-container *ngIf="type==='mat-button'&&items.length>0&&!hidden">
   <button mat-button [disabled]="disabled" [color]="color" [ngStyle]='style' [disableRipple]="disableRipple"
-    (click)="onClick($event)" [matTooltip]="toolTip| translate" [matMenuTriggerFor]="menu.childMenu" style="width:100%">
+    (click)="onClick($event)" [matTooltip]="toolTip| translate" [matMenuTriggerFor]="menu.childMenu" style="height:100%;width:100%">
     <dui-icon *ngIf="icon&&iconPosition==='before'" [value]="icon" [disabled]="disabled" [style]="iconStyle"></dui-icon>
     {{(title||text)| translate}}
     <dui-icon *ngIf="icon&&iconPosition==='after'" [value]="icon" [disabled]="disabled" [style]="iconStyle"></dui-icon>

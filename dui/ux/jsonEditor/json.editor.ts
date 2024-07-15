@@ -1,5 +1,5 @@
-import { Component, ViewEncapsulation, ChangeDetectionStrategy, ChangeDetectorRef, ViewChild } from '@angular/core';
-import { Inject, Injector, ComponentFactoryResolver } from '@angular/core';
+import { Component,  ChangeDetectionStrategy, ChangeDetectorRef, ViewChild } from '@angular/core';
+import { Inject} from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { ToastrService } from '@dotos/dui/common/toastr';
 import { EditorComponent } from '@dotos/dui/ux/monaco-editor';
@@ -14,19 +14,21 @@ import { EditorComponent } from '@dotos/dui/ux/monaco-editor';
     </monaco-editor>
   </card>
   `,
-  encapsulation: ViewEncapsulation.None,
   preserveWhitespaces: false,
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: {
     style: 'flex:1;display:flex;flex-direction:column;height: 100%;'
   },
   styles: [`
-  .monaco-editor {
-    width:100%;
-  }
-  .codeContainer .mat-mdc-card-content{
-    padding: 2px;
-  }
+        .monaco-editor {
+          width:100%;
+        }
+        .codeContainer .mat-mdc-card-content{
+          padding: 2px;
+        }
+        :host ::ng-deep  .monaco-editor{
+        outline-width: 0px !important;
+      }
   `]
 })
 export class JsonEditor {
@@ -83,8 +85,6 @@ export class JsonEditor {
   }
   constructor(
     protected _changeDetectorRef: ChangeDetectorRef,
-    public resolver: ComponentFactoryResolver,
-    public injector: Injector,
     public toastr: ToastrService,
     @Inject(MAT_DIALOG_DATA) private data: any,
     public dialogRef: MatDialogRef<JsonEditor>,

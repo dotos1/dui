@@ -6,14 +6,6 @@
   <ng-container duiDialogActions>
     <button
       mat-button
-      #closeBtn
-      (keydown.arrowright)="acceptBtn.focus()"
-      (click)="cancel()"
-    >
-      {{ cancelButton|translate }}
-    </button>
-    <button
-      mat-button
       [color]="isDestructive ? 'warn' : 'accent'"
       #acceptBtn
       (keydown.arrowleft)="closeBtn.focus()"
@@ -21,5 +13,13 @@
     >
       {{ acceptButton|translate }}
     </button>
+    <button
+    mat-button
+    #closeBtn
+    (keydown.arrowright)="acceptBtn.focus()"
+    (click)="cancel()"
+  >
+    {{ cancelButton|translate }}
+  </button>
   </ng-container>
 </dui-dialog>

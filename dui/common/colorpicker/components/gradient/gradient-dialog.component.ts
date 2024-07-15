@@ -37,6 +37,6 @@ export class GradientDialogComponent  {
   }
 
   accept(): void {
-    this._dialogRef.close(this.sc.hex);
+    this._dialogRef.close(this.sc['hex']);
   }
 }

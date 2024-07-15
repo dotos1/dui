@@ -8,7 +8,7 @@ export function get_unthemable_tokens() {
     'list-item-container-shape': 0,
     'list-item-leading-avatar-shape': '50%',
     'list-item-container-color': 'transparent',
-    'list-item-selected-container-color': 'transparent',
+
     'list-item-leading-avatar-color': 'transparent',
     'list-item-leading-icon-size': '24px',
     'list-item-leading-avatar-size': '40px',
@@ -28,8 +28,11 @@ export function get_color_tokens($theme) {
   let $foreground_secondary_text= inspection.get_theme_color($theme, 'foreground',  'secondary-text');
   let $foreground_hint_text= inspection.get_theme_color($theme, 'foreground',  'hint-text');
   let $text_icon_on_background=$foreground_base;
-  
+  let $selected_background = inspection.get_theme_color($theme, 'background',  'selected-button');
+  let $focus_background = inspection.get_theme_color($theme, 'background',  'selected-button');
+
   return {
+    'list-item-selected-container-color': $selected_background ,
     'list-item-label-text-color': $foreground_text,
     'list-item-supporting-text-color': $foreground_secondary_text,
     'list-item-leading-icon-color': $text_icon_on_background,
@@ -43,9 +46,9 @@ export function get_color_tokens($theme) {
     'list-item-hover-leading-icon-color': $text_icon_on_background,
     'list-item-hover-trailing-icon-color': $text_icon_on_background,
     'list-item-focus-label-text-color': $foreground_text,
-    'list-item-hover-state-layer-color': $foreground_base,
-    'list-item-hover-state-layer-opacity': ($is_dark? 0.08: 0.04),
-    'list-item-focus-state-layer-color': $foreground_base,
+    'list-item-hover-state-layer-color': $focus_background ,
+    'list-item-hover-state-layer-opacity': ($is_dark? 0.24: 0.12),
+    'list-item-focus-state-layer-color': $focus_background ,
     'list-item-focus-state-layer-opacity': ($is_dark? 0.24:0.12),
   };
 }

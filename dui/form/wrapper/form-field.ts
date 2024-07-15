@@ -31,11 +31,10 @@ interface MatFieldConfig extends FieldConfig {
   encapsulation: ViewEncapsulation.None,
   styles: [`
         .mat-mdc-text-field-wrapper.mdc-text-field--outlined .mdc-text-field__input {
-          padding-left: 10px;
+          padding-left: 8px;
         }
-        .mdc-text-field--no-label .mat-mdc-form-field-infix {
-          padding-top: 0px;
-          padding-bottom: 0px;
+        .mat-mdc-select-trigger{
+          padding-left: 8px;
         }
   `],
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -123,10 +122,12 @@ export class WrapperFormField extends FieldWrapper<MatFieldConfig> implements On
         this.renderer.listen(this.elementRef.nativeElement, 'mouseleave', () => this.hideTip());
       }
       this.underTip = this.field.description;
+      console.log(this.field);
+      
       if(this.field.classFormField){
         this.classFormField= this.field.classFormField;
       }
-      console.log(this.classFormField+'===================');
+
     }
   }
 
