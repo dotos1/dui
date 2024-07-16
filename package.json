@@ -1,6 +1,6 @@
 {
   "name": "dui",
-  "version": "7.0.19",
+  "version": "7.0.24",
   "license": "MIT",
   "scripts": {
     "ng": "ng",
@@ -10,10 +10,10 @@
     "test": "ng test",
     "watch-dui": "ng build dui  --configuration production --watch",
     "prebuild": "npm --no-git-tag-version version patch",
-    "build-dui": "npm --no-git-tag-version version patch && ng build dui --configuration production   ",
+    "build-dui": "npm --no-git-tag-version version patch && cd dui && npm --no-git-tag-version version patch&& cd ..  && ng build dui --configuration production",
     "npm_pack": "cd dist/dui && npm pack",
     "package": "npm run build-dui && npm run npm_pack",
-    "publish": "cd dist/dui && npm unpublish @dotos/dui@$npm_package_version   && npm publish  --ignore-scripts"
+    "publish": "cd dist/dui && npm unpublish @dotos/dui  --force  && npm publish  --ignore-scripts"
   },
   "dependencies": {
     "@angular/animations": "18.0.3",
