@@ -1,23 +1,22 @@
-import { Component } from '@angular/core';
+import { Component, ViewEncapsulation } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { FieldType } from './field.type';
 
 @Component({
   selector: 'form-template',
-  template: `<div [innerHtml]="template"></div>`,
+  template: `<div  [ngClass]="field.htmlClass"  [innerHtml]="template"></div>`,
+  encapsulation: ViewEncapsulation.None
 })
 export class FormTemplateType extends FieldType {
   get template() {
     if (this.field && (this.field.template !== this.innerHtml.template)) {
       this.innerHtml = {
         template: this.field.template,
-        content: this.field.safeHtml
+        content:  this.field.safeHtml
           ? this.sanitizer.bypassSecurityTrustHtml(this.field.template)
-          : this.field.template,
-          
+         : this.field.template,
       };
     }
-
     return this.innerHtml.content;
   }
 

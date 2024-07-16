@@ -27,7 +27,7 @@
         <ng-container #righbottomfab></ng-container>
       </span>
     </mat-card-content>
-    <mat-divider *ngIf="buttons.length>0||pageBar!==undefined" inset='true'></mat-divider>
+    <mat-divider *ngIf="buttons.length>0||pageBar!==undefined"></mat-divider>
     <mat-card-actions *ngIf="buttons.length>0||pageBar!==undefined" align="end">
       <mat-paginator #pagebar *ngIf="pageBar!==undefined" [hidePageSize]="true" [showFirstLastButtons]="true"
         [length]="pageBar.total" [pageSize]="1" [pageIndex]="pageBar.page" (page)="pageBar.doLoad($event)">

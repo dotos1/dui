@@ -1,7 +1,7 @@
 <button *ngIf="type==='mat-raised-button'&&items.length===0&&!hidden" mat-raised-button [disabled]="disabled"
   [color]="color" [ngStyle]='style' [disableRipple]="disableRipple" (click)="onClick($event)"
   [matTooltip]="toolTip| translate" matTooltipPosition='below'>
-  <dui-icon [value]="icon" [disabled]="disabled" [style]="iconStyle" style="width:100%"></dui-icon>
+  <dui-icon *ngIf="icon"   [value]="icon" [disabled]="disabled" [style]="iconStyle" style="width:100%"></dui-icon>
   {{(title||text)| translate}}
 </button>
 <button *ngIf="type==='mat-button'&&items.length===0&&!hidden" mat-button [disabled]="disabled" [color]="color"
@@ -40,7 +40,7 @@
   <button mat-raised-button [disabled]="disabled" [color]="color" [ngStyle]='style' [disableRipple]="disableRipple"
     (click)="onClick($event)" [matTooltip]="toolTip| translate" matTooltipPosition='below'
     [matMenuTriggerFor]="menu.childMenu" style="width:100%">
-    <dui-icon [value]="icon" [disabled]="disabled" [style]="iconStyle"></dui-icon>
+    <dui-icon  *ngIf="icon"   [value]="icon" [disabled]="disabled" [style]="iconStyle"></dui-icon>
     {{title| translate}}
     <mat-icon *ngIf="dropdown===true">arrow_drop_down</mat-icon>
   </button>
