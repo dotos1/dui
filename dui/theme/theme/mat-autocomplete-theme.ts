@@ -26,7 +26,7 @@ function density(theme: Theme): Object {
 }
 export function matAutocompleteTheme(theme: Theme): Object {
   return {
-    '.mat-autocomplete': {
+    '.mat-mdc-autocomplete-panel': {
       ...base(theme),
       ...color(theme),
       ...density(theme),

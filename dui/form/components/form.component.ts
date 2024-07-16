@@ -566,21 +566,24 @@ export class FormComponent implements DoCheck, OnChanges, OnDestroy {
 
   findField(id: string, items?): any {
     if (isUndefined(items)) items = this.items
+    let field ;
     for (let i = 0; i < items.length; i++) {
-      let field = items[i];
+       field = items[i];
       if (field.name === id) {
         return field;
       }
     }
-    for (let i = 0; i < items.length; i++) {
-      let field = items[i];
-      if (field.fieldGroup&&field.fieldGroup.length!=0) {
-        return this.findField(id, field.fieldGroup);
+    for (let j = 0; j < items.length; j++) {
+      let item = items[j];
+
+      if (item.fieldGroup&&item.fieldGroup.length!=0) {
+        field= this.findField(id, item.fieldGroup);
       }
-      if (field.fieldArray&&field.fieldArray.fieldGroup) {
-        return this.findField(id, field.fieldArray.fieldGroup);
+      if (item.fieldArray&&item.fieldArray.fieldGroup) {
+        field= this.findField(id, item.fieldArray.fieldGroup);
       }
     }
+    return field;
   }
 
   add(field: any, index?: number) {

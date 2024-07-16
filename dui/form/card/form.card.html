@@ -13,7 +13,7 @@
       </mat-card-title>
       <mat-card-subtitle *ngIf="subtitle">{{subtitle|translate}}</mat-card-subtitle>
     </mat-card-header>
-    <mat-divider *ngIf="!hideHead&&(title || subtitle || ltbar|| rtbar)" inset='true'></mat-divider>
+    <mat-divider *ngIf="!hideHead&&(title || subtitle || ltbar|| rtbar)"></mat-divider>
     <mat-card-content  style="display:flex;flex:1;overflow-y: auto;padding-top:10px">
       <div fxFlexFill fxLayout="column">
         <dui-form #formCmp [config]="config"  style="height:100%;flex:1;padding-top: 10px;"></dui-form>
