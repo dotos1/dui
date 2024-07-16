@@ -1,6 +1,6 @@
 {
   "name": "@dotos/dui",
-  "version": "7.0.17",
+  "version": "7.0.24",
   "license": "MIT",
   "description": "DUI components based on Angular",
   "keywords": [
@@ -15,6 +15,9 @@
   },
   "bugs": {
     "url": "https://github.com/bizdict/dui/issues"
+  },
+  "scripts": {
+    "prebuild": "npm --no-git-tag-version version patch"
   },
   "dependencies": {
     "tslib": "^2.3.1"
