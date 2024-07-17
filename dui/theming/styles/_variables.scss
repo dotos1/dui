@@ -1,12 +1,9 @@
-// Media queries
-// TODO(josephperrott): Change $mat-xsmall and $mat-small usages to rely on BreakpointObserver,
+
 $mat-xsmall: 'max-width: 599px';
 $mat-small: 'max-width: 959px';
 $padding: 16px;
 $margin: $padding;
 
-// TODO: Revisit all z-indices before beta
-// z-index master list
 
 $z-index-fab: 20 !default;
 $z-index-drawer: 100 !default;

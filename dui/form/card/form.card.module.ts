@@ -8,7 +8,7 @@ import {  MatFormFieldModule, } from '@angular/material/form-field';
 import { MatDividerModule  } from '@angular/material/divider';
 import { MatPaginatorModule  } from '@angular/material/paginator';
 import { FormCard } from './form.card';
-import { FlexLayoutModule } from '@angular/flex-layout';
+import { FlexLayoutModule } from 'ngx-flexible-layout';
 
 import { Dui } from '@dotos/dui/core';
 import { TranslateModule } from '@dotos/dui/i18n';
