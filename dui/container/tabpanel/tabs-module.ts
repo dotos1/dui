@@ -8,7 +8,7 @@ import {ComponentFactoryResolver, NgModule} from '@angular/core';
 import {MatCommonModule, MatRippleModule } from '@angular/material/core';
 import {MatTabsModule} from '@angular/material/tabs';
 import {TabPanel} from './tabpanel.component';
-import { FlexLayoutModule } from '@angular/flex-layout';
+import { FlexLayoutModule } from 'ngx-flexible-layout';
 import { Dui } from '@dotos/dui/core';
 import { TranslateModule } from '@dotos/dui/i18n';
 

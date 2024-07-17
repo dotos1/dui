@@ -1,6 +1,6 @@
 {
   "name": "@dotos/dui",
-  "version": "7.0.24",
+  "version": "7.0.25",
   "license": "MIT",
   "description": "DUI components based on Angular",
   "keywords": [
@@ -23,10 +23,10 @@
     "tslib": "^2.3.1"
   },
   "peerDependencies": {
-    "@angular/animations": "^18.0.3",
-    "@angular/common": "^18.0.3",
-    "@angular/core": "^18.0.3",
-    "@angular/forms": "^18.0.3"
+    "@angular/animations": "18.1.0",
+    "@angular/common": "18.1.0",
+    "@angular/core": "18.1.0",
+    "@angular/forms": "18.1.0"
   },
   "exports": {
     "./theming/styles/elevation": {

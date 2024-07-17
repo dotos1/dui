@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormModule } from '../components/form.module';
 import { TranslateModule, TranslationService } from '@dotos/dui/i18n';
 import { Dui } from '@dotos/dui/core';
-import { FlexLayoutModule } from '@angular/flex-layout';
+import { FlexLayoutModule } from 'ngx-flexible-layout';
 import { LabelField } from './label-field';
 
 
