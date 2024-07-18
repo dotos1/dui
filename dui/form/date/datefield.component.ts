@@ -16,7 +16,7 @@ import {
 import {  MAT_INPUT_VALUE_ACCESSOR } from "@angular/material/input";
 
 import { Dui } from '@dotos/dui/core';
-import { TranslateService } from '@dotos/dui/i18n';
+import { TranslateService } from '@dotos/dui/translator';
 import { DatetimeAdapter, MAT_DATETIME_FORMATS, MatDatetimeFormats } from "@dotos/dui/form/date/adapter";
 import { MomentDatetimeAdapter } from '@dotos/dui/form/date/moment';
 

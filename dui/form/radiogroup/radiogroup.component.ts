@@ -1,7 +1,7 @@
 import { AfterViewInit, ChangeDetectionStrategy, Component, OnDestroy, ViewChild } from '@angular/core';
 import { MatField } from '../base/mat.field';
 import { MatRadioGroup } from '@angular/material/radio';
-import { TranslateService} from '@dotos/dui/i18n';
+import { TranslateService} from '@dotos/dui/translator';
 import { observe } from '@dotos/dui/core/form';
 
 @Component({

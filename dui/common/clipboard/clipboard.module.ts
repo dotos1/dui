@@ -3,7 +3,7 @@
 import { CommonModule } from '@angular/common';
 import { ComponentFactoryResolver, NgModule } from '@angular/core';
 import { Dui } from '@dotos/dui/core';
-import { TranslateModule } from '@dotos/dui/i18n';
+import { TranslateModule } from '@dotos/dui/translator';
 import { CommonServicesModule } from '@dotos/dui/core/services';
 import { ToastrModule } from '@dotos/dui/common/toastr';
 import { ClipboardDirective } from './clipboard.directive';

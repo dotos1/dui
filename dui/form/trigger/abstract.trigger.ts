@@ -9,7 +9,7 @@ import {  coerceBooleanProperty  } from '@angular/cdk/coercion';
 import { MatField } from '../base/mat.field';
 import { DOCUMENT } from "@angular/common";
 import { MatDialog, MatDialogRef } from "@angular/material/dialog";
-import { TranslateService } from '@dotos/dui/i18n';
+import { TranslateService } from '@dotos/dui/translator';
 import * as _ from 'lodash';
 import { TriggerPopup } from '@dotos/dui/common/trigger';
 

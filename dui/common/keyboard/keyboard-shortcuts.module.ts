@@ -2,7 +2,7 @@ import { ModuleWithProviders, NgModule} from "@angular/core";
 import {CommonModule} from "@angular/common";
 import {EVENT_MANAGER_PLUGINS} from "@angular/platform-browser";
 
-import { TranslateModule, TranslationService } from "@dotos/dui/i18n";
+import { TranslateModule, TranslationService } from "@dotos/dui/translator";
 import {KeyboardShortcutsComponent} from "./keyboard-shortcuts.component";
 import {KeyboardShortcutsService} from "./keyboard-shortcuts.service";
 import {KeyboardShortcutsHelpService} from "./keyboard-shortcuts-help.service";

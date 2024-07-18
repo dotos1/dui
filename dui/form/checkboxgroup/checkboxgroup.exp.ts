@@ -8,7 +8,7 @@ import * as _ from 'lodash';
 import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
 import { MatCheckbox } from '@angular/material/checkbox';
 import { coerceBooleanProperty } from '@angular/cdk/coercion';
-import { TranslateService } from '@dotos/dui/i18n';
+import { TranslateService } from '@dotos/dui/translator';
 import { MatField } from '../base/mat.field';
 
 

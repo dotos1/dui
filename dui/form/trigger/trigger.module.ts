@@ -13,7 +13,7 @@ import { TriggerField } from './trigger.field';
 import { Dui, StyleModule } from '@dotos/dui/core';
 import { TreeModule } from '@dotos/dui/tree';
 import { FlexLayoutModule } from 'ngx-flexible-layout';
-import { TranslateModule } from '@dotos/dui/i18n';
+import { TranslateModule } from '@dotos/dui/translator';
 
 @NgModule({
   imports: [

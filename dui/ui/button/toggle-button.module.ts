@@ -8,7 +8,7 @@ import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatListModule } from '@angular/material/list';
 import { Dui } from '@dotos/dui/core';
 import { IconModule } from '@dotos/dui/common/icon';
-import { TranslateModule } from '@dotos/dui/i18n';
+import { TranslateModule } from '@dotos/dui/translator';
 import { ToggleButtonComponent } from './toggle-button.component';
 @NgModule({
   imports: [

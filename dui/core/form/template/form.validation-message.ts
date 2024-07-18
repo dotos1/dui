@@ -4,7 +4,7 @@ import {  FieldConfig } from '../models/field.config';
 import { isObject } from '../utils';
 import { Observable, isObservable, of } from 'rxjs';
 import { startWith, switchMap } from 'rxjs/operators';
-import { TranslateService } from '@dotos/dui/i18n';
+import { TranslateService } from '@dotos/dui/translator';
 
 
 @Component({

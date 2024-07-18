@@ -20,14 +20,21 @@ import { EditorComponent } from '@dotos/dui/ux/monaco-editor';
     style: 'flex:1;display:flex;flex-direction:column;height: 100%;'
   },
   styles: [`
-        .monaco-editor {
+          :host ::ng-deep   .monaco-editor {
           width:100%;
         }
-        .codeContainer .mat-mdc-card-content{
+        :host ::ng-deep      .codeContainer .mat-mdc-card-content{
           padding: 2px;
         }
         :host ::ng-deep  .monaco-editor{
         outline-width: 0px !important;
+      }
+      :host ::ng-deep .mat-mdc-card-title{
+        padding-bottom: 10px !important;
+        padding-top: 10px !important;
+      }
+      :host ::ng-deep  .mdc-card__actions{
+        min-height:56px;
       }
   `]
 })

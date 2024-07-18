@@ -2,7 +2,7 @@ import { Injectable, OnDestroy,  } from '@angular/core';
 import { observable, computed, action, autorun } from 'mobx';
 import { Subscription } from 'rxjs';
 import * as _ from 'lodash';
-import { TranslateService } from '@dotos/dui/i18n';
+import { TranslateService } from '@dotos/dui/translator';
 import { TreeNode } from './tree-node.model';
 import { TreeOptions } from './tree-options.model';
 import { TreeVirtualScroll } from './tree-virtual-scroll.model';

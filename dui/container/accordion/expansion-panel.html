@@ -2,7 +2,7 @@
   <panel-title>{{label|translate}}</panel-title>
   <panel-description *ngIf="description">{{description|translate}}</panel-description>
 </expansion-panel-header>
-<mat-divider [inset]='true'></mat-divider>
+<mat-divider ></mat-divider>
 
 <div [class.dui-expanded]="expanded" class="expansion-panel-content" [@bodyExpansion]="_getExpandedState()" [id]="id">
   <div class="expansion-panel-body">

@@ -9,7 +9,7 @@ import { MatCheckGroup } from './checkboxgroup.exp';
 import { SelectPipeModule } from '../base/select.module';
 import { FormModule } from '../components/form.module';
 import { Dui } from '@dotos/dui/core';
-import { TranslateModule } from '@dotos/dui/i18n';
+import { TranslateModule } from '@dotos/dui/translator';
 
 @NgModule({
   declarations: [

@@ -12,7 +12,7 @@ import { CardModule } from '@dotos/dui/container';
 import { Dui } from '@dotos/dui/core';
 import { ButtonModule } from '@dotos/dui/ui/button';
 import { DialogsModule } from '@dotos/dui/common/dialogs';
-import { TranslationService } from '@dotos/dui/i18n';
+import { TranslationService } from '@dotos/dui/translator';
 import { MonacoEditorModule } from '@dotos/dui/ux/monaco-editor';
 
 import { JsonEditor } from './json.editor';

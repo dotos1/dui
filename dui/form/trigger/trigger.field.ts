@@ -12,7 +12,7 @@ import { AbstractTrigger } from './abstract.trigger';
 import { Dui } from '@dotos/dui/core';
 import { MatDialog } from '@angular/material/dialog';
 import { DOCUMENT } from '@angular/common';
-import { TranslateService } from '@dotos/dui/i18n';
+import { TranslateService } from '@dotos/dui/translator';
 import { isObject } from 'lodash';
 
 @Component({

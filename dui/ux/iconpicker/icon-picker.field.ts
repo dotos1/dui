@@ -13,7 +13,7 @@ import { DomSanitizer } from "@angular/platform-browser";
 import { isObject } from 'lodash';
 
 import { AbstractTrigger } from '@dotos/dui/form';
-import { TranslateService } from '@dotos/dui/i18n';
+import { TranslateService } from '@dotos/dui/translator';
 
 import { FontLoaderService } from './font-loader.service';
 import { IconPickerComponent } from './icon-picker.component';

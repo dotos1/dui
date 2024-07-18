@@ -5,7 +5,7 @@ import { FieldConfig } from '@dotos/dui/core/form';
 import { Dui } from '@dotos/dui/core';
 import { ExtErrorStateMatcher, FieldType as CoreFieldType } from '@dotos/dui/core/form';
 import * as _ from 'lodash';
-import { TranslateService } from '@dotos/dui/i18n';
+import { TranslateService } from '@dotos/dui/translator';
 
 @Directive()
 export abstract class MatField<F extends FieldConfig = FieldConfig> extends CoreFieldType<F> implements OnInit, AfterViewInit, OnDestroy, MatFormFieldControl<any>  {

@@ -6,7 +6,7 @@ import { MatIconRegistry } from "@angular/material/icon";
 import { DomSanitizer } from "@angular/platform-browser";
 import { Subject } from 'rxjs';
 
-import { TranslateService } from '@dotos/dui/i18n';
+import { TranslateService } from '@dotos/dui/translator';
 import { TriggerPopup } from '@dotos/dui/common/trigger';
 import { FontLoaderService } from './font-loader.service';
 import { IconPickerService } from './icon-picker.service';

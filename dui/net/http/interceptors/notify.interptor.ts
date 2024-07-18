@@ -3,7 +3,7 @@ import { HttpEvent, HttpRequest, HttpHandler, HttpInterceptor, HttpResponse } fr
 import { Observable} from "rxjs";
 import {  tap } from "rxjs/operators";
 import { ToastrService } from "@dotos/dui/common/toastr";
-import { TranslationService } from '@dotos/dui/i18n';
+import { TranslationService } from '@dotos/dui/translator';
 
 
 @Injectable({ providedIn: 'root' })

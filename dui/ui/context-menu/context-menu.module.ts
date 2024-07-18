@@ -8,7 +8,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { CommonModule } from '@angular/common';
 
 import { Dui } from '@dotos/dui/core';
-import { TranslateModule } from '@dotos/dui/i18n';
+import { TranslateModule } from '@dotos/dui/translator';
 import { IconModule } from '@dotos/dui/common/icon';
 import { ExtensionsModule } from '@dotos/dui/common/dynamic';
 

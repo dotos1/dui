@@ -6,7 +6,7 @@ import { SelectionType } from '../types/selection.type';
 import { columnsByPin, columnGroupWidths, columnsByPinArr } from '../utils/column';
 import { translateXY } from '../utils/translate';
 import { DataTableColumnDirective } from '../columns/column.directive';
-import { TranslatePipe } from '@dotos/dui/i18n';
+import { TranslatePipe } from '@dotos/dui/translator';
 
 @Component({
   selector: 'datatable-header',

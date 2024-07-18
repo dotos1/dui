@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component, Inject, Input, NgZone } from '@angu
 import { fromEvent } from 'rxjs';
 import { BaseEditor } from './base-editor';
 import { DiffEditorModel } from './types';
-import { TranslateService } from '@dotos/dui/i18n';
+import { TranslateService } from '@dotos/dui/translator';
 import { MONACO_EDITOR_CONFIG, MonacoEditorConfig } from './config';
 
 declare const monaco: any;

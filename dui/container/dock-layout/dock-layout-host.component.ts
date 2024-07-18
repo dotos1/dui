@@ -15,7 +15,7 @@ import { DockLayoutComponentService } from "./dock-layout-component.service";
 import { ComponentContainer } from "./container/component-container";
 import { ResolvedComponentItemConfig } from "./config/resolved-config";
 import { DockLayout } from "./dock-layout";
-import { TranslateService } from "@dotos/dui/i18n";
+import { TranslateService } from "@dotos/dui/translator";
 
 
 export const dock_LAYOUT_TAG_NAME = "dock-layout-host";

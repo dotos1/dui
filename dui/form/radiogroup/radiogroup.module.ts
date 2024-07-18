@@ -8,7 +8,7 @@ import { MatRadioModule } from '@angular/material/radio';
 import { RadioGroupField } from './radiogroup.component';
 import { SelectPipeModule } from '../base/select.module';
 import { Dui } from '@dotos/dui/core';
-import { TranslateModule } from '@dotos/dui/i18n';
+import { TranslateModule } from '@dotos/dui/translator';
 @NgModule({
   declarations: [
     RadioGroupField,

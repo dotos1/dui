@@ -3,7 +3,7 @@ import { Inject, InjectionToken, Optional } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClient,  HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
-import { TranslateModule } from '@dotos/dui/i18n';
+import { TranslateModule } from '@dotos/dui/translator';
 import { ConfigService } from '@dotos/dui/core/config';
 import { AuthGuard } from './auth-guard.service';
 import { AuthService } from './auth.service';

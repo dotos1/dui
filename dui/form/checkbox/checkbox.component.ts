@@ -1,7 +1,7 @@
 import { Component, ViewChild, AfterViewInit,  ChangeDetectionStrategy, Renderer2, OnDestroy } from '@angular/core';
 import { MatField } from '../base/mat.field';
 import { MatCheckbox, MatCheckboxChange } from '@angular/material/checkbox';
-import { TranslateService } from '@dotos/dui/i18n';
+import { TranslateService } from '@dotos/dui/translator';
 
 @Component({
   selector: 'checkbox-field',

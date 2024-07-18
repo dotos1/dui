@@ -5,7 +5,7 @@ import { DefaultNoComponentGlobalConfig, GlobalConfig, TOAST_CONFIG } from './to
 import { provideToastr } from './toast.provider';
 import { CommonModule } from '@angular/common';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
-import { TranslateModule } from '@dotos/dui/i18n';
+import { TranslateModule } from '@dotos/dui/translator';
 import { ToastNoAnimation } from './toast-noanimation.component';
 
 @NgModule({

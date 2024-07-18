@@ -1,6 +1,6 @@
 import { observable, computed, reaction,  action, IReactionDisposer } from 'mobx';
 import * as _ from 'lodash';
-import { TranslateService } from '@dotos/dui/i18n';
+import { TranslateService } from '@dotos/dui/translator';
 
 import { TreeModel } from './tree.model';
 import { TreeOptions } from './tree-options.model';

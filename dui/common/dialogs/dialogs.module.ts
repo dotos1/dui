@@ -23,7 +23,7 @@ import { WindowDialogComponent } from './window-dialog/window-dialog.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatIconModule } from '@angular/material/icon';
-import { TranslateModule } from '@dotos/dui/i18n';
+import { TranslateModule } from '@dotos/dui/translator';
 import { Dui } from '@dotos/dui/core';
 
 const DIALOGS: Type<any>[] = [

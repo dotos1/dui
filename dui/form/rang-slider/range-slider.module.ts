@@ -5,7 +5,7 @@ import { MatCommonModule} from '@angular/material/core';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { HammerModule} from '@angular/platform-browser';
 import { Dui } from '@dotos/dui/core';
-import { TranslateModule } from '@dotos/dui/i18n';
+import { TranslateModule } from '@dotos/dui/translator';
 import { FormModule } from '../components';
 import {RangeSlider} from './range-slider.component';
 import { RangeSliderFieldComponent } from './range-slider.field';

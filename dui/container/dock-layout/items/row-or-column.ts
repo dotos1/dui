@@ -1,4 +1,4 @@
-import { TranslateService } from '@dotos/dui/i18n'
+import { TranslateService } from '@dotos/dui/translator'
 import { ComponentItemConfig, ItemConfig, RowOrColumnItemConfig, StackItemConfig } from '../config/config'
 import { ResolvedRowOrColumnItemConfig, ResolvedStackItemConfig } from '../config/resolved-config'
 import { Splitter } from '../controls/splitter'

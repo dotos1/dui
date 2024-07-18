@@ -4,7 +4,7 @@ import { FormControl } from '@angular/forms';
 import {  of, Subject } from 'rxjs';
 import { debounceTime, delay, tap,  map, takeUntil, takeWhile } from 'rxjs/operators';
 
-import { TranslateService } from '@dotos/dui/i18n';
+import { TranslateService } from '@dotos/dui/translator';
 import { SelectOptionsService } from './options.service';
 import { MatField } from '../base/mat.field';
 import { MatSelectSearchComponent } from './select.search';

@@ -1,5 +1,5 @@
 import { Injectable, Inject } from '@angular/core';
-import { TranslateService } from '@dotos/dui/i18n';
+import { TranslateService } from '@dotos/dui/translator';
 import { of } from 'rxjs';
 
 declare const FontFace: any;

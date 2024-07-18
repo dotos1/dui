@@ -8,7 +8,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { ReactiveFormsModule } from '@angular/forms';
 
-import { TranslateModule, TranslationService } from '@dotos/dui/i18n';
+import { TranslateModule, TranslationService } from '@dotos/dui/translator';
 import { Dui } from '@dotos/dui/core';
 
 import { FormModule } from '../components/form.module';

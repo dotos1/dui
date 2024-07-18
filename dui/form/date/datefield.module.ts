@@ -12,7 +12,7 @@ import { Dui } from '@dotos/dui/core';
 import { FormModule } from '@dotos/dui/form';
 import { MatDatetimepickerModule } from '@dotos/dui/form/date/picker';
 import { NativeDatetimeAdapter } from '@dotos/dui/form/date/adapter';
-import { TranslateModule } from '@dotos/dui/i18n';
+import { TranslateModule } from '@dotos/dui/translator';
 import { DateFieldComponent } from './datefield.component';
 
 @NgModule({

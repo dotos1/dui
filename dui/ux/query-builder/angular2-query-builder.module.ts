@@ -11,7 +11,7 @@ import { QueryButtonGroupDirective } from './query-button-group.directive';
 import { QuerySwitchGroupDirective } from './query-switch-group.directive';
 import { QueryRemoveButtonDirective } from './query-remove-button.directive';
 import { QueryEmptyWarningDirective } from './query-empty-warning.directive';
-import { TranslateModule } from '@dotos/dui/i18n';
+import { TranslateModule } from '@dotos/dui/translator';
 
 @NgModule({
   imports: [

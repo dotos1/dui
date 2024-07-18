@@ -14,7 +14,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 import { Dui } from '@dotos/dui/core';
-import { TranslateModule, TranslationService } from '@dotos/dui/i18n';
+import { TranslateModule, TranslationService } from '@dotos/dui/translator';
 import { FormModule } from '../components/form.module';
 import { FieldSelect } from './select.field';
 import { SelectPipeModule } from '../base/select.module';

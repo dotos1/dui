@@ -13,8 +13,8 @@ import { MatListModule } from '@angular/material/list';
 import { MatTabsModule } from '@angular/material/tabs';
 import { FlexLayoutModule } from 'ngx-flexible-layout';
 
-import { TranslateModule } from '@dotos/dui/i18n';
-import { TranslateLoaderService } from '@dotos/dui/i18n';
+import { TranslateModule } from '@dotos/dui/translator';
+import { TranslateLoaderService } from '@dotos/dui/translator';
 import { Dui } from '@dotos/dui/core';
 import { DuiCardComponent } from './card.component';
 

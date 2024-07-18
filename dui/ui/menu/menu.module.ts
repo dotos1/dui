@@ -11,7 +11,7 @@ import { RouterModule } from '@angular/router';
 
 import { IconModule } from '@dotos/dui/common/icon';
 import { Dui } from '@dotos/dui/core';
-import { TranslateModule } from '@dotos/dui/i18n';
+import { TranslateModule } from '@dotos/dui/translator';
 import { FlexLayoutModule } from 'ngx-flexible-layout';
 import { ExtensionsModule } from '@dotos/dui/common/dynamic';
 

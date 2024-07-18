@@ -7,7 +7,7 @@ import {
 import { Keys } from '../utils/keys';
 import { SortDirection } from '../types/sort-direction.type';
 import { TableColumn } from '../types/table-column.type';
-import { TranslatePipe } from '@dotos/dui/i18n';
+import { TranslatePipe } from '@dotos/dui/translator';
 
 export type TreeStatus = 'collapsed' | 'expanded' | 'loading' | 'disabled';
 

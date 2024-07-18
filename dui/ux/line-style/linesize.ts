@@ -4,7 +4,7 @@ import { MatField } from '@dotos/dui/form';
 
 import { FieldConfig } from '@dotos/dui/core/form';
 import { FormControl } from '@angular/forms';
-import { TranslateService } from '@dotos/dui/i18n';
+import { TranslateService } from '@dotos/dui/translator';
 import { DotosConfigService } from '@dotos/dui/theme';
 import { Subject, takeUntil } from 'rxjs';
 import { ThemeService, matColor } from '@dotos/dui/theme';

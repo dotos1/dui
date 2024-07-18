@@ -4,7 +4,7 @@ import { MatChipInputEvent } from '@angular/material/chips';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 
-import { TranslateService } from '@dotos/dui/i18n';
+import { TranslateService } from '@dotos/dui/translator';
 import { ClipboardService } from '@dotos/dui/common/clipboard';
 
 import { CardViewTextItemModel } from '../../models';

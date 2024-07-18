@@ -20,7 +20,7 @@ import {
 } from './toastr-config';
 import { ToastrService } from './toastr.service';
 import { CommonModule } from '@angular/common';
-import { TranslateModule } from '@dotos/dui/i18n';
+import { TranslateModule } from '@dotos/dui/translator';
 
 @Component({
   selector: '[toast-component]',

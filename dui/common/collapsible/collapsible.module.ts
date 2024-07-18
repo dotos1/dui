@@ -3,7 +3,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { CollapseDirective } from './collapse.directive';
 import { CollapsibleComponent } from './collapsible.component';
-import { TranslateModule } from '@dotos/dui/i18n';
+import { TranslateModule } from '@dotos/dui/translator';
 @NgModule({
   imports: [MatIconModule, MatListModule,TranslateModule],
   declarations: [CollapsibleComponent, CollapseDirective],
