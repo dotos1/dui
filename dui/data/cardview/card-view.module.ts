@@ -20,7 +20,7 @@ import { FlexLayoutModule } from 'ngx-flexible-layout';
 import { Dui } from '@dotos/dui/core';
 import { MatDatetimepickerModule } from '@dotos/dui/form/date/picker';
 import { MatNativeDatetimeModule } from '@dotos/dui/form/date/adapter';
-import { TranslateModule } from '@dotos/dui/i18n';
+import { TranslateModule } from '@dotos/dui/translator';
 
 import { CardViewContentProxyDirective } from './directives';
 import { 

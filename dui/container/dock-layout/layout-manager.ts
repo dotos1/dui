@@ -1,5 +1,5 @@
 /* eslint-disable no-dupe-class-members */
-import { TranslateService } from '@dotos/dui/i18n';
+import { TranslateService } from '@dotos/dui/translator';
 import { ComponentItemConfig, ItemConfig, LayoutConfig, RowOrColumnItemConfig, StackItemConfig } from './config/config';
 import {
     ResolvedComponentItemConfig,

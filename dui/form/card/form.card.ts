@@ -4,7 +4,7 @@ import {
 } from '@angular/core';
 import { DuiCardComponent } from '@dotos/dui/container';
 import { FormComponent } from '@dotos/dui/form';
-import { TranslateService } from '@dotos/dui/i18n';
+import { TranslateService } from '@dotos/dui/translator';
 
 @Component({
   selector: 'form-card',

@@ -6,7 +6,7 @@ import * as monaco from 'monaco-editor';
 import { BaseEditor } from './base-editor';
 import { MONACO_EDITOR_CONFIG, MonacoEditorConfig } from './config';
 import { EditorModel } from './types';
-import { TranslateService } from '@dotos/dui/i18n';
+import { TranslateService } from '@dotos/dui/translator';
 
 // declare const monaco: any;
 

@@ -11,7 +11,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { IconModule } from '@dotos/dui/common/icon';
 import { MobxAngularModule } from '@dotos/dui/core/mobx';
 import { LocalStorageService } from '@dotos/dui/core/storage';
-import { TranslateModule } from '@dotos/dui/i18n';
+import { TranslateModule } from '@dotos/dui/translator';
 
 import { LoadingComponent } from './components/loading.component';
 import { TreeNodeCheckboxComponent } from './components/tree-node-checkbox.component';

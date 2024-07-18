@@ -26,7 +26,7 @@ import { RepeatTypeComponent } from './repeat-section.type';
 import { RowEditorComponent } from './row.editor';
 import { Fieldset } from './fieldset';
 import { Dui } from '@dotos/dui/core';
-import { TranslateModule } from '@dotos/dui/i18n';
+import { TranslateModule } from '@dotos/dui/translator';
 import { MatButtonModule } from '@angular/material/button';
 
 export const FIELD_TYPE_COMPONENTS = [

@@ -1,7 +1,7 @@
 import { ModuleWithProviders, NgModule } from "@angular/core";
 import { DockLayoutComponentService } from "./dock-layout-component.service";
 import { DockLayoutHostComponent } from "./dock-layout-host.component";
-import { TranslateModule, TranslationService } from "@dotos/dui/i18n";
+import { TranslateModule, TranslationService } from "@dotos/dui/translator";
 
 @NgModule({
   declarations: [DockLayoutHostComponent],

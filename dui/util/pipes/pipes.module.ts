@@ -18,7 +18,7 @@ import { HighlightPipe } from './text-highlight.pipe';
 import { ClonePipe } from './clone.pipe';
 import { SecureImagePipe } from './secure-image.pipe';
 import { SanitizeHtmlPipe } from './custom-html.pipe';
-import { TranslationService } from '@dotos/dui/i18n';
+import { TranslationService } from '@dotos/dui/translator';
 @NgModule({
   declarations: [
     KeysPipe,

@@ -1,4 +1,4 @@
-import { TranslateService } from '@dotos/dui/i18n';
+import { TranslateService } from '@dotos/dui/translator';
 import { ComponentItemConfig as ConfigComponentItemConfig } from '../config/config'; // remove alias in version 3
 import { ResolvedRowOrColumnItemConfig } from "../config/resolved-config";
 import { UnexpectedNullError } from '../errors/internal-error';

@@ -11,7 +11,7 @@ import { RouterModule } from '@angular/router';
 import { MenuModule } from '@dotos/dui/ui/menu';
 import { IconModule } from '@dotos/dui/common/icon';
 import { Dui } from '@dotos/dui/core';
-import { TranslateModule } from '@dotos/dui/i18n';
+import { TranslateModule } from '@dotos/dui/translator';
 
 import { ButtonComponent } from './button.component';
 @NgModule({

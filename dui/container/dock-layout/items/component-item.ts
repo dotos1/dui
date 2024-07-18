@@ -1,4 +1,4 @@
-import { TranslateService } from '@dotos/dui/i18n';
+import { TranslateService } from '@dotos/dui/translator';
 import { ResolvedComponentItemConfig, ResolvedHeaderedItemConfig } from '../config/resolved-config';
 import { ComponentContainer } from '../container/component-container';
 import { Tab } from '../controls/tab';

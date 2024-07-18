@@ -7,7 +7,7 @@ import * as _ from 'lodash';
 import { ComponentBase } from '@dotos/dui/core';
 import { Dui } from '@dotos/dui/core';
 import { Container } from '../container.main'
-import { TranslateService } from '@dotos/dui/i18n';
+import { TranslateService } from '@dotos/dui/translator';
 
 @Component({
   selector: 'card',

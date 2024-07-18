@@ -6,7 +6,7 @@ import { MatTabsModule, } from '@angular/material/tabs';
 import { MatRippleModule, } from '@angular/material/core';
 import { InfoDrawerLayoutComponent, InfoDrawerTitleDirective, InfoDrawerButtonsDirective, InfoDrawerContentDirective } from './info-drawer-layout.component';
 import { InfoDrawerComponent, InfoDrawerTabComponent } from './info-drawer.component';
-import { TranslateModule } from '@dotos/dui/i18n';
+import { TranslateModule } from '@dotos/dui/translator';
 
 export function declarations() {
   return [

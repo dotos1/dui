@@ -67,7 +67,7 @@ import {
   ColumnChangesService
 } from './services/index';
 import { DragDropModule } from '@angular/cdk/drag-drop';
-import { TranslateModule, TranslationService } from '@dotos/dui/i18n';
+import { TranslateModule, TranslationService } from '@dotos/dui/translator';
 import { Dui } from '@dotos/dui/core';
 
 @NgModule({

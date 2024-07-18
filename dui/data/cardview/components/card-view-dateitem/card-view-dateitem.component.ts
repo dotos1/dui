@@ -9,7 +9,7 @@ import { takeUntil } from 'rxjs/operators';
 import { MatDatetimepicker } from '@dotos/dui/form/date/picker';
 import { ConfigService } from '@dotos/dui/core/config';
 import { ClipboardService } from '@dotos/dui/common/clipboard';
-import { TranslationService } from '@dotos/dui/i18n';
+import { TranslationService } from '@dotos/dui/translator';
 
 import { CardViewDateItemModel } from '../../models';
 import { CardViewUpdateService } from '../../services';

@@ -1,4 +1,4 @@
-import { TranslateService } from '@dotos/dui/i18n';
+import { TranslateService } from '@dotos/dui/translator';
 import { LayoutConfig } from './config/config';
 import { ResolvedComponentItemConfig, ResolvedLayoutConfig, ResolvedPopoutLayoutConfig } from './config/resolved-config';
 import { ComponentContainer } from './container/component-container';

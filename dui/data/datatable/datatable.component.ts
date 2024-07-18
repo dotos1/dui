@@ -21,7 +21,7 @@ import { DatatableFooterDirective } from './footer/footer.directive';
 import { DataTableHeaderComponent } from './header/header.component';
 import { DatatableCardComponent } from './datatable.card';
 import { BehaviorSubject, Subscription } from 'rxjs';
-import { TranslateService } from '@dotos/dui/i18n';
+import { TranslateService } from '@dotos/dui/translator';
 import { Dui } from '@dotos/dui/core';
 
 @Component({

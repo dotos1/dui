@@ -3,7 +3,7 @@ import { AfterViewInit, ChangeDetectionStrategy, Component, ElementRef, ViewEnca
 import { MatField } from '../base/mat.field';
 import * as _ from 'lodash';
 import { Dui } from '@dotos/dui/core';
-import { TranslateService } from '@dotos/dui/i18n';
+import { TranslateService } from '@dotos/dui/translator';
 
 @Component({
   selector: 'number-field',

@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { TranslateModule } from '@dotos/dui/i18n';
+import { TranslateModule } from '@dotos/dui/translator';
 import { SelectOptionsPipe } from './select-options.pipe';
 
 @NgModule({

@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
 import * as _ from 'lodash';
 import { BehaviorSubject } from 'rxjs';
 import { LocalStorageService } from '@dotos/dui/core/storage';
-import { TranslateService } from '@dotos/dui/i18n';
+import { TranslateService } from '@dotos/dui/translator';
 
 import { TreeModel } from '../models/tree.model';
 import { TreeNode } from '../models/tree-node.model';

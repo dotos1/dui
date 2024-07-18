@@ -20,7 +20,7 @@ import { ColorCompactModule } from '@dotos/dui/common/colorpicker/components';
 import { ColorChromeModule } from '@dotos/dui/common/colorpicker/components';
 import { ColorGithubModule } from '@dotos/dui/common/colorpicker/components';
 import { ColorSketchModule } from '@dotos/dui/common/colorpicker/components';
-import { TranslateModule } from '@dotos/dui/i18n';
+import { TranslateModule } from '@dotos/dui/translator';
 
 @NgModule({
   declarations: [

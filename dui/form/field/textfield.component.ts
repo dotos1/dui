@@ -5,7 +5,7 @@ import { debounceTime, delay, tap, filter, map, takeUntil, takeWhile } from 'rxj
 import * as _ from 'lodash';
 import { Dui } from '@dotos/dui/core';
 import { isObject } from '@dotos/dui/base';
-import { TranslateService } from '@dotos/dui/i18n';
+import { TranslateService } from '@dotos/dui/translator';
 import { OptionsService } from './options.service';
 import { MatField } from '../base/mat.field';
 import { VTypes } from './vtype';

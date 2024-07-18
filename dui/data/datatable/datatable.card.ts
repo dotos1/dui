@@ -10,7 +10,7 @@ import { DuiCardComponent } from '@dotos/dui/container';
 import { DatatableComponent } from './datatable.component';
 import { ITable, IDataSource } from './types/table.type';
 import { TableColumn } from './types/table-column.type';
-import { TranslatePipe, TranslateService } from '@dotos/dui/i18n';
+import { TranslatePipe, TranslateService } from '@dotos/dui/translator';
 import { SelectionType } from './types';
 
 @Component({

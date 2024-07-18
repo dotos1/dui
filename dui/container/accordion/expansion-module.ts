@@ -19,7 +19,7 @@ import {
   ExpansionPanelTitle,
 } from './expansion-panel-header';
 import { Dui } from '@dotos/dui/core';
-import { TranslateModule } from '@dotos/dui/i18n';
+import { TranslateModule } from '@dotos/dui/translator';
 
 
 @NgModule({

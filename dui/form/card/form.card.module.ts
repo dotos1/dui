@@ -11,7 +11,7 @@ import { FormCard } from './form.card';
 import { FlexLayoutModule } from 'ngx-flexible-layout';
 
 import { Dui } from '@dotos/dui/core';
-import { TranslateModule } from '@dotos/dui/i18n';
+import { TranslateModule } from '@dotos/dui/translator';
 
 @NgModule({
   declarations: [FormCard],

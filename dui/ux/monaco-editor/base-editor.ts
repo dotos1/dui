@@ -12,7 +12,7 @@ import {
 } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { MONACO_EDITOR_CONFIG, MonacoEditorConfig } from './config';
-import { TranslateService } from '@dotos/dui/i18n';
+import { TranslateService } from '@dotos/dui/translator';
 let loadedMonaco = false;
 let loadPromise: Promise<void>;
 export const defaultLanguage = 'en-us';

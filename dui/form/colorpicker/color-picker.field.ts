@@ -20,7 +20,7 @@ import { GithubComponent } from '@dotos/dui/common/colorpicker/components';
 import { SketchComponent } from '@dotos/dui/common/colorpicker/components';
 import { DOCUMENT } from '@angular/common';
 import { MatDialog } from '@angular/material/dialog';
-import { TranslateService } from '@dotos/dui/i18n';
+import { TranslateService } from '@dotos/dui/translator';
 import { isObject } from 'lodash';
 
 export const DATEINPUT_CONTROL_VALUE_ACCESSOR: any = {

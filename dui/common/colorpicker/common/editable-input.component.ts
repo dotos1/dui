@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import {  ChangeDetectionStrategy,  Component,  EventEmitter,  Input,  NgModule,  OnChanges,  OnDestroy,  OnInit, Output,
 } from '@angular/core';
-import { TranslateModule } from '@dotos/dui/i18n';
+import { TranslateModule } from '@dotos/dui/translator';
 import { fromEvent, Subscription } from 'rxjs';
 
 @Component({

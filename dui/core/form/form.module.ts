@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ValidationMessage } from './template/form.validation-message';
 import { FormTemplateType } from './template/field-template.type';
 import { DuiBase } from '@dotos/dui/base';
-import { TranslateModule } from '@dotos/dui/i18n';
+import { TranslateModule } from '@dotos/dui/translator';
 
 @NgModule({
     imports: [ TranslateModule,CommonModule],

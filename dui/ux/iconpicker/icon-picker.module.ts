@@ -21,7 +21,7 @@ import { IconPickerService } from './icon-picker.service';
 import { IconPickerComponent } from './icon-picker.component';
 import { SearchIconPipe } from './search-icon.pipe';
 import { TextDirective } from './text.directive';
-import { TranslateModule, TranslationService } from '@dotos/dui/i18n';
+import { TranslateModule, TranslationService } from '@dotos/dui/translator';
 import { FontLoaderService } from './font-loader.service';
 import { IconModule } from '@dotos/dui/common/icon';
 

@@ -10,7 +10,7 @@ import {MatTabsModule} from '@angular/material/tabs';
 import {TabPanel} from './tabpanel.component';
 import { FlexLayoutModule } from 'ngx-flexible-layout';
 import { Dui } from '@dotos/dui/core';
-import { TranslateModule } from '@dotos/dui/i18n';
+import { TranslateModule } from '@dotos/dui/translator';
 
 @NgModule({
   imports: [

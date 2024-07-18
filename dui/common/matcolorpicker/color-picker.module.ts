@@ -9,7 +9,7 @@ import { DuiPipesModule } from '@dotos/dui/util/pipes';
 
 import { ColorPickerComponent } from './color-picker.component';
 import { PerfectScrollbarModule } from '@dotos/dui/common/perfect-scroll';
-import { TranslateModule } from '@dotos/dui/i18n';
+import { TranslateModule } from '@dotos/dui/translator';
 
 @NgModule({
   declarations: [
