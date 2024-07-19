@@ -1,6 +1,6 @@
-import { Component, AfterViewInit, ViewChildren, QueryList,  ChangeDetectionStrategy } from '@angular/core';
-import * as _ from 'lodash';
+import { AfterViewInit, ChangeDetectionStrategy, Component, QueryList, ViewChildren } from '@angular/core';
 import { MatCheckbox } from '@angular/material/checkbox';
+import * as _ from 'lodash-es';
 import { MatField } from '../base/mat.field';
 
 @Component({

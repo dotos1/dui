@@ -1,5 +1,5 @@
 import { ComponentFactory, ComponentFactoryResolver, Type } from '@angular/core';
-import {isUndefined,isFunction,clone,isObjectLike,isNull,each,isArray} from 'lodash';
+import { clone, each, isArray, isFunction, isNull, isObjectLike, isUndefined } from 'lodash-es';
 import { isBlankString, isNullOrUndefined } from '../base';
 
 // @dynamic

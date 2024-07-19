@@ -1,13 +1,9 @@
-import { Component, ChangeDetectionStrategy, SimpleChanges, ChangeDetectorRef, ViewEncapsulation, OnChanges } from '@angular/core';
-import {
-  ComponentFactoryResolver, Injector, ViewChild, ViewContainerRef, Input
-} from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ComponentFactoryResolver, Injector, Input, OnChanges, SimpleChanges, ViewChild, ViewContainerRef, ViewEncapsulation } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
-import * as _ from 'lodash';
-import { ComponentBase } from '@dotos/dui/core';
-import { Dui } from '@dotos/dui/core';
-import { Container } from '../container.main'
+import { ComponentBase, Dui } from '@dotos/dui/core';
 import { TranslateService } from '@dotos/dui/translator';
+import * as _ from 'lodash-es';
+import { Container } from '../container.main';
 
 @Component({
   selector: 'card',

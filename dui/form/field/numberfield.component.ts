@@ -1,9 +1,9 @@
 
 import { AfterViewInit, ChangeDetectionStrategy, Component, ElementRef, ViewEncapsulation } from '@angular/core';
-import { MatField } from '../base/mat.field';
-import * as _ from 'lodash';
 import { Dui } from '@dotos/dui/core';
 import { TranslateService } from '@dotos/dui/translator';
+import * as _ from 'lodash-es';
+import { MatField } from '../base/mat.field';
 
 @Component({
   selector: 'number-field',

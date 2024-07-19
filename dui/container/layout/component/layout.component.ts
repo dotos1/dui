@@ -1,47 +1,47 @@
 import {
-  Component,
-  Input,
-  Output,
-  ChangeDetectionStrategy,
-  ChangeDetectorRef,
-  Renderer2,
-  AfterViewInit,
-  OnDestroy,
-  ElementRef,
-  NgZone,
-  ViewChildren,
-  QueryList,
-  EventEmitter,
-  ViewEncapsulation,
-  ComponentFactoryResolver,
-  Injector,
+    AfterViewInit,
+    ChangeDetectionStrategy,
+    ChangeDetectorRef,
+    Component,
+    ComponentFactoryResolver,
+    ElementRef,
+    EventEmitter,
+    Injector,
+    Input,
+    NgZone,
+    OnDestroy,
+    Output,
+    QueryList,
+    Renderer2,
+    ViewChildren,
+    ViewEncapsulation,
 } from '@angular/core';
-import { Observable, Subscriber, Subject } from 'rxjs';
+import { Container } from '@dotos/dui/container';
+import * as _ from 'lodash-es';
+import { Observable, Subject, Subscriber } from 'rxjs';
 import { debounceTime } from 'rxjs/operators';
-import * as _ from 'lodash';
-import { Container } from '@dotos/dui/container'
 
-import {
-  IArea,
-  IPoint,
-  ISplitSnapshot,
-  IAreaSnapshot,
-  IOutputData,
-  IOutputAreaSizes,
-} from '../interface';
 import { SplitAreaDirective } from '../directive/split-area.directive';
 import {
-  getInputPositiveNumber,
-  getInputboolean,
-  isUserSizesValid,
-  getAreaMinSize,
-  getAreaMaxSize,
-  getPointFromEvent,
-  getElementPixelSize,
-  getGutterSideAbsorptionCapacity,
-  updateAreaSize,
-  getKeyboardEndpoint,
-  pointDeltaEquals,
+    IArea,
+    IAreaSnapshot,
+    IOutputAreaSizes,
+    IOutputData,
+    IPoint,
+    ISplitSnapshot,
+} from '../interface';
+import {
+    getAreaMaxSize,
+    getAreaMinSize,
+    getElementPixelSize,
+    getGutterSideAbsorptionCapacity,
+    getInputPositiveNumber,
+    getInputboolean,
+    getKeyboardEndpoint,
+    getPointFromEvent,
+    isUserSizesValid,
+    pointDeltaEquals,
+    updateAreaSize,
 } from '../utils';
 import { DuiPanelComponent } from './panel.component';
 /**

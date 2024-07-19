@@ -1,11 +1,11 @@
-import { observable, computed, reaction,  action, IReactionDisposer } from 'mobx';
-import * as _ from 'lodash';
 import { TranslateService } from '@dotos/dui/translator';
+import * as _ from 'lodash-es';
+import { IReactionDisposer, action, computed, observable, reaction } from 'mobx';
 
-import { TreeModel } from './tree.model';
-import { TreeOptions } from './tree-options.model';
-import { ITreeNode } from '../defs/api';
 import { TREE_EVENTS } from '../constants/events';
+import { ITreeNode } from '../defs/api';
+import { TreeOptions } from './tree-options.model';
+import { TreeModel } from './tree.model';
 
 const { first, last, some, every } = _;
 

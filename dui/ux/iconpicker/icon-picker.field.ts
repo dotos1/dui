@@ -1,16 +1,16 @@
 
-import { Component, forwardRef, ElementRef, Optional, ViewChild, ViewEncapsulation, NgZone, ViewContainerRef, Inject, OnInit, ChangeDetectorRef } from '@angular/core';
-import { DOCUMENT } from '@angular/common';
+import { Directionality } from '@angular/cdk/bidi';
 import { coerceBooleanProperty } from '@angular/cdk/coercion';
 import { Overlay } from '@angular/cdk/overlay';
 import { ComponentPortal } from '@angular/cdk/portal';
-import {  Directionality } from '@angular/cdk/bidi';
-import { NG_VALUE_ACCESSOR, NG_VALIDATORS } from '@angular/forms';
+import { DOCUMENT } from '@angular/common';
+import { ChangeDetectorRef, Component, ElementRef, Inject, NgZone, OnInit, Optional, ViewChild, ViewContainerRef, ViewEncapsulation, forwardRef } from '@angular/core';
+import { NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
-import { MatInput } from '@angular/material/input';
 import { MatIconRegistry } from "@angular/material/icon";
+import { MatInput } from '@angular/material/input';
 import { DomSanitizer } from "@angular/platform-browser";
-import { isObject } from 'lodash';
+import { isObject } from 'lodash-es';
 
 import { AbstractTrigger } from '@dotos/dui/form';
 import { TranslateService } from '@dotos/dui/translator';

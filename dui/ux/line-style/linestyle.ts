@@ -1,25 +1,24 @@
 import {
-  Component,
-  OnInit,
-  Input,
-  ElementRef,
-  ViewEncapsulation,
-  ViewChildren,
-  QueryList,
-  ChangeDetectorRef,
-  AfterViewInit,
-  OnDestroy,
-  ViewChild,
+    AfterViewInit,
+    ChangeDetectorRef,
+    Component,
+    ElementRef,
+    Input,
+    OnDestroy,
+    OnInit,
+    QueryList,
+    ViewChild,
+    ViewChildren,
+    ViewEncapsulation,
 } from '@angular/core';
-import { Subject, takeUntil } from 'rxjs';
-import { MatField } from '@dotos/dui/form';
-import { FieldConfig } from '@dotos/dui/core/form';
 import { FormControl } from '@angular/forms';
-import { TranslateService } from '@dotos/dui/translator';
-import { ThemeService, matColor } from '@dotos/dui/theme';
-import { DotosConfigService } from '@dotos/dui/theme';
+import { FieldConfig } from '@dotos/dui/core/form';
 import { LocalStorageService } from '@dotos/dui/core/storage';
-import * as _ from 'lodash';
+import { MatField } from '@dotos/dui/form';
+import { DotosConfigService, ThemeService, matColor } from '@dotos/dui/theme';
+import { TranslateService } from '@dotos/dui/translator';
+import * as _ from 'lodash-es';
+import { Subject, takeUntil } from 'rxjs';
 
 export const PRE_DEFINED_THEMES = [
   { value: '0,0,0' },

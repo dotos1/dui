@@ -1,9 +1,9 @@
+import { ESCAPE } from '@angular/cdk/keycodes';
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output, ViewEncapsulation } from '@angular/core';
 import { duiAnimations } from '@dotos/dui/common/animations';
-import { MatColors } from '@dotos/dui/core/color';
 import { TriggerPopup } from '@dotos/dui/common/trigger';
-import { ESCAPE } from '@angular/cdk/keycodes';
-import * as _ from 'lodash';
+import { MatColors } from '@dotos/dui/core/color';
+import * as _ from 'lodash-es';
 
 @Component({
   selector: 'color-picker-content',

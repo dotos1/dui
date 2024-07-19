@@ -1,7 +1,7 @@
-import { ChangeDetectionStrategy,  Component, EventEmitter,  OnInit, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { MAT_INPUT_VALUE_ACCESSOR } from '@angular/material/input';
-import { Observable,  of } from 'rxjs';
-import * as _ from 'lodash';
+import * as _ from 'lodash-es';
+import { Observable, of } from 'rxjs';
 import { TextFieldComponent } from '../field';
 @Component({
   selector: 'array-input-field',

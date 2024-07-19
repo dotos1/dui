@@ -1,19 +1,28 @@
-import {
-  Component, Input, Output, OnChanges, EventEmitter, ChangeDetectorRef, ViewEncapsulation,
-  ContentChild, TemplateRef, HostListener, ViewChild
-} from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import * as _ from 'lodash';
-import { BehaviorSubject } from 'rxjs';
+import {
+    ChangeDetectorRef,
+    Component,
+    ContentChild,
+    EventEmitter,
+    HostListener,
+    Input,
+    OnChanges,
+    Output,
+    TemplateRef,
+    ViewChild,
+    ViewEncapsulation
+} from '@angular/core';
 import { LocalStorageService } from '@dotos/dui/core/storage';
 import { TranslateService } from '@dotos/dui/translator';
+import * as _ from 'lodash-es';
+import { BehaviorSubject } from 'rxjs';
 
-import { TreeModel } from '../models/tree.model';
-import { TreeNode } from '../models/tree-node.model';
-import { TreeViewportComponent } from './tree-viewport.component';
-import { TreeDraggedElement } from '../models';
-import { ITreeOptions } from '../defs/api';
 import { TREE_EVENTS } from '../constants/events';
+import { ITreeOptions } from '../defs/api';
+import { TreeDraggedElement } from '../models';
+import { TreeNode } from '../models/tree-node.model';
+import { TreeModel } from '../models/tree.model';
+import { TreeViewportComponent } from './tree-viewport.component';
 
 const { includes, pick } = _;
 

@@ -1,10 +1,10 @@
+import { Platform } from '@angular/cdk/platform';
 import { Inject, Injectable, InjectionToken } from '@angular/core';
 import { Router, RoutesRecognized } from '@angular/router';
-import { Platform } from '@angular/cdk/platform';
+import { LocalStorageService } from '@dotos/dui/core/storage';
+import * as _ from 'lodash-es';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { filter } from 'rxjs/operators';
-import { LocalStorageService } from '@dotos/dui/core/storage';
-import * as _ from 'lodash';
 import { DotosConfig } from '../types';
 
 export const DOTOS_CONFIG = new InjectionToken('dotosConfig');

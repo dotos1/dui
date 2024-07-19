@@ -1,8 +1,16 @@
-import { Injector, ChangeDetectorRef, QueryList,  ComponentFactoryResolver, ViewContainerRef, ElementRef, Renderer2, EventEmitter
+import {
+    ChangeDetectorRef,
+    ComponentFactoryResolver,
+    ElementRef,
+    EventEmitter,
+    Injector,
+    QueryList,
+    Renderer2,
+    ViewContainerRef
 } from '@angular/core';
 import { MatMenuTrigger } from '@angular/material/menu';
 import { MatTooltip } from '@angular/material/tooltip';
-import * as _ from 'lodash';
+import * as _ from 'lodash-es';
 
 import { ComponentBase } from '@dotos/dui/core';
 

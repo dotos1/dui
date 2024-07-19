@@ -1,12 +1,21 @@
 import {
-  Component, Input, ViewChild, ChangeDetectionStrategy, Injector,
-  SimpleChanges, ChangeDetectorRef, ComponentFactoryResolver, ViewEncapsulation, OnChanges, OnInit, DoCheck,
+    ChangeDetectionStrategy,
+    ChangeDetectorRef,
+    Component,
+    ComponentFactoryResolver,
+    DoCheck,
+    Injector,
+    Input,
+    OnChanges, OnInit,
+    SimpleChanges,
+    ViewChild,
+    ViewEncapsulation,
 } from '@angular/core';
 import { MatButtonToggleAppearance } from '@angular/material/button-toggle';
 import { MatIconRegistry } from '@angular/material/icon';
 import { DomSanitizer } from '@angular/platform-browser';
 import { ComponentBase, Dui } from '@dotos/dui/core';
-import * as _ from 'lodash';
+import * as _ from 'lodash-es';
 
 @Component({
   selector: 'toggle-button',

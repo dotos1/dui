@@ -1,6 +1,5 @@
+import * as _ from 'lodash-es';
 import { FieldConfig } from './models/field.config';
-import { DuiBase } from '@dotos/dui/base';
-import * as _ from 'lodash';
 import { getKeyPath2 } from './utils';
 
 export class FormExt {

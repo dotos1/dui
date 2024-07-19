@@ -1,12 +1,8 @@
-import { ChangeDetectorRef, ComponentRef} from '@angular/core';
+import { ChangeDetectorRef, ComponentRef } from '@angular/core';
 import { AbstractControlOptions, FormArray, FormControl, FormGroup } from '@angular/forms';
-import * as _ from 'lodash';
 
 import { DuiBase } from '@dotos/dui/base';
-import { FieldType,FieldConfigCache, ValueChangeEvent } from '@dotos/dui/core/form';
-import { findControl, registerControl } from '@dotos/dui/core/form';
-import { clone, defineHiddenProp, getFieldValue } from '@dotos/dui/core/form';
-import { assignModelValue2 } from '@dotos/dui/core/form';
+import { FieldConfigCache, FieldType, ValueChangeEvent, assignModelValue2, clone, defineHiddenProp, findControl, getFieldValue, registerControl } from '@dotos/dui/core/form';
 import { Subject } from 'rxjs';
 import { ComponentBase } from './component.base';
 

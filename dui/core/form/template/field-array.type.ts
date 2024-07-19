@@ -1,10 +1,10 @@
 import { FormArray } from '@angular/forms';
-import { FieldType } from './field.type';
-import { clone, assignFieldValue, getFieldValue} from '../utils';
-import { FieldConfig, FormExtension  } from '../models';
-import { registerControl, unregisterControl, findControl } from '../extensions/field-form/utils';
 import { DuiBase } from '@dotos/dui/base';
-import * as _ from 'lodash';
+import * as _ from 'lodash-es';
+import { findControl, registerControl, unregisterControl } from '../extensions/field-form/utils';
+import { FieldConfig, FormExtension } from '../models';
+import { assignFieldValue, clone, getFieldValue } from '../utils';
+import { FieldType } from './field.type';
 
 export abstract class FieldArrayType<F extends FieldConfig = FieldConfig> extends FieldType<F> implements FormExtension {
 
