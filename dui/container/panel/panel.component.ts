@@ -1,16 +1,12 @@
 
-import { Component, SimpleChanges, ChangeDetectorRef, Injector, OnChanges, OnInit, OnDestroy, AfterViewInit } from '@angular/core';
-import {
-  ComponentFactoryResolver, EventEmitter, ElementRef, Renderer2, Output, Input,
-} from '@angular/core';
-import { Subject } from 'rxjs';
-import { Observable } from 'rxjs';
+import { AfterViewInit, ChangeDetectorRef, Component, ComponentFactoryResolver, ElementRef, EventEmitter, Injector, Input, OnChanges, OnDestroy, OnInit, Output, Renderer2, SimpleChanges } from '@angular/core';
+import * as _ from 'lodash-es';
+import { Observable, Subject } from 'rxjs';
 import { debounceTime } from 'rxjs/operators';
+import { AbstractPanel } from './abstract.panel';
 import { IArea } from './interface/IArea';
 import { IPoint } from './interface/IPoint';
 import { ILayoutTogglable } from './layout-toggle';
-import { AbstractPanel } from './abstract.panel';
-import * as _ from 'lodash';
 
 @Component({
   selector: 'panel',

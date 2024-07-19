@@ -1,20 +1,20 @@
 import {
-  ChangeDetectionStrategy,
-  ChangeDetectorRef,
-  Component,
-  ComponentFactoryResolver,
-  DoCheck,
-  EventEmitter,
-  Injector,
-  Input,
-  OnChanges,
-  Output,
-  SimpleChanges,
-  ViewChild
+    ChangeDetectionStrategy,
+    ChangeDetectorRef,
+    Component,
+    ComponentFactoryResolver,
+    DoCheck,
+    EventEmitter,
+    Injector,
+    Input,
+    OnChanges,
+    Output,
+    SimpleChanges,
+    ViewChild
 } from '@angular/core';
 import { MatTooltip } from '@angular/material/tooltip';
 import { ComponentBase } from '@dotos/dui/core';
-import * as _ from 'lodash';
+import * as _ from 'lodash-es';
 
 @Component({
   selector: 'fabbutton',

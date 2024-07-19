@@ -1,6 +1,6 @@
 
+import * as _ from 'lodash-es';
 import { Hash } from './hash';
-import * as _ from 'lodash';
 export class Sha1 implements Hash {
   blockSize: any;
 

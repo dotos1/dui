@@ -1,7 +1,7 @@
 
-import { OnInit, OnDestroy, AfterViewChecked, AfterViewInit, AfterContentInit, AfterContentChecked, ComponentRef, ChangeDetectorRef, HostBinding, Directive, Input, SimpleChanges, DoCheck, OnChanges } from '@angular/core';
+import { AfterContentChecked, AfterContentInit, AfterViewChecked, AfterViewInit, ChangeDetectorRef, ComponentRef, Directive, DoCheck, HostBinding, Input, OnChanges, OnDestroy, OnInit, SimpleChanges } from '@angular/core';
 import { Base } from '@dotos/dui/base';
-import * as _ from 'lodash';
+import * as _ from 'lodash-es';
 import { Dui } from './dui';
 
 @Directive()

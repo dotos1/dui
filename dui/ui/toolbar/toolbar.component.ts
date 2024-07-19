@@ -1,13 +1,8 @@
-import { Component, Input, ChangeDetectionStrategy, SimpleChanges, ChangeDetectorRef, HostListener, OnChanges, AfterContentInit } from '@angular/core';
-import {
-  ElementRef, ComponentFactoryResolver, Renderer2,
-  ViewChild, ViewContainerRef, Injector,
-} from '@angular/core'
 import { Platform } from '@angular/cdk/platform';
-import { ComponentBase } from '@dotos/dui/core';
+import { AfterContentInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, ComponentFactoryResolver, ElementRef, HostListener, Injector, Input, OnChanges, Renderer2, SimpleChanges, ViewChild, ViewContainerRef } from '@angular/core';
 import { Container } from '@dotos/dui/container';
-import * as _ from 'lodash';
-import { Dui } from '@dotos/dui/core';
+import { ComponentBase, Dui } from '@dotos/dui/core';
+import * as _ from 'lodash-es';
 
 @Component({
   selector: 'dui-toolbar',

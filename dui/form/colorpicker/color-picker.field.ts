@@ -1,27 +1,32 @@
 
-import {
-  Component, forwardRef, ElementRef, Optional, ViewChild, ViewEncapsulation,
-  NgZone, ViewContainerRef, Input, Inject, ChangeDetectionStrategy
-} from '@angular/core';
-import { NG_VALUE_ACCESSOR, NG_VALIDATORS } from '@angular/forms';
-import {  coerceBooleanProperty  } from '@angular/cdk/coercion';
+import { Directionality } from '@angular/cdk/bidi';
+import { coerceBooleanProperty } from '@angular/cdk/coercion';
 import { Overlay } from '@angular/cdk/overlay';
 import { ComponentPortal } from '@angular/cdk/portal';
-import { Directionality } from '@angular/cdk/bidi';
+import {
+    ChangeDetectionStrategy,
+    Component,
+    ElementRef,
+    Inject,
+    Input,
+    NgZone,
+    Optional, ViewChild,
+    ViewContainerRef,
+    ViewEncapsulation,
+    forwardRef
+} from '@angular/core';
+import { NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { MatInput } from '@angular/material/input';
 import { AbstractTrigger } from '../trigger/abstract.trigger';
 
-import { ColorPickerContent } from './color-picker.content';
 import { FieldConfig } from '@dotos/dui/core/form';
+import { ColorPickerContent } from './color-picker.content';
 
-import { ChromeComponent } from '@dotos/dui/common/colorpicker/components';
-import { CompactComponent } from '@dotos/dui/common/colorpicker/components';
-import { GithubComponent } from '@dotos/dui/common/colorpicker/components';
-import { SketchComponent } from '@dotos/dui/common/colorpicker/components';
 import { DOCUMENT } from '@angular/common';
 import { MatDialog } from '@angular/material/dialog';
+import { ChromeComponent, CompactComponent, GithubComponent, SketchComponent } from '@dotos/dui/common/colorpicker/components';
 import { TranslateService } from '@dotos/dui/translator';
-import { isObject } from 'lodash';
+import { isObject } from 'lodash-es';
 
 export const DATEINPUT_CONTROL_VALUE_ACCESSOR: any = {
   provide: NG_VALUE_ACCESSOR,

@@ -1,9 +1,9 @@
 
-import { ChangeDetectorRef, ComponentFactoryResolver, Directive, ElementRef, Injector, Input,  NgZone,  OnChanges,  OnDestroy,  OnInit,  Renderer2, SimpleChanges } from '@angular/core'
-import * as _ from 'lodash';
-import { Container } from '@dotos/dui/container'
-import { LayoutComponent } from './layout.component'
-import { getInputboolean, getInputPositiveNumber } from '../utils'
+import { ChangeDetectorRef, ComponentFactoryResolver, Directive, ElementRef, Injector, Input, NgZone, OnChanges, OnDestroy, OnInit, Renderer2, SimpleChanges } from '@angular/core';
+import { Container } from '@dotos/dui/container';
+import * as _ from 'lodash-es';
+import { getInputPositiveNumber, getInputboolean } from '../utils';
+import { LayoutComponent } from './layout.component';
 
 @Directive()
 export class AbstractPanel extends Container implements OnChanges,OnInit,OnDestroy {

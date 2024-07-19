@@ -1,9 +1,8 @@
 
-import {  AfterViewInit, ChangeDetectorRef, HostBinding, Injector, OnDestroy } from '@angular/core';
-import { ComponentFactoryResolver, ElementRef, Renderer2, ViewChild, ViewContainerRef, Input, Directive } from '@angular/core';
+import { AfterViewInit, ChangeDetectorRef, ComponentFactoryResolver, Directive, ElementRef, HostBinding, Injector, Input, OnDestroy, Renderer2, ViewChild, ViewContainerRef } from '@angular/core';
+import * as _ from 'lodash-es';
 import { Container } from '../container.main';
 import { IArea } from './interface/IArea';
-import * as _ from 'lodash';
 
 @Directive()
 export class AbstractPanel extends Container implements AfterViewInit,OnDestroy{

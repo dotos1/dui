@@ -1,13 +1,13 @@
-import { Injectable, OnDestroy,  } from '@angular/core';
-import { observable, computed, action, autorun } from 'mobx';
-import { Subscription } from 'rxjs';
-import * as _ from 'lodash';
+import { Injectable, OnDestroy, } from '@angular/core';
 import { TranslateService } from '@dotos/dui/translator';
+import * as _ from 'lodash-es';
+import { action, autorun, computed, observable } from 'mobx';
+import { Subscription } from 'rxjs';
+import { TREE_EVENTS } from '../constants/events';
+import { IDType, IDTypeDictionary, ITreeModel } from '../defs/api';
 import { TreeNode } from './tree-node.model';
 import { TreeOptions } from './tree-options.model';
 import { TreeVirtualScroll } from './tree-virtual-scroll.model';
-import { ITreeModel, IDType, IDTypeDictionary } from '../defs/api';
-import { TREE_EVENTS } from '../constants/events';
 
 
 const { first, last, compact, find,  isString, isFunction } = _;

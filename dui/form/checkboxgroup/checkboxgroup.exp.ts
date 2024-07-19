@@ -1,14 +1,14 @@
 
-import {
-  AfterContentInit, ChangeDetectorRef, ContentChildren, Directive,
-  EventEmitter, Input, Output, QueryList,
-  forwardRef
-} from '@angular/core';
-import * as _ from 'lodash';
-import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
-import { MatCheckbox } from '@angular/material/checkbox';
 import { coerceBooleanProperty } from '@angular/cdk/coercion';
+import {
+    AfterContentInit, ChangeDetectorRef, ContentChildren, Directive,
+    EventEmitter, Input, Output, QueryList,
+    forwardRef
+} from '@angular/core';
+import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { MatCheckbox } from '@angular/material/checkbox';
 import { TranslateService } from '@dotos/dui/translator';
+import * as _ from 'lodash-es';
 import { MatField } from '../base/mat.field';
 
 

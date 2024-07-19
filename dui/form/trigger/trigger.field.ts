@@ -1,19 +1,18 @@
-import { Component, ChangeDetectorRef, Inject, ChangeDetectionStrategy, AfterViewInit } from '@angular/core';
-import { ElementRef, Optional, ViewChild, ViewEncapsulation, NgZone, ViewContainerRef } from '@angular/core';
-import {  coerceBooleanProperty  } from '@angular/cdk/coercion';
-import { DomSanitizer } from "@angular/platform-browser";
+import { Directionality } from '@angular/cdk/bidi';
+import { coerceBooleanProperty } from '@angular/cdk/coercion';
 import { Overlay } from '@angular/cdk/overlay';
 import { ComponentPortal, ComponentType } from '@angular/cdk/portal';
-import { Directionality } from '@angular/cdk/bidi';
-import { MatInput } from '@angular/material/input';
-import { MatIconRegistry } from '@angular/material/icon';
-import * as _ from 'lodash';
-import { AbstractTrigger } from './abstract.trigger';
-import { Dui } from '@dotos/dui/core';
-import { MatDialog } from '@angular/material/dialog';
 import { DOCUMENT } from '@angular/common';
+import { AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, Inject, NgZone, Optional, ViewChild, ViewContainerRef, ViewEncapsulation } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { MatIconRegistry } from '@angular/material/icon';
+import { MatInput } from '@angular/material/input';
+import { DomSanitizer } from "@angular/platform-browser";
+import { Dui } from '@dotos/dui/core';
 import { TranslateService } from '@dotos/dui/translator';
-import { isObject } from 'lodash';
+import * as _ from 'lodash-es';
+import { isObject } from 'lodash-es';
+import { AbstractTrigger } from './abstract.trigger';
 
 @Component({
   selector: 'trigger-field',

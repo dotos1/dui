@@ -1,7 +1,7 @@
-import { ComponentFactoryResolver, Injector, Injectable, Input, ChangeDetectorRef, DoCheck } from '@angular/core';
+import { ChangeDetectorRef, ComponentFactoryResolver, DoCheck, Injectable, Injector, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { ComponentBase, Dui } from '@dotos/dui/core';
-import * as _ from 'lodash';
+import * as _ from 'lodash-es';
 import { MenuBarItem, MenuModel } from './menu-model';
 @Injectable()
 export abstract class MenuBase implements DoCheck{

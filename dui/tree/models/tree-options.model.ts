@@ -1,10 +1,10 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { TreeNode } from './tree-node.model';
-import { TreeModel } from './tree.model';
 import { KEYS } from '../constants/keys';
 import { ITreeOptions } from '../defs/api';
+import { TreeNode } from './tree-node.model';
+import { TreeModel } from './tree.model';
 
-import * as _ from 'lodash';
+import * as _ from 'lodash-es';
 
 export interface IActionHandler {
   (tree: TreeModel, node: TreeNode, $event: any, ...rest);

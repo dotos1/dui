@@ -1,14 +1,24 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 
 import {
-  Component, ChangeDetectionStrategy, SimpleChanges, ChangeDetectorRef,
-  QueryList, ComponentFactoryResolver, Injector,
-  ViewChildren, ViewContainerRef, Input, ViewEncapsulation, ElementRef, Renderer2, OnChanges, OnDestroy,
+    ChangeDetectionStrategy,
+    ChangeDetectorRef,
+    Component,
+    ComponentFactoryResolver,
+    ElementRef,
+    Injector,
+    Input,
+    OnChanges, OnDestroy,
+    QueryList,
+    Renderer2,
+    SimpleChanges,
+    ViewChildren, ViewContainerRef,
+    ViewEncapsulation,
 } from '@angular/core';
 import { MatTabChangeEvent, MatTabHeaderPosition } from '@angular/material/tabs';
-import { PanelComponent } from '../panel/panel.component';
+import * as _ from 'lodash-es';
 import { AbstractPanel } from '../panel/abstract.panel';
-import * as _ from 'lodash';
+import { PanelComponent } from '../panel/panel.component';
 
 @Component({
   selector: 'tabpanel',
