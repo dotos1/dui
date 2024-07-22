@@ -1,4 +1,4 @@
-import { Component, ElementRef, Renderer2, ComponentFactoryResolver, Injector, OnInit, ViewChild, ChangeDetectorRef, ViewEncapsulation, ChangeDetectionStrategy, OnDestroy, Inject } from '@angular/core';
+import { Component, ElementRef, Renderer2, OnInit, ViewChild, ChangeDetectorRef, ViewEncapsulation, ChangeDetectionStrategy, OnDestroy, Inject } from '@angular/core';
 
 import { HttpClient } from '@angular/common/http';
 import { ESCAPE } from '@angular/cdk/keycodes';
@@ -41,10 +41,16 @@ export class IconPickerComponent implements TriggerPopup, OnInit, OnDestroy {
 
   dirs: any = [];
 
+  categories: any = [];
+
   fontdirs: any = [];
+
+  public fontdirId='';
 
   icons: Icon[] = [];
   svgIcons: SVGIcon[] = [];
+  customIcons:any[]=[];
+
   fontIcons:any[]=[];
 
   search = '';
@@ -52,13 +58,13 @@ export class IconPickerComponent implements TriggerPopup, OnInit, OnDestroy {
 
   svgdir='common';
 
+  selectCategory='';
+
   public style={};
 
   constructor(
     protected _element: ElementRef,
     protected renderer: Renderer2,
-    public resolver: ComponentFactoryResolver,
-    public injector: Injector,
     protected _changeDetectorRef: ChangeDetectorRef,
     public http: HttpClient,
     private service: IconPickerService,
@@ -87,6 +93,8 @@ export class IconPickerComponent implements TriggerPopup, OnInit, OnDestroy {
       this.currentIconPack ='font';
     }else if(tab.tab.textLabel==this.translate.instant('UX.SVGICON')){
       this.currentIconPack ='svg';
+    }else if(tab.tab.textLabel==this.translate.instant('UX.CUSTIOMICON')){
+      this.currentIconPack ='custom';
     }else{
       this.currentIconPack ='material';
     }
@@ -94,7 +102,6 @@ export class IconPickerComponent implements TriggerPopup, OnInit, OnDestroy {
   }
 
   getIcons(iconPack) {
-
     if (iconPack == 'svg') {
       this.http.get(this._apiBase + '/lib/iconpicker', {
         responseType: 'json',
@@ -111,7 +118,34 @@ export class IconPickerComponent implements TriggerPopup, OnInit, OnDestroy {
           })
         }
       )
-    } else if(iconPack == 'material') {
+    }else if (iconPack == 'custom') {
+      this.http.get(this._apiBase + '/lib/customiconpicker', {
+        responseType: 'json',
+        params:{custompath:this.params.custompath}
+      }).subscribe(
+        val => {
+          this.categories = val
+          this.service.getCustomIcons(this.categories[0].value,this.params.custompath).subscribe(data => {
+            for (let i = 0; i < data.length; i++) {
+              let meta=data[i];
+              if(meta.svg!=''){
+                  meta.svg=meta.svg.replace('width="64px"',' width="36px"');
+                  meta.svg=meta.svg.replace('height="64px"',' height="36px"');
+                  meta.svg=meta.svg.replace('width="48px"',' width="36px"');
+                  meta.svg=meta.svg.replace('height="48px"',' height="36px"');
+                  if(meta.svg&&meta.svg.length>0){
+                    meta.svgElm=this.domSanitizer.bypassSecurityTrustHtml(meta.svg);
+                  }
+                  meta.url=this._apiBase+"/lib/icon/svg?id="+meta.id+"&type="+this.categories[0].value
+                  this.addCustomIcons(meta);
+              }
+            }
+            this.customIcons = data;
+            this._changeDetectorRef.detectChanges();
+          })
+        }
+      )
+    }  else if(iconPack == 'material') {
       this.icons = this.service.getIcons(iconPack);
     }else{
       this.http.get(this._apiBase + '/lib/fonticonpicker', {
@@ -129,6 +163,11 @@ export class IconPickerComponent implements TriggerPopup, OnInit, OnDestroy {
     this.service.getFontIcons(event.value,this.params.fontpath).subscribe(() => {
       this.loadFontFace(event.value);
     })
+  }
+  getBackGround(meta){
+    return {
+      "background-color":meta['back_color']
+    }
   }
   private loadFontFace(dir){
     this.service.getFontIcons(dir,this.params.fontpath).subscribe(data => {
@@ -150,10 +189,39 @@ export class IconPickerComponent implements TriggerPopup, OnInit, OnDestroy {
               this.fontIcons.push(fontIcon);
             }
         }
+        this.fontdirId=dir;
         this._changeDetectorRef.detectChanges();
       });
     })
   }
+  changeCategory(event){
+    this.selectCategory=event.value;
+    this.service.getCustomIcons(this.selectCategory,this.params.custompath).subscribe(data => {
+      for (let i = 0; i < data.length; i++) {
+        let meta=data[i];
+          if(meta.svg!=''){
+            meta.svg=meta.svg.replace('width="64px"',' width="36px"');
+            meta.svg=meta.svg.replace('height="64px"',' height="36px"');
+            meta.svg=meta.svg.replace('width="48px"',' width="36px"');
+            meta.svg=meta.svg.replace('height="48px"',' height="36px"');
+            if(meta.svg&&meta.svg.length>0){
+              meta.svgElm=this.domSanitizer.bypassSecurityTrustHtml(meta.svg);
+            }
+            meta.url=this._apiBase+"/lib/icon/svg?id="+meta.id+"&type="+this.selectCategory;
+            this.addCustomIcons(meta);
+          }
+      }
+      this.customIcons = data;
+      this._changeDetectorRef.detectChanges();
+    })
+  }
+  addCustomIcons(icon: any) {
+    this.matIconRegistry.addSvgIconLiteral(
+      icon.meta_name,
+      this.domSanitizer.bypassSecurityTrustHtml(icon.svg)
+    );
+  }
+
   changeDir(event) {
     this.svgdir=event.value;
     this.service.getSVGIcons(event.value,this.params.iconpath).subscribe(data => {
@@ -186,6 +254,22 @@ export class IconPickerComponent implements TriggerPopup, OnInit, OnDestroy {
     this.host.close();
   }
 
+  selectCustomIcon(icon: any) {
+    let val = {};
+    if(icon.svg!=''){
+      val['type'] = 'SVG';
+      val['value'] = 'SVG:' + icon.meta_name+ ':' + icon.url;
+      val['text'] = icon.meta_name;
+      this.host._selectAndClose(val);
+    }else{
+      val['type'] = 'COLOR';
+      val['value']= icon.back_color;
+      val['text'] = icon.meta_name;
+      this.host._selectAndClose(val);
+    }
+    this.host.close();
+  }
+
   selectSVGIcon(icon: SVGIcon) {
     let val = {};
     val['type'] = 'SVG';
@@ -199,7 +283,6 @@ export class IconPickerComponent implements TriggerPopup, OnInit, OnDestroy {
     let val = {};
     val['type'] = 'EXTRA';
     let id=this.toHex(icon.id.charCodeAt(0));
-
     val['value'] = 'EXTRA:' + icon.name + ':'+ id + ':' + icon.url;
     val['text'] = icon.name;
     this.host._selectAndClose(val);

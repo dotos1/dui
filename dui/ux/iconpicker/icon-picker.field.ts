@@ -80,6 +80,7 @@ export class IconPickerField extends AbstractTrigger implements OnInit {
       }
       this._selected = this._value;
       this.inputValue = val['text'];
+
       this.formControl.setValue(this._value);
     } else {
       this._value = this.coerceStringProperty(val);
@@ -135,19 +136,19 @@ export class IconPickerField extends AbstractTrigger implements OnInit {
   override ngOnInit() {
     super.ngOnInit();
     this.formControl.registerOnChange((value)=>{
-      //只是为了，处理数据，获取type,icon
       let fullIcon = value;
       let _icon;
-
       if (fullIcon) {
         if (fullIcon.startsWith("SVG")) {
           let vals = fullIcon.split(":");
           _icon = vals[1];
           this._type = vals[0];
-          this.matIconRegistry.addSvgIcon(
-            vals[1],
-            this.domSanitizer.bypassSecurityTrustResourceUrl(vals[2])
-          );
+          if(vals[2]){
+            this.matIconRegistry.addSvgIcon(
+              vals[1],
+              this.domSanitizer.bypassSecurityTrustResourceUrl(vals[2])
+            );
+          }
           this._icon=_icon;
         } else if (fullIcon.startsWith("EXTRA")) {
             let vals = fullIcon.split(":");
@@ -174,12 +175,20 @@ export class IconPickerField extends AbstractTrigger implements OnInit {
       };
     });
   }
+  isColor(value){
+
+    if(value.indexOf("#")!==-1){
+      return true;
+    }else{
+      return false;
+    }
+  }
   private coerceStringProperty(value: any): string {
     const d: string = value ? value + '' : null;
     return d;
   }
 
-  /** Selects the given date and closes the currently open popup or dialog. */
+
   override _selectAndClose(val: string): void {
     const oldValue = this._selected;
     this.value = val;
@@ -200,6 +209,7 @@ export class IconPickerField extends AbstractTrigger implements OnInit {
       allow: this.field.allow == undefined ? false : this.field.allow,
       iconpath:this.field.iconpath== undefined?'':this.field.iconpath,
       fontpath:this.field.fontpath== undefined?'':this.field.fontpath,
+      custompath: this.field.custompath== undefined?'':this.field.custompath,
     });
   }
 }

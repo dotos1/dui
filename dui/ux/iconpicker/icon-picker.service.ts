@@ -30,6 +30,11 @@ export class IconPickerService {
     return this.http.get(this._apiBase + '/lib/iconlist', { params: params });
   }
 
+  getCustomIcons(dir: string,iconpath:string): Observable<any> {
+    let params: HttpParams = new HttpParams().set('dir', dir).set("iconpath",iconpath);
+    return this.http.get(this._apiBase + '/lib/customIconlist', { params: params });
+  }
+  
   getFontIcons(dir: string,fontpath:string): Observable<any> {
     let params: HttpParams = new HttpParams().set('dir', dir).set("fontpath",fontpath);
     return this.http.get(this._apiBase + '/lib/fonticonlist', { params: params });

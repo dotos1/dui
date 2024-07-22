@@ -61,6 +61,7 @@ export class SVGCacheService {
         }),
         share(),
         map((svgText: string) => {
+
           const svgEl = this._svgElementFromString(svgText);
           SVGCacheService._cache.set(svgUrl, svgEl);
           return this._cloneSVG(svgEl);

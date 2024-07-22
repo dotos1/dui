@@ -1,5 +1,5 @@
-import { ChangeDetectorRef, ComponentFactoryResolver, Injectable, ViewContainerRef } from '@angular/core';
-import { ActivatedRoute, ActivationStart,  ChildrenOutletContexts, NavigationStart, Router, RouterOutlet } from '@angular/router';
+import {  Injectable } from '@angular/core';
+import { ActivatedRoute, ActivationStart,  NavigationStart, Router, RouterOutlet } from '@angular/router';
 
 
 @Injectable({
@@ -60,13 +60,8 @@ export class RouteService {
       });
     }
   }
-  createRouterOutlet(
-    parentContexts: ChildrenOutletContexts,
-    location: ViewContainerRef,
-    resolver: ComponentFactoryResolver,
-    name: string,
-    changeDetector: ChangeDetectorRef): RouterOutlet {
-    const outlet = new RouterOutlet(parentContexts, location, resolver, name, changeDetector);
+  createRouterOutlet(  name: string): RouterOutlet {
+    const outlet = new RouterOutlet();
     this.routerOutletMap.set(name, outlet);
     return outlet;
   }
