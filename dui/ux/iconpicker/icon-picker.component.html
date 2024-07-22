@@ -1,27 +1,9 @@
 <div cdkTrapFocus clsss="container" [id]="host.id" [attr.mode]="host.mode">
   <mat-tab-group mat-stretch-tabs="false" (selectedTabChange)="tabChanged($event)">
-    <mat-tab *ngIf="params.allow.indexOf('material')!==-1" name='material'label="{{'UX.FONTICON'| translate}}">
-      <div>
-        <mat-form-field style='width:100%' [appearance]="themeService.formType|async">
-          <mat-label>
-            {{'UX.SEARCH'| translate}}
-          </mat-label>
-          <input matInput #searchbox type="text"  autocomplete='off' [text] [value]="search"
-            (newValue)="setSearch($event)">
-        </mat-form-field>
-      </div>
-      <div class="icon-grid">
-        <div *ngFor="let icon of icons | searchIcon:search">
-          <button *ngIf="icon" class="btn-default" id="icon-button" title="{{icon.name| translate}}" (click)="selectIcon(icon)">
-            <span class="material-icons">{{icon.id}}</span>
-          </button>
-        </div>
-      </div>
-    </mat-tab>
     <mat-tab *ngIf="params.allow.indexOf('font')!==-1" name='font'   label="{{'UX.EXTRAFONTICON'| translate}}">
       <div>
         <mat-form-field style='width:100%;' [appearance]="themeService.formType|async">
-          <mat-select #fontdir (selectionChange)="changeFontDir($event)">
+          <mat-select #fontdir   [(ngModel)]="fontdirId"  (selectionChange)="changeFontDir($event)">
             <mat-option *ngFor="let dir of fontdirs" [value]="dir">{{dir}}</mat-option>
           </mat-select>
         </mat-form-field>
@@ -30,6 +12,25 @@
         <div *ngFor="let icon of fontIcons">
           <button *ngIf="icon" class="btn-default" id="icon-button" style="padding: 0px;" title="{{icon.name}}" (click)="selectFontIcon(icon)">
             <mat-icon [ngStyle]="style" style="font-size: 36px;">{{icon.id}}</mat-icon>
+          </button>
+        </div>
+      </div>
+    </mat-tab>
+    <mat-tab *ngIf="params.allow.indexOf('custom')!==-1" name='custom'  label="{{'UX.CUSTIOMICON'| translate}}">
+      <div>
+        <mat-form-field style='width:100%;' [appearance]="themeService.formType|async">
+          <mat-select #svgdir (selectionChange)="changeCategory($event)" [value]="selectCategory" >
+            <mat-option *ngFor="let category of categories" [value]="category.value">{{category.label}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="icon-grid">
+        <div *ngFor="let icon of customIcons">
+          <button *ngIf="icon" class="btn-default" id="icon-button" title="{{icon.meta_name}}" (click)="selectCustomIcon(icon)">
+            <div fxLayout="column" fxLayoutAlign="space-between center" >
+              <div *ngIf="icon.svgElm!==undefined"  class="metatile" style='width: 36px; height: 36px;'  [innerHTML]="icon.svgElm"></div> 
+              <div *ngIf="icon.svgElm===undefined"  class="metatile" [ngStyle]="getBackGround(icon)" style='width: 36px; height: 36px;' ></div> 
+           </div>
           </button>
         </div>
       </div>
@@ -46,6 +47,24 @@
         <div *ngFor="let icon of svgIcons">
           <button *ngIf="icon" class="btn-default" id="icon-button" title="{{icon.name}}" (click)="selectSVGIcon(icon)">
             <mat-icon [ngStyle]="icon.style" svgIcon="{{icon.name}}"></mat-icon>
+          </button>
+        </div>
+      </div>
+    </mat-tab>
+    <mat-tab *ngIf="params.allow.indexOf('material')!==-1" name='material'label="{{'UX.FONTICON'| translate}}">
+      <div>
+        <mat-form-field style='width:100%' [appearance]="themeService.formType|async">
+          <mat-label>
+            {{'UX.SEARCH'| translate}}
+          </mat-label>
+          <input matInput #searchbox type="text"  autocomplete='off' [text] [value]="search"
+            (newValue)="setSearch($event)">
+        </mat-form-field>
+      </div>
+      <div class="icon-grid">
+        <div *ngFor="let icon of icons | searchIcon:search">
+          <button *ngIf="icon" class="btn-default" id="icon-button" title="{{icon.name| translate}}" (click)="selectIcon(icon)">
+            <span class="material-icons">{{icon.id}}</span>
           </button>
         </div>
       </div>

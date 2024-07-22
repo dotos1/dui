@@ -554,7 +554,7 @@ export interface ITreeModel {
   getNodeById(id: IDType): ITreeNode;
   /**
    * param     predicate - either an object or a function, used as a test condition on all nodes.
-   *            Could be every predicate that's supported by lodash-es's `find` method
+   *            Could be every predicate that's supported by lodash's `find` method
    * param     statrNode  optional. Which node to start traversing from
    *    First node that matches the predicate, if found - null otherwise
    */

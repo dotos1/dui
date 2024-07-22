@@ -42,7 +42,7 @@ $selectrole-landscape-height: 328px;
       margin: 2px;
       button {
         border-radius: 2px;
-        padding: 8px;
+        padding: 2px;
       }
     }
   }
@@ -58,4 +58,7 @@ $selectrole-landscape-height: 328px;
 #icon-button:hover {
   border-radius: 2px;
 }
-
+.metatile{
+  background-color: rgb(230,230,230);
+  border-radius:4px
+}

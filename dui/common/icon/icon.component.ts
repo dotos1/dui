@@ -68,10 +68,12 @@ export class IconComponent {
       this.iconType = "SVG";
       let vals = value.split(":");
       this._value = vals[1];
-      this.matIconRegistry.addSvgIcon(
-        vals[1],
-        this.domSanitizer.bypassSecurityTrustResourceUrl(vals[2])
-      );
+      if(vals[2]){
+        this.matIconRegistry.addSvgIcon(
+          vals[1],
+          this.domSanitizer.bypassSecurityTrustResourceUrl(vals[2])
+        );
+      }
     } else if (value && value.startsWith("FONT")) {
       this.iconType = "FONT";
       let vals = value.split(":");
