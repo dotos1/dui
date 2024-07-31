@@ -3,7 +3,7 @@ import { FormGroup } from '@angular/forms';
 import { ComponentBase, Dui } from '@dotos/dui/core';
 import { MixedCollection } from '@dotos/dui/core/cache';
 import { FormExt } from '@dotos/dui/core/form';
-import * as _ from 'lodash-es';
+import {isArray,each,isFunction,isObjectLike,isUndefined} from 'lodash-es';
 
 /**
  *
@@ -68,9 +68,9 @@ export class Container extends ComponentBase {
   add(comp): any {
     this.initItems();
     const args = arguments.length > 1;
-    if (args || _.isArray(comp)) {
+    if (args || isArray(comp)) {
       const result = [];
-      _.each(args ? arguments : comp,
+      each(args ? arguments : comp,
         (c) => {
           result.push(this.add(c));
         });
@@ -138,7 +138,7 @@ export class Container extends ComponentBase {
   applyDefaults(c) {
     let d = this.defaults;
     if (d) {
-      if (_.isFunction(d)) {
+      if (isFunction(d)) {
         d = d.call(this, c);
       }
       Dui.apply(c, d);
@@ -190,7 +190,7 @@ export class Container extends ComponentBase {
 
 
   getComponent(comp: any): any {
-    if (_.isObjectLike(comp)) {
+    if (isObjectLike(comp)) {
       comp = comp['id'];
     }
     if (this.items) {
@@ -214,10 +214,10 @@ export class Container extends ComponentBase {
       return config;
     }
     if (config.isField) {
-      if (_.isUndefined(this.form)) {
+      if (isUndefined(this.form)) {
         this.form = new FormGroup({});
       }
-      if (_.isUndefined(config.value)) {
+      if (isUndefined(config.value)) {
         const v = {};
         FormExt.initFieldValue(v, config);
       }

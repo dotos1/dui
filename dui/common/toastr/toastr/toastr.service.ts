@@ -69,6 +69,7 @@ export class ToastrService {
   }
   /** show successful toast */
   success<ConfigPayload = any>(message?: string, title?: string, override: Partial<IndividualConfig<ConfigPayload>> = {}) {
+
     const type = this.toastrConfig.iconClasses.success || '';
     return this._preBuildNotification(type, message, title, this.applyConfig(override));
   }
