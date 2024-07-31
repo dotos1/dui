@@ -23,8 +23,6 @@ export class NotifyInterceptor implements HttpInterceptor {
     }
     return next.handle(req).pipe(
       tap((event: HttpEvent<any>) => {
-
-       
         if (event instanceof HttpResponse) {
           if (!(event.body instanceof Blob) && !(event.body instanceof ArrayBuffer)) {
    

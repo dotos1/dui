@@ -20,7 +20,7 @@ export class ErrorInterceptor implements HttpInterceptor {
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
     return next.handle(req).pipe(
-      retry(2),
+      retry(1),
       catchError((error: HttpErrorResponse) => {
         if (error.status !== 401) {
           this.toastr.error(error.message);
