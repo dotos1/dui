@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { ComponentFactoryResolver, Inject, ModuleWithProviders, NgModule, Optional } from '@angular/core';
 import { FlexLayoutModule } from 'ngx-flexible-layout';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -35,7 +35,7 @@ export function defaultFormConfig(formConfig: FormConfig): ConfigOption {
     CommonModule,
     FlexLayoutModule,
     TranslateModule,
-    HttpClientModule,
+
     ReactiveFormsModule
   ],
   declarations: [
@@ -45,6 +45,7 @@ export function defaultFormConfig(formConfig: FormConfig): ConfigOption {
     FormGroup
   ],
   providers: [
+
     Load,
     Submit
   ],
@@ -64,6 +65,9 @@ export class FormModule {
     return {
       ngModule: FormModule,
       providers: [
+        provideHttpClient(
+          withInterceptorsFromDi(),
+        ),
         simpleInterceptorProviders,
         { provide: FORM_CONFIG, multi: true, useFactory: defaultFormConfig, deps: [FormConfig] },
         { provide: FORM_CONFIG, useValue: config, multi: true },
@@ -77,6 +81,7 @@ export class FormModule {
     return {
       ngModule: FormModule,
       providers: [
+
         { provide: FORM_CONFIG, useValue: config, multi: true },
         FormBuilder,
       ],

@@ -7,3 +7,9 @@ toggle-button {
     line-height: 24px !important;
   }
 }
+// :host ::ng-deep .dui-font-icon {
+//   margin-top:3px;
+// }
+:host ::ng-deep .mat-icon {
+  margin-top:3px;
+}
