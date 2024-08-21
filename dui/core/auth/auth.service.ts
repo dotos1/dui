@@ -47,6 +47,7 @@ export class AuthService {
   }
 
   setConfig() {
+
     if (!this.oauth2Auth) {
       this.oauth2Auth = new Oauth2Auth(this.config, this.http, this.storageService);
     } else {
@@ -60,6 +61,49 @@ export class AuthService {
   }
   getUserId(): string {
     return this.user.id;
+  }
+
+  public setUserFromJwtToken(jwtToken, refreshToken, notify): Observable<boolean> {
+    const authenticatedSubject = new ReplaySubject<boolean>();
+    // if (!jwtToken) {
+    //   AuthService.clearTokenData();
+    //   if (notify) {
+    //     this.notifyUnauthenticated();
+    //   }
+    //   authenticatedSubject.next(false);
+    //   authenticatedSubject.complete();
+    // } else {
+    //   this.updateAndValidateTokens(jwtToken, refreshToken, true);
+    //   if (notify) {
+    //     this.notifyUserLoaded(false);
+    //     this.loadUser(false).subscribe(
+    //       (authPayload) => {
+    //         this.notifyAuthenticated(authPayload);
+    //         this.notifyUserLoaded(true);
+    //         authenticatedSubject.next(true);
+    //         authenticatedSubject.complete();
+    //       },
+    //       () => {
+    //         this.notifyUnauthenticated();
+    //         this.notifyUserLoaded(true);
+    //         authenticatedSubject.next(false);
+    //         authenticatedSubject.complete();
+    //       }
+    //     );
+    //   } else {
+    //     this.loadUser(false).subscribe(
+    //       () => {
+    //         authenticatedSubject.next(true);
+    //         authenticatedSubject.complete();
+    //       },
+    //       () => {
+    //         authenticatedSubject.next(false);
+    //         authenticatedSubject.complete();
+    //       }
+    //     );
+    //   }
+    // }
+    return authenticatedSubject;
   }
 
   getAuthenticated(): Observable<any> {
@@ -119,6 +163,7 @@ export class AuthService {
     if (this.isOauth()) {
       let oauth2AuthPromise = this.oauth2Auth.login(username, password);
         oauth2AuthPromise.then((accessToken) => {
+
             this.config.setSetting('accessToken', accessToken);
         },
         (e) => {
@@ -159,8 +204,9 @@ export class AuthService {
   }
   _logout(): Promise<any> {
     this.username = null;
+    console.log(this.isOauth()+'++++++++++++++++++++++++');
     if (this.isOauth()) {
-      this.oauth2Auth.logOut();
+        this.oauth2Auth.logOut();
     }
     return this.commonAuth.logout();
   }
@@ -184,13 +230,13 @@ export class AuthService {
   }
 
   refreshToken(): Promise<string> {
-    let oauth2 = this.config.getSettings('oauth2');
-    if (!this.isOauth()) {
-      return Promise.reject('Missing the required oauth2 configuration');
-    }
-    if (oauth2.implicitFlow) {
-      return Promise.reject('Manual refresh token not possible in implicit flow');
-    }
+    // let oauth2 = this.config.getSettings('oauth2');
+    // // if (!this.isOauth()) {
+    // //   return Promise.reject('Missing the required oauth2 configuration');
+    // // }
+    // if (oauth2.implicitFlow) {
+    //   return Promise.reject('Manual refresh token not possible in implicit flow');
+    // }
     return this.oauth2Auth.refreshToken();
   }
 

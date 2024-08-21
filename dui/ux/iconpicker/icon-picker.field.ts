@@ -64,27 +64,30 @@ export class IconPickerField extends AbstractTrigger implements OnInit {
 
   label = '';
 
-  override get value() { return this._value; }
+  override get value() { 
+    return this._icon; 
+  }
   override set value(val: any) {
+
     if (isObject(val)) {
       this._type = val['type'];
       if (this.field.allow.indexOf('material')!=-1) {
         let valueString = this.coerceStringProperty(val['value']);
         if (valueString != null) {
-          this._value = valueString.substring(valueString.indexOf(":") + 1, valueString.length);
+          this._icon = valueString.substring(valueString.indexOf(":") + 1, valueString.length);
         } else {
-          this._value = undefined;
+          this._icon = undefined;
         }
       } else {
-        this._value = this.coerceStringProperty(val['value']);
+        this._icon = this.coerceStringProperty(val['value']);
       }
-      this._selected = this._value;
+      this._selected = this._icon;
       this.inputValue = val['text'];
 
-      this.formControl.setValue(this._value);
+      this.formControl.setValue(this._icon);
     } else {
-      this._value = this.coerceStringProperty(val);
-      this._selected = this._value;
+      this._icon = this.coerceStringProperty(val);
+      this._selected = this._icon;
       let vals = val.split(':');
       this._type = vals[0];
       if (vals[0] == 'SVG') {

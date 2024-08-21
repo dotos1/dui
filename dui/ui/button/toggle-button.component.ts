@@ -9,7 +9,6 @@ import {
     OnChanges, OnInit,
     SimpleChanges,
     ViewChild,
-    ViewEncapsulation,
 } from '@angular/core';
 import { MatButtonToggleAppearance } from '@angular/material/button-toggle';
 import { MatIconRegistry } from '@angular/material/icon';
@@ -24,7 +23,6 @@ import * as _ from 'lodash-es';
   host: {
     style: 'display:flex;padding:1px;height:100%;cursor:pointer'
   },
-  encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.Default
 })
 export class ToggleButtonComponent extends ComponentBase implements OnInit,DoCheck,OnChanges {
