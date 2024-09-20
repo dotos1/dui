@@ -3,13 +3,13 @@
   display:flex;
 }
 toggle-button {
-  .mat-icon{
-    line-height: 24px !important;
-  }
+  :host ::ng-deep .dui-font-icon {
+    padding: 0px !important;
+  }  
 }
-// :host ::ng-deep .dui-font-icon {
-//   margin-top:3px;
-// }
-:host ::ng-deep .mat-icon {
-  margin-top:3px;
+
+:host ::ng-deep  .mat-icon {
+  margin-top:6px;
+  line-height: 24px !important;
+  height:28px !important;
 }

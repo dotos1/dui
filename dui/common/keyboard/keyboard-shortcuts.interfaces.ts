@@ -12,8 +12,7 @@ export interface Shortcut {
     throttleTime?: number;
 
     label?: string;
-
-
+    
     preventDefault?: boolean;
 }
 

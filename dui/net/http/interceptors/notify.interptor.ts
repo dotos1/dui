@@ -38,8 +38,7 @@ export class NotifyInterceptor implements HttpInterceptor {
    if (req.method == "GET") {
       return next.handle(req);
     }
-    console.log('44444444444444444444');
-    
+
     return next.handle(req).pipe(
       last(),
       tap((event: HttpEvent<any>) => {
