@@ -112,17 +112,7 @@ export class KeyboardShortcutsService implements OnDestroy {
     private readonly subscriptions: Subscription[] = [];
 
     private keydown$: Observable<KeyboardEvent> = fromEvent(this.document, "keydown");
-    /**
-     * fixes for firefox prevent default
-     * on click event on button focus:
-     * see issue:
-     * keeping this here for now, but it is commented out
-     * Firefox reference bug:
-     * https://bugzilla.mozilla.org/show_bug.cgi?id=1487102
-     * and my repo:
-     *
-     * https://github.com/omridevk/ng-keyboard-shortcuts/issues/35
-     */
+
     private ignore$ = this.pressed$.pipe(
         filter((e) => e.event.defaultPrevented),
         switchMap(() => this.clicks$.pipe(first())),
@@ -273,7 +263,7 @@ export class KeyboardShortcutsService implements OnDestroy {
         });
     }
 
-    private get shortcuts() {
+    public get shortcuts() {
         return this._shortcuts;
     }
 
