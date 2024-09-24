@@ -19,14 +19,14 @@ import { AnimationEvent } from '@angular/animations';
 import { coerceBooleanProperty } from '@angular/cdk/coercion';
 import { ESCAPE } from '@angular/cdk/keycodes';
 
-import { DuiPopoverPositionX, DuiPopoverPositionY, DuiPopoverTriggerEvent, DuiPopoverScrollStrategy } from './popover-types';
-import { throwDuiPopoverInvalidPositionX, throwDuiPopoverInvalidPositionY } from './popover-errors';
-import { DuiPopoverPanel } from './popover-interfaces';
+import { PopoverPositionX, PopoverPositionY, PopoverTriggerEvent, PopoverScrollStrategy } from './popover-types';
+import { throwPopoverInvalidPositionX, throwPopoverInvalidPositionY } from './popover-errors';
+import { PopoverPanel } from './popover-interfaces';
 import { transformPopover } from './popover-animations';
 
 
 @Component({
-  selector: 'dui-popover',
+  selector: 'popover',
   templateUrl: './popover.html',
   styleUrls: ['./popover.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -37,15 +37,15 @@ import { transformPopover } from './popover-animations';
   exportAs: 'duiPopover'
 })
 
-export class DuiPopover implements DuiPopoverPanel, OnDestroy {
+export class Popover implements PopoverPanel, OnDestroy {
 
   @HostBinding('attr.role') role = 'dialog';
 
   /** Settings for popover, view setters and getters for more detail */
-  private _positionX: DuiPopoverPositionX = 'after';
-  private _positionY: DuiPopoverPositionY = 'below';
-  private _triggerEvent: DuiPopoverTriggerEvent = 'hover';
-  private _scrollStrategy: DuiPopoverScrollStrategy = 'reposition';
+  private _positionX: PopoverPositionX = 'after';
+  private _positionY: PopoverPositionY = 'below';
+  private _triggerEvent: PopoverTriggerEvent = 'hover';
+  private _scrollStrategy: PopoverScrollStrategy = 'reposition';
   private _enterDelay = 200;
   private _leaveDelay = 200;
   private _overlapTrigger = true;
@@ -83,94 +83,94 @@ export class DuiPopover implements DuiPopoverPanel, OnDestroy {
 
 
   /** Position of the popover in the X axis. */
-  @Input('duiPopoverPositionX')
+  @Input('popoverPositionX')
   get positionX() { return this._positionX; }
-  set positionX(value: DuiPopoverPositionX) {
+  set positionX(value: PopoverPositionX) {
     if (value !== 'before' && value !== 'after') {
-      throwDuiPopoverInvalidPositionX();
+      throwPopoverInvalidPositionX();
     }
     this._positionX = value;
     this.setPositionClasses();
   }
 
   /** Position of the popover in the Y axis. */
-  @Input('duiPopoverPositionY')
+  @Input('popoverPositionY')
   get positionY() { return this._positionY; }
-  set positionY(value: DuiPopoverPositionY) {
+  set positionY(value: PopoverPositionY) {
     if (value !== 'above' && value !== 'below') {
-      throwDuiPopoverInvalidPositionY();
+      throwPopoverInvalidPositionY();
     }
     this._positionY = value;
     this.setPositionClasses();
   }
 
   /** Popover trigger event */
-  @Input('duiPopoverTriggerOn')
-  get triggerEvent(): DuiPopoverTriggerEvent { return this._triggerEvent; }
-  set triggerEvent(value: DuiPopoverTriggerEvent) { this._triggerEvent = value; }
+  @Input('popoverTriggerOn')
+  get triggerEvent(): PopoverTriggerEvent { return this._triggerEvent; }
+  set triggerEvent(value: PopoverTriggerEvent) { this._triggerEvent = value; }
 
   /** Popover scroll strategy */
-  @Input('duiPopoverScrollStrategy')
-  get scrollStrategy(): DuiPopoverScrollStrategy { return this._scrollStrategy; }
-  set scrollStrategy(value: DuiPopoverScrollStrategy) { this._scrollStrategy = value; }
+  @Input('popoverScrollStrategy')
+  get scrollStrategy(): PopoverScrollStrategy { return this._scrollStrategy; }
+  set scrollStrategy(value: PopoverScrollStrategy) { this._scrollStrategy = value; }
 
   /** Popover enter delay */
-  @Input('duiPopoverEnterDelay')
+  @Input('popoverEnterDelay')
   get enterDelay(): number { return this._enterDelay; }
   set enterDelay(value: number) { this._enterDelay = value; }
 
   /** Popover leave delay */
-  @Input('duiPopoverLeaveDelay')
+  @Input('popoverLeaveDelay')
   get leaveDelay(): number { return this._leaveDelay; }
   set leaveDelay(value: number) { this._leaveDelay = value; }
 
   /** Popover overlap trigger */
-  @Input('duiPopoverOverlapTrigger')
+  @Input('popoverOverlapTrigger')
   get overlapTrigger(): boolean { return this._overlapTrigger; }
   set overlapTrigger(value: boolean) { this._overlapTrigger = value; }
 
   /** Popover target offset x */
-  @Input('duiPopoverOffsetX')
+  @Input('popoverOffsetX')
   get targetOffsetX(): number { return this._targetOffsetX; }
   set targetOffsetX(value: number) { this._targetOffsetX = value; }
 
   /** Popover target offset y */
-  @Input('duiPopoverOffsetY')
+  @Input('popoverOffsetY')
   get targetOffsetY(): number { return this._targetOffsetY; }
   set targetOffsetY(value: number) { this._targetOffsetY = value; }
 
   /** Popover arrow offset x */
-  @Input('duiPopoverArrowOffsetX')
+  @Input('popoverArrowOffsetX')
   get arrowOffsetX(): number { return this._arrowOffsetX; }
   set arrowOffsetX(value: number) { this._arrowOffsetX = value; }
 
   /** Popover arrow width */
-  @Input('duiPopoverArrowWidth')
+  @Input('popoverArrowWidth')
   get arrowWidth(): number { return this._arrowWidth; }
   set arrowWidth(value: number) { this._arrowWidth = value; }
 
 
-  @Input('duiPopoverArrowColor')
+  @Input('popoverArrowColor')
   get arrowColor(): string { return this._arrowColor; }
   set arrowColor(value: string) { this._arrowColor = value; }
 
 
-  @Input('duiPopoverCloseOnClick')
+  @Input('popoverCloseOnClick')
   get closeOnClick(): boolean { return this._closeOnClick; }
   set closeOnClick(value: boolean) { this._closeOnClick = coerceBooleanProperty(value); }
 
 
-  @Input('duiPopoverDisableAnimation')
+  @Input('popoverDisableAnimation')
   get disableAnimation(): boolean { return this._disableAnimation; }
   set disableAnimation(value: boolean) { this._disableAnimation = coerceBooleanProperty(value); }
 
 
-  @Input('duiFocusTrapEnabled')
+  @Input('focusTrapEnabled')
   get focusTrapEnabled(): boolean { return this._focusTrapEnabled; }
   set focusTrapEnabled(value: boolean) { this._focusTrapEnabled = coerceBooleanProperty(value); }
 
 
-  @Input('duiFocusTrapAutoCaptureEnabled')
+  @Input('focusTrapAutoCaptureEnabled')
   get focusTrapAutoCaptureEnabled(): boolean { return this._focusTrapAutoCaptureEnabled; }
   set focusTrapAutoCaptureEnabled(value: boolean) { this._focusTrapAutoCaptureEnabled = coerceBooleanProperty(value); }
 
@@ -280,9 +280,9 @@ export class DuiPopover implements DuiPopoverPanel, OnDestroy {
    * folds out from the correct direction.
    */
   setPositionClasses(posX = this.positionX, posY = this.positionY): void {
-    this._classList['dui-popover-before'] = posX === 'before';
-    this._classList['dui-popover-after'] = posX === 'after';
-    this._classList['dui-popover-above'] = posY === 'above';
-    this._classList['dui-popover-below'] = posY === 'below';
+    this._classList['popover-before'] = posX === 'before';
+    this._classList['popover-after'] = posX === 'after';
+    this._classList['popover-above'] = posY === 'above';
+    this._classList['popover-below'] = posY === 'below';
   }
 }

@@ -1,15 +1,15 @@
 
 import { ElementRef, EventEmitter, NgZone, TemplateRef } from '@angular/core';
-import { DuiPopoverPositionX, DuiPopoverPositionY, DuiPopoverTriggerEvent, DuiPopoverScrollStrategy } from './popover-types';
+import { PopoverPositionX, PopoverPositionY, PopoverTriggerEvent, PopoverScrollStrategy } from './popover-types';
 
-export interface DuiPopoverPanel {
-    positionX: DuiPopoverPositionX;
-    positionY: DuiPopoverPositionY;
+export interface PopoverPanel {
+    positionX: PopoverPositionX;
+    positionY: PopoverPositionY;
     containerPositioning: boolean;
     overlapTrigger: boolean;
-    triggerEvent: DuiPopoverTriggerEvent;
+    triggerEvent: PopoverTriggerEvent;
     popoverPanelStyles:any;
-    scrollStrategy: DuiPopoverScrollStrategy;
+    scrollStrategy: PopoverScrollStrategy;
     enterDelay: number;
     leaveDelay: number;
     targetOffsetX: number;
@@ -23,15 +23,15 @@ export interface DuiPopoverPanel {
     templateRef: TemplateRef<any>;
     close: EventEmitter<void>;
     zone: NgZone;
-    setPositionClasses: (x: DuiPopoverPositionX, y: DuiPopoverPositionY) => void;
+    setPositionClasses: (x: PopoverPositionX, y: PopoverPositionY) => void;
     _emitCloseEvent: () => void;
 }
 
-export interface DuiPopoverConfig {
-    positionX: DuiPopoverPositionX;
-    positionY: DuiPopoverPositionY;
+export interface PopoverConfig {
+    positionX: PopoverPositionX;
+    positionY: PopoverPositionY;
     overlapTrigger: boolean;
-    triggerEvent: DuiPopoverTriggerEvent;
+    triggerEvent: PopoverTriggerEvent;
     triggerDelay: number;
     targetOffsetX: number;
     targetOffsetY: number;
@@ -41,6 +41,6 @@ export interface DuiPopoverConfig {
     closeOnClick: boolean;
 }
 
-export interface DuiTarget {
+export interface PopoverTargetInterface {
     _elementRef: ElementRef;
 }

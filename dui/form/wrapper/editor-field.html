@@ -1,4 +1,4 @@
-<mat-form-field  [duiPopoverTriggerFor]="errorPopover" [showPopOver]="errorState" subscriptSizing="dynamic"
+<mat-form-field  [popoverTriggerFor]="errorPopover" [showPopOver]="errorState" subscriptSizing="dynamic"
 [hideRequiredMarker]="true" [floatLabel]="field.floatLabel" [appearance]="field.appearance" [color]="color"   [style.width]="'100%'">
   <ng-container #fieldComponent></ng-container>
   <mat-label *ngIf="field.label && field.hideLabel !== true">
@@ -14,12 +14,12 @@
   <mat-hint *ngIf="field.description"  [id]="null">{{ field.description|translate }}</mat-hint>
 </mat-form-field>
 
-<dui-popover  #errorPopover="duiPopover"
- [duiPopoverOverlapTrigger]="false"
- [duiPopoverPositionY]="'above'">
+<popover  #errorPopover="duiPopover"
+ [popoverOverlapTrigger]="false"
+ [popoverPositionY]="'above'">
   <div class="error-container">
       <mat-error [id]="null">
         <validation-message [field]="field"></validation-message>
       </mat-error>
   </div>
-</dui-popover>
+</popover>

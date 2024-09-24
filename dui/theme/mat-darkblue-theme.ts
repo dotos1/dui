@@ -13,7 +13,7 @@ const matDarkBlueThemeForeground: Foreground = {
     'hint-text': lightDisabledText,
     'secondary-text': lightSecondaryText,
     'elevation':'black',
-    icon: 'rgba(white, 0.70)',
+    icon: 'rgba(white, 0.54)',
     icons: 'rgba(white, 0.70)',
     text: 'rgba(white, 0.87)',
     'slider-min': 'white',

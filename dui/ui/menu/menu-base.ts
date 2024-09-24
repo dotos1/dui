@@ -51,6 +51,11 @@ export abstract class MenuBase implements DoCheck{
         config.hideExpression = Dui.evalStringExpression(config.hideExpression, ['comp', 'owner']);
       }
     }
+    if (config.disableExpression) {
+      if (typeof config.disableExpression === 'string') {
+        config.disableExpression = Dui.evalStringExpression(config.disableExpression, ['comp', 'owner']);
+      }
+    }
   }
 
   public doCheck() {
@@ -78,6 +83,7 @@ export abstract class MenuBase implements DoCheck{
       this.children.forEach(item => {
         this.checkMenuExpressionChange(item, this.ownerCt);
         this.checkMenuVisibilityChange(item, this.ownerCt);
+        this.checkMenuDisableChange(item, this.ownerCt);
       });
     }
 
@@ -86,6 +92,7 @@ export abstract class MenuBase implements DoCheck{
       this.items.forEach(item => {
         this.checkMenuExpressionChange(item, this.ownerCt);
         this.checkMenuVisibilityChange(item, this.ownerCt);
+        this.checkMenuDisableChange(item, this.ownerCt);
       });
     }
   }
@@ -126,6 +133,19 @@ export abstract class MenuBase implements DoCheck{
     );
     if (hideExpressionResult !== comp.hidden) {
       comp.hidden = hideExpressionResult;
+    }
+  }
+  public checkMenuDisableChange(comp: MenuModel, owner: ComponentBase) {
+    if (!comp || !comp.disableExpression) {
+      return;
+    }
+    const disableExpressionResult: boolean = !!Dui.evalExpression(
+      comp.disableExpression,
+      { comp },
+      [comp, owner],
+    );
+    if (disableExpressionResult !== comp.disable) {
+      comp.disable = disableExpressionResult;
     }
   }
 }

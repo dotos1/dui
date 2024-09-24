@@ -13,7 +13,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatIconModule } from '@angular/material/icon';
 import { MatExpansionModule } from '@angular/material/expansion';
 
-import { DuiPopoverModule } from '@dotos/dui/common/popover';
+import { PopoverModule } from '@dotos/dui/common/popover';
 import { ButtonModule } from '@dotos/dui/ui/button';
 import { ConfigOption, AbstractFormModule } from '@dotos/dui/core/form';
 
@@ -67,7 +67,7 @@ export const MATERIAL_FORMLY_CONFIG: ConfigOption = {
     MatExpansionModule,
     AbstractFormModule,
     ButtonModule,
-    DuiPopoverModule,
+    PopoverModule,
     TranslateModule,
     FormModule.forRoot(MATERIAL_FORMLY_CONFIG),
   ],

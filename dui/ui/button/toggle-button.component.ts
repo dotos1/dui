@@ -159,6 +159,11 @@ export class ToggleButtonComponent extends ComponentBase implements OnInit,DoChe
         config.hideExpression = Dui.evalStringExpression(config.hideExpression, ['comp', 'owner']);
       }
     }
+    if (config.disableExpression) {
+      if (typeof config.disableExpression === 'string') {
+        config.disableExpression = Dui.evalStringExpression(config.disableExpression, ['comp', 'owner']);
+      }
+    }
   }
 
   public override checkExpressionChange() {
@@ -168,6 +173,7 @@ export class ToggleButtonComponent extends ComponentBase implements OnInit,DoChe
       this.items.forEach(item => {
         this.checkMenuExpressionChange(item, this.ownerCt);
         this.checkMenuVisibilityChange(item, this.ownerCt);
+        this.checkMenuDisableChange(item, this.ownerCt);
       });
     }
   }
@@ -207,6 +213,19 @@ export class ToggleButtonComponent extends ComponentBase implements OnInit,DoChe
     );
     if (hideExpressionResult !== comp.hidden) {
       comp.hidden = hideExpressionResult;
+    }
+  }
+  public checkMenuDisableChange(comp: any, owner: ComponentBase) {
+    if (!comp || !comp.disableExpression) {
+      return;
+    }
+    const disableExpressionResult: boolean = !!Dui.evalExpression(
+      comp.disableExpression,
+      { comp },
+      [comp, owner],
+    );
+    if (disableExpressionResult !== comp.disable) {
+      comp.disable = disableExpressionResult;
     }
   }
 }

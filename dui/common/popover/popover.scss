@@ -1,14 +1,14 @@
 
 // @import '~@angular/material/theming';
 
-.dui-popover-panel {
+.popover-panel {
   display: flex;
   flex-direction: column;
   max-height: calc(100vh + 48px);
 
 }
 
-.dui-popover-ripple {
+.popover-ripple {
   position: absolute;
   top: 0;
   left: 0;
@@ -16,8 +16,8 @@
   right: 0;
 }
 
-.dui-popover-below {
-  .dui-popover-direction-arrow {
+.popover-below {
+  .popover-direction-arrow {
     // order: 0;
     position: absolute;
     bottom: 0;
@@ -28,8 +28,8 @@
   }
 }
 
-.dui-popover-above {
-  .dui-popover-direction-arrow {
+.popover-above {
+  .popover-direction-arrow {
     // order: 1;
     position: absolute;
     top: 0px;
@@ -40,14 +40,14 @@
   }
 }
 
-.dui-popover-after {
-  .dui-popover-direction-arrow {
+.popover-after {
+  .popover-direction-arrow {
     left: 20px;
   }
 }
 
-.dui-popover-before {
-  .dui-popover-direction-arrow {
+.popover-before {
+  .popover-direction-arrow {
     right: 20px;
   }
 }

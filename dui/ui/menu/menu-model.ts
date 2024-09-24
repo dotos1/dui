@@ -35,6 +35,7 @@ export interface MenuModel {
   openInNewTab?: boolean;
   shortcut?: string ;
   hideExpression?: boolean | string | ((model: any, formState: any) => boolean);
+  disableExpression?: boolean | string | ((model: any, formState: any) => boolean);
   expressionProperties?: { [property: string]: string | ((model: any, formState: any) => boolean) } | any;
   badge?: {
     title?: string;

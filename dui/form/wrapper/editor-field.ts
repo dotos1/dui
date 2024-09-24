@@ -7,7 +7,7 @@ import { FieldWrapper, defineHiddenProp, FieldConfig, FormConfig , observe } fro
 import { Subject } from 'rxjs';
 import { Platform } from '@angular/cdk/platform';
 import { FocusMonitor } from '@angular/cdk/a11y';
-import { DuiPopoverTrigger, DuiPopover } from '@dotos/dui/common/popover';
+import { PopoverTrigger, Popover } from '@dotos/dui/common/popover';
 
 
 interface MatFieldConfig extends FieldConfig {
@@ -28,9 +28,9 @@ export class WrapperEditorField extends FieldWrapper<MatFieldConfig> implements 
   @ViewChild('fieldComponent', { read: ViewContainerRef, static: true }) override fieldComponent!: ViewContainerRef;
   @ViewChild(MatFormField, { static: true }) formField!: MatFormField;
 
-  @ViewChild(DuiPopoverTrigger, { static: true }) popoverTrigger!: DuiPopoverTrigger;
+  @ViewChild(PopoverTrigger, { static: true }) popoverTrigger!: PopoverTrigger;
 
-  @ViewChild(DuiPopover, { static: true }) popover!: DuiPopover;
+  @ViewChild(Popover, { static: true }) popover!: Popover;
 
   stateChanges = new Subject<void>();
   _errorState = false;

@@ -94,6 +94,7 @@ export class DialogService {
     })
     return matDialogRef;
   }
+  
   public getOpenedComponents(){
     return this._componentMap;
   }
