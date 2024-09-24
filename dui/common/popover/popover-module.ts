@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { OverlayModule } from '@angular/cdk/overlay';
-import { DuiPopover } from './popover';
-import { DuiPopoverTrigger } from './popover-trigger';
-import { DuiPopoverTarget } from './popover-target';
+import { Popover } from './popover';
+import { PopoverTrigger } from './popover-trigger';
+import { PopoverTarget } from './popover-target';
 import { A11yModule } from '@angular/cdk/a11y';
+
 
 @NgModule({
   imports: [
@@ -12,7 +13,8 @@ import { A11yModule } from '@angular/cdk/a11y';
     CommonModule,
     A11yModule
   ],
-  exports: [DuiPopover, DuiPopoverTrigger, DuiPopoverTarget],
-  declarations: [DuiPopover, DuiPopoverTrigger, DuiPopoverTarget],
+  exports: [Popover, PopoverTrigger, PopoverTarget],
+  declarations: [Popover, PopoverTrigger, PopoverTarget],
+
 })
-export class DuiPopoverModule {}
+export class PopoverModule {}

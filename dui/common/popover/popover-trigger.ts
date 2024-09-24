@@ -29,18 +29,18 @@ import { TemplatePortal } from '@angular/cdk/portal';
 
 import { Subject, Subscription } from 'rxjs';
 
-import { DuiPopoverPanel, DuiTarget } from './popover-interfaces';
-import { DuiPopoverPositionX, DuiPopoverPositionY, DuiPopoverTriggerEvent, DuiPopoverScrollStrategy } from './popover-types';
-import { throwDuiPopoverMissingError } from './popover-errors';
+import { PopoverPanel, PopoverTargetInterface } from './popover-interfaces';
+import { PopoverPositionX, PopoverPositionY, PopoverTriggerEvent, PopoverScrollStrategy } from './popover-types';
+import { throwPopoverMissingError } from './popover-errors';
 import { takeUntil } from 'rxjs/operators';
 import { DOCUMENT } from '@angular/common';
 
 
 @Directive({
-  selector: '[duiPopoverTriggerFor]',
-  exportAs: 'duiPopoverTrigger'
+  selector: '[popoverTriggerFor]',
+  exportAs: 'popoverTrigger'
 })
-export class DuiPopoverTrigger implements AfterViewInit, OnDestroy {
+export class PopoverTrigger implements AfterViewInit, OnDestroy {
 
   popoverOpened = new Subject<void>();
   popoverClosed = new Subject<void>();
@@ -60,53 +60,51 @@ export class DuiPopoverTrigger implements AfterViewInit, OnDestroy {
   private _onDestroy = new Subject<void>();
 
   /** References the popover instance that the trigger is associated with. */
-  @Input('duiPopoverTriggerFor') popover: DuiPopoverPanel;
+  @Input('popoverTriggerFor') popover: PopoverPanel;
 
-  /** References the popover target instance that the trigger is associated with. */
-  @Input('duiPopoverTargetAt') targetElement: DuiTarget;
+  @Input('popoverTargetAt') targetElement: PopoverTargetInterface;
 
   /** Position of the popover in the X axis */
-  @Input('duiPopoverPositionX') positionX: DuiPopoverPositionX;
+  @Input('popoverPositionX') positionX: PopoverPositionX;
 
   /** Position of the popover in the Y axis */
-  @Input('duiPopoverPositionY') positionY: DuiPopoverPositionY;
+  @Input('popoverPositionY') positionY: PopoverPositionY;
 
   /** Popover trigger event */
-  @Input('duiPopoverTriggerOn') triggerEvent: DuiPopoverTriggerEvent;
+  @Input('popoverTriggerOn') triggerEvent: PopoverTriggerEvent;
 
   /** Popover delay */
-  @Input('duiPopoverEnterDelay') enterDelay: number;
+  @Input('popoverEnterDelay') enterDelay: number;
 
   /** Popover delay */
-  @Input('duiPopoverLeaveDelay') leaveDelay: number;
+  @Input('popoverLeaveDelay') leaveDelay: number;
 
   /** Popover overlap trigger */
-  @Input('duiPopoverOverlapTrigger') overlapTrigger: boolean;
+  @Input('popoverOverlapTrigger') overlapTrigger: boolean;
 
   /** Popover target offset x */
-  @Input('duiPopoverOffsetX') targetOffsetX: number;
+  @Input('popoverOffsetX') targetOffsetX: number;
 
   /** Popover target offset y */
-  @Input('duiPopoverOffsetY') targetOffsetY: number;
+  @Input('popoverOffsetY') targetOffsetY: number;
 
   /** Popover arrow offset x */
-  @Input('duiPopoverArrowOffsetX') arrowOffsetX: number;
+  @Input('popoverArrowOffsetX') arrowOffsetX: number;
 
 
   /** Popover arrow width */
-  @Input('duiPopoverArrowWidth') arrowWidth: number;
+  @Input('popoverArrowWidth') arrowWidth: number;
 
 
   /** Popover arrow color */
-  @Input('duiPopoverArrowColor') arrowColor: string;
+  @Input('popoverArrowColor') arrowColor: string;
 
 
   /** Popover container close on click */
-  @Input('duiPopoverCloseOnClick') closeOnClick: boolean;
+  @Input('popoverCloseOnClick') closeOnClick: boolean;
 
 
-  /** Popover backdrop close on click */
-  @Input('duiPopoverBackdropCloseOnClick') backdropCloseOnClick = true;
+  @Input('popoverBackdropCloseOnClick') backdropCloseOnClick = true;
 
   @Input('showPopOver') showPopOver: boolean=true;
 
@@ -118,7 +116,7 @@ export class DuiPopoverTrigger implements AfterViewInit, OnDestroy {
   constructor(
             private renderer: Renderer2,
             private _overlay: Overlay, public _elementRef: ElementRef,
-            private _viewContainerRef: ViewContainerRef,
+            public viewContainerRef: ViewContainerRef,
             @Optional() private _dir: Directionality,
             private _changeDetectorRef: ChangeDetectorRef,
             @Inject(DOCUMENT) private _document: HTMLDocument) { }
@@ -131,6 +129,11 @@ export class DuiPopoverTrigger implements AfterViewInit, OnDestroy {
 
   ngOnDestroy() {
     this.destroyPopover();
+  }
+
+  public refresh(){
+    this._checkPopover();
+    this._setCurrentConfig();
   }
 
   private _setCurrentConfig() {
@@ -256,7 +259,6 @@ export class DuiPopoverTrigger implements AfterViewInit, OnDestroy {
         this._overlayRef = null;
         this._cleanUpSubscriptions();
       }
-
       this._onDestroy.next();
       this._onDestroy.complete();
   }
@@ -331,18 +333,21 @@ export class DuiPopoverTrigger implements AfterViewInit, OnDestroy {
 
   private _checkPopover() {
       if (!this.popover) {
-        throwDuiPopoverMissingError();
+        throwPopoverMissingError();
       }
   }
 
+  public getPortal(){
+    return this._portal;
+  }
 
   private _createOverlay(): OverlayRef {
       if (!this._overlayRef) {
-        this._portal = new TemplatePortal(this.popover.templateRef, this._viewContainerRef);
+        this._portal = new TemplatePortal(this.popover.templateRef, this.viewContainerRef);
+   
         const config = this._getOverlayConfig();
         this.subscribeToPositions(config.positionStrategy as FlexibleConnectedPositionStrategy);
         this._overlayRef = this._overlay.create(config);
-        this._overlayRef
       }else{
         this.renderer.setStyle(this._overlayRef.overlayElement, 'transform', "translateX("+this.targetOffsetX+"px) translateY("+this.targetOffsetY+"px)");
         // this._overlayRef.updatePosition();
@@ -366,7 +371,7 @@ export class DuiPopoverTrigger implements AfterViewInit, OnDestroy {
   }
 
 
-  private _getOverlayScrollStrategy(strategy: DuiPopoverScrollStrategy): ScrollStrategy {
+  private _getOverlayScrollStrategy(strategy: PopoverScrollStrategy): ScrollStrategy {
     switch(strategy) {
       case 'noop':
         console.log('noop');
@@ -383,8 +388,8 @@ export class DuiPopoverTrigger implements AfterViewInit, OnDestroy {
 
   public subscribeToPositions(position: FlexibleConnectedPositionStrategy): void {
       this._positionSubscription = position.positionChanges.subscribe(change => {
-          const posisionX: DuiPopoverPositionX = change.connectionPair.overlayX === 'start' ? 'after' : 'before';
-          let posisionY: DuiPopoverPositionY = change.connectionPair.overlayY === 'top' ? 'below' : 'above';
+          const posisionX: PopoverPositionX = change.connectionPair.overlayX === 'start' ? 'after' : 'before';
+          let posisionY: PopoverPositionY = change.connectionPair.overlayY === 'top' ? 'below' : 'above';
 
           if (!this.popover.overlapTrigger) {
               posisionY = posisionY === 'below' ? 'above' : 'below';
@@ -401,13 +406,6 @@ export class DuiPopoverTrigger implements AfterViewInit, OnDestroy {
       });
   }
 
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  resetPosition(position){
-    // setTimeout(()=>{
-    //   let elem=document.querySelectorAll('.cdk-overlay-connected-position-bounding-box');
-    //   this.renderer.setStyle(elem, 'top', `${position.y}px`);
-    // },500);
-  }
 
   public getPosition(): FlexibleConnectedPositionStrategy {
       const [originX, originFallbackX]: HorizontalConnectionPos[] =

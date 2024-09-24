@@ -8,11 +8,11 @@
 
  .menu-title{
     margin-right: 20px;
-    flex:1
   }
   .mat-mdc-menu-item span:first-child {
     margin-right: 10px;
     line-height: 24px !important;
+    display:flex !important;
   }
   .mat-mdc-menu-item {
      display: flex !important;

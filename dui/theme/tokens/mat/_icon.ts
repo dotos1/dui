@@ -8,9 +8,8 @@ export function get_unthemable_tokens() {
 
 export function get_color_tokens($theme) {
   return {
-    'color': inspection.get_theme_color($theme, 'foreground',  'icon')
+    'color': inspection.get_theme_color($theme, 'foreground',  'icons')
   };
-
 }
 
 export function get_typography_tokens($theme) {

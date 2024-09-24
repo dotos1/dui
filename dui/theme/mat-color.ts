@@ -23,8 +23,7 @@ export function matColor(
   }
   const color: string = palette[hue];
 
-  const opacity: number =
-    opacityParam === null ? colorToOpacity(color) : opacityParam;
+  const opacity: number = opacityParam === null ? colorToOpacity(color) : opacityParam;
   return rgba(color, opacity);
 }
 function rgbToHex(r: number, g: number, b: number) {

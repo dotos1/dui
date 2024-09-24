@@ -36,6 +36,8 @@ export class ComponentBase extends Base<HTMLElement> implements OnInit,DoCheck, 
 
   hideExpression?: boolean | string | ((model: any, formState: any) => boolean);
 
+  disableExpression?: boolean | string | ((model: any, formState: any) => boolean);
+
   expressionProperties?: { [property: string]: string | ((model: any, formState: any) => boolean) } | any;
 
   get hidden() {
@@ -114,7 +116,6 @@ export class ComponentBase extends Base<HTMLElement> implements OnInit,DoCheck, 
     if (config.expressionProperties) {
       for (const key in config.expressionProperties as any) {
         if (typeof config.expressionProperties[key] === 'string' || _.isFunction(config.expressionProperties[key])) {
-          // cache built expression
           config.expressionProperties[key] = {
             expression: _.isFunction(config.expressionProperties[key]) ? config.expressionProperties[key] : Dui.evalStringExpression(config.expressionProperties[key], ['comp', 'owner']),
             expressionValueSetter: Dui.evalExpressionValueSetter(key, ['expressionValue', 'comp', 'owner']),
@@ -132,6 +133,7 @@ export class ComponentBase extends Base<HTMLElement> implements OnInit,DoCheck, 
   public checkExpressionChange() {
     this.checkCompExpressionChange(this, this.ownerCt);
     this.checkCompVisibilityChange(this, this.ownerCt);
+    this.checkCompDisableChange(this, this.ownerCt);
   }
 
   public checkCompExpressionChange(comp: ComponentBase, owner: ComponentBase) {
@@ -172,7 +174,20 @@ export class ComponentBase extends Base<HTMLElement> implements OnInit,DoCheck, 
       comp.hidden = hideExpressionResult;
     }
   }
-
+  public checkCompDisableChange(comp: ComponentBase, owner: ComponentBase) {
+    if (!comp || !comp.disableExpression) {
+      return;
+    }
+    const disableExpressionResult: boolean = !!Dui.evalExpression(
+      comp.disableExpression,
+      { comp },
+      [comp, owner],
+    );
+    if (disableExpressionResult !== comp.disable) {
+      comp.disable = disableExpressionResult;
+    }
+  }
+  
   init(config: any) {
     config = config || {};
     this.initFieldExpression(config);

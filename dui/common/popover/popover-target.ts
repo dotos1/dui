@@ -2,10 +2,10 @@ import { Directive, ElementRef } from '@angular/core';
 
 
 @Directive({
-  selector: 'dui-popover-target, [duiPopoverTarget]',
-  exportAs: 'duiPopoverTarget'
+  selector: 'popover-target, [popoverTarget]',
+  exportAs: 'popoverTarget'
 })
 
-export class DuiPopoverTarget {
+export class PopoverTarget {
   constructor(public _elementRef: ElementRef) { }
 }
