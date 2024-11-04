@@ -1,6 +1,5 @@
 import { Component, Input, ViewEncapsulation, TemplateRef } from '@angular/core';
-import { MatIconRegistry } from '@angular/material/icon';
-import { DomSanitizer } from '@angular/platform-browser';
+
 import { TreeNode } from '../models/tree-node.model';
 
 @Component({
@@ -15,7 +14,6 @@ export class TreeNodeContent {
 
   @Input() set node(node) {
     this._node =node ;
-
   }
   get node(): TreeNode {
     return this._node;

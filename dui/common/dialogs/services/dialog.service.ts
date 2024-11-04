@@ -36,9 +36,12 @@ export interface IConfirmConfig extends IDialogConfig {
 }
 
 export interface IPromptConfig extends IConfirmConfig {
-  value?: string;
+  value?: string|number;
   minLength?: number;
   maxLength?: number;
+  dataType?:string,
+  min?: number;
+  max?: number;
   required?: boolean;
   pattern?: string | RegExp;
   blankText?: string;
@@ -186,6 +189,15 @@ export class DialogService {
     }
     if (config.maxLength) {
       promptDialogComponent.maxlength = config.maxLength;
+    }
+    if (config.min) {
+      promptDialogComponent.min = config.min;
+    }
+    if (config.max) {
+      promptDialogComponent.max = config.max;
+    }
+    if (config.dataType) {
+      promptDialogComponent.dataType = config.dataType;
     }
     if (config.pattern) {
       promptDialogComponent.pattern = config.pattern;

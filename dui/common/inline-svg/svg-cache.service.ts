@@ -12,6 +12,9 @@ export class SVGCacheService {
   private static _cache: Map<string, SVGElement>;
   private static _inProgressReqs: Map<string, Observable<SVGElement>>;
 
+  private static _imageCache: Map<string, any>;
+  private static _imageInProgressReqs: Map<string, Observable<any>>;
+
   private _baseUrl: string;
 
   private _http: HttpClient;
@@ -39,14 +42,42 @@ export class SVGCacheService {
     if (!SVGCacheService._inProgressReqs) {
       SVGCacheService._inProgressReqs = new Map<string, Observable<SVGElement>>();
     }
+
+    if (!SVGCacheService._imageCache) {
+      SVGCacheService._imageCache = new Map<string, any>();
+    }
+    if (!SVGCacheService._imageInProgressReqs) {
+      SVGCacheService._imageInProgressReqs = new Map<string, Observable<any>>();
+    }
+  }
+
+  getImage(url: string, resolveImageUrl: boolean, cache: boolean = true): Observable<any> {
+    const imageUrl = (resolveImageUrl ? this.getAbsoluteUrl(url) : url).replace(/#.+$/, '');
+    if (cache && SVGCacheService._imageCache.has(imageUrl)) {
+      return of(SVGCacheService._imageCache.get(imageUrl));
+    }
+    if (SVGCacheService._imageInProgressReqs.has(imageUrl)) {
+      return SVGCacheService._imageInProgressReqs.get(imageUrl);
+    }
+    const req = this._http.get(imageUrl, { responseType: 'text' })
+      .pipe(
+        finalize(() => {
+          SVGCacheService._inProgressReqs.delete(imageUrl);
+        }),
+        share(),
+        map((res: string) => {
+          SVGCacheService._imageCache.set(imageUrl, res);
+          return res;
+        })
+      );
+    SVGCacheService._imageInProgressReqs.set(imageUrl, req);
+    return req;
   }
 
   getSVG(url: string, resolveSVGUrl: boolean, cache: boolean = true): Observable<SVGElement> {
     const svgUrl = (resolveSVGUrl
       ? this.getAbsoluteUrl(url)
       : url).replace(/#.+$/, '');
-
-
     if (cache && SVGCacheService._cache.has(svgUrl)) {
       return of(this._cloneSVG(SVGCacheService._cache.get(svgUrl)));
     }
@@ -84,33 +115,26 @@ export class SVGCacheService {
   getAbsoluteUrl(url: string): string {
     if (this._baseUrl && !/^https?:\/\//i.test(url)) {
       url = this._baseUrl + url;
-
       if (url.indexOf('//') === 0) {
         url = url.substring(1);
       }
     }
-
     const base = this._renderer.createElement('BASE');
     base.href = url;
-
     return base.href;
   }
 
   private _svgElementFromString(str: string): SVGElement | never {
     const div = this._renderer.createElement('DIV');
     div.innerHTML = str;
-
     const svg = div.querySelector('svg') as SVGElement;
-
     if (!svg) {
       throw new Error('No SVG found in loaded contents');
     }
-
     return svg;
   }
 
   private _cloneSVG(svg: SVGElement): SVGElement {
     return svg.cloneNode(true) as SVGElement;
   }
-
 }

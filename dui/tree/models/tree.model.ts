@@ -33,6 +33,8 @@ export class TreeModel implements ITreeModel,OnDestroy {
   private events: any = {};
   private subscriptions: Subscription[] = [];
 
+  public idSet:Set<string>=new Set();
+
   constructor(public translator:TranslateService){
 
   }
@@ -310,13 +312,17 @@ export class TreeModel implements ITreeModel,OnDestroy {
     }
   }
 
-  @action setSelectedNode(node, value) {
+  @action setSelectedNode(node, value,silent?) {
     this.selectedLeafNodeIds = Object.assign({}, this.selectedLeafNodeIds, { [node.id]: value });
     if (value) {
       node.focus();
-      this.fireEvent({ eventName: TREE_EVENTS.select, node });
+      if(!silent){
+        this.fireEvent({ eventName: TREE_EVENTS.select, node });
+      }
     } else {
-      this.fireEvent({ eventName: TREE_EVENTS.deselect, node });
+      if(!silent){
+          this.fireEvent({ eventName: TREE_EVENTS.deselect, node });
+      }   
     }
   }
   @action setExpandedNode(node, value) {
@@ -495,7 +501,7 @@ export class TreeModel implements ITreeModel,OnDestroy {
       });
     }
 
-    // mark node as hidden
+
     if (!isVisible) {
       ids[node.id] = true;
     }

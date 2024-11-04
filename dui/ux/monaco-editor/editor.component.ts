@@ -1,12 +1,14 @@
 import { Component, forwardRef, Inject, Input, NgZone, Renderer2, ViewEncapsulation } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { fromEvent } from 'rxjs';
+import { fromEvent, Subject, takeUntil } from 'rxjs';
 import { initVimMode } from 'monaco-vim';
 import * as monaco from 'monaco-editor';
 import { BaseEditor } from './base-editor';
 import { MONACO_EDITOR_CONFIG, MonacoEditorConfig } from './config';
 import { EditorModel } from './types';
 import { TranslateService } from '@dotos/dui/translator';
+import { DotosConfigService, ThemeService } from '@dotos/dui/theme';
+import { EditorTheme } from './editor.theme';
 
 // declare const monaco: any;
 
@@ -79,14 +81,44 @@ export class EditorComponent extends BaseEditor implements ControlValueAccessor 
       readOnly: readOnly
     });
   }
-
+  private _unsubscribeAll: Subject<void>;
   
   constructor(
     private zone: NgZone, 
     public override translate: TranslateService,
     protected renderer: Renderer2,
+    public themeService: ThemeService,
+    private _dotosConfigService: DotosConfigService,
     @Inject(MONACO_EDITOR_CONFIG) private editorConfig: MonacoEditorConfig) {
     super(translate,editorConfig);
+    this._unsubscribeAll = new Subject();
+  }
+
+  override ngOnInit() {
+    super.ngOnInit()
+    this._dotosConfigService.config
+      .pipe(takeUntil(this._unsubscribeAll))
+      .subscribe((config) => {
+        this.setTheme(config);
+        this.themeService.loadTheme(EditorTheme);
+      });
+  }
+
+  override ngOnDestroy() {
+    super.ngOnDestroy();
+    this._unsubscribeAll.next();
+    this._unsubscribeAll.complete();
+  }
+
+  setTheme(config) {
+
+    let type = config.theme.type;
+    let primary = config.theme.primary;
+    let accent = config.theme.accent;
+    let warn = config.theme.warn;
+    let page = config.layout.pagemodel;
+    let formType = config.theme.formType;
+    this.themeService.changeTheme(primary, accent, warn, type, page, formType);
   }
 
   writeValue(value: any): void {

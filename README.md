@@ -1,29 +1,58 @@
 # Dui
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.1.0.
+该工程基于 Angular CLI 18.1.0创建
 
-## Development server
+# package
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+工程相关脚本配置
 
-## Code scaffolding
+```json
+`{`
+  `"scripts": {`
+    `"build-dui": "ng build dui --configuration production",`
+    `"prebuild": "npm --no-git-tag-version version patch && cd dui  && npm --no-git-tag-version version patch",`
+    `"npm_pack": "cd dist/dui && npm pack",`
+    `"package": "npm run build-dui && npm run npm_pack",`
+    `"publish": "cd dist/dui && npm publish  --ignore-scripts",`
+    `"unpublish": "cd dist/dui && npm unpublish @dotos/dui@latest  --force"`
+  `}`
+`}`
+```
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+# 操作
 
-## Build
+一般有变动后要进行以下操作：
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+1. 增加版本号
+2. 编译工作
+3. 发布类库
+4. 提交代码
 
-## Running unit tests
+## Increase version number
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+增加小版本号
 
-## Running end-to-end tests
+```shell
+npm run  prebuild
+```
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
 
-## Further help
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+## Build-dui
 
-registry = "https://registry.npmmirror.com/"
+编译当前工程
+
+```shell
+npm run  build-dui
+```
+
+
+
+## publish
+
+打包并发布类库
+
+```
+npm run  publish
+```
+
