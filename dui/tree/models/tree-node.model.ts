@@ -17,6 +17,8 @@ export class TreeNode implements ITreeNode {
   }
   @computed get isActive() { return this.treeModel.isActive(this); }
   @computed get isFocused() { return this.treeModel.isNodeFocused(this); }
+
+
   @computed get isSelected():boolean {
     if (this.isSelectable()) {
       return this.treeModel.isSelected(this);
@@ -59,11 +61,13 @@ export class TreeNode implements ITreeNode {
     if (this.id === undefined || this.id === null) {
       this.id = uuid();
     }
+
     this.index = index;
     this.translator=treeModel.translator;
     if (this.getField('children')) {
       this._initChildren();
     }
+
     if (this.data['isSelected']) {
       this.setIsSelected(true);
     } else {
@@ -146,7 +150,26 @@ export class TreeNode implements ITreeNode {
   setField(key, value) {
     this.data[this.options[`${key}Field`]] = value;
   }
-
+  public clear(){
+    this.children=[];
+  }
+  public addNode(node){
+      if(this.children==undefined){
+        this.children=[];
+      }
+    let treeNode= new TreeNode(node,this,this.treeModel, this.children.length);
+    this.children.push(treeNode);
+    return treeNode;
+  }
+  public destroy(){
+    let children=this.parent.children;
+    for(let k=0;k<children.length;k++){
+        if(children[k].id==this.id){
+          children.splice(k);
+        }
+    }
+    this.parent.setIsActive(true);
+  }
   // traversing:
   _findAdjacentSibling(steps, skipHidden = false) {
     const siblings = this._getParentsChildren(skipHidden);
@@ -290,13 +313,10 @@ export class TreeNode implements ITreeNode {
   // }
 
   setNodeChildren(children){
-   
     if (children) {
       this.setField('hasChildren', children.length > 0);
       this.setField('children', children);
       this._initChildren();
-
-
       this.children.forEach((child) => {
         if (child.getField('isExpanded') && child.hasChildren) {
           child.expand();
@@ -318,7 +338,6 @@ export class TreeNode implements ITreeNode {
         if (children) {
           this.setField('hasChildren', children.length > 0);
           this.setField('children', children);
-
           this._initChildren();
           if (this.options.useTriState && this.treeModel.isSelected(this)) {
             this.setIsSelected(true);
@@ -356,6 +375,18 @@ export class TreeNode implements ITreeNode {
         this.children.forEach((child) => child.doForAll(fn));
       }
     });
+  }
+
+  doForAncestors(fn: (node: ITreeNode) => any) {
+    Promise.resolve(fn(this)).then(() => {
+      if (this.parent) {
+        this.parent.doForAncestors(fn);
+      }
+    });
+  }
+
+  expandAncestors(){
+    this.doForAncestors((node) => node.expand());
   }
 
   expandAll() {
@@ -422,18 +453,18 @@ export class TreeNode implements ITreeNode {
   isSelectable() {
     return this.isLeaf || !this.children || !this.options.useTriState;
   }
-  @action  setIsSelected(value) {
-
+  
+  @action  setIsSelected(value,silent?) {
     if (this.options.cascadeSelect) {
       if (this.isLeaf) {
-        this.treeModel.setSelectedNode(this, value);
+        this.treeModel.setSelectedNode(this, value,silent);
       } else if (this.children) {
-        this.children.forEach((child) => child.setIsSelected(value));
+        this.children.forEach((child) => child.setIsSelected(value,silent));
       } else {
-        this.treeModel.setSelectedNode(this, value);
+        this.treeModel.setSelectedNode(this, value,silent);
       }
-    } else {
 
+    } else {
       if (this.isSelectable()) {
         this.treeModel.setSelectedNode(this, value);
       } else {

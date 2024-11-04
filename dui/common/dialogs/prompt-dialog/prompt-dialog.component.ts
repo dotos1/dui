@@ -54,7 +54,13 @@ export class PromptDialogComponent implements AfterViewInit, OnDestroy {
 
   maxlength: number = 255;
 
+  min: number = -Infinity;
+
+  max: number = Infinity;
+
   required: boolean = true;
+
+  dataType: string = 'text';
 
   formControl = new FormControl();
 

@@ -59,6 +59,7 @@ export abstract class MenuBase implements DoCheck{
   }
 
   public doCheck() {
+    
     if (this.children) {
       if (this.children.length != 0) {
         this.children.forEach(item => {

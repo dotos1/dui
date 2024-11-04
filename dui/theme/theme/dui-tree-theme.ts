@@ -79,7 +79,7 @@ export function duiTreeTheme(theme: Theme): Object {
       "min-width": px100 + " !important"
     },
     "tree-node-checkbox": {
-      "padding": px5 + " !important"
+      "padding": "1px  !important"
     }
   };
 }

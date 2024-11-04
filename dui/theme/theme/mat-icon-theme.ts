@@ -37,7 +37,15 @@ export function matIconTheme(theme: Theme): Object {
           ...base(theme),
           ...color(theme),
           ...density(theme),
-          "color":"var(--mat-icon-color)"
+          "color":"var(--mat-icon-color)",
+          "svg":{
+            "stroke": "var(--mat-icon-color) !important"
+  
+          }
+        },
+        ".mat-icon svg": {
+            "stroke": "var(--mat-icon-color) !important"
+
         }
       };
 }

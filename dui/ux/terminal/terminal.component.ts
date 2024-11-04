@@ -262,7 +262,7 @@ export class TerminalComponent implements  OnChanges, AfterViewInit, NgTerminal,
       }
     });
     // this.stylesForDiv = this.stylesForDiv; //invalidate
-  }
+  } 
 
 
   ngAfterViewInit() {
@@ -470,7 +470,7 @@ export class TerminalComponent implements  OnChanges, AfterViewInit, NgTerminal,
   }
 
   get isDraggableOnEdgeActivated() {
-    // return this.displayOption.activateDraggableOnEdge != undefined && this.displayOption.fixedGrid == undefined;
+
     return this._draggableInput;
   }
 

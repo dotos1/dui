@@ -125,6 +125,7 @@ export class MenuItemComponent extends MenuBase implements OnInit,DoCheck,AfterV
 
   override ngDoCheck() {
     super.ngDoCheck();
+    this.checkExpressionChange();
     this._changeDetectorRef.markForCheck();
   }
   ngOnInit() {

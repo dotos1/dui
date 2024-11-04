@@ -122,8 +122,6 @@ export class WrapperFormField extends FieldWrapper<MatFieldConfig> implements On
         this.renderer.listen(this.elementRef.nativeElement, 'mouseleave', () => this.hideTip());
       }
       this.underTip = this.field.description;
-      console.log(this.field);
-      
       if(this.field.classFormField){
         this.classFormField= this.field.classFormField;
       }

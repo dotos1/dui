@@ -42,7 +42,7 @@ export function removeAttributes(element: Element, attrs: Array<string>): void {
   }
 }
 
-export function setAttributes(element: Element, attrs: { [key: string]: any }): void {
+export function setAttributes(element: any, attrs: { [key: string]: any }): void {
   for (const attr in attrs) {
     element.setAttribute(attr, attrs[attr]);
   }

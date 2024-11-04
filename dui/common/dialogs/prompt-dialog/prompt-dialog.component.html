@@ -9,11 +9,13 @@
             matInput
             #input 
              flex [name]="name|translate" 
-             [type]="'text'" 
+             [type]="dataType" 
             (keydown.enter)="$event.preventDefault(); form.valid && accept()"
             [formControl]="formControl"
              [minlength]="minlength"
             [maxlength]="maxlength"
+            [min]="min"
+            [maxlength]="max"
              [pattern]="pattern"
              (keydown.enter)="$event.preventDefault(); form.valid && accept()" matTooltipPosition='below' required
           />

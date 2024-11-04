@@ -2,7 +2,7 @@
    #group="matButtonToggleGroup" [appearance]="appearance"  [hideMultipleSelectionIndicator]="true"   [hideSingleSelectionIndicator]="true" 
    [multiple]="multiple" [name]="name" [vertical]="vertical" [value]="value" [disabled]="disabled" (change)="change($event)">
   <ng-container *ngFor="let child of items; let i = index">
-    <mat-button-toggle *ngIf="child.hidden!==true"     [appearance]="child.appearance" [checked]="child.checked" [id]="child.id" [name]="child.name"   [value]="child.value" [disabled]="child.disabled" [disableRipple]="child.disableRipple"  [matTooltip]="child.text| translate "  matTooltipPosition='below'  (click)="onClick(child,$event)">
+    <mat-button-toggle *ngIf="child.hidden!==true"     [appearance]="child.appearance" [checked]="child.value===value" [id]="child.id" [name]="child.name"   [value]="child.value" [disabled]="child.disabled" [disableRipple]="child.disableRipple"  [matTooltip]="child.text| translate "  matTooltipPosition='below'  (click)="onClick(child,$event)">
       <dui-icon [value]="child.icon"></dui-icon>
     </mat-button-toggle>
   </ng-container>
