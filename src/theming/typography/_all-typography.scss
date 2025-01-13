@@ -1,7 +1,7 @@
 @import './typography';
 
-@use '../../container/accordion/expansion-theme';
-@use '../../data/datatable/datatable-theme';
+@import '../../container/accordion/expansion-theme';
+@import '../../data/datatable/datatable-theme';
 
 @mixin angular-material-typography($config: null) {
   @if $config==null {
