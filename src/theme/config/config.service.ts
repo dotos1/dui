@@ -2,7 +2,7 @@ import { Platform } from '@angular/cdk/platform';
 import { Inject, Injectable, InjectionToken } from '@angular/core';
 import { Router, RoutesRecognized } from '@angular/router';
 import { LocalStorageService } from '@dotos/dui/core/storage';
-import * as _ from 'lodash-es';
+import {merge,cloneDeep,isEqual}  from 'lodash-es';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { filter } from 'rxjs/operators';
 import { DotosConfig } from '../types';
@@ -29,7 +29,7 @@ export class DotosConfigService {
   set config(value) {
 
     let config = this._configSubject.getValue();
-    config = _.merge({}, config, value);
+    config = merge({}, config, value);
     // this.localStore.set('dotosConfig', config);
     this._configSubject.next(config);
   }
@@ -46,12 +46,12 @@ export class DotosConfigService {
     if (this._platform.ANDROID || this._platform.IOS) {
       this._defaultConfig.customScrollbars = false;
     }
-    this._configSubject = new BehaviorSubject(_.cloneDeep(this._defaultConfig));
+    this._configSubject = new BehaviorSubject(cloneDeep(this._defaultConfig));
     this._router.events
       .pipe(filter(event => event instanceof RoutesRecognized))
       .subscribe(() => {
-         if (!_.isEqual(this._configSubject.getValue().layout, this._defaultConfig.layout)) {
-          const config = _.cloneDeep(this._configSubject.getValue());
+         if (!isEqual(this._configSubject.getValue().layout, this._defaultConfig.layout)) {
+          const config = cloneDeep(this._configSubject.getValue());
           // this.localStore.set('dotosConfig', config);
           this._configSubject.next(config);
         }
@@ -75,8 +75,8 @@ export class DotosConfigService {
   }
 
   resetToDefaults(): void {
-    console.log(_.cloneDeep(this._defaultConfig));
-    this._configSubject.next(_.cloneDeep(this._defaultConfig));
+    console.log(cloneDeep(this._defaultConfig));
+    this._configSubject.next(cloneDeep(this._defaultConfig));
   }
 }
 

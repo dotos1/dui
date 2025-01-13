@@ -2,11 +2,11 @@ import {Inject, Injectable, Optional} from "@angular/core";
 import {DateAdapter, MAT_DATE_LOCALE} from "@angular/material/core";
 import {MAT_MOMENT_DATE_ADAPTER_OPTIONS, MatMomentDateAdapterOptions} from "@angular/material-moment-adapter";
 
-import * as moment_ from "moment";
-import {Moment} from "moment";
+import  moment from 'moment';
+import {Moment} from 'moment';
 import { DatetimeAdapter } from "@dotos/dui/form/date/adapter";
 
-const moment:any = 'default' in moment_ ? moment_['default'] : moment_;
+// const moment:any = 'default' in moment? moment['default'] : moment;
 
 function range<T>(length: number, valueFunction: (index: number) => T): T[] {
   const valuesArray = Array(length);

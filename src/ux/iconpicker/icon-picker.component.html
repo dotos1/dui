@@ -1,5 +1,23 @@
 <div cdkTrapFocus clsss="container" [id]="host.id" [attr.mode]="host.mode">
   <mat-tab-group mat-stretch-tabs="false" (selectedTabChange)="tabChanged($event)">
+    <mat-tab *ngIf="params.allow.indexOf('material')!==-1" name='material'label="{{'UX.FONTICON'| translate}}">
+      <div>
+        <mat-form-field style='width:100%' [appearance]="themeService.formType|async">
+          <mat-label>
+            {{'UX.SEARCH'| translate}}
+          </mat-label>
+          <input matInput #searchbox type="text"  autocomplete='off' [text] [value]="search"
+            (newValue)="setSearch($event)">
+        </mat-form-field>
+      </div>
+      <div class="icon-grid">
+        <div *ngFor="let icon of icons | searchIcon:search">
+          <button *ngIf="icon" class="btn-default" id="icon-button" title="{{icon.name| translate}}" (click)="selectIcon(icon)">
+            <span class="material-icons">{{icon.id}}</span>
+          </button>
+        </div>
+      </div>
+    </mat-tab>
     <mat-tab *ngIf="params.allow.indexOf('font')!==-1" name='font'   label="{{'UX.EXTRAFONTICON'| translate}}">
       <div>
         <mat-form-field style='width:100%;' [appearance]="themeService.formType|async">
@@ -51,23 +69,6 @@
         </div>
       </div>
     </mat-tab>
-    <mat-tab *ngIf="params.allow.indexOf('material')!==-1" name='material'label="{{'UX.FONTICON'| translate}}">
-      <div>
-        <mat-form-field style='width:100%' [appearance]="themeService.formType|async">
-          <mat-label>
-            {{'UX.SEARCH'| translate}}
-          </mat-label>
-          <input matInput #searchbox type="text"  autocomplete='off' [text] [value]="search"
-            (newValue)="setSearch($event)">
-        </mat-form-field>
-      </div>
-      <div class="icon-grid">
-        <div *ngFor="let icon of icons | searchIcon:search">
-          <button *ngIf="icon" class="btn-default" id="icon-button" title="{{icon.name| translate}}" (click)="selectIcon(icon)">
-            <span class="material-icons">{{icon.id}}</span>
-          </button>
-        </div>
-      </div>
-    </mat-tab>
+   
   </mat-tab-group>
 </div>

@@ -2,7 +2,7 @@ import { Platform } from '@angular/cdk/platform';
 import { AfterContentInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, ComponentFactoryResolver, ElementRef, HostListener, Injector, Input, OnChanges, Renderer2, SimpleChanges, ViewChild, ViewContainerRef } from '@angular/core';
 import { Container } from '@dotos/dui/container';
 import { ComponentBase, Dui } from '@dotos/dui/core';
-import * as _ from 'lodash-es';
+import {isString,isObjectLike,isArray}  from 'lodash-es';
 
 @Component({
   selector: 'dui-toolbar',
@@ -78,7 +78,7 @@ export class DuiToolbarComponent extends Container implements OnChanges,AfterCon
   }
 
   override lookupComponent(c) {
-    if (_.isString(c)) {
+    if (isString(c)) {
       if (c == '-') {
         c = this.createComponent({
           xtype: 'divider',
@@ -116,7 +116,7 @@ export class DuiToolbarComponent extends Container implements OnChanges,AfterCon
             c = new MenuItem(this.detectRef);
             c.init({ el: c });
           } else {
-            if (_.isObjectLike(c)) {
+            if (isObjectLike(c)) {
               c = c.xtype ? this.createComponent(c) : this.constructButton(c);
             }
           }
@@ -158,7 +158,7 @@ export class DuiToolbarComponent extends Container implements OnChanges,AfterCon
   }
 
   addButton(config: any): any {
-    if (_.isArray(config)) {
+    if (isArray(config)) {
       let buttons = [];
       for (let i = 0, len = config.length; i < len; i++) {
         buttons.push(this.addButton(config[i]));
@@ -178,7 +178,7 @@ export class DuiToolbarComponent extends Container implements OnChanges,AfterCon
   }
 
   insertButton(index: number, item: any): any {
-    if (_.isArray(item)) {
+    if (isArray(item)) {
       let buttons = [];
       for (let i = 0, len = item.length; i < len; i++) {
         buttons.push(this.insertButton(index + i, item[i]));
@@ -339,7 +339,7 @@ export class TextItem extends MenuItem {
     this.el = _element.nativeElement;
   }
   override init(config: any) {
-    super.init(_.isString(config) ? { text: config } : config);
+    super.init(isString(config) ? { text: config } : config);
   }
   setText(t: string) {
     this.text = t;

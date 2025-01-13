@@ -175,14 +175,14 @@ export class ExtCodeEditorComponent implements OnInit, AfterViewInit, ControlVal
 
         for (let i: number = 0; i < language.completionItemProvider.length; i++) {
             let provider: any = language.completionItemProvider[i];
-            // eslint-disable-next-line no-eval
-            provider.kind = eval(provider.kind);
+
+            provider.kind = (0, eval)(provider.kind);
         }
         for (let i: number = 0; i < language.monarchTokensProvider.length; i++) {
             let monarchTokens: any = language.monarchTokensProvider[i];
 
-            // eslint-disable-next-line no-eval
-            monarchTokens[0] = eval(monarchTokens[0]);
+
+            monarchTokens[0] = (0, eval)(monarchTokens[0]);
         }
         monaco.languages.register({ id: language.id });
 

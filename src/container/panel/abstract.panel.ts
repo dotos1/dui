@@ -1,6 +1,6 @@
 
 import { AfterViewInit, ChangeDetectorRef, ComponentFactoryResolver, Directive, ElementRef, HostBinding, Injector, Input, OnDestroy, Renderer2, ViewChild, ViewContainerRef } from '@angular/core';
-import * as _ from 'lodash-es';
+import {isObjectLike,isArray,each}  from 'lodash-es';
 import { Container } from '../container.main';
 import { IArea } from './interface/IArea';
 
@@ -284,7 +284,7 @@ export class AbstractPanel extends Container implements AfterViewInit,OnDestroy{
   }
 
   public setActive(comp: any): void {
-    if (_.isObjectLike(comp)) {
+    if (isObjectLike(comp)) {
       comp = comp['id'];
     }
     if (this.items) {
@@ -377,9 +377,9 @@ export class AbstractPanel extends Container implements AfterViewInit,OnDestroy{
   override add(comp): any {
     this.initItems();
     const args = arguments.length > 1;
-    if (args || _.isArray(comp)) {
+    if (args || isArray(comp)) {
       const result = [];
-      _.each(args ? arguments : comp,
+      each(args ? arguments : comp,
         (c) => {
           result.push(this.add(c));
         });

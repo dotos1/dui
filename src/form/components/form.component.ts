@@ -13,15 +13,15 @@ import {
     SimpleChanges,
 } from '@angular/core';
 import { FormArray, FormGroup } from '@angular/forms';
-import * as _ from 'lodash-es';
-import * as _moment from 'moment';
+import {isString,isDate,isObjectLike,each,isBoolean,forEach,remove}  from 'lodash-es';
+import moment from 'moment';
 import { filter, switchMap, take } from 'rxjs/operators';
 
 import { Dui } from '@dotos/dui/core';
 import { FieldConfig, FieldConfigCache, FormBuilder, FormConfig, FormOptions, assignModelValue, clearControl, clone, getKeyPath, isUndefined } from '@dotos/dui/core/form';
 import { FormAction, Load, Submit } from '../action/index';
 
-const moment = _moment;
+
 @Component({
   selector: 'dui-form',
   templateUrl: './form.component.html',
@@ -218,7 +218,7 @@ export class FormComponent implements DoCheck, OnChanges, OnDestroy {
   }
 
   doAction(action, option: any):Promise<any>  {
-    if (_.isString(action)) {
+    if (isString(action)) {
       if (action === 'load') {
         action = this.loadService.init(this, option);
       } else if (action === 'submit') {
@@ -253,12 +253,12 @@ export class FormComponent implements DoCheck, OnChanges, OnDestroy {
     let fieldFun = (field) => {
       if (field.name) {
         if (this.model[field.name] != undefined) {
-          if (_.isDate(this.model[field.name])) {
+          if (isDate(this.model[field.name])) {
             this.model[field.name] = moment(this.model[field.name]).format('YYYY-MM-DD HH:mm:ss');
           } else if (this.model[field.name] instanceof moment) {
             this.model[field.name] = this.model[field.name].format('YYYY-MM-DD HH:mm:ss');
           }
-          if (_.isObjectLike(this.model[field.name])) {
+          if (isObjectLike(this.model[field.name])) {
             if(this.model[field.name].text){
               body = body.append(field.name, this.model[field.name].value);
             }else{
@@ -280,7 +280,7 @@ export class FormComponent implements DoCheck, OnChanges, OnDestroy {
           fieldFun(f1);
       });
     };
-    _.each(this.config.items, (field) => {
+    each(this.config.items, (field) => {
       if (field.fieldGroup) {
         groupFun(field);
       } else {
@@ -294,7 +294,7 @@ export class FormComponent implements DoCheck, OnChanges, OnDestroy {
     if (this.config == undefined || this.config.items == undefined) {
       return;
     }
-    _.each(this.config.items, (field) => {
+    each(this.config.items, (field) => {
       delete field.inputValue;
       field.formControl.reset();
       if(field.defaultValue!=undefined){
@@ -303,7 +303,7 @@ export class FormComponent implements DoCheck, OnChanges, OnDestroy {
     });
     let fieldFun = (field: FieldConfig, model) => {
       field.formControl.reset();
-      if ( _.isObjectLike(model)) {
+      if ( isObjectLike(model)) {
         if(model.text && model.value){
           if (field.xtype == 'select-field' && field.remote == true) {
             let opts = [];
@@ -358,7 +358,7 @@ export class FormComponent implements DoCheck, OnChanges, OnDestroy {
         });
       }
     };
-    _.each(values, (model, key) => {
+    each(values, (model, key) => {
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
       this.config.items.forEach((field, index, array) => {
         if (field.fieldGroup) {
@@ -417,7 +417,7 @@ export class FormComponent implements DoCheck, OnChanges, OnDestroy {
       })
     } else {
       if (field.name == key) {
-        if (_.isObjectLike(model) && model.text && model.value) {
+        if (isObjectLike(model) && model.text && model.value) {
           field.inputValue = model.text;
           field.formControl.patchValue(model.value);
           field.model[key]=model.value;
@@ -447,7 +447,7 @@ export class FormComponent implements DoCheck, OnChanges, OnDestroy {
         });
       }
     };
-    _.each(this.config.items, (field) => {
+    each(this.config.items, (field) => {
       resetField(field);
     });
   }
@@ -474,11 +474,11 @@ export class FormComponent implements DoCheck, OnChanges, OnDestroy {
   set value(v) {
     let val = {};
     if(this.config.items){
-      _.each(this.config.items, (field) => {
+      each(this.config.items, (field) => {
         delete field.inputValue
       });
-      _.each(v, (model, key) => {
-        if (_.isObjectLike(model) && model.text && model.value) {
+      each(v, (model, key) => {
+        if (isObjectLike(model) && model.text && model.value) {
           this.config.items.forEach((field) => {
             if (field.name == key) {
               if (field.xtype == 'select-field' ) {
@@ -497,7 +497,7 @@ export class FormComponent implements DoCheck, OnChanges, OnDestroy {
               }
             }
           });
-        } else if (_.isString(model)) {
+        } else if (isString(model)) {
           val[key] = model;
           // eslint-disable-next-line @typescript-eslint/no-unused-vars
           this.config.items.forEach((field, index, array) => {
@@ -510,7 +510,7 @@ export class FormComponent implements DoCheck, OnChanges, OnDestroy {
           });
         } else if (Array.isArray(model)) {
           let value = [];
-          _.forEach(model, (item) => {
+          forEach(model, (item) => {
             value.push(item.value);
           });
           val[key] = value;
@@ -522,7 +522,7 @@ export class FormComponent implements DoCheck, OnChanges, OnDestroy {
               }
             }
           });
-        }else if (_.isBoolean(model)) {
+        }else if (isBoolean(model)) {
           val[key] = model;
         }
       });
@@ -593,7 +593,7 @@ export class FormComponent implements DoCheck, OnChanges, OnDestroy {
   remove(field: string) {
     for (let i = 0; i < this.items.length; i++) {
       if (this.items[i].name == field) {
-        _.remove(this.items, this.items[i]);
+        remove(this.items, this.items[i]);
       }
     }
   }

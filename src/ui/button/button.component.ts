@@ -87,19 +87,17 @@ export class ButtonComponent extends ButtonBase implements OnChanges,DoCheck {
   override onClick(e) {
     if (e) {
       e.preventDefault();
-      if (this.matTooltip.message!='') {
-        e.stopPropagation();
-        e.stopImmediatePropagation();
-        this.matTooltip.hide();
-      }
     }
     if (!this.disabled) {
-      setTimeout(() => {
+      if (this.matTooltip&&this.matTooltip.message!='') {
+        e.stopPropagation();
+        e.stopImmediatePropagation();
+        this.matTooltip.hide(10);
+      }
         if (this.handler) {
           this.handler.call(this, this.data || this, e);
         }
         this.click.emit(e);
-      }, 50);
     }
-  }
+  }   
 }

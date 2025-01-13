@@ -275,6 +275,8 @@ export class IconPickerComponent implements TriggerPopup, OnInit, OnDestroy {
     val['type'] = 'SVG';
     val['value'] = 'SVG:' + icon.name + ':' + icon.url;
     val['text'] = icon.name;
+
+
     this.host._selectAndClose(val);
     this.host.close();
   }

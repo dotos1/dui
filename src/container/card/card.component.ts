@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ComponentFactory
 import { MatPaginator } from '@angular/material/paginator';
 import { ComponentBase, Dui } from '@dotos/dui/core';
 import { TranslateService } from '@dotos/dui/translator';
-import * as _ from 'lodash-es';
+import {concat,isUndefined,isString}  from 'lodash-es';
 import { Container } from '../container.main';
 
 @Component({
@@ -165,7 +165,7 @@ export class DuiCardComponent extends Container implements OnChanges{
       this._createFbar(this.fbar);
     }
     const items = this.items;
-    if (items && this.xtype === 'card') {
+    if (items&& this.xtype === 'card') {
       delete this.items;
       this.add(items);
     }
@@ -188,7 +188,7 @@ export class DuiCardComponent extends Container implements OnChanges{
   }
 
   lookupButton(c) {
-    if (_.isString(c)) {
+    if (isString(c)) {
       if (c === '-') {
         c = this.createComponent({
           xtype: 'divider',
@@ -336,14 +336,14 @@ export class DuiCardComponent extends Container implements OnChanges{
 
 
   getAllButtons(): Array<ComponentBase> {
-    const allButtons = _.concat(this.ltButtons, this.rtButtons, this.actionButtons, this.fButtons);
+    const allButtons = concat(this.ltButtons, this.rtButtons, this.actionButtons, this.fButtons);
     return allButtons;
   }
 
 
   getButtonMenus(buttons?): Array<ComponentBase> {
-    if (_.isUndefined(buttons)) {
-      buttons = _.concat(this.ltButtons, this.rtButtons, this.actionButtons, this.fButtons);
+    if (isUndefined(buttons)) {
+      buttons = concat(this.ltButtons, this.rtButtons, this.actionButtons, this.fButtons);
     }
     return buttons;
   }

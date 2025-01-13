@@ -1,5 +1,5 @@
 import { TranslateService } from '@dotos/dui/translator';
-import * as _ from 'lodash-es';
+import {concat,first, last, some, every}  from 'lodash-es';
 import { IReactionDisposer, action, computed, observable, reaction } from 'mobx';
 
 import { TREE_EVENTS } from '../constants/events';
@@ -7,7 +7,6 @@ import { ITreeNode } from '../defs/api';
 import { TreeOptions } from './tree-options.model';
 import { TreeModel } from './tree.model';
 
-const { first, last, some, every } = _;
 
 export class TreeNode implements ITreeNode {
   private handler: IReactionDisposer;
@@ -195,9 +194,9 @@ export class TreeNode implements ITreeNode {
       val = this.parent.getPathValue(val, name);
     }
     if (this.data[name]) {
-      val = _.concat(val, [this.data[name]]);
+      val = concat(val, [this.data[name]]);
     } else {
-      val = _.concat(val, []);
+      val = concat(val, []);
     }
     return val;
   }
@@ -455,6 +454,7 @@ export class TreeNode implements ITreeNode {
   }
   
   @action  setIsSelected(value,silent?) {
+
     if (this.options.cascadeSelect) {
       if (this.isLeaf) {
         this.treeModel.setSelectedNode(this, value,silent);
@@ -463,7 +463,6 @@ export class TreeNode implements ITreeNode {
       } else {
         this.treeModel.setSelectedNode(this, value,silent);
       }
-
     } else {
       if (this.isSelectable()) {
         this.treeModel.setSelectedNode(this, value);
@@ -483,7 +482,7 @@ export class TreeNode implements ITreeNode {
     this.setIsActive(!this.isActive, multi);
     return this;
   }
-
+  
   setActiveAndVisible(multi = false) {
     this.setIsActive(true, multi)
       .ensureVisible();

@@ -16,7 +16,7 @@ import {
     ViewEncapsulation,
 } from '@angular/core';
 import { MatTabChangeEvent, MatTabHeaderPosition } from '@angular/material/tabs';
-import * as _ from 'lodash-es';
+import {isArray,each}  from 'lodash-es';
 import { AbstractPanel } from '../panel/abstract.panel';
 import { PanelComponent } from '../panel/panel.component';
 
@@ -77,9 +77,9 @@ export class TabPanel extends AbstractPanel implements OnChanges,OnDestroy{
   override add(comp): any {
     this.initItems();
     const args = arguments.length > 1;
-    if (args || _.isArray(comp)) {
+    if (args || isArray(comp)) {
       const result = [];
-      _.each(args ? arguments : comp,
+      each(args ? arguments : comp,
         (c) => {
           result.push(this.add(c));
         });

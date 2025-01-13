@@ -1,6 +1,6 @@
 import { FormArray } from '@angular/forms';
 import { DuiBase } from '@dotos/dui/base';
-import * as _ from 'lodash-es';
+import {filter}  from 'lodash-es';
 import { findControl, registerControl, unregisterControl } from '../extensions/field-form/utils';
 import { FieldConfig, FormExtension } from '../models';
 import { assignFieldValue, clone, getFieldValue } from '../utils';
@@ -33,7 +33,7 @@ export abstract class FieldArrayType<F extends FieldConfig = FieldConfig> extend
 
   reset(name, field?: any) {
     let fieldArray = this.field.fieldArray.fieldGroup;
-    let fld = _.filter(fieldArray, (f) => {
+    let fld = filter(fieldArray, (f) => {
       return f.name == 'gridIndex';
     })[0];
     DuiBase.apply(fld, field);

@@ -1,7 +1,7 @@
 
 import { AfterContentChecked, AfterContentInit, AfterViewChecked, AfterViewInit, ChangeDetectorRef, ComponentRef, Directive, DoCheck, HostBinding, Input, OnChanges, OnDestroy, OnInit, SimpleChanges } from '@angular/core';
 import { Base } from '@dotos/dui/base';
-import * as _ from 'lodash-es';
+import {isFunction,isObjectLike,isString}  from 'lodash-es';
 import { Dui } from './dui';
 
 @Directive()
@@ -115,9 +115,9 @@ export class ComponentBase extends Base<HTMLElement> implements OnInit,DoCheck, 
   public initFieldExpression(config: any) {
     if (config.expressionProperties) {
       for (const key in config.expressionProperties as any) {
-        if (typeof config.expressionProperties[key] === 'string' || _.isFunction(config.expressionProperties[key])) {
+        if (typeof config.expressionProperties[key] === 'string' || isFunction(config.expressionProperties[key])) {
           config.expressionProperties[key] = {
-            expression: _.isFunction(config.expressionProperties[key]) ? config.expressionProperties[key] : Dui.evalStringExpression(config.expressionProperties[key], ['comp', 'owner']),
+            expression: isFunction(config.expressionProperties[key]) ? config.expressionProperties[key] : Dui.evalStringExpression(config.expressionProperties[key], ['comp', 'owner']),
             expressionValueSetter: Dui.evalExpressionValueSetter(key, ['expressionValue', 'comp', 'owner']),
           };
         }
@@ -149,7 +149,7 @@ export class ComponentBase extends Base<HTMLElement> implements OnInit,DoCheck, 
       );
       if (
         expressionProperties[key].expressionValue !== expressionValue
-        && (!_.isObjectLike(expressionValue) || JSON.stringify(expressionValue) !== JSON.stringify(expressionProperties[key].expressionValue))
+        && (!isObjectLike(expressionValue) || JSON.stringify(expressionValue) !== JSON.stringify(expressionProperties[key].expressionValue))
       ) {
         expressionProperties[key].expressionValue = expressionValue;
         Dui.evalExpression(
@@ -224,10 +224,10 @@ export class ComponentBase extends Base<HTMLElement> implements OnInit,DoCheck, 
     }
   }
   initPlugin(p) {
-    if (p.ptype && !_.isFunction(p.init)) {
+    if (p.ptype && !isFunction(p.init)) {
       p = Dui.createPlugin(p);
     } else {
-      if (_.isString(p)) {
+      if (isString(p)) {
         p = Dui.createPlugin({ ptype: p });
       }
     }
@@ -257,10 +257,10 @@ export class ComponentBase extends Base<HTMLElement> implements OnInit,DoCheck, 
 
   isXType(comp: any, shallow: boolean) {
     let xtype;
-    if (_.isFunction(comp)) {
+    if (isFunction(comp)) {
       xtype = comp['xtype'];
     } else {
-      if (_.isObjectLike(xtype)) {
+      if (isObjectLike(xtype)) {
         xtype = comp.constructor.xtype;
       }
     }

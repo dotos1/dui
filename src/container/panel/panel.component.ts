@@ -1,6 +1,6 @@
 
 import { AfterViewInit, ChangeDetectorRef, Component, ComponentFactoryResolver, ElementRef, EventEmitter, Injector, Input, OnChanges, OnDestroy, OnInit, Output, Renderer2, SimpleChanges } from '@angular/core';
-import * as _ from 'lodash-es';
+import {forEach}  from 'lodash-es';
 import { Observable, Subject } from 'rxjs';
 import { debounceTime } from 'rxjs/operators';
 import { AbstractPanel } from './abstract.panel';
@@ -25,7 +25,7 @@ export class PanelComponent extends AbstractPanel implements ILayoutTogglable,On
 
   @Input()
   public set children(v: Array<PanelComponent>) {
-    _.forEach(v, (panel) => {
+    forEach(v, (panel) => {
       panel.ownerCt = this;
       this.addArea(panel);
     });

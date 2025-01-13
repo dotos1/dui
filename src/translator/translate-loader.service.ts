@@ -38,7 +38,12 @@ export class TranslateLoaderService implements TranslateLoader {
   }
 
   fetchLanguageFile(lang: string, component: ComponentTranslationModel, fallbackUrl?: string): Observable<void> {
-    const translationUrl = fallbackUrl || `${component.path}/${component.name}/${lang}${this.suffix}?v=${Date.now()}`;
+      
+    let translationUrl = fallbackUrl || `${component.path}/${component.name}/${lang}${this.suffix}?v=${Date.now()}`;
+    if(component.name==''){
+      translationUrl = fallbackUrl || `${component.path}/${lang}${this.suffix}?v=${Date.now()}`;
+    }
+
 
     return this.http.get(translationUrl).pipe(
       map((res: any) => {
@@ -145,7 +150,7 @@ export class TranslateLoaderService implements TranslateLoader {
           });
       } else {
         const fullTranslation = this.getFullTranslationJSON(lang);
-        if (fullTranslation) {
+          if (fullTranslation) {
           observer.next(fullTranslation);
           observer.complete();
         }

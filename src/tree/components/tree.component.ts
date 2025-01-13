@@ -14,7 +14,7 @@ import {
 } from '@angular/core';
 import { LocalStorageService } from '@dotos/dui/core/storage';
 import { TranslateService } from '@dotos/dui/translator';
-import * as _ from 'lodash-es';
+import { includes, pick}  from 'lodash-es';
 import { BehaviorSubject } from 'rxjs';
 
 import { TREE_EVENTS } from '../constants/events';
@@ -24,7 +24,6 @@ import { TreeNode } from '../models/tree-node.model';
 import { TreeModel } from '../models/tree.model';
 import { TreeViewportComponent } from './tree-viewport.component';
 
-const { includes, pick } = _;
 
 export interface ITreeConfig {
   click: Function;
@@ -187,6 +186,7 @@ export class TreeComponent implements OnChanges {
       let subscription;
       let fn=(event) => {
         this.setAcvitNode(id, event);
+
         subscription.unsubscribe();
       }
       subscription = this.treeModel.subscribe('loadNodeChildren', fn);
@@ -203,6 +203,7 @@ export class TreeComponent implements OnChanges {
       NNode = NNode.findNextNode();
     }
     NNode.setIsActive(true);
+
     this.config.click(NNode);
   }
 

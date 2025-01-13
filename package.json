@@ -32,6 +32,7 @@
     "@floating-ui/core": "^1.0.1",
     "@floating-ui/dom": "^1.0.4",
     "@juggle/resize-observer": "^3.4.0",
+    "@material/textfield": "^14.0.0",
     "colornames": "^1.1.1",
     "core-js": "^3.21.1",
     "element-resize-detector": "^1.2.4",
