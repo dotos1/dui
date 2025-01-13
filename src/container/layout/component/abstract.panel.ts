@@ -1,7 +1,7 @@
 
 import { ChangeDetectorRef, ComponentFactoryResolver, Directive, ElementRef, Injector, Input, NgZone, OnChanges, OnDestroy, OnInit, Renderer2, SimpleChanges } from '@angular/core';
 import { Container } from '@dotos/dui/container';
-import * as _ from 'lodash-es';
+import {isArray,each}  from 'lodash-es';
 import { getInputPositiveNumber, getInputboolean } from '../utils';
 import { LayoutComponent } from './layout.component';
 
@@ -199,9 +199,9 @@ export class AbstractPanel extends Container implements OnChanges,OnInit,OnDestr
   override add(comp): any {
     this.initItems();
     const args = arguments.length > 1;
-    if (args || _.isArray(comp)) {
+    if (args || isArray(comp)) {
       const result = [];
-      _.each(args ? arguments : comp,
+      each(args ? arguments : comp,
         (c) => {
           result.push(this.add(c));
         });

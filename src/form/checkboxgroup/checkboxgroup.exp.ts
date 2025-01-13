@@ -8,7 +8,7 @@ import {
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { MatCheckbox } from '@angular/material/checkbox';
 import { TranslateService } from '@dotos/dui/translator';
-import * as _ from 'lodash-es';
+import {indexOf}  from 'lodash-es';
 import { MatField } from '../base/mat.field';
 
 
@@ -186,7 +186,7 @@ export class MatCheckGroup extends MatField implements AfterContentInit, Control
     if (this._checks != null && !isAlreadySelected) {
       this._selected = [];
       this._checks.forEach(check => {
-        check.checked = _.indexOf(this.value, check.value) > 0;
+        check.checked = indexOf(this.value, check.value) > 0;
         if (check.checked) {
           this._selected.push(check);
         }

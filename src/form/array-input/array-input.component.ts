@@ -1,8 +1,9 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { MAT_INPUT_VALUE_ACCESSOR } from '@angular/material/input';
-import * as _ from 'lodash-es';
+import {clone}  from 'lodash-es';
 import { Observable, of } from 'rxjs';
 import { TextFieldComponent } from '../field';
+
 @Component({
   selector: 'array-input-field',
   templateUrl: './array-input.component.html',
@@ -41,7 +42,7 @@ export class ArrayInputComponent extends TextFieldComponent implements OnInit {
     if(this.field.options==undefined){
       return [];
     }
-    let opts=_.clone(this.field.options);
+    let opts=clone(this.field.options);
      opts.map(option => {
         option["selected"]=false;
      });

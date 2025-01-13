@@ -10,7 +10,13 @@
   </div>
 </ng-template>
 <ng-template #matSuffix>
-  <div class="color-picker-select-arrow-wrapper" (click)="open()">
-    <div class="color-picker-select-arrow"></div>
+  <div fxLayout="row">
+    <button *ngIf="(field.required===undefined|| field.required===false)&&value" mat-icon-button type="button"
+      (click)="clear()">
+      <mat-icon (click)="clear()">close</mat-icon>
+    </button>
+    <div class="mat-select-arrow-wrapper" (click)="open()">
+      <div class="mat-select-arrow"></div>
+    </div>
   </div>
 </ng-template>

@@ -27,11 +27,13 @@
           {{child.label |translate}}
         </mat-option>
       </mat-optgroup>
-      <mat-option *ngIf="!item.group" [value]="item.value" [disabled]="item.disabled"  >{{ item.label |translate }}</mat-option>
+      <mat-option *ngIf="!item.group" [value]="item.value" [disabled]="item.disabled" >
+        {{ item.label |translate }}
+      </mat-option>
     </ng-container>
   </ng-container>
   </ng-container>
-</mat-select>
+</mat-select> 
 
 <ng-template #matSuffix>
   <button *ngIf="(field.required===undefined|| field.required===false)&&value" mat-icon-button type="button" (click)="clear()">
@@ -39,3 +41,8 @@
   </button>
 </ng-template>
 <input type="hidden"  class="mdc-text-field__input" value="true"/>
+
+<!-- <ng-container
+[ngTemplateOutlet]="field.optionTemplate"
+[ngTemplateOutletContext]="{ $implicit: node, node: node, index: index }">
+</ng-container> -->

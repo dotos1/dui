@@ -14,7 +14,7 @@ import { MatButtonToggleAppearance } from '@angular/material/button-toggle';
 import { MatIconRegistry } from '@angular/material/icon';
 import { DomSanitizer } from '@angular/platform-browser';
 import { ComponentBase, Dui } from '@dotos/dui/core';
-import * as _ from 'lodash-es';
+import {isFunction,isObjectLike}  from 'lodash-es';
 
 @Component({
   selector: 'toggle-button',
@@ -146,9 +146,9 @@ export class ToggleButtonComponent extends ComponentBase implements OnInit,DoChe
   public override initFieldExpression(config: any) {
     if (config.expressionProperties) {
       for (const key in config.expressionProperties as any) {
-        if (typeof config.expressionProperties[key] === 'string' || _.isFunction(config.expressionProperties[key])) {
+        if (typeof config.expressionProperties[key] === 'string' || isFunction(config.expressionProperties[key])) {
           config.expressionProperties[key] = {
-            expression: _.isFunction(config.expressionProperties[key]) ? config.expressionProperties[key] : Dui.evalStringExpression(config.expressionProperties[key], ['comp', 'owner']),
+            expression: isFunction(config.expressionProperties[key]) ? config.expressionProperties[key] : Dui.evalStringExpression(config.expressionProperties[key], ['comp', 'owner']),
             expressionValueSetter: Dui.evalExpressionValueSetter(key, ['expressionValue', 'comp', 'owner']),
           };
         }
@@ -191,7 +191,7 @@ export class ToggleButtonComponent extends ComponentBase implements OnInit,DoChe
       );
       if (
         expressionProperties[key].expressionValue !== expressionValue
-        && (!_.isObjectLike(expressionValue) || JSON.stringify(expressionValue) !== JSON.stringify(expressionProperties[key].expressionValue))
+        && (!isObjectLike(expressionValue) || JSON.stringify(expressionValue) !== JSON.stringify(expressionProperties[key].expressionValue))
       ) {
         expressionProperties[key].expressionValue = expressionValue;
         Dui.evalExpression(

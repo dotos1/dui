@@ -2,7 +2,7 @@
 import { AfterViewInit, ChangeDetectionStrategy, Component, ElementRef, ViewEncapsulation } from '@angular/core';
 import { Dui } from '@dotos/dui/core';
 import { TranslateService } from '@dotos/dui/translator';
-import * as _ from 'lodash-es';
+import {isObjectLike}  from 'lodash-es';
 import { MatField } from '../base/mat.field';
 
 @Component({
@@ -41,7 +41,7 @@ export class NumberFieldComponent extends MatField implements AfterViewInit {
   override ngAfterViewInit() {
     super.ngAfterViewInit()
     let val=this.field.formControl.value;
-    if (_.isObjectLike(val) && val.text) {
+    if (isObjectLike(val) && val.text) {
       this._elementRef.nativeElement.children[0].value = val.text;
     }
   }
@@ -56,11 +56,6 @@ export class NumberFieldComponent extends MatField implements AfterViewInit {
       let maxErrorText= this.field.maxText?this.translate.instant(this.field.maxText):this.translate.instant("FORM.MAXTEXT");
       this.field.validation.messages['max'] = Dui.format(maxErrorText, this.field.max);
     }
-    // if (this.field.xtype=='number-field'&&  this.field.allowDecimals==false){
-    //   this.field.pattern="^([0-9]{1,})$";
-    //   let patternErrorText = this.field.regexText?this.translate.instant(this.field.regexText):this.translate.instant("FORM.NO_DECIMAL");
-    //   this.field.validation.messages['pattern'] =patternErrorText;
-    // }
     if(this.field.unit){
       this.defaultUnit=this.field.unit.nativeUnit;
       this.currentUnit=this.field.unit.nativeUnit;

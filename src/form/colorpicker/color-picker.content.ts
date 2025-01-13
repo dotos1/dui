@@ -3,7 +3,7 @@ import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output, ViewEn
 import { duiAnimations } from '@dotos/dui/common/animations';
 import { TriggerPopup } from '@dotos/dui/common/trigger';
 import { MatColors } from '@dotos/dui/core/color';
-import * as _ from 'lodash-es';
+import {forIn}  from 'lodash-es';
 
 @Component({
   selector: 'color-picker-content',
@@ -44,7 +44,7 @@ export class ColorPickerContent implements TriggerPopup {
 
     this.colorChanged = new EventEmitter();
     this.colors = {}
-    _.forIn(MatColors.all,  (value, key)=> {
+    forIn(MatColors.all,  (value, key)=> {
       if (key != 'common' && key != 'dui-white' && key != 'dui-black') {
         this.colors[key] = value;
       };

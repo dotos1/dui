@@ -3,8 +3,7 @@ import { KEYS } from '../constants/keys';
 import { ITreeOptions } from '../defs/api';
 import { TreeNode } from './tree-node.model';
 import { TreeModel } from './tree.model';
-
-import * as _ from 'lodash-es';
+import {get,isNumber}  from 'lodash-es';
 
 export interface IActionHandler {
   (tree: TreeModel, node: TreeNode, $event: any, ...rest);
@@ -146,8 +145,8 @@ export class TreeOptions {
     }
 
     if (options.rtl) {
-      this.actionMapping.keys[KEYS.RIGHT] = <IActionHandler>_.get(options, ['actionMapping', 'keys', KEYS.RIGHT]) || TREE_ACTIONS.DRILL_UP;
-      this.actionMapping.keys[KEYS.LEFT] = <IActionHandler>_.get(options, ['actionMapping', 'keys', KEYS.LEFT]) || TREE_ACTIONS.DRILL_DOWN;
+      this.actionMapping.keys[KEYS.RIGHT] = <IActionHandler>get(options, ['actionMapping', 'keys', KEYS.RIGHT]) || TREE_ACTIONS.DRILL_UP;
+      this.actionMapping.keys[KEYS.LEFT] = <IActionHandler>get(options, ['actionMapping', 'keys', KEYS.LEFT]) || TREE_ACTIONS.DRILL_DOWN;
     }
   }
 
@@ -155,7 +154,7 @@ export class TreeOptions {
     if (this.options.getNodeClone) {
       return this.options.getNodeClone(node);
     }
-  //  return _.omit(Object.assign({}, node.data), ['id']);
+  //  return omit(Object.assign({}, node.data), ['id']);
  
   const nodeClone = Object.assign({}, node.data);
    if (nodeClone.id) {
@@ -199,6 +198,6 @@ export class TreeOptions {
   }
 
   get dropSlotHeight(): number {
-    return _.isNumber(this.options.dropSlotHeight) ? this.options.dropSlotHeight : 2;
+    return isNumber(this.options.dropSlotHeight) ? this.options.dropSlotHeight : 2;
   }
 }

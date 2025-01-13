@@ -2,6 +2,27 @@
   display: block;
   height: 200px;
 }
+
+
+@font-face {
+	font-family: "codicon";
+	font-display: block;
+	src: url(/assets/font/codicon.ttf) format("truetype") !important;
+} 
+
+.codicon[class*='codicon-'] {
+	font: normal normal normal 16px/1 codicon;
+	display: inline-block;
+	text-decoration: none;
+	text-rendering: auto;
+	text-align: center;
+	text-transform: none;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	user-select: none;
+	-webkit-user-select: none;
+}
+
 .statusbar{
   position:absolute;
   bottom:15px;

@@ -4,8 +4,9 @@ import { Observable, of } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 
 import { CookieStorage } from '@dotos/dui/core/cookie';
-import { StorageService } from '@dotos/dui/core/services';
 import { AuthService } from './auth.service';
+import { LocalStorageService } from '../storage';
+import { StorageService } from '../services/storage.service';
 @Injectable()
 export class AuthenticatedGuard  {
   constructor(private _router: Router,

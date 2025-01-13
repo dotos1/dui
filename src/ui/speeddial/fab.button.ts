@@ -14,7 +14,7 @@ import {
 } from '@angular/core';
 import { MatTooltip } from '@angular/material/tooltip';
 import { ComponentBase } from '@dotos/dui/core';
-import * as _ from 'lodash-es';
+import {isString}  from 'lodash-es';
 
 @Component({
   selector: 'fabbutton',
@@ -81,7 +81,7 @@ export class FabButtonComponent extends ComponentBase implements OnChanges,DoChe
       this.items = config.children;
     }
     for (let i = 0; i < this.items.length; i++) {
-      if (_.isString(this.items[i]) && this.items[i] === '-') {
+      if (isString(this.items[i]) && this.items[i] === '-') {
         this.items[i] = { type: 'divider' };
       }
       if (!this.items[i].xtype) {
@@ -108,20 +108,19 @@ export class FabButtonComponent extends ComponentBase implements OnChanges,DoChe
   onClick(e) {
     if (e) {
       e.preventDefault();
+
+    }
+    if (!this.disabled) {
       if (this.matTooltip.message!='') {
         e.stopPropagation();
         e.stopImmediatePropagation();
         this.matTooltip.hide();
       }
-    }
-    if (!this.disabled) {
-      setTimeout(() => {
         this.trigger('click', { button: this, event: e });
         if (this.handler) {
           this.handler.call(this, this, e);
         }
         this.click.emit(e);
-      }, 50);
     }
   }
 }

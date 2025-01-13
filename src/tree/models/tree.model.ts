@@ -1,6 +1,5 @@
 import { Injectable, OnDestroy, } from '@angular/core';
 import { TranslateService } from '@dotos/dui/translator';
-import * as _ from 'lodash-es';
 import { action, autorun, computed, observable } from 'mobx';
 import { Subscription } from 'rxjs';
 import { TREE_EVENTS } from '../constants/events';
@@ -8,9 +7,7 @@ import { IDType, IDTypeDictionary, ITreeModel } from '../defs/api';
 import { TreeNode } from './tree-node.model';
 import { TreeOptions } from './tree-options.model';
 import { TreeVirtualScroll } from './tree-virtual-scroll.model';
-
-
-const { first, last, compact, find,  isString, isFunction } = _;
+import { first, last, compact, find,  isString, isFunction}  from 'lodash-es';
 
 @Injectable()
 export class TreeModel implements ITreeModel,OnDestroy {
@@ -164,14 +161,11 @@ export class TreeModel implements ITreeModel,OnDestroy {
 
   getNodeBy(predicate, startNode = null) {
     startNode = startNode || this.virtualRoot;
-
     if (!startNode.children) { return null; }
-
     const found = find(startNode.children, predicate);
-
-    if (found) { // found in children
+    if (found) {
       return found;
-    } else { // look in children's children
+    } else {
       for (const child of startNode.children) {
         const foundInChildren = this.getNodeBy(predicate, child);
         if (foundInChildren) { return foundInChildren; }

@@ -10,7 +10,7 @@ import { MatInput } from '@angular/material/input';
 import { DomSanitizer } from "@angular/platform-browser";
 import { Dui } from '@dotos/dui/core';
 import { TranslateService } from '@dotos/dui/translator';
-import * as _ from 'lodash-es';
+import {isObjectLike}  from 'lodash-es';
 import { isObject } from 'lodash-es';
 import { AbstractTrigger } from './abstract.trigger';
 
@@ -88,7 +88,7 @@ export class TriggerField extends AbstractTrigger implements AfterViewInit {
   override ngAfterViewInit() {
     super.ngAfterViewInit();
     let val=this.field.formControl.value;
-    if (_.isObjectLike(val) && val.text) {
+    if (isObjectLike(val) && val.text) {
       this._elementRef.nativeElement.children[0].value = val.text;
     }
   }

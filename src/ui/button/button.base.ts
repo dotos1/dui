@@ -10,7 +10,7 @@ import {
 } from '@angular/core';
 import { MatMenuTrigger } from '@angular/material/menu';
 import { MatTooltip } from '@angular/material/tooltip';
-import * as _ from 'lodash-es';
+import {isString}  from 'lodash-es';
 
 import { ComponentBase } from '@dotos/dui/core';
 
@@ -112,7 +112,7 @@ export class ButtonBase extends ComponentBase {
   }
   processItems(items){
     for (let i = 0; i < items.length; i++) {
-      if (_.isString(items[i]) && items[i] === '-') {
+      if (isString(items[i]) && items[i] === '-') {
         items[i] = { type: 'divider' };
       }
       if (!items[i].xtype) {
@@ -191,7 +191,7 @@ export class ButtonBase extends ComponentBase {
               this.icon=this.items[i].icon;
           }
         }
-      }else if(_.isString(v)){
+      }else if(isString(v)){
         this.value=v;
         let  inItem=false;
         for (let i = 0; i < this.items.length; i++) {

@@ -128,6 +128,11 @@ export class ColorPickerField<F extends FieldConfig = FieldConfig> extends Abstr
     super.init();
   }
 
+  clear() {
+    this.value = undefined;
+    this.field.inputValue = undefined;
+  }
+
   private coerceStringProperty(value: any): string {
     const d: string = value ? value + '' : null;
     return d;

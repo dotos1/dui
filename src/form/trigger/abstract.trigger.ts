@@ -18,7 +18,7 @@ import {
 import { MatDialog, MatDialogRef } from "@angular/material/dialog";
 import { TriggerPopup } from '@dotos/dui/common/trigger';
 import { TranslateService } from '@dotos/dui/translator';
-import * as _ from 'lodash-es';
+import {isObjectLike}  from 'lodash-es';
 import { first } from "rxjs/operators";
 import { MatField } from '../base/mat.field';
 
@@ -118,7 +118,7 @@ export class AbstractTrigger extends MatField implements OnInit,OnDestroy,DoChec
   override ngOnInit() {
     super.ngOnInit();
     this.field.formControl.valueChanges.subscribe((val) => {
-      if (_.isObjectLike(val) ) {
+      if (isObjectLike(val) ) {
         if(val.text){
           this._elementRef.nativeElement.children[0].value = val.text;
         }else{

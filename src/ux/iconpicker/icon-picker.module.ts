@@ -24,6 +24,7 @@ import { TextDirective } from './text.directive';
 import { TranslateModule, TranslationService } from '@dotos/dui/translator';
 import { FontLoaderService } from './font-loader.service';
 import { IconModule } from '@dotos/dui/common/icon';
+import { MatButtonModule } from '@angular/material/button';
 
 
 @NgModule({
@@ -31,6 +32,7 @@ import { IconModule } from '@dotos/dui/common/icon';
     CommonModule,
     IconModule,
     OverlayModule,
+    MatButtonModule,
     ReactiveFormsModule,
     MatTooltipModule,
     PortalModule,

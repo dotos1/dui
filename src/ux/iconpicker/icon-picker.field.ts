@@ -88,16 +88,19 @@ export class IconPickerField extends AbstractTrigger implements OnInit {
     } else {
       this._icon = this.coerceStringProperty(val);
       this._selected = this._icon;
-      let vals = val.split(':');
-      this._type = vals[0];
-      if (vals[0] == 'SVG') {
-        this.matIconRegistry.addSvgIcon(
-          vals[1],
-          this.domSanitizer.bypassSecurityTrustResourceUrl(vals[2])
-        );
+      this._value = this._icon;
+      if(val){
+        let vals = val.split(':');
+        this._type = vals[0];
+        if (vals[0] == 'SVG') {
+          this.matIconRegistry.addSvgIcon(
+            vals[1],
+            this.domSanitizer.bypassSecurityTrustResourceUrl(vals[2])
+          );
+        }
+        this.inputValue = vals[1];
       }
-      this.inputValue = vals[1];
-      this.formControl.setValue(this._value);
+      this.formControl.setValue(this._icon);
     }
   }
 
@@ -140,6 +143,7 @@ export class IconPickerField extends AbstractTrigger implements OnInit {
     super.ngOnInit();
     this.formControl.registerOnChange((value)=>{
       let fullIcon = value;
+
       let _icon;
       if (fullIcon) {
         if (fullIcon.startsWith("SVG")) {
@@ -152,7 +156,7 @@ export class IconPickerField extends AbstractTrigger implements OnInit {
               this.domSanitizer.bypassSecurityTrustResourceUrl(vals[2])
             );
           }
-          this._icon=_icon;
+          this._icon=fullIcon;
         } else if (fullIcon.startsWith("EXTRA")) {
             let vals = fullIcon.split(":");
             this.fontLoaderService.loadFonts(vals[1],vals[3],700).then(()=>{
@@ -179,8 +183,7 @@ export class IconPickerField extends AbstractTrigger implements OnInit {
     });
   }
   isColor(value){
-
-    if(value.indexOf("#")!==-1){
+    if(value&&value.indexOf("#")!==-1){
       return true;
     }else{
       return false;
@@ -192,15 +195,24 @@ export class IconPickerField extends AbstractTrigger implements OnInit {
   }
 
 
-  override _selectAndClose(val: string): void {
+  override _selectAndClose(val: any): void {
     const oldValue = this._selected;
-    this.value = val;
+    if(typeof(val) =='object' ){
+      this.value = val.value;
+    }else{
+      this.value = val;
+    }
     if (oldValue != this._selected) {
       this._emitChangeEvent();
     }
     this._mapInput.focus();
     this._mapInput.ngDoCheck();
     this.close();
+  }
+
+  clear() {
+    this.value = undefined;
+    this.field.inputValue = undefined;
   }
 
   override open(): void {

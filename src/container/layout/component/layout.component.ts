@@ -17,7 +17,7 @@ import {
     ViewEncapsulation,
 } from '@angular/core';
 import { Container } from '@dotos/dui/container';
-import * as _ from 'lodash-es';
+import {isArray,each}  from 'lodash-es';
 import { Observable, Subject, Subscriber } from 'rxjs';
 import { debounceTime } from 'rxjs/operators';
 
@@ -944,9 +944,9 @@ export class LayoutComponent
   override add(comp): any {
     this.initItems();
     const args = arguments.length > 1;
-    if (args || _.isArray(comp)) {
+    if (args || isArray(comp)) {
       const result = [];
-      _.each(args ? arguments : comp, (c) => {
+      each(args ? arguments : comp, (c) => {
         result.push(this.add(c));
       });
       return result;

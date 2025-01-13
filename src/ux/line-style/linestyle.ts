@@ -17,7 +17,7 @@ import { LocalStorageService } from '@dotos/dui/core/storage';
 import { MatField } from '@dotos/dui/form';
 import { DotosConfigService, ThemeService, matColor } from '@dotos/dui/theme';
 import { TranslateService } from '@dotos/dui/translator';
-import * as _ from 'lodash-es';
+import {isString}  from 'lodash-es';
 import { Subject, takeUntil } from 'rxjs';
 
 export const PRE_DEFINED_THEMES = [
@@ -128,7 +128,7 @@ export class LineStyleSelector<F extends FieldConfig = FieldConfig>
   }
   setValue(value) {
     let dashs = [];
-    if(_.isString(value)){
+    if(isString(value)){
       dashs= value.split(',');
     }
     let canvas = this.lineStyleTriggerEl.nativeElement;

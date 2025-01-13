@@ -1,5 +1,5 @@
 
-import * as _ from 'lodash-es';
+import {isString,isUndefined}  from 'lodash-es';
 import { Hash } from './hash';
 export class Sha1 implements Hash {
   blockSize: any;
@@ -60,7 +60,7 @@ export class Sha1 implements Hash {
     const W = this.W_;
 
     // get 16 big endian words
-    if (_.isString(buf)) {
+    if (isString(buf)) {
       for (let i = 0; i < 16; i++) {
 
         // TODO(user): [bug 8140122] Recent versions of Safari for Mac OS and iOS
@@ -133,7 +133,7 @@ export class Sha1 implements Hash {
     if (bytes == null) {
       return;
     }
-    if (_.isUndefined(opt_length)) {
+    if (isUndefined(opt_length)) {
       opt_length = bytes.length;
     }
     const lengthMinusBlock = opt_length - this.blockSize;
@@ -156,7 +156,7 @@ export class Sha1 implements Hash {
           n += this.blockSize;
         }
       }
-      if (_.isString(bytes)) {
+      if (isString(bytes)) {
         while (n < opt_length) {
           buf[inbuf] = bytes.charCodeAt(n);
           ++inbuf;

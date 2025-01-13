@@ -23,10 +23,10 @@
     "tslib": "^2.3.1"
   },
   "peerDependencies": {
-    "@angular/animations": "18.1.0",
-    "@angular/common": "18.1.0",
-    "@angular/core": "18.1.0",
-    "@angular/forms": "18.1.0"
+    "@angular/animations": "18.2.13",
+    "@angular/common": "18.2.13",
+    "@angular/core": "18.2.13",
+    "@angular/forms": "18.2.13"
   },
   "exports": {
     "./theming/styles/elevation": {

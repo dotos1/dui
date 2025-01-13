@@ -1,6 +1,6 @@
 import { AfterViewInit, ChangeDetectionStrategy, Component, QueryList, ViewChildren } from '@angular/core';
 import { MatCheckbox } from '@angular/material/checkbox';
-import * as _ from 'lodash-es';
+import {includes,remove}  from 'lodash-es';
 import { MatField } from '../base/mat.field';
 
 @Component({
@@ -38,12 +38,12 @@ export class CheckboxGroupField extends MatField implements AfterViewInit {
     if (this.field.type === 'array') {
       let val = this.formControl.value || [];
       if (event.checked) {
-        if (!_.includes(val, option.value)) {
+        if (!includes(val, option.value)) {
           val.push(option.value);
         }
       } else {
-        if (_.includes(val, option.value)) {
-          _.remove(val, function (v) {
+        if (includes(val, option.value)) {
+          remove(val, function (v) {
             return v === option.value;
           });
         }

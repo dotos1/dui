@@ -46,8 +46,6 @@ export class FieldSelect extends MatField implements OnInit,OnDestroy {
 
   options = [];
 
-  public allowDecimals=true;
-
   public selectSearchControl: FormControl = new FormControl();
 
   public searching: boolean = false;

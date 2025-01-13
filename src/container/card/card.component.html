@@ -2,7 +2,7 @@
   <mat-card fxFlex fxLayout="column" [ngStyle]='cardStyle'>
     <mat-card-header >
       <mat-card-title *ngIf="title || ltbar|| rtbar"  fxLayout='row'  style="width:100%;  ">
-          <div fxLayout='row' fxFlex>
+          <div class="card-title-content" fxLayout='row' fxFlex>
             <span style='flex: 0 0 auto; align-self: center;display:flex;'>
               <ng-container #lefttopbar></ng-container>
               <div  style="margin:auto"> {{title|translate }}</div>
@@ -16,7 +16,7 @@
     </mat-card-header>
     <mat-divider *ngIf="title || subtitle || ltbar|| rtbar"></mat-divider>
     <mat-card-content fxFlex fxLayout='column' style='overflow:hidden' [ngStyle]='contenStyle'>
-      <div [ngStyle]='style' [fxLayout]='fxLayout' >
+      <div [ngStyle]='style' [fxLayout]='fxLayout'  >
         <ng-content></ng-content>
         <ng-container #panel></ng-container>
       </div>

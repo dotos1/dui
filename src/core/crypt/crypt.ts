@@ -1,5 +1,5 @@
 
-import * as _ from 'lodash-es';
+import {slice,map}  from 'lodash-es';
 
 /**
  * @dynamic
@@ -51,7 +51,7 @@ export class crypt {
     // See discussion: http://goo.gl/LrWmZ9
     let str = '';
     for (let i = 0; i < bytes.length; i += CHUNK_SIZE) {
-      const chunk = _.slice(bytes, i, i + CHUNK_SIZE);
+      const chunk = slice(bytes, i, i + CHUNK_SIZE);
       str += String.fromCharCode.apply(null, chunk);
     }
     return str;
@@ -65,7 +65,7 @@ export class crypt {
    * returnHex string.
    */
   public static byteArrayToHex(array: number[]): string {
-    return _.map(array,
+    return map(array,
       function (numByte) {
         const hexByte = numByte.toString(16);
         return hexByte.length > 1 ? hexByte : '0' + hexByte;

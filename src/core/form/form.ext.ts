@@ -1,4 +1,4 @@
-import * as _ from 'lodash-es';
+import {isNil}  from 'lodash-es';
 import { FieldConfig } from './models/field.config';
 import { getKeyPath2 } from './utils';
 
@@ -16,7 +16,7 @@ export class FormExt {
     for (let i = 0; i < keyPath.length; i++) {
       const path = keyPath[i];
       const pathValue = value[path];
-      if (_.isNil(pathValue) && constructEmptyObjects) {
+      if (isNil(pathValue) && constructEmptyObjects) {
         if (i < keyPath.length - 1) {
           value[path] = typeof keyPath[i + 1] === 'number' ? [] : {};
         } else if (field.fieldGroup) {

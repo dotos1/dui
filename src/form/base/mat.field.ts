@@ -3,7 +3,7 @@ import { MatFormField, MatFormFieldControl } from '@angular/material/form-field'
 import { Dui } from '@dotos/dui/core';
 import { FieldType as CoreFieldType, ExtErrorStateMatcher, FieldConfig } from '@dotos/dui/core/form';
 import { TranslateService } from '@dotos/dui/translator';
-import * as _ from 'lodash-es';
+import {isUndefined}  from 'lodash-es';
 import { Subject } from 'rxjs';
 
 @Directive()
@@ -38,7 +38,7 @@ export abstract class MatField<F extends FieldConfig = FieldConfig> extends Core
   public override init(config?: any): void {
     let blankErrorText = this.translate.instant("FORM.BLANKTEXT");
     if (this.field.validation) {
-      if (_.isUndefined(this.field.validation.messages)) {
+      if (isUndefined(this.field.validation.messages)) {
         this.field.validation.messages = {};
       }
       this.field.validation.messages['required'] = this.field.blankText ?
