@@ -17,7 +17,7 @@ const DRAG_DISABLED_CLASS = 'is-dragging-over-disabled';
 
 @Directive({
   selector: '[treeDrop]',
-  host: { 'hostID': crypto.randomUUID().toString()}
+  
 })
 export class TreeDropDirective implements AfterViewInit, OnDestroy {
   @Input() allowDragoverStyling = true;

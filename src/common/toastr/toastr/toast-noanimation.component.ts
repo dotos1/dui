@@ -45,7 +45,7 @@ import { TranslateModule } from '@dotos/dui/translator';
   `,
     encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  host: { 'hostID': crypto.randomUUID().toString()}
+  
 })
 export class ToastNoAnimation implements OnDestroy {
   message?: string | null;

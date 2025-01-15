@@ -6,7 +6,7 @@ import { MatSlideToggle } from '@angular/material/slide-toggle';
   selector: 'slide-toggle',
   templateUrl: './slide-toggle.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  host: { 'hostID': crypto.randomUUID().toString()}
+  
 })
 
 export class SliderToggleField extends MatField implements AfterViewInit {

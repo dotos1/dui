@@ -22,7 +22,7 @@ import EditorError from './utils/error';
     multi: true,
   }],
   encapsulation: ViewEncapsulation.None,
-  host: { 'hostID': crypto.randomUUID().toString()}
+  
 })
 export class EditorComponent implements ControlValueAccessor, OnInit, OnChanges, OnDestroy {
   constructor(

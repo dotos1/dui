@@ -32,7 +32,7 @@ import { CONTEXT_MENU_DIRECTION } from './direction.token';
   styleUrls: ['./context-menu.component.scss'],
   host: {
     class: 'dui-context-menu-holder',
-    'hostID': crypto.randomUUID().toString()
+    
   },
   encapsulation: ViewEncapsulation.None,
 

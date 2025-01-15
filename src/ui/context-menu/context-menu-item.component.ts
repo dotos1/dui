@@ -8,7 +8,7 @@ import { MenuModel,MenuBase } from '@dotos/dui/ui/menu';
   templateUrl: 'context-menu-item.component.html',
   encapsulation: ViewEncapsulation.None,
 <<<<<<< HEAD
-  host: { class: 'app-context-menu-item','hostID': crypto.randomUUID().toString() },
+  host: { class: 'app-context-menu-item', },
 =======
   host: { class: 'app-context-menu-item'}
 >>>>>>> efe8bb5 (warning update)

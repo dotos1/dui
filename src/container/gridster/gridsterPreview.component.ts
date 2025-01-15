@@ -7,7 +7,7 @@ import {GridsterComponent} from './gridster.component';
   template: '',
   styleUrls: ['./gridsterPreview.scss'],
   encapsulation: ViewEncapsulation.None,
-  host: { 'hostID': crypto.randomUUID().toString()}
+  
 })
 export class GridsterPreviewComponent implements OnDestroy {
   el: any;

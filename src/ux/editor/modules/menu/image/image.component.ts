@@ -15,7 +15,7 @@ import { Image as ImageCommand } from '../MenuCommands';
 @Component({
   selector: 'ux-image',
   templateUrl: './image.component.html',
-  host: { 'hostID': crypto.randomUUID().toString()}
+  
 })
 export class ImageComponent implements OnInit, OnDestroy {
   showPopup = false;

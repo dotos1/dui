@@ -17,7 +17,7 @@ import { ThemeService } from '@dotos/dui/theme';
   selector: 'dui-prompt-dialog',
   templateUrl: './prompt-dialog.component.html',
   styleUrls: ['./prompt-dialog.component.scss'],
-  host: { 'hostID': crypto.randomUUID().toString()}
+  
 })
 export class PromptDialogComponent implements AfterViewInit, OnDestroy {
   title?: string;

@@ -5,7 +5,7 @@ import { TreeNode } from '../models/tree-node.model';
   encapsulation: ViewEncapsulation.None,
   selector: 'tree-loading-component',
   templateUrl: 'loading.component.html',
-  host: { 'hostID': crypto.randomUUID().toString()}
+  
 })
 export class LoadingComponent {
   @Input() template: TemplateRef<any>;

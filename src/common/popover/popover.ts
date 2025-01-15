@@ -35,7 +35,7 @@ import { transformPopover } from './popover-animations';
     transformPopover
   ],
   exportAs: 'duiPopover',
-  host: { 'hostID': crypto.randomUUID().toString()}
+  
 })
 
 export class Popover implements PopoverPanel, OnDestroy {

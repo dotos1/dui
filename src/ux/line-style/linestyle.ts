@@ -36,7 +36,7 @@ export const PRE_DEFINED_THEMES = [
   encapsulation: ViewEncapsulation.None,
   host: {
     style: 'flex:1;',
-    'hostID': crypto.randomUUID().toString()
+    
   },
 })
 export class LineStyleSelector<F extends FieldConfig = FieldConfig>

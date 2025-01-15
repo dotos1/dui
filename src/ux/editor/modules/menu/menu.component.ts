@@ -63,7 +63,7 @@ const DEFAULT_COLOR_PRESETS = [
   selector: 'ux-editor-menu',
   templateUrl: './menu.component.html',
   providers: [MenuService],
-  host: { 'hostID': crypto.randomUUID().toString()}
+  
 })
 
 export class MenuComponent implements OnInit {

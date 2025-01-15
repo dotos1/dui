@@ -37,7 +37,7 @@ let nextId = 0;
   encapsulation: ViewEncapsulation.None,
   preserveWhitespaces: false,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  host: { 'hostID': crypto.randomUUID().toString()}
+  
 })
 export class ExpansionPanelBase extends Container implements OnChanges,OnDestroy{
   @Input() config: any = {};
@@ -203,7 +203,7 @@ export type ExpansionPanelState = 'expanded' | 'collapsed';
     '[class.dui-expanded]': 'expanded',
     '[style.flex]': "flex",
     '[class.expansion-panel-spacing]': '_hasSpacing()',
-    'hostID': crypto.randomUUID().toString()
+    
   },
   providers: [
     { provide: _ExpansionPanelMixinBase, useExisting: forwardRef(() => ExpansionPanel) }

@@ -10,7 +10,7 @@ import { PaintHueService } from '../hooks/paint-hue.service.js';
   templateUrl: './gradient-opacity.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   preserveWhitespaces: false,
-  host: { 'hostID': crypto.randomUUID().toString()}
+  
 })
 export class GradientOpacityComponent implements OnInit,OnDestroy {
   @Input()  public  dragging?: boolean=false;

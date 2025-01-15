@@ -12,7 +12,7 @@ import { TextFieldComponent } from '../field';
     { provide: MAT_INPUT_VALUE_ACCESSOR, useExisting: ArrayInputComponent },
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  host: { 'hostID': crypto.randomUUID().toString()}
+  
 })
 export class ArrayInputComponent extends TextFieldComponent implements OnInit {
 

@@ -6,7 +6,7 @@ import { FieldType } from './field.type';
   selector: 'form-template',
   template: `<div  [ngClass]="field.htmlClass"  [innerHtml]="template"></div>`,
   encapsulation: ViewEncapsulation.None,
-  host: { 'hostID': crypto.randomUUID().toString()}
+  
 })
 export class FormTemplateType extends FieldType {
   get template() {

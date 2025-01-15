@@ -35,7 +35,7 @@ import { getContrastingColor } from '@dotos/dui/common/colorpicker/common';
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
   preserveWhitespaces: false,
-  host: { 'hostID': crypto.randomUUID().toString()}
+  
 })
 export class CompactColorComponent implements OnChanges {
   @Input() color: string;

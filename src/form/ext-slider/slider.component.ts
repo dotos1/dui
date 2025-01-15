@@ -8,7 +8,7 @@ import { NG_VALUE_ACCESSOR } from '@angular/forms';
   templateUrl: './slider.component.html',
   host: {
     style: 'flex:1;display:flex;flex-direction:row;',
-    'hostID': crypto.randomUUID().toString()
+    
   },
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [

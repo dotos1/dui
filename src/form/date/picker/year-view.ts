@@ -27,7 +27,7 @@ import {slideCalendar} from "./datetimepicker-animations";
   animations: [slideCalendar],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  host: { 'hostID': crypto.randomUUID().toString()}
+  
 })
 export class MatDatetimepickerYearView<D> implements AfterContentInit {
 

@@ -28,7 +28,7 @@ export class SelectOption {
   templateUrl: './select.field.html',
   host: {
     style: 'flex:1;',
-    'hostID': crypto.randomUUID().toString()
+    
   },
   changeDetection: ChangeDetectionStrategy.Default,
 })

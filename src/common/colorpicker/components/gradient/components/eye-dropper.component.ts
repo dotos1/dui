@@ -11,7 +11,7 @@ import { ContextService, PickerContextProps } from '../hooks/context.service';
   templateUrl: './eye-dropper.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   preserveWhitespaces: false,
-  host: { 'hostID': crypto.randomUUID().toString()}
+  
 })
 export class EyeDropperComponent  {
 

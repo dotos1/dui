@@ -55,7 +55,7 @@ import { ToastrService } from './toastr.service';
   ],
   preserveWhitespaces: false,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  host: { 'hostID': crypto.randomUUID().toString()}
+  
 })
 export class Toast<ConfigPayload = any> implements OnDestroy {
   message?: string | null;

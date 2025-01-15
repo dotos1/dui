@@ -11,7 +11,7 @@ import { formatInputValues } from '../utils/formatters';
   templateUrl: './gradient-controls.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   preserveWhitespaces: false,
-  host: { 'hostID': crypto.randomUUID().toString()}
+  
 })
 
 export class GradientControlsComponent  {

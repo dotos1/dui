@@ -7,7 +7,7 @@ import { ButtonComponent } from '@dotos/dui/ui/button';
   templateUrl: './repeat-section.type.html',
   styleUrls: ['./repeat-section.type.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  host: { 'hostID': crypto.randomUUID().toString()}
+  
 })
 export class RepeatTypeComponent extends FieldArrayType {
 

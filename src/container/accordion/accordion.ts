@@ -21,7 +21,7 @@ let nextId = 0;
   exportAs: 'duiAccordion',
   host: {
     class: 'accordion',
-    'hostID': crypto.randomUUID().toString()
+    
   }
 })
 export class Accordion extends AbstractPanel implements OnChanges{

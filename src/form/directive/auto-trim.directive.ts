@@ -4,7 +4,7 @@ import { NgModel } from '@angular/forms';
 
 @Directive({
   selector: '[duiAutoTrim]',
-  host: { 'hostID': crypto.randomUUID().toString()}
+  
 })
 export class AutoTrimDirective {
 

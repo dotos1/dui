@@ -21,7 +21,7 @@ export type MatClockView = "hour" | "minute";
   host: {
     "role": "clock",
     "(mousedown)": "_handleMousedown($event)",
-    'hostID': crypto.randomUUID().toString()
+    
   }
 })
 export class MatDatetimepickerClock<D> implements AfterContentInit {

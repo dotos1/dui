@@ -14,7 +14,7 @@ import { ILayoutTogglable } from './layout-toggle';
   templateUrl: './panel.component.html',
   host: {
     '[style.flex]': 'flex',
-    'hostID': crypto.randomUUID().toString()
+    
   }
 })
 

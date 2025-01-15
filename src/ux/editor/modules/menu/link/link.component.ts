@@ -13,7 +13,7 @@ import { Link as LinkCommand } from '../MenuCommands';
 @Component({
   selector: 'ux-link',
   templateUrl: './link.component.html',
-  host: { 'hostID': crypto.randomUUID().toString()}
+  
 })
 
 export class LinkComponent implements OnInit, OnDestroy {

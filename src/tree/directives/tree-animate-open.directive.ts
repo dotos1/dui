@@ -4,7 +4,7 @@ const EASE_ACCELERATION = 1.005;
 
 @Directive({
   selector: '[treeAnimateOpen]',
-  host: { 'hostID': crypto.randomUUID().toString()}
+  
 })
 export class TreeAnimateOpenDirective {
   private _isOpen: boolean;

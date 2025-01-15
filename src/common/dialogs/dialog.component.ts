@@ -25,7 +25,7 @@ export class duiDialogStatusDirective {}
   selector: 'dui-dialog',
   templateUrl: './dialog.component.html',
   styleUrls: ['./dialog.component.scss'],
-  host: { 'hostID': crypto.randomUUID().toString()}
+  
 })
 export class duiDialogComponent implements AfterContentInit ,OnInit,OnDestroy{
   @ContentChildren(duiDialogTitleDirective, { descendants: true })

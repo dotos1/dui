@@ -12,7 +12,7 @@ import { CommandPaletteCreatorService } from './services/command-palette-creator
   styleUrls: ['./command-palette.component.scss'],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  host: { 'hostID': crypto.randomUUID().toString()}
+  
 })
 export class CommandPaletteComponent implements OnInit, OnDestroy {
 

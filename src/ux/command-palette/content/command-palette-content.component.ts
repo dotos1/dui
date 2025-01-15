@@ -22,7 +22,7 @@ import { CommandPaletteScrollCalculator, CommandPaletteScrollParams } from './co
   templateUrl: './command-palette-content.component.html',
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  host: { 'hostID': crypto.randomUUID().toString()}
+  
 })
 export class CommandPaletteContentComponent implements OnChanges, OnInit, AfterViewInit {
 

@@ -32,7 +32,7 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
     ])
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  host: { 'hostID': crypto.randomUUID().toString()}
+  
 })
 export class Fieldset {
 

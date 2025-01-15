@@ -5,7 +5,7 @@ import { TextFieldComponent } from './textfield.component';
   selector: 'display-field',
   templateUrl: './displayfield.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  host: { 'hostID': crypto.randomUUID().toString()}
+  
 })
 export class DisplayFieldComponent extends TextFieldComponent {
 

@@ -25,7 +25,7 @@ import { MenuModel } from './menu-model';
   styleUrls: ['./menu-item.component.scss'],
   changeDetection: ChangeDetectionStrategy.Default,
   encapsulation: ViewEncapsulation.None,
-  host: { 'hostID': crypto.randomUUID().toString()}
+  
 })
 export class MenuItemComponent extends MenuBase implements OnInit,DoCheck,AfterViewInit {
 

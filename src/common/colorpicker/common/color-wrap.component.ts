@@ -18,7 +18,7 @@ export interface ColorEvent {
   // create seletor base for test override property
   selector: 'color-wrap',
   template: ``,
-  host: { 'hostID': crypto.randomUUID().toString()}
+  
 })
 
 export class ColorWrap implements OnInit, OnChanges, OnDestroy {
