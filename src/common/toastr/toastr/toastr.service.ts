@@ -47,10 +47,10 @@ export class ToastrService {
 
   constructor(
     @Inject(TOAST_CONFIG) token: ToastToken,
-    private overlay: Overlay,
-    private _injector: Injector,
-    private sanitizer: DomSanitizer,
-    private ngZone: NgZone,
+    public overlay: Overlay,
+    public _injector: Injector,
+    public sanitizer: DomSanitizer,
+    public ngZone: NgZone,
   ) {
     this.toastrConfig = {
       ...token.default,
