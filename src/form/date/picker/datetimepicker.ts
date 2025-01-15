@@ -52,7 +52,7 @@ let datetimepickerUid = 0;
     "class": "mat-datetimepicker-content",
     "[class.mat-datetimepicker-content-touch]": "datetimepicker?.touchUi",
     "(keydown)": "_handleKeydown($event)",
-    'hostID': crypto.randomUUID().toString()
+    
   },
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush

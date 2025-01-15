@@ -8,7 +8,7 @@ import { MenuBarItem } from './menu-model';
   templateUrl: './menu-bar.component.html',
   styleUrls: ['./menu-bar.component.scss'],
   encapsulation: ViewEncapsulation.None,
-  host: { 'hostID': crypto.randomUUID().toString()},
+  ,
 })
 export class MenuBarComponent extends MenuBase implements OnInit,DoCheck{
 

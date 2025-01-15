@@ -20,7 +20,7 @@ import {GradientComponent} from './gradient.component'
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
   preserveWhitespaces: false,
-  host: { 'hostID': crypto.randomUUID().toString()}
+  
 })
 export class GradientDialogComponent  {
   @ViewChild(GradientComponent) sc:GradientComponent;

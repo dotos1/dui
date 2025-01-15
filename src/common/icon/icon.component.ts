@@ -17,7 +17,7 @@ import { DomSanitizer } from '@angular/platform-browser';
   templateUrl: './icon.component.html',
   styleUrls: ['./icon.component.scss'],
   encapsulation: ViewEncapsulation.None,
-  host: { 'hostID': crypto.randomUUID().toString()}
+  
 })
 export class IconComponent {
   private _value = '';

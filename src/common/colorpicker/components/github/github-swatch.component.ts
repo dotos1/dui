@@ -31,7 +31,7 @@ import {  ChangeDetectionStrategy,  Component,  EventEmitter,  Input,  Output,} 
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
   preserveWhitespaces: false,
-  host: { 'hostID': crypto.randomUUID().toString()}
+  
 })
 export class GithubSwatchComponent {
   @Input() color: string;

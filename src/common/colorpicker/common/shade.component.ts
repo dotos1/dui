@@ -11,7 +11,7 @@ import { TinyColor } from '@dotos/dui/core/color';
   styleUrls: ['./shade.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   preserveWhitespaces: false,
-  host: { 'hostID': crypto.randomUUID().toString()}
+  
 })
 export class ShadeComponent implements OnChanges {
   @Input() hsl: HSLA;

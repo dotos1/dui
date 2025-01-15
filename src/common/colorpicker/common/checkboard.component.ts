@@ -25,7 +25,7 @@ import { getCheckerboard } from './helpers/checkboard';
   ],
   preserveWhitespaces: false,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  host: { 'hostID': crypto.randomUUID().toString()}
+  
 })
 export class CheckboardComponent implements OnInit {
   @Input() white = 'transparent';

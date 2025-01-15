@@ -39,7 +39,7 @@ export const TD_CIRCLE_DIAMETER = 40;
   encapsulation: ViewEncapsulation.None,
   changeDetection:ChangeDetectionStrategy.Default,
   animations: [FadeInOutAnimation],
-  host: { 'hostID': crypto.randomUUID().toString()}
+  
 })
 export class LoadingComponent implements DoCheck {
   private _mode: LoadingMode = LoadingMode.Indeterminate;

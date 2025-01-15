@@ -19,7 +19,7 @@ import { ThemeService } from '@dotos/dui/theme';
   host: {
     'class': 'icon-picker',
     '(keydown)': '_handleKeydown($event)',
-    'hostID': crypto.randomUUID().toString()
+    
   },
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,

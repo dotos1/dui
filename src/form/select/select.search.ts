@@ -44,7 +44,7 @@ const SELECT_PANEL_MAX_HEIGHT = 256;
     }
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  host: { 'hostID': crypto.randomUUID().toString()}
+  
 })
 export class MatSelectSearchComponent implements OnInit, OnDestroy, ControlValueAccessor {
 

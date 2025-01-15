@@ -11,7 +11,7 @@ import { TranslateService } from '@dotos/dui/translator';
   styleUrls: ['./form.card.scss'],
   templateUrl: './form.card.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  host: { 'hostID': crypto.randomUUID().toString()}
+  
 })
 
 export class FormCard extends DuiCardComponent implements OnInit,OnChanges {

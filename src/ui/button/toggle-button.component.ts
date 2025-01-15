@@ -22,7 +22,7 @@ import {isFunction,isObjectLike}  from 'lodash-es';
   templateUrl: './toggle-button.component.html',
   host: {
     style: 'display:flex;padding:1px;height:100%;cursor:pointer',
-    'hostID': crypto.randomUUID().toString()
+    
   },
   changeDetection: ChangeDetectionStrategy.Default
 })

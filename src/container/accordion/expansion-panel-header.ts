@@ -43,7 +43,7 @@ import { EXPANSION_PANEL_ANIMATION_TIMING, ExpansionPanel } from './expansion-pa
           expandedHeight: expandedHeight
         }
     }`,
-    'hostID': crypto.randomUUID().toString()
+    
   },
   animations: [
     trigger('indicatorRotate', [

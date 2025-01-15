@@ -31,7 +31,7 @@ import { ButtonBase } from './button.base';
   templateUrl: './button.component.html',
   host: {
     '[style.display]': 'flex',
-   'hostID': crypto.randomUUID().toString()
+   
   },
   providers:[TranslateService],
   encapsulation: ViewEncapsulation.None,

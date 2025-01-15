@@ -19,7 +19,7 @@ import {MatDatetimepicker} from "./datetimepicker";
   templateUrl: "datetimepicker-toggle.html",
   host: {
     "class": "mat-datetimepicker-toggle",
-    'hostID': crypto.randomUUID().toString()
+    
   },
   exportAs: "matDatetimepickerToggle",
   encapsulation: ViewEncapsulation.None,

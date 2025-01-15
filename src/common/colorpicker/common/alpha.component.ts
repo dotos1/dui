@@ -25,7 +25,7 @@ import { HSLA, RGBA } from './helpers/color.interfaces';
   styleUrls: ['./alpha.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   preserveWhitespaces: false,
-  host: { 'hostID': crypto.randomUUID().toString()}
+  
 })
 export class AlphaComponent implements OnChanges {
   @Input() hsl: HSLA;

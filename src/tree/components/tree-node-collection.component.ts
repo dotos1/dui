@@ -12,7 +12,7 @@ import { TreeModel } from '../models/tree.model';
   selector: 'tree-node-collection',
   encapsulation: ViewEncapsulation.None,
   templateUrl: 'tree-node-collection.component.html',
-  host: { 'hostID': crypto.randomUUID().toString()}
+  
 })
 export class TreeNodeCollectionComponent implements OnInit, OnDestroy {
   @Input()

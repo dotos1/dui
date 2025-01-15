@@ -9,7 +9,7 @@ import { TinyColor } from '@dotos/dui/core/color';
   styleUrls: ['./gradient-fields.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   preserveWhitespaces: false,
-  host: { 'hostID': crypto.randomUUID().toString()}
+  
 })
 export class GradientFieldsComponent {
   @Input() hsl: HSLA;

@@ -21,7 +21,7 @@ interface MatFormFieldConfig extends FieldConfig {
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
   providers: [{ provide: MatFormFieldControl, useExisting: FieldWrapper }],
-  host: { 'hostID': crypto.randomUUID().toString()}
+  
 })
 export class ExtFieldWrapper extends FieldWrapper<MatFormFieldConfig> implements OnInit, OnDestroy, MatFormFieldControl<any>, AfterContentChecked {
 

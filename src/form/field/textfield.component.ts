@@ -14,7 +14,7 @@ import { VTypes } from './vtype';
   selector: 'text-field',
   templateUrl: './textfield.component.html',
   changeDetection: ChangeDetectionStrategy.Default,
-  host: { 'hostID': crypto.randomUUID().toString()}
+  
 })
 export class TextFieldComponent extends MatField implements OnInit, AfterViewInit, OnDestroy {
 

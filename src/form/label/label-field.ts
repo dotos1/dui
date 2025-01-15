@@ -5,7 +5,7 @@ import { Component, ChangeDetectionStrategy, } from '@angular/core';
   templateUrl: './label-field.html',
   styleUrls: ['./label-field.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  host: { 'hostID': crypto.randomUUID().toString()}
+  
 })
 export class LabelField {
   field:any;

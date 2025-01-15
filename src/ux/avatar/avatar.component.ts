@@ -23,7 +23,7 @@ type Style = Partial<CSSStyleDeclaration>;
 
   templateUrl: './avatar.component.html',
   changeDetection:ChangeDetectionStrategy.Default,
-  host: { 'hostID': crypto.randomUUID().toString()}
+  
 })
 export class AvatarComponent implements OnChanges, OnDestroy {
 

@@ -49,7 +49,7 @@ export type zDepth = 0 | 1 | 2 | 3 | 4 | 5;
   `],
   preserveWhitespaces: false,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  host: { 'hostID': crypto.randomUUID().toString()}
+  
 })
 export class RaisedComponent {
   @Input() zDepth: zDepth = 1;

@@ -20,7 +20,7 @@ import { MatField } from '../base/mat.field';
     }
   `,
   ],
-  host: { 'hostID': crypto.randomUUID().toString()}
+  
 })
 export class NumberFieldComponent extends MatField implements AfterViewInit {
 

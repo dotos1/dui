@@ -53,7 +53,7 @@ export const DATEFIELD_VALIDATORS: any = {
     '[attr.aria-label]': 'label',
     '[attr.aria-required]': 'required?required.toString():false',
     '[attr.aria-disabled]': 'disabled?disabled.toString():false',
-    'hostID': crypto.randomUUID().toString()
+    
   },
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,

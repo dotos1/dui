@@ -13,7 +13,7 @@ import { TBHeadingItems } from '../../../types';
 @Component({
   selector: 'ux-dropdown',
   templateUrl: './dropdown.component.html',
-  host: { 'hostID': crypto.randomUUID().toString()}
+  
 })
 export class DropdownComponent implements OnInit, OnDestroy {
   private editorView: EditorView;

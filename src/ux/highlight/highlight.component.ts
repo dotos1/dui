@@ -23,7 +23,7 @@ let hljs: any = require('highlight.js/lib');
   selector: 'dui-highlight',
   styleUrls: ['./highlight.component.scss'],
   templateUrl: './highlight.component.html',
-  host: { 'hostID': crypto.randomUUID().toString()}
+  
 })
 export class HighlightComponent implements AfterViewInit, AfterViewChecked {
   private _initialized: boolean = false;

@@ -23,7 +23,7 @@ declare const require: any;
     useExisting: forwardRef(() => ExtCodeEditorComponent),
     multi: true,
   }],
-  host: { 'hostID': crypto.randomUUID().toString()}
+  
 })
 export class ExtCodeEditorComponent implements OnInit, AfterViewInit, ControlValueAccessor {
 

@@ -6,7 +6,7 @@ import { TreeNode } from '../models/tree-node.model';
   encapsulation: ViewEncapsulation.None,
   styles: [],
   templateUrl: 'tree-node-children.component.html',
-  host: { 'hostID': crypto.randomUUID().toString()}
+  
 })
 export class TreeNodeChildrenComponent {
   @Input() node: TreeNode;

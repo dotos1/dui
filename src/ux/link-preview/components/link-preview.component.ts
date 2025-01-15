@@ -14,7 +14,7 @@ type FrameName = string;
   selector: 'link-preview',
   templateUrl: './link-preview.component.html',
   styleUrls: ['./link-preview.component.scss'],
-  host: { 'hostID': crypto.randomUUID().toString()}
+  
 })
 export class LinkPreviewComponent implements OnChanges, OnDestroy {
   /** Plain links string array */
