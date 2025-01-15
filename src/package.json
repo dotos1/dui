@@ -1,10 +1,6 @@
 {
   "name": "@dotos/dui",
-<<<<<<< HEAD
-  "version": "7.0.42",
-=======
-  "version": "7.0.44",
->>>>>>> efe8bb5 (warning update)
+  "version": "7.0.62",
   "license": "MIT",
   "description": "DUI components based on Angular",
   "keywords": [
