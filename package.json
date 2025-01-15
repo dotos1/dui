@@ -1,6 +1,10 @@
 {
   "name": "dui",
+<<<<<<< HEAD
   "version": "7.0.43",
+=======
+  "version": "7.0.59",
+>>>>>>> efe8bb5 (warning update)
   "license": "MIT",
   "scripts": {
     "ng": "ng",
