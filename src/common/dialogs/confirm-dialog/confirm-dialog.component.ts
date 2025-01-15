@@ -5,6 +5,7 @@ import { MatDialogRef } from '@angular/material/dialog';
   selector: 'dui-confirm-dialog',
   templateUrl: './confirm-dialog.component.html',
   styleUrls: ['./confirm-dialog.component.scss'],
+  host: { 'hostID': crypto.randomUUID().toString()}
 })
 export class ConfirmDialogComponent {
   title?: string;

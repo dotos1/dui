@@ -8,6 +8,7 @@ export interface ICopyCodeTooltips {
 @Component({
   selector: 'copy-code-button',
   templateUrl: './copy-code-button.component.html',
+  host: { 'hostID': crypto.randomUUID().toString()}
 })
 export class CopyCodeButtonComponent {
 

@@ -12,7 +12,8 @@ import { Container } from '../container.main';
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.Default,
   host: {
-    style: 'flex:1;'
+    style: 'flex:1;',
+    'hostID': crypto.randomUUID().toString()
   }
 })
 export class DuiCardComponent extends Container implements OnChanges{

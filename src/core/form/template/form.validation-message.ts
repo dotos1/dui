@@ -11,6 +11,7 @@ import { TranslateService } from '@dotos/dui/translator';
   selector: 'validation-message',
   template: `{{ errorMessage$ | async }}`,
   changeDetection: ChangeDetectionStrategy.Default,
+  host: { 'hostID': crypto.randomUUID().toString()}
 })
 export class ValidationMessage implements OnChanges {
   @Input() field: FieldConfig;

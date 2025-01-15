@@ -27,6 +27,7 @@ import { FormAction, Load, Submit } from '../action/index';
   templateUrl: './form.component.html',
   providers: [FormBuilder],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  host: { 'hostID': crypto.randomUUID().toString()}
 })
 export class FormComponent implements DoCheck, OnChanges, OnDestroy {
 

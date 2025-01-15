@@ -16,6 +16,7 @@ type Command = typeof TextColor | typeof TextBackgroundColor;
   selector: 'ux-color-picker',
   templateUrl: './color-picker.component.html',
   styleUrls: ['./color-picker.component.scss'],
+  host: { 'hostID': crypto.randomUUID().toString()}
 })
 export class ColorPickerComponent implements OnInit, OnDestroy {
   @Input() presets: string[][];

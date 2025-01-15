@@ -29,7 +29,8 @@ const PRE_DEFINED_THEMES = [
   styleUrls: ['./linestyle.scss'],
   encapsulation: ViewEncapsulation.None,
   host: {
-    style: 'flex:1;'
+    style: 'flex:1;',
+    'hostID': crypto.randomUUID().toString()
   },
 })
 export class LineSizeSelector<F extends FieldConfig = FieldConfig> extends MatField

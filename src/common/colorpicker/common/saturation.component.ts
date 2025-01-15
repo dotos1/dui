@@ -57,6 +57,7 @@ import { HSLA, HSVA, HSVAsource } from './helpers/color.interfaces';
   ],
   preserveWhitespaces: false,
   changeDetection: ChangeDetectionStrategy.OnPush,
+  host: { 'hostID': crypto.randomUUID().toString()}
 })
 export class SaturationComponent implements OnChanges {
   @Input() hsl: HSLA;

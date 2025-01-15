@@ -19,6 +19,7 @@ import { SketchComponent} from './sketch.component'
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
   preserveWhitespaces: false,
+  host: { 'hostID': crypto.randomUUID().toString()}
 })
 export class SketchDialogComponent  {
   @ViewChild(SketchComponent) sc: SketchComponent;

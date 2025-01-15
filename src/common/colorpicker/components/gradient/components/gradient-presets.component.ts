@@ -9,6 +9,7 @@ import { ContextService, PickerContextProps } from '../hooks/context.service';
   templateUrl: './gradient-presets.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   preserveWhitespaces: false,
+  host: { 'hostID': crypto.randomUUID().toString()}
 })
 export class GradientPresetsComponent  {
 

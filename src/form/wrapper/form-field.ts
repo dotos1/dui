@@ -38,9 +38,10 @@ interface MatFieldConfig extends FieldConfig {
         }
   `],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  host: { 'hostID': crypto.randomUUID().toString()}
 })
 export class WrapperFormField extends FieldWrapper<MatFieldConfig> implements OnInit, OnDestroy, AfterViewInit, AfterContentChecked {
-  @ViewChild('fieldComponent', { read: ViewContainerRef, static: true }) override fieldComponent!: ViewContainerRef;
+  @ViewChild('fieldComponent', { read: ViewContainerRef, static: true }) declare fieldComponent: ViewContainerRef;
   @ViewChild(MatFormField, { static: true }) formField!: MatFormField;
   textField !: MDCTextField;
 

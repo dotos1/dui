@@ -3,7 +3,8 @@ import { TreeDraggedElement } from '../models';
 
 
 @Directive({
-  selector: '[treeDrag]'
+  selector: '[treeDrag]',
+  host: { 'hostID': crypto.randomUUID().toString()}
 })
 export class TreeDragDirective implements AfterViewInit, DoCheck, OnDestroy {
   @Input('treeDrag') draggedElement;

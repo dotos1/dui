@@ -27,7 +27,8 @@ import {GridsterUtils} from './gridsterUtils.service';
   selector: 'gridster',
   templateUrl: './gridster.html',
   styleUrls: ['./gridster.scss'],
-  encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.None,
+  host: { 'hostID': crypto.randomUUID().toString()}
 })
 export class GridsterComponent implements OnInit, OnChanges, OnDestroy, GridsterComponentInterface {
   @Input() options: GridsterConfig;

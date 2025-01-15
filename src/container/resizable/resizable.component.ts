@@ -19,7 +19,8 @@ import { Dui } from '@dotos/dui/core';
     '(document: mouseup)': 'onMouseUp($event)',
     '(document: touchend)': 'onMouseUp($event)',
     '(document: mousemove)': 'onMouseMove($event)',
-    '(document: touchmove)': 'onMouseMove($event)'
+    '(document: touchmove)': 'onMouseMove($event)',
+    'hostID': crypto.randomUUID().toString() 
   }
 })
 export class ResizableComponent implements OnInit, OnChanges, AfterViewInit, IResizable {

@@ -8,6 +8,7 @@ import { ContextService, PickerContextProps } from './hooks/context.service';
   host: {
     style: 'width:220px',
     '(keydown)': '_handleKeydown($event)',
+   'hostID': crypto.randomUUID().toString()
   },
   changeDetection: ChangeDetectionStrategy.OnPush,
   preserveWhitespaces: false,

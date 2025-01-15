@@ -10,6 +10,7 @@ import { isUndefined } from '@dotos/dui/base';
   styleUrls: ['./form-section.scss'],
   animations: [CollapseAnimation],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  host: { 'hostID': crypto.randomUUID().toString()}
 })
 export class FormSection<F extends FieldConfig = FieldConfig> extends FieldType<F>  {
 

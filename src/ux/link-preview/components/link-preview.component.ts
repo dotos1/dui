@@ -13,7 +13,8 @@ type FrameName = string;
 @Component({
   selector: 'link-preview',
   templateUrl: './link-preview.component.html',
-  styleUrls: ['./link-preview.component.scss']
+  styleUrls: ['./link-preview.component.scss'],
+  host: { 'hostID': crypto.randomUUID().toString()}
 })
 export class LinkPreviewComponent implements OnChanges, OnDestroy {
   /** Plain links string array */
@@ -95,13 +96,14 @@ export class LinkPreviewComponent implements OnChanges, OnDestroy {
   public previews: OpenGraphMetaData[] = [];
 
   private loadingMgr = new LinkPreviewLoadingManager();
-  public loadingSpinner = this.sanitizer.bypassSecurityTrustHtml(LinkPreviewLoadingSpinner);
+  public loadingSpinner ;
   public showLoadingSpinner = false;
 
   private subscriptions: Subscription[] = [];
 
   constructor(private sanitizer: DomSanitizer, private cacheSvc: LinkPreviewCacheService) {
     this.subscribeLoadingMgrHasJobs();
+   this. loadingSpinner = this.sanitizer.bypassSecurityTrustHtml(LinkPreviewLoadingSpinner)
   }
 
   ngOnDestroy(): void {

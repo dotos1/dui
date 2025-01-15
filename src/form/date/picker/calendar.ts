@@ -40,7 +40,8 @@ export type MatCalendarView = "clock" | "month" | "year" | "multi-year";
     "[attr.aria-label]": "ariaLabel",
     "role": "dialog",
     "tabindex": "0",
-    "(keydown)": "_handleCalendarBodyKeydown($event)"
+    "(keydown)": "_handleCalendarBodyKeydown($event)",
+    'hostID': crypto.randomUUID().toString()
   },
   animations: [slideCalendar],
   encapsulation: ViewEncapsulation.None,

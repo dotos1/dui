@@ -28,6 +28,7 @@ import {  ChangeDetectionStrategy,  Component,  EventEmitter,  Input,  OnChanges
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
   preserveWhitespaces: false,
+  host: { 'hostID': crypto.randomUUID().toString()}
 })
 export class CircleSwatchComponent implements OnChanges {
   @Input() color: string;

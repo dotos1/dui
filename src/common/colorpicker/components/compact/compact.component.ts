@@ -50,9 +50,11 @@ import { TriggerPopup } from '@dotos/dui/common/trigger';
   ],
   host: {
     '(keydown)': '_handleKeydown($event)',
+    'hostID': crypto.randomUUID().toString()
   },
   changeDetection: ChangeDetectionStrategy.OnPush,
   preserveWhitespaces: false,
+
 })
 export class CompactComponent extends ColorWrap implements TriggerPopup {
   /** Color squares to display */

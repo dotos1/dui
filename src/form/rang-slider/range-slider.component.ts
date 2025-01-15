@@ -68,7 +68,8 @@ export class RangeSliderChange {
     '[class.mat-slider-sliding]': 'isSliding',
     '[class.mat-slider-thumb-label-showing]': 'thumbLabel',
     '[class.mat-slider-min-value]': 'isStartValue',
-    style: 'flex:1;display:flex;flex-direction:row;width:100%'
+    style: 'flex:1;display:flex;flex-direction:row;width:100%',
+    'hostID': crypto.randomUUID().toString()
   }
 })
 export class RangeSlider extends _MatSliderMixinBase implements  OnInit, OnDestroy, CanDisable, ControlValueAccessor {

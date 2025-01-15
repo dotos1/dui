@@ -28,6 +28,7 @@ import { fromEvent, Subscription } from 'rxjs';
   `,
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  host: { 'hostID': crypto.randomUUID().toString()}
 })
 export class EditableInputComponent implements OnInit, OnChanges, OnDestroy {
   @Input() style: {

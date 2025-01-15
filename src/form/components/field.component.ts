@@ -34,6 +34,7 @@ import { debounceTime, distinctUntilChanged, startWith } from 'rxjs/operators';
     '[style.display]': 'field.hidden ? "none":field.xtype=="hidden-field"?"none":""',
     '[style.flex]': 'field.xtype=="hidden-field"?"0":"1"',
     '[class]': 'field.className? field.className : className',
+    'hostID': crypto.randomUUID().toString()
   },
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

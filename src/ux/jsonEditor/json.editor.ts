@@ -17,7 +17,8 @@ import { EditorComponent } from '@dotos/dui/ux/monaco-editor';
   preserveWhitespaces: false,
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: {
-    style: 'flex:1;display:flex;flex-direction:column;height: 100%;'
+    style: 'flex:1;display:flex;flex-direction:column;height: 100%;',
+    'hostID': crypto.randomUUID().toString()
   },
   styles: [`
           :host ::ng-deep   .monaco-editor {

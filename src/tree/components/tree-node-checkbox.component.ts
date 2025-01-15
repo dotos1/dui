@@ -5,6 +5,7 @@ import { TreeNode } from '../models/tree-node.model';
   selector: 'tree-node-checkbox',
    encapsulation: ViewEncapsulation.None,
   templateUrl: 'tree-node-checkbox.component.html',
+  host: { 'hostID': crypto.randomUUID().toString()}
 })
 export class TreeNodeCheckboxComponent {
   @Input() node: TreeNode;

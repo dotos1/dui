@@ -26,6 +26,7 @@ import { EXPANSION_PANEL_ANIMATION_TIMING, ExpansionPanel } from './expansion-pa
   preserveWhitespaces: false,
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: {
+    
     'class': 'expansion-panel-header',
     'role': 'button',
     '[attr.tabindex]': 'panel.disabled ? -1 : 0',
@@ -42,6 +43,7 @@ import { EXPANSION_PANEL_ANIMATION_TIMING, ExpansionPanel } from './expansion-pa
           expandedHeight: expandedHeight
         }
     }`,
+    'hostID': crypto.randomUUID().toString()
   },
   animations: [
     trigger('indicatorRotate', [
