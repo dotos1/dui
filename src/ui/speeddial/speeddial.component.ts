@@ -75,7 +75,7 @@ export class ExtSpeedDialComponent extends ComponentBase implements OnInit,OnCha
     public elementref: ElementRef,
     public resolver: ComponentFactoryResolver,
     public injector: Injector,
-    protected override detectRef: ChangeDetectorRef) {
+    public override detectRef: ChangeDetectorRef) {
     super(detectRef);
   }
 

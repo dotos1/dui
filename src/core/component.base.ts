@@ -74,7 +74,7 @@ export class ComponentBase extends Base<HTMLElement> implements OnInit,DoCheck, 
   }
 
   constructor(
-    protected detectRef: ChangeDetectorRef,
+    public detectRef: ChangeDetectorRef,
   ) {
     super();
   }
