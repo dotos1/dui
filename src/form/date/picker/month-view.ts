@@ -28,7 +28,8 @@ const DAYS_PER_WEEK = 7;
   templateUrl: "month-view.html",
   animations: [slideCalendar],
   encapsulation: ViewEncapsulation.None,
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  host: { 'hostID': crypto.randomUUID().toString()}
 })
 export class MatDatetimepickerMonthView<D> implements AfterContentInit {
 

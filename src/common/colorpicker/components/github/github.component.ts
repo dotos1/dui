@@ -76,6 +76,7 @@ import { TriggerPopup } from '@dotos/dui/common/trigger';
   ],
   host: {
     '(keydown)': '_handleKeydown($event)',
+    'hostID': crypto.randomUUID().toString()
   },
   changeDetection: ChangeDetectionStrategy.OnPush,
   preserveWhitespaces: false,

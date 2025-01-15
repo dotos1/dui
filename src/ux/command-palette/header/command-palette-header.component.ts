@@ -17,7 +17,8 @@ import { FormControl } from '@angular/forms';
   selector: 'command-palette-header',
   templateUrl: './command-palette-header.component.html',
   encapsulation: ViewEncapsulation.None,
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  host: { 'hostID': crypto.randomUUID().toString()}
 })
 export class CommandPaletteHeaderComponent implements OnInit, AfterViewInit, OnDestroy {
 

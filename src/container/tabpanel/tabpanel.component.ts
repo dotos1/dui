@@ -26,6 +26,7 @@ import { PanelComponent } from '../panel/panel.component';
   templateUrl: './tabpanel.component.html',
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.Default,
+  host: { 'hostID': crypto.randomUUID().toString()}
 })
 
 export class TabPanel extends AbstractPanel implements OnChanges,OnDestroy{

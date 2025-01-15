@@ -8,6 +8,7 @@ import { getContrastingColor } from '@dotos/dui/common/colorpicker/common';
   styleUrls: ['./google-color.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   preserveWhitespaces: false,
+  host: { 'hostID': crypto.randomUUID().toString()}
 })
 export class GoogColorComponent implements OnChanges {
   @Input() color: string;

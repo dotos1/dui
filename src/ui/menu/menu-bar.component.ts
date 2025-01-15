@@ -8,12 +8,13 @@ import { MenuBarItem } from './menu-model';
   templateUrl: './menu-bar.component.html',
   styleUrls: ['./menu-bar.component.scss'],
   encapsulation: ViewEncapsulation.None,
+  host: { 'hostID': crypto.randomUUID().toString()},
 })
 export class MenuBarComponent extends MenuBase implements OnInit,DoCheck{
 
   @Input() dense: boolean = true;
 
-  @Input() override items: MenuBarItem[];
+   @Input() declare  items: MenuBarItem[];
 
   @Input() menuClasses
 

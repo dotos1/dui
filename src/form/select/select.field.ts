@@ -27,9 +27,10 @@ export class SelectOption {
   selector: 'select-field',
   templateUrl: './select.field.html',
   host: {
-    style: 'flex:1;'
+    style: 'flex:1;',
+    'hostID': crypto.randomUUID().toString()
   },
-  changeDetection: ChangeDetectionStrategy.Default
+  changeDetection: ChangeDetectionStrategy.Default,
 })
 export class FieldSelect extends MatField implements OnInit,OnDestroy {
 

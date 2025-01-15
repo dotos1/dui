@@ -18,7 +18,8 @@ import { DOCUMENT } from '@angular/common';
     '(focus)': 'onFocus($event)',
     '(blur)': 'onBlur($event)',
     '(change)': 'onChange($event)',
-  },
+    'hostID': crypto.randomUUID().toString()
+  }
 })
 export class FormAttributes implements OnChanges, DoCheck, OnDestroy {
   @Input('formAttributes') field: FieldConfig;

@@ -7,7 +7,8 @@ import { RangeSlider } from './range-slider.component';
   templateUrl:'./range-slider.field.html',
   styleUrls: ['./range-slider.field.scss'],
   host: {
-    style: 'flex:1;display:flex;flex-direction:row;width:98%;'
+    style: 'flex:1;display:flex;flex-direction:row;width:98%;',
+    'hostID': crypto.randomUUID().toString()
   },
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

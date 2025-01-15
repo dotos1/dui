@@ -23,9 +23,10 @@ interface MatFieldConfig extends FieldConfig {
   styleUrls: ['./editor-field.scss'],
   providers: [{ provide: MatFormFieldControl, useExisting: WrapperEditorField }],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  host: { 'hostID': crypto.randomUUID().toString()}
 })
 export class WrapperEditorField extends FieldWrapper<MatFieldConfig> implements OnInit, OnDestroy, MatFormFieldControl<any>, AfterViewInit, AfterContentChecked {
-  @ViewChild('fieldComponent', { read: ViewContainerRef, static: true }) override fieldComponent!: ViewContainerRef;
+  @ViewChild('fieldComponent', { read: ViewContainerRef, static: true }) declare fieldComponent: ViewContainerRef;
   @ViewChild(MatFormField, { static: true }) formField!: MatFormField;
 
   @ViewChild(PopoverTrigger, { static: true }) popoverTrigger!: PopoverTrigger;

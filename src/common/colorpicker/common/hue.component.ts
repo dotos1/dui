@@ -52,6 +52,7 @@ import { HSLA, HSLAsource } from './helpers/color.interfaces';
   ],
   preserveWhitespaces: false,
   changeDetection: ChangeDetectionStrategy.OnPush,
+  host: { 'hostID': crypto.randomUUID().toString()}
 })
 export class HueComponent implements OnChanges {
   @Input() hsl: HSLA;

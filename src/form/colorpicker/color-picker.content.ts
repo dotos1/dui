@@ -12,10 +12,12 @@ import {forIn}  from 'lodash-es';
   host: {
     'class': 'color-picker',
     '(keydown)': '_handleKeydown($event)',
+    'hostID': crypto.randomUUID().toString()
   },
   animations: duiAnimations,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.None,
+
 })
 export class ColorPickerContent implements TriggerPopup {
   host: any;

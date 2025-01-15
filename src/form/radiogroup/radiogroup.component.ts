@@ -8,7 +8,8 @@ import { observe } from '@dotos/dui/core/form';
   selector: 'radio-group',
   styleUrls: ['./radiogroup.component.scss'],
   templateUrl: './radiogroup.component.html',
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  host: { 'hostID': crypto.randomUUID().toString()}
 })
 export class RadioGroupField extends MatField implements AfterViewInit,OnDestroy{
 

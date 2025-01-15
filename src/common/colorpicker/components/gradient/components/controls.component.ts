@@ -10,6 +10,7 @@ import { config } from '../constants';
   templateUrl: './controls.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   preserveWhitespaces: false,
+  host: { 'hostID': crypto.randomUUID().toString()}
 })
 export class ControlsComponent {
 

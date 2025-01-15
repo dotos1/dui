@@ -61,6 +61,7 @@ import { isValidHex, RGBA } from '@dotos/dui/common/colorpicker/common';
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
   preserveWhitespaces: false,
+  host: { 'hostID': crypto.randomUUID().toString()}
 })
 export class CompactFieldsComponent {
   @Input() hex: string;

@@ -100,7 +100,8 @@ export class MatDatetimepickerInputEvent<D> {
     "(input)": "_onInput($event.target.value)",
     "(change)": "_onChange()",
     "(blur)": "_onBlur()",
-    "(keydown)": "_onKeydown($event)"
+    "(keydown)": "_onKeydown($event)",
+    'hostID': crypto.randomUUID().toString()
   },
 })
 

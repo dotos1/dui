@@ -14,6 +14,7 @@ import { EditorService } from '../../../editor.service';
   selector: 'ux-bubble',
   templateUrl: './bubble.component.html',
   styleUrls: ['./bubble.component.scss'],
+  host: { 'hostID': crypto.randomUUID().toString()}
 })
 export class BubbleComponent implements OnInit, OnDestroy {
   constructor(private sanitizeHTML: SanitizeHtmlPipe, private uxeService: EditorService) { }

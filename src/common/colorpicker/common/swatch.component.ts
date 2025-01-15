@@ -26,6 +26,7 @@ import { CheckboardModule } from './checkboard.component';
     </div>
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
+  host: { 'hostID': crypto.randomUUID().toString()}
 })
 export class SwatchComponent implements OnInit {
   @Input() color;

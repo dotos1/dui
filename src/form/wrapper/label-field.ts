@@ -13,9 +13,10 @@ import { FieldWrapper } from '@dotos/dui/core/form';
   styleUrls: ['./label-field.scss'],
   providers: [{ provide: MatFormFieldControl, useExisting: LabelWrapperField }],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  host: { 'hostID': crypto.randomUUID().toString()}
 })
 export class LabelWrapperField extends FieldWrapper<FieldConfig> implements  OnDestroy, MatFormFieldControl<any> {
-  @ViewChild('fieldComponent', { read: ViewContainerRef }) override fieldComponent: ViewContainerRef;
+  @ViewChild('fieldComponent', { read: ViewContainerRef }) declare fieldComponent: ViewContainerRef;
 
   stateChanges = new Subject<void>();
   _errorState = false;

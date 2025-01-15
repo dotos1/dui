@@ -12,6 +12,7 @@ export type StatusDialogDetailsLabels = {
   selector: 'dui-status-dialog',
   templateUrl: './status-dialog.component.html',
   styleUrls: ['./status-dialog.component.scss'],
+  host: { 'hostID': crypto.randomUUID().toString()}
 })
 export class StatusDialogComponent {
   // Label of the close button in the footer

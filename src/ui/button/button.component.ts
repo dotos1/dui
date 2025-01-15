@@ -30,7 +30,8 @@ import { ButtonBase } from './button.base';
   styleUrls: ['./button.component.scss'],
   templateUrl: './button.component.html',
   host: {
-    '[style.display]': 'flex'
+    '[style.display]': 'flex',
+   'hostID': crypto.randomUUID().toString()
   },
   providers:[TranslateService],
   encapsulation: ViewEncapsulation.None,
@@ -38,13 +39,13 @@ import { ButtonBase } from './button.base';
 })
 export class ButtonComponent extends ButtonBase implements OnChanges,DoCheck {
 
-  @ViewChild(MatTooltip)  override matTooltip: MatTooltip;
+   @ViewChild(MatTooltip)  declare matTooltip: MatTooltip;
 
   @Input() override config: any = {};
 
-  @Input() override data: any;
+  @Input() declare data: any;
 
-  @Input() override ownerCt: any;
+  @Input() declare ownerCt: any;
 
   @Input() iconStyle: any;
 
@@ -56,9 +57,9 @@ export class ButtonComponent extends ButtonBase implements OnChanges,DoCheck {
 
   public onlyIcon=false;
 
-  @ViewChild('container', { read: ViewContainerRef }) public override _container: ViewContainerRef;
+  @ViewChild('container', { read: ViewContainerRef }) public declare _container: ViewContainerRef;
 
-  @ViewChildren(MatMenuTrigger) override triggers: QueryList<MatMenuTrigger>;
+  @ViewChildren(MatMenuTrigger) declare triggers: QueryList<MatMenuTrigger>;
 
   constructor(
     public override _element: ElementRef,

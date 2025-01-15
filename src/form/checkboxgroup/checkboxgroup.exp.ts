@@ -44,8 +44,10 @@ export const _MatCheckGroupMixinBase = mixinDisabled(MatCheckGroupBase);
   host: {
     'role': 'checkgroup',
     'class': 'mat-check-group',
+    'hostID': crypto.randomUUID().toString()
   },
   inputs: ['disabled'],
+
 })
 export class MatCheckGroup extends MatField implements AfterContentInit, ControlValueAccessor, CanDisable {
   /**

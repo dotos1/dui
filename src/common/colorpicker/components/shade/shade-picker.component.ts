@@ -25,6 +25,7 @@ import { ColorWrap, toState } from '@dotos/dui/common/colorpicker/common';
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
   preserveWhitespaces: false,
+  host: { 'hostID': crypto.randomUUID().toString()}
 })
 export class ShadeSliderComponent extends ColorWrap implements OnChanges {
   /** Pixel value for picker width */

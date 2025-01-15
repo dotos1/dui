@@ -13,7 +13,8 @@ import { ILayoutTogglable } from './layout-toggle';
   styleUrls: ['./panel.component.scss'],
   templateUrl: './panel.component.html',
   host: {
-    '[style.flex]': 'flex'
+    '[style.flex]': 'flex',
+    'hostID': crypto.randomUUID().toString()
   }
 })
 

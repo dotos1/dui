@@ -20,7 +20,8 @@ let nextId = 0;
   templateUrl: './accordion.html',
   exportAs: 'duiAccordion',
   host: {
-    class: 'accordion'
+    class: 'accordion',
+    'hostID': crypto.randomUUID().toString()
   }
 })
 export class Accordion extends AbstractPanel implements OnChanges{
@@ -45,7 +46,7 @@ export class Accordion extends AbstractPanel implements OnChanges{
 
   public override xtype: string = 'accordion';
 
-
+//@ts-ignore
   @ViewChild('expansiongroup', { read: ViewContainerRef }) public override viewContainer: ViewContainerRef;
 
   public override _fxLayout: 'row' | 'column' = 'column';

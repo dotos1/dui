@@ -37,12 +37,14 @@ let nextId = 0;
   encapsulation: ViewEncapsulation.None,
   preserveWhitespaces: false,
   changeDetection: ChangeDetectionStrategy.OnPush,
+  host: { 'hostID': crypto.randomUUID().toString()}
 })
 export class ExpansionPanelBase extends Container implements OnChanges,OnDestroy{
   @Input() config: any = {};
 
   public override xtype: string = 'expansion-panel';
 
+  //@ts-ignore
   @ViewChild('panel', { read: ViewContainerRef }) public override viewContainer: ViewContainerRef;
 
   /**
@@ -201,6 +203,7 @@ export type ExpansionPanelState = 'expanded' | 'collapsed';
     '[class.dui-expanded]': 'expanded',
     '[style.flex]': "flex",
     '[class.expansion-panel-spacing]': '_hasSpacing()',
+    'hostID': crypto.randomUUID().toString()
   },
   providers: [
     { provide: _ExpansionPanelMixinBase, useExisting: forwardRef(() => ExpansionPanel) }
@@ -211,7 +214,7 @@ export type ExpansionPanelState = 'expanded' | 'collapsed';
       state('expanded', style({ height: '*', visibility: 'visible' })),
       transition('expanded <=> collapsed', animate(EXPANSION_PANEL_ANIMATION_TIMING)),
     ]),
-  ],
+  ]
 })
 export class ExpansionPanel extends _ExpansionPanelMixinBase
   implements CanDisable, OnChanges, OnDestroy {

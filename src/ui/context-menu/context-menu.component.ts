@@ -31,9 +31,11 @@ import { CONTEXT_MENU_DIRECTION } from './direction.token';
   templateUrl: './context-menu.component.html',
   styleUrls: ['./context-menu.component.scss'],
   host: {
-    class: 'dui-context-menu-holder'
+    class: 'dui-context-menu-holder',
+    'hostID': crypto.randomUUID().toString()
   },
   encapsulation: ViewEncapsulation.None,
+
 })
 export class ContextMenuComponent extends MenuBase implements OnInit,OnDestroy,DoCheck, AfterViewInit {
 

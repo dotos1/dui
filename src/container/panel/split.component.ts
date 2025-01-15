@@ -4,7 +4,8 @@ import { Component, Input, ElementRef, Renderer2 } from '@angular/core';
 @Component({
   selector: 'split-gutter',
   styleUrls: ['./split.component.scss'],
-  template: '<span class="Resizer"></span>'
+  template: '<span class="Resizer"></span>',
+  host: { 'hostID': crypto.randomUUID().toString()}
 })
 export class SplitComponent {
 

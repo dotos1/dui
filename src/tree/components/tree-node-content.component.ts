@@ -7,7 +7,8 @@ import { TreeNode } from '../models/tree-node.model';
   encapsulation: ViewEncapsulation.None,
   templateUrl: 'tree-node-content.component.html',
   host: {
-    '[style.flex]': '1'
+    '[style.flex]': '1',
+    'hostID': crypto.randomUUID().toString()
   },
 })
 export class TreeNodeContent {

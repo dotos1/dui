@@ -5,6 +5,7 @@ import { MatDialogRef } from '@angular/material/dialog';
   selector: 'dui-alert-dialog',
   templateUrl: './alert-dialog.component.html',
   styleUrls: ['./alert-dialog.component.scss'],
+  host: { 'hostID': crypto.randomUUID().toString()}
 })
 export class AlertDialogComponent {
   title?: string;

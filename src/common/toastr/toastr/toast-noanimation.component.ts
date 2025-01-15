@@ -45,6 +45,7 @@ import { TranslateModule } from '@dotos/dui/translator';
   `,
     encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
+  host: { 'hostID': crypto.randomUUID().toString()}
 })
 export class ToastNoAnimation implements OnDestroy {
   message?: string | null;
@@ -231,6 +232,7 @@ export const DefaultNoAnimationsGlobalConfig: GlobalConfig = {
     TranslateModule
   ],
   exports: [ToastNoAnimation],
+
 })
 export class ToastNoAnimationModule {
   static forRoot(config: Partial<GlobalConfig> = {}): ModuleWithProviders<ToastNoAnimationModule> {

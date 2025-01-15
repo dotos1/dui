@@ -20,7 +20,8 @@ export type MatClockView = "hour" | "minute";
   styleUrls: ["clock.scss"],
   host: {
     "role": "clock",
-    "(mousedown)": "_handleMousedown($event)"
+    "(mousedown)": "_handleMousedown($event)",
+    'hostID': crypto.randomUUID().toString()
   }
 })
 export class MatDatetimepickerClock<D> implements AfterContentInit {

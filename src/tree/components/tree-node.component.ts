@@ -7,6 +7,7 @@ import { TreeNode } from '../defs/api';
   encapsulation: ViewEncapsulation.None,
   styles: [],
   templateUrl: 'tree-node.component.html',
+  host: { 'hostID': crypto.randomUUID().toString()}
 })
 
 export class TreeNodeComponent {

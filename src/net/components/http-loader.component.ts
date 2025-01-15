@@ -8,7 +8,8 @@ import { SpinnerVisibilityService } from '../services/spinner-visibility.service
 @Component({
   selector: 'http-loader',
   templateUrl: './http-loader.component.html',
-  styleUrls: ['./http-loader.component.scss']
+  styleUrls: ['./http-loader.component.scss'],
+  host: { 'hostID': crypto.randomUUID().toString()}
 })
 export class HttpLoaderComponent implements OnDestroy, OnInit {
 

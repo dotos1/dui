@@ -7,7 +7,7 @@ import { MenuModel,MenuBase } from '@dotos/dui/ui/menu';
   selector: 'dui-context-menu-item',
   templateUrl: 'context-menu-item.component.html',
   encapsulation: ViewEncapsulation.None,
-  host: { class: 'app-context-menu-item' }
+  host: { class: 'app-context-menu-item','hostID': crypto.randomUUID().toString() },
 })
 export class ContextMenuItemComponent extends MenuBase implements OnInit,DoCheck {
   @Input()

@@ -21,7 +21,8 @@ import {isFunction,isObjectLike}  from 'lodash-es';
   styleUrls: ['./toggle-button.component.scss'],
   templateUrl: './toggle-button.component.html',
   host: {
-    style: 'display:flex;padding:1px;height:100%;cursor:pointer'
+    style: 'display:flex;padding:1px;height:100%;cursor:pointer',
+    'hostID': crypto.randomUUID().toString()
   },
   changeDetection: ChangeDetectionStrategy.Default
 })
@@ -49,7 +50,7 @@ export class ToggleButtonComponent extends ComponentBase implements OnInit,DoChe
 
   public vertical: boolean = false;
 
-  public override style: any;
+  public declare style: any;
 
   public icon: any;
 

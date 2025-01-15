@@ -102,9 +102,11 @@ import { TriggerPopup } from '@dotos/dui/common/trigger';
   host: {
     style: 'width:220px',
     '(keydown)': '_handleKeydown($event)',
+    'hostID': crypto.randomUUID().toString()
   },
   changeDetection: ChangeDetectionStrategy.OnPush,
   preserveWhitespaces: false,
+
 })
 export class SketchComponent extends ColorWrap implements TriggerPopup {
   /** Remove alpha slider and options from picker */
