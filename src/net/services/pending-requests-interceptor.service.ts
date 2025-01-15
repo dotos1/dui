@@ -103,8 +103,5 @@ export const PendingRequestsInterceptorProvider: ExistingProvider[] = [
     provide: HTTP_INTERCEPTORS,
     useExisting: PendingRequestsInterceptor,
     multi: true
-},
-// { provide: HTTP_INTERCEPTORS, useExisting: ErrorInterceptor, multi: true },
-// { provide: HTTP_INTERCEPTORS, useExisting: HeaderInterceptor, multi: true },
-// { provide: HTTP_INTERCEPTORS, useExisting: NotifyInterceptor, multi: true }
+}
 ];
