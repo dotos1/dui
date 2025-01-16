@@ -28,6 +28,7 @@
     "emitDecoratorMetadata": false,
     "sourceMap": true,
     "declaration": false,
+    "useDefineForClassFields": false,
     "lib": [
       "ES2022",
       "dom"

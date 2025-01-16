@@ -7,7 +7,6 @@
     "sourceMap": true,
     "inlineSources": true,
     "types": [],
-    "useDefineForClassFields": false
   },
   "include": ["**/*.ts"],
   "exclude": ["node_modules", "build/**/*", "jest.config.ts"]
