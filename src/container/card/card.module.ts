@@ -1,21 +1,20 @@
 
-import { ComponentFactoryResolver, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ComponentFactoryResolver, NgModule } from '@angular/core';
 
-import { MatIconModule } from '@angular/material/icon';
-import { MatTooltipModule } from '@angular/material/tooltip';
-import { MatDividerModule } from '@angular/material/divider';
-import { MatCardModule } from '@angular/material/card';
-import { MatSelectModule } from '@angular/material/select';
-import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSelectModule } from '@angular/material/select';
 import { MatTabsModule } from '@angular/material/tabs';
+import { MatTooltipModule } from '@angular/material/tooltip';
 import { FlexLayoutModule } from 'ngx-flexible-layout';
 
-import { TranslateModule } from '@dotos/dui/translator';
-import { TranslateLoaderService } from '@dotos/dui/translator';
 import { Dui } from '@dotos/dui/core';
+import { TranslateModule } from '@dotos/dui/translator';
 import { DuiCardComponent } from './card.component';
 
 @NgModule({
@@ -40,7 +39,7 @@ import { DuiCardComponent } from './card.component';
   declarations: [
     DuiCardComponent
   ],
-  providers: [TranslateLoaderService]
+  // providers: [TranslateLoaderService]
 })
 export class CardModule {
   entryComponents = [DuiCardComponent];
