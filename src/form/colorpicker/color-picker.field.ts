@@ -145,7 +145,7 @@ export class ColorPickerField<F extends FieldConfig = FieldConfig> extends Abstr
     if (oldValue != this._selected) {
       this._emitChangeEvent();
     }
-    this._mapInput.focus();
+    // this._mapInput.focus();
     // this._mapInput.ngDoCheck();
   }
   override open(): void {

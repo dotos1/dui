@@ -8,7 +8,6 @@ import { MatDividerModule, MatDivider } from '@angular/material/divider';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { RouterModule } from '@angular/router';
-
 import { IconModule } from '@dotos/dui/common/icon';
 import { Dui } from '@dotos/dui/core';
 import { TranslateModule } from '@dotos/dui/translator';
