@@ -38,8 +38,7 @@ import { DuiCardComponent } from './card.component';
   ],
   declarations: [
     DuiCardComponent
-  ],
-  // providers: [TranslateLoaderService]
+  ]
 })
 export class CardModule {
   entryComponents = [DuiCardComponent];

@@ -7,7 +7,6 @@ import { MatDividerModule, MatDivider } from '@angular/material/divider';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { RouterModule } from '@angular/router';
-
 import { MenuModule } from '@dotos/dui/ui/menu';
 import { IconModule } from '@dotos/dui/common/icon';
 import { Dui } from '@dotos/dui/core';

@@ -28,7 +28,6 @@ export class SelectOption {
   templateUrl: './select.field.html',
   host: {
     style: 'flex:1;',
-    
   },
   changeDetection: ChangeDetectionStrategy.Default,
 })
@@ -169,8 +168,6 @@ export class FieldSelect extends MatField implements OnInit,OnDestroy {
 
   change($event: MatSelectChange) {
     this.isLoading = false;
-
-    //  this.field.formControl.patchValue($event.value);
     let viewValue = $event.source.selected['viewValue'];
     this.field.inputValue = viewValue;
     if (this.field.change) {

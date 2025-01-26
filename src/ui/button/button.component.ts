@@ -33,7 +33,6 @@ import { ButtonBase } from './button.base';
     '[style.display]': 'flex',
    
   },
-  providers:[TranslateService],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.Default
 })
@@ -78,6 +77,7 @@ export class ButtonComponent extends ButtonBase implements OnChanges,DoCheck {
   override ngOnChanges(changes: SimpleChanges) {
     if (changes['config']) {
       this.init(this.config);
+      this.changeDetectorRef.detectChanges()
     }
   }
 
