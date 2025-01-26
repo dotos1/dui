@@ -21,7 +21,7 @@ import {
 
 import { MatMenuTrigger } from '@angular/material/menu';
 import { MatTooltip } from '@angular/material/tooltip';
-import { TranslateService } from '@dotos/dui/translator';
+
 import { ButtonBase } from './button.base';
 
 
