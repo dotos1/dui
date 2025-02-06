@@ -3,8 +3,6 @@ import { TypographyConfig } from '../interfaces';
 import * as inspection from '../mdc/inspection';
 import { create_token_values } from '../mdc/token-utils';
 import * as  mat_datepicker from '../tokens/mat/_datepicker';
-import * as  iconbutton from './mat-icon-button-theme';
-
 
 function base(theme: Theme): Object {
   return{

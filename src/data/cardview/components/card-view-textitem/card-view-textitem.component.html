@@ -14,7 +14,7 @@
         class="dui-property-value" [placeholder]="property.default" [(ngModel)]="editedValue" (blur)="update()"
         (keydown.enter)="update()" [disabled]="!isEditable"
         [attr.data-automation-id]="'card-textitem-value-' + property.key" style="overflow:hidden"></textarea>
-      <button mat-button matSuffix class="dui-property-clear-value" *ngIf="isEditable" mat-icon-button
+      <button mat-button matSuffix class="dui-property-clear-value" *ngIf="isEditable" 
         aria-label="Clear" (click)="editedValue=''">
         <mat-icon>cancel</mat-icon>
       </button>
