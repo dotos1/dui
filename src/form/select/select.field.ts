@@ -125,7 +125,7 @@ export class FieldSelect extends MatField implements OnInit,OnDestroy {
     }
   }
   hasSearch() {
-    if (this.field.options && this.field.options.length > 15) {
+    if (this.field.options && this.field.options.length > 30) {
       this.field.hasSearch = true;
     } else {
       this.field.hasSearch = false;

@@ -7,7 +7,7 @@ import { CommonAuth } from './CommonAuth';
 import { Oauth2Auth } from './oauth2Auth';
 import { RedirectionModel } from './model/redirection.model';
 import { JwtHelperService } from './jwt-helper.service';
-import { User } from './model';
+// import { User } from './model';
 import { AuthLoader } from './auth.loader';
 
 const REMEMBER_ME_COOKIE_KEY = 'DOTOS_REMEMBER_ME';
@@ -28,7 +28,7 @@ export class AuthService {
   onLogout: ReplaySubject<any> = new ReplaySubject<any>(1);
 
   public _redirectUrl: string;
-  public user: User;
+  public userId: string;
 
   constructor(
     private config: ConfigService,
@@ -60,7 +60,7 @@ export class AuthService {
     }
   }
   getUserId(): string {
-    return this.user.id;
+    return this.userId;
   }
 
   public setUserFromJwtToken(jwtToken, refreshToken, notify): Observable<boolean> {
@@ -204,7 +204,7 @@ export class AuthService {
   }
   _logout(): Promise<any> {
     this.username = null;
-    console.log(this.isOauth()+'++++++++++++++++++++++++');
+
     if (this.isOauth()) {
         this.oauth2Auth.logOut();
     }
