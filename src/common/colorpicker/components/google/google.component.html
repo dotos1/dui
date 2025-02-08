@@ -10,10 +10,10 @@
   <ng-container *ngFor="let color of customcolors; let i=index">
       <div class="docs-material-colorpalette-colorswatch" title="主题背景颜色：{{color}}"
         [style.background-color]="color" [ngClass]="{ 'docs-material-colorpalette-cell-selected': color.toUpperCase()==='#ff0000'.toUpperCase() }"
-        (click)="handleBlockChange({hex:color[0],$event})" 
+        (click)="handleBlockChange({hex:color,$event})" 
         ></div>
   </ng-container>
-  <button mat-icon-button class="add-custom" (click)="addCustom()">
+  <button mat-icon-button class="add-custom" (click)="addCustom($event)">
     <mat-icon>add_circle_outline</mat-icon>
   </button>
 </div>

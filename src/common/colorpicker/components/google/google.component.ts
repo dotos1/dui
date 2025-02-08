@@ -128,7 +128,6 @@ export class GoogColorPickerComponent extends ColorWrap implements TriggerPopup,
   }
 
   ngAfterViewChecked() {
-
     if(this.dataversion<this.customService.version){
       this.dataversion=this.customService.version;
       this.changeDetectionRef.detectChanges();
@@ -144,14 +143,15 @@ export class GoogColorPickerComponent extends ColorWrap implements TriggerPopup,
   handleValueChange({ data, $event }) {
     this.handleChange(data, $event);
   }
-  addCustom(){
+  addCustom($event){
     this.dialogService.open(SketchDialogComponent, {
       width: '270px',
-      height: '386px'
-    }).afterClosed().subscribe((result) => {
+      height: '430px',
 
+    }).afterClosed().subscribe((result:any) => {
       if(result){
         this.customService.addCustom(result);
+        this.handleBlockChange({hex:result,$event});
         this.changeDetectionRef.detectChanges();
       }
     });

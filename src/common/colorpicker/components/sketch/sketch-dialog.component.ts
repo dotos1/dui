@@ -6,11 +6,15 @@ import { SketchComponent} from './sketch.component'
 @Component({
   selector: 'color-sketch-dialog',
   template: `
-    <color-sketch></color-sketch>
-    <button mat-button #closeBtn (click)="cancel()">{{cancelButton}}</button>
-    <button mat-button color="accent" #acceptBtn  (click)="accept()">{{acceptButton}}</button>
+     <mat-dialog-content>
+      <color-sketch></color-sketch>
+    </mat-dialog-content>
+    <mat-dialog-actions align="end">
+      <button mat-button #closeBtn (click)="cancel()">{{cancelButton|translate}}</button>
+      <button mat-button color="accent" #acceptBtn  (click)="accept()">{{acceptButton|translate}}</button>
+    </mat-dialog-actions>
   `,
-  styles: [
+  styles: [ 
     `
     .shade-slider {
       position: relative;
@@ -23,17 +27,13 @@ import { SketchComponent} from './sketch.component'
 })
 export class SketchDialogComponent  {
   @ViewChild(SketchComponent) sc: SketchComponent;
-  /** Pixel value for picker width */
-  @Input() width: string | number = 316;
-  /** Pixel value for picker height */
-  @Input() height: string | number = 16;
-  cancelButton: string = 'CANCEL';
-  acceptButton: string = 'ACCEPT';
+
+
+  cancelButton: string = 'COMMON.CANCEL';
+  acceptButton: string = 'COMMON.OK';
 
   constructor(public _dialogRef: MatDialogRef<SketchDialogComponent>) { }
 
-
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   handlePickerChange({ data, $event }) {
   }
   cancel(): void {
