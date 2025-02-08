@@ -29,6 +29,8 @@ export class GradientDialogComponent  {
   cancelButton: string = 'CANCEL';
   acceptButton: string = 'ACCEPT';
 
+
+
   constructor(public _dialogRef: MatDialogRef<GradientDialogComponent>) { }
 
   handlePickerChange({ data, $event }) {

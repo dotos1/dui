@@ -10,6 +10,8 @@ import { SketchDialogComponent } from './sketch-dialog.component';
 import { SketchFieldsComponent } from './sketch-fields.component';
 import { SketchPresetColorsComponent } from './sketch-preset-colors.component';
 import { SketchComponent } from './sketch.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { TranslateModule } from '@dotos/dui/translator';
 
 
 @NgModule({
@@ -31,8 +33,10 @@ import { SketchComponent } from './sketch.component';
     CheckboardModule,
     EditableInputModule,
     HueModule,
+    MatDialogModule,
     SaturationModule,
     SwatchModule,
+    TranslateModule,
     MatButtonModule
   ],
 })
