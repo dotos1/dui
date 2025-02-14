@@ -20,6 +20,7 @@ import {
 import { Subscription } from 'rxjs';
 import { IndividualConfig, ToastPackage } from './toastr-config';
 import { ToastrService } from './toastr.service';
+import { TranslationService } from '@dotos/dui/translator';
 
 @Component({
   selector: '[toast-component]',
@@ -27,16 +28,16 @@ import { ToastrService } from './toastr.service';
   <button *ngIf="options.closeButton" (click)="remove()" type="button" class="toast-close-button" aria-label="Close">
     <span aria-hidden="true">&times;</span>
   </button>
-  <div *ngIf="title" [class]="options.titleClass" [attr.aria-label]="title|translate">
-    {{ title|translate }} 
+  <div *ngIf="title" [class]="options.titleClass" [attr.aria-label]="title">
+    {{ title }} 
     <ng-container *ngIf="duplicatesCount">[{{ duplicatesCount + 1 }}]</ng-container>
   </div>
   <div *ngIf="message && options.enableHtml" role="alert"
-    [class]="options.messageClass" [innerHTML]="message|translate">
+    [class]="options.messageClass" [innerHTML]="message">
   </div>
   <div *ngIf="message && !options.enableHtml" role="alert"
-    [class]="options.messageClass" [attr.aria-label]="message|translate">
-    {{ message|translate }}
+    [class]="options.messageClass" [attr.aria-label]="message">
+    {{ message}}
   </div>
   <div *ngIf="options.progressBar">
     <div class="toast-progress" [style.width]="width() + '%'"></div>
@@ -93,11 +94,12 @@ export class Toast<ConfigPayload = any> implements OnDestroy {
 
   constructor(
     protected toastrService: ToastrService,
+    public  translationService: TranslationService,
     public toastPackage: ToastPackage,
     protected ngZone?: NgZone,
   ) {
-    this.message = toastPackage.message;
-    this.title = toastPackage.title;
+    this.message = this.translationService.instant( toastPackage.message);
+    this.title =  this.translationService.instant(toastPackage.title);
     this.options = toastPackage.config;
     this.originalTimeout = toastPackage.config.timeOut;
     this.toastClasses = `${toastPackage.toastType} ${toastPackage.config.toastClass}`;
