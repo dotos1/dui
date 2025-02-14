@@ -5,13 +5,12 @@ import { DefaultNoComponentGlobalConfig, GlobalConfig, TOAST_CONFIG } from './to
 import { provideToastr } from './toast.provider';
 import { CommonModule } from '@angular/common';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
-import { TranslateModule } from '@dotos/dui/translator';
+
 
 @NgModule({
   imports: [
     CommonModule,
-    MatSnackBarModule,
-    TranslateModule
+    MatSnackBarModule
   ],
   declarations: [Toast],
   exports: [Toast],
