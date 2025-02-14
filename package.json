@@ -1,6 +1,6 @@
 {
   "name": "dui",
-  "version": "7.0.80",
+  "version": "7.0.83",
   "license": "MIT",
   "scripts": {
     "ng": "ng",
