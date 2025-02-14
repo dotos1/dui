@@ -42,7 +42,8 @@ export class DatatableCardComponent extends DuiCardComponent implements OnChange
 
   set rowData(data) {
     this._rowData = data;
-    this.totalCount=data.length;
+  
+
     if(this.view){
       this.view.selected = [];
     }
@@ -152,13 +153,11 @@ export class DatatableCardComponent extends DuiCardComponent implements OnChange
     if(this.view){
       this.view.count = val[this.datasource.totalCount];
     }
-    this.totalCount=val[this.datasource.totalCount];
     this.rowData = val[this.datasource.data];
+    this.totalCount=val[this.datasource.totalCount];
     this.view.selected = [];
-    setTimeout(() => {
-      this.loadingIndicator = false;
-      this.changeDetectorRef.detectChanges();
-    }, 200);
+    this.loadingIndicator = false;
+    this.changeDetectorRef.detectChanges();
   }
 
 

@@ -782,7 +782,7 @@ export class DatatableComponent implements OnInit, DoCheck,AfterContentInit,OnDe
   recalculate(): void {
     this.recalculateDims();
     this.recalculateColumns();
-    this.cd.markForCheck();
+    this.cd.detectChanges();
   }
 
   recalculate1(): void {
