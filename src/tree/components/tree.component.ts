@@ -172,8 +172,10 @@ export class TreeComponent implements OnChanges {
       let currentNode = this.treeModel.getActiveNode();
       let parentNode = currentNode.parent;
       parentNode.setIsActive(true);
+
       fn(parentNode);
       parentNode.treeModel.removeNode(currentNode);
+      parentNode.treeModel.update();
       this._changeDetectorRef.detectChanges();
     } catch (e) { console.log(e); }
   }
@@ -187,7 +189,6 @@ export class TreeComponent implements OnChanges {
       let subscription;
       let fn=(event) => {
         this.setAcvitNode(id, event);
-
         subscription.unsubscribe();
       }
       subscription = this.treeModel.subscribe('loadNodeChildren', fn);

@@ -4,6 +4,7 @@
 <ng-container  *ngIf="iconType==='font'">
   <mat-icon  fontSet="{{fontSet}}" fontIcon="{{value}}"  [ngStyle]="iconStyle?iconStyle:{'color': color}"  [ngClass]="disabled?'disable':''"></mat-icon>
 </ng-container>
-<ng-container   *ngIf="iconType!=='font'&&iconType!=='SVG'"  #default>
+<ng-container  *ngIf="iconType==='FONT'">
   <mat-icon [ngStyle]="iconStyle?iconStyle:{'color': color}"  [ngClass]="disabled?'disable':''">{{ value }}</mat-icon>
 </ng-container>
+
