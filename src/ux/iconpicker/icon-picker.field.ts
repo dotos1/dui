@@ -7,9 +7,9 @@ import { DOCUMENT } from '@angular/common';
 import { ChangeDetectorRef, Component, ElementRef, Inject, NgZone, OnInit, Optional, ViewChild, ViewContainerRef, ViewEncapsulation, forwardRef } from '@angular/core';
 import { NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
-import { MatIconRegistry } from "@angular/material/icon";
+
 import { MatInput } from '@angular/material/input';
-import { DomSanitizer } from "@angular/platform-browser";
+
 import { isObject } from 'lodash-es';
 
 import { AbstractTrigger } from '@dotos/dui/form';
@@ -83,24 +83,13 @@ export class IconPickerField extends AbstractTrigger implements OnInit {
         this._icon = this.coerceStringProperty(val['value']);
       }
       this._selected = this._icon;
-      this.inputValue = val['text'];
-
+      this.field.inputValue= val['text'];
       this.formControl.setValue(this._icon);
     } else {
       this._icon = this.coerceStringProperty(val);
       this._selected = this._icon;
-      this._value = this._icon;
-      if(val){
-        let vals = val.split(':');
-        this._type = vals[0];
-        if (vals[0] == 'SVG') {
-          this.matIconRegistry.addSvgIcon(
-            vals[1],
-            this.domSanitizer.bypassSecurityTrustResourceUrl(vals[2])
-          );
-        }
-        this.inputValue = vals[1];
-      }
+      this.field.inputValue=  this._icon;
+
       this.formControl.setValue(this._icon);
     }
   }
@@ -108,8 +97,6 @@ export class IconPickerField extends AbstractTrigger implements OnInit {
   get icon() {
     return this._icon;
   }
-  protected override _value: string = 'base:menu';
-  public inputValue: string = 'menu';
 
   get openOnFocus(): boolean { return this._openOnFocus; }
   set openOnFocus(value: boolean) { this._openOnFocus = coerceBooleanProperty(value); }
@@ -131,8 +118,6 @@ export class IconPickerField extends AbstractTrigger implements OnInit {
     protected override _overlay: Overlay,
     protected override _ngZone: NgZone,
     protected _viewContainerRef: ViewContainerRef,
-    private matIconRegistry: MatIconRegistry,
-    private domSanitizer: DomSanitizer,
     protected override translate: TranslateService,
     protected fontLoaderService:FontLoaderService,
     @Optional() protected override _dir: Directionality,
@@ -142,21 +127,15 @@ export class IconPickerField extends AbstractTrigger implements OnInit {
   }
   override ngOnInit() {
     super.ngOnInit();
+    this.field.  inputValue = 'menu';
     this.formControl.registerOnChange((value)=>{
       let fullIcon = value;
-
       let _icon;
       if (fullIcon) {
         if (fullIcon.startsWith("SVG")) {
           let vals = fullIcon.split(":");
           _icon = vals[1];
           this._type = vals[0];
-          if(vals[2]){
-            this.matIconRegistry.addSvgIcon(
-              vals[1],
-              this.domSanitizer.bypassSecurityTrustResourceUrl(vals[2])
-            );
-          }
           this._icon=fullIcon;
         } else if (fullIcon.startsWith("EXTRA")) {
             let vals = fullIcon.split(":");
@@ -178,7 +157,6 @@ export class IconPickerField extends AbstractTrigger implements OnInit {
         }
       } else {
         this._type = "UNKNOWN";
-        _icon = this.inputValue;
         this._icon=_icon;
       };
     });
@@ -197,13 +175,15 @@ export class IconPickerField extends AbstractTrigger implements OnInit {
 
 
   override _selectAndClose(val: any): void {
+
     const oldValue = this._selected;
     if(typeof(val) =='object' ){
       this.value = val.value;
     }else{
       this.value = val;
     }
-    if (oldValue != this._selected) {
+
+    if ( this.value != this._selected) {
       this._emitChangeEvent();
     }
     this._mapInput.focus();

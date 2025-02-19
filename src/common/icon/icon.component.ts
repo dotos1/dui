@@ -84,6 +84,7 @@ export class IconComponent {
       let vals = value.split(":");
       this._value = vals[1];
     }  else if (value) {
+      this.iconType = "FONT";
       this._value = value;
     }
   }
