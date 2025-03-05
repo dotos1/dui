@@ -6,8 +6,7 @@ import { Subject } from 'rxjs';
 import { Authentication } from './model/authentication';
 
 declare const Buffer: any;
-declare const require: any;
-// const minimatch = require('minimatch');
+
 
 declare let window: Window;
 
@@ -30,6 +29,8 @@ export class Oauth2Auth  {
     url: string;
 
     host: string;
+
+    port: number=80;
 
     subject: Subject<any> = new Subject<any>();
 
@@ -74,6 +75,9 @@ export class Oauth2Auth  {
                 }
                 oauth2.redirectSilentIframeUri = context + '/assets/silent-refresh.html';
             }
+            if(oauth2.port!=undefined){
+                this.port = oauth2.port;
+            }
             this.host = oauth2.host;
             this.discoveryUrls();
             // this.exchangeTicketListener(this.http);
@@ -92,9 +96,9 @@ export class Oauth2Auth  {
     }
 
     discoveryUrls() {
-        this.discovery.loginUrl = `${this.host}/oauth/token`;
-        this.discovery.logoutUrl = `${this.host}/oauth/token`;
-        this.discovery.tokenEndpoint = `${this.host}/oauth/token`;
+        this.discovery.loginUrl = `${this.host}:${this.port}/oauth/token`;
+        this.discovery.logoutUrl = `${this.host}:${this.port}/oauth/token`;
+        this.discovery.tokenEndpoint = `${this.host}:${this.port}/oauth/token`;
     }
 
     checkFragment(oauth2,nonceKey?: string, externalHash?: any): any {
