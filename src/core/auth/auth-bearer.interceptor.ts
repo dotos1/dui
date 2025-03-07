@@ -12,7 +12,7 @@ import { StorageService } from '@dotos/dui/core/services';
 export class AuthBearerInterceptor implements HttpInterceptor {
   private excludedUrlsRegex: RegExp[];
 
-  private bearerExcludedUrls: string[] = ['auth/realms','oauth/token', 'resources/', 'assets/', '.json'];
+  private bearerExcludedUrls: string[] = ['auth/realms','oauth2/token', 'resources/', 'assets/', '.json'];
 
   constructor(
     private storageService: StorageService) {
