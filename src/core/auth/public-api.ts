@@ -1,6 +1,5 @@
 export * from './auth-bearer.interceptor';
 export * from './auth.module';
-export * from './auth.module';
 export * from './auth-guard-sso-role.service';
 export * from './auth.service';
 export * from './auth.loader';
@@ -9,3 +8,4 @@ export * from './authenticated.guard';
 export * from './jwt-helper.service';
 export * from './register.guard';
 export * from './login.guard';
+export * from './CommonAuth';

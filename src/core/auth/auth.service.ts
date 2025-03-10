@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient,  HttpParams } from '@angular/common/http';
 import { Observable, ReplaySubject, throwError } from 'rxjs';
 import { ConfigService } from '@dotos/dui/core/config';
 import { StorageService, CookieService, LogService } from '@dotos/dui/core/services';
@@ -132,7 +132,11 @@ export class AuthService {
     this._login(username, password, ticket).then((response: any) => {
       if (this.isOauth()) {
         let p = new HttpParams().set(`lt`, ticket);
-        this.http.get(this.loader.backend.loginUrl, { params: p }).toPromise().then(
+
+ 
+        this.http.get(this.loader.backend.loginUrl, { 
+          params: p,
+         }).subscribe(
           (data: any) => {
             if(data.success){
               this.saveRememberMeCookie(rememberMe);
@@ -144,7 +148,6 @@ export class AuthService {
                 reason: data.message
               });
             }
-            
           });
       } else {
         this.saveRememberMeCookie(rememberMe);
