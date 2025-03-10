@@ -448,22 +448,19 @@ export class Oauth2Auth  {
     login(username: string, password: string): Promise<any> {
       let oauth2 =this.config.getSettings('oauth2');
       this.invalidateSession();
-      let  headers= new HttpHeaders(
-        {
-          "Content-Type": "application/x-www-form-urlencoded",
-          authorization: 'Basic '+btoa(oauth2.clientId+':'+oauth2.secret )
-       })
 
       const body = new HttpParams()
         .set("grant_type", "password")
         .set('username', username)
         .set('password', password)
-        .set("client_id", oauth2.clientId);
+        .set("client_id", oauth2.clientId)
+        .set('client_secret', oauth2.secret)
+       ;
+
 
         let promise = new Promise((resolve, reject) => {
-           this.http.post<any>(this.discovery.tokenEndpoint, body, {
-            headers
-          }).toPromise().then(
+           this.http.post<any>(this.discovery.loginUrl, body
+        ).toPromise().then(
                 (data: any) => {
                     this.saveUsername(username);
                      this.storeAccessToken(data.access_token, data.expires_in, data.refresh_token);
