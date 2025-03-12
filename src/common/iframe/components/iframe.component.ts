@@ -24,7 +24,7 @@ import { DomSanitizer } from '@angular/platform-browser';
         <div class="dui-iframe" *ngIf="$loading | async">
             <ng-content></ng-content>
         </div>
-        <iframe #iframe [src]="source | safe" frameborder="0" class="dui-iframe" [ngStyle]="$styling | async" scrolling="no"></iframe>
+        <iframe #iframe [src]="source | safe" frameborder="0" class="dui-iframe" [ngStyle]="$styling | async" [scrolling]="scrolling"></iframe>
     `,
   styles: [`
         :host {
@@ -62,6 +62,8 @@ export class IframeComponent implements OnInit, OnChanges,AfterViewInit, OnDestr
   @ViewChild('iframe') iframe: ElementRef;
 
   @Input() config: any = {};
+
+  @Input() scrolling='no';
 
   get resizeDebounceMillis(): number {
     return this._resizeDebounceMillis;
