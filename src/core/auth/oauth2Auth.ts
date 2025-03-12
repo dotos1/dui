@@ -4,6 +4,7 @@ import { StorageService } from '@dotos/dui/core/services';
 import minimatch from 'minimatch-browser';
 import { Subject } from 'rxjs';
 import { Authentication } from './model/authentication';
+import { JwtHelperService } from "./jwt-helper.service";
 
 declare const Buffer: any;
 
@@ -33,7 +34,7 @@ export class Oauth2Auth  {
 
     subject: Subject<any> = new Subject<any>();
 
-    constructor(private config: ConfigService, private http: HttpClient, public storage: StorageService) {
+    constructor(private config: ConfigService, private http: HttpClient, public storage: StorageService, public jwtHelperService: JwtHelperService) {
         if (config) {
             this.setConfig();
         }
@@ -464,6 +465,12 @@ export class Oauth2Auth  {
                 (data: any) => {
                     this.saveUsername(username);
                      this.storeAccessToken(data.access_token, data.expires_in, data.refresh_token);
+                     let userId=this.jwtHelperService.getValueFromToken(data.access_token,'userId');
+                     let fullName=this.jwtHelperService.getValueFromToken(data.access_token,'fullName');
+                     let userName=this.jwtHelperService.getValueFromToken(data.access_token,'userName');
+                    data['userId']=userId;
+                    data['fullName']=fullName;
+                    data['userName']=userName;
                     resolve(data);
                 },
                 (error) => {

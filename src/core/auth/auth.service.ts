@@ -7,7 +7,7 @@ import { CommonAuth } from './CommonAuth';
 import { Oauth2Auth } from './oauth2Auth';
 import { RedirectionModel } from './model/redirection.model';
 import { JwtHelperService } from './jwt-helper.service';
-// import { User } from './model';
+
 import { AuthLoader } from './auth.loader';
 
 const REMEMBER_ME_COOKIE_KEY = 'DOTOS_REMEMBER_ME';
@@ -36,7 +36,8 @@ export class AuthService {
     readonly loader: AuthLoader,
     private storageService: StorageService,
     private cookie: CookieService,
-    private logService: LogService) {
+    private logService: LogService,
+    public jwtHelperService: JwtHelperService) {
     if (this.config.getSettings('authType') == undefined) {
       this.config.onLoad.subscribe(() => {
         this.setConfig();
@@ -49,7 +50,7 @@ export class AuthService {
   setConfig() {
 
     if (!this.oauth2Auth) {
-      this.oauth2Auth = new Oauth2Auth(this.config, this.http, this.storageService);
+      this.oauth2Auth = new Oauth2Auth(this.config, this.http, this.storageService,this.jwtHelperService);
     } else {
       this.oauth2Auth.setConfig();
     }
