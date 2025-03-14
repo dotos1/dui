@@ -6,7 +6,8 @@ import {
   HttpSentEvent, HttpHeaderResponse, HttpProgressEvent, HttpResponse, HttpUserEvent, HttpHeaders
 } from '@angular/common/http';
 import { catchError, mergeMap } from 'rxjs/operators';
-import { StorageService } from '@dotos/dui/core/services';
+import { LocalStorageService } from '@dotos/dui/core/storage';
+
 
 @Injectable({ providedIn: 'root' })
 export class AuthBearerInterceptor implements HttpInterceptor {
@@ -15,7 +16,7 @@ export class AuthBearerInterceptor implements HttpInterceptor {
   private bearerExcludedUrls: string[] = ['auth/realms','oauth2/token', 'resources/', 'assets/', '.json'];
 
   constructor(
-    private storageService: StorageService) {
+    private storageService: LocalStorageService) {
 
   }
 
@@ -27,7 +28,7 @@ export class AuthBearerInterceptor implements HttpInterceptor {
   intercept(req: HttpRequest<any>, next: HttpHandler):
     Observable<HttpSentEvent | HttpHeaderResponse | HttpProgressEvent | HttpResponse<any> | HttpUserEvent<any>> {
       
-
+    
     const urlRequest = req.url;
     if (!this.getBearerExcludedUrls()) {
       return next.handle(req);
@@ -73,7 +74,7 @@ export class AuthBearerInterceptor implements HttpInterceptor {
             headers = new HttpHeaders();
         }
         try {
-            const token: string =  this.storageService.getItem('access_token'); 
+            const token: string =  this.storageService.get('access_token'); 
             if(token!=null){
               headers = headers.set('Authorization', 'Bearer ' + token);
             }

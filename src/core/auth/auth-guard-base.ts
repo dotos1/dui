@@ -3,9 +3,10 @@ import { Router, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree } from '@a
 import { MatDialog } from '@angular/material/dialog';
 import { Observable } from 'rxjs';
 import { AppConfigValues, ConfigService } from '@dotos/dui/core/config';
-import { StorageService } from '@dotos/dui/core/services';
+
 import { AuthService } from './auth.service';
 import { OauthConfigModel } from './model';
+import { LocalStorageService } from '@dotos/dui/core/storage';
 
 export abstract class AuthGuardBase  {
 
@@ -21,7 +22,7 @@ export abstract class AuthGuardBase  {
     protected router: Router,
     protected appConfigService: ConfigService,
     protected dialog: MatDialog,
-    private storageService: StorageService
+    private storageService: LocalStorageService
   ) {
   }
 
@@ -48,17 +49,17 @@ export abstract class AuthGuardBase  {
   }
 
   protected async redirectSSOSuccessURL(): Promise<boolean | UrlTree> {
-    const redirectFragment = this.storageService.getItem('loginFragment');
+    const redirectFragment:string = this.storageService.get('loginFragment') ;
     if (redirectFragment && this.getLoginRoute() !== redirectFragment) {
       await this.navigate(redirectFragment);
-      this.storageService.removeItem('loginFragment');
+      this.storageService.remove('loginFragment');
       return false;
     }
     return true;
   }
 
   protected isLoginFragmentPresent(): boolean {
-    return !!this.storageService.getItem('loginFragment');
+    return !!this.storageService.get('loginFragment');
   }
 
   protected async redirectToUrl(url: string): Promise<boolean | UrlTree> {

@@ -7,6 +7,7 @@ import * as  mdc_checkbox from '../tokens/mdc/_checkbox';
 import * as  mdc_radio from '../tokens/mdc/_radio';
 import * as  mdc_list from '../tokens/mdc/_list';
 import * as  mat_list from '../tokens/mat/_list';
+import { matCheckboxTheme } from './mat-checkbox-theme';
 
 
 function base(theme: Theme): Object {
@@ -69,6 +70,7 @@ function base(theme: Theme): Object {
     }
 }
 export function matListTheme(theme: Theme): Object {
+    let chekboxTheme=  matCheckboxTheme(theme);
     return {
       ".mat-list .mdc-list-item__start,.mdc-list-item__end": {
         ...keys.declare_custom_properties(mdc_radio.get_color_tokens(theme,'primary'),mdc_radio.$custom_property_prefix),
@@ -99,7 +101,7 @@ export function matListTheme(theme: Theme): Object {
           ".mdc-list-item__start,.mdc-list-item__content,.mdc-list-item__end": {
             opacity: 1
           }
-      },
+      },  
       '.mat-mdc-list-item': {
         ...typography(theme.typography)
       },

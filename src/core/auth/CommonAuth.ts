@@ -1,9 +1,10 @@
 
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { ConfigService } from  '@dotos/dui/core/config';
-import { StorageService } from  '@dotos/dui/core/services';
+
 import { AuthLoader } from './auth.loader';
 import { Authentication } from './model/authentication';
+import { LocalStorageService } from '@dotos/dui/core/storage';
 
 export class CommonAuth  {
 
@@ -17,7 +18,7 @@ export class CommonAuth  {
       private config: ConfigService,
       private http: HttpClient,
       private  readonly loader: AuthLoader,
-      public storage: StorageService
+      public storage: LocalStorageService
       ) {
         this.setConfig();
     }
@@ -25,8 +26,8 @@ export class CommonAuth  {
         this.ticket = undefined;
         if (this.config.getSettings('ticket')) {
             this.setTicket(this.config.getSettings('ticket'));
-        } else if (this.storage.getItem('ticket')) {
-            this.setTicket(this.storage.getItem('ticket'));
+        } else if (this.storage.get('ticket')) {
+            this.setTicket(this.storage.get('ticket'));
         }
     }
 
@@ -39,7 +40,7 @@ export class CommonAuth  {
     }
 
     saveUsername(username: string) {
-       this.storage.setItem('USERNAME', username);
+       this.storage.add('USERNAME', username);
     }
     validateTicket(): Promise<any> {
       this.setTicket(this.config.getSettings('ticket'));
@@ -144,12 +145,12 @@ export class CommonAuth  {
         this.authentications.basicAuth.ticket = ticket;
         this.authentications.basicAuth.password = null;
         this.config.setSetting('ticket',ticket);
-        this.storage.setItem('ticket', ticket);
+        this.storage.set('ticket', ticket);
         this.ticket = ticket;
     }
 
     invalidateSession() {
-        this.storage.removeItem('ticket');
+        this.storage.remove('ticket');
         this.authentications.basicAuth.ticket = null;
         this.authentications.basicAuth.password = null;
         this.authentications.basicAuth.username = null;

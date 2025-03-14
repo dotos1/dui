@@ -4,12 +4,13 @@ import { Observable, of } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 
 import { CookieStorage } from '@dotos/dui/core/cookie';
-import { StorageService } from '@dotos/dui/core/services';
+
 import { AuthService } from './auth.service';
+import { LocalStorageService } from '@dotos/dui/core/storage';
 @Injectable()
 export class AuthenticatedGuard  {
   constructor(private _router: Router,
-    public storage: StorageService,
+    public storage: LocalStorageService,
     private authService: AuthService) { }
   canActivate(): Observable<boolean> | boolean {
     return this.authService.getAuthenticated().pipe(
@@ -19,9 +20,9 @@ export class AuthenticatedGuard  {
             return true;
           } else {
             if (CookieStorage.hasCookie('user_id')) {
-              this.storage.removeItem('access_token');
-              this.storage.removeItem('access_token_expires_in');
-              this.storage.removeItem('access_token_stored_at');
+              this.storage.remove('access_token');
+              this.storage.remove('access_token_expires_in');
+              this.storage.remove('access_token_stored_at');
               this._router.navigate(['/lock', this._router.url]);
             } else {
               this._router.navigate(['/login']);
@@ -31,12 +32,10 @@ export class AuthenticatedGuard  {
         },
       ),
       catchError((e: any) => {
-        console.log(e);
-
         if(e.status==401||e.status==400){
-          this.storage.removeItem('access_token');
-          this.storage.removeItem('access_token_expires_in');
-          this.storage.removeItem('access_token_stored_at');
+          this.storage.remove('access_token');
+          this.storage.remove('access_token_expires_in');
+          this.storage.remove('access_token_stored_at');
           this._router.navigate(['/lock', this._router.url]);
         }else{
           this._router.navigate(['/maintenance', document.URL]);
