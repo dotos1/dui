@@ -94,6 +94,10 @@ export class LocalStorageService {
         return `${this.prefix}${key}`;
     }
 
+    public has(key: string):boolean{
+        return this.get(key)!=null;
+    }
+
     public get <T> (key: string): T {
         if (!this.isSupported) {
             this.warnings.next(LOCAL_STORAGE_NOT_SUPPORTED);

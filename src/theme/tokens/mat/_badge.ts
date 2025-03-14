@@ -40,9 +40,10 @@ export function private_get_color_palette_color_tokens($theme, $palette_name= "p
 }
 
 export function get_color_tokens($theme) {
-  // let $app_background= inspection.get_theme_color($theme, "background", "background");
+
   let $disabled_background= inspection.get_theme_color($theme, "foreground", "disabled-button");
   return {
+  
     "disabled-state-background-color": $disabled_background,
     "disabled-state-text-color": inspection.get_theme_color($theme, "foreground", "disabled-text"),
   };

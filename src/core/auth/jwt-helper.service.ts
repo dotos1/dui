@@ -1,6 +1,7 @@
 
 import { Injectable } from '@angular/core';
-import { StorageService } from '@dotos/dui/core/services';
+
+import { LocalStorageService } from '@dotos/dui/core/storage';
 
 @Injectable({
     providedIn: 'root'
@@ -16,7 +17,7 @@ export class JwtHelperService {
     static RESOURCE_ACCESS = 'resource_access';
     static USER_PREFERRED_USERNAME = 'preferred_username';
 
-    constructor(private storageService: StorageService) {
+    constructor(private storageService: LocalStorageService) {
     }
 
 
@@ -63,7 +64,7 @@ export class JwtHelperService {
 
 
     getAccessToken(): string {
-        return this.storageService.getItem(JwtHelperService.USER_ACCESS_TOKEN);
+        return this.storageService.get(JwtHelperService.USER_ACCESS_TOKEN);
     }
 
 

@@ -49,6 +49,12 @@ export function matCheckboxTheme(theme: Theme): Object {
         ...color(theme),
         ...density(theme),
         ...typography(theme.typography)
-        }
+        },
+        ".mdc-checkbox": {
+          ...base(theme),
+          ...color(theme),
+          ...density(theme),
+          ...typography(theme.typography)
+          }
       };
 }

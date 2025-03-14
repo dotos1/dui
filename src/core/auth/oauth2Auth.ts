@@ -1,10 +1,10 @@
 import { HttpClient, HttpHeaders, HttpParams } from "@angular/common/http";
 import { ConfigService } from '@dotos/dui/core/config';
-import { StorageService } from '@dotos/dui/core/services';
 import minimatch from 'minimatch-browser';
 import { Subject } from 'rxjs';
 import { Authentication } from './model/authentication';
 import { JwtHelperService } from "./jwt-helper.service";
+import { LocalStorageService } from "@dotos/dui/core/storage";
 
 declare const Buffer: any;
 
@@ -34,7 +34,9 @@ export class Oauth2Auth  {
 
     subject: Subject<any> = new Subject<any>();
 
-    constructor(private config: ConfigService, private http: HttpClient, public storage: StorageService, public jwtHelperService: JwtHelperService) {
+    constructor(private config: ConfigService,
+         private http: HttpClient, 
+        public storage: LocalStorageService, public jwtHelperService: JwtHelperService) {
         if (config) {
             this.setConfig();
         }
@@ -85,7 +87,7 @@ export class Oauth2Auth  {
 
     initOauth(oauth2) {
         if (!oauth2.implicitFlow && this.isValidAccessToken()) {
-            const accessToken = this.storage.getItem('access_token');
+            const accessToken = this.storage.get('access_token') as string;
             this.setToken(accessToken, null);
         }
         if (oauth2.implicitFlow) {
@@ -113,7 +115,7 @@ export class Oauth2Auth  {
             this.implicitLogin();
         }
         if (this.isValidToken() && this.isValidAccessToken()) {
-            let accessToken = this.storage.getItem('access_token');
+            let accessToken :string= this.storage.get('access_token');
             this.setToken(accessToken, null);
             this.silentRefresh();
         }
@@ -169,7 +171,7 @@ export class Oauth2Auth  {
             const payloadJson = this.b64DecodeUnicode(payloadBase64);
             const payload = JSON.parse(payloadJson);
 
-            const savedNonce = this.storage.getItem(nonceKey);
+            const savedNonce = this.storage.get(nonceKey);
 
             if (!payload.sub) {
                 throw('Missing sub in JWT');
@@ -201,23 +203,24 @@ export class Oauth2Auth  {
     }
 
     storeIdToken(idToken: string, exp: number) {
-        this.storage.setItem('id_token', idToken);
-        this.storage.setItem('id_token_expires_at', Number(exp * 1000).toString());
-        this.storage.setItem('id_token_stored_at', Date.now().toString());
+        this.storage.set('id_token', idToken);
+        this.storage.set('id_token_expires_at', Number(exp * 1000).toString());
+        this.storage.set('id_token_stored_at', Date.now().toString());
     }
 
     storeAccessToken(accessToken: string, expiresIn: number, refreshToken?: string) {
-        this.storage.setItem('access_token', accessToken);
+
+        this.storage.set('access_token', accessToken);
         const expiresInMilliSeconds = expiresIn * 1000;
         const now = new Date();
         const expiresAt = now.getTime() + expiresInMilliSeconds;
-        this.storage.setItem('access_token_expires_in', expiresAt+"");
-        this.storage.setItem('access_token_stored_at', Date.now().toString());
+        this.storage.set('access_token_expires_in', expiresAt+"");
+        this.storage.set('access_token_stored_at', Date.now().toString());
         this.setToken(accessToken, refreshToken);
     }
 
     saveUsername(username: string) {
-         this.storage.setItem('USERNAME', username);
+         this.storage.set('USERNAME', username);
     }
 
     implicitLogin() {
@@ -229,7 +232,7 @@ export class Oauth2Auth  {
     isValidToken(): boolean {
         let validToken = false;
         if (this.getIdToken()) {
-            let expiresAt = this.storage.getItem('id_token_expires_at'),
+            let expiresAt:string = this.storage.get('id_token_expires_at'),
                 now = new Date();
             if (expiresAt && parseInt(expiresAt, 10) >= now.getTime()) {
                 validToken = true;
@@ -241,7 +244,7 @@ export class Oauth2Auth  {
     isValidAccessToken(): boolean {
         let validAccessToken = false;
         if (this.getAccessToken()) {
-            const expiresAt = this.storage.getItem('access_token_expires_in');
+            const expiresAt:string = this.storage.get('access_token_expires_in');
             const now = new Date();
             if (expiresAt && parseInt(expiresAt, 10) >= now.getTime()) {
                 validAccessToken = true;
@@ -251,11 +254,11 @@ export class Oauth2Auth  {
     }
 
     getIdToken(): string {
-        return this.storage.getItem('id_token');
+        return this.storage.get('id_token');
     }
 
     getAccessToken(): string {
-        return this.storage.getItem('access_token');
+        return this.storage.get('access_token');
     }
 
     redirectLogin(): void {
@@ -284,10 +287,10 @@ export class Oauth2Auth  {
     composeImplicitLoginUrl(): string {
        let oauth2 =this.config.getSettings('oauth2');
         let nonce = this.genNonce();
-        this.storage.setItem('nonce', nonce);
+        this.storage.set('nonce', nonce);
         const afterLoginUriSegment = this.isRedirectionUrl() ? window.location.hash.split('&')[0] : '';
         if (afterLoginUriSegment && afterLoginUriSegment !== '/') {
-            this.storage.setItem('loginFragment', afterLoginUriSegment.replace('#', '').trim());
+            this.storage.set('loginFragment', afterLoginUriSegment.replace('#', '').trim());
         }
         let separation = this.discovery.loginUrl.indexOf('?') > -1 ? '&' : '?';
         return this.discovery.loginUrl +
@@ -305,7 +308,7 @@ export class Oauth2Auth  {
     composeIframeLoginUrl(): string {
         let nonce = this.genNonce();
         let oauth2 =this.config.getSettings('oauth2');
-        this.storage.setItem('refresh_nonce', nonce);
+        this.storage.set('refresh_nonce', nonce);
 
         let separation = this.discovery.loginUrl.indexOf('?') > -1 ? '&' : '?';
 
@@ -490,7 +493,7 @@ export class Oauth2Auth  {
             } catch (e) {
             }
         }, oauth2.refreshTokenTimeout);
-        this.refreshTokenIntervalPolling.unref();
+        // this.refreshTokenIntervalPolling.unref();
     }
     refreshToken(): Promise<any> {
       let oauth2 =this.config.getSettings('oauth2');
@@ -575,14 +578,14 @@ export class Oauth2Auth  {
     invalidateSession() {
         clearTimeout(this.refreshTokenTimeoutIframe);
         clearInterval(this.refreshTokenIntervalPolling);
-        this.storage.removeItem('access_token');
-        this.storage.removeItem('access_token_expires_in');
-        this.storage.removeItem('access_token_stored_at');
-        this.storage.removeItem('id_token');
-        this.storage.removeItem('id_token');
-        this.storage.removeItem('id_token_claims_obj');
-        this.storage.removeItem('id_token_expires_at');
-        this.storage.removeItem('id_token_stored_at');
-        this.storage.removeItem('nonce');
+        this.storage.remove('access_token');
+        this.storage.remove('access_token_expires_in');
+        this.storage.remove('access_token_stored_at');
+        this.storage.remove('id_token');
+        this.storage.remove('id_token');
+        this.storage.remove('id_token_claims_obj');
+        this.storage.remove('id_token_expires_at');
+        this.storage.remove('id_token_stored_at');
+        this.storage.remove('nonce');
     }
 }

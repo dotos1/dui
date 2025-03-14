@@ -16,7 +16,7 @@ function color(theme: Theme): Object {
       ".mat-badge-accent": {
        ...create_token_values(badge.$prefix,  badge.private_get_color_palette_color_tokens(theme, "accent"))
       },
-     " .mat-badge-warn": {
+     ".mat-badge-warn": {
        ... create_token_values(badge.$prefix, badge.private_get_color_palette_color_tokens(theme, "warn"))
       }
   }

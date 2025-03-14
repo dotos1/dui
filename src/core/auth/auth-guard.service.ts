@@ -3,10 +3,11 @@ import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, Router, UrlTree } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { ConfigService } from '@dotos/dui/core/config';
-import { StorageService } from '@dotos/dui/core/services';
+
 import { AuthGuardBase } from './auth-guard-base';
 import { JwtHelperService } from './jwt-helper.service';
 import { AuthService } from './auth.service';
+import { LocalStorageService } from '@dotos/dui/core/storage';
 
 @Injectable({
     providedIn: 'root'
@@ -18,7 +19,7 @@ export class AuthGuard extends AuthGuardBase {
                 router: Router,
                 appConfigService: ConfigService,
                 dialog: MatDialog,
-                storageService: StorageService) {
+                storageService: LocalStorageService) {
         super(authenticationService, router, appConfigService, dialog, storageService);
         this.ticketChangeBind = this.ticketChange.bind(this);
         window.addEventListener('storage', this.ticketChangeBind);

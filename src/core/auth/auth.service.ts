@@ -2,13 +2,14 @@ import { Injectable } from '@angular/core';
 import { HttpClient,  HttpParams } from '@angular/common/http';
 import { Observable, ReplaySubject, throwError } from 'rxjs';
 import { ConfigService } from '@dotos/dui/core/config';
-import { StorageService, CookieService, LogService } from '@dotos/dui/core/services';
+import { CookieService, LogService } from '@dotos/dui/core/services';
 import { CommonAuth } from './CommonAuth';
 import { Oauth2Auth } from './oauth2Auth';
 import { RedirectionModel } from './model/redirection.model';
 import { JwtHelperService } from './jwt-helper.service';
 
 import { AuthLoader } from './auth.loader';
+import { LocalStorageService } from '@dotos/dui/core/storage';
 
 const REMEMBER_ME_COOKIE_KEY = 'DOTOS_REMEMBER_ME';
 const REMEMBER_ME_UNTIL = 1000 * 60 * 60 * 24 * 30;
@@ -34,10 +35,11 @@ export class AuthService {
     private config: ConfigService,
     private http: HttpClient,
     readonly loader: AuthLoader,
-    private storageService: StorageService,
+    private storageService: LocalStorageService,
     private cookie: CookieService,
     private logService: LogService,
     public jwtHelperService: JwtHelperService) {
+  
     if (this.config.getSettings('authType') == undefined) {
       this.config.onLoad.subscribe(() => {
         this.setConfig();
@@ -133,8 +135,6 @@ export class AuthService {
     this._login(username, password, ticket).then((response: any) => {
       if (this.isOauth()) {
         let p = new HttpParams().set(`lt`, ticket);
-
- 
         this.http.get(this.loader.backend.loginUrl, { 
           params: p,
          }).subscribe(
@@ -167,7 +167,7 @@ export class AuthService {
     if (this.isOauth()) {
       let oauth2AuthPromise = this.oauth2Auth.login(username, password);
         oauth2AuthPromise.then((accessToken) => {
-
+            this.oauth2Auth.pollingRefreshToken();
             this.config.setSetting('accessToken', accessToken);
         },
         (e) => {
@@ -227,9 +227,9 @@ export class AuthService {
 
   getUsername(): string {
     if (this.isOauth()) {
-      return this.username || this.oauth2Auth.storage.getItem('USERNAME');
+      return this.username || this.oauth2Auth.storage.get('USERNAME');
     } else {
-      return this.username || this.commonAuth.storage.getItem('USERNAME');
+      return this.username || this.commonAuth.storage.get('USERNAME');
     }
   }
 
@@ -311,6 +311,6 @@ export class AuthService {
   }
 
   getToken(): string {
-    return this.storageService.getItem(JwtHelperService.USER_ACCESS_TOKEN);
+    return this.storageService.get(JwtHelperService.USER_ACCESS_TOKEN);
   }
 }

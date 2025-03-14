@@ -6,4 +6,3 @@ export { LogService } from './log.service';
 export * from './script-loader.service';
 export { CommonServicesModule } from './services.module';
 export * from './share-param.service';
-export { StorageService } from './storage.service';
