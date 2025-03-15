@@ -1,0 +1,18 @@
+/**
+ * Visibility: 'native' | 'hover' | 'visible'
+ * When visibility="hover", scrollbars are hidden, only shown when user hover the viewport
+ */
+@mixin SetVisibilityStuff() {
+
+  &[visibility="hover"] {
+    --_scrollbar-hover-opacity: 0;
+    --_scrollbar-opacity-transition: opacity var(--INTERNAL-scrollbar-hover-opacity-transition-leave-duration) var(--INTERNAL-scrollbar-hover-opacity-transition-leave-delay);
+
+    &:hover,
+    &:active,
+    &:focus {
+      --_scrollbar-hover-opacity: 1;
+      --_scrollbar-opacity-transition: opacity var(--INTERNAL-scrollbar-hover-opacity-transition-enter-duration);
+    }
+  }
+}
