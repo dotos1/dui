@@ -29,7 +29,7 @@ export enum AppConfigValues {
   providedIn: 'root'
 })
 export class ConfigService {
-  public config: any;
+  public config: any={};
 
   public onLoadSubject: Subject<any>;
   public onLoad: Observable<any>;
@@ -43,6 +43,8 @@ export class ConfigService {
     this.onLoad = this.onLoadSubject.asObservable();
     this.onErrorSubject = new Subject();
     this.onError = this.onLoadSubject.asObservable();
+
+
   }
   setLoader(loader: ConfigLoader){
     this.loader=loader;
@@ -108,9 +110,6 @@ export class ConfigService {
 
   getSettings(key?: string | Array<string>, defaultValue?: any): any {
 
-    console.log("###########################");
-    console.log(this.config);
-    
     if (!key || (Array.isArray(key) && !key[0]))
       return this.config;
 
