@@ -54,6 +54,8 @@ export class ConfigService {
       } else {
         this.config = res
       }
+      console.log(this.config);
+
       this.onLoadSubject.next(this.config);
     }).catch( error => {
       this.onErrorSubject.next(error);
@@ -105,6 +107,10 @@ export class ConfigService {
   }
 
   getSettings(key?: string | Array<string>, defaultValue?: any): any {
+
+    console.log("###########################");
+    console.log(this.config);
+    
     if (!key || (Array.isArray(key) && !key[0]))
       return this.config;
 
