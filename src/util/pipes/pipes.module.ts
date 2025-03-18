@@ -19,6 +19,7 @@ import { ClonePipe } from './clone.pipe';
 import { SecureImagePipe } from './secure-image.pipe';
 import { SanitizeHtmlPipe } from './custom-html.pipe';
 import { TranslationService } from '@dotos/dui/translator';
+import { SecurePipe } from './secure-pipe';
 @NgModule({
   declarations: [
     KeysPipe,
@@ -37,6 +38,7 @@ import { TranslationService } from '@dotos/dui/translator';
     TimeAgoPipe,
     TimeDifferencePipe,
     TruncatePipe,
+    SecurePipe,
     SanitizeHtmlPipe,
     SecureImagePipe
   ],
@@ -57,6 +59,7 @@ import { TranslationService } from '@dotos/dui/translator';
     TimeAgoPipe,
     TimeDifferencePipe,
     TruncatePipe,
+    SecurePipe,
     SanitizeHtmlPipe,
     SecureImagePipe
   ]

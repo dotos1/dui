@@ -9,3 +9,4 @@ export * from './jwt-helper.service';
 export * from './register.guard';
 export * from './login.guard';
 export * from './CommonAuth';
+export * from './auth-interceptor';
