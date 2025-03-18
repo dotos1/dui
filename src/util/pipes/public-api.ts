@@ -26,3 +26,4 @@ export { TimeDifferencePipe } from './time-difference.pipe';
 export { TruncatePipe } from './truncate.pipe';
 
 export { DuiPipesModule } from './pipes.module';
+export {SecurePipe} from './secure-pipe';

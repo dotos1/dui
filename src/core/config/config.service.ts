@@ -56,8 +56,6 @@ export class ConfigService {
       } else {
         this.config = res
       }
-      console.log(this.config);
-
       this.onLoadSubject.next(this.config);
     }).catch( error => {
       this.onErrorSubject.next(error);
