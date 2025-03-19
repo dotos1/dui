@@ -27,7 +27,8 @@
     "noImplicitUseStrict": false,
     "emitDecoratorMetadata": false,
     "sourceMap": true,
-    "declaration": false,
+    "declaration": true,
+    "declarationMap": true,
     "useDefineForClassFields": false,
     "lib": [
       "ES2022",
