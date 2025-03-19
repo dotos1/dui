@@ -1,0 +1,29 @@
+colorpicker-button {
+  &:hover {
+    cursor: pointer;
+  }
+  &:focus {
+    cursor: pointer;
+  }
+  .mat-mdc-button-base{
+    padding-left: 8px;
+    padding-right: 8px; 
+    height: 40px;
+    width: 56px;
+    display:flex;
+    flex-direction:row
+  }
+}
+.mat-menu-panel {
+  overflow: hidden;
+}
+colorpicker-button .mdc-icon-button .dui-icon .mat-icon{
+  border-bottom-style: solid;
+  border-bottom-width: 3px;
+  padding-bottom: 1px;
+}
+colorpicker-button .mat-menu-item .dui-icon .mat-icon{
+  border-bottom-style: solid;
+  border-bottom-width: 3px;
+  padding-bottom: 1px;
+}

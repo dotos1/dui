@@ -1,0 +1,15 @@
+<button  *ngIf='(config.parentType==="toolbar"||config.parentType===undefined)&&!hidden'    [matMenuTriggerFor]="colorMenu" 
+  mat-icon-button [disabled]="config.disabled" [color]="config.color" [ngStyle]='config.style'
+  [disableRipple]="config.disableRipple" [matTooltip]="(config.title||config.text) | translate"
+  matTooltipPosition='below'  (click)="onClick($event)" >
+  <dui-icon [iconStyle]="iconStyle" [value]="icon"></dui-icon>
+  <mat-icon  [matMenuTriggerFor]="colorMenu" >arrow_drop_down</mat-icon>
+</button>
+<button *ngIf='config.parentType==="menu"&&(config.title&&config.title!=="")&&!hidden' mat-menu-item  [disabled]="config.disabled" [ngStyle]='config.style' [matMenuTriggerFor]="colorMenu"  style="padding-left: 8px;padding-right: 8px;">
+  <dui-icon [iconStyle]="iconStyle" [value]="icon"></dui-icon>
+  <span *ngIf="config.title&&config.title!==''" class='menu-title'>{{config.title| translate}}</span>
+  <span class="menu-bar-item-menu-item--command">{{ config.shortcut| translate }}</span>
+</button>
+<mat-menu #colorMenu="matMenu" class="color-picker-menu">
+  <goog-color-picker   [color]="state"   (onChange)="changeComplete($event)"></goog-color-picker>
+</mat-menu>
