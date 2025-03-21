@@ -9,3 +9,4 @@ export * from './string-utils';
 export * from './util.module';
 export * from './uuid';
 export * from './watcher';
+export * from './resize-image';
