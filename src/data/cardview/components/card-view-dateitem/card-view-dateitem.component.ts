@@ -1,7 +1,7 @@
 
 import { Component, Input, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { DateAdapter } from '@angular/material/core';
-import moment from 'moment-es6';
+import moment from 'moment';
 import { Moment } from 'moment';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
