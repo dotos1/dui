@@ -215,7 +215,7 @@ export function clone(value: any): any {
     return value;
   }
 
-  // https://github.com/moment/moment/blob/master/moment.js#L252
+
   if (value._isAMomentObject && isFunction(value.clone)) {
     return value.clone();
   }
