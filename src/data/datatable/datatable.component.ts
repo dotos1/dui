@@ -8,7 +8,7 @@ import {
 import { HttpClient } from '@angular/common/http';
 import {
   forceFillColumnWidths, adjustColumnWidths, sortRows,
-  setColumnDefaults, throttleable, translateTemplates,
+  setColumnDefaults, translateTemplates,
   groupRowsByParents, optionalGetterForProp
 } from './utils/index';
 import { ScrollbarHelper, DimensionsHelper, ColumnChangesService } from './services/index';
