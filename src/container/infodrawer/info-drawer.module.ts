@@ -7,6 +7,7 @@ import { MatRippleModule, } from '@angular/material/core';
 import { InfoDrawerLayoutComponent, InfoDrawerTitleDirective, InfoDrawerButtonsDirective, InfoDrawerContentDirective } from './info-drawer-layout.component';
 import { InfoDrawerComponent, InfoDrawerTabComponent } from './info-drawer.component';
 import { TranslateModule } from '@dotos/dui/translator';
+import { MatButtonModule } from '@angular/material/button';
 
 export function declarations() {
   return [
@@ -23,7 +24,7 @@ export function declarations() {
   imports: [
     CommonModule,
     MatIconModule,
-    MatIconModule,
+    MatButtonModule,
     MatRippleModule,
     MatTabsModule,
     TranslateModule//.forChild()
