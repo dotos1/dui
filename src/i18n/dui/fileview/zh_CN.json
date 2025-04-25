@@ -1,0 +1,57 @@
+{
+  "VIEWER": {
+    "PAGE_LABEL_SHOWING":"正在显示",
+    "ACTIONS": {
+      "BACK": "返回",
+      "OPEN_WITH": "打开方式",
+      "DOWNLOAD": "下载",
+      "PRINT": "打印",
+      "SHARE": "共享",
+      "MORE_ACTIONS": "更多操作",
+      "INFO": "查看详细信息",
+      "FULLSCREEN": "激活全屏模式",
+      "CLOSE": "关闭",
+      "NEXT_FILE": "下一个文件",
+      "PREV_FILE": "上一个文件"
+    },
+    "ARIA": {
+      "PREVIOUS_PAGE": "上一页",
+      "NEXT_PAGE": "下一页",
+      "ZOOM_IN": "放大",
+      "ZOOM_OUT": "缩小",
+      "ROTATE":"旋转",
+      "CROP":"剪裁",
+      "CANCEL":"取消",
+      "SAVE":"保存",
+      "FIT_PAGE": "适合页面",
+      "FIT_WIDTH": "符合宽度",
+      "FIT_HEIGHT": "符合高度",
+      "ROTATE_LEFT": "向左旋转",
+      "ROTATE_RIGHT": "向右旋转",
+      "RESET": "重置",
+      "FIND":"查找",
+      "THUMBNAILS": "文档缩略图"
+    },
+    "PAGE_LABEL": {
+      "SHOWING": "正在显示",
+      "OF": "/"
+    },
+    "LOADING": "正在加载",
+    "UNKNOWN_FORMAT": "无法加载预览。未知格式。",
+    "SIDEBAR": {
+      "THUMBNAILS": {
+        "PAGE": "第 {{ pageNum }} 页"
+      },
+      "METADATA": {
+        "MORE_INFORMATION": "更多信息",
+        "LESS_INFORMATION": "更少信息"
+      }
+    },
+    "PDF_DIALOG": {
+      "SUBMIT": "提交",
+      "CLOSE": "关闭",
+      "PLACEHOLDER": "密码",
+      "ERROR": "密码错误"
+    }
+  }
+}
