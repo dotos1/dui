@@ -198,7 +198,7 @@ export class MatSelectSearchComponent implements OnInit, OnDestroy, ControlValue
     }
     for (const key of configurableDefaultOptions) {
       if (Object.prototype.hasOwnProperty.call(defaultOptions, key)) {
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+
         (this[key] as any) = defaultOptions[key];
       }
     }
@@ -234,9 +234,6 @@ export class MatSelectSearchComponent implements OnInit, OnDestroy, ControlValue
           }
         }
       });
-
-
-
     // set the first item active after the options changed
     this.matSelect.openedChange
       .pipe(
@@ -345,11 +342,7 @@ export class MatSelectSearchComponent implements OnInit, OnDestroy, ControlValue
     return this.matSelect.multiple && this.showToggleAllCheckbox;
   }
 
-  /**
-   * Handles the key down event with MatSelect.
-   * Allows e.g. selecting with enter key, navigation with arrow keys, etc.
-   * @param event
-   */
+
   _handleKeydown(event: KeyboardEvent) {
   
     if ((event.key && event.key.length === 1)

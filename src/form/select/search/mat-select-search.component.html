@@ -6,8 +6,7 @@
       [ngClass]="{'mat-select-search-inner-multiple': matSelect.multiple, 'mat-select-search-inner-toggle-all': _isToggleAllCheckboxVisible() }">
 
   <div class="mat-select-search-inner-row">
-    <mat-form-field class="dui-dialog-input"  [appearance]="themeService.formType|async">
-         <mat-checkbox *ngIf="_isToggleAllCheckboxVisible()"
+    <mat-checkbox *ngIf="_isToggleAllCheckboxVisible()"
                   [color]="matFormField?.color"
                   class="mat-select-search-toggle-all-checkbox"
                   [checked]="toggleAllCheckboxChecked"
@@ -16,37 +15,38 @@
                   matTooltipClass="mat-select-search-toggle-all-tooltip"
                   [matTooltipPosition]="toggleAllCheckboxTooltipPosition"
                   (change)="_emitSelectAllBooleanToParent($event.checked)"
-        ></mat-checkbox>
-        <input class="mat-select-search-input"
-              autocomplete="off"
-              [type]="type"
-              [formControl]="_formControl"
-              #searchSelectInput
-              (keydown)="_handleKeydown($event)"
-              (keyup)="_handleKeyup($event)"
-              (blur)="onBlur()"
-              [placeholder]="placeholderLabel|translate"
-              [attr.aria-label]="ariaLabel"
-        />
-        <mat-spinner *ngIf="searching"
-                class="mat-select-search-spinner"
-                diameter="16"></mat-spinner>
+    ></mat-checkbox>
 
-        <button *ngIf="!hideClearSearchButton && value && !searching"
-                mat-icon-button
-                aria-label="Clear"
-                (click)="_reset(true)"
-                class="mat-select-search-clear">
-          <ng-content *ngIf="clearIcon; else defaultIcon" select="[MatSelectSearchClear]"></ng-content>
-          <ng-template #defaultIcon>
-            <mat-icon [svgIcon]="closeSvgIcon">
-              {{!closeSvgIcon ? closeIcon : null}}
-            </mat-icon>
-          </ng-template>
-        </button>
-        <ng-content select=".mat-select-search-custom-header-content"></ng-content>
-    </mat-form-field>
+    <input class="mat-select-search-input"
+           autocomplete="off"
+           [type]="type"
+           [formControl]="_formControl"
+           #searchSelectInput
+           (keydown)="_handleKeydown($event)"
+           (keyup)="_handleKeyup($event)"
+           (blur)="onBlur()"
+           [placeholder]="placeholderLabel|translate"
+           [attr.aria-label]="ariaLabel"
+    />
+    <mat-spinner *ngIf="searching"
+            class="mat-select-search-spinner"
+            diameter="16"></mat-spinner>
+
+    <button *ngIf="!hideClearSearchButton && value && !searching"
+            mat-icon-button
+            aria-label="Clear"
+            (click)="_reset(true)"
+            class="mat-select-search-clear">
+      <ng-content *ngIf="clearIcon; else defaultIcon" select="[MatSelectSearchClear]"></ng-content>
+      <ng-template #defaultIcon>
+        <mat-icon [svgIcon]="closeSvgIcon">
+          {{!closeSvgIcon ? closeIcon : null}}
+        </mat-icon>
+      </ng-template>
+    </button>
+    <ng-content select=".mat-select-search-custom-header-content"></ng-content>
   </div>
+  <mat-divider></mat-divider>
 </div>
 
 <div *ngIf="_showNoEntriesFound$ | async"
