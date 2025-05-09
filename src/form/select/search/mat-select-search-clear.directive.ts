@@ -2,6 +2,7 @@ import { Directive } from '@angular/core';
 
 
 @Directive({
-    selector: '[MatSelectSearchClear]'
+    selector: '[MatSelectSearchClear]',
+    standalone: false
 })
 export class MatSelectSearchClearDirective {}

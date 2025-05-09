@@ -17,7 +17,7 @@ import {
 import { MatFormField, MatFormFieldControl } from '@angular/material/form-field';
 import { FieldConfig, FieldWrapper, defineHiddenProp, observe } from '@dotos/dui/core/form';
 import { ThemeService } from '@dotos/dui/theme';
-import { MDCTextField } from '@material/textfield';
+// import { MDCTextField } from '@material/textfield';
 
 import { Subject } from 'rxjs';
 interface MatFieldConfig extends FieldConfig {
@@ -44,7 +44,7 @@ interface MatFieldConfig extends FieldConfig {
 export class WrapperFormField extends FieldWrapper<MatFieldConfig> implements OnInit, OnDestroy, AfterViewInit, AfterContentChecked {
   @ViewChild('fieldComponent', { read: ViewContainerRef, static: true }) declare fieldComponent: ViewContainerRef;
   @ViewChild(MatFormField, { static: true }) formField!: MatFormField;
-  textField !: MDCTextField;
+  // textField !: MDCTextField;
 
   stateChanges = new Subject<void>();
   _errorState = false;
@@ -88,7 +88,7 @@ export class WrapperFormField extends FieldWrapper<MatFieldConfig> implements On
     this.focusMonitor.monitor(this.elementRef, true).subscribe((origin) => {
       if (!origin && this.field.focused) {
         this.field.focused = false;
-        this.textField?.getDefaultFoundation().deactivateFocus();;
+        // this.textField?.getDefaultFoundation().deactivateFocus();;
       }
     });
   }
@@ -104,7 +104,7 @@ export class WrapperFormField extends FieldWrapper<MatFieldConfig> implements On
 
   ngAfterViewInit() {
     let el=this.formField._elementRef.nativeElement;
-    this.textField = new MDCTextField(el.querySelector('.mdc-text-field'));
+    // this.textField = new MDCTextField(el.querySelector('.mdc-text-field'));
     if (this.formField.appearance !== 'outline' && this.field.hideFieldUnderline === true) {
       const underlineElement = el.querySelector('.mdc-line-ripple');
       underlineElement && this.renderer.removeChild(underlineElement.parentNode, underlineElement);
