@@ -14,6 +14,7 @@ import { MatSelectNoEntriesFoundDirective } from './mat-select-no-entries-found.
 import { MatDividerModule } from '@angular/material/divider';
 import { TranslateModule } from '@dotos/dui/translator';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 
 export const MatSelectSearchVersion = '8.0.1';
 export { MatSelectSearchClearDirective };
@@ -26,6 +27,7 @@ export { MatSelectNoEntriesFoundDirective };
     MatButtonModule,
     MatCheckboxModule,
     MatIconModule,
+    MatInputModule,
      TranslateModule,
      MatFormFieldModule,
     MatProgressSpinnerModule,
