@@ -13,7 +13,7 @@
 
   <ng-container>
     <mat-option *ngIf="field.hasSearch">
-      <mat-select-search [formControl]="selectSearchControl" [searching]="searching"  (changex)='searchChange($event)' >
+      <mat-select-search [formControl]="selectSearchControl" [searching]="searching"  >
       </mat-select-search>
     </mat-option>
     <mat-option *ngIf="field.hasBlankOption" value=""></mat-option>

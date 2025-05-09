@@ -18,9 +18,9 @@ import { TranslateModule, TranslationService } from '@dotos/dui/translator';
 import { FormModule } from '../components/form.module';
 import { FieldSelect } from './select.field';
 import { SelectPipeModule } from '../base/select.module';
-import { MatSelectSearchComponent } from './select.search';
-import { MatSelectSearchClearDirective } from './select-search-clear.directive';
+
 import { SelectOptionsService } from './options.service';
+import { MatSelectSearchModule } from './search/mat-select-search.module';
 
 @NgModule({
   imports: [
@@ -38,26 +38,22 @@ import { SelectOptionsService } from './options.service';
     OverlayModule,
     SelectPipeModule,
     TranslateModule,
+    MatSelectSearchModule,
     MatPseudoCheckboxModule,
     FormModule,
   ],
   declarations: [
-    FieldSelect,
-    MatSelectSearchComponent,
-    MatSelectSearchClearDirective
+    FieldSelect
   ],
   exports: [
-    FieldSelect,
-    MatSelectSearchComponent,
-    MatSelectSearchClearDirective
+    FieldSelect
   ],
   providers: [
     SelectOptionsService
   ]
 })
 export class SelectFieldModule {
-  entryComponents = [    FieldSelect,
-    MatSelectSearchComponent];
+  entryComponents = [ FieldSelect];
   constructor(componentFactoryResolver: ComponentFactoryResolver,  translateService: TranslationService,) {
     Dui.registerComponentFactory(componentFactoryResolver,this.entryComponents);
     translateService.addTranslationFolder('dui', 'i18n');

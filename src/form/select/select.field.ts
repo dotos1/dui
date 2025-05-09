@@ -7,7 +7,7 @@ import { debounceTime, delay, tap,  map, takeUntil, takeWhile } from 'rxjs/opera
 import { TranslateService } from '@dotos/dui/translator';
 import { SelectOptionsService } from './options.service';
 import { MatField } from '../base/mat.field';
-import { MatSelectSearchComponent } from './select.search';
+import { MatSelectSearchComponent } from './search/mat-select-search.component';
 
 export class SelectOption {
   label: string;
@@ -46,7 +46,7 @@ export class FieldSelect extends MatField implements OnInit,OnDestroy {
 
   options = [];
 
-  public selectSearchControl: FormControl = new FormControl();
+  public selectSearchControl:  FormControl<string> = new FormControl<string>('', {nonNullable: true});
 
   public searching: boolean = false;
 
@@ -64,7 +64,12 @@ export class FieldSelect extends MatField implements OnInit,OnDestroy {
 
   override ngOnInit() {
     super.ngOnInit();
-
+    this.selectSearchControl.valueChanges
+      .pipe(takeUntil(this._onDestroy))
+      .subscribe(() => {
+         let searchText = this.selectSearchControl.value;
+        this.searchChange(searchText);
+      });
     if (this.field.remote) {
       this.isAlive = true;
       this.optionService.options.pipe(takeWhile(() => this.isAlive)).subscribe(serviceData => {
@@ -86,7 +91,10 @@ export class FieldSelect extends MatField implements OnInit,OnDestroy {
       });
     }
   }
-  searchChange(searchText?) {
+
+
+
+  searchChange(searchText) {
     this.searching = false;
      of(searchText).pipe(
       tap(() => { this.searching = true;  }),

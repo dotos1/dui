@@ -1035,6 +1035,7 @@
         "OR":"或"
       },
       "FORM": {
+           "SELECT_SEARCH": "搜索",
         "BLANKTEXT": "该字段不能为空!",
         "INVALIDTEXT": "文本格式错误!",
         "MINLENGTHTEXT": "字段长度不能少于{0}",
