@@ -94,7 +94,7 @@ export class FieldSelect extends MatField implements OnInit,OnDestroy {
 
 
 
-  searchChange(searchText) {
+  searchChange(searchText?) {
     this.searching = false;
      of(searchText).pipe(
       tap(() => { this.searching = true;  }),

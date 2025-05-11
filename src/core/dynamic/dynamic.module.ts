@@ -2,17 +2,17 @@
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { DynamicComponent } from "./dynamic.component";
+import { FlexLayoutModule } from "ngx-flexible-layout";
+import { TranslateModule } from "@dotos/dui/translator";
 import { SafeurlPipe } from "./safeurl.pipe";
-import { MustachePipe } from "./mustache.pipe";
 
 @NgModule({
-  imports: [  CommonModule],
-  declarations: [DynamicComponent,MustachePipe, SafeurlPipe],
+  imports: [  CommonModule,FlexLayoutModule,TranslateModule],
+  declarations: [DynamicComponent, SafeurlPipe],
   exports: [
     DynamicComponent,
-    MustachePipe,
     SafeurlPipe
   ],
-  providers:[SafeurlPipe, MustachePipe]
+  providers:[SafeurlPipe]
 })
 export class DynamicModule {}
