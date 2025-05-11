@@ -1,6 +1,6 @@
 {
   "name": "dui",
-  "version": "7.1.63",
+  "version": "7.1.67",
   "license": "MIT",
   "scripts": {
     "ng": "ng",
@@ -52,7 +52,6 @@
     "monaco-editor-nls": "^3.1.0",
     "monaco-editor-webpack-plugin": "^7.1.0",
     "monaco-vim": "^0.4.1",
-    "mustache": "^4.2.0",
     "ngx-flexible-layout": "^18.0.2",
     "observable-profiler": "^0.1.1",
     "perfect-scrollbar": "^1.5.5",
