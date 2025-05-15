@@ -23,10 +23,7 @@ export function nextSortDir(sortType: SortType, current: SortDirection): SortDir
   }
 }
 
-/**
- * Adapted from fueld-ui on 6/216
- * https://github.com/FuelInteractive/fuel-ui/tree/master/src/pipes/OrderBy
- */
+
 export function orderByComparator(a: any, b: any): number {
   if (a === null || typeof a === 'undefined') a = 0;
   if (b === null || typeof b === 'undefined') b = 0;

@@ -11,10 +11,7 @@ export function getTotalFlexGrow(columns: any[]) {
   return totalFlexGrow;
 }
 
-/**
- * Adjusts the column widths.
- * Inspired by: https://github.com/facebook/fixed-data-table/blob/master/src/FixedDataTableWidthHelper.js
- */
+
 export function adjustColumnWidths(allColumns: any, expectedWidth: any) {
   const columnsWidth = columnsTotalWidth(allColumns);
   const totalFlexGrow = getTotalFlexGrow(allColumns);
