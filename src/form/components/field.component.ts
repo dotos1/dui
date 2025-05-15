@@ -229,7 +229,7 @@ export class FieldComponent implements OnInit, OnChanges,  AfterContentInit, Aft
       }
 
       const sub = valueChanges.subscribe((value) => {
-        // workaround for https://github.com/angular/angular/issues/13792
+
         if (control instanceof FormControl && control['_fields'] && control['_fields'].length > 1) {
           control.patchValue(value, { emitEvent: false, onlySelf: true });
         }

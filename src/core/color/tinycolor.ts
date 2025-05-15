@@ -492,9 +492,7 @@ export class TinyColor {
     return ret;
   }
 
-  /**
-   * taken from https://github.com/infusion/jQuery-xcolor/blob/master/jquery.xcolor.js
-   */
+
   complement(): TinyColor {
     const hsl = this.toHsl();
     hsl.h = (hsl.h + 180) % 360;
