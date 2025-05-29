@@ -101,7 +101,7 @@ export class MatDatetimepickerInputEvent<D> {
     "(change)": "_onChange()",
     "(blur)": "_onBlur()",
     "(keydown)": "_onKeydown($event)",
-    
+    hostID: "date-field" + Math.random().toString(36).substring(2, 15),
   },
 })
 

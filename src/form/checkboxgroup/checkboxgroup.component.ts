@@ -8,7 +8,9 @@ import { MatField } from '../base/mat.field';
   styleUrls: ['./checkboxgroup.component.scss'],
   templateUrl: './checkboxgroup.component.html',
   changeDetection: ChangeDetectionStrategy.Default,
-  
+  host: {
+    hostID: 'checkbox-group-field' + Math.random().toString(36).substring(2, 15)
+  }
 })
 export class CheckboxGroupField extends MatField implements AfterViewInit {
 

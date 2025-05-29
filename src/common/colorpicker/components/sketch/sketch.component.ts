@@ -102,7 +102,7 @@ import { TriggerPopup } from '@dotos/dui/common/trigger';
   host: {
     style: 'width:220px',
     '(keydown)': '_handleKeydown($event)',
-    
+     'hostID': 'color-sketch-' + Math.random().toString(36).substring(2, 15)
   },
   changeDetection: ChangeDetectionStrategy.OnPush,
   preserveWhitespaces: false,

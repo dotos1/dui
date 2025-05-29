@@ -16,6 +16,7 @@ import { GoogleColorService } from './google-color.services';
   encapsulation: ViewEncapsulation.None,
   host: {
     '(keydown)': '_handleKeydown($event)',
+    hostID: 'goog-color-picker-' + Math.random().toString(36).substring(2, 15)
   },
    changeDetection: ChangeDetectionStrategy.OnPush,
    preserveWhitespaces: true,

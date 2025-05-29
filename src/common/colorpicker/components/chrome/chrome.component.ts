@@ -106,9 +106,11 @@ import { TriggerPopup } from '@dotos/dui/common/trigger';
   ],
   host: {
     '(keydown)': '_handleKeydown($event)',
+    'hostID': 'color-chrome-' + Math.random().toString(36).substring(2, 15) 
   },
   changeDetection: ChangeDetectionStrategy.OnPush,
   preserveWhitespaces: false,
+
 })
 export class ChromeComponent extends ColorWrap implements TriggerPopup {
   /** Remove alpha slider and options from picker */

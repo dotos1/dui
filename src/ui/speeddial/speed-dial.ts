@@ -32,6 +32,7 @@ export type AnimationMode = 'fling' | 'scale';
   selector: 'speed-dial-actions',
   template: `
         <ng-content select="[mat-mini-fab]" *ngIf="miniFabVisible"></ng-content>`,
+        host: {hostID: 'speed-dial-actions' + Math.random().toString(36).substring(2, 15)},
 })
 export class SpeedDialActionsComponent implements AfterContentInit {
 
@@ -155,6 +156,8 @@ export class SpeedDialActionsComponent implements AfterContentInit {
     `,
     styleUrls: ['./speed-dial.scss'],
     encapsulation: ViewEncapsulation.None,
+    host: {
+        hostID: 'speed-dial' + Math.random().toString(36).substring(2, 15)}
 })
 
 export class SpeedDialComponent implements OnDestroy, AfterContentInit {

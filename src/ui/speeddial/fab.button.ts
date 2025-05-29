@@ -22,6 +22,7 @@ import {isString}  from 'lodash-es';
   templateUrl: './fab.button.html',
   host: {
     '[style.display]': 'display',
+    hostID: 'dui-fab-button' + Math.random().toString(36).substring(2, 15),
   },
   changeDetection: ChangeDetectionStrategy.Default
 })

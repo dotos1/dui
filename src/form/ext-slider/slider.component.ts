@@ -8,7 +8,7 @@ import { NG_VALUE_ACCESSOR } from '@angular/forms';
   templateUrl: './slider.component.html',
   host: {
     style: 'flex:1;display:flex;flex-direction:row;',
-    
+    hostID: 'slider-field' + Math.random().toString(36).substring(2, 15),
   },
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [

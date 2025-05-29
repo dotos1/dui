@@ -4,7 +4,7 @@ import { MatTabChangeEvent } from '@angular/material/tabs';
 @Component({
   selector: 'dui-info-drawer-tab',
   template: '<ng-template><ng-content></ng-content></ng-template>',
-  
+  host: {hostID: 'dui-info-drawer-tab' + Math.random().toString(36).substring(2, 15)},
 })
 export class InfoDrawerTabComponent {
 
@@ -23,7 +23,10 @@ export class InfoDrawerTabComponent {
   templateUrl: './info-drawer.component.html',
   styleUrls: ['./info-drawer.component.scss'],
   encapsulation: ViewEncapsulation.None,
-  host: { 'class': 'dui-info-drawer',  }
+  host: { 
+    'class': 'dui-info-drawer', 
+    hostID: 'dui-info-drawer' + Math.random().toString(36).substring(2, 15)
+   }
 })
 export class InfoDrawerComponent {
   /** The title of the info drawer (string or translation key). */

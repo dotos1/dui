@@ -31,7 +31,7 @@ import { ButtonBase } from './button.base';
   templateUrl: './button.component.html',
   host: {
     '[style.display]': 'flex',
-   
+    hostID: 'dui-button' + Math.random().toString(36).substring(2, 15)
   },
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.Default

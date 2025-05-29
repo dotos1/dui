@@ -6,7 +6,9 @@ import { FieldArrayType, FormBuilder, FormConfig } from '@dotos/dui/core/form';
   templateUrl: './row.editor.html',
   styleUrls: ['./row.editor.scss'],
   changeDetection: ChangeDetectionStrategy.Default,
-  
+  host: { 
+    hostID: 'row-editor' + Math.random().toString(36).substring(2, 15),
+  },
 })
 export class RowEditorComponent extends FieldArrayType {
 

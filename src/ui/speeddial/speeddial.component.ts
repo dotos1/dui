@@ -21,8 +21,10 @@ import { AnimationMode, Direction } from './speed-dial';
   templateUrl: './speeddial.component.html',
   host: {
     '[style.display]': 'display',
+    hostID: 'dui-speeddial' + Math.random().toString(36).substring(2, 15),
   },
   changeDetection: ChangeDetectionStrategy.Default,
+
 })
 export class ExtSpeedDialComponent extends ComponentBase implements OnInit,OnChanges,DoCheck {
 

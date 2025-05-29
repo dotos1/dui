@@ -7,7 +7,9 @@ import { TranslateService } from '@dotos/dui/translator';
   selector: 'checkbox-field',
   templateUrl: './checkbox.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  
+  host: {
+    hostID: 'checkbox-field' + Math.random().toString(36).substring(2, 15),
+  }
 })
 export class CheckboxField extends MatField implements AfterViewInit,OnDestroy {
 

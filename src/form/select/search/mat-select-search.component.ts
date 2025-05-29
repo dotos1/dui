@@ -40,6 +40,9 @@ import { ThemeService } from '@dotos/dui/theme';
       multi: true
     }
   ],
+  host: {
+    hostID: 'mat-select-search' + Math.random().toString(36).substring(2, 15),
+  },
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class MatSelectSearchComponent implements OnInit, OnDestroy, ControlValueAccessor {

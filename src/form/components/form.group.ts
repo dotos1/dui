@@ -7,7 +7,7 @@ import { FieldType } from '@dotos/dui/core/form';
   host: {
     class: 'field.fieldGroupClassName || ""',
     style: 'flex:1; box-sizing:  align-items: center;border-box; place-content: center flex-start;',
-    
+    hostID: 'form-group' + Math.random().toString(36).substring(2, 15),
   },
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

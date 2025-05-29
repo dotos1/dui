@@ -6,7 +6,10 @@ import { TreeNode } from '../models/tree-node.model';
   encapsulation: ViewEncapsulation.None,
   styles: [],
   templateUrl: 'tree-node-drop-slot.component.html',
-  
+  host: {
+
+    hostID: 'tree-node-drop-slot' + Math.random().toString(36).substring(2, 15)
+  }
 })
 export class TreeNodeDropSlot {
   @Input() node: TreeNode;

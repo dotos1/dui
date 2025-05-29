@@ -26,7 +26,7 @@ import { EXPANSION_PANEL_ANIMATION_TIMING, ExpansionPanel } from './expansion-pa
   preserveWhitespaces: false,
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: {
-    
+     hostID: 'dui-expansion-panel-header' + Math.random().toString(36).substring(2, 15),
     'class': 'expansion-panel-header',
     'role': 'button',
     '[attr.tabindex]': 'panel.disabled ? -1 : 0',

@@ -5,7 +5,7 @@ import { Dui } from '@dotos/dui/core';
 import { AbstractPanel } from '../panel/abstract.panel';
 
 
-/** Accordion's display modes. */
+
 export type AccordionDisplayMode = 'default' | 'flat';
 
 /** Used to generate unique ID for each accordion. */
@@ -21,7 +21,7 @@ let nextId = 0;
   exportAs: 'duiAccordion',
   host: {
     class: 'accordion',
-    
+    hostID: 'dui-accordion' + Math.random().toString(36).substring(2, 15),
   }
 })
 export class Accordion extends AbstractPanel implements OnChanges{

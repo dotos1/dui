@@ -17,7 +17,7 @@ export class MatDatetimepickerCalendarCell {
   styleUrls: ["calendar-body.scss"],
   host: {
     "class": "mat-datetimepicker-calendar-body",
-    
+    hostID: "mat-datetimepicker-calendar-body" + Math.random().toString(36).substring(2, 15),
   },
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,

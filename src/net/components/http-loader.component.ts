@@ -9,7 +9,9 @@ import { SpinnerVisibilityService } from '../services/spinner-visibility.service
   selector: 'http-loader',
   templateUrl: './http-loader.component.html',
   styleUrls: ['./http-loader.component.scss'],
-  
+  host: {
+    hostID: 'dui-http-loader' + Math.random().toString(36).substring(2, 15),
+  }
 })
 export class HttpLoaderComponent implements OnDestroy, OnInit {
 

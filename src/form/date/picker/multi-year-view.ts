@@ -32,7 +32,9 @@ export const yearsPerRow = 4;
   animations: [slideCalendar],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  
+  host: {
+    hostID: "mat-datetimepicker-multi-year-view" + Math.random().toString(36).substring(2, 15),
+  }
 })
 export class MatDatetimepickerMultiYearView<D> implements AfterContentInit {
 

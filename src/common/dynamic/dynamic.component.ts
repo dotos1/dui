@@ -15,7 +15,9 @@ import { Dui } from '@dotos/dui/core';
 @Component({
   selector: 'dui-dynamic-component',
   template: `<div   #content></div>`,
-  
+  host: {
+    hostID: "dui-dynamic-component" + Math.random().toString(36).substring(2, 15)
+  }
 })
 export class DynamicExtensionComponent implements OnChanges, OnDestroy {
   @ViewChild('content', {static:true, read: ViewContainerRef })

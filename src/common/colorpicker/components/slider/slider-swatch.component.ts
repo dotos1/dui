@@ -36,7 +36,9 @@ import { HSL } from '@dotos/dui/core/color';
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
   preserveWhitespaces: false,
-    
+    host: {
+    'hostID': 'slider-swatch-' + Math.random().toString(36).substring(2, 15),
+  },
 })
 export class SliderSwatchComponent implements OnChanges {
   @Input() hsl: HSL;

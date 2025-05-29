@@ -50,7 +50,7 @@ import { TriggerPopup } from '@dotos/dui/common/trigger';
   ],
   host: {
     '(keydown)': '_handleKeydown($event)',
-    
+    hostID: 'compact-picker-' + Math.random().toString(36).substring(2, 15)
   },
   changeDetection: ChangeDetectionStrategy.OnPush,
   preserveWhitespaces: false,

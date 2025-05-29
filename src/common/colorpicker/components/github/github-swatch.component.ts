@@ -31,7 +31,9 @@ import {  ChangeDetectionStrategy,  Component,  EventEmitter,  Input,  Output,} 
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
   preserveWhitespaces: false,
-  
+  host: {
+    'hostID': 'github-swatch-' + Math.random().toString(36).substring(2, 15),
+  }
 })
 export class GithubSwatchComponent {
   @Input() color: string;

@@ -24,9 +24,9 @@ export const MAT_CHECK_GROUP_CONTROL_VALUE_ACCESSOR: any = {
 
 /** Change event object emitted by MatRadio and MatRadioGroup. */
 export class MatCheckChange {
-  /** The MatRadioButton that emits the change event. */
+
   source: Array<MatCheckbox> | null;
-  /** The value of the MatRadioButton. */
+
   value: any;
 }
 

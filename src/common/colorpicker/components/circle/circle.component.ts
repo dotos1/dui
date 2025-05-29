@@ -53,9 +53,11 @@ import { TriggerPopup } from '@dotos/dui/common/trigger';
   ],
   host: {
     '(keydown)': '_handleKeydown($event)',
+    hostId: 'circle-picker-' + Math.random().toString(36).substring(2, 15)
   },
   changeDetection: ChangeDetectionStrategy.OnPush,
   preserveWhitespaces: false,
+
 })
 export class CircleComponent extends ColorWrap implements TriggerPopup {
   /** Pixel value for picker width */

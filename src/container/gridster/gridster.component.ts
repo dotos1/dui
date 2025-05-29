@@ -28,7 +28,7 @@ import {GridsterUtils} from './gridsterUtils.service';
   templateUrl: './gridster.html',
   styleUrls: ['./gridster.scss'],
   encapsulation: ViewEncapsulation.None,
-  
+  host: {hostID: 'dui-gridster' + Math.random().toString(36).substring(2, 15)}
 })
 export class GridsterComponent implements OnInit, OnChanges, OnDestroy, GridsterComponentInterface {
   @Input() options: GridsterConfig;

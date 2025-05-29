@@ -25,7 +25,7 @@ import { AbstractTrigger } from './abstract.trigger';
     '[attr.aria-label]': 'label',
     '[attr.aria-required]': 'required?required.toString():false',
     '[attr.aria-disabled]': 'disabled?disabled.toString():false',
-     
+     hostID: 'trigger-field' + Math.random().toString(36).substring(2, 15),
   },
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush

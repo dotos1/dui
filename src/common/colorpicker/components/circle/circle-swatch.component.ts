@@ -1,5 +1,6 @@
 import {  ChangeDetectionStrategy,  Component,  EventEmitter,  Input,  OnChanges,  Output,
 } from '@angular/core';
+import { uuid } from '@dotos/dui/util';
 
 @Component({
   selector: 'color-circle-swatch',
@@ -28,7 +29,7 @@ import {  ChangeDetectionStrategy,  Component,  EventEmitter,  Input,  OnChanges
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
   preserveWhitespaces: false,
-  
+   host: { 'hostID': 'circle-swatch-' + uuid() }
 })
 export class CircleSwatchComponent implements OnChanges {
   @Input() color: string;
