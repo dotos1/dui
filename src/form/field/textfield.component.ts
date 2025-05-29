@@ -14,7 +14,9 @@ import { VTypes } from './vtype';
   selector: 'text-field',
   templateUrl: './textfield.component.html',
   changeDetection: ChangeDetectionStrategy.Default,
-  
+  host: {
+    hostID: 'dui-text-field' + Math.random().toString(36).substring(2, 15),
+  }
 })
 export class TextFieldComponent extends MatField implements OnInit, AfterViewInit, OnDestroy {
 

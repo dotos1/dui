@@ -41,7 +41,7 @@ export type MatCalendarView = "clock" | "month" | "year" | "multi-year";
     "role": "dialog",
     "tabindex": "0",
     "(keydown)": "_handleCalendarBodyKeydown($event)",
-    
+    hostID: "mat-datetimepicker-calendar" + Math.random().toString(36).substring(2, 15)
   },
   animations: [slideCalendar],
   encapsulation: ViewEncapsulation.None,

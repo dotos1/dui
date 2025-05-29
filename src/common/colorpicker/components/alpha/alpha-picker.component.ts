@@ -28,6 +28,7 @@ import { ColorWrap, toState } from '@dotos/dui/common/colorpicker/common';
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
   preserveWhitespaces: false,
+  host: { 'hostID': 'alpha-picker-' + Math.random().toString(36).substring(2, 15) }
 })
 export class AlphaPickerComponent extends ColorWrap implements OnChanges {
 

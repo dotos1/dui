@@ -9,7 +9,10 @@ import { TREE_EVENTS } from '../constants/events';
   styles: [],
   providers: [TreeVirtualScroll],
   templateUrl: 'tree-viewport.component.html',
-  
+  host: { 
+    hostID: 'tree-viewport' + Math.random().toString(36).substring(2, 15),
+
+  }
 })
 
 export class TreeViewportComponent implements AfterViewInit, OnInit, OnDestroy {

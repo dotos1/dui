@@ -20,6 +20,9 @@ import { MatField } from '../base/mat.field';
     }
   `,
   ],
+  host: {
+    hostID: 'number-field' + Math.random().toString(36).substring(2, 15),
+  }
   
 })
 export class NumberFieldComponent extends MatField implements AfterViewInit {

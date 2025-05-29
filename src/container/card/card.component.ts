@@ -13,7 +13,7 @@ import { Container } from '../container.main';
   changeDetection: ChangeDetectionStrategy.Default,
   host: {
     style: 'flex:1;',
-    
+    hostID: 'dui-card' + Math.random().toString(36).substring(2, 15),
   }
 })
 export class DuiCardComponent extends Container implements OnChanges{

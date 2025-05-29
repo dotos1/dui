@@ -135,7 +135,7 @@ import { TinyColor } from '@dotos/dui/core/color';
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
   preserveWhitespaces: false,
-  
+    host: { 'hostID': 'color-chrome-fields-' + Math.random().toString(36).substring(2, 15) }
 })
 export class ChromeFieldsComponent implements OnInit {
   @Input() disableAlpha: boolean;

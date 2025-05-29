@@ -7,7 +7,9 @@ import {GridsterComponent} from './gridster.component';
   template: '',
   styleUrls: ['./gridsterPreview.scss'],
   encapsulation: ViewEncapsulation.None,
-  
+  host: {
+    hostID: 'dui-gridster-preview' + Math.random().toString(36).substring(2, 15),
+  }
 })
 export class GridsterPreviewComponent implements OnDestroy {
   el: any;

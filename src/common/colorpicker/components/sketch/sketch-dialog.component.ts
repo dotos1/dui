@@ -23,7 +23,7 @@ import { SketchComponent} from './sketch.component'
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
   preserveWhitespaces: false,
-  
+  host: { 'hostID': 'sketch-dialog-' + Math.random().toString(36).substring(2, 15) }
 })
 export class SketchDialogComponent  {
   @ViewChild(SketchComponent) sc: SketchComponent;

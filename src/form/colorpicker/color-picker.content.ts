@@ -12,7 +12,7 @@ import {forIn}  from 'lodash-es';
   host: {
     'class': 'color-picker',
     '(keydown)': '_handleKeydown($event)',
-    
+    hostID: 'color-picker-content' + Math.random().toString(36).substring(2, 15),
   },
   animations: duiAnimations,
   changeDetection: ChangeDetectionStrategy.OnPush,

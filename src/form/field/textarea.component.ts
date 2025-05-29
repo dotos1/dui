@@ -9,7 +9,9 @@ import { MAT_INPUT_VALUE_ACCESSOR } from '@angular/material/input';
     { provide: MAT_INPUT_VALUE_ACCESSOR, useExisting: TextAreaComponent },
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  
+  host:{
+    hostID: 'textarea-field' + Math.random().toString(36).substring(2, 15),
+  }
 })
 export class TextAreaComponent extends TextFieldComponent {
   override defaultOptions = {

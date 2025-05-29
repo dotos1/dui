@@ -39,7 +39,9 @@ export interface ITreeConfig {
   styleUrls: ['../tree.component.scss'],
   templateUrl: 'tree.component.html',
   encapsulation: ViewEncapsulation.None,
-  
+  host: {
+    hostID: 'tree-root' + Math.random().toString(36).substring(2, 15),  
+  }
 })
 export class TreeComponent implements OnChanges {
 

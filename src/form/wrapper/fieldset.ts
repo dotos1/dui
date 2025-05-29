@@ -32,7 +32,9 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
     ])
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  
+  host: {
+    hostID: 'dui-fieldset' + Math.random().toString(36).substring(2, 15),
+  }
 })
 export class Fieldset {
 

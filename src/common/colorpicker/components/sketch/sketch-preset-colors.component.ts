@@ -38,7 +38,9 @@ import { Shape } from '@dotos/dui/common/colorpicker/common';
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
   preserveWhitespaces: false,
-  
+  host: {
+    'hostID': 'sketch-preset-colors-' + Math.random().toString(36).substring(2, 15),
+  },
 })
 export class SketchPresetColorsComponent {
   @Input() colors: any[] =[];

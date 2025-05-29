@@ -39,7 +39,7 @@ interface MatFieldConfig extends FieldConfig {
         }
   `],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  
+  host: { hostID: 'mat-form-field-wrapper' + Math.random().toString(36).substring(2, 15) }
 })
 export class WrapperFormField extends FieldWrapper<MatFieldConfig> implements OnInit, OnDestroy, AfterViewInit, AfterContentChecked {
   @ViewChild('fieldComponent', { read: ViewContainerRef, static: true }) declare fieldComponent: ViewContainerRef;

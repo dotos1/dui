@@ -23,7 +23,7 @@ import { ColorWrap, toState } from '@dotos/dui/common/colorpicker/common';
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
   preserveWhitespaces: false,
-  
+  host: { 'hostID': 'hue-picker-' + Math.random().toString(36).substring(2, 15) }
 })
 export class HuePickerComponent extends ColorWrap implements OnChanges {
   /** Pixel value for picker width */

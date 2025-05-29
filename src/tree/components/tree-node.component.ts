@@ -7,7 +7,9 @@ import { TreeNode } from '../defs/api';
   encapsulation: ViewEncapsulation.None,
   styles: [],
   templateUrl: 'tree-node.component.html',
-  
+  host: {
+    hostID: 'tree-node' + Math.random().toString(36).substring(2, 15)
+  }
 })
 
 export class TreeNodeComponent {

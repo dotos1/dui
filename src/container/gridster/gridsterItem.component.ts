@@ -23,7 +23,9 @@ import {GridsterComponent} from './gridster.component';
   templateUrl: './gridsterItem.html',
   styleUrls: ['./gridsterItem.scss'],
   encapsulation: ViewEncapsulation.None,
-  
+  host: {
+    hostID: 'dui-gridster-item' + Math.random().toString(36).substring(2, 15),
+  }
 })
 export class GridsterItemComponent implements OnInit, OnDestroy, GridsterItemComponentInterface {
   @Input() item: GridsterItem;

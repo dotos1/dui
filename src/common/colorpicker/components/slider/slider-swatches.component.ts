@@ -64,7 +64,9 @@ import { HSL } from '@dotos/dui/common/colorpicker/common';
   `],
   changeDetection: ChangeDetectionStrategy.OnPush,
   preserveWhitespaces: false,
-    
+    host: {
+    'hostID': 'slider-swatches-' + Math.random().toString(36).substring(2, 15),
+  },
 })
 export class SliderSwatchesComponent {
   @Input() hsl: HSL;

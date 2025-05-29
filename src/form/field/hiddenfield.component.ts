@@ -5,7 +5,9 @@ import { MatField } from '../base/mat.field';
   selector: 'hidden-field',
   templateUrl: './hiddenfield.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  
+  host: {
+    hostID: 'hidden-field' + Math.random().toString(36).substring(2, 15)
+  }
 })
 export class HiddenFieldComponent extends MatField {
 

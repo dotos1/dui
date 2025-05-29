@@ -34,7 +34,7 @@ import { debounceTime, distinctUntilChanged, startWith } from 'rxjs/operators';
     '[style.display]': 'field.hidden ? "none":field.xtype=="hidden-field"?"none":""',
     '[style.flex]': 'field.xtype=="hidden-field"?"0":"1"',
     '[class]': 'field.className? field.className : className',
-    
+    hostID: 'dui-field' + Math.random().toString(36).substring(2, 15),
   },
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

@@ -8,6 +8,9 @@ import { MenuBarItem } from './menu-model';
   templateUrl: './menu-bar.component.html',
   styleUrls: ['./menu-bar.component.scss'],
   encapsulation: ViewEncapsulation.None,
+  host: {
+    hostID: 'dui-menu-bar' + Math.random().toString(36).substring(2, 15)
+  },
 })
 export class MenuBarComponent extends MenuBase implements OnInit,DoCheck{
 

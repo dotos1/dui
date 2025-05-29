@@ -28,6 +28,7 @@ export class SelectOption {
   templateUrl: './select.field.html',
   host: {
     style: 'flex:1;',
+    hostID: 'select-field' + Math.random().toString(36).substring(2, 15),
   },
   changeDetection: ChangeDetectionStrategy.Default,
 })

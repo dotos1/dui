@@ -6,7 +6,9 @@ import { Component, Directive, ViewEncapsulation } from '@angular/core';
   templateUrl: './info-drawer-layout.component.html',
   styleUrls: ['./info-drawer-layout.component.scss'],
   encapsulation: ViewEncapsulation.None,
-  host: { 'class': 'dui-info-drawer-layout', }
+  host: { 'class': 'dui-info-drawer-layout',
+    hostID: 'dui-info-drawer-layout' + Math.random().toString(36).substring(2, 15)
+   }
 
 })
 export class InfoDrawerLayoutComponent { }

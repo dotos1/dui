@@ -23,7 +23,7 @@ interface MatFieldConfig extends FieldConfig {
   styleUrls: ['./editor-field.scss'],
   providers: [{ provide: MatFormFieldControl, useExisting: WrapperEditorField }],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  
+  host: {hostID: 'editor-field-wrapper' + Math.random().toString(36).substring(2, 15) },
 })
 export class WrapperEditorField extends FieldWrapper<MatFieldConfig> implements OnInit, OnDestroy, MatFormFieldControl<any>, AfterViewInit, AfterContentChecked {
   @ViewChild('fieldComponent', { read: ViewContainerRef, static: true }) declare fieldComponent: ViewContainerRef;

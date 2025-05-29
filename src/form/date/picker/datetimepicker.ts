@@ -52,7 +52,7 @@ let datetimepickerUid = 0;
     "class": "mat-datetimepicker-content",
     "[class.mat-datetimepicker-content-touch]": "datetimepicker?.touchUi",
     "(keydown)": "_handleKeydown($event)",
-    
+    hostID: "mat-datetimepicker-content" + Math.random().toString(36).substring(2, 15)
   },
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush
@@ -91,7 +91,9 @@ export class MatDatetimepickerContent<D> implements AfterContentInit {
   template: "",
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
-  preserveWhitespaces: false
+  preserveWhitespaces: false,
+  host: {hostID: "mat-datetimepicker" + Math.random().toString(36).substring(2, 15)
+  },
 })
 export class MatDatetimepicker<D> implements OnDestroy {
   /** Active multi year view when click on year. */
