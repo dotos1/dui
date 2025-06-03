@@ -63,6 +63,9 @@ export class SearchBoxBase {
       transition('1 => 0', animate('200ms ease-out')),
     ]),
   ],
+  host:{
+    hostID: 'search-box'+   Math.random().toString(36).substring(2, 15),
+  }
 })
 export class SearchBoxComponent implements ControlValueAccessor {
   private _searchVisible = false;
