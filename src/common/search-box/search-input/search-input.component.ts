@@ -77,6 +77,9 @@ export const _SearchInputMixinBase =
       transition('show => *', animate('200ms ease-out')),
     ]),
   ],
+  host:{
+    hostID: 'search-input'+   Math.random().toString(36).substring(2, 15),
+  }
 })
 export class SearchInputComponent
   extends _SearchInputMixinBase
