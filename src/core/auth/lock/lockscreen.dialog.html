@@ -1,0 +1,41 @@
+<div id="lock"  fxLayout="column"  (click)="animateLogin()"  >
+    <div *ngIf="screensaverClicked===true"
+    id="lock-form-wrapper" fxLayout="column" fxLayoutAlign="center center">
+        <div id="lock-form"
+            (click)="onClick()"
+            (clickOutside)="onClickedOutside()"
+            [attachOutsideOnClick]="attachOutsideOnClick"
+            [@animate]="{value:'*',params:{duration:'300ms',y:'100px'}}">
+            <div class="lock-form-header" fxLayout="column" fxLayoutAlign="center center"
+                 fxLayout.gt-xs="row" fxLayoutAlign.gt-xs="start center">
+                <div class="avatar-container">
+                    <mat-icon>lock</mat-icon>
+                </div>
+                <div>
+                    <div class="title">  {{'HOME.SessionLocked'| translate }}</div>
+                </div>
+            </div>
+            <form name="lockForm" [formGroup]="lockForm"  (ngSubmit)="onSubmit()"   novalidate>
+                <mat-form-field  [appearance]="themeService.formType|async" >
+                    <mat-label>{{'HOME.Username'| translate }}</mat-label>
+                    <input matInput  formControlName="username">
+                </mat-form-field>
+                <mat-form-field  [appearance]="themeService.formType|async" >
+                    <mat-label>{{'HOME.Password'| translate }}</mat-label>
+                    <input matInput type="password"  formControlName="password">
+                    <mat-error>
+                            {{'HOME.PasswordRequired'| translate }}
+                    </mat-error>
+                </mat-form-field>
+                <button mat-raised-button class="submit-button" color="accent" aria-label="UNLOCK" [disabled]="lockForm.invalid">
+                      {{'HOME.UNLOCK'| translate }}
+                </button>
+            </form>
+            <p class="error" *ngIf="errorDiagnostic">{{errorDiagnostic}}</p>
+            <div class="message">
+                <a class="link" [routerLink]="'/login'">  {{'HOME.AreYouNot'| translate }}  {{userName}}?</a>
+            </div>
+        </div>
+    </div>
+</div>
+
