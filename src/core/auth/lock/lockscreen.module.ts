@@ -12,6 +12,9 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
+import { MatDialogModule } from '@angular/material/dialog';
+import { DialogsModule } from '@dotos/dui/common/dialogs';
+
 const routes = [
   {
     path: '',
@@ -34,6 +37,8 @@ const routes = [
     MatFormFieldModule,
     MatIconModule,
     MatInputModule,
+    MatDialogModule,
+    DialogsModule,
     RouterModule.forChild(routes)
   ],
   providers: [

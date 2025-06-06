@@ -13,7 +13,7 @@ import {  takeUntil } from 'rxjs/operators';
 import { DotosConfigService } from '@dotos/dui/theme';
 import { LockTheme } from './lockscreen.theme';
 import { LocalStorageService } from '@dotos/dui/core/storage';
-import { HttpClient } from '@angular/common/http';
+
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 
 
@@ -31,8 +31,7 @@ export const USER_STATUS_CODES = {
 })
 export class LockscreenDialog implements OnInit,OnDestroy {
   lockForm: FormGroup;
-  public screensaverClicked = false;
-  public bg;
+
   public style;
   public currentTime;
   public currentWeek;
@@ -45,12 +44,9 @@ export class LockscreenDialog implements OnInit,OnDestroy {
   public user='';
 
   from: any;
-
-
   private chksub: any;
   public wallpapers = [];
   public index = 1;
-  weekArray = ['HOME.SUNDAY', 'HOME.MONDAY', 'HOME.TUESDAY', 'HOME.WEDNESDAY', 'HOME.THURSDAY', 'HOME.FRIDAY', 'HOME.SATURDAY'];
 
   private _unsubscribeAll: Subject<void>;
 
@@ -61,13 +57,12 @@ export class LockscreenDialog implements OnInit,OnDestroy {
     private _router: Router,
     private _encrypt: encrypt,
     private _config: ConfigService,
-    private route: ActivatedRoute,
-    private http: HttpClient,
+
     public themeService: ThemeService,
     protected changeDetectionRef: ChangeDetectorRef,
     public localStore: LocalStorageService,
     public dialogRef: MatDialogRef<LockscreenDialog>,
-    @Inject('apiBase') private _apiBase: string,
+
      @Inject(MAT_DIALOG_DATA) private data: any,
     protected translateService: TranslationService) {
     this._unsubscribeAll = new Subject();
@@ -124,17 +119,7 @@ export class LockscreenDialog implements OnInit,OnDestroy {
     }
   }
 
-  public onClick() {
-    this.screensaverClicked = true;
-  }
 
-  public onClickedOutside() {
-    this.screensaverClicked = false;
-  }
-
-  public animateLogin = () => {
-    this.screensaverClicked = true;
-  }
 
   onSubmit() {
     this.submitted = true;
