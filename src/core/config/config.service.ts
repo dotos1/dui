@@ -5,6 +5,7 @@ import { Observable, Subject } from 'rxjs';
 import { map, distinctUntilChanged } from 'rxjs/operators';
 import { DuiBase } from '@dotos/dui/base';
 import { getValue } from '@dotos/dui/base';
+import { LocalStorageService } from '@dotos/dui/core/storage';
 
 export enum AppConfigValues {
   APP_CONFIG_LANGUAGES_KEY = 'languages',
@@ -38,13 +39,12 @@ export class ConfigService {
   public onError: Observable<any>;
 
   constructor(
+    protected localStore: LocalStorageService,
     public loader: ConfigLoader) {
     this.onLoadSubject = new Subject();
     this.onLoad = this.onLoadSubject.asObservable();
     this.onErrorSubject = new Subject();
     this.onError = this.onLoadSubject.asObservable();
-
-
   }
   setLoader(loader: ConfigLoader){
     this.loader=loader;
@@ -56,10 +56,14 @@ export class ConfigService {
       } else {
         this.config = res
       }
+      this.localStore.set("config",this.config);
       this.onLoadSubject.next(this.config);
     }).catch( error => {
       this.onErrorSubject.next(error);
    });;
+  }
+  loadFromStore(){
+    this.config=this.localStore.get("config");
   }
   select(property: string): Observable<any> {
     return this.onLoadSubject

@@ -2,9 +2,8 @@ import { ChangeDetectorRef, Component, Inject, OnDestroy, OnInit, ViewEncapsulat
 import { duiAnimations } from '@dotos/dui/common/animations';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { TranslationService } from '@dotos/dui/translator';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 import { encrypt } from '@dotos/dui/core/crypt';
-import { ConfigService } from '@dotos/dui/core/config';
 import { CookieStorage } from '@dotos/dui/core/cookie';
 import { Subject } from 'rxjs';
 import { AuthService } from '@dotos/dui/core/auth';
@@ -44,6 +43,7 @@ export class LockscreenDialog implements OnInit,OnDestroy {
   public user='';
 
   from: any;
+    system: any;
   private chksub: any;
   public wallpapers = [];
   public index = 1;
@@ -56,17 +56,16 @@ export class LockscreenDialog implements OnInit,OnDestroy {
     private _formBuilder: FormBuilder,
     private _router: Router,
     private _encrypt: encrypt,
-    private _config: ConfigService,
-
     public themeService: ThemeService,
     protected changeDetectionRef: ChangeDetectorRef,
     public localStore: LocalStorageService,
     public dialogRef: MatDialogRef<LockscreenDialog>,
 
-     @Inject(MAT_DIALOG_DATA) private data: any,
+     @Inject(MAT_DIALOG_DATA) public data: any,
     protected translateService: TranslationService) {
     this._unsubscribeAll = new Subject();
     this.from=data.from;
+    this.system=data.system;
     this.lockForm = this._formBuilder.group({
       username: [
         {
@@ -94,12 +93,11 @@ export class LockscreenDialog implements OnInit,OnDestroy {
     let userCookie = CookieStorage.getCookie('user_name');
     if (userCookie && userCookie.value) {
       this.userName =userCookie.value;
-      let system = this._config.getSettings('system');
-      if (system) {
-         let domain = system.domain;
+      if (this. system) {
+         let domain =this. system.domain;
         this.user = this.userName+"@"+domain;
-        this.lt = system.ticket;
-        this.cryptType = system.cryptType;
+        this.lt =this. system.ticket;
+        this.cryptType = this.system.cryptType;
         let userNameField=this.lockForm.controls['username'];
         userNameField.patchValue(this.userName);
       }else{
