@@ -15,13 +15,6 @@ import { MatInputModule } from '@angular/material/input';
 import { MatDialogModule } from '@angular/material/dialog';
 import { DialogsModule } from '@dotos/dui/common/dialogs';
 
-const routes = [
-  {
-    path: '',
-    component: LockscreenDialog
-  }
-];
-
 @NgModule({
   declarations: [
     LockscreenDialog
@@ -39,7 +32,7 @@ const routes = [
     MatInputModule,
     MatDialogModule,
     DialogsModule,
-    RouterModule.forChild(routes)
+    RouterModule
   ],
   providers: [
     encrypt
