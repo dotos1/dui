@@ -1,5 +1,5 @@
 <div orderable (reorder)="onColumnReordered($event)" (targetChanged)="onTargetChanged($event)"
-  [style.width]="columnMode==='flex'?'100%':columnGroupWidths.total+'px'" class="datatable-header-inner">
+  [style.width]="columnMode==='flex'?'100%':columnGroupWidths.total+'px'"  [style.height]="'100%'"  class="datatable-header-inner">
   <div *ngFor="let colGroup of _columnsByPin; trackBy: trackByGroups" [class]="'datatable-row-' + colGroup.type"
     [ngStyle]="_styleByGroup[colGroup.type]">
     <datatable-header-cell *ngFor="let column of colGroup.columns; trackBy: columnTrackingFn" resizeable
