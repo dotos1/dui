@@ -7,12 +7,14 @@ import { CommonServicesModule } from '@dotos/dui/core/services';
 import { ToastrModule } from '@dotos/dui/common/toastr';
 import { TogglePasswordComponent } from './toggle-password.component';
 import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   imports: [
     CommonModule,
     ToastrModule,
     MatButtonModule,
+    MatIconModule,
     CommonServicesModule,
     TranslateModule
   ],
