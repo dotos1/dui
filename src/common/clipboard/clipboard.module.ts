@@ -9,11 +9,16 @@ import { ToastrModule } from '@dotos/dui/common/toastr';
 import { ClipboardDirective } from './clipboard.directive';
 import { ClipboardComponent } from './clipboard.component';
 import { ClipboardService } from './clipboard.service';
+import { CopyButtonComponent } from './copy-button.component';
+import { MatButtonModule } from '@angular/material/button';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 @NgModule({
   imports: [
     CommonModule,
     ToastrModule,
+    MatButtonModule,
+    MatTooltipModule,
     CommonServicesModule,
     TranslateModule
   ],
@@ -21,10 +26,12 @@ import { ClipboardService } from './clipboard.service';
     ClipboardService
   ],
   declarations: [
+    CopyButtonComponent,
     ClipboardDirective,
     ClipboardComponent
   ],
   exports: [
+    CopyButtonComponent,
     ClipboardDirective
   ]
 })

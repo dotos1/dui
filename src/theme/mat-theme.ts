@@ -84,6 +84,7 @@ import { matBadgeTheme } from './theme/mat-badge-theme';
 import { xTermTheme } from './theme/xterm-theme';
 import { monacoEditorTheme } from './theme/monaco-editor-theme';
 import { duiDynamicComponentTheme } from './theme/dynamic.theme';
+import { duiToggleSelectTheme } from './theme/toggle-select-theme';
 
 
 // Create a theme.
@@ -170,6 +171,7 @@ export function materialTheme(theme: Theme): Object {
     ...duiInfoDrawerTheme(theme),
     ...duiDragselectTheme(theme),
     ...duiQueryBuilderTheme(theme),
+    ...duiToggleSelectTheme(theme),
     ...duiEditorTheme(theme)
   };
 }
