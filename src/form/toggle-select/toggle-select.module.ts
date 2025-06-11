@@ -8,12 +8,13 @@ import { CommonServicesModule } from '@dotos/dui/core/services';
 import { ToastrModule } from '@dotos/dui/common/toastr';
 import { MatButtonModule } from '@angular/material/button';
 import { MatTooltipModule } from '@angular/material/tooltip';
-import { ToggleHeaderComponent } from './toggle-header.component';
+import { ToggleHeaderComponent, ToggleOption } from './toggle-header.component';
 import { ToggleSelectComponent } from './toggle-select.component';
 import { MatIconModule } from '@angular/material/icon';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatSelectModule } from '@angular/material/select';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
@@ -26,18 +27,25 @@ import { MatSelectModule } from '@angular/material/select';
     MatSelectModule,
     MatFormFieldModule,
     CommonServicesModule,
-    TranslateModule
+    TranslateModule,
+    ReactiveFormsModule,
+    FormsModule,
   ],
-
   declarations: [
     ToggleHeaderComponent,
+    ToggleOption,
     ToggleSelectComponent
   ],
   exports: [
     ToggleHeaderComponent,
+    ToggleOption,
     ToggleSelectComponent
   ]
 })
+
+
+
+
 export class ToggleSelectModule {
   entryComponents = [ToggleSelectComponent];
   constructor(componentFactoryResolver: ComponentFactoryResolver) {

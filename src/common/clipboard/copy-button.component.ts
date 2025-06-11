@@ -8,7 +8,7 @@ import { TranslateService } from '@dotos/dui/translator';
 import { coerceBoolean } from '@dotos/dui/core/decorators';
 
 @Component({
-  selector: 'tb-copy-button',
+  selector: 'copy-button',
   styleUrls: ['copy-button.component.scss'],
   templateUrl: './copy-button.component.html'
 })
@@ -24,10 +24,6 @@ export class CopyButtonComponent {
   @Input()
   @coerceBoolean()
   disabled = false;
-
-  // @deprecated need to use icon input
-  @Input()
-  mdiIcon: string;
 
   @Input()
   icon: string;
