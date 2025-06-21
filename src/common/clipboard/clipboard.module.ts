@@ -12,6 +12,7 @@ import { ClipboardService } from './clipboard.service';
 import { CopyButtonComponent } from './copy-button.component';
 import { MatButtonModule } from '@angular/material/button';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   imports: [
@@ -19,6 +20,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     ToastrModule,
     MatButtonModule,
     MatTooltipModule,
+    MatIconModule,
     CommonServicesModule,
     TranslateModule
   ],
