@@ -1,11 +1,7 @@
-<mat-form-field class="dui-array-item-field" [floatLabel]="'always'" [color]="'accent'"   [appearance]="themeService.formType|async">
-  <mat-label [attr.data-automation-id]="'card-array-label-' + property.key">
-    {{ property.label | translate }}
-  </mat-label>
-
+<div  class="dui-property-label">{{ property.label | translate }}</div>
   <div class="dui-property-value dui-card-view-array-item-container" (click)="clicked()">
     <ng-container *ngIf="(property.displayValue | async) as items; else elseEmptyValueBlock">
-      <mat-chip-set *ngIf="items.length > 0; else elseEmptyValueBlock"
+      <mat-chip-set #chipSet  *ngIf="items.length > 0; else elseEmptyValueBlock"
         data-automation-id="card-arrayitem-chip-list-container">
         <ng-container *ngIf="displayCount() > 0; else withOutDisplayCount">
           <mat-chip *ngFor="let item of items.slice(0, displayCount())" (click)="clicked()"
@@ -50,4 +46,3 @@
       <mat-icon class="dui-array-item-icon">{{property.icon}}</mat-icon>
     </button>
   </div>
-</mat-form-field>

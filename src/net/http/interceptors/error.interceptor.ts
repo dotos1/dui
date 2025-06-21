@@ -22,14 +22,18 @@ export class ErrorInterceptor implements HttpInterceptor {
     req: HttpRequest<any>,
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
-    return next.handle(req).pipe(
-      retry(1),
-      catchError((error: HttpErrorResponse) => {
-        if (error.status !== 401) {
-          this.toastr.error(error.message);
-        }
-        return throwError(error);
-      })
-    );
-  }
+    if (req.url.indexOf('timeout')!==-1) {
+      return next.handle(req);
+    }else{
+        return next.handle(req).pipe(
+          retry(1),
+          catchError((error: HttpErrorResponse) => {
+            if (error.status !== 401) {
+              this.toastr.error(error.message);
+            }
+            return throwError(error);
+          })
+        );
+      }
+    }
 }
