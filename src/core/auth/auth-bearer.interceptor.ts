@@ -1,25 +1,36 @@
 
-import { throwError as observableThrowError, Observable, Observer } from 'rxjs';
-import { Injectable} from '@angular/core';
 import {
-  HttpHandler, HttpInterceptor, HttpRequest,
-  HttpSentEvent, HttpHeaderResponse, HttpProgressEvent, HttpResponse, HttpUserEvent, HttpHeaders
+  HttpHandler,
+  HttpHeaderResponse,
+  HttpHeaders,
+  HttpInterceptor,
+  HttpProgressEvent,
+  HttpRequest,
+  HttpResponse,
+  HttpSentEvent,
+  HttpUserEvent
 } from '@angular/common/http';
-import { catchError, mergeMap } from 'rxjs/operators';
+import { Injectable } from '@angular/core';
 import { LocalStorageService } from '@dotos/dui/core/storage';
+import { Observable, Observer, throwError as observableThrowError } from 'rxjs';
+import { catchError, mergeMap } from 'rxjs/operators';
 
 
 @Injectable({ providedIn: 'root' })
 export class AuthBearerInterceptor implements HttpInterceptor {
   private excludedUrlsRegex: RegExp[];
 
-  private bearerExcludedUrls: string[] = ['auth/realms','oauth2/token', 'resources/',       "/login/config",
+  private bearerExcludedUrls: string[] = ['auth/realms','oauth2/token', 'resources/',       
+        "/login/config",
         "/login/modulefederation",
         "/wallpapers",
         "/register",
-        "/login",
+        "/oauth", 
         "/utils/file/download",
-        "/checklogin", 'assets/', '.json'];
+        "/checklogin", 
+        'assets/', 
+        '.json'
+      ];
 
   constructor(
     private storageService: LocalStorageService) {
@@ -39,11 +50,9 @@ export class AuthBearerInterceptor implements HttpInterceptor {
     if (!this.getBearerExcludedUrls()) {
       return next.handle(req);
     }
-
-    if (!this.excludedUrlsRegex) {
-      this.loadExcludedUrlsRegex();
-    }
-    const shallPass: boolean = !!this.excludedUrlsRegex.find(regex => regex.test(urlRequest));
+    const excludedUrls: string[] = this.getBearerExcludedUrls();
+    const excludedUrlsRegex = excludedUrls.map(urlPattern => new RegExp(urlPattern, 'gi')) || [];
+    const shallPass: boolean = !!excludedUrlsRegex.find(regex => regex.test(urlRequest));
     if (shallPass) {
       return next.handle(req)
         .pipe(
