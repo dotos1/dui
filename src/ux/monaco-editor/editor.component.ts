@@ -1,6 +1,7 @@
 import { Component, forwardRef, Inject, Input, NgZone, Renderer2, ViewEncapsulation } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { fromEvent, Subject, takeUntil } from 'rxjs';
+import { fromEvent, Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 import { initVimMode } from 'monaco-vim';
 import * as monaco from 'monaco-editor';
 import { BaseEditor } from './base-editor';
