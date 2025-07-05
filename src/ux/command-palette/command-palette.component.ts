@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
-import { Subject, takeUntil } from 'rxjs';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 import Fuse from 'fuse.js';
 import { CommandItemGroup } from './model/command-item-group';
 import { CommandItem } from './model/command-item';

@@ -8,8 +8,11 @@ import {
   OnDestroy,
 } from '@angular/core';
 import { DotosConfig, DotosConfigService, duiDialogTheme, ThemeService } from '@dotos/dui/theme';
-import { Subject, takeUntil } from 'rxjs';
+import { Subject } from 'rxjs';
+
+import {  takeUntil } from 'rxjs/operators';
 @Directive({ selector: '[duiDialogTitle]' })
+
 export class duiDialogTitleDirective {}
 
 @Directive({ selector: '[duiDialogContent]' })

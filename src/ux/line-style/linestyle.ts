@@ -18,7 +18,8 @@ import { MatField } from '@dotos/dui/form';
 import { DotosConfigService, ThemeService, matColor } from '@dotos/dui/theme';
 import { TranslateService } from '@dotos/dui/translator';
 import {isString}  from 'lodash-es';
-import { Subject, takeUntil } from 'rxjs';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 
 export const PRE_DEFINED_THEMES = [
   { value: '0,0,0' },

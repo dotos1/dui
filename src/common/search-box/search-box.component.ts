@@ -21,7 +21,8 @@ import {
 } from '@angular/animations';
 
 import { SearchInputComponent } from './search-input/search-input.component';
-import { Subject, noop, takeUntil } from 'rxjs';
+import { Subject, noop} from 'rxjs';
+import {  takeUntil } from 'rxjs/operators';
 import { Dui } from '@dotos/dui/core';
 import { ActivatedRoute } from '@angular/router';
 import { dotosSearchBoxTheme } from './search-box.theme';

@@ -10,7 +10,8 @@ import {
   ViewChild,
   ViewEncapsulation
 } from '@angular/core';
-import { debounceTime, Subject, take, takeUntil, tap, timer } from 'rxjs';
+import { debounceTime, Subject , timer } from 'rxjs';
+import { takeUntil, take, tap} from 'rxjs/operators';
 import { FormControl } from '@angular/forms';
 
 @Component({

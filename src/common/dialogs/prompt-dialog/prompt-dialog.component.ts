@@ -8,7 +8,8 @@ import {
 } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
 import { LEFT_ARROW, RIGHT_ARROW } from '@angular/cdk/keycodes';
-import { fromEvent, Subject, takeUntil } from 'rxjs';
+import { fromEvent, Subject } from 'rxjs';
+import {  takeUntil } from 'rxjs/operators';
 import { MatInput } from '@angular/material/input';
 import { FormControl } from '@angular/forms';
 import { ThemeService } from '@dotos/dui/theme';
