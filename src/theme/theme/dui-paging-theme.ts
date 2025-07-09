@@ -9,7 +9,7 @@ export function duiPagingTheme(theme: Theme): Object {
   const type: string = config['type'];
   let px10: string = type === 'loose' ? '10px' : type === 'normal' ? '9px' : '8px';
   let px44: string = type === 'loose' ? '44px' : type === 'normal' ? '39px' : '33px';
-  let px48: string = type === 'loose' ? '48px !important' : type === 'normal' ? '42px !important' : '35px  !important';
+  let px48: string = type === 'loose' ? '48px !important' : type === 'normal' ? '42px !important' : '42px  !important';
 
   return {
     'dui-paging-bar': {

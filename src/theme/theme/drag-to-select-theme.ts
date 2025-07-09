@@ -20,27 +20,15 @@ export function duiDragselectTheme(theme: Theme): Object {
     ".dts-select-box": {
       "background": rgba(selectBoxColor, 0.3),
       "border": selectBoxBorderSize + " solid " + selectBoxColor,
-      "contain": "layout",
-      "transform": "translateZ(0)",
-      "box-sizing": "border-box",
       "color": selectBoxColor,
-      "position": "absolute",
-      "left": 0,
-      "top": 0,
-      "width": 0,
-      "height": 0,
-      "pointer-events": "none",
-      "opacity": 0,
-      "z-index": 1
     },
-    ".dts-select-box &.dts-removing": {
-      background: rgba(selectBoxRemovingColor, 0.3),
-      border: selectBoxBorderSize + " solid " + selectBoxRemovingColor
+    ".dts-select-box .dts-removing": {
+      "background": rgba(selectBoxRemovingColor, 0.3),
+      "border": selectBoxBorderSize + " solid " + selectBoxRemovingColor
     },
-
     ".dts-select-container:not(.dts-custom) .dts-select-item.selected": {
       "border": selectedItemBorderSize + " solid " + selectedItemBorderColor,
-      ...matThemeElevation(8, theme, 1)
+      ...matThemeElevation(4, theme, 1)
     },
     ".dts-select-container:not(.dts-custom) .dts-select-item.dts-range-start": {
       "border": "1px solid " + rangeStartBorderColor
