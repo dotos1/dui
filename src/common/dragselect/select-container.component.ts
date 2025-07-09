@@ -100,6 +100,8 @@ export class SelectContainerComponent implements AfterViewInit, OnDestroy, After
   @Input() selectOnDrag = true;
   @Input() disabled = false;
   @Input() disableDrag = false;
+  @Input() selectOnClick = true;
+  @Input() dragOverItems = true;
   @Input() disableRangeSelection = false;
   @Input() selectMode = false;
   @Input() selectWithShortcut = false;
@@ -107,7 +109,8 @@ export class SelectContainerComponent implements AfterViewInit, OnDestroy, After
   @Input()
   @HostBinding('class.dts-custom')
   custom = false;
-
+  @HostBinding('class.dts-select-container')
+  readonly hostClass = true;
   @Output() selectedItemsChange = new EventEmitter<any>();
   @Output() select = new EventEmitter<any>();
   @Output() itemSelected = new EventEmitter<any>();
@@ -160,6 +163,7 @@ export class SelectContainerComponent implements AfterViewInit, OnDestroy, After
       const mousedown$ = fromEvent<MouseEvent>(this.host, 'mousedown').pipe(
         filter(event => event.button === 0), // only emit left mouse
         filter(() => !this.disabled),
+        filter((event) => this.selectOnClick || event.target === this.host),
         tap(event => this._onMouseDown(event)),
         share()
       );
@@ -168,6 +172,7 @@ export class SelectContainerComponent implements AfterViewInit, OnDestroy, After
         filter(event => !this.shortcuts.disableSelection(event)),
         filter(() => !this.selectMode),
         filter(() => !this.disableDrag),
+         filter((event) => this.dragOverItems || event.target === this.host),
         switchMap(() => mousemove$.pipe(takeUntil(mouseup$))),
         share()
       );
@@ -328,7 +333,8 @@ export class SelectContainerComponent implements AfterViewInit, OnDestroy, After
     this.updateItems$
       .pipe(
         withLatestFrom(this._selectedItems$),
-        takeUntil(this.destroy$)
+        takeUntil(this.destroy$),
+        filter(([update]) => !update.item.dtsDisabled)
       )
       .subscribe(([update, selectedItems]: [UpdateAction, any[]]) => {
         const item = update.item;
@@ -356,7 +362,8 @@ export class SelectContainerComponent implements AfterViewInit, OnDestroy, After
       .subscribe(([items, selectedItems]: [QueryList<SelectItemDirective>, any[]]) => {
         const newList = items.toArray();
         this._selectableItems = newList;
-        const removedItems = selectedItems.filter(item => !newList.includes(item.value));
+          const newValues = newList.map((item) => item.value);
+        const removedItems = selectedItems.filter(item => !newValues.includes(item));
 
         if (removedItems.length) {
           removedItems.forEach(item => this._removeItem(item, selectedItems));
@@ -623,7 +630,7 @@ export class SelectContainerComponent implements AfterViewInit, OnDestroy, After
       success = true;
       selectedItems.splice(index, 1);
       this._selectedItems$.next(selectedItems);
-      this.itemDeselected.emit(item.value);
+      this.itemDeselected.emit(value);
     }
 
     return success;
