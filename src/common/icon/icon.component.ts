@@ -53,6 +53,12 @@ export class IconComponent {
     this._changeDetectorRef.detectChanges();
   }
   get iconStyle(): any {
+    if(this.extraFont){
+      if(this._style==undefined){
+         this._style={};
+      }
+     this._style['font-family']=this.extraFont;
+    }
     return this._style;
   }
   get fontSet(): any {
@@ -64,6 +70,8 @@ export class IconComponent {
   get value(): string {
     return this._value;
   }
+
+  public extraFont;
 
   @Input()
   set value(value: string) {
@@ -85,7 +93,12 @@ export class IconComponent {
       this.iconType = "font";
       let vals = value.split(":");
       this._value = vals[1];
-    }  else if (value) {
+    } else if (value && value.startsWith("EXTRA")) {
+      this.iconType = "EXTRA";
+      let vals = value.split(":");
+      this.extraFont=vals[1];
+      this._value = String.fromCharCode(parseInt(vals[2],10)) ;
+    } else if (value) {
       this.iconType = "FONT";
       this._value = value;
     }

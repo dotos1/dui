@@ -580,7 +580,11 @@ export class SelectContainerComponent implements AfterViewInit, OnDestroy, After
       (!inSelection && !item.selected && this.shortcuts.removeFromSelection(event) && this._tmpItems.has(item));
 
     if (shoudlAdd) {
-      item.selected ? item._deselect() : item._select();
+      if (item.selected) {
+        item._deselect();
+      } else {
+        item._select();
+      }
       const action = this.shortcuts.removeFromSelection(event)
         ? Action.Delete
         : this.shortcuts.addToSelection(event)
@@ -589,7 +593,11 @@ export class SelectContainerComponent implements AfterViewInit, OnDestroy, After
 
       this._tmpItems.set(item, action);
     } else if (shouldRemove) {
-      this.shortcuts.removeFromSelection(event) ? item._select() : item._deselect();
+      if (this.shortcuts.removeFromSelection(event)) {
+        item._select();
+      } else {
+        item._deselect();
+      }
       this._tmpItems.delete(item);
     }
   }
