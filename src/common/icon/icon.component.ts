@@ -71,9 +71,6 @@ export class IconComponent {
   @Input()
   set value(value: string) {
 
-
-    console.log(value);
-
     if (value && value.startsWith("SVG")) {
       this.iconType = "SVG";
       let vals = value.split(":");

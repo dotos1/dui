@@ -8,7 +8,8 @@ import { Observable, Subject, of } from 'rxjs';
 import { debounceTime, delay, filter, map, takeUntil, takeWhile, tap } from 'rxjs/operators';
 import { MatField } from '../base/mat.field';
 import { OptionsService } from './options.service';
-import { VTypes } from './vtype';
+import { ENTER } from '@angular/cdk/keycodes';
+
 
 @Component({
   selector: 'text-field',
@@ -23,11 +24,11 @@ export class TextFieldComponent extends MatField implements OnInit, AfterViewIni
   @ViewChild('autoCompleteInput', { read: MatAutocompleteTrigger })
   autocompleteTrigger: MatAutocompleteTrigger;
 
-  protected maskRe;
+  // protected maskRe;
 
   public disableKeyFilter = false;
 
-  vtype: string = undefined;
+  // vtype: string = undefined;
 
   regexText: string;
 
@@ -181,22 +182,5 @@ export class TextFieldComponent extends MatField implements OnInit, AfterViewIni
     }
   }
 
-  public onKeyPress(e) {
-    if (this.vtype && this.disableKeyFilter !== true && (this.maskRe = VTypes[this.vtype + 'Mask'])) {
-      if (e.ctrlKey) {
-        return;
-      }
-      const k = e.getKey();
-      if ((e.isNavKeyPress() || k === e.BACKSPACE || (k === e.DELETE && e.button === -1))) {
-        return;
-      }
-      const cc = String.fromCharCode(e.getCharCode());
-      if (e.isSpecialKey() && !cc) {
-        return;
-      }
-      if (!this.maskRe.test(cc)) {
-        e.stopEvent();
-      }
-    }
-  }
+
 }

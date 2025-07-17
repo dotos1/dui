@@ -1,4 +1,4 @@
 <input matInput flex [id]="id" [type]="field.type || 'text'" [errorStateMatcher]="errorStateMatcher"
   [formControl]="formControl" [formAttributes]="field" [placeholder]="field.placeholder|translate"
-  [value]="field.inputValue ?field.inputValue:''"  (keypress)="onKeyPress($event)"
+  [value]="field.inputValue ?field.inputValue:''" 
   matTooltip={{toolTip|translate}} matTooltipPosition='below' readonly />

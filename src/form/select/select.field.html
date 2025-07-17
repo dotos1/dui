@@ -7,7 +7,7 @@
 </ng-template>
 
 <mat-select [id]="id" [formControl]="formControl" [formAttributes]="field"  [placeholder]="field.placeholder |translate"
-  [tabindex]="field.tabindex || 0" [compareWith]="field.compareWith || compareWith" [multiple]="field.multiple"
+  [tabindex]="field.tabindex || 0"  [compareWith]="field.compareWith || compareWith" [multiple]="field.multiple"
   (selectionChange)="change($event)" [errorStateMatcher]="errorStateMatcher" [aria-labelledby]="_getAriaLabelledby()"
   [disableOptionCentering]="field.disableOptionCentering" (click)="openChanged($event)">
 

@@ -132,8 +132,6 @@ export class IconPickerField extends AbstractTrigger implements OnInit {
       let fullIcon = value;
       let _icon;
 
-      console.log(fullIcon);
-      
       if (fullIcon) {
         if (fullIcon.startsWith("SVG")) {
           let vals = fullIcon.split(":");
