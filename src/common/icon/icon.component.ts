@@ -10,6 +10,7 @@ import {
 import { ThemePalette } from '@angular/material/core';
 import { MatIconRegistry } from '@angular/material/icon';
 import { DomSanitizer } from '@angular/platform-browser';
+import { FontLoaderService } from './font-loader.service';
 
 
 @Component({
@@ -53,12 +54,6 @@ export class IconComponent {
     this._changeDetectorRef.detectChanges();
   }
   get iconStyle(): any {
-    if(this.extraFont){
-      if(this._style==undefined){
-         this._style={};
-      }
-     this._style['font-family']=this.extraFont;
-    }
     return this._style;
   }
   get fontSet(): any {
@@ -71,10 +66,14 @@ export class IconComponent {
     return this._value;
   }
 
-  public extraFont;
+  public fontStyle;
 
   @Input()
   set value(value: string) {
+
+
+    console.log(value);
+
     if (value && value.startsWith("SVG")) {
       this.iconType = "SVG";
       let vals = value.split(":");
@@ -96,8 +95,11 @@ export class IconComponent {
     } else if (value && value.startsWith("EXTRA")) {
       this.iconType = "EXTRA";
       let vals = value.split(":");
-      this.extraFont=vals[1];
-      this._value = String.fromCharCode(parseInt(vals[2],10)) ;
+       this.fontLoaderService.loadFonts(vals[1],vals[3],700).then(()=>{
+          this._value =String.fromCharCode(parseInt(vals[2],16));
+          this.fontStyle={'font-family':vals[1]};
+          this._changeDetectorRef.detectChanges();
+      });
     } else if (value) {
       this.iconType = "FONT";
       this._value = value;
@@ -106,6 +108,7 @@ export class IconComponent {
   constructor(
     public _changeDetectorRef: ChangeDetectorRef,
     private matIconRegistry: MatIconRegistry,
+    protected fontLoaderService:FontLoaderService,
     private domSanitizer: DomSanitizer) {
   }
 }

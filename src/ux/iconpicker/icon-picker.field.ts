@@ -4,7 +4,8 @@ import { coerceBooleanProperty } from '@angular/cdk/coercion';
 import { Overlay } from '@angular/cdk/overlay';
 import { ComponentPortal } from '@angular/cdk/portal';
 import { DOCUMENT } from '@angular/common';
-import { ChangeDetectorRef, Component, ElementRef, Inject, NgZone, OnInit, Optional, ViewChild, ViewContainerRef, ViewEncapsulation, forwardRef } from '@angular/core';
+import { ChangeDetectorRef, Component, ElementRef, Inject, NgZone, OnInit, Optional, ViewChild,
+   ViewContainerRef, ViewEncapsulation, forwardRef } from '@angular/core';
 import { NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 
@@ -15,7 +16,7 @@ import { isObject } from 'lodash-es';
 import { AbstractTrigger } from '@dotos/dui/form';
 import { TranslateService } from '@dotos/dui/translator';
 
-import { FontLoaderService } from './font-loader.service';
+import { FontLoaderService } from '@dotos/dui/common/icon';
 import { IconPickerComponent } from './icon-picker.component';
 
 export const DATEINPUT_CONTROL_VALUE_ACCESSOR: any = {
@@ -89,7 +90,6 @@ export class IconPickerField extends AbstractTrigger implements OnInit {
       this._icon = this.coerceStringProperty(val);
       this._selected = this._icon;
       this.field.inputValue=  this._icon;
-
       this.formControl.setValue(this._icon);
     }
   }
@@ -131,21 +131,15 @@ export class IconPickerField extends AbstractTrigger implements OnInit {
     this.formControl.registerOnChange((value)=>{
       let fullIcon = value;
       let _icon;
+
+      console.log(fullIcon);
+      
       if (fullIcon) {
         if (fullIcon.startsWith("SVG")) {
           let vals = fullIcon.split(":");
           _icon = vals[1];
           this._type = vals[0];
           this._icon=fullIcon;
-        } else if (fullIcon.startsWith("EXTRA")) {
-            let vals = fullIcon.split(":");
-            this.fontLoaderService.loadFonts(vals[1],vals[3],700).then(()=>{
-              this._type = vals[0];
-              _icon =String.fromCharCode(parseInt(vals[2],16));
-            this.fontStyle={'font-family':vals[1]};
-            this._icon=_icon;
-            this._changeDetectorRef.detectChanges();
-          });
         } else if (fullIcon.startsWith("FONT")) {
           let vals = fullIcon.split(":");
           this._type = vals[0];
