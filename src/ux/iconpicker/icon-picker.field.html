@@ -5,7 +5,7 @@
 <ng-template #matPrefix>
   <div *ngIf="isColor(value)" class="metatile" [ngStyle]="{'background-color':value}"
     style='width: 30px; height: 30px;border-radius:4px'></div>
-  <dui-icon *ngIf="!isColor(value)" [value]="value" [disabled]="disabled"
+  <dui-icon *ngIf="!isColor(value)"  [value]="value" [disabled]="disabled"
     style="padding-left:8px;padding-bottom:0px"></dui-icon>
 </ng-template>
 <ng-template #matSuffix>
@@ -13,7 +13,6 @@
     <div class="icon-picker-select-arrow-wrapper" (click)="open()">
       <div class="icon-picker-select-arrow"></div>
     </div>
-
     <button *ngIf="(field.required===undefined|| field.required===false)&&value" mat-icon-button type="button"
       (click)="clear()">
       <mat-icon (click)="clear()">close</mat-icon>

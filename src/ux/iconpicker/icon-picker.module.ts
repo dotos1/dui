@@ -17,12 +17,11 @@ import { FormModule } from '@dotos/dui/form';
 import { Dui, StyleModule } from '@dotos/dui/core';
 
 import { IconPickerField } from './icon-picker.field';
-import { IconPickerService } from './icon-picker.service';
+
 import { IconPickerComponent } from './icon-picker.component';
 import { SearchIconPipe } from './search-icon.pipe';
 import { TextDirective } from './text.directive';
 import { TranslateModule, TranslationService } from '@dotos/dui/translator';
-import { FontLoaderService } from './font-loader.service';
 import { IconModule } from '@dotos/dui/common/icon';
 import { MatButtonModule } from '@angular/material/button';
 
@@ -57,10 +56,6 @@ import { MatButtonModule } from '@angular/material/button';
     TextDirective,
     IconPickerComponent,
     SearchIconPipe
-  ],
-  providers: [
-    FontLoaderService,
-    IconPickerService
   ]
 })
 export class IconPickerModule {

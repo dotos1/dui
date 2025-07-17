@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { Icon } from './icon';
+import { Icon } from '@dotos/dui/common/icon';
 
 @Pipe({
   name: 'searchIcon'

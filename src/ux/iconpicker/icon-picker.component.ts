@@ -8,9 +8,9 @@ import { Subject } from 'rxjs';
 
 import { TranslateService } from '@dotos/dui/translator';
 import { TriggerPopup } from '@dotos/dui/common/trigger';
-import { FontLoaderService } from './font-loader.service';
-import { IconPickerService } from './icon-picker.service';
-import { Icon, SVGIcon, IconType } from './icon';
+import { FontLoaderService } from '@dotos/dui/common/icon';
+import { IconPickerService } from '@dotos/dui/common/icon';
+import { Icon, SVGIcon, IconType } from '@dotos/dui/common/icon';
 import { ThemeService } from '@dotos/dui/theme';
 @Component({
   selector: 'icon-picker',
