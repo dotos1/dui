@@ -207,7 +207,6 @@ export class TreeComponent implements OnChanges {
       NNode = NNode.findNextNode();
     }
     NNode.setIsActive(true);
-
     this.config.click(NNode);
   }
 
