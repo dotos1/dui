@@ -131,7 +131,6 @@ export class IconPickerField extends AbstractTrigger implements OnInit {
     this.formControl.registerOnChange((value)=>{
       let fullIcon = value;
       let _icon;
-
       if (fullIcon) {
         if (fullIcon.startsWith("SVG")) {
           let vals = fullIcon.split(":");
@@ -165,16 +164,13 @@ export class IconPickerField extends AbstractTrigger implements OnInit {
     return d;
   }
 
-
   override _selectAndClose(val: any): void {
-
-    const oldValue = this._selected;
+    console.log('select and close', val);
     if(typeof(val) =='object' ){
       this.value = val.value;
     }else{
       this.value = val;
     }
-
     if ( this.value != this._selected) {
       this._emitChangeEvent();
     }
