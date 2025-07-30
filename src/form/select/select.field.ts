@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ChangeDetectionStrategy, ChangeDetectorRef, OnDestroy } from '@angular/core';
+import { Component, OnInit, ViewChild, ChangeDetectionStrategy, ChangeDetectorRef, OnDestroy, Input } from '@angular/core';
 import { MatSelect, MatSelectChange } from '@angular/material/select';
 import { FormControl } from '@angular/forms';
 import {  of, Subject } from 'rxjs';
@@ -37,6 +37,8 @@ export class FieldSelect extends MatField implements OnInit,OnDestroy {
   @ViewChild(MatSelect, { static: true }) matSelect!: MatSelect;
   @ViewChild(MatSelectSearchComponent, { static: true }) matSearch: MatSelectSearchComponent;
 
+
+    
   override defaultOptions = {
     options: []
   };
