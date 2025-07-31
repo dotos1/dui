@@ -124,7 +124,7 @@ export class LockscreenDialog implements OnInit,OnDestroy {
     this.errorDiagnostic = null;
     let usrPwd = this._encrypt.md5(this.lockForm.value.password);
     this.authService.onLogin.subscribe((data: any) => {
-      if (this.authService.isLoggedIn()) {
+      if (this.authService.isLoggedIn()||data.success) {
         this.dialogRef.close();
       } else {
         this.submitted = false;
