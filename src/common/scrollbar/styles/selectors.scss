@@ -1,0 +1,101 @@
+// TODO: Check if this attribute is needed
+@mixin init {
+  &[init="true"] {
+    @content;
+  }
+}
+
+@mixin Viewport {
+  &.ng-scroll-viewport,
+  &.ng-scrollbar-external-viewport ::ng-deep .ng-scroll-viewport {
+    @content;
+  }
+}
+
+@mixin ExternalViewport {
+  &.ng-scrollbar-external-viewport ::ng-deep .ng-scroll-viewport {
+    @content;
+  }
+}
+
+@mixin Content {
+  @include Viewport {
+    >.ng-scroll-content {
+      @content;
+    }
+  }
+}
+
+@mixin Spacer {
+  @include Viewport {
+    >.ng-scroll-spacer {
+      @content;
+    }
+  }
+}
+
+@mixin BothUsed {
+  &[verticalUsed="true"][horizontalUsed="true"] {
+    @content;
+  }
+}
+
+@mixin VerticalUsed {
+  &[verticalUsed="true"] {
+    @content;
+  }
+}
+
+@mixin HorizontalUsed {
+  &[horizontalUsed="true"] {
+    @content;
+  }
+}
+
+@mixin LTR {
+  &[dir="ltr"] {
+    @content;
+  }
+}
+
+@mixin RTL {
+  &[dir="rtl"] {
+    @content;
+  }
+}
+
+@mixin VerticalInverted {
+  &[position="invertY"], &[position="invertAll"] {
+    @content;
+  }
+}
+
+@mixin HorizontalInverted {
+  &[position="invertX"], &[position="invertAll"] {
+    @content;
+  }
+}
+
+@mixin thumbDragging {
+  &[dragging="x"], &[dragging="y"] {
+    @content;
+  }
+}
+
+@mixin thumbYDragging {
+  &[dragging="y"] {
+    @content;
+  }
+}
+
+@mixin thumbXDragging {
+  &[dragging="x"] {
+    @content;
+  }
+}
+
+@mixin isMobile {
+  &[mobile="true"] {
+    @content;
+  }
+}
