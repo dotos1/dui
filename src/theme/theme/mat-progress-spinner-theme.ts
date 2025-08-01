@@ -12,13 +12,13 @@ function base(theme: Theme): Object {
   
 function color(theme: Theme): Object {
     return{
-            ...keys.declare_custom_properties(mdc_progress.get_color_tokens(theme),mdc_progress.$custom_property_prefix),
-           ".mat-accent": {
+            ...keys.declare_custom_properties(mdc_progress.get_color_tokens(theme,"primary"),mdc_progress.$custom_property_prefix),
+           "&.mat-accent": {
                 ...keys.declare_custom_properties({
                     "active-indicator-color": inspection.get_theme_color(theme, "accent")
                 },mdc_progress.$custom_property_prefix),
             },
-            ".mat-warn": {
+            "&.mat-warn": {
                 ...keys.declare_custom_properties({
                     "active-indicator-color": inspection.get_theme_color(theme, "warn")
                 },mdc_progress.$custom_property_prefix),
