@@ -85,6 +85,7 @@ import { xTermTheme } from './theme/xterm-theme';
 import { monacoEditorTheme } from './theme/monaco-editor-theme';
 import { duiDynamicComponentTheme } from './theme/dynamic.theme';
 import { duiToggleSelectTheme } from './theme/toggle-select-theme';
+import { duiScrollbarTheme } from './theme/dui-scrollbar-theme';
 
 
 // Create a theme.
@@ -137,6 +138,7 @@ export function materialTheme(theme: Theme): Object {
     ...duiWindowsTheme(theme),
     ...duiTreeTheme(theme),
     ...duiPopupTheme(theme),
+    ...duiScrollbarTheme(theme),
     ...duiPagingTheme(theme),
     ...xTermTheme(theme),
     ...duiFileFieldTheme(theme),
