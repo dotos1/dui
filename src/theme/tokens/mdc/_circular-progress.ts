@@ -9,9 +9,9 @@ export function get_unthemable_tokens() {
   };
 }
 
-export function get_color_tokens($theme) {
+export function get_color_tokens($theme, $palette_name= 'primary') {
   return {
-    'active-indicator-color': inspection.get_theme_color($theme, 'primary')
+    'active-indicator-color': inspection.get_theme_color($theme, $palette_name)
   };
 }
 
