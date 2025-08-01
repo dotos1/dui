@@ -19,10 +19,10 @@
   // CSS variables used to customized the look of the scrollbar component
 
   // Scrollbar track border radius
-  --INTERNAL-scrollbar-border-radius: var(--scrollbar-border-radius, 0px);
+  --INTERNAL-scrollbar-border-radius: var(--scrollbar-border-radius, 8px);
 
   // Scrollbar track thickness
-  --INTERNAL-scrollbar-thickness: var(--scrollbar-thickness, 5);
+  --INTERNAL-scrollbar-thickness: var(--scrollbar-thickness, 14);
 
   // Space between scrollbar track and its surrounding
   --INTERNAL-scrollbar-offset: var(--scrollbar-offset, 0);
@@ -30,14 +30,14 @@
   // Scrollbar track wrapper transition
   --INTERNAL-scrollbar-track-wrapper-transition: var(--scrollbar-track-wrapper-transition, width 60ms linear, height 60ms linear);
 
-  // Scrollbar track color
+
   --INTERNAL-scrollbar-track-color: var(--scrollbar-track-color, transparent);
 
   // Scrollbar thumb color
-  --INTERNAL-scrollbar-thumb-color: var(--scrollbar-thumb-color, rgb(0 0 0 / 20%));
+  // --INTERNAL-scrollbar-thumb-color: var(--scrollbar-thumb-color, rgb(0 0 0 / 20%));
 
-  // Scrollbar thumb color when hovered
-  --INTERNAL-scrollbar-thumb-hover-color: var(--scrollbar-thumb-hover-color, var(--INTERNAL-scrollbar-thumb-color));
+  // // Scrollbar thumb color when hovered
+  // --INTERNAL-scrollbar-thumb-hover-color: var(--scrollbar-thumb-hover-color, var(--INTERNAL-scrollbar-thumb-color));
 
   // Scrollbar thickness when hovered
   --INTERNAL-scrollbar-hover-thickness: var(--scrollbar-hover-thickness, var(--INTERNAL-scrollbar-thickness));
