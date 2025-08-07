@@ -27,6 +27,7 @@ import { FormAction, Load, Submit } from '../action/index';
   templateUrl: './form.component.html',
   providers: [FormBuilder],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  styleUrls: ['./form.component.scss'],
   host: {hostID: 'dui-form' + Math.random().toString(36).substring(2, 15)},
 })
 export class FormComponent implements DoCheck, OnChanges, OnDestroy {
