@@ -54,7 +54,8 @@ export function density(theme: Theme): Object {
       width: "var(--mdc-icon-button-state-layer-size)",
       height: "var(--mdc-icon-button-state-layer-size)",
       padding: ($calculated_size - $icon_size)/ 2 +"px"
-    }
+    },
+
   }
 }
 function typography(theme: TypographyConfig): Object {
@@ -69,6 +70,9 @@ export function matIconButtonTheme(theme: Theme): Object {
       ...color(theme),
       ...density(theme),
       ...typography(theme.typography)
+    },
+    ".mat-mdc-icon-button.mat-mdc-button-disabled .mat-icon": {
+      "color": "var(--mdc-icon-button-disabled-icon-color) !important"
     }
   };
 }

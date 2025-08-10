@@ -13,7 +13,7 @@ export function get_color_tokens($theme) {
   let $is_dark= inspection.get_theme_type($theme) == 'dark';
   return {
     'icon-color': 'inherit',
-    'disabled-icon-color': ($is_dark? "rgba('#fff', 0.5)":"rgba('#000', 0.38)"),
+    'disabled-icon-color': ($is_dark? "rgba(255,255,255, 0.38)":"rgba(0,0,0, 0.38)") +" !important",
   };
 }
 export function private_get_color_palette_color_tokens($theme, $palette_name) {
