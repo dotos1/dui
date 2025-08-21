@@ -4,7 +4,7 @@
     [formAttributes]="field" [tabindex]="field.tabindex || 0"
     [placeholder]="field.placeholder|translate" matTooltip={{toolTip|translate}}  matTooltipPosition='below'
     [matAutocomplete]="auto" [value]="field.inputValue ?field.inputValue:''"   
-    autocomplete="'on'" (click)="openChanged($event)"/>
+    (click)="openChanged($event)"/>
   <mat-autocomplete  #auto="matAutocomplete" > 
     <mat-option *ngFor="let option of filteredOptions | async" [value]="getValue(option)">
       {{getLabel(option)}}

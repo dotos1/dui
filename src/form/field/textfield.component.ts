@@ -3,7 +3,7 @@ import { MatAutocompleteTrigger } from '@angular/material/autocomplete';
 import { isObject } from '@dotos/dui/base';
 import { Dui } from '@dotos/dui/core';
 import { TranslateService } from '@dotos/dui/translator';
-import { isObjectLike, isEmpty } from 'lodash-es';
+import { isEmpty, isObjectLike } from 'lodash-es';
 import { Observable, Subject, of } from 'rxjs';
 import { debounceTime, delay, filter, map, takeUntil, takeWhile, tap } from 'rxjs/operators';
 import { MatField } from '../base/mat.field';
@@ -139,7 +139,7 @@ export class TextFieldComponent extends MatField implements OnInit, AfterViewIni
     if (this.field.remote) {
 
     } else {
-      this.field.formControl.reset();
+      // this.field.formControl.reset();
       this.filteredOptions = of(this.field.options);
     }
   }
