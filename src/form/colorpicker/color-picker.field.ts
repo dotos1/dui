@@ -4,16 +4,16 @@ import { coerceBooleanProperty } from '@angular/cdk/coercion';
 import { Overlay } from '@angular/cdk/overlay';
 import { ComponentPortal } from '@angular/cdk/portal';
 import {
-    ChangeDetectionStrategy,
-    Component,
-    ElementRef,
-    Inject,
-    Input,
-    NgZone,
-    Optional, ViewChild,
-    ViewContainerRef,
-    ViewEncapsulation,
-    forwardRef
+  ChangeDetectionStrategy,
+  Component,
+  ElementRef,
+  Inject,
+  Input,
+  NgZone,
+  Optional, ViewChild,
+  ViewContainerRef,
+  ViewEncapsulation,
+  forwardRef
 } from '@angular/core';
 import { NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { MatInput } from '@angular/material/input';
@@ -87,20 +87,14 @@ export class ColorPickerField<F extends FieldConfig = FieldConfig> extends Abstr
   _onTouched = () => { };
 
 
-  override get value() { return this.formControl.value?this.formControl.value:this.field.defaultValue; }
+  override get value() { 
+    return this.formControl.value?this.formControl.value:this.field.defaultValue; 
+  }
   override set value(val: any) {
-
-    if (isObject(val)) {
-      let _value = this.coerceStringProperty(val['value']);
-      this._selected = _value;
+      let _value = isObject(val)?this.coerceStringProperty(val['value']):this.coerceStringProperty(val);
+      this._selected = _value;;
+      this.field.inputValue = _value ;
       this.formControl.setValue(_value);
-      this.field.inputValue = this._selected ;
-    } else {
-      let _value = this.coerceStringProperty(val);
-      this._selected = _value;
-      this.formControl.setValue(_value);
-      this.field.inputValue = this._selected ;
-    }
   }
 
   get openOnFocus(): boolean { return this._openOnFocus; }

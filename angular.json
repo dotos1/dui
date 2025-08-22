@@ -58,10 +58,7 @@
             "tsConfig": "projects/testdui/tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": [
-              {
-                "glob": "**/*",
-                "input": "projects/testdui/public"
-              }
+              "projects/testdui/src/assets"
             ],
             "styles": [
               "projects/testdui/src/styles.scss"
@@ -94,6 +91,10 @@
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "proxyConfig": "proxy.config.json",
+            "port":4400
+          },
           "configurations": {
             "production": {
               "buildTarget": "testdui:build:production"
@@ -119,7 +120,8 @@
             "assets": [
               {
                 "glob": "**/*",
-                "input": "projects/testdui/public"
+                "input": "projects/testdui/src//assets",
+                "output": "./assets"
               }
             ],
             "styles": [
