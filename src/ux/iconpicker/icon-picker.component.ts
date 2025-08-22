@@ -1,17 +1,15 @@
-import { Component, ElementRef, Renderer2, OnInit, ViewChild, ChangeDetectorRef, ViewEncapsulation, ChangeDetectionStrategy, OnDestroy, Inject } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, Inject, OnDestroy, OnInit, Renderer2, ViewChild, ViewEncapsulation } from '@angular/core';
 
-import { HttpClient } from '@angular/common/http';
 import { ESCAPE } from '@angular/cdk/keycodes';
+import { HttpClient } from '@angular/common/http';
 import { MatIconRegistry } from "@angular/material/icon";
 import { DomSanitizer } from "@angular/platform-browser";
 import { Subject } from 'rxjs';
 
-import { TranslateService } from '@dotos/dui/translator';
+import { FontLoaderService, Icon, IconPickerService, IconType, SVGIcon } from '@dotos/dui/common/icon';
 import { TriggerPopup } from '@dotos/dui/common/trigger';
-import { FontLoaderService } from '@dotos/dui/common/icon';
-import { IconPickerService } from '@dotos/dui/common/icon';
-import { Icon, SVGIcon, IconType } from '@dotos/dui/common/icon';
 import { ThemeService } from '@dotos/dui/theme';
+import { TranslateService } from '@dotos/dui/translator';
 @Component({
   selector: 'icon-picker',
   templateUrl: 'icon-picker.component.html',
@@ -126,24 +124,8 @@ export class IconPickerComponent implements TriggerPopup, OnInit, OnDestroy {
       }).subscribe(
         val => {
           this.categories = val
-          this.service.getCustomIcons(this.categories[0].value,this.params.custompath).subscribe(data => {
-            for (let i = 0; i < data.length; i++) {
-              let meta=data[i];
-              if(meta.svg!=''){
-                  meta.svg=meta.svg.replace('width="64px"',' width="36px"');
-                  meta.svg=meta.svg.replace('height="64px"',' height="36px"');
-                  meta.svg=meta.svg.replace('width="48px"',' width="36px"');
-                  meta.svg=meta.svg.replace('height="48px"',' height="36px"');
-                  if(meta.svg&&meta.svg.length>0){
-                    meta.svgElm=this.domSanitizer.bypassSecurityTrustHtml(meta.svg);
-                  }
-                  meta.url=this._apiBase+"/lib/icon/svg?id="+meta.id+"&type="+this.categories[0].value
-                  this.addCustomIcons(meta);
-              }
-            }
-            this.customIcons = data;
-            this._changeDetectorRef.detectChanges();
-          })
+          this.selectCategory=val[0].value;
+          this.showCustomIcons();
         }
       )
     }  else if(iconPack == 'material') {
@@ -197,6 +179,9 @@ export class IconPickerComponent implements TriggerPopup, OnInit, OnDestroy {
   }
   changeCategory(event){
     this.selectCategory=event.value;
+    this.showCustomIcons();
+  }
+  showCustomIcons(){
     this.service.getCustomIcons(this.selectCategory,this.params.custompath).subscribe(data => {
       for (let i = 0; i < data.length; i++) {
         let meta=data[i];
