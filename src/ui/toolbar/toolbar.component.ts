@@ -15,6 +15,14 @@ export class DuiToolbarComponent extends Container implements OnChanges,AfterCon
 
   @Input() config: any = {};
 
+  @Input() height: number = 40;
+
+  get heightStyle(){
+    return {
+      height:this.height+'px'
+    }
+  }
+
   private activeMenuBtn: any;
 
   public color = 'primary';
