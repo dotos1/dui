@@ -24,3 +24,8 @@ toggle-button {
   padding-right: 8px !important;
   padding-bottom: 0px !important;
 }
+
+:host ::ng-deep .mat-button-toggle {
+    white-space: nowrap;
+    border-radius: 5px;
+}
