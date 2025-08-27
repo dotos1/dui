@@ -59,6 +59,8 @@ export class PopoverTrigger implements AfterViewInit, OnDestroy {
 
   private _onDestroy = new Subject<void>();
 
+  @Input('name') name: string;
+
   /** References the popover instance that the trigger is associated with. */
   @Input('popoverTriggerFor') popover: PopoverPanel;
 
