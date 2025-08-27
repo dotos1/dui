@@ -12,3 +12,15 @@ toggle-button {
   margin-top:6px;
   line-height: 24px !important;
 }
+
+:host ::ng-deep .mat-button-toggle-standalone, .mat-button-toggle-group{
+  box-shadow:none !important;
+  gap: 2px;
+}
+
+:host ::ng-deep .mat-button-toggle-label-content{
+  padding-top: 0px !important;
+  padding-left: 8px !important;
+  padding-right: 8px !important;
+  padding-bottom: 0px !important;
+}

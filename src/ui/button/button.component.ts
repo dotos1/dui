@@ -33,7 +33,7 @@ import { ButtonBase } from './button.base';
     '[style.display]': 'flex',
     hostID: 'dui-button' + Math.random().toString(36).substring(2, 15)
   },
-  encapsulation: ViewEncapsulation.None,
+
   changeDetection: ChangeDetectionStrategy.Default
 })
 export class ButtonComponent extends ButtonBase implements OnChanges,DoCheck {
