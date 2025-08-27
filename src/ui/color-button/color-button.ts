@@ -10,7 +10,6 @@ import { MatTooltip } from '@angular/material/tooltip';
   selector: 'colorpicker-button',
   templateUrl: './color-button.html',
   styleUrls: ['./color-button.scss'],
-  encapsulation: ViewEncapsulation.None,
   host: {
     '[style.display]': 'flex'
   },
