@@ -1,0 +1,11 @@
+{
+  "Assets": {
+    "FONT":{
+      "default": "default",
+      "environmental": "environmental",
+      "geology":"geology",
+      "oil-gas":"oil-gas",
+      "public":"public"
+    }
+  }
+}

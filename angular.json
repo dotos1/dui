@@ -58,7 +58,9 @@
             "tsConfig": "projects/testdui/tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": [
-              "projects/testdui/src/assets"
+              "projects/testdui/src/assets",
+              "projects/testdui/src/i18n"
+
             ],
             "styles": [
               "projects/testdui/src/styles.scss"

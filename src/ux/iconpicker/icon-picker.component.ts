@@ -55,8 +55,8 @@ export class IconPickerComponent implements TriggerPopup, OnInit, OnDestroy {
   search = '';
   label = '';
 
-  svgdir='common';
-
+  svgdirId='';
+  assetsdir = "/assets/";
   selectCategory='';
 
   public style={};
@@ -102,19 +102,11 @@ export class IconPickerComponent implements TriggerPopup, OnInit, OnDestroy {
 
   getIcons(iconPack) {
     if (iconPack == 'svg') {
-      this.http.get(this._apiBase + '/lib/iconpicker', {
-        responseType: 'json',
-        params:{iconpath:this.params.iconpath}
-      }).subscribe(
+      let iconpath =this.params.iconpath;
+      this.loadJson(iconpath+'/list.json').then(
         val => {
           this.dirs = val
-          this.service.getSVGIcons(this.dirs[0],this.params.iconpath).subscribe(data => {
-            for (let i = 0; i < data.length; i++) {
-              this.addIcons(data[i]);
-            }
-            this.svgIcons = data;
-            this._changeDetectorRef.detectChanges();
-          })
+          this.loadIcon(this.dirs[0]);
         }
       )
     }else if (iconPack == 'custom') {
@@ -131,21 +123,23 @@ export class IconPickerComponent implements TriggerPopup, OnInit, OnDestroy {
     }  else if(iconPack == 'material') {
       this.icons = this.service.getIcons(iconPack);
     }else{
-      this.http.get(this._apiBase + '/lib/fonticonpicker', {
-        responseType: 'json',
-        params:{fontpath:this.params.fontpath}
-      }).subscribe(
+      let fontpath =this.params.fontpath;
+      this.loadJson(fontpath+'/list.json').then(
         val => {
           this.fontdirs = val;
-          this.loadFontFace(this.fontdirs[0]);
+          this.loadFontFace(this.fontdirs[0].path);
         }
       )
     }
   }
+  loadJson(url ) : Promise<any>{
+    return  fetch(this.assetsdir+url, {
+      mode: 'cors',
+      credentials: "same-origin"
+    }).then(response=> response.json())
+  }
   changeFontDir(event){
-    this.service.getFontIcons(event.value,this.params.fontpath).subscribe(() => {
       this.loadFontFace(event.value);
-    })
   }
   getBackGround(meta){
     return {
@@ -153,7 +147,8 @@ export class IconPickerComponent implements TriggerPopup, OnInit, OnDestroy {
     }
   }
   private loadFontFace(dir){
-    this.service.getFontIcons(dir,this.params.fontpath).subscribe(data => {
+    let fontpath =this.params.fontpath;
+    this.loadJson(fontpath+'/'+dir+'/index.json').then(data => {
       data.name=data.name.replace('&','');
       this.fontLoaderService.loadFonts(data.name,data.url,700).then(()=>{
         let ranges=data.range;
@@ -207,16 +202,19 @@ export class IconPickerComponent implements TriggerPopup, OnInit, OnDestroy {
       this.domSanitizer.bypassSecurityTrustHtml(icon.svg)
     );
   }
-
-  changeDir(event) {
-    this.svgdir=event.value;
-    this.service.getSVGIcons(event.value,this.params.iconpath).subscribe(data => {
+  private loadIcon(dir){
+    let iconpath =this.params.iconpath;
+    this.loadJson(iconpath+'/'+dir+'/index.json').then(data => {
       for (let i = 0; i < data.length; i++) {
         this.addIcons(data[i]);
       }
       this.svgIcons = data;
+      this.svgdirId=dir;
       this._changeDetectorRef.detectChanges();
     })
+  }
+  changeDir(event) {
+    this.loadIcon(event.value);
   }
 
   addIcons(icon: SVGIcon) {

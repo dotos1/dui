@@ -33,6 +33,28 @@ export class TestColorComponent {
                 wrappers: ['form-field'],
                 flex: 100
               },
+              {
+                xtype: 'icon-picker-field',
+                label: 'TOPMENU.ICON',
+                name: 'icon_url',
+                required: false,
+                allow:['material','svg'],
+                iconpath:'svgicon',
+                wrappers: ['form-field'],
+                flex: 25,
+             },
+             { 
+              xtype: 'icon-picker-field',
+              label: 'GIS.STYLE.ICON',
+              name: 'icon_font',
+              allow: ['font', 'custom','material','svg'],
+              custompath: 'marker',
+              fontpath: 'map/font',
+              iconpath:'svgicon',
+              required: true,
+              wrappers: ['form-field'],
+              flex: 100
+            },
         ]
     }
 }

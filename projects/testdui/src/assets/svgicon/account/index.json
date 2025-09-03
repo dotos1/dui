@@ -1,0 +1,14 @@
+[
+  {
+    "name": "account",
+    "url": "/assets/svgicon/account/account.svg"
+  },
+  {
+    "name": "account-alert",
+    "url": "/assets/svgicon/account/account-alert.svg"
+  },
+  {
+    "name": "video-account",
+    "url": "/assets/svgicon/account/video-account.svg"
+  }
+]
