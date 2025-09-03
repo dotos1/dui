@@ -67,7 +67,6 @@ export class AppModule {
     private injector: Injector,
     public readonly translation: TranslationService) {
     ServiceLocator.injector = injector;
-
+    translation.addTranslationFolder('public', 'i18n');
   }
-
 }

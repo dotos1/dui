@@ -22,7 +22,7 @@
       <div>
         <mat-form-field style='width:100%;' [appearance]="themeService.formType|async">
           <mat-select #fontdir   [(ngModel)]="fontdirId"  (selectionChange)="changeFontDir($event)">
-            <mat-option *ngFor="let dir of fontdirs" [value]="dir">{{dir}}</mat-option>
+            <mat-option *ngFor="let dir of fontdirs" [value]="dir.path">{{dir.name |translate}}</mat-option>
           </mat-select>
         </mat-form-field>
       </div>
@@ -56,7 +56,7 @@
     <mat-tab *ngIf="params.allow.indexOf('svg')!==-1" name='svg'  label="{{'UX.SVGICON'| translate}}">
       <div>
         <mat-form-field style='width:100%;' [appearance]="themeService.formType|async">
-          <mat-select #svgdir (selectionChange)="changeDir($event)" [value]="svgdir" >
+          <mat-select #svgdir (selectionChange)="changeDir($event)" [(ngModel)]="svgdirId" >
             <mat-option *ngFor="let dir of dirs" [value]="dir">{{dir}}</mat-option>
           </mat-select>
         </mat-form-field>

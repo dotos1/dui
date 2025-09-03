@@ -1,0 +1,11 @@
+{
+  "Assets": {
+    "FONT":{
+      "default": "默认",
+      "environmental": "环境",
+      "geology":"地理",
+      "oil-gas":"油气",
+      "public":"公共"
+    }
+  }
+}
