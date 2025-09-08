@@ -220,7 +220,7 @@ export class ButtonBase extends ComponentBase {
   onClick(e) {
     if (e) {
       e.preventDefault();
-      if (this.matTooltip.message!='') {
+      if (this.matTooltip&&this.matTooltip.message!='') {
         e.stopPropagation();
         e.stopImmediatePropagation();
         this.matTooltip.hide();

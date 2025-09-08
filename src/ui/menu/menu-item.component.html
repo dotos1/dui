@@ -4,7 +4,7 @@
     <ng-container *ngIf="child.type !== 'radio' && child.children && child.children.length > 0">
       <button mat-menu-item *ngIf="(child.title&&child.title!==''||child.icon) &&child.hidden!==true"  [matMenuTriggerFor]="menu.childMenu" [disabled]="child.disable" [ngStyle]="child.style"    [matTooltip]="child.toolTip | translate" matTooltipPosition='below'>
       <dui-icon *ngIf="child.showIcon!==false"  [value]="child.icon" [iconStyle]="child.iconStyle"  style="padding-bottom: 0px;"></dui-icon>
-      <span *ngIf="child.title&&child.title!==''"  class="menu-title">
+      <span *ngIf="child.title&&child.title!==''" >
         {{(child.title) | translate }}
       </span>
       </button>
@@ -15,7 +15,7 @@
       <button mat-menu-item *ngIf="(child.title&&child.title!=='') &&child.hidden!==true"   [matMenuTriggerFor]="childRadioMenu" [disabled]="child.disable" [ngStyle]="child.style"  [matTooltip]="child.toolTip | translate" matTooltipPosition='below'>
           <!-- <mat-icon *ngIf="parentItem&&child.value === parentItem.value">check</mat-icon> -->
           <dui-icon *ngIf="child.showIcon!==false"  [value]="child.icon"  style="padding-bottom: 0px;" ></dui-icon>
-        <span   class="menu-title">{{(child.title) | translate }}</span>
+        <span >{{(child.title) | translate }}</span>
         <span *ngIf="child.shortcut" style='flex: 1 1 auto;min-width: 20px;'></span>
         <span  class="menu-bar-item-menu-item--command" *ngIf="child.shortcut">{{child.shortcut| translate}}</span>
       </button>
@@ -23,7 +23,7 @@
         <button mat-menu-item *ngFor="let radioChild of child.children" [disabled]="radioChild.disable" [ngStyle]="radioChild.style" (click)="onRadioMenuItemClick(child, radioChild, $event)" role="menuitemradio" [attr.aria-checked]="child.value === radioChild.value"  [matTooltip]="child.toolTip | translate" matTooltipPosition='below'>
           <mat-icon *ngIf="child.value === radioChild.value"  style="padding-bottom: 0px;">check</mat-icon>
           <mat-icon *ngIf="child.value !== radioChild.value"   style="padding-bottom: 0px;"></mat-icon>
-          <span [ngClass]="radioChild.classes"   class="menu-title">{{(radioChild.title)| translate }}</span>
+          <span [ngClass]="radioChild.classes" >{{(radioChild.title)| translate }}</span>
           <span *ngIf="radioChild.shortcut" class="menu-bar-item-menu-item--command">{{radioChild.shortcut| translate}}</span>
         </button>
       </mat-menu>
@@ -45,7 +45,7 @@
       <button mat-menu-item *ngIf="child.hidden!==true"  [disabled]="child.disable"  role="menuitemcheckbox" [ngStyle]="child.style" [attr.aria-checked]="child.value === true"  [matTooltip]="child.toolTip | translate" matTooltipPosition='below'  (click)="onCheckboxMenuItemClick(child, $event)">
         <mat-icon *ngIf="child.value">check</mat-icon>
         <mat-icon *ngIf="child.value === false||child.value ===undefined"></mat-icon>
-        <span  class="menu-title">{{(child.title) | translate }}</span>
+        <span >{{(child.title) | translate }}</span>
         <span *ngIf="child.shortcut" style='flex: 1 1 auto;min-width: 20px;'></span>
         <span  *ngIf="child.shortcut" class="menu-bar-item-menu-item--command">{{ child.shortcut| translate }}</span>
       </button>
@@ -64,7 +64,7 @@
           <dui-icon  *ngIf="child.showIcon!==false"   [value]="child.icon" [iconStyle]="child.iconStyle" style="padding-bottom: 0px;">
 
           </dui-icon>
-          <span *ngIf="child.title&&child.title!==''" class='menu-title' >
+          <span *ngIf="child.title&&child.title!==''"  >
             {{(child.title)| translate}}</span>
           <span *ngIf="child.shortcut" style='flex: 1 1 auto;min-width: 20px;'></span>
           <span  *ngIf="child.shortcut" class="menu-bar-item-menu-item--command">{{ child.shortcut| translate }}</span>
