@@ -34,9 +34,7 @@ import { Scrollbars } from './scrollbars/scrollbars';
   styleUrls: ['ng-scrollbar.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: {
-    // This component appends a content wrapper element to the viewport
-    // A hydration mismatch error will be thrown (NG0500) during DOM manipulation.
-    // To avoid this error, the 'ngSkipHydration' attribute is added to skip hydration.
+
     ngSkipHydration: 'true',
     '[class.ng-scrollbar-external-viewport]': 'true'
   },
