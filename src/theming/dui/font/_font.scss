@@ -7,7 +7,7 @@ $md-font-url: '' !default;
   font-weight: 400;
   src: local('Material Icons'),
     local('MaterialIcons-Regular'),
-    url(material-icons-2.woff2) format('truetype');
+    url(material-symbols-rounded.woff2) format('truetype');
 }
 
 .material-icons {
@@ -15,7 +15,6 @@ $md-font-url: '' !default;
   font-weight: normal;
   font-style: normal;
   font-size: 23px;
-  font-variation-settings:'FILL' 1;
   display: inline-block;
   width: 1em;
   height: 1em;

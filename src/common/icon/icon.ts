@@ -1,6 +1,6 @@
 export class Icon {
   name: string;
-  id: string;
+  id?: string;
   filter?: string[];
   aliases?: string[];
   type?: IconType;
