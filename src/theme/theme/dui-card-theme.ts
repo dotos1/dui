@@ -6,7 +6,7 @@ export function duiCardTheme(theme: Theme): Object {
   const type: string = theme.typography['type'];
   let px80: string = type === 'loose' ? '140px' : type === 'normal' ? '130px' : '120px';
   let px100: string = type === 'loose' ? '140px' : type === 'normal' ? '130px' : '120px';
-  let px120: string = type === 'loose' ? '140px' : type === 'normal' ? '130px' : '120px';
+  let px120: string = type === 'loose' ? '150px' : type === 'normal' ? '150px' : '150px';
 
   return {
     '.rightbottom': {
