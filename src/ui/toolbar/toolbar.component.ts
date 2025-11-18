@@ -2,7 +2,7 @@ import { Platform } from '@angular/cdk/platform';
 import { AfterContentInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, ComponentFactoryResolver, ElementRef, HostListener, Injector, Input, OnChanges, Renderer2, SimpleChanges, ViewChild, ViewContainerRef } from '@angular/core';
 import { Container } from '@dotos/dui/container';
 import { ComponentBase, Dui } from '@dotos/dui/core';
-import {isString,isObjectLike,isArray}  from 'lodash-es';
+import { isArray, isObjectLike, isString } from 'lodash-es';
 
 @Component({
   selector: 'dui-toolbar',
@@ -11,16 +11,21 @@ import {isString,isObjectLike,isArray}  from 'lodash-es';
   changeDetection: ChangeDetectionStrategy.Default
 })
 
-export class DuiToolbarComponent extends Container implements OnChanges,AfterContentInit{
+export class DuiToolbarComponent extends Container implements OnChanges, AfterContentInit {
 
   @Input() config: any = {};
 
   @Input() height: number = 40;
 
-  get heightStyle(){
-    return {
-      height:this.height+'px'
+  get heightStyle() {
+    if (this.vertical) {
+      return {}
+    } else {
+      return {
+        height: this.height + 'px'
+      }
     }
+
   }
 
   private activeMenuBtn: any;
@@ -47,7 +52,7 @@ export class DuiToolbarComponent extends Container implements OnChanges,AfterCon
     super(resolver, injector, detectRef);
   }
 
-  refresh(){
+  refresh() {
     this.detectRef.markForCheck();
   }
 
@@ -283,7 +288,7 @@ export class MenuItem extends ComponentBase {
 export class Separator extends MenuItem {
   el: any;
   vertical: boolean = true;
-  public override style:any={};
+  public override style: any = {};
   constructor(public override detectRef: ChangeDetectorRef) {
     super(detectRef);
   }
