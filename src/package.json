@@ -1,6 +1,8 @@
 {
   "name": "@dotos/dui",
+
   "version": "7.2.87",
+
   "license": "MIT",
   "description": "DUI components based on Angular",
   "keywords": [
