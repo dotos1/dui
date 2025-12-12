@@ -38,9 +38,11 @@ export class TreeModel implements ITreeModel,OnDestroy {
   // events
   fireEvent(event) {
     event.treeModel = this;
-
-    this.events[event.eventName].emit(event);
+    if(this.events[event.eventName]){
+     this.events[event.eventName].emit(event);
     this.events.event.emit(event);
+    }
+ 
   }
 
   subscribe(eventName, fn) {
