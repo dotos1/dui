@@ -13,7 +13,7 @@ import { RegisterGuard } from './register.guard';
 import { AuthLoader } from './auth.loader';
 import { AuthStaticLoader } from './auth.loader';
  import { AuthBearerInterceptor } from './auth-bearer.interceptor';
-// import { GlobalHttpInterceptor } from './global-http-interceptor';
+
 
 export function authFactory(): AuthLoader {
   return new AuthStaticLoader();
