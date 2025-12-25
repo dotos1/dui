@@ -30,6 +30,8 @@ export class ErrorInterceptor implements HttpInterceptor {
           catchError((error: HttpErrorResponse) => {
             if (error.status !== 401) {
               this.toastr.error(error.message);
+            }else{
+              
             }
             return throwError(error);
           })
