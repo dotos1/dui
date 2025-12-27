@@ -22,7 +22,7 @@
     <ng-container *ngIf="(menuItem.type!=='divider'&&menuItem.type!=='menu'&&menuItem.type!=='custom')">
       <button mat-menu-item color="primary" [id]="menuItem.id" (click)="runAction(menuItem,$event)"  [disabled]="menuItem.disable" (contextmenu)="contextMenu()">
         <dui-icon [value]="menuItem.icon"  style="padding-top: 6px;"></dui-icon>
-        <span>{{ menuItem.title | translate }}</span>
+        <span style="margin-top: auto;margin-bottom: auto;">{{ menuItem.title | translate }}</span>
         <span *ngIf="menuItem.shortcut" style='flex: 1 1 auto;'></span>
         <span *ngIf="menuItem.shortcut">{{menuItem.shortcut| translate}}</span>
       </button>
