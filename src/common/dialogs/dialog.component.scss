@@ -35,7 +35,9 @@
     padding: 9px 16px;
   }
 }
-
+:host ::ng-deep .mat-mdc-dialog-container{
+    box-shadow: var(--mdc-dialog-container-elevation-shadow);
+}
 @media screen and (max-width: 480px) {
   .dui-dialog-wrapper {
     flex-direction: column;

@@ -33,6 +33,7 @@ function typography(theme: TypographyConfig): Object {
 export function matDialogTheme(theme: Theme): Object {
   return {
     '.mat-mdc-dialog-container': {
+      "box-shadow": "var(--mdc-dialog-container-elevation-shadow)",
       ...typography(theme.typography)
     },
     '.mdc-dialog': {
