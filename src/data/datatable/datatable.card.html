@@ -3,12 +3,14 @@
     <div fxFlexFill  fxLayout="column">
       <mat-card-header style="width:100%">
         <mat-card-title *ngIf="!hideHead&&(title || ltbar|| rtbar)" fxLayout='row'  style="width:100%">
-              <span >
-                <ng-container #lefttopbar></ng-container>
+          <div fxLayout='row'>
+              <ng-container #lefttopbar></ng-container>
+              <span style='flex: 0 0 auto; align-self: center;display: -webkit-box;-webkit-box-align: center;margin:auto'>
                 {{title|translate}}
               </span>
               <span fxFlex></span>
               <ng-container #righttopbar></ng-container>
+            </div>
         </mat-card-title>
         <mat-card-subtitle *ngIf="subtitle">{{subtitle|translate}}</mat-card-subtitle>
       </mat-card-header>
