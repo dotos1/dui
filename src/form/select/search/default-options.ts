@@ -10,7 +10,6 @@ export const configurableDefaultOptions = [
   'disableInitialFocus',
   'disableScrollToActiveOnOptionsChanged',
   'enableClearOnEscapePressed',
-  'hideClearSearchButton',
   'noEntriesFoundLabel',
   'placeholderLabel',
   'preventHomeEndKeyPropagation',
@@ -21,5 +20,5 @@ export type ConfigurableDefaultOptions = typeof configurableDefaultOptions[numbe
 
 export const MAT_SELECTSEARCH_DEFAULT_OPTIONS = new InjectionToken<MatSelectSearchOptions>('mat-selectsearch-default-options');
 
-/** Global configurable options for MatSelectSearch. */
+
 export type MatSelectSearchOptions = Readonly<Partial<Pick<MatSelectSearchComponent, ConfigurableDefaultOptions>>>;

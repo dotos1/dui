@@ -77,7 +77,8 @@ import {
   duiCardTheme,
   duiDialogTheme,
   duiFileFieldTheme,
-  duiImageFieldTheme
+  duiImageFieldTheme,
+  duiSelectTheme
 } from './theme/index';
 import { duiInfoDrawerTheme } from './theme/info-drawer.theme';
 import { matBadgeTheme } from './theme/mat-badge-theme';
@@ -138,6 +139,7 @@ export function materialTheme(theme: Theme): Object {
     ...duiWindowsTheme(theme),
     ...duiTreeTheme(theme),
     ...duiPopupTheme(theme),
+    ...duiSelectTheme(theme),
     ...duiScrollbarTheme(theme),
     ...duiPagingTheme(theme),
     ...xTermTheme(theme),

@@ -59,3 +59,4 @@ export * from './dui-card-theme';
 export * from './dui-dialog-theme';
 export * from './dui-imagefield-theme';
 export * from './dui-filefield-theme';
+export * from './dui-select-theme';

@@ -19,13 +19,10 @@ $mat-select-panel-padding: 8px;
   z-index: 100;
   font-size: inherit;
   box-shadow: none;
-  background-color: var(--mat-sys-surface-container, var(--mat-select-panel-background-color, white));
-
   &.mat-select-search-inner-multiple.mat-select-search-inner-toggle-all {
     .mat-select-search-inner-row {
       display: flex;
       align-items: center;
-
     }
   }
 }
@@ -36,29 +33,17 @@ $mat-select-panel-padding: 8px;
   border: none;
   font-family: inherit;
   font-size: inherit;
-  color: currentColor;
   outline: none;
-  border:1px solid;
   border-radius: 4px;
-  border-color: var(--mat-option-selected-state-layer-color);
-  background-color: var(--mat-sys-surface-container, var(--mat-select-panel-background-color, white));
   padding: 0 $clear-button-width + $mat-select-search-clear-x 0 16px;
   height: calc($mat-option-min-height - 4px);
   line-height: calc($mat-option-min-height - 4px);
-  margin-left: 8px;
-  margin-right: 48px;
-  margin-top: 4px;
-  margin-bottom: 6px;
-
   :host-context([dir="rtl"]) & {
     padding-right: 16px;
     padding-left: $clear-button-width + $mat-select-search-clear-x;
   }
 }
 
-.mat-select-search-input::placeholder {
-  color: var(--mdc-filled-text-field-input-text-placeholder-color);
-}
 
 .mat-select-search-inner-toggle-all {
   .mat-select-search-input {
@@ -93,14 +78,12 @@ $mat-select-panel-padding: 8px;
 }
 
 ::ng-deep .mat-mdc-option[aria-disabled=true].contains-mat-select-search {
-  /* let move mat-select-search at the top of the dropdown. As option is disabled, there will be no-ripple hence safe. */
   position: sticky;
   top: -$mat-select-panel-padding;
   z-index: 1;
   opacity: 1;
   margin-top: -$mat-select-panel-padding;
   pointer-events: all;
-
   .mat-icon {
     margin-right: 0;
     margin-left: 0;
@@ -120,4 +103,9 @@ $mat-select-panel-padding: 8px;
     padding-left: 0;
     padding-right: $mat-select-search-toggle-all-checkbox-x;
   }
+}
+
+:host ::ng-deep .mat-select-search-inner-row{
+    padding-left: 5px;
+    padding-right: 5px;
 }

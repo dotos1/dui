@@ -18,6 +18,7 @@
         "close": "关闭",
         "tabDropdown": "更多..."
       },
+
       "PIPE":{
         "Invalid_Date":"无效日期",
         "SECOND_AGO":"秒以前",
@@ -1035,7 +1036,8 @@
         "OR":"或"
       },
       "FORM": {
-           "SELECT_SEARCH": "搜索",
+        "SELECT_SEARCH": "搜索",
+        "NO_SEARCH_OPTIONS_FOUND": "未发现搜索结果",
         "BLANKTEXT": "该字段不能为空!",
         "INVALIDTEXT": "文本格式错误!",
         "MINLENGTHTEXT": "字段长度不能少于{0}",
