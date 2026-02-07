@@ -12,7 +12,7 @@ export class IconPickerService {
     @Inject('apiBase') private _apiBase: string
   ) {}
 
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+
   getIcons(ipIconPack: string): Icon[] {
     let icons: Icon[] = [];
     const faIcons = this.getFaIcons().map((icon) => {

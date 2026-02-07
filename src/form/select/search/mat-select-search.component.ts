@@ -50,34 +50,31 @@ export class MatSelectSearchComponent implements OnInit, OnDestroy, ControlValue
 
   @Input() placeholderLabel = 'FORM.SELECT_SEARCH';
 
-  /** Type of the search input field */
+
   @Input() type = 'text';
 
-  /** Font-based icon used for displaying Close-Icon */
+
   @Input() closeIcon = 'close';
 
-  /** SVG-based icon used for displaying Close-Icon. If set, closeIcon is overridden */
+
   @Input() closeSvgIcon?: string;
 
-  /** Label to be shown when no entries are found. Set to null if no message should be shown. */
-  @Input() noEntriesFoundLabel = 'Keine Optionen gefunden';
+
+  @Input() noEntriesFoundLabel = 'FORM.NO_SEARCH_OPTIONS_FOUND';
 
 
   @Input() clearSearchInput = true;
 
-  /** Whether to show the search-in-progress indicator */
+
   @Input() searching = false;
 
-  /** Disables initial focusing of the input field */
+
   @Input() disableInitialFocus = false;
 
-  /** Enable clear input on escape pressed */
+
   @Input() enableClearOnEscapePressed = false;
 
-  /**
-   * Prevents home / end key being propagated to mat-select,
-   * allowing to move the cursor within the search input instead of navigating the options
-   */
+
   @Input() preventHomeEndKeyPropagation = false;
 
   /** Disables scrolling to active options when option list changes. Useful for server-side search */
@@ -101,13 +98,7 @@ export class MatSelectSearchComponent implements OnInit, OnDestroy, ControlValue
   /** Define the position of the tooltip on the toggle-all checkbox. */
   @Input() toggleAllCheckboxTooltipPosition: 'left' | 'right' | 'above' | 'below' | 'before' | 'after' = 'below';
 
-  /** Show/Hide the search clear button of the search input */
-  @Input() hideClearSearchButton = false;
 
-  /**
-   * Always restore selected options on selectionChange for mode multi (e.g. for lazy loading/infinity scrolling).
-   * Defaults to false, so selected options are only restored while filtering is active.
-   */
   @Input() alwaysRestoreSelectedOptionsMulti = false;
 
 
@@ -116,19 +107,19 @@ export class MatSelectSearchComponent implements OnInit, OnDestroy, ControlValue
 
   @Output() toggleAll = new EventEmitter<boolean>();
 
-  /** Reference to the search input field */
+
   @ViewChild('searchSelectInput', { read: ElementRef, static: true }) searchSelectInput: ElementRef;
 
-  /** Reference to the search input field */
+
   @ViewChild('innerSelectSearch', { read: ElementRef, static: true }) innerSelectSearch: ElementRef;
 
-  /** Reference to custom search input clear icon */
+
   @ContentChild(MatSelectSearchClearDirective) clearIcon: MatSelectSearchClearDirective;
 
-  /** Reference to custom no entries found element */
+
   @ContentChild(MatSelectNoEntriesFoundDirective) noEntriesFound: MatSelectNoEntriesFoundDirective;
 
-  /** Current search value */
+
   get value(): string {
     return this._formControl.value;
   }
@@ -162,13 +153,12 @@ export class MatSelectSearchComponent implements OnInit, OnDestroy, ControlValue
     map(options => options ? options.length : 0)
   );
 
-  /** Previously selected values when using <mat-select [multiple]="true">*/
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+
   private previousSelectedValues: any[];
 
   public _formControl: FormControl<string> = new FormControl<string>('', {nonNullable: true});
 
-  /** Whether to show the no entries found message */
+
   public _showNoEntriesFound$: Observable<boolean> = combineLatest([
     this._formControl.valueChanges,
     this.optionsLength$
@@ -177,10 +167,10 @@ export class MatSelectSearchComponent implements OnInit, OnDestroy, ControlValue
       && optionsLength === this.getOptionsLengthOffset()))
   );
 
-  /** Subject that emits when the component has been destroyed. */
+
   private _onDestroy = new Subject<void>();
 
-  /** Reference to active descendant for ARIA Support. */
+
   private activeDescendant: HTMLElement;
 
   constructor(
@@ -226,41 +216,31 @@ export class MatSelectSearchComponent implements OnInit, OnDestroy, ControlValue
       .subscribe((opened) => {
         if (opened) {
           this.updateInputWidth();
-          // focus the search field when opening
+
           if (!this.disableInitialFocus) {
             this._focus();
           }
         } else {
-          // clear it when closing
+     
           if (this.clearSearchInput) {
             this._reset();
           }
         }
       });
-    // set the first item active after the options changed
+
     this.matSelect.openedChange
       .pipe(
         take(1),
         switchMap(() => {
         this._options = this.matSelect.options;
 
-        // Closure variable for tracking the most recent first option.
-        // In order to avoid causing the list to
-        // scroll to the top when options are added to the bottom of
-        // the list (eg: infinite scroll), we compare only
-        // the changes to the first options to determine if we
-        // should set the first item as active.
-        // This prevents unnecessary scrolling to the top of the list
-        // when options are appended, but allows the first item
-        // in the list to be set as active by default when there
-        // is no active selection
         let previousFirstOption = this._options.toArray()[this.getOptionsLengthOffset()];
 
         return this._options.changes
           .pipe(tap(() => {
-            // avoid "expression has been changed" error
+
             setTimeout(() => {
-              // Convert the QueryList to an array
+           
               const options = this._options.toArray();
 
               // The true first item is offset by 1
@@ -269,14 +249,9 @@ export class MatSelectSearchComponent implements OnInit, OnDestroy, ControlValue
               const keyManager = this.matSelect._keyManager;
               if (keyManager && this.matSelect.panelOpen && currentFirstOption) {
 
-                // set first item active and input width
-
-                // Check to see if the first option in these changes is different from the previous.
                 const firstOptionIsChanged = !previousFirstOption
                   || !this.matSelect.compareWith(previousFirstOption.value, currentFirstOption.value);
 
-                // CASE: The first option is different now.
-                // Indicates we should set it as active and scroll to the top.
                 if (firstOptionIsChanged
                   || !keyManager.activeItem
                   || !options.find(option => this.matSelect.compareWith(option.value, keyManager.activeItem?.value))) {
@@ -327,7 +302,7 @@ export class MatSelectSearchComponent implements OnInit, OnDestroy, ControlValue
     this.optionsList$.pipe(
       takeUntil(this._onDestroy)
     ).subscribe(() => {
-      // update view when available options change
+
       this.changeDetectorRef.markForCheck();
     });
   }
@@ -355,11 +330,11 @@ export class MatSelectSearchComponent implements OnInit, OnDestroy, ControlValue
     }
 
     if (this.matSelect.multiple && event.key && event.key === 'Enter') {
-      // Regain focus after multiselect, so we can further type
+
       setTimeout(() => this._focus());
     }
 
-    // Special case if click Escape, if input is empty, close the dropdown, if not, empty out the search field
+
     if (this.enableClearOnEscapePressed && event.key === 'Escape' && this.value) {
       this._reset(true);
       event.stopPropagation();
@@ -403,52 +378,39 @@ export class MatSelectSearchComponent implements OnInit, OnDestroy, ControlValue
     this.onTouched = fn;
   }
 
-  /**
-   * Focuses the search input field
-   */
+
   public _focus() {
     if (!this.searchSelectInput || !this.matSelect.panel) {
       return;
     }
-    // save and restore scrollTop of panel, since it will be reset by focus()
-    // note: this is hacky
+
     const panel = this.matSelect.panel.nativeElement;
     const scrollTop = panel.scrollTop;
 
-    // focus
     this.searchSelectInput.nativeElement.focus();
 
     panel.scrollTop = scrollTop;
   }
 
-  /**
-   * Resets the current search value
-   * @param focus whether to focus after resetting
-   */
+
   public _reset(focus?: boolean) {
     this._formControl.setValue('');
+    this._lastExternalInputValue = undefined
+    this._options = this.matSelect.options;
     if (focus) {
       this._focus();
     }
   }
 
-
-  /**
-   * Initializes handling <mat-select [multiple]="true">
-   * Note: to improve this code, mat-select should be extended to allow disabling resetting the selection while filtering.
-   */
   private initMultipleHandling() {
     if (!this.matSelect.ngControl) {
       if (this.matSelect.multiple) {
-        // note: the access to matSelect.ngControl (instead of matSelect.value / matSelect.valueChanges)
-        // is necessary to properly work in multi-selection mode.
+ 
         console.error('the mat-select containing mat-select-search must have a ngModel or formControl directive when multiple=true');
       }
       return;
     }
-    // if <mat-select [multiple]="true">
-    // store previously selected values and restore them when they are deselected
-    // because the option is not available while we are currently filtering
+
     this.previousSelectedValues = this.matSelect.ngControl.value;
 
     if (!this.matSelect.ngControl.valueChanges) {
@@ -469,8 +431,7 @@ export class MatSelectSearchComponent implements OnInit, OnDestroy, ControlValue
             this.previousSelectedValues.forEach(previousValue => {
               if (!values.some(v => this.matSelect.compareWith(v, previousValue))
                 && !optionValues.some(v => this.matSelect.compareWith(v, previousValue))) {
-                // if a value that was selected before is deselected and not found in the options, it was deselected
-                // due to the filtering, so we restore it.
+
                 if (this.recreateValuesArray) {
                   values = [...values, previousValue];
                 } else {
@@ -489,10 +450,7 @@ export class MatSelectSearchComponent implements OnInit, OnDestroy, ControlValue
       });
   }
 
-  /**
-   *  Set the width of the innerSelectSearch to fit even custom scrollbars
-   *  And support all Operating Systems
-   */
+
   public updateInputWidth() {
     if (!this.innerSelectSearch || !this.innerSelectSearch.nativeElement) {
       return;
@@ -511,9 +469,7 @@ export class MatSelectSearchComponent implements OnInit, OnDestroy, ControlValue
     }
   }
 
-  /**
-   * Determine the offset to length that can be caused by the optional matOption used as a search input.
-   */
+
   private getOptionsLengthOffset(): number {
     if (this.matOption) {
       return 1;

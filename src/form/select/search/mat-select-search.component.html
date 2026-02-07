@@ -32,7 +32,7 @@
             class="mat-select-search-spinner"
             diameter="16"></mat-spinner>
 
-    <button *ngIf="!hideClearSearchButton && value && !searching"
+    <button *ngIf="value && !searching"
             mat-icon-button
             aria-label="Clear"
             (click)="_reset(true)"
@@ -53,6 +53,6 @@
      class="mat-select-search-no-entries-found">
   <ng-content *ngIf="noEntriesFound; else defaultNoEntriesFound"
               select="[MatSelectNoEntriesFound]"></ng-content>
-  <ng-template #defaultNoEntriesFound>{{noEntriesFoundLabel}}</ng-template>
+  <ng-template #defaultNoEntriesFound>{{noEntriesFoundLabel|translate}}</ng-template>
 </div>
 

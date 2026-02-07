@@ -35,12 +35,21 @@ export class TranslationService {
     }
     let localCookie = CookieStorage.getCookie('localex');
 
+
     if (localCookie && localCookie.value) {
       this.userLang = localCookie.value;
       this.use(this.userLang);
     } else {
-      this.userLang = this.translate.getBrowserCultureLang().replace('-', '_');
-      this.use(this.userLang);
+      if(this.translate.getBrowserCultureLang()=='zh'){
+         this.userLang = 'zh_CN';
+         this.use(this.userLang);
+      }else if(this.translate.getBrowserCultureLang()=='en'){
+         this.userLang = 'en_US';
+         this.use(this.userLang);
+      }else{
+        this.userLang = this.translate.getBrowserCultureLang().replace('-', '_');
+        this.use(this.userLang);
+      }
     }
   }
 

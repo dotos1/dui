@@ -37,7 +37,6 @@ export class FieldSelect extends MatField implements OnInit,OnDestroy {
   @ViewChild(MatSelect, { static: true }) matSelect!: MatSelect;
   @ViewChild(MatSelectSearchComponent, { static: true }) matSearch: MatSelectSearchComponent;
 
-
     
   override defaultOptions = {
     options: []
@@ -116,9 +115,14 @@ export class FieldSelect extends MatField implements OnInit,OnDestroy {
         params['$filter'] = searchText;
         this.optionService.getOptions(url, method, params);
       } else {
-        let options = this.field.options.filter(option => option.label.toLowerCase().indexOf(searchText) > -1);
-        this.field.options = options;
-        this.changeDetector.detectChanges();
+        if(searchText==''){
+          this.field.options =this.options;
+          this.changeDetector.detectChanges();
+        }else{
+          let options = this.field.options.filter(option => option.label.toLowerCase().indexOf(searchText) > -1);
+          this.field.options = options;
+          this.changeDetector.detectChanges();
+        }
       }
     });
   }
