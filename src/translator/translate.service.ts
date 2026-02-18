@@ -499,6 +499,13 @@ export class TranslateService {
     }
     let browserCultureLang: any = window.navigator.languages ? window.navigator.languages[0] : null;
     browserCultureLang = browserCultureLang || window.navigator.language || window.navigator.browserLanguage || window.navigator.userLanguage;
+    if(browserCultureLang=='zh'){
+        browserCultureLang = 'zh_CN';
+    }else if(browserCultureLang=='en'){
+        browserCultureLang = 'en_US';
+    }else{
+      browserCultureLang = browserCultureLang.replace('-', '_');
+    }
     return browserCultureLang;
   }
 

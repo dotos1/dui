@@ -165,7 +165,7 @@ export class IconPickerField extends AbstractTrigger implements OnInit {
   }
 
   override _selectAndClose(val: any): void {
-    console.log('select and close', val);
+
     if(typeof(val) =='object' ){
       this.value = val.value;
     }else{
