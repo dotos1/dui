@@ -60,9 +60,9 @@ export interface IDraggableConfig<T> {
   component: ComponentType<T>;
   config?: MatDialogConfig;
   constraint?:boolean;
-  // CSS selectors of element(s) inside the component meant to be drag handle(s)
+
   dragHandleSelectors?: string[];
-  // Class that will be added to the component signifying drag-ability
+
   draggableClass?: string;
 }
 
