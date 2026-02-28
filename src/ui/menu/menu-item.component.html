@@ -2,7 +2,10 @@
 <mat-menu #childMenu="matMenu" [ngClass]="menuClass">
   <ng-container *ngFor="let child of children">
     <ng-container *ngIf="child.type !== 'radio' && child.children && child.children.length > 0">
-      <button mat-menu-item *ngIf="(child.title&&child.title!==''||child.icon) &&child.hidden!==true"  [matMenuTriggerFor]="menu.childMenu" [disabled]="child.disable" [ngStyle]="child.style"    [matTooltip]="child.toolTip | translate" matTooltipPosition='below'>
+      <button mat-menu-item *ngIf="(child.title&&child.title!==''||child.icon) &&child.hidden!==true" 
+       [matMenuTriggerFor]="menu.childMenu" [disabled]="child.disable" [ngStyle]="child.style"  
+         [matTooltip]="child.toolTip | translate" matTooltipPosition='below'    
+          #menuTrigger="matMenuTrigger"     [matTooltipDisabled]="menuTrigger.menuOpen"  >
       <dui-icon *ngIf="child.showIcon!==false"  [value]="child.icon" [iconStyle]="child.iconStyle"  style="padding-bottom: 0px;"></dui-icon>
       <span *ngIf="child.title&&child.title!==''" >
         {{(child.title) | translate }}
@@ -12,7 +15,10 @@
     </ng-container>
 
     <ng-container *ngIf="child.type === 'radio' && child.children && child.children.length > 0">
-      <button mat-menu-item *ngIf="(child.title&&child.title!=='') &&child.hidden!==true"   [matMenuTriggerFor]="childRadioMenu" [disabled]="child.disable" [ngStyle]="child.style"  [matTooltip]="child.toolTip | translate" matTooltipPosition='below'>
+      <button mat-menu-item *ngIf="(child.title&&child.title!=='') &&child.hidden!==true"  
+       [matMenuTriggerFor]="childRadioMenu" [disabled]="child.disable" [ngStyle]="child.style" 
+        [matTooltip]="child.toolTip | translate" matTooltipPosition='below'    
+           #menuTrigger="matMenuTrigger"   [matTooltipDisabled]="menuTrigger.menuOpen"  >
           <!-- <mat-icon *ngIf="parentItem&&child.value === parentItem.value">check</mat-icon> -->
           <dui-icon *ngIf="child.showIcon!==false"  [value]="child.icon"  style="padding-bottom: 0px;" ></dui-icon>
         <span >{{(child.title) | translate }}</span>

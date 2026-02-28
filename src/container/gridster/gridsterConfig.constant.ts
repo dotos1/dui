@@ -1,7 +1,8 @@
 import {CompactType, DirTypes, DisplayGrid, GridsterConfig, GridType} from './gridsterConfig.interface';
 
 export const GridsterConfigService: GridsterConfig = {
-  gridType: GridType.Fit, // 'fit' will fit the items in the container without scroll;
+  gridType: GridType.Fit, 
+  // 'fit' will fit the items in the container without scroll;
   // 'scrollVertical' will fit on width and height of the items will be the same as the width
   // 'scrollHorizontal' will fit on height and width of the items will be the same as the height
   // 'fixed' will set the rows and columns dimensions based on fixedColWidth and fixedRowHeight options

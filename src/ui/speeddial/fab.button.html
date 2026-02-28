@@ -10,7 +10,7 @@
   <span *ngIf="type==='mat-fab'&&items.length>0">
     <button mat-fab [disabled]="disabled" [color]="color" [ngStyle]='style' [disableRipple]="disableRipple"
       [matTooltip]="text| translate" matTooltipPosition='below'
-      [matMenuTriggerFor]="menu.childMenu">
+      [matMenuTriggerFor]="menu.childMenu"      #menuTrigger="matMenuTrigger"    [matTooltipDisabled]="menuTrigger.menuOpen"  >
       <dui-icon [value]="icon" [iconStyle]="style"></dui-icon>
     </button>
     <dui-menu-item #menu [children]="items" [ownerCt]='ownerCt'></dui-menu-item>
@@ -18,7 +18,7 @@
   <span *ngIf="type==='mat-mini-fab'&&items.length>0">
     <button mat-mini-fab [disabled]="disabled" [color]="color" [ngStyle]='style' [disableRipple]="disableRipple"
       [matTooltip]="text| translate" matTooltipPosition='below'
-      [matMenuTriggerFor]="menu.childMenu">
+      [matMenuTriggerFor]="menu.childMenu"      #menuTrigger="matMenuTrigger"    [matTooltipDisabled]="menuTrigger.menuOpen"  >
       <dui-icon [value]="icon" [iconStyle]="style"></dui-icon>
     </button>
     <dui-menu-item #menu [children]="items" [ownerCt]='ownerCt'></dui-menu-item>
