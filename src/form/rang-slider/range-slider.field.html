@@ -1,16 +1,20 @@
-  <range-slider
+  <mat-slider  #slider
               [min]="field.min"
               [max]="field.max"
               [id]="id"
-              [minValue]="field.minValue"
-              [max]="field.max"
-              [thumbLabel]="field.thumbLabel"
+              [discrete]="field.thumbLabel"
               [step]="field.step"
-              [formControl]="formControl"
-              [formAttributes]="field"
               [tabindex]="field.tabindex || 0"
               [color]="field.color"
               fxFlex>
-  </range-slider>
+
+        <input matSliderStartThumb 
+         [formControl]="startCtrl"
+          [formAttributes]="field">
+
+        <input matSliderEndThumb  
+              [formControl]="endCtrl"
+               [formAttributes]="field">
+        </mat-slider>
 
   <input type="hidden"  class="mdc-text-field__input" />

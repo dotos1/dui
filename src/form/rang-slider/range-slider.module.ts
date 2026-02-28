@@ -7,12 +7,14 @@ import { HammerModule} from '@angular/platform-browser';
 import { Dui } from '@dotos/dui/core';
 import { TranslateModule } from '@dotos/dui/translator';
 import { FormModule } from '../components';
-import {RangeSlider} from './range-slider.component';
+
 import { RangeSliderFieldComponent } from './range-slider.field';
+import { MatSliderModule } from '@angular/material/slider';
+import { FlexLayoutModule } from 'ngx-flexible-layout';
 
 @NgModule({
-  declarations: [RangeSlider,RangeSliderFieldComponent],
-  exports: [RangeSlider,RangeSliderFieldComponent],
+  declarations: [RangeSliderFieldComponent],
+  exports: [RangeSliderFieldComponent],
   imports: [
     CommonModule,
     HammerModule,
@@ -21,6 +23,8 @@ import { RangeSliderFieldComponent } from './range-slider.field';
     FormsModule,
     ReactiveFormsModule,
     MatFormFieldModule,
+    MatSliderModule,
+     FlexLayoutModule,
     FormModule.forChild(),
     TranslateModule
   ]

@@ -1,6 +1,7 @@
 <div class="dui-context-menu">
     <ng-container *ngIf="!menuItem.hidden&&menuItem.type==='menu'&&menuItem.children && menuItem.children.length > 0">
-      <button mat-menu-item [id]="menuItem.id" [matMenuTriggerFor]="childMenu"  [disabled]="menuItem.disable" (contextmenu)="contextMenu()">
+      <button mat-menu-item [id]="menuItem.id" [matMenuTriggerFor]="childMenu" 
+       [disabled]="menuItem.disable" (contextmenu)="contextMenu()">
         <dui-icon [value]="menuItem.icon" style="padding-top: 6px;"></dui-icon>
         <span>{{ menuItem.title | translate }}</span>
       </button>
