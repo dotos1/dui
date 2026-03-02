@@ -43,3 +43,12 @@
     flex-direction: column;
   }
 }
+
+
+::ng-deep .mat-mdc-dialog-inner-container {
+  width: 100% !important;
+}
+
+::ng-deep .mdc-dialog__surface {
+  width: 100% !important;
+}

@@ -50,7 +50,7 @@ export class RangeSliderFieldComponent extends MatField {
       .subscribe(() => {
         const startVal = this.startCtrl.value ?? 0;
         const endVal = this.endCtrl.value ?? 100;
-        this.formControl.setValue([startVal, endVal], { emitEvent: false });
+        this.formControl.setValue([startVal, endVal], { emitEvent: true });
       });
   }
 
