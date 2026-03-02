@@ -31,7 +31,11 @@ import {GridsterUtils} from './gridsterUtils.service';
   host: {hostID: 'dui-gridster' + Math.random().toString(36).substring(2, 15)}
 })
 export class GridsterComponent implements OnInit, OnChanges, OnDestroy, GridsterComponentInterface {
+
+  @Input() id: string;
+
   @Input() options: GridsterConfig;
+  
   calculateLayoutDebounce: () => void;
   movingItem: GridsterItem | null;
   previewStyle: () => void;
