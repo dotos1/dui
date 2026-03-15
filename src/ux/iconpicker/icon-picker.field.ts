@@ -159,6 +159,14 @@ export class IconPickerField extends AbstractTrigger implements OnInit {
       return false;
     }
   }
+
+  isPattern(value){
+    if(value&&value.indexOf("/api/")!==-1){
+      return true;
+    }else{
+      return false;
+    }
+  }
   private coerceStringProperty(value: any): string {
     const d: string = value ? value + '' : null;
     return d;

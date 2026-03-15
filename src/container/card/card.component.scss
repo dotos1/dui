@@ -34,3 +34,6 @@
   -o-user-select: none;
   user-select: none;
 }
+:host ::ng-deep .mat-mdc-card-header-text {
+  margin: auto;
+}

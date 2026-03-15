@@ -181,7 +181,7 @@ export class DuiToolbarComponent extends Container implements OnChanges, AfterCo
     return this.add(this.constructButton(config));
   }
 
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+
   addItem(item: MenuItem): MenuItem {
     return this.add(arguments);
   }
