@@ -37,6 +37,9 @@ export function matMenuTheme(theme: Theme): Object {
             ...base(theme),
             ...color(theme),
         },
+        '.mat-mdc-menu-item .mat-icon-no-color':{
+            "color": "var(--mat-icon-color) !important",
+        },
         ...density(theme),
     };
 }
