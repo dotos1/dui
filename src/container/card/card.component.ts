@@ -9,7 +9,7 @@ import { Container } from '../container.main';
   selector: 'card',
   styleUrls: ['./card.component.scss'],
   templateUrl: './card.component.html',
-  // encapsulation: ViewEncapsulation.None,
+
   changeDetection: ChangeDetectionStrategy.Default,
   host: {
     style: 'flex:1;',

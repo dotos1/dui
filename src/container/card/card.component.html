@@ -1,6 +1,6 @@
 <div fxFlexFill fxLayout="column" fxFlex style='overflow:hidden'>
   <mat-card fxFlex fxLayout="column" [ngStyle]='cardStyle'>
-    <mat-card-header style="min-height: 48px;" >
+    <mat-card-header *ngIf="title || ltbar|| rtbar||subtitle"  style="min-height: 48px;" >
       <mat-card-title *ngIf="title || ltbar|| rtbar"  fxLayout='row'  style="width:100%;  ">
           <div class="card-title-content" fxLayout='row' fxFlex>
             <span style='flex: 0 0 auto; align-self: center;display:flex;'>
@@ -8,7 +8,7 @@
               <div  style="margin:auto"> {{title|translate }}</div>
             </span>
             <span style='flex: 1'></span>
-            <ng-content select="dui-search-box"></ng-content>
+           <ng-content select="dui-search-box"></ng-content> 
             <ng-container #righttopbar></ng-container>
           </div>
       </mat-card-title>
