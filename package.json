@@ -33,6 +33,7 @@
     "@juggle/resize-observer": "^3.4.0",
     "colornames": "^1.1.1",
     "core-js": "^3.21.1",
+    "dayjs": "^1.11.20",
     "depcheck": "^1.4.7",
     "element-resize-detector": "^1.2.4",
     "fuse.js": "^6.6.2",
