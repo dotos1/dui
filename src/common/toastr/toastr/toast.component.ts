@@ -10,6 +10,7 @@ import {
   Component,
   HostBinding,
   HostListener,
+  Injector,
   NgZone,
   OnDestroy,
   ViewEncapsulation,
@@ -20,7 +21,6 @@ import {
 import { Subscription } from 'rxjs';
 import { IndividualConfig, ToastPackage } from './toastr-config';
 import { ToastrService } from './toastr.service';
-import { TranslationService } from '@dotos/dui/translator';
 
 @Component({
   selector: '[toast-component]',
@@ -94,12 +94,14 @@ export class Toast<ConfigPayload = any> implements OnDestroy {
 
   constructor(
     protected toastrService: ToastrService,
-    public  translationService: TranslationService,
+    private injector: Injector,
+ 
     public toastPackage: ToastPackage,
     protected ngZone?: NgZone,
   ) {
-    this.message = this.translationService.instant( toastPackage.message);
-    this.title =  this.translationService.instant(toastPackage.title);
+
+    this.message =toastPackage.message;
+    this.title = toastPackage.title;
     this.options = toastPackage.config;
     this.originalTimeout = toastPackage.config.timeOut;
     this.toastClasses = `${toastPackage.toastType} ${toastPackage.config.toastClass}`;

@@ -420,7 +420,9 @@ export class TreeModel implements ITreeModel,OnDestroy {
     const fromParent = node.parent;
     const fromChildren = fromParent.getField('children');
     const originalNode = fromChildren.splice(fromIndex, 1)[0];
-    fromParent.setField('hasChildren', fromChildren.length > 0);
+    try{
+      fromParent.setField('hasChildren', fromChildren.length > 0);
+    }catch(e){}
     fromParent.treeModel.update();
     this.fireEvent({ eventName: TREE_EVENTS.removeNode, node: originalNode });
   }

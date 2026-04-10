@@ -18,7 +18,7 @@ export const FrameRootRoutes: Routes = [
     imports: [
         ColorFieldModule,
         FormWrapperModule, 
-        FormModule.forRoot(),
+
         LoadingModule,
         IconPickerModule,
         RouterModule.forChild(FrameRootRoutes)

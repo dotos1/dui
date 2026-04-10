@@ -1,5 +1,5 @@
 
-import { Injectable } from '@angular/core';
+import { Injectable, Injector } from '@angular/core';
 import { MatSnackBar, MatSnackBarRef, MatSnackBarConfig } from '@angular/material/snack-bar';
 import { TranslateService } from '@dotos/dui/translator';
 import { Subject } from 'rxjs';
@@ -16,7 +16,8 @@ export class NotificationService {
 
   constructor(
     private snackBar: MatSnackBar,
-    private translateService: TranslateService,
+        private injector: Injector,
+  
   ) {
    
   }
@@ -26,7 +27,8 @@ export class NotificationService {
     if (!config) {
       config = this.DEFAULT_DURATION_MESSAGE;
     }
-    const translatedMessage = this.translateService.instant(message);
+    let translateService: TranslateService=this.injector.get(TranslateService);
+    const translatedMessage = translateService.instant(message);
     if (typeof config === 'number') {
       config = {
         duration: config
@@ -40,7 +42,8 @@ export class NotificationService {
     if (!config) {
       config = this.DEFAULT_DURATION_MESSAGE;
     }
-    const translatedMessage = this.translateService.instant(message);
+        let translateService: TranslateService=this.injector.get(TranslateService);
+    const translatedMessage = translateService.instant(message);
     if (typeof config === 'number') {
       config = {
         duration: config
@@ -56,7 +59,8 @@ export class NotificationService {
   }
 
   protected showMessage(message: string, panelClass: string, action?: string): MatSnackBarRef<any> {
-    message = this.translateService.instant(message);
+    let translateService: TranslateService=this.injector.get(TranslateService);
+    message = translateService.instant(message);
 
     this.messages.next({ message: message, dateTime: new Date });
 
