@@ -14,7 +14,8 @@ import {
   ToastToken,
   TOAST_CONFIG,
 } from './toastr-config';
-import { TranslationService } from '@dotos/dui/translator';
+import { TranslateService } from '@dotos/dui/translator';
+
 
 export interface ActiveToast<C> {
   /** Your Toast ID. Use this to close it individually */
@@ -48,7 +49,7 @@ export class ToastrService {
 
   constructor(
     @Inject(TOAST_CONFIG) token: ToastToken,
-    public  translateService: TranslationService,
+  
     public overlay: Overlay,
     public _injector: Injector,
     public sanitizer: DomSanitizer,
@@ -67,45 +68,59 @@ export class ToastrService {
   }
   /** show toast */
   show<ConfigPayload = any>(message?: string, title?: string, override: Partial<IndividualConfig<ConfigPayload>> = {}, type = '') {
+    let translateService: TranslateService=this._injector.get(TranslateService);
+    let msg=message?translateService.instant(message):'';
+    let translateedTitle=title?translateService.instant(title):undefined;
     return this._preBuildNotification(
       type, 
-     this.translateService.instant(message) ,
-     this.translateService.instant( title), 
+      msg,
+      translateedTitle, 
       this.applyConfig(override));
   }
   /** show successful toast */
   success<ConfigPayload = any>(message?: string, title?: string, override: Partial<IndividualConfig<ConfigPayload>> = {}) {
-
+    let translateService: TranslateService=this._injector.get(TranslateService);
     const type = this.toastrConfig.iconClasses.success || '';
+    let msg=message?translateService.instant(message):'';
+    let translateedTitle=title?translateService.instant(title):undefined;
     return this._preBuildNotification(
       type, 
-      this.translateService.instant(message) ,
-      this.translateService.instant( title), 
+      msg,
+      translateedTitle, 
       this.applyConfig(override));
   }
   /** show error toast */
   error<ConfigPayload = any>(message?: string, title?: string, override: Partial<IndividualConfig<ConfigPayload>> = {}) {
     const type = this.toastrConfig.iconClasses.error || '';
+        let translateService: TranslateService=this._injector.get(TranslateService);
+            let msg=message?translateService.instant(message):'';
+    let translateedTitle=title?translateService.instant(title):undefined;
     return this._preBuildNotification(type,
-      this.translateService.instant(message) ,
-      this.translateService.instant( title), 
+      msg,
+      translateedTitle, 
        this.applyConfig(override));
   }
   /** show info toast */
   info<ConfigPayload = any>(message?: string, title?: string, override: Partial<IndividualConfig<ConfigPayload>> = {}) {
     const type = this.toastrConfig.iconClasses.info || '';
+       let translateService: TranslateService=this._injector.get(TranslateService);
+           let msg=message?translateService.instant(message):'';
+    let translateedTitle=title?translateService.instant(title):undefined;
     return this._preBuildNotification(type,
-      this.translateService.instant(message) ,
-      this.translateService.instant( title), 
+          msg,
+      translateedTitle, 
       this.applyConfig(override));
   }
   /** show warning toast */
   warning<ConfigPayload = any>(message?: string, title?: string, override: Partial<IndividualConfig<ConfigPayload>> = {}) {
     const type = this.toastrConfig.iconClasses.warning || '';
-    return this._preBuildNotification(type, 
-      this.translateService.instant(message) ,
-      this.translateService.instant( title), 
-      this.applyConfig(override));
+       let translateService: TranslateService=this._injector.get(TranslateService);
+       let msg=message?translateService.instant(message):'';
+      let translateedTitle=title?translateService.instant(title):undefined;
+      return this._preBuildNotification(type, 
+        msg,
+        translateedTitle, 
+        this.applyConfig(override));
   }
   /**
    * Remove all or a single toast by id

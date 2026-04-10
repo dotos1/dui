@@ -4,7 +4,8 @@ import { ComponentFactoryResolver, Inject, ModuleWithProviders, NgModule, Option
 import { FlexLayoutModule } from 'ngx-flexible-layout';
 import { ReactiveFormsModule } from '@angular/forms';
 import { Dui } from '@dotos/dui/core';
-import { ConfigOption, CoreExtension, FORM_CONFIG, FieldExpressionExtension, FieldFormExtension, FieldValidationExtension, FormBuilder, FormConfig, FormTemplateType } from '@dotos/dui/core/form';
+import { ConfigOption, CoreExtension, FORM_CONFIG, FieldExpressionExtension, FieldFormExtension, 
+  FieldValidationExtension, FormBuilder, FormConfig, FormTemplateType } from '@dotos/dui/core/form';
 import { TranslateModule, TranslateStore, TranslationService } from '@dotos/dui/translator';
 import { simpleInterceptorProviders } from '@dotos/dui/net';
 import { Load } from '../action/load.service';
@@ -61,7 +62,7 @@ export class FormModule {
     FormComponent,
     FormGroup,
     FieldComponent,];
-  static forRoot(config: ConfigOption = {}): ModuleWithProviders<FormModule> {
+  static forRoot(): ModuleWithProviders<FormModule> {
     return {
       ngModule: FormModule,
       providers: [
@@ -70,7 +71,7 @@ export class FormModule {
         ),
         simpleInterceptorProviders,
         { provide: FORM_CONFIG, multi: true, useFactory: defaultFormConfig, deps: [FormConfig] },
-        { provide: FORM_CONFIG, useValue: config, multi: true },
+       
         FormConfig,
         FormBuilder,
       ],
@@ -81,7 +82,6 @@ export class FormModule {
     return {
       ngModule: FormModule,
       providers: [
-
         { provide: FORM_CONFIG, useValue: config, multi: true },
         FormBuilder,
       ],

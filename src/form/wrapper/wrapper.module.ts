@@ -69,7 +69,7 @@ export const MATERIAL_FORMLY_CONFIG: ConfigOption = {
     ButtonModule,
     PopoverModule,
     TranslateModule,
-    FormModule.forRoot(MATERIAL_FORMLY_CONFIG),
+    FormModule.forChild(MATERIAL_FORMLY_CONFIG),
   ],
   exports: FIELD_TYPE_COMPONENTS
 })
