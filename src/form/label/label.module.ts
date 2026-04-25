@@ -15,7 +15,7 @@ import { LabelField } from './label-field';
     CommonModule,
     FlexLayoutModule,
     TranslateModule,
-    FormModule,
+    FormModule.forChild()
   ],
   exports: [
     LabelField

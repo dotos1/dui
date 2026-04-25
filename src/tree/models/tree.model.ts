@@ -273,7 +273,7 @@ export class TreeModel implements ITreeModel,OnDestroy {
   @action focusDrillDown() {
     const previousNode = this.getFocusedNode();
     if (previousNode && previousNode.isCollapsed && previousNode.hasChildren) {
-      previousNode.toggleExpanded();
+      previousNode.toggleExpanded(false);
     } else {
       const nextNode = previousNode ? previousNode.getFirstChild(true) : this.getFirstRoot(true);
       if (nextNode) { nextNode.focus(); }
@@ -284,7 +284,7 @@ export class TreeModel implements ITreeModel,OnDestroy {
     const previousNode = this.getFocusedNode();
     if (!previousNode) { return; }
     if (previousNode.isExpanded) {
-      previousNode.toggleExpanded();
+      previousNode.toggleExpanded(false);
     } else {
       const nextNode = previousNode.realParent;
       if (nextNode) { nextNode.focus(); }
@@ -321,9 +321,11 @@ export class TreeModel implements ITreeModel,OnDestroy {
       }   
     }
   }
-  @action setExpandedNode(node, value) {
+  @action setExpandedNode(node, value,silient) {
     this.expandedNodeIds = Object.assign({}, this.expandedNodeIds, { [node.id]: value });
+    if(!silient){
     this.fireEvent({ eventName: TREE_EVENTS.toggleExpanded, node, isExpanded: value });
+  }
   }
 
   @action expandAll() {
@@ -420,9 +422,7 @@ export class TreeModel implements ITreeModel,OnDestroy {
     const fromParent = node.parent;
     const fromChildren = fromParent.getField('children');
     const originalNode = fromChildren.splice(fromIndex, 1)[0];
-    try{
       fromParent.setField('hasChildren', fromChildren.length > 0);
-    }catch(e){}
     fromParent.treeModel.update();
     this.fireEvent({ eventName: TREE_EVENTS.removeNode, node: originalNode });
   }

@@ -35,7 +35,7 @@ import { MatInputModule } from '@angular/material/input';
     MatButtonModule,
     OverlayModule,
     IconModule,
-    FormModule
+    FormModule.forChild()
   ],
   declarations: [
     LineStyleSelector,

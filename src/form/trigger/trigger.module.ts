@@ -30,7 +30,7 @@ import { TranslateModule } from '@dotos/dui/translator';
     TreeModule,
     TranslateModule,
     FlexLayoutModule,
-    FormModule
+    FormModule.forChild(),
   ],
   exports: [
     MatInputModule,

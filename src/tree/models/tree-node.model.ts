@@ -354,16 +354,16 @@ export class TreeNode implements ITreeNode {
       });
   }
 
-  expand() {
+  expand(silent=false) {
     if (!this.isExpanded) {
-      this.toggleExpanded();
+      this.toggleExpanded(silent);
     }
     return this;
   }
 
-  collapse() {
+  collapse(silent=false) {
     if (this.isExpanded) {
-      this.toggleExpanded();
+      this.toggleExpanded(silent);
     }
     return this;
   }
@@ -405,14 +405,14 @@ export class TreeNode implements ITreeNode {
     return this;
   }
 
-  toggleExpanded() {
-    this.setIsExpanded(!this.isExpanded);
+  toggleExpanded(silent) {
+    this.setIsExpanded(!this.isExpanded,silent);
     return this;
   }
 
-  setIsExpanded(value) {
+  setIsExpanded(value,silent) {
     if (this.hasChildren) {
-      this.treeModel.setExpandedNode(this, value);
+      this.treeModel.setExpandedNode(this, value,silent);
     }
     return this;
   }
@@ -544,8 +544,9 @@ export class TreeNode implements ITreeNode {
   }
 
   @action _initChildren() {
-    this.children = this.getField('children')
-      .map((c, index) => new TreeNode(c,this,this.treeModel, index));
+    let childs=this.getField('children');
+
+    this.children = childs.map((c, index) => new TreeNode(c,this,this.treeModel, index));
   }
 }
 

@@ -34,7 +34,7 @@ import { CommonFieldModule } from '../field';
     MatSelectModule,
     TranslateModule,
     MatChipsModule,
-    FormModule,
+    FormModule.forChild(),
   ],
   exports: [
     ArrayInputComponent

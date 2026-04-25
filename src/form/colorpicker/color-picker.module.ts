@@ -35,8 +35,7 @@ import { TranslateModule } from '@dotos/dui/translator';
     MatMenuModule,
     MatTooltipModule,
     DuiPipesModule,
-    FormModule,
-     
+    FormModule.forChild(),
     ReactiveFormsModule,
     OverlayModule,
     PortalModule,

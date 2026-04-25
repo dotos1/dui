@@ -30,7 +30,7 @@ import { DateFieldComponent } from './datefield.component';
     MatDatepickerModule,
     TranslateModule,
     MatDatetimepickerModule,
-    FormModule
+    FormModule.forChild(),
   ],
   exports: [
     DateFieldComponent

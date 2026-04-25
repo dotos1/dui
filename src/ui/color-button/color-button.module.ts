@@ -28,7 +28,7 @@ import { GoogColorModule } from '@dotos/dui/common/colorpicker/components';
     MatButtonModule,
     OverlayModule,
     IconModule,
-    FormModule
+    FormModule.forChild(),
   ],
   declarations: [
     ColorPickerButton

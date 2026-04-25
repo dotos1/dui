@@ -39,7 +39,7 @@ import { OptionsService } from './options.service';
     MatSelectModule,
     TranslateModule,
     MatChipsModule,
-    FormModule,
+    FormModule.forChild()
   ],
   exports: [
     TextFieldComponent,

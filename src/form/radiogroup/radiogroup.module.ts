@@ -15,7 +15,7 @@ import { TranslateModule } from '@dotos/dui/translator';
   ],
   imports: [
     CommonModule,
-    FormModule,
+    FormModule.forChild(),
     TranslateModule,
     SelectPipeModule,
     ReactiveFormsModule,
