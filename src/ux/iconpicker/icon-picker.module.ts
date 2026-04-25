@@ -45,7 +45,7 @@ import { MatButtonModule } from '@angular/material/button';
     MatTabsModule,
     MatSelectModule,
     FlexLayoutModule,
-    FormModule,
+    FormModule.forChild()
   ],
   exports: [
      

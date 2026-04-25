@@ -40,7 +40,7 @@ import { MatSelectSearchModule } from './search/mat-select-search.module';
     TranslateModule,
     MatSelectSearchModule,
     MatPseudoCheckboxModule,
-    FormModule,
+    FormModule.forChild(),
   ],
   declarations: [
     FieldSelect

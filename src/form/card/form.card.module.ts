@@ -16,7 +16,7 @@ import { TranslateModule } from '@dotos/dui/translator';
   declarations: [FormCard],
   imports: [
     CommonModule,
-    FormModule,
+    FormModule.forChild(),
     ReactiveFormsModule,
     MatInputModule,
     MatFormFieldModule,

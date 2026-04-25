@@ -413,11 +413,11 @@ export interface ITreeNode {
   /**
    * Expands / Collapses the node
    */
-  toggleExpanded();
+  toggleExpanded(silient);
   /**
    * Expands the node
    */
-  expand();
+  expand(silient?);
   /**
    * Collapses the node
    */
