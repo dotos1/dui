@@ -1,0 +1,45 @@
+:host ::ng-deep .mat-mdc-form-field-suffix {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-end !important;
+  padding: 0 !important;
+}
+
+:host ::ng-deep  .mat-mdc-select-value {
+  flex: none !important;
+  width: auto !important;
+  text-align: right !important;
+  padding-right: 4px !important;
+}
+
+:host ::ng-deep  .mat-mdc-select-trigger {
+  display: flex !important;
+  justify-content: flex-end !important;
+  align-items: center !important;
+      padding-right: 10px;
+}
+
+:host ::ng-deep  .mat-mdc-select-arrow-wrapper {
+  flex: none !important;
+  display: flex !important;
+  align-items: center !important;
+}
+
+.unit-select {
+  width: 100%;
+}
+.right-aligned-panel .mat-mdc-option .mdc-list-item__primary-text {
+  text-align: right !important;
+}
+
+.right-aligned-panel {
+  .mat-mdc-option {
+    text-align: left !important;
+    justify-content: flex-start !important;
+    .mdc-list-item__primary-text {
+      text-align: right !important;
+      width: 100%;
+    }
+  }
+  min-width: 100px !important;
+}

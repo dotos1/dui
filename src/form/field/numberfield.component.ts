@@ -8,22 +8,11 @@ import { MatField } from '../base/mat.field';
 @Component({
   selector: 'number-field',
   templateUrl: './numberfield.component.html',
+  styleUrls: ['./numberfield.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  encapsulation: ViewEncapsulation.None,
-  styles: [
-    `
-    .unit-select {
-      width:50px
-    }
-    .unit-select  .mat-select-trigger .mat-select-value{
-      text-align: end;
-    }
-  `,
-  ],
   host: {
     hostID: 'number-field' + Math.random().toString(36).substring(2, 15),
   }
-  
 })
 export class NumberFieldComponent extends MatField implements AfterViewInit {
 
