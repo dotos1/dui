@@ -88,7 +88,7 @@ export class TreeOptions {
   get getChildren(): any { return this.options.getChildren; }
   get levelPadding(): number { return this.options.levelPadding || 0; }
   get useVirtualScroll(): boolean { return this.options.useVirtualScroll; }
-  get animateExpand(): boolean { return this.options.animateExpand; }
+  get animateExpand(): boolean { return this.options.animateExpand ||false; }
   get animateSpeed(): number { return this.options.animateSpeed || 1; }
   get animateAcceleration(): number { return this.options.animateAcceleration || 1.2; }
   get scrollOnActivate(): boolean { return this.options.scrollOnActivate === undefined ? true : this.options.scrollOnActivate; }

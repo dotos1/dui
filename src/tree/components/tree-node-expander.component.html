@@ -1,8 +1,7 @@
 <ng-container *treeMobxAutorun="{dontDetach: true}">
   <span
     *ngIf="node.hasChildren"
-    class="toggle-children-wrapper"
-    (click)="node.mouseAction('expanderClick', $event)">
+    class="toggle-children-wrapper">
     <mat-icon *ngIf="!node.options.expanderAlign||node.options.expanderAlign==='left'">
       {{node.isExpanded? 'keyboard_arrow_down' :  'keyboard_arrow_right'}}
     </mat-icon>

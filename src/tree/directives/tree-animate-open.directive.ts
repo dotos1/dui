@@ -48,9 +48,9 @@ export class TreeAnimateOpenDirective {
     let ease = this.animateAcceleration;
     let maxHeight = 0;
 
-    // set height to 0
-    // set height to 0
-    this.renderer.setStyle(this.innerElement, 'max-height', `0`);
+   this.renderer.setStyle(this.innerElement, 'max-height', 'none');
+    const targetHeight = this.innerElement.scrollHeight; 
+    this.renderer.setStyle(this.innerElement, 'max-height', '0px');
 
     // increase maxHeight until height doesn't change
     setTimeout(() => { // Allow inner element to create its content
@@ -61,17 +61,14 @@ export class TreeAnimateOpenDirective {
         const roundedMaxHeight = Math.round(maxHeight);
 
         this.renderer.setStyle(this.innerElement, 'max-height', `${roundedMaxHeight}px`);
-        const height = this.innerElement.getBoundingClientRect ? this.innerElement.getBoundingClientRect().height : 0; // TBD use renderer
 
         delta *= ease;
         ease *= EASE_ACCELERATION;
-        if (height < roundedMaxHeight) {
-          // Make maxHeight auto because animation finished and container might change height later on
-          // Make maxHeight auto because animation finished and container might change height later on
+       if (roundedMaxHeight >= targetHeight) {
           this.renderer.removeStyle(this.innerElement, 'max-height');
           clearInterval(i);
         }
-      }, 17);
+      }, 16);
     });
   }
 

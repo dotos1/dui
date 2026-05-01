@@ -1,11 +1,13 @@
 import { HttpClient } from '@angular/common/http';
 import {
+  ChangeDetectionStrategy,
     ChangeDetectorRef,
     Component,
     ContentChild,
     EventEmitter,
     HostListener,
     Input,
+    NgZone,
     OnChanges,
     Output,
     TemplateRef,
@@ -39,6 +41,7 @@ export interface ITreeConfig {
   styleUrls: ['../tree.component.scss'],
   templateUrl: 'tree.component.html',
   encapsulation: ViewEncapsulation.None,
+
   host: {
     hostID: 'tree-root' + Math.random().toString(36).substring(2, 15),  
   }
@@ -93,23 +96,44 @@ export class TreeComponent implements OnChanges {
   @Output() event;
   @Output() stateChange;
 
+   private globalListeners: (() => void)[] =[];
+
   constructor(
     public treeModel: TreeModel,
     public treeDraggedElement: TreeDraggedElement,
     public localStore: LocalStorageService,
     protected http: HttpClient,
     public translator:TranslateService,
+     private ngZone: NgZone ,
     protected _changeDetectorRef: ChangeDetectorRef) {
     treeModel.eventNames.forEach((name) => this[name] = new EventEmitter());
     treeModel.subscribeToState((state) => this.stateChange.emit(state));
     treeModel.setEvents(pick(this, this.treeModel.eventNames));
   }
 
+   ngOnInit() {
+
+    this.ngZone.runOutsideAngular(() => {
+      const mouseDownHandler = (e: MouseEvent) => this.onMousedown(e);
+      const keyDownHandler = (e: KeyboardEvent) => this.onKeydown(e);
+      document.body.addEventListener('mousedown', mouseDownHandler);
+      document.body.addEventListener('keydown', keyDownHandler);
+      this.globalListeners.push(
+        () => document.body.removeEventListener('mousedown', mouseDownHandler),
+        () => document.body.removeEventListener('keydown', keyDownHandler)
+      );
+    });
+  }
+
+  ngOnDestroy() {
+    this.globalListeners.forEach(cleanup => cleanup());
+  }
+
   get selectedNodes() {
     return this.treeModel.activeNodes;
   }
 
-  @HostListener('body: keydown', ['$event'])
+  // @HostListener('body: keydown', ['$event'])
   onKeydown($event) {
     if (!this.treeModel.isFocused) { return; }
     if (includes(['input', 'textarea'],
@@ -118,7 +142,7 @@ export class TreeComponent implements OnChanges {
     this.treeModel.performKeyAction(focusedNode, $event);
   }
 
-  @HostListener('body: mousedown', ['$event'])
+  // @HostListener('body: mousedown', ['$event'])
   onMousedown($event) {
     function isOutsideClick(startElement: Element, nodeName: string) {
       return !startElement ? true : startElement.localName === nodeName ? false : isOutsideClick(startElement.parentElement, nodeName);
@@ -160,6 +184,7 @@ export class TreeComponent implements OnChanges {
   setActiveNodeLabel(label: string) {
     let treeNode = this.treeModel.getActiveNode();
     treeNode.data[this.treeModel.options.displayField] = label;
+    this.treeModel.update();
     this._changeDetectorRef.detectChanges();
   }
 
