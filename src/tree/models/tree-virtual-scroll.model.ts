@@ -13,6 +13,7 @@ export class TreeVirtualScroll {
   @observable yBlocks = 0;
   @observable x = 0;
   @observable viewportHeight = null;
+    @observable _totalHeight = 0; 
   viewport = null;
 
   @computed get y() {
@@ -20,7 +21,7 @@ export class TreeVirtualScroll {
   }
 
   @computed get totalHeight() {
-    return this.treeModel.virtualRoot ? this.treeModel.virtualRoot.height : 0;
+     return this.treeModel.virtualRoot ? this._totalHeight : 0;
   }
 
   constructor(private treeModel: TreeModel) {
@@ -54,7 +55,16 @@ export class TreeVirtualScroll {
   }
 
   @action recalcPositions() {
-    this.treeModel.virtualRoot.height = this._getPositionAfter(this.treeModel.getVisibleRoots(), 0);
+     if (
+      !this.treeModel || 
+      !this.treeModel.virtualRoot || 
+      !this.treeModel.virtualRoot.visibleChildren
+    ) {
+      return; 
+    }
+    const newHeight = this._getPositionAfter(this.treeModel.getVisibleRoots(), 0);
+    this.treeModel.virtualRoot.height = newHeight;
+    this._totalHeight = newHeight;
   }
 
   private _getPositionAfter(nodes, startPos) {
@@ -81,20 +91,21 @@ export class TreeVirtualScroll {
   }
 
   @action setViewport(viewport) {
-     let currentHeight = this.viewportHeight;
-    if (!currentHeight) {
-       currentHeight = viewport.clientHeight || (viewport.getBoundingClientRect ? viewport.getBoundingClientRect().height : 0);
-    }
+  const currentHeight = viewport.clientHeight || (viewport.getBoundingClientRect ? viewport.getBoundingClientRect().height : 0);
     Object.assign(this, {
       viewport,
       x: viewport.scrollLeft,
       yBlocks: Math.round(viewport.scrollTop / Y_EPSILON),
-      viewportHeight: currentHeight 
+      viewportHeight: currentHeight
     });
   }
 
   @action scrollIntoView(node, force, scrollToMiddle = true) {
-    if (node.options.scrollContainer) {
+     if (!this.isEnabled()) {
+      return; 
+    }
+
+ if (node.options.scrollContainer) {
       const scrollContainer = node.options.scrollContainer;
       const scrollContainerHeight = scrollContainer.getBoundingClientRect().height;
       const scrollContainerTop = scrollContainer.getBoundingClientRect().top;
@@ -116,7 +127,7 @@ export class TreeVirtualScroll {
           node.position - this.viewportHeight / 2 : // scroll to middle
           node.position; // scroll to start
 
-          this._setYBlocks(Math.floor(this.viewport.scrollTop / Y_EPSILON));
+            this._setYBlocks(Math.floor(this.viewport.scrollTop / Y_EPSILON));
         }
       }
     }

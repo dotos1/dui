@@ -39,9 +39,11 @@ export class TreeNodeWrapperComponent implements OnInit, OnDestroy {
         if (wrapper && wrapper.contains(event.target as Node)) {
           if (this.node && this.node.mouseAction) {
             if (runInZone) {
-               this.ngZone.run(() => {
-                 this.node.mouseAction(actionName, event);
-               });
+                setTimeout(() => {
+                  this.ngZone.run(() => {
+                    this.node.mouseAction(actionName, event);
+                  });
+                }, 0);
             } else {
                this.node.mouseAction(actionName, event);
             }

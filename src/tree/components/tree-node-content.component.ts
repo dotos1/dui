@@ -1,4 +1,4 @@
-import { Component, Input, ViewEncapsulation, TemplateRef, ChangeDetectionStrategy } from '@angular/core';
+import { Component, Input, ViewEncapsulation, TemplateRef, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
 
 import { TreeNode } from '../models/tree-node.model';
 
@@ -25,4 +25,21 @@ export class TreeNodeContent {
   @Input() index: number;
   @Input() template: TemplateRef<any>;
 
+  private sub: any;
+
+  constructor(private cdr: ChangeDetectorRef) {}
+
+  ngOnInit() {
+    this.sub = this.node.treeModel.subscribe('updateData', (event: any) => {
+      if (event.node === this.node) {
+        this.cdr.markForCheck();
+      }
+    });
+  }
+
+  ngOnDestroy() {
+    if (this.sub && this.sub.unsubscribe) {
+      this.sub.unsubscribe();
+    }
+  }
 }
