@@ -1,10 +1,16 @@
-import { Directive, Input, TemplateRef, ViewContainerRef, Renderer2 } from '@angular/core';
+import {
+  Directive,
+  Input,
+  TemplateRef,
+  ViewContainerRef,
+  Renderer2,
+  NgZone,
+} from '@angular/core';
 
 const EASE_ACCELERATION = 1.005;
 
 @Directive({
   selector: '[treeAnimateOpen]',
-  
 })
 export class TreeAnimateOpenDirective {
   private _isOpen: boolean;
@@ -31,16 +37,25 @@ export class TreeAnimateOpenDirective {
   constructor(
     private renderer: Renderer2,
     private templateRef: TemplateRef<any>,
-    private viewContainerRef: ViewContainerRef) { }
+    private viewContainerRef: ViewContainerRef,
+    private ngZone: NgZone,
+  ) {}
 
   private _show() {
-    if (this.innerElement) { return; }
-    this.innerElement = this.viewContainerRef.createEmbeddedView(this.templateRef).rootNodes[0];
+    if (this.innerElement) {
+        this.renderer.removeStyle(this.innerElement, 'display');
+      return;
+    }
+    this.innerElement = this.viewContainerRef.createEmbeddedView(
+      this.templateRef,
+    ).rootNodes[0];
   }
 
   private _hide() {
-    this.viewContainerRef.clear();
-    this.innerElement = null;
+     if (this.innerElement) {
+      this.renderer.setStyle(this.innerElement, 'display', 'none');
+      this.renderer.removeStyle(this.innerElement, 'max-height');
+    }
   }
 
   private _animateOpen() {
@@ -48,52 +63,67 @@ export class TreeAnimateOpenDirective {
     let ease = this.animateAcceleration;
     let maxHeight = 0;
 
-   this.renderer.setStyle(this.innerElement, 'max-height', 'none');
-    const targetHeight = this.innerElement.scrollHeight; 
+    this.renderer.setStyle(this.innerElement, 'max-height', 'none');
+    const targetHeight = this.innerElement.scrollHeight|| 0;;
     this.renderer.setStyle(this.innerElement, 'max-height', '0px');
 
-    // increase maxHeight until height doesn't change
-    setTimeout(() => { // Allow inner element to create its content
-      const i = setInterval(() => {
-        if (!this._isOpen || !this.innerElement) { return clearInterval(i); }
+  
+    this.ngZone.runOutsideAngular(() => {
+      setTimeout(() => {
+        // Allow inner element to create its content
+        const i = setInterval(() => {
+          if (!this._isOpen || !this.innerElement) {
+            return clearInterval(i);
+          }
 
-        maxHeight += delta;
-        const roundedMaxHeight = Math.round(maxHeight);
+          maxHeight += delta;
+          const roundedMaxHeight = Math.round(maxHeight);
 
-        this.renderer.setStyle(this.innerElement, 'max-height', `${roundedMaxHeight}px`);
+          this.renderer.setStyle(
+            this.innerElement,
+            'max-height',
+            `${roundedMaxHeight}px`,
+          );
 
-        delta *= ease;
-        ease *= EASE_ACCELERATION;
-       if (roundedMaxHeight >= targetHeight) {
-          this.renderer.removeStyle(this.innerElement, 'max-height');
-          clearInterval(i);
-        }
-      }, 16);
+          delta *= ease;
+          ease *= EASE_ACCELERATION;
+          if (roundedMaxHeight >= targetHeight) {
+            this.renderer.removeStyle(this.innerElement, 'max-height');
+            clearInterval(i);
+          }
+        }, 16);
+      });
     });
   }
 
   private _animateClose() {
-    if (!this.innerElement) { return; }
+    if (!this.innerElement) {
+      return;
+    }
 
     let delta = this.animateSpeed;
     let ease = this.animateAcceleration;
     let height = this.innerElement.getBoundingClientRect().height; // TBD use renderer
 
     // slowly decrease maxHeight to 0, starting from current height
-    const i = setInterval(() => {
-      if (this._isOpen || !this.innerElement) { return clearInterval(i); }
+    this.ngZone.runOutsideAngular(() => {
+      const i = setInterval(() => {
+        if (this._isOpen || !this.innerElement) {
+          return clearInterval(i);
+        }
 
-      height -= delta;
-      this.renderer.setStyle(this.innerElement, 'max-height', `${height}px`);
-      delta *= ease;
-      ease *= EASE_ACCELERATION;
+        height -= delta;
+        this.renderer.setStyle(this.innerElement, 'max-height', `${height}px`);
+        delta *= ease;
+        ease *= EASE_ACCELERATION;
 
-      if (height <= 0) {
-        // after animation complete - remove child element
-        this.viewContainerRef.clear();
-        this.innerElement = null;
-        clearInterval(i);
-      }
-    }, 17);
+        if (height <= 0) {
+          clearInterval(i);
+          this.ngZone.run(() => {
+             this._hide();
+          });
+        }
+      }, 16);
+    });
   }
 }

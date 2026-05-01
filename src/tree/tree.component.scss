@@ -1,4 +1,10 @@
-
+tree-root {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  flex: 1; 
+}
 tree-viewport {
   height: 100%;
   width: 100%;
@@ -6,8 +12,11 @@ tree-viewport {
   font-family: Roboto, sans-serif;
   font-size: 14px;
   font-weight: inherit;
+  overflow-y: auto;
 }
 .angular-tree-component {
+  min-height: 100%;
+  height: auto !important;
   width: 100%;
   position:relative;
   cursor: pointer;
@@ -42,7 +51,7 @@ tree-root .angular-tree-component-rtl .tree-children {
     background: none;
 }
 .node-wrapper {
-  height: 40px;
+  height: 40px; 
   display: flex;
   align-items: flex-start;
   position: relative;

@@ -12,6 +12,7 @@ import {
     Output,
     TemplateRef,
     ViewChild,
+     ElementRef ,
     ViewEncapsulation
 } from '@angular/core';
 import { LocalStorageService } from '@dotos/dui/core/storage';
@@ -105,6 +106,7 @@ export class TreeComponent implements OnChanges {
     protected http: HttpClient,
     public translator:TranslateService,
      private ngZone: NgZone ,
+      private el: ElementRef,
     protected _changeDetectorRef: ChangeDetectorRef) {
     treeModel.eventNames.forEach((name) => this[name] = new EventEmitter());
     treeModel.subscribeToState((state) => this.stateChange.emit(state));
@@ -133,7 +135,7 @@ export class TreeComponent implements OnChanges {
     return this.treeModel.activeNodes;
   }
 
-  // @HostListener('body: keydown', ['$event'])
+
   onKeydown($event) {
     if (!this.treeModel.isFocused) { return; }
     if (includes(['input', 'textarea'],
@@ -144,11 +146,12 @@ export class TreeComponent implements OnChanges {
 
   // @HostListener('body: mousedown', ['$event'])
   onMousedown($event) {
-    function isOutsideClick(startElement: Element, nodeName: string) {
-      return !startElement ? true : startElement.localName === nodeName ? false : isOutsideClick(startElement.parentElement, nodeName);
-    }
-    if (isOutsideClick($event.target, 'tree-root')) {
-      this.treeModel.setFocus(false);
+   if (this.el.nativeElement && !this.el.nativeElement.contains($event.target as Node)) {
+      if (this.treeModel.isFocused) {
+        this.ngZone.run(() => {
+          this.treeModel.setFocus(false);
+        });
+      }
     }
   }
 
@@ -181,17 +184,24 @@ export class TreeComponent implements OnChanges {
     } catch (e) { console.log(e); }
   }
 
-  setActiveNodeLabel(label: string) {
-    let treeNode = this.treeModel.getActiveNode();
-    treeNode.data[this.treeModel.options.displayField] = label;
-    this.treeModel.update();
-    this._changeDetectorRef.detectChanges();
+setActiveNodeLabel(label: string) {
+let treeNode = this.treeModel.getActiveNode();
+    if (treeNode) {
+      treeNode.data[this.treeModel.options.displayField] = label;
+      this.treeModel.update();
+      this.treeModel.fireEvent({ eventName: 'updateData', node: treeNode });
+         this._changeDetectorRef.detectChanges(); 
+    }
   }
 
   setActiveNodeIcon(icon: string) {
     let treeNode = this.treeModel.getActiveNode();
-    treeNode.icon = icon;
-    this._changeDetectorRef.detectChanges();
+    if (treeNode) {
+      treeNode.icon = icon;
+      this.treeModel.update();
+      this.treeModel.fireEvent({ eventName: 'updateData', node: treeNode });
+         this._changeDetectorRef.detectChanges(); 
+    }
   }
 
   dropActiveNode(fn) {
@@ -330,6 +340,7 @@ export class TreeComponent implements OnChanges {
   }
   ngOnChanges(changes) {
     if (changes.options || changes.nodes) {
+     setTimeout(() => {
       this.treeModel.setData({
         nodes: changes.nodes && changes.nodes.currentValue,
         options: changes.options && changes.options.currentValue,
@@ -339,8 +350,16 @@ export class TreeComponent implements OnChanges {
       if (this.treeModel.options.getChildren == undefined) {
         this.treeModel.options.getChildren = this.getChildren.bind(this);
       }
-    }
+       this._changeDetectorRef.detectChanges();
+        if (this.viewportComponent) {
+          requestAnimationFrame(() => {
+            this.viewportComponent.setViewport();
+            this._changeDetectorRef.detectChanges(); 
+          });
+        }
+    }, 0);
   }
+}
 
   sizeChanged() {
     this.viewportComponent.setViewport();
