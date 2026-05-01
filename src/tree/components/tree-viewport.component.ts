@@ -1,5 +1,6 @@
 import {
-  Component, ElementRef,   AfterViewInit, OnInit, OnDestroy, HostListener, 
+  Component, ElementRef,   AfterViewInit, OnInit, OnDestroy, HostListener,
+  ChangeDetectionStrategy, NgZone
 } from '@angular/core';
 import { TreeVirtualScroll } from '../models/tree-virtual-scroll.model';
 import { TREE_EVENTS } from '../constants/events';
@@ -8,6 +9,7 @@ import { TREE_EVENTS } from '../constants/events';
   selector: 'tree-viewport',
   styles: [],
   providers: [TreeVirtualScroll],
+     changeDetection: ChangeDetectionStrategy.OnPush, 
   templateUrl: 'tree-viewport.component.html',
   host: { 
     hostID: 'tree-viewport' + Math.random().toString(36).substring(2, 15),
@@ -22,7 +24,8 @@ export class TreeViewportComponent implements AfterViewInit, OnInit, OnDestroy {
 
   constructor(
     private elementRef: ElementRef,
-    public virtualScroll: TreeVirtualScroll) {
+    public virtualScroll: TreeVirtualScroll,
+    private ngZone: NgZone) {
       this.scrollEventHandler = this.setViewport.bind(this);
   }
 
@@ -31,6 +34,9 @@ export class TreeViewportComponent implements AfterViewInit, OnInit, OnDestroy {
   }
 
   ngAfterViewInit() {
+     this.ngZone.runOutsideAngular(() => {
+      this.elementRef.nativeElement.addEventListener('scroll', this.scrollEventHandler, { passive: true });
+    });
     setTimeout(() => {
       this.setViewport();
       this.virtualScroll.fireEvent({ eventName: TREE_EVENTS.initialized });
@@ -47,8 +53,6 @@ export class TreeViewportComponent implements AfterViewInit, OnInit, OnDestroy {
     return this.virtualScroll.isEnabled() && this.virtualScroll.totalHeight + 'px' || '100%';
   }
 
-  @HostListener('scroll', ['$event'])
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   onScroll(e) {
     this.setViewport();
   }

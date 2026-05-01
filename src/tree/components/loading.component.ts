@@ -1,10 +1,11 @@
-import { Component, Input, TemplateRef, ViewEncapsulation } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, TemplateRef, ViewEncapsulation } from '@angular/core';
 import { TreeNode } from '../models/tree-node.model';
 
 @Component({
   encapsulation: ViewEncapsulation.None,
   selector: 'tree-loading-component',
   templateUrl: 'loading.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush, 
   host: {
     hostID: 'tree-loading-component' + Math.random().toString(36).substring(2, 15)
   }

@@ -81,11 +81,15 @@ export class TreeVirtualScroll {
   }
 
   @action setViewport(viewport) {
+     let currentHeight = this.viewportHeight;
+    if (!currentHeight) {
+       currentHeight = viewport.clientHeight || (viewport.getBoundingClientRect ? viewport.getBoundingClientRect().height : 0);
+    }
     Object.assign(this, {
       viewport,
       x: viewport.scrollLeft,
       yBlocks: Math.round(viewport.scrollTop / Y_EPSILON),
-      viewportHeight: viewport.getBoundingClientRect ? viewport.getBoundingClientRect().height : 0
+      viewportHeight: currentHeight 
     });
   }
 

@@ -1,9 +1,10 @@
-import { Component, Input, ViewEncapsulation } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, ViewEncapsulation } from '@angular/core';
 import { TreeNode } from '../models/tree-node.model';
 
 @Component({
   selector: 'TreeNodeDropSlot, tree-node-drop-slot',
   encapsulation: ViewEncapsulation.None,
+     changeDetection: ChangeDetectionStrategy.OnPush, 
   styles: [],
   templateUrl: 'tree-node-drop-slot.component.html',
   host: {

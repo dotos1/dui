@@ -1,4 +1,4 @@
-import { Component, Input, ViewEncapsulation } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, ViewEncapsulation } from '@angular/core';
 import { TreeNode } from '../models/tree-node.model';
 
 @Component({
@@ -6,6 +6,7 @@ import { TreeNode } from '../models/tree-node.model';
   encapsulation: ViewEncapsulation.None,
   styles: [],
   templateUrl: 'tree-node-children.component.html',
+      changeDetection: ChangeDetectionStrategy.OnPush, 
   host: {
     hostID: 'tree-node-children' + Math.random().toString(36).substring(2, 15)
   }

@@ -1,5 +1,5 @@
 import { TranslateService } from '@dotos/dui/translator';
-import {concat,first, last, some, every}  from 'lodash-es';
+import { concat, first, last, some, every } from 'lodash-es';
 import { IReactionDisposer, action, computed, observable, reaction } from 'mobx';
 
 import { TREE_EVENTS } from '../constants/events';
@@ -7,24 +7,22 @@ import { ITreeNode } from '../defs/api';
 import { TreeOptions } from './tree-options.model';
 import { TreeModel } from './tree.model';
 
-
 export class TreeNode implements ITreeNode {
   private handler: IReactionDisposer;
+  
   @computed get isHidden() { return this.treeModel.isHidden(this); }
-  @computed get isExpanded() {
-    return this.treeModel.isExpanded(this);
-  }
+  @computed get isExpanded() { return this.treeModel.isExpanded(this); }
   @computed get isActive() { return this.treeModel.isActive(this); }
   @computed get isFocused() { return this.treeModel.isNodeFocused(this); }
 
-
-  @computed get isSelected():boolean {
+  @computed get isSelected(): boolean {
     if (this.isSelectable()) {
       return this.treeModel.isSelected(this);
     } else {
       return some(this.children, (node) => node.isSelected);
     }
   }
+  
   @computed get isAllSelected() {
     if (this.isSelectable()) {
       return this.treeModel.isSelected(this);
@@ -32,6 +30,7 @@ export class TreeNode implements ITreeNode {
       return every(this.children, (node) => node.isAllSelected);
     }
   }
+  
   @computed get isPartiallySelected() {
     return this.isSelected && !this.isAllSelected;
   }
@@ -40,11 +39,12 @@ export class TreeNode implements ITreeNode {
   @observable index: number;
   @observable position = 0;
   @observable height: number;
+  
   @computed get level(): number {
     return this.parent ? this.parent.level + 1 : 0;
   }
   @computed get path(): string[] {
-    return this.parent ? [...this.parent.path, this.id] : [];
+    return this.parent ? [...this.parent.path, this.id] :[];
   }
 
   get elementRef(): any {
@@ -54,15 +54,18 @@ export class TreeNode implements ITreeNode {
 
   private _originalNode: any;
   get originalNode() { return this._originalNode; }
-  private  translator:TranslateService;
+  private translator: TranslateService;
   
   constructor(public data: any, public parent: TreeNode, public treeModel: TreeModel, index?: number) {
     if (this.id === undefined || this.id === null) {
       this.id = uuid();
     }
 
+    // ✨ 核心机制：在实例化时，将本节点注入到全局 Map 进行缓存
+    this.treeModel.nodeRegistry.set(this.id.toString(), this);
+
     this.index = index;
-    this.translator=treeModel.translator;
+    this.translator = treeModel.translator;
     if (this.getField('children')) {
       this._initChildren();
     }
@@ -81,7 +84,7 @@ export class TreeNode implements ITreeNode {
   }
   get isCollapsed(): boolean { return !this.isExpanded; }
   get isLeaf(): boolean { return !this.hasChildren; }
-  get isRoot(): boolean { return this.parent==null|| this.parent.data.virtual; }
+  get isRoot(): boolean { return this.parent == null || this.parent.data.virtual; }
   get realParent(): TreeNode { return this.isRoot ? null : this.parent; }
 
   // proxy functions:
@@ -89,22 +92,32 @@ export class TreeNode implements ITreeNode {
 
   fireEvent(event) { this.treeModel.fireEvent(event); }
 
-  // field accessors:
   get displayField() {
-    return  this.translator.instant(this.getField('display'));
+    return this.translator.instant(this.getField('display'));
   }
+
   get id() {
     return this.getField('id');
   }
+
+  // ✨ 核心机制修复：处理运行时 ID 变更的异常情况，保障 Map 数据一致性
   set id(value) {
+    const oldId = this.getField('id');
+    // 如果原先有旧的ID，先从字典里清除
+    if (oldId !== undefined && oldId !== null && this.treeModel) {
+      this.treeModel.nodeRegistry.delete(oldId.toString());
+    }
     this.setField('id', value);
+    // 更新后重新写进字典
+    if (value !== undefined && value !== null && this.treeModel) {
+      this.treeModel.nodeRegistry.set(value.toString(), this);
+    }
   }
-  // field accessors:
+
   get expandedIcon() {
     return this.data['expandedIcon'];
   }
 
-  // field accessors:
   get icon() {
     return this.data['icon'];
   }
@@ -113,9 +126,8 @@ export class TreeNode implements ITreeNode {
     this.data['icon'] = icon;
   }
 
-  // field accessors:
   get toolTip() {
-    return this.data['toolTip']?this.translator.instant(this.data['toolTip']):undefined;
+    return this.data['toolTip'] ? this.translator.instant(this.data['toolTip']) : undefined;
   }
 
   set toolTip(toolTip) {
@@ -149,26 +161,32 @@ export class TreeNode implements ITreeNode {
   setField(key, value) {
     this.data[this.options[`${key}Field`]] = value;
   }
-  public clear(){
-    this.children=[];
+  
+  public clear() {
+    this.children =[];
   }
-  public addNode(node){
-      if(this.children==undefined){
-        this.children=[];
-      }
-    let treeNode= new TreeNode(node,this,this.treeModel, this.children.length);
+  
+  public addNode(node) {
+    if (this.children == undefined) {
+      this.children =[];
+    }
+    let treeNode = new TreeNode(node, this, this.treeModel, this.children.length);
     this.children.push(treeNode);
     return treeNode;
   }
-  public destroy(){
-    let children=this.parent.children;
-    for(let k=0;k<children.length;k++){
-        if(children[k].id==this.id){
-          children.splice(k);
-        }
+
+  public destroy() {
+    let children = this.parent.children;
+    for (let k = 0; k < children.length; k++) {
+      if (children[k].id == this.id) {
+        children.splice(k, 1); // 修复原生BUG: 这里应该是 splice(k, 1)
+      }
     }
     this.parent.setIsActive(true);
+    // 被销毁时，将自己释放
+    this.dispose();
   }
+
   // traversing:
   _findAdjacentSibling(steps, skipHidden = false) {
     const siblings = this._getParentsChildren(skipHidden);
@@ -188,7 +206,6 @@ export class TreeNode implements ITreeNode {
     return this.visibleChildren;
   }
 
-
   getPathValue(val, name): string[] {
     if (this.parent) {
       val = this.parent.getPathValue(val, name);
@@ -196,23 +213,23 @@ export class TreeNode implements ITreeNode {
     if (this.data[name]) {
       val = concat(val, [this.data[name]]);
     } else {
-      val = concat(val, []);
+      val = concat(val,[]);
     }
     return val;
   }
 
   @computed get visibleChildren() {
-    return (this.children || []).filter((node) => !node.isHidden);
+    return (this.children ||[]).filter((node) => !node.isHidden);
   }
 
   getFirstChild(skipHidden = false) {
     const children = skipHidden ? this.visibleChildren : this.children;
-    return first(children || []);
+    return first(children ||[]);
   }
 
   getLastChild(skipHidden = false) {
     const children = skipHidden ? this.visibleChildren : this.children;
-    return last(children || []);
+    return last(children ||[]);
   }
 
   findNextNode(goInside = true, skipHidden = false) {
@@ -239,36 +256,36 @@ export class TreeNode implements ITreeNode {
   private _getParentsChildren(skipHidden = false): any[] {
     const children = this.parent &&
       (skipHidden ? this.parent.getVisibleChildren() : this.parent.children);
-    return children || [];
+    return children ||[];
   }
 
-  public getRoot(node?:TreeNode) {
-    if(node==undefined)
-      node=this;
-    if(node.isRoot) return node;
-    if(node.parent&&node.parent.isRoot){
+  public getRoot(node?: TreeNode) {
+    if (node == undefined) node = this;
+    if (node.isRoot) return node;
+    if (node.parent && node.parent.isRoot) {
       return node.parent;
-    }else{
+    } else {
       return this.getRoot(node.parent);
     }
- }
+  }
 
-  public getAllParents(result:TreeNode[]) {
-     if(this.parent){
+  public getAllParents(result: TreeNode[]) {
+    if (this.parent) {
       result.push(this.parent);
       this.parent.getAllParents(result);
-     }
+    }
   }
-  public getAllChildren(result:TreeNode[]) {
-    if(this.children){
-      this.children.forEach((child)=>{
+  
+  public getAllChildren(result: TreeNode[]) {
+    if (this.children) {
+      this.children.forEach((child) => {
         result.push(child);
-        if(child.children){
+        if (child.children) {
           child.getAllChildren(result);
         }
-      })
+      });
     }
- }
+  }
 
   getIndexInParent(skipHidden = false) {
     return this._getParentsChildren(skipHidden).indexOf(this);
@@ -285,7 +302,7 @@ export class TreeNode implements ITreeNode {
   }
 
   getClass(): string {
-    return [this.options.nodeClass(this), `tree-node-level-${this.level}`].join(' ');
+    return[this.options.nodeClass(this), `tree-node-level-${this.level}`].join(' ');
   }
 
   onDrop($event) {
@@ -307,11 +324,7 @@ export class TreeNode implements ITreeNode {
     return this.options.allowDrag(this);
   }
 
-  // dropZones() {
-  //   return this.options.dropZones;
-  // }
-
-  setNodeChildren(children){
+  setNodeChildren(children) {
     if (children) {
       this.setField('hasChildren', children.length > 0);
       this.setField('children', children);
@@ -346,22 +359,23 @@ export class TreeNode implements ITreeNode {
               child.expand();
             }
           });
-        }}).then(() => {
-          this.fireEvent({
-            eventName: TREE_EVENTS.loadNodeChildren,
-            node: this
-          });
+        }
+      }).then(() => {
+        this.fireEvent({
+          eventName: TREE_EVENTS.loadNodeChildren,
+          node: this
+        });
       });
   }
 
-  expand(silent=false) {
+  expand(silent = false) {
     if (!this.isExpanded) {
       this.toggleExpanded(silent);
     }
     return this;
   }
 
-  collapse(silent=false) {
+  collapse(silent = false) {
     if (this.isExpanded) {
       this.toggleExpanded(silent);
     }
@@ -384,7 +398,7 @@ export class TreeNode implements ITreeNode {
     });
   }
 
-  expandAncestors(){
+  expandAncestors() {
     this.doForAncestors((node) => node.expand());
   }
 
@@ -401,25 +415,23 @@ export class TreeNode implements ITreeNode {
       this.realParent.expand();
       this.realParent.ensureVisible();
     }
-
     return this;
   }
 
   toggleExpanded(silent) {
-    this.setIsExpanded(!this.isExpanded,silent);
+    this.setIsExpanded(!this.isExpanded, silent);
     return this;
   }
 
-  setIsExpanded(value,silent) {
+  setIsExpanded(value, silent) {
     if (this.hasChildren) {
-      this.treeModel.setExpandedNode(this, value,silent);
+      this.treeModel.setExpandedNode(this, value, silent);
     }
     return this;
   }
 
   autoLoadChildren() {
-   this.handler =
-    reaction(
+    this.handler = reaction(
       () => this.isExpanded,
       (isExpanded) => {
         if (!this.children && this.hasChildren && isExpanded) {
@@ -430,6 +442,7 @@ export class TreeNode implements ITreeNode {
     );
   }
 
+  // ✨ 核心机制：在组件或节点被卸载时，释放 Map 中的引用，防止内存泄漏
   dispose() {
     if (this.children) {
       this.children.forEach((child) => child.dispose());
@@ -437,6 +450,11 @@ export class TreeNode implements ITreeNode {
     if (this.handler) {
       this.handler();
     }
+
+    if (this.id !== undefined && this.id !== null && this.treeModel) {
+      this.treeModel.nodeRegistry.delete(this.id.toString());
+    }
+
     this.parent = null;
     this.children = null;
   }
@@ -453,15 +471,14 @@ export class TreeNode implements ITreeNode {
     return this.isLeaf || !this.children || !this.options.useTriState;
   }
   
-  @action  setIsSelected(value,silent?) {
-
+  @action setIsSelected(value, silent?) {
     if (this.options.cascadeSelect) {
       if (this.isLeaf) {
-        this.treeModel.setSelectedNode(this, value,silent);
+        this.treeModel.setSelectedNode(this, value, silent);
       } else if (this.children) {
-        this.children.forEach((child) => child.setIsSelected(value,silent));
+        this.children.forEach((child) => child.setIsSelected(value, silent));
       } else {
-        this.treeModel.setSelectedNode(this, value,silent);
+        this.treeModel.setSelectedNode(this, value, silent);
       }
     } else {
       if (this.isSelectable()) {
@@ -484,8 +501,7 @@ export class TreeNode implements ITreeNode {
   }
   
   setActiveAndVisible(multi = false) {
-    this.setIsActive(true, multi)
-      .ensureVisible();
+    this.setIsActive(true, multi).ensureVisible();
     setTimeout(this.scrollIntoView.bind(this));
     return this;
   }
@@ -544,9 +560,8 @@ export class TreeNode implements ITreeNode {
   }
 
   @action _initChildren() {
-    let childs=this.getField('children');
-
-    this.children = childs.map((c, index) => new TreeNode(c,this,this.treeModel, index));
+    let childs = this.getField('children');
+    this.children = childs.map((c, index) => new TreeNode(c, this, this.treeModel, index));
   }
 }
 
