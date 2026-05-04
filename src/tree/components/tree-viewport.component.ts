@@ -35,10 +35,7 @@ export class TreeViewportComponent implements AfterViewInit, OnInit, OnDestroy {
     this.virtualScroll.init();
        this.ngZone.runOutsideAngular(() => {
       this.disposeAutorun = autorun(() => {
-        const yBlocks = this.virtualScroll.yBlocks;
-        const totalHeight = this.virtualScroll.totalHeight;
-        const viewportHeight = this.virtualScroll.viewportHeight;
-      
+
         requestAnimationFrame(() => {
           this.ngZone.run(() => {
             if (this.cdr && !(this.cdr as any).destroyed) {
@@ -87,7 +84,18 @@ export class TreeViewportComponent implements AfterViewInit, OnInit, OnDestroy {
   }
 
 
-  setViewport() {
-      this.virtualScroll.setViewport(this.elementRef.nativeElement);
+  setViewport = this.throttle(() => {
+    this.virtualScroll.setViewport(this.elementRef.nativeElement);
+  }, 17);
+  
+    private throttle(func, timeFrame) {
+    let lastTime = 0;
+    return function () {
+      let now = Date.now();
+      if (now - lastTime >= timeFrame) {
+        func();
+        lastTime = now;
+      }
+    };
   }
 }

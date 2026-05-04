@@ -109,7 +109,7 @@ export class TreeOptions {
 
   actionMapping: IActionMapping;
 
-  constructor(private options: ITreeOptions = {}) {
+  constructor(public options: ITreeOptions = {}) {
     this.actionMapping = {
       mouse: {
         click: this.options?.actionMapping?.mouse?.click ?? defaultActionMapping.mouse.click,

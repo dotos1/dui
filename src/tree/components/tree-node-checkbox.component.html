@@ -2,7 +2,7 @@
     <ng-container *mobxAutorun="{dontDetach: true}">
       <mat-checkbox class="tree-node-checkbox"
                     [checked]="node.isSelected"
-                    (change)="node.mouseAction('checkboxClick', $event)"
+                    (click)="node.mouseAction('checkboxClick', $event)"
                     [indeterminate]="node.isPartiallySelected"
                     fxFlex>
                     {{label|translate}}

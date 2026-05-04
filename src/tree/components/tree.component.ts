@@ -185,12 +185,12 @@ export class TreeComponent implements OnChanges {
   }
 
 setActiveNodeLabel(label: string) {
-let treeNode = this.treeModel.getActiveNode();
+      let treeNode = this.treeModel.getActiveNode();
     if (treeNode) {
       treeNode.data[this.treeModel.options.displayField] = label;
-      this.treeModel.update();
+      this._changeDetectorRef.detectChanges(); 
       this.treeModel.fireEvent({ eventName: 'updateData', node: treeNode });
-         this._changeDetectorRef.detectChanges(); 
+      
     }
   }
 
@@ -198,23 +198,26 @@ let treeNode = this.treeModel.getActiveNode();
     let treeNode = this.treeModel.getActiveNode();
     if (treeNode) {
       treeNode.icon = icon;
-      this.treeModel.update();
+       this._changeDetectorRef.detectChanges(); 
       this.treeModel.fireEvent({ eventName: 'updateData', node: treeNode });
-         this._changeDetectorRef.detectChanges(); 
     }
   }
 
   dropActiveNode(fn) {
     try {
       let currentNode = this.treeModel.getActiveNode();
+      if (!currentNode || !currentNode.parent) return;
       let parentNode = currentNode.parent;
       parentNode.setIsActive(true);
-
-      fn(parentNode);
-      parentNode.treeModel.removeNode(currentNode);
-      parentNode.treeModel.update();
+      if (fn) {
+        fn(parentNode);
+      }
+      this.treeModel.removeNode(currentNode);
       this._changeDetectorRef.detectChanges();
-    } catch (e) { console.log(e); }
+
+    } catch (e) { 
+      console.log(e); 
+    }
   }
 
   refresh() {
@@ -339,26 +342,32 @@ let treeNode = this.treeModel.getActiveNode();
       .then(res => <Object[]>res)
   }
   ngOnChanges(changes) {
-    if (changes.options || changes.nodes) {
-     setTimeout(() => {
+     if (changes.options || changes.nodes) {
       this.treeModel.setData({
-        nodes: changes.nodes && changes.nodes.currentValue,
-        options: changes.options && changes.options.currentValue,
+        nodes: changes.nodes ? changes.nodes.currentValue : this.treeModel.nodes,
+        options: changes.options ? changes.options.currentValue : undefined,
         events: pick(this, this.treeModel.eventNames)
       });
-
-      if (this.treeModel.options.getChildren == undefined) {
-        this.treeModel.options.getChildren = this.getChildren.bind(this);
-      }
-       this._changeDetectorRef.detectChanges();
-        if (this.viewportComponent) {
-          requestAnimationFrame(() => {
-            this.viewportComponent.setViewport();
-            this._changeDetectorRef.detectChanges(); 
-          });
+ 
+      if (this.treeModel.options) {
+        if (this.treeModel.options.options) {
+           if (this.treeModel.options.options.getChildren === undefined) {
+              this.treeModel.options.options.getChildren = this.getChildren.bind(this);
+           }
+        } else {
+           if ((this.treeModel.options as any).getChildren === undefined) {
+              (this.treeModel.options as any).getChildren = this.getChildren.bind(this);
+           }
         }
-    }, 0);
-  }
+      }
+      this._changeDetectorRef.detectChanges();
+      if (this.viewportComponent) {
+        requestAnimationFrame(() => {
+          this.viewportComponent.setViewport();
+          this._changeDetectorRef.detectChanges(); 
+        });
+      }
+    }
 }
 
   sizeChanged() {

@@ -32,7 +32,7 @@ export class TreeNodeContent {
   ngOnInit() {
     this.sub = this.node.treeModel.subscribe('updateData', (event: any) => {
       if (event.node === this.node) {
-        this.cdr.markForCheck();
+        this.cdr.detectChanges();
       }
     });
   }

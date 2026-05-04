@@ -22,8 +22,7 @@ export class TreeNodeCollectionComponent implements OnInit, OnDestroy {
   @Input()
   get nodes() { return this._nodes; }
   set nodes(nodes) {
-  
-    this._nodes = nodes; 
+    this.setNodes(nodes);
   }
 
   @Input() treeModel: TreeModel;
@@ -42,27 +41,32 @@ export class TreeNodeCollectionComponent implements OnInit, OnDestroy {
 
   _dispose =[];
 
+  @action setNodes(nodes) {
+    this._nodes = nodes;
+  }
 
   constructor(private cdr: ChangeDetectorRef) {} 
 
   ngOnInit() {
     this.virtualScroll = this.treeModel.virtualScroll;
     
-    this._dispose =[
+   this._dispose = [
       reaction(
         () => {
-          // 只返回需要渲染的 ID 数组，供后面深度比较
-          return this.virtualScroll.getViewportNodes(this.nodes).map(n => n.id);
-        }, 
-        (nodeIds) => {
-          // 重新获取正确的 viewportNodes
-          this.viewportNodes = this.virtualScroll.getViewportNodes(this.nodes);
-           this.cdr.markForCheck(); 
+          return this.virtualScroll
+            .getViewportNodes(this.nodes)
+            .map(n => n.index);
         },
-        { 
-          fireImmediately: true,
-          equals: comparer.structural 
-        } as any
+        nodeIndexes => {
+          this.viewportNodes = nodeIndexes.map(i => this.nodes[i]);
+        },
+        { compareStructural: true, fireImmediately: true } as any
+      ),
+      reaction(
+        () => this.nodes,
+        nodes => {
+          this.viewportNodes = this.virtualScroll.getViewportNodes(nodes);
+        }
       )
     ];
   }
