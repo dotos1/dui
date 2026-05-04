@@ -10,7 +10,6 @@ import {
 @Component({
   selector: 'tree-node-expander',
   encapsulation: ViewEncapsulation.None,
-  styles:[],
   templateUrl: 'tree-node-expander.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush, 
   host: {

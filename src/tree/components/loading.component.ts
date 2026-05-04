@@ -5,7 +5,6 @@ import { TreeNode } from '../models/tree-node.model';
   encapsulation: ViewEncapsulation.None,
   selector: 'tree-loading-component',
   templateUrl: 'loading.component.html',
-  changeDetection: ChangeDetectionStrategy.OnPush, 
   host: {
     hostID: 'tree-loading-component' + Math.random().toString(36).substring(2, 15)
   }
