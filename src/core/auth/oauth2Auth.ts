@@ -88,10 +88,11 @@ export class Oauth2Auth  {
     initOauth(oauth2) {
         if (!oauth2.implicitFlow && this.isValidAccessToken()) {
             const accessToken = this.storage.get('access_token') as string;
-            this.setToken(accessToken, null);
+            const refreshToken = this.storage.get('refresh_token') as string; // 读取出来
+            this.setToken(accessToken, refreshToken); // 传给 setToken，而不是传 null
         }
         if (oauth2.implicitFlow) {
-            this.checkFragment(oauth2,'nonce');
+            this.checkFragment(oauth2, 'nonce');
         }
     }
 
@@ -209,12 +210,14 @@ export class Oauth2Auth  {
     }
 
     storeAccessToken(accessToken: string, expiresIn: number, refreshToken?: string) {
-
         this.storage.set('access_token', accessToken);
+        if (refreshToken) {
+            this.storage.set('refresh_token', refreshToken); // 必须加上这一行
+        }
         const expiresInMilliSeconds = expiresIn * 1000;
         const now = new Date();
         const expiresAt = now.getTime() + expiresInMilliSeconds;
-        this.storage.set('access_token_expires_in', expiresAt+"");
+        this.storage.set('access_token_expires_in', expiresAt + "");
         this.storage.set('access_token_stored_at', Date.now().toString());
         this.setToken(accessToken, refreshToken);
     }
@@ -495,38 +498,44 @@ export class Oauth2Auth  {
         }, oauth2.refreshTokenTimeout);
         // this.refreshTokenIntervalPolling.unref();
     }
-    refreshToken(): Promise<any> {
-      let oauth2 =this.config.getSettings('oauth2');
-        let auth = 'Basic ' + this.universalBtoa(oauth2.clientId + ':' + oauth2.secret);
-        let headers:HttpHeaders=new HttpHeaders({
-          'Content-Type': 'application/x-www-form-urlencoded',
-          'Authorization': auth,
-          responseType: 'json'
-        });
-       let formParams = {
-            grant_type: 'refresh_token',
-            refresh_token: this.authentications.oauth2.refreshToken
-        };
-        let promise = new Promise((resolve, reject) => {
-          this.http.post(
-                this.discovery.tokenEndpoint,
-                 {fromObject:formParams},
-                 {headers:headers}
-            ).toPromise().then(
-                (data: any) => {
-                    this.setToken(data.access_token, data.refresh_token);
-                    resolve(data);
-                },
-                (error) => {
-                    if (error.error && (error.status === 401||error.status === 400)) {
-                        this.subject.next('unauthorized');
-                    }
-                    // this.subject.next('error');
-                    // reject(error.error);
-                });
-        });
-        return promise;
-    }
+  refreshToken(): Promise<any> {
+    let oauth2 = this.config.getSettings('oauth2');
+    // let auth = 'Basic ' + this.universalBtoa(oauth2.clientId + ':' + oauth2.secret);
+
+    let headers: HttpHeaders = new HttpHeaders({
+        'Content-Type': 'application/x-www-form-urlencoded',
+      //  'Authorization': auth
+    });
+    
+ 
+    let body = new HttpParams()
+        .set('grant_type', 'refresh_token')
+        .set('refresh_token', this.authentications.oauth2.refreshToken)
+        .set('client_id', oauth2.clientId)
+        .set('client_secret', oauth2.secret);
+
+    let promise = new Promise((resolve, reject) => {
+        this.http.post(
+            this.discovery.tokenEndpoint,
+            body,
+            { headers: headers }
+        ).toPromise().then(
+            (data: any) => {
+                this.setToken(data.access_token, data.refresh_token);
+             
+                this.storeAccessToken(data.access_token, data.expires_in, data.refresh_token);
+                resolve(data);
+            },
+            (error) => {
+                if (error.error && (error.status === 401 || error.status === 400)) {
+                    this.logOut();
+                    this.subject.next('unauthorized');
+                }
+                reject(error);
+            });
+    });
+    return promise;
+}
 
     universalBtoa(stringToConvert: string) {
         try {
@@ -579,6 +588,7 @@ export class Oauth2Auth  {
         clearTimeout(this.refreshTokenTimeoutIframe);
         clearInterval(this.refreshTokenIntervalPolling);
         this.storage.remove('access_token');
+        this.storage.remove('refresh_token');
         this.storage.remove('access_token_expires_in');
         this.storage.remove('access_token_stored_at');
         this.storage.remove('id_token');
