@@ -74,7 +74,6 @@ export class LoadingComponent implements DoCheck {
    */
   set value(value: number) {
     this._value = value;
-    // Check for changes for `OnPush` change detection
     this._changeDetectorRef.markForCheck();
   }
   get value(): number {
@@ -107,8 +106,7 @@ export class LoadingComponent implements DoCheck {
   ) {}
 
   ngDoCheck(): void {
-    // When overlay is used and the host width has a value greater than 1px
-    // set the circle diameter when possible incase the loading component was rendered in a hidden state
+
     if (this.isOverlay() && this._hostHeight() > 1 && this.animation) {
       this._setCircleDiameter();
       this._changeDetectorRef.markForCheck();
@@ -116,8 +114,7 @@ export class LoadingComponent implements DoCheck {
   }
 
   getHeight(): string | undefined {
-    // Ignore height if style is `overlay` or `fullscreen`.
-    // Add height if child elements have a height and style is `none`, else return default height.
+
     if (this.isOverlay() || this.isFullScreen()) {
       return undefined;
     } else {
@@ -130,7 +127,6 @@ export class LoadingComponent implements DoCheck {
   }
 
   getCircleStrokeWidth(): number {
-    // we calculate the stroke width by setting it as 10% of its diameter
     const strokeWidth: number = this.getCircleDiameter() / 10;
     return Math.abs(strokeWidth);
   }
