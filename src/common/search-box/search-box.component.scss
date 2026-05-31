@@ -14,11 +14,8 @@
   }
 
   search-input {
-    margin-left: 12px;
-    ::ng-deep [dir='rtl'] & {
-      margin-right: 12px;
-      margin-left: 0 !important;
-    }
+    margin-left: 4px;
+    margin-right: 4px;
   }
 }
 .mat-toolbar
