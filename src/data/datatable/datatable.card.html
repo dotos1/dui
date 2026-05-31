@@ -3,7 +3,7 @@
     <div fxFlexFill  fxLayout="column">
       <mat-card-header style="width:100%">
         <mat-card-title *ngIf="!hideHead&&(title || ltbar|| rtbar)" fxLayout='row'  style="width:100%">
-          <div fxLayout='row'>
+          <div fxLayout='row' style="width:100%">
               <ng-container #lefttopbar></ng-container>
               <span style='flex: 0 0 auto; align-self: center;display: -webkit-box;-webkit-box-align: center;margin:auto'>
                 {{title|translate}}

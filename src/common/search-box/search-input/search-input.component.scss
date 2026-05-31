@@ -11,8 +11,17 @@
     .search-input-field {
       flex: 1;
     }
-
-    ::ng-deep mat-form-field {
+    .search-input-clear {
+      flex: 0 0 auto;
+      align-self: center;
+    }
+  }
+}
+:host ::ng-deep .mdc-text-field--outlined {
+  padding-right: 16px;
+  padding-left: 16px;
+}
+:host  ::ng-deep mat-form-field {
       .mat-mdc-form-field-subscript-wrapper {
         display: none;
       }
@@ -56,9 +65,3 @@
         display: none;
       }
     }
-    .search-input-clear {
-      flex: 0 0 auto;
-      align-self: center;
-    }
-  }
-}
