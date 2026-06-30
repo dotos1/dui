@@ -44,7 +44,7 @@ interface MatFieldConfig extends FieldConfig {
 export class WrapperFormField extends FieldWrapper<MatFieldConfig> implements OnInit, OnDestroy, AfterViewInit, AfterContentChecked {
   @ViewChild('fieldComponent', { read: ViewContainerRef, static: true }) declare fieldComponent: ViewContainerRef;
   @ViewChild(MatFormField, { static: true }) formField!: MatFormField;
-  // textField !: MDCTextField;
+
 
   stateChanges = new Subject<void>();
   _errorState = false;
@@ -57,6 +57,12 @@ export class WrapperFormField extends FieldWrapper<MatFieldConfig> implements On
   public showUnder = false;
 
   public classFormField="";
+
+  public get paddingStyle(){
+    return {
+      'padding-left':this.field.prefix ? '32px' : '8px'
+    }
+  }
 
   constructor(
     private renderer: Renderer2,
@@ -104,7 +110,7 @@ export class WrapperFormField extends FieldWrapper<MatFieldConfig> implements On
 
   ngAfterViewInit() {
     let el=this.formField._elementRef.nativeElement;
-    // this.textField = new MDCTextField(el.querySelector('.mdc-text-field'));
+
     if (this.formField.appearance !== 'outline' && this.field.hideFieldUnderline === true) {
       const underlineElement = el.querySelector('.mdc-line-ripple');
       underlineElement && this.renderer.removeChild(underlineElement.parentNode, underlineElement);
@@ -131,7 +137,6 @@ export class WrapperFormField extends FieldWrapper<MatFieldConfig> implements On
     }
   }
 
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   showTip(e) {
     this.showUnder = true;
     this._changeDetector.detectChanges();

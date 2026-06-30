@@ -1,8 +1,8 @@
-<mat-form-field [hideRequiredMarker]="true" floatLabel="auto"  [ngClass]="field.classFormField" 
+<mat-form-field [hideRequiredMarker]="true" [floatLabel]="field.floatLabel || 'auto'"  [ngClass]="field.classFormField" 
   [color]="color" [style.width]="'100%'"  [appearance]="themeService.formType|async"   [subscriptSizing]="field.subscriptSizing">
 
   <ng-container #fieldComponent></ng-container>
-  <mat-label [id]="field.name" *ngIf="field.label && field.hideLabel !== true&&field" style="padding-left:8px">
+  <mat-label [id]="field.name" *ngIf="field.label && field.hideLabel !== true"  [ngStyle]="paddingStyle">
     {{ field.label|translate }}
     <span *ngIf="field.required && field.hideRequiredMarker !== true" class="mat-mdc-form-field-required-marker">*</span>
   </mat-label>
