@@ -307,15 +307,13 @@ export class FormComponent implements DoCheck, OnChanges, OnDestroy {
       field.formControl.reset();
       if ( isObjectLike(model)) {
         if(model.text && model.value){
-          if (field.xtype == 'select-field' && field.remote == true) {
+          if (field.xtype == 'select-field') {
             let opts = [];
             opts.push(model);
             field.options = opts;
-            field['loaded'] = false;
-          } else if (field.xtype == 'select-field') {
-            let opts = [];
-            opts.push(model);
-            field.options = opts;
+            if(field.remote == true){
+              field['loaded'] = false;
+            }
             field.formControl.patchValue(model.value);
             field.inputValue = model.text;
           }else if(field.xtype == 'trigger-field'){
