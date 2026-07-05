@@ -15,12 +15,13 @@ import {
     OnInit,
     Optional, Output,
 } from '@angular/core';
-import { MatDialog, MatDialogRef } from "@angular/material/dialog";
+import {  MatDialogRef } from "@angular/material/dialog";
 import { TriggerPopup } from '@dotos/dui/common/trigger';
 import { TranslateService } from '@dotos/dui/translator';
 import {isObjectLike}  from 'lodash-es';
 import { first } from "rxjs/operators";
 import { MatField } from '../base/mat.field';
+import { DialogService, IDraggableRefs, ResizableDraggableDialog } from '@dotos/dui/common/dialogs';
 
 /** Change event object emitted by Md2Select. */
 export class ValueChange {
@@ -106,7 +107,7 @@ export class AbstractTrigger extends MatField implements OnInit,OnDestroy,DoChec
 
   constructor(
     protected _elementRef: ElementRef,
-    protected _dialog: MatDialog,
+    protected  _dialogService: DialogService,
     protected _overlay: Overlay,
     protected _ngZone: NgZone,
     protected override translate: TranslateService,
