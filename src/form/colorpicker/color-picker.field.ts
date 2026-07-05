@@ -10,7 +10,7 @@ import {
   Inject,
   Input,
   NgZone,
-  Optional, ViewChild,
+  Optional, Renderer2, ViewChild,
   ViewContainerRef,
   ViewEncapsulation,
   forwardRef
@@ -23,10 +23,11 @@ import { FieldConfig } from '@dotos/dui/core/form';
 import { ColorPickerContent } from './color-picker.content';
 
 import { DOCUMENT } from '@angular/common';
-import { MatDialog } from '@angular/material/dialog';
+import { DialogService} from '@dotos/dui/common/dialogs';
 import { ChromeComponent, CompactComponent, GithubComponent, SketchComponent } from '@dotos/dui/common/colorpicker/components';
 import { TranslateService } from '@dotos/dui/translator';
 import { isObject } from 'lodash-es';
+
 
 export const DATEINPUT_CONTROL_VALUE_ACCESSOR: any = {
   provide: NG_VALUE_ACCESSOR,
@@ -111,14 +112,14 @@ export class ColorPickerField<F extends FieldConfig = FieldConfig> extends Abstr
 
   constructor(
     protected override _elementRef: ElementRef,
-    protected override _dialog: MatDialog,
+    protected override _dialogService: DialogService,
     protected override _overlay: Overlay,
     protected override _ngZone: NgZone,
     protected _viewContainerRef: ViewContainerRef,
     protected override translate: TranslateService,
     @Optional() protected override _dir: Directionality,
     @Optional() @Inject(DOCUMENT) protected override _document: any) {
-    super(_elementRef, _dialog, _overlay, _ngZone, translate, _dir, _document);
+    super(_elementRef, _dialogService, _overlay, _ngZone, translate, _dir, _document);
   }
 
   override init(): void {
