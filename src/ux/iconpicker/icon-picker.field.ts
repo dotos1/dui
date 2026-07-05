@@ -4,11 +4,11 @@ import { coerceBooleanProperty } from '@angular/cdk/coercion';
 import { Overlay } from '@angular/cdk/overlay';
 import { ComponentPortal } from '@angular/cdk/portal';
 import { DOCUMENT } from '@angular/common';
-import { ChangeDetectorRef, Component, ElementRef, Inject, NgZone, OnInit, Optional, ViewChild,
+import { ChangeDetectorRef, Component, ElementRef, Inject, NgZone, OnInit, Optional, Renderer2, ViewChild,
    ViewContainerRef, ViewEncapsulation, forwardRef } from '@angular/core';
 import { NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { MatDialog } from '@angular/material/dialog';
 
+import { DialogService} from '@dotos/dui/common/dialogs';
 import { MatInput } from '@angular/material/input';
 
 import { isObject } from 'lodash-es';
@@ -114,7 +114,7 @@ export class IconPickerField extends AbstractTrigger implements OnInit {
 
   constructor(
     public _element: ElementRef,
-    protected override _dialog: MatDialog,
+    protected override _dialogService: DialogService,
     protected override _overlay: Overlay,
     protected override _ngZone: NgZone,
     protected _viewContainerRef: ViewContainerRef,
@@ -122,8 +122,9 @@ export class IconPickerField extends AbstractTrigger implements OnInit {
     protected fontLoaderService:FontLoaderService,
     @Optional() protected override _dir: Directionality,
     protected _changeDetectorRef: ChangeDetectorRef,
+    public renderer2: Renderer2,
     @Optional() @Inject(DOCUMENT) protected override _document: any) {
-    super(_element, _dialog, _overlay, _ngZone, translate, _dir, _document);
+    super(_element, _dialogService, _overlay, _ngZone, translate,  _dir, _document);
   }
   override ngOnInit() {
     super.ngOnInit();
