@@ -92,6 +92,8 @@ export class DraggableDirective implements OnChanges, AfterViewInit, OnDestroy {
 
     public ngOnDestroy(): void {
         this._draggableElement.removeEventListener('mousedown', this.onPointerDown);
+        this.document.removeEventListener('mousemove', this.onPointerMove);
+        this.document.removeEventListener('mouseup', this.onPointerUp);
         this._whenViewInit$.complete();
     }
 

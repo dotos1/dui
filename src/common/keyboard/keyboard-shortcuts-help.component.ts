@@ -238,6 +238,7 @@ export class KeyboardShortcutsHelpComponent implements OnInit, OnDestroy, OnChan
         if (this.timeoutId) {
             clearTimeout(this.timeoutId);
         }
+        this.showing$.complete();
     }
 
 

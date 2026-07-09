@@ -40,22 +40,23 @@ export class ClipboardService {
 
  
   copyContentToClipboard(content: any, message?: string) {
+    const handler = (e: ClipboardEvent) => {
+      if(typeof(content)!='string'){
+        content=JSON.stringify(content);
+      }
+      e.clipboardData.setData('text/plain', (content));
+      e.preventDefault();
+    };
     try {
       this.data= content;
-      document.addEventListener('copy', (e: ClipboardEvent) => {
-        if(typeof(content)!='string'){
-          content=JSON.stringify(content);
-        }
-        e.clipboardData.setData('text/plain', (content));
-        e.preventDefault();
-        document.removeEventListener('copy', null);
-      });
+      document.addEventListener('copy', handler, { once: true });
       document.execCommand('copy');
       if(message){
         this.notify(message);
       }
     } catch (error) {
       this.logService.error(error);
+      document.removeEventListener('copy', handler);
     }
   }
 

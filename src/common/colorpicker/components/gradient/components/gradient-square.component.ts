@@ -6,8 +6,8 @@ import { config } from '../constants';
 
 const { crossSize } = config
 import {
-  ChangeDetectionStrategy,  Component,  ElementRef,  Input,  OnInit,
-  ViewChild,  
+  ChangeDetectionStrategy,  Component,  ElementRef,  Input,  OnDestroy,  OnInit,
+  ViewChild,
 } from '@angular/core';
 import { PaintHueService } from '../hooks/paint-hue.service';
 import { ContextService, PickerContextProps } from '../hooks/context.service';
@@ -19,7 +19,7 @@ import { ContextService, PickerContextProps } from '../hooks/context.service';
   changeDetection: ChangeDetectionStrategy.OnPush,
   preserveWhitespaces: false,
 })
-export class GradientSquareComponent implements OnInit {
+export class GradientSquareComponent implements OnInit, OnDestroy {
 
   @ViewChild('paintSquare')   private canvasElm: ElementRef<HTMLElement>;
 
@@ -47,13 +47,15 @@ export class GradientSquareComponent implements OnInit {
     if (!this. dragging) {
       this. setDragPos({ x: this.conext.hc?.v === 0 ?  this.dragPos.x :  x, y })
     }
-    const handleUp = () => {
-       this. stopDragging()
-    }
-    window.addEventListener('mouseup', handleUp)
-    return () => {
-      window.removeEventListener('mouseup', handleUp)
-    }
+    window.addEventListener('mouseup', this.handleUp)
+  }
+
+  ngOnDestroy(){
+    window.removeEventListener('mouseup', this.handleUp)
+  }
+
+  private readonly handleUp = () => {
+    this.stopDragging()
   }
 
 

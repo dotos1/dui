@@ -335,6 +335,7 @@ export class IframeComponent implements OnInit, OnChanges,AfterViewInit, OnDestr
   }
 
   ngOnDestroy(): void {
+    this.$unsubscribe.next(undefined);
     this.$unsubscribe.complete();
     this.eventListeners.map((listener) => listener());
     if (this.autoResize) {

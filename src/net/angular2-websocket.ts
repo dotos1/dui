@@ -220,8 +220,24 @@ export class $WebSocket {
     return this;
   };
 
+  offOpen(cb) {
+    const idx = this.onOpenCallbacks.indexOf(cb);
+    if (idx > -1) {
+      this.onOpenCallbacks.splice(idx, 1);
+    }
+    return this;
+  }
+
   onClose(cb) {
     this.onCloseCallbacks.push(cb);
+    return this;
+  }
+
+  offClose(cb) {
+    const idx = this.onCloseCallbacks.indexOf(cb);
+    if (idx > -1) {
+      this.onCloseCallbacks.splice(idx, 1);
+    }
     return this;
   }
 
@@ -229,6 +245,14 @@ export class $WebSocket {
     this.onErrorCallbacks.push(cb);
     return this;
   };
+
+  offError(cb) {
+    const idx = this.onErrorCallbacks.indexOf(cb);
+    if (idx > -1) {
+      this.onErrorCallbacks.splice(idx, 1);
+    }
+    return this;
+  }
 
   onMessage(callback, options?) {
     if (!$WebSocket.Helpers.isFunction(callback)) {
@@ -240,6 +264,14 @@ export class $WebSocket {
       pattern: options ? options.filter : undefined,
       autoApply: options ? options.autoApply : true
     });
+    return this;
+  }
+
+  offMessage(callback) {
+    const idx = this.onMessageCallbacks.findIndex((entry: any) => entry.fn === callback);
+    if (idx > -1) {
+      this.onMessageCallbacks.splice(idx, 1);
+    }
     return this;
   }
 

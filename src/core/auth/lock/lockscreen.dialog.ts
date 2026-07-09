@@ -8,7 +8,7 @@ import { CookieStorage } from '@dotos/dui/core/cookie';
 import { Subject } from 'rxjs';
 import { AuthService } from '@dotos/dui/core/auth';
 import { ThemeService } from '@dotos/dui/theme';
-import {  takeUntil } from 'rxjs/operators';
+import {  take, takeUntil } from 'rxjs/operators';
 import { DotosConfigService } from '@dotos/dui/theme';
 import { LockTheme } from './lockscreen.theme';
 import { LocalStorageService } from '@dotos/dui/core/storage';
@@ -123,7 +123,7 @@ export class LockscreenDialog implements OnInit,OnDestroy {
     this.submitted = true;
     this.errorDiagnostic = null;
     let usrPwd = this._encrypt.md5(this.lockForm.value.password);
-    this.authService.onLogin.subscribe((data: any) => {
+    this.authService.onLogin.pipe(takeUntil(this._unsubscribeAll), take(1)).subscribe((data: any) => {
       if (this.authService.isLoggedIn()||data.success) {
         this.dialogRef.close();
       } else {

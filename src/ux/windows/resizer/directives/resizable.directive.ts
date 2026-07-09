@@ -91,6 +91,7 @@ export class ResizableDirective implements OnChanges, AfterViewInit, OnDestroy {
     }
 
     public ngOnDestroy(): void {
+        this.document.removeEventListener('mousemove', this.onPointerMove);
         this.document.removeEventListener('mouseup', this.onPointerUp);
         this._whenViewInit$.complete();
     }

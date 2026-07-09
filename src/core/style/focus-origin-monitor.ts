@@ -33,7 +33,7 @@ type MonitoredElementInfo = {
 
 /** Monitors mouse and keyboard events to determine the cause of focus events. */
 @Injectable()
-export class FocusOriginMonitor {
+export class FocusOriginMonitor implements OnDestroy {
   /** The focus origin that the next focus event is a result of. */
   private _origin: FocusOrigin = null;
 
@@ -52,8 +52,16 @@ export class FocusOriginMonitor {
   /** Weak map of elements being monitored to their info. */
   private _elementInfo = new WeakMap<Element, MonitoredElementInfo>();
 
+  /** Unlisten functions for the document/window level listeners registered by this instance. */
+  private _documentEventsUnlisten: Array<() => void> = [];
+
   constructor(private _ngZone: NgZone, private _platform: Platform) {
     this._ngZone.runOutsideAngular(() => this._registerDocumentEvents());
+  }
+
+  ngOnDestroy() {
+    this._documentEventsUnlisten.forEach(unlisten => unlisten());
+    this._documentEventsUnlisten = [];
   }
 
   /**
@@ -142,36 +150,47 @@ export class FocusOriginMonitor {
     // propagation.
 
     // On keydown record the origin and clear any touch event that may be in progress.
-    document.addEventListener('keydown', () => {
+    const keydownListener = () => {
       this._lastTouchTarget = null;
       this._setOriginForCurrentEventQueue('keyboard');
-    }, true);
+    };
+    document.addEventListener('keydown', keydownListener, true);
 
     // On mousedown record the origin only if there is not touch target, since a mousedown can
     // happen as a result of a touch event.
-    document.addEventListener('mousedown', () => {
+    const mousedownListener = () => {
       if (!this._lastTouchTarget) {
         this._setOriginForCurrentEventQueue('mouse');
       }
-    }, true);
+    };
+    document.addEventListener('mousedown', mousedownListener, true);
 
     // When the touchstart event fires the focus event is not yet in the event queue. This means
     // we can't rely on the trick used above (setting timeout of 0ms). Instead we wait 650ms to
     // see if a focus happens.
-    document.addEventListener('touchstart', (event: Event) => {
+    const touchstartListener = (event: Event) => {
       if (this._touchTimeout != null) {
         clearTimeout(this._touchTimeout);
       }
       this._lastTouchTarget = event.target;
       this._touchTimeout = setTimeout(() => this._lastTouchTarget = null, TOUCH_BUFFER_MS);
-    }, true);
+    };
+    document.addEventListener('touchstart', touchstartListener, true);
 
     // Make a note of when the window regains focus, so we can restore the origin info for the
     // focused element.
-    window.addEventListener('focus', () => {
+    const windowFocusListener = () => {
       this._windowFocused = true;
       setTimeout(() => this._windowFocused = false, 0);
-    });
+    };
+    window.addEventListener('focus', windowFocusListener);
+
+    this._documentEventsUnlisten.push(
+      () => document.removeEventListener('keydown', keydownListener, true),
+      () => document.removeEventListener('mousedown', mousedownListener, true),
+      () => document.removeEventListener('touchstart', touchstartListener, true),
+      () => window.removeEventListener('focus', windowFocusListener)
+    );
   }
 
   /**
