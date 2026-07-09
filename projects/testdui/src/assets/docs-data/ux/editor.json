@@ -1,0 +1,2016 @@
+{
+  "importPath": "@dotos/dui/ux/editor",
+  "exports": [
+    {
+      "name": "Align",
+      "kind": "type",
+      "summary": null,
+      "sourceFile": "src/ux/editor/commands/TextAlign.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "ALIGN_CENTER",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/ux/editor/commands/public-api.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "ALIGN_JUSTIFY",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/ux/editor/commands/public-api.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "ALIGN_LEFT",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/ux/editor/commands/public-api.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "ALIGN_RIGHT",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/ux/editor/commands/public-api.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "applyMark",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/ux/editor/commands/applyMark.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "attributesPlugin",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/ux/editor/plugins/attributes.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "autoLink",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/ux/editor/input-rules/auto-link.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "BLOCKQUOTE",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/ux/editor/commands/public-api.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "blurPlugin",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/ux/editor/plugins/blur.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "BubbleComponent",
+      "kind": "component",
+      "selector": "ux-bubble",
+      "summary": null,
+      "sourceFile": "src/ux/editor/modules/menu/bubble/bubble.component.ts",
+      "inputs": [
+        {
+          "name": "editor",
+          "type": "Editor",
+          "description": null
+        }
+      ],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "getIcon",
+          "params": [
+            {
+              "name": "name",
+              "type": "TBItems"
+            }
+          ],
+          "returnType": "SafeHtml",
+          "description": null
+        },
+        {
+          "name": "getTitle",
+          "params": [
+            {
+              "name": "name",
+              "type": "string"
+            }
+          ],
+          "returnType": "string",
+          "description": null
+        },
+        {
+          "name": "trackByIndex",
+          "params": [
+            {
+              "name": "index",
+              "type": "number"
+            }
+          ],
+          "returnType": "number",
+          "description": null
+        },
+        {
+          "name": "onClick",
+          "params": [
+            {
+              "name": "e",
+              "type": "MouseEvent"
+            },
+            {
+              "name": "commandName",
+              "type": "TBItems"
+            }
+          ],
+          "returnType": "void",
+          "description": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "execulableItems",
+          "type": "TBItems[]",
+          "default": "[]",
+          "description": null
+        },
+        {
+          "name": "activeItems",
+          "type": "TBItems[]",
+          "default": "[]",
+          "description": null
+        },
+        {
+          "name": "toolbar",
+          "type": "TBItems[][]",
+          "default": "[\n    ['bold', 'italic', 'underline', 'strike'],\n    ['ordered_list', 'bullet_list', 'blockquote', 'code'],\n    ['align_left', 'align_center', 'align_right', 'align_justify'],\n  ]",
+          "description": null
+        },
+        {
+          "name": "toggleCommands",
+          "type": "TBItems[]",
+          "default": "[\n    'bold',\n    'italic',\n    'underline',\n    'strike',\n    'ordered_list',\n    'bullet_list',\n    'blockquote',\n    'code',\n    'align_left',\n    'align_center',\n    'align_right',\n    'align_justify',\n  ]",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "canInsert",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/ux/editor/helpers/canInsertNode.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "CODE",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/ux/editor/commands/public-api.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "ColorPickerComponent",
+      "kind": "component",
+      "selector": "ux-color-picker",
+      "summary": null,
+      "sourceFile": "src/ux/editor/modules/menu/color-picker/color-picker.component.ts",
+      "inputs": [
+        {
+          "name": "presets",
+          "type": "string[][]",
+          "description": null
+        },
+        {
+          "name": "type",
+          "type": "string",
+          "description": null
+        }
+      ],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "getContrastYIQ",
+          "params": [
+            {
+              "name": "hexcolor",
+              "type": "string"
+            }
+          ],
+          "returnType": "string",
+          "description": null
+        },
+        {
+          "name": "onDocumentClick",
+          "params": [
+            {
+              "name": "e",
+              "type": "MouseEvent"
+            }
+          ],
+          "returnType": "void",
+          "description": null
+        },
+        {
+          "name": "togglePopup",
+          "params": [
+            {
+              "name": "e",
+              "type": "MouseEvent"
+            }
+          ],
+          "returnType": "void",
+          "description": null
+        },
+        {
+          "name": "remove",
+          "params": [
+            {
+              "name": "e",
+              "type": "MouseEvent"
+            }
+          ],
+          "returnType": "void",
+          "description": null
+        },
+        {
+          "name": "trackByIndex",
+          "params": [
+            {
+              "name": "index",
+              "type": "number"
+            }
+          ],
+          "returnType": "number",
+          "description": null
+        },
+        {
+          "name": "onColorSelect",
+          "params": [
+            {
+              "name": "e",
+              "type": "MouseEvent"
+            },
+            {
+              "name": "color",
+              "type": "string"
+            }
+          ],
+          "returnType": "void",
+          "description": null
+        },
+        {
+          "name": "getLabel",
+          "params": [
+            {
+              "name": "key",
+              "type": "string"
+            }
+          ],
+          "returnType": "string",
+          "description": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "title",
+          "type": "string",
+          "description": null
+        },
+        {
+          "name": "icon",
+          "type": "string",
+          "description": null
+        },
+        {
+          "name": "showPopup",
+          "type": "any",
+          "default": "false",
+          "description": null
+        },
+        {
+          "name": "isActive",
+          "type": "any",
+          "default": "false",
+          "description": null
+        },
+        {
+          "name": "activeColors",
+          "type": "string[]",
+          "default": "[]",
+          "description": null
+        },
+        {
+          "name": "canExecute",
+          "type": "any",
+          "default": "true",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "defaults",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/ux/editor/Locals.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "Dispatch",
+      "kind": "type",
+      "summary": null,
+      "sourceFile": "src/ux/editor/commands/types.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "DropdownComponent",
+      "kind": "component",
+      "selector": "ux-dropdown",
+      "summary": null,
+      "sourceFile": "src/ux/editor/modules/menu/dropdown/dropdown.component.ts",
+      "inputs": [
+        {
+          "name": "group",
+          "type": "string",
+          "description": null
+        },
+        {
+          "name": "items",
+          "type": "TBHeadingItems[]",
+          "description": null
+        }
+      ],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "onDocumentClick",
+          "params": [
+            {
+              "name": "target",
+              "type": "Node"
+            }
+          ],
+          "returnType": "void",
+          "description": null
+        },
+        {
+          "name": "getName",
+          "params": [
+            {
+              "name": "key",
+              "type": "string"
+            }
+          ],
+          "returnType": "string",
+          "description": null
+        },
+        {
+          "name": "toggleDropdown",
+          "params": [
+            {
+              "name": "e",
+              "type": "MouseEvent"
+            }
+          ],
+          "returnType": "void",
+          "description": null
+        },
+        {
+          "name": "trackByIndex",
+          "params": [
+            {
+              "name": "index",
+              "type": "number"
+            }
+          ],
+          "returnType": "number",
+          "description": null
+        },
+        {
+          "name": "onClick",
+          "params": [
+            {
+              "name": "e",
+              "type": "MouseEvent"
+            },
+            {
+              "name": "item",
+              "type": "TBHeadingItems"
+            }
+          ],
+          "returnType": "void",
+          "description": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "isDropdownOpen",
+          "type": "any",
+          "default": "false",
+          "description": null
+        },
+        {
+          "name": "disabledItems",
+          "type": "string[]",
+          "default": "[]",
+          "description": null
+        },
+        {
+          "name": "activeItem",
+          "type": "string | null",
+          "description": null
+        },
+        {
+          "name": "isSelected",
+          "type": "boolean",
+          "description": null
+        },
+        {
+          "name": "isDropdownDisabled",
+          "type": "boolean",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "editablePlugin",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/ux/editor/plugins/editable.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "Editor",
+      "kind": "class",
+      "summary": null,
+      "sourceFile": "src/ux/editor/Editor.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "setContent",
+          "params": [
+            {
+              "name": "content",
+              "type": "Content"
+            }
+          ],
+          "returnType": "void",
+          "description": null
+        },
+        {
+          "name": "registerPlugin",
+          "params": [
+            {
+              "name": "plugin",
+              "type": "Plugin"
+            }
+          ],
+          "returnType": "void",
+          "description": null
+        },
+        {
+          "name": "destroy",
+          "params": [],
+          "returnType": "void",
+          "description": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "view",
+          "type": "EditorView",
+          "description": null
+        },
+        {
+          "name": "valueChanges",
+          "type": "Observable<JSONDoc>",
+          "description": null
+        },
+        {
+          "name": "update",
+          "type": "Observable<EditorView>",
+          "description": null
+        },
+        {
+          "name": "schema",
+          "type": "Schema",
+          "description": null
+        },
+        {
+          "name": "linkValidationPattern",
+          "type": "string",
+          "description": null
+        },
+        {
+          "name": "commands",
+          "type": "EditorCommands",
+          "description": null
+        },
+        {
+          "name": "features",
+          "type": "EditorFeatures",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "EDITOR_CONFIG_TOKEN",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/ux/editor/editor.module.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "EditorComponent",
+      "kind": "component",
+      "selector": "dui-editor",
+      "summary": null,
+      "sourceFile": "src/ux/editor/editor.component.ts",
+      "inputs": [
+        {
+          "name": "editor",
+          "type": "Editor",
+          "description": null
+        },
+        {
+          "name": "outputFormat",
+          "type": "'doc' | 'html'",
+          "description": null
+        },
+        {
+          "name": "placeholder",
+          "type": "any",
+          "default": "'Type Here...'",
+          "description": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "focusOut",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "focusIn",
+          "type": "any",
+          "description": null
+        }
+      ],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "EditorConfig",
+      "kind": "interface",
+      "summary": null,
+      "sourceFile": "src/ux/editor/types.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "EditorError",
+      "kind": "class",
+      "summary": null,
+      "sourceFile": "src/ux/editor/utils/error.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "EditorMenuModule",
+      "kind": "module",
+      "summary": null,
+      "sourceFile": "src/ux/editor/modules/menu/menu.module.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "EditorModule",
+      "kind": "module",
+      "summary": null,
+      "sourceFile": "src/ux/editor/editor.module.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "forRoot",
+          "params": [
+            {
+              "name": "config",
+              "type": "EditorConfig"
+            }
+          ],
+          "returnType": "ModuleWithProviders<EditorModule>",
+          "description": null
+        },
+        {
+          "name": "forChild",
+          "params": [
+            {
+              "name": "config",
+              "type": "EditorConfig"
+            }
+          ],
+          "returnType": "ModuleWithProviders<EditorModule>",
+          "description": null
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "EditorServiceConfig",
+      "kind": "service",
+      "summary": null,
+      "sourceFile": "src/ux/editor/editor-config.service.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "locals",
+          "type": "any",
+          "default": "{}",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "EM",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/ux/editor/commands/public-api.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "emptyDoc",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/ux/editor/parsers.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "FloatingMenuComponent",
+      "kind": "component",
+      "selector": "editor-floating-menu",
+      "summary": null,
+      "sourceFile": "src/ux/editor/modules/menu/floating-menu/floating-menu.component.ts",
+      "inputs": [
+        {
+          "name": "editor",
+          "type": "Editor",
+          "description": null
+        },
+        {
+          "name": "autoPlace",
+          "type": "any",
+          "default": "false",
+          "description": null
+        }
+      ],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "onMouseDown",
+          "params": [
+            {
+              "name": "e",
+              "type": "MouseEvent"
+            }
+          ],
+          "returnType": "void",
+          "description": null
+        },
+        {
+          "name": "onKeyDown",
+          "params": [
+            {
+              "name": "e",
+              "type": "KeyboardEvent"
+            }
+          ],
+          "returnType": "void",
+          "description": null
+        },
+        {
+          "name": "onMouseUp",
+          "params": [
+            {
+              "name": "e",
+              "type": "MouseEvent"
+            }
+          ],
+          "returnType": "void",
+          "description": null
+        },
+        {
+          "name": "onKeyUp",
+          "params": [
+            {
+              "name": "e",
+              "type": "KeyboardEvent"
+            }
+          ],
+          "returnType": "void",
+          "description": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "display",
+          "type": "Partial<CSSStyleDeclaration>",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "focusPlugin",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/ux/editor/plugins/focus.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "FORMAT_CLEAR",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/ux/editor/commands/public-api.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "getKeyboardShortcuts",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/ux/editor/defaultPlugins.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "getSelectionMarks",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/ux/editor/helpers/getSelectionMarks.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "getSelectionNodes",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/ux/editor/helpers/getSelectionNodes.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "H1",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/ux/editor/commands/public-api.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "H2",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/ux/editor/commands/public-api.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "H3",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/ux/editor/commands/public-api.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "H4",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/ux/editor/commands/public-api.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "H5",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/ux/editor/commands/public-api.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "H6",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/ux/editor/commands/public-api.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "HeadingLevels",
+      "kind": "type",
+      "summary": null,
+      "sourceFile": "src/ux/editor/commands/Heading.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "HORIZONTAL_RULE",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/ux/editor/commands/public-api.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "Image",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/ux/editor/modules/menu/MenuCommands.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "IMAGE",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/ux/editor/commands/public-api.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "ImageAttrs",
+      "kind": "interface",
+      "summary": null,
+      "sourceFile": "src/ux/editor/commands/Image.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "ImageComponent",
+      "kind": "component",
+      "selector": "ux-image",
+      "summary": null,
+      "sourceFile": "src/ux/editor/modules/menu/image/image.component.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "onDocumentClick",
+          "params": [
+            {
+              "name": "e",
+              "type": "MouseEvent"
+            }
+          ],
+          "returnType": "void",
+          "description": null
+        },
+        {
+          "name": "getLabel",
+          "params": [
+            {
+              "name": "key",
+              "type": "string"
+            }
+          ],
+          "returnType": "string",
+          "description": null
+        },
+        {
+          "name": "onMouseDown",
+          "params": [
+            {
+              "name": "e",
+              "type": "MouseEvent"
+            }
+          ],
+          "returnType": "void",
+          "description": null
+        },
+        {
+          "name": "insertLink",
+          "params": [
+            {
+              "name": "e",
+              "type": "MouseEvent"
+            }
+          ],
+          "returnType": "void",
+          "description": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "showPopup",
+          "type": "any",
+          "default": "false",
+          "description": null
+        },
+        {
+          "name": "isActive",
+          "type": "any",
+          "default": "false",
+          "description": null
+        },
+        {
+          "name": "form",
+          "type": "any",
+          "default": "new FormGroup({\n    src: new FormControl('', [\n      Validators.required,\n      Validators.pattern('(https?://)?([\\\\da-z.-]+)\\\\.([a-z.]{2,6})[/\\\\w .-]*/??([^#\\n\\r]*)?#?([^\\n\\r]*)'),\n    ]),\n    alt: new FormControl(''),\n    title: new FormControl(''),\n  })",
+          "description": null
+        },
+        {
+          "name": "icon",
+          "type": "string",
+          "description": null
+        },
+        {
+          "name": "src",
+          "type": "AbstractControl",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "imageResizePlugin",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/ux/editor/plugins/image-resize.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "ImageViewComponent",
+      "kind": "component",
+      "selector": "ux-image-view",
+      "summary": null,
+      "sourceFile": "src/ux/editor/components/image-view/image-view.component.ts",
+      "inputs": [
+        {
+          "name": "src",
+          "type": "string",
+          "description": null
+        },
+        {
+          "name": "alt",
+          "type": "any",
+          "default": "''",
+          "description": null
+        },
+        {
+          "name": "title",
+          "type": "any",
+          "default": "''",
+          "description": null
+        },
+        {
+          "name": "outerWidth",
+          "type": "any",
+          "default": "''",
+          "description": null
+        },
+        {
+          "name": "selected",
+          "type": "any",
+          "default": "false",
+          "description": null
+        },
+        {
+          "name": "view",
+          "type": "EditorView",
+          "description": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "imageResize",
+          "type": "any",
+          "description": null
+        }
+      ],
+      "methods": [
+        {
+          "name": "startResizing",
+          "params": [
+            {
+              "name": "e",
+              "type": "MouseEvent"
+            },
+            {
+              "name": "direction",
+              "type": "string"
+            }
+          ],
+          "returnType": "void",
+          "description": null
+        },
+        {
+          "name": "resizeImage",
+          "params": [
+            {
+              "name": "evt",
+              "type": "MouseEvent"
+            },
+            {
+              "name": "direction",
+              "type": "string"
+            }
+          ],
+          "returnType": "void",
+          "description": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "imgEl",
+          "type": "ElementRef",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "InsertCommand",
+      "kind": "interface",
+      "summary": null,
+      "sourceFile": "src/ux/editor/commands/types.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "InsertCommandComponent",
+      "kind": "component",
+      "selector": "ux-insert-command",
+      "summary": null,
+      "sourceFile": "src/ux/editor/modules/menu/insert-command/insert-command.component.ts",
+      "inputs": [
+        {
+          "name": "toolbarItem",
+          "type": "ToolbarItem",
+          "description": null
+        }
+      ],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "insert",
+          "params": [
+            {
+              "name": "e",
+              "type": "MouseEvent"
+            }
+          ],
+          "returnType": "void",
+          "description": null
+        },
+        {
+          "name": "getTitle",
+          "params": [
+            {
+              "name": "name",
+              "type": "string"
+            }
+          ],
+          "returnType": "string",
+          "description": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "name",
+          "type": "TBItems",
+          "description": null
+        },
+        {
+          "name": "html",
+          "type": "string",
+          "description": null
+        },
+        {
+          "name": "editorView",
+          "type": "EditorView",
+          "description": null
+        },
+        {
+          "name": "disabled",
+          "type": "any",
+          "default": "false",
+          "description": null
+        },
+        {
+          "name": "update",
+          "type": "any",
+          "default": "(view: EditorView): void => {\n    const { state } = view;\n    const command = InsertCommands[this.name];\n    this.disabled = !command.canExecute(state);\n  }",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "InsertCommands",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/ux/editor/modules/menu/MenuCommands.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "isMarkActive",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/ux/editor/helpers/isMarkActive.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "isNil",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/ux/editor/utils/isNil.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "isNodeActive",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/ux/editor/helpers/isNodeActive.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "Link",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/ux/editor/modules/menu/MenuCommands.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "LINK",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/ux/editor/commands/public-api.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "LinkAttrs",
+      "kind": "interface",
+      "summary": null,
+      "sourceFile": "src/ux/editor/commands/Link.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "LinkComponent",
+      "kind": "component",
+      "selector": "ux-link",
+      "summary": null,
+      "sourceFile": "src/ux/editor/modules/menu/link/link.component.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "onDocumentClick",
+          "params": [
+            {
+              "name": "e",
+              "type": "MouseEvent"
+            }
+          ],
+          "returnType": "void",
+          "description": null
+        },
+        {
+          "name": "getLabel",
+          "params": [
+            {
+              "name": "key",
+              "type": "string"
+            }
+          ],
+          "returnType": "string",
+          "description": null
+        },
+        {
+          "name": "onMouseDown",
+          "params": [
+            {
+              "name": "e",
+              "type": "MouseEvent"
+            }
+          ],
+          "returnType": "void",
+          "description": null
+        },
+        {
+          "name": "insertLink",
+          "params": [
+            {
+              "name": "e",
+              "type": "MouseEvent"
+            }
+          ],
+          "returnType": "void",
+          "description": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "showPopup",
+          "type": "any",
+          "default": "false",
+          "description": null
+        },
+        {
+          "name": "isActive",
+          "type": "any",
+          "default": "false",
+          "description": null
+        },
+        {
+          "name": "canExecute",
+          "type": "any",
+          "default": "true",
+          "description": null
+        },
+        {
+          "name": "form",
+          "type": "FormGroup",
+          "description": null
+        },
+        {
+          "name": "icon",
+          "type": "string",
+          "description": null
+        },
+        {
+          "name": "title",
+          "type": "string",
+          "description": null
+        },
+        {
+          "name": "href",
+          "type": "AbstractControl",
+          "description": null
+        },
+        {
+          "name": "text",
+          "type": "AbstractControl",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "linkifyPlugin",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/ux/editor/plugins/link.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "LocalsKeys",
+      "kind": "type",
+      "summary": null,
+      "sourceFile": "src/ux/editor/Locals.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "markApplies",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/ux/editor/helpers/markApplies.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "markInputRule",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/ux/editor/helpers/markInputRule.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "marks",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/ux/editor/schema/marks.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "MenuComponent",
+      "kind": "component",
+      "selector": "ux-editor-menu",
+      "summary": null,
+      "sourceFile": "src/ux/editor/modules/menu/menu.component.ts",
+      "inputs": [
+        {
+          "name": "toolbar",
+          "type": "Toolbar",
+          "default": "TOOLBAR_MINIMAL",
+          "description": null
+        },
+        {
+          "name": "colorPresets",
+          "type": "string[]",
+          "default": "DEFAULT_COLOR_PRESETS",
+          "description": null
+        },
+        {
+          "name": "disabled",
+          "type": "any",
+          "default": "false",
+          "description": null
+        },
+        {
+          "name": "editor",
+          "type": "Editor",
+          "description": null
+        },
+        {
+          "name": "customMenuRef",
+          "type": "TemplateRef<any> | null",
+          "default": "null",
+          "description": null
+        },
+        {
+          "name": "dropdownPlacement",
+          "type": "'top' | 'bottom'",
+          "default": "'bottom'",
+          "description": null
+        }
+      ],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "trackByIndex",
+          "params": [
+            {
+              "name": "index",
+              "type": "number"
+            }
+          ],
+          "returnType": "number",
+          "description": null
+        },
+        {
+          "name": "isDropDown",
+          "params": [
+            {
+              "name": "item",
+              "type": "ToolbarItem"
+            }
+          ],
+          "returnType": "boolean",
+          "description": null
+        },
+        {
+          "name": "getDropdownItems",
+          "params": [
+            {
+              "name": "item",
+              "type": "ToolbarItem"
+            }
+          ],
+          "returnType": "ToolbarDropdown",
+          "description": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "toggleCommands",
+          "type": "ToolbarItem[]",
+          "default": "[\n    'bold',\n    'italic',\n    'underline',\n    'strike',\n    'code',\n    'blockquote',\n    'ordered_list',\n    'bullet_list',\n    'align_left',\n    'align_center',\n    'align_right',\n    'align_justify',\n  ]",
+          "description": null
+        },
+        {
+          "name": "insertCommands",
+          "type": "ToolbarItem[]",
+          "default": "[\n    'horizontal_rule',\n    'format_clear',\n  ]",
+          "description": null
+        },
+        {
+          "name": "iconContainerClass",
+          "type": "any",
+          "default": "['Editor__MenuItem', 'Editor__MenuItem--Icon']",
+          "description": null
+        },
+        {
+          "name": "dropdownContainerClass",
+          "type": "any",
+          "default": "['Editor__Dropdown']",
+          "description": null
+        },
+        {
+          "name": "seperatorClass",
+          "type": "any",
+          "default": "['Editor__Seperator']",
+          "description": null
+        },
+        {
+          "name": "presets",
+          "type": "string[][]",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "MenuService",
+      "kind": "service",
+      "summary": null,
+      "sourceFile": "src/ux/editor/modules/menu/menu.service.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "setCustomMenuRef",
+          "params": [
+            {
+              "name": "c",
+              "type": "TemplateRef<any>"
+            }
+          ],
+          "returnType": "void",
+          "description": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "editor",
+          "type": "Editor",
+          "description": null
+        },
+        {
+          "name": "customMenuRefChange",
+          "type": "Subject<TemplateRef<any>>",
+          "default": "new Subject<TemplateRef<any>>()",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "nodes",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/ux/editor/schema/nodes.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "OL",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/ux/editor/commands/public-api.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "parseContent",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/ux/editor/parsers.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "placeholderPlugin",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/ux/editor/plugins/placeholder.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "removeLink",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/ux/editor/commands/removeLink.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "removeMark",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/ux/editor/commands/removeMark.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "SanitizeHtmlPipe",
+      "kind": "pipe",
+      "pipeName": "sanitizeHtml",
+      "summary": null,
+      "sourceFile": "src/ux/editor/pipes/sanitize/sanitize-html.pipe.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "transform",
+          "params": [
+            {
+              "name": "value",
+              "type": "string"
+            }
+          ],
+          "returnType": "SafeHtml",
+          "description": null
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "schema",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/ux/editor/schema/schema.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "STRIKE",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/ux/editor/commands/public-api.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "STRONG",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/ux/editor/commands/public-api.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "TBHeadingItems",
+      "kind": "type",
+      "summary": null,
+      "sourceFile": "src/ux/editor/types.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "TBItems",
+      "kind": "type",
+      "summary": null,
+      "sourceFile": "src/ux/editor/types.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "TEXT_BACKGROUND_COLOR",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/ux/editor/commands/public-api.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "TEXT_COLOR",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/ux/editor/commands/public-api.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "TextBackgroundColor",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/ux/editor/modules/menu/MenuCommands.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "TextColor",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/ux/editor/modules/menu/MenuCommands.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "toDoc",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/ux/editor/parsers.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "ToggleCommand",
+      "kind": "interface",
+      "summary": null,
+      "sourceFile": "src/ux/editor/commands/types.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "ToggleCommandComponent",
+      "kind": "component",
+      "selector": "ux-toggle-command",
+      "summary": null,
+      "sourceFile": "src/ux/editor/modules/menu/toggle-command/toggle-command.component.ts",
+      "inputs": [
+        {
+          "name": "toolbarItem",
+          "type": "ToolbarItem",
+          "description": null
+        }
+      ],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "toggle",
+          "params": [
+            {
+              "name": "e",
+              "type": "MouseEvent"
+            }
+          ],
+          "returnType": "void",
+          "description": null
+        },
+        {
+          "name": "getTitle",
+          "params": [
+            {
+              "name": "name",
+              "type": "string"
+            }
+          ],
+          "returnType": "string",
+          "description": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "name",
+          "type": "TBItems",
+          "description": null
+        },
+        {
+          "name": "html",
+          "type": "string",
+          "description": null
+        },
+        {
+          "name": "editorView",
+          "type": "EditorView",
+          "description": null
+        },
+        {
+          "name": "isActive",
+          "type": "any",
+          "default": "false",
+          "description": null
+        },
+        {
+          "name": "disabled",
+          "type": "any",
+          "default": "false",
+          "description": null
+        },
+        {
+          "name": "update",
+          "type": "any",
+          "default": "(view: EditorView): void => {\n    const { state } = view;\n    const command = ToggleCommands[this.name];\n    this.isActive = command.isActive(state);\n    this.disabled = !command.canExecute(state);\n  }",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "ToggleCommands",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/ux/editor/modules/menu/MenuCommands.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "toHTML",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/ux/editor/parsers.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "Toolbar",
+      "kind": "type",
+      "summary": null,
+      "sourceFile": "src/ux/editor/types.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "ToolbarCustomMenuItem",
+      "kind": "type",
+      "summary": null,
+      "sourceFile": "src/ux/editor/types.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "ToolbarDropdown",
+      "kind": "type",
+      "summary": null,
+      "sourceFile": "src/ux/editor/types.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "ToolbarDropdownGroupKeys",
+      "kind": "type",
+      "summary": null,
+      "sourceFile": "src/ux/editor/types.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "ToolbarDropdownGroupValues",
+      "kind": "type",
+      "summary": null,
+      "sourceFile": "src/ux/editor/types.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "ToolbarItem",
+      "kind": "type",
+      "summary": null,
+      "sourceFile": "src/ux/editor/types.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "toStyleString",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/ux/editor/utils/toStyleString.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "UL",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/ux/editor/commands/public-api.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "UNDERLINE",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/ux/editor/commands/public-api.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "Validators",
+      "kind": "class",
+      "summary": null,
+      "sourceFile": "src/ux/editor/validators.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "required",
+          "params": [
+            {
+              "name": "userSchema",
+              "type": "Schema"
+            }
+          ],
+          "returnType": "ValidatorFn",
+          "description": null
+        },
+        {
+          "name": "maxLength",
+          "params": [
+            {
+              "name": "maxLength",
+              "type": "number"
+            },
+            {
+              "name": "userSchema",
+              "type": "Schema"
+            }
+          ],
+          "returnType": "ValidatorFn",
+          "description": null
+        },
+        {
+          "name": "minLength",
+          "params": [
+            {
+              "name": "minLength",
+              "type": "number"
+            },
+            {
+              "name": "userSchema",
+              "type": "Schema"
+            }
+          ],
+          "returnType": "ValidatorFn",
+          "description": null
+        }
+      ],
+      "properties": []
+    }
+  ],
+  "suggestedUsageSnippet": "import { BubbleComponent, EditorMenuModule } from '@dotos/dui/ux/editor';\n\n<ux-bubble [editor]=\"...\"></ux-bubble>"
+}

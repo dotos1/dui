@@ -1,0 +1,604 @@
+{
+  "importPath": "@dotos/dui/util/pipes",
+  "exports": [
+    {
+      "name": "BytesPipe",
+      "kind": "pipe",
+      "pipeName": "bytes",
+      "summary": null,
+      "sourceFile": "src/util/pipes/bytes.pipe.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "transform",
+          "params": [
+            {
+              "name": "bytes",
+              "type": "any"
+            },
+            {
+              "name": "precision",
+              "type": "number"
+            }
+          ],
+          "returnType": "string",
+          "description": null
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "CamelCaseToDashPipe",
+      "kind": "pipe",
+      "pipeName": "camelCaseToDash",
+      "summary": null,
+      "sourceFile": "src/util/pipes/camelCaseToDash.pipe.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "transform",
+          "params": [
+            {
+              "name": "value",
+              "type": "string"
+            },
+            {
+              "name": "args",
+              "type": "any[]"
+            }
+          ],
+          "returnType": "string",
+          "description": null
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "ClonePipe",
+      "kind": "pipe",
+      "pipeName": "clone",
+      "summary": null,
+      "sourceFile": "src/util/pipes/clone.pipe.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "transform",
+          "params": [
+            {
+              "name": "value",
+              "type": "any"
+            },
+            {
+              "name": "args",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "DecimalNumberPipe",
+      "kind": "pipe",
+      "pipeName": "DecimalNumber",
+      "summary": null,
+      "sourceFile": "src/util/pipes/decimal-number.pipe.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "transform",
+          "params": [
+            {
+              "name": "value",
+              "type": "any"
+            },
+            {
+              "name": "digitsInfo",
+              "type": "DecimalNumberModel"
+            },
+            {
+              "name": "locale",
+              "type": "string"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "DEFAULT_LOCALE",
+          "type": "any",
+          "default": "'en-US'",
+          "description": null
+        },
+        {
+          "name": "DEFAULT_MIN_INTEGER_DIGITS",
+          "type": "any",
+          "default": "1",
+          "description": null
+        },
+        {
+          "name": "DEFAULT_MIN_FRACTION_DIGITS",
+          "type": "any",
+          "default": "0",
+          "description": null
+        },
+        {
+          "name": "DEFAULT_MAX_FRACTION_DIGITS",
+          "type": "any",
+          "default": "2",
+          "description": null
+        },
+        {
+          "name": "defaultLocale",
+          "type": "string",
+          "default": "DecimalNumberPipe.DEFAULT_LOCALE",
+          "description": null
+        },
+        {
+          "name": "defaultMinIntegerDigits",
+          "type": "number",
+          "default": "DecimalNumberPipe.DEFAULT_MIN_INTEGER_DIGITS",
+          "description": null
+        },
+        {
+          "name": "defaultMinFractionDigits",
+          "type": "number",
+          "default": "DecimalNumberPipe.DEFAULT_MIN_FRACTION_DIGITS",
+          "description": null
+        },
+        {
+          "name": "defaultMaxFractionDigits",
+          "type": "number",
+          "default": "DecimalNumberPipe.DEFAULT_MAX_FRACTION_DIGITS",
+          "description": null
+        },
+        {
+          "name": "onDestroy$",
+          "type": "Subject<boolean>",
+          "default": "new Subject<boolean>()",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "DigitsPipe",
+      "kind": "pipe",
+      "pipeName": "digits",
+      "summary": null,
+      "sourceFile": "src/util/pipes/digits.pipe.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "transform",
+          "params": [
+            {
+              "name": "digits",
+              "type": "any"
+            },
+            {
+              "name": "precision",
+              "type": "number"
+            }
+          ],
+          "returnType": "string",
+          "description": null
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "DuiPipesModule",
+      "kind": "module",
+      "summary": null,
+      "sourceFile": "src/util/pipes/pipes.module.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "FilterPipe",
+      "kind": "pipe",
+      "pipeName": "filter",
+      "summary": null,
+      "sourceFile": "src/util/pipes/filter.pipe.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "transform",
+          "params": [
+            {
+              "name": "mainArr",
+              "type": "any[]"
+            },
+            {
+              "name": "searchText",
+              "type": "string"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "FormatSpacePipe",
+      "kind": "pipe",
+      "pipeName": "formatSpace",
+      "summary": null,
+      "sourceFile": "src/util/pipes/format-space.pipe.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "transform",
+          "params": [
+            {
+              "name": "inputValue",
+              "type": "string"
+            },
+            {
+              "name": "replaceChar",
+              "type": "string"
+            },
+            {
+              "name": "lowerCase",
+              "type": "boolean"
+            }
+          ],
+          "returnType": "string",
+          "description": null
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "GetByIdPipe",
+      "kind": "pipe",
+      "pipeName": "getById",
+      "summary": null,
+      "sourceFile": "src/util/pipes/getById.pipe.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "transform",
+          "params": [
+            {
+              "name": "value",
+              "type": "any[]"
+            },
+            {
+              "name": "id",
+              "type": "number"
+            },
+            {
+              "name": "property",
+              "type": "string"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "HighlightPipe",
+      "kind": "pipe",
+      "pipeName": "highlight",
+      "summary": null,
+      "sourceFile": "src/util/pipes/text-highlight.pipe.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "transform",
+          "params": [
+            {
+              "name": "text",
+              "type": "string"
+            },
+            {
+              "name": "search",
+              "type": "string"
+            }
+          ],
+          "returnType": "string",
+          "description": null
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "HtmlToPlaintextPipe",
+      "kind": "pipe",
+      "pipeName": "htmlToPlaintext",
+      "summary": null,
+      "sourceFile": "src/util/pipes/htmlToPlaintext.pipe.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "transform",
+          "params": [
+            {
+              "name": "value",
+              "type": "string"
+            },
+            {
+              "name": "args",
+              "type": "any[]"
+            }
+          ],
+          "returnType": "string",
+          "description": null
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "KeysPipe",
+      "kind": "pipe",
+      "pipeName": "keys",
+      "summary": null,
+      "sourceFile": "src/util/pipes/keys.pipe.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "transform",
+          "params": [
+            {
+              "name": "value",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "LocalizedDatePipe",
+      "kind": "pipe",
+      "pipeName": "LocalizedDate",
+      "summary": null,
+      "sourceFile": "src/util/pipes/localized-date.pipe.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "transform",
+          "params": [
+            {
+              "name": "value",
+              "type": "any"
+            },
+            {
+              "name": "format",
+              "type": "string"
+            },
+            {
+              "name": "locale",
+              "type": "string"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "DEFAULT_DATE_FORMAT",
+          "type": "any",
+          "default": "'mediumDate'",
+          "description": null
+        },
+        {
+          "name": "defaultFormat",
+          "type": "string",
+          "default": "LocalizedDatePipe.DEFAULT_DATE_FORMAT",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "MultiValuePipe",
+      "kind": "pipe",
+      "pipeName": "multiValue",
+      "summary": null,
+      "sourceFile": "src/util/pipes/multi-value.pipe.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "transform",
+          "params": [
+            {
+              "name": "values",
+              "type": "string | string []"
+            },
+            {
+              "name": "valueSeparator",
+              "type": "string"
+            }
+          ],
+          "returnType": "string",
+          "description": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "DEFAULT_SEPARATOR",
+          "type": "any",
+          "default": "', '",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "SanitizeHtmlPipe",
+      "kind": "pipe",
+      "pipeName": "sanitizeHtml",
+      "summary": null,
+      "sourceFile": "src/util/pipes/custom-html.pipe.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "transform",
+          "params": [
+            {
+              "name": "v",
+              "type": "string"
+            }
+          ],
+          "returnType": "SafeHtml",
+          "description": null
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "SecureImagePipe",
+      "kind": "pipe",
+      "pipeName": "secureImage",
+      "summary": null,
+      "sourceFile": "src/util/pipes/secure-image.pipe.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "transform",
+          "params": [
+            {
+              "name": "url",
+              "type": "string"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "SecurePipe",
+      "kind": "pipe",
+      "pipeName": "secure",
+      "summary": null,
+      "sourceFile": "src/util/pipes/secure-pipe.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "transform",
+          "params": [
+            {
+              "name": "url",
+              "type": "any"
+            }
+          ],
+          "returnType": "Observable<SafeUrl>",
+          "description": null
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "TimeAgoPipe",
+      "kind": "pipe",
+      "pipeName": "timeAgo",
+      "summary": null,
+      "sourceFile": "src/util/pipes/time-ago.pipe.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "transform",
+          "params": [
+            {
+              "name": "time",
+              "type": "any"
+            },
+            {
+              "name": "reference",
+              "type": "any"
+            }
+          ],
+          "returnType": "string",
+          "description": null
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "TimeDifferencePipe",
+      "kind": "pipe",
+      "pipeName": "timeDifference",
+      "summary": null,
+      "sourceFile": "src/util/pipes/time-difference.pipe.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "transform",
+          "params": [
+            {
+              "name": "start",
+              "type": "any"
+            },
+            {
+              "name": "end",
+              "type": "any"
+            }
+          ],
+          "returnType": "string",
+          "description": null
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "TruncatePipe",
+      "kind": "pipe",
+      "pipeName": "truncate",
+      "summary": null,
+      "sourceFile": "src/util/pipes/truncate.pipe.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "transform",
+          "params": [
+            {
+              "name": "text",
+              "type": "any"
+            },
+            {
+              "name": "length",
+              "type": "number"
+            }
+          ],
+          "returnType": "string",
+          "description": null
+        }
+      ],
+      "properties": []
+    }
+  ],
+  "suggestedUsageSnippet": "import { DuiPipesModule } from '@dotos/dui/util/pipes';"
+}

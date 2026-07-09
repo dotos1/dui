@@ -1,0 +1,46 @@
+{
+  "importPath": "@dotos/dui/common/backdrop",
+  "exports": [
+    {
+      "name": "BackdropComponent",
+      "kind": "component",
+      "selector": "dui-backdrop",
+      "summary": null,
+      "sourceFile": "src/common/backdrop/backdrop.component.ts",
+      "inputs": [
+        {
+          "name": "shown",
+          "type": "boolean",
+          "description": null
+        }
+      ],
+      "outputs": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "shown",
+          "type": "any",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "BackdropModule",
+      "kind": "module",
+      "summary": null,
+      "sourceFile": "src/common/backdrop/backdrop.module.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "forRoot",
+          "params": [],
+          "returnType": "ModuleWithProviders<BackdropModule>",
+          "description": null
+        }
+      ],
+      "properties": []
+    }
+  ],
+  "suggestedUsageSnippet": "import { BackdropComponent, BackdropModule } from '@dotos/dui/common/backdrop';\n\n<dui-backdrop [shown]=\"...\"></dui-backdrop>"
+}

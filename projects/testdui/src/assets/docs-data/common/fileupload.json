@@ -1,0 +1,947 @@
+{
+  "importPath": "@dotos/dui/common/fileupload",
+  "exports": [
+    {
+      "name": "_FileDropMixinBase",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/common/fileupload/file-drop.directive.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "createImageFromDataUrl",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/common/fileupload/utils.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "FileDropBase",
+      "kind": "class",
+      "summary": null,
+      "sourceFile": "src/common/fileupload/file-drop.directive.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "FileDropDirective",
+      "kind": "directive",
+      "selector": "[duiFileDrop]",
+      "summary": null,
+      "sourceFile": "src/common/fileupload/file-drop.directive.ts",
+      "inputs": [
+        {
+          "name": "uploader",
+          "type": "FileUploader",
+          "description": null
+        },
+        {
+          "name": "multiple",
+          "type": "boolean",
+          "description": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "fileOver",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "onFileDrop",
+          "type": "File[]",
+          "description": null
+        }
+      ],
+      "methods": [
+        {
+          "name": "getOptions",
+          "params": [],
+          "returnType": "FileUploaderOptions",
+          "description": null
+        },
+        {
+          "name": "getFilters",
+          "params": [],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "onDrop",
+          "params": [
+            {
+              "name": "event",
+              "type": "any"
+            }
+          ],
+          "returnType": "void",
+          "description": null
+        },
+        {
+          "name": "onDragEnter",
+          "params": [
+            {
+              "name": "event",
+              "type": "Event"
+            }
+          ],
+          "returnType": "void",
+          "description": null
+        },
+        {
+          "name": "onDragOver",
+          "params": [
+            {
+              "name": "event",
+              "type": "any"
+            }
+          ],
+          "returnType": "void",
+          "description": null
+        },
+        {
+          "name": "onDragLeave",
+          "params": [
+            {
+              "name": "event",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "multipleBinding",
+          "type": "string",
+          "description": null
+        },
+        {
+          "name": "disabledBinding",
+          "type": "string",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "FileItem",
+      "kind": "class",
+      "summary": null,
+      "sourceFile": "src/common/fileupload/file-item.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "upload",
+          "params": [],
+          "returnType": "void",
+          "description": null
+        },
+        {
+          "name": "cancel",
+          "params": [],
+          "returnType": "void",
+          "description": null
+        },
+        {
+          "name": "remove",
+          "params": [],
+          "returnType": "void",
+          "description": null
+        },
+        {
+          "name": "onBeforeUpload",
+          "params": [],
+          "returnType": "void",
+          "description": null
+        },
+        {
+          "name": "onBuildForm",
+          "params": [
+            {
+              "name": "form",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "onProgress",
+          "params": [
+            {
+              "name": "progress",
+              "type": "number"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "onSuccess",
+          "params": [
+            {
+              "name": "response",
+              "type": "string"
+            },
+            {
+              "name": "status",
+              "type": "number"
+            },
+            {
+              "name": "headers",
+              "type": "ParsedResponseHeaders"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "onError",
+          "params": [
+            {
+              "name": "response",
+              "type": "string"
+            },
+            {
+              "name": "status",
+              "type": "number"
+            },
+            {
+              "name": "headers",
+              "type": "ParsedResponseHeaders"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "onCancel",
+          "params": [
+            {
+              "name": "response",
+              "type": "string"
+            },
+            {
+              "name": "status",
+              "type": "number"
+            },
+            {
+              "name": "headers",
+              "type": "ParsedResponseHeaders"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "onComplete",
+          "params": [
+            {
+              "name": "response",
+              "type": "string"
+            },
+            {
+              "name": "status",
+              "type": "number"
+            },
+            {
+              "name": "headers",
+              "type": "ParsedResponseHeaders"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "file",
+          "type": "FileLikeObject",
+          "description": null
+        },
+        {
+          "name": "alias",
+          "type": "string",
+          "description": null
+        },
+        {
+          "name": "url",
+          "type": "string",
+          "default": "'/'",
+          "description": null
+        },
+        {
+          "name": "method",
+          "type": "string",
+          "description": null
+        },
+        {
+          "name": "headers",
+          "type": "any",
+          "default": "[]",
+          "description": null
+        },
+        {
+          "name": "withCredentials",
+          "type": "boolean",
+          "default": "true",
+          "description": null
+        },
+        {
+          "name": "formData",
+          "type": "any",
+          "default": "[]",
+          "description": null
+        },
+        {
+          "name": "isReady",
+          "type": "boolean",
+          "default": "false",
+          "description": null
+        },
+        {
+          "name": "isUploading",
+          "type": "boolean",
+          "default": "false",
+          "description": null
+        },
+        {
+          "name": "isUploaded",
+          "type": "boolean",
+          "default": "false",
+          "description": null
+        },
+        {
+          "name": "isSuccess",
+          "type": "boolean",
+          "default": "false",
+          "description": null
+        },
+        {
+          "name": "isCancel",
+          "type": "boolean",
+          "default": "false",
+          "description": null
+        },
+        {
+          "name": "isError",
+          "type": "boolean",
+          "default": "false",
+          "description": null
+        },
+        {
+          "name": "progress",
+          "type": "number",
+          "default": "0",
+          "description": null
+        },
+        {
+          "name": "index",
+          "type": "number",
+          "default": "void 0",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "FileLikeObject",
+      "kind": "class",
+      "summary": null,
+      "sourceFile": "src/common/fileupload/file-like-object.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "lastModifiedDate",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "size",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "type",
+          "type": "string",
+          "description": null
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "description": null
+        },
+        {
+          "name": "rawFile",
+          "type": "any",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "FileSelectDirective",
+      "kind": "directive",
+      "selector": "[duiFileSelect]",
+      "summary": null,
+      "sourceFile": "src/common/fileupload/file-select.directive.ts",
+      "inputs": [
+        {
+          "name": "uploader",
+          "type": "FileUploader",
+          "description": null
+        },
+        {
+          "name": "multiple",
+          "type": "boolean",
+          "description": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "onFileSelected",
+          "type": "File[] | FileList | File",
+          "description": null
+        },
+        {
+          "name": "imageSelected",
+          "type": "any",
+          "description": null
+        }
+      ],
+      "methods": [
+        {
+          "name": "readFiles",
+          "params": [
+            {
+              "name": "event",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "getOptions",
+          "params": [],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "getFilters",
+          "params": [],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "isEmptyAfterSelection",
+          "params": [],
+          "returnType": "boolean",
+          "description": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "multipleBinding",
+          "type": "string",
+          "description": null
+        },
+        {
+          "name": "accept",
+          "type": "string",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "FileUploader",
+      "kind": "class",
+      "summary": null,
+      "sourceFile": "src/common/fileupload/file-uploader.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "setOptions",
+          "params": [
+            {
+              "name": "options",
+              "type": "FileUploaderOptions"
+            }
+          ],
+          "returnType": "void",
+          "description": null
+        },
+        {
+          "name": "addToQueue",
+          "params": [
+            {
+              "name": "files",
+              "type": "File[]"
+            },
+            {
+              "name": "options",
+              "type": "FileUploaderOptions"
+            },
+            {
+              "name": "filters",
+              "type": "FilterFunction[] | string"
+            }
+          ],
+          "returnType": "void",
+          "description": null
+        },
+        {
+          "name": "removeFromQueue",
+          "params": [
+            {
+              "name": "value",
+              "type": "FileItem"
+            }
+          ],
+          "returnType": "void",
+          "description": null
+        },
+        {
+          "name": "clearQueue",
+          "params": [],
+          "returnType": "void",
+          "description": null
+        },
+        {
+          "name": "uploadItem",
+          "params": [
+            {
+              "name": "value",
+              "type": "FileItem"
+            }
+          ],
+          "returnType": "void",
+          "description": null
+        },
+        {
+          "name": "cancelItem",
+          "params": [
+            {
+              "name": "value",
+              "type": "FileItem"
+            }
+          ],
+          "returnType": "void",
+          "description": null
+        },
+        {
+          "name": "uploadAll",
+          "params": [],
+          "returnType": "void",
+          "description": null
+        },
+        {
+          "name": "cancelAll",
+          "params": [],
+          "returnType": "void",
+          "description": null
+        },
+        {
+          "name": "isFile",
+          "params": [
+            {
+              "name": "value",
+              "type": "any"
+            }
+          ],
+          "returnType": "boolean",
+          "description": null
+        },
+        {
+          "name": "isFileLikeObject",
+          "params": [
+            {
+              "name": "value",
+              "type": "any"
+            }
+          ],
+          "returnType": "boolean",
+          "description": null
+        },
+        {
+          "name": "getIndexOfItem",
+          "params": [
+            {
+              "name": "value",
+              "type": "any"
+            }
+          ],
+          "returnType": "number",
+          "description": null
+        },
+        {
+          "name": "getNotUploadedItems",
+          "params": [],
+          "returnType": "any[]",
+          "description": null
+        },
+        {
+          "name": "getReadyItems",
+          "params": [],
+          "returnType": "any[]",
+          "description": null
+        },
+        {
+          "name": "destroy",
+          "params": [],
+          "returnType": "void",
+          "description": null
+        },
+        {
+          "name": "onAfterAddingAll",
+          "params": [
+            {
+              "name": "fileItems",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "onBuildItemForm",
+          "params": [
+            {
+              "name": "fileItem",
+              "type": "FileItem"
+            },
+            {
+              "name": "form",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "onAfterAddingFile",
+          "params": [
+            {
+              "name": "fileItem",
+              "type": "FileItem"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "onWhenAddingFileFailed",
+          "params": [
+            {
+              "name": "item",
+              "type": "FileLikeObject"
+            },
+            {
+              "name": "filter",
+              "type": "any"
+            },
+            {
+              "name": "options",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "onBeforeUploadItem",
+          "params": [
+            {
+              "name": "fileItem",
+              "type": "FileItem"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "onProgressItem",
+          "params": [
+            {
+              "name": "fileItem",
+              "type": "FileItem"
+            },
+            {
+              "name": "progress",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "onProgressAll",
+          "params": [
+            {
+              "name": "progress",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "onSuccessItem",
+          "params": [
+            {
+              "name": "item",
+              "type": "FileItem"
+            },
+            {
+              "name": "response",
+              "type": "string"
+            },
+            {
+              "name": "status",
+              "type": "number"
+            },
+            {
+              "name": "headers",
+              "type": "ParsedResponseHeaders"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "onErrorItem",
+          "params": [
+            {
+              "name": "item",
+              "type": "FileItem"
+            },
+            {
+              "name": "response",
+              "type": "string"
+            },
+            {
+              "name": "status",
+              "type": "number"
+            },
+            {
+              "name": "headers",
+              "type": "ParsedResponseHeaders"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "onCancelItem",
+          "params": [
+            {
+              "name": "item",
+              "type": "FileItem"
+            },
+            {
+              "name": "response",
+              "type": "string"
+            },
+            {
+              "name": "status",
+              "type": "number"
+            },
+            {
+              "name": "headers",
+              "type": "ParsedResponseHeaders"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "onCompleteItem",
+          "params": [
+            {
+              "name": "item",
+              "type": "FileItem"
+            },
+            {
+              "name": "response",
+              "type": "string"
+            },
+            {
+              "name": "status",
+              "type": "number"
+            },
+            {
+              "name": "headers",
+              "type": "ParsedResponseHeaders"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "onCompleteAll",
+          "params": [],
+          "returnType": "any",
+          "description": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "authToken",
+          "type": "string",
+          "description": null
+        },
+        {
+          "name": "isUploading",
+          "type": "boolean",
+          "default": "false",
+          "description": null
+        },
+        {
+          "name": "queue",
+          "type": "FileItem[]",
+          "default": "[]",
+          "description": null
+        },
+        {
+          "name": "progress",
+          "type": "number",
+          "default": "0",
+          "description": null
+        },
+        {
+          "name": "autoUpload",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "authTokenHeader",
+          "type": "string",
+          "description": null
+        },
+        {
+          "name": "uploaderResponse",
+          "type": "EventEmitter<any>",
+          "description": null
+        },
+        {
+          "name": "options",
+          "type": "FileUploaderOptions",
+          "default": "{\n    autoUpload: false,\n    isHTML5: true,\n    filters: [],\n    removeAfterUpload: false,\n    disableMultipart: false,\n    formatDataFunction: (item: FileItem) => item._file,\n    formatDataFunctionIsAsync: false\n  }",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "FileUploaderOptions",
+      "kind": "interface",
+      "summary": null,
+      "sourceFile": "src/common/fileupload/file-uploader.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "FileUploadModule",
+      "kind": "module",
+      "summary": null,
+      "sourceFile": "src/common/fileupload/file-upload.module.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "FilterFunction",
+      "kind": "type",
+      "summary": null,
+      "sourceFile": "src/common/fileupload/file-uploader.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "getImageTypeFromDataUrl",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/common/fileupload/utils.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "Headers",
+      "kind": "interface",
+      "summary": null,
+      "sourceFile": "src/common/fileupload/file-uploader.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "IMAGE_FILE_PROCESSOR",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/common/fileupload/file-select.directive.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "ImageFileProcessor",
+      "kind": "interface",
+      "summary": null,
+      "sourceFile": "src/common/fileupload/file-uploader.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "ImageResult",
+      "kind": "interface",
+      "summary": null,
+      "sourceFile": "src/common/fileupload/file-uploader.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "ParsedResponseHeaders",
+      "kind": "type",
+      "summary": null,
+      "sourceFile": "src/common/fileupload/file-uploader.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "ResizeOptions",
+      "kind": "interface",
+      "summary": null,
+      "sourceFile": "src/common/fileupload/file-uploader.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    }
+  ],
+  "suggestedUsageSnippet": "import { FileUploadModule } from '@dotos/dui/common/fileupload';"
+}

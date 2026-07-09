@@ -1,0 +1,266 @@
+{
+  "importPath": "@dotos/dui/ux/link-preview",
+  "exports": [
+    {
+      "name": "LinkPreviewCacheService",
+      "kind": "service",
+      "summary": null,
+      "sourceFile": "src/ux/link-preview/services/link-preview-cache.service.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "updateCacheItem",
+          "params": [
+            {
+              "name": "cacheKey",
+              "type": "string"
+            },
+            {
+              "name": "data",
+              "type": "any"
+            }
+          ],
+          "returnType": "void",
+          "description": "Update item in RAM cache"
+        },
+        {
+          "name": "getCacheItem",
+          "params": [
+            {
+              "name": "cacheKey",
+              "type": "string"
+            }
+          ],
+          "returnType": "any",
+          "description": "Get item from cache"
+        },
+        {
+          "name": "saveCache",
+          "params": [],
+          "returnType": "void",
+          "description": "Save whole cache to localStorage"
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "LinkPreviewComponent",
+      "kind": "component",
+      "selector": "link-preview",
+      "summary": null,
+      "sourceFile": "src/ux/link-preview/components/link-preview.component.ts",
+      "inputs": [
+        {
+          "name": "links",
+          "type": "string[]",
+          "default": "[]",
+          "description": "Plain links string array"
+        },
+        {
+          "name": "parseForLinksStr",
+          "type": "string",
+          "description": "Input string to parse for links"
+        },
+        {
+          "name": "getApiEndpoint$",
+          "type": "(requestUrl: string) => Observable<any>",
+          "description": "Method that does the API request, provide as class member arrow function from parent"
+        },
+        {
+          "name": "apiRoute",
+          "type": "string",
+          "description": "API route where to get the meta data from, component will build the full request url\nSchema: api.example.com/api/get-meta-data?url=d3d3LmV4YW1wbGUuY29t"
+        },
+        {
+          "name": "queryParamName",
+          "type": "any",
+          "default": "'url'",
+          "description": "Target url will be attached as encodeURI(btoa(url)), so it must be decoded on the server"
+        },
+        {
+          "name": "showImage",
+          "type": "any",
+          "default": "true",
+          "description": "boolean: show image in preview"
+        },
+        {
+          "name": "showSiteName",
+          "type": "any",
+          "default": "true",
+          "description": "boolean: show site name in preview"
+        },
+        {
+          "name": "showTitle",
+          "type": "any",
+          "default": "true",
+          "description": "boolean: show title in preview"
+        },
+        {
+          "name": "showDescription",
+          "type": "any",
+          "default": "true",
+          "description": "boolean: show description in preview"
+        },
+        {
+          "name": "showLinkUrl",
+          "type": "any",
+          "default": "false",
+          "description": "boolean: show link url in preview"
+        },
+        {
+          "name": "useCache",
+          "type": "any",
+          "default": "true",
+          "description": "boolean: use cache to display previews faster on next rendering"
+        },
+        {
+          "name": "maxCacheAgeMs",
+          "type": "any",
+          "default": "1000 * 60 * 60 * 24 * 7",
+          "description": "number: max age the data cache of a link preview should be used"
+        },
+        {
+          "name": "showLoadingIndicator",
+          "type": "any",
+          "default": "true",
+          "description": "boolean: show loading indicator"
+        },
+        {
+          "name": "useHtmlLinkDefaultClickEvent",
+          "type": "any",
+          "default": "false",
+          "description": "boolean: whether the <a href=\"...\"></a> link should be clickable.\nThis is a question of context security. Otherwise use (previewClick) event."
+        },
+        {
+          "name": "htmlLinkTarget",
+          "type": "HtmlLinkTarget",
+          "default": "'_blank'",
+          "description": "HtmlLinkTarget: where the HTML link should be opened on click.\nOnly has an effect if [useHtmlLinkDefaultClickEvent]=\"true\""
+        }
+      ],
+      "outputs": [
+        {
+          "name": "previewClicked",
+          "type": "any",
+          "description": "Event emitter: on click to handle the click event, emits the clicked URL"
+        }
+      ],
+      "methods": [
+        {
+          "name": "onLinkClick",
+          "params": [
+            {
+              "name": "url",
+              "type": "string"
+            }
+          ],
+          "returnType": "void",
+          "description": "On link click emit to EventEmitter"
+        },
+        {
+          "name": "disableDefaultLink",
+          "params": [
+            {
+              "name": "event",
+              "type": "MouseEvent"
+            }
+          ],
+          "returnType": "void",
+          "description": null
+        },
+        {
+          "name": "getSanitizedImageUrl",
+          "params": [
+            {
+              "name": "p",
+              "type": "OpenGraphMetaData"
+            }
+          ],
+          "returnType": "string",
+          "description": "Get sanitized image url due data often contains url errors"
+        }
+      ],
+      "properties": [
+        {
+          "name": "previews",
+          "type": "OpenGraphMetaData[]",
+          "default": "[]",
+          "description": "Array of metadata objects where the preview is rendered from"
+        },
+        {
+          "name": "loadingSpinner",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "showLoadingSpinner",
+          "type": "any",
+          "default": "false",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "LinkPreviewLoadingManager",
+      "kind": "class",
+      "summary": null,
+      "sourceFile": "src/ux/link-preview/services/link-preview-loading.manager.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "addTask",
+          "params": [
+            {
+              "name": "name",
+              "type": "string"
+            }
+          ],
+          "returnType": "void",
+          "description": "Add task to stack"
+        },
+        {
+          "name": "removeTask",
+          "params": [
+            {
+              "name": "name",
+              "type": "string"
+            }
+          ],
+          "returnType": "void",
+          "description": "Remove task from stack"
+        }
+      ],
+      "properties": [
+        {
+          "name": "hasPendingJobs$",
+          "type": "any",
+          "default": "new BehaviorSubject(false)",
+          "description": "Observable to retrieve if has pending jobs"
+        }
+      ]
+    },
+    {
+      "name": "LinkPreviewModule",
+      "kind": "module",
+      "summary": null,
+      "sourceFile": "src/ux/link-preview/link-preview.module.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "OpenGraphMetaData",
+      "kind": "interface",
+      "summary": null,
+      "sourceFile": "src/ux/link-preview/interfaces/open-graph-meta-data.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    }
+  ],
+  "suggestedUsageSnippet": "import { LinkPreviewComponent, LinkPreviewModule } from '@dotos/dui/ux/link-preview';\n\n<link-preview [links]=\"...\" [parseForLinksStr]=\"...\" [getApiEndpoint$]=\"...\" (previewClicked)=\"...\"></link-preview>"
+}

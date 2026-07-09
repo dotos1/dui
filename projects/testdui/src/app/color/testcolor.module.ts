@@ -17,7 +17,8 @@ export const FrameRootRoutes: Routes = [
     ],
     imports: [
         ColorFieldModule,
-        FormWrapperModule, 
+        FormModule,
+        FormWrapperModule,
 
         LoadingModule,
         IconPickerModule,

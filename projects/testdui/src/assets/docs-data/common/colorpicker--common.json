@@ -1,0 +1,1170 @@
+{
+  "importPath": "@dotos/dui/common/colorpicker/common",
+  "exports": [
+    {
+      "name": "AlphaComponent",
+      "kind": "component",
+      "selector": "color-alpha",
+      "summary": null,
+      "sourceFile": "src/common/colorpicker/common/alpha.component.ts",
+      "inputs": [
+        {
+          "name": "hsl",
+          "type": "HSLA",
+          "description": null
+        },
+        {
+          "name": "rgb",
+          "type": "RGBA",
+          "description": null
+        },
+        {
+          "name": "pointer",
+          "type": "{ [key: string]: string }",
+          "description": null
+        },
+        {
+          "name": "shadow",
+          "type": "string",
+          "description": null
+        },
+        {
+          "name": "radius",
+          "type": "string|number",
+          "description": null
+        },
+        {
+          "name": "direction",
+          "type": "'horizontal' | 'vertical'",
+          "default": "'horizontal'",
+          "description": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "onChange",
+          "type": "any",
+          "description": null
+        }
+      ],
+      "methods": [
+        {
+          "name": "handleChange",
+          "params": [
+            {
+              "name": "{ top, left, containerHeight, containerWidth, $event }",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "gradient",
+          "type": "{ [key: string]: string }",
+          "description": null
+        },
+        {
+          "name": "pointerLeft",
+          "type": "number",
+          "description": null
+        },
+        {
+          "name": "pointerTop",
+          "type": "number",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "AlphaModule",
+      "kind": "module",
+      "summary": null,
+      "sourceFile": "src/common/colorpicker/common/alpha.component.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "CheckboardComponent",
+      "kind": "component",
+      "selector": "color-checkboard",
+      "summary": null,
+      "sourceFile": "src/common/colorpicker/common/checkboard.component.ts",
+      "inputs": [
+        {
+          "name": "white",
+          "type": "any",
+          "default": "'transparent'",
+          "description": null
+        },
+        {
+          "name": "size",
+          "type": "any",
+          "default": "8",
+          "description": null
+        },
+        {
+          "name": "grey",
+          "type": "any",
+          "default": "'rgba(0,0,0,.08)'",
+          "description": null
+        },
+        {
+          "name": "boxShadow",
+          "type": "string",
+          "description": null
+        },
+        {
+          "name": "borderRadius",
+          "type": "string",
+          "description": null
+        }
+      ],
+      "outputs": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "gridStyles",
+          "type": "{ [key: string]: string }",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "CheckboardModule",
+      "kind": "module",
+      "summary": null,
+      "sourceFile": "src/common/colorpicker/common/checkboard.component.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "Color",
+      "kind": "interface",
+      "summary": null,
+      "sourceFile": "src/common/colorpicker/common/helpers/color.interfaces.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "ColorEvent",
+      "kind": "interface",
+      "summary": null,
+      "sourceFile": "src/common/colorpicker/common/color-wrap.component.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "ColorWrap",
+      "kind": "component",
+      "selector": "color-wrap",
+      "summary": null,
+      "sourceFile": "src/common/colorpicker/common/color-wrap.component.ts",
+      "inputs": [
+        {
+          "name": "className",
+          "type": "string",
+          "description": null
+        },
+        {
+          "name": "color",
+          "type": "HSLA | HSVA | RGBA | string",
+          "default": "{\n    h: 250,\n    s: 0.5,\n    l: 0.2,\n    a: 1,\n  }",
+          "description": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "onChange",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "onChangeComplete",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "onSwatchHover",
+          "type": "any",
+          "description": null
+        }
+      ],
+      "methods": [
+        {
+          "name": "setState",
+          "params": [
+            {
+              "name": "data",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "handleChange",
+          "params": [
+            {
+              "name": "data",
+              "type": "any"
+            },
+            {
+              "name": "$event",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "afterValidChange",
+          "params": [],
+          "returnType": "any",
+          "description": "hook for components after a complete change"
+        },
+        {
+          "name": "handleSwatchHover",
+          "params": [
+            {
+              "name": "data",
+              "type": "any"
+            },
+            {
+              "name": "$event",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "oldHue",
+          "type": "number",
+          "description": null
+        },
+        {
+          "name": "hsl",
+          "type": "HSLA",
+          "description": null
+        },
+        {
+          "name": "hsv",
+          "type": "HSVA",
+          "description": null
+        },
+        {
+          "name": "rgb",
+          "type": "RGBA",
+          "description": null
+        },
+        {
+          "name": "hex",
+          "type": "string",
+          "description": null
+        },
+        {
+          "name": "source",
+          "type": "string",
+          "description": null
+        },
+        {
+          "name": "currentColor",
+          "type": "string",
+          "description": null
+        },
+        {
+          "name": "changes",
+          "type": "Subscription",
+          "description": null
+        },
+        {
+          "name": "host",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "params",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "params",
+          "type": "any",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "ColorWrapModule",
+      "kind": "module",
+      "summary": null,
+      "sourceFile": "src/common/colorpicker/common/color-wrap.component.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "CoordinatesDirective",
+      "kind": "directive",
+      "selector": "[ngx-color-coordinates]",
+      "summary": null,
+      "sourceFile": "src/common/colorpicker/common/coordinates.directive.ts",
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "coordinatesChange",
+          "type": "any",
+          "description": null
+        }
+      ],
+      "methods": [
+        {
+          "name": "mousemove",
+          "params": [
+            {
+              "name": "$event",
+              "type": "Event"
+            },
+            {
+              "name": "x",
+              "type": "number"
+            },
+            {
+              "name": "y",
+              "type": "number"
+            },
+            {
+              "name": "isTouch",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "mouseup",
+          "params": [],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "mousedown",
+          "params": [
+            {
+              "name": "$event",
+              "type": "Event"
+            },
+            {
+              "name": "x",
+              "type": "number"
+            },
+            {
+              "name": "y",
+              "type": "number"
+            },
+            {
+              "name": "isTouch",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "handleChange",
+          "params": [
+            {
+              "name": "x",
+              "type": "number"
+            },
+            {
+              "name": "y",
+              "type": "number"
+            },
+            {
+              "name": "$event",
+              "type": "Event"
+            },
+            {
+              "name": "isTouch",
+              "type": "boolean"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "CoordinatesModule",
+      "kind": "module",
+      "summary": null,
+      "sourceFile": "src/common/colorpicker/common/coordinates.directive.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "EditableInputComponent",
+      "kind": "component",
+      "selector": "color-editable-input",
+      "summary": null,
+      "sourceFile": "src/common/colorpicker/common/editable-input.component.ts",
+      "inputs": [
+        {
+          "name": "style",
+          "type": "{ wrap?: { [key: string]: string }; input: { [key: string]: string }; label: { [key: string]: string }; }",
+          "description": null
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "description": null
+        },
+        {
+          "name": "value",
+          "type": "string | number",
+          "description": null
+        },
+        {
+          "name": "arrowOffset",
+          "type": "number",
+          "description": null
+        },
+        {
+          "name": "dragLabel",
+          "type": "boolean",
+          "description": null
+        },
+        {
+          "name": "dragMax",
+          "type": "number",
+          "description": null
+        },
+        {
+          "name": "placeholder",
+          "type": "any",
+          "default": "''",
+          "description": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "onChange",
+          "type": "any",
+          "description": null
+        }
+      ],
+      "methods": [
+        {
+          "name": "handleFocus",
+          "params": [],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "handleFocusOut",
+          "params": [],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "handleKeydown",
+          "params": [
+            {
+              "name": "$event",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "handleKeyup",
+          "params": [
+            {
+              "name": "$event",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "subscribe",
+          "params": [],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "unsubscribe",
+          "params": [],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "handleMousedown",
+          "params": [
+            {
+              "name": "$event",
+              "type": "Event"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "handleDrag",
+          "params": [
+            {
+              "name": "$event",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "currentValue",
+          "type": "string | number",
+          "description": null
+        },
+        {
+          "name": "blurValue",
+          "type": "string",
+          "description": null
+        },
+        {
+          "name": "wrapStyle",
+          "type": "{ [key: string]: string }",
+          "description": null
+        },
+        {
+          "name": "inputStyle",
+          "type": "{ [key: string]: string }",
+          "description": null
+        },
+        {
+          "name": "labelStyle",
+          "type": "{ [key: string]: string }",
+          "description": null
+        },
+        {
+          "name": "focus",
+          "type": "any",
+          "default": "false",
+          "description": null
+        },
+        {
+          "name": "mousemove",
+          "type": "Subscription",
+          "description": null
+        },
+        {
+          "name": "mouseup",
+          "type": "Subscription",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "EditableInputModule",
+      "kind": "module",
+      "summary": null,
+      "sourceFile": "src/common/colorpicker/common/editable-input.component.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "getCheckerboard",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/common/colorpicker/common/helpers/checkboard.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "getContrastingColor",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/common/colorpicker/common/helpers/color.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "HSL",
+      "kind": "interface",
+      "summary": null,
+      "sourceFile": "src/common/colorpicker/common/helpers/color.interfaces.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "HSLA",
+      "kind": "interface",
+      "summary": null,
+      "sourceFile": "src/common/colorpicker/common/helpers/color.interfaces.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "HSLAsource",
+      "kind": "interface",
+      "summary": null,
+      "sourceFile": "src/common/colorpicker/common/helpers/color.interfaces.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "HSV",
+      "kind": "interface",
+      "summary": null,
+      "sourceFile": "src/common/colorpicker/common/helpers/color.interfaces.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "HSVA",
+      "kind": "interface",
+      "summary": null,
+      "sourceFile": "src/common/colorpicker/common/helpers/color.interfaces.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "HSVAsource",
+      "kind": "interface",
+      "summary": null,
+      "sourceFile": "src/common/colorpicker/common/helpers/color.interfaces.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "HueComponent",
+      "kind": "component",
+      "selector": "color-hue",
+      "summary": null,
+      "sourceFile": "src/common/colorpicker/common/hue.component.ts",
+      "inputs": [
+        {
+          "name": "hsl",
+          "type": "HSLA",
+          "description": null
+        },
+        {
+          "name": "pointer",
+          "type": "{ [key: string]: string }",
+          "description": null
+        },
+        {
+          "name": "radius",
+          "type": "number",
+          "description": null
+        },
+        {
+          "name": "shadow",
+          "type": "string",
+          "description": null
+        },
+        {
+          "name": "hidePointer",
+          "type": "any",
+          "default": "false",
+          "description": null
+        },
+        {
+          "name": "direction",
+          "type": "'horizontal' | 'vertical'",
+          "default": "'horizontal'",
+          "description": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "onChange",
+          "type": "any",
+          "description": null
+        }
+      ],
+      "methods": [
+        {
+          "name": "handleChange",
+          "params": [
+            {
+              "name": "{ top, left, containerHeight, containerWidth, $event }",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "left",
+          "type": "any",
+          "default": "'0px'",
+          "description": null
+        },
+        {
+          "name": "top",
+          "type": "any",
+          "default": "''",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "HueModule",
+      "kind": "module",
+      "summary": null,
+      "sourceFile": "src/common/colorpicker/common/hue.component.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "isValidHex",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/common/colorpicker/common/helpers/color.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "RaisedComponent",
+      "kind": "component",
+      "selector": "color-raised",
+      "summary": null,
+      "sourceFile": "src/common/colorpicker/common/raised.component.ts",
+      "inputs": [
+        {
+          "name": "zDepth",
+          "type": "zDepth",
+          "default": "1",
+          "description": null
+        },
+        {
+          "name": "radius",
+          "type": "any",
+          "default": "1",
+          "description": null
+        },
+        {
+          "name": "background",
+          "type": "any",
+          "default": "'#fff'",
+          "description": null
+        }
+      ],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "RaisedModule",
+      "kind": "module",
+      "summary": null,
+      "sourceFile": "src/common/colorpicker/common/raised.component.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "render",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/common/colorpicker/common/helpers/checkboard.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "RGB",
+      "kind": "interface",
+      "summary": null,
+      "sourceFile": "src/common/colorpicker/common/helpers/color.interfaces.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "RGBA",
+      "kind": "interface",
+      "summary": null,
+      "sourceFile": "src/common/colorpicker/common/helpers/color.interfaces.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "SaturationComponent",
+      "kind": "component",
+      "selector": "color-saturation",
+      "summary": null,
+      "sourceFile": "src/common/colorpicker/common/saturation.component.ts",
+      "inputs": [
+        {
+          "name": "hsl",
+          "type": "HSLA",
+          "description": null
+        },
+        {
+          "name": "hsv",
+          "type": "HSVA",
+          "description": null
+        },
+        {
+          "name": "radius",
+          "type": "number",
+          "description": null
+        },
+        {
+          "name": "pointer",
+          "type": "{ [key: string]: string }",
+          "description": null
+        },
+        {
+          "name": "circle",
+          "type": "{ [key: string]: string }",
+          "description": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "onChange",
+          "type": "any",
+          "description": null
+        }
+      ],
+      "methods": [
+        {
+          "name": "handleChange",
+          "params": [
+            {
+              "name": "{ top, left, containerHeight, containerWidth, $event }",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "background",
+          "type": "string",
+          "description": null
+        },
+        {
+          "name": "pointerTop",
+          "type": "string",
+          "description": null
+        },
+        {
+          "name": "pointerLeft",
+          "type": "string",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "SaturationModule",
+      "kind": "module",
+      "summary": null,
+      "sourceFile": "src/common/colorpicker/common/saturation.component.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "ShadeComponent",
+      "kind": "component",
+      "selector": "color-shade",
+      "summary": null,
+      "sourceFile": "src/common/colorpicker/common/shade.component.ts",
+      "inputs": [
+        {
+          "name": "hsl",
+          "type": "HSLA",
+          "description": null
+        },
+        {
+          "name": "rgb",
+          "type": "RGBA",
+          "description": null
+        },
+        {
+          "name": "pointer",
+          "type": "{ [key: string]: string }",
+          "description": null
+        },
+        {
+          "name": "shadow",
+          "type": "string",
+          "description": null
+        },
+        {
+          "name": "radius",
+          "type": "string",
+          "description": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "onChange",
+          "type": "any",
+          "description": null
+        }
+      ],
+      "methods": [
+        {
+          "name": "handleChange",
+          "params": [
+            {
+              "name": "{ left, containerWidth, $event }",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "gradient",
+          "type": "{ [key: string]: string }",
+          "description": null
+        },
+        {
+          "name": "pointerLeft",
+          "type": "number",
+          "description": null
+        },
+        {
+          "name": "pointerTop",
+          "type": "number",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "ShadeModule",
+      "kind": "module",
+      "summary": null,
+      "sourceFile": "src/common/colorpicker/common/shade.component.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "Shape",
+      "kind": "interface",
+      "summary": null,
+      "sourceFile": "src/common/colorpicker/common/helpers/color.interfaces.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "simpleCheckForValidColor",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/common/colorpicker/common/helpers/color.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "SwatchComponent",
+      "kind": "component",
+      "selector": "color-swatch",
+      "summary": null,
+      "sourceFile": "src/common/colorpicker/common/swatch.component.ts",
+      "inputs": [
+        {
+          "name": "color",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "style",
+          "type": "{ [key: string]: string }",
+          "default": "{}",
+          "description": null
+        },
+        {
+          "name": "focusStyle",
+          "type": "{ [key: string]: string }",
+          "default": "{}",
+          "description": null
+        },
+        {
+          "name": "focus",
+          "type": "boolean",
+          "description": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "onClick",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "onHover",
+          "type": "any",
+          "description": null
+        }
+      ],
+      "methods": [
+        {
+          "name": "currentStyles",
+          "params": [],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "handleFocusOut",
+          "params": [],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "handleFocus",
+          "params": [],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "handleHover",
+          "params": [
+            {
+              "name": "hex",
+              "type": "any"
+            },
+            {
+              "name": "$event",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "handleClick",
+          "params": [
+            {
+              "name": "hex",
+              "type": "any"
+            },
+            {
+              "name": "$event",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "divStyles",
+          "type": "{ [key: string]: string }",
+          "default": "{}",
+          "description": null
+        },
+        {
+          "name": "focusStyles",
+          "type": "{ [key: string]: string }",
+          "default": "{}",
+          "description": null
+        },
+        {
+          "name": "inFocus",
+          "type": "any",
+          "default": "false",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "SwatchModule",
+      "kind": "module",
+      "summary": null,
+      "sourceFile": "src/common/colorpicker/common/swatch.component.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "toState",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/common/colorpicker/common/helpers/color.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "zDepth",
+      "kind": "type",
+      "summary": null,
+      "sourceFile": "src/common/colorpicker/common/raised.component.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    }
+  ],
+  "suggestedUsageSnippet": "import { AlphaComponent, AlphaModule } from '@dotos/dui/common/colorpicker/common';\n\n<color-alpha [hsl]=\"...\" [rgb]=\"...\" [pointer]=\"...\" (onChange)=\"...\"></color-alpha>"
+}

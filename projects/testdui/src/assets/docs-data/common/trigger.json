@@ -1,0 +1,16 @@
+{
+  "importPath": "@dotos/dui/common/trigger",
+  "exports": [
+    {
+      "name": "TriggerPopup",
+      "kind": "interface",
+      "summary": null,
+      "sourceFile": "src/common/trigger/trigger.model.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    }
+  ],
+  "suggestedUsageSnippet": "import { /* ... */ } from '@dotos/dui/common/trigger';"
+}

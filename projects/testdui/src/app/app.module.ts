@@ -10,7 +10,7 @@ import { LocalStorageService } from '@dotos/dui/core/storage';
 import { HttpLoaderModule } from '@dotos/dui/net';
 import { DotosConfigModule, DotosConfigService, ThemeService, dotosConfig } from '@dotos/dui/theme';
 import { TranslateModule, TranslateService, TranslationService } from '@dotos/dui/translator';
-import { ButtonModule } from '@dotos/dui/ui/button';
+import { CommandPaletteModule } from '@dotos/dui/ux/command-palette';
 
 
 import { MAT_TOOLTIP_SCROLL_STRATEGY } from '@angular/material/tooltip';
@@ -22,13 +22,17 @@ import { AppRoutingModule } from './app.routes';
     ],
     imports: [
       AppRoutingModule,
-      ButtonModule,
       BrowserAnimationsModule,
       BrowserModule,
       DotosConfigModule.forRoot(dotosConfig),
       HttpLoaderModule.forRoot(),
       ToastrModule.forRoot(),
       TranslateModule.forRoot(),
+      // CommandPaletteService is providedIn:'root'; its own constructor deps
+      // (CommandPaletteShortcutsService etc.) are resolved via the root
+      // injector regardless of which lazy module first requests the service,
+      // so CommandPaletteModule's providers must be registered here.
+      CommandPaletteModule,
     ],
     providers: [
       {

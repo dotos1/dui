@@ -1,0 +1,366 @@
+{
+  "importPath": "@dotos/dui/common/inline-svg",
+  "exports": [
+    {
+      "name": "createSymbolSvg",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/common/inline-svg/svg-util.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "InlineSVGComponent",
+      "kind": "component",
+      "selector": "inline-svg",
+      "summary": null,
+      "sourceFile": "src/common/inline-svg/inline-svg.component.ts",
+      "inputs": [
+        {
+          "name": "context",
+          "type": "InlineSVGDirective",
+          "description": null
+        },
+        {
+          "name": "content",
+          "type": "HTMLElement | SVGElement",
+          "description": null
+        },
+        {
+          "name": "replaceContents",
+          "type": "boolean",
+          "description": null
+        },
+        {
+          "name": "prepend",
+          "type": "boolean",
+          "description": null
+        }
+      ],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "InlineSVGConfig",
+      "kind": "class",
+      "summary": null,
+      "sourceFile": "src/common/inline-svg/inline-svg.config.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "baseUrl",
+          "type": "string",
+          "description": null
+        },
+        {
+          "name": "clientOnly",
+          "type": "boolean",
+          "description": null
+        },
+        {
+          "name": "bypassHttpClientInterceptorChain",
+          "type": "boolean",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "InlineSVGDirective",
+      "kind": "directive",
+      "selector": "[inlineSVG]",
+      "summary": null,
+      "sourceFile": "src/common/inline-svg/inline-svg.directive.ts",
+      "inputs": [
+        {
+          "name": "inlineSVG",
+          "type": "string",
+          "description": null
+        },
+        {
+          "name": "resolveSVGUrl",
+          "type": "boolean",
+          "default": "true",
+          "description": null
+        },
+        {
+          "name": "replaceContents",
+          "type": "boolean",
+          "default": "true",
+          "description": null
+        },
+        {
+          "name": "prepend",
+          "type": "boolean",
+          "default": "false",
+          "description": null
+        },
+        {
+          "name": "injectComponent",
+          "type": "boolean",
+          "default": "false",
+          "description": null
+        },
+        {
+          "name": "cacheSVG",
+          "type": "boolean",
+          "default": "true",
+          "description": null
+        },
+        {
+          "name": "setSVGAttributes",
+          "type": "{ [key: string]: any }",
+          "description": null
+        },
+        {
+          "name": "removeSVGAttributes",
+          "type": "Array<string>",
+          "description": null
+        },
+        {
+          "name": "forceEvalStyles",
+          "type": "boolean",
+          "default": "false",
+          "description": null
+        },
+        {
+          "name": "evalScripts",
+          "type": "SVGScriptEvalMode",
+          "default": "SVGScriptEvalMode.ALWAYS",
+          "description": null
+        },
+        {
+          "name": "fallbackImgUrl",
+          "type": "string",
+          "description": null
+        },
+        {
+          "name": "onSVGLoaded",
+          "type": "(svg: SVGElement, parent: Element | null) => SVGElement",
+          "description": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "onSVGInserted",
+          "type": "SVGElement",
+          "description": null
+        },
+        {
+          "name": "onSVGFailed",
+          "type": "any",
+          "description": null
+        }
+      ],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "InlineSVGModule",
+      "kind": "module",
+      "summary": null,
+      "sourceFile": "src/common/inline-svg/inline-svg.module.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "forRoot",
+          "params": [
+            {
+              "name": "config",
+              "type": "InlineSVGConfig"
+            }
+          ],
+          "returnType": "ModuleWithProviders<InlineSVGModule>",
+          "description": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "entryComponents",
+          "type": "any",
+          "default": "[InlineSVGComponent]",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "InlineSVGService",
+      "kind": "service",
+      "summary": null,
+      "sourceFile": "src/common/inline-svg/inline-svg.service.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "insertEl",
+          "params": [
+            {
+              "name": "dir",
+              "type": "InlineSVGDirective"
+            },
+            {
+              "name": "parentEl",
+              "type": "HTMLElement"
+            },
+            {
+              "name": "content",
+              "type": "HTMLElement | SVGElement"
+            },
+            {
+              "name": "replaceContents",
+              "type": "boolean"
+            },
+            {
+              "name": "prepend",
+              "type": "boolean"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "evalScripts",
+          "params": [
+            {
+              "name": "svg",
+              "type": "SVGElement"
+            },
+            {
+              "name": "url",
+              "type": "string"
+            },
+            {
+              "name": "evalMode",
+              "type": "string"
+            }
+          ],
+          "returnType": "void",
+          "description": null
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "isSvgSupported",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/common/inline-svg/svg-util.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "isUrlSymbol",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/common/inline-svg/svg-util.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "removeAttributes",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/common/inline-svg/svg-util.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "setAttributes",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/common/inline-svg/svg-util.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "SVGCacheService",
+      "kind": "service",
+      "summary": null,
+      "sourceFile": "src/common/inline-svg/svg-cache.service.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "getImage",
+          "params": [
+            {
+              "name": "url",
+              "type": "string"
+            },
+            {
+              "name": "resolveImageUrl",
+              "type": "boolean"
+            },
+            {
+              "name": "cache",
+              "type": "boolean"
+            }
+          ],
+          "returnType": "Observable<any>",
+          "description": null
+        },
+        {
+          "name": "getSVG",
+          "params": [
+            {
+              "name": "url",
+              "type": "string"
+            },
+            {
+              "name": "resolveSVGUrl",
+              "type": "boolean"
+            },
+            {
+              "name": "cache",
+              "type": "boolean"
+            }
+          ],
+          "returnType": "Observable<SVGElement>",
+          "description": null
+        },
+        {
+          "name": "setBaseUrl",
+          "params": [],
+          "returnType": "void",
+          "description": null
+        },
+        {
+          "name": "getAbsoluteUrl",
+          "params": [
+            {
+              "name": "url",
+              "type": "string"
+            }
+          ],
+          "returnType": "string",
+          "description": null
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "SVGScriptEvalMode",
+      "kind": "enum",
+      "summary": null,
+      "sourceFile": "src/common/inline-svg/inline-svg.config.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    }
+  ],
+  "suggestedUsageSnippet": "import { InlineSVGComponent, InlineSVGModule } from '@dotos/dui/common/inline-svg';\n\n<inline-svg [context]=\"...\" [content]=\"...\" [replaceContents]=\"...\"></inline-svg>"
+}

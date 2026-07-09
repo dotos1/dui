@@ -1,0 +1,343 @@
+{
+  "importPath": "@dotos/dui/common/search-box",
+  "exports": [
+    {
+      "name": "_SearchInputMixinBase",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/common/search-box/search-input/search-input.component.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "SearchBoxBase",
+      "kind": "class",
+      "summary": null,
+      "sourceFile": "src/common/search-box/search-box.component.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "SearchBoxComponent",
+      "kind": "component",
+      "selector": "search-box",
+      "summary": null,
+      "sourceFile": "src/common/search-box/search-box.component.ts",
+      "inputs": [
+        {
+          "name": "config",
+          "type": "any",
+          "default": "{}",
+          "description": null
+        },
+        {
+          "name": "backIcon",
+          "type": "any",
+          "default": "'search'",
+          "description": null
+        },
+        {
+          "name": "searchIcon",
+          "type": "any",
+          "default": "'search'",
+          "description": null
+        },
+        {
+          "name": "clearIcon",
+          "type": "any",
+          "default": "'cancel'",
+          "description": null
+        },
+        {
+          "name": "showUnderline",
+          "type": "any",
+          "default": "false",
+          "description": null
+        },
+        {
+          "name": "debounce",
+          "type": "any",
+          "default": "400",
+          "description": null
+        },
+        {
+          "name": "alwaysVisible",
+          "type": "any",
+          "default": "false",
+          "description": null
+        },
+        {
+          "name": "placeholder",
+          "type": "any",
+          "default": "''",
+          "description": null
+        },
+        {
+          "name": "value",
+          "type": "unknown",
+          "description": null
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "default": "false",
+          "description": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "searchDebounce",
+          "type": "string",
+          "description": null
+        },
+        {
+          "name": "onSearch",
+          "type": "string",
+          "description": null
+        },
+        {
+          "name": "onClear",
+          "type": "void",
+          "description": null
+        },
+        {
+          "name": "blurSearch",
+          "type": "void",
+          "description": null
+        },
+        {
+          "name": "onUserDefined",
+          "type": "string",
+          "description": null
+        },
+        {
+          "name": "onSearching",
+          "type": "boolean",
+          "description": null
+        }
+      ],
+      "methods": [
+        {
+          "name": "init",
+          "params": [
+            {
+              "name": "config",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "searchClicked",
+          "params": [],
+          "returnType": "void",
+          "description": null
+        },
+        {
+          "name": "toggleVisibility",
+          "params": [],
+          "returnType": "void",
+          "description": null
+        },
+        {
+          "name": "handleSearchDebounce",
+          "params": [
+            {
+              "name": "value",
+              "type": "any"
+            }
+          ],
+          "returnType": "void",
+          "description": null
+        },
+        {
+          "name": "handleSearch",
+          "params": [
+            {
+              "name": "value",
+              "type": "any"
+            }
+          ],
+          "returnType": "void",
+          "description": null
+        },
+        {
+          "name": "handleClear",
+          "params": [],
+          "returnType": "void",
+          "description": null
+        },
+        {
+          "name": "handleBlur",
+          "params": [],
+          "returnType": "void",
+          "description": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "searchVisible",
+          "type": "boolean",
+          "description": null
+        },
+        {
+          "name": "width",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "width",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "search",
+          "type": "Function",
+          "description": null
+        },
+        {
+          "name": "clear",
+          "type": "Function",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "SearchBoxModule",
+      "kind": "module",
+      "summary": null,
+      "sourceFile": "src/common/search-box/search-box.module.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "entryComponents",
+          "type": "any",
+          "default": "[\n    SearchBoxComponent\n  ]",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "SearchInputBase",
+      "kind": "class",
+      "summary": null,
+      "sourceFile": "src/common/search-box/search-input/search-input.component.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "SearchInputComponent",
+      "kind": "component",
+      "selector": "search-input",
+      "summary": null,
+      "sourceFile": "src/common/search-box/search-input/search-input.component.ts",
+      "inputs": [
+        {
+          "name": "appearance",
+          "type": "MatFormFieldAppearance",
+          "default": "'outline'",
+          "description": null
+        },
+        {
+          "name": "showUnderline",
+          "type": "any",
+          "default": "false",
+          "description": null
+        },
+        {
+          "name": "debounce",
+          "type": "any",
+          "default": "400",
+          "description": null
+        },
+        {
+          "name": "placeholder",
+          "type": "any",
+          "default": "''",
+          "description": null
+        },
+        {
+          "name": "clearIcon",
+          "type": "any",
+          "default": "'cancel'",
+          "description": null
+        },
+        {
+          "name": "value",
+          "type": "unknown",
+          "description": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "searchDebounce",
+          "type": "string",
+          "description": null
+        },
+        {
+          "name": "onSearch",
+          "type": "string",
+          "description": null
+        },
+        {
+          "name": "onClear",
+          "type": "void",
+          "description": null
+        },
+        {
+          "name": "blurSearch",
+          "type": "void",
+          "description": null
+        }
+      ],
+      "methods": [
+        {
+          "name": "focus",
+          "params": [],
+          "returnType": "void",
+          "description": null
+        },
+        {
+          "name": "handleBlur",
+          "params": [],
+          "returnType": "void",
+          "description": null
+        },
+        {
+          "name": "handleSearch",
+          "params": [
+            {
+              "name": "event",
+              "type": "Event"
+            }
+          ],
+          "returnType": "void",
+          "description": null
+        },
+        {
+          "name": "clearSearch",
+          "params": [],
+          "returnType": "void",
+          "description": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "isRTL",
+          "type": "boolean",
+          "description": null
+        }
+      ]
+    }
+  ],
+  "suggestedUsageSnippet": "import { SearchBoxComponent, SearchBoxModule } from '@dotos/dui/common/search-box';\n\n<search-box [config]=\"...\" [backIcon]=\"...\" [searchIcon]=\"...\" (searchDebounce)=\"...\" (onSearch)=\"...\"></search-box>"
+}

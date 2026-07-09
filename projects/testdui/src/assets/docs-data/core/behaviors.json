@@ -1,0 +1,76 @@
+{
+  "importPath": "@dotos/dui/core/behaviors",
+  "exports": [
+    {
+      "name": "ICanDisable",
+      "kind": "interface",
+      "summary": "Interface to implement when applying the disabled mixin",
+      "sourceFile": "src/core/behaviors/disabled.mixin.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "ICanDisableRipple",
+      "kind": "interface",
+      "summary": "Interface to implement when applying the disabled mixin",
+      "sourceFile": "src/core/behaviors/disable-ripple.mixin.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "IControlValueAccessor",
+      "kind": "interface",
+      "summary": null,
+      "sourceFile": "src/core/behaviors/control-value-accesor.mixin.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "IHasChangeDetectorRef",
+      "kind": "interface",
+      "summary": null,
+      "sourceFile": "src/core/behaviors/control-value-accesor.mixin.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "mixinControlValueAccessor",
+      "kind": "function",
+      "summary": "Mixin to augment a component with ngModel support.",
+      "sourceFile": "src/core/behaviors/control-value-accesor.mixin.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "mixinDisabled",
+      "kind": "function",
+      "summary": "Mixin to augment a component or directive with a `disabled` property.",
+      "sourceFile": "src/core/behaviors/disabled.mixin.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "mixinDisableRipple",
+      "kind": "function",
+      "summary": "Mixin to augment a component or directive with a `disabled` property.",
+      "sourceFile": "src/core/behaviors/disable-ripple.mixin.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    }
+  ],
+  "suggestedUsageSnippet": "import { /* ... */ } from '@dotos/dui/core/behaviors';"
+}

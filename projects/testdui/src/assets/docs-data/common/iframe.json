@@ -1,0 +1,204 @@
+{
+  "importPath": "@dotos/dui/common/iframe",
+  "exports": [
+    {
+      "name": "IframeComponent",
+      "kind": "component",
+      "selector": "dui-iframe",
+      "summary": null,
+      "sourceFile": "src/common/iframe/components/iframe.component.ts",
+      "inputs": [
+        {
+          "name": "config",
+          "type": "any",
+          "default": "{}",
+          "description": null
+        },
+        {
+          "name": "scrolling",
+          "type": "any",
+          "default": "'no'",
+          "description": null
+        },
+        {
+          "name": "resizeDebounceMillis",
+          "type": "number",
+          "description": null
+        },
+        {
+          "name": "autoResize",
+          "type": "boolean",
+          "description": null
+        },
+        {
+          "name": "styleUrls",
+          "type": "Array<string>",
+          "description": null
+        },
+        {
+          "name": "styles",
+          "type": "string",
+          "description": null
+        },
+        {
+          "name": "source",
+          "type": "string",
+          "description": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "iframeEvent",
+          "type": "IframeEvent",
+          "description": null
+        }
+      ],
+      "methods": [
+        {
+          "name": "init",
+          "params": [
+            {
+              "name": "config",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "reload",
+          "params": [],
+          "returnType": "any",
+          "description": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "iframe",
+          "type": "ElementRef",
+          "description": null
+        },
+        {
+          "name": "resizeDebounceMillis",
+          "type": "number",
+          "description": null
+        },
+        {
+          "name": "autoResize",
+          "type": "boolean",
+          "description": null
+        },
+        {
+          "name": "styleUrls",
+          "type": "Array<string>",
+          "description": null
+        },
+        {
+          "name": "styles",
+          "type": "string",
+          "description": null
+        },
+        {
+          "name": "source",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "$iframeClick",
+          "type": "ReplaySubject<MouseEvent>",
+          "default": "new ReplaySubject<MouseEvent>(1)",
+          "description": null
+        },
+        {
+          "name": "$iframeKeyUp",
+          "type": "ReplaySubject<KeyboardEvent>",
+          "default": "new ReplaySubject<KeyboardEvent>(1)",
+          "description": null
+        },
+        {
+          "name": "$iframeUnload",
+          "type": "ReplaySubject<BeforeUnloadEvent>",
+          "default": "new ReplaySubject<BeforeUnloadEvent>(1)",
+          "description": null
+        },
+        {
+          "name": "$loading",
+          "type": "BehaviorSubject<boolean>",
+          "default": "new BehaviorSubject<boolean>(true)",
+          "description": null
+        },
+        {
+          "name": "$styling",
+          "type": "Observable<any>",
+          "description": null
+        },
+        {
+          "name": "iframeDocument",
+          "type": "Document",
+          "description": null
+        },
+        {
+          "name": "iframeBody",
+          "type": "HTMLElement",
+          "description": null
+        },
+        {
+          "name": "activeSource",
+          "type": "string",
+          "description": null
+        },
+        {
+          "name": "elementResizeDetector",
+          "type": "elementResizeDetectorMaker.Erd",
+          "description": null
+        },
+        {
+          "name": "elementRef",
+          "type": "ElementRef",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "IFrameModule",
+      "kind": "module",
+      "summary": null,
+      "sourceFile": "src/common/iframe/iframe.module.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "entryComponents",
+          "type": "any",
+          "default": "[IframeComponent]",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "SafePipe",
+      "kind": "pipe",
+      "pipeName": "safe",
+      "summary": null,
+      "sourceFile": "src/common/iframe/pipes/safe.pipe.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "transform",
+          "params": [
+            {
+              "name": "url",
+              "type": "string"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        }
+      ],
+      "properties": []
+    }
+  ],
+  "suggestedUsageSnippet": "import { IframeComponent, IFrameModule } from '@dotos/dui/common/iframe';\n\n<dui-iframe [config]=\"...\" [scrolling]=\"...\" [resizeDebounceMillis]=\"...\" (iframeEvent)=\"...\"></dui-iframe>"
+}

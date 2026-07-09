@@ -1,0 +1,184 @@
+{
+  "importPath": "@dotos/dui/common/animations",
+  "exports": [
+    {
+      "name": "AnimationsModule",
+      "kind": "module",
+      "summary": null,
+      "sourceFile": "src/common/animations/animations.module.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "BounceAnimation",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/common/animations/bounce/bounce.animation.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "CollapseAnimation",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/common/animations/collapse/collapse.animation.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "duiAnimations",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/common/animations/animations.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "FadeInOutAnimation",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/common/animations/fade/fadeInOut.animation.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "FlashAnimation",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/common/animations/flash/flash.animation.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "HeadshakeAnimation",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/common/animations/headshake/headshake.animation.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "IAnimationOptions",
+      "kind": "interface",
+      "summary": null,
+      "sourceFile": "src/common/animations/common/interfaces.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "ICollapseAnimation",
+      "kind": "interface",
+      "summary": null,
+      "sourceFile": "src/common/animations/collapse/collapse.animation.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "IRotateAnimation",
+      "kind": "interface",
+      "summary": null,
+      "sourceFile": "src/common/animations/rotate/rotate.animation.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "JelloAnimation",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/common/animations/jello/jello.animation.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "PulseAnimation",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/common/animations/pulse/pulse.animation.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "RotateAnimation",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/common/animations/rotate/rotate.animation.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "ToggleDirective",
+      "kind": "directive",
+      "selector": "[duiToggle]",
+      "summary": null,
+      "sourceFile": "src/common/animations/toggle/toggle.directive.ts",
+      "inputs": [
+        {
+          "name": "duration",
+          "type": "number",
+          "default": "150",
+          "description": null
+        },
+        {
+          "name": "state",
+          "alias": "duiToggle",
+          "type": "boolean",
+          "description": "duiToggle: boolean\nToggles element, hides if its 'true', shows if its 'false'."
+        }
+      ],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "hide",
+          "params": [],
+          "returnType": "void",
+          "description": "Hides element: sets \"display:[default]\" so animation is shown,\nstarts animation and adds \"display:'none'\" style at the end."
+        },
+        {
+          "name": "show",
+          "params": [],
+          "returnType": "void",
+          "description": "Shows element: sets \"display:[default]\" so animation is shown,\nstarts animation and adds \"overflow:[default]\" style again at the end."
+        }
+      ],
+      "properties": [
+        {
+          "name": "ariaExpandedBinding",
+          "type": "boolean",
+          "description": "Binds native 'aria-expanded' attribute."
+        },
+        {
+          "name": "ariaHiddenBinding",
+          "type": "boolean",
+          "description": "Binds native 'aria-hidden' attribute."
+        }
+      ]
+    }
+  ],
+  "suggestedUsageSnippet": "import { AnimationsModule } from '@dotos/dui/common/animations';"
+}

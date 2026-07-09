@@ -1,0 +1,838 @@
+{
+  "importPath": "@dotos/dui/common/keyboard",
+  "exports": [
+    {
+      "name": "AllowIn",
+      "kind": "enum",
+      "summary": null,
+      "sourceFile": "src/common/keyboard/keyboard-shortcuts.interfaces.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "allPass",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/common/keyboard/utils.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "any",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/common/keyboard/utils.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "BasePortalOutlet",
+      "kind": "class",
+      "summary": null,
+      "sourceFile": "src/common/keyboard/portal.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "hasAttached",
+          "params": [],
+          "returnType": "boolean",
+          "description": "Whether this host has an attached portal."
+        },
+        {
+          "name": "attach",
+          "params": [
+            {
+              "name": "portal",
+              "type": "Portal<any>"
+            }
+          ],
+          "returnType": "any",
+          "description": "Attaches a portal."
+        },
+        {
+          "name": "attachComponentPortal",
+          "params": [
+            {
+              "name": "portal",
+              "type": "ComponentPortal<T>"
+            }
+          ],
+          "returnType": "ComponentRef<T>",
+          "description": null
+        },
+        {
+          "name": "attachTemplatePortal",
+          "params": [
+            {
+              "name": "portal",
+              "type": "TemplatePortal<C>"
+            }
+          ],
+          "returnType": "EmbeddedViewRef<C>",
+          "description": null
+        },
+        {
+          "name": "detach",
+          "params": [],
+          "returnType": "void",
+          "description": "Detaches a previously attached portal."
+        },
+        {
+          "name": "dispose",
+          "params": [],
+          "returnType": "void",
+          "description": "Permanently dispose of this portal host."
+        },
+        {
+          "name": "setDisposeFn",
+          "params": [
+            {
+              "name": "fn",
+              "type": "() => void"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "ComponentPortal",
+      "kind": "class",
+      "summary": null,
+      "sourceFile": "src/common/keyboard/portal.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "component",
+          "type": "ComponentType<T>",
+          "description": "The type of the component that will be instantiated for attachment."
+        },
+        {
+          "name": "viewContainerRef",
+          "type": "ViewContainerRef | null",
+          "description": "[Optional] Where the attached component should live in Angular's *logical* component tree.\nThis is different from where the component *renders*, which is determined by the PortalOutlet.\nThe origin is necessary when the host is outside of the Angular application context."
+        },
+        {
+          "name": "injector",
+          "type": "Injector | null",
+          "description": "[Optional] Injector used for the instantiation of the component."
+        },
+        {
+          "name": "componentFactoryResolver",
+          "type": "ComponentFactoryResolver | null",
+          "description": "Alternate `ComponentFactoryResolver` to use when resolving the associated component.\nDefaults to using the resolver from the outlet that the portal is attached to."
+        }
+      ]
+    },
+    {
+      "name": "ComponentType",
+      "kind": "interface",
+      "summary": null,
+      "sourceFile": "src/common/keyboard/portal.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "difference",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/common/keyboard/utils.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "DomPortalOutlet",
+      "kind": "class",
+      "summary": null,
+      "sourceFile": "src/common/keyboard/dom-portal-outlet.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "attachComponentPortal",
+          "params": [
+            {
+              "name": "portal",
+              "type": "ComponentPortal<T>"
+            }
+          ],
+          "returnType": "ComponentRef<T>",
+          "description": null
+        },
+        {
+          "name": "attachTemplatePortal",
+          "params": [
+            {
+              "name": "portal",
+              "type": "TemplatePortal<C>"
+            }
+          ],
+          "returnType": "EmbeddedViewRef<C>",
+          "description": null
+        },
+        {
+          "name": "dispose",
+          "params": [],
+          "returnType": "void",
+          "description": null
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "groupBy",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/common/keyboard/utils.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "identity",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/common/keyboard/utils.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "invert",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/common/keyboard/utils.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "isFunction",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/common/keyboard/utils.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "isNill",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/common/keyboard/utils.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "KeyboardShortcutComponent",
+      "kind": "component",
+      "selector": "keyboard-shortcut",
+      "summary": null,
+      "sourceFile": "src/common/keyboard/keyboard-shortcut.component.ts",
+      "inputs": [
+        {
+          "name": "description",
+          "type": "string",
+          "description": null
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "description": null
+        },
+        {
+          "name": "preventDefault",
+          "type": "boolean",
+          "description": null
+        },
+        {
+          "name": "allowIn",
+          "type": "AllowIn[]",
+          "description": null
+        },
+        {
+          "name": "key",
+          "type": "string | string[]",
+          "description": null
+        },
+        {
+          "name": "target",
+          "type": "HTMLElement",
+          "description": null
+        },
+        {
+          "name": "throttleTime",
+          "type": "number",
+          "description": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "fire",
+          "type": "any",
+          "description": null
+        }
+      ],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "KeyboardShortcutsComponent",
+      "kind": "component",
+      "selector": "keyboard-shortcuts",
+      "summary": null,
+      "sourceFile": "src/common/keyboard/keyboard-shortcuts.component.ts",
+      "inputs": [
+        {
+          "name": "shortcuts",
+          "type": "ShortcutInput[] | ShortcutInput",
+          "default": "[]",
+          "description": null
+        },
+        {
+          "name": "disabled",
+          "type": "any",
+          "description": null
+        }
+      ],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "select",
+          "params": [
+            {
+              "name": "key",
+              "type": "string"
+            }
+          ],
+          "returnType": "Observable<ShortcutEventOutput>",
+          "description": null
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "KeyboardShortcutsDirective",
+      "kind": "directive",
+      "selector": "[KeyboardShortcuts]",
+      "summary": null,
+      "sourceFile": "src/common/keyboard/keyboard-shortcuts.directive.ts",
+      "inputs": [
+        {
+          "name": "ngKeyboardShortcuts",
+          "type": "Shortcut[]",
+          "description": null
+        },
+        {
+          "name": "disabled",
+          "type": "any",
+          "description": null
+        }
+      ],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "KeyboardShortcutsHelpComponent",
+      "kind": "component",
+      "selector": "keyboard-shortcuts-help",
+      "summary": null,
+      "sourceFile": "src/common/keyboard/keyboard-shortcuts-help.component.ts",
+      "inputs": [
+        {
+          "name": "disableScrolling",
+          "type": "any",
+          "default": "true",
+          "description": null
+        },
+        {
+          "name": "keyDescription",
+          "type": "string",
+          "description": null
+        },
+        {
+          "name": "keyLabel",
+          "type": "string",
+          "description": null
+        },
+        {
+          "name": "closeKeyLabel",
+          "type": "string",
+          "description": null
+        },
+        {
+          "name": "closeKeyDescription",
+          "type": "string",
+          "description": null
+        },
+        {
+          "name": "key",
+          "type": "string",
+          "description": null
+        },
+        {
+          "name": "closeKey",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "title",
+          "type": "any",
+          "default": "\"COMMON.KEYBOARD_TITLE\"",
+          "description": null
+        },
+        {
+          "name": "emptyMessage",
+          "type": "any",
+          "default": "\"COMMON.KEYBOARD_EMPTYMESSAGE\"",
+          "description": null
+        }
+      ],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "reveal",
+          "params": [],
+          "returnType": "KeyboardShortcutsHelpComponent",
+          "description": null
+        },
+        {
+          "name": "visible",
+          "params": [],
+          "returnType": "boolean",
+          "description": null
+        },
+        {
+          "name": "hide",
+          "params": [],
+          "returnType": "KeyboardShortcutsHelpComponent",
+          "description": null
+        },
+        {
+          "name": "toggle",
+          "params": [],
+          "returnType": "KeyboardShortcutsHelpComponent",
+          "description": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "className",
+          "type": "any",
+          "default": "\"help-modal\"",
+          "description": null
+        },
+        {
+          "name": "template",
+          "type": "TemplateRef<any>",
+          "description": null
+        },
+        {
+          "name": "shortcuts",
+          "type": "Record<\"label\", { key: string[]; label: string; description: string }[]>",
+          "description": null
+        },
+        {
+          "name": "showing$",
+          "type": "any",
+          "default": "new BehaviorSubject(false)",
+          "description": null
+        },
+        {
+          "name": "labels",
+          "type": "string[]",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "KeyboardShortcutsHelpItemComponent",
+      "kind": "component",
+      "selector": "keyboard-shortcuts-help-item",
+      "summary": null,
+      "sourceFile": "src/common/keyboard/keyboard-shortcuts-help-item.component.ts",
+      "inputs": [
+        {
+          "name": "index",
+          "type": "number",
+          "description": null
+        },
+        {
+          "name": "shortcut",
+          "type": "Shortcut",
+          "description": null
+        }
+      ],
+      "outputs": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "parsedKeys",
+          "type": "string[][]",
+          "description": null
+        },
+        {
+          "name": "shortcut",
+          "type": "any",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "KeyboardShortcutsHelpService",
+      "kind": "service",
+      "summary": null,
+      "sourceFile": "src/common/keyboard/keyboard-shortcuts-help.service.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "shortcuts$",
+          "type": "any",
+          "default": "this.keyboard.shortcuts$.pipe(\n        map(shortcuts =>\n            shortcuts\n                .filter(shortcut => Boolean(shortcut.label) && Boolean(shortcut.description))\n                .map(({key, label, description}) => ({\n                    key,\n                    label,\n                    description\n                }))\n        )\n    )",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "KeyboardShortcutsModule",
+      "kind": "module",
+      "summary": null,
+      "sourceFile": "src/common/keyboard/keyboard-shortcuts.module.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "forRoot",
+          "params": [],
+          "returnType": "ModuleWithProviders<KeyboardShortcutsModule>",
+          "description": null
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "KeyboardShortcutsPlugin",
+      "kind": "service",
+      "summary": null,
+      "sourceFile": "src/common/keyboard/keyboard-shortcuts.plugin.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "supports",
+          "params": [
+            {
+              "name": "eventName",
+              "type": "string"
+            }
+          ],
+          "returnType": "boolean",
+          "description": null
+        },
+        {
+          "name": "addEventListener",
+          "params": [
+            {
+              "name": "element",
+              "type": "any"
+            },
+            {
+              "name": "eventName",
+              "type": "any"
+            },
+            {
+              "name": "originalHandler",
+              "type": "any"
+            }
+          ],
+          "returnType": "Function",
+          "description": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "manager",
+          "type": "EventManager",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "KeyboardShortcutsSelectService",
+      "kind": "service",
+      "summary": null,
+      "sourceFile": "src/common/keyboard/keyboard-shortcuts-select.service.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "select",
+          "params": [
+            {
+              "name": "key",
+              "type": "string"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "KeyboardShortcutsService",
+      "kind": "service",
+      "summary": null,
+      "sourceFile": "src/common/keyboard/keyboard-shortcuts.service.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "add",
+          "params": [
+            {
+              "name": "shortcuts",
+              "type": "ShortcutInput[] | ShortcutInput"
+            }
+          ],
+          "returnType": "string[]",
+          "description": null
+        },
+        {
+          "name": "remove",
+          "params": [
+            {
+              "name": "ids",
+              "type": "string | string[]"
+            }
+          ],
+          "returnType": "KeyboardShortcutsService",
+          "description": null
+        },
+        {
+          "name": "select",
+          "params": [
+            {
+              "name": "key",
+              "type": "string"
+            }
+          ],
+          "returnType": "Observable<ShortcutEventOutput>",
+          "description": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "pressed$",
+          "type": "any",
+          "default": "this._pressed.asObservable()",
+          "description": null
+        },
+        {
+          "name": "shortcuts$",
+          "type": "any",
+          "default": "this._shortcutsSub\n        .pipe(filter((shortcuts) =>{\n     \n            return shortcuts.length!=0;\n    } ))",
+          "description": null
+        },
+        {
+          "name": "shortcuts",
+          "type": "any",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "maxArrayProp",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/common/keyboard/utils.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "minMaxArrayProp",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/common/keyboard/utils.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "Portal",
+      "kind": "class",
+      "summary": null,
+      "sourceFile": "src/common/keyboard/portal.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "attach",
+          "params": [
+            {
+              "name": "host",
+              "type": "PortalOutlet"
+            }
+          ],
+          "returnType": "T",
+          "description": "Attach this portal to a host."
+        },
+        {
+          "name": "detach",
+          "params": [],
+          "returnType": "void",
+          "description": "Detach this portal from its host"
+        },
+        {
+          "name": "setAttachedHost",
+          "params": [
+            {
+              "name": "host",
+              "type": "PortalOutlet | null"
+            }
+          ],
+          "returnType": "any",
+          "description": "Sets the PortalOutlet reference without performing `attach()`. This is used directly by\nthe PortalOutlet when it is performing an `attach()` or `detach()`."
+        }
+      ],
+      "properties": [
+        {
+          "name": "isAttached",
+          "type": "boolean",
+          "description": "Whether this portal is attached to a host."
+        }
+      ]
+    },
+    {
+      "name": "PortalOutlet",
+      "kind": "interface",
+      "summary": null,
+      "sourceFile": "src/common/keyboard/portal.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "prop",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/common/keyboard/utils.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "Shortcut",
+      "kind": "interface",
+      "summary": null,
+      "sourceFile": "src/common/keyboard/keyboard-shortcuts.interfaces.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "ShortcutEventOutput",
+      "kind": "interface",
+      "summary": "The output type fired by the command when shortcut is triggered.",
+      "sourceFile": "src/common/keyboard/keyboard-shortcuts.interfaces.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "ShortcutInput",
+      "kind": "interface",
+      "summary": "The shortcut input type for ng-keyboard-shortcuts component",
+      "sourceFile": "src/common/keyboard/keyboard-shortcuts.interfaces.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "TemplatePortal",
+      "kind": "class",
+      "summary": null,
+      "sourceFile": "src/common/keyboard/portal.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "attach",
+          "params": [
+            {
+              "name": "host",
+              "type": "PortalOutlet"
+            },
+            {
+              "name": "context",
+              "type": "C | undefined"
+            }
+          ],
+          "returnType": "C",
+          "description": "Attach the portal to the provided `PortalOutlet`.\nWhen a context is provided it will override the `context` property of the `TemplatePortal`\ninstance."
+        },
+        {
+          "name": "detach",
+          "params": [],
+          "returnType": "void",
+          "description": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "templateRef",
+          "type": "TemplateRef<C>",
+          "description": "The embedded template that will be used to instantiate an embedded View in the host."
+        },
+        {
+          "name": "viewContainerRef",
+          "type": "ViewContainerRef",
+          "description": "Reference to the ViewContainer into which the template will be stamped out."
+        },
+        {
+          "name": "context",
+          "type": "C | undefined",
+          "description": "Contextual data to be passed in to the embedded view."
+        },
+        {
+          "name": "origin",
+          "type": "ElementRef",
+          "description": null
+        }
+      ]
+    }
+  ],
+  "suggestedUsageSnippet": "import { KeyboardShortcutComponent, KeyboardShortcutsModule } from '@dotos/dui/common/keyboard';\n\n<keyboard-shortcut [description]=\"...\" [label]=\"...\" [preventDefault]=\"...\" (fire)=\"...\"></keyboard-shortcut>"
+}

@@ -1,0 +1,150 @@
+{
+  "importPath": "@dotos/dui/common/matcolorpicker",
+  "exports": [
+    {
+      "name": "ColorPickerComponent",
+      "kind": "component",
+      "selector": "color-picker",
+      "summary": null,
+      "sourceFile": "src/common/matcolorpicker/color-picker.component.ts",
+      "inputs": [
+        {
+          "name": "color",
+          "type": "any",
+          "description": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "colorChanged",
+          "type": "any",
+          "description": null
+        }
+      ],
+      "methods": [
+        {
+          "name": "selectPalette",
+          "params": [
+            {
+              "name": "event",
+              "type": "any"
+            },
+            {
+              "name": "palette",
+              "type": "any"
+            }
+          ],
+          "returnType": "void",
+          "description": null
+        },
+        {
+          "name": "selectHue",
+          "params": [
+            {
+              "name": "event",
+              "type": "any"
+            },
+            {
+              "name": "hue",
+              "type": "any"
+            }
+          ],
+          "returnType": "void",
+          "description": null
+        },
+        {
+          "name": "removeColor",
+          "params": [
+            {
+              "name": "event",
+              "type": "any"
+            }
+          ],
+          "returnType": "void",
+          "description": null
+        },
+        {
+          "name": "updateSelectedColor",
+          "params": [],
+          "returnType": "void",
+          "description": "Update selected color"
+        },
+        {
+          "name": "goToPalettesView",
+          "params": [
+            {
+              "name": "event",
+              "type": "any"
+            }
+          ],
+          "returnType": "void",
+          "description": null
+        },
+        {
+          "name": "onMenuOpen",
+          "params": [],
+          "returnType": "void",
+          "description": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "colors",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "hues",
+          "type": "string[]",
+          "description": null
+        },
+        {
+          "name": "view",
+          "type": "string",
+          "description": null
+        },
+        {
+          "name": "selectedColor",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "selectedPalette",
+          "type": "string",
+          "description": null
+        },
+        {
+          "name": "selectedHue",
+          "type": "string",
+          "description": null
+        },
+        {
+          "name": "color",
+          "type": "string",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "ColorPickerModule",
+      "kind": "module",
+      "summary": null,
+      "sourceFile": "src/common/matcolorpicker/color-picker.module.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "MATERIAL_COLOR_PICKER_VALUE_ACCESSOR",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/common/matcolorpicker/color-picker.component.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    }
+  ],
+  "suggestedUsageSnippet": "import { ColorPickerComponent, ColorPickerModule } from '@dotos/dui/common/matcolorpicker';\n\n<color-picker [color]=\"...\" (colorChanged)=\"...\"></color-picker>"
+}

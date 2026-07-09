@@ -1,0 +1,564 @@
+{
+  "importPath": "@dotos/dui/common/dragselect",
+  "exports": [
+    {
+      "name": "Action",
+      "kind": "enum",
+      "summary": null,
+      "sourceFile": "src/common/dragselect/models.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "boxIntersects",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/common/dragselect/utils.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "calculateBoundingClientRect",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/common/dragselect/utils.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "clearSelection",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/common/dragselect/utils.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "CONFIG",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/common/dragselect/tokens.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "CONFIG_FACTORY",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/common/dragselect/drag-to-select.module.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "cursorWithinElement",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/common/dragselect/utils.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "DEFAULT_CONFIG",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/common/dragselect/config.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "DragToSelectModule",
+      "kind": "module",
+      "summary": null,
+      "sourceFile": "src/common/dragselect/drag-to-select.module.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "forRoot",
+          "params": [
+            {
+              "name": "config",
+              "type": "Partial<DragToSelectConfig>"
+            }
+          ],
+          "returnType": "ModuleWithProviders<DragToSelectModule>",
+          "description": null
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "getMousePosition",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/common/dragselect/utils.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "getRelativeMousePosition",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/common/dragselect/utils.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "hasMinimumSize",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/common/dragselect/utils.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "inBoundingBox",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/common/dragselect/utils.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "MousePosition",
+      "kind": "interface",
+      "summary": null,
+      "sourceFile": "src/common/dragselect/models.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "PredicateFn",
+      "kind": "type",
+      "summary": null,
+      "sourceFile": "src/common/dragselect/models.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "SelectBox",
+      "kind": "interface",
+      "summary": null,
+      "sourceFile": "src/common/dragselect/models.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "SelectContainerComponent",
+      "kind": "component",
+      "selector": "dts-select-container",
+      "summary": null,
+      "sourceFile": "src/common/dragselect/select-container.component.ts",
+      "inputs": [
+        {
+          "name": "selectedItems",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "selectOnDrag",
+          "type": "any",
+          "default": "true",
+          "description": null
+        },
+        {
+          "name": "disabled",
+          "type": "any",
+          "default": "false",
+          "description": null
+        },
+        {
+          "name": "disableDrag",
+          "type": "any",
+          "default": "false",
+          "description": null
+        },
+        {
+          "name": "selectOnClick",
+          "type": "any",
+          "default": "true",
+          "description": null
+        },
+        {
+          "name": "dragOverItems",
+          "type": "any",
+          "default": "true",
+          "description": null
+        },
+        {
+          "name": "disableRangeSelection",
+          "type": "any",
+          "default": "false",
+          "description": null
+        },
+        {
+          "name": "selectMode",
+          "type": "any",
+          "default": "false",
+          "description": null
+        },
+        {
+          "name": "selectWithShortcut",
+          "type": "any",
+          "default": "false",
+          "description": null
+        },
+        {
+          "name": "custom",
+          "type": "any",
+          "default": "false",
+          "description": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "selectedItemsChange",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "select",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "itemSelected",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "itemDeselected",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "selectionStarted",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "selectionEnded",
+          "type": "any",
+          "description": null
+        }
+      ],
+      "methods": [
+        {
+          "name": "selectAll",
+          "params": [],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "setSelect",
+          "params": [
+            {
+              "name": "selecteds",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "toggleItems",
+          "params": [
+            {
+              "name": "predicate",
+              "type": "PredicateFn<T>"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "selectItems",
+          "params": [
+            {
+              "name": "predicate",
+              "type": "PredicateFn<T>"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "deselectItems",
+          "params": [
+            {
+              "name": "predicate",
+              "type": "PredicateFn<T>"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "clearSelection",
+          "params": [],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "update",
+          "params": [],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "selectItem",
+          "params": [
+            {
+              "name": "item",
+              "type": "SelectItemDirective"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "host",
+          "type": "SelectContainerHost",
+          "description": null
+        },
+        {
+          "name": "selectBoxStyles$",
+          "type": "Observable<SelectBox<string>>",
+          "description": null
+        },
+        {
+          "name": "selectBoxClasses$",
+          "type": "Observable<{ [key: string]: boolean }>",
+          "description": null
+        },
+        {
+          "name": "hostClass",
+          "type": "any",
+          "default": "true",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "SelectContainerHost",
+      "kind": "interface",
+      "summary": null,
+      "sourceFile": "src/common/dragselect/models.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "SelectItemDirective",
+      "kind": "directive",
+      "selector": "[dtsSelectItem]",
+      "summary": null,
+      "sourceFile": "src/common/dragselect/select-item.directive.ts",
+      "inputs": [
+        {
+          "name": "dtsSelectItem",
+          "type": "any | undefined",
+          "description": null
+        },
+        {
+          "name": "dtsDisabled",
+          "type": "any",
+          "default": "false",
+          "description": null
+        }
+      ],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "toggleRangeStart",
+          "params": [],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "getBoundingClientRect",
+          "params": [],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "calculateBoundingClientRect",
+          "params": [],
+          "returnType": "any",
+          "description": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "selected",
+          "type": "any",
+          "default": "false",
+          "description": null
+        },
+        {
+          "name": "rangeStart",
+          "type": "any",
+          "default": "false",
+          "description": null
+        },
+        {
+          "name": "hostClass",
+          "type": "any",
+          "default": "true",
+          "description": null
+        },
+        {
+          "name": "value",
+          "type": "SelectItemDirective | any",
+          "description": null
+        },
+        {
+          "name": "nativeElememnt",
+          "type": "any",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "ShortcutService",
+      "kind": "service",
+      "summary": null,
+      "sourceFile": "src/common/dragselect/shortcut.service.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "disableSelection",
+          "params": [
+            {
+              "name": "event",
+              "type": "Event"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "moveRangeStart",
+          "params": [
+            {
+              "name": "event",
+              "type": "Event"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "toggleSingleItem",
+          "params": [
+            {
+              "name": "event",
+              "type": "Event"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "addToSelection",
+          "params": [
+            {
+              "name": "event",
+              "type": "Event"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "removeFromSelection",
+          "params": [
+            {
+              "name": "event",
+              "type": "Event"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "extendedSelectionShortcut",
+          "params": [
+            {
+              "name": "event",
+              "type": "Event"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "UpdateAction",
+      "kind": "interface",
+      "summary": null,
+      "sourceFile": "src/common/dragselect/models.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "UpdateActions",
+      "kind": "enum",
+      "summary": null,
+      "sourceFile": "src/common/dragselect/models.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "USER_CONFIG",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/common/dragselect/tokens.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    }
+  ],
+  "suggestedUsageSnippet": "import { SelectContainerComponent, DragToSelectModule } from '@dotos/dui/common/dragselect';\n\n<dts-select-container [selectedItems]=\"...\" [selectOnDrag]=\"...\" [disabled]=\"...\" (selectedItemsChange)=\"...\" (select)=\"...\"></dts-select-container>"
+}

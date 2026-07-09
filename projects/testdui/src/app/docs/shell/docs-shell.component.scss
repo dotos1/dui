@@ -1,0 +1,33 @@
+.docs-shell {
+  position: absolute;
+  inset: 0;
+}
+
+.docs-shell__sidenav {
+  width: 280px;
+  border-right: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.docs-shell__content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.docs-shell__topbar {
+  flex: 0 0 auto;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.docs-shell__spacer {
+  flex: 1 1 auto;
+}
+
+.docs-shell__body {
+  flex: 1 1 auto;
+  overflow: auto;
+  padding: 24px 32px;
+  box-sizing: border-box;
+}

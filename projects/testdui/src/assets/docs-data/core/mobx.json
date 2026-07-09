@@ -1,0 +1,120 @@
+{
+  "importPath": "@dotos/dui/core/mobx",
+  "exports": [
+    {
+      "name": "action",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/core/mobx/mobx-angular.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "actionInternal",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/core/mobx/mobx-angular.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "computed",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/core/mobx/mobx-angular.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "MobxAngularModule",
+      "kind": "module",
+      "summary": null,
+      "sourceFile": "src/core/mobx/mobx.module.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "MobxAutorunDirective",
+      "kind": "directive",
+      "selector": "[mobxAutorun]",
+      "summary": null,
+      "sourceFile": "src/core/mobx/directives/mobx-autorun.directive.ts",
+      "inputs": [
+        {
+          "name": "mobxAutorun",
+          "type": "any",
+          "description": null
+        }
+      ],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "shouldDetach",
+          "params": [],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "autoDetect",
+          "params": [
+            {
+              "name": "view",
+              "type": "EmbeddedViewRef<any>"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "MobxReactionDirective",
+      "kind": "directive",
+      "selector": "[mobxReaction]",
+      "summary": null,
+      "sourceFile": "src/core/mobx/directives/mobx-reaction.directive.ts",
+      "inputs": [
+        {
+          "name": "mobxReaction",
+          "type": "any",
+          "description": null
+        }
+      ],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "autoDetect",
+          "params": [
+            {
+              "name": "view",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "observable",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/core/mobx/mobx-angular.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    }
+  ],
+  "suggestedUsageSnippet": "import { MobxAngularModule } from '@dotos/dui/core/mobx';"
+}

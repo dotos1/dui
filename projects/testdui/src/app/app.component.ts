@@ -9,12 +9,6 @@ import { DotosConfigService, ThemeService } from '@dotos/dui/theme';
 })
 export class AppComponent {
   title = 'testdui';
-  backConfig = {
-    type: 'mat-icon-button',
-    xtype: "dui-button",
-    icon: 'arrow_back',
-    handler: () => this.back()
-  }
   constructor(
     public themeService: ThemeService,
     protected dotosConfigService: DotosConfigService,
@@ -43,9 +37,5 @@ export class AppComponent {
     const page = config.layout.pagemodel;
     const formType = config.theme.formType;
     this.themeService.changeTheme(primary, accent, warn, type, page,formType);
-  }
-
-  back(){
-    console.log('This is a back button!');
   }
 }

@@ -1,0 +1,373 @@
+{
+  "importPath": "@dotos/dui/ux/command-palette",
+  "exports": [
+    {
+      "name": "CommandItem",
+      "kind": "type",
+      "summary": null,
+      "sourceFile": "src/ux/command-palette/model/command-item.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "CommandItemGroup",
+      "kind": "type",
+      "summary": null,
+      "sourceFile": "src/ux/command-palette/model/command-item-group.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "CommandPaletteComponent",
+      "kind": "component",
+      "selector": "command-palette",
+      "summary": null,
+      "sourceFile": "src/ux/command-palette/command-palette.component.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "onSearchedValue",
+          "params": [
+            {
+              "name": "searchValue",
+              "type": "string"
+            }
+          ],
+          "returnType": "void",
+          "description": null
+        },
+        {
+          "name": "onSelectNextItem",
+          "params": [],
+          "returnType": "void",
+          "description": null
+        },
+        {
+          "name": "onSelectPreviousItem",
+          "params": [],
+          "returnType": "void",
+          "description": null
+        },
+        {
+          "name": "onSelectItem",
+          "params": [
+            {
+              "name": "index",
+              "type": "number"
+            }
+          ],
+          "returnType": "void",
+          "description": null
+        },
+        {
+          "name": "onCallCallbackItem",
+          "params": [
+            {
+              "name": "itemIndex",
+              "type": "number"
+            }
+          ],
+          "returnType": "void",
+          "description": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "filteredGroups",
+          "type": "CommandItemGroup[]",
+          "default": "[]",
+          "description": null
+        },
+        {
+          "name": "selectedItemIndex",
+          "type": "number",
+          "default": "0",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "CommandPaletteConfig",
+      "kind": "type",
+      "summary": null,
+      "sourceFile": "src/ux/command-palette/model/command-palette-config.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "CommandPaletteContentComponent",
+      "kind": "component",
+      "selector": "command-palette-content",
+      "summary": null,
+      "sourceFile": "src/ux/command-palette/content/command-palette-content.component.ts",
+      "inputs": [
+        {
+          "name": "groups",
+          "type": "CommandItemGroup[]",
+          "default": "[]",
+          "description": null
+        },
+        {
+          "name": "selectedItemIndex",
+          "type": "number",
+          "default": "0",
+          "description": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "itemVisited$",
+          "type": "number",
+          "description": null
+        },
+        {
+          "name": "itemClicked$",
+          "type": "number",
+          "description": null
+        }
+      ],
+      "methods": [
+        {
+          "name": "onMouseenter",
+          "params": [
+            {
+              "name": "index",
+              "type": "number"
+            }
+          ],
+          "returnType": "void",
+          "description": null
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "CommandPaletteCreatorService",
+      "kind": "service",
+      "summary": null,
+      "sourceFile": "src/ux/command-palette/services/command-palette-creator-service.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "create",
+          "params": [],
+          "returnType": "void",
+          "description": null
+        },
+        {
+          "name": "destroy",
+          "params": [],
+          "returnType": "void",
+          "description": null
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "CommandPaletteGroupStorageService",
+      "kind": "service",
+      "summary": null,
+      "sourceFile": "src/ux/command-palette/services/command-palette-group-storage.service.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "select",
+          "params": [],
+          "returnType": "Observable<CommandItemGroup[]>",
+          "description": null
+        },
+        {
+          "name": "get",
+          "params": [],
+          "returnType": "CommandItemGroup[]",
+          "description": null
+        },
+        {
+          "name": "set",
+          "params": [
+            {
+              "name": "sections",
+              "type": "CommandItemGroup[]"
+            }
+          ],
+          "returnType": "void",
+          "description": null
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "CommandPaletteHeaderComponent",
+      "kind": "component",
+      "selector": "command-palette-header",
+      "summary": null,
+      "sourceFile": "src/ux/command-palette/header/command-palette-header.component.ts",
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "searchedValue$",
+          "type": "string",
+          "description": null
+        },
+        {
+          "name": "keyUpPressed$",
+          "type": "void",
+          "description": null
+        },
+        {
+          "name": "keyDownPressed$",
+          "type": "void",
+          "description": null
+        },
+        {
+          "name": "keyEnterPressed$",
+          "type": "void",
+          "description": null
+        }
+      ],
+      "methods": [
+        {
+          "name": "onKeyUp",
+          "params": [
+            {
+              "name": "event",
+              "type": "Event"
+            }
+          ],
+          "returnType": "void",
+          "description": null
+        },
+        {
+          "name": "onKeyDown",
+          "params": [
+            {
+              "name": "event",
+              "type": "Event"
+            }
+          ],
+          "returnType": "void",
+          "description": null
+        },
+        {
+          "name": "onKeyEnter",
+          "params": [
+            {
+              "name": "event",
+              "type": "Event"
+            }
+          ],
+          "returnType": "void",
+          "description": null
+        },
+        {
+          "name": "clearInput",
+          "params": [],
+          "returnType": "void",
+          "description": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "inputControl",
+          "type": "FormControl",
+          "default": "new FormControl('')",
+          "description": null
+        },
+        {
+          "name": "clearBtnVisible",
+          "type": "boolean",
+          "default": "false",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "CommandPaletteModule",
+      "kind": "module",
+      "summary": null,
+      "sourceFile": "src/ux/command-palette/command-palette.module.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "CommandPaletteService",
+      "kind": "service",
+      "summary": null,
+      "sourceFile": "src/ux/command-palette/command-palette.service.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "init",
+          "params": [],
+          "returnType": "void",
+          "description": null
+        },
+        {
+          "name": "destroy",
+          "params": [],
+          "returnType": "void",
+          "description": null
+        },
+        {
+          "name": "addGroups",
+          "params": [
+            {
+              "name": "groups",
+              "type": "CommandItemGroup[]"
+            }
+          ],
+          "returnType": "void",
+          "description": null
+        },
+        {
+          "name": "removeGroups",
+          "params": [
+            {
+              "name": "groupsName",
+              "type": "string[]"
+            }
+          ],
+          "returnType": "void",
+          "description": null
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "CommandPaletteShortcutsService",
+      "kind": "service",
+      "summary": null,
+      "sourceFile": "src/ux/command-palette/services/command-palette-shortcuts.service.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "listen",
+          "params": [],
+          "returnType": "void",
+          "description": null
+        },
+        {
+          "name": "destroy",
+          "params": [],
+          "returnType": "void",
+          "description": null
+        }
+      ],
+      "properties": []
+    }
+  ],
+  "suggestedUsageSnippet": "import { CommandPaletteComponent, CommandPaletteModule } from '@dotos/dui/ux/command-palette';\n\n<command-palette></command-palette>"
+}

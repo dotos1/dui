@@ -1,0 +1,19 @@
+<mat-sidenav-container class="docs-shell">
+  <mat-sidenav #sidenav mode="side" opened class="docs-shell__sidenav">
+    <app-nav-tree></app-nav-tree>
+  </mat-sidenav>
+  <mat-sidenav-content class="docs-shell__content">
+    <dui-topbar title="DUI 组件文档" class="docs-shell__topbar">
+      <button mat-icon-button (click)="sidenav.toggle()" aria-label="切换导航">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span class="docs-shell__spacer"></span>
+      <a mat-icon-button href="https://material.angular.dev/components/badge/overview" target="_blank" rel="noopener" aria-label="参考风格">
+        <mat-icon>open_in_new</mat-icon>
+      </a>
+    </dui-topbar>
+    <div class="docs-shell__body">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

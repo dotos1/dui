@@ -1,0 +1,563 @@
+{
+  "importPath": "@dotos/dui/ux/terminal",
+  "exports": [
+    {
+      "name": "FunctionsUsingCSI",
+      "kind": "class",
+      "summary": null,
+      "sourceFile": "src/ux/terminal/functions-using-csi.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "insertBlank",
+          "params": [
+            {
+              "name": "count",
+              "type": "number"
+            }
+          ],
+          "returnType": "any",
+          "description": "CSI Ps @  Insert Ps (Blank) Character(s) (default = 1) (ICH)."
+        },
+        {
+          "name": "cursorUp",
+          "params": [
+            {
+              "name": "count",
+              "type": "number"
+            }
+          ],
+          "returnType": "any",
+          "description": "CSI Ps A  Cursor Up Ps Times (default = 1) (CUU). \n\\x9b3A"
+        },
+        {
+          "name": "cursorDown",
+          "params": [
+            {
+              "name": "count",
+              "type": "number"
+            }
+          ],
+          "returnType": "any",
+          "description": "CSI Ps B  Cursor Down Ps Times (default = 1) (CUD).\n\\x9b3B"
+        },
+        {
+          "name": "cursorForward",
+          "params": [
+            {
+              "name": "count",
+              "type": "number"
+            }
+          ],
+          "returnType": "any",
+          "description": "CSI Ps C  Cursor Forward Ps Times (default = 1) (CUF). \n\\x9b3C"
+        },
+        {
+          "name": "cursorBackward",
+          "params": [
+            {
+              "name": "count",
+              "type": "number"
+            }
+          ],
+          "returnType": "any",
+          "description": "CSI Ps D  Cursor Backward Ps Times (default = 1) (CUB). \n\\x9b3D"
+        },
+        {
+          "name": "cursorNextLine",
+          "params": [
+            {
+              "name": "count",
+              "type": "number"
+            }
+          ],
+          "returnType": "any",
+          "description": "CSI Ps E  Cursor Next Line Ps Times (default = 1) (CNL). \n\\x9b3E"
+        },
+        {
+          "name": "cursorPrecedingLine",
+          "params": [
+            {
+              "name": "count",
+              "type": "number"
+            }
+          ],
+          "returnType": "any",
+          "description": "CSI Ps F  Cursor Preceding Line Ps Times (default = 1) (CPL).\n\\x9b3F"
+        },
+        {
+          "name": "cursorColumn",
+          "params": [
+            {
+              "name": "count",
+              "type": "number"
+            }
+          ],
+          "returnType": "any",
+          "description": "CSI Ps G  Cursor Character Absolute  [column] (default = [row,1]) (CHA).\n\\x9b9G"
+        },
+        {
+          "name": "cursorPosition",
+          "params": [
+            {
+              "name": "row",
+              "type": "number"
+            },
+            {
+              "name": "col",
+              "type": "number"
+            }
+          ],
+          "returnType": "any",
+          "description": "CSI Ps ; Ps H  Cursor Position [row;column] (default = [1,1]) (CUP).\n\\x9b2;2H"
+        },
+        {
+          "name": "eraseInDisplay",
+          "params": [
+            {
+              "name": "category",
+              "type": "KindOfEraseInDisplay"
+            }
+          ],
+          "returnType": "any",
+          "description": "CSI Ps J  Erase in Display (ED), VT100.\n    Ps = 0  -> Erase Below (default).\n    Ps = 1  -> Erase Above.\n    Ps = 2  -> Erase All.\n    Ps = 3  -> Erase Saved Lines (xterm).\n\\x9b2J"
+        },
+        {
+          "name": "eraseSelectiveThingsInDisplay",
+          "params": [
+            {
+              "name": "category",
+              "type": "KindOfEraseInDisplay"
+            }
+          ],
+          "returnType": "any",
+          "description": "CSI ? Ps J\nErase in Display (DECSED), VT220.\n  Ps = 0  -> Selective Erase Below (default).\n  Ps = 1  -> Selective Erase Above.\n  Ps = 2  -> Selective Erase All.\n  Ps = 3  -> Selective Erase Saved Lines (xterm).\n\\x9b?2J"
+        },
+        {
+          "name": "eraseInLine",
+          "params": [
+            {
+              "name": "category",
+              "type": "KindOfEraseInLine"
+            }
+          ],
+          "returnType": "any",
+          "description": "CSI Ps K  \n Erase in Line (EL), VT100.\n   Ps = 0  -> Erase to Right (default).\n   Ps = 1  -> Erase to Left.\n   Ps = 2  -> Erase All.\n\\x9b?1K"
+        },
+        {
+          "name": "eraseSelectiveThingsInLine",
+          "params": [
+            {
+              "name": "category",
+              "type": "KindOfEraseInLine"
+            }
+          ],
+          "returnType": "any",
+          "description": "CSI ? Ps K \n  Erase in Line (DECSEL), VT220.\n    Ps = 0  -> Selective Erase to Right (default).\n    Ps = 1  -> Selective Erase to Left.\n    Ps = 2  -> Selective Erase All.\n\\x9b?1K"
+        },
+        {
+          "name": "insertLines",
+          "params": [
+            {
+              "name": "count",
+              "type": "number"
+            }
+          ],
+          "returnType": "any",
+          "description": "CSI Ps L  Insert Ps Line(s) (default = 1) (IL).\n\\x9b2L"
+        },
+        {
+          "name": "deleteLines",
+          "params": [
+            {
+              "name": "count",
+              "type": "number"
+            }
+          ],
+          "returnType": "any",
+          "description": "CSI Ps M  Delete Ps Line(s) (default = 1) (DL).\n\\x9b2M"
+        },
+        {
+          "name": "deleteCharacter",
+          "params": [
+            {
+              "name": "count",
+              "type": "number"
+            }
+          ],
+          "returnType": "any",
+          "description": "CSI Ps P  Delete Ps Character(s) (default = 1) (DCH).\n\\x9b2P"
+        },
+        {
+          "name": "scrollUpLines",
+          "params": [
+            {
+              "name": "count",
+              "type": "number"
+            }
+          ],
+          "returnType": "any",
+          "description": "CSI Ps S  Scroll up Ps lines (default = 1) (SU), VT420, ECMA-48.\n\\x9b2S"
+        },
+        {
+          "name": "scrollDownLines",
+          "params": [
+            {
+              "name": "count",
+              "type": "number"
+            }
+          ],
+          "returnType": "any",
+          "description": "CSI Ps T  Scroll down Ps lines (default = 1) (SD), VT420. \n\\x9b2T"
+        },
+        {
+          "name": "eraseCharacters",
+          "params": [
+            {
+              "name": "count",
+              "type": "number"
+            }
+          ],
+          "returnType": "any",
+          "description": "CSI Ps X  Erase Ps Character(s) (default = 1) (ECH).\n\\x9b2X"
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "KindOfEraseInDisplay",
+      "kind": "enum",
+      "summary": null,
+      "sourceFile": "src/ux/terminal/functions-using-csi.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "KindOfEraseInLine",
+      "kind": "enum",
+      "summary": null,
+      "sourceFile": "src/ux/terminal/functions-using-csi.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "NgTerminal",
+      "kind": "interface",
+      "summary": null,
+      "sourceFile": "src/ux/terminal/terminal.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "TerminalComponent",
+      "kind": "component",
+      "selector": "dui-terminal",
+      "summary": null,
+      "sourceFile": "src/ux/terminal/terminal.component.ts",
+      "inputs": [
+        {
+          "name": "_dataSource",
+          "alias": "dataSource",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "_rowsInput",
+          "alias": "rows",
+          "type": "number",
+          "description": null
+        },
+        {
+          "name": "_colsInput",
+          "alias": "cols",
+          "type": "number",
+          "description": null
+        },
+        {
+          "name": "_minWidthInput",
+          "alias": "minWidth",
+          "type": "number",
+          "description": null
+        },
+        {
+          "name": "_minHeightInput",
+          "alias": "minHeight",
+          "type": "number",
+          "description": null
+        },
+        {
+          "name": "draggable",
+          "type": "boolean",
+          "description": null
+        },
+        {
+          "name": "xtermOptions",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "theme",
+          "type": "any",
+          "description": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "keyInputEmitter",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "keyEventEmitter",
+          "type": "any",
+          "description": null
+        }
+      ],
+      "methods": [
+        {
+          "name": "setMinWidth",
+          "params": [
+            {
+              "name": "width",
+              "type": "number"
+            }
+          ],
+          "returnType": "void",
+          "description": null
+        },
+        {
+          "name": "setMinHeight",
+          "params": [
+            {
+              "name": "height",
+              "type": "number"
+            }
+          ],
+          "returnType": "void",
+          "description": null
+        },
+        {
+          "name": "setDraggable",
+          "params": [
+            {
+              "name": "draggable",
+              "type": "boolean"
+            }
+          ],
+          "returnType": "void",
+          "description": null
+        },
+        {
+          "name": "setXtermOptions",
+          "params": [
+            {
+              "name": "options",
+              "type": "ITerminalOptions & { theme?: any }"
+            }
+          ],
+          "returnType": "void",
+          "description": null
+        },
+        {
+          "name": "setRows",
+          "params": [
+            {
+              "name": "rows",
+              "type": "number"
+            }
+          ],
+          "returnType": "void",
+          "description": null
+        },
+        {
+          "name": "setCols",
+          "params": [
+            {
+              "name": "cols",
+              "type": "number"
+            }
+          ],
+          "returnType": "void",
+          "description": null
+        },
+        {
+          "name": "setStyle",
+          "params": [
+            {
+              "name": "styleObject",
+              "type": "any"
+            }
+          ],
+          "returnType": "void",
+          "description": null
+        },
+        {
+          "name": "observeTerminalDimension",
+          "params": [],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "observeHostDimension",
+          "params": [],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "write",
+          "params": [
+            {
+              "name": "chars",
+              "type": "string"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "writeln",
+          "params": [
+            {
+              "name": "chars",
+              "type": "string"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "onData",
+          "params": [],
+          "returnType": "Observable<string>",
+          "description": null
+        },
+        {
+          "name": "onKey",
+          "params": [],
+          "returnType": "Observable<{ key: string; domEvent: KeyboardEvent; }>",
+          "description": null
+        },
+        {
+          "name": "onResizeEnd",
+          "params": [
+            {
+              "name": "left",
+              "type": "number"
+            },
+            {
+              "name": "top",
+              "type": "number"
+            },
+            {
+              "name": "width",
+              "type": "number"
+            },
+            {
+              "name": "height",
+              "type": "number"
+            }
+          ],
+          "returnType": "void",
+          "description": null
+        },
+        {
+          "name": "validatorFactory",
+          "params": [],
+          "returnType": "(re: ResizeEvent) => boolean",
+          "description": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "stylesForDiv",
+          "type": "Partial<CSSStyleDeclaration>",
+          "default": "{ 'display': 'block' }",
+          "description": null
+        },
+        {
+          "name": "draggable",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "xtermOptions",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "theme",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "lastDraggedPosition",
+          "type": "{ width: string, height: string }",
+          "description": null
+        },
+        {
+          "name": "terminalOuter",
+          "type": "ElementRef",
+          "description": null
+        },
+        {
+          "name": "resizeBox",
+          "type": "ElementRef",
+          "description": null
+        },
+        {
+          "name": "interval",
+          "type": "ReturnType<typeof setInterval>",
+          "description": null
+        },
+        {
+          "name": "resizeHandleStyleRule",
+          "type": "CSSStyleRule",
+          "description": null
+        },
+        {
+          "name": "resizeHandleActiveStyleRule",
+          "type": "CSSStyleRule",
+          "description": null
+        },
+        {
+          "name": "keyInput",
+          "type": "Observable<string>",
+          "description": null
+        },
+        {
+          "name": "keyEventInput",
+          "type": "Observable<{ key: string; domEvent: KeyboardEvent; }>",
+          "description": null
+        },
+        {
+          "name": "underlying",
+          "type": "Terminal",
+          "description": null
+        },
+        {
+          "name": "isDraggableOnEdgeActivated",
+          "type": "any",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "TerminalModule",
+      "kind": "module",
+      "summary": null,
+      "sourceFile": "src/ux/terminal/terminal.module.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    }
+  ],
+  "suggestedUsageSnippet": "import { TerminalComponent, TerminalModule } from '@dotos/dui/ux/terminal';\n\n<dui-terminal [dataSource]=\"...\" [rows]=\"...\" [cols]=\"...\" (keyInputEmitter)=\"...\" (keyEventEmitter)=\"...\"></dui-terminal>"
+}

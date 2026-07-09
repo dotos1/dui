@@ -1,0 +1,33 @@
+{
+  "importPath": "@dotos/dui/common/directives",
+  "exports": [
+    {
+      "name": "DuiDirectivesModule",
+      "kind": "module",
+      "summary": null,
+      "sourceFile": "src/common/directives/directives.module.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "DuiIfOnDomDirective",
+      "kind": "directive",
+      "selector": "[duiIfOnDom]",
+      "summary": null,
+      "sourceFile": "src/common/directives/if-on-dom.directive.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "isCreated",
+          "type": "boolean",
+          "description": null
+        }
+      ]
+    }
+  ],
+  "suggestedUsageSnippet": "import { DuiDirectivesModule } from '@dotos/dui/common/directives';"
+}

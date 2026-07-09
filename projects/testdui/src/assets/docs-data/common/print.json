@@ -1,0 +1,154 @@
+{
+  "importPath": "@dotos/dui/common/print",
+  "exports": [
+    {
+      "name": "PrintDirective",
+      "kind": "directive",
+      "selector": "button[duiPrint]",
+      "summary": null,
+      "sourceFile": "src/common/print/print.directive.ts",
+      "inputs": [
+        {
+          "name": "printSectionId",
+          "type": "string",
+          "description": null
+        },
+        {
+          "name": "printTitle",
+          "type": "string",
+          "description": null
+        },
+        {
+          "name": "useExistingCss",
+          "type": "any",
+          "default": "false",
+          "description": null
+        },
+        {
+          "name": "printDelay",
+          "type": "number",
+          "default": "0",
+          "description": "A delay in milliseconds to force the print dialog to wait before opened. Default: 0"
+        },
+        {
+          "name": "printStyle",
+          "type": "{ [key: string]: { [key: string]: string } }",
+          "description": null
+        },
+        {
+          "name": "styleSheetFile",
+          "type": "string",
+          "description": null
+        }
+      ],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "returnStyleValues",
+          "params": [],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "print",
+          "params": [],
+          "returnType": "void",
+          "description": null
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "PrintModule",
+      "kind": "module",
+      "summary": null,
+      "sourceFile": "src/common/print/print.module.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "PrintService",
+      "kind": "service",
+      "summary": null,
+      "sourceFile": "src/common/print/print.service.ts",
+      "inputs": [
+        {
+          "name": "mode",
+          "type": "string",
+          "description": null
+        },
+        {
+          "name": "standard",
+          "type": "string",
+          "description": null
+        },
+        {
+          "name": "popTitle",
+          "type": "string",
+          "description": null
+        },
+        {
+          "name": "printHTML",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "printStyle",
+          "type": "string",
+          "description": null
+        },
+        {
+          "name": "printCSS",
+          "type": "string[]",
+          "description": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "printComplete",
+          "type": "any",
+          "description": null
+        }
+      ],
+      "methods": [
+        {
+          "name": "print",
+          "params": [
+            {
+              "name": "printHTML",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": "开始打印\nparam printHTML 打印的HTML"
+        },
+        {
+          "name": "setInputAndTextareaValue",
+          "params": [
+            {
+              "name": "isReset",
+              "type": "boolean"
+            }
+          ],
+          "returnType": "any",
+          "description": "设置打印文档中输入框和文本域的值\nparam {boolean} isReset 是否恢复到初始状态"
+        },
+        {
+          "name": "toArray",
+          "params": [
+            {
+              "name": "arr",
+              "type": "any"
+            }
+          ],
+          "returnType": "any[]",
+          "description": "将类数组转换成数组\nparam arr\nreturns {any[]}"
+        }
+      ],
+      "properties": []
+    }
+  ],
+  "suggestedUsageSnippet": "import { PrintModule } from '@dotos/dui/common/print';"
+}

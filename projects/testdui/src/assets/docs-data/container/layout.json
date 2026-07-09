@@ -1,0 +1,912 @@
+{
+  "importPath": "@dotos/dui/container/layout",
+  "exports": [
+    {
+      "name": "AbstractPanel",
+      "kind": "directive",
+      "summary": null,
+      "sourceFile": "src/container/layout/component/abstract.panel.ts",
+      "inputs": [
+        {
+          "name": "config",
+          "type": "any",
+          "default": "{}",
+          "description": null
+        },
+        {
+          "name": "order",
+          "type": "number | null",
+          "description": null
+        },
+        {
+          "name": "size",
+          "type": "number | null",
+          "description": null
+        },
+        {
+          "name": "minSize",
+          "type": "number | null",
+          "description": null
+        },
+        {
+          "name": "maxSize",
+          "type": "number | null",
+          "description": null
+        },
+        {
+          "name": "lockSize",
+          "type": "boolean",
+          "description": null
+        },
+        {
+          "name": "visible",
+          "type": "boolean",
+          "description": null
+        }
+      ],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "init",
+          "params": [
+            {
+              "name": "config",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "setStyleOrder",
+          "params": [
+            {
+              "name": "value",
+              "type": "number"
+            }
+          ],
+          "returnType": "void",
+          "description": null
+        },
+        {
+          "name": "setStyleFlex",
+          "params": [
+            {
+              "name": "grow",
+              "type": "number"
+            },
+            {
+              "name": "shrink",
+              "type": "number"
+            },
+            {
+              "name": "basis",
+              "type": "string"
+            },
+            {
+              "name": "isMin",
+              "type": "boolean"
+            },
+            {
+              "name": "isMax",
+              "type": "boolean"
+            }
+          ],
+          "returnType": "void",
+          "description": null
+        },
+        {
+          "name": "lockEvents",
+          "params": [],
+          "returnType": "void",
+          "description": null
+        },
+        {
+          "name": "unlockEvents",
+          "params": [],
+          "returnType": "void",
+          "description": null
+        },
+        {
+          "name": "collapse",
+          "params": [
+            {
+              "name": "newSize",
+              "type": "any"
+            },
+            {
+              "name": "gutter",
+              "type": "'left' | 'right'"
+            }
+          ],
+          "returnType": "void",
+          "description": null
+        },
+        {
+          "name": "expand",
+          "params": [],
+          "returnType": "void",
+          "description": null
+        },
+        {
+          "name": "add",
+          "params": [
+            {
+              "name": "comp",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "remove",
+          "params": [
+            {
+              "name": "c",
+              "type": "any"
+            },
+            {
+              "name": "ad",
+              "type": "boolean"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "havePanel",
+          "params": [
+            {
+              "name": "comp",
+              "type": "any"
+            }
+          ],
+          "returnType": "boolean",
+          "description": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "el",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "style",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "order",
+          "type": "number | null",
+          "description": null
+        },
+        {
+          "name": "size",
+          "type": "number | null",
+          "description": null
+        },
+        {
+          "name": "minSize",
+          "type": "number | null",
+          "description": null
+        },
+        {
+          "name": "maxSize",
+          "type": "number | null",
+          "description": null
+        },
+        {
+          "name": "lockSize",
+          "type": "boolean",
+          "description": null
+        },
+        {
+          "name": "visible",
+          "type": "boolean",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "DuiLayoutModule",
+      "kind": "module",
+      "summary": null,
+      "sourceFile": "src/container/layout/layout.module.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "dynamicComponents",
+          "type": "any",
+          "default": "[LayoutComponent,DuiPanelComponent]",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "DuiPanelComponent",
+      "kind": "component",
+      "selector": "dui-panel",
+      "summary": null,
+      "sourceFile": "src/container/layout/component/panel.component.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "getAreaMaxSize",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/container/layout/utils.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "getAreaMinSize",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/container/layout/utils.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "getElementPixelSize",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/container/layout/utils.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "getGutterSideAbsorptionCapacity",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/container/layout/utils.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "getInputboolean",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/container/layout/utils.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "getInputPositiveNumber",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/container/layout/utils.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "getKeyboardEndpoint",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/container/layout/utils.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "getPointFromEvent",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/container/layout/utils.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "IOutputAreaSizes",
+      "kind": "interface",
+      "summary": null,
+      "sourceFile": "src/container/layout/interface.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "IOutputData",
+      "kind": "interface",
+      "summary": null,
+      "sourceFile": "src/container/layout/interface.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "isUserSizesValid",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/container/layout/utils.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "LayoutComponent",
+      "kind": "component",
+      "selector": "dui-layout",
+      "summary": "angular-split\n\n\n PERCENT MODE ([unit]=\"'percent'\")\n ___________________________________________________________________________________________\n|       A       [g1]       B       [g2]       C       [g3]       D       [g4]       E       |\n|-------------------------------------------------------------------------------------------|\n|       20                 30                 20                 15                 15      | <-- [size]=\"x\"\n|               10px               10px               10px               10px               | <-- [gutterSize]=\"10\"\n|calc(20% - 8px)    calc(30% - 12px)   calc(20% - 8px)    calc(15% - 6px)    calc(15% - 6px)| <-- CSS flex-basis property (with flex-grow&shrink at 0)\n|     152px              228px              152px              114px              114px     | <-- el.getBoundingClientRect().width\n|___________________________________________________________________________________________|\n                                                                                800px         <-- el.getBoundingClientRect().width\n flex-basis = calc( { area.size }% - { area.size/100 * nbGutter*gutterSize }px );\n\n\n PIXEL MODE ([unit]=\"'pixel'\")\n ___________________________________________________________________________________________\n|       A       [g1]       B       [g2]       C       [g3]       D       [g4]       E       |\n|-------------------------------------------------------------------------------------------|\n|      100                250                 *                 150                100      | <-- [size]=\"y\"\n|               10px               10px               10px               10px               | <-- [gutterSize]=\"10\"\n|   0 0 100px          0 0 250px           1 1 auto          0 0 150px          0 0 100px   | <-- CSS flex property (flex-grow/flex-shrink/flex-basis)\n|     100px              250px              200px              150px              100px     | <-- el.getBoundingClientRect().width\n|___________________________________________________________________________________________|\n                                                                                800px         <-- el.getBoundingClientRect().width",
+      "sourceFile": "src/container/layout/component/layout.component.ts",
+      "inputs": [
+        {
+          "name": "config",
+          "type": "any",
+          "default": "{}",
+          "description": null
+        },
+        {
+          "name": "gutterClickDeltaPx",
+          "type": "any",
+          "default": "2",
+          "description": null
+        },
+        {
+          "name": "gutterAriaLabel",
+          "type": "string",
+          "description": null
+        },
+        {
+          "name": "direction",
+          "type": "'horizontal' | 'vertical'",
+          "description": null
+        },
+        {
+          "name": "unit",
+          "type": "'percent' | 'pixel'",
+          "description": null
+        },
+        {
+          "name": "gutterSize",
+          "type": "number | null",
+          "description": null
+        },
+        {
+          "name": "gutterStep",
+          "type": "number",
+          "description": null
+        },
+        {
+          "name": "restrictMove",
+          "type": "boolean",
+          "description": null
+        },
+        {
+          "name": "useTransition",
+          "type": "boolean",
+          "description": null
+        },
+        {
+          "name": "disable",
+          "type": "boolean",
+          "description": null
+        },
+        {
+          "name": "dir",
+          "type": "'ltr' | 'rtl'",
+          "description": null
+        },
+        {
+          "name": "gutterDblClickDuration",
+          "type": "number",
+          "description": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "dragStart",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "dragEnd",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "gutterClick",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "gutterDblClick",
+          "type": "any",
+          "description": null
+        }
+      ],
+      "methods": [
+        {
+          "name": "addArea",
+          "params": [
+            {
+              "name": "component",
+              "type": "SplitAreaDirective | DuiPanelComponent"
+            }
+          ],
+          "returnType": "void",
+          "description": null
+        },
+        {
+          "name": "removeArea",
+          "params": [
+            {
+              "name": "component",
+              "type": "SplitAreaDirective | DuiPanelComponent"
+            }
+          ],
+          "returnType": "void",
+          "description": null
+        },
+        {
+          "name": "updateArea",
+          "params": [
+            {
+              "name": "component",
+              "type": "SplitAreaDirective | DuiPanelComponent"
+            },
+            {
+              "name": "resetOrders",
+              "type": "boolean"
+            },
+            {
+              "name": "resetSizes",
+              "type": "boolean"
+            }
+          ],
+          "returnType": "void",
+          "description": null
+        },
+        {
+          "name": "showArea",
+          "params": [
+            {
+              "name": "component",
+              "type": "SplitAreaDirective | DuiPanelComponent"
+            }
+          ],
+          "returnType": "void",
+          "description": null
+        },
+        {
+          "name": "hideArea",
+          "params": [
+            {
+              "name": "comp",
+              "type": "SplitAreaDirective | DuiPanelComponent"
+            }
+          ],
+          "returnType": "void",
+          "description": null
+        },
+        {
+          "name": "getVisibleAreaSizes",
+          "params": [],
+          "returnType": "IOutputAreaSizes",
+          "description": null
+        },
+        {
+          "name": "setVisibleAreaSizes",
+          "params": [
+            {
+              "name": "sizes",
+              "type": "IOutputAreaSizes"
+            }
+          ],
+          "returnType": "boolean",
+          "description": null
+        },
+        {
+          "name": "clickGutter",
+          "params": [
+            {
+              "name": "event",
+              "type": "MouseEvent | TouchEvent"
+            },
+            {
+              "name": "gutterNum",
+              "type": "number"
+            }
+          ],
+          "returnType": "void",
+          "description": null
+        },
+        {
+          "name": "startKeyboardDrag",
+          "params": [
+            {
+              "name": "event",
+              "type": "any"
+            },
+            {
+              "name": "gutterOrder",
+              "type": "number"
+            },
+            {
+              "name": "gutterNum",
+              "type": "number"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "startMouseDrag",
+          "params": [
+            {
+              "name": "event",
+              "type": "MouseEvent | TouchEvent"
+            },
+            {
+              "name": "gutterOrder",
+              "type": "number"
+            },
+            {
+              "name": "gutterNum",
+              "type": "number"
+            }
+          ],
+          "returnType": "void",
+          "description": null
+        },
+        {
+          "name": "notify",
+          "params": [
+            {
+              "name": "type",
+              "type": "'start' | 'progress' | 'end' | 'click' | 'dblclick' | 'transitionEnd'"
+            },
+            {
+              "name": "gutterNum",
+              "type": "number"
+            }
+          ],
+          "returnType": "void",
+          "description": null
+        },
+        {
+          "name": "collapseArea",
+          "params": [
+            {
+              "name": "comp",
+              "type": "SplitAreaDirective | DuiPanelComponent"
+            },
+            {
+              "name": "newSize",
+              "type": "number"
+            },
+            {
+              "name": "gutter",
+              "type": "'left' | 'right'"
+            }
+          ],
+          "returnType": "void",
+          "description": null
+        },
+        {
+          "name": "expandArea",
+          "params": [
+            {
+              "name": "comp",
+              "type": "SplitAreaDirective | DuiPanelComponent"
+            }
+          ],
+          "returnType": "void",
+          "description": null
+        },
+        {
+          "name": "getAriaAreaSizeText",
+          "params": [
+            {
+              "name": "size",
+              "type": "number | null"
+            }
+          ],
+          "returnType": "string",
+          "description": null
+        },
+        {
+          "name": "add",
+          "params": [
+            {
+              "name": "comp",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "remove",
+          "params": [
+            {
+              "name": "c",
+              "type": "any"
+            },
+            {
+              "name": "ad",
+              "type": "boolean"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "havePanel",
+          "params": [
+            {
+              "name": "comp",
+              "type": "any"
+            }
+          ],
+          "returnType": "boolean",
+          "description": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "el",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "direction",
+          "type": "'horizontal' | 'vertical'",
+          "description": null
+        },
+        {
+          "name": "unit",
+          "type": "'percent' | 'pixel'",
+          "description": null
+        },
+        {
+          "name": "gutterSize",
+          "type": "number | null",
+          "description": null
+        },
+        {
+          "name": "gutterStep",
+          "type": "number",
+          "description": null
+        },
+        {
+          "name": "restrictMove",
+          "type": "boolean",
+          "description": null
+        },
+        {
+          "name": "useTransition",
+          "type": "boolean",
+          "description": null
+        },
+        {
+          "name": "disable",
+          "type": "boolean",
+          "description": null
+        },
+        {
+          "name": "dir",
+          "type": "'ltr' | 'rtl'",
+          "description": null
+        },
+        {
+          "name": "gutterDblClickDuration",
+          "type": "number",
+          "description": null
+        },
+        {
+          "name": "dragProgress$",
+          "type": "Observable<IOutputData>",
+          "default": "this.dragProgressSubject.asObservable()",
+          "description": null
+        },
+        {
+          "name": "displayedAreas",
+          "type": "Array<IArea>",
+          "default": "[]",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "pointDeltaEquals",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/container/layout/utils.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "SplitAreaDirective",
+      "kind": "directive",
+      "selector": "dui-split-area, [dui-split-area]",
+      "summary": null,
+      "sourceFile": "src/container/layout/directive/split-area.directive.ts",
+      "inputs": [
+        {
+          "name": "id",
+          "type": "string",
+          "description": null
+        },
+        {
+          "name": "order",
+          "type": "number | null",
+          "description": null
+        },
+        {
+          "name": "size",
+          "type": "number | null",
+          "description": null
+        },
+        {
+          "name": "minSize",
+          "type": "number | null",
+          "description": null
+        },
+        {
+          "name": "maxSize",
+          "type": "number | null",
+          "description": null
+        },
+        {
+          "name": "lockSize",
+          "type": "boolean",
+          "description": null
+        },
+        {
+          "name": "visible",
+          "type": "boolean",
+          "description": null
+        }
+      ],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "setStyleOrder",
+          "params": [
+            {
+              "name": "value",
+              "type": "number"
+            }
+          ],
+          "returnType": "void",
+          "description": null
+        },
+        {
+          "name": "setStyleFlex",
+          "params": [
+            {
+              "name": "grow",
+              "type": "number"
+            },
+            {
+              "name": "shrink",
+              "type": "number"
+            },
+            {
+              "name": "basis",
+              "type": "string"
+            },
+            {
+              "name": "isMin",
+              "type": "boolean"
+            },
+            {
+              "name": "isMax",
+              "type": "boolean"
+            }
+          ],
+          "returnType": "void",
+          "description": null
+        },
+        {
+          "name": "lockEvents",
+          "params": [],
+          "returnType": "void",
+          "description": null
+        },
+        {
+          "name": "unlockEvents",
+          "params": [],
+          "returnType": "void",
+          "description": null
+        },
+        {
+          "name": "collapse",
+          "params": [
+            {
+              "name": "newSize",
+              "type": "any"
+            },
+            {
+              "name": "gutter",
+              "type": "'left' | 'right'"
+            }
+          ],
+          "returnType": "void",
+          "description": null
+        },
+        {
+          "name": "expand",
+          "params": [],
+          "returnType": "void",
+          "description": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "id",
+          "type": "string",
+          "description": null
+        },
+        {
+          "name": "order",
+          "type": "number | null",
+          "description": null
+        },
+        {
+          "name": "size",
+          "type": "number | null",
+          "description": null
+        },
+        {
+          "name": "minSize",
+          "type": "number | null",
+          "description": null
+        },
+        {
+          "name": "maxSize",
+          "type": "number | null",
+          "description": null
+        },
+        {
+          "name": "lockSize",
+          "type": "boolean",
+          "description": null
+        },
+        {
+          "name": "visible",
+          "type": "boolean",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "updateAreaSize",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/container/layout/utils.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    }
+  ],
+  "suggestedUsageSnippet": "import { DuiPanelComponent, DuiLayoutModule } from '@dotos/dui/container/layout';\n\n<dui-panel></dui-panel>"
+}

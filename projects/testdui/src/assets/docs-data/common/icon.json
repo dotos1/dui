@@ -1,0 +1,261 @@
+{
+  "importPath": "@dotos/dui/common/icon",
+  "exports": [
+    {
+      "name": "FontLoaderService",
+      "kind": "service",
+      "summary": null,
+      "sourceFile": "src/common/icon/font-loader.service.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "loadFonts",
+          "params": [
+            {
+              "name": "name",
+              "type": "string"
+            },
+            {
+              "name": "url",
+              "type": "string"
+            },
+            {
+              "name": "weight",
+              "type": "number"
+            }
+          ],
+          "returnType": "Promise<any>",
+          "description": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "fontSet",
+          "type": "Set<string>",
+          "default": "new Set<string>()",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "Icon",
+      "kind": "class",
+      "summary": null,
+      "sourceFile": "src/common/icon/icon.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "name",
+          "type": "string",
+          "description": null
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "description": null
+        },
+        {
+          "name": "filter",
+          "type": "string[]",
+          "description": null
+        },
+        {
+          "name": "aliases",
+          "type": "string[]",
+          "description": null
+        },
+        {
+          "name": "type",
+          "type": "IconType",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "IconComponent",
+      "kind": "component",
+      "selector": "dui-icon",
+      "summary": null,
+      "sourceFile": "src/common/icon/icon.component.ts",
+      "inputs": [
+        {
+          "name": "color",
+          "type": "ThemePalette|string",
+          "description": null
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "description": null
+        },
+        {
+          "name": "iconStyle",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "value",
+          "type": "string",
+          "description": null
+        }
+      ],
+      "outputs": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "iconType",
+          "type": "any",
+          "default": "'FONT'",
+          "description": null
+        },
+        {
+          "name": "hostClasses",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "description": null
+        },
+        {
+          "name": "iconStyle",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "fontSet",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "value",
+          "type": "string",
+          "description": null
+        },
+        {
+          "name": "fontStyle",
+          "type": "any",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "IconModule",
+      "kind": "module",
+      "summary": null,
+      "sourceFile": "src/common/icon/icon.module.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "IconPickerService",
+      "kind": "service",
+      "summary": null,
+      "sourceFile": "src/common/icon/icon-picker.service.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "getIcons",
+          "params": [
+            {
+              "name": "ipIconPack",
+              "type": "string"
+            }
+          ],
+          "returnType": "Icon[]",
+          "description": null
+        },
+        {
+          "name": "getSVGIcons",
+          "params": [
+            {
+              "name": "dir",
+              "type": "string"
+            },
+            {
+              "name": "iconpath",
+              "type": "string"
+            }
+          ],
+          "returnType": "Observable<any>",
+          "description": null
+        },
+        {
+          "name": "getCustomIcons",
+          "params": [
+            {
+              "name": "dir",
+              "type": "string"
+            },
+            {
+              "name": "iconpath",
+              "type": "string"
+            }
+          ],
+          "returnType": "Observable<any>",
+          "description": null
+        },
+        {
+          "name": "getFontIcons",
+          "params": [
+            {
+              "name": "dir",
+              "type": "string"
+            },
+            {
+              "name": "fontpath",
+              "type": "string"
+            }
+          ],
+          "returnType": "Observable<any>",
+          "description": null
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "IconType",
+      "kind": "enum",
+      "summary": null,
+      "sourceFile": "src/common/icon/icon.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "SVGIcon",
+      "kind": "class",
+      "summary": null,
+      "sourceFile": "src/common/icon/icon.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "name",
+          "type": "string",
+          "description": null
+        },
+        {
+          "name": "url",
+          "type": "string",
+          "description": null
+        },
+        {
+          "name": "style",
+          "type": "any",
+          "description": null
+        }
+      ]
+    }
+  ],
+  "suggestedUsageSnippet": "import { IconComponent, IconModule } from '@dotos/dui/common/icon';\n\n<dui-icon [color]=\"...\" [disabled]=\"...\" [iconStyle]=\"...\"></dui-icon>"
+}

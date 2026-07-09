@@ -1,0 +1,35 @@
+<ng-container *ngIf="manifest$ | async as manifest">
+  <div class="nav-tree__home">
+    <a routerLink="/" routerLinkActive="nav-tree__link--active" [routerLinkActiveOptions]="{exact: true}">
+      首页
+    </a>
+  </div>
+
+  <mat-accordion multi="true" *ngIf="manifest.categories.length; else emptyState">
+    <mat-expansion-panel *ngFor="let category of manifest.categories" class="nav-tree__panel">
+      <mat-expansion-panel-header>
+        <mat-panel-title>{{ category.id }}</mat-panel-title>
+        <mat-panel-description>{{ category.moduleCount }}</mat-panel-description>
+      </mat-expansion-panel-header>
+
+      <a *ngIf="category.moduleCount === 0"
+         [routerLink]="['/', category.id]"
+         routerLinkActive="nav-tree__link--active"
+         class="nav-tree__link nav-tree__link--muted">
+        （无可导入模块，仅说明文档）
+      </a>
+
+      <a *ngFor="let module of category.modules"
+         [routerLink]="['/', category.id, module.id, 'overview']"
+         routerLinkActive="nav-tree__link--active"
+         class="nav-tree__link">
+        {{ module.id }}
+        <span class="nav-tree__badge" *ngIf="module.isFlagship">示例</span>
+      </a>
+    </mat-expansion-panel>
+  </mat-accordion>
+
+  <ng-template #emptyState>
+    <p class="nav-tree__empty">尚未生成文档数据。请运行 <code>npm run docs:generate</code>。</p>
+  </ng-template>
+</ng-container>

@@ -1,0 +1,613 @@
+{
+  "importPath": "@dotos/dui/common/dnd",
+  "exports": [
+    {
+      "name": "calculateDragImageOffset",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/common/dnd/dnd-utils.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "CUSTOM_MIME_TYPE",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/common/dnd/dnd-utils.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "DndDraggableDirective",
+      "kind": "directive",
+      "selector": "[dndDraggable]",
+      "summary": null,
+      "sourceFile": "src/common/dnd/dnd-draggable.directive.ts",
+      "inputs": [
+        {
+          "name": "dndDraggable",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "dndEffectAllowed",
+          "type": "EffectAllowed",
+          "default": "\"copy\"",
+          "description": null
+        },
+        {
+          "name": "dndType",
+          "type": "string",
+          "description": null
+        },
+        {
+          "name": "dndDraggingClass",
+          "type": "any",
+          "default": "\"dndDragging\"",
+          "description": null
+        },
+        {
+          "name": "dndDraggingSourceClass",
+          "type": "any",
+          "default": "\"dndDraggingSource\"",
+          "description": null
+        },
+        {
+          "name": "dndDraggableDisabledClass",
+          "type": "any",
+          "default": "\"dndDraggableDisabled\"",
+          "description": null
+        },
+        {
+          "name": "dndDragImageOffsetFunction",
+          "type": "DndDragImageOffsetFunction",
+          "default": "calculateDragImageOffset",
+          "description": null
+        },
+        {
+          "name": "dndDisableIf",
+          "type": "boolean",
+          "description": null
+        },
+        {
+          "name": "dndDisableDragIf",
+          "type": "boolean",
+          "description": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "dndStart",
+          "type": "DragEvent",
+          "description": null
+        },
+        {
+          "name": "dndDrag",
+          "type": "DragEvent",
+          "description": null
+        },
+        {
+          "name": "dndEnd",
+          "type": "DragEvent",
+          "description": null
+        },
+        {
+          "name": "dndMoved",
+          "type": "DragEvent",
+          "description": null
+        },
+        {
+          "name": "dndCopied",
+          "type": "DragEvent",
+          "description": null
+        },
+        {
+          "name": "dndLinked",
+          "type": "DragEvent",
+          "description": null
+        },
+        {
+          "name": "dndCanceled",
+          "type": "DragEvent",
+          "description": null
+        }
+      ],
+      "methods": [
+        {
+          "name": "onDragStart",
+          "params": [
+            {
+              "name": "event",
+              "type": "DndEvent"
+            }
+          ],
+          "returnType": "boolean",
+          "description": null
+        },
+        {
+          "name": "onDrag",
+          "params": [
+            {
+              "name": "event",
+              "type": "DragEvent"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "onDragEnd",
+          "params": [
+            {
+              "name": "event",
+              "type": "DragEvent"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "registerDragHandle",
+          "params": [
+            {
+              "name": "handle",
+              "type": "DndHandleDirective | undefined"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "registerDragImage",
+          "params": [
+            {
+              "name": "elementRef",
+              "type": "ElementRef | undefined"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "draggable",
+          "type": "any",
+          "default": "true",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "DndDragImageOffsetFunction",
+      "kind": "type",
+      "summary": null,
+      "sourceFile": "src/common/dnd/dnd-utils.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "DndDragImageRefDirective",
+      "kind": "directive",
+      "selector": "[dndDragImageRef]",
+      "summary": null,
+      "sourceFile": "src/common/dnd/dnd-draggable.directive.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "DndDropEvent",
+      "kind": "interface",
+      "summary": null,
+      "sourceFile": "src/common/dnd/dnd-dropzone.directive.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "DndDropzoneDirective",
+      "kind": "directive",
+      "selector": "[dndDropzone]",
+      "summary": null,
+      "sourceFile": "src/common/dnd/dnd-dropzone.directive.ts",
+      "inputs": [
+        {
+          "name": "dndDropzone",
+          "type": "string[] | \"\"",
+          "default": "\"\"",
+          "description": null
+        },
+        {
+          "name": "dndEffectAllowed",
+          "type": "EffectAllowed",
+          "default": "\"uninitialized\"",
+          "description": null
+        },
+        {
+          "name": "dndAllowExternal",
+          "type": "boolean",
+          "default": "false",
+          "description": null
+        },
+        {
+          "name": "dndHorizontal",
+          "type": "boolean",
+          "default": "false",
+          "description": null
+        },
+        {
+          "name": "dndDragoverClass",
+          "type": "string",
+          "default": "\"dndDragover\"",
+          "description": null
+        },
+        {
+          "name": "dndDropzoneDisabledClass",
+          "type": "any",
+          "default": "\"dndDropzoneDisabled\"",
+          "description": null
+        },
+        {
+          "name": "dndDisableIf",
+          "type": "boolean",
+          "description": null
+        },
+        {
+          "name": "dndDisableDropIf",
+          "type": "boolean",
+          "description": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "dndDragover",
+          "type": "DragEvent",
+          "description": null
+        },
+        {
+          "name": "dndDragEnter",
+          "type": "DragEvent",
+          "description": null
+        },
+        {
+          "name": "dndDropLeave",
+          "type": "DndEvent",
+          "description": null
+        },
+        {
+          "name": "dndDrop",
+          "type": "DndDropEvent",
+          "description": null
+        }
+      ],
+      "methods": [
+        {
+          "name": "onDragEnter",
+          "params": [
+            {
+              "name": "event",
+              "type": "DndEvent"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "onDragOver",
+          "params": [
+            {
+              "name": "event",
+              "type": "DragEvent"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "onDrop",
+          "params": [
+            {
+              "name": "event",
+              "type": "DragEvent"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "onDragLeave",
+          "params": [
+            {
+              "name": "event",
+              "type": "DndEvent"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "DndEvent",
+      "kind": "interface",
+      "summary": null,
+      "sourceFile": "src/common/dnd/dnd-utils.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "DndHandleDirective",
+      "kind": "directive",
+      "selector": "[dndHandle]",
+      "summary": null,
+      "sourceFile": "src/common/dnd/dnd-handle.directive.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "onDragEvent",
+          "params": [
+            {
+              "name": "event",
+              "type": "DndEvent"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "draggable",
+          "type": "any",
+          "default": "true",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "DndModule",
+      "kind": "module",
+      "summary": null,
+      "sourceFile": "src/common/dnd/dnd.module.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "DndPlaceholderRefDirective",
+      "kind": "directive",
+      "selector": "[dndPlaceholderRef]",
+      "summary": null,
+      "sourceFile": "src/common/dnd/dnd-dropzone.directive.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "dndState",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/common/dnd/dnd-state.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "DndState",
+      "kind": "interface",
+      "summary": null,
+      "sourceFile": "src/common/dnd/dnd-state.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "DragDropData",
+      "kind": "interface",
+      "summary": null,
+      "sourceFile": "src/common/dnd/dnd-utils.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "DROP_EFFECTS",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/common/dnd/dnd-utils.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "DropEffect",
+      "kind": "type",
+      "summary": null,
+      "sourceFile": "src/common/dnd/dnd-types.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "EffectAllowed",
+      "kind": "type",
+      "summary": null,
+      "sourceFile": "src/common/dnd/dnd-types.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "endDrag",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/common/dnd/dnd-state.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "filterEffects",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/common/dnd/dnd-utils.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "getDirectChildElement",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/common/dnd/dnd-utils.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "getDndType",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/common/dnd/dnd-state.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "getDropData",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/common/dnd/dnd-utils.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "getDropEffect",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/common/dnd/dnd-state.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "getWellKnownMimeType",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/common/dnd/dnd-utils.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "isExternalDrag",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/common/dnd/dnd-state.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "JSON_MIME_TYPE",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/common/dnd/dnd-utils.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "MSIE_MIME_TYPE",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/common/dnd/dnd-utils.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "setDragData",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/common/dnd/dnd-utils.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "setDragImage",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/common/dnd/dnd-utils.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "setDropEffect",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/common/dnd/dnd-state.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "shouldPositionPlaceholderBeforeElement",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/common/dnd/dnd-utils.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "startDrag",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/common/dnd/dnd-state.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    }
+  ],
+  "suggestedUsageSnippet": "import { DndModule } from '@dotos/dui/common/dnd';"
+}

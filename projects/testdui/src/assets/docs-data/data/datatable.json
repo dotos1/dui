@@ -1,0 +1,4731 @@
+{
+  "importPath": "@dotos/dui/data/datatable",
+  "exports": [
+    {
+      "name": "adjustColumnWidths",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/data/datatable/utils/math.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "camelCase",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/data/datatable/utils/camel-case.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "checkVisibility",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/data/datatable/utils/visibility-observer.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "ClickType",
+      "kind": "enum",
+      "summary": null,
+      "sourceFile": "src/data/datatable/types/click.type.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "ColumnChangesService",
+      "kind": "service",
+      "summary": null,
+      "sourceFile": "src/data/datatable/services/column-changes.service.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "onInputChange",
+          "params": [],
+          "returnType": "void",
+          "description": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "columnInputChanges$",
+          "type": "Observable<void>",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "columnGroupWidths",
+      "kind": "function",
+      "summary": "Returns the widths of all group sets of a column",
+      "sourceFile": "src/data/datatable/utils/column.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "ColumnMode",
+      "kind": "enum",
+      "summary": null,
+      "sourceFile": "src/data/datatable/types/column-mode.type.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "columnsByPin",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/data/datatable/utils/column.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "columnsByPinArr",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/data/datatable/utils/column.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "columnsTotalWidth",
+      "kind": "function",
+      "summary": "Calculates the total width of all columns and their groups",
+      "sourceFile": "src/data/datatable/utils/column.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "columnTotalWidth",
+      "kind": "function",
+      "summary": "Calculates the total width of all columns and their groups",
+      "sourceFile": "src/data/datatable/utils/column.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "ContextmenuType",
+      "kind": "enum",
+      "summary": null,
+      "sourceFile": "src/data/datatable/types/contextmenu.type.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "DataTableBodyCellComponent",
+      "kind": "component",
+      "selector": "datatable-body-cell",
+      "summary": null,
+      "sourceFile": "src/data/datatable/row/cell.component.ts",
+      "inputs": [
+        {
+          "name": "displayCheck",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "group",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "rowHeight",
+          "type": "number",
+          "description": null
+        },
+        {
+          "name": "isSelected",
+          "type": "boolean",
+          "description": null
+        },
+        {
+          "name": "expanded",
+          "type": "boolean",
+          "description": null
+        },
+        {
+          "name": "rowIndex",
+          "type": "number",
+          "description": null
+        },
+        {
+          "name": "column",
+          "type": "TableColumn",
+          "description": null
+        },
+        {
+          "name": "row",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "sorts",
+          "type": "any[]",
+          "description": null
+        },
+        {
+          "name": "treeStatus",
+          "type": "TreeStatus",
+          "description": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "activate",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "treeAction",
+          "type": "any",
+          "description": null
+        }
+      ],
+      "methods": [
+        {
+          "name": "isDisplayCheck",
+          "params": [
+            {
+              "name": "row",
+              "type": "any"
+            },
+            {
+              "name": "column",
+              "type": "any"
+            },
+            {
+              "name": "value",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "checkValueUpdates",
+          "params": [],
+          "returnType": "void",
+          "description": null
+        },
+        {
+          "name": "onFocus",
+          "params": [],
+          "returnType": "void",
+          "description": null
+        },
+        {
+          "name": "onBlur",
+          "params": [],
+          "returnType": "void",
+          "description": null
+        },
+        {
+          "name": "onClick",
+          "params": [
+            {
+              "name": "event",
+              "type": "MouseEvent"
+            }
+          ],
+          "returnType": "void",
+          "description": null
+        },
+        {
+          "name": "onDblClick",
+          "params": [
+            {
+              "name": "event",
+              "type": "MouseEvent"
+            }
+          ],
+          "returnType": "void",
+          "description": null
+        },
+        {
+          "name": "onKeyDown",
+          "params": [
+            {
+              "name": "event",
+              "type": "KeyboardEvent"
+            }
+          ],
+          "returnType": "void",
+          "description": null
+        },
+        {
+          "name": "onCheckboxChange",
+          "params": [
+            {
+              "name": "event",
+              "type": "any"
+            }
+          ],
+          "returnType": "void",
+          "description": null
+        },
+        {
+          "name": "calcSortDir",
+          "params": [
+            {
+              "name": "sorts",
+              "type": "any[]"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "stripHtml",
+          "params": [
+            {
+              "name": "html",
+              "type": "string"
+            }
+          ],
+          "returnType": "string",
+          "description": null
+        },
+        {
+          "name": "onTreeAction",
+          "params": [],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "calcLeftMargin",
+          "params": [
+            {
+              "name": "column",
+              "type": "any"
+            },
+            {
+              "name": "row",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "group",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "rowHeight",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "isSelected",
+          "type": "boolean",
+          "description": null
+        },
+        {
+          "name": "expanded",
+          "type": "boolean",
+          "description": null
+        },
+        {
+          "name": "rowIndex",
+          "type": "number",
+          "description": null
+        },
+        {
+          "name": "column",
+          "type": "TableColumn",
+          "description": null
+        },
+        {
+          "name": "row",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "sorts",
+          "type": "any[]",
+          "description": null
+        },
+        {
+          "name": "treeStatus",
+          "type": "TreeStatus",
+          "description": null
+        },
+        {
+          "name": "cellTemplate",
+          "type": "ViewContainerRef",
+          "description": null
+        },
+        {
+          "name": "columnCssClasses",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "width",
+          "type": "number",
+          "description": null
+        },
+        {
+          "name": "minWidth",
+          "type": "number",
+          "description": null
+        },
+        {
+          "name": "maxWidth",
+          "type": "number",
+          "description": null
+        },
+        {
+          "name": "height",
+          "type": "string | number",
+          "description": null
+        },
+        {
+          "name": "sanitizedValue",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "value",
+          "type": "any",
+          "default": "undefined",
+          "description": null
+        },
+        {
+          "name": "sortDir",
+          "type": "SortDirection",
+          "description": null
+        },
+        {
+          "name": "isFocused",
+          "type": "any",
+          "default": "false",
+          "description": null
+        },
+        {
+          "name": "onCheckboxChangeFn",
+          "type": "any",
+          "default": "this.onCheckboxChange.bind(this)",
+          "description": null
+        },
+        {
+          "name": "activateFn",
+          "type": "any",
+          "default": "this.activate.emit.bind(this.activate)",
+          "description": null
+        },
+        {
+          "name": "cellContext",
+          "type": "any",
+          "default": "{\n    onCheckboxChangeFn: this.onCheckboxChangeFn,\n    activateFn: this.activateFn,\n    row: this.row,\n    group: this.group,\n    value: this.value,\n    column: this.column,\n    rowHeight: this.rowHeight,\n    isSelected: this.isSelected,\n    rowIndex: this.rowIndex,\n    treeStatus: this.treeStatus,\n    onTreeAction: this.onTreeAction.bind(this)\n  }",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "DataTableBodyComponent",
+      "kind": "component",
+      "selector": "datatable-body",
+      "summary": null,
+      "sourceFile": "src/data/datatable/body/body.component.ts",
+      "inputs": [
+        {
+          "name": "scrollbarV",
+          "type": "boolean",
+          "description": null
+        },
+        {
+          "name": "scrollbarH",
+          "type": "boolean",
+          "description": null
+        },
+        {
+          "name": "loadingIndicator",
+          "type": "boolean",
+          "description": null
+        },
+        {
+          "name": "externalPaging",
+          "type": "boolean",
+          "description": null
+        },
+        {
+          "name": "rowHeight",
+          "type": "number | 'auto' | ((row?: any) => number)",
+          "description": null
+        },
+        {
+          "name": "offsetX",
+          "type": "number",
+          "description": null
+        },
+        {
+          "name": "emptyMessage",
+          "type": "string",
+          "description": null
+        },
+        {
+          "name": "selectionType",
+          "type": "SelectionType",
+          "description": null
+        },
+        {
+          "name": "selected",
+          "type": "any[]",
+          "default": "[]",
+          "description": null
+        },
+        {
+          "name": "rowIdentity",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "rowDetail",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "groupHeader",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "selectCheck",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "displayCheck",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "trackByProp",
+          "type": "string",
+          "description": null
+        },
+        {
+          "name": "rowClass",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "groupedRows",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "groupExpansionDefault",
+          "type": "boolean",
+          "description": null
+        },
+        {
+          "name": "innerWidth",
+          "type": "number",
+          "description": null
+        },
+        {
+          "name": "groupRowsBy",
+          "type": "string",
+          "description": null
+        },
+        {
+          "name": "virtualization",
+          "type": "boolean",
+          "description": null
+        },
+        {
+          "name": "summaryRow",
+          "type": "boolean",
+          "description": null
+        },
+        {
+          "name": "summaryPosition",
+          "type": "string",
+          "description": null
+        },
+        {
+          "name": "summaryHeight",
+          "type": "number",
+          "description": null
+        },
+        {
+          "name": "allowDrag",
+          "type": "boolean",
+          "default": "false",
+          "description": null
+        },
+        {
+          "name": "pageSize",
+          "type": "number",
+          "description": null
+        },
+        {
+          "name": "rows",
+          "type": "any[]",
+          "description": null
+        },
+        {
+          "name": "columns",
+          "type": "any[]",
+          "description": null
+        },
+        {
+          "name": "offset",
+          "type": "number",
+          "description": null
+        },
+        {
+          "name": "rowCount",
+          "type": "number",
+          "description": null
+        },
+        {
+          "name": "bodyHeight",
+          "type": "any",
+          "description": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "scroll",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "page",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "activate",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "select",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "detailToggle",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "rowContextmenu",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "treeAction",
+          "type": "any",
+          "description": null
+        }
+      ],
+      "methods": [
+        {
+          "name": "updateOffsetY",
+          "params": [
+            {
+              "name": "offset",
+              "type": "number"
+            }
+          ],
+          "returnType": "void",
+          "description": "Updates the Y offset given a new offset."
+        },
+        {
+          "name": "onBodyScroll",
+          "params": [
+            {
+              "name": "event",
+              "type": "any"
+            }
+          ],
+          "returnType": "void",
+          "description": "Body was scrolled, this is mainly useful for\nwhen a user is server-side pagination via virtual scroll."
+        },
+        {
+          "name": "updatePage",
+          "params": [
+            {
+              "name": "direction",
+              "type": "string"
+            }
+          ],
+          "returnType": "void",
+          "description": "Updates the page given a direction."
+        },
+        {
+          "name": "updateRows",
+          "params": [],
+          "returnType": "void",
+          "description": "Updates the rows in the view port"
+        },
+        {
+          "name": "getRowHeight",
+          "params": [
+            {
+              "name": "row",
+              "type": "any"
+            }
+          ],
+          "returnType": "number",
+          "description": "Get the row height"
+        },
+        {
+          "name": "getGroupHeight",
+          "params": [
+            {
+              "name": "group",
+              "type": "any"
+            }
+          ],
+          "returnType": "number",
+          "description": null
+        },
+        {
+          "name": "getRowAndDetailHeight",
+          "params": [
+            {
+              "name": "row",
+              "type": "any"
+            }
+          ],
+          "returnType": "number",
+          "description": "Calculate row height based on the expanded state of the row."
+        },
+        {
+          "name": "getRowsStyles",
+          "params": [
+            {
+              "name": "rows",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": "Calculates the styles for the row so that the rows can be moved in 2D space\nduring virtual scroll inside the DOM.   In the below case the Y position is\nmanipulated.   As an example, if the height of row 0 is 30 px and row 1 is\n100 px then following styles are generated:\n\ntransform: translate3d(0px, 0px, 0px);    ->  row0\ntransform: translate3d(0px, 30px, 0px);   ->  row1\ntransform: translate3d(0px, 130px, 0px);  ->  row2\n\nRow heights have to be calculated based on the row heights cache as we wont\nbe able to determine which row is of what height before hand.  In the above\ncase the positionY of the translate3d for row2 would be the sum of all the\nheights of the rows before it (i.e. row0 and row1)."
+        },
+        {
+          "name": "getBottomSummaryRowStyles",
+          "params": [],
+          "returnType": "any",
+          "description": "Calculate bottom summary row offset for scrollbar mode.\nFor more information about cache and offset calculation\nsee description for `getRowsStyles` method"
+        },
+        {
+          "name": "hideIndicator",
+          "params": [],
+          "returnType": "void",
+          "description": "Hides the loading indicator"
+        },
+        {
+          "name": "updateIndexes",
+          "params": [],
+          "returnType": "void",
+          "description": "Updates the index of the rows in the viewport"
+        },
+        {
+          "name": "refreshRowHeightCache",
+          "params": [],
+          "returnType": "void",
+          "description": "Refreshes the full Row Height cache.  Should be used\nwhen the entire row array state has changed."
+        },
+        {
+          "name": "getAdjustedViewPortIndex",
+          "params": [],
+          "returnType": "number",
+          "description": "Gets the index for the view port"
+        },
+        {
+          "name": "toggleRowExpansion",
+          "params": [
+            {
+              "name": "row",
+              "type": "any"
+            }
+          ],
+          "returnType": "void",
+          "description": "Toggle the Expansion of the row i.e. if the row is expanded then it will\ncollapse and vice versa.   Note that the expanded status is stored as\na part of the row object itself as we have to preserve the expanded row\nstatus in case of sorting and filtering of the row set."
+        },
+        {
+          "name": "toggleAllRows",
+          "params": [
+            {
+              "name": "expanded",
+              "type": "boolean"
+            }
+          ],
+          "returnType": "void",
+          "description": "Expand/Collapse all the rows no matter what their state is."
+        },
+        {
+          "name": "recalcLayout",
+          "params": [],
+          "returnType": "void",
+          "description": "Recalculates the table"
+        },
+        {
+          "name": "columnTrackingFn",
+          "params": [
+            {
+              "name": "index",
+              "type": "number"
+            },
+            {
+              "name": "column",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": "Tracks the column"
+        },
+        {
+          "name": "stylesByGroup",
+          "params": [
+            {
+              "name": "group",
+              "type": "string"
+            }
+          ],
+          "returnType": "any",
+          "description": "Gets the row pinning group styles"
+        },
+        {
+          "name": "getRowExpanded",
+          "params": [
+            {
+              "name": "row",
+              "type": "any"
+            }
+          ],
+          "returnType": "boolean",
+          "description": "Returns if the row was expanded and set default row expansion when row expansion is empty"
+        },
+        {
+          "name": "getRowExpandedIdx",
+          "params": [
+            {
+              "name": "row",
+              "type": "any"
+            },
+            {
+              "name": "expanded",
+              "type": "any[]"
+            }
+          ],
+          "returnType": "number",
+          "description": null
+        },
+        {
+          "name": "getRowIndex",
+          "params": [
+            {
+              "name": "row",
+              "type": "any"
+            }
+          ],
+          "returnType": "number",
+          "description": "Gets the row index given a row"
+        },
+        {
+          "name": "onTreeAction",
+          "params": [
+            {
+              "name": "row",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "pageSize",
+          "type": "number",
+          "description": null
+        },
+        {
+          "name": "rows",
+          "type": "any[]",
+          "description": null
+        },
+        {
+          "name": "columns",
+          "type": "any[]",
+          "description": null
+        },
+        {
+          "name": "offset",
+          "type": "number",
+          "description": null
+        },
+        {
+          "name": "rowCount",
+          "type": "number",
+          "description": null
+        },
+        {
+          "name": "bodyWidth",
+          "type": "string",
+          "description": null
+        },
+        {
+          "name": "bodyHeight",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "scroller",
+          "type": "ScrollerComponent",
+          "description": null
+        },
+        {
+          "name": "selectEnabled",
+          "type": "boolean",
+          "description": "Returns if selection is enabled."
+        },
+        {
+          "name": "scrollHeight",
+          "type": "number | undefined",
+          "description": "Property that would calculate the height of scroll bar\nbased on the row heights cache for virtual scroll and virtualization. Other scenarios\ncalculate scroll height automatically (as height will be undefined)."
+        },
+        {
+          "name": "rowHeightsCache",
+          "type": "RowHeightCache",
+          "default": "new RowHeightCache()",
+          "description": null
+        },
+        {
+          "name": "temp",
+          "type": "any[]",
+          "default": "[]",
+          "description": null
+        },
+        {
+          "name": "offsetY",
+          "type": "any",
+          "default": "0",
+          "description": null
+        },
+        {
+          "name": "indexes",
+          "type": "any",
+          "default": "{}",
+          "description": null
+        },
+        {
+          "name": "columnGroupWidths",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "columnGroupWidthsWithoutGroup",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "rowTrackingFn",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "listener",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "rowIndexes",
+          "type": "any",
+          "default": "new Map()",
+          "description": null
+        },
+        {
+          "name": "rowExpansions",
+          "type": "any[]",
+          "default": "[]",
+          "description": null
+        },
+        {
+          "name": "getDetailRowHeight",
+          "type": "any",
+          "default": "(row?: any, index?: any): number => {\n    if (!this.rowDetail) {\n      return 0;\n    }\n    const rowHeight = this.rowDetail.rowHeight;\n    return typeof rowHeight === 'function' ? rowHeight(row, index) : (rowHeight as number);\n  }",
+          "description": "Get the height of the detail row."
+        }
+      ]
+    },
+    {
+      "name": "DataTableBodyRowComponent",
+      "kind": "component",
+      "selector": "datatable-body-row",
+      "summary": null,
+      "sourceFile": "src/data/datatable/row/row.component.ts",
+      "inputs": [
+        {
+          "name": "columns",
+          "type": "any[]",
+          "description": null
+        },
+        {
+          "name": "innerWidth",
+          "type": "number",
+          "description": null
+        },
+        {
+          "name": "expanded",
+          "type": "boolean",
+          "description": null
+        },
+        {
+          "name": "rowClass",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "row",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "group",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "isSelected",
+          "type": "boolean",
+          "description": null
+        },
+        {
+          "name": "rowIndex",
+          "type": "number",
+          "description": null
+        },
+        {
+          "name": "displayCheck",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "treeStatus",
+          "type": "TreeStatus",
+          "default": "'collapsed'",
+          "description": null
+        },
+        {
+          "name": "allowDrag",
+          "type": "boolean",
+          "default": "false",
+          "description": null
+        },
+        {
+          "name": "offsetX",
+          "type": "number",
+          "description": null
+        },
+        {
+          "name": "rowHeight",
+          "type": "number",
+          "description": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "activate",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "treeAction",
+          "type": "any",
+          "description": null
+        }
+      ],
+      "methods": [
+        {
+          "name": "trackByGroups",
+          "params": [
+            {
+              "name": "index",
+              "type": "number"
+            },
+            {
+              "name": "colGroup",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "columnTrackingFn",
+          "params": [
+            {
+              "name": "index",
+              "type": "number"
+            },
+            {
+              "name": "column",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "buildStylesByGroup",
+          "params": [],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "calcStylesByGroup",
+          "params": [
+            {
+              "name": "group",
+              "type": "string"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "onActivate",
+          "params": [
+            {
+              "name": "event",
+              "type": "any"
+            },
+            {
+              "name": "index",
+              "type": "number"
+            }
+          ],
+          "returnType": "void",
+          "description": null
+        },
+        {
+          "name": "onKeyDown",
+          "params": [
+            {
+              "name": "event",
+              "type": "KeyboardEvent"
+            }
+          ],
+          "returnType": "void",
+          "description": null
+        },
+        {
+          "name": "onMouseenter",
+          "params": [
+            {
+              "name": "event",
+              "type": "any"
+            }
+          ],
+          "returnType": "void",
+          "description": null
+        },
+        {
+          "name": "onDragstart",
+          "params": [
+            {
+              "name": "event",
+              "type": "any"
+            }
+          ],
+          "returnType": "void",
+          "description": null
+        },
+        {
+          "name": "onDragEnd",
+          "params": [
+            {
+              "name": "event",
+              "type": "any"
+            }
+          ],
+          "returnType": "void",
+          "description": null
+        },
+        {
+          "name": "recalculateColumns",
+          "params": [
+            {
+              "name": "val",
+              "type": "any[]"
+            }
+          ],
+          "returnType": "void",
+          "description": null
+        },
+        {
+          "name": "onTreeAction",
+          "params": [],
+          "returnType": "any",
+          "description": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "columns",
+          "type": "any[]",
+          "description": null
+        },
+        {
+          "name": "innerWidth",
+          "type": "number",
+          "description": null
+        },
+        {
+          "name": "offsetX",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "cssClass",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "columnsTotalWidths",
+          "type": "string",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "DatatableCardComponent",
+      "kind": "component",
+      "selector": "datatable-card",
+      "summary": null,
+      "sourceFile": "src/data/datatable/datatable.card.ts",
+      "inputs": [
+        {
+          "name": "config",
+          "type": "any",
+          "default": "{}",
+          "description": null
+        }
+      ],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "onDestroy",
+          "params": [],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "init",
+          "params": [
+            {
+              "name": "config",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "loadData",
+          "params": [
+            {
+              "name": "data",
+              "type": "any"
+            }
+          ],
+          "returnType": "void",
+          "description": null
+        },
+        {
+          "name": "load",
+          "params": [
+            {
+              "name": "params",
+              "type": "any"
+            }
+          ],
+          "returnType": "void",
+          "description": null
+        },
+        {
+          "name": "getState",
+          "params": [],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "reconfigure",
+          "params": [
+            {
+              "name": "colModel",
+              "type": "TableColumn[]"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "setStart",
+          "params": [
+            {
+              "name": "v",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "onPage",
+          "params": [
+            {
+              "name": "e",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "onSort",
+          "params": [
+            {
+              "name": "e",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "onActivate",
+          "params": [
+            {
+              "name": "e",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "onSelect",
+          "params": [
+            {
+              "name": "e",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "onScroll",
+          "params": [
+            {
+              "name": "e",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "onReorder",
+          "params": [
+            {
+              "name": "e",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "onResize",
+          "params": [
+            {
+              "name": "e",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "onTableContextmenu",
+          "params": [
+            {
+              "name": "e",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "onTreeAction",
+          "params": [
+            {
+              "name": "e",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "getColumnModel",
+          "params": [],
+          "returnType": "TableColumn[]",
+          "description": null
+        },
+        {
+          "name": "getView",
+          "params": [],
+          "returnType": "DatatableComponent",
+          "description": null
+        },
+        {
+          "name": "getSelected",
+          "params": [],
+          "returnType": "any[]",
+          "description": null
+        },
+        {
+          "name": "getSelectedIds",
+          "params": [],
+          "returnType": "any[]",
+          "description": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "view",
+          "type": "DatatableComponent",
+          "description": null
+        },
+        {
+          "name": "columns",
+          "type": "TableColumn[]",
+          "description": null
+        },
+        {
+          "name": "viewConfig",
+          "type": "ITable",
+          "default": "null",
+          "description": null
+        },
+        {
+          "name": "datasource",
+          "type": "IDataSource",
+          "description": null
+        },
+        {
+          "name": "hideHead",
+          "type": "boolean",
+          "default": "false",
+          "description": null
+        },
+        {
+          "name": "rowData",
+          "type": "any[]",
+          "description": null
+        },
+        {
+          "name": "rowData",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "selectionType",
+          "type": "any",
+          "default": "SelectionType.single",
+          "description": null
+        },
+        {
+          "name": "loadingIndicator",
+          "type": "boolean",
+          "default": "false",
+          "description": null
+        },
+        {
+          "name": "baseParams",
+          "type": "any",
+          "default": "{}",
+          "description": null
+        },
+        {
+          "name": "displayCheck",
+          "type": "any",
+          "default": "true",
+          "description": null
+        },
+        {
+          "name": "totalCount",
+          "type": "any",
+          "default": "20",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "DataTableColumnCellDirective",
+      "kind": "directive",
+      "selector": "[dui-datatable-cell-template]",
+      "summary": null,
+      "sourceFile": "src/data/datatable/columns/column-cell.directive.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "DataTableColumnCellTreeToggle",
+      "kind": "directive",
+      "selector": "[dui-datatable-tree-toggle]",
+      "summary": null,
+      "sourceFile": "src/data/datatable/columns/tree.directive.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "DataTableColumnDirective",
+      "kind": "directive",
+      "selector": "dui-datatable-column",
+      "summary": null,
+      "sourceFile": "src/data/datatable/columns/column.directive.ts",
+      "inputs": [
+        {
+          "name": "name",
+          "type": "string",
+          "description": null
+        },
+        {
+          "name": "prop",
+          "type": "TableColumnProp",
+          "description": null
+        },
+        {
+          "name": "frozenLeft",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "frozenRight",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "flexGrow",
+          "type": "number",
+          "description": null
+        },
+        {
+          "name": "resizeable",
+          "type": "boolean",
+          "description": null
+        },
+        {
+          "name": "comparator",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "pipe",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "sortable",
+          "type": "boolean",
+          "description": null
+        },
+        {
+          "name": "draggable",
+          "type": "boolean",
+          "description": null
+        },
+        {
+          "name": "canAutoResize",
+          "type": "boolean",
+          "description": null
+        },
+        {
+          "name": "minWidth",
+          "type": "number",
+          "description": null
+        },
+        {
+          "name": "width",
+          "type": "number",
+          "description": null
+        },
+        {
+          "name": "maxWidth",
+          "type": "number",
+          "description": null
+        },
+        {
+          "name": "checkboxable",
+          "type": "boolean",
+          "description": null
+        },
+        {
+          "name": "headerCheckboxable",
+          "type": "boolean",
+          "description": null
+        },
+        {
+          "name": "headerClass",
+          "type": "string | ((data: any) => string | any)",
+          "description": null
+        },
+        {
+          "name": "cellClass",
+          "type": "string | ((data: any) => string | any)",
+          "description": null
+        },
+        {
+          "name": "isTreeColumn",
+          "type": "boolean",
+          "description": null
+        },
+        {
+          "name": "treeLevelIndent",
+          "type": "number",
+          "description": null
+        },
+        {
+          "name": "summaryFunc",
+          "type": "(cells: any[]) => any",
+          "description": null
+        },
+        {
+          "name": "summaryTemplate",
+          "type": "TemplateRef<any>",
+          "description": null
+        },
+        {
+          "name": "_cellTemplateInput",
+          "alias": "cellTemplate",
+          "type": "TemplateRef<any>",
+          "description": null
+        },
+        {
+          "name": "_headerTemplateInput",
+          "alias": "headerTemplate",
+          "type": "TemplateRef<any>",
+          "description": null
+        },
+        {
+          "name": "_treeToggleTemplateInput",
+          "alias": "treeToggleTemplate",
+          "type": "TemplateRef<any>",
+          "description": null
+        }
+      ],
+      "outputs": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "cellTemplate",
+          "type": "TemplateRef<any>",
+          "description": null
+        },
+        {
+          "name": "headerTemplate",
+          "type": "TemplateRef<any>",
+          "description": null
+        },
+        {
+          "name": "treeToggleTemplate",
+          "type": "TemplateRef<any>",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "DataTableColumnHeaderDirective",
+      "kind": "directive",
+      "selector": "[dui-datatable-header-template]",
+      "summary": null,
+      "sourceFile": "src/data/datatable/columns/column-header.directive.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "DatatableComponent",
+      "kind": "component",
+      "selector": "dui-datatable",
+      "summary": null,
+      "sourceFile": "src/data/datatable/datatable.component.ts",
+      "inputs": [
+        {
+          "name": "config",
+          "type": "any",
+          "default": "{}",
+          "description": null
+        },
+        {
+          "name": "targetMarkerTemplate",
+          "type": "any",
+          "description": "Template for the target marker of drag target columns."
+        },
+        {
+          "name": "rows",
+          "type": "any",
+          "description": "Rows that are displayed in the table."
+        },
+        {
+          "name": "apiBase",
+          "type": "string",
+          "description": null
+        },
+        {
+          "name": "groupRowsBy",
+          "type": "string",
+          "description": "This attribute allows the user to set the name of the column to group the data with"
+        },
+        {
+          "name": "groupedRows",
+          "type": "any[]",
+          "description": "This attribute allows the user to set a grouped array in the following format:\n [\n   {groupid=1} [\n     {id=1 name=\"test1\"},\n     {id=2 name=\"test2\"},\n     {id=3 name=\"test3\"}\n   ]},\n   {groupid=2>[\n     {id=4 name=\"test4\"},\n     {id=5 name=\"test5\"},\n     {id=6 name=\"test6\"}\n   ]}\n ]"
+        },
+        {
+          "name": "columns",
+          "type": "TableColumn[]",
+          "description": "Columns to be displayed."
+        },
+        {
+          "name": "selected",
+          "type": "any[]",
+          "default": "[]",
+          "description": "List of row objects that should be\nrepresented as selected in the grid.\nDefault value: `[]`"
+        },
+        {
+          "name": "scrollbarV",
+          "type": "boolean",
+          "default": "false",
+          "description": "Enable vertical scrollbars"
+        },
+        {
+          "name": "scrollbarH",
+          "type": "boolean",
+          "default": "false",
+          "description": "Enable horz scrollbars"
+        },
+        {
+          "name": "rowHeight",
+          "type": "number | 'auto' | ((row?: any) => number)",
+          "default": "30",
+          "description": "The row height; which is necessary\nto calculate the height for the lazy rendering."
+        },
+        {
+          "name": "columnMode",
+          "type": "ColumnMode",
+          "default": "ColumnMode.standard",
+          "description": "Type of column width distribution formula.\nExample: flex, force, standard"
+        },
+        {
+          "name": "headerHeight",
+          "type": "any",
+          "default": "30",
+          "description": "The minimum header height in pixels.\nPass a falsey for no header"
+        },
+        {
+          "name": "footerHeight",
+          "type": "number",
+          "default": "0",
+          "description": "The minimum footer height in pixels.\nPass falsey for no footer"
+        },
+        {
+          "name": "externalPaging",
+          "type": "boolean",
+          "default": "false",
+          "description": "If the table should use external paging\notherwise its assumed that all data is preloaded."
+        },
+        {
+          "name": "externalSorting",
+          "type": "boolean",
+          "default": "false",
+          "description": "If the table should use external sorting or\nthe built-in basic sorting."
+        },
+        {
+          "name": "limit",
+          "type": "number | undefined",
+          "description": "The page size to be shown.\nDefault value: `undefined`"
+        },
+        {
+          "name": "count",
+          "type": "number",
+          "description": null
+        },
+        {
+          "name": "offset",
+          "type": "number",
+          "description": "The current offset ( page - 1 ) shown.\nDefault value: `0`"
+        },
+        {
+          "name": "loadingIndicator",
+          "type": "boolean",
+          "default": "false",
+          "description": "Show the linear loading bar.\nDefault value: `false`"
+        },
+        {
+          "name": "selectionType",
+          "type": "SelectionType",
+          "description": "Type of row selection. Options are:\n\n - `single`\n - `multi`\n - `checkbox`\n - `multiClick`\n - `cell`\n\nFor no selection pass a `falsey`.\nDefault value: `undefined`"
+        },
+        {
+          "name": "reorderable",
+          "type": "boolean",
+          "default": "true",
+          "description": "Enable/Disable ability to re-order columns\nby dragging them."
+        },
+        {
+          "name": "swapColumns",
+          "type": "boolean",
+          "default": "true",
+          "description": "Swap columns on re-order columns or\nmove them."
+        },
+        {
+          "name": "sortType",
+          "type": "SortType",
+          "default": "SortType.single",
+          "description": "The type of sorting"
+        },
+        {
+          "name": "sorts",
+          "type": "any[]",
+          "default": "[]",
+          "description": "Array of sorted columns by property and type.\nDefault value: `[]`"
+        },
+        {
+          "name": "cssClasses",
+          "type": "any",
+          "default": "{\n    sortAscending: 'datatable-icon-up',\n    sortDescending: 'datatable-icon-down',\n  }",
+          "description": "Css class overrides"
+        },
+        {
+          "name": "messages",
+          "type": "any",
+          "default": "{\n    // Message to show when array is presented\n    // but contains no values\n    emptyMessage: this.translateService.instant('DATATABLE.EMPTYMESSAGE'),\n\n    // Footer total message\n    totalMessage: this.translateService.instant('DATATABLE.TOTAL'),\n\n    // Footer selected message\n    selectedMessage: this.translateService.instant('DATATABLE.SELECTED'),\n  }",
+          "description": "Message overrides for localization\n\nemptyMessage     [default] = 'No data to display'\ntotalMessage     [default] = 'total'\nselectedMessage  [default] = 'selected'"
+        },
+        {
+          "name": "rowIdentity",
+          "type": "(x: any) => any",
+          "default": "((x: any) => x)",
+          "description": "This will be used when displaying or selecting rows.\nwhen tracking/comparing them, we'll use the value of this fn,\n\n(`fn(x) === fn(y)` instead of `x === y`)"
+        },
+        {
+          "name": "rowClass",
+          "type": "any",
+          "description": "Row specific classes.\nSimilar implementation to ngClass.\n\n [rowClass]=\"'first second'\"\n [rowClass]=\"{ 'first': true, 'second': true, 'third': false }\""
+        },
+        {
+          "name": "selectCheck",
+          "type": "any",
+          "description": "A boolean/function you can use to check whether you want\nto select a particular row based on a criteria. Example:\n\n   (selection) => {\n     return selection !== 'Ethel Price';\n   }"
+        },
+        {
+          "name": "displayCheck",
+          "type": "(row: any, column?: any, value?: any) => boolean|boolean",
+          "description": "A function you can use to check whether you want\nto show the checkbox for a particular row based on a criteria. Example:\n\n   (row, column, value) => {\n     return row.name !== 'Ethel Price';\n   }"
+        },
+        {
+          "name": "groupExpansionDefault",
+          "type": "boolean",
+          "default": "false",
+          "description": "A boolean you can use to set the detault behaviour of rows and groups\nwhether they will start expanded or not. If ommited the default is NOT expanded."
+        },
+        {
+          "name": "trackByProp",
+          "type": "string",
+          "description": "Property to which you can use for custom tracking of rows.\nExample: 'name'"
+        },
+        {
+          "name": "selectAllRowsOnPage",
+          "type": "any",
+          "default": "false",
+          "description": "Property to which you can use for determining select all\nrows on current page or not."
+        },
+        {
+          "name": "virtualization",
+          "type": "boolean",
+          "default": "true",
+          "description": "A flag for row virtualization on / off"
+        },
+        {
+          "name": "treeFromRelation",
+          "type": "string",
+          "description": "Tree from relation"
+        },
+        {
+          "name": "treeToRelation",
+          "type": "string",
+          "description": "Tree to relation"
+        },
+        {
+          "name": "summaryRow",
+          "type": "boolean",
+          "default": "false",
+          "description": "A flag for switching summary row on / off"
+        },
+        {
+          "name": "summaryHeight",
+          "type": "number",
+          "default": "30",
+          "description": "A height of summary row"
+        },
+        {
+          "name": "summaryPosition",
+          "type": "string",
+          "default": "'top'",
+          "description": "A property holds a summary row position: top/bottom"
+        },
+        {
+          "name": "allowDrag",
+          "type": "any",
+          "default": "false",
+          "description": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "scroll",
+          "type": "any",
+          "description": "Body was scrolled typically in a `scrollbarV:true` scenario."
+        },
+        {
+          "name": "activate",
+          "type": "any",
+          "description": "A cell or row was focused via keyboard or mouse click."
+        },
+        {
+          "name": "select",
+          "type": "any",
+          "description": "A cell or row was selected."
+        },
+        {
+          "name": "sort",
+          "type": "any",
+          "description": "Column sort was invoked."
+        },
+        {
+          "name": "page",
+          "type": "any",
+          "description": "The table was paged either triggered by the pager or the body scroll."
+        },
+        {
+          "name": "reorder",
+          "type": "any",
+          "description": "Columns were re-ordered."
+        },
+        {
+          "name": "resize",
+          "type": "any",
+          "description": "Column was resized."
+        },
+        {
+          "name": "tableContextmenu",
+          "type": "any",
+          "description": "The context menu was invoked on the table.\ntype indicates whether the header or the body was clicked.\ncontent contains either the column or the row that was clicked."
+        },
+        {
+          "name": "treeAction",
+          "type": "any",
+          "description": "A row was expanded ot collapsed for tree"
+        }
+      ],
+      "methods": [
+        {
+          "name": "translateColumns",
+          "params": [
+            {
+              "name": "val",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": "Translates the templates to the column objects"
+        },
+        {
+          "name": "groupArrayBy",
+          "params": [
+            {
+              "name": "originalArray",
+              "type": "any"
+            },
+            {
+              "name": "groupBy",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": "Creates a map with the data grouped by the user choice of grouping index"
+        },
+        {
+          "name": "recalculate",
+          "params": [],
+          "returnType": "void",
+          "description": "Recalc's the sizes of the grid.\n\nUpdated automatically on changes to:\n\n - Columns\n - Rows\n - Paging related\n\nAlso can be manually invoked or upon window resize."
+        },
+        {
+          "name": "recalculate1",
+          "params": [],
+          "returnType": "void",
+          "description": null
+        },
+        {
+          "name": "onWindowResize",
+          "params": [],
+          "returnType": "void",
+          "description": "Window resize handler to update sizes."
+        },
+        {
+          "name": "init",
+          "params": [
+            {
+              "name": "config",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "recalculateColumns",
+          "params": [
+            {
+              "name": "columns",
+              "type": "any[]"
+            },
+            {
+              "name": "forceIdx",
+              "type": "number"
+            },
+            {
+              "name": "allowBleed",
+              "type": "boolean"
+            }
+          ],
+          "returnType": "any[] | undefined",
+          "description": null
+        },
+        {
+          "name": "recalculateDims",
+          "params": [],
+          "returnType": "void",
+          "description": "Recalculates the dimensions of the table size.\nInternally calls the page size and row count calcs too."
+        },
+        {
+          "name": "recalculatePages",
+          "params": [],
+          "returnType": "void",
+          "description": "Recalculates the pages after a update."
+        },
+        {
+          "name": "onBodyPage",
+          "params": [
+            {
+              "name": "{ offset }",
+              "type": "any"
+            }
+          ],
+          "returnType": "void",
+          "description": "Body triggered a page event."
+        },
+        {
+          "name": "onBodyScroll",
+          "params": [
+            {
+              "name": "event",
+              "type": "MouseEvent"
+            }
+          ],
+          "returnType": "void",
+          "description": "The body triggered a scroll event."
+        },
+        {
+          "name": "onFooterPage",
+          "params": [
+            {
+              "name": "event",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": "The footer triggered a page event."
+        },
+        {
+          "name": "calcPageSize",
+          "params": [
+            {
+              "name": "val",
+              "type": "any[]"
+            }
+          ],
+          "returnType": "number",
+          "description": "Recalculates the sizes of the page"
+        },
+        {
+          "name": "calcRowCount",
+          "params": [
+            {
+              "name": "val",
+              "type": "any[]"
+            }
+          ],
+          "returnType": "number",
+          "description": "Calculates the row count."
+        },
+        {
+          "name": "onColumnContextmenu",
+          "params": [
+            {
+              "name": "{ event, column }",
+              "type": "any"
+            }
+          ],
+          "returnType": "void",
+          "description": "The header triggered a contextmenu event."
+        },
+        {
+          "name": "onRowContextmenu",
+          "params": [
+            {
+              "name": "{ event, row }",
+              "type": "any"
+            }
+          ],
+          "returnType": "void",
+          "description": "The body triggered a contextmenu event."
+        },
+        {
+          "name": "onColumnResize",
+          "params": [
+            {
+              "name": "{ column, newValue }",
+              "type": "any"
+            }
+          ],
+          "returnType": "void",
+          "description": "The header triggered a column resize event."
+        },
+        {
+          "name": "onColumnReorder",
+          "params": [
+            {
+              "name": "{ column, newValue, prevValue }",
+              "type": "any"
+            }
+          ],
+          "returnType": "void",
+          "description": "The header triggered a column re-order event."
+        },
+        {
+          "name": "onColumnSort",
+          "params": [
+            {
+              "name": "event",
+              "type": "any"
+            }
+          ],
+          "returnType": "void",
+          "description": "The header triggered a column sort event."
+        },
+        {
+          "name": "onHeaderSelect",
+          "params": [
+            {
+              "name": "event",
+              "type": "any"
+            }
+          ],
+          "returnType": "void",
+          "description": "Toggle all row selection"
+        },
+        {
+          "name": "resetSelection",
+          "params": [],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "onBodySelect",
+          "params": [
+            {
+              "name": "event",
+              "type": "any"
+            }
+          ],
+          "returnType": "void",
+          "description": "A row was selected from body"
+        },
+        {
+          "name": "onTreeAction",
+          "params": [
+            {
+              "name": "event",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": "A row was expanded or collapsed for tree"
+        }
+      ],
+      "properties": [
+        {
+          "name": "rows",
+          "type": "any",
+          "description": "Gets the rows."
+        },
+        {
+          "name": "groupRowsBy",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "columns",
+          "type": "TableColumn[]",
+          "description": "Get the columns."
+        },
+        {
+          "name": "limit",
+          "type": "number | undefined",
+          "description": "Gets the limit."
+        },
+        {
+          "name": "count",
+          "type": "number",
+          "description": null
+        },
+        {
+          "name": "offset",
+          "type": "number",
+          "description": null
+        },
+        {
+          "name": "isFixedHeader",
+          "type": "boolean",
+          "description": "CSS class applied if the header height if fixed height."
+        },
+        {
+          "name": "isFixedRow",
+          "type": "boolean",
+          "description": "CSS class applied to the root element if\nthe row heights are fixed heights."
+        },
+        {
+          "name": "isVertScroll",
+          "type": "boolean",
+          "description": "CSS class applied to root element if\nvertical scrolling is enabled."
+        },
+        {
+          "name": "isVirtualized",
+          "type": "boolean",
+          "description": "CSS class applied to root element if\nvirtualization is enabled."
+        },
+        {
+          "name": "isHorScroll",
+          "type": "boolean",
+          "description": "CSS class applied to the root element\nif the horziontal scrolling is enabled."
+        },
+        {
+          "name": "isSelectable",
+          "type": "boolean",
+          "description": "CSS class applied to root element is selectable."
+        },
+        {
+          "name": "isCheckboxSelection",
+          "type": "boolean",
+          "description": "CSS class applied to root is checkbox selection."
+        },
+        {
+          "name": "isCellSelection",
+          "type": "boolean",
+          "description": "CSS class applied to root if cell selection."
+        },
+        {
+          "name": "isSingleSelection",
+          "type": "boolean",
+          "description": "CSS class applied to root if single select."
+        },
+        {
+          "name": "isMultiSelection",
+          "type": "boolean",
+          "description": "CSS class added to root element if mulit select"
+        },
+        {
+          "name": "isMultiClickSelection",
+          "type": "boolean",
+          "description": "CSS class added to root element if mulit click select"
+        },
+        {
+          "name": "columnTemplates",
+          "type": "any",
+          "description": "Column templates gathered from `ContentChildren`\nif described in your markup."
+        },
+        {
+          "name": "columnTemplates",
+          "type": "QueryList<DataTableColumnDirective>",
+          "description": "Returns the column templates."
+        },
+        {
+          "name": "rowDetail",
+          "type": "DatatableRowDetailDirective",
+          "description": "Row Detail templates gathered from the ContentChild"
+        },
+        {
+          "name": "groupHeader",
+          "type": "DatatableGroupHeaderDirective",
+          "description": "Group Header templates gathered from the ContentChild"
+        },
+        {
+          "name": "footer",
+          "type": "DatatableFooterDirective",
+          "description": "Footer template gathered from the ContentChild"
+        },
+        {
+          "name": "bodyComponent",
+          "type": "DataTableBodyComponent",
+          "description": "Reference to the body component for manually\ninvoking functions on the body."
+        },
+        {
+          "name": "headerComponent",
+          "type": "DataTableHeaderComponent",
+          "description": "Reference to the header component for manually\ninvoking functions on the header."
+        },
+        {
+          "name": "allRowsSelected",
+          "type": "boolean",
+          "description": "Returns if all rows are selected."
+        },
+        {
+          "name": "partialRowsSelected",
+          "type": "boolean",
+          "description": null
+        },
+        {
+          "name": "element",
+          "type": "HTMLElement",
+          "description": null
+        },
+        {
+          "name": "pageSize",
+          "type": "number",
+          "description": null
+        },
+        {
+          "name": "bodyHeight",
+          "type": "number",
+          "description": null
+        },
+        {
+          "name": "rowCount",
+          "type": "number",
+          "default": "0",
+          "description": null
+        },
+        {
+          "name": "rowDiffer",
+          "type": "KeyValueDiffer<{}, {}>",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "DataTableFooterComponent",
+      "kind": "component",
+      "selector": "datatable-footer",
+      "summary": null,
+      "sourceFile": "src/data/datatable/footer/footer.component.ts",
+      "inputs": [
+        {
+          "name": "footerHeight",
+          "type": "number",
+          "description": null
+        },
+        {
+          "name": "rowCount",
+          "type": "number",
+          "description": null
+        },
+        {
+          "name": "pageSize",
+          "type": "number",
+          "description": null
+        },
+        {
+          "name": "offset",
+          "type": "number",
+          "description": null
+        },
+        {
+          "name": "totalMessage",
+          "type": "string",
+          "description": null
+        },
+        {
+          "name": "footerTemplate",
+          "type": "DatatableFooterDirective",
+          "description": null
+        },
+        {
+          "name": "pagingConfig",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "selectedCount",
+          "type": "number",
+          "default": "0",
+          "description": null
+        },
+        {
+          "name": "selectedMessage",
+          "type": "string | boolean",
+          "description": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "page",
+          "type": "any",
+          "description": null
+        }
+      ],
+      "methods": [],
+      "properties": [
+        {
+          "name": "paging",
+          "type": "DuiPagingBarComponent",
+          "description": null
+        },
+        {
+          "name": "isVisible",
+          "type": "boolean",
+          "description": null
+        },
+        {
+          "name": "curPage",
+          "type": "number",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "DatatableFooterDirective",
+      "kind": "directive",
+      "selector": "dui-datatable-footer",
+      "summary": null,
+      "sourceFile": "src/data/datatable/footer/footer.directive.ts",
+      "inputs": [
+        {
+          "name": "footerHeight",
+          "type": "number",
+          "description": null
+        },
+        {
+          "name": "totalMessage",
+          "type": "string",
+          "description": null
+        },
+        {
+          "name": "selectedMessage",
+          "type": "string | boolean",
+          "description": null
+        },
+        {
+          "name": "_templateInput",
+          "alias": "template",
+          "type": "TemplateRef<any>",
+          "description": null
+        }
+      ],
+      "outputs": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "template",
+          "type": "TemplateRef<any>",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "DataTableFooterTemplateDirective",
+      "kind": "directive",
+      "selector": "[dui-datatable-footer-template]",
+      "summary": null,
+      "sourceFile": "src/data/datatable/footer/footer-template.directive.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "DatatableGroupHeaderDirective",
+      "kind": "directive",
+      "selector": "dui-datatable-group-header",
+      "summary": null,
+      "sourceFile": "src/data/datatable/header/group-header.directive.ts",
+      "inputs": [
+        {
+          "name": "rowHeight",
+          "type": "number | ((group?: any, index?: number) => number)",
+          "default": "0",
+          "description": null
+        },
+        {
+          "name": "_templateInput",
+          "alias": "template",
+          "type": "TemplateRef<any>",
+          "description": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "toggle",
+          "type": "any",
+          "description": "Track toggling of group visibility"
+        }
+      ],
+      "methods": [
+        {
+          "name": "toggleExpandGroup",
+          "params": [
+            {
+              "name": "group",
+              "type": "any"
+            }
+          ],
+          "returnType": "void",
+          "description": "Toggle the expansion of a group"
+        },
+        {
+          "name": "expandAllGroups",
+          "params": [],
+          "returnType": "void",
+          "description": "Expand all groups"
+        },
+        {
+          "name": "collapseAllGroups",
+          "params": [],
+          "returnType": "void",
+          "description": "Collapse all groups"
+        }
+      ],
+      "properties": [
+        {
+          "name": "template",
+          "type": "TemplateRef<any>",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "DatatableGroupHeaderTemplateDirective",
+      "kind": "directive",
+      "selector": "[dui-datatable-group-header-template]",
+      "summary": null,
+      "sourceFile": "src/data/datatable/header/group-header-template.directive.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "DataTableHeaderCellComponent",
+      "kind": "component",
+      "selector": "datatable-header-cell",
+      "summary": null,
+      "sourceFile": "src/data/datatable/header/header-cell.component.ts",
+      "inputs": [
+        {
+          "name": "sortType",
+          "type": "SortType",
+          "description": null
+        },
+        {
+          "name": "sortAscendingIcon",
+          "type": "string",
+          "description": null
+        },
+        {
+          "name": "sortDescendingIcon",
+          "type": "string",
+          "description": null
+        },
+        {
+          "name": "isTarget",
+          "type": "boolean",
+          "description": null
+        },
+        {
+          "name": "targetMarkerTemplate",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "targetMarkerContext",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "allRowsSelected",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "partialRowsSelected",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "selectionType",
+          "type": "SelectionType",
+          "description": null
+        },
+        {
+          "name": "column",
+          "type": "TableColumn",
+          "description": null
+        },
+        {
+          "name": "headerHeight",
+          "type": "number",
+          "description": null
+        },
+        {
+          "name": "sorts",
+          "type": "any[]",
+          "description": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "sort",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "select",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "columnContextmenu",
+          "type": "any",
+          "description": null
+        }
+      ],
+      "methods": [
+        {
+          "name": "onContextmenu",
+          "params": [
+            {
+              "name": "$event",
+              "type": "MouseEvent"
+            }
+          ],
+          "returnType": "void",
+          "description": null
+        },
+        {
+          "name": "calcSortDir",
+          "params": [
+            {
+              "name": "sorts",
+              "type": "any[]"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "onSort",
+          "params": [],
+          "returnType": "void",
+          "description": null
+        },
+        {
+          "name": "calcSortClass",
+          "params": [
+            {
+              "name": "sortDir",
+              "type": "SortDirection"
+            }
+          ],
+          "returnType": "string",
+          "description": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "allRowsSelected",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "partialRowsSelected",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "column",
+          "type": "TableColumn",
+          "description": null
+        },
+        {
+          "name": "sorts",
+          "type": "any[]",
+          "description": null
+        },
+        {
+          "name": "columnCssClasses",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "description": null
+        },
+        {
+          "name": "minWidth",
+          "type": "number",
+          "description": null
+        },
+        {
+          "name": "maxWidth",
+          "type": "number",
+          "description": null
+        },
+        {
+          "name": "width",
+          "type": "number",
+          "description": null
+        },
+        {
+          "name": "isCheckboxable",
+          "type": "boolean",
+          "description": null
+        },
+        {
+          "name": "sortFn",
+          "type": "any",
+          "default": "this.onSort.bind(this)",
+          "description": null
+        },
+        {
+          "name": "sortClass",
+          "type": "string",
+          "description": null
+        },
+        {
+          "name": "sortDir",
+          "type": "SortDirection",
+          "default": "SortDirection.desc",
+          "description": null
+        },
+        {
+          "name": "selectFn",
+          "type": "any",
+          "default": "this.select.emit.bind(this.select)",
+          "description": null
+        },
+        {
+          "name": "cellContext",
+          "type": "any",
+          "default": "{\n    column: this.column,\n    sortDir: this.sortDir,\n    sortFn: this.sortFn,\n    allRowsSelected: this.allRowsSelected,\n    partialRowsSelected: this.partialRowsSelected,\n    selectFn: this.selectFn\n  }",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "DataTableHeaderComponent",
+      "kind": "component",
+      "selector": "datatable-header",
+      "summary": null,
+      "sourceFile": "src/data/datatable/header/header.component.ts",
+      "inputs": [
+        {
+          "name": "sortAscendingIcon",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "sortDescendingIcon",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "scrollbarH",
+          "type": "boolean",
+          "description": null
+        },
+        {
+          "name": "dealsWithGroup",
+          "type": "boolean",
+          "description": null
+        },
+        {
+          "name": "targetMarkerTemplate",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "innerWidth",
+          "type": "number",
+          "description": null
+        },
+        {
+          "name": "sorts",
+          "type": "any[]",
+          "description": null
+        },
+        {
+          "name": "sortType",
+          "type": "SortType",
+          "description": null
+        },
+        {
+          "name": "allRowsSelected",
+          "type": "boolean",
+          "description": null
+        },
+        {
+          "name": "partialRowsSelected",
+          "type": "boolean",
+          "description": null
+        },
+        {
+          "name": "selectionType",
+          "type": "SelectionType",
+          "description": null
+        },
+        {
+          "name": "reorderable",
+          "type": "boolean",
+          "description": null
+        },
+        {
+          "name": "columnMode",
+          "type": "string",
+          "default": "'force'",
+          "description": null
+        },
+        {
+          "name": "headerHeight",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "columns",
+          "type": "any[]",
+          "description": null
+        },
+        {
+          "name": "offsetX",
+          "type": "number",
+          "description": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "sort",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "reorder",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "resize",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "select",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "columnContextmenu",
+          "type": "any",
+          "description": null
+        }
+      ],
+      "methods": [
+        {
+          "name": "onLongPressStart",
+          "params": [
+            {
+              "name": "{ event, model }",
+              "type": "{ event: any; model: any }"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "onLongPressEnd",
+          "params": [
+            {
+              "name": "{ event, model }",
+              "type": "{ event: any; model: any }"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "trackByGroups",
+          "params": [
+            {
+              "name": "index",
+              "type": "number"
+            },
+            {
+              "name": "colGroup",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "columnTrackingFn",
+          "params": [
+            {
+              "name": "index",
+              "type": "number"
+            },
+            {
+              "name": "column",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "onColumnResized",
+          "params": [
+            {
+              "name": "width",
+              "type": "number"
+            },
+            {
+              "name": "column",
+              "type": "DataTableColumnDirective"
+            }
+          ],
+          "returnType": "void",
+          "description": null
+        },
+        {
+          "name": "onColumnReordered",
+          "params": [
+            {
+              "name": "{ prevIndex, newIndex, model }",
+              "type": "any"
+            }
+          ],
+          "returnType": "void",
+          "description": null
+        },
+        {
+          "name": "onTargetChanged",
+          "params": [
+            {
+              "name": "{ prevIndex, newIndex, initialIndex }",
+              "type": "any"
+            }
+          ],
+          "returnType": "void",
+          "description": null
+        },
+        {
+          "name": "getColumn",
+          "params": [
+            {
+              "name": "index",
+              "type": "number"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "onSort",
+          "params": [
+            {
+              "name": "{ column, prevValue, newValue }",
+              "type": "any"
+            }
+          ],
+          "returnType": "void",
+          "description": null
+        },
+        {
+          "name": "calcNewSorts",
+          "params": [
+            {
+              "name": "column",
+              "type": "any"
+            },
+            {
+              "name": "prevValue",
+              "type": "number"
+            },
+            {
+              "name": "newValue",
+              "type": "number"
+            }
+          ],
+          "returnType": "any[]",
+          "description": null
+        },
+        {
+          "name": "setStylesByGroup",
+          "params": [],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "calcStylesByGroup",
+          "params": [
+            {
+              "name": "group",
+              "type": "string"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "targetMarkerContext",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "innerWidth",
+          "type": "number",
+          "description": null
+        },
+        {
+          "name": "dragEventTarget",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "headerHeight",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "columns",
+          "type": "any[]",
+          "description": null
+        },
+        {
+          "name": "offsetX",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "columnGroupWidths",
+          "type": "any",
+          "default": "{\n    total: 100\n  }",
+          "description": null
+        },
+        {
+          "name": "headerWidth",
+          "type": "string",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "DatatableModule",
+      "kind": "module",
+      "summary": null,
+      "sourceFile": "src/data/datatable/datatable.module.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "entryComponents",
+          "type": "any",
+          "default": "[DatatableCardComponent]",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "DatatableRowDetailDirective",
+      "kind": "directive",
+      "selector": "dui-datatable-row-detail",
+      "summary": null,
+      "sourceFile": "src/data/datatable/row/row-detail.directive.ts",
+      "inputs": [
+        {
+          "name": "rowHeight",
+          "type": "number | ((row?: any, index?: number) => number)",
+          "default": "0",
+          "description": null
+        },
+        {
+          "name": "_templateInput",
+          "alias": "template",
+          "type": "TemplateRef<any>",
+          "description": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "toggle",
+          "type": "any",
+          "description": "Row detail row visbility was toggled."
+        }
+      ],
+      "methods": [
+        {
+          "name": "toggleExpandRow",
+          "params": [
+            {
+              "name": "row",
+              "type": "any"
+            }
+          ],
+          "returnType": "void",
+          "description": "Toggle the expansion of the row"
+        },
+        {
+          "name": "expandAllRows",
+          "params": [],
+          "returnType": "void",
+          "description": "API method to expand all the rows."
+        },
+        {
+          "name": "collapseAllRows",
+          "params": [],
+          "returnType": "void",
+          "description": "API method to collapse all the rows."
+        }
+      ],
+      "properties": [
+        {
+          "name": "template",
+          "type": "TemplateRef<any>",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "DatatableRowDetailTemplateDirective",
+      "kind": "directive",
+      "selector": "[dui-datatable-row-detail-template]",
+      "summary": null,
+      "sourceFile": "src/data/datatable/row/row-detail-template.directive.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "DataTableRowWrapperComponent",
+      "kind": "component",
+      "selector": "datatable-row-wrapper",
+      "summary": null,
+      "sourceFile": "src/data/datatable/row/row-wrapper.component.ts",
+      "inputs": [
+        {
+          "name": "innerWidth",
+          "type": "number",
+          "description": null
+        },
+        {
+          "name": "rowDetail",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "groupHeader",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "offsetX",
+          "type": "number",
+          "description": null
+        },
+        {
+          "name": "detailRowHeight",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "row",
+          "type": "any",
+          "default": "{}",
+          "description": null
+        },
+        {
+          "name": "groupedRows",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "rowIndex",
+          "type": "number",
+          "description": null
+        },
+        {
+          "name": "expanded",
+          "type": "boolean",
+          "description": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "rowContextmenu",
+          "type": "any",
+          "description": null
+        }
+      ],
+      "methods": [
+        {
+          "name": "onContextmenu",
+          "params": [
+            {
+              "name": "$event",
+              "type": "MouseEvent"
+            }
+          ],
+          "returnType": "void",
+          "description": null
+        },
+        {
+          "name": "getGroupHeaderStyle",
+          "params": [],
+          "returnType": "any",
+          "description": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "rowIndex",
+          "type": "number",
+          "description": null
+        },
+        {
+          "name": "expanded",
+          "type": "boolean",
+          "description": null
+        },
+        {
+          "name": "groupContext",
+          "type": "any",
+          "default": "{\n    group: this.row,\n    expanded: this.expanded,\n    rowIndex: this.rowIndex\n  }",
+          "description": null
+        },
+        {
+          "name": "rowContext",
+          "type": "any",
+          "default": "{\n    row: this.row,\n    expanded: this.expanded,\n    rowIndex: this.rowIndex\n  }",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "DataTableSelectionComponent",
+      "kind": "component",
+      "selector": "datatable-selection",
+      "summary": null,
+      "sourceFile": "src/data/datatable/body/selection.component.ts",
+      "inputs": [
+        {
+          "name": "rows",
+          "type": "any[]",
+          "description": null
+        },
+        {
+          "name": "selected",
+          "type": "any[]",
+          "description": null
+        },
+        {
+          "name": "selectEnabled",
+          "type": "boolean",
+          "description": null
+        },
+        {
+          "name": "selectionType",
+          "type": "SelectionType",
+          "description": null
+        },
+        {
+          "name": "rowIdentity",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "selectCheck",
+          "type": "any",
+          "description": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "activate",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "select",
+          "type": "any",
+          "description": null
+        }
+      ],
+      "methods": [
+        {
+          "name": "selectRow",
+          "params": [
+            {
+              "name": "event",
+              "type": "KeyboardEvent | MouseEvent"
+            },
+            {
+              "name": "index",
+              "type": "number"
+            },
+            {
+              "name": "row",
+              "type": "any"
+            }
+          ],
+          "returnType": "void",
+          "description": null
+        },
+        {
+          "name": "onActivate",
+          "params": [
+            {
+              "name": "model",
+              "type": "Model"
+            },
+            {
+              "name": "index",
+              "type": "number"
+            }
+          ],
+          "returnType": "void",
+          "description": null
+        },
+        {
+          "name": "onKeyboardFocus",
+          "params": [
+            {
+              "name": "model",
+              "type": "Model"
+            }
+          ],
+          "returnType": "void",
+          "description": null
+        },
+        {
+          "name": "focusRow",
+          "params": [
+            {
+              "name": "rowElement",
+              "type": "any"
+            },
+            {
+              "name": "keyCode",
+              "type": "number"
+            }
+          ],
+          "returnType": "void",
+          "description": null
+        },
+        {
+          "name": "getPrevNextRow",
+          "params": [
+            {
+              "name": "rowElement",
+              "type": "any"
+            },
+            {
+              "name": "keyCode",
+              "type": "number"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "focusCell",
+          "params": [
+            {
+              "name": "cellElement",
+              "type": "any"
+            },
+            {
+              "name": "rowElement",
+              "type": "any"
+            },
+            {
+              "name": "keyCode",
+              "type": "number"
+            },
+            {
+              "name": "cellIndex",
+              "type": "number"
+            }
+          ],
+          "returnType": "void",
+          "description": null
+        },
+        {
+          "name": "getRowSelected",
+          "params": [
+            {
+              "name": "row",
+              "type": "any"
+            }
+          ],
+          "returnType": "boolean",
+          "description": null
+        },
+        {
+          "name": "getRowSelectedIdx",
+          "params": [
+            {
+              "name": "row",
+              "type": "any"
+            },
+            {
+              "name": "selected",
+              "type": "any[]"
+            }
+          ],
+          "returnType": "number",
+          "description": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "prevIndex",
+          "type": "number",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "DataTableSummaryRowComponent",
+      "kind": "component",
+      "selector": "datatable-summary-row",
+      "summary": null,
+      "sourceFile": "src/data/datatable/body/summary/summary-row.component.ts",
+      "inputs": [
+        {
+          "name": "rows",
+          "type": "any[]",
+          "description": null
+        },
+        {
+          "name": "columns",
+          "type": "ISummaryColumn[]",
+          "description": null
+        },
+        {
+          "name": "rowHeight",
+          "type": "number",
+          "description": null
+        },
+        {
+          "name": "offsetX",
+          "type": "number",
+          "description": null
+        },
+        {
+          "name": "innerWidth",
+          "type": "number",
+          "description": null
+        }
+      ],
+      "outputs": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "summaryRow",
+          "type": "any",
+          "default": "{}",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "deCamelCase",
+      "kind": "function",
+      "summary": "Converts strings from camel case to words\nhttp://stackoverflow.com/questions/7225407/convert-camelcasetext-to-camel-case-text",
+      "sourceFile": "src/data/datatable/utils/camel-case.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "deepValueGetter",
+      "kind": "function",
+      "summary": "Returns a deep object given a string. zoo['animal.type']",
+      "sourceFile": "src/data/datatable/utils/column-prop-getters.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "DimensionsHelper",
+      "kind": "service",
+      "summary": null,
+      "sourceFile": "src/data/datatable/services/dimensions-helper.service.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "getDimensions",
+          "params": [
+            {
+              "name": "element",
+              "type": "Element"
+            }
+          ],
+          "returnType": "ClientRect",
+          "description": null
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "document",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/data/datatable/utils/facade/browser.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "DraggableDirective",
+      "kind": "directive",
+      "selector": "[draggable]",
+      "summary": null,
+      "sourceFile": "src/data/datatable/directives/draggable.directive.ts",
+      "inputs": [
+        {
+          "name": "dragEventTarget",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "dragModel",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "dragX",
+          "type": "boolean",
+          "default": "true",
+          "description": null
+        },
+        {
+          "name": "dragY",
+          "type": "boolean",
+          "default": "true",
+          "description": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "dragStart",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "dragging",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "dragEnd",
+          "type": "any",
+          "description": null
+        }
+      ],
+      "methods": [
+        {
+          "name": "onMouseup",
+          "params": [
+            {
+              "name": "event",
+              "type": "any"
+            }
+          ],
+          "returnType": "void",
+          "description": null
+        },
+        {
+          "name": "onMousedown",
+          "params": [
+            {
+              "name": "event",
+              "type": "MouseEvent"
+            }
+          ],
+          "returnType": "void",
+          "description": null
+        },
+        {
+          "name": "move",
+          "params": [
+            {
+              "name": "event",
+              "type": "any"
+            },
+            {
+              "name": "mouseDownPos",
+              "type": "{ x: number; y: number }"
+            }
+          ],
+          "returnType": "void",
+          "description": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "element",
+          "type": "HTMLElement",
+          "description": null
+        },
+        {
+          "name": "isDragging",
+          "type": "boolean",
+          "default": "false",
+          "description": null
+        },
+        {
+          "name": "subscription",
+          "type": "Subscription",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "elementsFromPoint",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/data/datatable/utils/elm-from-point.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "emptyStringGetter",
+      "kind": "function",
+      "summary": "Always returns the empty string ''",
+      "sourceFile": "src/data/datatable/utils/column-prop-getters.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "Event",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/data/datatable/utils/facade/browser.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "EventListener",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/data/datatable/utils/facade/browser.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "EventTarget",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/data/datatable/utils/facade/browser.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "forceFillColumnWidths",
+      "kind": "function",
+      "summary": "Forces the width of the columns to\ndistribute equally but overflowing when necessary\n\nRules:\n\n - If combined withs are less than the total width of the grid,\n   proportion the widths given the min / max / normal widths to fill the width.\n\n - If the combined widths, exceed the total width of the grid,\n   use the standard widths.\n\n - If a column is resized, it should always use that width\n\n - The proportional widths should never fall below min size if specified.\n\n - If the grid starts off small but then becomes greater than the size ( + / - )\n   the width should use the original width; not the newly proportioned widths.",
+      "sourceFile": "src/data/datatable/utils/math.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "gc",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/data/datatable/utils/facade/browser.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "getterForProp",
+      "kind": "function",
+      "summary": "Returns the appropriate getter function for this kind of prop.\nIf prop == null, returns the emptyStringGetter.",
+      "sourceFile": "src/data/datatable/utils/column-prop-getters.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "getTotalFlexGrow",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/data/datatable/utils/math.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "getVendorPrefixedName",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/data/datatable/utils/prefixes.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "groupRowsByParents",
+      "kind": "function",
+      "summary": "This functions rearrange items by their parents\nAlso sets the level value to each of the items\n\nNote: Expecting each item has a property called parentId\nNote: This algorithm will fail if a list has two or more items with same ID\nNOTE: This algorithm will fail if there is a deadlock of relationship\n\nFor example,\n\nInput\n\nid -> parent\n1  -> 0\n2  -> 0\n3  -> 1\n4  -> 1\n5  -> 2\n7  -> 8\n6  -> 3\n\n\nOutput\nid -> level\n1      -> 0\n--3    -> 1\n----6  -> 2\n--4    -> 1\n2      -> 0\n--5    -> 1\n7     -> 8",
+      "sourceFile": "src/data/datatable/utils/tree.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "History",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/data/datatable/utils/facade/browser.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "id",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/data/datatable/utils/id.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "IDataSource",
+      "kind": "interface",
+      "summary": null,
+      "sourceFile": "src/data/datatable/types/table.type.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "IMessages",
+      "kind": "interface",
+      "summary": "Message overrides for localization\n\nemptyMessage     [default] = 'No data to display'\ntotalMessage     [default] = 'total'\nselectedMessage  [default] = 'selected'",
+      "sourceFile": "src/data/datatable/types/table.type.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "isNullOrUndefined",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/data/datatable/utils/column-helper.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "ISummaryColumn",
+      "kind": "interface",
+      "summary": null,
+      "sourceFile": "src/data/datatable/body/summary/summary-row.component.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "ITable",
+      "kind": "interface",
+      "summary": "Column Type\n {object}",
+      "sourceFile": "src/data/datatable/types/table.type.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "KeyboardEvent",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/data/datatable/utils/facade/browser.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "Keys",
+      "kind": "enum",
+      "summary": null,
+      "sourceFile": "src/data/datatable/utils/keys.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "location",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/data/datatable/utils/facade/browser.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "Location",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/data/datatable/utils/facade/browser.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "LongPressDirective",
+      "kind": "directive",
+      "selector": "[long-press]",
+      "summary": null,
+      "sourceFile": "src/data/datatable/directives/long-press.directive.ts",
+      "inputs": [
+        {
+          "name": "pressEnabled",
+          "type": "boolean",
+          "default": "true",
+          "description": null
+        },
+        {
+          "name": "pressModel",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "duration",
+          "type": "number",
+          "default": "500",
+          "description": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "longPressStart",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "longPressing",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "longPressEnd",
+          "type": "any",
+          "description": null
+        }
+      ],
+      "methods": [
+        {
+          "name": "onMouseDown",
+          "params": [
+            {
+              "name": "event",
+              "type": "MouseEvent"
+            }
+          ],
+          "returnType": "void",
+          "description": null
+        },
+        {
+          "name": "onMouseMove",
+          "params": [
+            {
+              "name": "event",
+              "type": "MouseEvent"
+            }
+          ],
+          "returnType": "void",
+          "description": null
+        },
+        {
+          "name": "loop",
+          "params": [
+            {
+              "name": "event",
+              "type": "MouseEvent"
+            }
+          ],
+          "returnType": "void",
+          "description": null
+        },
+        {
+          "name": "endPress",
+          "params": [],
+          "returnType": "void",
+          "description": null
+        },
+        {
+          "name": "onMouseup",
+          "params": [],
+          "returnType": "void",
+          "description": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "pressing",
+          "type": "boolean",
+          "description": null
+        },
+        {
+          "name": "isLongPressing",
+          "type": "boolean",
+          "description": null
+        },
+        {
+          "name": "timeout",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "mouseX",
+          "type": "number",
+          "default": "0",
+          "description": null
+        },
+        {
+          "name": "mouseY",
+          "type": "number",
+          "default": "0",
+          "description": null
+        },
+        {
+          "name": "subscription",
+          "type": "Subscription",
+          "description": null
+        },
+        {
+          "name": "press",
+          "type": "boolean",
+          "description": null
+        },
+        {
+          "name": "isLongPress",
+          "type": "boolean",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "Model",
+      "kind": "interface",
+      "summary": null,
+      "sourceFile": "src/data/datatable/body/selection.component.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "MouseEvent",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/data/datatable/utils/facade/browser.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "nextSortDir",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/data/datatable/utils/sort.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "numericIndexGetter",
+      "kind": "function",
+      "summary": "Returns the value at this numeric index.",
+      "sourceFile": "src/data/datatable/utils/column-prop-getters.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "optionalGetterForProp",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/data/datatable/utils/tree.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "OptionalValueGetter",
+      "kind": "type",
+      "summary": null,
+      "sourceFile": "src/data/datatable/utils/tree.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "OrderableDirective",
+      "kind": "directive",
+      "selector": "[orderable]",
+      "summary": null,
+      "sourceFile": "src/data/datatable/directives/orderable.directive.ts",
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "reorder",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "targetChanged",
+          "type": "any",
+          "description": null
+        }
+      ],
+      "methods": [
+        {
+          "name": "updateSubscriptions",
+          "params": [],
+          "returnType": "void",
+          "description": null
+        },
+        {
+          "name": "onDragStart",
+          "params": [],
+          "returnType": "void",
+          "description": null
+        },
+        {
+          "name": "onDragging",
+          "params": [
+            {
+              "name": "{ element, model, event }",
+              "type": "any"
+            }
+          ],
+          "returnType": "void",
+          "description": null
+        },
+        {
+          "name": "onDragEnd",
+          "params": [
+            {
+              "name": "{ element, model, event }",
+              "type": "any"
+            }
+          ],
+          "returnType": "void",
+          "description": null
+        },
+        {
+          "name": "isTarget",
+          "params": [
+            {
+              "name": "model",
+              "type": "any"
+            },
+            {
+              "name": "event",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "draggables",
+          "type": "QueryList<DraggableDirective>",
+          "description": null
+        },
+        {
+          "name": "positions",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "differ",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "lastDraggingIndex",
+          "type": "number",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "orderByComparator",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/data/datatable/utils/sort.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "performance",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/data/datatable/utils/facade/browser.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "ProgressBarComponent",
+      "kind": "component",
+      "selector": "datatable-progress",
+      "summary": null,
+      "sourceFile": "src/data/datatable/body/progress-bar.component.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "ResizeableDirective",
+      "kind": "directive",
+      "selector": "[resizeable]",
+      "summary": null,
+      "sourceFile": "src/data/datatable/directives/resizeable.directive.ts",
+      "inputs": [
+        {
+          "name": "resizeEnabled",
+          "type": "boolean",
+          "default": "true",
+          "description": null
+        },
+        {
+          "name": "minWidth",
+          "type": "number",
+          "description": null
+        },
+        {
+          "name": "maxWidth",
+          "type": "number",
+          "description": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "resize",
+          "type": "any",
+          "description": null
+        }
+      ],
+      "methods": [
+        {
+          "name": "onMouseup",
+          "params": [],
+          "returnType": "void",
+          "description": null
+        },
+        {
+          "name": "onMousedown",
+          "params": [
+            {
+              "name": "event",
+              "type": "MouseEvent"
+            }
+          ],
+          "returnType": "void",
+          "description": null
+        },
+        {
+          "name": "move",
+          "params": [
+            {
+              "name": "event",
+              "type": "MouseEvent"
+            },
+            {
+              "name": "initialWidth",
+              "type": "number"
+            },
+            {
+              "name": "mouseDownScreenX",
+              "type": "number"
+            }
+          ],
+          "returnType": "void",
+          "description": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "element",
+          "type": "HTMLElement",
+          "description": null
+        },
+        {
+          "name": "subscription",
+          "type": "Subscription",
+          "description": null
+        },
+        {
+          "name": "resizing",
+          "type": "boolean",
+          "default": "false",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "RowHeightCache",
+      "kind": "class",
+      "summary": null,
+      "sourceFile": "src/data/datatable/utils/row-height-cache.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "clearCache",
+          "params": [],
+          "returnType": "void",
+          "description": "Clear the Tree array."
+        },
+        {
+          "name": "initCache",
+          "params": [
+            {
+              "name": "details",
+              "type": "any"
+            }
+          ],
+          "returnType": "void",
+          "description": "Initialize the Fenwick tree with row Heights.\n\n rows The array of rows which contain the expanded status.\n rowHeight The row height.\n detailRowHeight The detail row height."
+        },
+        {
+          "name": "getRowIndex",
+          "params": [
+            {
+              "name": "scrollY",
+              "type": "number"
+            }
+          ],
+          "returnType": "number",
+          "description": "Given the ScrollY position i.e. sum, provide the rowIndex\nthat is present in the current view port.  Below handles edge cases."
+        },
+        {
+          "name": "update",
+          "params": [
+            {
+              "name": "atRowIndex",
+              "type": "number"
+            },
+            {
+              "name": "byRowHeight",
+              "type": "number"
+            }
+          ],
+          "returnType": "void",
+          "description": "When a row is expanded or rowHeight is changed, update the height.  This can\nbe utilized in future when Angular Data table supports dynamic row heights."
+        },
+        {
+          "name": "query",
+          "params": [
+            {
+              "name": "atIndex",
+              "type": "number"
+            }
+          ],
+          "returnType": "number",
+          "description": "Range Sum query from 1 to the rowIndex"
+        },
+        {
+          "name": "queryBetween",
+          "params": [
+            {
+              "name": "atIndexA",
+              "type": "number"
+            },
+            {
+              "name": "atIndexB",
+              "type": "number"
+            }
+          ],
+          "returnType": "number",
+          "description": "Find the total height between 2 row indexes"
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "ScrollbarHelper",
+      "kind": "service",
+      "summary": null,
+      "sourceFile": "src/data/datatable/services/scrollbar-helper.service.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "getWidth",
+          "params": [],
+          "returnType": "number",
+          "description": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "width",
+          "type": "number",
+          "default": "this.getWidth()",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "ScrollerComponent",
+      "kind": "component",
+      "selector": "datatable-scroller",
+      "summary": null,
+      "sourceFile": "src/data/datatable/body/scroller.component.ts",
+      "inputs": [
+        {
+          "name": "scrollbarV",
+          "type": "boolean",
+          "default": "false",
+          "description": null
+        },
+        {
+          "name": "scrollbarH",
+          "type": "boolean",
+          "default": "false",
+          "description": null
+        },
+        {
+          "name": "scrollHeight",
+          "type": "number",
+          "description": null
+        },
+        {
+          "name": "scrollWidth",
+          "type": "number",
+          "description": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "scroll",
+          "type": "any",
+          "description": null
+        }
+      ],
+      "methods": [
+        {
+          "name": "setOffset",
+          "params": [
+            {
+              "name": "offsetY",
+              "type": "number"
+            }
+          ],
+          "returnType": "void",
+          "description": null
+        },
+        {
+          "name": "onScrolled",
+          "params": [
+            {
+              "name": "event",
+              "type": "MouseEvent"
+            }
+          ],
+          "returnType": "void",
+          "description": null
+        },
+        {
+          "name": "updateOffset",
+          "params": [],
+          "returnType": "void",
+          "description": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "scrollYPos",
+          "type": "number",
+          "default": "0",
+          "description": null
+        },
+        {
+          "name": "scrollXPos",
+          "type": "number",
+          "default": "0",
+          "description": null
+        },
+        {
+          "name": "prevScrollYPos",
+          "type": "number",
+          "default": "0",
+          "description": null
+        },
+        {
+          "name": "prevScrollXPos",
+          "type": "number",
+          "default": "0",
+          "description": null
+        },
+        {
+          "name": "element",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "parentElement",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "onScrollListener",
+          "type": "any",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "SelectionType",
+      "kind": "enum",
+      "summary": null,
+      "sourceFile": "src/data/datatable/types/selection.type.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "selectRows",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/data/datatable/utils/selection.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "selectRowsBetween",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/data/datatable/utils/selection.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "setColumnDefaults",
+      "kind": "function",
+      "summary": "Sets the column defaults",
+      "sourceFile": "src/data/datatable/utils/column-helper.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "shallowValueGetter",
+      "kind": "function",
+      "summary": "Returns the value of a field.\n(more efficient than deepValueGetter)",
+      "sourceFile": "src/data/datatable/utils/column-prop-getters.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "SortDirection",
+      "kind": "enum",
+      "summary": null,
+      "sourceFile": "src/data/datatable/types/sort-direction.type.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "SortPropDir",
+      "kind": "interface",
+      "summary": null,
+      "sourceFile": "src/data/datatable/types/sort-prop-dir.type.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "sortRows",
+      "kind": "function",
+      "summary": "creates a shallow copy of the `rows` input and returns the sorted copy. this function\ndoes not sort the `rows` argument in place",
+      "sourceFile": "src/data/datatable/utils/sort.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "SortType",
+      "kind": "enum",
+      "summary": null,
+      "sourceFile": "src/data/datatable/types/sort.type.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "TableColumn",
+      "kind": "interface",
+      "summary": "Column Type",
+      "sourceFile": "src/data/datatable/types/table-column.type.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "TableColumnProp",
+      "kind": "type",
+      "summary": null,
+      "sourceFile": "src/data/datatable/types/table-column.type.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "throttle",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/data/datatable/utils/throttle.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "throttleable",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/data/datatable/utils/throttle.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "translateTemplates",
+      "kind": "function",
+      "summary": "Translates templates definitions to objects",
+      "sourceFile": "src/data/datatable/utils/column-helper.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "translateXY",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/data/datatable/utils/translate.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "TreeStatus",
+      "kind": "type",
+      "summary": null,
+      "sourceFile": "src/data/datatable/row/cell.component.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "ValueGetter",
+      "kind": "type",
+      "summary": null,
+      "sourceFile": "src/data/datatable/utils/column-prop-getters.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "VisibilityDirective",
+      "kind": "directive",
+      "selector": "[visibilityObserver]",
+      "summary": null,
+      "sourceFile": "src/data/datatable/directives/visibility.directive.ts",
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "visible",
+          "type": "any",
+          "description": null
+        }
+      ],
+      "methods": [
+        {
+          "name": "onVisibilityChange",
+          "params": [],
+          "returnType": "void",
+          "description": null
+        },
+        {
+          "name": "runCheck",
+          "params": [],
+          "returnType": "void",
+          "description": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "isVisible",
+          "type": "boolean",
+          "default": "false",
+          "description": null
+        },
+        {
+          "name": "timeout",
+          "type": "any",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "win",
+      "kind": "constant",
+      "summary": "JS version of browser APIs. This library can only run in the browser.",
+      "sourceFile": "src/data/datatable/utils/facade/browser.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    }
+  ],
+  "suggestedUsageSnippet": "import { DataTableBodyCellComponent, DatatableModule } from '@dotos/dui/data/datatable';\n\n<datatable-body-cell [displayCheck]=\"...\" [group]=\"...\" [rowHeight]=\"...\" (activate)=\"...\" (treeAction)=\"...\"></datatable-body-cell>"
+}

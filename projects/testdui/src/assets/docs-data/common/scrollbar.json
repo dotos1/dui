@@ -1,0 +1,314 @@
+{
+  "importPath": "@dotos/dui/common/scrollbar",
+  "exports": [
+    {
+      "name": "_NgScrollbar",
+      "kind": "interface",
+      "summary": null,
+      "sourceFile": "src/common/scrollbar/utils/scrollbar-base.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "AsyncDetection",
+      "kind": "directive",
+      "selector": "ng-scrollbar[externalViewport][asyncDetection]",
+      "summary": null,
+      "sourceFile": "src/common/scrollbar/async-detection.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "asyncDetection",
+          "type": "InputSignal<'auto' | ''>",
+          "default": "input()",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "filterResizeEntries",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/common/scrollbar/ng-scrollbar.model.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "NG_SCROLLBAR",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/common/scrollbar/utils/scrollbar-base.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "NG_SCROLLBAR_OPTIONS",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/common/scrollbar/ng-scrollbar.model.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "NG_SCROLLBAR_POLYFILL",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/common/scrollbar/ng-scrollbar.model.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "NgScrollbar",
+      "kind": "component",
+      "selector": "ng-scrollbar:not([externalViewport])",
+      "summary": null,
+      "sourceFile": "src/common/scrollbar/ng-scrollbar.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "contentWrapper",
+          "type": "Signal<ElementRef<HTMLElement>>",
+          "default": "viewChild.required('contentWrapper')",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "NgScrollbarExt",
+      "kind": "component",
+      "selector": "ng-scrollbar[externalViewport]",
+      "summary": null,
+      "sourceFile": "src/common/scrollbar/ng-scrollbar-ext.ts",
+      "inputs": [
+        {
+          "name": "skipInit",
+          "type": "boolean",
+          "description": "Skip initializing the viewport and the scrollbar\nthis is used when the component needs to wait for 3rd party library to render"
+        }
+      ],
+      "outputs": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "externalViewport",
+          "type": "InputSignal<string>",
+          "default": "input<string>()",
+          "description": "Selector used to query the viewport element."
+        },
+        {
+          "name": "externalContentWrapper",
+          "type": "InputSignal<string>",
+          "default": "input<string>()",
+          "description": "Selector used to query the content wrapper element."
+        },
+        {
+          "name": "externalSpacer",
+          "type": "InputSignal<string>",
+          "default": "input<string>()",
+          "description": "Selector used to query the spacer element (virtual scroll integration).\nIn the case of integrating the scrollbar with a virtual scroll component,\na spacer element is typically created to match the real size of the content.\nThe scrollbar will use the size of this spacer element for calculations instead of the content wrapper size."
+        },
+        {
+          "name": "altViewport",
+          "type": "WritableSignal<HTMLElement>",
+          "default": "signal<HTMLElement>(null)",
+          "description": null
+        },
+        {
+          "name": "altContentWrapper",
+          "type": "WritableSignal<HTMLElement>",
+          "default": "signal<HTMLElement>(null)",
+          "description": null
+        },
+        {
+          "name": "altSpacer",
+          "type": "WritableSignal<HTMLElement>",
+          "default": "signal<HTMLElement>(null)",
+          "description": null
+        },
+        {
+          "name": "viewportElement",
+          "type": "Signal<HTMLElement>",
+          "default": "computed(() => {\n    if (this.customViewport()) {\n      return this.customViewport().nativeElement;\n    }\n    if (this.altViewport()) {\n      return this.altViewport();\n    }\n    // If viewport selector was defined, query the element\n    const selector: string = this.externalViewport();\n    return selector ? this.nativeElement.querySelector(selector) : null;\n  })",
+          "description": null
+        },
+        {
+          "name": "viewportError",
+          "type": "Signal<string>",
+          "default": "computed(() => {\n    return !this.viewportElement()\n      ? `[NgScrollbar]: Could not find the viewport element for the provided selector \"${ this.externalViewport() }\"`\n      : null;\n  })",
+          "description": null
+        },
+        {
+          "name": "contentWrapperElement",
+          "type": "Signal<HTMLElement>",
+          "default": "computed(() => {\n    if (this.altContentWrapper()) {\n      return this.altContentWrapper();\n    }\n    const selector: string = this.externalContentWrapper();\n    return selector ? this.nativeElement.querySelector(selector) : null;\n  })",
+          "description": null
+        },
+        {
+          "name": "contentWrapperError",
+          "type": "Signal<string>",
+          "default": "computed(() => {\n    return !this.contentWrapperElement() && this.externalContentWrapper()\n      ? `[NgScrollbar]: Content wrapper element not found for the provided selector \"${ this.externalContentWrapper() }\"`\n      : null;\n  })",
+          "description": null
+        },
+        {
+          "name": "spacerElement",
+          "type": "Signal<HTMLElement>",
+          "default": "computed(() => {\n    if (this.altSpacer()) {\n      return this.altSpacer();\n    }\n    const selector: string = this.externalSpacer();\n    return selector ? this.nativeElement.querySelector(selector) : null\n  })",
+          "description": null
+        },
+        {
+          "name": "spacerError",
+          "type": "Signal<string>",
+          "default": "computed(() => {\n    return !this.spacerElement() && this.externalSpacer()\n      ? `[NgScrollbar]: Spacer element not found for the provided selector \"${ this.externalSpacer() }\"`\n      : null;\n  })",
+          "description": null
+        },
+        {
+          "name": "customViewport",
+          "type": "Signal<ScrollViewport>",
+          "default": "contentChild(ScrollViewport, { descendants: true })",
+          "description": "Reference to the external viewport directive if used"
+        }
+      ]
+    },
+    {
+      "name": "NgScrollbarModule",
+      "kind": "module",
+      "summary": null,
+      "sourceFile": "src/common/scrollbar/ng-scrollbar.module.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "NgScrollbarOptions",
+      "kind": "interface",
+      "summary": null,
+      "sourceFile": "src/common/scrollbar/ng-scrollbar.model.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "provideScrollbarOptions",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/common/scrollbar/ng-scrollbar.module.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "provideScrollbarPolyfill",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/common/scrollbar/ng-scrollbar.module.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "ScrollbarAppearance",
+      "kind": "type",
+      "summary": null,
+      "sourceFile": "src/common/scrollbar/ng-scrollbar.model.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "ScrollbarOrientation",
+      "kind": "type",
+      "summary": null,
+      "sourceFile": "src/common/scrollbar/ng-scrollbar.model.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "ScrollbarPosition",
+      "kind": "type",
+      "summary": null,
+      "sourceFile": "src/common/scrollbar/ng-scrollbar.model.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "ScrollbarUpdateReason",
+      "kind": "enum",
+      "summary": null,
+      "sourceFile": "src/common/scrollbar/ng-scrollbar.model.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "ScrollbarVisibility",
+      "kind": "type",
+      "summary": null,
+      "sourceFile": "src/common/scrollbar/ng-scrollbar.model.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "ScrollViewport",
+      "kind": "directive",
+      "selector": "[scrollViewport]",
+      "summary": null,
+      "sourceFile": "src/common/scrollbar/viewport/scroll-viewport.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "nativeElement",
+          "type": "HTMLElement",
+          "default": "inject(ElementRef<HTMLElement>).nativeElement",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "SyncSpacer",
+      "kind": "directive",
+      "selector": "ng-scrollbar[externalViewport][syncSpacer]",
+      "summary": null,
+      "sourceFile": "src/common/scrollbar/sync-spacer.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "spacerDimension",
+          "type": "WritableSignal<ElementDimension>",
+          "default": "signal({})",
+          "description": "A signal used to sync spacer dimension when content dimension changes"
+        }
+      ]
+    }
+  ],
+  "suggestedUsageSnippet": "import { NgScrollbar, NgScrollbarModule } from '@dotos/dui/common/scrollbar';\n\n<ng-scrollbar:not([externalViewport])></ng-scrollbar:not([externalViewport])>"
+}

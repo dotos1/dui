@@ -1,0 +1,198 @@
+{
+  "importPath": "@dotos/dui/core/meta",
+  "exports": [
+    {
+      "name": "metaFactory",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/core/meta/public-api.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "MetaGuard",
+      "kind": "service",
+      "summary": null,
+      "sourceFile": "src/core/meta/meta.guard.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "canActivate",
+          "params": [
+            {
+              "name": "route",
+              "type": "ActivatedRouteSnapshot"
+            },
+            {
+              "name": "state",
+              "type": "RouterStateSnapshot"
+            }
+          ],
+          "returnType": "boolean",
+          "description": null
+        },
+        {
+          "name": "canActivateChild",
+          "params": [
+            {
+              "name": "route",
+              "type": "ActivatedRouteSnapshot"
+            },
+            {
+              "name": "state",
+              "type": "RouterStateSnapshot"
+            }
+          ],
+          "returnType": "boolean",
+          "description": null
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "MetaLoader",
+      "kind": "class",
+      "summary": null,
+      "sourceFile": "src/core/meta/meta.loader.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "settings",
+          "type": "MetaSettings",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "MetaModule",
+      "kind": "module",
+      "summary": null,
+      "sourceFile": "src/core/meta/public-api.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "forRoot",
+          "params": [
+            {
+              "name": "configuredProvider",
+              "type": "any"
+            }
+          ],
+          "returnType": "ModuleWithProviders<MetaModule>",
+          "description": null
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "MetaService",
+      "kind": "service",
+      "summary": null,
+      "sourceFile": "src/core/meta/meta.service.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "setTitle",
+          "params": [
+            {
+              "name": "title",
+              "type": "string"
+            },
+            {
+              "name": "override",
+              "type": "any"
+            }
+          ],
+          "returnType": "void",
+          "description": null
+        },
+        {
+          "name": "setTag",
+          "params": [
+            {
+              "name": "key",
+              "type": "string"
+            },
+            {
+              "name": "value",
+              "type": "string"
+            }
+          ],
+          "returnType": "void",
+          "description": null
+        },
+        {
+          "name": "update",
+          "params": [
+            {
+              "name": "currentUrl",
+              "type": "string"
+            },
+            {
+              "name": "metaSettings",
+              "type": "any"
+            }
+          ],
+          "returnType": "void",
+          "description": null
+        },
+        {
+          "name": "removeTag",
+          "params": [
+            {
+              "name": "key",
+              "type": "string"
+            }
+          ],
+          "returnType": "void",
+          "description": null
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "MetaSettings",
+      "kind": "interface",
+      "summary": null,
+      "sourceFile": "src/core/meta/models/meta-settings.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "MetaStaticLoader",
+      "kind": "class",
+      "summary": null,
+      "sourceFile": "src/core/meta/meta.loader.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "settings",
+          "type": "MetaSettings",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "PageTitlePositioning",
+      "kind": "enum",
+      "summary": null,
+      "sourceFile": "src/core/meta/models/page-title-positioning.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    }
+  ],
+  "suggestedUsageSnippet": "import { MetaModule } from '@dotos/dui/core/meta';"
+}

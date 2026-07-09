@@ -1,0 +1,553 @@
+{
+  "importPath": "@dotos/dui/common/perfect-scrollbar",
+  "exports": [
+    {
+      "name": "ForceNativeScrollDirective",
+      "kind": "directive",
+      "selector": "[forceNativeScrolling]",
+      "summary": null,
+      "sourceFile": "src/common/perfect-scrollbar/perfect-scrollbar-force-native-scroll.directive.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "Geometry",
+      "kind": "class",
+      "summary": null,
+      "sourceFile": "src/common/perfect-scrollbar/perfect-scrollbar.interfaces.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "x",
+          "type": "number",
+          "description": null
+        },
+        {
+          "name": "y",
+          "type": "number",
+          "description": null
+        },
+        {
+          "name": "w",
+          "type": "number",
+          "description": null
+        },
+        {
+          "name": "h",
+          "type": "number",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "PERFECT_SCROLLBAR_CONFIG",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/common/perfect-scrollbar/perfect-scrollbar.interfaces.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "PerfectScrollbarComponent",
+      "kind": "component",
+      "selector": "perfect-scrollbar",
+      "summary": null,
+      "sourceFile": "src/common/perfect-scrollbar/perfect-scrollbar.component.ts",
+      "inputs": [
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "default": "false",
+          "description": null
+        },
+        {
+          "name": "usePSClass",
+          "type": "boolean",
+          "default": "true",
+          "description": null
+        },
+        {
+          "name": "autoPropagation",
+          "type": "boolean",
+          "default": "false",
+          "description": null
+        },
+        {
+          "name": "scrollIndicators",
+          "type": "boolean",
+          "default": "false",
+          "description": null
+        },
+        {
+          "name": "config",
+          "type": "PerfectScrollbarConfigInterface",
+          "description": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "psScrollY",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "psScrollX",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "psScrollUp",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "psScrollDown",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "psScrollLeft",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "psScrollRight",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "psYReachEnd",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "psYReachStart",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "psXReachEnd",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "psXReachStart",
+          "type": "any",
+          "description": null
+        }
+      ],
+      "methods": [],
+      "properties": [
+        {
+          "name": "states",
+          "type": "any",
+          "default": "{}",
+          "description": null
+        },
+        {
+          "name": "indicatorX",
+          "type": "boolean",
+          "default": "false",
+          "description": null
+        },
+        {
+          "name": "indicatorY",
+          "type": "boolean",
+          "default": "false",
+          "description": null
+        },
+        {
+          "name": "interaction",
+          "type": "boolean",
+          "default": "false",
+          "description": null
+        },
+        {
+          "name": "directiveRef",
+          "type": "PerfectScrollbarDirective",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "PerfectScrollbarConfig",
+      "kind": "class",
+      "summary": null,
+      "sourceFile": "src/common/perfect-scrollbar/perfect-scrollbar.interfaces.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "assign",
+          "params": [
+            {
+              "name": "config",
+              "type": "PerfectScrollbarConfigInterface"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "handlers",
+          "type": "string[]",
+          "description": null
+        },
+        {
+          "name": "wheelSpeed",
+          "type": "number",
+          "description": null
+        },
+        {
+          "name": "swipeEasing",
+          "type": "boolean",
+          "description": null
+        },
+        {
+          "name": "suppressScrollX",
+          "type": "boolean",
+          "description": null
+        },
+        {
+          "name": "suppressScrollY",
+          "type": "boolean",
+          "description": null
+        },
+        {
+          "name": "wheelPropagation",
+          "type": "boolean",
+          "description": null
+        },
+        {
+          "name": "useBothWheelAxes",
+          "type": "boolean",
+          "description": null
+        },
+        {
+          "name": "scrollingThreshold",
+          "type": "number",
+          "description": null
+        },
+        {
+          "name": "minScrollbarLength",
+          "type": "number",
+          "description": null
+        },
+        {
+          "name": "maxScrollbarLength",
+          "type": "number",
+          "description": null
+        },
+        {
+          "name": "scrollXMarginOffset",
+          "type": "number",
+          "description": null
+        },
+        {
+          "name": "scrollYMarginOffset",
+          "type": "number",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "PerfectScrollbarConfigInterface",
+      "kind": "interface",
+      "summary": null,
+      "sourceFile": "src/common/perfect-scrollbar/perfect-scrollbar.interfaces.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "PerfectScrollbarDirective",
+      "kind": "directive",
+      "selector": "[perfectScrollbar]",
+      "summary": null,
+      "sourceFile": "src/common/perfect-scrollbar/perfect-scrollbar.directive.ts",
+      "inputs": [
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "default": "false",
+          "description": null
+        },
+        {
+          "name": "config",
+          "alias": "perfectScrollbar",
+          "type": "PerfectScrollbarConfigInterface",
+          "description": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "psScrollY",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "psScrollX",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "psScrollUp",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "psScrollDown",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "psScrollLeft",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "psScrollRight",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "psYReachEnd",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "psYReachStart",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "psXReachEnd",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "psXReachStart",
+          "type": "any",
+          "description": null
+        }
+      ],
+      "methods": [
+        {
+          "name": "ps",
+          "params": [],
+          "returnType": "PerfectScrollbar | null",
+          "description": null
+        },
+        {
+          "name": "update",
+          "params": [],
+          "returnType": "void",
+          "description": null
+        },
+        {
+          "name": "geometry",
+          "params": [
+            {
+              "name": "prefix",
+              "type": "string"
+            }
+          ],
+          "returnType": "Geometry",
+          "description": null
+        },
+        {
+          "name": "position",
+          "params": [
+            {
+              "name": "absolute",
+              "type": "boolean"
+            }
+          ],
+          "returnType": "Position",
+          "description": null
+        },
+        {
+          "name": "scrollable",
+          "params": [
+            {
+              "name": "direction",
+              "type": "string"
+            }
+          ],
+          "returnType": "boolean",
+          "description": null
+        },
+        {
+          "name": "scrollTo",
+          "params": [
+            {
+              "name": "x",
+              "type": "number"
+            },
+            {
+              "name": "y",
+              "type": "number"
+            },
+            {
+              "name": "speed",
+              "type": "number"
+            }
+          ],
+          "returnType": "void",
+          "description": null
+        },
+        {
+          "name": "scrollToX",
+          "params": [
+            {
+              "name": "x",
+              "type": "number"
+            },
+            {
+              "name": "speed",
+              "type": "number"
+            }
+          ],
+          "returnType": "void",
+          "description": null
+        },
+        {
+          "name": "scrollToY",
+          "params": [
+            {
+              "name": "y",
+              "type": "number"
+            },
+            {
+              "name": "speed",
+              "type": "number"
+            }
+          ],
+          "returnType": "void",
+          "description": null
+        },
+        {
+          "name": "scrollToTop",
+          "params": [
+            {
+              "name": "offset",
+              "type": "number"
+            },
+            {
+              "name": "speed",
+              "type": "number"
+            }
+          ],
+          "returnType": "void",
+          "description": null
+        },
+        {
+          "name": "scrollToLeft",
+          "params": [
+            {
+              "name": "offset",
+              "type": "number"
+            },
+            {
+              "name": "speed",
+              "type": "number"
+            }
+          ],
+          "returnType": "void",
+          "description": null
+        },
+        {
+          "name": "scrollToRight",
+          "params": [
+            {
+              "name": "offset",
+              "type": "number"
+            },
+            {
+              "name": "speed",
+              "type": "number"
+            }
+          ],
+          "returnType": "void",
+          "description": null
+        },
+        {
+          "name": "scrollToBottom",
+          "params": [
+            {
+              "name": "offset",
+              "type": "number"
+            },
+            {
+              "name": "speed",
+              "type": "number"
+            }
+          ],
+          "returnType": "void",
+          "description": null
+        },
+        {
+          "name": "scrollToElement",
+          "params": [
+            {
+              "name": "element",
+              "type": "HTMLElement | string"
+            },
+            {
+              "name": "offset",
+              "type": "number"
+            },
+            {
+              "name": "speed",
+              "type": "number"
+            }
+          ],
+          "returnType": "void",
+          "description": null
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "PerfectScrollbarModule",
+      "kind": "module",
+      "summary": null,
+      "sourceFile": "src/common/perfect-scrollbar/perfect-scrollbar.module.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "Position",
+      "kind": "class",
+      "summary": null,
+      "sourceFile": "src/common/perfect-scrollbar/perfect-scrollbar.interfaces.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "x",
+          "type": "number | 'start' | 'end'",
+          "description": null
+        },
+        {
+          "name": "y",
+          "type": "number | 'start' | 'end'",
+          "description": null
+        }
+      ]
+    }
+  ],
+  "suggestedUsageSnippet": "import { PerfectScrollbarComponent, PerfectScrollbarModule } from '@dotos/dui/common/perfect-scrollbar';\n\n<perfect-scrollbar [disabled]=\"...\" [usePSClass]=\"...\" [autoPropagation]=\"...\" (psScrollY)=\"...\" (psScrollX)=\"...\"></perfect-scrollbar>"
+}

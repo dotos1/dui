@@ -1,0 +1,184 @@
+{
+  "importPath": "@dotos/dui/ux/markdown",
+  "exports": [
+    {
+      "name": "genHeadingId",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/ux/markdown/markdown-utils/markdown-utils.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "isAnchorLink",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/ux/markdown/markdown-utils/markdown-utils.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "isGithubHref",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/ux/markdown/markdown-utils/markdown-utils.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "isRawGithubHref",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/ux/markdown/markdown-utils/markdown-utils.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "MarkdownComponent",
+      "kind": "component",
+      "selector": "dui-markdown",
+      "summary": null,
+      "sourceFile": "src/ux/markdown/markdown.component.ts",
+      "inputs": [
+        {
+          "name": "content",
+          "type": "string",
+          "description": null
+        },
+        {
+          "name": "simpleLineBreaks",
+          "type": "boolean",
+          "description": null
+        },
+        {
+          "name": "hostedUrl",
+          "type": "string",
+          "description": null
+        },
+        {
+          "name": "anchor",
+          "type": "string",
+          "description": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "contentReady",
+          "type": "void",
+          "description": null
+        }
+      ],
+      "methods": [
+        {
+          "name": "refresh",
+          "params": [],
+          "returnType": "void",
+          "description": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "class",
+          "type": "any",
+          "default": "'dui-markdown'",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "MarkdownLoaderService",
+      "kind": "service",
+      "summary": null,
+      "sourceFile": "src/ux/markdown/loader/markdown-loader.service.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "load",
+          "params": [
+            {
+              "name": "url",
+              "type": "string"
+            },
+            {
+              "name": "httpOptions",
+              "type": "object"
+            }
+          ],
+          "returnType": "Promise<string>",
+          "description": null
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "MarkdownModule",
+      "kind": "module",
+      "summary": null,
+      "sourceFile": "src/ux/markdown/markdown.module.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "rawGithubHref",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/ux/markdown/markdown-utils/markdown-utils.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "removeLeadingHash",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/ux/markdown/markdown-utils/markdown-utils.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "removeTrailingHash",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/ux/markdown/markdown-utils/markdown-utils.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "renderVideoElements",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/ux/markdown/markdown-utils/markdown-utils.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "scrollToAnchor",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/ux/markdown/markdown-utils/markdown-utils.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    }
+  ],
+  "suggestedUsageSnippet": "import { MarkdownComponent, MarkdownModule } from '@dotos/dui/ux/markdown';\n\n<dui-markdown [content]=\"...\" [simpleLineBreaks]=\"...\" [hostedUrl]=\"...\" (contentReady)=\"...\"></dui-markdown>"
+}

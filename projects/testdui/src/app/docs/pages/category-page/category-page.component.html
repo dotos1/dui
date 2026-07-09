@@ -1,0 +1,15 @@
+<div class="category-page" *ngIf="category$ | async as category">
+  <h1 class="category-page__title">{{ category.id }}</h1>
+
+  <dui-markdown *ngIf="markdown$ | async as markdown" [content]="markdown"></dui-markdown>
+
+  <h2 class="category-page__subheading" *ngIf="category.modules.length">模块列表</h2>
+  <div class="category-page__grid">
+    <a class="category-page__card"
+       *ngFor="let module of category.modules"
+       [routerLink]="['/', category.id, module.id, 'overview']">
+      <div class="category-page__card-id">{{ module.importPath }}</div>
+      <span class="category-page__card-badge" *ngIf="module.isFlagship">含可交互示例</span>
+    </a>
+  </div>
+</div>
