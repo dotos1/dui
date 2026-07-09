@@ -1,6 +1,8 @@
-  <mat-tab-group mat-stretch-tabs="false" class="tab-group" fxFlexFill [headerPosition]="tabPosition" dynamicHeight='true'  [selectedIndex]='activeTab' (focusChange)= "focusChange($event)" (selectedTabChange)="tabChange($event)">
-    <mat-tab *ngFor="let tab of tabs" [disabled]="tab.disabled">
-        <ng-template mat-tab-label>{{tab.title|translate}}</ng-template>
-        <ng-container #tabpanel></ng-container>
-    </mat-tab>
-  </mat-tab-group>
+
+<mat-tab-group mat-stretch-tabs="false" class="tab-group" fxFlexFill [headerPosition]="tabPosition" dynamicHeight='true' 
+[selectedIndex]='activeTab' (focusChange)="focusChange($event)" (selectedTabChange)="tabChange($event)">
+  <mat-tab *ngFor="let tab of tabs" [disabled]="tab.disabled" [labelClass]="tab.hidden ? 'dui-tab-hidden' : ''">
+      <ng-template mat-tab-label>{{tab.title|translate}}</ng-template>
+      <ng-container #tabpanel></ng-container>
+  </mat-tab>
+</mat-tab-group>

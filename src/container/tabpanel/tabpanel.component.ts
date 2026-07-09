@@ -106,7 +106,6 @@ export class TabPanel extends AbstractPanel implements OnChanges, OnDestroy {
 
   override onAdd(c) {
     super.onAdd(c);
-    // 保持您的原始属性拼写 (c.titile)
     this.tabs.push({ title: c.titile, disable: c.disable });
   }
 
@@ -154,33 +153,23 @@ export class TabPanel extends AbstractPanel implements OnChanges, OnDestroy {
     return this.getComponent(item);
   }
 
-  /**
-   * ==========================================
-   * 新增辅助方法 1：基于 objectId 查询对应的数字 Index
-   * ==========================================
-   * @param targetObjectId 要查找的唯一标识
-   * @returns 匹配的 Tab 索引，若找不到则返回 -1
-   */
+
   public findTabIndexByObjectId(targetObjectId: any): number {
     if (targetObjectId === undefined || targetObjectId === null) {
       return -1;
     }
 
-    // 1. 优先尝试直接在 tabs 数组配置数据中查找
     if (Array.isArray(this.tabs)) {
       const tabIndex = this.tabs.findIndex(tab => tab && tab.objectId === targetObjectId);
       if (tabIndex > -1) {
         return tabIndex;
       }
     }
-
-    // 2. 尝试在渲染出来的组件实例中查找 (调用 Container 基类中的 find 方法)
     const matchedComponents = this.find("objectId", targetObjectId);
     if (matchedComponents && matchedComponents.length > 0) {
       const component = matchedComponents[0];
 
       if (this.items) {
-        // 2.1 若是直属子组件，直接获取其在 MixedCollection 中的索引
         let directIndex = -1;
         if (typeof this.items.indexOf === 'function') {
           directIndex = this.items.indexOf(component);
@@ -191,15 +180,12 @@ export class TabPanel extends AbstractPanel implements OnChanges, OnDestroy {
         if (directIndex > -1) {
           return directIndex;
         }
-
-        // 2.2 兜底：若匹配组件存在于更深层次的容器中，溯源至当前 TabPanel 的直属子组件
         let parent = component.ownerCt;
         let currentComp = component;
         while (parent && parent !== this) {
           currentComp = parent;
           parent = parent.ownerCt;
         }
-
         if (parent === this) {
           if (typeof this.items.indexOf === 'function') {
             return this.items.indexOf(currentComp);
@@ -209,32 +195,143 @@ export class TabPanel extends AbstractPanel implements OnChanges, OnDestroy {
         }
       }
     }
-
     return -1;
   }
-
-  /**
-   * ==========================================
-   * 新增辅助方法 2：根据 objectId 执行安全的页签切换逻辑
-   * ==========================================
-   * @param params 带有新标签 objectId 的参数对象
-   * @param parentTab 当前父页签对象
-   */
   public switchTabByObjectId(params: any, parentTab?: any): void {
     if (!params || !params.objectId) {
       return;
     }
 
-    // 判断条件：若存在父级页签，且当前的 objectId 与父页签不一致时触发
     if (parentTab && params.objectId !== parentTab.objectId) {
       const targetIndex = this.findTabIndexByObjectId(params.objectId);
 
       if (targetIndex > -1) {
         this.noload = true;
-        this.setActiveTab(targetIndex); // 安全传递转换后的数字索引 (number)
+        this.setActiveTab(targetIndex); 
       } else {
         console.warn(`[TabPanel] 未能在页签列表中匹配到 objectId：${params.objectId}`);
       }
     }
+  }
+
+public findTabIndex(idOrObjectId: any): number {
+    if (idOrObjectId === undefined || idOrObjectId === null) {
+      return -1;
+    }
+    if (Array.isArray(this.tabs)) {
+      const index = this.tabs.findIndex(tab => 
+        tab && (tab.id === idOrObjectId || tab.objectId === idOrObjectId)
+      );
+      if (index > -1) {
+        return index;
+      }
+    }
+    const matchedByObjectId = this.findTabIndexByObjectId(idOrObjectId);
+    if (matchedByObjectId > -1) {
+      return matchedByObjectId;
+    }
+    const matchedComponents = this.find("id", idOrObjectId);
+    if (matchedComponents && matchedComponents.length > 0) {
+      const component = matchedComponents[0];
+      if (this.items) {
+        let directIndex = -1;
+        if (typeof this.items.indexOf === 'function') {
+          directIndex = this.items.indexOf(component);
+        } else if (Array.isArray(this.items.items)) {
+          directIndex = this.items.items.indexOf(component);
+        }
+        if (directIndex > -1) return directIndex;
+
+        let parent = component.ownerCt;
+        let currentComp = component;
+        while (parent && parent !== this) {
+          currentComp = parent;
+          parent = parent.ownerCt;
+        }
+        if (parent === this) {
+          if (typeof this.items.indexOf === 'function') {
+            return this.items.indexOf(currentComp);
+          } else if (Array.isArray(this.items.items)) {
+            return this.items.items.indexOf(currentComp);
+          }
+        }
+      }
+    }
+    return -1;
+  }
+
+  public setTabVisibility(idOrObjectId: any, visible: boolean): void {
+    const tabIndex = this.findTabIndex(idOrObjectId);
+    if (tabIndex === -1) {
+      console.warn(`[TabPanel] 找不到指定的 id 或 objectId: ${idOrObjectId}`);
+      return;
+    }
+    const tab = this.tabs[tabIndex];
+    const isHidden = !visible;
+    if (tab.hidden === isHidden) {
+      return; 
+    }
+    tab.hidden = isHidden;
+    if(visible){
+      this.setActiveTab(tabIndex);
+    }else{
+      if (this.activeTab === tabIndex) {
+        const nextActiveIndex = this.findNextVisibleTabIndex(tabIndex);
+        if (nextActiveIndex > -1) {
+          this.setActiveTab(nextActiveIndex);
+        }
+      }
+    }
+    this.detectRef.detectChanges();
+  }
+
+  private findNextVisibleTabIndex(currentIndex: number): number {
+    if (!Array.isArray(this.tabs)) {
+      return -1;
+    }
+    for (let i = currentIndex + 1; i < this.tabs.length; i++) {
+      if (!this.tabs[i].hidden) return i;
+    }
+    for (let i = currentIndex - 1; i >= 0; i--) {
+      if (!this.tabs[i].hidden) return i;
+    }
+    return -1;
+  }
+
+  public hideTab(idOrObjectId: any): void {
+    this.setTabVisibility(idOrObjectId, false);
+  }
+
+  public showTab(idOrObjectId: any): void {
+    this.setTabVisibility(idOrObjectId, true);
+  }
+  
+  public hideTabAll(): void {
+    if (!Array.isArray(this.tabs)) {
+      return;
+    }
+    this.tabs.forEach(tab => {
+      if (tab) {
+        tab.hidden = true;
+      }
+    });
+    this.setActiveTab(-1);
+    this.detectRef.detectChanges();
+  }
+
+
+  public showTabAll(): void {
+    if (!Array.isArray(this.tabs)) {
+      return;
+    }
+    this.tabs.forEach(tab => {
+      if (tab) {
+        tab.hidden = false;
+      }
+    });
+    if (this.activeTab === -1 && this.tabs.length > 0) {
+      this.setActiveTab(0);
+    }
+    this.detectRef.detectChanges();
   }
 }

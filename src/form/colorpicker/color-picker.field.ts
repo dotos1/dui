@@ -10,7 +10,7 @@ import {
   Inject,
   Input,
   NgZone,
-  Optional, Renderer2, ViewChild,
+  Optional, ViewChild,
   ViewContainerRef,
   ViewEncapsulation,
   forwardRef
