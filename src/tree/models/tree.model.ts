@@ -29,6 +29,7 @@ export class TreeModel implements ITreeModel, OnDestroy {
   public firstUpdate = true;
   private events: any = {};
   private subscriptions: Subscription[] =[];
+  private mobxDisposers: Array<() => void> = [];
 
   public idSet: Set<string> = new Set();
   
@@ -208,6 +209,8 @@ export class TreeModel implements ITreeModel, OnDestroy {
     if (this.virtualRoot) {
       this.virtualRoot.dispose();
     }
+    this.mobxDisposers.forEach(dispose => dispose());
+    this.mobxDisposers = [];
     // 清空字典缓存
     this.nodeRegistry.clear();
   }
@@ -491,7 +494,8 @@ export class TreeModel implements ITreeModel, OnDestroy {
   }
 
   subscribeToState(fn) {
-    autorun(() => fn(this.getState()));
+    const dispose = autorun(() => fn(this.getState()));
+    this.mobxDisposers.push(dispose);
   }
 
   canMoveNode(node, to, fromIndex = undefined) {

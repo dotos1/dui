@@ -242,6 +242,7 @@ export class ɵDynamicWindowComponent
 
     private initWindowIdOrderObserver(): void {
         this.windowRef.orderIndex$
+            .pipe(takeUntil(this.viewDestroyed$))
             .subscribe((orderIndex) => {
                 this.windowOrderIndex = orderIndex;
 
@@ -252,6 +253,7 @@ export class ɵDynamicWindowComponent
 
     private initBeforeHiddenStateObserver(): void {
         this.windowRef.beforeHidden$
+            .pipe(takeUntil(this.viewDestroyed$))
             .subscribe(() => this.dynamicStateManager.apply(DynamicState.Hiding));
     }
 
@@ -259,7 +261,8 @@ export class ɵDynamicWindowComponent
         this.windowRef.isHidden$
             .pipe(
                 skip(1),
-                filter((isHidden) => !isHidden)
+                filter((isHidden) => !isHidden),
+                takeUntil(this.viewDestroyed$)
             )
             .subscribe(() => this.dynamicStateManager.apply(DynamicState.Showing));
     }
@@ -272,13 +275,15 @@ export class ɵDynamicWindowComponent
                     (state) ?
                         DynamicState.EnteringFullscreen :
                         DynamicState.EnteringWindowed
-                ))
+                )),
+                takeUntil(this.viewDestroyed$)
             )
             .subscribe((dynamicState) => this.dynamicStateManager.apply(dynamicState));
     }
 
     private initIsActiveObserver(): void {
         this.windowRef.isActive$
+            .pipe(takeUntil(this.viewDestroyed$))
             .subscribe((isActive) => {
                 if (isActive) {
                     this.initOutsideClickObserver();
@@ -289,6 +294,7 @@ export class ɵDynamicWindowComponent
 
     private initAfterClosedStateObserver(): void {
         this.windowRef.afterClosed$
+            .pipe(takeUntil(this.viewDestroyed$))
             .subscribe(() => this.dynamicStateManager.apply(DynamicState.Closing));
     }
 

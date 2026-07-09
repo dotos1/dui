@@ -1,5 +1,5 @@
 
-import { Injectable } from '@angular/core';
+import { Injectable, OnDestroy } from '@angular/core';
 import { ActivatedRouteSnapshot, Router, UrlTree } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { ConfigService } from '@dotos/dui/core/config';
@@ -12,7 +12,7 @@ import { LocalStorageService } from '@dotos/dui/core/storage';
 @Injectable({
     providedIn: 'root'
 })
-export class AuthGuard extends AuthGuardBase {
+export class AuthGuard extends AuthGuardBase implements OnDestroy {
     ticketChangeBind: any;
     constructor(private jwtHelperService: JwtHelperService,
                 authenticationService: AuthService,
@@ -23,6 +23,9 @@ export class AuthGuard extends AuthGuardBase {
         super(authenticationService, router, appConfigService, dialog, storageService);
         this.ticketChangeBind = this.ticketChange.bind(this);
         window.addEventListener('storage', this.ticketChangeBind);
+    }
+    ngOnDestroy(): void {
+        window.removeEventListener('storage', this.ticketChangeBind);
     }
     ticketChange(event: StorageEvent) {
         if (event.newValue !== event.oldValue) {

@@ -2,6 +2,7 @@ import { ChangeDetectionStrategy, Component, EventEmitter, OnInit, Output } from
 import { MAT_INPUT_VALUE_ACCESSOR } from '@angular/material/input';
 import {clone}  from 'lodash-es';
 import { Observable, of } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 import { TextFieldComponent } from '../field';
 
 @Component({
@@ -29,7 +30,7 @@ export class ArrayInputComponent extends TextFieldComponent implements OnInit {
     super.ngOnInit();
 
     this.selectData=[];
-     this.formControl.valueChanges.subscribe((val) => {
+     this.formControl.valueChanges.pipe(takeUntil(this._onDestroy)).subscribe((val) => {
       // startWith<string>(''),
       // map(value => typeof value === 'string' ? value : this.filterString),
      // map((filter:any) =>{

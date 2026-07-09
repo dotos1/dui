@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter, OnInit, AfterViewInit, ViewChild, ElementRef, forwardRef, NgZone } from '@angular/core';
+import { Component, Input, Output, EventEmitter, OnInit, AfterViewInit, OnDestroy, ViewChild, ElementRef, forwardRef, NgZone } from '@angular/core';
 import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
 import { Observable, Subject } from 'rxjs';
 
@@ -25,7 +25,7 @@ declare const require: any;
   }],
   
 })
-export class ExtCodeEditorComponent implements OnInit, AfterViewInit, ControlValueAccessor {
+export class ExtCodeEditorComponent implements OnInit, AfterViewInit, OnDestroy, ControlValueAccessor {
 
   private _editorStyle: string = 'width:100%;height:100%;border:1px solid grey;';
   private _value: string = '';
@@ -361,8 +361,15 @@ export class ExtCodeEditorComponent implements OnInit, AfterViewInit, ControlVal
         this.writeValue(this._editor.getValue());
     });
 
-    window.addEventListener('resize', () => {
-        this._editor.layout();
-    });
+    window.addEventListener('resize', this._onWindowResize);
+  }
+
+  private readonly _onWindowResize = (): void => {
+    this._editor?.layout();
+  };
+
+  ngOnDestroy(): void {
+    window.removeEventListener('resize', this._onWindowResize);
+    this._editor?.dispose();
   }
 }

@@ -20,7 +20,8 @@ import {  MatDialogRef } from "@angular/material/dialog";
 import { TriggerPopup } from '@dotos/dui/common/trigger';
 import { TranslateService } from '@dotos/dui/translator';
 import {isObjectLike}  from 'lodash-es';
-import { first } from "rxjs/operators";
+import { Subject } from "rxjs";
+import { first, takeUntil } from "rxjs/operators";
 import { MatField } from '../base/mat.field';
 import { DialogService} from '@dotos/dui/common/dialogs';
 
@@ -106,6 +107,8 @@ export class AbstractTrigger extends MatField implements OnInit,OnDestroy,DoChec
   /** The element that was focused before the datepicker was opened. */
   protected _focusedElementBeforeOpen: HTMLElement | null = null;
 
+  private readonly _onDestroy = new Subject<void>();
+
   constructor(
     protected _elementRef: ElementRef,
     protected  _dialogService: DialogService,
@@ -119,7 +122,9 @@ export class AbstractTrigger extends MatField implements OnInit,OnDestroy,DoChec
 
   override ngOnInit() {
     super.ngOnInit();
-    this.field.formControl.valueChanges.subscribe((val) => {
+    this.field.formControl.valueChanges
+      .pipe(takeUntil(this._onDestroy))
+      .subscribe((val) => {
       if (isObjectLike(val) ) {
         if(val.text){
           this._elementRef.nativeElement.children[0].value = val.text;
@@ -148,10 +153,10 @@ export class AbstractTrigger extends MatField implements OnInit,OnDestroy,DoChec
       this.panelClass==this.field.panelClass;
     }
     if (this.field.opened) {
-      this.openedStream.subscribe(this.field.opened);
+      this.openedStream.pipe(takeUntil(this._onDestroy)).subscribe(this.field.opened);
     }
     if (this.field.closed) {
-      this.closedStream.subscribe(this.field.closed);
+      this.closedStream.pipe(takeUntil(this._onDestroy)).subscribe(this.field.closed);
     }
   }
 
@@ -159,7 +164,8 @@ export class AbstractTrigger extends MatField implements OnInit,OnDestroy,DoChec
 
   override ngOnDestroy() {
     this.close();
-    // this._disabledChange.complete();
+    this._onDestroy.next();
+    this._onDestroy.complete();
     if (this._popupRef) {
       this._popupRef.dispose();
     }
@@ -277,7 +283,6 @@ export class AbstractTrigger extends MatField implements OnInit,OnDestroy,DoChec
         this._popupRef.updatePosition();
       });
     }
-    this._popupRef.backdropClick().subscribe(() => this.close());
   }
 
   private _createPopup(): void {
@@ -289,6 +294,9 @@ export class AbstractTrigger extends MatField implements OnInit,OnDestroy,DoChec
       panelClass: "mat-picker-popup"
     });
     this._popupRef = this._overlay.create(overlayConfig);
+    this._popupRef.backdropClick()
+      .pipe(takeUntil(this._onDestroy))
+      .subscribe(() => this.close());
   }
 
   public _createPopupPositionStrategy(): PositionStrategy {

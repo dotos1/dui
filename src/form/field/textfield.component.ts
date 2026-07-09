@@ -73,7 +73,7 @@ export class TextFieldComponent extends MatField implements OnInit, AfterViewIni
 
     if (!isEmpty(this.field)) {
       this.field.formControl
-        .valueChanges.subscribe((val) => {
+        .valueChanges.pipe(takeUntil(this._onDestroy)).subscribe((val) => {
           if (isObjectLike(val) && val.text) {
             this._elementRef.nativeElement.children[0].value = val.text;
           }

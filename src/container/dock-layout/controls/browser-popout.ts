@@ -313,6 +313,10 @@ export class BrowserPopout extends EventEmitter {
 
 
     private _onClose() {
+        if (this._checkReadyInterval !== undefined) {
+            clearInterval(this._checkReadyInterval);
+            this._checkReadyInterval = undefined;
+        }
         setTimeout(() => this.emit('closed'), 50);
     }
 }

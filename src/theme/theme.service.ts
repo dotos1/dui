@@ -55,6 +55,10 @@ export class ThemeService {
   private theme: Theme;
   dotosConfig: any;
 
+  private _coreStyleSheet?: StyleSheet<any>;
+  private _materialThemeStyleSheet?: StyleSheet<any>;
+  private _loadedThemeStyleSheet?: StyleSheet<any>;
+
   protected static instance: ThemeService = null;
   public static getInstance(): ThemeService {
     if (ThemeService.instance === null) {
@@ -139,7 +143,9 @@ export class ThemeService {
       this.theme = matDarkBlueTheme(primary, accent, warn,this._density,typographyConfig);
     }
     const dynamicThemeStyles: boolean = true;
-    this.createThemeStyles(this.theme, themeFn, dynamicThemeStyles).attach();
+    this._loadedThemeStyleSheet?.detach();
+    this._loadedThemeStyleSheet = this.createThemeStyles(this.theme, themeFn, dynamicThemeStyles);
+    this._loadedThemeStyleSheet.attach();
   }
   createThemeStyles(theme, themeFn: any, dynamicThemeStyles) {
     const styles = {
@@ -177,7 +183,9 @@ export class ThemeService {
     const typographyConfig: TypographyConfig = TypographyMap[typography];
     const coreOverrides: Object = {};
     const dynamicCoreStyles = true;
-    createMaterialCoreStyles(typographyConfig, coreOverrides, dynamicCoreStyles).attach();
+    this._coreStyleSheet?.detach();
+    this._coreStyleSheet = createMaterialCoreStyles(typographyConfig, coreOverrides, dynamicCoreStyles);
+    this._coreStyleSheet.attach();
 
     let p = MatColors.getColor(primaryStr.substring(0, primaryStr.lastIndexOf('-')));
     let a = MatColors.getColor(accentStr.substring(0, accentStr.lastIndexOf('-')));
@@ -200,7 +208,9 @@ export class ThemeService {
     const themeOverrides: Object = {};
     const dynamicThemeStyles: boolean = true;
 
-    createMaterialThemeStyles(this.theme, themeOverrides, dynamicThemeStyles).attach();
+    this._materialThemeStyleSheet?.detach();
+    this._materialThemeStyleSheet = createMaterialThemeStyles(this.theme, themeOverrides, dynamicThemeStyles);
+    this._materialThemeStyleSheet.attach();
   }
   getThemeByType(type:string){
     if(type=='default'){
