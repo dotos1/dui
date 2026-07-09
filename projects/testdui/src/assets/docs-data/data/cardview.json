@@ -1,0 +1,1412 @@
+{
+  "importPath": "@dotos/dui/data/cardview",
+  "exports": [
+    {
+      "name": "CardItemTypeService",
+      "kind": "service",
+      "summary": null,
+      "sourceFile": "src/data/cardview/services/card-item-types.service.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "CardViewArrayItem",
+      "kind": "interface",
+      "summary": null,
+      "sourceFile": "src/data/cardview/models/card-view-arrayitem.model.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "CardViewArrayItemComponent",
+      "kind": "component",
+      "selector": "dui-card-view-arrayitem",
+      "summary": null,
+      "sourceFile": "src/data/cardview/components/card-view-arrayitem/card-view-arrayitem.component.ts",
+      "inputs": [
+        {
+          "name": "property",
+          "type": "CardViewArrayItemModel",
+          "description": null
+        }
+      ],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "clicked",
+          "params": [],
+          "returnType": "void",
+          "description": null
+        },
+        {
+          "name": "showClickableIcon",
+          "params": [],
+          "returnType": "boolean",
+          "description": null
+        },
+        {
+          "name": "hasIcon",
+          "params": [],
+          "returnType": "boolean",
+          "description": null
+        },
+        {
+          "name": "displayCount",
+          "params": [],
+          "returnType": "number",
+          "description": null
+        },
+        {
+          "name": "isClickable",
+          "params": [],
+          "returnType": "boolean",
+          "description": null
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "CardViewArrayItemModel",
+      "kind": "class",
+      "summary": null,
+      "sourceFile": "src/data/cardview/models/card-view-arrayitem.model.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "type",
+          "type": "string",
+          "default": "'array'",
+          "description": null
+        },
+        {
+          "name": "value",
+          "type": "Observable<CardViewArrayItem[]>",
+          "description": null
+        },
+        {
+          "name": "noOfItemsToDisplay",
+          "type": "number",
+          "description": null
+        },
+        {
+          "name": "displayValue",
+          "type": "Observable<CardViewArrayItem[]>",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "CardViewArrayItemProperties",
+      "kind": "interface",
+      "summary": null,
+      "sourceFile": "src/data/cardview/interfaces/card-view-arrayitem-properties.interface.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "CardViewBaseItemModel",
+      "kind": "class",
+      "summary": null,
+      "sourceFile": "src/data/cardview/models/card-view-baseitem.model.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "isEmpty",
+          "params": [],
+          "returnType": "boolean",
+          "description": null
+        },
+        {
+          "name": "isValid",
+          "params": [
+            {
+              "name": "newValue",
+              "type": "any"
+            }
+          ],
+          "returnType": "boolean",
+          "description": null
+        },
+        {
+          "name": "getValidationErrors",
+          "params": [
+            {
+              "name": "value",
+              "type": "any"
+            }
+          ],
+          "returnType": "string[]",
+          "description": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "label",
+          "type": "string",
+          "description": null
+        },
+        {
+          "name": "value",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "key",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "default",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "editable",
+          "type": "boolean",
+          "description": null
+        },
+        {
+          "name": "clickable",
+          "type": "boolean",
+          "description": null
+        },
+        {
+          "name": "icon",
+          "type": "string",
+          "description": null
+        },
+        {
+          "name": "validators",
+          "type": "CardViewItemValidator[]",
+          "description": null
+        },
+        {
+          "name": "data",
+          "type": "any",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "CardViewBoolItemComponent",
+      "kind": "component",
+      "selector": "dui-card-view-boolitem",
+      "summary": null,
+      "sourceFile": "src/data/cardview/components/card-view-boolitem/card-view-boolitem.component.ts",
+      "inputs": [
+        {
+          "name": "property",
+          "type": "CardViewBoolItemModel",
+          "description": null
+        },
+        {
+          "name": "editable",
+          "type": "boolean",
+          "description": null
+        }
+      ],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "isEditable",
+          "params": [],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "changed",
+          "params": [
+            {
+              "name": "change",
+              "type": "MatCheckboxChange"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "CardViewBoolItemModel",
+      "kind": "class",
+      "summary": null,
+      "sourceFile": "src/data/cardview/models/card-view-boolitem.model.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "type",
+          "type": "string",
+          "default": "'bool'",
+          "description": null
+        },
+        {
+          "name": "value",
+          "type": "boolean",
+          "default": "false",
+          "description": null
+        },
+        {
+          "name": "default",
+          "type": "boolean",
+          "description": null
+        },
+        {
+          "name": "displayValue",
+          "type": "any",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "CardViewBoolItemProperties",
+      "kind": "interface",
+      "summary": null,
+      "sourceFile": "src/data/cardview/interfaces/card-view-boolitem-properties.interface.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "CardViewComponent",
+      "kind": "component",
+      "selector": "dui-card-view",
+      "summary": null,
+      "sourceFile": "src/data/cardview/components/card-view/card-view.component.ts",
+      "inputs": [
+        {
+          "name": "properties",
+          "type": "CardViewItem[]",
+          "description": "(**required**) Items to show in the card view."
+        },
+        {
+          "name": "editable",
+          "type": "boolean",
+          "description": "Toggles whether or not the items can be edited."
+        },
+        {
+          "name": "displayEmpty",
+          "type": "boolean",
+          "default": "true",
+          "description": "Toggles whether or not to show empty items in non-editable mode."
+        },
+        {
+          "name": "displayNoneOption",
+          "type": "boolean",
+          "default": "true",
+          "description": "Toggles whether or not to display none option."
+        },
+        {
+          "name": "displayClearAction",
+          "type": "boolean",
+          "default": "true",
+          "description": "Toggles whether or not to display clear action."
+        },
+        {
+          "name": "copyToClipboardAction",
+          "type": "boolean",
+          "default": "true",
+          "description": "Toggles whether or not to enable copy to clipboard action."
+        },
+        {
+          "name": "useChipsForMultiValueProperty",
+          "type": "boolean",
+          "default": "true",
+          "description": "Toggles whether or not to enable chips for multivalued properties."
+        },
+        {
+          "name": "multiValueSeparator",
+          "type": "string",
+          "default": "DEFAULT_SEPARATOR",
+          "description": null
+        }
+      ],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "CardViewContentProxyDirective",
+      "kind": "directive",
+      "selector": "[dui-card-view-content-proxy]",
+      "summary": null,
+      "sourceFile": "src/data/cardview/directives/card-view-content-proxy.directive.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "CardViewDateItemComponent",
+      "kind": "component",
+      "selector": "dui-card-view-dateitem",
+      "summary": null,
+      "sourceFile": "src/data/cardview/components/card-view-dateitem/card-view-dateitem.component.ts",
+      "inputs": [
+        {
+          "name": "property",
+          "type": "CardViewDateItemModel|any",
+          "description": null
+        },
+        {
+          "name": "editable",
+          "type": "boolean",
+          "default": "false",
+          "description": null
+        },
+        {
+          "name": "displayEmpty",
+          "type": "boolean",
+          "default": "true",
+          "description": null
+        },
+        {
+          "name": "displayClearAction",
+          "type": "boolean",
+          "default": "true",
+          "description": null
+        }
+      ],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "showProperty",
+          "params": [],
+          "returnType": "boolean",
+          "description": null
+        },
+        {
+          "name": "showClearAction",
+          "params": [],
+          "returnType": "boolean",
+          "description": null
+        },
+        {
+          "name": "isEditable",
+          "params": [],
+          "returnType": "boolean",
+          "description": null
+        },
+        {
+          "name": "showDatePicker",
+          "params": [],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "onDateChanged",
+          "params": [
+            {
+              "name": "newDateValue",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "onDateClear",
+          "params": [],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "copyToClipboard",
+          "params": [
+            {
+              "name": "valueToCopy",
+              "type": "string"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "datepicker",
+          "type": "MatDatetimepicker<any>",
+          "description": null
+        },
+        {
+          "name": "valueDate",
+          "type": "Moment",
+          "description": null
+        },
+        {
+          "name": "dateFormat",
+          "type": "string",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "CardViewDateItemModel",
+      "kind": "class",
+      "summary": null,
+      "sourceFile": "src/data/cardview/models/card-view-dateitem.model.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "type",
+          "type": "string",
+          "default": "'date'",
+          "description": null
+        },
+        {
+          "name": "format",
+          "type": "string",
+          "description": null
+        },
+        {
+          "name": "locale",
+          "type": "string",
+          "description": null
+        },
+        {
+          "name": "localizedDatePipe",
+          "type": "LocalizedDatePipe",
+          "description": null
+        },
+        {
+          "name": "displayValue",
+          "type": "any",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "CardViewDateItemProperties",
+      "kind": "interface",
+      "summary": null,
+      "sourceFile": "src/data/cardview/interfaces/card-view-dateitem-properties.interface.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "CardViewDatetimeItemModel",
+      "kind": "class",
+      "summary": null,
+      "sourceFile": "src/data/cardview/models/card-view-datetimeitem.model.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "type",
+          "type": "string",
+          "default": "'datetime'",
+          "description": null
+        },
+        {
+          "name": "format",
+          "type": "string",
+          "default": "'MMM d, y, H:mm'",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "CardViewFloatItemModel",
+      "kind": "class",
+      "summary": null,
+      "sourceFile": "src/data/cardview/models/card-view-floatitem.model.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "type",
+          "type": "string",
+          "default": "'float'",
+          "description": null
+        },
+        {
+          "name": "inputType",
+          "type": "string",
+          "default": "'number'",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "CardViewIntItemModel",
+      "kind": "class",
+      "summary": null,
+      "sourceFile": "src/data/cardview/models/card-view-intitem.model.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "type",
+          "type": "string",
+          "default": "'int'",
+          "description": null
+        },
+        {
+          "name": "inputType",
+          "type": "string",
+          "default": "'number'",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "CardViewItem",
+      "kind": "interface",
+      "summary": null,
+      "sourceFile": "src/data/cardview/interfaces/card-view-item.interface.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "CardViewItemDispatcherComponent",
+      "kind": "component",
+      "selector": "dui-card-view-item-dispatcher",
+      "summary": null,
+      "sourceFile": "src/data/cardview/components/card-view-item-dispatcher/card-view-item-dispatcher.component.ts",
+      "inputs": [
+        {
+          "name": "property",
+          "type": "CardViewItem",
+          "description": null
+        },
+        {
+          "name": "editable",
+          "type": "boolean",
+          "description": null
+        },
+        {
+          "name": "displayEmpty",
+          "type": "boolean",
+          "default": "true",
+          "description": null
+        },
+        {
+          "name": "displayNoneOption",
+          "type": "boolean",
+          "default": "true",
+          "description": null
+        },
+        {
+          "name": "displayClearAction",
+          "type": "boolean",
+          "default": "true",
+          "description": null
+        },
+        {
+          "name": "copyToClipboardAction",
+          "type": "boolean",
+          "default": "true",
+          "description": null
+        },
+        {
+          "name": "useChipsForMultiValueProperty",
+          "type": "boolean",
+          "default": "true",
+          "description": null
+        },
+        {
+          "name": "multiValueSeparator",
+          "type": "string",
+          "default": "DEFAULT_SEPARATOR",
+          "description": null
+        }
+      ],
+      "outputs": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "ngOnInit",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "ngDoCheck",
+          "type": "any",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "CardViewItemFloatValidator",
+      "kind": "class",
+      "summary": null,
+      "sourceFile": "src/data/cardview/validators/card-view-item-float.validator.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "isValid",
+          "params": [
+            {
+              "name": "value",
+              "type": "any"
+            }
+          ],
+          "returnType": "boolean",
+          "description": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "message",
+          "type": "any",
+          "default": "'CORE.CARDVIEW.VALIDATORS.FLOAT_VALIDATION_ERROR'",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "CardViewItemIntValidator",
+      "kind": "class",
+      "summary": null,
+      "sourceFile": "src/data/cardview/validators/card-view-item-int.validator.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "isValid",
+          "params": [
+            {
+              "name": "value",
+              "type": "any"
+            }
+          ],
+          "returnType": "boolean",
+          "description": null
+        },
+        {
+          "name": "isIntegerNumber",
+          "params": [
+            {
+              "name": "value",
+              "type": "any"
+            }
+          ],
+          "returnType": "boolean",
+          "description": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "message",
+          "type": "any",
+          "default": "'CORE.CARDVIEW.VALIDATORS.INT_VALIDATION_ERROR'",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "CardViewItemProperties",
+      "kind": "interface",
+      "summary": null,
+      "sourceFile": "src/data/cardview/interfaces/card-view-item-properties.interface.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "CardViewItemValidator",
+      "kind": "interface",
+      "summary": null,
+      "sourceFile": "src/data/cardview/interfaces/card-view-item-validator.interface.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "CardViewKeyValuePairsItemComponent",
+      "kind": "component",
+      "selector": "dui-card-view-boolitem",
+      "summary": null,
+      "sourceFile": "src/data/cardview/components/card-view-keyvaluepairsitem/card-view-keyvaluepairsitem.component.ts",
+      "inputs": [
+        {
+          "name": "property",
+          "type": "CardViewKeyValuePairsItemModel",
+          "description": null
+        },
+        {
+          "name": "editable",
+          "type": "boolean",
+          "default": "false",
+          "description": null
+        }
+      ],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "isEditable",
+          "params": [],
+          "returnType": "boolean",
+          "description": null
+        },
+        {
+          "name": "add",
+          "params": [],
+          "returnType": "void",
+          "description": null
+        },
+        {
+          "name": "remove",
+          "params": [
+            {
+              "name": "index",
+              "type": "number"
+            }
+          ],
+          "returnType": "void",
+          "description": null
+        },
+        {
+          "name": "onBlur",
+          "params": [
+            {
+              "name": "value",
+              "type": "any"
+            }
+          ],
+          "returnType": "void",
+          "description": null
+        },
+        {
+          "name": "save",
+          "params": [
+            {
+              "name": "remove",
+              "type": "boolean"
+            }
+          ],
+          "returnType": "void",
+          "description": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "values",
+          "type": "CardViewKeyValuePairsItemType[]",
+          "description": null
+        },
+        {
+          "name": "matTableValues",
+          "type": "MatTableDataSource<CardViewKeyValuePairsItemType>",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "CardViewKeyValuePairsItemModel",
+      "kind": "class",
+      "summary": null,
+      "sourceFile": "src/data/cardview/models/card-view-keyvaluepairs.model.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "type",
+          "type": "string",
+          "default": "'keyvaluepairs'",
+          "description": null
+        },
+        {
+          "name": "displayValue",
+          "type": "any",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "CardViewKeyValuePairsItemProperties",
+      "kind": "interface",
+      "summary": null,
+      "sourceFile": "src/data/cardview/interfaces/card-view-keyvaluepairsitem-properties.interface.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "CardViewKeyValuePairsItemType",
+      "kind": "interface",
+      "summary": null,
+      "sourceFile": "src/data/cardview/interfaces/card-view-keyvaluepairsitem-properties.interface.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "CardViewMapItemComponent",
+      "kind": "component",
+      "selector": "dui-card-view-mapitem",
+      "summary": null,
+      "sourceFile": "src/data/cardview/components/card-view-mapitem/card-view-mapitem.component.ts",
+      "inputs": [
+        {
+          "name": "property",
+          "type": "CardViewMapItemModel",
+          "description": null
+        },
+        {
+          "name": "displayEmpty",
+          "type": "boolean",
+          "default": "true",
+          "description": null
+        }
+      ],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "showProperty",
+          "params": [],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "isClickable",
+          "params": [],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "clicked",
+          "params": [],
+          "returnType": "void",
+          "description": null
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "CardViewMapItemModel",
+      "kind": "class",
+      "summary": null,
+      "sourceFile": "src/data/cardview/models/card-view-mapitem.model.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "type",
+          "type": "string",
+          "default": "'map'",
+          "description": null
+        },
+        {
+          "name": "value",
+          "type": "Map<string, string>",
+          "description": null
+        },
+        {
+          "name": "displayValue",
+          "type": "any",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "CardViewModule",
+      "kind": "module",
+      "summary": null,
+      "sourceFile": "src/data/cardview/card-view.module.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "entryComponents",
+          "type": "any",
+          "default": "[    CardViewBoolItemComponent,\n    CardViewDateItemComponent,\n    CardViewMapItemComponent,\n    CardViewTextItemComponent,\n    CardViewSelectItemComponent,\n    CardViewKeyValuePairsItemComponent,\n    CardViewArrayItemComponent]",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "CardViewSelectItemComponent",
+      "kind": "component",
+      "selector": "dui-card-view-selectitem",
+      "summary": null,
+      "sourceFile": "src/data/cardview/components/card-view-selectitem/card-view-selectitem.component.ts",
+      "inputs": [
+        {
+          "name": "property",
+          "type": "CardViewSelectItemModel<string>",
+          "description": null
+        },
+        {
+          "name": "editable",
+          "type": "boolean",
+          "default": "false",
+          "description": null
+        },
+        {
+          "name": "options$",
+          "type": "Observable<CardViewSelectItemOption<string>[]>",
+          "description": null
+        },
+        {
+          "name": "displayNoneOption",
+          "type": "boolean",
+          "default": "true",
+          "description": null
+        }
+      ],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "isEditable",
+          "params": [],
+          "returnType": "boolean",
+          "description": null
+        },
+        {
+          "name": "getOptions",
+          "params": [],
+          "returnType": "Observable<CardViewSelectItemOption<string>[]>",
+          "description": null
+        },
+        {
+          "name": "onChange",
+          "params": [
+            {
+              "name": "event",
+              "type": "MatSelectChange"
+            }
+          ],
+          "returnType": "void",
+          "description": null
+        },
+        {
+          "name": "showNoneOption",
+          "params": [],
+          "returnType": "any",
+          "description": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "value",
+          "type": "string",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "CardViewSelectItemModel",
+      "kind": "class",
+      "summary": null,
+      "sourceFile": "src/data/cardview/models/card-view-selectitem.model.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "type",
+          "type": "string",
+          "default": "'select'",
+          "description": null
+        },
+        {
+          "name": "options$",
+          "type": "Observable<CardViewSelectItemOption<T>[]>",
+          "description": null
+        },
+        {
+          "name": "displayValue",
+          "type": "any",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "CardViewSelectItemOption",
+      "kind": "interface",
+      "summary": null,
+      "sourceFile": "src/data/cardview/interfaces/card-view-selectitem-properties.interface.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "CardViewSelectItemProperties",
+      "kind": "interface",
+      "summary": null,
+      "sourceFile": "src/data/cardview/interfaces/card-view-selectitem-properties.interface.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "CardViewTextItemComponent",
+      "kind": "component",
+      "selector": "dui-card-view-textitem",
+      "summary": null,
+      "sourceFile": "src/data/cardview/components/card-view-textitem/card-view-textitem.component.ts",
+      "inputs": [
+        {
+          "name": "property",
+          "type": "CardViewTextItemModel",
+          "description": null
+        },
+        {
+          "name": "editable",
+          "type": "boolean",
+          "default": "false",
+          "description": null
+        },
+        {
+          "name": "displayEmpty",
+          "type": "boolean",
+          "default": "true",
+          "description": null
+        },
+        {
+          "name": "copyToClipboardAction",
+          "type": "boolean",
+          "default": "true",
+          "description": null
+        },
+        {
+          "name": "useChipsForMultiValueProperty",
+          "type": "boolean",
+          "default": "true",
+          "description": null
+        },
+        {
+          "name": "multiValueSeparator",
+          "type": "string",
+          "default": "DEFAULT_SEPARATOR",
+          "description": null
+        }
+      ],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "resetValue",
+          "params": [],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "update",
+          "params": [],
+          "returnType": "void",
+          "description": null
+        },
+        {
+          "name": "prepareValueForUpload",
+          "params": [
+            {
+              "name": "property",
+              "type": "CardViewTextItemModel"
+            },
+            {
+              "name": "value",
+              "type": "string | string[]"
+            }
+          ],
+          "returnType": "string | string[]",
+          "description": null
+        },
+        {
+          "name": "removeValueFromList",
+          "params": [
+            {
+              "name": "itemIndex",
+              "type": "number"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "addValueToList",
+          "params": [
+            {
+              "name": "newListItem",
+              "type": "MatChipInputEvent"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "clicked",
+          "params": [],
+          "returnType": "void",
+          "description": null
+        },
+        {
+          "name": "clearValue",
+          "params": [],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "copyToClipboard",
+          "params": [
+            {
+              "name": "valueToCopy",
+              "type": "string"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "editedValue",
+          "type": "string | string[]",
+          "description": null
+        },
+        {
+          "name": "errorMessages",
+          "type": "string[]",
+          "description": null
+        },
+        {
+          "name": "templateType",
+          "type": "string",
+          "description": null
+        },
+        {
+          "name": "showProperty",
+          "type": "boolean",
+          "description": null
+        },
+        {
+          "name": "showClickableIcon",
+          "type": "boolean",
+          "description": null
+        },
+        {
+          "name": "isEditable",
+          "type": "boolean",
+          "description": null
+        },
+        {
+          "name": "isClickable",
+          "type": "boolean",
+          "description": null
+        },
+        {
+          "name": "hasIcon",
+          "type": "boolean",
+          "description": null
+        },
+        {
+          "name": "hasErrors",
+          "type": "boolean",
+          "description": null
+        },
+        {
+          "name": "isChipViewEnabled",
+          "type": "boolean",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "CardViewTextItemModel",
+      "kind": "class",
+      "summary": null,
+      "sourceFile": "src/data/cardview/models/card-view-textitem.model.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "type",
+          "type": "string",
+          "default": "'text'",
+          "description": null
+        },
+        {
+          "name": "inputType",
+          "type": "string",
+          "default": "'text'",
+          "description": null
+        },
+        {
+          "name": "multiline",
+          "type": "boolean",
+          "description": null
+        },
+        {
+          "name": "multivalued",
+          "type": "boolean",
+          "description": null
+        },
+        {
+          "name": "pipes",
+          "type": "CardViewTextItemPipeProperty[]",
+          "description": null
+        },
+        {
+          "name": "clickCallBack",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "displayValue",
+          "type": "string",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "CardViewTextItemPipeProperty",
+      "kind": "interface",
+      "summary": null,
+      "sourceFile": "src/data/cardview/interfaces/card-view-textitem-pipe-property.interface.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "CardViewTextItemProperties",
+      "kind": "interface",
+      "summary": null,
+      "sourceFile": "src/data/cardview/interfaces/card-view-textitem-properties.interface.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "CardViewUpdateService",
+      "kind": "service",
+      "summary": null,
+      "sourceFile": "src/data/cardview/services/card-view-update.service.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "update",
+          "params": [
+            {
+              "name": "property",
+              "type": "CardViewBaseItemModel"
+            },
+            {
+              "name": "newValue",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "clicked",
+          "params": [
+            {
+              "name": "property",
+              "type": "CardViewBaseItemModel"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "updateElement",
+          "params": [
+            {
+              "name": "notification",
+              "type": "CardViewBaseItemModel"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "itemUpdated$",
+          "type": "any",
+          "default": "new Subject<UpdateNotification>()",
+          "description": null
+        },
+        {
+          "name": "itemClicked$",
+          "type": "any",
+          "default": "new Subject<ClickNotification>()",
+          "description": null
+        },
+        {
+          "name": "updateItem$",
+          "type": "any",
+          "default": "new Subject<CardViewBaseItemModel>()",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "ClickNotification",
+      "kind": "interface",
+      "summary": null,
+      "sourceFile": "src/data/cardview/services/card-view-update.service.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "DEFAULT_SEPARATOR",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/data/cardview/components/card-view-textitem/card-view-textitem.component.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "transformKeyToObject",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/data/cardview/services/card-view-update.service.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "UpdateNotification",
+      "kind": "interface",
+      "summary": null,
+      "sourceFile": "src/data/cardview/services/card-view-update.service.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    }
+  ],
+  "suggestedUsageSnippet": "import { CardViewArrayItemComponent, CardViewModule } from '@dotos/dui/data/cardview';\n\n<dui-card-view-arrayitem [property]=\"...\"></dui-card-view-arrayitem>"
+}

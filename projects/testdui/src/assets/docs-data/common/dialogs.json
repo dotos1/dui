@@ -1,0 +1,680 @@
+{
+  "importPath": "@dotos/dui/common/dialogs",
+  "exports": [
+    {
+      "name": "AlertDialogComponent",
+      "kind": "component",
+      "selector": "dui-alert-dialog",
+      "summary": null,
+      "sourceFile": "src/common/dialogs/alert-dialog/alert-dialog.component.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "close",
+          "params": [],
+          "returnType": "void",
+          "description": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "title",
+          "type": "string",
+          "description": null
+        },
+        {
+          "name": "message",
+          "type": "string",
+          "description": null
+        },
+        {
+          "name": "closeButton",
+          "type": "string",
+          "default": "'CLOSE'",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "ConfirmDialogComponent",
+      "kind": "component",
+      "selector": "dui-confirm-dialog",
+      "summary": null,
+      "sourceFile": "src/common/dialogs/confirm-dialog/confirm-dialog.component.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "cancel",
+          "params": [],
+          "returnType": "void",
+          "description": null
+        },
+        {
+          "name": "accept",
+          "params": [],
+          "returnType": "void",
+          "description": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "title",
+          "type": "string",
+          "description": null
+        },
+        {
+          "name": "message",
+          "type": "string",
+          "description": null
+        },
+        {
+          "name": "cancelButton",
+          "type": "any",
+          "default": "'CANCEL'",
+          "description": null
+        },
+        {
+          "name": "acceptButton",
+          "type": "any",
+          "default": "'ACCEPT'",
+          "description": null
+        },
+        {
+          "name": "isDestructive",
+          "type": "any",
+          "default": "false",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "DialogService",
+      "kind": "service",
+      "summary": null,
+      "sourceFile": "src/common/dialogs/services/dialog.service.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "open",
+          "params": [
+            {
+              "name": "component",
+              "type": "ComponentType<T>"
+            },
+            {
+              "name": "config",
+              "type": "MatDialogConfig"
+            }
+          ],
+          "returnType": "MatDialogRef<T>",
+          "description": null
+        },
+        {
+          "name": "getOpenedComponents",
+          "params": [],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "closeAll",
+          "params": [],
+          "returnType": "void",
+          "description": "Wrapper function over the closeAll() method in MatDialog.\nCloses all of the currently-open dialogs."
+        },
+        {
+          "name": "openAlert",
+          "params": [
+            {
+              "name": "config",
+              "type": "IAlertConfig"
+            }
+          ],
+          "returnType": "MatDialogRef<AlertDialogComponent>",
+          "description": null
+        },
+        {
+          "name": "openConfirm",
+          "params": [
+            {
+              "name": "config",
+              "type": "IConfirmConfig"
+            }
+          ],
+          "returnType": "MatDialogRef<ConfirmDialogComponent>",
+          "description": "params:\n- config: IConfirmConfig {\n    message: string;\n    title?: string;\n    viewContainerRef?: ViewContainerRef;\n    acceptButton?: string;\n    cancelButton?: string;\n    isDestructive?: boolean;\n}\n\nOpens a confirm dialog with the provided config.\nReturns an MatDialogRef<TdConfirmDialogComponent> object."
+        },
+        {
+          "name": "openPrompt",
+          "params": [
+            {
+              "name": "config",
+              "type": "IPromptConfig"
+            }
+          ],
+          "returnType": "MatDialogRef<PromptDialogComponent>",
+          "description": "params:\n- config: IPromptConfig {\n    message: string;\n    title?: string;\n    value?: string;\n    viewContainerRef?: ViewContainerRef;\n    acceptButton?: string;\n    cancelButton?: string;\n}\n\nOpens a prompt dialog with the provided config.\nReturns an MatDialogRef<TdPromptDialogComponent> object."
+        },
+        {
+          "name": "openDraggable",
+          "params": [
+            {
+              "name": "{\n    component,\n    config,\n    constraint,\n    dragHandleSelectors,\n    draggableClass,\n  }",
+              "type": "IDraggableConfig<T>"
+            }
+          ],
+          "returnType": "IDraggableRefs<T>",
+          "description": "Opens a draggable dialog containing the given component."
+        },
+        {
+          "name": "openStatus",
+          "params": [
+            {
+              "name": "config",
+              "type": "IStatusConfig"
+            }
+          ],
+          "returnType": "MatDialogRef<StatusDialogComponent>",
+          "description": null
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "DialogsModule",
+      "kind": "module",
+      "summary": null,
+      "sourceFile": "src/common/dialogs/dialogs.module.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "entryComponents",
+          "type": "any",
+          "default": "DIALOGS_ENTRY_COMPONENTS",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "duiDialogActionsDirective",
+      "kind": "directive",
+      "selector": "[duiDialogActions]",
+      "summary": null,
+      "sourceFile": "src/common/dialogs/dialog.component.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "duiDialogComponent",
+      "kind": "component",
+      "selector": "dui-dialog",
+      "summary": null,
+      "sourceFile": "src/common/dialogs/dialog.component.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "setTheme",
+          "params": [
+            {
+              "name": "config",
+              "type": "DotosConfig"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "dialogTitle",
+          "type": "QueryList<duiDialogTitleDirective>",
+          "description": null
+        },
+        {
+          "name": "dialogContent",
+          "type": "QueryList<duiDialogContentDirective>",
+          "description": null
+        },
+        {
+          "name": "dialogActions",
+          "type": "QueryList<duiDialogActionsDirective>",
+          "description": null
+        },
+        {
+          "name": "dialogStatus",
+          "type": "QueryList<duiDialogStatusDirective>",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "duiDialogContentDirective",
+      "kind": "directive",
+      "selector": "[duiDialogContent]",
+      "summary": null,
+      "sourceFile": "src/common/dialogs/dialog.component.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "duiDialogStatusDirective",
+      "kind": "directive",
+      "selector": "[duiDialogStatus]",
+      "summary": null,
+      "sourceFile": "src/common/dialogs/dialog.component.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "duiDialogTitleDirective",
+      "kind": "directive",
+      "selector": "[duiDialogTitle]",
+      "summary": null,
+      "sourceFile": "src/common/dialogs/dialog.component.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "IAlertConfig",
+      "kind": "interface",
+      "summary": null,
+      "sourceFile": "src/common/dialogs/services/dialog.service.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "IConfirmConfig",
+      "kind": "interface",
+      "summary": null,
+      "sourceFile": "src/common/dialogs/services/dialog.service.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "IDialogConfig",
+      "kind": "interface",
+      "summary": null,
+      "sourceFile": "src/common/dialogs/services/dialog.service.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "IDraggableConfig",
+      "kind": "interface",
+      "summary": null,
+      "sourceFile": "src/common/dialogs/services/dialog.service.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "IDraggableRefs",
+      "kind": "interface",
+      "summary": null,
+      "sourceFile": "src/common/dialogs/services/dialog.service.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "IPromptConfig",
+      "kind": "interface",
+      "summary": null,
+      "sourceFile": "src/common/dialogs/services/dialog.service.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "IStatusConfig",
+      "kind": "interface",
+      "summary": null,
+      "sourceFile": "src/common/dialogs/services/dialog.service.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "PromptDialogComponent",
+      "kind": "component",
+      "selector": "dui-prompt-dialog",
+      "summary": null,
+      "sourceFile": "src/common/dialogs/prompt-dialog/prompt-dialog.component.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "cancel",
+          "params": [],
+          "returnType": "void",
+          "description": null
+        },
+        {
+          "name": "accept",
+          "params": [],
+          "returnType": "void",
+          "description": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "title",
+          "type": "string",
+          "description": null
+        },
+        {
+          "name": "message",
+          "type": "string",
+          "description": null
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "description": null
+        },
+        {
+          "name": "cancelButton",
+          "type": "any",
+          "default": "'CANCEL'",
+          "description": null
+        },
+        {
+          "name": "acceptButton",
+          "type": "any",
+          "default": "'ACCEPT'",
+          "description": null
+        },
+        {
+          "name": "formFieldControl",
+          "type": "MatInput",
+          "description": null
+        },
+        {
+          "name": "minLengthText",
+          "type": "string",
+          "default": "'The minimum length for this field is {0}'",
+          "description": null
+        },
+        {
+          "name": "maxLengthText",
+          "type": "string",
+          "default": "'The maximum length for this field is {0}'",
+          "description": null
+        },
+        {
+          "name": "pattern",
+          "type": "string | RegExp",
+          "default": "null",
+          "description": null
+        },
+        {
+          "name": "regexText",
+          "type": "string",
+          "default": "' format is not correct'",
+          "description": null
+        },
+        {
+          "name": "blankText",
+          "type": "string",
+          "default": "' This field is can not be blank!'",
+          "description": null
+        },
+        {
+          "name": "minlength",
+          "type": "number",
+          "default": "0",
+          "description": null
+        },
+        {
+          "name": "maxlength",
+          "type": "number",
+          "default": "255",
+          "description": null
+        },
+        {
+          "name": "min",
+          "type": "number",
+          "default": "-Infinity",
+          "description": null
+        },
+        {
+          "name": "max",
+          "type": "number",
+          "default": "Infinity",
+          "description": null
+        },
+        {
+          "name": "required",
+          "type": "boolean",
+          "default": "true",
+          "description": null
+        },
+        {
+          "name": "dataType",
+          "type": "string",
+          "default": "'text'",
+          "description": null
+        },
+        {
+          "name": "formControl",
+          "type": "any",
+          "default": "new FormControl()",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "ResizableDraggableDialog",
+      "kind": "class",
+      "summary": null,
+      "sourceFile": "src/common/dialogs/resizable-draggable-dialog/resizable-draggable-dialog.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "attach",
+          "params": [],
+          "returnType": "void",
+          "description": null
+        },
+        {
+          "name": "detach",
+          "params": [],
+          "returnType": "void",
+          "description": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "cornerElements",
+          "type": "HTMLElement[]",
+          "default": "[]",
+          "description": null
+        },
+        {
+          "name": "pointerDownSubs",
+          "type": "Subscription[]",
+          "default": "[]",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "StatusDialogComponent",
+      "kind": "component",
+      "selector": "dui-status-dialog",
+      "summary": null,
+      "sourceFile": "src/common/dialogs/status-dialog/status-dialog.component.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "close",
+          "params": [],
+          "returnType": "void",
+          "description": null
+        },
+        {
+          "name": "getStatusIcon",
+          "params": [],
+          "returnType": "string",
+          "description": null
+        },
+        {
+          "name": "toggleDetails",
+          "params": [],
+          "returnType": "void",
+          "description": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "closeButton",
+          "type": "string",
+          "default": "'CLOSE'",
+          "description": null
+        },
+        {
+          "name": "message",
+          "type": "string",
+          "description": null
+        },
+        {
+          "name": "state",
+          "type": "StatusDialogStates",
+          "default": "'error'",
+          "description": null
+        },
+        {
+          "name": "title",
+          "type": "string",
+          "description": null
+        },
+        {
+          "name": "details",
+          "type": "string",
+          "description": null
+        },
+        {
+          "name": "showDetails",
+          "type": "any",
+          "default": "false",
+          "description": null
+        },
+        {
+          "name": "detailsLabels",
+          "type": "StatusDialogDetailsLabels",
+          "default": "{\n    showDetailsLabel: 'Show details',\n    hideDetailsLabel: 'Hide details',\n  }",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "StatusDialogDetailsLabels",
+      "kind": "type",
+      "summary": null,
+      "sourceFile": "src/common/dialogs/status-dialog/status-dialog.component.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "StatusDialogStates",
+      "kind": "type",
+      "summary": null,
+      "sourceFile": "src/common/dialogs/status-dialog/status-dialog.component.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "WindowDialogComponent",
+      "kind": "component",
+      "selector": "window-dialog",
+      "summary": null,
+      "sourceFile": "src/common/dialogs/window-dialog/window-dialog.component.ts",
+      "inputs": [
+        {
+          "name": "toolbarColor",
+          "type": "ThemePalette",
+          "description": null
+        },
+        {
+          "name": "docked",
+          "type": "any",
+          "default": "false",
+          "description": null
+        },
+        {
+          "name": "title",
+          "type": "string",
+          "description": null
+        },
+        {
+          "name": "toggleDockedStateLabel",
+          "type": "string",
+          "description": null
+        },
+        {
+          "name": "closeLabel",
+          "type": "string",
+          "description": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "dockToggled",
+          "type": "boolean",
+          "description": null
+        },
+        {
+          "name": "closed",
+          "type": "void",
+          "description": null
+        }
+      ],
+      "methods": [
+        {
+          "name": "toggleDockedState",
+          "params": [],
+          "returnType": "void",
+          "description": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "toolbarHeight",
+          "type": "any",
+          "default": "56",
+          "description": null
+        }
+      ]
+    }
+  ],
+  "suggestedUsageSnippet": "import { AlertDialogComponent, DialogsModule } from '@dotos/dui/common/dialogs';\n\n<dui-alert-dialog></dui-alert-dialog>"
+}

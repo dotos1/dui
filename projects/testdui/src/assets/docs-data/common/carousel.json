@@ -1,0 +1,363 @@
+{
+  "importPath": "@dotos/dui/common/carousel",
+  "exports": [
+    {
+      "name": "MatCarousel",
+      "kind": "interface",
+      "summary": null,
+      "sourceFile": "src/common/carousel/carousel.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "MatCarouselComponent",
+      "kind": "component",
+      "selector": "mat-carousel",
+      "summary": null,
+      "sourceFile": "src/common/carousel/carousel.component.ts",
+      "inputs": [
+        {
+          "name": "timings",
+          "type": "any",
+          "default": "'250ms ease-in'",
+          "description": null
+        },
+        {
+          "name": "svgIconOverrides",
+          "type": "SvgIconOverrides",
+          "description": null
+        },
+        {
+          "name": "autoplay",
+          "type": "boolean",
+          "description": null
+        },
+        {
+          "name": "interval",
+          "type": "number",
+          "description": null
+        },
+        {
+          "name": "loop",
+          "type": "boolean",
+          "description": null
+        },
+        {
+          "name": "hideArrows",
+          "type": "any",
+          "default": "true",
+          "description": null
+        },
+        {
+          "name": "hideIndicators",
+          "type": "any",
+          "default": "true",
+          "description": null
+        },
+        {
+          "name": "color",
+          "type": "ThemePalette",
+          "default": "'accent'",
+          "description": null
+        },
+        {
+          "name": "maxWidth",
+          "type": "string",
+          "description": null
+        },
+        {
+          "name": "maintainAspectRatio",
+          "type": "any",
+          "default": "true",
+          "description": null
+        },
+        {
+          "name": "proportion",
+          "type": "any",
+          "default": "25",
+          "description": null
+        },
+        {
+          "name": "slideHeight",
+          "type": "any",
+          "default": "'100%'",
+          "description": null
+        },
+        {
+          "name": "slides",
+          "type": "number",
+          "description": null
+        },
+        {
+          "name": "useKeyboard",
+          "type": "any",
+          "default": "false",
+          "description": null
+        },
+        {
+          "name": "useMouseWheel",
+          "type": "any",
+          "default": "false",
+          "description": null
+        },
+        {
+          "name": "orientation",
+          "type": "Orientation",
+          "description": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "change",
+          "type": "number",
+          "description": null
+        }
+      ],
+      "methods": [
+        {
+          "name": "next",
+          "params": [],
+          "returnType": "void",
+          "description": null
+        },
+        {
+          "name": "previous",
+          "params": [],
+          "returnType": "void",
+          "description": null
+        },
+        {
+          "name": "slideTo",
+          "params": [
+            {
+              "name": "index",
+              "type": "number"
+            }
+          ],
+          "returnType": "void",
+          "description": null
+        },
+        {
+          "name": "onKeyUp",
+          "params": [
+            {
+              "name": "event",
+              "type": "KeyboardEvent"
+            }
+          ],
+          "returnType": "void",
+          "description": null
+        },
+        {
+          "name": "onMouseEnter",
+          "params": [],
+          "returnType": "void",
+          "description": null
+        },
+        {
+          "name": "onMouseLeave",
+          "params": [],
+          "returnType": "void",
+          "description": null
+        },
+        {
+          "name": "onMouseWheel",
+          "params": [
+            {
+              "name": "event",
+              "type": "any"
+            }
+          ],
+          "returnType": "void",
+          "description": null
+        },
+        {
+          "name": "onResize",
+          "params": [
+            {
+              "name": "event",
+              "type": "Event"
+            }
+          ],
+          "returnType": "void",
+          "description": null
+        },
+        {
+          "name": "onPan",
+          "params": [
+            {
+              "name": "event",
+              "type": "any"
+            },
+            {
+              "name": "slideElem",
+              "type": "HTMLElement"
+            }
+          ],
+          "returnType": "void",
+          "description": null
+        },
+        {
+          "name": "onPanEnd",
+          "params": [
+            {
+              "name": "event",
+              "type": "any"
+            },
+            {
+              "name": "slideElem",
+              "type": "HTMLElement"
+            }
+          ],
+          "returnType": "void",
+          "description": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "loop",
+          "type": "boolean",
+          "description": null
+        },
+        {
+          "name": "maxWidth",
+          "type": "string",
+          "description": null
+        },
+        {
+          "name": "orientation",
+          "type": "Orientation",
+          "description": null
+        },
+        {
+          "name": "currentIndex",
+          "type": "number",
+          "description": null
+        },
+        {
+          "name": "currentSlide",
+          "type": "MatCarouselSlideComponent",
+          "description": null
+        },
+        {
+          "name": "slidesList",
+          "type": "QueryList< MatCarouselSlideComponent >",
+          "description": null
+        },
+        {
+          "name": "listKeyManager",
+          "type": "ListKeyManager<MatCarouselSlideComponent>",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "MatCarouselHammerConfig",
+      "kind": "class",
+      "summary": null,
+      "sourceFile": "src/common/carousel/carousel.module.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "overrides",
+          "type": "any",
+          "default": "{\n    pinch: { enable: false },\n    rotate: { enable: false }\n  }",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "MatCarouselModule",
+      "kind": "module",
+      "summary": null,
+      "sourceFile": "src/common/carousel/carousel.module.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "forRoot",
+          "params": [],
+          "returnType": "ModuleWithProviders<MatCarouselModule>",
+          "description": null
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "MatCarouselSlide",
+      "kind": "interface",
+      "summary": null,
+      "sourceFile": "src/common/carousel/carousel-slide/carousel-slide.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "MatCarouselSlideComponent",
+      "kind": "component",
+      "selector": "mat-carousel-slide",
+      "summary": null,
+      "sourceFile": "src/common/carousel/carousel-slide/carousel-slide.component.ts",
+      "inputs": [
+        {
+          "name": "image",
+          "type": "SafeStyle",
+          "description": null
+        },
+        {
+          "name": "overlayColor",
+          "type": "any",
+          "default": "'#00000040'",
+          "description": null
+        },
+        {
+          "name": "hideOverlay",
+          "type": "any",
+          "default": "false",
+          "description": null
+        },
+        {
+          "name": "disabled",
+          "type": "any",
+          "default": "false",
+          "description": null
+        }
+      ],
+      "outputs": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "templateRef",
+          "type": "TemplateRef<any>",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "Orientation",
+      "kind": "type",
+      "summary": null,
+      "sourceFile": "src/common/carousel/carousel.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "SvgIconOverrides",
+      "kind": "interface",
+      "summary": null,
+      "sourceFile": "src/common/carousel/carousel.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    }
+  ],
+  "suggestedUsageSnippet": "import { MatCarouselComponent, MatCarouselModule } from '@dotos/dui/common/carousel';\n\n<mat-carousel [timings]=\"...\" [svgIconOverrides]=\"...\" [autoplay]=\"...\" (change)=\"...\"></mat-carousel>"
+}

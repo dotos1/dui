@@ -1,0 +1,64 @@
+{
+  "importPath": "@dotos/dui/common/clickout",
+  "exports": [
+    {
+      "name": "ClickOutsideDirective",
+      "kind": "directive",
+      "selector": "[clickOutside]",
+      "summary": null,
+      "sourceFile": "src/common/clickout/click-outside.directive.ts",
+      "inputs": [
+        {
+          "name": "attachOutsideOnClick",
+          "type": "boolean",
+          "default": "false",
+          "description": null
+        },
+        {
+          "name": "delayClickOutsideInit",
+          "type": "boolean",
+          "default": "false",
+          "description": null
+        },
+        {
+          "name": "exclude",
+          "type": "string",
+          "default": "''",
+          "description": null
+        },
+        {
+          "name": "excludeBeforeClick",
+          "type": "boolean",
+          "default": "false",
+          "description": null
+        },
+        {
+          "name": "clickOutsideEvents",
+          "type": "string",
+          "default": "''",
+          "description": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "clickOutside",
+          "type": "Event",
+          "description": null
+        }
+      ],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "ClickOutsideModule",
+      "kind": "module",
+      "summary": null,
+      "sourceFile": "src/common/clickout/click-outside.module.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    }
+  ],
+  "suggestedUsageSnippet": "import { ClickOutsideModule } from '@dotos/dui/common/clickout';"
+}

@@ -1,0 +1,1013 @@
+{
+  "importPath": "@dotos/dui/core/form",
+  "exports": [
+    {
+      "name": "AbstractFormModule",
+      "kind": "module",
+      "summary": null,
+      "sourceFile": "src/core/form/form.module.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "entryComponents",
+          "type": "any",
+          "default": "[FormTemplateType,ValidationMessage]",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "assignFieldValue",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/core/form/utils.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "assignModelValue",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/core/form/utils.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "assignModelValue2",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/core/form/utils.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "clearControl",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/core/form/extensions/field-form/utils.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "clone",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/core/form/utils.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "ConfigOption",
+      "kind": "interface",
+      "summary": null,
+      "sourceFile": "src/core/form/models/config.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "CoreExtension",
+      "kind": "class",
+      "summary": null,
+      "sourceFile": "src/core/form/extensions/core/core.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "prePopulate",
+          "params": [
+            {
+              "name": "field",
+              "type": "FieldConfigCache"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "onPopulate",
+          "params": [
+            {
+              "name": "field",
+              "type": "FieldConfigCache"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "postPopulate",
+          "params": [
+            {
+              "name": "field",
+              "type": "FieldConfigCache"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "defineHiddenProp",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/core/form/utils.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "ExtErrorStateMatcher",
+      "kind": "class",
+      "summary": null,
+      "sourceFile": "src/core/form/error-state-matcher.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "isErrorState",
+          "params": [
+            {
+              "name": "control",
+              "type": "FormControl | null"
+            },
+            {
+              "name": "form",
+              "type": "FormGroupDirective | NgForm | null"
+            }
+          ],
+          "returnType": "boolean",
+          "description": null
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "FieldArrayType",
+      "kind": "class",
+      "summary": null,
+      "sourceFile": "src/core/form/template/field-array.type.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "onPopulate",
+          "params": [
+            {
+              "name": "field",
+              "type": "FieldConfig"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "reset",
+          "params": [
+            {
+              "name": "name",
+              "type": "any"
+            },
+            {
+              "name": "field",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "add",
+          "params": [
+            {
+              "name": "i",
+              "type": "number"
+            },
+            {
+              "name": "initialModel",
+              "type": "any"
+            },
+            {
+              "name": "{ markAsDirty }",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "remove",
+          "params": [
+            {
+              "name": "i",
+              "type": "number"
+            },
+            {
+              "name": "{ markAsDirty }",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "build",
+          "params": [],
+          "returnType": "any",
+          "description": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "formControl",
+          "type": "any",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "FieldConfig",
+      "kind": "interface",
+      "summary": null,
+      "sourceFile": "src/core/form/models/field.config.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "FieldConfigCache",
+      "kind": "interface",
+      "summary": null,
+      "sourceFile": "src/core/form/models/field-config.cache.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "FieldExpressionExtension",
+      "kind": "class",
+      "summary": null,
+      "sourceFile": "src/core/form/extensions/field-expression/field-expression.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "onPopulate",
+          "params": [
+            {
+              "name": "field",
+              "type": "FieldConfigCache"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "postPopulate",
+          "params": [
+            {
+              "name": "field",
+              "type": "FieldConfigCache"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "FieldFormExtension",
+      "kind": "class",
+      "summary": null,
+      "sourceFile": "src/core/form/extensions/field-form/field-form.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "prePopulate",
+          "params": [
+            {
+              "name": "field",
+              "type": "FieldConfigCache"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "onPopulate",
+          "params": [
+            {
+              "name": "field",
+              "type": "FieldConfigCache"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "postPopulate",
+          "params": [
+            {
+              "name": "field",
+              "type": "FieldConfigCache"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "FieldType",
+      "kind": "directive",
+      "summary": null,
+      "sourceFile": "src/core/form/template/field.type.ts",
+      "inputs": [
+        {
+          "name": "field",
+          "type": "F | any",
+          "description": null
+        },
+        {
+          "name": "model",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "form",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "option",
+          "type": "any",
+          "description": null
+        }
+      ],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "init",
+          "params": [
+            {
+              "name": "conf",
+              "type": "any"
+            }
+          ],
+          "returnType": "void",
+          "description": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "defaultOptions",
+          "type": "F",
+          "description": null
+        },
+        {
+          "name": "field",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "name",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "formControl",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "showError",
+          "type": "boolean",
+          "description": null
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "description": null
+        },
+        {
+          "name": "formState",
+          "type": "any",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "FieldValidationExtension",
+      "kind": "class",
+      "summary": null,
+      "sourceFile": "src/core/form/extensions/field-validation/field-validation.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "onPopulate",
+          "params": [
+            {
+              "name": "field",
+              "type": "FieldConfigCache"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "FieldWrapper",
+      "kind": "directive",
+      "summary": null,
+      "sourceFile": "src/core/form/template/field.wrapper.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "fieldComponent",
+          "type": "ViewContainerRef",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "findControl",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/core/form/extensions/field-form/utils.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "FORM_CONFIG",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/core/form/services/form.config.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "FORM_VALIDATORS",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/core/form/utils.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "FormBuilder",
+      "kind": "service",
+      "summary": null,
+      "sourceFile": "src/core/form/services/form.builder.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "buildForm",
+          "params": [
+            {
+              "name": "form",
+              "type": "FormGroup | FormArray"
+            },
+            {
+              "name": "fieldGroup",
+              "type": "FieldConfig[]"
+            },
+            {
+              "name": "model",
+              "type": "any"
+            },
+            {
+              "name": "option",
+              "type": "FormOptions"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "build",
+          "params": [
+            {
+              "name": "field",
+              "type": "FieldConfig"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "FormConfig",
+      "kind": "service",
+      "summary": null,
+      "sourceFile": "src/core/form/services/form.config.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "addConfig",
+          "params": [
+            {
+              "name": "config",
+              "type": "ConfigOption"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "setType",
+          "params": [
+            {
+              "name": "option",
+              "type": "TypeOption | TypeOption[]"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "getType",
+          "params": [
+            {
+              "name": "name",
+              "type": "string"
+            }
+          ],
+          "returnType": "TypeOption",
+          "description": null
+        },
+        {
+          "name": "getMergedField",
+          "params": [
+            {
+              "name": "field",
+              "type": "FieldConfig"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "resolveFieldTypeRef",
+          "params": [
+            {
+              "name": "field",
+              "type": "FieldConfigCache"
+            }
+          ],
+          "returnType": "ComponentRef<FieldType>",
+          "description": null
+        },
+        {
+          "name": "setWrapper",
+          "params": [
+            {
+              "name": "option",
+              "type": "WrapperOption"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "getWrapper",
+          "params": [
+            {
+              "name": "name",
+              "type": "string"
+            }
+          ],
+          "returnType": "WrapperOption",
+          "description": null
+        },
+        {
+          "name": "setTypeWrapper",
+          "params": [
+            {
+              "name": "type",
+              "type": "string"
+            },
+            {
+              "name": "name",
+              "type": "string"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "setValidator",
+          "params": [
+            {
+              "name": "option",
+              "type": "ValidatorOption"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "getValidator",
+          "params": [
+            {
+              "name": "name",
+              "type": "string"
+            }
+          ],
+          "returnType": "ValidatorOption",
+          "description": null
+        },
+        {
+          "name": "addValidatorMessage",
+          "params": [
+            {
+              "name": "name",
+              "type": "string"
+            },
+            {
+              "name": "message",
+              "type": "ValidationMessageOption['message']"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "getValidatorMessage",
+          "params": [
+            {
+              "name": "name",
+              "type": "string"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "types",
+          "type": "{ [name: string]: TypeOption }",
+          "default": "{}",
+          "description": null
+        },
+        {
+          "name": "validators",
+          "type": "{ [name: string]: ValidatorOption }",
+          "default": "{}",
+          "description": null
+        },
+        {
+          "name": "wrappers",
+          "type": "{ [name: string]: WrapperOption }",
+          "default": "{}",
+          "description": null
+        },
+        {
+          "name": "messages",
+          "type": "{ [name: string]: ValidationMessageOption['message'] }",
+          "default": "{}",
+          "description": null
+        },
+        {
+          "name": "extras",
+          "type": "ConfigOption['extras']",
+          "default": "{\n    checkExpressionOn: 'changeDetectionCheck',\n    lazyRender: false,\n    showError(field: FieldType) {\n      return (\n        field.formControl &&\n        field.formControl.invalid &&\n        (field.formControl.touched ||\n          (field.option.parentForm && field.option.parentForm.submitted) ||\n          !!(field.field.validation && field.field.validation.show))\n      );\n    },\n  }",
+          "description": null
+        },
+        {
+          "name": "extensions",
+          "type": "{ [name: string]: FormExtension }",
+          "default": "{}",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "FormExt",
+      "kind": "class",
+      "summary": null,
+      "sourceFile": "src/core/form/form.ext.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "getFieldId",
+          "params": [
+            {
+              "name": "formId",
+              "type": "string"
+            },
+            {
+              "name": "field",
+              "type": "FieldConfig"
+            },
+            {
+              "name": "index",
+              "type": "string | number"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "getFieldModel",
+          "params": [
+            {
+              "name": "model",
+              "type": "any"
+            },
+            {
+              "name": "field",
+              "type": "FieldConfig"
+            },
+            {
+              "name": "constructEmptyObjects",
+              "type": "boolean"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "getFieldValue",
+          "params": [
+            {
+              "name": "field",
+              "type": "FieldConfig"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "initFieldValue",
+          "params": [
+            {
+              "name": "value",
+              "type": "any"
+            },
+            {
+              "name": "field",
+              "type": "FieldConfig"
+            }
+          ],
+          "returnType": "void",
+          "description": null
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "FormExtension",
+      "kind": "interface",
+      "summary": null,
+      "sourceFile": "src/core/form/models/config.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "FormLifeCycleEvent",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/core/form/models/field.config.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "FormOptions",
+      "kind": "interface",
+      "summary": null,
+      "sourceFile": "src/core/form/models/field.config.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "FormOptionsCache",
+      "kind": "interface",
+      "summary": null,
+      "sourceFile": "src/core/form/models/field-config.cache.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "FormTemplateType",
+      "kind": "component",
+      "selector": "form-template",
+      "summary": null,
+      "sourceFile": "src/core/form/template/field-template.type.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "template",
+          "type": "any",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "getFieldInitialValue",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/core/form/utils.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "getFieldValue",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/core/form/utils.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "getKeyPath",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/core/form/utils.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "getKeyPath2",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/core/form/utils.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "getValueForKey2",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/core/form/utils.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "IObserver",
+      "kind": "interface",
+      "summary": null,
+      "sourceFile": "src/core/form/utils.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "isNil",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/core/form/utils.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "isUndefined",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/core/form/utils.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "observe",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/core/form/utils.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "observeDeep",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/core/form/utils.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "registerControl",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/core/form/extensions/field-form/utils.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "reverseDeepMerge",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/core/form/utils.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "ValidationMessage",
+      "kind": "component",
+      "selector": "validation-message",
+      "summary": null,
+      "sourceFile": "src/core/form/template/form.validation-message.ts",
+      "inputs": [
+        {
+          "name": "field",
+          "type": "FieldConfig",
+          "description": null
+        }
+      ],
+      "outputs": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "errorMessage$",
+          "type": "Observable<any>",
+          "description": null
+        },
+        {
+          "name": "errorMessage",
+          "type": "any",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "ValueChangeEvent",
+      "kind": "interface",
+      "summary": null,
+      "sourceFile": "src/core/form/models/field.config.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    }
+  ],
+  "suggestedUsageSnippet": "import { FormTemplateType, AbstractFormModule } from '@dotos/dui/core/form';\n\n<form-template></form-template>"
+}

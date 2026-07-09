@@ -1,0 +1,118 @@
+{
+  "importPath": "@dotos/dui/ui/color-button",
+  "exports": [
+    {
+      "name": "ColorPickerButton",
+      "kind": "component",
+      "selector": "colorpicker-button",
+      "summary": null,
+      "sourceFile": "src/ui/color-button/color-button.ts",
+      "inputs": [
+        {
+          "name": "config",
+          "type": "any",
+          "default": "{}",
+          "description": null
+        },
+        {
+          "name": "data",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "ownerCt",
+          "type": "any",
+          "description": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "click",
+          "type": "any",
+          "description": null
+        }
+      ],
+      "methods": [
+        {
+          "name": "setValue",
+          "params": [
+            {
+              "name": "v",
+              "type": "any"
+            }
+          ],
+          "returnType": "void",
+          "description": null
+        },
+        {
+          "name": "changeComplete",
+          "params": [
+            {
+              "name": "$event",
+              "type": "ColorEvent"
+            }
+          ],
+          "returnType": "void",
+          "description": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "matTooltip",
+          "type": "MatTooltip",
+          "description": null
+        },
+        {
+          "name": "triggers",
+          "type": "QueryList<MatMenuTrigger>",
+          "description": null
+        },
+        {
+          "name": "state",
+          "type": "any",
+          "default": "{\n    h: 150,\n    s: 0.50,\n    l: 0.20,\n    a: 1,\n  }",
+          "description": null
+        },
+        {
+          "name": "displayFlex",
+          "type": "string",
+          "description": null
+        },
+        {
+          "name": "paddingLeft",
+          "type": "string",
+          "description": null
+        },
+        {
+          "name": "paddingRight",
+          "type": "string",
+          "description": null
+        },
+        {
+          "name": "iconStyle",
+          "type": "any",
+          "default": "{ \"border-bottom-color\":\"#000\"}",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "ColorPickerButtonModule",
+      "kind": "module",
+      "summary": null,
+      "sourceFile": "src/ui/color-button/color-button.module.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "entryComponents",
+          "type": "any",
+          "default": "[\n    ColorPickerButton,\n  ]",
+          "description": null
+        }
+      ]
+    }
+  ],
+  "suggestedUsageSnippet": "import { ColorPickerButton, ColorPickerButtonModule } from '@dotos/dui/ui/color-button';\n\n<colorpicker-button [config]=\"...\" [data]=\"...\" [ownerCt]=\"...\" (click)=\"...\"></colorpicker-button>"
+}

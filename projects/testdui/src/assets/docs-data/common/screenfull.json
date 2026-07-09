@@ -1,0 +1,51 @@
+{
+  "importPath": "@dotos/dui/common/screenfull",
+  "exports": [
+    {
+      "name": "ScreenfullService",
+      "kind": "service",
+      "summary": null,
+      "sourceFile": "src/common/screenfull/screenfull.service.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "toggle",
+          "params": [
+            {
+              "name": "elem",
+              "type": "HTMLElement"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "request",
+          "params": [
+            {
+              "name": "element",
+              "type": "HTMLElement"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "keyboardAllowed",
+          "type": "any",
+          "default": "typeof Element !== 'undefined' && 'ALLOW_KEYBOARD_INPUT' in Element",
+          "description": null
+        },
+        {
+          "name": "isFullscreen",
+          "type": "any",
+          "description": null
+        }
+      ]
+    }
+  ],
+  "suggestedUsageSnippet": "import { /* ... */ } from '@dotos/dui/common/screenfull';"
+}

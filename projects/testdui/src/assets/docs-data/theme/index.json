@@ -1,0 +1,1877 @@
+{
+  "importPath": "@dotos/dui/theme",
+  "exports": [
+    {
+      "name": "_getAmbientMap",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/theme/utils/elevation.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "_getPenumbraMap",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/theme/utils/elevation.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "_getUmbraMap",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/theme/utils/elevation.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "_matElevationPrefix",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/theme/utils/elevation.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "addRule",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/theme/utils/rules-operations.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "Background",
+      "kind": "interface",
+      "summary": null,
+      "sourceFile": "src/theme/interfaces/background.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "BasePalette",
+      "kind": "interface",
+      "summary": null,
+      "sourceFile": "src/theme/interfaces/palette.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "cdkA11y",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/theme/core/cdk-a11y.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "cdkOverlay",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/theme/core/cdk-overlay.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "cdkTextfieldAutoFill",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/theme/core/cdk-textfield.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "cdkTextfieldAutosize",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/theme/core/cdk-textfield.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "CommandPaletteTheme",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/theme/theme/command-palette.theme.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "createMaterialCoreStyles",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/theme/theme.service.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "createMaterialThemeStyles",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/theme/theme.service.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "darkDisabledText",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/theme/constants.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "darkDividers",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/theme/constants.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "darkFocused",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/theme/constants.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "darkPrimaryText",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/theme/constants.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "darkSecondaryText",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/theme/constants.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "density",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/theme/theme/mat-icon-button-theme.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "divideRule",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/theme/utils/rules-operations.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "dockLayoutTheme",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/theme/theme/dock-layout-host-theme.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "DOTOS_CONFIG",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/theme/config/config.service.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "dotosConfig",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/theme/config/config.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "DotosConfig",
+      "kind": "interface",
+      "summary": null,
+      "sourceFile": "src/theme/types/dotos-config.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "DotosConfigModule",
+      "kind": "module",
+      "summary": null,
+      "sourceFile": "src/theme/config/config.module.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "forRoot",
+          "params": [
+            {
+              "name": "config",
+              "type": "any"
+            }
+          ],
+          "returnType": "ModuleWithProviders<DotosConfigModule>",
+          "description": null
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "DotosConfigService",
+      "kind": "service",
+      "summary": null,
+      "sourceFile": "src/theme/config/config.service.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "getValue",
+          "params": [
+            {
+              "name": "key",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "setValue",
+          "params": [
+            {
+              "name": "key",
+              "type": "any"
+            },
+            {
+              "name": "value",
+              "type": "any"
+            },
+            {
+              "name": "opts",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "resetToDefaults",
+          "params": [],
+          "returnType": "void",
+          "description": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "config",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "config",
+          "type": "Observable<DotosConfig>",
+          "description": null
+        },
+        {
+          "name": "defaultConfig",
+          "type": "DotosConfig",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "duiCardTheme",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/theme/theme/dui-card-theme.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "duiChipsTheme",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/theme/theme/dui-chips-theme.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "duiClipboardTheme",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/theme/theme/dui-clipboard-theme.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "duiDataTableTheme",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/theme/theme/dui-datatable-theme.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "duiDateFieldTheme",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/theme/theme/dui-datefield-theme.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "duiDialogTheme",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/theme/theme/dui-dialog-theme.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "duiDragselectTheme",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/theme/theme/drag-to-select-theme.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "duiEditorTheme",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/theme/theme/dui-editor.theme.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "duiExpansionPanelTheme",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/theme/theme/dui-expansion-panel-theme.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "duiFileFieldTheme",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/theme/theme/dui-filefield-theme.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "duiIconPickerTheme",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/theme/theme/icon-picker.theme.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "duiImageFieldTheme",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/theme/theme/dui-imagefield-theme.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "duiMarkdownTheme",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/theme/theme/dui-markdown.theme.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "duiMenuTheme",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/theme/theme/dui-menu-theme.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "duiMessageTheme",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/theme/theme/dui-message-theme.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "duiNotificationTheme",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/theme/theme/dui-notification-count-theme.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "duiPagingTheme",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/theme/theme/dui-paging-theme.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "duiQueryBuilderTheme",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/theme/theme/query-builder.theme.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "duiSelectTheme",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/theme/theme/dui-select-theme.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "duiTreeTheme",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/theme/theme/dui-tree-theme.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "duiWindowsTheme",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/theme/theme/dui-windows-theme.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "easeInOutCurveFunction",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/theme/utils/variables.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "Foreground",
+      "kind": "interface",
+      "summary": null,
+      "sourceFile": "src/theme/interfaces/foreground.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "invert",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/theme/mat-color.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "invertSvgColor",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/theme/mat-color.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "lightDisabledText",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/theme/constants.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "lightDividers",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/theme/constants.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "lightFocused",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/theme/constants.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "lightPrimaryText",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/theme/constants.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "lightSecondaryText",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/theme/constants.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "matAutocompleteTheme",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/theme/theme/mat-autocomplete-theme.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "matBlueGray",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/theme/palettes/mat-blue-gray.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "matBottomSheetTheme",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/theme/theme/bottom-sheet-theme.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "matButtonTheme",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/theme/theme/mat-button-theme.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "matButtonToggleTheme",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/theme/theme/mat-button-toggle-theme.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "matCardTheme",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/theme/theme/mat-card-theme.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "matCheckboxTheme",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/theme/theme/mat-checkbox-theme.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "matChipsTheme",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/theme/theme/mat-chips-theme.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "matColor",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/theme/mat-color.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "matCore",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/theme/mat-core.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "matCoreTheme",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/theme/theme/mat-core-theme.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "matCyan",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/theme/palettes/mat-cyan.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "matDarkBlueTheme",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/theme/mat-darkblue-theme.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "matDarkTheme",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/theme/mat-dark-theme.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "matDatepickerTheme",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/theme/theme/mat-datepicker-theme.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "matDialogTheme",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/theme/theme/mat-dialog-theme.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "matDividerTheme",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/theme/theme/mat-divider-theme.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "matElevation",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/theme/utils/elevation.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "matElevationColor",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/theme/utils/elevation.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "matElevationOpacity",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/theme/utils/elevation.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "matElevationTransition",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/theme/utils/elevation.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "matElevationTransitionDuration",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/theme/utils/elevation.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "matElevationTransitionPropertyValue",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/theme/utils/elevation.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "matElevationTransitionTimingFunction",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/theme/utils/elevation.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "matEvaluation",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/theme/core/mat-elevation.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "matExpansionPanelTheme",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/theme/theme/mat-expansion-panel-theme.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "matFabTheme",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/theme/theme/mat-fab-theme.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "matFastOutLinearInTimingFunction",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/theme/utils/variables.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "matFastOutSlowInTimingFunction",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/theme/utils/variables.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "matFocus",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/theme/core/focus.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "matFontFamily",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/theme/utils/mat-font-family.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "matFontSize",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/theme/utils/mat-font-size.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "matFontWeight",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/theme/utils/mat-font-weight.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "matFormFieldTheme",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/theme/theme/mat-form-field-theme.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "matGray",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/theme/palettes/mat-grey.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "matGreen",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/theme/palettes/mat-green.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "matGrey",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/theme/palettes/mat-grey.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "matGridListTheme",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/theme/theme/mat-grid-list-theme.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "matIconButtonTheme",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/theme/theme/mat-icon-button-theme.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "matIconTheme",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/theme/theme/mat-icon-theme.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "matInputTheme",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/theme/theme/mat-input-theme.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "matLightTheme",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/theme/mat-light-theme.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "matLinearOutSlowInTimingFunction",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/theme/utils/variables.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "matLineBase",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/theme/utils/mat-line-base.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "matLineHeight",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/theme/utils/mat-line-height.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "matListTheme",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/theme/theme/mat-list-theme.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "matMenuTheme",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/theme/theme/mat-menu-theme.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "matOrange",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/theme/palettes/mat-orange.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "matOverridableElevation",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/theme/utils/elevation.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "matPaginatorTheme",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/theme/theme/mat-paginator-theme.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "matPalette",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/theme/mat-palette.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "matProgressBarTheme",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/theme/theme/mat-progress-bar-theme.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "matProgressSpinnerTheme",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/theme/theme/mat-progress-spinner-theme.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "matRadioTheme",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/theme/theme/mat-radio-theme.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "matRed",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/theme/palettes/mat-red.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "matRipple",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/theme/core/mat-ripple.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "matRippleColorOpacity",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/theme/constants.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "matSelectTheme",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/theme/theme/mat-select-theme.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "matSidenavTheme",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/theme/theme/mat-sidenav-theme.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "matSliderTheme",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/theme/theme/mat-slider-theme.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "matSlideToggleTheme",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/theme/theme/mat-slide-toggle-theme.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "matSmall",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/theme/utils/variables.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "matSnackBarTheme",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/theme/theme/mat-snack-bar-theme.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "matSortTheme",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/theme/theme/mat-sort-theme.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "matSpeedDialTheme",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/theme/theme/dui-speeddial-theme.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "matStepperTheme",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/theme/theme/mat-stepper-theme.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "matTableTheme",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/theme/theme/mat-table-theme.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "matTabsTheme",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/theme/theme/mat-tabs-theme.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "matThemeElevation",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/theme/utils/elevation.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "matThemeOverridableElevation",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/theme/utils/elevation.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "matTogglePadding",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/theme/utils/variables.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "matToggleSize",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/theme/utils/variables.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "matToolbarTheme",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/theme/theme/mat-toolbar-theme.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "matTooltipTheme",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/theme/theme/mat-tooltip-theme.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "matTreeTheme",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/theme/theme/mat-tree-theme.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "matTypographyFontShorthand",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/theme/typography/mat-typography-font-shorthand.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "matTypographyLevelToStyles",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/theme/typography/mat-typography-level-to-styles.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "matXsmall",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/theme/utils/variables.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "mdcFocus",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/theme/core/focus.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "mix",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/theme/mat-color.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "multiplyRule",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/theme/utils/rules-operations.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "Palette",
+      "kind": "interface",
+      "summary": null,
+      "sourceFile": "src/theme/interfaces/palette.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "pi",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/theme/utils/variables.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "rgba",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/theme/mat-color.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "roundRule",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/theme/utils/rules-operations.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "structuralStyling",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/theme/core/focus.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "subtractRule",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/theme/utils/rules-operations.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "svgColor",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/theme/mat-color.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "swiftEaseIn",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/theme/utils/variables.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "swiftEaseInDuration",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/theme/utils/variables.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "swiftEaseInOut",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/theme/utils/variables.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "swiftEaseInOutDuration",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/theme/utils/variables.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "swiftEaseInOutTimingFunction",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/theme/utils/variables.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "swiftEaseInTimingFunction",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/theme/utils/variables.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "swiftEaseOut",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/theme/utils/variables.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "swiftEaseOutDuration",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/theme/utils/variables.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "swiftEaseOutTimingFunction",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/theme/utils/variables.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "swiftLinear",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/theme/utils/variables.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "swiftLinearDuration",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/theme/utils/variables.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "swiftLinearTimingFunction",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/theme/utils/variables.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "Theme",
+      "kind": "interface",
+      "summary": null,
+      "sourceFile": "src/theme/interfaces/theme.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "THEME_SERVICE_PROVIDER",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/theme/theme.service.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "ThemeService",
+      "kind": "service",
+      "summary": null,
+      "sourceFile": "src/theme/theme.service.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "getInstance",
+          "params": [],
+          "returnType": "ThemeService",
+          "description": null
+        },
+        {
+          "name": "refreshTheme",
+          "params": [],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "getFormType",
+          "params": [],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "setTheme",
+          "params": [
+            {
+              "name": "config",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "loadTheme",
+          "params": [
+            {
+              "name": "themeFn",
+              "type": "any"
+            }
+          ],
+          "returnType": "void",
+          "description": null
+        },
+        {
+          "name": "createThemeStyles",
+          "params": [
+            {
+              "name": "theme",
+              "type": "any"
+            },
+            {
+              "name": "themeFn",
+              "type": "any"
+            },
+            {
+              "name": "dynamicThemeStyles",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "getThemeStyle",
+          "params": [
+            {
+              "name": "themeFn",
+              "type": "any"
+            },
+            {
+              "name": "theme",
+              "type": "Theme"
+            }
+          ],
+          "returnType": "Object",
+          "description": null
+        },
+        {
+          "name": "changeThemeWithConfig",
+          "params": [
+            {
+              "name": "config",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "changeTheme",
+          "params": [
+            {
+              "name": "primaryStr",
+              "type": "any"
+            },
+            {
+              "name": "accentStr",
+              "type": "any"
+            },
+            {
+              "name": "warnStr",
+              "type": "any"
+            },
+            {
+              "name": "type",
+              "type": "string"
+            },
+            {
+              "name": "typography",
+              "type": "string"
+            },
+            {
+              "name": "formType",
+              "type": "MatFormFieldAppearance"
+            }
+          ],
+          "returnType": "void",
+          "description": null
+        },
+        {
+          "name": "getThemeByType",
+          "params": [
+            {
+              "name": "type",
+              "type": "string"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "getTheme",
+          "params": [],
+          "returnType": "any",
+          "description": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "formType",
+          "type": "BehaviorSubject<MatFormFieldAppearance>",
+          "default": "new BehaviorSubject<MatFormFieldAppearance>('fill')",
+          "description": null
+        },
+        {
+          "name": "dotosConfig",
+          "type": "any",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "typography",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/theme/theme/mat-progress-bar-theme.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "TypographyConfig",
+      "kind": "interface",
+      "summary": null,
+      "sourceFile": "src/theme/interfaces/typography-config.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "TypographyLevel",
+      "kind": "interface",
+      "summary": null,
+      "sourceFile": "src/theme/interfaces/typography-level.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "TypographyMap",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/theme/typography-theme.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "zIndexDrawer",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/theme/utils/variables.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "zIndexFab",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/theme/utils/variables.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    }
+  ],
+  "suggestedUsageSnippet": "import { DotosConfigModule } from '@dotos/dui/theme';"
+}

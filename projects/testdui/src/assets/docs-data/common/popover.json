@@ -1,0 +1,580 @@
+{
+  "importPath": "@dotos/dui/common/popover",
+  "exports": [
+    {
+      "name": "Popover",
+      "kind": "component",
+      "selector": "popover",
+      "summary": null,
+      "sourceFile": "src/common/popover/popover.ts",
+      "inputs": [
+        {
+          "name": "positionX",
+          "alias": "popoverPositionX",
+          "type": "any",
+          "description": "Position of the popover in the X axis."
+        },
+        {
+          "name": "positionY",
+          "alias": "popoverPositionY",
+          "type": "any",
+          "description": "Position of the popover in the Y axis."
+        },
+        {
+          "name": "triggerEvent",
+          "alias": "popoverTriggerOn",
+          "type": "PopoverTriggerEvent",
+          "description": "Popover trigger event"
+        },
+        {
+          "name": "scrollStrategy",
+          "alias": "popoverScrollStrategy",
+          "type": "PopoverScrollStrategy",
+          "description": "Popover scroll strategy"
+        },
+        {
+          "name": "enterDelay",
+          "alias": "popoverEnterDelay",
+          "type": "number",
+          "description": "Popover enter delay"
+        },
+        {
+          "name": "leaveDelay",
+          "alias": "popoverLeaveDelay",
+          "type": "number",
+          "description": "Popover leave delay"
+        },
+        {
+          "name": "overlapTrigger",
+          "alias": "popoverOverlapTrigger",
+          "type": "boolean",
+          "description": "Popover overlap trigger"
+        },
+        {
+          "name": "targetOffsetX",
+          "alias": "popoverOffsetX",
+          "type": "number",
+          "description": "Popover target offset x"
+        },
+        {
+          "name": "targetOffsetY",
+          "alias": "popoverOffsetY",
+          "type": "number",
+          "description": "Popover target offset y"
+        },
+        {
+          "name": "arrowOffsetX",
+          "alias": "popoverArrowOffsetX",
+          "type": "number",
+          "description": "Popover arrow offset x"
+        },
+        {
+          "name": "arrowWidth",
+          "alias": "popoverArrowWidth",
+          "type": "number",
+          "description": "Popover arrow width"
+        },
+        {
+          "name": "arrowColor",
+          "alias": "popoverArrowColor",
+          "type": "string",
+          "description": null
+        },
+        {
+          "name": "closeOnClick",
+          "alias": "popoverCloseOnClick",
+          "type": "boolean",
+          "description": null
+        },
+        {
+          "name": "disableAnimation",
+          "alias": "popoverDisableAnimation",
+          "type": "boolean",
+          "description": null
+        },
+        {
+          "name": "focusTrapEnabled",
+          "type": "boolean",
+          "description": null
+        },
+        {
+          "name": "focusTrapAutoCaptureEnabled",
+          "type": "boolean",
+          "description": null
+        },
+        {
+          "name": "panelClass",
+          "alias": "class",
+          "type": "string",
+          "description": null
+        },
+        {
+          "name": "classList",
+          "type": "string",
+          "description": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "close",
+          "type": "any",
+          "description": "Event emitted when the popover is closed."
+        }
+      ],
+      "methods": [
+        {
+          "name": "onClick",
+          "params": [],
+          "returnType": "any",
+          "description": "Close popover on click if closeOnClick is true"
+        },
+        {
+          "name": "onMouseOver",
+          "params": [],
+          "returnType": "any",
+          "description": "Disables close of popover when leaving trigger element and mouse over the popover"
+        },
+        {
+          "name": "onMouseLeave",
+          "params": [],
+          "returnType": "any",
+          "description": "Enables close of popover when mouse leaving popover element"
+        },
+        {
+          "name": "setCurrentStyles",
+          "params": [],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "setPositionClasses",
+          "params": [
+            {
+              "name": "posX",
+              "type": "any"
+            },
+            {
+              "name": "posY",
+              "type": "any"
+            }
+          ],
+          "returnType": "void",
+          "description": "It's necessary to set position-based classes to ensure the popover panel animation\nfolds out from the correct direction."
+        }
+      ],
+      "properties": [
+        {
+          "name": "role",
+          "type": "any",
+          "default": "'dialog'",
+          "description": null
+        },
+        {
+          "name": "containerPositioning",
+          "type": "any",
+          "default": "false",
+          "description": null
+        },
+        {
+          "name": "closeDisabled",
+          "type": "any",
+          "default": "false",
+          "description": "Closing disabled on popover"
+        },
+        {
+          "name": "popoverPanelStyles",
+          "type": "{}",
+          "description": "Config object to be passed into the popover's arrow ngStyle"
+        },
+        {
+          "name": "popoverArrowStyles",
+          "type": "{}",
+          "description": "Config object to be passed into the popover's arrow ngStyle"
+        },
+        {
+          "name": "popoverContentStyles",
+          "type": "{}",
+          "description": "Config object to be passed into the popover's content ngStyle"
+        },
+        {
+          "name": "positionX",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "positionY",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "triggerEvent",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "scrollStrategy",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "enterDelay",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "leaveDelay",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "overlapTrigger",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "targetOffsetX",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "targetOffsetY",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "arrowOffsetX",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "arrowWidth",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "arrowColor",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "closeOnClick",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "disableAnimation",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "focusTrapEnabled",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "focusTrapAutoCaptureEnabled",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "classList",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "templateRef",
+          "type": "TemplateRef<any>",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "PopoverConfig",
+      "kind": "interface",
+      "summary": null,
+      "sourceFile": "src/common/popover/popover-interfaces.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "PopoverModule",
+      "kind": "module",
+      "summary": null,
+      "sourceFile": "src/common/popover/popover-module.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "PopoverPanel",
+      "kind": "interface",
+      "summary": null,
+      "sourceFile": "src/common/popover/popover-interfaces.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "PopoverTarget",
+      "kind": "directive",
+      "selector": "popover-target, [popoverTarget]",
+      "summary": null,
+      "sourceFile": "src/common/popover/popover-target.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "PopoverTargetInterface",
+      "kind": "interface",
+      "summary": null,
+      "sourceFile": "src/common/popover/popover-interfaces.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "PopoverTrigger",
+      "kind": "directive",
+      "selector": "[popoverTriggerFor]",
+      "summary": null,
+      "sourceFile": "src/common/popover/popover-trigger.ts",
+      "inputs": [
+        {
+          "name": "name",
+          "type": "string",
+          "description": null
+        },
+        {
+          "name": "popover",
+          "alias": "popoverTriggerFor",
+          "type": "PopoverPanel",
+          "description": "References the popover instance that the trigger is associated with."
+        },
+        {
+          "name": "targetElement",
+          "alias": "popoverTargetAt",
+          "type": "PopoverTargetInterface",
+          "description": null
+        },
+        {
+          "name": "positionX",
+          "alias": "popoverPositionX",
+          "type": "PopoverPositionX",
+          "description": "Position of the popover in the X axis"
+        },
+        {
+          "name": "positionY",
+          "alias": "popoverPositionY",
+          "type": "PopoverPositionY",
+          "description": "Position of the popover in the Y axis"
+        },
+        {
+          "name": "triggerEvent",
+          "alias": "popoverTriggerOn",
+          "type": "PopoverTriggerEvent",
+          "description": "Popover trigger event"
+        },
+        {
+          "name": "enterDelay",
+          "alias": "popoverEnterDelay",
+          "type": "number",
+          "description": "Popover delay"
+        },
+        {
+          "name": "leaveDelay",
+          "alias": "popoverLeaveDelay",
+          "type": "number",
+          "description": "Popover delay"
+        },
+        {
+          "name": "overlapTrigger",
+          "alias": "popoverOverlapTrigger",
+          "type": "boolean",
+          "description": "Popover overlap trigger"
+        },
+        {
+          "name": "targetOffsetX",
+          "alias": "popoverOffsetX",
+          "type": "number",
+          "description": "Popover target offset x"
+        },
+        {
+          "name": "targetOffsetY",
+          "alias": "popoverOffsetY",
+          "type": "number",
+          "description": "Popover target offset y"
+        },
+        {
+          "name": "arrowOffsetX",
+          "alias": "popoverArrowOffsetX",
+          "type": "number",
+          "description": "Popover arrow offset x"
+        },
+        {
+          "name": "arrowWidth",
+          "alias": "popoverArrowWidth",
+          "type": "number",
+          "description": "Popover arrow width"
+        },
+        {
+          "name": "arrowColor",
+          "alias": "popoverArrowColor",
+          "type": "string",
+          "description": "Popover arrow color"
+        },
+        {
+          "name": "closeOnClick",
+          "alias": "popoverCloseOnClick",
+          "type": "boolean",
+          "description": "Popover container close on click"
+        },
+        {
+          "name": "backdropCloseOnClick",
+          "alias": "popoverBackdropCloseOnClick",
+          "type": "any",
+          "default": "true",
+          "description": null
+        },
+        {
+          "name": "showPopOver",
+          "type": "boolean",
+          "default": "true",
+          "description": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "opened",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "closed",
+          "type": "any",
+          "description": null
+        }
+      ],
+      "methods": [
+        {
+          "name": "refresh",
+          "params": [],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "onClick",
+          "params": [],
+          "returnType": "void",
+          "description": null
+        },
+        {
+          "name": "onMouseEnter",
+          "params": [],
+          "returnType": "void",
+          "description": null
+        },
+        {
+          "name": "onMouseLeave",
+          "params": [],
+          "returnType": "void",
+          "description": null
+        },
+        {
+          "name": "togglePopover",
+          "params": [],
+          "returnType": "void",
+          "description": null
+        },
+        {
+          "name": "openPopover",
+          "params": [],
+          "returnType": "void",
+          "description": null
+        },
+        {
+          "name": "closePopover",
+          "params": [],
+          "returnType": "void",
+          "description": null
+        },
+        {
+          "name": "destroyPopover",
+          "params": [],
+          "returnType": "void",
+          "description": null
+        },
+        {
+          "name": "focus",
+          "params": [],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "getPortal",
+          "params": [],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "subscribeToPositions",
+          "params": [
+            {
+              "name": "position",
+              "type": "FlexibleConnectedPositionStrategy"
+            }
+          ],
+          "returnType": "void",
+          "description": null
+        },
+        {
+          "name": "getPosition",
+          "params": [],
+          "returnType": "FlexibleConnectedPositionStrategy",
+          "description": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "popoverOpened",
+          "type": "any",
+          "default": "new Subject<void>()",
+          "description": null
+        },
+        {
+          "name": "popoverClosed",
+          "type": "any",
+          "default": "new Subject<void>()",
+          "description": null
+        },
+        {
+          "name": "popoverOpen",
+          "type": "boolean",
+          "description": null
+        },
+        {
+          "name": "dir",
+          "type": "Direction",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "transformPopover",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/common/popover/popover-animations.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    }
+  ],
+  "suggestedUsageSnippet": "import { Popover, PopoverModule } from '@dotos/dui/common/popover';\n\n<popover [popoverPositionX]=\"...\" [popoverPositionY]=\"...\" [popoverTriggerOn]=\"...\" (close)=\"...\"></popover>"
+}

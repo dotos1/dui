@@ -1,0 +1,81 @@
+.api-ref__layout {
+  display: flex;
+  align-items: flex-start;
+  gap: 32px;
+}
+
+.api-ref__main {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.api-ref__card {
+  margin-bottom: 20px;
+  scroll-margin-top: 16px;
+}
+
+.api-ref__kind {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 2px 6px;
+  border-radius: 4px;
+  background: #e3f2fd;
+  color: #1565c0;
+  margin-left: 8px;
+  vertical-align: middle;
+}
+
+.api-ref__summary {
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.api-ref__table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 8px 0 20px;
+  font-size: 13px;
+
+  th, td {
+    text-align: left;
+    padding: 6px 10px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    vertical-align: top;
+  }
+
+  th {
+    color: rgba(0, 0, 0, 0.5);
+    font-weight: 500;
+  }
+}
+
+.api-ref__source {
+  font-size: 12px;
+  color: rgba(0, 0, 0, 0.4);
+}
+
+.api-ref__anchors {
+  flex: 0 0 200px;
+  position: sticky;
+  top: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 13px;
+}
+
+.api-ref__anchors-title {
+  font-weight: 600;
+  color: rgba(0, 0, 0, 0.5);
+  margin-bottom: 6px;
+}
+
+.api-ref__empty {
+  color: rgba(0, 0, 0, 0.5);
+
+  code {
+    background: rgba(0, 0, 0, 0.06);
+    padding: 2px 4px;
+    border-radius: 4px;
+  }
+}

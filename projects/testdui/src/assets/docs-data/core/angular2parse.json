@@ -1,0 +1,3336 @@
+{
+  "importPath": "@dotos/dui/core/angular2parse",
+  "exports": [
+    {
+      "name": "_ParseAST",
+      "kind": "class",
+      "summary": null,
+      "sourceFile": "src/core/angular2parse/angular/compiler/parser.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "peek",
+          "params": [
+            {
+              "name": "offset",
+              "type": "number"
+            }
+          ],
+          "returnType": "Token",
+          "description": null
+        },
+        {
+          "name": "span",
+          "params": [
+            {
+              "name": "start",
+              "type": "number"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "advance",
+          "params": [],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "optionalCharacter",
+          "params": [
+            {
+              "name": "code",
+              "type": "number"
+            }
+          ],
+          "returnType": "boolean",
+          "description": null
+        },
+        {
+          "name": "peekKeywordLet",
+          "params": [],
+          "returnType": "boolean",
+          "description": null
+        },
+        {
+          "name": "expectCharacter",
+          "params": [
+            {
+              "name": "code",
+              "type": "number"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "optionalOperator",
+          "params": [
+            {
+              "name": "op",
+              "type": "string"
+            }
+          ],
+          "returnType": "boolean",
+          "description": null
+        },
+        {
+          "name": "expectOperator",
+          "params": [
+            {
+              "name": "operator",
+              "type": "string"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "expectIdentifierOrKeyword",
+          "params": [],
+          "returnType": "string",
+          "description": null
+        },
+        {
+          "name": "expectIdentifierOrKeywordOrString",
+          "params": [],
+          "returnType": "string",
+          "description": null
+        },
+        {
+          "name": "parseChain",
+          "params": [],
+          "returnType": "AST",
+          "description": null
+        },
+        {
+          "name": "parsePipe",
+          "params": [],
+          "returnType": "AST",
+          "description": null
+        },
+        {
+          "name": "parseExpression",
+          "params": [],
+          "returnType": "AST",
+          "description": null
+        },
+        {
+          "name": "parseConditional",
+          "params": [],
+          "returnType": "AST",
+          "description": null
+        },
+        {
+          "name": "parseLogicalOr",
+          "params": [],
+          "returnType": "AST",
+          "description": null
+        },
+        {
+          "name": "parseLogicalAnd",
+          "params": [],
+          "returnType": "AST",
+          "description": null
+        },
+        {
+          "name": "parseEquality",
+          "params": [],
+          "returnType": "AST",
+          "description": null
+        },
+        {
+          "name": "parseRelational",
+          "params": [],
+          "returnType": "AST",
+          "description": null
+        },
+        {
+          "name": "parseAdditive",
+          "params": [],
+          "returnType": "AST",
+          "description": null
+        },
+        {
+          "name": "parseMultiplicative",
+          "params": [],
+          "returnType": "AST",
+          "description": null
+        },
+        {
+          "name": "parsePrefix",
+          "params": [],
+          "returnType": "AST",
+          "description": null
+        },
+        {
+          "name": "parseCallChain",
+          "params": [],
+          "returnType": "AST",
+          "description": null
+        },
+        {
+          "name": "parsePrimary",
+          "params": [],
+          "returnType": "AST",
+          "description": null
+        },
+        {
+          "name": "parseExpressionList",
+          "params": [
+            {
+              "name": "terminator",
+              "type": "number"
+            }
+          ],
+          "returnType": "AST[]",
+          "description": null
+        },
+        {
+          "name": "parseLiteralMap",
+          "params": [],
+          "returnType": "LiteralMap",
+          "description": null
+        },
+        {
+          "name": "parseAccessMemberOrMethodCall",
+          "params": [
+            {
+              "name": "receiver",
+              "type": "AST"
+            },
+            {
+              "name": "isSafe",
+              "type": "boolean"
+            }
+          ],
+          "returnType": "AST",
+          "description": null
+        },
+        {
+          "name": "parseCallArguments",
+          "params": [],
+          "returnType": "BindingPipe[]",
+          "description": null
+        },
+        {
+          "name": "expectTemplateBindingKey",
+          "params": [],
+          "returnType": "string",
+          "description": "An identifier, a keyword, a string with an optional `-` inbetween."
+        },
+        {
+          "name": "parseTemplateBindings",
+          "params": [],
+          "returnType": "TemplateBindingParseResult",
+          "description": null
+        },
+        {
+          "name": "error",
+          "params": [
+            {
+              "name": "message",
+              "type": "string"
+            },
+            {
+              "name": "index",
+              "type": "number"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "index",
+          "type": "number",
+          "default": "0",
+          "description": null
+        },
+        {
+          "name": "next",
+          "type": "Token",
+          "description": null
+        },
+        {
+          "name": "inputIndex",
+          "type": "number",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "$_",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/core/angular2parse/angular/compiler/chars.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "$$",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/core/angular2parse/angular/compiler/chars.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "$0",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/core/angular2parse/angular/compiler/chars.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "$9",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/core/angular2parse/angular/compiler/chars.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "$a",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/core/angular2parse/angular/compiler/chars.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "$A",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/core/angular2parse/angular/compiler/chars.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "$AMPERSAND",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/core/angular2parse/angular/compiler/chars.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "$AT",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/core/angular2parse/angular/compiler/chars.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "$BACKSLASH",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/core/angular2parse/angular/compiler/chars.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "$BANG",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/core/angular2parse/angular/compiler/chars.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "$BAR",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/core/angular2parse/angular/compiler/chars.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "$BT",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/core/angular2parse/angular/compiler/chars.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "$CARET",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/core/angular2parse/angular/compiler/chars.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "$COLON",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/core/angular2parse/angular/compiler/chars.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "$COMMA",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/core/angular2parse/angular/compiler/chars.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "$CR",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/core/angular2parse/angular/compiler/chars.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "$DQ",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/core/angular2parse/angular/compiler/chars.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "$e",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/core/angular2parse/angular/compiler/chars.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "$E",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/core/angular2parse/angular/compiler/chars.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "$EOF",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/core/angular2parse/angular/compiler/chars.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "$EQ",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/core/angular2parse/angular/compiler/chars.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "$f",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/core/angular2parse/angular/compiler/chars.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "$F",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/core/angular2parse/angular/compiler/chars.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "$FF",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/core/angular2parse/angular/compiler/chars.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "$GT",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/core/angular2parse/angular/compiler/chars.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "$HASH",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/core/angular2parse/angular/compiler/chars.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "$LBRACE",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/core/angular2parse/angular/compiler/chars.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "$LBRACKET",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/core/angular2parse/angular/compiler/chars.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "$LF",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/core/angular2parse/angular/compiler/chars.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "$LPAREN",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/core/angular2parse/angular/compiler/chars.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "$LT",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/core/angular2parse/angular/compiler/chars.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "$MINUS",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/core/angular2parse/angular/compiler/chars.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "$n",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/core/angular2parse/angular/compiler/chars.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "$NBSP",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/core/angular2parse/angular/compiler/chars.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "$PERCENT",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/core/angular2parse/angular/compiler/chars.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "$PERIOD",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/core/angular2parse/angular/compiler/chars.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "$PIPE",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/core/angular2parse/angular/compiler/chars.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "$PLUS",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/core/angular2parse/angular/compiler/chars.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "$QUESTION",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/core/angular2parse/angular/compiler/chars.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "$r",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/core/angular2parse/angular/compiler/chars.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "$RBRACE",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/core/angular2parse/angular/compiler/chars.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "$RBRACKET",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/core/angular2parse/angular/compiler/chars.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "$RPAREN",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/core/angular2parse/angular/compiler/chars.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "$SEMICOLON",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/core/angular2parse/angular/compiler/chars.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "$SLASH",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/core/angular2parse/angular/compiler/chars.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "$SPACE",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/core/angular2parse/angular/compiler/chars.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "$SQ",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/core/angular2parse/angular/compiler/chars.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "$STAR",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/core/angular2parse/angular/compiler/chars.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "$t",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/core/angular2parse/angular/compiler/chars.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "$TAB",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/core/angular2parse/angular/compiler/chars.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "$TILDA",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/core/angular2parse/angular/compiler/chars.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "$u",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/core/angular2parse/angular/compiler/chars.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "$v",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/core/angular2parse/angular/compiler/chars.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "$VTAB",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/core/angular2parse/angular/compiler/chars.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "$x",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/core/angular2parse/angular/compiler/chars.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "$X",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/core/angular2parse/angular/compiler/chars.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "$z",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/core/angular2parse/angular/compiler/chars.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "$Z",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/core/angular2parse/angular/compiler/chars.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "Angular2ParseModule",
+      "kind": "module",
+      "summary": null,
+      "sourceFile": "src/core/angular2parse/module.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "forRoot",
+          "params": [
+            {
+              "name": "pipesConfigMap",
+              "type": "PipesConfig[]"
+            }
+          ],
+          "returnType": "ModuleWithProviders<any>",
+          "description": null
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "assertArrayOfStrings",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/core/angular2parse/angular/compiler/assertions.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "assertInterpolationSymbols",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/core/angular2parse/angular/compiler/assertions.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "AST",
+      "kind": "class",
+      "summary": null,
+      "sourceFile": "src/core/angular2parse/angular/compiler/ast.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "visit",
+          "params": [
+            {
+              "name": "visitor",
+              "type": "AstVisitor"
+            },
+            {
+              "name": "context",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "toString",
+          "params": [],
+          "returnType": "string",
+          "description": null
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "AstTransformer",
+      "kind": "class",
+      "summary": null,
+      "sourceFile": "src/core/angular2parse/angular/compiler/ast.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "visitImplicitReceiver",
+          "params": [
+            {
+              "name": "ast",
+              "type": "ImplicitReceiver"
+            },
+            {
+              "name": "context",
+              "type": "any"
+            }
+          ],
+          "returnType": "AST",
+          "description": null
+        },
+        {
+          "name": "visitInterpolation",
+          "params": [
+            {
+              "name": "ast",
+              "type": "Interpolation"
+            },
+            {
+              "name": "context",
+              "type": "any"
+            }
+          ],
+          "returnType": "AST",
+          "description": null
+        },
+        {
+          "name": "visitLiteralPrimitive",
+          "params": [
+            {
+              "name": "ast",
+              "type": "LiteralPrimitive"
+            },
+            {
+              "name": "context",
+              "type": "any"
+            }
+          ],
+          "returnType": "AST",
+          "description": null
+        },
+        {
+          "name": "visitPropertyRead",
+          "params": [
+            {
+              "name": "ast",
+              "type": "PropertyRead"
+            },
+            {
+              "name": "context",
+              "type": "any"
+            }
+          ],
+          "returnType": "AST",
+          "description": null
+        },
+        {
+          "name": "visitPropertyWrite",
+          "params": [
+            {
+              "name": "ast",
+              "type": "PropertyWrite"
+            },
+            {
+              "name": "context",
+              "type": "any"
+            }
+          ],
+          "returnType": "AST",
+          "description": null
+        },
+        {
+          "name": "visitSafePropertyRead",
+          "params": [
+            {
+              "name": "ast",
+              "type": "SafePropertyRead"
+            },
+            {
+              "name": "context",
+              "type": "any"
+            }
+          ],
+          "returnType": "AST",
+          "description": null
+        },
+        {
+          "name": "visitMethodCall",
+          "params": [
+            {
+              "name": "ast",
+              "type": "MethodCall"
+            },
+            {
+              "name": "context",
+              "type": "any"
+            }
+          ],
+          "returnType": "AST",
+          "description": null
+        },
+        {
+          "name": "visitSafeMethodCall",
+          "params": [
+            {
+              "name": "ast",
+              "type": "SafeMethodCall"
+            },
+            {
+              "name": "context",
+              "type": "any"
+            }
+          ],
+          "returnType": "AST",
+          "description": null
+        },
+        {
+          "name": "visitFunctionCall",
+          "params": [
+            {
+              "name": "ast",
+              "type": "FunctionCall"
+            },
+            {
+              "name": "context",
+              "type": "any"
+            }
+          ],
+          "returnType": "AST",
+          "description": null
+        },
+        {
+          "name": "visitLiteralArray",
+          "params": [
+            {
+              "name": "ast",
+              "type": "LiteralArray"
+            },
+            {
+              "name": "context",
+              "type": "any"
+            }
+          ],
+          "returnType": "AST",
+          "description": null
+        },
+        {
+          "name": "visitLiteralMap",
+          "params": [
+            {
+              "name": "ast",
+              "type": "LiteralMap"
+            },
+            {
+              "name": "context",
+              "type": "any"
+            }
+          ],
+          "returnType": "AST",
+          "description": null
+        },
+        {
+          "name": "visitBinary",
+          "params": [
+            {
+              "name": "ast",
+              "type": "Binary"
+            },
+            {
+              "name": "context",
+              "type": "any"
+            }
+          ],
+          "returnType": "AST",
+          "description": null
+        },
+        {
+          "name": "visitPrefixNot",
+          "params": [
+            {
+              "name": "ast",
+              "type": "PrefixNot"
+            },
+            {
+              "name": "context",
+              "type": "any"
+            }
+          ],
+          "returnType": "AST",
+          "description": null
+        },
+        {
+          "name": "visitConditional",
+          "params": [
+            {
+              "name": "ast",
+              "type": "Conditional"
+            },
+            {
+              "name": "context",
+              "type": "any"
+            }
+          ],
+          "returnType": "AST",
+          "description": null
+        },
+        {
+          "name": "visitPipe",
+          "params": [
+            {
+              "name": "ast",
+              "type": "BindingPipe"
+            },
+            {
+              "name": "context",
+              "type": "any"
+            }
+          ],
+          "returnType": "AST",
+          "description": null
+        },
+        {
+          "name": "visitKeyedRead",
+          "params": [
+            {
+              "name": "ast",
+              "type": "KeyedRead"
+            },
+            {
+              "name": "context",
+              "type": "any"
+            }
+          ],
+          "returnType": "AST",
+          "description": null
+        },
+        {
+          "name": "visitKeyedWrite",
+          "params": [
+            {
+              "name": "ast",
+              "type": "KeyedWrite"
+            },
+            {
+              "name": "context",
+              "type": "any"
+            }
+          ],
+          "returnType": "AST",
+          "description": null
+        },
+        {
+          "name": "visitAll",
+          "params": [
+            {
+              "name": "asts",
+              "type": "any[]"
+            }
+          ],
+          "returnType": "any[]",
+          "description": null
+        },
+        {
+          "name": "visitChain",
+          "params": [
+            {
+              "name": "ast",
+              "type": "Chain"
+            },
+            {
+              "name": "context",
+              "type": "any"
+            }
+          ],
+          "returnType": "AST",
+          "description": null
+        },
+        {
+          "name": "visitQuote",
+          "params": [
+            {
+              "name": "ast",
+              "type": "Quote"
+            },
+            {
+              "name": "context",
+              "type": "any"
+            }
+          ],
+          "returnType": "AST",
+          "description": null
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "AstVisitor",
+      "kind": "interface",
+      "summary": null,
+      "sourceFile": "src/core/angular2parse/angular/compiler/ast.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "ASTWithSource",
+      "kind": "class",
+      "summary": null,
+      "sourceFile": "src/core/angular2parse/angular/compiler/ast.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "visit",
+          "params": [
+            {
+              "name": "visitor",
+              "type": "AstVisitor"
+            },
+            {
+              "name": "context",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "toString",
+          "params": [],
+          "returnType": "string",
+          "description": null
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "Binary",
+      "kind": "class",
+      "summary": null,
+      "sourceFile": "src/core/angular2parse/angular/compiler/ast.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "visit",
+          "params": [
+            {
+              "name": "visitor",
+              "type": "AstVisitor"
+            },
+            {
+              "name": "context",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "BinaryOperations",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/core/angular2parse/util/binary-operations.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "BindingPipe",
+      "kind": "class",
+      "summary": null,
+      "sourceFile": "src/core/angular2parse/angular/compiler/ast.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "visit",
+          "params": [
+            {
+              "name": "visitor",
+              "type": "AstVisitor"
+            },
+            {
+              "name": "context",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "BrowserNodeGlobal",
+      "kind": "interface",
+      "summary": null,
+      "sourceFile": "src/core/angular2parse/angular/facade/lang.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "Chain",
+      "kind": "class",
+      "summary": "Multiple expressions separated by a semicolon.",
+      "sourceFile": "src/core/angular2parse/angular/compiler/ast.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "visit",
+          "params": [
+            {
+              "name": "visitor",
+              "type": "AstVisitor"
+            },
+            {
+              "name": "context",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "compileToJSON",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/core/angular2parse/util/lang.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "Conditional",
+      "kind": "class",
+      "summary": null,
+      "sourceFile": "src/core/angular2parse/angular/compiler/ast.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "visit",
+          "params": [
+            {
+              "name": "visitor",
+              "type": "AstVisitor"
+            },
+            {
+              "name": "context",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "DEFAULT_INTERPOLATION_CONFIG",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/core/angular2parse/angular/compiler/interpolation-config.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "EmptyExpr",
+      "kind": "class",
+      "summary": null,
+      "sourceFile": "src/core/angular2parse/angular/compiler/ast.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "visit",
+          "params": [
+            {
+              "name": "visitor",
+              "type": "AstVisitor"
+            },
+            {
+              "name": "context",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "EOF",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/core/angular2parse/angular/compiler/lexer.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "escapeRegExp",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/core/angular2parse/angular/facade/lang.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "FunctionCall",
+      "kind": "class",
+      "summary": null,
+      "sourceFile": "src/core/angular2parse/angular/compiler/ast.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "visit",
+          "params": [
+            {
+              "name": "visitor",
+              "type": "AstVisitor"
+            },
+            {
+              "name": "context",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "getTypeNameForDebugging",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/core/angular2parse/angular/facade/lang.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "ImplicitReceiver",
+      "kind": "class",
+      "summary": null,
+      "sourceFile": "src/core/angular2parse/angular/compiler/ast.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "visit",
+          "params": [
+            {
+              "name": "visitor",
+              "type": "AstVisitor"
+            },
+            {
+              "name": "context",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "Interpolation",
+      "kind": "class",
+      "summary": null,
+      "sourceFile": "src/core/angular2parse/angular/compiler/ast.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "visit",
+          "params": [
+            {
+              "name": "visitor",
+              "type": "AstVisitor"
+            },
+            {
+              "name": "context",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "InterpolationConfig",
+      "kind": "class",
+      "summary": null,
+      "sourceFile": "src/core/angular2parse/angular/compiler/interpolation-config.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "fromArray",
+          "params": [
+            {
+              "name": "markers",
+              "type": "[string, string]"
+            }
+          ],
+          "returnType": "InterpolationConfig",
+          "description": null
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "isAsciiHexDigit",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/core/angular2parse/angular/compiler/chars.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "isAsciiLetter",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/core/angular2parse/angular/compiler/chars.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "isBlank",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/core/angular2parse/angular/facade/lang.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "isDigit",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/core/angular2parse/angular/compiler/chars.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "isFunction",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/core/angular2parse/util/lang.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "isIdentifier",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/core/angular2parse/angular/compiler/lexer.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "isJsObject",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/core/angular2parse/angular/facade/lang.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "isPresent",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/core/angular2parse/angular/facade/lang.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "isPrimitive",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/core/angular2parse/angular/facade/lang.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "isQuote",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/core/angular2parse/angular/compiler/lexer.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "isStrictStringMap",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/core/angular2parse/angular/facade/lang.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "isWhitespace",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/core/angular2parse/angular/compiler/chars.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "KeyedRead",
+      "kind": "class",
+      "summary": null,
+      "sourceFile": "src/core/angular2parse/angular/compiler/ast.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "visit",
+          "params": [
+            {
+              "name": "visitor",
+              "type": "AstVisitor"
+            },
+            {
+              "name": "context",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "KeyedWrite",
+      "kind": "class",
+      "summary": null,
+      "sourceFile": "src/core/angular2parse/angular/compiler/ast.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "visit",
+          "params": [
+            {
+              "name": "visitor",
+              "type": "AstVisitor"
+            },
+            {
+              "name": "context",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "Lexer",
+      "kind": "class",
+      "summary": null,
+      "sourceFile": "src/core/angular2parse/angular/compiler/lexer.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "tokenize",
+          "params": [
+            {
+              "name": "text",
+              "type": "string"
+            }
+          ],
+          "returnType": "Token[]",
+          "description": null
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "LiteralArray",
+      "kind": "class",
+      "summary": null,
+      "sourceFile": "src/core/angular2parse/angular/compiler/ast.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "visit",
+          "params": [
+            {
+              "name": "visitor",
+              "type": "AstVisitor"
+            },
+            {
+              "name": "context",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "LiteralMap",
+      "kind": "class",
+      "summary": null,
+      "sourceFile": "src/core/angular2parse/angular/compiler/ast.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "visit",
+          "params": [
+            {
+              "name": "visitor",
+              "type": "AstVisitor"
+            },
+            {
+              "name": "context",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "LiteralPrimitive",
+      "kind": "class",
+      "summary": null,
+      "sourceFile": "src/core/angular2parse/angular/compiler/ast.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "visit",
+          "params": [
+            {
+              "name": "visitor",
+              "type": "AstVisitor"
+            },
+            {
+              "name": "context",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "looseIdentical",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/core/angular2parse/angular/facade/lang.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "MethodCall",
+      "kind": "class",
+      "summary": null,
+      "sourceFile": "src/core/angular2parse/angular/compiler/ast.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "visit",
+          "params": [
+            {
+              "name": "visitor",
+              "type": "AstVisitor"
+            },
+            {
+              "name": "context",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "NumberWrapper",
+      "kind": "class",
+      "summary": null,
+      "sourceFile": "src/core/angular2parse/angular/facade/lang.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "parseIntAutoRadix",
+          "params": [
+            {
+              "name": "text",
+              "type": "string"
+            }
+          ],
+          "returnType": "number",
+          "description": null
+        },
+        {
+          "name": "isNumeric",
+          "params": [
+            {
+              "name": "value",
+              "type": "any"
+            }
+          ],
+          "returnType": "boolean",
+          "description": null
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "Parse",
+      "kind": "service",
+      "summary": null,
+      "sourceFile": "src/core/angular2parse/parse.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "eval",
+          "params": [
+            {
+              "name": "expression",
+              "type": "string"
+            }
+          ],
+          "returnType": "Function",
+          "description": null
+        },
+        {
+          "name": "calc",
+          "params": [
+            {
+              "name": "expression",
+              "type": "string"
+            }
+          ],
+          "returnType": "Function",
+          "description": null
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "Parser",
+      "kind": "class",
+      "summary": null,
+      "sourceFile": "src/core/angular2parse/angular/compiler/parser.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "parseAction",
+          "params": [
+            {
+              "name": "input",
+              "type": "string"
+            },
+            {
+              "name": "location",
+              "type": "any"
+            },
+            {
+              "name": "interpolationConfig",
+              "type": "InterpolationConfig"
+            }
+          ],
+          "returnType": "ASTWithSource",
+          "description": null
+        },
+        {
+          "name": "parseBinding",
+          "params": [
+            {
+              "name": "input",
+              "type": "string"
+            },
+            {
+              "name": "location",
+              "type": "any"
+            },
+            {
+              "name": "interpolationConfig",
+              "type": "InterpolationConfig"
+            }
+          ],
+          "returnType": "ASTWithSource",
+          "description": null
+        },
+        {
+          "name": "parseSimpleBinding",
+          "params": [
+            {
+              "name": "input",
+              "type": "string"
+            },
+            {
+              "name": "location",
+              "type": "string"
+            },
+            {
+              "name": "interpolationConfig",
+              "type": "InterpolationConfig"
+            }
+          ],
+          "returnType": "ASTWithSource",
+          "description": null
+        },
+        {
+          "name": "parseTemplateBindings",
+          "params": [
+            {
+              "name": "prefixToken",
+              "type": "string"
+            },
+            {
+              "name": "input",
+              "type": "string"
+            },
+            {
+              "name": "location",
+              "type": "any"
+            }
+          ],
+          "returnType": "TemplateBindingParseResult",
+          "description": null
+        },
+        {
+          "name": "parseInterpolation",
+          "params": [
+            {
+              "name": "input",
+              "type": "string"
+            },
+            {
+              "name": "location",
+              "type": "any"
+            },
+            {
+              "name": "interpolationConfig",
+              "type": "InterpolationConfig"
+            }
+          ],
+          "returnType": "ASTWithSource",
+          "description": null
+        },
+        {
+          "name": "splitInterpolation",
+          "params": [
+            {
+              "name": "input",
+              "type": "string"
+            },
+            {
+              "name": "location",
+              "type": "string"
+            },
+            {
+              "name": "interpolationConfig",
+              "type": "InterpolationConfig"
+            }
+          ],
+          "returnType": "SplitInterpolation",
+          "description": null
+        },
+        {
+          "name": "wrapLiteralPrimitive",
+          "params": [
+            {
+              "name": "input",
+              "type": "string"
+            },
+            {
+              "name": "location",
+              "type": "any"
+            }
+          ],
+          "returnType": "ASTWithSource",
+          "description": null
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "ParserError",
+      "kind": "class",
+      "summary": null,
+      "sourceFile": "src/core/angular2parse/angular/compiler/ast.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "message",
+          "type": "string",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "ParseSpan",
+      "kind": "class",
+      "summary": null,
+      "sourceFile": "src/core/angular2parse/angular/compiler/ast.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "ParseVisitorCompiler",
+      "kind": "class",
+      "summary": null,
+      "sourceFile": "src/core/angular2parse/visitors/parse-visitor-compiler.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "visitBinary",
+          "params": [
+            {
+              "name": "ast",
+              "type": "Binary"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "visitChain",
+          "params": [
+            {
+              "name": "ast",
+              "type": "Chain"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "visitConditional",
+          "params": [
+            {
+              "name": "ast",
+              "type": "Conditional"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "visitPipe",
+          "params": [
+            {
+              "name": "ast",
+              "type": "BindingPipe"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "visitFunctionCall",
+          "params": [
+            {
+              "name": "ast",
+              "type": "FunctionCall"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "visitImplicitReceiver",
+          "params": [
+            {
+              "name": "ast",
+              "type": "ImplicitReceiver"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "visitInterpolation",
+          "params": [
+            {
+              "name": "ast",
+              "type": "Interpolation"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "visitKeyedRead",
+          "params": [
+            {
+              "name": "ast",
+              "type": "KeyedRead"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "visitKeyedWrite",
+          "params": [
+            {
+              "name": "ast",
+              "type": "KeyedWrite"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "visitLiteralArray",
+          "params": [
+            {
+              "name": "ast",
+              "type": "LiteralArray"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "visitLiteralMap",
+          "params": [
+            {
+              "name": "ast",
+              "type": "LiteralMap"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "visitLiteralPrimitive",
+          "params": [
+            {
+              "name": "ast",
+              "type": "LiteralPrimitive"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "visitMethodCall",
+          "params": [
+            {
+              "name": "ast",
+              "type": "MethodCall"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "visitPrefixNot",
+          "params": [
+            {
+              "name": "ast",
+              "type": "PrefixNot"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "visitPropertyRead",
+          "params": [
+            {
+              "name": "ast",
+              "type": "PropertyRead"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "visitPropertyWrite",
+          "params": [
+            {
+              "name": "ast",
+              "type": "PropertyWrite"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "visitSafePropertyRead",
+          "params": [
+            {
+              "name": "ast",
+              "type": "SafePropertyRead"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "visitSafeMethodCall",
+          "params": [
+            {
+              "name": "ast",
+              "type": "SafeMethodCall"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "visitAll",
+          "params": [
+            {
+              "name": "asts",
+              "type": "AST[]"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "visitQuote",
+          "params": [
+            {
+              "name": "ast",
+              "type": "Quote"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "ParseVisitorResolver",
+      "kind": "class",
+      "summary": null,
+      "sourceFile": "src/core/angular2parse/visitors/parse-visitor-resolver.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "visitBinary",
+          "params": [
+            {
+              "name": "ast",
+              "type": "Binary"
+            },
+            {
+              "name": "context",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "visitChain",
+          "params": [
+            {
+              "name": "ast",
+              "type": "Chain"
+            },
+            {
+              "name": "context",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "visitConditional",
+          "params": [
+            {
+              "name": "ast",
+              "type": "Conditional"
+            },
+            {
+              "name": "context",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "visitPipe",
+          "params": [
+            {
+              "name": "ast",
+              "type": "BindingPipe"
+            },
+            {
+              "name": "context",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "visitFunctionCall",
+          "params": [
+            {
+              "name": "ast",
+              "type": "FunctionCall"
+            },
+            {
+              "name": "context",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "visitImplicitReceiver",
+          "params": [
+            {
+              "name": "ast",
+              "type": "ImplicitReceiver"
+            },
+            {
+              "name": "context",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "visitInterpolation",
+          "params": [
+            {
+              "name": "ast",
+              "type": "Interpolation"
+            },
+            {
+              "name": "context",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "visitKeyedRead",
+          "params": [
+            {
+              "name": "ast",
+              "type": "KeyedRead"
+            },
+            {
+              "name": "context",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "visitKeyedWrite",
+          "params": [
+            {
+              "name": "ast",
+              "type": "KeyedWrite"
+            },
+            {
+              "name": "context",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "visitLiteralArray",
+          "params": [
+            {
+              "name": "ast",
+              "type": "LiteralArray"
+            },
+            {
+              "name": "context",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "visitLiteralMap",
+          "params": [
+            {
+              "name": "ast",
+              "type": "LiteralMap"
+            },
+            {
+              "name": "context",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "visitLiteralPrimitive",
+          "params": [
+            {
+              "name": "ast",
+              "type": "LiteralPrimitive"
+            },
+            {
+              "name": "context",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "visitMethodCall",
+          "params": [
+            {
+              "name": "ast",
+              "type": "MethodCall"
+            },
+            {
+              "name": "context",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "visitPrefixNot",
+          "params": [
+            {
+              "name": "ast",
+              "type": "PrefixNot"
+            },
+            {
+              "name": "context",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "visitPropertyRead",
+          "params": [
+            {
+              "name": "ast",
+              "type": "PropertyRead"
+            },
+            {
+              "name": "context",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "visitPropertyWrite",
+          "params": [
+            {
+              "name": "ast",
+              "type": "PropertyWrite"
+            },
+            {
+              "name": "context",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "visitSafePropertyRead",
+          "params": [
+            {
+              "name": "ast",
+              "type": "SafePropertyRead"
+            },
+            {
+              "name": "context",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "visitSafeMethodCall",
+          "params": [
+            {
+              "name": "ast",
+              "type": "SafeMethodCall"
+            },
+            {
+              "name": "context",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "visitAll",
+          "params": [
+            {
+              "name": "asts",
+              "type": "AST[]"
+            },
+            {
+              "name": "context",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "visitQuote",
+          "params": [
+            {
+              "name": "ast",
+              "type": "Quote"
+            },
+            {
+              "name": "context",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "PIPES_CONFIG",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/core/angular2parse/parse.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "PipesConfig",
+      "kind": "interface",
+      "summary": null,
+      "sourceFile": "src/core/angular2parse/parse.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "PrefixNot",
+      "kind": "class",
+      "summary": null,
+      "sourceFile": "src/core/angular2parse/angular/compiler/ast.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "visit",
+          "params": [
+            {
+              "name": "visitor",
+              "type": "AstVisitor"
+            },
+            {
+              "name": "context",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "print",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/core/angular2parse/angular/facade/lang.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "PropertyRead",
+      "kind": "class",
+      "summary": null,
+      "sourceFile": "src/core/angular2parse/angular/compiler/ast.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "visit",
+          "params": [
+            {
+              "name": "visitor",
+              "type": "AstVisitor"
+            },
+            {
+              "name": "context",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "PropertyWrite",
+      "kind": "class",
+      "summary": null,
+      "sourceFile": "src/core/angular2parse/angular/compiler/ast.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "visit",
+          "params": [
+            {
+              "name": "visitor",
+              "type": "AstVisitor"
+            },
+            {
+              "name": "context",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "Quote",
+      "kind": "class",
+      "summary": "Represents a quoted expression of the form:\n\nquote = prefix `:` uninterpretedExpression\nprefix = identifier\nuninterpretedExpression = arbitrary string\n\nA quoted expression is meant to be pre-processed by an AST transformer that\nconverts it into another AST that no longer contains quoted expressions.\nIt is meant to allow third-party developers to extend Angular template\nexpression language. The `uninterpretedExpression` part of the quote is\ntherefore not interpreted by the Angular's own expression parser.",
+      "sourceFile": "src/core/angular2parse/angular/compiler/ast.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "visit",
+          "params": [
+            {
+              "name": "visitor",
+              "type": "AstVisitor"
+            },
+            {
+              "name": "context",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "toString",
+          "params": [],
+          "returnType": "string",
+          "description": null
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "RecursiveAstVisitor",
+      "kind": "class",
+      "summary": null,
+      "sourceFile": "src/core/angular2parse/angular/compiler/ast.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "visitBinary",
+          "params": [
+            {
+              "name": "ast",
+              "type": "Binary"
+            },
+            {
+              "name": "context",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "visitChain",
+          "params": [
+            {
+              "name": "ast",
+              "type": "Chain"
+            },
+            {
+              "name": "context",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "visitConditional",
+          "params": [
+            {
+              "name": "ast",
+              "type": "Conditional"
+            },
+            {
+              "name": "context",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "visitPipe",
+          "params": [
+            {
+              "name": "ast",
+              "type": "BindingPipe"
+            },
+            {
+              "name": "context",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "visitFunctionCall",
+          "params": [
+            {
+              "name": "ast",
+              "type": "FunctionCall"
+            },
+            {
+              "name": "context",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "visitImplicitReceiver",
+          "params": [
+            {
+              "name": "ast",
+              "type": "ImplicitReceiver"
+            },
+            {
+              "name": "context",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "visitInterpolation",
+          "params": [
+            {
+              "name": "ast",
+              "type": "Interpolation"
+            },
+            {
+              "name": "context",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "visitKeyedRead",
+          "params": [
+            {
+              "name": "ast",
+              "type": "KeyedRead"
+            },
+            {
+              "name": "context",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "visitKeyedWrite",
+          "params": [
+            {
+              "name": "ast",
+              "type": "KeyedWrite"
+            },
+            {
+              "name": "context",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "visitLiteralArray",
+          "params": [
+            {
+              "name": "ast",
+              "type": "LiteralArray"
+            },
+            {
+              "name": "context",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "visitLiteralMap",
+          "params": [
+            {
+              "name": "ast",
+              "type": "LiteralMap"
+            },
+            {
+              "name": "context",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "visitLiteralPrimitive",
+          "params": [
+            {
+              "name": "ast",
+              "type": "LiteralPrimitive"
+            },
+            {
+              "name": "context",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "visitMethodCall",
+          "params": [
+            {
+              "name": "ast",
+              "type": "MethodCall"
+            },
+            {
+              "name": "context",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "visitPrefixNot",
+          "params": [
+            {
+              "name": "ast",
+              "type": "PrefixNot"
+            },
+            {
+              "name": "context",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "visitPropertyRead",
+          "params": [
+            {
+              "name": "ast",
+              "type": "PropertyRead"
+            },
+            {
+              "name": "context",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "visitPropertyWrite",
+          "params": [
+            {
+              "name": "ast",
+              "type": "PropertyWrite"
+            },
+            {
+              "name": "context",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "visitSafePropertyRead",
+          "params": [
+            {
+              "name": "ast",
+              "type": "SafePropertyRead"
+            },
+            {
+              "name": "context",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "visitSafeMethodCall",
+          "params": [
+            {
+              "name": "ast",
+              "type": "SafeMethodCall"
+            },
+            {
+              "name": "context",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "visitAll",
+          "params": [
+            {
+              "name": "asts",
+              "type": "AST[]"
+            },
+            {
+              "name": "context",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "visitQuote",
+          "params": [
+            {
+              "name": "ast",
+              "type": "Quote"
+            },
+            {
+              "name": "context",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "SafeMethodCall",
+      "kind": "class",
+      "summary": null,
+      "sourceFile": "src/core/angular2parse/angular/compiler/ast.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "visit",
+          "params": [
+            {
+              "name": "visitor",
+              "type": "AstVisitor"
+            },
+            {
+              "name": "context",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "SafePropertyRead",
+      "kind": "class",
+      "summary": null,
+      "sourceFile": "src/core/angular2parse/angular/compiler/ast.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "visit",
+          "params": [
+            {
+              "name": "visitor",
+              "type": "AstVisitor"
+            },
+            {
+              "name": "context",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "setValueOnPath",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/core/angular2parse/angular/facade/lang.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "SplitInterpolation",
+      "kind": "class",
+      "summary": null,
+      "sourceFile": "src/core/angular2parse/angular/compiler/parser.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "stringify",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/core/angular2parse/angular/facade/lang.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "TemplateBinding",
+      "kind": "class",
+      "summary": null,
+      "sourceFile": "src/core/angular2parse/angular/compiler/ast.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "TemplateBindingParseResult",
+      "kind": "class",
+      "summary": null,
+      "sourceFile": "src/core/angular2parse/angular/compiler/parser.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "Token",
+      "kind": "class",
+      "summary": null,
+      "sourceFile": "src/core/angular2parse/angular/compiler/lexer.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "isCharacter",
+          "params": [
+            {
+              "name": "code",
+              "type": "number"
+            }
+          ],
+          "returnType": "boolean",
+          "description": null
+        },
+        {
+          "name": "isNumber",
+          "params": [],
+          "returnType": "boolean",
+          "description": null
+        },
+        {
+          "name": "isString",
+          "params": [],
+          "returnType": "boolean",
+          "description": null
+        },
+        {
+          "name": "isOperator",
+          "params": [
+            {
+              "name": "operater",
+              "type": "string"
+            }
+          ],
+          "returnType": "boolean",
+          "description": null
+        },
+        {
+          "name": "isIdentifier",
+          "params": [],
+          "returnType": "boolean",
+          "description": null
+        },
+        {
+          "name": "isKeyword",
+          "params": [],
+          "returnType": "boolean",
+          "description": null
+        },
+        {
+          "name": "isKeywordLet",
+          "params": [],
+          "returnType": "boolean",
+          "description": null
+        },
+        {
+          "name": "isKeywordNull",
+          "params": [],
+          "returnType": "boolean",
+          "description": null
+        },
+        {
+          "name": "isKeywordUndefined",
+          "params": [],
+          "returnType": "boolean",
+          "description": null
+        },
+        {
+          "name": "isKeywordTrue",
+          "params": [],
+          "returnType": "boolean",
+          "description": null
+        },
+        {
+          "name": "isKeywordFalse",
+          "params": [],
+          "returnType": "boolean",
+          "description": null
+        },
+        {
+          "name": "isKeywordThis",
+          "params": [],
+          "returnType": "boolean",
+          "description": null
+        },
+        {
+          "name": "isError",
+          "params": [],
+          "returnType": "boolean",
+          "description": null
+        },
+        {
+          "name": "toNumber",
+          "params": [],
+          "returnType": "number",
+          "description": null
+        },
+        {
+          "name": "toString",
+          "params": [],
+          "returnType": "string",
+          "description": null
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "TokenType",
+      "kind": "enum",
+      "summary": null,
+      "sourceFile": "src/core/angular2parse/angular/compiler/lexer.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "warn",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/core/angular2parse/angular/facade/lang.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    }
+  ],
+  "suggestedUsageSnippet": "import { Angular2ParseModule } from '@dotos/dui/core/angular2parse';"
+}

@@ -1,0 +1,270 @@
+{
+  "importPath": "@dotos/dui/common/clipboard",
+  "exports": [
+    {
+      "name": "ClipboardComponent",
+      "kind": "component",
+      "selector": "dui-copy-content-tooltip",
+      "summary": null,
+      "sourceFile": "src/common/clipboard/clipboard.component.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "placeholder",
+          "type": "string",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "ClipboardDirective",
+      "kind": "directive",
+      "selector": "[dui-clipboard]",
+      "summary": null,
+      "sourceFile": "src/common/clipboard/clipboard.directive.ts",
+      "inputs": [
+        {
+          "name": "placeholder",
+          "alias": "dui-clipboard",
+          "type": "string",
+          "description": null
+        },
+        {
+          "name": "target",
+          "type": "HTMLInputElement | HTMLTextAreaElement",
+          "description": "Reference to the HTML element containing the text to copy."
+        },
+        {
+          "name": "message",
+          "alias": "clipboard-notification",
+          "type": "string",
+          "description": null
+        }
+      ],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "handleClickEvent",
+          "params": [
+            {
+              "name": "event",
+              "type": "MouseEvent"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "showTooltip",
+          "params": [],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "closeTooltip",
+          "params": [],
+          "returnType": "any",
+          "description": null
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "ClipboardModule",
+      "kind": "module",
+      "summary": null,
+      "sourceFile": "src/common/clipboard/clipboard.module.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "entryComponents",
+          "type": "any",
+          "default": "[ClipboardComponent]",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "ClipboardService",
+      "kind": "service",
+      "summary": null,
+      "sourceFile": "src/common/clipboard/clipboard.service.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "isTargetValid",
+          "params": [
+            {
+              "name": "target",
+              "type": "HTMLInputElement | HTMLTextAreaElement"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "copyToClipboard",
+          "params": [
+            {
+              "name": "target",
+              "type": "HTMLInputElement | HTMLTextAreaElement"
+            },
+            {
+              "name": "message",
+              "type": "string"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "copyContentToClipboard",
+          "params": [
+            {
+              "name": "content",
+              "type": "any"
+            },
+            {
+              "name": "message",
+              "type": "string"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "get",
+          "params": [],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "set",
+          "params": [
+            {
+              "name": "data",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "clear",
+          "params": [],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "isEmpty",
+          "params": [],
+          "returnType": "boolean",
+          "description": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "data",
+          "type": "any",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "CopyButtonComponent",
+      "kind": "component",
+      "selector": "copy-button",
+      "summary": null,
+      "sourceFile": "src/common/clipboard/copy-button.component.ts",
+      "inputs": [
+        {
+          "name": "copyText",
+          "type": "string",
+          "description": null
+        },
+        {
+          "name": "disabled",
+          "type": "any",
+          "default": "false",
+          "description": null
+        },
+        {
+          "name": "icon",
+          "type": "string",
+          "description": null
+        },
+        {
+          "name": "tooltipText",
+          "type": "string",
+          "description": null
+        },
+        {
+          "name": "tooltipPosition",
+          "type": "TooltipPosition",
+          "description": null
+        },
+        {
+          "name": "style",
+          "type": "{[key: string]: any}",
+          "default": "{}",
+          "description": null
+        },
+        {
+          "name": "color",
+          "type": "ThemePalette",
+          "description": null
+        },
+        {
+          "name": "miniButton",
+          "type": "any",
+          "default": "true",
+          "description": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "successCopied",
+          "type": "any",
+          "description": null
+        }
+      ],
+      "methods": [
+        {
+          "name": "copy",
+          "params": [
+            {
+              "name": "$event",
+              "type": "Event"
+            }
+          ],
+          "returnType": "void",
+          "description": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "copied",
+          "type": "any",
+          "default": "false",
+          "description": null
+        },
+        {
+          "name": "matTooltipText",
+          "type": "string",
+          "description": null
+        },
+        {
+          "name": "matTooltipPosition",
+          "type": "TooltipPosition",
+          "description": null
+        }
+      ]
+    }
+  ],
+  "suggestedUsageSnippet": "import { ClipboardComponent, ClipboardModule } from '@dotos/dui/common/clipboard';\n\n<dui-copy-content-tooltip></dui-copy-content-tooltip>"
+}

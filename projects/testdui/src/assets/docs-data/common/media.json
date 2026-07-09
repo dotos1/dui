@@ -1,0 +1,102 @@
+{
+  "importPath": "@dotos/dui/common/media",
+  "exports": [
+    {
+      "name": "MediaModule",
+      "kind": "module",
+      "summary": null,
+      "sourceFile": "src/common/media/media.module.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "MediaService",
+      "kind": "service",
+      "summary": null,
+      "sourceFile": "src/common/media/services/media.service.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "deregisterQuery",
+          "params": [
+            {
+              "name": "query",
+              "type": "string"
+            }
+          ],
+          "returnType": "void",
+          "description": "Deregisters a query so its stops being notified or used."
+        },
+        {
+          "name": "query",
+          "params": [
+            {
+              "name": "query",
+              "type": "string"
+            }
+          ],
+          "returnType": "boolean",
+          "description": "Used to evaluate whether a given media query is true or false given the current device's screen / window size."
+        },
+        {
+          "name": "registerQuery",
+          "params": [
+            {
+              "name": "query",
+              "type": "string"
+            }
+          ],
+          "returnType": "Observable<boolean>",
+          "description": "Registers a media query and returns an [Observable] that will re-evaluate and\nreturn if the given media query matches on window resize.\nNote: don't forget to unsubscribe from [Observable] when finished watching."
+        },
+        {
+          "name": "broadcast",
+          "params": [],
+          "returnType": "void",
+          "description": "Trigger a match media event on all subscribed observables."
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "MediaToggleDirective",
+      "kind": "directive",
+      "selector": "[extMediaToggle]",
+      "summary": null,
+      "sourceFile": "src/common/media/directives/media-toggle.directive.ts",
+      "inputs": [
+        {
+          "name": "query",
+          "alias": "extMediaToggle",
+          "type": "string",
+          "description": "extMediaToggle: string\nMedia query used to evaluate screen/window size.\nToggles attributes, classes and styles if media query is matched."
+        },
+        {
+          "name": "attributes",
+          "alias": "mediaAttributes",
+          "type": "any",
+          "description": "mediaAttributes: {[key: string]: string}\nAttributes to be toggled when media query matches."
+        },
+        {
+          "name": "classes",
+          "alias": "mediaClasses",
+          "type": "string[]",
+          "description": "mediaClasses: string[]\nCSS Classes to be toggled when media query matches."
+        },
+        {
+          "name": "styles",
+          "alias": "mediaStyles",
+          "type": "any",
+          "description": "mediaStyles: {[key: string]: string}\nCSS Styles to be toggled when media query matches."
+        }
+      ],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    }
+  ],
+  "suggestedUsageSnippet": "import { MediaModule } from '@dotos/dui/common/media';"
+}

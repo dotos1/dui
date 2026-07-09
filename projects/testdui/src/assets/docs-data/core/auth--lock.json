@@ -1,0 +1,128 @@
+{
+  "importPath": "@dotos/dui/core/auth/lock",
+  "exports": [
+    {
+      "name": "LockscreenDialog",
+      "kind": "component",
+      "selector": "lock-dialog",
+      "summary": null,
+      "sourceFile": "src/core/auth/lock/lockscreen.dialog.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "onSubmit",
+          "params": [],
+          "returnType": "any",
+          "description": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "lockForm",
+          "type": "FormGroup",
+          "description": null
+        },
+        {
+          "name": "style",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "currentTime",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "currentWeek",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "attachOutsideOnClick",
+          "type": "any",
+          "default": "true",
+          "description": null
+        },
+        {
+          "name": "errorDiagnostic",
+          "type": "string",
+          "description": null
+        },
+        {
+          "name": "submitted",
+          "type": "any",
+          "default": "false",
+          "description": null
+        },
+        {
+          "name": "cryptType",
+          "type": "any",
+          "default": "''",
+          "description": null
+        },
+        {
+          "name": "userName",
+          "type": "any",
+          "default": "''",
+          "description": null
+        },
+        {
+          "name": "lt",
+          "type": "any",
+          "default": "''",
+          "description": null
+        },
+        {
+          "name": "user",
+          "type": "any",
+          "default": "''",
+          "description": null
+        },
+        {
+          "name": "from",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "system",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "wallpapers",
+          "type": "any",
+          "default": "[]",
+          "description": null
+        },
+        {
+          "name": "index",
+          "type": "any",
+          "default": "1",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "LockscreenSaverModule",
+      "kind": "module",
+      "summary": null,
+      "sourceFile": "src/core/auth/lock/lockscreen.module.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "USER_STATUS_CODES",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/core/auth/lock/lockscreen.dialog.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    }
+  ],
+  "suggestedUsageSnippet": "import { LockscreenDialog, LockscreenSaverModule } from '@dotos/dui/core/auth/lock';\n\n<lock-dialog></lock-dialog>"
+}

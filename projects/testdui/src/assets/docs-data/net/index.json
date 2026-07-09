@@ -1,0 +1,395 @@
+{
+  "importPath": "@dotos/dui/net",
+  "exports": [
+    {
+      "name": "AbstractLoader",
+      "kind": "directive",
+      "summary": null,
+      "sourceFile": "src/net/components/abstract.loader.component.ts",
+      "inputs": [
+        {
+          "name": "backgroundColor",
+          "type": "string",
+          "description": null
+        }
+      ],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "CacheInterceptor",
+      "kind": "service",
+      "summary": null,
+      "sourceFile": "src/net/http/interceptors/cache.interceptor.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "intercept",
+          "params": [
+            {
+              "name": "req",
+              "type": "HttpRequest<any>"
+            },
+            {
+              "name": "next",
+              "type": "HttpHandler"
+            }
+          ],
+          "returnType": "Observable<HttpEvent<any>>",
+          "description": null
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "ErrorInterceptor",
+      "kind": "service",
+      "summary": null,
+      "sourceFile": "src/net/http/interceptors/error.interceptor.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "intercept",
+          "params": [
+            {
+              "name": "req",
+              "type": "HttpRequest<any>"
+            },
+            {
+              "name": "next",
+              "type": "HttpHandler"
+            }
+          ],
+          "returnType": "Observable<HttpEvent<any>>",
+          "description": null
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "HeaderInterceptor",
+      "kind": "service",
+      "summary": null,
+      "sourceFile": "src/net/http/interceptors/header.interceptor.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "intercept",
+          "params": [
+            {
+              "name": "req",
+              "type": "HttpRequest<any>"
+            },
+            {
+              "name": "next",
+              "type": "HttpHandler"
+            }
+          ],
+          "returnType": "Observable<HttpEvent<any>>",
+          "description": null
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "httpInterceptorProviders",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/net/http/interceptors/index.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "HttpLoaderComponent",
+      "kind": "component",
+      "selector": "http-loader",
+      "summary": null,
+      "sourceFile": "src/net/components/http-loader.component.ts",
+      "inputs": [
+        {
+          "name": "backdrop",
+          "type": "any",
+          "default": "true",
+          "description": null
+        },
+        {
+          "name": "backgroundColor",
+          "type": "string",
+          "description": null
+        },
+        {
+          "name": "debounceDelay",
+          "type": "any",
+          "default": "0",
+          "description": null
+        },
+        {
+          "name": "entryComponent",
+          "type": "any",
+          "default": "null",
+          "description": null
+        },
+        {
+          "name": "extraDuration",
+          "type": "any",
+          "default": "0",
+          "description": null
+        },
+        {
+          "name": "filteredHeaders",
+          "type": "string[]",
+          "default": "[]",
+          "description": null
+        },
+        {
+          "name": "filteredMethods",
+          "type": "string[]",
+          "default": "[]",
+          "description": null
+        },
+        {
+          "name": "filteredUrlPatterns",
+          "type": "string[]",
+          "default": "[]",
+          "description": null
+        },
+        {
+          "name": "minDuration",
+          "type": "any",
+          "default": "0",
+          "description": null
+        },
+        {
+          "name": "opacity",
+          "type": "any",
+          "default": "'.7'",
+          "description": null
+        }
+      ],
+      "outputs": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "isVisible$",
+          "type": "Observable<boolean>",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "HttpLoaderModule",
+      "kind": "module",
+      "summary": null,
+      "sourceFile": "src/net/http-loader.module.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "forRoot",
+          "params": [],
+          "returnType": "ModuleWithProviders<HttpLoaderModule>",
+          "description": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "entryComponents",
+          "type": "any",
+          "default": "[MatSpinner]",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "HttpsInterceptor",
+      "kind": "service",
+      "summary": null,
+      "sourceFile": "src/net/http/interceptors/https.interceptor.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "intercept",
+          "params": [
+            {
+              "name": "req",
+              "type": "HttpRequest<any>"
+            },
+            {
+              "name": "next",
+              "type": "HttpHandler"
+            }
+          ],
+          "returnType": "Observable<HttpEvent<any>>",
+          "description": null
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "NotifyInterceptor",
+      "kind": "service",
+      "summary": null,
+      "sourceFile": "src/net/http/interceptors/notify.interptor.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "intercept",
+          "params": [
+            {
+              "name": "req",
+              "type": "HttpRequest<any>"
+            },
+            {
+              "name": "next",
+              "type": "HttpHandler"
+            }
+          ],
+          "returnType": "Observable<HttpEvent<any>>",
+          "description": null
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "PendingRequestsInterceptor",
+      "kind": "service",
+      "summary": null,
+      "sourceFile": "src/net/services/pending-requests-interceptor.service.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "intercept",
+          "params": [
+            {
+              "name": "req",
+              "type": "HttpRequest<any>"
+            },
+            {
+              "name": "next",
+              "type": "HttpHandler"
+            }
+          ],
+          "returnType": "Observable<HttpEvent<any>>",
+          "description": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "pendingRequestsStatus$",
+          "type": "Observable<boolean>",
+          "description": null
+        },
+        {
+          "name": "pendingRequests",
+          "type": "number",
+          "description": null
+        },
+        {
+          "name": "filteredUrlPatterns",
+          "type": "RegExp[]",
+          "description": null
+        },
+        {
+          "name": "filteredMethods",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "filteredHeaders",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "forceByPass",
+          "type": "any",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "PendingRequestsInterceptorProvider",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/net/services/pending-requests-interceptor.service.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "ProfilerInterceptor",
+      "kind": "service",
+      "summary": null,
+      "sourceFile": "src/net/http/interceptors/profiler.interceptor.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "intercept",
+          "params": [
+            {
+              "name": "req",
+              "type": "HttpRequest<any>"
+            },
+            {
+              "name": "next",
+              "type": "HttpHandler"
+            }
+          ],
+          "returnType": "Observable<HttpEvent<any>>",
+          "description": null
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "simpleInterceptorProviders",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/net/http/interceptors/index.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "SpinnerVisibilityService",
+      "kind": "service",
+      "summary": null,
+      "sourceFile": "src/net/services/spinner-visibility.service.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "show",
+          "params": [],
+          "returnType": "void",
+          "description": null
+        },
+        {
+          "name": "hide",
+          "params": [],
+          "returnType": "void",
+          "description": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "visibility$",
+          "type": "Observable<boolean>",
+          "description": null
+        }
+      ]
+    }
+  ],
+  "suggestedUsageSnippet": "import { HttpLoaderComponent, HttpLoaderModule } from '@dotos/dui/net';\n\n<http-loader [backdrop]=\"...\" [backgroundColor]=\"...\" [debounceDelay]=\"...\"></http-loader>"
+}

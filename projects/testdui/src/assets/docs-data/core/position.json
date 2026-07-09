@@ -1,0 +1,220 @@
+{
+  "importPath": "@dotos/dui/core/position",
+  "exports": [
+    {
+      "name": "defaultBound",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/core/position/position.store.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "defaultGrid",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/core/position/position.store.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "IPoint",
+      "kind": "interface",
+      "summary": null,
+      "sourceFile": "src/core/position/position.common.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "IPosionOptions",
+      "kind": "interface",
+      "summary": null,
+      "sourceFile": "src/core/position/position.common.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "IPositionEvent",
+      "kind": "interface",
+      "summary": null,
+      "sourceFile": "src/core/position/position.common.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "IPositionState",
+      "kind": "interface",
+      "summary": null,
+      "sourceFile": "src/core/position/position.common.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "IRectangle",
+      "kind": "interface",
+      "summary": null,
+      "sourceFile": "src/core/position/position.common.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "IResizable",
+      "kind": "interface",
+      "summary": null,
+      "sourceFile": "src/core/position/position.common.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "ISize",
+      "kind": "interface",
+      "summary": null,
+      "sourceFile": "src/core/position/position.common.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "MOUSE_DOWN",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/core/position/position.actions.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "MOVETO",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/core/position/position.actions.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "PICKUP",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/core/position/position.actions.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "PositionStore",
+      "kind": "service",
+      "summary": null,
+      "sourceFile": "src/core/position/position.store.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "addReducer",
+          "params": [
+            {
+              "name": "reducer",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "emitAction",
+          "params": [
+            {
+              "name": "action",
+              "type": "any"
+            },
+            {
+              "name": "params",
+              "type": "any[]"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "state",
+          "type": "IPositionState",
+          "default": "{\n    currentSize: { width: 0, height: 0 },\n    startSize: { width: 0, height: 0 },\n    currentPosition: { x: 0, y: 0 },\n    startPosition: { x: 0, y: 0 },\n    isResizing: false,\n    isMoving: false,\n    direction: null\n  }",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "PUTBACK",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/core/position/position.actions.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "RESIZE",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/core/position/position.actions.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "RESIZE_INIT",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/core/position/position.actions.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "RESIZE_STOP",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/core/position/position.actions.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "resizeReducer",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/core/position/position.reducer.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    }
+  ],
+  "suggestedUsageSnippet": "import { /* ... */ } from '@dotos/dui/core/position';"
+}

@@ -1,0 +1,190 @@
+{
+  "importPath": "@dotos/dui/core/cookie",
+  "exports": [
+    {
+      "name": "Cookie",
+      "kind": "class",
+      "summary": null,
+      "sourceFile": "src/core/cookie/cookie.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "key",
+          "type": "string",
+          "description": null
+        },
+        {
+          "name": "value",
+          "type": "string",
+          "description": null
+        },
+        {
+          "name": "expires",
+          "type": "string|Date",
+          "description": null
+        },
+        {
+          "name": "maxAge",
+          "type": "number",
+          "description": null
+        },
+        {
+          "name": "path",
+          "type": "string",
+          "description": null
+        },
+        {
+          "name": "domain",
+          "type": "string",
+          "description": null
+        },
+        {
+          "name": "secure",
+          "type": "boolean",
+          "description": null
+        },
+        {
+          "name": "httpOnly",
+          "type": "boolean",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "CookieSerializer",
+      "kind": "class",
+      "summary": null,
+      "sourceFile": "src/core/cookie/cookie-serializer.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "serializeCookie",
+          "params": [
+            {
+              "name": "cookie",
+              "type": "Cookie"
+            }
+          ],
+          "returnType": "string",
+          "description": null
+        },
+        {
+          "name": "serializeCookieArray",
+          "params": [
+            {
+              "name": "cookies",
+              "type": "Cookie[]"
+            }
+          ],
+          "returnType": "string",
+          "description": null
+        },
+        {
+          "name": "deserializeCookie",
+          "params": [
+            {
+              "name": "cookie",
+              "type": "string"
+            }
+          ],
+          "returnType": "Cookie",
+          "description": null
+        },
+        {
+          "name": "deserializeCookieArray",
+          "params": [
+            {
+              "name": "cookies",
+              "type": "string"
+            }
+          ],
+          "returnType": "Cookie[]",
+          "description": null
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "CookieStorage",
+      "kind": "class",
+      "summary": null,
+      "sourceFile": "src/core/cookie/cookie-storage.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "isEnabled",
+          "params": [],
+          "returnType": "boolean",
+          "description": null
+        },
+        {
+          "name": "getCookie",
+          "params": [
+            {
+              "name": "cookieKey",
+              "type": "string"
+            }
+          ],
+          "returnType": "Cookie | undefined",
+          "description": null
+        },
+        {
+          "name": "getCookies",
+          "params": [],
+          "returnType": "Cookie[]",
+          "description": null
+        },
+        {
+          "name": "addCookie",
+          "params": [
+            {
+              "name": "cookie",
+              "type": "Cookie"
+            }
+          ],
+          "returnType": "void",
+          "description": null
+        },
+        {
+          "name": "addCookies",
+          "params": [
+            {
+              "name": "cookies",
+              "type": "Cookie[]"
+            }
+          ],
+          "returnType": "void",
+          "description": null
+        },
+        {
+          "name": "removeCookie",
+          "params": [
+            {
+              "name": "cookieKey",
+              "type": "string | Cookie"
+            }
+          ],
+          "returnType": "void",
+          "description": null
+        },
+        {
+          "name": "hasCookie",
+          "params": [
+            {
+              "name": "cookieKey",
+              "type": "string | Cookie"
+            }
+          ],
+          "returnType": "boolean",
+          "description": null
+        }
+      ],
+      "properties": []
+    }
+  ],
+  "suggestedUsageSnippet": "import { /* ... */ } from '@dotos/dui/core/cookie';"
+}

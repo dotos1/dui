@@ -1,0 +1,149 @@
+{
+  "importPath": "@dotos/dui/ux/iconpicker",
+  "exports": [
+    {
+      "name": "DATEFIELD_VALIDATORS",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/ux/iconpicker/icon-picker.field.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "DATEINPUT_CONTROL_VALUE_ACCESSOR",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/ux/iconpicker/icon-picker.field.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "IconPickerField",
+      "kind": "component",
+      "selector": "icon-picker-field",
+      "summary": null,
+      "sourceFile": "src/ux/iconpicker/icon-picker.field.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "isColor",
+          "params": [
+            {
+              "name": "value",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "isPattern",
+          "params": [
+            {
+              "name": "value",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "clear",
+          "params": [],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "open",
+          "params": [],
+          "returnType": "void",
+          "description": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "input",
+          "type": "ElementRef",
+          "description": null
+        },
+        {
+          "name": "mode",
+          "type": "'auto' | 'portrait' | 'landscape'",
+          "default": "'auto'",
+          "description": null
+        },
+        {
+          "name": "label",
+          "type": "any",
+          "default": "''",
+          "description": null
+        },
+        {
+          "name": "value",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "value",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "icon",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "openOnFocus",
+          "type": "boolean",
+          "description": null
+        },
+        {
+          "name": "openOnFocus",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "isOpen",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "enableKeyEvents",
+          "type": "any",
+          "default": "true",
+          "description": null
+        },
+        {
+          "name": "fontStyle",
+          "type": "any",
+          "default": "{}",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "IconPickerModule",
+      "kind": "module",
+      "summary": null,
+      "sourceFile": "src/ux/iconpicker/icon-picker.module.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "entryComponents",
+          "type": "any",
+          "default": "[\n    IconPickerField,\n    IconPickerComponent]",
+          "description": null
+        }
+      ]
+    }
+  ],
+  "suggestedUsageSnippet": "import { IconPickerField, IconPickerModule } from '@dotos/dui/ux/iconpicker';\n\n<icon-picker-field></icon-picker-field>"
+}

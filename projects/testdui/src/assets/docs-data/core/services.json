@@ -1,0 +1,506 @@
+{
+  "importPath": "@dotos/dui/core/services",
+  "exports": [
+    {
+      "name": "CommonServicesModule",
+      "kind": "module",
+      "summary": null,
+      "sourceFile": "src/core/services/services.module.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "CookieService",
+      "kind": "service",
+      "summary": null,
+      "sourceFile": "src/core/services/cookie.service.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "isEnabled",
+          "params": [],
+          "returnType": "boolean",
+          "description": "Checks if cookies are enabled."
+        },
+        {
+          "name": "getItem",
+          "params": [
+            {
+              "name": "key",
+              "type": "string"
+            }
+          ],
+          "returnType": "string | null",
+          "description": "Retrieves a cookie by its key."
+        },
+        {
+          "name": "setItem",
+          "params": [
+            {
+              "name": "key",
+              "type": "string"
+            },
+            {
+              "name": "data",
+              "type": "string"
+            },
+            {
+              "name": "expiration",
+              "type": "Date | null"
+            },
+            {
+              "name": "path",
+              "type": "string | null"
+            }
+          ],
+          "returnType": "void",
+          "description": "Sets a cookie."
+        },
+        {
+          "name": "clear",
+          "params": [],
+          "returnType": "any",
+          "description": "Placeholder for testing purposes - do not use."
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "DynamicComponentMapper",
+      "kind": "class",
+      "summary": null,
+      "sourceFile": "src/core/services/dynamic-component-mapper.service.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "getComponentTypeResolver",
+          "params": [
+            {
+              "name": "type",
+              "type": "string"
+            },
+            {
+              "name": "defaultValue",
+              "type": "Type<{}>"
+            }
+          ],
+          "returnType": "DynamicComponentResolveFunction",
+          "description": "Gets the currently active DynamicComponentResolveFunction for a field type."
+        },
+        {
+          "name": "setComponentTypeResolver",
+          "params": [
+            {
+              "name": "type",
+              "type": "string"
+            },
+            {
+              "name": "resolver",
+              "type": "DynamicComponentResolveFunction"
+            },
+            {
+              "name": "override",
+              "type": "boolean"
+            }
+          ],
+          "returnType": "any",
+          "description": "Sets or optionally replaces a DynamicComponentResolveFunction for a field type."
+        },
+        {
+          "name": "resolveComponentType",
+          "params": [
+            {
+              "name": "model",
+              "type": "DynamicComponentModel"
+            },
+            {
+              "name": "defaultValue",
+              "type": "Type<{}>"
+            }
+          ],
+          "returnType": "Type<{}>",
+          "description": "Finds the component type that is needed to render a form field."
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "DynamicComponentModel",
+      "kind": "interface",
+      "summary": null,
+      "sourceFile": "src/core/services/dynamic-component-mapper.service.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "DynamicComponentResolveFunction",
+      "kind": "type",
+      "summary": null,
+      "sourceFile": "src/core/services/dynamic-component-mapper.service.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "DynamicComponentResolver",
+      "kind": "class",
+      "summary": null,
+      "sourceFile": "src/core/services/dynamic-component-mapper.service.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "fromType",
+          "params": [
+            {
+              "name": "type",
+              "type": "Type<{}>"
+            }
+          ],
+          "returnType": "DynamicComponentResolveFunction",
+          "description": null
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "getType",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/core/services/dynamic-component-mapper.service.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "HighlightTransformResult",
+      "kind": "interface",
+      "summary": null,
+      "sourceFile": "src/core/services/highlight-transform.service.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "HighlightTransformService",
+      "kind": "service",
+      "summary": null,
+      "sourceFile": "src/core/services/highlight-transform.service.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "highlight",
+          "params": [
+            {
+              "name": "text",
+              "type": "string"
+            },
+            {
+              "name": "search",
+              "type": "string"
+            },
+            {
+              "name": "wrapperClass",
+              "type": "string"
+            }
+          ],
+          "returnType": "HighlightTransformResult",
+          "description": "Searches for `search` string(s) within `text` and highlights all occurrences."
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "LogService",
+      "kind": "service",
+      "summary": null,
+      "sourceFile": "src/core/services/log.service.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "error",
+          "params": [
+            {
+              "name": "message",
+              "type": "any"
+            },
+            {
+              "name": "optionalParams",
+              "type": "any[]"
+            }
+          ],
+          "returnType": "any",
+          "description": "Logs a message at the \"ERROR\" level."
+        },
+        {
+          "name": "debug",
+          "params": [
+            {
+              "name": "message",
+              "type": "any"
+            },
+            {
+              "name": "optionalParams",
+              "type": "any[]"
+            }
+          ],
+          "returnType": "any",
+          "description": "Logs a message at the \"DEBUG\" level."
+        },
+        {
+          "name": "info",
+          "params": [
+            {
+              "name": "message",
+              "type": "any"
+            },
+            {
+              "name": "optionalParams",
+              "type": "any[]"
+            }
+          ],
+          "returnType": "any",
+          "description": "Logs a message at the \"INFO\" level."
+        },
+        {
+          "name": "log",
+          "params": [
+            {
+              "name": "message",
+              "type": "any"
+            },
+            {
+              "name": "optionalParams",
+              "type": "any[]"
+            }
+          ],
+          "returnType": "any",
+          "description": "Logs a message at any level from \"TRACE\" upwards."
+        },
+        {
+          "name": "trace",
+          "params": [
+            {
+              "name": "message",
+              "type": "any"
+            },
+            {
+              "name": "optionalParams",
+              "type": "any[]"
+            }
+          ],
+          "returnType": "any",
+          "description": "Logs a message at the \"TRACE\" level."
+        },
+        {
+          "name": "warn",
+          "params": [
+            {
+              "name": "message",
+              "type": "any"
+            },
+            {
+              "name": "optionalParams",
+              "type": "any[]"
+            }
+          ],
+          "returnType": "any",
+          "description": "Logs a message at the \"WARN\" level."
+        },
+        {
+          "name": "assert",
+          "params": [
+            {
+              "name": "test",
+              "type": "boolean"
+            },
+            {
+              "name": "message",
+              "type": "string"
+            },
+            {
+              "name": "optionalParams",
+              "type": "any[]"
+            }
+          ],
+          "returnType": "any",
+          "description": "Logs a message if a boolean test fails."
+        },
+        {
+          "name": "group",
+          "params": [
+            {
+              "name": "groupTitle",
+              "type": "string"
+            },
+            {
+              "name": "optionalParams",
+              "type": "any[]"
+            }
+          ],
+          "returnType": "any",
+          "description": "Starts an indented group of log messages."
+        },
+        {
+          "name": "groupEnd",
+          "params": [],
+          "returnType": "any",
+          "description": "Ends a indented group of log messages."
+        },
+        {
+          "name": "getLogLevel",
+          "params": [
+            {
+              "name": "level",
+              "type": "string"
+            }
+          ],
+          "returnType": "LogLevelsEnum",
+          "description": "Converts a log level name string into its numeric equivalent."
+        },
+        {
+          "name": "messageBus",
+          "params": [
+            {
+              "name": "text",
+              "type": "string"
+            },
+            {
+              "name": "logLevel",
+              "type": "string"
+            }
+          ],
+          "returnType": "any",
+          "description": "Triggers notification callback for log messages."
+        }
+      ],
+      "properties": [
+        {
+          "name": "currentLogLevel",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "currentLogLevel",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "onMessage",
+          "type": "Subject<any>",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "ScriptLoaderService",
+      "kind": "service",
+      "summary": null,
+      "sourceFile": "src/core/services/script-loader.service.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "load",
+          "params": [
+            {
+              "name": "scripts",
+              "type": "string[]"
+            }
+          ],
+          "returnType": "Promise<any>",
+          "description": null
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "ScriptStore",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/core/services/script-loader.service.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "ServiceLocator",
+      "kind": "class",
+      "summary": null,
+      "sourceFile": "src/core/services/locator.service.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "injector",
+          "type": "Injector",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "ShareParamService",
+      "kind": "service",
+      "summary": null,
+      "sourceFile": "src/core/services/share-param.service.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "get",
+          "params": [
+            {
+              "name": "name",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "set",
+          "params": [
+            {
+              "name": "name",
+              "type": "any"
+            },
+            {
+              "name": "value",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "clear",
+          "params": [],
+          "returnType": "any",
+          "description": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "data",
+          "type": "any",
+          "default": "{}",
+          "description": null
+        }
+      ]
+    }
+  ],
+  "suggestedUsageSnippet": "import { CommonServicesModule } from '@dotos/dui/core/services';"
+}

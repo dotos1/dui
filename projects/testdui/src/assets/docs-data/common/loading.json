@@ -1,0 +1,573 @@
+{
+  "importPath": "@dotos/dui/common/loading",
+  "exports": [
+    {
+      "name": "IInternalLoadingOptions",
+      "kind": "interface",
+      "summary": null,
+      "sourceFile": "src/common/loading/services/loading.factory.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "ILoadingConfig",
+      "kind": "interface",
+      "summary": null,
+      "sourceFile": "src/common/loading/services/loading.service.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "ILoadingDirectiveConfig",
+      "kind": "interface",
+      "summary": null,
+      "sourceFile": "src/common/loading/services/loading.service.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "ILoadingRef",
+      "kind": "interface",
+      "summary": null,
+      "sourceFile": "src/common/loading/services/loading.factory.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "LOADING_FACTORY_PROVIDER",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/common/loading/services/loading.factory.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "LOADING_FACTORY_PROVIDER_FACTORY",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/common/loading/services/loading.factory.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "LOADING_PROVIDER",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/common/loading/services/loading.service.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "LOADING_PROVIDER_FACTORY",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/common/loading/services/loading.service.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "LoadingComponent",
+      "kind": "component",
+      "selector": "dui-loading",
+      "summary": null,
+      "sourceFile": "src/common/loading/loading.component.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "getHeight",
+          "params": [],
+          "returnType": "string | undefined",
+          "description": null
+        },
+        {
+          "name": "getCircleDiameter",
+          "params": [],
+          "returnType": "number",
+          "description": null
+        },
+        {
+          "name": "getCircleStrokeWidth",
+          "params": [],
+          "returnType": "number",
+          "description": null
+        },
+        {
+          "name": "isCircular",
+          "params": [],
+          "returnType": "boolean",
+          "description": null
+        },
+        {
+          "name": "isLinear",
+          "params": [],
+          "returnType": "boolean",
+          "description": null
+        },
+        {
+          "name": "isFullScreen",
+          "params": [],
+          "returnType": "boolean",
+          "description": null
+        },
+        {
+          "name": "isOverlay",
+          "params": [],
+          "returnType": "boolean",
+          "description": null
+        },
+        {
+          "name": "show",
+          "params": [],
+          "returnType": "void",
+          "description": "Starts in animation and returns an observable for completition event."
+        },
+        {
+          "name": "hide",
+          "params": [],
+          "returnType": "void",
+          "description": "Starts out animation and returns an observable for completition event."
+        }
+      ],
+      "properties": [
+        {
+          "name": "animation",
+          "type": "any",
+          "default": "false",
+          "description": "Flag for animation"
+        },
+        {
+          "name": "content",
+          "type": "TemplatePortal<any>",
+          "description": "Content injected into loading component."
+        },
+        {
+          "name": "mode",
+          "type": "any",
+          "description": "Sets mode of [DuiLoadingComponent] to LoadingMode.Determinate or LoadingMode.Indeterminate"
+        },
+        {
+          "name": "mode",
+          "type": "LoadingMode",
+          "description": null
+        },
+        {
+          "name": "value",
+          "type": "any",
+          "description": "Sets value of [DuiLoadingComponent] if mode is 'LoadingMode.Determinate'"
+        },
+        {
+          "name": "value",
+          "type": "number",
+          "description": null
+        },
+        {
+          "name": "style",
+          "type": "LoadingStyle",
+          "default": "LoadingStyle.None",
+          "description": null
+        },
+        {
+          "name": "height",
+          "type": "any",
+          "default": "100",
+          "description": "height: number\nSets height of [DuiLoadingComponent]."
+        },
+        {
+          "name": "type",
+          "type": "LoadingType",
+          "default": "LoadingType.Circular",
+          "description": "type: LoadingType\nSets type of [DuiLoadingComponent] rendered."
+        },
+        {
+          "name": "color",
+          "type": "'primary' | 'accent' | 'warn'",
+          "default": "'primary'",
+          "description": "color: primary' | 'accent' | 'warn'\nSets theme color of [DuiLoadingComponent] rendered."
+        }
+      ]
+    },
+    {
+      "name": "LoadingConfig",
+      "kind": "class",
+      "summary": null,
+      "sourceFile": "src/common/loading/services/loading.service.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "name",
+          "type": "string",
+          "description": null
+        },
+        {
+          "name": "type",
+          "type": "LoadingType",
+          "description": null
+        },
+        {
+          "name": "mode",
+          "type": "LoadingMode",
+          "description": null
+        },
+        {
+          "name": "color",
+          "type": "'primary' | 'accent' | 'warn'",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "LoadingContext",
+      "kind": "class",
+      "summary": null,
+      "sourceFile": "src/common/loading/directives/loading.directive.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "$implicit",
+          "type": "any",
+          "default": "undefined",
+          "description": null
+        },
+        {
+          "name": "tdLoading",
+          "type": "any",
+          "default": "undefined",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "LoadingDirective",
+      "kind": "directive",
+      "selector": "[duiLoading]",
+      "summary": null,
+      "sourceFile": "src/common/loading/directives/loading.directive.ts",
+      "inputs": [
+        {
+          "name": "name",
+          "alias": "duiLoading",
+          "type": "string",
+          "description": null
+        },
+        {
+          "name": "until",
+          "alias": "duiLoadingUntil",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "type",
+          "alias": "duiLoadingType",
+          "type": "LoadingType",
+          "default": "LoadingType.Circular",
+          "description": null
+        },
+        {
+          "name": "mode",
+          "alias": "duiLoadingMode",
+          "type": "LoadingMode",
+          "default": "LoadingMode.Indeterminate",
+          "description": null
+        },
+        {
+          "name": "strategy",
+          "alias": "duiLoadingStrategy",
+          "type": "LoadingStrategy.Overlay | LoadingStrategy.Replace",
+          "default": "LoadingStrategy.Replace",
+          "description": null
+        },
+        {
+          "name": "color",
+          "alias": "duiLoadingColor",
+          "type": "'primary' | 'accent' | 'warn'",
+          "default": "'primary'",
+          "description": null
+        }
+      ],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "LoadingDirectiveConfig",
+      "kind": "class",
+      "summary": null,
+      "sourceFile": "src/common/loading/services/loading.service.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "strategy",
+          "type": "LoadingStrategy",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "LoadingFactory",
+      "kind": "service",
+      "summary": null,
+      "sourceFile": "src/common/loading/services/loading.factory.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "createFullScreenComponent",
+          "params": [
+            {
+              "name": "options",
+              "type": "ILoadingConfig"
+            }
+          ],
+          "returnType": "ILoadingRef",
+          "description": null
+        },
+        {
+          "name": "createOverlayComponent",
+          "params": [
+            {
+              "name": "options",
+              "type": "ILoadingConfig"
+            },
+            {
+              "name": "viewContainerRef",
+              "type": "ViewContainerRef"
+            },
+            {
+              "name": "templateRef",
+              "type": "TemplateRef<object>"
+            }
+          ],
+          "returnType": "ILoadingRef",
+          "description": null
+        },
+        {
+          "name": "createReplaceComponent",
+          "params": [
+            {
+              "name": "options",
+              "type": "ILoadingConfig"
+            },
+            {
+              "name": "viewContainerRef",
+              "type": "ViewContainerRef"
+            },
+            {
+              "name": "templateRef",
+              "type": "TemplateRef<object>"
+            },
+            {
+              "name": "context",
+              "type": "LoadingContext"
+            }
+          ],
+          "returnType": "ILoadingRef",
+          "description": null
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "LoadingMode",
+      "kind": "enum",
+      "summary": null,
+      "sourceFile": "src/common/loading/loading.component.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "LoadingModule",
+      "kind": "module",
+      "summary": null,
+      "sourceFile": "src/common/loading/loading.module.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "entryComponents",
+          "type": "any",
+          "default": "EXT_LOADING_ENTRY_COMPONENTS",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "LoadingService",
+      "kind": "service",
+      "summary": null,
+      "sourceFile": "src/common/loading/services/loading.service.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "createComponent",
+          "params": [
+            {
+              "name": "config",
+              "type": "ILoadingDirectiveConfig"
+            },
+            {
+              "name": "viewContainerRef",
+              "type": "ViewContainerRef"
+            },
+            {
+              "name": "templateRef",
+              "type": "TemplateRef<object>"
+            },
+            {
+              "name": "context",
+              "type": "LoadingContext"
+            }
+          ],
+          "returnType": "ILoadingRef",
+          "description": null
+        },
+        {
+          "name": "create",
+          "params": [
+            {
+              "name": "config",
+              "type": "ILoadingConfig"
+            }
+          ],
+          "returnType": "void",
+          "description": null
+        },
+        {
+          "name": "removeComponent",
+          "params": [
+            {
+              "name": "name",
+              "type": "string"
+            }
+          ],
+          "returnType": "void",
+          "description": null
+        },
+        {
+          "name": "register",
+          "params": [
+            {
+              "name": "name",
+              "type": "string"
+            },
+            {
+              "name": "registers",
+              "type": "number"
+            }
+          ],
+          "returnType": "boolean",
+          "description": null
+        },
+        {
+          "name": "resolve",
+          "params": [
+            {
+              "name": "name",
+              "type": "string"
+            },
+            {
+              "name": "resolves",
+              "type": "number"
+            }
+          ],
+          "returnType": "boolean",
+          "description": null
+        },
+        {
+          "name": "resolveAll",
+          "params": [
+            {
+              "name": "name",
+              "type": "string"
+            }
+          ],
+          "returnType": "boolean",
+          "description": null
+        },
+        {
+          "name": "setValue",
+          "params": [
+            {
+              "name": "name",
+              "type": "string"
+            },
+            {
+              "name": "value",
+              "type": "number"
+            }
+          ],
+          "returnType": "boolean",
+          "description": null
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "LoadingStrategy",
+      "kind": "enum",
+      "summary": null,
+      "sourceFile": "src/common/loading/loading.component.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "LoadingStyle",
+      "kind": "enum",
+      "summary": null,
+      "sourceFile": "src/common/loading/loading.component.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "LoadingType",
+      "kind": "enum",
+      "summary": null,
+      "sourceFile": "src/common/loading/loading.component.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "TD_CIRCLE_DIAMETER",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/common/loading/loading.component.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    }
+  ],
+  "suggestedUsageSnippet": "import { LoadingComponent, LoadingModule } from '@dotos/dui/common/loading';\n\n<dui-loading></dui-loading>"
+}

@@ -1,0 +1,241 @@
+{
+  "importPath": "@dotos/dui/ui/context-menu",
+  "exports": [
+    {
+      "name": "CONTEXT_MENU_DIRECTION",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/ui/context-menu/direction.token.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "ContextMenuComponent",
+      "kind": "component",
+      "selector": "dui-context-menu",
+      "summary": null,
+      "sourceFile": "src/ui/context-menu/context-menu.component.ts",
+      "inputs": [
+        {
+          "name": "popup",
+          "type": "any",
+          "default": "true",
+          "description": null
+        },
+        {
+          "name": "children",
+          "type": "any",
+          "description": null
+        }
+      ],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "handleKeydownEscape",
+          "params": [
+            {
+              "name": "event",
+              "type": "KeyboardEvent"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "onClickOutsideEvent",
+          "params": [],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "runAction",
+          "params": [
+            {
+              "name": "menu",
+              "type": "any"
+            },
+            {
+              "name": "event",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "trackById",
+          "params": [
+            {
+              "name": "_",
+              "type": "number"
+            },
+            {
+              "name": "obj",
+              "type": "{ id: string }"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "contextMenu",
+          "params": [],
+          "returnType": "any",
+          "description": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "extendMenus",
+          "type": "QueryList<MenuDirective>",
+          "description": null
+        },
+        {
+          "name": "children",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "menuTrigger",
+          "type": "MatMenuTrigger",
+          "description": null
+        },
+        {
+          "name": "source",
+          "type": "any",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "ContextMenuItemComponent",
+      "kind": "component",
+      "selector": "dui-context-menu-item",
+      "summary": null,
+      "sourceFile": "src/ui/context-menu/context-menu-item.component.ts",
+      "inputs": [
+        {
+          "name": "menuItem",
+          "type": "MenuModel",
+          "description": null
+        }
+      ],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "runAction",
+          "params": [
+            {
+              "name": "menu",
+              "type": "any"
+            },
+            {
+              "name": "event",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "trackById",
+          "params": [
+            {
+              "name": "_",
+              "type": "number"
+            },
+            {
+              "name": "obj",
+              "type": "{ id: string }"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "contextMenu",
+          "params": [],
+          "returnType": "any",
+          "description": null
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "ContextMenuModule",
+      "kind": "module",
+      "summary": null,
+      "sourceFile": "src/ui/context-menu/context-menu.module.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "entryComponents",
+          "type": "any",
+          "default": "[ContextMenuComponent]",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "ContextMenuOverlayRef",
+      "kind": "class",
+      "summary": null,
+      "sourceFile": "src/ui/context-menu/context-menu-overlay.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "close",
+          "params": [],
+          "returnType": "void",
+          "description": null
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "ContextMenuService",
+      "kind": "service",
+      "summary": null,
+      "sourceFile": "src/ui/context-menu/context-menu.service.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "open",
+          "params": [
+            {
+              "name": "config",
+              "type": "ContextmenuOverlayConfig"
+            }
+          ],
+          "returnType": "ContextMenuOverlayRef",
+          "description": null
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "OutsideEventDirective",
+      "kind": "directive",
+      "selector": "[duiContextMenuOutsideEvent]",
+      "summary": null,
+      "sourceFile": "src/ui/context-menu/context-menu-outside-event.directive.ts",
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "clickOutside",
+          "type": "void",
+          "description": null
+        }
+      ],
+      "methods": [],
+      "properties": []
+    }
+  ],
+  "suggestedUsageSnippet": "import { ContextMenuComponent, ContextMenuModule } from '@dotos/dui/ui/context-menu';\n\n<dui-context-menu [popup]=\"...\" [children]=\"...\"></dui-context-menu>"
+}

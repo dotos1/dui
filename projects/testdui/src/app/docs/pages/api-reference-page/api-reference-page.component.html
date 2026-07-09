@@ -1,0 +1,89 @@
+<ng-container *ngIf="api$ | async as api; else noData">
+  <div class="api-ref__layout">
+    <div class="api-ref__main">
+      <mat-card class="api-ref__card" *ngFor="let item of api.exports" [id]="item.name">
+        <mat-card-header>
+          <mat-card-title>
+            {{ item.name }}
+            <span class="api-ref__kind">{{ item.kind }}</span>
+          </mat-card-title>
+          <mat-card-subtitle *ngIf="item.selector">选择器：<code>{{ item.selector }}</code></mat-card-subtitle>
+          <mat-card-subtitle *ngIf="item.pipeName">管道名：<code>{{ item.pipeName }}</code></mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <p class="api-ref__summary">{{ item.summary || '暂无描述' }}</p>
+
+          <ng-container *ngIf="item.inputs.length">
+            <h3>Inputs</h3>
+            <table class="api-ref__table">
+              <thead><tr><th>名称</th><th>类型</th><th>默认值</th><th>说明</th></tr></thead>
+              <tbody>
+                <tr *ngFor="let input of item.inputs">
+                  <td><code>{{ input.alias || input.name }}</code></td>
+                  <td><code>{{ input.type }}</code></td>
+                  <td><code>{{ input.default || '—' }}</code></td>
+                  <td>{{ input.description || '暂无描述' }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </ng-container>
+
+          <ng-container *ngIf="item.outputs.length">
+            <h3>Outputs</h3>
+            <table class="api-ref__table">
+              <thead><tr><th>名称</th><th>类型</th><th>说明</th></tr></thead>
+              <tbody>
+                <tr *ngFor="let output of item.outputs">
+                  <td><code>{{ output.name }}</code></td>
+                  <td><code>{{ output.type }}</code></td>
+                  <td>{{ output.description || '暂无描述' }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </ng-container>
+
+          <ng-container *ngIf="item.methods.length">
+            <h3>方法</h3>
+            <table class="api-ref__table">
+              <thead><tr><th>名称</th><th>参数</th><th>返回值</th><th>说明</th></tr></thead>
+              <tbody>
+                <tr *ngFor="let method of item.methods">
+                  <td><code>{{ method.name }}</code></td>
+                  <td><code>{{ formatParams(method) }}</code></td>
+                  <td><code>{{ method.returnType }}</code></td>
+                  <td>{{ method.description || '暂无描述' }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </ng-container>
+
+          <ng-container *ngIf="item.properties.length">
+            <h3>属性</h3>
+            <table class="api-ref__table">
+              <thead><tr><th>名称</th><th>类型</th><th>默认值</th><th>说明</th></tr></thead>
+              <tbody>
+                <tr *ngFor="let prop of item.properties">
+                  <td><code>{{ prop.name }}</code></td>
+                  <td><code>{{ prop.type }}</code></td>
+                  <td><code>{{ prop.default || '—' }}</code></td>
+                  <td>{{ prop.description || '暂无描述' }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </ng-container>
+
+          <p class="api-ref__source">源文件：<code>{{ item.sourceFile }}</code></p>
+        </mat-card-content>
+      </mat-card>
+    </div>
+
+    <nav class="api-ref__anchors" *ngIf="api.exports.length > 1">
+      <div class="api-ref__anchors-title">本页导航</div>
+      <a *ngFor="let item of api.exports" [href]="'#' + item.name">{{ item.name }}</a>
+    </nav>
+  </div>
+</ng-container>
+
+<ng-template #noData>
+  <p class="api-ref__empty">该模块的文档数据尚未生成，请运行 <code>npm run docs:generate</code>。</p>
+</ng-template>

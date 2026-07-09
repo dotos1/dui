@@ -1,0 +1,60 @@
+{
+  "importPath": "@dotos/dui/common/dynamic",
+  "exports": [
+    {
+      "name": "DynamicExtensionComponent",
+      "kind": "component",
+      "selector": "dui-dynamic-component",
+      "summary": null,
+      "sourceFile": "src/common/dynamic/dynamic.component.ts",
+      "inputs": [
+        {
+          "name": "id",
+          "type": "string",
+          "description": null
+        },
+        {
+          "name": "xtype",
+          "type": "string",
+          "description": null
+        },
+        {
+          "name": "config",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "keep",
+          "type": "boolean",
+          "default": "false",
+          "description": null
+        }
+      ],
+      "outputs": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "content",
+          "type": "ViewContainerRef",
+          "description": null
+        },
+        {
+          "name": "componentRef",
+          "type": "ComponentRef<any>",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "ExtensionsModule",
+      "kind": "module",
+      "summary": null,
+      "sourceFile": "src/common/dynamic/extensions.module.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    }
+  ],
+  "suggestedUsageSnippet": "import { DynamicExtensionComponent, ExtensionsModule } from '@dotos/dui/common/dynamic';\n\n<dui-dynamic-component [id]=\"...\" [xtype]=\"...\" [config]=\"...\"></dui-dynamic-component>"
+}

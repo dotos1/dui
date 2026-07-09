@@ -1,0 +1,231 @@
+{
+  "importPath": "@dotos/dui/ux/line-style",
+  "exports": [
+    {
+      "name": "LineSizeSelector",
+      "kind": "component",
+      "selector": "line-size-field",
+      "summary": null,
+      "sourceFile": "src/ux/line-style/linesize.ts",
+      "inputs": [
+        {
+          "name": "field",
+          "type": "F | any",
+          "description": null
+        }
+      ],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "openedChange",
+          "params": [],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "drawLine",
+          "params": [
+            {
+              "name": "index",
+              "type": "any"
+            },
+            {
+              "name": "value",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "change",
+          "params": [
+            {
+              "name": "$event",
+              "type": "MatSelectChange"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "setValue",
+          "params": [
+            {
+              "name": "value",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "compareWith",
+          "params": [
+            {
+              "name": "o1",
+              "type": "any"
+            },
+            {
+              "name": "o2",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "inputValue",
+          "type": "string",
+          "default": "'1'",
+          "description": null
+        },
+        {
+          "name": "lineCavases",
+          "type": "QueryList<ElementRef>",
+          "description": null
+        },
+        {
+          "name": "field",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "sizeOptions",
+          "type": "any",
+          "default": "PRE_DEFINED_THEMES",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "LineStyleModule",
+      "kind": "module",
+      "summary": null,
+      "sourceFile": "src/ux/line-style/linestyle.module.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "entryComponents",
+          "type": "any",
+          "default": "[\n    LineStyleSelector,\n    LineSizeSelector\n  ]",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "LineStyleSelector",
+      "kind": "component",
+      "selector": "line-style-field",
+      "summary": null,
+      "sourceFile": "src/ux/line-style/linestyle.ts",
+      "inputs": [
+        {
+          "name": "field",
+          "type": "F | any",
+          "description": null
+        }
+      ],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "openedChange",
+          "params": [],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "drawDashedLine",
+          "params": [
+            {
+              "name": "index",
+              "type": "any"
+            },
+            {
+              "name": "value",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "change",
+          "params": [
+            {
+              "name": "$event",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "setValue",
+          "params": [
+            {
+              "name": "value",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "compareWith",
+          "params": [
+            {
+              "name": "o1",
+              "type": "any"
+            },
+            {
+              "name": "o2",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "lineCavases",
+          "type": "QueryList<ElementRef>",
+          "description": null
+        },
+        {
+          "name": "styleOptions",
+          "type": "any",
+          "default": "PRE_DEFINED_THEMES",
+          "description": null
+        },
+        {
+          "name": "inputValue",
+          "type": "any",
+          "default": "[]",
+          "description": null
+        },
+        {
+          "name": "field",
+          "type": "any",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "PRE_DEFINED_THEMES",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/ux/line-style/linestyle.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    }
+  ],
+  "suggestedUsageSnippet": "import { LineSizeSelector, LineStyleModule } from '@dotos/dui/ux/line-style';\n\n<line-size-field [field]=\"...\"></line-size-field>"
+}

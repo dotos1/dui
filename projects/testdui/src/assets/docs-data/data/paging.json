@@ -1,0 +1,200 @@
+{
+  "importPath": "@dotos/dui/data/paging",
+  "exports": [
+    {
+      "name": "DuiPagingBarComponent",
+      "kind": "component",
+      "selector": "dui-paging-bar",
+      "summary": null,
+      "sourceFile": "src/data/paging/paging-bar.component.ts",
+      "inputs": [
+        {
+          "name": "firstLast",
+          "type": "boolean",
+          "default": "true",
+          "description": "firstLast?: boolean\nShows or hides the first and last page buttons of the paging bar. Defaults to 'false'"
+        },
+        {
+          "name": "initialPage",
+          "type": "number",
+          "default": "1",
+          "description": "initialPage?: number\nSets starting page for the paging bar. Defaults to '1'"
+        },
+        {
+          "name": "pageLinkCount",
+          "type": "number",
+          "description": "pageLinkCount?: number\nAmount of page navigation links for the paging bar. Defaults to '0'"
+        },
+        {
+          "name": "pageSize",
+          "type": "number",
+          "description": "pageSize?: number\nSelected page size for the pagination. Defaults 50."
+        },
+        {
+          "name": "total",
+          "type": "number",
+          "description": "total: number\nTotal rows for the pagination."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "onChange",
+          "type": "IPageChangeEvent",
+          "description": "change?: function\nMethod to be executed when page size changes or any button is clicked in the paging bar.\nEmits an [IPageChangeEvent] implemented object."
+        }
+      ],
+      "methods": [
+        {
+          "name": "navigateToPage",
+          "params": [
+            {
+              "name": "page",
+              "type": "number"
+            }
+          ],
+          "returnType": "boolean",
+          "description": null
+        },
+        {
+          "name": "firstPage",
+          "params": [],
+          "returnType": "boolean",
+          "description": null
+        },
+        {
+          "name": "prevPage",
+          "params": [],
+          "returnType": "boolean",
+          "description": null
+        },
+        {
+          "name": "nextPage",
+          "params": [],
+          "returnType": "boolean",
+          "description": null
+        },
+        {
+          "name": "lastPage",
+          "params": [],
+          "returnType": "boolean",
+          "description": null
+        },
+        {
+          "name": "isMinPage",
+          "params": [],
+          "returnType": "boolean",
+          "description": null
+        },
+        {
+          "name": "isMaxPage",
+          "params": [],
+          "returnType": "boolean",
+          "description": null
+        },
+        {
+          "name": "doRefresh",
+          "params": [],
+          "returnType": "any",
+          "description": "Refresh the current page, has the same effect as clicking the 'refresh' button."
+        }
+      ],
+      "properties": [
+        {
+          "name": "displayMsg",
+          "type": "any",
+          "default": "'Displaying {0} - {1} of {2}'",
+          "description": null
+        },
+        {
+          "name": "emptyMsg",
+          "type": "any",
+          "default": "'No data to display'",
+          "description": null
+        },
+        {
+          "name": "beforePageText",
+          "type": "any",
+          "default": "'Page'",
+          "description": null
+        },
+        {
+          "name": "afterPageText",
+          "type": "'of {0}'",
+          "description": null
+        },
+        {
+          "name": "freshDisable",
+          "type": "boolean",
+          "default": "false",
+          "description": null
+        },
+        {
+          "name": "pageLinkCount",
+          "type": "number",
+          "description": null
+        },
+        {
+          "name": "pageSize",
+          "type": "number",
+          "description": null
+        },
+        {
+          "name": "total",
+          "type": "number",
+          "description": null
+        },
+        {
+          "name": "pageLinks",
+          "type": "number[]",
+          "description": "pageLinks: number[]\nReturns the pageLinks in an array"
+        },
+        {
+          "name": "range",
+          "type": "string",
+          "description": "range: string\nReturns the range of the rows."
+        },
+        {
+          "name": "page",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "page",
+          "type": "number",
+          "description": "page: number\nReturns the current page."
+        },
+        {
+          "name": "maxPage",
+          "type": "number",
+          "description": "page: number\nReturns the max page for the current pageSize and total."
+        },
+        {
+          "name": "isRTL",
+          "type": "boolean",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "DuiPagingModule",
+      "kind": "module",
+      "summary": null,
+      "sourceFile": "src/data/paging/paging.module.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "IPageChangeEvent",
+      "kind": "interface",
+      "summary": null,
+      "sourceFile": "src/data/paging/paging-bar.component.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    }
+  ],
+  "suggestedUsageSnippet": "import { DuiPagingBarComponent, DuiPagingModule } from '@dotos/dui/data/paging';\n\n<dui-paging-bar [firstLast]=\"...\" [initialPage]=\"...\" [pageLinkCount]=\"...\" (onChange)=\"...\"></dui-paging-bar>"
+}

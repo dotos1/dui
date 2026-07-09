@@ -1,0 +1,1115 @@
+{
+  "importPath": "@dotos/dui/common/toastr",
+  "exports": [
+    {
+      "name": "ActiveToast",
+      "kind": "interface",
+      "summary": null,
+      "sourceFile": "src/common/toastr/toastr/toastr.service.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "BasePortalHost",
+      "kind": "class",
+      "summary": null,
+      "sourceFile": "src/common/toastr/portal/portal.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "attach",
+          "params": [
+            {
+              "name": "portal",
+              "type": "ComponentPortal<any>"
+            },
+            {
+              "name": "newestOnTop",
+              "type": "boolean"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "attachComponentPortal",
+          "params": [
+            {
+              "name": "portal",
+              "type": "ComponentPortal<T>"
+            },
+            {
+              "name": "newestOnTop",
+              "type": "boolean"
+            }
+          ],
+          "returnType": "ComponentRef<T>",
+          "description": null
+        },
+        {
+          "name": "detach",
+          "params": [],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "setDisposeFn",
+          "params": [
+            {
+              "name": "fn",
+              "type": "() => void"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "ComponentPortal",
+      "kind": "class",
+      "summary": null,
+      "sourceFile": "src/common/toastr/portal/portal.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "attach",
+          "params": [
+            {
+              "name": "host",
+              "type": "BasePortalHost"
+            },
+            {
+              "name": "newestOnTop",
+              "type": "boolean"
+            }
+          ],
+          "returnType": "any",
+          "description": "Attach this portal to a host."
+        },
+        {
+          "name": "detach",
+          "params": [],
+          "returnType": "any",
+          "description": "Detach this portal from its host"
+        },
+        {
+          "name": "setAttachedHost",
+          "params": [
+            {
+              "name": "host",
+              "type": "BasePortalHost"
+            }
+          ],
+          "returnType": "any",
+          "description": "Sets the PortalHost reference without performing `attach()`. This is used directly by\nthe PortalHost when it is performing an `attach()` or `detach()`."
+        }
+      ],
+      "properties": [
+        {
+          "name": "component",
+          "type": "ComponentType<T>",
+          "description": "The type of the component that will be instantiated for attachment."
+        },
+        {
+          "name": "viewContainerRef",
+          "type": "ViewContainerRef",
+          "description": null
+        },
+        {
+          "name": "injector",
+          "type": "Injector",
+          "description": "Injector used for the instantiation of the component."
+        },
+        {
+          "name": "isAttached",
+          "type": "boolean",
+          "description": "Whether this portal is attached to a host."
+        }
+      ]
+    },
+    {
+      "name": "ComponentType",
+      "kind": "interface",
+      "summary": null,
+      "sourceFile": "src/common/toastr/portal/portal.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "DefaultGlobalConfig",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/common/toastr/toastr/toast.provider.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "DefaultNoAnimationsGlobalConfig",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/common/toastr/toastr/toast-noanimation.component.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "DefaultNoComponentGlobalConfig",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/common/toastr/toastr/toastr-config.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "DisableTimoutType",
+      "kind": "type",
+      "summary": null,
+      "sourceFile": "src/common/toastr/toastr/toastr-config.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "GlobalConfig",
+      "kind": "interface",
+      "summary": "Global Toast configuration\nIncludes all IndividualConfig",
+      "sourceFile": "src/common/toastr/toastr/toastr-config.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "GlobalToastrConfig",
+      "kind": "interface",
+      "summary": null,
+      "sourceFile": "src/common/toastr/toastr/toastr-config.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "IndividualConfig",
+      "kind": "interface",
+      "summary": null,
+      "sourceFile": "src/common/toastr/toastr/toastr-config.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "IndividualToastrConfig",
+      "kind": "interface",
+      "summary": null,
+      "sourceFile": "src/common/toastr/toastr/toastr-config.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "NotificationService",
+      "kind": "service",
+      "summary": null,
+      "sourceFile": "src/common/toastr/toastr/notification.service.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "openSnackMessage",
+          "params": [
+            {
+              "name": "message",
+              "type": "string"
+            },
+            {
+              "name": "config",
+              "type": "number | MatSnackBarConfig"
+            }
+          ],
+          "returnType": "MatSnackBarRef<any>",
+          "description": null
+        },
+        {
+          "name": "openSnackMessageAction",
+          "params": [
+            {
+              "name": "message",
+              "type": "string"
+            },
+            {
+              "name": "action",
+              "type": "string"
+            },
+            {
+              "name": "config",
+              "type": "number | MatSnackBarConfig"
+            }
+          ],
+          "returnType": "MatSnackBarRef<any>",
+          "description": null
+        },
+        {
+          "name": "dismissSnackMessageAction",
+          "params": [],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "showError",
+          "params": [
+            {
+              "name": "message",
+              "type": "string"
+            },
+            {
+              "name": "action",
+              "type": "string"
+            }
+          ],
+          "returnType": "MatSnackBarRef<any>",
+          "description": null
+        },
+        {
+          "name": "showInfo",
+          "params": [
+            {
+              "name": "message",
+              "type": "string"
+            },
+            {
+              "name": "action",
+              "type": "string"
+            }
+          ],
+          "returnType": "MatSnackBarRef<any>",
+          "description": null
+        },
+        {
+          "name": "showWarning",
+          "params": [
+            {
+              "name": "message",
+              "type": "string"
+            },
+            {
+              "name": "action",
+              "type": "string"
+            }
+          ],
+          "returnType": "MatSnackBarRef<any>",
+          "description": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "DEFAULT_DURATION_MESSAGE",
+          "type": "number",
+          "default": "5000",
+          "description": null
+        },
+        {
+          "name": "messages",
+          "type": "Subject<NotificationModel>",
+          "default": "new Subject()",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "Overlay",
+      "kind": "service",
+      "summary": null,
+      "sourceFile": "src/common/toastr/overlay/overlay.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "create",
+          "params": [
+            {
+              "name": "positionClass",
+              "type": "string"
+            },
+            {
+              "name": "overlayContainer",
+              "type": "ToastContainerDirective"
+            }
+          ],
+          "returnType": "OverlayRef",
+          "description": null
+        },
+        {
+          "name": "getPaneElement",
+          "params": [
+            {
+              "name": "positionClass",
+              "type": "string"
+            },
+            {
+              "name": "overlayContainer",
+              "type": "ToastContainerDirective"
+            }
+          ],
+          "returnType": "HTMLElement",
+          "description": null
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "OverlayContainer",
+      "kind": "service",
+      "summary": null,
+      "sourceFile": "src/common/toastr/overlay/overlay-container.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "getContainerElement",
+          "params": [],
+          "returnType": "HTMLElement",
+          "description": null
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "OverlayRef",
+      "kind": "class",
+      "summary": null,
+      "sourceFile": "src/common/toastr/overlay/overlay-ref.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "attach",
+          "params": [
+            {
+              "name": "portal",
+              "type": "ComponentPortal<any>"
+            },
+            {
+              "name": "newestOnTop",
+              "type": "boolean"
+            }
+          ],
+          "returnType": "ComponentRef<any>",
+          "description": null
+        },
+        {
+          "name": "detach",
+          "params": [],
+          "returnType": "any",
+          "description": null
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "ProgressAnimationType",
+      "kind": "type",
+      "summary": null,
+      "sourceFile": "src/common/toastr/toastr/toastr-config.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "provideToastr",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/common/toastr/toastr/toast.provider.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "Toast",
+      "kind": "component",
+      "selector": "[toast-component]",
+      "summary": null,
+      "sourceFile": "src/common/toastr/toastr/toast.component.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "activateToast",
+          "params": [],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "updateProgress",
+          "params": [],
+          "returnType": "any",
+          "description": "updates progress bar width"
+        },
+        {
+          "name": "resetTimeout",
+          "params": [],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "remove",
+          "params": [],
+          "returnType": "any",
+          "description": "tells toastrService to remove this toast after animation time"
+        },
+        {
+          "name": "tapToast",
+          "params": [],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "stickAround",
+          "params": [],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "delayedHideToast",
+          "params": [],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "outsideTimeout",
+          "params": [
+            {
+              "name": "func",
+              "type": "() => any"
+            },
+            {
+              "name": "timeout",
+              "type": "number"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "outsideInterval",
+          "params": [
+            {
+              "name": "func",
+              "type": "() => any"
+            },
+            {
+              "name": "timeout",
+              "type": "number"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "message",
+          "type": "string | null",
+          "description": null
+        },
+        {
+          "name": "title",
+          "type": "string",
+          "description": null
+        },
+        {
+          "name": "options",
+          "type": "IndividualConfig<ConfigPayload>",
+          "description": null
+        },
+        {
+          "name": "duplicatesCount",
+          "type": "number",
+          "description": null
+        },
+        {
+          "name": "originalTimeout",
+          "type": "number",
+          "description": null
+        },
+        {
+          "name": "width",
+          "type": "any",
+          "default": "signal(-1)",
+          "description": null
+        },
+        {
+          "name": "toastClasses",
+          "type": "any",
+          "default": "''",
+          "description": null
+        },
+        {
+          "name": "state",
+          "type": "WritableSignal<{ value: 'inactive' | 'active' | 'removed'; params: { easeTime: number | string; easing: string }; }>",
+          "description": null
+        },
+        {
+          "name": "displayStyle",
+          "type": "string | undefined",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "TOAST_CONFIG",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/common/toastr/toastr/toastr-config.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "ToastContainerDirective",
+      "kind": "directive",
+      "selector": "[toastContainer]",
+      "summary": null,
+      "sourceFile": "src/common/toastr/toastr/toast.directive.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "getContainerElement",
+          "params": [],
+          "returnType": "HTMLElement",
+          "description": null
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "ToastNoAnimation",
+      "kind": "component",
+      "selector": "[toast-component]",
+      "summary": null,
+      "sourceFile": "src/common/toastr/toastr/toast-noanimation.component.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "activateToast",
+          "params": [],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "updateProgress",
+          "params": [],
+          "returnType": "any",
+          "description": "updates progress bar width"
+        },
+        {
+          "name": "resetTimeout",
+          "params": [],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "remove",
+          "params": [],
+          "returnType": "any",
+          "description": "tells toastrService to remove this toast after animation time"
+        },
+        {
+          "name": "tapToast",
+          "params": [],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "stickAround",
+          "params": [],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "delayedHideToast",
+          "params": [],
+          "returnType": "any",
+          "description": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "message",
+          "type": "string | null",
+          "description": null
+        },
+        {
+          "name": "title",
+          "type": "string",
+          "description": null
+        },
+        {
+          "name": "options",
+          "type": "IndividualConfig",
+          "description": null
+        },
+        {
+          "name": "duplicatesCount",
+          "type": "number",
+          "description": null
+        },
+        {
+          "name": "originalTimeout",
+          "type": "number",
+          "description": null
+        },
+        {
+          "name": "width",
+          "type": "any",
+          "default": "signal(-1)",
+          "description": "width of progress bar"
+        },
+        {
+          "name": "toastClasses",
+          "type": "any",
+          "default": "''",
+          "description": "a combination of toast type and options.toastClass"
+        },
+        {
+          "name": "displayStyle",
+          "type": "any",
+          "description": "hides component when waiting to be displayed"
+        },
+        {
+          "name": "state",
+          "type": "any",
+          "default": "signal('inactive')",
+          "description": "controls animation"
+        }
+      ]
+    },
+    {
+      "name": "ToastNoAnimationModule",
+      "kind": "module",
+      "summary": null,
+      "sourceFile": "src/common/toastr/toastr/toast-noanimation.component.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "forRoot",
+          "params": [
+            {
+              "name": "config",
+              "type": "Partial<GlobalConfig>"
+            }
+          ],
+          "returnType": "ModuleWithProviders<ToastNoAnimationModule>",
+          "description": null
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "ToastPackage",
+      "kind": "class",
+      "summary": "Everything a toast needs to launch",
+      "sourceFile": "src/common/toastr/toastr/toastr-config.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "triggerTap",
+          "params": [],
+          "returnType": "void",
+          "description": "Fired on click"
+        },
+        {
+          "name": "onTap",
+          "params": [],
+          "returnType": "Observable<void>",
+          "description": null
+        },
+        {
+          "name": "triggerAction",
+          "params": [
+            {
+              "name": "action",
+              "type": "any"
+            }
+          ],
+          "returnType": "void",
+          "description": "available for use in custom toast"
+        },
+        {
+          "name": "onAction",
+          "params": [],
+          "returnType": "Observable<void>",
+          "description": null
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "ToastrComponentlessModule",
+      "kind": "module",
+      "summary": null,
+      "sourceFile": "src/common/toastr/toastr/toastr.module.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "forRoot",
+          "params": [
+            {
+              "name": "config",
+              "type": "Partial<GlobalConfig>"
+            }
+          ],
+          "returnType": "ModuleWithProviders<ToastrModule>",
+          "description": null
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "ToastrConfig",
+      "kind": "interface",
+      "summary": null,
+      "sourceFile": "src/common/toastr/toastr/toastr-config.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "ToastRef",
+      "kind": "class",
+      "summary": "Reference to a toast opened via the Toastr service.",
+      "sourceFile": "src/common/toastr/toastr/toast-ref.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "manualClose",
+          "params": [],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "manualClosed",
+          "params": [],
+          "returnType": "Observable<any>",
+          "description": null
+        },
+        {
+          "name": "timeoutReset",
+          "params": [],
+          "returnType": "Observable<any>",
+          "description": null
+        },
+        {
+          "name": "countDuplicate",
+          "params": [],
+          "returnType": "Observable<number>",
+          "description": null
+        },
+        {
+          "name": "close",
+          "params": [],
+          "returnType": "void",
+          "description": null
+        },
+        {
+          "name": "afterClosed",
+          "params": [],
+          "returnType": "Observable<any>",
+          "description": null
+        },
+        {
+          "name": "isInactive",
+          "params": [],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "activate",
+          "params": [],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "afterActivate",
+          "params": [],
+          "returnType": "Observable<any>",
+          "description": "Gets an observable that is notified when the toast has started opening."
+        },
+        {
+          "name": "onDuplicate",
+          "params": [
+            {
+              "name": "resetTimeout",
+              "type": "boolean"
+            },
+            {
+              "name": "countDuplicate",
+              "type": "boolean"
+            }
+          ],
+          "returnType": "any",
+          "description": "Reset the toast timouts and count duplicates"
+        }
+      ],
+      "properties": [
+        {
+          "name": "componentInstance",
+          "type": "T",
+          "description": "The instance of component opened into the toast."
+        }
+      ]
+    },
+    {
+      "name": "ToastrIconClasses",
+      "kind": "interface",
+      "summary": null,
+      "sourceFile": "src/common/toastr/toastr/toastr-config.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "ToastrModule",
+      "kind": "module",
+      "summary": null,
+      "sourceFile": "src/common/toastr/toastr/toastr.module.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "forRoot",
+          "params": [
+            {
+              "name": "config",
+              "type": "Partial<GlobalConfig>"
+            }
+          ],
+          "returnType": "ModuleWithProviders<ToastrModule>",
+          "description": null
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "ToastrService",
+      "kind": "service",
+      "summary": null,
+      "sourceFile": "src/common/toastr/toastr/toastr.service.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "show",
+          "params": [
+            {
+              "name": "message",
+              "type": "string"
+            },
+            {
+              "name": "title",
+              "type": "string"
+            },
+            {
+              "name": "override",
+              "type": "Partial<IndividualConfig<ConfigPayload>>"
+            },
+            {
+              "name": "type",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": "show toast"
+        },
+        {
+          "name": "success",
+          "params": [
+            {
+              "name": "message",
+              "type": "string"
+            },
+            {
+              "name": "title",
+              "type": "string"
+            },
+            {
+              "name": "override",
+              "type": "Partial<IndividualConfig<ConfigPayload>>"
+            }
+          ],
+          "returnType": "any",
+          "description": "show successful toast"
+        },
+        {
+          "name": "error",
+          "params": [
+            {
+              "name": "message",
+              "type": "string"
+            },
+            {
+              "name": "title",
+              "type": "string"
+            },
+            {
+              "name": "override",
+              "type": "Partial<IndividualConfig<ConfigPayload>>"
+            }
+          ],
+          "returnType": "any",
+          "description": "show error toast"
+        },
+        {
+          "name": "info",
+          "params": [
+            {
+              "name": "message",
+              "type": "string"
+            },
+            {
+              "name": "title",
+              "type": "string"
+            },
+            {
+              "name": "override",
+              "type": "Partial<IndividualConfig<ConfigPayload>>"
+            }
+          ],
+          "returnType": "any",
+          "description": "show info toast"
+        },
+        {
+          "name": "warning",
+          "params": [
+            {
+              "name": "message",
+              "type": "string"
+            },
+            {
+              "name": "title",
+              "type": "string"
+            },
+            {
+              "name": "override",
+              "type": "Partial<IndividualConfig<ConfigPayload>>"
+            }
+          ],
+          "returnType": "any",
+          "description": "show warning toast"
+        },
+        {
+          "name": "clear",
+          "params": [
+            {
+              "name": "toastId",
+              "type": "number"
+            }
+          ],
+          "returnType": "any",
+          "description": "Remove all or a single toast by id"
+        },
+        {
+          "name": "remove",
+          "params": [
+            {
+              "name": "toastId",
+              "type": "number"
+            }
+          ],
+          "returnType": "any",
+          "description": "Remove and destroy a single toast by id"
+        },
+        {
+          "name": "findDuplicate",
+          "params": [
+            {
+              "name": "title",
+              "type": "any"
+            },
+            {
+              "name": "message",
+              "type": "any"
+            },
+            {
+              "name": "resetOnDuplicate",
+              "type": "boolean"
+            },
+            {
+              "name": "countDuplicates",
+              "type": "boolean"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "toastrConfig",
+          "type": "GlobalConfig",
+          "description": null
+        },
+        {
+          "name": "currentlyActive",
+          "type": "any",
+          "default": "0",
+          "description": null
+        },
+        {
+          "name": "toasts",
+          "type": "ActiveToast<any>[]",
+          "default": "[]",
+          "description": null
+        },
+        {
+          "name": "overlayContainer",
+          "type": "ToastContainerDirective",
+          "description": null
+        },
+        {
+          "name": "previousToastMessage",
+          "type": "string | undefined",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "ToastToken",
+      "kind": "interface",
+      "summary": null,
+      "sourceFile": "src/common/toastr/toastr/toastr-config.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    }
+  ],
+  "suggestedUsageSnippet": "import { Toast, ToastNoAnimationModule } from '@dotos/dui/common/toastr';\n\n<[toast-component]></[toast-component]>"
+}

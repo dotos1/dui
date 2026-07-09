@@ -1,0 +1,102 @@
+{
+  "importPath": "@dotos/dui/common/collapsible",
+  "exports": [
+    {
+      "name": "CollapseDirective",
+      "kind": "directive",
+      "selector": "[duiCollapse]",
+      "summary": null,
+      "sourceFile": "src/common/collapsible/collapse.directive.ts",
+      "inputs": [
+        {
+          "name": "target",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "collapsed",
+          "type": "boolean",
+          "description": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "toggle",
+          "type": "boolean",
+          "description": null
+        }
+      ],
+      "methods": [
+        {
+          "name": "click",
+          "params": [],
+          "returnType": "any",
+          "description": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "target",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "collapsed",
+          "type": "any",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "CollapsibleComponent",
+      "kind": "component",
+      "selector": "dui-collapsible",
+      "summary": null,
+      "sourceFile": "src/common/collapsible/collapsible.component.ts",
+      "inputs": [
+        {
+          "name": "title",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "collapsed",
+          "type": "any",
+          "description": null
+        }
+      ],
+      "outputs": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "title",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "collapsed",
+          "type": "any",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "CollapsibleModule",
+      "kind": "module",
+      "summary": null,
+      "sourceFile": "src/common/collapsible/collapsible.module.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "forRoot",
+          "params": [],
+          "returnType": "ModuleWithProviders<CollapsibleModule>",
+          "description": null
+        }
+      ],
+      "properties": []
+    }
+  ],
+  "suggestedUsageSnippet": "import { CollapsibleComponent, CollapsibleModule } from '@dotos/dui/common/collapsible';\n\n<dui-collapsible [title]=\"...\" [collapsed]=\"...\"></dui-collapsible>"
+}

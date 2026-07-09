@@ -1,0 +1,2505 @@
+{
+  "importPath": "@dotos/dui/tree",
+  "exports": [
+    {
+      "name": "IActionHandler",
+      "kind": "interface",
+      "summary": null,
+      "sourceFile": "src/tree/models/tree-options.model.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "IActionMapping",
+      "kind": "interface",
+      "summary": null,
+      "sourceFile": "src/tree/models/tree-options.model.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "IAllowDragFn",
+      "kind": "interface",
+      "summary": null,
+      "sourceFile": "src/tree/defs/api.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "IAllowDropFn",
+      "kind": "interface",
+      "summary": null,
+      "sourceFile": "src/tree/defs/api.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "ITreeConfig",
+      "kind": "interface",
+      "summary": null,
+      "sourceFile": "src/tree/components/tree.component.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "ITreeOptions",
+      "kind": "interface",
+      "summary": null,
+      "sourceFile": "src/tree/defs/api.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "ITreeState",
+      "kind": "interface",
+      "summary": null,
+      "sourceFile": "src/tree/defs/api.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "KEYS",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/tree/constants/keys.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "LoadingComponent",
+      "kind": "component",
+      "selector": "tree-loading-component",
+      "summary": null,
+      "sourceFile": "src/tree/components/loading.component.ts",
+      "inputs": [
+        {
+          "name": "template",
+          "type": "TemplateRef<any>",
+          "description": null
+        },
+        {
+          "name": "node",
+          "type": "TreeNode",
+          "description": null
+        }
+      ],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "TREE_ACTIONS",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/tree/models/tree-options.model.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "TREE_EVENTS",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/tree/constants/events.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "TreeAnimateOpenDirective",
+      "kind": "directive",
+      "selector": "[treeAnimateOpen]",
+      "summary": null,
+      "sourceFile": "src/tree/directives/tree-animate-open.directive.ts",
+      "inputs": [
+        {
+          "name": "animateSpeed",
+          "alias": "treeAnimateOpenSpeed",
+          "type": "number",
+          "description": null
+        },
+        {
+          "name": "animateAcceleration",
+          "alias": "treeAnimateOpenAcceleration",
+          "type": "number",
+          "description": null
+        },
+        {
+          "name": "isEnabled",
+          "alias": "treeAnimateOpenEnabled",
+          "type": "boolean",
+          "description": null
+        },
+        {
+          "name": "isOpen",
+          "alias": "treeAnimateOpen",
+          "type": "boolean",
+          "description": null
+        }
+      ],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "TreeComponent",
+      "kind": "component",
+      "selector": "Tree, tree-root",
+      "summary": null,
+      "sourceFile": "src/tree/components/tree.component.ts",
+      "inputs": [
+        {
+          "name": "nodes",
+          "type": "any[]",
+          "description": null
+        },
+        {
+          "name": "options",
+          "type": "ITreeOptions",
+          "description": null
+        },
+        {
+          "name": "focused",
+          "type": "boolean",
+          "description": null
+        },
+        {
+          "name": "state",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "config",
+          "type": "ITreeConfig",
+          "default": "{\n    click: () => { },\n    rootUrl: '',\n    storeName: '',\n    apiBase: '/api/',\n    rootParams: {}\n  }",
+          "description": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "toggleExpanded",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "activate",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "deactivate",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "nodeActivate",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "nodeDeactivate",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "select",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "deselect",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "focus",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "blur",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "updateData",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "initialized",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "moveNode",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "copyNode",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "loadNodeChildren",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "changeFilter",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "event",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "stateChange",
+          "type": "any",
+          "description": null
+        }
+      ],
+      "methods": [
+        {
+          "name": "onKeydown",
+          "params": [
+            {
+              "name": "$event",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "onMousedown",
+          "params": [
+            {
+              "name": "$event",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "loadParentNode",
+          "params": [
+            {
+              "name": "fn",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "loadSelfNode",
+          "params": [
+            {
+              "name": "id",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "setActiveNodeLabel",
+          "params": [
+            {
+              "name": "label",
+              "type": "string"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "setActiveNodeIcon",
+          "params": [
+            {
+              "name": "icon",
+              "type": "string"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "dropActiveNode",
+          "params": [
+            {
+              "name": "fn",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "refresh",
+          "params": [],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "loadSubNode",
+          "params": [
+            {
+              "name": "id",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "setAcvitNode",
+          "params": [
+            {
+              "name": "id",
+              "type": "any"
+            },
+            {
+              "name": "event",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "getChildren",
+          "params": [
+            {
+              "name": "node",
+              "type": "TreeNode"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "exeHistoryNode",
+          "params": [
+            {
+              "name": "nowNode",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "loadNodeByPath",
+          "params": [
+            {
+              "name": "paths",
+              "type": "any"
+            },
+            {
+              "name": "startNode",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "loadPath",
+          "params": [
+            {
+              "name": "paths",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "getTree",
+          "params": [
+            {
+              "name": "url",
+              "type": "string"
+            },
+            {
+              "name": "params",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "sizeChanged",
+          "params": [],
+          "returnType": "any",
+          "description": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "loadingTemplate",
+          "type": "TemplateRef<any>",
+          "description": null
+        },
+        {
+          "name": "treeNodeTemplate",
+          "type": "TemplateRef<any>",
+          "description": null
+        },
+        {
+          "name": "treeNodeWrapperTemplate",
+          "type": "TemplateRef<any>",
+          "description": null
+        },
+        {
+          "name": "treeNodeFullTemplate",
+          "type": "TemplateRef<any>",
+          "description": null
+        },
+        {
+          "name": "viewportComponent",
+          "type": "TreeViewportComponent",
+          "description": null
+        },
+        {
+          "name": "selectedNodes",
+          "type": "any",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "TreeDragDirective",
+      "kind": "directive",
+      "selector": "[treeDrag]",
+      "summary": null,
+      "sourceFile": "src/tree/directives/tree-drag.directive.ts",
+      "inputs": [
+        {
+          "name": "draggedElement",
+          "alias": "treeDrag",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "treeDragEnabled",
+          "type": "any",
+          "description": null
+        }
+      ],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "onDragStart",
+          "params": [
+            {
+              "name": "ev",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "onDrag",
+          "params": [
+            {
+              "name": "ev",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "onDragEnd",
+          "params": [],
+          "returnType": "any",
+          "description": null
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "TreeDraggedElement",
+      "kind": "service",
+      "summary": null,
+      "sourceFile": "src/tree/models/tree-dragged-element.model.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "set",
+          "params": [
+            {
+              "name": "draggedElement",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "get",
+          "params": [],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "isDragging",
+          "params": [],
+          "returnType": "any",
+          "description": null
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "TreeDropDirective",
+      "kind": "directive",
+      "selector": "[treeDrop]",
+      "summary": null,
+      "sourceFile": "src/tree/directives/tree-drop.directive.ts",
+      "inputs": [
+        {
+          "name": "allowDragoverStyling",
+          "type": "any",
+          "default": "true",
+          "description": null
+        },
+        {
+          "name": "treeAllowDrop",
+          "type": "any",
+          "description": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "onDropCallback",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "onDragOverCallback",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "onDragLeaveCallback",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "onDragEnterCallback",
+          "type": "any",
+          "description": null
+        }
+      ],
+      "methods": [
+        {
+          "name": "allowDrop",
+          "params": [
+            {
+              "name": "$event",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "onDragOver",
+          "params": [
+            {
+              "name": "$event",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "onDragEnter",
+          "params": [
+            {
+              "name": "$event",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "onDragLeave",
+          "params": [
+            {
+              "name": "$event",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "onDrop",
+          "params": [
+            {
+              "name": "$event",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "TreeMobxAutorunDirective",
+      "kind": "directive",
+      "selector": "[treeMobxAutorun]",
+      "summary": null,
+      "sourceFile": "src/tree/mobx-angular/tree-mobx-autorun.directive.ts",
+      "inputs": [
+        {
+          "name": "treeMobxAutorun",
+          "type": "any",
+          "description": null
+        }
+      ],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "shouldDetach",
+          "params": [],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "autoDetect",
+          "params": [
+            {
+              "name": "view",
+              "type": "EmbeddedViewRef<any>"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "TreeModel",
+      "kind": "service",
+      "summary": null,
+      "sourceFile": "src/tree/models/tree.model.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "fireEvent",
+          "params": [
+            {
+              "name": "event",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "subscribe",
+          "params": [
+            {
+              "name": "eventName",
+              "type": "any"
+            },
+            {
+              "name": "fn",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "unsubscribe",
+          "params": [
+            {
+              "name": "eventName",
+              "type": "any"
+            },
+            {
+              "name": "fn",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "getFocusedNode",
+          "params": [],
+          "returnType": "TreeNode",
+          "description": null
+        },
+        {
+          "name": "getActiveNode",
+          "params": [],
+          "returnType": "TreeNode",
+          "description": null
+        },
+        {
+          "name": "getActiveNodes",
+          "params": [],
+          "returnType": "TreeNode[]",
+          "description": null
+        },
+        {
+          "name": "getVisibleRoots",
+          "params": [],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "getFirstRoot",
+          "params": [
+            {
+              "name": "skipHidden",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "getLastRoot",
+          "params": [
+            {
+              "name": "skipHidden",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "isNodeFocused",
+          "params": [
+            {
+              "name": "node",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "isEmptyTree",
+          "params": [],
+          "returnType": "boolean",
+          "description": null
+        },
+        {
+          "name": "getNodePath",
+          "params": [],
+          "returnType": "Array<TreeNode>",
+          "description": null
+        },
+        {
+          "name": "getNodeByPath",
+          "params": [
+            {
+              "name": "path",
+              "type": "any[]"
+            },
+            {
+              "name": "startNode",
+              "type": "any"
+            }
+          ],
+          "returnType": "TreeNode",
+          "description": null
+        },
+        {
+          "name": "getNodeById",
+          "params": [
+            {
+              "name": "id",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "getNodeBy",
+          "params": [
+            {
+              "name": "predicate",
+              "type": "any"
+            },
+            {
+              "name": "startNode",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "isExpanded",
+          "params": [
+            {
+              "name": "node",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "isHidden",
+          "params": [
+            {
+              "name": "node",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "isActive",
+          "params": [
+            {
+              "name": "node",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "isSelected",
+          "params": [
+            {
+              "name": "node",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "setEvents",
+          "params": [
+            {
+              "name": "events",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "dispose",
+          "params": [],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "unsubscribeAll",
+          "params": [],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "setData",
+          "params": [
+            {
+              "name": "{ nodes, options = null, events = null }",
+              "type": "{ nodes?: any, options?: any, events?: any }"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "update",
+          "params": [],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "setFocusedNode",
+          "params": [
+            {
+              "name": "node",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "setFocus",
+          "params": [
+            {
+              "name": "value",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "doForAll",
+          "params": [
+            {
+              "name": "fn",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "focusNextNode",
+          "params": [],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "focusPreviousNode",
+          "params": [],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "focusDrillDown",
+          "params": [],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "focusDrillUp",
+          "params": [],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "setActiveNode",
+          "params": [
+            {
+              "name": "node",
+              "type": "any"
+            },
+            {
+              "name": "value",
+              "type": "any"
+            },
+            {
+              "name": "multi",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "setSelectedNode",
+          "params": [
+            {
+              "name": "node",
+              "type": "any"
+            },
+            {
+              "name": "value",
+              "type": "any"
+            },
+            {
+              "name": "silent",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "setExpandedNode",
+          "params": [
+            {
+              "name": "node",
+              "type": "any"
+            },
+            {
+              "name": "value",
+              "type": "any"
+            },
+            {
+              "name": "silent",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "expandAll",
+          "params": [],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "collapseAll",
+          "params": [],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "setIsHidden",
+          "params": [
+            {
+              "name": "node",
+              "type": "any"
+            },
+            {
+              "name": "value",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "setHiddenNodeIds",
+          "params": [
+            {
+              "name": "nodeIds",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "performKeyAction",
+          "params": [
+            {
+              "name": "node",
+              "type": "any"
+            },
+            {
+              "name": "$event",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "filterNodes",
+          "params": [
+            {
+              "name": "filter",
+              "type": "any"
+            },
+            {
+              "name": "autoShow",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "clearFilter",
+          "params": [],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "moveNode",
+          "params": [
+            {
+              "name": "node",
+              "type": "any"
+            },
+            {
+              "name": "to",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "removeNode",
+          "params": [
+            {
+              "name": "node",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "copyNode",
+          "params": [
+            {
+              "name": "node",
+              "type": "any"
+            },
+            {
+              "name": "to",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "getState",
+          "params": [],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "setState",
+          "params": [
+            {
+              "name": "state",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "subscribeToState",
+          "params": [
+            {
+              "name": "fn",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "canMoveNode",
+          "params": [
+            {
+              "name": "node",
+              "type": "any"
+            },
+            {
+              "name": "to",
+              "type": "any"
+            },
+            {
+              "name": "fromIndex",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "calculateExpandedNodes",
+          "params": [],
+          "returnType": "any",
+          "description": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "focusedTree",
+          "type": "any",
+          "default": "null",
+          "description": null
+        },
+        {
+          "name": "options",
+          "type": "TreeOptions",
+          "default": "new TreeOptions()",
+          "description": null
+        },
+        {
+          "name": "nodes",
+          "type": "any[]",
+          "description": null
+        },
+        {
+          "name": "eventNames",
+          "type": "any",
+          "default": "Object.keys(TREE_EVENTS)",
+          "description": null
+        },
+        {
+          "name": "virtualScroll",
+          "type": "TreeVirtualScroll",
+          "description": null
+        },
+        {
+          "name": "roots",
+          "type": "TreeNode[]",
+          "description": null
+        },
+        {
+          "name": "expandedNodeIds",
+          "type": "IDTypeDictionary",
+          "default": "{}",
+          "description": null
+        },
+        {
+          "name": "selectedLeafNodeIds",
+          "type": "IDTypeDictionary",
+          "default": "{}",
+          "description": null
+        },
+        {
+          "name": "activeNodeIds",
+          "type": "IDTypeDictionary",
+          "default": "{}",
+          "description": null
+        },
+        {
+          "name": "hiddenNodeIds",
+          "type": "IDTypeDictionary",
+          "default": "{}",
+          "description": null
+        },
+        {
+          "name": "focusedNodeId",
+          "type": "IDType",
+          "default": "null",
+          "description": null
+        },
+        {
+          "name": "virtualRoot",
+          "type": "TreeNode",
+          "description": null
+        },
+        {
+          "name": "firstUpdate",
+          "type": "any",
+          "default": "true",
+          "description": null
+        },
+        {
+          "name": "idSet",
+          "type": "Set<string>",
+          "default": "new Set()",
+          "description": null
+        },
+        {
+          "name": "nodeRegistry",
+          "type": "any",
+          "default": "new Map<string, TreeNode>()",
+          "description": null
+        },
+        {
+          "name": "isFocused",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "focusedNode",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "expandedNodes",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "activeNodes",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "hiddenNodes",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "selectedLeafNodes",
+          "type": "any",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "TreeModule",
+      "kind": "module",
+      "summary": null,
+      "sourceFile": "src/tree/tree.module.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "TreeNode",
+      "kind": "class",
+      "summary": null,
+      "sourceFile": "src/tree/models/tree-node.model.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "fireEvent",
+          "params": [
+            {
+              "name": "event",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "getField",
+          "params": [
+            {
+              "name": "key",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "setField",
+          "params": [
+            {
+              "name": "key",
+              "type": "any"
+            },
+            {
+              "name": "value",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "clear",
+          "params": [],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "addNode",
+          "params": [
+            {
+              "name": "node",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "destroy",
+          "params": [],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "findNextSibling",
+          "params": [
+            {
+              "name": "skipHidden",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "findPreviousSibling",
+          "params": [
+            {
+              "name": "skipHidden",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "getVisibleChildren",
+          "params": [],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "getPathValue",
+          "params": [
+            {
+              "name": "val",
+              "type": "any"
+            },
+            {
+              "name": "name",
+              "type": "any"
+            }
+          ],
+          "returnType": "string[]",
+          "description": null
+        },
+        {
+          "name": "getFirstChild",
+          "params": [
+            {
+              "name": "skipHidden",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "getLastChild",
+          "params": [
+            {
+              "name": "skipHidden",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "findNextNode",
+          "params": [
+            {
+              "name": "goInside",
+              "type": "any"
+            },
+            {
+              "name": "skipHidden",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "findPreviousNode",
+          "params": [
+            {
+              "name": "skipHidden",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "getRoot",
+          "params": [
+            {
+              "name": "node",
+              "type": "TreeNode"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "getAllParents",
+          "params": [
+            {
+              "name": "result",
+              "type": "TreeNode[]"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "getAllChildren",
+          "params": [
+            {
+              "name": "result",
+              "type": "TreeNode[]"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "getIndexInParent",
+          "params": [
+            {
+              "name": "skipHidden",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "isDescendantOf",
+          "params": [
+            {
+              "name": "node",
+              "type": "TreeNode"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "getNodePadding",
+          "params": [],
+          "returnType": "string",
+          "description": null
+        },
+        {
+          "name": "getClass",
+          "params": [],
+          "returnType": "string",
+          "description": null
+        },
+        {
+          "name": "onDrop",
+          "params": [
+            {
+              "name": "$event",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "allowDrag",
+          "params": [],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "setNodeChildren",
+          "params": [
+            {
+              "name": "children",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "loadNodeChildren",
+          "params": [],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "expand",
+          "params": [
+            {
+              "name": "silent",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "collapse",
+          "params": [
+            {
+              "name": "silent",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "doForAll",
+          "params": [
+            {
+              "name": "fn",
+              "type": "(node: ITreeNode) => any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "doForAncestors",
+          "params": [
+            {
+              "name": "fn",
+              "type": "(node: ITreeNode) => any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "expandAncestors",
+          "params": [],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "expandAll",
+          "params": [],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "collapseAll",
+          "params": [],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "ensureVisible",
+          "params": [],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "toggleExpanded",
+          "params": [
+            {
+              "name": "silent",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "setIsExpanded",
+          "params": [
+            {
+              "name": "value",
+              "type": "any"
+            },
+            {
+              "name": "silent",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "autoLoadChildren",
+          "params": [],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "dispose",
+          "params": [],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "setIsActive",
+          "params": [
+            {
+              "name": "value",
+              "type": "any"
+            },
+            {
+              "name": "multi",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "isSelectable",
+          "params": [],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "setIsSelected",
+          "params": [
+            {
+              "name": "value",
+              "type": "any"
+            },
+            {
+              "name": "silent",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "toggleSelected",
+          "params": [],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "toggleActivated",
+          "params": [
+            {
+              "name": "multi",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "setActiveAndVisible",
+          "params": [
+            {
+              "name": "multi",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "scrollIntoView",
+          "params": [
+            {
+              "name": "force",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "focus",
+          "params": [
+            {
+              "name": "scroll",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "blur",
+          "params": [],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "setIsHidden",
+          "params": [
+            {
+              "name": "value",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "hide",
+          "params": [],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "show",
+          "params": [],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "mouseAction",
+          "params": [
+            {
+              "name": "actionName",
+              "type": "string"
+            },
+            {
+              "name": "$event",
+              "type": "any"
+            },
+            {
+              "name": "data",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "getSelfHeight",
+          "params": [],
+          "returnType": "any",
+          "description": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "isHidden",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "isExpanded",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "isActive",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "isFocused",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "isSelected",
+          "type": "boolean",
+          "description": null
+        },
+        {
+          "name": "isAllSelected",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "isPartiallySelected",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "children",
+          "type": "TreeNode[]",
+          "description": null
+        },
+        {
+          "name": "index",
+          "type": "number",
+          "description": null
+        },
+        {
+          "name": "position",
+          "type": "any",
+          "default": "0",
+          "description": null
+        },
+        {
+          "name": "height",
+          "type": "number",
+          "description": null
+        },
+        {
+          "name": "level",
+          "type": "number",
+          "description": null
+        },
+        {
+          "name": "path",
+          "type": "string[]",
+          "description": null
+        },
+        {
+          "name": "elementRef",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "originalNode",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "hasChildren",
+          "type": "boolean",
+          "description": null
+        },
+        {
+          "name": "isCollapsed",
+          "type": "boolean",
+          "description": null
+        },
+        {
+          "name": "isLeaf",
+          "type": "boolean",
+          "description": null
+        },
+        {
+          "name": "isRoot",
+          "type": "boolean",
+          "description": null
+        },
+        {
+          "name": "realParent",
+          "type": "TreeNode",
+          "description": null
+        },
+        {
+          "name": "options",
+          "type": "TreeOptions",
+          "description": null
+        },
+        {
+          "name": "displayField",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "id",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "id",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "expandedIcon",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "icon",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "icon",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "toolTip",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "toolTip",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "checkable",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "checkable",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "editable",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "editable",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "visibleChildren",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "allowDrop",
+          "type": "any",
+          "default": "(element, $event?) => {\n    return this.options.allowDrop(element, { parent: this, index: 0 }, $event);\n  }",
+          "description": null
+        },
+        {
+          "name": "allowDragoverStyling",
+          "type": "any",
+          "default": "() => {\n    return this.options.allowDragoverStyling;\n  }",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "TreeNodeCheckboxComponent",
+      "kind": "component",
+      "selector": "tree-node-checkbox",
+      "summary": null,
+      "sourceFile": "src/tree/components/tree-node-checkbox.component.ts",
+      "inputs": [
+        {
+          "name": "node",
+          "type": "TreeNode",
+          "description": null
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "description": null
+        }
+      ],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "TreeNodeChildrenComponent",
+      "kind": "component",
+      "selector": "tree-node-children",
+      "summary": null,
+      "sourceFile": "src/tree/components/tree-node-children.component.ts",
+      "inputs": [
+        {
+          "name": "node",
+          "type": "TreeNode",
+          "description": null
+        },
+        {
+          "name": "templates",
+          "type": "any",
+          "description": null
+        }
+      ],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "TreeNodeCollectionComponent",
+      "kind": "component",
+      "selector": "tree-node-collection",
+      "summary": null,
+      "sourceFile": "src/tree/components/tree-node-collection.component.ts",
+      "inputs": [
+        {
+          "name": "nodes",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "treeModel",
+          "type": "TreeModel",
+          "description": null
+        },
+        {
+          "name": "templates",
+          "type": "any",
+          "description": null
+        }
+      ],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "setNodes",
+          "params": [
+            {
+              "name": "nodes",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "trackNode",
+          "params": [
+            {
+              "name": "index",
+              "type": "any"
+            },
+            {
+              "name": "node",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "nodes",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "viewportNodes",
+          "type": "TreeNode[]",
+          "description": null
+        },
+        {
+          "name": "marginTop",
+          "type": "string",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "TreeNodeComponent",
+      "kind": "component",
+      "selector": "TreeNode, tree-node",
+      "summary": null,
+      "sourceFile": "src/tree/components/tree-node.component.ts",
+      "inputs": [
+        {
+          "name": "node",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "index",
+          "type": "number",
+          "description": null
+        },
+        {
+          "name": "templates",
+          "type": "any",
+          "description": null
+        }
+      ],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "setNode",
+          "params": [
+            {
+              "name": "node",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "node",
+          "type": "any",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "TreeNodeContent",
+      "kind": "component",
+      "selector": "tree-node-content",
+      "summary": null,
+      "sourceFile": "src/tree/components/tree-node-content.component.ts",
+      "inputs": [
+        {
+          "name": "node",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "index",
+          "type": "number",
+          "description": null
+        },
+        {
+          "name": "template",
+          "type": "TemplateRef<any>",
+          "description": null
+        }
+      ],
+      "outputs": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "node",
+          "type": "TreeNode",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "TreeNodeDropSlot",
+      "kind": "component",
+      "selector": "TreeNodeDropSlot, tree-node-drop-slot",
+      "summary": null,
+      "sourceFile": "src/tree/components/tree-node-drop-slot.component.ts",
+      "inputs": [
+        {
+          "name": "node",
+          "type": "TreeNode",
+          "description": null
+        },
+        {
+          "name": "dropIndex",
+          "type": "number",
+          "description": null
+        }
+      ],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "onDrop",
+          "params": [
+            {
+              "name": "$event",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "allowDrop",
+          "params": [
+            {
+              "name": "element",
+              "type": "any"
+            },
+            {
+              "name": "$event",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "TreeNodeExpanderComponent",
+      "kind": "component",
+      "selector": "tree-node-expander",
+      "summary": null,
+      "sourceFile": "src/tree/components/tree-node-expander.component.ts",
+      "inputs": [
+        {
+          "name": "node",
+          "type": "TreeNode",
+          "description": null
+        }
+      ],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "TreeNodeWrapperComponent",
+      "kind": "component",
+      "selector": "tree-node-wrapper",
+      "summary": null,
+      "sourceFile": "src/tree/components/tree-node-wrapper.component.ts",
+      "inputs": [
+        {
+          "name": "node",
+          "type": "TreeNode",
+          "description": null
+        },
+        {
+          "name": "index",
+          "type": "number",
+          "description": null
+        },
+        {
+          "name": "templates",
+          "type": "any",
+          "description": null
+        }
+      ],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "TreeViewportComponent",
+      "kind": "component",
+      "selector": "tree-viewport",
+      "summary": null,
+      "sourceFile": "src/tree/components/tree-viewport.component.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "getTotalHeight",
+          "params": [],
+          "returnType": "any",
+          "description": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "setViewport",
+          "type": "any",
+          "default": "this.throttle(() => {\n    this.virtualScroll.setViewport(this.elementRef.nativeElement);\n  }, 17)",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "TreeVirtualScroll",
+      "kind": "service",
+      "summary": null,
+      "sourceFile": "src/tree/models/tree-virtual-scroll.model.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "fireEvent",
+          "params": [
+            {
+              "name": "event",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "init",
+          "params": [],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "isEnabled",
+          "params": [],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "recalcPositions",
+          "params": [],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "clear",
+          "params": [],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "setViewport",
+          "params": [
+            {
+              "name": "viewport",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "scrollIntoView",
+          "params": [
+            {
+              "name": "node",
+              "type": "any"
+            },
+            {
+              "name": "force",
+              "type": "any"
+            },
+            {
+              "name": "scrollToMiddle",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "getViewportNodes",
+          "params": [
+            {
+              "name": "nodes",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "fixScroll",
+          "params": [],
+          "returnType": "any",
+          "description": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "yBlocks",
+          "type": "any",
+          "default": "0",
+          "description": null
+        },
+        {
+          "name": "x",
+          "type": "any",
+          "default": "0",
+          "description": null
+        },
+        {
+          "name": "viewportHeight",
+          "type": "any",
+          "default": "null",
+          "description": null
+        },
+        {
+          "name": "viewport",
+          "type": "any",
+          "default": "null",
+          "description": null
+        },
+        {
+          "name": "y",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "totalHeight",
+          "type": "any",
+          "description": null
+        }
+      ]
+    }
+  ],
+  "suggestedUsageSnippet": "import { LoadingComponent, TreeModule } from '@dotos/dui/tree';\n\n<tree-loading-component [template]=\"...\" [node]=\"...\"></tree-loading-component>"
+}

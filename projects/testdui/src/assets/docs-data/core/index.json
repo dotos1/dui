@@ -1,0 +1,1071 @@
+{
+  "importPath": "@dotos/dui/core",
+  "exports": [
+    {
+      "name": "applyCssTransform",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/core/style/apply-transform.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "CdkMonitorFocus",
+      "kind": "directive",
+      "selector": "[cdkMonitorElementFocus], [cdkMonitorSubtreeFocus]",
+      "summary": "Directive that determines how a particular element was focused (via keyboard, mouse, touch, or\nprogrammatically) and adds corresponding classes to the element.\n\nThere are two variants of this directive:\n1) cdkMonitorElementFocus: does not consider an element to be focused if one of its children is\n   focused.\n2) cdkMonitorSubtreeFocus: considers an element focused if it or any of its children are focused.",
+      "sourceFile": "src/core/style/focus-origin-monitor.ts",
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "cdkFocusChange",
+          "type": "any",
+          "description": null
+        }
+      ],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "ComponentBase",
+      "kind": "directive",
+      "summary": null,
+      "sourceFile": "src/core/component.base.ts",
+      "inputs": [
+        {
+          "name": "ownerCt",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "disabled",
+          "type": "any",
+          "default": "false",
+          "description": null
+        }
+      ],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "show",
+          "params": [],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "hide",
+          "params": [],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "initFieldExpression",
+          "params": [
+            {
+              "name": "config",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "checkExpressionChange",
+          "params": [],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "checkCompExpressionChange",
+          "params": [
+            {
+              "name": "comp",
+              "type": "ComponentBase"
+            },
+            {
+              "name": "owner",
+              "type": "ComponentBase"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "checkCompVisibilityChange",
+          "params": [
+            {
+              "name": "comp",
+              "type": "ComponentBase"
+            },
+            {
+              "name": "owner",
+              "type": "ComponentBase"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "checkCompDisableChange",
+          "params": [
+            {
+              "name": "comp",
+              "type": "ComponentBase"
+            },
+            {
+              "name": "owner",
+              "type": "ComponentBase"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "init",
+          "params": [
+            {
+              "name": "config",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "initComponent",
+          "params": [],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "initPlugin",
+          "params": [
+            {
+              "name": "p",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "on",
+          "params": [
+            {
+              "name": "eventName",
+              "type": "string"
+            },
+            {
+              "name": "handler",
+              "type": "Function"
+            }
+          ],
+          "returnType": "void",
+          "description": null
+        },
+        {
+          "name": "off",
+          "params": [
+            {
+              "name": "eventName",
+              "type": "string"
+            },
+            {
+              "name": "handler",
+              "type": "Function"
+            }
+          ],
+          "returnType": "void",
+          "description": null
+        },
+        {
+          "name": "onAdded",
+          "params": [
+            {
+              "name": "container",
+              "type": "any"
+            },
+            {
+              "name": "pos",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "onRemoved",
+          "params": [],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "getXType",
+          "params": [],
+          "returnType": "string",
+          "description": null
+        },
+        {
+          "name": "isXType",
+          "params": [
+            {
+              "name": "comp",
+              "type": "any"
+            },
+            {
+              "name": "shallow",
+              "type": "boolean"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "getXTypes",
+          "params": [],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "findParentBy",
+          "params": [
+            {
+              "name": "fn",
+              "type": "Function"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "findParentByType",
+          "params": [
+            {
+              "name": "xtype",
+              "type": "string | ComponentBase | Object"
+            },
+            {
+              "name": "shallow",
+              "type": "boolean"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "nextSibling",
+          "params": [],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "previousSibling",
+          "params": [],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "beforeDestroy",
+          "params": [],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "onDestroy",
+          "params": [],
+          "returnType": "any",
+          "description": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "display",
+          "type": "any",
+          "default": "'inherit'",
+          "description": null
+        },
+        {
+          "name": "id",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "xtype",
+          "type": "any",
+          "default": "'component'",
+          "description": null
+        },
+        {
+          "name": "reference",
+          "type": "ComponentRef<ComponentBase>",
+          "description": null
+        },
+        {
+          "name": "plugins",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "inited",
+          "type": "boolean",
+          "default": "false",
+          "description": null
+        },
+        {
+          "name": "ref",
+          "type": "any",
+          "default": "''",
+          "description": null
+        },
+        {
+          "name": "style",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "hideExpression",
+          "type": "boolean | string | ((model: any, formState: any) => boolean)",
+          "description": null
+        },
+        {
+          "name": "disableExpression",
+          "type": "boolean | string | ((model: any, formState: any) => boolean)",
+          "description": null
+        },
+        {
+          "name": "expressionProperties",
+          "type": "{ [property: string]: string | ((model: any, formState: any) => boolean) } | any",
+          "description": null
+        },
+        {
+          "name": "hidden",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "hidden",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "disable",
+          "type": "boolean",
+          "description": null
+        },
+        {
+          "name": "disable",
+          "type": "any",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "Console",
+      "kind": "interface",
+      "summary": null,
+      "sourceFile": "src/core/models/console.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "Dir",
+      "kind": "directive",
+      "selector": "[dir]",
+      "summary": null,
+      "sourceFile": "src/core/rtl/dir.ts",
+      "inputs": [
+        {
+          "name": "_dir",
+          "alias": "dir",
+          "type": "LayoutDirection",
+          "default": "'ltr'",
+          "description": "Layout direction of the element."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "dirChange",
+          "type": "any",
+          "description": "Event emitted when the direction changes."
+        }
+      ],
+      "methods": [],
+      "properties": [
+        {
+          "name": "dir",
+          "type": "LayoutDirection",
+          "description": null
+        },
+        {
+          "name": "dir",
+          "type": "any",
+          "description": null
+        },
+        {
+          "name": "value",
+          "type": "LayoutDirection",
+          "description": "Current layout direction of the element."
+        },
+        {
+          "name": "value",
+          "type": "any",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "Dui",
+      "kind": "class",
+      "summary": null,
+      "sourceFile": "src/core/dui.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "generateGUID",
+          "params": [],
+          "returnType": "string",
+          "description": null
+        },
+        {
+          "name": "getParam",
+          "params": [
+            {
+              "name": "path",
+              "type": "string"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "getComponent",
+          "params": [
+            {
+              "name": "id",
+              "type": "string"
+            },
+            {
+              "name": "container",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "create",
+          "params": [
+            {
+              "name": "config",
+              "type": "any"
+            },
+            {
+              "name": "comp",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "createField",
+          "params": [
+            {
+              "name": "field",
+              "type": "any"
+            },
+            {
+              "name": "parent",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "initOption",
+          "params": [
+            {
+              "name": "field",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "assignModelValue",
+          "params": [
+            {
+              "name": "model",
+              "type": "any"
+            },
+            {
+              "name": "path",
+              "type": "string | (string | number)[]"
+            },
+            {
+              "name": "value",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "addFormControl",
+          "params": [
+            {
+              "name": "field",
+              "type": "FieldConfigCache"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "isPluginRegistered",
+          "params": [
+            {
+              "name": "ptype",
+              "type": "string"
+            }
+          ],
+          "returnType": "boolean",
+          "description": null
+        },
+        {
+          "name": "registerPlugin",
+          "params": [
+            {
+              "name": "ptype",
+              "type": "string"
+            },
+            {
+              "name": "cls",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "createPlugin",
+          "params": [
+            {
+              "name": "config",
+              "type": "any"
+            },
+            {
+              "name": "defaultType",
+              "type": "string"
+            }
+          ],
+          "returnType": "ComponentBase",
+          "description": null
+        },
+        {
+          "name": "id",
+          "params": [
+            {
+              "name": "el",
+              "type": "any"
+            },
+            {
+              "name": "prefix",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "getTarget",
+          "params": [
+            {
+              "name": "elem",
+              "type": "any"
+            },
+            {
+              "name": "selector",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "query",
+          "params": [
+            {
+              "name": "elem",
+              "type": "any"
+            },
+            {
+              "name": "selector",
+              "type": "any"
+            },
+            {
+              "name": "result",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "getDom",
+          "params": [
+            {
+              "name": "el",
+              "type": "any"
+            },
+            {
+              "name": "strict",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "getUid",
+          "params": [
+            {
+              "name": "obj",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "hasUid",
+          "params": [
+            {
+              "name": "obj",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "removeUid",
+          "params": [
+            {
+              "name": "obj",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        },
+        {
+          "name": "removeFieldControl",
+          "params": [
+            {
+              "name": "form",
+              "type": "FormArray | FormGroup"
+            },
+            {
+              "name": "key",
+              "type": "string | number"
+            }
+          ],
+          "returnType": "any",
+          "description": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "navigator",
+          "type": "any",
+          "default": "navigator",
+          "description": null
+        },
+        {
+          "name": "idSeed",
+          "type": "any",
+          "default": "0",
+          "description": null
+        },
+        {
+          "name": "DOC",
+          "type": "any",
+          "default": "document",
+          "description": null
+        },
+        {
+          "name": "UID_PROPERTY_",
+          "type": "any",
+          "default": "'dui_' + ((Math.random() * 1e9) >>> 0)",
+          "description": null
+        },
+        {
+          "name": "uidCounter_",
+          "type": "any",
+          "default": "0",
+          "description": "Counter for UID."
+        },
+        {
+          "name": "getHashCode",
+          "type": "any",
+          "default": "Dui.getUid",
+          "description": null
+        },
+        {
+          "name": "removeHashCode",
+          "type": "any",
+          "default": "Dui.removeUid",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "FOCUS_ORIGIN_MONITOR_PROVIDER",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/core/style/focus-origin-monitor.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "FOCUS_ORIGIN_MONITOR_PROVIDER_FACTORY",
+      "kind": "function",
+      "summary": null,
+      "sourceFile": "src/core/style/focus-origin-monitor.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "FocusOrigin",
+      "kind": "type",
+      "summary": null,
+      "sourceFile": "src/core/style/focus-origin-monitor.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "FocusOriginMonitor",
+      "kind": "service",
+      "summary": "Monitors mouse and keyboard events to determine the cause of focus events.",
+      "sourceFile": "src/core/style/focus-origin-monitor.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "monitor",
+          "params": [
+            {
+              "name": "element",
+              "type": "HTMLElement"
+            },
+            {
+              "name": "renderer",
+              "type": "Renderer2"
+            },
+            {
+              "name": "checkChildren",
+              "type": "boolean"
+            }
+          ],
+          "returnType": "Observable<FocusOrigin>",
+          "description": "Monitors focus on an element and applies appropriate CSS classes.\nparam element The element to monitor\nparam renderer The renderer to use to apply CSS classes to the element.\nparam checkChildren Whether to count the element as focused when its children are focused.\n An observable that emits when the focus state of the element changes.\n    When the element is blurred, null will be emitted."
+        },
+        {
+          "name": "stopMonitoring",
+          "params": [
+            {
+              "name": "element",
+              "type": "HTMLElement"
+            }
+          ],
+          "returnType": "void",
+          "description": "Stops monitoring an element and removes all focus classes.\nparam element The element to stop monitoring."
+        },
+        {
+          "name": "focusVia",
+          "params": [
+            {
+              "name": "element",
+              "type": "HTMLElement"
+            },
+            {
+              "name": "origin",
+              "type": "FocusOrigin"
+            }
+          ],
+          "returnType": "void",
+          "description": "Focuses the element via the specified focus origin.\nparam element The element to focus.\nparam origin The focus origin."
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "LayoutDirection",
+      "kind": "type",
+      "summary": null,
+      "sourceFile": "src/core/rtl/dir.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "LogLevel",
+      "kind": "enum",
+      "summary": null,
+      "sourceFile": "src/core/models/log-level.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "Media",
+      "kind": "enum",
+      "summary": null,
+      "sourceFile": "src/core/media/media.enum.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "MediaBreakpoints",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/core/media/media.enum.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "MediaOrientation",
+      "kind": "enum",
+      "summary": null,
+      "sourceFile": "src/core/media/media.enum.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "MediaService",
+      "kind": "service",
+      "summary": null,
+      "sourceFile": "src/core/media/media.service.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "getMedia",
+          "params": [],
+          "returnType": "Media",
+          "description": null
+        },
+        {
+          "name": "getOrientation",
+          "params": [],
+          "returnType": "MediaOrientation",
+          "description": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "media$",
+          "type": "any",
+          "default": "new BehaviorSubject<Media>(undefined)",
+          "description": null
+        },
+        {
+          "name": "orientation$",
+          "type": "any",
+          "default": "new BehaviorSubject<MediaOrientation>(undefined)",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "OverlayState",
+      "kind": "class",
+      "summary": null,
+      "sourceFile": "src/core/overlay/overlay-state.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "positionStrategy",
+          "type": "PositionStrategy",
+          "description": "Strategy with which to position the overlay."
+        },
+        {
+          "name": "scrollStrategy",
+          "type": "ScrollStrategy",
+          "description": "Strategy to be used when handling scroll events while the overlay is open."
+        },
+        {
+          "name": "panelClass",
+          "type": "string",
+          "default": "''",
+          "description": "Custom class to add to the overlay pane."
+        },
+        {
+          "name": "hasBackdrop",
+          "type": "boolean",
+          "default": "false",
+          "description": "Whether the overlay has a backdrop."
+        },
+        {
+          "name": "backdropClass",
+          "type": "string",
+          "default": "'cdk-overlay-dark-backdrop'",
+          "description": "Custom class to add to the backdrop"
+        },
+        {
+          "name": "width",
+          "type": "number | string",
+          "description": "The width of the overlay panel. If a number is provided, pixel units are assumed."
+        },
+        {
+          "name": "height",
+          "type": "number | string",
+          "description": "The height of the overlay panel. If a number is provided, pixel units are assumed."
+        },
+        {
+          "name": "minWidth",
+          "type": "number | string",
+          "description": "The min-width of the overlay panel. If a number is provided, pixel units are assumed."
+        },
+        {
+          "name": "minHeight",
+          "type": "number | string",
+          "description": "The min-height of the overlay panel. If a number is provided, pixel units are assumed."
+        },
+        {
+          "name": "direction",
+          "type": "LayoutDirection",
+          "default": "'ltr'",
+          "description": "The direction of the text in the overlay panel."
+        }
+      ]
+    },
+    {
+      "name": "RtlModule",
+      "kind": "module",
+      "summary": null,
+      "sourceFile": "src/core/rtl/dir.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "StyleModule",
+      "kind": "module",
+      "summary": null,
+      "sourceFile": "src/core/style/style.module.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "TOUCH_BUFFER_MS",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/core/style/focus-origin-monitor.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "Window",
+      "kind": "interface",
+      "summary": null,
+      "sourceFile": "src/core/models/window.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "WindowRef",
+      "kind": "service",
+      "summary": null,
+      "sourceFile": "src/core/WindowRef.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "nativeWindow",
+          "type": "any",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "WindowService",
+      "kind": "service",
+      "summary": null,
+      "sourceFile": "src/core/window.service.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "alert",
+          "params": [
+            {
+              "name": "msg",
+              "type": "string"
+            }
+          ],
+          "returnType": "void",
+          "description": null
+        },
+        {
+          "name": "confirm",
+          "params": [
+            {
+              "name": "msg",
+              "type": "string"
+            }
+          ],
+          "returnType": "void",
+          "description": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "navigator",
+          "type": "any",
+          "default": "{}",
+          "description": null
+        },
+        {
+          "name": "location",
+          "type": "any",
+          "default": "{}",
+          "description": null
+        }
+      ]
+    }
+  ],
+  "suggestedUsageSnippet": "import { RtlModule } from '@dotos/dui/core';"
+}

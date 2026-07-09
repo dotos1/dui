@@ -1,0 +1,72 @@
+{
+  "importPath": "@dotos/dui/core/media",
+  "exports": [
+    {
+      "name": "Media",
+      "kind": "enum",
+      "summary": null,
+      "sourceFile": "src/core/media/media.enum.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "MediaBreakpoints",
+      "kind": "constant",
+      "summary": null,
+      "sourceFile": "src/core/media/media.enum.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "MediaOrientation",
+      "kind": "enum",
+      "summary": null,
+      "sourceFile": "src/core/media/media.enum.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "MediaService",
+      "kind": "service",
+      "summary": null,
+      "sourceFile": "src/core/media/media.service.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "getMedia",
+          "params": [],
+          "returnType": "Media",
+          "description": null
+        },
+        {
+          "name": "getOrientation",
+          "params": [],
+          "returnType": "MediaOrientation",
+          "description": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "media$",
+          "type": "any",
+          "default": "new BehaviorSubject<Media>(undefined)",
+          "description": null
+        },
+        {
+          "name": "orientation$",
+          "type": "any",
+          "default": "new BehaviorSubject<MediaOrientation>(undefined)",
+          "description": null
+        }
+      ]
+    }
+  ],
+  "suggestedUsageSnippet": "import { /* ... */ } from '@dotos/dui/core/media';"
+}

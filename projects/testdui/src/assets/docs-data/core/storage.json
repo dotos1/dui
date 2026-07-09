@@ -1,0 +1,199 @@
+{
+  "importPath": "@dotos/dui/core/storage",
+  "exports": [
+    {
+      "name": "ILocalStorageEvent",
+      "kind": "interface",
+      "summary": null,
+      "sourceFile": "src/core/storage/local-storage-events.interface.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "ILocalStorageServiceConfig",
+      "kind": "interface",
+      "summary": null,
+      "sourceFile": "src/core/storage/local-storage.config.interface.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "INotifyOptions",
+      "kind": "interface",
+      "summary": null,
+      "sourceFile": "src/core/storage/notify-options.interface.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "LocalStorageModule",
+      "kind": "module",
+      "summary": null,
+      "sourceFile": "src/core/storage/local-storage.module.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "withConfig",
+          "params": [
+            {
+              "name": "userConfig",
+              "type": "ILocalStorageServiceConfig"
+            }
+          ],
+          "returnType": "ModuleWithProviders<LocalStorageModule>",
+          "description": null
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "LocalStorageService",
+      "kind": "service",
+      "summary": null,
+      "sourceFile": "src/core/storage/local-storage.service.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "add",
+          "params": [
+            {
+              "name": "key",
+              "type": "string"
+            },
+            {
+              "name": "value",
+              "type": "any"
+            }
+          ],
+          "returnType": "boolean",
+          "description": null
+        },
+        {
+          "name": "clearAll",
+          "params": [
+            {
+              "name": "regularExpression",
+              "type": "string"
+            }
+          ],
+          "returnType": "boolean",
+          "description": null
+        },
+        {
+          "name": "deriveKey",
+          "params": [
+            {
+              "name": "key",
+              "type": "string"
+            }
+          ],
+          "returnType": "string",
+          "description": null
+        },
+        {
+          "name": "has",
+          "params": [
+            {
+              "name": "key",
+              "type": "string"
+            }
+          ],
+          "returnType": "boolean",
+          "description": null
+        },
+        {
+          "name": "get",
+          "params": [
+            {
+              "name": "key",
+              "type": "string"
+            }
+          ],
+          "returnType": "T",
+          "description": null
+        },
+        {
+          "name": "getStorageType",
+          "params": [],
+          "returnType": "string",
+          "description": null
+        },
+        {
+          "name": "keys",
+          "params": [],
+          "returnType": "Array<string>",
+          "description": null
+        },
+        {
+          "name": "length",
+          "params": [],
+          "returnType": "number",
+          "description": null
+        },
+        {
+          "name": "remove",
+          "params": [
+            {
+              "name": "keys",
+              "type": "Array<string>"
+            }
+          ],
+          "returnType": "boolean",
+          "description": null
+        },
+        {
+          "name": "set",
+          "params": [
+            {
+              "name": "key",
+              "type": "string"
+            },
+            {
+              "name": "value",
+              "type": "any"
+            }
+          ],
+          "returnType": "boolean",
+          "description": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "isSupported",
+          "type": "boolean",
+          "default": "false",
+          "description": null
+        },
+        {
+          "name": "errors$",
+          "type": "Observable<string>",
+          "description": null
+        },
+        {
+          "name": "removeItems$",
+          "type": "Observable<ILocalStorageEvent>",
+          "description": null
+        },
+        {
+          "name": "setItems$",
+          "type": "Observable<ILocalStorageEvent>",
+          "description": null
+        },
+        {
+          "name": "warnings$",
+          "type": "Observable<string>",
+          "description": null
+        }
+      ]
+    }
+  ],
+  "suggestedUsageSnippet": "import { LocalStorageModule } from '@dotos/dui/core/storage';"
+}
