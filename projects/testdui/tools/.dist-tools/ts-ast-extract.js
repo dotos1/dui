@@ -18,15 +18,31 @@ const LIFECYCLE_METHOD_NAMES = new Set([
     'setDisabledState',
     'constructor',
 ]);
+function commentText(comment) {
+    const text = typeof comment === 'string' ? comment : comment ? ts.getTextOfJSDocComment(comment) : undefined;
+    const trimmed = text?.trim();
+    return trimmed || null;
+}
+/** Extracts the main (English) JSDoc description for a node. */
 function getJsDocDescription(node) {
     const jsDocs = ts.getJSDocCommentsAndTags(node);
     for (const doc of jsDocs) {
         if (ts.isJSDoc(doc) && doc.comment) {
-            const text = typeof doc.comment === 'string' ? doc.comment : ts.getTextOfJSDocComment(doc.comment);
-            const trimmed = text?.trim();
-            if (trimmed) {
-                return trimmed;
-            }
+            const text = commentText(doc.comment);
+            if (text)
+                return text;
+        }
+    }
+    return null;
+}
+/** Extracts the `@zh` custom JSDoc tag (Chinese translation of the description), if present. */
+function getJsDocZhDescription(node) {
+    const jsDocs = ts.getJSDocCommentsAndTags(node);
+    for (const doc of jsDocs) {
+        if (ts.isJSDocUnknownTag(doc) && doc.tagName?.text === 'zh') {
+            const text = commentText(doc.comment);
+            if (text)
+                return text;
         }
     }
     return null;
@@ -133,6 +149,7 @@ function extractInput(member, decorator) {
         type: printType(typeNode),
         default: defaultText,
         description: getJsDocDescription(member),
+        descriptionZh: getJsDocZhDescription(member),
     };
 }
 function extractOutput(member) {
@@ -142,6 +159,7 @@ function extractOutput(member) {
         name: member.name.getText(),
         type: unwrapEventEmitterType(member.type),
         description: getJsDocDescription(member),
+        descriptionZh: getJsDocZhDescription(member),
     };
 }
 function extractMethod(member) {
@@ -152,6 +170,7 @@ function extractMethod(member) {
         params: member.parameters.map((p) => ({ name: p.name.getText(), type: printType(p.type) })),
         returnType: printType(member.type),
         description: getJsDocDescription(member),
+        descriptionZh: getJsDocZhDescription(member),
     };
 }
 function extractProperty(member) {
@@ -169,6 +188,7 @@ function extractProperty(member) {
         type: printType(typeNode),
         default: defaultText,
         description: getJsDocDescription(member),
+        descriptionZh: getJsDocZhDescription(member),
     };
 }
 function extractClassMembers(classDecl) {
@@ -240,29 +260,31 @@ function extractExport(symbol, checker, repoRoot) {
         const injectableDecorator = getDecorator(decl, 'Injectable');
         const members = extractClassMembers(decl);
         const summary = getJsDocDescription(decl);
+        const summaryZh = getJsDocZhDescription(decl);
         if (componentDecorator) {
             const selector = getStringProp(getDecoratorArgObject(componentDecorator), 'selector');
-            return { name, kind: 'component', selector, summary, sourceFile: sourceFileRel, ...members };
+            return { name, kind: 'component', selector, summary, summaryZh, sourceFile: sourceFileRel, ...members };
         }
         if (directiveDecorator) {
             const selector = getStringProp(getDecoratorArgObject(directiveDecorator), 'selector');
-            return { name, kind: 'directive', selector, summary, sourceFile: sourceFileRel, ...members };
+            return { name, kind: 'directive', selector, summary, summaryZh, sourceFile: sourceFileRel, ...members };
         }
         if (pipeDecorator) {
             const pipeName = getStringProp(getDecoratorArgObject(pipeDecorator), 'name');
-            return { name, kind: 'pipe', pipeName, summary, sourceFile: sourceFileRel, ...members };
+            return { name, kind: 'pipe', pipeName, summary, summaryZh, sourceFile: sourceFileRel, ...members };
         }
         if (ngModuleDecorator) {
-            return { name, kind: 'module', summary, sourceFile: sourceFileRel, ...members };
+            return { name, kind: 'module', summary, summaryZh, sourceFile: sourceFileRel, ...members };
         }
         const kind = injectableDecorator || name.endsWith('Service') ? 'service' : 'class';
-        return { name, kind, summary, sourceFile: sourceFileRel, ...members };
+        return { name, kind, summary, summaryZh, sourceFile: sourceFileRel, ...members };
     }
     if (ts.isInterfaceDeclaration(decl)) {
         return {
             name,
             kind: 'interface',
             summary: getJsDocDescription(decl),
+            summaryZh: getJsDocZhDescription(decl),
             sourceFile: sourceFileRel,
             inputs: [],
             outputs: [],
@@ -275,6 +297,7 @@ function extractExport(symbol, checker, repoRoot) {
             name,
             kind: 'enum',
             summary: getJsDocDescription(decl),
+            summaryZh: getJsDocZhDescription(decl),
             sourceFile: sourceFileRel,
             inputs: [],
             outputs: [],
@@ -287,6 +310,7 @@ function extractExport(symbol, checker, repoRoot) {
             name,
             kind: 'type',
             summary: getJsDocDescription(decl),
+            summaryZh: getJsDocZhDescription(decl),
             sourceFile: sourceFileRel,
             inputs: [],
             outputs: [],
@@ -299,6 +323,7 @@ function extractExport(symbol, checker, repoRoot) {
             name,
             kind: 'function',
             summary: getJsDocDescription(decl),
+            summaryZh: getJsDocZhDescription(decl),
             sourceFile: sourceFileRel,
             inputs: [],
             outputs: [],
@@ -312,6 +337,7 @@ function extractExport(symbol, checker, repoRoot) {
             name,
             kind: 'constant',
             summary: declStatement ? getJsDocDescription(declStatement) : null,
+            summaryZh: declStatement ? getJsDocZhDescription(declStatement) : null,
             sourceFile: sourceFileRel,
             inputs: [],
             outputs: [],
@@ -324,6 +350,7 @@ function extractExport(symbol, checker, repoRoot) {
         name,
         kind: 'class',
         summary: null,
+        summaryZh: null,
         sourceFile: sourceFileRel,
         inputs: [],
         outputs: [],

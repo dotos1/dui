@@ -17,12 +17,14 @@ export interface ApiInput {
   type: string;
   default?: string;
   description: string | null;
+  descriptionZh: string | null;
 }
 
 export interface ApiOutput {
   name: string;
   type: string;
   description: string | null;
+  descriptionZh: string | null;
 }
 
 export interface ApiMethodParam {
@@ -35,6 +37,7 @@ export interface ApiMethod {
   params: ApiMethodParam[];
   returnType: string;
   description: string | null;
+  descriptionZh: string | null;
 }
 
 export interface ApiProperty {
@@ -42,6 +45,7 @@ export interface ApiProperty {
   type: string;
   default?: string;
   description: string | null;
+  descriptionZh: string | null;
 }
 
 export interface ApiExport {
@@ -50,6 +54,7 @@ export interface ApiExport {
   selector?: string;
   pipeName?: string;
   summary: string | null;
+  summaryZh: string | null;
   inputs: ApiInput[];
   outputs: ApiOutput[];
   methods: ApiMethod[];

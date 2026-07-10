@@ -14,10 +14,7 @@ import {
 import { DomSanitizer } from '@angular/platform-browser';
 import { MatTooltip } from '@angular/material/tooltip';
 import { ICopyCodeTooltips } from './copy-code-button/copy-code-button.component';
-
-declare const require: any;
-/* tslint:disable-next-line */
-let hljs: any = require('highlight.js/lib');
+import hljs from 'highlight.js';
 
 @Component({
   selector: 'dui-highlight',
@@ -148,7 +145,7 @@ export class HighlightComponent implements AfterViewInit, AfterViewChecked {
       .replace(/&gt;/gi, '>'); // replace with < and > to render HTML in Angular
     this.copyContent = codeToParse;
     // Parse code with highlight.js depending on language
-    const highlightedCode: any = hljs.highlight(this._lang, codeToParse, true);
+    const highlightedCode: any = hljs.highlight(codeToParse, { language: this._lang, ignoreIllegals: true });
     highlightedCode.value = highlightedCode.value
       .replace(/=<span class="hljs-value">""<\/span>/gi, '')
       .replace('<head>', '')
