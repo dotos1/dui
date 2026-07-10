@@ -6,7 +6,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
+import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 import { ToastrModule } from '@dotos/dui/common/toastr';
 import { ServiceLocator } from '@dotos/dui/core/services';
@@ -16,6 +18,7 @@ import { DotosConfigModule, DotosConfigService, ThemeService, dotosConfig } from
 import { TranslateModule, TranslateService, TranslationService } from '@dotos/dui/translator';
 import { CommandPaletteModule } from '@dotos/dui/ux/command-palette';
 
+import { ThemeSettingsModule } from './theme-settings/theme-settings.module';
 
 import { MAT_TOOLTIP_SCROLL_STRATEGY } from '@angular/material/tooltip';
 import { AppComponent } from './app.component';
@@ -31,7 +34,9 @@ import { AppRoutingModule } from './app.routes';
       MatButtonModule,
       MatIconModule,
       MatMenuModule,
+      MatSidenavModule,
       MatToolbarModule,
+      MatTooltipModule,
       DotosConfigModule.forRoot(dotosConfig),
       HttpLoaderModule.forRoot(),
       ToastrModule.forRoot(),
@@ -41,6 +46,7 @@ import { AppRoutingModule } from './app.routes';
       // injector regardless of which lazy module first requests the service,
       // so CommandPaletteModule's providers must be registered here.
       CommandPaletteModule,
+      ThemeSettingsModule,
     ],
     providers: [
       {

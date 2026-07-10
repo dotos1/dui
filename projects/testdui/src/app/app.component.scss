@@ -1,8 +1,13 @@
 .site-shell {
   position: absolute;
   inset: 0;
+}
+
+.site-shell__main {
   display: flex;
   flex-direction: column;
+  height: 100%;
+  overflow: hidden;
 }
 
 .site-toolbar {
@@ -73,4 +78,16 @@
   .site-toolbar__lang span {
     display: none;
   }
+}
+
+.theme-settings-sidenav {
+  width: 320px;
+  max-width: 90vw;
+}
+
+// Without `@include mat.core()` the sidenav backdrop's scrim color custom
+// property is undefined and falls back to solid opaque black instead of a
+// translucent overlay; override it explicitly.
+::ng-deep .site-shell > .mat-drawer-backdrop {
+  background-color: rgba(0, 0, 0, 0.5) !important;
 }

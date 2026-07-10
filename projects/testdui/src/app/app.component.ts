@@ -2,6 +2,9 @@ import { DOCUMENT } from '@angular/common';
 import { Component, Inject } from '@angular/core';
 import { DotosConfigService, ThemeService } from '@dotos/dui/theme';
 import { TranslationService } from '@dotos/dui/translator';
+import { LocalStorageService } from '@dotos/dui/core/storage';
+
+const DOTOS_CONFIG_STORAGE_KEY = 'dotosConfig';
 
 interface LangOption {
   code: string;
@@ -25,6 +28,7 @@ export class AppComponent {
     public themeService: ThemeService,
     protected dotosConfigService: DotosConfigService,
     protected translation: TranslationService,
+    protected localStore: LocalStorageService,
     @Inject(DOCUMENT) protected document: any,
   ) {
   }
@@ -41,9 +45,15 @@ export class AppComponent {
   }
 
   ngOnInit(): void {
+    const savedConfig = this.localStore.get(DOTOS_CONFIG_STORAGE_KEY);
+    if (savedConfig) {
+      this.dotosConfigService.config = savedConfig;
+    }
+
     this.dotosConfigService.config
       .subscribe((config) => {
         this.setTheme(config);
+        this.localStore.set(DOTOS_CONFIG_STORAGE_KEY, config);
     });
   }
 
