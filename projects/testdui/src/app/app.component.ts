@@ -1,6 +1,12 @@
 import { DOCUMENT } from '@angular/common';
 import { Component, Inject } from '@angular/core';
 import { DotosConfigService, ThemeService } from '@dotos/dui/theme';
+import { TranslationService } from '@dotos/dui/translator';
+
+interface LangOption {
+  code: string;
+  label: string;
+}
 
 @Component({
   selector: 'app-root',
@@ -9,11 +15,29 @@ import { DotosConfigService, ThemeService } from '@dotos/dui/theme';
 })
 export class AppComponent {
   title = 'testdui';
+
+  readonly langs: LangOption[] = [
+    { code: 'zh_CN', label: '简体中文' },
+    { code: 'en_US', label: 'English' },
+  ];
+
   constructor(
     public themeService: ThemeService,
     protected dotosConfigService: DotosConfigService,
+    protected translation: TranslationService,
     @Inject(DOCUMENT) protected document: any,
   ) {
+  }
+
+  get currentLangLabel(): string {
+    const lang = this.langs.find((l) => l.code === this.translation.userLang);
+    return lang ? lang.label : this.langs[0].label;
+  }
+
+  switchLang(code: string): void {
+    this.translation.use(code).subscribe(() => {
+      this.translation.userLang = code;
+    });
   }
 
   ngOnInit(): void {

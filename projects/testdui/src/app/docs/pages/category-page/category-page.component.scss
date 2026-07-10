@@ -1,7 +1,23 @@
 .category-page__title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
   font-size: 28px;
   font-weight: 500;
-  margin: 0 0 16px;
+  margin: 0 0 8px;
+}
+
+.category-page__title-icon {
+  color: #2196f3;
+  font-size: 28px;
+  width: 28px;
+  height: 28px;
+}
+
+.category-page__tagline {
+  color: rgba(0, 0, 0, 0.6);
+  font-size: 15px;
+  margin: 0 0 20px;
 }
 
 .category-page__subheading {
@@ -17,24 +33,23 @@
 }
 
 .category-page__card {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  padding: 14px 16px;
-  border-radius: 6px;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  text-decoration: none;
-  color: inherit;
+  cursor: pointer;
   font-family: monospace;
   font-size: 13px;
+  transition: box-shadow 0.15s ease, transform 0.15s ease;
 
   &:hover {
-    border-color: #2196f3;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+    transform: translateY(-2px);
   }
 }
 
+.category-page__card-id {
+  margin-bottom: 6px;
+}
+
 .category-page__card-badge {
-  align-self: flex-start;
+  display: inline-block;
   font-family: Roboto, sans-serif;
   font-size: 10px;
   padding: 1px 6px;

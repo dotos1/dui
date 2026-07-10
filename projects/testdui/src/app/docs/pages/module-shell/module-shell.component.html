@@ -6,7 +6,7 @@
     <a mat-tab-link routerLink="api" routerLinkActive #ap="routerLinkActive" [active]="ap.isActive">API 参考</a>
     <a mat-tab-link
        *ngIf="module.isFlagship"
-       [routerLink]="['/', (categoryId$ | async), (moduleId$ | async), 'examples']"
+       [routerLink]="['/components', (categoryId$ | async), (moduleId$ | async), 'examples']"
        routerLinkActive #ex="routerLinkActive" [active]="ex.isActive">示例</a>
   </nav>
 

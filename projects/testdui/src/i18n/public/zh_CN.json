@@ -7,5 +7,93 @@
       "oil-gas":"油气",
       "public":"公共"
     }
+  },
+  "NAV": {
+    "HOME": "首页",
+    "TUTORIAL": "快速开始",
+    "COMPONENTS": "组件",
+    "SWITCH_LANG": "切换语言"
+  },
+  "HOME": {
+    "BRAND": "DUI",
+    "TAGLINE": "Dotos 低代码平台的底层 UI 组件体系",
+    "LEAD": "96 个可独立引入的模块、完整的中英双语 API 文档、运行时主题与国际化能力，帮助团队更快地搭建一致、可维护的中后台产品界面。",
+    "CTA_START": "快速开始",
+    "CTA_BROWSE": "浏览组件",
+    "STAT_MODULES_LABEL": "个二级入口模块",
+    "STAT_CATEGORIES_LABEL": "个功能分类",
+    "STAT_DOCS_LABEL": "成员级中英双语 API 文档",
+    "STAT_EXAMPLES_LABEL": "个可交互示例",
+
+    "ECOSYSTEM_TITLE": "DUI 在 Dotos 生态中的定位",
+    "ECOSYSTEM_LEAD": "DUI 并非孤立的开源组件库，而是 Dotos 低代码架构平台的前端基石。Dotos 由北京商典信息科技有限公司推出，帮助企业快速完成软件开发、数据治理、数据集成与 AI 智能应用搭建；DUI 提供这一切背后的基础 UI 能力，Duix 则在 DUI 之上做了更高层的封装，服务于低代码搭建场景。",
+    "DOTOS_TITLE": "Dotos",
+    "DOTOS_SUBTITLE": "低代码架构平台",
+    "DOTOS_DESC": "北京商典信息科技有限公司推出的低代码架构平台，面向企业提供快速的软件开发、数据治理、数据集成与 AI 智能应用的一体化构建能力。",
+    "DUI_TITLE": "DUI",
+    "DUI_SUBTITLE": "底层 UI 组件体系",
+    "DUI_DESC": "Dotos 平台的底层 UI 组件体系，提供 96 个可独立引入的基础组件模块，是整个前端技术栈的地基，也是本文档站介绍的主体。",
+    "DUIX_TITLE": "Duix",
+    "DUIX_SUBTITLE": "上层业务封装",
+    "DUIX_DESC": "在 DUI 之上进一步封装，面向低代码搭建场景提供更高层的业务组件与页面级能力，是 Dotos 低代码引擎的前端呈现层。",
+
+    "FEATURES_TAB": "核心特点",
+    "REASONS_TAB": "为什么选择 DUI",
+
+    "FEATURE_1_TITLE": "覆盖全面的组件体系",
+    "FEATURE_1_DESC": "96 个可独立引入的二级入口模块，涵盖表单、数据表格、树形控件、拖拽排序、对话框、终端、富文本、代码编辑器等企业级场景，按 15 个分类组织，按需引入。",
+    "FEATURE_2_TITLE": "完整的中英双语文档",
+    "FEATURE_2_DESC": "每个模块的类、Input/Output、公共与受保护方法均已补全 JSDoc，并通过 @zh 标签提供中文翻译，文档站自动生成、随代码同步。",
+    "FEATURE_3_TITLE": "运行时主题系统",
+    "FEATURE_3_DESC": "基于 JSS 的 ThemeService 支持在运行时动态切换主色、辅助色、警示色与明暗模式，无需重新编译样式表。",
+    "FEATURE_4_TITLE": "内建国际化能力",
+    "FEATURE_4_DESC": "基于 TranslateService/TranslationService 的多语言框架，内置简体中文与英文语言包，支持按模块扩展翻译资源目录。",
+    "FEATURE_5_TITLE": "统一的代码高亮",
+    "FEATURE_5_DESC": "所有示例代码与用法片段均通过 dui-highlight 组件渲染，支持语法高亮与一键复制，阅读体验与 material.angular.dev 一致。",
+    "FEATURE_6_TITLE": "TypeScript 优先",
+    "FEATURE_6_DESC": "严格模式下开发，配合 Angular CLI 多入口打包，编辑器可获得完整的类型提示与自动补全。",
+
+    "REASON_1_TITLE": "开箱即用，减少重复造轮子",
+    "REASON_1_DESC": "从表单校验、颜色选择器到 Monaco/终端/流程图等重型组件一应俱全，省去自行选型、拼装第三方库的成本。",
+    "REASON_2_TITLE": "文档即代码，长期可维护",
+    "REASON_2_DESC": "文档由源码 JSDoc 自动提取生成，不会因为手写文档而与实现脱节，新增组件即自动出现在文档站。",
+    "REASON_3_TITLE": "按需加载，性能可控",
+    "REASON_3_DESC": "每个模块都是独立的 ng-package 入口，只引入实际使用的部分，避免打包体积膨胀。",
+    "REASON_4_TITLE": "面向团队协作设计",
+    "REASON_4_DESC": "统一的 Angular Material 视觉语言、统一的代码高亮与示例规范，降低团队内多项目之间的协作与复用成本。",
+    "REASON_5_TITLE": "与 Dotos 生态无缝集成",
+    "REASON_5_DESC": "DUI 是 Dotos 低代码平台的底层技术栈，若未来需要更高层的搭建能力，可直接升级到 Duix 或接入 Dotos 低代码引擎，无需推倒重来。",
+    "REASON_6_TITLE": "生产级验证，持续维护",
+    "REASON_6_DESC": "作为 Dotos 平台底层技术栈的一部分，DUI 在真实企业项目中持续验证与打磨，版本迭代稳定，长期有人维护。",
+
+    "QUICKSTART_TITLE": "一分钟上手",
+    "QUICKSTART_LINK": "查看完整安装与快速开始指南"
+  },
+  "TUTORIAL": {
+    "TITLE": "快速开始",
+    "LEAD": "按照下面的步骤，几分钟内即可在你的 Angular 项目中集成 DUI 组件库——无论是独立使用，还是作为 Dotos 低代码平台前端技术栈的一部分。",
+    "TAB1": "1. 安装",
+    "TAB2": "2. 引入模块",
+    "TAB3": "3. 使用组件",
+    "TAB4": "4. 国际化 & 主题",
+
+    "STEP1_H1": "安装依赖包",
+    "STEP1_H2": "安装 peer dependencies",
+    "STEP1_P2": "DUI 基于 Angular Material 与 CDK 构建，请确保项目中已安装以下依赖：",
+
+    "STEP2_H1": "根模块基础配置",
+    "STEP2_P1": "在 AppModule 中引入动画模块、国际化模块与主题配置模块：",
+    "STEP2_H2": "按需引入功能模块",
+    "STEP2_P2": "每个组件都是独立的二级入口，在使用到的 Feature Module 中单独引入：",
+
+    "STEP3_H1": "在模板中使用",
+    "STEP3_P1_PREFIX": "更多组件的完整 Inputs / Outputs / 方法说明，请前往",
+    "STEP3_LINK": "组件文档",
+    "STEP3_P1_SUFFIX": "查阅对应模块的 API 参考；带有\"含可交互示例\"标记的模块还提供可直接运行的 Examples 页面。",
+
+    "STEP4_H1": "切换语言",
+    "STEP4_P1": "DUI 内置基于 TranslationService 的多语言框架，默认提供 zh_CN / en_US 两种语言：",
+    "STEP4_H2": "运行时切换主题",
+    "STEP4_P2": "通过 ThemeService 可以在运行时动态修改主色、辅助色、警示色与明暗模式，无需重新构建："
   }
 }

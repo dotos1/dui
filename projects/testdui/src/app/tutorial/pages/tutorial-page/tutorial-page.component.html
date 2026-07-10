@@ -1,0 +1,53 @@
+<div class="tutorial-page">
+  <h1 class="tutorial-page__title">{{ 'TUTORIAL.TITLE' | translate }}</h1>
+  <p class="tutorial-page__lead">{{ 'TUTORIAL.LEAD' | translate }}</p>
+
+  <mat-tab-group class="tutorial-page__tabs" animationDuration="150ms">
+    <mat-tab [label]="'TUTORIAL.TAB1' | translate">
+      <div class="tutorial-page__panel">
+        <h3>{{ 'TUTORIAL.STEP1_H1' | translate }}</h3>
+        <dui-highlight [content]="installSnippet" [codeLang]="'bash'" [copyCodeToClipboard]="true"></dui-highlight>
+
+        <h3>{{ 'TUTORIAL.STEP1_H2' | translate }}</h3>
+        <p>{{ 'TUTORIAL.STEP1_P2' | translate }}</p>
+        <dui-highlight [content]="peerDepsSnippet" [codeLang]="'bash'" [copyCodeToClipboard]="true"></dui-highlight>
+      </div>
+    </mat-tab>
+
+    <mat-tab [label]="'TUTORIAL.TAB2' | translate">
+      <div class="tutorial-page__panel">
+        <h3>{{ 'TUTORIAL.STEP2_H1' | translate }}</h3>
+        <p>{{ 'TUTORIAL.STEP2_P1' | translate }}</p>
+        <dui-highlight [content]="appModuleSnippet" [codeLang]="'typescript'" [copyCodeToClipboard]="true"></dui-highlight>
+
+        <h3>{{ 'TUTORIAL.STEP2_H2' | translate }}</h3>
+        <p>{{ 'TUTORIAL.STEP2_P2' | translate }}</p>
+        <dui-highlight [content]="featureModuleSnippet" [codeLang]="'typescript'" [copyCodeToClipboard]="true"></dui-highlight>
+      </div>
+    </mat-tab>
+
+    <mat-tab [label]="'TUTORIAL.TAB3' | translate">
+      <div class="tutorial-page__panel">
+        <h3>{{ 'TUTORIAL.STEP3_H1' | translate }}</h3>
+        <dui-highlight [content]="usageSnippet" [codeLang]="'html'" [copyCodeToClipboard]="true"></dui-highlight>
+        <p>
+          {{ 'TUTORIAL.STEP3_P1_PREFIX' | translate }}
+          <a routerLink="/components">{{ 'TUTORIAL.STEP3_LINK' | translate }}</a>
+          {{ 'TUTORIAL.STEP3_P1_SUFFIX' | translate }}
+        </p>
+      </div>
+    </mat-tab>
+
+    <mat-tab [label]="'TUTORIAL.TAB4' | translate">
+      <div class="tutorial-page__panel">
+        <h3>{{ 'TUTORIAL.STEP4_H1' | translate }}</h3>
+        <p>{{ 'TUTORIAL.STEP4_P1' | translate }}</p>
+        <dui-highlight [content]="i18nSnippet" [codeLang]="'typescript'" [copyCodeToClipboard]="true"></dui-highlight>
+
+        <h3>{{ 'TUTORIAL.STEP4_H2' | translate }}</h3>
+        <p>{{ 'TUTORIAL.STEP4_P2' | translate }}</p>
+        <dui-highlight [content]="themeSnippet" [codeLang]="'typescript'" [copyCodeToClipboard]="true"></dui-highlight>
+      </div>
+    </mat-tab>
+  </mat-tab-group>
+</div>

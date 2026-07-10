@@ -21,6 +21,15 @@
   }
 }
 
+.nav-tree__panel-icon {
+  font-size: 18px;
+  width: 18px;
+  height: 18px;
+  vertical-align: middle;
+  margin-right: 6px;
+  color: rgba(0, 0, 0, 0.5);
+}
+
 .nav-tree__link {
   display: flex;
   align-items: center;
