@@ -1,26 +1,29 @@
 <ng-container *ngIf="manifest$ | async as manifest">
   <div class="nav-tree__home">
-    <a routerLink="/" routerLinkActive="nav-tree__link--active" [routerLinkActiveOptions]="{exact: true}">
-      首页
+    <a routerLink="/components" routerLinkActive="nav-tree__link--active" [routerLinkActiveOptions]="{exact: true}">
+      组件总览
     </a>
   </div>
 
   <mat-accordion multi="true" *ngIf="manifest.categories.length; else emptyState">
     <mat-expansion-panel *ngFor="let category of manifest.categories" class="nav-tree__panel">
-      <mat-expansion-panel-header>
-        <mat-panel-title>{{ category.id }}</mat-panel-title>
+      <mat-expansion-panel-header [matTooltip]="categoryTagline(category.id)" matTooltipPosition="right">
+        <mat-panel-title>
+          <mat-icon class="nav-tree__panel-icon">{{ categoryIcon(category.id) }}</mat-icon>
+          {{ category.id }}
+        </mat-panel-title>
         <mat-panel-description>{{ category.moduleCount }}</mat-panel-description>
       </mat-expansion-panel-header>
 
       <a *ngIf="category.moduleCount === 0"
-         [routerLink]="['/', category.id]"
+         [routerLink]="['/components', category.id]"
          routerLinkActive="nav-tree__link--active"
          class="nav-tree__link nav-tree__link--muted">
         （无可导入模块，仅说明文档）
       </a>
 
       <a *ngFor="let module of category.modules"
-         [routerLink]="['/', category.id, module.id, 'overview']"
+         [routerLink]="['/components', category.id, module.id, 'overview']"
          routerLinkActive="nav-tree__link--active"
          class="nav-tree__link">
         {{ module.id }}

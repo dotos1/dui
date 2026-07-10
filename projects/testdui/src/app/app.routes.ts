@@ -7,8 +7,16 @@ export const routes: Routes = [
     loadChildren: () => import('./color/testcolor.module').then(m => m.TestColorModule),
   },
   {
-    path: '',
+    path: 'tutorial',
+    loadChildren: () => import('./tutorial/tutorial.module').then(m => m.TutorialModule),
+  },
+  {
+    path: 'components',
     loadChildren: () => import('./docs/docs.module').then(m => m.DocsModule),
+  },
+  {
+    path: '',
+    loadChildren: () => import('./home/home.module').then(m => m.HomeModule),
   },
 ];
 @NgModule({

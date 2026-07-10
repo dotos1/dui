@@ -3,13 +3,15 @@
     <code>import {{ '{' }} ... {{ '}' }} from '{{ api.importPath }}';</code>
   </p>
 
-  <ul class="overview__exports" *ngIf="api.exports.length">
-    <li *ngFor="let item of api.exports">
-      <span class="overview__kind">{{ item.kind }}</span>
-      <span class="overview__name">{{ item.name }}</span>
-      <span class="overview__summary">{{ summaryOf(item) || '暂无描述' }}</span>
-    </li>
-  </ul>
+  <mat-list class="overview__exports" *ngIf="api.exports.length">
+    <mat-list-item *ngFor="let item of api.exports" lines="1">
+      <span class="overview__kind" matListItemIcon>{{ item.kind }}</span>
+      <span matListItemTitle>
+        <span class="overview__name">{{ item.name }}</span>
+        <span class="overview__summary">{{ summaryOf(item) || '暂无描述' }}</span>
+      </span>
+    </mat-list-item>
+  </mat-list>
 
   <h2 class="overview__subheading" *ngIf="api.suggestedUsageSnippet">用法示例</h2>
   <dui-highlight *ngIf="api.suggestedUsageSnippet"

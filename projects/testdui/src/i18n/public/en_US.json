@@ -7,5 +7,93 @@
       "oil-gas":"oil-gas",
       "public":"public"
     }
+  },
+  "NAV": {
+    "HOME": "Home",
+    "TUTORIAL": "Quick Start",
+    "COMPONENTS": "Components",
+    "SWITCH_LANG": "Switch language"
+  },
+  "HOME": {
+    "BRAND": "DUI",
+    "TAGLINE": "The foundational UI component system of the Dotos low-code platform",
+    "LEAD": "96 independently importable modules, complete bilingual API documentation, runtime theming and internationalization — helping teams build consistent, maintainable back-office UIs faster.",
+    "CTA_START": "Quick Start",
+    "CTA_BROWSE": "Browse Components",
+    "STAT_MODULES_LABEL": "secondary entry modules",
+    "STAT_CATEGORIES_LABEL": "feature categories",
+    "STAT_DOCS_LABEL": "member-level bilingual API docs",
+    "STAT_EXAMPLES_LABEL": "interactive examples",
+
+    "ECOSYSTEM_TITLE": "Where DUI fits in the Dotos ecosystem",
+    "ECOSYSTEM_LEAD": "DUI isn't a standalone open-source component library — it's the front-end foundation of the Dotos low-code platform. Dotos, from Beijing Shangdian Information Technology Co., Ltd., helps enterprises build software, govern and integrate data, and ship AI applications quickly. DUI provides the underlying UI capability behind all of it, while Duix wraps a higher-level layer on top of DUI for low-code scenarios.",
+    "DOTOS_TITLE": "Dotos",
+    "DOTOS_SUBTITLE": "Low-code Platform",
+    "DOTOS_DESC": "A low-code architecture platform from Beijing Shangdian Information Technology Co., Ltd., giving enterprises an integrated way to build software, govern and integrate data, and ship AI-powered applications quickly.",
+    "DUI_TITLE": "DUI",
+    "DUI_SUBTITLE": "Foundational UI System",
+    "DUI_DESC": "The foundational UI component system of the Dotos platform — 96 independently importable base modules that form the ground layer of the whole front-end stack, and the subject of this documentation site.",
+    "DUIX_TITLE": "Duix",
+    "DUIX_SUBTITLE": "Higher-level Encapsulation",
+    "DUIX_DESC": "Built on top of DUI with an additional layer of encapsulation, offering higher-level business components and page-level capabilities for low-code scenarios — the front-end presentation layer of the Dotos low-code engine.",
+
+    "FEATURES_TAB": "Core Features",
+    "REASONS_TAB": "Why choose DUI",
+
+    "FEATURE_1_TITLE": "Comprehensive component coverage",
+    "FEATURE_1_DESC": "96 independently importable secondary entry modules covering forms, data tables, tree views, drag-and-drop sorting, dialogs, terminal, rich text, code editors and more enterprise scenarios, organized into 15 categories for on-demand imports.",
+    "FEATURE_2_TITLE": "Complete bilingual documentation",
+    "FEATURE_2_DESC": "Every module's classes, Inputs/Outputs, and public/protected methods have full JSDoc, translated into Chinese via @zh tags — the docs site is generated automatically and stays in sync with the code.",
+    "FEATURE_3_TITLE": "Runtime theming system",
+    "FEATURE_3_DESC": "The JSS-based ThemeService lets you switch primary/accent/warn colors and light/dark mode at runtime, with no stylesheet recompilation required.",
+    "FEATURE_4_TITLE": "Built-in internationalization",
+    "FEATURE_4_DESC": "A multi-language framework built on TranslateService/TranslationService, shipping with Chinese and English packs out of the box, extensible per module with additional translation folders.",
+    "FEATURE_5_TITLE": "Unified code highlighting",
+    "FEATURE_5_DESC": "All example code and usage snippets render through the dui-highlight component, with syntax highlighting and one-click copy — a reading experience consistent with material.angular.dev.",
+    "FEATURE_6_TITLE": "TypeScript-first",
+    "FEATURE_6_DESC": "Built in strict mode with Angular CLI's multi-entry-point packaging, giving editors full type hints and autocompletion.",
+
+    "REASON_1_TITLE": "Ready to use, less reinventing the wheel",
+    "REASON_1_DESC": "From form validation and color pickers to heavyweight components like Monaco, terminal, and flow diagrams — it's all there, saving you the cost of evaluating and assembling third-party libraries yourself.",
+    "REASON_2_TITLE": "Docs as code, maintainable long-term",
+    "REASON_2_DESC": "Documentation is extracted automatically from source JSDoc, so it never drifts from the implementation the way hand-written docs do — new components show up on the docs site automatically.",
+    "REASON_3_TITLE": "On-demand loading, predictable performance",
+    "REASON_3_DESC": "Every module is an independent ng-package entry point — import only what you actually use and avoid bundle bloat.",
+    "REASON_4_TITLE": "Designed for team collaboration",
+    "REASON_4_DESC": "A unified Angular Material visual language plus consistent code highlighting and example conventions lower the cost of collaboration and reuse across teams and projects.",
+    "REASON_5_TITLE": "Seamless integration with the Dotos ecosystem",
+    "REASON_5_DESC": "DUI is the underlying stack of the Dotos low-code platform — when you need higher-level building capabilities, you can move straight to Duix or the Dotos low-code engine without starting over.",
+    "REASON_6_TITLE": "Production-proven, continuously maintained",
+    "REASON_6_DESC": "As part of the Dotos platform's underlying stack, DUI is battle-tested and refined in real enterprise projects, with stable version iteration and long-term maintenance.",
+
+    "QUICKSTART_TITLE": "Get started in a minute",
+    "QUICKSTART_LINK": "View the full installation & quick start guide"
+  },
+  "TUTORIAL": {
+    "TITLE": "Quick Start",
+    "LEAD": "Follow the steps below to integrate the DUI component library into your Angular project in minutes — whether used standalone or as part of the Dotos low-code platform's front-end stack.",
+    "TAB1": "1. Install",
+    "TAB2": "2. Import modules",
+    "TAB3": "3. Use components",
+    "TAB4": "4. i18n & theming",
+
+    "STEP1_H1": "Install the package",
+    "STEP1_H2": "Install peer dependencies",
+    "STEP1_P2": "DUI is built on Angular Material and the CDK, so make sure your project has the following dependencies installed:",
+
+    "STEP2_H1": "Basic root module setup",
+    "STEP2_P1": "Import the animations module, the translation module, and the theme configuration module in AppModule:",
+    "STEP2_H2": "Import feature modules on demand",
+    "STEP2_P2": "Every component is an independent secondary entry point — import it individually in whichever feature module uses it:",
+
+    "STEP3_H1": "Use it in a template",
+    "STEP3_P1_PREFIX": "For the complete Inputs / Outputs / method reference of any component, head over to the",
+    "STEP3_LINK": "component docs",
+    "STEP3_P1_SUFFIX": "and look up the corresponding module's API reference; modules marked \"interactive example included\" also ship a runnable Examples page.",
+
+    "STEP4_H1": "Switch languages",
+    "STEP4_P1": "DUI ships with a multi-language framework built on TranslationService, providing zh_CN / en_US by default:",
+    "STEP4_H2": "Switch themes at runtime",
+    "STEP4_P2": "ThemeService lets you dynamically change the primary/accent/warn colors and light/dark mode at runtime, with no rebuild required:"
   }
 }
