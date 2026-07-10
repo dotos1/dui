@@ -12,6 +12,10 @@ import { DomSanitizer} from '@angular/platform-browser';
 })
 export class SafePipe implements PipeTransform {
     constructor(private sanitizer: DomSanitizer) {}
+    /**
+     * Sanitizes the given URL and returns it wrapped as a trusted resource URL.
+     * @zh 清理给定的 URL 并将其包装为受信任的资源 URL 返回。
+     */
     transform(url: string): any {
      
         return this.sanitizer.bypassSecurityTrustResourceUrl(

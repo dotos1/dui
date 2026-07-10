@@ -20,8 +20,8 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Handles the native `drop` event: prevents its default action and stops propagation.",
+          "descriptionZh": "处理原生 `drop` 事件：阻止其默认行为并停止冒泡传播。"
         }
       ],
       "properties": []
@@ -45,8 +45,8 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Handles the native `click` event and stops its propagation.",
+          "descriptionZh": "处理原生 `click` 事件并停止其冒泡传播。"
         }
       ],
       "properties": []

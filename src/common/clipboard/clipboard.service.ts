@@ -14,6 +14,7 @@ import { ToastrService } from "@dotos/dui/common/toastr";
 })
 export class ClipboardService {
 
+  /** @zh 最近一次通过 `copyContentToClipboard` 复制的数据。 */
   data: any;
 
   constructor(
@@ -84,19 +85,35 @@ export class ClipboardService {
     }
   }
 
+    /**
+     * Returns the last data stored via `set`/`copyContentToClipboard`.
+     * @zh 返回最近一次通过 `set`/`copyContentToClipboard` 存储的数据。
+     */
     get(): any {
         return this.data;
     }
 
+    /**
+     * Stores arbitrary data for later retrieval via `get` (does not touch the system clipboard).
+     * @zh 存储任意数据以供之后通过 `get` 读取（不会操作系统剪贴板）。
+     */
     set(data) {
         this.data = data;
     }
 
+    /**
+     * Clears the internally stored data.
+     * @zh 清空内部存储的数据。
+     */
     clear(): any {
         this.data = undefined;
         return this.data;
     }
 
+    /**
+     * Whether there is currently no data stored.
+     * @zh 当前是否没有存储任何数据。
+     */
     isEmpty(): boolean {
         return !this.data;
     }

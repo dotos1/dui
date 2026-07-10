@@ -29,6 +29,7 @@ export class MatCarouselSlideComponent
   /** @zh 禁用该幻灯片（跳过键盘导航）。 */
   @Input() public disabled = false;
 
+  /** @zh 该幻灯片投影内容的模板引用。 */
   @ViewChild(TemplateRef) public templateRef: TemplateRef<any>;
     
   constructor(public sanitizer: DomSanitizer) {

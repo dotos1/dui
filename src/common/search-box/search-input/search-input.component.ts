@@ -91,33 +91,40 @@ export class SearchInputComponent
   _searchElement!: ElementRef<HTMLInputElement>;
 
 
+  /** @zh Material 表单字段外观：`'outline'`、`'fill'` 等。 */
   @Input() appearance: MatFormFieldAppearance = 'outline';
 
-
+  /** @zh 是否显示下划线。 */
   @Input() showUnderline = false;
 
-
+  /** @zh 停止输入后，多久（毫秒）触发一次 `searchDebounce`。 */
   @Input() debounce = 400;
 
-
+  /** @zh 输入框占位提示文字。 */
   @Input() placeholder = '';
 
-
+  /** @zh 清空按钮图标。 */
   @Input() clearIcon = 'cancel';
 
+  /** @zh 输入框当前值（`ControlValueAccessor` 绑定值）。 */
   @Input() override value!: unknown;
 
-
+  /** @zh 停止输入 `debounce` 毫秒后发出当前输入值。 */
   @Output() searchDebounce: EventEmitter<string> = new EventEmitter<string>();
 
-
+  /** @zh 触发搜索时（如按下回车）发出当前输入值。 */
   @Output() onSearch: EventEmitter<string> = new EventEmitter<string>();
 
-
+  /** @zh 输入框被清空时发出。 */
   @Output() onClear: EventEmitter<void> = new EventEmitter<void>();
 
+  /** @zh 输入框失去焦点时发出。 */
   @Output() blurSearch: EventEmitter<void> = new EventEmitter<void>();
 
+  /**
+   * Whether the current bidi direction is right-to-left.
+   * @zh 当前双向文字方向是否为从右到左。
+   */
   get isRTL(): boolean {
     if (this._dir) {
       return this._dir.dir === 'rtl';
@@ -159,14 +166,26 @@ export class SearchInputComponent
   }
 
 
+  /**
+   * Focuses the underlying `<input>` element.
+   * @zh 聚焦底层的 `<input>` 元素。
+   */
   focus(): void {
     this._input?.focus();
   }
 
+  /**
+   * @hidden Forwards the blur event as `blurSearch`.
+   * @zh 内部使用，将失焦事件以 `blurSearch` 转发出去。
+   */
   handleBlur(): void {
     this.blurSearch.emit();
   }
 
+  /**
+   * @hidden Handles the native `search` event, emitting `onSearch` with the current value.
+   * @zh 内部使用，处理原生 `search` 事件，携带当前值发出 `onSearch`。
+   */
   handleSearch(event: Event): void {
     this._stopPropagation(event);
     if (typeof this.value == 'string') {
@@ -175,6 +194,10 @@ export class SearchInputComponent
   }
 
 
+  /**
+   * Clears the input's value and emits `onClear`.
+   * @zh 清空输入框的值并发出 `onClear`。
+   */
   clearSearch(): void {
     this.value = '';
     this._changeDetectorRef.markForCheck();

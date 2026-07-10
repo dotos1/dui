@@ -13,53 +13,53 @@
           "name": "config",
           "type": "any",
           "default": "{}",
-          "description": null,
-          "descriptionZh": null
+          "description": "Bulk-applies arbitrary properties onto this component (via `Dui.apply`) whenever it changes.",
+          "descriptionZh": "每当变化时，通过 `Dui.apply` 将任意属性批量应用到本组件上。"
         },
         {
           "name": "scrolling",
           "type": "any",
           "default": "'no'",
-          "description": null,
-          "descriptionZh": null
+          "description": "The native `<iframe scrolling>` attribute value.",
+          "descriptionZh": "原生 `<iframe scrolling>` 属性值。"
         },
         {
           "name": "resizeDebounceMillis",
           "type": "number",
-          "description": null,
-          "descriptionZh": null
+          "description": "Debounce time (ms) applied to auto-resize height updates.",
+          "descriptionZh": "自动调整高度更新时应用的防抖时间（毫秒）。"
         },
         {
           "name": "autoResize",
           "type": "boolean",
-          "description": null,
-          "descriptionZh": null
+          "description": "Whether the iframe's height auto-adjusts to fit its (same-origin) content.",
+          "descriptionZh": "iframe 高度是否根据其（同源）内容自动调整。"
         },
         {
           "name": "styleUrls",
           "type": "Array<string>",
-          "description": null,
-          "descriptionZh": null
+          "description": "External stylesheet URLs injected into the (same-origin) iframe document once loaded.",
+          "descriptionZh": "加载完成后注入到（同源）iframe 文档中的外部样式表 URL 列表。"
         },
         {
           "name": "styles",
           "type": "string",
-          "description": null,
-          "descriptionZh": null
+          "description": "Inline CSS text injected into the (same-origin) iframe document once loaded.",
+          "descriptionZh": "加载完成后注入到（同源）iframe 文档中的内联 CSS 文本。"
         },
         {
           "name": "source",
           "type": "string",
-          "description": null,
-          "descriptionZh": null
+          "description": "The URL to load in the iframe; sanitized and marked as a trusted resource URL.",
+          "descriptionZh": "要在 iframe 中加载的 URL；会被清理并标记为受信任的资源 URL。"
         }
       ],
       "outputs": [
         {
           "name": "iframeEvent",
           "type": "IframeEvent",
-          "description": null,
-          "descriptionZh": null
+          "description": "Emits lifecycle/interaction events from the iframe (click, keyup, load, unload, resize, etc.).",
+          "descriptionZh": "发出来自 iframe 的生命周期/交互事件（点击、按键、加载、卸载、尺寸变化等）。"
         }
       ],
       "methods": [
@@ -72,15 +72,15 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Applies the given config object's properties onto this component instance.",
+          "descriptionZh": "将给定配置对象的属性应用到本组件实例上。"
         },
         {
           "name": "reload",
           "params": [],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Reloads the iframe's current document (same-origin only).",
+          "descriptionZh": "重新加载 iframe 当前文档（仅限同源）。"
         }
       ],
       "properties": [
@@ -88,101 +88,101 @@
           "name": "iframe",
           "type": "ElementRef",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "底层原生 `<iframe>` 元素的引用。"
         },
         {
           "name": "resizeDebounceMillis",
           "type": "number",
-          "description": null,
-          "descriptionZh": null
+          "description": "Debounce time (ms) applied to auto-resize height updates.",
+          "descriptionZh": "自动调整高度更新时应用的防抖时间（毫秒）。"
         },
         {
           "name": "autoResize",
           "type": "boolean",
-          "description": null,
-          "descriptionZh": null
+          "description": "Whether the iframe's height auto-adjusts to fit its (same-origin) content.",
+          "descriptionZh": "iframe 高度是否根据其（同源）内容自动调整。"
         },
         {
           "name": "styleUrls",
           "type": "Array<string>",
-          "description": null,
-          "descriptionZh": null
+          "description": "External stylesheet URLs injected into the (same-origin) iframe document once loaded.",
+          "descriptionZh": "加载完成后注入到（同源）iframe 文档中的外部样式表 URL 列表。"
         },
         {
           "name": "styles",
           "type": "string",
-          "description": null,
-          "descriptionZh": null
+          "description": "Inline CSS text injected into the (same-origin) iframe document once loaded.",
+          "descriptionZh": "加载完成后注入到（同源）iframe 文档中的内联 CSS 文本。"
         },
         {
           "name": "source",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "The (sanitized, trusted) URL currently loaded in the iframe.",
+          "descriptionZh": "当前加载到 iframe 中的（经过清理、受信任的）URL。"
         },
         {
           "name": "$iframeClick",
           "type": "ReplaySubject<MouseEvent>",
           "default": "new ReplaySubject<MouseEvent>(1)",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "内部使用，转发 iframe 内部的点击事件。"
         },
         {
           "name": "$iframeKeyUp",
           "type": "ReplaySubject<KeyboardEvent>",
           "default": "new ReplaySubject<KeyboardEvent>(1)",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "内部使用，转发 iframe 内部的按键事件。"
         },
         {
           "name": "$iframeUnload",
           "type": "ReplaySubject<BeforeUnloadEvent>",
           "default": "new ReplaySubject<BeforeUnloadEvent>(1)",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "内部使用，转发 iframe 内部的卸载事件。"
         },
         {
           "name": "$loading",
           "type": "BehaviorSubject<boolean>",
           "default": "new BehaviorSubject<boolean>(true)",
-          "description": null,
-          "descriptionZh": null
+          "description": "Emits `true` while the iframe content/stylesheets are still loading, `false` once ready,\nor `null` if loading failed (e.g. cross-origin error).",
+          "descriptionZh": "当 iframe 内容/样式表仍在加载时发出 `true`，加载完成后发出 `false`，\n加载失败（如跨域错误）时发出 `null`。"
         },
         {
           "name": "$styling",
           "type": "Observable<any>",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "内部使用，根据内容高度变化推导出的样式流，用于自动调整高度。"
         },
         {
           "name": "iframeDocument",
           "type": "Document",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "同源 iframe 的 `document` 对象，跨域时不可用。"
         },
         {
           "name": "iframeBody",
           "type": "HTMLElement",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "同源 iframe 的 `document.body` 元素，跨域时不可用。"
         },
         {
           "name": "activeSource",
           "type": "string",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "当前处于活动状态的 iframe 内容 URL。"
         },
         {
           "name": "elementResizeDetector",
           "type": "elementResizeDetectorMaker.Erd",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "内部使用的元素尺寸变化检测器实例。"
         },
         {
           "name": "elementRef",
           "type": "ElementRef",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "底层原生 `<iframe>` 元素的引用（内部使用，与 `iframe` 指向同一元素）。"
         }
       ]
     },
@@ -224,8 +224,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Sanitizes the given URL and returns it wrapped as a trusted resource URL.",
+          "descriptionZh": "清理给定的 URL 并将其包装为受信任的资源 URL 返回。"
         }
       ],
       "properties": []

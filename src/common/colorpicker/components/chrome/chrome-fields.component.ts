@@ -137,13 +137,24 @@ import { TinyColor } from '@dotos/dui/core/color';
   preserveWhitespaces: false,
     host: { 'hostID': 'color-chrome-fields-' + Math.random().toString(36).substring(2, 15) }
 })
+/**
+ * Editable hex/rgb/hsl input fields with a view toggle, used by {@link ChromeComponent}.
+ * @zh 带视图切换的十六进制/RGB/HSL 可编辑输入字段，供 {@link ChromeComponent} 使用。
+ */
 export class ChromeFieldsComponent implements OnInit {
+  /** @zh 是否禁用透明度字段。 */
   @Input() disableAlpha: boolean;
+  /** @zh 当前颜色的 HSL 表示。 */
   @Input() hsl: HSLA;
+  /** @zh 当前颜色的 RGB 表示。 */
   @Input() rgb: RGBA;
+  /** @zh 当前颜色的十六进制表示。 */
   @Input() hex: string;
+  /** @zh 字段值变化时发出。 */
   @Output() onChange = new EventEmitter<any>();
+  /** @zh 当前显示的字段视图：`'hex'`、`'rgb'` 或 `'hsl'`。 */
   view = '';
+  /** @zh 输入框的内联样式。 */
   input: { [key: string]: string } = {
     fontSize: '11px',
     color: '#333',
@@ -154,6 +165,7 @@ export class ChromeFieldsComponent implements OnInit {
     height: '21px',
     'text-align': 'center',
   };
+  /** @zh 标签的内联样式。 */
   label: { [key: string]: string } = {
     'text-transform': 'uppercase',
     fontSize: '11px',
@@ -171,6 +183,10 @@ export class ChromeFieldsComponent implements OnInit {
       this.view = 'rgb';
     }
   }
+  /**
+   * Cycles the displayed field view: hex → rgb → hsl → (hex or rgb, depending on alpha).
+   * @zh 循环切换显示的字段视图：hex → rgb → hsl →（根据透明度回到 hex 或 rgb）。
+   */
   toggleViews() {
     if (this.view === 'hex') {
       this.view = 'rgb';
@@ -184,9 +200,17 @@ export class ChromeFieldsComponent implements OnInit {
       }
     }
   }
+  /**
+   * Rounds a number to the nearest integer.
+   * @zh 将数字四舍五入为最接近的整数。
+   */
   round(value) {
     return Math.round(value);
   }
+  /**
+   * Normalizes and emits a field change as `onChange`, based on which field(s) changed.
+   * @zh 根据发生变化的字段，归一化后以 `onChange` 发出。
+   */
   handleChange({ data, $event }) {
     if (data.hex) {
       if (isValidHex(data.hex)) {

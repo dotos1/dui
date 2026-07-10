@@ -27,16 +27,30 @@ import { HSLA, RGBA } from './helpers/color.interfaces';
   preserveWhitespaces: false,
   
 })
+/**
+ * Alpha (opacity) channel slider used by the `color-*` picker style variants.
+ * @zh `color-*` 颜色选择器样式变体使用的透明度（alpha）通道滑块。
+ */
 export class AlphaComponent implements OnChanges {
+  /** @zh 当前颜色的 HSL 表示。 */
   @Input() hsl: HSLA;
+  /** @zh 当前颜色的 RGB 表示。 */
   @Input() rgb: RGBA;
+  /** @zh 滑块手柄的内联样式。 */
   @Input() pointer: { [key: string]: string };
+  /** @zh 滑动条的阴影样式。 */
   @Input() shadow: string;
+  /** @zh 滑动条的圆角半径。 */
   @Input() radius: string|number;
+  /** @zh 滑动条方向：水平或垂直。 */
   @Input() direction: 'horizontal' | 'vertical' = 'horizontal';
+  /** @zh alpha 值变化时发出。 */
   @Output() onChange = new EventEmitter();
+  /** @zh 根据当前颜色计算出的渐变背景样式。 */
   gradient: { [key: string]: string };
+  /** @zh 滑块手柄的水平位置百分比。 */
   pointerLeft: number;
+  /** @zh 滑块手柄的垂直位置百分比。 */
   pointerTop: number;
 
   ngOnChanges() {
@@ -59,6 +73,10 @@ export class AlphaComponent implements OnChanges {
       this.pointerLeft = this.rgb.a * 100;
     }
   }
+  /**
+   * Computes the new alpha value from a drag/click position and emits `onChange`.
+   * @zh 根据拖拽/点击位置计算新的透明度值并发出 `onChange`。
+   */
   handleChange({ top, left, containerHeight, containerWidth, $event }) {
     let data;
     if (this.direction === 'vertical') {

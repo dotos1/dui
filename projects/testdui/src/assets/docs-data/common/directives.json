@@ -26,8 +26,8 @@
         {
           "name": "isCreated",
           "type": "boolean",
-          "description": null,
-          "descriptionZh": null
+          "description": "Whether the embedded view has currently been created (i.e. the host element is attached to the DOM).",
+          "descriptionZh": "内嵌视图当前是否已创建（即宿主元素是否已挂载到 DOM）。"
         }
       ]
     }

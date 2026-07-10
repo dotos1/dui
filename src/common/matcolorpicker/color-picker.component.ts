@@ -25,14 +25,23 @@ export const MATERIAL_COLOR_PICKER_VALUE_ACCESSOR: any = {
   providers: [MATERIAL_COLOR_PICKER_VALUE_ACCESSOR]
 })
 export class ColorPickerComponent implements ControlValueAccessor {
+  /** @zh 可选的调色板集合，来自 `MatColors.all`。 */
   colors: any;
+  /** @zh 可选的色阶（hue）列表。 */
   hues: string[];
+  /** @zh 当前显示的面板视图：`'palettes'`（调色板）或 `'hues'`（色阶）。 */
   view: string;
+  /** @zh 当前选中的颜色对象（含 palette/hue/class/bg/fg）。 */
   selectedColor: any;
+  /** @zh 当前选中的调色板名称。 */
   selectedPalette: string;
+  /** @zh 当前选中的色阶（hue）。 */
   selectedHue: string;
 
-  // Color changed
+  /**
+   * Emits the selected color object whenever it changes.
+   * @zh 选中颜色发生变化时发出对应的颜色对象。
+   */
   @Output()
   colorChanged: EventEmitter<any>;
 
@@ -60,6 +69,10 @@ export class ColorPickerComponent implements ControlValueAccessor {
     };
   }
 
+  /**
+   * The current color, encoded as `<palette>-<hue>` (e.g. `red-500`).
+   * @zh 当前颜色，编码为 `<调色板>-<色阶>` 格式（如 `red-500`）。
+   */
   @Input()
   set color(value) {
     if (!value || value === '' || this._color === value) {
@@ -72,18 +85,25 @@ export class ColorPickerComponent implements ControlValueAccessor {
     this._color = value;
   }
 
+  /**
+   * The current color, encoded as `<palette>-<hue>` (e.g. `red-500`).
+   * @zh 当前颜色，编码为 `<调色板>-<色阶>` 格式（如 `red-500`）。
+   */
   get color(): string {
     return this._color;
   }
 
+  /** @zh Angular 表单 `ControlValueAccessor` 接口方法：注册值变化回调。 */
   registerOnChange(fn: any): void {
     this._modelChange = fn;
   }
 
+  /** @zh Angular 表单 `ControlValueAccessor` 接口方法：注册触摸回调。 */
   registerOnTouched(fn: any): void {
     this._modelTouched = fn;
   }
 
+  /** @zh Angular 表单 `ControlValueAccessor` 接口方法：写入外部传入的值。 */
   writeValue(color: any): void {
     // Return if null
     if (!color) {
@@ -93,6 +113,10 @@ export class ColorPickerComponent implements ControlValueAccessor {
     this.updateSelectedColor();
   }
 
+  /**
+   * Switches to the hue-selection view for the given palette.
+   * @zh 切换到给定调色板的色阶选择视图。
+   */
   selectPalette(event, palette?): void {
     event.stopPropagation();
     this.view = 'hues';
@@ -100,12 +124,20 @@ export class ColorPickerComponent implements ControlValueAccessor {
     this.updateSelectedColor();
   }
 
+  /**
+   * Selects the given hue within the currently selected palette.
+   * @zh 在当前选中的调色板内选择给定的色阶。
+   */
   selectHue(event, hue): void {
     event.stopPropagation();
     this.selectedHue = hue;
     this.updateSelectedColor();
   }
 
+  /**
+   * Clears the current selection and returns to the palette-selection view.
+   * @zh 清除当前选择并返回调色板选择视图。
+   */
   removeColor(event): void {
     // Stop propagation
     event.stopPropagation();
@@ -148,11 +180,20 @@ export class ColorPickerComponent implements ControlValueAccessor {
     this._modelChange(this.selectedColor.class);
   }
 
+  /**
+   * Returns to the palette-selection view without changing the current selection.
+   * @zh 返回调色板选择视图，不改变当前选择。
+   */
   goToPalettesView(event): void {
     event.stopPropagation();
     this.view = 'palettes';
   }
 
+  /**
+   * Sets the initial view (palettes or hues) shown when the picker menu opens, based on
+   * whether a palette is already selected.
+   * @zh 根据是否已选中调色板，设置选择器菜单打开时显示的初始视图（调色板或色阶）。
+   */
   onMenuOpen(): void {
     if (this.selectedPalette === '') {
       this.view = 'palettes';

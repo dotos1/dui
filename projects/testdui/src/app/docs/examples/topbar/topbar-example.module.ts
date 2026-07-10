@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { TopbarModule } from '@dotos/dui/ui/topbar';
+import { HighlightModule } from '@dotos/dui/ux/highlight';
 
 @Component({
   selector: 'app-topbar-example',
@@ -11,14 +12,22 @@ import { TopbarModule } from '@dotos/dui/ui/topbar';
       <span style="flex:1 1 auto"></span>
       <span>右侧内容</span>
     </dui-topbar>
+
+    <h3>示例代码</h3>
+    <dui-highlight [content]="exampleSource" [codeLang]="'html'" [copyCodeToClipboard]="true"></dui-highlight>
   `,
 })
-export class TopbarExampleComponent {}
+export class TopbarExampleComponent {
+  readonly exampleSource = `<dui-topbar title="示例标题" color="primary">
+  <span style="flex:1 1 auto"></span>
+  <span>右侧内容</span>
+</dui-topbar>`;
+}
 
 const routes: Routes = [{ path: '', component: TopbarExampleComponent }];
 
 @NgModule({
   declarations: [TopbarExampleComponent],
-  imports: [CommonModule, TopbarModule, RouterModule.forChild(routes)],
+  imports: [CommonModule, TopbarModule, HighlightModule, RouterModule.forChild(routes)],
 })
 export class TopbarExampleModule {}

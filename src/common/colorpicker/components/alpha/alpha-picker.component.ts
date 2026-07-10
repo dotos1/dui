@@ -30,13 +30,21 @@ import { ColorWrap, toState } from '@dotos/dui/common/colorpicker/common';
   preserveWhitespaces: false,
   host: { 'hostID': 'alpha-picker-' + Math.random().toString(36).substring(2, 15) }
 })
+/**
+ * Standalone alpha (opacity) slider picker.
+ * @zh 独立使用的透明度（alpha）滑块选择器。
+ */
 export class AlphaPickerComponent extends ColorWrap implements OnChanges {
 
+  /** @zh 选择器的宽度。 */
   @Input() width: string | number = 316;
 
+  /** @zh 选择器的高度。 */
   @Input() height: string | number = 16;
 
+  /** @zh 滑动条方向：水平或垂直。 */
   @Input() direction: 'horizontal' | 'vertical' = 'horizontal';
+  /** @zh 滑块手柄的内联样式。 */
   pointer: { [key: string]: string } = {
     width: '18px',
     height: '18px',
@@ -54,6 +62,10 @@ export class AlphaPickerComponent extends ColorWrap implements OnChanges {
     }
     this.setState(toState(this.color, this.oldHue));
   }
+  /**
+   * @hidden Forwards the child alpha slider's change to `handleChange`.
+   * @zh 内部使用，将子级透明度滑块的变化转发给 `handleChange`。
+   */
   handlePickerChange({ data, $event }) {
     this.handleChange(data, $event);
   }

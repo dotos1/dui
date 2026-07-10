@@ -45,11 +45,15 @@ import {
     encapsulation: ViewEncapsulation.None,
 })
 export class PerfectScrollbarComponent implements OnInit, OnDestroy, DoCheck {
+    /** @zh 记录当前是否处于左/右/上/下边缘状态，驱动指示条显示。 */
     public states: any = {};
 
+    /** @zh 水平方向的边缘指示条当前是否显示。 */
     public indicatorX: boolean = false;
+    /** @zh 垂直方向的边缘指示条当前是否显示。 */
     public indicatorY: boolean = false;
 
+    /** @zh 用户当前是否正在滚轮/触摸交互中（用于边缘滚动传播判断）。 */
     public interaction: boolean = false;
 
     private scrollPositionX: number = 0;
@@ -70,33 +74,53 @@ export class PerfectScrollbarComponent implements OnInit, OnDestroy, DoCheck {
 
     private readonly stateUpdate = new Subject<string>();
 
+    /** @zh 是否禁用自定义滚动条。 */
     @Input({ transform: booleanAttribute }) disabled: boolean = false;
 
+    /** @zh 是否使用 Perfect Scrollbar 的默认样式类。 */
     @Input({ transform: booleanAttribute }) usePSClass: boolean = true;
 
+    /**
+     * When enabled, scrolling past an edge propagates to the parent scrollable ancestor,
+     * with a brief indicator shown at the edge.
+     * @zh 启用后，滚动超出边缘时会向父级可滚动祖先传播，并在边缘短暂显示指示条。
+     */
     @HostBinding('class.ps-show-limits')
     @Input({ transform: booleanAttribute })
     autoPropagation: boolean = false;
 
+    /** @zh 是否显示滚动位置指示条覆层。 */
     @HostBinding('class.ps-show-active')
     @Input({ transform: booleanAttribute })
     scrollIndicators: boolean = false;
 
+    /** @zh 传给底层 Perfect Scrollbar 实例的配置项。 */
     @Input() config?: PerfectScrollbarConfigInterface;
 
+    /** @zh 垂直滚动时发出。 */
     @Output() psScrollY = new EventEmitter<any>();
+    /** @zh 水平滚动时发出。 */
     @Output() psScrollX = new EventEmitter<any>();
 
+    /** @zh 向上滚动时发出。 */
     @Output() psScrollUp = new EventEmitter<any>();
+    /** @zh 向下滚动时发出。 */
     @Output() psScrollDown = new EventEmitter<any>();
+    /** @zh 向左滚动时发出。 */
     @Output() psScrollLeft = new EventEmitter<any>();
+    /** @zh 向右滚动时发出。 */
     @Output() psScrollRight = new EventEmitter<any>();
 
+    /** @zh 垂直方向滚动到底部时发出。 */
     @Output() psYReachEnd = new EventEmitter<any>();
+    /** @zh 垂直方向滚动到顶部时发出。 */
     @Output() psYReachStart = new EventEmitter<any>();
+    /** @zh 水平方向滚动到右侧末端时发出。 */
     @Output() psXReachEnd = new EventEmitter<any>();
+    /** @zh 水平方向滚动到左侧起始位置时发出。 */
     @Output() psXReachStart = new EventEmitter<any>();
 
+    /** @zh 内部使用的底层 {@link PerfectScrollbarDirective} 引用。 */
     @ViewChild(PerfectScrollbarDirective, { static: true })
     directiveRef?: PerfectScrollbarDirective;
 

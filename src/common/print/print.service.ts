@@ -8,12 +8,19 @@ import { Input, Output, EventEmitter, Injectable } from '@angular/core';
  */
 @Injectable()
 export class PrintService {
+  /** @zh 打印模式：`'iframe'`（隐藏 iframe）或 `'popup'`（弹出窗口）。 */
   @Input() mode: string;
+  /** @zh 文档类型标准：`'strict'`、`'loose'` 或 `'html5'`。 */
   @Input() standard: string;
+  /** @zh 打印窗口的标题。 */
   @Input() popTitle: string;
+  /** @zh 待打印的 HTML 内容，可以是元素或 HTML 字符串。 */
   @Input() printHTML: any;
+  /** @zh 注入打印文档 `<head>` 的内联 CSS 文本。 */
   @Input() printStyle: string;
+  /** @zh 注入打印文档 `<head>` 的外部样式表 URL 列表。 */
   @Input() printCSS: string[];
+  /** @zh 打印流程完成时发出。 */
   @Output() printComplete: EventEmitter<any>;
 
   private modes: any;

@@ -56,18 +56,19 @@ export class LoadingDirective implements OnInit, OnDestroy {
     }
   }
 
- 
+  /** @zh 加载指示器的样式类型：圆形或线性。 */
   @Input('duiLoadingType')
   type: LoadingType = LoadingType.Circular;
 
-
+  /** @zh 加载指示器的模式：确定或不确定。 */
   @Input('duiLoadingMode') mode: LoadingMode = LoadingMode.Indeterminate;
 
-
+  /** @zh 加载指示器的展示策略：覆盖层（Overlay）或原地替换（Replace）。 */
   @Input('duiLoadingStrategy')
   strategy: LoadingStrategy.Overlay | LoadingStrategy.Replace =
     LoadingStrategy.Replace;
 
+  /** @zh 加载指示器的 Material 主题色。 */
   @Input('duiLoadingColor') color: 'primary' | 'accent' | 'warn' = 'primary';
 
   constructor(

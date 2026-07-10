@@ -80,26 +80,50 @@ export class ShortcutService {
     }
   }
 
+  /**
+   * Whether the configured "disable selection" shortcut is currently held.
+   * @zh 配置的"禁用选择"快捷键当前是否处于按下状态。
+   */
   disableSelection(event: Event) {
     return this._isShortcutPressed('disableSelection', event);
   }
 
+  /**
+   * Whether the configured "move range start" shortcut is currently held.
+   * @zh 配置的"移动范围起点"快捷键当前是否处于按下状态。
+   */
   moveRangeStart(event: Event) {
     return this._isShortcutPressed('moveRangeStart', event);
   }
 
+  /**
+   * Whether the configured "toggle single item" shortcut is currently held.
+   * @zh 配置的"切换单个条目"快捷键当前是否处于按下状态。
+   */
   toggleSingleItem(event: Event) {
     return this._isShortcutPressed('toggleSingleItem', event);
   }
 
+  /**
+   * Whether the configured "add to selection" shortcut is currently held.
+   * @zh 配置的"添加到选中"快捷键当前是否处于按下状态。
+   */
   addToSelection(event: Event) {
     return this._isShortcutPressed('addToSelection', event);
   }
 
+  /**
+   * Whether the configured "remove from selection" shortcut is currently held.
+   * @zh 配置的"从选中中移除"快捷键当前是否处于按下状态。
+   */
   removeFromSelection(event: Event) {
     return this._isShortcutPressed('removeFromSelection', event);
   }
 
+  /**
+   * Whether either the "add to selection" or "remove from selection" shortcut is currently held.
+   * @zh "添加到选中"或"从选中中移除"快捷键中的任意一个当前是否处于按下状态。
+   */
   extendedSelectionShortcut(event: Event) {
     return this.addToSelection(event) || this.removeFromSelection(event);
   }

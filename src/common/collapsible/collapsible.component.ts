@@ -20,6 +20,10 @@ export class CollapsibleComponent {
   get title() {
     return this._title;
   }
+  /**
+   * Panel title text (translated via the `translate` pipe).
+   * @zh 面板标题文字（通过 `translate` 管道翻译）。
+   */
   set title(value: string) {
     this._title = value;
   }
@@ -33,6 +37,10 @@ export class CollapsibleComponent {
   get collapsed() {
     return this._collapsed;
   }
+  /**
+   * Initial collapsed state; toggling the chevron icon updates this internally.
+   * @zh 初始的收起状态；点击箭头图标会在内部更新该状态。
+   */
   set collapsed(value: boolean) {
     this._collapsed = value;
   }

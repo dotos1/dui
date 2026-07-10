@@ -268,8 +268,8 @@
             }
           ],
           "returnType": "MatSnackBarRef<any>",
-          "description": null,
-          "descriptionZh": null
+          "description": "Shows a translated message in a Material snack bar (auto-dismissing).",
+          "descriptionZh": "在 Material snack bar 中显示一条已翻译的消息（自动消失）。"
         },
         {
           "name": "openSnackMessageAction",
@@ -288,15 +288,15 @@
             }
           ],
           "returnType": "MatSnackBarRef<any>",
-          "description": null,
-          "descriptionZh": null
+          "description": "Shows a translated message with an action button in a Material snack bar.",
+          "descriptionZh": "在 Material snack bar 中显示一条带操作按钮的已翻译消息。"
         },
         {
           "name": "dismissSnackMessageAction",
           "params": [],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Dismisses the currently-shown snack bar, if any.",
+          "descriptionZh": "关闭当前正在显示的 snack bar（如果有）。"
         },
         {
           "name": "showError",
@@ -311,8 +311,8 @@
             }
           ],
           "returnType": "MatSnackBarRef<any>",
-          "description": null,
-          "descriptionZh": null
+          "description": "Shows a translated error-styled snack bar message.",
+          "descriptionZh": "显示一条错误样式的已翻译 snack bar 消息。"
         },
         {
           "name": "showInfo",
@@ -327,8 +327,8 @@
             }
           ],
           "returnType": "MatSnackBarRef<any>",
-          "description": null,
-          "descriptionZh": null
+          "description": "Shows a translated info-styled snack bar message.",
+          "descriptionZh": "显示一条提示样式的已翻译 snack bar 消息。"
         },
         {
           "name": "showWarning",
@@ -343,8 +343,8 @@
             }
           ],
           "returnType": "MatSnackBarRef<any>",
-          "description": null,
-          "descriptionZh": null
+          "description": "Shows a translated warning-styled snack bar message.",
+          "descriptionZh": "显示一条警告样式的已翻译 snack bar 消息。"
         }
       ],
       "properties": [
@@ -353,14 +353,14 @@
           "type": "number",
           "default": "5000",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "未指定时长时使用的默认提示消息展示时长（毫秒）。"
         },
         {
           "name": "messages",
           "type": "Subject<NotificationModel>",
           "default": "new Subject()",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "每次显示提示消息时发出（含消息文本与时间戳）。"
         }
       ]
     },
@@ -386,8 +386,8 @@
             }
           ],
           "returnType": "OverlayRef",
-          "description": null,
-          "descriptionZh": null
+          "description": "Creates a new `OverlayRef` backed by the pane element for the given position class\n(and optional custom container).",
+          "descriptionZh": "为给定的定位样式类（及可选的自定义容器）创建一个新的、以对应面板元素为载体的 `OverlayRef`。"
         },
         {
           "name": "getPaneElement",
@@ -402,8 +402,8 @@
             }
           ],
           "returnType": "HTMLElement",
-          "description": null,
-          "descriptionZh": null
+          "description": "Returns (creating if necessary) the pane element for the given position class within\nthe given (or default) overlay container.",
+          "descriptionZh": "返回（必要时创建）给定定位样式类在指定（或默认）覆盖层容器内的面板元素。"
         }
       ],
       "properties": []
@@ -421,8 +421,8 @@
           "name": "getContainerElement",
           "params": [],
           "returnType": "HTMLElement",
-          "description": null,
-          "descriptionZh": null
+          "description": "Returns (creating if necessary) the shared overlay container element appended to `document.body`.",
+          "descriptionZh": "返回（必要时创建）附加到 `document.body` 的共享覆盖层容器元素。"
         }
       ],
       "properties": []
@@ -498,8 +498,8 @@
           "name": "activateToast",
           "params": [],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Transitions the toast to active state and starts its auto-dismiss timer/progress bar.",
+          "descriptionZh": "将提示切换为激活状态，并启动其自动关闭计时器/进度条。"
         },
         {
           "name": "updateProgress",
@@ -512,8 +512,8 @@
           "name": "resetTimeout",
           "params": [],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Resets the auto-dismiss timer back to the toast's original timeout.",
+          "descriptionZh": "将自动关闭计时器重置为提示的原始超时时长。"
         },
         {
           "name": "remove",
@@ -527,21 +527,21 @@
           "params": [],
           "returnType": "any",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "内部使用，处理提示上的点击事件：触发 tap 事件，并可选地关闭提示。"
         },
         {
           "name": "stickAround",
           "params": [],
           "returnType": "any",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "内部使用，指针悬停在提示上方时暂停自动关闭计时器/进度条。"
         },
         {
           "name": "delayedHideToast",
           "params": [],
           "returnType": "any",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "内部使用，指针离开后以延长后的超时时长恢复关闭提示的流程。"
         },
         {
           "name": "outsideTimeout",
@@ -556,8 +556,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Runs `setTimeout` outside Angular's zone (if `ngZone` is available) to avoid unnecessary\nchange detection, re-entering the zone when the callback fires.",
+          "descriptionZh": "在 Angular zone 之外（若提供了 `ngZone`）执行 `setTimeout`，避免不必要的变更检测，\n回调触发时重新进入 zone。"
         },
         {
           "name": "outsideInterval",
@@ -572,8 +572,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Runs `setInterval` outside Angular's zone (if `ngZone` is available) to avoid unnecessary\nchange detection, re-entering the zone on each tick.",
+          "descriptionZh": "在 Angular zone 之外（若提供了 `ngZone`）执行 `setInterval`，避免不必要的变更检测，\n每次触发时重新进入 zone。"
         }
       ],
       "properties": [
@@ -581,57 +581,57 @@
           "name": "message",
           "type": "string | null",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "提示消息的正文文本。"
         },
         {
           "name": "title",
           "type": "string",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "提示消息的标题。"
         },
         {
           "name": "options",
           "type": "IndividualConfig<ConfigPayload>",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "该提示的解析后配置项。"
         },
         {
           "name": "duplicatesCount",
           "type": "number",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "该提示被重复触发的次数。"
         },
         {
           "name": "originalTimeout",
           "type": "number",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "该提示的原始自动关闭时长（毫秒）。"
         },
         {
           "name": "width",
           "type": "any",
           "default": "signal(-1)",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "进度条当前宽度百分比。"
         },
         {
           "name": "toastClasses",
           "type": "any",
           "default": "''",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "内部使用，绑定宿主的 CSS 类名（提示类型 + 自定义类）。"
         },
         {
           "name": "state",
           "type": "WritableSignal<{ value: 'inactive' | 'active' | 'removed'; params: { easeTime: number | string; easing: string }; }>",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "内部使用，驱动进入/激活/移除动画的状态信号。"
         },
         {
           "name": "displayStyle",
           "type": "string | undefined",
-          "description": null,
-          "descriptionZh": null
+          "description": "The host's `display` style: `'none'` while inactive (not yet shown), else `undefined`.",
+          "descriptionZh": "宿主的 `display` 样式：未激活（尚未显示）时为 `'none'`，否则为 `undefined`。"
         }
       ]
     },
@@ -660,8 +660,8 @@
           "name": "getContainerElement",
           "params": [],
           "returnType": "HTMLElement",
-          "description": null,
-          "descriptionZh": null
+          "description": "Returns the host element to use as a custom toast container.",
+          "descriptionZh": "返回用作自定义提示容器的宿主元素。"
         }
       ],
       "properties": []
@@ -680,8 +680,8 @@
           "name": "activateToast",
           "params": [],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Transitions the toast to active state and starts its auto-dismiss timer/progress bar.",
+          "descriptionZh": "将提示切换为激活状态，并启动其自动关闭计时器/进度条。"
         },
         {
           "name": "updateProgress",
@@ -694,8 +694,8 @@
           "name": "resetTimeout",
           "params": [],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Resets the auto-dismiss timer back to the toast's original timeout.",
+          "descriptionZh": "将自动关闭计时器重置为提示的原始超时时长。"
         },
         {
           "name": "remove",
@@ -709,21 +709,21 @@
           "params": [],
           "returnType": "any",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "内部使用，处理提示上的点击事件：触发 tap 事件，并可选地关闭提示。"
         },
         {
           "name": "stickAround",
           "params": [],
           "returnType": "any",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "内部使用，指针悬停在提示上方时暂停自动关闭计时器/进度条。"
         },
         {
           "name": "delayedHideToast",
           "params": [],
           "returnType": "any",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "内部使用，指针离开后以延长后的超时时长恢复关闭提示的流程。"
         }
       ],
       "properties": [
@@ -731,31 +731,31 @@
           "name": "message",
           "type": "string | null",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "提示消息的正文文本。"
         },
         {
           "name": "title",
           "type": "string",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "提示消息的标题。"
         },
         {
           "name": "options",
           "type": "IndividualConfig",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "该提示的解析后配置项。"
         },
         {
           "name": "duplicatesCount",
           "type": "number",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "该提示被重复触发的次数。"
         },
         {
           "name": "originalTimeout",
           "type": "number",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "该提示的原始自动关闭时长（毫秒）。"
         },
         {
           "name": "width",
@@ -1181,8 +1181,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Finds a currently-displayed toast with the same title/message (used to avoid stacking\nduplicate notifications), optionally resetting its timeout or bumping its duplicate count.",
+          "descriptionZh": "查找当前已展示的、标题/消息相同的提示（用于避免重复堆叠通知），\n可选地重置其超时时间或增加其重复计数。"
         }
       ],
       "properties": [
@@ -1190,33 +1190,33 @@
           "name": "toastrConfig",
           "type": "GlobalConfig",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "当前生效的全局配置（默认配置与模块注册时传入的配置合并后的结果）。"
         },
         {
           "name": "currentlyActive",
           "type": "any",
           "default": "0",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "当前处于激活（可见）状态的提示数量。"
         },
         {
           "name": "toasts",
           "type": "ActiveToast<any>[]",
           "default": "[]",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "当前已加入队列/展示中的全部提示。"
         },
         {
           "name": "overlayContainer",
           "type": "ToastContainerDirective",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "自定义的提示容器，未设置时使用默认的全局覆盖层容器。"
         },
         {
           "name": "previousToastMessage",
           "type": "string | undefined",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "上一条展示的提示消息文本（用于去重判断）。"
         }
       ]
     },

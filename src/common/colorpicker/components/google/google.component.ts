@@ -21,10 +21,16 @@ import { GoogleColorService } from './google-color.services';
    changeDetection: ChangeDetectionStrategy.OnPush,
    preserveWhitespaces: true,
 })
+/**
+ * Google-Docs-style color picker: a fixed palette grid plus a user-managed row of custom colors.
+ * @zh Google 文档风格的颜色选择器：固定调色板网格，加一行用户自行管理的自定义颜色。
+ */
 export class GoogColorPickerComponent extends ColorWrap implements TriggerPopup,AfterViewChecked {
+  /** @zh 用户添加的自定义颜色列表。 */
   customcolors = [
     '#cf1717'
   ]
+  /** @zh 固定调色板颜色列表，每项为 `[十六进制值, 中文名称]`。 */
   @Input() colors = [
       ['#000000',"黑色"],
       ['#434343',"深灰色 4"],
@@ -114,9 +120,13 @@ export class GoogColorPickerComponent extends ColorWrap implements TriggerPopup,
       ['#20124D',"深紫色 3"],
       ['#4C1130',"深洋红色 3"]
   ];
+  /** @zh 外层卡片的阴影层级。 */
   @Input() zDepth: zDepth = 1;
+  /** @zh 外层卡片的圆角半径。 */
   @Input() radius = 1;
+  /** @zh 外层卡片的背景颜色。 */
   @Input() background = '#fff';
+  /** @zh 已同步的自定义颜色版本号，用于检测 `customService` 是否有新的自定义颜色。 */
   dataversion=0;
   constructor(
     protected changeDetectionRef: ChangeDetectorRef,
@@ -128,12 +138,20 @@ export class GoogColorPickerComponent extends ColorWrap implements TriggerPopup,
     this.dataversion=customService.version;
   }
 
+  /**
+   * @hidden Re-renders when `customService`'s custom color list has been updated externally.
+   * @zh 内部使用，当 `customService` 的自定义颜色列表被外部更新时重新渲染。
+   */
   ngAfterViewChecked() {
     if(this.dataversion<this.customService.version){
       this.dataversion=this.customService.version;
       this.changeDetectionRef.detectChanges();
     }
   }
+  /**
+   * @hidden Applies a swatch click as the new color.
+   * @zh 内部使用，将色块点击的颜色应用为新颜色。
+   */
   handleBlockChange({ hex, $event }) {
     if (isValidHex(hex)) {
       this.handleChange({ hex, source: 'hex' }, $event);
@@ -141,9 +159,17 @@ export class GoogColorPickerComponent extends ColorWrap implements TriggerPopup,
       this.handleChange(hex, $event);
     }
   }
+  /**
+   * @hidden Forwards a child component's change to `handleChange`.
+   * @zh 内部使用，将子组件的变化转发给 `handleChange`。
+   */
   handleValueChange({ data, $event }) {
     this.handleChange(data, $event);
   }
+  /**
+   * Opens a dialog to pick and add a new custom color to `customService`.
+   * @zh 打开一个对话框以选择并向 `customService` 添加一个新的自定义颜色。
+   */
   addCustom($event){
     this.dialogService.open(SketchDialogComponent, {
       width: '270px',

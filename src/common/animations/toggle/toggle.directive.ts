@@ -14,6 +14,10 @@ import { animate, AnimationBuilder, AnimationPlayer, AUTO_STYLE, style, animatio
 export class ToggleDirective {
 
 
+  /**
+   * Duration (ms) of the show/hide height animation.
+   * @zh 显示/隐藏高度动画的持续时间（毫秒）。
+   */
   @Input() duration: number = 150;
 
   private _state: boolean;

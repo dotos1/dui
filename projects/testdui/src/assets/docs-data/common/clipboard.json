@@ -16,7 +16,7 @@
           "name": "placeholder",
           "type": "string",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "提示气泡显示的翻译键/文本，默认为 `'CLIPBOARD.CLICK_TO_COPY'`。"
         }
       ]
     },
@@ -61,21 +61,21 @@
           ],
           "returnType": "any",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "内部使用，处理宿主元素上的点击事件：将目标内容复制到剪贴板。"
         },
         {
           "name": "showTooltip",
           "params": [],
           "returnType": "any",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "内部使用，悬停时若设置了 `placeholder` 则显示 {@link ClipboardComponent} 提示气泡。"
         },
         {
           "name": "closeTooltip",
           "params": [],
           "returnType": "any",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "内部使用，指针离开宿主元素后移除提示气泡。"
         }
       ],
       "properties": []
@@ -156,8 +156,8 @@
           "name": "get",
           "params": [],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Returns the last data stored via `set`/`copyContentToClipboard`.",
+          "descriptionZh": "返回最近一次通过 `set`/`copyContentToClipboard` 存储的数据。"
         },
         {
           "name": "set",
@@ -168,22 +168,22 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Stores arbitrary data for later retrieval via `get` (does not touch the system clipboard).",
+          "descriptionZh": "存储任意数据以供之后通过 `get` 读取（不会操作系统剪贴板）。"
         },
         {
           "name": "clear",
           "params": [],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Clears the internally stored data.",
+          "descriptionZh": "清空内部存储的数据。"
         },
         {
           "name": "isEmpty",
           "params": [],
           "returnType": "boolean",
-          "description": null,
-          "descriptionZh": null
+          "description": "Whether there is currently no data stored.",
+          "descriptionZh": "当前是否没有存储任何数据。"
         }
       ],
       "properties": [
@@ -191,7 +191,7 @@
           "name": "data",
           "type": "any",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "最近一次通过 `copyContentToClipboard` 复制的数据。"
         }
       ]
     },
@@ -273,8 +273,8 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Copies `copyText` to the clipboard, emits `successCopied`, and briefly shows the\n\"copied\" tooltip state.",
+          "descriptionZh": "将 `copyText` 复制到剪贴板，发出 `successCopied`，并短暂显示\"已复制\"提示状态。"
         }
       ],
       "properties": [
@@ -283,19 +283,19 @@
           "type": "any",
           "default": "false",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "是否刚完成一次复制（用于短暂显示\"已复制\"状态）。"
         },
         {
           "name": "matTooltipText",
           "type": "string",
-          "description": null,
-          "descriptionZh": null
+          "description": "The tooltip text currently shown: a translated \"copied\" message right after copying,\nelse `tooltipText`.",
+          "descriptionZh": "当前显示的提示文字：刚复制完成时显示已翻译的\"已复制\"提示，否则显示 `tooltipText`。"
         },
         {
           "name": "matTooltipPosition",
           "type": "TooltipPosition",
-          "description": null,
-          "descriptionZh": null
+          "description": "The tooltip position currently used: `'below'` right after copying, else `tooltipPosition`.",
+          "descriptionZh": "当前使用的提示气泡位置：刚复制完成时为 `'below'`，否则为 `tooltipPosition`。"
         }
       ]
     }

@@ -54,15 +54,28 @@ import { HSLA, HSLAsource } from './helpers/color.interfaces';
   changeDetection: ChangeDetectionStrategy.OnPush,
   
 })
+/**
+ * Hue channel slider used by the `color-*` picker style variants.
+ * @zh `color-*` 颜色选择器样式变体使用的色相通道滑块。
+ */
 export class HueComponent implements OnChanges {
+  /** @zh 当前颜色的 HSL 表示。 */
   @Input() hsl: HSLA;
+  /** @zh 滑块手柄的内联样式。 */
   @Input() pointer: { [key: string]: string };
+  /** @zh 滑动条的圆角半径。 */
   @Input() radius: number;
+  /** @zh 滑动条的阴影样式。 */
   @Input() shadow: string;
+  /** @zh 是否隐藏滑块手柄。 */
   @Input() hidePointer = false;
+  /** @zh 滑动条方向：水平或垂直。 */
   @Input() direction: 'horizontal' | 'vertical' = 'horizontal';
+  /** @zh 色相值变化时发出。 */
   @Output() onChange = new EventEmitter<{ data: HSLAsource; $event: Event }>();
+  /** @zh 滑块手柄的水平位置。 */
   left = '0px';
+  /** @zh 滑块手柄的垂直位置。 */
   top = '';
 
   ngOnChanges() {
@@ -72,6 +85,10 @@ export class HueComponent implements OnChanges {
       this.top = `${-(this.hsl.h * 100 / 360) + 100}%`;
     }
   }
+  /**
+   * Computes the new hue value from a drag/click position and emits `onChange`.
+   * @zh 根据拖拽/点击位置计算新的色相值并发出 `onChange`。
+   */
   handleChange({ top, left, containerHeight, containerWidth, $event }) {
     let data: HSLAsource;
     if (this.direction === 'vertical') {

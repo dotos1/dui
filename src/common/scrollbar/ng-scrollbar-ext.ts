@@ -79,10 +79,18 @@ export class NgScrollbarExt extends NgScrollbarCore {
   externalSpacer: InputSignal<string> = input<string>();
 
   // At the time being, InputSignal value cannot be overridden programmatically from another directive,
+  /** @zh 内部使用，由 {@link AsyncDetection} 等辅助指令写入的视口元素覆盖值。 */
   altViewport: WritableSignal<HTMLElement> = signal<HTMLElement>(null);
+  /** @zh 内部使用，由 {@link AsyncDetection} 等辅助指令写入的内容包裹层元素覆盖值。 */
   altContentWrapper: WritableSignal<HTMLElement> = signal<HTMLElement>(null);
+  /** @zh 内部使用，由 {@link AsyncDetection} 等辅助指令写入的占位符元素覆盖值。 */
   altSpacer: WritableSignal<HTMLElement> = signal<HTMLElement>(null);
 
+  /**
+   * The resolved external viewport element (from `[scrollViewport]`, `altViewport`, or the
+   * `externalViewport` selector).
+   * @zh 解析出的外部视口元素（来自 `[scrollViewport]`、`altViewport` 或 `externalViewport` 选择器）。
+   */
   viewportElement: Signal<HTMLElement> = computed(() => {
     if (this.customViewport()) {
       return this.customViewport().nativeElement;
@@ -95,12 +103,20 @@ export class NgScrollbarExt extends NgScrollbarCore {
     return selector ? this.nativeElement.querySelector(selector) : null;
   });
 
+  /**
+   * A diagnostic error message if the external viewport element couldn't be resolved, else `null`.
+   * @zh 若外部视口元素解析失败则给出诊断错误信息，否则为 `null`。
+   */
   viewportError: Signal<string> = computed(() => {
     return !this.viewportElement()
       ? `[NgScrollbar]: Could not find the viewport element for the provided selector "${ this.externalViewport() }"`
       : null;
   });
 
+  /**
+   * The resolved external content-wrapper element.
+   * @zh 解析出的外部内容包裹层元素。
+   */
   contentWrapperElement: Signal<HTMLElement> = computed(() => {
     if (this.altContentWrapper()) {
       return this.altContentWrapper();
@@ -109,12 +125,20 @@ export class NgScrollbarExt extends NgScrollbarCore {
     return selector ? this.nativeElement.querySelector(selector) : null;
   });
 
+  /**
+   * A diagnostic error message if the external content-wrapper element couldn't be resolved, else `null`.
+   * @zh 若外部内容包裹层元素解析失败则给出诊断错误信息，否则为 `null`。
+   */
   contentWrapperError: Signal<string> = computed(() => {
     return !this.contentWrapperElement() && this.externalContentWrapper()
       ? `[NgScrollbar]: Content wrapper element not found for the provided selector "${ this.externalContentWrapper() }"`
       : null;
   });
 
+  /**
+   * The resolved external spacer element.
+   * @zh 解析出的外部占位符元素。
+   */
   spacerElement: Signal<HTMLElement> = computed(() => {
     if (this.altSpacer()) {
       return this.altSpacer();
@@ -123,6 +147,10 @@ export class NgScrollbarExt extends NgScrollbarCore {
     return selector ? this.nativeElement.querySelector(selector) : null
   });
 
+  /**
+   * A diagnostic error message if the external spacer element couldn't be resolved, else `null`.
+   * @zh 若外部占位符元素解析失败则给出诊断错误信息，否则为 `null`。
+   */
   spacerError: Signal<string> = computed(() => {
     return !this.spacerElement() && this.externalSpacer()
       ? `[NgScrollbar]: Spacer element not found for the provided selector "${ this.externalSpacer() }"`

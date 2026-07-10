@@ -63,18 +63,27 @@ import { isValidHex, RGBA } from '@dotos/dui/common/colorpicker/common';
   preserveWhitespaces: false,
   host: { 'hostID': 'compact-fields-' + Math.random().toString(36).substring(2, 15) } 
 })
+/**
+ * Editable hex/rgb input fields used by {@link CompactComponent}.
+ * @zh {@link CompactComponent} 使用的十六进制/RGB 可编辑输入字段。
+ */
 export class CompactFieldsComponent {
+  /** @zh 当前颜色的十六进制表示。 */
   @Input() hex: string;
+  /** @zh 当前颜色的 RGB 表示。 */
   @Input() rgb: RGBA;
+  /** @zh 字段值变化时发出。 */
   @Output() onChange = new EventEmitter<any>();
 
 
+  /** @zh 十六进制字段包裹层的内联样式。 */
   HEXWrap: { [key: string]: string } = {
     marginTop: '-3px',
     marginBottom: '-3px',
     // flex: '6 1 0%',
     position: 'relative',
   };
+  /** @zh 十六进制字段输入框的内联样式。 */
   HEXinput: { [key: string]: string } = {
     width: '80%',
     padding: '0px',
@@ -86,15 +95,18 @@ export class CompactFieldsComponent {
     color: '#333',
     height: '16px',
   };
+  /** @zh 十六进制字段标签的内联样式（默认隐藏）。 */
   HEXlabel: { [key: string]: string } = {
     display: 'none',
   };
+  /** @zh RGB 字段包裹层的内联样式。 */
   RGBwrap: { [key: string]: string } = {
     marginTop: '-3px',
     marginBottom: '-3px',
     // flex: '3 1 0%',
     position: 'relative',
   };
+  /** @zh RGB 字段输入框的内联样式。 */
   RGBinput: { [key: string]: string } = {
     width: '80%',
     padding: '0px',
@@ -106,6 +118,7 @@ export class CompactFieldsComponent {
     color: '#333',
     height: '16px',
   };
+  /** @zh RGB 字段标签的内联样式。 */
   RGBlabel: { [key: string]: string } = {
     position: 'absolute',
     top: '6px',
@@ -116,6 +129,10 @@ export class CompactFieldsComponent {
     color: '#999',
   };
 
+  /**
+   * Normalizes and emits a field change (hex or individual RGB channel) as `onChange`.
+   * @zh 归一化字段变化（十六进制或单个 RGB 通道）并以 `onChange` 发出。
+   */
   handleChange({ data, $event }) {
     if (data.hex) {
       if (isValidHex(data.hex)) {

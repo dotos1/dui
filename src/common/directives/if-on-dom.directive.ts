@@ -12,6 +12,10 @@ import { AfterContentChecked, Directive, ElementRef, TemplateRef, ViewContainerR
 })
 export class DuiIfOnDomDirective implements AfterContentChecked
 {
+    /**
+     * Whether the embedded view has currently been created (i.e. the host element is attached to the DOM).
+     * @zh 内嵌视图当前是否已创建（即宿主元素是否已挂载到 DOM）。
+     */
     isCreated: boolean;
 
 

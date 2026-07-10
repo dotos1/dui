@@ -31,7 +31,7 @@
           "name": "svgIconOverrides",
           "type": "SvgIconOverrides",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "用于覆盖左右箭头图标的自定义 SVG 图标配置。"
         },
         {
           "name": "autoplay",
@@ -75,63 +75,63 @@
         {
           "name": "maxWidth",
           "type": "string",
-          "description": null,
-          "descriptionZh": null
+          "description": "The carousel's maximum width.",
+          "descriptionZh": "轮播组件的最大宽度。"
         },
         {
           "name": "maintainAspectRatio",
           "type": "any",
           "default": "true",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "是否保持幻灯片宽高比。"
         },
         {
           "name": "proportion",
           "type": "any",
           "default": "25",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "保持宽高比时使用的高度占宽度的百分比。"
         },
         {
           "name": "slideHeight",
           "type": "any",
           "default": "'100%'",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "幻灯片高度（`maintainAspectRatio` 为 `false` 时使用）。"
         },
         {
           "name": "slides",
           "type": "number",
-          "description": null,
-          "descriptionZh": null
+          "description": "Limits the number of projected slides actually rendered/used.",
+          "descriptionZh": "限制实际渲染/使用的投影幻灯片数量。"
         },
         {
           "name": "useKeyboard",
           "type": "any",
           "default": "false",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "是否启用左右方向键导航。"
         },
         {
           "name": "useMouseWheel",
           "type": "any",
           "default": "false",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "是否启用鼠标滚轮切换幻灯片。"
         },
         {
           "name": "orientation",
           "type": "Orientation",
-          "description": null,
-          "descriptionZh": null
+          "description": "The carousel's text/layout direction: `'ltr'` or `'rtl'`.",
+          "descriptionZh": "轮播组件的文字/布局方向：`'ltr'` 或 `'rtl'`。"
         }
       ],
       "outputs": [
         {
           "name": "change",
           "type": "number",
-          "description": null,
-          "descriptionZh": null
+          "description": "Emits the new active slide index after each slide transition completes.",
+          "descriptionZh": "每次幻灯片切换动画完成后，发出新的当前幻灯片索引。"
         }
       ],
       "methods": [
@@ -139,15 +139,15 @@
           "name": "next",
           "params": [],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Advances to the next slide.",
+          "descriptionZh": "切换到下一张幻灯片。"
         },
         {
           "name": "previous",
           "params": [],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Goes back to the previous slide.",
+          "descriptionZh": "切换到上一张幻灯片。"
         },
         {
           "name": "slideTo",
@@ -158,8 +158,8 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Jumps directly to the slide at the given index.",
+          "descriptionZh": "直接跳转到指定索引的幻灯片。"
         },
         {
           "name": "onKeyUp",
@@ -171,21 +171,21 @@
           ],
           "returnType": "void",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "内部使用，当 `useKeyboard` 启用时处理键盘导航。"
         },
         {
           "name": "onMouseEnter",
           "params": [],
           "returnType": "void",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "内部使用，指针悬停在轮播组件上方时暂停自动播放。"
         },
         {
           "name": "onMouseLeave",
           "params": [],
           "returnType": "void",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "内部使用，指针离开轮播组件后恢复自动播放。"
         },
         {
           "name": "onMouseWheel",
@@ -197,7 +197,7 @@
           ],
           "returnType": "void",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "内部使用，当 `useMouseWheel` 启用时处理鼠标滚轮滚动以切换幻灯片。"
         },
         {
           "name": "onResize",
@@ -209,7 +209,7 @@
           ],
           "returnType": "void",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "内部使用，在窗口尺寸变化时重新同步幻灯片位置。"
         },
         {
           "name": "onPan",
@@ -224,8 +224,8 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Handles an in-progress pan/swipe gesture, translating the slide list to follow the pointer.",
+          "descriptionZh": "处理正在进行中的滑动/拖拽手势，使幻灯片列表跟随指针平移。"
         },
         {
           "name": "onPanEnd",
@@ -240,52 +240,52 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Handles the end of a pan/swipe gesture: advances/reverts to the nearest slide based on\nhow far the pointer moved.",
+          "descriptionZh": "处理滑动/拖拽手势结束：根据指针移动距离前进到下一张或还原到当前幻灯片。"
         }
       ],
       "properties": [
         {
           "name": "loop",
           "type": "boolean",
-          "description": null,
-          "descriptionZh": null
+          "description": "Wraps back to the first/last slide when navigating past the ends.",
+          "descriptionZh": "导航超出两端时是否循环回到第一张/最后一张幻灯片。"
         },
         {
           "name": "maxWidth",
           "type": "string",
-          "description": null,
-          "descriptionZh": null
+          "description": "The carousel's maximum width.",
+          "descriptionZh": "轮播组件的最大宽度。"
         },
         {
           "name": "orientation",
           "type": "Orientation",
-          "description": null,
-          "descriptionZh": null
+          "description": "The carousel's text/layout direction: `'ltr'` or `'rtl'`.",
+          "descriptionZh": "轮播组件的文字/布局方向：`'ltr'` 或 `'rtl'`。"
         },
         {
           "name": "currentIndex",
           "type": "number",
-          "description": null,
-          "descriptionZh": null
+          "description": "The currently active slide's index.",
+          "descriptionZh": "当前激活幻灯片的索引。"
         },
         {
           "name": "currentSlide",
           "type": "MatCarouselSlideComponent",
-          "description": null,
-          "descriptionZh": null
+          "description": "The currently active {@link MatCarouselSlideComponent}.",
+          "descriptionZh": "当前激活的 {@link MatCarouselSlideComponent}。"
         },
         {
           "name": "slidesList",
           "type": "QueryList< MatCarouselSlideComponent >",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "投影进来的全部 {@link MatCarouselSlideComponent} 幻灯片。"
         },
         {
           "name": "listKeyManager",
           "type": "ListKeyManager<MatCarouselSlideComponent>",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "内部使用，管理幻灯片焦点/激活状态的 CDK 键盘管理器。"
         }
       ]
     },
@@ -381,7 +381,7 @@
           "name": "templateRef",
           "type": "TemplateRef<any>",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "该幻灯片投影内容的模板引用。"
         }
       ]
     },

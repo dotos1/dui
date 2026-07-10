@@ -17,6 +17,10 @@ export class CollapseDirective {
   get target() {
     return this._target;
   }
+  /**
+   * The element whose collapsed/expanded CSS class is toggled.
+   * @zh 被切换收起/展开 CSS 类的目标元素。
+   */
   set target(value: Element) {
     this._target = value;
   }
@@ -30,6 +34,10 @@ export class CollapseDirective {
   get collapsed(): boolean {
     return this._collapsed;
   }
+  /**
+   * Current collapsed state; setting it applies/removes the CSS classes immediately.
+   * @zh 当前收起状态；设置该值会立即应用/移除对应的 CSS 类。
+   */
   set collapsed(collapsed: boolean) {
     collapsed ? this.collapseTarget() : this.expandTarget();
     this._collapsed = collapsed;
@@ -43,6 +51,10 @@ export class CollapseDirective {
    */
   @Output() toggle: EventEmitter<boolean> = new EventEmitter();
 
+  /**
+   * @hidden Handles clicks on the host element by toggling `collapsed`.
+   * @zh 内部使用，处理宿主元素上的点击事件，切换 `collapsed` 状态。
+   */
   @HostListener('click')
   click() {
     this.collapsed = !this.collapsed;

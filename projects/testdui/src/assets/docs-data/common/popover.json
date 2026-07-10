@@ -14,123 +14,123 @@
           "alias": "popoverPositionX",
           "type": "any",
           "description": "Position of the popover in the X axis.",
-          "descriptionZh": null
+          "descriptionZh": "弹出层在 X 轴上的位置。"
         },
         {
           "name": "positionY",
           "alias": "popoverPositionY",
           "type": "any",
           "description": "Position of the popover in the Y axis.",
-          "descriptionZh": null
+          "descriptionZh": "弹出层在 Y 轴上的位置。"
         },
         {
           "name": "triggerEvent",
           "alias": "popoverTriggerOn",
           "type": "PopoverTriggerEvent",
           "description": "Popover trigger event",
-          "descriptionZh": null
+          "descriptionZh": "触发弹出层显示的事件类型。"
         },
         {
           "name": "scrollStrategy",
           "alias": "popoverScrollStrategy",
           "type": "PopoverScrollStrategy",
           "description": "Popover scroll strategy",
-          "descriptionZh": null
+          "descriptionZh": "弹出层打开期间滚动页面时的处理策略。"
         },
         {
           "name": "enterDelay",
           "alias": "popoverEnterDelay",
           "type": "number",
           "description": "Popover enter delay",
-          "descriptionZh": null
+          "descriptionZh": "弹出层显示前的延迟时间（毫秒）。"
         },
         {
           "name": "leaveDelay",
           "alias": "popoverLeaveDelay",
           "type": "number",
           "description": "Popover leave delay",
-          "descriptionZh": null
+          "descriptionZh": "弹出层隐藏前的延迟时间（毫秒）。"
         },
         {
           "name": "overlapTrigger",
           "alias": "popoverOverlapTrigger",
           "type": "boolean",
           "description": "Popover overlap trigger",
-          "descriptionZh": null
+          "descriptionZh": "弹出层是否与触发元素重叠显示。"
         },
         {
           "name": "targetOffsetX",
           "alias": "popoverOffsetX",
           "type": "number",
           "description": "Popover target offset x",
-          "descriptionZh": null
+          "descriptionZh": "弹出层相对于触发元素在 X 轴上的偏移量。"
         },
         {
           "name": "targetOffsetY",
           "alias": "popoverOffsetY",
           "type": "number",
           "description": "Popover target offset y",
-          "descriptionZh": null
+          "descriptionZh": "弹出层相对于触发元素在 Y 轴上的偏移量。"
         },
         {
           "name": "arrowOffsetX",
           "alias": "popoverArrowOffsetX",
           "type": "number",
           "description": "Popover arrow offset x",
-          "descriptionZh": null
+          "descriptionZh": "箭头指示器在 X 轴上的偏移量。"
         },
         {
           "name": "arrowWidth",
           "alias": "popoverArrowWidth",
           "type": "number",
           "description": "Popover arrow width",
-          "descriptionZh": null
+          "descriptionZh": "箭头指示器的宽度。"
         },
         {
           "name": "arrowColor",
           "alias": "popoverArrowColor",
           "type": "string",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "箭头指示器的颜色。"
         },
         {
           "name": "closeOnClick",
           "alias": "popoverCloseOnClick",
           "type": "boolean",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "点击弹出层内部时是否自动关闭。"
         },
         {
           "name": "disableAnimation",
           "alias": "popoverDisableAnimation",
           "type": "boolean",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "是否禁用弹出层的开关动画。"
         },
         {
           "name": "focusTrapEnabled",
           "type": "boolean",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "弹出层打开时是否启用焦点陷阱（Tab 键循环限制在弹出层内）。"
         },
         {
           "name": "focusTrapAutoCaptureEnabled",
           "type": "boolean",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "启用焦点陷阱时，弹出层打开后是否自动将焦点移入。"
         },
         {
           "name": "panelClass",
           "alias": "class",
           "type": "string",
-          "description": null,
-          "descriptionZh": null
+          "description": "CSS class(es) applied to the popover panel.",
+          "descriptionZh": "应用到弹出层面板上的 CSS 类名。"
         },
         {
           "name": "classList",
           "type": "string",
-          "description": null,
-          "descriptionZh": null
+          "description": "Alias for `panelClass`.",
+          "descriptionZh": "`panelClass` 的别名。"
         }
       ],
       "outputs": [
@@ -167,8 +167,8 @@
           "name": "setCurrentStyles",
           "params": [],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Recomputes the panel/arrow/content inline styles based on the current position/overlap/arrow settings.",
+          "descriptionZh": "根据当前的位置/重叠/箭头设置，重新计算面板/箭头/内容的内联样式。"
         },
         {
           "name": "setPositionClasses",
@@ -193,14 +193,14 @@
           "type": "any",
           "default": "'dialog'",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "内部使用，绑定弹出层宿主的无障碍 `role` 属性。"
         },
         {
           "name": "containerPositioning",
           "type": "any",
           "default": "false",
-          "description": null,
-          "descriptionZh": null
+          "description": "Whether the popover's positioning accounts for a containing element rather than the viewport.",
+          "descriptionZh": "弹出层定位时是否考虑所在容器元素，而不是视口。"
         },
         {
           "name": "closeDisabled",
@@ -230,110 +230,110 @@
         {
           "name": "positionX",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Position of the popover in the X axis.",
+          "descriptionZh": "弹出层在 X 轴上的位置。"
         },
         {
           "name": "positionY",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Position of the popover in the Y axis.",
+          "descriptionZh": "弹出层在 Y 轴上的位置。"
         },
         {
           "name": "triggerEvent",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Popover trigger event",
+          "descriptionZh": "触发弹出层显示的事件类型。"
         },
         {
           "name": "scrollStrategy",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Popover scroll strategy",
+          "descriptionZh": "弹出层打开期间滚动页面时的处理策略。"
         },
         {
           "name": "enterDelay",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Popover enter delay",
+          "descriptionZh": "弹出层显示前的延迟时间（毫秒）。"
         },
         {
           "name": "leaveDelay",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Popover leave delay",
+          "descriptionZh": "弹出层隐藏前的延迟时间（毫秒）。"
         },
         {
           "name": "overlapTrigger",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Popover overlap trigger",
+          "descriptionZh": "弹出层是否与触发元素重叠显示。"
         },
         {
           "name": "targetOffsetX",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Popover target offset x",
+          "descriptionZh": "弹出层相对于触发元素在 X 轴上的偏移量。"
         },
         {
           "name": "targetOffsetY",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Popover target offset y",
+          "descriptionZh": "弹出层相对于触发元素在 Y 轴上的偏移量。"
         },
         {
           "name": "arrowOffsetX",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Popover arrow offset x",
+          "descriptionZh": "箭头指示器在 X 轴上的偏移量。"
         },
         {
           "name": "arrowWidth",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Popover arrow width",
+          "descriptionZh": "箭头指示器的宽度。"
         },
         {
           "name": "arrowColor",
           "type": "any",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "箭头指示器的颜色。"
         },
         {
           "name": "closeOnClick",
           "type": "any",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "点击弹出层内部时是否自动关闭。"
         },
         {
           "name": "disableAnimation",
           "type": "any",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "是否禁用弹出层的开关动画。"
         },
         {
           "name": "focusTrapEnabled",
           "type": "any",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "弹出层打开时是否启用焦点陷阱（Tab 键循环限制在弹出层内）。"
         },
         {
           "name": "focusTrapAutoCaptureEnabled",
           "type": "any",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "启用焦点陷阱时，弹出层打开后是否自动将焦点移入。"
         },
         {
           "name": "classList",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Alias for `panelClass`.",
+          "descriptionZh": "`panelClass` 的别名。"
         },
         {
           "name": "templateRef",
           "type": "TemplateRef<any>",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "弹出层内容的模板引用。"
         }
       ]
     },
@@ -405,7 +405,7 @@
           "name": "name",
           "type": "string",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "触发器实例的名称，供程序化查找/引用使用。"
         },
         {
           "name": "popover",
@@ -419,7 +419,7 @@
           "alias": "popoverTargetAt",
           "type": "PopoverTargetInterface",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "覆盖用于定位的目标元素（默认使用宿主元素自身）。"
         },
         {
           "name": "positionX",
@@ -511,14 +511,14 @@
           "type": "any",
           "default": "true",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "点击遮罩层（背景）时是否关闭弹出层（仅 `click` 触发方式下的遮罩层）。"
         },
         {
           "name": "showPopOver",
           "type": "boolean",
           "default": "true",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "是否允许打开弹出层（`false` 时触发操作不会打开弹出层）。"
         }
       ],
       "outputs": [
@@ -526,13 +526,13 @@
           "name": "opened",
           "type": "any",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "弹出层打开时发出。"
         },
         {
           "name": "closed",
           "type": "any",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "弹出层关闭时发出。"
         }
       ],
       "methods": [
@@ -540,71 +540,71 @@
           "name": "refresh",
           "params": [],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Re-validates the associated popover and re-applies this trigger's config onto it.",
+          "descriptionZh": "重新校验关联的弹出层，并将本触发器的配置重新应用到其上。"
         },
         {
           "name": "onClick",
           "params": [],
           "returnType": "void",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "内部使用，处理宿主元素上的点击事件，当 `triggerEvent` 为 `'click'` 时切换弹出层。"
         },
         {
           "name": "onMouseEnter",
           "params": [],
           "returnType": "void",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "内部使用，处理指针进入宿主元素，当 `triggerEvent` 为 `'hover'` 时（延迟 `enterDelay` 后）打开弹出层。"
         },
         {
           "name": "onMouseLeave",
           "params": [],
           "returnType": "void",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "内部使用，处理指针离开宿主元素，当 `triggerEvent` 为 `'hover'` 时（延迟 `leaveDelay` 后）关闭弹出层。"
         },
         {
           "name": "togglePopover",
           "params": [],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Toggles the popover open/closed.",
+          "descriptionZh": "切换弹出层的打开/关闭状态。"
         },
         {
           "name": "openPopover",
           "params": [],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Opens the popover (if `showPopOver` allows it and it isn't already open).",
+          "descriptionZh": "打开弹出层（若 `showPopOver` 允许且当前尚未打开）。"
         },
         {
           "name": "closePopover",
           "params": [],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Closes the popover.",
+          "descriptionZh": "关闭弹出层。"
         },
         {
           "name": "destroyPopover",
           "params": [],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Disposes the popover's overlay and cleans up all subscriptions.",
+          "descriptionZh": "销毁弹出层的 overlay 并清理全部订阅。"
         },
         {
           "name": "focus",
           "params": [],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Focuses the host element.",
+          "descriptionZh": "聚焦宿主元素。"
         },
         {
           "name": "getPortal",
           "params": [],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Returns the popover content's `TemplatePortal` instance.",
+          "descriptionZh": "返回弹出层内容的 `TemplatePortal` 实例。"
         },
         {
           "name": "subscribeToPositions",
@@ -615,15 +615,15 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Subscribes to the overlay position strategy's changes, syncing the popover's\n`positionX`/`positionY`/styles/classes to the resolved connection pair.",
+          "descriptionZh": "订阅 overlay 定位策略的变化，将弹出层的 `positionX`/`positionY`/样式/类名\n同步为实际解析出的连接对。"
         },
         {
           "name": "getPosition",
           "params": [],
           "returnType": "FlexibleConnectedPositionStrategy",
-          "description": null,
-          "descriptionZh": null
+          "description": "Builds the CDK `FlexibleConnectedPositionStrategy` for this trigger's target element,\nbased on the popover's current position/overlap/offset settings.",
+          "descriptionZh": "根据弹出层当前的位置/重叠/偏移设置，为该触发器的目标元素构建 CDK\n`FlexibleConnectedPositionStrategy` 定位策略。"
         }
       ],
       "properties": [
@@ -632,26 +632,26 @@
           "type": "any",
           "default": "new Subject<void>()",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "弹出层打开时发出。"
         },
         {
           "name": "popoverClosed",
           "type": "any",
           "default": "new Subject<void>()",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "弹出层关闭时发出。"
         },
         {
           "name": "popoverOpen",
           "type": "boolean",
-          "description": null,
-          "descriptionZh": null
+          "description": "Whether the associated popover is currently open.",
+          "descriptionZh": "关联的弹出层当前是否处于打开状态。"
         },
         {
           "name": "dir",
           "type": "Direction",
-          "description": null,
-          "descriptionZh": null
+          "description": "The current bidi text direction (`'ltr'` or `'rtl'`).",
+          "descriptionZh": "当前的双向文字方向（`'ltr'` 或 `'rtl'`）。"
         }
       ]
     },

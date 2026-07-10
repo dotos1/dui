@@ -14,6 +14,10 @@ export class KeyboardShortcutsSelectService {
     constructor(private keyboardService: KeyboardShortcutsService) {
     }
 
+    /**
+     * Returns an observable that emits whenever the shortcut registered under `key` fires.
+     * @zh 返回一个 Observable，当以 `key` 注册的快捷键被触发时发出。
+     */
     public select(key: string) {
         return this.keyboardService.select(key);
     }

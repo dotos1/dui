@@ -29,6 +29,7 @@ import { Scrollbars } from './scrollbars/scrollbars';
 })
 export class NgScrollbar extends NgScrollbarCore {
 
+  /** @zh 内部内容包裹层元素的引用。 */
   contentWrapper: Signal<ElementRef<HTMLElement>> = viewChild.required('contentWrapper');
 
   _scrollbars: Signal<Scrollbars> = viewChild.required(Scrollbars);

@@ -18,11 +18,21 @@ export class Overlay {
   private _paneElements: Map<ToastContainerDirective, Record<string, HTMLElement>> = new Map();
 
 
+  /**
+   * Creates a new `OverlayRef` backed by the pane element for the given position class
+   * (and optional custom container).
+   * @zh 为给定的定位样式类（及可选的自定义容器）创建一个新的、以对应面板元素为载体的 `OverlayRef`。
+   */
   create(positionClass?: string, overlayContainer?: ToastContainerDirective): OverlayRef {
 
     return this._createOverlayRef(this.getPaneElement(positionClass, overlayContainer));
   }
 
+  /**
+   * Returns (creating if necessary) the pane element for the given position class within
+   * the given (or default) overlay container.
+   * @zh 返回（必要时创建）给定定位样式类在指定（或默认）覆盖层容器内的面板元素。
+   */
   getPaneElement(
     positionClass: string = '',
     overlayContainer?: ToastContainerDirective,

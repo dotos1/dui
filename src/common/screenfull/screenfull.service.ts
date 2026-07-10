@@ -10,7 +10,15 @@ import { Injectable } from '@angular/core';
 })
 export class ScreenfullService {
 
+  /**
+   * Whether this browser's fullscreen API accepts a keyboard-input-allowed flag (Safari 5.1 workaround).
+   * @zh 当前浏览器的全屏 API 是否接受"允许键盘输入"标志（用于兼容 Safari 5.1）。
+   */
   keyboardAllowed = typeof Element !== 'undefined' && 'ALLOW_KEYBOARD_INPUT' in Element;
+  /**
+   * Whether any element is currently displayed in fullscreen.
+   * @zh 当前是否有元素正处于全屏状态。
+   */
   get isFullscreen() {
     return document[this.fn.fullscreenElement] as boolean;
   }
@@ -26,10 +34,18 @@ export class ScreenfullService {
     };
   }
 
+  /**
+   * Exits fullscreen if currently active, otherwise requests fullscreen on the given element.
+   * @zh 若当前处于全屏则退出全屏，否则对指定元素请求进入全屏。
+   */
   toggle(elem: HTMLElement) {
     return this.isFullscreen ? this.exit() : this.request(elem);
   }
 
+  /**
+   * Requests fullscreen on the given element (or `document.documentElement` if omitted).
+   * @zh 对指定元素请求进入全屏（未指定时默认为 `document.documentElement`）。
+   */
   request(element: HTMLElement) {
     return new Promise((resolve) => {
       const request = this.fn.requestFullscreen;

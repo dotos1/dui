@@ -107,21 +107,21 @@
           "type": "any",
           "default": "new Subject<{\n    clientX: number;\n    clientY: number;\n    edges?: Edges;\n  }>()",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "内部使用，配对的 {@link ResizeHandleDirective} 通过它推送指针抬起事件。"
         },
         {
           "name": "mousedown",
           "type": "any",
           "default": "new Subject<{\n    clientX: number;\n    clientY: number;\n    edges?: Edges;\n  }>()",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "内部使用，配对的 {@link ResizeHandleDirective} 通过它推送指针按下事件。"
         },
         {
           "name": "mousemove",
           "type": "any",
           "default": "new Subject<{\n    clientX: number;\n    clientY: number;\n    edges?: Edges;\n    event: MouseEvent | TouchEvent;\n  }>()",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "内部使用，配对的 {@link ResizeHandleDirective} 通过它推送指针移动事件。"
         }
       ]
     },
@@ -189,7 +189,7 @@
           ],
           "returnType": "void",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "内部使用，开始跟踪指针移动/抬起，并向配对的 {@link ResizableDirective} 转发按下事件。"
         },
         {
           "name": "onMouseup",
@@ -205,7 +205,7 @@
           ],
           "returnType": "void",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "内部使用，停止跟踪指针移动，并向配对的 {@link ResizableDirective} 转发抬起事件。"
         }
       ],
       "properties": []

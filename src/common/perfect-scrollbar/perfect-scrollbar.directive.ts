@@ -56,21 +56,33 @@ export class PerfectScrollbarDirective implements OnInit, OnDestroy, DoCheck, On
 
     private readonly ngDestroy = new Subject<void>();
 
+    /** @zh 是否禁用自定义滚动条（禁用后销毁底层 Perfect Scrollbar 实例）。 */
     @Input({ transform: booleanAttribute }) disabled: boolean = false;
 
+    /** @zh 传给底层 Perfect Scrollbar 实例的配置项。 */
     @Input('perfectScrollbar') config?: PerfectScrollbarConfigInterface;
 
+    /** @zh 垂直滚动时发出。 */
     @Output() psScrollY = new EventEmitter<any>();
+    /** @zh 水平滚动时发出。 */
     @Output() psScrollX = new EventEmitter<any>();
 
+    /** @zh 向上滚动时发出。 */
     @Output() psScrollUp = new EventEmitter<any>();
+    /** @zh 向下滚动时发出。 */
     @Output() psScrollDown = new EventEmitter<any>();
+    /** @zh 向左滚动时发出。 */
     @Output() psScrollLeft = new EventEmitter<any>();
+    /** @zh 向右滚动时发出。 */
     @Output() psScrollRight = new EventEmitter<any>();
 
+    /** @zh 垂直方向滚动到底部时发出。 */
     @Output() psYReachEnd = new EventEmitter<any>();
+    /** @zh 垂直方向滚动到顶部时发出。 */
     @Output() psYReachStart = new EventEmitter<any>();
+    /** @zh 水平方向滚动到右侧末端时发出。 */
     @Output() psXReachEnd = new EventEmitter<any>();
+    /** @zh 水平方向滚动到左侧起始位置时发出。 */
     @Output() psXReachStart = new EventEmitter<any>();
 
     constructor(
@@ -173,10 +185,18 @@ export class PerfectScrollbarDirective implements OnInit, OnDestroy, DoCheck, On
         }
     }
 
+    /**
+     * Returns the underlying `perfect-scrollbar` library instance, or `null` if not initialized.
+     * @zh 返回底层 `perfect-scrollbar` 库实例，未初始化时返回 `null`。
+     */
     public ps(): PerfectScrollbar | null {
         return this.instance;
     }
 
+    /**
+     * Recalculates the scrollbar geometry (debounced); call after content size changes.
+     * @zh 重新计算滚动条几何信息（带防抖）；在内容尺寸变化后调用。
+     */
     public update(): void {
         if (typeof window !== 'undefined') {
             if (this.timeout) {
@@ -199,6 +219,12 @@ export class PerfectScrollbarDirective implements OnInit, OnDestroy, DoCheck, On
         }
     }
 
+    /**
+     * Returns the host element's current scroll position/size as a {@link Geometry}, using the
+     * given DOM property prefix (`scroll`/`offset`/`client`).
+     * @zh 使用给定的 DOM 属性前缀（`scroll`/`offset`/`client`），
+     * 以 {@link Geometry} 形式返回宿主元素当前的滚动位置/尺寸。
+     */
     public geometry(prefix: string = 'scroll'): Geometry {
         return new Geometry(
             this.elementRef.nativeElement[prefix + 'Left'],
@@ -208,6 +234,12 @@ export class PerfectScrollbarDirective implements OnInit, OnDestroy, DoCheck, On
         );
     }
 
+    /**
+     * Returns the current scroll position, either relative to the scrollbar's "reach" state
+     * or absolute (native `scrollLeft`/`scrollTop`) if `absolute` is `true`.
+     * @zh 返回当前滚动位置；默认相对于滚动条的"到达边缘"状态，`absolute` 为 `true` 时
+     * 返回绝对位置（原生 `scrollLeft`/`scrollTop`）。
+     */
     public position(absolute: boolean = false): Position {
         if (!absolute && this.instance) {
             return new Position(this.instance.reach.x || 0, this.instance.reach.y || 0);
@@ -216,6 +248,11 @@ export class PerfectScrollbarDirective implements OnInit, OnDestroy, DoCheck, On
         }
     }
 
+    /**
+     * Whether the host element is currently scrollable in the given direction
+     * (`'any'`, `'both'`, `'x'`, or `'y'`).
+     * @zh 宿主元素当前在给定方向上是否可滚动（`'any'`、`'both'`、`'x'` 或 `'y'`）。
+     */
     public scrollable(direction: string = 'any'): boolean {
         const element = this.elementRef.nativeElement;
 
@@ -228,6 +265,12 @@ export class PerfectScrollbarDirective implements OnInit, OnDestroy, DoCheck, On
         }
     }
 
+    /**
+     * Scrolls to the given `x`/`y` position, optionally animated over `speed` ms. If only `x` is
+     * given, it's treated as a vertical (`scrollTop`) target.
+     * @zh 滚动到给定的 `x`/`y` 位置，可选地在 `speed` 毫秒内动画过渡。若只提供 `x`，
+     * 则视为垂直方向（`scrollTop`）目标。
+     */
     public scrollTo(x: number, y?: number, speed?: number): void {
         if (!this.disabled) {
             if (y == null && speed == null) {
@@ -244,34 +287,64 @@ export class PerfectScrollbarDirective implements OnInit, OnDestroy, DoCheck, On
         }
     }
 
+    /**
+     * Scrolls horizontally to the given `x` position, optionally animated over `speed` ms.
+     * @zh 水平滚动到给定的 `x` 位置，可选地在 `speed` 毫秒内动画过渡。
+     */
     public scrollToX(x: number, speed?: number): void {
         this.animateScrolling('scrollLeft', x, speed);
     }
 
+    /**
+     * Scrolls vertically to the given `y` position, optionally animated over `speed` ms.
+     * @zh 垂直滚动到给定的 `y` 位置，可选地在 `speed` 毫秒内动画过渡。
+     */
     public scrollToY(y: number, speed?: number): void {
         this.animateScrolling('scrollTop', y, speed);
     }
 
+    /**
+     * Scrolls to the top, offset by `offset` pixels, optionally animated over `speed` ms.
+     * @zh 滚动到顶部（可偏移 `offset` 像素），可选地在 `speed` 毫秒内动画过渡。
+     */
     public scrollToTop(offset?: number, speed?: number): void {
         this.animateScrolling('scrollTop', offset || 0, speed);
     }
 
+    /**
+     * Scrolls to the left edge, offset by `offset` pixels, optionally animated over `speed` ms.
+     * @zh 滚动到左侧边缘（可偏移 `offset` 像素），可选地在 `speed` 毫秒内动画过渡。
+     */
     public scrollToLeft(offset?: number, speed?: number): void {
         this.animateScrolling('scrollLeft', offset || 0, speed);
     }
 
+    /**
+     * Scrolls to the right edge, offset by `offset` pixels, optionally animated over `speed` ms.
+     * @zh 滚动到右侧边缘（可偏移 `offset` 像素），可选地在 `speed` 毫秒内动画过渡。
+     */
     public scrollToRight(offset?: number, speed?: number): void {
         const left = this.elementRef.nativeElement.scrollWidth - this.elementRef.nativeElement.clientWidth;
 
         this.animateScrolling('scrollLeft', left - (offset || 0), speed);
     }
 
+    /**
+     * Scrolls to the bottom edge, offset by `offset` pixels, optionally animated over `speed` ms.
+     * @zh 滚动到底部边缘（可偏移 `offset` 像素），可选地在 `speed` 毫秒内动画过渡。
+     */
     public scrollToBottom(offset?: number, speed?: number): void {
         const top = this.elementRef.nativeElement.scrollHeight - this.elementRef.nativeElement.clientHeight;
 
         this.animateScrolling('scrollTop', top - (offset || 0), speed);
     }
 
+    /**
+     * Scrolls the given element (or CSS selector resolved within the host) into view,
+     * offset by `offset` pixels, optionally animated over `speed` ms.
+     * @zh 将给定元素（或在宿主内解析的 CSS 选择器）滚动到可视区域内，
+     * 可偏移 `offset` 像素，可选地在 `speed` 毫秒内动画过渡。
+     */
     public scrollToElement(element: HTMLElement | string, offset?: number, speed?: number): void {
         if (typeof element === 'string') {
             element = this.elementRef.nativeElement.querySelector(element) as HTMLElement;

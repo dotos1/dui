@@ -15,6 +15,10 @@ export class OverlayContainer implements OnDestroy {
   }
 
 
+  /**
+   * Returns (creating if necessary) the shared overlay container element appended to `document.body`.
+   * @zh 返回（必要时创建）附加到 `document.body` 的共享覆盖层容器元素。
+   */
   getContainerElement(): HTMLElement {
     if (!this._containerElement) {
       this._createContainer();

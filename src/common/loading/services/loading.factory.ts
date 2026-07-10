@@ -47,6 +47,11 @@ export class LoadingFactory {
     private _overlay: Overlay,
     private _injector: Injector
   ) {}
+  /**
+   * Creates a full-screen loading overlay, shown/hidden based on the returned ref's
+   * registration counter.
+   * @zh 创建全屏加载覆盖层，其显示/隐藏由返回的 ref 的注册计数器驱动。
+   */
   public createFullScreenComponent(options: ILoadingConfig): ILoadingRef {
     (<IInternalLoadingOptions>options).height = undefined;
     (<IInternalLoadingOptions>options).style = LoadingStyle.FullScreen;
@@ -76,6 +81,11 @@ export class LoadingFactory {
     return loadingRef;
   }
 
+  /**
+   * Creates a loading indicator that overlays the given template's content in place,
+   * shown/hidden based on the returned ref's registration counter.
+   * @zh 创建一个覆盖在给定模板内容之上的加载指示器，其显示/隐藏由返回的 ref 的注册计数器驱动。
+   */
   public createOverlayComponent(
     options: ILoadingConfig,
     viewContainerRef: ViewContainerRef,
@@ -110,6 +120,11 @@ export class LoadingFactory {
   }
 
 
+  /**
+   * Creates a loading indicator that swaps in place of the given template's content while
+   * loading, restoring the original content once resolved.
+   * @zh 创建一个在加载期间取代给定模板内容位置的加载指示器，解析完成后恢复原有内容。
+   */
   public createReplaceComponent(
     options: ILoadingConfig,
     viewContainerRef: ViewContainerRef,

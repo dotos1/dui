@@ -201,71 +201,71 @@
         {
           "name": "selectedItems",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "The currently selected items' values (two-way bindable via `selectedItemsChange`).",
+          "descriptionZh": "当前选中的条目值（可通过 `selectedItemsChange` 双向绑定）。"
         },
         {
           "name": "selectOnDrag",
           "type": "any",
           "default": "true",
-          "description": null,
-          "descriptionZh": null
+          "description": "Whether dragging a selection box selects intersecting items. Defaults to `true`.",
+          "descriptionZh": "拖拽选框是否会选中与之相交的条目，默认为 `true`。"
         },
         {
           "name": "disabled",
           "type": "any",
           "default": "false",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "是否禁用整个选择容器（拖拽和点击均不生效）。"
         },
         {
           "name": "disableDrag",
           "type": "any",
           "default": "false",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "是否禁用拖拽绘制选框（点击选择仍可用）。"
         },
         {
           "name": "selectOnClick",
           "type": "any",
           "default": "true",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "是否允许通过单击选中条目。默认为 `true`。"
         },
         {
           "name": "dragOverItems",
           "type": "any",
           "default": "true",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "拖拽选框是否需要覆盖条目才能选中它们（而不仅仅是相交）。默认为 `true`。"
         },
         {
           "name": "disableRangeSelection",
           "type": "any",
           "default": "false",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "是否禁用 shift 范围选择。"
         },
         {
           "name": "selectMode",
           "type": "any",
           "default": "false",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "是否进入\"选择模式\"（悬停/拖过即切换选中状态，而非常规拖框选择）。"
         },
         {
           "name": "selectWithShortcut",
           "type": "any",
           "default": "false",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "是否要求配合快捷键才能选择（禁用纯点击/拖拽选择）。"
         },
         {
           "name": "custom",
           "type": "any",
           "default": "false",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "是否启用自定义选择逻辑（跳过内置的选框绘制样式类）。"
         }
       ],
       "outputs": [
@@ -273,37 +273,37 @@
           "name": "selectedItemsChange",
           "type": "any",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "当前选中项集合发生变化时发出（用于配合 `selectedItems` 双向绑定）。"
         },
         {
           "name": "select",
           "type": "any",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "当前选中项集合发生变化时发出。"
         },
         {
           "name": "itemSelected",
           "type": "any",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "单个条目被选中时发出该条目的值。"
         },
         {
           "name": "itemDeselected",
           "type": "any",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "单个条目被取消选中时发出该条目的值。"
         },
         {
           "name": "selectionStarted",
           "type": "any",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "一次框选/选择操作开始时发出。"
         },
         {
           "name": "selectionEnded",
           "type": "any",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "一次框选/选择操作结束时发出最终选中的条目集合。"
         }
       ],
       "methods": [
@@ -311,8 +311,8 @@
           "name": "selectAll",
           "params": [],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Selects all selectable items.",
+          "descriptionZh": "选中全部可选条目。"
         },
         {
           "name": "setSelect",
@@ -323,8 +323,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Selects the given list of {@link SelectItemDirective} items.",
+          "descriptionZh": "选中给定的 {@link SelectItemDirective} 条目列表。"
         },
         {
           "name": "toggleItems",
@@ -335,8 +335,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Toggles the selected state of every item whose value matches the given predicate.",
+          "descriptionZh": "切换所有值匹配给定断言函数的条目的选中状态。"
         },
         {
           "name": "selectItems",
@@ -347,8 +347,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Selects every item whose value matches the given predicate.",
+          "descriptionZh": "选中所有值匹配给定断言函数的条目。"
         },
         {
           "name": "deselectItems",
@@ -359,22 +359,22 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Deselects every item whose value matches the given predicate.",
+          "descriptionZh": "取消选中所有值匹配给定断言函数的条目。"
         },
         {
           "name": "clearSelection",
           "params": [],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Clears the current selection.",
+          "descriptionZh": "清空当前选中项。"
         },
         {
           "name": "update",
           "params": [],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Recalculates the container's and every selectable item's bounding rectangle\n(call after layout changes that aren't automatically observed).",
+          "descriptionZh": "重新计算容器及每个可选条目的边界矩形（在未被自动监听到的布局变化后调用）。"
         },
         {
           "name": "selectItem",
@@ -385,8 +385,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Selects a single {@link SelectItemDirective} item.",
+          "descriptionZh": "选中单个 {@link SelectItemDirective} 条目。"
         }
       ],
       "properties": [
@@ -394,26 +394,26 @@
           "name": "host",
           "type": "SelectContainerHost",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "宿主原生元素及其边界信息。"
         },
         {
           "name": "selectBoxStyles$",
           "type": "Observable<SelectBox<string>>",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "内部使用，绑定到选框元素的样式流。"
         },
         {
           "name": "selectBoxClasses$",
           "type": "Observable<{ [key: string]: boolean }>",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "内部使用，绑定到选框元素的 CSS 类流。"
         },
         {
           "name": "hostClass",
           "type": "any",
           "default": "true",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "内部使用，始终为 `true`，用于绑定 `dts-select-container` 宿主类名。"
         }
       ]
     },
@@ -439,15 +439,15 @@
         {
           "name": "dtsSelectItem",
           "type": "any | undefined",
-          "description": null,
-          "descriptionZh": null
+          "description": "The value reported for this item when selected/deselected; defaults to the directive\ninstance itself if not provided.",
+          "descriptionZh": "该条目被选中/取消选中时上报的值；未提供时默认为指令实例本身。"
         },
         {
           "name": "dtsDisabled",
           "type": "any",
           "default": "false",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "是否禁用该条目的选择（禁用时它不参与选择容器的框选/点击逻辑）。"
         }
       ],
       "outputs": [],
@@ -456,22 +456,22 @@
           "name": "toggleRangeStart",
           "params": [],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Toggles whether this item is the current range-selection start.",
+          "descriptionZh": "切换该条目是否作为当前范围选择的起点。"
         },
         {
           "name": "getBoundingClientRect",
           "params": [],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Returns this item's cached bounding client rect, computing it first if not yet cached.",
+          "descriptionZh": "返回该条目缓存的边界矩形，若尚未缓存则先计算。"
         },
         {
           "name": "calculateBoundingClientRect",
           "params": [],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Recalculates and caches this item's bounding client rect.",
+          "descriptionZh": "重新计算并缓存该条目的边界矩形。"
         }
       ],
       "properties": [
@@ -479,34 +479,34 @@
           "name": "selected",
           "type": "any",
           "default": "false",
-          "description": null,
-          "descriptionZh": null
+          "description": "Whether this item is currently selected (kept in sync with the `config.selectedClass` host class).",
+          "descriptionZh": "该条目当前是否被选中（与宿主的 `config.selectedClass` 类名保持同步）。"
         },
         {
           "name": "rangeStart",
           "type": "any",
           "default": "false",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "该条目当前是否作为范围选择的起点。"
         },
         {
           "name": "hostClass",
           "type": "any",
           "default": "true",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "内部使用，始终为 `true`，用于绑定 `dts-select-item` 宿主类名。"
         },
         {
           "name": "value",
           "type": "SelectItemDirective | any",
-          "description": null,
-          "descriptionZh": null
+          "description": "The effective value used to represent this item (`dtsSelectItem` if provided, else the\ndirective instance itself).",
+          "descriptionZh": "用于代表该条目的有效值（若提供了 `dtsSelectItem` 则为其值，否则为指令实例本身）。"
         },
         {
           "name": "nativeElememnt",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "The host native element.",
+          "descriptionZh": "宿主原生元素。"
         }
       ]
     },
@@ -528,8 +528,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Whether the configured \"disable selection\" shortcut is currently held.",
+          "descriptionZh": "配置的\"禁用选择\"快捷键当前是否处于按下状态。"
         },
         {
           "name": "moveRangeStart",
@@ -540,8 +540,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Whether the configured \"move range start\" shortcut is currently held.",
+          "descriptionZh": "配置的\"移动范围起点\"快捷键当前是否处于按下状态。"
         },
         {
           "name": "toggleSingleItem",
@@ -552,8 +552,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Whether the configured \"toggle single item\" shortcut is currently held.",
+          "descriptionZh": "配置的\"切换单个条目\"快捷键当前是否处于按下状态。"
         },
         {
           "name": "addToSelection",
@@ -564,8 +564,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Whether the configured \"add to selection\" shortcut is currently held.",
+          "descriptionZh": "配置的\"添加到选中\"快捷键当前是否处于按下状态。"
         },
         {
           "name": "removeFromSelection",
@@ -576,8 +576,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Whether the configured \"remove from selection\" shortcut is currently held.",
+          "descriptionZh": "配置的\"从选中中移除\"快捷键当前是否处于按下状态。"
         },
         {
           "name": "extendedSelectionShortcut",
@@ -588,8 +588,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Whether either the \"add to selection\" or \"remove from selection\" shortcut is currently held.",
+          "descriptionZh": "\"添加到选中\"或\"从选中中移除\"快捷键中的任意一个当前是否处于按下状态。"
         }
       ],
       "properties": []

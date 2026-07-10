@@ -13,6 +13,7 @@ import { DndDraggableDirective } from "./dnd-draggable.directive";
 } )
 export class DndHandleDirective {
 
+  /** @zh 内部使用，绑定宿主元素的原生 `draggable` 属性。 */
   @HostBinding( "attr.draggable" )
   draggable = true;
 
@@ -21,6 +22,10 @@ export class DndHandleDirective {
     parent.registerDragHandle( this );
   }
 
+  /**
+   * @hidden Marks the originating drag event as having gone through this handle.
+   * @zh 内部使用，标记发起的拖拽事件是通过该手柄触发的。
+   */
   @HostListener( "dragstart", [ "$event" ] )
   @HostListener( "dragend", [ "$event" ] )
   onDragEvent( event:DndEvent ) {

@@ -93,8 +93,11 @@ import { KeyboardEventsService } from './keyboard-events.service';
   styleUrls: ['./select-container.component.scss']
 })
 export class SelectContainerComponent implements AfterViewInit, OnDestroy, AfterContentInit {
+  /** @zh 宿主原生元素及其边界信息。 */
   host: SelectContainerHost;
+  /** @zh 内部使用，绑定到选框元素的样式流。 */
   selectBoxStyles$: Observable<SelectBox<string>>;
+  /** @zh 内部使用，绑定到选框元素的 CSS 类流。 */
   selectBoxClasses$: Observable<{ [key: string]: boolean }>;
 
   @ViewChild('selectBox', { static: true })
@@ -103,26 +106,49 @@ export class SelectContainerComponent implements AfterViewInit, OnDestroy, After
   @ContentChildren(SelectItemDirective, { descendants: true })
   private $selectableItems: QueryList<SelectItemDirective>;
 
+  /**
+   * The currently selected items' values (two-way bindable via `selectedItemsChange`).
+   * @zh 当前选中的条目值（可通过 `selectedItemsChange` 双向绑定）。
+   */
   @Input() selectedItems: any;
+  /**
+   * Whether dragging a selection box selects intersecting items. Defaults to `true`.
+   * @zh 拖拽选框是否会选中与之相交的条目，默认为 `true`。
+   */
   @Input() selectOnDrag = true;
+  /** @zh 是否禁用整个选择容器（拖拽和点击均不生效）。 */
   @Input() disabled = false;
+  /** @zh 是否禁用拖拽绘制选框（点击选择仍可用）。 */
   @Input() disableDrag = false;
+  /** @zh 是否允许通过单击选中条目。默认为 `true`。 */
   @Input() selectOnClick = true;
+  /** @zh 拖拽选框是否需要覆盖条目才能选中它们（而不仅仅是相交）。默认为 `true`。 */
   @Input() dragOverItems = true;
+  /** @zh 是否禁用 shift 范围选择。 */
   @Input() disableRangeSelection = false;
+  /** @zh 是否进入"选择模式"（悬停/拖过即切换选中状态，而非常规拖框选择）。 */
   @Input() selectMode = false;
+  /** @zh 是否要求配合快捷键才能选择（禁用纯点击/拖拽选择）。 */
   @Input() selectWithShortcut = false;
 
+  /** @zh 是否启用自定义选择逻辑（跳过内置的选框绘制样式类）。 */
   @Input()
   @HostBinding('class.dts-custom')
   custom = false;
+  /** @zh 内部使用，始终为 `true`，用于绑定 `dts-select-container` 宿主类名。 */
   @HostBinding('class.dts-select-container')
   readonly hostClass = true;
+  /** @zh 当前选中项集合发生变化时发出（用于配合 `selectedItems` 双向绑定）。 */
   @Output() selectedItemsChange = new EventEmitter<any>();
+  /** @zh 当前选中项集合发生变化时发出。 */
   @Output() select = new EventEmitter<any>();
+  /** @zh 单个条目被选中时发出该条目的值。 */
   @Output() itemSelected = new EventEmitter<any>();
+  /** @zh 单个条目被取消选中时发出该条目的值。 */
   @Output() itemDeselected = new EventEmitter<any>();
+  /** @zh 一次框选/选择操作开始时发出。 */
   @Output() selectionStarted = new EventEmitter<void>();
+  /** @zh 一次框选/选择操作结束时发出最终选中的条目集合。 */
   @Output() selectionEnded = new EventEmitter<Array<any>>();
 
   private _tmpItems = new Map<SelectItemDirective, Action>();
@@ -274,36 +300,65 @@ export class SelectContainerComponent implements AfterViewInit, OnDestroy, After
     this._selectableItems = this.$selectableItems.toArray();
   }
 
+  /**
+   * Selects all selectable items.
+   * @zh 选中全部可选条目。
+   */
   selectAll() {
     this.$selectableItems.forEach(item => {
       this._selectItem(item);
     });
   }
 
+  /**
+   * Selects the given list of {@link SelectItemDirective} items.
+   * @zh 选中给定的 {@link SelectItemDirective} 条目列表。
+   */
   setSelect(selecteds) {
     selecteds.forEach(item => {
       this._selectItem(item);
     });
   }
 
+  /**
+   * Toggles the selected state of every item whose value matches the given predicate.
+   * @zh 切换所有值匹配给定断言函数的条目的选中状态。
+   */
   toggleItems<T>(predicate: PredicateFn<T>) {
     this._filterSelectableItems(predicate).subscribe((item: SelectItemDirective) => this._toggleItem(item));
   }
 
+  /**
+   * Selects every item whose value matches the given predicate.
+   * @zh 选中所有值匹配给定断言函数的条目。
+   */
   selectItems<T>(predicate: PredicateFn<T>) {
     this._filterSelectableItems(predicate).subscribe((item: SelectItemDirective) => this._selectItem(item));
   }
 
+  /**
+   * Deselects every item whose value matches the given predicate.
+   * @zh 取消选中所有值匹配给定断言函数的条目。
+   */
   deselectItems<T>(predicate: PredicateFn<T>) {
     this._filterSelectableItems(predicate).subscribe((item: SelectItemDirective) => this._deselectItem(item));
   }
 
+  /**
+   * Clears the current selection.
+   * @zh 清空当前选中项。
+   */
   clearSelection() {
     this.$selectableItems.forEach(item => {
       this._deselectItem(item);
     });
   }
 
+  /**
+   * Recalculates the container's and every selectable item's bounding rectangle
+   * (call after layout changes that aren't automatically observed).
+   * @zh 重新计算容器及每个可选条目的边界矩形（在未被自动监听到的布局变化后调用）。
+   */
   update() {
     this._calculateBoundingClientRect();
     this.$selectableItems.forEach(item => item.calculateBoundingClientRect());
@@ -659,6 +714,10 @@ export class SelectContainerComponent implements AfterViewInit, OnDestroy, After
     }
   }
 
+  /**
+   * Selects a single {@link SelectItemDirective} item.
+   * @zh 选中单个 {@link SelectItemDirective} 条目。
+   */
   public selectItem(item: SelectItemDirective) {
     this.updateItems$.next({ type: UpdateActions.Add, item });
   }

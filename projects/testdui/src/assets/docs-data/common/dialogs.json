@@ -15,8 +15,8 @@
           "name": "close",
           "params": [],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Closes the dialog.",
+          "descriptionZh": "关闭对话框。"
         }
       ],
       "properties": [
@@ -24,20 +24,20 @@
           "name": "title",
           "type": "string",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "对话框标题。"
         },
         {
           "name": "message",
           "type": "string",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "对话框消息内容。"
         },
         {
           "name": "closeButton",
           "type": "string",
           "default": "'CLOSE'",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "关闭按钮的文字，默认为 `'CLOSE'`。"
         }
       ]
     },
@@ -55,15 +55,15 @@
           "name": "cancel",
           "params": [],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Closes the dialog, resolving with `false`.",
+          "descriptionZh": "关闭对话框，返回结果 `false`。"
         },
         {
           "name": "accept",
           "params": [],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Closes the dialog, resolving with `true`.",
+          "descriptionZh": "关闭对话框，返回结果 `true`。"
         }
       ],
       "properties": [
@@ -71,34 +71,34 @@
           "name": "title",
           "type": "string",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "对话框标题。"
         },
         {
           "name": "message",
           "type": "string",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "对话框消息内容。"
         },
         {
           "name": "cancelButton",
           "type": "any",
           "default": "'CANCEL'",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "取消按钮的文字，默认为 `'CANCEL'`。"
         },
         {
           "name": "acceptButton",
           "type": "any",
           "default": "'ACCEPT'",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "确认按钮的文字，默认为 `'ACCEPT'`。"
         },
         {
           "name": "isDestructive",
           "type": "any",
           "default": "false",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "是否将确认按钮渲染为破坏性操作样式（如红色警示色）。"
         }
       ]
     },
@@ -124,15 +124,15 @@
             }
           ],
           "returnType": "MatDialogRef<T>",
-          "description": null,
-          "descriptionZh": null
+          "description": "Opens an arbitrary component in a Material dialog, tracking it in `getOpenedComponents`.",
+          "descriptionZh": "在 Material 对话框中打开任意组件，并在 `getOpenedComponents` 中进行跟踪。"
         },
         {
           "name": "getOpenedComponents",
           "params": [],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Returns a map of currently-open dialog ids to their component instances.",
+          "descriptionZh": "返回当前已打开对话框 id 到其组件实例的映射。"
         },
         {
           "name": "closeAll",
@@ -150,8 +150,8 @@
             }
           ],
           "returnType": "MatDialogRef<AlertDialogComponent>",
-          "description": null,
-          "descriptionZh": null
+          "description": "Opens an {@link AlertDialogComponent} with the given config.",
+          "descriptionZh": "使用给定配置打开一个 {@link AlertDialogComponent} 提示对话框。"
         },
         {
           "name": "openConfirm",
@@ -198,8 +198,8 @@
             }
           ],
           "returnType": "MatDialogRef<StatusDialogComponent>",
-          "description": null,
-          "descriptionZh": null
+          "description": "Opens a {@link StatusDialogComponent} with the given config.",
+          "descriptionZh": "使用给定配置打开一个 {@link StatusDialogComponent} 状态对话框。"
         }
       ],
       "properties": []
@@ -254,8 +254,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Applies the given app config's theme (primary/accent/warn colors, type, layout, form type)\nto this dialog's theme scope.",
+          "descriptionZh": "将给定应用配置的主题（主色/强调色/警示色、类型、布局、表单类型）应用到该对话框的主题作用域。"
         }
       ],
       "properties": [
@@ -263,25 +263,25 @@
           "name": "dialogTitle",
           "type": "QueryList<duiDialogTitleDirective>",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "投影进来的标题区域（`duiDialogTitle`），最多允许一个。"
         },
         {
           "name": "dialogContent",
           "type": "QueryList<duiDialogContentDirective>",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "投影进来的内容区域（`duiDialogContent`），最多允许一个。"
         },
         {
           "name": "dialogActions",
           "type": "QueryList<duiDialogActionsDirective>",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "投影进来的操作按钮区域（`duiDialogActions`），最多允许一个。"
         },
         {
           "name": "dialogStatus",
           "type": "QueryList<duiDialogStatusDirective>",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "投影进来的状态提示区域（`duiDialogStatus`），最多允许一个。"
         }
       ]
     },
@@ -412,15 +412,15 @@
           "name": "cancel",
           "params": [],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Closes the dialog without a value.",
+          "descriptionZh": "关闭对话框，不返回任何值。"
         },
         {
           "name": "accept",
           "params": [],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Closes the dialog, resolving with the entered value.",
+          "descriptionZh": "关闭对话框，返回输入的值。"
         }
       ],
       "properties": [
@@ -428,123 +428,123 @@
           "name": "title",
           "type": "string",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "对话框标题。"
         },
         {
           "name": "message",
           "type": "string",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "对话框消息内容。"
         },
         {
           "name": "name",
           "type": "string",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "内部使用，字段名称。"
         },
         {
           "name": "cancelButton",
           "type": "any",
           "default": "'CANCEL'",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "取消按钮的文字，默认为 `'CANCEL'`。"
         },
         {
           "name": "acceptButton",
           "type": "any",
           "default": "'ACCEPT'",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "确认按钮的文字，默认为 `'ACCEPT'`。"
         },
         {
           "name": "formFieldControl",
           "type": "MatInput",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "底层 Material 输入框控件的引用。"
         },
         {
           "name": "minLengthText",
           "type": "string",
           "default": "'The minimum length for this field is {0}'",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "输入内容短于 `minlength` 时显示的错误文案，`{0}` 会被替换为 `minlength`。"
         },
         {
           "name": "maxLengthText",
           "type": "string",
           "default": "'The maximum length for this field is {0}'",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "输入内容超过 `maxlength` 时显示的错误文案，`{0}` 会被替换为 `maxlength`。"
         },
         {
           "name": "pattern",
           "type": "string | RegExp",
           "default": "null",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "用于校验输入内容的正则表达式（或其字符串形式）。"
         },
         {
           "name": "regexText",
           "type": "string",
           "default": "' format is not correct'",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "输入内容不匹配 `pattern` 时显示的错误文案。"
         },
         {
           "name": "blankText",
           "type": "string",
           "default": "' This field is can not be blank!'",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "输入内容为空且 `required` 为 `true` 时显示的错误文案。"
         },
         {
           "name": "minlength",
           "type": "number",
           "default": "0",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "输入内容的最小长度。"
         },
         {
           "name": "maxlength",
           "type": "number",
           "default": "255",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "输入内容的最大长度。"
         },
         {
           "name": "min",
           "type": "number",
           "default": "-Infinity",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "当 `dataType` 为数字类型时的最小值。"
         },
         {
           "name": "max",
           "type": "number",
           "default": "Infinity",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "当 `dataType` 为数字类型时的最大值。"
         },
         {
           "name": "required",
           "type": "boolean",
           "default": "true",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "输入内容是否为必填项。"
         },
         {
           "name": "dataType",
           "type": "string",
           "default": "'text'",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "输入框的数据类型（如 `'text'`）。"
         },
         {
           "name": "formControl",
           "type": "any",
           "default": "new FormControl()",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "绑定输入框值的表单控件。"
         }
       ]
     },
@@ -603,22 +603,22 @@
           "name": "close",
           "params": [],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Closes the dialog.",
+          "descriptionZh": "关闭对话框。"
         },
         {
           "name": "getStatusIcon",
           "params": [],
           "returnType": "string",
-          "description": null,
-          "descriptionZh": null
+          "description": "The Material icon name corresponding to the current `state`.",
+          "descriptionZh": "与当前 `state` 对应的 Material 图标名称。"
         },
         {
           "name": "toggleDetails",
           "params": [],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Toggles whether the additional details section is shown.",
+          "descriptionZh": "切换附加详情区域的展开/收起状态。"
         }
       ],
       "properties": [
@@ -627,46 +627,46 @@
           "type": "string",
           "default": "'CLOSE'",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "底部关闭按钮的文字。"
         },
         {
           "name": "message",
           "type": "string",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "对话框消息内容。"
         },
         {
           "name": "state",
           "type": "StatusDialogStates",
           "default": "'error'",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "对话框状态：`'error'`、`'positive'` 或 `'warning'`。"
         },
         {
           "name": "title",
           "type": "string",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "对话框标题。"
         },
         {
           "name": "details",
           "type": "string",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "消息之后显示的附加详情内容。"
         },
         {
           "name": "showDetails",
           "type": "any",
           "default": "false",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "附加详情区域是否展开。"
         },
         {
           "name": "detailsLabels",
           "type": "StatusDialogDetailsLabels",
           "default": "{\n    showDetailsLabel: 'Show details',\n    hideDetailsLabel: 'Hide details',\n  }",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "展开/收起详情链接的文案。"
         }
       ]
     },
@@ -704,32 +704,32 @@
           "name": "toolbarColor",
           "type": "ThemePalette",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "标题栏的 Material 主题色。"
         },
         {
           "name": "docked",
           "type": "any",
           "default": "false",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "窗口当前是否处于停靠状态。"
         },
         {
           "name": "title",
           "type": "string",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "窗口标题。"
         },
         {
           "name": "toggleDockedStateLabel",
           "type": "string",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "\"切换停靠状态\"按钮的无障碍标签文字。"
         },
         {
           "name": "closeLabel",
           "type": "string",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "关闭按钮的无障碍标签文字。"
         }
       ],
       "outputs": [
@@ -737,13 +737,13 @@
           "name": "dockToggled",
           "type": "boolean",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "停靠状态切换时发出新的停靠状态。"
         },
         {
           "name": "closed",
           "type": "void",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "关闭按钮被点击时发出。"
         }
       ],
       "methods": [
@@ -751,8 +751,8 @@
           "name": "toggleDockedState",
           "params": [],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Toggles the docked state and emits `dockToggled`.",
+          "descriptionZh": "切换停靠状态并发出 `dockToggled`。"
         }
       ],
       "properties": [
@@ -761,7 +761,7 @@
           "type": "any",
           "default": "56",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "标题栏的高度（像素）。"
         }
       ]
     }

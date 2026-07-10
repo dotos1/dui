@@ -27,8 +27,8 @@
           "name": "asyncDetection",
           "type": "InputSignal<'auto' | ''>",
           "default": "input()",
-          "description": null,
-          "descriptionZh": null
+          "description": "`'auto'` to keep watching for viewport/content-wrapper/spacer element changes indefinitely,\nor `''` (default) to stop watching once found once.",
+          "descriptionZh": "`'auto'` 表示持续监听视口/内容包裹层/占位符元素的变化，`''`（默认）表示找到一次后即停止监听。"
         }
       ]
     },
@@ -92,7 +92,7 @@
           "type": "Signal<ElementRef<HTMLElement>>",
           "default": "viewChild.required('contentWrapper')",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "内部内容包裹层元素的引用。"
         }
       ]
     },
@@ -140,63 +140,63 @@
           "type": "WritableSignal<HTMLElement>",
           "default": "signal<HTMLElement>(null)",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "内部使用，由 {@link AsyncDetection} 等辅助指令写入的视口元素覆盖值。"
         },
         {
           "name": "altContentWrapper",
           "type": "WritableSignal<HTMLElement>",
           "default": "signal<HTMLElement>(null)",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "内部使用，由 {@link AsyncDetection} 等辅助指令写入的内容包裹层元素覆盖值。"
         },
         {
           "name": "altSpacer",
           "type": "WritableSignal<HTMLElement>",
           "default": "signal<HTMLElement>(null)",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "内部使用，由 {@link AsyncDetection} 等辅助指令写入的占位符元素覆盖值。"
         },
         {
           "name": "viewportElement",
           "type": "Signal<HTMLElement>",
           "default": "computed(() => {\n    if (this.customViewport()) {\n      return this.customViewport().nativeElement;\n    }\n    if (this.altViewport()) {\n      return this.altViewport();\n    }\n    // If viewport selector was defined, query the element\n    const selector: string = this.externalViewport();\n    return selector ? this.nativeElement.querySelector(selector) : null;\n  })",
-          "description": null,
-          "descriptionZh": null
+          "description": "The resolved external viewport element (from `[scrollViewport]`, `altViewport`, or the\n`externalViewport` selector).",
+          "descriptionZh": "解析出的外部视口元素（来自 `[scrollViewport]`、`altViewport` 或 `externalViewport` 选择器）。"
         },
         {
           "name": "viewportError",
           "type": "Signal<string>",
           "default": "computed(() => {\n    return !this.viewportElement()\n      ? `[NgScrollbar]: Could not find the viewport element for the provided selector \"${ this.externalViewport() }\"`\n      : null;\n  })",
-          "description": null,
-          "descriptionZh": null
+          "description": "A diagnostic error message if the external viewport element couldn't be resolved, else `null`.",
+          "descriptionZh": "若外部视口元素解析失败则给出诊断错误信息，否则为 `null`。"
         },
         {
           "name": "contentWrapperElement",
           "type": "Signal<HTMLElement>",
           "default": "computed(() => {\n    if (this.altContentWrapper()) {\n      return this.altContentWrapper();\n    }\n    const selector: string = this.externalContentWrapper();\n    return selector ? this.nativeElement.querySelector(selector) : null;\n  })",
-          "description": null,
-          "descriptionZh": null
+          "description": "The resolved external content-wrapper element.",
+          "descriptionZh": "解析出的外部内容包裹层元素。"
         },
         {
           "name": "contentWrapperError",
           "type": "Signal<string>",
           "default": "computed(() => {\n    return !this.contentWrapperElement() && this.externalContentWrapper()\n      ? `[NgScrollbar]: Content wrapper element not found for the provided selector \"${ this.externalContentWrapper() }\"`\n      : null;\n  })",
-          "description": null,
-          "descriptionZh": null
+          "description": "A diagnostic error message if the external content-wrapper element couldn't be resolved, else `null`.",
+          "descriptionZh": "若外部内容包裹层元素解析失败则给出诊断错误信息，否则为 `null`。"
         },
         {
           "name": "spacerElement",
           "type": "Signal<HTMLElement>",
           "default": "computed(() => {\n    if (this.altSpacer()) {\n      return this.altSpacer();\n    }\n    const selector: string = this.externalSpacer();\n    return selector ? this.nativeElement.querySelector(selector) : null\n  })",
-          "description": null,
-          "descriptionZh": null
+          "description": "The resolved external spacer element.",
+          "descriptionZh": "解析出的外部占位符元素。"
         },
         {
           "name": "spacerError",
           "type": "Signal<string>",
           "default": "computed(() => {\n    return !this.spacerElement() && this.externalSpacer()\n      ? `[NgScrollbar]: Spacer element not found for the provided selector \"${ this.externalSpacer() }\"`\n      : null;\n  })",
-          "description": null,
-          "descriptionZh": null
+          "description": "A diagnostic error message if the external spacer element couldn't be resolved, else `null`.",
+          "descriptionZh": "若外部占位符元素解析失败则给出诊断错误信息，否则为 `null`。"
         },
         {
           "name": "customViewport",
@@ -322,7 +322,7 @@
           "type": "HTMLElement",
           "default": "inject(ElementRef<HTMLElement>).nativeElement",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "标记该指令所在的原生元素。"
         }
       ]
     },

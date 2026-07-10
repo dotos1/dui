@@ -51,6 +51,10 @@ export class SVGCacheService {
     }
   }
 
+  /**
+   * Fetches (or returns the cached/in-flight) raw image resource text at the given URL.
+   * @zh 获取（或返回缓存/正在进行中）给定 URL 处的原始图像资源文本。
+   */
   getImage(url: string, resolveImageUrl: boolean, cache: boolean = true): Observable<any> {
     const imageUrl = (resolveImageUrl ? this.getAbsoluteUrl(url) : url).replace(/#.+$/, '');
     if (cache && SVGCacheService._imageCache.has(imageUrl)) {
@@ -74,6 +78,10 @@ export class SVGCacheService {
     return req;
   }
 
+  /**
+   * Fetches (or returns a clone of the cached/in-flight) parsed SVG element at the given URL.
+   * @zh 获取（或返回缓存/正在进行中的已解析 SVG 元素的克隆）给定 URL 处的 SVG。
+   */
   getSVG(url: string, resolveSVGUrl: boolean, cache: boolean = true): Observable<SVGElement> {
     const svgUrl = (resolveSVGUrl
       ? this.getAbsoluteUrl(url)
@@ -102,6 +110,12 @@ export class SVGCacheService {
     return req;
   }
 
+  /**
+   * Resolves and caches the base URL used to make relative SVG/image URLs absolute
+   * (from injected config, `APP_BASE_HREF`, or the document's `<base>` tag).
+   * @zh 解析并缓存用于将相对 SVG/图片 URL 转为绝对路径的基础 URL
+   * （来自注入的配置、`APP_BASE_HREF`，或文档的 `<base>` 标签）。
+   */
   setBaseUrl(): void {
     if (this._config) {
       this._baseUrl = this._config.baseUrl;
@@ -112,6 +126,10 @@ export class SVGCacheService {
     }
   }
 
+  /**
+   * Resolves the given URL to an absolute URL using the cached base URL.
+   * @zh 使用缓存的基础 URL，将给定 URL 解析为绝对路径。
+   */
   getAbsoluteUrl(url: string): string {
     if (this._baseUrl && !/^https?:\/\//i.test(url)) {
       url = this._baseUrl + url;

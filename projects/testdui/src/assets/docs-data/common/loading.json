@@ -103,50 +103,50 @@
           "name": "getHeight",
           "params": [],
           "returnType": "string | undefined",
-          "description": null,
-          "descriptionZh": null
+          "description": "The CSS height to apply to the host (`undefined` for overlay/full-screen styles, which\nfill their container).",
+          "descriptionZh": "应用到宿主的 CSS 高度（覆盖层/全屏样式下为 `undefined`，因为它们会填满容器）。"
         },
         {
           "name": "getCircleDiameter",
           "params": [],
           "returnType": "number",
-          "description": null,
-          "descriptionZh": null
+          "description": "The current circular spinner diameter.",
+          "descriptionZh": "当前圆形加载指示器的直径。"
         },
         {
           "name": "getCircleStrokeWidth",
           "params": [],
           "returnType": "number",
-          "description": null,
-          "descriptionZh": null
+          "description": "The circular spinner's stroke width, derived from its diameter.",
+          "descriptionZh": "圆形加载指示器的描边宽度，根据其直径推导得出。"
         },
         {
           "name": "isCircular",
           "params": [],
           "returnType": "boolean",
-          "description": null,
-          "descriptionZh": null
+          "description": "Whether the indicator is rendered as a circular spinner.",
+          "descriptionZh": "该指示器是否以圆形样式渲染。"
         },
         {
           "name": "isLinear",
           "params": [],
           "returnType": "boolean",
-          "description": null,
-          "descriptionZh": null
+          "description": "Whether the indicator is rendered as a linear progress bar.",
+          "descriptionZh": "该指示器是否以线性样式渲染。"
         },
         {
           "name": "isFullScreen",
           "params": [],
           "returnType": "boolean",
-          "description": null,
-          "descriptionZh": null
+          "description": "Whether the indicator is displayed using the full-screen presentation style.",
+          "descriptionZh": "该指示器是否以全屏展示样式显示。"
         },
         {
           "name": "isOverlay",
           "params": [],
           "returnType": "boolean",
-          "description": null,
-          "descriptionZh": null
+          "description": "Whether the indicator is displayed using the overlay presentation style.",
+          "descriptionZh": "该指示器是否以覆盖层展示样式显示。"
         },
         {
           "name": "show",
@@ -186,8 +186,8 @@
         {
           "name": "mode",
           "type": "LoadingMode",
-          "description": null,
-          "descriptionZh": null
+          "description": "The loading indicator's current mode (determinate or indeterminate).",
+          "descriptionZh": "加载指示器当前的模式（确定或不确定）。"
         },
         {
           "name": "value",
@@ -198,15 +198,15 @@
         {
           "name": "value",
           "type": "number",
-          "description": null,
-          "descriptionZh": null
+          "description": "The loading indicator's current progress value (used in determinate mode).",
+          "descriptionZh": "加载指示器当前的进度值（用于确定模式）。"
         },
         {
           "name": "style",
           "type": "LoadingStyle",
           "default": "LoadingStyle.None",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "加载指示器的展示样式：全屏、覆盖层或无（内嵌）。"
         },
         {
           "name": "height",
@@ -321,7 +321,7 @@
           "type": "LoadingType",
           "default": "LoadingType.Circular",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "加载指示器的样式类型：圆形或线性。"
         },
         {
           "name": "mode",
@@ -329,7 +329,7 @@
           "type": "LoadingMode",
           "default": "LoadingMode.Indeterminate",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "加载指示器的模式：确定或不确定。"
         },
         {
           "name": "strategy",
@@ -337,7 +337,7 @@
           "type": "LoadingStrategy.Overlay | LoadingStrategy.Replace",
           "default": "LoadingStrategy.Replace",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "加载指示器的展示策略：覆盖层（Overlay）或原地替换（Replace）。"
         },
         {
           "name": "color",
@@ -345,7 +345,7 @@
           "type": "'primary' | 'accent' | 'warn'",
           "default": "'primary'",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "加载指示器的 Material 主题色。"
         }
       ],
       "outputs": [],
@@ -388,8 +388,8 @@
             }
           ],
           "returnType": "ILoadingRef",
-          "description": null,
-          "descriptionZh": null
+          "description": "Creates a full-screen loading overlay, shown/hidden based on the returned ref's\nregistration counter.",
+          "descriptionZh": "创建全屏加载覆盖层，其显示/隐藏由返回的 ref 的注册计数器驱动。"
         },
         {
           "name": "createOverlayComponent",
@@ -408,8 +408,8 @@
             }
           ],
           "returnType": "ILoadingRef",
-          "description": null,
-          "descriptionZh": null
+          "description": "Creates a loading indicator that overlays the given template's content in place,\nshown/hidden based on the returned ref's registration counter.",
+          "descriptionZh": "创建一个覆盖在给定模板内容之上的加载指示器，其显示/隐藏由返回的 ref 的注册计数器驱动。"
         },
         {
           "name": "createReplaceComponent",
@@ -432,8 +432,8 @@
             }
           ],
           "returnType": "ILoadingRef",
-          "description": null,
-          "descriptionZh": null
+          "description": "Creates a loading indicator that swaps in place of the given template's content while\nloading, restoring the original content once resolved.",
+          "descriptionZh": "创建一个在加载期间取代给定模板内容位置的加载指示器，解析完成后恢复原有内容。"
         }
       ],
       "properties": []
@@ -498,8 +498,8 @@
             }
           ],
           "returnType": "ILoadingRef",
-          "description": null,
-          "descriptionZh": null
+          "description": "Creates a directive-driven loading component (overlay or replace strategy, per `config.strategy`),\nregistered under `config.name`.",
+          "descriptionZh": "创建由指令驱动的加载组件（根据 `config.strategy` 采用覆盖层或原地替换策略），\n以 `config.name` 注册。"
         },
         {
           "name": "create",
@@ -566,8 +566,8 @@
             }
           ],
           "returnType": "boolean",
-          "description": null,
-          "descriptionZh": null
+          "description": "Immediately resets the named loading indicator's pending-operation counter to zero, hiding it.",
+          "descriptionZh": "立即将指定名称加载指示器的\"待完成操作\"计数器归零并隐藏它。"
         },
         {
           "name": "setValue",
@@ -582,8 +582,8 @@
             }
           ],
           "returnType": "boolean",
-          "description": null,
-          "descriptionZh": null
+          "description": "Sets the named loading indicator's progress value (only takes effect in determinate mode\nwhile it's currently shown).",
+          "descriptionZh": "设置指定名称加载指示器的进度值（仅在确定模式且当前正在显示时生效）。"
         }
       ],
       "properties": []

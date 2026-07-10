@@ -64,20 +64,20 @@
         {
           "name": "positionX",
           "type": "NotificationCountPositionX",
-          "description": null,
-          "descriptionZh": null
+          "description": "The current X position of the notification tip.",
+          "descriptionZh": "通知提示的当前 X 轴位置。"
         },
         {
           "name": "positionY",
           "type": "NotificationCountPositionY",
-          "description": null,
-          "descriptionZh": null
+          "description": "The current Y position of the notification tip.",
+          "descriptionZh": "通知提示的当前 Y 轴位置。"
         },
         {
           "name": "hideHost",
           "type": "boolean",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "内部使用，当通知提示不显示且无投影内容时隐藏宿主元素。"
         },
         {
           "name": "noCount",

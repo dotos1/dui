@@ -13,15 +13,28 @@ import { TinyColor } from '@dotos/dui/core/color';
   preserveWhitespaces: false,
   
 })
+/**
+ * Shade (brightness) slider used by some `color-*` picker style variants.
+ * @zh 部分 `color-*` 颜色选择器样式变体使用的明暗（shade）滑块。
+ */
 export class ShadeComponent implements OnChanges {
+  /** @zh 当前颜色的 HSL 表示。 */
   @Input() hsl: HSLA;
+  /** @zh 当前颜色的 RGB 表示。 */
   @Input() rgb: RGBA;
+  /** @zh 滑块手柄的内联样式。 */
   @Input() pointer: { [key: string]: string };
+  /** @zh 滑动条的阴影样式。 */
   @Input() shadow: string;
+  /** @zh 滑动条的圆角半径。 */
   @Input() radius: string;
+  /** @zh 明暗值变化时发出。 */
   @Output() onChange = new EventEmitter<any>();
+  /** @zh 根据当前色相计算出的渐变背景样式。 */
   gradient: { [key: string]: string };
+  /** @zh 滑块手柄的水平位置百分比。 */
   pointerLeft: number;
+  /** @zh 滑块手柄的垂直位置百分比。 */
   pointerTop: number;
 
   ngOnChanges() {
@@ -34,6 +47,10 @@ export class ShadeComponent implements OnChanges {
     this.pointerLeft = 100 - (hsv.v * 100);
   }
 
+  /**
+   * Computes the new brightness (v) value from a drag/click position and emits `onChange`.
+   * @zh 根据拖拽/点击位置计算新的明度（v）值并发出 `onChange`。
+   */
   handleChange({ left, containerWidth, $event }) {
     let data;
     let v: number;

@@ -14,13 +14,25 @@ import { AfterViewInit, Component, ElementRef } from '@angular/core';
 })
 
 export class TogglePasswordComponent implements AfterViewInit {
+  /**
+   * Whether the sibling password input currently shows plain text (`true`) or is masked (`false`).
+   * @zh 同级密码输入框当前是否显示为明文（`true`）还是密文（`false`）。
+   */
   showPassword = false;
+  /**
+   * Whether to hide the toggle button entirely (set when no sibling `input[type="password"]` is found).
+   * @zh 是否完全隐藏切换按钮（当未找到同级 `input[type="password"]` 时设置为 `true`）。
+   */
   hideToggle = false;
 
   private input: HTMLInputElement = null;
 
   constructor(private hostElement: ElementRef) { }
 
+  /**
+   * Toggles the sibling input between password and plain-text display.
+   * @zh 切换同级输入框在密码与明文显示之间的状态。
+   */
   togglePassword($event: Event) {
     $event.stopPropagation();
     this.showPassword = !this.showPassword;

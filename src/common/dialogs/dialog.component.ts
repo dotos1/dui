@@ -42,12 +42,16 @@ export class duiDialogStatusDirective {}
 
 })
 export class duiDialogComponent implements AfterContentInit ,OnInit,OnDestroy{
+  /** @zh 投影进来的标题区域（`duiDialogTitle`），最多允许一个。 */
   @ContentChildren(duiDialogTitleDirective, { descendants: true })
   dialogTitle!: QueryList<duiDialogTitleDirective>;
+  /** @zh 投影进来的内容区域（`duiDialogContent`），最多允许一个。 */
   @ContentChildren(duiDialogContentDirective, { descendants: true })
   dialogContent!: QueryList<duiDialogContentDirective>;
+  /** @zh 投影进来的操作按钮区域（`duiDialogActions`），最多允许一个。 */
   @ContentChildren(duiDialogActionsDirective, { descendants: true })
   dialogActions!: QueryList<duiDialogActionsDirective>;
+  /** @zh 投影进来的状态提示区域（`duiDialogStatus`），最多允许一个。 */
   @ContentChildren(duiDialogStatusDirective, { descendants: true })
   dialogStatus!: QueryList<duiDialogStatusDirective>;
 
@@ -68,6 +72,11 @@ export class duiDialogComponent implements AfterContentInit ,OnInit,OnDestroy{
     });
   }
 
+  /**
+   * Applies the given app config's theme (primary/accent/warn colors, type, layout, form type)
+   * to this dialog's theme scope.
+   * @zh 将给定应用配置的主题（主色/强调色/警示色、类型、布局、表单类型）应用到该对话框的主题作用域。
+   */
   setTheme(config:DotosConfig) {
     let type = config.theme.type;
     let primary = config.theme.primary;

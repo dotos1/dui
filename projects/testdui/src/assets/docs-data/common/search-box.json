@@ -91,7 +91,7 @@
           "name": "value",
           "type": "unknown",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "输入框当前值（`ControlValueAccessor` 绑定值）。"
         },
         {
           "name": "disabled",
@@ -106,37 +106,37 @@
           "name": "searchDebounce",
           "type": "string",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "停止输入 `debounce` 毫秒后发出当前输入值。"
         },
         {
           "name": "onSearch",
           "type": "string",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "触发搜索时（如按下回车）发出当前输入值。"
         },
         {
           "name": "onClear",
           "type": "void",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "输入框被清空时发出。"
         },
         {
           "name": "blurSearch",
           "type": "void",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "输入框失去焦点时发出。"
         },
         {
           "name": "onUserDefined",
           "type": "string",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "由 `config` 中的自定义回调触发时发出（用户自定义行为）。"
         },
         {
           "name": "onSearching",
           "type": "boolean",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "搜索框展开/收起状态切换时发出。"
         }
       ],
       "methods": [
@@ -149,22 +149,22 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Applies the given config's properties onto this component, expanding the input by\ndefault if `hasDefault` or a non-empty `defaultGrp` is set.",
+          "descriptionZh": "将给定配置的属性应用到本组件上，若设置了 `hasDefault` 或非空的 `defaultGrp`，\n则默认展开输入框。"
         },
         {
           "name": "searchClicked",
           "params": [],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Handles a click on the search icon: clears and closes if already open, or focuses the\ninput if closed; then toggles visibility.",
+          "descriptionZh": "处理搜索图标的点击：若已展开则清空并收起，若已收起则聚焦输入框；随后切换展开状态。"
         },
         {
           "name": "toggleVisibility",
           "params": [],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Toggles whether the search input is expanded/visible.",
+          "descriptionZh": "切换搜索输入框是否展开/可见。"
         },
         {
           "name": "handleSearchDebounce",
@@ -176,7 +176,7 @@
           ],
           "returnType": "void",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "内部使用，将防抖后的搜索值以 `searchDebounce` 转发出去。"
         },
         {
           "name": "handleSearch",
@@ -188,53 +188,53 @@
           ],
           "returnType": "void",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "内部使用，发出 `onSearch` 并调用 `config` 提供的 `search` 回调（如果有）。"
         },
         {
           "name": "handleClear",
           "params": [],
           "returnType": "void",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "内部使用，发出 `onClear` 并调用 `config` 提供的 `clear` 回调（如果有）。"
         },
         {
           "name": "handleBlur",
           "params": [],
           "returnType": "void",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "内部使用，将失焦事件以 `blurSearch` 转发出去。"
         }
       ],
       "properties": [
         {
           "name": "searchVisible",
           "type": "boolean",
-          "description": null,
-          "descriptionZh": null
+          "description": "Whether the search input is currently expanded/visible.",
+          "descriptionZh": "搜索输入框当前是否展开/可见。"
         },
         {
           "name": "width",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "The host element's width (in pixels, unit appended automatically).",
+          "descriptionZh": "宿主元素的宽度（单位为像素，会自动追加单位）。"
         },
         {
           "name": "width",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "The host element's width (in pixels, unit appended automatically).",
+          "descriptionZh": "宿主元素的宽度（单位为像素，会自动追加单位）。"
         },
         {
           "name": "search",
           "type": "Function",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "由 `config` 提供的自定义搜索回调函数（若设置，会在 `handleSearch` 中一并调用）。"
         },
         {
           "name": "clear",
           "type": "Function",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "由 `config` 提供的自定义清空回调函数（若设置，会在 `handleClear` 中一并调用）。"
         }
       ]
     },
@@ -281,41 +281,41 @@
           "type": "MatFormFieldAppearance",
           "default": "'outline'",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "Material 表单字段外观：`'outline'`、`'fill'` 等。"
         },
         {
           "name": "showUnderline",
           "type": "any",
           "default": "false",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "是否显示下划线。"
         },
         {
           "name": "debounce",
           "type": "any",
           "default": "400",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "停止输入后，多久（毫秒）触发一次 `searchDebounce`。"
         },
         {
           "name": "placeholder",
           "type": "any",
           "default": "''",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "输入框占位提示文字。"
         },
         {
           "name": "clearIcon",
           "type": "any",
           "default": "'cancel'",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "清空按钮图标。"
         },
         {
           "name": "value",
           "type": "unknown",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "输入框当前值（`ControlValueAccessor` 绑定值）。"
         }
       ],
       "outputs": [
@@ -323,25 +323,25 @@
           "name": "searchDebounce",
           "type": "string",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "停止输入 `debounce` 毫秒后发出当前输入值。"
         },
         {
           "name": "onSearch",
           "type": "string",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "触发搜索时（如按下回车）发出当前输入值。"
         },
         {
           "name": "onClear",
           "type": "void",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "输入框被清空时发出。"
         },
         {
           "name": "blurSearch",
           "type": "void",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "输入框失去焦点时发出。"
         }
       ],
       "methods": [
@@ -349,15 +349,15 @@
           "name": "focus",
           "params": [],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Focuses the underlying `<input>` element.",
+          "descriptionZh": "聚焦底层的 `<input>` 元素。"
         },
         {
           "name": "handleBlur",
           "params": [],
           "returnType": "void",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "内部使用，将失焦事件以 `blurSearch` 转发出去。"
         },
         {
           "name": "handleSearch",
@@ -369,22 +369,22 @@
           ],
           "returnType": "void",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "内部使用，处理原生 `search` 事件，携带当前值发出 `onSearch`。"
         },
         {
           "name": "clearSearch",
           "params": [],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Clears the input's value and emits `onClear`.",
+          "descriptionZh": "清空输入框的值并发出 `onClear`。"
         }
       ],
       "properties": [
         {
           "name": "isRTL",
           "type": "boolean",
-          "description": null,
-          "descriptionZh": null
+          "description": "Whether the current bidi direction is right-to-left.",
+          "descriptionZh": "当前双向文字方向是否为从右到左。"
         }
       ]
     }

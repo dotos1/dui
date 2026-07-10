@@ -35,17 +35,30 @@ export class BreadcrumbsComponent
   private _separatorIcon = 'chevron_right';
   private _destroy$ = new Subject<void>();
 
+  /** @zh 内部使用，始终为 `true`，用于绑定 `dui-breadcrumbs` 宿主类名。 */
   @HostBinding('class.dui-breadcrumbs') tdBreadCrumbsClass = true;
 
   @ContentChildren(BreadcrumbComponent, { descendants: true })
   _breadcrumbs!: QueryList<BreadcrumbComponent>;
+  /**
+   * The child breadcrumbs currently hidden because they don't fit the available width.
+   * @zh 因宽度不足而当前被隐藏的子面包屑项。
+   */
   hiddenBreadcrumbs: BreadcrumbComponent[] = [];
 
 
+  /**
+   * The Material icon name used as the separator between breadcrumb items. Defaults to `chevron_right`.
+   * @zh 用作面包屑项之间分隔符的 Material 图标名称，默认为 `chevron_right`。
+   */
   @Input() public set separatorIcon(separatorIcon: string) {
     this._separatorIcon = separatorIcon;
     this.setCrumbIcons();
   }
+  /**
+   * The Material icon name used as the separator between breadcrumb items. Defaults to `chevron_right`.
+   * @zh 用作面包屑项之间分隔符的 Material 图标名称，默认为 `chevron_right`。
+   */
   public get separatorIcon(): string {
     return this._separatorIcon;
   }
@@ -84,6 +97,10 @@ export class BreadcrumbsComponent
   }
 
 
+  /**
+   * The host element's content-box width (outer width minus border/margin/padding).
+   * @zh 宿主元素的内容区宽度（外部宽度减去边框/外边距/内边距）。
+   */
   get nativeElementWidth(): number {
     const element: HTMLElement = <HTMLElement>this._elementRef.nativeElement;
     const style: CSSStyleDeclaration = window.getComputedStyle(element);
@@ -105,6 +122,10 @@ export class BreadcrumbsComponent
     );
   }
 
+  /**
+   * The number of projected breadcrumb items.
+   * @zh 投影的面包屑项数量。
+   */
   get count(): number {
     return this._breadcrumbs ? this._breadcrumbs.length : 0;
   }

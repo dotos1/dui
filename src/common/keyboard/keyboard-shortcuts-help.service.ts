@@ -17,6 +17,10 @@ export class KeyboardShortcutsHelpService {
     constructor(private keyboard: KeyboardShortcutsService) {
     }
 
+    /**
+     * Emits the list of registered shortcuts that have both a `label` and `description`.
+     * @zh 发出同时具有 `label` 和 `description` 的已注册快捷键列表。
+     */
     public shortcuts$ = this.keyboard.shortcuts$.pipe(
         map(shortcuts =>
             shortcuts

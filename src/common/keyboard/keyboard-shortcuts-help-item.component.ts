@@ -15,10 +15,16 @@ import {identity} from './utils';
     styleUrls: ['./keyboard-shortcuts-help-item.component.scss']
 })
 export class KeyboardShortcutsHelpItemComponent  {
+    /** @zh 解析后的按键组合，按符号数组分组，便于逐个渲染按键图标。 */
     public parsedKeys: string[][];
 
+    /** @zh 该条目在列表中的索引。 */
     @Input() index: number;
 
+    /**
+     * The shortcut entry to render; setting it parses its key combo(s) into display symbols.
+     * @zh 待渲染的快捷键条目；设置时会将其按键组合解析为可展示的符号。
+     */
     @Input()
     set shortcut(shortcut: Shortcut) {
         const key = Array.isArray(shortcut.key) ? shortcut.key : [shortcut.key];
@@ -37,6 +43,10 @@ export class KeyboardShortcutsHelpItemComponent  {
         this._shortcut = shortcut;
     }
 
+    /**
+     * The shortcut entry currently rendered.
+     * @zh 当前渲染的快捷键条目。
+     */
     get shortcut() {
         return this._shortcut;
     }

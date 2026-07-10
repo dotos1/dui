@@ -48,10 +48,15 @@ import { TranslateModule } from '@dotos/dui/translator';
   
 })
 export class ToastNoAnimation implements OnDestroy {
+  /** @zh 提示消息的正文文本。 */
   message?: string | null;
+  /** @zh 提示消息的标题。 */
   title?: string;
+  /** @zh 该提示的解析后配置项。 */
   options: IndividualConfig;
+  /** @zh 该提示被重复触发的次数。 */
   duplicatesCount!: number;
+  /** @zh 该提示的原始自动关闭时长（毫秒）。 */
   originalTimeout: number;
   /** width of progress bar */
   width = signal(-1);
@@ -112,6 +117,10 @@ export class ToastNoAnimation implements OnDestroy {
     clearTimeout(this.timeout);
   }
 
+  /**
+   * Transitions the toast to active state and starts its auto-dismiss timer/progress bar.
+   * @zh 将提示切换为激活状态，并启动其自动关闭计时器/进度条。
+   */
   activateToast() {
     this.state.set('active');
     if (!(this.options.disableTimeOut === true || this.options.disableTimeOut === 'timeOut') && this.options.timeOut) {
@@ -148,6 +157,10 @@ export class ToastNoAnimation implements OnDestroy {
     }
   }
 
+  /**
+   * Resets the auto-dismiss timer back to the toast's original timeout.
+   * @zh 将自动关闭计时器重置为提示的原始超时时长。
+   */
   resetTimeout() {
     clearTimeout(this.timeout);
     clearInterval(this.intervalId);
@@ -175,6 +188,10 @@ export class ToastNoAnimation implements OnDestroy {
       this.toastrService.remove(this.toastPackage.toastId),
     );
   }
+  /**
+   * @hidden Handles a click on the toast: triggers the tap event and optionally dismisses it.
+   * @zh 内部使用，处理提示上的点击事件：触发 tap 事件，并可选地关闭提示。
+   */
   @HostListener('click')
   tapToast() {
     if (this.state() === 'removed') {
@@ -185,6 +202,10 @@ export class ToastNoAnimation implements OnDestroy {
       this.remove();
     }
   }
+  /**
+   * @hidden Pauses the auto-dismiss timer/progress bar while the pointer hovers the toast.
+   * @zh 内部使用，指针悬停在提示上方时暂停自动关闭计时器/进度条。
+   */
   @HostListener('mouseenter')
   stickAround() {
     if (this.state() === 'removed') {
@@ -198,6 +219,10 @@ export class ToastNoAnimation implements OnDestroy {
     clearInterval(this.intervalId);
     this.width.set(0);
   }
+  /**
+   * @hidden Resumes (with the extended timeout) dismissing the toast once the pointer leaves.
+   * @zh 内部使用，指针离开后以延长后的超时时长恢复关闭提示的流程。
+   */
   @HostListener('mouseleave')
   delayedHideToast() {
     if (

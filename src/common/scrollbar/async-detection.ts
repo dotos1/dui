@@ -29,6 +29,11 @@ export class AsyncDetection {
 
   private readonly contentObserver: ContentObserver = inject(ContentObserver);
 
+  /**
+   * `'auto'` to keep watching for viewport/content-wrapper/spacer element changes indefinitely,
+   * or `''` (default) to stop watching once found once.
+   * @zh `'auto'` 表示持续监听视口/内容包裹层/占位符元素的变化，`''`（默认）表示找到一次后即停止监听。
+   */
   asyncDetection: InputSignal<'auto' | ''> = input();
 
   constructor() {

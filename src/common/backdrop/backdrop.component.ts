@@ -18,6 +18,10 @@ export class BackdropComponent {
   get shown(): boolean {
     return this._shown;
   }
+  /**
+   * Whether the backdrop is visible.
+   * @zh 遮罩层是否可见。
+   */
   set shown(value: boolean) {
     this._shown = value;
   }

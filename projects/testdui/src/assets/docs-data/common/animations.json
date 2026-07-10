@@ -156,8 +156,8 @@
           "name": "duration",
           "type": "number",
           "default": "150",
-          "description": null,
-          "descriptionZh": null
+          "description": "Duration (ms) of the show/hide height animation.",
+          "descriptionZh": "显示/隐藏高度动画的持续时间（毫秒）。"
         },
         {
           "name": "state",

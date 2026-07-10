@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ContextMenuModule, ContextMenuService } from '@dotos/dui/ui/context-menu';
+import { HighlightModule } from '@dotos/dui/ux/highlight';
 
 @Component({
   selector: 'app-context-menu-example',
@@ -13,10 +14,30 @@ import { ContextMenuModule, ContextMenuService } from '@dotos/dui/ui/context-men
       在此区域内点击鼠标右键
     </div>
     <p style="margin-top:12px;">最近选择：{{ lastAction || '（尚未操作）' }}</p>
+
+    <h3>示例代码</h3>
+    <dui-highlight [content]="exampleSource" [codeLang]="'typescript'" [copyCodeToClipboard]="true"></dui-highlight>
   `,
 })
 export class ContextMenuExampleComponent {
   lastAction = '';
+
+  readonly exampleSource = `<div (contextmenu)="onContextMenu($event)">在此区域内点击鼠标右键</div>
+
+constructor(private contextMenuService: ContextMenuService) {}
+
+onContextMenu(event: MouseEvent): void {
+  event.preventDefault();
+  this.contextMenuService.open({
+    source: event,
+    children: [
+      { title: '复制', handler: () => this.copy() },
+      { title: '粘贴', handler: () => this.paste() },
+      { type: 'divider' },
+      { title: '删除', handler: () => this.remove() },
+    ],
+  });
+}`;
 
   constructor(private contextMenuService: ContextMenuService) {}
 
@@ -38,6 +59,6 @@ const routes: Routes = [{ path: '', component: ContextMenuExampleComponent }];
 
 @NgModule({
   declarations: [ContextMenuExampleComponent],
-  imports: [CommonModule, ContextMenuModule, RouterModule.forChild(routes)],
+  imports: [CommonModule, ContextMenuModule, HighlightModule, RouterModule.forChild(routes)],
 })
 export class ContextMenuExampleModule {}

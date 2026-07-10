@@ -13,19 +13,20 @@ export class PrintDirective {
   public _printStyle = [];
 
   /**
-   * @memberof NgxPrintDirective
+   * The `id` of the element whose contents should be printed.
+   * @zh 需要打印其内容的元素的 `id`。
    */
   @Input() printSectionId: string;
 
   /**
-   * @memberof NgxPrintDirective
+   * The title shown in the print popup window.
+   * @zh 打印弹出窗口中显示的标题。
    */
   @Input() printTitle: string;
 
   /**
-   *
-   *
-   * @memberof NgxPrintDirective
+   * Whether to copy the current page's existing `<style>`/`<link>` tags into the print window.
+   * @zh 是否将当前页面已有的 `<style>`/`<link>` 标签复制到打印窗口中。
    */
   @Input() useExistingCss = false;
 
@@ -37,9 +38,9 @@ export class PrintDirective {
   @Input() printDelay: number = 0;
 
   /**
-   *
-   *
-   * @memberof NgxPrintDirective
+   * CSS rules to inject into the print window, keyed by selector
+   * (e.g. `{'.foo': {color: 'red'}}`).
+   * @zh 注入到打印窗口中的 CSS 规则，按选择器分组（如 `{'.foo': {color: 'red'}}`）。
    */
   @Input()
   set printStyle(values: { [key: string]: { [key: string]: string } }) {
@@ -52,14 +53,8 @@ export class PrintDirective {
   }
 
   /**
-   *
-   *
-   * @returns the string that create the stylesheet which will be injected
-   * later within <style></style> tag.
-   *
-   * -join/replace to transform an array objects to css-styled string
-   *
-   * @memberof NgxPrintDirective
+   * Builds the `<style>` tag markup from the accumulated `printStyle` rules.
+   * @zh 根据累积的 `printStyle` 规则构建 `<style>` 标签标记。
    */
   public returnStyleValues() {
     return `<style> ${this._printStyle.join(' ').replace(/,/g, ';')} </style>`;
@@ -75,8 +70,8 @@ export class PrintDirective {
   private _styleSheetFile = '';
 
   /**
-   * @memberof NgxPrintDirective
-   * @param cssList
+   * One or more comma-separated external stylesheet URLs to `<link>` into the print window.
+   * @zh 一个或多个以逗号分隔的外部样式表 URL，会以 `<link>` 形式注入打印窗口。
    */
   @Input()
   set styleSheetFile(cssList: string) {
@@ -124,9 +119,9 @@ export class PrintDirective {
   }
 
   /**
-   *
-   *
-   * @memberof NgxPrintDirective
+   * @hidden Handles a click on the host element by opening a popup window and printing
+   * the target section's contents.
+   * @zh 内部使用，处理宿主元素上的点击事件：打开弹出窗口并打印目标区域的内容。
    */
   @HostListener('click')
   public print(): void {

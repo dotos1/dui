@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CollapsibleModule } from '@dotos/dui/common/collapsible';
+import { HighlightModule } from '@dotos/dui/ux/highlight';
 
 @Component({
   selector: 'app-collapsible-example',
@@ -11,14 +12,21 @@ import { CollapsibleModule } from '@dotos/dui/common/collapsible';
     <dui-collapsible title="点击这里展开/收起" style="display:block; border:1px solid rgba(0,0,0,.1); border-radius:4px;">
       <div style="padding: 12px;">这里是可折叠的内容区域。</div>
     </dui-collapsible>
+
+    <h3>示例代码</h3>
+    <dui-highlight [content]="exampleSource" [codeLang]="'html'" [copyCodeToClipboard]="true"></dui-highlight>
   `,
 })
-export class CollapsibleExampleComponent {}
+export class CollapsibleExampleComponent {
+  readonly exampleSource = `<dui-collapsible title="点击这里展开/收起">
+  <div>这里是可折叠的内容区域。</div>
+</dui-collapsible>`;
+}
 
 const routes: Routes = [{ path: '', component: CollapsibleExampleComponent }];
 
 @NgModule({
   declarations: [CollapsibleExampleComponent],
-  imports: [CommonModule, CollapsibleModule, RouterModule.forChild(routes)],
+  imports: [CommonModule, CollapsibleModule, HighlightModule, RouterModule.forChild(routes)],
 })
 export class CollapsibleExampleModule {}
