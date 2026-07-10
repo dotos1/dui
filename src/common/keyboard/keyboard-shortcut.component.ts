@@ -10,6 +10,12 @@ import {
 import {AllowIn, ShortcutEventOutput} from './keyboard-shortcuts.interfaces';
 import {KeyboardShortcutsService} from './keyboard-shortcuts.service';
 
+/**
+ * Declarative wrapper around {@link KeyboardShortcutsService.add}: registers a shortcut for
+ * the projected content's lifetime and emits `fire` when it's triggered.
+ * @zh {@link KeyboardShortcutsService.add} 的声明式封装：在投影内容存续期间注册快捷键，
+ * 触发时发出 `fire` 事件。
+ */
 @Component({
     selector: "keyboard-shortcut",
     template: "<ng-content ></ng-content>",

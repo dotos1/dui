@@ -41,6 +41,12 @@ import { DOCUMENT } from "@angular/common";
 
 let guid = 0;
 
+/**
+ * Registers global keyboard shortcuts (single combos and multi-key sequences) and dispatches
+ * matching commands, respecting focus context (e.g. ignoring shortcuts while typing in inputs).
+ * @zh 注册全局键盘快捷键（单个组合键和多键序列），并在匹配时派发对应命令，同时会根据焦点上下文
+ * 做出忽略处理（例如在输入框内输入时忽略快捷键）。
+ */
 @Injectable({
     providedIn: "root"
 })
@@ -319,6 +325,10 @@ export class KeyboardShortcutsService implements OnDestroy {
     }
 
 
+    /**
+     * Registers one or more shortcuts and returns their generated ids (for later removal).
+     * @zh 注册一个或多个快捷键，返回其生成的 id（用于后续移除）。
+     */
     public add(shortcuts: ShortcutInput[] | ShortcutInput): string[] {
         shortcuts = Array.isArray(shortcuts) ? shortcuts : [shortcuts];
         const commands = this.parseCommand(shortcuts);
@@ -338,6 +348,10 @@ export class KeyboardShortcutsService implements OnDestroy {
     }
 
 
+    /**
+     * Unregisters shortcuts by the ids returned from {@link add}.
+     * @zh 按 {@link add} 返回的 id 注销快捷键。
+     */
     public remove(ids: string | string[]): KeyboardShortcutsService {
         ids = Array.isArray(ids) ? ids : [ids];
         this._shortcuts = this._shortcuts.filter((shortcut) => !ids.includes(shortcut.id));
@@ -349,6 +363,10 @@ export class KeyboardShortcutsService implements OnDestroy {
     }
 
 
+    /**
+     * Returns an observable that emits whenever the shortcut registered under `key` fires.
+     * @zh 返回一个 observable，当以 `key` 注册的快捷键被触发时发出通知。
+     */
     public select(key: string): Observable<ShortcutEventOutput> {
         return this.pressed$.pipe(
             // eslint-disable-next-line @typescript-eslint/no-unused-vars

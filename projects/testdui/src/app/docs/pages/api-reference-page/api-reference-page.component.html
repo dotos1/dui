@@ -11,7 +11,7 @@
           <mat-card-subtitle *ngIf="item.pipeName">管道名：<code>{{ item.pipeName }}</code></mat-card-subtitle>
         </mat-card-header>
         <mat-card-content>
-          <p class="api-ref__summary">{{ item.summary || '暂无描述' }}</p>
+          <p class="api-ref__summary">{{ summaryOf(item) || '暂无描述' }}</p>
 
           <ng-container *ngIf="item.inputs.length">
             <h3>Inputs</h3>
@@ -22,7 +22,7 @@
                   <td><code>{{ input.alias || input.name }}</code></td>
                   <td><code>{{ input.type }}</code></td>
                   <td><code>{{ input.default || '—' }}</code></td>
-                  <td>{{ input.description || '暂无描述' }}</td>
+                  <td>{{ descriptionOf(input) || '暂无描述' }}</td>
                 </tr>
               </tbody>
             </table>
@@ -36,7 +36,7 @@
                 <tr *ngFor="let output of item.outputs">
                   <td><code>{{ output.name }}</code></td>
                   <td><code>{{ output.type }}</code></td>
-                  <td>{{ output.description || '暂无描述' }}</td>
+                  <td>{{ descriptionOf(output) || '暂无描述' }}</td>
                 </tr>
               </tbody>
             </table>
@@ -51,7 +51,7 @@
                   <td><code>{{ method.name }}</code></td>
                   <td><code>{{ formatParams(method) }}</code></td>
                   <td><code>{{ method.returnType }}</code></td>
-                  <td>{{ method.description || '暂无描述' }}</td>
+                  <td>{{ descriptionOf(method) || '暂无描述' }}</td>
                 </tr>
               </tbody>
             </table>
@@ -66,7 +66,7 @@
                   <td><code>{{ prop.name }}</code></td>
                   <td><code>{{ prop.type }}</code></td>
                   <td><code>{{ prop.default || '—' }}</code></td>
-                  <td>{{ prop.description || '暂无描述' }}</td>
+                  <td>{{ descriptionOf(prop) || '暂无描述' }}</td>
                 </tr>
               </tbody>
             </table>

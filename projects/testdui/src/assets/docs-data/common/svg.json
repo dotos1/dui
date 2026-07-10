@@ -1,0 +1,17 @@
+{
+  "importPath": "@dotos/dui/common/svg",
+  "exports": [
+    {
+      "name": "SvgModule",
+      "kind": "module",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/common/svg/svg.module.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    }
+  ],
+  "suggestedUsageSnippet": "import { SvgModule } from '@dotos/dui/common/svg';"
+}

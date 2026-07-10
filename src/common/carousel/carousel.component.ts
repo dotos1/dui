@@ -30,6 +30,12 @@ enum Direction {
   Index
 }
 
+/**
+ * A Material-styled image/content carousel with autoplay, keyboard navigation, mouse-wheel
+ * and swipe/pan gesture support. Slides are projected as {@link MatCarouselSlideComponent}.
+ * @zh Material 风格的图片/内容轮播组件，支持自动播放、键盘导航、鼠标滚轮以及滑动/拖拽手势。
+ * 幻灯片以 {@link MatCarouselSlideComponent} 的形式投影进来。
+ */
 @Component({
   selector: 'mat-carousel',
   templateUrl: './carousel.component.html',
@@ -37,15 +43,24 @@ enum Direction {
 })
 export class MatCarouselComponent
   implements AfterContentInit, AfterViewInit, MatCarousel, OnDestroy {
+  /** @zh 切换幻灯片时的过渡动画时长/缓动函数。 */
   @Input() public timings = '250ms ease-in';
   @Input() public svgIconOverrides: SvgIconOverrides;
 
+  /**
+   * Enables automatic slide advancing on the interval set by `interval`.
+   * @zh 是否按 `interval` 设置的间隔自动切换幻灯片。
+   */
   @Input()
   public set autoplay(value: boolean) {
     this.autoplay$.next(value);
     this._autoplay = value;
   }
 
+  /**
+   * Autoplay interval in milliseconds.
+   * @zh 自动播放间隔（毫秒）。
+   */
   @Input()
   public set interval(value: number) {
     this.interval$.next(value);
@@ -54,14 +69,21 @@ export class MatCarouselComponent
   public get loop(): boolean {
     return this._loop;
   }
+  /**
+   * Wraps back to the first/last slide when navigating past the ends.
+   * @zh 导航超出两端时是否循环回到第一张/最后一张幻灯片。
+   */
   @Input()
   public set loop(value: boolean) {
     this.loop$.next(value);
     this._loop = value;
   }
 
+  /** @zh 是否隐藏左右箭头。 */
   @Input() public hideArrows = true;
+  /** @zh 是否隐藏底部指示点。 */
   @Input() public hideIndicators = true;
+  /** @zh Material 主题色。 */
   @Input() public color: ThemePalette = 'accent';
 
   public get maxWidth(): string {

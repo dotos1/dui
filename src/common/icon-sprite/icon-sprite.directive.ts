@@ -1,6 +1,11 @@
 import { Directive, ElementRef, Renderer2, Input, OnInit } from '@angular/core';
 
 
+/**
+ * Sets one or more arbitrary attributes on the host SVG element, given as
+ * `[name, value]` tuple(s) via `attribute`.
+ * @zh 通过 `attribute` 输入的 `[名称, 值]` 元组，为宿主 SVG 元素设置一个或多个任意属性。
+ */
 @Directive({
   selector: '[svgIconSpriteAttr]'
 })

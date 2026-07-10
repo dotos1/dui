@@ -4,7 +4,8 @@
     {
       "name": "ScreenfullService",
       "kind": "service",
-      "summary": null,
+      "summary": "Cross-browser wrapper around the Fullscreen API (with vendor-prefix fallbacks) to\nrequest/exit fullscreen on a given element.",
+      "summaryZh": "跨浏览器封装的全屏 API（含各厂商前缀兼容），用于对指定元素请求进入/退出全屏。",
       "sourceFile": "src/common/screenfull/screenfull.service.ts",
       "inputs": [],
       "outputs": [],
@@ -18,7 +19,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "request",
@@ -29,7 +31,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": [
@@ -37,12 +40,14 @@
           "name": "keyboardAllowed",
           "type": "any",
           "default": "typeof Element !== 'undefined' && 'ALLOW_KEYBOARD_INPUT' in Element",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "isFullscreen",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     }

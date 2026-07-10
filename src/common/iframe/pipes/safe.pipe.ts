@@ -1,6 +1,12 @@
 import {Pipe, PipeTransform, SecurityContext} from '@angular/core';
 import { DomSanitizer} from '@angular/platform-browser';
 
+/**
+ * Sanitizes a URL and marks it as trusted resource URL, so it can be bound to `<iframe src>`
+ * without Angular's built-in sanitizer stripping it.
+ * @zh 对 URL 进行清理并标记为受信任的资源 URL，使其可以绑定到 `<iframe src>` 上
+ * 而不会被 Angular 内置的安全清理器剥离。
+ */
 @Pipe({
     name: 'safe'
 })

@@ -18,6 +18,12 @@ import { DndHandleDirective } from "./dnd-handle.directive";
 import { dndState, endDrag, startDrag } from "./dnd-state";
 import { EffectAllowed } from "./dnd-types";
 
+/**
+ * Marks a descendant of {@link DndDraggableDirective} as the custom drag image to use instead
+ * of the browser's default drag ghost.
+ * @zh 将 {@link DndDraggableDirective} 的子孙元素标记为拖拽时使用的自定义拖拽图像，
+ * 取代浏览器默认的拖拽幽灵图。
+ */
 @Directive( {
   selector: "[dndDragImageRef]"
 } )
@@ -28,6 +34,13 @@ export class DndDragImageRefDirective {
   }
 }
 
+/**
+ * Makes the host element draggable using the native HTML5 drag-and-drop API; pair with
+ * {@link DndDropzoneDirective} on a drop target. Emits events for start/drag/end and the
+ * resulting drop effect (copy/move/link/canceled).
+ * @zh 使宿主元素可拖拽（基于原生 HTML5 拖放 API）；需与放置目标上的 {@link DndDropzoneDirective} 配合使用。
+ * 会发出开始/拖拽中/结束事件，以及最终的放置效果（复制/移动/链接/取消）。
+ */
 @Directive( {
   selector: "[dndDraggable]"
 } )

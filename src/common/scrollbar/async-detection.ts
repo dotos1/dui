@@ -12,6 +12,12 @@ import { ContentObserver } from '@angular/cdk/observers';
 import { Subscription, throttleTime } from 'rxjs';
 import { NgScrollbarExt } from './ng-scrollbar-ext';
 
+/**
+ * Companion directive for `ng-scrollbar[externalViewport]` that watches the content for
+ * DOM mutations (via `ContentObserver`) and re-triggers scrollbar layout updates.
+ * @zh 用于 `ng-scrollbar[externalViewport]` 的配套指令，通过 `ContentObserver` 监听内容的
+ * DOM 变化，并重新触发滚动条布局更新。
+ */
 @Directive({
   standalone: true,
   selector: 'ng-scrollbar[externalViewport][asyncDetection]'

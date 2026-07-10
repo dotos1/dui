@@ -5,6 +5,7 @@
       "name": "CommandItem",
       "kind": "type",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/ux/command-palette/model/command-item.ts",
       "inputs": [],
       "outputs": [],
@@ -15,6 +16,7 @@
       "name": "CommandItemGroup",
       "kind": "type",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/ux/command-palette/model/command-item-group.ts",
       "inputs": [],
       "outputs": [],
@@ -26,6 +28,7 @@
       "kind": "component",
       "selector": "command-palette",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/ux/command-palette/command-palette.component.ts",
       "inputs": [],
       "outputs": [],
@@ -39,19 +42,22 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "onSelectNextItem",
           "params": [],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "onSelectPreviousItem",
           "params": [],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "onSelectItem",
@@ -62,7 +68,8 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "onCallCallbackItem",
@@ -73,7 +80,8 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": [
@@ -81,13 +89,15 @@
           "name": "filteredGroups",
           "type": "CommandItemGroup[]",
           "default": "[]",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "selectedItemIndex",
           "type": "number",
           "default": "0",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -95,6 +105,7 @@
       "name": "CommandPaletteConfig",
       "kind": "type",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/ux/command-palette/model/command-palette-config.ts",
       "inputs": [],
       "outputs": [],
@@ -106,31 +117,36 @@
       "kind": "component",
       "selector": "command-palette-content",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/ux/command-palette/content/command-palette-content.component.ts",
       "inputs": [
         {
           "name": "groups",
           "type": "CommandItemGroup[]",
           "default": "[]",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "selectedItemIndex",
           "type": "number",
           "default": "0",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "outputs": [
         {
           "name": "itemVisited$",
           "type": "number",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "itemClicked$",
           "type": "number",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "methods": [
@@ -143,7 +159,8 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": []
@@ -152,6 +169,7 @@
       "name": "CommandPaletteCreatorService",
       "kind": "service",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/ux/command-palette/services/command-palette-creator-service.ts",
       "inputs": [],
       "outputs": [],
@@ -160,13 +178,15 @@
           "name": "create",
           "params": [],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "destroy",
           "params": [],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": []
@@ -175,6 +195,7 @@
       "name": "CommandPaletteGroupStorageService",
       "kind": "service",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/ux/command-palette/services/command-palette-group-storage.service.ts",
       "inputs": [],
       "outputs": [],
@@ -183,13 +204,15 @@
           "name": "select",
           "params": [],
           "returnType": "Observable<CommandItemGroup[]>",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "get",
           "params": [],
           "returnType": "CommandItemGroup[]",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "set",
@@ -200,7 +223,8 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": []
@@ -210,28 +234,33 @@
       "kind": "component",
       "selector": "command-palette-header",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/ux/command-palette/header/command-palette-header.component.ts",
       "inputs": [],
       "outputs": [
         {
           "name": "searchedValue$",
           "type": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "keyUpPressed$",
           "type": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "keyDownPressed$",
           "type": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "keyEnterPressed$",
           "type": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "methods": [
@@ -244,7 +273,8 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "onKeyDown",
@@ -255,7 +285,8 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "onKeyEnter",
@@ -266,13 +297,15 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "clearInput",
           "params": [],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": [
@@ -280,13 +313,15 @@
           "name": "inputControl",
           "type": "FormControl",
           "default": "new FormControl('')",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "clearBtnVisible",
           "type": "boolean",
           "default": "false",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -294,6 +329,7 @@
       "name": "CommandPaletteModule",
       "kind": "module",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/ux/command-palette/command-palette.module.ts",
       "inputs": [],
       "outputs": [],
@@ -304,6 +340,7 @@
       "name": "CommandPaletteService",
       "kind": "service",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/ux/command-palette/command-palette.service.ts",
       "inputs": [],
       "outputs": [],
@@ -312,13 +349,15 @@
           "name": "init",
           "params": [],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "destroy",
           "params": [],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "addGroups",
@@ -329,7 +368,8 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "removeGroups",
@@ -340,7 +380,8 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": []
@@ -349,6 +390,7 @@
       "name": "CommandPaletteShortcutsService",
       "kind": "service",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/ux/command-palette/services/command-palette-shortcuts.service.ts",
       "inputs": [],
       "outputs": [],
@@ -357,13 +399,15 @@
           "name": "listen",
           "params": [],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "destroy",
           "params": [],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": []

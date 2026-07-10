@@ -2,6 +2,12 @@ import {AfterViewInit,ChangeDetectionStrategy,Component,ElementRef,Input,OnChang
 import { InlineSVGDirective } from './inline-svg.directive';
 import { InlineSVGService } from './inline-svg.service';
 
+/**
+ * Internal host component that {@link InlineSVGDirective} injects (via `injectComponent`)
+ * to render fetched SVG content as an actual child component rather than raw DOM insertion.
+ * @zh {@link InlineSVGDirective} 在设置 `injectComponent` 时注入的内部宿主组件，
+ * 用于将获取到的 SVG 内容作为真正的子组件渲染，而不是直接插入原始 DOM。
+ */
 @Component({
   selector: 'inline-svg',
   template: '',

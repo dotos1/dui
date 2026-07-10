@@ -5,19 +5,34 @@ import {
 import { ClipboardService } from './clipboard.service';
 import { ClipboardComponent } from './clipboard.component';
 
+/**
+ * Attach to any element to copy its associated text/content to the clipboard on click.
+ * @zh 附加到任意元素上，点击时将关联的文本/内容复制到剪贴板。
+ */
 @Directive({
   selector: '[dui-clipboard]',
   exportAs: 'duiClipboard'
 })
 export class ClipboardDirective {
 
+  /**
+   * Tooltip text shown on hover before copying.
+   * @zh 悬停时显示的提示文字。
+   */
   @Input('dui-clipboard')
   placeholder: string;
 
-  /** Reference to the HTML element containing the text to copy. */
+  /**
+   * Reference to the HTML element containing the text to copy.
+   * @zh 包含待复制文本的 HTML 元素引用。
+   */
   @Input()
   target: HTMLInputElement | HTMLTextAreaElement;
 
+  /**
+   * Toast message shown after a successful copy.
+   * @zh 复制成功后显示的提示消息。
+   */
   @Input('clipboard-notification') message: string;
 
   constructor(private clipboardService: ClipboardService,

@@ -5,6 +5,7 @@
       "name": "defaultBound",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/position/position.store.ts",
       "inputs": [],
       "outputs": [],
@@ -15,6 +16,7 @@
       "name": "defaultGrid",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/position/position.store.ts",
       "inputs": [],
       "outputs": [],
@@ -25,6 +27,7 @@
       "name": "IPoint",
       "kind": "interface",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/position/position.common.ts",
       "inputs": [],
       "outputs": [],
@@ -35,6 +38,7 @@
       "name": "IPosionOptions",
       "kind": "interface",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/position/position.common.ts",
       "inputs": [],
       "outputs": [],
@@ -45,6 +49,7 @@
       "name": "IPositionEvent",
       "kind": "interface",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/position/position.common.ts",
       "inputs": [],
       "outputs": [],
@@ -55,6 +60,7 @@
       "name": "IPositionState",
       "kind": "interface",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/position/position.common.ts",
       "inputs": [],
       "outputs": [],
@@ -65,6 +71,7 @@
       "name": "IRectangle",
       "kind": "interface",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/position/position.common.ts",
       "inputs": [],
       "outputs": [],
@@ -75,6 +82,7 @@
       "name": "IResizable",
       "kind": "interface",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/position/position.common.ts",
       "inputs": [],
       "outputs": [],
@@ -85,6 +93,7 @@
       "name": "ISize",
       "kind": "interface",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/position/position.common.ts",
       "inputs": [],
       "outputs": [],
@@ -95,6 +104,7 @@
       "name": "MOUSE_DOWN",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/position/position.actions.ts",
       "inputs": [],
       "outputs": [],
@@ -105,6 +115,7 @@
       "name": "MOVETO",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/position/position.actions.ts",
       "inputs": [],
       "outputs": [],
@@ -115,6 +126,7 @@
       "name": "PICKUP",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/position/position.actions.ts",
       "inputs": [],
       "outputs": [],
@@ -125,6 +137,7 @@
       "name": "PositionStore",
       "kind": "service",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/position/position.store.ts",
       "inputs": [],
       "outputs": [],
@@ -138,7 +151,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "emitAction",
@@ -153,7 +167,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": [
@@ -161,7 +176,8 @@
           "name": "state",
           "type": "IPositionState",
           "default": "{\n    currentSize: { width: 0, height: 0 },\n    startSize: { width: 0, height: 0 },\n    currentPosition: { x: 0, y: 0 },\n    startPosition: { x: 0, y: 0 },\n    isResizing: false,\n    isMoving: false,\n    direction: null\n  }",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -169,6 +185,7 @@
       "name": "PUTBACK",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/position/position.actions.ts",
       "inputs": [],
       "outputs": [],
@@ -179,6 +196,7 @@
       "name": "RESIZE",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/position/position.actions.ts",
       "inputs": [],
       "outputs": [],
@@ -189,6 +207,7 @@
       "name": "RESIZE_INIT",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/position/position.actions.ts",
       "inputs": [],
       "outputs": [],
@@ -199,6 +218,7 @@
       "name": "RESIZE_STOP",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/position/position.actions.ts",
       "inputs": [],
       "outputs": [],
@@ -209,6 +229,7 @@
       "name": "resizeReducer",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/position/position.reducer.ts",
       "inputs": [],
       "outputs": [],

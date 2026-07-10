@@ -6,39 +6,46 @@
       "kind": "component",
       "selector": "date-field",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/form/date/datefield.component.ts",
       "inputs": [
         {
           "name": "matDatepickerFilter",
           "type": "(date: D | null, type: MatDatetimepickerFilterType) => boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "min",
           "type": "D | null",
-          "description": "The minimum valid date."
+          "description": "The minimum valid date.",
+          "descriptionZh": null
         },
         {
           "name": "max",
           "type": "D | null",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "disabled",
           "type": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "outputs": [
         {
           "name": "dateChange",
           "type": "any",
-          "description": "Emits when a `change` event is fired on this `<input>`."
+          "description": "Emits when a `change` event is fired on this `<input>`.",
+          "descriptionZh": null
         },
         {
           "name": "dateInput",
           "type": "any",
-          "description": "Emits when an `input` event is fired on this `<input>`."
+          "description": "Emits when an `input` event is fired on this `<input>`.",
+          "descriptionZh": null
         }
       ],
       "methods": [
@@ -51,7 +58,8 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "change",
@@ -62,19 +70,22 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "getDisplayFormat",
           "params": [],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "getParseFormat",
           "params": [],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "registerOnValidatorChange",
@@ -85,7 +96,8 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "validate",
@@ -96,45 +108,53 @@
             }
           ],
           "returnType": "ValidationErrors | null",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": [
         {
           "name": "datetimepicker",
           "type": "MatDatetimepicker<D>",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "min",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "max",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "disabled",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "type",
           "type": "string",
           "default": "'date'",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "value",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "value",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -142,6 +162,7 @@
       "name": "DateFieldModule",
       "kind": "module",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/form/date/datefield.module.ts",
       "inputs": [],
       "outputs": [],
@@ -151,7 +172,8 @@
           "name": "entryComponents",
           "type": "any",
           "default": "[DateFieldComponent]",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     }

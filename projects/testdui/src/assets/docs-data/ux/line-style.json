@@ -6,12 +6,14 @@
       "kind": "component",
       "selector": "line-size-field",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/ux/line-style/linesize.ts",
       "inputs": [
         {
           "name": "field",
           "type": "F | any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "outputs": [],
@@ -20,7 +22,8 @@
           "name": "openedChange",
           "params": [],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "drawLine",
@@ -35,7 +38,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "change",
@@ -46,7 +50,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "setValue",
@@ -57,7 +62,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "compareWith",
@@ -72,7 +78,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": [
@@ -80,23 +87,27 @@
           "name": "inputValue",
           "type": "string",
           "default": "'1'",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "lineCavases",
           "type": "QueryList<ElementRef>",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "field",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "sizeOptions",
           "type": "any",
           "default": "PRE_DEFINED_THEMES",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -104,6 +115,7 @@
       "name": "LineStyleModule",
       "kind": "module",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/ux/line-style/linestyle.module.ts",
       "inputs": [],
       "outputs": [],
@@ -113,7 +125,8 @@
           "name": "entryComponents",
           "type": "any",
           "default": "[\n    LineStyleSelector,\n    LineSizeSelector\n  ]",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -122,12 +135,14 @@
       "kind": "component",
       "selector": "line-style-field",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/ux/line-style/linestyle.ts",
       "inputs": [
         {
           "name": "field",
           "type": "F | any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "outputs": [],
@@ -136,7 +151,8 @@
           "name": "openedChange",
           "params": [],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "drawDashedLine",
@@ -151,7 +167,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "change",
@@ -162,7 +179,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "setValue",
@@ -173,7 +191,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "compareWith",
@@ -188,31 +207,36 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": [
         {
           "name": "lineCavases",
           "type": "QueryList<ElementRef>",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "styleOptions",
           "type": "any",
           "default": "PRE_DEFINED_THEMES",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "inputValue",
           "type": "any",
           "default": "[]",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "field",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -220,6 +244,7 @@
       "name": "PRE_DEFINED_THEMES",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/ux/line-style/linestyle.ts",
       "inputs": [],
       "outputs": [],

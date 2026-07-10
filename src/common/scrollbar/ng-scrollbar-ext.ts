@@ -26,6 +26,12 @@ import { NgScrollbarCore } from './ng-scrollbar-core';
 import { NG_SCROLLBAR } from './utils/scrollbar-base';
 import { Scrollbars } from './scrollbars/scrollbars';
 
+/**
+ * `ng-scrollbar` variant that renders custom scrollbar overlays on top of an *external*
+ * viewport element (`[scrollViewport]`) that you control, instead of an internal one.
+ * @zh `ng-scrollbar` 的外部视口版本，在你自行提供的外部视口元素（`[scrollViewport]`）上方
+ * 渲染自定义滚动条覆层，而不是使用内部视口。
+ */
 @Component({
   standalone: true,
   selector: 'ng-scrollbar[externalViewport]',

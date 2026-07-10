@@ -6,6 +6,7 @@
       "kind": "component",
       "selector": "dui-topbar-divider",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/ui/topbar/topbar-divider.component.ts",
       "inputs": [],
       "outputs": [],
@@ -17,18 +18,21 @@
       "kind": "component",
       "selector": "dui-topbar",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/ui/topbar/topbar.component.ts",
       "inputs": [
         {
           "name": "title",
           "type": "string",
           "default": "''",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "color",
           "type": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "outputs": [],
@@ -39,6 +43,7 @@
       "name": "TopbarModule",
       "kind": "module",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/ui/topbar/topbar.module.ts",
       "inputs": [],
       "outputs": [],
@@ -50,6 +55,7 @@
       "kind": "component",
       "selector": "dui-topbar-title",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/ui/topbar/topbar-title.component.ts",
       "inputs": [],
       "outputs": [],

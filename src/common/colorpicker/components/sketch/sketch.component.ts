@@ -4,6 +4,12 @@ import {
 import { ColorWrap, isValidHex } from '@dotos/dui/common/colorpicker/common';
 import { TriggerPopup } from '@dotos/dui/common/trigger';
 
+/**
+ * "Sketch"-style color picker: saturation panel + hue/alpha sliders + hex/rgb fields +
+ * a row of preset swatch colors, modeled after the Sketch design tool's color picker.
+ * @zh "Sketch" 风格的颜色选择器：饱和度面板 + 色相/透明度滑块 + 十六进制/RGB 输入框 +
+ * 一排预设色块，仿照 Sketch 设计工具的颜色选择器样式。
+ */
 @Component({
   selector: 'color-sketch',
   template: `

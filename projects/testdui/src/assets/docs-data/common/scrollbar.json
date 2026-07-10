@@ -5,6 +5,7 @@
       "name": "_NgScrollbar",
       "kind": "interface",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/scrollbar/utils/scrollbar-base.ts",
       "inputs": [],
       "outputs": [],
@@ -15,7 +16,8 @@
       "name": "AsyncDetection",
       "kind": "directive",
       "selector": "ng-scrollbar[externalViewport][asyncDetection]",
-      "summary": null,
+      "summary": "Companion directive for `ng-scrollbar[externalViewport]` that watches the content for\nDOM mutations (via `ContentObserver`) and re-triggers scrollbar layout updates.",
+      "summaryZh": "用于 `ng-scrollbar[externalViewport]` 的配套指令，通过 `ContentObserver` 监听内容的\nDOM 变化，并重新触发滚动条布局更新。",
       "sourceFile": "src/common/scrollbar/async-detection.ts",
       "inputs": [],
       "outputs": [],
@@ -25,7 +27,8 @@
           "name": "asyncDetection",
           "type": "InputSignal<'auto' | ''>",
           "default": "input()",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -33,6 +36,7 @@
       "name": "filterResizeEntries",
       "kind": "function",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/scrollbar/ng-scrollbar.model.ts",
       "inputs": [],
       "outputs": [],
@@ -43,6 +47,7 @@
       "name": "NG_SCROLLBAR",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/scrollbar/utils/scrollbar-base.ts",
       "inputs": [],
       "outputs": [],
@@ -53,6 +58,7 @@
       "name": "NG_SCROLLBAR_OPTIONS",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/scrollbar/ng-scrollbar.model.ts",
       "inputs": [],
       "outputs": [],
@@ -63,6 +69,7 @@
       "name": "NG_SCROLLBAR_POLYFILL",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/scrollbar/ng-scrollbar.model.ts",
       "inputs": [],
       "outputs": [],
@@ -73,7 +80,8 @@
       "name": "NgScrollbar",
       "kind": "component",
       "selector": "ng-scrollbar:not([externalViewport])",
-      "summary": null,
+      "summary": "Custom scrollbar component: wraps projected content in an internally-managed scrollable\nviewport and renders custom scrollbar overlays over it.",
+      "summaryZh": "自定义滚动条组件：将投影内容包裹在内部管理的可滚动视口中，并在其上渲染自定义滚动条覆层。",
       "sourceFile": "src/common/scrollbar/ng-scrollbar.ts",
       "inputs": [],
       "outputs": [],
@@ -83,7 +91,8 @@
           "name": "contentWrapper",
           "type": "Signal<ElementRef<HTMLElement>>",
           "default": "viewChild.required('contentWrapper')",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -91,13 +100,15 @@
       "name": "NgScrollbarExt",
       "kind": "component",
       "selector": "ng-scrollbar[externalViewport]",
-      "summary": null,
+      "summary": "`ng-scrollbar` variant that renders custom scrollbar overlays on top of an *external*\nviewport element (`[scrollViewport]`) that you control, instead of an internal one.",
+      "summaryZh": "`ng-scrollbar` 的外部视口版本，在你自行提供的外部视口元素（`[scrollViewport]`）上方\n渲染自定义滚动条覆层，而不是使用内部视口。",
       "sourceFile": "src/common/scrollbar/ng-scrollbar-ext.ts",
       "inputs": [
         {
           "name": "skipInit",
           "type": "boolean",
-          "description": "Skip initializing the viewport and the scrollbar\nthis is used when the component needs to wait for 3rd party library to render"
+          "description": "Skip initializing the viewport and the scrollbar\nthis is used when the component needs to wait for 3rd party library to render",
+          "descriptionZh": null
         }
       ],
       "outputs": [],
@@ -107,86 +118,100 @@
           "name": "externalViewport",
           "type": "InputSignal<string>",
           "default": "input<string>()",
-          "description": "Selector used to query the viewport element."
+          "description": "Selector used to query the viewport element.",
+          "descriptionZh": null
         },
         {
           "name": "externalContentWrapper",
           "type": "InputSignal<string>",
           "default": "input<string>()",
-          "description": "Selector used to query the content wrapper element."
+          "description": "Selector used to query the content wrapper element.",
+          "descriptionZh": null
         },
         {
           "name": "externalSpacer",
           "type": "InputSignal<string>",
           "default": "input<string>()",
-          "description": "Selector used to query the spacer element (virtual scroll integration).\nIn the case of integrating the scrollbar with a virtual scroll component,\na spacer element is typically created to match the real size of the content.\nThe scrollbar will use the size of this spacer element for calculations instead of the content wrapper size."
+          "description": "Selector used to query the spacer element (virtual scroll integration).\nIn the case of integrating the scrollbar with a virtual scroll component,\na spacer element is typically created to match the real size of the content.\nThe scrollbar will use the size of this spacer element for calculations instead of the content wrapper size.",
+          "descriptionZh": null
         },
         {
           "name": "altViewport",
           "type": "WritableSignal<HTMLElement>",
           "default": "signal<HTMLElement>(null)",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "altContentWrapper",
           "type": "WritableSignal<HTMLElement>",
           "default": "signal<HTMLElement>(null)",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "altSpacer",
           "type": "WritableSignal<HTMLElement>",
           "default": "signal<HTMLElement>(null)",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "viewportElement",
           "type": "Signal<HTMLElement>",
           "default": "computed(() => {\n    if (this.customViewport()) {\n      return this.customViewport().nativeElement;\n    }\n    if (this.altViewport()) {\n      return this.altViewport();\n    }\n    // If viewport selector was defined, query the element\n    const selector: string = this.externalViewport();\n    return selector ? this.nativeElement.querySelector(selector) : null;\n  })",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "viewportError",
           "type": "Signal<string>",
           "default": "computed(() => {\n    return !this.viewportElement()\n      ? `[NgScrollbar]: Could not find the viewport element for the provided selector \"${ this.externalViewport() }\"`\n      : null;\n  })",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "contentWrapperElement",
           "type": "Signal<HTMLElement>",
           "default": "computed(() => {\n    if (this.altContentWrapper()) {\n      return this.altContentWrapper();\n    }\n    const selector: string = this.externalContentWrapper();\n    return selector ? this.nativeElement.querySelector(selector) : null;\n  })",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "contentWrapperError",
           "type": "Signal<string>",
           "default": "computed(() => {\n    return !this.contentWrapperElement() && this.externalContentWrapper()\n      ? `[NgScrollbar]: Content wrapper element not found for the provided selector \"${ this.externalContentWrapper() }\"`\n      : null;\n  })",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "spacerElement",
           "type": "Signal<HTMLElement>",
           "default": "computed(() => {\n    if (this.altSpacer()) {\n      return this.altSpacer();\n    }\n    const selector: string = this.externalSpacer();\n    return selector ? this.nativeElement.querySelector(selector) : null\n  })",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "spacerError",
           "type": "Signal<string>",
           "default": "computed(() => {\n    return !this.spacerElement() && this.externalSpacer()\n      ? `[NgScrollbar]: Spacer element not found for the provided selector \"${ this.externalSpacer() }\"`\n      : null;\n  })",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "customViewport",
           "type": "Signal<ScrollViewport>",
           "default": "contentChild(ScrollViewport, { descendants: true })",
-          "description": "Reference to the external viewport directive if used"
+          "description": "Reference to the external viewport directive if used",
+          "descriptionZh": null
         }
       ]
     },
     {
       "name": "NgScrollbarModule",
       "kind": "module",
-      "summary": null,
+      "summary": "Convenience `NgModule` bundling {@link NgScrollbar}, {@link ScrollViewport},\n{@link NgScrollbarExt}, `AsyncDetection` and `SyncSpacer` (all standalone) for NgModule-based apps.",
+      "summaryZh": "便捷 `NgModule`，将 {@link NgScrollbar}、{@link ScrollViewport}、{@link NgScrollbarExt}、\n`AsyncDetection`、`SyncSpacer`（均为 standalone）打包，供基于 NgModule 的应用使用。",
       "sourceFile": "src/common/scrollbar/ng-scrollbar.module.ts",
       "inputs": [],
       "outputs": [],
@@ -197,6 +222,7 @@
       "name": "NgScrollbarOptions",
       "kind": "interface",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/scrollbar/ng-scrollbar.model.ts",
       "inputs": [],
       "outputs": [],
@@ -207,6 +233,7 @@
       "name": "provideScrollbarOptions",
       "kind": "function",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/scrollbar/ng-scrollbar.module.ts",
       "inputs": [],
       "outputs": [],
@@ -217,6 +244,7 @@
       "name": "provideScrollbarPolyfill",
       "kind": "function",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/scrollbar/ng-scrollbar.module.ts",
       "inputs": [],
       "outputs": [],
@@ -227,6 +255,7 @@
       "name": "ScrollbarAppearance",
       "kind": "type",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/scrollbar/ng-scrollbar.model.ts",
       "inputs": [],
       "outputs": [],
@@ -237,6 +266,7 @@
       "name": "ScrollbarOrientation",
       "kind": "type",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/scrollbar/ng-scrollbar.model.ts",
       "inputs": [],
       "outputs": [],
@@ -247,6 +277,7 @@
       "name": "ScrollbarPosition",
       "kind": "type",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/scrollbar/ng-scrollbar.model.ts",
       "inputs": [],
       "outputs": [],
@@ -257,6 +288,7 @@
       "name": "ScrollbarUpdateReason",
       "kind": "enum",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/scrollbar/ng-scrollbar.model.ts",
       "inputs": [],
       "outputs": [],
@@ -267,6 +299,7 @@
       "name": "ScrollbarVisibility",
       "kind": "type",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/scrollbar/ng-scrollbar.model.ts",
       "inputs": [],
       "outputs": [],
@@ -277,7 +310,8 @@
       "name": "ScrollViewport",
       "kind": "directive",
       "selector": "[scrollViewport]",
-      "summary": null,
+      "summary": "Marks an element as the scrollable viewport that {@link NgScrollbarExt} should attach its\ncustom scrollbar overlay to.",
+      "summaryZh": "将元素标记为 {@link NgScrollbarExt} 应附加自定义滚动条覆层的可滚动视口。",
       "sourceFile": "src/common/scrollbar/viewport/scroll-viewport.ts",
       "inputs": [],
       "outputs": [],
@@ -287,7 +321,8 @@
           "name": "nativeElement",
           "type": "HTMLElement",
           "default": "inject(ElementRef<HTMLElement>).nativeElement",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -295,7 +330,8 @@
       "name": "SyncSpacer",
       "kind": "directive",
       "selector": "ng-scrollbar[externalViewport][syncSpacer]",
-      "summary": null,
+      "summary": "Companion directive for `ng-scrollbar[externalViewport]` that syncs a spacer element's\nCSS custom properties (`--spacer-width`/`--spacer-height`) to the viewport's content size.",
+      "summaryZh": "用于 `ng-scrollbar[externalViewport]` 的配套指令，将占位元素的 CSS 自定义属性\n（`--spacer-width`/`--spacer-height`）与视口内容尺寸保持同步。",
       "sourceFile": "src/common/scrollbar/sync-spacer.ts",
       "inputs": [],
       "outputs": [],
@@ -305,7 +341,8 @@
           "name": "spacerDimension",
           "type": "WritableSignal<ElementDimension>",
           "default": "signal({})",
-          "description": "A signal used to sync spacer dimension when content dimension changes"
+          "description": "A signal used to sync spacer dimension when content dimension changes",
+          "descriptionZh": null
         }
       ]
     }

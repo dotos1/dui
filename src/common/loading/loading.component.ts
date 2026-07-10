@@ -32,6 +32,12 @@ export enum LoadingStyle {
 
 export const TD_CIRCLE_DIAMETER = 40;
 
+/**
+ * A circular or linear loading indicator, usable standalone or driven by {@link LoadingDirective}
+ * / {@link LoadingService} (full-screen, overlay, or in-place replace strategies).
+ * @zh 圆形或线性加载指示器，可独立使用，也可由 {@link LoadingDirective} / {@link LoadingService}
+ * 驱动（支持全屏、遮罩层、原地替换等策略）。
+ */
 @Component({
   selector: 'dui-loading',
   styleUrls: ['./loading.component.scss'],
@@ -61,6 +67,7 @@ export class LoadingComponent implements DoCheck {
 
   /**
    * Sets mode of [DuiLoadingComponent] to LoadingMode.Determinate or LoadingMode.Indeterminate
+   * @zh 设置加载指示器为确定模式（LoadingMode.Determinate）或不确定模式（LoadingMode.Indeterminate）。
    */
   set mode(mode: LoadingMode) {
     this._defaultMode = mode;
@@ -71,6 +78,7 @@ export class LoadingComponent implements DoCheck {
 
   /**
    * Sets value of [DuiLoadingComponent] if mode is 'LoadingMode.Determinate'
+   * @zh 当模式为 'LoadingMode.Determinate' 时，设置加载指示器的进度值。
    */
   set value(value: number) {
     this._value = value;

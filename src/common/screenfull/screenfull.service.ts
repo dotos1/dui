@@ -1,5 +1,10 @@
 import { Injectable } from '@angular/core';
 
+/**
+ * Cross-browser wrapper around the Fullscreen API (with vendor-prefix fallbacks) to
+ * request/exit fullscreen on a given element.
+ * @zh 跨浏览器封装的全屏 API（含各厂商前缀兼容），用于对指定元素请求进入/退出全屏。
+ */
 @Injectable({
   providedIn: 'root'
 })

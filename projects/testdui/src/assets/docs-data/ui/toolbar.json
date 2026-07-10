@@ -6,19 +6,22 @@
       "kind": "component",
       "selector": "dui-toolbar",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/ui/toolbar/toolbar.component.ts",
       "inputs": [
         {
           "name": "config",
           "type": "any",
           "default": "{}",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "height",
           "type": "number",
           "default": "40",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "outputs": [],
@@ -32,13 +35,15 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "refresh",
           "params": [],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "init",
@@ -49,13 +54,15 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "getClassNames",
           "params": [],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "lookupComponent",
@@ -66,25 +73,29 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "addSeparator",
           "params": [],
           "returnType": "MenuItem",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "addSpacer",
           "params": [],
           "returnType": "Spacer",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "addFill",
           "params": [],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "addText",
@@ -95,7 +106,8 @@
             }
           ],
           "returnType": "MenuItem",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "addButton",
@@ -106,7 +118,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "addItem",
@@ -117,7 +130,8 @@
             }
           ],
           "returnType": "MenuItem",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "addField",
@@ -128,7 +142,8 @@
             }
           ],
           "returnType": "MenuItem",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "insertButton",
@@ -143,7 +158,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "constructButton",
@@ -154,7 +170,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "onAdd",
@@ -165,7 +182,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "onRemove",
@@ -176,19 +194,22 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "onDisable",
           "params": [],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "onEnable",
           "params": [],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "onButtonTriggerOver",
@@ -199,7 +220,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "onButtonMenuShow",
@@ -210,7 +232,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "onButtonMenuHide",
@@ -221,36 +244,42 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": [
         {
           "name": "heightStyle",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "color",
           "type": "any",
           "default": "'primary'",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "style",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "vertical",
           "type": "boolean",
           "default": "false",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "viewContainer",
           "type": "ViewContainerRef",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -258,6 +287,7 @@
       "name": "DuiToolbarModule",
       "kind": "module",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/ui/toolbar/toolbar.module.ts",
       "inputs": [],
       "outputs": [],
@@ -267,7 +297,8 @@
           "name": "entryComponents",
           "type": "any",
           "default": "[\n      DuiToolbarComponent,\n    Separator,\n    Spacer,\n    Fill,\n    TextItem]",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -276,6 +307,7 @@
       "kind": "component",
       "selector": "tbfill",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/ui/toolbar/toolbar.component.ts",
       "inputs": [],
       "outputs": [],
@@ -289,7 +321,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": [
@@ -297,7 +330,8 @@
           "name": "isFill",
           "type": "any",
           "default": "true",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -305,6 +339,7 @@
       "name": "MenuItem",
       "kind": "class",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/ui/toolbar/toolbar.component.ts",
       "inputs": [],
       "outputs": [],
@@ -318,13 +353,15 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "focus",
           "params": [],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": [
@@ -332,7 +369,8 @@
           "name": "hideParent",
           "type": "any",
           "default": "true",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -341,6 +379,7 @@
       "kind": "component",
       "selector": "divider",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/ui/toolbar/toolbar.component.ts",
       "inputs": [],
       "outputs": [],
@@ -354,26 +393,30 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": [
         {
           "name": "el",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "vertical",
           "type": "boolean",
           "default": "true",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "style",
           "type": "any",
           "default": "{}",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -382,6 +425,7 @@
       "kind": "component",
       "selector": "tbspacer",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/ui/toolbar/toolbar.component.ts",
       "inputs": [],
       "outputs": [],
@@ -395,19 +439,22 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": [
         {
           "name": "el",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "config",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -416,6 +463,7 @@
       "kind": "component",
       "selector": "tbtext",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/ui/toolbar/toolbar.component.ts",
       "inputs": [],
       "outputs": [],
@@ -429,7 +477,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "setText",
@@ -440,19 +489,22 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": [
         {
           "name": "text",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "el",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     }

@@ -1,6 +1,11 @@
 import {Injectable} from '@angular/core';
 import {KeyboardShortcutsService} from './keyboard-shortcuts.service';
 
+/**
+ * Thin wrapper exposing {@link KeyboardShortcutsService.select} for programmatically
+ * triggering a registered shortcut by key.
+ * @zh 轻量封装，暴露 {@link KeyboardShortcutsService.select}，用于按键值以编程方式触发已注册的快捷键。
+ */
 @Injectable({
     providedIn: 'root'
 })

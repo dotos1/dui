@@ -5,6 +5,7 @@
       "name": "Avatar",
       "kind": "class",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/ux/avatar/avatar.ts",
       "inputs": [],
       "outputs": [],
@@ -18,7 +19,8 @@
             }
           ],
           "returnType": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": []
@@ -28,71 +30,83 @@
       "kind": "component",
       "selector": "dui-avatar",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/ux/avatar/avatar.component.ts",
       "inputs": [
         {
           "name": "round",
           "type": "any",
           "default": "true",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "size",
           "type": "string | number",
           "default": "50",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "textSizeRatio",
           "type": "any",
           "default": "3",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "bgColor",
           "type": "string | undefined",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "fgColor",
           "type": "any",
           "default": "'#FFF'",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "borderColor",
           "type": "string | undefined",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "style",
           "type": "Style",
           "default": "{}",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "cornerRadius",
           "type": "string | number",
           "default": "0",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "value",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "initialsSize",
           "type": "string | number",
           "default": "0",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "outputs": [
         {
           "name": "clickOnAvatar",
           "type": "IAVatar",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "methods": [
@@ -100,61 +114,71 @@
           "name": "onAvatarClicked",
           "params": [],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "fetchAvatarSource",
           "params": [],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": [
         {
           "name": "imgElement",
           "type": "ElementRef",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "value",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "isAlive",
           "type": "any",
           "default": "true",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "avatarSrc",
           "type": "string | SafeUrl",
           "default": "null",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "avatarText",
           "type": "string | null",
           "default": "null",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "avatarStyle",
           "type": "Style",
           "default": "{}",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "hostStyle",
           "type": "Style",
           "default": "{}",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "isImageAvatar",
           "type": "any",
           "default": "false",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -162,6 +186,7 @@
       "name": "AvatarConfig",
       "kind": "interface",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/ux/avatar/avatar-config.ts",
       "inputs": [],
       "outputs": [],
@@ -172,6 +197,7 @@
       "name": "AvatarModule",
       "kind": "module",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/ux/avatar/avatar.module.ts",
       "inputs": [],
       "outputs": [],
@@ -185,7 +211,8 @@
             }
           ],
           "returnType": "ModuleWithProviders<AvatarModule>",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": []
@@ -194,6 +221,7 @@
       "name": "AvatarService",
       "kind": "service",
       "summary": "Provides utilities methods related to Avatar component",
+      "summaryZh": null,
       "sourceFile": "src/ux/avatar/avatar.service.ts",
       "inputs": [],
       "outputs": [],
@@ -207,7 +235,8 @@
             }
           ],
           "returnType": "Observable<unknown>",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "getRandomColor",
@@ -218,7 +247,8 @@
             }
           ],
           "returnType": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "isTextAvatar",
@@ -229,7 +259,8 @@
             }
           ],
           "returnType": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": [
@@ -237,7 +268,8 @@
           "name": "avatarColors",
           "type": "string[]",
           "default": "defaultColors",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -245,6 +277,7 @@
       "name": "defaultColors",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/ux/avatar/avatar.service.ts",
       "inputs": [],
       "outputs": [],

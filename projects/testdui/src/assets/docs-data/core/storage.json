@@ -5,6 +5,7 @@
       "name": "ILocalStorageEvent",
       "kind": "interface",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/storage/local-storage-events.interface.ts",
       "inputs": [],
       "outputs": [],
@@ -15,6 +16,7 @@
       "name": "ILocalStorageServiceConfig",
       "kind": "interface",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/storage/local-storage.config.interface.ts",
       "inputs": [],
       "outputs": [],
@@ -25,6 +27,7 @@
       "name": "INotifyOptions",
       "kind": "interface",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/storage/notify-options.interface.ts",
       "inputs": [],
       "outputs": [],
@@ -35,6 +38,7 @@
       "name": "LocalStorageModule",
       "kind": "module",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/storage/local-storage.module.ts",
       "inputs": [],
       "outputs": [],
@@ -48,7 +52,8 @@
             }
           ],
           "returnType": "ModuleWithProviders<LocalStorageModule>",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": []
@@ -57,6 +62,7 @@
       "name": "LocalStorageService",
       "kind": "service",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/storage/local-storage.service.ts",
       "inputs": [],
       "outputs": [],
@@ -74,7 +80,8 @@
             }
           ],
           "returnType": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "clearAll",
@@ -85,7 +92,8 @@
             }
           ],
           "returnType": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "deriveKey",
@@ -96,7 +104,8 @@
             }
           ],
           "returnType": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "has",
@@ -107,7 +116,8 @@
             }
           ],
           "returnType": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "get",
@@ -118,25 +128,29 @@
             }
           ],
           "returnType": "T",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "getStorageType",
           "params": [],
           "returnType": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "keys",
           "params": [],
           "returnType": "Array<string>",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "length",
           "params": [],
           "returnType": "number",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "remove",
@@ -147,7 +161,8 @@
             }
           ],
           "returnType": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "set",
@@ -162,7 +177,8 @@
             }
           ],
           "returnType": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": [
@@ -170,27 +186,32 @@
           "name": "isSupported",
           "type": "boolean",
           "default": "false",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "errors$",
           "type": "Observable<string>",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "removeItems$",
           "type": "Observable<ILocalStorageEvent>",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "setItems$",
           "type": "Observable<ILocalStorageEvent>",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "warnings$",
           "type": "Observable<string>",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     }

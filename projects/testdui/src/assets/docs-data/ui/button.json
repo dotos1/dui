@@ -5,6 +5,7 @@
       "name": "ButtonBase",
       "kind": "class",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/ui/button/button.base.ts",
       "inputs": [],
       "outputs": [],
@@ -13,7 +14,8 @@
           "name": "getEl",
           "params": [],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "init",
@@ -24,7 +26,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "processItems",
@@ -35,7 +38,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "openMenu",
@@ -50,7 +54,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "onValueChange",
@@ -65,13 +70,15 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "closeAllMenu",
           "params": [],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "closeSubMenu",
@@ -82,19 +89,22 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "hasIcon",
           "params": [],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "onDestroy",
           "params": [],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "setHandler",
@@ -109,7 +119,8 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "setIcon",
@@ -120,13 +131,15 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "getValue",
           "params": [],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "setValue",
@@ -137,7 +150,8 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "onClick",
@@ -148,19 +162,22 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "onDisable",
           "params": [],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "onEnable",
           "params": [],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "onDisableChange",
@@ -171,161 +188,190 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": [
         {
           "name": "matTooltip",
           "type": "MatTooltip",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "config",
           "type": "any",
           "default": "{}",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "data",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "ownerCt",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "click",
           "type": "any",
           "default": "new EventEmitter<any>()",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "type",
           "type": "any",
           "default": "'mat-button'",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "items",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "items",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "flex",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "title",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "text",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "value",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "default",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "disableRipple",
           "type": "boolean",
           "default": "false",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "color",
           "type": "string",
           "default": "''",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "toolTip",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "icon",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "iconType",
           "type": "any",
           "default": "\"FONT\"",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "svgIcon",
           "type": "any",
           "default": "\"\"",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "handler",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "change",
           "type": "any",
           "default": "(value)=>{}",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "tabIndex",
           "type": "number",
           "default": "0",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "menu",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "style",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "checked",
           "type": "boolean",
           "default": "false",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "dropdown",
           "type": "boolean",
           "default": "false",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "iconPosition",
           "type": "any",
           "default": "'before'",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "triggers",
           "type": "QueryList<MatMenuTrigger>",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -334,41 +380,48 @@
       "kind": "component",
       "selector": "dui-button",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/ui/button/button.component.ts",
       "inputs": [
         {
           "name": "config",
           "type": "any",
           "default": "{}",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "data",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "ownerCt",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "iconStyle",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "hasMenu",
           "type": "any",
           "default": "false",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "outputs": [
         {
           "name": "click",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "methods": [
@@ -376,7 +429,8 @@
           "name": "getEl",
           "params": [],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "onClick",
@@ -387,31 +441,36 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": [
         {
           "name": "matTooltip",
           "type": "MatTooltip",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "showIcon",
           "type": "any",
           "default": "true",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "onlyIcon",
           "type": "any",
           "default": "false",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "triggers",
           "type": "QueryList<MatMenuTrigger>",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -419,6 +478,7 @@
       "name": "ButtonModule",
       "kind": "module",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/ui/button/button.ext.module.ts",
       "inputs": [],
       "outputs": [],
@@ -428,7 +488,8 @@
           "name": "entryComponents",
           "type": "any",
           "default": "[\n     MatDivider,\n    ButtonComponent,]",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -437,18 +498,21 @@
       "kind": "component",
       "selector": "toggle-button",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/ui/button/toggle-button.component.ts",
       "inputs": [
         {
           "name": "config",
           "type": "any",
           "default": "{}",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "data",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "outputs": [],
@@ -462,7 +526,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "hasIcon",
@@ -473,7 +538,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "onClick",
@@ -488,7 +554,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "setValue",
@@ -499,13 +566,15 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "onDestroy",
           "params": [],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "initFieldExpression",
@@ -516,13 +585,15 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "checkExpressionChange",
           "params": [],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "checkMenuExpressionChange",
@@ -537,7 +608,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "checkMenuVisibilityChange",
@@ -552,7 +624,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "checkMenuDisableChange",
@@ -567,101 +640,118 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": [
         {
           "name": "childMenu",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "items",
           "type": "Array<any>",
           "default": "[]",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "disableRipple",
           "type": "boolean",
           "default": "false",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "appearance",
           "type": "MatButtonToggleAppearance",
           "default": "'standard'",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "multiple",
           "type": "boolean",
           "default": "false",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "name",
           "type": "string",
           "default": "''",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "value",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "disabled",
           "type": "boolean",
           "default": "false",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "vertical",
           "type": "boolean",
           "default": "false",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "style",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "icon",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "checked",
           "type": "boolean",
           "default": "false",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "iconPosition",
           "type": "any",
           "default": "'before'",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "toolTip",
           "type": "any",
           "default": "''",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "text",
           "type": "any",
           "default": "''",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "change",
           "type": "any",
           "default": "(e) => { }",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -669,6 +759,7 @@
       "name": "ToggleButtonModule",
       "kind": "module",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/ui/button/toggle-button.module.ts",
       "inputs": [],
       "outputs": [],
@@ -678,7 +769,8 @@
           "name": "entryComponents",
           "type": "any",
           "default": "[ToggleButtonComponent]",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     }

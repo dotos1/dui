@@ -1,4 +1,10 @@
 import { Directive, HostListener, Input } from '@angular/core';
+/**
+ * Attach to a clickable element to print the contents of another element (identified by
+ * `printSectionId`) in a new popup window, optionally with custom styles/stylesheets.
+ * @zh 附加到可点击元素上，点击后在新弹出窗口中打印指定元素（由 `printSectionId` 标识）的内容，
+ * 可选附带自定义样式/样式表。
+ */
 @Directive({
   selector: "button[duiPrint]"
 })

@@ -6,23 +6,27 @@
       "kind": "component",
       "selector": "dui-menu-bar",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/ui/menu/menu-bar.component.ts",
       "inputs": [
         {
           "name": "dense",
           "type": "boolean",
           "default": "true",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "items",
           "type": "MenuBarItem[]",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "menuClasses",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "outputs": [],
@@ -36,7 +40,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "click",
@@ -51,7 +56,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": []
@@ -60,6 +66,7 @@
       "name": "MenuBarItem",
       "kind": "interface",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/ui/menu/menu-model.ts",
       "inputs": [],
       "outputs": [],
@@ -70,12 +77,14 @@
       "name": "MenuBase",
       "kind": "service",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/ui/menu/menu-base.ts",
       "inputs": [
         {
           "name": "children",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "outputs": [],
@@ -89,7 +98,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "initFieldExpression",
@@ -100,19 +110,22 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "doCheck",
           "params": [],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "checkExpressionChange",
           "params": [],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "checkMenuExpressionChange",
@@ -127,7 +140,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "checkMenuVisibilityChange",
@@ -142,7 +156,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "checkMenuDisableChange",
@@ -157,25 +172,29 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": [
         {
           "name": "children",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "ownerCt",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "items",
           "type": "MenuBarItem[]",
           "default": "[]",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -184,6 +203,7 @@
       "kind": "directive",
       "selector": "[menu-host]",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/ui/menu/menu-item.directive.ts",
       "inputs": [],
       "outputs": [],
@@ -195,43 +215,51 @@
       "kind": "component",
       "selector": "dui-menu-item",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/ui/menu/menu-item.component.ts",
       "inputs": [
         {
           "name": "children",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "ownerCt",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "value",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "dense",
           "type": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "onlyIcon",
           "type": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "showIcon",
           "type": "any",
           "default": "true",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "panelClass",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "outputs": [],
@@ -245,13 +273,15 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "processItem",
           "params": [],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "click",
@@ -266,7 +296,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "onRadioMenuItemClick",
@@ -285,7 +316,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "onCheckboxMenuItemClick",
@@ -300,67 +332,79 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": [
         {
           "name": "extendMenus",
           "type": "QueryList<MenuDirective>",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "children",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "childMenu",
           "type": "MatMenu",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "xPosition",
           "type": "any",
           "default": "'after'",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "yPosition",
           "type": "any",
           "default": "'below'",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "menuClasses",
           "type": "string[]",
           "default": "['menu-bar-item-menu']",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "dense",
           "type": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "onlyIcon",
           "type": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "menuClass",
           "type": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "panelClass",
           "type": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "parentItem",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -368,6 +412,7 @@
       "name": "MenuModel",
       "kind": "interface",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/ui/menu/menu-model.ts",
       "inputs": [],
       "outputs": [],
@@ -378,6 +423,7 @@
       "name": "MenuModule",
       "kind": "module",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/ui/menu/menu.module.ts",
       "inputs": [],
       "outputs": [],
@@ -387,7 +433,8 @@
           "name": "entryComponents",
           "type": "any",
           "default": "[\n     MatDivider,\n     MenuBarComponent,\n    MenuItemComponent,]",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     }

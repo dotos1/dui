@@ -1,0 +1,169 @@
+{
+  "importPath": "@dotos/dui/common/icon-sprite",
+  "exports": [
+    {
+      "name": "IconSpriteComponent",
+      "kind": "component",
+      "selector": "svg-icon-sprite",
+      "summary": "Renders an SVG icon from a sprite sheet via `<use>`. If `src` doesn't already\ncontain a `#symbolId` fragment, it's resolved against {@link IconSpriteService}'s base path.",
+      "summaryZh": "通过 `<use>` 从雪碧图（sprite sheet）中渲染 SVG 图标。若 `src` 尚未包含 `#symbolId` 片段，\n则会基于 {@link IconSpriteService} 的基础路径进行解析。",
+      "sourceFile": "src/common/icon-sprite/icon-sprite.component.ts",
+      "inputs": [
+        {
+          "name": "src",
+          "type": "string",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "classes",
+          "type": "any",
+          "default": "'icon'",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "width",
+          "type": "any",
+          "default": "'100%'",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "height",
+          "type": "string",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "viewBox",
+          "type": "string",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "preserveAspectRatio",
+          "type": "any",
+          "default": "'xMinYMax meet'",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "attribute",
+          "type": "[string, string] | Array<[string, string]>",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "title",
+          "type": "string",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "IconSpriteConfig",
+      "kind": "class",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/common/icon-sprite/icon-sprite-config.model.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "path",
+          "type": "string",
+          "description": null,
+          "descriptionZh": null
+        }
+      ]
+    },
+    {
+      "name": "IconSpriteDirective",
+      "kind": "directive",
+      "selector": "[svgIconSpriteAttr]",
+      "summary": "Sets one or more arbitrary attributes on the host SVG element, given as\n`[name, value]` tuple(s) via `attribute`.",
+      "summaryZh": "通过 `attribute` 输入的 `[名称, 值]` 元组，为宿主 SVG 元素设置一个或多个任意属性。",
+      "sourceFile": "src/common/icon-sprite/icon-sprite.directive.ts",
+      "inputs": [
+        {
+          "name": "attribute",
+          "type": "[string, string] | Array<[string, string]>",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "IconSpriteModule",
+      "kind": "module",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/common/icon-sprite/icon-sprite.module.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "forRoot",
+          "params": [
+            {
+              "name": "config",
+              "type": "IconSpriteConfig"
+            }
+          ],
+          "returnType": "ModuleWithProviders<IconSpriteModule>",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "IconSpriteService",
+      "kind": "service",
+      "summary": "Holds the shared base path used to resolve `<svg-icon-sprite>` icon references\n(`spritePath#iconId`), optionally seeded from an injected {@link IconSpriteConfig}.",
+      "summaryZh": "保存用于解析 `<svg-icon-sprite>` 图标引用（`spritePath#iconId`）的共享基础路径，\n可通过注入的 {@link IconSpriteConfig} 预先配置。",
+      "sourceFile": "src/common/icon-sprite/icon-sprite.service.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "setPath",
+          "params": [
+            {
+              "name": "path",
+              "type": "string"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "getPath",
+          "params": [],
+          "returnType": "string",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "spritePath",
+          "type": "string",
+          "description": null,
+          "descriptionZh": null
+        }
+      ]
+    }
+  ],
+  "suggestedUsageSnippet": "import { IconSpriteComponent, IconSpriteModule } from '@dotos/dui/common/icon-sprite';\n\n<svg-icon-sprite [src]=\"...\" [classes]=\"...\" [width]=\"...\"></svg-icon-sprite>"
+}

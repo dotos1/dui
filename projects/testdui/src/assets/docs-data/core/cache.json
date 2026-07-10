@@ -5,6 +5,7 @@
       "name": "BaseObject",
       "kind": "class",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/cache/base-obejct.ts",
       "inputs": [],
       "outputs": [],
@@ -18,25 +19,29 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "getKeys",
           "params": [],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "getProperties",
           "params": [],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "hasProperties",
           "params": [],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "addChangeListener",
@@ -51,7 +56,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "removeChangeListener",
@@ -66,7 +72,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "set",
@@ -85,7 +92,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "setProperties",
@@ -100,7 +108,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "applyProperties",
@@ -111,7 +120,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "unset",
@@ -126,7 +136,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": []
@@ -135,6 +146,7 @@
       "name": "Collection",
       "kind": "class",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/cache/collection.ts",
       "inputs": [],
       "outputs": [],
@@ -143,7 +155,8 @@
           "name": "clear",
           "params": [],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "extend",
@@ -154,7 +167,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "forEach",
@@ -165,13 +179,15 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "getArray",
           "params": [],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "item",
@@ -182,13 +198,15 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "getLength",
           "params": [],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "insertAt",
@@ -203,13 +221,15 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "pop",
           "params": [],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "push",
@@ -220,7 +240,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "remove",
@@ -231,7 +252,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "removeAt",
@@ -242,7 +264,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "setAt",
@@ -257,13 +280,15 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "updateLength_",
           "params": [],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "assertUnique_",
@@ -278,7 +303,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": []
@@ -287,6 +313,7 @@
       "name": "MixedCollection",
       "kind": "class",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/cache/mixed.collection.ts",
       "inputs": [],
       "outputs": [],
@@ -304,7 +331,8 @@
             }
           ],
           "returnType": "Object",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "getKey",
@@ -315,7 +343,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "replace",
@@ -330,7 +359,8 @@
             }
           ],
           "returnType": "Object",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "addAll",
@@ -341,7 +371,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "each",
@@ -356,7 +387,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "eachKey",
@@ -371,7 +403,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "find",
@@ -386,7 +419,8 @@
             }
           ],
           "returnType": "Object",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "insert",
@@ -405,7 +439,8 @@
             }
           ],
           "returnType": "Object",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "remove",
@@ -416,7 +451,8 @@
             }
           ],
           "returnType": "Object",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "removeAt",
@@ -427,13 +463,15 @@
             }
           ],
           "returnType": "Object",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "pop",
           "params": [],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "removeKey",
@@ -444,13 +482,15 @@
             }
           ],
           "returnType": "Object",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "getCount",
           "params": [],
           "returnType": "number",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "indexOf",
@@ -461,7 +501,8 @@
             }
           ],
           "returnType": "number",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "indexOfKey",
@@ -472,7 +513,8 @@
             }
           ],
           "returnType": "number",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "get",
@@ -483,7 +525,8 @@
             }
           ],
           "returnType": "Object",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "itemAt",
@@ -494,7 +537,8 @@
             }
           ],
           "returnType": "Object",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "key",
@@ -505,7 +549,8 @@
             }
           ],
           "returnType": "Object",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "contains",
@@ -516,7 +561,8 @@
             }
           ],
           "returnType": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "containsKey",
@@ -527,25 +573,29 @@
             }
           ],
           "returnType": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "clear",
           "params": [],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "first",
           "params": [],
           "returnType": "Object",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "last",
           "params": [],
           "returnType": "Object",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "sort",
@@ -560,7 +610,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "reorder",
@@ -571,7 +622,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "keySort",
@@ -586,7 +638,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "getRange",
@@ -601,7 +654,8 @@
             }
           ],
           "returnType": "Array<any>",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "filter",
@@ -624,7 +678,8 @@
             }
           ],
           "returnType": "MixedCollection<any>",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "filterBy",
@@ -639,7 +694,8 @@
             }
           ],
           "returnType": "MixedCollection<any>",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "findIndex",
@@ -666,7 +722,8 @@
             }
           ],
           "returnType": "number",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "findIndexBy",
@@ -685,7 +742,8 @@
             }
           ],
           "returnType": "number",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "createValueMatcher",
@@ -708,13 +766,15 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "clone",
           "params": [],
           "returnType": "MixedCollection<any>",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": [
@@ -722,37 +782,43 @@
           "name": "items",
           "type": "any",
           "default": "[]",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "map",
           "type": "any",
           "default": "{}",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "keys",
           "type": "any",
           "default": "[]",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "length",
           "type": "any",
           "default": "0",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "itemsSubject",
           "type": "BehaviorSubject<Array<any>>",
           "default": "new BehaviorSubject([])",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "allowFunctions",
           "type": "any",
           "default": "false",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     }

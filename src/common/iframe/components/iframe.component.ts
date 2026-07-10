@@ -18,6 +18,12 @@ import { Dui } from '@dotos/dui/core';
 import { DomSanitizer } from '@angular/platform-browser';
 
 
+/**
+ * Wraps a native `<iframe>` with lifecycle events (click/keyup/unload/resize) proxied out via
+ * `iframeEvent`, plus optional auto-resize and injection of extra stylesheets/CSS into the frame.
+ * @zh 封装原生 `<iframe>`，将其生命周期事件（点击/按键/卸载/尺寸变化）通过 `iframeEvent` 代理输出，
+ * 并支持自动调整高度以及向 iframe 内注入额外样式表/CSS。
+ */
 @Component({
   selector: 'dui-iframe',
   template: `

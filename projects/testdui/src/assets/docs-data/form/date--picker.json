@@ -5,6 +5,7 @@
       "name": "CLOCK_INNER_RADIUS",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/form/date/picker/clock.ts",
       "inputs": [],
       "outputs": [],
@@ -15,6 +16,7 @@
       "name": "CLOCK_OUTER_RADIUS",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/form/date/picker/clock.ts",
       "inputs": [],
       "outputs": [],
@@ -25,6 +27,7 @@
       "name": "CLOCK_RADIUS",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/form/date/picker/clock.ts",
       "inputs": [],
       "outputs": [],
@@ -35,6 +38,7 @@
       "name": "CLOCK_TICK_RADIUS",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/form/date/picker/clock.ts",
       "inputs": [],
       "outputs": [],
@@ -45,6 +49,7 @@
       "name": "createMissingDateImplError",
       "kind": "function",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/form/date/picker/datetimepicker-errors.ts",
       "inputs": [],
       "outputs": [],
@@ -55,6 +60,7 @@
       "name": "fadeInContent",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/form/date/picker/datetimepicker-animations.ts",
       "inputs": [],
       "outputs": [],
@@ -65,6 +71,7 @@
       "name": "getActiveOffset",
       "kind": "function",
       "summary": "When the multi-year view is first opened, the active year will be in view.\nSo we compute how many years are between the active year and the *slot* where our\n\"startingYear\" will render when paged into view.",
+      "summaryZh": null,
       "sourceFile": "src/form/date/picker/multi-year-view.ts",
       "inputs": [],
       "outputs": [],
@@ -75,6 +82,7 @@
       "name": "isSameMultiYearView",
       "kind": "function",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/form/date/picker/multi-year-view.ts",
       "inputs": [],
       "outputs": [],
@@ -85,6 +93,7 @@
       "name": "MAT_DATETIMEPICKER_VALIDATORS",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/form/date/picker/datetimepicker-input.ts",
       "inputs": [],
       "outputs": [],
@@ -95,6 +104,7 @@
       "name": "MAT_DATETIMEPICKER_VALUE_ACCESSOR",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/form/date/picker/datetimepicker-input.ts",
       "inputs": [],
       "outputs": [],
@@ -105,6 +115,7 @@
       "name": "MatCalendarView",
       "kind": "type",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/form/date/picker/calendar.ts",
       "inputs": [],
       "outputs": [],
@@ -115,6 +126,7 @@
       "name": "MatClockView",
       "kind": "type",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/form/date/picker/clock.ts",
       "inputs": [],
       "outputs": [],
@@ -126,119 +138,140 @@
       "kind": "component",
       "selector": "mat-datetimepicker",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/form/date/picker/datetimepicker.ts",
       "inputs": [
         {
           "name": "multiYearSelector",
           "type": "boolean",
           "default": "false",
-          "description": "Active multi year view when click on year."
+          "description": "Active multi year view when click on year.",
+          "descriptionZh": null
         },
         {
           "name": "twelvehour",
           "type": "boolean",
           "default": "false",
-          "description": "if true change the clock to 12 hour format."
+          "description": "if true change the clock to 12 hour format.",
+          "descriptionZh": null
         },
         {
           "name": "startView",
           "type": "MatCalendarView",
           "default": "\"month\"",
-          "description": "The view that the calendar should start in."
+          "description": "The view that the calendar should start in.",
+          "descriptionZh": null
         },
         {
           "name": "mode",
           "type": "MatDatetimepickerMode",
           "default": "\"auto\"",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "timeInterval",
           "type": "number",
           "default": "1",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "ariaNextMonthLabel",
           "type": "any",
           "default": "\"Next month\"",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "ariaPrevMonthLabel",
           "type": "any",
           "default": "\"Previous month\"",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "ariaNextYearLabel",
           "type": "any",
           "default": "\"Next year\"",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "ariaPrevYearLabel",
           "type": "any",
           "default": "\"Previous year\"",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "preventSameDateTimeSelection",
           "type": "any",
           "default": "false",
-          "description": "Prevent user to select same date time"
+          "description": "Prevent user to select same date time",
+          "descriptionZh": null
         },
         {
           "name": "panelClass",
           "type": "string | string[]",
-          "description": "Classes to be passed to the date picker panel. Supports the same syntax as `ngClass`."
+          "description": "Classes to be passed to the date picker panel. Supports the same syntax as `ngClass`.",
+          "descriptionZh": null
         },
         {
           "name": "startAt",
           "type": "D | null",
-          "description": "The date to open the calendar to initially."
+          "description": "The date to open the calendar to initially.",
+          "descriptionZh": null
         },
         {
           "name": "openOnFocus",
           "type": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "type",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "touchUi",
           "type": "boolean",
-          "description": "Whether the calendar UI is in touch mode. In touch mode the calendar opens in a dialog rather\nthan a popup and elements have more padding to allow for bigger touch targets."
+          "description": "Whether the calendar UI is in touch mode. In touch mode the calendar opens in a dialog rather\nthan a popup and elements have more padding to allow for bigger touch targets.",
+          "descriptionZh": null
         },
         {
           "name": "disabled",
           "type": "boolean",
-          "description": "Whether the datepicker pop-up should be disabled."
+          "description": "Whether the datepicker pop-up should be disabled.",
+          "descriptionZh": null
         }
       ],
       "outputs": [
         {
           "name": "selectedChanged",
           "type": "any",
-          "description": "Emits new selected date when selected date changes."
+          "description": "Emits new selected date when selected date changes.",
+          "descriptionZh": null
         },
         {
           "name": "openedStream",
           "type": "void",
-          "description": "Emits when the datepicker has been opened."
+          "description": "Emits when the datepicker has been opened.",
+          "descriptionZh": null
         },
         {
           "name": "closedStream",
           "type": "void",
-          "description": "Emits when the datepicker has been closed."
+          "description": "Emits when the datepicker has been closed.",
+          "descriptionZh": null
         },
         {
           "name": "viewChanged",
           "type": "MatCalendarView",
-          "description": "Emits when the view has been changed. *"
+          "description": "Emits when the view has been changed. *",
+          "descriptionZh": null
         }
       ],
       "methods": [
@@ -246,13 +279,15 @@
           "name": "open",
           "params": [],
           "returnType": "void",
-          "description": "Open the calendar."
+          "description": "Open the calendar.",
+          "descriptionZh": null
         },
         {
           "name": "close",
           "params": [],
           "returnType": "void",
-          "description": "Close the calendar."
+          "description": "Close the calendar.",
+          "descriptionZh": null
         }
       ],
       "properties": [
@@ -260,38 +295,45 @@
           "name": "opened",
           "type": "any",
           "default": "false",
-          "description": "Whether the calendar is open."
+          "description": "Whether the calendar is open.",
+          "descriptionZh": null
         },
         {
           "name": "id",
           "type": "any",
           "default": "`mat-datetimepicker-${datetimepickerUid++}`",
-          "description": "The id for the datepicker calendar."
+          "description": "The id for the datepicker calendar.",
+          "descriptionZh": null
         },
         {
           "name": "startAt",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "openOnFocus",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "type",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "touchUi",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "disabled",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -300,126 +342,148 @@
       "kind": "component",
       "selector": "mat-datetimepicker-calendar",
       "summary": "A calendar that is used as part of the datepicker.",
+      "summaryZh": null,
       "sourceFile": "src/form/date/picker/calendar.ts",
       "inputs": [
         {
           "name": "multiYearSelector",
           "type": "boolean",
           "default": "false",
-          "description": "Active multi year view when click on year."
+          "description": "Active multi year view when click on year.",
+          "descriptionZh": null
         },
         {
           "name": "startView",
           "type": "MatCalendarView",
           "default": "\"month\"",
-          "description": "Whether the calendar should be started in month or year view."
+          "description": "Whether the calendar should be started in month or year view.",
+          "descriptionZh": null
         },
         {
           "name": "twelvehour",
           "type": "boolean",
           "default": "false",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "timeInterval",
           "type": "number",
           "default": "1",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "dateFilter",
           "type": "(date: D, type: MatDatetimepickerFilterType) => boolean",
-          "description": "A function used to filter which dates are selectable."
+          "description": "A function used to filter which dates are selectable.",
+          "descriptionZh": null
         },
         {
           "name": "ariaLabel",
           "type": "any",
           "default": "\"Use arrow keys to navigate\"",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "ariaNextMonthLabel",
           "type": "any",
           "default": "\"Next month\"",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "ariaPrevMonthLabel",
           "type": "any",
           "default": "\"Previous month\"",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "ariaNextYearLabel",
           "type": "any",
           "default": "\"Next year\"",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "ariaPrevYearLabel",
           "type": "any",
           "default": "\"Previous year\"",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "ariaNextMultiYearLabel",
           "type": "any",
           "default": "\"Next year range\"",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "ariaPrevMultiYearLabel",
           "type": "any",
           "default": "\"Previous year range\"",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "preventSameDateTimeSelection",
           "type": "any",
           "default": "false",
-          "description": "Prevent user to select same date time"
+          "description": "Prevent user to select same date time",
+          "descriptionZh": null
         },
         {
           "name": "type",
           "type": "MatDatetimepickerType",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "startAt",
           "type": "D | null",
-          "description": "A date representing the period (month or year) to start the calendar in."
+          "description": "A date representing the period (month or year) to start the calendar in.",
+          "descriptionZh": null
         },
         {
           "name": "selected",
           "type": "D | null",
-          "description": "The currently selected date."
+          "description": "The currently selected date.",
+          "descriptionZh": null
         },
         {
           "name": "minDate",
           "type": "D | null",
-          "description": "The minimum selectable date."
+          "description": "The minimum selectable date.",
+          "descriptionZh": null
         },
         {
           "name": "maxDate",
           "type": "D | null",
-          "description": "The maximum selectable date."
+          "description": "The maximum selectable date.",
+          "descriptionZh": null
         }
       ],
       "outputs": [
         {
           "name": "_userSelection",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "selectedChange",
           "type": "D",
-          "description": "Emits when the currently selected date changes."
+          "description": "Emits when the currently selected date changes.",
+          "descriptionZh": null
         },
         {
           "name": "viewChanged",
           "type": "MatCalendarView",
-          "description": "Emits when the view has been changed. *"
+          "description": "Emits when the view has been changed. *",
+          "descriptionZh": null
         }
       ],
       "methods": [],
@@ -427,37 +491,44 @@
         {
           "name": "type",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "startAt",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "selected",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "minDate",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "maxDate",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "currentView",
           "type": "MatCalendarView",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "currentView",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -466,57 +537,67 @@
       "kind": "component",
       "selector": "[mat-datetimepicker-calendar-body]",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/form/date/picker/calendar-body.ts",
       "inputs": [
         {
           "name": "label",
           "type": "string",
-          "description": "The label for the table. (e.g. \"Jan 2017\")."
+          "description": "The label for the table. (e.g. \"Jan 2017\").",
+          "descriptionZh": null
         },
         {
           "name": "rows",
           "type": "MatDatetimepickerCalendarCell[][]",
-          "description": "The cells to display in the table."
+          "description": "The cells to display in the table.",
+          "descriptionZh": null
         },
         {
           "name": "todayValue",
           "type": "number",
-          "description": "The value in the table that corresponds to today."
+          "description": "The value in the table that corresponds to today.",
+          "descriptionZh": null
         },
         {
           "name": "selectedValue",
           "type": "number",
-          "description": "The value in the table that is currently selected."
+          "description": "The value in the table that is currently selected.",
+          "descriptionZh": null
         },
         {
           "name": "labelMinRequiredCells",
           "type": "number",
-          "description": "The minimum number of free cells needed to fit the label in the first row."
+          "description": "The minimum number of free cells needed to fit the label in the first row.",
+          "descriptionZh": null
         },
         {
           "name": "numCols",
           "type": "any",
           "default": "7",
-          "description": "The number of columns in the table."
+          "description": "The number of columns in the table.",
+          "descriptionZh": null
         },
         {
           "name": "allowDisabledSelection",
           "type": "any",
           "default": "false",
-          "description": "Whether to allow selection of disabled cells."
+          "description": "Whether to allow selection of disabled cells.",
+          "descriptionZh": null
         },
         {
           "name": "activeCell",
           "type": "any",
           "default": "0",
-          "description": "The cell number of the active cell in the table."
+          "description": "The cell number of the active cell in the table.",
+          "descriptionZh": null
         }
       ],
       "outputs": [
         {
           "name": "selectedValueChange",
           "type": "any",
-          "description": "Emits when a new value is selected."
+          "description": "Emits when a new value is selected.",
+          "descriptionZh": null
         }
       ],
       "methods": [],
@@ -526,6 +607,7 @@
       "name": "MatDatetimepickerCalendarCell",
       "kind": "class",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/form/date/picker/calendar-body.ts",
       "inputs": [],
       "outputs": [],
@@ -537,66 +619,78 @@
       "kind": "component",
       "selector": "mat-datetimepicker-clock",
       "summary": "A clock that is used as part of the datepicker.",
+      "summaryZh": null,
       "sourceFile": "src/form/date/picker/clock.ts",
       "inputs": [
         {
           "name": "dateFilter",
           "type": "(date: D, type: MatDatetimepickerFilterType) => boolean",
-          "description": "A function used to filter which dates are selectable."
+          "description": "A function used to filter which dates are selectable.",
+          "descriptionZh": null
         },
         {
           "name": "interval",
           "type": "number",
           "default": "1",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "twelvehour",
           "type": "boolean",
           "default": "false",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "activeDate",
           "type": "D",
-          "description": "The date to display in this clock view."
+          "description": "The date to display in this clock view.",
+          "descriptionZh": null
         },
         {
           "name": "selected",
           "type": "D | null",
-          "description": "The currently selected date."
+          "description": "The currently selected date.",
+          "descriptionZh": null
         },
         {
           "name": "minDate",
           "type": "D | null",
-          "description": "The minimum selectable date."
+          "description": "The minimum selectable date.",
+          "descriptionZh": null
         },
         {
           "name": "maxDate",
           "type": "D | null",
-          "description": "The maximum selectable date."
+          "description": "The maximum selectable date.",
+          "descriptionZh": null
         },
         {
           "name": "startView",
           "type": "MatClockView",
-          "description": "Whether the clock should be started in hour or minute view."
+          "description": "Whether the clock should be started in hour or minute view.",
+          "descriptionZh": null
         }
       ],
       "outputs": [
         {
           "name": "_userSelection",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "selectedChange",
           "type": "any",
-          "description": "Emits when the currently selected date changes."
+          "description": "Emits when the currently selected date changes.",
+          "descriptionZh": null
         },
         {
           "name": "activeDateChange",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "methods": [],
@@ -604,22 +698,26 @@
         {
           "name": "activeDate",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "selected",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "minDate",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "maxDate",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -628,6 +726,7 @@
       "kind": "component",
       "selector": "mat-datetimepicker-content",
       "summary": "Component used as the content for the datepicker dialog and popup. We use this instead of using\nMatCalendar directly as the content so we can control the initial focus. This also gives us a\nplace to put additional features of the popup that are not part of the calendar itself in the\nfuture. (e.g. confirmation buttons).",
+      "summaryZh": null,
       "sourceFile": "src/form/date/picker/datetimepicker.ts",
       "inputs": [],
       "outputs": [],
@@ -641,14 +740,16 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": [
         {
           "name": "datetimepicker",
           "type": "MatDatetimepicker<D>",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -656,6 +757,7 @@
       "name": "MatDatetimepickerFilterType",
       "kind": "enum",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/form/date/picker/datetimepicker-filtertype.ts",
       "inputs": [],
       "outputs": [],
@@ -667,49 +769,58 @@
       "kind": "directive",
       "selector": "input[matDatetimepicker]",
       "summary": "Directive used to connect an input to a MatDatepicker.",
+      "summaryZh": null,
       "sourceFile": "src/form/date/picker/datetimepicker-input.ts",
       "inputs": [
         {
           "name": "matDatetimepicker",
           "type": "MatDatetimepicker<D>",
-          "description": "The datepicker that this input is associated with."
+          "description": "The datepicker that this input is associated with.",
+          "descriptionZh": null
         },
         {
           "name": "matDatepickerFilter",
           "type": "(date: D | null, type: MatDatetimepickerFilterType) => boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "value",
           "type": "D | null",
-          "description": "The value of the input."
+          "description": "The value of the input.",
+          "descriptionZh": null
         },
         {
           "name": "min",
           "type": "D | null",
-          "description": "The minimum valid date."
+          "description": "The minimum valid date.",
+          "descriptionZh": null
         },
         {
           "name": "max",
           "type": "D | null",
-          "description": "The maximum valid date."
+          "description": "The maximum valid date.",
+          "descriptionZh": null
         },
         {
           "name": "disabled",
           "type": "any",
-          "description": "Whether the datepicker-input is disabled."
+          "description": "Whether the datepicker-input is disabled.",
+          "descriptionZh": null
         }
       ],
       "outputs": [
         {
           "name": "dateChange",
           "type": "any",
-          "description": "Emits when a `change` event is fired on this `<input>`."
+          "description": "Emits when a `change` event is fired on this `<input>`.",
+          "descriptionZh": null
         },
         {
           "name": "dateInput",
           "type": "any",
-          "description": "Emits when an `input` event is fired on this `<input>`."
+          "description": "Emits when an `input` event is fired on this `<input>`.",
+          "descriptionZh": null
         }
       ],
       "methods": [
@@ -722,7 +833,8 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "validate",
@@ -733,35 +845,41 @@
             }
           ],
           "returnType": "ValidationErrors | null",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "getConnectedOverlayOrigin",
           "params": [],
           "returnType": "ElementRef",
-          "description": "Gets the element that the datepicker popup should be connected to."
+          "description": "Gets the element that the datepicker popup should be connected to.",
+          "descriptionZh": null
         }
       ],
       "properties": [
         {
           "name": "value",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "min",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "max",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "disabled",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -769,6 +887,7 @@
       "name": "MatDatetimepickerInputEvent",
       "kind": "class",
       "summary": "An event used for datepicker input and change events. We don't always have access to a native\ninput or change event because the event may have been triggered by the user clicking on the\ncalendar popup. For consistency, we always use MatDatepickerInputEvent instead.",
+      "summaryZh": null,
       "sourceFile": "src/form/date/picker/datetimepicker-input.ts",
       "inputs": [],
       "outputs": [],
@@ -777,7 +896,8 @@
         {
           "name": "value",
           "type": "D | null",
-          "description": "The new value for the target datepicker input."
+          "description": "The new value for the target datepicker input.",
+          "descriptionZh": null
         }
       ]
     },
@@ -785,6 +905,7 @@
       "name": "MatDatetimepickerMode",
       "kind": "type",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/form/date/picker/datetimepicker.ts",
       "inputs": [],
       "outputs": [],
@@ -795,6 +916,7 @@
       "name": "MatDatetimepickerModule",
       "kind": "module",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/form/date/picker/datetimepicker.module.ts",
       "inputs": [],
       "outputs": [],
@@ -806,40 +928,47 @@
       "kind": "component",
       "selector": "mat-datetimepicker-month-view",
       "summary": "An internal component used to display a single month in the datepicker.",
+      "summaryZh": null,
       "sourceFile": "src/form/date/picker/month-view.ts",
       "inputs": [
         {
           "name": "type",
           "type": "MatDatetimepickerType",
           "default": "\"date\"",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "dateFilter",
           "type": "(date: D) => boolean",
-          "description": "A function used to filter which dates are selectable."
+          "description": "A function used to filter which dates are selectable.",
+          "descriptionZh": null
         },
         {
           "name": "activeDate",
           "type": "D",
-          "description": "The date to display in this month view (everything other than the month and year is ignored)."
+          "description": "The date to display in this month view (everything other than the month and year is ignored).",
+          "descriptionZh": null
         },
         {
           "name": "selected",
           "type": "D",
-          "description": "The currently selected date."
+          "description": "The currently selected date.",
+          "descriptionZh": null
         }
       ],
       "outputs": [
         {
           "name": "_userSelection",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "selectedChange",
           "type": "any",
-          "description": "Emits when a new date is selected."
+          "description": "Emits when a new date is selected.",
+          "descriptionZh": null
         }
       ],
       "methods": [],
@@ -847,12 +976,14 @@
         {
           "name": "activeDate",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "selected",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -861,50 +992,59 @@
       "kind": "component",
       "selector": "mat-datetimepicker-multi-year-view",
       "summary": "An internal component used to display multiple years in the datepicker.",
+      "summaryZh": null,
       "sourceFile": "src/form/date/picker/multi-year-view.ts",
       "inputs": [
         {
           "name": "type",
           "type": "MatDatetimepickerType",
           "default": "\"date\"",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "dateFilter",
           "type": "(date: D) => boolean",
-          "description": "A function used to filter which dates are selectable."
+          "description": "A function used to filter which dates are selectable.",
+          "descriptionZh": null
         },
         {
           "name": "activeDate",
           "type": "D",
-          "description": "The date to display in this multi year view"
+          "description": "The date to display in this multi year view",
+          "descriptionZh": null
         },
         {
           "name": "selected",
           "type": "D",
-          "description": "The currently selected date."
+          "description": "The currently selected date.",
+          "descriptionZh": null
         },
         {
           "name": "minDate",
           "type": "D | null",
-          "description": "The minimum selectable date."
+          "description": "The minimum selectable date.",
+          "descriptionZh": null
         },
         {
           "name": "maxDate",
           "type": "D | null",
-          "description": "The maximum selectable date."
+          "description": "The maximum selectable date.",
+          "descriptionZh": null
         }
       ],
       "outputs": [
         {
           "name": "_userSelection",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "selectedChange",
           "type": "any",
-          "description": "Emits when a new month is selected."
+          "description": "Emits when a new month is selected.",
+          "descriptionZh": null
         }
       ],
       "methods": [],
@@ -912,22 +1052,26 @@
         {
           "name": "activeDate",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "selected",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "minDate",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "maxDate",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -936,18 +1080,21 @@
       "kind": "component",
       "selector": "mat-datetimepicker-toggle",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/form/date/picker/datetimepicker-toggle.ts",
       "inputs": [
         {
           "name": "datetimepicker",
           "alias": "for",
           "type": "MatDatetimepicker<D>",
-          "description": "Datepicker instance that the button will toggle."
+          "description": "Datepicker instance that the button will toggle.",
+          "descriptionZh": null
         },
         {
           "name": "disabled",
           "type": "boolean",
-          "description": "Whether the toggle button is disabled."
+          "description": "Whether the toggle button is disabled.",
+          "descriptionZh": null
         }
       ],
       "outputs": [],
@@ -956,7 +1103,8 @@
         {
           "name": "disabled",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -964,6 +1112,7 @@
       "name": "MatDatetimepickerType",
       "kind": "type",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/form/date/picker/datetimepicker.ts",
       "inputs": [],
       "outputs": [],
@@ -975,40 +1124,47 @@
       "kind": "component",
       "selector": "mat-datetimepicker-year-view",
       "summary": "An internal component used to display a single year in the datepicker.",
+      "summaryZh": null,
       "sourceFile": "src/form/date/picker/year-view.ts",
       "inputs": [
         {
           "name": "type",
           "type": "MatDatetimepickerType",
           "default": "\"date\"",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "dateFilter",
           "type": "(date: D) => boolean",
-          "description": "A function used to filter which dates are selectable."
+          "description": "A function used to filter which dates are selectable.",
+          "descriptionZh": null
         },
         {
           "name": "activeDate",
           "type": "D",
-          "description": "The date to display in this year view (everything other than the year is ignored)."
+          "description": "The date to display in this year view (everything other than the year is ignored).",
+          "descriptionZh": null
         },
         {
           "name": "selected",
           "type": "D",
-          "description": "The currently selected date."
+          "description": "The currently selected date.",
+          "descriptionZh": null
         }
       ],
       "outputs": [
         {
           "name": "_userSelection",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "selectedChange",
           "type": "any",
-          "description": "Emits when a new month is selected."
+          "description": "Emits when a new month is selected.",
+          "descriptionZh": null
         }
       ],
       "methods": [],
@@ -1016,12 +1172,14 @@
         {
           "name": "activeDate",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "selected",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -1029,6 +1187,7 @@
       "name": "slideCalendar",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/form/date/picker/datetimepicker-animations.ts",
       "inputs": [],
       "outputs": [],
@@ -1039,6 +1198,7 @@
       "name": "yearsPerPage",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/form/date/picker/multi-year-view.ts",
       "inputs": [],
       "outputs": [],
@@ -1049,6 +1209,7 @@
       "name": "yearsPerRow",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/form/date/picker/multi-year-view.ts",
       "inputs": [],
       "outputs": [],

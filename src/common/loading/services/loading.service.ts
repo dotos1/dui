@@ -50,6 +50,12 @@ export class LoadingDirectiveConfig
   }
 }
 
+/**
+ * Manages named loading indicators: a full-screen one created at startup, plus any number
+ * of directive-driven (overlay or replace-strategy) loading components registered/resolved by name.
+ * @zh 管理具名的加载指示器：启动时创建的一个全屏指示器，以及任意数量由指令驱动
+ * （overlay 或 replace 策略）、按名称注册/解析的加载组件。
+ */
 @Injectable()
 export class LoadingService {
   private _context: { [key: string]: ILoadingRef } = {};
@@ -94,6 +100,10 @@ export class LoadingService {
   }
 
 
+  /**
+   * Creates (or recreates) a full-screen loading component under the given name.
+   * @zh 以指定名称创建（或重建）一个全屏加载组件。
+   */
   public create(config: ILoadingConfig): void {
     const fullscreenConfig: LoadingConfig = new LoadingConfig(config);
     this.removeComponent(fullscreenConfig.name);
@@ -102,6 +112,10 @@ export class LoadingService {
   }
 
 
+  /**
+   * Unsubscribes and destroys the named loading component.
+   * @zh 取消订阅并销毁指定名称的加载组件。
+   */
   public removeComponent(name: string): void {
     if (this._context[name]) {
       this._context[name].subject.unsubscribe();
@@ -113,6 +127,12 @@ export class LoadingService {
   }
 
 
+  /**
+   * Increments the named loading indicator's pending-operation counter, showing it while
+   * the counter is above zero. Retries via `setTimeout` if the component isn't created yet.
+   * @zh 增加指定名称加载指示器的"待完成操作"计数器，计数大于零时显示指示器。
+   * 若组件尚未创建，会通过 `setTimeout` 重试。
+   */
   public register(
     name: string = 'dui-loading-main',
     registers: number = 1
@@ -137,6 +157,11 @@ export class LoadingService {
   }
 
 
+  /**
+   * Decrements the named loading indicator's pending-operation counter, hiding it once
+   * it reaches zero.
+   * @zh 减少指定名称加载指示器的"待完成操作"计数器，计数归零时隐藏指示器。
+   */
   public resolve(
     name: string = 'dui-loading-main',
     resolves: number = 1

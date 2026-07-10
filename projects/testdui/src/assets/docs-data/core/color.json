@@ -5,6 +5,7 @@
       "name": "bound01",
       "kind": "function",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/color/util.ts",
       "inputs": [],
       "outputs": [],
@@ -15,6 +16,7 @@
       "name": "boundAlpha",
       "kind": "function",
       "summary": "Return a valid alpha value [0,1] with all invalid values being set to 1",
+      "summaryZh": null,
       "sourceFile": "src/core/color/util.ts",
       "inputs": [],
       "outputs": [],
@@ -25,6 +27,7 @@
       "name": "bounds",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/color/random.ts",
       "inputs": [],
       "outputs": [],
@@ -35,6 +38,7 @@
       "name": "clamp01",
       "kind": "function",
       "summary": "Force a number between 0 and 1",
+      "summaryZh": null,
       "sourceFile": "src/core/color/util.ts",
       "inputs": [],
       "outputs": [],
@@ -45,6 +49,7 @@
       "name": "Color",
       "kind": "class",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/color/solver.ts",
       "inputs": [],
       "outputs": [],
@@ -53,7 +58,8 @@
           "name": "toString",
           "params": [],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "set",
@@ -72,7 +78,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "hueRotate",
@@ -83,7 +90,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "grayscale",
@@ -94,7 +102,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "sepia",
@@ -105,7 +114,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "saturate",
@@ -116,7 +126,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "multiply",
@@ -127,7 +138,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "brightness",
@@ -138,7 +150,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "contrast",
@@ -149,7 +162,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "linear",
@@ -164,7 +178,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "invert",
@@ -175,13 +190,15 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "hsl",
           "params": [],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "clamp",
@@ -192,24 +209,28 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": [
         {
           "name": "r",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "g",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "b",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -217,6 +238,7 @@
       "name": "ColorBound",
       "kind": "interface",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/color/random.ts",
       "inputs": [],
       "outputs": [],
@@ -227,6 +249,7 @@
       "name": "ColorFormats",
       "kind": "type",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/color/tinycolor.ts",
       "inputs": [],
       "outputs": [],
@@ -237,6 +260,7 @@
       "name": "ColorInput",
       "kind": "type",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/color/tinycolor.ts",
       "inputs": [],
       "outputs": [],
@@ -247,6 +271,7 @@
       "name": "convertDecimalToHex",
       "kind": "function",
       "summary": "Converts a decimal to a hex value",
+      "summaryZh": null,
       "sourceFile": "src/core/color/conversion.ts",
       "inputs": [],
       "outputs": [],
@@ -257,6 +282,7 @@
       "name": "convertHexToDecimal",
       "kind": "function",
       "summary": "Converts a hex value to a decimal",
+      "summaryZh": null,
       "sourceFile": "src/core/color/conversion.ts",
       "inputs": [],
       "outputs": [],
@@ -267,6 +293,7 @@
       "name": "convertToPercentage",
       "kind": "function",
       "summary": "Replace a decimal with it's percentage value",
+      "summaryZh": null,
       "sourceFile": "src/core/color/util.ts",
       "inputs": [],
       "outputs": [],
@@ -277,6 +304,7 @@
       "name": "fromRatio",
       "kind": "function",
       "summary": "If input is an object, force 1 into \"1.0\" to handle ratios properly\nString input requires \"1.0\" as input, so 1 will be treated as 1",
+      "summaryZh": null,
       "sourceFile": "src/core/color/from-ratio.ts",
       "inputs": [],
       "outputs": [],
@@ -287,6 +315,7 @@
       "name": "HSL",
       "kind": "interface",
       "summary": "The HSL model describes colors in terms of hue, saturation,\nand lightness (also called luminance).",
+      "summaryZh": null,
       "sourceFile": "src/core/color/interfaces.ts",
       "inputs": [],
       "outputs": [],
@@ -297,6 +326,7 @@
       "name": "HSLA",
       "kind": "interface",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/color/interfaces.ts",
       "inputs": [],
       "outputs": [],
@@ -307,6 +337,7 @@
       "name": "hslToRgb",
       "kind": "function",
       "summary": "Converts an HSL color value to RGB.\n\n*Assumes:* h is contained in [0, 1] or [0, 360] and s and l are contained [0, 1] or [0, 100]\n*Returns:* { r, g, b } in the set [0, 255]",
+      "summaryZh": null,
       "sourceFile": "src/core/color/conversion.ts",
       "inputs": [],
       "outputs": [],
@@ -317,6 +348,7 @@
       "name": "HSV",
       "kind": "interface",
       "summary": "The HSV, or HSB, model describes colors in terms of\nhue, saturation, and value (brightness).",
+      "summaryZh": null,
       "sourceFile": "src/core/color/interfaces.ts",
       "inputs": [],
       "outputs": [],
@@ -327,6 +359,7 @@
       "name": "HSVA",
       "kind": "interface",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/color/interfaces.ts",
       "inputs": [],
       "outputs": [],
@@ -337,6 +370,7 @@
       "name": "hsvToRgb",
       "kind": "function",
       "summary": "Converts an HSV color value to RGB.\n\n*Assumes:* h is contained in [0, 1] or [0, 360] and s and v are contained in [0, 1] or [0, 100]\n*Returns:* { r, g, b } in the set [0, 255]",
+      "summaryZh": null,
       "sourceFile": "src/core/color/conversion.ts",
       "inputs": [],
       "outputs": [],
@@ -347,6 +381,7 @@
       "name": "inputToRGB",
       "kind": "function",
       "summary": "Given a string or object, convert that input to RGB\n\nPossible string inputs:\n```\n\"red\"\n\"#f00\" or \"f00\"\n\"#ff0000\" or \"ff0000\"\n\"#ff000000\" or \"ff000000\"\n\"rgb 255 0 0\" or \"rgb (255, 0, 0)\"\n\"rgb 1.0 0 0\" or \"rgb (1, 0, 0)\"\n\"rgba (255, 0, 0, 1)\" or \"rgba 255, 0, 0, 1\"\n\"rgba (1.0, 0, 0, 1)\" or \"rgba 1.0, 0, 0, 1\"\n\"hsl(0, 100%, 50%)\" or \"hsl 0 100% 50%\"\n\"hsla(0, 100%, 50%, 1)\" or \"hsla 0 100% 50%, 1\"\n\"hsv(0, 100%, 100%)\" or \"hsv 0 100% 100%\"\n```",
+      "summaryZh": null,
       "sourceFile": "src/core/color/format-input.ts",
       "inputs": [],
       "outputs": [],
@@ -357,6 +392,7 @@
       "name": "isOnePointZero",
       "kind": "function",
       "summary": "Need to handle 1.0 as 100%, since once it is a number, there is no difference between it and 1\n<http://stackoverflow.com/questions/7422072/javascript-how-to-detect-number-as-a-decimal-including-1-0>",
+      "summaryZh": null,
       "sourceFile": "src/core/color/util.ts",
       "inputs": [],
       "outputs": [],
@@ -367,6 +403,7 @@
       "name": "isPercentage",
       "kind": "function",
       "summary": "Check to see if string passed in is a percentage",
+      "summaryZh": null,
       "sourceFile": "src/core/color/util.ts",
       "inputs": [],
       "outputs": [],
@@ -377,6 +414,7 @@
       "name": "isReadable",
       "kind": "function",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/color/readability.ts",
       "inputs": [],
       "outputs": [],
@@ -387,6 +425,7 @@
       "name": "isValidCSSUnit",
       "kind": "function",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/color/format-input.ts",
       "inputs": [],
       "outputs": [],
@@ -397,6 +436,7 @@
       "name": "legacyRandom",
       "kind": "function",
       "summary": "old random function",
+      "summaryZh": null,
       "sourceFile": "src/core/color/from-ratio.ts",
       "inputs": [],
       "outputs": [],
@@ -407,6 +447,7 @@
       "name": "MatColors",
       "kind": "class",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/color/matColors.ts",
       "inputs": [],
       "outputs": [],
@@ -420,7 +461,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "getColorStr",
@@ -431,7 +473,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "getColorByHue",
@@ -446,7 +489,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "getColorName",
@@ -457,7 +501,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "getPath",
@@ -472,7 +517,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": [
@@ -480,13 +526,15 @@
           "name": "all",
           "type": "any",
           "default": "matColors",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "presets",
           "type": "any",
           "default": "matPresetColors",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -494,6 +542,7 @@
       "name": "mostReadable",
       "kind": "function",
       "summary": "Given a base color and a list of possible foreground or background\ncolors for that base, returns the most readable color.\nOptionally returns Black or White if the most readable color is unreadable.",
+      "summaryZh": null,
       "sourceFile": "src/core/color/readability.ts",
       "inputs": [],
       "outputs": [],
@@ -504,6 +553,7 @@
       "name": "names",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/color/css-color-names.ts",
       "inputs": [],
       "outputs": [],
@@ -514,6 +564,7 @@
       "name": "Numberify",
       "kind": "type",
       "summary": "convert all properties in an interface to a number",
+      "summaryZh": null,
       "sourceFile": "src/core/color/interfaces.ts",
       "inputs": [],
       "outputs": [],
@@ -524,6 +575,7 @@
       "name": "pad2",
       "kind": "function",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/color/util.ts",
       "inputs": [],
       "outputs": [],
@@ -534,6 +586,7 @@
       "name": "parseIntFromHex",
       "kind": "function",
       "summary": "Parse a base-16 hex value into a base-10 integer",
+      "summaryZh": null,
       "sourceFile": "src/core/color/conversion.ts",
       "inputs": [],
       "outputs": [],
@@ -544,6 +597,7 @@
       "name": "random",
       "kind": "function",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/color/random.ts",
       "inputs": [],
       "outputs": [],
@@ -554,6 +608,7 @@
       "name": "RandomCountOptions",
       "kind": "interface",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/color/random.ts",
       "inputs": [],
       "outputs": [],
@@ -564,6 +619,7 @@
       "name": "RandomOptions",
       "kind": "interface",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/color/random.ts",
       "inputs": [],
       "outputs": [],
@@ -574,6 +630,7 @@
       "name": "RatioInput",
       "kind": "interface",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/color/from-ratio.ts",
       "inputs": [],
       "outputs": [],
@@ -584,6 +641,7 @@
       "name": "readability",
       "kind": "function",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/color/readability.ts",
       "inputs": [],
       "outputs": [],
@@ -594,6 +652,7 @@
       "name": "RGB",
       "kind": "interface",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/color/interfaces.ts",
       "inputs": [],
       "outputs": [],
@@ -604,6 +663,7 @@
       "name": "RGBA",
       "kind": "interface",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/color/interfaces.ts",
       "inputs": [],
       "outputs": [],
@@ -614,6 +674,7 @@
       "name": "rgbaToArgbHex",
       "kind": "function",
       "summary": "Converts an RGBA color to an ARGB Hex8 string\nRarely used, but required for \"toFilter()\"",
+      "summaryZh": null,
       "sourceFile": "src/core/color/conversion.ts",
       "inputs": [],
       "outputs": [],
@@ -624,6 +685,7 @@
       "name": "rgbaToHex",
       "kind": "function",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/color/conversion.ts",
       "inputs": [],
       "outputs": [],
@@ -634,6 +696,7 @@
       "name": "rgbToHex",
       "kind": "function",
       "summary": "Converts an RGB color to hex\n\nAssumes r, g, and b are contained in the set [0, 255]\nReturns a 3 or 6 character hex",
+      "summaryZh": null,
       "sourceFile": "src/core/color/conversion.ts",
       "inputs": [],
       "outputs": [],
@@ -644,6 +707,7 @@
       "name": "rgbToHsl",
       "kind": "function",
       "summary": "Converts an RGB color value to HSL.\n*Assumes:* r, g, and b are contained in [0, 255] or [0, 1]\n*Returns:* { h, s, l } in [0,1]",
+      "summaryZh": null,
       "sourceFile": "src/core/color/conversion.ts",
       "inputs": [],
       "outputs": [],
@@ -654,6 +718,7 @@
       "name": "rgbToHsv",
       "kind": "function",
       "summary": "Converts an RGB color value to HSV\n\n*Assumes:* r, g, and b are contained in the set [0, 255] or [0, 1]\n*Returns:* { h, s, v } in [0,1]",
+      "summaryZh": null,
       "sourceFile": "src/core/color/conversion.ts",
       "inputs": [],
       "outputs": [],
@@ -664,6 +729,7 @@
       "name": "rgbToRgb",
       "kind": "function",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/color/conversion.ts",
       "inputs": [],
       "outputs": [],
@@ -674,6 +740,7 @@
       "name": "rgbToRgb1",
       "kind": "function",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/color/conversion.ts",
       "inputs": [],
       "outputs": [],
@@ -684,6 +751,7 @@
       "name": "Solver",
       "kind": "class",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/color/solver.ts",
       "inputs": [],
       "outputs": [],
@@ -697,19 +765,22 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "solve",
           "params": [],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "solveWide",
           "params": [],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "solveNarrow",
@@ -720,7 +791,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "spsa",
@@ -747,7 +819,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "loss",
@@ -758,7 +831,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "css",
@@ -769,24 +843,28 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": [
         {
           "name": "target",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "targetHSL",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "reusedColor",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -794,6 +872,7 @@
       "name": "stringInputToObject",
       "kind": "function",
       "summary": "Permissive string parsing.  Take in a number of formats, and output an object\nbased on detected format.  Returns `{ r, g, b }` or `{ h, s, l }` or `{ h, s, v}`",
+      "summaryZh": null,
       "sourceFile": "src/core/color/format-input.ts",
       "inputs": [],
       "outputs": [],
@@ -804,6 +883,7 @@
       "name": "tinycolor",
       "kind": "function",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/color/tinycolor.ts",
       "inputs": [],
       "outputs": [],
@@ -814,6 +894,7 @@
       "name": "TinyColor",
       "kind": "class",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/color/tinycolor.ts",
       "inputs": [],
       "outputs": [],
@@ -822,31 +903,36 @@
           "name": "isDark",
           "params": [],
           "returnType": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "isLight",
           "params": [],
           "returnType": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "getBrightness",
           "params": [],
           "returnType": "number",
-          "description": "Returns the perceived brightness of the color, from 0-255."
+          "description": "Returns the perceived brightness of the color, from 0-255.",
+          "descriptionZh": null
         },
         {
           "name": "getLuminance",
           "params": [],
           "returnType": "number",
-          "description": "Returns the perceived luminance of a color, from 0-1."
+          "description": "Returns the perceived luminance of a color, from 0-1.",
+          "descriptionZh": null
         },
         {
           "name": "getAlpha",
           "params": [],
           "returnType": "number",
-          "description": "Returns the alpha value of a color, from 0-1."
+          "description": "Returns the alpha value of a color, from 0-1.",
+          "descriptionZh": null
         },
         {
           "name": "setAlpha",
@@ -857,31 +943,36 @@
             }
           ],
           "returnType": "TinyColor",
-          "description": "Sets the alpha value on the current color."
+          "description": "Sets the alpha value on the current color.",
+          "descriptionZh": null
         },
         {
           "name": "toHsv",
           "params": [],
           "returnType": "Numberify<HSVA>",
-          "description": "Returns the object as a HSVA object."
+          "description": "Returns the object as a HSVA object.",
+          "descriptionZh": null
         },
         {
           "name": "toHsvString",
           "params": [],
           "returnType": "string",
-          "description": "Returns the hsva values interpolated into a string with the following format:\n\"hsva(xxx, xxx, xxx, xx)\"."
+          "description": "Returns the hsva values interpolated into a string with the following format:\n\"hsva(xxx, xxx, xxx, xx)\".",
+          "descriptionZh": null
         },
         {
           "name": "toHsl",
           "params": [],
           "returnType": "Numberify<HSLA>",
-          "description": "Returns the object as a HSLA object."
+          "description": "Returns the object as a HSLA object.",
+          "descriptionZh": null
         },
         {
           "name": "toHslString",
           "params": [],
           "returnType": "string",
-          "description": "Returns the hsla values interpolated into a string with the following format:\n\"hsla(xxx, xxx, xxx, xx)\"."
+          "description": "Returns the hsla values interpolated into a string with the following format:\n\"hsla(xxx, xxx, xxx, xx)\".",
+          "descriptionZh": null
         },
         {
           "name": "toHex",
@@ -892,7 +983,8 @@
             }
           ],
           "returnType": "string",
-          "description": "Returns the hex value of the color."
+          "description": "Returns the hex value of the color.",
+          "descriptionZh": null
         },
         {
           "name": "toHexString",
@@ -903,7 +995,8 @@
             }
           ],
           "returnType": "string",
-          "description": "Returns the hex value of the color -with a # appened."
+          "description": "Returns the hex value of the color -with a # appened.",
+          "descriptionZh": null
         },
         {
           "name": "toHexStr",
@@ -914,7 +1007,8 @@
             }
           ],
           "returnType": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "toAlphaHex",
@@ -929,7 +1023,8 @@
             }
           ],
           "returnType": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "toHex8",
@@ -940,7 +1035,8 @@
             }
           ],
           "returnType": "string",
-          "description": "Returns the hex 8 value of the color."
+          "description": "Returns the hex 8 value of the color.",
+          "descriptionZh": null
         },
         {
           "name": "toHex8String",
@@ -951,37 +1047,43 @@
             }
           ],
           "returnType": "string",
-          "description": "Returns the hex 8 value of the color -with a # appened."
+          "description": "Returns the hex 8 value of the color -with a # appened.",
+          "descriptionZh": null
         },
         {
           "name": "toRgb",
           "params": [],
           "returnType": "Numberify<RGBA>",
-          "description": "Returns the object as a RGBA object."
+          "description": "Returns the object as a RGBA object.",
+          "descriptionZh": null
         },
         {
           "name": "toRgbString",
           "params": [],
           "returnType": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "toPercentageRgb",
           "params": [],
           "returnType": "RGBA",
-          "description": "Returns the object as a RGBA object."
+          "description": "Returns the object as a RGBA object.",
+          "descriptionZh": null
         },
         {
           "name": "toPercentageRgbString",
           "params": [],
           "returnType": "string",
-          "description": "Returns the RGBA relative values interpolated into a string"
+          "description": "Returns the RGBA relative values interpolated into a string",
+          "descriptionZh": null
         },
         {
           "name": "toName",
           "params": [],
           "returnType": "string | false",
-          "description": "The 'real' name of the color -if there is one."
+          "description": "The 'real' name of the color -if there is one.",
+          "descriptionZh": null
         },
         {
           "name": "toString",
@@ -992,13 +1094,15 @@
             }
           ],
           "returnType": "string | false",
-          "description": "String representation of the color."
+          "description": "String representation of the color.",
+          "descriptionZh": null
         },
         {
           "name": "clone",
           "params": [],
           "returnType": "TinyColor",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "lighten",
@@ -1009,7 +1113,8 @@
             }
           ],
           "returnType": "TinyColor",
-          "description": "Lighten the color a given amount. Providing 100 will always return white."
+          "description": "Lighten the color a given amount. Providing 100 will always return white.",
+          "descriptionZh": null
         },
         {
           "name": "brighten",
@@ -1020,7 +1125,8 @@
             }
           ],
           "returnType": "TinyColor",
-          "description": "Brighten the color a given amount, from 0 to 100."
+          "description": "Brighten the color a given amount, from 0 to 100.",
+          "descriptionZh": null
         },
         {
           "name": "darken",
@@ -1031,7 +1137,8 @@
             }
           ],
           "returnType": "TinyColor",
-          "description": "Darken the color a given amount, from 0 to 100.\nProviding 100 will always return black."
+          "description": "Darken the color a given amount, from 0 to 100.\nProviding 100 will always return black.",
+          "descriptionZh": null
         },
         {
           "name": "tint",
@@ -1042,7 +1149,8 @@
             }
           ],
           "returnType": "TinyColor",
-          "description": "Mix the color with pure white, from 0 to 100.\nProviding 0 will do nothing, providing 100 will always return white."
+          "description": "Mix the color with pure white, from 0 to 100.\nProviding 0 will do nothing, providing 100 will always return white.",
+          "descriptionZh": null
         },
         {
           "name": "shade",
@@ -1053,7 +1161,8 @@
             }
           ],
           "returnType": "TinyColor",
-          "description": "Mix the color with pure black, from 0 to 100.\nProviding 0 will do nothing, providing 100 will always return black."
+          "description": "Mix the color with pure black, from 0 to 100.\nProviding 0 will do nothing, providing 100 will always return black.",
+          "descriptionZh": null
         },
         {
           "name": "desaturate",
@@ -1064,7 +1173,8 @@
             }
           ],
           "returnType": "TinyColor",
-          "description": "Desaturate the color a given amount, from 0 to 100.\nProviding 100 will is the same as calling greyscale"
+          "description": "Desaturate the color a given amount, from 0 to 100.\nProviding 100 will is the same as calling greyscale",
+          "descriptionZh": null
         },
         {
           "name": "saturate",
@@ -1075,13 +1185,15 @@
             }
           ],
           "returnType": "TinyColor",
-          "description": "Saturate the color a given amount, from 0 to 100."
+          "description": "Saturate the color a given amount, from 0 to 100.",
+          "descriptionZh": null
         },
         {
           "name": "greyscale",
           "params": [],
           "returnType": "TinyColor",
-          "description": "Completely desaturates a color into greyscale.\nSame as calling `desaturate(100)`"
+          "description": "Completely desaturates a color into greyscale.\nSame as calling `desaturate(100)`",
+          "descriptionZh": null
         },
         {
           "name": "spin",
@@ -1092,7 +1204,8 @@
             }
           ],
           "returnType": "TinyColor",
-          "description": "Spin takes a positive or negative amount within [-360, 360] indicating the change of hue.\nValues outside of this range will be wrapped into this range."
+          "description": "Spin takes a positive or negative amount within [-360, 360] indicating the change of hue.\nValues outside of this range will be wrapped into this range.",
+          "descriptionZh": null
         },
         {
           "name": "mix",
@@ -1107,7 +1220,8 @@
             }
           ],
           "returnType": "TinyColor",
-          "description": "Mix the current color a given amount with another color, from 0 to 100.\n0 means no mixing (return current color)."
+          "description": "Mix the current color a given amount with another color, from 0 to 100.\n0 means no mixing (return current color).",
+          "descriptionZh": null
         },
         {
           "name": "analogous",
@@ -1122,13 +1236,15 @@
             }
           ],
           "returnType": "TinyColor[]",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "complement",
           "params": [],
           "returnType": "TinyColor",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "monochromatic",
@@ -1139,25 +1255,29 @@
             }
           ],
           "returnType": "TinyColor[]",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "splitcomplement",
           "params": [],
           "returnType": "TinyColor[]",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "triad",
           "params": [],
           "returnType": "TinyColor[]",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "tetrad",
           "params": [],
           "returnType": "TinyColor[]",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "polyad",
@@ -1168,7 +1288,8 @@
             }
           ],
           "returnType": "TinyColor[]",
-          "description": "Get polyad colors, like (for 1, 2, 3, 4, 5, 6, 7, 8, etc...)\nmonad, dyad, triad, tetrad, pentad, hexad, heptad, octad, etc..."
+          "description": "Get polyad colors, like (for 1, 2, 3, 4, 5, 6, 7, 8, etc...)\nmonad, dyad, triad, tetrad, pentad, hexad, heptad, octad, etc...",
+          "descriptionZh": null
         },
         {
           "name": "equals",
@@ -1179,54 +1300,64 @@
             }
           ],
           "returnType": "boolean",
-          "description": "compare color vs current color"
+          "description": "compare color vs current color",
+          "descriptionZh": null
         }
       ],
       "properties": [
         {
           "name": "r",
           "type": "number",
-          "description": "red"
+          "description": "red",
+          "descriptionZh": null
         },
         {
           "name": "g",
           "type": "number",
-          "description": "green"
+          "description": "green",
+          "descriptionZh": null
         },
         {
           "name": "b",
           "type": "number",
-          "description": "blue"
+          "description": "blue",
+          "descriptionZh": null
         },
         {
           "name": "a",
           "type": "number",
-          "description": "alpha"
+          "description": "alpha",
+          "descriptionZh": null
         },
         {
           "name": "format",
           "type": "ColorFormats",
-          "description": "the format used to create the tinycolor instance"
+          "description": "the format used to create the tinycolor instance",
+          "descriptionZh": null
         },
         {
           "name": "originalInput",
           "type": "ColorInput",
-          "description": "input passed into the constructer used to create the tinycolor instance"
+          "description": "input passed into the constructer used to create the tinycolor instance",
+          "descriptionZh": null
         },
         {
           "name": "isValid",
           "type": "boolean",
-          "description": "the color was successfully parsed"
+          "description": "the color was successfully parsed",
+          "descriptionZh": null
         },
         {
           "name": "gradientType",
           "type": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "roundA",
           "type": "number",
-          "description": "rounded alpha"
+          "description": "rounded alpha",
+          "descriptionZh": null
         }
       ]
     },
@@ -1234,6 +1365,7 @@
       "name": "TinyColorOptions",
       "kind": "interface",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/color/tinycolor.ts",
       "inputs": [],
       "outputs": [],
@@ -1244,6 +1376,7 @@
       "name": "TinyColorUMD",
       "kind": "interface",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/color/umd_api.ts",
       "inputs": [],
       "outputs": [],
@@ -1254,6 +1387,7 @@
       "name": "toMsFilter",
       "kind": "function",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/color/to-ms-filter.ts",
       "inputs": [],
       "outputs": [],
@@ -1264,6 +1398,7 @@
       "name": "WCAG2FallbackParms",
       "kind": "interface",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/color/readability.ts",
       "inputs": [],
       "outputs": [],
@@ -1274,6 +1409,7 @@
       "name": "WCAG2Parms",
       "kind": "interface",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/color/readability.ts",
       "inputs": [],
       "outputs": [],

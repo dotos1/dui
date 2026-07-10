@@ -5,6 +5,7 @@
       "name": "Align",
       "kind": "type",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/ux/editor/commands/TextAlign.ts",
       "inputs": [],
       "outputs": [],
@@ -15,6 +16,7 @@
       "name": "ALIGN_CENTER",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/ux/editor/commands/public-api.ts",
       "inputs": [],
       "outputs": [],
@@ -25,6 +27,7 @@
       "name": "ALIGN_JUSTIFY",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/ux/editor/commands/public-api.ts",
       "inputs": [],
       "outputs": [],
@@ -35,6 +38,7 @@
       "name": "ALIGN_LEFT",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/ux/editor/commands/public-api.ts",
       "inputs": [],
       "outputs": [],
@@ -45,6 +49,7 @@
       "name": "ALIGN_RIGHT",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/ux/editor/commands/public-api.ts",
       "inputs": [],
       "outputs": [],
@@ -55,6 +60,7 @@
       "name": "applyMark",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/ux/editor/commands/applyMark.ts",
       "inputs": [],
       "outputs": [],
@@ -65,6 +71,7 @@
       "name": "attributesPlugin",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/ux/editor/plugins/attributes.ts",
       "inputs": [],
       "outputs": [],
@@ -75,6 +82,7 @@
       "name": "autoLink",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/ux/editor/input-rules/auto-link.ts",
       "inputs": [],
       "outputs": [],
@@ -85,6 +93,7 @@
       "name": "BLOCKQUOTE",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/ux/editor/commands/public-api.ts",
       "inputs": [],
       "outputs": [],
@@ -95,6 +104,7 @@
       "name": "blurPlugin",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/ux/editor/plugins/blur.ts",
       "inputs": [],
       "outputs": [],
@@ -106,12 +116,14 @@
       "kind": "component",
       "selector": "ux-bubble",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/ux/editor/modules/menu/bubble/bubble.component.ts",
       "inputs": [
         {
           "name": "editor",
           "type": "Editor",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "outputs": [],
@@ -125,7 +137,8 @@
             }
           ],
           "returnType": "SafeHtml",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "getTitle",
@@ -136,7 +149,8 @@
             }
           ],
           "returnType": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "trackByIndex",
@@ -147,7 +161,8 @@
             }
           ],
           "returnType": "number",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "onClick",
@@ -162,7 +177,8 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": [
@@ -170,25 +186,29 @@
           "name": "execulableItems",
           "type": "TBItems[]",
           "default": "[]",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "activeItems",
           "type": "TBItems[]",
           "default": "[]",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "toolbar",
           "type": "TBItems[][]",
           "default": "[\n    ['bold', 'italic', 'underline', 'strike'],\n    ['ordered_list', 'bullet_list', 'blockquote', 'code'],\n    ['align_left', 'align_center', 'align_right', 'align_justify'],\n  ]",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "toggleCommands",
           "type": "TBItems[]",
           "default": "[\n    'bold',\n    'italic',\n    'underline',\n    'strike',\n    'ordered_list',\n    'bullet_list',\n    'blockquote',\n    'code',\n    'align_left',\n    'align_center',\n    'align_right',\n    'align_justify',\n  ]",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -196,6 +216,7 @@
       "name": "canInsert",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/ux/editor/helpers/canInsertNode.ts",
       "inputs": [],
       "outputs": [],
@@ -206,6 +227,7 @@
       "name": "CODE",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/ux/editor/commands/public-api.ts",
       "inputs": [],
       "outputs": [],
@@ -217,17 +239,20 @@
       "kind": "component",
       "selector": "ux-color-picker",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/ux/editor/modules/menu/color-picker/color-picker.component.ts",
       "inputs": [
         {
           "name": "presets",
           "type": "string[][]",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "type",
           "type": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "outputs": [],
@@ -241,7 +266,8 @@
             }
           ],
           "returnType": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "onDocumentClick",
@@ -252,7 +278,8 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "togglePopup",
@@ -263,7 +290,8 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "remove",
@@ -274,7 +302,8 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "trackByIndex",
@@ -285,7 +314,8 @@
             }
           ],
           "returnType": "number",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "onColorSelect",
@@ -300,7 +330,8 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "getLabel",
@@ -311,43 +342,50 @@
             }
           ],
           "returnType": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": [
         {
           "name": "title",
           "type": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "icon",
           "type": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "showPopup",
           "type": "any",
           "default": "false",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "isActive",
           "type": "any",
           "default": "false",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "activeColors",
           "type": "string[]",
           "default": "[]",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "canExecute",
           "type": "any",
           "default": "true",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -355,6 +393,7 @@
       "name": "defaults",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/ux/editor/Locals.ts",
       "inputs": [],
       "outputs": [],
@@ -365,6 +404,7 @@
       "name": "Dispatch",
       "kind": "type",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/ux/editor/commands/types.ts",
       "inputs": [],
       "outputs": [],
@@ -376,17 +416,20 @@
       "kind": "component",
       "selector": "ux-dropdown",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/ux/editor/modules/menu/dropdown/dropdown.component.ts",
       "inputs": [
         {
           "name": "group",
           "type": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "items",
           "type": "TBHeadingItems[]",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "outputs": [],
@@ -400,7 +443,8 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "getName",
@@ -411,7 +455,8 @@
             }
           ],
           "returnType": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "toggleDropdown",
@@ -422,7 +467,8 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "trackByIndex",
@@ -433,7 +479,8 @@
             }
           ],
           "returnType": "number",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "onClick",
@@ -448,7 +495,8 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": [
@@ -456,28 +504,33 @@
           "name": "isDropdownOpen",
           "type": "any",
           "default": "false",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "disabledItems",
           "type": "string[]",
           "default": "[]",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "activeItem",
           "type": "string | null",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "isSelected",
           "type": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "isDropdownDisabled",
           "type": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -485,6 +538,7 @@
       "name": "editablePlugin",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/ux/editor/plugins/editable.ts",
       "inputs": [],
       "outputs": [],
@@ -495,6 +549,7 @@
       "name": "Editor",
       "kind": "class",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/ux/editor/Editor.ts",
       "inputs": [],
       "outputs": [],
@@ -508,7 +563,8 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "registerPlugin",
@@ -519,50 +575,59 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "destroy",
           "params": [],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": [
         {
           "name": "view",
           "type": "EditorView",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "valueChanges",
           "type": "Observable<JSONDoc>",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "update",
           "type": "Observable<EditorView>",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "schema",
           "type": "Schema",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "linkValidationPattern",
           "type": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "commands",
           "type": "EditorCommands",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "features",
           "type": "EditorFeatures",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -570,6 +635,7 @@
       "name": "EDITOR_CONFIG_TOKEN",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/ux/editor/editor.module.ts",
       "inputs": [],
       "outputs": [],
@@ -581,35 +647,41 @@
       "kind": "component",
       "selector": "dui-editor",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/ux/editor/editor.component.ts",
       "inputs": [
         {
           "name": "editor",
           "type": "Editor",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "outputFormat",
           "type": "'doc' | 'html'",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "placeholder",
           "type": "any",
           "default": "'Type Here...'",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "outputs": [
         {
           "name": "focusOut",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "focusIn",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "methods": [],
@@ -619,6 +691,7 @@
       "name": "EditorConfig",
       "kind": "interface",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/ux/editor/types.ts",
       "inputs": [],
       "outputs": [],
@@ -629,6 +702,7 @@
       "name": "EditorError",
       "kind": "class",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/ux/editor/utils/error.ts",
       "inputs": [],
       "outputs": [],
@@ -639,6 +713,7 @@
       "name": "EditorMenuModule",
       "kind": "module",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/ux/editor/modules/menu/menu.module.ts",
       "inputs": [],
       "outputs": [],
@@ -649,6 +724,7 @@
       "name": "EditorModule",
       "kind": "module",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/ux/editor/editor.module.ts",
       "inputs": [],
       "outputs": [],
@@ -662,7 +738,8 @@
             }
           ],
           "returnType": "ModuleWithProviders<EditorModule>",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "forChild",
@@ -673,7 +750,8 @@
             }
           ],
           "returnType": "ModuleWithProviders<EditorModule>",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": []
@@ -682,6 +760,7 @@
       "name": "EditorServiceConfig",
       "kind": "service",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/ux/editor/editor-config.service.ts",
       "inputs": [],
       "outputs": [],
@@ -691,7 +770,8 @@
           "name": "locals",
           "type": "any",
           "default": "{}",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -699,6 +779,7 @@
       "name": "EM",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/ux/editor/commands/public-api.ts",
       "inputs": [],
       "outputs": [],
@@ -709,6 +790,7 @@
       "name": "emptyDoc",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/ux/editor/parsers.ts",
       "inputs": [],
       "outputs": [],
@@ -720,18 +802,21 @@
       "kind": "component",
       "selector": "editor-floating-menu",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/ux/editor/modules/menu/floating-menu/floating-menu.component.ts",
       "inputs": [
         {
           "name": "editor",
           "type": "Editor",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "autoPlace",
           "type": "any",
           "default": "false",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "outputs": [],
@@ -745,7 +830,8 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "onKeyDown",
@@ -756,7 +842,8 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "onMouseUp",
@@ -767,7 +854,8 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "onKeyUp",
@@ -778,14 +866,16 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": [
         {
           "name": "display",
           "type": "Partial<CSSStyleDeclaration>",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -793,6 +883,7 @@
       "name": "focusPlugin",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/ux/editor/plugins/focus.ts",
       "inputs": [],
       "outputs": [],
@@ -803,6 +894,7 @@
       "name": "FORMAT_CLEAR",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/ux/editor/commands/public-api.ts",
       "inputs": [],
       "outputs": [],
@@ -813,6 +905,7 @@
       "name": "getKeyboardShortcuts",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/ux/editor/defaultPlugins.ts",
       "inputs": [],
       "outputs": [],
@@ -823,6 +916,7 @@
       "name": "getSelectionMarks",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/ux/editor/helpers/getSelectionMarks.ts",
       "inputs": [],
       "outputs": [],
@@ -833,6 +927,7 @@
       "name": "getSelectionNodes",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/ux/editor/helpers/getSelectionNodes.ts",
       "inputs": [],
       "outputs": [],
@@ -843,6 +938,7 @@
       "name": "H1",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/ux/editor/commands/public-api.ts",
       "inputs": [],
       "outputs": [],
@@ -853,6 +949,7 @@
       "name": "H2",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/ux/editor/commands/public-api.ts",
       "inputs": [],
       "outputs": [],
@@ -863,6 +960,7 @@
       "name": "H3",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/ux/editor/commands/public-api.ts",
       "inputs": [],
       "outputs": [],
@@ -873,6 +971,7 @@
       "name": "H4",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/ux/editor/commands/public-api.ts",
       "inputs": [],
       "outputs": [],
@@ -883,6 +982,7 @@
       "name": "H5",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/ux/editor/commands/public-api.ts",
       "inputs": [],
       "outputs": [],
@@ -893,6 +993,7 @@
       "name": "H6",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/ux/editor/commands/public-api.ts",
       "inputs": [],
       "outputs": [],
@@ -903,6 +1004,7 @@
       "name": "HeadingLevels",
       "kind": "type",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/ux/editor/commands/Heading.ts",
       "inputs": [],
       "outputs": [],
@@ -913,6 +1015,7 @@
       "name": "HORIZONTAL_RULE",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/ux/editor/commands/public-api.ts",
       "inputs": [],
       "outputs": [],
@@ -923,6 +1026,7 @@
       "name": "Image",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/ux/editor/modules/menu/MenuCommands.ts",
       "inputs": [],
       "outputs": [],
@@ -933,6 +1037,7 @@
       "name": "IMAGE",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/ux/editor/commands/public-api.ts",
       "inputs": [],
       "outputs": [],
@@ -943,6 +1048,7 @@
       "name": "ImageAttrs",
       "kind": "interface",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/ux/editor/commands/Image.ts",
       "inputs": [],
       "outputs": [],
@@ -954,6 +1060,7 @@
       "kind": "component",
       "selector": "ux-image",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/ux/editor/modules/menu/image/image.component.ts",
       "inputs": [],
       "outputs": [],
@@ -967,7 +1074,8 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "getLabel",
@@ -978,7 +1086,8 @@
             }
           ],
           "returnType": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "onMouseDown",
@@ -989,7 +1098,8 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "insertLink",
@@ -1000,7 +1110,8 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": [
@@ -1008,29 +1119,34 @@
           "name": "showPopup",
           "type": "any",
           "default": "false",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "isActive",
           "type": "any",
           "default": "false",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "form",
           "type": "any",
           "default": "new FormGroup({\n    src: new FormControl('', [\n      Validators.required,\n      Validators.pattern('(https?://)?([\\\\da-z.-]+)\\\\.([a-z.]{2,6})[/\\\\w .-]*/??([^#\\n\\r]*)?#?([^\\n\\r]*)'),\n    ]),\n    alt: new FormControl(''),\n    title: new FormControl(''),\n  })",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "icon",
           "type": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "src",
           "type": "AbstractControl",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -1038,6 +1154,7 @@
       "name": "imageResizePlugin",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/ux/editor/plugins/image-resize.ts",
       "inputs": [],
       "outputs": [],
@@ -1049,48 +1166,56 @@
       "kind": "component",
       "selector": "ux-image-view",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/ux/editor/components/image-view/image-view.component.ts",
       "inputs": [
         {
           "name": "src",
           "type": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "alt",
           "type": "any",
           "default": "''",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "title",
           "type": "any",
           "default": "''",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "outerWidth",
           "type": "any",
           "default": "''",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "selected",
           "type": "any",
           "default": "false",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "view",
           "type": "EditorView",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "outputs": [
         {
           "name": "imageResize",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "methods": [
@@ -1107,7 +1232,8 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "resizeImage",
@@ -1122,14 +1248,16 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": [
         {
           "name": "imgEl",
           "type": "ElementRef",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -1137,6 +1265,7 @@
       "name": "InsertCommand",
       "kind": "interface",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/ux/editor/commands/types.ts",
       "inputs": [],
       "outputs": [],
@@ -1148,12 +1277,14 @@
       "kind": "component",
       "selector": "ux-insert-command",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/ux/editor/modules/menu/insert-command/insert-command.component.ts",
       "inputs": [
         {
           "name": "toolbarItem",
           "type": "ToolbarItem",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "outputs": [],
@@ -1167,7 +1298,8 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "getTitle",
@@ -1178,36 +1310,42 @@
             }
           ],
           "returnType": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": [
         {
           "name": "name",
           "type": "TBItems",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "html",
           "type": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "editorView",
           "type": "EditorView",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "disabled",
           "type": "any",
           "default": "false",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "update",
           "type": "any",
           "default": "(view: EditorView): void => {\n    const { state } = view;\n    const command = InsertCommands[this.name];\n    this.disabled = !command.canExecute(state);\n  }",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -1215,6 +1353,7 @@
       "name": "InsertCommands",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/ux/editor/modules/menu/MenuCommands.ts",
       "inputs": [],
       "outputs": [],
@@ -1225,6 +1364,7 @@
       "name": "isMarkActive",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/ux/editor/helpers/isMarkActive.ts",
       "inputs": [],
       "outputs": [],
@@ -1235,6 +1375,7 @@
       "name": "isNil",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/ux/editor/utils/isNil.ts",
       "inputs": [],
       "outputs": [],
@@ -1245,6 +1386,7 @@
       "name": "isNodeActive",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/ux/editor/helpers/isNodeActive.ts",
       "inputs": [],
       "outputs": [],
@@ -1255,6 +1397,7 @@
       "name": "Link",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/ux/editor/modules/menu/MenuCommands.ts",
       "inputs": [],
       "outputs": [],
@@ -1265,6 +1408,7 @@
       "name": "LINK",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/ux/editor/commands/public-api.ts",
       "inputs": [],
       "outputs": [],
@@ -1275,6 +1419,7 @@
       "name": "LinkAttrs",
       "kind": "interface",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/ux/editor/commands/Link.ts",
       "inputs": [],
       "outputs": [],
@@ -1286,6 +1431,7 @@
       "kind": "component",
       "selector": "ux-link",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/ux/editor/modules/menu/link/link.component.ts",
       "inputs": [],
       "outputs": [],
@@ -1299,7 +1445,8 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "getLabel",
@@ -1310,7 +1457,8 @@
             }
           ],
           "returnType": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "onMouseDown",
@@ -1321,7 +1469,8 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "insertLink",
@@ -1332,7 +1481,8 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": [
@@ -1340,44 +1490,52 @@
           "name": "showPopup",
           "type": "any",
           "default": "false",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "isActive",
           "type": "any",
           "default": "false",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "canExecute",
           "type": "any",
           "default": "true",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "form",
           "type": "FormGroup",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "icon",
           "type": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "title",
           "type": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "href",
           "type": "AbstractControl",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "text",
           "type": "AbstractControl",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -1385,6 +1543,7 @@
       "name": "linkifyPlugin",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/ux/editor/plugins/link.ts",
       "inputs": [],
       "outputs": [],
@@ -1395,6 +1554,7 @@
       "name": "LocalsKeys",
       "kind": "type",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/ux/editor/Locals.ts",
       "inputs": [],
       "outputs": [],
@@ -1405,6 +1565,7 @@
       "name": "markApplies",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/ux/editor/helpers/markApplies.ts",
       "inputs": [],
       "outputs": [],
@@ -1415,6 +1576,7 @@
       "name": "markInputRule",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/ux/editor/helpers/markInputRule.ts",
       "inputs": [],
       "outputs": [],
@@ -1425,6 +1587,7 @@
       "name": "marks",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/ux/editor/schema/marks.ts",
       "inputs": [],
       "outputs": [],
@@ -1436,42 +1599,49 @@
       "kind": "component",
       "selector": "ux-editor-menu",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/ux/editor/modules/menu/menu.component.ts",
       "inputs": [
         {
           "name": "toolbar",
           "type": "Toolbar",
           "default": "TOOLBAR_MINIMAL",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "colorPresets",
           "type": "string[]",
           "default": "DEFAULT_COLOR_PRESETS",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "disabled",
           "type": "any",
           "default": "false",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "editor",
           "type": "Editor",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "customMenuRef",
           "type": "TemplateRef<any> | null",
           "default": "null",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "dropdownPlacement",
           "type": "'top' | 'bottom'",
           "default": "'bottom'",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "outputs": [],
@@ -1485,7 +1655,8 @@
             }
           ],
           "returnType": "number",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "isDropDown",
@@ -1496,7 +1667,8 @@
             }
           ],
           "returnType": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "getDropdownItems",
@@ -1507,7 +1679,8 @@
             }
           ],
           "returnType": "ToolbarDropdown",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": [
@@ -1515,36 +1688,42 @@
           "name": "toggleCommands",
           "type": "ToolbarItem[]",
           "default": "[\n    'bold',\n    'italic',\n    'underline',\n    'strike',\n    'code',\n    'blockquote',\n    'ordered_list',\n    'bullet_list',\n    'align_left',\n    'align_center',\n    'align_right',\n    'align_justify',\n  ]",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "insertCommands",
           "type": "ToolbarItem[]",
           "default": "[\n    'horizontal_rule',\n    'format_clear',\n  ]",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "iconContainerClass",
           "type": "any",
           "default": "['Editor__MenuItem', 'Editor__MenuItem--Icon']",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "dropdownContainerClass",
           "type": "any",
           "default": "['Editor__Dropdown']",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "seperatorClass",
           "type": "any",
           "default": "['Editor__Seperator']",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "presets",
           "type": "string[][]",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -1552,6 +1731,7 @@
       "name": "MenuService",
       "kind": "service",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/ux/editor/modules/menu/menu.service.ts",
       "inputs": [],
       "outputs": [],
@@ -1565,20 +1745,23 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": [
         {
           "name": "editor",
           "type": "Editor",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "customMenuRefChange",
           "type": "Subject<TemplateRef<any>>",
           "default": "new Subject<TemplateRef<any>>()",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -1586,6 +1769,7 @@
       "name": "nodes",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/ux/editor/schema/nodes.ts",
       "inputs": [],
       "outputs": [],
@@ -1596,6 +1780,7 @@
       "name": "OL",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/ux/editor/commands/public-api.ts",
       "inputs": [],
       "outputs": [],
@@ -1606,6 +1791,7 @@
       "name": "parseContent",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/ux/editor/parsers.ts",
       "inputs": [],
       "outputs": [],
@@ -1616,6 +1802,7 @@
       "name": "placeholderPlugin",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/ux/editor/plugins/placeholder.ts",
       "inputs": [],
       "outputs": [],
@@ -1626,6 +1813,7 @@
       "name": "removeLink",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/ux/editor/commands/removeLink.ts",
       "inputs": [],
       "outputs": [],
@@ -1636,6 +1824,7 @@
       "name": "removeMark",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/ux/editor/commands/removeMark.ts",
       "inputs": [],
       "outputs": [],
@@ -1647,6 +1836,7 @@
       "kind": "pipe",
       "pipeName": "sanitizeHtml",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/ux/editor/pipes/sanitize/sanitize-html.pipe.ts",
       "inputs": [],
       "outputs": [],
@@ -1660,7 +1850,8 @@
             }
           ],
           "returnType": "SafeHtml",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": []
@@ -1669,6 +1860,7 @@
       "name": "schema",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/ux/editor/schema/schema.ts",
       "inputs": [],
       "outputs": [],
@@ -1679,6 +1871,7 @@
       "name": "STRIKE",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/ux/editor/commands/public-api.ts",
       "inputs": [],
       "outputs": [],
@@ -1689,6 +1882,7 @@
       "name": "STRONG",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/ux/editor/commands/public-api.ts",
       "inputs": [],
       "outputs": [],
@@ -1699,6 +1893,7 @@
       "name": "TBHeadingItems",
       "kind": "type",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/ux/editor/types.ts",
       "inputs": [],
       "outputs": [],
@@ -1709,6 +1904,7 @@
       "name": "TBItems",
       "kind": "type",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/ux/editor/types.ts",
       "inputs": [],
       "outputs": [],
@@ -1719,6 +1915,7 @@
       "name": "TEXT_BACKGROUND_COLOR",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/ux/editor/commands/public-api.ts",
       "inputs": [],
       "outputs": [],
@@ -1729,6 +1926,7 @@
       "name": "TEXT_COLOR",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/ux/editor/commands/public-api.ts",
       "inputs": [],
       "outputs": [],
@@ -1739,6 +1937,7 @@
       "name": "TextBackgroundColor",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/ux/editor/modules/menu/MenuCommands.ts",
       "inputs": [],
       "outputs": [],
@@ -1749,6 +1948,7 @@
       "name": "TextColor",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/ux/editor/modules/menu/MenuCommands.ts",
       "inputs": [],
       "outputs": [],
@@ -1759,6 +1959,7 @@
       "name": "toDoc",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/ux/editor/parsers.ts",
       "inputs": [],
       "outputs": [],
@@ -1769,6 +1970,7 @@
       "name": "ToggleCommand",
       "kind": "interface",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/ux/editor/commands/types.ts",
       "inputs": [],
       "outputs": [],
@@ -1780,12 +1982,14 @@
       "kind": "component",
       "selector": "ux-toggle-command",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/ux/editor/modules/menu/toggle-command/toggle-command.component.ts",
       "inputs": [
         {
           "name": "toolbarItem",
           "type": "ToolbarItem",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "outputs": [],
@@ -1799,7 +2003,8 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "getTitle",
@@ -1810,42 +2015,49 @@
             }
           ],
           "returnType": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": [
         {
           "name": "name",
           "type": "TBItems",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "html",
           "type": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "editorView",
           "type": "EditorView",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "isActive",
           "type": "any",
           "default": "false",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "disabled",
           "type": "any",
           "default": "false",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "update",
           "type": "any",
           "default": "(view: EditorView): void => {\n    const { state } = view;\n    const command = ToggleCommands[this.name];\n    this.isActive = command.isActive(state);\n    this.disabled = !command.canExecute(state);\n  }",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -1853,6 +2065,7 @@
       "name": "ToggleCommands",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/ux/editor/modules/menu/MenuCommands.ts",
       "inputs": [],
       "outputs": [],
@@ -1863,6 +2076,7 @@
       "name": "toHTML",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/ux/editor/parsers.ts",
       "inputs": [],
       "outputs": [],
@@ -1873,6 +2087,7 @@
       "name": "Toolbar",
       "kind": "type",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/ux/editor/types.ts",
       "inputs": [],
       "outputs": [],
@@ -1883,6 +2098,7 @@
       "name": "ToolbarCustomMenuItem",
       "kind": "type",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/ux/editor/types.ts",
       "inputs": [],
       "outputs": [],
@@ -1893,6 +2109,7 @@
       "name": "ToolbarDropdown",
       "kind": "type",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/ux/editor/types.ts",
       "inputs": [],
       "outputs": [],
@@ -1903,6 +2120,7 @@
       "name": "ToolbarDropdownGroupKeys",
       "kind": "type",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/ux/editor/types.ts",
       "inputs": [],
       "outputs": [],
@@ -1913,6 +2131,7 @@
       "name": "ToolbarDropdownGroupValues",
       "kind": "type",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/ux/editor/types.ts",
       "inputs": [],
       "outputs": [],
@@ -1923,6 +2142,7 @@
       "name": "ToolbarItem",
       "kind": "type",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/ux/editor/types.ts",
       "inputs": [],
       "outputs": [],
@@ -1933,6 +2153,7 @@
       "name": "toStyleString",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/ux/editor/utils/toStyleString.ts",
       "inputs": [],
       "outputs": [],
@@ -1943,6 +2164,7 @@
       "name": "UL",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/ux/editor/commands/public-api.ts",
       "inputs": [],
       "outputs": [],
@@ -1953,6 +2175,7 @@
       "name": "UNDERLINE",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/ux/editor/commands/public-api.ts",
       "inputs": [],
       "outputs": [],
@@ -1963,6 +2186,7 @@
       "name": "Validators",
       "kind": "class",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/ux/editor/validators.ts",
       "inputs": [],
       "outputs": [],
@@ -1976,7 +2200,8 @@
             }
           ],
           "returnType": "ValidatorFn",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "maxLength",
@@ -1991,7 +2216,8 @@
             }
           ],
           "returnType": "ValidatorFn",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "minLength",
@@ -2006,7 +2232,8 @@
             }
           ],
           "returnType": "ValidatorFn",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": []

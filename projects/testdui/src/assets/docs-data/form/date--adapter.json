@@ -5,6 +5,7 @@
       "name": "DatetimeAdapter",
       "kind": "class",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/form/date/adapter/datetime-adapter.ts",
       "inputs": [],
       "outputs": [],
@@ -18,7 +19,8 @@
             }
           ],
           "returnType": "number",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "getMinute",
@@ -29,7 +31,8 @@
             }
           ],
           "returnType": "number",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "getFirstDateOfMonth",
@@ -40,7 +43,8 @@
             }
           ],
           "returnType": "D",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "isInNextMonth",
@@ -55,19 +59,22 @@
             }
           ],
           "returnType": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "getHourNames",
           "params": [],
           "returnType": "string[]",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "getMinuteNames",
           "params": [],
           "returnType": "string[]",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "addCalendarHours",
@@ -82,7 +89,8 @@
             }
           ],
           "returnType": "D",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "addCalendarMinutes",
@@ -97,7 +105,8 @@
             }
           ],
           "returnType": "D",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "createDatetime",
@@ -124,7 +133,8 @@
             }
           ],
           "returnType": "D",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "getValidDateOrNull",
@@ -135,7 +145,8 @@
             }
           ],
           "returnType": "D | null",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "compareDatetime",
@@ -154,7 +165,8 @@
             }
           ],
           "returnType": "number",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "sameDatetime",
@@ -169,7 +181,8 @@
             }
           ],
           "returnType": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "sameYear",
@@ -184,7 +197,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "sameDay",
@@ -199,7 +213,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "sameHour",
@@ -214,7 +229,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "sameMinute",
@@ -229,7 +245,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "sameMonthAndYear",
@@ -244,7 +261,8 @@
             }
           ],
           "returnType": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "clone",
@@ -255,7 +273,8 @@
             }
           ],
           "returnType": "D",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "addCalendarYears",
@@ -270,7 +289,8 @@
             }
           ],
           "returnType": "D",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "addCalendarMonths",
@@ -285,7 +305,8 @@
             }
           ],
           "returnType": "D",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "addCalendarDays",
@@ -300,7 +321,8 @@
             }
           ],
           "returnType": "D",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "getYear",
@@ -311,7 +333,8 @@
             }
           ],
           "returnType": "number",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "getMonth",
@@ -322,7 +345,8 @@
             }
           ],
           "returnType": "number",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "getDate",
@@ -333,7 +357,8 @@
             }
           ],
           "returnType": "number",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "getDayOfWeek",
@@ -344,7 +369,8 @@
             }
           ],
           "returnType": "number",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "getMonthNames",
@@ -355,13 +381,15 @@
             }
           ],
           "returnType": "string[]",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "getDateNames",
           "params": [],
           "returnType": "string[]",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "getDayOfWeekNames",
@@ -372,7 +400,8 @@
             }
           ],
           "returnType": "string[]",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "getYearName",
@@ -383,13 +412,15 @@
             }
           ],
           "returnType": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "getFirstDayOfWeek",
           "params": [],
           "returnType": "number",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "getNumDaysInMonth",
@@ -400,7 +431,8 @@
             }
           ],
           "returnType": "number",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "createDate",
@@ -419,13 +451,15 @@
             }
           ],
           "returnType": "D",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "today",
           "params": [],
           "returnType": "D",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "parse",
@@ -440,7 +474,8 @@
             }
           ],
           "returnType": "D | null",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "format",
@@ -455,7 +490,8 @@
             }
           ],
           "returnType": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "toIso8601",
@@ -466,7 +502,8 @@
             }
           ],
           "returnType": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "isDateInstance",
@@ -477,7 +514,8 @@
             }
           ],
           "returnType": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "isValid",
@@ -488,13 +526,15 @@
             }
           ],
           "returnType": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "invalid",
           "params": [],
           "returnType": "D",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "clampDate",
@@ -513,7 +553,8 @@
             }
           ],
           "returnType": "D",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": []
@@ -522,6 +563,7 @@
       "name": "MAT_DATETIME_FORMATS",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/form/date/adapter/datetime-formats.ts",
       "inputs": [],
       "outputs": [],
@@ -532,6 +574,7 @@
       "name": "MAT_NATIVE_DATETIME_FORMATS",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/form/date/adapter/native-datetime-formats.ts",
       "inputs": [],
       "outputs": [],
@@ -542,6 +585,7 @@
       "name": "MatDatetimeFormats",
       "kind": "interface",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/form/date/adapter/datetime-formats.ts",
       "inputs": [],
       "outputs": [],
@@ -552,6 +596,7 @@
       "name": "MatNativeDatetimeModule",
       "kind": "module",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/form/date/adapter/adapter.module.ts",
       "inputs": [],
       "outputs": [],
@@ -562,6 +607,7 @@
       "name": "NativeDatetimeAdapter",
       "kind": "service",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/form/date/adapter/native-datetime-adapter.ts",
       "inputs": [],
       "outputs": [],
@@ -575,7 +621,8 @@
             }
           ],
           "returnType": "Date",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "getHour",
@@ -586,7 +633,8 @@
             }
           ],
           "returnType": "number",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "getMinute",
@@ -597,7 +645,8 @@
             }
           ],
           "returnType": "number",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "isInNextMonth",
@@ -612,7 +661,8 @@
             }
           ],
           "returnType": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "createDatetime",
@@ -639,7 +689,8 @@
             }
           ],
           "returnType": "Date",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "getFirstDateOfMonth",
@@ -650,19 +701,22 @@
             }
           ],
           "returnType": "Date",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "getHourNames",
           "params": [],
           "returnType": "string[]",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "getMinuteNames",
           "params": [],
           "returnType": "string[]",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "addCalendarYears",
@@ -677,7 +731,8 @@
             }
           ],
           "returnType": "Date",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "addCalendarMonths",
@@ -692,7 +747,8 @@
             }
           ],
           "returnType": "Date",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "addCalendarDays",
@@ -707,7 +763,8 @@
             }
           ],
           "returnType": "Date",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "addCalendarHours",
@@ -722,7 +779,8 @@
             }
           ],
           "returnType": "Date",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "addCalendarMinutes",
@@ -737,7 +795,8 @@
             }
           ],
           "returnType": "Date",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "toIso8601",
@@ -748,7 +807,8 @@
             }
           ],
           "returnType": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": []
@@ -757,6 +817,7 @@
       "name": "NativeDatetimeModule",
       "kind": "module",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/form/date/adapter/adapter.module.ts",
       "inputs": [],
       "outputs": [],

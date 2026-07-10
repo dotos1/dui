@@ -17,6 +17,12 @@ export enum NotificationCountPositionX {
 
 export const DEFAULT_NOTIFICATION_LIMIT: number = 99;
 
+/**
+ * Small badge overlay (typically on an icon/avatar) showing a notification count or a plain
+ * dot indicator, positioned via `positionX`/`positionY`.
+ * @zh 小型徽标覆层（通常叠加在图标/头像上），显示通知数量或纯圆点提示，
+ * 通过 `positionX`/`positionY` 控制位置。
+ */
 @Component({
   selector: 'dui-notification-count',
   styleUrls: ['./notification-count.component.scss'],

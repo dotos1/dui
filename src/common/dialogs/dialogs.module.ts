@@ -46,6 +46,15 @@ const DIALOGS_ENTRY_COMPONENTS: Type<any>[] = [
   ConfirmDialogComponent,
   PromptDialogComponent
 ];
+/**
+ * Registers all of the dialogs library's dialog components/directives
+ * ({@link AlertDialogComponent}, {@link ConfirmDialogComponent}, {@link PromptDialogComponent},
+ * {@link StatusDialogComponent}, {@link WindowDialogComponent}, `dui-dialog`) and provides
+ * {@link DialogService}.
+ * @zh 注册对话框库的全部对话框组件/指令（{@link AlertDialogComponent}、{@link ConfirmDialogComponent}、
+ * {@link PromptDialogComponent}、{@link StatusDialogComponent}、{@link WindowDialogComponent}、
+ * `dui-dialog`），并提供 {@link DialogService}。
+ */
 @NgModule({
   imports: [
     FormsModule,

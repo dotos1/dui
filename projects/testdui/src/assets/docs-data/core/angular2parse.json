@@ -5,6 +5,7 @@
       "name": "_ParseAST",
       "kind": "class",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/angular2parse/angular/compiler/parser.ts",
       "inputs": [],
       "outputs": [],
@@ -18,7 +19,8 @@
             }
           ],
           "returnType": "Token",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "span",
@@ -29,13 +31,15 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "advance",
           "params": [],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "optionalCharacter",
@@ -46,13 +50,15 @@
             }
           ],
           "returnType": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "peekKeywordLet",
           "params": [],
           "returnType": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "expectCharacter",
@@ -63,7 +69,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "optionalOperator",
@@ -74,7 +81,8 @@
             }
           ],
           "returnType": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "expectOperator",
@@ -85,97 +93,113 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "expectIdentifierOrKeyword",
           "params": [],
           "returnType": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "expectIdentifierOrKeywordOrString",
           "params": [],
           "returnType": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "parseChain",
           "params": [],
           "returnType": "AST",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "parsePipe",
           "params": [],
           "returnType": "AST",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "parseExpression",
           "params": [],
           "returnType": "AST",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "parseConditional",
           "params": [],
           "returnType": "AST",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "parseLogicalOr",
           "params": [],
           "returnType": "AST",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "parseLogicalAnd",
           "params": [],
           "returnType": "AST",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "parseEquality",
           "params": [],
           "returnType": "AST",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "parseRelational",
           "params": [],
           "returnType": "AST",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "parseAdditive",
           "params": [],
           "returnType": "AST",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "parseMultiplicative",
           "params": [],
           "returnType": "AST",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "parsePrefix",
           "params": [],
           "returnType": "AST",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "parseCallChain",
           "params": [],
           "returnType": "AST",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "parsePrimary",
           "params": [],
           "returnType": "AST",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "parseExpressionList",
@@ -186,13 +210,15 @@
             }
           ],
           "returnType": "AST[]",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "parseLiteralMap",
           "params": [],
           "returnType": "LiteralMap",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "parseAccessMemberOrMethodCall",
@@ -207,25 +233,29 @@
             }
           ],
           "returnType": "AST",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "parseCallArguments",
           "params": [],
           "returnType": "BindingPipe[]",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "expectTemplateBindingKey",
           "params": [],
           "returnType": "string",
-          "description": "An identifier, a keyword, a string with an optional `-` inbetween."
+          "description": "An identifier, a keyword, a string with an optional `-` inbetween.",
+          "descriptionZh": null
         },
         {
           "name": "parseTemplateBindings",
           "params": [],
           "returnType": "TemplateBindingParseResult",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "error",
@@ -240,7 +270,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": [
@@ -248,17 +279,20 @@
           "name": "index",
           "type": "number",
           "default": "0",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "next",
           "type": "Token",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "inputIndex",
           "type": "number",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -266,6 +300,7 @@
       "name": "$_",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/angular2parse/angular/compiler/chars.ts",
       "inputs": [],
       "outputs": [],
@@ -276,6 +311,7 @@
       "name": "$$",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/angular2parse/angular/compiler/chars.ts",
       "inputs": [],
       "outputs": [],
@@ -286,6 +322,7 @@
       "name": "$0",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/angular2parse/angular/compiler/chars.ts",
       "inputs": [],
       "outputs": [],
@@ -296,6 +333,7 @@
       "name": "$9",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/angular2parse/angular/compiler/chars.ts",
       "inputs": [],
       "outputs": [],
@@ -306,6 +344,7 @@
       "name": "$a",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/angular2parse/angular/compiler/chars.ts",
       "inputs": [],
       "outputs": [],
@@ -316,6 +355,7 @@
       "name": "$A",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/angular2parse/angular/compiler/chars.ts",
       "inputs": [],
       "outputs": [],
@@ -326,6 +366,7 @@
       "name": "$AMPERSAND",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/angular2parse/angular/compiler/chars.ts",
       "inputs": [],
       "outputs": [],
@@ -336,6 +377,7 @@
       "name": "$AT",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/angular2parse/angular/compiler/chars.ts",
       "inputs": [],
       "outputs": [],
@@ -346,6 +388,7 @@
       "name": "$BACKSLASH",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/angular2parse/angular/compiler/chars.ts",
       "inputs": [],
       "outputs": [],
@@ -356,6 +399,7 @@
       "name": "$BANG",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/angular2parse/angular/compiler/chars.ts",
       "inputs": [],
       "outputs": [],
@@ -366,6 +410,7 @@
       "name": "$BAR",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/angular2parse/angular/compiler/chars.ts",
       "inputs": [],
       "outputs": [],
@@ -376,6 +421,7 @@
       "name": "$BT",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/angular2parse/angular/compiler/chars.ts",
       "inputs": [],
       "outputs": [],
@@ -386,6 +432,7 @@
       "name": "$CARET",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/angular2parse/angular/compiler/chars.ts",
       "inputs": [],
       "outputs": [],
@@ -396,6 +443,7 @@
       "name": "$COLON",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/angular2parse/angular/compiler/chars.ts",
       "inputs": [],
       "outputs": [],
@@ -406,6 +454,7 @@
       "name": "$COMMA",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/angular2parse/angular/compiler/chars.ts",
       "inputs": [],
       "outputs": [],
@@ -416,6 +465,7 @@
       "name": "$CR",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/angular2parse/angular/compiler/chars.ts",
       "inputs": [],
       "outputs": [],
@@ -426,6 +476,7 @@
       "name": "$DQ",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/angular2parse/angular/compiler/chars.ts",
       "inputs": [],
       "outputs": [],
@@ -436,6 +487,7 @@
       "name": "$e",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/angular2parse/angular/compiler/chars.ts",
       "inputs": [],
       "outputs": [],
@@ -446,6 +498,7 @@
       "name": "$E",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/angular2parse/angular/compiler/chars.ts",
       "inputs": [],
       "outputs": [],
@@ -456,6 +509,7 @@
       "name": "$EOF",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/angular2parse/angular/compiler/chars.ts",
       "inputs": [],
       "outputs": [],
@@ -466,6 +520,7 @@
       "name": "$EQ",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/angular2parse/angular/compiler/chars.ts",
       "inputs": [],
       "outputs": [],
@@ -476,6 +531,7 @@
       "name": "$f",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/angular2parse/angular/compiler/chars.ts",
       "inputs": [],
       "outputs": [],
@@ -486,6 +542,7 @@
       "name": "$F",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/angular2parse/angular/compiler/chars.ts",
       "inputs": [],
       "outputs": [],
@@ -496,6 +553,7 @@
       "name": "$FF",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/angular2parse/angular/compiler/chars.ts",
       "inputs": [],
       "outputs": [],
@@ -506,6 +564,7 @@
       "name": "$GT",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/angular2parse/angular/compiler/chars.ts",
       "inputs": [],
       "outputs": [],
@@ -516,6 +575,7 @@
       "name": "$HASH",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/angular2parse/angular/compiler/chars.ts",
       "inputs": [],
       "outputs": [],
@@ -526,6 +586,7 @@
       "name": "$LBRACE",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/angular2parse/angular/compiler/chars.ts",
       "inputs": [],
       "outputs": [],
@@ -536,6 +597,7 @@
       "name": "$LBRACKET",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/angular2parse/angular/compiler/chars.ts",
       "inputs": [],
       "outputs": [],
@@ -546,6 +608,7 @@
       "name": "$LF",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/angular2parse/angular/compiler/chars.ts",
       "inputs": [],
       "outputs": [],
@@ -556,6 +619,7 @@
       "name": "$LPAREN",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/angular2parse/angular/compiler/chars.ts",
       "inputs": [],
       "outputs": [],
@@ -566,6 +630,7 @@
       "name": "$LT",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/angular2parse/angular/compiler/chars.ts",
       "inputs": [],
       "outputs": [],
@@ -576,6 +641,7 @@
       "name": "$MINUS",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/angular2parse/angular/compiler/chars.ts",
       "inputs": [],
       "outputs": [],
@@ -586,6 +652,7 @@
       "name": "$n",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/angular2parse/angular/compiler/chars.ts",
       "inputs": [],
       "outputs": [],
@@ -596,6 +663,7 @@
       "name": "$NBSP",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/angular2parse/angular/compiler/chars.ts",
       "inputs": [],
       "outputs": [],
@@ -606,6 +674,7 @@
       "name": "$PERCENT",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/angular2parse/angular/compiler/chars.ts",
       "inputs": [],
       "outputs": [],
@@ -616,6 +685,7 @@
       "name": "$PERIOD",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/angular2parse/angular/compiler/chars.ts",
       "inputs": [],
       "outputs": [],
@@ -626,6 +696,7 @@
       "name": "$PIPE",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/angular2parse/angular/compiler/chars.ts",
       "inputs": [],
       "outputs": [],
@@ -636,6 +707,7 @@
       "name": "$PLUS",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/angular2parse/angular/compiler/chars.ts",
       "inputs": [],
       "outputs": [],
@@ -646,6 +718,7 @@
       "name": "$QUESTION",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/angular2parse/angular/compiler/chars.ts",
       "inputs": [],
       "outputs": [],
@@ -656,6 +729,7 @@
       "name": "$r",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/angular2parse/angular/compiler/chars.ts",
       "inputs": [],
       "outputs": [],
@@ -666,6 +740,7 @@
       "name": "$RBRACE",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/angular2parse/angular/compiler/chars.ts",
       "inputs": [],
       "outputs": [],
@@ -676,6 +751,7 @@
       "name": "$RBRACKET",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/angular2parse/angular/compiler/chars.ts",
       "inputs": [],
       "outputs": [],
@@ -686,6 +762,7 @@
       "name": "$RPAREN",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/angular2parse/angular/compiler/chars.ts",
       "inputs": [],
       "outputs": [],
@@ -696,6 +773,7 @@
       "name": "$SEMICOLON",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/angular2parse/angular/compiler/chars.ts",
       "inputs": [],
       "outputs": [],
@@ -706,6 +784,7 @@
       "name": "$SLASH",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/angular2parse/angular/compiler/chars.ts",
       "inputs": [],
       "outputs": [],
@@ -716,6 +795,7 @@
       "name": "$SPACE",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/angular2parse/angular/compiler/chars.ts",
       "inputs": [],
       "outputs": [],
@@ -726,6 +806,7 @@
       "name": "$SQ",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/angular2parse/angular/compiler/chars.ts",
       "inputs": [],
       "outputs": [],
@@ -736,6 +817,7 @@
       "name": "$STAR",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/angular2parse/angular/compiler/chars.ts",
       "inputs": [],
       "outputs": [],
@@ -746,6 +828,7 @@
       "name": "$t",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/angular2parse/angular/compiler/chars.ts",
       "inputs": [],
       "outputs": [],
@@ -756,6 +839,7 @@
       "name": "$TAB",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/angular2parse/angular/compiler/chars.ts",
       "inputs": [],
       "outputs": [],
@@ -766,6 +850,7 @@
       "name": "$TILDA",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/angular2parse/angular/compiler/chars.ts",
       "inputs": [],
       "outputs": [],
@@ -776,6 +861,7 @@
       "name": "$u",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/angular2parse/angular/compiler/chars.ts",
       "inputs": [],
       "outputs": [],
@@ -786,6 +872,7 @@
       "name": "$v",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/angular2parse/angular/compiler/chars.ts",
       "inputs": [],
       "outputs": [],
@@ -796,6 +883,7 @@
       "name": "$VTAB",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/angular2parse/angular/compiler/chars.ts",
       "inputs": [],
       "outputs": [],
@@ -806,6 +894,7 @@
       "name": "$x",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/angular2parse/angular/compiler/chars.ts",
       "inputs": [],
       "outputs": [],
@@ -816,6 +905,7 @@
       "name": "$X",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/angular2parse/angular/compiler/chars.ts",
       "inputs": [],
       "outputs": [],
@@ -826,6 +916,7 @@
       "name": "$z",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/angular2parse/angular/compiler/chars.ts",
       "inputs": [],
       "outputs": [],
@@ -836,6 +927,7 @@
       "name": "$Z",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/angular2parse/angular/compiler/chars.ts",
       "inputs": [],
       "outputs": [],
@@ -846,6 +938,7 @@
       "name": "Angular2ParseModule",
       "kind": "module",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/angular2parse/module.ts",
       "inputs": [],
       "outputs": [],
@@ -859,7 +952,8 @@
             }
           ],
           "returnType": "ModuleWithProviders<any>",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": []
@@ -868,6 +962,7 @@
       "name": "assertArrayOfStrings",
       "kind": "function",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/angular2parse/angular/compiler/assertions.ts",
       "inputs": [],
       "outputs": [],
@@ -878,6 +973,7 @@
       "name": "assertInterpolationSymbols",
       "kind": "function",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/angular2parse/angular/compiler/assertions.ts",
       "inputs": [],
       "outputs": [],
@@ -888,6 +984,7 @@
       "name": "AST",
       "kind": "class",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/angular2parse/angular/compiler/ast.ts",
       "inputs": [],
       "outputs": [],
@@ -905,13 +1002,15 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "toString",
           "params": [],
           "returnType": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": []
@@ -920,6 +1019,7 @@
       "name": "AstTransformer",
       "kind": "class",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/angular2parse/angular/compiler/ast.ts",
       "inputs": [],
       "outputs": [],
@@ -937,7 +1037,8 @@
             }
           ],
           "returnType": "AST",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "visitInterpolation",
@@ -952,7 +1053,8 @@
             }
           ],
           "returnType": "AST",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "visitLiteralPrimitive",
@@ -967,7 +1069,8 @@
             }
           ],
           "returnType": "AST",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "visitPropertyRead",
@@ -982,7 +1085,8 @@
             }
           ],
           "returnType": "AST",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "visitPropertyWrite",
@@ -997,7 +1101,8 @@
             }
           ],
           "returnType": "AST",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "visitSafePropertyRead",
@@ -1012,7 +1117,8 @@
             }
           ],
           "returnType": "AST",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "visitMethodCall",
@@ -1027,7 +1133,8 @@
             }
           ],
           "returnType": "AST",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "visitSafeMethodCall",
@@ -1042,7 +1149,8 @@
             }
           ],
           "returnType": "AST",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "visitFunctionCall",
@@ -1057,7 +1165,8 @@
             }
           ],
           "returnType": "AST",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "visitLiteralArray",
@@ -1072,7 +1181,8 @@
             }
           ],
           "returnType": "AST",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "visitLiteralMap",
@@ -1087,7 +1197,8 @@
             }
           ],
           "returnType": "AST",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "visitBinary",
@@ -1102,7 +1213,8 @@
             }
           ],
           "returnType": "AST",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "visitPrefixNot",
@@ -1117,7 +1229,8 @@
             }
           ],
           "returnType": "AST",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "visitConditional",
@@ -1132,7 +1245,8 @@
             }
           ],
           "returnType": "AST",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "visitPipe",
@@ -1147,7 +1261,8 @@
             }
           ],
           "returnType": "AST",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "visitKeyedRead",
@@ -1162,7 +1277,8 @@
             }
           ],
           "returnType": "AST",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "visitKeyedWrite",
@@ -1177,7 +1293,8 @@
             }
           ],
           "returnType": "AST",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "visitAll",
@@ -1188,7 +1305,8 @@
             }
           ],
           "returnType": "any[]",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "visitChain",
@@ -1203,7 +1321,8 @@
             }
           ],
           "returnType": "AST",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "visitQuote",
@@ -1218,7 +1337,8 @@
             }
           ],
           "returnType": "AST",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": []
@@ -1227,6 +1347,7 @@
       "name": "AstVisitor",
       "kind": "interface",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/angular2parse/angular/compiler/ast.ts",
       "inputs": [],
       "outputs": [],
@@ -1237,6 +1358,7 @@
       "name": "ASTWithSource",
       "kind": "class",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/angular2parse/angular/compiler/ast.ts",
       "inputs": [],
       "outputs": [],
@@ -1254,13 +1376,15 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "toString",
           "params": [],
           "returnType": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": []
@@ -1269,6 +1393,7 @@
       "name": "Binary",
       "kind": "class",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/angular2parse/angular/compiler/ast.ts",
       "inputs": [],
       "outputs": [],
@@ -1286,7 +1411,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": []
@@ -1295,6 +1421,7 @@
       "name": "BinaryOperations",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/angular2parse/util/binary-operations.ts",
       "inputs": [],
       "outputs": [],
@@ -1305,6 +1432,7 @@
       "name": "BindingPipe",
       "kind": "class",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/angular2parse/angular/compiler/ast.ts",
       "inputs": [],
       "outputs": [],
@@ -1322,7 +1450,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": []
@@ -1331,6 +1460,7 @@
       "name": "BrowserNodeGlobal",
       "kind": "interface",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/angular2parse/angular/facade/lang.ts",
       "inputs": [],
       "outputs": [],
@@ -1341,6 +1471,7 @@
       "name": "Chain",
       "kind": "class",
       "summary": "Multiple expressions separated by a semicolon.",
+      "summaryZh": null,
       "sourceFile": "src/core/angular2parse/angular/compiler/ast.ts",
       "inputs": [],
       "outputs": [],
@@ -1358,7 +1489,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": []
@@ -1367,6 +1499,7 @@
       "name": "compileToJSON",
       "kind": "function",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/angular2parse/util/lang.ts",
       "inputs": [],
       "outputs": [],
@@ -1377,6 +1510,7 @@
       "name": "Conditional",
       "kind": "class",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/angular2parse/angular/compiler/ast.ts",
       "inputs": [],
       "outputs": [],
@@ -1394,7 +1528,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": []
@@ -1403,6 +1538,7 @@
       "name": "DEFAULT_INTERPOLATION_CONFIG",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/angular2parse/angular/compiler/interpolation-config.ts",
       "inputs": [],
       "outputs": [],
@@ -1413,6 +1549,7 @@
       "name": "EmptyExpr",
       "kind": "class",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/angular2parse/angular/compiler/ast.ts",
       "inputs": [],
       "outputs": [],
@@ -1430,7 +1567,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": []
@@ -1439,6 +1577,7 @@
       "name": "EOF",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/angular2parse/angular/compiler/lexer.ts",
       "inputs": [],
       "outputs": [],
@@ -1449,6 +1588,7 @@
       "name": "escapeRegExp",
       "kind": "function",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/angular2parse/angular/facade/lang.ts",
       "inputs": [],
       "outputs": [],
@@ -1459,6 +1599,7 @@
       "name": "FunctionCall",
       "kind": "class",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/angular2parse/angular/compiler/ast.ts",
       "inputs": [],
       "outputs": [],
@@ -1476,7 +1617,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": []
@@ -1485,6 +1627,7 @@
       "name": "getTypeNameForDebugging",
       "kind": "function",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/angular2parse/angular/facade/lang.ts",
       "inputs": [],
       "outputs": [],
@@ -1495,6 +1638,7 @@
       "name": "ImplicitReceiver",
       "kind": "class",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/angular2parse/angular/compiler/ast.ts",
       "inputs": [],
       "outputs": [],
@@ -1512,7 +1656,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": []
@@ -1521,6 +1666,7 @@
       "name": "Interpolation",
       "kind": "class",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/angular2parse/angular/compiler/ast.ts",
       "inputs": [],
       "outputs": [],
@@ -1538,7 +1684,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": []
@@ -1547,6 +1694,7 @@
       "name": "InterpolationConfig",
       "kind": "class",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/angular2parse/angular/compiler/interpolation-config.ts",
       "inputs": [],
       "outputs": [],
@@ -1560,7 +1708,8 @@
             }
           ],
           "returnType": "InterpolationConfig",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": []
@@ -1569,6 +1718,7 @@
       "name": "isAsciiHexDigit",
       "kind": "function",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/angular2parse/angular/compiler/chars.ts",
       "inputs": [],
       "outputs": [],
@@ -1579,6 +1729,7 @@
       "name": "isAsciiLetter",
       "kind": "function",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/angular2parse/angular/compiler/chars.ts",
       "inputs": [],
       "outputs": [],
@@ -1589,6 +1740,7 @@
       "name": "isBlank",
       "kind": "function",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/angular2parse/angular/facade/lang.ts",
       "inputs": [],
       "outputs": [],
@@ -1599,6 +1751,7 @@
       "name": "isDigit",
       "kind": "function",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/angular2parse/angular/compiler/chars.ts",
       "inputs": [],
       "outputs": [],
@@ -1609,6 +1762,7 @@
       "name": "isFunction",
       "kind": "function",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/angular2parse/util/lang.ts",
       "inputs": [],
       "outputs": [],
@@ -1619,6 +1773,7 @@
       "name": "isIdentifier",
       "kind": "function",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/angular2parse/angular/compiler/lexer.ts",
       "inputs": [],
       "outputs": [],
@@ -1629,6 +1784,7 @@
       "name": "isJsObject",
       "kind": "function",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/angular2parse/angular/facade/lang.ts",
       "inputs": [],
       "outputs": [],
@@ -1639,6 +1795,7 @@
       "name": "isPresent",
       "kind": "function",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/angular2parse/angular/facade/lang.ts",
       "inputs": [],
       "outputs": [],
@@ -1649,6 +1806,7 @@
       "name": "isPrimitive",
       "kind": "function",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/angular2parse/angular/facade/lang.ts",
       "inputs": [],
       "outputs": [],
@@ -1659,6 +1817,7 @@
       "name": "isQuote",
       "kind": "function",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/angular2parse/angular/compiler/lexer.ts",
       "inputs": [],
       "outputs": [],
@@ -1669,6 +1828,7 @@
       "name": "isStrictStringMap",
       "kind": "function",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/angular2parse/angular/facade/lang.ts",
       "inputs": [],
       "outputs": [],
@@ -1679,6 +1839,7 @@
       "name": "isWhitespace",
       "kind": "function",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/angular2parse/angular/compiler/chars.ts",
       "inputs": [],
       "outputs": [],
@@ -1689,6 +1850,7 @@
       "name": "KeyedRead",
       "kind": "class",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/angular2parse/angular/compiler/ast.ts",
       "inputs": [],
       "outputs": [],
@@ -1706,7 +1868,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": []
@@ -1715,6 +1878,7 @@
       "name": "KeyedWrite",
       "kind": "class",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/angular2parse/angular/compiler/ast.ts",
       "inputs": [],
       "outputs": [],
@@ -1732,7 +1896,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": []
@@ -1741,6 +1906,7 @@
       "name": "Lexer",
       "kind": "class",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/angular2parse/angular/compiler/lexer.ts",
       "inputs": [],
       "outputs": [],
@@ -1754,7 +1920,8 @@
             }
           ],
           "returnType": "Token[]",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": []
@@ -1763,6 +1930,7 @@
       "name": "LiteralArray",
       "kind": "class",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/angular2parse/angular/compiler/ast.ts",
       "inputs": [],
       "outputs": [],
@@ -1780,7 +1948,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": []
@@ -1789,6 +1958,7 @@
       "name": "LiteralMap",
       "kind": "class",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/angular2parse/angular/compiler/ast.ts",
       "inputs": [],
       "outputs": [],
@@ -1806,7 +1976,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": []
@@ -1815,6 +1986,7 @@
       "name": "LiteralPrimitive",
       "kind": "class",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/angular2parse/angular/compiler/ast.ts",
       "inputs": [],
       "outputs": [],
@@ -1832,7 +2004,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": []
@@ -1841,6 +2014,7 @@
       "name": "looseIdentical",
       "kind": "function",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/angular2parse/angular/facade/lang.ts",
       "inputs": [],
       "outputs": [],
@@ -1851,6 +2025,7 @@
       "name": "MethodCall",
       "kind": "class",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/angular2parse/angular/compiler/ast.ts",
       "inputs": [],
       "outputs": [],
@@ -1868,7 +2043,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": []
@@ -1877,6 +2053,7 @@
       "name": "NumberWrapper",
       "kind": "class",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/angular2parse/angular/facade/lang.ts",
       "inputs": [],
       "outputs": [],
@@ -1890,7 +2067,8 @@
             }
           ],
           "returnType": "number",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "isNumeric",
@@ -1901,7 +2079,8 @@
             }
           ],
           "returnType": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": []
@@ -1910,6 +2089,7 @@
       "name": "Parse",
       "kind": "service",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/angular2parse/parse.ts",
       "inputs": [],
       "outputs": [],
@@ -1923,7 +2103,8 @@
             }
           ],
           "returnType": "Function",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "calc",
@@ -1934,7 +2115,8 @@
             }
           ],
           "returnType": "Function",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": []
@@ -1943,6 +2125,7 @@
       "name": "Parser",
       "kind": "class",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/angular2parse/angular/compiler/parser.ts",
       "inputs": [],
       "outputs": [],
@@ -1964,7 +2147,8 @@
             }
           ],
           "returnType": "ASTWithSource",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "parseBinding",
@@ -1983,7 +2167,8 @@
             }
           ],
           "returnType": "ASTWithSource",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "parseSimpleBinding",
@@ -2002,7 +2187,8 @@
             }
           ],
           "returnType": "ASTWithSource",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "parseTemplateBindings",
@@ -2021,7 +2207,8 @@
             }
           ],
           "returnType": "TemplateBindingParseResult",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "parseInterpolation",
@@ -2040,7 +2227,8 @@
             }
           ],
           "returnType": "ASTWithSource",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "splitInterpolation",
@@ -2059,7 +2247,8 @@
             }
           ],
           "returnType": "SplitInterpolation",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "wrapLiteralPrimitive",
@@ -2074,7 +2263,8 @@
             }
           ],
           "returnType": "ASTWithSource",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": []
@@ -2083,6 +2273,7 @@
       "name": "ParserError",
       "kind": "class",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/angular2parse/angular/compiler/ast.ts",
       "inputs": [],
       "outputs": [],
@@ -2091,7 +2282,8 @@
         {
           "name": "message",
           "type": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -2099,6 +2291,7 @@
       "name": "ParseSpan",
       "kind": "class",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/angular2parse/angular/compiler/ast.ts",
       "inputs": [],
       "outputs": [],
@@ -2109,6 +2302,7 @@
       "name": "ParseVisitorCompiler",
       "kind": "class",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/angular2parse/visitors/parse-visitor-compiler.ts",
       "inputs": [],
       "outputs": [],
@@ -2122,7 +2316,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "visitChain",
@@ -2133,7 +2328,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "visitConditional",
@@ -2144,7 +2340,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "visitPipe",
@@ -2155,7 +2352,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "visitFunctionCall",
@@ -2166,7 +2364,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "visitImplicitReceiver",
@@ -2177,7 +2376,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "visitInterpolation",
@@ -2188,7 +2388,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "visitKeyedRead",
@@ -2199,7 +2400,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "visitKeyedWrite",
@@ -2210,7 +2412,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "visitLiteralArray",
@@ -2221,7 +2424,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "visitLiteralMap",
@@ -2232,7 +2436,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "visitLiteralPrimitive",
@@ -2243,7 +2448,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "visitMethodCall",
@@ -2254,7 +2460,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "visitPrefixNot",
@@ -2265,7 +2472,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "visitPropertyRead",
@@ -2276,7 +2484,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "visitPropertyWrite",
@@ -2287,7 +2496,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "visitSafePropertyRead",
@@ -2298,7 +2508,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "visitSafeMethodCall",
@@ -2309,7 +2520,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "visitAll",
@@ -2320,7 +2532,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "visitQuote",
@@ -2331,7 +2544,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": []
@@ -2340,6 +2554,7 @@
       "name": "ParseVisitorResolver",
       "kind": "class",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/angular2parse/visitors/parse-visitor-resolver.ts",
       "inputs": [],
       "outputs": [],
@@ -2357,7 +2572,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "visitChain",
@@ -2372,7 +2588,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "visitConditional",
@@ -2387,7 +2604,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "visitPipe",
@@ -2402,7 +2620,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "visitFunctionCall",
@@ -2417,7 +2636,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "visitImplicitReceiver",
@@ -2432,7 +2652,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "visitInterpolation",
@@ -2447,7 +2668,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "visitKeyedRead",
@@ -2462,7 +2684,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "visitKeyedWrite",
@@ -2477,7 +2700,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "visitLiteralArray",
@@ -2492,7 +2716,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "visitLiteralMap",
@@ -2507,7 +2732,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "visitLiteralPrimitive",
@@ -2522,7 +2748,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "visitMethodCall",
@@ -2537,7 +2764,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "visitPrefixNot",
@@ -2552,7 +2780,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "visitPropertyRead",
@@ -2567,7 +2796,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "visitPropertyWrite",
@@ -2582,7 +2812,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "visitSafePropertyRead",
@@ -2597,7 +2828,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "visitSafeMethodCall",
@@ -2612,7 +2844,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "visitAll",
@@ -2627,7 +2860,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "visitQuote",
@@ -2642,7 +2876,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": []
@@ -2651,6 +2886,7 @@
       "name": "PIPES_CONFIG",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/angular2parse/parse.ts",
       "inputs": [],
       "outputs": [],
@@ -2661,6 +2897,7 @@
       "name": "PipesConfig",
       "kind": "interface",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/angular2parse/parse.ts",
       "inputs": [],
       "outputs": [],
@@ -2671,6 +2908,7 @@
       "name": "PrefixNot",
       "kind": "class",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/angular2parse/angular/compiler/ast.ts",
       "inputs": [],
       "outputs": [],
@@ -2688,7 +2926,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": []
@@ -2697,6 +2936,7 @@
       "name": "print",
       "kind": "function",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/angular2parse/angular/facade/lang.ts",
       "inputs": [],
       "outputs": [],
@@ -2707,6 +2947,7 @@
       "name": "PropertyRead",
       "kind": "class",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/angular2parse/angular/compiler/ast.ts",
       "inputs": [],
       "outputs": [],
@@ -2724,7 +2965,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": []
@@ -2733,6 +2975,7 @@
       "name": "PropertyWrite",
       "kind": "class",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/angular2parse/angular/compiler/ast.ts",
       "inputs": [],
       "outputs": [],
@@ -2750,7 +2993,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": []
@@ -2759,6 +3003,7 @@
       "name": "Quote",
       "kind": "class",
       "summary": "Represents a quoted expression of the form:\n\nquote = prefix `:` uninterpretedExpression\nprefix = identifier\nuninterpretedExpression = arbitrary string\n\nA quoted expression is meant to be pre-processed by an AST transformer that\nconverts it into another AST that no longer contains quoted expressions.\nIt is meant to allow third-party developers to extend Angular template\nexpression language. The `uninterpretedExpression` part of the quote is\ntherefore not interpreted by the Angular's own expression parser.",
+      "summaryZh": null,
       "sourceFile": "src/core/angular2parse/angular/compiler/ast.ts",
       "inputs": [],
       "outputs": [],
@@ -2776,13 +3021,15 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "toString",
           "params": [],
           "returnType": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": []
@@ -2791,6 +3038,7 @@
       "name": "RecursiveAstVisitor",
       "kind": "class",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/angular2parse/angular/compiler/ast.ts",
       "inputs": [],
       "outputs": [],
@@ -2808,7 +3056,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "visitChain",
@@ -2823,7 +3072,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "visitConditional",
@@ -2838,7 +3088,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "visitPipe",
@@ -2853,7 +3104,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "visitFunctionCall",
@@ -2868,7 +3120,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "visitImplicitReceiver",
@@ -2883,7 +3136,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "visitInterpolation",
@@ -2898,7 +3152,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "visitKeyedRead",
@@ -2913,7 +3168,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "visitKeyedWrite",
@@ -2928,7 +3184,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "visitLiteralArray",
@@ -2943,7 +3200,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "visitLiteralMap",
@@ -2958,7 +3216,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "visitLiteralPrimitive",
@@ -2973,7 +3232,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "visitMethodCall",
@@ -2988,7 +3248,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "visitPrefixNot",
@@ -3003,7 +3264,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "visitPropertyRead",
@@ -3018,7 +3280,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "visitPropertyWrite",
@@ -3033,7 +3296,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "visitSafePropertyRead",
@@ -3048,7 +3312,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "visitSafeMethodCall",
@@ -3063,7 +3328,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "visitAll",
@@ -3078,7 +3344,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "visitQuote",
@@ -3093,7 +3360,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": []
@@ -3102,6 +3370,7 @@
       "name": "SafeMethodCall",
       "kind": "class",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/angular2parse/angular/compiler/ast.ts",
       "inputs": [],
       "outputs": [],
@@ -3119,7 +3388,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": []
@@ -3128,6 +3398,7 @@
       "name": "SafePropertyRead",
       "kind": "class",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/angular2parse/angular/compiler/ast.ts",
       "inputs": [],
       "outputs": [],
@@ -3145,7 +3416,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": []
@@ -3154,6 +3426,7 @@
       "name": "setValueOnPath",
       "kind": "function",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/angular2parse/angular/facade/lang.ts",
       "inputs": [],
       "outputs": [],
@@ -3164,6 +3437,7 @@
       "name": "SplitInterpolation",
       "kind": "class",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/angular2parse/angular/compiler/parser.ts",
       "inputs": [],
       "outputs": [],
@@ -3174,6 +3448,7 @@
       "name": "stringify",
       "kind": "function",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/angular2parse/angular/facade/lang.ts",
       "inputs": [],
       "outputs": [],
@@ -3184,6 +3459,7 @@
       "name": "TemplateBinding",
       "kind": "class",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/angular2parse/angular/compiler/ast.ts",
       "inputs": [],
       "outputs": [],
@@ -3194,6 +3470,7 @@
       "name": "TemplateBindingParseResult",
       "kind": "class",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/angular2parse/angular/compiler/parser.ts",
       "inputs": [],
       "outputs": [],
@@ -3204,6 +3481,7 @@
       "name": "Token",
       "kind": "class",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/angular2parse/angular/compiler/lexer.ts",
       "inputs": [],
       "outputs": [],
@@ -3217,19 +3495,22 @@
             }
           ],
           "returnType": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "isNumber",
           "params": [],
           "returnType": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "isString",
           "params": [],
           "returnType": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "isOperator",
@@ -3240,73 +3521,85 @@
             }
           ],
           "returnType": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "isIdentifier",
           "params": [],
           "returnType": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "isKeyword",
           "params": [],
           "returnType": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "isKeywordLet",
           "params": [],
           "returnType": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "isKeywordNull",
           "params": [],
           "returnType": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "isKeywordUndefined",
           "params": [],
           "returnType": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "isKeywordTrue",
           "params": [],
           "returnType": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "isKeywordFalse",
           "params": [],
           "returnType": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "isKeywordThis",
           "params": [],
           "returnType": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "isError",
           "params": [],
           "returnType": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "toNumber",
           "params": [],
           "returnType": "number",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "toString",
           "params": [],
           "returnType": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": []
@@ -3315,6 +3608,7 @@
       "name": "TokenType",
       "kind": "enum",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/angular2parse/angular/compiler/lexer.ts",
       "inputs": [],
       "outputs": [],
@@ -3325,6 +3619,7 @@
       "name": "warn",
       "kind": "function",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/angular2parse/angular/facade/lang.ts",
       "inputs": [],
       "outputs": [],

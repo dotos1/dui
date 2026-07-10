@@ -5,6 +5,7 @@
       "name": "AllowIn",
       "kind": "enum",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/keyboard/keyboard-shortcuts.interfaces.ts",
       "inputs": [],
       "outputs": [],
@@ -15,6 +16,7 @@
       "name": "allPass",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/keyboard/utils.ts",
       "inputs": [],
       "outputs": [],
@@ -25,6 +27,7 @@
       "name": "any",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/keyboard/utils.ts",
       "inputs": [],
       "outputs": [],
@@ -35,6 +38,7 @@
       "name": "BasePortalOutlet",
       "kind": "class",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/keyboard/portal.ts",
       "inputs": [],
       "outputs": [],
@@ -43,7 +47,8 @@
           "name": "hasAttached",
           "params": [],
           "returnType": "boolean",
-          "description": "Whether this host has an attached portal."
+          "description": "Whether this host has an attached portal.",
+          "descriptionZh": null
         },
         {
           "name": "attach",
@@ -54,7 +59,8 @@
             }
           ],
           "returnType": "any",
-          "description": "Attaches a portal."
+          "description": "Attaches a portal.",
+          "descriptionZh": null
         },
         {
           "name": "attachComponentPortal",
@@ -65,7 +71,8 @@
             }
           ],
           "returnType": "ComponentRef<T>",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "attachTemplatePortal",
@@ -76,19 +83,22 @@
             }
           ],
           "returnType": "EmbeddedViewRef<C>",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "detach",
           "params": [],
           "returnType": "void",
-          "description": "Detaches a previously attached portal."
+          "description": "Detaches a previously attached portal.",
+          "descriptionZh": null
         },
         {
           "name": "dispose",
           "params": [],
           "returnType": "void",
-          "description": "Permanently dispose of this portal host."
+          "description": "Permanently dispose of this portal host.",
+          "descriptionZh": null
         },
         {
           "name": "setDisposeFn",
@@ -99,7 +109,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": []
@@ -108,6 +119,7 @@
       "name": "ComponentPortal",
       "kind": "class",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/keyboard/portal.ts",
       "inputs": [],
       "outputs": [],
@@ -116,22 +128,26 @@
         {
           "name": "component",
           "type": "ComponentType<T>",
-          "description": "The type of the component that will be instantiated for attachment."
+          "description": "The type of the component that will be instantiated for attachment.",
+          "descriptionZh": null
         },
         {
           "name": "viewContainerRef",
           "type": "ViewContainerRef | null",
-          "description": "[Optional] Where the attached component should live in Angular's *logical* component tree.\nThis is different from where the component *renders*, which is determined by the PortalOutlet.\nThe origin is necessary when the host is outside of the Angular application context."
+          "description": "[Optional] Where the attached component should live in Angular's *logical* component tree.\nThis is different from where the component *renders*, which is determined by the PortalOutlet.\nThe origin is necessary when the host is outside of the Angular application context.",
+          "descriptionZh": null
         },
         {
           "name": "injector",
           "type": "Injector | null",
-          "description": "[Optional] Injector used for the instantiation of the component."
+          "description": "[Optional] Injector used for the instantiation of the component.",
+          "descriptionZh": null
         },
         {
           "name": "componentFactoryResolver",
           "type": "ComponentFactoryResolver | null",
-          "description": "Alternate `ComponentFactoryResolver` to use when resolving the associated component.\nDefaults to using the resolver from the outlet that the portal is attached to."
+          "description": "Alternate `ComponentFactoryResolver` to use when resolving the associated component.\nDefaults to using the resolver from the outlet that the portal is attached to.",
+          "descriptionZh": null
         }
       ]
     },
@@ -139,6 +155,7 @@
       "name": "ComponentType",
       "kind": "interface",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/keyboard/portal.ts",
       "inputs": [],
       "outputs": [],
@@ -149,6 +166,7 @@
       "name": "difference",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/keyboard/utils.ts",
       "inputs": [],
       "outputs": [],
@@ -159,6 +177,7 @@
       "name": "DomPortalOutlet",
       "kind": "class",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/keyboard/dom-portal-outlet.ts",
       "inputs": [],
       "outputs": [],
@@ -172,7 +191,8 @@
             }
           ],
           "returnType": "ComponentRef<T>",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "attachTemplatePortal",
@@ -183,13 +203,15 @@
             }
           ],
           "returnType": "EmbeddedViewRef<C>",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "dispose",
           "params": [],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": []
@@ -198,6 +220,7 @@
       "name": "groupBy",
       "kind": "function",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/keyboard/utils.ts",
       "inputs": [],
       "outputs": [],
@@ -208,6 +231,7 @@
       "name": "identity",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/keyboard/utils.ts",
       "inputs": [],
       "outputs": [],
@@ -218,6 +242,7 @@
       "name": "invert",
       "kind": "function",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/keyboard/utils.ts",
       "inputs": [],
       "outputs": [],
@@ -228,6 +253,7 @@
       "name": "isFunction",
       "kind": "function",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/keyboard/utils.ts",
       "inputs": [],
       "outputs": [],
@@ -238,6 +264,7 @@
       "name": "isNill",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/keyboard/utils.ts",
       "inputs": [],
       "outputs": [],
@@ -248,50 +275,59 @@
       "name": "KeyboardShortcutComponent",
       "kind": "component",
       "selector": "keyboard-shortcut",
-      "summary": null,
+      "summary": "Declarative wrapper around {@link KeyboardShortcutsService.add}: registers a shortcut for\nthe projected content's lifetime and emits `fire` when it's triggered.",
+      "summaryZh": "{@link KeyboardShortcutsService.add} 的声明式封装：在投影内容存续期间注册快捷键，\n触发时发出 `fire` 事件。",
       "sourceFile": "src/common/keyboard/keyboard-shortcut.component.ts",
       "inputs": [
         {
           "name": "description",
           "type": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "label",
           "type": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "preventDefault",
           "type": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "allowIn",
           "type": "AllowIn[]",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "key",
           "type": "string | string[]",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "target",
           "type": "HTMLElement",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "throttleTime",
           "type": "number",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "outputs": [
         {
           "name": "fire",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "methods": [],
@@ -301,19 +337,22 @@
       "name": "KeyboardShortcutsComponent",
       "kind": "component",
       "selector": "keyboard-shortcuts",
-      "summary": null,
+      "summary": "Declarative wrapper around {@link KeyboardShortcutsService}: bind a list of shortcuts via\nthe `shortcuts` input and they are registered/unregistered automatically with this component's\nlifecycle.",
+      "summaryZh": "{@link KeyboardShortcutsService} 的声明式封装：通过 `shortcuts` 输入属性绑定一组快捷键，\n它们会随本组件的生命周期自动注册/注销。",
       "sourceFile": "src/common/keyboard/keyboard-shortcuts.component.ts",
       "inputs": [
         {
           "name": "shortcuts",
           "type": "ShortcutInput[] | ShortcutInput",
           "default": "[]",
-          "description": null
+          "description": "The shortcut(s) to register while this component is alive and not disabled.",
+          "descriptionZh": "本组件存活且未被禁用期间要注册的快捷键。"
         },
         {
           "name": "disabled",
           "type": "any",
-          "description": null
+          "description": "Disables (and unregisters) all shortcuts when set to true.",
+          "descriptionZh": "设为 true 时禁用（并注销）全部快捷键。"
         }
       ],
       "outputs": [],
@@ -327,7 +366,8 @@
             }
           ],
           "returnType": "Observable<ShortcutEventOutput>",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": []
@@ -336,18 +376,21 @@
       "name": "KeyboardShortcutsDirective",
       "kind": "directive",
       "selector": "[KeyboardShortcuts]",
-      "summary": null,
+      "summary": "Registers a list of {@link KeyboardShortcutsService} shortcuts (`ngKeyboardShortcuts`) scoped\nto the host element, re-registering whenever the input changes and toggleable via `disabled`.",
+      "summaryZh": "注册一组作用域限定于宿主元素的 {@link KeyboardShortcutsService} 快捷键\n（`ngKeyboardShortcuts`），输入变化时会重新注册，并可通过 `disabled` 开关。",
       "sourceFile": "src/common/keyboard/keyboard-shortcuts.directive.ts",
       "inputs": [
         {
           "name": "ngKeyboardShortcuts",
           "type": "Shortcut[]",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "disabled",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "outputs": [],
@@ -358,56 +401,66 @@
       "name": "KeyboardShortcutsHelpComponent",
       "kind": "component",
       "selector": "keyboard-shortcuts-help",
-      "summary": null,
+      "summary": "A slide-in panel (attached to `document.body` via a portal) that lists all currently\nregistered keyboard shortcuts, grouped by label. Toggle it with the `key` input shortcut.",
+      "summaryZh": "一个滑入式面板（通过 portal 附加到 `document.body`），按分组标签列出当前已注册的全部快捷键。\n通过 `key` 输入属性指定的快捷键来切换显示。",
       "sourceFile": "src/common/keyboard/keyboard-shortcuts-help.component.ts",
       "inputs": [
         {
           "name": "disableScrolling",
           "type": "any",
           "default": "true",
-          "description": null
+          "description": "Disables page scrolling while the help panel is open.",
+          "descriptionZh": "帮助面板打开期间禁用页面滚动。"
         },
         {
           "name": "keyDescription",
           "type": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "keyLabel",
           "type": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "closeKeyLabel",
           "type": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "closeKeyDescription",
           "type": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "key",
           "type": "string",
-          "description": null
+          "description": "The shortcut key that toggles this help panel (e.g. `'shift+?'`).",
+          "descriptionZh": "用于切换本帮助面板的快捷键（例如 `'shift+?'`）。"
         },
         {
           "name": "closeKey",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "title",
           "type": "any",
           "default": "\"COMMON.KEYBOARD_TITLE\"",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "emptyMessage",
           "type": "any",
           "default": "\"COMMON.KEYBOARD_EMPTYMESSAGE\"",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "outputs": [],
@@ -416,25 +469,29 @@
           "name": "reveal",
           "params": [],
           "returnType": "KeyboardShortcutsHelpComponent",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "visible",
           "params": [],
           "returnType": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "hide",
           "params": [],
           "returnType": "KeyboardShortcutsHelpComponent",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "toggle",
           "params": [],
           "returnType": "KeyboardShortcutsHelpComponent",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": [
@@ -442,28 +499,33 @@
           "name": "className",
           "type": "any",
           "default": "\"help-modal\"",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "template",
           "type": "TemplateRef<any>",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "shortcuts",
           "type": "Record<\"label\", { key: string[]; label: string; description: string }[]>",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "showing$",
           "type": "any",
           "default": "new BehaviorSubject(false)",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "labels",
           "type": "string[]",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -471,18 +533,21 @@
       "name": "KeyboardShortcutsHelpItemComponent",
       "kind": "component",
       "selector": "keyboard-shortcuts-help-item",
-      "summary": null,
+      "summary": "Renders a single {@link Shortcut} entry (key combo + label) inside the keyboard shortcuts\nhelp list, translating raw key codes into display symbols.",
+      "summaryZh": "在快捷键帮助列表中渲染单条 {@link Shortcut}（按键组合 + 标签），\n将原始按键码转换为可展示的符号。",
       "sourceFile": "src/common/keyboard/keyboard-shortcuts-help-item.component.ts",
       "inputs": [
         {
           "name": "index",
           "type": "number",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "shortcut",
           "type": "Shortcut",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "outputs": [],
@@ -491,19 +556,22 @@
         {
           "name": "parsedKeys",
           "type": "string[][]",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "shortcut",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
     {
       "name": "KeyboardShortcutsHelpService",
       "kind": "service",
-      "summary": null,
+      "summary": "Exposes an observable list of registered {@link KeyboardShortcutsService} shortcuts that\nhave both a `label` and `description`, suitable for rendering in a help/cheat-sheet panel.",
+      "summaryZh": "暴露一个可观察的快捷键列表（来自 {@link KeyboardShortcutsService}），\n仅包含同时具有 `label` 和 `description` 的项，适合在帮助/速查面板中展示。",
       "sourceFile": "src/common/keyboard/keyboard-shortcuts-help.service.ts",
       "inputs": [],
       "outputs": [],
@@ -513,7 +581,8 @@
           "name": "shortcuts$",
           "type": "any",
           "default": "this.keyboard.shortcuts$.pipe(\n        map(shortcuts =>\n            shortcuts\n                .filter(shortcut => Boolean(shortcut.label) && Boolean(shortcut.description))\n                .map(({key, label, description}) => ({\n                    key,\n                    label,\n                    description\n                }))\n        )\n    )",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -521,6 +590,7 @@
       "name": "KeyboardShortcutsModule",
       "kind": "module",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/keyboard/keyboard-shortcuts.module.ts",
       "inputs": [],
       "outputs": [],
@@ -529,7 +599,8 @@
           "name": "forRoot",
           "params": [],
           "returnType": "ModuleWithProviders<KeyboardShortcutsModule>",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": []
@@ -537,7 +608,8 @@
     {
       "name": "KeyboardShortcutsPlugin",
       "kind": "service",
-      "summary": null,
+      "summary": "Angular `EventManager` plugin that lets templates bind shortcuts declaratively via\n`(shortcut.<key>.<description>.<label>)=\"handler()\"` (optionally `.prevent`), backed by\n{@link KeyboardShortcutsService}.",
+      "summaryZh": "Angular `EventManager` 插件，允许模板通过\n`(shortcut.<key>.<description>.<label>)=\"handler()\"`（可加 `.prevent`）声明式绑定快捷键，\n底层基于 {@link KeyboardShortcutsService}。",
       "sourceFile": "src/common/keyboard/keyboard-shortcuts.plugin.ts",
       "inputs": [],
       "outputs": [],
@@ -551,7 +623,8 @@
             }
           ],
           "returnType": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "addEventListener",
@@ -570,21 +643,24 @@
             }
           ],
           "returnType": "Function",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": [
         {
           "name": "manager",
           "type": "EventManager",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
     {
       "name": "KeyboardShortcutsSelectService",
       "kind": "service",
-      "summary": null,
+      "summary": "Thin wrapper exposing {@link KeyboardShortcutsService.select} for programmatically\ntriggering a registered shortcut by key.",
+      "summaryZh": "轻量封装，暴露 {@link KeyboardShortcutsService.select}，用于按键值以编程方式触发已注册的快捷键。",
       "sourceFile": "src/common/keyboard/keyboard-shortcuts-select.service.ts",
       "inputs": [],
       "outputs": [],
@@ -598,7 +674,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": []
@@ -606,7 +683,8 @@
     {
       "name": "KeyboardShortcutsService",
       "kind": "service",
-      "summary": null,
+      "summary": "Registers global keyboard shortcuts (single combos and multi-key sequences) and dispatches\nmatching commands, respecting focus context (e.g. ignoring shortcuts while typing in inputs).",
+      "summaryZh": "注册全局键盘快捷键（单个组合键和多键序列），并在匹配时派发对应命令，同时会根据焦点上下文\n做出忽略处理（例如在输入框内输入时忽略快捷键）。",
       "sourceFile": "src/common/keyboard/keyboard-shortcuts.service.ts",
       "inputs": [],
       "outputs": [],
@@ -620,7 +698,8 @@
             }
           ],
           "returnType": "string[]",
-          "description": null
+          "description": "Registers one or more shortcuts and returns their generated ids (for later removal).",
+          "descriptionZh": "注册一个或多个快捷键，返回其生成的 id（用于后续移除）。"
         },
         {
           "name": "remove",
@@ -631,7 +710,8 @@
             }
           ],
           "returnType": "KeyboardShortcutsService",
-          "description": null
+          "description": "Unregisters shortcuts by the ids returned from {@link add}.",
+          "descriptionZh": "按 {@link add} 返回的 id 注销快捷键。"
         },
         {
           "name": "select",
@@ -642,7 +722,8 @@
             }
           ],
           "returnType": "Observable<ShortcutEventOutput>",
-          "description": null
+          "description": "Returns an observable that emits whenever the shortcut registered under `key` fires.",
+          "descriptionZh": "返回一个 observable，当以 `key` 注册的快捷键被触发时发出通知。"
         }
       ],
       "properties": [
@@ -650,18 +731,21 @@
           "name": "pressed$",
           "type": "any",
           "default": "this._pressed.asObservable()",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "shortcuts$",
           "type": "any",
           "default": "this._shortcutsSub\n        .pipe(filter((shortcuts) =>{\n     \n            return shortcuts.length!=0;\n    } ))",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "shortcuts",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -669,6 +753,7 @@
       "name": "maxArrayProp",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/keyboard/utils.ts",
       "inputs": [],
       "outputs": [],
@@ -679,6 +764,7 @@
       "name": "minMaxArrayProp",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/keyboard/utils.ts",
       "inputs": [],
       "outputs": [],
@@ -689,6 +775,7 @@
       "name": "Portal",
       "kind": "class",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/keyboard/portal.ts",
       "inputs": [],
       "outputs": [],
@@ -702,13 +789,15 @@
             }
           ],
           "returnType": "T",
-          "description": "Attach this portal to a host."
+          "description": "Attach this portal to a host.",
+          "descriptionZh": null
         },
         {
           "name": "detach",
           "params": [],
           "returnType": "void",
-          "description": "Detach this portal from its host"
+          "description": "Detach this portal from its host",
+          "descriptionZh": null
         },
         {
           "name": "setAttachedHost",
@@ -719,14 +808,16 @@
             }
           ],
           "returnType": "any",
-          "description": "Sets the PortalOutlet reference without performing `attach()`. This is used directly by\nthe PortalOutlet when it is performing an `attach()` or `detach()`."
+          "description": "Sets the PortalOutlet reference without performing `attach()`. This is used directly by\nthe PortalOutlet when it is performing an `attach()` or `detach()`.",
+          "descriptionZh": null
         }
       ],
       "properties": [
         {
           "name": "isAttached",
           "type": "boolean",
-          "description": "Whether this portal is attached to a host."
+          "description": "Whether this portal is attached to a host.",
+          "descriptionZh": null
         }
       ]
     },
@@ -734,6 +825,7 @@
       "name": "PortalOutlet",
       "kind": "interface",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/keyboard/portal.ts",
       "inputs": [],
       "outputs": [],
@@ -744,6 +836,7 @@
       "name": "prop",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/keyboard/utils.ts",
       "inputs": [],
       "outputs": [],
@@ -754,6 +847,7 @@
       "name": "Shortcut",
       "kind": "interface",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/keyboard/keyboard-shortcuts.interfaces.ts",
       "inputs": [],
       "outputs": [],
@@ -764,6 +858,7 @@
       "name": "ShortcutEventOutput",
       "kind": "interface",
       "summary": "The output type fired by the command when shortcut is triggered.",
+      "summaryZh": null,
       "sourceFile": "src/common/keyboard/keyboard-shortcuts.interfaces.ts",
       "inputs": [],
       "outputs": [],
@@ -774,6 +869,7 @@
       "name": "ShortcutInput",
       "kind": "interface",
       "summary": "The shortcut input type for ng-keyboard-shortcuts component",
+      "summaryZh": null,
       "sourceFile": "src/common/keyboard/keyboard-shortcuts.interfaces.ts",
       "inputs": [],
       "outputs": [],
@@ -784,6 +880,7 @@
       "name": "TemplatePortal",
       "kind": "class",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/keyboard/portal.ts",
       "inputs": [],
       "outputs": [],
@@ -801,35 +898,41 @@
             }
           ],
           "returnType": "C",
-          "description": "Attach the portal to the provided `PortalOutlet`.\nWhen a context is provided it will override the `context` property of the `TemplatePortal`\ninstance."
+          "description": "Attach the portal to the provided `PortalOutlet`.\nWhen a context is provided it will override the `context` property of the `TemplatePortal`\ninstance.",
+          "descriptionZh": null
         },
         {
           "name": "detach",
           "params": [],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": [
         {
           "name": "templateRef",
           "type": "TemplateRef<C>",
-          "description": "The embedded template that will be used to instantiate an embedded View in the host."
+          "description": "The embedded template that will be used to instantiate an embedded View in the host.",
+          "descriptionZh": null
         },
         {
           "name": "viewContainerRef",
           "type": "ViewContainerRef",
-          "description": "Reference to the ViewContainer into which the template will be stamped out."
+          "description": "Reference to the ViewContainer into which the template will be stamped out.",
+          "descriptionZh": null
         },
         {
           "name": "context",
           "type": "C | undefined",
-          "description": "Contextual data to be passed in to the embedded view."
+          "description": "Contextual data to be passed in to the embedded view.",
+          "descriptionZh": null
         },
         {
           "name": "origin",
           "type": "ElementRef",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     }

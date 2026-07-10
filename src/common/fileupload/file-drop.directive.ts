@@ -8,13 +8,24 @@ import { FileUploader, FileUploaderOptions } from './file-uploader';
 export class FileDropBase { }
 export const _FileDropMixinBase = mixinDisabled(FileDropBase);
 
+/**
+ * Turns the host element into a file drop zone that queues dropped files into a
+ * {@link FileUploader} instance.
+ * @zh 将宿主元素变为文件放置区，拖入的文件会被加入到 {@link FileUploader} 实例的上传队列中。
+ */
 @Directive({
   selector: '[duiFileDrop]',
   inputs: ['disabled']
 })
 export class FileDropDirective extends _FileDropMixinBase implements CanDisable {
+  /**
+   * The uploader instance that dropped files are queued into.
+   * @zh 拖入的文件会被加入到该上传器实例的队列中。
+   */
   @Input() public uploader: FileUploader;
+  /** @zh 有文件正拖拽悬停在放置区上方时发出（true/false）。 */
   @Output() public fileOver: EventEmitter<any> = new EventEmitter();
+  /** @zh 文件被放置后发出，携带放下的文件列表。 */
   @Output() public onFileDrop: EventEmitter<File[]> = new EventEmitter<File[]>();
 
   protected element: ElementRef;

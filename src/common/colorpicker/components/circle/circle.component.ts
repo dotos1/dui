@@ -23,6 +23,12 @@ export const yellow = MatColors.getColorName('yellow');
 import { ColorWrap, isValidHex } from '@dotos/dui/common/colorpicker/common';
 import { TriggerPopup } from '@dotos/dui/common/trigger';
 
+/**
+ * Color picker rendered as a grid of round color swatches, with no fine-grained
+ * saturation/hue controls — pick from a fixed palette.
+ * @zh 以圆形色块网格形式渲染的颜色选择器，不提供细粒度的饱和度/色相控件——
+ * 仅可从固定调色板中选取。
+ */
 @Component({
   selector: 'color-circle',
   template: `

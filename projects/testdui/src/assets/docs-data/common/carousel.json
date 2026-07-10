@@ -5,6 +5,7 @@
       "name": "MatCarousel",
       "kind": "interface",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/carousel/carousel.ts",
       "inputs": [],
       "outputs": [],
@@ -15,104 +16,122 @@
       "name": "MatCarouselComponent",
       "kind": "component",
       "selector": "mat-carousel",
-      "summary": null,
+      "summary": "A Material-styled image/content carousel with autoplay, keyboard navigation, mouse-wheel\nand swipe/pan gesture support. Slides are projected as {@link MatCarouselSlideComponent}.",
+      "summaryZh": "Material 风格的图片/内容轮播组件，支持自动播放、键盘导航、鼠标滚轮以及滑动/拖拽手势。\n幻灯片以 {@link MatCarouselSlideComponent} 的形式投影进来。",
       "sourceFile": "src/common/carousel/carousel.component.ts",
       "inputs": [
         {
           "name": "timings",
           "type": "any",
           "default": "'250ms ease-in'",
-          "description": null
+          "description": null,
+          "descriptionZh": "切换幻灯片时的过渡动画时长/缓动函数。"
         },
         {
           "name": "svgIconOverrides",
           "type": "SvgIconOverrides",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "autoplay",
           "type": "boolean",
-          "description": null
+          "description": "Enables automatic slide advancing on the interval set by `interval`.",
+          "descriptionZh": "是否按 `interval` 设置的间隔自动切换幻灯片。"
         },
         {
           "name": "interval",
           "type": "number",
-          "description": null
+          "description": "Autoplay interval in milliseconds.",
+          "descriptionZh": "自动播放间隔（毫秒）。"
         },
         {
           "name": "loop",
           "type": "boolean",
-          "description": null
+          "description": "Wraps back to the first/last slide when navigating past the ends.",
+          "descriptionZh": "导航超出两端时是否循环回到第一张/最后一张幻灯片。"
         },
         {
           "name": "hideArrows",
           "type": "any",
           "default": "true",
-          "description": null
+          "description": null,
+          "descriptionZh": "是否隐藏左右箭头。"
         },
         {
           "name": "hideIndicators",
           "type": "any",
           "default": "true",
-          "description": null
+          "description": null,
+          "descriptionZh": "是否隐藏底部指示点。"
         },
         {
           "name": "color",
           "type": "ThemePalette",
           "default": "'accent'",
-          "description": null
+          "description": null,
+          "descriptionZh": "Material 主题色。"
         },
         {
           "name": "maxWidth",
           "type": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "maintainAspectRatio",
           "type": "any",
           "default": "true",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "proportion",
           "type": "any",
           "default": "25",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "slideHeight",
           "type": "any",
           "default": "'100%'",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "slides",
           "type": "number",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "useKeyboard",
           "type": "any",
           "default": "false",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "useMouseWheel",
           "type": "any",
           "default": "false",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "orientation",
           "type": "Orientation",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "outputs": [
         {
           "name": "change",
           "type": "number",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "methods": [
@@ -120,13 +139,15 @@
           "name": "next",
           "params": [],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "previous",
           "params": [],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "slideTo",
@@ -137,7 +158,8 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "onKeyUp",
@@ -148,19 +170,22 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "onMouseEnter",
           "params": [],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "onMouseLeave",
           "params": [],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "onMouseWheel",
@@ -171,7 +196,8 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "onResize",
@@ -182,7 +208,8 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "onPan",
@@ -197,7 +224,8 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "onPanEnd",
@@ -212,44 +240,52 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": [
         {
           "name": "loop",
           "type": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "maxWidth",
           "type": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "orientation",
           "type": "Orientation",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "currentIndex",
           "type": "number",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "currentSlide",
           "type": "MatCarouselSlideComponent",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "slidesList",
           "type": "QueryList< MatCarouselSlideComponent >",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "listKeyManager",
           "type": "ListKeyManager<MatCarouselSlideComponent>",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -257,6 +293,7 @@
       "name": "MatCarouselHammerConfig",
       "kind": "class",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/carousel/carousel.module.ts",
       "inputs": [],
       "outputs": [],
@@ -266,7 +303,8 @@
           "name": "overrides",
           "type": "any",
           "default": "{\n    pinch: { enable: false },\n    rotate: { enable: false }\n  }",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -274,6 +312,7 @@
       "name": "MatCarouselModule",
       "kind": "module",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/carousel/carousel.module.ts",
       "inputs": [],
       "outputs": [],
@@ -282,7 +321,8 @@
           "name": "forRoot",
           "params": [],
           "returnType": "ModuleWithProviders<MatCarouselModule>",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": []
@@ -291,6 +331,7 @@
       "name": "MatCarouselSlide",
       "kind": "interface",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/carousel/carousel-slide/carousel-slide.ts",
       "inputs": [],
       "outputs": [],
@@ -301,31 +342,36 @@
       "name": "MatCarouselSlideComponent",
       "kind": "component",
       "selector": "mat-carousel-slide",
-      "summary": null,
+      "summary": "A single slide projected into {@link MatCarouselComponent}.",
+      "summaryZh": "投影进 {@link MatCarouselComponent} 的单张幻灯片。",
       "sourceFile": "src/common/carousel/carousel-slide/carousel-slide.component.ts",
       "inputs": [
         {
           "name": "image",
           "type": "SafeStyle",
-          "description": null
+          "description": null,
+          "descriptionZh": "幻灯片背景图片 URL。"
         },
         {
           "name": "overlayColor",
           "type": "any",
           "default": "'#00000040'",
-          "description": null
+          "description": null,
+          "descriptionZh": "悬浮遮罩的颜色。"
         },
         {
           "name": "hideOverlay",
           "type": "any",
           "default": "false",
-          "description": null
+          "description": null,
+          "descriptionZh": "隐藏悬浮遮罩。"
         },
         {
           "name": "disabled",
           "type": "any",
           "default": "false",
-          "description": null
+          "description": null,
+          "descriptionZh": "禁用该幻灯片（跳过键盘导航）。"
         }
       ],
       "outputs": [],
@@ -334,7 +380,8 @@
         {
           "name": "templateRef",
           "type": "TemplateRef<any>",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -342,6 +389,7 @@
       "name": "Orientation",
       "kind": "type",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/carousel/carousel.ts",
       "inputs": [],
       "outputs": [],
@@ -352,6 +400,7 @@
       "name": "SvgIconOverrides",
       "kind": "interface",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/carousel/carousel.ts",
       "inputs": [],
       "outputs": [],

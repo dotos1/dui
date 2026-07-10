@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-09T13:43:02.902Z",
+  "generatedAt": "2026-07-10T01:00:42.729Z",
   "categories": [
     {
       "id": "base",
@@ -18,7 +18,7 @@
     {
       "id": "common",
       "importPath": "@dotos/dui/common",
-      "moduleCount": 31,
+      "moduleCount": 37,
       "modules": [
         {
           "id": "animations",
@@ -32,6 +32,13 @@
           "importPath": "@dotos/dui/common/backdrop",
           "dataFile": "docs-data/common/backdrop.json",
           "exportedClassCount": 2,
+          "isFlagship": false
+        },
+        {
+          "id": "breadcrumbs",
+          "importPath": "@dotos/dui/common/breadcrumbs",
+          "dataFile": "docs-data/common/breadcrumbs.json",
+          "exportedClassCount": 3,
           "isFlagship": false
         },
         {
@@ -126,6 +133,13 @@
           "isFlagship": false
         },
         {
+          "id": "icon-sprite",
+          "importPath": "@dotos/dui/common/icon-sprite",
+          "dataFile": "docs-data/common/icon-sprite.json",
+          "exportedClassCount": 5,
+          "isFlagship": false
+        },
+        {
           "id": "iframe",
           "importPath": "@dotos/dui/common/iframe",
           "dataFile": "docs-data/common/iframe.json",
@@ -165,6 +179,20 @@
           "importPath": "@dotos/dui/common/media",
           "dataFile": "docs-data/common/media.json",
           "exportedClassCount": 3,
+          "isFlagship": false
+        },
+        {
+          "id": "message",
+          "importPath": "@dotos/dui/common/message",
+          "dataFile": "docs-data/common/message.json",
+          "exportedClassCount": 3,
+          "isFlagship": false
+        },
+        {
+          "id": "notifications",
+          "importPath": "@dotos/dui/common/notifications",
+          "dataFile": "docs-data/common/notifications.json",
+          "exportedClassCount": 5,
           "isFlagship": false
         },
         {
@@ -222,6 +250,20 @@
           "dataFile": "docs-data/common/search-box.json",
           "exportedClassCount": 6,
           "isFlagship": true
+        },
+        {
+          "id": "stop-propagation",
+          "importPath": "@dotos/dui/common/stop-propagation",
+          "dataFile": "docs-data/common/stop-propagation.json",
+          "exportedClassCount": 3,
+          "isFlagship": false
+        },
+        {
+          "id": "svg",
+          "importPath": "@dotos/dui/common/svg",
+          "dataFile": "docs-data/common/svg.json",
+          "exportedClassCount": 1,
+          "isFlagship": false
         },
         {
           "id": "toastr",

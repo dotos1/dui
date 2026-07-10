@@ -201,6 +201,7 @@ export const MOUSE_MOVE_THROTTLE_MS: number = 50;
  * <div mwlResizable #resizableElement="mwlResizable"></div>
  * <div duiResizeHandle [resizableContainer]="resizableElement" [resizeEdges]="{bottom: true, right: true}"></div>
  * ```
+ * @zh 将此指令用于元素使其可缩放，可配合 {@link ResizeHandleDirective} 作为独立的拖拽手柄。
  */
 @Directive({
   selector: '[duiResizable]',

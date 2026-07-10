@@ -1,0 +1,144 @@
+{
+  "importPath": "@dotos/dui/common/breadcrumbs",
+  "exports": [
+    {
+      "name": "BreadcrumbComponent",
+      "kind": "component",
+      "selector": "dui-breadcrumb, a[dui-breadcrumb]",
+      "summary": "A single crumb item rendered inside {@link BreadcrumbsComponent}.",
+      "summaryZh": "{@link BreadcrumbsComponent} 内渲染的单个面包屑项。",
+      "sourceFile": "src/common/breadcrumbs/breadcrumb/breadcrumb.component.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "matButtonClass",
+          "type": "any",
+          "default": "true",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "tdBreadCrumbClass",
+          "type": "any",
+          "default": "true",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "separatorIcon",
+          "type": "string",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "separatorIcon",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "displayIcon",
+          "type": "boolean",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "displayIcon",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "displayCrumb",
+          "type": "boolean",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "displayCrumb",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "width",
+          "type": "number",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "displayBinding",
+          "type": "string | undefined",
+          "description": null,
+          "descriptionZh": null
+        }
+      ]
+    },
+    {
+      "name": "BreadcrumbsComponent",
+      "kind": "component",
+      "selector": "dui-breadcrumbs",
+      "summary": "Container for {@link BreadcrumbComponent} items; automatically collapses/hides crumbs that\nno longer fit the available width on resize.",
+      "summaryZh": "{@link BreadcrumbComponent} 面包屑项的容器；在窗口尺寸变化时自动折叠/隐藏放不下的面包屑项。",
+      "sourceFile": "src/common/breadcrumbs/breadcrumbs.component.ts",
+      "inputs": [
+        {
+          "name": "separatorIcon",
+          "type": "string",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "outputs": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "tdBreadCrumbsClass",
+          "type": "any",
+          "default": "true",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "hiddenBreadcrumbs",
+          "type": "BreadcrumbComponent[]",
+          "default": "[]",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "separatorIcon",
+          "type": "string",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "nativeElementWidth",
+          "type": "number",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "count",
+          "type": "number",
+          "description": null,
+          "descriptionZh": null
+        }
+      ]
+    },
+    {
+      "name": "BreadcrumbsModule",
+      "kind": "module",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/common/breadcrumbs/breadcrumbs.module.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    }
+  ],
+  "suggestedUsageSnippet": "import { BreadcrumbComponent, BreadcrumbsModule } from '@dotos/dui/common/breadcrumbs';\n\n<dui-breadcrumb, a[dui-breadcrumb]></dui-breadcrumb, a[dui-breadcrumb]>"
+}

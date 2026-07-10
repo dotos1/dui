@@ -5,6 +5,7 @@
       "name": "Cookie",
       "kind": "class",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/cookie/cookie.ts",
       "inputs": [],
       "outputs": [],
@@ -13,42 +14,50 @@
         {
           "name": "key",
           "type": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "value",
           "type": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "expires",
           "type": "string|Date",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "maxAge",
           "type": "number",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "path",
           "type": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "domain",
           "type": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "secure",
           "type": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "httpOnly",
           "type": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -56,6 +65,7 @@
       "name": "CookieSerializer",
       "kind": "class",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/cookie/cookie-serializer.ts",
       "inputs": [],
       "outputs": [],
@@ -69,7 +79,8 @@
             }
           ],
           "returnType": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "serializeCookieArray",
@@ -80,7 +91,8 @@
             }
           ],
           "returnType": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "deserializeCookie",
@@ -91,7 +103,8 @@
             }
           ],
           "returnType": "Cookie",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "deserializeCookieArray",
@@ -102,7 +115,8 @@
             }
           ],
           "returnType": "Cookie[]",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": []
@@ -111,6 +125,7 @@
       "name": "CookieStorage",
       "kind": "class",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/cookie/cookie-storage.ts",
       "inputs": [],
       "outputs": [],
@@ -119,7 +134,8 @@
           "name": "isEnabled",
           "params": [],
           "returnType": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "getCookie",
@@ -130,13 +146,15 @@
             }
           ],
           "returnType": "Cookie | undefined",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "getCookies",
           "params": [],
           "returnType": "Cookie[]",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "addCookie",
@@ -147,7 +165,8 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "addCookies",
@@ -158,7 +177,8 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "removeCookie",
@@ -169,7 +189,8 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "hasCookie",
@@ -180,7 +201,8 @@
             }
           ],
           "returnType": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": []

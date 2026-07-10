@@ -28,6 +28,12 @@ import {
     PerfectScrollbarEvents,
 } from './perfect-scrollbar.interfaces';
 
+/**
+ * Component wrapper around {@link PerfectScrollbarDirective} that additionally renders
+ * scroll-position indicator overlays and supports edge-propagation of wheel/touch scrolling.
+ * @zh {@link PerfectScrollbarDirective} 的组件版封装，额外渲染滚动位置指示条覆层，
+ * 并支持在到达边缘时向外传播滚轮/触摸滚动。
+ */
 @Component({
     selector: 'perfect-scrollbar',
     exportAs: 'ngxPerfectScrollbar',

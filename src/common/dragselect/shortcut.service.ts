@@ -36,6 +36,12 @@ interface KeyState {
   pressed: boolean;
 }
 
+/**
+ * Parses the drag-to-select config's keyboard shortcut strings (e.g. `"ctrl+shift"`) and
+ * exposes methods to check whether a given shortcut is currently held during an event.
+ * @zh 解析拖拽框选配置中的键盘快捷键字符串（如 `"ctrl+shift"`），
+ * 并提供方法判断某个快捷键在事件发生时是否处于按下状态。
+ */
 @Injectable()
 export class ShortcutService {
   private _shortcuts: { [key: string]: string[][] } = {};

@@ -5,6 +5,7 @@
       "name": "MAT_MOMENT_DATETIME_FORMATS",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/form/date/moment/moment-datetime-formats.ts",
       "inputs": [],
       "outputs": [],
@@ -15,6 +16,7 @@
       "name": "MatMomentDatetimeModule",
       "kind": "module",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/form/date/moment/moment-datetime.module.ts",
       "inputs": [],
       "outputs": [],
@@ -25,6 +27,7 @@
       "name": "MOMENT_DATE_FORMATS",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/form/date/moment/moment-datetime-formats.ts",
       "inputs": [],
       "outputs": [],
@@ -35,6 +38,7 @@
       "name": "MomentDatetimeAdapter",
       "kind": "service",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/form/date/moment/moment-datetime-adapter.ts",
       "inputs": [],
       "outputs": [],
@@ -48,7 +52,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "getHour",
@@ -59,7 +64,8 @@
             }
           ],
           "returnType": "number",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "getMinute",
@@ -70,7 +76,8 @@
             }
           ],
           "returnType": "number",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "isInNextMonth",
@@ -85,7 +92,8 @@
             }
           ],
           "returnType": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "createDatetime",
@@ -112,7 +120,8 @@
             }
           ],
           "returnType": "Moment",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "getFirstDateOfMonth",
@@ -123,19 +132,22 @@
             }
           ],
           "returnType": "Moment",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "getHourNames",
           "params": [],
           "returnType": "string[]",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "getMinuteNames",
           "params": [],
           "returnType": "string[]",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "addCalendarHours",
@@ -150,7 +162,8 @@
             }
           ],
           "returnType": "Moment",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "addCalendarMinutes",
@@ -165,7 +178,8 @@
             }
           ],
           "returnType": "Moment",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "deserialize",
@@ -176,7 +190,8 @@
             }
           ],
           "returnType": "Moment | null",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": []
@@ -185,6 +200,7 @@
       "name": "MomentDatetimeModule",
       "kind": "module",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/form/date/moment/moment-datetime.module.ts",
       "inputs": [],
       "outputs": [],

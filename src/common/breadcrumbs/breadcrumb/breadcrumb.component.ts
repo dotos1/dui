@@ -7,6 +7,10 @@ import {
   ChangeDetectorRef,
 } from '@angular/core';
 
+/**
+ * A single crumb item rendered inside {@link BreadcrumbsComponent}.
+ * @zh {@link BreadcrumbsComponent} 内渲染的单个面包屑项。
+ */
 @Component({
   selector: 'dui-breadcrumb, a[dui-breadcrumb]',
   styleUrls: ['./breadcrumb.component.scss'],

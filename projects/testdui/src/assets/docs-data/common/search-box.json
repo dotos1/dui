@@ -5,6 +5,7 @@
       "name": "_SearchInputMixinBase",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/search-box/search-input/search-input.component.ts",
       "inputs": [],
       "outputs": [],
@@ -15,6 +16,7 @@
       "name": "SearchBoxBase",
       "kind": "class",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/search-box/search-box.component.ts",
       "inputs": [],
       "outputs": [],
@@ -25,99 +27,116 @@
       "name": "SearchBoxComponent",
       "kind": "component",
       "selector": "search-box",
-      "summary": null,
+      "summary": "An expandable search input that collapses to a single icon when not in use, with\nbuilt-in debounced search/clear/blur events. Implements `ControlValueAccessor`.",
+      "summaryZh": "一个可展开的搜索输入框，不使用时收起为单个图标，内置防抖的搜索/清空/失焦事件。实现了 `ControlValueAccessor`。",
       "sourceFile": "src/common/search-box/search-box.component.ts",
       "inputs": [
         {
           "name": "config",
           "type": "any",
           "default": "{}",
-          "description": null
+          "description": "Config object applied via {@link Dui.apply}; can set `hasDefault`/`defaultGrp` to\nstart with the input expanded.",
+          "descriptionZh": "通过 {@link Dui.apply} 应用的配置对象；可设置 `hasDefault`/`defaultGrp` 使输入框初始为展开状态。"
         },
         {
           "name": "backIcon",
           "type": "any",
           "default": "'search'",
-          "description": null
+          "description": null,
+          "descriptionZh": "收起状态下显示的图标。"
         },
         {
           "name": "searchIcon",
           "type": "any",
           "default": "'search'",
-          "description": null
+          "description": null,
+          "descriptionZh": "搜索图标。"
         },
         {
           "name": "clearIcon",
           "type": "any",
           "default": "'cancel'",
-          "description": null
+          "description": null,
+          "descriptionZh": "清空按钮图标。"
         },
         {
           "name": "showUnderline",
           "type": "any",
           "default": "false",
-          "description": null
+          "description": null,
+          "descriptionZh": "是否显示下划线。"
         },
         {
           "name": "debounce",
           "type": "any",
           "default": "400",
-          "description": null
+          "description": "Debounce (ms) before `searchDebounce` fires after typing stops.",
+          "descriptionZh": "停止输入后，多久（毫秒）触发一次 `searchDebounce`。"
         },
         {
           "name": "alwaysVisible",
           "type": "any",
           "default": "false",
-          "description": null
+          "description": "Keeps the input expanded at all times instead of collapsing to just an icon.",
+          "descriptionZh": "输入框始终保持展开，而不是收起为一个图标。"
         },
         {
           "name": "placeholder",
           "type": "any",
           "default": "''",
-          "description": null
+          "description": null,
+          "descriptionZh": "输入框占位提示文字。"
         },
         {
           "name": "value",
           "type": "unknown",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "disabled",
           "type": "boolean",
           "default": "false",
-          "description": null
+          "description": null,
+          "descriptionZh": "是否禁用输入框。"
         }
       ],
       "outputs": [
         {
           "name": "searchDebounce",
           "type": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "onSearch",
           "type": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "onClear",
           "type": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "blurSearch",
           "type": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "onUserDefined",
           "type": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "onSearching",
           "type": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "methods": [
@@ -130,19 +149,22 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "searchClicked",
           "params": [],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "toggleVisibility",
           "params": [],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "handleSearchDebounce",
@@ -153,7 +175,8 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "handleSearch",
@@ -164,46 +187,54 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "handleClear",
           "params": [],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "handleBlur",
           "params": [],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": [
         {
           "name": "searchVisible",
           "type": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "width",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "width",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "search",
           "type": "Function",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "clear",
           "type": "Function",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -211,6 +242,7 @@
       "name": "SearchBoxModule",
       "kind": "module",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/search-box/search-box.module.ts",
       "inputs": [],
       "outputs": [],
@@ -220,7 +252,8 @@
           "name": "entryComponents",
           "type": "any",
           "default": "[\n    SearchBoxComponent\n  ]",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -228,6 +261,7 @@
       "name": "SearchInputBase",
       "kind": "class",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/search-box/search-input/search-input.component.ts",
       "inputs": [],
       "outputs": [],
@@ -239,64 +273,75 @@
       "kind": "component",
       "selector": "search-input",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/search-box/search-input/search-input.component.ts",
       "inputs": [
         {
           "name": "appearance",
           "type": "MatFormFieldAppearance",
           "default": "'outline'",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "showUnderline",
           "type": "any",
           "default": "false",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "debounce",
           "type": "any",
           "default": "400",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "placeholder",
           "type": "any",
           "default": "''",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "clearIcon",
           "type": "any",
           "default": "'cancel'",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "value",
           "type": "unknown",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "outputs": [
         {
           "name": "searchDebounce",
           "type": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "onSearch",
           "type": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "onClear",
           "type": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "blurSearch",
           "type": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "methods": [
@@ -304,13 +349,15 @@
           "name": "focus",
           "params": [],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "handleBlur",
           "params": [],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "handleSearch",
@@ -321,20 +368,23 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "clearSearch",
           "params": [],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": [
         {
           "name": "isRTL",
           "type": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     }

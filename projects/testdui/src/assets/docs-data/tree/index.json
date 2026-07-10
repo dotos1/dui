@@ -5,6 +5,7 @@
       "name": "IActionHandler",
       "kind": "interface",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/tree/models/tree-options.model.ts",
       "inputs": [],
       "outputs": [],
@@ -15,6 +16,7 @@
       "name": "IActionMapping",
       "kind": "interface",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/tree/models/tree-options.model.ts",
       "inputs": [],
       "outputs": [],
@@ -25,6 +27,7 @@
       "name": "IAllowDragFn",
       "kind": "interface",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/tree/defs/api.ts",
       "inputs": [],
       "outputs": [],
@@ -35,6 +38,7 @@
       "name": "IAllowDropFn",
       "kind": "interface",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/tree/defs/api.ts",
       "inputs": [],
       "outputs": [],
@@ -45,6 +49,7 @@
       "name": "ITreeConfig",
       "kind": "interface",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/tree/components/tree.component.ts",
       "inputs": [],
       "outputs": [],
@@ -55,6 +60,7 @@
       "name": "ITreeOptions",
       "kind": "interface",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/tree/defs/api.ts",
       "inputs": [],
       "outputs": [],
@@ -65,6 +71,7 @@
       "name": "ITreeState",
       "kind": "interface",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/tree/defs/api.ts",
       "inputs": [],
       "outputs": [],
@@ -75,6 +82,7 @@
       "name": "KEYS",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/tree/constants/keys.ts",
       "inputs": [],
       "outputs": [],
@@ -86,17 +94,20 @@
       "kind": "component",
       "selector": "tree-loading-component",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/tree/components/loading.component.ts",
       "inputs": [
         {
           "name": "template",
           "type": "TemplateRef<any>",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "node",
           "type": "TreeNode",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "outputs": [],
@@ -107,6 +118,7 @@
       "name": "TREE_ACTIONS",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/tree/models/tree-options.model.ts",
       "inputs": [],
       "outputs": [],
@@ -117,6 +129,7 @@
       "name": "TREE_EVENTS",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/tree/constants/events.ts",
       "inputs": [],
       "outputs": [],
@@ -128,31 +141,36 @@
       "kind": "directive",
       "selector": "[treeAnimateOpen]",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/tree/directives/tree-animate-open.directive.ts",
       "inputs": [
         {
           "name": "animateSpeed",
           "alias": "treeAnimateOpenSpeed",
           "type": "number",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "animateAcceleration",
           "alias": "treeAnimateOpenAcceleration",
           "type": "number",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "isEnabled",
           "alias": "treeAnimateOpenEnabled",
           "type": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "isOpen",
           "alias": "treeAnimateOpen",
           "type": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "outputs": [],
@@ -164,120 +182,143 @@
       "kind": "component",
       "selector": "Tree, tree-root",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/tree/components/tree.component.ts",
       "inputs": [
         {
           "name": "nodes",
           "type": "any[]",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "options",
           "type": "ITreeOptions",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "focused",
           "type": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "state",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "config",
           "type": "ITreeConfig",
           "default": "{\n    click: () => { },\n    rootUrl: '',\n    storeName: '',\n    apiBase: '/api/',\n    rootParams: {}\n  }",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "outputs": [
         {
           "name": "toggleExpanded",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "activate",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "deactivate",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "nodeActivate",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "nodeDeactivate",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "select",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "deselect",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "focus",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "blur",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "updateData",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "initialized",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "moveNode",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "copyNode",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "loadNodeChildren",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "changeFilter",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "event",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "stateChange",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "methods": [
@@ -290,7 +331,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "onMousedown",
@@ -301,7 +343,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "loadParentNode",
@@ -312,7 +355,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "loadSelfNode",
@@ -323,7 +367,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "setActiveNodeLabel",
@@ -334,7 +379,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "setActiveNodeIcon",
@@ -345,7 +391,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "dropActiveNode",
@@ -356,13 +403,15 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "refresh",
           "params": [],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "loadSubNode",
@@ -373,7 +422,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "setAcvitNode",
@@ -388,7 +438,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "getChildren",
@@ -399,7 +450,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "exeHistoryNode",
@@ -410,7 +462,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "loadNodeByPath",
@@ -425,7 +478,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "loadPath",
@@ -436,7 +490,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "getTree",
@@ -451,45 +506,53 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "sizeChanged",
           "params": [],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": [
         {
           "name": "loadingTemplate",
           "type": "TemplateRef<any>",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "treeNodeTemplate",
           "type": "TemplateRef<any>",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "treeNodeWrapperTemplate",
           "type": "TemplateRef<any>",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "treeNodeFullTemplate",
           "type": "TemplateRef<any>",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "viewportComponent",
           "type": "TreeViewportComponent",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "selectedNodes",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -498,18 +561,21 @@
       "kind": "directive",
       "selector": "[treeDrag]",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/tree/directives/tree-drag.directive.ts",
       "inputs": [
         {
           "name": "draggedElement",
           "alias": "treeDrag",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "treeDragEnabled",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "outputs": [],
@@ -523,7 +589,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "onDrag",
@@ -534,13 +601,15 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "onDragEnd",
           "params": [],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": []
@@ -549,6 +618,7 @@
       "name": "TreeDraggedElement",
       "kind": "service",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/tree/models/tree-dragged-element.model.ts",
       "inputs": [],
       "outputs": [],
@@ -562,19 +632,22 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "get",
           "params": [],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "isDragging",
           "params": [],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": []
@@ -584,40 +657,47 @@
       "kind": "directive",
       "selector": "[treeDrop]",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/tree/directives/tree-drop.directive.ts",
       "inputs": [
         {
           "name": "allowDragoverStyling",
           "type": "any",
           "default": "true",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "treeAllowDrop",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "outputs": [
         {
           "name": "onDropCallback",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "onDragOverCallback",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "onDragLeaveCallback",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "onDragEnterCallback",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "methods": [
@@ -630,7 +710,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "onDragOver",
@@ -641,7 +722,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "onDragEnter",
@@ -652,7 +734,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "onDragLeave",
@@ -663,7 +746,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "onDrop",
@@ -674,7 +758,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": []
@@ -684,12 +769,14 @@
       "kind": "directive",
       "selector": "[treeMobxAutorun]",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/tree/mobx-angular/tree-mobx-autorun.directive.ts",
       "inputs": [
         {
           "name": "treeMobxAutorun",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "outputs": [],
@@ -698,7 +785,8 @@
           "name": "shouldDetach",
           "params": [],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "autoDetect",
@@ -709,7 +797,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": []
@@ -718,6 +807,7 @@
       "name": "TreeModel",
       "kind": "service",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/tree/models/tree.model.ts",
       "inputs": [],
       "outputs": [],
@@ -731,7 +821,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "subscribe",
@@ -746,7 +837,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "unsubscribe",
@@ -761,31 +853,36 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "getFocusedNode",
           "params": [],
           "returnType": "TreeNode",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "getActiveNode",
           "params": [],
           "returnType": "TreeNode",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "getActiveNodes",
           "params": [],
           "returnType": "TreeNode[]",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "getVisibleRoots",
           "params": [],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "getFirstRoot",
@@ -796,7 +893,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "getLastRoot",
@@ -807,7 +905,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "isNodeFocused",
@@ -818,19 +917,22 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "isEmptyTree",
           "params": [],
           "returnType": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "getNodePath",
           "params": [],
           "returnType": "Array<TreeNode>",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "getNodeByPath",
@@ -845,7 +947,8 @@
             }
           ],
           "returnType": "TreeNode",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "getNodeById",
@@ -856,7 +959,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "getNodeBy",
@@ -871,7 +975,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "isExpanded",
@@ -882,7 +987,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "isHidden",
@@ -893,7 +999,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "isActive",
@@ -904,7 +1011,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "isSelected",
@@ -915,7 +1023,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "setEvents",
@@ -926,19 +1035,22 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "dispose",
           "params": [],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "unsubscribeAll",
           "params": [],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "setData",
@@ -949,13 +1061,15 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "update",
           "params": [],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "setFocusedNode",
@@ -966,7 +1080,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "setFocus",
@@ -977,7 +1092,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "doForAll",
@@ -988,31 +1104,36 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "focusNextNode",
           "params": [],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "focusPreviousNode",
           "params": [],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "focusDrillDown",
           "params": [],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "focusDrillUp",
           "params": [],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "setActiveNode",
@@ -1031,7 +1152,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "setSelectedNode",
@@ -1050,7 +1172,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "setExpandedNode",
@@ -1069,19 +1192,22 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "expandAll",
           "params": [],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "collapseAll",
           "params": [],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "setIsHidden",
@@ -1096,7 +1222,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "setHiddenNodeIds",
@@ -1107,7 +1234,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "performKeyAction",
@@ -1122,7 +1250,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "filterNodes",
@@ -1137,13 +1266,15 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "clearFilter",
           "params": [],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "moveNode",
@@ -1158,7 +1289,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "removeNode",
@@ -1169,7 +1301,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "copyNode",
@@ -1184,13 +1317,15 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "getState",
           "params": [],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "setState",
@@ -1201,7 +1336,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "subscribeToState",
@@ -1212,7 +1348,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "canMoveNode",
@@ -1231,13 +1368,15 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "calculateExpandedNodes",
           "params": [],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": [
@@ -1245,117 +1384,138 @@
           "name": "focusedTree",
           "type": "any",
           "default": "null",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "options",
           "type": "TreeOptions",
           "default": "new TreeOptions()",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "nodes",
           "type": "any[]",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "eventNames",
           "type": "any",
           "default": "Object.keys(TREE_EVENTS)",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "virtualScroll",
           "type": "TreeVirtualScroll",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "roots",
           "type": "TreeNode[]",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "expandedNodeIds",
           "type": "IDTypeDictionary",
           "default": "{}",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "selectedLeafNodeIds",
           "type": "IDTypeDictionary",
           "default": "{}",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "activeNodeIds",
           "type": "IDTypeDictionary",
           "default": "{}",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "hiddenNodeIds",
           "type": "IDTypeDictionary",
           "default": "{}",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "focusedNodeId",
           "type": "IDType",
           "default": "null",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "virtualRoot",
           "type": "TreeNode",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "firstUpdate",
           "type": "any",
           "default": "true",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "idSet",
           "type": "Set<string>",
           "default": "new Set()",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "nodeRegistry",
           "type": "any",
           "default": "new Map<string, TreeNode>()",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "isFocused",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "focusedNode",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "expandedNodes",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "activeNodes",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "hiddenNodes",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "selectedLeafNodes",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -1363,6 +1523,7 @@
       "name": "TreeModule",
       "kind": "module",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/tree/tree.module.ts",
       "inputs": [],
       "outputs": [],
@@ -1373,6 +1534,7 @@
       "name": "TreeNode",
       "kind": "class",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/tree/models/tree-node.model.ts",
       "inputs": [],
       "outputs": [],
@@ -1386,7 +1548,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "getField",
@@ -1397,7 +1560,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "setField",
@@ -1412,13 +1576,15 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "clear",
           "params": [],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "addNode",
@@ -1429,13 +1595,15 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "destroy",
           "params": [],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "findNextSibling",
@@ -1446,7 +1614,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "findPreviousSibling",
@@ -1457,13 +1626,15 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "getVisibleChildren",
           "params": [],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "getPathValue",
@@ -1478,7 +1649,8 @@
             }
           ],
           "returnType": "string[]",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "getFirstChild",
@@ -1489,7 +1661,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "getLastChild",
@@ -1500,7 +1673,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "findNextNode",
@@ -1515,7 +1689,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "findPreviousNode",
@@ -1526,7 +1701,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "getRoot",
@@ -1537,7 +1713,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "getAllParents",
@@ -1548,7 +1725,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "getAllChildren",
@@ -1559,7 +1737,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "getIndexInParent",
@@ -1570,7 +1749,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "isDescendantOf",
@@ -1581,19 +1761,22 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "getNodePadding",
           "params": [],
           "returnType": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "getClass",
           "params": [],
           "returnType": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "onDrop",
@@ -1604,13 +1787,15 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "allowDrag",
           "params": [],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "setNodeChildren",
@@ -1621,13 +1806,15 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "loadNodeChildren",
           "params": [],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "expand",
@@ -1638,7 +1825,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "collapse",
@@ -1649,7 +1837,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "doForAll",
@@ -1660,7 +1849,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "doForAncestors",
@@ -1671,31 +1861,36 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "expandAncestors",
           "params": [],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "expandAll",
           "params": [],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "collapseAll",
           "params": [],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "ensureVisible",
           "params": [],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "toggleExpanded",
@@ -1706,7 +1901,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "setIsExpanded",
@@ -1721,19 +1917,22 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "autoLoadChildren",
           "params": [],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "dispose",
           "params": [],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "setIsActive",
@@ -1748,13 +1947,15 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "isSelectable",
           "params": [],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "setIsSelected",
@@ -1769,13 +1970,15 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "toggleSelected",
           "params": [],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "toggleActivated",
@@ -1786,7 +1989,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "setActiveAndVisible",
@@ -1797,7 +2001,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "scrollIntoView",
@@ -1808,7 +2013,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "focus",
@@ -1819,13 +2025,15 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "blur",
           "params": [],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "setIsHidden",
@@ -1836,19 +2044,22 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "hide",
           "params": [],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "show",
           "params": [],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "mouseAction",
@@ -1867,198 +2078,236 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "getSelfHeight",
           "params": [],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": [
         {
           "name": "isHidden",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "isExpanded",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "isActive",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "isFocused",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "isSelected",
           "type": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "isAllSelected",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "isPartiallySelected",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "children",
           "type": "TreeNode[]",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "index",
           "type": "number",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "position",
           "type": "any",
           "default": "0",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "height",
           "type": "number",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "level",
           "type": "number",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "path",
           "type": "string[]",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "elementRef",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "originalNode",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "hasChildren",
           "type": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "isCollapsed",
           "type": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "isLeaf",
           "type": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "isRoot",
           "type": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "realParent",
           "type": "TreeNode",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "options",
           "type": "TreeOptions",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "displayField",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "id",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "id",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "expandedIcon",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "icon",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "icon",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "toolTip",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "toolTip",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "checkable",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "checkable",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "editable",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "editable",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "visibleChildren",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "allowDrop",
           "type": "any",
           "default": "(element, $event?) => {\n    return this.options.allowDrop(element, { parent: this, index: 0 }, $event);\n  }",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "allowDragoverStyling",
           "type": "any",
           "default": "() => {\n    return this.options.allowDragoverStyling;\n  }",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -2067,17 +2316,20 @@
       "kind": "component",
       "selector": "tree-node-checkbox",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/tree/components/tree-node-checkbox.component.ts",
       "inputs": [
         {
           "name": "node",
           "type": "TreeNode",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "label",
           "type": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "outputs": [],
@@ -2089,17 +2341,20 @@
       "kind": "component",
       "selector": "tree-node-children",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/tree/components/tree-node-children.component.ts",
       "inputs": [
         {
           "name": "node",
           "type": "TreeNode",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "templates",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "outputs": [],
@@ -2111,22 +2366,26 @@
       "kind": "component",
       "selector": "tree-node-collection",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/tree/components/tree-node-collection.component.ts",
       "inputs": [
         {
           "name": "nodes",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "treeModel",
           "type": "TreeModel",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "templates",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "outputs": [],
@@ -2140,7 +2399,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "trackNode",
@@ -2155,24 +2415,28 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": [
         {
           "name": "nodes",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "viewportNodes",
           "type": "TreeNode[]",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "marginTop",
           "type": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -2181,22 +2445,26 @@
       "kind": "component",
       "selector": "TreeNode, tree-node",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/tree/components/tree-node.component.ts",
       "inputs": [
         {
           "name": "node",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "index",
           "type": "number",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "templates",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "outputs": [],
@@ -2210,14 +2478,16 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": [
         {
           "name": "node",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -2226,22 +2496,26 @@
       "kind": "component",
       "selector": "tree-node-content",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/tree/components/tree-node-content.component.ts",
       "inputs": [
         {
           "name": "node",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "index",
           "type": "number",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "template",
           "type": "TemplateRef<any>",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "outputs": [],
@@ -2250,7 +2524,8 @@
         {
           "name": "node",
           "type": "TreeNode",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -2259,17 +2534,20 @@
       "kind": "component",
       "selector": "TreeNodeDropSlot, tree-node-drop-slot",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/tree/components/tree-node-drop-slot.component.ts",
       "inputs": [
         {
           "name": "node",
           "type": "TreeNode",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "dropIndex",
           "type": "number",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "outputs": [],
@@ -2283,7 +2561,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "allowDrop",
@@ -2298,7 +2577,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": []
@@ -2308,12 +2588,14 @@
       "kind": "component",
       "selector": "tree-node-expander",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/tree/components/tree-node-expander.component.ts",
       "inputs": [
         {
           "name": "node",
           "type": "TreeNode",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "outputs": [],
@@ -2325,22 +2607,26 @@
       "kind": "component",
       "selector": "tree-node-wrapper",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/tree/components/tree-node-wrapper.component.ts",
       "inputs": [
         {
           "name": "node",
           "type": "TreeNode",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "index",
           "type": "number",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "templates",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "outputs": [],
@@ -2352,6 +2638,7 @@
       "kind": "component",
       "selector": "tree-viewport",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/tree/components/tree-viewport.component.ts",
       "inputs": [],
       "outputs": [],
@@ -2360,7 +2647,8 @@
           "name": "getTotalHeight",
           "params": [],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": [
@@ -2368,7 +2656,8 @@
           "name": "setViewport",
           "type": "any",
           "default": "this.throttle(() => {\n    this.virtualScroll.setViewport(this.elementRef.nativeElement);\n  }, 17)",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -2376,6 +2665,7 @@
       "name": "TreeVirtualScroll",
       "kind": "service",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/tree/models/tree-virtual-scroll.model.ts",
       "inputs": [],
       "outputs": [],
@@ -2389,31 +2679,36 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "init",
           "params": [],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "isEnabled",
           "params": [],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "recalcPositions",
           "params": [],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "clear",
           "params": [],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "setViewport",
@@ -2424,7 +2719,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "scrollIntoView",
@@ -2443,7 +2739,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "getViewportNodes",
@@ -2454,13 +2751,15 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "fixScroll",
           "params": [],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": [
@@ -2468,35 +2767,41 @@
           "name": "yBlocks",
           "type": "any",
           "default": "0",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "x",
           "type": "any",
           "default": "0",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "viewportHeight",
           "type": "any",
           "default": "null",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "viewport",
           "type": "any",
           "default": "null",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "y",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "totalHeight",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     }

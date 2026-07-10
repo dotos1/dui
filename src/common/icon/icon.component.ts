@@ -13,6 +13,13 @@ import { DomSanitizer } from '@angular/platform-browser';
 import { FontLoaderService } from './font-loader.service';
 
 
+/**
+ * Renders an icon from any of several sources based on a single prefixed `value` string:
+ * Material font icons (`FONT:name`), SVG icons (`SVG:name:url`), raw font classes (`font:class`),
+ * or a custom web-font glyph loaded on demand (`EXTRA:family:codepoint:url`).
+ * @zh 根据带前缀的 `value` 字符串，从多种来源渲染图标：Material 字体图标（`FONT:name`）、
+ * SVG 图标（`SVG:name:url`）、原始字体类名（`font:class`），或按需加载的自定义 Web 字体字形（`EXTRA:family:codepoint:url`）。
+ */
 @Component({
   selector: 'dui-icon',
   templateUrl: './icon.component.html',
@@ -26,6 +33,10 @@ export class IconComponent {
   private _value = '';
   public iconType = 'FONT';
 
+  /**
+   * Material theme color applied to the icon.
+   * @zh 应用到图标上的 Material 主题色。
+   */
   @Input()
   color: ThemePalette|string;
 
@@ -68,6 +79,11 @@ export class IconComponent {
 
   public fontStyle;
 
+  /**
+   * The icon source, encoded as a prefixed string: `FONT:name`, `SVG:name:url`,
+   * `font:class`, or `EXTRA:family:codepoint:url`.
+   * @zh 图标来源，编码为带前缀的字符串：`FONT:name`、`SVG:name:url`、`font:class` 或 `EXTRA:family:codepoint:url`。
+   */
   @Input()
   set value(value: string) {
 

@@ -5,6 +5,7 @@
       "name": "calculateDragImageOffset",
       "kind": "function",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/dnd/dnd-utils.ts",
       "inputs": [],
       "outputs": [],
@@ -15,6 +16,7 @@
       "name": "CUSTOM_MIME_TYPE",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/dnd/dnd-utils.ts",
       "inputs": [],
       "outputs": [],
@@ -25,95 +27,112 @@
       "name": "DndDraggableDirective",
       "kind": "directive",
       "selector": "[dndDraggable]",
-      "summary": null,
+      "summary": "Makes the host element draggable using the native HTML5 drag-and-drop API; pair with\n{@link DndDropzoneDirective} on a drop target. Emits events for start/drag/end and the\nresulting drop effect (copy/move/link/canceled).",
+      "summaryZh": "使宿主元素可拖拽（基于原生 HTML5 拖放 API）；需与放置目标上的 {@link DndDropzoneDirective} 配合使用。\n会发出开始/拖拽中/结束事件，以及最终的放置效果（复制/移动/链接/取消）。",
       "sourceFile": "src/common/dnd/dnd-draggable.directive.ts",
       "inputs": [
         {
           "name": "dndDraggable",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "dndEffectAllowed",
           "type": "EffectAllowed",
           "default": "\"copy\"",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "dndType",
           "type": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "dndDraggingClass",
           "type": "any",
           "default": "\"dndDragging\"",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "dndDraggingSourceClass",
           "type": "any",
           "default": "\"dndDraggingSource\"",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "dndDraggableDisabledClass",
           "type": "any",
           "default": "\"dndDraggableDisabled\"",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "dndDragImageOffsetFunction",
           "type": "DndDragImageOffsetFunction",
           "default": "calculateDragImageOffset",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "dndDisableIf",
           "type": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "dndDisableDragIf",
           "type": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "outputs": [
         {
           "name": "dndStart",
           "type": "DragEvent",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "dndDrag",
           "type": "DragEvent",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "dndEnd",
           "type": "DragEvent",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "dndMoved",
           "type": "DragEvent",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "dndCopied",
           "type": "DragEvent",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "dndLinked",
           "type": "DragEvent",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "dndCanceled",
           "type": "DragEvent",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "methods": [
@@ -126,7 +145,8 @@
             }
           ],
           "returnType": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "onDrag",
@@ -137,7 +157,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "onDragEnd",
@@ -148,7 +169,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "registerDragHandle",
@@ -159,7 +181,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "registerDragImage",
@@ -170,7 +193,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": [
@@ -178,7 +202,8 @@
           "name": "draggable",
           "type": "any",
           "default": "true",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -186,6 +211,7 @@
       "name": "DndDragImageOffsetFunction",
       "kind": "type",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/dnd/dnd-utils.ts",
       "inputs": [],
       "outputs": [],
@@ -196,7 +222,8 @@
       "name": "DndDragImageRefDirective",
       "kind": "directive",
       "selector": "[dndDragImageRef]",
-      "summary": null,
+      "summary": "Marks a descendant of {@link DndDraggableDirective} as the custom drag image to use instead\nof the browser's default drag ghost.",
+      "summaryZh": "将 {@link DndDraggableDirective} 的子孙元素标记为拖拽时使用的自定义拖拽图像，\n取代浏览器默认的拖拽幽灵图。",
       "sourceFile": "src/common/dnd/dnd-draggable.directive.ts",
       "inputs": [],
       "outputs": [],
@@ -207,6 +234,7 @@
       "name": "DndDropEvent",
       "kind": "interface",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/dnd/dnd-dropzone.directive.ts",
       "inputs": [],
       "outputs": [],
@@ -217,76 +245,89 @@
       "name": "DndDropzoneDirective",
       "kind": "directive",
       "selector": "[dndDropzone]",
-      "summary": null,
+      "summary": "Marks the host element as a valid drop target for {@link DndDraggableDirective} elements,\nwith optional type filtering (`dndDropzone`) and drop-position placeholder support.",
+      "summaryZh": "将宿主元素标记为 {@link DndDraggableDirective} 元素的有效放置目标，支持按类型过滤\n（`dndDropzone`）以及放置位置的占位符提示。",
       "sourceFile": "src/common/dnd/dnd-dropzone.directive.ts",
       "inputs": [
         {
           "name": "dndDropzone",
           "type": "string[] | \"\"",
           "default": "\"\"",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "dndEffectAllowed",
           "type": "EffectAllowed",
           "default": "\"uninitialized\"",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "dndAllowExternal",
           "type": "boolean",
           "default": "false",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "dndHorizontal",
           "type": "boolean",
           "default": "false",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "dndDragoverClass",
           "type": "string",
           "default": "\"dndDragover\"",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "dndDropzoneDisabledClass",
           "type": "any",
           "default": "\"dndDropzoneDisabled\"",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "dndDisableIf",
           "type": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "dndDisableDropIf",
           "type": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "outputs": [
         {
           "name": "dndDragover",
           "type": "DragEvent",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "dndDragEnter",
           "type": "DragEvent",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "dndDropLeave",
           "type": "DndEvent",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "dndDrop",
           "type": "DndDropEvent",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "methods": [
@@ -299,7 +340,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "onDragOver",
@@ -310,7 +352,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "onDrop",
@@ -321,7 +364,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "onDragLeave",
@@ -332,7 +376,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": []
@@ -341,6 +386,7 @@
       "name": "DndEvent",
       "kind": "interface",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/dnd/dnd-utils.ts",
       "inputs": [],
       "outputs": [],
@@ -351,7 +397,8 @@
       "name": "DndHandleDirective",
       "kind": "directive",
       "selector": "[dndHandle]",
-      "summary": null,
+      "summary": "Restricts dragging of a parent {@link DndDraggableDirective} to only start from this\nelement (a \"drag handle\"), rather than anywhere on the draggable element.",
+      "summaryZh": "将父级 {@link DndDraggableDirective} 的拖拽起始点限制为仅此元素（即\"拖拽手柄\"），\n而不是整个可拖拽元素的任意位置。",
       "sourceFile": "src/common/dnd/dnd-handle.directive.ts",
       "inputs": [],
       "outputs": [],
@@ -365,7 +412,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": [
@@ -373,7 +421,8 @@
           "name": "draggable",
           "type": "any",
           "default": "true",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -381,6 +430,7 @@
       "name": "DndModule",
       "kind": "module",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/dnd/dnd.module.ts",
       "inputs": [],
       "outputs": [],
@@ -391,7 +441,8 @@
       "name": "DndPlaceholderRefDirective",
       "kind": "directive",
       "selector": "[dndPlaceholderRef]",
-      "summary": null,
+      "summary": "Marks a descendant of {@link DndDropzoneDirective} as the placeholder element to position\nat the prospective drop location while dragging over the dropzone.",
+      "summaryZh": "将 {@link DndDropzoneDirective} 的子孙元素标记为占位元素，\n在拖拽悬停于放置区上方时将其定位到预计的放置位置。",
       "sourceFile": "src/common/dnd/dnd-dropzone.directive.ts",
       "inputs": [],
       "outputs": [],
@@ -402,6 +453,7 @@
       "name": "dndState",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/dnd/dnd-state.ts",
       "inputs": [],
       "outputs": [],
@@ -412,6 +464,7 @@
       "name": "DndState",
       "kind": "interface",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/dnd/dnd-state.ts",
       "inputs": [],
       "outputs": [],
@@ -422,6 +475,7 @@
       "name": "DragDropData",
       "kind": "interface",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/dnd/dnd-utils.ts",
       "inputs": [],
       "outputs": [],
@@ -432,6 +486,7 @@
       "name": "DROP_EFFECTS",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/dnd/dnd-utils.ts",
       "inputs": [],
       "outputs": [],
@@ -442,6 +497,7 @@
       "name": "DropEffect",
       "kind": "type",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/dnd/dnd-types.ts",
       "inputs": [],
       "outputs": [],
@@ -452,6 +508,7 @@
       "name": "EffectAllowed",
       "kind": "type",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/dnd/dnd-types.ts",
       "inputs": [],
       "outputs": [],
@@ -462,6 +519,7 @@
       "name": "endDrag",
       "kind": "function",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/dnd/dnd-state.ts",
       "inputs": [],
       "outputs": [],
@@ -472,6 +530,7 @@
       "name": "filterEffects",
       "kind": "function",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/dnd/dnd-utils.ts",
       "inputs": [],
       "outputs": [],
@@ -482,6 +541,7 @@
       "name": "getDirectChildElement",
       "kind": "function",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/dnd/dnd-utils.ts",
       "inputs": [],
       "outputs": [],
@@ -492,6 +552,7 @@
       "name": "getDndType",
       "kind": "function",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/dnd/dnd-state.ts",
       "inputs": [],
       "outputs": [],
@@ -502,6 +563,7 @@
       "name": "getDropData",
       "kind": "function",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/dnd/dnd-utils.ts",
       "inputs": [],
       "outputs": [],
@@ -512,6 +574,7 @@
       "name": "getDropEffect",
       "kind": "function",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/dnd/dnd-state.ts",
       "inputs": [],
       "outputs": [],
@@ -522,6 +585,7 @@
       "name": "getWellKnownMimeType",
       "kind": "function",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/dnd/dnd-utils.ts",
       "inputs": [],
       "outputs": [],
@@ -532,6 +596,7 @@
       "name": "isExternalDrag",
       "kind": "function",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/dnd/dnd-state.ts",
       "inputs": [],
       "outputs": [],
@@ -542,6 +607,7 @@
       "name": "JSON_MIME_TYPE",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/dnd/dnd-utils.ts",
       "inputs": [],
       "outputs": [],
@@ -552,6 +618,7 @@
       "name": "MSIE_MIME_TYPE",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/dnd/dnd-utils.ts",
       "inputs": [],
       "outputs": [],
@@ -562,6 +629,7 @@
       "name": "setDragData",
       "kind": "function",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/dnd/dnd-utils.ts",
       "inputs": [],
       "outputs": [],
@@ -572,6 +640,7 @@
       "name": "setDragImage",
       "kind": "function",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/dnd/dnd-utils.ts",
       "inputs": [],
       "outputs": [],
@@ -582,6 +651,7 @@
       "name": "setDropEffect",
       "kind": "function",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/dnd/dnd-state.ts",
       "inputs": [],
       "outputs": [],
@@ -592,6 +662,7 @@
       "name": "shouldPositionPlaceholderBeforeElement",
       "kind": "function",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/dnd/dnd-utils.ts",
       "inputs": [],
       "outputs": [],
@@ -602,6 +673,7 @@
       "name": "startDrag",
       "kind": "function",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/dnd/dnd-state.ts",
       "inputs": [],
       "outputs": [],

@@ -15,6 +15,11 @@ import {
 
 import { duiCollapseAnimation } from './collapse.animation';
 
+/**
+ * @hidden Marks the internal view-container anchor that {@link MessageComponent} attaches
+ * its content into, lazily.
+ * @zh 内部使用，标记 {@link MessageComponent} 用于延迟挂载内容的视图容器锚点。
+ */
 @Directive({
   selector: '[duiMessageContainer]',
 })
@@ -22,6 +27,11 @@ export class MessageContainerDirective {
   constructor(public viewContainer: ViewContainerRef) {}
 }
 
+/**
+ * Dismissible inline message/banner with a label, optional sublabel/icon, and a collapse
+ * animation on open/close.
+ * @zh 可关闭的行内消息/横幅，带标题、可选副标题/图标，展开/收起时带折叠动画。
+ */
 @Component({
   selector: 'dui-message',
   templateUrl: './message.component.html',

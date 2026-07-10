@@ -3,6 +3,12 @@ import {AllowIn, Shortcut} from './keyboard-shortcuts.interfaces';
 import {KeyboardShortcutsService} from './keyboard-shortcuts.service';
 
 
+/**
+ * Registers a list of {@link KeyboardShortcutsService} shortcuts (`ngKeyboardShortcuts`) scoped
+ * to the host element, re-registering whenever the input changes and toggleable via `disabled`.
+ * @zh 注册一组作用域限定于宿主元素的 {@link KeyboardShortcutsService} 快捷键
+ * （`ngKeyboardShortcuts`），输入变化时会重新注册，并可通过 `disabled` 开关。
+ */
 @Directive({
     selector: '[KeyboardShortcuts]'
 })

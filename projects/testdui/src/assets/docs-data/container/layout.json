@@ -5,43 +5,51 @@
       "name": "AbstractPanel",
       "kind": "directive",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/container/layout/component/abstract.panel.ts",
       "inputs": [
         {
           "name": "config",
           "type": "any",
           "default": "{}",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "order",
           "type": "number | null",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "size",
           "type": "number | null",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "minSize",
           "type": "number | null",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "maxSize",
           "type": "number | null",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "lockSize",
           "type": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "visible",
           "type": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "outputs": [],
@@ -55,7 +63,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "setStyleOrder",
@@ -66,7 +75,8 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "setStyleFlex",
@@ -93,19 +103,22 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "lockEvents",
           "params": [],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "unlockEvents",
           "params": [],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "collapse",
@@ -120,13 +133,15 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "expand",
           "params": [],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "add",
@@ -137,7 +152,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "remove",
@@ -152,7 +168,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "havePanel",
@@ -163,49 +180,58 @@
             }
           ],
           "returnType": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": [
         {
           "name": "el",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "style",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "order",
           "type": "number | null",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "size",
           "type": "number | null",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "minSize",
           "type": "number | null",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "maxSize",
           "type": "number | null",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "lockSize",
           "type": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "visible",
           "type": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -213,6 +239,7 @@
       "name": "DuiLayoutModule",
       "kind": "module",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/container/layout/layout.module.ts",
       "inputs": [],
       "outputs": [],
@@ -222,7 +249,8 @@
           "name": "dynamicComponents",
           "type": "any",
           "default": "[LayoutComponent,DuiPanelComponent]",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -231,6 +259,7 @@
       "kind": "component",
       "selector": "dui-panel",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/container/layout/component/panel.component.ts",
       "inputs": [],
       "outputs": [],
@@ -241,6 +270,7 @@
       "name": "getAreaMaxSize",
       "kind": "function",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/container/layout/utils.ts",
       "inputs": [],
       "outputs": [],
@@ -251,6 +281,7 @@
       "name": "getAreaMinSize",
       "kind": "function",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/container/layout/utils.ts",
       "inputs": [],
       "outputs": [],
@@ -261,6 +292,7 @@
       "name": "getElementPixelSize",
       "kind": "function",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/container/layout/utils.ts",
       "inputs": [],
       "outputs": [],
@@ -271,6 +303,7 @@
       "name": "getGutterSideAbsorptionCapacity",
       "kind": "function",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/container/layout/utils.ts",
       "inputs": [],
       "outputs": [],
@@ -281,6 +314,7 @@
       "name": "getInputboolean",
       "kind": "function",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/container/layout/utils.ts",
       "inputs": [],
       "outputs": [],
@@ -291,6 +325,7 @@
       "name": "getInputPositiveNumber",
       "kind": "function",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/container/layout/utils.ts",
       "inputs": [],
       "outputs": [],
@@ -301,6 +336,7 @@
       "name": "getKeyboardEndpoint",
       "kind": "function",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/container/layout/utils.ts",
       "inputs": [],
       "outputs": [],
@@ -311,6 +347,7 @@
       "name": "getPointFromEvent",
       "kind": "function",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/container/layout/utils.ts",
       "inputs": [],
       "outputs": [],
@@ -321,6 +358,7 @@
       "name": "IOutputAreaSizes",
       "kind": "interface",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/container/layout/interface.ts",
       "inputs": [],
       "outputs": [],
@@ -331,6 +369,7 @@
       "name": "IOutputData",
       "kind": "interface",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/container/layout/interface.ts",
       "inputs": [],
       "outputs": [],
@@ -341,6 +380,7 @@
       "name": "isUserSizesValid",
       "kind": "function",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/container/layout/utils.ts",
       "inputs": [],
       "outputs": [],
@@ -352,91 +392,108 @@
       "kind": "component",
       "selector": "dui-layout",
       "summary": "angular-split\n\n\n PERCENT MODE ([unit]=\"'percent'\")\n ___________________________________________________________________________________________\n|       A       [g1]       B       [g2]       C       [g3]       D       [g4]       E       |\n|-------------------------------------------------------------------------------------------|\n|       20                 30                 20                 15                 15      | <-- [size]=\"x\"\n|               10px               10px               10px               10px               | <-- [gutterSize]=\"10\"\n|calc(20% - 8px)    calc(30% - 12px)   calc(20% - 8px)    calc(15% - 6px)    calc(15% - 6px)| <-- CSS flex-basis property (with flex-grow&shrink at 0)\n|     152px              228px              152px              114px              114px     | <-- el.getBoundingClientRect().width\n|___________________________________________________________________________________________|\n                                                                                800px         <-- el.getBoundingClientRect().width\n flex-basis = calc( { area.size }% - { area.size/100 * nbGutter*gutterSize }px );\n\n\n PIXEL MODE ([unit]=\"'pixel'\")\n ___________________________________________________________________________________________\n|       A       [g1]       B       [g2]       C       [g3]       D       [g4]       E       |\n|-------------------------------------------------------------------------------------------|\n|      100                250                 *                 150                100      | <-- [size]=\"y\"\n|               10px               10px               10px               10px               | <-- [gutterSize]=\"10\"\n|   0 0 100px          0 0 250px           1 1 auto          0 0 150px          0 0 100px   | <-- CSS flex property (flex-grow/flex-shrink/flex-basis)\n|     100px              250px              200px              150px              100px     | <-- el.getBoundingClientRect().width\n|___________________________________________________________________________________________|\n                                                                                800px         <-- el.getBoundingClientRect().width",
+      "summaryZh": null,
       "sourceFile": "src/container/layout/component/layout.component.ts",
       "inputs": [
         {
           "name": "config",
           "type": "any",
           "default": "{}",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "gutterClickDeltaPx",
           "type": "any",
           "default": "2",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "gutterAriaLabel",
           "type": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "direction",
           "type": "'horizontal' | 'vertical'",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "unit",
           "type": "'percent' | 'pixel'",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "gutterSize",
           "type": "number | null",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "gutterStep",
           "type": "number",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "restrictMove",
           "type": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "useTransition",
           "type": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "disable",
           "type": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "dir",
           "type": "'ltr' | 'rtl'",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "gutterDblClickDuration",
           "type": "number",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "outputs": [
         {
           "name": "dragStart",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "dragEnd",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "gutterClick",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "gutterDblClick",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "methods": [
@@ -449,7 +506,8 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "removeArea",
@@ -460,7 +518,8 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "updateArea",
@@ -479,7 +538,8 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "showArea",
@@ -490,7 +550,8 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "hideArea",
@@ -501,13 +562,15 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "getVisibleAreaSizes",
           "params": [],
           "returnType": "IOutputAreaSizes",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "setVisibleAreaSizes",
@@ -518,7 +581,8 @@
             }
           ],
           "returnType": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "clickGutter",
@@ -533,7 +597,8 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "startKeyboardDrag",
@@ -552,7 +617,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "startMouseDrag",
@@ -571,7 +637,8 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "notify",
@@ -586,7 +653,8 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "collapseArea",
@@ -605,7 +673,8 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "expandArea",
@@ -616,7 +685,8 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "getAriaAreaSizeText",
@@ -627,7 +697,8 @@
             }
           ],
           "returnType": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "add",
@@ -638,7 +709,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "remove",
@@ -653,7 +725,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "havePanel",
@@ -664,71 +737,84 @@
             }
           ],
           "returnType": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": [
         {
           "name": "el",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "direction",
           "type": "'horizontal' | 'vertical'",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "unit",
           "type": "'percent' | 'pixel'",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "gutterSize",
           "type": "number | null",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "gutterStep",
           "type": "number",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "restrictMove",
           "type": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "useTransition",
           "type": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "disable",
           "type": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "dir",
           "type": "'ltr' | 'rtl'",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "gutterDblClickDuration",
           "type": "number",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "dragProgress$",
           "type": "Observable<IOutputData>",
           "default": "this.dragProgressSubject.asObservable()",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "displayedAreas",
           "type": "Array<IArea>",
           "default": "[]",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -736,6 +822,7 @@
       "name": "pointDeltaEquals",
       "kind": "function",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/container/layout/utils.ts",
       "inputs": [],
       "outputs": [],
@@ -747,42 +834,50 @@
       "kind": "directive",
       "selector": "dui-split-area, [dui-split-area]",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/container/layout/directive/split-area.directive.ts",
       "inputs": [
         {
           "name": "id",
           "type": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "order",
           "type": "number | null",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "size",
           "type": "number | null",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "minSize",
           "type": "number | null",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "maxSize",
           "type": "number | null",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "lockSize",
           "type": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "visible",
           "type": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "outputs": [],
@@ -796,7 +891,8 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "setStyleFlex",
@@ -823,19 +919,22 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "lockEvents",
           "params": [],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "unlockEvents",
           "params": [],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "collapse",
@@ -850,50 +949,59 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "expand",
           "params": [],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": [
         {
           "name": "id",
           "type": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "order",
           "type": "number | null",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "size",
           "type": "number | null",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "minSize",
           "type": "number | null",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "maxSize",
           "type": "number | null",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "lockSize",
           "type": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "visible",
           "type": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -901,6 +1009,7 @@
       "name": "updateAreaSize",
       "kind": "function",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/container/layout/utils.ts",
       "inputs": [],
       "outputs": [],

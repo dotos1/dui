@@ -33,6 +33,13 @@ export interface ILoadingRef {
   subject: Subject<any>;
   times: number;
 }
+/**
+ * Low-level factory that creates and manages {@link LoadingComponent} instances for the three
+ * loading presentation styles (full-screen overlay, positioned overlay, in-place replace);
+ * used internally by {@link LoadingService}.
+ * @zh 低层工厂，为三种加载展示样式（全屏覆盖、定位覆盖、原地替换）创建并管理
+ * {@link LoadingComponent} 实例；供 {@link LoadingService} 内部使用。
+ */
 @Injectable()
 export class LoadingFactory {
   constructor(

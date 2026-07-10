@@ -5,6 +5,7 @@
       "name": "FunctionsUsingCSI",
       "kind": "class",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/ux/terminal/functions-using-csi.ts",
       "inputs": [],
       "outputs": [],
@@ -18,7 +19,8 @@
             }
           ],
           "returnType": "any",
-          "description": "CSI Ps @  Insert Ps (Blank) Character(s) (default = 1) (ICH)."
+          "description": "CSI Ps @  Insert Ps (Blank) Character(s) (default = 1) (ICH).",
+          "descriptionZh": null
         },
         {
           "name": "cursorUp",
@@ -29,7 +31,8 @@
             }
           ],
           "returnType": "any",
-          "description": "CSI Ps A  Cursor Up Ps Times (default = 1) (CUU). \n\\x9b3A"
+          "description": "CSI Ps A  Cursor Up Ps Times (default = 1) (CUU). \n\\x9b3A",
+          "descriptionZh": null
         },
         {
           "name": "cursorDown",
@@ -40,7 +43,8 @@
             }
           ],
           "returnType": "any",
-          "description": "CSI Ps B  Cursor Down Ps Times (default = 1) (CUD).\n\\x9b3B"
+          "description": "CSI Ps B  Cursor Down Ps Times (default = 1) (CUD).\n\\x9b3B",
+          "descriptionZh": null
         },
         {
           "name": "cursorForward",
@@ -51,7 +55,8 @@
             }
           ],
           "returnType": "any",
-          "description": "CSI Ps C  Cursor Forward Ps Times (default = 1) (CUF). \n\\x9b3C"
+          "description": "CSI Ps C  Cursor Forward Ps Times (default = 1) (CUF). \n\\x9b3C",
+          "descriptionZh": null
         },
         {
           "name": "cursorBackward",
@@ -62,7 +67,8 @@
             }
           ],
           "returnType": "any",
-          "description": "CSI Ps D  Cursor Backward Ps Times (default = 1) (CUB). \n\\x9b3D"
+          "description": "CSI Ps D  Cursor Backward Ps Times (default = 1) (CUB). \n\\x9b3D",
+          "descriptionZh": null
         },
         {
           "name": "cursorNextLine",
@@ -73,7 +79,8 @@
             }
           ],
           "returnType": "any",
-          "description": "CSI Ps E  Cursor Next Line Ps Times (default = 1) (CNL). \n\\x9b3E"
+          "description": "CSI Ps E  Cursor Next Line Ps Times (default = 1) (CNL). \n\\x9b3E",
+          "descriptionZh": null
         },
         {
           "name": "cursorPrecedingLine",
@@ -84,7 +91,8 @@
             }
           ],
           "returnType": "any",
-          "description": "CSI Ps F  Cursor Preceding Line Ps Times (default = 1) (CPL).\n\\x9b3F"
+          "description": "CSI Ps F  Cursor Preceding Line Ps Times (default = 1) (CPL).\n\\x9b3F",
+          "descriptionZh": null
         },
         {
           "name": "cursorColumn",
@@ -95,7 +103,8 @@
             }
           ],
           "returnType": "any",
-          "description": "CSI Ps G  Cursor Character Absolute  [column] (default = [row,1]) (CHA).\n\\x9b9G"
+          "description": "CSI Ps G  Cursor Character Absolute  [column] (default = [row,1]) (CHA).\n\\x9b9G",
+          "descriptionZh": null
         },
         {
           "name": "cursorPosition",
@@ -110,7 +119,8 @@
             }
           ],
           "returnType": "any",
-          "description": "CSI Ps ; Ps H  Cursor Position [row;column] (default = [1,1]) (CUP).\n\\x9b2;2H"
+          "description": "CSI Ps ; Ps H  Cursor Position [row;column] (default = [1,1]) (CUP).\n\\x9b2;2H",
+          "descriptionZh": null
         },
         {
           "name": "eraseInDisplay",
@@ -121,7 +131,8 @@
             }
           ],
           "returnType": "any",
-          "description": "CSI Ps J  Erase in Display (ED), VT100.\n    Ps = 0  -> Erase Below (default).\n    Ps = 1  -> Erase Above.\n    Ps = 2  -> Erase All.\n    Ps = 3  -> Erase Saved Lines (xterm).\n\\x9b2J"
+          "description": "CSI Ps J  Erase in Display (ED), VT100.\n    Ps = 0  -> Erase Below (default).\n    Ps = 1  -> Erase Above.\n    Ps = 2  -> Erase All.\n    Ps = 3  -> Erase Saved Lines (xterm).\n\\x9b2J",
+          "descriptionZh": null
         },
         {
           "name": "eraseSelectiveThingsInDisplay",
@@ -132,7 +143,8 @@
             }
           ],
           "returnType": "any",
-          "description": "CSI ? Ps J\nErase in Display (DECSED), VT220.\n  Ps = 0  -> Selective Erase Below (default).\n  Ps = 1  -> Selective Erase Above.\n  Ps = 2  -> Selective Erase All.\n  Ps = 3  -> Selective Erase Saved Lines (xterm).\n\\x9b?2J"
+          "description": "CSI ? Ps J\nErase in Display (DECSED), VT220.\n  Ps = 0  -> Selective Erase Below (default).\n  Ps = 1  -> Selective Erase Above.\n  Ps = 2  -> Selective Erase All.\n  Ps = 3  -> Selective Erase Saved Lines (xterm).\n\\x9b?2J",
+          "descriptionZh": null
         },
         {
           "name": "eraseInLine",
@@ -143,7 +155,8 @@
             }
           ],
           "returnType": "any",
-          "description": "CSI Ps K  \n Erase in Line (EL), VT100.\n   Ps = 0  -> Erase to Right (default).\n   Ps = 1  -> Erase to Left.\n   Ps = 2  -> Erase All.\n\\x9b?1K"
+          "description": "CSI Ps K  \n Erase in Line (EL), VT100.\n   Ps = 0  -> Erase to Right (default).\n   Ps = 1  -> Erase to Left.\n   Ps = 2  -> Erase All.\n\\x9b?1K",
+          "descriptionZh": null
         },
         {
           "name": "eraseSelectiveThingsInLine",
@@ -154,7 +167,8 @@
             }
           ],
           "returnType": "any",
-          "description": "CSI ? Ps K \n  Erase in Line (DECSEL), VT220.\n    Ps = 0  -> Selective Erase to Right (default).\n    Ps = 1  -> Selective Erase to Left.\n    Ps = 2  -> Selective Erase All.\n\\x9b?1K"
+          "description": "CSI ? Ps K \n  Erase in Line (DECSEL), VT220.\n    Ps = 0  -> Selective Erase to Right (default).\n    Ps = 1  -> Selective Erase to Left.\n    Ps = 2  -> Selective Erase All.\n\\x9b?1K",
+          "descriptionZh": null
         },
         {
           "name": "insertLines",
@@ -165,7 +179,8 @@
             }
           ],
           "returnType": "any",
-          "description": "CSI Ps L  Insert Ps Line(s) (default = 1) (IL).\n\\x9b2L"
+          "description": "CSI Ps L  Insert Ps Line(s) (default = 1) (IL).\n\\x9b2L",
+          "descriptionZh": null
         },
         {
           "name": "deleteLines",
@@ -176,7 +191,8 @@
             }
           ],
           "returnType": "any",
-          "description": "CSI Ps M  Delete Ps Line(s) (default = 1) (DL).\n\\x9b2M"
+          "description": "CSI Ps M  Delete Ps Line(s) (default = 1) (DL).\n\\x9b2M",
+          "descriptionZh": null
         },
         {
           "name": "deleteCharacter",
@@ -187,7 +203,8 @@
             }
           ],
           "returnType": "any",
-          "description": "CSI Ps P  Delete Ps Character(s) (default = 1) (DCH).\n\\x9b2P"
+          "description": "CSI Ps P  Delete Ps Character(s) (default = 1) (DCH).\n\\x9b2P",
+          "descriptionZh": null
         },
         {
           "name": "scrollUpLines",
@@ -198,7 +215,8 @@
             }
           ],
           "returnType": "any",
-          "description": "CSI Ps S  Scroll up Ps lines (default = 1) (SU), VT420, ECMA-48.\n\\x9b2S"
+          "description": "CSI Ps S  Scroll up Ps lines (default = 1) (SU), VT420, ECMA-48.\n\\x9b2S",
+          "descriptionZh": null
         },
         {
           "name": "scrollDownLines",
@@ -209,7 +227,8 @@
             }
           ],
           "returnType": "any",
-          "description": "CSI Ps T  Scroll down Ps lines (default = 1) (SD), VT420. \n\\x9b2T"
+          "description": "CSI Ps T  Scroll down Ps lines (default = 1) (SD), VT420. \n\\x9b2T",
+          "descriptionZh": null
         },
         {
           "name": "eraseCharacters",
@@ -220,7 +239,8 @@
             }
           ],
           "returnType": "any",
-          "description": "CSI Ps X  Erase Ps Character(s) (default = 1) (ECH).\n\\x9b2X"
+          "description": "CSI Ps X  Erase Ps Character(s) (default = 1) (ECH).\n\\x9b2X",
+          "descriptionZh": null
         }
       ],
       "properties": []
@@ -229,6 +249,7 @@
       "name": "KindOfEraseInDisplay",
       "kind": "enum",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/ux/terminal/functions-using-csi.ts",
       "inputs": [],
       "outputs": [],
@@ -239,6 +260,7 @@
       "name": "KindOfEraseInLine",
       "kind": "enum",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/ux/terminal/functions-using-csi.ts",
       "inputs": [],
       "outputs": [],
@@ -249,6 +271,7 @@
       "name": "NgTerminal",
       "kind": "interface",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/ux/terminal/terminal.ts",
       "inputs": [],
       "outputs": [],
@@ -260,64 +283,75 @@
       "kind": "component",
       "selector": "dui-terminal",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/ux/terminal/terminal.component.ts",
       "inputs": [
         {
           "name": "_dataSource",
           "alias": "dataSource",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "_rowsInput",
           "alias": "rows",
           "type": "number",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "_colsInput",
           "alias": "cols",
           "type": "number",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "_minWidthInput",
           "alias": "minWidth",
           "type": "number",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "_minHeightInput",
           "alias": "minHeight",
           "type": "number",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "draggable",
           "type": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "xtermOptions",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "theme",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "outputs": [
         {
           "name": "keyInputEmitter",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "keyEventEmitter",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "methods": [
@@ -330,7 +364,8 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "setMinHeight",
@@ -341,7 +376,8 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "setDraggable",
@@ -352,7 +388,8 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "setXtermOptions",
@@ -363,7 +400,8 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "setRows",
@@ -374,7 +412,8 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "setCols",
@@ -385,7 +424,8 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "setStyle",
@@ -396,19 +436,22 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "observeTerminalDimension",
           "params": [],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "observeHostDimension",
           "params": [],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "write",
@@ -419,7 +462,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "writeln",
@@ -430,19 +474,22 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "onData",
           "params": [],
           "returnType": "Observable<string>",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "onKey",
           "params": [],
           "returnType": "Observable<{ key: string; domEvent: KeyboardEvent; }>",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "onResizeEnd",
@@ -465,13 +512,15 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "validatorFactory",
           "params": [],
           "returnType": "(re: ResizeEvent) => boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": [
@@ -479,72 +528,86 @@
           "name": "stylesForDiv",
           "type": "Partial<CSSStyleDeclaration>",
           "default": "{ 'display': 'block' }",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "draggable",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "xtermOptions",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "theme",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "lastDraggedPosition",
           "type": "{ width: string, height: string }",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "terminalOuter",
           "type": "ElementRef",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "resizeBox",
           "type": "ElementRef",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "interval",
           "type": "ReturnType<typeof setInterval>",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "resizeHandleStyleRule",
           "type": "CSSStyleRule",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "resizeHandleActiveStyleRule",
           "type": "CSSStyleRule",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "keyInput",
           "type": "Observable<string>",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "keyEventInput",
           "type": "Observable<{ key: string; domEvent: KeyboardEvent; }>",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "underlying",
           "type": "Terminal",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "isDraggableOnEdgeActivated",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -552,6 +615,7 @@
       "name": "TerminalModule",
       "kind": "module",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/ux/terminal/terminal.module.ts",
       "inputs": [],
       "outputs": [],

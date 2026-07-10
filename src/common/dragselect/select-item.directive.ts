@@ -18,6 +18,10 @@ import { calculateBoundingClientRect } from './utils';
 
 export const SELECT_ITEM_INSTANCE = Symbol();
 
+/**
+ * Marks an element as selectable within a parent {@link SelectContainerComponent}.
+ * @zh 将元素标记为父级 {@link SelectContainerComponent} 中可被框选的项。
+ */
 @Directive({
   selector: '[dtsSelectItem]',
   exportAs: 'dtsSelectItem',

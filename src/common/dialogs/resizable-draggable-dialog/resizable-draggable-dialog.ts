@@ -35,6 +35,13 @@ function clamp(min: number, num: number, max: number): number {
   return Math.min(Math.max(num, min), max);
 }
 
+/**
+ * Attaches resize-corner handles to a `MatDialogRef`'s wrapper element and coordinates
+ * resizing with its CDK `DragRef` free-drag position; used internally by
+ * {@link DialogService.openDraggable} consumers that also need resizing.
+ * @zh 为 `MatDialogRef` 的包裹元素附加四角缩放手柄，并与其 CDK `DragRef` 的自由拖拽位置协调工作；
+ * 供需要同时支持拖拽和缩放的场景内部使用。
+ */
 export class ResizableDraggableDialog {
   cornerElements: HTMLElement[] = [];
   pointerDownSubs: Subscription[] = [];

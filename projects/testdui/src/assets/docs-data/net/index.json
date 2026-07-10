@@ -5,12 +5,14 @@
       "name": "AbstractLoader",
       "kind": "directive",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/net/components/abstract.loader.component.ts",
       "inputs": [
         {
           "name": "backgroundColor",
           "type": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "outputs": [],
@@ -21,6 +23,7 @@
       "name": "CacheInterceptor",
       "kind": "service",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/net/http/interceptors/cache.interceptor.ts",
       "inputs": [],
       "outputs": [],
@@ -38,7 +41,8 @@
             }
           ],
           "returnType": "Observable<HttpEvent<any>>",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": []
@@ -47,6 +51,7 @@
       "name": "ErrorInterceptor",
       "kind": "service",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/net/http/interceptors/error.interceptor.ts",
       "inputs": [],
       "outputs": [],
@@ -64,7 +69,8 @@
             }
           ],
           "returnType": "Observable<HttpEvent<any>>",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": []
@@ -73,6 +79,7 @@
       "name": "HeaderInterceptor",
       "kind": "service",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/net/http/interceptors/header.interceptor.ts",
       "inputs": [],
       "outputs": [],
@@ -90,7 +97,8 @@
             }
           ],
           "returnType": "Observable<HttpEvent<any>>",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": []
@@ -99,6 +107,7 @@
       "name": "httpInterceptorProviders",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/net/http/interceptors/index.ts",
       "inputs": [],
       "outputs": [],
@@ -110,66 +119,77 @@
       "kind": "component",
       "selector": "http-loader",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/net/components/http-loader.component.ts",
       "inputs": [
         {
           "name": "backdrop",
           "type": "any",
           "default": "true",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "backgroundColor",
           "type": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "debounceDelay",
           "type": "any",
           "default": "0",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "entryComponent",
           "type": "any",
           "default": "null",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "extraDuration",
           "type": "any",
           "default": "0",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "filteredHeaders",
           "type": "string[]",
           "default": "[]",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "filteredMethods",
           "type": "string[]",
           "default": "[]",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "filteredUrlPatterns",
           "type": "string[]",
           "default": "[]",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "minDuration",
           "type": "any",
           "default": "0",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "opacity",
           "type": "any",
           "default": "'.7'",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "outputs": [],
@@ -178,7 +198,8 @@
         {
           "name": "isVisible$",
           "type": "Observable<boolean>",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -186,6 +207,7 @@
       "name": "HttpLoaderModule",
       "kind": "module",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/net/http-loader.module.ts",
       "inputs": [],
       "outputs": [],
@@ -194,7 +216,8 @@
           "name": "forRoot",
           "params": [],
           "returnType": "ModuleWithProviders<HttpLoaderModule>",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": [
@@ -202,7 +225,8 @@
           "name": "entryComponents",
           "type": "any",
           "default": "[MatSpinner]",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -210,6 +234,7 @@
       "name": "HttpsInterceptor",
       "kind": "service",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/net/http/interceptors/https.interceptor.ts",
       "inputs": [],
       "outputs": [],
@@ -227,7 +252,8 @@
             }
           ],
           "returnType": "Observable<HttpEvent<any>>",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": []
@@ -236,6 +262,7 @@
       "name": "NotifyInterceptor",
       "kind": "service",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/net/http/interceptors/notify.interptor.ts",
       "inputs": [],
       "outputs": [],
@@ -253,7 +280,8 @@
             }
           ],
           "returnType": "Observable<HttpEvent<any>>",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": []
@@ -262,6 +290,7 @@
       "name": "PendingRequestsInterceptor",
       "kind": "service",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/net/services/pending-requests-interceptor.service.ts",
       "inputs": [],
       "outputs": [],
@@ -279,39 +308,46 @@
             }
           ],
           "returnType": "Observable<HttpEvent<any>>",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": [
         {
           "name": "pendingRequestsStatus$",
           "type": "Observable<boolean>",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "pendingRequests",
           "type": "number",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "filteredUrlPatterns",
           "type": "RegExp[]",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "filteredMethods",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "filteredHeaders",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "forceByPass",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -319,6 +355,7 @@
       "name": "PendingRequestsInterceptorProvider",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/net/services/pending-requests-interceptor.service.ts",
       "inputs": [],
       "outputs": [],
@@ -329,6 +366,7 @@
       "name": "ProfilerInterceptor",
       "kind": "service",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/net/http/interceptors/profiler.interceptor.ts",
       "inputs": [],
       "outputs": [],
@@ -346,7 +384,8 @@
             }
           ],
           "returnType": "Observable<HttpEvent<any>>",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": []
@@ -355,6 +394,7 @@
       "name": "simpleInterceptorProviders",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/net/http/interceptors/index.ts",
       "inputs": [],
       "outputs": [],
@@ -365,6 +405,7 @@
       "name": "SpinnerVisibilityService",
       "kind": "service",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/net/services/spinner-visibility.service.ts",
       "inputs": [],
       "outputs": [],
@@ -373,20 +414,23 @@
           "name": "show",
           "params": [],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "hide",
           "params": [],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": [
         {
           "name": "visibility$",
           "type": "Observable<boolean>",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     }
