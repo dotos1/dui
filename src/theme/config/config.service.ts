@@ -26,7 +26,7 @@ export class DotosConfigService {
     this._init();
   }
 
-  set config(value) {
+  set config(value: Partial<DotosConfig>) {
 
     let config = this._configSubject.getValue();
     config = merge({}, config, value);

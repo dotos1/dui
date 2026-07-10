@@ -1,0 +1,52 @@
+.theme-settings {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 8px 20px 20px;
+  box-sizing: border-box;
+  overflow-y: auto;
+}
+
+.theme-settings__header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 0;
+}
+
+.theme-settings__title {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.theme-settings__spacer {
+  flex: 1 1 auto;
+}
+
+.theme-settings__form {
+  display: flex;
+  flex-direction: column;
+}
+
+.theme-settings__group-title {
+  font-size: 13px;
+  font-weight: 500;
+  color: rgba(0, 0, 0, 0.6);
+  margin: 20px 0 8px;
+
+  &:first-child {
+    margin-top: 4px;
+  }
+}
+
+.theme-settings__field {
+  width: 100%;
+}
+
+.theme-settings__reset {
+  margin-top: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
