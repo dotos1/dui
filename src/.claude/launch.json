@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "testdui",
+      "runtimeExecutable": "bash",
+      "runtimeArgs": ["-c", "cd .. && npx ng serve testdui --port 4401"],
+      "port": 4401
+    }
+  ]
+}

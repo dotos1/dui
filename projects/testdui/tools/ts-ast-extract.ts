@@ -19,12 +19,14 @@ export interface ApiInput {
   type: string;
   default?: string;
   description: string | null;
+  descriptionZh: string | null;
 }
 
 export interface ApiOutput {
   name: string;
   type: string;
   description: string | null;
+  descriptionZh: string | null;
 }
 
 export interface ApiMethod {
@@ -32,6 +34,7 @@ export interface ApiMethod {
   params: Array<{ name: string; type: string }>;
   returnType: string;
   description: string | null;
+  descriptionZh: string | null;
 }
 
 export interface ApiProperty {
@@ -39,6 +42,7 @@ export interface ApiProperty {
   type: string;
   default?: string;
   description: string | null;
+  descriptionZh: string | null;
 }
 
 export interface ApiExport {
@@ -47,6 +51,7 @@ export interface ApiExport {
   selector?: string;
   pipeName?: string;
   summary: string | null;
+  summaryZh: string | null;
   inputs: ApiInput[];
   outputs: ApiOutput[];
   methods: ApiMethod[];
@@ -70,15 +75,31 @@ const LIFECYCLE_METHOD_NAMES = new Set([
   'constructor',
 ]);
 
+function commentText(comment: string | ts.NodeArray<ts.JSDocComment> | undefined): string | null {
+  const text = typeof comment === 'string' ? comment : comment ? ts.getTextOfJSDocComment(comment) : undefined;
+  const trimmed = text?.trim();
+  return trimmed || null;
+}
+
+/** Extracts the main (English) JSDoc description for a node. */
 function getJsDocDescription(node: ts.Node): string | null {
   const jsDocs = ts.getJSDocCommentsAndTags(node);
   for (const doc of jsDocs) {
     if (ts.isJSDoc(doc) && doc.comment) {
-      const text = typeof doc.comment === 'string' ? doc.comment : ts.getTextOfJSDocComment(doc.comment);
-      const trimmed = text?.trim();
-      if (trimmed) {
-        return trimmed;
-      }
+      const text = commentText(doc.comment);
+      if (text) return text;
+    }
+  }
+  return null;
+}
+
+/** Extracts the `@zh` custom JSDoc tag (Chinese translation of the description), if present. */
+function getJsDocZhDescription(node: ts.Node): string | null {
+  const jsDocs = ts.getJSDocCommentsAndTags(node);
+  for (const doc of jsDocs) {
+    if (ts.isJSDocUnknownTag(doc) && doc.tagName?.text === 'zh') {
+      const text = commentText(doc.comment);
+      if (text) return text;
     }
   }
   return null;
@@ -192,6 +213,7 @@ function extractInput(member: ts.ClassElement, decorator: ts.Decorator): ApiInpu
     type: printType(typeNode),
     default: defaultText,
     description: getJsDocDescription(member),
+    descriptionZh: getJsDocZhDescription(member),
   };
 }
 
@@ -201,6 +223,7 @@ function extractOutput(member: ts.ClassElement): ApiOutput | null {
     name: member.name.getText(),
     type: unwrapEventEmitterType(member.type),
     description: getJsDocDescription(member),
+    descriptionZh: getJsDocZhDescription(member),
   };
 }
 
@@ -211,6 +234,7 @@ function extractMethod(member: ts.ClassElement): ApiMethod | null {
     params: member.parameters.map((p) => ({ name: p.name.getText(), type: printType(p.type) })),
     returnType: printType(member.type),
     description: getJsDocDescription(member),
+    descriptionZh: getJsDocZhDescription(member),
   };
 }
 
@@ -229,6 +253,7 @@ function extractProperty(member: ts.ClassElement): ApiProperty | null {
     type: printType(typeNode),
     default: defaultText,
     description: getJsDocDescription(member),
+    descriptionZh: getJsDocZhDescription(member),
   };
 }
 
@@ -303,24 +328,25 @@ export function extractExport(
 
     const members = extractClassMembers(decl);
     const summary = getJsDocDescription(decl);
+    const summaryZh = getJsDocZhDescription(decl);
 
     if (componentDecorator) {
       const selector = getStringProp(getDecoratorArgObject(componentDecorator), 'selector');
-      return { name, kind: 'component', selector, summary, sourceFile: sourceFileRel, ...members };
+      return { name, kind: 'component', selector, summary, summaryZh, sourceFile: sourceFileRel, ...members };
     }
     if (directiveDecorator) {
       const selector = getStringProp(getDecoratorArgObject(directiveDecorator), 'selector');
-      return { name, kind: 'directive', selector, summary, sourceFile: sourceFileRel, ...members };
+      return { name, kind: 'directive', selector, summary, summaryZh, sourceFile: sourceFileRel, ...members };
     }
     if (pipeDecorator) {
       const pipeName = getStringProp(getDecoratorArgObject(pipeDecorator), 'name');
-      return { name, kind: 'pipe', pipeName, summary, sourceFile: sourceFileRel, ...members };
+      return { name, kind: 'pipe', pipeName, summary, summaryZh, sourceFile: sourceFileRel, ...members };
     }
     if (ngModuleDecorator) {
-      return { name, kind: 'module', summary, sourceFile: sourceFileRel, ...members };
+      return { name, kind: 'module', summary, summaryZh, sourceFile: sourceFileRel, ...members };
     }
     const kind: ApiExportKind = injectableDecorator || name.endsWith('Service') ? 'service' : 'class';
-    return { name, kind, summary, sourceFile: sourceFileRel, ...members };
+    return { name, kind, summary, summaryZh, sourceFile: sourceFileRel, ...members };
   }
 
   if (ts.isInterfaceDeclaration(decl)) {
@@ -328,6 +354,7 @@ export function extractExport(
       name,
       kind: 'interface',
       summary: getJsDocDescription(decl),
+      summaryZh: getJsDocZhDescription(decl),
       sourceFile: sourceFileRel,
       inputs: [],
       outputs: [],
@@ -341,6 +368,7 @@ export function extractExport(
       name,
       kind: 'enum',
       summary: getJsDocDescription(decl),
+      summaryZh: getJsDocZhDescription(decl),
       sourceFile: sourceFileRel,
       inputs: [],
       outputs: [],
@@ -354,6 +382,7 @@ export function extractExport(
       name,
       kind: 'type',
       summary: getJsDocDescription(decl),
+      summaryZh: getJsDocZhDescription(decl),
       sourceFile: sourceFileRel,
       inputs: [],
       outputs: [],
@@ -367,6 +396,7 @@ export function extractExport(
       name,
       kind: 'function',
       summary: getJsDocDescription(decl),
+      summaryZh: getJsDocZhDescription(decl),
       sourceFile: sourceFileRel,
       inputs: [],
       outputs: [],
@@ -381,6 +411,7 @@ export function extractExport(
       name,
       kind: 'constant',
       summary: declStatement ? getJsDocDescription(declStatement) : null,
+      summaryZh: declStatement ? getJsDocZhDescription(declStatement) : null,
       sourceFile: sourceFileRel,
       inputs: [],
       outputs: [],
@@ -394,6 +425,7 @@ export function extractExport(
     name,
     kind: 'class',
     summary: null,
+    summaryZh: null,
     sourceFile: sourceFileRel,
     inputs: [],
     outputs: [],
