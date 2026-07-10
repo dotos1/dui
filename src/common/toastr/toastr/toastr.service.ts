@@ -45,10 +45,15 @@ export interface ActiveToast<C> {
  */
 @Injectable({ providedIn: 'root' })
 export class ToastrService {
+  /** @zh 当前生效的全局配置（默认配置与模块注册时传入的配置合并后的结果）。 */
   toastrConfig: GlobalConfig;
+  /** @zh 当前处于激活（可见）状态的提示数量。 */
   currentlyActive = 0;
+  /** @zh 当前已加入队列/展示中的全部提示。 */
   toasts: ActiveToast<any>[] = [];
+  /** @zh 自定义的提示容器，未设置时使用默认的全局覆盖层容器。 */
   overlayContainer?: ToastContainerDirective;
+  /** @zh 上一条展示的提示消息文本（用于去重判断）。 */
   previousToastMessage: string | undefined;
   private index = 0;
 
@@ -185,6 +190,12 @@ export class ToastrService {
   }
 
 
+  /**
+   * Finds a currently-displayed toast with the same title/message (used to avoid stacking
+   * duplicate notifications), optionally resetting its timeout or bumping its duplicate count.
+   * @zh 查找当前已展示的、标题/消息相同的提示（用于避免重复堆叠通知），
+   * 可选地重置其超时时间或增加其重复计数。
+   */
   findDuplicate(title = '', message = '', resetOnDuplicate: boolean, countDuplicates: boolean) {
     const { includeTitleDuplicates } = this.toastrConfig;
 

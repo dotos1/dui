@@ -19,6 +19,12 @@ export class InlineSVGService {
     this._renderer = rendererFactory.createRenderer(null, null);
   }
 
+  /**
+   * Inserts the given content element into the parent element, optionally replacing existing
+   * content or prepending instead of appending; tracks the previously-inserted SVG for cleanup.
+   * @zh 将给定的内容元素插入父元素中，可选地替换现有内容或前置插入而非追加；
+   * 跟踪上一次插入的 SVG 以便后续清理。
+   */
   insertEl(
     dir: InlineSVGDirective,
     parentEl: HTMLElement,
@@ -46,6 +52,11 @@ export class InlineSVGService {
   }
 
 
+  /**
+   * Extracts and executes the `<script>` tags found inside the given SVG, honoring the
+   * `always`/`once`/`never` eval mode.
+   * @zh 提取并执行给定 SVG 内的 `<script>` 标签，遵循 `always`/`once`/`never` 求值模式。
+   */
   evalScripts(svg: SVGElement, url: string, evalMode: string): void {
     const scripts = svg.querySelectorAll('script');
     const scriptsToEval = [];

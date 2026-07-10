@@ -84,12 +84,22 @@ import { TinyColor } from '@dotos/dui/core/color';
     'hostID': 'sketch-fields-' + Math.random().toString(36).substring(2, 15),
   },
 })
+/**
+ * Editable hex/rgb/alpha input fields used by {@link SketchComponent}.
+ * @zh {@link SketchComponent} 使用的十六进制/RGB/透明度可编辑输入字段。
+ */
 export class SketchFieldsComponent {
+  /** @zh 当前颜色的 HSL 表示。 */
   @Input() hsl: HSLA;
+  /** @zh 当前颜色的 RGB 表示。 */
   @Input() rgb: RGBA;
+  /** @zh 当前颜色的十六进制表示。 */
   @Input() hex: string;
+  /** @zh 是否禁用透明度字段。 */
   @Input() disableAlpha = false;
+  /** @zh 字段值变化时发出。 */
   @Output() onChange = new EventEmitter<any>();
+  /** @zh 输入框的内联样式。 */
   input: { [key: string]: string } = {
     width: '100%',
     padding: '4px 10% 3px',
@@ -98,6 +108,7 @@ export class SketchFieldsComponent {
     boxShadow: 'inset 0 0 0 1px #ccc',
     fontSize: '11px',
   };
+  /** @zh 标签的内联样式。 */
   label: { [key: string]: string } = {
     display: 'block',
     textAlign: 'center',
@@ -107,9 +118,17 @@ export class SketchFieldsComponent {
     textTransform: 'capitalize',
   };
 
+  /**
+   * Rounds a number to the nearest integer.
+   * @zh 将数字四舍五入为最接近的整数。
+   */
   round(value) {
     return Math.round(value);
   }
+  /**
+   * Normalizes and emits a field change as `onChange`, based on which field(s) changed.
+   * @zh 根据发生变化的字段，归一化后以 `onChange` 发出。
+   */
   handleChange({ data, $event }) {
     if (data.hex) {
       if (isValidHex(data.hex)) {

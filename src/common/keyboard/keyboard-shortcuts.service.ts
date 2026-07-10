@@ -60,6 +60,7 @@ export class KeyboardShortcutsService implements OnDestroy {
 
     private _pressed = new Subject<ShortcutEventOutput>();
 
+    /** @zh 每当任意已注册快捷键被触发时发出事件（含触发的按键与原生事件）。 */
     public pressed$ = this._pressed.asObservable();
 
     private disabled = false;
@@ -67,6 +68,7 @@ export class KeyboardShortcutsService implements OnDestroy {
     private static readonly TIMEOUT_SEQUENCE = 1000;
 
     private _shortcutsSub = new BehaviorSubject<ParsedShortcut[]>([]);
+    /** @zh 发出当前已注册的（非空）快捷键列表，随注册/注销更新。 */
     public shortcuts$ = this._shortcutsSub
         .pipe(filter((shortcuts) =>{
      
@@ -269,6 +271,10 @@ export class KeyboardShortcutsService implements OnDestroy {
         });
     }
 
+    /**
+     * The currently registered non-sequence shortcuts.
+     * @zh 当前已注册的非序列型快捷键。
+     */
     public get shortcuts() {
         return this._shortcuts;
     }

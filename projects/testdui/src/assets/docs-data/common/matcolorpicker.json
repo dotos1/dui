@@ -12,16 +12,16 @@
         {
           "name": "color",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "The current color, encoded as `<palette>-<hue>` (e.g. `red-500`).",
+          "descriptionZh": "当前颜色，编码为 `<调色板>-<色阶>` 格式（如 `red-500`）。"
         }
       ],
       "outputs": [
         {
           "name": "colorChanged",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Emits the selected color object whenever it changes.",
+          "descriptionZh": "选中颜色发生变化时发出对应的颜色对象。"
         }
       ],
       "methods": [
@@ -38,8 +38,8 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Switches to the hue-selection view for the given palette.",
+          "descriptionZh": "切换到给定调色板的色阶选择视图。"
         },
         {
           "name": "selectHue",
@@ -54,8 +54,8 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Selects the given hue within the currently selected palette.",
+          "descriptionZh": "在当前选中的调色板内选择给定的色阶。"
         },
         {
           "name": "removeColor",
@@ -66,8 +66,8 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Clears the current selection and returns to the palette-selection view.",
+          "descriptionZh": "清除当前选择并返回调色板选择视图。"
         },
         {
           "name": "updateSelectedColor",
@@ -85,15 +85,15 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Returns to the palette-selection view without changing the current selection.",
+          "descriptionZh": "返回调色板选择视图，不改变当前选择。"
         },
         {
           "name": "onMenuOpen",
           "params": [],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Sets the initial view (palettes or hues) shown when the picker menu opens, based on\nwhether a palette is already selected.",
+          "descriptionZh": "根据是否已选中调色板，设置选择器菜单打开时显示的初始视图（调色板或色阶）。"
         }
       ],
       "properties": [
@@ -101,43 +101,43 @@
           "name": "colors",
           "type": "any",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "可选的调色板集合，来自 `MatColors.all`。"
         },
         {
           "name": "hues",
           "type": "string[]",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "可选的色阶（hue）列表。"
         },
         {
           "name": "view",
           "type": "string",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "当前显示的面板视图：`'palettes'`（调色板）或 `'hues'`（色阶）。"
         },
         {
           "name": "selectedColor",
           "type": "any",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "当前选中的颜色对象（含 palette/hue/class/bg/fg）。"
         },
         {
           "name": "selectedPalette",
           "type": "string",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "当前选中的调色板名称。"
         },
         {
           "name": "selectedHue",
           "type": "string",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "当前选中的色阶（hue）。"
         },
         {
           "name": "color",
           "type": "string",
-          "description": null,
-          "descriptionZh": null
+          "description": "The current color, encoded as `<palette>-<hue>` (e.g. `red-500`).",
+          "descriptionZh": "当前颜色，编码为 `<调色板>-<色阶>` 格式（如 `red-500`）。"
         }
       ]
     },

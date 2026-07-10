@@ -52,7 +52,7 @@
           "name": "multiple",
           "type": "boolean",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "是否允许一次放置多个文件。"
         }
       ],
       "outputs": [
@@ -74,15 +74,15 @@
           "name": "getOptions",
           "params": [],
           "returnType": "FileUploaderOptions",
-          "description": null,
-          "descriptionZh": null
+          "description": "Returns the uploader's current options, used when queuing dropped files.",
+          "descriptionZh": "返回上传器当前的选项，用于加入放置的文件时使用。"
         },
         {
           "name": "getFilters",
           "params": [],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Returns the filter functions applied when queuing dropped files (none by default).",
+          "descriptionZh": "返回加入放置的文件时应用的过滤函数（默认为空）。"
         },
         {
           "name": "onDrop",
@@ -94,7 +94,7 @@
           ],
           "returnType": "void",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "内部使用，处理原生 `drop` 事件：将放置的文件加入 `uploader` 队列。"
         },
         {
           "name": "onDragEnter",
@@ -106,7 +106,7 @@
           ],
           "returnType": "void",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "内部使用，处理原生 `dragenter` 事件：添加 `drop-zone` CSS 类。"
         },
         {
           "name": "onDragOver",
@@ -118,7 +118,7 @@
           ],
           "returnType": "void",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "内部使用，处理原生 `dragover` 事件：根据是否存在文件设置放置效果，\n并在允许时发出 `fileOver(true)`。"
         },
         {
           "name": "onDragLeave",
@@ -130,7 +130,7 @@
           ],
           "returnType": "any",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "内部使用，处理原生 `dragleave` 事件：移除 `drop-zone` CSS 类并发出 `fileOver(false)`。"
         }
       ],
       "properties": [
@@ -138,13 +138,13 @@
           "name": "multipleBinding",
           "type": "string",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "内部使用，绑定宿主的原生 `multiple` 属性。"
         },
         {
           "name": "disabledBinding",
           "type": "string",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "内部使用，绑定宿主的原生 `disabled` 属性。"
         }
       ]
     },
@@ -455,7 +455,7 @@
           "name": "multiple",
           "type": "boolean",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "是否允许一次选择多个文件。"
         }
       ],
       "outputs": [
@@ -483,28 +483,28 @@
           ],
           "returnType": "any",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "内部使用，处理原生 `change` 事件：将选中的文件加入 `uploader` 队列，\n并发出 `onFileSelected`/`imageSelected` 结果。"
         },
         {
           "name": "getOptions",
           "params": [],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Returns the uploader's current options, used when queuing selected files.",
+          "descriptionZh": "返回上传器当前的选项，用于加入选中的文件时使用。"
         },
         {
           "name": "getFilters",
           "params": [],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Returns the filter functions applied when queuing selected files (none by default).",
+          "descriptionZh": "返回加入选中的文件时应用的过滤函数（默认为空）。"
         },
         {
           "name": "isEmptyAfterSelection",
           "params": [],
           "returnType": "boolean",
-          "description": null,
-          "descriptionZh": null
+          "description": "Whether the native `<input>` value should be cleared after selection (when `multiple` is set).",
+          "descriptionZh": "选择完成后是否应清空原生 `<input>` 的值（当设置了 `multiple` 时）。"
         }
       ],
       "properties": [
@@ -512,13 +512,13 @@
           "name": "multipleBinding",
           "type": "string",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "内部使用，绑定宿主的原生 `multiple` 属性。"
         },
         {
           "name": "accept",
           "type": "string",
-          "description": null,
-          "descriptionZh": null
+          "description": "The native `accept` attribute value, derived from the uploader's `allowedFileType` option.",
+          "descriptionZh": "原生 `accept` 属性值，根据上传器的 `allowedFileType` 选项推导得出。"
         }
       ]
     },

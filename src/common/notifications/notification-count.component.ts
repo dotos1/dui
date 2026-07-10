@@ -52,10 +52,19 @@ export class NotificationCountComponent implements AfterContentInit {
    * Sets the X position of the notification tip.
    * Defaults to "after" if it has content, else 'center'.
    */
+  /**
+   * positionX?: NotificationCountPositionX or "before" | "after" | "center"
+   * Sets the X position of the notification tip.
+   * Defaults to "after" if it has content, else 'center'.
+   */
   @Input()
   set positionX(positionX: NotificationCountPositionX) {
     this._positionX = positionX;
   }
+  /**
+   * The current X position of the notification tip.
+   * @zh 通知提示的当前 X 轴位置。
+   */
   get positionX(): NotificationCountPositionX {
     return this._positionX;
   }
@@ -65,10 +74,19 @@ export class NotificationCountComponent implements AfterContentInit {
    * Sets the Y position of the notification tip.
    * Defaults to "top" if it has content, else 'center'.
    */
+  /**
+   * positionY?: NotificationCountPositionY or "top" | "bottom" | "center"
+   * Sets the Y position of the notification tip.
+   * Defaults to "top" if it has content, else 'center'.
+   */
   @Input()
   set positionY(positionY: NotificationCountPositionY) {
     this._positionY = positionY;
   }
+  /**
+   * The current Y position of the notification tip.
+   * @zh 通知提示的当前 Y 轴位置。
+   */
   get positionY(): NotificationCountPositionY {
     return this._positionY;
   }
@@ -91,6 +109,7 @@ export class NotificationCountComponent implements AfterContentInit {
     this._limit = limit;
   }
 
+  /** @zh 内部使用，当通知提示不显示且无投影内容时隐藏宿主元素。 */
   @HostBinding('class.dui-notification-hidden')
   get hideHost(): boolean {
     return !this.show && !this._hasContent();

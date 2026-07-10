@@ -47,7 +47,9 @@ import { DOCUMENT } from '@angular/common';
 })
 export class PopoverTrigger implements AfterViewInit, OnDestroy {
 
+  /** @zh 弹出层打开时发出。 */
   popoverOpened = new Subject<void>();
+  /** @zh 弹出层关闭时发出。 */
   popoverClosed = new Subject<void>();
 
   private _portal: TemplatePortal<any>;
@@ -64,11 +66,13 @@ export class PopoverTrigger implements AfterViewInit, OnDestroy {
 
   private _onDestroy = new Subject<void>();
 
+  /** @zh 触发器实例的名称，供程序化查找/引用使用。 */
   @Input('name') name: string;
 
   /** References the popover instance that the trigger is associated with. */
   @Input('popoverTriggerFor') popover: PopoverPanel;
 
+  /** @zh 覆盖用于定位的目标元素（默认使用宿主元素自身）。 */
   @Input('popoverTargetAt') targetElement: PopoverTargetInterface;
 
   /** Position of the popover in the X axis */
@@ -111,12 +115,16 @@ export class PopoverTrigger implements AfterViewInit, OnDestroy {
   @Input('popoverCloseOnClick') closeOnClick: boolean;
 
 
+  /** @zh 点击遮罩层（背景）时是否关闭弹出层（仅 `click` 触发方式下的遮罩层）。 */
   @Input('popoverBackdropCloseOnClick') backdropCloseOnClick = true;
 
+  /** @zh 是否允许打开弹出层（`false` 时触发操作不会打开弹出层）。 */
   @Input('showPopOver') showPopOver: boolean=true;
 
+  /** @zh 弹出层打开时发出。 */
   @Output() opened = new EventEmitter<void>();
 
+  /** @zh 弹出层关闭时发出。 */
   @Output() closed = new EventEmitter<void>();
 
 
@@ -138,6 +146,10 @@ export class PopoverTrigger implements AfterViewInit, OnDestroy {
     this.destroyPopover();
   }
 
+  /**
+   * Re-validates the associated popover and re-applies this trigger's config onto it.
+   * @zh 重新校验关联的弹出层，并将本触发器的配置重新应用到其上。
+   */
   public refresh(){
     this._checkPopover();
     this._setCurrentConfig();
@@ -196,8 +208,16 @@ export class PopoverTrigger implements AfterViewInit, OnDestroy {
       this.popover.setCurrentStyles();
   }
 
+  /**
+   * Whether the associated popover is currently open.
+   * @zh 关联的弹出层当前是否处于打开状态。
+   */
   get popoverOpen(): boolean { return this._popoverOpen; }
 
+  /**
+   * @hidden Handles a click on the host element, toggling the popover when `triggerEvent` is `'click'`.
+   * @zh 内部使用，处理宿主元素上的点击事件，当 `triggerEvent` 为 `'click'` 时切换弹出层。
+   */
   @HostListener('click', ['$event'])
   onClick(): void {
     if (this.popover.triggerEvent === 'click') {
@@ -205,6 +225,11 @@ export class PopoverTrigger implements AfterViewInit, OnDestroy {
     }
   }
 
+  /**
+   * @hidden Handles the pointer entering the host element, opening the popover (after
+   * `enterDelay`) when `triggerEvent` is `'hover'`.
+   * @zh 内部使用，处理指针进入宿主元素，当 `triggerEvent` 为 `'hover'` 时（延迟 `enterDelay` 后）打开弹出层。
+   */
   @HostListener('mouseenter', ['$event'])
   onMouseEnter(): void {
     this._halt = false;
@@ -215,6 +240,11 @@ export class PopoverTrigger implements AfterViewInit, OnDestroy {
     }
   }
 
+  /**
+   * @hidden Handles the pointer leaving the host element, closing the popover (after
+   * `leaveDelay`) when `triggerEvent` is `'hover'`.
+   * @zh 内部使用，处理指针离开宿主元素，当 `triggerEvent` 为 `'hover'` 时（延迟 `leaveDelay` 后）关闭弹出层。
+   */
   @HostListener('mouseleave', ['$event'])
   onMouseLeave(): void {
     if (this.popover.triggerEvent === 'hover') {
@@ -234,10 +264,18 @@ export class PopoverTrigger implements AfterViewInit, OnDestroy {
     }
   }
 
+  /**
+   * Toggles the popover open/closed.
+   * @zh 切换弹出层的打开/关闭状态。
+   */
   togglePopover(): void {
       return this._popoverOpen ? this.closePopover() : this.openPopover();
   }
 
+  /**
+   * Opens the popover (if `showPopOver` allows it and it isn't already open).
+   * @zh 打开弹出层（若 `showPopOver` 允许且当前尚未打开）。
+   */
   openPopover(): void {
     if(this.showPopOver){
       if (!this._popoverOpen && !this._halt) {
@@ -249,6 +287,10 @@ export class PopoverTrigger implements AfterViewInit, OnDestroy {
     }
   }
 
+  /**
+   * Closes the popover.
+   * @zh 关闭弹出层。
+   */
   closePopover(): void {
       if (this._overlayRef) {
         this._overlayRef.detach();
@@ -256,6 +298,10 @@ export class PopoverTrigger implements AfterViewInit, OnDestroy {
       }
   }
 
+  /**
+   * Disposes the popover's overlay and cleans up all subscriptions.
+   * @zh 销毁弹出层的 overlay 并清理全部订阅。
+   */
   destroyPopover(): void {
       if (this._mouseoverTimer) {
           clearTimeout(this._mouseoverTimer);
@@ -270,10 +316,18 @@ export class PopoverTrigger implements AfterViewInit, OnDestroy {
       this._onDestroy.complete();
   }
 
+  /**
+   * Focuses the host element.
+   * @zh 聚焦宿主元素。
+   */
   focus() {
       this._elementRef.nativeElement.focus();
   }
 
+  /**
+   * The current bidi text direction (`'ltr'` or `'rtl'`).
+   * @zh 当前的双向文字方向（`'ltr'` 或 `'rtl'`）。
+   */
   get dir(): Direction {
       return this._dir && this._dir.value === 'rtl' ? 'rtl' : 'ltr';
   }
@@ -344,6 +398,10 @@ export class PopoverTrigger implements AfterViewInit, OnDestroy {
       }
   }
 
+  /**
+   * Returns the popover content's `TemplatePortal` instance.
+   * @zh 返回弹出层内容的 `TemplatePortal` 实例。
+   */
   public getPortal(){
     return this._portal;
   }
@@ -393,6 +451,12 @@ export class PopoverTrigger implements AfterViewInit, OnDestroy {
     }
   }
 
+  /**
+   * Subscribes to the overlay position strategy's changes, syncing the popover's
+   * `positionX`/`positionY`/styles/classes to the resolved connection pair.
+   * @zh 订阅 overlay 定位策略的变化，将弹出层的 `positionX`/`positionY`/样式/类名
+   * 同步为实际解析出的连接对。
+   */
   public subscribeToPositions(position: FlexibleConnectedPositionStrategy): void {
       this._positionSubscription = position.positionChanges.subscribe(change => {
           const posisionX: PopoverPositionX = change.connectionPair.overlayX === 'start' ? 'after' : 'before';
@@ -414,6 +478,12 @@ export class PopoverTrigger implements AfterViewInit, OnDestroy {
   }
 
 
+  /**
+   * Builds the CDK `FlexibleConnectedPositionStrategy` for this trigger's target element,
+   * based on the popover's current position/overlap/offset settings.
+   * @zh 根据弹出层当前的位置/重叠/偏移设置，为该触发器的目标元素构建 CDK
+   * `FlexibleConnectedPositionStrategy` 定位策略。
+   */
   public getPosition(): FlexibleConnectedPositionStrategy {
       const [originX, originFallbackX]: HorizontalConnectionPos[] =
         this.popover.positionX === 'before' ? ['end', 'start'] : ['start', 'end'];

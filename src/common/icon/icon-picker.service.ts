@@ -13,6 +13,10 @@ export class IconPickerService {
   ) {}
 
 
+  /**
+   * Returns the built-in list of selectable icons (currently font-based icons).
+   * @zh 返回内置的可选图标列表（当前为字体图标）。
+   */
   getIcons(ipIconPack: string): Icon[] {
     let icons: Icon[] = [];
     const faIcons = this.getFaIcons().map((icon) => {
@@ -26,6 +30,10 @@ export class IconPickerService {
     return icons;
   }
 
+  /**
+   * Fetches the list of SVG icons available under the given server-side directory/path.
+   * @zh 获取给定服务端目录/路径下可用的 SVG 图标列表。
+   */
   getSVGIcons(dir: string, iconpath: string): Observable<any> {
     let params: HttpParams = new HttpParams()
       .set('dir', dir)
@@ -33,6 +41,10 @@ export class IconPickerService {
     return this.http.get(this._apiBase + '/lib/iconlist', { params: params });
   }
 
+  /**
+   * Fetches the list of custom icons available under the given server-side directory/path.
+   * @zh 获取给定服务端目录/路径下可用的自定义图标列表。
+   */
   getCustomIcons(dir: string, iconpath: string): Observable<any> {
     let params: HttpParams = new HttpParams()
       .set('dir', dir)
@@ -42,6 +54,10 @@ export class IconPickerService {
     });
   }
 
+  /**
+   * Fetches the list of font icons available under the given server-side directory/path.
+   * @zh 获取给定服务端目录/路径下可用的字体图标列表。
+   */
   getFontIcons(dir: string, fontpath: string): Observable<any> {
     let params: HttpParams = new HttpParams()
       .set('dir', dir)

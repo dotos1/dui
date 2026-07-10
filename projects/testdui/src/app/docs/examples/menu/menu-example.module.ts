@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { MenuModule } from '@dotos/dui/ui/menu';
+import { HighlightModule } from '@dotos/dui/ux/highlight';
 
 @Component({
   selector: 'app-menu-example',
@@ -9,6 +10,9 @@ import { MenuModule } from '@dotos/dui/ui/menu';
     <h2>菜单栏示例</h2>
     <dui-menu-bar [items]="items"></dui-menu-bar>
     <p style="margin-top:12px;">最近点击：{{ lastAction || '（尚未点击）' }}</p>
+
+    <h3>示例代码</h3>
+    <dui-highlight [content]="exampleSource" [codeLang]="'typescript'" [copyCodeToClipboard]="true"></dui-highlight>
   `,
 })
 export class MenuExampleComponent {
@@ -31,12 +35,26 @@ export class MenuExampleComponent {
       ],
     },
   ];
+
+  readonly exampleSource = `<dui-menu-bar [items]="items"></dui-menu-bar>
+
+items = [
+  {
+    title: '文件',
+    children: [
+      { title: '新建', handler: () => this.newFile() },
+      { title: '打开', handler: () => this.open() },
+      { type: 'divider' },
+      { title: '退出', handler: () => this.quit() },
+    ],
+  },
+];`;
 }
 
 const routes: Routes = [{ path: '', component: MenuExampleComponent }];
 
 @NgModule({
   declarations: [MenuExampleComponent],
-  imports: [CommonModule, MenuModule, RouterModule.forChild(routes)],
+  imports: [CommonModule, MenuModule, HighlightModule, RouterModule.forChild(routes)],
 })
 export class MenuExampleModule {}

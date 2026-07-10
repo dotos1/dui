@@ -35,14 +35,26 @@ import {  ChangeDetectionStrategy,  Component,  EventEmitter,  Input,  Output,} 
     'hostID': 'github-swatch-' + Math.random().toString(36).substring(2, 15),
   }
 })
+/**
+ * A single square color swatch used by {@link GithubComponent}'s palette grid.
+ * @zh {@link GithubComponent} 调色板网格中使用的单个方形色块。
+ */
 export class GithubSwatchComponent {
+  /** @zh 该色块代表的颜色值。 */
   @Input() color: string;
+  /** @zh 色块被点击时发出。 */
   @Output() onClick = new EventEmitter<any>();
+  /** @zh 鼠标悬停在色块上时发出。 */
   @Output() onSwatchHover = new EventEmitter<any>();
+  /** @zh 色块的内联样式。 */
   swatchStyle: { [key: string]: string };
 
   constructor() {}
 
+  /**
+   * @hidden Emits `onClick` with the swatch's color.
+   * @zh 内部使用，携带色块颜色发出 `onClick`。
+   */
   handleClick({ hex, $event }) {
     this.onClick.emit({ hex, $event });
   }

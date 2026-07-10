@@ -31,14 +31,26 @@ import { uuid } from '@dotos/dui/util';
   preserveWhitespaces: false,
    host: { 'hostID': 'circle-swatch-' + uuid() }
 })
+/**
+ * A single round color swatch used by {@link CircleComponent}'s palette grid.
+ * @zh {@link CircleComponent} 调色板网格中使用的单个圆形色块。
+ */
 export class CircleSwatchComponent implements OnChanges {
+  /** @zh 该色块代表的颜色值。 */
   @Input() color: string;
+  /** @zh 色块直径（像素）。 */
   @Input() circleSize = 28;
+  /** @zh 色块之间的间距（像素）。 */
   @Input() circleSpacing = 14;
+  /** @zh 是否强制以聚焦样式渲染。 */
   @Input() focus = false;
+  /** @zh 色块被点击时发出。 */
   @Output() onClick = new EventEmitter<any>();
+  /** @zh 鼠标悬停在色块上时发出。 */
   @Output() onSwatchHover = new EventEmitter<any>();
+  /** @zh 聚焦时叠加的内联样式。 */
   focusStyle: { [key: string]: string } = {};
+  /** @zh 色块的基础内联样式。 */
   swatchStyle: { [key: string]: string } = {
     borderRadius: '50%',
     background: 'transparent',
@@ -52,6 +64,10 @@ export class CircleSwatchComponent implements OnChanges {
       this.focusStyle['boxShadow'] = `inset 0 0 0 3px ${ this.color }, 0 0 5px ${ this.color }`;
     }
   }
+  /**
+   * @hidden Emits `onClick` with the swatch's color.
+   * @zh 内部使用，携带色块颜色发出 `onClick`。
+   */
   handleClick({ hex, $event }) {
     this.onClick.emit({ hex, $event });
   }

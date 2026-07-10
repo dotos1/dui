@@ -59,15 +59,28 @@ import { HSLA, HSVA, HSVAsource } from './helpers/color.interfaces';
   changeDetection: ChangeDetectionStrategy.OnPush,
   
 })
+/**
+ * Saturation/brightness selection panel used by the `color-*` picker style variants.
+ * @zh `color-*` 颜色选择器样式变体使用的饱和度/明度选择面板。
+ */
 export class SaturationComponent implements OnChanges {
+  /** @zh 当前颜色的 HSL 表示。 */
   @Input() hsl: HSLA;
+  /** @zh 当前颜色的 HSV 表示。 */
   @Input() hsv: HSVA;
+  /** @zh 面板的圆角半径。 */
   @Input() radius: number;
+  /** @zh 指示器手柄的内联样式。 */
   @Input() pointer: { [key: string]: string };
+  /** @zh 指示器圆点的内联样式。 */
   @Input() circle: { [key: string]: string };
+  /** @zh 饱和度/明度变化时发出。 */
   @Output() onChange = new EventEmitter<{ data: HSVAsource; $event: Event }>();
+  /** @zh 根据当前色相计算出的面板背景色。 */
   background: string;
+  /** @zh 指示器的垂直位置百分比。 */
   pointerTop: string;
+  /** @zh 指示器的水平位置百分比。 */
   pointerLeft: string;
 
   ngOnChanges() {
@@ -75,6 +88,10 @@ export class SaturationComponent implements OnChanges {
     this.pointerTop = -(this.hsv.v * 100) + 1 + 100 + '%';
     this.pointerLeft = this.hsv.s * 100 + '%';
   }
+  /**
+   * Computes the new saturation/brightness (HSV) from a drag/click position and emits `onChange`.
+   * @zh 根据拖拽/点击位置计算新的饱和度/明度（HSV）值并发出 `onChange`。
+   */
   handleChange({ top, left, containerHeight, containerWidth, $event }) {
     if (left < 0) {
       left = 0;

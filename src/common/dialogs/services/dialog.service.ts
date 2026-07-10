@@ -92,6 +92,10 @@ export class DialogService {
   }
 
 
+  /**
+   * Opens an arbitrary component in a Material dialog, tracking it in `getOpenedComponents`.
+   * @zh 在 Material 对话框中打开任意组件，并在 `getOpenedComponents` 中进行跟踪。
+   */
   public open<T>(
     component: ComponentType<T>,
     config?: MatDialogConfig
@@ -104,6 +108,10 @@ export class DialogService {
     return matDialogRef;
   }
   
+  /**
+   * Returns a map of currently-open dialog ids to their component instances.
+   * @zh 返回当前已打开对话框 id 到其组件实例的映射。
+   */
   public getOpenedComponents(){
     return this._componentMap;
   }
@@ -115,6 +123,10 @@ export class DialogService {
     this._dialogService.closeAll();
   }
 
+  /**
+   * Opens an {@link AlertDialogComponent} with the given config.
+   * @zh 使用给定配置打开一个 {@link AlertDialogComponent} 提示对话框。
+   */
   public openAlert(config: IAlertConfig): MatDialogRef<AlertDialogComponent> {
     const dialogConfig: MatDialogConfig = this._createConfig(config);
     const dialogRef: MatDialogRef<AlertDialogComponent> =
@@ -307,6 +319,10 @@ export class DialogService {
   }
 
 
+  /**
+   * Opens a {@link StatusDialogComponent} with the given config.
+   * @zh 使用给定配置打开一个 {@link StatusDialogComponent} 状态对话框。
+   */
   public openStatus(
     config: IStatusConfig
   ): MatDialogRef<StatusDialogComponent> {

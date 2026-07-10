@@ -37,16 +37,22 @@ export class FileSelectDirective implements OnChanges{
 
   private _multiple: boolean = false;
 
+  /** @zh 是否允许一次选择多个文件。 */
   @Input('multiple')
   set multiple(multiple: boolean) {
     this._multiple = coerceBooleanProperty(multiple);
   }
 
+  /** @zh 内部使用，绑定宿主的原生 `multiple` 属性。 */
   @HostBinding('attr.multiple')
   get multipleBinding(): string {
     return this._multiple ? '' : undefined;
   }
 
+  /**
+   * The native `accept` attribute value, derived from the uploader's `allowedFileType` option.
+   * @zh 原生 `accept` 属性值，根据上传器的 `allowedFileType` 选项推导得出。
+   */
   @HostBinding('attr.accept')
   get accept(): string {
     let options = this.getOptions();
@@ -76,6 +82,12 @@ export class FileSelectDirective implements OnChanges{
     }
   }
 
+  /**
+   * @hidden Handles the native `change` event: queues selected files into `uploader` and emits
+   * `onFileSelected`/`imageSelected` results.
+   * @zh 内部使用，处理原生 `change` 事件：将选中的文件加入 `uploader` 队列，
+   * 并发出 `onFileSelected`/`imageSelected` 结果。
+   */
   @HostListener('change', ['$event'])
   async readFiles(event) {
     const files = this.element.nativeElement.files;
@@ -125,14 +137,26 @@ export class FileSelectDirective implements OnChanges{
     };
   }
 
+  /**
+   * Returns the uploader's current options, used when queuing selected files.
+   * @zh 返回上传器当前的选项，用于加入选中的文件时使用。
+   */
   public getOptions(): any {
     return this.uploader.options;
   }
 
+  /**
+   * Returns the filter functions applied when queuing selected files (none by default).
+   * @zh 返回加入选中的文件时应用的过滤函数（默认为空）。
+   */
   public getFilters(): any {
     return {};
   }
 
+  /**
+   * Whether the native `<input>` value should be cleared after selection (when `multiple` is set).
+   * @zh 选择完成后是否应清空原生 `<input>` 的值（当设置了 `multiple` 时）。
+   */
   public isEmptyAfterSelection(): boolean {
     return !!this.element.nativeElement.attributes.multiple;
   }

@@ -80,8 +80,15 @@ export class MessageComponent implements AfterViewInit {
   @Input() sublabel?: string;
 
 
+  /** @zh 消息图标名称，默认为 `'info'`。 */
   @Input() icon?: string = 'info';
 
+  /**
+   * The message's theme color; `primary`/`accent`/`warn` apply Material theme classes,
+   * any other value is used directly as a color-name-based background/text class pair.
+   * @zh 消息的主题色；`primary`/`accent`/`warn` 会应用 Material 主题类，
+   * 其他值会被直接用作基于颜色名称的背景/文字类名。
+   */
   @Input()
   set color(color: string) {
     this._renderer.removeClass(
@@ -111,6 +118,10 @@ export class MessageComponent implements AfterViewInit {
     this._color = color;
     this._changeDetectorRef.markForCheck();
   }
+  /**
+   * The message's current theme color.
+   * @zh 消息当前的主题色。
+   */
   get color(): string {
     return this._color;
   }
@@ -133,6 +144,10 @@ export class MessageComponent implements AfterViewInit {
       this._opened = opened;
     }
   }
+  /**
+   * Whether the message is currently open (visible).
+   * @zh 消息当前是否处于展开（可见）状态。
+   */
   get opened(): boolean {
     return this._opened;
   }

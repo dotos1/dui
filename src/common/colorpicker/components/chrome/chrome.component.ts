@@ -121,6 +121,7 @@ import { TriggerPopup } from '@dotos/dui/common/trigger';
 export class ChromeComponent extends ColorWrap implements TriggerPopup {
   /** Remove alpha slider and options from picker */
   @Input() disableAlpha = false;
+  /** @zh 饱和度面板指示圆点的内联样式。 */
   circle: { [key: string]: string } = {
     width: '12px',
     height: '12px',
@@ -128,6 +129,7 @@ export class ChromeComponent extends ColorWrap implements TriggerPopup {
     boxShadow: 'rgb(255, 255, 255) 0px 0px 0px 1px inset',
     transform: 'translate(-6px, -8px)',
   };
+  /** @zh 色相/透明度滑块手柄的内联样式。 */
   pointer: { [key: string]: string } = {
     width: '12px',
     height: '12px',
@@ -136,16 +138,25 @@ export class ChromeComponent extends ColorWrap implements TriggerPopup {
     backgroundColor: 'rgb(248, 248, 248)',
     boxShadow: '0 1px 4px 0 rgba(0, 0, 0, 0.37)',
   };
+  /** @zh 当前颜色预览色块的背景色（含透明度）。 */
   activeBackground: string;
 
   constructor() {
     super();
   }
 
+  /**
+   * @hidden Recomputes the preview swatch's background whenever the color changes.
+   * @zh 内部使用，每当颜色变化时重新计算预览色块的背景色。
+   */
   override afterValidChange() {
     const alpha = this.disableAlpha ? 1 : this.rgb.a;
     this.activeBackground = `rgba(${this.rgb.r}, ${this.rgb.g}, ${this.rgb.b}, ${alpha})`;
   }
+  /**
+   * @hidden Forwards a child component's change to `handleChange`.
+   * @zh 内部使用，将子组件的变化转发给 `handleChange`。
+   */
   handleValueChange({ data, $event }) {
     this.handleChange(data, $event);
   }

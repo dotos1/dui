@@ -73,34 +73,34 @@
           "type": "boolean",
           "default": "false",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "是否禁用自定义滚动条。"
         },
         {
           "name": "usePSClass",
           "type": "boolean",
           "default": "true",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "是否使用 Perfect Scrollbar 的默认样式类。"
         },
         {
           "name": "autoPropagation",
           "type": "boolean",
           "default": "false",
-          "description": null,
-          "descriptionZh": null
+          "description": "When enabled, scrolling past an edge propagates to the parent scrollable ancestor,\nwith a brief indicator shown at the edge.",
+          "descriptionZh": "启用后，滚动超出边缘时会向父级可滚动祖先传播，并在边缘短暂显示指示条。"
         },
         {
           "name": "scrollIndicators",
           "type": "boolean",
           "default": "false",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "是否显示滚动位置指示条覆层。"
         },
         {
           "name": "config",
           "type": "PerfectScrollbarConfigInterface",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "传给底层 Perfect Scrollbar 实例的配置项。"
         }
       ],
       "outputs": [
@@ -108,61 +108,61 @@
           "name": "psScrollY",
           "type": "any",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "垂直滚动时发出。"
         },
         {
           "name": "psScrollX",
           "type": "any",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "水平滚动时发出。"
         },
         {
           "name": "psScrollUp",
           "type": "any",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "向上滚动时发出。"
         },
         {
           "name": "psScrollDown",
           "type": "any",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "向下滚动时发出。"
         },
         {
           "name": "psScrollLeft",
           "type": "any",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "向左滚动时发出。"
         },
         {
           "name": "psScrollRight",
           "type": "any",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "向右滚动时发出。"
         },
         {
           "name": "psYReachEnd",
           "type": "any",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "垂直方向滚动到底部时发出。"
         },
         {
           "name": "psYReachStart",
           "type": "any",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "垂直方向滚动到顶部时发出。"
         },
         {
           "name": "psXReachEnd",
           "type": "any",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "水平方向滚动到右侧末端时发出。"
         },
         {
           "name": "psXReachStart",
           "type": "any",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "水平方向滚动到左侧起始位置时发出。"
         }
       ],
       "methods": [],
@@ -172,34 +172,34 @@
           "type": "any",
           "default": "{}",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "记录当前是否处于左/右/上/下边缘状态，驱动指示条显示。"
         },
         {
           "name": "indicatorX",
           "type": "boolean",
           "default": "false",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "水平方向的边缘指示条当前是否显示。"
         },
         {
           "name": "indicatorY",
           "type": "boolean",
           "default": "false",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "垂直方向的边缘指示条当前是否显示。"
         },
         {
           "name": "interaction",
           "type": "boolean",
           "default": "false",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "用户当前是否正在滚轮/触摸交互中（用于边缘滚动传播判断）。"
         },
         {
           "name": "directiveRef",
           "type": "PerfectScrollbarDirective",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "内部使用的底层 {@link PerfectScrollbarDirective} 引用。"
         }
       ]
     },
@@ -324,14 +324,14 @@
           "type": "boolean",
           "default": "false",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "是否禁用自定义滚动条（禁用后销毁底层 Perfect Scrollbar 实例）。"
         },
         {
           "name": "config",
           "alias": "perfectScrollbar",
           "type": "PerfectScrollbarConfigInterface",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "传给底层 Perfect Scrollbar 实例的配置项。"
         }
       ],
       "outputs": [
@@ -339,61 +339,61 @@
           "name": "psScrollY",
           "type": "any",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "垂直滚动时发出。"
         },
         {
           "name": "psScrollX",
           "type": "any",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "水平滚动时发出。"
         },
         {
           "name": "psScrollUp",
           "type": "any",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "向上滚动时发出。"
         },
         {
           "name": "psScrollDown",
           "type": "any",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "向下滚动时发出。"
         },
         {
           "name": "psScrollLeft",
           "type": "any",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "向左滚动时发出。"
         },
         {
           "name": "psScrollRight",
           "type": "any",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "向右滚动时发出。"
         },
         {
           "name": "psYReachEnd",
           "type": "any",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "垂直方向滚动到底部时发出。"
         },
         {
           "name": "psYReachStart",
           "type": "any",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "垂直方向滚动到顶部时发出。"
         },
         {
           "name": "psXReachEnd",
           "type": "any",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "水平方向滚动到右侧末端时发出。"
         },
         {
           "name": "psXReachStart",
           "type": "any",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "水平方向滚动到左侧起始位置时发出。"
         }
       ],
       "methods": [
@@ -401,15 +401,15 @@
           "name": "ps",
           "params": [],
           "returnType": "PerfectScrollbar | null",
-          "description": null,
-          "descriptionZh": null
+          "description": "Returns the underlying `perfect-scrollbar` library instance, or `null` if not initialized.",
+          "descriptionZh": "返回底层 `perfect-scrollbar` 库实例，未初始化时返回 `null`。"
         },
         {
           "name": "update",
           "params": [],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Recalculates the scrollbar geometry (debounced); call after content size changes.",
+          "descriptionZh": "重新计算滚动条几何信息（带防抖）；在内容尺寸变化后调用。"
         },
         {
           "name": "geometry",
@@ -420,8 +420,8 @@
             }
           ],
           "returnType": "Geometry",
-          "description": null,
-          "descriptionZh": null
+          "description": "Returns the host element's current scroll position/size as a {@link Geometry}, using the\ngiven DOM property prefix (`scroll`/`offset`/`client`).",
+          "descriptionZh": "使用给定的 DOM 属性前缀（`scroll`/`offset`/`client`），\n以 {@link Geometry} 形式返回宿主元素当前的滚动位置/尺寸。"
         },
         {
           "name": "position",
@@ -432,8 +432,8 @@
             }
           ],
           "returnType": "Position",
-          "description": null,
-          "descriptionZh": null
+          "description": "Returns the current scroll position, either relative to the scrollbar's \"reach\" state\nor absolute (native `scrollLeft`/`scrollTop`) if `absolute` is `true`.",
+          "descriptionZh": "返回当前滚动位置；默认相对于滚动条的\"到达边缘\"状态，`absolute` 为 `true` 时\n返回绝对位置（原生 `scrollLeft`/`scrollTop`）。"
         },
         {
           "name": "scrollable",
@@ -444,8 +444,8 @@
             }
           ],
           "returnType": "boolean",
-          "description": null,
-          "descriptionZh": null
+          "description": "Whether the host element is currently scrollable in the given direction\n(`'any'`, `'both'`, `'x'`, or `'y'`).",
+          "descriptionZh": "宿主元素当前在给定方向上是否可滚动（`'any'`、`'both'`、`'x'` 或 `'y'`）。"
         },
         {
           "name": "scrollTo",
@@ -464,8 +464,8 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Scrolls to the given `x`/`y` position, optionally animated over `speed` ms. If only `x` is\ngiven, it's treated as a vertical (`scrollTop`) target.",
+          "descriptionZh": "滚动到给定的 `x`/`y` 位置，可选地在 `speed` 毫秒内动画过渡。若只提供 `x`，\n则视为垂直方向（`scrollTop`）目标。"
         },
         {
           "name": "scrollToX",
@@ -480,8 +480,8 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Scrolls horizontally to the given `x` position, optionally animated over `speed` ms.",
+          "descriptionZh": "水平滚动到给定的 `x` 位置，可选地在 `speed` 毫秒内动画过渡。"
         },
         {
           "name": "scrollToY",
@@ -496,8 +496,8 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Scrolls vertically to the given `y` position, optionally animated over `speed` ms.",
+          "descriptionZh": "垂直滚动到给定的 `y` 位置，可选地在 `speed` 毫秒内动画过渡。"
         },
         {
           "name": "scrollToTop",
@@ -512,8 +512,8 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Scrolls to the top, offset by `offset` pixels, optionally animated over `speed` ms.",
+          "descriptionZh": "滚动到顶部（可偏移 `offset` 像素），可选地在 `speed` 毫秒内动画过渡。"
         },
         {
           "name": "scrollToLeft",
@@ -528,8 +528,8 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Scrolls to the left edge, offset by `offset` pixels, optionally animated over `speed` ms.",
+          "descriptionZh": "滚动到左侧边缘（可偏移 `offset` 像素），可选地在 `speed` 毫秒内动画过渡。"
         },
         {
           "name": "scrollToRight",
@@ -544,8 +544,8 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Scrolls to the right edge, offset by `offset` pixels, optionally animated over `speed` ms.",
+          "descriptionZh": "滚动到右侧边缘（可偏移 `offset` 像素），可选地在 `speed` 毫秒内动画过渡。"
         },
         {
           "name": "scrollToBottom",
@@ -560,8 +560,8 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Scrolls to the bottom edge, offset by `offset` pixels, optionally animated over `speed` ms.",
+          "descriptionZh": "滚动到底部边缘（可偏移 `offset` 像素），可选地在 `speed` 毫秒内动画过渡。"
         },
         {
           "name": "scrollToElement",
@@ -580,8 +580,8 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Scrolls the given element (or CSS selector resolved within the host) into view,\noffset by `offset` pixels, optionally animated over `speed` ms.",
+          "descriptionZh": "将给定元素（或在宿主内解析的 CSS 选择器）滚动到可视区域内，\n可偏移 `offset` 像素，可选地在 `speed` 毫秒内动画过渡。"
         }
       ],
       "properties": []

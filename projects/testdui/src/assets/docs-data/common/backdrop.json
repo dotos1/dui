@@ -22,8 +22,8 @@
         {
           "name": "shown",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Whether the backdrop is visible.",
+          "descriptionZh": "遮罩层是否可见。"
         }
       ]
     },

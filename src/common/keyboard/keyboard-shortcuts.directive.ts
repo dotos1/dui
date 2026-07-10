@@ -16,11 +16,20 @@ export class KeyboardShortcutsDirective implements OnDestroy, OnChanges {
 
     private clearIds;
 
+    /**
+     * The shortcut(s) to register, scoped to the host element (auto-allowed inside
+     * select/input/textarea elements).
+     * @zh 要注册的快捷键，作用域限定于宿主元素（自动允许在 select/input/textarea 元素内触发）。
+     */
     @Input() ngKeyboardShortcuts: Shortcut[];
 
     private _disabled = false;
 
 
+    /**
+     * Disables (and unregisters) all shortcuts when set to `true`.
+     * @zh 设为 `true` 时禁用（并注销）全部快捷键。
+     */
     @Input() set disabled(value) {
         this._disabled = value;
         if (this.clearIds) {

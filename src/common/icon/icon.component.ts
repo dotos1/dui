@@ -31,6 +31,10 @@ import { FontLoaderService } from './font-loader.service';
 })
 export class IconComponent {
   private _value = '';
+  /**
+   * The resolved icon source kind: `'FONT'`, `'SVG'`, `'font'`, or `'EXTRA'`, derived from `value`'s prefix.
+   * @zh 解析出的图标来源类型：`'FONT'`、`'SVG'`、`'font'` 或 `'EXTRA'`，由 `value` 的前缀决定。
+   */
   public iconType = 'FONT';
 
   /**
@@ -40,6 +44,7 @@ export class IconComponent {
   @Input()
   color: ThemePalette|string;
 
+  /** @zh 内部使用，根据图标类型绑定宿主 CSS 类名（`dui-icon` 或 `dui-font-icon`）。 */
   @HostBinding('class')
   get hostClasses(): any {
     if( this.iconType != "font"){
@@ -49,34 +54,59 @@ export class IconComponent {
     }
   }
 
+  /**
+   * Whether the icon is rendered in a disabled (dimmed) state.
+   * @zh 图标是否以禁用（变暗）状态渲染。
+   */
   @Input()
   set disabled(v: boolean) {
     this._disable = v;
     this._changeDetectorRef.detectChanges();
   }
+  /**
+   * Whether the icon is rendered in a disabled (dimmed) state.
+   * @zh 图标是否以禁用（变暗）状态渲染。
+   */
   get disabled(): boolean {
     return this._disable;
   }
   _disable:boolean=false;
 
+  /**
+   * Inline style object applied to the rendered `mat-icon` element.
+   * @zh 应用到渲染出的 `mat-icon` 元素上的内联样式对象。
+   */
   @Input()
   set iconStyle(v: any) {
     this._style = v;
     this._changeDetectorRef.detectChanges();
   }
+  /**
+   * Inline style object applied to the rendered `mat-icon` element.
+   * @zh 应用到渲染出的 `mat-icon` 元素上的内联样式对象。
+   */
   get iconStyle(): any {
     return this._style;
   }
+  /**
+   * The font-set prefix parsed from `value` (for `iconType === 'font'`).
+   * @zh 从 `value` 中解析出的字体集前缀（当 `iconType === 'font'` 时使用）。
+   */
   get fontSet(): any {
     let vals = this._value.split("_");
     return vals[0];
   }
   _style: any;
 
+  /**
+   * The resolved icon name/id/glyph used for rendering (with source prefix stripped).
+   * @zh 用于渲染的、已去除来源前缀的图标名称/ID/字形。
+   */
   get value(): string {
     return this._value;
   }
 
+  /** @zh 内部使用，`EXTRA` 类型图标的自定义字体样式（`font-family`）。 */
   public fontStyle;
 
   /**

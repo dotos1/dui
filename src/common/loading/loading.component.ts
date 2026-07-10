@@ -72,6 +72,10 @@ export class LoadingComponent implements DoCheck {
   set mode(mode: LoadingMode) {
     this._defaultMode = mode;
   }
+  /**
+   * The loading indicator's current mode (determinate or indeterminate).
+   * @zh 加载指示器当前的模式（确定或不确定）。
+   */
   get mode(): LoadingMode {
     return this._mode;
   }
@@ -84,10 +88,15 @@ export class LoadingComponent implements DoCheck {
     this._value = value;
     this._changeDetectorRef.markForCheck();
   }
+  /**
+   * The loading indicator's current progress value (used in determinate mode).
+   * @zh 加载指示器当前的进度值（用于确定模式）。
+   */
   get value(): number {
     return this._value;
   }
 
+  /** @zh 加载指示器的展示样式：全屏、覆盖层或无（内嵌）。 */
   style: LoadingStyle = LoadingStyle.None;
 
   /**
@@ -121,6 +130,11 @@ export class LoadingComponent implements DoCheck {
     }
   }
 
+  /**
+   * The CSS height to apply to the host (`undefined` for overlay/full-screen styles, which
+   * fill their container).
+   * @zh 应用到宿主的 CSS 高度（覆盖层/全屏样式下为 `undefined`，因为它们会填满容器）。
+   */
   getHeight(): string | undefined {
 
     if (this.isOverlay() || this.isFullScreen()) {
@@ -130,27 +144,51 @@ export class LoadingComponent implements DoCheck {
     }
   }
 
+  /**
+   * The current circular spinner diameter.
+   * @zh 当前圆形加载指示器的直径。
+   */
   getCircleDiameter(): number {
     return this._circleDiameter;
   }
 
+  /**
+   * The circular spinner's stroke width, derived from its diameter.
+   * @zh 圆形加载指示器的描边宽度，根据其直径推导得出。
+   */
   getCircleStrokeWidth(): number {
     const strokeWidth: number = this.getCircleDiameter() / 10;
     return Math.abs(strokeWidth);
   }
 
+  /**
+   * Whether the indicator is rendered as a circular spinner.
+   * @zh 该指示器是否以圆形样式渲染。
+   */
   isCircular(): boolean {
     return this.type === LoadingType.Circular;
   }
 
+  /**
+   * Whether the indicator is rendered as a linear progress bar.
+   * @zh 该指示器是否以线性样式渲染。
+   */
   isLinear(): boolean {
     return this.type === LoadingType.Linear;
   }
 
+  /**
+   * Whether the indicator is displayed using the full-screen presentation style.
+   * @zh 该指示器是否以全屏展示样式显示。
+   */
   isFullScreen(): boolean {
     return this.style === LoadingStyle.FullScreen;
   }
 
+  /**
+   * Whether the indicator is displayed using the overlay presentation style.
+   * @zh 该指示器是否以覆盖层展示样式显示。
+   */
   isOverlay(): boolean {
     return this.style === LoadingStyle.Overlay;
   }

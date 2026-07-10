@@ -21,6 +21,7 @@ export class CopyButtonComponent {
 
   private timer;
 
+  /** @zh 是否刚完成一次复制（用于短暂显示"已复制"状态）。 */
   copied = false;
 
   /**
@@ -93,6 +94,11 @@ export class CopyButtonComponent {
               private cd: ChangeDetectorRef) {
   }
 
+  /**
+   * Copies `copyText` to the clipboard, emits `successCopied`, and briefly shows the
+   * "copied" tooltip state.
+   * @zh 将 `copyText` 复制到剪贴板，发出 `successCopied`，并短暂显示"已复制"提示状态。
+   */
   copy($event: Event): void {
     $event.stopPropagation();
     if (this.timer) {
@@ -107,10 +113,19 @@ export class CopyButtonComponent {
     }, 1500);
   }
 
+  /**
+   * The tooltip text currently shown: a translated "copied" message right after copying,
+   * else `tooltipText`.
+   * @zh 当前显示的提示文字：刚复制完成时显示已翻译的"已复制"提示，否则显示 `tooltipText`。
+   */
   get matTooltipText(): string {
     return this.copied ? this.translate.instant('ota-update.copied') : this.tooltipText;
   }
 
+  /**
+   * The tooltip position currently used: `'below'` right after copying, else `tooltipPosition`.
+   * @zh 当前使用的提示气泡位置：刚复制完成时为 `'below'`，否则为 `tooltipPosition`。
+   */
   get matTooltipPosition(): TooltipPosition {
     return this.copied ? 'below' : this.tooltipPosition;
   }

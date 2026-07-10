@@ -14,9 +14,13 @@ import { InlineSVGService } from './inline-svg.service';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class InlineSVGComponent implements AfterViewInit, OnChanges {
+  /** @zh 触发注入此组件的 {@link InlineSVGDirective} 实例。 */
   @Input() context: InlineSVGDirective;
+  /** @zh 待插入的 SVG/HTML 内容元素。 */
   @Input() content: HTMLElement | SVGElement;
+  /** @zh 插入内容前是否替换宿主原有内容。 */
   @Input() replaceContents: boolean;
+  /** @zh 前置插入而不是追加。 */
   @Input() prepend: boolean;
 
   /** @internal */

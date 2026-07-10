@@ -14,21 +14,21 @@
           "type": "string | number",
           "default": "316",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "选择器的宽度。"
         },
         {
           "name": "height",
           "type": "string | number",
           "default": "16",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "选择器的高度。"
         },
         {
           "name": "direction",
           "type": "'horizontal' | 'vertical'",
           "default": "'horizontal'",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "滑动条方向：水平或垂直。"
         }
       ],
       "outputs": [],
@@ -43,7 +43,7 @@
           ],
           "returnType": "any",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "内部使用，将子级透明度滑块的变化转发给 `handleChange`。"
         }
       ],
       "properties": [
@@ -52,7 +52,7 @@
           "type": "{ [key: string]: string }",
           "default": "{\n    width: '18px',\n    height: '18px',\n    borderRadius: '50%',\n    transform: 'translate(-9px, -2px)',\n    boxShadow: '0 1px 4px 0 rgba(0, 0, 0, 0.37)',\n  }",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "滑块手柄的内联样式。"
         }
       ]
     },
@@ -79,7 +79,7 @@
           "params": [],
           "returnType": "any",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "内部使用，每当颜色变化时重新计算预览色块的背景色。"
         },
         {
           "name": "handleValueChange",
@@ -91,7 +91,7 @@
           ],
           "returnType": "any",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "内部使用，将子组件的变化转发给 `handleChange`。"
         }
       ],
       "properties": [
@@ -100,20 +100,20 @@
           "type": "{ [key: string]: string }",
           "default": "{\n    width: '12px',\n    height: '12px',\n    borderRadius: '6px',\n    boxShadow: 'rgb(255, 255, 255) 0px 0px 0px 1px inset',\n    transform: 'translate(-6px, -8px)',\n  }",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "饱和度面板指示圆点的内联样式。"
         },
         {
           "name": "pointer",
           "type": "{ [key: string]: string }",
           "default": "{\n    width: '12px',\n    height: '12px',\n    borderRadius: '6px',\n    transform: 'translate(-6px, -2px)',\n    backgroundColor: 'rgb(248, 248, 248)',\n    boxShadow: '0 1px 4px 0 rgba(0, 0, 0, 0.37)',\n  }",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "色相/透明度滑块手柄的内联样式。"
         },
         {
           "name": "activeBackground",
           "type": "string",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "当前颜色预览色块的背景色（含透明度）。"
         }
       ]
     },
@@ -129,25 +129,25 @@
           "name": "disableAlpha",
           "type": "boolean",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "是否禁用透明度字段。"
         },
         {
           "name": "hsl",
           "type": "HSLA",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "当前颜色的 HSL 表示。"
         },
         {
           "name": "rgb",
           "type": "RGBA",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "当前颜色的 RGB 表示。"
         },
         {
           "name": "hex",
           "type": "string",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "当前颜色的十六进制表示。"
         }
       ],
       "outputs": [
@@ -155,7 +155,7 @@
           "name": "onChange",
           "type": "any",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "字段值变化时发出。"
         }
       ],
       "methods": [
@@ -163,8 +163,8 @@
           "name": "toggleViews",
           "params": [],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Cycles the displayed field view: hex → rgb → hsl → (hex or rgb, depending on alpha).",
+          "descriptionZh": "循环切换显示的字段视图：hex → rgb → hsl →（根据透明度回到 hex 或 rgb）。"
         },
         {
           "name": "round",
@@ -175,8 +175,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Rounds a number to the nearest integer.",
+          "descriptionZh": "将数字四舍五入为最接近的整数。"
         },
         {
           "name": "handleChange",
@@ -187,8 +187,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Normalizes and emits a field change as `onChange`, based on which field(s) changed.",
+          "descriptionZh": "根据发生变化的字段，归一化后以 `onChange` 发出。"
         }
       ],
       "properties": [
@@ -197,21 +197,21 @@
           "type": "any",
           "default": "''",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "当前显示的字段视图：`'hex'`、`'rgb'` 或 `'hsl'`。"
         },
         {
           "name": "input",
           "type": "{ [key: string]: string }",
           "default": "{\n    fontSize: '11px',\n    color: '#333',\n    width: '100%',\n    borderRadius: '2px',\n    border: 'none',\n    boxShadow: 'inset 0 0 0 1px #dadada',\n    height: '21px',\n    'text-align': 'center',\n  }",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "输入框的内联样式。"
         },
         {
           "name": "label",
           "type": "{ [key: string]: string }",
           "default": "{\n    'text-transform': 'uppercase',\n    fontSize: '11px',\n    'line-height': '11px',\n    color: '#969696',\n    'text-align': 'center',\n    display: 'block',\n    marginTop: '12px',\n  }",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "标签的内联样式。"
         }
       ]
     },
@@ -263,8 +263,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Whether the given color is the currently selected one.",
+          "descriptionZh": "判断给定颜色是否为当前选中颜色。"
         },
         {
           "name": "handleBlockChange",
@@ -276,7 +276,7 @@
           ],
           "returnType": "any",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "内部使用，若色块点击的颜色是有效的十六进制值，则应用为新颜色。"
         },
         {
           "name": "handleValueChange",
@@ -288,7 +288,7 @@
           ],
           "returnType": "any",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "内部使用，将子组件的变化转发给 `handleChange`。"
         }
       ],
       "properties": []
@@ -305,28 +305,28 @@
           "name": "color",
           "type": "string",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "该色块代表的颜色值。"
         },
         {
           "name": "circleSize",
           "type": "any",
           "default": "28",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "色块直径（像素）。"
         },
         {
           "name": "circleSpacing",
           "type": "any",
           "default": "14",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "色块之间的间距（像素）。"
         },
         {
           "name": "focus",
           "type": "any",
           "default": "false",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "是否强制以聚焦样式渲染。"
         }
       ],
       "outputs": [
@@ -334,13 +334,13 @@
           "name": "onClick",
           "type": "any",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "色块被点击时发出。"
         },
         {
           "name": "onSwatchHover",
           "type": "any",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "鼠标悬停在色块上时发出。"
         }
       ],
       "methods": [
@@ -354,7 +354,7 @@
           ],
           "returnType": "any",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "内部使用，携带色块颜色发出 `onClick`。"
         }
       ],
       "properties": [
@@ -363,14 +363,14 @@
           "type": "{ [key: string]: string }",
           "default": "{}",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "聚焦时叠加的内联样式。"
         },
         {
           "name": "swatchStyle",
           "type": "{ [key: string]: string }",
           "default": "{\n    borderRadius: '50%',\n    background: 'transparent',\n    transition: '100ms box-shadow ease 0s',\n  }",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "色块的基础内联样式。"
         }
       ]
     },
@@ -539,14 +539,14 @@
           "type": "{ [key: string]: string }",
           "default": "{\n    width: '14px',\n    height: '14px',\n    borderRadius: '6px',\n    transform: 'translate(-7px, -2px)',\n    backgroundColor: 'rgb(248, 248, 248)',\n    boxShadow: '0 1px 4px 0 rgba(0, 0, 0, 0.37)',\n  }",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "滑块手柄的内联样式。"
         },
         {
           "name": "radius",
           "type": "any",
           "default": "2",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "色相滑动条的圆角半径。"
         }
       ],
       "outputs": [],
@@ -561,7 +561,7 @@
           ],
           "returnType": "any",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "内部使用，将子级（色相滑块或色块）的变化转发给 `handleChange`。"
         }
       ],
       "properties": []
@@ -597,13 +597,13 @@
           "name": "color",
           "type": "string",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "该色块代表的颜色值。"
         },
         {
           "name": "active",
           "type": "boolean",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "该色块当前是否为选中状态。"
         }
       ],
       "outputs": [
@@ -611,13 +611,13 @@
           "name": "onClick",
           "type": "any",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "色块被点击时发出。"
         },
         {
           "name": "onSwatchHover",
           "type": "any",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "鼠标悬停在色块上时发出。"
         }
       ],
       "methods": [
@@ -631,7 +631,7 @@
           ],
           "returnType": "any",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "内部使用，携带色块颜色发出 `onClick`。"
         }
       ],
       "properties": [
@@ -640,21 +640,21 @@
           "type": "{ [key: string]: string }",
           "default": "{\n    width: '15px',\n    height: '15px',\n    float: 'left',\n    marginRight: '5px',\n    marginBottom: '5px',\n    position: 'relative',\n    cursor: 'pointer',\n  }",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "色块的基础内联样式。"
         },
         {
           "name": "swatchFocus",
           "type": "{ [key: string]: string }",
           "default": "{}",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "聚焦时叠加的内联样式。"
         },
         {
           "name": "getContrastingColor",
           "type": "any",
           "default": "getContrastingColor",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "根据背景色计算出对比色（用于激活状态指示点），来自 `getContrastingColor` 工具函数。"
         }
       ]
     },
@@ -678,21 +678,21 @@
           "type": "zDepth",
           "default": "1",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "外层卡片的阴影层级。"
         },
         {
           "name": "radius",
           "type": "any",
           "default": "1",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "外层卡片的圆角半径。"
         },
         {
           "name": "background",
           "type": "any",
           "default": "'#fff'",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "外层卡片的背景颜色。"
         }
       ],
       "outputs": [],
@@ -707,7 +707,7 @@
           ],
           "returnType": "any",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "内部使用，若色块点击的颜色是有效的十六进制值，则应用为新颜色。"
         },
         {
           "name": "handleValueChange",
@@ -719,7 +719,7 @@
           ],
           "returnType": "any",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "内部使用，将子组件的变化转发给 `handleChange`。"
         }
       ],
       "properties": []
@@ -736,13 +736,13 @@
           "name": "hex",
           "type": "string",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "当前颜色的十六进制表示。"
         },
         {
           "name": "rgb",
           "type": "RGBA",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "当前颜色的 RGB 表示。"
         }
       ],
       "outputs": [
@@ -750,7 +750,7 @@
           "name": "onChange",
           "type": "any",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "字段值变化时发出。"
         }
       ],
       "methods": [
@@ -763,8 +763,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Normalizes and emits a field change (hex or individual RGB channel) as `onChange`.",
+          "descriptionZh": "归一化字段变化（十六进制或单个 RGB 通道）并以 `onChange` 发出。"
         }
       ],
       "properties": [
@@ -773,42 +773,42 @@
           "type": "{ [key: string]: string }",
           "default": "{\n    marginTop: '-3px',\n    marginBottom: '-3px',\n    // flex: '6 1 0%',\n    position: 'relative',\n  }",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "十六进制字段包裹层的内联样式。"
         },
         {
           "name": "HEXinput",
           "type": "{ [key: string]: string }",
           "default": "{\n    width: '80%',\n    padding: '0px',\n    paddingLeft: '20%',\n    border: 'none',\n    outline: 'none',\n    background: 'none',\n    fontSize: '12px',\n    color: '#333',\n    height: '16px',\n  }",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "十六进制字段输入框的内联样式。"
         },
         {
           "name": "HEXlabel",
           "type": "{ [key: string]: string }",
           "default": "{\n    display: 'none',\n  }",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "十六进制字段标签的内联样式（默认隐藏）。"
         },
         {
           "name": "RGBwrap",
           "type": "{ [key: string]: string }",
           "default": "{\n    marginTop: '-3px',\n    marginBottom: '-3px',\n    // flex: '3 1 0%',\n    position: 'relative',\n  }",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "RGB 字段包裹层的内联样式。"
         },
         {
           "name": "RGBinput",
           "type": "{ [key: string]: string }",
           "default": "{\n    width: '80%',\n    padding: '0px',\n    paddingLeft: '30%',\n    border: 'none',\n    outline: 'none',\n    background: 'none',\n    fontSize: '12px',\n    color: '#333',\n    height: '16px',\n  }",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "RGB 字段输入框的内联样式。"
         },
         {
           "name": "RGBlabel",
           "type": "{ [key: string]: string }",
           "default": "{\n    position: 'absolute',\n    top: '6px',\n    left: '0px',\n    'line-height': '16px',\n    'text-transform': 'uppercase',\n    fontSize: '12px',\n    color: '#999',\n  }",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "RGB 字段标签的内联样式。"
         }
       ]
     },
@@ -839,7 +839,7 @@
           "type": "'hide' | 'top-left' | 'top-right' | 'bottom-right'",
           "default": "'top-left'",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "指示三角形的方向，或 `'hide'` 隐藏它。"
         }
       ],
       "outputs": [],
@@ -854,7 +854,7 @@
           ],
           "returnType": "any",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "内部使用，若色块点击的颜色是有效的十六进制值，则应用为新颜色。"
         },
         {
           "name": "handleValueChange",
@@ -866,7 +866,7 @@
           ],
           "returnType": "any",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "内部使用，将子组件的变化转发给 `handleChange`。"
         }
       ],
       "properties": []
@@ -883,7 +883,7 @@
           "name": "color",
           "type": "string",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "该色块代表的颜色值。"
         }
       ],
       "outputs": [
@@ -891,13 +891,13 @@
           "name": "onClick",
           "type": "any",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "色块被点击时发出。"
         },
         {
           "name": "onSwatchHover",
           "type": "any",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "鼠标悬停在色块上时发出。"
         }
       ],
       "methods": [
@@ -911,7 +911,7 @@
           ],
           "returnType": "any",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "内部使用，携带色块颜色发出 `onClick`。"
         }
       ],
       "properties": [
@@ -919,7 +919,7 @@
           "name": "swatchStyle",
           "type": "{ [key: string]: string }",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "色块的内联样式。"
         }
       ]
     },
@@ -935,13 +935,13 @@
           "name": "color",
           "type": "string",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "该色块代表的颜色值。"
         },
         {
           "name": "active",
           "type": "boolean",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "该色块当前是否为选中状态。"
         }
       ],
       "outputs": [
@@ -949,13 +949,13 @@
           "name": "onClick",
           "type": "any",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "色块被点击时发出。"
         },
         {
           "name": "onSwatchHover",
           "type": "any",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "鼠标悬停在色块上时发出。"
         }
       ],
       "methods": [
@@ -969,7 +969,7 @@
           ],
           "returnType": "any",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "内部使用，携带色块颜色发出 `onClick`。"
         }
       ],
       "properties": [
@@ -978,21 +978,21 @@
           "type": "{ [key: string]: string }",
           "default": "{\n    width: '15px',\n    height: '15px',\n    float: 'left',\n    marginRight: '5px',\n    marginBottom: '5px',\n    position: 'relative',\n    cursor: 'pointer',\n  }",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "色块的基础内联样式。"
         },
         {
           "name": "swatchFocus",
           "type": "{ [key: string]: string }",
           "default": "{}",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "聚焦时叠加的内联样式。"
         },
         {
           "name": "getContrastingColor",
           "type": "any",
           "default": "getContrastingColor",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "根据背景色计算对比色的工具函数。"
         }
       ]
     },
@@ -1028,28 +1028,28 @@
           "type": "any",
           "default": "[\n      ['#000000',\"黑色\"],\n      ['#434343',\"深灰色 4\"],\n      ['#666666',\"深灰色 3\"],\n      ['#999999',\"深灰色 2\"],\n      ['#b7b7b7',\"深灰色 1\"],\n      ['#cccccc',\"灰色\"],\n      ['#d9d9d9',\"浅灰色 1\"],\n      ['#efefef',\"浅灰色 2\"],\n      ['#f3f3f3',\"浅灰色 3\"],\n      ['#FFFFFF',\"白色\"],\n\n      ['#980000',\"浆果红\"],\n      ['#FF0000',\"红色\"],\n      ['#FF9900',\"橙色\"],\n      ['#FFFF00',\"黄色\"],\n      ['#00FF00',\"绿色\"],\n      ['#00FFFF',\"青色\"],\n      ['#4A86E8',\"矢车菊蓝\"],\n      ['#0000FF',\"蓝色\"],\n      ['#9900FF',\"紫色\"],\n      ['#FF00FF',\"洋红色\"],\n\n      ['#E6B8AF',\"浅浆果红色 3\"],\n      ['#F4CCCC',\"浅红色 3\"],\n      ['#FCE5CD',\"浅橙色 3\"],\n      ['#FFF2CC',\"浅黄色 3\"],\n      ['#D9EAD3',\"浅绿色 3\"],\n      ['#D0E0E3',\"浅青色 3\"],\n      ['#C9DAF8',\"浅矢车菊蓝色 3\"],\n      ['#CFE2F3',\"浅蓝色 3\"],\n      ['#D9D2F9',\"浅紫色 3\"],\n      ['#EAD1DC',\"浅洋红色 3\"],\n\n      ['#DD7E68',\"浅浆果红色 2\"],\n      ['#EA9999',\"浅红色 2\"],\n      ['#F9CB9C',\"浅橙色 2\"],\n      ['#FFE599',\"浅黄色 2\"],\n      ['#B6D7A8',\"浅绿色 2\"],\n      ['#A2C4C9',\"浅青色 2\"],\n      ['#A4C2F4',\"浅矢车菊蓝色 2\"],\n      ['#9FC5E8',\"浅蓝色 2\"],\n      ['#B4A7D6',\"浅紫色 2\"],\n      ['#D5A6BD',\"浅洋红色 2\"],\n\n      ['#CC4125',\"浅浆果红色 1\"],\n      ['#E06666',\"浅红色 1\"],\n      ['#F6B26B',\"浅橙色 1\"],\n      ['#FFD966',\"浅黄色 1\"],\n      ['#93C47D',\"浅绿色 1\"],\n      ['#76A5AF',\"浅青色 1\"],\n      ['#6D9EEB',\"浅矢车菊蓝色 1\"],\n      ['#6FA8DC',\"浅蓝色 1\"],\n      ['#8E7CC3',\"浅紫色 1\"],\n      ['#C27BA0',\"浅洋红色 1\"],\n\n      ['#A61C00',\"深浆果红色 1\"],\n      ['#CC0000',\"深红色 1\"],\n      ['#E69138',\"深橙色 1\"],\n      ['#F1C232',\"深黄色 1\"],\n      ['#6AA84F',\"深绿色 1\"],\n      ['#45818E',\"深青色 1\"],\n      ['#3C78D8',\"深矢车菊蓝色 1\"],\n      ['#3D85C6',\"深蓝色 1\"],\n      ['#674EA7',\"深紫色 1\"],\n      ['#A64D79',\"深洋红色 1\"],\n\n      ['#85200C',\"深浆果红色 2\"],\n      ['#990000',\"深红色 2\"],\n      ['#B45F06',\"深橙色 2\"],\n      ['#BF9000',\"深黄色 2\"],\n      ['#38761D',\"深绿色 2\"],\n      ['#134F5C',\"深青色 2\"],\n      ['#1155CC',\"深矢车菊蓝色 2\"],\n      ['#0B5394',\"深蓝色 2\"],\n      ['#351C75',\"深紫色 2\"],\n      ['#741B47',\"深洋红色 2\"],\n\n      ['#5B0F00',\"深浆果红色 3\"],\n      ['#660000',\"深红色 3\"],\n      ['#783F04',\"深橙色 3\"],\n      ['#7F6000',\"深黄色 3\"],\n      ['#274E13',\"深绿色 3\"],\n      ['#0C343D',\"深青色 3\"],\n      ['#1C4587',\"深矢车菊蓝色 3\"],\n      ['#073763',\"深蓝色 3\"],\n      ['#20124D',\"深紫色 3\"],\n      ['#4C1130',\"深洋红色 3\"]\n  ]",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "固定调色板颜色列表，每项为 `[十六进制值, 中文名称]`。"
         },
         {
           "name": "zDepth",
           "type": "zDepth",
           "default": "1",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "外层卡片的阴影层级。"
         },
         {
           "name": "radius",
           "type": "any",
           "default": "1",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "外层卡片的圆角半径。"
         },
         {
           "name": "background",
           "type": "any",
           "default": "'#fff'",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "外层卡片的背景颜色。"
         }
       ],
       "outputs": [],
@@ -1064,7 +1064,7 @@
           ],
           "returnType": "any",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "内部使用，将色块点击的颜色应用为新颜色。"
         },
         {
           "name": "handleValueChange",
@@ -1076,7 +1076,7 @@
           ],
           "returnType": "any",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "内部使用，将子组件的变化转发给 `handleChange`。"
         },
         {
           "name": "addCustom",
@@ -1087,8 +1087,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Opens a dialog to pick and add a new custom color to `customService`.",
+          "descriptionZh": "打开一个对话框以选择并向 `customService` 添加一个新的自定义颜色。"
         }
       ],
       "properties": [
@@ -1097,14 +1097,14 @@
           "type": "any",
           "default": "[\n    '#cf1717'\n  ]",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "用户添加的自定义颜色列表。"
         },
         {
           "name": "dataversion",
           "type": "any",
           "default": "0",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "已同步的自定义颜色版本号，用于检测 `customService` 是否有新的自定义颜色。"
         }
       ]
     },
@@ -1135,14 +1135,14 @@
           "type": "any",
           "default": "2",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "滑动条的圆角半径。"
         },
         {
           "name": "direction",
           "type": "'horizontal' | 'vertical'",
           "default": "'horizontal'",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "滑动条方向：水平或垂直。"
         }
       ],
       "outputs": [],
@@ -1157,7 +1157,7 @@
           ],
           "returnType": "any",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "内部使用，将子级色相滑块的变化转发给 `handleChange`（固定饱和度/明度/透明度）。"
         }
       ],
       "properties": [
@@ -1166,7 +1166,7 @@
           "type": "{ [key: string]: string }",
           "default": "{\n    width: '18px',\n    height: '18px',\n    borderRadius: '50%',\n    transform: 'translate(-9px, -2px)',\n    backgroundColor: 'rgb(248, 248, 248)',\n    boxShadow: '0 1px 4px 0 rgba(0, 0, 0, 0.37)',\n  }",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "滑块手柄的内联样式。"
         }
       ]
     },
@@ -1205,7 +1205,7 @@
           ],
           "returnType": "any",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "内部使用，将子级明暗滑块的变化转发给 `handleChange`。"
         }
       ],
       "properties": [
@@ -1214,7 +1214,7 @@
           "type": "{ [key: string]: string }",
           "default": "{\n    width: '18px',\n    height: '18px',\n    borderRadius: '50%',\n    transform: 'translate(-9px, -2px)',\n    boxShadow: '0 1px 4px 0 rgba(0, 0, 0, 0.37)',\n  }",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "滑块手柄的内联样式。"
         }
       ]
     },
@@ -1255,7 +1255,7 @@
           "params": [],
           "returnType": "any",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "内部使用，每当颜色变化时重新计算预览色块的背景色。"
         },
         {
           "name": "handleValueChange",
@@ -1267,7 +1267,7 @@
           ],
           "returnType": "any",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "内部使用，将子组件的变化转发给 `handleChange`。"
         },
         {
           "name": "handleBlockChange",
@@ -1279,7 +1279,7 @@
           ],
           "returnType": "any",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "内部使用，若预设色块点击的颜色是有效的十六进制值，则应用为新颜色。"
         }
       ],
       "properties": [
@@ -1287,7 +1287,7 @@
           "name": "activeBackground",
           "type": "string",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "当前颜色预览色块的背景色（含透明度）。"
         }
       ]
     },
@@ -1311,21 +1311,21 @@
           ],
           "returnType": "any",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "内部使用，预留的选择器变化处理钩子（当前为空实现）。"
         },
         {
           "name": "cancel",
           "params": [],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Closes the dialog, resolving with `false`.",
+          "descriptionZh": "关闭对话框，返回结果 `false`。"
         },
         {
           "name": "accept",
           "params": [],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Closes the dialog, resolving with the selected hex color.",
+          "descriptionZh": "关闭对话框，返回选中的十六进制颜色值。"
         }
       ],
       "properties": [
@@ -1333,21 +1333,21 @@
           "name": "sc",
           "type": "SketchComponent",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "内嵌的 {@link SketchComponent} 实例引用。"
         },
         {
           "name": "cancelButton",
           "type": "string",
           "default": "'COMMON.CANCEL'",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "取消按钮的文字（翻译键）。"
         },
         {
           "name": "acceptButton",
           "type": "string",
           "default": "'COMMON.OK'",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "确认按钮的文字（翻译键）。"
         }
       ]
     },
@@ -1363,26 +1363,26 @@
           "name": "hsl",
           "type": "HSLA",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "当前颜色的 HSL 表示。"
         },
         {
           "name": "rgb",
           "type": "RGBA",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "当前颜色的 RGB 表示。"
         },
         {
           "name": "hex",
           "type": "string",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "当前颜色的十六进制表示。"
         },
         {
           "name": "disableAlpha",
           "type": "any",
           "default": "false",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "是否禁用透明度字段。"
         }
       ],
       "outputs": [
@@ -1390,7 +1390,7 @@
           "name": "onChange",
           "type": "any",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "字段值变化时发出。"
         }
       ],
       "methods": [
@@ -1403,8 +1403,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Rounds a number to the nearest integer.",
+          "descriptionZh": "将数字四舍五入为最接近的整数。"
         },
         {
           "name": "handleChange",
@@ -1415,8 +1415,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Normalizes and emits a field change as `onChange`, based on which field(s) changed.",
+          "descriptionZh": "根据发生变化的字段，归一化后以 `onChange` 发出。"
         }
       ],
       "properties": [
@@ -1425,14 +1425,14 @@
           "type": "{ [key: string]: string }",
           "default": "{\n    width: '100%',\n    padding: '4px 10% 3px',\n    border: 'none',\n    boxSizing: 'border-box',\n    boxShadow: 'inset 0 0 0 1px #ccc',\n    fontSize: '11px',\n  }",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "输入框的内联样式。"
         },
         {
           "name": "label",
           "type": "{ [key: string]: string }",
           "default": "{\n    display: 'block',\n    textAlign: 'center',\n    fontSize: '11px',\n    paddingTop: '3px',\n    paddingBottom: '4px',\n    textTransform: 'capitalize',\n  }",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "标签的内联样式。"
         }
       ]
     },
@@ -1449,7 +1449,7 @@
           "type": "any[]",
           "default": "[]",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "预设颜色列表，每项可以是颜色字符串或 `Shape` 对象。"
         }
       ],
       "outputs": [
@@ -1457,13 +1457,13 @@
           "name": "onClick",
           "type": "any",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "色块被点击时发出。"
         },
         {
           "name": "onSwatchHover",
           "type": "any",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "鼠标悬停在色块上时发出。"
         }
       ],
       "methods": [
@@ -1477,7 +1477,7 @@
           ],
           "returnType": "any",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "内部使用，携带色块颜色发出 `onClick`。"
         },
         {
           "name": "normalizeValue",
@@ -1488,8 +1488,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Normalizes a preset color entry (string or `Shape` object) into a `Shape`-like object.",
+          "descriptionZh": "将预设颜色条目（字符串或 `Shape` 对象）归一化为类 `Shape` 对象。"
         },
         {
           "name": "focusStyle",
@@ -1500,8 +1500,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Computes the focus-state box-shadow style for a given preset color entry.",
+          "descriptionZh": "计算给定预设颜色条目在聚焦状态下的阴影样式。"
         }
       ],
       "properties": [
@@ -1510,7 +1510,7 @@
           "type": "any",
           "default": "{\n    borderRadius: '3px',\n    boxShadow: 'inset 0 0 0 1px rgba(0,0,0,.15)',\n  }",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "每个色块的内联样式。"
         }
       ]
     },
@@ -1526,33 +1526,33 @@
           "name": "hsl",
           "type": "HSL",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "当前颜色的 HSL 表示（用于取色相 h）。"
         },
         {
           "name": "active",
           "type": "boolean",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "该色块当前是否为选中状态。"
         },
         {
           "name": "offset",
           "type": "number",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "该色块对应的明度（lightness）偏移量。"
         },
         {
           "name": "first",
           "type": "any",
           "default": "false",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "该色块是否为列表第一个（应用左侧圆角）。"
         },
         {
           "name": "last",
           "type": "any",
           "default": "false",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "该色块是否为列表最后一个（应用右侧圆角）。"
         }
       ],
       "outputs": [
@@ -1560,7 +1560,7 @@
           "name": "onClick",
           "type": "any",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "色块被点击时发出。"
         }
       ],
       "methods": [
@@ -1574,7 +1574,7 @@
           ],
           "returnType": "any",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "内部使用，携带该色块明度对应的 HSL 颜色发出 `onClick`。"
         }
       ],
       "properties": [
@@ -1582,7 +1582,7 @@
           "name": "background",
           "type": "string",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "根据当前色相和明度偏移计算出的背景色。"
         }
       ]
     },
@@ -1598,7 +1598,7 @@
           "name": "hsl",
           "type": "HSL",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "当前颜色的 HSL 表示。"
         }
       ],
       "outputs": [
@@ -1606,13 +1606,13 @@
           "name": "onClick",
           "type": "any",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "某个色块被点击时发出。"
         },
         {
           "name": "onSwatchHover",
           "type": "any",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "鼠标悬停在某个色块上时发出。"
         }
       ],
       "methods": [
@@ -1629,8 +1629,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Whether the given lightness/saturation combination matches the current color.",
+          "descriptionZh": "判断给定的明度/饱和度组合是否与当前颜色匹配。"
         },
         {
           "name": "handleClick",
@@ -1642,7 +1642,7 @@
           ],
           "returnType": "any",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "内部使用，转发子级色块的点击事件为 `onClick`。"
         }
       ],
       "properties": [
@@ -1650,7 +1650,7 @@
           "name": "swatchStyle",
           "type": "{ [key: string]: string }",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "色块的内联样式。"
         }
       ]
     }

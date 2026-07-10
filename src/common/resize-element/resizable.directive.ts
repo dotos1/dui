@@ -261,7 +261,8 @@ export class ResizableDirective implements OnInit, OnDestroy {
   @Output() resizeEnd = new EventEmitter<ResizeEvent>();
 
   /**
-   * @hidden
+   * @hidden Internal subject a paired {@link ResizeHandleDirective} pushes pointer-up events into.
+   * @zh 内部使用，配对的 {@link ResizeHandleDirective} 通过它推送指针抬起事件。
    */
   public mouseup = new Subject<{
     clientX: number;
@@ -270,7 +271,8 @@ export class ResizableDirective implements OnInit, OnDestroy {
   }>();
 
   /**
-   * @hidden
+   * @hidden Internal subject a paired {@link ResizeHandleDirective} pushes pointer-down events into.
+   * @zh 内部使用，配对的 {@link ResizeHandleDirective} 通过它推送指针按下事件。
    */
   public mousedown = new Subject<{
     clientX: number;
@@ -279,7 +281,8 @@ export class ResizableDirective implements OnInit, OnDestroy {
   }>();
 
   /**
-   * @hidden
+   * @hidden Internal subject a paired {@link ResizeHandleDirective} pushes pointer-move events into.
+   * @zh 内部使用，配对的 {@link ResizeHandleDirective} 通过它推送指针移动事件。
    */
   public mousemove = new Subject<{
     clientX: number;

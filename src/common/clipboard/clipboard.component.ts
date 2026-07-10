@@ -13,6 +13,7 @@ import { Component, ViewEncapsulation, OnInit } from '@angular/core';
   encapsulation: ViewEncapsulation.None
 })
 export class ClipboardComponent implements OnInit {
+  /** @zh 提示气泡显示的翻译键/文本，默认为 `'CLIPBOARD.CLICK_TO_COPY'`。 */
   placeholder: string;
 
   ngOnInit() {

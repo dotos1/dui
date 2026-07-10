@@ -39,6 +39,10 @@ export class ClipboardDirective {
     public viewContainerRef: ViewContainerRef,
     private resolver: ComponentFactoryResolver) { }
 
+  /**
+   * @hidden Handles a click on the host element by copying the target/content to the clipboard.
+   * @zh 内部使用，处理宿主元素上的点击事件：将目标内容复制到剪贴板。
+   */
   @HostListener('click', ['$event'])
   handleClickEvent(event: MouseEvent) {
     event.preventDefault();
@@ -46,6 +50,10 @@ export class ClipboardDirective {
     this.copyToClipboard();
   }
 
+  /**
+   * @hidden Shows the {@link ClipboardComponent} tooltip on hover, if `placeholder` is set.
+   * @zh 内部使用，悬停时若设置了 `placeholder` 则显示 {@link ClipboardComponent} 提示气泡。
+   */
   @HostListener('mouseenter')
   showTooltip() {
     if (this.placeholder) {
@@ -55,6 +63,10 @@ export class ClipboardDirective {
     }
   }
 
+  /**
+   * @hidden Removes the tooltip once the pointer leaves the host element.
+   * @zh 内部使用，指针离开宿主元素后移除提示气泡。
+   */
   @HostListener('mouseleave')
   closeTooltip() {
     this.viewContainerRef.remove();

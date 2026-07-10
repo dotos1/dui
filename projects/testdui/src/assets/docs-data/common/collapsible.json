@@ -36,21 +36,21 @@
           "params": [],
           "returnType": "any",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "内部使用，处理宿主元素上的点击事件，切换 `collapsed` 状态。"
         }
       ],
       "properties": [
         {
           "name": "target",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "The element whose collapsed/expanded CSS class is toggled.",
+          "descriptionZh": "被切换收起/展开 CSS 类的目标元素。"
         },
         {
           "name": "collapsed",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Current collapsed state; setting it applies/removes the CSS classes immediately.",
+          "descriptionZh": "当前收起状态；设置该值会立即应用/移除对应的 CSS 类。"
         }
       ]
     },
@@ -81,14 +81,14 @@
         {
           "name": "title",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Panel title text (translated via the `translate` pipe).",
+          "descriptionZh": "面板标题文字（通过 `translate` 管道翻译）。"
         },
         {
           "name": "collapsed",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Initial collapsed state; toggling the chevron icon updates this internally.",
+          "descriptionZh": "初始的收起状态；点击箭头图标会在内部更新该状态。"
         }
       ]
     },

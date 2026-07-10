@@ -59,23 +59,36 @@ import { ToastrService } from './toastr.service';
   
 })
 export class Toast<ConfigPayload = any> implements OnDestroy {
+  /** @zh 提示消息的正文文本。 */
   message?: string | null;
+  /** @zh 提示消息的标题。 */
   title?: string;
+  /** @zh 该提示的解析后配置项。 */
   options: IndividualConfig<ConfigPayload>;
+  /** @zh 该提示被重复触发的次数。 */
   duplicatesCount!: number;
+  /** @zh 该提示的原始自动关闭时长（毫秒）。 */
   originalTimeout: number;
+  /** @zh 进度条当前宽度百分比。 */
   width = signal(-1);
+  /** @zh 内部使用，绑定宿主的 CSS 类名（提示类型 + 自定义类）。 */
   @HostBinding('class') toastClasses = '';
 
+  /** @zh 内部使用，驱动进入/激活/移除动画的状态信号。 */
   state: WritableSignal<{
     value: 'inactive' | 'active' | 'removed';
     params: { easeTime: number | string; easing: string };
   }>;
 
+  /** @zh 内部使用，绑定 `flyInOut` 动画触发器。 */
   @HostBinding('@flyInOut') get _state() {
     return this.state();
   }
 
+  /**
+   * The host's `display` style: `'none'` while inactive (not yet shown), else `undefined`.
+   * @zh 宿主的 `display` 样式：未激活（尚未显示）时为 `'none'`，否则为 `undefined`。
+   */
   @HostBinding('style.display')
   get displayStyle(): string | undefined {
     if (this.state().value === 'inactive') {
@@ -134,6 +147,10 @@ export class Toast<ConfigPayload = any> implements OnDestroy {
     clearTimeout(this.timeout);
   }
 
+  /**
+   * Transitions the toast to active state and starts its auto-dismiss timer/progress bar.
+   * @zh 将提示切换为激活状态，并启动其自动关闭计时器/进度条。
+   */
   activateToast() {
     this.state.update(state => ({ ...state, value: 'active' }));
     if (
@@ -168,6 +185,10 @@ export class Toast<ConfigPayload = any> implements OnDestroy {
     }
   }
 
+  /**
+   * Resets the auto-dismiss timer back to the toast's original timeout.
+   * @zh 将自动关闭计时器重置为提示的原始超时时长。
+   */
   resetTimeout() {
     clearTimeout(this.timeout);
     clearInterval(this.intervalId);
@@ -196,6 +217,10 @@ export class Toast<ConfigPayload = any> implements OnDestroy {
       +this.toastPackage.config.easeTime,
     );
   }
+  /**
+   * @hidden Handles a click on the toast: triggers the tap event and optionally dismisses it.
+   * @zh 内部使用，处理提示上的点击事件：触发 tap 事件，并可选地关闭提示。
+   */
   @HostListener('click')
   tapToast() {
     if (this.state().value === 'removed') {
@@ -206,6 +231,10 @@ export class Toast<ConfigPayload = any> implements OnDestroy {
       this.remove();
     }
   }
+  /**
+   * @hidden Pauses the auto-dismiss timer/progress bar while the pointer hovers the toast.
+   * @zh 内部使用，指针悬停在提示上方时暂停自动关闭计时器/进度条。
+   */
   @HostListener('mouseenter')
   stickAround() {
     if (this.state().value === 'removed') {
@@ -222,6 +251,10 @@ export class Toast<ConfigPayload = any> implements OnDestroy {
       this.width.set(0);
     }
   }
+  /**
+   * @hidden Resumes (with the extended timeout) dismissing the toast once the pointer leaves.
+   * @zh 内部使用，指针离开后以延长后的超时时长恢复关闭提示的流程。
+   */
   @HostListener('mouseleave')
   delayedHideToast() {
     if (
@@ -240,6 +273,12 @@ export class Toast<ConfigPayload = any> implements OnDestroy {
     }
   }
 
+  /**
+   * Runs `setTimeout` outside Angular's zone (if `ngZone` is available) to avoid unnecessary
+   * change detection, re-entering the zone when the callback fires.
+   * @zh 在 Angular zone 之外（若提供了 `ngZone`）执行 `setTimeout`，避免不必要的变更检测，
+   * 回调触发时重新进入 zone。
+   */
   outsideTimeout(func: () => any, timeout: number) {
     if (this.ngZone) {
       this.ngZone.runOutsideAngular(
@@ -254,6 +293,12 @@ export class Toast<ConfigPayload = any> implements OnDestroy {
     }
   }
 
+  /**
+   * Runs `setInterval` outside Angular's zone (if `ngZone` is available) to avoid unnecessary
+   * change detection, re-entering the zone on each tick.
+   * @zh 在 Angular zone 之外（若提供了 `ngZone`）执行 `setInterval`，避免不必要的变更检测，
+   * 每次触发时重新进入 zone。
+   */
   outsideInterval(func: () => any, timeout: number) {
     if (this.ngZone) {
       this.ngZone.runOutsideAngular(

@@ -283,43 +283,43 @@
           "name": "description",
           "type": "string",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "快捷键的描述文字（显示在帮助面板中）。"
         },
         {
           "name": "label",
           "type": "string",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "快捷键的分组/标签文字（显示在帮助面板中）。"
         },
         {
           "name": "preventDefault",
           "type": "boolean",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "触发时是否阻止按键的默认行为。"
         },
         {
           "name": "allowIn",
           "type": "AllowIn[]",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "允许该快捷键在哪些元素类型（如 input、textarea、select）内触发。"
         },
         {
           "name": "key",
           "type": "string | string[]",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "触发该快捷键的按键组合，可以是单个或多个。"
         },
         {
           "name": "target",
           "type": "HTMLElement",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "监听按键事件的目标元素，默认为整个文档。"
         },
         {
           "name": "throttleTime",
           "type": "number",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "触发节流时间（毫秒）。"
         }
       ],
       "outputs": [
@@ -327,7 +327,7 @@
           "name": "fire",
           "type": "any",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "快捷键被触发时发出。"
         }
       ],
       "methods": [],
@@ -366,8 +366,8 @@
             }
           ],
           "returnType": "Observable<ShortcutEventOutput>",
-          "description": null,
-          "descriptionZh": null
+          "description": "Returns an observable that emits whenever the shortcut with the given key fires.",
+          "descriptionZh": "返回一个 Observable，在给定按键组合的快捷键被触发时发出事件。"
         }
       ],
       "properties": []
@@ -383,14 +383,14 @@
         {
           "name": "ngKeyboardShortcuts",
           "type": "Shortcut[]",
-          "description": null,
-          "descriptionZh": null
+          "description": "The shortcut(s) to register, scoped to the host element (auto-allowed inside\nselect/input/textarea elements).",
+          "descriptionZh": "要注册的快捷键，作用域限定于宿主元素（自动允许在 select/input/textarea 元素内触发）。"
         },
         {
           "name": "disabled",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Disables (and unregisters) all shortcuts when set to `true`.",
+          "descriptionZh": "设为 `true` 时禁用（并注销）全部快捷键。"
         }
       ],
       "outputs": [],
@@ -416,25 +416,25 @@
           "name": "keyDescription",
           "type": "string",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "切换本帮助面板的快捷键在帮助列表中显示的描述文字。"
         },
         {
           "name": "keyLabel",
           "type": "string",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "切换本帮助面板的快捷键在帮助列表中显示的分组标签。"
         },
         {
           "name": "closeKeyLabel",
           "type": "string",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "关闭快捷键在帮助列表中显示的分组标签。"
         },
         {
           "name": "closeKeyDescription",
           "type": "string",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "关闭快捷键在帮助列表中显示的描述文字。"
         },
         {
           "name": "key",
@@ -445,22 +445,22 @@
         {
           "name": "closeKey",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "The shortcut key that closes this help panel (registered/re-registered on change).",
+          "descriptionZh": "用于关闭本帮助面板的快捷键（变化时会重新注册）。"
         },
         {
           "name": "title",
           "type": "any",
           "default": "\"COMMON.KEYBOARD_TITLE\"",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "帮助面板的标题（翻译键）。"
         },
         {
           "name": "emptyMessage",
           "type": "any",
           "default": "\"COMMON.KEYBOARD_EMPTYMESSAGE\"",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "没有已注册快捷键时显示的提示信息（翻译键）。"
         }
       ],
       "outputs": [],
@@ -469,29 +469,29 @@
           "name": "reveal",
           "params": [],
           "returnType": "KeyboardShortcutsHelpComponent",
-          "description": null,
-          "descriptionZh": null
+          "description": "Shows the help panel (attaching it to `document.body` via a portal).",
+          "descriptionZh": "显示帮助面板（通过 portal 将其附加到 `document.body`）。"
         },
         {
           "name": "visible",
           "params": [],
           "returnType": "boolean",
-          "description": null,
-          "descriptionZh": null
+          "description": "Whether the help panel is currently attached/visible.",
+          "descriptionZh": "帮助面板当前是否已附加/可见。"
         },
         {
           "name": "hide",
           "params": [],
           "returnType": "KeyboardShortcutsHelpComponent",
-          "description": null,
-          "descriptionZh": null
+          "description": "Hides the help panel (detaching it from the DOM).",
+          "descriptionZh": "隐藏帮助面板（将其从 DOM 中分离）。"
         },
         {
           "name": "toggle",
           "params": [],
           "returnType": "KeyboardShortcutsHelpComponent",
-          "description": null,
-          "descriptionZh": null
+          "description": "Toggles the help panel between shown and hidden.",
+          "descriptionZh": "在显示与隐藏之间切换帮助面板。"
         }
       ],
       "properties": [
@@ -500,32 +500,32 @@
           "type": "any",
           "default": "\"help-modal\"",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "应用到帮助面板宿主元素上的 CSS 类名。"
         },
         {
           "name": "template",
           "type": "TemplateRef<any>",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "面板内容的模板引用，通过 portal 挂载到 `document.body`。"
         },
         {
           "name": "shortcuts",
           "type": "Record<\"label\", { key: string[]; label: string; description: string }[]>",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "按标签分组后的已注册快捷键。"
         },
         {
           "name": "showing$",
           "type": "any",
           "default": "new BehaviorSubject(false)",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "帮助面板当前是否正在显示。"
         },
         {
           "name": "labels",
           "type": "string[]",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "已注册快捷键的分组标签列表。"
         }
       ]
     },
@@ -541,13 +541,13 @@
           "name": "index",
           "type": "number",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "该条目在列表中的索引。"
         },
         {
           "name": "shortcut",
           "type": "Shortcut",
-          "description": null,
-          "descriptionZh": null
+          "description": "The shortcut entry to render; setting it parses its key combo(s) into display symbols.",
+          "descriptionZh": "待渲染的快捷键条目；设置时会将其按键组合解析为可展示的符号。"
         }
       ],
       "outputs": [],
@@ -557,13 +557,13 @@
           "name": "parsedKeys",
           "type": "string[][]",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "解析后的按键组合，按符号数组分组，便于逐个渲染按键图标。"
         },
         {
           "name": "shortcut",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "The shortcut entry currently rendered.",
+          "descriptionZh": "当前渲染的快捷键条目。"
         }
       ]
     },
@@ -581,8 +581,8 @@
           "name": "shortcuts$",
           "type": "any",
           "default": "this.keyboard.shortcuts$.pipe(\n        map(shortcuts =>\n            shortcuts\n                .filter(shortcut => Boolean(shortcut.label) && Boolean(shortcut.description))\n                .map(({key, label, description}) => ({\n                    key,\n                    label,\n                    description\n                }))\n        )\n    )",
-          "description": null,
-          "descriptionZh": null
+          "description": "Emits the list of registered shortcuts that have both a `label` and `description`.",
+          "descriptionZh": "发出同时具有 `label` 和 `description` 的已注册快捷键列表。"
         }
       ]
     },
@@ -623,8 +623,8 @@
             }
           ],
           "returnType": "boolean",
-          "description": null,
-          "descriptionZh": null
+          "description": "Whether this plugin handles the given event name (any event containing `.shortcut.`).",
+          "descriptionZh": "判断该插件是否处理给定事件名称（包含 `.shortcut.` 的任意事件）。"
         },
         {
           "name": "addEventListener",
@@ -643,8 +643,8 @@
             }
           ],
           "returnType": "Function",
-          "description": null,
-          "descriptionZh": null
+          "description": "Parses a `shortcut.<key>.<description>.<label>` event binding and registers the\ncorresponding keyboard shortcut, returning an unregister function.",
+          "descriptionZh": "解析 `shortcut.<key>.<description>.<label>` 事件绑定，注册对应的键盘快捷键，\n并返回一个用于注销的函数。"
         }
       ],
       "properties": [
@@ -652,7 +652,7 @@
           "name": "manager",
           "type": "EventManager",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "Angular 注入的事件管理器，用于委托不支持的事件类型。"
         }
       ]
     },
@@ -674,8 +674,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Returns an observable that emits whenever the shortcut registered under `key` fires.",
+          "descriptionZh": "返回一个 Observable，当以 `key` 注册的快捷键被触发时发出。"
         }
       ],
       "properties": []
@@ -732,20 +732,20 @@
           "type": "any",
           "default": "this._pressed.asObservable()",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "每当任意已注册快捷键被触发时发出事件（含触发的按键与原生事件）。"
         },
         {
           "name": "shortcuts$",
           "type": "any",
           "default": "this._shortcutsSub\n        .pipe(filter((shortcuts) =>{\n     \n            return shortcuts.length!=0;\n    } ))",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "发出当前已注册的（非空）快捷键列表，随注册/注销更新。"
         },
         {
           "name": "shortcuts",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "The currently registered non-sequence shortcuts.",
+          "descriptionZh": "当前已注册的非序列型快捷键。"
         }
       ]
     },

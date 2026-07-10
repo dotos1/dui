@@ -27,8 +27,8 @@
             }
           ],
           "returnType": "Promise<any>",
-          "description": null,
-          "descriptionZh": null
+          "description": "Loads a custom web font (via the `FontFace` API) by name/URL/weight, skipping if already loaded.",
+          "descriptionZh": "通过 `FontFace` API 按名称/URL/字重加载自定义 Web 字体，若已加载过则跳过。"
         }
       ],
       "properties": [
@@ -37,7 +37,7 @@
           "type": "Set<string>",
           "default": "new Set<string>()",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "已加载过的字体名称集合，避免重复加载。"
         }
       ]
     },
@@ -100,14 +100,14 @@
         {
           "name": "disabled",
           "type": "boolean",
-          "description": null,
-          "descriptionZh": null
+          "description": "Whether the icon is rendered in a disabled (dimmed) state.",
+          "descriptionZh": "图标是否以禁用（变暗）状态渲染。"
         },
         {
           "name": "iconStyle",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Inline style object applied to the rendered `mat-icon` element.",
+          "descriptionZh": "应用到渲染出的 `mat-icon` 元素上的内联样式对象。"
         },
         {
           "name": "value",
@@ -123,44 +123,44 @@
           "name": "iconType",
           "type": "any",
           "default": "'FONT'",
-          "description": null,
-          "descriptionZh": null
+          "description": "The resolved icon source kind: `'FONT'`, `'SVG'`, `'font'`, or `'EXTRA'`, derived from `value`'s prefix.",
+          "descriptionZh": "解析出的图标来源类型：`'FONT'`、`'SVG'`、`'font'` 或 `'EXTRA'`，由 `value` 的前缀决定。"
         },
         {
           "name": "hostClasses",
           "type": "any",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "内部使用，根据图标类型绑定宿主 CSS 类名（`dui-icon` 或 `dui-font-icon`）。"
         },
         {
           "name": "disabled",
           "type": "boolean",
-          "description": null,
-          "descriptionZh": null
+          "description": "Whether the icon is rendered in a disabled (dimmed) state.",
+          "descriptionZh": "图标是否以禁用（变暗）状态渲染。"
         },
         {
           "name": "iconStyle",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Inline style object applied to the rendered `mat-icon` element.",
+          "descriptionZh": "应用到渲染出的 `mat-icon` 元素上的内联样式对象。"
         },
         {
           "name": "fontSet",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "The font-set prefix parsed from `value` (for `iconType === 'font'`).",
+          "descriptionZh": "从 `value` 中解析出的字体集前缀（当 `iconType === 'font'` 时使用）。"
         },
         {
           "name": "value",
           "type": "string",
-          "description": null,
-          "descriptionZh": null
+          "description": "The resolved icon name/id/glyph used for rendering (with source prefix stripped).",
+          "descriptionZh": "用于渲染的、已去除来源前缀的图标名称/ID/字形。"
         },
         {
           "name": "fontStyle",
           "type": "any",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "内部使用，`EXTRA` 类型图标的自定义字体样式（`font-family`）。"
         }
       ]
     },
@@ -193,8 +193,8 @@
             }
           ],
           "returnType": "Icon[]",
-          "description": null,
-          "descriptionZh": null
+          "description": "Returns the built-in list of selectable icons (currently font-based icons).",
+          "descriptionZh": "返回内置的可选图标列表（当前为字体图标）。"
         },
         {
           "name": "getSVGIcons",
@@ -209,8 +209,8 @@
             }
           ],
           "returnType": "Observable<any>",
-          "description": null,
-          "descriptionZh": null
+          "description": "Fetches the list of SVG icons available under the given server-side directory/path.",
+          "descriptionZh": "获取给定服务端目录/路径下可用的 SVG 图标列表。"
         },
         {
           "name": "getCustomIcons",
@@ -225,8 +225,8 @@
             }
           ],
           "returnType": "Observable<any>",
-          "description": null,
-          "descriptionZh": null
+          "description": "Fetches the list of custom icons available under the given server-side directory/path.",
+          "descriptionZh": "获取给定服务端目录/路径下可用的自定义图标列表。"
         },
         {
           "name": "getFontIcons",
@@ -241,8 +241,8 @@
             }
           ],
           "returnType": "Observable<any>",
-          "description": null,
-          "descriptionZh": null
+          "description": "Fetches the list of font icons available under the given server-side directory/path.",
+          "descriptionZh": "获取给定服务端目录/路径下可用的字体图标列表。"
         }
       ],
       "properties": []

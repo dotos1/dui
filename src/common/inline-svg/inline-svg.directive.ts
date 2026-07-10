@@ -37,14 +37,22 @@ export class InlineSVGDirective implements OnInit, OnChanges, OnDestroy {
   @Input() injectComponent: boolean = false;
   /** @zh 是否缓存已获取的 SVG 内容，避免重复请求相同 URL。 */
   @Input() cacheSVG: boolean = true;
+  /** @zh 加载完成后设置到 SVG 根元素上的属性键值对。 */
   @Input() setSVGAttributes: { [key: string]: any };
+  /** @zh 加载完成后从 SVG 根元素上移除的属性名列表。 */
   @Input() removeSVGAttributes: Array<string>;
+  /** @zh 是否强制重新求值 SVG 内的 `<style>` 标签（部分浏览器插入后不生效时使用）。 */
   @Input() forceEvalStyles: boolean = false;
+  /** @zh SVG 内联 `<script>` 的执行策略：`always`/`once`/`never`。 */
   @Input() evalScripts: SVGScriptEvalMode = SVGScriptEvalMode.ALWAYS;
+  /** @zh 加载失败时回退显示的 `<img>` URL。 */
   @Input() fallbackImgUrl: string;
+  /** @zh SVG 加载完成后的回调，可返回替换后的元素以自定义处理结果。 */
   @Input() onSVGLoaded: (svg: SVGElement, parent: Element | null) => SVGElement;
 
+  /** @zh SVG 成功插入 DOM 后发出。 */
   @Output() onSVGInserted: EventEmitter<SVGElement> = new EventEmitter<SVGElement>();
+  /** @zh SVG 加载/插入失败时发出错误信息。 */
   @Output() onSVGFailed: EventEmitter<any> = new EventEmitter<any>();
 
   /** @internal */

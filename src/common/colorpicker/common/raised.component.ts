@@ -51,9 +51,16 @@ export type zDepth = 0 | 1 | 2 | 3 | 4 | 5;
   changeDetection: ChangeDetectionStrategy.OnPush,
   
 })
+/**
+ * Wraps projected content in a card-like container with a Material "elevation" (zDepth) shadow.
+ * @zh 将投影内容包裹在带有 Material "层级"（zDepth）阴影的卡片式容器中。
+ */
 export class RaisedComponent {
+  /** @zh 阴影层级（0-5），层级越高阴影越明显。 */
   @Input() zDepth: zDepth = 1;
+  /** @zh 圆角半径。 */
   @Input() radius = 1;
+  /** @zh 背景颜色。 */
   @Input() background = '#fff';
 }
 

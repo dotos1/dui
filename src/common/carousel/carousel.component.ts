@@ -45,6 +45,7 @@ export class MatCarouselComponent
   implements AfterContentInit, AfterViewInit, MatCarousel, OnDestroy {
   /** @zh 切换幻灯片时的过渡动画时长/缓动函数。 */
   @Input() public timings = '250ms ease-in';
+  /** @zh 用于覆盖左右箭头图标的自定义 SVG 图标配置。 */
   @Input() public svgIconOverrides: SvgIconOverrides;
 
   /**
@@ -66,6 +67,10 @@ export class MatCarouselComponent
     this.interval$.next(value);
   }
 
+  /**
+   * Wraps back to the first/last slide when navigating past the ends.
+   * @zh 导航超出两端时是否循环回到第一张/最后一张幻灯片。
+   */
   public get loop(): boolean {
     return this._loop;
   }
@@ -86,39 +91,72 @@ export class MatCarouselComponent
   /** @zh Material 主题色。 */
   @Input() public color: ThemePalette = 'accent';
 
+  /**
+   * The carousel's maximum width.
+   * @zh 轮播组件的最大宽度。
+   */
   public get maxWidth(): string {
     return this._maxWidth;
   }
+  /**
+   * The carousel's maximum width.
+   * @zh 轮播组件的最大宽度。
+   */
   @Input()
   public set maxWidth(value: string) {
     this._maxWidth = value;
     this.maxWidth$.next(0);
   }
 
+  /** @zh 是否保持幻灯片宽高比。 */
   @Input() public maintainAspectRatio = true;
+  /** @zh 保持宽高比时使用的高度占宽度的百分比。 */
   @Input() public proportion = 25;
+  /** @zh 幻灯片高度（`maintainAspectRatio` 为 `false` 时使用）。 */
   @Input() public slideHeight = '100%';
 
+  /**
+   * Limits the number of projected slides actually rendered/used.
+   * @zh 限制实际渲染/使用的投影幻灯片数量。
+   */
   @Input()
   public set slides(value: number) {
     this.slides$.next(value);
   }
 
+  /** @zh 是否启用左右方向键导航。 */
   @Input() public useKeyboard = false;
+  /** @zh 是否启用鼠标滚轮切换幻灯片。 */
   @Input() public useMouseWheel = false;
 
+  /**
+   * The carousel's text/layout direction: `'ltr'` or `'rtl'`.
+   * @zh 轮播组件的文字/布局方向：`'ltr'` 或 `'rtl'`。
+   */
   public get orientation(): Orientation {
     return this._orientation;
   }
+  /**
+   * The carousel's text/layout direction: `'ltr'` or `'rtl'`.
+   * @zh 轮播组件的文字/布局方向：`'ltr'` 或 `'rtl'`。
+   */
   @Input()
   public set orientation(value: Orientation) {
     this.orientation$.next(value);
     this._orientation = value;
   }
 
+  /**
+   * Emits the new active slide index after each slide transition completes.
+   * @zh 每次幻灯片切换动画完成后，发出新的当前幻灯片索引。
+   */
   @Output()
   public change: EventEmitter<number> = new EventEmitter<number>();
 
+  /**
+   * The currently active slide's index.
+   * @zh 当前激活幻灯片的索引。
+   */
   public get currentIndex(): number {
     if (this.listKeyManager) {
       return this.listKeyManager.activeItemIndex;
@@ -126,6 +164,10 @@ export class MatCarouselComponent
 
     return 0;
   }
+  /**
+   * The currently active {@link MatCarouselSlideComponent}.
+   * @zh 当前激活的 {@link MatCarouselSlideComponent}。
+   */
   public get currentSlide(): MatCarouselSlideComponent {
     if (this.listKeyManager) {
       return this.listKeyManager.activeItem;
@@ -134,6 +176,7 @@ export class MatCarouselComponent
     return null;
   }
 
+  /** @zh 投影进来的全部 {@link MatCarouselSlideComponent} 幻灯片。 */
   @ContentChildren(MatCarouselSlideComponent) public slidesList: QueryList<
     MatCarouselSlideComponent
   >;
@@ -141,6 +184,7 @@ export class MatCarouselComponent
     HTMLDivElement
   >;
   @ViewChild('carouselList') private carouselList: ElementRef<HTMLElement>;
+  /** @zh 内部使用，管理幻灯片焦点/激活状态的 CDK 键盘管理器。 */
   public listKeyManager: ListKeyManager<MatCarouselSlideComponent>;
 
   private _autoplay = true;
@@ -219,18 +263,34 @@ export class MatCarouselComponent
     this.destroy$.complete();
   }
 
+  /**
+   * Advances to the next slide.
+   * @zh 切换到下一张幻灯片。
+   */
   public next(): void {
     this.goto(Direction.Right);
   }
 
+  /**
+   * Goes back to the previous slide.
+   * @zh 切换到上一张幻灯片。
+   */
   public previous(): void {
     this.goto(Direction.Left);
   }
 
+  /**
+   * Jumps directly to the slide at the given index.
+   * @zh 直接跳转到指定索引的幻灯片。
+   */
   public slideTo(index: number): void {
     this.goto(Direction.Index, index);
   }
 
+  /**
+   * @hidden Handles keyboard navigation when `useKeyboard` is enabled.
+   * @zh 内部使用，当 `useKeyboard` 启用时处理键盘导航。
+   */
   @HostListener('keyup', ['$event'])
   public onKeyUp(event: KeyboardEvent): void {
     if (this.useKeyboard && !this.playing) {
@@ -238,16 +298,28 @@ export class MatCarouselComponent
     }
   }
 
+  /**
+   * @hidden Pauses autoplay while the pointer is over the carousel.
+   * @zh 内部使用，指针悬停在轮播组件上方时暂停自动播放。
+   */
   @HostListener('mouseenter')
   public onMouseEnter(): void {
     this.stopTimer();
   }
 
+  /**
+   * @hidden Resumes autoplay once the pointer leaves the carousel.
+   * @zh 内部使用，指针离开轮播组件后恢复自动播放。
+   */
   @HostListener('mouseleave')
   public onMouseLeave(): void {
     this.startTimer(this._autoplay);
   }
 
+  /**
+   * @hidden Handles mouse-wheel scrolling to navigate slides when `useMouseWheel` is enabled.
+   * @zh 内部使用，当 `useMouseWheel` 启用时处理鼠标滚轮滚动以切换幻灯片。
+   */
   @HostListener('mousewheel', ['$event'])
   public onMouseWheel(event: any): void {
     if (this.useMouseWheel) {
@@ -262,12 +334,20 @@ export class MatCarouselComponent
     }
   }
 
+  /**
+   * @hidden Re-syncs slide position on window resize.
+   * @zh 内部使用，在窗口尺寸变化时重新同步幻灯片位置。
+   */
   @HostListener('window:resize', ['$event'])
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   public onResize(event: Event): void {
     this.slideTo(0);
   }
 
+  /**
+   * Handles an in-progress pan/swipe gesture, translating the slide list to follow the pointer.
+   * @zh 处理正在进行中的滑动/拖拽手势，使幻灯片列表跟随指针平移。
+   */
   public onPan(event: any, slideElem: HTMLElement): void {
     // https://github.com/angular/angular/issues/10541#issuecomment-346539242
     // if y velocity is greater, it's a panup/pandown, so ignore.
@@ -287,6 +367,11 @@ export class MatCarouselComponent
     );
   }
 
+  /**
+   * Handles the end of a pan/swipe gesture: advances/reverts to the nearest slide based on
+   * how far the pointer moved.
+   * @zh 处理滑动/拖拽手势结束：根据指针移动距离前进到下一张或还原到当前幻灯片。
+   */
   public onPanEnd(event: any, slideElem: HTMLElement): void {
     this.renderer.removeStyle(slideElem, 'cursor');
 

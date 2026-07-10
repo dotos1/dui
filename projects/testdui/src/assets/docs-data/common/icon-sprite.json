@@ -12,53 +12,53 @@
         {
           "name": "src",
           "type": "string",
-          "description": null,
-          "descriptionZh": null
+          "description": "The icon reference: either `symbolId` (resolved against {@link IconSpriteService}'s base\npath) or a full `url#symbolId` string.",
+          "descriptionZh": "图标引用：可以是 `symbolId`（基于 {@link IconSpriteService} 的基础路径解析），\n也可以是完整的 `url#symbolId` 字符串。"
         },
         {
           "name": "classes",
           "type": "any",
           "default": "'icon'",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "应用到宿主 SVG 元素上的 CSS 类名。"
         },
         {
           "name": "width",
           "type": "any",
           "default": "'100%'",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "SVG 的宽度。"
         },
         {
           "name": "height",
           "type": "string",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "SVG 的高度。"
         },
         {
           "name": "viewBox",
           "type": "string",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "SVG 的 `viewBox` 属性。"
         },
         {
           "name": "preserveAspectRatio",
           "type": "any",
           "default": "'xMinYMax meet'",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "SVG 的 `preserveAspectRatio` 属性。"
         },
         {
           "name": "attribute",
           "type": "[string, string] | Array<[string, string]>",
-          "description": null,
-          "descriptionZh": null
+          "description": "One `[name, value]` attribute tuple, or an array of them, to set on the rendered SVG element.",
+          "descriptionZh": "一个 `[名称, 值]` 属性元组，或元组数组，用于设置到渲染出的 SVG 元素上。"
         },
         {
           "name": "title",
           "type": "string",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "SVG 的无障碍标题（`<title>` 文本）。"
         }
       ],
       "outputs": [],
@@ -94,8 +94,8 @@
         {
           "name": "attribute",
           "type": "[string, string] | Array<[string, string]>",
-          "description": null,
-          "descriptionZh": null
+          "description": "One `[name, value]` attribute tuple, or an array of them, to set on the host SVG element.",
+          "descriptionZh": "一个 `[名称, 值]` 属性元组，或元组数组，用于设置到宿主 SVG 元素上。"
         }
       ],
       "outputs": [],
@@ -144,23 +144,23 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Sets the base sprite path used to resolve icon references.",
+          "descriptionZh": "设置用于解析图标引用的基础雪碧图路径。"
         },
         {
           "name": "getPath",
           "params": [],
           "returnType": "string",
-          "description": null,
-          "descriptionZh": null
+          "description": "Returns the currently configured base sprite path.",
+          "descriptionZh": "返回当前配置的基础雪碧图路径。"
         }
       ],
       "properties": [
         {
           "name": "spritePath",
           "type": "string",
-          "description": null,
-          "descriptionZh": null
+          "description": "The currently configured base sprite path.",
+          "descriptionZh": "当前配置的雪碧图基础路径。"
         }
       ]
     }

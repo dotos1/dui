@@ -88,7 +88,9 @@ export class ResizeHandleDirective implements OnInit, OnDestroy {
   }
 
   /**
-   * @hidden
+   * @hidden Starts tracking pointer movement/release and forwards a mousedown to the paired
+   * {@link ResizableDirective}.
+   * @zh 内部使用，开始跟踪指针移动/抬起，并向配对的 {@link ResizableDirective} 转发按下事件。
    */
   onMousedown(
     event: MouseEvent | TouchEvent,
@@ -130,7 +132,9 @@ export class ResizeHandleDirective implements OnInit, OnDestroy {
   }
 
   /**
-   * @hidden
+   * @hidden Stops tracking pointer movement and forwards a mouseup to the paired
+   * {@link ResizableDirective}.
+   * @zh 内部使用，停止跟踪指针移动，并向配对的 {@link ResizableDirective} 转发抬起事件。
    */
   onMouseup(clientX: number, clientY: number): void {
     this.unsubscribeEventListeners();

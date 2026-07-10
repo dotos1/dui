@@ -67,6 +67,12 @@ export class LoadingService {
     });
   }
 
+  /**
+   * Creates a directive-driven loading component (overlay or replace strategy, per `config.strategy`),
+   * registered under `config.name`.
+   * @zh 创建由指令驱动的加载组件（根据 `config.strategy` 采用覆盖层或原地替换策略），
+   * 以 `config.name` 注册。
+   */
   createComponent(
     config: ILoadingDirectiveConfig,
     viewContainerRef: ViewContainerRef,
@@ -182,6 +188,10 @@ export class LoadingService {
   }
 
 
+  /**
+   * Immediately resets the named loading indicator's pending-operation counter to zero, hiding it.
+   * @zh 立即将指定名称加载指示器的"待完成操作"计数器归零并隐藏它。
+   */
   public resolveAll(name: string = 'dui-loading-main'): boolean {
     // clear timeout if the loading component is "resolved" before its "registered"
     this._clearTimeout(name);
@@ -193,6 +203,11 @@ export class LoadingService {
     return false;
   }
 
+  /**
+   * Sets the named loading indicator's progress value (only takes effect in determinate mode
+   * while it's currently shown).
+   * @zh 设置指定名称加载指示器的进度值（仅在确定模式且当前正在显示时生效）。
+   */
   public setValue(name: string, value: number): boolean {
     if (this._context[name]) {
       const instance: LoadingComponent =

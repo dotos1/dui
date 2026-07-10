@@ -53,6 +53,10 @@ export class KeyboardShortcutsComponent implements OnChanges, OnDestroy {
     constructor(private keyboard: KeyboardShortcutsService) {
     }
 
+    /**
+     * Returns an observable that emits whenever the shortcut with the given key fires.
+     * @zh 返回一个 Observable，在给定按键组合的快捷键被触发时发出事件。
+     */
     public select(key: string): Observable<ShortcutEventOutput> {
         return this.keyboard.select(key);
     }

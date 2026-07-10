@@ -13,38 +13,38 @@
           "name": "hsl",
           "type": "HSLA",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "当前颜色的 HSL 表示。"
         },
         {
           "name": "rgb",
           "type": "RGBA",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "当前颜色的 RGB 表示。"
         },
         {
           "name": "pointer",
           "type": "{ [key: string]: string }",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "滑块手柄的内联样式。"
         },
         {
           "name": "shadow",
           "type": "string",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "滑动条的阴影样式。"
         },
         {
           "name": "radius",
           "type": "string|number",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "滑动条的圆角半径。"
         },
         {
           "name": "direction",
           "type": "'horizontal' | 'vertical'",
           "default": "'horizontal'",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "滑动条方向：水平或垂直。"
         }
       ],
       "outputs": [
@@ -52,7 +52,7 @@
           "name": "onChange",
           "type": "any",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "alpha 值变化时发出。"
         }
       ],
       "methods": [
@@ -65,8 +65,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Computes the new alpha value from a drag/click position and emits `onChange`.",
+          "descriptionZh": "根据拖拽/点击位置计算新的透明度值并发出 `onChange`。"
         }
       ],
       "properties": [
@@ -74,19 +74,19 @@
           "name": "gradient",
           "type": "{ [key: string]: string }",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "根据当前颜色计算出的渐变背景样式。"
         },
         {
           "name": "pointerLeft",
           "type": "number",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "滑块手柄的水平位置百分比。"
         },
         {
           "name": "pointerTop",
           "type": "number",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "滑块手柄的垂直位置百分比。"
         }
       ]
     },
@@ -114,33 +114,33 @@
           "type": "any",
           "default": "'transparent'",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "棋盘格\"白色\"方块的颜色。"
         },
         {
           "name": "size",
           "type": "any",
           "default": "8",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "每个棋盘格方块的像素尺寸。"
         },
         {
           "name": "grey",
           "type": "any",
           "default": "'rgba(0,0,0,.08)'",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "棋盘格\"灰色\"方块的颜色。"
         },
         {
           "name": "boxShadow",
           "type": "string",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "应用到棋盘格上的阴影样式。"
         },
         {
           "name": "borderRadius",
           "type": "string",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "棋盘格的圆角半径。"
         }
       ],
       "outputs": [],
@@ -150,7 +150,7 @@
           "name": "gridStyles",
           "type": "{ [key: string]: string }",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "根据输入计算出的棋盘格背景样式。"
         }
       ]
     },
@@ -199,14 +199,14 @@
           "name": "className",
           "type": "string",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "应用到宿主元素上的自定义 CSS 类名。"
         },
         {
           "name": "color",
           "type": "HSLA | HSVA | RGBA | string",
           "default": "{\n    h: 250,\n    s: 0.5,\n    l: 0.2,\n    a: 1,\n  }",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "当前绑定的颜色值（HSL/HSV/RGB 对象或十六进制字符串）。"
         }
       ],
       "outputs": [
@@ -214,19 +214,19 @@
           "name": "onChange",
           "type": "any",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "颜色变化时发出（防抖前）。"
         },
         {
           "name": "onChangeComplete",
           "type": "any",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "颜色变化完成后发出（对 `onChange` 做了防抖）。"
         },
         {
           "name": "onSwatchHover",
           "type": "any",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "悬停在色块上时发出。"
         }
       ],
       "methods": [
@@ -239,8 +239,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Applies a resolved color state (hsl/hsv/rgb/hex/source) onto this instance, or clears it\nif `data` is `undefined`.",
+          "descriptionZh": "将解析后的颜色状态（hsl/hsv/rgb/hex/source）应用到本实例，若 `data` 为 `undefined` 则清空状态。"
         },
         {
           "name": "handleChange",
@@ -255,8 +255,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Validates and applies an incoming color change, emitting `onChange`.",
+          "descriptionZh": "校验并应用传入的颜色变化，发出 `onChange`。"
         },
         {
           "name": "afterValidChange",
@@ -278,8 +278,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Validates a hovered swatch color and emits `onSwatchHover`.",
+          "descriptionZh": "校验悬停色块的颜色并发出 `onSwatchHover`。"
         }
       ],
       "properties": [
@@ -287,67 +287,67 @@
           "name": "oldHue",
           "type": "number",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "上一个有效的色相值，色相未变化（如切换到无色调的黑白）时用于保留。"
         },
         {
           "name": "hsl",
           "type": "HSLA",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "当前颜色的 HSL 表示。"
         },
         {
           "name": "hsv",
           "type": "HSVA",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "当前颜色的 HSV 表示。"
         },
         {
           "name": "rgb",
           "type": "RGBA",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "当前颜色的 RGB 表示。"
         },
         {
           "name": "hex",
           "type": "string",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "当前颜色的十六进制表示。"
         },
         {
           "name": "source",
           "type": "string",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "最近一次颜色变化的来源标识（如 `'hex'`、`'rgb'`、`'hsva'`）。"
         },
         {
           "name": "currentColor",
           "type": "string",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "初始化时记录的当前颜色（十六进制）。"
         },
         {
           "name": "changes",
           "type": "Subscription",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "内部使用，`onChange` 到 `onChangeComplete` 的防抖订阅。"
         },
         {
           "name": "host",
           "type": "any",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "承载该选择器的弹出层触发宿主（用于选中后自动关闭）。"
         },
         {
           "name": "params",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Combined params object: setting it applies `value` as the color and merges `config`\nonto this instance.",
+          "descriptionZh": "组合参数对象：设置时会将 `value` 作为颜色应用，并将 `config` 合并到本实例上。"
         },
         {
           "name": "params",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Combined params object: setting it applies `value` as the color and merges `config`\nonto this instance.",
+          "descriptionZh": "组合参数对象：设置时会将 `value` 作为颜色应用，并将 `config` 合并到本实例上。"
         }
       ]
     },
@@ -366,8 +366,8 @@
       "name": "CoordinatesDirective",
       "kind": "directive",
       "selector": "[ngx-color-coordinates]",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Tracks mouse/touch drag coordinates relative to the host element, used by the\nsaturation/hue/alpha/shade sliders to compute their new values.",
+      "summaryZh": "跟踪相对于宿主元素的鼠标/触摸拖拽坐标，供饱和度/色相/透明度/明暗滑块用来计算新值。",
       "sourceFile": "src/common/colorpicker/common/coordinates.directive.ts",
       "inputs": [],
       "outputs": [
@@ -375,7 +375,7 @@
           "name": "coordinatesChange",
           "type": "any",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "拖拽/点击坐标（相对宿主元素）变化时发出。"
         }
       ],
       "methods": [
@@ -401,14 +401,14 @@
           ],
           "returnType": "any",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "内部使用，处理拖拽过程中的指针/触摸移动，转发原始坐标。"
         },
         {
           "name": "mouseup",
           "params": [],
           "returnType": "any",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "内部使用，停止监听指针/触摸移动。"
         },
         {
           "name": "mousedown",
@@ -432,7 +432,7 @@
           ],
           "returnType": "any",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "内部使用，开始一次拖拽：开始监听指针/触摸移动。"
         },
         {
           "name": "handleChange",
@@ -455,8 +455,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Converts raw page coordinates into container-relative top/left/width/height and\nemits `coordinatesChange`.",
+          "descriptionZh": "将原始页面坐标转换为相对容器的 top/left/宽/高，并发出 `coordinatesChange`。"
         }
       ],
       "properties": []
@@ -484,44 +484,44 @@
           "name": "style",
           "type": "{ wrap?: { [key: string]: string }; input: { [key: string]: string }; label: { [key: string]: string }; }",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "包裹层/输入框/标签各自的内联样式。"
         },
         {
           "name": "label",
           "type": "string",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "字段标签文字（也用作 `onChange` 发出数据对象的键名）。"
         },
         {
           "name": "value",
           "type": "string | number",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "当前字段值。"
         },
         {
           "name": "arrowOffset",
           "type": "number",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "使用方向键调整数值时的步进量。"
         },
         {
           "name": "dragLabel",
           "type": "boolean",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "是否允许通过拖拽标签调整数值。"
         },
         {
           "name": "dragMax",
           "type": "number",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "通过拖拽标签调整数值时允许的最大值。"
         },
         {
           "name": "placeholder",
           "type": "any",
           "default": "''",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "输入框占位提示文字。"
         }
       ],
       "outputs": [
@@ -529,7 +529,7 @@
           "name": "onChange",
           "type": "any",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "字段值变化时发出。"
         }
       ],
       "methods": [
@@ -538,14 +538,14 @@
           "params": [],
           "returnType": "any",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "内部使用，标记输入框处于聚焦状态。"
         },
         {
           "name": "handleFocusOut",
           "params": [],
           "returnType": "any",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "内部使用，标记输入框不再聚焦，并恢复上次失焦时的值。"
         },
         {
           "name": "handleKeydown",
@@ -557,7 +557,7 @@
           ],
           "returnType": "any",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "内部使用，处理方向键对数值的增减。"
         },
         {
           "name": "handleKeyup",
@@ -569,21 +569,21 @@
           ],
           "returnType": "any",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "内部使用，除方向键外，松开按键时携带当前输入值发出 `onChange`。"
         },
         {
           "name": "subscribe",
           "params": [],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Subscribes to document-level mousemove/mouseup to support drag-to-adjust via the label.",
+          "descriptionZh": "订阅文档级别的鼠标移动/抬起事件，以支持通过拖拽标签调整数值。"
         },
         {
           "name": "unsubscribe",
           "params": [],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Unsubscribes from the document-level mousemove/mouseup drag listeners.",
+          "descriptionZh": "取消订阅文档级别的鼠标移动/抬起拖拽监听器。"
         },
         {
           "name": "handleMousedown",
@@ -595,7 +595,7 @@
           ],
           "returnType": "any",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "内部使用，当启用 `dragLabel` 时开始一次标签拖拽调整。"
         },
         {
           "name": "handleDrag",
@@ -607,7 +607,7 @@
           ],
           "returnType": "any",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "内部使用，根据水平拖拽移动量调整数值并发出 `onChange`。"
         }
       ],
       "properties": [
@@ -615,50 +615,50 @@
           "name": "currentValue",
           "type": "string | number",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "输入框当前显示的值。"
         },
         {
           "name": "blurValue",
           "type": "string",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "失焦时应恢复显示的值。"
         },
         {
           "name": "wrapStyle",
           "type": "{ [key: string]: string }",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "包裹层的内联样式。"
         },
         {
           "name": "inputStyle",
           "type": "{ [key: string]: string }",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "输入框的内联样式。"
         },
         {
           "name": "labelStyle",
           "type": "{ [key: string]: string }",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "标签的内联样式。"
         },
         {
           "name": "focus",
           "type": "any",
           "default": "false",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "输入框当前是否处于聚焦状态。"
         },
         {
           "name": "mousemove",
           "type": "Subscription",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "内部使用，拖拽标签调整数值时的鼠标移动订阅。"
         },
         {
           "name": "mouseup",
           "type": "Subscription",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "内部使用，拖拽标签调整数值时的鼠标抬起订阅。"
         }
       ]
     },
@@ -773,39 +773,39 @@
           "name": "hsl",
           "type": "HSLA",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "当前颜色的 HSL 表示。"
         },
         {
           "name": "pointer",
           "type": "{ [key: string]: string }",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "滑块手柄的内联样式。"
         },
         {
           "name": "radius",
           "type": "number",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "滑动条的圆角半径。"
         },
         {
           "name": "shadow",
           "type": "string",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "滑动条的阴影样式。"
         },
         {
           "name": "hidePointer",
           "type": "any",
           "default": "false",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "是否隐藏滑块手柄。"
         },
         {
           "name": "direction",
           "type": "'horizontal' | 'vertical'",
           "default": "'horizontal'",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "滑动条方向：水平或垂直。"
         }
       ],
       "outputs": [
@@ -813,7 +813,7 @@
           "name": "onChange",
           "type": "any",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "色相值变化时发出。"
         }
       ],
       "methods": [
@@ -826,8 +826,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Computes the new hue value from a drag/click position and emits `onChange`.",
+          "descriptionZh": "根据拖拽/点击位置计算新的色相值并发出 `onChange`。"
         }
       ],
       "properties": [
@@ -836,14 +836,14 @@
           "type": "any",
           "default": "'0px'",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "滑块手柄的水平位置。"
         },
         {
           "name": "top",
           "type": "any",
           "default": "''",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "滑块手柄的垂直位置。"
         }
       ]
     },
@@ -882,21 +882,21 @@
           "type": "zDepth",
           "default": "1",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "阴影层级（0-5），层级越高阴影越明显。"
         },
         {
           "name": "radius",
           "type": "any",
           "default": "1",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "圆角半径。"
         },
         {
           "name": "background",
           "type": "any",
           "default": "'#fff'",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "背景颜色。"
         }
       ],
       "outputs": [],
@@ -959,31 +959,31 @@
           "name": "hsl",
           "type": "HSLA",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "当前颜色的 HSL 表示。"
         },
         {
           "name": "hsv",
           "type": "HSVA",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "当前颜色的 HSV 表示。"
         },
         {
           "name": "radius",
           "type": "number",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "面板的圆角半径。"
         },
         {
           "name": "pointer",
           "type": "{ [key: string]: string }",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "指示器手柄的内联样式。"
         },
         {
           "name": "circle",
           "type": "{ [key: string]: string }",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "指示器圆点的内联样式。"
         }
       ],
       "outputs": [
@@ -991,7 +991,7 @@
           "name": "onChange",
           "type": "any",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "饱和度/明度变化时发出。"
         }
       ],
       "methods": [
@@ -1004,8 +1004,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Computes the new saturation/brightness (HSV) from a drag/click position and emits `onChange`.",
+          "descriptionZh": "根据拖拽/点击位置计算新的饱和度/明度（HSV）值并发出 `onChange`。"
         }
       ],
       "properties": [
@@ -1013,19 +1013,19 @@
           "name": "background",
           "type": "string",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "根据当前色相计算出的面板背景色。"
         },
         {
           "name": "pointerTop",
           "type": "string",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "指示器的垂直位置百分比。"
         },
         {
           "name": "pointerLeft",
           "type": "string",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "指示器的水平位置百分比。"
         }
       ]
     },
@@ -1052,31 +1052,31 @@
           "name": "hsl",
           "type": "HSLA",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "当前颜色的 HSL 表示。"
         },
         {
           "name": "rgb",
           "type": "RGBA",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "当前颜色的 RGB 表示。"
         },
         {
           "name": "pointer",
           "type": "{ [key: string]: string }",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "滑块手柄的内联样式。"
         },
         {
           "name": "shadow",
           "type": "string",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "滑动条的阴影样式。"
         },
         {
           "name": "radius",
           "type": "string",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "滑动条的圆角半径。"
         }
       ],
       "outputs": [
@@ -1084,7 +1084,7 @@
           "name": "onChange",
           "type": "any",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "明暗值变化时发出。"
         }
       ],
       "methods": [
@@ -1097,8 +1097,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Computes the new brightness (v) value from a drag/click position and emits `onChange`.",
+          "descriptionZh": "根据拖拽/点击位置计算新的明度（v）值并发出 `onChange`。"
         }
       ],
       "properties": [
@@ -1106,19 +1106,19 @@
           "name": "gradient",
           "type": "{ [key: string]: string }",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "根据当前色相计算出的渐变背景样式。"
         },
         {
           "name": "pointerLeft",
           "type": "number",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "滑块手柄的水平位置百分比。"
         },
         {
           "name": "pointerTop",
           "type": "number",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "滑块手柄的垂直位置百分比。"
         }
       ]
     },
@@ -1167,27 +1167,27 @@
           "name": "color",
           "type": "any",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "该色块代表的颜色值。"
         },
         {
           "name": "style",
           "type": "{ [key: string]: string }",
           "default": "{}",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "应用到色块上的内联样式。"
         },
         {
           "name": "focusStyle",
           "type": "{ [key: string]: string }",
           "default": "{}",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "获得焦点时叠加的内联样式。"
         },
         {
           "name": "focus",
           "type": "boolean",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "是否强制以聚焦样式渲染。"
         }
       ],
       "outputs": [
@@ -1195,13 +1195,13 @@
           "name": "onClick",
           "type": "any",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "色块被点击/回车确认时发出。"
         },
         {
           "name": "onHover",
           "type": "any",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "鼠标悬停在色块上时发出。"
         }
       ],
       "methods": [
@@ -1209,22 +1209,22 @@
           "name": "currentStyles",
           "params": [],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Returns the style object to apply, based on whether the swatch is focused.",
+          "descriptionZh": "返回应应用的样式对象，取决于色块当前是否处于聚焦状态。"
         },
         {
           "name": "handleFocusOut",
           "params": [],
           "returnType": "any",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "内部使用，标记色块不再处于聚焦状态。"
         },
         {
           "name": "handleFocus",
           "params": [],
           "returnType": "any",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "内部使用，标记色块处于聚焦状态。"
         },
         {
           "name": "handleHover",
@@ -1240,7 +1240,7 @@
           ],
           "returnType": "any",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "内部使用，携带色块颜色发出 `onHover`。"
         },
         {
           "name": "handleClick",
@@ -1256,7 +1256,7 @@
           ],
           "returnType": "any",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "内部使用，携带色块颜色发出 `onClick`。"
         }
       ],
       "properties": [
@@ -1265,21 +1265,21 @@
           "type": "{ [key: string]: string }",
           "default": "{}",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "色块的基础样式。"
         },
         {
           "name": "focusStyles",
           "type": "{ [key: string]: string }",
           "default": "{}",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "色块的聚焦样式（基础样式与 `focusStyle` 合并后的结果）。"
         },
         {
           "name": "inFocus",
           "type": "any",
           "default": "false",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "色块当前是否处于聚焦状态。"
         }
       ]
     },

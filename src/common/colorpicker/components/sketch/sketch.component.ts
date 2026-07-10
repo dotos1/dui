@@ -137,17 +137,30 @@ export class SketchComponent extends ColorWrap implements TriggerPopup {
   ];
   /** Width of picker */
   @Input() width = 200;
+  /** @zh 当前颜色预览色块的背景色（含透明度）。 */
   activeBackground: string;
   constructor() {
     super();
   }
+  /**
+   * @hidden Recomputes the preview swatch's background whenever the color changes.
+   * @zh 内部使用，每当颜色变化时重新计算预览色块的背景色。
+   */
   override afterValidChange() {
     const alpha = this.disableAlpha ? 1 : this.rgb.a;
     this.activeBackground = `rgba(${this.rgb.r}, ${this.rgb.g}, ${this.rgb.b}, ${alpha})`;
   }
+  /**
+   * @hidden Forwards a child component's change to `handleChange`.
+   * @zh 内部使用，将子组件的变化转发给 `handleChange`。
+   */
   handleValueChange({ data, $event }) {
     this.handleChange(data, $event);
   }
+  /**
+   * @hidden Applies a preset swatch click as the new color, if it's a valid hex.
+   * @zh 内部使用，若预设色块点击的颜色是有效的十六进制值，则应用为新颜色。
+   */
   handleBlockChange({ hex, $event }) {
     if (isValidHex(hex)) {
       // this.hex = hex;

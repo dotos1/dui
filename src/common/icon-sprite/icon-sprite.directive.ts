@@ -11,6 +11,10 @@ import { Directive, ElementRef, Renderer2, Input, OnInit } from '@angular/core';
 })
 export class IconSpriteDirective implements OnInit {
 
+  /**
+   * One `[name, value]` attribute tuple, or an array of them, to set on the host SVG element.
+   * @zh 一个 `[名称, 值]` 属性元组，或元组数组，用于设置到宿主 SVG 元素上。
+   */
   @Input() attribute: [string, string] | Array<[string, string]>;
 
   constructor(

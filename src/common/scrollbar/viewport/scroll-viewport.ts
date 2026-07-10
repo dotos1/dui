@@ -11,6 +11,7 @@ import { Directive, inject, ElementRef } from '@angular/core';
 })
 export class ScrollViewport {
 
+  /** @zh 标记该指令所在的原生元素。 */
   readonly nativeElement: HTMLElement = inject(ElementRef<HTMLElement>).nativeElement;
 
 }

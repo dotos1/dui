@@ -102,18 +102,29 @@ export class CompactComponent extends ColorWrap implements TriggerPopup {
     '#653294',
     '#AB149E',
   ];
+  /** @zh 外层卡片的阴影层级。 */
   @Input() zDepth: zDepth = 1;
+  /** @zh 外层卡片的圆角半径。 */
   @Input() radius = 1;
+  /** @zh 外层卡片的背景颜色。 */
   @Input() background = '#fff';
 
   constructor() {
     super();
   }
+  /**
+   * @hidden Applies a swatch click as the new color, if it's a valid hex.
+   * @zh 内部使用，若色块点击的颜色是有效的十六进制值，则应用为新颜色。
+   */
   handleBlockChange({ hex, $event }) {
     if (isValidHex(hex)) {
       this.handleChange({ hex, source: 'hex' }, $event);
     }
   }
+  /**
+   * @hidden Forwards a child component's change to `handleChange`.
+   * @zh 内部使用，将子组件的变化转发给 `handleChange`。
+   */
   handleValueChange({ data, $event }) {
     this.handleChange(data, $event);
   }

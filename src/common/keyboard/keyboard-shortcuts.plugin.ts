@@ -14,15 +14,26 @@ import {ShortcutEventOutput} from './keyboard-shortcuts.interfaces';
  */
 @Injectable()
 export class KeyboardShortcutsPlugin {
+    /** @zh Angular 注入的事件管理器，用于委托不支持的事件类型。 */
     manager: EventManager;
 
     constructor(private ngZone: NgZone, private keyboard: KeyboardShortcutsService) {
     }
 
+    /**
+     * Whether this plugin handles the given event name (any event containing `.shortcut.`).
+     * @zh 判断该插件是否处理给定事件名称（包含 `.shortcut.` 的任意事件）。
+     */
     supports(eventName: string): boolean {
         return eventName.split('.').includes('shortcut')
     }
 
+    /**
+     * Parses a `shortcut.<key>.<description>.<label>` event binding and registers the
+     * corresponding keyboard shortcut, returning an unregister function.
+     * @zh 解析 `shortcut.<key>.<description>.<label>` 事件绑定，注册对应的键盘快捷键，
+     * 并返回一个用于注销的函数。
+     */
     addEventListener(
         element,
         eventName,
