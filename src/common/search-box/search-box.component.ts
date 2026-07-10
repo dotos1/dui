@@ -32,6 +32,11 @@ export class SearchBoxBase {
   constructor(public _changeDetectorRef: ChangeDetectorRef) {}
 }
 
+/**
+ * An expandable search input that collapses to a single icon when not in use, with
+ * built-in debounced search/clear/blur events. Implements `ControlValueAccessor`.
+ * @zh 一个可展开的搜索输入框，不使用时收起为单个图标，内置防抖的搜索/清空/失焦事件。实现了 `ControlValueAccessor`。
+ */
 @Component({
   providers: [
     {
@@ -77,26 +82,43 @@ export class SearchBoxComponent implements ControlValueAccessor {
     return this._searchVisible;
   }
 
+  /**
+   * Config object applied via {@link Dui.apply}; can set `hasDefault`/`defaultGrp` to
+   * start with the input expanded.
+   * @zh 通过 {@link Dui.apply} 应用的配置对象；可设置 `hasDefault`/`defaultGrp` 使输入框初始为展开状态。
+   */
   @Input() config: any = {};
 
+  /** @zh 收起状态下显示的图标。 */
   @Input() backIcon = 'search';
 
-
+  /** @zh 搜索图标。 */
   @Input() searchIcon = 'search';
 
-
+  /** @zh 清空按钮图标。 */
   @Input() clearIcon = 'cancel';
 
+  /** @zh 是否显示下划线。 */
   @Input() showUnderline = false;
 
+  /**
+   * Debounce (ms) before `searchDebounce` fires after typing stops.
+   * @zh 停止输入后，多久（毫秒）触发一次 `searchDebounce`。
+   */
   @Input() debounce = 400;
 
+  /**
+   * Keeps the input expanded at all times instead of collapsing to just an icon.
+   * @zh 输入框始终保持展开，而不是收起为一个图标。
+   */
   @Input() alwaysVisible = false;
 
+  /** @zh 输入框占位提示文字。 */
   @Input() placeholder = '';
 
   @Input() value: unknown;
 
+  /** @zh 是否禁用输入框。 */
   @Input() disabled:boolean = false;
   
 

@@ -5,120 +5,140 @@
       "name": "Popover",
       "kind": "component",
       "selector": "popover",
-      "summary": null,
+      "summary": "The floating panel content of a popover; paired with {@link PopoverTrigger} on a host\nelement to control when/where it opens.",
+      "summaryZh": "弹出层的浮动面板内容；需要与宿主元素上的 {@link PopoverTrigger} 配合使用，以控制其打开的时机和位置。",
       "sourceFile": "src/common/popover/popover.ts",
       "inputs": [
         {
           "name": "positionX",
           "alias": "popoverPositionX",
           "type": "any",
-          "description": "Position of the popover in the X axis."
+          "description": "Position of the popover in the X axis.",
+          "descriptionZh": null
         },
         {
           "name": "positionY",
           "alias": "popoverPositionY",
           "type": "any",
-          "description": "Position of the popover in the Y axis."
+          "description": "Position of the popover in the Y axis.",
+          "descriptionZh": null
         },
         {
           "name": "triggerEvent",
           "alias": "popoverTriggerOn",
           "type": "PopoverTriggerEvent",
-          "description": "Popover trigger event"
+          "description": "Popover trigger event",
+          "descriptionZh": null
         },
         {
           "name": "scrollStrategy",
           "alias": "popoverScrollStrategy",
           "type": "PopoverScrollStrategy",
-          "description": "Popover scroll strategy"
+          "description": "Popover scroll strategy",
+          "descriptionZh": null
         },
         {
           "name": "enterDelay",
           "alias": "popoverEnterDelay",
           "type": "number",
-          "description": "Popover enter delay"
+          "description": "Popover enter delay",
+          "descriptionZh": null
         },
         {
           "name": "leaveDelay",
           "alias": "popoverLeaveDelay",
           "type": "number",
-          "description": "Popover leave delay"
+          "description": "Popover leave delay",
+          "descriptionZh": null
         },
         {
           "name": "overlapTrigger",
           "alias": "popoverOverlapTrigger",
           "type": "boolean",
-          "description": "Popover overlap trigger"
+          "description": "Popover overlap trigger",
+          "descriptionZh": null
         },
         {
           "name": "targetOffsetX",
           "alias": "popoverOffsetX",
           "type": "number",
-          "description": "Popover target offset x"
+          "description": "Popover target offset x",
+          "descriptionZh": null
         },
         {
           "name": "targetOffsetY",
           "alias": "popoverOffsetY",
           "type": "number",
-          "description": "Popover target offset y"
+          "description": "Popover target offset y",
+          "descriptionZh": null
         },
         {
           "name": "arrowOffsetX",
           "alias": "popoverArrowOffsetX",
           "type": "number",
-          "description": "Popover arrow offset x"
+          "description": "Popover arrow offset x",
+          "descriptionZh": null
         },
         {
           "name": "arrowWidth",
           "alias": "popoverArrowWidth",
           "type": "number",
-          "description": "Popover arrow width"
+          "description": "Popover arrow width",
+          "descriptionZh": null
         },
         {
           "name": "arrowColor",
           "alias": "popoverArrowColor",
           "type": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "closeOnClick",
           "alias": "popoverCloseOnClick",
           "type": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "disableAnimation",
           "alias": "popoverDisableAnimation",
           "type": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "focusTrapEnabled",
           "type": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "focusTrapAutoCaptureEnabled",
           "type": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "panelClass",
           "alias": "class",
           "type": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "classList",
           "type": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "outputs": [
         {
           "name": "close",
           "type": "any",
-          "description": "Event emitted when the popover is closed."
+          "description": "Event emitted when the popover is closed.",
+          "descriptionZh": null
         }
       ],
       "methods": [
@@ -126,25 +146,29 @@
           "name": "onClick",
           "params": [],
           "returnType": "any",
-          "description": "Close popover on click if closeOnClick is true"
+          "description": "Close popover on click if closeOnClick is true",
+          "descriptionZh": null
         },
         {
           "name": "onMouseOver",
           "params": [],
           "returnType": "any",
-          "description": "Disables close of popover when leaving trigger element and mouse over the popover"
+          "description": "Disables close of popover when leaving trigger element and mouse over the popover",
+          "descriptionZh": null
         },
         {
           "name": "onMouseLeave",
           "params": [],
           "returnType": "any",
-          "description": "Enables close of popover when mouse leaving popover element"
+          "description": "Enables close of popover when mouse leaving popover element",
+          "descriptionZh": null
         },
         {
           "name": "setCurrentStyles",
           "params": [],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "setPositionClasses",
@@ -159,7 +183,8 @@
             }
           ],
           "returnType": "void",
-          "description": "It's necessary to set position-based classes to ensure the popover panel animation\nfolds out from the correct direction."
+          "description": "It's necessary to set position-based classes to ensure the popover panel animation\nfolds out from the correct direction.",
+          "descriptionZh": null
         }
       ],
       "properties": [
@@ -167,124 +192,148 @@
           "name": "role",
           "type": "any",
           "default": "'dialog'",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "containerPositioning",
           "type": "any",
           "default": "false",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "closeDisabled",
           "type": "any",
           "default": "false",
-          "description": "Closing disabled on popover"
+          "description": "Closing disabled on popover",
+          "descriptionZh": null
         },
         {
           "name": "popoverPanelStyles",
           "type": "{}",
-          "description": "Config object to be passed into the popover's arrow ngStyle"
+          "description": "Config object to be passed into the popover's arrow ngStyle",
+          "descriptionZh": null
         },
         {
           "name": "popoverArrowStyles",
           "type": "{}",
-          "description": "Config object to be passed into the popover's arrow ngStyle"
+          "description": "Config object to be passed into the popover's arrow ngStyle",
+          "descriptionZh": null
         },
         {
           "name": "popoverContentStyles",
           "type": "{}",
-          "description": "Config object to be passed into the popover's content ngStyle"
+          "description": "Config object to be passed into the popover's content ngStyle",
+          "descriptionZh": null
         },
         {
           "name": "positionX",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "positionY",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "triggerEvent",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "scrollStrategy",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "enterDelay",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "leaveDelay",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "overlapTrigger",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "targetOffsetX",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "targetOffsetY",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "arrowOffsetX",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "arrowWidth",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "arrowColor",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "closeOnClick",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "disableAnimation",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "focusTrapEnabled",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "focusTrapAutoCaptureEnabled",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "classList",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "templateRef",
           "type": "TemplateRef<any>",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -292,6 +341,7 @@
       "name": "PopoverConfig",
       "kind": "interface",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/popover/popover-interfaces.ts",
       "inputs": [],
       "outputs": [],
@@ -302,6 +352,7 @@
       "name": "PopoverModule",
       "kind": "module",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/popover/popover-module.ts",
       "inputs": [],
       "outputs": [],
@@ -312,6 +363,7 @@
       "name": "PopoverPanel",
       "kind": "interface",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/popover/popover-interfaces.ts",
       "inputs": [],
       "outputs": [],
@@ -322,7 +374,8 @@
       "name": "PopoverTarget",
       "kind": "directive",
       "selector": "popover-target, [popoverTarget]",
-      "summary": null,
+      "summary": "Marks an element as the positioning target for a {@link PopoverTrigger}, used when the\npopover should be anchored to an element other than the trigger's own host.",
+      "summaryZh": "将某个元素标记为 {@link PopoverTrigger} 的定位目标，用于弹出层需要锚定在触发元素之外的其他元素上的场景。",
       "sourceFile": "src/common/popover/popover-target.ts",
       "inputs": [],
       "outputs": [],
@@ -333,6 +386,7 @@
       "name": "PopoverTargetInterface",
       "kind": "interface",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/popover/popover-interfaces.ts",
       "inputs": [],
       "outputs": [],
@@ -343,122 +397,142 @@
       "name": "PopoverTrigger",
       "kind": "directive",
       "selector": "[popoverTriggerFor]",
-      "summary": null,
+      "summary": "Attach to any element to open a {@link Popover} on click or hover, positioned relative\nto the host element via the CDK overlay.",
+      "summaryZh": "附加到任意元素上，点击或悬停时打开一个 {@link Popover}，通过 CDK overlay 相对宿主元素定位。",
       "sourceFile": "src/common/popover/popover-trigger.ts",
       "inputs": [
         {
           "name": "name",
           "type": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "popover",
           "alias": "popoverTriggerFor",
           "type": "PopoverPanel",
-          "description": "References the popover instance that the trigger is associated with."
+          "description": "References the popover instance that the trigger is associated with.",
+          "descriptionZh": null
         },
         {
           "name": "targetElement",
           "alias": "popoverTargetAt",
           "type": "PopoverTargetInterface",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "positionX",
           "alias": "popoverPositionX",
           "type": "PopoverPositionX",
-          "description": "Position of the popover in the X axis"
+          "description": "Position of the popover in the X axis",
+          "descriptionZh": null
         },
         {
           "name": "positionY",
           "alias": "popoverPositionY",
           "type": "PopoverPositionY",
-          "description": "Position of the popover in the Y axis"
+          "description": "Position of the popover in the Y axis",
+          "descriptionZh": null
         },
         {
           "name": "triggerEvent",
           "alias": "popoverTriggerOn",
           "type": "PopoverTriggerEvent",
-          "description": "Popover trigger event"
+          "description": "Popover trigger event",
+          "descriptionZh": null
         },
         {
           "name": "enterDelay",
           "alias": "popoverEnterDelay",
           "type": "number",
-          "description": "Popover delay"
+          "description": "Popover delay",
+          "descriptionZh": null
         },
         {
           "name": "leaveDelay",
           "alias": "popoverLeaveDelay",
           "type": "number",
-          "description": "Popover delay"
+          "description": "Popover delay",
+          "descriptionZh": null
         },
         {
           "name": "overlapTrigger",
           "alias": "popoverOverlapTrigger",
           "type": "boolean",
-          "description": "Popover overlap trigger"
+          "description": "Popover overlap trigger",
+          "descriptionZh": null
         },
         {
           "name": "targetOffsetX",
           "alias": "popoverOffsetX",
           "type": "number",
-          "description": "Popover target offset x"
+          "description": "Popover target offset x",
+          "descriptionZh": null
         },
         {
           "name": "targetOffsetY",
           "alias": "popoverOffsetY",
           "type": "number",
-          "description": "Popover target offset y"
+          "description": "Popover target offset y",
+          "descriptionZh": null
         },
         {
           "name": "arrowOffsetX",
           "alias": "popoverArrowOffsetX",
           "type": "number",
-          "description": "Popover arrow offset x"
+          "description": "Popover arrow offset x",
+          "descriptionZh": null
         },
         {
           "name": "arrowWidth",
           "alias": "popoverArrowWidth",
           "type": "number",
-          "description": "Popover arrow width"
+          "description": "Popover arrow width",
+          "descriptionZh": null
         },
         {
           "name": "arrowColor",
           "alias": "popoverArrowColor",
           "type": "string",
-          "description": "Popover arrow color"
+          "description": "Popover arrow color",
+          "descriptionZh": null
         },
         {
           "name": "closeOnClick",
           "alias": "popoverCloseOnClick",
           "type": "boolean",
-          "description": "Popover container close on click"
+          "description": "Popover container close on click",
+          "descriptionZh": null
         },
         {
           "name": "backdropCloseOnClick",
           "alias": "popoverBackdropCloseOnClick",
           "type": "any",
           "default": "true",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "showPopOver",
           "type": "boolean",
           "default": "true",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "outputs": [
         {
           "name": "opened",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "closed",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "methods": [
@@ -466,61 +540,71 @@
           "name": "refresh",
           "params": [],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "onClick",
           "params": [],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "onMouseEnter",
           "params": [],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "onMouseLeave",
           "params": [],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "togglePopover",
           "params": [],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "openPopover",
           "params": [],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "closePopover",
           "params": [],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "destroyPopover",
           "params": [],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "focus",
           "params": [],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "getPortal",
           "params": [],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "subscribeToPositions",
@@ -531,13 +615,15 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "getPosition",
           "params": [],
           "returnType": "FlexibleConnectedPositionStrategy",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": [
@@ -545,23 +631,27 @@
           "name": "popoverOpened",
           "type": "any",
           "default": "new Subject<void>()",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "popoverClosed",
           "type": "any",
           "default": "new Subject<void>()",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "popoverOpen",
           "type": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "dir",
           "type": "Direction",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -569,6 +659,7 @@
       "name": "transformPopover",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/popover/popover-animations.ts",
       "inputs": [],
       "outputs": [],

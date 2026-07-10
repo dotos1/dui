@@ -68,6 +68,13 @@ import {
 } from './utils';
 import { KeyboardEventsService } from './keyboard-events.service';
 
+/**
+ * A drag-to-select container: draws a selection rectangle as the user drags, and toggles
+ * the `selected` state of any {@link SelectItemDirective} children it intersects.
+ * Also supports click-to-select and shift/ctrl range/multi selection.
+ * @zh 拖拽框选容器：用户拖拽时绘制选框，并切换与选框相交的所有 {@link SelectItemDirective}
+ * 子元素的选中状态；同时支持点击选择、以及 shift/ctrl 范围/多选。
+ */
 @Component({
   selector: 'dts-select-container',
   exportAs: 'dts-select-container',

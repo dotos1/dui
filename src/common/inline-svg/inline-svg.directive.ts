@@ -11,16 +11,31 @@ import { InlineSVGService } from './inline-svg.service';
 import { SVGScriptEvalMode, InlineSVGConfig } from './inline-svg.config';
 import * as SvgUtil from './svg-util';
 
+/**
+ * Fetches an SVG file by URL and inlines its markup into the DOM (instead of using `<img>`),
+ * so its internal styles/scripts run and its parts can be targeted with CSS.
+ * @zh 按 URL 获取 SVG 文件并将其内容内联插入 DOM（而不是使用 `<img>`），
+ * 这样其内部样式/脚本可以生效，且各部分可以被 CSS 选中。
+ */
 @Directive({
   selector: '[inlineSVG]',
   providers: [SVGCacheService]
 })
 export class InlineSVGDirective implements OnInit, OnChanges, OnDestroy {
+  /**
+   * URL (or `url#symbolId`) of the SVG to inline.
+   * @zh 待内联的 SVG 的 URL（或 `url#symbolId`）。
+   */
   @Input() inlineSVG: string;
+  /** @zh 是否解析相对 URL。 */
   @Input() resolveSVGUrl: boolean = true;
+  /** @zh 插入新 SVG 前是否替换宿主元素原有内容。 */
   @Input() replaceContents: boolean = true;
+  /** @zh 前置插入而不是追加。 */
   @Input() prepend: boolean = false;
+  /** @zh 是否以 {@link InlineSVGComponent} 组件形式注入（而不是直接操作 DOM）。 */
   @Input() injectComponent: boolean = false;
+  /** @zh 是否缓存已获取的 SVG 内容，避免重复请求相同 URL。 */
   @Input() cacheSVG: boolean = true;
   @Input() setSVGAttributes: { [key: string]: any };
   @Input() removeSVGAttributes: Array<string>;

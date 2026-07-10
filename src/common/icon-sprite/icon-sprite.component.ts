@@ -1,6 +1,12 @@
 import { Component, Input, OnChanges } from '@angular/core';
 import { IconSpriteService } from './icon-sprite.service';
 
+/**
+ * Renders an SVG icon from a sprite sheet via `<use>`. If `src` doesn't already
+ * contain a `#symbolId` fragment, it's resolved against {@link IconSpriteService}'s base path.
+ * @zh 通过 `<use>` 从雪碧图（sprite sheet）中渲染 SVG 图标。若 `src` 尚未包含 `#symbolId` 片段，
+ * 则会基于 {@link IconSpriteService} 的基础路径进行解析。
+ */
 @Component({
   selector: 'svg-icon-sprite',
   styleUrls: ['./icon-sprite.component.scss'],

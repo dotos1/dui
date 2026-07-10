@@ -2,6 +2,12 @@
 import { Directive, ElementRef, Input, HostBinding, Renderer2, ChangeDetectorRef } from '@angular/core';
 import { animate, AnimationBuilder, AnimationPlayer, AUTO_STYLE, style, animation } from '@angular/animations';
 
+/**
+ * Shows/hides the host element with an animated height transition, driven by the
+ * `duiToggle` boolean input (`true` hides, `false` shows).
+ * @zh 通过带高度过渡动画的方式显示/隐藏宿主元素，由 `duiToggle` 布尔输入驱动
+ * （`true` 隐藏，`false` 显示）。
+ */
 @Directive({
   selector: '[duiToggle]',
 })

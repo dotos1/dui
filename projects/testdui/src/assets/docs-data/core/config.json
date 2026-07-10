@@ -5,6 +5,7 @@
       "name": "AppConfigValues",
       "kind": "enum",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/config/config.service.ts",
       "inputs": [],
       "outputs": [],
@@ -15,6 +16,7 @@
       "name": "CONFIG_FORROOT_GUARD",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/config/config.module.ts",
       "inputs": [],
       "outputs": [],
@@ -25,6 +27,7 @@
       "name": "configFactory",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/config/config.module.ts",
       "inputs": [],
       "outputs": [],
@@ -35,6 +38,7 @@
       "name": "ConfigHttpLoader",
       "kind": "class",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/config/http-loader/config.http-loader.ts",
       "inputs": [],
       "outputs": [],
@@ -43,7 +47,8 @@
           "name": "loadSettings",
           "params": [],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": []
@@ -52,6 +57,7 @@
       "name": "ConfigLoader",
       "kind": "class",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/config/config.loader.ts",
       "inputs": [],
       "outputs": [],
@@ -60,7 +66,8 @@
           "name": "loadSettings",
           "params": [],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": []
@@ -69,6 +76,7 @@
       "name": "ConfigMergeLoader",
       "kind": "class",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/config/merge-loader/config.merge-loader.ts",
       "inputs": [],
       "outputs": [],
@@ -77,7 +85,8 @@
           "name": "loadSettings",
           "params": [],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "next",
@@ -88,7 +97,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": []
@@ -97,6 +107,7 @@
       "name": "ConfigModule",
       "kind": "module",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/config/config.module.ts",
       "inputs": [],
       "outputs": [],
@@ -110,13 +121,15 @@
             }
           ],
           "returnType": "ModuleWithProviders<ConfigModule>",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "forChild",
           "params": [],
           "returnType": "ModuleWithProviders<ConfigModule>",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": []
@@ -126,6 +139,7 @@
       "kind": "pipe",
       "pipeName": "config",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/config/config.pipe.ts",
       "inputs": [],
       "outputs": [],
@@ -139,7 +153,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": []
@@ -148,6 +163,7 @@
       "name": "ConfigService",
       "kind": "service",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/config/config.service.ts",
       "inputs": [],
       "outputs": [],
@@ -161,19 +177,22 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "init",
           "params": [],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "loadFromStore",
           "params": [],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "select",
@@ -184,7 +203,8 @@
             }
           ],
           "returnType": "Observable<any>",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "get",
@@ -199,19 +219,22 @@
             }
           ],
           "returnType": "T",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "getLocationProtocol",
           "params": [],
           "returnType": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "getLocationHostname",
           "params": [],
           "returnType": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "getLocationPort",
@@ -222,7 +245,8 @@
             }
           ],
           "returnType": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "getSettings",
@@ -237,7 +261,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "setSetting",
@@ -252,7 +277,8 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": [
@@ -260,27 +286,32 @@
           "name": "config",
           "type": "any",
           "default": "{}",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "onLoadSubject",
           "type": "Subject<any>",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "onLoad",
           "type": "Observable<any>",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "onErrorSubject",
           "type": "Subject<any>",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "onError",
           "type": "Observable<any>",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -288,6 +319,7 @@
       "name": "ConfigStaticLoader",
       "kind": "class",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/config/config.loader.ts",
       "inputs": [],
       "outputs": [],
@@ -296,7 +328,8 @@
           "name": "loadSettings",
           "params": [],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": []
@@ -305,6 +338,7 @@
       "name": "initializerFactory",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/config/config.module.ts",
       "inputs": [],
       "outputs": [],
@@ -315,6 +349,7 @@
       "name": "provideForRootGuard",
       "kind": "function",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/config/config.module.ts",
       "inputs": [],
       "outputs": [],

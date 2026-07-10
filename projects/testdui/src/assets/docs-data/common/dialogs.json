@@ -5,7 +5,8 @@
       "name": "AlertDialogComponent",
       "kind": "component",
       "selector": "dui-alert-dialog",
-      "summary": null,
+      "summary": "Simple alert dialog with a message and a single close button; normally opened via\n{@link DialogService.openAlert}.",
+      "summaryZh": "简单的提示对话框，带一条消息和一个关闭按钮；通常通过 {@link DialogService.openAlert} 打开。",
       "sourceFile": "src/common/dialogs/alert-dialog/alert-dialog.component.ts",
       "inputs": [],
       "outputs": [],
@@ -14,25 +15,29 @@
           "name": "close",
           "params": [],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": [
         {
           "name": "title",
           "type": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "message",
           "type": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "closeButton",
           "type": "string",
           "default": "'CLOSE'",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -40,7 +45,8 @@
       "name": "ConfirmDialogComponent",
       "kind": "component",
       "selector": "dui-confirm-dialog",
-      "summary": null,
+      "summary": "Accept/cancel confirmation dialog; normally opened via {@link DialogService.openConfirm}.",
+      "summaryZh": "接受/取消确认对话框；通常通过 {@link DialogService.openConfirm} 打开。",
       "sourceFile": "src/common/dialogs/confirm-dialog/confirm-dialog.component.ts",
       "inputs": [],
       "outputs": [],
@@ -49,50 +55,58 @@
           "name": "cancel",
           "params": [],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "accept",
           "params": [],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": [
         {
           "name": "title",
           "type": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "message",
           "type": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "cancelButton",
           "type": "any",
           "default": "'CANCEL'",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "acceptButton",
           "type": "any",
           "default": "'ACCEPT'",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "isDestructive",
           "type": "any",
           "default": "false",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
     {
       "name": "DialogService",
       "kind": "service",
-      "summary": null,
+      "summary": "High-level wrapper over Angular Material's `MatDialog` providing ready-made\nalert/confirm/prompt/status dialogs, plus optional draggable-dialog support.",
+      "summaryZh": "对 Angular Material `MatDialog` 的高层封装，提供开箱即用的\n提示/确认/输入/状态对话框，并可选支持可拖拽对话框。",
       "sourceFile": "src/common/dialogs/services/dialog.service.ts",
       "inputs": [],
       "outputs": [],
@@ -110,19 +124,22 @@
             }
           ],
           "returnType": "MatDialogRef<T>",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "getOpenedComponents",
           "params": [],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "closeAll",
           "params": [],
           "returnType": "void",
-          "description": "Wrapper function over the closeAll() method in MatDialog.\nCloses all of the currently-open dialogs."
+          "description": "Wrapper function over the closeAll() method in MatDialog.\nCloses all of the currently-open dialogs.",
+          "descriptionZh": null
         },
         {
           "name": "openAlert",
@@ -133,7 +150,8 @@
             }
           ],
           "returnType": "MatDialogRef<AlertDialogComponent>",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "openConfirm",
@@ -144,7 +162,8 @@
             }
           ],
           "returnType": "MatDialogRef<ConfirmDialogComponent>",
-          "description": "params:\n- config: IConfirmConfig {\n    message: string;\n    title?: string;\n    viewContainerRef?: ViewContainerRef;\n    acceptButton?: string;\n    cancelButton?: string;\n    isDestructive?: boolean;\n}\n\nOpens a confirm dialog with the provided config.\nReturns an MatDialogRef<TdConfirmDialogComponent> object."
+          "description": "params:\n- config: IConfirmConfig {\n    message: string;\n    title?: string;\n    viewContainerRef?: ViewContainerRef;\n    acceptButton?: string;\n    cancelButton?: string;\n    isDestructive?: boolean;\n}\n\nOpens a confirm dialog with the provided config.\nReturns an MatDialogRef<TdConfirmDialogComponent> object.",
+          "descriptionZh": null
         },
         {
           "name": "openPrompt",
@@ -155,7 +174,8 @@
             }
           ],
           "returnType": "MatDialogRef<PromptDialogComponent>",
-          "description": "params:\n- config: IPromptConfig {\n    message: string;\n    title?: string;\n    value?: string;\n    viewContainerRef?: ViewContainerRef;\n    acceptButton?: string;\n    cancelButton?: string;\n}\n\nOpens a prompt dialog with the provided config.\nReturns an MatDialogRef<TdPromptDialogComponent> object."
+          "description": "params:\n- config: IPromptConfig {\n    message: string;\n    title?: string;\n    value?: string;\n    viewContainerRef?: ViewContainerRef;\n    acceptButton?: string;\n    cancelButton?: string;\n}\n\nOpens a prompt dialog with the provided config.\nReturns an MatDialogRef<TdPromptDialogComponent> object.",
+          "descriptionZh": null
         },
         {
           "name": "openDraggable",
@@ -166,7 +186,8 @@
             }
           ],
           "returnType": "IDraggableRefs<T>",
-          "description": "Opens a draggable dialog containing the given component."
+          "description": "Opens a draggable dialog containing the given component.",
+          "descriptionZh": null
         },
         {
           "name": "openStatus",
@@ -177,7 +198,8 @@
             }
           ],
           "returnType": "MatDialogRef<StatusDialogComponent>",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": []
@@ -185,7 +207,8 @@
     {
       "name": "DialogsModule",
       "kind": "module",
-      "summary": null,
+      "summary": "Registers all of the dialogs library's dialog components/directives\n({@link AlertDialogComponent}, {@link ConfirmDialogComponent}, {@link PromptDialogComponent},\n{@link StatusDialogComponent}, {@link WindowDialogComponent}, `dui-dialog`) and provides\n{@link DialogService}.",
+      "summaryZh": "注册对话框库的全部对话框组件/指令（{@link AlertDialogComponent}、{@link ConfirmDialogComponent}、\n{@link PromptDialogComponent}、{@link StatusDialogComponent}、{@link WindowDialogComponent}、\n`dui-dialog`），并提供 {@link DialogService}。",
       "sourceFile": "src/common/dialogs/dialogs.module.ts",
       "inputs": [],
       "outputs": [],
@@ -195,7 +218,8 @@
           "name": "entryComponents",
           "type": "any",
           "default": "DIALOGS_ENTRY_COMPONENTS",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -204,6 +228,7 @@
       "kind": "directive",
       "selector": "[duiDialogActions]",
       "summary": null,
+      "summaryZh": "标记 `dui-dialog` 内容投影中的操作按钮区域。",
       "sourceFile": "src/common/dialogs/dialog.component.ts",
       "inputs": [],
       "outputs": [],
@@ -214,7 +239,8 @@
       "name": "duiDialogComponent",
       "kind": "component",
       "selector": "dui-dialog",
-      "summary": null,
+      "summary": "Generic dialog shell that projects title/content/actions/status sections\n(via `duiDialogTitle`/`duiDialogContent`/`duiDialogActions`/`duiDialogStatus`)\nand applies the app's current theme to the dialog's own theme scope.",
+      "summaryZh": "通用对话框外壳，通过 `duiDialogTitle`/`duiDialogContent`/`duiDialogActions`/`duiDialogStatus`\n投影标题/内容/操作/状态区域，并将应用当前主题应用到对话框自身的主题作用域。",
       "sourceFile": "src/common/dialogs/dialog.component.ts",
       "inputs": [],
       "outputs": [],
@@ -228,29 +254,34 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": [
         {
           "name": "dialogTitle",
           "type": "QueryList<duiDialogTitleDirective>",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "dialogContent",
           "type": "QueryList<duiDialogContentDirective>",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "dialogActions",
           "type": "QueryList<duiDialogActionsDirective>",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "dialogStatus",
           "type": "QueryList<duiDialogStatusDirective>",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -259,6 +290,7 @@
       "kind": "directive",
       "selector": "[duiDialogContent]",
       "summary": null,
+      "summaryZh": "标记 `dui-dialog` 内容投影中的主体内容区域。",
       "sourceFile": "src/common/dialogs/dialog.component.ts",
       "inputs": [],
       "outputs": [],
@@ -270,6 +302,7 @@
       "kind": "directive",
       "selector": "[duiDialogStatus]",
       "summary": null,
+      "summaryZh": "标记 `dui-dialog` 内容投影中的状态提示区域。",
       "sourceFile": "src/common/dialogs/dialog.component.ts",
       "inputs": [],
       "outputs": [],
@@ -281,6 +314,7 @@
       "kind": "directive",
       "selector": "[duiDialogTitle]",
       "summary": null,
+      "summaryZh": "标记 `dui-dialog` 内容投影中的标题区域。",
       "sourceFile": "src/common/dialogs/dialog.component.ts",
       "inputs": [],
       "outputs": [],
@@ -291,6 +325,7 @@
       "name": "IAlertConfig",
       "kind": "interface",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/dialogs/services/dialog.service.ts",
       "inputs": [],
       "outputs": [],
@@ -301,6 +336,7 @@
       "name": "IConfirmConfig",
       "kind": "interface",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/dialogs/services/dialog.service.ts",
       "inputs": [],
       "outputs": [],
@@ -311,6 +347,7 @@
       "name": "IDialogConfig",
       "kind": "interface",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/dialogs/services/dialog.service.ts",
       "inputs": [],
       "outputs": [],
@@ -321,6 +358,7 @@
       "name": "IDraggableConfig",
       "kind": "interface",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/dialogs/services/dialog.service.ts",
       "inputs": [],
       "outputs": [],
@@ -331,6 +369,7 @@
       "name": "IDraggableRefs",
       "kind": "interface",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/dialogs/services/dialog.service.ts",
       "inputs": [],
       "outputs": [],
@@ -341,6 +380,7 @@
       "name": "IPromptConfig",
       "kind": "interface",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/dialogs/services/dialog.service.ts",
       "inputs": [],
       "outputs": [],
@@ -351,6 +391,7 @@
       "name": "IStatusConfig",
       "kind": "interface",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/dialogs/services/dialog.service.ts",
       "inputs": [],
       "outputs": [],
@@ -361,7 +402,8 @@
       "name": "PromptDialogComponent",
       "kind": "component",
       "selector": "dui-prompt-dialog",
-      "summary": null,
+      "summary": "Single-input dialog with built-in validation (length/min/max/pattern/required); normally\nopened via {@link DialogService.openPrompt}, and resolves with the entered value.",
+      "summaryZh": "带内置校验（长度/最小值/最大值/正则/必填）的单输入框对话框；通常通过\n{@link DialogService.openPrompt} 打开，关闭时返回输入的值。",
       "sourceFile": "src/common/dialogs/prompt-dialog/prompt-dialog.component.ts",
       "inputs": [],
       "outputs": [],
@@ -370,126 +412,147 @@
           "name": "cancel",
           "params": [],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "accept",
           "params": [],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": [
         {
           "name": "title",
           "type": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "message",
           "type": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "name",
           "type": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "cancelButton",
           "type": "any",
           "default": "'CANCEL'",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "acceptButton",
           "type": "any",
           "default": "'ACCEPT'",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "formFieldControl",
           "type": "MatInput",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "minLengthText",
           "type": "string",
           "default": "'The minimum length for this field is {0}'",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "maxLengthText",
           "type": "string",
           "default": "'The maximum length for this field is {0}'",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "pattern",
           "type": "string | RegExp",
           "default": "null",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "regexText",
           "type": "string",
           "default": "' format is not correct'",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "blankText",
           "type": "string",
           "default": "' This field is can not be blank!'",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "minlength",
           "type": "number",
           "default": "0",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "maxlength",
           "type": "number",
           "default": "255",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "min",
           "type": "number",
           "default": "-Infinity",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "max",
           "type": "number",
           "default": "Infinity",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "required",
           "type": "boolean",
           "default": "true",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "dataType",
           "type": "string",
           "default": "'text'",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "formControl",
           "type": "any",
           "default": "new FormControl()",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
     {
       "name": "ResizableDraggableDialog",
       "kind": "class",
-      "summary": null,
+      "summary": "Attaches resize-corner handles to a `MatDialogRef`'s wrapper element and coordinates\nresizing with its CDK `DragRef` free-drag position; used internally by\n{@link DialogService.openDraggable} consumers that also need resizing.",
+      "summaryZh": "为 `MatDialogRef` 的包裹元素附加四角缩放手柄，并与其 CDK `DragRef` 的自由拖拽位置协调工作；\n供需要同时支持拖拽和缩放的场景内部使用。",
       "sourceFile": "src/common/dialogs/resizable-draggable-dialog/resizable-draggable-dialog.ts",
       "inputs": [],
       "outputs": [],
@@ -498,13 +561,15 @@
           "name": "attach",
           "params": [],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "detach",
           "params": [],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": [
@@ -512,13 +577,15 @@
           "name": "cornerElements",
           "type": "HTMLElement[]",
           "default": "[]",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "pointerDownSubs",
           "type": "Subscription[]",
           "default": "[]",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -526,7 +593,8 @@
       "name": "StatusDialogComponent",
       "kind": "component",
       "selector": "dui-status-dialog",
-      "summary": null,
+      "summary": "Result/status dialog (error/positive/warning) with an optional collapsible details section;\nnormally opened via {@link DialogService.openStatus}.",
+      "summaryZh": "结果/状态对话框（error/positive/warning），可选带可折叠的详情区域；\n通常通过 {@link DialogService.openStatus} 打开。",
       "sourceFile": "src/common/dialogs/status-dialog/status-dialog.component.ts",
       "inputs": [],
       "outputs": [],
@@ -535,19 +603,22 @@
           "name": "close",
           "params": [],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "getStatusIcon",
           "params": [],
           "returnType": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "toggleDetails",
           "params": [],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": [
@@ -555,40 +626,47 @@
           "name": "closeButton",
           "type": "string",
           "default": "'CLOSE'",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "message",
           "type": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "state",
           "type": "StatusDialogStates",
           "default": "'error'",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "title",
           "type": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "details",
           "type": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "showDetails",
           "type": "any",
           "default": "false",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "detailsLabels",
           "type": "StatusDialogDetailsLabels",
           "default": "{\n    showDetailsLabel: 'Show details',\n    hideDetailsLabel: 'Hide details',\n  }",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -596,6 +674,7 @@
       "name": "StatusDialogDetailsLabels",
       "kind": "type",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/dialogs/status-dialog/status-dialog.component.ts",
       "inputs": [],
       "outputs": [],
@@ -606,6 +685,7 @@
       "name": "StatusDialogStates",
       "kind": "type",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/dialogs/status-dialog/status-dialog.component.ts",
       "inputs": [],
       "outputs": [],
@@ -616,46 +696,54 @@
       "name": "WindowDialogComponent",
       "kind": "component",
       "selector": "window-dialog",
-      "summary": null,
+      "summary": "Window-chrome dialog wrapper with a title bar offering dock/undock and close controls.",
+      "summaryZh": "带窗口外观的对话框封装，标题栏提供停靠/取消停靠和关闭控件。",
       "sourceFile": "src/common/dialogs/window-dialog/window-dialog.component.ts",
       "inputs": [
         {
           "name": "toolbarColor",
           "type": "ThemePalette",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "docked",
           "type": "any",
           "default": "false",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "title",
           "type": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "toggleDockedStateLabel",
           "type": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "closeLabel",
           "type": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "outputs": [
         {
           "name": "dockToggled",
           "type": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "closed",
           "type": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "methods": [
@@ -663,7 +751,8 @@
           "name": "toggleDockedState",
           "params": [],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": [
@@ -671,7 +760,8 @@
           "name": "toolbarHeight",
           "type": "any",
           "default": "56",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     }

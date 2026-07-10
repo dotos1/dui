@@ -10,6 +10,12 @@ import {
 } from '@dotos/dui/common/colorpicker/common';
 import { TriggerPopup } from '@dotos/dui/common/trigger';
 
+/**
+ * Compact color picker: a dense grid of square swatches plus hex/rgb fields, in a small
+ * raised card footprint.
+ * @zh 紧凑型颜色选择器：密集排列的方形色块网格加十六进制/RGB 输入框，
+ * 呈现为一个小型浮起卡片。
+ */
 @Component({
   selector: 'color-compact',
   template: `

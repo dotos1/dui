@@ -5,34 +5,40 @@
       "name": "AbstractTrigger",
       "kind": "service",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/form/trigger/abstract.trigger.ts",
       "inputs": [
         {
           "name": "touchUi",
           "type": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "panelClass",
           "type": "string | string[]",
-          "description": "Classes to be passed to the date picker panel. Supports the same syntax as `ngClass`."
+          "description": "Classes to be passed to the date picker panel. Supports the same syntax as `ngClass`.",
+          "descriptionZh": null
         }
       ],
       "outputs": [
         {
           "name": "selectedChanged",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "openedStream",
           "type": "AbstractTrigger",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "closedStream",
           "type": "AbstractTrigger",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "methods": [
@@ -45,13 +51,15 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "open",
           "params": [],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "registerOnValidatorChange",
@@ -62,69 +70,81 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "close",
           "params": [],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "getConnectedOverlayOrigin",
           "params": [],
           "returnType": "ElementRef",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": [
         {
           "name": "editable",
           "type": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "editable",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "touchUi",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "tabindex",
           "type": "number",
           "default": "0",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "enableKeyEvents",
           "type": "any",
           "default": "false",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "required",
           "type": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "required",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "opened",
           "type": "any",
           "default": "false",
-          "description": "Whether the calendar is open."
+          "description": "Whether the calendar is open.",
+          "descriptionZh": null
         },
         {
           "name": "isOpen",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -132,6 +152,7 @@
       "name": "ACTION_TYPES",
       "kind": "type",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/form/action/action.service.ts",
       "inputs": [],
       "outputs": [],
@@ -143,13 +164,15 @@
       "kind": "component",
       "selector": "array-input-field",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/form/array-input/array-input.component.ts",
       "inputs": [],
       "outputs": [
         {
           "name": "result",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "methods": [
@@ -157,7 +180,8 @@
           "name": "openChanged",
           "params": [],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": [
@@ -165,54 +189,63 @@
           "name": "selectData",
           "type": "Array<any>",
           "default": "[]",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "filteredData",
           "type": "Observable<Array<any>>",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "filterString",
           "type": "string",
           "default": "''",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "filter",
           "type": "any",
           "default": "(filter: string): Array<any> => {\n    this.filterString = filter;\n    this.selectData=[];\n    if(this.field.options==undefined){\n      return [];\n    }\n    let opts=clone(this.field.options);\n     opts.map(option => {\n        option[\"selected\"]=false;\n     });\n    if (filter&&filter.length > 0) {\n      opts.map(option => {\n        let seleted=filter.indexOf(option.value) >= 0;\n        option[\"selected\"]=seleted;\n      });\n      opts.forEach(option => {\n        let seleted=filter.indexOf(option.value) >= 0;\n        if(seleted){\n          this.selectData.push(option);\n        }\n      });\n   \n      return opts;\n    } else {\n      return opts.slice();\n    }\n  }",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "displayFn",
           "type": "any",
           "default": "(): string => ''",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "optionClicked",
           "type": "any",
           "default": "(event: Event, data: any): void => {\n    event.stopPropagation();\n    this.toggleSelection(data);\n  }",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "toggleSelection",
           "type": "any",
           "default": "(data: any): void => {\n    data.selected = !data.selected;\n    if (data.selected === true) {\n      this.selectData.push(data);\n    } else {\n      const i = this.selectData.findIndex(val =>val.value === data.value);\n      this.selectData.splice(i, 1);\n    }\n    this.emitAdjustedData();\n  }",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "emitAdjustedData",
           "type": "any",
           "default": "(): void => {\n    const results: Array<string> = []\n    this.selectData.forEach((data: any) => {\n      results.push(data.value);\n    });\n\n    this.formControl.setValue(results.join(','));\n\n    this.result.emit({ key: this.field.name, data: results.join(',') });\n  }",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "removeChip",
           "type": "any",
           "default": "(data: any): void => {\n    this.toggleSelection(data);\n  }",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -220,6 +253,7 @@
       "name": "ArrayInputModule",
       "kind": "module",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/form/array-input/array-input.module.ts",
       "inputs": [],
       "outputs": [],
@@ -229,7 +263,8 @@
           "name": "entryComponents",
           "type": "any",
           "default": "[\n    ArrayInputComponent]",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -238,6 +273,7 @@
       "kind": "directive",
       "selector": "[duiAutoTrim]",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/form/directive/auto-trim.directive.ts",
       "inputs": [],
       "outputs": [],
@@ -251,7 +287,8 @@
             }
           ],
           "returnType": "void",
-          "description": "Listens to host's (blur) event and trims value."
+          "description": "Listens to host's (blur) event and trims value.",
+          "descriptionZh": null
         }
       ],
       "properties": []
@@ -261,6 +298,7 @@
       "kind": "component",
       "selector": "checkbox-field",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/form/checkbox/checkbox.component.ts",
       "inputs": [],
       "outputs": [],
@@ -274,7 +312,8 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "change",
@@ -285,20 +324,23 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": [
         {
           "name": "checkbox",
           "type": "MatCheckbox",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "defaultOptions",
           "type": "any",
           "default": "{\n    hideFieldUnderline: true,\n    indeterminate: true,\n    floatLabel: 'always',\n    hideLabel: true,\n    align: 'start',\n    color: 'accent',  // start or end\n  }",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -306,6 +348,7 @@
       "name": "CheckBoxFieldModule",
       "kind": "module",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/form/checkbox/checkbox.ext.module.ts",
       "inputs": [],
       "outputs": [],
@@ -315,7 +358,8 @@
           "name": "entryComponents",
           "type": "any",
           "default": "[CheckboxField]",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -324,6 +368,7 @@
       "kind": "component",
       "selector": "checkbox-group",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/form/checkboxgroup/checkboxgroup.component.ts",
       "inputs": [],
       "outputs": [],
@@ -332,7 +377,8 @@
           "name": "init",
           "params": [],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "onChange",
@@ -347,7 +393,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "onContainerClick",
@@ -358,44 +405,51 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": [
         {
           "name": "checkboxes",
           "type": "QueryList<MatCheckbox>",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "defaultOptions",
           "type": "any",
           "default": "{\n    hideFieldUnderline: true,\n    floatLabel: 'always',\n    options: [],\n    color: 'accent',\n  }",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "align",
           "type": "any",
           "default": "'start'",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "labelPosition",
           "type": "any",
           "default": "'after'",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "vertical",
           "type": "any",
           "default": "false",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "readonly",
           "type": "any",
           "default": "false",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -403,6 +457,7 @@
       "name": "CheckboxGroupModule",
       "kind": "module",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/form/checkboxgroup/checkboxgroup.module.ts",
       "inputs": [],
       "outputs": [],
@@ -412,7 +467,8 @@
           "name": "entryComponents",
           "type": "any",
           "default": "[CheckboxGroupField]",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -420,6 +476,7 @@
       "name": "ColorFieldModule",
       "kind": "module",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/form/colorpicker/color-picker.module.ts",
       "inputs": [],
       "outputs": [],
@@ -429,7 +486,8 @@
           "name": "entryComponents",
           "type": "any",
           "default": "[\n    ColorPickerContent,\n    ColorPickerField\n  ]",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -438,24 +496,28 @@
       "kind": "component",
       "selector": "color-picker-content",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/form/colorpicker/color-picker.content.ts",
       "inputs": [
         {
           "name": "onlyPalette",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "color",
           "type": "any",
-          "description": "Selected class\n\nparam value"
+          "description": "Selected class\n\nparam value",
+          "descriptionZh": null
         }
       ],
       "outputs": [
         {
           "name": "colorChanged",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "methods": [
@@ -472,7 +534,8 @@
             }
           ],
           "returnType": "void",
-          "description": "Select palette\n\nparam event\nparam palette"
+          "description": "Select palette\n\nparam event\nparam palette",
+          "descriptionZh": null
         },
         {
           "name": "selectHue",
@@ -487,7 +550,8 @@
             }
           ],
           "returnType": "void",
-          "description": "Select hue\n\nparam event\nparam hue"
+          "description": "Select hue\n\nparam event\nparam hue",
+          "descriptionZh": null
         },
         {
           "name": "removeColor",
@@ -498,13 +562,15 @@
             }
           ],
           "returnType": "void",
-          "description": "Remove color\n\nparam event"
+          "description": "Remove color\n\nparam event",
+          "descriptionZh": null
         },
         {
           "name": "updateSelectedColor",
           "params": [],
           "returnType": "void",
-          "description": "Update selected color"
+          "description": "Update selected color",
+          "descriptionZh": null
         },
         {
           "name": "goToPalettesView",
@@ -515,65 +581,77 @@
             }
           ],
           "returnType": "void",
-          "description": "Go to palettes view\n\nparam event"
+          "description": "Go to palettes view\n\nparam event",
+          "descriptionZh": null
         },
         {
           "name": "onMenuOpen",
           "params": [],
           "returnType": "void",
-          "description": "On menu open"
+          "description": "On menu open",
+          "descriptionZh": null
         }
       ],
       "properties": [
         {
           "name": "host",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "colors",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "hues",
           "type": "string[]",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "view",
           "type": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "selectedColor",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "selectedPalette",
           "type": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "selectedHue",
           "type": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "params",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "params",
           "type": "any",
-          "description": "set accessor including call the onchange callback"
+          "description": "set accessor including call the onchange callback",
+          "descriptionZh": null
         },
         {
           "name": "color",
           "type": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -581,13 +659,15 @@
       "name": "ColorPickerField",
       "kind": "component",
       "selector": "color-picker-field",
-      "summary": null,
+      "summary": "Form field that opens one of the `color-*` picker style variants (sketch/chrome/compact/\ngithub/material, chosen via `colorType`) in a popup, and binds the selected hex value to\nthe form control.",
+      "summaryZh": "表单字段，在弹出层中打开某个 `color-*` 颜色选择器样式变体\n（通过 `colorType` 选择 sketch/chrome/compact/github/material），\n并将选中的十六进制颜色值绑定到表单控件。",
       "sourceFile": "src/form/colorpicker/color-picker.field.ts",
       "inputs": [
         {
           "name": "field",
           "type": "F | any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "outputs": [],
@@ -596,80 +676,94 @@
           "name": "init",
           "params": [],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "clear",
           "params": [],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "open",
           "params": [],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": [
         {
           "name": "input",
           "type": "ElementRef",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "field",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "colorType",
           "type": "'sketch' | 'chrome' | 'compact' | 'github' | 'material'",
           "default": "'sketch'",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "params",
           "type": "any",
           "default": "{}",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "label",
           "type": "string",
           "default": "''",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "value",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "value",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "openOnFocus",
           "type": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "openOnFocus",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "isOpen",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "enableKeyEvents",
           "type": "any",
           "default": "true",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -677,6 +771,7 @@
       "name": "CommonFieldModule",
       "kind": "module",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/form/field/common-field.module.ts",
       "inputs": [],
       "outputs": [],
@@ -686,7 +781,8 @@
           "name": "entryComponents",
           "type": "any",
           "default": "[\n    TextFieldComponent,\n    DisplayFieldComponent,\n    HiddenFieldComponent,\n    NumberFieldComponent,\n    TextAreaComponent]",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -695,6 +791,7 @@
       "kind": "component",
       "selector": "display-field",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/form/field/displayfield.component.ts",
       "inputs": [],
       "outputs": [],
@@ -704,13 +801,15 @@
           "name": "type",
           "type": "string",
           "default": "'display'",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "xtype",
           "type": "string",
           "default": "'displayfield'",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -718,6 +817,7 @@
       "name": "DuiFormDirectiveModule",
       "kind": "module",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/form/directive/form.directive.module.ts",
       "inputs": [],
       "outputs": [],
@@ -729,6 +829,7 @@
       "kind": "component",
       "selector": "dui-field-wrapper",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/form/wrapper/field-wrapper.ts",
       "inputs": [],
       "outputs": [],
@@ -742,7 +843,8 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "onContainerClick",
@@ -753,80 +855,95 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": [
         {
           "name": "fieldComponent",
           "type": "ViewContainerRef",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "stateChanges",
           "type": "any",
           "default": "new Subject<void>()",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "errorState",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "controlType",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "focused",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "disabled",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "required",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "placeholder",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "shouldPlaceholderFloat",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "value",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "ngControl",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "empty",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "shouldLabelFloat",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "fieldConfig",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -834,6 +951,7 @@
       "name": "FIELD_TYPE_COMPONENTS",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/form/wrapper/wrapper.module.ts",
       "inputs": [],
       "outputs": [],
@@ -845,12 +963,14 @@
       "kind": "component",
       "selector": "dui-field",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/form/components/field.component.ts",
       "inputs": [
         {
           "name": "field",
           "type": "FieldConfig",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "outputs": [],
@@ -859,26 +979,30 @@
           "name": "init",
           "params": [],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "refresh",
           "params": [],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": [
         {
           "name": "containerRef",
           "type": "ViewContainerRef",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "valueChangesUnsubscribe",
           "type": "any",
           "default": "() => {}",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -887,6 +1011,7 @@
       "kind": "component",
       "selector": "select-field",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/form/select/select.field.ts",
       "inputs": [],
       "outputs": [],
@@ -900,19 +1025,22 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "init",
           "params": [],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "hasSearch",
           "params": [],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "openChanged",
@@ -923,7 +1051,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "setOptions",
@@ -934,7 +1063,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "getSelectAllState",
@@ -945,7 +1075,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "toggleSelectAll",
@@ -956,7 +1087,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "change",
@@ -967,13 +1099,15 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "clear",
           "params": [],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "compareWith",
@@ -988,55 +1122,64 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": [
         {
           "name": "matSelect",
           "type": "MatSelect",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "matSearch",
           "type": "MatSelectSearchComponent",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "defaultOptions",
           "type": "any",
           "default": "{\n    options: []\n  }",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "isAlive",
           "type": "any",
           "default": "false",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "isLoading",
           "type": "any",
           "default": "false",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "options",
           "type": "any",
           "default": "[]",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "selectSearchControl",
           "type": "FormControl<string>",
           "default": "new FormControl<string>('', {nonNullable: true})",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "searching",
           "type": "boolean",
           "default": "false",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -1045,45 +1188,53 @@
       "kind": "component",
       "selector": "dui-fieldset",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/form/wrapper/fieldset.ts",
       "inputs": [
         {
           "name": "legend",
           "type": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "toggleable",
           "type": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "collapsed",
           "type": "boolean",
           "default": "false",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "style",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "styleClass",
           "type": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "outputs": [
         {
           "name": "onBeforeToggle",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "onAfterToggle",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "methods": [
@@ -1096,7 +1247,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "expand",
@@ -1107,7 +1259,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "collapse",
@@ -1118,13 +1271,15 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "getBlockableElement",
           "params": [],
           "returnType": "HTMLElement",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "onToggleDone",
@@ -1135,14 +1290,16 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": [
         {
           "name": "animating",
           "type": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -1150,6 +1307,7 @@
       "name": "FormAction",
       "kind": "class",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/form/action/action.service.ts",
       "inputs": [],
       "outputs": [],
@@ -1167,7 +1325,8 @@
             }
           ],
           "returnType": "FormAction",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "run",
@@ -1178,7 +1337,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "success",
@@ -1189,7 +1349,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "failure",
@@ -1200,25 +1361,29 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "getUrl",
           "params": [],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "getMethod",
           "params": [],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "getParams",
           "params": [],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "createCallback",
@@ -1229,7 +1394,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": [
@@ -1237,76 +1403,90 @@
           "name": "CLIENT_INVALID",
           "type": "string",
           "default": "'client'",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "SERVER_INVALID",
           "type": "string",
           "default": "'server'",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "CONNECT_FAILURE",
           "type": "string",
           "default": "'connect'",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "LOAD_FAILURE",
           "type": "string",
           "default": "'load'",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "form",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "options",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "url",
           "type": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "method",
           "type": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "params",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "timeout",
           "type": "number",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "scope",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "type",
           "type": "string",
           "default": "'default'",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "failureType",
           "type": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "result",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -1315,18 +1495,21 @@
       "kind": "directive",
       "selector": "[formAttributes]",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/form/components/form.attributes.ts",
       "inputs": [
         {
           "name": "field",
           "alias": "formAttributes",
           "type": "FieldConfig",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "id",
           "type": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "outputs": [],
@@ -1340,7 +1523,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "onFocus",
@@ -1351,7 +1535,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "onBlur",
@@ -1362,7 +1547,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "onChange",
@@ -1373,7 +1559,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": []
@@ -1383,51 +1570,60 @@
       "kind": "component",
       "selector": "dui-form",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/form/components/form.component.ts",
       "inputs": [
         {
           "name": "config",
           "type": "any",
           "default": "{}",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "form",
           "type": "FormGroup | FormArray",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "model",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "items",
           "type": "FieldConfig[]",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "options",
           "type": "FormOptions",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "isRoot",
           "type": "any",
           "default": "true",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "outputs": [
         {
           "name": "modelChange",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "formInit",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "methods": [
@@ -1435,7 +1631,8 @@
           "name": "buildForm",
           "params": [],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "init",
@@ -1446,7 +1643,8 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "getStyle",
@@ -1457,7 +1655,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "changeModel",
@@ -1468,13 +1667,15 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "rebuildForm",
           "params": [],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "submit",
@@ -1485,7 +1686,8 @@
             }
           ],
           "returnType": "Promise<any>",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "load",
@@ -1496,7 +1698,8 @@
             }
           ],
           "returnType": "Promise<any>",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "doAction",
@@ -1511,7 +1714,8 @@
             }
           ],
           "returnType": "Promise<any>",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "updateField",
@@ -1522,13 +1726,15 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "getValues",
           "params": [],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "setValues",
@@ -1539,7 +1745,8 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "getFieldValue",
@@ -1550,7 +1757,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "setFieldValue",
@@ -1565,31 +1773,36 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "resetAllFields",
           "params": [],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "refresh",
           "params": [],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "clearInvalid",
           "params": [],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "reset",
           "params": [],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "afterAction",
@@ -1608,7 +1821,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "getComponent",
@@ -1619,7 +1833,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "findField",
@@ -1634,7 +1849,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "add",
@@ -1649,7 +1865,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "remove",
@@ -1660,56 +1877,66 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": [
         {
           "name": "form",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "model",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "items",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "options",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "method",
           "type": "string",
           "default": "'POST'",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "fileUpload",
           "type": "boolean",
           "default": "false",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "valid",
           "type": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "value",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "value",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -1718,6 +1945,7 @@
       "kind": "component",
       "selector": "form-group",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/form/components/form.group.ts",
       "inputs": [],
       "outputs": [],
@@ -1731,7 +1959,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": [
@@ -1739,7 +1968,8 @@
           "name": "defaultOptions",
           "type": "any",
           "default": "{\n    defaultValue: {},\n  }",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -1747,6 +1977,7 @@
       "name": "FormModule",
       "kind": "module",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/form/components/form.module.ts",
       "inputs": [],
       "outputs": [],
@@ -1755,7 +1986,8 @@
           "name": "forRoot",
           "params": [],
           "returnType": "ModuleWithProviders<FormModule>",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "forChild",
@@ -1766,7 +1998,8 @@
             }
           ],
           "returnType": "ModuleWithProviders<FormModule>",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": [
@@ -1774,7 +2007,8 @@
           "name": "entryComponents",
           "type": "any",
           "default": "[\n    FormComponent,\n    FormGroup,\n    FieldComponent,]",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -1783,23 +2017,27 @@
       "kind": "component",
       "selector": "form-section",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/form/wrapper/form.section.ts",
       "inputs": [
         {
           "name": "collapsed",
           "type": "boolean",
           "default": "false",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "style",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "styleClass",
           "type": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "outputs": [],
@@ -1813,13 +2051,15 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "toggle",
           "params": [],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": [
@@ -1827,13 +2067,15 @@
           "name": "layout",
           "type": "any",
           "default": "'row'",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "defaultOptions",
           "type": "any",
           "default": "{\n    defaultValue: [],\n  }",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -1841,6 +2083,7 @@
       "name": "FormWrapperModule",
       "kind": "module",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/form/wrapper/wrapper.module.ts",
       "inputs": [],
       "outputs": [],
@@ -1850,7 +2093,8 @@
           "name": "entryComponents",
           "type": "any",
           "default": "FIELD_TYPE_COMPONENTS",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -1859,6 +2103,7 @@
       "kind": "component",
       "selector": "hidden-field",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/form/field/hiddenfield.component.ts",
       "inputs": [],
       "outputs": [],
@@ -1867,13 +2112,15 @@
         {
           "name": "input",
           "type": "ElementRef",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "type",
           "type": "any",
           "default": "'hidden'",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -1882,6 +2129,7 @@
       "kind": "component",
       "selector": "label-field",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/form/label/label-field.ts",
       "inputs": [],
       "outputs": [],
@@ -1895,19 +2143,22 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": [
         {
           "name": "field",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "style",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -1915,6 +2166,7 @@
       "name": "LabelFieldModule",
       "kind": "module",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/form/label/label.module.ts",
       "inputs": [],
       "outputs": [],
@@ -1924,7 +2176,8 @@
           "name": "entryComponents",
           "type": "any",
           "default": "[\n    LabelField\n  ]",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -1933,6 +2186,7 @@
       "kind": "component",
       "selector": "label-field-wrapper",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/form/wrapper/label-field.ts",
       "inputs": [],
       "outputs": [],
@@ -1941,7 +2195,8 @@
           "name": "init",
           "params": [],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "showTip",
@@ -1952,13 +2207,15 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "hideTip",
           "params": [],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "setDescribedByIds",
@@ -1969,7 +2226,8 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "onContainerClick",
@@ -1980,91 +2238,108 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": [
         {
           "name": "fieldComponent",
           "type": "ViewContainerRef",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "stateChanges",
           "type": "any",
           "default": "new Subject<void>()",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "underTip",
           "type": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "showUnder",
           "type": "any",
           "default": "false",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "options",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "errorState",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "focused",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "disabled",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "required",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "placeholder",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "shouldPlaceholderFloat",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "value",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "ngControl",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "empty",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "shouldLabelFloat",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "fieldConfig",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -2072,6 +2347,7 @@
       "name": "Load",
       "kind": "service",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/form/action/load.service.ts",
       "inputs": [],
       "outputs": [],
@@ -2089,13 +2365,15 @@
             }
           ],
           "returnType": "FormAction",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "run",
           "params": [],
           "returnType": "Promise<any>",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "success",
@@ -2106,25 +2384,29 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": [
         {
           "name": "reader",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "failureType",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "type",
           "type": "any",
           "default": "'load'",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -2133,49 +2415,58 @@
       "kind": "directive",
       "selector": "mat-check-group",
       "summary": "A group of radio buttons. May contain one or more `<mat-radio-button>` elements.",
+      "summaryZh": null,
       "sourceFile": "src/form/checkboxgroup/checkboxgroup.exp.ts",
       "inputs": [
         {
           "name": "name",
           "type": "string",
-          "description": "Name of the radio button group. All radio buttons inside this group will use this name."
+          "description": "Name of the radio button group. All radio buttons inside this group will use this name.",
+          "descriptionZh": null
         },
         {
           "name": "align",
           "type": "'start' | 'end'",
-          "description": "Alignment of the radio-buttons relative to their labels. Can be 'before' or 'after'."
+          "description": "Alignment of the radio-buttons relative to their labels. Can be 'before' or 'after'.",
+          "descriptionZh": null
         },
         {
           "name": "labelPosition",
           "type": "any",
-          "description": "Whether the labels should appear after or before the radio-buttons. Defaults to 'after'"
+          "description": "Whether the labels should appear after or before the radio-buttons. Defaults to 'after'",
+          "descriptionZh": null
         },
         {
           "name": "value",
           "type": "Array<string>",
-          "description": "Value of the radio button."
+          "description": "Value of the radio button.",
+          "descriptionZh": null
         },
         {
           "name": "disabled",
           "type": "boolean",
-          "description": "Whether the radio group is disabled"
+          "description": "Whether the radio group is disabled",
+          "descriptionZh": null
         },
         {
           "name": "required",
           "type": "boolean",
-          "description": "Whether the radio group is required"
+          "description": "Whether the radio group is required",
+          "descriptionZh": null
         },
         {
           "name": "selected",
           "type": "any",
-          "description": "Whether the radio button is selected."
+          "description": "Whether the radio button is selected.",
+          "descriptionZh": null
         }
       ],
       "outputs": [
         {
           "name": "change",
           "type": "MatCheckChange",
-          "description": "Event emitted when the group value changes.\nChange events are only emitted when the value changes due to user interaction with\na radio button (the same behavior as `<input type-\"radio\">`)."
+          "description": "Event emitted when the group value changes.\nChange events are only emitted when the value changes due to user interaction with\na radio button (the same behavior as `<input type-\"radio\">`).",
+          "descriptionZh": null
         }
       ],
       "methods": [],
@@ -2184,42 +2475,50 @@
           "name": "onTouched",
           "type": "() => any",
           "default": "() => { }",
-          "description": "onTouch function registered via registerOnTouch (ControlValueAccessor)."
+          "description": "onTouch function registered via registerOnTouch (ControlValueAccessor).",
+          "descriptionZh": null
         },
         {
           "name": "name",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "align",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "labelPosition",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "value",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "disabled",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "required",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "selected",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -2227,6 +2526,7 @@
       "name": "MATERIAL_FORMLY_CONFIG",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/form/wrapper/wrapper.module.ts",
       "inputs": [],
       "outputs": [],
@@ -2237,6 +2537,7 @@
       "name": "MatField",
       "kind": "directive",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/form/base/mat.field.ts",
       "inputs": [],
       "outputs": [],
@@ -2250,7 +2551,8 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "setDescribedByIds",
@@ -2261,7 +2563,8 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "onContainerClick",
@@ -2272,117 +2575,139 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": [
         {
           "name": "matPrefix",
           "type": "TemplateRef<any>",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "matSuffix",
           "type": "TemplateRef<any>",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "formFieldControl",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "formFieldControl",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "errorStateMatcher",
           "type": "any",
           "default": "new ExtErrorStateMatcher(this)",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "stateChanges",
           "type": "any",
           "default": "new Subject<void>()",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "invalidText",
           "type": "string",
           "default": "'The value in this field is invalid'",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "toolTip",
           "type": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "errorState",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "controlType",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "focused",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "disabled",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "required",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "placeholder",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "shouldPlaceholderFloat",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "value",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "value",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "ngControl",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "empty",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "shouldLabelFloat",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "formField",
           "type": "MatFormField",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -2391,6 +2716,7 @@
       "kind": "component",
       "selector": "number-field",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/form/field/numberfield.component.ts",
       "inputs": [],
       "outputs": [],
@@ -2399,7 +2725,8 @@
           "name": "init",
           "params": [],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "unitchange",
@@ -2410,7 +2737,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "onChange",
@@ -2421,7 +2749,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": [
@@ -2429,25 +2758,29 @@
           "name": "type",
           "type": "string",
           "default": "'number'",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "defaultUnit",
           "type": "any",
           "default": "''",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "currentUnit",
           "type": "any",
           "default": "''",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "units",
           "type": "any",
           "default": "[]",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -2455,6 +2788,7 @@
       "name": "OptionsResult",
       "kind": "class",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/form/field/options.service.ts",
       "inputs": [],
       "outputs": [],
@@ -2463,17 +2797,20 @@
         {
           "name": "options",
           "type": "string[]",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "params",
           "type": "{}",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "error",
           "type": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -2481,6 +2818,7 @@
       "name": "OptionsService",
       "kind": "service",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/form/field/options.service.ts",
       "inputs": [],
       "outputs": [],
@@ -2502,7 +2840,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": [
@@ -2510,7 +2849,8 @@
           "name": "options",
           "type": "Observable<OptionsResult>",
           "default": "this.optionsSubject.asObservable()",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -2519,6 +2859,7 @@
       "kind": "component",
       "selector": "radio-group",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/form/radiogroup/radiogroup.component.ts",
       "inputs": [],
       "outputs": [],
@@ -2527,7 +2868,8 @@
           "name": "init",
           "params": [],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "onContainerClick",
@@ -2538,26 +2880,30 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": [
         {
           "name": "radioGroup",
           "type": "MatRadioGroup",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "defaultOptions",
           "type": "any",
           "default": "{\n    hideFieldUnderline: true,\n    floatLabel: 'always',\n    options: [],\n    tabindex: -1,\n  }",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "readOnly",
           "type": "any",
           "default": "false",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -2565,6 +2911,7 @@
       "name": "RadioGroupModule",
       "kind": "module",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/form/radiogroup/radiogroup.module.ts",
       "inputs": [],
       "outputs": [],
@@ -2574,7 +2921,8 @@
           "name": "entryComponents",
           "type": "any",
           "default": "[RadioGroupField]",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -2583,6 +2931,7 @@
       "kind": "component",
       "selector": "range-slider-field",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/form/rang-slider/range-slider.field.ts",
       "inputs": [],
       "outputs": [],
@@ -2596,7 +2945,8 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": [
@@ -2604,19 +2954,22 @@
           "name": "startCtrl",
           "type": "any",
           "default": "new FormControl(20)",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "endCtrl",
           "type": "any",
           "default": "new FormControl(80)",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "defaultOptions",
           "type": "any",
           "default": "{\n    hideFieldUnderline: true,\n    floatLabel: 'always',\n  }",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -2624,6 +2977,7 @@
       "name": "RangeSliderModule",
       "kind": "module",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/form/rang-slider/range-slider.module.ts",
       "inputs": [],
       "outputs": [],
@@ -2633,7 +2987,8 @@
           "name": "entryComponents",
           "type": "any",
           "default": "[RangeSliderFieldComponent]",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -2642,6 +2997,7 @@
       "kind": "component",
       "selector": "repeat-section",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/form/wrapper/repeat-section.type.ts",
       "inputs": [],
       "outputs": [],
@@ -2655,7 +3011,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "init",
@@ -2666,7 +3023,8 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "add",
@@ -2677,7 +3035,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "setName",
@@ -2692,7 +3051,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "getTitle",
@@ -2703,7 +3063,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "remove",
@@ -2714,14 +3075,16 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": [
         {
           "name": "addButton",
           "type": "ButtonComponent",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -2730,6 +3093,7 @@
       "kind": "component",
       "selector": "row-editor",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/form/wrapper/row.editor.ts",
       "inputs": [],
       "outputs": [],
@@ -2738,7 +3102,8 @@
           "name": "add",
           "params": [],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "remove",
@@ -2749,7 +3114,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": []
@@ -2758,6 +3124,7 @@
       "name": "SelectFieldModule",
       "kind": "module",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/form/select/select.module.ts",
       "inputs": [],
       "outputs": [],
@@ -2767,7 +3134,8 @@
           "name": "entryComponents",
           "type": "any",
           "default": "[ FieldSelect]",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -2775,6 +3143,7 @@
       "name": "SelectOption",
       "kind": "class",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/form/select/select.field.ts",
       "inputs": [],
       "outputs": [],
@@ -2783,22 +3152,26 @@
         {
           "name": "label",
           "type": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "value",
           "type": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "group",
           "type": "SelectOption[]",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "disabled",
           "type": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -2807,6 +3180,7 @@
       "kind": "pipe",
       "pipeName": "selectOptionsPipe",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/form/base/select-options.pipe.ts",
       "inputs": [],
       "outputs": [],
@@ -2824,7 +3198,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": []
@@ -2833,6 +3208,7 @@
       "name": "SelectOptionsResult",
       "kind": "class",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/form/select/options.service.ts",
       "inputs": [],
       "outputs": [],
@@ -2841,17 +3217,20 @@
         {
           "name": "options",
           "type": "SelectOption[]",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "params",
           "type": "{}",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "error",
           "type": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -2859,6 +3238,7 @@
       "name": "SelectOptionsService",
       "kind": "service",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/form/select/options.service.ts",
       "inputs": [],
       "outputs": [],
@@ -2880,7 +3260,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "setOptions",
@@ -2891,7 +3272,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": [
@@ -2899,7 +3281,8 @@
           "name": "options",
           "type": "Observable<SelectOptionsResult>",
           "default": "this.optionsSubject.asObservable()",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -2907,6 +3290,7 @@
       "name": "SelectPipeModule",
       "kind": "module",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/form/base/select.module.ts",
       "inputs": [],
       "outputs": [],
@@ -2918,6 +3302,7 @@
       "kind": "component",
       "selector": "slider-field",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/form/ext-slider/slider.component.ts",
       "inputs": [],
       "outputs": [],
@@ -2931,7 +3316,8 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": [
@@ -2939,7 +3325,8 @@
           "name": "defaultOptions",
           "type": "any",
           "default": "{\n    hideFieldUnderline: true,\n    floatLabel: 'always',\n  }",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -2947,6 +3334,7 @@
       "name": "SliderFieldModule",
       "kind": "module",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/form/ext-slider/slider.ext.module.ts",
       "inputs": [],
       "outputs": [],
@@ -2956,7 +3344,8 @@
           "name": "entryComponents",
           "type": "any",
           "default": "[SliderFieldComponent]",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -2965,6 +3354,7 @@
       "kind": "component",
       "selector": "slide-toggle",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/form/slide-toggle/slide-toggle.component.ts",
       "inputs": [],
       "outputs": [],
@@ -2978,7 +3368,8 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "click",
@@ -2989,13 +3380,15 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "init",
           "params": [],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": [
@@ -3003,7 +3396,8 @@
           "name": "defaultOptions",
           "type": "any",
           "default": "{\n    hideFieldUnderline: true,\n    floatLabel: 'always',\n    hideLabel: true,\n    color: 'accent',\n    defaultValue: false\n  }",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -3011,6 +3405,7 @@
       "name": "SliderToggleFieldModule",
       "kind": "module",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/form/slide-toggle/slide-toggle.ext.module.ts",
       "inputs": [],
       "outputs": [],
@@ -3020,7 +3415,8 @@
           "name": "entryComponents",
           "type": "any",
           "default": "[SliderToggleField]",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -3028,6 +3424,7 @@
       "name": "Submit",
       "kind": "service",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/form/action/submit.service.ts",
       "inputs": [],
       "outputs": [],
@@ -3036,7 +3433,8 @@
           "name": "run",
           "params": [],
           "returnType": "Promise<any>",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "success",
@@ -3047,20 +3445,23 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": [
         {
           "name": "failureType",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "type",
           "type": "any",
           "default": "'submit'",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -3069,6 +3470,7 @@
       "kind": "component",
       "selector": "textarea-field",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/form/field/textarea.component.ts",
       "inputs": [],
       "outputs": [],
@@ -3078,7 +3480,8 @@
           "name": "defaultOptions",
           "type": "any",
           "default": "{\n    cols: 1,\n    rows: 3,\n  }",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -3087,6 +3490,7 @@
       "kind": "component",
       "selector": "text-field",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/form/field/textfield.component.ts",
       "inputs": [],
       "outputs": [],
@@ -3095,7 +3499,8 @@
           "name": "init",
           "params": [],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "openChanged",
@@ -3106,7 +3511,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "getLabel",
@@ -3117,7 +3523,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "getValue",
@@ -3128,49 +3535,57 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": [
         {
           "name": "autocompleteTrigger",
           "type": "MatAutocompleteTrigger",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "disableKeyFilter",
           "type": "any",
           "default": "false",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "regexText",
           "type": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "filteredOptions",
           "type": "Observable<string[]>",
           "default": "new Observable<string[]>()",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "isAlive",
           "type": "any",
           "default": "false",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "isLoading",
           "type": "any",
           "default": "false",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "searching",
           "type": "boolean",
           "default": "false",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -3179,6 +3594,7 @@
       "kind": "component",
       "selector": "trigger-field",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/form/trigger/trigger.field.ts",
       "inputs": [],
       "outputs": [],
@@ -3187,46 +3603,54 @@
           "name": "init",
           "params": [],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "open",
           "params": [],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": [
         {
           "name": "input",
           "type": "ElementRef",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "label",
           "type": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "openOnFocus",
           "type": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "openOnFocus",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "isOpen",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "enableKeyEvents",
           "type": "any",
           "default": "true",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -3234,6 +3658,7 @@
       "name": "TriggerModule",
       "kind": "module",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/form/trigger/trigger.module.ts",
       "inputs": [],
       "outputs": [],
@@ -3243,7 +3668,8 @@
           "name": "entryComponents",
           "type": "any",
           "default": "[TriggerField]",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -3251,6 +3677,7 @@
       "name": "ValueChange",
       "kind": "class",
       "summary": "Change event object emitted by Md2Select.",
+      "summaryZh": null,
       "sourceFile": "src/form/trigger/abstract.trigger.ts",
       "inputs": [],
       "outputs": [],
@@ -3262,6 +3689,7 @@
       "kind": "component",
       "selector": "editor-field-wrapper",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/form/wrapper/editor-field.ts",
       "inputs": [],
       "outputs": [],
@@ -3275,13 +3703,15 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "init",
           "params": [],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "showTip",
@@ -3292,13 +3722,15 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "hideTip",
           "params": [],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "onContainerClick",
@@ -3309,106 +3741,126 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": [
         {
           "name": "fieldComponent",
           "type": "ViewContainerRef",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "formField",
           "type": "MatFormField",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "popoverTrigger",
           "type": "PopoverTrigger",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "popover",
           "type": "Popover",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "stateChanges",
           "type": "any",
           "default": "new Subject<void>()",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "showUnder",
           "type": "any",
           "default": "false",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "errorState",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "color",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "controlType",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "focused",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "disabled",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "required",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "placeholder",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "shouldPlaceholderFloat",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "value",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "ngControl",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "empty",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "shouldLabelFloat",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "fieldConfig",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -3417,6 +3869,7 @@
       "kind": "component",
       "selector": "mat-form-field-wrapper",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/form/wrapper/form-field.ts",
       "inputs": [],
       "outputs": [],
@@ -3425,7 +3878,8 @@
           "name": "init",
           "params": [],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "showTip",
@@ -3436,13 +3890,15 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "hideTip",
           "params": [],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "onContainerClick",
@@ -3453,117 +3909,139 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": [
         {
           "name": "fieldComponent",
           "type": "ViewContainerRef",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "formField",
           "type": "MatFormField",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "stateChanges",
           "type": "any",
           "default": "new Subject<void>()",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "toolTip",
           "type": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "underTip",
           "type": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "showUnder",
           "type": "any",
           "default": "false",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "classFormField",
           "type": "any",
           "default": "\"\"",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "paddingStyle",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "errorState",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "color",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "controlType",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "focused",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "disabled",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "required",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "placeholder",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "shouldPlaceholderFloat",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "value",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "ngControl",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "empty",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "shouldLabelFloat",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "fieldConfig",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     }

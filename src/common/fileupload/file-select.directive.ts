@@ -9,12 +9,27 @@ import { fileToDataURL, getImageTypeFromDataUrl, resizeImage } from './utils';
 
 export const IMAGE_FILE_PROCESSOR = new InjectionToken<ImageFileProcessor>('ImageFileProcessor');
 
+/**
+ * Attach to a native `<input type="file">` to queue selected files into a {@link FileUploader},
+ * with optional client-side image resizing/processing via `imageSelected`.
+ * @zh 附加到原生 `<input type="file">` 上，将选中的文件加入 {@link FileUploader} 队列，
+ * 并通过 `imageSelected` 提供可选的客户端图片缩放/处理结果。
+ */
 @Directive({ selector: '[duiFileSelect]' })
 export class FileSelectDirective implements OnChanges{
+  /**
+   * The uploader instance that selected files are queued into.
+   * @zh 选中的文件会被加入到该上传器实例的队列中。
+   */
   @Input() public uploader: FileUploader;
 
+  /** @zh 文件选择完成后发出。 */
   @Output() public onFileSelected: EventEmitter<File[] | FileList | File> = new EventEmitter<File[] | FileList | File>();
 
+  /**
+   * Emits per-selected-image results (data URL, optional resize, or error) once processed.
+   * @zh 每张被选中的图片处理完成后发出结果（data URL、可选的缩放结果，或错误）。
+   */
   @Output() imageSelected = new EventEmitter<ImageResult>();
 
 

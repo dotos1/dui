@@ -5,6 +5,7 @@
       "name": "Action",
       "kind": "enum",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/dragselect/models.ts",
       "inputs": [],
       "outputs": [],
@@ -15,6 +16,7 @@
       "name": "boxIntersects",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/dragselect/utils.ts",
       "inputs": [],
       "outputs": [],
@@ -25,6 +27,7 @@
       "name": "calculateBoundingClientRect",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/dragselect/utils.ts",
       "inputs": [],
       "outputs": [],
@@ -35,6 +38,7 @@
       "name": "clearSelection",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/dragselect/utils.ts",
       "inputs": [],
       "outputs": [],
@@ -45,6 +49,7 @@
       "name": "CONFIG",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/dragselect/tokens.ts",
       "inputs": [],
       "outputs": [],
@@ -55,6 +60,7 @@
       "name": "CONFIG_FACTORY",
       "kind": "function",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/dragselect/drag-to-select.module.ts",
       "inputs": [],
       "outputs": [],
@@ -65,6 +71,7 @@
       "name": "cursorWithinElement",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/dragselect/utils.ts",
       "inputs": [],
       "outputs": [],
@@ -75,6 +82,7 @@
       "name": "DEFAULT_CONFIG",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/dragselect/config.ts",
       "inputs": [],
       "outputs": [],
@@ -85,6 +93,7 @@
       "name": "DragToSelectModule",
       "kind": "module",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/dragselect/drag-to-select.module.ts",
       "inputs": [],
       "outputs": [],
@@ -98,7 +107,8 @@
             }
           ],
           "returnType": "ModuleWithProviders<DragToSelectModule>",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": []
@@ -107,6 +117,7 @@
       "name": "getMousePosition",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/dragselect/utils.ts",
       "inputs": [],
       "outputs": [],
@@ -117,6 +128,7 @@
       "name": "getRelativeMousePosition",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/dragselect/utils.ts",
       "inputs": [],
       "outputs": [],
@@ -127,6 +139,7 @@
       "name": "hasMinimumSize",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/dragselect/utils.ts",
       "inputs": [],
       "outputs": [],
@@ -137,6 +150,7 @@
       "name": "inBoundingBox",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/dragselect/utils.ts",
       "inputs": [],
       "outputs": [],
@@ -147,6 +161,7 @@
       "name": "MousePosition",
       "kind": "interface",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/dragselect/models.ts",
       "inputs": [],
       "outputs": [],
@@ -157,6 +172,7 @@
       "name": "PredicateFn",
       "kind": "type",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/dragselect/models.ts",
       "inputs": [],
       "outputs": [],
@@ -167,6 +183,7 @@
       "name": "SelectBox",
       "kind": "interface",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/dragselect/models.ts",
       "inputs": [],
       "outputs": [],
@@ -177,99 +194,116 @@
       "name": "SelectContainerComponent",
       "kind": "component",
       "selector": "dts-select-container",
-      "summary": null,
+      "summary": "A drag-to-select container: draws a selection rectangle as the user drags, and toggles\nthe `selected` state of any {@link SelectItemDirective} children it intersects.\nAlso supports click-to-select and shift/ctrl range/multi selection.",
+      "summaryZh": "拖拽框选容器：用户拖拽时绘制选框，并切换与选框相交的所有 {@link SelectItemDirective}子元素的选中状态；同时支持点击选择、以及 shift/ctrl 范围/多选。",
       "sourceFile": "src/common/dragselect/select-container.component.ts",
       "inputs": [
         {
           "name": "selectedItems",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "selectOnDrag",
           "type": "any",
           "default": "true",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "disabled",
           "type": "any",
           "default": "false",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "disableDrag",
           "type": "any",
           "default": "false",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "selectOnClick",
           "type": "any",
           "default": "true",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "dragOverItems",
           "type": "any",
           "default": "true",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "disableRangeSelection",
           "type": "any",
           "default": "false",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "selectMode",
           "type": "any",
           "default": "false",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "selectWithShortcut",
           "type": "any",
           "default": "false",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "custom",
           "type": "any",
           "default": "false",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "outputs": [
         {
           "name": "selectedItemsChange",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "select",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "itemSelected",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "itemDeselected",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "selectionStarted",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "selectionEnded",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "methods": [
@@ -277,7 +311,8 @@
           "name": "selectAll",
           "params": [],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "setSelect",
@@ -288,7 +323,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "toggleItems",
@@ -299,7 +335,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "selectItems",
@@ -310,7 +347,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "deselectItems",
@@ -321,19 +359,22 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "clearSelection",
           "params": [],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "update",
           "params": [],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "selectItem",
@@ -344,30 +385,35 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": [
         {
           "name": "host",
           "type": "SelectContainerHost",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "selectBoxStyles$",
           "type": "Observable<SelectBox<string>>",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "selectBoxClasses$",
           "type": "Observable<{ [key: string]: boolean }>",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "hostClass",
           "type": "any",
           "default": "true",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -375,6 +421,7 @@
       "name": "SelectContainerHost",
       "kind": "interface",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/dragselect/models.ts",
       "inputs": [],
       "outputs": [],
@@ -385,19 +432,22 @@
       "name": "SelectItemDirective",
       "kind": "directive",
       "selector": "[dtsSelectItem]",
-      "summary": null,
+      "summary": "Marks an element as selectable within a parent {@link SelectContainerComponent}.",
+      "summaryZh": "将元素标记为父级 {@link SelectContainerComponent} 中可被框选的项。",
       "sourceFile": "src/common/dragselect/select-item.directive.ts",
       "inputs": [
         {
           "name": "dtsSelectItem",
           "type": "any | undefined",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "dtsDisabled",
           "type": "any",
           "default": "false",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "outputs": [],
@@ -406,19 +456,22 @@
           "name": "toggleRangeStart",
           "params": [],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "getBoundingClientRect",
           "params": [],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "calculateBoundingClientRect",
           "params": [],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": [
@@ -426,36 +479,42 @@
           "name": "selected",
           "type": "any",
           "default": "false",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "rangeStart",
           "type": "any",
           "default": "false",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "hostClass",
           "type": "any",
           "default": "true",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "value",
           "type": "SelectItemDirective | any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "nativeElememnt",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
     {
       "name": "ShortcutService",
       "kind": "service",
-      "summary": null,
+      "summary": "Parses the drag-to-select config's keyboard shortcut strings (e.g. `\"ctrl+shift\"`) and\nexposes methods to check whether a given shortcut is currently held during an event.",
+      "summaryZh": "解析拖拽框选配置中的键盘快捷键字符串（如 `\"ctrl+shift\"`），\n并提供方法判断某个快捷键在事件发生时是否处于按下状态。",
       "sourceFile": "src/common/dragselect/shortcut.service.ts",
       "inputs": [],
       "outputs": [],
@@ -469,7 +528,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "moveRangeStart",
@@ -480,7 +540,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "toggleSingleItem",
@@ -491,7 +552,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "addToSelection",
@@ -502,7 +564,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "removeFromSelection",
@@ -513,7 +576,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "extendedSelectionShortcut",
@@ -524,7 +588,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": []
@@ -533,6 +598,7 @@
       "name": "UpdateAction",
       "kind": "interface",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/dragselect/models.ts",
       "inputs": [],
       "outputs": [],
@@ -543,6 +609,7 @@
       "name": "UpdateActions",
       "kind": "enum",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/dragselect/models.ts",
       "inputs": [],
       "outputs": [],
@@ -553,6 +620,7 @@
       "name": "USER_CONFIG",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/dragselect/tokens.ts",
       "inputs": [],
       "outputs": [],

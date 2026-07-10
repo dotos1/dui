@@ -31,6 +31,12 @@ export interface DndDropEvent {
   dropTarget?:any
 }
 
+/**
+ * Marks a descendant of {@link DndDropzoneDirective} as the placeholder element to position
+ * at the prospective drop location while dragging over the dropzone.
+ * @zh 将 {@link DndDropzoneDirective} 的子孙元素标记为占位元素，
+ * 在拖拽悬停于放置区上方时将其定位到预计的放置位置。
+ */
 @Directive( {
   selector: "[dndPlaceholderRef]"
 } )
@@ -40,6 +46,12 @@ export class DndPlaceholderRefDirective {
   }
 }
 
+/**
+ * Marks the host element as a valid drop target for {@link DndDraggableDirective} elements,
+ * with optional type filtering (`dndDropzone`) and drop-position placeholder support.
+ * @zh 将宿主元素标记为 {@link DndDraggableDirective} 元素的有效放置目标，支持按类型过滤
+ * （`dndDropzone`）以及放置位置的占位符提示。
+ */
 @Directive( {
   selector: "[dndDropzone]"
 } )

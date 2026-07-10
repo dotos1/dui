@@ -6,45 +6,53 @@
       "kind": "component",
       "selector": "color-alpha",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/colorpicker/common/alpha.component.ts",
       "inputs": [
         {
           "name": "hsl",
           "type": "HSLA",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "rgb",
           "type": "RGBA",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "pointer",
           "type": "{ [key: string]: string }",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "shadow",
           "type": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "radius",
           "type": "string|number",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "direction",
           "type": "'horizontal' | 'vertical'",
           "default": "'horizontal'",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "outputs": [
         {
           "name": "onChange",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "methods": [
@@ -57,24 +65,28 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": [
         {
           "name": "gradient",
           "type": "{ [key: string]: string }",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "pointerLeft",
           "type": "number",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "pointerTop",
           "type": "number",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -82,6 +94,7 @@
       "name": "AlphaModule",
       "kind": "module",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/colorpicker/common/alpha.component.ts",
       "inputs": [],
       "outputs": [],
@@ -93,35 +106,41 @@
       "kind": "component",
       "selector": "color-checkboard",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/colorpicker/common/checkboard.component.ts",
       "inputs": [
         {
           "name": "white",
           "type": "any",
           "default": "'transparent'",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "size",
           "type": "any",
           "default": "8",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "grey",
           "type": "any",
           "default": "'rgba(0,0,0,.08)'",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "boxShadow",
           "type": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "borderRadius",
           "type": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "outputs": [],
@@ -130,7 +149,8 @@
         {
           "name": "gridStyles",
           "type": "{ [key: string]: string }",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -138,6 +158,7 @@
       "name": "CheckboardModule",
       "kind": "module",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/colorpicker/common/checkboard.component.ts",
       "inputs": [],
       "outputs": [],
@@ -148,6 +169,7 @@
       "name": "Color",
       "kind": "interface",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/colorpicker/common/helpers/color.interfaces.ts",
       "inputs": [],
       "outputs": [],
@@ -158,6 +180,7 @@
       "name": "ColorEvent",
       "kind": "interface",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/colorpicker/common/color-wrap.component.ts",
       "inputs": [],
       "outputs": [],
@@ -168,36 +191,42 @@
       "name": "ColorWrap",
       "kind": "component",
       "selector": "color-wrap",
-      "summary": null,
+      "summary": "Base class for all `color-*` picker style variants (chrome/sketch/circle/compact/github/...):\nnormalizes the bound `color` (hex/rgb/hsl/hsv) into hsl/hsv/rgb/hex state and dispatches\n`onChange`/`onChangeComplete`/`onSwatchHover` events.",
+      "summaryZh": "所有 `color-*` 颜色选择器样式变体（chrome/sketch/circle/compact/github/...）的基类：\n将绑定的 `color`（hex/rgb/hsl/hsv）归一化为 hsl/hsv/rgb/hex 状态，\n并派发 `onChange`/`onChangeComplete`/`onSwatchHover` 事件。",
       "sourceFile": "src/common/colorpicker/common/color-wrap.component.ts",
       "inputs": [
         {
           "name": "className",
           "type": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "color",
           "type": "HSLA | HSVA | RGBA | string",
           "default": "{\n    h: 250,\n    s: 0.5,\n    l: 0.2,\n    a: 1,\n  }",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "outputs": [
         {
           "name": "onChange",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "onChangeComplete",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "onSwatchHover",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "methods": [
@@ -210,7 +239,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "handleChange",
@@ -225,13 +255,15 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "afterValidChange",
           "params": [],
           "returnType": "any",
-          "description": "hook for components after a complete change"
+          "description": "hook for components after a complete change",
+          "descriptionZh": null
         },
         {
           "name": "handleSwatchHover",
@@ -246,64 +278,76 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": [
         {
           "name": "oldHue",
           "type": "number",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "hsl",
           "type": "HSLA",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "hsv",
           "type": "HSVA",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "rgb",
           "type": "RGBA",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "hex",
           "type": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "source",
           "type": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "currentColor",
           "type": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "changes",
           "type": "Subscription",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "host",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "params",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "params",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -311,6 +355,7 @@
       "name": "ColorWrapModule",
       "kind": "module",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/colorpicker/common/color-wrap.component.ts",
       "inputs": [],
       "outputs": [],
@@ -322,13 +367,15 @@
       "kind": "directive",
       "selector": "[ngx-color-coordinates]",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/colorpicker/common/coordinates.directive.ts",
       "inputs": [],
       "outputs": [
         {
           "name": "coordinatesChange",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "methods": [
@@ -353,13 +400,15 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "mouseup",
           "params": [],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "mousedown",
@@ -382,7 +431,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "handleChange",
@@ -405,7 +455,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": []
@@ -414,6 +465,7 @@
       "name": "CoordinatesModule",
       "kind": "module",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/colorpicker/common/coordinates.directive.ts",
       "inputs": [],
       "outputs": [],
@@ -425,50 +477,59 @@
       "kind": "component",
       "selector": "color-editable-input",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/colorpicker/common/editable-input.component.ts",
       "inputs": [
         {
           "name": "style",
           "type": "{ wrap?: { [key: string]: string }; input: { [key: string]: string }; label: { [key: string]: string }; }",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "label",
           "type": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "value",
           "type": "string | number",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "arrowOffset",
           "type": "number",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "dragLabel",
           "type": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "dragMax",
           "type": "number",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "placeholder",
           "type": "any",
           "default": "''",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "outputs": [
         {
           "name": "onChange",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "methods": [
@@ -476,13 +537,15 @@
           "name": "handleFocus",
           "params": [],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "handleFocusOut",
           "params": [],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "handleKeydown",
@@ -493,7 +556,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "handleKeyup",
@@ -504,19 +568,22 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "subscribe",
           "params": [],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "unsubscribe",
           "params": [],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "handleMousedown",
@@ -527,7 +594,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "handleDrag",
@@ -538,50 +606,59 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": [
         {
           "name": "currentValue",
           "type": "string | number",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "blurValue",
           "type": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "wrapStyle",
           "type": "{ [key: string]: string }",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "inputStyle",
           "type": "{ [key: string]: string }",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "labelStyle",
           "type": "{ [key: string]: string }",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "focus",
           "type": "any",
           "default": "false",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "mousemove",
           "type": "Subscription",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "mouseup",
           "type": "Subscription",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -589,6 +666,7 @@
       "name": "EditableInputModule",
       "kind": "module",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/colorpicker/common/editable-input.component.ts",
       "inputs": [],
       "outputs": [],
@@ -599,6 +677,7 @@
       "name": "getCheckerboard",
       "kind": "function",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/colorpicker/common/helpers/checkboard.ts",
       "inputs": [],
       "outputs": [],
@@ -609,6 +688,7 @@
       "name": "getContrastingColor",
       "kind": "function",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/colorpicker/common/helpers/color.ts",
       "inputs": [],
       "outputs": [],
@@ -619,6 +699,7 @@
       "name": "HSL",
       "kind": "interface",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/colorpicker/common/helpers/color.interfaces.ts",
       "inputs": [],
       "outputs": [],
@@ -629,6 +710,7 @@
       "name": "HSLA",
       "kind": "interface",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/colorpicker/common/helpers/color.interfaces.ts",
       "inputs": [],
       "outputs": [],
@@ -639,6 +721,7 @@
       "name": "HSLAsource",
       "kind": "interface",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/colorpicker/common/helpers/color.interfaces.ts",
       "inputs": [],
       "outputs": [],
@@ -649,6 +732,7 @@
       "name": "HSV",
       "kind": "interface",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/colorpicker/common/helpers/color.interfaces.ts",
       "inputs": [],
       "outputs": [],
@@ -659,6 +743,7 @@
       "name": "HSVA",
       "kind": "interface",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/colorpicker/common/helpers/color.interfaces.ts",
       "inputs": [],
       "outputs": [],
@@ -669,6 +754,7 @@
       "name": "HSVAsource",
       "kind": "interface",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/colorpicker/common/helpers/color.interfaces.ts",
       "inputs": [],
       "outputs": [],
@@ -680,46 +766,54 @@
       "kind": "component",
       "selector": "color-hue",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/colorpicker/common/hue.component.ts",
       "inputs": [
         {
           "name": "hsl",
           "type": "HSLA",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "pointer",
           "type": "{ [key: string]: string }",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "radius",
           "type": "number",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "shadow",
           "type": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "hidePointer",
           "type": "any",
           "default": "false",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "direction",
           "type": "'horizontal' | 'vertical'",
           "default": "'horizontal'",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "outputs": [
         {
           "name": "onChange",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "methods": [
@@ -732,7 +826,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": [
@@ -740,13 +835,15 @@
           "name": "left",
           "type": "any",
           "default": "'0px'",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "top",
           "type": "any",
           "default": "''",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -754,6 +851,7 @@
       "name": "HueModule",
       "kind": "module",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/colorpicker/common/hue.component.ts",
       "inputs": [],
       "outputs": [],
@@ -764,6 +862,7 @@
       "name": "isValidHex",
       "kind": "function",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/colorpicker/common/helpers/color.ts",
       "inputs": [],
       "outputs": [],
@@ -775,25 +874,29 @@
       "kind": "component",
       "selector": "color-raised",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/colorpicker/common/raised.component.ts",
       "inputs": [
         {
           "name": "zDepth",
           "type": "zDepth",
           "default": "1",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "radius",
           "type": "any",
           "default": "1",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "background",
           "type": "any",
           "default": "'#fff'",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "outputs": [],
@@ -804,6 +907,7 @@
       "name": "RaisedModule",
       "kind": "module",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/colorpicker/common/raised.component.ts",
       "inputs": [],
       "outputs": [],
@@ -814,6 +918,7 @@
       "name": "render",
       "kind": "function",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/colorpicker/common/helpers/checkboard.ts",
       "inputs": [],
       "outputs": [],
@@ -824,6 +929,7 @@
       "name": "RGB",
       "kind": "interface",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/colorpicker/common/helpers/color.interfaces.ts",
       "inputs": [],
       "outputs": [],
@@ -834,6 +940,7 @@
       "name": "RGBA",
       "kind": "interface",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/colorpicker/common/helpers/color.interfaces.ts",
       "inputs": [],
       "outputs": [],
@@ -845,39 +952,46 @@
       "kind": "component",
       "selector": "color-saturation",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/colorpicker/common/saturation.component.ts",
       "inputs": [
         {
           "name": "hsl",
           "type": "HSLA",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "hsv",
           "type": "HSVA",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "radius",
           "type": "number",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "pointer",
           "type": "{ [key: string]: string }",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "circle",
           "type": "{ [key: string]: string }",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "outputs": [
         {
           "name": "onChange",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "methods": [
@@ -890,24 +1004,28 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": [
         {
           "name": "background",
           "type": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "pointerTop",
           "type": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "pointerLeft",
           "type": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -915,6 +1033,7 @@
       "name": "SaturationModule",
       "kind": "module",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/colorpicker/common/saturation.component.ts",
       "inputs": [],
       "outputs": [],
@@ -926,39 +1045,46 @@
       "kind": "component",
       "selector": "color-shade",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/colorpicker/common/shade.component.ts",
       "inputs": [
         {
           "name": "hsl",
           "type": "HSLA",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "rgb",
           "type": "RGBA",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "pointer",
           "type": "{ [key: string]: string }",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "shadow",
           "type": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "radius",
           "type": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "outputs": [
         {
           "name": "onChange",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "methods": [
@@ -971,24 +1097,28 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": [
         {
           "name": "gradient",
           "type": "{ [key: string]: string }",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "pointerLeft",
           "type": "number",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "pointerTop",
           "type": "number",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -996,6 +1126,7 @@
       "name": "ShadeModule",
       "kind": "module",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/colorpicker/common/shade.component.ts",
       "inputs": [],
       "outputs": [],
@@ -1006,6 +1137,7 @@
       "name": "Shape",
       "kind": "interface",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/colorpicker/common/helpers/color.interfaces.ts",
       "inputs": [],
       "outputs": [],
@@ -1016,6 +1148,7 @@
       "name": "simpleCheckForValidColor",
       "kind": "function",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/colorpicker/common/helpers/color.ts",
       "inputs": [],
       "outputs": [],
@@ -1027,41 +1160,48 @@
       "kind": "component",
       "selector": "color-swatch",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/colorpicker/common/swatch.component.ts",
       "inputs": [
         {
           "name": "color",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "style",
           "type": "{ [key: string]: string }",
           "default": "{}",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "focusStyle",
           "type": "{ [key: string]: string }",
           "default": "{}",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "focus",
           "type": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "outputs": [
         {
           "name": "onClick",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "onHover",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "methods": [
@@ -1069,19 +1209,22 @@
           "name": "currentStyles",
           "params": [],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "handleFocusOut",
           "params": [],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "handleFocus",
           "params": [],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "handleHover",
@@ -1096,7 +1239,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "handleClick",
@@ -1111,7 +1255,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": [
@@ -1119,19 +1264,22 @@
           "name": "divStyles",
           "type": "{ [key: string]: string }",
           "default": "{}",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "focusStyles",
           "type": "{ [key: string]: string }",
           "default": "{}",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "inFocus",
           "type": "any",
           "default": "false",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -1139,6 +1287,7 @@
       "name": "SwatchModule",
       "kind": "module",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/colorpicker/common/swatch.component.ts",
       "inputs": [],
       "outputs": [],
@@ -1149,6 +1298,7 @@
       "name": "toState",
       "kind": "function",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/colorpicker/common/helpers/color.ts",
       "inputs": [],
       "outputs": [],
@@ -1159,6 +1309,7 @@
       "name": "zDepth",
       "kind": "type",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/colorpicker/common/raised.component.ts",
       "inputs": [],
       "outputs": [],

@@ -1,6 +1,12 @@
 import { Injectable, NgZone, SkipSelf, Optional, Provider } from '@angular/core';
 import { Observable, BehaviorSubject, Subscription, fromEvent } from 'rxjs';
 
+/**
+ * Registers and evaluates `matchMedia` queries (plus a set of built-in breakpoint aliases
+ * like `xs`/`gt-sm`/`landscape`), broadcasting changes on window resize.
+ * @zh 注册并求值 `matchMedia` 媒体查询（内置一组断点别名，如 `xs`/`gt-sm`/`landscape`），
+ * 并在窗口尺寸变化时广播结果变化。
+ */
 @Injectable({
   providedIn: 'root'
 })

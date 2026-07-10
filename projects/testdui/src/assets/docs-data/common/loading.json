@@ -5,6 +5,7 @@
       "name": "IInternalLoadingOptions",
       "kind": "interface",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/loading/services/loading.factory.ts",
       "inputs": [],
       "outputs": [],
@@ -15,6 +16,7 @@
       "name": "ILoadingConfig",
       "kind": "interface",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/loading/services/loading.service.ts",
       "inputs": [],
       "outputs": [],
@@ -25,6 +27,7 @@
       "name": "ILoadingDirectiveConfig",
       "kind": "interface",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/loading/services/loading.service.ts",
       "inputs": [],
       "outputs": [],
@@ -35,6 +38,7 @@
       "name": "ILoadingRef",
       "kind": "interface",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/loading/services/loading.factory.ts",
       "inputs": [],
       "outputs": [],
@@ -45,6 +49,7 @@
       "name": "LOADING_FACTORY_PROVIDER",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/loading/services/loading.factory.ts",
       "inputs": [],
       "outputs": [],
@@ -55,6 +60,7 @@
       "name": "LOADING_FACTORY_PROVIDER_FACTORY",
       "kind": "function",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/loading/services/loading.factory.ts",
       "inputs": [],
       "outputs": [],
@@ -65,6 +71,7 @@
       "name": "LOADING_PROVIDER",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/loading/services/loading.service.ts",
       "inputs": [],
       "outputs": [],
@@ -75,6 +82,7 @@
       "name": "LOADING_PROVIDER_FACTORY",
       "kind": "function",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/loading/services/loading.service.ts",
       "inputs": [],
       "outputs": [],
@@ -85,7 +93,8 @@
       "name": "LoadingComponent",
       "kind": "component",
       "selector": "dui-loading",
-      "summary": null,
+      "summary": "A circular or linear loading indicator, usable standalone or driven by {@link LoadingDirective}\n/ {@link LoadingService} (full-screen, overlay, or in-place replace strategies).",
+      "summaryZh": "圆形或线性加载指示器，可独立使用，也可由 {@link LoadingDirective} / {@link LoadingService}驱动（支持全屏、遮罩层、原地替换等策略）。",
       "sourceFile": "src/common/loading/loading.component.ts",
       "inputs": [],
       "outputs": [],
@@ -94,55 +103,64 @@
           "name": "getHeight",
           "params": [],
           "returnType": "string | undefined",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "getCircleDiameter",
           "params": [],
           "returnType": "number",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "getCircleStrokeWidth",
           "params": [],
           "returnType": "number",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "isCircular",
           "params": [],
           "returnType": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "isLinear",
           "params": [],
           "returnType": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "isFullScreen",
           "params": [],
           "returnType": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "isOverlay",
           "params": [],
           "returnType": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "show",
           "params": [],
           "returnType": "void",
-          "description": "Starts in animation and returns an observable for completition event."
+          "description": "Starts in animation and returns an observable for completition event.",
+          "descriptionZh": null
         },
         {
           "name": "hide",
           "params": [],
           "returnType": "void",
-          "description": "Starts out animation and returns an observable for completition event."
+          "description": "Starts out animation and returns an observable for completition event.",
+          "descriptionZh": null
         }
       ],
       "properties": [
@@ -150,56 +168,66 @@
           "name": "animation",
           "type": "any",
           "default": "false",
-          "description": "Flag for animation"
+          "description": "Flag for animation",
+          "descriptionZh": null
         },
         {
           "name": "content",
           "type": "TemplatePortal<any>",
-          "description": "Content injected into loading component."
+          "description": "Content injected into loading component.",
+          "descriptionZh": null
         },
         {
           "name": "mode",
           "type": "any",
-          "description": "Sets mode of [DuiLoadingComponent] to LoadingMode.Determinate or LoadingMode.Indeterminate"
+          "description": "Sets mode of [DuiLoadingComponent] to LoadingMode.Determinate or LoadingMode.Indeterminate",
+          "descriptionZh": "设置加载指示器为确定模式（LoadingMode.Determinate）或不确定模式（LoadingMode.Indeterminate）。"
         },
         {
           "name": "mode",
           "type": "LoadingMode",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "value",
           "type": "any",
-          "description": "Sets value of [DuiLoadingComponent] if mode is 'LoadingMode.Determinate'"
+          "description": "Sets value of [DuiLoadingComponent] if mode is 'LoadingMode.Determinate'",
+          "descriptionZh": "当模式为 'LoadingMode.Determinate' 时，设置加载指示器的进度值。"
         },
         {
           "name": "value",
           "type": "number",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "style",
           "type": "LoadingStyle",
           "default": "LoadingStyle.None",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "height",
           "type": "any",
           "default": "100",
-          "description": "height: number\nSets height of [DuiLoadingComponent]."
+          "description": "height: number\nSets height of [DuiLoadingComponent].",
+          "descriptionZh": null
         },
         {
           "name": "type",
           "type": "LoadingType",
           "default": "LoadingType.Circular",
-          "description": "type: LoadingType\nSets type of [DuiLoadingComponent] rendered."
+          "description": "type: LoadingType\nSets type of [DuiLoadingComponent] rendered.",
+          "descriptionZh": null
         },
         {
           "name": "color",
           "type": "'primary' | 'accent' | 'warn'",
           "default": "'primary'",
-          "description": "color: primary' | 'accent' | 'warn'\nSets theme color of [DuiLoadingComponent] rendered."
+          "description": "color: primary' | 'accent' | 'warn'\nSets theme color of [DuiLoadingComponent] rendered.",
+          "descriptionZh": null
         }
       ]
     },
@@ -207,6 +235,7 @@
       "name": "LoadingConfig",
       "kind": "class",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/loading/services/loading.service.ts",
       "inputs": [],
       "outputs": [],
@@ -215,22 +244,26 @@
         {
           "name": "name",
           "type": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "type",
           "type": "LoadingType",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "mode",
           "type": "LoadingMode",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "color",
           "type": "'primary' | 'accent' | 'warn'",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -238,6 +271,7 @@
       "name": "LoadingContext",
       "kind": "class",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/loading/directives/loading.directive.ts",
       "inputs": [],
       "outputs": [],
@@ -247,13 +281,15 @@
           "name": "$implicit",
           "type": "any",
           "default": "undefined",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "tdLoading",
           "type": "any",
           "default": "undefined",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -261,48 +297,55 @@
       "name": "LoadingDirective",
       "kind": "directive",
       "selector": "[duiLoading]",
-      "summary": null,
+      "summary": "Structural-style directive that shows a {@link LoadingComponent} over/instead of its host\nelement until the `duiLoadingUntil` condition becomes truthy.",
+      "summaryZh": "结构型指令，在 `duiLoadingUntil` 条件变为真值之前，于宿主元素之上/取代宿主元素显示 {@link LoadingComponent}。",
       "sourceFile": "src/common/loading/directives/loading.directive.ts",
       "inputs": [
         {
           "name": "name",
           "alias": "duiLoading",
           "type": "string",
-          "description": null
+          "description": "Unique name for this loading instance, auto-generated if omitted.",
+          "descriptionZh": "本加载实例的唯一名称，省略时自动生成。"
         },
         {
           "name": "until",
           "alias": "duiLoadingUntil",
           "type": "any",
-          "description": null
+          "description": "Shows the loading indicator while this value is falsy; hides it once truthy.",
+          "descriptionZh": "当该值为假时显示加载指示器；变为真值后隐藏。"
         },
         {
           "name": "type",
           "alias": "duiLoadingType",
           "type": "LoadingType",
           "default": "LoadingType.Circular",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "mode",
           "alias": "duiLoadingMode",
           "type": "LoadingMode",
           "default": "LoadingMode.Indeterminate",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "strategy",
           "alias": "duiLoadingStrategy",
           "type": "LoadingStrategy.Overlay | LoadingStrategy.Replace",
           "default": "LoadingStrategy.Replace",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "color",
           "alias": "duiLoadingColor",
           "type": "'primary' | 'accent' | 'warn'",
           "default": "'primary'",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "outputs": [],
@@ -313,6 +356,7 @@
       "name": "LoadingDirectiveConfig",
       "kind": "class",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/loading/services/loading.service.ts",
       "inputs": [],
       "outputs": [],
@@ -321,14 +365,16 @@
         {
           "name": "strategy",
           "type": "LoadingStrategy",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
     {
       "name": "LoadingFactory",
       "kind": "service",
-      "summary": null,
+      "summary": "Low-level factory that creates and manages {@link LoadingComponent} instances for the three\nloading presentation styles (full-screen overlay, positioned overlay, in-place replace);\nused internally by {@link LoadingService}.",
+      "summaryZh": "低层工厂，为三种加载展示样式（全屏覆盖、定位覆盖、原地替换）创建并管理\n{@link LoadingComponent} 实例；供 {@link LoadingService} 内部使用。",
       "sourceFile": "src/common/loading/services/loading.factory.ts",
       "inputs": [],
       "outputs": [],
@@ -342,7 +388,8 @@
             }
           ],
           "returnType": "ILoadingRef",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "createOverlayComponent",
@@ -361,7 +408,8 @@
             }
           ],
           "returnType": "ILoadingRef",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "createReplaceComponent",
@@ -384,7 +432,8 @@
             }
           ],
           "returnType": "ILoadingRef",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": []
@@ -393,6 +442,7 @@
       "name": "LoadingMode",
       "kind": "enum",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/loading/loading.component.ts",
       "inputs": [],
       "outputs": [],
@@ -403,6 +453,7 @@
       "name": "LoadingModule",
       "kind": "module",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/loading/loading.module.ts",
       "inputs": [],
       "outputs": [],
@@ -412,14 +463,16 @@
           "name": "entryComponents",
           "type": "any",
           "default": "EXT_LOADING_ENTRY_COMPONENTS",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
     {
       "name": "LoadingService",
       "kind": "service",
-      "summary": null,
+      "summary": "Manages named loading indicators: a full-screen one created at startup, plus any number\nof directive-driven (overlay or replace-strategy) loading components registered/resolved by name.",
+      "summaryZh": "管理具名的加载指示器：启动时创建的一个全屏指示器，以及任意数量由指令驱动\n（overlay 或 replace 策略）、按名称注册/解析的加载组件。",
       "sourceFile": "src/common/loading/services/loading.service.ts",
       "inputs": [],
       "outputs": [],
@@ -445,7 +498,8 @@
             }
           ],
           "returnType": "ILoadingRef",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "create",
@@ -456,7 +510,8 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": "Creates (or recreates) a full-screen loading component under the given name.",
+          "descriptionZh": "以指定名称创建（或重建）一个全屏加载组件。"
         },
         {
           "name": "removeComponent",
@@ -467,7 +522,8 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": "Unsubscribes and destroys the named loading component.",
+          "descriptionZh": "取消订阅并销毁指定名称的加载组件。"
         },
         {
           "name": "register",
@@ -482,7 +538,8 @@
             }
           ],
           "returnType": "boolean",
-          "description": null
+          "description": "Increments the named loading indicator's pending-operation counter, showing it while\nthe counter is above zero. Retries via `setTimeout` if the component isn't created yet.",
+          "descriptionZh": "增加指定名称加载指示器的\"待完成操作\"计数器，计数大于零时显示指示器。\n若组件尚未创建，会通过 `setTimeout` 重试。"
         },
         {
           "name": "resolve",
@@ -497,7 +554,8 @@
             }
           ],
           "returnType": "boolean",
-          "description": null
+          "description": "Decrements the named loading indicator's pending-operation counter, hiding it once\nit reaches zero.",
+          "descriptionZh": "减少指定名称加载指示器的\"待完成操作\"计数器，计数归零时隐藏指示器。"
         },
         {
           "name": "resolveAll",
@@ -508,7 +566,8 @@
             }
           ],
           "returnType": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "setValue",
@@ -523,7 +582,8 @@
             }
           ],
           "returnType": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": []
@@ -532,6 +592,7 @@
       "name": "LoadingStrategy",
       "kind": "enum",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/loading/loading.component.ts",
       "inputs": [],
       "outputs": [],
@@ -542,6 +603,7 @@
       "name": "LoadingStyle",
       "kind": "enum",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/loading/loading.component.ts",
       "inputs": [],
       "outputs": [],
@@ -552,6 +614,7 @@
       "name": "LoadingType",
       "kind": "enum",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/loading/loading.component.ts",
       "inputs": [],
       "outputs": [],
@@ -562,6 +625,7 @@
       "name": "TD_CIRCLE_DIAMETER",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/loading/loading.component.ts",
       "inputs": [],
       "outputs": [],

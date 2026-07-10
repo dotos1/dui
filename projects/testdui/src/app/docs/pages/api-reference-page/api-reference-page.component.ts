@@ -4,7 +4,8 @@ import { Observable } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 
 import { DocsDataService } from '../../services/docs-data.service';
-import { ApiMethod, ModuleApiFile } from '../../models/api-record.model';
+import { ApiExport, ApiInput, ApiMethod, ApiOutput, ApiProperty, ModuleApiFile } from '../../models/api-record.model';
+import { preferZh } from '../../util/i18n-text';
 
 @Component({
   selector: 'app-api-reference-page',
@@ -24,5 +25,13 @@ export class ApiReferencePageComponent {
 
   formatParams(method: ApiMethod): string {
     return method.params.map((p) => `${p.name}: ${p.type}`).join(', ');
+  }
+
+  summaryOf(item: ApiExport): string | null {
+    return preferZh(item.summaryZh, item.summary);
+  }
+
+  descriptionOf(item: ApiInput | ApiOutput | ApiMethod | ApiProperty): string | null {
+    return preferZh(item.descriptionZh, item.description);
   }
 }

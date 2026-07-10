@@ -44,6 +44,15 @@ function getJsDocZhDescription(node) {
             if (text)
                 return text;
         }
+        if (ts.isJSDoc(doc) && doc.tags) {
+            for (const tag of doc.tags) {
+                if (ts.isJSDocUnknownTag(tag) && tag.tagName?.text === 'zh') {
+                    const text = commentText(tag.comment);
+                    if (text)
+                        return text;
+                }
+            }
+        }
     }
     return null;
 }

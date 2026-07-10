@@ -5,6 +5,7 @@
       "name": "addClass",
       "kind": "function",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/base/dom.ts",
       "inputs": [],
       "outputs": [],
@@ -15,6 +16,7 @@
       "name": "addInstance",
       "kind": "function",
       "summary": "Function to add instances for the given element.\nparam {string | HTMLElement} element\nparam {Object} instance\nreturn {void}\nprivate",
+      "summaryZh": null,
       "sourceFile": "src/base/util.ts",
       "inputs": [],
       "outputs": [],
@@ -25,6 +27,7 @@
       "name": "AngularEventEmitter",
       "kind": "interface",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/base/base.ts",
       "inputs": [],
       "outputs": [],
@@ -35,6 +38,7 @@
       "name": "append",
       "kind": "function",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/base/dom.ts",
       "inputs": [],
       "outputs": [],
@@ -45,6 +49,7 @@
       "name": "attributes",
       "kind": "function",
       "summary": "The function helps to set multiple attributes to an element\nparam  {Element|Node} element - An element that need to set attributes.\nparam  {{[key:string]:string}} attributes - JSON Object that is going to as attributes.\nprivate",
+      "summaryZh": null,
       "sourceFile": "src/base/dom.ts",
       "inputs": [],
       "outputs": [],
@@ -55,6 +60,7 @@
       "name": "Base",
       "kind": "class",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/base/base.ts",
       "inputs": [],
       "outputs": [],
@@ -72,13 +78,15 @@
             }
           ],
           "returnType": "void",
-          "description": "Function used to set bunch of property at a time.\nprivate\nparam  {Object} prop - JSON object which holds components properties.\nparam  {boolean} muteOnChange? - Specifies to true when we set properties."
+          "description": "Function used to set bunch of property at a time.\nprivate\nparam  {Object} prop - JSON object which holds components properties.\nparam  {boolean} muteOnChange? - Specifies to true when we set properties.",
+          "descriptionZh": null
         },
         {
           "name": "dataBind",
           "params": [],
           "returnType": "void",
-          "description": "Bind property changes immediately to components"
+          "description": "Bind property changes immediately to components",
+          "descriptionZh": null
         },
         {
           "name": "serverDataBind",
@@ -89,7 +97,8 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "on",
@@ -108,7 +117,8 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "addEventListener",
@@ -123,7 +133,8 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "off",
@@ -138,7 +149,8 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "removeEventListener",
@@ -153,7 +165,8 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "trigger",
@@ -176,37 +189,43 @@
             }
           ],
           "returnType": "void | object",
-          "description": "Triggers the handlers in the specified event.\nprivate\nparam {string} eventName - Specifies the event to trigger for the specified component properties.\nCan be a custom event, or any of the standard events.\nparam {Event} eventProp - Additional parameters to pass on to the event properties\nparam {Function} successHandler - this function will invoke after event successfully triggered\nparam {Function} errorHandler - this function will invoke after event if it failured to call.\nreturn {void}"
+          "description": "Triggers the handlers in the specified event.\nprivate\nparam {string} eventName - Specifies the event to trigger for the specified component properties.\nCan be a custom event, or any of the standard events.\nparam {Event} eventProp - Additional parameters to pass on to the event properties\nparam {Function} successHandler - this function will invoke after event successfully triggered\nparam {Function} errorHandler - this function will invoke after event if it failured to call.\nreturn {void}",
+          "descriptionZh": null
         }
       ],
       "properties": [
         {
           "name": "element",
           "type": "ElementType",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "isDestroyed",
           "type": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "isServerRendered",
           "type": "boolean",
           "default": "false",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "allowServerDataBinding",
           "type": "boolean",
           "default": "true",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "ignoreCollectionWatch",
           "type": "boolean",
           "default": "false",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -214,6 +233,7 @@
       "name": "BaseEventArgs",
       "kind": "interface",
       "summary": "Common Event argument for all base Essential JavaScript 2 Events.\nprivate",
+      "summaryZh": null,
       "sourceFile": "src/base/event-handler.ts",
       "inputs": [],
       "outputs": [],
@@ -224,6 +244,7 @@
       "name": "BoundOptions",
       "kind": "interface",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/base/observer.ts",
       "inputs": [],
       "outputs": [],
@@ -234,6 +255,7 @@
       "name": "classList",
       "kind": "function",
       "summary": "Method for add and remove classes to a dom element.\nparam {Element} element - Element for add and remove classes\nparam {string[]} addClasses - List of classes need to be add to the element\nparam {string[]} removeClasses - List of classes need to be remove from the element\nreturn {void}\nprivate",
+      "summaryZh": null,
       "sourceFile": "src/base/dom.ts",
       "inputs": [],
       "outputs": [],
@@ -244,6 +266,7 @@
       "name": "closest",
       "kind": "function",
       "summary": "Returns single closest parent element based on class selector.\nparam  {Element} element - An element that need to find the closest element.\nparam  {string} selector - A classSelector of closest element.\nprivate",
+      "summaryZh": null,
       "sourceFile": "src/base/dom.ts",
       "inputs": [],
       "outputs": [],
@@ -254,6 +277,7 @@
       "name": "compareElementParent",
       "kind": "function",
       "summary": "To check whether the  child element is descendant to parent element or parent and child are same element.\nparam{Element} - Specifies the child element to compare with parent.\nparam{Element} - Specifies the parent element.\nreturn boolean\nprivate",
+      "summaryZh": null,
       "sourceFile": "src/base/util.ts",
       "inputs": [],
       "outputs": [],
@@ -264,6 +288,7 @@
       "name": "createElement",
       "kind": "function",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/base/dom.ts",
       "inputs": [],
       "outputs": [],
@@ -274,6 +299,7 @@
       "name": "createInstance",
       "kind": "function",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/base/util.ts",
       "inputs": [],
       "outputs": [],
@@ -284,6 +310,7 @@
       "name": "debounce",
       "kind": "function",
       "summary": "It limits the rate at which a function can fire. The function will fire only once every provided second instead of as quickly.\nparam {Function} eventFunction - Specifies the function to run when the event occurs\nparam {number} delay - A number that specifies the milliseconds for function delay call option\nreturn {Function}\nprivate",
+      "summaryZh": null,
       "sourceFile": "src/base/util.ts",
       "inputs": [],
       "outputs": [],
@@ -294,6 +321,7 @@
       "name": "defaultCulture",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/base/base.ts",
       "inputs": [],
       "outputs": [],
@@ -304,6 +332,7 @@
       "name": "deleteObject",
       "kind": "function",
       "summary": "Delete an item from Object\nparam {any} obj - Object in which we need to delete an item.\nparam {string} params - String value to the get the inner object\nreturn {void}\nprivate",
+      "summaryZh": null,
       "sourceFile": "src/base/util.ts",
       "inputs": [],
       "outputs": [],
@@ -314,6 +343,7 @@
       "name": "detach",
       "kind": "function",
       "summary": "The function used to remove the element from the\nparam  {Element|Node|HTMLElement} element - An element that is going to detach from the Dom\nprivate",
+      "summaryZh": null,
       "sourceFile": "src/base/dom.ts",
       "inputs": [],
       "outputs": [],
@@ -324,6 +354,7 @@
       "name": "DomElements",
       "kind": "interface",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/base/base.ts",
       "inputs": [],
       "outputs": [],
@@ -334,6 +365,7 @@
       "name": "DuiBase",
       "kind": "class",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/base/duibase.ts",
       "inputs": [],
       "outputs": [],
@@ -351,7 +383,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "hasComponentFactory",
@@ -362,7 +395,8 @@
             }
           ],
           "returnType": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "getComponentFactory",
@@ -373,13 +407,15 @@
             }
           ],
           "returnType": "ComponentFactory<any>",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "emptyFn",
           "params": [],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "toggleInArray",
@@ -394,7 +430,8 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "handleize",
@@ -405,7 +442,8 @@
             }
           ],
           "returnType": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "apply",
@@ -424,7 +462,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "applyIf",
@@ -439,7 +478,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "override",
@@ -454,7 +494,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "getFieldByType",
@@ -465,7 +506,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "getCmp",
@@ -476,7 +518,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "getKey",
@@ -491,7 +534,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "reverseDeepMerge",
@@ -506,7 +550,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "defineHiddenProp",
@@ -525,7 +570,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "objAndSameType",
@@ -540,7 +586,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "stringIsInteger",
@@ -551,7 +598,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "evalFunctionExpression",
@@ -566,7 +614,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "evalStringExpression",
@@ -581,7 +630,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "evalExpressionValueSetter",
@@ -596,7 +646,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "evalExpression",
@@ -615,7 +666,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "copyTo",
@@ -634,7 +686,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "isEmpty",
@@ -649,7 +702,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "escapeRe",
@@ -660,7 +714,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "destroy",
@@ -671,7 +726,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "intercept",
@@ -694,7 +750,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "callback",
@@ -717,7 +774,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "format",
@@ -728,7 +786,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "toArray",
@@ -747,7 +806,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "filterArrayByString",
@@ -762,7 +822,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "searchInObj",
@@ -777,7 +838,8 @@
             }
           ],
           "returnType": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "searchInArray",
@@ -792,7 +854,8 @@
             }
           ],
           "returnType": "boolean",
-          "description": "Search in array\n\n arr\n searchText\n {boolean}"
+          "description": "Search in array\n\n arr\n searchText\n {boolean}",
+          "descriptionZh": null
         },
         {
           "name": "searchInString",
@@ -807,7 +870,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": []
@@ -816,6 +880,7 @@
       "name": "EmitType",
       "kind": "type",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/base/base.ts",
       "inputs": [],
       "outputs": [],
@@ -826,6 +891,7 @@
       "name": "EventHandler",
       "kind": "class",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/base/event-handler.ts",
       "inputs": [],
       "outputs": [],
@@ -855,7 +921,8 @@
             }
           ],
           "returnType": "Function",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "remove",
@@ -874,7 +941,8 @@
             }
           ],
           "returnType": "void",
-          "description": "Remove an event listener that has been attached before.\nparam {any} element - Specifies the target html element to remove the event\nparam {string} eventName - A string that specifies the name of the event to remove\nparam {Function} listener - Specifies the function to remove\nreturn {void}"
+          "description": "Remove an event listener that has been attached before.\nparam {any} element - Specifies the target html element to remove the event\nparam {string} eventName - A string that specifies the name of the event to remove\nparam {Function} listener - Specifies the function to remove\nreturn {void}",
+          "descriptionZh": null
         },
         {
           "name": "clearEvents",
@@ -885,7 +953,8 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "trigger",
@@ -904,7 +973,8 @@
             }
           ],
           "returnType": "void",
-          "description": "Trigger particular event of the element.\nparam {any} element - Specifies the target html element to trigger the events\nparam {string} eventName - Specifies the event to trigger for the specified element.\nCan be a custom event, or any of the standard events.\nparam {any} eventProp - Additional parameters to pass on to the event properties\nreturn {void}"
+          "description": "Trigger particular event of the element.\nparam {any} element - Specifies the target html element to trigger the events\nparam {string} eventName - Specifies the event to trigger for the specified element.\nCan be a custom event, or any of the standard events.\nparam {any} eventProp - Additional parameters to pass on to the event properties\nreturn {void}",
+          "descriptionZh": null
         }
       ],
       "properties": []
@@ -913,6 +983,7 @@
       "name": "extend",
       "kind": "function",
       "summary": "Extend the two object with newer one.\nparam {any} copied - Resultant object after merged\nparam {Object} first - First object need to merge\nparam {Object} second - Second object need to merge\nreturn {Object}\nprivate",
+      "summaryZh": null,
       "sourceFile": "src/base/util.ts",
       "inputs": [],
       "outputs": [],
@@ -923,6 +994,7 @@
       "name": "formatUnit",
       "kind": "function",
       "summary": "Function to normalize the units applied to the element.\nparam  {number|string} value\nreturn {string} result\nprivate",
+      "summaryZh": null,
       "sourceFile": "src/base/util.ts",
       "inputs": [],
       "outputs": [],
@@ -933,6 +1005,7 @@
       "name": "getAttributeOrDefault",
       "kind": "function",
       "summary": "set the value if not exist. Otherwise set the existing value\nparam  {HTMLElement} element - An element to which we need to set value.\nparam  {string} property - Property need to get or set.\nparam  {string} value - value need to set.\nprivate",
+      "summaryZh": null,
       "sourceFile": "src/base/dom.ts",
       "inputs": [],
       "outputs": [],
@@ -943,6 +1016,7 @@
       "name": "getComponent",
       "kind": "function",
       "summary": "Global function to get the component instance from the rendered element.\nparam elem Specifies the HTMLElement or element id string.\nparam comp Specifies the component module name or Component.",
+      "summaryZh": null,
       "sourceFile": "src/base/base.ts",
       "inputs": [],
       "outputs": [],
@@ -953,6 +1027,7 @@
       "name": "getElement",
       "kind": "function",
       "summary": "Function to convert xPath to DOM element in blazor platform\nreturn {HTMLElement} result\nparam {HTMLElement | object} element\nprivate",
+      "summaryZh": null,
       "sourceFile": "src/base/util.ts",
       "inputs": [],
       "outputs": [],
@@ -963,6 +1038,7 @@
       "name": "getEnumValue",
       "kind": "function",
       "summary": "To get enum value by giving the string.\nparam {any} enumObject - Enum object.\nparam {string} enumValue - Enum value to be searched\nreturn {any}\nprivate",
+      "summaryZh": null,
       "sourceFile": "src/base/util.ts",
       "inputs": [],
       "outputs": [],
@@ -973,6 +1049,7 @@
       "name": "getInstance",
       "kind": "function",
       "summary": "Function to fetch the Instances of a HTML element for the given component.\nparam {string | HTMLElement} element\nparam {any} component\nreturn {Object} inst\nprivate",
+      "summaryZh": null,
       "sourceFile": "src/base/util.ts",
       "inputs": [],
       "outputs": [],
@@ -983,6 +1060,7 @@
       "name": "getUniqueID",
       "kind": "function",
       "summary": "To return the generated unique name\nparam {string} definedName - To concatenate the unique id to provided name\nreturn {string}\nprivate",
+      "summaryZh": null,
       "sourceFile": "src/base/util.ts",
       "inputs": [],
       "outputs": [],
@@ -993,6 +1071,7 @@
       "name": "getValue",
       "kind": "function",
       "summary": "To get nameSpace value from the desired object.\nparam {string} nameSpace - String value to the get the inner object\nparam {any} obj - Object to get the inner object value.\nreturn {any}\nprivate",
+      "summaryZh": null,
       "sourceFile": "src/base/util.ts",
       "inputs": [],
       "outputs": [],
@@ -1003,6 +1082,7 @@
       "name": "HijriParser",
       "kind": "class",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/base/hijri-parser.ts",
       "inputs": [],
       "outputs": [],
@@ -1013,6 +1093,7 @@
       "name": "IKeyValue",
       "kind": "interface",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/base/util.ts",
       "inputs": [],
       "outputs": [],
@@ -1023,6 +1104,7 @@
       "name": "isBlankString",
       "kind": "function",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/base/util.ts",
       "inputs": [],
       "outputs": [],
@@ -1033,6 +1115,7 @@
       "name": "isBlazor",
       "kind": "function",
       "summary": "Function to check whether the platform is blazor or not.\nreturn {boolean} result\nprivate",
+      "summaryZh": null,
       "sourceFile": "src/base/util.ts",
       "inputs": [],
       "outputs": [],
@@ -1043,6 +1126,7 @@
       "name": "isNullOrUndefined",
       "kind": "function",
       "summary": "To check whether the object is null or undefined.\nparam {Object} value - To check the object is null or undefined\nreturn {boolean}\nprivate",
+      "summaryZh": null,
       "sourceFile": "src/base/util.ts",
       "inputs": [],
       "outputs": [],
@@ -1053,6 +1137,7 @@
       "name": "isObject",
       "kind": "function",
       "summary": "Check weather the given argument is only object.\nparam {any} obj - Object which is need to check.\nreturn {boolean}\nprivate",
+      "summaryZh": null,
       "sourceFile": "src/base/util.ts",
       "inputs": [],
       "outputs": [],
@@ -1063,6 +1148,7 @@
       "name": "isObjectArray",
       "kind": "function",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/base/util.ts",
       "inputs": [],
       "outputs": [],
@@ -1073,6 +1159,7 @@
       "name": "isUndefined",
       "kind": "function",
       "summary": "To check whether the object is undefined.\nparam {Object} value - To check the object is undefined\nreturn {boolean}\nprivate",
+      "summaryZh": null,
       "sourceFile": "src/base/util.ts",
       "inputs": [],
       "outputs": [],
@@ -1083,6 +1170,7 @@
       "name": "isVisible",
       "kind": "function",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/base/dom.ts",
       "inputs": [],
       "outputs": [],
@@ -1093,6 +1181,7 @@
       "name": "matches",
       "kind": "function",
       "summary": "Method to check whether the element matches the given selector.\nparam {Element} element - Element to compare with the selector.\nparam {string} selector - String selector which element will satisfy.\nreturn {void}\nprivate",
+      "summaryZh": null,
       "sourceFile": "src/base/dom.ts",
       "inputs": [],
       "outputs": [],
@@ -1103,6 +1192,7 @@
       "name": "merge",
       "kind": "function",
       "summary": "Merge the source object into destination object.\nparam {any} source - source object which is going to merge with destination object\nparam {any} destination - object need to be merged\nreturn {void}\nprivate",
+      "summaryZh": null,
       "sourceFile": "src/base/util.ts",
       "inputs": [],
       "outputs": [],
@@ -1113,6 +1203,7 @@
       "name": "ObjectUtils",
       "kind": "class",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/base/object-utils.ts",
       "inputs": [],
       "outputs": [],
@@ -1130,7 +1221,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "merge",
@@ -1141,7 +1233,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "resolve",
@@ -1156,7 +1249,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "isObject",
@@ -1167,7 +1261,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "mergeDeep",
@@ -1186,7 +1281,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "removeUndefined",
@@ -1197,7 +1293,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "copyDeep",
@@ -1208,7 +1305,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "removeNull",
@@ -1219,7 +1317,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "naturalCompare",
@@ -1242,7 +1341,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "objectsAreEquivalent",
@@ -1257,7 +1357,8 @@
             }
           ],
           "returnType": "boolean",
-          "description": "Return true if two object are equivalent.\nObjects are considered equivalent if they have the same properties and\nif all of their properties (first-level only) share the same value."
+          "description": "Return true if two object are equivalent.\nObjects are considered equivalent if they have the same properties and\nif all of their properties (first-level only) share the same value.",
+          "descriptionZh": null
         },
         {
           "name": "removeKeys",
@@ -1272,7 +1373,8 @@
             }
           ],
           "returnType": "object",
-          "description": "Return a new object with an array of keys removed"
+          "description": "Return a new object with an array of keys removed",
+          "descriptionZh": null
         }
       ],
       "properties": []
@@ -1281,6 +1383,7 @@
       "name": "Observer",
       "kind": "class",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/base/observer.ts",
       "inputs": [],
       "outputs": [],
@@ -1306,7 +1409,8 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "off",
@@ -1325,7 +1429,8 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "emit",
@@ -1348,7 +1453,8 @@
             }
           ],
           "returnType": "void | Object",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "notify",
@@ -1371,7 +1477,8 @@
             }
           ],
           "returnType": "void | Object",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "isJson",
@@ -1382,13 +1489,15 @@
             }
           ],
           "returnType": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "destroy",
           "params": [],
           "returnType": "void",
-          "description": "To destroy handlers in the event"
+          "description": "To destroy handlers in the event",
+          "descriptionZh": null
         }
       ],
       "properties": []
@@ -1397,6 +1506,7 @@
       "name": "prepend",
       "kind": "function",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/base/dom.ts",
       "inputs": [],
       "outputs": [],
@@ -1407,6 +1517,7 @@
       "name": "print",
       "kind": "function",
       "summary": "This function is used to print given element\nparam{Element} element - Specifies the print content element.\nparam{Window} printWindow - Specifies the print window.\nprivate",
+      "summaryZh": null,
       "sourceFile": "src/base/util.ts",
       "inputs": [],
       "outputs": [],
@@ -1417,6 +1528,7 @@
       "name": "queryParams",
       "kind": "function",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/base/util.ts",
       "inputs": [],
       "outputs": [],
@@ -1427,6 +1539,7 @@
       "name": "remove",
       "kind": "function",
       "summary": "The function used to remove the element from Dom also clear the bounded events\nparam  {Element|Node|HTMLElement} element - An element remove from the Dom\nprivate",
+      "summaryZh": null,
       "sourceFile": "src/base/dom.ts",
       "inputs": [],
       "outputs": [],
@@ -1437,6 +1550,7 @@
       "name": "removeClass",
       "kind": "function",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/base/dom.ts",
       "inputs": [],
       "outputs": [],
@@ -1447,6 +1561,7 @@
       "name": "selectAll",
       "kind": "function",
       "summary": "The function selects an array of element from the given context.\nparam  {string} selector - Selector string need fetch element from the\nparam  {Document|Element=document} context - It is an optional type, That specifies a Dom context.\nprivate",
+      "summaryZh": null,
       "sourceFile": "src/base/dom.ts",
       "inputs": [],
       "outputs": [],
@@ -1457,6 +1572,7 @@
       "name": "selectNode",
       "kind": "function",
       "summary": "The function selects the element from giving context.\nparam  {string} selector - Selector string need fetch element from the\nparam  {Document|Element=document} context - It is an optional type, That specifies a Dom context.\nprivate",
+      "summaryZh": null,
       "sourceFile": "src/base/dom.ts",
       "inputs": [],
       "outputs": [],
@@ -1467,6 +1583,7 @@
       "name": "setImmediate",
       "kind": "function",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/base/util.ts",
       "inputs": [],
       "outputs": [],
@@ -1477,6 +1594,7 @@
       "name": "setStyleAttribute",
       "kind": "function",
       "summary": "Set the style attributes to Html element.\nparam {HTMLElement} element - Element which we want to set attributes\nparam {any} attrs - Set the given attributes to element\nreturn {void}\nprivate",
+      "summaryZh": null,
       "sourceFile": "src/base/dom.ts",
       "inputs": [],
       "outputs": [],
@@ -1487,6 +1605,7 @@
       "name": "setValue",
       "kind": "function",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/base/util.ts",
       "inputs": [],
       "outputs": [],
@@ -1497,6 +1616,7 @@
       "name": "siblings",
       "kind": "function",
       "summary": "Returns all sibling elements of the given element.\nparam  {Element|Node} element - An element that need to get siblings.\nprivate",
+      "summaryZh": null,
       "sourceFile": "src/base/dom.ts",
       "inputs": [],
       "outputs": [],
@@ -1507,6 +1627,7 @@
       "name": "throwError",
       "kind": "function",
       "summary": "To throw custom error message.\nparam{string} - Specifies the error message to be thrown.\nprivate",
+      "summaryZh": null,
       "sourceFile": "src/base/util.ts",
       "inputs": [],
       "outputs": [],
@@ -1517,6 +1638,7 @@
       "name": "uniqueID",
       "kind": "function",
       "summary": "Function to generate the unique id.\nreturn {any}\nprivate",
+      "summaryZh": null,
       "sourceFile": "src/base/util.ts",
       "inputs": [],
       "outputs": [],

@@ -5,6 +5,7 @@
       "name": "action",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/mobx/mobx-angular.ts",
       "inputs": [],
       "outputs": [],
@@ -15,6 +16,7 @@
       "name": "actionInternal",
       "kind": "function",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/mobx/mobx-angular.ts",
       "inputs": [],
       "outputs": [],
@@ -25,6 +27,7 @@
       "name": "computed",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/mobx/mobx-angular.ts",
       "inputs": [],
       "outputs": [],
@@ -35,6 +38,7 @@
       "name": "MobxAngularModule",
       "kind": "module",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/mobx/mobx.module.ts",
       "inputs": [],
       "outputs": [],
@@ -46,12 +50,14 @@
       "kind": "directive",
       "selector": "[mobxAutorun]",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/mobx/directives/mobx-autorun.directive.ts",
       "inputs": [
         {
           "name": "mobxAutorun",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "outputs": [],
@@ -60,7 +66,8 @@
           "name": "shouldDetach",
           "params": [],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "autoDetect",
@@ -71,7 +78,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": []
@@ -81,12 +89,14 @@
       "kind": "directive",
       "selector": "[mobxReaction]",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/mobx/directives/mobx-reaction.directive.ts",
       "inputs": [
         {
           "name": "mobxReaction",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "outputs": [],
@@ -100,7 +110,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": []
@@ -109,6 +120,7 @@
       "name": "observable",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/mobx/mobx-angular.ts",
       "inputs": [],
       "outputs": [],

@@ -41,6 +41,14 @@ export const DATEFIELD_VALIDATORS: any = {
   multi: true
 };
 
+/**
+ * Form field that opens one of the `color-*` picker style variants (sketch/chrome/compact/
+ * github/material, chosen via `colorType`) in a popup, and binds the selected hex value to
+ * the form control.
+ * @zh 表单字段，在弹出层中打开某个 `color-*` 颜色选择器样式变体
+ * （通过 `colorType` 选择 sketch/chrome/compact/github/material），
+ * 并将选中的十六进制颜色值绑定到表单控件。
+ */
 @Component({
   selector: 'color-picker-field',
   templateUrl: 'color-picker.field.html',
@@ -61,8 +69,6 @@ export const DATEFIELD_VALIDATORS: any = {
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-
-
 export class ColorPickerField<F extends FieldConfig = FieldConfig> extends AbstractTrigger {
 
   @ViewChild(MatInput, { static: true }) _mapInput: MatInput;

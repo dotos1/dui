@@ -5,6 +5,7 @@
       "name": "ActivityInterceptor",
       "kind": "service",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/util/activity/activity.interceptor.ts",
       "inputs": [],
       "outputs": [],
@@ -22,7 +23,8 @@
             }
           ],
           "returnType": "Observable<HttpEvent<any>>",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": []
@@ -31,6 +33,7 @@
       "name": "ActivityService",
       "kind": "service",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/util/activity/activity.service.ts",
       "inputs": [],
       "outputs": [],
@@ -39,7 +42,8 @@
           "name": "register",
           "params": [],
           "returnType": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "unregister",
@@ -50,7 +54,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": [
@@ -58,7 +63,8 @@
           "name": "counter$",
           "type": "any",
           "default": "new BehaviorSubject<number>(0)",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -66,6 +72,7 @@
       "name": "Base64",
       "kind": "class",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/util/base64.ts",
       "inputs": [],
       "outputs": [],
@@ -79,7 +86,8 @@
             }
           ],
           "returnType": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "encode",
@@ -90,7 +98,8 @@
             }
           ],
           "returnType": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": []
@@ -99,6 +108,7 @@
       "name": "Change",
       "kind": "interface",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/util/change.interface.ts",
       "inputs": [],
       "outputs": [],
@@ -109,6 +119,7 @@
       "name": "ChangeItem",
       "kind": "interface",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/util/change.interface.ts",
       "inputs": [],
       "outputs": [],
@@ -119,6 +130,7 @@
       "name": "ChangeType",
       "kind": "enum",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/util/change.interface.ts",
       "inputs": [],
       "outputs": [],
@@ -129,6 +141,7 @@
       "name": "ChangeUtils",
       "kind": "class",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/util/change.ts",
       "inputs": [],
       "outputs": [],
@@ -150,7 +163,8 @@
             }
           ],
           "returnType": "GroupingChanges",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": []
@@ -159,6 +173,7 @@
       "name": "DataType",
       "kind": "type",
       "summary": "The data type for the resized image.",
+      "summaryZh": null,
       "sourceFile": "src/util/resize-image.ts",
       "inputs": [],
       "outputs": [],
@@ -169,6 +184,7 @@
       "name": "DecimalNumberModel",
       "kind": "class",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/util/models/decimal-number.model.ts",
       "inputs": [],
       "outputs": [],
@@ -177,17 +193,20 @@
         {
           "name": "minIntegerDigits",
           "type": "number",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "minFractionDigits",
           "type": "number",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "maxFractionDigits",
           "type": "number",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -195,6 +214,7 @@
       "name": "ExtUtilModule",
       "kind": "module",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/util/util.module.ts",
       "inputs": [],
       "outputs": [],
@@ -205,6 +225,7 @@
       "name": "GroupingChanges",
       "kind": "interface",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/util/change.interface.ts",
       "inputs": [],
       "outputs": [],
@@ -215,6 +236,7 @@
       "name": "Options",
       "kind": "interface",
       "summary": "The options for image resizing.",
+      "summaryZh": null,
       "sourceFile": "src/util/resize-image.ts",
       "inputs": [],
       "outputs": [],
@@ -225,6 +247,7 @@
       "name": "resizeImage",
       "kind": "function",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/util/resize-image.ts",
       "inputs": [],
       "outputs": [],
@@ -235,6 +258,7 @@
       "name": "resizeImageHeight",
       "kind": "function",
       "summary": "Resizes an image to a specific height while maintaining the aspect ratio, using the provided `File` object as input.",
+      "summaryZh": null,
       "sourceFile": "src/util/resize-image.ts",
       "inputs": [],
       "outputs": [],
@@ -245,6 +269,7 @@
       "name": "resizeImageWidth",
       "kind": "function",
       "summary": "Resizes an image to a specific width while maintaining the aspect ratio, using the provided `File` object as input.",
+      "summaryZh": null,
       "sourceFile": "src/util/resize-image.ts",
       "inputs": [],
       "outputs": [],
@@ -255,6 +280,7 @@
       "name": "resizeImg",
       "kind": "function",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/util/resize-image.ts",
       "inputs": [],
       "outputs": [],
@@ -265,6 +291,7 @@
       "name": "Result",
       "kind": "type",
       "summary": "Represents a result type that can either hold a successful value of type `T` or an error value of type `E`.",
+      "summaryZh": null,
       "sourceFile": "src/util/resize-image.ts",
       "inputs": [],
       "outputs": [],
@@ -275,6 +302,7 @@
       "name": "S4",
       "kind": "function",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/util/uuid.ts",
       "inputs": [],
       "outputs": [],
@@ -285,6 +313,7 @@
       "name": "strEnum",
       "kind": "function",
       "summary": "Utility function to create a K:V from a list of strings",
+      "summaryZh": null,
       "sourceFile": "src/util/strenum.ts",
       "inputs": [],
       "outputs": [],
@@ -295,6 +324,7 @@
       "name": "StringUtils",
       "kind": "class",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/util/string-utils.ts",
       "inputs": [],
       "outputs": [],
@@ -316,7 +346,8 @@
             }
           ],
           "returnType": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": []
@@ -325,6 +356,7 @@
       "name": "SubjectStatus",
       "kind": "enum",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/util/watcher.ts",
       "inputs": [],
       "outputs": [],
@@ -335,6 +367,7 @@
       "name": "switchCase",
       "kind": "function",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/util/func.util.ts",
       "inputs": [],
       "outputs": [],
@@ -345,6 +378,7 @@
       "name": "uuid",
       "kind": "function",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/util/uuid.ts",
       "inputs": [],
       "outputs": [],
@@ -355,6 +389,7 @@
       "name": "Watcher",
       "kind": "class",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/util/watcher.ts",
       "inputs": [],
       "outputs": [],
@@ -372,13 +407,15 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "unsubscribe",
           "params": [],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": [
@@ -386,17 +423,20 @@
           "name": "status$",
           "type": "any",
           "default": "new Subject<SubjectStatus>()",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "status",
           "type": "SubjectStatus",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "status",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     }

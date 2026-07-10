@@ -2,6 +2,12 @@ import {  ChangeDetectionStrategy,  Component,  Input,} from '@angular/core';
 import { ColorWrap, isValidHex } from '@dotos/dui/common/colorpicker/common';
 import { TriggerPopup } from '@dotos/dui/common/trigger';
 
+/**
+ * Color picker rendered as a small popover-style swatch grid with a directional pointer
+ * triangle, modeled after GitHub's label color picker.
+ * @zh 以小型弹出式色块网格形式渲染的颜色选择器，带方向指示三角形，
+ * 仿照 GitHub 标签颜色选择器样式。
+ */
 @Component({
   selector: 'color-github',
   template: `

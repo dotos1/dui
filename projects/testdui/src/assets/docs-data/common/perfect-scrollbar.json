@@ -5,7 +5,8 @@
       "name": "ForceNativeScrollDirective",
       "kind": "directive",
       "selector": "[forceNativeScrolling]",
-      "summary": null,
+      "summary": "Marks an element (typically a scrollable child inside a `perfectScrollbar` container)\nso Perfect Scrollbar lets it use native browser scrolling instead of intercepting it.",
+      "summaryZh": "标记一个元素（通常是 `perfectScrollbar` 容器内的可滚动子元素），\n使 Perfect Scrollbar 放行其原生浏览器滚动，而不是拦截处理。",
       "sourceFile": "src/common/perfect-scrollbar/perfect-scrollbar-force-native-scroll.directive.ts",
       "inputs": [],
       "outputs": [],
@@ -16,6 +17,7 @@
       "name": "Geometry",
       "kind": "class",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/perfect-scrollbar/perfect-scrollbar.interfaces.ts",
       "inputs": [],
       "outputs": [],
@@ -24,22 +26,26 @@
         {
           "name": "x",
           "type": "number",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "y",
           "type": "number",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "w",
           "type": "number",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "h",
           "type": "number",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -47,6 +53,7 @@
       "name": "PERFECT_SCROLLBAR_CONFIG",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/perfect-scrollbar/perfect-scrollbar.interfaces.ts",
       "inputs": [],
       "outputs": [],
@@ -57,89 +64,105 @@
       "name": "PerfectScrollbarComponent",
       "kind": "component",
       "selector": "perfect-scrollbar",
-      "summary": null,
+      "summary": "Component wrapper around {@link PerfectScrollbarDirective} that additionally renders\nscroll-position indicator overlays and supports edge-propagation of wheel/touch scrolling.",
+      "summaryZh": "{@link PerfectScrollbarDirective} 的组件版封装，额外渲染滚动位置指示条覆层，\n并支持在到达边缘时向外传播滚轮/触摸滚动。",
       "sourceFile": "src/common/perfect-scrollbar/perfect-scrollbar.component.ts",
       "inputs": [
         {
           "name": "disabled",
           "type": "boolean",
           "default": "false",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "usePSClass",
           "type": "boolean",
           "default": "true",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "autoPropagation",
           "type": "boolean",
           "default": "false",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "scrollIndicators",
           "type": "boolean",
           "default": "false",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "config",
           "type": "PerfectScrollbarConfigInterface",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "outputs": [
         {
           "name": "psScrollY",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "psScrollX",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "psScrollUp",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "psScrollDown",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "psScrollLeft",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "psScrollRight",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "psYReachEnd",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "psYReachStart",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "psXReachEnd",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "psXReachStart",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "methods": [],
@@ -148,30 +171,35 @@
           "name": "states",
           "type": "any",
           "default": "{}",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "indicatorX",
           "type": "boolean",
           "default": "false",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "indicatorY",
           "type": "boolean",
           "default": "false",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "interaction",
           "type": "boolean",
           "default": "false",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "directiveRef",
           "type": "PerfectScrollbarDirective",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -179,6 +207,7 @@
       "name": "PerfectScrollbarConfig",
       "kind": "class",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/perfect-scrollbar/perfect-scrollbar.interfaces.ts",
       "inputs": [],
       "outputs": [],
@@ -192,69 +221,82 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": [
         {
           "name": "handlers",
           "type": "string[]",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "wheelSpeed",
           "type": "number",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "swipeEasing",
           "type": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "suppressScrollX",
           "type": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "suppressScrollY",
           "type": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "wheelPropagation",
           "type": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "useBothWheelAxes",
           "type": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "scrollingThreshold",
           "type": "number",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "minScrollbarLength",
           "type": "number",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "maxScrollbarLength",
           "type": "number",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "scrollXMarginOffset",
           "type": "number",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "scrollYMarginOffset",
           "type": "number",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -262,6 +304,7 @@
       "name": "PerfectScrollbarConfigInterface",
       "kind": "interface",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/perfect-scrollbar/perfect-scrollbar.interfaces.ts",
       "inputs": [],
       "outputs": [],
@@ -272,72 +315,85 @@
       "name": "PerfectScrollbarDirective",
       "kind": "directive",
       "selector": "[perfectScrollbar]",
-      "summary": null,
+      "summary": "Wraps the `perfect-scrollbar` library on the host element, providing custom scrollbars\nand scroll event outputs (`psScrollY`, `psYReachEnd`, etc.).",
+      "summaryZh": "在宿主元素上封装 `perfect-scrollbar` 库，提供自定义滚动条以及滚动事件输出\n（`psScrollY`、`psYReachEnd` 等）。",
       "sourceFile": "src/common/perfect-scrollbar/perfect-scrollbar.directive.ts",
       "inputs": [
         {
           "name": "disabled",
           "type": "boolean",
           "default": "false",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "config",
           "alias": "perfectScrollbar",
           "type": "PerfectScrollbarConfigInterface",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "outputs": [
         {
           "name": "psScrollY",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "psScrollX",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "psScrollUp",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "psScrollDown",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "psScrollLeft",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "psScrollRight",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "psYReachEnd",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "psYReachStart",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "psXReachEnd",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "psXReachStart",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "methods": [
@@ -345,13 +401,15 @@
           "name": "ps",
           "params": [],
           "returnType": "PerfectScrollbar | null",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "update",
           "params": [],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "geometry",
@@ -362,7 +420,8 @@
             }
           ],
           "returnType": "Geometry",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "position",
@@ -373,7 +432,8 @@
             }
           ],
           "returnType": "Position",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "scrollable",
@@ -384,7 +444,8 @@
             }
           ],
           "returnType": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "scrollTo",
@@ -403,7 +464,8 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "scrollToX",
@@ -418,7 +480,8 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "scrollToY",
@@ -433,7 +496,8 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "scrollToTop",
@@ -448,7 +512,8 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "scrollToLeft",
@@ -463,7 +528,8 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "scrollToRight",
@@ -478,7 +544,8 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "scrollToBottom",
@@ -493,7 +560,8 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "scrollToElement",
@@ -512,7 +580,8 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": []
@@ -521,6 +590,7 @@
       "name": "PerfectScrollbarModule",
       "kind": "module",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/perfect-scrollbar/perfect-scrollbar.module.ts",
       "inputs": [],
       "outputs": [],
@@ -531,6 +601,7 @@
       "name": "Position",
       "kind": "class",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/perfect-scrollbar/perfect-scrollbar.interfaces.ts",
       "inputs": [],
       "outputs": [],
@@ -539,12 +610,14 @@
         {
           "name": "x",
           "type": "number | 'start' | 'end'",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "y",
           "type": "number | 'start' | 'end'",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     }

@@ -9,6 +9,12 @@ export const MATERIAL_COLOR_PICKER_VALUE_ACCESSOR: any = {
   multi: true
 };
 
+/**
+ * Material-style palette color picker: pick a base color then a shade (hue), implements
+ * `ControlValueAccessor` so it works with Angular forms.
+ * @zh Material 风格的调色板颜色选择器：先选基础色再选色阶（hue），实现了 `ControlValueAccessor`，
+ * 可直接用于 Angular 表单。
+ */
 @Component({
   selector: 'color-picker',
   templateUrl: './color-picker.component.html',

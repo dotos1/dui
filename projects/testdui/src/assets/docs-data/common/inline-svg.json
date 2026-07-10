@@ -5,6 +5,7 @@
       "name": "createSymbolSvg",
       "kind": "function",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/inline-svg/svg-util.ts",
       "inputs": [],
       "outputs": [],
@@ -15,28 +16,33 @@
       "name": "InlineSVGComponent",
       "kind": "component",
       "selector": "inline-svg",
-      "summary": null,
+      "summary": "Internal host component that {@link InlineSVGDirective} injects (via `injectComponent`)\nto render fetched SVG content as an actual child component rather than raw DOM insertion.",
+      "summaryZh": "{@link InlineSVGDirective} 在设置 `injectComponent` 时注入的内部宿主组件，\n用于将获取到的 SVG 内容作为真正的子组件渲染，而不是直接插入原始 DOM。",
       "sourceFile": "src/common/inline-svg/inline-svg.component.ts",
       "inputs": [
         {
           "name": "context",
           "type": "InlineSVGDirective",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "content",
           "type": "HTMLElement | SVGElement",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "replaceContents",
           "type": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "prepend",
           "type": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "outputs": [],
@@ -47,6 +53,7 @@
       "name": "InlineSVGConfig",
       "kind": "class",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/inline-svg/inline-svg.config.ts",
       "inputs": [],
       "outputs": [],
@@ -55,17 +62,20 @@
         {
           "name": "baseUrl",
           "type": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "clientOnly",
           "type": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "bypassHttpClientInterceptorChain",
           "type": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -73,87 +83,102 @@
       "name": "InlineSVGDirective",
       "kind": "directive",
       "selector": "[inlineSVG]",
-      "summary": null,
+      "summary": "Fetches an SVG file by URL and inlines its markup into the DOM (instead of using `<img>`),\nso its internal styles/scripts run and its parts can be targeted with CSS.",
+      "summaryZh": "按 URL 获取 SVG 文件并将其内容内联插入 DOM（而不是使用 `<img>`），\n这样其内部样式/脚本可以生效，且各部分可以被 CSS 选中。",
       "sourceFile": "src/common/inline-svg/inline-svg.directive.ts",
       "inputs": [
         {
           "name": "inlineSVG",
           "type": "string",
-          "description": null
+          "description": "URL (or `url#symbolId`) of the SVG to inline.",
+          "descriptionZh": "待内联的 SVG 的 URL（或 `url#symbolId`）。"
         },
         {
           "name": "resolveSVGUrl",
           "type": "boolean",
           "default": "true",
-          "description": null
+          "description": null,
+          "descriptionZh": "是否解析相对 URL。"
         },
         {
           "name": "replaceContents",
           "type": "boolean",
           "default": "true",
-          "description": null
+          "description": null,
+          "descriptionZh": "插入新 SVG 前是否替换宿主元素原有内容。"
         },
         {
           "name": "prepend",
           "type": "boolean",
           "default": "false",
-          "description": null
+          "description": null,
+          "descriptionZh": "前置插入而不是追加。"
         },
         {
           "name": "injectComponent",
           "type": "boolean",
           "default": "false",
-          "description": null
+          "description": null,
+          "descriptionZh": "是否以 {@link InlineSVGComponent} 组件形式注入（而不是直接操作 DOM）。"
         },
         {
           "name": "cacheSVG",
           "type": "boolean",
           "default": "true",
-          "description": null
+          "description": null,
+          "descriptionZh": "是否缓存已获取的 SVG 内容，避免重复请求相同 URL。"
         },
         {
           "name": "setSVGAttributes",
           "type": "{ [key: string]: any }",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "removeSVGAttributes",
           "type": "Array<string>",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "forceEvalStyles",
           "type": "boolean",
           "default": "false",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "evalScripts",
           "type": "SVGScriptEvalMode",
           "default": "SVGScriptEvalMode.ALWAYS",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "fallbackImgUrl",
           "type": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "onSVGLoaded",
           "type": "(svg: SVGElement, parent: Element | null) => SVGElement",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "outputs": [
         {
           "name": "onSVGInserted",
           "type": "SVGElement",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "onSVGFailed",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "methods": [],
@@ -163,6 +188,7 @@
       "name": "InlineSVGModule",
       "kind": "module",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/inline-svg/inline-svg.module.ts",
       "inputs": [],
       "outputs": [],
@@ -176,7 +202,8 @@
             }
           ],
           "returnType": "ModuleWithProviders<InlineSVGModule>",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": [
@@ -184,14 +211,16 @@
           "name": "entryComponents",
           "type": "any",
           "default": "[InlineSVGComponent]",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
     {
       "name": "InlineSVGService",
       "kind": "service",
-      "summary": null,
+      "summary": "Low-level DOM insertion and inline `<script>` evaluation helper used by\n{@link InlineSVGDirective}/{@link InlineSVGComponent}.",
+      "summaryZh": "{@link InlineSVGDirective}/{@link InlineSVGComponent} 使用的底层 DOM 插入与内联 `<script>` 执行辅助服务。",
       "sourceFile": "src/common/inline-svg/inline-svg.service.ts",
       "inputs": [],
       "outputs": [],
@@ -221,7 +250,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "evalScripts",
@@ -240,7 +270,8 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": []
@@ -249,6 +280,7 @@
       "name": "isSvgSupported",
       "kind": "function",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/inline-svg/svg-util.ts",
       "inputs": [],
       "outputs": [],
@@ -259,6 +291,7 @@
       "name": "isUrlSymbol",
       "kind": "function",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/inline-svg/svg-util.ts",
       "inputs": [],
       "outputs": [],
@@ -269,6 +302,7 @@
       "name": "removeAttributes",
       "kind": "function",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/inline-svg/svg-util.ts",
       "inputs": [],
       "outputs": [],
@@ -279,6 +313,7 @@
       "name": "setAttributes",
       "kind": "function",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/inline-svg/svg-util.ts",
       "inputs": [],
       "outputs": [],
@@ -289,6 +324,7 @@
       "name": "SVGCacheService",
       "kind": "service",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/inline-svg/svg-cache.service.ts",
       "inputs": [],
       "outputs": [],
@@ -310,7 +346,8 @@
             }
           ],
           "returnType": "Observable<any>",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "getSVG",
@@ -329,13 +366,15 @@
             }
           ],
           "returnType": "Observable<SVGElement>",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "setBaseUrl",
           "params": [],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "getAbsoluteUrl",
@@ -346,7 +385,8 @@
             }
           ],
           "returnType": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": []
@@ -355,6 +395,7 @@
       "name": "SVGScriptEvalMode",
       "kind": "enum",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/inline-svg/inline-svg.config.ts",
       "inputs": [],
       "outputs": [],

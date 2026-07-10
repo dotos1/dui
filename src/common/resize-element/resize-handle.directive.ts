@@ -14,16 +14,24 @@ import { ResizableDirective } from './resizable.directive';
 import { Edges } from './interfaces/edges.interface';
 import { IS_TOUCH_DEVICE } from './util/is-touch-device';
 
+/**
+ * Marks an element as a dedicated drag handle that triggers resizing on a sibling/ancestor
+ * element carrying {@link ResizableDirective} (`resizableContainer` or nearest via DI).
+ * @zh 将元素标记为专用的拖拽手柄，拖拽它会触发携带 {@link ResizableDirective} 的
+ * 兄弟/祖先元素（通过 `resizableContainer` 或最近的 DI 注入）进行缩放。
+ */
 @Directive({
   selector: '[duiResizeHandle]',
 })
 export class ResizeHandleDirective implements OnInit, OnDestroy {
   /**
    * The `Edges` object that contains the edges of the parent element that dragging the handle will trigger a resize on
+   * @zh 描述父元素哪些边（edges）会因拖拽该手柄而触发缩放。
    */
   @Input() resizeEdges: Edges = {};
   /**
    * Reference to ResizableDirective in case if handle is not located inside of element with ResizableDirective
+   * @zh 当手柄不在带有 {@link ResizableDirective} 的元素内部时，显式指定其引用。
    */
   @Input() resizableContainer: ResizableDirective;
 

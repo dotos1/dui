@@ -5,6 +5,7 @@
       "name": "Media",
       "kind": "enum",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/media/media.enum.ts",
       "inputs": [],
       "outputs": [],
@@ -15,6 +16,7 @@
       "name": "MediaBreakpoints",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/media/media.enum.ts",
       "inputs": [],
       "outputs": [],
@@ -25,6 +27,7 @@
       "name": "MediaOrientation",
       "kind": "enum",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/media/media.enum.ts",
       "inputs": [],
       "outputs": [],
@@ -35,6 +38,7 @@
       "name": "MediaService",
       "kind": "service",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/media/media.service.ts",
       "inputs": [],
       "outputs": [],
@@ -43,13 +47,15 @@
           "name": "getMedia",
           "params": [],
           "returnType": "Media",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "getOrientation",
           "params": [],
           "returnType": "MediaOrientation",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": [
@@ -57,13 +63,15 @@
           "name": "media$",
           "type": "any",
           "default": "new BehaviorSubject<Media>(undefined)",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "orientation$",
           "type": "any",
           "default": "new BehaviorSubject<MediaOrientation>(undefined)",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     }

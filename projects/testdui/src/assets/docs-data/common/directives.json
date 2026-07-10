@@ -5,6 +5,7 @@
       "name": "DuiDirectivesModule",
       "kind": "module",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/directives/directives.module.ts",
       "inputs": [],
       "outputs": [],
@@ -15,7 +16,8 @@
       "name": "DuiIfOnDomDirective",
       "kind": "directive",
       "selector": "[duiIfOnDom]",
-      "summary": null,
+      "summary": "Structural-like directive that creates its embedded view only once the host element is\nactually attached to `document.body` (checked on every content-check cycle), and clears\nit again once detached.",
+      "summaryZh": "类结构型指令：仅当宿主元素真正挂载到 `document.body` 后（在每次内容检查周期中判断）\n才创建其内嵌视图，一旦从文档中移除则清空视图。",
       "sourceFile": "src/common/directives/if-on-dom.directive.ts",
       "inputs": [],
       "outputs": [],
@@ -24,7 +26,8 @@
         {
           "name": "isCreated",
           "type": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     }

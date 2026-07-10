@@ -3,6 +3,12 @@ import { Renderer2 } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { MediaService } from '../services/media.service';
 
+/**
+ * Toggles attributes/classes/styles on the host element based on whether a
+ * {@link MediaService} media query (`extMediaToggle`) currently matches.
+ * @zh 根据 {@link MediaService} 媒体查询（`extMediaToggle`）当前是否匹配，
+ * 在宿主元素上切换属性/类名/样式。
+ */
 @Directive({
   selector: '[extMediaToggle]',
 })

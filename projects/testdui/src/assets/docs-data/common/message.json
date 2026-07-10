@@ -1,0 +1,127 @@
+{
+  "importPath": "@dotos/dui/common/message",
+  "exports": [
+    {
+      "name": "MessageComponent",
+      "kind": "component",
+      "selector": "dui-message",
+      "summary": "Dismissible inline message/banner with a label, optional sublabel/icon, and a collapse\nanimation on open/close.",
+      "summaryZh": "可关闭的行内消息/横幅，带标题、可选副标题/图标，展开/收起时带折叠动画。",
+      "sourceFile": "src/common/message/message.component.ts",
+      "inputs": [
+        {
+          "name": "label",
+          "type": "string",
+          "description": "label: string\n\nSets the label of the message.",
+          "descriptionZh": null
+        },
+        {
+          "name": "sublabel",
+          "type": "string",
+          "description": "sublabel?: string\n\nSets the sublabel of the message.",
+          "descriptionZh": null
+        },
+        {
+          "name": "icon",
+          "type": "string",
+          "default": "'info'",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "color",
+          "type": "string",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "opened",
+          "type": "boolean",
+          "description": "opened?: boolean\n\nShows or hiddes the message depending on its value.\nDefaults to 'true'.",
+          "descriptionZh": null
+        }
+      ],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "animationDoneListener",
+          "params": [],
+          "returnType": "void",
+          "description": "Detach element when close animation is finished to set animating state to false\nhidden state to true and detach element from DOM",
+          "descriptionZh": null
+        },
+        {
+          "name": "open",
+          "params": [],
+          "returnType": "void",
+          "description": "Renders the message on screen\nValidates if there is an animation currently and if its already opened",
+          "descriptionZh": null
+        },
+        {
+          "name": "close",
+          "params": [],
+          "returnType": "void",
+          "description": "Removes the message content from screen.\nValidates if there is an animation currently and if its already closed",
+          "descriptionZh": null
+        },
+        {
+          "name": "toggle",
+          "params": [],
+          "returnType": "void",
+          "description": "Toggles between open and close depending on state.",
+          "descriptionZh": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "collapsedAnimation",
+          "type": "any",
+          "description": "Binding host to duiCollapse animation",
+          "descriptionZh": null
+        },
+        {
+          "name": "hidden",
+          "type": "string",
+          "description": "Binding host to display style when hidden",
+          "descriptionZh": null
+        },
+        {
+          "name": "color",
+          "type": "string",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "opened",
+          "type": "boolean",
+          "description": null,
+          "descriptionZh": null
+        }
+      ]
+    },
+    {
+      "name": "MessageContainerDirective",
+      "kind": "directive",
+      "selector": "[duiMessageContainer]",
+      "summary": null,
+      "summaryZh": "内部使用，标记 {@link MessageComponent} 用于延迟挂载内容的视图容器锚点。",
+      "sourceFile": "src/common/message/message.component.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "MessageModule",
+      "kind": "module",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/common/message/message.module.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    }
+  ],
+  "suggestedUsageSnippet": "import { MessageComponent, MessageModule } from '@dotos/dui/common/message';\n\n<dui-message [label]=\"...\" [sublabel]=\"...\" [icon]=\"...\"></dui-message>"
+}

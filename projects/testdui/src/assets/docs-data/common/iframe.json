@@ -5,52 +5,61 @@
       "name": "IframeComponent",
       "kind": "component",
       "selector": "dui-iframe",
-      "summary": null,
+      "summary": "Wraps a native `<iframe>` with lifecycle events (click/keyup/unload/resize) proxied out via\n`iframeEvent`, plus optional auto-resize and injection of extra stylesheets/CSS into the frame.",
+      "summaryZh": "封装原生 `<iframe>`，将其生命周期事件（点击/按键/卸载/尺寸变化）通过 `iframeEvent` 代理输出，\n并支持自动调整高度以及向 iframe 内注入额外样式表/CSS。",
       "sourceFile": "src/common/iframe/components/iframe.component.ts",
       "inputs": [
         {
           "name": "config",
           "type": "any",
           "default": "{}",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "scrolling",
           "type": "any",
           "default": "'no'",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "resizeDebounceMillis",
           "type": "number",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "autoResize",
           "type": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "styleUrls",
           "type": "Array<string>",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "styles",
           "type": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "source",
           "type": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "outputs": [
         {
           "name": "iframeEvent",
           "type": "IframeEvent",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "methods": [
@@ -63,99 +72,117 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "reload",
           "params": [],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": [
         {
           "name": "iframe",
           "type": "ElementRef",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "resizeDebounceMillis",
           "type": "number",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "autoResize",
           "type": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "styleUrls",
           "type": "Array<string>",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "styles",
           "type": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "source",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "$iframeClick",
           "type": "ReplaySubject<MouseEvent>",
           "default": "new ReplaySubject<MouseEvent>(1)",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "$iframeKeyUp",
           "type": "ReplaySubject<KeyboardEvent>",
           "default": "new ReplaySubject<KeyboardEvent>(1)",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "$iframeUnload",
           "type": "ReplaySubject<BeforeUnloadEvent>",
           "default": "new ReplaySubject<BeforeUnloadEvent>(1)",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "$loading",
           "type": "BehaviorSubject<boolean>",
           "default": "new BehaviorSubject<boolean>(true)",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "$styling",
           "type": "Observable<any>",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "iframeDocument",
           "type": "Document",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "iframeBody",
           "type": "HTMLElement",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "activeSource",
           "type": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "elementResizeDetector",
           "type": "elementResizeDetectorMaker.Erd",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "elementRef",
           "type": "ElementRef",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -163,6 +190,7 @@
       "name": "IFrameModule",
       "kind": "module",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/iframe/iframe.module.ts",
       "inputs": [],
       "outputs": [],
@@ -172,7 +200,8 @@
           "name": "entryComponents",
           "type": "any",
           "default": "[IframeComponent]",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -180,7 +209,8 @@
       "name": "SafePipe",
       "kind": "pipe",
       "pipeName": "safe",
-      "summary": null,
+      "summary": "Sanitizes a URL and marks it as trusted resource URL, so it can be bound to `<iframe src>`\nwithout Angular's built-in sanitizer stripping it.",
+      "summaryZh": "对 URL 进行清理并标记为受信任的资源 URL，使其可以绑定到 `<iframe src>` 上\n而不会被 Angular 内置的安全清理器剥离。",
       "sourceFile": "src/common/iframe/pipes/safe.pipe.ts",
       "inputs": [],
       "outputs": [],
@@ -194,7 +224,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": []

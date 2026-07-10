@@ -7,7 +7,7 @@
     <li *ngFor="let item of api.exports">
       <span class="overview__kind">{{ item.kind }}</span>
       <span class="overview__name">{{ item.name }}</span>
-      <span class="overview__summary">{{ item.summary || '暂无描述' }}</span>
+      <span class="overview__summary">{{ summaryOf(item) || '暂无描述' }}</span>
     </li>
   </ul>
 

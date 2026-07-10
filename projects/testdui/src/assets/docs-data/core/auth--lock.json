@@ -6,6 +6,7 @@
       "kind": "component",
       "selector": "lock-dialog",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/auth/lock/lockscreen.dialog.ts",
       "inputs": [],
       "outputs": [],
@@ -14,92 +15,108 @@
           "name": "onSubmit",
           "params": [],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": [
         {
           "name": "lockForm",
           "type": "FormGroup",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "style",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "currentTime",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "currentWeek",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "attachOutsideOnClick",
           "type": "any",
           "default": "true",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "errorDiagnostic",
           "type": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "submitted",
           "type": "any",
           "default": "false",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "cryptType",
           "type": "any",
           "default": "''",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "userName",
           "type": "any",
           "default": "''",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "lt",
           "type": "any",
           "default": "''",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "user",
           "type": "any",
           "default": "''",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "from",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "system",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "wallpapers",
           "type": "any",
           "default": "[]",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "index",
           "type": "any",
           "default": "1",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -107,6 +124,7 @@
       "name": "LockscreenSaverModule",
       "kind": "module",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/auth/lock/lockscreen.module.ts",
       "inputs": [],
       "outputs": [],
@@ -117,6 +135,7 @@
       "name": "USER_STATUS_CODES",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/auth/lock/lockscreen.dialog.ts",
       "inputs": [],
       "outputs": [],

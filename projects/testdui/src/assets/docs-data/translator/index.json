@@ -5,6 +5,7 @@
       "name": "Base2",
       "kind": "class",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/translator/base.ts",
       "inputs": [],
       "outputs": [],
@@ -15,6 +16,7 @@
       "name": "basicPatterns",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/translator/date-formatter.ts",
       "inputs": [],
       "outputs": [],
@@ -25,6 +27,7 @@
       "name": "cldrData",
       "kind": "constant",
       "summary": "Specifies the CLDR data loaded for internationalization functionalities.\nprivate",
+      "summaryZh": null,
       "sourceFile": "src/translator/internationalization.ts",
       "inputs": [],
       "outputs": [],
@@ -35,6 +38,7 @@
       "name": "CommonOptions",
       "kind": "interface",
       "summary": "Interface for common formatting options",
+      "summaryZh": null,
       "sourceFile": "src/translator/number-formatter.ts",
       "inputs": [],
       "outputs": [],
@@ -45,6 +49,7 @@
       "name": "customFormat",
       "kind": "function",
       "summary": "Returns formatting options for custom number format\nprivate\nparam {string} format\nparam {CommonOptions} dOptions\nparam {Dependables} obj\nreturns {GenericFormatOptions}",
+      "summaryZh": null,
       "sourceFile": "src/translator/number-formatter.ts",
       "inputs": [],
       "outputs": [],
@@ -55,6 +60,7 @@
       "name": "DateFormat",
       "kind": "class",
       "summary": "Date Format is a framework provides support for date formatting.\nprivate",
+      "summaryZh": null,
       "sourceFile": "src/translator/date-formatter.ts",
       "inputs": [],
       "outputs": [],
@@ -72,7 +78,8 @@
             }
           ],
           "returnType": "Function",
-          "description": "Returns the formatter function for given skeleton.\nparam {DateFormatOptions} - Specific the format in which date  will format.\nparam {cldr} - Specifies the global cldr data collection.\nreturn Function."
+          "description": "Returns the formatter function for given skeleton.\nparam {DateFormatOptions} - Specific the format in which date  will format.\nparam {cldr} - Specifies the global cldr data collection.\nreturn Function.",
+          "descriptionZh": null
         },
         {
           "name": "getTimeZoneValue",
@@ -87,7 +94,8 @@
             }
           ],
           "returnType": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": []
@@ -96,6 +104,7 @@
       "name": "DateFormatOptions",
       "kind": "interface",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/translator/date-formatter.ts",
       "inputs": [],
       "outputs": [],
@@ -106,6 +115,7 @@
       "name": "DateParser",
       "kind": "class",
       "summary": "Date Parser.\nprivate",
+      "summaryZh": null,
       "sourceFile": "src/translator/date-parser.ts",
       "inputs": [],
       "outputs": [],
@@ -123,7 +133,8 @@
             }
           ],
           "returnType": "Function",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": []
@@ -132,6 +143,7 @@
       "name": "datePartMatcher",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/translator/date-formatter.ts",
       "inputs": [],
       "outputs": [],
@@ -142,6 +154,7 @@
       "name": "DEFAULT_LANGUAGE",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/translator/translate.service.ts",
       "inputs": [],
       "outputs": [],
@@ -152,6 +165,7 @@
       "name": "DefaultLangChangeEvent",
       "kind": "interface",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/translator/translate.service.ts",
       "inputs": [],
       "outputs": [],
@@ -162,6 +176,7 @@
       "name": "enableRtl",
       "kind": "function",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/translator/internationalization.ts",
       "inputs": [],
       "outputs": [],
@@ -172,6 +187,7 @@
       "name": "equals",
       "kind": "function",
       "summary": "Determines if two objects or two values are equivalent.\n\nTwo objects or values are considered equivalent if at least one of the following is true:\n\n* Both objects or values pass `===` comparison.\n* Both objects or values are of the same type and all of their properties are equal by\n  comparing them with `equals`.",
+      "summaryZh": null,
       "sourceFile": "src/translator/util.ts",
       "inputs": [],
       "outputs": [],
@@ -182,6 +198,7 @@
       "name": "FakeMissingTranslationHandler",
       "kind": "service",
       "summary": "This handler is just a placeholder that does nothing, in case you don't need a missing translation handler at all",
+      "summaryZh": null,
       "sourceFile": "src/translator/missing-translation-handler.ts",
       "inputs": [],
       "outputs": [],
@@ -195,7 +212,8 @@
             }
           ],
           "returnType": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": []
@@ -204,6 +222,7 @@
       "name": "FormatOptions",
       "kind": "interface",
       "summary": "Interface for Date Format Options Modules.\nprivate",
+      "summaryZh": null,
       "sourceFile": "src/translator/date-formatter.ts",
       "inputs": [],
       "outputs": [],
@@ -214,6 +233,7 @@
       "name": "getActualDateTimeFormat",
       "kind": "function",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/translator/date-formatter.ts",
       "inputs": [],
       "outputs": [],
@@ -224,6 +244,7 @@
       "name": "getActualNumberFormat",
       "kind": "function",
       "summary": "Returns Native Number pattern\nparam {NumberFormatOptions} options\nparam {Object} cldr\nreturns {string}",
+      "summaryZh": null,
       "sourceFile": "src/translator/number-formatter.ts",
       "inputs": [],
       "outputs": [],
@@ -234,6 +255,7 @@
       "name": "getDefaultDateObject",
       "kind": "function",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/translator/internationalization.ts",
       "inputs": [],
       "outputs": [],
@@ -244,6 +266,7 @@
       "name": "getNumberDependable",
       "kind": "function",
       "summary": "To get the numeric CLDR  number base object for given culture\nparam {string} locale - Specifies the locale for which numericObject to be returned.\nparam {string} currency - Specifies the currency for which numericObject to be returned.",
+      "summaryZh": null,
       "sourceFile": "src/translator/internationalization.ts",
       "inputs": [],
       "outputs": [],
@@ -254,6 +277,7 @@
       "name": "getNumericObject",
       "kind": "function",
       "summary": "To get the numeric CLDR object for given culture\nparam {string} locale - Specifies the locale for which numericObject to be returned.",
+      "summaryZh": null,
       "sourceFile": "src/translator/internationalization.ts",
       "inputs": [],
       "outputs": [],
@@ -264,6 +288,7 @@
       "name": "getResultantPattern",
       "kind": "function",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/translator/date-formatter.ts",
       "inputs": [],
       "outputs": [],
@@ -274,6 +299,7 @@
       "name": "Internationalization",
       "kind": "class",
       "summary": "Internationalization class provides support to parse and format the number and date object to the desired format.\n```typescript\n// To set the culture globally\nsetCulture('en-GB');\n\n// To set currency code globally\nsetCurrencyCode('EUR');\n\n//Load cldr data\nloadCldr(gregorainData);\nloadCldr(timeZoneData);\nloadCldr(numbersData);\nloadCldr(numberSystemData);\n\n// To use formatter in component side\nlet Intl:Internationalization = new Internationalization();\n\n// Date formatting\nlet dateFormatter: Function = Intl.getDateFormat({skeleton:'long',type:'dateTime'});\ndateFormatter(new Date('11/2/2016'));\ndateFormatter(new Date('25/2/2030'));\nIntl.formatDate(new Date(),{skeleton:'E'});\n\n//Number formatting\nlet numberFormatter: Function = Intl.getNumberFormat({skeleton:'C5'})\nnumberFormatter(24563334);\nIntl.formatNumber(123123,{skeleton:'p2'});\n\n// Date parser\nlet dateParser: Function = Intl.getDateParser({skeleton:'short',type:'time'});\ndateParser('10:30 PM');\nIntl.parseDate('10',{skeleton:'H'});\n```",
+      "summaryZh": null,
       "sourceFile": "src/translator/internationalization.ts",
       "inputs": [],
       "outputs": [],
@@ -287,7 +313,8 @@
             }
           ],
           "returnType": "Function",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "getNumberFormat",
@@ -298,7 +325,8 @@
             }
           ],
           "returnType": "Function",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "getDateParser",
@@ -309,7 +337,8 @@
             }
           ],
           "returnType": "Function",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "getNumberParser",
@@ -320,7 +349,8 @@
             }
           ],
           "returnType": "Function",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "formatNumber",
@@ -335,7 +365,8 @@
             }
           ],
           "returnType": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "formatDate",
@@ -350,7 +381,8 @@
             }
           ],
           "returnType": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "parseDate",
@@ -365,7 +397,8 @@
             }
           ],
           "returnType": "Date",
-          "description": "Returns the date object for given date string and options.\nparam {string} value - Specifies the string to parse.\nparam {DateFormatOptions} option - Specifies the parse options in which the date string will be parsed.\nreturns {Date}"
+          "description": "Returns the date object for given date string and options.\nparam {string} value - Specifies the string to parse.\nparam {DateFormatOptions} option - Specifies the parse options in which the date string will be parsed.\nreturns {Date}",
+          "descriptionZh": null
         },
         {
           "name": "parseNumber",
@@ -380,7 +413,8 @@
             }
           ],
           "returnType": "number",
-          "description": "Returns the number object from the given string value and options.\nparam {string} value - Specifies the string to parse.\nparam {NumberFormatOptions} option - Specifies the parse options in which the  string number  will be parsed.\nreturns {number}"
+          "description": "Returns the number object from the given string value and options.\nparam {string} value - Specifies the string to parse.\nparam {NumberFormatOptions} option - Specifies the parse options in which the  string number  will be parsed.\nreturns {number}",
+          "descriptionZh": null
         },
         {
           "name": "getDatePattern",
@@ -395,7 +429,8 @@
             }
           ],
           "returnType": "string",
-          "description": "Returns Native Date Time Pattern\nparam {DateFormatOptions} option - Specifies the parse options for resultant date time pattern.\nparam {boolean} isExcelFormat - Specifies format value to be converted to excel pattern.\nreturns {string}\nprivate"
+          "description": "Returns Native Date Time Pattern\nparam {DateFormatOptions} option - Specifies the parse options for resultant date time pattern.\nparam {boolean} isExcelFormat - Specifies format value to be converted to excel pattern.\nreturns {string}\nprivate",
+          "descriptionZh": null
         },
         {
           "name": "getNumberPattern",
@@ -406,20 +441,23 @@
             }
           ],
           "returnType": "string",
-          "description": "Returns Native Number Pattern\nparam {NumberFormatOptions} option - Specifies the parse options for resultant number pattern.\nreturns {string}\nprivate"
+          "description": "Returns Native Number Pattern\nparam {NumberFormatOptions} option - Specifies the parse options for resultant number pattern.\nreturns {string}\nprivate",
+          "descriptionZh": null
         },
         {
           "name": "getFirstDayOfWeek",
           "params": [],
           "returnType": "number",
-          "description": "Returns the First Day of the Week\nreturns {number}"
+          "description": "Returns the First Day of the Week\nreturns {number}",
+          "descriptionZh": null
         }
       ],
       "properties": [
         {
           "name": "culture",
           "type": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -427,6 +465,7 @@
       "name": "IntlBase",
       "kind": "class",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/translator/intl-base.ts",
       "inputs": [],
       "outputs": [],
@@ -437,6 +476,7 @@
       "name": "isDefined",
       "kind": "function",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/translator/util.ts",
       "inputs": [],
       "outputs": [],
@@ -447,6 +487,7 @@
       "name": "isObject",
       "kind": "function",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/translator/util.ts",
       "inputs": [],
       "outputs": [],
@@ -457,6 +498,7 @@
       "name": "L10n",
       "kind": "class",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/translator/l10n.ts",
       "inputs": [],
       "outputs": [],
@@ -470,7 +512,8 @@
             }
           ],
           "returnType": "void",
-          "description": "Sets the locale text\nparam {string} locale\nreturns {void}"
+          "description": "Sets the locale text\nparam {string} locale\nreturns {void}",
+          "descriptionZh": null
         },
         {
           "name": "load",
@@ -481,7 +524,8 @@
             }
           ],
           "returnType": "void",
-          "description": "Sets the global locale for all components.\nparam {Object} localeObject - specifies the localeObject to be set as global locale."
+          "description": "Sets the global locale for all components.\nparam {Object} localeObject - specifies the localeObject to be set as global locale.",
+          "descriptionZh": null
         },
         {
           "name": "getConstant",
@@ -492,7 +536,8 @@
             }
           ],
           "returnType": "string",
-          "description": "Returns current locale text for the property based on the culture name and control name.\nparam {string} propertyName - specifies the property for which localize text to be returned.\nreturn string"
+          "description": "Returns current locale text for the property based on the culture name and control name.\nparam {string} propertyName - specifies the property for which localize text to be returned.\nreturn string",
+          "descriptionZh": null
         }
       ],
       "properties": []
@@ -501,6 +546,7 @@
       "name": "LangChangeEvent",
       "kind": "interface",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/translator/translate.service.ts",
       "inputs": [],
       "outputs": [],
@@ -511,6 +557,7 @@
       "name": "loadCldr",
       "kind": "function",
       "summary": "Load the CLDR data into context\nparam {Object[]} obj Specifies the CLDR data's to be used for formatting and parser.\nreturns {void}",
+      "summaryZh": null,
       "sourceFile": "src/translator/internationalization.ts",
       "inputs": [],
       "outputs": [],
@@ -521,6 +568,7 @@
       "name": "mergeDeep",
       "kind": "function",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/translator/util.ts",
       "inputs": [],
       "outputs": [],
@@ -531,6 +579,7 @@
       "name": "MissingTranslationHandler",
       "kind": "class",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/translator/missing-translation-handler.ts",
       "inputs": [],
       "outputs": [],
@@ -544,7 +593,8 @@
             }
           ],
           "returnType": "any",
-          "description": "A function that handles missing translations."
+          "description": "A function that handles missing translations.",
+          "descriptionZh": null
         }
       ],
       "properties": []
@@ -553,6 +603,7 @@
       "name": "MissingTranslationHandlerParams",
       "kind": "interface",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/translator/missing-translation-handler.ts",
       "inputs": [],
       "outputs": [],
@@ -563,6 +614,7 @@
       "name": "NumberFormat",
       "kind": "class",
       "summary": "Module for number formatting.\nprivate",
+      "summaryZh": null,
       "sourceFile": "src/translator/number-formatter.ts",
       "inputs": [],
       "outputs": [],
@@ -580,7 +632,8 @@
             }
           ],
           "returnType": "Function",
-          "description": "Returns the formatter function for given skeleton.\nparam {string} culture -  Specifies the culture name to be which formatting.\nparam {NumberFormatOptions} option - Specific the format in which number  will format.\nparam {Object} object- Specifies the global cldr data collection.\nreturn Function."
+          "description": "Returns the formatter function for given skeleton.\nparam {string} culture -  Specifies the culture name to be which formatting.\nparam {NumberFormatOptions} option - Specific the format in which number  will format.\nparam {Object} object- Specifies the global cldr data collection.\nreturn Function.",
+          "descriptionZh": null
         },
         {
           "name": "getGroupingDetails",
@@ -591,7 +644,8 @@
             }
           ],
           "returnType": "Base2.GroupDetails",
-          "description": "Returns grouping details for the pattern provided\nparam {string} pattern\nreturns {GroupDetails}"
+          "description": "Returns grouping details for the pattern provided\nparam {string} pattern\nreturns {GroupDetails}",
+          "descriptionZh": null
         }
       ],
       "properties": []
@@ -600,6 +654,7 @@
       "name": "NumberFormatOptions",
       "kind": "interface",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/translator/base.ts",
       "inputs": [],
       "outputs": [],
@@ -610,6 +665,7 @@
       "name": "NumberParser",
       "kind": "class",
       "summary": "Module for Number Parser.\nprivate",
+      "summaryZh": null,
       "sourceFile": "src/translator/number-parser.ts",
       "inputs": [],
       "outputs": [],
@@ -627,7 +683,8 @@
             }
           ],
           "returnType": "Function",
-          "description": "Returns the parser function for given skeleton.\nparam {string} -  Specifies the culture name to be which formatting.\nparam {NumberFormatOptions} - Specific the format in which number  will parsed.\nparam {cldr} - Specifies the global cldr data collection.\nreturn Function."
+          "description": "Returns the parser function for given skeleton.\nparam {string} -  Specifies the culture name to be which formatting.\nparam {NumberFormatOptions} - Specific the format in which number  will parsed.\nparam {cldr} - Specifies the global cldr data collection.\nreturn Function.",
+          "descriptionZh": null
         }
       ],
       "properties": []
@@ -636,6 +693,7 @@
       "name": "NumericParts",
       "kind": "interface",
       "summary": "interface for Numeric Formatting Parts",
+      "summaryZh": null,
       "sourceFile": "src/translator/number-formatter.ts",
       "inputs": [],
       "outputs": [],
@@ -646,6 +704,7 @@
       "name": "onIntlChange",
       "kind": "constant",
       "summary": "Specifies the observer used for external change detection.",
+      "summaryZh": null,
       "sourceFile": "src/translator/internationalization.ts",
       "inputs": [],
       "outputs": [],
@@ -656,6 +715,7 @@
       "name": "rightToLeft",
       "kind": "constant",
       "summary": "Specifies the default rtl status for EJ2 components.",
+      "summaryZh": null,
       "sourceFile": "src/translator/internationalization.ts",
       "inputs": [],
       "outputs": [],
@@ -666,6 +726,7 @@
       "name": "setCulture",
       "kind": "function",
       "summary": "Set the default culture to all EJ2 components\nparam {string} cultureName - Specifies the culture name to be set as default culture.",
+      "summaryZh": null,
       "sourceFile": "src/translator/internationalization.ts",
       "inputs": [],
       "outputs": [],
@@ -676,6 +737,7 @@
       "name": "setCurrencyCode",
       "kind": "function",
       "summary": "Set the default currency code to all EJ2 components\nparam {string} currencyCode Specifies the culture name to be set as default culture.\nreturns {void}",
+      "summaryZh": null,
       "sourceFile": "src/translator/internationalization.ts",
       "inputs": [],
       "outputs": [],
@@ -686,6 +748,7 @@
       "name": "TranslateCompiler",
       "kind": "class",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/translator/translate.compiler.ts",
       "inputs": [],
       "outputs": [],
@@ -703,7 +766,8 @@
             }
           ],
           "returnType": "string | Function",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "compileTranslations",
@@ -718,7 +782,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": []
@@ -727,6 +792,7 @@
       "name": "TranslateDefaultParser",
       "kind": "service",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/translator/translate.parser.ts",
       "inputs": [],
       "outputs": [],
@@ -744,7 +810,8 @@
             }
           ],
           "returnType": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "getValue",
@@ -759,7 +826,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": [
@@ -767,7 +835,8 @@
           "name": "templateMatcher",
           "type": "RegExp",
           "default": "/{{\\s?([^{}\\s]*)\\s?}}/g",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -776,17 +845,20 @@
       "kind": "directive",
       "selector": "[translate],[ngx-translate]",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/translator/translate.directive.ts",
       "inputs": [
         {
           "name": "translate",
           "type": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "translateParams",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "outputs": [],
@@ -804,7 +876,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "updateValue",
@@ -823,7 +896,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "getContent",
@@ -834,7 +908,8 @@
             }
           ],
           "returnType": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "setContent",
@@ -849,39 +924,46 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": [
         {
           "name": "key",
           "type": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "lastParams",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "currentParams",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "onLangChangeSub",
           "type": "Subscription",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "onDefaultLangChangeSub",
           "type": "Subscription",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "onTranslationChangeSub",
           "type": "Subscription",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -889,6 +971,7 @@
       "name": "TranslateFakeCompiler",
       "kind": "service",
       "summary": "This compiler is just a placeholder that does nothing, in case you don't need a compiler at all",
+      "summaryZh": null,
       "sourceFile": "src/translator/translate.compiler.ts",
       "inputs": [],
       "outputs": [],
@@ -906,7 +989,8 @@
             }
           ],
           "returnType": "string | Function",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "compileTranslations",
@@ -921,7 +1005,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": []
@@ -930,6 +1015,7 @@
       "name": "TranslateFakeLoader",
       "kind": "service",
       "summary": "This loader is just a placeholder that does nothing, in case you don't need a loader at all",
+      "summaryZh": null,
       "sourceFile": "src/translator/translate.loader.ts",
       "inputs": [],
       "outputs": [],
@@ -947,7 +1033,8 @@
             }
           ],
           "returnType": "Observable<any>",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": []
@@ -956,6 +1043,7 @@
       "name": "TranslateGuard",
       "kind": "service",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/translator/translate.guard.ts",
       "inputs": [],
       "outputs": [],
@@ -964,7 +1052,8 @@
           "name": "canActivate",
           "params": [],
           "returnType": "Observable<boolean> | boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": []
@@ -973,6 +1062,7 @@
       "name": "TranslateHttpLoader",
       "kind": "service",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/translator/http-loader.ts",
       "inputs": [],
       "outputs": [],
@@ -986,7 +1076,8 @@
             }
           ],
           "returnType": "Observable<Object>",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": []
@@ -995,6 +1086,7 @@
       "name": "TranslateLoader",
       "kind": "class",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/translator/translate.loader.ts",
       "inputs": [],
       "outputs": [],
@@ -1012,7 +1104,8 @@
             }
           ],
           "returnType": "Observable<any>",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": []
@@ -1021,6 +1114,7 @@
       "name": "TranslateLoaderService",
       "kind": "service",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/translator/translate-loader.service.ts",
       "inputs": [],
       "outputs": [],
@@ -1034,7 +1128,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "registerProvider",
@@ -1049,7 +1144,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "providerRegistered",
@@ -1060,7 +1156,8 @@
             }
           ],
           "returnType": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "fetchLanguageFile",
@@ -1079,7 +1176,8 @@
             }
           ],
           "returnType": "Observable<void>",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "getComponentToFetch",
@@ -1090,7 +1188,8 @@
             }
           ],
           "returnType": "Array<Observable<any>>",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "init",
@@ -1101,7 +1200,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "isComponentInQueue",
@@ -1116,7 +1216,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "getFullTranslationJSON",
@@ -1127,7 +1228,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "getTranslation",
@@ -1138,7 +1240,8 @@
             }
           ],
           "returnType": "Observable<any>",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": []
@@ -1147,6 +1250,7 @@
       "name": "TranslateModule",
       "kind": "module",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/translator/translate.module.ts",
       "inputs": [],
       "outputs": [],
@@ -1160,7 +1264,8 @@
             }
           ],
           "returnType": "ModuleWithProviders<TranslateModule>",
-          "description": "Use this method in your root module to provide the TranslateService"
+          "description": "Use this method in your root module to provide the TranslateService",
+          "descriptionZh": null
         },
         {
           "name": "forChild",
@@ -1171,7 +1276,8 @@
             }
           ],
           "returnType": "ModuleWithProviders<TranslateModule>",
-          "description": "Use this method in your other (non root) modules to import the directive/pipe"
+          "description": "Use this method in your other (non root) modules to import the directive/pipe",
+          "descriptionZh": null
         }
       ],
       "properties": []
@@ -1180,6 +1286,7 @@
       "name": "TranslateModuleConfig",
       "kind": "interface",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/translator/translate.module.ts",
       "inputs": [],
       "outputs": [],
@@ -1190,6 +1297,7 @@
       "name": "TranslateParser",
       "kind": "class",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/translator/translate.parser.ts",
       "inputs": [],
       "outputs": [],
@@ -1207,7 +1315,8 @@
             }
           ],
           "returnType": "string",
-          "description": "Interpolates a string to replace parameters\n\"This is a {{ key }}\" ==> \"This is a value\", with params = { key: \"value\" }"
+          "description": "Interpolates a string to replace parameters\n\"This is a {{ key }}\" ==> \"This is a value\", with params = { key: \"value\" }",
+          "descriptionZh": null
         },
         {
           "name": "getValue",
@@ -1222,7 +1331,8 @@
             }
           ],
           "returnType": "any",
-          "description": "Gets a value from an object by composed key\nparser.getValue({ key1: { keyA: 'valueI' }}, 'key1.keyA') ==> 'valueI'"
+          "description": "Gets a value from an object by composed key\nparser.getValue({ key1: { keyA: 'valueI' }}, 'key1.keyA') ==> 'valueI'",
+          "descriptionZh": null
         }
       ],
       "properties": []
@@ -1232,6 +1342,7 @@
       "kind": "pipe",
       "pipeName": "translate",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/translator/translate.pipe.ts",
       "inputs": [],
       "outputs": [],
@@ -1253,7 +1364,8 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "transform",
@@ -1268,7 +1380,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": [
@@ -1276,32 +1389,38 @@
           "name": "value",
           "type": "string",
           "default": "''",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "lastKey",
           "type": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "lastParams",
           "type": "any[]",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "onTranslationChange",
           "type": "Subscription",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "onLangChange",
           "type": "Subscription",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "onDefaultLangChange",
           "type": "Subscription",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -1309,6 +1428,7 @@
       "name": "TranslateService",
       "kind": "service",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/translator/translate.service.ts",
       "inputs": [],
       "outputs": [],
@@ -1322,13 +1442,15 @@
             }
           ],
           "returnType": "void",
-          "description": "Sets the default language to use as a fallback"
+          "description": "Sets the default language to use as a fallback",
+          "descriptionZh": null
         },
         {
           "name": "getDefaultLang",
           "params": [],
           "returnType": "string",
-          "description": "Gets the default language used"
+          "description": "Gets the default language used",
+          "descriptionZh": null
         },
         {
           "name": "use",
@@ -1339,7 +1461,8 @@
             }
           ],
           "returnType": "Observable<any>",
-          "description": "Changes the lang currently used"
+          "description": "Changes the lang currently used",
+          "descriptionZh": null
         },
         {
           "name": "getTranslation",
@@ -1350,7 +1473,8 @@
             }
           ],
           "returnType": "Observable<any>",
-          "description": "Gets an object of translations for a given language with the current loader\nand passes it through the compiler"
+          "description": "Gets an object of translations for a given language with the current loader\nand passes it through the compiler",
+          "descriptionZh": null
         },
         {
           "name": "setTranslation",
@@ -1369,13 +1493,15 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "getLangs",
           "params": [],
           "returnType": "Array<string>",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "addLangs",
@@ -1386,7 +1512,8 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "getParsedResult",
@@ -1405,7 +1532,8 @@
             }
           ],
           "returnType": "any",
-          "description": "Returns the parsed result of the translations"
+          "description": "Returns the parsed result of the translations",
+          "descriptionZh": null
         },
         {
           "name": "get",
@@ -1420,7 +1548,8 @@
             }
           ],
           "returnType": "Observable<string | any>",
-          "description": "Gets the translated value of a key (or an array of keys)"
+          "description": "Gets the translated value of a key (or an array of keys)",
+          "descriptionZh": null
         },
         {
           "name": "getStreamOnTranslationChange",
@@ -1435,7 +1564,8 @@
             }
           ],
           "returnType": "Observable<string | any>",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "stream",
@@ -1450,7 +1580,8 @@
             }
           ],
           "returnType": "Observable<string | any>",
-          "description": "Returns a stream of translated values of a key (or an array of keys) which updates\nwhenever the language changes."
+          "description": "Returns a stream of translated values of a key (or an array of keys) which updates\nwhenever the language changes.",
+          "descriptionZh": null
         },
         {
           "name": "instant",
@@ -1465,7 +1596,8 @@
             }
           ],
           "returnType": "string | any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "set",
@@ -1484,7 +1616,8 @@
             }
           ],
           "returnType": "void",
-          "description": "Sets the translated value of a key, after compiling it"
+          "description": "Sets the translated value of a key, after compiling it",
+          "descriptionZh": null
         },
         {
           "name": "reloadLang",
@@ -1495,7 +1628,8 @@
             }
           ],
           "returnType": "Observable<any>",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "resetLang",
@@ -1506,19 +1640,22 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "getBrowserLang",
           "params": [],
           "returnType": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "getBrowserCultureLang",
           "params": [],
           "returnType": "string",
-          "description": "Returns the culture language code name from the browser, e.g. \"de-DE\""
+          "description": "Returns the culture language code name from the browser, e.g. \"de-DE\"",
+          "descriptionZh": null
         },
         {
           "name": "getDateFormat",
@@ -1529,7 +1666,8 @@
             }
           ],
           "returnType": "Function",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "getNumberFormat",
@@ -1540,7 +1678,8 @@
             }
           ],
           "returnType": "Function",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "getDateParser",
@@ -1551,7 +1690,8 @@
             }
           ],
           "returnType": "Function",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "getNumberParser",
@@ -1562,7 +1702,8 @@
             }
           ],
           "returnType": "Function",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "formatNumber",
@@ -1577,7 +1718,8 @@
             }
           ],
           "returnType": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "formatDate",
@@ -1592,7 +1734,8 @@
             }
           ],
           "returnType": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "parseDate",
@@ -1607,7 +1750,8 @@
             }
           ],
           "returnType": "Date",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "parseNumber",
@@ -1622,7 +1766,8 @@
             }
           ],
           "returnType": "number",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "getDatePattern",
@@ -1637,7 +1782,8 @@
             }
           ],
           "returnType": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "getNumberPattern",
@@ -1648,75 +1794,89 @@
             }
           ],
           "returnType": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "getFirstDayOfWeek",
           "params": [],
           "returnType": "number",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": [
         {
           "name": "loadingTranslations",
           "type": "Observable<any>",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "onTranslationChange",
           "type": "EventEmitter<TranslationChangeEvent>",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "onLangChange",
           "type": "EventEmitter<LangChangeEvent>",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "onDefaultLangChange",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "defaultLang",
           "type": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "defaultLang",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "currentLang",
           "type": "string",
-          "description": "The lang currently used"
+          "description": "The lang currently used",
+          "descriptionZh": null
         },
         {
           "name": "currentLang",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "langs",
           "type": "string[]",
-          "description": "an array of langs"
+          "description": "an array of langs",
+          "descriptionZh": null
         },
         {
           "name": "langs",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "translations",
           "type": "any",
-          "description": "a list of translations per lang"
+          "description": "a list of translations per lang",
+          "descriptionZh": null
         },
         {
           "name": "translations",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -1724,6 +1884,7 @@
       "name": "TranslateStore",
       "kind": "class",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/translator/translate.store.ts",
       "inputs": [],
       "outputs": [],
@@ -1733,43 +1894,50 @@
           "name": "defaultLang",
           "type": "string",
           "default": "'en'",
-          "description": "The default lang to fallback when translations are missing on the current lang"
+          "description": "The default lang to fallback when translations are missing on the current lang",
+          "descriptionZh": null
         },
         {
           "name": "currentLang",
           "type": "string",
           "default": "this.defaultLang",
-          "description": "The lang currently used"
+          "description": "The lang currently used",
+          "descriptionZh": null
         },
         {
           "name": "translations",
           "type": "any",
           "default": "{}",
-          "description": "a list of translations per lang"
+          "description": "a list of translations per lang",
+          "descriptionZh": null
         },
         {
           "name": "langs",
           "type": "Array<string>",
           "default": "[]",
-          "description": "an array of langs"
+          "description": "an array of langs",
+          "descriptionZh": null
         },
         {
           "name": "onTranslationChange",
           "type": "EventEmitter<TranslationChangeEvent>",
           "default": "new EventEmitter<TranslationChangeEvent>()",
-          "description": "An EventEmitter to listen to translation change events\nonTranslationChange.subscribe((params: TranslationChangeEvent) => {\n // do something\n });"
+          "description": "An EventEmitter to listen to translation change events\nonTranslationChange.subscribe((params: TranslationChangeEvent) => {\n // do something\n });",
+          "descriptionZh": null
         },
         {
           "name": "onLangChange",
           "type": "EventEmitter<LangChangeEvent>",
           "default": "new EventEmitter<LangChangeEvent>()",
-          "description": "An EventEmitter to listen to lang change events\nonLangChange.subscribe((params: LangChangeEvent) => {\n // do something\n });"
+          "description": "An EventEmitter to listen to lang change events\nonLangChange.subscribe((params: LangChangeEvent) => {\n // do something\n });",
+          "descriptionZh": null
         },
         {
           "name": "onDefaultLangChange",
           "type": "EventEmitter<DefaultLangChangeEvent>",
           "default": "new EventEmitter<DefaultLangChangeEvent>()",
-          "description": "An EventEmitter to listen to default lang change events\nonDefaultLangChange.subscribe((params: DefaultLangChangeEvent) => {\n // do something\n });"
+          "description": "An EventEmitter to listen to default lang change events\nonDefaultLangChange.subscribe((params: DefaultLangChangeEvent) => {\n // do something\n });",
+          "descriptionZh": null
         }
       ]
     },
@@ -1777,6 +1945,7 @@
       "name": "TRANSLATION_PROVIDER",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/translator/translation.service.ts",
       "inputs": [],
       "outputs": [],
@@ -1787,6 +1956,7 @@
       "name": "TranslationChangeEvent",
       "kind": "interface",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/translator/translate.service.ts",
       "inputs": [],
       "outputs": [],
@@ -1797,6 +1967,7 @@
       "name": "TranslationProvider",
       "kind": "interface",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/translator/translation.service.ts",
       "inputs": [],
       "outputs": [],
@@ -1807,6 +1978,7 @@
       "name": "TranslationService",
       "kind": "service",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/translator/translation.service.ts",
       "inputs": [],
       "outputs": [],
@@ -1824,7 +1996,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "loadI10",
@@ -1839,7 +2012,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "addTranslationFolder",
@@ -1854,7 +2028,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "changeLang",
@@ -1865,7 +2040,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "loadTranslation",
@@ -1880,7 +2056,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "onTranslationChanged",
@@ -1891,7 +2068,8 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "use",
@@ -1902,7 +2080,8 @@
             }
           ],
           "returnType": "Observable<any>",
-          "description": "Sets the target language for translations."
+          "description": "Sets the target language for translations.",
+          "descriptionZh": null
         },
         {
           "name": "get",
@@ -1917,7 +2096,8 @@
             }
           ],
           "returnType": "Observable<string | any>",
-          "description": "Gets the translation for the supplied key."
+          "description": "Gets the translation for the supplied key.",
+          "descriptionZh": null
         },
         {
           "name": "instant",
@@ -1932,19 +2112,22 @@
             }
           ],
           "returnType": "string | any",
-          "description": "Directly returns the translation for the supplied key."
+          "description": "Directly returns the translation for the supplied key.",
+          "descriptionZh": null
         }
       ],
       "properties": [
         {
           "name": "defaultLang",
           "type": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "userLang",
           "type": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -1952,6 +2135,7 @@
       "name": "USE_DEFAULT_LANG",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/translator/translate.service.ts",
       "inputs": [],
       "outputs": [],
@@ -1962,6 +2146,7 @@
       "name": "USE_EXTEND",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/translator/translate.service.ts",
       "inputs": [],
       "outputs": [],
@@ -1972,6 +2157,7 @@
       "name": "USE_STORE",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/translator/translate.service.ts",
       "inputs": [],
       "outputs": [],

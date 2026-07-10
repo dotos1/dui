@@ -64,6 +64,12 @@ export interface FileUploaderOptions {
   formatDataFunctionIsAsync?: boolean;
 }
 
+/**
+ * Manages an upload queue of {@link FileItem}s: adding/filtering files, tracking overall
+ * progress, and driving each item's XHR upload.
+ * @zh 管理上传队列中的 {@link FileItem}：添加/过滤文件、跟踪整体进度，
+ * 并驱动每个条目的 XHR 上传。
+ */
 export class FileUploader {
 
   public authToken: string;

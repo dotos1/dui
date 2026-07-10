@@ -4,6 +4,11 @@ import { NgScrollbarCore } from './ng-scrollbar-core';
 import { NG_SCROLLBAR } from './utils/scrollbar-base';
 import { Scrollbars } from './scrollbars/scrollbars';
 
+/**
+ * Custom scrollbar component: wraps projected content in an internally-managed scrollable
+ * viewport and renders custom scrollbar overlays over it.
+ * @zh 自定义滚动条组件：将投影内容包裹在内部管理的可滚动视口中，并在其上渲染自定义滚动条覆层。
+ */
 @Component({
   standalone: true,
   selector: 'ng-scrollbar:not([externalViewport])',

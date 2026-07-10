@@ -5,6 +5,7 @@
       "name": "MonacoMarkdownExtension",
       "kind": "class",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/ux/markdown-editor/index.ts",
       "inputs": [],
       "outputs": [],
@@ -18,7 +19,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": []

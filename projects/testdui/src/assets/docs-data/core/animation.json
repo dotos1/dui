@@ -5,6 +5,7 @@
       "name": "AnimationCurves",
       "kind": "class",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/animation/animation.ts",
       "inputs": [],
       "outputs": [],
@@ -14,25 +15,29 @@
           "name": "STANDARD_CURVE",
           "type": "any",
           "default": "'cubic-bezier(0.4,0.0,0.2,1)'",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "DECELERATION_CURVE",
           "type": "any",
           "default": "'cubic-bezier(0.0,0.0,0.2,1)'",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "ACCELERATION_CURVE",
           "type": "any",
           "default": "'cubic-bezier(0.4,0.0,1,1)'",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "SHARP_CURVE",
           "type": "any",
           "default": "'cubic-bezier(0.4,0.0,0.6,1)'",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -40,6 +45,7 @@
       "name": "AnimationDurations",
       "kind": "class",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/animation/animation.ts",
       "inputs": [],
       "outputs": [],
@@ -49,19 +55,22 @@
           "name": "COMPLEX",
           "type": "any",
           "default": "'375ms'",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "ENTERING",
           "type": "any",
           "default": "'225ms'",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "EXITING",
           "type": "any",
           "default": "'195ms'",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     }

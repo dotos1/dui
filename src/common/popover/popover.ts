@@ -25,6 +25,11 @@ import { PopoverPanel } from './popover-interfaces';
 import { transformPopover } from './popover-animations';
 
 
+/**
+ * The floating panel content of a popover; paired with {@link PopoverTrigger} on a host
+ * element to control when/where it opens.
+ * @zh 弹出层的浮动面板内容；需要与宿主元素上的 {@link PopoverTrigger} 配合使用，以控制其打开的时机和位置。
+ */
 @Component({
   selector: 'popover',
   templateUrl: './popover.html',

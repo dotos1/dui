@@ -6,24 +6,28 @@
       "kind": "component",
       "selector": "copy-code-button",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/ux/highlight/copy-code-button/copy-code-button.component.ts",
       "inputs": [
         {
           "name": "copiedContent",
           "type": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "copyCodeToClipboard",
           "type": "boolean",
           "default": "false",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "copyCodeTooltips",
           "type": "ICopyCodeTooltips",
           "default": "{}",
-          "description": "copyCodeTooltips?: ICopyCodeTooltips\n\nTooltips for copy button to copy and upon copying."
+          "description": "copyCodeTooltips?: ICopyCodeTooltips\n\nTooltips for copy button to copy and upon copying.",
+          "descriptionZh": null
         }
       ],
       "outputs": [],
@@ -37,30 +41,35 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "initializeTooltip",
           "params": [],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": [
         {
           "name": "copyTooltip",
           "type": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "copiedTooltip",
           "type": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "tooltip",
           "type": "MatTooltip",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -69,36 +78,42 @@
       "kind": "component",
       "selector": "dui-highlight",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/ux/highlight/highlight.component.ts",
       "inputs": [
         {
           "name": "content",
           "type": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "copyCodeToClipboard",
           "type": "boolean",
           "default": "false",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "copyCodeTooltips",
           "type": "ICopyCodeTooltips",
           "default": "{}",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "codeLang",
           "type": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "outputs": [
         {
           "name": "contentReady",
           "type": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "methods": [
@@ -111,29 +126,34 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": [
         {
           "name": "copyContent",
           "type": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "highlightComp",
           "type": "ElementRef",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "copyComp",
           "type": "ElementRef",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "tooltip",
           "type": "MatTooltip",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -141,6 +161,7 @@
       "name": "HighlightModule",
       "kind": "module",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/ux/highlight/highlight.module.ts",
       "inputs": [],
       "outputs": [],
@@ -151,6 +172,7 @@
       "name": "ICopyCodeTooltips",
       "kind": "interface",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/ux/highlight/copy-code-button/copy-code-button.component.ts",
       "inputs": [],
       "outputs": [],

@@ -14,11 +14,17 @@ import { MatInput } from '@angular/material/input';
 import { FormControl } from '@angular/forms';
 import { ThemeService } from '@dotos/dui/theme';
 
+/**
+ * Single-input dialog with built-in validation (length/min/max/pattern/required); normally
+ * opened via {@link DialogService.openPrompt}, and resolves with the entered value.
+ * @zh 带内置校验（长度/最小值/最大值/正则/必填）的单输入框对话框；通常通过
+ * {@link DialogService.openPrompt} 打开，关闭时返回输入的值。
+ */
 @Component({
   selector: 'dui-prompt-dialog',
   templateUrl: './prompt-dialog.component.html',
   styleUrls: ['./prompt-dialog.component.scss'],
-  
+
 })
 export class PromptDialogComponent implements AfterViewInit, OnDestroy {
   title?: string;

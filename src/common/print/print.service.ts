@@ -1,5 +1,11 @@
 import { Input, Output, EventEmitter, Injectable } from '@angular/core';
 
+/**
+ * Prints arbitrary HTML content (a string or element) via a hidden iframe or a popup window,
+ * with configurable doctype standard and injected stylesheets.
+ * @zh 通过隐藏 iframe 或弹出窗口打印任意 HTML 内容（字符串或元素），
+ * 可配置文档类型标准（doctype）及注入的样式表。
+ */
 @Injectable()
 export class PrintService {
   @Input() mode: string;

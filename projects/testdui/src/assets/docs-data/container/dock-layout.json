@@ -5,6 +5,7 @@
       "name": "AbstractContentItem",
       "kind": "type",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/container/dock-layout/items/content-item.ts",
       "inputs": [],
       "outputs": [],
@@ -15,6 +16,7 @@
       "name": "ApiError",
       "kind": "class",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/container/dock-layout/errors/external-error.ts",
       "inputs": [],
       "outputs": [],
@@ -25,6 +27,7 @@
       "name": "AreaLinkedRect",
       "kind": "interface",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/container/dock-layout/utils/types.ts",
       "inputs": [],
       "outputs": [],
@@ -35,6 +38,7 @@
       "name": "AssertError",
       "kind": "class",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/container/dock-layout/errors/internal-error.ts",
       "inputs": [],
       "outputs": [],
@@ -45,6 +49,7 @@
       "name": "BindError",
       "kind": "class",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/container/dock-layout/errors/external-error.ts",
       "inputs": [],
       "outputs": [],
@@ -55,6 +60,7 @@
       "name": "BrowserPopout",
       "kind": "class",
       "summary": "Pops a content item out into a new browser window.\nThis is achieved by\n\n   - Creating a new configuration with the content item as root element\n   - Serializing and minifying the configuration\n   - Opening the current window's URL with the configuration as a GET parameter\n   - DockLayout when opened in the new window will look for the GET parameter\n     and use it instead of the provided configuration",
+      "summaryZh": null,
       "sourceFile": "src/container/dock-layout/controls/browser-popout.ts",
       "inputs": [],
       "outputs": [],
@@ -63,31 +69,36 @@
           "name": "toConfig",
           "params": [],
           "returnType": "ResolvedPopoutLayoutConfig",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "getGlInstance",
           "params": [],
           "returnType": "LayoutManager",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "getWindow",
           "params": [],
           "returnType": "Window",
-          "description": "Retrieves the native BrowserWindow backing this popout.\nMight throw an UnexpectedNullError exception when the window is not initialized yet."
+          "description": "Retrieves the native BrowserWindow backing this popout.\nMight throw an UnexpectedNullError exception when the window is not initialized yet.",
+          "descriptionZh": null
         },
         {
           "name": "close",
           "params": [],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "popIn",
           "params": [],
           "returnType": "void",
-          "description": "Returns the popped out item to its original position. If the original\nparent isn't available anymore it falls back to the layout's topmost element"
+          "description": "Returns the popped out item to its original position. If the original\nparent isn't available anymore it falls back to the layout's topmost element",
+          "descriptionZh": null
         }
       ],
       "properties": []
@@ -96,6 +107,7 @@
       "name": "Component",
       "kind": "type",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/container/dock-layout/items/component-item.ts",
       "inputs": [],
       "outputs": [],
@@ -106,6 +118,7 @@
       "name": "ComponentContainer",
       "kind": "class",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/container/dock-layout/container/component-container.ts",
       "inputs": [],
       "outputs": [],
@@ -114,25 +127,29 @@
           "name": "destroy",
           "params": [],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "getElement",
           "params": [],
           "returnType": "HTMLElement",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "hide",
           "params": [],
           "returnType": "void",
-          "description": "Hides the container's component item (and hence, the container) if not already hidden.\nEmits hide event prior to hiding the container."
+          "description": "Hides the container's component item (and hence, the container) if not already hidden.\nEmits hide event prior to hiding the container.",
+          "descriptionZh": null
         },
         {
           "name": "show",
           "params": [],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "focus",
@@ -143,7 +160,8 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "blur",
@@ -154,7 +172,8 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "setSize",
@@ -169,13 +188,15 @@
             }
           ],
           "returnType": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "close",
           "params": [],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "replaceComponent",
@@ -186,13 +207,15 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "getState",
           "params": [],
           "returnType": "JsonValue | undefined",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "extendState",
@@ -203,7 +226,8 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "setState",
@@ -214,7 +238,8 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "setTitle",
@@ -225,7 +250,8 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "setTab",
@@ -236,7 +262,8 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "setVisibility",
@@ -247,13 +274,15 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "setBaseLogicalZIndex",
           "params": [],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "setLogicalZIndex",
@@ -264,7 +293,8 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "enterDragMode",
@@ -279,31 +309,36 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "exitDragMode",
           "params": [],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "enterStackMaximised",
           "params": [],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "exitStackMaximised",
           "params": [],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "drag",
           "params": [],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "setSizeToNodeSize",
@@ -322,110 +357,131 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "notifyVirtualRectingRequired",
           "params": [],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": [
         {
           "name": "stateRequestEvent",
           "type": "ComponentContainer.StateRequestEventHandler | undefined",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "virtualRectingRequiredEvent",
           "type": "ComponentContainer.VirtualRectingRequiredEvent | undefined",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "virtualVisibilityChangeRequiredEvent",
           "type": "ComponentContainer.VirtualVisibilityChangeRequiredEvent | undefined",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "virtualZIndexChangeRequiredEvent",
           "type": "ComponentContainer.VirtualZIndexChangeRequiredEvent | undefined",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "width",
           "type": "number",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "height",
           "type": "number",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "parent",
           "type": "ComponentItem",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "componentName",
           "type": "JsonValue",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "componentType",
           "type": "JsonValue",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "virtual",
           "type": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "component",
           "type": "ComponentContainer.Component",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "tab",
           "type": "Tab",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "title",
           "type": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "layoutManager",
           "type": "LayoutManager",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "isHidden",
           "type": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "visible",
           "type": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "state",
           "type": "JsonValue | undefined",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "initialState",
           "type": "JsonValue | undefined",
-          "description": "Return the initial component state"
+          "description": "Return the initial component state",
+          "descriptionZh": null
         },
         {
           "name": "element",
           "type": "HTMLElement",
-          "description": "The inner DOM element where the container's content is intended to live in"
+          "description": "The inner DOM element where the container's content is intended to live in",
+          "descriptionZh": null
         }
       ]
     },
@@ -433,6 +489,7 @@
       "name": "ComponentItem",
       "kind": "class",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/container/dock-layout/items/component-item.ts",
       "inputs": [],
       "outputs": [],
@@ -441,7 +498,8 @@
           "name": "destroy",
           "params": [],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "applyUpdatableConfig",
@@ -452,19 +510,22 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "toConfig",
           "params": [],
           "returnType": "ResolvedComponentItemConfig",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "close",
           "params": [],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "enterDragMode",
@@ -479,31 +540,36 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "exitDragMode",
           "params": [],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "enterStackMaximised",
           "params": [],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "exitStackMaximised",
           "params": [],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "drag",
           "params": [],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "updateSize",
@@ -514,13 +580,15 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "init",
           "params": [],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "setTitle",
@@ -531,7 +599,8 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "setTab",
@@ -542,19 +611,22 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "hide",
           "params": [],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "show",
           "params": [],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "focus",
@@ -565,7 +637,8 @@
             }
           ],
           "returnType": "void",
-          "description": "Focuses the item if it is not already focused"
+          "description": "Focuses the item if it is not already focused",
+          "descriptionZh": null
         },
         {
           "name": "setFocused",
@@ -576,7 +649,8 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "blur",
@@ -587,7 +661,8 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "setBlurred",
@@ -598,64 +673,76 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": [
         {
           "name": "componentName",
           "type": "JsonValue",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "componentType",
           "type": "JsonValue",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "reorderEnabled",
           "type": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "initialWantMaximise",
           "type": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "component",
           "type": "ComponentContainer.Component | undefined",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "container",
           "type": "ComponentContainer",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "parentItem",
           "type": "ComponentParentableItem",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "headerConfig",
           "type": "ResolvedHeaderedItemConfig.Header | undefined",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "title",
           "type": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "tab",
           "type": "Tab",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "focused",
           "type": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -663,6 +750,7 @@
       "name": "ComponentItemConfig",
       "kind": "class",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/container/dock-layout/config/config.ts",
       "inputs": [],
       "outputs": [],
@@ -673,6 +761,7 @@
       "name": "ComponentParentableItem",
       "kind": "class",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/container/dock-layout/items/component-parentable-item.ts",
       "inputs": [],
       "outputs": [],
@@ -686,7 +775,8 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "setActiveComponentItem",
@@ -705,14 +795,16 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": [
         {
           "name": "focused",
           "type": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -720,6 +812,7 @@
       "name": "Config",
       "kind": "type",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/container/dock-layout/config/config.ts",
       "inputs": [],
       "outputs": [],
@@ -730,6 +823,7 @@
       "name": "ConfigMinifier",
       "kind": "class",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/container/dock-layout/utils/config-minifier.ts",
       "inputs": [],
       "outputs": [],
@@ -740,6 +834,7 @@
       "name": "ConfigurationError",
       "kind": "class",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/container/dock-layout/errors/external-error.ts",
       "inputs": [],
       "outputs": [],
@@ -750,6 +845,7 @@
       "name": "ContentItem",
       "kind": "class",
       "summary": "This is the baseclass that all content items inherit from.\nMost methods provide a subset of what the sub-classes do.\n\nIt also provides a number of functions for tree traversal",
+      "summaryZh": null,
       "sourceFile": "src/container/dock-layout/items/content-item.ts",
       "inputs": [],
       "outputs": [],
@@ -763,7 +859,8 @@
             }
           ],
           "returnType": "item is Stack",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "isComponentItem",
@@ -774,7 +871,8 @@
             }
           ],
           "returnType": "item is ComponentItem",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "isComponentParentableItem",
@@ -785,7 +883,8 @@
             }
           ],
           "returnType": "item is ComponentParentableItem",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "updateSize",
@@ -796,7 +895,8 @@
             }
           ],
           "returnType": "void",
-          "description": "Updaters the size of the component and its children, called recursively"
+          "description": "Updaters the size of the component and its children, called recursively",
+          "descriptionZh": null
         },
         {
           "name": "removeChild",
@@ -811,7 +911,8 @@
             }
           ],
           "returnType": "void",
-          "description": "Removes a child node (and its children) from the tree"
+          "description": "Removes a child node (and its children) from the tree",
+          "descriptionZh": null
         },
         {
           "name": "addChild",
@@ -830,7 +931,8 @@
             }
           ],
           "returnType": "number",
-          "description": "Sets up the tree structure for the newly added child\nThe responsibility for the actual DOM manipulations lies\nwith the concrete item"
+          "description": "Sets up the tree structure for the newly added child\nThe responsibility for the actual DOM manipulations lies\nwith the concrete item",
+          "descriptionZh": null
         },
         {
           "name": "replaceChild",
@@ -849,31 +951,36 @@
             }
           ],
           "returnType": "void",
-          "description": "Replaces oldChild with newChild"
+          "description": "Replaces oldChild with newChild",
+          "descriptionZh": null
         },
         {
           "name": "remove",
           "params": [],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "popout",
           "params": [],
           "returnType": "BrowserPopout",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "toConfig",
           "params": [],
           "returnType": "ResolvedItemConfig",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "calculateConfigContent",
           "params": [],
           "returnType": "ResolvedItemConfig[]",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "highlightDropZone",
@@ -892,7 +999,8 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "onDrop",
@@ -907,19 +1015,22 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "show",
           "params": [],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "destroy",
           "params": [],
           "returnType": "void",
-          "description": "Destroys this item ands its children"
+          "description": "Destroys this item ands its children",
+          "descriptionZh": null
         },
         {
           "name": "getElementArea",
@@ -930,13 +1041,15 @@
             }
           ],
           "returnType": "ContentItem.Area | null",
-          "description": "Returns the area the component currently occupies"
+          "description": "Returns the area the component currently occupies",
+          "descriptionZh": null
         },
         {
           "name": "init",
           "params": [],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "addPopInParentId",
@@ -947,7 +1060,8 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "tryBubbleEvent",
@@ -962,99 +1076,118 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": [
         {
           "name": "size",
           "type": "number",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "sizeUnit",
           "type": "SizeUnitEnum",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "minSize",
           "type": "number | undefined",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "minSizeUnit",
           "type": "SizeUnitEnum",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "isGround",
           "type": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "isRow",
           "type": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "isColumn",
           "type": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "isStack",
           "type": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "isComponent",
           "type": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "type",
           "type": "ItemType",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "id",
           "type": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "id",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "popInParentIds",
           "type": "string[]",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "parent",
           "type": "ContentItem | null",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "contentItems",
           "type": "ContentItem[]",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "isClosable",
           "type": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "element",
           "type": "HTMLElement",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "isInitialised",
           "type": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -1062,6 +1195,7 @@
       "name": "deepExtend",
       "kind": "function",
       "summary": "Replacement for JQuery $.extend(true, target, obj)",
+      "summaryZh": null,
       "sourceFile": "src/container/dock-layout/utils/utils.ts",
       "inputs": [],
       "outputs": [],
@@ -1072,6 +1206,7 @@
       "name": "deepExtendValue",
       "kind": "function",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/container/dock-layout/utils/utils.ts",
       "inputs": [],
       "outputs": [],
@@ -1082,6 +1217,7 @@
       "name": "dock_LAYOUT_TAG_NAME",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/container/dock-layout/dock-layout-host.component.ts",
       "inputs": [],
       "outputs": [],
@@ -1092,6 +1228,7 @@
       "name": "DockLayout",
       "kind": "class",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/container/dock-layout/dock-layout.ts",
       "inputs": [],
       "outputs": [],
@@ -1117,7 +1254,8 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "registerComponentConstructor",
@@ -1140,7 +1278,8 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "registerComponentFactoryFunction",
@@ -1163,7 +1302,8 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "registerComponentFunction",
@@ -1174,7 +1314,8 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "registerGetComponentConstructorCallback",
@@ -1185,13 +1326,15 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "getRegisteredComponentTypeNames",
           "params": [],
           "returnType": "string[]",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "getComponentInstantiator",
@@ -1202,7 +1345,8 @@
             }
           ],
           "returnType": "DockLayout.ComponentInstantiator | undefined",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "bindComponent",
@@ -1221,7 +1365,8 @@
             }
           ],
           "returnType": "ComponentContainer.BindableComponent",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "unbindComponent",
@@ -1240,7 +1385,8 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "fireBeforeVirtualRectingEvent",
@@ -1251,7 +1397,8 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": []
@@ -1260,6 +1407,7 @@
       "name": "DockLayoutComponentService",
       "kind": "service",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/container/dock-layout/dock-layout-component.service.ts",
       "inputs": [],
       "outputs": [],
@@ -1277,7 +1425,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": []
@@ -1286,18 +1435,21 @@
       "name": "DockLayoutHostComponent",
       "kind": "component",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/container/dock-layout/dock-layout-host.component.ts",
       "inputs": [],
       "outputs": [
         {
           "name": "layoutChanged",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "activeStackChanged",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "methods": [
@@ -1310,20 +1462,23 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "handleWindowResizeEvent",
           "params": [],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": [
         {
           "name": "dockLayout",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -1331,6 +1486,7 @@
       "name": "DockLayoutManagerService",
       "kind": "service",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/container/dock-layout/dock-layout-manager.service.ts",
       "inputs": [],
       "outputs": [],
@@ -1344,7 +1500,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "getComponent",
@@ -1355,7 +1512,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "destroyComponents",
@@ -1366,7 +1524,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "removeComponents",
@@ -1377,7 +1536,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "addComponent",
@@ -1392,24 +1552,28 @@
             }
           ],
           "returnType": "ngComponentInstance",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": [
         {
           "name": "components",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "dockLayout",
           "type": "DockLayout",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "dockLayoutHostComponent",
           "type": "DockLayoutHostComponent",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -1417,6 +1581,7 @@
       "name": "DockLayoutModule",
       "kind": "module",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/container/dock-layout/dock-layout.module.ts",
       "inputs": [],
       "outputs": [],
@@ -1425,7 +1590,8 @@
           "name": "forRoot",
           "params": [],
           "returnType": "ModuleWithProviders<DockLayoutModule>",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": []
@@ -1434,6 +1600,7 @@
       "name": "DomConstants",
       "kind": "class",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/container/dock-layout/utils/dom-constants.ts",
       "inputs": [],
       "outputs": [],
@@ -1444,6 +1611,7 @@
       "name": "DragListener",
       "kind": "class",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/container/dock-layout/utils/drag-listener.ts",
       "inputs": [],
       "outputs": [],
@@ -1452,13 +1620,15 @@
           "name": "destroy",
           "params": [],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "cancelDrag",
           "params": [],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": []
@@ -1467,6 +1637,7 @@
       "name": "DragProxy",
       "kind": "class",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/container/dock-layout/controls/drag-proxy.ts",
       "inputs": [],
       "outputs": [],
@@ -1475,7 +1646,8 @@
         {
           "name": "element",
           "type": "HTMLElement",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -1483,6 +1655,7 @@
       "name": "DragSource",
       "kind": "class",
       "summary": "Allows for any DOM item to create a component on drag\nstart to be dragged into the Layout",
+      "summaryZh": null,
       "sourceFile": "src/container/dock-layout/controls/drag-source.ts",
       "inputs": [],
       "outputs": [],
@@ -1491,7 +1664,8 @@
           "name": "destroy",
           "params": [],
           "returnType": "void",
-          "description": "Disposes of the drag listeners so the drag source is not usable any more."
+          "description": "Disposes of the drag listeners so the drag source is not usable any more.",
+          "descriptionZh": null
         }
       ],
       "properties": []
@@ -1500,6 +1674,7 @@
       "name": "DropTargetIndicator",
       "kind": "class",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/container/dock-layout/controls/drop-target-indicator.ts",
       "inputs": [],
       "outputs": [],
@@ -1508,7 +1683,8 @@
           "name": "destroy",
           "params": [],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "highlightArea",
@@ -1523,13 +1699,15 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "hide",
           "params": [],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": []
@@ -1538,6 +1716,7 @@
       "name": "ensureElementPositionAbsolute",
       "kind": "function",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/container/dock-layout/utils/utils.ts",
       "inputs": [],
       "outputs": [],
@@ -1548,6 +1727,7 @@
       "name": "EventEmitter",
       "kind": "class",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/container/dock-layout/utils/event-emitter.ts",
       "inputs": [],
       "outputs": [],
@@ -1565,7 +1745,8 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "emit",
@@ -1580,7 +1761,8 @@
             }
           ],
           "returnType": "void",
-          "description": "Emit an event and notify listeners"
+          "description": "Emit an event and notify listeners",
+          "descriptionZh": null
         },
         {
           "name": "emitUnknown",
@@ -1595,7 +1777,8 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "emitBaseBubblingEvent",
@@ -1606,7 +1789,8 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "emitUnknownBubblingEvent",
@@ -1617,7 +1801,8 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "removeEventListener",
@@ -1632,7 +1817,8 @@
             }
           ],
           "returnType": "void",
-          "description": "Removes a listener for an event."
+          "description": "Removes a listener for an event.",
+          "descriptionZh": null
         },
         {
           "name": "off",
@@ -1647,7 +1833,8 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "addEventListener",
@@ -1662,7 +1849,8 @@
             }
           ],
           "returnType": "void",
-          "description": "Listen for events"
+          "description": "Listen for events",
+          "descriptionZh": null
         },
         {
           "name": "on",
@@ -1677,7 +1865,8 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": [
@@ -1685,13 +1874,15 @@
           "name": "unbind",
           "type": "any",
           "default": "this.removeEventListener",
-          "description": "Alias for off"
+          "description": "Alias for off",
+          "descriptionZh": null
         },
         {
           "name": "trigger",
           "type": "any",
           "default": "this.emit",
-          "description": "Alias for emit"
+          "description": "Alias for emit",
+          "descriptionZh": null
         }
       ]
     },
@@ -1699,6 +1890,7 @@
       "name": "EventHub",
       "kind": "class",
       "summary": "An EventEmitter singleton that propagates events\nacross multiple windows. This is a little bit trickier since\nwindows are allowed to open childWindows in their own right.\n\nThis means that we deal with a tree of windows. Therefore, we do the event propagation in two phases:\n\n- Propagate events from this layout to the parent layout\n  - Repeat until the event arrived at the root layout\n- Propagate events to this layout and to all children\n  - Repeat until all layouts got the event\n\n**WARNING**: Only userBroadcast events are propagated between windows.\nThis means the you have to take care of propagating state changes between windows yourself.",
+      "summaryZh": null,
       "sourceFile": "src/container/dock-layout/utils/event-hub.ts",
       "inputs": [],
       "outputs": [],
@@ -1716,7 +1908,8 @@
             }
           ],
           "returnType": "void",
-          "description": "Emit an event and notify listeners"
+          "description": "Emit an event and notify listeners",
+          "descriptionZh": null
         },
         {
           "name": "emitUserBroadcast",
@@ -1727,13 +1920,15 @@
             }
           ],
           "returnType": "void",
-          "description": "Broadcasts a message to all other currently opened windows."
+          "description": "Broadcasts a message to all other currently opened windows.",
+          "descriptionZh": null
         },
         {
           "name": "destroy",
           "params": [],
           "returnType": "void",
-          "description": "Destroys the EventHub"
+          "description": "Destroys the EventHub",
+          "descriptionZh": null
         }
       ],
       "properties": []
@@ -1742,6 +1937,7 @@
       "name": "extend",
       "kind": "function",
       "summary": "Replacement for JQuery $.extend(target, obj)",
+      "summaryZh": null,
       "sourceFile": "src/container/dock-layout/utils/utils.ts",
       "inputs": [],
       "outputs": [],
@@ -1752,6 +1948,7 @@
       "name": "ExternalError",
       "kind": "class",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/container/dock-layout/errors/external-error.ts",
       "inputs": [],
       "outputs": [],
@@ -1762,6 +1959,7 @@
       "name": "formatSize",
       "kind": "function",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/container/dock-layout/config/config.ts",
       "inputs": [],
       "outputs": [],
@@ -1772,6 +1970,7 @@
       "name": "formatUndefinableSize",
       "kind": "function",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/container/dock-layout/config/config.ts",
       "inputs": [],
       "outputs": [],
@@ -1782,6 +1981,7 @@
       "name": "getElementHeight",
       "kind": "function",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/container/dock-layout/utils/utils.ts",
       "inputs": [],
       "outputs": [],
@@ -1792,6 +1992,7 @@
       "name": "getElementWidth",
       "kind": "function",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/container/dock-layout/utils/utils.ts",
       "inputs": [],
       "outputs": [],
@@ -1802,6 +2003,7 @@
       "name": "getElementWidthAndHeight",
       "kind": "function",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/container/dock-layout/utils/utils.ts",
       "inputs": [],
       "outputs": [],
@@ -1812,6 +2014,7 @@
       "name": "getErrorMessage",
       "kind": "function",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/container/dock-layout/utils/utils.ts",
       "inputs": [],
       "outputs": [],
@@ -1822,6 +2025,7 @@
       "name": "getJQueryLeftAndTop",
       "kind": "function",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/container/dock-layout/utils/jquery-legacy.ts",
       "inputs": [],
       "outputs": [],
@@ -1832,6 +2036,7 @@
       "name": "getUniqueId",
       "kind": "function",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/container/dock-layout/utils/utils.ts",
       "inputs": [],
       "outputs": [],
@@ -1842,6 +2047,7 @@
       "name": "GroundItem",
       "kind": "class",
       "summary": "GroundItem is the ContentItem whose one child is the root ContentItem (Root is planted in Ground).\n(Previously it was called root however this was incorrect as its child is the root item)\nThere is only one instance of GroundItem and it is automatically created by the Layout Manager",
+      "summaryZh": null,
       "sourceFile": "src/container/dock-layout/items/ground-item.ts",
       "inputs": [],
       "outputs": [],
@@ -1850,7 +2056,8 @@
           "name": "init",
           "params": [],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "loadRoot",
@@ -1861,13 +2068,15 @@
             }
           ],
           "returnType": "void",
-          "description": "Loads a new Layout\nInternal only.  To load a new layout with API, use {@link  (LayoutManager:class).loadLayout}"
+          "description": "Loads a new Layout\nInternal only.  To load a new layout with API, use {@link  (LayoutManager:class).loadLayout}",
+          "descriptionZh": null
         },
         {
           "name": "clearRoot",
           "params": [],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "addItem",
@@ -1882,7 +2091,8 @@
             }
           ],
           "returnType": "number",
-          "description": "Adds a ContentItem child to root ContentItem.\nInternal only.  To load a add with API, use {@link  (LayoutManager:class).addItem}"
+          "description": "Adds a ContentItem child to root ContentItem.\nInternal only.  To load a add with API, use {@link  (LayoutManager:class).addItem}",
+          "descriptionZh": null
         },
         {
           "name": "loadComponentAsRoot",
@@ -1893,7 +2103,8 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "addChild",
@@ -1908,13 +2119,15 @@
             }
           ],
           "returnType": "number",
-          "description": "Adds a Root ContentItem.\nInternal only.  To replace Root ContentItem with API, use {@link  (LayoutManager:class).loadLayout}"
+          "description": "Adds a Root ContentItem.\nInternal only.  To replace Root ContentItem with API, use {@link  (LayoutManager:class).loadLayout}",
+          "descriptionZh": null
         },
         {
           "name": "calculateConfigContent",
           "params": [],
           "returnType": "ResolvedRootItemConfig[]",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "setSize",
@@ -1929,7 +2142,8 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "updateSize",
@@ -1940,13 +2154,15 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "createSideAreas",
           "params": [],
           "returnType": "GroundItem.Area[]",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "highlightDropZone",
@@ -1965,7 +2181,8 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "onDrop",
@@ -1980,31 +2197,36 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "dock",
           "params": [],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "validateDocking",
           "params": [],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "getAllContentItems",
           "params": [],
           "returnType": "ContentItem[]",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "getConfigMaximisedItems",
           "params": [],
           "returnType": "ContentItem[]",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "getItemsByPopInParentId",
@@ -2015,13 +2237,15 @@
             }
           ],
           "returnType": "ContentItem[]",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "toConfig",
           "params": [],
           "returnType": "ResolvedItemConfig",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "setActiveComponentItem",
@@ -2040,7 +2264,8 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": []
@@ -2049,6 +2274,7 @@
       "name": "Header",
       "kind": "class",
       "summary": "This class represents a header above a Stack ContentItem.",
+      "summaryZh": null,
       "sourceFile": "src/container/dock-layout/controls/header.ts",
       "inputs": [],
       "outputs": [],
@@ -2057,7 +2283,8 @@
           "name": "destroy",
           "params": [],
           "returnType": "void",
-          "description": "Destroys the entire header"
+          "description": "Destroys the entire header",
+          "descriptionZh": null
         },
         {
           "name": "createTab",
@@ -2072,7 +2299,8 @@
             }
           ],
           "returnType": "void",
-          "description": "Creates a new tab and associates it with a contentItem"
+          "description": "Creates a new tab and associates it with a contentItem",
+          "descriptionZh": null
         },
         {
           "name": "removeTab",
@@ -2083,7 +2311,8 @@
             }
           ],
           "returnType": "void",
-          "description": "Finds a tab based on the contentItem its associated with and removes it.\nCannot remove tab if it has the active ComponentItem"
+          "description": "Finds a tab based on the contentItem its associated with and removes it.\nCannot remove tab if it has the active ComponentItem",
+          "descriptionZh": null
         },
         {
           "name": "processActiveComponentChanged",
@@ -2094,7 +2323,8 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "setSide",
@@ -2105,7 +2335,8 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "setRowColumnClosable",
@@ -2116,13 +2347,15 @@
             }
           ],
           "returnType": "void",
-          "description": "Programmatically set closability."
+          "description": "Programmatically set closability.",
+          "descriptionZh": null
         },
         {
           "name": "updateClosability",
           "params": [],
           "returnType": "void",
-          "description": "Updates the header's closability. If a stack/header is able\nto close, but has a non closable component added to it, the stack is no\nlonger closable until all components are closable."
+          "description": "Updates the header's closability. If a stack/header is able\nto close, but has a non closable component added to it, the stack is no\nlonger closable until all components are closable.",
+          "descriptionZh": null
         },
         {
           "name": "applyFocusedValue",
@@ -2133,77 +2366,91 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "processMaximised",
           "params": [],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "processMinimised",
           "params": [],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "updateTabSizes",
           "params": [],
           "returnType": "void",
-          "description": "Pushes the tabs to the tab dropdown if the available space is not sufficient"
+          "description": "Pushes the tabs to the tab dropdown if the available space is not sufficient",
+          "descriptionZh": null
         }
       ],
       "properties": [
         {
           "name": "show",
           "type": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "side",
           "type": "Side",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "leftRightSided",
           "type": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "layoutManager",
           "type": "LayoutManager",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "parent",
           "type": "Stack",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "tabs",
           "type": "Tab[]",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "lastVisibleTabIndex",
           "type": "number",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "element",
           "type": "HTMLElement",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "tabsContainerElement",
           "type": "HTMLElement",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "controlsContainerElement",
           "type": "HTMLElement",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -2211,6 +2458,7 @@
       "name": "HeaderButton",
       "kind": "class",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/container/dock-layout/controls/header-button.ts",
       "inputs": [],
       "outputs": [],
@@ -2219,14 +2467,16 @@
           "name": "destroy",
           "params": [],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": [
         {
           "name": "element",
           "type": "HTMLElement",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -2234,6 +2484,7 @@
       "name": "HeaderedItemConfig",
       "kind": "class",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/container/dock-layout/config/config.ts",
       "inputs": [],
       "outputs": [],
@@ -2244,6 +2495,7 @@
       "name": "isDigit",
       "kind": "function",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/container/dock-layout/utils/utils.ts",
       "inputs": [],
       "outputs": [],
@@ -2254,6 +2506,7 @@
       "name": "ItemConfig",
       "kind": "class",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/container/dock-layout/config/config.ts",
       "inputs": [],
       "outputs": [],
@@ -2264,6 +2517,7 @@
       "name": "ItemContainer",
       "kind": "type",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/container/dock-layout/container/component-container.ts",
       "inputs": [],
       "outputs": [],
@@ -2274,6 +2528,7 @@
       "name": "ItemType",
       "kind": "class",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/container/dock-layout/utils/types.ts",
       "inputs": [],
       "outputs": [],
@@ -2284,6 +2539,7 @@
       "name": "Json",
       "kind": "interface",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/container/dock-layout/utils/types.ts",
       "inputs": [],
       "outputs": [],
@@ -2294,6 +2550,7 @@
       "name": "JsonValue",
       "kind": "class",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/container/dock-layout/utils/types.ts",
       "inputs": [],
       "outputs": [],
@@ -2304,6 +2561,7 @@
       "name": "JsonValueArray",
       "kind": "type",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/container/dock-layout/utils/types.ts",
       "inputs": [],
       "outputs": [],
@@ -2314,6 +2572,7 @@
       "name": "LayoutConfig",
       "kind": "class",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/container/dock-layout/config/config.ts",
       "inputs": [],
       "outputs": [],
@@ -2324,6 +2583,7 @@
       "name": "LayoutManager",
       "kind": "class",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/container/dock-layout/layout-manager.ts",
       "inputs": [],
       "outputs": [],
@@ -2332,7 +2592,8 @@
           "name": "destroy",
           "params": [],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "minifyConfig",
@@ -2343,7 +2604,8 @@
             }
           ],
           "returnType": "ResolvedLayoutConfig",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "unminifyConfig",
@@ -2354,7 +2616,8 @@
             }
           ],
           "returnType": "ResolvedLayoutConfig",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "bindComponent",
@@ -2373,7 +2636,8 @@
             }
           ],
           "returnType": "ComponentContainer.BindableComponent",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "unbindComponent",
@@ -2392,13 +2656,15 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "init",
           "params": [],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "loadLayout",
@@ -2409,25 +2675,29 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "saveLayout",
           "params": [],
           "returnType": "ResolvedLayoutConfig",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "clear",
           "params": [],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "toConfig",
           "params": [],
           "returnType": "ResolvedLayoutConfig",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "newComponent",
@@ -2450,7 +2720,8 @@
             }
           ],
           "returnType": "ComponentItem",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "newComponentAtStack",
@@ -2473,7 +2744,8 @@
             }
           ],
           "returnType": "ComponentItem | undefined",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "addComponentAtStack",
@@ -2496,7 +2768,8 @@
             }
           ],
           "returnType": "LayoutManager.Location | undefined",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "addItemAtStack",
@@ -2511,7 +2784,8 @@
             }
           ],
           "returnType": "LayoutManager.Location | undefined",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "newComponentAtLocation",
@@ -2534,7 +2808,8 @@
             }
           ],
           "returnType": "ComponentItem | undefined",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "addComponent",
@@ -2553,7 +2828,8 @@
             }
           ],
           "returnType": "LayoutManager.Location",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "addComponentAtLocation",
@@ -2576,7 +2852,8 @@
             }
           ],
           "returnType": "LayoutManager.Location | undefined",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "newItem",
@@ -2587,7 +2864,8 @@
             }
           ],
           "returnType": "ContentItem",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "newItemAtLocation",
@@ -2602,7 +2880,8 @@
             }
           ],
           "returnType": "ContentItem | undefined",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "addItem",
@@ -2613,7 +2892,8 @@
             }
           ],
           "returnType": "LayoutManager.Location",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "addItemAtLocation",
@@ -2628,7 +2908,8 @@
             }
           ],
           "returnType": "LayoutManager.Location | undefined",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "loadComponentAsRoot",
@@ -2639,7 +2920,8 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "updateSize",
@@ -2654,7 +2936,8 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "setSize",
@@ -2669,25 +2952,29 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "beginSizeInvalidation",
           "params": [],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "endSizeInvalidation",
           "params": [],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "updateSizeFromContainer",
           "params": [],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "updateRootSize",
@@ -2698,7 +2985,8 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "createAndInitContentItem",
@@ -2713,7 +3001,8 @@
             }
           ],
           "returnType": "ContentItem",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "createContentItem",
@@ -2728,7 +3017,8 @@
             }
           ],
           "returnType": "ContentItem",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "findFirstStackComponentItemById",
@@ -2739,7 +3029,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "findFirstComponentItemById",
@@ -2750,7 +3041,8 @@
             }
           ],
           "returnType": "ComponentItem | undefined",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "createPopout",
@@ -2773,7 +3065,8 @@
             }
           ],
           "returnType": "BrowserPopout",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "createPopoutFromContentItem",
@@ -2796,13 +3089,15 @@
             }
           ],
           "returnType": "BrowserPopout",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "beginVirtualSizedContainerAdding",
           "params": [],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "addVirtualSizedContainer",
@@ -2813,13 +3108,15 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "endVirtualSizedContainerAdding",
           "params": [],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "fireBeforeVirtualRectingEvent",
@@ -2830,13 +3127,15 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "fireAfterVirtualRectingEvent",
           "params": [],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "createPopoutFromPopoutLayoutConfig",
@@ -2847,13 +3146,15 @@
             }
           ],
           "returnType": "BrowserPopout",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "closeAllOpenPopouts",
           "params": [],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "newDragSource",
@@ -2868,7 +3169,8 @@
             }
           ],
           "returnType": "DragSource",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "newDragSource",
@@ -2895,7 +3197,8 @@
             }
           ],
           "returnType": "DragSource",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "newDragSource",
@@ -2922,7 +3225,8 @@
             }
           ],
           "returnType": "DragSource",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "removeDragSource",
@@ -2933,7 +3237,8 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "startComponentDrag",
@@ -2960,7 +3265,8 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "focusComponent",
@@ -2975,7 +3281,8 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "clearComponentFocus",
@@ -2986,7 +3293,8 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "setFocusedComponentItem",
@@ -3001,7 +3309,8 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "setMaximisedStack",
@@ -3012,19 +3321,22 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "checkMinimiseMaximisedStack",
           "params": [],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "closeWindow",
           "params": [],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "getArea",
@@ -3039,19 +3351,22 @@
             }
           ],
           "returnType": "ContentItem.Area | null",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "calculateItemAreas",
           "params": [],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "getAllStacks",
           "params": [],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "findFirstLocation",
@@ -3062,7 +3377,8 @@
             }
           ],
           "returnType": "LayoutManager.Location | undefined",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": [
@@ -3070,119 +3386,142 @@
           "name": "resizeWithContainerAutomatically",
           "type": "any",
           "default": "false",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "resizeDebounceInterval",
           "type": "any",
           "default": "100",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "resizeDebounceExtendedWhenPossible",
           "type": "any",
           "default": "true",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "isSubWindow",
           "type": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "layoutConfig",
           "type": "ResolvedLayoutConfig",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "beforeVirtualRectingEvent",
           "type": "LayoutManager.BeforeVirtualRectingEvent | undefined",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "afterVirtualRectingEvent",
           "type": "LayoutManager.AfterVirtualRectingEvent | undefined",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "container",
           "type": "HTMLElement",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "isInitialised",
           "type": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "groundItem",
           "type": "GroundItem | undefined",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "root",
           "type": "GroundItem | undefined",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "openPopouts",
           "type": "BrowserPopout[]",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "dropTargetIndicator",
           "type": "DropTargetIndicator | null",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "transitionIndicator",
           "type": "TransitionIndicator | null",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "width",
           "type": "number | null",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "height",
           "type": "number | null",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "eventHub",
           "type": "EventHub",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "rootItem",
           "type": "ContentItem | undefined",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "focusedComponentItem",
           "type": "ComponentItem | undefined",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "tabDropPlaceholder",
           "type": "HTMLElement",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "maximisedStack",
           "type": "Stack | undefined",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "deprecatedConstructor",
           "type": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "translator",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -3190,6 +3529,7 @@
       "name": "LeftAndTop",
       "kind": "interface",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/container/dock-layout/utils/types.ts",
       "inputs": [],
       "outputs": [],
@@ -3200,6 +3540,7 @@
       "name": "LogicalZIndex",
       "kind": "class",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/container/dock-layout/utils/types.ts",
       "inputs": [],
       "outputs": [],
@@ -3210,6 +3551,7 @@
       "name": "LogicalZIndexToDefaultMap",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/container/dock-layout/utils/types.ts",
       "inputs": [],
       "outputs": [],
@@ -3220,6 +3562,7 @@
       "name": "ngComponentInstance",
       "kind": "type",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/container/dock-layout/dock-layout-manager.service.ts",
       "inputs": [],
       "outputs": [],
@@ -3230,6 +3573,7 @@
       "name": "numberToPixels",
       "kind": "function",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/container/dock-layout/utils/utils.ts",
       "inputs": [],
       "outputs": [],
@@ -3240,6 +3584,7 @@
       "name": "parseSize",
       "kind": "function",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/container/dock-layout/config/config.ts",
       "inputs": [],
       "outputs": [],
@@ -3250,6 +3595,7 @@
       "name": "pixelsToNumber",
       "kind": "function",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/container/dock-layout/utils/utils.ts",
       "inputs": [],
       "outputs": [],
@@ -3260,6 +3606,7 @@
       "name": "PopoutBlockedError",
       "kind": "class",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/container/dock-layout/errors/external-error.ts",
       "inputs": [],
       "outputs": [],
@@ -3270,6 +3617,7 @@
       "name": "PopoutLayoutConfig",
       "kind": "class",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/container/dock-layout/config/config.ts",
       "inputs": [],
       "outputs": [],
@@ -3280,6 +3628,7 @@
       "name": "Rect",
       "kind": "interface",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/container/dock-layout/utils/types.ts",
       "inputs": [],
       "outputs": [],
@@ -3290,6 +3639,7 @@
       "name": "removeFromArray",
       "kind": "function",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/container/dock-layout/utils/utils.ts",
       "inputs": [],
       "outputs": [],
@@ -3300,6 +3650,7 @@
       "name": "ResolvedComponentItemConfig",
       "kind": "class",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/container/dock-layout/config/resolved-config.ts",
       "inputs": [],
       "outputs": [],
@@ -3310,6 +3661,7 @@
       "name": "ResolvedGroundItemConfig",
       "kind": "class",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/container/dock-layout/config/resolved-config.ts",
       "inputs": [],
       "outputs": [],
@@ -3320,6 +3672,7 @@
       "name": "ResolvedHeaderedItemConfig",
       "kind": "class",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/container/dock-layout/config/resolved-config.ts",
       "inputs": [],
       "outputs": [],
@@ -3330,6 +3683,7 @@
       "name": "ResolvedItemConfig",
       "kind": "class",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/container/dock-layout/config/resolved-config.ts",
       "inputs": [],
       "outputs": [],
@@ -3340,6 +3694,7 @@
       "name": "ResolvedLayoutConfig",
       "kind": "class",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/container/dock-layout/config/resolved-config.ts",
       "inputs": [],
       "outputs": [],
@@ -3350,6 +3705,7 @@
       "name": "ResolvedPopoutLayoutConfig",
       "kind": "class",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/container/dock-layout/config/resolved-config.ts",
       "inputs": [],
       "outputs": [],
@@ -3360,6 +3716,7 @@
       "name": "ResolvedRootItemConfig",
       "kind": "class",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/container/dock-layout/config/resolved-config.ts",
       "inputs": [],
       "outputs": [],
@@ -3370,6 +3727,7 @@
       "name": "ResolvedRowOrColumnItemConfig",
       "kind": "class",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/container/dock-layout/config/resolved-config.ts",
       "inputs": [],
       "outputs": [],
@@ -3380,6 +3738,7 @@
       "name": "ResolvedStackItemConfig",
       "kind": "class",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/container/dock-layout/config/resolved-config.ts",
       "inputs": [],
       "outputs": [],
@@ -3390,6 +3749,7 @@
       "name": "ResponsiveMode",
       "kind": "class",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/container/dock-layout/utils/types.ts",
       "inputs": [],
       "outputs": [],
@@ -3400,6 +3760,7 @@
       "name": "RootItemConfig",
       "kind": "class",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/container/dock-layout/config/config.ts",
       "inputs": [],
       "outputs": [],
@@ -3410,6 +3771,7 @@
       "name": "RowOrColumn",
       "kind": "class",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/container/dock-layout/items/row-or-column.ts",
       "inputs": [],
       "outputs": [],
@@ -3435,7 +3797,8 @@
             }
           ],
           "returnType": "ComponentItem",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "addComponent",
@@ -3458,7 +3821,8 @@
             }
           ],
           "returnType": "number",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "newItem",
@@ -3473,7 +3837,8 @@
             }
           ],
           "returnType": "ContentItem",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "addItem",
@@ -3488,7 +3853,8 @@
             }
           ],
           "returnType": "number",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "addChild",
@@ -3507,7 +3873,8 @@
             }
           ],
           "returnType": "number",
-          "description": "Add a new contentItem to the Row or Column"
+          "description": "Add a new contentItem to the Row or Column",
+          "descriptionZh": null
         },
         {
           "name": "removeChild",
@@ -3522,7 +3889,8 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "replaceChild",
@@ -3537,7 +3905,8 @@
             }
           ],
           "returnType": "void",
-          "description": "Replaces a child of this Row or Column with another contentItem"
+          "description": "Replaces a child of this Row or Column with another contentItem",
+          "descriptionZh": null
         },
         {
           "name": "updateSize",
@@ -3548,19 +3917,22 @@
             }
           ],
           "returnType": "void",
-          "description": "Called whenever the dimensions of this item or one of its parents change"
+          "description": "Called whenever the dimensions of this item or one of its parents change",
+          "descriptionZh": null
         },
         {
           "name": "init",
           "params": [],
           "returnType": "void",
-          "description": "Invoked recursively by the layout manager. ContentItem.init appends\nthe contentItem's DOM elements to the container, RowOrColumn init adds splitters\nin between them"
+          "description": "Invoked recursively by the layout manager. ContentItem.init appends\nthe contentItem's DOM elements to the container, RowOrColumn init adds splitters\nin between them",
+          "descriptionZh": null
         },
         {
           "name": "toConfig",
           "params": [],
           "returnType": "ResolvedRowOrColumnItemConfig",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": []
@@ -3569,6 +3941,7 @@
       "name": "RowOrColumnItemConfig",
       "kind": "class",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/container/dock-layout/config/config.ts",
       "inputs": [],
       "outputs": [],
@@ -3579,6 +3952,7 @@
       "name": "setElementDisplayVisibility",
       "kind": "function",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/container/dock-layout/utils/utils.ts",
       "inputs": [],
       "outputs": [],
@@ -3589,6 +3963,7 @@
       "name": "setElementHeight",
       "kind": "function",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/container/dock-layout/utils/utils.ts",
       "inputs": [],
       "outputs": [],
@@ -3599,6 +3974,7 @@
       "name": "setElementWidth",
       "kind": "function",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/container/dock-layout/utils/utils.ts",
       "inputs": [],
       "outputs": [],
@@ -3609,6 +3985,7 @@
       "name": "Side",
       "kind": "class",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/container/dock-layout/utils/types.ts",
       "inputs": [],
       "outputs": [],
@@ -3619,6 +3996,7 @@
       "name": "SizeUnit",
       "kind": "type",
       "summary": "Length units which can specify the size of a Component Item",
+      "summaryZh": null,
       "sourceFile": "src/container/dock-layout/utils/types.ts",
       "inputs": [],
       "outputs": [],
@@ -3629,6 +4007,7 @@
       "name": "SizeUnitEnum",
       "kind": "enum",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/container/dock-layout/utils/types.ts",
       "inputs": [],
       "outputs": [],
@@ -3639,6 +4018,7 @@
       "name": "SizeWithUnit",
       "kind": "interface",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/container/dock-layout/config/config.ts",
       "inputs": [],
       "outputs": [],
@@ -3649,6 +4029,7 @@
       "name": "splitStringAtFirstNonNumericChar",
       "kind": "function",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/container/dock-layout/utils/utils.ts",
       "inputs": [],
       "outputs": [],
@@ -3659,6 +4040,7 @@
       "name": "SplitStringAtFirstNonNumericCharResult",
       "kind": "interface",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/container/dock-layout/utils/utils.ts",
       "inputs": [],
       "outputs": [],
@@ -3669,6 +4051,7 @@
       "name": "Splitter",
       "kind": "class",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/container/dock-layout/controls/splitter.ts",
       "inputs": [],
       "outputs": [],
@@ -3677,7 +4060,8 @@
           "name": "destroy",
           "params": [],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "on",
@@ -3692,14 +4076,16 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": [
         {
           "name": "element",
           "type": "HTMLDivElement",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -3707,6 +4093,7 @@
       "name": "Stack",
       "kind": "class",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/container/dock-layout/items/stack.ts",
       "inputs": [],
       "outputs": [],
@@ -3720,13 +4107,15 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "init",
           "params": [],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "setActiveContentItem",
@@ -3737,7 +4126,8 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "setActiveComponentItem",
@@ -3756,25 +4146,29 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "getActiveContentItem",
           "params": [],
           "returnType": "ContentItem | null",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "getActiveComponentItem",
           "params": [],
           "returnType": "ComponentItem | undefined",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "focusActiveContentItem",
           "params": [],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "setFocusedValue",
@@ -3785,7 +4179,8 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "setRowColumnClosable",
@@ -3796,7 +4191,8 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "newComponent",
@@ -3819,7 +4215,8 @@
             }
           ],
           "returnType": "ComponentItem",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "addComponent",
@@ -3842,7 +4239,8 @@
             }
           ],
           "returnType": "number",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "newItem",
@@ -3857,7 +4255,8 @@
             }
           ],
           "returnType": "ContentItem",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "addItem",
@@ -3872,7 +4271,8 @@
             }
           ],
           "returnType": "number",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "addChild",
@@ -3891,7 +4291,8 @@
             }
           ],
           "returnType": "number",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "removeChild",
@@ -3906,37 +4307,43 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "toggleMaximise",
           "params": [],
           "returnType": "void",
-          "description": "Maximises the Item or minimises it if it is already maximised"
+          "description": "Maximises the Item or minimises it if it is already maximised",
+          "descriptionZh": null
         },
         {
           "name": "maximise",
           "params": [],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "minimise",
           "params": [],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "destroy",
           "params": [],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "toConfig",
           "params": [],
           "returnType": "ResolvedStackItemConfig",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "onDrop",
@@ -3951,7 +4358,8 @@
             }
           ],
           "returnType": "void",
-          "description": "Ok, this one is going to be the tricky one: The user has dropped a {@link  (ContentItem:class)} onto this stack.\n\nIt was dropped on either the stacks header or the top, right, bottom or left bit of the content area\n(which one of those is stored in this._dropSegment). Now, if the user has dropped on the header the case\nis relatively clear: We add the item to the existing stack... job done (might be good to have\ntab reordering at some point, but lets not sweat it right now)\n\nIf the item was dropped on the content part things are a bit more complicated. If it was dropped on either the\ntop or bottom region we need to create a new column and place the items accordingly.\nUnless, of course if the stack is already within a column... in which case we want\nto add the newly created item to the existing column...\neither prepend or append it, depending on wether its top or bottom.\n\nSame thing for rows and left / right drop segments... so in total there are 9 things that can potentially happen\n(left, top, right, bottom) * is child of the right parent (row, column) + header drop"
+          "description": "Ok, this one is going to be the tricky one: The user has dropped a {@link  (ContentItem:class)} onto this stack.\n\nIt was dropped on either the stacks header or the top, right, bottom or left bit of the content area\n(which one of those is stored in this._dropSegment). Now, if the user has dropped on the header the case\nis relatively clear: We add the item to the existing stack... job done (might be good to have\ntab reordering at some point, but lets not sweat it right now)\n\nIf the item was dropped on the content part things are a bit more complicated. If it was dropped on either the\ntop or bottom region we need to create a new column and place the items accordingly.\nUnless, of course if the stack is already within a column... in which case we want\nto add the newly created item to the existing column...\neither prepend or append it, depending on wether its top or bottom.\n\nSame thing for rows and left / right drop segments... so in total there are 9 things that can potentially happen\n(left, top, right, bottom) * is child of the right parent (row, column) + header drop",
+          "descriptionZh": null
         },
         {
           "name": "highlightDropZone",
@@ -3966,13 +4374,15 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "getArea",
           "params": [],
           "returnType": "ContentItem.Area | null",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "positionHeader",
@@ -3983,60 +4393,71 @@
             }
           ],
           "returnType": "void",
-          "description": "Programmatically operate with header position."
+          "description": "Programmatically operate with header position.",
+          "descriptionZh": null
         }
       ],
       "properties": [
         {
           "name": "childElementContainer",
           "type": "HTMLElement",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "header",
           "type": "Header",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "headerShow",
           "type": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "headerSide",
           "type": "Side",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "headerLeftRightSided",
           "type": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "contentAreaDimensions",
           "type": "Stack.ContentAreaDimensions | undefined",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "initialWantMaximise",
           "type": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "isMaximised",
           "type": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "stackParent",
           "type": "ContentItem",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "contentClickEventListener",
           "type": "any",
           "default": "(ev: MouseEvent)=> {\n        const eventName = EventEmitter.contentClickEventName;\n        const bubblingEvent = new EventEmitter.ClickBubblingEvent(eventName, this, ev);\n        this.emit(eventName, bubblingEvent);\n        let activeComp=this.getActiveComponentItem();\n        this.layoutManager.setFocusedComponentItem(activeComp);\n    }",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -4044,6 +4465,7 @@
       "name": "StackItemConfig",
       "kind": "class",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/container/dock-layout/config/config.ts",
       "inputs": [],
       "outputs": [],
@@ -4054,6 +4476,7 @@
       "name": "StyleConstants",
       "kind": "class",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/container/dock-layout/utils/style-constants.ts",
       "inputs": [],
       "outputs": [],
@@ -4064,6 +4487,7 @@
       "name": "Tab",
       "kind": "class",
       "summary": "Represents an individual tab within a Stack's header",
+      "summaryZh": null,
       "sourceFile": "src/container/dock-layout/controls/tab.ts",
       "inputs": [],
       "outputs": [],
@@ -4077,7 +4501,8 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "setActive",
@@ -4088,67 +4513,79 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "destroy",
           "params": [],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "setBlurred",
           "params": [],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "setFocused",
           "params": [],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": [
         {
           "name": "isActive",
           "type": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "componentItem",
           "type": "ComponentItem",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "contentItem",
           "type": "ComponentItem",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "element",
           "type": "HTMLElement",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "titleElement",
           "type": "HTMLElement",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "closeElement",
           "type": "HTMLElement | undefined",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "reorderEnabled",
           "type": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "reorderEnabled",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -4156,6 +4593,7 @@
       "name": "TabsContainer",
       "kind": "class",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/container/dock-layout/controls/tabs-container.ts",
       "inputs": [],
       "outputs": [],
@@ -4164,7 +4602,8 @@
           "name": "destroy",
           "params": [],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "createTab",
@@ -4179,7 +4618,8 @@
             }
           ],
           "returnType": "void",
-          "description": "Creates a new tab and associates it with a contentItem"
+          "description": "Creates a new tab and associates it with a contentItem",
+          "descriptionZh": null
         },
         {
           "name": "removeTab",
@@ -4190,7 +4630,8 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "processActiveComponentChanged",
@@ -4201,7 +4642,8 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "updateTabSizes",
@@ -4216,7 +4658,8 @@
             }
           ],
           "returnType": "void",
-          "description": "Pushes the tabs to the tab dropdown if the available space is not sufficient"
+          "description": "Pushes the tabs to the tab dropdown if the available space is not sufficient",
+          "descriptionZh": null
         },
         {
           "name": "tryUpdateTabSizes",
@@ -4235,51 +4678,60 @@
             }
           ],
           "returnType": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "showAdditionalTabsDropdown",
           "params": [],
           "returnType": "void",
-          "description": "Shows drop down for additional tabs when there are too many to display."
+          "description": "Shows drop down for additional tabs when there are too many to display.",
+          "descriptionZh": null
         },
         {
           "name": "hideAdditionalTabsDropdown",
           "params": [],
           "returnType": "void",
-          "description": "Hides drop down for additional tabs when there are too many to display."
+          "description": "Hides drop down for additional tabs when there are too many to display.",
+          "descriptionZh": null
         }
       ],
       "properties": [
         {
           "name": "tabs",
           "type": "Tab[]",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "tabCount",
           "type": "number",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "lastVisibleTabIndex",
           "type": "number",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "element",
           "type": "HTMLElement",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "dropdownElement",
           "type": "HTMLElement",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "dropdownActive",
           "type": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -4287,6 +4739,7 @@
       "name": "TransitionIndicator",
       "kind": "class",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/container/dock-layout/controls/transition-indicator.ts",
       "inputs": [],
       "outputs": [],
@@ -4295,7 +4748,8 @@
           "name": "destroy",
           "params": [],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "transitionElements",
@@ -4310,7 +4764,8 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": []
@@ -4319,6 +4774,7 @@
       "name": "UndefinableSizeWithUnit",
       "kind": "interface",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/container/dock-layout/config/config.ts",
       "inputs": [],
       "outputs": [],
@@ -4329,6 +4785,7 @@
       "name": "UnexpectedNullError",
       "kind": "class",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/container/dock-layout/errors/internal-error.ts",
       "inputs": [],
       "outputs": [],
@@ -4339,6 +4796,7 @@
       "name": "UnexpectedUndefinedError",
       "kind": "class",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/container/dock-layout/errors/internal-error.ts",
       "inputs": [],
       "outputs": [],
@@ -4349,6 +4807,7 @@
       "name": "UnreachableCaseError",
       "kind": "class",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/container/dock-layout/errors/internal-error.ts",
       "inputs": [],
       "outputs": [],
@@ -4359,6 +4818,7 @@
       "name": "VirtualLayout",
       "kind": "class",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/container/dock-layout/virtual-layout.ts",
       "inputs": [],
       "outputs": [],
@@ -4367,25 +4827,29 @@
           "name": "destroy",
           "params": [],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "init",
           "params": [],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "clearHtmlAndAdjustStylesForSubWindow",
           "params": [],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "checkAddDefaultPopinButton",
           "params": [],
           "returnType": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "bindComponent",
@@ -4404,7 +4868,8 @@
             }
           ],
           "returnType": "ComponentContainer.BindableComponent",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "unbindComponent",
@@ -4423,29 +4888,34 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": [
         {
           "name": "getComponentEvent",
           "type": "VirtualLayout.GetComponentEventHandler | undefined",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "releaseComponentEvent",
           "type": "VirtualLayout.ReleaseComponentEventHandler | undefined",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "bindComponentEvent",
           "type": "VirtualLayout.BindComponentEventHandler | undefined",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "unbindComponentEvent",
           "type": "VirtualLayout.UnbindComponentEventHandler | undefined",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -4453,6 +4923,7 @@
       "name": "WidthAndHeight",
       "kind": "interface",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/container/dock-layout/utils/types.ts",
       "inputs": [],
       "outputs": [],
@@ -4463,6 +4934,7 @@
       "name": "WidthOrHeightPropertyName",
       "kind": "class",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/container/dock-layout/utils/types.ts",
       "inputs": [],
       "outputs": [],

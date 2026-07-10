@@ -5,20 +5,23 @@
       "name": "ColorPickerComponent",
       "kind": "component",
       "selector": "color-picker",
-      "summary": null,
+      "summary": "Material-style palette color picker: pick a base color then a shade (hue), implements\n`ControlValueAccessor` so it works with Angular forms.",
+      "summaryZh": "Material 风格的调色板颜色选择器：先选基础色再选色阶（hue），实现了 `ControlValueAccessor`，\n可直接用于 Angular 表单。",
       "sourceFile": "src/common/matcolorpicker/color-picker.component.ts",
       "inputs": [
         {
           "name": "color",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "outputs": [
         {
           "name": "colorChanged",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "methods": [
@@ -35,7 +38,8 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "selectHue",
@@ -50,7 +54,8 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "removeColor",
@@ -61,13 +66,15 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "updateSelectedColor",
           "params": [],
           "returnType": "void",
-          "description": "Update selected color"
+          "description": "Update selected color",
+          "descriptionZh": null
         },
         {
           "name": "goToPalettesView",
@@ -78,50 +85,59 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "onMenuOpen",
           "params": [],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": [
         {
           "name": "colors",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "hues",
           "type": "string[]",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "view",
           "type": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "selectedColor",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "selectedPalette",
           "type": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "selectedHue",
           "type": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "color",
           "type": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -129,6 +145,7 @@
       "name": "ColorPickerModule",
       "kind": "module",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/matcolorpicker/color-picker.module.ts",
       "inputs": [],
       "outputs": [],
@@ -139,6 +156,7 @@
       "name": "MATERIAL_COLOR_PICKER_VALUE_ACCESSOR",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/matcolorpicker/color-picker.component.ts",
       "inputs": [],
       "outputs": [],

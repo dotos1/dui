@@ -5,6 +5,7 @@
       "name": "CONTEXT_MENU_DIRECTION",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/ui/context-menu/direction.token.ts",
       "inputs": [],
       "outputs": [],
@@ -16,18 +17,21 @@
       "kind": "component",
       "selector": "dui-context-menu",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/ui/context-menu/context-menu.component.ts",
       "inputs": [
         {
           "name": "popup",
           "type": "any",
           "default": "true",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "children",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "outputs": [],
@@ -41,13 +45,15 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "onClickOutsideEvent",
           "params": [],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "runAction",
@@ -62,7 +68,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "trackById",
@@ -77,35 +84,41 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "contextMenu",
           "params": [],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": [
         {
           "name": "extendMenus",
           "type": "QueryList<MenuDirective>",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "children",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "menuTrigger",
           "type": "MatMenuTrigger",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "source",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -114,12 +127,14 @@
       "kind": "component",
       "selector": "dui-context-menu-item",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/ui/context-menu/context-menu-item.component.ts",
       "inputs": [
         {
           "name": "menuItem",
           "type": "MenuModel",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "outputs": [],
@@ -137,7 +152,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "trackById",
@@ -152,13 +168,15 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "contextMenu",
           "params": [],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": []
@@ -167,6 +185,7 @@
       "name": "ContextMenuModule",
       "kind": "module",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/ui/context-menu/context-menu.module.ts",
       "inputs": [],
       "outputs": [],
@@ -176,7 +195,8 @@
           "name": "entryComponents",
           "type": "any",
           "default": "[ContextMenuComponent]",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -184,6 +204,7 @@
       "name": "ContextMenuOverlayRef",
       "kind": "class",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/ui/context-menu/context-menu-overlay.ts",
       "inputs": [],
       "outputs": [],
@@ -192,7 +213,8 @@
           "name": "close",
           "params": [],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": []
@@ -201,6 +223,7 @@
       "name": "ContextMenuService",
       "kind": "service",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/ui/context-menu/context-menu.service.ts",
       "inputs": [],
       "outputs": [],
@@ -214,7 +237,8 @@
             }
           ],
           "returnType": "ContextMenuOverlayRef",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": []
@@ -224,13 +248,15 @@
       "kind": "directive",
       "selector": "[duiContextMenuOutsideEvent]",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/ui/context-menu/context-menu-outside-event.directive.ts",
       "inputs": [],
       "outputs": [
         {
           "name": "clickOutside",
           "type": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "methods": [],

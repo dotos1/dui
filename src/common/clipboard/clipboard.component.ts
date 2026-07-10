@@ -1,5 +1,9 @@
 import { Component, ViewEncapsulation, OnInit } from '@angular/core';
 
+/**
+ * Internal tooltip shown by {@link ClipboardDirective} while hovering over a copyable element.
+ * @zh {@link ClipboardDirective} 在悬停可复制元素时显示的内部提示气泡。
+ */
 @Component({
   selector: 'dui-copy-content-tooltip',
   template: `

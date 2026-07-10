@@ -36,6 +36,11 @@ import { takeUntil } from 'rxjs/operators';
 import { DOCUMENT } from '@angular/common';
 
 
+/**
+ * Attach to any element to open a {@link Popover} on click or hover, positioned relative
+ * to the host element via the CDK overlay.
+ * @zh 附加到任意元素上，点击或悬停时打开一个 {@link Popover}，通过 CDK overlay 相对宿主元素定位。
+ */
 @Directive({
   selector: '[popoverTriggerFor]',
   exportAs: 'popoverTrigger'

@@ -14,13 +14,20 @@ export interface ColorEvent {
   color: Color;
 }
 
+/**
+ * Base class for all `color-*` picker style variants (chrome/sketch/circle/compact/github/...):
+ * normalizes the bound `color` (hex/rgb/hsl/hsv) into hsl/hsv/rgb/hex state and dispatches
+ * `onChange`/`onChangeComplete`/`onSwatchHover` events.
+ * @zh 所有 `color-*` 颜色选择器样式变体（chrome/sketch/circle/compact/github/...）的基类：
+ * 将绑定的 `color`（hex/rgb/hsl/hsv）归一化为 hsl/hsv/rgb/hex 状态，
+ * 并派发 `onChange`/`onChangeComplete`/`onSwatchHover` 事件。
+ */
 @Component({
   // create seletor base for test override property
   selector: 'color-wrap',
   template: ``,
-  
-})
 
+})
 export class ColorWrap implements OnInit, OnChanges, OnDestroy {
   @Input() className?: string;
   @Input() color: HSLA | HSVA | RGBA | string = {

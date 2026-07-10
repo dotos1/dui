@@ -83,6 +83,12 @@ const enableScroll = () => {
 };
 
 
+/**
+ * A slide-in panel (attached to `document.body` via a portal) that lists all currently
+ * registered keyboard shortcuts, grouped by label. Toggle it with the `key` input shortcut.
+ * @zh 一个滑入式面板（通过 portal 附加到 `document.body`），按分组标签列出当前已注册的全部快捷键。
+ * 通过 `key` 输入属性指定的快捷键来切换显示。
+ */
 @Component({
     selector: "keyboard-shortcuts-help",
     templateUrl: "./keyboard-shortcuts-help.component.html",
@@ -118,6 +124,10 @@ const enableScroll = () => {
 })
 export class KeyboardShortcutsHelpComponent implements OnInit, OnDestroy, OnChanges {
 
+    /**
+     * Disables page scrolling while the help panel is open.
+     * @zh 帮助面板打开期间禁用页面滚动。
+     */
     @Input() disableScrolling = true;
 
     private _key: string;
@@ -137,6 +147,10 @@ export class KeyboardShortcutsHelpComponent implements OnInit, OnDestroy, OnChan
     @Input() closeKeyDescription: string;
 
 
+    /**
+     * The shortcut key that toggles this help panel (e.g. `'shift+?'`).
+     * @zh 用于切换本帮助面板的快捷键（例如 `'shift+?'`）。
+     */
     @Input()
     set key(value: string) {
         this._key = value;

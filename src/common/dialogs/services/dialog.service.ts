@@ -71,6 +71,12 @@ export interface IDraggableRefs<T> {
   dragRefSubject: Subject<DragRef>;
 }
 
+/**
+ * High-level wrapper over Angular Material's `MatDialog` providing ready-made
+ * alert/confirm/prompt/status dialogs, plus optional draggable-dialog support.
+ * @zh 对 Angular Material `MatDialog` 的高层封装，提供开箱即用的
+ * 提示/确认/输入/状态对话框，并可选支持可拖拽对话框。
+ */
 @Injectable()
 export class DialogService {
   private _renderer2: Renderer2;

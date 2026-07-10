@@ -5,6 +5,7 @@
       "name": "FontLoaderService",
       "kind": "service",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/icon/font-loader.service.ts",
       "inputs": [],
       "outputs": [],
@@ -26,7 +27,8 @@
             }
           ],
           "returnType": "Promise<any>",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": [
@@ -34,7 +36,8 @@
           "name": "fontSet",
           "type": "Set<string>",
           "default": "new Set<string>()",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -42,6 +45,7 @@
       "name": "Icon",
       "kind": "class",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/icon/icon.ts",
       "inputs": [],
       "outputs": [],
@@ -50,27 +54,32 @@
         {
           "name": "name",
           "type": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "id",
           "type": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "filter",
           "type": "string[]",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "aliases",
           "type": "string[]",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "type",
           "type": "IconType",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -78,28 +87,33 @@
       "name": "IconComponent",
       "kind": "component",
       "selector": "dui-icon",
-      "summary": null,
+      "summary": "Renders an icon from any of several sources based on a single prefixed `value` string:\nMaterial font icons (`FONT:name`), SVG icons (`SVG:name:url`), raw font classes (`font:class`),\nor a custom web-font glyph loaded on demand (`EXTRA:family:codepoint:url`).",
+      "summaryZh": "根据带前缀的 `value` 字符串，从多种来源渲染图标：Material 字体图标（`FONT:name`）、\nSVG 图标（`SVG:name:url`）、原始字体类名（`font:class`），或按需加载的自定义 Web 字体字形（`EXTRA:family:codepoint:url`）。",
       "sourceFile": "src/common/icon/icon.component.ts",
       "inputs": [
         {
           "name": "color",
           "type": "ThemePalette|string",
-          "description": null
+          "description": "Material theme color applied to the icon.",
+          "descriptionZh": "应用到图标上的 Material 主题色。"
         },
         {
           "name": "disabled",
           "type": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "iconStyle",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "value",
           "type": "string",
-          "description": null
+          "description": "The icon source, encoded as a prefixed string: `FONT:name`, `SVG:name:url`,\n`font:class`, or `EXTRA:family:codepoint:url`.",
+          "descriptionZh": "图标来源，编码为带前缀的字符串：`FONT:name`、`SVG:name:url`、`font:class` 或 `EXTRA:family:codepoint:url`。"
         }
       ],
       "outputs": [],
@@ -109,37 +123,44 @@
           "name": "iconType",
           "type": "any",
           "default": "'FONT'",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "hostClasses",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "disabled",
           "type": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "iconStyle",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "fontSet",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "value",
           "type": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "fontStyle",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -147,6 +168,7 @@
       "name": "IconModule",
       "kind": "module",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/icon/icon.module.ts",
       "inputs": [],
       "outputs": [],
@@ -157,6 +179,7 @@
       "name": "IconPickerService",
       "kind": "service",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/icon/icon-picker.service.ts",
       "inputs": [],
       "outputs": [],
@@ -170,7 +193,8 @@
             }
           ],
           "returnType": "Icon[]",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "getSVGIcons",
@@ -185,7 +209,8 @@
             }
           ],
           "returnType": "Observable<any>",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "getCustomIcons",
@@ -200,7 +225,8 @@
             }
           ],
           "returnType": "Observable<any>",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "getFontIcons",
@@ -215,7 +241,8 @@
             }
           ],
           "returnType": "Observable<any>",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": []
@@ -224,6 +251,7 @@
       "name": "IconType",
       "kind": "enum",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/icon/icon.ts",
       "inputs": [],
       "outputs": [],
@@ -234,6 +262,7 @@
       "name": "SVGIcon",
       "kind": "class",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/icon/icon.ts",
       "inputs": [],
       "outputs": [],
@@ -242,17 +271,20 @@
         {
           "name": "name",
           "type": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "url",
           "type": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "style",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     }

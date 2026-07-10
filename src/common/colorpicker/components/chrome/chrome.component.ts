@@ -3,6 +3,12 @@ import {  ChangeDetectionStrategy,  Component,  Input,} from '@angular/core';
 import { ColorWrap } from '@dotos/dui/common/colorpicker/common';
 import { TriggerPopup } from '@dotos/dui/common/trigger';
 
+/**
+ * "Chrome"-style color picker: saturation panel + hue/alpha sliders + hex/rgb/hsl fields,
+ * modeled after Google Chrome's native color picker.
+ * @zh "Chrome" 风格的颜色选择器：饱和度面板 + 色相/透明度滑块 + 十六进制/RGB/HSL 输入框，
+ * 仿照 Google Chrome 原生颜色选择器样式。
+ */
 @Component({
   selector: 'color-chrome',
   template: `

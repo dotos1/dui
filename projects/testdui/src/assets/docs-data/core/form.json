@@ -5,6 +5,7 @@
       "name": "AbstractFormModule",
       "kind": "module",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/form/form.module.ts",
       "inputs": [],
       "outputs": [],
@@ -14,7 +15,8 @@
           "name": "entryComponents",
           "type": "any",
           "default": "[FormTemplateType,ValidationMessage]",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -22,6 +24,7 @@
       "name": "assignFieldValue",
       "kind": "function",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/form/utils.ts",
       "inputs": [],
       "outputs": [],
@@ -32,6 +35,7 @@
       "name": "assignModelValue",
       "kind": "function",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/form/utils.ts",
       "inputs": [],
       "outputs": [],
@@ -42,6 +46,7 @@
       "name": "assignModelValue2",
       "kind": "function",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/form/utils.ts",
       "inputs": [],
       "outputs": [],
@@ -52,6 +57,7 @@
       "name": "clearControl",
       "kind": "function",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/form/extensions/field-form/utils.ts",
       "inputs": [],
       "outputs": [],
@@ -62,6 +68,7 @@
       "name": "clone",
       "kind": "function",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/form/utils.ts",
       "inputs": [],
       "outputs": [],
@@ -72,6 +79,7 @@
       "name": "ConfigOption",
       "kind": "interface",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/form/models/config.ts",
       "inputs": [],
       "outputs": [],
@@ -82,6 +90,7 @@
       "name": "CoreExtension",
       "kind": "class",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/form/extensions/core/core.ts",
       "inputs": [],
       "outputs": [],
@@ -95,7 +104,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "onPopulate",
@@ -106,7 +116,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "postPopulate",
@@ -117,7 +128,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": []
@@ -126,6 +138,7 @@
       "name": "defineHiddenProp",
       "kind": "function",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/form/utils.ts",
       "inputs": [],
       "outputs": [],
@@ -136,6 +149,7 @@
       "name": "ExtErrorStateMatcher",
       "kind": "class",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/form/error-state-matcher.ts",
       "inputs": [],
       "outputs": [],
@@ -153,7 +167,8 @@
             }
           ],
           "returnType": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": []
@@ -162,6 +177,7 @@
       "name": "FieldArrayType",
       "kind": "class",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/form/template/field-array.type.ts",
       "inputs": [],
       "outputs": [],
@@ -175,7 +191,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "reset",
@@ -190,7 +207,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "add",
@@ -209,7 +227,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "remove",
@@ -224,20 +243,23 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "build",
           "params": [],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": [
         {
           "name": "formControl",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -245,6 +267,7 @@
       "name": "FieldConfig",
       "kind": "interface",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/form/models/field.config.ts",
       "inputs": [],
       "outputs": [],
@@ -255,6 +278,7 @@
       "name": "FieldConfigCache",
       "kind": "interface",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/form/models/field-config.cache.ts",
       "inputs": [],
       "outputs": [],
@@ -265,6 +289,7 @@
       "name": "FieldExpressionExtension",
       "kind": "class",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/form/extensions/field-expression/field-expression.ts",
       "inputs": [],
       "outputs": [],
@@ -278,7 +303,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "postPopulate",
@@ -289,7 +315,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": []
@@ -298,6 +325,7 @@
       "name": "FieldFormExtension",
       "kind": "class",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/form/extensions/field-form/field-form.ts",
       "inputs": [],
       "outputs": [],
@@ -311,7 +339,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "onPopulate",
@@ -322,7 +351,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "postPopulate",
@@ -333,7 +363,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": []
@@ -342,27 +373,32 @@
       "name": "FieldType",
       "kind": "directive",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/form/template/field.type.ts",
       "inputs": [
         {
           "name": "field",
           "type": "F | any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "model",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "form",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "option",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "outputs": [],
@@ -376,44 +412,52 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": [
         {
           "name": "defaultOptions",
           "type": "F",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "field",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "name",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "formControl",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "showError",
           "type": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "id",
           "type": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "formState",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -421,6 +465,7 @@
       "name": "FieldValidationExtension",
       "kind": "class",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/form/extensions/field-validation/field-validation.ts",
       "inputs": [],
       "outputs": [],
@@ -434,7 +479,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": []
@@ -443,6 +489,7 @@
       "name": "FieldWrapper",
       "kind": "directive",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/form/template/field.wrapper.ts",
       "inputs": [],
       "outputs": [],
@@ -451,7 +498,8 @@
         {
           "name": "fieldComponent",
           "type": "ViewContainerRef",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -459,6 +507,7 @@
       "name": "findControl",
       "kind": "function",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/form/extensions/field-form/utils.ts",
       "inputs": [],
       "outputs": [],
@@ -469,6 +518,7 @@
       "name": "FORM_CONFIG",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/form/services/form.config.ts",
       "inputs": [],
       "outputs": [],
@@ -479,6 +529,7 @@
       "name": "FORM_VALIDATORS",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/form/utils.ts",
       "inputs": [],
       "outputs": [],
@@ -489,6 +540,7 @@
       "name": "FormBuilder",
       "kind": "service",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/form/services/form.builder.ts",
       "inputs": [],
       "outputs": [],
@@ -514,7 +566,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "build",
@@ -525,7 +578,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": []
@@ -534,6 +588,7 @@
       "name": "FormConfig",
       "kind": "service",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/form/services/form.config.ts",
       "inputs": [],
       "outputs": [],
@@ -547,7 +602,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "setType",
@@ -558,7 +614,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "getType",
@@ -569,7 +626,8 @@
             }
           ],
           "returnType": "TypeOption",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "getMergedField",
@@ -580,7 +638,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "resolveFieldTypeRef",
@@ -591,7 +650,8 @@
             }
           ],
           "returnType": "ComponentRef<FieldType>",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "setWrapper",
@@ -602,7 +662,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "getWrapper",
@@ -613,7 +674,8 @@
             }
           ],
           "returnType": "WrapperOption",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "setTypeWrapper",
@@ -628,7 +690,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "setValidator",
@@ -639,7 +702,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "getValidator",
@@ -650,7 +714,8 @@
             }
           ],
           "returnType": "ValidatorOption",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "addValidatorMessage",
@@ -665,7 +730,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "getValidatorMessage",
@@ -676,7 +742,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": [
@@ -684,37 +751,43 @@
           "name": "types",
           "type": "{ [name: string]: TypeOption }",
           "default": "{}",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "validators",
           "type": "{ [name: string]: ValidatorOption }",
           "default": "{}",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "wrappers",
           "type": "{ [name: string]: WrapperOption }",
           "default": "{}",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "messages",
           "type": "{ [name: string]: ValidationMessageOption['message'] }",
           "default": "{}",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "extras",
           "type": "ConfigOption['extras']",
           "default": "{\n    checkExpressionOn: 'changeDetectionCheck',\n    lazyRender: false,\n    showError(field: FieldType) {\n      return (\n        field.formControl &&\n        field.formControl.invalid &&\n        (field.formControl.touched ||\n          (field.option.parentForm && field.option.parentForm.submitted) ||\n          !!(field.field.validation && field.field.validation.show))\n      );\n    },\n  }",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "extensions",
           "type": "{ [name: string]: FormExtension }",
           "default": "{}",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -722,6 +795,7 @@
       "name": "FormExt",
       "kind": "class",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/form/form.ext.ts",
       "inputs": [],
       "outputs": [],
@@ -743,7 +817,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "getFieldModel",
@@ -762,7 +837,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "getFieldValue",
@@ -773,7 +849,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "initFieldValue",
@@ -788,7 +865,8 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": []
@@ -797,6 +875,7 @@
       "name": "FormExtension",
       "kind": "interface",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/form/models/config.ts",
       "inputs": [],
       "outputs": [],
@@ -807,6 +886,7 @@
       "name": "FormLifeCycleEvent",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/form/models/field.config.ts",
       "inputs": [],
       "outputs": [],
@@ -817,6 +897,7 @@
       "name": "FormOptions",
       "kind": "interface",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/form/models/field.config.ts",
       "inputs": [],
       "outputs": [],
@@ -827,6 +908,7 @@
       "name": "FormOptionsCache",
       "kind": "interface",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/form/models/field-config.cache.ts",
       "inputs": [],
       "outputs": [],
@@ -838,6 +920,7 @@
       "kind": "component",
       "selector": "form-template",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/form/template/field-template.type.ts",
       "inputs": [],
       "outputs": [],
@@ -846,7 +929,8 @@
         {
           "name": "template",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -854,6 +938,7 @@
       "name": "getFieldInitialValue",
       "kind": "function",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/form/utils.ts",
       "inputs": [],
       "outputs": [],
@@ -864,6 +949,7 @@
       "name": "getFieldValue",
       "kind": "function",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/form/utils.ts",
       "inputs": [],
       "outputs": [],
@@ -874,6 +960,7 @@
       "name": "getKeyPath",
       "kind": "function",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/form/utils.ts",
       "inputs": [],
       "outputs": [],
@@ -884,6 +971,7 @@
       "name": "getKeyPath2",
       "kind": "function",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/form/utils.ts",
       "inputs": [],
       "outputs": [],
@@ -894,6 +982,7 @@
       "name": "getValueForKey2",
       "kind": "function",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/form/utils.ts",
       "inputs": [],
       "outputs": [],
@@ -904,6 +993,7 @@
       "name": "IObserver",
       "kind": "interface",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/form/utils.ts",
       "inputs": [],
       "outputs": [],
@@ -914,6 +1004,7 @@
       "name": "isNil",
       "kind": "function",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/form/utils.ts",
       "inputs": [],
       "outputs": [],
@@ -924,6 +1015,7 @@
       "name": "isUndefined",
       "kind": "function",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/form/utils.ts",
       "inputs": [],
       "outputs": [],
@@ -934,6 +1026,7 @@
       "name": "observe",
       "kind": "function",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/form/utils.ts",
       "inputs": [],
       "outputs": [],
@@ -944,6 +1037,7 @@
       "name": "observeDeep",
       "kind": "function",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/form/utils.ts",
       "inputs": [],
       "outputs": [],
@@ -954,6 +1048,7 @@
       "name": "registerControl",
       "kind": "function",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/form/extensions/field-form/utils.ts",
       "inputs": [],
       "outputs": [],
@@ -964,6 +1059,7 @@
       "name": "reverseDeepMerge",
       "kind": "function",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/form/utils.ts",
       "inputs": [],
       "outputs": [],
@@ -975,12 +1071,14 @@
       "kind": "component",
       "selector": "validation-message",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/form/template/form.validation-message.ts",
       "inputs": [
         {
           "name": "field",
           "type": "FieldConfig",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "outputs": [],
@@ -989,12 +1087,14 @@
         {
           "name": "errorMessage$",
           "type": "Observable<any>",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "errorMessage",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -1002,6 +1102,7 @@
       "name": "ValueChangeEvent",
       "kind": "interface",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/form/models/field.config.ts",
       "inputs": [],
       "outputs": [],

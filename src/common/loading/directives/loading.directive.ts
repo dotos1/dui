@@ -18,6 +18,11 @@ export class LoadingContext {
 
 let TD_LOADING_NEXT_ID = 0;
 
+/**
+ * Structural-style directive that shows a {@link LoadingComponent} over/instead of its host
+ * element until the `duiLoadingUntil` condition becomes truthy.
+ * @zh 结构型指令，在 `duiLoadingUntil` 条件变为真值之前，于宿主元素之上/取代宿主元素显示 {@link LoadingComponent}。
+ */
 @Directive({
   selector: '[duiLoading]',
 })
@@ -26,10 +31,18 @@ export class LoadingDirective implements OnInit, OnDestroy {
   private _loadingRef?: ILoadingRef;
 
 
+  /**
+   * Unique name for this loading instance, auto-generated if omitted.
+   * @zh 本加载实例的唯一名称，省略时自动生成。
+   */
   @Input('duiLoading')
   name!: string;
 
 
+  /**
+   * Shows the loading indicator while this value is falsy; hides it once truthy.
+   * @zh 当该值为假时显示加载指示器；变为真值后隐藏。
+   */
   @Input('duiLoadingUntil')
   set until(until: any) {
     if (!this.name) {

@@ -38,6 +38,11 @@ export interface ActiveToast<C> {
   onAction: Observable<any>;
 }
 
+/**
+ * Displays toast notifications (success/error/info/warning), with deduplication,
+ * max-opened limiting, and manual clear/remove control.
+ * @zh 展示 toast 通知（成功/错误/提示/警告），支持去重、最大展示数量限制，以及手动清除/移除。
+ */
 @Injectable({ providedIn: 'root' })
 export class ToastrService {
   toastrConfig: GlobalConfig;
@@ -66,7 +71,10 @@ export class ToastrService {
       };
     }
   }
-  /** show toast */
+  /**
+   * Shows a toast of a custom/blank type.
+   * @zh 显示一个自定义/空类型的 toast。
+   */
   show<ConfigPayload = any>(message?: string, title?: string, override: Partial<IndividualConfig<ConfigPayload>> = {}, type = '') {
     let translateService: TranslateService=this._injector.get(TranslateService);
     let msg=message?translateService.instant(message):'';
@@ -77,7 +85,10 @@ export class ToastrService {
       translateedTitle, 
       this.applyConfig(override));
   }
-  /** show successful toast */
+  /**
+   * Shows a success toast.
+   * @zh 显示一个成功类型的 toast。
+   */
   success<ConfigPayload = any>(message?: string, title?: string, override: Partial<IndividualConfig<ConfigPayload>> = {}) {
     let translateService: TranslateService=this._injector.get(TranslateService);
     const type = this.toastrConfig.iconClasses.success || '';
@@ -89,7 +100,10 @@ export class ToastrService {
       translateedTitle, 
       this.applyConfig(override));
   }
-  /** show error toast */
+  /**
+   * Shows an error toast.
+   * @zh 显示一个错误类型的 toast。
+   */
   error<ConfigPayload = any>(message?: string, title?: string, override: Partial<IndividualConfig<ConfigPayload>> = {}) {
     const type = this.toastrConfig.iconClasses.error || '';
         let translateService: TranslateService=this._injector.get(TranslateService);
@@ -100,7 +114,10 @@ export class ToastrService {
       translateedTitle, 
        this.applyConfig(override));
   }
-  /** show info toast */
+  /**
+   * Shows an info toast.
+   * @zh 显示一个提示类型的 toast。
+   */
   info<ConfigPayload = any>(message?: string, title?: string, override: Partial<IndividualConfig<ConfigPayload>> = {}) {
     const type = this.toastrConfig.iconClasses.info || '';
        let translateService: TranslateService=this._injector.get(TranslateService);
@@ -111,7 +128,10 @@ export class ToastrService {
       translateedTitle, 
       this.applyConfig(override));
   }
-  /** show warning toast */
+  /**
+   * Shows a warning toast.
+   * @zh 显示一个警告类型的 toast。
+   */
   warning<ConfigPayload = any>(message?: string, title?: string, override: Partial<IndividualConfig<ConfigPayload>> = {}) {
     const type = this.toastrConfig.iconClasses.warning || '';
        let translateService: TranslateService=this._injector.get(TranslateService);
@@ -123,7 +143,8 @@ export class ToastrService {
         this.applyConfig(override));
   }
   /**
-   * Remove all or a single toast by id
+   * Remove all or a single toast by id.
+   * @zh 移除全部 toast，或按 id 移除单个 toast。
    */
   clear(toastId?: number) {
     // Call every toastRef manualClose function
@@ -139,7 +160,8 @@ export class ToastrService {
     }
   }
   /**
-   * Remove and destroy a single toast by id
+   * Remove and destroy a single toast by id.
+   * @zh 按 id 移除并销毁单个 toast。
    */
   remove(toastId: number) {
     const found = this._findToast(toastId);

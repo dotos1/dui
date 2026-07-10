@@ -4,6 +4,14 @@ import {KeyboardShortcutsService} from './keyboard-shortcuts.service';
 import {ShortcutEventOutput} from './keyboard-shortcuts.interfaces';
 
 
+/**
+ * Angular `EventManager` plugin that lets templates bind shortcuts declaratively via
+ * `(shortcut.<key>.<description>.<label>)="handler()"` (optionally `.prevent`), backed by
+ * {@link KeyboardShortcutsService}.
+ * @zh Angular `EventManager` 插件，允许模板通过
+ * `(shortcut.<key>.<description>.<label>)="handler()"`（可加 `.prevent`）声明式绑定快捷键，
+ * 底层基于 {@link KeyboardShortcutsService}。
+ */
 @Injectable()
 export class KeyboardShortcutsPlugin {
     manager: EventManager;

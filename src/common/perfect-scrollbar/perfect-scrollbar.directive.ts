@@ -34,6 +34,12 @@ import {
     PerfectScrollbarEvents,
 } from './perfect-scrollbar.interfaces';
 
+/**
+ * Wraps the `perfect-scrollbar` library on the host element, providing custom scrollbars
+ * and scroll event outputs (`psScrollY`, `psYReachEnd`, etc.).
+ * @zh 在宿主元素上封装 `perfect-scrollbar` 库，提供自定义滚动条以及滚动事件输出
+ * （`psScrollY`、`psYReachEnd` 等）。
+ */
 @Directive({
     selector: '[perfectScrollbar]',
     exportAs: 'ngxPerfectScrollbar',

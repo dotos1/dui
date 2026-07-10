@@ -5,6 +5,7 @@
       "name": "metaFactory",
       "kind": "function",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/meta/public-api.ts",
       "inputs": [],
       "outputs": [],
@@ -15,6 +16,7 @@
       "name": "MetaGuard",
       "kind": "service",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/meta/meta.guard.ts",
       "inputs": [],
       "outputs": [],
@@ -32,7 +34,8 @@
             }
           ],
           "returnType": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "canActivateChild",
@@ -47,7 +50,8 @@
             }
           ],
           "returnType": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": []
@@ -56,6 +60,7 @@
       "name": "MetaLoader",
       "kind": "class",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/meta/meta.loader.ts",
       "inputs": [],
       "outputs": [],
@@ -64,7 +69,8 @@
         {
           "name": "settings",
           "type": "MetaSettings",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -72,6 +78,7 @@
       "name": "MetaModule",
       "kind": "module",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/meta/public-api.ts",
       "inputs": [],
       "outputs": [],
@@ -85,7 +92,8 @@
             }
           ],
           "returnType": "ModuleWithProviders<MetaModule>",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": []
@@ -94,6 +102,7 @@
       "name": "MetaService",
       "kind": "service",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/meta/meta.service.ts",
       "inputs": [],
       "outputs": [],
@@ -111,7 +120,8 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "setTag",
@@ -126,7 +136,8 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "update",
@@ -141,7 +152,8 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "removeTag",
@@ -152,7 +164,8 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": []
@@ -161,6 +174,7 @@
       "name": "MetaSettings",
       "kind": "interface",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/meta/models/meta-settings.ts",
       "inputs": [],
       "outputs": [],
@@ -171,6 +185,7 @@
       "name": "MetaStaticLoader",
       "kind": "class",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/meta/meta.loader.ts",
       "inputs": [],
       "outputs": [],
@@ -179,7 +194,8 @@
         {
           "name": "settings",
           "type": "MetaSettings",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -187,6 +203,7 @@
       "name": "PageTitlePositioning",
       "kind": "enum",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/meta/models/page-title-positioning.ts",
       "inputs": [],
       "outputs": [],

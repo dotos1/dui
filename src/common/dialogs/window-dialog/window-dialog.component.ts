@@ -7,12 +7,16 @@ import {
 } from '@angular/core';
 import { ThemePalette } from '@angular/material/core';
 
+/**
+ * Window-chrome dialog wrapper with a title bar offering dock/undock and close controls.
+ * @zh 带窗口外观的对话框封装，标题栏提供停靠/取消停靠和关闭控件。
+ */
 @Component({
   selector: 'window-dialog',
   templateUrl: './window-dialog.component.html',
   styleUrls: ['./window-dialog.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  
+
 })
 export class WindowDialogComponent {
   @Input() toolbarColor?: ThemePalette;

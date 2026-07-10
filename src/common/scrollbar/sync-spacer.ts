@@ -14,6 +14,12 @@ import { NgScrollbarExt } from './ng-scrollbar-ext';
 import { filterResizeEntries } from './ng-scrollbar.model';
 import { ElementDimension, getThrottledStream } from './utils/common';
 
+/**
+ * Companion directive for `ng-scrollbar[externalViewport]` that syncs a spacer element's
+ * CSS custom properties (`--spacer-width`/`--spacer-height`) to the viewport's content size.
+ * @zh 用于 `ng-scrollbar[externalViewport]` 的配套指令，将占位元素的 CSS 自定义属性
+ * （`--spacer-width`/`--spacer-height`）与视口内容尺寸保持同步。
+ */
 @Directive({
   standalone: true,
   selector: 'ng-scrollbar[externalViewport][syncSpacer]',

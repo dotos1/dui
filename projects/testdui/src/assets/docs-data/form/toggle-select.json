@@ -5,13 +5,15 @@
       "name": "_ToggleBase",
       "kind": "directive",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/form/toggle-select/toggle-header.component.ts",
       "inputs": [
         {
           "name": "options",
           "type": "ToggleHeaderOption[]",
           "default": "[]",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "outputs": [],
@@ -20,7 +22,8 @@
         {
           "name": "toggleOptions",
           "type": "QueryList<ToggleOption>",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -28,6 +31,7 @@
       "name": "ScrollDirection",
       "kind": "type",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/form/toggle-select/toggle-header.component.ts",
       "inputs": [],
       "outputs": [],
@@ -38,6 +42,7 @@
       "name": "ToggleHeaderAppearance",
       "kind": "type",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/form/toggle-select/toggle-header.component.ts",
       "inputs": [],
       "outputs": [],
@@ -49,77 +54,90 @@
       "kind": "component",
       "selector": "toggle-header",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/form/toggle-select/toggle-header.component.ts",
       "inputs": [
         {
           "name": "value",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "name",
           "type": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "disablePagination",
           "type": "any",
           "default": "false",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "selectMediaBreakpoint",
           "type": "any",
           "default": "'md-lg'",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "useSelectOnMdLg",
           "type": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "ignoreMdLgSize",
           "type": "any",
           "default": "false",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "appearance",
           "type": "ToggleHeaderAppearance",
           "default": "'stroked'",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "disabled",
           "type": "any",
           "default": "false",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "fillHeight",
           "type": "any",
           "default": "false",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "extraPadding",
           "type": "any",
           "default": "false",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "primaryBackground",
           "type": "any",
           "default": "false",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "outputs": [
         {
           "name": "valueChange",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "methods": [
@@ -136,7 +154,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "handlePaginatorClick",
@@ -151,7 +170,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "handlePaginatorTouchStart",
@@ -166,57 +186,67 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": [
         {
           "name": "toggleGroup",
           "type": "ElementRef<HTMLElement>",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "buttonToggleGroup",
           "type": "MatButtonToggleGroup",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "toggleGroupContainer",
           "type": "ElementRef<HTMLElement>",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "leftPaginationEnabled",
           "type": "any",
           "default": "false",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "rightPaginationEnabled",
           "type": "any",
           "default": "false",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "scrollDistance",
           "type": "number",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "scrollDistance",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "isMdLg",
           "type": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "useSelect$",
           "type": "any",
           "default": "this.useSelectSubject.asObservable()",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -224,6 +254,7 @@
       "name": "ToggleHeaderOption",
       "kind": "interface",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/form/toggle-select/toggle-header.component.ts",
       "inputs": [],
       "outputs": [],
@@ -235,12 +266,14 @@
       "kind": "directive",
       "selector": "toggle-option",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/form/toggle-select/toggle-header.component.ts",
       "inputs": [
         {
           "name": "value",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "outputs": [],
@@ -249,7 +282,8 @@
         {
           "name": "viewValue",
           "type": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -258,47 +292,55 @@
       "kind": "component",
       "selector": "toggle-select",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/form/toggle-select/toggle-select.component.ts",
       "inputs": [
         {
           "name": "disabled",
           "type": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "selectMediaBreakpoint",
           "type": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "appearance",
           "type": "ToggleHeaderAppearance",
           "default": "'stroked'",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "disablePagination",
           "type": "any",
           "default": "false",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "fillHeight",
           "type": "any",
           "default": "false",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "extraPadding",
           "type": "any",
           "default": "false",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "primaryBackground",
           "type": "any",
           "default": "false",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "outputs": [],
@@ -312,19 +354,22 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": [
         {
           "name": "maxWidth",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "modelValue",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -332,6 +377,7 @@
       "name": "ToggleSelectModule",
       "kind": "module",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/form/toggle-select/toggle-select.module.ts",
       "inputs": [],
       "outputs": [],
@@ -341,7 +387,8 @@
           "name": "entryComponents",
           "type": "any",
           "default": "[ToggleSelectComponent]",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     }

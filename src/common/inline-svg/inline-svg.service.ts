@@ -2,6 +2,11 @@ import { Injectable, Renderer2, RendererFactory2 } from '@angular/core';
 import { InlineSVGDirective } from './inline-svg.directive';
 import { SVGScriptEvalMode } from './inline-svg.config';
 
+/**
+ * Low-level DOM insertion and inline `<script>` evaluation helper used by
+ * {@link InlineSVGDirective}/{@link InlineSVGComponent}.
+ * @zh {@link InlineSVGDirective}/{@link InlineSVGComponent} 使用的底层 DOM 插入与内联 `<script>` 执行辅助服务。
+ */
 @Injectable({
   providedIn: 'root'
 })

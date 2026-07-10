@@ -5,25 +5,29 @@
       "name": "CollapseDirective",
       "kind": "directive",
       "selector": "[duiCollapse]",
-      "summary": null,
+      "summary": "Toggles a `dui-collapsed` class on a target element when the host is clicked.\nUsed internally by {@link CollapsibleComponent}'s chevron icon, but can be applied standalone.",
+      "summaryZh": "点击宿主元素时，切换目标元素上的 `dui-collapsed` 类。内部用于 {@link CollapsibleComponent} 的箭头图标，也可独立使用。",
       "sourceFile": "src/common/collapsible/collapse.directive.ts",
       "inputs": [
         {
           "name": "target",
           "type": "any",
-          "description": null
+          "description": "The element whose collapsed/expanded CSS class is toggled.",
+          "descriptionZh": "被切换收起/展开 CSS 类的目标元素。"
         },
         {
           "name": "collapsed",
           "type": "boolean",
-          "description": null
+          "description": "Current collapsed state; setting it applies/removes the CSS classes immediately.",
+          "descriptionZh": "当前收起状态；设置该值会立即应用/移除对应的 CSS 类。"
         }
       ],
       "outputs": [
         {
           "name": "toggle",
           "type": "boolean",
-          "description": null
+          "description": "Emits the new collapsed state whenever it changes.",
+          "descriptionZh": "收起状态发生变化时发出新的状态值。"
         }
       ],
       "methods": [
@@ -31,19 +35,22 @@
           "name": "click",
           "params": [],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": [
         {
           "name": "target",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "collapsed",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -51,18 +58,21 @@
       "name": "CollapsibleComponent",
       "kind": "component",
       "selector": "dui-collapsible",
-      "summary": null,
+      "summary": "A titled panel with a built-in chevron toggle that expands/collapses its projected content.",
+      "summaryZh": "带标题的面板，内置箭头开关，用于展开/收起投影进来的内容。",
       "sourceFile": "src/common/collapsible/collapsible.component.ts",
       "inputs": [
         {
           "name": "title",
           "type": "any",
-          "description": null
+          "description": "Panel title text (translated via the `translate` pipe).",
+          "descriptionZh": "面板标题文字（通过 `translate` 管道翻译）。"
         },
         {
           "name": "collapsed",
           "type": "any",
-          "description": null
+          "description": "Initial collapsed state; toggling the chevron icon updates this internally.",
+          "descriptionZh": "初始的收起状态；点击箭头图标会在内部更新该状态。"
         }
       ],
       "outputs": [],
@@ -71,12 +81,14 @@
         {
           "name": "title",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "collapsed",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -84,6 +96,7 @@
       "name": "CollapsibleModule",
       "kind": "module",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/collapsible/collapsible.module.ts",
       "inputs": [],
       "outputs": [],
@@ -92,7 +105,8 @@
           "name": "forRoot",
           "params": [],
           "returnType": "ModuleWithProviders<CollapsibleModule>",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": []

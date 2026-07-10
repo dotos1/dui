@@ -8,11 +8,17 @@ export type StatusDialogDetailsLabels = {
   hideDetailsLabel: string;
 };
 
+/**
+ * Result/status dialog (error/positive/warning) with an optional collapsible details section;
+ * normally opened via {@link DialogService.openStatus}.
+ * @zh 结果/状态对话框（error/positive/warning），可选带可折叠的详情区域；
+ * 通常通过 {@link DialogService.openStatus} 打开。
+ */
 @Component({
   selector: 'dui-status-dialog',
   templateUrl: './status-dialog.component.html',
   styleUrls: ['./status-dialog.component.scss'],
-  
+
 })
 export class StatusDialogComponent {
   // Label of the close button in the footer

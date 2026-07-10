@@ -12,6 +12,11 @@ import {
 } from '@angular/core';
 import { Dui } from '@dotos/dui/core';
 
+/**
+ * Dynamically instantiates a component registered in the `Dui` component factory registry
+ * under the given `xtype`, based on runtime `config`.
+ * @zh 根据运行时 `config`，动态实例化在 `Dui` 组件工厂注册表中以给定 `xtype` 注册的组件。
+ */
 @Component({
   selector: 'dui-dynamic-component',
   template: `<div   #content></div>`,

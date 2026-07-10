@@ -5,29 +5,34 @@
       "name": "DynamicExtensionComponent",
       "kind": "component",
       "selector": "dui-dynamic-component",
-      "summary": null,
+      "summary": "Dynamically instantiates a component registered in the `Dui` component factory registry\nunder the given `xtype`, based on runtime `config`.",
+      "summaryZh": "根据运行时 `config`，动态实例化在 `Dui` 组件工厂注册表中以给定 `xtype` 注册的组件。",
       "sourceFile": "src/common/dynamic/dynamic.component.ts",
       "inputs": [
         {
           "name": "id",
           "type": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "xtype",
           "type": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "config",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "keep",
           "type": "boolean",
           "default": "false",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "outputs": [],
@@ -36,12 +41,14 @@
         {
           "name": "content",
           "type": "ViewContainerRef",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "componentRef",
           "type": "ComponentRef<any>",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -49,6 +56,7 @@
       "name": "ExtensionsModule",
       "kind": "module",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/dynamic/extensions.module.ts",
       "inputs": [],
       "outputs": [],

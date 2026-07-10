@@ -5,6 +5,7 @@
       "name": "_DuiLayoutToggleMixinBase",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/container/panel/layout-toggle.ts",
       "inputs": [],
       "outputs": [],
@@ -15,6 +16,7 @@
       "name": "_ExpansionPanelMixinBase",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/container/accordion/expansion-panel.ts",
       "inputs": [],
       "outputs": [],
@@ -25,92 +27,109 @@
       "name": "AbstractPanel",
       "kind": "directive",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/container/panel/abstract.panel.ts",
       "inputs": [
         {
           "name": "config",
           "type": "any",
           "default": "{}",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "overflowX",
           "type": "string",
           "default": "\"auto\"",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "overflowY",
           "type": "string",
           "default": "\"auto\"",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "opened",
           "type": "boolean",
           "default": "false",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "gutterSize",
           "type": "number",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "disabled",
           "type": "boolean",
           "default": "false",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "width",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "height",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "order",
           "type": "number | null",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "size",
           "type": "number | null",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "minSize",
           "type": "number",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "maxSize",
           "type": "number",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "visible",
           "type": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "split",
           "type": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "dir",
           "type": "'ltr' | 'rtl'",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "fxLayout",
           "type": "'row' | 'column'",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "outputs": [],
@@ -124,7 +143,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "setActive",
@@ -135,19 +155,22 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "lockEvents",
           "params": [],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "unlockEvents",
           "params": [],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "setStyleVisibleAndDir",
@@ -166,7 +189,8 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "setStyleOrder",
@@ -177,7 +201,8 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "setStyleFlexbasis",
@@ -192,7 +217,8 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "getSizePixel",
@@ -203,13 +229,15 @@
             }
           ],
           "returnType": "number",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "initEvents",
           "params": [],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "doLayout",
@@ -224,7 +252,8 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "add",
@@ -235,7 +264,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "remove",
@@ -250,7 +280,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "havePanel",
@@ -261,7 +292,8 @@
             }
           ],
           "returnType": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": [
@@ -269,155 +301,185 @@
           "name": "state",
           "type": "any",
           "default": "'none'",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "autoLoad",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "collapsed",
           "type": "any",
           "default": "false",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "flex",
           "type": "string",
           "default": "''",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "el",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "style",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "inTab",
           "type": "boolean",
           "default": "false",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "viewContainer",
           "type": "ViewContainerRef",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "cssFlexdirection",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "cssMinwidth",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "cssMinheight",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "cssWidth",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "cssHeight",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "cssOverflowX",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "cssOverflowY",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "gutterSize",
           "type": "number",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "width",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "height",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "order",
           "type": "number | null",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "size",
           "type": "number | null",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "minSize",
           "type": "number",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "maxSize",
           "type": "number",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "visible",
           "type": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "split",
           "type": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "dir",
           "type": "'ltr' | 'rtl'",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "fxLayout",
           "type": "'row' | 'column'",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "displayedAreas",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "displayedAreas",
           "type": "IArea[]",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "hidedAreas",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "hidedAreas",
           "type": "IArea[]",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -426,34 +488,40 @@
       "kind": "component",
       "selector": "accordion",
       "summary": "Directive for a Exterial Design Accordion.",
+      "summaryZh": null,
       "sourceFile": "src/container/accordion/accordion.ts",
       "inputs": [
         {
           "name": "multi",
           "type": "boolean",
-          "description": "Whether the accordion should allow multiple expanded accordion items simulateously."
+          "description": "Whether the accordion should allow multiple expanded accordion items simulateously.",
+          "descriptionZh": null
         },
         {
           "name": "hideToggle",
           "type": "boolean",
-          "description": "Whether the expansion indicator should be hidden."
+          "description": "Whether the expansion indicator should be hidden.",
+          "descriptionZh": null
         },
         {
           "name": "displayMode",
           "type": "AccordionDisplayMode",
           "default": "'default'",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "config",
           "type": "any",
           "default": "{}",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "fxLayout",
           "type": "'row' | 'column'",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "outputs": [],
@@ -467,7 +535,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": [
@@ -475,33 +544,39 @@
           "name": "id",
           "type": "any",
           "default": "`cdk-accordion-${nextId++}`",
-          "description": "A readonly id value to use for unique selection coordination."
+          "description": "A readonly id value to use for unique selection coordination.",
+          "descriptionZh": null
         },
         {
           "name": "multi",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "hideToggle",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "xtype",
           "type": "string",
           "default": "'accordion'",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "viewContainer",
           "type": "ViewContainerRef",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "fxLayout",
           "type": "'row' | 'column'",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -509,6 +584,7 @@
       "name": "AccordionDisplayMode",
       "kind": "type",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/container/accordion/accordion.ts",
       "inputs": [],
       "outputs": [],
@@ -519,6 +595,7 @@
       "name": "CardModule",
       "kind": "module",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/container/card/card.module.ts",
       "inputs": [],
       "outputs": [],
@@ -528,7 +605,8 @@
           "name": "entryComponents",
           "type": "any",
           "default": "[DuiCardComponent]",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -536,6 +614,7 @@
       "name": "CompactType",
       "kind": "enum",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/container/gridster/gridsterConfig.interface.ts",
       "inputs": [],
       "outputs": [],
@@ -546,6 +625,7 @@
       "name": "Container",
       "kind": "class",
       "summary": "用于承载其它任何组件，容器负责一些基础性的行为，也就是装载子项、添加、插入和移除子项。\n根据容纳子项的不同，所产生的可视效果，需委托任意布局类layout中的一种来指点特定的布局逻辑（layout logic）。\n此类被于继承而且一般情况下不应通过关键字new来直接实例化。\n xtype container",
+      "summaryZh": null,
       "sourceFile": "src/container/container.main.ts",
       "inputs": [],
       "outputs": [],
@@ -559,13 +639,15 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "initItems",
           "params": [],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "getComponentId",
@@ -576,7 +658,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "add",
@@ -587,7 +670,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "onAdd",
@@ -598,7 +682,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "onAdded",
@@ -613,7 +698,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "insert",
@@ -628,7 +714,8 @@
             }
           ],
           "returnType": "any",
-          "description": "把插件(Component)插入到容器指定的位置（按索引）。执行插入之前触发beforeadd事件，插入完毕触发add事件\n 组件插入到容器collection集合的索引\n 欲加入的组件"
+          "description": "把插件(Component)插入到容器指定的位置（按索引）。执行插入之前触发beforeadd事件，插入完毕触发add事件\n 组件插入到容器collection集合的索引\n 欲加入的组件",
+          "descriptionZh": null
         },
         {
           "name": "applyDefaults",
@@ -639,7 +726,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "onBeforeAdd",
@@ -650,7 +738,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "remove",
@@ -665,7 +754,8 @@
             }
           ],
           "returnType": "ComponentBase",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "onRemove",
@@ -676,7 +766,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "doRemove",
@@ -691,7 +782,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "removeAll",
@@ -702,7 +794,8 @@
             }
           ],
           "returnType": "Array<any>",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "getComponent",
@@ -713,7 +806,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "lookupComponent",
@@ -724,7 +818,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "createComponent",
@@ -735,19 +830,22 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "getLayout",
           "params": [],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "beforeDestroy",
           "params": [],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "cascade",
@@ -766,7 +864,8 @@
             }
           ],
           "returnType": "Container",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "findById",
@@ -777,7 +876,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "findByType",
@@ -792,7 +892,8 @@
             }
           ],
           "returnType": "Array<any>",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "find",
@@ -807,7 +908,8 @@
             }
           ],
           "returnType": "Array<any>",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "findBy",
@@ -822,7 +924,8 @@
             }
           ],
           "returnType": "Array<any>",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "get",
@@ -833,40 +936,47 @@
             }
           ],
           "returnType": "ComponentBase",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": [
         {
           "name": "layout",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "items",
           "type": "any",
-          "description": "一个单独项，或子组件组成的数组，加入到此容器中。每一项的对象类型是基于dui.\nComponent可传入一个组件的配置对象即是lazy-rendering的做法，\n这样做的好处是组件不会立即渲染，减低直接构建组件对象带来的开销。\n要发挥\"lazy instantiation延时初始化\"的特性，应对组件所属的登记类型的dui.Componentxtype属性进行配置。"
+          "description": "一个单独项，或子组件组成的数组，加入到此容器中。每一项的对象类型是基于dui.\nComponent可传入一个组件的配置对象即是lazy-rendering的做法，\n这样做的好处是组件不会立即渲染，减低直接构建组件对象带来的开销。\n要发挥\"lazy instantiation延时初始化\"的特性，应对组件所属的登记类型的dui.Componentxtype属性进行配置。",
+          "descriptionZh": null
         },
         {
           "name": "autoDestroy",
           "type": "boolean",
           "default": "true",
-          "description": "cfg {boolean} autoDestroy\n若为true容器会自动销毁容器下面全部的组件，否则的话必须手动执行销毁过程（默认为true）。"
+          "description": "cfg {boolean} autoDestroy\n若为true容器会自动销毁容器下面全部的组件，否则的话必须手动执行销毁过程（默认为true）。",
+          "descriptionZh": null
         },
         {
           "name": "defaults",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "viewContainer",
           "type": "ViewContainerRef",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "form",
           "type": "FormGroup",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -874,6 +984,7 @@
       "name": "declarations",
       "kind": "function",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/container/infodrawer/info-drawer.module.ts",
       "inputs": [],
       "outputs": [],
@@ -884,6 +995,7 @@
       "name": "DirTypes",
       "kind": "enum",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/container/gridster/gridsterConfig.interface.ts",
       "inputs": [],
       "outputs": [],
@@ -894,6 +1006,7 @@
       "name": "DisplayGrid",
       "kind": "enum",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/container/gridster/gridsterConfig.interface.ts",
       "inputs": [],
       "outputs": [],
@@ -904,6 +1017,7 @@
       "name": "Draggable",
       "kind": "interface",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/container/gridster/gridsterConfig.interface.ts",
       "inputs": [],
       "outputs": [],
@@ -915,13 +1029,15 @@
       "kind": "component",
       "selector": "card",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/container/card/card.component.ts",
       "inputs": [
         {
           "name": "config",
           "type": "any",
           "default": "{}",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "outputs": [],
@@ -935,19 +1051,22 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "initEvents",
           "params": [],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "getPagebar",
           "params": [],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "setTitle",
@@ -958,7 +1077,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "setSubTitle",
@@ -969,7 +1089,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "lookupButton",
@@ -980,7 +1101,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "addButton",
@@ -995,7 +1117,8 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "addLeftTopButton",
@@ -1010,7 +1133,8 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "addRightTopButton",
@@ -1025,7 +1149,8 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "addFabButton",
@@ -1040,37 +1165,43 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "getButtons",
           "params": [],
           "returnType": "Array<any>",
-          "description": "Returns the {@link Dui.ui.Toolbar toolbar} from the footer (<code>{@link  #fbar}</code>) section of the panel.\n The toolbar"
+          "description": "Returns the {@link Dui.ui.Toolbar toolbar} from the footer (<code>{@link  #fbar}</code>) section of the panel.\n The toolbar",
+          "descriptionZh": null
         },
         {
           "name": "getLtButtons",
           "params": [],
           "returnType": "Array<any>",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "getRtButtons",
           "params": [],
           "returnType": "Array<any>",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "getFabButtons",
           "params": [],
           "returnType": "Array<any>",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "getAllButtons",
           "params": [],
           "returnType": "Array<ComponentBase>",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "getButtonMenus",
@@ -1081,200 +1212,236 @@
             }
           ],
           "returnType": "Array<ComponentBase>",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": [
         {
           "name": "pagebar",
           "type": "MatPaginator",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "xtype",
           "type": "string",
           "default": "'card'",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "direction",
           "type": "string",
           "default": "'top'",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "open",
           "type": "boolean",
           "default": "false",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "alwaysVisible",
           "type": "boolean",
           "default": "false",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "title",
           "type": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "subtitle",
           "type": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "width",
           "type": "number",
           "default": "100",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "color",
           "type": "string",
           "default": "'primary'",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "closable",
           "type": "boolean",
           "default": "false",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "disabled",
           "type": "boolean",
           "default": "false",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "buttons",
           "type": "Array<any>",
           "default": "[]",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "buttonAlign",
           "type": "any",
           "default": "'right'",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "fabLocation",
           "type": "string",
           "default": "'bottom'",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "ltbar",
           "type": "Array<any>",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "rtbar",
           "type": "any[]",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "bbar",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "fbar",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "autoHeight",
           "type": "boolean",
           "default": "false",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "bottomToolbar",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "fxLayout",
           "type": "string",
           "default": "'row'",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "style",
           "type": "any",
           "default": "{ overflow: 'auto', width: '100%', height: '100%' }",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "contenStyle",
           "type": "any",
           "default": "{\"padding\":\"8px\"}",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "cardStyle",
           "type": "any",
           "default": "{}",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "viewContainer",
           "type": "ViewContainerRef",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "actionbar",
           "type": "ViewContainerRef",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "lefttopbar",
           "type": "ViewContainerRef",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "righttopbar",
           "type": "ViewContainerRef",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "rightopfab",
           "type": "ViewContainerRef",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "righbottomfab",
           "type": "ViewContainerRef",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "searchBoxTerm",
           "type": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "searchFacet",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "state",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "state",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "pageBar",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -1283,12 +1450,14 @@
       "kind": "directive",
       "selector": "[duiLayoutClose]",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/container/panel/layout.directives.ts",
       "inputs": [
         {
           "name": "duiLayoutClose",
           "type": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "outputs": [],
@@ -1297,7 +1466,8 @@
           "name": "onClick",
           "params": [],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": []
@@ -1307,13 +1477,15 @@
       "kind": "directive",
       "selector": "[duiLayoutOpen]",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/container/panel/layout.directives.ts",
       "inputs": [
         {
           "name": "duiLayoutClose",
           "alias": "duiLayoutOpen",
           "type": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "outputs": [],
@@ -1322,7 +1494,8 @@
           "name": "onClick",
           "params": [],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": []
@@ -1332,12 +1505,14 @@
       "kind": "directive",
       "selector": "[duiLayoutToggle]",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/container/panel/layout.directives.ts",
       "inputs": [
         {
           "name": "duiLayoutToggle",
           "type": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "outputs": [],
@@ -1346,7 +1521,8 @@
           "name": "onClick",
           "params": [],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": []
@@ -1355,6 +1531,7 @@
       "name": "DuiTabsModule",
       "kind": "module",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/container/tabpanel/tabs-module.ts",
       "inputs": [],
       "outputs": [],
@@ -1364,7 +1541,8 @@
           "name": "entryComponents",
           "type": "any",
           "default": "[TabPanel]",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -1372,6 +1550,7 @@
       "name": "EXPANSION_PANEL_ANIMATION_TIMING",
       "kind": "constant",
       "summary": "Time and timing curve for expansion panel animations.",
+      "summaryZh": null,
       "sourceFile": "src/container/accordion/expansion-panel.ts",
       "inputs": [],
       "outputs": [],
@@ -1382,6 +1561,7 @@
       "name": "ExpansionModule",
       "kind": "module",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/container/accordion/expansion-module.ts",
       "inputs": [],
       "outputs": [],
@@ -1391,7 +1571,8 @@
           "name": "entryComponents",
           "type": "any",
           "default": "[\n    Accordion,\n    ExpansionPanel,]",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -1400,12 +1581,14 @@
       "kind": "component",
       "selector": "expansion-panel",
       "summary": "<expansion-panel> component.\n\nThis component can be used as a single element to show expandable content, or as one of\nmultiple children of an element with the MdAccordion directive attached.\n\nPlease refer to README.md for examples on how to use it.",
+      "summaryZh": null,
       "sourceFile": "src/container/accordion/expansion-panel.ts",
       "inputs": [
         {
           "name": "hideToggle",
           "type": "boolean",
-          "description": "Whether the toggle indicator should be hidden."
+          "description": "Whether the toggle indicator should be hidden.",
+          "descriptionZh": null
         }
       ],
       "outputs": [],
@@ -1414,7 +1597,8 @@
         {
           "name": "hideToggle",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -1423,6 +1607,7 @@
       "kind": "directive",
       "selector": "dui-action-row",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/container/accordion/expansion-panel.ts",
       "inputs": [],
       "outputs": [],
@@ -1433,45 +1618,53 @@
       "name": "ExpansionPanelBase",
       "kind": "component",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/container/accordion/expansion-panel.ts",
       "inputs": [
         {
           "name": "config",
           "type": "any",
           "default": "{}",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "label",
           "type": "string",
-          "description": "label?: string\nSets label of [ExpansionPanelComponent] header.\nDefaults to 'Click to expand'"
+          "description": "label?: string\nSets label of [ExpansionPanelComponent] header.\nDefaults to 'Click to expand'",
+          "descriptionZh": null
         },
         {
           "name": "description",
           "type": "string",
-          "description": "sublabel?: string\nSets sublabel of [ExpansionPanelComponent] header."
+          "description": "sublabel?: string\nSets sublabel of [ExpansionPanelComponent] header.",
+          "descriptionZh": null
         },
         {
           "name": "expanded",
           "type": "any",
-          "description": "Whether the AccordionItem is expanded."
+          "description": "Whether the AccordionItem is expanded.",
+          "descriptionZh": null
         }
       ],
       "outputs": [
         {
           "name": "closed",
           "type": "any",
-          "description": "Event emitted every time the AccordionItem is closed."
+          "description": "Event emitted every time the AccordionItem is closed.",
+          "descriptionZh": null
         },
         {
           "name": "opened",
           "type": "any",
-          "description": "Event emitted every time the AccordionItem is opened."
+          "description": "Event emitted every time the AccordionItem is opened.",
+          "descriptionZh": null
         },
         {
           "name": "destroyed",
           "type": "any",
-          "description": "Event emitted when the AccordionItem is destroyed."
+          "description": "Event emitted when the AccordionItem is destroyed.",
+          "descriptionZh": null
         }
       ],
       "methods": [
@@ -1484,25 +1677,29 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "toggle",
           "params": [],
           "returnType": "void",
-          "description": "Toggles the expanded state of the accordion item."
+          "description": "Toggles the expanded state of the accordion item.",
+          "descriptionZh": null
         },
         {
           "name": "close",
           "params": [],
           "returnType": "void",
-          "description": "Sets the expanded state of the accordion item to false."
+          "description": "Sets the expanded state of the accordion item to false.",
+          "descriptionZh": null
         },
         {
           "name": "open",
           "params": [],
           "returnType": "void",
-          "description": "Sets the expanded state of the accordion item to true."
+          "description": "Sets the expanded state of the accordion item to true.",
+          "descriptionZh": null
         }
       ],
       "properties": [
@@ -1510,34 +1707,40 @@
           "name": "xtype",
           "type": "string",
           "default": "'expansion-panel'",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "viewContainer",
           "type": "ViewContainerRef",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "buttons",
           "type": "Array<any>",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "flex",
           "type": "number",
           "default": "0",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "id",
           "type": "any",
           "default": "`cdk-accordion-child-${nextId++}`",
-          "description": "The unique AccordionItem id."
+          "description": "The unique AccordionItem id.",
+          "descriptionZh": null
         },
         {
           "name": "expanded",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -1546,6 +1749,7 @@
       "kind": "directive",
       "selector": "panel-description",
       "summary": "<panel-description> directive.\n\nThis direction is to be used inside of the ExpansionPanelHeader component.",
+      "summaryZh": null,
       "sourceFile": "src/container/accordion/expansion-panel-header.ts",
       "inputs": [],
       "outputs": [],
@@ -1557,17 +1761,20 @@
       "kind": "component",
       "selector": "expansion-panel-header",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/container/accordion/expansion-panel-header.ts",
       "inputs": [
         {
           "name": "expandedHeight",
           "type": "string",
-          "description": "Height of the header while the panel is expanded."
+          "description": "Height of the header while the panel is expanded.",
+          "descriptionZh": null
         },
         {
           "name": "collapsedHeight",
           "type": "string",
-          "description": "Height of the header while the panel is collapsed."
+          "description": "Height of the header while the panel is collapsed.",
+          "descriptionZh": null
         }
       ],
       "outputs": [],
@@ -1578,6 +1785,7 @@
       "name": "ExpansionPanelState",
       "kind": "type",
       "summary": "ExpansionPanel's states.",
+      "summaryZh": null,
       "sourceFile": "src/container/accordion/expansion-panel.ts",
       "inputs": [],
       "outputs": [],
@@ -1589,6 +1797,7 @@
       "kind": "directive",
       "selector": "panel-title",
       "summary": "<panel-title> directive.\n\nThis direction is to be used inside of the ExpansionPanelHeader component.",
+      "summaryZh": null,
       "sourceFile": "src/container/accordion/expansion-panel-header.ts",
       "inputs": [],
       "outputs": [],
@@ -1600,17 +1809,20 @@
       "kind": "component",
       "selector": "gridster",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/container/gridster/gridster.component.ts",
       "inputs": [
         {
           "name": "id",
           "type": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "options",
           "type": "GridsterConfig",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "outputs": [],
@@ -1628,61 +1840,71 @@
             }
           ],
           "returnType": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "resize",
           "params": [],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "setOptions",
           "params": [],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "optionsChanged",
           "params": [],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "onResize",
           "params": [],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "checkIfToResize",
           "params": [],
           "returnType": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "setGridSize",
           "params": [],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "setGridDimensions",
           "params": [],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "calculateLayout",
           "params": [],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "updateGrid",
           "params": [],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "addItem",
@@ -1693,7 +1915,8 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "removeItem",
@@ -1704,7 +1927,8 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "checkCollision",
@@ -1715,7 +1939,8 @@
             }
           ],
           "returnType": "GridsterItemComponentInterface | boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "checkGridCollision",
@@ -1726,7 +1951,8 @@
             }
           ],
           "returnType": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "findItemWithItem",
@@ -1737,7 +1963,8 @@
             }
           ],
           "returnType": "GridsterItemComponentInterface | boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "findItemsWithItem",
@@ -1748,7 +1975,8 @@
             }
           ],
           "returnType": "Array<GridsterItemComponentInterface>",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "autoPositionItem",
@@ -1759,7 +1987,8 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "getNextPossiblePosition",
@@ -1774,7 +2003,8 @@
             }
           ],
           "returnType": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "getFirstPossiblePosition",
@@ -1785,7 +2015,8 @@
             }
           ],
           "returnType": "GridsterItem",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "getLastPossiblePosition",
@@ -1796,7 +2027,8 @@
             }
           ],
           "returnType": "GridsterItem",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "pixelsToPositionX",
@@ -1815,7 +2047,8 @@
             }
           ],
           "returnType": "number",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "pixelsToPositionY",
@@ -1834,7 +2067,8 @@
             }
           ],
           "returnType": "number",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "positionXToPixels",
@@ -1845,7 +2079,8 @@
             }
           ],
           "returnType": "number",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "positionYToPixels",
@@ -1856,7 +2091,8 @@
             }
           ],
           "returnType": "number",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "checkCollisionTwoItemsForSwaping",
@@ -1871,7 +2107,8 @@
             }
           ],
           "returnType": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "checkCollisionForSwaping",
@@ -1882,7 +2119,8 @@
             }
           ],
           "returnType": "GridsterItemComponentInterface | boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "findItemWithItemForSwaping",
@@ -1893,113 +2131,134 @@
             }
           ],
           "returnType": "GridsterItemComponentInterface | boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": [
         {
           "name": "calculateLayoutDebounce",
           "type": "() => void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "movingItem",
           "type": "GridsterItem | null",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "previewStyle",
           "type": "() => void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "el",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "$options",
           "type": "GridsterConfigS",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "mobile",
           "type": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "curWidth",
           "type": "number",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "curHeight",
           "type": "number",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "grid",
           "type": "Array<GridsterItemComponentInterface>",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "columns",
           "type": "any",
           "default": "0",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "rows",
           "type": "any",
           "default": "0",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "curColWidth",
           "type": "number",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "curRowHeight",
           "type": "number",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "gridColumns",
           "type": "any",
           "default": "[]",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "gridRows",
           "type": "any",
           "default": "[]",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "windowResize",
           "type": "(() => void) | null",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "dragInProgress",
           "type": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "emptyCell",
           "type": "GridsterEmptyCell",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "compact",
           "type": "GridsterCompact",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "gridRenderer",
           "type": "GridsterRenderer",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -2007,6 +2266,7 @@
       "name": "GridsterComponentInterface",
       "kind": "class",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/container/gridster/gridster.interface.ts",
       "inputs": [],
       "outputs": [],
@@ -2015,192 +2275,230 @@
         {
           "name": "$options",
           "type": "GridsterConfigS",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "grid",
           "type": "Array<GridsterItemComponentInterface>",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "checkCollision",
           "type": "(item: GridsterItem) => GridsterItemComponentInterface | boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "checkCollisionForSwaping",
           "type": "(item: GridsterItem) => GridsterItemComponentInterface | boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "positionXToPixels",
           "type": "(x: number) => number",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "pixelsToPositionX",
           "type": "(x: number, roundingMethod: (x: number) => number, noLimit?: boolean) => number",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "positionYToPixels",
           "type": "(y: number) => number",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "pixelsToPositionY",
           "type": "(y: number, roundingMethod: (x: number) => number, noLimit?: boolean) => number",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "findItemWithItem",
           "type": "(item: GridsterItem) => GridsterItemComponentInterface | boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "findItemsWithItem",
           "type": "(item: GridsterItem) => Array<GridsterItemComponentInterface>",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "checkGridCollision",
           "type": "(item: GridsterItem) => boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "checkCollisionTwoItems",
           "type": "(item: GridsterItem, item2: GridsterItem) => boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "el",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "renderer",
           "type": "Renderer2",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "gridRenderer",
           "type": "GridsterRenderer",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "cdRef",
           "type": "ChangeDetectorRef",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "options",
           "type": "GridsterConfig",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "calculateLayoutDebounce",
           "type": "() => void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "updateGrid",
           "type": "() => void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "movingItem",
           "type": "GridsterItem | null",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "addItem",
           "type": "(item: GridsterItemComponentInterface) => void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "removeItem",
           "type": "(item: GridsterItemComponentInterface) => void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "previewStyle",
           "type": "(drag?: boolean) => void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "mobile",
           "type": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "curWidth",
           "type": "number",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "curHeight",
           "type": "number",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "columns",
           "type": "number",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "rows",
           "type": "number",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "curColWidth",
           "type": "number",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "curRowHeight",
           "type": "number",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "windowResize",
           "type": "(() => void) | null",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "setGridDimensions",
           "type": "(() => void)",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "dragInProgress",
           "type": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "emptyCell",
           "type": "GridsterEmptyCell",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "compact",
           "type": "GridsterCompact",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "zone",
           "type": "NgZone",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "gridRows",
           "type": "Array<number>",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "gridColumns",
           "type": "Array<number>",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -2208,6 +2506,7 @@
       "name": "GridsterConfig",
       "kind": "interface",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/container/gridster/gridsterConfig.interface.ts",
       "inputs": [],
       "outputs": [],
@@ -2218,6 +2517,7 @@
       "name": "GridsterConfigService",
       "kind": "constant",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/container/gridster/gridsterConfig.constant.ts",
       "inputs": [],
       "outputs": [],
@@ -2228,6 +2528,7 @@
       "name": "GridsterItem",
       "kind": "interface",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/container/gridster/gridsterItem.interface.ts",
       "inputs": [],
       "outputs": [],
@@ -2239,12 +2540,14 @@
       "kind": "component",
       "selector": "gridster-item",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/container/gridster/gridsterItem.component.ts",
       "inputs": [
         {
           "name": "item",
           "type": "GridsterItem",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "outputs": [],
@@ -2253,25 +2556,29 @@
           "name": "updateOptions",
           "params": [],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "setSize",
           "params": [],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "updateItemSize",
           "params": [],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "itemChanged",
           "params": [],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "checkItemChanges",
@@ -2286,19 +2593,22 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "canBeDragged",
           "params": [],
           "returnType": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "canBeResized",
           "params": [],
           "returnType": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "bringToFront",
@@ -2309,7 +2619,8 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "sendToBack",
@@ -2320,69 +2631,82 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": [
         {
           "name": "$item",
           "type": "GridsterItem",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "el",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "gridster",
           "type": "GridsterComponent",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "top",
           "type": "number",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "left",
           "type": "number",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "width",
           "type": "number",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "height",
           "type": "number",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "drag",
           "type": "GridsterDraggable",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "resize",
           "type": "GridsterResizable",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "notPlaced",
           "type": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "init",
           "type": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "zIndex",
           "type": "number",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -2390,6 +2714,7 @@
       "name": "GridsterItemComponentInterface",
       "kind": "class",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/container/gridster/gridsterItemComponent.interface.ts",
       "inputs": [],
       "outputs": [],
@@ -2398,102 +2723,122 @@
         {
           "name": "item",
           "type": "GridsterItem",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "$item",
           "type": "GridsterItem",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "top",
           "type": "number",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "left",
           "type": "number",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "width",
           "type": "number",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "height",
           "type": "number",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "drag",
           "type": "GridsterDraggable",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "resize",
           "type": "GridsterResizable",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "notPlaced",
           "type": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "updateOptions",
           "type": "() => void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "itemChanged",
           "type": "() => void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "setSize",
           "type": "() => void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "checkItemChanges",
           "type": "(newValue: GridsterItem, oldValue: GridsterItem) => void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "canBeDragged",
           "type": "() => boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "canBeResized",
           "type": "() => boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "bringToFront",
           "type": "(offset: number) => void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "sendToBack",
           "type": "(v: number) => void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "el",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "gridster",
           "type": "GridsterComponentInterface",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "renderer",
           "type": "Renderer2",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -2501,6 +2846,7 @@
       "name": "GridsterModule",
       "kind": "module",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/container/gridster/gridster.module.ts",
       "inputs": [],
       "outputs": [],
@@ -2510,7 +2856,8 @@
           "name": "entryComponents",
           "type": "any",
           "default": "[GridsterComponent, GridsterItemComponent]",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -2518,6 +2865,7 @@
       "name": "GridsterPush",
       "kind": "service",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/container/gridster/gridsterPush.service.ts",
       "inputs": [],
       "outputs": [],
@@ -2526,7 +2874,8 @@
           "name": "destroy",
           "params": [],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "pushItems",
@@ -2541,53 +2890,62 @@
             }
           ],
           "returnType": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "restoreTempItems",
           "params": [],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "restoreItems",
           "params": [],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "setPushedItems",
           "params": [],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "checkPushBack",
           "params": [],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": [
         {
           "name": "fromSouth",
           "type": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "fromNorth",
           "type": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "fromEast",
           "type": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "fromWest",
           "type": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -2595,6 +2953,7 @@
       "name": "GridsterPushResize",
       "kind": "service",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/container/gridster/gridsterPushResize.service.ts",
       "inputs": [],
       "outputs": [],
@@ -2603,7 +2962,8 @@
           "name": "destroy",
           "params": [],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "pushItems",
@@ -2614,47 +2974,55 @@
             }
           ],
           "returnType": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "restoreItems",
           "params": [],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "setPushedItems",
           "params": [],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "checkPushBack",
           "params": [],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": [
         {
           "name": "fromSouth",
           "type": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "fromNorth",
           "type": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "fromEast",
           "type": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "fromWest",
           "type": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -2662,6 +3030,7 @@
       "name": "GridsterSwap",
       "kind": "service",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/container/gridster/gridsterSwap.service.ts",
       "inputs": [],
       "outputs": [],
@@ -2670,31 +3039,36 @@
           "name": "destroy",
           "params": [],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "swapItems",
           "params": [],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "checkSwapBack",
           "params": [],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "restoreSwapItem",
           "params": [],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "setSwapItem",
           "params": [],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "checkSwap",
@@ -2705,7 +3079,8 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": []
@@ -2714,6 +3089,7 @@
       "name": "GridType",
       "kind": "enum",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/container/gridster/gridsterConfig.interface.ts",
       "inputs": [],
       "outputs": [],
@@ -2724,6 +3100,7 @@
       "name": "IArea",
       "kind": "interface",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/container/panel/interface/IArea.ts",
       "inputs": [],
       "outputs": [],
@@ -2734,6 +3111,7 @@
       "name": "ILayoutTogglable",
       "kind": "interface",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/container/panel/layout-toggle.ts",
       "inputs": [],
       "outputs": [],
@@ -2745,6 +3123,7 @@
       "kind": "directive",
       "selector": "[dui-info-drawer-buttons], [info-drawer-buttons]",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/container/infodrawer/info-drawer-layout.component.ts",
       "inputs": [],
       "outputs": [],
@@ -2756,31 +3135,36 @@
       "kind": "component",
       "selector": "dui-info-drawer",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/container/infodrawer/info-drawer.component.ts",
       "inputs": [
         {
           "name": "title",
           "type": "string | null",
           "default": "null",
-          "description": "The title of the info drawer (string or translation key)."
+          "description": "The title of the info drawer (string or translation key).",
+          "descriptionZh": null
         },
         {
           "name": "selectedIndex",
           "type": "number",
           "default": "0",
-          "description": "The selected index tab."
+          "description": "The selected index tab.",
+          "descriptionZh": null
         }
       ],
       "outputs": [
         {
           "name": "currentTab",
           "type": "number",
-          "description": "Emitted when the currently active tab changes."
+          "description": "Emitted when the currently active tab changes.",
+          "descriptionZh": null
         },
         {
           "name": "onClose",
           "type": "void",
-          "description": "Emitted when the currently active tab changes."
+          "description": "Emitted when the currently active tab changes.",
+          "descriptionZh": null
         }
       ],
       "methods": [
@@ -2788,7 +3172,8 @@
           "name": "showTabLayout",
           "params": [],
           "returnType": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "onTabChange",
@@ -2799,20 +3184,23 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "close",
           "params": [],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": [
         {
           "name": "contentBlocks",
           "type": "QueryList<InfoDrawerTabComponent>",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -2821,6 +3209,7 @@
       "kind": "directive",
       "selector": "[dui-info-drawer-content], [info-drawer-content]",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/container/infodrawer/info-drawer-layout.component.ts",
       "inputs": [],
       "outputs": [],
@@ -2832,6 +3221,7 @@
       "kind": "component",
       "selector": "dui-info-drawer-layout",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/container/infodrawer/info-drawer-layout.component.ts",
       "inputs": [],
       "outputs": [],
@@ -2842,6 +3232,7 @@
       "name": "InfoDrawerModule",
       "kind": "module",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/container/infodrawer/info-drawer.module.ts",
       "inputs": [],
       "outputs": [],
@@ -2853,19 +3244,22 @@
       "kind": "component",
       "selector": "dui-info-drawer-tab",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/container/infodrawer/info-drawer.component.ts",
       "inputs": [
         {
           "name": "label",
           "type": "string",
           "default": "''",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "icon",
           "type": "string",
           "default": "null",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "outputs": [],
@@ -2874,7 +3268,8 @@
         {
           "name": "content",
           "type": "TemplateRef<any>",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -2883,6 +3278,7 @@
       "kind": "directive",
       "selector": "[dui-info-drawer-title], [info-drawer-title]",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/container/infodrawer/info-drawer-layout.component.ts",
       "inputs": [],
       "outputs": [],
@@ -2893,6 +3289,7 @@
       "name": "IPoint",
       "kind": "interface",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/container/panel/interface/IPoint.ts",
       "inputs": [],
       "outputs": [],
@@ -2903,12 +3300,14 @@
       "name": "LayoutToggle",
       "kind": "directive",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/container/panel/layout-toggle.ts",
       "inputs": [
         {
           "name": "hideWhenOpened",
           "type": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "outputs": [],
@@ -2922,13 +3321,15 @@
             }
           ],
           "returnType": "void",
-          "description": "Listens to host click event to trigger the layout toggle"
+          "description": "Listens to host click event to trigger the layout toggle",
+          "descriptionZh": null
         },
         {
           "name": "onClick",
           "params": [],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": []
@@ -2937,6 +3338,7 @@
       "name": "LayoutToggleBase",
       "kind": "class",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/container/panel/layout-toggle.ts",
       "inputs": [],
       "outputs": [],
@@ -2948,66 +3350,78 @@
       "kind": "component",
       "selector": "panel",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/container/panel/panel.component.ts",
       "inputs": [
         {
           "name": "config",
           "type": "any",
           "default": "{}",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "layout",
           "type": "any",
           "default": "'fit'",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "children",
           "type": "Array<PanelComponent>",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "gutterColor",
           "type": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "fxLayout",
           "type": "'row' | 'column'",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "useTransition",
           "type": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "outputs": [
         {
           "name": "dragStart",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "dragProgress",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "dragEnd",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "gutterClick",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "transitionEnd",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "methods": [
@@ -3020,7 +3434,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "addArea",
@@ -3031,7 +3446,8 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "removeArea",
@@ -3042,7 +3458,8 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "updateArea",
@@ -3061,7 +3478,8 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "showArea",
@@ -3072,7 +3490,8 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "hideArea",
@@ -3083,7 +3502,8 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "doLayout",
@@ -3098,7 +3518,8 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "startDragging",
@@ -3117,7 +3538,8 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "notify",
@@ -3128,7 +3550,8 @@
             }
           ],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": [
@@ -3136,66 +3559,78 @@
           "name": "xtype",
           "type": "string",
           "default": "'panel'",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "gutterColor",
           "type": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "fxLayout",
           "type": "'row' | 'column'",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "useTransition",
           "type": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "isViewInitialized",
           "type": "boolean",
           "default": "false",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "hasNorthSouth",
           "type": "boolean",
           "default": "false",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "hasWestEast",
           "type": "boolean",
           "default": "false",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "hasOutlet",
           "type": "boolean",
           "default": "false",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "displayedAreas",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "displayedAreas",
           "type": "IArea[]",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "hidedAreas",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "hidedAreas",
           "type": "IArea[]",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -3203,6 +3638,7 @@
       "name": "PanelModule",
       "kind": "module",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/container/panel/panel.module.ts",
       "inputs": [],
       "outputs": [],
@@ -3212,7 +3648,8 @@
           "name": "dynamicComponents",
           "type": "any",
           "default": "[SplitComponent,PanelComponent]",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -3220,6 +3657,7 @@
       "name": "PushDirections",
       "kind": "interface",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/container/gridster/gridsterConfig.interface.ts",
       "inputs": [],
       "outputs": [],
@@ -3230,6 +3668,7 @@
       "name": "Resizable",
       "kind": "interface",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/container/gridster/gridsterConfig.interface.ts",
       "inputs": [],
       "outputs": [],
@@ -3241,29 +3680,34 @@
       "kind": "component",
       "selector": "[Resizable]",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/container/resizable/resizable.component.ts",
       "inputs": [
         {
           "name": "resizableConf",
           "type": "IResizable",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "outputs": [
         {
           "name": "resizeStart",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "resizing",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "resizeEnd",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "methods": [
@@ -3276,7 +3720,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "onMouseDown",
@@ -3291,19 +3736,22 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "onMouseUp",
           "params": [],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "restore",
           "params": [],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "setSize",
@@ -3318,83 +3766,97 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": [
         {
           "name": "width",
           "type": "number",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "height",
           "type": "number",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "x",
           "type": "number",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "y",
           "type": "number",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "maxWidth",
           "type": "any",
           "default": "Infinity",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "minWidth",
           "type": "any",
           "default": "0",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "maxHeight",
           "type": "any",
           "default": "Infinity",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "minHeight",
           "type": "any",
           "default": "0",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "resizable",
           "type": "boolean",
           "default": "false",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "directions",
           "type": "string[]",
           "default": "['bottom', 'right']",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "grid",
           "type": "ISize",
           "default": "{ width: 1, height: 1 }",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "bound",
           "type": "IRectangle",
           "default": "null",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "ratio",
           "type": "number",
           "default": "null",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -3402,6 +3864,7 @@
       "name": "ResizableModule",
       "kind": "module",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/container/resizable/resize.module.ts",
       "inputs": [],
       "outputs": [],
@@ -3413,37 +3876,44 @@
       "kind": "component",
       "selector": "split-gutter",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/container/panel/split.component.ts",
       "inputs": [
         {
           "name": "order",
           "type": "number",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "direction",
           "type": "'row' | 'column'",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "disabled",
           "type": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "useTransition",
           "type": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "size",
           "type": "number",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "color",
           "type": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "outputs": [],
@@ -3452,22 +3922,26 @@
         {
           "name": "direction",
           "type": "'row' | 'column'",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "disabled",
           "type": "boolean",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "size",
           "type": "number",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "color",
           "type": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     },
@@ -3476,13 +3950,15 @@
       "kind": "component",
       "selector": "tabpanel",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/container/tabpanel/tabpanel.component.ts",
       "inputs": [
         {
           "name": "config",
           "type": "any",
           "default": "{}",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "outputs": [],
@@ -3496,7 +3972,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "add",
@@ -3507,7 +3984,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "onAdd",
@@ -3518,7 +3996,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "onBeforeAdd",
@@ -3529,7 +4008,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "onRemove",
@@ -3540,7 +4020,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "tabChange",
@@ -3551,7 +4032,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "focusChange",
@@ -3562,7 +4044,8 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "setActiveTab",
@@ -3573,13 +4056,15 @@
             }
           ],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "getActiveTab",
           "params": [],
           "returnType": "number",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "getItem",
@@ -3590,7 +4075,8 @@
             }
           ],
           "returnType": "PanelComponent",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "findTabIndexByObjectId",
@@ -3601,7 +4087,8 @@
             }
           ],
           "returnType": "number",
-          "description": "==========================================\n新增辅助方法 1：基于 objectId 查询对应的数字 Index\n=========================================="
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "switchTabByObjectId",
@@ -3616,7 +4103,74 @@
             }
           ],
           "returnType": "void",
-          "description": "==========================================\n新增辅助方法 2：根据 objectId 执行安全的页签切换逻辑\n=========================================="
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "findTabIndex",
+          "params": [
+            {
+              "name": "idOrObjectId",
+              "type": "any"
+            }
+          ],
+          "returnType": "number",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "setTabVisibility",
+          "params": [
+            {
+              "name": "idOrObjectId",
+              "type": "any"
+            },
+            {
+              "name": "visible",
+              "type": "boolean"
+            }
+          ],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "hideTab",
+          "params": [
+            {
+              "name": "idOrObjectId",
+              "type": "any"
+            }
+          ],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "showTab",
+          "params": [
+            {
+              "name": "idOrObjectId",
+              "type": "any"
+            }
+          ],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "hideTabAll",
+          "params": [],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "showTabAll",
+          "params": [],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": [
@@ -3624,43 +4178,50 @@
           "name": "xtype",
           "type": "string",
           "default": "'tabpanel'",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "resizeTabs",
           "type": "boolean",
           "default": "false",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "tabPosition",
           "type": "MatTabHeaderPosition",
           "default": "'above'",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "activeTab",
           "type": "number",
           "default": "0",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "oldTab",
           "type": "number",
           "default": "0",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "tabs",
           "type": "any[]",
           "default": "[]",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "noload",
           "type": "boolean",
           "default": "false",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ]
     }

@@ -1,6 +1,11 @@
 import { FileLikeObject } from './file-like-object';
 import { FileUploader, ParsedResponseHeaders, FileUploaderOptions } from './file-uploader';
 
+/**
+ * A single queued/uploading file within a {@link FileUploader}, tracking its own progress,
+ * status flags, and the underlying XHR.
+ * @zh {@link FileUploader} 队列中的单个文件条目，跟踪自身的上传进度、状态标志及底层 XHR。
+ */
 export class FileItem {
   public file: FileLikeObject;
   public _file: File;

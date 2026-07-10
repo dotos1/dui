@@ -17,6 +17,11 @@ import { debounceTime, startWith, takeUntil } from 'rxjs/operators';
 
 import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
 
+/**
+ * Container for {@link BreadcrumbComponent} items; automatically collapses/hides crumbs that
+ * no longer fit the available width on resize.
+ * @zh {@link BreadcrumbComponent} 面包屑项的容器；在窗口尺寸变化时自动折叠/隐藏放不下的面包屑项。
+ */
 @Component({
   selector: 'dui-breadcrumbs',
   styleUrls: ['./breadcrumbs.component.scss'],

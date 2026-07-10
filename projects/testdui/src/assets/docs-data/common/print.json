@@ -5,40 +5,47 @@
       "name": "PrintDirective",
       "kind": "directive",
       "selector": "button[duiPrint]",
-      "summary": null,
+      "summary": "Attach to a clickable element to print the contents of another element (identified by\n`printSectionId`) in a new popup window, optionally with custom styles/stylesheets.",
+      "summaryZh": "附加到可点击元素上，点击后在新弹出窗口中打印指定元素（由 `printSectionId` 标识）的内容，\n可选附带自定义样式/样式表。",
       "sourceFile": "src/common/print/print.directive.ts",
       "inputs": [
         {
           "name": "printSectionId",
           "type": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "printTitle",
           "type": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "useExistingCss",
           "type": "any",
           "default": "false",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "printDelay",
           "type": "number",
           "default": "0",
-          "description": "A delay in milliseconds to force the print dialog to wait before opened. Default: 0"
+          "description": "A delay in milliseconds to force the print dialog to wait before opened. Default: 0",
+          "descriptionZh": null
         },
         {
           "name": "printStyle",
           "type": "{ [key: string]: { [key: string]: string } }",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "styleSheetFile",
           "type": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "outputs": [],
@@ -47,13 +54,15 @@
           "name": "returnStyleValues",
           "params": [],
           "returnType": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "print",
           "params": [],
           "returnType": "void",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": []
@@ -62,6 +71,7 @@
       "name": "PrintModule",
       "kind": "module",
       "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/print/print.module.ts",
       "inputs": [],
       "outputs": [],
@@ -71,45 +81,53 @@
     {
       "name": "PrintService",
       "kind": "service",
-      "summary": null,
+      "summary": "Prints arbitrary HTML content (a string or element) via a hidden iframe or a popup window,\nwith configurable doctype standard and injected stylesheets.",
+      "summaryZh": "通过隐藏 iframe 或弹出窗口打印任意 HTML 内容（字符串或元素），\n可配置文档类型标准（doctype）及注入的样式表。",
       "sourceFile": "src/common/print/print.service.ts",
       "inputs": [
         {
           "name": "mode",
           "type": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "standard",
           "type": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "popTitle",
           "type": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "printHTML",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "printStyle",
           "type": "string",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "printCSS",
           "type": "string[]",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "outputs": [
         {
           "name": "printComplete",
           "type": "any",
-          "description": null
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "methods": [
@@ -122,7 +140,8 @@
             }
           ],
           "returnType": "any",
-          "description": "开始打印\nparam printHTML 打印的HTML"
+          "description": "开始打印\nparam printHTML 打印的HTML",
+          "descriptionZh": null
         },
         {
           "name": "setInputAndTextareaValue",
@@ -133,7 +152,8 @@
             }
           ],
           "returnType": "any",
-          "description": "设置打印文档中输入框和文本域的值\nparam {boolean} isReset 是否恢复到初始状态"
+          "description": "设置打印文档中输入框和文本域的值\nparam {boolean} isReset 是否恢复到初始状态",
+          "descriptionZh": null
         },
         {
           "name": "toArray",
@@ -144,7 +164,8 @@
             }
           ],
           "returnType": "any[]",
-          "description": "将类数组转换成数组\nparam arr\nreturns {any[]}"
+          "description": "将类数组转换成数组\nparam arr\nreturns {any[]}",
+          "descriptionZh": null
         }
       ],
       "properties": []
