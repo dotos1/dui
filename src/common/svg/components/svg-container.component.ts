@@ -6,7 +6,7 @@ import { SVG, Container, Pattern, Rect } from '@svgdotjs/svg.js';
 @Component({
   selector: 'svg-container',
   templateUrl: 'svg-container.component.html',
-  styleUrls: ['./svg-container.component.css']
+  styleUrls: ['./svg-container.component.scss']
 })
 export class SvgContainerComponent implements AfterViewInit, OnChanges {
   public pointXCoordinate: number;
