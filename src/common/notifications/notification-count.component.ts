@@ -52,11 +52,6 @@ export class NotificationCountComponent implements AfterContentInit {
    * Sets the X position of the notification tip.
    * Defaults to "after" if it has content, else 'center'.
    */
-  /**
-   * positionX?: NotificationCountPositionX or "before" | "after" | "center"
-   * Sets the X position of the notification tip.
-   * Defaults to "after" if it has content, else 'center'.
-   */
   @Input()
   set positionX(positionX: NotificationCountPositionX) {
     this._positionX = positionX;
@@ -69,11 +64,6 @@ export class NotificationCountComponent implements AfterContentInit {
     return this._positionX;
   }
 
-  /**
-   * positionY?: NotificationCountPositionY or "top" | "bottom" | "center"
-   * Sets the Y position of the notification tip.
-   * Defaults to "top" if it has content, else 'center'.
-   */
   /**
    * positionY?: NotificationCountPositionY or "top" | "bottom" | "center"
    * Sets the Y position of the notification tip.
@@ -128,17 +118,27 @@ export class NotificationCountComponent implements AfterContentInit {
    * Anything over 99 gets set as 99+
    */
   get notificationsDisplay(): string {
-    if (this._notifications > this._limit) {
-      return `${this._limit}+`;
+    const notifications = this._notifications;
+    if (typeof notifications === 'number') {
+      if (notifications > this._limit) {
+        return `${this._limit}+`;
+      }
     }
-    return this._notifications.toString();
+    return notifications.toString();
   }
 
   /**
    * Shows notification tip only when [notifications] is true or a positive integer.
    */
   get show(): boolean {
-    return this._notifications === true || (!isNaN(<any>this._notifications) && this._notifications > 0);
+    const notifications = this._notifications;
+    if (notifications === true) {
+      return true;
+    }
+    if (typeof notifications === 'number') {
+      return !isNaN(notifications) && notifications > 0;
+    }
+    return false;
   }
 
   /**
@@ -153,9 +153,7 @@ export class NotificationCountComponent implements AfterContentInit {
     }
   }
 
-  /**
-   * Method to check if element has any kind of content (elements or text)
-   */
+
   private _hasContent(): boolean {
     if (this.content) {
       let contentElement: HTMLElement = this.content.nativeElement;

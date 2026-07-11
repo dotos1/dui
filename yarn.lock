@@ -3064,6 +3064,11 @@
   resolved "http://192.168.1.123:4873/@socket.io/component-emitter/-/component-emitter-3.1.2.tgz#821f8442f4175d8f0467b9daf26e3a18e2d02af2"
   integrity sha512-9BCxFwvbGg/RsZK9tjXd8s4UcwR0MWeFQ1XEKIQVVvAGJyINdrqKMcTRyLoK8Rse1GjzLV9cwjWV1olXRWEXVA==
 
+"@svgdotjs/svg.js@^3.2.5":
+  version "3.2.5"
+  resolved "https://registry.npmmirror.com/@svgdotjs/svg.js/-/svg.js-3.2.5.tgz#fbbc56728b2b565f3ae3e3713301ff82abbb45bd"
+  integrity sha512-/VNHWYhNu+BS7ktbYoVGrCmsXDh+chFMaONMwGNdIBcFHrWqk2jY8fNyr3DLdtQUIalvkPfM554ZSFa3dm3nxQ==
+
 "@tufjs/canonical-json@2.0.0":
   version "2.0.0"
   resolved "http://192.168.1.123:4873/@tufjs/canonical-json/-/canonical-json-2.0.0.tgz#a52f61a3d7374833fca945b2549bc30a2dd40d0a"
