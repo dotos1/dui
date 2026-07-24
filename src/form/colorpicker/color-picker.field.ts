@@ -69,6 +69,8 @@ export const DATEFIELD_VALIDATORS: any = {
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
+
+
 export class ColorPickerField<F extends FieldConfig = FieldConfig> extends AbstractTrigger {
 
   @ViewChild(MatInput, { static: true }) _mapInput: MatInput;
