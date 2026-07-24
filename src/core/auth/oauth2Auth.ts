@@ -90,6 +90,10 @@ export class Oauth2Auth  {
             const accessToken = this.storage.get('access_token') as string;
             const refreshToken = this.storage.get('refresh_token') as string; // 读取出来
             this.setToken(accessToken, refreshToken); // 传给 setToken，而不是传 null
+            // A restored (not freshly logged-in) access token needs its refresh polling
+            // re-armed too -- otherwise it silently expires on the first page reload after
+            // login, since the interval that would have renewed it doesn't survive a reload.
+            this.pollingRefreshToken();
         }
         if (oauth2.implicitFlow) {
             this.checkFragment(oauth2, 'nonce');
@@ -490,6 +494,7 @@ export class Oauth2Auth  {
     }
     pollingRefreshToken() {
       let oauth2 =this.config.getSettings('oauth2');
+        clearInterval(this.refreshTokenIntervalPolling);
         this.refreshTokenIntervalPolling = setInterval(async () => {
             try {
                 await this.refreshToken();
