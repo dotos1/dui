@@ -1221,8 +1221,13 @@ export class DaterangepickerComponent implements OnInit, OnChanges {
     const rightCalDate = this.calendarVariables['right'].calendar[row][col];
     if (this.pickingDate) {
       this.nowHoveredDate = side === SideEnum.left ? leftCalDate : rightCalDate;
-      this.renderCalendar(SideEnum.left);
-      this.renderCalendar(SideEnum.right);
+      // renderCalendar() also rebuilds the entire 42-cell Dayjs date grid from scratch
+      // (~1500 dayjs operations) even though hovering never changes which dates are in
+      // the grid -- only which of them should be highlighted as "in range". Reuse the
+      // already-built grids (cached on leftCalendar/rightCalendar by the last full
+      // renderCalendar() call) and only recompute the per-cell CSS classes.
+      this.buildCells(this.leftCalendar.calendar, SideEnum.left);
+      this.buildCells(this.rightCalendar.calendar, SideEnum.right);
     }
 
   }

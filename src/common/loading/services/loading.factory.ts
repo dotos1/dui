@@ -32,6 +32,11 @@ export interface ILoadingRef {
   componentRef?: ComponentRef<any>;
   subject: Subject<any>;
   times: number;
+  /**
+   * #1001：是否阻塞屏幕交互。缺省 false（非阻塞，指示器仅显示状态，点击穿透到底层内容）；
+   * 为 true 时全屏遮罩拦截交互（保持旧的锁屏行为）。
+   */
+  blocking?: boolean;
 }
 /**
  * Low-level factory that creates and manages {@link LoadingComponent} instances for the three
@@ -63,7 +68,7 @@ export class LoadingFactory {
       .subscribe((registered: number) => {
         if (registered > 0 && !loading) {
           loading = true;
-          overlayRef = this._createOverlay();
+          overlayRef = this._createOverlay(loadingRef.blocking);
           loadingRef.componentRef = overlayRef.attach(
             new ComponentPortal(LoadingComponent)
           );
@@ -174,9 +179,15 @@ export class LoadingFactory {
     return loadingRef;
   }
 
-  private _createOverlay(): OverlayRef {
+  private _createOverlay(blocking: boolean = false): OverlayRef {
     const state: OverlayConfig = new OverlayConfig();
     state.hasBackdrop = false;
+    // #1001：非阻塞(缺省)时给 pane 加 dui-loading-nonblocking，使其 pointer-events:none，
+    // 点击穿透到底层内容——加载中仍可操作，进度条仅作状态显示；
+    // blocking=true 时用 dui-loading-blocking，保持 pane 拦截交互的旧行为。
+    state.panelClass = blocking
+      ? 'dui-loading-blocking'
+      : 'dui-loading-nonblocking';
     state.positionStrategy = this._overlay
       .position()
       .global()

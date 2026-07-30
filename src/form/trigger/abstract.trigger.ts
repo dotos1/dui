@@ -150,7 +150,10 @@ export class AbstractTrigger extends MatField implements OnInit,OnDestroy,DoChec
       this.touchUi=this.field.touchUi;
     }
     if(this.field.panelClass!=undefined){
-      this.panelClass==this.field.panelClass;
+      // Was `==` (a no-op comparison) instead of `=` -- consumer-set panelClass never
+      // reached the @Input at all, and was never read anywhere either (see
+      // _createPopup() below), making it end-to-end dead configuration.
+      this.panelClass=this.field.panelClass;
     }
     if (this.field.opened) {
       this.openedStream.pipe(takeUntil(this._onDestroy)).subscribe(this.field.opened);
@@ -286,12 +289,16 @@ export class AbstractTrigger extends MatField implements OnInit,OnDestroy,DoChec
   }
 
   private _createPopup(): void {
+    const panelClass = ["mat-picker-popup"];
+    if (this.panelClass) {
+      Array.isArray(this.panelClass) ? panelClass.push(...this.panelClass) : panelClass.push(this.panelClass);
+    }
     const overlayConfig = new OverlayConfig({
       positionStrategy: this._createPopupPositionStrategy(),
       hasBackdrop: true,
       backdropClass: "mat-overlay-transparent-backdrop",
       direction: this._dir ? this._dir.value : "ltr",
-      panelClass: "mat-picker-popup"
+      panelClass
     });
     this._popupRef = this._overlay.create(overlayConfig);
     this._popupRef.backdropClick()

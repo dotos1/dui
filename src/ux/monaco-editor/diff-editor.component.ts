@@ -29,6 +29,8 @@ export class DiffEditorComponent extends BaseEditor {
 
   _originalModel: DiffEditorModel;
   _modifiedModel: DiffEditorModel;
+  private _createdOriginalModel: any;
+  private _createdModifiedModel: any;
 
   @Input('options')
   set options(options: any) {
@@ -78,8 +80,12 @@ export class DiffEditorComponent extends BaseEditor {
     this._originalModel.language = this._originalModel.language || options.language;
     this._modifiedModel.language = this._modifiedModel.language || options.language;
 
-    let originalModel = monaco.editor.createModel(this._originalModel.code, this._originalModel.language);
-    let modifiedModel = monaco.editor.createModel(this._modifiedModel.code, this._modifiedModel.language);
+    // 上一轮 initMonaco() 创建的模型没有存过引用也没有 dispose 过；
+    // editor.dispose() 只销毁 diff editor 控件本身，createModel() 单独
+    // 创建的文本模型会一直留在 Monaco 的全局模型注册表里
+    this._disposeModels();
+    this._createdOriginalModel = monaco.editor.createModel(this._originalModel.code, this._originalModel.language);
+    this._createdModifiedModel = monaco.editor.createModel(this._modifiedModel.code, this._modifiedModel.language);
 
     this._editorContainer.nativeElement.innerHTML = '';
     const theme = options.theme;
@@ -94,8 +100,8 @@ export class DiffEditorComponent extends BaseEditor {
 
     options.theme = theme;
     this._editor.setModel({
-      original: originalModel,
-      modified: modifiedModel
+      original: this._createdOriginalModel,
+      modified: this._createdModifiedModel
     });
 
     // refresh layout on resize event.
@@ -104,6 +110,18 @@ export class DiffEditorComponent extends BaseEditor {
     }
     this._windowResizeSubscription = fromEvent(window, 'resize').subscribe(() => this._editor.layout());
     this.onInit.emit(this._editor);
+  }
+
+  private _disposeModels(): void {
+    this._createdOriginalModel?.dispose();
+    this._createdModifiedModel?.dispose();
+    this._createdOriginalModel = undefined;
+    this._createdModifiedModel = undefined;
+  }
+
+  override ngOnDestroy(): void {
+    this._disposeModels();
+    super.ngOnDestroy();
   }
 
 }

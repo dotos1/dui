@@ -141,18 +141,22 @@ export class LoadingService {
    */
   public register(
     name: string = 'dui-loading-main',
-    registers: number = 1
+    registers: number = 1,
+    blocking: boolean = false
   ): boolean {
     // try registering into the service if the loading component has been instanciated or if it exists.
     if (this._context[name]) {
       registers = registers < 1 ? 1 : registers;
       this._context[name].times += registers;
+      // #1001：是否阻塞交互由调用方决定，缺省(false)为非阻塞——加载指示器仅作状态显示，
+      // 用户在加载过程中仍可操作；仅当显式传入 blocking=true 时才锁定屏幕交互。
+      this._context[name].blocking = blocking;
       this._context[name].subject.next(this._context[name].times);
       return true;
     } else {
       if (!this._timeouts[name]) {
         this._timeouts[name] = setTimeout(() => {
-          this.register(name, registers);
+          this.register(name, registers, blocking);
         });
       } else {
         // if it timeout occured and still doesnt exist, it means the tiemout wasnt needed so we clear it.

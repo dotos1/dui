@@ -17,21 +17,27 @@ export class ChangeUtils {
       return items;
     }
 
-    const obj1Clone: any = [...obj1];
-    const obj2Clone: any = [...obj2];
+    // Row matching used to be O(n^2): a linear findIndex() + splice() per item in obj1.
+    // Index obj2 by id once (O(n)) so each obj1 item is matched/consumed in O(1); the
+    // Map also naturally preserves obj2's original order for whatever's left over
+    // (the "added" items), same as the old splice-and-collect-remainder approach.
+    const obj2ById = new Map<any, any>();
+    for (const item of obj2) {
+      obj2ById.set(item.id, item);
+    }
 
-    for (const fromItem of obj1Clone) {
-      const index = obj2Clone.findIndex(s => s.id === fromItem.id);
+    for (const fromItem of obj1) {
+      const toItem = obj2ById.get(fromItem.id);
 
-      if (index === -1) {
+      if (toItem === undefined) {
         items.deleted.push({
           change: { type: ChangeType.DELETED },
           value: fromItem
         });
         continue;
       }
+      obj2ById.delete(fromItem.id);
 
-      const toItem = obj2Clone.splice(index, 1)[0];
       const fromItemClone = JSON.parse(JSON.stringify(fromItem));
       const toItemClone = JSON.parse(JSON.stringify(toItem));
 
@@ -55,7 +61,7 @@ export class ChangeUtils {
       }
     }
 
-    items.added = obj2Clone.map(itemAdded => {
+    items.added = Array.from(obj2ById.values()).map(itemAdded => {
       return {
         change: { type: ChangeType.ADDED },
         value: itemAdded
@@ -66,9 +72,6 @@ export class ChangeUtils {
   }
 
   private static compareObject(fromItem, toItem, baseKey?, ignoreKeys = []) {
-    const fromItemClone = JSON.parse(JSON.stringify(fromItem));
-    const toItemClone = JSON.parse(JSON.stringify(toItem));
-
     const keys: any = new Set([
       ...Object.keys(fromItem),
       ...Object.keys(toItem)
@@ -79,6 +82,15 @@ export class ChangeUtils {
       if (ignoreKeys.indexOf(keyString) !== -1) {
         return;
       }
+
+      // Capture each key's pre-mutation value before the array-join/StringUtils.diff
+      // rewrites below, so keysChanged[].oldValue/newValue still reflect what was
+      // actually there. This replaces the two full-object JSON.parse(JSON.stringify())
+      // deep clones this function used to make on every call (redundant with the clone
+      // findChanges() already made one level up, and repeated again at every recursion
+      // level) with a cheap per-key reference/value capture.
+      const originalFromValue = fromItem[key];
+      const originalToValue = toItem[key];
 
       if (Array.isArray(fromItem[key])) {
         fromItem[key] = fromItem[key].join(',<br>');
@@ -100,8 +112,8 @@ export class ChangeUtils {
         if (fromItem[key] !== toItem[key]) {
           keysChanged.push({
             key: keyString,
-            oldValue: fromItemClone[key],
-            newValue: toItemClone[key]
+            oldValue: originalFromValue,
+            newValue: originalToValue
           });
           fromItem[key] = StringUtils.diff(fromItem[key], toItem[key]);
         }

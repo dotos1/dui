@@ -316,6 +316,10 @@ export class DataTableBodyComponent implements OnInit, OnDestroy {
         // Add the groups into this page
         const group = this.groupedRows[rowIndex];
         temp[idx] = group;
+        // rowIndexes was only ever populated in the non-grouped branch below; every
+        // group row looked up via getRowIndex() fell through to its `|| 0` default,
+        // so *ngFor's trackBy saw every visible row/group claim identity 0.
+        this.rowIndexes.set(group, rowIndex);
         idx++;
 
         // Group index in this context
@@ -682,7 +686,11 @@ export class DataTableBodyComponent implements OnInit, OnDestroy {
    * Gets the row index given a row
    */
   getRowIndex(row: any): number {
-    return this.rowIndexes.get(row) || 0;
+    // `|| 0` treated "not found" the same as "found at index 0", which is exactly the
+    // sentinel value that made the grouped-rows trackBy bug invisible -- use a value
+    // that can never collide with a legitimate index instead.
+    const idx = this.rowIndexes.get(row);
+    return idx === undefined ? -1 : idx;
   }
 
   onTreeAction(row: any) {

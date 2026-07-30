@@ -23,6 +23,7 @@ import { DatatableCardComponent } from './datatable.card';
 import { BehaviorSubject, Subscription } from 'rxjs';
 import { TranslateService } from '@dotos/dui/translator';
 import { Dui } from '@dotos/dui/core';
+import { throttleable } from './utils/throttle';
 
 @Component({
   selector: 'dui-datatable',
@@ -795,7 +796,10 @@ export class DatatableComponent implements OnInit, DoCheck,AfterContentInit,OnDe
    * Window resize handler to update sizes.
    */
   @HostListener('window:resize')
-  // @throttleable(5)
+  // 原来被注释掉，导致 resize 期间每个事件都同步触发一次完整的
+  // recalculate() + detectChanges()；拖动浏览器窗口边缘调整大小时
+  // 会连续触发多次全表格重算
+  @throttleable(100)
   onWindowResize(): void {
     this.recalculate();
   }
@@ -877,10 +881,21 @@ export class DatatableComponent implements OnInit, DoCheck,AfterContentInit,OnDe
   /**
    * The body triggered a scroll event.
    */
+  private _scrollDetectChangesFrame: number;
+
   onBodyScroll(event: MouseEvent): void {
     this._offsetX.next(event.offsetX);
     this.scroll.emit(event);
-    this.cd.detectChanges();
+    // 原来每个滚动事件都同步触发一次完整变更检测（含 O(已选行数) 的
+    // 每行选中态扫描），滚动时每秒可触发几十次；按帧合并，滚动过程中
+    // 最多每帧一次
+    if (this._scrollDetectChangesFrame !== undefined) {
+      return;
+    }
+    this._scrollDetectChangesFrame = requestAnimationFrame(() => {
+      this._scrollDetectChangesFrame = undefined;
+      this.cd.detectChanges();
+    });
   }
 
   /**
@@ -1129,6 +1144,9 @@ export class DatatableComponent implements OnInit, DoCheck,AfterContentInit,OnDe
 
   ngOnDestroy() {
     this._subscriptions.forEach(subscription => subscription.unsubscribe());
+    if (this._scrollDetectChangesFrame !== undefined) {
+      cancelAnimationFrame(this._scrollDetectChangesFrame);
+    }
   }
 
   /**

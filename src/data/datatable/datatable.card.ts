@@ -5,6 +5,7 @@ import {
 } from '@angular/core';
 
 import { HttpClient } from '@angular/common/http';
+import { Subject, takeUntil } from 'rxjs';
 import { Dui } from '@dotos/dui/core';
 import { DuiCardComponent } from '@dotos/dui/container';
 import { DatatableComponent } from './datatable.component';
@@ -68,6 +69,8 @@ export class DatatableCardComponent extends DuiCardComponent implements OnChange
   public displayCheck:any = true;
   public totalCount=20;
 
+  private _destroy$ = new Subject<void>();
+
   constructor(
     protected http: HttpClient,
     public override resolver: ComponentFactoryResolver,
@@ -86,6 +89,10 @@ export class DatatableCardComponent extends DuiCardComponent implements OnChange
 
   // private
   override onDestroy() {
+    // loadds() 发出的 HTTP 请求原来没有随组件销毁取消；卡片在响应返回前
+    // 被销毁（如所在对话框关闭）时，success() 仍会在之后执行并访问已拆除的视图
+    this._destroy$.next();
+    this._destroy$.complete();
     Dui.destroy(this.columns);
     this.columns = this.view = null;
     super.onDestroy.call(this);
@@ -144,7 +151,7 @@ export class DatatableCardComponent extends DuiCardComponent implements OnChange
     this.http.get(apiBase + url,
       {
         params: this.baseParams,
-      }).subscribe(
+      }).pipe(takeUntil(this._destroy$)).subscribe(
         val => this.success(val)
       );
   }

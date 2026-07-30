@@ -51,13 +51,12 @@ export function groupRowsByParents(rows: any[], from?: OptionalValueGetter, to?:
 
     nodeById[0] = new TreeNode(); // that's the root node
 
-    const uniqIDs = rows.reduce((arr, item) => {
-      const toValue = to(item);
-      if (arr.indexOf(toValue) === -1) {
-        arr.push(toValue);
-      }
-      return arr;
-    }, []);
+    // 原写法用数组 + indexOf 去重，每行一次线性查找，是 O(n²)；
+    // 下面对 uniqIDs 的成员判断同理，改用 Set 降到 O(n)
+    const uniqIDs: Set<any> = rows.reduce((set, item) => {
+      set.add(to(item));
+      return set;
+    }, new Set<any>());
 
     for (let i = 0; i < l; i++) {
       // make TreeNode objects for each item
@@ -69,7 +68,7 @@ export function groupRowsByParents(rows: any[], from?: OptionalValueGetter, to?:
       node = nodeById[to(rows[i])];
       let parent = 0;
       const fromValue = from(node.row);
-      if (!!fromValue && uniqIDs.indexOf(fromValue) > -1) {
+      if (!!fromValue && uniqIDs.has(fromValue)) {
         parent = fromValue;
       }
       node.parent = nodeById[parent];
