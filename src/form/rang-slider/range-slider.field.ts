@@ -54,6 +54,14 @@ export class RangeSliderFieldComponent extends MatField {
       });
   }
 
+  override ngOnDestroy() {
+    // 用了 takeUntil(destroy$) 但从未触发过 destroy$，两个订阅（连同它们
+    // 闭包持有的组件实例）会一直存活到 formControl 本身被回收为止
+    this.destroy$.next();
+    this.destroy$.complete();
+    super.ngOnDestroy();
+  }
+
   override defaultOptions = {
     hideFieldUnderline: true,
     floatLabel: 'always',

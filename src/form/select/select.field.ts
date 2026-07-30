@@ -56,6 +56,11 @@ export class FieldSelect extends MatField implements OnInit,OnDestroy {
 
   private selectAllValue!: { options: any; value: any[] };
 
+  // Tracks the exact params object sent with the most recently issued remote request, so
+  // a late-arriving response for a superseded search can be told apart from the current
+  // one (see comment on the `serviceData` subscribe below).
+  private _lastRequestParams: any;
+
   constructor(
     protected override translate: TranslateService,
     private optionService: SelectOptionsService,
@@ -75,7 +80,13 @@ export class FieldSelect extends MatField implements OnInit,OnDestroy {
     if (this.field.remote) {
       this.isAlive = true;
       this.optionService.options.pipe(takeWhile(() => this.isAlive)).subscribe(serviceData => {
-        if (serviceData && this.field.params === serviceData.params) {
+        // `this.field.params` is a single object reused (and mutated) across every
+        // search -- comparing serviceData.params against it was always comparing an
+        // object against itself, so a slow "a" response arriving after a fast "ab"
+        // response would always pass and silently overwrite the newer results.
+        // Compare against the params object we actually sent for the request we're
+        // still waiting on instead.
+        if (serviceData && this._lastRequestParams === serviceData.params) {
           this.options = this.field.options = serviceData.options === null ? [] : serviceData.options;
           if (!this.field.hasSearch) {
             this.hasSearch();
@@ -111,8 +122,11 @@ export class FieldSelect extends MatField implements OnInit,OnDestroy {
       if (this.field.remote) {
         let url = this.field.dataSource.url;
         let method = this.field.dataSource.method;
-        let params = this.field.params;
-        params['$filter'] = searchText;
+        // Clone rather than mutate this.field.params in place -- otherwise every
+        // in-flight/queued request ends up pointing at the same object, which is what
+        // made the identity check above meaningless.
+        let params = { ...this.field.params, '$filter': searchText };
+        this._lastRequestParams = params;
         this.optionService.getOptions(url, method, params);
       } else {
         if(searchText==''){
@@ -154,7 +168,8 @@ export class FieldSelect extends MatField implements OnInit,OnDestroy {
       this.field.formControl.reset();
       let url = this.field.dataSource.url;
       let method = this.field.dataSource.method;
-      let params = this.field.params;
+      let params = { ...this.field.params };
+      this._lastRequestParams = params;
       this.optionService.getOptions(url, method, params);
     }
   }

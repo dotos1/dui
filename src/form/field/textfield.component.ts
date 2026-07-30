@@ -42,6 +42,10 @@ export class TextFieldComponent extends MatField implements OnInit, AfterViewIni
 
   protected _onDestroy = new Subject<void>();
 
+  // Tracks the exact params object sent with the most recently issued remote request; see
+  // comment on the `serviceData` subscribe below.
+  private _lastRequestParams: any;
+
   constructor(
     protected _elementRef: ElementRef,
     protected override translate: TranslateService,
@@ -85,7 +89,12 @@ export class TextFieldComponent extends MatField implements OnInit, AfterViewIni
         this.isAlive = true;
         this.optionService.options.pipe(
           takeWhile(() => this.isAlive)).subscribe(serviceData => {
-            if (serviceData && this.field.params === serviceData.params) {
+            // `this.field.params` is a single object reused (and mutated) across every
+            // search -- comparing serviceData.params against it was always comparing an
+            // object against itself, so a slow response could silently overwrite a
+            // newer one that already arrived. Compare against the params object we
+            // actually sent for the request we're still waiting on instead.
+            if (serviceData && this._lastRequestParams === serviceData.params) {
               this.filteredOptions = of(serviceData.options === null ? [] : serviceData.options);
               this.changeDetector.detectChanges();
               this.isLoading = false;
@@ -108,8 +117,11 @@ export class TextFieldComponent extends MatField implements OnInit, AfterViewIni
             this.searching = false;
             let url = this.field.dataSource.url;
             let method = this.field.dataSource.method;
-            let params = this.field.params;
-            params['$filter'] = searchText;
+            // Clone rather than mutate this.field.params in place -- otherwise every
+            // in-flight/queued request ends up pointing at the same object, which is
+            // what made the identity check above meaningless.
+            let params = { ...this.field.params, '$filter': searchText };
+            this._lastRequestParams = params;
             this.optionService.getOptions(url, method, params);
           });
       } else {

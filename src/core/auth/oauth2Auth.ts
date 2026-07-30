@@ -86,14 +86,26 @@ export class Oauth2Auth  {
     }
 
     initOauth(oauth2) {
-        if (!oauth2.implicitFlow && this.isValidAccessToken()) {
-            const accessToken = this.storage.get('access_token') as string;
-            const refreshToken = this.storage.get('refresh_token') as string; // 读取出来
-            this.setToken(accessToken, refreshToken); // 传给 setToken，而不是传 null
-            // A restored (not freshly logged-in) access token needs its refresh polling
-            // re-armed too -- otherwise it silently expires on the first page reload after
-            // login, since the interval that would have renewed it doesn't survive a reload.
-            this.pollingRefreshToken();
+        if (!oauth2.implicitFlow) {
+            const refreshToken = this.storage.get('refresh_token') as string;
+            if (this.isValidAccessToken()) {
+                const accessToken = this.storage.get('access_token') as string;
+                this.setToken(accessToken, refreshToken); // 传给 setToken，而不是传 null
+                // A restored (not freshly logged-in) access token needs its refresh polling
+                // re-armed too -- otherwise it silently expires on the first page reload after
+                // login, since the interval that would have renewed it doesn't survive a reload.
+                this.pollingRefreshToken();
+            } else if (refreshToken) {
+                // Access token is missing/expired (e.g. tab was closed for longer than the
+                // access token's lifetime) but a still-valid refresh token survived in
+                // storage -- use it to mint a fresh access token instead of forcing the user
+                // back to the login page. refreshToken() itself calls logOut() if the
+                // server rejects it (expired/revoked refresh token).
+                this.authentications.oauth2.refreshToken = refreshToken;
+                this.refreshToken()
+                    .then(() => this.pollingRefreshToken())
+                    .catch(() => { });
+            }
         }
         if (oauth2.implicitFlow) {
             this.checkFragment(oauth2, 'nonce');
@@ -248,12 +260,17 @@ export class Oauth2Auth  {
         return validToken;
     }
 
+    // Safety margin so a client clock running slightly ahead of the auth server -- or the
+    // few ms between this check and the request actually reaching the server -- doesn't
+    // let an about-to-expire token through as "valid".
+    private static readonly ACCESS_TOKEN_EXPIRY_BUFFER_MS = 30000;
+
     isValidAccessToken(): boolean {
         let validAccessToken = false;
         if (this.getAccessToken()) {
             const expiresAt:string = this.storage.get('access_token_expires_in');
             const now = new Date();
-            if (expiresAt && parseInt(expiresAt, 10) >= now.getTime()) {
+            if (expiresAt && parseInt(expiresAt, 10) >= now.getTime() + Oauth2Auth.ACCESS_TOKEN_EXPIRY_BUFFER_MS) {
                 validAccessToken = true;
             }
         }
@@ -499,11 +516,32 @@ export class Oauth2Auth  {
             try {
                 await this.refreshToken();
             } catch (e) {
+                // 400/401 already triggers logOut() inside refreshToken(). Anything else
+                // (network blip, 5xx, timeout) used to be swallowed silently here, leaving
+                // an expiring/expired access token in use until the next full polling
+                // interval (default 5 minutes). Log it and retry sooner instead.
+                if (!(e && (e.status === 401 || e.status === 400))) {
+                    console.error('[oauth2] token refresh failed, will retry shortly', e);
+                    setTimeout(() => {
+                        this.refreshToken().catch(() => { });
+                    }, Math.min(oauth2.refreshTokenTimeout, 15000));
+                }
             }
         }, oauth2.refreshTokenTimeout);
         // this.refreshTokenIntervalPolling.unref();
     }
+  private refreshTokenPromise: Promise<any> = null;
+
   refreshToken(): Promise<any> {
+    // pollingRefreshToken()'s setInterval and any consumer-triggered call (e.g. a 401
+    // interceptor) can land close together; without dedup they'd fire two concurrent
+    // POST /oauth2/token requests against the same refresh_token, and if the server
+    // rotates it on use, the request that resolves second gets an already-invalidated
+    // token and triggers a spurious logOut() on the next cycle.
+    if (this.refreshTokenPromise) {
+        return this.refreshTokenPromise;
+    }
+
     let oauth2 = this.config.getSettings('oauth2');
     // let auth = 'Basic ' + this.universalBtoa(oauth2.clientId + ':' + oauth2.secret);
 
@@ -511,8 +549,8 @@ export class Oauth2Auth  {
         'Content-Type': 'application/x-www-form-urlencoded',
       //  'Authorization': auth
     });
-    
- 
+
+
     let body = new HttpParams()
         .set('grant_type', 'refresh_token')
         .set('refresh_token', this.authentications.oauth2.refreshToken)
@@ -527,7 +565,7 @@ export class Oauth2Auth  {
         ).toPromise().then(
             (data: any) => {
                 this.setToken(data.access_token, data.refresh_token);
-             
+
                 this.storeAccessToken(data.access_token, data.expires_in, data.refresh_token);
                 resolve(data);
             },
@@ -539,7 +577,10 @@ export class Oauth2Auth  {
                 reject(error);
             });
     });
-    return promise;
+    this.refreshTokenPromise = promise.finally(() => {
+        this.refreshTokenPromise = null;
+    });
+    return this.refreshTokenPromise;
 }
 
     universalBtoa(stringToConvert: string) {
@@ -551,7 +592,13 @@ export class Oauth2Auth  {
     }
     setToken(token: string, refreshToken: string) {
         this.authentications.oauth2.accessToken = token;
-        this.authentications.oauth2.refreshToken = refreshToken;
+        // Many OAuth2 servers don't rotate refresh_token on every access-token refresh
+        // (common for non-rotating confidential clients). storeAccessToken() already
+        // guards the storage write with `if (refreshToken)`; without the same guard
+        // here, the in-memory refreshToken silently goes undefined after such a
+        // refresh and the *next* refresh cycle sends refresh_token=undefined, causing
+        // a spurious logOut() even though storage still has a valid refresh token.
+        this.authentications.oauth2.refreshToken = refreshToken || this.authentications.oauth2.refreshToken;
         this.authentications.basicAuth.password = null;
         this.token = token;
         if (token) {
@@ -576,6 +623,10 @@ export class Oauth2Auth  {
         const id_token = this.getIdToken();
         this.invalidateSession();
         this.setToken(null, null);
+        // setToken()'s fallback (keep the old refreshToken when the new value is falsy)
+        // exists to survive non-rotating refresh cycles, but it means the call above
+        // won't actually clear the in-memory refresh token -- do that explicitly here.
+        this.authentications.oauth2.refreshToken = null;
         if (id_token != null && oauth2.implicitFlow && typeof window !== 'undefined') {
           let separation = this.discovery.logoutUrl.indexOf('?') > -1 ? '&' : '?';
           let redirectLogout = oauth2.redirectUriLogout || oauth2.redirectUri;

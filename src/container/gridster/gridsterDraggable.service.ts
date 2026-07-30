@@ -32,6 +32,7 @@ export class GridsterDraggable {
   dragStartFunction: (event: any) => void;
   dragFunction: (event: any) => void;
   dragStopFunction: (event: any) => void;
+  private updateGridFrame: number;
   mousemove: () => void;
   mouseup: () => void;
   mouseleave: () => void;
@@ -138,8 +139,18 @@ export class GridsterDraggable {
     this.calculateItemPosition();
     this.lastMouse.clientX = e.clientX;
     this.lastMouse.clientY = e.clientY;
-    this.zone.run(() => {
-      this.gridster.updateGrid();
+    // calculateItemPosition() 已经在 zone 外完成了碰撞检测/推挤/交换并直接
+    // 用 renderer 设置了被拖拽项的位置，跟手视觉反馈不受影响；这里只把
+    // "强制回到 Angular zone 触发一次 CD" 的部分按帧合并，原来每个原始
+    // mousemove 都会同步执行一次
+    if (this.updateGridFrame !== undefined) {
+      return;
+    }
+    this.updateGridFrame = requestAnimationFrame(() => {
+      this.updateGridFrame = undefined;
+      this.zone.run(() => {
+        this.gridster.updateGrid();
+      });
     });
   }
 
@@ -147,6 +158,10 @@ export class GridsterDraggable {
     e.stopPropagation();
     e.preventDefault();
 
+    if (this.updateGridFrame !== undefined) {
+      cancelAnimationFrame(this.updateGridFrame);
+      this.updateGridFrame = undefined;
+    }
     cancelScroll();
     this.cancelOnBlur();
     this.mousemove();

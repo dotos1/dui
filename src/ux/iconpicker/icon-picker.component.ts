@@ -4,7 +4,7 @@ import { ESCAPE } from '@angular/cdk/keycodes';
 import { HttpClient } from '@angular/common/http';
 import { MatIconRegistry } from "@angular/material/icon";
 import { DomSanitizer } from "@angular/platform-browser";
-import { Subject } from 'rxjs';
+import { Subject, takeUntil } from 'rxjs';
 
 import { FontLoaderService, Icon, IconPickerService, IconType, SVGIcon } from '@dotos/dui/common/icon';
 import { TriggerPopup } from '@dotos/dui/common/trigger';
@@ -113,7 +113,7 @@ export class IconPickerComponent implements TriggerPopup, OnInit, OnDestroy {
       this.http.get(this._apiBase + '/lib/customiconpicker', {
         responseType: 'json',
         params:{custompath:this.params.custompath}
-      }).subscribe(
+      }).pipe(takeUntil(this._unsubscribeAll)).subscribe(
         val => {
           this.categories = val
           this.selectCategory=val[0].value;
@@ -177,7 +177,7 @@ export class IconPickerComponent implements TriggerPopup, OnInit, OnDestroy {
     this.showCustomIcons();
   }
   showCustomIcons(){
-    this.service.getCustomIcons(this.selectCategory,this.params.custompath).subscribe(data => {
+    this.service.getCustomIcons(this.selectCategory,this.params.custompath).pipe(takeUntil(this._unsubscribeAll)).subscribe(data => {
       for (let i = 0; i < data.length; i++) {
         let meta=data[i];
           if(meta.svg!=''){

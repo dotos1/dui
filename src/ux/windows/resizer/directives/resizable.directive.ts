@@ -213,7 +213,9 @@ export class ResizableDirective implements OnChanges, AfterViewInit, OnDestroy {
     private readonly onPointerUp = (event: any): void => {
         this._resizableElement.classList.remove(CssClass.Resizing);
         this.document.removeEventListener('mousemove', this.onPointerMove);
-        this.document.addEventListener('mouseup', this.onPointerUp);
+        // 复制粘贴笔误：这里应该是 removeEventListener，写成了 addEventListener，
+        // 导致每次拖拽结束都在 document 上永久留一个 mouseup 监听
+        this.document.removeEventListener('mouseup', this.onPointerUp);
         event.stopPropagation();
         this.osResizeEnd.emit(this.getResizeInfo(event));
     };

@@ -31,7 +31,10 @@ export class AuthGuard extends AuthGuardBase implements OnDestroy {
         if (event.newValue !== event.oldValue) {
             this.ticketChangeRedirect(event);
         }
-        if (event.key.endsWith(JwtHelperService.USER_ACCESS_TOKEN) &&
+        // Per the StorageEvent spec, `localStorage.clear()` (a common logout pattern)
+        // fires with event.key === null; without this guard that crashed here on
+        // every same-origin tab whenever any tab cleared storage.
+        if (event.key && event.key.endsWith(JwtHelperService.USER_ACCESS_TOKEN) &&
             this.jwtHelperService.getValueFromToken(event.newValue, JwtHelperService.USER_PREFERRED_USERNAME) !==
             this.jwtHelperService.getValueFromToken(event.oldValue, JwtHelperService.USER_PREFERRED_USERNAME)) {
             this.ticketChangeRedirect(event);

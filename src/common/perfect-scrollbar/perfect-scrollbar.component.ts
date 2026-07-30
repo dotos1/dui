@@ -316,8 +316,13 @@ export class PerfectScrollbarComponent implements OnInit, OnDestroy, DoCheck {
             this.scrollDirectionY = scrollDirectionY;
         }
 
+        // stateUpdate.next('interaction') above already synchronously runs the
+        // subscribe callback in ngOnInit(), which ends with its own
+        // markForCheck()+detectChanges() (see the unconditional call at the end of that
+        // callback) -- calling detectChanges() again here duplicated that work on every
+        // wheel/touchmove event. distinctUntilChanged() only ever suppresses that
+        // callback for a same-state repeat while no propagation timeout is pending, which
+        // is exactly the case where nothing template-relevant changed either.
         this.stateUpdate.next('interaction');
-
-        this.cdRef.detectChanges();
     }
 }

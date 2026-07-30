@@ -22,6 +22,7 @@ export class GridsterResizable {
   directionFunction: (e: any) => void;
   dragFunction: (event: any) => void;
   dragStopFunction: (event: any) => void;
+  private updateGridFrame: number;
   resizeEnabled: boolean;
   mousemove: () => void;
   mouseup: () => void;
@@ -193,14 +194,27 @@ export class GridsterResizable {
 
     this.lastMouse.clientX = e.clientX;
     this.lastMouse.clientY = e.clientY;
-    this.zone.run(() => {
-      this.gridster.updateGrid();
+    // 同 gridsterDraggable.service.ts：directionFunction() 已在 zone 外完成了
+    // 尺寸计算与视觉反馈，这里只把强制回到 zone 触发 CD 的部分按帧合并，
+    // 原来每个原始 mousemove 都会同步执行一次
+    if (this.updateGridFrame !== undefined) {
+      return;
+    }
+    this.updateGridFrame = requestAnimationFrame(() => {
+      this.updateGridFrame = undefined;
+      this.zone.run(() => {
+        this.gridster.updateGrid();
+      });
     });
   }
 
   dragStop(e: any): void {
     e.stopPropagation();
     e.preventDefault();
+    if (this.updateGridFrame !== undefined) {
+      cancelAnimationFrame(this.updateGridFrame);
+      this.updateGridFrame = undefined;
+    }
     cancelScroll();
     this.mousemove();
     this.mouseup();

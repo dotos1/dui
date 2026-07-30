@@ -22,6 +22,7 @@ import {
   take,
   share,
   tap,
+  throttleTime,
 } from 'rxjs/operators';
 import { Edges } from './interfaces/edges.interface';
 import { BoundingRectangle } from './interfaces/bounding-rectangle.interface';
@@ -334,6 +335,14 @@ export class ResizableDirective implements OnInit, OnDestroy {
           }
         }
       }),
+      // `mouseMoveThrottleMS` was declared as a configurable @Input() but never actually
+      // applied anywhere in this pipeline -- resizing was never throttled regardless of
+      // what consumers set it to. preventDefault() above still runs on every raw move
+      // (unthrottled, so text selection etc. stays suppressed throughout the drag);
+      // only the computation-driving stream downstream is rate-limited. `trailing: true`
+      // keeps the final position of each throttle window so the resize doesn't lag behind
+      // where the pointer actually stopped.
+      throttleTime(this.mouseMoveThrottleMS, undefined, { leading: true, trailing: true }),
       share()
     );
 
