@@ -7,6 +7,7 @@ import { columnsByPin, columnGroupWidths } from '../utils/column';
 import { RowHeightCache } from '../utils/row-height-cache';
 import { SelectionType } from '../types/selection.type';
 import { ScrollerComponent } from './scroller.component';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'datatable-body',
@@ -153,7 +154,8 @@ export class DataTableBodyComponent implements OnInit, OnDestroy {
   columnGroupWidths: any;
   columnGroupWidthsWithoutGroup: any;
   rowTrackingFn: any;
-  listener: any;
+  /** 聚合 rowDetail / groupHeader 两路订阅，二者可同时启用。 */
+  listener = new Subscription();
   rowIndexes: any = new Map();
   rowExpansions: any[] = [];
 
@@ -184,7 +186,7 @@ export class DataTableBodyComponent implements OnInit, OnDestroy {
    */
   ngOnInit(): void {
     if (this.rowDetail) {
-      this.listener = this.rowDetail.toggle.subscribe(({ type, value }: { type: string; value: any }) => {
+      this.listener.add(this.rowDetail.toggle.subscribe(({ type, value }: { type: string; value: any }) => {
         if (type === 'row') {
           this.toggleRowExpansion(value);
         }
@@ -197,11 +199,11 @@ export class DataTableBodyComponent implements OnInit, OnDestroy {
         this.updateIndexes();
         this.updateRows();
         this.cd.markForCheck();
-      });
+      }));
     }
 
     if (this.groupHeader) {
-      this.listener = this.groupHeader.toggle.subscribe(({ type, value }: { type: string; value: any }) => {
+      this.listener.add(this.groupHeader.toggle.subscribe(({ type, value }: { type: string; value: any }) => {
         if (type === 'group') {
           this.toggleRowExpansion(value);
         }
@@ -214,7 +216,7 @@ export class DataTableBodyComponent implements OnInit, OnDestroy {
         this.updateIndexes();
         this.updateRows();
         this.cd.markForCheck();
-      });
+      }));
     }
   }
 
@@ -222,9 +224,7 @@ export class DataTableBodyComponent implements OnInit, OnDestroy {
    * Called once, before the instance is destroyed.
    */
   ngOnDestroy(): void {
-    if (this.rowDetail || this.groupHeader) {
-      this.listener.unsubscribe();
-    }
+    this.listener.unsubscribe();
   }
 
   /**

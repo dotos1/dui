@@ -7,6 +7,7 @@ import {
   ChangeDetectorRef,
   OnInit,
   OnChanges,
+  OnDestroy,
   SimpleChanges,
   Input,
   DoCheck,
@@ -15,8 +16,10 @@ import {
   Output,
   EventEmitter,
   Renderer2,
-  HostBinding
+  HostBinding,
+  ComponentRef
 } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { ChosenDate, DateRange, DaterangepickerComponent, DateRanges, EndDate, StartDate, TimePeriod } from './daterangepicker.component';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
 import dayjs from 'dayjs/esm';
@@ -35,7 +38,7 @@ import { LocaleService } from './locale.service';
   ]
 })
 // eslint-disable-next-line @angular-eslint/no-conflicting-lifecycle
-export class DaterangepickerDirective implements OnInit, OnChanges, DoCheck {
+export class DaterangepickerDirective implements OnInit, OnChanges, DoCheck, OnDestroy {
   // eslint-disable-next-line @angular-eslint/no-output-on-prefix,@angular-eslint/no-output-native,@angular-eslint/no-output-rename
   @Output('change') onChange: EventEmitter<TimePeriod | null> = new EventEmitter();
   // eslint-disable-next-line @angular-eslint/no-output-rename
@@ -163,6 +166,8 @@ export class DaterangepickerDirective implements OnInit, OnChanges, DoCheck {
   private valueHolder: TimePeriod | null;
   private localeDiffer: KeyValueDiffer<string, any>;
   private localeHolder: LocaleConfig = {};
+  private componentRef: ComponentRef<DaterangepickerComponent>;
+  private readonly subscriptions = new Subscription();
 
   constructor(
     public viewContainerRef: ViewContainerRef,
@@ -177,9 +182,11 @@ export class DaterangepickerDirective implements OnInit, OnChanges, DoCheck {
     this.startKey = 'startDate';
     this.drops = 'down';
     this.opens = 'auto';
+    // picker 必须在构造期就绪：ngOnChanges 早于 ngOnInit 触发，且会直接写 this.picker[...]，
+    // 因此不能把创建动作推迟到 ngOnInit。
     viewContainerRef.clear();
-    const componentRef = viewContainerRef.createComponent(DaterangepickerComponent);
-    this.picker = componentRef.instance as DaterangepickerComponent;
+    this.componentRef = viewContainerRef.createComponent(DaterangepickerComponent);
+    this.picker = this.componentRef.instance as DaterangepickerComponent;
     this.picker.inline = false; // set inline to false for all directive usage
   }
 
@@ -296,22 +303,22 @@ export class DaterangepickerDirective implements OnInit, OnChanges, DoCheck {
     if (this.initialDates) {
       this.picker.initialDates = this.initialDates;
     }
-    this.picker.startDateChanged.asObservable().subscribe((itemChanged: StartDate) => {
+    this.subscriptions.add(this.picker.startDateChanged.subscribe((itemChanged: StartDate) => {
       this.startDateChanged.emit(itemChanged);
-    });
-    this.picker.endDateChanged.asObservable().subscribe((itemChanged: EndDate) => {
+    }));
+    this.subscriptions.add(this.picker.endDateChanged.subscribe((itemChanged: EndDate) => {
       this.endDateChanged.emit(itemChanged);
-    });
-    this.picker.rangeClicked.asObservable().subscribe((range: DateRange) => {
+    }));
+    this.subscriptions.add(this.picker.rangeClicked.subscribe((range: DateRange) => {
       this.rangeClicked.emit(range);
-    });
-    this.picker.datesUpdated.asObservable().subscribe((range: TimePeriod) => {
+    }));
+    this.subscriptions.add(this.picker.datesUpdated.subscribe((range: TimePeriod) => {
       this.datesUpdated.emit(range);
-    });
-    this.picker.clearClicked.asObservable().subscribe(() => {
+    }));
+    this.subscriptions.add(this.picker.clearClicked.subscribe(() => {
       this.clearClicked.emit();
-    });
-    this.picker.choosedDate.asObservable().subscribe((change: ChosenDate) => {
+    }));
+    this.subscriptions.add(this.picker.choosedDate.subscribe((change: ChosenDate) => {
       if (change) {
         const value = {
           [this.startKeyHolder]: change.startDate,
@@ -323,7 +330,7 @@ export class DaterangepickerDirective implements OnInit, OnChanges, DoCheck {
           this.el.nativeElement.value = change.chosenLabel;
         }
       }
-    });
+    }));
     this.picker.firstMonthDayClass = this.firstMonthDayClass;
     this.picker.lastMonthDayClass = this.lastMonthDayClass;
     this.picker.emptyWeekRowClass = this.emptyWeekRowClass;
@@ -334,6 +341,11 @@ export class DaterangepickerDirective implements OnInit, OnChanges, DoCheck {
     this.picker.opens = this.opens;
     this.localeDiffer = this.differs.find(this.locale).create();
     this.picker.closeOnAutoApply = this.closeOnAutoApply;
+  }
+
+  ngOnDestroy(): void {
+    this.subscriptions.unsubscribe();
+    this.componentRef?.destroy();
   }
 
   // eslint-disable-next-line @angular-eslint/no-conflicting-lifecycle

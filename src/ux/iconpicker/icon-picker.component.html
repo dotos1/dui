@@ -11,8 +11,8 @@
         </mat-form-field>
       </div>
       <div class="icon-grid">
-        <div *ngFor="let icon of icons | searchIcon:search">
-          <button *ngIf="icon" class="btn-default" id="icon-button" title="{{icon.name| translate}}" (click)="selectIcon(icon)">
+        <div *ngFor="let icon of icons | searchIcon:search; trackBy: trackByIconId">
+          <button *ngIf="icon" class="btn-default" title="{{icon.name| translate}}" (click)="selectIcon(icon)">
             <span class="material-icons">{{icon.id}}</span>
           </button>
         </div>
@@ -22,13 +22,13 @@
       <div>
         <mat-form-field style='width:100%;' [appearance]="themeService.formType|async">
           <mat-select #fontdir   [(ngModel)]="fontdirId"  (selectionChange)="changeFontDir($event)">
-            <mat-option *ngFor="let dir of fontdirs" [value]="dir.path">{{dir.name |translate}}</mat-option>
+            <mat-option *ngFor="let dir of fontdirs; trackBy: trackByDirPath" [value]="dir.path">{{dir.name |translate}}</mat-option>
           </mat-select>
         </mat-form-field>
       </div>
       <div class="icon-grid">
-        <div *ngFor="let icon of fontIcons">
-          <button *ngIf="icon" class="btn-default" id="icon-button" style="padding: 0px;" title="{{icon.name}}" (click)="selectFontIcon(icon)">
+        <div *ngFor="let icon of fontIcons; trackBy: trackByIconId">
+          <button *ngIf="icon" class="btn-default" style="padding: 0px;" title="{{icon.name}}" (click)="selectFontIcon(icon)">
             <mat-icon [ngStyle]="style" style="font-size: 36px;">{{icon.id}}</mat-icon>
           </button>
         </div>
@@ -38,13 +38,13 @@
       <div>
         <mat-form-field style='width:100%;' [appearance]="themeService.formType|async">
           <mat-select #svgdir (selectionChange)="changeCategory($event)" [value]="selectCategory" >
-            <mat-option *ngFor="let category of categories" [value]="category.value">{{category.label}}</mat-option>
+            <mat-option *ngFor="let category of categories; trackBy: trackByCategoryValue" [value]="category.value">{{category.label}}</mat-option>
           </mat-select>
         </mat-form-field>
       </div>
       <div class="icon-grid">
-        <div *ngFor="let icon of customIcons">
-          <button *ngIf="icon" class="btn-default" id="icon-button" title="{{icon.meta_name}}" (click)="selectCustomIcon(icon)">
+        <div *ngFor="let icon of customIcons; trackBy: trackByMetaName">
+          <button *ngIf="icon" class="btn-default" title="{{icon.meta_name}}" (click)="selectCustomIcon(icon)">
             <div fxLayout="column" fxLayoutAlign="space-between center" >
               <div *ngIf="icon.svgElm!==undefined"  class="metatile" style='width: 36px; height: 36px;'  [innerHTML]="icon.svgElm"></div> 
               <div *ngIf="icon.svgElm===undefined"  class="metatile" [ngStyle]="getBackGround(icon)" style='width: 36px; height: 36px;' ></div> 
@@ -57,13 +57,13 @@
       <div>
         <mat-form-field style='width:100%;' [appearance]="themeService.formType|async">
           <mat-select #svgdir (selectionChange)="changeDir($event)" [(ngModel)]="svgdirId" >
-            <mat-option *ngFor="let dir of dirs" [value]="dir">{{dir}}</mat-option>
+            <mat-option *ngFor="let dir of dirs; trackBy: trackByIdentity" [value]="dir">{{dir}}</mat-option>
           </mat-select>
         </mat-form-field>
       </div>
       <div class="icon-grid">
-        <div *ngFor="let icon of svgIcons">
-          <button *ngIf="icon" class="btn-default" id="icon-button" title="{{icon.name}}" (click)="selectSVGIcon(icon)">
+        <div *ngFor="let icon of svgIcons; trackBy: trackByIconName">
+          <button *ngIf="icon" class="btn-default" title="{{icon.name}}" (click)="selectSVGIcon(icon)">
             <mat-icon [ngStyle]="icon.style" svgIcon="{{icon.name}}"></mat-icon>
           </button>
         </div>
