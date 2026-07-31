@@ -19,7 +19,7 @@ import { FieldConfig, FieldWrapper, defineHiddenProp, observe } from '@dotos/dui
 import { ThemeService } from '@dotos/dui/theme';
 // import { MDCTextField } from '@material/textfield';
 
-import { Subject } from 'rxjs';
+import { Subject, Subscription } from 'rxjs';
 interface MatFieldConfig extends FieldConfig {
   _matPrefix: TemplateRef<any>;
   _matSuffix: TemplateRef<any>;
@@ -49,6 +49,7 @@ export class WrapperFormField extends FieldWrapper<MatFieldConfig> implements On
   stateChanges = new Subject<void>();
   _errorState = false;
   private initialGapCalculated = false;
+  private focusSubscription?: Subscription;
 
   public toolTip: string;
 
@@ -88,10 +89,7 @@ export class WrapperFormField extends FieldWrapper<MatFieldConfig> implements On
           }),
       ),
     );
-    if (this.field.hide && this.field.appearance === 'outline') {
-      this.initialGapCalculated = true;
-    }
-    this.focusMonitor.monitor(this.elementRef, true).subscribe((origin) => {
+    this.focusSubscription = this.focusMonitor.monitor(this.elementRef, true).subscribe((origin) => {
       if (!origin && this.field.focused) {
         this.field.focused = false;
         // this.textField?.getDefaultFoundation().deactivateFocus();;
@@ -100,11 +98,13 @@ export class WrapperFormField extends FieldWrapper<MatFieldConfig> implements On
   }
 
   ngAfterContentChecked() {
-    if (!this.initialGapCalculated || this.fieldConfig.hide) {
+    // 只在字段首次真正可见时重算一次 outline 缺口宽度：字段隐藏时 DOM 尺寸为 0，
+    // 此时测量得到的缺口是错的，需要等它显示出来再算。
+    if (this.initialGapCalculated || this.fieldConfig.hide || this.formField.appearance !== 'outline') {
       return;
     }
-    this.formField._refreshOutlineNotchWidth();//.updateOutlineGap();
     this.initialGapCalculated = true;
+    this.formField._refreshOutlineNotchWidth();//.updateOutlineGap();
     this._changeDetector.detectChanges();
   }
 
@@ -119,7 +119,10 @@ export class WrapperFormField extends FieldWrapper<MatFieldConfig> implements On
 
   ngOnDestroy() {
     delete this.field.__formField__;
+    this.focusSubscription?.unsubscribe();
     this.focusMonitor.stopMonitoring(this.elementRef);
+    // MatFormFieldControl 契约要求实现者在销毁时 complete 该 Subject。
+    this.stateChanges.complete();
   }
 
   public override init(): void {
