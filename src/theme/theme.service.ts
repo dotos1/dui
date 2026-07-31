@@ -57,7 +57,9 @@ export class ThemeService {
 
   private _coreStyleSheet?: StyleSheet<any>;
   private _materialThemeStyleSheet?: StyleSheet<any>;
-  private _loadedThemeStyleSheet?: StyleSheet<any>;
+  // 每个 themeFn 对应一张样式表：同一个组件重复 loadTheme 时才替换，
+  // 不同组件的样式表必须共存，否则后加载的会把先加载的卸载掉。
+  private _loadedThemeStyleSheets: Map<any, StyleSheet<any>> = new Map();
 
   protected static instance: ThemeService = null;
   public static getInstance(): ThemeService {
@@ -143,9 +145,16 @@ export class ThemeService {
       this.theme = matDarkBlueTheme(primary, accent, warn,this._density,typographyConfig);
     }
     const dynamicThemeStyles: boolean = true;
-    this._loadedThemeStyleSheet?.detach();
-    this._loadedThemeStyleSheet = this.createThemeStyles(this.theme, themeFn, dynamicThemeStyles);
-    this._loadedThemeStyleSheet.attach();
+    this.removeStyleSheet(this._loadedThemeStyleSheets.get(themeFn));
+    const styleSheet = this.createThemeStyles(this.theme, themeFn, dynamicThemeStyles);
+    this._loadedThemeStyleSheets.set(themeFn, styleSheet);
+    styleSheet.attach();
+  }
+
+  private removeStyleSheet(styleSheet?: StyleSheet<any>) {
+    if (styleSheet) {
+      jss.removeStyleSheet(styleSheet);
+    }
   }
   createThemeStyles(theme, themeFn: any, dynamicThemeStyles) {
     const styles = {
@@ -183,7 +192,7 @@ export class ThemeService {
     const typographyConfig: TypographyConfig = TypographyMap[typography];
     const coreOverrides: Object = {};
     const dynamicCoreStyles = true;
-    this._coreStyleSheet?.detach();
+    this.removeStyleSheet(this._coreStyleSheet);
     this._coreStyleSheet = createMaterialCoreStyles(typographyConfig, coreOverrides, dynamicCoreStyles);
     this._coreStyleSheet.attach();
 
@@ -208,7 +217,7 @@ export class ThemeService {
     const themeOverrides: Object = {};
     const dynamicThemeStyles: boolean = true;
 
-    this._materialThemeStyleSheet?.detach();
+    this.removeStyleSheet(this._materialThemeStyleSheet);
     this._materialThemeStyleSheet = createMaterialThemeStyles(this.theme, themeOverrides, dynamicThemeStyles);
     this._materialThemeStyleSheet.attach();
   }
