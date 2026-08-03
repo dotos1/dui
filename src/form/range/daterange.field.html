@@ -1,0 +1,29 @@
+<mat-date-range-input class="dui-range-input"
+  [rangePicker]="rangePicker"
+  [min]="field.min"
+  [max]="field.max"
+  [disabled]="field.readonly"
+  [required]="field.required"
+  [separator]="'~'">
+  <input matStartDate
+    [id]="id"
+    [formControl]="fromControl"
+    [errorStateMatcher]="errorStateMatcher"
+    [placeholder]="fromPlaceholder|translate"
+    [tabindex]="field.tabindex || 0" />
+  <input matEndDate
+    [id]="id+'-to'"
+    [formControl]="toControl"
+    [errorStateMatcher]="errorStateMatcher"
+    [placeholder]="toPlaceholder|translate"
+    [tabindex]="field.tabindex || 0" />
+</mat-date-range-input>
+
+<mat-datepicker-toggle class="dui-range-toggle"
+  [for]="rangePicker"
+  [disabled]="field.readonly"
+  matTooltip={{toolTip|translate}}
+  matTooltipPosition='below'>
+</mat-datepicker-toggle>
+
+<mat-date-range-picker #rangePicker [touchUi]="field.touchUi"></mat-date-range-picker>
