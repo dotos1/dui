@@ -1007,6 +1007,7 @@
         "LESSOREQUAL": "小于或等于",
         "ISEMPTY": "为空",
         "NOTEMPTY": "不为空",
+        "BETWEEN": "在...之间",
         "NOCONTENT":"未设定查询弹出窗口"
       },
       "SEARCHCARD": {
@@ -1057,6 +1058,8 @@
         "SEARCH":"搜索",
         "ADD":"增加",
         "TODAY":"今天",
-        "LEASTSELECT":"必须选择一个项"
+        "LEASTSELECT":"必须选择一个项",
+        "RANGEFROM":"起始",
+        "RANGETO":"终止"
       }
   }

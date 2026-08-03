@@ -12,52 +12,60 @@ import {
 } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { LocalStorageService } from '@dotos/dui/core/storage';
-import { Observable, Observer, throwError as observableThrowError } from 'rxjs';
-import { catchError, mergeMap } from 'rxjs/operators';
+import { Observable, Observer } from 'rxjs';
+import { mergeMap } from 'rxjs/operators';
 
+
+/**
+ * 把 `urlPattern` 中的正则元字符转义，使其按字面量子串匹配。
+ * 例如 `.json` 只匹配真正的 `.json`，而不再把 `.` 当成通配符去匹配 `/api/vjson`。
+ */
+function escapeForSubstringMatch(urlPattern: string): RegExp {
+  // 不使用 `g` 标志：带 `g` 的正则复用时 `lastIndex` 会残留，导致 `.test()` 交替返回 true/false。
+  return new RegExp(urlPattern.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'i');
+}
 
 @Injectable({ providedIn: 'root' })
 export class AuthBearerInterceptor implements HttpInterceptor {
-  private excludedUrlsRegex: RegExp[];
 
-  private bearerExcludedUrls: string[] = ['auth/realms','oauth2/token', 'resources/',       
+  private bearerExcludedUrls: string[] = ['auth/realms','oauth2/token', 'resources/',
         "/login/config",
         "/login/modulefederation",
         "/wallpapers",
         "/register",
-        "/oauth", 
+        "/oauth",
         "/utils/file/download",
-        "/checklogin", 
-        'assets/', 
+        "/checklogin",
+        'assets/',
         '.json'
       ];
+
+  /** `getBearerExcludedUrls()` 的预编译结果，避免每个请求重复构造正则。 */
+  private excludedUrlsRegex: RegExp[];
 
   constructor(
     private storageService: LocalStorageService) {
 
   }
 
-  private loadExcludedUrlsRegex() {
-    const excludedUrls: string[] = this.getBearerExcludedUrls();
-    this.excludedUrlsRegex = excludedUrls.map(urlPattern => new RegExp(urlPattern, 'gi')) || [];
+  /**
+   * 惰性编译排除规则。走 `getBearerExcludedUrls()` 而非直接读字段，
+   * 以保留子类覆写该方法自定义排除列表的能力。
+   */
+  private getExcludedUrlsRegex(): RegExp[] {
+    if (!this.excludedUrlsRegex) {
+      this.excludedUrlsRegex = (this.getBearerExcludedUrls() || []).map(escapeForSubstringMatch);
+    }
+    return this.excludedUrlsRegex;
   }
 
   intercept(req: HttpRequest<any>, next: HttpHandler):
     Observable<HttpSentEvent | HttpHeaderResponse | HttpProgressEvent | HttpResponse<any> | HttpUserEvent<any>> {
-      
-    
+
     const urlRequest = req.url;
-    if (!this.getBearerExcludedUrls()) {
-      return next.handle(req);
-    }
-    const excludedUrls: string[] = this.getBearerExcludedUrls();
-    const excludedUrlsRegex = excludedUrls.map(urlPattern => new RegExp(urlPattern, 'gi')) || [];
-    const shallPass: boolean = !!excludedUrlsRegex.find(regex => regex.test(urlRequest));
+    const shallPass: boolean = this.getExcludedUrlsRegex().some(regex => regex.test(urlRequest));
     if (shallPass) {
-      return next.handle(req)
-        .pipe(
-          catchError((error) => observableThrowError(error))
-        );
+      return next.handle(req);
     }
 
     return this.addTokenToHeader(req.headers)
@@ -66,12 +74,7 @@ export class AuthBearerInterceptor implements HttpInterceptor {
           const headerWithContentType = this.appendJsonContentType(headersWithBearer);
 
           const kcReq = req.clone({ headers: headerWithContentType});
-          return next.handle(kcReq)
-            .pipe(
-              catchError((error) => {
-                return observableThrowError(error);
-              })
-           );
+          return next.handle(kcReq);
       })
       );
   }

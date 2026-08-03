@@ -4,9 +4,10 @@ import { LangChangeEvent, TranslateService, TranslationChangeEvent} from './tran
 import {equals, isDefined} from './util';
 import { Subscription } from 'rxjs';
 
-@Injectable({
-  providedIn: 'root'
-})
+// 注意：不要给本类加 `providedIn: 'root'`。它是 `pure: false` 的有状态管道，
+// 每个绑定点持有自己的 value/lastKey/lastParams 与三个订阅；若变成全局单例被注入，
+// 各调用点会互相覆盖状态并返回上一次的翻译结果。
+@Injectable()
 @Pipe({
   name: 'translate',
   pure: false // required to update the value when the promise is resolved
@@ -30,7 +31,10 @@ export class TranslatePipe implements PipeTransform, OnDestroy {
     };
     if (translations) {
       let res = this.translate.getParsedResult(translations, key, interpolateParams);
-      if (isObservable(res.subscribe)) {
+      // 判断 res 本身是不是 Observable。此前写的是 `isObservable(res.subscribe)`，
+      // 传入的是 subscribe 方法（函数永远不是 Observable），该分支恒不成立，
+      // 导致 Observable 对象被直接赋给 value，模板会闪出 [object Object]。
+      if (isObservable(res)) {
         res.subscribe(onTranslation);
       } else {
         onTranslation(res);

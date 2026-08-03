@@ -61,6 +61,14 @@ export class IconPickerComponent implements TriggerPopup, OnInit, OnDestroy {
 
   public style={};
 
+  /** 图标网格可达数千项，trackBy 避免每次筛选/切换目录时整片重建 DOM。 */
+  trackByIconId = (_index: number, icon: any): any => icon ? icon.id : _index;
+  trackByIconName = (_index: number, icon: any): any => icon ? icon.name : _index;
+  trackByMetaName = (_index: number, icon: any): any => icon ? icon.meta_name : _index;
+  trackByDirPath = (_index: number, dir: any): any => dir ? dir.path : _index;
+  trackByCategoryValue = (_index: number, category: any): any => category ? category.value : _index;
+  trackByIdentity = (_index: number, item: any): any => item;
+
   constructor(
     protected _element: ElementRef,
     protected renderer: Renderer2,

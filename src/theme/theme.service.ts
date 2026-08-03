@@ -61,6 +61,30 @@ export class ThemeService {
   // 不同组件的样式表必须共存，否则后加载的会把先加载的卸载掉。
   private _loadedThemeStyleSheets: Map<any, StyleSheet<any>> = new Map();
 
+  /** 未提供 dotosConfig（或其内容不可用）时使用的兜底主题配置。 */
+  private static readonly DEFAULT_CONFIG = {
+    isDesktop: false,
+    layout: {
+      folded: false,
+      pagemodel: "compact",
+      sidepanel: {
+        hidden: false,
+        position: "right"
+      },
+      style: "horizontal-layout",
+      variant: "vertical",
+      width: "fullwidth",
+    },
+    routerAnimation: "none",
+    theme: {
+      formType: 'fill',
+      accent: "orange-800",
+      type: "light",
+      primary: "teal-600",
+      warn: "red-800"
+    }
+  };
+
   protected static instance: ThemeService = null;
   public static getInstance(): ThemeService {
     if (ThemeService.instance === null) {
@@ -76,34 +100,15 @@ export class ThemeService {
   }
  
   refreshTheme(){
+    // dotosConfig 来自 localStorage，是用户可篡改的输入：形状不完整时回落到默认配置，
+    // 否则后续 config.theme.primary 之类的访问会抛 TypeError。
     const config:any = this.localStore.get("dotosConfig");
-    if (config) {
-      this.setTheme(config);
-    } else {
-      this.setTheme(
-        {
-          isDesktop: false,
-          layout: {
-            folded: false,
-            pagemodel: "compact",
-            sidepanel: {
-              hidden: false,
-              position: "right"
-            },
-            style: "horizontal-layout",
-            variant: "vertical",
-            width: "fullwidth",
-          },
-          routerAnimation: "none",
-          theme: {
-            formType:'fill',
-            accent: "orange-800",
-            type:"light",
-            primary: "teal-600",
-            warn: "red-800"
-          }
-        })
-    }
+    this.setTheme(this.isUsableConfig(config) ? config : ThemeService.DEFAULT_CONFIG);
+  }
+
+  private isUsableConfig(config: any): boolean {
+    return !!(config && config.theme && config.layout
+      && config.theme.primary && config.theme.accent && config.theme.warn);
   }
 
   getFormType(){
@@ -122,28 +127,41 @@ export class ThemeService {
     this.changeTheme(primary, accent, warn, type, page,formType);
   }
 
-  loadTheme(themeFn: any): void {
+  /**
+   * 把 `teal-600` 这类色名拆成基础色 + 色阶，构造成 Palette。
+   */
+  private toPalette(colorStr: string): Palette {
+    const separator = colorStr.lastIndexOf('-');
+    const base = MatColors.getColor(colorStr.substring(0, separator));
+    const hue = colorStr.substring(separator + 1, colorStr.length);
+    return matPalette(base, hue, 100, 900);
+  }
 
-    let p = MatColors.getColor(this._primaryStr.substring(0, this._primaryStr.lastIndexOf('-')));
-    let a = MatColors.getColor(this._accentStr.substring(0, this._accentStr.lastIndexOf('-')));
-    let w = MatColors.getColor(this._warnStr.substring(0, this._warnStr.lastIndexOf('-')));
+  /**
+   * 依据当前 primary/accent/warn/typography 配置构造指定类型的主题。
+   */
+  private buildTheme(type: string): Theme {
+    const primary = this.toPalette(this._primaryStr);
+    const accent = this.toPalette(this._accentStr);
+    const warn = this.toPalette(this._warnStr);
+    const typographyConfig: TypographyConfig = TypographyMap[this._typography];
 
-    const po = this._primaryStr.substring(this._primaryStr.lastIndexOf('-') + 1, this._primaryStr.length);
-    const ao = this._accentStr.substring(this._accentStr.lastIndexOf('-') + 1, this._accentStr.length);
-    const wo = this._warnStr.substring(this._warnStr.lastIndexOf('-') + 1, this._warnStr.length);
-
-    const primary: Palette = matPalette(p, po, 100, 900);
-    const accent: Palette = matPalette(a, ao, 100, 900);
-    const warn: Palette = matPalette(w, wo, 100, 900);
-    const typographyConfig: TypographyConfig = TypographyMap[ this._typography];
-  
-    if (this._type=='dark') {
-      this.theme = matDarkTheme(primary, accent, warn,this._density,typographyConfig);
-    } else if (this._type=='light')   {
-      this.theme = matLightTheme(primary, accent, warn,this._density,typographyConfig);
-    }else {
-      this.theme = matDarkBlueTheme(primary, accent, warn,this._density,typographyConfig);
+    if (type == 'dark') {
+      return matDarkTheme(primary, accent, warn, this._density, typographyConfig);
+    } else if (type == 'light') {
+      return matLightTheme(primary, accent, warn, this._density, typographyConfig);
     }
+    return matDarkBlueTheme(primary, accent, warn, this._density, typographyConfig);
+  }
+
+  loadTheme(themeFn: any): void {
+    // loadTheme 可能先于任何 setTheme/changeTheme 被调用（例如应用启动阶段就打开了对话框
+    // 或窗口组件），此时色板字段尚未初始化，需要先回落到默认配置而不是抛 TypeError。
+    if (!this._primaryStr) {
+      this.refreshTheme();
+    }
+
+    this.theme = this.buildTheme(this._type);
     const dynamicThemeStyles: boolean = true;
     this.removeStyleSheet(this._loadedThemeStyleSheets.get(themeFn));
     const styleSheet = this.createThemeStyles(this.theme, themeFn, dynamicThemeStyles);
@@ -196,24 +214,7 @@ export class ThemeService {
     this._coreStyleSheet = createMaterialCoreStyles(typographyConfig, coreOverrides, dynamicCoreStyles);
     this._coreStyleSheet.attach();
 
-    let p = MatColors.getColor(primaryStr.substring(0, primaryStr.lastIndexOf('-')));
-    let a = MatColors.getColor(accentStr.substring(0, accentStr.lastIndexOf('-')));
-    let w = MatColors.getColor(warnStr.substring(0, warnStr.lastIndexOf('-')));
-
-    const po = primaryStr.substring(primaryStr.lastIndexOf('-') + 1, primaryStr.length);
-    const ao = accentStr.substring(accentStr.lastIndexOf('-') + 1, accentStr.length);
-    const wo = warnStr.substring(warnStr.lastIndexOf('-') + 1, warnStr.length);
-
-    const primary: Palette = matPalette(p, po, 100, 900);
-    const accent: Palette = matPalette(a, ao, 100, 900);
-    const warn: Palette = matPalette(w, wo, 100, 900);
-    if (type=='dark') {
-      this.theme = matDarkTheme(primary, accent, warn,this._density,typographyConfig);
-    } else if (type=='light')   {
-      this.theme = matLightTheme(primary, accent, warn,this._density,typographyConfig);
-    }else {
-      this.theme = matDarkBlueTheme(primary, accent, warn,this._density,typographyConfig);
-    }
+    this.theme = this.buildTheme(type);
     const themeOverrides: Object = {};
     const dynamicThemeStyles: boolean = true;
 
@@ -224,29 +225,8 @@ export class ThemeService {
   getThemeByType(type:string){
     if(type=='default'){
       return this.getTheme()
-    }else{
-      let p = MatColors.getColor( this._primaryStr.substring(0,  this._primaryStr.lastIndexOf('-')));
-      let a = MatColors.getColor( this._accentStr.substring(0,  this._accentStr.lastIndexOf('-')));
-      let w = MatColors.getColor( this._warnStr .substring(0,  this._warnStr .lastIndexOf('-')));
-  
-      const po =  this._primaryStr.substring( this._primaryStr.lastIndexOf('-') + 1,  this._primaryStr.length);
-      const ao =  this._accentStr.substring( this._accentStr.lastIndexOf('-') + 1,  this._accentStr.length);
-      const wo =  this._warnStr .substring( this._warnStr .lastIndexOf('-') + 1,  this._warnStr .length);
-  
-      const primary: Palette = matPalette(p, po, 100, 900);
-      const accent: Palette = matPalette(a, ao, 100, 900);
-      const warn: Palette = matPalette(w, wo, 100, 900);
-
-      const typographyConfig: TypographyConfig = TypographyMap[ this._typography];
-  
-      if (type=='dark') {
-        return  matDarkTheme(primary, accent, warn,this._density,typographyConfig);
-      } else if (type=='light')   {
-        return  matLightTheme(primary, accent, warn,this._density,typographyConfig);
-      }else {
-        return matDarkBlueTheme(primary, accent, warn,this._density,typographyConfig);
-      }
     }
+    return this.buildTheme(type);
   }
   public getTheme(){
     return this.theme;

@@ -40,6 +40,10 @@ export class CommandPaletteContentComponent implements OnChanges, OnInit, AfterV
 
   private disableMouseEnter: boolean = false;
 
+  /** 搜索时每次按键都会重建 groups，trackBy 让未变化的分组/条目保留原 DOM。 */
+  trackByGroupTitle = (_index: number, group: CommandItemGroup): any => group ? group.title : _index;
+  trackByItemText = (_index: number, item: any): any => item ? item.text : _index;
+
   private elementRefNativeElem!: HTMLElement;
   private readonly scrollCalculator: CommandPaletteScrollCalculator = new CommandPaletteScrollCalculator();
 

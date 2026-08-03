@@ -71,8 +71,14 @@ export class JwtHelperService {
     getValueFromToken<T>(accessToken: string, key: string): T {
         let value;
         if (accessToken) {
-            const tokenPayload = this.decodeToken(accessToken);
-            value = tokenPayload[key];
+            // 存储中的 token 可能被篡改或不是 JWT，解析失败时按“无此声明”处理，
+            // 避免异常从路由守卫冒泡导致整个导航失败。
+            try {
+                const tokenPayload = this.decodeToken(accessToken);
+                value = tokenPayload[key];
+            } catch (e) {
+                console.warn('[JwtHelperService] 无法解析 access_token，已忽略该声明。', e);
+            }
         }
         return <T> value;
     }
@@ -84,7 +90,8 @@ export class JwtHelperService {
 
 
     getClientRoles(clientName: string): string[] {
-        const clientRole = this.getValueFromLocalAccessToken<any>(JwtHelperService.RESOURCE_ACCESS)[clientName];
+        const resourceAccess = this.getValueFromLocalAccessToken<any>(JwtHelperService.RESOURCE_ACCESS);
+        const clientRole = resourceAccess ? resourceAccess[clientName] : undefined;
         return clientRole ? clientRole['roles'] : [];
     }
 
@@ -100,13 +107,13 @@ export class JwtHelperService {
     }
 
     hasRealmRoles(rolesToCheck: string []): boolean {
-        return rolesToCheck.some((currentRole) => {
+        return (rolesToCheck || []).some((currentRole) => {
             return this.hasRealmRole(currentRole);
         });
     }
 
     hasRealmRolesForClientRole(clientName: string, rolesToCheck: string []): boolean {
-        return rolesToCheck.some((currentRole) => {
+        return (rolesToCheck || []).some((currentRole) => {
             return this.hasClientRole(clientName, currentRole);
         });
     }
