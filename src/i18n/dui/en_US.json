@@ -969,7 +969,8 @@
     "LESSTHAN": "<",
     "LESSOREQUAL": "<=",
     "ISEMPTY": " Is Null",
-    "NOTEMPTY": " Not Null "
+    "NOTEMPTY": " Not Null ",
+    "BETWEEN": "Between"
   },
   "SEARCHCARD": {
     "EQUAL":"Equal to",
@@ -1011,6 +1012,8 @@
     "SEARCH":"Search",
     "ADD":"Add",
     "TODAY":"Today",
-    "LEASTSELECT":"You must select at least one item in this group"
+    "LEASTSELECT":"You must select at least one item in this group",
+    "RANGEFROM":"From",
+    "RANGETO":"To"
   }
 }

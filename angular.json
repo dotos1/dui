@@ -4,8 +4,8 @@
   "newProjectRoot": "projects",
   "projects": {
     "dui": {
-      "root": "dui",
-      "sourceRoot": "dui",
+      "root": "src",
+      "sourceRoot": "src",
       "projectType": "library",
       "prefix": "lib",
       "architect": {
@@ -26,7 +26,7 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "tsConfig": "dui/tsconfig.spec.json",
+            "tsConfig": "src/tsconfig.spec.json",
             "polyfills": [
               "zone.js",
               "zone.js/testing"
@@ -60,7 +60,6 @@
             "assets": [
               "projects/testdui/src/assets",
               "projects/testdui/src/i18n"
-
             ],
             "styles": [
               "node_modules/material-icons/iconfont/material-icons.css",
@@ -96,7 +95,7 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
             "proxyConfig": "proxy.config.json",
-            "port":4400
+            "port": 4400
           },
           "configurations": {
             "production": {

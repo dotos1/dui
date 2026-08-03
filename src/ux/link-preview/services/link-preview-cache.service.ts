@@ -17,7 +17,9 @@ export class LinkPreviewCacheService {
     */
    private loadCacheFromLocalStorage(): void {
       try {
-         this.cache = JSON.parse(localStorage.getItem(this.localStorageKey));
+         // getItem 返回 null 时 JSON.parse 也返回 null，需要显式兜底成 {}，
+         // 否则后续 this.cache[key] 会在 null 上取属性。
+         this.cache = JSON.parse(localStorage.getItem(this.localStorageKey)) || {};
       } catch (e) {
          this.cache = {};
       }
