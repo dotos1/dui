@@ -1,7 +1,7 @@
 {
   "name": "@dotos/dui",
   "version": "7.4.19",
-  "license": "MIT",
+  "license": "UNLICENSED",
   "description": "DUI components based on Angular",
   "keywords": [
     "angular",
@@ -32,5 +32,6 @@
     "./theming/styles/elevation": {
       "sass": "./theming/styles/_elevation.scss"
     }
-  }
+  },
+  "author": "北京商典信息科技有限公司 (Beijing Shangdian Information Technology Co., Ltd.)"
 }
