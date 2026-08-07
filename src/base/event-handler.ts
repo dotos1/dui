@@ -3,6 +3,10 @@ import { debounce, extend } from './util';
 
 export class EventHandler {
   private static addOrGetEventData(element: Element | HTMLElement | Document): EventOptions[] |undefined{
+    //Guard against null/undefined targets so teardown paths (component destroy) never throw.
+    if (!element) {
+      return undefined;
+    }
     if ('__eventList' in element) {
       return (<EventData>element).__eventList.events;
     } else {
@@ -49,7 +53,8 @@ export class EventHandler {
    * return {void}
    */
   public static remove(element: Element | HTMLElement | Document | any, eventName: string, listener: Function): void {
-    const eventData: EventOptions[] = EventHandler.addOrGetEventData(element);
+    const eventData: EventOptions[] |undefined= EventHandler.addOrGetEventData(element);
+    if (!eventData) { return; }
     const event: string[] = eventName.split(' ');
     for (let j = 0; j < event.length; j++) {
       let index = -1;
@@ -70,9 +75,10 @@ export class EventHandler {
   }
 
   public static clearEvents(element: Element): void {
-    let eventData: EventOptions[];
+    let eventData: EventOptions[] |undefined;
     let copyData: EventOptions[]=[];
     eventData = EventHandler.addOrGetEventData(element);
+    if (!eventData) { return; }
     copyData = extend([], copyData, eventData) as EventOptions[];
     for (let i = 0; i < copyData.length; i++) {
       element.removeEventListener(<string>copyData[i].name, <EventListener>copyData[i].debounce);
@@ -89,7 +95,8 @@ export class EventHandler {
    * return {void}
    */
   public static trigger(element: HTMLElement, eventName: string, eventProp?: Object): void {
-    const eventData: EventOptions[] = EventHandler.addOrGetEventData(element);
+    const eventData: EventOptions[] |undefined= EventHandler.addOrGetEventData(element);
+    if (!eventData) { return; }
     for (const event of eventData) {
       if (event.name === eventName) {
         event.debounce.call(this, eventProp);

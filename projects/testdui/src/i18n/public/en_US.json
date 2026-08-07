@@ -1,17 +1,17 @@
 {
   "Assets": {
-    "FONT":{
-      "default": "default",
+    "FONT": {
+      "default": "Default",
       "environmental": "environmental",
-      "geology":"geology",
-      "oil-gas":"oil-gas",
-      "public":"public"
+      "geology": "geology",
+      "oil-gas": "oil-gas",
+      "public": "public"
     }
   },
   "NAV": {
     "HOME": "Home",
     "TUTORIAL": "Quick Start",
-    "COMPONENTS": "Components",
+    "COMPONENTS": "Component",
     "SWITCH_LANG": "Switch language"
   },
   "HOME": {
@@ -24,7 +24,6 @@
     "STAT_CATEGORIES_LABEL": "feature categories",
     "STAT_DOCS_LABEL": "member-level bilingual API docs",
     "STAT_EXAMPLES_LABEL": "interactive examples",
-
     "ECOSYSTEM_TITLE": "Where DUI fits in the Dotos ecosystem",
     "ECOSYSTEM_LEAD": "DUI isn't a standalone open-source component library — it's the front-end foundation of the Dotos low-code platform. Dotos, from Beijing Shangdian Information Technology Co., Ltd., helps enterprises build software, govern and integrate data, and ship AI applications quickly. DUI provides the underlying UI capability behind all of it, while Duix wraps a higher-level layer on top of DUI for low-code scenarios.",
     "DOTOS_TITLE": "Dotos",
@@ -36,10 +35,8 @@
     "DUIX_TITLE": "Duix",
     "DUIX_SUBTITLE": "Higher-level Encapsulation",
     "DUIX_DESC": "Built on top of DUI with an additional layer of encapsulation, offering higher-level business components and page-level capabilities for low-code scenarios — the front-end presentation layer of the Dotos low-code engine.",
-
     "FEATURES_TAB": "Core Features",
     "REASONS_TAB": "Why choose DUI",
-
     "FEATURE_1_TITLE": "Comprehensive component coverage",
     "FEATURE_1_DESC": "96 independently importable secondary entry modules covering forms, data tables, tree views, drag-and-drop sorting, dialogs, terminal, rich text, code editors and more enterprise scenarios, organized into 15 categories for on-demand imports.",
     "FEATURE_2_TITLE": "Complete bilingual documentation",
@@ -52,7 +49,6 @@
     "FEATURE_5_DESC": "All example code and usage snippets render through the dui-highlight component, with syntax highlighting and one-click copy — a reading experience consistent with material.angular.dev.",
     "FEATURE_6_TITLE": "TypeScript-first",
     "FEATURE_6_DESC": "Built in strict mode with Angular CLI's multi-entry-point packaging, giving editors full type hints and autocompletion.",
-
     "REASON_1_TITLE": "Ready to use, less reinventing the wheel",
     "REASON_1_DESC": "From form validation and color pickers to heavyweight components like Monaco, terminal, and flow diagrams — it's all there, saving you the cost of evaluating and assembling third-party libraries yourself.",
     "REASON_2_TITLE": "Docs as code, maintainable long-term",
@@ -65,7 +61,6 @@
     "REASON_5_DESC": "DUI is the underlying stack of the Dotos low-code platform — when you need higher-level building capabilities, you can move straight to Duix or the Dotos low-code engine without starting over.",
     "REASON_6_TITLE": "Production-proven, continuously maintained",
     "REASON_6_DESC": "As part of the Dotos platform's underlying stack, DUI is battle-tested and refined in real enterprise projects, with stable version iteration and long-term maintenance.",
-
     "QUICKSTART_TITLE": "Get started in a minute",
     "QUICKSTART_LINK": "View the full installation & quick start guide"
   },
@@ -76,22 +71,18 @@
     "TAB2": "2. Import modules",
     "TAB3": "3. Use components",
     "TAB4": "4. i18n & theming",
-
     "STEP1_H1": "Install the package",
     "STEP1_H2": "Install peer dependencies",
     "STEP1_P2": "DUI is built on Angular Material and the CDK, so make sure your project has the following dependencies installed:",
-
     "STEP2_H1": "Basic root module setup",
     "STEP2_P1": "Import the animations module, the translation module, and the theme configuration module in AppModule:",
     "STEP2_H2": "Import feature modules on demand",
     "STEP2_P2": "Every component is an independent secondary entry point — import it individually in whichever feature module uses it:",
-
     "STEP3_H1": "Use it in a template",
     "STEP3_P1_PREFIX": "For the complete Inputs / Outputs / method reference of any component, head over to the",
     "STEP3_LINK": "component docs",
     "STEP3_P1_SUFFIX": "and look up the corresponding module's API reference; modules marked \"interactive example included\" also ship a runnable Examples page.",
-
-    "STEP4_H1": "Switch languages",
+    "STEP4_H1": "Switch language",
     "STEP4_P1": "DUI ships with a multi-language framework built on TranslationService, providing zh_CN / en_US by default:",
     "STEP4_H2": "Switch themes at runtime",
     "STEP4_P2": "ThemeService lets you dynamically change the primary/accent/warn colors and light/dark mode at runtime, with no rebuild required:"
