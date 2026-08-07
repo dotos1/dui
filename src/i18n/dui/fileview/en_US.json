@@ -1,73 +1,127 @@
 {
+  "VIEWER": {
+    "PAGE_LABEL_SHOWING": "Showing",
+    "ACTIONS": {
+      "BACK": "Back",
+      "OPEN_WITH": "Open with",
+      "DOWNLOAD": "Download",
+      "PRINT": "Print",
+      "SHARE": "Share",
+      "MORE_ACTIONS": "More operations",
+      "INFO": "Info",
+      "FULLSCREEN": "Activate full-screen mode",
+      "CLOSE": "Close",
+      "NEXT_FILE": "Next File",
+      "PREV_FILE": "Previous File"
+    },
+    "ARIA": {
+      "PREVIOUS_PAGE": "Previous page",
+      "NEXT_PAGE": "Next page",
+      "ZOOM_IN": "Zoom in",
+      "ZOOM_OUT": "Zoom out",
+      "ROTATE": "Rotate",
+      "CROP": "Clip",
+      "CANCEL": "Cancel",
+      "SAVE": "Save",
+      "FIT_PAGE": "Fit page",
+      "FIT_WIDTH": "Fit Width",
+      "FIT_HEIGHT": "Fit Height",
+      "ROTATE_LEFT": "Rotate left",
+      "ROTATE_RIGHT": "Rotate right",
+      "RESET": "Reset",
+      "FIND": "Find",
+      "THUMBNAILS": "Document thumbnails"
+    },
+    "PAGE_LABEL": {
+      "SHOWING": "Showing",
+      "OF": "/"
+    },
+    "LOADING": "Loading",
+    "UNKNOWN_FORMAT": "Couldn't load preview. Unknown format.",
+    "SIDEBAR": {
+      "THUMBNAILS": {
+        "PAGE": "Page {{ pageNum }}"
+      },
+      "METADATA": {
+        "MORE_INFORMATION": "More information",
+        "LESS_INFORMATION": "Less information"
+      }
+    },
+    "PDF_DIALOG": {
+      "SUBMIT": "Submit",
+      "CLOSE": "Close",
+      "PLACEHOLDER": "Password",
+      "ERROR": "Password is wrong"
+    }
+  },
   "SAVE": "SAVE",
   "COMPLETE": "COMPLETE",
   "CANCEL": "CANCEL",
   "CLAIM": "CLAIM",
   "UNCLAIM": "RELEASE",
   "START PROCESS": "START PROCESS",
-  "FILE":{
-    "CLOSE":"Close",
-    "DELELINE":"Please select the row to delete.",
-    "CONFDELE":"Confirm to delete ",
-    "ROWS2":" rows?",
-    "WARNING":"Warning",
-    "OK":"OK",
-    "CANCEL":"Cancel",
-    "FILES":" files?",
-    "GIVEUP":"Give up",
-    "UPLOADTIPS":"Database storage file does not support uploading, please use the form to enter data!",
-    "DOWNTIPS":"Only attachment mode supports folder download!",
-    "DOWNTIPS2":"Only attachment mode supports sharing and downloading!",
-    "CREATTIPS":"Only attachment mode supports creating word document!",
-    "DOCNAME":"Document name:",
-    "NEWDOC":"New document",
-    "NOTNULL2":"The file name cannot be empty",
-    "CREATEXCEL":"Only attachment mode supports the creation of EXCEL documents!",
-    "CHARTNAME":"File name:",
-    "NEWCHART":"New Excel",
-    "CREATPPT":"Only attachment mode supports creating slides!",
-    "PPTNAME":"PPT name:",
-    "NEWPPT":"New PPT",
-    "NUMIMP":"Number of imported data rows:",
-    "EXCELIMP":"Excel data import",
-    "NOTNULL3":"The number of imported data rows cannot be empty",
-    "NOEDIT":"Edit command is not supported for list entry!",
-
+  "FILE": {
+    "CLOSE": "Close",
+    "DELELINE": "Please select the row to delete.",
+    "CONFDELE": "Confirm to delete ",
+    "ROWS2": " rows?",
+    "WARNING": "Warning",
+    "OK": "OK",
+    "CANCEL": "Cancel",
+    "FILES": " files?",
+    "GIVEUP": "Give up",
+    "UPLOADTIPS": "Database storage file does not support uploading, please use the form to enter data!",
+    "DOWNTIPS": "Only attachment mode supports folder download!",
+    "DOWNTIPS2": "Only attachment mode supports sharing and downloading!",
+    "CREATTIPS": "Only attachment mode supports creating word document!",
+    "DOCNAME": "Document name:",
+    "NEWDOC": "New document",
+    "NOTNULL2": "The file name cannot be empty",
+    "CREATEXCEL": "Only attachment mode supports the creation of EXCEL documents!",
+    "CHARTNAME": "File name:",
+    "NEWCHART": "New Excel",
+    "CREATPPT": "Only attachment mode supports creating slides!",
+    "PPTNAME": "PPT name:",
+    "NEWPPT": "New PPT",
+    "NUMIMP": "Number of imported data rows:",
+    "EXCELIMP": "Excel data import",
+    "NOTNULL3": "The number of imported data rows cannot be empty",
+    "NOEDIT": "Edit command is not supported for list entry!",
     "DOWNLOAD": "Download",
-    "CONFDOWNLOAD":"Confirm download",
-    "DIREEMPTY":"The directory is empty.",
-    "LISTLOADING":"File list loading......",
-    "TRYAGAIN":"An error occurred. Please try again!",
-    "VIEW":"View",
-    "REMOVE":"Remove",
-    "NEWFOLDER":"New folder",
-    "UPLOADFILE":"Upload file",
-    "UPLOADFOLDER":"Upload folder",
-    "NEWWORD":"New word",
-    "EMPDOC":"Empty document",
-    "NEWWORDTEMP":"New word from template",
-    "PERMMANA":"Permission management",
-    "MOVETO":"Move to",
-    "FAVORITE":"Favorite",
-    "REMOVEFAV":"Remove favorite",
-    "RENAME":"Rename",
-    "EMPTYTRASH":"Empty Trash",
-    "SHARELINK":"Share links",
-    "DETAIL":"detailed information",
-    "MOREOPER":"More operations",
-    "OPEN":"Open",
-    "COPYTO":"Copy to",
-    "DELFOREVER":"Permanently delete",
-    "RESTORE":"Restore",
-    "NOTEMPTY":"The file name cannot be empty",
-    "CONFDEL":"Confirm delete \"",
-    "PERDEL":"All files and folders in the recycle bin will be permanently deleted",
-    "NEW":"New",
-    "COPYSUCC":"File copied successfully!",
-    "SELCHARTTEMP":"Select Excel template",
-    "DOCTEMP":"Select document template",
-    "PPTTEMP":"Select PPT template",
-    "PREVIEWEDTIPS":"The folder is located in the recycle bin and cannot be previewed. You need to restore it from the recycle bin!"
+    "CONFDOWNLOAD": "Confirm download",
+    "DIREEMPTY": "The directory is empty.",
+    "LISTLOADING": "File list loading......",
+    "TRYAGAIN": "An error occurred. Please try again!",
+    "VIEW": "View",
+    "REMOVE": "Remove",
+    "NEWFOLDER": "New folder",
+    "UPLOADFILE": "Upload file",
+    "UPLOADFOLDER": "Upload folder",
+    "NEWWORD": "New word",
+    "EMPDOC": "Empty document",
+    "NEWWORDTEMP": "New word from template",
+    "PERMMANA": "Permission management",
+    "MOVETO": "Move to",
+    "FAVORITE": "Favorite",
+    "REMOVEFAV": "Remove favorite",
+    "RENAME": "Rename",
+    "EMPTYTRASH": "Empty Trash",
+    "SHARELINK": "Share links",
+    "DETAIL": "detailed information",
+    "MOREOPER": "More operations",
+    "OPEN": "Open",
+    "COPYTO": "Copy to",
+    "DELFOREVER": "Permanently delete",
+    "RESTORE": "Restore",
+    "NOTEMPTY": "The file name cannot be empty",
+    "CONFDEL": "Confirm delete \"",
+    "PERDEL": "All files and folders in the recycle bin will be permanently deleted",
+    "NEW": "New",
+    "COPYSUCC": "File copied successfully!",
+    "SELCHARTTEMP": "Select Excel template",
+    "DOCTEMP": "Select document template",
+    "PPTTEMP": "Select PPT template",
+    "PREVIEWEDTIPS": "The folder is located in the recycle bin and cannot be previewed. You need to restore it from the recycle bin!"
   },
   "NOTIFICATION_HISTORY": {
     "NO_MESSAGE": "No messages",
@@ -509,29 +563,29 @@
     "YES_LABEL": "Yes",
     "NO_LABEL": "No"
   },
-    "EMPTY": {
-      "HEADER": "This folder is empty"
-    },
-    "NO_PERMISSION": "You don't have permission to view this file or folder.",
-    "LAYOUT": {
-      "CREATED": "Created",
-      "THUMBNAIL": "Thumbnail",
-      "NAME": "Name",
-      "LOCATION": "Location",
-      "SIZE": "Size",
-      "DELETED_ON": "Deleted",
-      "DELETED_BY": "Deleted by",
-      "STATUS": "Status",
-      "MODIFIED_ON": "Modified",
-      "MODIFIED_BY": "Modified by",
-      "SHARED_BY": "Shared by",
-      "LOAD_MORE": "Load more"
-    },
-    "MENU_ACTIONS": {
-      "VIEW": "View",
-      "REMOVE": "Remove",
-      "DOWNLOAD": "Download"
-    },
+  "EMPTY": {
+    "HEADER": "This folder is empty"
+  },
+  "NO_PERMISSION": "You don't have permission to view this file or folder.",
+  "LAYOUT": {
+    "CREATED": "Created",
+    "THUMBNAIL": "Thumbnail",
+    "NAME": "Name",
+    "LOCATION": "Location",
+    "SIZE": "Size",
+    "DELETED_ON": "Deleted",
+    "DELETED_BY": "Deleted by",
+    "STATUS": "Status",
+    "MODIFIED_ON": "Modified",
+    "MODIFIED_BY": "Modified by",
+    "SHARED_BY": "Shared by",
+    "LOAD_MORE": "Load more"
+  },
+  "MENU_ACTIONS": {
+    "VIEW": "View",
+    "REMOVE": "Remove",
+    "DOWNLOAD": "Download"
+  },
   "ALFRESCO_DOCUMENT_LIST": {
     "BUTTON": {
       "ACTION_CREATE": "Create...",
@@ -1282,53 +1336,6 @@
   "AVATAR": {
     "ACCESSIBILITY": {
       "AVATAR_BUTTON_ARIA_LABEL": "User options"
-    }
-  },
-  "VIEWER": {
-    "ACTIONS": {
-      "BACK": "Back",
-      "OPEN_WITH": "Open with",
-      "DOWNLOAD": "Download",
-      "PRINT": "Print",
-      "SHARE": "Share",
-      "MORE_ACTIONS": "More actions",
-      "INFO": "Info",
-      "FULLSCREEN": "Activate full-screen mode",
-      "CLOSE": "Close",
-      "NEXT_FILE": "Next File",
-      "PREV_FILE": "Previous File"
-    },
-    "ARIA": {
-      "PREVIOUS_PAGE": "Previous page",
-      "NEXT_PAGE": "Next page",
-      "ZOOM_IN": "Zoom in",
-      "ZOOM_OUT": "Zoom out",
-      "FIT_PAGE": "Fit page",
-      "ROTATE_LEFT": "Rotate left",
-      "ROTATE_RIGHT": "Rotate right",
-      "RESET": "Reset",
-      "THUMBNAILS": "Document thumbnails"
-    },
-    "PAGE_LABEL": {
-      "SHOWING": "Showing",
-      "OF": "of"
-    },
-    "LOADING": "Loading",
-    "UNKNOWN_FORMAT": "Couldn't load preview. Unknown format.",
-    "SIDEBAR": {
-      "THUMBNAILS": {
-        "PAGE": "Page {{ pageNum }}"
-      },
-      "METADATA": {
-        "MORE_INFORMATION": "More information",
-        "LESS_INFORMATION": "Less information"
-      }
-    },
-    "PDF_DIALOG": {
-      "SUBMIT": "Submit",
-      "CLOSE": "Close",
-      "PLACEHOLDER": "Password",
-      "ERROR": "Password is wrong"
     }
   },
   "VERSION_LIST": {
