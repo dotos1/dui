@@ -1,0 +1,1354 @@
+{
+  "VIEWER": {
+    "PAGE_LABEL_SHOWING": "표시 중",
+    "ACTIONS": {
+      "BACK": "뒤로",
+      "OPEN_WITH": "다른 프로그램으로 열기",
+      "DOWNLOAD": "다운로드",
+      "PRINT": "인쇄",
+      "SHARE": "공유",
+      "MORE_ACTIONS": "추가 작업",
+      "INFO": "상세 정보",
+      "FULLSCREEN": "전체 화면 모드 활성화",
+      "CLOSE": "닫기",
+      "NEXT_FILE": "다음 파일",
+      "PREV_FILE": "이전 파일"
+    },
+    "ARIA": {
+      "PREVIOUS_PAGE": "이전 페이지",
+      "NEXT_PAGE": "다음 페이지",
+      "ZOOM_IN": "확대",
+      "ZOOM_OUT": "축소",
+      "ROTATE": "회전",
+      "CROP": "클립",
+      "CANCEL": "취소",
+      "SAVE": "저장",
+      "FIT_PAGE": "페이지 맞춤",
+      "FIT_WIDTH": "너비 맞춤",
+      "FIT_HEIGHT": "높이 맞춤",
+      "ROTATE_LEFT": "왼쪽으로 회전",
+      "ROTATE_RIGHT": "오른쪽으로 회전",
+      "RESET": "초기화",
+      "FIND": "찾기",
+      "THUMBNAILS": "문서 축소판"
+    },
+    "PAGE_LABEL": {
+      "SHOWING": "표시 중",
+      "OF": "/"
+    },
+    "LOADING": "로드 중",
+    "UNKNOWN_FORMAT": "미리 보기를 로드할 수 없습니다. 알 수 없는 형식입니다.",
+    "SIDEBAR": {
+      "THUMBNAILS": {
+        "PAGE": "{{ pageNum }} 페이지"
+      },
+      "METADATA": {
+        "MORE_INFORMATION": "더 많은 정보",
+        "LESS_INFORMATION": "정보 줄이기"
+      }
+    },
+    "PDF_DIALOG": {
+      "SUBMIT": "제출",
+      "CLOSE": "닫기",
+      "PLACEHOLDER": "비밀번호",
+      "ERROR": "비밀번호가 올바르지 않습니다"
+    }
+  },
+  "SAVE": "저장",
+  "COMPLETE": "완료",
+  "CANCEL": "취소",
+  "CLAIM": "청구",
+  "UNCLAIM": "해제",
+  "START PROCESS": "프로세스 시작",
+  "FILE": {
+    "CLOSE": "닫기",
+    "DELELINE": "삭제할 행을 선택하십시오.",
+    "CONFDELE": "삭제 확인 ",
+    "ROWS2": " 개 행?",
+    "WARNING": "경고",
+    "OK": "확인",
+    "CANCEL": "취소",
+    "FILES": " 개 파일?",
+    "GIVEUP": "포기",
+    "UPLOADTIPS": "데이터베이스 저장 파일은 업로드를 지원하지 않습니다. 양식을 사용하여 데이터를 입력하세요!",
+    "DOWNTIPS": "첨부 모드에서만 폴더 다운로드를 지원합니다!",
+    "DOWNTIPS2": "첨부 모드에서만 공유 및 다운로드를 지원합니다!",
+    "CREATTIPS": "첨부 모드에서만 word 문서를 생성할 수 있습니다!",
+    "DOCNAME": "문서 이름:",
+    "NEWDOC": "새 문서",
+    "NOTNULL2": "파일 이름은 비워둘 수 없습니다",
+    "CREATEXCEL": "첨부 모드에서만 EXCEL 문서를 생성할 수 있습니다!",
+    "CHARTNAME": "파일 이름:",
+    "NEWCHART": "새 Excel",
+    "CREATPPT": "첨부 모드에서만 슬라이드를 생성할 수 있습니다!",
+    "PPTNAME": "PPT 이름:",
+    "NEWPPT": "새 PPT",
+    "NUMIMP": "가져올 데이터 행 수:",
+    "EXCELIMP": "Excel 데이터 가져오기",
+    "NOTNULL3": "가져올 데이터 행 수는 비워둘 수 없습니다",
+    "NOEDIT": "목록 항목에는 편집 명령을 지원하지 않습니다!",
+    "DOWNLOAD": "다운로드",
+    "CONFDOWNLOAD": "다운로드 확인",
+    "DIREEMPTY": "디렉터리가 비어 있습니다.",
+    "LISTLOADING": "파일 목록을 불러오는 중......",
+    "TRYAGAIN": "오류가 발생했습니다. 다시 시도하세요!",
+    "VIEW": "보기",
+    "REMOVE": "제거",
+    "NEWFOLDER": "새 폴더",
+    "UPLOADFILE": "파일 업로드",
+    "UPLOADFOLDER": "폴더 업로드",
+    "NEWWORD": "새 word",
+    "EMPDOC": "빈 문서",
+    "NEWWORDTEMP": "템플릿으로 새 word 만들기",
+    "PERMMANA": "권한 관리",
+    "MOVETO": "이동 위치",
+    "FAVORITE": "즐겨찾기",
+    "REMOVEFAV": "즐겨찾기 해제",
+    "RENAME": "이름 바꾸기",
+    "EMPTYTRASH": "휴지통 비우기",
+    "SHARELINK": "공유 링크",
+    "DETAIL": "상세 정보",
+    "MOREOPER": "추가 작업",
+    "OPEN": "열기",
+    "COPYTO": "복사 위치",
+    "DELFOREVER": "영구 삭제",
+    "RESTORE": "복원",
+    "NOTEMPTY": "파일 이름은 비워둘 수 없습니다",
+    "CONFDEL": "삭제 확인 \"",
+    "PERDEL": "휴지통에 있는 모든 파일과 폴더가 영구적으로 삭제됩니다",
+    "NEW": "신규",
+    "COPYSUCC": "파일이 복사되었습니다!",
+    "SELCHARTTEMP": "Excel 템플릿 선택",
+    "DOCTEMP": "문서 템플릿 선택",
+    "PPTTEMP": "PPT 템플릿 선택",
+    "PREVIEWEDTIPS": "폴더가 휴지통에 있어 미리 볼 수 없습니다. 휴지통에서 복원해야 합니다!"
+  },
+  "NOTIFICATION_HISTORY": {
+    "NO_MESSAGE": "메시지 없음",
+    "NOTIFICATIONS": "알림",
+    "MARK_AS_READ": "모두 읽음으로 표시"
+  },
+  "FORM": {
+    "START_FORM": {
+      "TITLE": "시작 폼"
+    },
+    "PREVIEW": {
+      "IMAGE_NOT_AVAILABLE": "미리보기를 사용할 수 없습니다"
+    },
+    "FIELD": {
+      "LOCALSTORAGE": "로컬 저장소",
+      "SOURCE": "원본 선택 ",
+      "SHOW_FILE": "표시",
+      "DOWNLOAD_FILE": "다운로드",
+      "REMOVE_FILE": "제거",
+      "UPLOAD": "업로드",
+      "REQUIRED": "*필수",
+      "VALIDATOR": {
+        "INVALID_NUMBER": "다른 숫자 형식을 사용하세요",
+        "INVALID_DATE": "다른 날짜 형식을 사용하세요",
+        "INVALID_VALUE": "다른 값을 입력하세요",
+        "NOT_GREATER_THAN": "{{ maxValue }}보다 클 수 없습니다",
+        "NOT_LESS_THAN": "{{ minValue }}보다 작을 수 없습니다",
+        "AT_LEAST_LONG": "{{ minLength }}자 이상 입력하세요",
+        "NO_LONGER_THAN": "{{ maxLength }}자를 초과하여 입력할 수 없습니다"
+      }
+    },
+    "FORM_RENDERER": {
+      "NAMELESS_TASK": "이름 없는 작업"
+    }
+  },
+  "HEADER": {
+    "LOGO_ARIA": "회사 로고"
+  },
+  "FILE_SIZE": {
+    "BYTES": "바이트",
+    "KB": "KB",
+    "MB": "MB",
+    "GB": "GB",
+    "TB": "TB",
+    "PB": "PB",
+    "EB": "EB",
+    "ZB": "ZB",
+    "YB": "YB"
+  },
+  "PAGINATION": {
+    "ARIA": {
+      "ITEMS_PER_PAGE": "Page size selector",
+      "CURRENT_PAGE": "Current page selector",
+      "PREVIOUS_PAGE": "Previous page button",
+      "NEXT_PAGE": "Next page button"
+    },
+    "ITEMS_RANGE": "Showing {{ range }} of {{ total }}",
+    "ITEMS_PER_PAGE": "Items per page",
+    "CURRENT_PAGE": "Page {{ number }}",
+    "TOTAL_PAGES": "of {{ total }}"
+  },
+  "DIALOG": {
+    "DOWNLOAD_ZIP": {
+      "ACTIONS": {
+        "CANCEL": "취소"
+      },
+      "TITLE": "파일을 zip에 추가하는 중입니다. 몇 분 정도 소요될 수 있습니다"
+    }
+  },
+  "FILE_DIALOG": {
+    "FILE_LOCK": "파일 잠금",
+    "ALLOW_OTHERS_CHECKBOX": "소유자가 이 파일을 수정할 수 있도록 허용",
+    "FILE_LOCK_CHECKBOX": "파일 잠금",
+    "TIME_LOCK_CHECKBOX": "시간 잠금",
+    "SAVE_BUTTON": {
+      "LABEL": "저장"
+    },
+    "CANCEL_BUTTON": {
+      "LABEL": "취소"
+    }
+  },
+  "FOLDER_DIALOG": {
+    "CREATE_FOLDER_TITLE": "새 폴더 만들기",
+    "EDIT_FOLDER_TITLE": "폴더 편집",
+    "FOLDER_NAME": {
+      "LABEL": "이름",
+      "ERRORS": {
+        "REQUIRED": "폴더 이름을 입력하세요",
+        "SPECIAL_CHARACTERS": "폴더 이름에는 * \" < > \\ / ? : | 문자를 사용할 수 없습니다",
+        "ENDING_DOT": "폴더 이름은 마침표(.)로 끝날 수 없습니다",
+        "ONLY_SPACES": "폴더 이름은 공백만으로 이루어질 수 없습니다"
+      }
+    },
+    "FOLDER_DESCRIPTION": {
+      "LABEL": "설명"
+    },
+    "CREATE_BUTTON": {
+      "LABEL": "생성"
+    },
+    "UPDATE_BUTTON": {
+      "LABEL": "업데이트"
+    },
+    "CANCEL_BUTTON": {
+      "LABEL": "취소"
+    }
+  },
+  "MESSAGES": {
+    "ERRORS": {
+      "GENERIC": "작업이 실패했습니다. 다시 시도하거나 IT 팀에 문의하세요.",
+      "EXISTENT_FOLDER": "이 이름을 사용하는 폴더가 이미 있습니다. 다른 이름을 사용해 보세요."
+    }
+  },
+  "RESTORE_NODE": {
+    "VIEW": "보기",
+    "PARTIAL_PLURAL": "복원 위치 문제로 인해 {{ number }}개 항목을 복원하지 못했습니다",
+    "NODE_EXISTS": "복원할 수 없습니다. {{ name }} 항목이 이미 존재합니다",
+    "LOCATION_MISSING": "{{ name }} 항목을 복원할 수 없습니다. 원래 위치가 더 이상 존재하지 않습니다",
+    "GENERIC": "{{ name }} 항목을 복원하는 중 문제가 발생했습니다",
+    "PLURAL": "복원 성공",
+    "SINGULAR": "{{ name }} 항목이 복원되었습니다"
+  },
+  "DELETE_NODE": {
+    "SINGULAR": "{{ name }}이(가) 삭제되었습니다",
+    "PLURAL": "{{ number }}개 항목이 삭제되었습니다",
+    "PARTIAL_SINGULAR": "{{ success }}개 항목을 삭제했으며, {{ failed }}개는 삭제할 수 없습니다",
+    "PARTIAL_PLURAL": "{{ success }}개 항목을 삭제했으며, {{ failed }}개는 삭제할 수 없습니다",
+    "ERROR_SINGULAR": "{{ name }}을(를) 삭제할 수 없습니다",
+    "ERROR_PLURAL": "{{ number }}개 항목을 삭제할 수 없습니다"
+  },
+  "CARDVIEW": {
+    "KEYVALUEPAIRS": {
+      "ADD": "Add New",
+      "NAME": "이름",
+      "VALUE": "값"
+    },
+    "NONE": "없음",
+    "VALIDATORS": {
+      "FLOAT_VALIDATION_ERROR": "Use a number format",
+      "INT_VALIDATION_ERROR": "Use an integer format"
+    }
+  },
+  "METADATA": {
+    "BASIC": {
+      "HEADER": "속성",
+      "NAME": "이름",
+      "TITLE": "제목",
+      "DESCRIPTION": "설명",
+      "AUTHOR": "작성자",
+      "MIMETYPE": "MIME 유형",
+      "SIZE": "크기",
+      "CREATOR": "생성자",
+      "CREATED_DATE": "생성일",
+      "MODIFIER": "수정자",
+      "MODIFIED_DATE": "수정일"
+    },
+    "ACTIONS": {
+      "EDIT": "편집",
+      "SAVE": "저장",
+      "CANCEL": "취소",
+      "CLEAR": "지우기",
+      "TOGGLE": "값 전환"
+    }
+  },
+  "COMMENTS": {
+    "NONE": "댓글 없음",
+    "ADD": "Add",
+    "HEADER": "댓글 ({{ count }})",
+    "CREATED_BY_HEADER": "작성자",
+    "MESSAGE_HEADER": "메시지",
+    "DIALOG": {
+      "TITLE": "새 댓글",
+      "LABELS": {
+        "MESSAGE": "메시지"
+      },
+      "BUTTON": {
+        "ADD": "댓글 추가",
+        "CANCEL": "취소"
+      }
+    }
+  },
+  "LOGIN": {
+    "LOGO": "Alfresco",
+    "LABEL": {
+      "LOGIN": "로그인",
+      "USERNAME": "사용자 이름",
+      "PASSWORD": "비밀번호",
+      "REMEMBER": "로그인 정보 저장"
+    },
+    "MESSAGES": {
+      "USERNAME-REQUIRED": "필수 항목",
+      "USERNAME-MIN": "사용자 이름은 최소 {{ minLength }}자 이상이어야 합니다.",
+      "PASSWORD-REQUIRED": "로그인하려면 비밀번호를 입력하세요",
+      "LOGIN-ERROR-CREDENTIALS": "알 수 없는 사용자 이름 또는 비밀번호를 입력했습니다",
+      "LOGIN-ERROR-PROVIDERS": "Providers는 undefined일 수 없습니다",
+      "LOGIN-ERROR-CORS": "CORS 예외입니다. 서버 설정을 확인하세요",
+      "LOGIN-ERROR-CSRF": "CSRF 예외입니다. login.component에서 [disableCsrf]=\"true\"를 설정하세요",
+      "LOGIN-ECM-LICENSE": "Alfresco Content Services 저장소가 읽기 전용 모드입니다",
+      "SSO-WRONG-CONFIGURATION": "SSO 인증 서버에 연결할 수 없습니다"
+    },
+    "BUTTON": {
+      "LOGIN": "로그인",
+      "CHECKING": "확인 중",
+      "WELCOME": "환영합니다",
+      "SSO": "SSO로 로그인"
+    },
+    "ACTION": {
+      "HELP": "도움이 필요하신가요?",
+      "REGISTER": "등록"
+    },
+    "DIALOG": {
+      "CANCEL": "취소",
+      "CHOOSE": "선택"
+    }
+  },
+  "ADF-DATATABLE": {
+    "EMPTY": {
+      "HEADER": "목록이 비어 있습니다",
+      "DRAG-AND-DROP": {
+        "TITLE": "끌어서 놓기",
+        "SUBTITLE": "파일을 업로드하려면"
+      }
+    },
+    "CONTENT-ACTIONS": {
+      "TOOLTIP": "콘텐츠 작업"
+    },
+    "ACCESSIBILITY": {
+      "SELECT_ALL": "전체 선택",
+      "SELECT_FILE": "파일 선택"
+    }
+  },
+  "USER_PROFILE": {
+    "LABELS": {
+      "ECM": {
+        "JOB_TITLE": "직위"
+      },
+      "BPM": {
+        "TENANT": "테넌트"
+      }
+    },
+    "TAB": {
+      "CS": "Content Services",
+      "PS": "Process Services"
+    }
+  },
+  "EXT_VIEWER": {
+    "ACTIONS": {
+      "BACK": "뒤로",
+      "OPEN_WITH": "다른 앱으로 열기",
+      "DOWNLOAD": "다운로드",
+      "PRINT": "인쇄",
+      "SHARE": "공유",
+      "MORE_ACTIONS": "추가 작업",
+      "INFO": "상세 정보 보기",
+      "FULLSCREEN": "전체 화면 모드 활성화",
+      "CLOSE": "닫기",
+      "NEXT_FILE": "다음 파일",
+      "PREV_FILE": "이전 파일"
+    },
+    "ARIA": {
+      "PREVIOUS_PAGE": "이전 페이지",
+      "NEXT_PAGE": "다음 페이지",
+      "ZOOM_IN": "확대",
+      "ZOOM_OUT": "축소",
+      "FIT_PAGE": "페이지 맞춤",
+      "ROTATE_LEFT": "왼쪽으로 회전",
+      "ROTATE_RIGHT": "오른쪽으로 회전",
+      "RESET": "초기화"
+    },
+    "PAGE_LABEL": {
+      "SHOWING": "표시 중",
+      "OF": "/"
+    },
+    "LOADING": "로딩 중",
+    "UNKNOWN_FORMAT": "미리보기를 불러올 수 없습니다. 알 수 없는 형식입니다.",
+    "SIDEBAR": {
+      "THUMBNAILS": {
+        "PAGE": "페이지 {{ pageNum }}"
+      },
+      "METADATA": {
+        "MORE_INFORMATION": "자세히 보기",
+        "LESS_INFORMATION": "간단히 보기"
+      }
+    },
+    "PDF_DIALOG": {
+      "SUBMIT": "제출",
+      "CLOSE": "닫기",
+      "PLACEHOLDER": "비밀번호",
+      "ERROR": "비밀번호가 올바르지 않습니다"
+    }
+  },
+  "ERROR_CONTENT": {
+    "UNKNOWN": {
+      "TITLE": "문제가 발생했습니다.",
+      "DESCRIPTION": "문제가 발생한 것 같습니다.",
+      "SECONDARY_BUTTON": {
+        "TEXT": ""
+      },
+      "RETURN_BUTTON": {
+        "TEXT": "홈으로 돌아가기"
+      }
+    },
+    "403": {
+      "TITLE": "이 서버에 액세스할 권한이 없습니다.",
+      "DESCRIPTION": "서버의 이 리소스에 액세스할 수 있는 권한이 없습니다.",
+      "SECONDARY_BUTTON": {
+        "TEXT": "문제 신고"
+      },
+      "RETURN_BUTTON": {
+        "TEXT": "홈으로 돌아가기"
+      }
+    },
+    "404": {
+      "TITLE": "오류가 발생했습니다.",
+      "DESCRIPTION": "찾으시는 페이지를 찾을 수 없습니다.",
+      "SECONDARY_BUTTON": {
+        "TEXT": ""
+      },
+      "RETURN_BUTTON": {
+        "TEXT": "홈으로 돌아가기"
+      }
+    },
+    "500": {
+      "TITLE": "오류가 발생했습니다.",
+      "DESCRIPTION": "내부 서버 오류입니다. 다시 시도하거나 IT 지원팀에 문의하세요 [500].",
+      "SECONDARY_BUTTON": {
+        "TEXT": ""
+      },
+      "RETURN_BUTTON": {
+        "TEXT": "홈으로 돌아가기"
+      }
+    },
+    "502": {
+      "TITLE": "오류가 발생했습니다.",
+      "DESCRIPTION": "잘못된 게이트웨이입니다. 다시 시도하거나 IT 지원팀에 문의하세요 [502].",
+      "SECONDARY_BUTTON": {
+        "TEXT": ""
+      },
+      "RETURN_BUTTON": {
+        "TEXT": "홈으로 돌아가기"
+      }
+    },
+    "504": {
+      "TITLE": "오류가 발생했습니다.",
+      "DESCRIPTION": "서버 시간이 초과되었습니다. 다시 시도하거나 IT 지원팀에 문의하세요 [504].",
+      "SECONDARY_BUTTON": {
+        "TEXT": ""
+      },
+      "RETURN_BUTTON": {
+        "TEXT": "홈으로 돌아가기"
+      }
+    }
+  },
+  "ABOUT": {
+    "SERVER_SETTINGS": {
+      "TITLE": "서버 설정",
+      "DESCRIPTION": "아래 값은 AppConfigService에서 가져온 것입니다",
+      "CONTENT_SERVICE_HOST": "Alfresco Content Services URL: {{ value }}",
+      "PROCESS_SERVICE_HOST": "Alfresco Process Services URL: {{ value }}"
+    },
+    "VERSIONS": {
+      "TITLE": "제품 버전",
+      "CONTENT_SERVICE": "ECM",
+      "PROCESS_SERVICE": "BPM",
+      "LABELS": {
+        "EDITION": "에디션",
+        "VERSION": "버전",
+        "LICENSE": "라이선스",
+        "STATUS": "상태",
+        "MODULES": "모듈"
+      }
+    },
+    "SOURCE_CODE": {
+      "TITLE": "소스 코드",
+      "DESCRIPTION": "다음 커밋을 기반으로 프로젝트를 실행 중입니다:"
+    },
+    "PACKAGES": {
+      "TITLE": "패키지",
+      "DESCRIPTION": "현재 프로젝트는 다음 ADF 라이브러리를 사용하고 있습니다:"
+    },
+    "TABLE_HEADERS": {
+      "MODULES": {
+        "ID": "ID",
+        "TITLE": "제목",
+        "DESCRIPTION": "설명",
+        "INSTALL_DATE": "설치일",
+        "INSTALL_STATE": "설치 상태",
+        "VERSION_MIN": "최소 버전",
+        "VERSION_MAX": "최대 버전"
+      },
+      "STATUS": {
+        "READ_ONLY": "읽기 전용",
+        "AUDIT_ENABLED": "감사 사용 여부",
+        "QUICK_SHARE_ENABLED": "빠른 공유 사용 여부",
+        "THUMBNAIL_ENABLED": "썸네일 생성"
+      },
+      "LICENSE": {
+        "ISSUES_AT": "발급일",
+        "EXPIRES_AT": "만료일",
+        "REMAINING_DAYS": "남은 일수",
+        "HOLDER": "보유자",
+        "MODE": "모드",
+        "CLUSTER_ENABLED": "클러스터 사용 여부",
+        "CRYPTODOC_ENABLED": "Cryptodoc 사용 여부"
+      }
+    }
+  },
+  "CLIPBOARD": {
+    "CLICK_TO_COPY": "클릭하여 복사",
+    "SUCCESS_COPY": "텍스트가 클립보드에 복사되었습니다"
+  },
+  "EXT_VERSION_LIST": {
+    "ACTIONS": {
+      "RESTORE": "복원",
+      "DELETE": "삭제",
+      "DOWNLOAD": "다운로드",
+      "UPLOAD": {
+        "TITLE": "새 버전 업로드",
+        "TOOLTIP": "새 버전 업로드",
+        "MAJOR": "주요 변경 사항(2.0)",
+        "MINOR": "minor changes (1.1)",
+        "COMMENT": "댓글 남기기",
+        "ADD": "새 버전 추가",
+        "CANCEL": "취소"
+      }
+    },
+    "CONFIRM_DELETE": {
+      "TITLE": "버전 삭제",
+      "MESSAGE": "삭제된 파일 버전은 복원할 수 없습니다. 계속하시겠습니까?",
+      "YES_LABEL": "예",
+      "NO_LABEL": "아니요"
+    }
+  },
+  "EXT_DROPDOWN": {
+    "LOADING": "로딩 중..."
+  },
+  "EXT_CONFIRM_DIALOG": {
+    "TITLE": "확인",
+    "ACTION": "계속하시겠습니까?",
+    "YES_LABEL": "예",
+    "NO_LABEL": "아니요"
+  },
+  "EMPTY": {
+    "HEADER": "이 폴더는 비어 있습니다"
+  },
+  "NO_PERMISSION": "이 파일 또는 폴더를 볼 권한이 없습니다.",
+  "LAYOUT": {
+    "CREATED": "생성됨",
+    "THUMBNAIL": "미리보기 이미지",
+    "NAME": "이름",
+    "LOCATION": "위치",
+    "SIZE": "크기",
+    "DELETED_ON": "삭제됨",
+    "DELETED_BY": "삭제한 사람",
+    "STATUS": "상태",
+    "MODIFIED_ON": "수정됨",
+    "MODIFIED_BY": "수정한 사람",
+    "SHARED_BY": "공유한 사람",
+    "LOAD_MORE": "더 보기"
+  },
+  "MENU_ACTIONS": {
+    "VIEW": "보기",
+    "REMOVE": "제거",
+    "DOWNLOAD": "다운로드"
+  },
+  "ALFRESCO_DOCUMENT_LIST": {
+    "BUTTON": {
+      "ACTION_CREATE": "만들기...",
+      "ACTION_NEW_FOLDER": "새 폴더",
+      "CREATE": "생성",
+      "CANCEL": "취소"
+    }
+  },
+  "DROPDOWN": {
+    "PLACEHOLDER_LABEL": "사이트 목록",
+    "MY_FILES_OPTION": "내 파일"
+  },
+  "OPERATION": {
+    "SUCCESS": {
+      "CONTENT": {
+        "COPY": "복사가 완료되었습니다",
+        "MOVE": "이동이 완료되었습니다"
+      },
+      "FOLDER": {
+        "COPY": "복사가 완료되었습니다",
+        "MOVE": "이동이 완료되었습니다"
+      }
+    },
+    "ERROR": {
+      "CONFLICT": "이 이름은 이미 사용 중입니다. 다른 이름을 사용해 보세요.",
+      "UNKNOWN": "작업이 실패했습니다. 다시 시도하거나 IT 팀에 문의하세요.",
+      "PERMISSION": "이 작업을 수행할 권한이 없습니다."
+    }
+  },
+  "TAG": {
+    "LABEL": {
+      "NEWTAG": "새 태그"
+    },
+    "MESSAGES": {
+      "EXIST": "태그가 이미 존재합니다"
+    },
+    "BUTTON": {
+      "ADD": "태그 추가"
+    }
+  },
+  "EXT_FILE_UPLOAD": {
+    "BUTTON": {
+      "MINIMIZE": "최소화",
+      "MAXIMIZE": "최대화",
+      "CLOSE": "닫기",
+      "CANCEL_ALL": "업로드 취소",
+      "CANCEL_FILE": "업로드 취소",
+      "REMOVE_FILE": "업로드된 파일 제거"
+    },
+    "STATUS": {
+      "FILE_CANCELED_STATUS": "취소됨"
+    },
+    "CONFIRMATION": {
+      "BUTTON": {
+        "CANCEL": "예",
+        "CONTINUE": "아니요"
+      },
+      "MESSAGE": {
+        "TITLE": "업로드 취소",
+        "TEXT": "업로드를 중지하고 이미 업로드된 파일을 제거합니다."
+      }
+    },
+    "ARIA-LABEL": {
+      "VERSION": "파일 버전"
+    }
+  },
+  "FILE_UPLOAD": {
+    "BUTTON": {
+      "UPLOAD_FILE": "파일 업로드",
+      "UPLOAD_FOLDER": "폴더 업로드"
+    },
+    "VERSION": {
+      "MESSAGES": {
+        "NO_ACCEPTED_FILE_TYPES": "\"acceptedFilesType\" 설정은 새 버전 업로드에 영향을 주지 않습니다. 파일 형식은 원본 파일과 동일합니다.",
+        "INCOMPATIBLE_VERSION": "동일한 유형의 파일만 새 버전으로 업로드할 수 있습니다."
+      }
+    },
+    "MESSAGES": {
+      "UPLOAD_CANCELED": "업로드 취소됨",
+      "UPLOAD_PROGRESS": "업로드됨 {{ completed }} / {{ total }}",
+      "UPLOAD_ERROR": "{{ total }}개 업로드 실패",
+      "UPLOAD_ERRORS": "{{ total }}개 업로드 실패",
+      "PROGRESS": "업로드 진행 중...",
+      "FOLDER_ALREADY_EXIST": "폴더 {0}이(가) 이미 존재합니다",
+      "FOLDER_NOT_SUPPORTED": "브라우저에서 폴더 업로드를 지원하지 않습니다. 다른 브라우저를 사용해 보세요",
+      "REMOVE_FILE_ERROR": "{{ fileName }}을(를) 제거할 수 없습니다. 다시 시도하거나 IT 팀에 문의하세요.",
+      "REMOVE_FILES_ERROR": "{{ total }}개 파일을 제거할 수 없습니다. 다시 시도하거나 IT 팀에 문의하세요.",
+      "EXCEED_MAX_FILE_SIZE": "파일 {{ fileName }}이(가) 허용된 파일 크기를 초과합니다"
+    },
+    "ACTION": {
+      "UNDO": "실행 취소"
+    },
+    "ERRORS": {
+      "GENERIC": "업로드에 실패했습니다. 문제가 계속되면 IT 팀에 문의하세요",
+      "500": "내부 서버 오류입니다. 다시 시도하거나 IT 지원팀에 문의하세요 [500]",
+      "504": "서버 시간이 초과되었습니다. 다시 시도하거나 IT 지원팀에 문의하세요 [504]",
+      "403": "이 위치에 업로드할 권한이 없습니다 [403]",
+      "404": "업로드 위치가 더 이상 존재하지 않습니다 [404]",
+      "409": "동일한 이름의 파일이 이미 존재합니다 [409]"
+    },
+    "ARIA-LABEL": {
+      "ERROR": "업로드 오류"
+    }
+  },
+  "WEBSCRIPT": {
+    "ERROR": "작업을 완료할 수 없습니다. 이 메시지를 IT 팀에 전달하세요: {{data}}을(를) {{contentType}}(으)로 역직렬화하는 중 오류가 발생했습니다"
+  },
+  "PERMISSION": {
+    "LACKOF": "You don't have the {{permission}} permission to {{action}} the {{type}}"
+  },
+  "SHARE": {
+    "PUBLIC-LINK": "공개 링크",
+    "DIALOG-TITLE": "공유",
+    "DESCRIPTION": "아래 링크를 클릭하여 클립보드에 복사하세요.",
+    "TITLE": "공유할 링크",
+    "EXPIRES": "만료일",
+    "CLIPBOARD-MESSAGE": "링크가 클립보드에 복사되었습니다",
+    "CLOSE": "닫기",
+    "CONFIRMATION": {
+      "DIALOG-TITLE": "이 공유 링크 삭제",
+      "MESSAGE": "이 링크는 삭제되며, 다음에 이 파일을 공유할 때 새 링크가 생성됩니다",
+      "CANCEL": "취소",
+      "REMOVE": "제거"
+    },
+    "UNSHARE_ERROR": "이 파일의 공유를 취소하는 중 오류가 발생했습니다",
+    "UNSHARE_PERMISSION_ERROR": "이 파일의 공유를 취소할 권한이 없습니다"
+  },
+  "PERMISSION_MANAGER": {
+    "PERMISSION_DISPLAY": {
+      "INHERITED": "Inherited",
+      "AUTHORITY_ID": "Authority ID",
+      "ROLE": "역할",
+      "LOCALLY_SET": "Locally set",
+      "NO_PERMISSIONS": "No permissions"
+    },
+    "ADD-PERMISSION": {
+      "SEARCH": "검색",
+      "TYPE-MESSAGE": "Type something to start searching groups or people",
+      "NO-RESULT": "No result found for this search",
+      "ADD-ACTION": "추가",
+      "CLOSE-ACTION": "닫기",
+      "BASE-DIALOG-TITLE": "Search a group or people to add...",
+      "EVERYONE": "EVERYONE"
+    },
+    "ERROR": {
+      "DUPLICATE-PERMISSION": "One or more of the permissions you have set is already present : {{list}}",
+      "NOT-ALLOWED": "You are not allowed to change permissions"
+    }
+  },
+  "EXT-TREE-VIEW": {
+    "MISSING-ID": "nodeId가 제공되지 않았습니다!"
+  },
+  "LIBRARY": {
+    "DIALOG": {
+      "CREATE_TITLE": "라이브러리 만들기",
+      "CREATE": "생성",
+      "UPDATE": "업데이트",
+      "EDIT": "편집",
+      "CANCEL": "취소",
+      "FORM": {
+        "DESCRIPTION": "설명",
+        "SITE_ID": "라이브러리 ID",
+        "NAME": "이름",
+        "VISIBILITY": "공개 범위"
+      }
+    },
+    "ROLE": {
+      "MANAGER": "관리자",
+      "COLLABORATOR": "공동 작업자",
+      "CONTRIBUTOR": "기여자",
+      "CONSUMER": "소비자"
+    },
+    "VISIBILITY": {
+      "PRIVATE": "비공개",
+      "PUBLIC": "공개",
+      "MODERATED": "검토됨"
+    },
+    "HINTS": {
+      "SITE_TITLE_EXISTS": "이미 사용 중인 라이브러리 이름입니다"
+    },
+    "ERRORS": {
+      "GENERIC": "문제가 발생했습니다",
+      "EXISTENT_SITE": "이 라이브러리 ID는 사용할 수 없습니다. 다른 라이브러리 ID를 사용해 보세요.",
+      "CONFLICT": "이 라이브러리 ID는 이미 사용 중입니다. 휴지통을 확인하세요.",
+      "ID_TOO_LONG": "URL 이름은 72자 이하로 입력하세요",
+      "DESCRIPTION_TOO_LONG": "설명은 512자 이하로 입력하세요",
+      "TITLE_TOO_LONG": "제목은 256자 이하로 입력하세요",
+      "TITLE_TOO_SHORT": "제목은 2자 이상이어야 합니다",
+      "ILLEGAL_CHARACTERS": "숫자와 문자만 사용하세요",
+      "ONLY_SPACES": "라이브러리 이름에 공백만 사용할 수 없습니다",
+      "LIBRARY_UPDATE_ERROR": "라이브러리 속성을 업데이트하는 중 오류가 발생했습니다"
+    },
+    "SUCCESS": {
+      "LIBRARY_UPDATED": "라이브러리 속성이 업데이트되었습니다"
+    }
+  },
+  "APP": {
+    "SETTINGS": {
+      "TITLE": "설정",
+      "APPLICATION-SETTINGS": "Application Settings",
+      "REPOSITORY-SETTINGS": "Repository Settings",
+      "INVALID-VALUE-FORMAT": "Invalid value format",
+      "REQUIRED-FIELD": "This field is required",
+      "RESET": "초기화",
+      "APPLY": "적용"
+    },
+    "PREVIEW": {
+      "TITLE": "미리 보기"
+    },
+    "NEW_MENU": {
+      "LABEL": "신규",
+      "TOOLTIP": "Add new files and folders, or create a new File Library",
+      "MENU_ITEMS": {
+        "CREATE_FOLDER": "Create Folder",
+        "UPLOAD_FILE": "Upload File",
+        "UPLOAD_FOLDER": "Upload Folder",
+        "CREATE_LIBRARY": "라이브러리 만들기"
+      },
+      "TOOLTIPS": {
+        "CREATE_FOLDER": "새 폴더 만들기",
+        "CREATE_FOLDER_NOT_ALLOWED": "Folders cannot be created whilst viewing the current items",
+        "UPLOAD_FILES": "Select files to upload",
+        "UPLOAD_FILES_NOT_ALLOWED": "Files cannot be uploaded whilst viewing the current items",
+        "UPLOAD_FOLDERS": "Select folders to upload",
+        "UPLOAD_FOLDERS_NOT_ALLOWED": "Folders cannot be uploaded whilst viewing the current items",
+        "CREATE_LIBRARY": "Create a new File Library"
+      }
+    },
+    "BROWSE": {
+      "PERSONAL": {
+        "TITLE": "내 파일",
+        "SIDENAV_LINK": {
+          "LABEL": "내 파일",
+          "TOOLTIP": "내 파일 보기"
+        }
+      },
+      "LIBRARIES": {
+        "TITLE": "파일 라이브러리",
+        "DESCRIPTION": "파일 라이브러리 액세스",
+        "SIDENAV_LINK": {
+          "LABEL": "파일 라이브러리",
+          "TOOLTIP": "파일 라이브러리"
+        },
+        "EMPTY_STATE": {
+          "FILE_LIBRARIES": {
+            "TITLE": "아직 참여 중인 파일 라이브러리가 없습니다",
+            "TEXT": "라이브러리에 참여하여 파일을 업로드, 보기 및 공유하세요."
+          },
+          "FAVORITE_LIBRARIES": {
+            "TITLE": "즐겨찾기한 라이브러리가 없습니다",
+            "TEXT": "나중에 쉽게 찾고 싶은 라이브러리를 즐겨찾기에 추가하세요."
+          }
+        },
+        "MENU": {
+          "MY_LIBRARIES": {
+            "TITLE": "내 라이브러리",
+            "SIDENAV_LINK": {
+              "LABEL": "내 라이브러리",
+              "TOOLTIP": "내 라이브러리 액세스"
+            }
+          },
+          "FAVORITE_LIBRARIES": {
+            "TITLE": "즐겨찾기 라이브러리",
+            "SIDENAV_LINK": {
+              "LABEL": "즐겨찾기 라이브러리",
+              "TOOLTIP": "즐겨찾기한 라이브러리 액세스"
+            }
+          }
+        }
+      },
+      "SHARED": {
+        "TITLE": "공유 파일",
+        "SIDENAV_LINK": {
+          "LABEL": "공유됨",
+          "TOOLTIP": "공유된 파일 보기"
+        },
+        "EMPTY_STATE": {
+          "TITLE": "공유된 파일 또는 폴더가 없습니다",
+          "TEXT": "공유 옵션을 사용하여 공유한 항목이 여기에 표시됩니다."
+        }
+      },
+      "RECENT": {
+        "TITLE": "최근 파일",
+        "SIDENAV_LINK": {
+          "LABEL": "최근 파일",
+          "TOOLTIP": "최근에 편집한 파일 보기"
+        },
+        "EMPTY_STATE": {
+          "TITLE": "최근 파일이 없습니다",
+          "TEXT": "최근 30일 동안 업로드하거나 편집한 항목이 여기에 표시됩니다."
+        }
+      },
+      "FAVORITES": {
+        "TITLE": "즐겨찾기",
+        "SIDENAV_LINK": {
+          "LABEL": "즐겨찾기",
+          "TOOLTIP": "즐겨찾기한 파일과 폴더 보기"
+        },
+        "EMPTY_STATE": {
+          "TITLE": "즐겨찾기한 파일 또는 폴더가 없습니다",
+          "TEXT": "나중에 쉽게 찾고 싶은 항목을 즐겨찾기에 추가하세요."
+        }
+      },
+      "TRASHCAN": {
+        "TITLE": "휴지통",
+        "SIDENAV_LINK": {
+          "LABEL": "휴지통",
+          "TOOLTIP": "휴지통에서 삭제된 파일 보기"
+        },
+        "EMPTY_STATE": {
+          "TITLE": "휴지통이 비어 있습니다",
+          "FIRST_TEXT": "삭제한 항목은 휴지통으로 이동됩니다.",
+          "SECOND_TEXT": "휴지통을 비우면 항목이 영구적으로 삭제됩니다."
+        }
+      },
+      "ABOUT": {
+        "TITLE": "정보"
+      },
+      "SEARCH": {
+        "TITLE": "검색 결과",
+        "FOUND_RESULTS": "{{ number }}개의 결과를 찾았습니다",
+        "FOUND_ONE_RESULT": "{{ number }}개의 결과를 찾았습니다",
+        "CUSTOM_ROW": {
+          "MODIFIED": "수정됨",
+          "BY_USER": "{{ user }} 님",
+          "LOCATION": "위치",
+          "SIZE": "크기"
+        },
+        "UNKNOWN_LOCATION": "알 수 없음",
+        "NO_RESULTS": "검색 결과가 없습니다",
+        "TOGGLE_SEARCH_FILTER": "검색 필터 전환",
+        "ERRORS": {
+          "500": "검색어 처리 중 오류가 발생했습니다 [500]",
+          "GENERIC": "검색어 처리 중 오류가 발생했습니다"
+        }
+      },
+      "SEARCH_LIBRARIES": {
+        "TITLE": "라이브러리 검색 결과...",
+        "FOUND_RESULTS": "{{ number }}개 결과",
+        "FOUND_ONE_RESULT": "{{ number }}개 결과"
+      }
+    },
+    "ACTIONS": {
+      "VIEW": "보기",
+      "EDIT": "편집",
+      "DOWNLOAD": "다운로드",
+      "COPY": "복사",
+      "MOVE": "이동",
+      "DELETE": "삭제",
+      "DELETE_PERMANENT": "영구 삭제",
+      "MORE": "추가 작업",
+      "UNDO": "실행 취소",
+      "PERMISSIONS": "권한",
+      "RESTORE": "복원",
+      "FAVORITE": "즐겨찾기",
+      "ADD_FAVORITE": "즐겨찾기에 추가",
+      "REMOVE_FAVORITE": "즐겨찾기에서 제거",
+      "UNSHARE": "공유 해제",
+      "DETAILS": "상세 정보 보기",
+      "VERSIONS": "버전 관리",
+      "UPLOAD_VERSION": "새 버전 업로드",
+      "TOGGLE-SIDENAV": "사이드 내비게이션 바 전환",
+      "SHARE": "공유",
+      "SHARE_EDIT": "공유 링크 설정",
+      "PRINT": "인쇄",
+      "FULLSCREEN": "전체 화면 모드 활성화",
+      "JOIN": "참여",
+      "CANCEL_JOIN": "참여 요청 취소",
+      "LEAVE": "라이브러리 나가기",
+      "EDIT_OFFLINE": "오프라인 편집",
+      "EDIT_OFFLINE_CANCEL": "편집 취소"
+    },
+    "DIALOGS": {
+      "CONFIRM_PURGE": {
+        "TITLE": "휴지통에서 삭제하시겠습니까?",
+        "MESSAGE": "선택한 항목이 영구적으로 삭제됩니다.",
+        "YES_LABEL": "삭제",
+        "NO_LABEL": "유지"
+      },
+      "CONFIRM_LEAVE": {
+        "TITLE": "이 라이브러리에서 나가시겠습니까?",
+        "MESSAGE": "나가면 액세스 권한이 사라집니다.",
+        "YES_LABEL": "확인",
+        "NO_LABEL": "취소"
+      }
+    },
+    "DOCUMENT_LIST": {
+      "COLUMNS": {
+        "ID": "ID",
+        "NAME": "이름",
+        "SIZE": "크기",
+        "MODIFIED_ON": "수정됨",
+        "MODIFIED_BY": "수정한 사람",
+        "VISIBILITY": "공개 범위",
+        "TITLE": "제목",
+        "LOCATION": "위치",
+        "SHARED_BY": "공유한 사람",
+        "DELETED_ON": "삭제됨",
+        "DELETED_BY": "삭제한 사람",
+        "ROLE": "내 역할"
+      },
+      "TOOLBAR": {
+        "CARDVIEW": "카드 보기 모드",
+        "LISTVIEW": "목록 보기 모드"
+      }
+    },
+    "MESSAGES": {
+      "ERRORS": {
+        "CANNOT_NAVIGATE_LOCATION": "이 위치를 열 수 없습니다",
+        "MISSING_CONTENT": "이 항목은 더 이상 존재하지 않거나 볼 권한이 없습니다.",
+        "GENERIC": "작업이 실패했습니다. 다시 시도하거나 IT 팀에 문의하세요.",
+        "CONFLICT": "이 이름은 이미 사용 중입니다. 다른 이름을 사용해 보세요.",
+        "NODE_MOVE": "이동에 실패했습니다. 동일한 이름의 파일이 이미 존재합니다.",
+        "EXISTENT_FOLDER": "이 이름을 사용하는 폴더가 이미 있습니다. 다른 이름을 사용해 보세요.",
+        "NODE_DELETION": "{{ name }}을(를) 삭제할 수 없습니다",
+        "NODE_DELETION_PLURAL": "{{ number }}개 항목을 삭제할 수 없습니다",
+        "NODE_RESTORE": "{{ name }} 항목을 복원할 수 없습니다",
+        "NODE_RESTORE_PLURAL": "{{ number }}개 항목을 복원할 수 없습니다",
+        "PERMISSION": "이 작업을 수행할 권한이 없습니다",
+        "LOCK_NODE": "{{ fileName }} 파일을 잠그는 중 문제가 발생했습니다",
+        "UNLOCK_NODE": "There was a problem unlocking the {{ fileName }} file",
+        "TRASH": {
+          "NODES_PURGE": {
+            "PLURAL": "{{ number }}개 항목을 삭제할 수 없습니다",
+            "SINGULAR": "{{ name }}을(를) 삭제할 수 없습니다"
+          },
+          "NODES_RESTORE": {
+            "PARTIAL_PLURAL": "복원 위치 문제로 인해 {{ number }}개 항목을 복원하지 못했습니다",
+            "NODE_EXISTS": "Can't restore, {{ name }} already exists",
+            "LOCATION_MISSING": "Can't restore {{ name }}, the original location no longer exists",
+            "GENERIC": "There was a problem restoring {{ name }}"
+          }
+        },
+        "DELETE_LIBRARY_FAILED": "라이브러리를 삭제할 수 없습니다",
+        "JOIN_REQUEST_FAILED": "라이브러리에 참여할 수 없습니다",
+        "JOIN_CANCEL_FAILED": "참여 요청을 취소할 수 없습니다",
+        "LEAVE_LIBRARY_FAILED": "이 라이브러리에서 나갈 수 없습니다",
+        "INVALID_SENDER_EMAIL": "참여를 요청하려면 이메일 주소가 유효해야 합니다.",
+        "INVALID_RECEIVER_EMAIL": "수신자 이메일 주소가 올바르지 않습니다. IT 부서에 문의하세요."
+      },
+      "UPLOAD": {
+        "ERROR": {
+          "GENERIC": "업로드에 실패했습니다. 문제가 계속되면 IT 팀에 문의하세요",
+          "CONFLICT": "New version not uploaded, another file with the same name already exists",
+          "500": "내부 서버 오류입니다. 다시 시도하거나 IT 지원팀에 문의하세요 [500]",
+          "504": "서버 시간이 초과되었습니다. 다시 시도하거나 IT 지원팀에 문의하세요 [504]",
+          "403": "이 위치에 업로드할 권한이 없습니다 [403]",
+          "404": "업로드 위치가 더 이상 존재하지 않습니다 [404]"
+        }
+      },
+      "INFO": {
+        "TRASH": {
+          "NODES_PURGE": {
+            "PLURAL": "{{ number }}개 항목이 삭제되었습니다",
+            "SINGULAR": "{{ name }}이(가) 삭제되었습니다",
+            "PARTIAL_SINGULAR": "{{ name }} deleted, {{ failed }} couldn't be deleted",
+            "PARTIAL_PLURAL": "{{ number }} items deleted, {{ failed }} couldn't be deleted"
+          },
+          "NODES_RESTORE": {
+            "PLURAL": "복원 성공",
+            "SINGULAR": "{{ name }} restored"
+          }
+        },
+        "NODE_DELETION": {
+          "SINGULAR": "{{ name }}이(가) 삭제되었습니다",
+          "PLURAL": "Deleted {{ number }} items",
+          "PARTIAL_SINGULAR": "{{ success }}개 항목을 삭제했으며, {{ failed }}개는 삭제할 수 없습니다",
+          "PARTIAL_PLURAL": "{{ success }}개 항목을 삭제했으며, {{ failed }}개는 삭제할 수 없습니다"
+        },
+        "NODE_COPY": {
+          "SINGULAR": "Copied {{ success }} item",
+          "PLURAL": "Copied {{ success }} items",
+          "PARTIAL_SINGULAR": "Copied {{ success }} item, {{ failed }} couldn't be copied.",
+          "PARTIAL_PLURAL": "Copied {{ success }} items, {{ failed }} couldn't be copied.",
+          "FAIL_SINGULAR": "{{ failed }} item couldn't be copied.",
+          "FAIL_PLURAL": "{{ failed }} items couldn't be copied."
+        },
+        "NODE_MOVE": {
+          "SINGULAR": "Moved {{ success }} item.",
+          "PLURAL": "Moved {{ success }} items.",
+          "PARTIAL": {
+            "SINGULAR": "Partially moved {{ partially }} item.",
+            "PLURAL": "Partially moved {{ partially }} items.",
+            "FAIL": "{{ failed }} couldn't be moved."
+          }
+        },
+        "LIBRARY_DELETED": "Library deleted",
+        "JOINED": "Library joined",
+        "JOIN_REQUESTED": "Request sent to join this library",
+        "JOIN_CANCELED": "Canceled the request to join the library",
+        "LEFT_LIBRARY": "You have left the library"
+      }
+    },
+    "CONTENT_METADATA": {
+      "EXIF_GROUP_TITLE": "이미지 EXIF",
+      "EFFECTIVITY_GROUP_TITLE": "유효성"
+    },
+    "INFO_DRAWER": {
+      "TITLE": "상세 정보",
+      "TABS": {
+        "PROPERTIES": "속성",
+        "LIBRARY_PROPERTIES": "정보",
+        "VERSIONS": "버전",
+        "COMMENTS": "댓글"
+      }
+    }
+  },
+  "VERSION": {
+    "DIALOG_ADF": {
+      "TITLE": "버전 관리",
+      "CLOSE": "닫기"
+    },
+    "DIALOG": {
+      "TITLE": "새 버전 업로드",
+      "CANCEL": "취소",
+      "UPLOAD": "업로드"
+    },
+    "FORM": {
+      "SUBTITLE": "이 버전에 어느 정도의 변경이 있었습니까?",
+      "VERSION": {
+        "MINOR": "부 버전 (#.1)",
+        "MAJOR": "주 버전 (2.0)"
+      },
+      "COMMENT": {
+        "PLACEHOLDER": "변경 내용을 설명하는 메모를 추가하세요"
+      }
+    },
+    "SELECTION": {
+      "EMPTY": "버전을 보려면 문서를 선택하세요.",
+      "NO_PERMISSION": "이 콘텐츠의 버전을 관리할 권한이 없습니다."
+    },
+    "ERROR": {
+      "GENERIC": "파일 버전 관리 중 오류가 발생했습니다"
+    }
+  },
+  "SEARCH": {
+    "CONTROL": {},
+    "BUTTON": {
+      "TOOLTIP": "검색",
+      "ARIA-LABEL": "검색 버튼"
+    },
+    "RESULTS": {
+      "SUMMARY": "{{searchTerm}}에 대한 결과 {{numResults}}개를 찾았습니다",
+      "NONE": "{{searchTerm}}에 대한 결과가 없습니다",
+      "ERROR": "검색 중 문제가 발생했습니다. 다시 시도하세요.",
+      "COLUMNS": {
+        "NAME": "표시 이름",
+        "MODIFIED_BY": "수정한 사람",
+        "MODIFIED_AT": "수정일"
+      }
+    },
+    "FILTER": {
+      "ACTIONS": {
+        "CLEAR": "지우기",
+        "APPLY": "적용",
+        "CLEAR-ALL": "모두 지우기",
+        "SHOW-MORE": "더 보기",
+        "SHOW-LESS": "간략히 표시",
+        "FILTER-CATEGORY": "필터 카테고리"
+      },
+      "BUTTONS": {
+        "CLEAR-ALL": {
+          "LABEL": "모두 지우기",
+          "TOOLTIP": "모든 선택 항목이 제거됩니다"
+        },
+        "RESET-ALL": {
+          "LABEL": "모두 재설정",
+          "TOOLTIP": "모든 선택 항목과 필터가 재설정됩니다"
+        }
+      },
+      "RANGE": {
+        "FROM": "시작",
+        "TO": "끝",
+        "FROM-DATE": "시작",
+        "TO-DATE": "끝"
+      },
+      "VALIDATION": {
+        "REQUIRED-VALUE": "필수 값",
+        "NO-DAYS": "선택한 날짜가 없습니다.",
+        "INVALID-FORMAT": "잘못된 형식입니다",
+        "INVALID-DATE": "날짜가 잘못되었습니다. 날짜 형식은 '{{ requiredFormat }}'이어야 합니다",
+        "BEYOND-MAX-DATE": "날짜가 최대 날짜를 초과했습니다."
+      }
+    },
+    "ICONS": {
+      "ft_ic_raster_image": "이미지 파일",
+      "ft_ic_pdf": "PDF 문서",
+      "ft_ic_ms_excel": "Microsoft Excel 파일",
+      "ft_ic_ms_word": "Microsoft Word 문서",
+      "ft_ic_ms_powerpoint": "Microsoft PowerPoint 파일",
+      "ft_ic_video": "동영상 파일",
+      "ft_ic_document": "문서 파일",
+      "ft_ic_website": "웹 리소스",
+      "ft_ic_archive": "압축 파일",
+      "ft_ic_presentation": "프레젠테이션 파일",
+      "ft_ic_spreadsheet": "스프레드시트 파일"
+    },
+    "DOCUMENT_LIST": {
+      "COLUMNS": {
+        "DISPLAY_NAME": "표시 이름",
+        "CREATED_BY": "작성자",
+        "CREATED_ON": "생성됨"
+      },
+      "ACTIONS": {
+        "FOLDER": {
+          "DELETE": "삭제",
+          "MOVE": "이동",
+          "COPY": "복사"
+        },
+        "DOCUMENT": {
+          "DOWNLOAD": "다운로드",
+          "DELETE": "삭제",
+          "MOVE": "이동",
+          "COPY": "복사",
+          "PROCESS_ACTION": "프로세스 시작"
+        }
+      }
+    },
+    "INPUT": {
+      "ARIA-LABEL": "검색 입력",
+      "PLACEHOLDER": "검색",
+      "FILES": "파일",
+      "FOLDERS": "폴더",
+      "LIBRARIES": "라이브러리",
+      "HINT": "검색어는 영숫자 2자 이상이어야 합니다."
+    },
+    "SORT": {
+      "RELEVANCE": "관련성",
+      "FILENAME": "파일 이름",
+      "TITLE": "제목",
+      "MODIFIED_DATE": "수정일",
+      "SIZE": "크기",
+      "TYPE": "유형",
+      "MODIFIER": "수정자",
+      "CREATE_DATE": "생성일"
+    },
+    "FACET_FIELDS": {
+      "FILE_TYPE": "파일 형식",
+      "CREATOR": "생성자",
+      "MODIFIER": "수정자",
+      "LOCATION": "위치"
+    },
+    "CATEGORIES": {
+      "MODIFIED_DATE": "수정일",
+      "SIZE": "크기",
+      "SIZE_OPTIONS": {
+        "SMALL": "작음",
+        "MEDIUM": "보통",
+        "LARGE": "큼",
+        "HUGE": "매우 큼"
+      },
+      "CREATED_DATE": "생성일"
+    },
+    "FACET_QUERIES": {
+      "TODAY": "오늘",
+      "THIS_WEEK": "이번 주",
+      "THIS_MONTH": "이번 달",
+      "LAST_6_MONTHS": "최근 6개월 이내",
+      "THIS_YEAR": "올해"
+    },
+    "SEARCH_HEADER": {
+      "TITLE": "필터",
+      "TYPE": "유형",
+      "FILTER_BY": "{{ category }}(으)로 필터링",
+      "CLEAR": "지우기",
+      "APPLY": "적용",
+      "FILTERS": {
+        "NAME": {
+          "TITLE": "이름",
+          "PLACEHOLDER": "이름을 입력하세요"
+        },
+        "TYPE": {
+          "TITLE": "유형 확인",
+          "FOLDER": "폴더",
+          "DOCUMENT": "문서"
+        },
+        "SIZE": {
+          "TITLE": "콘텐츠 크기(범위)",
+          "SMALL": "작음",
+          "MEDIUM": "보통",
+          "LARGE": "큼",
+          "HUGE": "매우 큼"
+        },
+        "DATE": {
+          "TITLE": "생성일(범위)"
+        }
+      }
+    }
+  },
+  "CORE": {
+    "METADATA": {
+      "ACTIONS": {
+        "SAVE": "변경 내용 저장",
+        "CANCEL": "변경 내용 취소"
+      }
+    }
+  },
+  "NODE_SELECTOR": {
+    "CANCEL": "취소",
+    "CHOOSE": "선택",
+    "COPY": "복사",
+    "MOVE": "이동",
+    "NO_RESULTS": "검색 결과가 없습니다",
+    "SEARCH_RESULTS": "검색 결과",
+    "SELECT_LOCATION": "위치 선택",
+    "COPY_ITEM": "'{{ name }}'을(를) 다음 위치로 복사...",
+    "COPY_ITEMS": "{{ number }}개 항목을 다음 위치로 복사...",
+    "MOVE_ITEM": "'{{ name }}'을(를) 다음 위치로 이동...",
+    "MOVE_ITEMS": "{{ number }}개 항목을 다음 위치로 이동...",
+    "SEARCH": "검색",
+    "NEXT": "다음",
+    "SELECT_FILE_TEMPLATE_TITLE": "문서 템플릿 선택",
+    "SELECT_FOLDER_TEMPLATE_TITLE": "폴더 템플릿 선택"
+  },
+  "NODE_FROM_TEMPLATE": {
+    "CANCEL": "취소",
+    "CREATE": "생성",
+    "FOLDER_DIALOG_TITLE": "<span class=\"bold\">'{{ template }}'</span>에서 새 폴더 만들기",
+    "FILE_DIALOG_TITLE": "<span class=\"bold\">'{{ template }}'</span>에서 새 문서 만들기",
+    "FORM": {
+      "PLACEHOLDER": {
+        "NAME": "이름",
+        "TITLE": "제목",
+        "DESCRIPTION": "설명"
+      },
+      "ERRORS": {
+        "DESCRIPTION_TOO_LONG": "설명은 512자 이하로 입력하세요",
+        "TITLE_TOO_LONG": "제목은 256자 이하로 입력하세요",
+        "REQUIRED": "이름은 필수 입력 항목입니다",
+        "SPECIAL_CHARACTERS": "이름에는 * \" < > \\ / ? : | 문자를 포함할 수 없습니다",
+        "ENDING_DOT": "이름은 마침표(.)로 끝날 수 없습니다",
+        "ONLY_SPACES": "이름은 공백만으로 구성될 수 없습니다"
+      }
+    }
+  },
+  "PERMISSIONS": {
+    "DIALOG": {
+      "TITLE": "Manage Permissions",
+      "CLOSE": "닫기",
+      "INHERIT_PERMISSIONS_BUTTON": "Inherit Permissions",
+      "INHERITED_PERMISSIONS_BUTTON": "Permissions Inherited",
+      "ADD_USER_OR_GROUP": "Add User or Group"
+    }
+  },
+  "SHARED_LINK": {
+    "UNSHARE_PERMISSION_ERROR": "이 파일의 공유를 취소할 권한이 없습니다"
+  },
+  "AVATAR": {
+    "ACCESSIBILITY": {
+      "AVATAR_BUTTON_ARIA_LABEL": "User options"
+    }
+  },
+  "VERSION_LIST": {
+    "ACTIONS": {
+      "UPLOAD": {
+        "TOOLTIP": "새 버전 업로드"
+      }
+    }
+  },
+  "CUSTOM_NAME_COLUMN": {
+    "ACCESSIBILITY": {
+      "FILE_LINK_ARIA_LABEL": "{{ name }} 보기",
+      "FOLDER_LINK_ARIA_LABEL": "{{ name }} 폴더 열기"
+    }
+  }
+}

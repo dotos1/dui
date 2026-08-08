@@ -1,0 +1,1578 @@
+{
+  "SAVE": "儲存",
+  "COMPLETE": "完成",
+  "CANCEL": "取消",
+  "CLAIM": "申領",
+  "UNCLAIM": "釋放",
+  "START PROCESS": "啟動流程",
+  "FILE": {
+    "CLOSE": "關閉",
+    "DELELINE": "請選擇要刪除的行.",
+    "CONFDELE": "確認刪除",
+    "ROWS2": "條記錄?",
+    "WARNING": "警告",
+    "OK": "確定",
+    "CANCEL": "取消",
+    "FILES": "個檔案?",
+    "GIVEUP": "取消",
+    "UPLOAD_URL": "匯入檔案地址",
+    "UPLOAD_URL_MAXLENGTH": "匯入檔案地址超過最大允許長度",
+    "UPLOAD_URL_NOT_NULL": "匯入檔案地址不能為空",
+    "UPLOAD_TOKEN": "令牌",
+    "UPLOAD_TOKEN_MAXLENGTH": "令牌超過最大允許長度",
+    "UPLOAD_FROM_URL": "遠端Url載入",
+    "UPLOADTIPS": "資料庫儲存檔案不支援上傳,請用表單錄入資料!",
+    "DOWNTIPS": "只有附件模式支援資料夾下載!",
+    "DOWNTIPS2": "只有附件模式支援共享下載!",
+    "CREATTIPS": "只有附件模式支援建立word文件!",
+    "DOCNAME": "文件名稱:",
+    "NEWDOC": "新建文件",
+    "NOTNULL2": "檔名稱不能為空",
+    "CREATEXCEL": "只有附件模式支援建立Excel文件!",
+    "CHARTNAME": "圖表名稱:",
+    "NEWCHART": "新建圖表",
+    "CREATPPT": "只有附件模式支援建立幻燈片!",
+    "PPTNAME": "幻燈名稱:",
+    "NEWPPT": "新建幻燈片",
+    "NUMIMP": "匯入資料行數:",
+    "EXCELIMP": "Excel資料匯入",
+    "NOTNULL3": "匯入資料行數不能為空",
+    "NOEDIT": "列表錄入不支援編輯命令!",
+    "DOWNLOAD": "下載",
+    "CONFDOWNLOAD": "確認下載",
+    "DIREEMPTY": "目錄為空",
+    "LISTLOADING": "檔案列表載入中.....",
+    "TRYAGAIN": "發生錯誤,請重試!",
+    "VIEW": "檢視",
+    "REMOVE": "移除",
+    "REMOVE_FOLDER": "移除目錄",
+    "NEWFOLDER": "新建資料夾",
+    "UPLOADFILE": "上傳檔案",
+    "UPLOADFOLDER": "上傳資料夾",
+    "REMOVE-FOLDER": "刪除目錄",
+    "UPLOADFROMURL": "從Url上傳檔案",
+    "CONFIGURE": "設定",
+    "NEWWORD": "新建文件",
+    "EMPDOC": "空文件",
+    "PREFIX": "字首",
+    "PREFIX_NOT_NULL": "字首不能為空",
+    "BASESHAREURL": "共享地址",
+    "BASESHAREURL_NOT_NULL": "共享地址不能為空",
+    "MAX_UPLOAD_SIZE": "最大上傳檔案",
+    "MAX_UPLOAD_SIZE_NOT_NULL": "最大上傳檔案不能為空",
+    "SHARED_LINK_DATETIMEPICKER_TYPE": "共享檔案日期類型",
+    "DATE": "短日期",
+    "DATETIME": "時間",
+    "PAGINATION_SIZE": "單頁行數",
+    "PAGINATION_SIZE_NOT_NULL": "單頁行數不能為空",
+    "CONFIGURE-TITLE": "設定",
+    "CONFIRM": "確定",
+    "NEWWORDTEMP": "從模板建立",
+    "PERMMANA": "權限管理",
+    "MOVETO": "移動到",
+    "UNZIP": "解壓縮",
+    "FAVORITE": "收藏",
+    "REMOVEFAV": "取消收藏",
+    "DIRECTORY-REMOVE": "刪除目錄",
+    "RENAME": "重新命名",
+    "EMPTYTRASH": "清空回收站",
+    "SHARELINK": "分享連結",
+    "DETAIL": "詳細資訊",
+    "MOREOPER": "更多操作",
+    "OPEN": "開啟",
+    "COPYTO": "複製到",
+    "DELFOREVER": "永久刪除",
+    "RESTORE": "恢復",
+    "NOTEMPTY": "檔名稱不能為空",
+    "CONFDEL": "確認刪除\"",
+    "PERDEL": "將永久刪除回收站中的所有檔案和資料夾",
+    "NEW": "新建",
+    "COPYSUCC": "檔案複製成功!",
+    "SELCHARTTEMP": "選擇圖表模板",
+    "DOCTEMP": "選擇文件模板",
+    "PPTTEMP": "選擇幻燈模板",
+    "PREVIEWEDTIPS": "資料夾位於回收站中,不可預覽,您需要從回收站中還原!"
+  },
+  "NOTIFICATION_HISTORY": {
+    "NO_MESSAGE": "無訊息",
+    "NOTIFICATIONS": "通知",
+    "MARK_AS_READ": "全部標記為已讀"
+  },
+  "BROWSE": {
+    "PERSONAL": {
+      "TITLE": "個人檔案",
+      "SIDENAV_LINK": {
+        "LABEL": "個人檔案",
+        "TOOLTIP": "檢視您的個人檔案"
+      }
+    },
+    "RECENT": {
+      "TITLE": "最近的檔案",
+      "SIDENAV_LINK": {
+        "LABEL": "最近的檔案",
+        "TOOLTIP": "檢視最近編輯的檔案"
+      },
+      "EMPTY_STATE": {
+        "TITLE": "無最近的檔案",
+        "TEXT": "此處顯示了您過去 30 天上傳或編輯的專案。"
+      }
+    },
+    "FAVORITES": {
+      "TITLE": "收藏夾",
+      "SIDENAV_LINK": {
+        "LABEL": "收藏夾",
+        "TOOLTIP": "檢視您收藏的檔案和資料夾"
+      },
+      "EMPTY_STATE": {
+        "TITLE": "無收藏夾檔案或資料夾",
+        "TEXT": "您想要在以後輕鬆查詢的收藏夾專案。"
+      }
+    },
+    "TRASHCAN": {
+      "TITLE": "回收站",
+      "SIDENAV_LINK": {
+        "LABEL": "回收站",
+        "TOOLTIP": "檢視回收站中的已刪除檔案"
+      },
+      "EMPTY_STATE": {
+        "TITLE": "回收站為空",
+        "FIRST_TEXT": "您刪除的專案已移至回收站。",
+        "SECOND_TEXT": "清空回收站以永久刪除專案。"
+      }
+    },
+    "SEARCH": {
+      "TITLE": "搜尋結果",
+      "FOUND_RESULTS": "找到 {{ number }} 個結果",
+      "FOUND_ONE_RESULT": "找到 {{ number }} 個結果",
+      "CUSTOM_ROW": {
+        "MODIFIED": "已修改",
+        "BY_USER": "由 {{ user }}",
+        "LOCATION": "位置",
+        "SIZE": "大小"
+      },
+      "UNKNOWN_LOCATION": "未知",
+      "NO_RESULTS": "您的搜尋返回了 0 個結果",
+      "TOGGLE_SEARCH_FILTER": "切換搜尋過濾器",
+      "ERRORS": {
+        "500": "處理搜尋查詢時發生錯誤 [500]",
+        "GENERIC": "處理搜尋查詢時發生錯誤"
+      }
+    },
+    "SEARCH_LIBRARIES": {
+      "TITLE": "庫找到...",
+      "FOUND_RESULTS": "{{ number }} 個結果",
+      "FOUND_ONE_RESULT": "{{ number }} 個結果"
+    }
+  },
+  "FORM": {
+    "START_FORM": {
+      "TITLE": "啟動表單"
+    },
+    "PREVIEW": {
+      "IMAGE_NOT_AVAILABLE": "預覽不可用"
+    },
+    "FIELD": {
+      "LOCALSTORAGE": "本地儲存",
+      "SOURCE": "來源選自 ",
+      "SHOW_FILE": "顯示",
+      "DOWNLOAD_FILE": "下載",
+      "REMOVE_FILE": "刪除",
+      "UPLOAD": "上傳",
+      "REQUIRED": "*必需",
+      "VALIDATOR": {
+        "INVALID_NUMBER": "使用其他數字格式",
+        "INVALID_DATE": "使用其他日期格式",
+        "INVALID_VALUE": "使用其他值",
+        "NOT_GREATER_THAN": "不能大於 {{ maxValue }}",
+        "NOT_LESS_THAN": "不能小於 {{ minValue }}",
+        "AT_LEAST_LONG": "至少輸入 {{ minLength }} 個字元",
+        "NO_LONGER_THAN": "輸入不超過 {{ maxLength }} 個字元"
+      }
+    },
+    "FORM_RENDERER": {
+      "NAMELESS_TASK": "無名稱的任務"
+    }
+  },
+  "FILE_SIZE": {
+    "BYTES": "位元組",
+    "KB": "KB",
+    "MB": "MB",
+    "GB": "GB",
+    "TB": "TB",
+    "PB": "PB",
+    "EB": "EB",
+    "ZB": "ZB",
+    "YB": "YB"
+  },
+  "PAGINATION": {
+    "ARIA": {
+      "ITEMS_PER_PAGE": "頁面大小選擇器",
+      "CURRENT_PAGE": "當前頁面選擇器",
+      "PREVIOUS_PAGE": "上一頁按鈕",
+      "NEXT_PAGE": "下一頁按鈕"
+    },
+    "ITEMS_RANGE": "顯示 {{range}}/{{total}}",
+    "ITEMS_PER_PAGE": "每頁的專案",
+    "CURRENT_PAGE": "第 {{number}} 頁",
+    "TOTAL_PAGES": "/共 {{total}} 頁"
+  },
+  "DIALOG": {
+    "DOWNLOAD_ZIP": {
+      "ACTIONS": {
+        "CANCEL": "取消"
+      },
+      "TITLE": "新增檔案至 zip，此操作需要數分鐘時間"
+    }
+  },
+  "FILE_DIALOG": {
+    "FILE_LOCK": "鎖定檔案",
+    "ALLOW_OTHERS_CHECKBOX": "允許所有者修改此檔案",
+    "FILE_LOCK_CHECKBOX": "鎖定檔案",
+    "TIME_LOCK_CHECKBOX": "鎖定時間",
+    "SAVE_BUTTON": {
+      "LABEL": "儲存"
+    },
+    "CANCEL_BUTTON": {
+      "LABEL": "取消"
+    }
+  },
+  "UPLOADURL_DIALOG": {
+    "URL_DOWNLOAD": "Url上傳檔案",
+    "FILE_NAME": {
+      "LABEL": "檔名稱",
+      "ERRORS": {
+        "REQUIRED": "需要資料夾名稱",
+        "SPECIAL_CHARACTERS": "檔名稱不能包含 * \" < > \\ / ? : | 字元",
+        "ENDING_DOT": "檔名稱不能以句點結尾",
+        "ONLY_SPACES": "檔名稱不能只包含空格"
+      }
+    },
+    "URL": {
+      "LABEL": "檔案下載地址"
+    },
+    "CREATE_BUTTON": {
+      "LABEL": "確定"
+    },
+    "CANCEL_BUTTON": {
+      "LABEL": "取消"
+    }
+  },
+  "FOLDER_DIALOG": {
+    "CREATE_FOLDER_TITLE": "新建資料夾",
+    "EDIT_FOLDER_TITLE": "編輯資料夾",
+    "EDIT_FILE_TITLE": "編輯檔名稱",
+    "FOLDER_NAME": {
+      "LABEL": "名稱",
+      "ERRORS": {
+        "REQUIRED": "需要資料夾名稱",
+        "SPECIAL_CHARACTERS": "資料夾名稱不能包含 * \" < > \\ / ? : | 字元",
+        "ENDING_DOT": "資料夾名稱不能以句點結尾 。",
+        "ONLY_SPACES": "資料夾名稱不能只包含空格"
+      }
+    },
+    "FOLDER_DESCRIPTION": {
+      "LABEL": "說明"
+    },
+    "CREATE_BUTTON": {
+      "LABEL": "建立"
+    },
+    "UPDATE_BUTTON": {
+      "LABEL": "更新"
+    },
+    "CANCEL_BUTTON": {
+      "LABEL": "取消"
+    }
+  },
+  "MESSAGES": {
+    "ERRORS": {
+      "GENERIC": "此操作未成功，請重試或聯絡您的 IT 團隊。",
+      "EXISTENT_FOLDER": "存在使用此名稱的資料夾。請嘗試使用其他名稱。"
+    }
+  },
+  "RESTORE_NODE": {
+    "VIEW": "檢視",
+    "PARTIAL_PLURAL": "{{ number }} 個專案無法恢復，因為恢復位置存在問題",
+    "NODE_EXISTS": "無法恢復，{{ name }} 專案已存在",
+    "LOCATION_MISSING": "無法恢復 {{ name }} 專案，原位置不存在",
+    "GENERIC": "恢復 {{ name }} 專案時出現問題",
+    "PLURAL": "成功恢復",
+    "SINGULAR": "{{ name }} 專案已恢復"
+  },
+  "DELETE_NODE": {
+    "SINGULAR": "{{ name }} 已刪除",
+    "PLURAL": "{{ number }} 個專案已刪除",
+    "PARTIAL_SINGULAR": "已刪除 {{ success }} 專案，{{ failed }} 無法刪除",
+    "PARTIAL_PLURAL": "已刪除 {{ success }} 專案，{{ failed }} 無法刪除",
+    "ERROR_SINGULAR": "{{ name }} 無法刪除",
+    "ERROR_PLURAL": "{{ number }} 個專案無法刪除"
+  },
+  "CARDVIEW": {
+    "KEYVALUEPAIRS": {
+      "ADD": "新增",
+      "NAME": "名稱",
+      "VALUE": "值"
+    },
+    "VALIDATORS": {
+      "FLOAT_VALIDATION_ERROR": "使用數字格式",
+      "INT_VALIDATION_ERROR": "使用整數格式"
+    },
+    "NONE": "None"
+  },
+  "METADATA": {
+    "BASIC": {
+      "HEADER": "屬性",
+      "NAME": "名稱",
+      "TITLE": "標題",
+      "DESCRIPTION": "說明",
+      "AUTHOR": "作者",
+      "MIMETYPE": "MIME 類型",
+      "SIZE": "檔案大小",
+      "CREATOR": "建立者",
+      "CREATED_DATE": "建立日期",
+      "MODIFIER": "修改者",
+      "MODIFIED_DATE": "修改日期"
+    },
+    "ACTIONS": {
+      "EDIT": "編輯",
+      "SAVE": "儲存",
+      "CANCEL": "取消",
+      "TOGGLE": "切換值",
+      "CLEAR": "Clear"
+    },
+    "ERRORS": {
+      "GENERIC": "更新屬性時出錯",
+      "409": "不允許存在重複的子名稱 [409]",
+      "422": "屬性值無效"
+    }
+  },
+  "COMMENTS": {
+    "NONE": "無註釋",
+    "ADD": "新增",
+    "HEADER": "評論 ({{ count }})",
+    "CREATED_BY_HEADER": "建立者",
+    "MESSAGE_HEADER": "訊息",
+    "DIALOG": {
+      "TITLE": "新增評論",
+      "LABELS": {
+        "MESSAGE": "訊息"
+      },
+      "BUTTON": {
+        "ADD": "新增註釋",
+        "CANCEL": "取消"
+      }
+    }
+  },
+  "EMPTY": {
+    "HEADER": "此資料夾為空",
+    "DRAG-AND-DROP": {
+      "TITLE": "拖放",
+      "SUBTITLE": "要上傳檔案"
+    }
+  },
+  "CONTENT-ACTIONS": {
+    "TOOLTIP": "內容操作"
+  },
+  "ACCESSIBILITY": {
+    "SELECT_ALL": "全選",
+    "SELECT_FILE": "選擇檔案"
+  },
+  "USER_PROFILE": {
+    "LABELS": {
+      "ECM": {
+        "JOB_TITLE": "作業標題"
+      },
+      "BPM": {
+        "TENANT": "租戶"
+      }
+    },
+    "TAB": {
+      "CS": "Content Services",
+      "PS": "Process Services"
+    }
+  },
+  "ERROR_CONTENT": {
+    "UNKNOWN": {
+      "TITLE": "我們遇到一個問題。",
+      "DESCRIPTION": "看似發生錯誤。",
+      "SECONDARY_BUTTON": {
+        "TEXT": ""
+      },
+      "RETURN_BUTTON": {
+        "TEXT": "返回到主頁"
+      }
+    },
+    "403": {
+      "TITLE": "您沒有訪問此伺服器的權限。",
+      "DESCRIPTION": "不允許您訪問伺服器上的此資源。",
+      "SECONDARY_BUTTON": {
+        "TEXT": "報告問題"
+      },
+      "RETURN_BUTTON": {
+        "TEXT": "返回到主頁"
+      }
+    },
+    "404": {
+      "TITLE": "出現錯誤。",
+      "DESCRIPTION": "我們無法找到您正在查詢的頁面。",
+      "SECONDARY_BUTTON": {
+        "TEXT": ""
+      },
+      "RETURN_BUTTON": {
+        "TEXT": "返回到主頁"
+      }
+    },
+    "500": {
+      "TITLE": "出現錯誤。",
+      "DESCRIPTION": "內部伺服器錯誤，請重試或聯絡 IT 支援 [500]。",
+      "SECONDARY_BUTTON": {
+        "TEXT": ""
+      },
+      "RETURN_BUTTON": {
+        "TEXT": "返回到主頁"
+      }
+    },
+    "502": {
+      "TITLE": "出現錯誤。",
+      "DESCRIPTION": "錯誤閘道器，請重試或聯絡 IT 支援 [502]。",
+      "SECONDARY_BUTTON": {
+        "TEXT": ""
+      },
+      "RETURN_BUTTON": {
+        "TEXT": "返回到主頁"
+      }
+    },
+    "504": {
+      "TITLE": "出現錯誤。",
+      "DESCRIPTION": "伺服器超時，請重試或聯絡 IT 支援 [504]。",
+      "SECONDARY_BUTTON": {
+        "TEXT": ""
+      },
+      "RETURN_BUTTON": {
+        "TEXT": "返回到主頁"
+      }
+    }
+  },
+  "VERSION_LIST": {
+    "ACTIONS": {
+      "RESTORE": "恢復",
+      "DELETE": "刪除",
+      "DOWNLOAD": "下載",
+      "VIEW": "檢視",
+      "UPLOAD": {
+        "TITLE": "上傳新版本",
+        "TOOLTIP": "限制：您必須上傳同名檔案才能建立該檔案的新版本",
+        "MAJOR": "主要更改 (2.0)",
+        "MINOR": "次要更改 (1.1)",
+        "COMMENT": "發表評論",
+        "ADD": "新增新版本",
+        "CANCEL": "取消"
+      }
+    },
+    "CONFIRM_DELETE": {
+      "TITLE": "刪除版本",
+      "MESSAGE": "已刪除的檔案版本無法恢復。是否繼續？",
+      "YES_LABEL": "是",
+      "NO_LABEL": "否"
+    }
+  },
+  "EXT_DROPDOWN": {
+    "LOADING": "正在載入..."
+  },
+  "EXT_CONFIRM_DIALOG": {
+    "TITLE": "確認",
+    "ACTION": "是否繼續？",
+    "YES_LABEL": "是",
+    "NO_LABEL": "否"
+  },
+  "NO_PERMISSION": "您沒有檢視該檔案或資料夾的權限。",
+  "LAYOUT": {
+    "CREATED": "已建立",
+    "THUMBNAIL": "縮圖",
+    "NAME": "名稱",
+    "LOCATION": "位置",
+    "SIZE": "大小",
+    "DELETED_ON": "已刪除",
+    "DELETED_BY": "刪除人",
+    "STATUS": "狀態",
+    "DESCRIPTION": "描述",
+    "MODIFIED_ON": "已修改",
+    "MODIFIED_BY": "修改人",
+    "SHARED_BY": "分享人",
+    "LOAD_MORE": "載入更多"
+  },
+  "MENU_ACTIONS": {
+    "VIEW": "檢視",
+    "REMOVE": "刪除",
+    "DOWNLOAD": "下載"
+  },
+  "ALFRESCO_DOCUMENT_LIST": {
+    "BUTTON": {
+      "ACTION_CREATE": "建立...",
+      "ACTION_NEW_FOLDER": "新建資料夾",
+      "CREATE": "建立",
+      "CANCEL": "取消"
+    }
+  },
+  "FOLDERAUTH": {
+    "VIEW": "檢視",
+    "DOWNLOAD": "下載",
+    "UPLOAD": "上傳",
+    "FULL": "完全控制",
+    "DEPT_ALL_USERS": "部門內所有人員",
+    "ALL_USERS": "所有子部門人員"
+  },
+  "DROPDOWN": {
+    "PLACEHOLDER_LABEL": "網站列表",
+    "MY_FILES_OPTION": "我的檔案"
+  },
+  "NODE_SELECTOR": {
+    "CANCEL": "取消",
+    "CHOOSE": "選擇",
+    "COPY": "複製",
+    "COPY_ITEM": "將 '{{ name }}' 複製到...",
+    "MOVE": "移動",
+    "MOVE_ITEM": "將 '{{ name }}' 移動到...",
+    "NO_RESULTS": "未找到結果",
+    "SEARCH_RESULTS": "搜尋結果",
+    "SELECT_LOCATION": "選擇位置",
+    "COPY_ITEMS": "將 {{ number }} 個專案複製到...",
+    "MOVE_ITEMS": "將 {{ number }} 個專案移動到...",
+    "SEARCH": "搜尋",
+    "NEXT": "下一個",
+    "FILE_NAME": "新建檔名稱",
+    "SELECT_FILE_TEMPLATE_TITLE": "選擇一個文件模板",
+    "SELECT_FOLDER_TEMPLATE_TITLE": "選擇一個資料夾模板"
+  },
+  "OPERATION": {
+    "SUCCESS": {
+      "CONTENT": {
+        "COPY": "複製成功",
+        "MOVE": "移動成功"
+      },
+      "FOLDER": {
+        "COPY": "複製成功",
+        "MOVE": "移動成功"
+      }
+    },
+    "ERROR": {
+      "CONFLICT": "此名稱已使用，請嘗試其他名稱。",
+      "UNKNOWN": "此操作未成功，請重試或聯絡您的 IT 團隊。",
+      "PERMISSION": "您沒有執行此操作的訪問權。"
+    }
+  },
+  "TAG": {
+    "LABEL": {
+      "NEWTAG": "新建標籤"
+    },
+    "MESSAGES": {
+      "EXIST": "標籤已存在"
+    },
+    "BUTTON": {
+      "ADD": "新增標題"
+    }
+  },
+  "FILE_UPLOAD": {
+    "BUTTON": {
+      "MINIMIZE": "最小化(&M)",
+      "MAXIMIZE": "最大化",
+      "CLOSE": "關閉",
+      "CANCEL_ALL": "取消上傳",
+      "CANCEL_FILE": "取消上傳",
+      "REMOVE_FILE": "移除已上傳檔案",
+      "UPLOAD_FILE": "上傳檔案",
+      "UPLOAD_FOLDER": "上傳資料夾"
+    },
+    "STATUS": {
+      "FILE_CANCELED_STATUS": "已取消"
+    },
+    "CONFIRMATION": {
+      "BUTTON": {
+        "CANCEL": "是",
+        "CONTINUE": "否"
+      },
+      "MESSAGE": {
+        "TITLE": "取消上傳",
+        "TEXT": "停止上傳並移除已上傳檔案。"
+      }
+    },
+    "VERSION": {
+      "MESSAGES": {
+        "NO_ACCEPTED_FILE_TYPES": "請注意，\"acceptedFilesType\"的設定對於新版本上傳沒有影響。檔案類型將與原始檔案的類型相同。",
+        "INCOMPATIBLE_VERSION": "只有同一類型的檔案可以作為新版本上傳。"
+      }
+    },
+    "MESSAGES": {
+      "UPLOAD_CANCELED": "取消上傳",
+      "UPLOAD_PROGRESS": "已上傳 {{completed}} 個/共 {{total}} 個",
+      "UPLOAD_ERROR": "{{total}} 個未成功上傳",
+      "UPLOAD_ERRORS": "{{total}} 個未成功上傳",
+      "PROGRESS": "正在上傳...",
+      "FOLDER_ALREADY_EXIST": "資料夾 {0} 已存在",
+      "FOLDER_NOT_SUPPORTED": "您的瀏覽器不支援資料夾上傳，請使用其他瀏覽器",
+      "REMOVE_FILE_ERROR": "{{fileName}} 無法移除，請重試或聯絡您的 IT 團隊。",
+      "REMOVE_FILES_ERROR": "{{total}} 個檔案無法移除，請重試或聯絡您的 IT 團隊。",
+      "EXCEED_MAX_FILE_SIZE": "檔案 {{ fileName }} 超出{{allowSize}}允許檔案大小"
+    },
+    "ACTION": {
+      "UNDO": "撤消"
+    },
+    "ERRORS": {
+      "GENERIC": "上傳不成功。如果此問題仍然存在，請聯絡 IT 人員",
+      "500": "內部伺服器錯誤，請重試或聯絡 IT 支援人員 [500]",
+      "504": "伺服器超時，請重試或聯絡 IT 支援人員 [504]",
+      "403": "權限不足，無法在此位置中進行上傳 [403]",
+      "404": "上傳位置不再存在 [404]",
+      "409": "已存在同名檔案 [409]"
+    },
+    "ARIA-LABEL": {
+      "ERROR": "上傳錯誤",
+      "VERSION": "檔案版本"
+    }
+  },
+  "WEBSCRIPT": {
+    "ERROR": "無法完成該操作。將此資訊告知您的 IT 團隊：將 {{data}} 反序列化為 {{contentType}} 過程中出錯"
+  },
+  "SEARCH": {
+    "CONTROL": {},
+    "BUTTON": {
+      "TOOLTIP": "搜尋",
+      "ARIA-LABEL": "搜尋按鈕"
+    },
+    "INPUT": {
+      "ARIA-LABEL": "搜尋輸入",
+      "PLACEHOLDER": "Search",
+      "FILES": "Files",
+      "FOLDERS": "Folders",
+      "LIBRARIES": "Libraries",
+      "HINT": "Search input must have at least 2 alphanumeric characters."
+    },
+    "RESULTS": {
+      "SUMMARY": "已找到 {{numResults}} 個 {{searchTerm}} 的結果",
+      "NONE": "未找到 {{searchTerm}} 的結果",
+      "ERROR": "搜尋過程中遇到問題，請重試。",
+      "COLUMNS": {
+        "NAME": "顯示名稱",
+        "MODIFIED_BY": "修改人",
+        "MODIFIED_AT": "修改時間"
+      }
+    },
+    "FILTER": {
+      "ACTIONS": {
+        "CLEAR": "清除",
+        "APPLY": "應用",
+        "CLEAR-ALL": "全部清除",
+        "SHOW-MORE": "顯示更多",
+        "SHOW-LESS": "顯示更少",
+        "FILTER-CATEGORY": "過濾類別"
+      },
+      "BUTTONS": {
+        "CLEAR-ALL": {
+          "LABEL": "全部清除",
+          "TOOLTIP": "這將刪除所有選擇"
+        },
+        "RESET-ALL": {
+          "LABEL": "全部重置",
+          "TOOLTIP": "這將重置所有選擇和篩選器"
+        }
+      },
+      "RANGE": {
+        "FROM": "從",
+        "TO": "到",
+        "FROM-DATE": "從",
+        "TO-DATE": "到"
+      },
+      "VALIDATION": {
+        "REQUIRED-VALUE": "必需值",
+        "NO-DAYS": "未選擇天數。",
+        "INVALID-FORMAT": "格式無效",
+        "INVALID-DATE": "日期無效。日期的格式必須為 '{{ requiredFormat }}'",
+        "BEYOND-MAX-DATE": "日期超過最大日期。"
+      },
+      "INPUT": {
+        "PLACEHOLDER": "搜尋",
+        "FILES": "檔案",
+        "FOLDERS": "資料夾",
+        "LIBRARIES": "庫",
+        "HINT": "搜尋輸入必須至少具有 2 個字母數字字元。"
+      },
+      "SORT": {
+        "RELEVANCE": "相關性",
+        "FILENAME": "檔名",
+        "TITLE": "標題",
+        "MODIFIED_DATE": "修改日期",
+        "SIZE": "大小",
+        "TYPE": "類型",
+        "MODIFIER": "修改者",
+        "CREATE_DATE": "建立日期"
+      },
+      "FACET_FIELDS": {
+        "FILE_TYPE": "檔案類型",
+        "CREATOR": "建立者",
+        "MODIFIER": "修改者",
+        "LOCATION": "位置"
+      },
+      "CATEGORIES": {
+        "MODIFIED_DATE": "修改日期",
+        "SIZE": "大小",
+        "SIZE_OPTIONS": {
+          "SMALL": "小",
+          "MEDIUM": "中",
+          "LARGE": "大",
+          "HUGE": "特大"
+        },
+        "CREATED_DATE": "建立日期"
+      },
+      "FACET_QUERIES": {
+        "TODAY": "今天",
+        "THIS_WEEK": "本週",
+        "THIS_MONTH": "本月",
+        "LAST_6_MONTHS": "最近 6 個月",
+        "THIS_YEAR": "今年"
+      }
+    },
+    "ICONS": {
+      "ft_ic_raster_image": "影象檔案",
+      "ft_ic_pdf": "PDF 文件",
+      "ft_ic_ms_excel": "Microsoft Excel 檔案",
+      "ft_ic_ms_word": "Microsoft Word 文件",
+      "ft_ic_ms_powerpoint": "Microsoft PowerPoint 檔案",
+      "ft_ic_video": "影片檔案",
+      "ft_ic_document": "文件檔案",
+      "ft_ic_website": "網站資源",
+      "ft_ic_archive": "存檔檔案",
+      "ft_ic_presentation": "描述檔案",
+      "ft_ic_spreadsheet": "電子表格檔案"
+    },
+    "DOCUMENT_LIST": {
+      "COLUMNS": {
+        "DISPLAY_NAME": "顯示名稱",
+        "CREATED_BY": "建立者",
+        "CREATED_ON": "已建立"
+      },
+      "ACTIONS": {
+        "FOLDER": {
+          "DELETE": "刪除",
+          "MOVE": "移動",
+          "COPY": "複製"
+        },
+        "DOCUMENT": {
+          "DOWNLOAD": "下載",
+          "DELETE": "刪除",
+          "MOVE": "移動",
+          "COPY": "複製",
+          "PROCESS_ACTION": "啟動流程"
+        }
+      }
+    },
+    "SORT": {
+      "RELEVANCE": "相關性",
+      "FILENAME": "檔名",
+      "TITLE": "標題",
+      "MODIFIED_DATE": "修改日期",
+      "SIZE": "大小",
+      "TYPE": "類型",
+      "MODIFIER": "修改者",
+      "CREATE_DATE": "建立日期"
+    },
+    "FACET_FIELDS": {
+      "FILE_TYPE": "檔案類型",
+      "CREATOR": "建立者",
+      "MODIFIER": "修改者",
+      "LOCATION": "位置"
+    },
+    "CATEGORIES": {
+      "MODIFIED_DATE": "修改日期",
+      "SIZE": "大小",
+      "SIZE_OPTIONS": {
+        "SMALL": "小",
+        "MEDIUM": "中",
+        "LARGE": "大",
+        "HUGE": "特大"
+      },
+      "CREATED_DATE": "建立日期"
+    },
+    "FACET_QUERIES": {
+      "TODAY": "今天",
+      "THIS_WEEK": "本週",
+      "THIS_MONTH": "本月",
+      "LAST_6_MONTHS": "最近 6 個月",
+      "THIS_YEAR": "今年"
+    },
+    "SEARCH_HEADER": {
+      "TITLE": "Filter",
+      "TYPE": "Type",
+      "FILTER_BY": "Filter by {{ category }}",
+      "CLEAR": "Clear",
+      "APPLY": "Apply",
+      "FILTERS": {
+        "NAME": {
+          "TITLE": "Name",
+          "PLACEHOLDER": "Enter the name"
+        },
+        "TYPE": {
+          "TITLE": "Check type",
+          "FOLDER": "Folder",
+          "DOCUMENT": "Document"
+        },
+        "SIZE": {
+          "TITLE": "Content Size (range)",
+          "SMALL": "Small",
+          "MEDIUM": "Medium",
+          "LARGE": "Large",
+          "HUGE": "Huge"
+        },
+        "DATE": {
+          "TITLE": "Created Date (range)"
+        }
+      }
+    }
+  },
+  "PERMISSION": {
+    "LACKOF": "您沒有 {{action}} {{type}} 的 {{permission}} 權限"
+  },
+  "SHARE": {
+    "PUBLIC-LINK": "公共連結",
+    "DIALOG-TITLE": "共享",
+    "DESCRIPTION": "單擊下面的連結以將其複製到剪貼簿。",
+    "TITLE": "要共享的連結",
+    "EXPIRES": "到期日期",
+    "CLIPBOARD-MESSAGE": "已複製到剪貼簿的連結",
+    "CLOSE": "關閉",
+    "CONFIRMATION": {
+      "DIALOG-TITLE": "刪除此共享連結",
+      "MESSAGE": "此連結將被刪除，下次共享此檔案時將會建立新連結",
+      "CANCEL": "取消",
+      "REMOVE": "刪除"
+    },
+    "UNSHARE_ERROR": "取消共享此檔案時出錯",
+    "UNSHARE_PERMISSION_ERROR": "你沒有權限取消這個檔案的共享"
+  },
+  "PERMISSION_MANAGER": {
+    "PERMISSION": "設定權限",
+    "PERMISSION_DISPLAY": {
+      "INHERITED": "已繼承",
+      "AUTHORITY_ID": "權限 ID",
+      "ROLE": "角色",
+      "LOCALLY_SET": "本地設定",
+      "NO_PERMISSIONS": "無權限"
+    },
+    "ADD-PERMISSION": {
+      "SEARCH": "搜尋",
+      "TYPE-MESSAGE": "輸入內容以開始搜尋組或人員",
+      "NO-RESULT": "找不到此搜尋的結果",
+      "ADD-ACTION": "新增",
+      "CLOSE-ACTION": "關閉",
+      "BASE-DIALOG-TITLE": "搜尋要新增的組或人員...",
+      "EVERYONE": "任何人"
+    },
+    "ERROR": {
+      "DUPLICATE-PERMISSION": "您所設定的一個或多個權限已經存在：{{list}}",
+      "NOT-ALLOWED": "不允許更改權限"
+    },
+    "CANCEL": "取消",
+    "YES_LABEL": "確定"
+  },
+  "EXT-TREE-VIEW": {
+    "MISSING-ID": "未提供節點 ID！"
+  },
+  "APP": {
+    "SETTINGS": {
+      "TITLE": "設定",
+      "APPLICATION-SETTINGS": "應用程式設定",
+      "REPOSITORY-SETTINGS": "儲存庫設定",
+      "INVALID-VALUE-FORMAT": "值格式無效",
+      "REQUIRED-FIELD": "此欄位為必填欄位",
+      "RESET": "重置",
+      "APPLY": "應用"
+    },
+    "PREVIEW": {
+      "TITLE": "預覽"
+    },
+    "NEW_MENU": {
+      "LABEL": "新建",
+      "TOOLTIP": "新增新檔案或資料夾，或者建立新檔案庫",
+      "MENU_ITEMS": {
+        "CREATE_FOLDER": "建立資料夾",
+        "UPLOAD_FILE": "上傳檔案",
+        "UPLOAD_FOLDER": "上傳資料夾",
+        "CREATE_LIBRARY": "建立庫"
+      },
+      "TOOLTIPS": {
+        "CREATE_FOLDER": "新建資料夾",
+        "CREATE_FOLDER_NOT_ALLOWED": "檢視當前專案時無法建立資料夾",
+        "UPLOAD_FILES": "選擇要上傳的檔案",
+        "UPLOAD_FILES_NOT_ALLOWED": "檢視當前專案時無法上傳檔案",
+        "UPLOAD_FOLDERS": "選擇要上傳的資料夾",
+        "UPLOAD_FOLDERS_NOT_ALLOWED": "檢視當前專案時無法上傳資料夾",
+        "CREATE_LIBRARY": "建立一個新的檔案庫"
+      }
+    },
+    "ACTIONS": {
+      "VIEW": "檢視",
+      "EDIT": "編輯",
+      "DOWNLOAD": "下載",
+      "COPY": "複製",
+      "MOVE": "移動",
+      "DELETE": "刪除",
+      "DELETE_PERMANENT": "永久刪除",
+      "MORE": "更多操作",
+      "UNDO": "撤消",
+      "PERMISSIONS": "權限",
+      "RESTORE": "恢復",
+      "FAVORITE": "收藏",
+      "ADD_FAVORITE": "新增收藏",
+      "REMOVE_FAVORITE": "刪除收藏",
+      "UNSHARE": "取消共享",
+      "DETAILS": "檢視詳細資訊",
+      "VERSIONS": "管理版本",
+      "UPLOAD_VIEW_FILE": "上傳檢視檔案",
+      "UPLOAD_VERSION": "上傳新版本",
+      "TOGGLE-SIDENAV": "切換側導航欄",
+      "SHARE": "共享",
+      "SHARE_EDIT": "已共享連結的設定",
+      "PRINT": "列印",
+      "FULLSCREEN": "啟用全屏模式",
+      "JOIN": "加入",
+      "CANCEL_JOIN": "取消加入請求",
+      "LEAVE": "離開庫",
+      "EDIT_OFFLINE": "離線編輯",
+      "EDIT_OFFLINE_CANCEL": "取消編輯"
+    },
+    "DIALOGS": {
+      "CONFIRM_PURGE": {
+        "TITLE": "要從回收站刪除嗎？",
+        "MESSAGE": "所選定的項將會被永久刪除。",
+        "YES_LABEL": "刪除",
+        "NO_LABEL": "保留"
+      },
+      "CONFIRM_LEAVE": {
+        "TITLE": "要離開該庫嗎？",
+        "MESSAGE": "離開將會刪除您的訪問權。",
+        "YES_LABEL": "確定",
+        "NO_LABEL": "取消"
+      }
+    },
+    "DOCUMENT_LIST": {
+      "COLUMNS": {
+        "ID": "ID",
+        "NAME": "名稱",
+        "SIZE": "大小",
+        "MODIFIED_ON": "已修改",
+        "MODIFIED_BY": "修改人",
+        "VISIBILITY": "可見性",
+        "TITLE": "標題",
+        "LOCATION": "位置",
+        "SHARED_BY": "分享人",
+        "DELETED_ON": "已刪除",
+        "DELETED_BY": "刪除人",
+        "ROLE": "我的角色"
+      },
+      "TOOLBAR": {
+        "CARDVIEW": "卡檢視模式",
+        "LISTVIEW": "列表檢視模式"
+      }
+    },
+    "MESSAGES": {
+      "ERRORS": {
+        "CANNOT_NAVIGATE_LOCATION": "無法開啟此位置",
+        "MISSING_CONTENT": "此專案不再存在，或者您無權對其進行檢視。",
+        "GENERIC": "此操作未成功，請重試或聯絡您的 IT 團隊。",
+        "CONFLICT": "此名稱已使用，請嘗試其他名稱。",
+        "NODE_MOVE": "未成功移動，存在有相同名稱的檔案。",
+        "EXISTENT_FOLDER": "存在使用此名稱的資料夾。請嘗試使用其他名稱。",
+        "NODE_DELETION": "{{ name }} 無法刪除",
+        "NODE_DELETION_PLURAL": "{{ number }} 個專案無法刪除",
+        "NODE_RESTORE": "{{ name }} 無法恢復",
+        "NODE_RESTORE_PLURAL": "{{ number }} 個專案無法恢復",
+        "PERMISSION": "您沒有執行此操作的訪問權",
+        "LOCK_NODE": "鎖定 {{ fileName }} 檔案時出現問題",
+        "UNLOCK_NODE": "解鎖 {{ fileName }} 檔案時出現問題",
+        "TRASH": {
+          "NODES_PURGE": {
+            "PLURAL": "{{ number }} 個專案無法刪除",
+            "SINGULAR": "{{ name }} 無法刪除"
+          },
+          "NODES_RESTORE": {
+            "PARTIAL_PLURAL": "{{ number }} 個專案無法恢復，因為恢復位置存在問題",
+            "NODE_EXISTS": "無法恢復，{{ name }} 已存在",
+            "LOCATION_MISSING": "無法恢復 {{ name }}，原位置不復存在",
+            "GENERIC": "恢復 {{ name }} 時出現問題"
+          }
+        },
+        "DELETE_LIBRARY_FAILED": "無法刪除庫",
+        "JOIN_REQUEST_FAILED": "無法加入庫",
+        "JOIN_CANCEL_FAILED": "無法取消加入請求",
+        "LEAVE_LIBRARY_FAILED": "無法離開該庫",
+        "INVALID_SENDER_EMAIL": "在請求加入之前，您的電子郵件地址必須有效。",
+        "INVALID_RECEIVER_EMAIL": "收件人電子郵件地址無效，請聯絡 IT 人員。"
+      },
+      "UPLOAD": {
+        "ERROR": {
+          "GENERIC": "上傳不成功。如果此問題仍然存在，請聯絡 IT 人員",
+          "CONFLICT": "未上傳新版本，已存在另一個同名檔案",
+          "500": "內部伺服器錯誤，請重試或聯絡 IT 支援人員 [500]",
+          "504": "伺服器超時，請重試或聯絡 IT 支援人員 [504]",
+          "403": "權限不足，無法在此位置中進行上傳 [403]",
+          "404": "上傳位置不再存在 [404]"
+        }
+      },
+      "INFO": {
+        "TRASH": {
+          "NODES_PURGE": {
+            "PLURAL": "{{ number }} 個專案已刪除",
+            "SINGULAR": "{{ name }} 已刪除",
+            "PARTIAL_SINGULAR": "{{ name }} 已刪除，{{ failed }} 無法刪除",
+            "PARTIAL_PLURAL": "{{ number }} 個專案已刪除，{{ failed }} 無法刪除"
+          },
+          "NODES_RESTORE": {
+            "PLURAL": "成功恢復",
+            "SINGULAR": "{{ name }} 已恢復"
+          }
+        },
+        "NODE_DELETION": {
+          "SINGULAR": "{{ name }} 已刪除",
+          "PLURAL": "已刪除 {{ number }} 個專案",
+          "PARTIAL_SINGULAR": "已刪除 {{ success }} 專案，{{ failed }} 無法刪除",
+          "PARTIAL_PLURAL": "已刪除 {{ success }} 專案，{{ failed }} 無法刪除"
+        },
+        "NODE_COPY": {
+          "SINGULAR": "已複製 {{ success }} 專案",
+          "PLURAL": "已複製 {{ success }} 專案",
+          "PARTIAL_SINGULAR": "已複製 {{ success }} 專案，{{ failed }} 無法複製。",
+          "PARTIAL_PLURAL": "已複製 {{ success }} 專案，{{ failed }} 無法複製。",
+          "FAIL_SINGULAR": "{{ failed }} 專案無法複製。",
+          "FAIL_PLURAL": "{{ failed }} 專案無法複製。"
+        },
+        "NODE_MOVE": {
+          "SINGULAR": "已移動 {{ success }} 專案。",
+          "PLURAL": "已移動 {{ success }} 專案。",
+          "PARTIAL": {
+            "SINGULAR": "部分移動 {{ partially }} 專案。",
+            "PLURAL": "部分移動 {{ partially }} 專案。",
+            "FAIL": "{{ failed }} 無法移動。"
+          }
+        },
+        "LIBRARY_DELETED": "庫已刪除",
+        "JOINED": "已加入庫",
+        "JOIN_REQUESTED": "已傳送加入該庫的請求",
+        "JOIN_CANCELED": "已取消加入該庫的請求",
+        "LEFT_LIBRARY": "您已離開該庫"
+      }
+    },
+    "CONTENT_METADATA": {
+      "EXIF_GROUP_TITLE": "影象EXIF",
+      "EFFECTIVITY_GROUP_TITLE": "有效性"
+    },
+    "INFO_DRAWER": {
+      "TITLE": "詳細資訊",
+      "TABS": {
+        "PROPERTIES": "屬性",
+        "LIBRARY_PROPERTIES": "關於",
+        "VERSIONS": "版本",
+        "COMMENTS": "註釋"
+      }
+    },
+    "BROWSE": {
+      "PERSONAL": {
+        "TITLE": "Personal Files",
+        "SIDENAV_LINK": {
+          "LABEL": "Personal Files",
+          "TOOLTIP": "View your Personal Files"
+        }
+      },
+      "LIBRARIES": {
+        "TITLE": "File Libraries",
+        "DESCRIPTION": "Access File Libraries",
+        "SIDENAV_LINK": {
+          "LABEL": "File Libraries",
+          "TOOLTIP": "File Libraries"
+        },
+        "EMPTY_STATE": {
+          "FILE_LIBRARIES": {
+            "TITLE": "You aren't a member of any File Libraries yet",
+            "TEXT": "Join libraries to upload, view, and share files."
+          },
+          "FAVORITE_LIBRARIES": {
+            "TITLE": "No Favorite Libraries",
+            "TEXT": "Favorite a library that you want to find easily later."
+          }
+        },
+        "MENU": {
+          "MY_LIBRARIES": {
+            "TITLE": "My Libraries",
+            "SIDENAV_LINK": {
+              "LABEL": "My Libraries",
+              "TOOLTIP": "Access my libraries"
+            }
+          },
+          "FAVORITE_LIBRARIES": {
+            "TITLE": "Favorite Libraries",
+            "SIDENAV_LINK": {
+              "LABEL": "Favorite Libraries",
+              "TOOLTIP": "Access my favorite libraries"
+            }
+          }
+        }
+      },
+      "SHARED": {
+        "TITLE": "Shared Files",
+        "SIDENAV_LINK": {
+          "LABEL": "Shared",
+          "TOOLTIP": "View files that have been shared"
+        },
+        "EMPTY_STATE": {
+          "TITLE": "No shared files or folders",
+          "TEXT": "Items you share using the Share option are shown here."
+        }
+      },
+      "RECENT": {
+        "TITLE": "Recent Files",
+        "SIDENAV_LINK": {
+          "LABEL": "Recent Files",
+          "TOOLTIP": "View files you recently edited"
+        },
+        "EMPTY_STATE": {
+          "TITLE": "No recent files",
+          "TEXT": "Items you uploaded or edited in the last 30 days are shown here."
+        }
+      },
+      "FAVORITES": {
+        "TITLE": "Favorites",
+        "SIDENAV_LINK": {
+          "LABEL": "Favorites",
+          "TOOLTIP": "View your favorite files and folders"
+        },
+        "EMPTY_STATE": {
+          "TITLE": "No favorite files or folders",
+          "TEXT": "Favorite items that you want to easily find later."
+        }
+      },
+      "TRASHCAN": {
+        "TITLE": "Trash",
+        "SIDENAV_LINK": {
+          "LABEL": "Trash",
+          "TOOLTIP": "View deleted files in the trash"
+        },
+        "EMPTY_STATE": {
+          "TITLE": "Trash is empty",
+          "FIRST_TEXT": "Items you delete are moved to the Trash.",
+          "SECOND_TEXT": "Empty Trash to permanently delete items."
+        }
+      },
+      "ABOUT": {
+        "TITLE": "About"
+      },
+      "SEARCH": {
+        "TITLE": "Search Results",
+        "FOUND_RESULTS": "{{ number }} results found",
+        "FOUND_ONE_RESULT": "{{ number }} result found",
+        "CUSTOM_ROW": {
+          "MODIFIED": "Modified",
+          "BY_USER": "by {{ user }}",
+          "LOCATION": "Location",
+          "SIZE": "Size"
+        },
+        "UNKNOWN_LOCATION": "Unknown",
+        "NO_RESULTS": "Your search returned 0 results",
+        "TOGGLE_SEARCH_FILTER": "Toggle search filter",
+        "ERRORS": {
+          "500": "There was an error processing the search query [500]",
+          "GENERIC": "There was an error processing the search query"
+        }
+      },
+      "SEARCH_LIBRARIES": {
+        "TITLE": "Libraries found...",
+        "FOUND_RESULTS": "{{ number }} results",
+        "FOUND_ONE_RESULT": "{{ number }} result"
+      }
+    }
+  },
+  "NODE_FROM_TEMPLATE": {
+    "CANCEL": "取消",
+    "CREATE": "建立",
+    "FOLDER_DIALOG_TITLE": "從 <span class=\"bold\">'{{ template }}'</span> 建立新資料夾",
+    "FILE_DIALOG_TITLE": "從 <span class=\"bold\">'{{ template }}'</span> 建立新文件",
+    "FORM": {
+      "PLACEHOLDER": {
+        "NAME": "名稱",
+        "TITLE": "標題",
+        "DESCRIPTION": "說明"
+      },
+      "ERRORS": {
+        "DESCRIPTION_TOO_LONG": "對描述使用 512 個字元或更少字元",
+        "TITLE_TOO_LONG": "對標題使用 256 個字元或更少字元",
+        "REQUIRED": "需要名稱",
+        "SPECIAL_CHARACTERS": "名稱不能包含字元 * \" < > \\ / ? : |",
+        "ENDING_DOT": "名稱不能以句號 . 結尾",
+        "ONLY_SPACES": "名稱不能僅包含空格"
+      }
+    }
+  },
+  "PERMISSIONS": {
+    "DIALOG": {
+      "TITLE": "管理權限",
+      "CLOSE": "關閉",
+      "INHERIT_PERMISSIONS_BUTTON": "繼承權限",
+      "INHERITED_PERMISSIONS_BUTTON": "已繼承權限",
+      "ADD_USER_OR_GROUP": "新增使用者或組"
+    }
+  },
+  "SHARED_LINK": {
+    "UNSHARE_PERMISSION_ERROR": "你沒有權限取消這個檔案的共享"
+  },
+  "VERSION": {
+    "DIALOG_ADF": {
+      "TITLE": "管理版本",
+      "CLOSE": "關閉"
+    },
+    "DIALOG": {
+      "TITLE": "上傳新版本",
+      "CANCEL": "取消",
+      "UPLOAD": "上傳"
+    },
+    "FORM": {
+      "SUBTITLE": "對此版本進行了多大程度的變更？",
+      "VERSION": {
+        "MINOR": "次要版本",
+        "MAJOR": "主要版本"
+      },
+      "COMMENT": {
+        "PLACEHOLDER": "新增註釋，描述變更內容"
+      }
+    },
+    "SELECTION": {
+      "EMPTY": "請選定一個檔案去看它的版本。",
+      "NO_PERMISSION": "你沒有權限管理此內容的版本。"
+    },
+    "ERROR": {
+      "GENERIC": "對檔案進行版本控制時發生錯誤"
+    }
+  },
+  "LIBRARY": {
+    "ROLE": {
+      "MANAGER": "管理員",
+      "COLLABORATOR": "合作者",
+      "CONTRIBUTOR": "貢獻者",
+      "CONSUMER": "使用者"
+    },
+    "DIALOG": {
+      "CREATE_TITLE": "建立庫",
+      "CREATE": "建立",
+      "UPDATE": "更新",
+      "EDIT": "編輯",
+      "CANCEL": "取消",
+      "FORM": {
+        "DESCRIPTION": "說明",
+        "SITE_ID": "庫 ID",
+        "NAME": "名稱",
+        "VISIBILITY": "可見性"
+      }
+    },
+    "VISIBILITY": {
+      "PRIVATE": "私有",
+      "PUBLIC": "公共",
+      "MODERATED": "適中"
+    },
+    "HINTS": {
+      "SITE_TITLE_EXISTS": "庫名已在使用中"
+    },
+    "ERRORS": {
+      "GENERIC": "我們遇到一個問題",
+      "EXISTENT_SITE": "此庫 ID 不可用。請嘗試使用其他庫 ID。",
+      "CONFLICT": "此庫 ID 已被使用。請檢查垃圾桶。",
+      "ID_TOO_LONG": "對 URL 名稱使用 72 個字元或更少字元",
+      "DESCRIPTION_TOO_LONG": "對描述使用 512 個字元或更少字元",
+      "TITLE_TOO_LONG": "對標題使用 256 個字元或更少字元",
+      "ILLEGAL_CHARACTERS": "僅使用數字和字母",
+      "ONLY_SPACES": "文件庫名稱不能只包含空格",
+      "LIBRARY_UPDATE_ERROR": "更新庫屬性時發生錯誤",
+      "TITLE_TOO_SHORT": "Title must be at least 2 characters long"
+    },
+    "SUCCESS": {
+      "LIBRARY_UPDATED": "已更新庫屬性"
+    }
+  },
+  "AVATAR": {
+    "ACCESSIBILITY": {
+      "AVATAR_BUTTON_ARIA_LABEL": "使用者選項"
+    }
+  },
+  "CORE": {
+    "METADATA": {
+      "ACTIONS": {
+        "SAVE": "儲存",
+        "CANCEL": "取消"
+      }
+    }
+  },
+  "VIEWER": {
+    "PAGE_LABEL_SHOWING": "正在顯示",
+    "ACTIONS": {
+      "BACK": "返回",
+      "OPEN_WITH": "開啟方式",
+      "DOWNLOAD": "下載",
+      "PRINT": "列印",
+      "SHARE": "共享",
+      "MORE_ACTIONS": "更多操作",
+      "INFO": "檢視詳細資訊",
+      "FULLSCREEN": "啟用全屏模式",
+      "CLOSE": "關閉",
+      "NEXT_FILE": "下一個檔案",
+      "PREV_FILE": "上一個檔案"
+    },
+    "ARIA": {
+      "PREVIOUS_PAGE": "上一頁",
+      "NEXT_PAGE": "下一頁",
+      "ZOOM_IN": "放大",
+      "ZOOM_OUT": "縮小",
+      "ROTATE": "旋轉",
+      "CROP": "剪裁",
+      "CANCEL": "取消",
+      "SAVE": "儲存",
+      "FIT_PAGE": "適合頁面",
+      "FIT_WIDTH": "符合寬度",
+      "FIT_HEIGHT": "符合高度",
+      "ROTATE_LEFT": "向左旋轉",
+      "ROTATE_RIGHT": "向右旋轉",
+      "RESET": "重置",
+      "FIND": "查詢",
+      "THUMBNAILS": "文件縮圖"
+    },
+    "PAGE_LABEL": {
+      "SHOWING": "正在顯示",
+      "OF": "/"
+    },
+    "LOADING": "正在載入",
+    "UNKNOWN_FORMAT": "無法載入預覽。未知格式。",
+    "SIDEBAR": {
+      "THUMBNAILS": {
+        "PAGE": "第 {{ pageNum }} 頁"
+      },
+      "METADATA": {
+        "MORE_INFORMATION": "更多資訊",
+        "LESS_INFORMATION": "更少資訊"
+      }
+    },
+    "PDF_DIALOG": {
+      "SUBMIT": "提交",
+      "CLOSE": "關閉",
+      "PLACEHOLDER": "密碼",
+      "ERROR": "密碼錯誤"
+    }
+  },
+  "CUSTOM_NAME_COLUMN": {
+    "ACCESSIBILITY": {
+      "FILE_LINK_ARIA_LABEL": "檢視 {{ name }}",
+      "FOLDER_LINK_ARIA_LABEL": "開啟 {{ name }} 資料夾"
+    }
+  },
+  "ADF-DATATABLE": {
+    "FILE_TYPE": {
+      "BOOKS-24PX": "檔案庫",
+      "BASELINE-LOCK-24PX": "已鎖定檔案"
+    },
+    "EMPTY": {
+      "HEADER": "This list is empty",
+      "DRAG-AND-DROP": {
+        "TITLE": "Drag and drop",
+        "SUBTITLE": "to upload files"
+      }
+    },
+    "CONTENT-ACTIONS": {
+      "TOOLTIP": "Content actions"
+    },
+    "ACCESSIBILITY": {
+      "SELECT_ALL": "Select all",
+      "SELECT_FILE": "Select file"
+    }
+  },
+  "HEADER": {
+    "LOGO_ARIA": "Company Logo"
+  },
+  "LOGIN": {
+    "LOGO": "Alfresco",
+    "LABEL": {
+      "LOGIN": "Sign in",
+      "USERNAME": "Username",
+      "PASSWORD": "Password",
+      "REMEMBER": "Remember me"
+    },
+    "MESSAGES": {
+      "USERNAME-REQUIRED": "Required",
+      "USERNAME-MIN": "Your username needs to be at least {{ minLength }} characters.",
+      "PASSWORD-REQUIRED": "Enter your password to sign in",
+      "LOGIN-ERROR-CREDENTIALS": "You've entered an unknown username or password",
+      "LOGIN-ERROR-PROVIDERS": "Providers cannot be undefined",
+      "LOGIN-ERROR-CORS": "CORS exception, check your server configuration",
+      "LOGIN-ERROR-CSRF": "CSRF exception, set [disableCsrf]=\"true\" in login.component",
+      "LOGIN-ECM-LICENSE": "Alfresco Content Services repository is in read-only mode",
+      "SSO-WRONG-CONFIGURATION": "SSO Authentication server unreachable"
+    },
+    "BUTTON": {
+      "LOGIN": "SIGN IN",
+      "CHECKING": "CHECKING",
+      "WELCOME": "WELCOME",
+      "SSO": "SIGN IN SSO"
+    },
+    "ACTION": {
+      "HELP": "NEED HELP?",
+      "REGISTER": "REGISTER"
+    },
+    "DIALOG": {
+      "CANCEL": "Cancel",
+      "CHOOSE": "Choose"
+    }
+  },
+  "EXT_VIEWER": {
+    "ACTIONS": {
+      "BACK": "Back",
+      "OPEN_WITH": "Open with",
+      "DOWNLOAD": "Download",
+      "PRINT": "Print",
+      "SHARE": "Share",
+      "MORE_ACTIONS": "More actions",
+      "INFO": "View details",
+      "FULLSCREEN": "Activate full-screen mode",
+      "CLOSE": "Close",
+      "NEXT_FILE": "Next File",
+      "PREV_FILE": "Previous File"
+    },
+    "ARIA": {
+      "PREVIOUS_PAGE": "Previous page",
+      "NEXT_PAGE": "Next page",
+      "ZOOM_IN": "Zoom in",
+      "ZOOM_OUT": "Zoom out",
+      "FIT_PAGE": "Fit page",
+      "ROTATE_LEFT": "Rotate left",
+      "ROTATE_RIGHT": "Rotate right",
+      "RESET": "Reset"
+    },
+    "PAGE_LABEL": {
+      "SHOWING": "Showing",
+      "OF": "of"
+    },
+    "LOADING": "Loading",
+    "UNKNOWN_FORMAT": "Couldn't load preview. Unknown format.",
+    "SIDEBAR": {
+      "THUMBNAILS": {
+        "PAGE": "Page {{ pageNum }}"
+      },
+      "METADATA": {
+        "MORE_INFORMATION": "More information",
+        "LESS_INFORMATION": "Less information"
+      }
+    },
+    "PDF_DIALOG": {
+      "SUBMIT": "Submit",
+      "CLOSE": "Close",
+      "PLACEHOLDER": "Password",
+      "ERROR": "Password is wrong"
+    }
+  },
+  "ABOUT": {
+    "SERVER_SETTINGS": {
+      "TITLE": "Server settings",
+      "DESCRIPTION": "The values below are taken from the AppConfigService",
+      "CONTENT_SERVICE_HOST": "Alfresco Content Services URL: {{ value }}",
+      "PROCESS_SERVICE_HOST": "Alfresco Process Services URL: {{ value }}"
+    },
+    "VERSIONS": {
+      "TITLE": "Product Versions",
+      "CONTENT_SERVICE": "ECM",
+      "PROCESS_SERVICE": "BPM",
+      "LABELS": {
+        "EDITION": "Edition",
+        "VERSION": "Version",
+        "LICENSE": "License",
+        "STATUS": "Status",
+        "MODULES": "Modules"
+      }
+    },
+    "SOURCE_CODE": {
+      "TITLE": "Source code",
+      "DESCRIPTION": "You are running the project based on the following commit:"
+    },
+    "PACKAGES": {
+      "TITLE": "Packages",
+      "DESCRIPTION": "Current project is using the following ADF libraries:"
+    },
+    "TABLE_HEADERS": {
+      "MODULES": {
+        "ID": "ID",
+        "TITLE": "Title",
+        "DESCRIPTION": "Description",
+        "INSTALL_DATE": "Install Date",
+        "INSTALL_STATE": "Install State",
+        "VERSION_MIN": "Version Minor",
+        "VERSION_MAX": "Version Max"
+      },
+      "STATUS": {
+        "READ_ONLY": "ReadOnly",
+        "AUDIT_ENABLED": "Is Audit Enabled",
+        "QUICK_SHARE_ENABLED": "Is Quick Shared Enabled",
+        "THUMBNAIL_ENABLED": "Thumbnail Generation"
+      },
+      "LICENSE": {
+        "ISSUES_AT": "Issued At",
+        "EXPIRES_AT": "Expires At",
+        "REMAINING_DAYS": "Remaining Days",
+        "HOLDER": "Holder",
+        "MODE": "Mode",
+        "CLUSTER_ENABLED": "Is Cluster Enabled",
+        "CRYPTODOC_ENABLED": "Is Cryptodoc Enabled"
+      }
+    }
+  },
+  "CLIPBOARD": {
+    "CLICK_TO_COPY": "Click to copy",
+    "SUCCESS_COPY": "Text copied to clipboard"
+  },
+  "EXT_VERSION_LIST": {
+    "ACTIONS": {
+      "RESTORE": "Restore",
+      "DELETE": "Delete",
+      "DOWNLOAD": "Download",
+      "UPLOAD": {
+        "TITLE": "Upload new version",
+        "TOOLTIP": "Upload new version",
+        "MAJOR": "major changes (2.0)",
+        "MINOR": "minor changes (1.1)",
+        "COMMENT": "Leave a comment",
+        "ADD": "Add New Version",
+        "CANCEL": "Cancel"
+      }
+    },
+    "CONFIRM_DELETE": {
+      "TITLE": "Delete version",
+      "MESSAGE": "Deleted file versions cannot be restored. Continue?",
+      "YES_LABEL": "Yes",
+      "NO_LABEL": "No"
+    }
+  },
+  "EXT_FILE_UPLOAD": {
+    "BUTTON": {
+      "MINIMIZE": "Minimize",
+      "MAXIMIZE": "Maximize",
+      "CLOSE": "Close",
+      "CANCEL_ALL": "Cancel uploads",
+      "CANCEL_FILE": "Cancel upload",
+      "REMOVE_FILE": "Remove uploaded file"
+    },
+    "STATUS": {
+      "FILE_CANCELED_STATUS": "Canceled"
+    },
+    "CONFIRMATION": {
+      "BUTTON": {
+        "CANCEL": "Yes",
+        "CONTINUE": "No"
+      },
+      "MESSAGE": {
+        "TITLE": "Cancel Upload",
+        "TEXT": "Stop uploading and remove files already uploaded."
+      }
+    },
+    "ARIA-LABEL": {
+      "VERSION": "File version"
+    }
+  }
+}

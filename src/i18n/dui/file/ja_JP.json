@@ -1,0 +1,1578 @@
+{
+  "SAVE": "保存",
+  "COMPLETE": "完了",
+  "CANCEL": "キャンセル",
+  "CLAIM": "申請",
+  "UNCLAIM": "解除",
+  "START PROCESS": "プロセスを開始",
+  "FILE": {
+    "CLOSE": "閉じる",
+    "DELELINE": "削除する行を選択してください。",
+    "CONFDELE": "削除を確認",
+    "ROWS2": "件のレコード?",
+    "WARNING": "警告",
+    "OK": "確定",
+    "CANCEL": "キャンセル",
+    "FILES": "個のファイル?",
+    "GIVEUP": "キャンセル",
+    "UPLOAD_URL": "インポートファイルのアドレス",
+    "UPLOAD_URL_MAXLENGTH": "インポートファイルのアドレスが最大許容長を超えています",
+    "UPLOAD_URL_NOT_NULL": "インポートファイルのアドレスを空にすることはできません",
+    "UPLOAD_TOKEN": "トークン",
+    "UPLOAD_TOKEN_MAXLENGTH": "トークンが最大許容長を超えています",
+    "UPLOAD_FROM_URL": "リモート URL から読み込み",
+    "UPLOADTIPS": "データベース保存ファイルはアップロードをサポートしていません。フォームからデータを入力してください!",
+    "DOWNTIPS": "フォルダのダウンロードは添付ファイルモードのみサポートしています!",
+    "DOWNTIPS2": "共有ダウンロードは添付ファイルモードのみサポートしています!",
+    "CREATTIPS": "Word文書の作成は添付ファイルモードのみサポートしています!",
+    "DOCNAME": "文書名:",
+    "NEWDOC": "新規文書",
+    "NOTNULL2": "ファイル名は空にできません",
+    "CREATEXCEL": "Excel文書の作成は添付ファイルモードのみサポートしています!",
+    "CHARTNAME": "図表名:",
+    "NEWCHART": "新規図表",
+    "CREATPPT": "スライドの作成は添付ファイルモードのみサポートしています!",
+    "PPTNAME": "スライド名:",
+    "NEWPPT": "新規スライド",
+    "NUMIMP": "インポートデータ行数:",
+    "EXCELIMP": "Excelデータインポート",
+    "NOTNULL3": "インポートデータ行数は空にできません",
+    "NOEDIT": "リスト入力は編集コマンドをサポートしていません!",
+    "DOWNLOAD": "ダウンロード",
+    "CONFDOWNLOAD": "ダウンロードの確認",
+    "DIREEMPTY": "ディレクトリが空です",
+    "LISTLOADING": "ファイル一覧を読み込み中……",
+    "TRYAGAIN": "エラーが発生しました。もう一度お試しください！",
+    "VIEW": "表示",
+    "REMOVE": "削除",
+    "REMOVE_FOLDER": "ディレクトリを削除",
+    "NEWFOLDER": "新しいフォルダー",
+    "UPLOADFILE": "ファイルをアップロード",
+    "UPLOADFOLDER": "フォルダーをアップロード",
+    "REMOVE-FOLDER": "ディレクトリを削除",
+    "UPLOADFROMURL": "URL からファイルをアップロード",
+    "CONFIGURE": "設定",
+    "NEWWORD": "新規文書",
+    "EMPDOC": "空のドキュメント",
+    "PREFIX": "接頭辞",
+    "PREFIX_NOT_NULL": "接頭辞は空にできません",
+    "BASESHAREURL": "共有アドレス",
+    "BASESHAREURL_NOT_NULL": "共有アドレスを空にすることはできません",
+    "MAX_UPLOAD_SIZE": "最大アップロードファイルサイズ",
+    "MAX_UPLOAD_SIZE_NOT_NULL": "最大アップロードファイルサイズを空にすることはできません",
+    "SHARED_LINK_DATETIMEPICKER_TYPE": "共有ファイルの日付タイプ",
+    "DATE": "短い日付",
+    "DATETIME": "時間",
+    "PAGINATION_SIZE": "1ページあたりの行数",
+    "PAGINATION_SIZE_NOT_NULL": "1ページあたりの行数を空にすることはできません",
+    "CONFIGURE-TITLE": "設定",
+    "CONFIRM": "確定",
+    "NEWWORDTEMP": "テンプレートから作成",
+    "PERMMANA": "権限管理",
+    "MOVETO": "移動先",
+    "UNZIP": "解凍",
+    "FAVORITE": "お気に入り",
+    "REMOVEFAV": "お気に入りを解除",
+    "DIRECTORY-REMOVE": "ディレクトリを削除",
+    "RENAME": "名前を変更",
+    "EMPTYTRASH": "ごみ箱を空にする",
+    "SHARELINK": "リンクを共有",
+    "DETAIL": "詳細情報",
+    "MOREOPER": "その他の操作",
+    "OPEN": "開く",
+    "COPYTO": "コピー先",
+    "DELFOREVER": "完全に削除",
+    "RESTORE": "やり直す",
+    "NOTEMPTY": "ファイル名は空にできません",
+    "CONFDEL": "削除の確認 \"",
+    "PERDEL": "ごみ箱内のすべてのファイルとフォルダーが完全に削除されます",
+    "NEW": "新規作成",
+    "COPYSUCC": "ファイルのコピーに成功しました！",
+    "SELCHARTTEMP": "図表テンプレートを選択",
+    "DOCTEMP": "ドキュメントテンプレートを選択",
+    "PPTTEMP": "PPT テンプレートを選択",
+    "PREVIEWEDTIPS": "フォルダーはごみ箱内にあるためプレビューできません。ごみ箱から復元する必要があります！"
+  },
+  "NOTIFICATION_HISTORY": {
+    "NO_MESSAGE": "メッセージがありません",
+    "NOTIFICATIONS": "通知",
+    "MARK_AS_READ": "すべて既読にする"
+  },
+  "BROWSE": {
+    "PERSONAL": {
+      "TITLE": "個人ファイル",
+      "SIDENAV_LINK": {
+        "LABEL": "個人ファイル",
+        "TOOLTIP": "個人ファイルを表示"
+      }
+    },
+    "RECENT": {
+      "TITLE": "最近のファイル",
+      "SIDENAV_LINK": {
+        "LABEL": "最近のファイル",
+        "TOOLTIP": "最近編集したファイルを表示"
+      },
+      "EMPTY_STATE": {
+        "TITLE": "最近のファイルがありません",
+        "TEXT": "過去 30 日間にアップロードまたは編集した項目がここに表示されます。"
+      }
+    },
+    "FAVORITES": {
+      "TITLE": "お気に入り",
+      "SIDENAV_LINK": {
+        "LABEL": "お気に入り",
+        "TOOLTIP": "お気に入りのファイルとフォルダーを表示"
+      },
+      "EMPTY_STATE": {
+        "TITLE": "お気に入りのファイルまたはフォルダーがありません",
+        "TEXT": "後で簡単にアクセスできるようにお気に入り登録した項目です。"
+      }
+    },
+    "TRASHCAN": {
+      "TITLE": "ごみ箱",
+      "SIDENAV_LINK": {
+        "LABEL": "ごみ箱",
+        "TOOLTIP": "ごみ箱内の削除済みファイルを表示"
+      },
+      "EMPTY_STATE": {
+        "TITLE": "ごみ箱は空です",
+        "FIRST_TEXT": "削除した項目はごみ箱に移動します。",
+        "SECOND_TEXT": "ごみ箱を空にすると項目を完全に削除します。"
+      }
+    },
+    "SEARCH": {
+      "TITLE": "検索結果",
+      "FOUND_RESULTS": "{{ number }} 件の結果が見つかりました",
+      "FOUND_ONE_RESULT": "{{ number }} 件の結果が見つかりました",
+      "CUSTOM_ROW": {
+        "MODIFIED": "更新日時",
+        "BY_USER": "{{ user }} による",
+        "LOCATION": "場所",
+        "SIZE": "サイズ"
+      },
+      "UNKNOWN_LOCATION": "不明",
+      "NO_RESULTS": "検索結果は 0 件でした",
+      "TOGGLE_SEARCH_FILTER": "検索フィルターの切り替え",
+      "ERRORS": {
+        "500": "検索クエリの処理中にエラーが発生しました [500]",
+        "GENERIC": "検索クエリの処理中にエラーが発生しました"
+      }
+    },
+    "SEARCH_LIBRARIES": {
+      "TITLE": "見つかったライブラリ...",
+      "FOUND_RESULTS": "{{ number }} 件の結果",
+      "FOUND_ONE_RESULT": "{{ number }} 件の結果"
+    }
+  },
+  "FORM": {
+    "START_FORM": {
+      "TITLE": "開始フォーム"
+    },
+    "PREVIEW": {
+      "IMAGE_NOT_AVAILABLE": "プレビューは利用できません"
+    },
+    "FIELD": {
+      "LOCALSTORAGE": "ローカルストレージ",
+      "SOURCE": "ソースを選択：",
+      "SHOW_FILE": "表示",
+      "DOWNLOAD_FILE": "ダウンロード",
+      "REMOVE_FILE": "削除",
+      "UPLOAD": "アップロード",
+      "REQUIRED": "*必須",
+      "VALIDATOR": {
+        "INVALID_NUMBER": "別の数値形式を使用してください",
+        "INVALID_DATE": "別の日付形式を使用してください",
+        "INVALID_VALUE": "別の値を入力してください",
+        "NOT_GREATER_THAN": "{{ maxValue }} より大きい値は指定できません",
+        "NOT_LESS_THAN": "{{ minValue }} より小さい値は指定できません",
+        "AT_LEAST_LONG": "{{ minLength }} 文字以上入力してください",
+        "NO_LONGER_THAN": "{{ maxLength }} 文字以内で入力してください"
+      }
+    },
+    "FORM_RENDERER": {
+      "NAMELESS_TASK": "無名のタスク"
+    }
+  },
+  "FILE_SIZE": {
+    "BYTES": "バイト",
+    "KB": "KB",
+    "MB": "MB",
+    "GB": "GB",
+    "TB": "TB",
+    "PB": "PB",
+    "EB": "EB",
+    "ZB": "ZB",
+    "YB": "YB"
+  },
+  "PAGINATION": {
+    "ARIA": {
+      "ITEMS_PER_PAGE": "ページサイズセレクター",
+      "CURRENT_PAGE": "現在のページセレクター",
+      "PREVIOUS_PAGE": "前のページボタン",
+      "NEXT_PAGE": "次のページボタン"
+    },
+    "ITEMS_RANGE": "{{total}}件中{{range}}件を表示",
+    "ITEMS_PER_PAGE": "ページあたりの項目数",
+    "CURRENT_PAGE": "{{number}} ページ目",
+    "TOTAL_PAGES": "/共 {{total}} 頁"
+  },
+  "DIALOG": {
+    "DOWNLOAD_ZIP": {
+      "ACTIONS": {
+        "CANCEL": "キャンセル"
+      },
+      "TITLE": "ファイルを zip に追加しています。数分かかる場合があります"
+    }
+  },
+  "FILE_DIALOG": {
+    "FILE_LOCK": "ファイルをロック",
+    "ALLOW_OTHERS_CHECKBOX": "所有者によるこのファイルの変更を許可する",
+    "FILE_LOCK_CHECKBOX": "ファイルをロック",
+    "TIME_LOCK_CHECKBOX": "ロック時間",
+    "SAVE_BUTTON": {
+      "LABEL": "保存"
+    },
+    "CANCEL_BUTTON": {
+      "LABEL": "キャンセル"
+    }
+  },
+  "UPLOADURL_DIALOG": {
+    "URL_DOWNLOAD": "URLからファイルをアップロード",
+    "FILE_NAME": {
+      "LABEL": "ファイル名",
+      "ERRORS": {
+        "REQUIRED": "フォルダー名を入力してください",
+        "SPECIAL_CHARACTERS": "ファイル名に * \" < > \\ / ? : | の文字を含めることはできません",
+        "ENDING_DOT": "ファイル名をピリオドで終わらせることはできません",
+        "ONLY_SPACES": "ファイル名をスペースのみにすることはできません"
+      }
+    },
+    "URL": {
+      "LABEL": "ファイルダウンロードURL"
+    },
+    "CREATE_BUTTON": {
+      "LABEL": "確定"
+    },
+    "CANCEL_BUTTON": {
+      "LABEL": "キャンセル"
+    }
+  },
+  "FOLDER_DIALOG": {
+    "CREATE_FOLDER_TITLE": "新しいフォルダー",
+    "EDIT_FOLDER_TITLE": "フォルダーを編集",
+    "EDIT_FILE_TITLE": "ファイル名を編集",
+    "FOLDER_NAME": {
+      "LABEL": "名前",
+      "ERRORS": {
+        "REQUIRED": "フォルダー名を入力してください",
+        "SPECIAL_CHARACTERS": "フォルダー名に * \" < > \\ / ? : | の文字を含めることはできません",
+        "ENDING_DOT": "フォルダー名をピリオドで終わらせることはできません",
+        "ONLY_SPACES": "フォルダー名にスペースのみを使用することはできません"
+      }
+    },
+    "FOLDER_DESCRIPTION": {
+      "LABEL": "説明"
+    },
+    "CREATE_BUTTON": {
+      "LABEL": "作成"
+    },
+    "UPDATE_BUTTON": {
+      "LABEL": "更新"
+    },
+    "CANCEL_BUTTON": {
+      "LABEL": "キャンセル"
+    }
+  },
+  "MESSAGES": {
+    "ERRORS": {
+      "GENERIC": "この操作は失敗しました。もう一度お試しいただくか、IT担当チームにお問い合わせください。",
+      "EXISTENT_FOLDER": "この名前のフォルダーは既に存在します。別の名前をお試しください。"
+    }
+  },
+  "RESTORE_NODE": {
+    "VIEW": "表示",
+    "PARTIAL_PLURAL": "復元先に問題があるため、{{ number }} 個の項目を復元できませんでした",
+    "NODE_EXISTS": "復元できません。{{ name }} 項目はすでに存在します",
+    "LOCATION_MISSING": "{{ name }} 項目を復元できません。元の場所が存在しません",
+    "GENERIC": "{{ name }} 項目の復元中に問題が発生しました",
+    "PLURAL": "復元に成功しました",
+    "SINGULAR": "{{ name }} 項目を復元しました"
+  },
+  "DELETE_NODE": {
+    "SINGULAR": "{{ name }} を削除しました",
+    "PLURAL": "{{ number }} 件を削除しました",
+    "PARTIAL_SINGULAR": "{{ success }} 件を削除しました。{{ failed }} 件は削除できませんでした",
+    "PARTIAL_PLURAL": "{{ success }} 件を削除しました。{{ failed }} 件は削除できませんでした",
+    "ERROR_SINGULAR": "{{ name }} を削除できませんでした",
+    "ERROR_PLURAL": "{{ number }} 個の項目を削除できませんでした"
+  },
+  "CARDVIEW": {
+    "KEYVALUEPAIRS": {
+      "ADD": "新規追加",
+      "NAME": "名前",
+      "VALUE": "値"
+    },
+    "VALIDATORS": {
+      "FLOAT_VALIDATION_ERROR": "数値形式を使用してください",
+      "INT_VALIDATION_ERROR": "整数形式を使用してください"
+    },
+    "NONE": "なし"
+  },
+  "METADATA": {
+    "BASIC": {
+      "HEADER": "プロパティ",
+      "NAME": "名前",
+      "TITLE": "タイトル",
+      "DESCRIPTION": "説明",
+      "AUTHOR": "作成者",
+      "MIMETYPE": "MIME タイプ",
+      "SIZE": "ファイルサイズ",
+      "CREATOR": "作成者",
+      "CREATED_DATE": "作成日",
+      "MODIFIER": "更新者",
+      "MODIFIED_DATE": "更新日"
+    },
+    "ACTIONS": {
+      "EDIT": "編集",
+      "SAVE": "保存",
+      "CANCEL": "キャンセル",
+      "TOGGLE": "値を切り替え",
+      "CLEAR": "クリア"
+    },
+    "ERRORS": {
+      "GENERIC": "プロパティの更新中にエラーが発生しました",
+      "409": "重複するサブ名は使用できません [409]",
+      "422": "プロパティ値が無効です"
+    }
+  },
+  "COMMENTS": {
+    "NONE": "コメントなし",
+    "ADD": "追加",
+    "HEADER": "コメント ({{ count }})",
+    "CREATED_BY_HEADER": "作成者",
+    "MESSAGE_HEADER": "メッセージ",
+    "DIALOG": {
+      "TITLE": "新規コメント",
+      "LABELS": {
+        "MESSAGE": "メッセージ"
+      },
+      "BUTTON": {
+        "ADD": "コメントを追加",
+        "CANCEL": "キャンセル"
+      }
+    }
+  },
+  "EMPTY": {
+    "HEADER": "このフォルダーは空です",
+    "DRAG-AND-DROP": {
+      "TITLE": "ドラッグ＆ドロップ",
+      "SUBTITLE": "ファイルをアップロードするには"
+    }
+  },
+  "CONTENT-ACTIONS": {
+    "TOOLTIP": "コンテンツ操作"
+  },
+  "ACCESSIBILITY": {
+    "SELECT_ALL": "すべて選択",
+    "SELECT_FILE": "ファイルを選択"
+  },
+  "USER_PROFILE": {
+    "LABELS": {
+      "ECM": {
+        "JOB_TITLE": "役職"
+      },
+      "BPM": {
+        "TENANT": "テナント"
+      }
+    },
+    "TAB": {
+      "CS": "Content Services",
+      "PS": "Process Services"
+    }
+  },
+  "ERROR_CONTENT": {
+    "UNKNOWN": {
+      "TITLE": "問題が発生しました。",
+      "DESCRIPTION": "問題が発生したようです。",
+      "SECONDARY_BUTTON": {
+        "TEXT": ""
+      },
+      "RETURN_BUTTON": {
+        "TEXT": "ホームに戻る"
+      }
+    },
+    "403": {
+      "TITLE": "このサーバーへのアクセス権がありません。",
+      "DESCRIPTION": "このサーバー上のリソースへのアクセスは許可されていません。",
+      "SECONDARY_BUTTON": {
+        "TEXT": "問題を報告"
+      },
+      "RETURN_BUTTON": {
+        "TEXT": "ホームに戻る"
+      }
+    },
+    "404": {
+      "TITLE": "エラーが発生しました。",
+      "DESCRIPTION": "お探しのページが見つかりませんでした。",
+      "SECONDARY_BUTTON": {
+        "TEXT": ""
+      },
+      "RETURN_BUTTON": {
+        "TEXT": "ホームに戻る"
+      }
+    },
+    "500": {
+      "TITLE": "エラーが発生しました。",
+      "DESCRIPTION": "内部サーバーエラーです。再試行するか、IT サポートにお問い合わせください [500]。",
+      "SECONDARY_BUTTON": {
+        "TEXT": ""
+      },
+      "RETURN_BUTTON": {
+        "TEXT": "ホームに戻る"
+      }
+    },
+    "502": {
+      "TITLE": "エラーが発生しました。",
+      "DESCRIPTION": "不正なゲートウェイです。再試行するか、IT サポートにお問い合わせください [502]。",
+      "SECONDARY_BUTTON": {
+        "TEXT": ""
+      },
+      "RETURN_BUTTON": {
+        "TEXT": "ホームに戻る"
+      }
+    },
+    "504": {
+      "TITLE": "エラーが発生しました。",
+      "DESCRIPTION": "サーバーがタイムアウトしました。再試行するか、IT サポートにお問い合わせください [504]。",
+      "SECONDARY_BUTTON": {
+        "TEXT": ""
+      },
+      "RETURN_BUTTON": {
+        "TEXT": "ホームに戻る"
+      }
+    }
+  },
+  "VERSION_LIST": {
+    "ACTIONS": {
+      "RESTORE": "やり直す",
+      "DELETE": "削除",
+      "DOWNLOAD": "ダウンロード",
+      "VIEW": "表示",
+      "UPLOAD": {
+        "TITLE": "新しいバージョンをアップロード",
+        "TOOLTIP": "制限：このファイルの新しいバージョンを作成するには、同じ名前のファイルをアップロードする必要があります",
+        "MAJOR": "メジャー変更 (2.0)",
+        "MINOR": "マイナー変更 (1.1)",
+        "COMMENT": "コメントを追加",
+        "ADD": "新しいバージョンを追加",
+        "CANCEL": "キャンセル"
+      }
+    },
+    "CONFIRM_DELETE": {
+      "TITLE": "バージョンを削除",
+      "MESSAGE": "削除したファイルバージョンは復元できません。続行しますか？",
+      "YES_LABEL": "はい",
+      "NO_LABEL": "いいえ"
+    }
+  },
+  "EXT_DROPDOWN": {
+    "LOADING": "読み込み中..."
+  },
+  "EXT_CONFIRM_DIALOG": {
+    "TITLE": "確認",
+    "ACTION": "続行しますか？",
+    "YES_LABEL": "はい",
+    "NO_LABEL": "いいえ"
+  },
+  "NO_PERMISSION": "このファイルまたはフォルダーを表示する権限がありません。",
+  "LAYOUT": {
+    "CREATED": "作成済み",
+    "THUMBNAIL": "ミニマップ",
+    "NAME": "名前",
+    "LOCATION": "場所",
+    "SIZE": "サイズ",
+    "DELETED_ON": "削除済み",
+    "DELETED_BY": "削除者",
+    "STATUS": "ステータス",
+    "DESCRIPTION": "説明",
+    "MODIFIED_ON": "更新日時",
+    "MODIFIED_BY": "更新者",
+    "SHARED_BY": "共有者",
+    "LOAD_MORE": "さらに読み込む"
+  },
+  "MENU_ACTIONS": {
+    "VIEW": "表示",
+    "REMOVE": "削除",
+    "DOWNLOAD": "ダウンロード"
+  },
+  "ALFRESCO_DOCUMENT_LIST": {
+    "BUTTON": {
+      "ACTION_CREATE": "作成...",
+      "ACTION_NEW_FOLDER": "新しいフォルダー",
+      "CREATE": "作成",
+      "CANCEL": "キャンセル"
+    }
+  },
+  "FOLDERAUTH": {
+    "VIEW": "表示",
+    "DOWNLOAD": "ダウンロード",
+    "UPLOAD": "アップロード",
+    "FULL": "フルコントロール",
+    "DEPT_ALL_USERS": "部門内の全員",
+    "ALL_USERS": "すべての子部門の全員"
+  },
+  "DROPDOWN": {
+    "PLACEHOLDER_LABEL": "サイト一覧",
+    "MY_FILES_OPTION": "マイファイル"
+  },
+  "NODE_SELECTOR": {
+    "CANCEL": "キャンセル",
+    "CHOOSE": "選択",
+    "COPY": "コピー",
+    "COPY_ITEM": "'{{ name }}' を次の場所にコピー...",
+    "MOVE": "移動",
+    "MOVE_ITEM": "'{{ name }}' を次の場所に移動...",
+    "NO_RESULTS": "結果が見つかりません",
+    "SEARCH_RESULTS": "検索結果",
+    "SELECT_LOCATION": "場所を選択",
+    "COPY_ITEMS": "{{ number }} 件の項目を次の場所にコピー...",
+    "MOVE_ITEMS": "{{ number }} 件の項目を次の場所に移動...",
+    "SEARCH": "検索",
+    "NEXT": "次へ",
+    "FILE_NAME": "新しいファイル名",
+    "SELECT_FILE_TEMPLATE_TITLE": "ドキュメントテンプレートを選択",
+    "SELECT_FOLDER_TEMPLATE_TITLE": "フォルダーテンプレートを選択"
+  },
+  "OPERATION": {
+    "SUCCESS": {
+      "CONTENT": {
+        "COPY": "コピー成功",
+        "MOVE": "移動が完了しました"
+      },
+      "FOLDER": {
+        "COPY": "コピー成功",
+        "MOVE": "移動が完了しました"
+      }
+    },
+    "ERROR": {
+      "CONFLICT": "この名前は既に使用されています。別の名前を入力してください。",
+      "UNKNOWN": "この操作は失敗しました。もう一度お試しいただくか、IT担当チームにお問い合わせください。",
+      "PERMISSION": "この操作を行う権限がありません。"
+    }
+  },
+  "TAG": {
+    "LABEL": {
+      "NEWTAG": "新しいタグ"
+    },
+    "MESSAGES": {
+      "EXIST": "タグは既に存在します"
+    },
+    "BUTTON": {
+      "ADD": "タグを追加"
+    }
+  },
+  "FILE_UPLOAD": {
+    "BUTTON": {
+      "MINIMIZE": "最小化(&M)",
+      "MAXIMIZE": "最大化",
+      "CLOSE": "閉じる",
+      "CANCEL_ALL": "アップロードをキャンセルしました",
+      "CANCEL_FILE": "アップロードをキャンセルしました",
+      "REMOVE_FILE": "アップロード済みファイルを削除",
+      "UPLOAD_FILE": "ファイルをアップロード",
+      "UPLOAD_FOLDER": "フォルダーをアップロード"
+    },
+    "STATUS": {
+      "FILE_CANCELED_STATUS": "キャンセル済み"
+    },
+    "CONFIRMATION": {
+      "BUTTON": {
+        "CANCEL": "はい",
+        "CONTINUE": "いいえ"
+      },
+      "MESSAGE": {
+        "TITLE": "アップロードをキャンセルしました",
+        "TEXT": "アップロードを停止し、アップロード済みファイルを削除します。"
+      }
+    },
+    "VERSION": {
+      "MESSAGES": {
+        "NO_ACCEPTED_FILE_TYPES": "「acceptedFilesType」の設定は新しいバージョンのアップロードには影響しません。ファイル形式は元のファイルと同じになります。",
+        "INCOMPATIBLE_VERSION": "新しいバージョンとしてアップロードできるのは同じ種類のファイルのみです。"
+      }
+    },
+    "MESSAGES": {
+      "UPLOAD_CANCELED": "アップロードをキャンセルしました",
+      "UPLOAD_PROGRESS": "アップロード済み {{completed}} / {{total}}",
+      "UPLOAD_ERROR": "{{total}} 件のアップロードに失敗しました",
+      "UPLOAD_ERRORS": "{{total}} 件のアップロードに失敗しました",
+      "PROGRESS": "アップロード中...",
+      "FOLDER_ALREADY_EXIST": "フォルダー {0} は既に存在します",
+      "FOLDER_NOT_SUPPORTED": "お使いのブラウザーはフォルダーのアップロードに対応していません。別のブラウザーをお試しください",
+      "REMOVE_FILE_ERROR": "{{fileName}} を削除できませんでした。再試行するか、IT チームにご確認ください。",
+      "REMOVE_FILES_ERROR": "{{total}} 個のファイルを削除できませんでした。再試行するか、IT チームにご確認ください。",
+      "EXCEED_MAX_FILE_SIZE": "ファイル {{ fileName }} は許容されるファイルサイズ {{allowSize}} を超えています"
+    },
+    "ACTION": {
+      "UNDO": "元に戻す"
+    },
+    "ERRORS": {
+      "GENERIC": "アップロードに失敗しました。この問題が解決しない場合は IT 担当者にお問い合わせください",
+      "500": "内部サーバーエラーです。再試行するか、IT サポートにお問い合わせください [500]",
+      "504": "サーバーがタイムアウトしました。再試行するか、IT サポートにお問い合わせください [504]",
+      "403": "この場所にアップロードする権限がありません [403]",
+      "404": "アップロード先が存在しません [404]",
+      "409": "同じ名前のファイルが既に存在します [409]"
+    },
+    "ARIA-LABEL": {
+      "ERROR": "アップロードエラー",
+      "VERSION": "ファイルバージョン"
+    }
+  },
+  "WEBSCRIPT": {
+    "ERROR": "操作を完了できませんでした。次のメッセージをIT担当チームに共有してください：{{data}} を {{contentType}} としてデシリアライズ中にエラーが発生しました"
+  },
+  "SEARCH": {
+    "CONTROL": {},
+    "BUTTON": {
+      "TOOLTIP": "検索",
+      "ARIA-LABEL": "検索ボタン"
+    },
+    "INPUT": {
+      "ARIA-LABEL": "検索入力欄",
+      "PLACEHOLDER": "検索",
+      "FILES": "ファイル",
+      "FOLDERS": "フォルダー",
+      "LIBRARIES": "ライブラリ",
+      "HINT": "検索入力は英数字を 2 文字以上入力してください。"
+    },
+    "RESULTS": {
+      "SUMMARY": "{{searchTerm}} の結果が {{numResults}} 件見つかりました",
+      "NONE": "{{searchTerm}} の結果は見つかりませんでした",
+      "ERROR": "検索中に問題が発生しました。再試行してください。",
+      "COLUMNS": {
+        "NAME": "表示名",
+        "MODIFIED_BY": "更新者",
+        "MODIFIED_AT": "更新日時"
+      }
+    },
+    "FILTER": {
+      "ACTIONS": {
+        "CLEAR": "クリア",
+        "APPLY": "適用",
+        "CLEAR-ALL": "すべてクリア",
+        "SHOW-MORE": "もっと見る",
+        "SHOW-LESS": "表示を減らす",
+        "FILTER-CATEGORY": "フィルターカテゴリ"
+      },
+      "BUTTONS": {
+        "CLEAR-ALL": {
+          "LABEL": "すべてクリア",
+          "TOOLTIP": "これによりすべての選択が削除されます"
+        },
+        "RESET-ALL": {
+          "LABEL": "すべてリセット",
+          "TOOLTIP": "これによりすべての選択とすべてのフィルターがリセットされます"
+        }
+      },
+      "RANGE": {
+        "FROM": "開始",
+        "TO": "終了",
+        "FROM-DATE": "開始",
+        "TO-DATE": "終了"
+      },
+      "VALIDATION": {
+        "REQUIRED-VALUE": "必須の値です",
+        "NO-DAYS": "日が選択されていません。",
+        "INVALID-FORMAT": "形式が無効です",
+        "INVALID-DATE": "日付が無効です。日付の形式は '{{ requiredFormat }}' にしてください",
+        "BEYOND-MAX-DATE": "日付が最大日付を超えています。"
+      },
+      "INPUT": {
+        "PLACEHOLDER": "検索",
+        "FILES": "ファイル",
+        "FOLDERS": "フォルダー",
+        "LIBRARIES": "ライブラリ",
+        "HINT": "検索入力は英数字を 2 文字以上入力してください。"
+      },
+      "SORT": {
+        "RELEVANCE": "関連性",
+        "FILENAME": "ファイル名",
+        "TITLE": "タイトル",
+        "MODIFIED_DATE": "更新日",
+        "SIZE": "サイズ",
+        "TYPE": "タイプ",
+        "MODIFIER": "更新者",
+        "CREATE_DATE": "作成日"
+      },
+      "FACET_FIELDS": {
+        "FILE_TYPE": "ファイルタイプ",
+        "CREATOR": "作成者",
+        "MODIFIER": "更新者",
+        "LOCATION": "場所"
+      },
+      "CATEGORIES": {
+        "MODIFIED_DATE": "更新日",
+        "SIZE": "サイズ",
+        "SIZE_OPTIONS": {
+          "SMALL": "小",
+          "MEDIUM": "中",
+          "LARGE": "大",
+          "HUGE": "特大"
+        },
+        "CREATED_DATE": "作成日"
+      },
+      "FACET_QUERIES": {
+        "TODAY": "今日",
+        "THIS_WEEK": "今週",
+        "THIS_MONTH": "今月",
+        "LAST_6_MONTHS": "過去 6 か月",
+        "THIS_YEAR": "今年"
+      }
+    },
+    "ICONS": {
+      "ft_ic_raster_image": "画像ファイル",
+      "ft_ic_pdf": "PDF 文書",
+      "ft_ic_ms_excel": "Microsoft Excel ファイル",
+      "ft_ic_ms_word": "Microsoft Word 文書",
+      "ft_ic_ms_powerpoint": "Microsoft PowerPoint ファイル",
+      "ft_ic_video": "動画ファイル",
+      "ft_ic_document": "ドキュメントファイル",
+      "ft_ic_website": "Web リソース",
+      "ft_ic_archive": "アーカイブファイル",
+      "ft_ic_presentation": "プレゼンテーションファイル",
+      "ft_ic_spreadsheet": "スプレッドシートファイル"
+    },
+    "DOCUMENT_LIST": {
+      "COLUMNS": {
+        "DISPLAY_NAME": "表示名",
+        "CREATED_BY": "作成者",
+        "CREATED_ON": "作成済み"
+      },
+      "ACTIONS": {
+        "FOLDER": {
+          "DELETE": "削除",
+          "MOVE": "移動",
+          "COPY": "コピー"
+        },
+        "DOCUMENT": {
+          "DOWNLOAD": "ダウンロード",
+          "DELETE": "削除",
+          "MOVE": "移動",
+          "COPY": "コピー",
+          "PROCESS_ACTION": "プロセスを開始"
+        }
+      }
+    },
+    "SORT": {
+      "RELEVANCE": "関連性",
+      "FILENAME": "ファイル名",
+      "TITLE": "タイトル",
+      "MODIFIED_DATE": "更新日",
+      "SIZE": "サイズ",
+      "TYPE": "タイプ",
+      "MODIFIER": "更新者",
+      "CREATE_DATE": "作成日"
+    },
+    "FACET_FIELDS": {
+      "FILE_TYPE": "ファイルタイプ",
+      "CREATOR": "作成者",
+      "MODIFIER": "更新者",
+      "LOCATION": "場所"
+    },
+    "CATEGORIES": {
+      "MODIFIED_DATE": "更新日",
+      "SIZE": "サイズ",
+      "SIZE_OPTIONS": {
+        "SMALL": "小",
+        "MEDIUM": "中",
+        "LARGE": "大",
+        "HUGE": "特大"
+      },
+      "CREATED_DATE": "作成日"
+    },
+    "FACET_QUERIES": {
+      "TODAY": "今日",
+      "THIS_WEEK": "今週",
+      "THIS_MONTH": "今月",
+      "LAST_6_MONTHS": "過去 6 か月",
+      "THIS_YEAR": "今年"
+    },
+    "SEARCH_HEADER": {
+      "TITLE": "フィルター",
+      "TYPE": "タイプ",
+      "FILTER_BY": "{{ category }} で絞り込み",
+      "CLEAR": "クリア",
+      "APPLY": "適用",
+      "FILTERS": {
+        "NAME": {
+          "TITLE": "名前",
+          "PLACEHOLDER": "名前を入力してください"
+        },
+        "TYPE": {
+          "TITLE": "タイプを確認",
+          "FOLDER": "フォルダー",
+          "DOCUMENT": "ドキュメント"
+        },
+        "SIZE": {
+          "TITLE": "コンテンツサイズ (範囲)",
+          "SMALL": "小",
+          "MEDIUM": "中",
+          "LARGE": "大",
+          "HUGE": "特大"
+        },
+        "DATE": {
+          "TITLE": "作成日 (範囲)"
+        }
+      }
+    }
+  },
+  "PERMISSION": {
+    "LACKOF": "{{type}} を {{action}} するための {{permission}} 権限がありません"
+  },
+  "SHARE": {
+    "PUBLIC-LINK": "公開リンク",
+    "DIALOG-TITLE": "共有",
+    "DESCRIPTION": "以下のリンクをクリックしてクリップボードにコピーしてください。",
+    "TITLE": "共有するリンク",
+    "EXPIRES": "有効期限",
+    "CLIPBOARD-MESSAGE": "リンクをクリップボードにコピーしました",
+    "CLOSE": "閉じる",
+    "CONFIRMATION": {
+      "DIALOG-TITLE": "この共有リンクを削除",
+      "MESSAGE": "このリンクは削除されます。次回このファイルを共有すると新しいリンクが作成されます",
+      "CANCEL": "キャンセル",
+      "REMOVE": "削除"
+    },
+    "UNSHARE_ERROR": "このファイルの共有解除中にエラーが発生しました",
+    "UNSHARE_PERMISSION_ERROR": "このファイルの共有を解除する権限がありません"
+  },
+  "PERMISSION_MANAGER": {
+    "PERMISSION": "権限を設定",
+    "PERMISSION_DISPLAY": {
+      "INHERITED": "継承済み",
+      "AUTHORITY_ID": "権限 ID",
+      "ROLE": "ロール",
+      "LOCALLY_SET": "ローカル設定",
+      "NO_PERMISSIONS": "権限なし"
+    },
+    "ADD-PERMISSION": {
+      "SEARCH": "検索",
+      "TYPE-MESSAGE": "入力してグループまたはユーザーの検索を開始してください",
+      "NO-RESULT": "この検索に該当する結果が見つかりません",
+      "ADD-ACTION": "追加",
+      "CLOSE-ACTION": "閉じる",
+      "BASE-DIALOG-TITLE": "追加するグループまたはユーザーを検索...",
+      "EVERYONE": "全員"
+    },
+    "ERROR": {
+      "DUPLICATE-PERMISSION": "設定した権限のうち1つ以上がすでに存在します：{{list}}",
+      "NOT-ALLOWED": "権限を変更する権限がありません"
+    },
+    "CANCEL": "キャンセル",
+    "YES_LABEL": "確定"
+  },
+  "EXT-TREE-VIEW": {
+    "MISSING-ID": "ノード ID が指定されていません！"
+  },
+  "APP": {
+    "SETTINGS": {
+      "TITLE": "設定",
+      "APPLICATION-SETTINGS": "アプリケーション設定",
+      "REPOSITORY-SETTINGS": "リポジトリ設定",
+      "INVALID-VALUE-FORMAT": "値の形式が無効です",
+      "REQUIRED-FIELD": "この項目は必須です",
+      "RESET": "リセット",
+      "APPLY": "適用"
+    },
+    "PREVIEW": {
+      "TITLE": "プレビュー"
+    },
+    "NEW_MENU": {
+      "LABEL": "新規作成",
+      "TOOLTIP": "新しいファイルやフォルダーを追加するか、新しいファイルライブラリを作成します",
+      "MENU_ITEMS": {
+        "CREATE_FOLDER": "フォルダーを作成",
+        "UPLOAD_FILE": "ファイルをアップロード",
+        "UPLOAD_FOLDER": "フォルダーをアップロード",
+        "CREATE_LIBRARY": "ライブラリを作成"
+      },
+      "TOOLTIPS": {
+        "CREATE_FOLDER": "新しいフォルダー",
+        "CREATE_FOLDER_NOT_ALLOWED": "現在の項目を表示している間はフォルダーを作成できません",
+        "UPLOAD_FILES": "アップロードするファイルを選択します",
+        "UPLOAD_FILES_NOT_ALLOWED": "現在の項目を表示している間はファイルをアップロードできません",
+        "UPLOAD_FOLDERS": "アップロードするフォルダーを選択します",
+        "UPLOAD_FOLDERS_NOT_ALLOWED": "現在の項目を表示している間はフォルダーをアップロードできません",
+        "CREATE_LIBRARY": "新しいファイルライブラリを作成します"
+      }
+    },
+    "ACTIONS": {
+      "VIEW": "表示",
+      "EDIT": "編集",
+      "DOWNLOAD": "ダウンロード",
+      "COPY": "コピー",
+      "MOVE": "移動",
+      "DELETE": "削除",
+      "DELETE_PERMANENT": "完全に削除",
+      "MORE": "その他の操作",
+      "UNDO": "元に戻す",
+      "PERMISSIONS": "権限",
+      "RESTORE": "やり直す",
+      "FAVORITE": "お気に入り",
+      "ADD_FAVORITE": "お気に入りに追加",
+      "REMOVE_FAVORITE": "お気に入りを解除",
+      "UNSHARE": "共有を解除",
+      "DETAILS": "詳細情報を表示",
+      "VERSIONS": "バージョンを管理",
+      "UPLOAD_VIEW_FILE": "表示するファイルをアップロード",
+      "UPLOAD_VERSION": "新しいバージョンをアップロード",
+      "TOGGLE-SIDENAV": "サイドナビゲーションバーを切り替え",
+      "SHARE": "共有",
+      "SHARE_EDIT": "共有リンクの設定",
+      "PRINT": "印刷",
+      "FULLSCREEN": "全画面モードを有効にする",
+      "JOIN": "参加",
+      "CANCEL_JOIN": "参加リクエストを取り消す",
+      "LEAVE": "ライブラリを離れる",
+      "EDIT_OFFLINE": "オフラインで編集",
+      "EDIT_OFFLINE_CANCEL": "編集をキャンセル"
+    },
+    "DIALOGS": {
+      "CONFIRM_PURGE": {
+        "TITLE": "ごみ箱から削除しますか？",
+        "MESSAGE": "選択した項目は完全に削除されます。",
+        "YES_LABEL": "削除",
+        "NO_LABEL": "保持"
+      },
+      "CONFIRM_LEAVE": {
+        "TITLE": "このライブラリを離れますか？",
+        "MESSAGE": "離れるとアクセス権が削除されます。",
+        "YES_LABEL": "確定",
+        "NO_LABEL": "キャンセル"
+      }
+    },
+    "DOCUMENT_LIST": {
+      "COLUMNS": {
+        "ID": "ID",
+        "NAME": "名前",
+        "SIZE": "サイズ",
+        "MODIFIED_ON": "更新日時",
+        "MODIFIED_BY": "更新者",
+        "VISIBILITY": "可視性",
+        "TITLE": "タイトル",
+        "LOCATION": "場所",
+        "SHARED_BY": "共有者",
+        "DELETED_ON": "削除済み",
+        "DELETED_BY": "削除者",
+        "ROLE": "自分の役割"
+      },
+      "TOOLBAR": {
+        "CARDVIEW": "カード表示モード",
+        "LISTVIEW": "リスト表示モード"
+      }
+    },
+    "MESSAGES": {
+      "ERRORS": {
+        "CANNOT_NAVIGATE_LOCATION": "この場所を開けません",
+        "MISSING_CONTENT": "この項目は存在しないか、表示する権限がありません。",
+        "GENERIC": "この操作は失敗しました。もう一度お試しいただくか、IT担当チームにお問い合わせください。",
+        "CONFLICT": "この名前は既に使用されています。別の名前を入力してください。",
+        "NODE_MOVE": "移動できませんでした。同じ名前のファイルが既に存在します。",
+        "EXISTENT_FOLDER": "この名前のフォルダーは既に存在します。別の名前をお試しください。",
+        "NODE_DELETION": "{{ name }} を削除できませんでした",
+        "NODE_DELETION_PLURAL": "{{ number }} 個の項目を削除できませんでした",
+        "NODE_RESTORE": "{{ name }} を復元できませんでした",
+        "NODE_RESTORE_PLURAL": "{{ number }} 個の項目を復元できませんでした",
+        "PERMISSION": "この操作を行う権限がありません",
+        "LOCK_NODE": "{{ fileName }} ファイルのロック中に問題が発生しました",
+        "UNLOCK_NODE": "{{ fileName }} ファイルのロック解除中に問題が発生しました",
+        "TRASH": {
+          "NODES_PURGE": {
+            "PLURAL": "{{ number }} 個の項目を削除できませんでした",
+            "SINGULAR": "{{ name }} を削除できませんでした"
+          },
+          "NODES_RESTORE": {
+            "PARTIAL_PLURAL": "復元先に問題があるため、{{ number }} 個の項目を復元できませんでした",
+            "NODE_EXISTS": "復元できません。{{ name }} は既に存在します",
+            "LOCATION_MISSING": "{{ name }} を復元できません。元の場所が存在しません",
+            "GENERIC": "{{ name }} の復元中に問題が発生しました"
+          }
+        },
+        "DELETE_LIBRARY_FAILED": "ライブラリを削除できません",
+        "JOIN_REQUEST_FAILED": "ライブラリに参加できません",
+        "JOIN_CANCEL_FAILED": "参加リクエストを取り消せません",
+        "LEAVE_LIBRARY_FAILED": "このライブラリを離れることができません",
+        "INVALID_SENDER_EMAIL": "参加をリクエストする前に、有効なメールアドレスを設定してください。",
+        "INVALID_RECEIVER_EMAIL": "受信者のメールアドレスが無効です。IT部門にお問い合わせください。"
+      },
+      "UPLOAD": {
+        "ERROR": {
+          "GENERIC": "アップロードに失敗しました。この問題が解決しない場合は IT 担当者にお問い合わせください",
+          "CONFLICT": "新しいバージョンをアップロードできませんでした。同名の別のファイルが既に存在します",
+          "500": "内部サーバーエラーです。再試行するか、IT サポートにお問い合わせください [500]",
+          "504": "サーバーがタイムアウトしました。再試行するか、IT サポートにお問い合わせください [504]",
+          "403": "この場所にアップロードする権限がありません [403]",
+          "404": "アップロード先が存在しません [404]"
+        }
+      },
+      "INFO": {
+        "TRASH": {
+          "NODES_PURGE": {
+            "PLURAL": "{{ number }} 件を削除しました",
+            "SINGULAR": "{{ name }} を削除しました",
+            "PARTIAL_SINGULAR": "{{ name }} を削除しました。{{ failed }} 件は削除できませんでした",
+            "PARTIAL_PLURAL": "{{ number }} 件を削除しました。{{ failed }} 件は削除できませんでした"
+          },
+          "NODES_RESTORE": {
+            "PLURAL": "復元に成功しました",
+            "SINGULAR": "{{ name }} を復元しました"
+          }
+        },
+        "NODE_DELETION": {
+          "SINGULAR": "{{ name }} を削除しました",
+          "PLURAL": "{{ number }} 件を削除しました",
+          "PARTIAL_SINGULAR": "{{ success }} 件を削除しました。{{ failed }} 件は削除できませんでした",
+          "PARTIAL_PLURAL": "{{ success }} 件を削除しました。{{ failed }} 件は削除できませんでした"
+        },
+        "NODE_COPY": {
+          "SINGULAR": "{{ success }} 件をコピーしました",
+          "PLURAL": "{{ success }} 件をコピーしました",
+          "PARTIAL_SINGULAR": "{{ success }} 件をコピーしました。{{ failed }} 件はコピーできませんでした。",
+          "PARTIAL_PLURAL": "{{ success }} 件をコピーしました。{{ failed }} 件はコピーできませんでした。",
+          "FAIL_SINGULAR": "{{ failed }} 件の項目をコピーできませんでした。",
+          "FAIL_PLURAL": "{{ failed }} 件の項目をコピーできませんでした。"
+        },
+        "NODE_MOVE": {
+          "SINGULAR": "{{ success }} 件を移動しました。",
+          "PLURAL": "{{ success }} 件を移動しました。",
+          "PARTIAL": {
+            "SINGULAR": "{{ partially }} 件を一部移動しました。",
+            "PLURAL": "{{ partially }} 件を一部移動しました。",
+            "FAIL": "{{ failed }} 件を移動できませんでした。"
+          }
+        },
+        "LIBRARY_DELETED": "ライブラリを削除しました",
+        "JOINED": "ライブラリに参加しました",
+        "JOIN_REQUESTED": "このライブラリへの参加リクエストを送信しました",
+        "JOIN_CANCELED": "ライブラリへの参加リクエストをキャンセルしました",
+        "LEFT_LIBRARY": "ライブラリから退出しました"
+      }
+    },
+    "CONTENT_METADATA": {
+      "EXIF_GROUP_TITLE": "画像EXIF",
+      "EFFECTIVITY_GROUP_TITLE": "有効性"
+    },
+    "INFO_DRAWER": {
+      "TITLE": "詳細情報",
+      "TABS": {
+        "PROPERTIES": "プロパティ",
+        "LIBRARY_PROPERTIES": "概要",
+        "VERSIONS": "バージョン",
+        "COMMENTS": "コメント"
+      }
+    },
+    "BROWSE": {
+      "PERSONAL": {
+        "TITLE": "個人用ファイル",
+        "SIDENAV_LINK": {
+          "LABEL": "個人用ファイル",
+          "TOOLTIP": "個人用ファイルを表示します"
+        }
+      },
+      "LIBRARIES": {
+        "TITLE": "ファイルライブラリ",
+        "DESCRIPTION": "ファイルライブラリにアクセス",
+        "SIDENAV_LINK": {
+          "LABEL": "ファイルライブラリ",
+          "TOOLTIP": "ファイルライブラリ"
+        },
+        "EMPTY_STATE": {
+          "FILE_LIBRARIES": {
+            "TITLE": "まだどのファイルライブラリにも参加していません",
+            "TEXT": "ライブラリに参加してファイルのアップロード、表示、共有ができます。"
+          },
+          "FAVORITE_LIBRARIES": {
+            "TITLE": "お気に入りのライブラリがありません",
+            "TEXT": "後で簡単に見つけたいライブラリをお気に入りに登録します。"
+          }
+        },
+        "MENU": {
+          "MY_LIBRARIES": {
+            "TITLE": "マイライブラリ",
+            "SIDENAV_LINK": {
+              "LABEL": "マイライブラリ",
+              "TOOLTIP": "自分のライブラリにアクセス"
+            }
+          },
+          "FAVORITE_LIBRARIES": {
+            "TITLE": "お気に入りのライブラリ",
+            "SIDENAV_LINK": {
+              "LABEL": "お気に入りのライブラリ",
+              "TOOLTIP": "お気に入りのライブラリにアクセス"
+            }
+          }
+        }
+      },
+      "SHARED": {
+        "TITLE": "共有ファイル",
+        "SIDENAV_LINK": {
+          "LABEL": "共有",
+          "TOOLTIP": "共有されたファイルを表示します"
+        },
+        "EMPTY_STATE": {
+          "TITLE": "共有されたファイルやフォルダーがありません",
+          "TEXT": "共有オプションを使用して共有した項目がここに表示されます。"
+        }
+      },
+      "RECENT": {
+        "TITLE": "最近使用したファイル",
+        "SIDENAV_LINK": {
+          "LABEL": "最近使用したファイル",
+          "TOOLTIP": "最近編集したファイルを表示します"
+        },
+        "EMPTY_STATE": {
+          "TITLE": "最近のファイルはありません",
+          "TEXT": "過去30日間にアップロードまたは編集した項目がここに表示されます。"
+        }
+      },
+      "FAVORITES": {
+        "TITLE": "お気に入り",
+        "SIDENAV_LINK": {
+          "LABEL": "お気に入り",
+          "TOOLTIP": "お気に入りのファイルとフォルダーを表示します"
+        },
+        "EMPTY_STATE": {
+          "TITLE": "お気に入りのファイルやフォルダーがありません",
+          "TEXT": "後で簡単に見つけたい項目をお気に入りに登録します。"
+        }
+      },
+      "TRASHCAN": {
+        "TITLE": "ゴミ箱",
+        "SIDENAV_LINK": {
+          "LABEL": "ゴミ箱",
+          "TOOLTIP": "ゴミ箱内の削除済みファイルを表示します"
+        },
+        "EMPTY_STATE": {
+          "TITLE": "ゴミ箱は空です",
+          "FIRST_TEXT": "削除した項目はゴミ箱に移動します。",
+          "SECOND_TEXT": "ゴミ箱を空にすると項目が完全に削除されます。"
+        }
+      },
+      "ABOUT": {
+        "TITLE": "バージョン情報"
+      },
+      "SEARCH": {
+        "TITLE": "検索結果",
+        "FOUND_RESULTS": "{{ number }} 件の結果が見つかりました",
+        "FOUND_ONE_RESULT": "{{ number }} 件の結果が見つかりました",
+        "CUSTOM_ROW": {
+          "MODIFIED": "更新日",
+          "BY_USER": "{{ user }} による",
+          "LOCATION": "場所",
+          "SIZE": "サイズ"
+        },
+        "UNKNOWN_LOCATION": "不明",
+        "NO_RESULTS": "検索結果は0件でした",
+        "TOGGLE_SEARCH_FILTER": "検索フィルターの切り替え",
+        "ERRORS": {
+          "500": "検索クエリの処理中にエラーが発生しました [500]",
+          "GENERIC": "検索クエリの処理中にエラーが発生しました"
+        }
+      },
+      "SEARCH_LIBRARIES": {
+        "TITLE": "ライブラリが見つかりました...",
+        "FOUND_RESULTS": "{{ number }} 件の結果",
+        "FOUND_ONE_RESULT": "{{ number }} 件の結果"
+      }
+    }
+  },
+  "NODE_FROM_TEMPLATE": {
+    "CANCEL": "キャンセル",
+    "CREATE": "作成",
+    "FOLDER_DIALOG_TITLE": "<span class=\"bold\">'{{ template }}'</span> から新しいフォルダーを作成",
+    "FILE_DIALOG_TITLE": "<span class=\"bold\">'{{ template }}'</span> から新しいドキュメントを作成",
+    "FORM": {
+      "PLACEHOLDER": {
+        "NAME": "名前",
+        "TITLE": "タイトル",
+        "DESCRIPTION": "説明"
+      },
+      "ERRORS": {
+        "DESCRIPTION_TOO_LONG": "説明は512文字以内で入力してください",
+        "TITLE_TOO_LONG": "タイトルは256文字以内で入力してください",
+        "REQUIRED": "名前が必要です",
+        "SPECIAL_CHARACTERS": "名前には次の文字を含めることはできません: * \" < > \\ / ? : |",
+        "ENDING_DOT": "名前をピリオド . で終わらせることはできません",
+        "ONLY_SPACES": "名前をスペースのみにすることはできません"
+      }
+    }
+  },
+  "PERMISSIONS": {
+    "DIALOG": {
+      "TITLE": "権限の管理",
+      "CLOSE": "閉じる",
+      "INHERIT_PERMISSIONS_BUTTON": "権限を継承",
+      "INHERITED_PERMISSIONS_BUTTON": "継承された権限",
+      "ADD_USER_OR_GROUP": "ユーザーまたはグループを追加"
+    }
+  },
+  "SHARED_LINK": {
+    "UNSHARE_PERMISSION_ERROR": "このファイルの共有を解除する権限がありません"
+  },
+  "VERSION": {
+    "DIALOG_ADF": {
+      "TITLE": "バージョンを管理",
+      "CLOSE": "閉じる"
+    },
+    "DIALOG": {
+      "TITLE": "新しいバージョンをアップロード",
+      "CANCEL": "キャンセル",
+      "UPLOAD": "アップロード"
+    },
+    "FORM": {
+      "SUBTITLE": "このバージョンにはどの程度の変更が加えられましたか？",
+      "VERSION": {
+        "MINOR": "マイナーバージョン",
+        "MAJOR": "メジャーバージョン"
+      },
+      "COMMENT": {
+        "PLACEHOLDER": "変更内容を説明するメモを追加"
+      }
+    },
+    "SELECTION": {
+      "EMPTY": "バージョンを確認するファイルを選択してください。",
+      "NO_PERMISSION": "このコンテンツのバージョンを管理する権限がありません。"
+    },
+    "ERROR": {
+      "GENERIC": "ファイルのバージョン管理中にエラーが発生しました"
+    }
+  },
+  "LIBRARY": {
+    "ROLE": {
+      "MANAGER": "管理者",
+      "COLLABORATOR": "共同作業者",
+      "CONTRIBUTOR": "貢献者",
+      "CONSUMER": "利用者"
+    },
+    "DIALOG": {
+      "CREATE_TITLE": "ライブラリを作成",
+      "CREATE": "作成",
+      "UPDATE": "更新",
+      "EDIT": "編集",
+      "CANCEL": "キャンセル",
+      "FORM": {
+        "DESCRIPTION": "説明",
+        "SITE_ID": "ライブラリID",
+        "NAME": "名前",
+        "VISIBILITY": "可視性"
+      }
+    },
+    "VISIBILITY": {
+      "PRIVATE": "非公開",
+      "PUBLIC": "共通",
+      "MODERATED": "モデレート"
+    },
+    "HINTS": {
+      "SITE_TITLE_EXISTS": "このライブラリ名は既に使用されています"
+    },
+    "ERRORS": {
+      "GENERIC": "問題が発生しました",
+      "EXISTENT_SITE": "このライブラリIDは使用できません。別のライブラリIDを試してください。",
+      "CONFLICT": "このライブラリIDは既に使用されています。ごみ箱を確認してください。",
+      "ID_TOO_LONG": "URL名は72文字以内で入力してください",
+      "DESCRIPTION_TOO_LONG": "説明は512文字以内で入力してください",
+      "TITLE_TOO_LONG": "タイトルは256文字以内で入力してください",
+      "ILLEGAL_CHARACTERS": "数字と文字のみを使用してください",
+      "ONLY_SPACES": "ライブラリ名にスペースのみを使用することはできません",
+      "LIBRARY_UPDATE_ERROR": "ライブラリのプロパティの更新中にエラーが発生しました",
+      "TITLE_TOO_SHORT": "タイトルは2文字以上で入力してください"
+    },
+    "SUCCESS": {
+      "LIBRARY_UPDATED": "ライブラリのプロパティを更新しました"
+    }
+  },
+  "AVATAR": {
+    "ACCESSIBILITY": {
+      "AVATAR_BUTTON_ARIA_LABEL": "ユーザーオプション"
+    }
+  },
+  "CORE": {
+    "METADATA": {
+      "ACTIONS": {
+        "SAVE": "保存",
+        "CANCEL": "キャンセル"
+      }
+    }
+  },
+  "VIEWER": {
+    "PAGE_LABEL_SHOWING": "表示中",
+    "ACTIONS": {
+      "BACK": "戻る",
+      "OPEN_WITH": "開く方法",
+      "DOWNLOAD": "ダウンロード",
+      "PRINT": "印刷",
+      "SHARE": "共有",
+      "MORE_ACTIONS": "その他の操作",
+      "INFO": "詳細情報を表示",
+      "FULLSCREEN": "全画面モードを有効にする",
+      "CLOSE": "閉じる",
+      "NEXT_FILE": "次のファイル",
+      "PREV_FILE": "前のファイル"
+    },
+    "ARIA": {
+      "PREVIOUS_PAGE": "前のページ",
+      "NEXT_PAGE": "次のページ",
+      "ZOOM_IN": "拡大",
+      "ZOOM_OUT": "縮小",
+      "ROTATE": "回転",
+      "CROP": "クリップ",
+      "CANCEL": "キャンセル",
+      "SAVE": "保存",
+      "FIT_PAGE": "ページに合わせる",
+      "FIT_WIDTH": "幅に合わせる",
+      "FIT_HEIGHT": "高さに合わせる",
+      "ROTATE_LEFT": "左に回転",
+      "ROTATE_RIGHT": "右に回転",
+      "RESET": "リセット",
+      "FIND": "検索",
+      "THUMBNAILS": "ドキュメントのサムネイル"
+    },
+    "PAGE_LABEL": {
+      "SHOWING": "表示中",
+      "OF": "/"
+    },
+    "LOADING": "読み込み中",
+    "UNKNOWN_FORMAT": "プレビューを読み込めませんでした。不明な形式です。",
+    "SIDEBAR": {
+      "THUMBNAILS": {
+        "PAGE": "{{ pageNum }} ページ"
+      },
+      "METADATA": {
+        "MORE_INFORMATION": "詳細情報",
+        "LESS_INFORMATION": "情報を減らす"
+      }
+    },
+    "PDF_DIALOG": {
+      "SUBMIT": "送信",
+      "CLOSE": "閉じる",
+      "PLACEHOLDER": "パスワード",
+      "ERROR": "パスワードが違います"
+    }
+  },
+  "CUSTOM_NAME_COLUMN": {
+    "ACCESSIBILITY": {
+      "FILE_LINK_ARIA_LABEL": "{{ name }} を表示",
+      "FOLDER_LINK_ARIA_LABEL": "{{ name }} フォルダを開く"
+    }
+  },
+  "ADF-DATATABLE": {
+    "FILE_TYPE": {
+      "BOOKS-24PX": "ライブラリ",
+      "BASELINE-LOCK-24PX": "ロック済みファイル"
+    },
+    "EMPTY": {
+      "HEADER": "このリストは空です",
+      "DRAG-AND-DROP": {
+        "TITLE": "ドラッグ&ドロップ",
+        "SUBTITLE": "ファイルをアップロード"
+      }
+    },
+    "CONTENT-ACTIONS": {
+      "TOOLTIP": "コンテンツ操作"
+    },
+    "ACCESSIBILITY": {
+      "SELECT_ALL": "すべて選択",
+      "SELECT_FILE": "ファイルを選択"
+    }
+  },
+  "HEADER": {
+    "LOGO_ARIA": "会社ロゴ"
+  },
+  "LOGIN": {
+    "LOGO": "Alfresco",
+    "LABEL": {
+      "LOGIN": "サインイン",
+      "USERNAME": "ユーザー名",
+      "PASSWORD": "パスワード",
+      "REMEMBER": "ログイン情報を記憶する"
+    },
+    "MESSAGES": {
+      "USERNAME-REQUIRED": "必須項目です",
+      "USERNAME-MIN": "ユーザー名は{{ minLength }}文字以上で入力してください。",
+      "PASSWORD-REQUIRED": "サインインするにはパスワードを入力してください",
+      "LOGIN-ERROR-CREDENTIALS": "ユーザー名またはパスワードが正しくありません",
+      "LOGIN-ERROR-PROVIDERS": "プロバイダーを未定義にすることはできません",
+      "LOGIN-ERROR-CORS": "CORS例外です。サーバー設定を確認してください",
+      "LOGIN-ERROR-CSRF": "CSRF例外です。login.componentで[disableCsrf]=\"true\"を設定してください",
+      "LOGIN-ECM-LICENSE": "Alfresco Content Services リポジトリは読み取り専用モードです",
+      "SSO-WRONG-CONFIGURATION": "SSO認証サーバーに接続できません"
+    },
+    "BUTTON": {
+      "LOGIN": "サインイン",
+      "CHECKING": "確認中",
+      "WELCOME": "ようこそ",
+      "SSO": "SSO でサインイン"
+    },
+    "ACTION": {
+      "HELP": "ヘルプが必要ですか？",
+      "REGISTER": "登録"
+    },
+    "DIALOG": {
+      "CANCEL": "キャンセル",
+      "CHOOSE": "選択"
+    }
+  },
+  "EXT_VIEWER": {
+    "ACTIONS": {
+      "BACK": "戻る",
+      "OPEN_WITH": "プログラムを選択して開く",
+      "DOWNLOAD": "ダウンロード",
+      "PRINT": "印刷",
+      "SHARE": "共有",
+      "MORE_ACTIONS": "その他の操作",
+      "INFO": "詳細を表示",
+      "FULLSCREEN": "全画面表示にする",
+      "CLOSE": "閉じる",
+      "NEXT_FILE": "次のファイル",
+      "PREV_FILE": "前のファイル"
+    },
+    "ARIA": {
+      "PREVIOUS_PAGE": "前のページ",
+      "NEXT_PAGE": "次のページ",
+      "ZOOM_IN": "拡大",
+      "ZOOM_OUT": "縮小",
+      "FIT_PAGE": "ページに合わせる",
+      "ROTATE_LEFT": "左に回転",
+      "ROTATE_RIGHT": "右に回転",
+      "RESET": "リセット"
+    },
+    "PAGE_LABEL": {
+      "SHOWING": "表示中",
+      "OF": "／"
+    },
+    "LOADING": "読み込み中",
+    "UNKNOWN_FORMAT": "プレビューを読み込めませんでした。不明な形式です。",
+    "SIDEBAR": {
+      "THUMBNAILS": {
+        "PAGE": "ページ {{ pageNum }}"
+      },
+      "METADATA": {
+        "MORE_INFORMATION": "詳細を表示",
+        "LESS_INFORMATION": "詳細を折りたたむ"
+      }
+    },
+    "PDF_DIALOG": {
+      "SUBMIT": "送信",
+      "CLOSE": "閉じる",
+      "PLACEHOLDER": "パスワード",
+      "ERROR": "パスワードが正しくありません"
+    }
+  },
+  "ABOUT": {
+    "SERVER_SETTINGS": {
+      "TITLE": "サーバー設定",
+      "DESCRIPTION": "以下の値はAppConfigServiceから取得されています",
+      "CONTENT_SERVICE_HOST": "Alfresco Content Services URL: {{ value }}",
+      "PROCESS_SERVICE_HOST": "Alfresco Process Services URL: {{ value }}"
+    },
+    "VERSIONS": {
+      "TITLE": "製品バージョン",
+      "CONTENT_SERVICE": "ECM",
+      "PROCESS_SERVICE": "BPM",
+      "LABELS": {
+        "EDITION": "エディション",
+        "VERSION": "バージョン",
+        "LICENSE": "ライセンス",
+        "STATUS": "ステータス",
+        "MODULES": "モジュール"
+      }
+    },
+    "SOURCE_CODE": {
+      "TITLE": "ソースコード",
+      "DESCRIPTION": "このプロジェクトは以下のコミットに基づいて実行されています:"
+    },
+    "PACKAGES": {
+      "TITLE": "パッケージ",
+      "DESCRIPTION": "現在のプロジェクトは以下のADFライブラリを使用しています:"
+    },
+    "TABLE_HEADERS": {
+      "MODULES": {
+        "ID": "ID",
+        "TITLE": "タイトル",
+        "DESCRIPTION": "説明",
+        "INSTALL_DATE": "インストール日",
+        "INSTALL_STATE": "インストール状態",
+        "VERSION_MIN": "マイナーバージョン",
+        "VERSION_MAX": "最大バージョン"
+      },
+      "STATUS": {
+        "READ_ONLY": "読み取り専用",
+        "AUDIT_ENABLED": "監査が有効かどうか",
+        "QUICK_SHARE_ENABLED": "クイック共有が有効かどうか",
+        "THUMBNAIL_ENABLED": "サムネイル生成"
+      },
+      "LICENSE": {
+        "ISSUES_AT": "発行日",
+        "EXPIRES_AT": "有効期限",
+        "REMAINING_DAYS": "残り日数",
+        "HOLDER": "保有者",
+        "MODE": "モード",
+        "CLUSTER_ENABLED": "クラスターが有効かどうか",
+        "CRYPTODOC_ENABLED": "Cryptodocが有効かどうか"
+      }
+    }
+  },
+  "CLIPBOARD": {
+    "CLICK_TO_COPY": "クリックしてコピー",
+    "SUCCESS_COPY": "テキストをクリップボードにコピーしました"
+  },
+  "EXT_VERSION_LIST": {
+    "ACTIONS": {
+      "RESTORE": "復元",
+      "DELETE": "削除",
+      "DOWNLOAD": "ダウンロード",
+      "UPLOAD": {
+        "TITLE": "新しいバージョンをアップロード",
+        "TOOLTIP": "新しいバージョンをアップロード",
+        "MAJOR": "メジャー変更 (2.0)",
+        "MINOR": "マイナー変更 (1.1)",
+        "COMMENT": "コメントを残す",
+        "ADD": "新しいバージョンを追加",
+        "CANCEL": "キャンセル"
+      }
+    },
+    "CONFIRM_DELETE": {
+      "TITLE": "バージョンを削除",
+      "MESSAGE": "削除したファイルバージョンは復元できません。続行しますか？",
+      "YES_LABEL": "はい",
+      "NO_LABEL": "いいえ"
+    }
+  },
+  "EXT_FILE_UPLOAD": {
+    "BUTTON": {
+      "MINIMIZE": "最小化",
+      "MAXIMIZE": "最大化",
+      "CLOSE": "閉じる",
+      "CANCEL_ALL": "アップロードをキャンセル",
+      "CANCEL_FILE": "アップロードをキャンセル",
+      "REMOVE_FILE": "アップロード済みファイルを削除"
+    },
+    "STATUS": {
+      "FILE_CANCELED_STATUS": "キャンセル済み"
+    },
+    "CONFIRMATION": {
+      "BUTTON": {
+        "CANCEL": "はい",
+        "CONTINUE": "いいえ"
+      },
+      "MESSAGE": {
+        "TITLE": "アップロードをキャンセル",
+        "TEXT": "アップロードを停止し、アップロード済みのファイルを削除します。"
+      }
+    },
+    "ARIA-LABEL": {
+      "VERSION": "ファイルバージョン"
+    }
+  }
+}
