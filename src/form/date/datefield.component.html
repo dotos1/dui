@@ -31,8 +31,8 @@
     <ng-template #matPrefix>
       <button mat-icon-button type="button" [attr.aria-label]="_intl.openCalendarLabel"
         [disabled]="disabled"   matDatetimepicker="datetimePicker" >
-        <mat-icon *ngIf="field.type==='date'||field.type==='month'" style="padding-right: 30px"  >today</mat-icon>
-        <mat-icon *ngIf="field.type==='time'||field.type==='datetime'" style="padding-right: 30px"  >schedule</mat-icon>
+        <mat-icon *ngIf="field.type==='date'||field.type==='month'" style="padding-inline-end: 30px"  >today</mat-icon>
+        <mat-icon *ngIf="field.type==='time'||field.type==='datetime'" style="padding-inline-end: 30px"  >schedule</mat-icon>
       </button>
     </ng-template>
     <ng-template #matSuffix>

@@ -10,7 +10,7 @@ import { HSLA, RGBA } from './helpers/color.interfaces';
 @Component({
   selector: 'color-alpha',
   template: `
-  <div class="alpha" [style.border-radius]="radius">
+  <div class="alpha ltr-canvas" [style.border-radius]="radius">
     <div class="alpha-checkboard">
       <color-checkboard></color-checkboard>
     </div>

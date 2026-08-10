@@ -8,7 +8,7 @@ import { HSLA, HSVA, HSVAsource } from './helpers/color.interfaces';
   selector: 'color-saturation',
   template: `
   <div class="color-saturation" ngx-color-coordinates (coordinatesChange)="handleChange($event)" [style.background]="background">
-    <div class="saturation-white">
+    <div class="saturation ltr-canvas-white">
       <div class="saturation-black"></div>
       <div class="saturation-pointer" [ngStyle]="pointer" [style.top]="pointerTop" [style.left]="pointerLeft">
         <div class="saturation-circle" [ngStyle]="circle"></div>

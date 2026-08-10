@@ -8,7 +8,7 @@ import { HSLA, HSLAsource } from './helpers/color.interfaces';
 @Component({
   selector: 'color-hue',
   template: `
-  <div class="color-hue color-hue-{{direction}}" [style.border-radius.px]="radius" [style.box-shadow]="shadow">
+  <div class="color-hue ltr-canvas color-hue-{{direction}}" [style.border-radius.px]="radius" [style.box-shadow]="shadow">
     <div ngx-color-coordinates (coordinatesChange)="handleChange($event)" class="color-hue-container">
       <div class="color-hue-pointer" [style.left]="left" [style.top]="top" *ngIf="!hidePointer">
         <div class="color-hue-slider" [ngStyle]="pointer"></div>

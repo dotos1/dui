@@ -1,6 +1,6 @@
 <div class="dynamic-slider-wrapper relative push-top" fxFlex fxLayout="row" >
   <div fxLayout="column" fxLayoutAlign ="start top" fxFlex >
-      <mat-label [id]="field.name" *ngIf="field.label && field.hideLabel !== true&&field" style="padding-left: 10px;">
+      <mat-label [id]="field.name" *ngIf="field.label && field.hideLabel !== true&&field" style="padding-inline-start: 10px;">
         {{ field.label|translate }}
         <span *ngIf="field.required && field.hideRequiredMarker !== true" class="mat-mdc-form-field-required-marker">*</span>
       </mat-label>

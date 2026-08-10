@@ -3,7 +3,7 @@
     fxLayoutAlign="space-between center">
     <button mat-icon-button class="secondary-text" [style.visibility]="view === 'hues' ? 'visible' : 'hidden'"
       (click)="goToPalettesView($event)" aria-label="Palette">
-      <mat-icon class="s-20">arrow_back</mat-icon>
+      <mat-icon class="s-20 mat-icon-rtl-mirror">arrow_back</mat-icon>
     </button>
     <span *ngIf="selectedColor?.palette">
       {{selectedColor.palette}} {{selectedColor.hue}}
