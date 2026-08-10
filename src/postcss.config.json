@@ -1,0 +1,13 @@
+{
+  "//": "ng-packagr compiles component styles into the library's JavaScript, so the consuming application's PostCSS chain never sees them. The RTL flip therefore has to run here, in the library's own build.",
+  "//2": "ng-packagr only looks for postcss.config.json / .postcssrc.json in the primary entry point's directory -- not the .js form the application uses, and with no upward search. This file must stay next to ng-package.json.",
+  "//3": "combined mode emits [dir=rtl] counterparts beside the originals, so one build serves both directions. processKeyFrames is off because a transform is geometry, not a box property.",
+  "plugins": {
+    "postcss-rtlcss": {
+      "mode": "combined",
+      "processKeyFrames": false,
+      "useCalc": false,
+      "safeBothPrefix": false
+    }
+  }
+}

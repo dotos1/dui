@@ -23,7 +23,7 @@ id="rbgcp-gradient-controls-wrap" ngClass="context.classes.rbgcpControlBtnWrappe
   </ng-container>
 </div>
 <ng-container *ngIf="!hideGradientStop">
-  <div  [ngClass]='getStopClass()'  style="padding-left: 8" >
+  <div  [ngClass]='getStopClass()'  style="padding-inline-start: 8" >
       <!-- <StopIcon /> -->
       <input  value={currentLeft}   id="rbgcp-stop-input"   (onChange)="handleMove($event)"   [ngClass]='getStopInputClass()' />
     </div>

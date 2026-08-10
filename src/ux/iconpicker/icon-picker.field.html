@@ -9,7 +9,7 @@
     <img [src]="value" style='width: 100%; height: 100%; object-fit:cover'>
   </div>
   <dui-icon *ngIf="!isColor(value)&&!isPattern(value)"  [value]="value" [disabled]="disabled"
-    style="padding-left:8px;padding-bottom:0px"></dui-icon>
+    style="padding-inline-start:8px;padding-bottom:0px"></dui-icon>
 </ng-template>
 <ng-template #matSuffix>
   <div fxLayout="row">

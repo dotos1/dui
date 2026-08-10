@@ -87,6 +87,7 @@
     "karma-jasmine": "5.1.0",
     "karma-jasmine-html-reporter": "2.1.0",
     "ng-packagr": "18.0.0",
+    "postcss-rtlcss": "^6.0.0",
     "typescript": "5.5.4"
   },
   "author": "北京商典信息科技有限公司 (Beijing Shangdian Information Technology Co., Ltd.)"

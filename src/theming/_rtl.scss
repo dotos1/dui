@@ -1,0 +1,77 @@
+// Right-to-left contract, shared by every consumer of dui.
+//
+// This lives here rather than in the application because ten repos need the
+// same three classes and they must mean the same thing in all of them. The
+// mirroring itself is generated per-repo by postcss-rtlcss; what cannot be
+// generated is the decision about which regions must *not* mirror, and that
+// decision has to be expressed once.
+//
+// The governing rule: UI chrome mirrors, technical canvases do not. A well
+// schematic, a log track, a seismic section and a cross section all encode
+// direction as meaning; a depth track mirrored horizontally is not a localised
+// depth track, it is a wrong one. Petrel and Techlog keep the canvas
+// left-to-right in Arabic locales, and so do we.
+
+// ---------------------------------------------------------------------------
+// LTR islands
+// ---------------------------------------------------------------------------
+
+// Put this on the container of anything that renders domain geometry. It pins
+// the subtree to left-to-right regardless of the document direction, so the
+// canvas and its absolutely positioned children keep their coordinate system.
+//
+// Mark the *viewport* element, not the component root: roots usually carry menu
+// bars and toolbars, which are chrome and must mirror.
+//
+// The `/*! rtl:ignore */` directives are load-bearing. `direction` is a
+// directional declaration like any other, so without them postcss-rtlcss
+// rewrites this into `[dir=rtl] .ltr-canvas { direction: rtl }` and inverts
+// exactly what the class protects. The directive must be the *loud* comment
+// form: a plain `/*rtl:ignore*/` is stripped when Sass runs compressed, which
+// makes the failure appear only in production builds.
+.ltr-canvas {
+  /*! rtl:ignore */
+  direction: ltr;
+  /*! rtl:ignore */
+  text-align: left;
+}
+
+// Chrome layered on top of a canvas — toolbars, legends, scale bars, tooltips,
+// property panels — is still chrome and must follow the document. Nest it in
+// an LTR island and mark it, and it mirrors again.
+[dir="rtl"] .ltr-canvas .rtl-chrome {
+  /*! rtl:ignore */
+  direction: rtl;
+  /*! rtl:ignore */
+  text-align: right;
+}
+
+// ---------------------------------------------------------------------------
+// Directional glyphs
+// ---------------------------------------------------------------------------
+
+// Angular Material ships `[dir=rtl] .mat-icon-rtl-mirror` for its own icons, so
+// a directional `<mat-icon>` only needs that class at the call site. Selecting
+// by icon name is not possible: the ligature is element content, and Material
+// only sets `data-mat-icon-name` when the name arrives through an input — CSS
+// cannot match on text content.
+//
+// `.flip-rtl` is the equivalent for everything that is not a mat-icon: dui
+// icons, font glyphs, inline SVG. Apply it only to glyphs that mean a
+// direction; an icon depicting an object keeps its orientation.
+[dir="rtl"] .flip-rtl {
+  transform: scaleX(-1);
+}
+
+// ---------------------------------------------------------------------------
+// Bidirectional text
+// ---------------------------------------------------------------------------
+
+// Latin runs inside Arabic prose — well numbers, units, UWI codes, identifiers
+// — are the usual source of bidi bugs. Isolating them stops neighbouring
+// punctuation being reordered around them.
+.ltr-run {
+  unicode-bidi: isolate;
+  /*! rtl:ignore */
+  direction: ltr;
+}

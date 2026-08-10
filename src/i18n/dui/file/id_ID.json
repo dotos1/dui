@@ -1,0 +1,1578 @@
+{
+  "SAVE": "Simpan",
+  "COMPLETE": "Selesai",
+  "CANCEL": "Batal",
+  "CLAIM": "Klaim",
+  "UNCLAIM": "Batalkan Klaim",
+  "START PROCESS": "Mulai Proses",
+  "FILE": {
+    "CLOSE": "Tutup",
+    "DELELINE": "Silakan pilih baris yang ingin dihapus.",
+    "CONFDELE": "Konfirmasi Hapus",
+    "ROWS2": "baris?",
+    "WARNING": "Peringatan",
+    "OK": "OK",
+    "CANCEL": "Batal",
+    "FILES": " file?",
+    "GIVEUP": "Batal",
+    "UPLOAD_URL": "Alamat file impor",
+    "UPLOAD_URL_MAXLENGTH": "Alamat file impor melebihi panjang maksimum yang diizinkan",
+    "UPLOAD_URL_NOT_NULL": "Alamat file impor tidak boleh kosong",
+    "UPLOAD_TOKEN": "Token",
+    "UPLOAD_TOKEN_MAXLENGTH": "Token melebihi panjang maksimum yang diizinkan",
+    "UPLOAD_FROM_URL": "Muat dari Url jarak jauh",
+    "UPLOADTIPS": "File penyimpanan database tidak mendukung pengunggahan, silakan gunakan formulir untuk memasukkan data!",
+    "DOWNTIPS": "Hanya mode lampiran yang mendukung unduh folder!",
+    "DOWNTIPS2": "Hanya mode lampiran yang mendukung unduh berbagi!",
+    "CREATTIPS": "Hanya mode lampiran yang mendukung pembuatan dokumen Word!",
+    "DOCNAME": "Nama dokumen:",
+    "NEWDOC": "Dokumen baru",
+    "NOTNULL2": "Nama file tidak boleh kosong",
+    "CREATEXCEL": "Hanya mode lampiran yang mendukung pembuatan dokumen Excel!",
+    "CHARTNAME": "Nama Grafik:",
+    "NEWCHART": "Grafik baru",
+    "CREATPPT": "Hanya mode lampiran yang mendukung pembuatan slide!",
+    "PPTNAME": "Nama slide:",
+    "NEWPPT": "Slide baru",
+    "NUMIMP": "Jumlah baris data yang diimpor:",
+    "EXCELIMP": "Impor data Excel",
+    "NOTNULL3": "Jumlah baris data yang diimpor tidak boleh kosong",
+    "NOEDIT": "Entri daftar tidak mendukung perintah edit!",
+    "DOWNLOAD": "Unduh",
+    "CONFDOWNLOAD": "Konfirmasi unduhan",
+    "DIREEMPTY": "Direktori kosong",
+    "LISTLOADING": "Memuat daftar file......",
+    "TRYAGAIN": "Terjadi kesalahan, silakan coba lagi!",
+    "VIEW": "Lihat",
+    "REMOVE": "Hapus",
+    "REMOVE_FOLDER": "Hapus direktori",
+    "NEWFOLDER": "Folder baru",
+    "UPLOADFILE": "Unggah file",
+    "UPLOADFOLDER": "Unggah folder",
+    "REMOVE-FOLDER": "Hapus direktori",
+    "UPLOADFROMURL": "Unggah file dari Url",
+    "CONFIGURE": "Pengaturan",
+    "NEWWORD": "Dokumen baru",
+    "EMPDOC": "Dokumen kosong",
+    "PREFIX": "Prefiks",
+    "PREFIX_NOT_NULL": "Prefiks tidak boleh kosong",
+    "BASESHAREURL": "URL berbagi",
+    "BASESHAREURL_NOT_NULL": "URL berbagi tidak boleh kosong",
+    "MAX_UPLOAD_SIZE": "Ukuran berkas unggah maksimum",
+    "MAX_UPLOAD_SIZE_NOT_NULL": "Ukuran berkas unggah maksimum tidak boleh kosong",
+    "SHARED_LINK_DATETIMEPICKER_TYPE": "Jenis tanggal berkas bersama",
+    "DATE": "Tanggal singkat",
+    "DATETIME": "Waktu",
+    "PAGINATION_SIZE": "Jumlah baris per halaman",
+    "PAGINATION_SIZE_NOT_NULL": "Jumlah baris per halaman tidak boleh kosong",
+    "CONFIGURE-TITLE": "Pengaturan",
+    "CONFIRM": "OK",
+    "NEWWORDTEMP": "Buat dari templat",
+    "PERMMANA": "Manajemen hak akses",
+    "MOVETO": "Pindahkan ke",
+    "UNZIP": "Ekstrak",
+    "FAVORITE": "Favorit",
+    "REMOVEFAV": "Hapus dari favorit",
+    "DIRECTORY-REMOVE": "Hapus direktori",
+    "RENAME": "Ganti nama",
+    "EMPTYTRASH": "Kosongkan Tempat Sampah",
+    "SHARELINK": "Bagikan tautan",
+    "DETAIL": "Informasi detail",
+    "MOREOPER": "Operasi lainnya",
+    "OPEN": "Buka",
+    "COPYTO": "Salin ke",
+    "DELFOREVER": "Hapus permanen",
+    "RESTORE": "Pulihkan",
+    "NOTEMPTY": "Nama file tidak boleh kosong",
+    "CONFDEL": "Konfirmasi hapus \"",
+    "PERDEL": "Semua file dan folder di tempat sampah akan dihapus secara permanen",
+    "NEW": "Baru",
+    "COPYSUCC": "File berhasil disalin!",
+    "SELCHARTTEMP": "Pilih templat Excel",
+    "DOCTEMP": "Pilih templat dokumen",
+    "PPTTEMP": "Pilih templat PPT",
+    "PREVIEWEDTIPS": "Folder berada di tempat sampah dan tidak dapat dipratinjau. Anda perlu memulihkannya dari tempat sampah!"
+  },
+  "NOTIFICATION_HISTORY": {
+    "NO_MESSAGE": "Tidak ada pesan",
+    "NOTIFICATIONS": "Notifikasi",
+    "MARK_AS_READ": "Tandai semua sebagai telah dibaca"
+  },
+  "BROWSE": {
+    "PERSONAL": {
+      "TITLE": "File Pribadi",
+      "SIDENAV_LINK": {
+        "LABEL": "File Pribadi",
+        "TOOLTIP": "Lihat file pribadi Anda"
+      }
+    },
+    "RECENT": {
+      "TITLE": "File Terbaru",
+      "SIDENAV_LINK": {
+        "LABEL": "File Terbaru",
+        "TOOLTIP": "Lihat file yang baru-baru ini diedit"
+      },
+      "EMPTY_STATE": {
+        "TITLE": "Tidak ada file terbaru",
+        "TEXT": "Item yang Anda unggah atau edit dalam 30 hari terakhir ditampilkan di sini."
+      }
+    },
+    "FAVORITES": {
+      "TITLE": "Favorit",
+      "SIDENAV_LINK": {
+        "LABEL": "Favorit",
+        "TOOLTIP": "Lihat file dan folder favorit Anda"
+      },
+      "EMPTY_STATE": {
+        "TITLE": "Tidak ada file atau folder favorit",
+        "TEXT": "Item yang Anda favoritkan agar mudah diakses nanti."
+      }
+    },
+    "TRASHCAN": {
+      "TITLE": "Recycle bin",
+      "SIDENAV_LINK": {
+        "LABEL": "Recycle bin",
+        "TOOLTIP": "Lihat file yang dihapus di Sampah"
+      },
+      "EMPTY_STATE": {
+        "TITLE": "Sampah kosong",
+        "FIRST_TEXT": "Item yang Anda hapus dipindahkan ke Sampah.",
+        "SECOND_TEXT": "Kosongkan Sampah untuk menghapus item secara permanen."
+      }
+    },
+    "SEARCH": {
+      "TITLE": "Hasil pencarian",
+      "FOUND_RESULTS": "Ditemukan {{ number }} hasil",
+      "FOUND_ONE_RESULT": "Ditemukan {{ number }} hasil",
+      "CUSTOM_ROW": {
+        "MODIFIED": "Diubah",
+        "BY_USER": "Oleh {{ user }}",
+        "LOCATION": "Lokasi",
+        "SIZE": "Ukuran"
+      },
+      "UNKNOWN_LOCATION": "Tidak diketahui",
+      "NO_RESULTS": "Pencarian Anda tidak menghasilkan hasil",
+      "TOGGLE_SEARCH_FILTER": "Alihkan Filter Pencarian",
+      "ERRORS": {
+        "500": "Terjadi kesalahan saat memproses kueri pencarian [500]",
+        "GENERIC": "Terjadi kesalahan saat memproses kueri pencarian"
+      }
+    },
+    "SEARCH_LIBRARIES": {
+      "TITLE": "Pustaka ditemukan...",
+      "FOUND_RESULTS": "{{ number }} hasil",
+      "FOUND_ONE_RESULT": "{{ number }} hasil"
+    }
+  },
+  "FORM": {
+    "START_FORM": {
+      "TITLE": "Formulir Mulai"
+    },
+    "PREVIEW": {
+      "IMAGE_NOT_AVAILABLE": "Pratinjau tidak tersedia"
+    },
+    "FIELD": {
+      "LOCALSTORAGE": "Penyimpanan lokal",
+      "SOURCE": "Pilih sumber dari ",
+      "SHOW_FILE": "Tampilkan",
+      "DOWNLOAD_FILE": "Unduh",
+      "REMOVE_FILE": "Hapus",
+      "UPLOAD": "Unggah",
+      "REQUIRED": "*Wajib diisi",
+      "VALIDATOR": {
+        "INVALID_NUMBER": "Gunakan format angka lain",
+        "INVALID_DATE": "Gunakan format tanggal lain",
+        "INVALID_VALUE": "Masukkan nilai yang berbeda",
+        "NOT_GREATER_THAN": "Tidak boleh lebih besar dari {{ maxValue }}",
+        "NOT_LESS_THAN": "Tidak boleh kurang dari {{ minValue }}",
+        "AT_LEAST_LONG": "Masukkan minimal {{ minLength }} karakter",
+        "NO_LONGER_THAN": "Masukkan tidak lebih dari {{ maxLength }} karakter"
+      }
+    },
+    "FORM_RENDERER": {
+      "NAMELESS_TASK": "Tugas tanpa nama"
+    }
+  },
+  "FILE_SIZE": {
+    "BYTES": "Byte",
+    "KB": "KB",
+    "MB": "MB",
+    "GB": "GB",
+    "TB": "TB",
+    "PB": "PB",
+    "EB": "EB",
+    "ZB": "ZB",
+    "YB": "YB"
+  },
+  "PAGINATION": {
+    "ARIA": {
+      "ITEMS_PER_PAGE": "Pemilih ukuran halaman",
+      "CURRENT_PAGE": "Pemilih halaman saat ini",
+      "PREVIOUS_PAGE": "Tombol halaman sebelumnya",
+      "NEXT_PAGE": "Tombol halaman berikutnya"
+    },
+    "ITEMS_RANGE": "Menampilkan {{range}}/{{total}}",
+    "ITEMS_PER_PAGE": "Item per halaman",
+    "CURRENT_PAGE": "Halaman {{number}}",
+    "TOTAL_PAGES": "/dari {{total}} halaman"
+  },
+  "DIALOG": {
+    "DOWNLOAD_ZIP": {
+      "ACTIONS": {
+        "CANCEL": "Batal"
+      },
+      "TITLE": "Menambahkan file ke zip, ini mungkin memerlukan beberapa menit"
+    }
+  },
+  "FILE_DIALOG": {
+    "FILE_LOCK": "Kunci file",
+    "ALLOW_OTHERS_CHECKBOX": "Izinkan pemilik mengubah file ini",
+    "FILE_LOCK_CHECKBOX": "Kunci file",
+    "TIME_LOCK_CHECKBOX": "Kunci waktu",
+    "SAVE_BUTTON": {
+      "LABEL": "Simpan"
+    },
+    "CANCEL_BUTTON": {
+      "LABEL": "Batal"
+    }
+  },
+  "UPLOADURL_DIALOG": {
+    "URL_DOWNLOAD": "Unggah File dari URL",
+    "FILE_NAME": {
+      "LABEL": "Nama file",
+      "ERRORS": {
+        "REQUIRED": "Nama folder wajib diisi",
+        "SPECIAL_CHARACTERS": "Nama file tidak boleh mengandung karakter * \" < > \\ / ? : |",
+        "ENDING_DOT": "Nama file tidak boleh diakhiri dengan tanda titik",
+        "ONLY_SPACES": "Nama file tidak boleh hanya berisi spasi"
+      }
+    },
+    "URL": {
+      "LABEL": "URL Unduhan File"
+    },
+    "CREATE_BUTTON": {
+      "LABEL": "OK"
+    },
+    "CANCEL_BUTTON": {
+      "LABEL": "Batal"
+    }
+  },
+  "FOLDER_DIALOG": {
+    "CREATE_FOLDER_TITLE": "Folder baru",
+    "EDIT_FOLDER_TITLE": "Edit folder",
+    "EDIT_FILE_TITLE": "Edit nama file",
+    "FOLDER_NAME": {
+      "LABEL": "Nama",
+      "ERRORS": {
+        "REQUIRED": "Nama folder wajib diisi",
+        "SPECIAL_CHARACTERS": "Nama folder tidak boleh mengandung karakter * \" < > \\ / ? : |",
+        "ENDING_DOT": "Nama folder tidak boleh diakhiri dengan tanda titik .",
+        "ONLY_SPACES": "Nama folder tidak boleh hanya berisi spasi"
+      }
+    },
+    "FOLDER_DESCRIPTION": {
+      "LABEL": "Deskripsi"
+    },
+    "CREATE_BUTTON": {
+      "LABEL": "Buat"
+    },
+    "UPDATE_BUTTON": {
+      "LABEL": "Perbarui"
+    },
+    "CANCEL_BUTTON": {
+      "LABEL": "Batal"
+    }
+  },
+  "MESSAGES": {
+    "ERRORS": {
+      "GENERIC": "Tindakan tidak berhasil. Coba lagi atau hubungi Tim IT Anda.",
+      "EXISTENT_FOLDER": "Sudah ada folder dengan nama ini. Coba nama lain."
+    }
+  },
+  "RESTORE_NODE": {
+    "VIEW": "Lihat",
+    "PARTIAL_PLURAL": "{{ number }} item tidak dipulihkan karena ada masalah dengan lokasi pemulihan",
+    "NODE_EXISTS": "Tidak dapat memulihkan, item {{ name }} sudah ada",
+    "LOCATION_MISSING": "Tidak dapat memulihkan item {{ name }}, lokasi asli sudah tidak ada",
+    "GENERIC": "Terjadi masalah saat memulihkan item {{ name }}",
+    "PLURAL": "Berhasil dipulihkan",
+    "SINGULAR": "Item {{ name }} berhasil dipulihkan"
+  },
+  "DELETE_NODE": {
+    "SINGULAR": "{{ name }} dihapus",
+    "PLURAL": "{{ number }} item dihapus",
+    "PARTIAL_SINGULAR": "{{ success }} item dihapus, {{ failed }} tidak dapat dihapus",
+    "PARTIAL_PLURAL": "{{ success }} item dihapus, {{ failed }} tidak dapat dihapus",
+    "ERROR_SINGULAR": "{{ name }} tidak dapat dihapus",
+    "ERROR_PLURAL": "{{ number }} item tidak dapat dihapus"
+  },
+  "CARDVIEW": {
+    "KEYVALUEPAIRS": {
+      "ADD": "Tambah Baru",
+      "NAME": "Nama",
+      "VALUE": "Nilai"
+    },
+    "VALIDATORS": {
+      "FLOAT_VALIDATION_ERROR": "Gunakan format angka",
+      "INT_VALIDATION_ERROR": "Gunakan format bilangan bulat"
+    },
+    "NONE": "Tidak Ada"
+  },
+  "METADATA": {
+    "BASIC": {
+      "HEADER": "Properti",
+      "NAME": "Nama",
+      "TITLE": "Judul",
+      "DESCRIPTION": "Deskripsi",
+      "AUTHOR": "Penulis",
+      "MIMETYPE": "Tipe MIME",
+      "SIZE": "Ukuran file",
+      "CREATOR": "Pembuat",
+      "CREATED_DATE": "Tanggal dibuat",
+      "MODIFIER": "Pengubah",
+      "MODIFIED_DATE": "Tanggal diubah"
+    },
+    "ACTIONS": {
+      "EDIT": "Edit",
+      "SAVE": "Simpan",
+      "CANCEL": "Batal",
+      "TOGGLE": "Alihkan nilai",
+      "CLEAR": "Hapus"
+    },
+    "ERRORS": {
+      "GENERIC": "Terjadi kesalahan saat memperbarui properti",
+      "409": "Nama sub duplikat tidak diperbolehkan [409]",
+      "422": "Nilai properti tidak valid"
+    }
+  },
+  "COMMENTS": {
+    "NONE": "Tidak ada komentar",
+    "ADD": "Tambah",
+    "HEADER": "Komentar ({{ count }})",
+    "CREATED_BY_HEADER": "Pembuat",
+    "MESSAGE_HEADER": "Pesan",
+    "DIALOG": {
+      "TITLE": "Komentar baru",
+      "LABELS": {
+        "MESSAGE": "Pesan"
+      },
+      "BUTTON": {
+        "ADD": "Tambahkan Komentar",
+        "CANCEL": "Batal"
+      }
+    }
+  },
+  "EMPTY": {
+    "HEADER": "Folder ini kosong",
+    "DRAG-AND-DROP": {
+      "TITLE": "Seret & Lepas",
+      "SUBTITLE": "untuk mengunggah file"
+    }
+  },
+  "CONTENT-ACTIONS": {
+    "TOOLTIP": "Aksi konten"
+  },
+  "ACCESSIBILITY": {
+    "SELECT_ALL": "Pilih Semua",
+    "SELECT_FILE": "Pilih file"
+  },
+  "USER_PROFILE": {
+    "LABELS": {
+      "ECM": {
+        "JOB_TITLE": "Jabatan"
+      },
+      "BPM": {
+        "TENANT": "Tenant"
+      }
+    },
+    "TAB": {
+      "CS": "Content Services",
+      "PS": "Process Services"
+    }
+  },
+  "ERROR_CONTENT": {
+    "UNKNOWN": {
+      "TITLE": "Kami mengalami masalah.",
+      "DESCRIPTION": "Sepertinya ada yang salah.",
+      "SECONDARY_BUTTON": {
+        "TEXT": ""
+      },
+      "RETURN_BUTTON": {
+        "TEXT": "Kembali ke beranda"
+      }
+    },
+    "403": {
+      "TITLE": "Anda tidak memiliki izin untuk mengakses server ini.",
+      "DESCRIPTION": "Anda tidak diizinkan mengakses sumber daya ini di server.",
+      "SECONDARY_BUTTON": {
+        "TEXT": "Laporkan masalah"
+      },
+      "RETURN_BUTTON": {
+        "TEXT": "Kembali ke beranda"
+      }
+    },
+    "404": {
+      "TITLE": "Terjadi kesalahan.",
+      "DESCRIPTION": "Kami tidak dapat menemukan halaman yang Anda cari.",
+      "SECONDARY_BUTTON": {
+        "TEXT": ""
+      },
+      "RETURN_BUTTON": {
+        "TEXT": "Kembali ke beranda"
+      }
+    },
+    "500": {
+      "TITLE": "Terjadi kesalahan.",
+      "DESCRIPTION": "Kesalahan server internal, coba lagi atau hubungi dukungan IT [500].",
+      "SECONDARY_BUTTON": {
+        "TEXT": ""
+      },
+      "RETURN_BUTTON": {
+        "TEXT": "Kembali ke beranda"
+      }
+    },
+    "502": {
+      "TITLE": "Terjadi kesalahan.",
+      "DESCRIPTION": "Gateway bermasalah, coba lagi atau hubungi dukungan IT [502].",
+      "SECONDARY_BUTTON": {
+        "TEXT": ""
+      },
+      "RETURN_BUTTON": {
+        "TEXT": "Kembali ke beranda"
+      }
+    },
+    "504": {
+      "TITLE": "Terjadi kesalahan.",
+      "DESCRIPTION": "Server melewati batas waktu, coba lagi atau hubungi dukungan IT [504].",
+      "SECONDARY_BUTTON": {
+        "TEXT": ""
+      },
+      "RETURN_BUTTON": {
+        "TEXT": "Kembali ke beranda"
+      }
+    }
+  },
+  "VERSION_LIST": {
+    "ACTIONS": {
+      "RESTORE": "Pulihkan",
+      "DELETE": "Hapus",
+      "DOWNLOAD": "Unduh",
+      "VIEW": "Lihat",
+      "UPLOAD": {
+        "TITLE": "Unggah Versi Baru",
+        "TOOLTIP": "Batasan: Anda harus mengunggah file dengan nama yang sama untuk membuat versi baru file tersebut",
+        "MAJOR": "Perubahan Besar (2.0)",
+        "MINOR": "Perubahan Kecil (1.1)",
+        "COMMENT": "Tambahkan Komentar",
+        "ADD": "Tambah Versi Baru",
+        "CANCEL": "Batal"
+      }
+    },
+    "CONFIRM_DELETE": {
+      "TITLE": "Hapus Versi",
+      "MESSAGE": "Versi file yang dihapus tidak dapat dipulihkan. Lanjutkan?",
+      "YES_LABEL": "Ya",
+      "NO_LABEL": "Tidak"
+    }
+  },
+  "EXT_DROPDOWN": {
+    "LOADING": "Memuat..."
+  },
+  "EXT_CONFIRM_DIALOG": {
+    "TITLE": "Konfirmasi",
+    "ACTION": "Apakah Anda ingin melanjutkan?",
+    "YES_LABEL": "Ya",
+    "NO_LABEL": "Tidak"
+  },
+  "NO_PERMISSION": "Anda tidak memiliki izin untuk melihat file atau folder ini.",
+  "LAYOUT": {
+    "CREATED": "Dibuat",
+    "THUMBNAIL": "Thumbnail",
+    "NAME": "Nama",
+    "LOCATION": "Lokasi",
+    "SIZE": "Ukuran",
+    "DELETED_ON": "Telah dihapus",
+    "DELETED_BY": "Dihapus oleh",
+    "STATUS": "Status",
+    "DESCRIPTION": "Deskripsi",
+    "MODIFIED_ON": "Diubah",
+    "MODIFIED_BY": "Diubah oleh",
+    "SHARED_BY": "Dibagikan oleh",
+    "LOAD_MORE": "Muat lebih banyak"
+  },
+  "MENU_ACTIONS": {
+    "VIEW": "Lihat",
+    "REMOVE": "Hapus",
+    "DOWNLOAD": "Unduh"
+  },
+  "ALFRESCO_DOCUMENT_LIST": {
+    "BUTTON": {
+      "ACTION_CREATE": "Buat...",
+      "ACTION_NEW_FOLDER": "Folder baru",
+      "CREATE": "Buat",
+      "CANCEL": "Batal"
+    }
+  },
+  "FOLDERAUTH": {
+    "VIEW": "Lihat",
+    "DOWNLOAD": "Unduh",
+    "UPLOAD": "Unggah",
+    "FULL": "Kontrol penuh",
+    "DEPT_ALL_USERS": "Semua personel di departemen",
+    "ALL_USERS": "Semua personel di sub-departemen"
+  },
+  "DROPDOWN": {
+    "PLACEHOLDER_LABEL": "Daftar situs",
+    "MY_FILES_OPTION": "File saya"
+  },
+  "NODE_SELECTOR": {
+    "CANCEL": "Batal",
+    "CHOOSE": "Pilih",
+    "COPY": "Salin",
+    "COPY_ITEM": "Salin '{{ name }}' ke...",
+    "MOVE": "Pindahkan",
+    "MOVE_ITEM": "Pindahkan '{{ name }}' ke...",
+    "NO_RESULTS": "Tidak ditemukan hasil",
+    "SEARCH_RESULTS": "Hasil pencarian",
+    "SELECT_LOCATION": "Pilih Lokasi",
+    "COPY_ITEMS": "Salin {{ number }} item ke...",
+    "MOVE_ITEMS": "Pindahkan {{ number }} item ke...",
+    "SEARCH": "Cari",
+    "NEXT": "Berikutnya",
+    "FILE_NAME": "Nama file baru",
+    "SELECT_FILE_TEMPLATE_TITLE": "Pilih template dokumen",
+    "SELECT_FOLDER_TEMPLATE_TITLE": "Pilih template folder"
+  },
+  "OPERATION": {
+    "SUCCESS": {
+      "CONTENT": {
+        "COPY": "Berhasil",
+        "MOVE": "Pemindahan berhasil"
+      },
+      "FOLDER": {
+        "COPY": "Berhasil",
+        "MOVE": "Pemindahan berhasil"
+      }
+    },
+    "ERROR": {
+      "CONFLICT": "Nama ini sudah digunakan, coba nama lain.",
+      "UNKNOWN": "Tindakan tidak berhasil. Coba lagi atau hubungi Tim IT Anda.",
+      "PERMISSION": "Anda tidak memiliki akses untuk melakukan tindakan ini."
+    }
+  },
+  "TAG": {
+    "LABEL": {
+      "NEWTAG": "Tag Baru"
+    },
+    "MESSAGES": {
+      "EXIST": "Tag sudah ada"
+    },
+    "BUTTON": {
+      "ADD": "Tambah Tag"
+    }
+  },
+  "FILE_UPLOAD": {
+    "BUTTON": {
+      "MINIMIZE": "Minimalkan (&M)",
+      "MAXIMIZE": "Maksimalkan",
+      "CLOSE": "Tutup",
+      "CANCEL_ALL": "Pengunggahan dibatalkan",
+      "CANCEL_FILE": "Pengunggahan dibatalkan",
+      "REMOVE_FILE": "Hapus file yang diunggah",
+      "UPLOAD_FILE": "Unggah file",
+      "UPLOAD_FOLDER": "Unggah folder"
+    },
+    "STATUS": {
+      "FILE_CANCELED_STATUS": "Dibatalkan"
+    },
+    "CONFIRMATION": {
+      "BUTTON": {
+        "CANCEL": "Ya",
+        "CONTINUE": "Tidak"
+      },
+      "MESSAGE": {
+        "TITLE": "Pengunggahan dibatalkan",
+        "TEXT": "Hentikan pengunggahan dan hapus file yang telah diunggah."
+      }
+    },
+    "VERSION": {
+      "MESSAGES": {
+        "NO_ACCEPTED_FILE_TYPES": "Perlu diketahui bahwa pengaturan \"acceptedFilesType\" tidak berpengaruh pada pengunggahan versi baru. Tipe file akan sama dengan tipe file aslinya.",
+        "INCOMPATIBLE_VERSION": "Hanya file dengan tipe yang sama yang dapat diunggah sebagai versi baru."
+      }
+    },
+    "MESSAGES": {
+      "UPLOAD_CANCELED": "Pengunggahan dibatalkan",
+      "UPLOAD_PROGRESS": "Diunggah {{completed}} dari {{total}}",
+      "UPLOAD_ERROR": "{{total}} pengunggahan gagal",
+      "UPLOAD_ERRORS": "{{total}} pengunggahan gagal",
+      "PROGRESS": "Sedang mengunggah...",
+      "FOLDER_ALREADY_EXIST": "Folder {0} sudah ada",
+      "FOLDER_NOT_SUPPORTED": "Browser Anda tidak mendukung pengunggahan folder, silakan gunakan browser lain",
+      "REMOVE_FILE_ERROR": "{{fileName}} tidak dapat dihapus, coba lagi atau hubungi Tim IT Anda.",
+      "REMOVE_FILES_ERROR": "{{total}} file tidak dapat dihapus, coba lagi atau hubungi Tim IT Anda.",
+      "EXCEED_MAX_FILE_SIZE": "File {{ fileName }} melebihi ukuran file yang diizinkan yaitu {{allowSize}}"
+    },
+    "ACTION": {
+      "UNDO": "Urungkan"
+    },
+    "ERRORS": {
+      "GENERIC": "Unggahan gagal. Hubungi TI jika masalah ini berlanjut",
+      "500": "Terjadi kesalahan server internal, coba lagi atau hubungi dukungan TI [500]",
+      "504": "Server mengalami waktu tunggu habis, coba lagi atau hubungi dukungan TI [504]",
+      "403": "Izin tidak cukup untuk mengunggah di lokasi ini [403]",
+      "404": "Lokasi unggah tidak lagi ada [404]",
+      "409": "File dengan nama yang sama sudah ada [409]"
+    },
+    "ARIA-LABEL": {
+      "ERROR": "Kesalahan Unggah",
+      "VERSION": "Versi file"
+    }
+  },
+  "WEBSCRIPT": {
+    "ERROR": "Tidak dapat menyelesaikan tindakan tersebut. Bagikan pesan ini kepada Tim IT Anda: Terjadi kesalahan saat mendeserialisasi {{data}} sebagai {{contentType}}"
+  },
+  "SEARCH": {
+    "CONTROL": {},
+    "BUTTON": {
+      "TOOLTIP": "Cari",
+      "ARIA-LABEL": "Tombol pencarian"
+    },
+    "INPUT": {
+      "ARIA-LABEL": "Input pencarian",
+      "PLACEHOLDER": "Cari",
+      "FILES": "File",
+      "FOLDERS": "Folder",
+      "LIBRARIES": "Pustaka",
+      "HINT": "Input pencarian harus memiliki minimal 2 karakter alfanumerik."
+    },
+    "RESULTS": {
+      "SUMMARY": "{{numResults}} hasil ditemukan untuk {{searchTerm}}",
+      "NONE": "Tidak ada hasil untuk {{searchTerm}}",
+      "ERROR": "Terjadi masalah saat pencarian - coba lagi.",
+      "COLUMNS": {
+        "NAME": "Nama tampilan",
+        "MODIFIED_BY": "Diubah oleh",
+        "MODIFIED_AT": "Terakhir Diubah"
+      }
+    },
+    "FILTER": {
+      "ACTIONS": {
+        "CLEAR": "Bersihkan",
+        "APPLY": "Terapkan",
+        "CLEAR-ALL": "Bersihkan semua",
+        "SHOW-MORE": "Tampilkan lebih banyak",
+        "SHOW-LESS": "Tampilkan lebih sedikit",
+        "FILTER-CATEGORY": "Kategori filter"
+      },
+      "BUTTONS": {
+        "CLEAR-ALL": {
+          "LABEL": "Bersihkan semua",
+          "TOOLTIP": "Ini akan menghapus semua pilihan"
+        },
+        "RESET-ALL": {
+          "LABEL": "Reset Semua",
+          "TOOLTIP": "Ini akan mengatur ulang semua pilihan dan semua filter"
+        }
+      },
+      "RANGE": {
+        "FROM": "Dari",
+        "TO": "Sampai",
+        "FROM-DATE": "Dari",
+        "TO-DATE": "Sampai"
+      },
+      "VALIDATION": {
+        "REQUIRED-VALUE": "Nilai wajib diisi",
+        "NO-DAYS": "Tidak ada hari yang dipilih.",
+        "INVALID-FORMAT": "Format Tidak Valid",
+        "INVALID-DATE": "Tanggal tidak valid. Tanggal harus dalam format '{{ requiredFormat }}'",
+        "BEYOND-MAX-DATE": "Tanggal melebihi tanggal maksimum."
+      },
+      "INPUT": {
+        "PLACEHOLDER": "Cari",
+        "FILES": "File",
+        "FOLDERS": "folder",
+        "LIBRARIES": "Pustaka",
+        "HINT": "Input pencarian harus memiliki minimal 2 karakter alfanumerik."
+      },
+      "SORT": {
+        "RELEVANCE": "Relevansi",
+        "FILENAME": "Nama file",
+        "TITLE": "Judul",
+        "MODIFIED_DATE": "Tanggal diubah",
+        "SIZE": "Ukuran",
+        "TYPE": "Tipe",
+        "MODIFIER": "Pengubah",
+        "CREATE_DATE": "Tanggal dibuat"
+      },
+      "FACET_FIELDS": {
+        "FILE_TYPE": "Jenis file",
+        "CREATOR": "Pembuat",
+        "MODIFIER": "Pengubah",
+        "LOCATION": "Lokasi"
+      },
+      "CATEGORIES": {
+        "MODIFIED_DATE": "Tanggal diubah",
+        "SIZE": "Ukuran",
+        "SIZE_OPTIONS": {
+          "SMALL": "Kecil",
+          "MEDIUM": "Sedang",
+          "LARGE": "Besar",
+          "HUGE": "Sangat besar"
+        },
+        "CREATED_DATE": "Tanggal dibuat"
+      },
+      "FACET_QUERIES": {
+        "TODAY": "Hari ini",
+        "THIS_WEEK": "Minggu ini",
+        "THIS_MONTH": "Bulan ini",
+        "LAST_6_MONTHS": "Dalam 6 bulan terakhir",
+        "THIS_YEAR": "Tahun ini"
+      }
+    },
+    "ICONS": {
+      "ft_ic_raster_image": "File gambar",
+      "ft_ic_pdf": "Dokumen PDF",
+      "ft_ic_ms_excel": "File Microsoft Excel",
+      "ft_ic_ms_word": "Dokumen Microsoft Word",
+      "ft_ic_ms_powerpoint": "File Microsoft PowerPoint",
+      "ft_ic_video": "File video",
+      "ft_ic_document": "File dokumen",
+      "ft_ic_website": "Sumber daya web",
+      "ft_ic_archive": "File arsip",
+      "ft_ic_presentation": "File presentasi",
+      "ft_ic_spreadsheet": "File spreadsheet"
+    },
+    "DOCUMENT_LIST": {
+      "COLUMNS": {
+        "DISPLAY_NAME": "Nama tampilan",
+        "CREATED_BY": "Pembuat",
+        "CREATED_ON": "Dibuat"
+      },
+      "ACTIONS": {
+        "FOLDER": {
+          "DELETE": "Hapus",
+          "MOVE": "Pindahkan",
+          "COPY": "Salin"
+        },
+        "DOCUMENT": {
+          "DOWNLOAD": "Unduh",
+          "DELETE": "Hapus",
+          "MOVE": "Pindahkan",
+          "COPY": "Salin",
+          "PROCESS_ACTION": "Mulai Proses"
+        }
+      }
+    },
+    "SORT": {
+      "RELEVANCE": "Relevansi",
+      "FILENAME": "Nama file",
+      "TITLE": "Judul",
+      "MODIFIED_DATE": "Tanggal diubah",
+      "SIZE": "Ukuran",
+      "TYPE": "Tipe",
+      "MODIFIER": "Pengubah",
+      "CREATE_DATE": "Tanggal dibuat"
+    },
+    "FACET_FIELDS": {
+      "FILE_TYPE": "Jenis file",
+      "CREATOR": "Pembuat",
+      "MODIFIER": "Pengubah",
+      "LOCATION": "Lokasi"
+    },
+    "CATEGORIES": {
+      "MODIFIED_DATE": "Tanggal diubah",
+      "SIZE": "Ukuran",
+      "SIZE_OPTIONS": {
+        "SMALL": "Kecil",
+        "MEDIUM": "Sedang",
+        "LARGE": "Besar",
+        "HUGE": "Sangat besar"
+      },
+      "CREATED_DATE": "Tanggal dibuat"
+    },
+    "FACET_QUERIES": {
+      "TODAY": "Hari ini",
+      "THIS_WEEK": "Minggu ini",
+      "THIS_MONTH": "Bulan ini",
+      "LAST_6_MONTHS": "Dalam 6 bulan terakhir",
+      "THIS_YEAR": "Tahun ini"
+    },
+    "SEARCH_HEADER": {
+      "TITLE": "Filter",
+      "TYPE": "Jenis",
+      "FILTER_BY": "Filter berdasarkan {{ category }}",
+      "CLEAR": "Hapus",
+      "APPLY": "Terapkan",
+      "FILTERS": {
+        "NAME": {
+          "TITLE": "Nama",
+          "PLACEHOLDER": "Masukkan nama"
+        },
+        "TYPE": {
+          "TITLE": "Periksa tipe",
+          "FOLDER": "Folder",
+          "DOCUMENT": "Dokumen"
+        },
+        "SIZE": {
+          "TITLE": "Ukuran Konten (rentang)",
+          "SMALL": "Kecil",
+          "MEDIUM": "Sedang",
+          "LARGE": "Besar",
+          "HUGE": "Sangat besar"
+        },
+        "DATE": {
+          "TITLE": "Tanggal Dibuat (rentang)"
+        }
+      }
+    }
+  },
+  "PERMISSION": {
+    "LACKOF": "Anda tidak memiliki izin {{permission}} untuk {{action}} {{type}}"
+  },
+  "SHARE": {
+    "PUBLIC-LINK": "Tautan publik",
+    "DIALOG-TITLE": "Bagikan",
+    "DESCRIPTION": "Klik tautan di bawah untuk menyalinnya ke clipboard.",
+    "TITLE": "Tautan untuk dibagikan",
+    "EXPIRES": "Kedaluwarsa pada",
+    "CLIPBOARD-MESSAGE": "Tautan disalin ke clipboard",
+    "CLOSE": "Tutup",
+    "CONFIRMATION": {
+      "DIALOG-TITLE": "Hapus tautan bersama ini",
+      "MESSAGE": "Tautan ini akan dihapus dan tautan baru akan dibuat saat file ini dibagikan lagi",
+      "CANCEL": "Batal",
+      "REMOVE": "Hapus"
+    },
+    "UNSHARE_ERROR": "Terjadi kesalahan saat membatalkan berbagi file ini",
+    "UNSHARE_PERMISSION_ERROR": "Anda tidak memiliki izin untuk membatalkan berbagi file ini"
+  },
+  "PERMISSION_MANAGER": {
+    "PERMISSION": "Atur Izin",
+    "PERMISSION_DISPLAY": {
+      "INHERITED": "Diwariskan",
+      "AUTHORITY_ID": "ID Otoritas",
+      "ROLE": "Peran",
+      "LOCALLY_SET": "Diatur secara lokal",
+      "NO_PERMISSIONS": "Tidak ada izin"
+    },
+    "ADD-PERMISSION": {
+      "SEARCH": "Cari",
+      "TYPE-MESSAGE": "Ketik sesuatu untuk mulai mencari grup atau orang",
+      "NO-RESULT": "Tidak ada hasil yang ditemukan untuk pencarian ini",
+      "ADD-ACTION": "Tambah",
+      "CLOSE-ACTION": "Tutup",
+      "BASE-DIALOG-TITLE": "Cari grup atau orang untuk ditambahkan...",
+      "EVERYONE": "SEMUA ORANG"
+    },
+    "ERROR": {
+      "DUPLICATE-PERMISSION": "Satu atau beberapa izin yang Anda tetapkan sudah ada：{{list}}",
+      "NOT-ALLOWED": "Anda tidak diizinkan mengubah izin"
+    },
+    "CANCEL": "Batal",
+    "YES_LABEL": "OK"
+  },
+  "EXT-TREE-VIEW": {
+    "MISSING-ID": "nodeId tidak diberikan!"
+  },
+  "APP": {
+    "SETTINGS": {
+      "TITLE": "Pengaturan",
+      "APPLICATION-SETTINGS": "Pengaturan Aplikasi",
+      "REPOSITORY-SETTINGS": "Pengaturan Repositori",
+      "INVALID-VALUE-FORMAT": "Format nilai tidak valid",
+      "REQUIRED-FIELD": "Kolom ini wajib diisi",
+      "RESET": "Atur ulang",
+      "APPLY": "Terapkan"
+    },
+    "PREVIEW": {
+      "TITLE": "Pratinjau"
+    },
+    "NEW_MENU": {
+      "LABEL": "Baru",
+      "TOOLTIP": "Tambahkan file dan folder baru, atau buat Pustaka File baru",
+      "MENU_ITEMS": {
+        "CREATE_FOLDER": "Buat Folder",
+        "UPLOAD_FILE": "Unggah file",
+        "UPLOAD_FOLDER": "Unggah folder",
+        "CREATE_LIBRARY": "Buat Pustaka"
+      },
+      "TOOLTIPS": {
+        "CREATE_FOLDER": "Folder baru",
+        "CREATE_FOLDER_NOT_ALLOWED": "Folder tidak dapat dibuat saat melihat item saat ini",
+        "UPLOAD_FILES": "Pilih file untuk diunggah",
+        "UPLOAD_FILES_NOT_ALLOWED": "File tidak dapat diunggah saat melihat item saat ini",
+        "UPLOAD_FOLDERS": "Pilih folder untuk diunggah",
+        "UPLOAD_FOLDERS_NOT_ALLOWED": "Folder tidak dapat diunggah saat melihat item saat ini",
+        "CREATE_LIBRARY": "Buat Pustaka File baru"
+      }
+    },
+    "ACTIONS": {
+      "VIEW": "Lihat",
+      "EDIT": "Edit",
+      "DOWNLOAD": "Unduh",
+      "COPY": "Salin",
+      "MOVE": "Pindahkan",
+      "DELETE": "Hapus",
+      "DELETE_PERMANENT": "Hapus permanen",
+      "MORE": "Operasi lainnya",
+      "UNDO": "Urungkan",
+      "PERMISSIONS": "Izin",
+      "RESTORE": "Pulihkan",
+      "FAVORITE": "Favorit",
+      "ADD_FAVORITE": "Tambah Favorit",
+      "REMOVE_FAVORITE": "Hapus Favorit",
+      "UNSHARE": "Batalkan Berbagi",
+      "DETAILS": "Info",
+      "VERSIONS": "Kelola Versi",
+      "UPLOAD_VIEW_FILE": "Unggah File untuk Dilihat",
+      "UPLOAD_VERSION": "Unggah Versi Baru",
+      "TOGGLE-SIDENAV": "Alihkan bilah navigasi samping",
+      "SHARE": "Bagikan",
+      "SHARE_EDIT": "Pengaturan Tautan Bersama",
+      "PRINT": "Cetak",
+      "FULLSCREEN": "Aktifkan mode layar penuh",
+      "JOIN": "Gabung",
+      "CANCEL_JOIN": "Batalkan Permintaan Bergabung",
+      "LEAVE": "Keluar dari Pustaka",
+      "EDIT_OFFLINE": "Edit Offline",
+      "EDIT_OFFLINE_CANCEL": "Batalkan pengeditan"
+    },
+    "DIALOGS": {
+      "CONFIRM_PURGE": {
+        "TITLE": "Hapus dari sampah?",
+        "MESSAGE": "Ini akan menghapus item yang dipilih secara permanen.",
+        "YES_LABEL": "Hapus",
+        "NO_LABEL": "Simpan"
+      },
+      "CONFIRM_LEAVE": {
+        "TITLE": "Keluar dari pustaka ini?",
+        "MESSAGE": "Keluar akan menghapus akses Anda.",
+        "YES_LABEL": "OK",
+        "NO_LABEL": "Batal"
+      }
+    },
+    "DOCUMENT_LIST": {
+      "COLUMNS": {
+        "ID": "ID",
+        "NAME": "Nama",
+        "SIZE": "Ukuran",
+        "MODIFIED_ON": "Diubah",
+        "MODIFIED_BY": "Diubah oleh",
+        "VISIBILITY": "Visibilitas",
+        "TITLE": "Judul",
+        "LOCATION": "Lokasi",
+        "SHARED_BY": "Dibagikan oleh",
+        "DELETED_ON": "Telah dihapus",
+        "DELETED_BY": "Dihapus oleh",
+        "ROLE": "Peran Saya"
+      },
+      "TOOLBAR": {
+        "CARDVIEW": "Mode tampilan kartu",
+        "LISTVIEW": "Mode tampilan daftar"
+      }
+    },
+    "MESSAGES": {
+      "ERRORS": {
+        "CANNOT_NAVIGATE_LOCATION": "Tidak dapat membuka lokasi ini",
+        "MISSING_CONTENT": "Item ini tidak lagi ada atau Anda tidak memiliki izin untuk melihatnya.",
+        "GENERIC": "Tindakan tidak berhasil. Coba lagi atau hubungi Tim IT Anda.",
+        "CONFLICT": "Nama ini sudah digunakan, coba nama lain.",
+        "NODE_MOVE": "Pemindahan gagal, file dengan nama yang sama sudah ada.",
+        "EXISTENT_FOLDER": "Sudah ada folder dengan nama ini. Coba nama lain.",
+        "NODE_DELETION": "{{ name }} tidak dapat dihapus",
+        "NODE_DELETION_PLURAL": "{{ number }} item tidak dapat dihapus",
+        "NODE_RESTORE": "{{ name }} tidak dapat dipulihkan",
+        "NODE_RESTORE_PLURAL": "{{ number }} item tidak dapat dipulihkan",
+        "PERMISSION": "Anda tidak memiliki akses untuk melakukan ini",
+        "LOCK_NODE": "Terjadi masalah saat mengunci file {{ fileName }}",
+        "UNLOCK_NODE": "Terjadi masalah saat membuka kunci file {{ fileName }}",
+        "TRASH": {
+          "NODES_PURGE": {
+            "PLURAL": "{{ number }} item tidak dapat dihapus",
+            "SINGULAR": "{{ name }} tidak dapat dihapus"
+          },
+          "NODES_RESTORE": {
+            "PARTIAL_PLURAL": "{{ number }} item tidak dipulihkan karena ada masalah dengan lokasi pemulihan",
+            "NODE_EXISTS": "Tidak dapat memulihkan, {{ name }} sudah ada",
+            "LOCATION_MISSING": "Tidak dapat memulihkan {{ name }}, lokasi asli tidak lagi ada",
+            "GENERIC": "Terjadi masalah saat memulihkan {{ name }}"
+          }
+        },
+        "DELETE_LIBRARY_FAILED": "Tidak dapat menghapus pustaka",
+        "JOIN_REQUEST_FAILED": "Tidak dapat bergabung dengan pustaka",
+        "JOIN_CANCEL_FAILED": "Tidak dapat membatalkan permintaan bergabung Anda",
+        "LEAVE_LIBRARY_FAILED": "Tidak dapat keluar dari pustaka ini",
+        "INVALID_SENDER_EMAIL": "Alamat email Anda harus valid sebelum mengajukan permintaan bergabung.",
+        "INVALID_RECEIVER_EMAIL": "Alamat email penerima tidak valid, hubungi TI."
+      },
+      "UPLOAD": {
+        "ERROR": {
+          "GENERIC": "Unggahan gagal. Hubungi TI jika masalah ini berlanjut",
+          "CONFLICT": "Versi baru tidak diunggah, file lain dengan nama yang sama sudah ada",
+          "500": "Terjadi kesalahan server internal, coba lagi atau hubungi dukungan TI [500]",
+          "504": "Server mengalami waktu tunggu habis, coba lagi atau hubungi dukungan TI [504]",
+          "403": "Izin tidak cukup untuk mengunggah di lokasi ini [403]",
+          "404": "Lokasi unggah tidak lagi ada [404]"
+        }
+      },
+      "INFO": {
+        "TRASH": {
+          "NODES_PURGE": {
+            "PLURAL": "{{ number }} item dihapus",
+            "SINGULAR": "{{ name }} dihapus",
+            "PARTIAL_SINGULAR": "{{ name }} dihapus, {{ failed }} tidak dapat dihapus",
+            "PARTIAL_PLURAL": "{{ number }} item dihapus, {{ failed }} tidak dapat dihapus"
+          },
+          "NODES_RESTORE": {
+            "PLURAL": "Berhasil dipulihkan",
+            "SINGULAR": "{{ name }} dipulihkan"
+          }
+        },
+        "NODE_DELETION": {
+          "SINGULAR": "{{ name }} dihapus",
+          "PLURAL": "{{ number }} item dihapus",
+          "PARTIAL_SINGULAR": "{{ success }} item dihapus, {{ failed }} tidak dapat dihapus",
+          "PARTIAL_PLURAL": "{{ success }} item dihapus, {{ failed }} tidak dapat dihapus"
+        },
+        "NODE_COPY": {
+          "SINGULAR": "{{ success }} item disalin",
+          "PLURAL": "{{ success }} item disalin",
+          "PARTIAL_SINGULAR": "{{ success }} item disalin, {{ failed }} tidak dapat disalin.",
+          "PARTIAL_PLURAL": "{{ success }} item disalin, {{ failed }} tidak dapat disalin.",
+          "FAIL_SINGULAR": "{{ failed }} item tidak dapat disalin.",
+          "FAIL_PLURAL": "{{ failed }} item tidak dapat disalin."
+        },
+        "NODE_MOVE": {
+          "SINGULAR": "{{ success }} item dipindahkan.",
+          "PLURAL": "{{ success }} item dipindahkan.",
+          "PARTIAL": {
+            "SINGULAR": "{{ partially }} item dipindahkan sebagian.",
+            "PLURAL": "{{ partially }} item dipindahkan sebagian.",
+            "FAIL": "{{ failed }} tidak dapat dipindahkan."
+          }
+        },
+        "LIBRARY_DELETED": "Pustaka dihapus",
+        "JOINED": "Berhasil bergabung dengan pustaka",
+        "JOIN_REQUESTED": "Permintaan bergabung dengan pustaka ini telah dikirim",
+        "JOIN_CANCELED": "Permintaan bergabung dengan pustaka dibatalkan",
+        "LEFT_LIBRARY": "Anda telah keluar dari pustaka"
+      }
+    },
+    "CONTENT_METADATA": {
+      "EXIF_GROUP_TITLE": "EXIF Gambar",
+      "EFFECTIVITY_GROUP_TITLE": "Efektivitas"
+    },
+    "INFO_DRAWER": {
+      "TITLE": "Informasi detail",
+      "TABS": {
+        "PROPERTIES": "Properti",
+        "LIBRARY_PROPERTIES": "Tentang",
+        "VERSIONS": "Versi",
+        "COMMENTS": "Komentar"
+      }
+    },
+    "BROWSE": {
+      "PERSONAL": {
+        "TITLE": "File Pribadi",
+        "SIDENAV_LINK": {
+          "LABEL": "File Pribadi",
+          "TOOLTIP": "Lihat File Pribadi Anda"
+        }
+      },
+      "LIBRARIES": {
+        "TITLE": "Pustaka File",
+        "DESCRIPTION": "Akses Pustaka File",
+        "SIDENAV_LINK": {
+          "LABEL": "Pustaka File",
+          "TOOLTIP": "Pustaka File"
+        },
+        "EMPTY_STATE": {
+          "FILE_LIBRARIES": {
+            "TITLE": "Anda belum menjadi anggota Pustaka File apa pun",
+            "TEXT": "Gabung ke pustaka untuk mengunggah, melihat, dan membagikan file."
+          },
+          "FAVORITE_LIBRARIES": {
+            "TITLE": "Tidak Ada Pustaka Favorit",
+            "TEXT": "Favoritkan pustaka yang ingin Anda temukan dengan mudah nanti."
+          }
+        },
+        "MENU": {
+          "MY_LIBRARIES": {
+            "TITLE": "Pustaka Saya",
+            "SIDENAV_LINK": {
+              "LABEL": "Pustaka Saya",
+              "TOOLTIP": "Akses pustaka saya"
+            }
+          },
+          "FAVORITE_LIBRARIES": {
+            "TITLE": "Pustaka Favorit",
+            "SIDENAV_LINK": {
+              "LABEL": "Pustaka Favorit",
+              "TOOLTIP": "Akses pustaka favorit saya"
+            }
+          }
+        }
+      },
+      "SHARED": {
+        "TITLE": "File yang Dibagikan",
+        "SIDENAV_LINK": {
+          "LABEL": "Dibagikan",
+          "TOOLTIP": "Lihat file yang telah dibagikan"
+        },
+        "EMPTY_STATE": {
+          "TITLE": "Tidak ada file atau folder yang dibagikan",
+          "TEXT": "Item yang Anda bagikan menggunakan opsi Bagikan ditampilkan di sini."
+        }
+      },
+      "RECENT": {
+        "TITLE": "File Terbaru",
+        "SIDENAV_LINK": {
+          "LABEL": "File Terbaru",
+          "TOOLTIP": "Lihat file yang baru-baru ini Anda edit"
+        },
+        "EMPTY_STATE": {
+          "TITLE": "Tidak ada file terbaru",
+          "TEXT": "Item yang Anda unggah atau edit dalam 30 hari terakhir ditampilkan di sini."
+        }
+      },
+      "FAVORITES": {
+        "TITLE": "Favorit",
+        "SIDENAV_LINK": {
+          "LABEL": "Favorit",
+          "TOOLTIP": "Lihat file dan folder favorit Anda"
+        },
+        "EMPTY_STATE": {
+          "TITLE": "Tidak ada file atau folder favorit",
+          "TEXT": "Favoritkan item yang ingin Anda temukan dengan mudah nanti."
+        }
+      },
+      "TRASHCAN": {
+        "TITLE": "Sampah",
+        "SIDENAV_LINK": {
+          "LABEL": "Sampah",
+          "TOOLTIP": "Lihat file yang dihapus di sampah"
+        },
+        "EMPTY_STATE": {
+          "TITLE": "Sampah kosong",
+          "FIRST_TEXT": "Item yang Anda hapus dipindahkan ke Sampah.",
+          "SECOND_TEXT": "Kosongkan Sampah untuk menghapus item secara permanen."
+        }
+      },
+      "ABOUT": {
+        "TITLE": "Tentang"
+      },
+      "SEARCH": {
+        "TITLE": "Hasil Pencarian",
+        "FOUND_RESULTS": "{{ number }} hasil ditemukan",
+        "FOUND_ONE_RESULT": "{{ number }} hasil ditemukan",
+        "CUSTOM_ROW": {
+          "MODIFIED": "Diubah",
+          "BY_USER": "oleh {{ user }}",
+          "LOCATION": "Lokasi",
+          "SIZE": "Ukuran"
+        },
+        "UNKNOWN_LOCATION": "Tidak diketahui",
+        "NO_RESULTS": "Pencarian Anda menghasilkan 0 hasil",
+        "TOGGLE_SEARCH_FILTER": "Alihkan filter pencarian",
+        "ERRORS": {
+          "500": "Terjadi kesalahan saat memproses kueri pencarian [500]",
+          "GENERIC": "Terjadi kesalahan saat memproses kueri pencarian"
+        }
+      },
+      "SEARCH_LIBRARIES": {
+        "TITLE": "Pustaka ditemukan...",
+        "FOUND_RESULTS": "{{ number }} hasil",
+        "FOUND_ONE_RESULT": "{{ number }} hasil"
+      }
+    }
+  },
+  "NODE_FROM_TEMPLATE": {
+    "CANCEL": "Batal",
+    "CREATE": "Buat",
+    "FOLDER_DIALOG_TITLE": "Buat folder baru dari <span class=\"bold\">'{{ template }}'</span>",
+    "FILE_DIALOG_TITLE": "Buat dokumen baru dari <span class=\"bold\">'{{ template }}'</span>",
+    "FORM": {
+      "PLACEHOLDER": {
+        "NAME": "Nama",
+        "TITLE": "Judul",
+        "DESCRIPTION": "Deskripsi"
+      },
+      "ERRORS": {
+        "DESCRIPTION_TOO_LONG": "Gunakan 512 karakter atau kurang untuk deskripsi",
+        "TITLE_TOO_LONG": "Gunakan 256 karakter atau kurang untuk judul",
+        "REQUIRED": "Nama harus diisi",
+        "SPECIAL_CHARACTERS": "Nama tidak boleh berisi karakter * \" < > \\ / ? : |",
+        "ENDING_DOT": "Nama tidak boleh diakhiri dengan tanda titik .",
+        "ONLY_SPACES": "Nama tidak boleh hanya berisi spasi"
+      }
+    }
+  },
+  "PERMISSIONS": {
+    "DIALOG": {
+      "TITLE": "Kelola Izin",
+      "CLOSE": "Tutup",
+      "INHERIT_PERMISSIONS_BUTTON": "Warisi Izin",
+      "INHERITED_PERMISSIONS_BUTTON": "Izin Diwariskan",
+      "ADD_USER_OR_GROUP": "Tambah Pengguna atau Grup"
+    }
+  },
+  "SHARED_LINK": {
+    "UNSHARE_PERMISSION_ERROR": "Anda tidak memiliki izin untuk membatalkan berbagi file ini"
+  },
+  "VERSION": {
+    "DIALOG_ADF": {
+      "TITLE": "Kelola Versi",
+      "CLOSE": "Tutup"
+    },
+    "DIALOG": {
+      "TITLE": "Unggah Versi Baru",
+      "CANCEL": "Batal",
+      "UPLOAD": "Unggah"
+    },
+    "FORM": {
+      "SUBTITLE": "Seberapa besar perubahan yang dilakukan pada versi ini?",
+      "VERSION": {
+        "MINOR": "Versi minor",
+        "MAJOR": "Versi mayor"
+      },
+      "COMMENT": {
+        "PLACEHOLDER": "Tambahkan catatan yang menjelaskan perubahan"
+      }
+    },
+    "SELECTION": {
+      "EMPTY": "Silakan pilih file untuk melihat versinya.",
+      "NO_PERMISSION": "Anda tidak memiliki izin untuk mengelola versi konten ini."
+    },
+    "ERROR": {
+      "GENERIC": "Terjadi kesalahan saat membuat versi file"
+    }
+  },
+  "LIBRARY": {
+    "ROLE": {
+      "MANAGER": "Admin",
+      "COLLABORATOR": "Kolaborator",
+      "CONTRIBUTOR": "Kontributor",
+      "CONSUMER": "Konsumen"
+    },
+    "DIALOG": {
+      "CREATE_TITLE": "Buat Pustaka",
+      "CREATE": "Buat",
+      "UPDATE": "Perbarui",
+      "EDIT": "Edit",
+      "CANCEL": "Batal",
+      "FORM": {
+        "DESCRIPTION": "Deskripsi",
+        "SITE_ID": "ID Library",
+        "NAME": "Nama",
+        "VISIBILITY": "Visibilitas"
+      }
+    },
+    "VISIBILITY": {
+      "PRIVATE": "Privat",
+      "PUBLIC": "Publik",
+      "MODERATED": "Dimoderasi"
+    },
+    "HINTS": {
+      "SITE_TITLE_EXISTS": "Nama library sudah digunakan"
+    },
+    "ERRORS": {
+      "GENERIC": "Kami mengalami masalah",
+      "EXISTENT_SITE": "ID Library ini tidak tersedia. Coba ID Library lain.",
+      "CONFLICT": "ID Library ini sudah digunakan. Periksa tempat sampah.",
+      "ID_TOO_LONG": "Gunakan 72 karakter atau kurang untuk nama URL",
+      "DESCRIPTION_TOO_LONG": "Gunakan 512 karakter atau kurang untuk deskripsi",
+      "TITLE_TOO_LONG": "Gunakan 256 karakter atau kurang untuk judul",
+      "ILLEGAL_CHARACTERS": "Gunakan hanya angka dan huruf",
+      "ONLY_SPACES": "Nama library tidak boleh hanya berisi spasi",
+      "LIBRARY_UPDATE_ERROR": "Terjadi kesalahan saat memperbarui properti library",
+      "TITLE_TOO_SHORT": "Judul harus terdiri dari minimal 2 karakter"
+    },
+    "SUCCESS": {
+      "LIBRARY_UPDATED": "Properti library diperbarui"
+    }
+  },
+  "AVATAR": {
+    "ACCESSIBILITY": {
+      "AVATAR_BUTTON_ARIA_LABEL": "Opsi pengguna"
+    }
+  },
+  "CORE": {
+    "METADATA": {
+      "ACTIONS": {
+        "SAVE": "Simpan",
+        "CANCEL": "Batal"
+      }
+    }
+  },
+  "VIEWER": {
+    "PAGE_LABEL_SHOWING": "Menampilkan",
+    "ACTIONS": {
+      "BACK": "Kembali",
+      "OPEN_WITH": "Buka dengan",
+      "DOWNLOAD": "Unduh",
+      "PRINT": "Cetak",
+      "SHARE": "Bagikan",
+      "MORE_ACTIONS": "Operasi lainnya",
+      "INFO": "Info",
+      "FULLSCREEN": "Aktifkan mode layar penuh",
+      "CLOSE": "Tutup",
+      "NEXT_FILE": "File Berikutnya",
+      "PREV_FILE": "File Sebelumnya"
+    },
+    "ARIA": {
+      "PREVIOUS_PAGE": "Halaman sebelumnya",
+      "NEXT_PAGE": "Halaman berikutnya",
+      "ZOOM_IN": "Perbesar",
+      "ZOOM_OUT": "Perkecil",
+      "ROTATE": "Putar",
+      "CROP": "Kliping",
+      "CANCEL": "Batal",
+      "SAVE": "Simpan",
+      "FIT_PAGE": "Sesuaikan halaman",
+      "FIT_WIDTH": "Sesuaikan Lebar",
+      "FIT_HEIGHT": "Sesuaikan Tinggi",
+      "ROTATE_LEFT": "Putar ke kiri",
+      "ROTATE_RIGHT": "Putar ke kanan",
+      "RESET": "Atur ulang",
+      "FIND": "Cari",
+      "THUMBNAILS": "Thumbnail dokumen"
+    },
+    "PAGE_LABEL": {
+      "SHOWING": "Menampilkan",
+      "OF": "/"
+    },
+    "LOADING": "Memuat",
+    "UNKNOWN_FORMAT": "Tidak dapat memuat pratinjau. Format tidak dikenal.",
+    "SIDEBAR": {
+      "THUMBNAILS": {
+        "PAGE": "Halaman {{ pageNum }}"
+      },
+      "METADATA": {
+        "MORE_INFORMATION": "Informasi lebih lanjut",
+        "LESS_INFORMATION": "Informasi lebih sedikit"
+      }
+    },
+    "PDF_DIALOG": {
+      "SUBMIT": "Kirim",
+      "CLOSE": "Tutup",
+      "PLACEHOLDER": "Kata sandi",
+      "ERROR": "Kata sandi salah"
+    }
+  },
+  "CUSTOM_NAME_COLUMN": {
+    "ACCESSIBILITY": {
+      "FILE_LINK_ARIA_LABEL": "Lihat {{ name }}",
+      "FOLDER_LINK_ARIA_LABEL": "Buka folder {{ name }}"
+    }
+  },
+  "ADF-DATATABLE": {
+    "FILE_TYPE": {
+      "BOOKS-24PX": "Pustaka",
+      "BASELINE-LOCK-24PX": "File terkunci"
+    },
+    "EMPTY": {
+      "HEADER": "Daftar ini kosong",
+      "DRAG-AND-DROP": {
+        "TITLE": "Seret dan lepas",
+        "SUBTITLE": "untuk mengunggah file"
+      }
+    },
+    "CONTENT-ACTIONS": {
+      "TOOLTIP": "Aksi konten"
+    },
+    "ACCESSIBILITY": {
+      "SELECT_ALL": "Pilih semua",
+      "SELECT_FILE": "Pilih file"
+    }
+  },
+  "HEADER": {
+    "LOGO_ARIA": "Logo Perusahaan"
+  },
+  "LOGIN": {
+    "LOGO": "Alfresco",
+    "LABEL": {
+      "LOGIN": "Masuk",
+      "USERNAME": "Nama Pengguna",
+      "PASSWORD": "Kata Sandi",
+      "REMEMBER": "Ingat saya"
+    },
+    "MESSAGES": {
+      "USERNAME-REQUIRED": "Wajib diisi",
+      "USERNAME-MIN": "Nama pengguna Anda harus terdiri dari minimal {{ minLength }} karakter.",
+      "PASSWORD-REQUIRED": "Masukkan kata sandi Anda untuk masuk",
+      "LOGIN-ERROR-CREDENTIALS": "Anda memasukkan nama pengguna atau kata sandi yang tidak dikenal",
+      "LOGIN-ERROR-PROVIDERS": "Provider tidak boleh undefined",
+      "LOGIN-ERROR-CORS": "Pengecualian CORS, periksa konfigurasi server Anda",
+      "LOGIN-ERROR-CSRF": "Pengecualian CSRF, atur [disableCsrf]=\"true\" pada login.component",
+      "LOGIN-ECM-LICENSE": "Repositori Alfresco Content Services dalam mode hanya baca",
+      "SSO-WRONG-CONFIGURATION": "Server autentikasi SSO tidak dapat dijangkau"
+    },
+    "BUTTON": {
+      "LOGIN": "MASUK",
+      "CHECKING": "MEMERIKSA",
+      "WELCOME": "SELAMAT DATANG",
+      "SSO": "MASUK DENGAN SSO"
+    },
+    "ACTION": {
+      "HELP": "BUTUH BANTUAN?",
+      "REGISTER": "DAFTAR"
+    },
+    "DIALOG": {
+      "CANCEL": "Batal",
+      "CHOOSE": "Pilih"
+    }
+  },
+  "EXT_VIEWER": {
+    "ACTIONS": {
+      "BACK": "Kembali",
+      "OPEN_WITH": "Buka dengan",
+      "DOWNLOAD": "Unduh",
+      "PRINT": "Cetak",
+      "SHARE": "Bagikan",
+      "MORE_ACTIONS": "Tindakan lainnya",
+      "INFO": "Lihat detail",
+      "FULLSCREEN": "Aktifkan mode layar penuh",
+      "CLOSE": "Tutup",
+      "NEXT_FILE": "File Berikutnya",
+      "PREV_FILE": "File Sebelumnya"
+    },
+    "ARIA": {
+      "PREVIOUS_PAGE": "Halaman sebelumnya",
+      "NEXT_PAGE": "Halaman berikutnya",
+      "ZOOM_IN": "Perbesar",
+      "ZOOM_OUT": "Perkecil",
+      "FIT_PAGE": "Sesuaikan halaman",
+      "ROTATE_LEFT": "Putar ke kiri",
+      "ROTATE_RIGHT": "Putar ke kanan",
+      "RESET": "Atur ulang"
+    },
+    "PAGE_LABEL": {
+      "SHOWING": "Menampilkan",
+      "OF": "dari"
+    },
+    "LOADING": "Memuat",
+    "UNKNOWN_FORMAT": "Tidak dapat memuat pratinjau. Format tidak dikenal.",
+    "SIDEBAR": {
+      "THUMBNAILS": {
+        "PAGE": "Halaman {{ pageNum }}"
+      },
+      "METADATA": {
+        "MORE_INFORMATION": "Informasi lebih lanjut",
+        "LESS_INFORMATION": "Informasi lebih sedikit"
+      }
+    },
+    "PDF_DIALOG": {
+      "SUBMIT": "Kirim",
+      "CLOSE": "Tutup",
+      "PLACEHOLDER": "Kata Sandi",
+      "ERROR": "Kata sandi salah"
+    }
+  },
+  "ABOUT": {
+    "SERVER_SETTINGS": {
+      "TITLE": "Pengaturan server",
+      "DESCRIPTION": "Nilai di bawah ini diambil dari AppConfigService",
+      "CONTENT_SERVICE_HOST": "URL Alfresco Content Services: {{ value }}",
+      "PROCESS_SERVICE_HOST": "URL Alfresco Process Services: {{ value }}"
+    },
+    "VERSIONS": {
+      "TITLE": "Versi Produk",
+      "CONTENT_SERVICE": "ECM",
+      "PROCESS_SERVICE": "BPM",
+      "LABELS": {
+        "EDITION": "Edisi",
+        "VERSION": "Versi",
+        "LICENSE": "Lisensi",
+        "STATUS": "Status",
+        "MODULES": "Modul"
+      }
+    },
+    "SOURCE_CODE": {
+      "TITLE": "Kode sumber",
+      "DESCRIPTION": "Anda menjalankan proyek berdasarkan commit berikut:"
+    },
+    "PACKAGES": {
+      "TITLE": "Paket",
+      "DESCRIPTION": "Proyek saat ini menggunakan pustaka ADF berikut:"
+    },
+    "TABLE_HEADERS": {
+      "MODULES": {
+        "ID": "ID",
+        "TITLE": "Judul",
+        "DESCRIPTION": "Deskripsi",
+        "INSTALL_DATE": "Tanggal Instalasi",
+        "INSTALL_STATE": "Status Instalasi",
+        "VERSION_MIN": "Versi Minor",
+        "VERSION_MAX": "Versi Maks"
+      },
+      "STATUS": {
+        "READ_ONLY": "Hanya Baca",
+        "AUDIT_ENABLED": "Audit Diaktifkan",
+        "QUICK_SHARE_ENABLED": "Quick Share Diaktifkan",
+        "THUMBNAIL_ENABLED": "Pembuatan Thumbnail"
+      },
+      "LICENSE": {
+        "ISSUES_AT": "Diterbitkan Pada",
+        "EXPIRES_AT": "Kedaluwarsa Pada",
+        "REMAINING_DAYS": "Sisa Hari",
+        "HOLDER": "Pemegang",
+        "MODE": "Mode",
+        "CLUSTER_ENABLED": "Cluster Diaktifkan",
+        "CRYPTODOC_ENABLED": "Cryptodoc Diaktifkan"
+      }
+    }
+  },
+  "CLIPBOARD": {
+    "CLICK_TO_COPY": "Klik untuk menyalin",
+    "SUCCESS_COPY": "Teks disalin ke papan klip"
+  },
+  "EXT_VERSION_LIST": {
+    "ACTIONS": {
+      "RESTORE": "Pulihkan",
+      "DELETE": "Hapus",
+      "DOWNLOAD": "Unduh",
+      "UPLOAD": {
+        "TITLE": "Unggah versi baru",
+        "TOOLTIP": "Unggah versi baru",
+        "MAJOR": "perubahan besar (2.0)",
+        "MINOR": "perubahan kecil (1.1)",
+        "COMMENT": "Tinggalkan komentar",
+        "ADD": "Tambah Versi Baru",
+        "CANCEL": "Batal"
+      }
+    },
+    "CONFIRM_DELETE": {
+      "TITLE": "Hapus versi",
+      "MESSAGE": "Versi file yang dihapus tidak dapat dipulihkan. Lanjutkan?",
+      "YES_LABEL": "Ya",
+      "NO_LABEL": "Tidak"
+    }
+  },
+  "EXT_FILE_UPLOAD": {
+    "BUTTON": {
+      "MINIMIZE": "Minimalkan",
+      "MAXIMIZE": "Maksimalkan",
+      "CLOSE": "Tutup",
+      "CANCEL_ALL": "Batalkan pengunggahan",
+      "CANCEL_FILE": "Batalkan pengunggahan",
+      "REMOVE_FILE": "Hapus file yang diunggah"
+    },
+    "STATUS": {
+      "FILE_CANCELED_STATUS": "Dibatalkan"
+    },
+    "CONFIRMATION": {
+      "BUTTON": {
+        "CANCEL": "Ya",
+        "CONTINUE": "Tidak"
+      },
+      "MESSAGE": {
+        "TITLE": "Batalkan Pengunggahan",
+        "TEXT": "Hentikan pengunggahan dan hapus file yang sudah diunggah."
+      }
+    },
+    "ARIA-LABEL": {
+      "VERSION": "Versi file"
+    }
+  }
+}
