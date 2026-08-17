@@ -113,8 +113,17 @@ export function matFabTheme(theme: Theme): Object {
       ...density(theme),
       ...minTypography(theme.typography)
     },
-    ".mat-mdc-button-disabled":{
-      "box-shadow":"var(--mdc-fab-container-elevation-shadow) !important", 
+    /*
+     * 必须带 .mat-mdc-fab / .mat-mdc-mini-fab 前缀。
+     *
+     * 原来这里是裸的 ".mat-mdc-button-disabled"，与 ".mat-mdc-fab" 平级 ——
+     * 但这个对象的键是**直接当选择器**用的，没有嵌套关系，于是这条带
+     * !important 的 FAB 悬浮阴影落到了全局**每一个**禁用态 Material 按钮上。
+     * 表现：工具栏里凡是置灰的图标按钮都凭空浮起来一块带投影的白方块
+     * （写作器工具栏的 redo 就是这么被发现的）。
+     */
+    ".mat-mdc-fab.mat-mdc-button-disabled,.mat-mdc-mini-fab.mat-mdc-button-disabled":{
+      "box-shadow":"var(--mdc-fab-container-elevation-shadow) !important",
     },
     ".mat-mdc-mini-fab": {
       ...minbase(theme),
