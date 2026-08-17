@@ -16,11 +16,24 @@ export function duiDialogTheme(theme: Theme): Object {
     '.dui-dialog-content': {
       'margin-bottom': px16 + " !important"
     },
+    /*
+     * 动作条的留白必须用**外边距**，不能用 top/left。
+     *
+     * Material 给 `.mat-mdc-dialog-actions` 设了 `position: relative`，
+     * 于是这里的 top/left 生效为相对定位偏移 —— 它**不占布局空间**：
+     * 对话框容器按未偏移的位置算高度，元素却实际下移 12px 渲染。
+     * 容器因此永远比内容矮 12px，surface 上就冒出纵向滚动条；
+     * 纵条占 15px 宽又导致横向溢出、再冒出横条，两条互相维持。
+     *
+     * 症状就是"所有 openConfirm/openAlert 一打开就带两条滚动条、不自适应"。
+     * 换成 margin 之后偏移量会被计入容器高度，滚动条自然消失。
+     */
     '.dui-dialog-actions': {
-      'top': px16 + " !important",
-      'left': px16 + " !important",
+      'margin-top': px16 + " !important",
+      'margin-left': px16 + " !important",
       " [dir='rtl'] &": {
-        'right': px16 + " !important"
+        'margin-right': px16 + " !important",
+        'margin-left': '0 !important'
       },
       ' button': {
         'margin-left': px8 + " !important",
