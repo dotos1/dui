@@ -1,6 +1,6 @@
 {
   "name": "dui",
-  "version": "7.4.20",
+  "version": "7.4.29",
   "license": "UNLICENSED",
   "scripts": {
     "ng": "ng",
