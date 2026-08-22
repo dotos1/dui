@@ -4,7 +4,6 @@ import { Observable } from 'rxjs';
 import { CookieStorage } from '@dotos/dui/core/cookie';
 import { TranslateService } from './translate.service';
 import { TranslateLoaderService } from './translate-loader.service';
-import { L10n } from './l10n';
 export const TRANSLATION_PROVIDER = new InjectionToken('Injection token for translation providers.');
 
 /**
@@ -78,8 +77,15 @@ export class TranslationService {
 
   loadI10(lang: string, fallback?: string) {
     this.translate.getTranslation(lang).subscribe(
-      (res) => {
-        L10n.load(res);
+      () => {
+        /*
+         * 原来这里是 `L10n.load(res)` —— 把词典塞进 LEGACY 的静态本地化注册表,
+         * 供 LEGACY 组件读自己的内置文案。那批组件已随 LEGACY 清场删除,
+         * 注册表没有了读者(`L10n` 全库零外部引用),连同 `l10n.ts` 一起删。
+         *
+         * 订阅本身留着:它的另一个作用是**触发词典加载**,失败时走下面的
+         * fallback 分支换语言重试。去掉订阅会把这条重试路一起去掉。
+         */
       },
       () => {
         if (fallback && fallback !== lang) {
