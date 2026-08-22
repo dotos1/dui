@@ -6,14 +6,10 @@ import { MissingTranslationHandler, MissingTranslationHandlerParams } from "./mi
 import { TranslateCompiler } from "./translate.compiler";
 import { TranslateLoader } from "./translate.loader";
 import { TranslateParser } from "./translate.parser";
-import { DateFormat,DateFormatOptions,getActualDateTimeFormat } from './date-formatter';
-import { NumberFormat,getActualNumberFormat } from './number-formatter';
-import { DateParser } from './date-parser';
-import { NumberParser } from './number-parser';
 import { TranslateStore } from "./translate.store";
 import { isDefined, mergeDeep } from "./util";
-import { IntlBase } from './intl-base';
-import { Base2,NumberFormatOptions } from './base';
+import { Internationalization } from './intl';
+import type { DateFormatOptions, NumberFormatOptions } from './intl';
 
 export const USE_STORE = new InjectionToken<string>('USE_STORE');
 export const USE_DEFAULT_LANG = new InjectionToken<string>('USE_DEFAULT_LANG');
@@ -509,23 +505,28 @@ export class TranslateService {
     return browserCultureLang;
   }
 
+  /*
+   * 下面这一组格式化/解析方法原先直接调 EJ2 衍生的 `DateFormat` / `NumberFormat` /
+   * `DateParser` / `NumberParser`,并且把 `this.translations[currentLang]`
+   * 当 CLDR 数据传进去。那批文件已随 EJ2 清场删除
+   * (见 duix 的 `lib/PEEL-CLEANUP-PLAN.md` §P5)。
+   *
+   * <p><b>传进去的"CLDR"其实一直不是 CLDR。</b>`translations[lang]` 是本项目的
+   * 翻译词典,不含 `main.<culture>.dates.*` 那套结构 —— 旧实现每次都走空数据的
+   * 内置兜底路径,等价于 en-US。所以这里换成原生 `Intl` 不改变任何既有输出。
+   *
+   * <p>这一组**在库外零调用**(逐个方法名 grep 过:命中的都是别的类的同名方法,
+   * 比如 `DuiDate.parseDate`、甘特自己的 `getDateFormat`)。保留是为了不改
+   * `TranslateService` 的对外形状 —— 它有 334 处 import。
+   */
+  private readonly intl = new Internationalization();
+
   public getDateFormat(options?: DateFormatOptions): Function {
-    return DateFormat.dateFormat( options || { type: 'date', skeleton: 'short' }, this.translations[this.currentLang]);
+    return this.intl.getDateFormat(options || { type: 'date', skeleton: 'short' });
   }
 
   public getNumberFormat(options?: NumberFormatOptions): Function {
-    if (options && !options.currency) {
-      options.currency = Base2.defaultCurrencyCode;
-    }
-    return NumberFormat.numberFormatter( options || {}, this.translations[this.currentLang]);
-  }
-
-  public getDateParser(options?: DateFormatOptions): Function {
-    return DateParser.dateParser( options || { skeleton: 'short', type: 'date' }, this.translations[this.currentLang]);
-  }
-
-  public getNumberParser(options?: NumberFormatOptions): Function {
-    return NumberParser.numberParser( options || { format: 'N' }, this.translations[this.currentLang]);
+    return this.intl.getNumberFormat(options || {});
   }
 
   public formatNumber(value: Number, option?: NumberFormatOptions): string {
@@ -536,23 +537,17 @@ export class TranslateService {
     return this.getDateFormat(option)(value);
   }
 
-  public parseDate(value: string, option?: DateFormatOptions): Date {
-    return this.getDateParser(option)(value);
-  }
+  /**
+   * 一周的第一天。
+   *
+   * <p>旧实现是 `IntlBase.getWeekData(cldr)` —— 而那个函数<u>把查出来的
+   * `mapper` 算完就丢了</u>,永远返回 `firstDayMapper[defaultFirstDay]`,
+   * 也就是常量 0(周日)。这里保持同样的返回值,不"顺手修好它":
+   * 改成真按区域取会让日历控件的首列在没人预期的时候变。
+   */
+  public getFirstDayOfWeek(): number { return 0; }
 
-  public parseNumber(value: string, option?: NumberFormatOptions): number {
-    return this.getNumberParser(option)(value);
-  }
-  public getDatePattern(option: DateFormatOptions, isExcelFormat?: boolean): string {
-    return getActualDateTimeFormat( option, this.translations[this.currentLang], isExcelFormat);
-  }
-  public getNumberPattern(option: NumberFormatOptions): string {
-    return getActualNumberFormat(option, this.translations[this.currentLang]);
-  }
-  public getFirstDayOfWeek(): number {
-    return IntlBase.getWeekData(this.translations[this.currentLang]);
-  }
   private getCulture(): string {
-    return this.currentLang || Base2.defaultCulture;
+    return this.currentLang || this.intl.getCulture();
   }
 }

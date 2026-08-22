@@ -1,264 +1,90 @@
+/**
+ * DOM 工具。
+ *
+ * <p>自研,替代 EJ2 衍生的那份(264 行)。见 duix 的
+ * `lib/PEEL-CLEANUP-PLAN.md` §P6。
+ *
+ * <p>只保留全仓库真正被 import 的七个:`createElement` / `addClass` /
+ * `removeClass` / `closest` / `attributes` / `classList` / `setStyleAttribute`。
+ * 旧那份还有 `select` / `selectAll` / `detach` / `remove` / `append` /
+ * `prepend` / `siblings` / `isVisible` / `matches` / `getAttributeOrDefault` …
+ * —— 逐个按 import 路径 grep 过,<b>全部零使用者</b>,不重建。
+ */
 
-
-import { EventHandler } from './event-handler';
-import { isNullOrUndefined } from './util';
-
-// @dynamic
 const SVG_REG = /^svg|^path|^g/;
 
-export function createElement(tagName: string, properties?:
-  { id?: string, className?: string, innerHTML?: string, styles?: string, attrs?: { [key: string]: string } }): HTMLElement {
+/**
+ * 建元素。
+ *
+ * <p>`svg` / `path` / `g` 走 `createElementNS` —— 用 `createElement` 建出来的
+ * SVG 标签在文档里是 HTMLUnknownElement,不渲染。这条判断是旧实现的,保留。
+ */
+export function createElement(
+  tagName: string,
+  properties?: { id?: string; className?: string; innerHTML?: string; styles?: string; attrs?: { [key: string]: string } },
+): HTMLElement {
+  const element: Element = SVG_REG.test(tagName)
+    ? document.createElementNS('http://www.w3.org/2000/svg', tagName)
+    : document.createElement(tagName);
 
-  const element: Element = (SVG_REG.test(tagName) ? document.createElementNS('http://www.w3.org/2000/svg', tagName) : document.createElement(tagName));
-  if (typeof (properties) === 'undefined') {
-    return <HTMLElement>element;
-  }
-  element.innerHTML = (properties.innerHTML ? properties.innerHTML : '');
+  if (properties === undefined) { return element as HTMLElement; }
 
-  if (properties.className !== undefined) {
-    element.className = properties.className;
-  }
-  if (properties.id !== undefined) {
-    element.id = properties.id;
-  }
-  if (properties.styles !== undefined) {
-    element.setAttribute('style', properties.styles);
-  }
-  if (properties.attrs !== undefined) {
-    // eslint-disable-next-line no-use-before-define
-    attributes(element, properties.attrs);
-  }
-  return <HTMLElement>element;
+  // 旧实现无条件写一次 innerHTML(没给就写空串),照做 —— 有调用方靠它清空。
+  element.innerHTML = properties.innerHTML ? properties.innerHTML : '';
+  if (properties.className !== undefined) { element.className = properties.className; }
+  if (properties.id !== undefined) { element.id = properties.id; }
+  if (properties.styles !== undefined) { element.setAttribute('style', properties.styles); }
+  if (properties.attrs !== undefined) { attributes(element, properties.attrs); }
+  return element as HTMLElement;
+}
+
+function 类名表(classes: string | string[]): string[] {
+  return (typeof classes === 'string' ? classes.split(' ') : classes).filter((c) => !!c);
 }
 
 export function addClass(elements: Element[] | NodeList, classes: string | string[]): Element[] | NodeList {
-  const classList: string[] = getClassList(classes);
-  for (const ele of (elements as Element[])) {
-    for (const className of classList) {
-      if (!ele.classList.contains(className)) {
-        ele.classList.add(className);
-      }
-    }
+  const list = 类名表(classes);
+  for (const ele of elements as Element[]) {
+    for (const c of list) { ele.classList.add(c); }
   }
   return elements;
 }
 
 export function removeClass(elements: Element[] | NodeList, classes: string | string[]): Element[] | NodeList {
-  const classList: string[] = getClassList(classes);
-  for (const ele of (elements as Element[])) {
-    if (ele.className !== '') {
-      for (const className of classList) {
-        ele.classList.remove(className);
-      }
-    }
+  const list = 类名表(classes);
+  for (const ele of elements as Element[]) {
+    for (const c of list) { ele.classList.remove(c); }
   }
   return elements;
 }
 
-function getClassList(classes: string | string[]): string[] {
-  let classList: string[] = [];
-  if (typeof classes === 'string') {
-    classList.push(classes);
-  } else {
-    classList = classes;
-  }
-  return classList;
-}
-
-export function isVisible(element: Element | Node): boolean {
-  const ele: HTMLElement = <HTMLElement>element;
-  return (ele.style.visibility === '' && ele.offsetWidth > 0);
-}
-
-export function prepend(fromElements: Element[] | NodeList, toElement: Element, isEval?: boolean): Element[] | NodeList {
-  const docFrag: DocumentFragment = document.createDocumentFragment();
-  for (const ele of (fromElements as Element[])) {
-    docFrag.appendChild(ele);
-  }
-  toElement.insertBefore(docFrag, toElement.firstElementChild);
-  if (isEval) {
-    executeScript(toElement);
-  }
-  return fromElements;
-}
-
-export function append(fromElements: Element[] | NodeList, toElement: Element, isEval?: boolean): Element[] | NodeList {
-  const docFrag: DocumentFragment = document.createDocumentFragment();
-  for (const ele of <Element[]>fromElements) {
-    docFrag.appendChild(ele);
-  }
-  toElement.appendChild(docFrag);
-  if (isEval) {
-    executeScript(toElement);
-  }
-  return fromElements;
-}
-
-
-function executeScript(ele: Element): void {
-  const eleArray: NodeList = ele.querySelectorAll('script');
-  eleArray.forEach((element: any) => {
-    const script: HTMLScriptElement = document.createElement('script');
-    script.text = element.innerHTML;
-    document.head.appendChild(script);
-    detach(script);
-  });
-}
-
-/**
- * The function used to remove the element from the
- * param  {Element|Node|HTMLElement} element - An element that is going to detach from the Dom
- * private
- */
-export function detach(element: Element | Node | HTMLElement): Element {
-  const parentNode: Node = element.parentNode;
-
-    return <Element>parentNode.removeChild(element);
-
-}
-
-/**
- * The function used to remove the element from Dom also clear the bounded events
- * param  {Element|Node|HTMLElement} element - An element remove from the Dom
- * private
- */
-export function remove(element: Element | Node | HTMLElement): void {
-  if (element) {
-    const parentNode: any = element.parentNode;
-    EventHandler.clearEvents(<Element>element);
-    parentNode.removeChild(element);
-  }
-}
-
-/**
- * The function helps to set multiple attributes to an element
- * param  {Element|Node} element - An element that need to set attributes.
- * param  {{[key:string]:string}} attributes - JSON Object that is going to as attributes.
- * private
- */
-export function attributes(element: Element | Node, attributes: { [key: string]: string }): Element {
-  const keys: string[] = Object.keys(attributes);
-  const ele: Element = <Element>element;
-  for (const key of keys) {
-    ele.setAttribute(key, attributes[key]);
-  }
-  return ele;
-}
-
-/**
- * The function selects the element from giving context.
- * param  {string} selector - Selector string need fetch element from the
- * param  {Document|Element=document} context - It is an optional type, That specifies a Dom context.
- * private
- */
-export function selectNode(selector: string, context: Document | Element = document): any {
-  return context.querySelector(selector);
-}
-
-/**
- * The function selects an array of element from the given context.
- * param  {string} selector - Selector string need fetch element from the
- * param  {Document|Element=document} context - It is an optional type, That specifies a Dom context.
- * private
- */
-export function selectAll(selector: string, context: Document | Element = document): HTMLElement[] {
-  const nodeList: NodeList = context.querySelectorAll(selector);
-  return <HTMLElement[] & NodeList>nodeList;
-}
-
-/**
- * Returns single closest parent element based on class selector.
- * param  {Element} element - An element that need to find the closest element.
- * param  {string} selector - A classSelector of closest element.
- * private
- */
-export function closest(element: Element | Node, selector: string): Element|null {
-  let el: Element = <Element>element;
-  if (typeof el.closest === 'function') {
-    return el.closest(selector);
-  }
-
-  while (el && el.nodeType === 1) {
-    if (matches(el, selector)) {
-      return el;
-    }
-    el = <Element>el.parentNode;
-  }
-  return null;
-}
-
-/**
- * Returns all sibling elements of the given element.
- * param  {Element|Node} element - An element that need to get siblings.
- * private
- */
-export function siblings(element: Element | Node): Element[] {
-  const siblings: Element[] = [];
-  const parentNode=<(Node & ParentNode)>element.parentNode;
-  const childNodes: Node[] = Array.prototype.slice.call(parentNode.childNodes);
-  for (const curNode of childNodes) {
-    if (curNode.nodeType === Node.ELEMENT_NODE && element !== curNode) {
-      siblings.push(<Element>curNode);
-    }
-  }
-  return <Element[]>siblings;
-}
-
-/**
- * set the value if not exist. Otherwise set the existing value
- * param  {HTMLElement} element - An element to which we need to set value.
- * param  {string} property - Property need to get or set.
- * param  {string} value - value need to set.
- * private
- */
-export function getAttributeOrDefault(element: HTMLElement, property: string, value: string): string |null{
-  let attrVal: string |null= element.getAttribute(property);
-  if (isNullOrUndefined(attrVal)) {
-    element.setAttribute(property, value.toString());
-    attrVal = value;
-  }
-  return attrVal;
-}
-
-/**
- * Set the style attributes to Html element.
- * param {HTMLElement} element - Element which we want to set attributes
- * param {any} attrs - Set the given attributes to element
- * return {void}
- * private
- */
-export function setStyleAttribute(element: HTMLElement, attrs: { [key: string]: object }|any): void {
-  if (attrs !== undefined) {
-    Object.keys(attrs).forEach((key: string) => {
-      (<any>element).style[key] = attrs[key];
-    });
-  }
-}
-
-/**
- * Method for add and remove classes to a dom element.
- * param {Element} element - Element for add and remove classes
- * param {string[]} addClasses - List of classes need to be add to the element
- * param {string[]} removeClasses - List of classes need to be remove from the element
- * return {void}
- * private
- */
+/** 一次加一批、去一批。 */
 export function classList(element: Element, addClasses: string[], removeClasses: string[]): void {
   addClass([element], addClasses);
   removeClass([element], removeClasses);
 }
+
+export function attributes(element: Element | Node, attrs: { [key: string]: string }): Element {
+  const ele = element as Element;
+  for (const key of Object.keys(attrs)) { ele.setAttribute(key, attrs[key]); }
+  return ele;
+}
+
 /**
- * Method to check whether the element matches the given selector.
- * param {Element} element - Element to compare with the selector.
- * param {string} selector - String selector which element will satisfy.
- * return {void}
- * private
+ * 往上找最近的匹配祖先(含自身)。
+ *
+ * <p>旧实现还带一段 `Element.closest` 不存在时的手写回退 ——
+ * 那是给 IE 用的。Angular 18 不支持 IE,直接用原生。
  */
-export function matches(element: Element, selector: string): boolean {
-  const matches: Function = element.matches  || element.webkitMatchesSelector;
-  if (matches) {
-    return matches.call(element, selector);
-  } else {
-    return [].indexOf.call(document.querySelectorAll(selector), <never>element) !== -1;
+export function closest(element: Element | Node, selector: string): Element | null {
+  const el = element as Element;
+  return el && typeof el.closest === 'function' ? el.closest(selector) : null;
+}
+
+/** 逐键写 `style`。键是 JS 的驼峰写法(`backgroundColor`),不是 CSS 属性名。 */
+export function setStyleAttribute(element: HTMLElement, attrs?: { [key: string]: unknown }): void {
+  if (attrs === undefined) { return; }
+  for (const key of Object.keys(attrs)) {
+    (element.style as unknown as Record<string, unknown>)[key] = attrs[key];
   }
 }

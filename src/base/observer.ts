@@ -1,4 +1,20 @@
-import { isNullOrUndefined, getValue } from './util';
+/**
+ * 极小事件总线。
+ *
+ * <p>自研,替代 EJ2 衍生的那份(121 行)。见 duix 的
+ * `lib/PEEL-CLEANUP-PLAN.md` §P6。
+ *
+ * <p>三处按旧行为对齐、看着都像"应该修一下"但不能改的地方:
+ *
+ * <ol>
+ *   <li><b>同一个函数重复 `on` 只登记一次。</b>去重键是函数引用本身。</li>
+ *   <li><b>`notify` 一个没人登记的事件返回 `undefined`</b>,不抛也不返回空数组。</li>
+ *   <li><b>`destroy()` 之后再 `notify` 会抛。</b>旧实现把内部表置成
+ *       `undefined`,下一次 `notify` 在 `.slice()` 上炸。这不是好设计,
+ *       但改成静默忽略会把"组件销毁后还有人发事件"这个真实缺陷藏起来 ——
+ *       它现在是会响的。</li>
+ * </ol>
+ */
 
 export interface BoundOptions {
   handler?: Function;
@@ -6,116 +22,72 @@ export interface BoundOptions {
   event?: string;
   id?: string;
 }
+
 export class Observer {
-  private context: any;
-  private ranArray: string[] = [];
-  private boundedEvents: { [key: string]: [BoundOptions] } = {};
-  constructor(context?: Object) {
-    if (isNullOrUndefined(context)) {
-      return;
-    }
-    this.context = context;
-  };
+  private boundedEvents: { [key: string]: BoundOptions[] } | undefined = {};
+  private context: Object;
 
-  public on(property: string, handler: Function, context?: Object, id?: string): void {
-    if (isNullOrUndefined(handler)) {
-      return;
-    }
-    let cntxt: Object = context || this.context;
-    if (this.notExist(property)) {
-      this.boundedEvents[property] = [{ handler: handler, context: cntxt }];
-      return;
-    }
-    if (id!=undefined) {
-      if (this.ranArray.indexOf(id) === -1) {
-        this.ranArray.push(id);
-        this.boundedEvents[property].push({ handler: handler, context: cntxt, id: id });
+  constructor(context?: Object) { this.context = context || this; }
+
+  on(property: string, handler: Function, context?: Object, id?: string): void {
+    if (!handler) { return; }
+    const cntxt = context || this.context;
+    const 表 = this.boundedEvents!;
+    if (Object.prototype.hasOwnProperty.call(表, property)) {
+      if (!表[property].some((e) => e.handler === handler)) {
+        表[property].push({ handler, context: cntxt, id });
       }
-    } else if (!this.isHandlerPresent(this.boundedEvents[property], handler)) {
-      this.boundedEvents[property].push({ handler: handler, context: cntxt });
+    } else {
+      表[property] = [{ handler, context: cntxt, id }];
     }
   }
 
-
-  public off(property: string, handler?: Function, id?: string): void {
-    if (this.notExist(property)) {
-      return;
-    }
-    let curObject: BoundOptions[] = getValue(property, this.boundedEvents);
-    if (handler&&curObject) {
-      // eslint-disable-next-line @typescript-eslint/no-inferrable-types
-      for (let i: number = 0; i < curObject.length; i++) {
-        if (id) {
-          if (curObject[i].id === id) {
-            curObject.splice(i, 1);
-            let indexLocation: number = this.ranArray.indexOf(id);
-            if (indexLocation !== -1) {
-              this.ranArray.splice(indexLocation, 1);
-            }
-            break;
-          }
-        } else if (handler === curObject[i].handler) {
-          curObject.splice(i, 1);
-          break;
-        }
-      }
-    } else if(this.boundedEvents) {
-      delete this.boundedEvents[property];
-    }
+  /** `handler` 不给就摘掉该事件的全部登记。 */
+  off(property: string, handler?: Function, id?: string): void {
+    const 表 = this.boundedEvents!;
+    if (!Object.prototype.hasOwnProperty.call(表, property)) { return; }
+    if (!handler && !id) { delete 表[property]; return; }
+    表[property] = 表[property].filter(
+      (e) => !(handler ? e.handler === handler : true) || !(id ? e.id === id : true),
+    );
   }
 
-  public emit(property: string, argument?: Object, successHandler?: Function, errorHandler?: Function): void | Object {
-    this.notify(property,argument,successHandler,errorHandler);
-  }
-
+  /**
+   * 触发。
+   *
+   * <p><b>永远返回 `undefined`。</b>旧实现两条分支都没有 return 值,
+   * 而 `Base.trigger()` 会把这个返回值再往外传 —— 也就是说
+   * `trigger()` 的返回值一直是 `undefined`。看着像"忘了 return",
+   * 但已经有调用方按"没有返回值"写了,补上会让 `if (obj.trigger(...))`
+   * 这类写法悄悄改变分支。
+   *
+   * <p><b>`successHandler` 在事件没人登记时也会调</b>,而且 `this` 绑的是
+   * <u>Observer 自己</u>,不是登记时给的 context。两条都是旧行为。
+   *
+   * <p>`errorHandler` 旧实现根本没用过,保留形参只为签名兼容。
+   */
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  public notify(property: string, argument?: Object, successHandler?: Function, errorHandler?: Function): void | Object {
-    if (this.notExist(property)) {
-      if (successHandler) {
-        successHandler.call(this, argument);
-      }
+  notify(property: string, argument?: Object, successHandler?: Function, errorHandler?: Function): void | Object {
+    const 表 = this.boundedEvents!;   // destroy 之后是 undefined —— 见类注释第 3 条
+    const 登记 = 表[property];
+    if (!登记) {
+      if (successHandler) { successHandler.call(this, argument); }
       return;
     }
-    // if (argument) {
-    //   (<{ name: string }>argument).name = property;
-    // }
-    let curObject: BoundOptions[] = getValue(property, this.boundedEvents).slice(0);
-      for (let cur of curObject) {
-        if(cur.handler){
-          cur.handler.call(cur.context, argument);
-        }
-      }
-      if (successHandler) {
-        successHandler.call(this, argument);
-      }
-  }
-  public isJson(value: string): boolean {
-    try {
-      JSON.parse(value);
-    } catch (e) {
-      return false;
+    // 拷一份再遍历:回调里可能 off 掉自己。
+    for (const e of 登记.slice()) {
+      if (e.handler) { e.handler.call(e.context, argument); }
     }
-    return true;
-  }
-  /**
-   * To destroy handlers in the event
-   */
-  public destroy(): void {
-    this.boundedEvents = this.context = undefined;
-  }
-  /**
-   * Returns if the property exists.
-   */
-  private notExist(prop: string): boolean {
-    return this.boundedEvents&&(this.boundedEvents.hasOwnProperty(prop) === false || this.boundedEvents[prop].length <= 0);
+    if (successHandler) { successHandler.call(this, argument); }
   }
 
-  private isHandlerPresent(boundedEvents: BoundOptions[], handler: Function): boolean {
-    for (let cur of boundedEvents) {
-      if (cur.handler === handler) {
-        return true;
-      }
-    }
-    return false;
+  /** `notify` 的别名。同样不返回值。 */
+  emit(property: string, argument?: Object, successHandler?: Function, errorHandler?: Function): void | Object {
+    this.notify(property, argument, successHandler, errorHandler);
+  }
+
+  destroy(): void {
+    this.boundedEvents = undefined;
+    this.context = undefined as never;
   }
 }
