@@ -533,11 +533,7 @@ export class Oauth2Auth  {
   private refreshTokenPromise: Promise<any> = null;
 
   refreshToken(): Promise<any> {
-    // pollingRefreshToken()'s setInterval and any consumer-triggered call (e.g. a 401
-    // interceptor) can land close together; without dedup they'd fire two concurrent
-    // POST /oauth2/token requests against the same refresh_token, and if the server
-    // rotates it on use, the request that resolves second gets an already-invalidated
-    // token and triggers a spurious logOut() on the next cycle.
+
     if (this.refreshTokenPromise) {
         return this.refreshTokenPromise;
     }
