@@ -10,7 +10,6 @@
         [style.order]="index * 2 + 1"
         (keydown)="startKeyboardDrag($event, index * 2 + 1, index + 1)"
         (mousedown)="startMouseDrag($event, index * 2 + 1, index + 1)"
-        (touchstart)="startMouseDrag($event, index * 2 + 1, index + 1)"
         (mouseup)="clickGutter($event, index + 1)"
         (touchend)="clickGutter($event, index + 1)"
         [attr.aria-label]="gutterAriaLabel"

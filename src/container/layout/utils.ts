@@ -39,6 +39,18 @@ export function getPointFromEvent(event: MouseEvent | TouchEvent): IPoint {
   return null;
 }
 
+/**
+ * Whether the pointer event came from a touch screen.
+ * @zh 这个指针事件是不是来自触摸屏。
+ *
+ * <p>用 changedTouches 特征判断而不是 {@code instanceof TouchEvent} ——
+ * 桌面 Firefox 上没有 TouchEvent 这个全局构造函数，instanceof 会直接抛错。
+ * 与 {@link getPointFromEvent} 的判断口径保持一致。
+ */
+export function isTouchEvent(event: MouseEvent | TouchEvent): boolean {
+  return (<TouchEvent>event).changedTouches !== undefined;
+}
+
 export function pointDeltaEquals(lhs: IPoint, rhs: IPoint, deltaPx: number) {
   return (
     Math.abs(lhs.x - rhs.x) <= deltaPx && Math.abs(lhs.y - rhs.y) <= deltaPx
