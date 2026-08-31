@@ -26,7 +26,7 @@
  */
 
 import { Observer } from './observer';
-import { isUndefined, isNullOrUndefined, extend } from './util';
+import { isUndefined, extend } from './util';
 
 /** 默认区域。旧实现放在这里,`@dotos/dui/translator` 现在有自己的一份。 */
 export const defaultCulture = 'en-US';
@@ -95,24 +95,48 @@ export class Base<ElementType extends HTMLElement> {
   }
 
   /**
-   * 发事件。
+   * 发事件。**只走总线**。
    *
-   * <p>除了走总线,还会看**同名的实例成员**:`trigger('change', e)` 时若
-   * `this.change` 是个函数就一并调用。这条是旧行为,配置式组件靠它
-   * 支持 `{ change: fn }` 这种写法。
+   * <p><b>这里曾经还会调「同名的实例成员」</b> —— `trigger('change', e)` 时若
+   * `this.change` 是个函数就一并调用,注释写的理由是"这条是旧行为,配置式组件
+   * 靠它支持 `{ change: fn }` 这种写法"。<u>那条注释是错的,旧实现从来没执行过
+   * 这段。</u>旧代码是:
+   *
+   * <pre>
+   *   const isColEName = new RegExp(']');      // ← 注意匹配的是右方括号
+   *   …
+   *   if (isColEName.test(eventName)) { …调同名成员… }
+   * </pre>
+   *
+   * <p>那个正则是给 `columns[0].field` 这类<b>属性路径</b>准备的(EJ2 的属性系统
+   * 遗留),而事件名里不可能出现 `]` —— 所以这个分支对任何一个真实事件名都是
+   * <b>死代码</b>。自研版把守卫丢了、把死代码"恢复"成了活代码,后果是:
+   *
+   * <ol>
+   *   <li><b>无限递归。</b>下游把事件转发方法<u>按事件名命名</u>是常规写法,
+   *       比如 duix 的树表卡片有 50 个
+   *       `headerCellInfo(e) { this.trigger("headerCellInfo", e); }` ——
+   *       `trigger` 调同名成员、同名成员再 `trigger`,一进去就
+   *       `Maximum call stack size exceeded`,整页白屏。实测能力页 card 一载入就炸。</li>
+   *   <li><b>回调跑两遍。</b>调用方自己也会派发同名成员(duix 平表卡片的
+   *       `fire()` 就是),于是 config 里写的 `actionBegin` 之类被调两次。
+   *       字典管理那份配置在 `actionBegin` 里 `this.max_index_id++`,跑两遍就跳号。</li>
+   *   <li><b>`ComponentBase` 自己也中招。</b>`ngOnDestroy()` 先
+   *       `trigger('onDestroy', this)` 再 `this.onDestroy()` —— 同名成员那条路
+   *       让 `onDestroy()` 执行了两次。</li>
+   * </ol>
+   *
+   * <p>所以整段删掉,回到旧实现的<u>实际</u>行为:只通知总线。`successHandler`
+   * 不受影响 —— `Observer.notify()` 本来就负责调它(两条分支都调),
+   * 旧实现在这里的那次调用属于"名字里带 `]` 时多调一次",不是常规路径。
+   *
+   * <p>需要"配置里写个同名函数就当回调"这种形状的,由调用方自己派发
+   * (duix 的 `fire()` 已经这么做了),不要放回总线里 —— 放回来就分不清
+   * "转发方法"和"回调",递归会再来一次。
    */
   trigger(eventName: string, eventProp?: Object, successHandler?: Function, errorHandler?: Function): void | object {
     if (this.isDestroyed === true) { return; }
-    const data = this.modelObserver.notify(eventName, eventProp, successHandler, errorHandler) as object;
-
-    const 同名 = (this as unknown as Record<string, unknown>)[eventName];
-    if (typeof 同名 === 'function') {
-      (同名 as Function).call(this, eventProp);
-      if (successHandler) { successHandler.call(this, eventProp); }
-    } else if (successHandler && !isNullOrUndefined(同名)) {
-      successHandler.call(this, eventProp);
-    }
-    return data;
+    return this.modelObserver.notify(eventName, eventProp, successHandler, errorHandler) as object;
   }
 
   destroy(): void {
