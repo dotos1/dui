@@ -77,7 +77,23 @@ export interface IDraggableRefs<T> {
  * @zh 对 Angular Material `MatDialog` 的高层封装，提供开箱即用的
  * 提示/确认/输入/状态对话框，并可选支持可拖拽对话框。
  */
-@Injectable()
+/*
+ * **root 级**，不再只由 `DialogsModule.providers` 提供。
+ *
+ * 起因是一类反复出现的运行时崩溃：任何 `providedIn: 'root'` 的服务只要依赖
+ * 本服务，就会在 **root 注入器**里被实例化，而那时 `DialogsModule` 的
+ * providers 只存在于子注入器里 —— 于是抛
+ * `NullInjectorError: No provider for DialogService`。编译期完全看不出来，
+ * 只有走到那条代码路径才炸。
+ *
+ * 自身依赖(`MatDialog`、`DragDrop`、`MAT_DIALOG_SCROLL_STRATEGY`、`DOCUMENT`、
+ * `RendererFactory2`)全部是 root 可解析的，所以提到 root 不会把问题推到下一层。
+ * 语义上也更一致：`MatDialog` 本来就是 root 单例，对话框栈本就是全局的。
+ *
+ * <b>注意这不代表可以不 import `DialogsModule`</b> —— 内置对话框组件是在那个
+ * NgModule 的构造函数里注册进 Dui 组件工厂的，少了它对话框仍然打不开。
+ */
+@Injectable({ providedIn: 'root' })
 export class DialogService {
   private _renderer2: Renderer2;
   private _componentMap:Map<string,any>=new Map();
