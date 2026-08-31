@@ -11,6 +11,9 @@
     flex-grow: 0;
     flex-shrink: 0;
     // background-color: #eeeeee;
+    // 触摸时由这里阻止页面滚动，而不是靠 touchstart 里的 preventDefault ——
+    // 后者要求监听器是非被动的，浏览器每次滚动前都得等回调跑完。
+    touch-action: none;
     display: flex;
     align-items: center;
     justify-content: center;

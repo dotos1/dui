@@ -39,6 +39,7 @@ import {
     getInputboolean,
     getKeyboardEndpoint,
     getPointFromEvent,
+    isTouchEvent,
     isUserSizesValid,
     pointDeltaEquals,
     updateAreaSize,
@@ -253,6 +254,9 @@ export class LayoutComponent
 
   @ViewChildren('gutterEls') private gutterEls: QueryList<ElementRef>;
 
+  /** @zh 分隔条上被动 touchstart 监听的解绑函数，*ngFor 变化与销毁时都要用。 */
+  private gutterTouchListeners: Array<() => void> = [];
+
   _clickTimeout: number | null = null;
 
   public override ngAfterViewInit() {
@@ -262,6 +266,43 @@ export class LayoutComponent
         this.renderer.addClass(this.elRef.nativeElement, 'dui-init')
       );
     });
+
+    this.bindGutterTouchStart();
+    this.gutterEls.changes.subscribe(() => this.bindGutterTouchStart());
+  }
+
+  /**
+   * Registers the gutters' `touchstart` as a passive listener.
+   * @zh 把分隔条的 touchstart 注册成被动监听。
+   *
+   * <p>模板里写 {@code (touchstart)="..."} 时，Angular 只能注册成非被动的，
+   * 浏览器就必须等这个回调跑完才敢滚页面 —— Chrome 为此报
+   * "Added non-passive event listener to a scroll-blocking 'touchstart' event"。
+   *
+   * <p>原来非被动是为了在 {@link startMouseDrag} 里 {@code preventDefault()} 拦住页面滚动。
+   * 现在改由 CSS 的 {@code touch-action: none} 来拦：浏览器一看这个元素声明了不滚，
+   * 就不用再问监听器了 —— 既没有了那条警告，手指按下到开始拖动之间的延迟也一并没了。
+   */
+  private bindGutterTouchStart(): void {
+    this.unbindGutterTouchStart();
+
+    this.gutterEls.forEach((gutterEl: ElementRef, index: number) => {
+      const el: HTMLElement = gutterEl.nativeElement;
+      // 第 index 个分隔条夹在第 index 与第 index+1 个区域之间，
+      // 与模板里 *ngFor 的下标一一对应（分隔条只在 last === false 时渲染）。
+      const handler = (event: TouchEvent) =>
+        this.startMouseDrag(event, index * 2 + 1, index + 1);
+
+      el.addEventListener('touchstart', handler, { passive: true });
+      this.gutterTouchListeners.push(() =>
+        el.removeEventListener('touchstart', handler)
+      );
+    });
+  }
+
+  private unbindGutterTouchStart(): void {
+    this.gutterTouchListeners.forEach((unbind) => unbind());
+    this.gutterTouchListeners = [];
   }
 
   private getNbGutters(): number {
@@ -564,7 +605,12 @@ export class LayoutComponent
     gutterOrder: number,
     gutterNum: number
   ): void {
-    event.preventDefault();
+    // 触摸事件走的是被动监听（见 bindGutterTouchStart），那里 preventDefault 是空操作，
+    // 调了只会让 Chrome 再报一条 "Unable to preventDefault inside passive event listener"。
+    // 触摸时阻止页面滚动的是 .dui-split-gutter 上的 touch-action: none。
+    if (!isTouchEvent(event)) {
+      event.preventDefault();
+    }
     event.stopPropagation();
 
     this.startPoint = getPointFromEvent(event);
@@ -600,12 +646,12 @@ export class LayoutComponent
           this.mouseDragEvent.bind(this)
         )
       );
-      this.dragListeners.push(
-        this.renderer.listen(
-          'document',
-          'touchmove',
-          this.mouseDragEvent.bind(this)
-        )
+      // touchmove 同理：手势起点在分隔条上，touch-action: none 已经决定了这一串
+      // 手势不滚页面，这里不需要再靠 preventDefault 拦一次，注册成被动即可。
+      const touchMove = this.mouseDragEvent.bind(this);
+      document.addEventListener('touchmove', touchMove, { passive: true });
+      this.dragListeners.push(() =>
+        document.removeEventListener('touchmove', touchMove)
       );
     });
 
@@ -671,7 +717,10 @@ export class LayoutComponent
   }
 
   private mouseDragEvent(event: MouseEvent | TouchEvent): void {
-    event.preventDefault();
+    // 鼠标一路仍要 preventDefault —— 否则拖动会顺带选中页面上的文字。
+    if (!isTouchEvent(event)) {
+      event.preventDefault();
+    }
     event.stopPropagation();
 
     const tempPoint = getPointFromEvent(event);
@@ -886,6 +935,7 @@ export class LayoutComponent
 
   public override ngOnDestroy(): void {
     this.stopDragging();
+    this.unbindGutterTouchStart();
   }
 
   public collapseArea(
