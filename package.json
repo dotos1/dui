@@ -1,6 +1,6 @@
 {
   "name": "dui",
-  "version": "7.4.31",
+  "version": "7.4.32",
   "license": "UNLICENSED",
   "scripts": {
     "ng": "ng",
@@ -13,7 +13,7 @@
     "prebuild": "npm --no-git-tag-version version patch && cd src  && npm --no-git-tag-version version patch",
     "npm_pack": "cd dist/dui && npm pack",
     "package": "npm run prebuild && npm run build-dui && npm run npm_pack",
-    "publish": "cd dist/dui && npm publish  --ignore-scripts",
+    "publish": "cd dist/dui && rm -f *.tgz && npm publish  --ignore-scripts",
     "unpublish": "cd dist/dui && npm unpublish @dotos/dui@latest  --force"
   },
   "dependencies": {
