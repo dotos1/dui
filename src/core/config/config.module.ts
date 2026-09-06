@@ -5,6 +5,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { ConfigLoader, ConfigStaticLoader } from './config.loader';
 import { ConfigPipe } from './config.pipe';
 import { ConfigService } from './config.service';
+import { FeatureDirective } from './feature.directive';
 
 
 export const configFactory = () =>{ 
@@ -29,8 +30,8 @@ export function provideForRootGuard(config?: ConfigService): any {
     CommonModule,
     MatProgressSpinnerModule
   ],
-  declarations: [ConfigPipe],
-  exports: [ConfigPipe]
+  declarations: [ConfigPipe, FeatureDirective],
+  exports: [ConfigPipe, FeatureDirective]
 })
 export class ConfigModule {
   static forRoot(
