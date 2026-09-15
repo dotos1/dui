@@ -8,6 +8,7 @@ import {
   OnInit, 
   OnDestroy 
 } from '@angular/core';
+import { action, observable } from '@dotos/dui/core/mobx';
 import { TreeNode } from '../models/tree-node.model';
 
 @Component({
@@ -21,7 +22,19 @@ import { TreeNode } from '../models/tree-node.model';
   }
 })
 export class TreeNodeWrapperComponent implements OnInit, OnDestroy {
-  @Input() node: TreeNode;
+  //同 TreeNodeChildrenComponent：模板在 treeMobxAutorun 里，换实例必须走 observable
+  @Input()
+  get node() {
+    return this._node;
+  }
+  set node(node) {
+    this.setNode(node);
+  }
+  @action setNode(node) {
+    this._node = node;
+  }
+  @observable _node: TreeNode;
+
   @Input() index: number;
   @Input() templates: any;
 

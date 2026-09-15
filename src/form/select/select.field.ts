@@ -129,14 +129,30 @@ export class FieldSelect extends MatField implements OnInit,OnDestroy {
         this._lastRequestParams = params;
         this.optionService.getOptions(url, method, params);
       } else {
-        if(searchText==''){
-          this.field.options =this.options;
-          this.changeDetector.detectChanges();
-        }else{
-          let options = this.field.options.filter(option => option.label.toLowerCase().indexOf(searchText) > -1);
-          this.field.options = options;
-          this.changeDetector.detectChanges();
+        // 两处都必须从**完整列表**过滤,且大小写都要归一:
+        //
+        //   1. 原先过滤的是 `this.field.options` —— 那是上一次按键之后**已经被
+        //      筛过**的列表。于是退格不会放宽:输入 "utm2" 再退成 "utm",是在
+        //      "utm2" 的结果里再找 "utm",永远回不到更宽的集合,
+        //      只有清空才恢复。
+        //   2. 原先只把 label 转小写、**没有转 searchText**。于是输入大写
+        //      "UTM" 一条都匹配不到,而输入小写 "utm" 正常 —— 用户几乎不可能
+        //      想到问题出在大小写上。
+        //
+        // 顺带把 value 也纳入匹配:坐标系这类选项,人记住的往往是标识
+        // (UTM23N)而不是那句中文标签。
+        const q = (searchText ?? '').toString().trim().toLowerCase();
+        const all = this.options ?? [];
+        if (q === '') {
+          this.field.options = all;
+        } else {
+          this.field.options = all.filter((option) => {
+            const label = (option?.label ?? '').toString().toLowerCase();
+            const value = (option?.value ?? '').toString().toLowerCase();
+            return label.indexOf(q) > -1 || value.indexOf(q) > -1;
+          });
         }
+        this.changeDetector.detectChanges();
       }
     });
   }
