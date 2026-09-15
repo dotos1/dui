@@ -32,7 +32,7 @@ import { Shape } from '@dotos/dui/common/colorpicker/common';
     .sketch-wrap {
       width: 16px;
       height: 16px;
-      margin: 0px 10px 10px 0px;
+      margin: 3px;
     }
   `,
   ],

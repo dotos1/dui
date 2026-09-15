@@ -1,4 +1,5 @@
 import { Component, Input, ViewEncapsulation,ChangeDetectionStrategy } from '@angular/core';
+import { action, observable } from '@dotos/dui/core/mobx';
 import { TreeNode } from '../models/tree-node.model';
 import { 
   ElementRef, 
@@ -17,7 +18,18 @@ import {
   }
 })
 export class TreeNodeExpanderComponent implements OnInit, OnDestroy {
-  @Input() node: TreeNode;
+  //同 TreeNodeChildrenComponent：模板在 treeMobxAutorun 里，换实例必须走 observable
+  @Input()
+  get node() {
+    return this._node;
+  }
+  set node(node) {
+    this.setNode(node);
+  }
+  @action setNode(node) {
+    this._node = node;
+  }
+  @observable _node: TreeNode;
 
 
   private clickListener: (event: MouseEvent) => void;
