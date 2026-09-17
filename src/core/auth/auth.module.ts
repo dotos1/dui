@@ -20,6 +20,18 @@ export function authFactory(): AuthLoader {
 }
 
 export const AUTH_FORROOT_GUARD = new InjectionToken('AUTH_FORROOT_GUARD');
+
+// 只在 forRoot() 的注入器里运行：若父注入器已有 AuthService，说明 forRoot() 被调用了多次。
+// 放在「工厂 + 依赖父级 AuthService」里（而非模块构造函数），是 Angular RouterModule 的标准做法：
+// 构造函数守卫会对**每次** AuthModule 实例化触发——包括懒加载模块里合法的 forChild()，从而误报。
+export function provideAuthForRootGuard(auth: AuthService): any {
+  if (auth) {
+    throw new Error(
+      'AuthModule.forRoot() 只能在根模块调用一次，子模块请改用 AuthModule.forChild()。'
+    );
+  }
+  return true;
+}
 export const AuthInterceptorProviders = [
   {
     provide: HTTP_INTERCEPTORS,
@@ -61,7 +73,11 @@ export class AuthModule {
           withInterceptorsFromDi(),
         ),
         AuthInterceptorProviders,
-        { provide: AUTH_FORROOT_GUARD, useValue: true },
+        {
+          provide: AUTH_FORROOT_GUARD,
+          useFactory: provideAuthForRootGuard,
+          deps: [[new Optional(), new SkipSelf(), AuthService]],
+        },
       ]
     };
   }
@@ -70,13 +86,7 @@ export class AuthModule {
       ngModule: AuthModule
     };
   }
-  constructor(@Optional() @SkipSelf() @Inject(AUTH_FORROOT_GUARD) guard: any) {
-    // 该 token 只由 forRoot() 提供。若在父注入器中已能取到，说明 forRoot() 被调用了多次，
-    // 会产生互相覆盖的 AuthService/拦截器实例。
-    if (guard) {
-      throw new Error(
-        'AuthModule.forRoot() 只能在根模块调用一次，子模块请改用 AuthModule.forChild()。'
-      );
-    }
-  }
+  // 仅注入以触发 AUTH_FORROOT_GUARD 工厂运行（进而执行"是否重复 forRoot"的检查）。
+  // 不再在构造函数里抛错——否则懒加载模块合法的 forChild() 也会触发。
+  constructor(@Optional() @Inject(AUTH_FORROOT_GUARD) _guard: any) {}
 }
