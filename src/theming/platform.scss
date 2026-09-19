@@ -11,5 +11,3 @@ $md-font-url: 'dui/font/';
 @import "dui/colors";
 @import "dui/perfect-scrollbar";
 @import "dui/scrollbars";
-// 右到左支持契约：LTR 孤岛、方向图标、双向文本隔离。见 _rtl.scss。
-@import "rtl";
