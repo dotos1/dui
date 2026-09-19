@@ -4,7 +4,8 @@
     "OK": "OK",
     "SELECTCOLOR": "Farbe auswählen",
     "KEYBOARD_TITLE": "Tastenkombination",
-    "KEYBOARD_EMPTYMESSAGE": "Keine Tastenkombinationen definiert"
+    "KEYBOARD_EMPTYMESSAGE": "Keine Tastenkombinationen definiert",
+    "PRINT_WINDOW": "Druckfenster"
   },
   "CLIPBOARD": {
     "CLICK_TO_COPY": "Zum Kopieren klicken",

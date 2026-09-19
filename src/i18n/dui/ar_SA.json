@@ -4,7 +4,8 @@
     "OK": "موافق",
     "SELECTCOLOR": "اختيار لون",
     "KEYBOARD_TITLE": "اختصار",
-    "KEYBOARD_EMPTYMESSAGE": "لا توجد اختصارات لوحة مفاتيح معرّفة"
+    "KEYBOARD_EMPTYMESSAGE": "لا توجد اختصارات لوحة مفاتيح معرّفة",
+    "PRINT_WINDOW": "طباعة النافذة"
   },
   "CLIPBOARD": {
     "CLICK_TO_COPY": "انقر للنسخ",
