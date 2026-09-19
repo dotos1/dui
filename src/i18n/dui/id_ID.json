@@ -4,7 +4,8 @@
     "OK": "OK",
     "SELECTCOLOR": "Pilih Warna",
     "KEYBOARD_TITLE": "Tombol pintas",
-    "KEYBOARD_EMPTYMESSAGE": "Tidak ada pintasan keyboard yang ditentukan"
+    "KEYBOARD_EMPTYMESSAGE": "Tidak ada pintasan keyboard yang ditentukan",
+    "PRINT_WINDOW": "Cetak Jendela"
   },
   "CLIPBOARD": {
     "CLICK_TO_COPY": "Klik untuk menyalin",

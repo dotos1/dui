@@ -4,7 +4,8 @@
     "OK": "Aceptar",
     "SELECTCOLOR": "Seleccionar un color",
     "KEYBOARD_TITLE": "Atajo de teclado",
-    "KEYBOARD_EMPTYMESSAGE": "No hay atajos de teclado definidos"
+    "KEYBOARD_EMPTYMESSAGE": "No hay atajos de teclado definidos",
+    "PRINT_WINDOW": "Imprimir ventana"
   },
   "CLIPBOARD": {
     "CLICK_TO_COPY": "Clic para copiar",

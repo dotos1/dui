@@ -4,7 +4,8 @@
     "OK": "確定",
     "SELECTCOLOR": "色を選択",
     "KEYBOARD_TITLE": "ショートカットキー",
-    "KEYBOARD_EMPTYMESSAGE": "キーボードショートカットが定義されていません"
+    "KEYBOARD_EMPTYMESSAGE": "キーボードショートカットが定義されていません",
+    "PRINT_WINDOW": "印刷ウィンドウ"
   },
   "CLIPBOARD": {
     "CLICK_TO_COPY": "クリックしてコピー",
