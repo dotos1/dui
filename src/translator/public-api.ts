@@ -28,3 +28,4 @@
   export * from './translate.guard';
   export * from './http-loader';
 
+  export * from './t';
