@@ -4,7 +4,8 @@
     "OK": "OK",
     "SELECTCOLOR": "Selecionar uma cor",
     "KEYBOARD_TITLE": "Tecla de atalho",
-    "KEYBOARD_EMPTYMESSAGE": "Nenhum atalho de teclado definido"
+    "KEYBOARD_EMPTYMESSAGE": "Nenhum atalho de teclado definido",
+    "PRINT_WINDOW": "Imprimir janela"
   },
   "CLIPBOARD": {
     "CLICK_TO_COPY": "Clique para copiar",
