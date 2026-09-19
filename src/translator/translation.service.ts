@@ -6,17 +6,6 @@ import { TranslateService } from './translate.service';
 import { TranslateLoaderService } from './translate-loader.service';
 export const TRANSLATION_PROVIDER = new InjectionToken('Injection token for translation providers.');
 
-/**
- * Languages written right to left. Matched on the primary subtag, so ar_SA,
- * ar-EG and plain ar all resolve the same way.
- */
-const RTL_LANGUAGES = ['ar', 'he', 'fa', 'ur'];
-
-export function isRtlLanguage(lang: string): boolean {
-  const primary = (lang || '').split(/[-_]/)[0].toLowerCase();
-  return RTL_LANGUAGES.indexOf(primary) >= 0;
-}
-
 export interface TranslationProvider {
   name: string;
   source: string;
@@ -113,20 +102,19 @@ export class TranslationService {
   }
 
   /**
-   * Mirrors the document for right-to-left languages and publishes the active
-   * locale to CSS/`:lang()` selectors.
+   * Publishes the active locale to CSS/`:lang()` selectors.
    *
-   * Only the UI chrome flips. Depth-ordered technical canvases -- well
-   * schematics, log tracks, seismic sections, cross sections -- carry
-   * directional meaning and must stay left to right; mark those containers
-   * `dir="ltr"` so they opt out of the mirroring.
+   * 文档方向一律 ltr。RTL 翻转(postcss-rtlcss)已整体撤掉:它把方向属性拆成
+   * `[dir=ltr] .x { right: … }`,而 Angular 样式封装又把 `[dir=ltr]` 改写成要求
+   * 带组件作用域属性,匹配不到 <html>,结果 LTR 下方向属性全部失效。
+   * 真要支持阿语等 RTL 语种时再重新设计。
    */
   applyDocumentDirection(lang: string) {
     if (typeof document === 'undefined' || !document.documentElement) {
       return;
     }
     const root = document.documentElement;
-    root.setAttribute('dir', isRtlLanguage(lang) ? 'rtl' : 'ltr');
+    root.setAttribute('dir', 'ltr');
     root.setAttribute('lang', (lang || '').replace('_', '-'));
   }
 
