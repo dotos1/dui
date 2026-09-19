@@ -4,7 +4,8 @@
     "OK": "確定",
     "SELECTCOLOR": "選擇顏色",
     "KEYBOARD_TITLE": "快捷鍵",
-    "KEYBOARD_EMPTYMESSAGE": "沒有快捷鍵定義"
+    "KEYBOARD_EMPTYMESSAGE": "沒有快捷鍵定義",
+    "PRINT_WINDOW": "列印視窗"
   },
   "CLIPBOARD": {
     "CLICK_TO_COPY": "單擊以複製",

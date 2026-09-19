@@ -4,7 +4,8 @@
     "OK": "확인",
     "SELECTCOLOR": "색상 선택",
     "KEYBOARD_TITLE": "단축키",
-    "KEYBOARD_EMPTYMESSAGE": "정의된 단축키가 없습니다"
+    "KEYBOARD_EMPTYMESSAGE": "정의된 단축키가 없습니다",
+    "PRINT_WINDOW": "인쇄 창"
   },
   "CLIPBOARD": {
     "CLICK_TO_COPY": "클릭하여 복사",

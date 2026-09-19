@@ -4,7 +4,8 @@
     "OK": "OK",
     "SELECTCOLOR": "Sélectionner une couleur",
     "KEYBOARD_TITLE": "Raccourci",
-    "KEYBOARD_EMPTYMESSAGE": "Aucun raccourci clavier défini"
+    "KEYBOARD_EMPTYMESSAGE": "Aucun raccourci clavier défini",
+    "PRINT_WINDOW": "Fenêtre d'impression"
   },
   "CLIPBOARD": {
     "CLICK_TO_COPY": "Cliquer pour copier",

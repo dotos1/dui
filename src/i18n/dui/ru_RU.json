@@ -4,7 +4,8 @@
     "OK": "ОК",
     "SELECTCOLOR": "Выбрать цвет",
     "KEYBOARD_TITLE": "Горячие клавиши",
-    "KEYBOARD_EMPTYMESSAGE": "Горячие клавиши не определены"
+    "KEYBOARD_EMPTYMESSAGE": "Горячие клавиши не определены",
+    "PRINT_WINDOW": "Окно печати"
   },
   "CLIPBOARD": {
     "CLICK_TO_COPY": "Нажмите, чтобы скопировать",

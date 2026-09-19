@@ -1,4 +1,5 @@
 import { Input, Output, EventEmitter, Injectable } from '@angular/core';
+import { t as i18nT } from '@dotos/dui/translator';
 
 /**
  * Prints arbitrary HTML content (a string or element) via a hidden iframe or a popup window,
@@ -40,7 +41,7 @@ export class PrintService {
     };
     this.mode = this.modes.iframe;
     this.standard = this.standards.html5;
-    this.popTitle = '打印窗口';
+    this.popTitle = i18nT('COMMON.PRINT_WINDOW');
     this.printComplete = new EventEmitter<any>(false);
   }
 

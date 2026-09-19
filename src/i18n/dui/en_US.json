@@ -4,7 +4,8 @@
     "OK": "OK",
     "SELECTCOLOR": "Select a Color",
     "KEYBOARD_TITLE": "Shortcut",
-    "KEYBOARD_EMPTYMESSAGE": "No keyboard shortcuts defined"
+    "KEYBOARD_EMPTYMESSAGE": "No keyboard shortcuts defined",
+    "PRINT_WINDOW": "Print Window"
   },
   "CLIPBOARD": {
     "CLICK_TO_COPY": "Click to copy",
