@@ -159,7 +159,22 @@ export class TreeNode implements ITreeNode {
   }
 
   setField(key, value) {
-    this.data[this.options[`${key}Field`]] = value;
+    const field = this.options[`${key}Field`];
+    if (this.data == undefined || this.data[field] === value) {
+      return;
+    }
+    /*
+     * **节点的 data 可能是个模型对象,这一项是算出来的、写不进去。**
+     * 目录树的节点就是这样:data 是 sdos 的 CatalogGroup,`hasChildren` 由成员数量派生
+     * (mobx 的 computed),删一个图层时 removeNode 顺手回写它,mobx 直接抛
+     * 「It is not possible to assign a new value to a computed value」——
+     * 而这类属性本来就不用写,成员变了它自己就变了。
+     */
+    try {
+      this.data[field] = value;
+    } catch (e) {
+      // 只读/计算属性,忽略
+    }
   }
   
   public clear() {
