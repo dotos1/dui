@@ -29,3 +29,4 @@
   export * from './http-loader';
 
   export * from './t';
+  export * from './lazy';
