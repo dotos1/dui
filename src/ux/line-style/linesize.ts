@@ -64,7 +64,7 @@ export class LineSizeSelector<F extends FieldConfig = FieldConfig> extends MatFi
  }
   private onDestroy$ = new Subject<void>();
   private lineColor = 'rgba(0, 0, 0, 1.0)';
-  public sizeOptions = PRE_DEFINED_THEMES;
+  public sizeOptions = [...PRE_DEFINED_THEMES];
 
   constructor(
     protected dotosConfigService: DotosConfigService,
@@ -130,8 +130,24 @@ export class LineSizeSelector<F extends FieldConfig = FieldConfig> extends MatFi
     }
   }
 
+  /**
+   * 当前值不在预设里（如道模板里的格线线宽 0.8 / 0.4）时补一个选项。
+   *
+   * <p>mat-select 找不到与值匹配的选项就什么都不显示 —— 控件是空白的，看上去像没有缺省值，
+   * 其实值在，只是没有对应的选项可显示。
+   */
+  private ensureOption(w: number) {
+    if (isNaN(w) || this.sizeOptions.some((o) => parseFloat(o.value) === w)) {
+      return;
+    }
+    this.sizeOptions = [...this.sizeOptions, { value: String(w) }]
+      .sort((a, b) => parseFloat(a.value) - parseFloat(b.value));
+    this._changeDetectorRef.detectChanges();
+  }
+
   setValue(value) {
     let w = parseFloat(value);
+    this.ensureOption(w);
     let canvas = this.lineSizeTriggerEl.nativeElement;
     const ctx = canvas.getContext('2d');
     ctx.clearRect(0, 0, canvas.width, canvas.height);
