@@ -1,0 +1,85 @@
+{
+  "importPath": "@dotos/dui/core/dynamic",
+  "exports": [
+    {
+      "name": "DynamicComponent",
+      "kind": "component",
+      "selector": "dui-dynamic",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/core/dynamic/dynamic.component.ts",
+      "inputs": [
+        {
+          "name": "tmpl",
+          "type": "string",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "data",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "outputs": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "template",
+          "type": "string",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "viewRef",
+          "type": "any",
+          "default": "inject(ViewContainerRef)",
+          "description": null,
+          "descriptionZh": null
+        }
+      ]
+    },
+    {
+      "name": "DynamicModule",
+      "kind": "module",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/core/dynamic/dynamic.module.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "SafeurlPipe",
+      "kind": "pipe",
+      "pipeName": "safeurl",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/core/dynamic/safeurl.pipe.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "transform",
+          "params": [
+            {
+              "name": "value",
+              "type": "any"
+            },
+            {
+              "name": "type",
+              "type": "string"
+            }
+          ],
+          "returnType": "SafeHtml | SafeStyle | SafeScript | SafeUrl | SafeResourceUrl",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "properties": []
+    }
+  ],
+  "suggestedUsageSnippet": "import { DynamicComponent, DynamicModule } from '@dotos/dui/core/dynamic';\n\n<dui-dynamic [tmpl]=\"...\" [data]=\"...\"></dui-dynamic>"
+}

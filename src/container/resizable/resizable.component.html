@@ -1,0 +1,4 @@
+<ng-content></ng-content>
+<div *ngFor="let dir of directions" [ngClass]="'dui-' + dir" class="dui-grabber" (mousedown)="onMouseDown($event, dir)"
+  (touchstart)="onMouseDown($event, dir)">
+</div>

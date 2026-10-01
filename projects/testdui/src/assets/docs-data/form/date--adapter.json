@@ -1,0 +1,829 @@
+{
+  "importPath": "@dotos/dui/form/date/adapter",
+  "exports": [
+    {
+      "name": "DatetimeAdapter",
+      "kind": "class",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/form/date/adapter/datetime-adapter.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "getHour",
+          "params": [
+            {
+              "name": "date",
+              "type": "D"
+            }
+          ],
+          "returnType": "number",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "getMinute",
+          "params": [
+            {
+              "name": "date",
+              "type": "D"
+            }
+          ],
+          "returnType": "number",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "getFirstDateOfMonth",
+          "params": [
+            {
+              "name": "date",
+              "type": "D"
+            }
+          ],
+          "returnType": "D",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "isInNextMonth",
+          "params": [
+            {
+              "name": "startDate",
+              "type": "D"
+            },
+            {
+              "name": "endDate",
+              "type": "D"
+            }
+          ],
+          "returnType": "boolean",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "getHourNames",
+          "params": [],
+          "returnType": "string[]",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "getMinuteNames",
+          "params": [],
+          "returnType": "string[]",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "addCalendarHours",
+          "params": [
+            {
+              "name": "date",
+              "type": "D"
+            },
+            {
+              "name": "months",
+              "type": "number"
+            }
+          ],
+          "returnType": "D",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "addCalendarMinutes",
+          "params": [
+            {
+              "name": "date",
+              "type": "D"
+            },
+            {
+              "name": "months",
+              "type": "number"
+            }
+          ],
+          "returnType": "D",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "createDatetime",
+          "params": [
+            {
+              "name": "year",
+              "type": "number"
+            },
+            {
+              "name": "month",
+              "type": "number"
+            },
+            {
+              "name": "date",
+              "type": "number"
+            },
+            {
+              "name": "hour",
+              "type": "number"
+            },
+            {
+              "name": "minute",
+              "type": "number"
+            }
+          ],
+          "returnType": "D",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "getValidDateOrNull",
+          "params": [
+            {
+              "name": "obj",
+              "type": "any"
+            }
+          ],
+          "returnType": "D | null",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "compareDatetime",
+          "params": [
+            {
+              "name": "first",
+              "type": "D"
+            },
+            {
+              "name": "second",
+              "type": "D"
+            },
+            {
+              "name": "respectMinutePart",
+              "type": "boolean"
+            }
+          ],
+          "returnType": "number",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "sameDatetime",
+          "params": [
+            {
+              "name": "first",
+              "type": "D | null"
+            },
+            {
+              "name": "second",
+              "type": "D | null"
+            }
+          ],
+          "returnType": "boolean",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "sameYear",
+          "params": [
+            {
+              "name": "first",
+              "type": "D"
+            },
+            {
+              "name": "second",
+              "type": "D"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "sameDay",
+          "params": [
+            {
+              "name": "first",
+              "type": "D"
+            },
+            {
+              "name": "second",
+              "type": "D"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "sameHour",
+          "params": [
+            {
+              "name": "first",
+              "type": "D"
+            },
+            {
+              "name": "second",
+              "type": "D"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "sameMinute",
+          "params": [
+            {
+              "name": "first",
+              "type": "D"
+            },
+            {
+              "name": "second",
+              "type": "D"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "sameMonthAndYear",
+          "params": [
+            {
+              "name": "first",
+              "type": "D | null"
+            },
+            {
+              "name": "second",
+              "type": "D | null"
+            }
+          ],
+          "returnType": "boolean",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "clone",
+          "params": [
+            {
+              "name": "date",
+              "type": "D"
+            }
+          ],
+          "returnType": "D",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "addCalendarYears",
+          "params": [
+            {
+              "name": "date",
+              "type": "D"
+            },
+            {
+              "name": "years",
+              "type": "number"
+            }
+          ],
+          "returnType": "D",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "addCalendarMonths",
+          "params": [
+            {
+              "name": "date",
+              "type": "D"
+            },
+            {
+              "name": "months",
+              "type": "number"
+            }
+          ],
+          "returnType": "D",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "addCalendarDays",
+          "params": [
+            {
+              "name": "date",
+              "type": "D"
+            },
+            {
+              "name": "days",
+              "type": "number"
+            }
+          ],
+          "returnType": "D",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "getYear",
+          "params": [
+            {
+              "name": "date",
+              "type": "D"
+            }
+          ],
+          "returnType": "number",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "getMonth",
+          "params": [
+            {
+              "name": "date",
+              "type": "D"
+            }
+          ],
+          "returnType": "number",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "getDate",
+          "params": [
+            {
+              "name": "date",
+              "type": "D"
+            }
+          ],
+          "returnType": "number",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "getDayOfWeek",
+          "params": [
+            {
+              "name": "date",
+              "type": "D"
+            }
+          ],
+          "returnType": "number",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "getMonthNames",
+          "params": [
+            {
+              "name": "style",
+              "type": "any"
+            }
+          ],
+          "returnType": "string[]",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "getDateNames",
+          "params": [],
+          "returnType": "string[]",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "getDayOfWeekNames",
+          "params": [
+            {
+              "name": "style",
+              "type": "any"
+            }
+          ],
+          "returnType": "string[]",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "getYearName",
+          "params": [
+            {
+              "name": "date",
+              "type": "D"
+            }
+          ],
+          "returnType": "string",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "getFirstDayOfWeek",
+          "params": [],
+          "returnType": "number",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "getNumDaysInMonth",
+          "params": [
+            {
+              "name": "date",
+              "type": "D"
+            }
+          ],
+          "returnType": "number",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "createDate",
+          "params": [
+            {
+              "name": "year",
+              "type": "number"
+            },
+            {
+              "name": "month",
+              "type": "number"
+            },
+            {
+              "name": "date",
+              "type": "number"
+            }
+          ],
+          "returnType": "D",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "today",
+          "params": [],
+          "returnType": "D",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "parse",
+          "params": [
+            {
+              "name": "value",
+              "type": "any"
+            },
+            {
+              "name": "parseFormat",
+              "type": "any"
+            }
+          ],
+          "returnType": "D | null",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "format",
+          "params": [
+            {
+              "name": "date",
+              "type": "D"
+            },
+            {
+              "name": "displayFormat",
+              "type": "any"
+            }
+          ],
+          "returnType": "string",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "toIso8601",
+          "params": [
+            {
+              "name": "date",
+              "type": "D"
+            }
+          ],
+          "returnType": "string",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "isDateInstance",
+          "params": [
+            {
+              "name": "obj",
+              "type": "any"
+            }
+          ],
+          "returnType": "boolean",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "isValid",
+          "params": [
+            {
+              "name": "date",
+              "type": "D"
+            }
+          ],
+          "returnType": "boolean",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "invalid",
+          "params": [],
+          "returnType": "D",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "clampDate",
+          "params": [
+            {
+              "name": "date",
+              "type": "D"
+            },
+            {
+              "name": "min",
+              "type": "D | null"
+            },
+            {
+              "name": "max",
+              "type": "D | null"
+            }
+          ],
+          "returnType": "D",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "MAT_DATETIME_FORMATS",
+      "kind": "constant",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/form/date/adapter/datetime-formats.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "MAT_NATIVE_DATETIME_FORMATS",
+      "kind": "constant",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/form/date/adapter/native-datetime-formats.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "MatDatetimeFormats",
+      "kind": "interface",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/form/date/adapter/datetime-formats.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "MatNativeDatetimeModule",
+      "kind": "module",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/form/date/adapter/adapter.module.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "NativeDatetimeAdapter",
+      "kind": "service",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/form/date/adapter/native-datetime-adapter.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "clone",
+          "params": [
+            {
+              "name": "date",
+              "type": "Date"
+            }
+          ],
+          "returnType": "Date",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "getHour",
+          "params": [
+            {
+              "name": "date",
+              "type": "Date"
+            }
+          ],
+          "returnType": "number",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "getMinute",
+          "params": [
+            {
+              "name": "date",
+              "type": "Date"
+            }
+          ],
+          "returnType": "number",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "isInNextMonth",
+          "params": [
+            {
+              "name": "startDate",
+              "type": "Date"
+            },
+            {
+              "name": "endDate",
+              "type": "Date"
+            }
+          ],
+          "returnType": "boolean",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "createDatetime",
+          "params": [
+            {
+              "name": "year",
+              "type": "number"
+            },
+            {
+              "name": "month",
+              "type": "number"
+            },
+            {
+              "name": "date",
+              "type": "number"
+            },
+            {
+              "name": "hour",
+              "type": "number"
+            },
+            {
+              "name": "minute",
+              "type": "number"
+            }
+          ],
+          "returnType": "Date",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "getFirstDateOfMonth",
+          "params": [
+            {
+              "name": "date",
+              "type": "Date"
+            }
+          ],
+          "returnType": "Date",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "getHourNames",
+          "params": [],
+          "returnType": "string[]",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "getMinuteNames",
+          "params": [],
+          "returnType": "string[]",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "addCalendarYears",
+          "params": [
+            {
+              "name": "date",
+              "type": "Date"
+            },
+            {
+              "name": "years",
+              "type": "number"
+            }
+          ],
+          "returnType": "Date",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "addCalendarMonths",
+          "params": [
+            {
+              "name": "date",
+              "type": "Date"
+            },
+            {
+              "name": "months",
+              "type": "number"
+            }
+          ],
+          "returnType": "Date",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "addCalendarDays",
+          "params": [
+            {
+              "name": "date",
+              "type": "Date"
+            },
+            {
+              "name": "days",
+              "type": "number"
+            }
+          ],
+          "returnType": "Date",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "addCalendarHours",
+          "params": [
+            {
+              "name": "date",
+              "type": "Date"
+            },
+            {
+              "name": "hours",
+              "type": "number"
+            }
+          ],
+          "returnType": "Date",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "addCalendarMinutes",
+          "params": [
+            {
+              "name": "date",
+              "type": "Date"
+            },
+            {
+              "name": "minutes",
+              "type": "number"
+            }
+          ],
+          "returnType": "Date",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "toIso8601",
+          "params": [
+            {
+              "name": "date",
+              "type": "Date"
+            }
+          ],
+          "returnType": "string",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "NativeDatetimeModule",
+      "kind": "module",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/form/date/adapter/adapter.module.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    }
+  ],
+  "suggestedUsageSnippet": "import { MatNativeDatetimeModule } from '@dotos/dui/form/date/adapter';"
+}

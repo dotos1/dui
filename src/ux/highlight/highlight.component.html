@@ -1,0 +1,12 @@
+<div>
+  <div #highlightComponent>
+    <ng-content></ng-content>
+  </div>
+  <div #copyComponent *ngIf="copyCodeToClipboard">
+    <copy-code-button
+      [copiedContent]="copyContent"
+      [copyCodeToClipboard]="copyCodeToClipboard"
+      [copyCodeTooltips]="copyCodeTooltips"
+    ></copy-code-button>
+  </div>
+</div>

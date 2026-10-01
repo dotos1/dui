@@ -1,0 +1,7 @@
+
+    <div (mousedown)="handleDown($event)"  (mousemove)="handleMove($event)" 
+          style="height: 14; margin-top: 17; margin-bottom: 4; cursor: 'ew-resize';position: 'relative'">
+      <div  style="width: '100%'; height: 14"  [ngClass]="conext.classes.rbgcpCheckered"></div>
+      <div  [ngStyle]="{ left: left * conext.hc?.a, top: -2 }"  [ngClass]="conext.classes.rbgcpHandle"></div>
+      <div  [ngStyle]="{ background: bg }"  (click)="handleClick($event)"   [ngClass]="conext.classes.rbgcpOpacityOverlay"></div>
+    </div>

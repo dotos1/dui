@@ -1,0 +1,49 @@
+.tutorial-page {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 40px 32px 80px;
+  box-sizing: border-box;
+}
+
+.tutorial-page__title {
+  font-size: 32px;
+  font-weight: 500;
+  margin: 0 0 8px;
+}
+
+.tutorial-page__lead {
+  color: inherit;
+  opacity: 0.6;
+  line-height: 1.6;
+  margin-bottom: 24px;
+}
+
+.tutorial-page__tabs {
+  margin-top: 8px;
+}
+
+.tutorial-page__panel {
+  padding: 24px 4px 8px;
+
+  h3 {
+    font-size: 16px;
+    font-weight: 500;
+    margin: 24px 0 8px;
+
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+
+  p {
+    line-height: 1.7;
+    color: inherit;
+    opacity: 0.7;
+  }
+
+  code {
+    background: rgba(128, 128, 128, 0.16);
+    padding: 2px 4px;
+    border-radius: 4px;
+  }
+}

@@ -1,0 +1,35 @@
+<input matInput flex
+  [id]="id"
+  type="number"
+  [attr.step]="field.step"
+  [attr.min]="field.min"
+  [attr.max]="field.max"
+  [errorStateMatcher]="errorStateMatcher"
+  [formControl]="formControl"
+  [formAttributes]="field"
+  [tabIndex]="field.tabindex"
+  [value]="field.inputValue ?field.inputValue:''"
+  [placeholder]="field.placeholder|translate"
+  autocomplete="off"
+  (change)="onChange($event)"
+    matTooltip={{toolTip|translate}}
+    matTooltipPosition='below'
+  />
+
+<ng-template #matSuffix>
+
+  <div *ngIf="field.unit"  style=" width: 80px;display: flex;justify-content: flex-end;">
+    <mat-select 
+      class="unit-select" 
+      style="min-width: 80px;padding-inline-end:10px"
+      dir="rtl" 
+      [panelWidth]="100" 
+      panelClass="right-aligned-panel"
+      (selectionChange)="unitchange($event)" 
+      [value]="field.unit.nativeUnit">
+      <mat-option *ngFor="let unit of field.unit.units" [value]="unit.id">
+         <span class="mdc-list-item__primary-text"> {{ unit.name | translate }}</span>
+      </mat-option>
+    </mat-select>
+  </div>
+</ng-template>

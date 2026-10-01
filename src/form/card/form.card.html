@@ -1,0 +1,37 @@
+<div fxFlexFill fxLayout="column" fxFlex style='overflow-y:auto;overflow-x:hidden'>
+  <mat-card fxFlexFill fxLayout="column" style='overflow: auto;'>
+    <mat-card-header>
+      <mat-card-title *ngIf="!hideHead&&(title || ltbar|| rtbar)" style='flex-shrink: 0;'>
+          <div fxLayout='row'>
+            <ng-container #lefttopbar></ng-container>
+            <span style='flex: 0 0 auto; align-self: center;display: -webkit-box;-webkit-box-align: center;margin:auto'>
+              {{title|translate}}
+            </span>
+            <span style='flex: 1 1 auto;'></span>
+            <ng-container #righttopbar></ng-container>
+          </div>
+      </mat-card-title>
+      <mat-card-subtitle *ngIf="subtitle">{{subtitle|translate}}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-divider *ngIf="!hideHead&&(title || subtitle || ltbar|| rtbar)"></mat-divider>
+    <mat-card-content  style="display:flex;flex:1;overflow-y: auto;padding-top:10px">
+      <div fxFlexFill fxLayout="column">
+        <dui-form #formCmp [config]="config"  style="height:100%;flex:1;padding-top: 10px;"></dui-form>
+      </div>
+      <ng-container #panel></ng-container>
+      <span class="righttop">
+        <ng-container #rightopfab></ng-container>
+      </span>
+      <span class="rightbottom">
+        <ng-container #righbottomfab></ng-container>
+      </span>
+    </mat-card-content>
+    <mat-divider *ngIf="buttons.length>0||pageBar!==undefined"></mat-divider>
+    <mat-card-actions *ngIf="buttons.length>0||pageBar!==undefined" align="end">
+      <mat-paginator #pagebar *ngIf="pageBar!==undefined" [hidePageSize]="true" [showFirstLastButtons]="true"
+        [length]="pageBar.total" [pageSize]="1" [pageIndex]="pageBar.page" (page)="pageBar.doLoad($event)">
+      </mat-paginator>
+      <ng-container #actionbar></ng-container>
+    </mat-card-actions>
+  </mat-card>
+</div>

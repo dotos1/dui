@@ -1,0 +1,137 @@
+{
+  "importPath": "@dotos/dui/common/notifications",
+  "exports": [
+    {
+      "name": "DEFAULT_NOTIFICATION_LIMIT",
+      "kind": "constant",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/common/notifications/notification-count.component.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "NotificationCountComponent",
+      "kind": "component",
+      "selector": "dui-notification-count",
+      "summary": "Small badge overlay (typically on an icon/avatar) showing a notification count or a plain\ndot indicator, positioned via `positionX`/`positionY`.",
+      "summaryZh": "小型徽标覆层（通常叠加在图标/头像上），显示通知数量或纯圆点提示，\n通过 `positionX`/`positionY` 控制位置。",
+      "sourceFile": "src/common/notifications/notification-count.component.ts",
+      "inputs": [
+        {
+          "name": "color",
+          "type": "'primary' | 'accent' | 'warn'",
+          "default": "'warn'",
+          "description": "color?: \"primary\" | \"accent\" | \"warn\"\nSets the theme color of the notification tip. Defaults to \"warn\"",
+          "descriptionZh": null
+        },
+        {
+          "name": "positionX",
+          "type": "NotificationCountPositionX",
+          "description": "positionX?: NotificationCountPositionX or \"before\" | \"after\" | \"center\"\nSets the X position of the notification tip.\nDefaults to \"after\" if it has content, else 'center'.",
+          "descriptionZh": null
+        },
+        {
+          "name": "positionY",
+          "type": "NotificationCountPositionY",
+          "description": "positionY?: NotificationCountPositionY or \"top\" | \"bottom\" | \"center\"\nSets the Y position of the notification tip.\nDefaults to \"top\" if it has content, else 'center'.",
+          "descriptionZh": null
+        },
+        {
+          "name": "notifications",
+          "type": "number | boolean",
+          "description": "notifications?: number | boolean\nNumber for the notification count. Shows component only if the input is a positive number or 'true'",
+          "descriptionZh": null
+        },
+        {
+          "name": "limit",
+          "type": "number",
+          "description": "limit?: number\nLimit for notification count. If the number of notifications is greater than limit, then + will be added. Defaults to 99.",
+          "descriptionZh": null
+        }
+      ],
+      "outputs": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "content",
+          "type": "ElementRef",
+          "description": "Div content wrapper of `ng-content`.",
+          "descriptionZh": null
+        },
+        {
+          "name": "positionX",
+          "type": "NotificationCountPositionX",
+          "description": "The current X position of the notification tip.",
+          "descriptionZh": "通知提示的当前 X 轴位置。"
+        },
+        {
+          "name": "positionY",
+          "type": "NotificationCountPositionY",
+          "description": "The current Y position of the notification tip.",
+          "descriptionZh": "通知提示的当前 Y 轴位置。"
+        },
+        {
+          "name": "hideHost",
+          "type": "boolean",
+          "description": null,
+          "descriptionZh": "内部使用，当通知提示不显示且无投影内容时隐藏宿主元素。"
+        },
+        {
+          "name": "noCount",
+          "type": "string | boolean",
+          "description": "Sets the component in its 'noCount' state if [notifications] is a boolean 'true'.\nMakes the notification tip show without a count.",
+          "descriptionZh": null
+        },
+        {
+          "name": "notificationsDisplay",
+          "type": "string",
+          "description": "Notification display string when a count is available.\nAnything over 99 gets set as 99+",
+          "descriptionZh": null
+        },
+        {
+          "name": "show",
+          "type": "boolean",
+          "description": "Shows notification tip only when [notifications] is true or a positive integer.",
+          "descriptionZh": null
+        }
+      ]
+    },
+    {
+      "name": "NotificationCountPositionX",
+      "kind": "enum",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/common/notifications/notification-count.component.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "NotificationCountPositionY",
+      "kind": "enum",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/common/notifications/notification-count.component.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "NotificationsModule",
+      "kind": "module",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/common/notifications/notifications.module.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    }
+  ],
+  "suggestedUsageSnippet": "import { NotificationCountComponent, NotificationsModule } from '@dotos/dui/common/notifications';\n\n<dui-notification-count [color]=\"...\" [positionX]=\"...\" [positionY]=\"...\"></dui-notification-count>"
+}

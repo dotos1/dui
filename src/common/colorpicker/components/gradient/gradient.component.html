@@ -1,0 +1,11 @@
+
+<div style="user-select: 'none' "  id="rbgcp-wrapper">
+  <square-component></square-component>
+  <controls-component *ngIf="!hideControls"
+   [hideEyeDrop]="hideEyeDrop"  [hideGradientType]="hideGradientType"  
+    [hideGradientStop]="hideGradientStop" [hideColorTypeBtns]="hideColorTypeBtns"  [hideGradientAngle]="hideGradientAngle"   [hideGradientControls]="hideGradientControls"  ></controls-component>
+    <gradient-bar  *ngIf="conext.isGradient"></gradient-bar>
+    <gradient-hue  *ngIf="!hideHue "></gradient-hue>
+    <gradient-opacity *ngIf="!hideOpacity "></gradient-opacity>
+    <gradient-presets *ngIf="!hidePresets "  [presets]="presets"></gradient-presets>
+</div>

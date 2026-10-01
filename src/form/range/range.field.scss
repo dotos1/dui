@@ -1,0 +1,33 @@
+.dui-range-input {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.dui-range-toggle,
+.dui-range-slider {
+  flex: 0 0 auto;
+}
+
+.dui-range-slider {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.dui-range-part {
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+.dui-range-separator {
+  flex: 0 0 auto;
+  padding: 0 6px;
+  opacity: 0.6;
+  user-select: none;
+}
+
+.dui-range-readout {
+  flex: 0 0 auto;
+  padding-left: 8px;
+  white-space: nowrap;
+  opacity: 0.75;
+}

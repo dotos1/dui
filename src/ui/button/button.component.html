@@ -1,0 +1,51 @@
+<button *ngIf="type==='mat-raised-button'&&items.length===0&&!hidden" mat-raised-button [disabled]="disabled"
+  [color]="color" [ngStyle]='style' [disableRipple]="disableRipple" (click)="onClick($event)"
+  [matTooltip]="toolTip| translate" matTooltipPosition='below' >
+  <dui-icon *ngIf="icon"   [value]="icon" [disabled]="disabled" [style]="iconStyle" style="width:100%"></dui-icon>
+  {{(title||text)| translate}}
+</button>
+<button *ngIf="type==='mat-button'&&items.length===0&&!hidden" mat-button [disabled]="disabled" [color]="color"
+  [ngStyle]='style' [disableRipple]="disableRipple" (click)="onClick($event)" [matTooltip]="toolTip| translate"
+  [attr.data-level]="1" style="height:100%;width:100%;">
+  <dui-icon *ngIf="icon&&iconPosition==='before'" [value]="icon" [disabled]="disabled" [style]="iconStyle"></dui-icon>
+  {{(title||text)| translate}}
+  <dui-icon *ngIf="icon&&iconPosition==='after'" [value]="icon" [disabled]="disabled" [style]="iconStyle"></dui-icon>
+</button>
+<button *ngIf="type==='mat-icon-button'&&items.length===0&&!hidden" mat-icon-button   [disabled]="disabled"
+  [color]="color" [ngStyle]='style' [disableRipple]="disableRipple" (click)="onClick($event)"
+  [matTooltip]="(title||text)| translate" matTooltipPosition='below' [attr.data-level]="1" style="margin:auto;">
+  <dui-icon [value]="icon" [disabled]="disabled" [style]="iconStyle" ></dui-icon>
+</button>
+
+<ng-container *ngIf="type==='mat-button'&&items.length>0&&!hidden">
+  <button mat-button [disabled]="disabled" [color]="color" [ngStyle]='style' [disableRipple]="disableRipple"
+    (click)="onClick($event)" [matTooltip]="toolTip| translate" [matMenuTriggerFor]="menu.childMenu"       #menuTrigger="matMenuTrigger" 
+    [matTooltipDisabled]="menuTrigger.menuOpen"  
+  
+    style="height:100%;width:100%">
+    <dui-icon *ngIf="icon&&iconPosition==='before'" [value]="icon" [disabled]="disabled" [style]="iconStyle" style="margin: auto;"></dui-icon>
+    {{(title||text)| translate}}
+    <dui-icon *ngIf="icon&&iconPosition==='after'" [value]="icon" [disabled]="disabled" [style]="iconStyle"></dui-icon>
+    <mat-icon *ngIf="dropdown===true">arrow_drop_down</mat-icon>
+  </button>
+  <dui-menu-item #menu [children]="items" [ownerCt]='ownerCt' [showIcon]="showIcon" [onlyIcon]="onlyIcon" [value]="value" ></dui-menu-item>
+</ng-container>
+<ng-container *ngIf="type==='mat-icon-button'&&items.length>0&&!hidden">
+  <button mat-icon-button  class="drop-down-button" [disabled]="disabled" [color]="color" [ngStyle]='style' [disableRipple]="disableRipple"
+    (click)="onClick($event)" [matTooltip]="(title||text) | translate" matTooltipPosition='below'     #menuTrigger="matMenuTrigger"
+    [matMenuTriggerFor]="menu.childMenu"  style="width:100%;margin: auto;"   [matTooltipDisabled]="menuTrigger.menuOpen">
+    <dui-icon [value]="icon" [disabled]="disabled" [style]="iconStyle"></dui-icon>
+    <mat-icon *ngIf="dropdown===true||hasMenu===true">arrow_drop_down</mat-icon>
+  </button>
+  <dui-menu-item #menu [children]="items" [ownerCt]='ownerCt' [showIcon]="showIcon" [onlyIcon]="onlyIcon" [value]="value"></dui-menu-item>
+</ng-container>
+<ng-container *ngIf="type==='mat-raised-button'&&items.length>0&&!hidden">
+  <button mat-raised-button [disabled]="disabled" [color]="color" [ngStyle]='style' [disableRipple]="disableRipple"
+    (click)="onClick($event)" [matTooltip]="toolTip| translate" matTooltipPosition='below'     #menuTrigger="matMenuTrigger"
+    [matMenuTriggerFor]="menu.childMenu" style="width:100%;margin: auto;"   [matTooltipDisabled]="menuTrigger.menuOpen">
+    <dui-icon  *ngIf="icon"   [value]="icon" [disabled]="disabled" [style]="iconStyle"></dui-icon>
+    {{title| translate}}
+    <mat-icon *ngIf="dropdown===true">arrow_drop_down</mat-icon>
+  </button>
+  <dui-menu-item #menu [children]="items" [ownerCt]='ownerCt' [showIcon]="showIcon" [onlyIcon]="onlyIcon"  [value]="value"></dui-menu-item>
+</ng-container>

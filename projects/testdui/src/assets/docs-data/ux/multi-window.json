@@ -1,0 +1,538 @@
+{
+  "importPath": "@dotos/dui/ux/multi-window",
+  "exports": [
+    {
+      "name": "AppWindow",
+      "kind": "interface",
+      "summary": "Represents a window with the current application how it is stored\nin the localstorage. It has an id, name, heartbeat represented in a timestamp\nand an array of messages that that window sent out.\n\nIt's named \"AppWindow\" to avoid confusion with the type Window\nof the global variable \"window\".",
+      "summaryZh": null,
+      "sourceFile": "src/ux/multi-window/types/window.type.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "defaultMultiWindowConfig",
+      "kind": "constant",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/ux/multi-window/providers/config.provider.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "KnownAppWindow",
+      "kind": "interface",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/ux/multi-window/types/window.type.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "Message",
+      "kind": "interface",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/ux/multi-window/types/message.type.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "MessageTemplate",
+      "kind": "interface",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/ux/multi-window/types/message.type.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "MessageType",
+      "kind": "enum",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/ux/multi-window/types/message.type.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "MultiWindowConfig",
+      "kind": "interface",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/ux/multi-window/types/multi-window.config.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "MultiWindowModule",
+      "kind": "module",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/ux/multi-window/multi-window.module.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "forRoot",
+          "params": [
+            {
+              "name": "config",
+              "type": "MultiWindowConfig"
+            }
+          ],
+          "returnType": "ModuleWithProviders<MultiWindowModule>",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "MultiWindowRef",
+      "kind": "service",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/ux/multi-window/providers/window.provider.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "nativeWindow",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        }
+      ]
+    },
+    {
+      "name": "MultiWindowService",
+      "kind": "service",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/ux/multi-window/providers/multi-window.service.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "onMessage",
+          "params": [],
+          "returnType": "Observable<Message>",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "onWindows",
+          "params": [],
+          "returnType": "Observable<KnownAppWindow[]>",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "getKnownWindows",
+          "params": [],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "start",
+          "params": [],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "stop",
+          "params": [],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "clear",
+          "params": [],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "sendMessage",
+          "params": [
+            {
+              "name": "recipientId",
+              "type": "string"
+            },
+            {
+              "name": "event",
+              "type": "string"
+            },
+            {
+              "name": "data",
+              "type": "any"
+            },
+            {
+              "name": "payload",
+              "type": "any"
+            }
+          ],
+          "returnType": "Observable<string>",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "newWindow",
+          "params": [],
+          "returnType": "{ windowId: string, urlString: string, created: Observable<string> }",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "resetWindow",
+          "params": [
+            {
+              "name": "newWindowId",
+              "type": "any"
+            }
+          ],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "saveWindow",
+          "params": [],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "name",
+          "type": "string",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "name",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "description": null,
+          "descriptionZh": null
+        }
+      ]
+    },
+    {
+      "name": "NGXMW_CONFIG",
+      "kind": "constant",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/ux/multi-window/providers/config.provider.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "StorageServiceProvider",
+      "kind": "constant",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/ux/multi-window/providers/storage.service.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "StorageServiceProviderFactory",
+      "kind": "constant",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/ux/multi-window/providers/storage.service.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "WindowData",
+      "kind": "interface",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/ux/multi-window/types/window.type.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "WindowSaveStrategy",
+      "kind": "enum",
+      "summary": "A representation of a strategy on how to save the window id in the native window.name property.",
+      "summaryZh": null,
+      "sourceFile": "src/ux/multi-window/types/window-save-strategy.enum.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "WStorageService",
+      "kind": "service",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/ux/multi-window/providers/storage.service.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "setLocalObject",
+          "params": [
+            {
+              "name": "key",
+              "type": "string"
+            },
+            {
+              "name": "obj",
+              "type": "any"
+            }
+          ],
+          "returnType": "boolean",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "setLocalItem",
+          "params": [
+            {
+              "name": "key",
+              "type": "string"
+            },
+            {
+              "name": "obj",
+              "type": "string"
+            }
+          ],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "setSessionObject",
+          "params": [
+            {
+              "name": "key",
+              "type": "string"
+            },
+            {
+              "name": "obj",
+              "type": "any"
+            }
+          ],
+          "returnType": "boolean",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "setSessionItem",
+          "params": [
+            {
+              "name": "key",
+              "type": "string"
+            },
+            {
+              "name": "obj",
+              "type": "string"
+            }
+          ],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "setWindowName",
+          "params": [
+            {
+              "name": "value",
+              "type": "string"
+            }
+          ],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "getLocalObject",
+          "params": [
+            {
+              "name": "key",
+              "type": "string"
+            }
+          ],
+          "returnType": "T | null",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "getLocalObjects",
+          "params": [
+            {
+              "name": "keys",
+              "type": "string[]"
+            }
+          ],
+          "returnType": "(T | null)[]",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "getLocalItem",
+          "params": [
+            {
+              "name": "key",
+              "type": "string"
+            }
+          ],
+          "returnType": "string | null",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "getSessionObject",
+          "params": [
+            {
+              "name": "key",
+              "type": "string"
+            }
+          ],
+          "returnType": "T | null",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "getSessionObjects",
+          "params": [
+            {
+              "name": "keys",
+              "type": "string[]"
+            }
+          ],
+          "returnType": "(T | null)[]",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "getSessionItem",
+          "params": [
+            {
+              "name": "key",
+              "type": "string"
+            }
+          ],
+          "returnType": "string | null",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "getObjects",
+          "params": [
+            {
+              "name": "storage",
+              "type": "Storage"
+            },
+            {
+              "name": "keys",
+              "type": "string[]"
+            }
+          ],
+          "returnType": "(T | null)[]",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "getWindowName",
+          "params": [],
+          "returnType": "string",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "removeLocalItem",
+          "params": [
+            {
+              "name": "key",
+              "type": "string"
+            }
+          ],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "removeSessionItem",
+          "params": [
+            {
+              "name": "key",
+              "type": "string"
+            }
+          ],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "clearLocalStorage",
+          "params": [],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "clearSessionStorage",
+          "params": [],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "getLocalItemKeys",
+          "params": [],
+          "returnType": "string[]",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "getSessionItemKeys",
+          "params": [],
+          "returnType": "string[]",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "properties": []
+    }
+  ],
+  "suggestedUsageSnippet": "import { MultiWindowModule } from '@dotos/dui/ux/multi-window';"
+}

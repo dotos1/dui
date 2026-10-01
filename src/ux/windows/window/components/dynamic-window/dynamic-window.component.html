@@ -1,0 +1,65 @@
+<dui-window
+    [osResizable]="resizerConfig"
+    [styleClass]="windowStyleClass"
+    [style]="windowStyle"
+    [attr.id]="windowRef.id"
+    [isActive]="windowRef.isActive"
+    [scrollViewStyle]="config.scrollViewStyle"
+    [scrollViewStyleClass]="config.scrollViewStyleClass"
+    (osResizeStart)="onResizeStart()"
+    (osResizing)="onResizing($event)"
+    (osResizeEnd)="onResizeEnd()">
+    <dui-title-bar
+        [osDraggable]="draggerConfig"
+        [isActive]="windowRef.isActive"
+        [style.display]="_titleBarDisplayAttr"
+        [style]="config.titleBarStyle"
+        [styleClass]="config.titleBarStyleClass"
+        (osDblClick)="onTitleBarDblClick()"
+        (osDragStart)="onDragStart()"
+        (osDragging)="onDragging()"
+        (osDragEnd)="onDragEnd()">
+        <ng-container *ngIf="config.titleBarCustomContent; else defaultTitleBarContentTemplateOutlet">
+            <ng-container *ngComponentOutlet="config.titleBarCustomContent"></ng-container>
+        </ng-container>
+        <ng-template #defaultTitleBarContentTemplateOutlet>
+            <ng-container
+                *ngTemplateOutlet="defaultTitleBarContent">
+            </ng-container>
+        </ng-template>
+    </dui-title-bar>
+    <ng-container #container></ng-container>
+
+    <ng-template #content></ng-template>
+</dui-window>
+
+<ng-template #defaultTitleBarContent>
+    <dui-title-bar-content>
+        <dui-title-bar-icon
+            [iconType]="config.iconType"
+            [iconClass]="config.iconClass"
+            [icon]="config.icon">
+        </dui-title-bar-icon>
+        <span class="dui-text">{{ config.title }}</span>
+    </dui-title-bar-content>
+
+    <dui-title-bar-controls>
+        <dui-title-bar-button
+            [isDisabled]="!config.isAllowHide"
+            [ariaLabel]="'Hide'"
+            (osClick)="onHideButtonClick()">
+        </dui-title-bar-button>
+
+        <dui-title-bar-button
+            [isDisabled]="!config.isAllowFullscreen"
+            [ariaLabel]="'Fullscreen'"
+            (osClick)="onFullscreenButtonClick()">
+        </dui-title-bar-button>
+
+        <dui-title-bar-button
+            [isDisabled]="!config.isAllowClose"
+            [ariaLabel]="'Close'"
+            (osClick)="onCloseButtonClick()">
+        </dui-title-bar-button>
+    </dui-title-bar-controls>
+</ng-template>

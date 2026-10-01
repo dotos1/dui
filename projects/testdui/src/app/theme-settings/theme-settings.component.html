@@ -1,0 +1,40 @@
+<div class="theme-settings">
+  <div class="theme-settings__header">
+    <mat-icon>tune</mat-icon>
+    <span class="theme-settings__title">主题设置</span>
+    <span class="theme-settings__spacer"></span>
+    <button mat-icon-button (click)="closed.emit()" aria-label="关闭主题设置">
+      <mat-icon>close</mat-icon>
+    </button>
+  </div>
+
+  <form [formGroup]="form" class="theme-settings__form">
+    <h3 class="theme-settings__group-title">外观模式</h3>
+    <mat-form-field appearance="fill" class="theme-settings__field">
+      <mat-select formControlName="type">
+        <mat-option *ngFor="let opt of themeTypes" [value]="opt.value">{{ opt.label }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <h3 class="theme-settings__group-title">主色 Primary</h3>
+    <color-picker formControlName="primary"></color-picker>
+
+    <h3 class="theme-settings__group-title">辅助色 Accent</h3>
+    <color-picker formControlName="accent"></color-picker>
+
+    <h3 class="theme-settings__group-title">警示色 Warn</h3>
+    <color-picker formControlName="warn"></color-picker>
+
+    <h3 class="theme-settings__group-title">表单风格</h3>
+    <mat-form-field appearance="fill" class="theme-settings__field">
+      <mat-select formControlName="formType">
+        <mat-option *ngFor="let opt of formTypes" [value]="opt.value">{{ opt.label }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </form>
+
+  <button mat-stroked-button class="theme-settings__reset" (click)="reset()">
+    <mat-icon>restart_alt</mat-icon>
+    恢复默认
+  </button>
+</div>

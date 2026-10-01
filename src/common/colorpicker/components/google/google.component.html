@@ -1,0 +1,34 @@
+<div style="padding: 10px;">
+<div class="goog-menuitem colormenuitems-custom-header-add-button" role="button" style="user-select: none;" id=":qj">
+  <div class="goog-menuitem-content">
+    <div class="docs-colormenuitems-custom-header">自定义
+    </div>
+  </div>
+</div>
+<div class="docs-material-colorpalette docs-colormenuitems-custom-palette sketch-colors" data-grid-width="10"
+  style="user-select: none;" >
+  <ng-container *ngFor="let color of customcolors; let i=index">
+      <div class="docs-material-colorpalette-colorswatch" title="主题背景颜色：{{color}}"
+        [style.background-color]="color" [ngClass]="{ 'docs-material-colorpalette-cell-selected': color.toUpperCase()==='#ff0000'.toUpperCase() }"
+        (click)="handleBlockChange({hex:color,$event})" 
+        ></div>
+  </ng-container>
+  <button mat-icon-button class="add-custom" (click)="addCustom($event)">
+    <mat-icon>add_circle_outline</mat-icon>
+  </button>
+</div>
+<div class="goog-menuseparator" style="user-select: none;" aria-disabled="true" role="separator" id=":ql"></div>
+<div class="docs-material-colorpalette  sketch-colors" data-grid-width="10" style="user-select: none;" id=":qm">
+  <ng-container *ngFor="let color of colors; let i=index">
+    <div class="docs-material-colorpalette-colorswatch docs-material-colorpalette-colorswatch-border"
+      [title]="color[1]"    [style.background-color]="color[0]"     (click)="handleBlockChange({hex:color[0],$event})"></div>
+  </ng-container>
+</div>
+<div class="goog-menuitem colormenuitems-no-color" role="button" style="user-select: none;" id=":qn"   (click)="handleBlockChange({hex:undefined,$event})">
+  <div class="goog-menuitem-content">
+    <div class="docs-icon goog-inline-block goog-menuitem-icon">
+      <mat-icon>format_color_reset</mat-icon>
+    </div>无
+  </div>
+</div>
+</div>

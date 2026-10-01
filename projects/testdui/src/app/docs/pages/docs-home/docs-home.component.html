@@ -1,0 +1,22 @@
+<div class="docs-home">
+  <h1 class="docs-home__title">DUI 组件文档</h1>
+  <p class="docs-home__lead">
+    &#64;dotos/dui 是一个 Angular 组件库，按功能划分为 15 个分类、96 个可独立引入的子模块。
+    左侧导航按分类列出全部模块；每个模块都有完整的 API 参考（Inputs / Outputs / 方法 / 属性），
+    常用组件另附可交互示例。
+  </p>
+
+  <div class="docs-home__grid" *ngIf="manifest$ | async as manifest">
+    <mat-card class="docs-home__card" *ngFor="let category of manifest.categories"
+              [routerLink]="['/components', category.id]">
+      <mat-card-header>
+        <mat-icon mat-card-avatar class="docs-home__card-icon">{{ categoryIcon(category.id) }}</mat-icon>
+        <mat-card-title>{{ category.id }}</mat-card-title>
+        <mat-card-subtitle>{{ category.moduleCount }} 个模块</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <p class="docs-home__card-tagline">{{ categoryTagline(category.id) }}</p>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

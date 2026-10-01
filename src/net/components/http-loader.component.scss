@@ -1,0 +1,23 @@
+$spinkit-spinner-margin: auto !default;
+$spinkit-size: 40px !default;
+$spinkit-top: 50% !default;
+$spinkit-position: relative !default;
+
+
+#spinner {
+    top: 50% ;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: fixed;
+    z-index: 9999;
+    &.backdrop {
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transform: none;
+    }
+}

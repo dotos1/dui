@@ -1,0 +1,10 @@
+
+    <div  class="ltr-canvas" style="   height: 14;margin-top: 17; margin-bottom: 4; cursor: 'ew-resize'; position: 'relative'"  (mousemove)="handleMove($event)"  >
+      <div  role="button" style="border: '2px solid white'; border-radius: '50%'; box-shadow: '0px 0px 3px rgba(0, 0, 0, 0.5)';
+          width: '18px'; height: '18px';z-index: 1000; transition: 'all 10ms linear'; position: 'absolute';top: -2;cursor: 'ew-resize';box-sizing: 'border-box'"
+        [ngStyle]="{left: conext.hc?.h * ((conext.squareWidth - 18) / 360)} "  (mousedown)="handleDown()">
+            <canvas #barRef  height="14px"   width={`${squareWidth}px`} (click)=" handleClick($event)" 
+              style="position: 'relative'; border-radius: 14; vertical-align: 'top' " >
+            </canvas>
+    </div>
+    </div>

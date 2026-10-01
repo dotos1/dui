@@ -1,0 +1,637 @@
+{
+  "importPath": "@dotos/dui/common/loading",
+  "exports": [
+    {
+      "name": "IInternalLoadingOptions",
+      "kind": "interface",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/common/loading/services/loading.factory.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "ILoadingConfig",
+      "kind": "interface",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/common/loading/services/loading.service.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "ILoadingDirectiveConfig",
+      "kind": "interface",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/common/loading/services/loading.service.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "ILoadingRef",
+      "kind": "interface",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/common/loading/services/loading.factory.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "LOADING_FACTORY_PROVIDER",
+      "kind": "constant",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/common/loading/services/loading.factory.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "LOADING_FACTORY_PROVIDER_FACTORY",
+      "kind": "function",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/common/loading/services/loading.factory.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "LOADING_PROVIDER",
+      "kind": "constant",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/common/loading/services/loading.service.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "LOADING_PROVIDER_FACTORY",
+      "kind": "function",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/common/loading/services/loading.service.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "LoadingComponent",
+      "kind": "component",
+      "selector": "dui-loading",
+      "summary": "A circular or linear loading indicator, usable standalone or driven by {@link LoadingDirective}\n/ {@link LoadingService} (full-screen, overlay, or in-place replace strategies).",
+      "summaryZh": "圆形或线性加载指示器，可独立使用，也可由 {@link LoadingDirective} / {@link LoadingService}驱动（支持全屏、遮罩层、原地替换等策略）。",
+      "sourceFile": "src/common/loading/loading.component.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "getHeight",
+          "params": [],
+          "returnType": "string | undefined",
+          "description": "The CSS height to apply to the host (`undefined` for overlay/full-screen styles, which\nfill their container).",
+          "descriptionZh": "应用到宿主的 CSS 高度（覆盖层/全屏样式下为 `undefined`，因为它们会填满容器）。"
+        },
+        {
+          "name": "getCircleDiameter",
+          "params": [],
+          "returnType": "number",
+          "description": "The current circular spinner diameter.",
+          "descriptionZh": "当前圆形加载指示器的直径。"
+        },
+        {
+          "name": "getCircleStrokeWidth",
+          "params": [],
+          "returnType": "number",
+          "description": "The circular spinner's stroke width, derived from its diameter.",
+          "descriptionZh": "圆形加载指示器的描边宽度，根据其直径推导得出。"
+        },
+        {
+          "name": "isCircular",
+          "params": [],
+          "returnType": "boolean",
+          "description": "Whether the indicator is rendered as a circular spinner.",
+          "descriptionZh": "该指示器是否以圆形样式渲染。"
+        },
+        {
+          "name": "isLinear",
+          "params": [],
+          "returnType": "boolean",
+          "description": "Whether the indicator is rendered as a linear progress bar.",
+          "descriptionZh": "该指示器是否以线性样式渲染。"
+        },
+        {
+          "name": "isFullScreen",
+          "params": [],
+          "returnType": "boolean",
+          "description": "Whether the indicator is displayed using the full-screen presentation style.",
+          "descriptionZh": "该指示器是否以全屏展示样式显示。"
+        },
+        {
+          "name": "isOverlay",
+          "params": [],
+          "returnType": "boolean",
+          "description": "Whether the indicator is displayed using the overlay presentation style.",
+          "descriptionZh": "该指示器是否以覆盖层展示样式显示。"
+        },
+        {
+          "name": "show",
+          "params": [],
+          "returnType": "void",
+          "description": "Starts in animation and returns an observable for completition event.",
+          "descriptionZh": null
+        },
+        {
+          "name": "hide",
+          "params": [],
+          "returnType": "void",
+          "description": "Starts out animation and returns an observable for completition event.",
+          "descriptionZh": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "animation",
+          "type": "any",
+          "default": "false",
+          "description": "Flag for animation",
+          "descriptionZh": null
+        },
+        {
+          "name": "content",
+          "type": "TemplatePortal<any>",
+          "description": "Content injected into loading component.",
+          "descriptionZh": null
+        },
+        {
+          "name": "mode",
+          "type": "any",
+          "description": "Sets mode of [DuiLoadingComponent] to LoadingMode.Determinate or LoadingMode.Indeterminate",
+          "descriptionZh": "设置加载指示器为确定模式（LoadingMode.Determinate）或不确定模式（LoadingMode.Indeterminate）。"
+        },
+        {
+          "name": "mode",
+          "type": "LoadingMode",
+          "description": "The loading indicator's current mode (determinate or indeterminate).",
+          "descriptionZh": "加载指示器当前的模式（确定或不确定）。"
+        },
+        {
+          "name": "value",
+          "type": "any",
+          "description": "Sets value of [DuiLoadingComponent] if mode is 'LoadingMode.Determinate'",
+          "descriptionZh": "当模式为 'LoadingMode.Determinate' 时，设置加载指示器的进度值。"
+        },
+        {
+          "name": "value",
+          "type": "number",
+          "description": "The loading indicator's current progress value (used in determinate mode).",
+          "descriptionZh": "加载指示器当前的进度值（用于确定模式）。"
+        },
+        {
+          "name": "style",
+          "type": "LoadingStyle",
+          "default": "LoadingStyle.None",
+          "description": null,
+          "descriptionZh": "加载指示器的展示样式：全屏、覆盖层或无（内嵌）。"
+        },
+        {
+          "name": "height",
+          "type": "any",
+          "default": "100",
+          "description": "height: number\nSets height of [DuiLoadingComponent].",
+          "descriptionZh": null
+        },
+        {
+          "name": "type",
+          "type": "LoadingType",
+          "default": "LoadingType.Circular",
+          "description": "type: LoadingType\nSets type of [DuiLoadingComponent] rendered.",
+          "descriptionZh": null
+        },
+        {
+          "name": "color",
+          "type": "'primary' | 'accent' | 'warn'",
+          "default": "'primary'",
+          "description": "color: primary' | 'accent' | 'warn'\nSets theme color of [DuiLoadingComponent] rendered.",
+          "descriptionZh": null
+        }
+      ]
+    },
+    {
+      "name": "LoadingConfig",
+      "kind": "class",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/common/loading/services/loading.service.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "name",
+          "type": "string",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "type",
+          "type": "LoadingType",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "mode",
+          "type": "LoadingMode",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "color",
+          "type": "'primary' | 'accent' | 'warn'",
+          "description": null,
+          "descriptionZh": null
+        }
+      ]
+    },
+    {
+      "name": "LoadingContext",
+      "kind": "class",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/common/loading/directives/loading.directive.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "$implicit",
+          "type": "any",
+          "default": "undefined",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "tdLoading",
+          "type": "any",
+          "default": "undefined",
+          "description": null,
+          "descriptionZh": null
+        }
+      ]
+    },
+    {
+      "name": "LoadingDirective",
+      "kind": "directive",
+      "selector": "[duiLoading]",
+      "summary": "Structural-style directive that shows a {@link LoadingComponent} over/instead of its host\nelement until the `duiLoadingUntil` condition becomes truthy.",
+      "summaryZh": "结构型指令，在 `duiLoadingUntil` 条件变为真值之前，于宿主元素之上/取代宿主元素显示 {@link LoadingComponent}。",
+      "sourceFile": "src/common/loading/directives/loading.directive.ts",
+      "inputs": [
+        {
+          "name": "name",
+          "alias": "duiLoading",
+          "type": "string",
+          "description": "Unique name for this loading instance, auto-generated if omitted.",
+          "descriptionZh": "本加载实例的唯一名称，省略时自动生成。"
+        },
+        {
+          "name": "until",
+          "alias": "duiLoadingUntil",
+          "type": "any",
+          "description": "Shows the loading indicator while this value is falsy; hides it once truthy.",
+          "descriptionZh": "当该值为假时显示加载指示器；变为真值后隐藏。"
+        },
+        {
+          "name": "type",
+          "alias": "duiLoadingType",
+          "type": "LoadingType",
+          "default": "LoadingType.Circular",
+          "description": null,
+          "descriptionZh": "加载指示器的样式类型：圆形或线性。"
+        },
+        {
+          "name": "mode",
+          "alias": "duiLoadingMode",
+          "type": "LoadingMode",
+          "default": "LoadingMode.Indeterminate",
+          "description": null,
+          "descriptionZh": "加载指示器的模式：确定或不确定。"
+        },
+        {
+          "name": "strategy",
+          "alias": "duiLoadingStrategy",
+          "type": "LoadingStrategy.Overlay | LoadingStrategy.Replace",
+          "default": "LoadingStrategy.Replace",
+          "description": null,
+          "descriptionZh": "加载指示器的展示策略：覆盖层（Overlay）或原地替换（Replace）。"
+        },
+        {
+          "name": "color",
+          "alias": "duiLoadingColor",
+          "type": "'primary' | 'accent' | 'warn'",
+          "default": "'primary'",
+          "description": null,
+          "descriptionZh": "加载指示器的 Material 主题色。"
+        }
+      ],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "LoadingDirectiveConfig",
+      "kind": "class",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/common/loading/services/loading.service.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "strategy",
+          "type": "LoadingStrategy",
+          "description": null,
+          "descriptionZh": null
+        }
+      ]
+    },
+    {
+      "name": "LoadingFactory",
+      "kind": "service",
+      "summary": "Low-level factory that creates and manages {@link LoadingComponent} instances for the three\nloading presentation styles (full-screen overlay, positioned overlay, in-place replace);\nused internally by {@link LoadingService}.",
+      "summaryZh": "低层工厂，为三种加载展示样式（全屏覆盖、定位覆盖、原地替换）创建并管理\n{@link LoadingComponent} 实例；供 {@link LoadingService} 内部使用。",
+      "sourceFile": "src/common/loading/services/loading.factory.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "createFullScreenComponent",
+          "params": [
+            {
+              "name": "options",
+              "type": "ILoadingConfig"
+            }
+          ],
+          "returnType": "ILoadingRef",
+          "description": "Creates a full-screen loading overlay, shown/hidden based on the returned ref's\nregistration counter.",
+          "descriptionZh": "创建全屏加载覆盖层，其显示/隐藏由返回的 ref 的注册计数器驱动。"
+        },
+        {
+          "name": "createOverlayComponent",
+          "params": [
+            {
+              "name": "options",
+              "type": "ILoadingConfig"
+            },
+            {
+              "name": "viewContainerRef",
+              "type": "ViewContainerRef"
+            },
+            {
+              "name": "templateRef",
+              "type": "TemplateRef<object>"
+            }
+          ],
+          "returnType": "ILoadingRef",
+          "description": "Creates a loading indicator that overlays the given template's content in place,\nshown/hidden based on the returned ref's registration counter.",
+          "descriptionZh": "创建一个覆盖在给定模板内容之上的加载指示器，其显示/隐藏由返回的 ref 的注册计数器驱动。"
+        },
+        {
+          "name": "createReplaceComponent",
+          "params": [
+            {
+              "name": "options",
+              "type": "ILoadingConfig"
+            },
+            {
+              "name": "viewContainerRef",
+              "type": "ViewContainerRef"
+            },
+            {
+              "name": "templateRef",
+              "type": "TemplateRef<object>"
+            },
+            {
+              "name": "context",
+              "type": "LoadingContext"
+            }
+          ],
+          "returnType": "ILoadingRef",
+          "description": "Creates a loading indicator that swaps in place of the given template's content while\nloading, restoring the original content once resolved.",
+          "descriptionZh": "创建一个在加载期间取代给定模板内容位置的加载指示器，解析完成后恢复原有内容。"
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "LoadingMode",
+      "kind": "enum",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/common/loading/loading.component.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "LoadingModule",
+      "kind": "module",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/common/loading/loading.module.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "entryComponents",
+          "type": "any",
+          "default": "EXT_LOADING_ENTRY_COMPONENTS",
+          "description": null,
+          "descriptionZh": null
+        }
+      ]
+    },
+    {
+      "name": "LoadingService",
+      "kind": "service",
+      "summary": "Manages named loading indicators: a full-screen one created at startup, plus any number\nof directive-driven (overlay or replace-strategy) loading components registered/resolved by name.",
+      "summaryZh": "管理具名的加载指示器：启动时创建的一个全屏指示器，以及任意数量由指令驱动\n（overlay 或 replace 策略）、按名称注册/解析的加载组件。",
+      "sourceFile": "src/common/loading/services/loading.service.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "createComponent",
+          "params": [
+            {
+              "name": "config",
+              "type": "ILoadingDirectiveConfig"
+            },
+            {
+              "name": "viewContainerRef",
+              "type": "ViewContainerRef"
+            },
+            {
+              "name": "templateRef",
+              "type": "TemplateRef<object>"
+            },
+            {
+              "name": "context",
+              "type": "LoadingContext"
+            }
+          ],
+          "returnType": "ILoadingRef",
+          "description": "Creates a directive-driven loading component (overlay or replace strategy, per `config.strategy`),\nregistered under `config.name`.",
+          "descriptionZh": "创建由指令驱动的加载组件（根据 `config.strategy` 采用覆盖层或原地替换策略），\n以 `config.name` 注册。"
+        },
+        {
+          "name": "create",
+          "params": [
+            {
+              "name": "config",
+              "type": "ILoadingConfig"
+            }
+          ],
+          "returnType": "void",
+          "description": "Creates (or recreates) a full-screen loading component under the given name.",
+          "descriptionZh": "以指定名称创建（或重建）一个全屏加载组件。"
+        },
+        {
+          "name": "removeComponent",
+          "params": [
+            {
+              "name": "name",
+              "type": "string"
+            }
+          ],
+          "returnType": "void",
+          "description": "Unsubscribes and destroys the named loading component.",
+          "descriptionZh": "取消订阅并销毁指定名称的加载组件。"
+        },
+        {
+          "name": "register",
+          "params": [
+            {
+              "name": "name",
+              "type": "string"
+            },
+            {
+              "name": "registers",
+              "type": "number"
+            }
+          ],
+          "returnType": "boolean",
+          "description": "Increments the named loading indicator's pending-operation counter, showing it while\nthe counter is above zero. Retries via `setTimeout` if the component isn't created yet.",
+          "descriptionZh": "增加指定名称加载指示器的\"待完成操作\"计数器，计数大于零时显示指示器。\n若组件尚未创建，会通过 `setTimeout` 重试。"
+        },
+        {
+          "name": "resolve",
+          "params": [
+            {
+              "name": "name",
+              "type": "string"
+            },
+            {
+              "name": "resolves",
+              "type": "number"
+            }
+          ],
+          "returnType": "boolean",
+          "description": "Decrements the named loading indicator's pending-operation counter, hiding it once\nit reaches zero.",
+          "descriptionZh": "减少指定名称加载指示器的\"待完成操作\"计数器，计数归零时隐藏指示器。"
+        },
+        {
+          "name": "resolveAll",
+          "params": [
+            {
+              "name": "name",
+              "type": "string"
+            }
+          ],
+          "returnType": "boolean",
+          "description": "Immediately resets the named loading indicator's pending-operation counter to zero, hiding it.",
+          "descriptionZh": "立即将指定名称加载指示器的\"待完成操作\"计数器归零并隐藏它。"
+        },
+        {
+          "name": "setValue",
+          "params": [
+            {
+              "name": "name",
+              "type": "string"
+            },
+            {
+              "name": "value",
+              "type": "number"
+            }
+          ],
+          "returnType": "boolean",
+          "description": "Sets the named loading indicator's progress value (only takes effect in determinate mode\nwhile it's currently shown).",
+          "descriptionZh": "设置指定名称加载指示器的进度值（仅在确定模式且当前正在显示时生效）。"
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "LoadingStrategy",
+      "kind": "enum",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/common/loading/loading.component.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "LoadingStyle",
+      "kind": "enum",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/common/loading/loading.component.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "LoadingType",
+      "kind": "enum",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/common/loading/loading.component.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "TD_CIRCLE_DIAMETER",
+      "kind": "constant",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/common/loading/loading.component.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    }
+  ],
+  "suggestedUsageSnippet": "import { LoadingComponent, LoadingModule } from '@dotos/dui/common/loading';\n\n<dui-loading></dui-loading>"
+}

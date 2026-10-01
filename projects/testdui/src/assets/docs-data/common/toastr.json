@@ -1,0 +1,1236 @@
+{
+  "importPath": "@dotos/dui/common/toastr",
+  "exports": [
+    {
+      "name": "ActiveToast",
+      "kind": "interface",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/common/toastr/toastr/toastr.service.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "BasePortalHost",
+      "kind": "class",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/common/toastr/portal/portal.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "attach",
+          "params": [
+            {
+              "name": "portal",
+              "type": "ComponentPortal<any>"
+            },
+            {
+              "name": "newestOnTop",
+              "type": "boolean"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "attachComponentPortal",
+          "params": [
+            {
+              "name": "portal",
+              "type": "ComponentPortal<T>"
+            },
+            {
+              "name": "newestOnTop",
+              "type": "boolean"
+            }
+          ],
+          "returnType": "ComponentRef<T>",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "detach",
+          "params": [],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "setDisposeFn",
+          "params": [
+            {
+              "name": "fn",
+              "type": "() => void"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "ComponentPortal",
+      "kind": "class",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/common/toastr/portal/portal.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "attach",
+          "params": [
+            {
+              "name": "host",
+              "type": "BasePortalHost"
+            },
+            {
+              "name": "newestOnTop",
+              "type": "boolean"
+            }
+          ],
+          "returnType": "any",
+          "description": "Attach this portal to a host.",
+          "descriptionZh": null
+        },
+        {
+          "name": "detach",
+          "params": [],
+          "returnType": "any",
+          "description": "Detach this portal from its host",
+          "descriptionZh": null
+        },
+        {
+          "name": "setAttachedHost",
+          "params": [
+            {
+              "name": "host",
+              "type": "BasePortalHost"
+            }
+          ],
+          "returnType": "any",
+          "description": "Sets the PortalHost reference without performing `attach()`. This is used directly by\nthe PortalHost when it is performing an `attach()` or `detach()`.",
+          "descriptionZh": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "component",
+          "type": "ComponentType<T>",
+          "description": "The type of the component that will be instantiated for attachment.",
+          "descriptionZh": null
+        },
+        {
+          "name": "viewContainerRef",
+          "type": "ViewContainerRef",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "injector",
+          "type": "Injector",
+          "description": "Injector used for the instantiation of the component.",
+          "descriptionZh": null
+        },
+        {
+          "name": "isAttached",
+          "type": "boolean",
+          "description": "Whether this portal is attached to a host.",
+          "descriptionZh": null
+        }
+      ]
+    },
+    {
+      "name": "ComponentType",
+      "kind": "interface",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/common/toastr/portal/portal.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "DefaultGlobalConfig",
+      "kind": "constant",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/common/toastr/toastr/toast.provider.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "DefaultNoAnimationsGlobalConfig",
+      "kind": "constant",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/common/toastr/toastr/toast-noanimation.component.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "DefaultNoComponentGlobalConfig",
+      "kind": "constant",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/common/toastr/toastr/toastr-config.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "DisableTimoutType",
+      "kind": "type",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/common/toastr/toastr/toastr-config.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "GlobalConfig",
+      "kind": "interface",
+      "summary": "Global Toast configuration\nIncludes all IndividualConfig",
+      "summaryZh": null,
+      "sourceFile": "src/common/toastr/toastr/toastr-config.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "GlobalToastrConfig",
+      "kind": "interface",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/common/toastr/toastr/toastr-config.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "IndividualConfig",
+      "kind": "interface",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/common/toastr/toastr/toastr-config.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "IndividualToastrConfig",
+      "kind": "interface",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/common/toastr/toastr/toastr-config.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "NotificationService",
+      "kind": "service",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/common/toastr/toastr/notification.service.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "openSnackMessage",
+          "params": [
+            {
+              "name": "message",
+              "type": "string"
+            },
+            {
+              "name": "config",
+              "type": "number | MatSnackBarConfig"
+            }
+          ],
+          "returnType": "MatSnackBarRef<any>",
+          "description": "Shows a translated message in a Material snack bar (auto-dismissing).",
+          "descriptionZh": "在 Material snack bar 中显示一条已翻译的消息（自动消失）。"
+        },
+        {
+          "name": "openSnackMessageAction",
+          "params": [
+            {
+              "name": "message",
+              "type": "string"
+            },
+            {
+              "name": "action",
+              "type": "string"
+            },
+            {
+              "name": "config",
+              "type": "number | MatSnackBarConfig"
+            }
+          ],
+          "returnType": "MatSnackBarRef<any>",
+          "description": "Shows a translated message with an action button in a Material snack bar.",
+          "descriptionZh": "在 Material snack bar 中显示一条带操作按钮的已翻译消息。"
+        },
+        {
+          "name": "dismissSnackMessageAction",
+          "params": [],
+          "returnType": "any",
+          "description": "Dismisses the currently-shown snack bar, if any.",
+          "descriptionZh": "关闭当前正在显示的 snack bar（如果有）。"
+        },
+        {
+          "name": "showError",
+          "params": [
+            {
+              "name": "message",
+              "type": "string"
+            },
+            {
+              "name": "action",
+              "type": "string"
+            }
+          ],
+          "returnType": "MatSnackBarRef<any>",
+          "description": "Shows a translated error-styled snack bar message.",
+          "descriptionZh": "显示一条错误样式的已翻译 snack bar 消息。"
+        },
+        {
+          "name": "showInfo",
+          "params": [
+            {
+              "name": "message",
+              "type": "string"
+            },
+            {
+              "name": "action",
+              "type": "string"
+            }
+          ],
+          "returnType": "MatSnackBarRef<any>",
+          "description": "Shows a translated info-styled snack bar message.",
+          "descriptionZh": "显示一条提示样式的已翻译 snack bar 消息。"
+        },
+        {
+          "name": "showWarning",
+          "params": [
+            {
+              "name": "message",
+              "type": "string"
+            },
+            {
+              "name": "action",
+              "type": "string"
+            }
+          ],
+          "returnType": "MatSnackBarRef<any>",
+          "description": "Shows a translated warning-styled snack bar message.",
+          "descriptionZh": "显示一条警告样式的已翻译 snack bar 消息。"
+        }
+      ],
+      "properties": [
+        {
+          "name": "DEFAULT_DURATION_MESSAGE",
+          "type": "number",
+          "default": "5000",
+          "description": null,
+          "descriptionZh": "未指定时长时使用的默认提示消息展示时长（毫秒）。"
+        },
+        {
+          "name": "messages",
+          "type": "Subject<NotificationModel>",
+          "default": "new Subject()",
+          "description": null,
+          "descriptionZh": "每次显示提示消息时发出（含消息文本与时间戳）。"
+        }
+      ]
+    },
+    {
+      "name": "Overlay",
+      "kind": "service",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/common/toastr/overlay/overlay.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "create",
+          "params": [
+            {
+              "name": "positionClass",
+              "type": "string"
+            },
+            {
+              "name": "overlayContainer",
+              "type": "ToastContainerDirective"
+            }
+          ],
+          "returnType": "OverlayRef",
+          "description": "Creates a new `OverlayRef` backed by the pane element for the given position class\n(and optional custom container).",
+          "descriptionZh": "为给定的定位样式类（及可选的自定义容器）创建一个新的、以对应面板元素为载体的 `OverlayRef`。"
+        },
+        {
+          "name": "getPaneElement",
+          "params": [
+            {
+              "name": "positionClass",
+              "type": "string"
+            },
+            {
+              "name": "overlayContainer",
+              "type": "ToastContainerDirective"
+            }
+          ],
+          "returnType": "HTMLElement",
+          "description": "Returns (creating if necessary) the pane element for the given position class within\nthe given (or default) overlay container.",
+          "descriptionZh": "返回（必要时创建）给定定位样式类在指定（或默认）覆盖层容器内的面板元素。"
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "OverlayContainer",
+      "kind": "service",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/common/toastr/overlay/overlay-container.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "getContainerElement",
+          "params": [],
+          "returnType": "HTMLElement",
+          "description": "Returns (creating if necessary) the shared overlay container element appended to `document.body`.",
+          "descriptionZh": "返回（必要时创建）附加到 `document.body` 的共享覆盖层容器元素。"
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "OverlayRef",
+      "kind": "class",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/common/toastr/overlay/overlay-ref.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "attach",
+          "params": [
+            {
+              "name": "portal",
+              "type": "ComponentPortal<any>"
+            },
+            {
+              "name": "newestOnTop",
+              "type": "boolean"
+            }
+          ],
+          "returnType": "ComponentRef<any>",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "detach",
+          "params": [],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "ProgressAnimationType",
+      "kind": "type",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/common/toastr/toastr/toastr-config.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "provideToastr",
+      "kind": "constant",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/common/toastr/toastr/toast.provider.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "Toast",
+      "kind": "component",
+      "selector": "[toast-component]",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/common/toastr/toastr/toast.component.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "activateToast",
+          "params": [],
+          "returnType": "any",
+          "description": "Transitions the toast to active state and starts its auto-dismiss timer/progress bar.",
+          "descriptionZh": "将提示切换为激活状态，并启动其自动关闭计时器/进度条。"
+        },
+        {
+          "name": "updateProgress",
+          "params": [],
+          "returnType": "any",
+          "description": "updates progress bar width",
+          "descriptionZh": null
+        },
+        {
+          "name": "resetTimeout",
+          "params": [],
+          "returnType": "any",
+          "description": "Resets the auto-dismiss timer back to the toast's original timeout.",
+          "descriptionZh": "将自动关闭计时器重置为提示的原始超时时长。"
+        },
+        {
+          "name": "remove",
+          "params": [],
+          "returnType": "any",
+          "description": "tells toastrService to remove this toast after animation time",
+          "descriptionZh": null
+        },
+        {
+          "name": "tapToast",
+          "params": [],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": "内部使用，处理提示上的点击事件：触发 tap 事件，并可选地关闭提示。"
+        },
+        {
+          "name": "stickAround",
+          "params": [],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": "内部使用，指针悬停在提示上方时暂停自动关闭计时器/进度条。"
+        },
+        {
+          "name": "delayedHideToast",
+          "params": [],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": "内部使用，指针离开后以延长后的超时时长恢复关闭提示的流程。"
+        },
+        {
+          "name": "outsideTimeout",
+          "params": [
+            {
+              "name": "func",
+              "type": "() => any"
+            },
+            {
+              "name": "timeout",
+              "type": "number"
+            }
+          ],
+          "returnType": "any",
+          "description": "Runs `setTimeout` outside Angular's zone (if `ngZone` is available) to avoid unnecessary\nchange detection, re-entering the zone when the callback fires.",
+          "descriptionZh": "在 Angular zone 之外（若提供了 `ngZone`）执行 `setTimeout`，避免不必要的变更检测，\n回调触发时重新进入 zone。"
+        },
+        {
+          "name": "outsideInterval",
+          "params": [
+            {
+              "name": "func",
+              "type": "() => any"
+            },
+            {
+              "name": "timeout",
+              "type": "number"
+            }
+          ],
+          "returnType": "any",
+          "description": "Runs `setInterval` outside Angular's zone (if `ngZone` is available) to avoid unnecessary\nchange detection, re-entering the zone on each tick.",
+          "descriptionZh": "在 Angular zone 之外（若提供了 `ngZone`）执行 `setInterval`，避免不必要的变更检测，\n每次触发时重新进入 zone。"
+        }
+      ],
+      "properties": [
+        {
+          "name": "message",
+          "type": "string | null",
+          "description": null,
+          "descriptionZh": "提示消息的正文文本。"
+        },
+        {
+          "name": "title",
+          "type": "string",
+          "description": null,
+          "descriptionZh": "提示消息的标题。"
+        },
+        {
+          "name": "options",
+          "type": "IndividualConfig<ConfigPayload>",
+          "description": null,
+          "descriptionZh": "该提示的解析后配置项。"
+        },
+        {
+          "name": "duplicatesCount",
+          "type": "number",
+          "description": null,
+          "descriptionZh": "该提示被重复触发的次数。"
+        },
+        {
+          "name": "originalTimeout",
+          "type": "number",
+          "description": null,
+          "descriptionZh": "该提示的原始自动关闭时长（毫秒）。"
+        },
+        {
+          "name": "width",
+          "type": "any",
+          "default": "signal(-1)",
+          "description": null,
+          "descriptionZh": "进度条当前宽度百分比。"
+        },
+        {
+          "name": "toastClasses",
+          "type": "any",
+          "default": "''",
+          "description": null,
+          "descriptionZh": "内部使用，绑定宿主的 CSS 类名（提示类型 + 自定义类）。"
+        },
+        {
+          "name": "state",
+          "type": "WritableSignal<{ value: 'inactive' | 'active' | 'removed'; params: { easeTime: number | string; easing: string }; }>",
+          "description": null,
+          "descriptionZh": "内部使用，驱动进入/激活/移除动画的状态信号。"
+        },
+        {
+          "name": "displayStyle",
+          "type": "string | undefined",
+          "description": "The host's `display` style: `'none'` while inactive (not yet shown), else `undefined`.",
+          "descriptionZh": "宿主的 `display` 样式：未激活（尚未显示）时为 `'none'`，否则为 `undefined`。"
+        }
+      ]
+    },
+    {
+      "name": "TOAST_CONFIG",
+      "kind": "constant",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/common/toastr/toastr/toastr-config.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "ToastContainerDirective",
+      "kind": "directive",
+      "selector": "[toastContainer]",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/common/toastr/toastr/toast.directive.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "getContainerElement",
+          "params": [],
+          "returnType": "HTMLElement",
+          "description": "Returns the host element to use as a custom toast container.",
+          "descriptionZh": "返回用作自定义提示容器的宿主元素。"
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "ToastNoAnimation",
+      "kind": "component",
+      "selector": "[toast-component]",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/common/toastr/toastr/toast-noanimation.component.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "activateToast",
+          "params": [],
+          "returnType": "any",
+          "description": "Transitions the toast to active state and starts its auto-dismiss timer/progress bar.",
+          "descriptionZh": "将提示切换为激活状态，并启动其自动关闭计时器/进度条。"
+        },
+        {
+          "name": "updateProgress",
+          "params": [],
+          "returnType": "any",
+          "description": "updates progress bar width",
+          "descriptionZh": null
+        },
+        {
+          "name": "resetTimeout",
+          "params": [],
+          "returnType": "any",
+          "description": "Resets the auto-dismiss timer back to the toast's original timeout.",
+          "descriptionZh": "将自动关闭计时器重置为提示的原始超时时长。"
+        },
+        {
+          "name": "remove",
+          "params": [],
+          "returnType": "any",
+          "description": "tells toastrService to remove this toast after animation time",
+          "descriptionZh": null
+        },
+        {
+          "name": "tapToast",
+          "params": [],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": "内部使用，处理提示上的点击事件：触发 tap 事件，并可选地关闭提示。"
+        },
+        {
+          "name": "stickAround",
+          "params": [],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": "内部使用，指针悬停在提示上方时暂停自动关闭计时器/进度条。"
+        },
+        {
+          "name": "delayedHideToast",
+          "params": [],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": "内部使用，指针离开后以延长后的超时时长恢复关闭提示的流程。"
+        }
+      ],
+      "properties": [
+        {
+          "name": "message",
+          "type": "string | null",
+          "description": null,
+          "descriptionZh": "提示消息的正文文本。"
+        },
+        {
+          "name": "title",
+          "type": "string",
+          "description": null,
+          "descriptionZh": "提示消息的标题。"
+        },
+        {
+          "name": "options",
+          "type": "IndividualConfig",
+          "description": null,
+          "descriptionZh": "该提示的解析后配置项。"
+        },
+        {
+          "name": "duplicatesCount",
+          "type": "number",
+          "description": null,
+          "descriptionZh": "该提示被重复触发的次数。"
+        },
+        {
+          "name": "originalTimeout",
+          "type": "number",
+          "description": null,
+          "descriptionZh": "该提示的原始自动关闭时长（毫秒）。"
+        },
+        {
+          "name": "width",
+          "type": "any",
+          "default": "signal(-1)",
+          "description": "width of progress bar",
+          "descriptionZh": null
+        },
+        {
+          "name": "toastClasses",
+          "type": "any",
+          "default": "''",
+          "description": "a combination of toast type and options.toastClass",
+          "descriptionZh": null
+        },
+        {
+          "name": "displayStyle",
+          "type": "any",
+          "description": "hides component when waiting to be displayed",
+          "descriptionZh": null
+        },
+        {
+          "name": "state",
+          "type": "any",
+          "default": "signal('inactive')",
+          "description": "controls animation",
+          "descriptionZh": null
+        }
+      ]
+    },
+    {
+      "name": "ToastNoAnimationModule",
+      "kind": "module",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/common/toastr/toastr/toast-noanimation.component.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "forRoot",
+          "params": [
+            {
+              "name": "config",
+              "type": "Partial<GlobalConfig>"
+            }
+          ],
+          "returnType": "ModuleWithProviders<ToastNoAnimationModule>",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "ToastPackage",
+      "kind": "class",
+      "summary": "Everything a toast needs to launch",
+      "summaryZh": null,
+      "sourceFile": "src/common/toastr/toastr/toastr-config.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "triggerTap",
+          "params": [],
+          "returnType": "void",
+          "description": "Fired on click",
+          "descriptionZh": null
+        },
+        {
+          "name": "onTap",
+          "params": [],
+          "returnType": "Observable<void>",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "triggerAction",
+          "params": [
+            {
+              "name": "action",
+              "type": "any"
+            }
+          ],
+          "returnType": "void",
+          "description": "available for use in custom toast",
+          "descriptionZh": null
+        },
+        {
+          "name": "onAction",
+          "params": [],
+          "returnType": "Observable<void>",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "ToastrComponentlessModule",
+      "kind": "module",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/common/toastr/toastr/toastr.module.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "forRoot",
+          "params": [
+            {
+              "name": "config",
+              "type": "Partial<GlobalConfig>"
+            }
+          ],
+          "returnType": "ModuleWithProviders<ToastrModule>",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "ToastrConfig",
+      "kind": "interface",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/common/toastr/toastr/toastr-config.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "ToastRef",
+      "kind": "class",
+      "summary": "Reference to a toast opened via the Toastr service.",
+      "summaryZh": null,
+      "sourceFile": "src/common/toastr/toastr/toast-ref.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "manualClose",
+          "params": [],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "manualClosed",
+          "params": [],
+          "returnType": "Observable<any>",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "timeoutReset",
+          "params": [],
+          "returnType": "Observable<any>",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "countDuplicate",
+          "params": [],
+          "returnType": "Observable<number>",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "close",
+          "params": [],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "afterClosed",
+          "params": [],
+          "returnType": "Observable<any>",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "isInactive",
+          "params": [],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "activate",
+          "params": [],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "afterActivate",
+          "params": [],
+          "returnType": "Observable<any>",
+          "description": "Gets an observable that is notified when the toast has started opening.",
+          "descriptionZh": null
+        },
+        {
+          "name": "onDuplicate",
+          "params": [
+            {
+              "name": "resetTimeout",
+              "type": "boolean"
+            },
+            {
+              "name": "countDuplicate",
+              "type": "boolean"
+            }
+          ],
+          "returnType": "any",
+          "description": "Reset the toast timouts and count duplicates",
+          "descriptionZh": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "componentInstance",
+          "type": "T",
+          "description": "The instance of component opened into the toast.",
+          "descriptionZh": null
+        }
+      ]
+    },
+    {
+      "name": "ToastrIconClasses",
+      "kind": "interface",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/common/toastr/toastr/toastr-config.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "ToastrModule",
+      "kind": "module",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/common/toastr/toastr/toastr.module.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "forRoot",
+          "params": [
+            {
+              "name": "config",
+              "type": "Partial<GlobalConfig>"
+            }
+          ],
+          "returnType": "ModuleWithProviders<ToastrModule>",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "ToastrService",
+      "kind": "service",
+      "summary": "Displays toast notifications (success/error/info/warning), with deduplication,\nmax-opened limiting, and manual clear/remove control.",
+      "summaryZh": "展示 toast 通知（成功/错误/提示/警告），支持去重、最大展示数量限制，以及手动清除/移除。",
+      "sourceFile": "src/common/toastr/toastr/toastr.service.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "show",
+          "params": [
+            {
+              "name": "message",
+              "type": "string"
+            },
+            {
+              "name": "title",
+              "type": "string"
+            },
+            {
+              "name": "override",
+              "type": "Partial<IndividualConfig<ConfigPayload>>"
+            },
+            {
+              "name": "type",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": "Shows a toast of a custom/blank type.",
+          "descriptionZh": "显示一个自定义/空类型的 toast。"
+        },
+        {
+          "name": "success",
+          "params": [
+            {
+              "name": "message",
+              "type": "string"
+            },
+            {
+              "name": "title",
+              "type": "string"
+            },
+            {
+              "name": "override",
+              "type": "Partial<IndividualConfig<ConfigPayload>>"
+            }
+          ],
+          "returnType": "any",
+          "description": "Shows a success toast.",
+          "descriptionZh": "显示一个成功类型的 toast。"
+        },
+        {
+          "name": "error",
+          "params": [
+            {
+              "name": "message",
+              "type": "string"
+            },
+            {
+              "name": "title",
+              "type": "string"
+            },
+            {
+              "name": "override",
+              "type": "Partial<IndividualConfig<ConfigPayload>>"
+            }
+          ],
+          "returnType": "any",
+          "description": "Shows an error toast.",
+          "descriptionZh": "显示一个错误类型的 toast。"
+        },
+        {
+          "name": "info",
+          "params": [
+            {
+              "name": "message",
+              "type": "string"
+            },
+            {
+              "name": "title",
+              "type": "string"
+            },
+            {
+              "name": "override",
+              "type": "Partial<IndividualConfig<ConfigPayload>>"
+            }
+          ],
+          "returnType": "any",
+          "description": "Shows an info toast.",
+          "descriptionZh": "显示一个提示类型的 toast。"
+        },
+        {
+          "name": "warning",
+          "params": [
+            {
+              "name": "message",
+              "type": "string"
+            },
+            {
+              "name": "title",
+              "type": "string"
+            },
+            {
+              "name": "override",
+              "type": "Partial<IndividualConfig<ConfigPayload>>"
+            }
+          ],
+          "returnType": "any",
+          "description": "Shows a warning toast.",
+          "descriptionZh": "显示一个警告类型的 toast。"
+        },
+        {
+          "name": "clear",
+          "params": [
+            {
+              "name": "toastId",
+              "type": "number"
+            }
+          ],
+          "returnType": "any",
+          "description": "Remove all or a single toast by id.",
+          "descriptionZh": "移除全部 toast，或按 id 移除单个 toast。"
+        },
+        {
+          "name": "remove",
+          "params": [
+            {
+              "name": "toastId",
+              "type": "number"
+            }
+          ],
+          "returnType": "any",
+          "description": "Remove and destroy a single toast by id.",
+          "descriptionZh": "按 id 移除并销毁单个 toast。"
+        },
+        {
+          "name": "findDuplicate",
+          "params": [
+            {
+              "name": "title",
+              "type": "any"
+            },
+            {
+              "name": "message",
+              "type": "any"
+            },
+            {
+              "name": "resetOnDuplicate",
+              "type": "boolean"
+            },
+            {
+              "name": "countDuplicates",
+              "type": "boolean"
+            }
+          ],
+          "returnType": "any",
+          "description": "Finds a currently-displayed toast with the same title/message (used to avoid stacking\nduplicate notifications), optionally resetting its timeout or bumping its duplicate count.",
+          "descriptionZh": "查找当前已展示的、标题/消息相同的提示（用于避免重复堆叠通知），\n可选地重置其超时时间或增加其重复计数。"
+        }
+      ],
+      "properties": [
+        {
+          "name": "toastrConfig",
+          "type": "GlobalConfig",
+          "description": null,
+          "descriptionZh": "当前生效的全局配置（默认配置与模块注册时传入的配置合并后的结果）。"
+        },
+        {
+          "name": "currentlyActive",
+          "type": "any",
+          "default": "0",
+          "description": null,
+          "descriptionZh": "当前处于激活（可见）状态的提示数量。"
+        },
+        {
+          "name": "toasts",
+          "type": "ActiveToast<any>[]",
+          "default": "[]",
+          "description": null,
+          "descriptionZh": "当前已加入队列/展示中的全部提示。"
+        },
+        {
+          "name": "overlayContainer",
+          "type": "ToastContainerDirective",
+          "description": null,
+          "descriptionZh": "自定义的提示容器，未设置时使用默认的全局覆盖层容器。"
+        },
+        {
+          "name": "previousToastMessage",
+          "type": "string | undefined",
+          "description": null,
+          "descriptionZh": "上一条展示的提示消息文本（用于去重判断）。"
+        }
+      ]
+    },
+    {
+      "name": "ToastToken",
+      "kind": "interface",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/common/toastr/toastr/toastr-config.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    }
+  ],
+  "suggestedUsageSnippet": "import { Toast, ToastNoAnimationModule } from '@dotos/dui/common/toastr';\n\n<[toast-component]></[toast-component]>"
+}

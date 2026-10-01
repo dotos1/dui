@@ -1,0 +1,11 @@
+.section-label {
+  font-size: 1.4rem;
+  line-height: 2.0rem;
+  font-weight: 400;
+}
+
+.td-object-children {
+  &.ng-animating {
+    overflow: hidden;
+  }
+}

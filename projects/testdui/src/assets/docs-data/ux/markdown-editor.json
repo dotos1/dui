@@ -1,0 +1,30 @@
+{
+  "importPath": "@dotos/dui/ux/markdown-editor",
+  "exports": [
+    {
+      "name": "MonacoMarkdownExtension",
+      "kind": "class",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/ux/markdown-editor/index.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "activate",
+          "params": [
+            {
+              "name": "editor",
+              "type": "editor.IStandaloneCodeEditor"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "properties": []
+    }
+  ],
+  "suggestedUsageSnippet": "import { /* ... */ } from '@dotos/dui/ux/markdown-editor';"
+}

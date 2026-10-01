@@ -1,0 +1,75 @@
+{
+  "importPath": "@dotos/dui/common/stop-propagation",
+  "exports": [
+    {
+      "name": "StopDropPropagationDirective",
+      "kind": "directive",
+      "selector": "[duiStopDropPropagation]",
+      "summary": "Prevents the default action and stops propagation of the native `drop` event on the host element.",
+      "summaryZh": "阻止宿主元素上原生 `drop` 事件的默认行为并停止其冒泡传播。",
+      "sourceFile": "src/common/stop-propagation/stop-drop-propagation.directive.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "onDrop",
+          "params": [
+            {
+              "name": "event",
+              "type": "any"
+            }
+          ],
+          "returnType": "void",
+          "description": "Handles the native `drop` event: prevents its default action and stops propagation.",
+          "descriptionZh": "处理原生 `drop` 事件：阻止其默认行为并停止冒泡传播。"
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "StopPropagationDirective",
+      "kind": "directive",
+      "selector": "[duiStopPropagation]",
+      "summary": "Stops propagation of the native `click` event on the host element.",
+      "summaryZh": "停止宿主元素上原生 `click` 事件的冒泡传播。",
+      "sourceFile": "src/common/stop-propagation/stop-propagation.directive.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "onClick",
+          "params": [
+            {
+              "name": "event",
+              "type": "any"
+            }
+          ],
+          "returnType": "void",
+          "description": "Handles the native `click` event and stops its propagation.",
+          "descriptionZh": "处理原生 `click` 事件并停止其冒泡传播。"
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "StopPropagationModule",
+      "kind": "module",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/common/stop-propagation/stop-propagation.module.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "forRoot",
+          "params": [],
+          "returnType": "ModuleWithProviders<StopPropagationModule>",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "properties": []
+    }
+  ],
+  "suggestedUsageSnippet": "import { StopPropagationModule } from '@dotos/dui/common/stop-propagation';"
+}

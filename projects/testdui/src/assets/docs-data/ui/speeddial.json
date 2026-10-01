@@ -1,0 +1,524 @@
+{
+  "importPath": "@dotos/dui/ui/speeddial",
+  "exports": [
+    {
+      "name": "AnimationMode",
+      "kind": "type",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/ui/speeddial/speed-dial.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "Direction",
+      "kind": "type",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/ui/speeddial/speed-dial.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "ExtSpeedDialComponent",
+      "kind": "component",
+      "selector": "speeddial",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/ui/speeddial/speeddial.component.ts",
+      "inputs": [
+        {
+          "name": "config",
+          "type": "any",
+          "default": "{}",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "icon",
+          "type": "string",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "title",
+          "type": "string",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "direction",
+          "type": "Direction",
+          "default": "'up'",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "color",
+          "type": "string",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "default": "false",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "spin",
+          "type": "any",
+          "default": "false",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "type",
+          "type": "any",
+          "default": "'mat-fab'",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "animationMode",
+          "type": "AnimationMode",
+          "default": "'fling'",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "items",
+          "type": "any",
+          "default": "[]",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "disableRipple",
+          "type": "boolean",
+          "default": "false",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "toolTip",
+          "type": "string",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "events",
+          "type": "Subject<any>",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "methods": [
+        {
+          "name": "init",
+          "params": [
+            {
+              "name": "config",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "state",
+          "type": "BehaviorSubject<any>",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "style",
+          "type": "any",
+          "default": "{ color: 'rgba(255,255,255,0.84)' }",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "open",
+          "type": "any",
+          "default": "false",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "fixed",
+          "type": "boolean",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "fixed",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "isFab",
+          "type": "boolean",
+          "default": "false",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "iconType",
+          "type": "string",
+          "default": "''",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "svgIcon",
+          "type": "string",
+          "default": "''",
+          "description": null,
+          "descriptionZh": null
+        }
+      ]
+    },
+    {
+      "name": "FabButtonComponent",
+      "kind": "component",
+      "selector": "fabbutton",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/ui/speeddial/fab.button.ts",
+      "inputs": [
+        {
+          "name": "config",
+          "type": "any",
+          "default": "{}",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "type",
+          "type": "any",
+          "default": "'mat-fab'",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "text",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "disableRipple",
+          "type": "boolean",
+          "default": "false",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "color",
+          "type": "string",
+          "default": "''",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "icon",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "click",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "methods": [
+        {
+          "name": "init",
+          "params": [
+            {
+              "name": "config",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "hasIcon",
+          "params": [],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "setHandler",
+          "params": [
+            {
+              "name": "handler",
+              "type": "Function"
+            }
+          ],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "setIcon",
+          "params": [
+            {
+              "name": "icon",
+              "type": "string"
+            }
+          ],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "onClick",
+          "params": [
+            {
+              "name": "e",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "matTooltip",
+          "type": "MatTooltip",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "handler",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "style",
+          "type": "any",
+          "default": "{ color: 'rgba(255,255,255,0.84)' }",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "items",
+          "type": "Array<any>",
+          "default": "[]",
+          "description": null,
+          "descriptionZh": null
+        }
+      ]
+    },
+    {
+      "name": "SpeedDialActionsComponent",
+      "kind": "component",
+      "selector": "speed-dial-actions",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/ui/speeddial/speed-dial.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "show",
+          "params": [],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "hide",
+          "params": [],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "miniFabVisible",
+          "type": "any",
+          "default": "false",
+          "description": "Whether the min-fab button exist in DOM",
+          "descriptionZh": null
+        }
+      ]
+    },
+    {
+      "name": "SpeedDialComponent",
+      "kind": "component",
+      "selector": "speed-dial",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/ui/speeddial/speed-dial.ts",
+      "inputs": [
+        {
+          "name": "type",
+          "type": "any",
+          "default": "\"mat-fab\"",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "fixed",
+          "type": "boolean",
+          "description": "Whether this speed dial is fixed on screen (user cannot change it by clicking)",
+          "descriptionZh": null
+        },
+        {
+          "name": "open",
+          "type": "boolean",
+          "description": "Whether this speed dial is opened",
+          "descriptionZh": null
+        },
+        {
+          "name": "direction",
+          "type": "Direction",
+          "description": "The direction of the speed dial. Can be 'up', 'down', 'left' or 'right'",
+          "descriptionZh": null
+        },
+        {
+          "name": "animationMode",
+          "type": "AnimationMode",
+          "description": "The animation mode to open the speed dial. Can be 'fling' or 'scale'",
+          "descriptionZh": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "openChange",
+          "type": "boolean",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "methods": [
+        {
+          "name": "toggle",
+          "params": [],
+          "returnType": "void",
+          "description": "Toggle the open state of this speed dial",
+          "descriptionZh": null
+        },
+        {
+          "name": "setActionsVisibility",
+          "params": [],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "fixed",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "open",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "direction",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "animationMode",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        }
+      ]
+    },
+    {
+      "name": "SpeedDialModule",
+      "kind": "module",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/ui/speeddial/speeddial.module.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "entryComponents",
+          "type": "any",
+          "default": "[\n    SpeedDialActionsComponent,\n    SpeedDialComponent,\n    SpeedDialTriggerComponent,\n    ExtSpeedDialComponent,\n    FabButtonComponent\n  ]",
+          "description": null,
+          "descriptionZh": null
+        }
+      ]
+    },
+    {
+      "name": "SpeedDialTriggerComponent",
+      "kind": "component",
+      "selector": "speed-dial-trigger",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/ui/speeddial/speed-dial-trigger.ts",
+      "inputs": [
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "default": "false",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "spin",
+          "type": "any",
+          "default": "false",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "type",
+          "type": "any",
+          "default": "\"mat-fab\"",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "outputs": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "sp",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        }
+      ]
+    }
+  ],
+  "suggestedUsageSnippet": "import { ExtSpeedDialComponent, SpeedDialModule } from '@dotos/dui/ui/speeddial';\n\n<speeddial [config]=\"...\" [icon]=\"...\" [title]=\"...\" (events)=\"...\"></speeddial>"
+}

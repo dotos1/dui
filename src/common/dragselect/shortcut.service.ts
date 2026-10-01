@@ -1,0 +1,222 @@
+import { isPlatformBrowser } from '@angular/common';
+import { Inject, Injectable, PLATFORM_ID } from '@angular/core';
+import { merge } from 'rxjs';
+import { distinctUntilChanged, map } from 'rxjs/operators';
+import { KeyboardEventsService } from './keyboard-events.service';
+import { DragToSelectConfig } from './models';
+import { CONFIG } from './tokens';
+
+const SUPPORTED_META_KEYS = {
+  alt: true,
+  shift: true,
+  meta: true,
+  ctrl: true,
+};
+
+const SUPPORTED_KEYS = /[a-z]/;
+
+const META_KEY = 'meta';
+
+const KEY_ALIASES = {
+  [META_KEY]: ['ctrl', 'meta'],
+};
+
+const SUPPORTED_SHORTCUTS = {
+  moveRangeStart: true,
+  disableSelection: true,
+  toggleSingleItem: true,
+  addToSelection: true,
+  removeFromSelection: true,
+};
+
+const ERROR_PREFIX = '[ShortcutService]';
+
+interface KeyState {
+  code: string;
+  pressed: boolean;
+}
+
+/**
+ * Parses the drag-to-select config's keyboard shortcut strings (e.g. `"ctrl+shift"`) and
+ * exposes methods to check whether a given shortcut is currently held during an event.
+ * @zh 解析拖拽框选配置中的键盘快捷键字符串（如 `"ctrl+shift"`），
+ * 并提供方法判断某个快捷键在事件发生时是否处于按下状态。
+ */
+@Injectable()
+export class ShortcutService {
+  private _shortcuts: { [key: string]: string[][] } = {};
+
+  private _latestShortcut: Map<string, boolean> = new Map();
+
+  constructor(
+    @Inject(PLATFORM_ID) private platformId: Record<string, unknown>,
+    @Inject(CONFIG) config: DragToSelectConfig,
+    private keyboardEvents: KeyboardEventsService
+  ) {
+    this._shortcuts = this._createShortcutsFromConfig(config.shortcuts);
+
+    if (isPlatformBrowser(this.platformId)) {
+      const keydown$ = this.keyboardEvents.keydown$.pipe(
+        map<KeyboardEvent, KeyState>((event) => ({ code: event.code, pressed: true }))
+      );
+
+      const keyup$ = this.keyboardEvents.keyup$.pipe(
+        map<KeyboardEvent, KeyState>((event) => ({ code: event.code, pressed: false }))
+      );
+  //@ts-ignore
+      merge<KeyState>(keydown$, keyup$)
+        .pipe(
+          distinctUntilChanged((prev:any, curr:any) => {
+            return prev.pressed === curr.pressed && prev.code === curr.code;
+          })
+        )
+        .subscribe((keyState) => {
+          if (keyState.pressed) {
+            this._latestShortcut.set(keyState.code, true);
+          } else {
+            this._latestShortcut.delete(keyState.code);
+          }
+        });
+    }
+  }
+
+  /**
+   * Whether the configured "disable selection" shortcut is currently held.
+   * @zh 配置的"禁用选择"快捷键当前是否处于按下状态。
+   */
+  disableSelection(event: Event) {
+    return this._isShortcutPressed('disableSelection', event);
+  }
+
+  /**
+   * Whether the configured "move range start" shortcut is currently held.
+   * @zh 配置的"移动范围起点"快捷键当前是否处于按下状态。
+   */
+  moveRangeStart(event: Event) {
+    return this._isShortcutPressed('moveRangeStart', event);
+  }
+
+  /**
+   * Whether the configured "toggle single item" shortcut is currently held.
+   * @zh 配置的"切换单个条目"快捷键当前是否处于按下状态。
+   */
+  toggleSingleItem(event: Event) {
+    return this._isShortcutPressed('toggleSingleItem', event);
+  }
+
+  /**
+   * Whether the configured "add to selection" shortcut is currently held.
+   * @zh 配置的"添加到选中"快捷键当前是否处于按下状态。
+   */
+  addToSelection(event: Event) {
+    return this._isShortcutPressed('addToSelection', event);
+  }
+
+  /**
+   * Whether the configured "remove from selection" shortcut is currently held.
+   * @zh 配置的"从选中中移除"快捷键当前是否处于按下状态。
+   */
+  removeFromSelection(event: Event) {
+    return this._isShortcutPressed('removeFromSelection', event);
+  }
+
+  /**
+   * Whether either the "add to selection" or "remove from selection" shortcut is currently held.
+   * @zh "添加到选中"或"从选中中移除"快捷键中的任意一个当前是否处于按下状态。
+   */
+  extendedSelectionShortcut(event: Event) {
+    return this.addToSelection(event) || this.removeFromSelection(event);
+  }
+
+  private _createShortcutsFromConfig(shortcuts: { [key: string]: string }) {
+    const shortcutMap = {};
+
+    for (const [key, shortcutsForCommand] of Object.entries(shortcuts)) {
+      if (!this._isSupportedShortcut(key)) {
+        throw new Error(this._getErrorMessage(`Shortcut ${key} not supported`));
+      }
+
+      shortcutsForCommand
+        .replace(/ /g, '')
+        .split(',')
+        .forEach((shortcut) => {
+          if (!shortcutMap[key]) {
+            shortcutMap[key] = [];
+          }
+
+          const combo = shortcut.split('+');
+          const cleanCombos = this._substituteKey(shortcut, combo, META_KEY);
+
+          cleanCombos.forEach((cleanCombo) => {
+            const unsupportedKey = this._isSupportedCombo(cleanCombo);
+
+            if (unsupportedKey) {
+              throw new Error(this._getErrorMessage(`Key '${unsupportedKey}' in shortcut ${shortcut} not supported`));
+            }
+
+            shortcutMap[key].push(
+              cleanCombo.map((comboKey) => {
+                return SUPPORTED_META_KEYS[comboKey] ? `${comboKey}Key` : `Key${comboKey.toUpperCase()}`;
+              })
+            );
+          });
+        });
+    }
+
+    return shortcutMap;
+  }
+
+  private _substituteKey(shortcut: string, combo: Array<string>, substituteKey: string) {
+    const hasSpecialKey = shortcut.includes(substituteKey);
+    const substitutedShortcut: string[][] = [];
+
+    if (hasSpecialKey) {
+      const cleanShortcut = combo.filter((element) => element !== META_KEY);
+
+      KEY_ALIASES.meta.forEach((alias) => {
+        substitutedShortcut.push([...cleanShortcut, alias]);
+      });
+    } else {
+      substitutedShortcut.push(combo);
+    }
+
+    return substitutedShortcut;
+  }
+
+  private _getErrorMessage(message: string) {
+    return `${ERROR_PREFIX} ${message}`;
+  }
+
+  private _isShortcutPressed(shortcutName: string, event: Event) {
+    const shortcuts = this._shortcuts[shortcutName];
+
+    return shortcuts.some((shortcut) => {
+      return shortcut.every((key) => this._isKeyPressed(event, key));
+    });
+  }
+
+  private _isKeyPressed(event: Event, key: string) {
+    return key.startsWith('Key') ? this._latestShortcut.has(key) : event[key];
+  }
+
+  private _isSupportedCombo(combo: Array<string>) {
+    let unsupportedKey = null;
+
+    combo.forEach((key) => {
+      if (!SUPPORTED_META_KEYS[key] && (!SUPPORTED_KEYS.test(key) || this._isSingleChar(key))) {
+        unsupportedKey = key;
+        return;
+      }
+    });
+
+    return unsupportedKey;
+  }
+
+  private _isSingleChar(key: string) {
+    return key.length > 1;
+  }
+
+  private _isSupportedShortcut(shortcut: string) {
+    return SUPPORTED_SHORTCUTS[shortcut];
+  }
+}

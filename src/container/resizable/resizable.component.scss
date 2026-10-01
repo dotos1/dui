@@ -1,0 +1,115 @@
+.dui-grabber {
+  position: absolute;
+}
+
+.dui-grabber.dui-top, .dui-grabber.dui-bottom {
+  cursor: ns-resize;
+  width: 100%;
+  height: 14px;
+}
+
+.dui-grabber.dui-left, .dui-grabber.dui-right {
+  cursor: ew-resize;
+  width: 14px;
+  height: 100%;
+}
+
+.dui-grabber.dui-top::after, .dui-grabber.dui-bottom::after,
+.dui-grabber.dui-left::after, .dui-grabber.dui-right::after,
+.dui-grabber.dui-top::before, .dui-grabber.dui-bottom::before,
+.dui-grabber.dui-left::before, .dui-grabber.dui-right::before {
+  content: "";
+  position: absolute;
+  z-index: 1;
+}
+
+.dui-grabber.dui-top::before, .dui-grabber.dui-bottom::before,
+.dui-grabber.dui-left::before, .dui-grabber.dui-right::before {
+  border-radius: 7px;
+  width: 7px;
+  height: 7px;
+}
+
+.dui-grabber.dui-top::after, .dui-grabber.dui-bottom::after {
+  width: 100%;
+  height: 2px;
+  top: 50%;
+  left: 0;
+}
+
+.dui-grabber.dui-left::after, .dui-grabber.dui-right::after {
+  width: 2px;
+  height: 100%;
+  left: 50%;
+}
+
+.dui-grabber.dui-top::before, .dui-grabber.dui-bottom::before {
+  left: 50%;
+  top: 4px;
+  transform: translateX(-50%);
+}
+
+.dui-grabber.dui-left::before, .dui-grabber.dui-right::before {
+  top: 50%;
+  left: 4px;
+  transform: translateY(-50%);
+}
+
+.dui-grabber.dui-top,
+.dui-grabber.dui-bottom {
+  left: 0;
+}
+
+.dui-grabber.dui-top {
+  top: -7px;
+}
+
+.dui-grabber.dui-bottom {
+  bottom: -7px;
+}
+
+.dui-grabber.dui-left,
+.dui-grabber.dui-right {
+  top: 0;
+}
+
+.dui-grabber.dui-left {
+  left: -7px;
+}
+
+.dui-grabber.dui-right {
+  right: -7px;
+}
+
+.dui-grabber.dui-top-left, .dui-grabber.dui-top-right,
+.dui-grabber.dui-bottom-left, .dui-grabber.dui-bottom-right {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border-radius: 4px;
+  z-index: 1;
+}
+
+.dui-grabber.dui-top-left {
+  cursor: nwse-resize;
+  top: -5px;
+  left: -5px;
+}
+
+.dui-grabber.dui-top-right {
+  cursor: nesw-resize;
+  top: -5px;
+  right: -5px;
+}
+
+.dui-grabber.dui-bottom-left {
+  cursor: nesw-resize;
+  bottom: -5px;
+  left: -5px;
+}
+
+.dui-grabber.dui-bottom-right {
+  cursor: nwse-resize;
+  bottom: -5px;
+  right: -5px;
+}

@@ -1,0 +1,212 @@
+{
+  "importPath": "@dotos/dui/form/date/moment",
+  "exports": [
+    {
+      "name": "MAT_MOMENT_DATETIME_FORMATS",
+      "kind": "constant",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/form/date/moment/moment-datetime-formats.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "MatMomentDatetimeModule",
+      "kind": "module",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/form/date/moment/moment-datetime.module.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "MOMENT_DATE_FORMATS",
+      "kind": "constant",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/form/date/moment/moment-datetime-formats.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "MomentDatetimeAdapter",
+      "kind": "service",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/form/date/moment/moment-datetime-adapter.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "setLocale",
+          "params": [
+            {
+              "name": "locale",
+              "type": "string"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "getHour",
+          "params": [
+            {
+              "name": "date",
+              "type": "Moment"
+            }
+          ],
+          "returnType": "number",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "getMinute",
+          "params": [
+            {
+              "name": "date",
+              "type": "Moment"
+            }
+          ],
+          "returnType": "number",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "isInNextMonth",
+          "params": [
+            {
+              "name": "startDate",
+              "type": "Moment"
+            },
+            {
+              "name": "endDate",
+              "type": "Moment"
+            }
+          ],
+          "returnType": "boolean",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "createDatetime",
+          "params": [
+            {
+              "name": "year",
+              "type": "number"
+            },
+            {
+              "name": "month",
+              "type": "number"
+            },
+            {
+              "name": "date",
+              "type": "number"
+            },
+            {
+              "name": "hour",
+              "type": "number"
+            },
+            {
+              "name": "minute",
+              "type": "number"
+            }
+          ],
+          "returnType": "Moment",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "getFirstDateOfMonth",
+          "params": [
+            {
+              "name": "date",
+              "type": "Moment"
+            }
+          ],
+          "returnType": "Moment",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "getHourNames",
+          "params": [],
+          "returnType": "string[]",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "getMinuteNames",
+          "params": [],
+          "returnType": "string[]",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "addCalendarHours",
+          "params": [
+            {
+              "name": "date",
+              "type": "Moment"
+            },
+            {
+              "name": "hours",
+              "type": "number"
+            }
+          ],
+          "returnType": "Moment",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "addCalendarMinutes",
+          "params": [
+            {
+              "name": "date",
+              "type": "Moment"
+            },
+            {
+              "name": "minutes",
+              "type": "number"
+            }
+          ],
+          "returnType": "Moment",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "deserialize",
+          "params": [
+            {
+              "name": "value",
+              "type": "any"
+            }
+          ],
+          "returnType": "Moment | null",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "MomentDatetimeModule",
+      "kind": "module",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/form/date/moment/moment-datetime.module.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    }
+  ],
+  "suggestedUsageSnippet": "import { MatMomentDatetimeModule } from '@dotos/dui/form/date/moment';"
+}

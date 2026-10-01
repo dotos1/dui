@@ -1,0 +1,23 @@
+<mat-slider class="dui-range-slider"
+  [id]="id"
+  [min]="sliderMin"
+  [max]="sliderMax"
+  [step]="sliderStep"
+  [discrete]="true"
+  [disabled]="field.readonly"
+  [color]="field.color"
+  matTooltip={{toolTip|translate}}
+  matTooltipPosition='below'>
+  <input matSliderStartThumb
+    [formControl]="fromControl"
+    [formAttributes]="field"
+    [tabindex]="field.tabindex || 0" />
+  <input matSliderEndThumb
+    [formControl]="toControl"
+    [formAttributes]="field"
+    [tabindex]="field.tabindex || 0" />
+</mat-slider>
+
+<span class="dui-range-readout">{{displayText}}</span>
+
+<input type="hidden" class="mdc-text-field__input" />

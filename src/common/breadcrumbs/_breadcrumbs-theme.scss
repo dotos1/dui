@@ -1,0 +1,10 @@
+@mixin dui-breadcrumbs-theme($theme) {
+  $foreground: map-get($theme, foreground);
+
+  dui-breadcrumb {
+    &:last-of-type {
+      font-weight: bold;
+      cursor: default;
+    }
+  }
+}

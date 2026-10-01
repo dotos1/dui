@@ -1,0 +1,393 @@
+{
+  "importPath": "@dotos/dui/common/search-box",
+  "exports": [
+    {
+      "name": "_SearchInputMixinBase",
+      "kind": "constant",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/common/search-box/search-input/search-input.component.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "SearchBoxBase",
+      "kind": "class",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/common/search-box/search-box.component.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "SearchBoxComponent",
+      "kind": "component",
+      "selector": "search-box",
+      "summary": "An expandable search input that collapses to a single icon when not in use, with\nbuilt-in debounced search/clear/blur events. Implements `ControlValueAccessor`.",
+      "summaryZh": "一个可展开的搜索输入框，不使用时收起为单个图标，内置防抖的搜索/清空/失焦事件。实现了 `ControlValueAccessor`。",
+      "sourceFile": "src/common/search-box/search-box.component.ts",
+      "inputs": [
+        {
+          "name": "config",
+          "type": "any",
+          "default": "{}",
+          "description": "Config object applied via {@link Dui.apply}; can set `hasDefault`/`defaultGrp` to\nstart with the input expanded.",
+          "descriptionZh": "通过 {@link Dui.apply} 应用的配置对象；可设置 `hasDefault`/`defaultGrp` 使输入框初始为展开状态。"
+        },
+        {
+          "name": "backIcon",
+          "type": "any",
+          "default": "'search'",
+          "description": null,
+          "descriptionZh": "收起状态下显示的图标。"
+        },
+        {
+          "name": "searchIcon",
+          "type": "any",
+          "default": "'search'",
+          "description": null,
+          "descriptionZh": "搜索图标。"
+        },
+        {
+          "name": "clearIcon",
+          "type": "any",
+          "default": "'cancel'",
+          "description": null,
+          "descriptionZh": "清空按钮图标。"
+        },
+        {
+          "name": "showUnderline",
+          "type": "any",
+          "default": "false",
+          "description": null,
+          "descriptionZh": "是否显示下划线。"
+        },
+        {
+          "name": "debounce",
+          "type": "any",
+          "default": "400",
+          "description": "Debounce (ms) before `searchDebounce` fires after typing stops.",
+          "descriptionZh": "停止输入后，多久（毫秒）触发一次 `searchDebounce`。"
+        },
+        {
+          "name": "alwaysVisible",
+          "type": "any",
+          "default": "false",
+          "description": "Keeps the input expanded at all times instead of collapsing to just an icon.",
+          "descriptionZh": "输入框始终保持展开，而不是收起为一个图标。"
+        },
+        {
+          "name": "placeholder",
+          "type": "any",
+          "default": "''",
+          "description": null,
+          "descriptionZh": "输入框占位提示文字。"
+        },
+        {
+          "name": "value",
+          "type": "unknown",
+          "description": null,
+          "descriptionZh": "输入框当前值（`ControlValueAccessor` 绑定值）。"
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "default": "false",
+          "description": null,
+          "descriptionZh": "是否禁用输入框。"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "searchDebounce",
+          "type": "string",
+          "description": null,
+          "descriptionZh": "停止输入 `debounce` 毫秒后发出当前输入值。"
+        },
+        {
+          "name": "onSearch",
+          "type": "string",
+          "description": null,
+          "descriptionZh": "触发搜索时（如按下回车）发出当前输入值。"
+        },
+        {
+          "name": "onClear",
+          "type": "void",
+          "description": null,
+          "descriptionZh": "输入框被清空时发出。"
+        },
+        {
+          "name": "blurSearch",
+          "type": "void",
+          "description": null,
+          "descriptionZh": "输入框失去焦点时发出。"
+        },
+        {
+          "name": "onUserDefined",
+          "type": "string",
+          "description": null,
+          "descriptionZh": "由 `config` 中的自定义回调触发时发出（用户自定义行为）。"
+        },
+        {
+          "name": "onSearching",
+          "type": "boolean",
+          "description": null,
+          "descriptionZh": "搜索框展开/收起状态切换时发出。"
+        }
+      ],
+      "methods": [
+        {
+          "name": "init",
+          "params": [
+            {
+              "name": "config",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": "Applies the given config's properties onto this component, expanding the input by\ndefault if `hasDefault` or a non-empty `defaultGrp` is set.",
+          "descriptionZh": "将给定配置的属性应用到本组件上，若设置了 `hasDefault` 或非空的 `defaultGrp`，\n则默认展开输入框。"
+        },
+        {
+          "name": "searchClicked",
+          "params": [],
+          "returnType": "void",
+          "description": "Handles a click on the search icon: clears and closes if already open, or focuses the\ninput if closed; then toggles visibility.",
+          "descriptionZh": "处理搜索图标的点击：若已展开则清空并收起，若已收起则聚焦输入框；随后切换展开状态。"
+        },
+        {
+          "name": "toggleVisibility",
+          "params": [],
+          "returnType": "void",
+          "description": "Toggles whether the search input is expanded/visible.",
+          "descriptionZh": "切换搜索输入框是否展开/可见。"
+        },
+        {
+          "name": "handleSearchDebounce",
+          "params": [
+            {
+              "name": "value",
+              "type": "any"
+            }
+          ],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": "内部使用，将防抖后的搜索值以 `searchDebounce` 转发出去。"
+        },
+        {
+          "name": "handleSearch",
+          "params": [
+            {
+              "name": "value",
+              "type": "any"
+            }
+          ],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": "内部使用，发出 `onSearch` 并调用 `config` 提供的 `search` 回调（如果有）。"
+        },
+        {
+          "name": "handleClear",
+          "params": [],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": "内部使用，发出 `onClear` 并调用 `config` 提供的 `clear` 回调（如果有）。"
+        },
+        {
+          "name": "handleBlur",
+          "params": [],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": "内部使用，将失焦事件以 `blurSearch` 转发出去。"
+        }
+      ],
+      "properties": [
+        {
+          "name": "searchVisible",
+          "type": "boolean",
+          "description": "Whether the search input is currently expanded/visible.",
+          "descriptionZh": "搜索输入框当前是否展开/可见。"
+        },
+        {
+          "name": "width",
+          "type": "any",
+          "description": "The host element's width (in pixels, unit appended automatically).",
+          "descriptionZh": "宿主元素的宽度（单位为像素，会自动追加单位）。"
+        },
+        {
+          "name": "width",
+          "type": "any",
+          "description": "The host element's width (in pixels, unit appended automatically).",
+          "descriptionZh": "宿主元素的宽度（单位为像素，会自动追加单位）。"
+        },
+        {
+          "name": "search",
+          "type": "Function",
+          "description": null,
+          "descriptionZh": "由 `config` 提供的自定义搜索回调函数（若设置，会在 `handleSearch` 中一并调用）。"
+        },
+        {
+          "name": "clear",
+          "type": "Function",
+          "description": null,
+          "descriptionZh": "由 `config` 提供的自定义清空回调函数（若设置，会在 `handleClear` 中一并调用）。"
+        }
+      ]
+    },
+    {
+      "name": "SearchBoxModule",
+      "kind": "module",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/common/search-box/search-box.module.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "entryComponents",
+          "type": "any",
+          "default": "[\n    SearchBoxComponent\n  ]",
+          "description": null,
+          "descriptionZh": null
+        }
+      ]
+    },
+    {
+      "name": "SearchInputBase",
+      "kind": "class",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/common/search-box/search-input/search-input.component.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "SearchInputComponent",
+      "kind": "component",
+      "selector": "search-input",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/common/search-box/search-input/search-input.component.ts",
+      "inputs": [
+        {
+          "name": "appearance",
+          "type": "MatFormFieldAppearance",
+          "default": "'outline'",
+          "description": null,
+          "descriptionZh": "Material 表单字段外观：`'outline'`、`'fill'` 等。"
+        },
+        {
+          "name": "showUnderline",
+          "type": "any",
+          "default": "false",
+          "description": null,
+          "descriptionZh": "是否显示下划线。"
+        },
+        {
+          "name": "debounce",
+          "type": "any",
+          "default": "400",
+          "description": null,
+          "descriptionZh": "停止输入后，多久（毫秒）触发一次 `searchDebounce`。"
+        },
+        {
+          "name": "placeholder",
+          "type": "any",
+          "default": "''",
+          "description": null,
+          "descriptionZh": "输入框占位提示文字。"
+        },
+        {
+          "name": "clearIcon",
+          "type": "any",
+          "default": "'cancel'",
+          "description": null,
+          "descriptionZh": "清空按钮图标。"
+        },
+        {
+          "name": "value",
+          "type": "unknown",
+          "description": null,
+          "descriptionZh": "输入框当前值（`ControlValueAccessor` 绑定值）。"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "searchDebounce",
+          "type": "string",
+          "description": null,
+          "descriptionZh": "停止输入 `debounce` 毫秒后发出当前输入值。"
+        },
+        {
+          "name": "onSearch",
+          "type": "string",
+          "description": null,
+          "descriptionZh": "触发搜索时（如按下回车）发出当前输入值。"
+        },
+        {
+          "name": "onClear",
+          "type": "void",
+          "description": null,
+          "descriptionZh": "输入框被清空时发出。"
+        },
+        {
+          "name": "blurSearch",
+          "type": "void",
+          "description": null,
+          "descriptionZh": "输入框失去焦点时发出。"
+        }
+      ],
+      "methods": [
+        {
+          "name": "focus",
+          "params": [],
+          "returnType": "void",
+          "description": "Focuses the underlying `<input>` element.",
+          "descriptionZh": "聚焦底层的 `<input>` 元素。"
+        },
+        {
+          "name": "handleBlur",
+          "params": [],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": "内部使用，将失焦事件以 `blurSearch` 转发出去。"
+        },
+        {
+          "name": "handleSearch",
+          "params": [
+            {
+              "name": "event",
+              "type": "Event"
+            }
+          ],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": "内部使用，处理原生 `search` 事件，携带当前值发出 `onSearch`。"
+        },
+        {
+          "name": "clearSearch",
+          "params": [],
+          "returnType": "void",
+          "description": "Clears the input's value and emits `onClear`.",
+          "descriptionZh": "清空输入框的值并发出 `onClear`。"
+        }
+      ],
+      "properties": [
+        {
+          "name": "isRTL",
+          "type": "boolean",
+          "description": "Whether the current bidi direction is right-to-left.",
+          "descriptionZh": "当前双向文字方向是否为从右到左。"
+        }
+      ]
+    }
+  ],
+  "suggestedUsageSnippet": "import { SearchBoxComponent, SearchBoxModule } from '@dotos/dui/common/search-box';\n\n<search-box [config]=\"...\" [backIcon]=\"...\" [searchIcon]=\"...\" (searchDebounce)=\"...\" (onSearch)=\"...\"></search-box>"
+}

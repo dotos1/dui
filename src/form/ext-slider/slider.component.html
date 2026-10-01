@@ -1,0 +1,18 @@
+
+  <!-- TODO: The 'tickInterval' property no longer exists -->
+  <!-- TODO: The 'invert' property no longer exists -->
+  <!-- TODO: The 'vertical' property no longer exists -->
+   
+  <mat-slider  #slider
+              [min]="field.min"
+              [max]="field.max"
+              [id]="id"
+              [discrete]="field.thumbLabel"
+              [step]="field.step"
+              [tabindex]="field.tabindex || 0"
+              [color]="field.color"
+              fxFlex>
+      <input matSliderThumb [formControl]="formControl" [formAttributes]="field"/>
+  </mat-slider>
+
+  <input type="hidden"  class="mdc-text-field__input" [value]="true"/>

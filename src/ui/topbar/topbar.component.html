@@ -1,0 +1,5 @@
+<mat-toolbar [color]="color">
+    <span *ngIf="title">{{ title }}</span>
+    <ng-content select="dui-topbar-title"></ng-content>
+    <ng-content></ng-content>
+</mat-toolbar>

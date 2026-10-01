@@ -1,0 +1,4 @@
+<div class="Editor__MenuItem--IconContainer" [class.Editor__MenuItem--Active]="isActive"
+  [class.Editor--Disabled]="disabled" [innerHTML]="html | sanitizeHtml" (mousedown)="toggle($event)"
+  [title]="getTitle(name)">
+</div>

@@ -1,0 +1,13 @@
+# 目标浏览器矩阵：Chrome、Edge。与主应用 ts/dotos/.browserslistrc 保持一致。
+#
+# 下限 118 解锁了 CSS 逻辑属性的完整集合：
+#   margin/padding/border-inline-*   Chrome 69
+#   inset-inline-*                   Chrome 87
+#   float: inline-start | inline-end Chrome 118
+# RTL 的方向属性改写依赖于此，各库若各自设定不同下限，逻辑属性的可用范围
+# 就会因库而异，翻转结果不一致。
+#
+# 此前本仓库没有该文件，继承 browserslist 默认值（远宽于 Chrome 118），
+# 于是 autoprefixer 为早已不支持的浏览器生成前缀。
+Chrome >= 118
+Edge >= 118

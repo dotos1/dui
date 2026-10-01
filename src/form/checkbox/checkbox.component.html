@@ -1,0 +1,14 @@
+  <mat-checkbox
+    [formControl]="formControl"
+    [id]="id"
+    [name]="name"
+    [checked]="field.checked"
+    [formAttributes]="field"
+    [tabindex]="field.tabindex || 0"
+    (change)="change($event)"
+    [indeterminate]="field.indeterminate && formControl.value === null"
+    [color]="field.color"
+    [labelPosition]="field.align || field.labelPosition">
+    {{ field.label|translate }}
+    </mat-checkbox>
+

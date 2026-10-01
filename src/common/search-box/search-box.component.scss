@@ -1,0 +1,27 @@
+:host {
+  display: block;
+}
+
+.search-box {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  max-width: 100%;
+  justify-content: flex-end;
+  .search-icon {
+    margin-top: 4px;
+  }
+
+  search-input {
+    margin-left: 4px;
+    margin-right: 4px;
+  }
+}
+.mat-toolbar
+  :host
+  ::ng-deep
+  .mdc-text-field:not(.mdc-text-field--disabled)
+  .mdc-text-field__input {
+  color: #ffffff;
+}

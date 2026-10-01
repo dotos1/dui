@@ -1,0 +1,49 @@
+:host ::ng-deep colorpicker-button {
+  &:hover {
+    cursor: pointer;
+  }
+  &:focus {
+    cursor: pointer;
+  }
+}
+
+:host ::ng-deep   .mat-mdc-button-base{
+    padding-left: 8px;
+    padding-right: 8px; 
+    height: 40px;
+    width: 56px;
+    display:flex;
+    margin: auto;
+    flex-direction:row
+}
+
+:host ::ng-deep .mat-menu-panel {
+  overflow: hidden;
+}
+:host ::ng-deep .mdc-icon-button .dui-icon .mat-icon{
+  border-bottom-style: solid;
+  border-bottom-width: 3px;
+  padding-bottom: 1px;
+}
+:host ::ng-deep  .mat-menu-item .dui-icon .mat-icon{
+  border-bottom-style: solid;
+  border-bottom-width: 3px;
+  padding-bottom: 1px;
+}
+:host ::ng-deep .mat-mdc-icon-button .mat-mdc-button-persistent-ripple{
+      height: 40px;
+    width: 40px;
+}
+
+:host ::ng-deep .mat-mdc-icon-button .mat-mdc-button-persistent-ripple{
+    height: 40px;
+    width: 40px;
+}
+:host ::ng-deep .mat-mdc-icon-button .mat-mdc-focus-indicator{
+    height: 40px;
+    width: 40px;
+}
+:host ::ng-deep .mat-mdc-icon-button .mat-mdc-button-ripple{
+    height: 40px;
+    width: 40px;
+}

@@ -1,0 +1,21 @@
+<mat-form-field [hideRequiredMarker]="true" [floatLabel]="field.floatLabel || 'auto'"  [ngClass]="field.classFormField" 
+  [color]="color" [style.width]="'100%'"  [appearance]="themeService.formType|async"   [subscriptSizing]="field.subscriptSizing">
+
+  <ng-container #fieldComponent></ng-container>
+  <mat-label [id]="field.name" *ngIf="field.label && field.hideLabel !== true"  [ngStyle]="paddingStyle">
+    {{ field.label|translate }}
+    <span *ngIf="field.required && field.hideRequiredMarker !== true" class="mat-mdc-form-field-required-marker">*</span>
+  </mat-label>
+
+  <ng-container matPrefix>
+    <ng-container *ngTemplateOutlet="field.prefix ? field.prefix : fieldConfig._matPrefix"></ng-container>
+  </ng-container>
+
+  <ng-container matSuffix>
+    <ng-container *ngTemplateOutlet="field.suffix ? field.suffix : fieldConfig._matSuffix"></ng-container>
+  </ng-container>
+  <mat-error *ngIf="field.hideError!==true" [id]="null">
+    <validation-message [field]="field"></validation-message>
+  </mat-error>
+  <mat-hint *ngIf="field.description" [id]="null">{{ field.description |translate}}</mat-hint>
+</mat-form-field>

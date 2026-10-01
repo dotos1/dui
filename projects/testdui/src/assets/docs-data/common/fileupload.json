@@ -1,0 +1,1051 @@
+{
+  "importPath": "@dotos/dui/common/fileupload",
+  "exports": [
+    {
+      "name": "_FileDropMixinBase",
+      "kind": "constant",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/common/fileupload/file-drop.directive.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "createImageFromDataUrl",
+      "kind": "function",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/common/fileupload/utils.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "FileDropBase",
+      "kind": "class",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/common/fileupload/file-drop.directive.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "FileDropDirective",
+      "kind": "directive",
+      "selector": "[duiFileDrop]",
+      "summary": "Turns the host element into a file drop zone that queues dropped files into a\n{@link FileUploader} instance.",
+      "summaryZh": "将宿主元素变为文件放置区，拖入的文件会被加入到 {@link FileUploader} 实例的上传队列中。",
+      "sourceFile": "src/common/fileupload/file-drop.directive.ts",
+      "inputs": [
+        {
+          "name": "uploader",
+          "type": "FileUploader",
+          "description": "The uploader instance that dropped files are queued into.",
+          "descriptionZh": "拖入的文件会被加入到该上传器实例的队列中。"
+        },
+        {
+          "name": "multiple",
+          "type": "boolean",
+          "description": null,
+          "descriptionZh": "是否允许一次放置多个文件。"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "fileOver",
+          "type": "any",
+          "description": null,
+          "descriptionZh": "有文件正拖拽悬停在放置区上方时发出（true/false）。"
+        },
+        {
+          "name": "onFileDrop",
+          "type": "File[]",
+          "description": null,
+          "descriptionZh": "文件被放置后发出，携带放下的文件列表。"
+        }
+      ],
+      "methods": [
+        {
+          "name": "getOptions",
+          "params": [],
+          "returnType": "FileUploaderOptions",
+          "description": "Returns the uploader's current options, used when queuing dropped files.",
+          "descriptionZh": "返回上传器当前的选项，用于加入放置的文件时使用。"
+        },
+        {
+          "name": "getFilters",
+          "params": [],
+          "returnType": "any",
+          "description": "Returns the filter functions applied when queuing dropped files (none by default).",
+          "descriptionZh": "返回加入放置的文件时应用的过滤函数（默认为空）。"
+        },
+        {
+          "name": "onDrop",
+          "params": [
+            {
+              "name": "event",
+              "type": "any"
+            }
+          ],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": "内部使用，处理原生 `drop` 事件：将放置的文件加入 `uploader` 队列。"
+        },
+        {
+          "name": "onDragEnter",
+          "params": [
+            {
+              "name": "event",
+              "type": "Event"
+            }
+          ],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": "内部使用，处理原生 `dragenter` 事件：添加 `drop-zone` CSS 类。"
+        },
+        {
+          "name": "onDragOver",
+          "params": [
+            {
+              "name": "event",
+              "type": "any"
+            }
+          ],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": "内部使用，处理原生 `dragover` 事件：根据是否存在文件设置放置效果，\n并在允许时发出 `fileOver(true)`。"
+        },
+        {
+          "name": "onDragLeave",
+          "params": [
+            {
+              "name": "event",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": "内部使用，处理原生 `dragleave` 事件：移除 `drop-zone` CSS 类并发出 `fileOver(false)`。"
+        }
+      ],
+      "properties": [
+        {
+          "name": "multipleBinding",
+          "type": "string",
+          "description": null,
+          "descriptionZh": "内部使用，绑定宿主的原生 `multiple` 属性。"
+        },
+        {
+          "name": "disabledBinding",
+          "type": "string",
+          "description": null,
+          "descriptionZh": "内部使用，绑定宿主的原生 `disabled` 属性。"
+        }
+      ]
+    },
+    {
+      "name": "FileItem",
+      "kind": "class",
+      "summary": "A single queued/uploading file within a {@link FileUploader}, tracking its own progress,\nstatus flags, and the underlying XHR.",
+      "summaryZh": "{@link FileUploader} 队列中的单个文件条目，跟踪自身的上传进度、状态标志及底层 XHR。",
+      "sourceFile": "src/common/fileupload/file-item.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "upload",
+          "params": [],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "cancel",
+          "params": [],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "remove",
+          "params": [],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "onBeforeUpload",
+          "params": [],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "onBuildForm",
+          "params": [
+            {
+              "name": "form",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "onProgress",
+          "params": [
+            {
+              "name": "progress",
+              "type": "number"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "onSuccess",
+          "params": [
+            {
+              "name": "response",
+              "type": "string"
+            },
+            {
+              "name": "status",
+              "type": "number"
+            },
+            {
+              "name": "headers",
+              "type": "ParsedResponseHeaders"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "onError",
+          "params": [
+            {
+              "name": "response",
+              "type": "string"
+            },
+            {
+              "name": "status",
+              "type": "number"
+            },
+            {
+              "name": "headers",
+              "type": "ParsedResponseHeaders"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "onCancel",
+          "params": [
+            {
+              "name": "response",
+              "type": "string"
+            },
+            {
+              "name": "status",
+              "type": "number"
+            },
+            {
+              "name": "headers",
+              "type": "ParsedResponseHeaders"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "onComplete",
+          "params": [
+            {
+              "name": "response",
+              "type": "string"
+            },
+            {
+              "name": "status",
+              "type": "number"
+            },
+            {
+              "name": "headers",
+              "type": "ParsedResponseHeaders"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "file",
+          "type": "FileLikeObject",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "alias",
+          "type": "string",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "url",
+          "type": "string",
+          "default": "'/'",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "method",
+          "type": "string",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "headers",
+          "type": "any",
+          "default": "[]",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "withCredentials",
+          "type": "boolean",
+          "default": "true",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "formData",
+          "type": "any",
+          "default": "[]",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "isReady",
+          "type": "boolean",
+          "default": "false",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "isUploading",
+          "type": "boolean",
+          "default": "false",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "isUploaded",
+          "type": "boolean",
+          "default": "false",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "isSuccess",
+          "type": "boolean",
+          "default": "false",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "isCancel",
+          "type": "boolean",
+          "default": "false",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "isError",
+          "type": "boolean",
+          "default": "false",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "progress",
+          "type": "number",
+          "default": "0",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "index",
+          "type": "number",
+          "default": "void 0",
+          "description": null,
+          "descriptionZh": null
+        }
+      ]
+    },
+    {
+      "name": "FileLikeObject",
+      "kind": "class",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/common/fileupload/file-like-object.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "lastModifiedDate",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "size",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "type",
+          "type": "string",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "rawFile",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        }
+      ]
+    },
+    {
+      "name": "FileSelectDirective",
+      "kind": "directive",
+      "selector": "[duiFileSelect]",
+      "summary": "Attach to a native `<input type=\"file\">` to queue selected files into a {@link FileUploader},\nwith optional client-side image resizing/processing via `imageSelected`.",
+      "summaryZh": "附加到原生 `<input type=\"file\">` 上，将选中的文件加入 {@link FileUploader} 队列，\n并通过 `imageSelected` 提供可选的客户端图片缩放/处理结果。",
+      "sourceFile": "src/common/fileupload/file-select.directive.ts",
+      "inputs": [
+        {
+          "name": "uploader",
+          "type": "FileUploader",
+          "description": "The uploader instance that selected files are queued into.",
+          "descriptionZh": "选中的文件会被加入到该上传器实例的队列中。"
+        },
+        {
+          "name": "multiple",
+          "type": "boolean",
+          "description": null,
+          "descriptionZh": "是否允许一次选择多个文件。"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "onFileSelected",
+          "type": "File[] | FileList | File",
+          "description": null,
+          "descriptionZh": "文件选择完成后发出。"
+        },
+        {
+          "name": "imageSelected",
+          "type": "any",
+          "description": "Emits per-selected-image results (data URL, optional resize, or error) once processed.",
+          "descriptionZh": "每张被选中的图片处理完成后发出结果（data URL、可选的缩放结果，或错误）。"
+        }
+      ],
+      "methods": [
+        {
+          "name": "readFiles",
+          "params": [
+            {
+              "name": "event",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": "内部使用，处理原生 `change` 事件：将选中的文件加入 `uploader` 队列，\n并发出 `onFileSelected`/`imageSelected` 结果。"
+        },
+        {
+          "name": "getOptions",
+          "params": [],
+          "returnType": "any",
+          "description": "Returns the uploader's current options, used when queuing selected files.",
+          "descriptionZh": "返回上传器当前的选项，用于加入选中的文件时使用。"
+        },
+        {
+          "name": "getFilters",
+          "params": [],
+          "returnType": "any",
+          "description": "Returns the filter functions applied when queuing selected files (none by default).",
+          "descriptionZh": "返回加入选中的文件时应用的过滤函数（默认为空）。"
+        },
+        {
+          "name": "isEmptyAfterSelection",
+          "params": [],
+          "returnType": "boolean",
+          "description": "Whether the native `<input>` value should be cleared after selection (when `multiple` is set).",
+          "descriptionZh": "选择完成后是否应清空原生 `<input>` 的值（当设置了 `multiple` 时）。"
+        }
+      ],
+      "properties": [
+        {
+          "name": "multipleBinding",
+          "type": "string",
+          "description": null,
+          "descriptionZh": "内部使用，绑定宿主的原生 `multiple` 属性。"
+        },
+        {
+          "name": "accept",
+          "type": "string",
+          "description": "The native `accept` attribute value, derived from the uploader's `allowedFileType` option.",
+          "descriptionZh": "原生 `accept` 属性值，根据上传器的 `allowedFileType` 选项推导得出。"
+        }
+      ]
+    },
+    {
+      "name": "FileUploader",
+      "kind": "class",
+      "summary": "Manages an upload queue of {@link FileItem}s: adding/filtering files, tracking overall\nprogress, and driving each item's XHR upload.",
+      "summaryZh": "管理上传队列中的 {@link FileItem}：添加/过滤文件、跟踪整体进度，\n并驱动每个条目的 XHR 上传。",
+      "sourceFile": "src/common/fileupload/file-uploader.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "setOptions",
+          "params": [
+            {
+              "name": "options",
+              "type": "FileUploaderOptions"
+            }
+          ],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "addToQueue",
+          "params": [
+            {
+              "name": "files",
+              "type": "File[]"
+            },
+            {
+              "name": "options",
+              "type": "FileUploaderOptions"
+            },
+            {
+              "name": "filters",
+              "type": "FilterFunction[] | string"
+            }
+          ],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "removeFromQueue",
+          "params": [
+            {
+              "name": "value",
+              "type": "FileItem"
+            }
+          ],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "clearQueue",
+          "params": [],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "uploadItem",
+          "params": [
+            {
+              "name": "value",
+              "type": "FileItem"
+            }
+          ],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "cancelItem",
+          "params": [
+            {
+              "name": "value",
+              "type": "FileItem"
+            }
+          ],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "uploadAll",
+          "params": [],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "cancelAll",
+          "params": [],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "isFile",
+          "params": [
+            {
+              "name": "value",
+              "type": "any"
+            }
+          ],
+          "returnType": "boolean",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "isFileLikeObject",
+          "params": [
+            {
+              "name": "value",
+              "type": "any"
+            }
+          ],
+          "returnType": "boolean",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "getIndexOfItem",
+          "params": [
+            {
+              "name": "value",
+              "type": "any"
+            }
+          ],
+          "returnType": "number",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "getNotUploadedItems",
+          "params": [],
+          "returnType": "any[]",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "getReadyItems",
+          "params": [],
+          "returnType": "any[]",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "destroy",
+          "params": [],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "onAfterAddingAll",
+          "params": [
+            {
+              "name": "fileItems",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "onBuildItemForm",
+          "params": [
+            {
+              "name": "fileItem",
+              "type": "FileItem"
+            },
+            {
+              "name": "form",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "onAfterAddingFile",
+          "params": [
+            {
+              "name": "fileItem",
+              "type": "FileItem"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "onWhenAddingFileFailed",
+          "params": [
+            {
+              "name": "item",
+              "type": "FileLikeObject"
+            },
+            {
+              "name": "filter",
+              "type": "any"
+            },
+            {
+              "name": "options",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "onBeforeUploadItem",
+          "params": [
+            {
+              "name": "fileItem",
+              "type": "FileItem"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "onProgressItem",
+          "params": [
+            {
+              "name": "fileItem",
+              "type": "FileItem"
+            },
+            {
+              "name": "progress",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "onProgressAll",
+          "params": [
+            {
+              "name": "progress",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "onSuccessItem",
+          "params": [
+            {
+              "name": "item",
+              "type": "FileItem"
+            },
+            {
+              "name": "response",
+              "type": "string"
+            },
+            {
+              "name": "status",
+              "type": "number"
+            },
+            {
+              "name": "headers",
+              "type": "ParsedResponseHeaders"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "onErrorItem",
+          "params": [
+            {
+              "name": "item",
+              "type": "FileItem"
+            },
+            {
+              "name": "response",
+              "type": "string"
+            },
+            {
+              "name": "status",
+              "type": "number"
+            },
+            {
+              "name": "headers",
+              "type": "ParsedResponseHeaders"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "onCancelItem",
+          "params": [
+            {
+              "name": "item",
+              "type": "FileItem"
+            },
+            {
+              "name": "response",
+              "type": "string"
+            },
+            {
+              "name": "status",
+              "type": "number"
+            },
+            {
+              "name": "headers",
+              "type": "ParsedResponseHeaders"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "onCompleteItem",
+          "params": [
+            {
+              "name": "item",
+              "type": "FileItem"
+            },
+            {
+              "name": "response",
+              "type": "string"
+            },
+            {
+              "name": "status",
+              "type": "number"
+            },
+            {
+              "name": "headers",
+              "type": "ParsedResponseHeaders"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "onCompleteAll",
+          "params": [],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "authToken",
+          "type": "string",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "isUploading",
+          "type": "boolean",
+          "default": "false",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "queue",
+          "type": "FileItem[]",
+          "default": "[]",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "progress",
+          "type": "number",
+          "default": "0",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "autoUpload",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "authTokenHeader",
+          "type": "string",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "uploaderResponse",
+          "type": "EventEmitter<any>",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "options",
+          "type": "FileUploaderOptions",
+          "default": "{\n    autoUpload: false,\n    isHTML5: true,\n    filters: [],\n    removeAfterUpload: false,\n    disableMultipart: false,\n    formatDataFunction: (item: FileItem) => item._file,\n    formatDataFunctionIsAsync: false\n  }",
+          "description": null,
+          "descriptionZh": null
+        }
+      ]
+    },
+    {
+      "name": "FileUploaderOptions",
+      "kind": "interface",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/common/fileupload/file-uploader.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "FileUploadModule",
+      "kind": "module",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/common/fileupload/file-upload.module.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "FilterFunction",
+      "kind": "type",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/common/fileupload/file-uploader.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "getImageTypeFromDataUrl",
+      "kind": "function",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/common/fileupload/utils.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "Headers",
+      "kind": "interface",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/common/fileupload/file-uploader.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "IMAGE_FILE_PROCESSOR",
+      "kind": "constant",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/common/fileupload/file-select.directive.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "ImageFileProcessor",
+      "kind": "interface",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/common/fileupload/file-uploader.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "ImageResult",
+      "kind": "interface",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/common/fileupload/file-uploader.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "ParsedResponseHeaders",
+      "kind": "type",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/common/fileupload/file-uploader.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "ResizeOptions",
+      "kind": "interface",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/common/fileupload/file-uploader.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    }
+  ],
+  "suggestedUsageSnippet": "import { FileUploadModule } from '@dotos/dui/common/fileupload';"
+}

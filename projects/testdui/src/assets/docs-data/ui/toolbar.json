@@ -1,0 +1,513 @@
+{
+  "importPath": "@dotos/dui/ui/toolbar",
+  "exports": [
+    {
+      "name": "DuiToolbarComponent",
+      "kind": "component",
+      "selector": "dui-toolbar",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/ui/toolbar/toolbar.component.ts",
+      "inputs": [
+        {
+          "name": "config",
+          "type": "any",
+          "default": "{}",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "height",
+          "type": "number",
+          "default": "40",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "onRightClick",
+          "params": [
+            {
+              "name": "event",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "refresh",
+          "params": [],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "init",
+          "params": [
+            {
+              "name": "config",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "getClassNames",
+          "params": [],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "lookupComponent",
+          "params": [
+            {
+              "name": "c",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "addSeparator",
+          "params": [],
+          "returnType": "MenuItem",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "addSpacer",
+          "params": [],
+          "returnType": "Spacer",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "addFill",
+          "params": [],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "addText",
+          "params": [
+            {
+              "name": "text",
+              "type": "string"
+            }
+          ],
+          "returnType": "MenuItem",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "addButton",
+          "params": [
+            {
+              "name": "config",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "addItem",
+          "params": [
+            {
+              "name": "item",
+              "type": "MenuItem"
+            }
+          ],
+          "returnType": "MenuItem",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "addField",
+          "params": [
+            {
+              "name": "field",
+              "type": "any"
+            }
+          ],
+          "returnType": "MenuItem",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "insertButton",
+          "params": [
+            {
+              "name": "index",
+              "type": "number"
+            },
+            {
+              "name": "item",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "constructButton",
+          "params": [
+            {
+              "name": "item",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "onAdd",
+          "params": [
+            {
+              "name": "c",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "onRemove",
+          "params": [
+            {
+              "name": "c",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "onDisable",
+          "params": [],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "onEnable",
+          "params": [],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "onButtonTriggerOver",
+          "params": [
+            {
+              "name": "btn",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "onButtonMenuShow",
+          "params": [
+            {
+              "name": "btn",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "onButtonMenuHide",
+          "params": [
+            {
+              "name": "btn",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "heightStyle",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "color",
+          "type": "any",
+          "default": "'primary'",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "style",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "vertical",
+          "type": "boolean",
+          "default": "false",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "viewContainer",
+          "type": "ViewContainerRef",
+          "description": null,
+          "descriptionZh": null
+        }
+      ]
+    },
+    {
+      "name": "DuiToolbarModule",
+      "kind": "module",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/ui/toolbar/toolbar.module.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "entryComponents",
+          "type": "any",
+          "default": "[\n      DuiToolbarComponent,\n    Separator,\n    Spacer,\n    Fill,\n    TextItem]",
+          "description": null,
+          "descriptionZh": null
+        }
+      ]
+    },
+    {
+      "name": "Fill",
+      "kind": "component",
+      "selector": "tbfill",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/ui/toolbar/toolbar.component.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "init",
+          "params": [
+            {
+              "name": "config",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "isFill",
+          "type": "any",
+          "default": "true",
+          "description": null,
+          "descriptionZh": null
+        }
+      ]
+    },
+    {
+      "name": "MenuItem",
+      "kind": "class",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/ui/toolbar/toolbar.component.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "init",
+          "params": [
+            {
+              "name": "config",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "focus",
+          "params": [],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "hideParent",
+          "type": "any",
+          "default": "true",
+          "description": null,
+          "descriptionZh": null
+        }
+      ]
+    },
+    {
+      "name": "Separator",
+      "kind": "component",
+      "selector": "divider",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/ui/toolbar/toolbar.component.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "init",
+          "params": [
+            {
+              "name": "config",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "el",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "vertical",
+          "type": "boolean",
+          "default": "true",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "style",
+          "type": "any",
+          "default": "{}",
+          "description": null,
+          "descriptionZh": null
+        }
+      ]
+    },
+    {
+      "name": "Spacer",
+      "kind": "component",
+      "selector": "tbspacer",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/ui/toolbar/toolbar.component.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "init",
+          "params": [
+            {
+              "name": "config",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "el",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "config",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        }
+      ]
+    },
+    {
+      "name": "TextItem",
+      "kind": "component",
+      "selector": "tbtext",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/ui/toolbar/toolbar.component.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "init",
+          "params": [
+            {
+              "name": "config",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "setText",
+          "params": [
+            {
+              "name": "t",
+              "type": "string"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "text",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "el",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        }
+      ]
+    }
+  ],
+  "suggestedUsageSnippet": "import { DuiToolbarComponent, DuiToolbarModule } from '@dotos/dui/ui/toolbar';\n\n<dui-toolbar [config]=\"...\" [height]=\"...\"></dui-toolbar>"
+}

@@ -1,0 +1,29 @@
+.dui-icon {
+  display: inline-flex;
+  vertical-align: middle;
+  padding-bottom:6px;
+  .disable{
+    :hover{
+      cursor: not-allowed;
+    }
+    :active{
+         pointer-events: none;
+     }
+  }
+}
+
+.dui-font-icon{
+  display: inline-flex;
+  vertical-align: top !important;
+  // margin:auto;
+  // padding-top: 3px;
+  .disable{
+    :hover{
+      cursor: not-allowed;
+    }
+    :active{
+         pointer-events: none;
+     }
+  }
+}
+

@@ -1,0 +1,21 @@
+<div class="category-page" *ngIf="category$ | async as category">
+  <h1 class="category-page__title">
+    <mat-icon class="category-page__title-icon">{{ categoryIcon(category.id) }}</mat-icon>
+    {{ category.id }}
+  </h1>
+  <p class="category-page__tagline">{{ categoryTagline(category.id) }}</p>
+
+  <dui-markdown *ngIf="markdown$ | async as markdown" [content]="markdown"></dui-markdown>
+
+  <h2 class="category-page__subheading" *ngIf="category.modules.length">模块列表</h2>
+  <div class="category-page__grid">
+    <mat-card class="category-page__card"
+       *ngFor="let module of category.modules"
+       [routerLink]="['/components', category.id, module.id, 'overview']">
+      <mat-card-content>
+        <div class="category-page__card-id">{{ module.importPath }}</div>
+        <span class="category-page__card-badge" *ngIf="module.isFlagship">含可交互示例</span>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

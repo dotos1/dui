@@ -1,0 +1,27 @@
+.key {
+  border-radius: 4px;
+  padding: 5px 12px;
+  margin-right: 5px;
+}
+
+.key__container {
+  display: inline-block;
+}
+
+.separator {
+  margin-right: 5px;
+}
+
+.keys {
+  float: right;
+}
+
+.item {
+  padding: 12px;
+  width: 100% !important;
+}
+
+.description {
+  min-width: 168px;
+  display: inline-block;
+}

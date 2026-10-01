@@ -1,0 +1,159 @@
+import {
+  ChangeDetectionStrategy,  Component,  EventEmitter,  Input,  Output,
+} from '@angular/core';
+import { isValidHex, RGBA } from '@dotos/dui/common/colorpicker/common';
+
+@Component({
+  selector: 'color-compact-fields',
+  template: `
+  <div class="compact-fields">
+    <div class="compact-active" [style.background]="hex"></div>
+    <div style="flex: 6 1 0%;">
+      <color-editable-input
+        [style]="{ wrap: HEXWrap, input: HEXinput, label: HEXlabel }"
+        label="hex"
+        [value]="hex"
+        (onChange)="handleChange($event)"
+      ></color-editable-input>
+    </div>
+    <div style="flex: 3 1 0%">
+      <color-editable-input
+        [style]="{ wrap: RGBwrap, input: RGBinput, label: RGBlabel }"
+        label="r"
+        [value]="rgb.r"
+        (onChange)="handleChange($event)"
+      ></color-editable-input>
+    </div>
+    <div style="flex: 3 1 0%">
+      <color-editable-input
+        [style]="{ wrap: RGBwrap, input: RGBinput, label: RGBlabel }"
+        label="g"
+        [value]="rgb.g"
+        (onChange)="handleChange($event)"
+      ></color-editable-input>
+    </div>
+    <div style="flex: 3 1 0%">
+      <color-editable-input
+        [style]="{ wrap: RGBwrap, input: RGBinput, label: RGBlabel }"
+        label="b"
+        [value]="rgb.b"
+        (onChange)="handleChange($event)"
+      ></color-editable-input>
+    </div>
+  </div>
+  `,
+  styles: [
+    `
+  .compact-fields {
+    display: flex;
+    padding-bottom: 6px;
+    padding-right: 5px;
+    position: relative;
+  }
+  .compact-active {
+    position: absolute;
+    top: 6px;
+    left: 5px;
+    height: 9px;
+    width: 9px;
+  }
+  `,
+  ],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  preserveWhitespaces: false,
+  host: { 'hostID': 'compact-fields-' + Math.random().toString(36).substring(2, 15) } 
+})
+/**
+ * Editable hex/rgb input fields used by {@link CompactComponent}.
+ * @zh {@link CompactComponent} 使用的十六进制/RGB 可编辑输入字段。
+ */
+export class CompactFieldsComponent {
+  /** @zh 当前颜色的十六进制表示。 */
+  @Input() hex: string;
+  /** @zh 当前颜色的 RGB 表示。 */
+  @Input() rgb: RGBA;
+  /** @zh 字段值变化时发出。 */
+  @Output() onChange = new EventEmitter<any>();
+
+
+  /** @zh 十六进制字段包裹层的内联样式。 */
+  HEXWrap: { [key: string]: string } = {
+    marginTop: '-3px',
+    marginBottom: '-3px',
+    // flex: '6 1 0%',
+    position: 'relative',
+  };
+  /** @zh 十六进制字段输入框的内联样式。 */
+  HEXinput: { [key: string]: string } = {
+    width: '80%',
+    padding: '0px',
+    paddingLeft: '20%',
+    border: 'none',
+    outline: 'none',
+    background: 'none',
+    fontSize: '12px',
+    color: '#333',
+    height: '16px',
+  };
+  /** @zh 十六进制字段标签的内联样式（默认隐藏）。 */
+  HEXlabel: { [key: string]: string } = {
+    display: 'none',
+  };
+  /** @zh RGB 字段包裹层的内联样式。 */
+  RGBwrap: { [key: string]: string } = {
+    marginTop: '-3px',
+    marginBottom: '-3px',
+    // flex: '3 1 0%',
+    position: 'relative',
+  };
+  /** @zh RGB 字段输入框的内联样式。 */
+  RGBinput: { [key: string]: string } = {
+    width: '80%',
+    padding: '0px',
+    paddingLeft: '30%',
+    border: 'none',
+    outline: 'none',
+    background: 'none',
+    fontSize: '12px',
+    color: '#333',
+    height: '16px',
+  };
+  /** @zh RGB 字段标签的内联样式。 */
+  RGBlabel: { [key: string]: string } = {
+    position: 'absolute',
+    top: '6px',
+    left: '0px',
+    'line-height': '16px',
+    'text-transform': 'uppercase',
+    fontSize: '12px',
+    color: '#999',
+  };
+
+  /**
+   * Normalizes and emits a field change (hex or individual RGB channel) as `onChange`.
+   * @zh 归一化字段变化（十六进制或单个 RGB 通道）并以 `onChange` 发出。
+   */
+  handleChange({ data, $event }) {
+    if (data.hex) {
+      if (isValidHex(data.hex)) {
+        this.onChange.emit({
+          data: {
+            hex: data.hex,
+            source: 'hex',
+          },
+          $event,
+        });
+      }
+    } else {
+      this.onChange.emit({
+        data: {
+          r: data.r || this.rgb.r,
+          g: data.g || this.rgb.g,
+          b: data.b || this.rgb.b,
+          source: 'rgb',
+        },
+        $event,
+      });
+    }
+  }
+}

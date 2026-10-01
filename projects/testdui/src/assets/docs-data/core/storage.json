@@ -1,0 +1,220 @@
+{
+  "importPath": "@dotos/dui/core/storage",
+  "exports": [
+    {
+      "name": "ILocalStorageEvent",
+      "kind": "interface",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/core/storage/local-storage-events.interface.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "ILocalStorageServiceConfig",
+      "kind": "interface",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/core/storage/local-storage.config.interface.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "INotifyOptions",
+      "kind": "interface",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/core/storage/notify-options.interface.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "LocalStorageModule",
+      "kind": "module",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/core/storage/local-storage.module.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "withConfig",
+          "params": [
+            {
+              "name": "userConfig",
+              "type": "ILocalStorageServiceConfig"
+            }
+          ],
+          "returnType": "ModuleWithProviders<LocalStorageModule>",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "LocalStorageService",
+      "kind": "service",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/core/storage/local-storage.service.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "add",
+          "params": [
+            {
+              "name": "key",
+              "type": "string"
+            },
+            {
+              "name": "value",
+              "type": "any"
+            }
+          ],
+          "returnType": "boolean",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "clearAll",
+          "params": [
+            {
+              "name": "regularExpression",
+              "type": "string"
+            }
+          ],
+          "returnType": "boolean",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "deriveKey",
+          "params": [
+            {
+              "name": "key",
+              "type": "string"
+            }
+          ],
+          "returnType": "string",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "has",
+          "params": [
+            {
+              "name": "key",
+              "type": "string"
+            }
+          ],
+          "returnType": "boolean",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "get",
+          "params": [
+            {
+              "name": "key",
+              "type": "string"
+            }
+          ],
+          "returnType": "T",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "getStorageType",
+          "params": [],
+          "returnType": "string",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "keys",
+          "params": [],
+          "returnType": "Array<string>",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "length",
+          "params": [],
+          "returnType": "number",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "remove",
+          "params": [
+            {
+              "name": "keys",
+              "type": "Array<string>"
+            }
+          ],
+          "returnType": "boolean",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "set",
+          "params": [
+            {
+              "name": "key",
+              "type": "string"
+            },
+            {
+              "name": "value",
+              "type": "any"
+            }
+          ],
+          "returnType": "boolean",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "isSupported",
+          "type": "boolean",
+          "default": "false",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "errors$",
+          "type": "Observable<string>",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "removeItems$",
+          "type": "Observable<ILocalStorageEvent>",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "setItems$",
+          "type": "Observable<ILocalStorageEvent>",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "warnings$",
+          "type": "Observable<string>",
+          "description": null,
+          "descriptionZh": null
+        }
+      ]
+    }
+  ],
+  "suggestedUsageSnippet": "import { LocalStorageModule } from '@dotos/dui/core/storage';"
+}

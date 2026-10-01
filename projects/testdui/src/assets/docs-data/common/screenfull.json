@@ -1,0 +1,56 @@
+{
+  "importPath": "@dotos/dui/common/screenfull",
+  "exports": [
+    {
+      "name": "ScreenfullService",
+      "kind": "service",
+      "summary": "Cross-browser wrapper around the Fullscreen API (with vendor-prefix fallbacks) to\nrequest/exit fullscreen on a given element.",
+      "summaryZh": "跨浏览器封装的全屏 API（含各厂商前缀兼容），用于对指定元素请求进入/退出全屏。",
+      "sourceFile": "src/common/screenfull/screenfull.service.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "toggle",
+          "params": [
+            {
+              "name": "elem",
+              "type": "HTMLElement"
+            }
+          ],
+          "returnType": "any",
+          "description": "Exits fullscreen if currently active, otherwise requests fullscreen on the given element.",
+          "descriptionZh": "若当前处于全屏则退出全屏，否则对指定元素请求进入全屏。"
+        },
+        {
+          "name": "request",
+          "params": [
+            {
+              "name": "element",
+              "type": "HTMLElement"
+            }
+          ],
+          "returnType": "any",
+          "description": "Requests fullscreen on the given element (or `document.documentElement` if omitted).",
+          "descriptionZh": "对指定元素请求进入全屏（未指定时默认为 `document.documentElement`）。"
+        }
+      ],
+      "properties": [
+        {
+          "name": "keyboardAllowed",
+          "type": "any",
+          "default": "typeof Element !== 'undefined' && 'ALLOW_KEYBOARD_INPUT' in Element",
+          "description": "Whether this browser's fullscreen API accepts a keyboard-input-allowed flag (Safari 5.1 workaround).",
+          "descriptionZh": "当前浏览器的全屏 API 是否接受\"允许键盘输入\"标志（用于兼容 Safari 5.1）。"
+        },
+        {
+          "name": "isFullscreen",
+          "type": "any",
+          "description": "Whether any element is currently displayed in fullscreen.",
+          "descriptionZh": "当前是否有元素正处于全屏状态。"
+        }
+      ]
+    }
+  ],
+  "suggestedUsageSnippet": "import { /* ... */ } from '@dotos/dui/common/screenfull';"
+}

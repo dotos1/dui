@@ -1,0 +1,5 @@
+{
+	"name": "ESRIDefaultMarker",
+	"range":[{"start":"21","end":"76"},{"start":"A1","end":"AC"},{"start":"AE","end":"DB"}],
+	"url" :"/assets/map/font/default/default-marker.woff2"
+}

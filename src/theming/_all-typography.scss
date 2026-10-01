@@ -1,0 +1,8 @@
+
+@import './typography/typography';
+
+@mixin dui-typography($config: null) {
+  @if $config==null {
+    $config: mat-typography-config();
+  }
+}

@@ -1,0 +1,9 @@
+<div class="dui-menubar" role="menubar" [ngClass]="menuClasses">
+	<ng-container *ngFor="let item of items">
+		<button mat-button  *ngIf="item.hidden!==true"  [disabled]="item.disabled"
+     [matMenuTriggerFor]="menu.childMenu"  (click)="click(item,this)" disableRipple role="menuitem">
+      {{ item.title| translate }}
+    </button>
+    <dui-menu-item #menu [children]="item.children" [dense]="dense"></dui-menu-item>
+	</ng-container>
+</div>

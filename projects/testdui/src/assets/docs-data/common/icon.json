@@ -1,0 +1,293 @@
+{
+  "importPath": "@dotos/dui/common/icon",
+  "exports": [
+    {
+      "name": "FontLoaderService",
+      "kind": "service",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/common/icon/font-loader.service.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "loadFonts",
+          "params": [
+            {
+              "name": "name",
+              "type": "string"
+            },
+            {
+              "name": "url",
+              "type": "string"
+            },
+            {
+              "name": "weight",
+              "type": "number"
+            }
+          ],
+          "returnType": "Promise<any>",
+          "description": "Loads a custom web font (via the `FontFace` API) by name/URL/weight, skipping if already loaded.",
+          "descriptionZh": "通过 `FontFace` API 按名称/URL/字重加载自定义 Web 字体，若已加载过则跳过。"
+        }
+      ],
+      "properties": [
+        {
+          "name": "fontSet",
+          "type": "Set<string>",
+          "default": "new Set<string>()",
+          "description": null,
+          "descriptionZh": "已加载过的字体名称集合，避免重复加载。"
+        }
+      ]
+    },
+    {
+      "name": "Icon",
+      "kind": "class",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/common/icon/icon.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "name",
+          "type": "string",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "filter",
+          "type": "string[]",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "aliases",
+          "type": "string[]",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "type",
+          "type": "IconType",
+          "description": null,
+          "descriptionZh": null
+        }
+      ]
+    },
+    {
+      "name": "IconComponent",
+      "kind": "component",
+      "selector": "dui-icon",
+      "summary": "Renders an icon from any of several sources based on a single prefixed `value` string:\nMaterial font icons (`FONT:name`), SVG icons (`SVG:name:url`), raw font classes (`font:class`),\nor a custom web-font glyph loaded on demand (`EXTRA:family:codepoint:url`).",
+      "summaryZh": "根据带前缀的 `value` 字符串，从多种来源渲染图标：Material 字体图标（`FONT:name`）、\nSVG 图标（`SVG:name:url`）、原始字体类名（`font:class`），或按需加载的自定义 Web 字体字形（`EXTRA:family:codepoint:url`）。",
+      "sourceFile": "src/common/icon/icon.component.ts",
+      "inputs": [
+        {
+          "name": "color",
+          "type": "ThemePalette|string",
+          "description": "Material theme color applied to the icon.",
+          "descriptionZh": "应用到图标上的 Material 主题色。"
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "description": "Whether the icon is rendered in a disabled (dimmed) state.",
+          "descriptionZh": "图标是否以禁用（变暗）状态渲染。"
+        },
+        {
+          "name": "iconStyle",
+          "type": "any",
+          "description": "Inline style object applied to the rendered `mat-icon` element.",
+          "descriptionZh": "应用到渲染出的 `mat-icon` 元素上的内联样式对象。"
+        },
+        {
+          "name": "value",
+          "type": "string",
+          "description": "The icon source, encoded as a prefixed string: `FONT:name`, `SVG:name:url`,\n`font:class`, or `EXTRA:family:codepoint:url`.",
+          "descriptionZh": "图标来源，编码为带前缀的字符串：`FONT:name`、`SVG:name:url`、`font:class` 或 `EXTRA:family:codepoint:url`。"
+        }
+      ],
+      "outputs": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "iconType",
+          "type": "any",
+          "default": "'FONT'",
+          "description": "The resolved icon source kind: `'FONT'`, `'SVG'`, `'font'`, or `'EXTRA'`, derived from `value`'s prefix.",
+          "descriptionZh": "解析出的图标来源类型：`'FONT'`、`'SVG'`、`'font'` 或 `'EXTRA'`，由 `value` 的前缀决定。"
+        },
+        {
+          "name": "hostClasses",
+          "type": "any",
+          "description": null,
+          "descriptionZh": "内部使用，根据图标类型绑定宿主 CSS 类名（`dui-icon` 或 `dui-font-icon`）。"
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "description": "Whether the icon is rendered in a disabled (dimmed) state.",
+          "descriptionZh": "图标是否以禁用（变暗）状态渲染。"
+        },
+        {
+          "name": "iconStyle",
+          "type": "any",
+          "description": "Inline style object applied to the rendered `mat-icon` element.",
+          "descriptionZh": "应用到渲染出的 `mat-icon` 元素上的内联样式对象。"
+        },
+        {
+          "name": "fontSet",
+          "type": "any",
+          "description": "The font-set prefix parsed from `value` (for `iconType === 'font'`).",
+          "descriptionZh": "从 `value` 中解析出的字体集前缀（当 `iconType === 'font'` 时使用）。"
+        },
+        {
+          "name": "value",
+          "type": "string",
+          "description": "The resolved icon name/id/glyph used for rendering (with source prefix stripped).",
+          "descriptionZh": "用于渲染的、已去除来源前缀的图标名称/ID/字形。"
+        },
+        {
+          "name": "fontStyle",
+          "type": "any",
+          "description": null,
+          "descriptionZh": "内部使用，`EXTRA` 类型图标的自定义字体样式（`font-family`）。"
+        }
+      ]
+    },
+    {
+      "name": "IconModule",
+      "kind": "module",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/common/icon/icon.module.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "IconPickerService",
+      "kind": "service",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/common/icon/icon-picker.service.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "getIcons",
+          "params": [
+            {
+              "name": "ipIconPack",
+              "type": "string"
+            }
+          ],
+          "returnType": "Icon[]",
+          "description": "Returns the built-in list of selectable icons (currently font-based icons).",
+          "descriptionZh": "返回内置的可选图标列表（当前为字体图标）。"
+        },
+        {
+          "name": "getSVGIcons",
+          "params": [
+            {
+              "name": "dir",
+              "type": "string"
+            },
+            {
+              "name": "iconpath",
+              "type": "string"
+            }
+          ],
+          "returnType": "Observable<any>",
+          "description": "Fetches the list of SVG icons available under the given server-side directory/path.",
+          "descriptionZh": "获取给定服务端目录/路径下可用的 SVG 图标列表。"
+        },
+        {
+          "name": "getCustomIcons",
+          "params": [
+            {
+              "name": "dir",
+              "type": "string"
+            },
+            {
+              "name": "iconpath",
+              "type": "string"
+            }
+          ],
+          "returnType": "Observable<any>",
+          "description": "Fetches the list of custom icons available under the given server-side directory/path.",
+          "descriptionZh": "获取给定服务端目录/路径下可用的自定义图标列表。"
+        },
+        {
+          "name": "getFontIcons",
+          "params": [
+            {
+              "name": "dir",
+              "type": "string"
+            },
+            {
+              "name": "fontpath",
+              "type": "string"
+            }
+          ],
+          "returnType": "Observable<any>",
+          "description": "Fetches the list of font icons available under the given server-side directory/path.",
+          "descriptionZh": "获取给定服务端目录/路径下可用的字体图标列表。"
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "IconType",
+      "kind": "enum",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/common/icon/icon.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "SVGIcon",
+      "kind": "class",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/common/icon/icon.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "name",
+          "type": "string",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "url",
+          "type": "string",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "style",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        }
+      ]
+    }
+  ],
+  "suggestedUsageSnippet": "import { IconComponent, IconModule } from '@dotos/dui/common/icon';\n\n<dui-icon [color]=\"...\" [disabled]=\"...\" [iconStyle]=\"...\"></dui-icon>"
+}

@@ -1,0 +1,37 @@
+{
+  "name": "@dotos/dui",
+  "version": "7.4.39",
+  "license": "UNLICENSED",
+  "description": "DUI components based on Angular",
+  "keywords": [
+    "angular",
+    "dui",
+    "frontend"
+  ],
+  "homepage": "https://www.dotos.com",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bizdict/dui"
+  },
+  "bugs": {
+    "url": "https://github.com/bizdict/dui/issues"
+  },
+  "scripts": {
+    "prebuild": "npm --no-git-tag-version version patch"
+  },
+  "dependencies": {
+    "tslib": "^2.3.1"
+  },
+  "peerDependencies": {
+    "@angular/animations": "18.2.13",
+    "@angular/common": "18.2.13",
+    "@angular/core": "18.2.13",
+    "@angular/forms": "18.2.13"
+  },
+  "exports": {
+    "./theming/styles/elevation": {
+      "sass": "./theming/styles/_elevation.scss"
+    }
+  },
+  "author": "北京商典信息科技有限公司 (Beijing Shangdian Information Technology Co., Ltd.)"
+}

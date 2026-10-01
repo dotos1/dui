@@ -1,0 +1,54 @@
+.dui-array-item-field{
+  display: block  !important;
+}
+
+.dui {
+  &-array-item-icon {
+    font-size: 16px;
+    padding-top: 2px;
+  }
+
+  &-card-array-item-default {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    display: block;
+  }
+
+  &-array-item-more-chip-container {
+    &.mat-mdc-card {
+      box-shadow: none;
+    }
+
+    &.mat-mdc-card {
+      max-height: 300px;
+      overflow-y: auto;
+    }
+
+    .mat-mdc-chip {
+      cursor: pointer;
+    }
+  }
+  &--property-field{
+    display: block;
+  }
+  &-property-value {
+    .mat-chip-list {
+      width: 100%;
+      padding-top: 6px;
+      cursor: pointer;
+    }
+
+    .mat-mdc-chip {
+      cursor: pointer;
+    }
+  }
+
+  &-card-view-array-item-container {
+    flex-direction: row;
+    box-sizing: border-box;
+    display: flex;
+    place-content: center space-between;
+    align-items: center;
+  }
+}

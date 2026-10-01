@@ -1,0 +1,560 @@
+{
+  "importPath": "@dotos/dui/core/crypt",
+  "exports": [
+    {
+      "name": "base64",
+      "kind": "class",
+      "summary": "The properties declared here are discussed in the above algorithm document.",
+      "summaryZh": null,
+      "sourceFile": "src/core/crypt/base64.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "encodeByteArray",
+          "params": [
+            {
+              "name": "input",
+              "type": "number[] | Uint8Array"
+            },
+            {
+              "name": "opt_webSafe",
+              "type": "boolean"
+            }
+          ],
+          "returnType": "string",
+          "description": "Base64-encode an array of bytes.\n\nparam input An array of bytes (numbers with\n    value in [0, 255]) to encode.\nparam opt_webSafe True indicates we should use the alternative\n    alphabet, which does not require escaping for use in URLs.\nreturnThe base64 encoded string.",
+          "descriptionZh": null
+        },
+        {
+          "name": "encodeString",
+          "params": [
+            {
+              "name": "input",
+              "type": "string"
+            },
+            {
+              "name": "opt_webSafe",
+              "type": "boolean"
+            }
+          ],
+          "returnType": "string",
+          "description": "Base64-encode a string.\n\nparam input A string to encode.\nparam opt_webSafe True indicates we should use the alternative\n    alphabet, which does not require escaping for use in URLs.\nreturnThe base64 encoded string.",
+          "descriptionZh": null
+        },
+        {
+          "name": "decodeString",
+          "params": [
+            {
+              "name": "input",
+              "type": "string"
+            },
+            {
+              "name": "opt_webSafe",
+              "type": "boolean"
+            }
+          ],
+          "returnType": "string",
+          "description": "Base64-decode a string.\n\nparam input Input to decode. Any whitespace is ignored, and the\n    input maybe encoded with either supported alphabet (or a mix thereof).\nparam opt_webSafe True indicates we should use the alternative\n    alphabet, which does not require escaping for use in URLs. Note that\n    passing false may also still allow webSafe input decoding, when the\n    fallback decoder is used on browsers without native support.\nreturnstring representing the decoded value.",
+          "descriptionZh": null
+        },
+        {
+          "name": "decodeStringToByteArray",
+          "params": [
+            {
+              "name": "input",
+              "type": "string"
+            }
+          ],
+          "returnType": "number[]",
+          "description": "Base64-decode a string to an Array of numbers.\n\nIn base-64 decoding, groups of four characters are converted into three\nbytes.  If the encoder did not apply padding, the input length may not\nbe a multiple of 4.\n\nIn this case, the last group will have fewer than 4 characters, and\npadding will be inferred.  If the group has one or two characters, it decodes\nto one byte.  If the group has three characters, it decodes to two bytes.\n\nparam input Input to decode. Any whitespace is ignored, and the\n    input maybe encoded with either supported alphabet (or a mix thereof).\nparam opt_ignored Unused parameter, retained for compatibility.\nreturnbytes representing the decoded value.",
+          "descriptionZh": null
+        },
+        {
+          "name": "decodeStringToUint8Array",
+          "params": [
+            {
+              "name": "input",
+              "type": "string"
+            }
+          ],
+          "returnType": "Uint8Array",
+          "description": "Base64-decode a string to a Uint8Array.\n\nNote that Uint8Array is not supported on older browsers, e.g. IE < 10.",
+          "descriptionZh": null
+        },
+        {
+          "name": "decodeStringInternal_",
+          "params": [
+            {
+              "name": "input",
+              "type": "string"
+            },
+            {
+              "name": "pushByte",
+              "type": "(p1: number) => void"
+            }
+          ],
+          "returnType": "any",
+          "description": "param input Input to decode.\nparam pushByte result accumulator.",
+          "descriptionZh": null
+        },
+        {
+          "name": "init_",
+          "params": [],
+          "returnType": "any",
+          "description": "Lazy static initialization function. Called before\naccessing any of the static map variables.",
+          "descriptionZh": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "byteToCharMap_",
+          "type": "Object",
+          "default": "null",
+          "description": "Maps bytes to characters.",
+          "descriptionZh": null
+        },
+        {
+          "name": "charToByteMap_",
+          "type": "Object",
+          "default": "null",
+          "description": "Maps characters to bytes. Used for normal and websafe characters.",
+          "descriptionZh": null
+        },
+        {
+          "name": "byteToCharMapWebSafe_",
+          "type": "Object",
+          "default": "null",
+          "description": "Maps bytes to websafe characters.",
+          "descriptionZh": null
+        },
+        {
+          "name": "ENCODED_VALS_BASE",
+          "type": "string",
+          "default": "'ABCDEFGHIJKLMNOPQRSTUVWXYZ' + 'abcdefghijklmnopqrstuvwxyz' + '0123456789'",
+          "description": "Our default alphabet, shared between\nENCODED_VALS and ENCODED_VALS_WEBSAFE",
+          "descriptionZh": null
+        },
+        {
+          "name": "ENCODED_VALS",
+          "type": "string",
+          "default": "base64.ENCODED_VALS_BASE + '+/='",
+          "description": "Our default alphabet. Value 64 (=) is special; it means \"nothing.\"",
+          "descriptionZh": null
+        },
+        {
+          "name": "ENCODED_VALS_WEBSAFE",
+          "type": "string",
+          "default": "base64.ENCODED_VALS_BASE + '-_.'",
+          "description": "Our websafe alphabet.",
+          "descriptionZh": null
+        },
+        {
+          "name": "ASSUME_NATIVE_SUPPORT_",
+          "type": "boolean",
+          "default": "true",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "HAS_NATIVE_ENCODE_",
+          "type": "boolean",
+          "default": "base64.ASSUME_NATIVE_SUPPORT_ || typeof Dui['btoa'] === 'function'",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "HAS_NATIVE_DECODE_",
+          "type": "boolean",
+          "default": "base64.ASSUME_NATIVE_SUPPORT_ && typeof Dui['btoa'] === 'function'",
+          "description": "Does this browser have a working atob function?\nWe blacklist known-bad implementations:\n - IE (10+) added atob() but it does not tolerate whitespace on the input.",
+          "descriptionZh": null
+        }
+      ]
+    },
+    {
+      "name": "crypt",
+      "kind": "class",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/core/crypt/crypt.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "stringToByteArray",
+          "params": [
+            {
+              "name": "str",
+              "type": "string"
+            }
+          ],
+          "returnType": "number[]",
+          "description": "Turns a string into an array of bytes; a \"byte\" being a JS number in the\nrange 0-255. Multi-byte characters are written as little-endian.\nparam str String value to arrify.\nreturnArray of numbers corresponding to the\n    UCS character codes of each character in str.",
+          "descriptionZh": null
+        },
+        {
+          "name": "byteArrayToString",
+          "params": [
+            {
+              "name": "bytes",
+              "type": "number[]"
+            }
+          ],
+          "returnType": "string",
+          "description": "Turns an array of numbers into the string given by the concatenation of the\ncharacters to which the numbers correspond.\nparam bytes Array of numbers representing\n    characters.\nreturnStringification of the array.",
+          "descriptionZh": null
+        },
+        {
+          "name": "byteArrayToHex",
+          "params": [
+            {
+              "name": "array",
+              "type": "number[]"
+            }
+          ],
+          "returnType": "string",
+          "description": "Turns an array of numbers into the hex string given by the concatenation of\nthe hex values to which the numbers correspond.\nparam array Array of numbers representing\n    characters.\nreturnHex string.",
+          "descriptionZh": null
+        },
+        {
+          "name": "hexToByteArray",
+          "params": [
+            {
+              "name": "hexString",
+              "type": "string"
+            }
+          ],
+          "returnType": "number[]",
+          "description": "Converts a hex string into an integer array.\nparam hexString Hex string of 16-bit integers (two characters\n    per integer).\nreturnintegers for the given string.",
+          "descriptionZh": null
+        },
+        {
+          "name": "stringToUtf8ByteArray",
+          "params": [
+            {
+              "name": "str",
+              "type": "string"
+            }
+          ],
+          "returnType": "number[]",
+          "description": "Converts a JS string to a UTF-8 \"byte\" array.\nparam str 16-bit unicode string.\nreturnUTF-8 byte array.",
+          "descriptionZh": null
+        },
+        {
+          "name": "utf8ByteArrayToString",
+          "params": [
+            {
+              "name": "bytes",
+              "type": "Uint8Array | number[]"
+            }
+          ],
+          "returnType": "string",
+          "description": "Converts a UTF-8 byte array to JavaScript's 16-bit Unicode.\nparam bytes UTF-8 byte array.\nreturn16-bit Unicode string.",
+          "descriptionZh": null
+        },
+        {
+          "name": "xorByteArray",
+          "params": [
+            {
+              "name": "bytes1",
+              "type": "Uint8Array | Int8Array | number[]"
+            },
+            {
+              "name": "bytes2",
+              "type": "Uint8Array | Int8Array | number[]"
+            }
+          ],
+          "returnType": "number[]",
+          "description": "XOR two byte arrays.\nparam bytes1 Byte array 1.\nparam bytes2 Byte array 2.\nreturnResulting XOR of the two byte arrays.",
+          "descriptionZh": null
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "encrypt",
+      "kind": "service",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/core/crypt/md5.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "md5cycle",
+          "params": [
+            {
+              "name": "x",
+              "type": "any"
+            },
+            {
+              "name": "k",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "cmn",
+          "params": [
+            {
+              "name": "q",
+              "type": "any"
+            },
+            {
+              "name": "a",
+              "type": "any"
+            },
+            {
+              "name": "b",
+              "type": "any"
+            },
+            {
+              "name": "x",
+              "type": "any"
+            },
+            {
+              "name": "s",
+              "type": "any"
+            },
+            {
+              "name": "t",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "ff",
+          "params": [
+            {
+              "name": "a",
+              "type": "any"
+            },
+            {
+              "name": "b",
+              "type": "any"
+            },
+            {
+              "name": "c",
+              "type": "any"
+            },
+            {
+              "name": "d",
+              "type": "any"
+            },
+            {
+              "name": "x",
+              "type": "any"
+            },
+            {
+              "name": "s",
+              "type": "any"
+            },
+            {
+              "name": "t",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "gg",
+          "params": [
+            {
+              "name": "a",
+              "type": "any"
+            },
+            {
+              "name": "b",
+              "type": "any"
+            },
+            {
+              "name": "c",
+              "type": "any"
+            },
+            {
+              "name": "d",
+              "type": "any"
+            },
+            {
+              "name": "x",
+              "type": "any"
+            },
+            {
+              "name": "s",
+              "type": "any"
+            },
+            {
+              "name": "t",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "hh",
+          "params": [
+            {
+              "name": "a",
+              "type": "any"
+            },
+            {
+              "name": "b",
+              "type": "any"
+            },
+            {
+              "name": "c",
+              "type": "any"
+            },
+            {
+              "name": "d",
+              "type": "any"
+            },
+            {
+              "name": "x",
+              "type": "any"
+            },
+            {
+              "name": "s",
+              "type": "any"
+            },
+            {
+              "name": "t",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "ii",
+          "params": [
+            {
+              "name": "a",
+              "type": "any"
+            },
+            {
+              "name": "b",
+              "type": "any"
+            },
+            {
+              "name": "c",
+              "type": "any"
+            },
+            {
+              "name": "d",
+              "type": "any"
+            },
+            {
+              "name": "x",
+              "type": "any"
+            },
+            {
+              "name": "s",
+              "type": "any"
+            },
+            {
+              "name": "t",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "md51",
+          "params": [
+            {
+              "name": "s",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "md5blk",
+          "params": [
+            {
+              "name": "s",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "rhex",
+          "params": [
+            {
+              "name": "n",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "hex",
+          "params": [
+            {
+              "name": "x",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "md5",
+          "params": [
+            {
+              "name": "s",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "add32",
+          "type": "any",
+          "default": "function (a, b) {\n    return (a + b) & 0xFFFFFFFF;\n  }",
+          "description": null,
+          "descriptionZh": null
+        }
+      ]
+    },
+    {
+      "name": "Hash",
+      "kind": "interface",
+      "summary": "Create a cryptographic hash instance.",
+      "summaryZh": null,
+      "sourceFile": "src/core/crypt/hash.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    }
+  ],
+  "suggestedUsageSnippet": "import { /* ... */ } from '@dotos/dui/core/crypt';"
+}

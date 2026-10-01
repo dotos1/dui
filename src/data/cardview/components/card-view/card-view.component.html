@@ -1,0 +1,14 @@
+<div class="dui-property-list">
+        <div *ngFor="let property of properties" [attr.data-automation-id]="'header-'+property.key" class="dui-property">
+            <dui-card-view-item-dispatcher
+                [property]="property"
+                [editable]="editable"
+                [displayEmpty]="displayEmpty"
+                [displayNoneOption]="displayNoneOption"
+                [displayClearAction]="displayClearAction"
+                [copyToClipboardAction]="copyToClipboardAction"
+                [useChipsForMultiValueProperty]="useChipsForMultiValueProperty"
+                [multiValueSeparator]="multiValueSeparator">
+            </dui-card-view-item-dispatcher>
+        </div>
+</div>

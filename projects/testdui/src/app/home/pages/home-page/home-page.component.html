@@ -1,0 +1,90 @@
+<div class="home-page">
+  <section class="home-hero">
+    <div class="home-hero__brand">
+      <svg class="home-hero__logo" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+        <defs>
+          <linearGradient id="duiLogoGradHero" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#2196f3"/>
+            <stop offset="100%" stop-color="#5c6bc0"/>
+          </linearGradient>
+        </defs>
+        <rect x="1" y="1" width="38" height="38" rx="11" fill="url(#duiLogoGradHero)"/>
+        <path d="M10,9 H18 C25,9 29,13.8 29,20 C29,26.2 25,31 18,31 H10 Z" fill="#fff"/>
+        <rect x="25.5" y="24.5" width="12" height="12" rx="3.5" fill="url(#duiLogoGradHero)"/>
+        <rect x="27" y="26" width="9" height="9" rx="2.5" fill="#ff9800"/>
+      </svg>
+      <h1 class="home-hero__title">{{ 'HOME.BRAND' | translate }}</h1>
+    </div>
+    <p class="home-hero__subtitle">{{ 'HOME.TAGLINE' | translate }}</p>
+    <p class="home-hero__lead">{{ 'HOME.LEAD' | translate }}</p>
+    <div class="home-hero__actions">
+      <a mat-raised-button color="accent" routerLink="/tutorial">{{ 'HOME.CTA_START' | translate }}</a>
+      <a mat-stroked-button routerLink="/components">{{ 'HOME.CTA_BROWSE' | translate }}</a>
+      <a mat-stroked-button href="https://github.com/dotos-ts/dui" target="_blank" rel="noopener">GitHub</a>
+    </div>
+
+    <div class="home-hero__stats">
+      <div class="home-hero__stat" *ngFor="let stat of stats">
+        <div class="home-hero__stat-value">{{ stat.value }}</div>
+        <div class="home-hero__stat-label">{{ stat.labelKey | translate }}</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="home-section">
+    <h2 class="home-section__heading">{{ 'HOME.ECOSYSTEM_TITLE' | translate }}</h2>
+    <p class="home-section__lead">{{ 'HOME.ECOSYSTEM_LEAD' | translate }}</p>
+    <div class="home-ecosystem">
+      <mat-card class="home-ecosystem__card" *ngFor="let item of ecosystem" [class.home-ecosystem__card--highlight]="item.highlight">
+        <mat-card-header>
+          <mat-icon mat-card-avatar>{{ item.icon }}</mat-icon>
+          <mat-card-title>{{ item.titleKey | translate }}</mat-card-title>
+          <mat-card-subtitle>{{ item.subtitleKey | translate }}</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <p>{{ item.descKey | translate }}</p>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </section>
+
+  <section class="home-section">
+    <mat-tab-group class="home-tabs" animationDuration="150ms">
+      <mat-tab [label]="'HOME.FEATURES_TAB' | translate">
+        <div class="home-grid">
+          <mat-card class="home-grid__card" *ngFor="let item of features">
+            <mat-card-header>
+              <mat-icon mat-card-avatar>{{ item.icon }}</mat-icon>
+              <mat-card-title>{{ item.titleKey | translate }}</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+              <p>{{ item.descKey | translate }}</p>
+            </mat-card-content>
+          </mat-card>
+        </div>
+      </mat-tab>
+      <mat-tab [label]="'HOME.REASONS_TAB' | translate">
+        <div class="home-grid">
+          <mat-card class="home-grid__card" *ngFor="let item of reasons">
+            <mat-card-header>
+              <mat-icon mat-card-avatar>{{ item.icon }}</mat-icon>
+              <mat-card-title>{{ item.titleKey | translate }}</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+              <p>{{ item.descKey | translate }}</p>
+            </mat-card-content>
+          </mat-card>
+        </div>
+      </mat-tab>
+    </mat-tab-group>
+  </section>
+
+  <section class="home-section">
+    <h2 class="home-section__heading">{{ 'HOME.QUICKSTART_TITLE' | translate }}</h2>
+    <dui-highlight [content]="quickStartSnippet" [codeLang]="'typescript'" [copyCodeToClipboard]="true"></dui-highlight>
+    <a mat-button color="primary" routerLink="/tutorial" class="home-section__link">
+      {{ 'HOME.QUICKSTART_LINK' | translate }}
+      <mat-icon class="mat-icon-rtl-mirror">arrow_forward</mat-icon>
+    </a>
+  </section>
+</div>

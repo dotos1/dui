@@ -1,0 +1,125 @@
+tree-root {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  flex: 1; 
+}
+tree-viewport {
+  height: 100%;
+  width: 100%;
+  display: block;
+  font-family: Roboto, sans-serif;
+  font-size: 14px;
+  font-weight: inherit;
+  overflow-y: auto;
+}
+.angular-tree-component {
+  min-height: 100%;
+  height: auto !important;
+  width: 100%;
+  position:relative;
+  cursor: pointer;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+tree-root .angular-tree-component-rtl {
+  direction: rtl;
+}
+tree-root .angular-tree-component-rtl .toggle-children-wrapper-collapsed .toggle-children {
+  transform: rotate(180deg) !important;
+}
+tree-root .angular-tree-component-rtl .tree-children {
+  padding-right: 20px;
+  padding-left: 0;
+}
+.tree-node {
+    border: 10px;
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+    outline: none;
+    transform: translateZ(0px);
+    line-height: 16px;
+    position: relative;
+    transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
+    overflow: hidden;
+    background: none;
+}
+.node-wrapper {
+  height: 40px; 
+  display: flex;
+  align-items: flex-start;
+  position: relative;
+}
+
+.tree-children.tree-children-no-padding {
+  padding-left: 0
+ }
+.tree-children {
+  padding-left: 20px; overflow: hidden
+ }
+ .toggle-children-wrapper {
+   height: 40px;
+   width: 24px;
+   position: relative;
+ }
+ .toggle-children {
+   height: 40px;
+   width: 24px;
+   display: inline-block;
+   position: relative;
+   top: 1px;
+ }
+ .toggle-children-placeholder {
+   display: inline-block;
+   height: 40px;
+   width: 24px;
+   position: relative;
+   top: 1px;
+   padding-right: 25px;
+ }
+
+.node-drop-slot {
+   display: block; height: 2px
+ }
+.node-drop-slot.is-dragging-over {
+   height: 40px;
+}
+.node-content-wrapper {
+  display: inline-flex;
+  vertical-align: middle;
+  align-items: center
+}
+.node-content-wrapper.is-dragging-over-disabled {
+  opacity: 0.5
+}
+.node-content{
+  display: inline-flex;
+  vertical-align: middle;
+  align-items: center
+}
+.node-content-title{
+  padding-left: 10px
+}
+.empty-tree-drop-slot .node-drop-slot {
+  height: 40px;
+  min-width: 100px
+}
+tree-node-checkbox {
+  padding: 5px;
+}
+
+:host ::ng-deep .mat-mdc-form-field-infix{
+  padding-top: 4px !important;
+  padding-bottom: 2px !important;
+  min-height: 24px;
+}
+
+::ng-deep .mat-mdc-form-field-subscript-wrapper {
+  height: 0  !important;
+}

@@ -1,0 +1,53 @@
+:host .mat-list .mdc-list-item.mat-list-avatar {
+  height: auto;
+  padding: 0;
+}
+
+mat-list-item {
+  .mdc-list-item__content{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+  }
+  overflow: hidden;
+}
+
+mat-icon[mat-list-avatar][duiCollapse] {
+  &:hover {
+    cursor: pointer;
+  }
+
+  &.dui-chevron {
+    width: auto !important;
+    height: auto;
+    transform: rotateZ(0deg);
+    transition: 300ms ease-in-out;
+
+    &.collapsed {
+      transform: rotateZ(180deg);
+      transition: 300ms ease-in-out;
+    }
+  }
+}
+
+.dui-collapsed {
+  display: none !important;
+}
+
+mat-icon[mat-list-avatar][duiCollapse] {
+  &:hover {
+    cursor: pointer;
+  }
+  &.dui-chevron {
+    height: auto;
+    transform: rotateZ(0deg);
+    transition: 300ms ease-in-out;
+    &.collapsed {
+      transform: rotateZ(180deg);
+      transition: 300ms ease-in-out;
+    }
+  }
+}
+div.dui-collapsed {
+  display: none !important;
+}

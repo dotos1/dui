@@ -1,0 +1,105 @@
+{
+  "importPath": "@dotos/dui/form/card",
+  "exports": [
+    {
+      "name": "FormCard",
+      "kind": "component",
+      "selector": "form-card",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/form/card/form.card.ts",
+      "inputs": [
+        {
+          "name": "config",
+          "type": "any",
+          "default": "{}",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "init",
+          "params": [
+            {
+              "name": "config",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "getForm",
+          "params": [],
+          "returnType": "FormComponent",
+          "description": "Provides access to the {@link Ext.form.BasicForm Form} which this Panel contains.\nreturnwhich this Panel contains.",
+          "descriptionZh": null
+        },
+        {
+          "name": "beforeDestroy",
+          "params": [],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "isField",
+          "params": [
+            {
+              "name": "c",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "formComponent",
+          "type": "FormComponent",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "hideHead",
+          "type": "boolean",
+          "default": "false",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "layout",
+          "type": "any",
+          "default": "'form'",
+          "description": null,
+          "descriptionZh": null
+        }
+      ]
+    },
+    {
+      "name": "FormCardModule",
+      "kind": "module",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/form/card/form.card.module.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "entryComponents",
+          "type": "any",
+          "default": "[FormCard]",
+          "description": null,
+          "descriptionZh": null
+        }
+      ]
+    }
+  ],
+  "suggestedUsageSnippet": "import { FormCard, FormCardModule } from '@dotos/dui/form/card';\n\n<form-card [config]=\"...\"></form-card>"
+}

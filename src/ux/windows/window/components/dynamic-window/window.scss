@@ -1,0 +1,365 @@
+.dui-dynamic-window {
+  .dui-window {
+      position: fixed;
+      z-index: 1000;
+      .dui-title-bar {
+          user-select: none;
+      }
+  }
+
+  .window-titleicon {
+    flex-grow: 1;
+    max-width: 18px;
+    max-height: 18px;
+    margin: 0 auto;
+    display:flex;
+    display: -webkit-flex;
+    align-items:center;
+}
+
+  .dui-window,
+  .dui-window > .dui-window-body,
+  .dui-window > .dui-window-body > .dui-scroll-view {
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+  }
+
+  .dui-window-body,
+  .dui-scroll-view {
+      height: 100%;
+  }
+}
+
+.dui-title-bar-button {
+  .dui-icon {
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: 0px 0px;
+  }
+}
+
+.dui-window {
+    display: block;
+    font-family: var(--segoe-ui);
+
+    &.dui-active {
+        backdrop-filter: blur(40px);
+
+        @supports (not(backdrop-filter: blur(40px))) {
+            background: rgb(255, 255, 255, .98);
+        }
+    }
+}
+
+.dui-dynamic-window > .dui-window {
+    width: var(--dui-width);
+    height: var(--dui-height);
+    top: var(--dui-top);
+    left: var(--dui-left);
+
+    --fullscreen-width: calc(100% - var(--dui-fullscreen-offset-right) - var(--dui-fullscreen-offset-left));
+    --fullscreen-height: calc(100% - var(--dui-fullscreen-offset-bottom) - var(--dui-fullscreen-offset-top));
+    --fullscreen-top: calc(-1px + var(--dui-fullscreen-offset-top));
+    --fullscreen-left: calc(-1px + var(--dui-fullscreen-offset-left));
+
+    @keyframes dui-window-opening {
+        from {
+            transform: scale(.85);
+            opacity: 0;
+        }
+
+        to {
+            transform: scale(1);
+            opacity: 1;
+        }
+    }
+
+    @keyframes dui-window-closing {
+        from {
+            transform: scale(1);
+            opacity: 1;
+        }
+
+        to {
+            transform: scale(.9);
+            opacity: 0;
+        }
+    }
+
+    @keyframes dui-window-hiding {
+        from {
+            transform: scale(1);
+            opacity: 1;
+        }
+
+        to {
+            transform: scale(.1);
+            top: calc(var(--dui-coordinate-y-for-hiding) - var(--dui-real-height) / 2);
+            left: calc(var(--dui-coordinate-x-for-hiding) - var(--dui-real-width) / 2);
+            opacity: 0;
+        }
+    }
+
+    @keyframes dui-window-showing {
+        from {
+            transform: scale(.1);
+            top: calc(var(--dui-coordinate-y-for-hiding) - var(--dui-real-height) / 2);
+            left: calc(var(--dui-coordinate-x-for-hiding) - var(--dui-real-width) / 2);
+            opacity: 0;
+        }
+
+        to {
+            transform: scale(1);
+            opacity: 1;
+        }
+    }
+
+    @keyframes dui-window-entering-fullscreen {
+        to {
+            width: var(--fullscreen-width);
+            height: var(--fullscreen-height);
+            left: var(--fullscreen-left);
+            top: var(--fullscreen-top);
+            box-shadow: none;
+        }
+    }
+
+    @keyframes dui-window-entering-windowed {
+        from {
+            width: var(--fullscreen-width);
+            height: 29px !important;
+            top: var(--fullscreen-top);
+            left: var(--fullscreen-left);
+        }
+    }
+
+    &.dui-hiding,
+    &.dui-showing {
+        pointer-events: none;
+    }
+
+    &.dui-opening {
+        animation: dui-window-opening .3s ease forwards;
+    }
+
+    &.dui-hiding {
+        animation: dui-window-hiding .4s ease forwards;
+        z-index: 9999 !important;
+    }
+
+    &.dui-hidden {
+        display: none !important;
+    }
+
+    &.dui-showing {
+        animation: dui-window-showing .4s ease forwards;
+    }
+
+    &.dui-closing {
+        animation: dui-window-closing .25s ease forwards;
+    }
+
+    &.dui-entering-fullscreen {
+        animation: dui-window-entering-fullscreen .17s ease forwards;
+    }
+
+    &.dui-entering-windowed {
+        animation: dui-window-entering-windowed .17s ease forwards;
+    }
+
+    &.dui-fullscreen {
+        width: var(--fullscreen-width);
+        height: var(--fullscreen-height);
+        left: var(--fullscreen-left);
+        top: var(--fullscreen-top);
+        box-shadow: none;
+    }
+
+    &.dui-active {
+        &.dui-fullscreen {
+            box-shadow: none;
+        }
+    }
+
+    &.dui-dragging, &.dui-resizing {
+        .dui-window-body {
+            pointer-events: none;
+        }
+    }
+
+    &.dui-fullscreen, &.dui-entering-fullscreen {
+        &.dui-active .dui-title-bar {
+            .dui-title-bar-button[aria-label="Fullscreen"]:not(.dui-disabled) .dui-icon {
+                background-position: -90px 0px;
+            }
+        }
+
+        &:not(.dui-active) .dui-title-bar {
+            .dui-title-bar-button[aria-label="Fullscreen"]:not(.dui-disabled) .dui-icon {
+                background-position: -90px -29px;
+
+                &:hover {
+                    background-position: -90px -58px;
+                }
+            }
+        }
+
+        .dui-title-bar {
+            .dui-title-bar-button[aria-label="Fullscreen"].dui-disabled .dui-icon {
+                background-position: -90px -87px;
+            }
+        }
+    }
+
+    &:not(.dui-fullscreen):not(.dui-entering-fullscreen) dui-resizers {
+        display: inherit;
+    }
+
+    dui-resizers {
+        display: none;
+    }
+}
+
+.dui-title-bar {
+    width: 100%;
+    height: 36px;
+    font-size: 11px;
+    display: flex;
+    align-items: center;
+    font-size: 11px;
+    z-index: 100;
+    font-family: var(--segoe-ui);
+    &.dui-active {
+        .dui-title-bar-button {
+            &[aria-label="Hide"]:not(.dui-disabled) .dui-icon {
+                background-position: 0px 0px;
+            }
+
+            &[aria-label="Fullscreen"]:not(.dui-disabled) .dui-icon {
+                background-position: -45px 0px;
+            }
+
+            &[aria-label="Close"]:not(.dui-disabled) .dui-icon {
+                background-position: -135px 0px;
+            }
+        }
+    }
+
+    .dui-title-bar-content {
+        width: 100%;
+        height: 100%;
+        padding-left: 8px;
+        padding-top: 8px;
+        padding-bottom: 8px;
+        font-size: 12px;
+        display: flex;
+        align-items: flex-start;
+        box-sizing: border-box;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+
+        .dui-title-bar-icon {
+            width: 16px;
+            height: 16px;
+            margin-right: 5px;
+            background-position: 50%;
+            background-size: contain;
+            background-repeat: no-repeat;
+        }
+        .dui-text{
+          padding-left: 20px;
+          padding-left: 8px;
+          font-weight: bold;
+          padding-top: 2px;
+          font-size: 12px;
+        }
+    }
+
+    .dui-title-bar-controls {
+        width: auto;
+        height: 100%;
+        display: flex;
+    }
+}
+
+.dui-title-bar-button {
+    width: 45px;
+    height: 29px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0px;
+    box-shadow: none;
+    border: none;
+    cursor: default;
+    user-select: none;
+
+    .dui-icon {
+        width: 100%;
+        height: 100%;
+        background-image: url("/assets/images/title-bar-button-icons.png");
+        background-size: initial;
+        background-position: 999px 999px;
+        background-repeat: no-repeat;
+    }
+
+
+    &[aria-label="Hide"] {
+        &:not(.dui-disabled) {
+            .dui-icon {
+                background-position: 0px -29px;
+
+                &:hover {
+                    background-position: 0px -58px;
+                }
+            }
+        }
+
+        &.dui-disabled {
+            .dui-icon {
+                background-position: 0px -87px;
+            }
+        }
+    }
+
+    &[aria-label="Fullscreen"] {
+        &:not(.dui-disabled) {
+            .dui-icon {
+                background-position: -45px -29px;
+
+                &:hover {
+                    background-position: -45px -58px;
+                }
+            }
+        }
+
+        &.dui-disabled .dui-icon {
+            background-position: -45px -87px;
+        }
+    }
+
+    &[aria-label="Close"] {
+        &:not(.dui-disabled) {
+            :hover {
+                background-color: rgb(232, 17, 35);
+            }
+
+            .dui-icon {
+                background-position: -135px -29px;
+
+                &:hover {
+                    background-position: -135px -58px;
+                }
+            }
+        }
+
+        &.dui-disabled {
+            .dui-icon {
+                background-position: -135px -87px;
+            }
+        }
+    }
+}

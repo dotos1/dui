@@ -1,0 +1,1105 @@
+{
+  "importPath": "@dotos/dui/ux/query-builder",
+  "exports": [
+    {
+      "name": "ArrowIconContext",
+      "kind": "interface",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/ux/query-builder/query-builder.interfaces.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "ButtonGroupContext",
+      "kind": "interface",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/ux/query-builder/query-builder.interfaces.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "CONTROL_VALUE_ACCESSOR",
+      "kind": "constant",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/ux/query-builder/query-builder.component.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "EmptyWarningContext",
+      "kind": "interface",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/ux/query-builder/query-builder.interfaces.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "Entity",
+      "kind": "interface",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/ux/query-builder/query-builder.interfaces.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "EntityContext",
+      "kind": "interface",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/ux/query-builder/query-builder.interfaces.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "EntityMap",
+      "kind": "interface",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/ux/query-builder/query-builder.interfaces.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "Field",
+      "kind": "interface",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/ux/query-builder/query-builder.interfaces.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "FieldContext",
+      "kind": "interface",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/ux/query-builder/query-builder.interfaces.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "FieldMap",
+      "kind": "interface",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/ux/query-builder/query-builder.interfaces.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "InputContext",
+      "kind": "interface",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/ux/query-builder/query-builder.interfaces.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "LocalRuleMeta",
+      "kind": "interface",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/ux/query-builder/query-builder.interfaces.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "OperatorContext",
+      "kind": "interface",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/ux/query-builder/query-builder.interfaces.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "Option",
+      "kind": "interface",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/ux/query-builder/query-builder.interfaces.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "QueryArrowIconDirective",
+      "kind": "directive",
+      "selector": "[queryArrowIcon]",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/ux/query-builder/query-arrow-icon.directive.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "QueryBuilderClassNames",
+      "kind": "interface",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/ux/query-builder/query-builder.interfaces.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "QueryBuilderComponent",
+      "kind": "component",
+      "selector": "query-builder",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/ux/query-builder/query-builder.component.ts",
+      "inputs": [
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "data",
+          "type": "RuleSet | any",
+          "default": "{ condition: 'and', rules: [] }",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "allowRuleset",
+          "type": "boolean",
+          "default": "true",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "allowCollapse",
+          "type": "boolean",
+          "default": "false",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "emptyMessage",
+          "type": "string",
+          "default": "'A ruleset cannot be empty. Please add a rule or remove it all together.'",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "classNames",
+          "type": "QueryBuilderClassNames",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "operatorMap",
+          "type": "{ [key: string]: string[] }",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "parentValue",
+          "type": "RuleSet",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "config",
+          "type": "QueryBuilderConfig",
+          "default": "{ fields: {} }",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "parentArrowIconTemplate",
+          "type": "QueryArrowIconDirective",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "parentInputTemplates",
+          "type": "QueryList<QueryInputDirective>",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "parentOperatorTemplate",
+          "type": "QueryOperatorDirective",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "parentFieldTemplate",
+          "type": "QueryFieldDirective",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "parentEntityTemplate",
+          "type": "QueryEntityDirective",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "parentSwitchGroupTemplate",
+          "type": "QuerySwitchGroupDirective",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "parentButtonGroupTemplate",
+          "type": "QueryButtonGroupDirective",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "parentRemoveButtonTemplate",
+          "type": "QueryRemoveButtonDirective",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "parentEmptyWarningTemplate",
+          "type": "QueryEmptyWarningDirective",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "parentChangeCallback",
+          "type": "() => void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "parentTouchedCallback",
+          "type": "() => void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "persistValueOnFieldChange",
+          "type": "boolean",
+          "default": "false",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "value",
+          "type": "RuleSet",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "validate",
+          "params": [
+            {
+              "name": "control",
+              "type": "AbstractControl"
+            }
+          ],
+          "returnType": "ValidationErrors | null",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "findTemplateForRule",
+          "params": [
+            {
+              "name": "rule",
+              "type": "Rule"
+            }
+          ],
+          "returnType": "TemplateRef<any>",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "findQueryInput",
+          "params": [
+            {
+              "name": "type",
+              "type": "string"
+            }
+          ],
+          "returnType": "QueryInputDirective",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "getOperators",
+          "params": [
+            {
+              "name": "field",
+              "type": "string"
+            }
+          ],
+          "returnType": "string[]",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "getFields",
+          "params": [
+            {
+              "name": "entity",
+              "type": "string"
+            }
+          ],
+          "returnType": "Field[]",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "getInputType",
+          "params": [
+            {
+              "name": "field",
+              "type": "string"
+            },
+            {
+              "name": "operator",
+              "type": "string"
+            }
+          ],
+          "returnType": "string",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "getOptions",
+          "params": [
+            {
+              "name": "field",
+              "type": "string"
+            }
+          ],
+          "returnType": "Option[]",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "getClassNames",
+          "params": [
+            {
+              "name": "args",
+              "type": "any"
+            }
+          ],
+          "returnType": "string",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "getDefaultField",
+          "params": [
+            {
+              "name": "entity",
+              "type": "Entity"
+            }
+          ],
+          "returnType": "Field",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "getDefaultOperator",
+          "params": [
+            {
+              "name": "field",
+              "type": "Field"
+            }
+          ],
+          "returnType": "string",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "addRule",
+          "params": [
+            {
+              "name": "parent",
+              "type": "RuleSet"
+            }
+          ],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "removeRule",
+          "params": [
+            {
+              "name": "rule",
+              "type": "Rule"
+            },
+            {
+              "name": "parent",
+              "type": "RuleSet"
+            }
+          ],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "addRuleSet",
+          "params": [
+            {
+              "name": "parent",
+              "type": "RuleSet"
+            }
+          ],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "removeRuleSet",
+          "params": [
+            {
+              "name": "ruleset",
+              "type": "RuleSet"
+            },
+            {
+              "name": "parent",
+              "type": "RuleSet"
+            }
+          ],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "transitionEnd",
+          "params": [
+            {
+              "name": "e",
+              "type": "Event"
+            }
+          ],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "toggleCollapse",
+          "params": [],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "computedTreeContainerHeight",
+          "params": [],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "changeCondition",
+          "params": [
+            {
+              "name": "value",
+              "type": "string"
+            }
+          ],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "changeOperator",
+          "params": [
+            {
+              "name": "rule",
+              "type": "Rule"
+            }
+          ],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "coerceValueForOperator",
+          "params": [
+            {
+              "name": "operator",
+              "type": "string"
+            },
+            {
+              "name": "value",
+              "type": "any"
+            },
+            {
+              "name": "rule",
+              "type": "Rule"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "changeInput",
+          "params": [],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "changeField",
+          "params": [
+            {
+              "name": "fieldValue",
+              "type": "string"
+            },
+            {
+              "name": "rule",
+              "type": "Rule"
+            }
+          ],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "changeEntity",
+          "params": [
+            {
+              "name": "entityValue",
+              "type": "string"
+            },
+            {
+              "name": "rule",
+              "type": "Rule"
+            },
+            {
+              "name": "index",
+              "type": "number"
+            },
+            {
+              "name": "data",
+              "type": "RuleSet"
+            }
+          ],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "getDefaultValue",
+          "params": [
+            {
+              "name": "defaultValue",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "getOperatorTemplate",
+          "params": [],
+          "returnType": "TemplateRef<any>",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "getFieldTemplate",
+          "params": [],
+          "returnType": "TemplateRef<any>",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "getEntityTemplate",
+          "params": [],
+          "returnType": "TemplateRef<any>",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "getArrowIconTemplate",
+          "params": [],
+          "returnType": "TemplateRef<any>",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "getButtonGroupTemplate",
+          "params": [],
+          "returnType": "TemplateRef<any>",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "getSwitchGroupTemplate",
+          "params": [],
+          "returnType": "TemplateRef<any>",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "getRemoveButtonTemplate",
+          "params": [],
+          "returnType": "TemplateRef<any>",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "getEmptyWarningTemplate",
+          "params": [],
+          "returnType": "TemplateRef<any>",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "getQueryItemClassName",
+          "params": [
+            {
+              "name": "local",
+              "type": "LocalRuleMeta"
+            }
+          ],
+          "returnType": "string",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "getButtonGroupContext",
+          "params": [],
+          "returnType": "ButtonGroupContext",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "getRemoveButtonContext",
+          "params": [
+            {
+              "name": "rule",
+              "type": "Rule"
+            }
+          ],
+          "returnType": "RemoveButtonContext",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "getFieldContext",
+          "params": [
+            {
+              "name": "rule",
+              "type": "Rule"
+            }
+          ],
+          "returnType": "FieldContext",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "getEntityContext",
+          "params": [
+            {
+              "name": "rule",
+              "type": "Rule"
+            }
+          ],
+          "returnType": "EntityContext",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "getSwitchGroupContext",
+          "params": [],
+          "returnType": "SwitchGroupContext",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "getArrowIconContext",
+          "params": [],
+          "returnType": "ArrowIconContext",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "getEmptyWarningContext",
+          "params": [],
+          "returnType": "EmptyWarningContext",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "getOperatorContext",
+          "params": [
+            {
+              "name": "rule",
+              "type": "Rule"
+            }
+          ],
+          "returnType": "OperatorContext",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "getInputContext",
+          "params": [
+            {
+              "name": "rule",
+              "type": "Rule"
+            }
+          ],
+          "returnType": "InputContext",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "fields",
+          "type": "Field[]",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "filterFields",
+          "type": "Field[]",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "entities",
+          "type": "Entity[]",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "defaultClassNames",
+          "type": "QueryBuilderClassNames",
+          "default": "{\n    arrowIconButton: 'q-arrow-icon-button',\n    arrowIcon: 'q-icon q-arrow-icon',\n    removeIcon: 'q-icon q-remove-icon',\n    addIcon: 'q-icon q-add-icon',\n    button: 'q-button',\n    buttonGroup: 'q-button-group',\n    removeButton: 'q-remove-button',\n    switchGroup: 'q-switch-group',\n    switchLabel: 'q-switch-label',\n    switchRadio: 'q-switch-radio',\n    rightAlign: 'q-right-align',\n    transition: 'q-transition',\n    collapsed: 'q-collapsed',\n    treeContainer: 'q-tree-container',\n    tree: 'q-tree',\n    row: 'q-row',\n    connector: 'q-connector',\n    rule: 'q-rule',\n    ruleSet: 'q-ruleset',\n    invalidRuleSet: 'q-invalid-ruleset',\n    emptyWarning: 'q-empty-warning',\n    fieldControl: 'q-field-control',\n    fieldControlSize: 'q-control-size',\n    entityControl: 'q-entity-control',\n    entityControlSize: 'q-control-size',\n    operatorControl: 'q-operator-control',\n    operatorControlSize: 'q-control-size',\n    inputControl: 'q-input-control',\n    inputControlSize: 'q-control-size'\n  }",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "defaultOperatorMap",
+          "type": "{ [key: string]: string[] }",
+          "default": "{\n    string: ['=', '!=', 'contains', 'like'],\n    number: ['=', '!=', '>', '>=', '<', '<='],\n    time: ['=', '!=', '>', '>=', '<', '<='],\n    date: ['=', '!=', '>', '>=', '<', '<='],\n    category: ['=', '!=', 'in', 'not in'],\n    boolean: ['=']\n  }",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "onChangeCallback",
+          "type": "() => void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "onTouchedCallback",
+          "type": "() => any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "treeContainer",
+          "type": "ElementRef",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "buttonGroupTemplate",
+          "type": "QueryButtonGroupDirective",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "switchGroupTemplate",
+          "type": "QuerySwitchGroupDirective",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "fieldTemplate",
+          "type": "QueryFieldDirective",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "entityTemplate",
+          "type": "QueryEntityDirective",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "operatorTemplate",
+          "type": "QueryOperatorDirective",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "removeButtonTemplate",
+          "type": "QueryRemoveButtonDirective",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "emptyWarningTemplate",
+          "type": "QueryEmptyWarningDirective",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "inputTemplates",
+          "type": "QueryList<QueryInputDirective>",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "arrowIconTemplate",
+          "type": "QueryArrowIconDirective",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "value",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "getDisabledState",
+          "type": "any",
+          "default": "(): boolean => {\n    return this.disabled;\n  }",
+          "description": null,
+          "descriptionZh": null
+        }
+      ]
+    },
+    {
+      "name": "QueryBuilderConfig",
+      "kind": "interface",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/ux/query-builder/query-builder.interfaces.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "QueryBuilderModule",
+      "kind": "module",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/ux/query-builder/angular2-query-builder.module.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "QueryButtonGroupDirective",
+      "kind": "directive",
+      "selector": "[queryButtonGroup]",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/ux/query-builder/query-button-group.directive.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "QueryEmptyWarningDirective",
+      "kind": "directive",
+      "selector": "[queryEmptyWarning]",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/ux/query-builder/query-empty-warning.directive.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "QueryEntityDirective",
+      "kind": "directive",
+      "selector": "[queryEntity]",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/ux/query-builder/query-entity.directive.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "QueryFieldDirective",
+      "kind": "directive",
+      "selector": "[queryField]",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/ux/query-builder/query-field.directive.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "QueryInputDirective",
+      "kind": "directive",
+      "selector": "[queryInput]",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/ux/query-builder/query-input.directive.ts",
+      "inputs": [
+        {
+          "name": "queryInputType",
+          "type": "string",
+          "description": "Unique name for query input type.",
+          "descriptionZh": null
+        }
+      ],
+      "outputs": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "queryInputType",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        }
+      ]
+    },
+    {
+      "name": "QueryOperatorDirective",
+      "kind": "directive",
+      "selector": "[queryOperator]",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/ux/query-builder/query-operator.directive.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "QueryRemoveButtonDirective",
+      "kind": "directive",
+      "selector": "[queryRemoveButton]",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/ux/query-builder/query-remove-button.directive.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "QuerySwitchGroupDirective",
+      "kind": "directive",
+      "selector": "[querySwitchGroup]",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/ux/query-builder/query-switch-group.directive.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "RemoveButtonContext",
+      "kind": "interface",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/ux/query-builder/query-builder.interfaces.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "Rule",
+      "kind": "interface",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/ux/query-builder/query-builder.interfaces.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "RuleSet",
+      "kind": "interface",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/ux/query-builder/query-builder.interfaces.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "SwitchGroupContext",
+      "kind": "interface",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/ux/query-builder/query-builder.interfaces.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "VALIDATOR",
+      "kind": "constant",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/ux/query-builder/query-builder.component.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    }
+  ],
+  "suggestedUsageSnippet": "import { QueryBuilderComponent, QueryBuilderModule } from '@dotos/dui/ux/query-builder';\n\n<query-builder [disabled]=\"...\" [data]=\"...\" [allowRuleset]=\"...\"></query-builder>"
+}

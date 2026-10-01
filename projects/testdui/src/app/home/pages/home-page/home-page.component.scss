@@ -1,0 +1,164 @@
+.home-page {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 48px 32px 80px;
+  box-sizing: border-box;
+}
+
+.home-hero {
+  text-align: center;
+  padding: 32px 0 48px;
+}
+
+.home-hero__brand {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+
+.home-hero__logo {
+  width: 56px;
+  height: 56px;
+  flex: 0 0 auto;
+}
+
+.home-hero__title {
+  font-size: 56px;
+  font-weight: 700;
+  margin: 0;
+  letter-spacing: 0.02em;
+}
+
+.home-hero__subtitle {
+  font-size: 22px;
+  font-weight: 500;
+  margin: 8px 0 16px;
+  color: inherit;
+  opacity: 0.7;
+}
+
+.home-hero__lead {
+  max-width: 640px;
+  margin: 0 auto 24px;
+  line-height: 1.7;
+  color: inherit;
+  opacity: 0.6;
+}
+
+.home-hero__actions {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+}
+
+.home-hero__stats {
+  display: flex;
+  justify-content: center;
+  gap: 48px;
+  flex-wrap: wrap;
+}
+
+.home-hero__stat-value {
+  font-size: 28px;
+  font-weight: 700;
+  color: #2196f3;
+}
+
+.home-hero__stat-label {
+  font-size: 13px;
+  color: inherit;
+  opacity: 0.55;
+}
+
+.home-section {
+  margin-top: 48px;
+}
+
+.home-section__heading {
+  font-size: 22px;
+  font-weight: 500;
+  margin-bottom: 16px;
+}
+
+.home-section__lead {
+  max-width: 760px;
+  line-height: 1.7;
+  color: inherit;
+  opacity: 0.65;
+  margin-bottom: 24px;
+}
+
+.home-ecosystem {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 16px;
+}
+
+.home-ecosystem__card {
+  border-top: 3px solid transparent;
+
+  ::ng-deep .mat-mdc-card-header {
+    align-items: center;
+  }
+
+  ::ng-deep .mat-mdc-card-avatar {
+    margin-bottom: 0;
+  }
+}
+
+.home-ecosystem__card--highlight {
+  border-top-color: #2196f3;
+}
+
+.home-ecosystem__card p {
+  color: inherit;
+  opacity: 0.65;
+  line-height: 1.6;
+}
+
+.home-section__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 12px;
+}
+
+.home-tabs {
+  margin-top: 8px;
+}
+
+.home-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+  padding: 24px 4px;
+}
+
+.home-grid__card p {
+  color: inherit;
+  opacity: 0.65;
+  line-height: 1.6;
+}
+
+.home-grid__card {
+  ::ng-deep .mat-mdc-card-header {
+    align-items: center;
+  }
+
+  ::ng-deep .mat-mdc-card-avatar {
+    margin-bottom: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .home-hero__title {
+    font-size: 40px;
+  }
+
+  .home-hero__stats {
+    gap: 24px;
+  }
+}

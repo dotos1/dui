@@ -1,0 +1,397 @@
+{
+  "importPath": "@dotos/dui/form/toggle-select",
+  "exports": [
+    {
+      "name": "_ToggleBase",
+      "kind": "directive",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/form/toggle-select/toggle-header.component.ts",
+      "inputs": [
+        {
+          "name": "options",
+          "type": "ToggleHeaderOption[]",
+          "default": "[]",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "outputs": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "toggleOptions",
+          "type": "QueryList<ToggleOption>",
+          "description": null,
+          "descriptionZh": null
+        }
+      ]
+    },
+    {
+      "name": "ScrollDirection",
+      "kind": "type",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/form/toggle-select/toggle-header.component.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "ToggleHeaderAppearance",
+      "kind": "type",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/form/toggle-select/toggle-header.component.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "ToggleHeaderComponent",
+      "kind": "component",
+      "selector": "toggle-header",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/form/toggle-select/toggle-header.component.ts",
+      "inputs": [
+        {
+          "name": "value",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "disablePagination",
+          "type": "any",
+          "default": "false",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "selectMediaBreakpoint",
+          "type": "any",
+          "default": "'md-lg'",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "useSelectOnMdLg",
+          "type": "boolean",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "ignoreMdLgSize",
+          "type": "any",
+          "default": "false",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "appearance",
+          "type": "ToggleHeaderAppearance",
+          "default": "'stroked'",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "disabled",
+          "type": "any",
+          "default": "false",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "fillHeight",
+          "type": "any",
+          "default": "false",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "extraPadding",
+          "type": "any",
+          "default": "false",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "primaryBackground",
+          "type": "any",
+          "default": "false",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "valueChange",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "methods": [
+        {
+          "name": "trackByHeaderOption",
+          "params": [
+            {
+              "name": "index",
+              "type": "number"
+            },
+            {
+              "name": "option",
+              "type": "ToggleHeaderOption"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "handlePaginatorClick",
+          "params": [
+            {
+              "name": "direction",
+              "type": "ScrollDirection"
+            },
+            {
+              "name": "$event",
+              "type": "Event"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "handlePaginatorTouchStart",
+          "params": [
+            {
+              "name": "direction",
+              "type": "ScrollDirection"
+            },
+            {
+              "name": "$event",
+              "type": "Event"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "toggleGroup",
+          "type": "ElementRef<HTMLElement>",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "buttonToggleGroup",
+          "type": "MatButtonToggleGroup",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "toggleGroupContainer",
+          "type": "ElementRef<HTMLElement>",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "leftPaginationEnabled",
+          "type": "any",
+          "default": "false",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "rightPaginationEnabled",
+          "type": "any",
+          "default": "false",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "scrollDistance",
+          "type": "number",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "scrollDistance",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "isMdLg",
+          "type": "boolean",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "useSelect$",
+          "type": "any",
+          "default": "this.useSelectSubject.asObservable()",
+          "description": null,
+          "descriptionZh": null
+        }
+      ]
+    },
+    {
+      "name": "ToggleHeaderOption",
+      "kind": "interface",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/form/toggle-select/toggle-header.component.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "ToggleOption",
+      "kind": "directive",
+      "selector": "toggle-option",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/form/toggle-select/toggle-header.component.ts",
+      "inputs": [
+        {
+          "name": "value",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "outputs": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "viewValue",
+          "type": "string",
+          "description": null,
+          "descriptionZh": null
+        }
+      ]
+    },
+    {
+      "name": "ToggleSelectComponent",
+      "kind": "component",
+      "selector": "toggle-select",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/form/toggle-select/toggle-select.component.ts",
+      "inputs": [
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "selectMediaBreakpoint",
+          "type": "string",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "appearance",
+          "type": "ToggleHeaderAppearance",
+          "default": "'stroked'",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "disablePagination",
+          "type": "any",
+          "default": "false",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "fillHeight",
+          "type": "any",
+          "default": "false",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "extraPadding",
+          "type": "any",
+          "default": "false",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "primaryBackground",
+          "type": "any",
+          "default": "false",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "updateModel",
+          "params": [
+            {
+              "name": "value",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "maxWidth",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "modelValue",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        }
+      ]
+    },
+    {
+      "name": "ToggleSelectModule",
+      "kind": "module",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/form/toggle-select/toggle-select.module.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "entryComponents",
+          "type": "any",
+          "default": "[ToggleSelectComponent]",
+          "description": null,
+          "descriptionZh": null
+        }
+      ]
+    }
+  ],
+  "suggestedUsageSnippet": "import { ToggleHeaderComponent, ToggleSelectModule } from '@dotos/dui/form/toggle-select';\n\n<toggle-header [value]=\"...\" [name]=\"...\" [disablePagination]=\"...\" (valueChange)=\"...\"></toggle-header>"
+}

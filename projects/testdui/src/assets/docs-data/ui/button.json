@@ -1,0 +1,779 @@
+{
+  "importPath": "@dotos/dui/ui/button",
+  "exports": [
+    {
+      "name": "ButtonBase",
+      "kind": "class",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/ui/button/button.base.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "getEl",
+          "params": [],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "init",
+          "params": [
+            {
+              "name": "config",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "processItems",
+          "params": [
+            {
+              "name": "items",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "openMenu",
+          "params": [
+            {
+              "name": "trigger",
+              "type": "MatMenuTrigger"
+            },
+            {
+              "name": "level",
+              "type": "number"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "onValueChange",
+          "params": [
+            {
+              "name": "value",
+              "type": "any"
+            },
+            {
+              "name": "e",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "closeAllMenu",
+          "params": [],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "closeSubMenu",
+          "params": [
+            {
+              "name": "level",
+              "type": "number"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "hasIcon",
+          "params": [],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "onDestroy",
+          "params": [],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "setHandler",
+          "params": [
+            {
+              "name": "handler",
+              "type": "Function"
+            },
+            {
+              "name": "scope",
+              "type": "Object"
+            }
+          ],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "setIcon",
+          "params": [
+            {
+              "name": "icon",
+              "type": "string"
+            }
+          ],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "getValue",
+          "params": [],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "setValue",
+          "params": [
+            {
+              "name": "v",
+              "type": "any"
+            }
+          ],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "onClick",
+          "params": [
+            {
+              "name": "e",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "onDisable",
+          "params": [],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "onEnable",
+          "params": [],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "onDisableChange",
+          "params": [
+            {
+              "name": "disabled",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "matTooltip",
+          "type": "MatTooltip",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "config",
+          "type": "any",
+          "default": "{}",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "data",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "ownerCt",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "click",
+          "type": "any",
+          "default": "new EventEmitter<any>()",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "type",
+          "type": "any",
+          "default": "'mat-button'",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "items",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "items",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "flex",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "title",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "text",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "value",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "default",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "disableRipple",
+          "type": "boolean",
+          "default": "false",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "color",
+          "type": "string",
+          "default": "''",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "toolTip",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "icon",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "iconType",
+          "type": "any",
+          "default": "\"FONT\"",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "svgIcon",
+          "type": "any",
+          "default": "\"\"",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "handler",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "change",
+          "type": "any",
+          "default": "(value)=>{}",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "tabIndex",
+          "type": "number",
+          "default": "0",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "menu",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "style",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "checked",
+          "type": "boolean",
+          "default": "false",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "dropdown",
+          "type": "boolean",
+          "default": "false",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "iconPosition",
+          "type": "any",
+          "default": "'before'",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "triggers",
+          "type": "QueryList<MatMenuTrigger>",
+          "description": null,
+          "descriptionZh": null
+        }
+      ]
+    },
+    {
+      "name": "ButtonComponent",
+      "kind": "component",
+      "selector": "dui-button",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/ui/button/button.component.ts",
+      "inputs": [
+        {
+          "name": "config",
+          "type": "any",
+          "default": "{}",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "data",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "ownerCt",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "iconStyle",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "hasMenu",
+          "type": "any",
+          "default": "false",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "click",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "methods": [
+        {
+          "name": "getEl",
+          "params": [],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "onClick",
+          "params": [
+            {
+              "name": "e",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "matTooltip",
+          "type": "MatTooltip",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "showIcon",
+          "type": "any",
+          "default": "true",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "onlyIcon",
+          "type": "any",
+          "default": "false",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "triggers",
+          "type": "QueryList<MatMenuTrigger>",
+          "description": null,
+          "descriptionZh": null
+        }
+      ]
+    },
+    {
+      "name": "ButtonModule",
+      "kind": "module",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/ui/button/button.ext.module.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "entryComponents",
+          "type": "any",
+          "default": "[\n     MatDivider,\n    ButtonComponent,]",
+          "description": null,
+          "descriptionZh": null
+        }
+      ]
+    },
+    {
+      "name": "ToggleButtonComponent",
+      "kind": "component",
+      "selector": "toggle-button",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/ui/button/toggle-button.component.ts",
+      "inputs": [
+        {
+          "name": "config",
+          "type": "any",
+          "default": "{}",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "data",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "init",
+          "params": [
+            {
+              "name": "config",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "hasIcon",
+          "params": [
+            {
+              "name": "item",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "onClick",
+          "params": [
+            {
+              "name": "btn",
+              "type": "any"
+            },
+            {
+              "name": "e",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "setValue",
+          "params": [
+            {
+              "name": "v",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "onDestroy",
+          "params": [],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "initFieldExpression",
+          "params": [
+            {
+              "name": "config",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "checkExpressionChange",
+          "params": [],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "checkMenuExpressionChange",
+          "params": [
+            {
+              "name": "comp",
+              "type": "any"
+            },
+            {
+              "name": "owner",
+              "type": "ComponentBase"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "checkMenuVisibilityChange",
+          "params": [
+            {
+              "name": "comp",
+              "type": "any"
+            },
+            {
+              "name": "owner",
+              "type": "ComponentBase"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "checkMenuDisableChange",
+          "params": [
+            {
+              "name": "comp",
+              "type": "any"
+            },
+            {
+              "name": "owner",
+              "type": "ComponentBase"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "childMenu",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "items",
+          "type": "Array<any>",
+          "default": "[]",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "disableRipple",
+          "type": "boolean",
+          "default": "false",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "appearance",
+          "type": "MatButtonToggleAppearance",
+          "default": "'standard'",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "multiple",
+          "type": "boolean",
+          "default": "false",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "default": "''",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "value",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "default": "false",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "vertical",
+          "type": "boolean",
+          "default": "false",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "style",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "icon",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "checked",
+          "type": "boolean",
+          "default": "false",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "iconPosition",
+          "type": "any",
+          "default": "'before'",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "toolTip",
+          "type": "any",
+          "default": "''",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "text",
+          "type": "any",
+          "default": "''",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "change",
+          "type": "any",
+          "default": "(e) => { }",
+          "description": null,
+          "descriptionZh": null
+        }
+      ]
+    },
+    {
+      "name": "ToggleButtonModule",
+      "kind": "module",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/ui/button/toggle-button.module.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "entryComponents",
+          "type": "any",
+          "default": "[ToggleButtonComponent]",
+          "description": null,
+          "descriptionZh": null
+        }
+      ]
+    }
+  ],
+  "suggestedUsageSnippet": "import { ButtonComponent, ButtonModule } from '@dotos/dui/ui/button';\n\n<dui-button [config]=\"...\" [data]=\"...\" [ownerCt]=\"...\" (click)=\"...\"></dui-button>"
+}

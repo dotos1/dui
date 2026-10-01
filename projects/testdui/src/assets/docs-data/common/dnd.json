@@ -1,0 +1,685 @@
+{
+  "importPath": "@dotos/dui/common/dnd",
+  "exports": [
+    {
+      "name": "calculateDragImageOffset",
+      "kind": "function",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/common/dnd/dnd-utils.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "CUSTOM_MIME_TYPE",
+      "kind": "constant",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/common/dnd/dnd-utils.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "DndDraggableDirective",
+      "kind": "directive",
+      "selector": "[dndDraggable]",
+      "summary": "Makes the host element draggable using the native HTML5 drag-and-drop API; pair with\n{@link DndDropzoneDirective} on a drop target. Emits events for start/drag/end and the\nresulting drop effect (copy/move/link/canceled).",
+      "summaryZh": "使宿主元素可拖拽（基于原生 HTML5 拖放 API）；需与放置目标上的 {@link DndDropzoneDirective} 配合使用。\n会发出开始/拖拽中/结束事件，以及最终的放置效果（复制/移动/链接/取消）。",
+      "sourceFile": "src/common/dnd/dnd-draggable.directive.ts",
+      "inputs": [
+        {
+          "name": "dndDraggable",
+          "type": "any",
+          "description": "Arbitrary payload data transferred to the drop target on a successful drop.",
+          "descriptionZh": "放置成功时传递给放置目标的任意载荷数据。"
+        },
+        {
+          "name": "dndEffectAllowed",
+          "type": "EffectAllowed",
+          "default": "\"copy\"",
+          "description": "The set of drop effects this draggable allows (`copy`/`move`/`link`/etc.).",
+          "descriptionZh": "该可拖拽元素允许的放置效果集合（`copy`/`move`/`link` 等）。"
+        },
+        {
+          "name": "dndType",
+          "type": "string",
+          "description": "An arbitrary type string used by dropzones to filter which draggables they accept.",
+          "descriptionZh": "供放置区用于过滤可接受哪些可拖拽元素的任意类型字符串。"
+        },
+        {
+          "name": "dndDraggingClass",
+          "type": "any",
+          "default": "\"dndDragging\"",
+          "description": "CSS class applied to the drag image element while dragging.",
+          "descriptionZh": "拖拽过程中应用到拖拽图像元素上的 CSS 类名。"
+        },
+        {
+          "name": "dndDraggingSourceClass",
+          "type": "any",
+          "default": "\"dndDraggingSource\"",
+          "description": "CSS class applied to the host (source) element while dragging.",
+          "descriptionZh": "拖拽过程中应用到宿主（拖拽源）元素上的 CSS 类名。"
+        },
+        {
+          "name": "dndDraggableDisabledClass",
+          "type": "any",
+          "default": "\"dndDraggableDisabled\"",
+          "description": "CSS class applied to the host element when dragging is disabled (via `dndDisableIf`).",
+          "descriptionZh": "拖拽被禁用时（通过 `dndDisableIf`）应用到宿主元素上的 CSS 类名。"
+        },
+        {
+          "name": "dndDragImageOffsetFunction",
+          "type": "DndDragImageOffsetFunction",
+          "default": "calculateDragImageOffset",
+          "description": "Computes the custom drag image's pointer offset; defaults to {@link calculateDragImageOffset}.",
+          "descriptionZh": "计算自定义拖拽图像的指针偏移量；默认使用 {@link calculateDragImageOffset}。"
+        },
+        {
+          "name": "dndDisableIf",
+          "type": "boolean",
+          "description": "When `true`, disables dragging and applies `dndDraggableDisabledClass` to the host element.",
+          "descriptionZh": "为 `true` 时禁用拖拽，并将 `dndDraggableDisabledClass` 应用到宿主元素上。"
+        },
+        {
+          "name": "dndDisableDragIf",
+          "type": "boolean",
+          "description": "Alias for `dndDisableIf`.",
+          "descriptionZh": "`dndDisableIf` 的别名。"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "dndStart",
+          "type": "DragEvent",
+          "description": "Emits when dragging starts.",
+          "descriptionZh": "拖拽开始时发出。"
+        },
+        {
+          "name": "dndDrag",
+          "type": "DragEvent",
+          "description": "Emits on each native `drag` event while dragging.",
+          "descriptionZh": "拖拽过程中每次原生 `drag` 事件触发时发出。"
+        },
+        {
+          "name": "dndEnd",
+          "type": "DragEvent",
+          "description": "Emits when dragging ends, regardless of the resulting drop effect.",
+          "descriptionZh": "拖拽结束时发出，无论最终的放置效果是什么。"
+        },
+        {
+          "name": "dndMoved",
+          "type": "DragEvent",
+          "description": "Emits when dragging ends with a `move` drop effect.",
+          "descriptionZh": "拖拽以 `move`（移动）放置效果结束时发出。"
+        },
+        {
+          "name": "dndCopied",
+          "type": "DragEvent",
+          "description": "Emits when dragging ends with a `copy` drop effect.",
+          "descriptionZh": "拖拽以 `copy`（复制）放置效果结束时发出。"
+        },
+        {
+          "name": "dndLinked",
+          "type": "DragEvent",
+          "description": "Emits when dragging ends with a `link` drop effect.",
+          "descriptionZh": "拖拽以 `link`（链接）放置效果结束时发出。"
+        },
+        {
+          "name": "dndCanceled",
+          "type": "DragEvent",
+          "description": "Emits when dragging ends without a recognized drop effect (i.e. canceled).",
+          "descriptionZh": "拖拽结束但没有可识别的放置效果时发出（即被取消）。"
+        }
+      ],
+      "methods": [
+        {
+          "name": "onDragStart",
+          "params": [
+            {
+              "name": "event",
+              "type": "DndEvent"
+            }
+          ],
+          "returnType": "boolean",
+          "description": null,
+          "descriptionZh": "内部使用，处理原生 `dragstart` 事件：初始化拖拽状态并发出 `dndStart`。"
+        },
+        {
+          "name": "onDrag",
+          "params": [
+            {
+              "name": "event",
+              "type": "DragEvent"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": "内部使用，处理原生 `drag` 事件并将其重新以 `dndDrag` 发出。"
+        },
+        {
+          "name": "onDragEnd",
+          "params": [
+            {
+              "name": "event",
+              "type": "DragEvent"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": "内部使用，处理原生 `dragend` 事件：发出对应放置效果的输出以及 `dndEnd`。"
+        },
+        {
+          "name": "registerDragHandle",
+          "params": [
+            {
+              "name": "handle",
+              "type": "DndHandleDirective | undefined"
+            }
+          ],
+          "returnType": "any",
+          "description": "Registers the child {@link DndHandleDirective} that dragging must start from, if any.",
+          "descriptionZh": "注册子级 {@link DndHandleDirective}（若存在），拖拽必须从该手柄发起。"
+        },
+        {
+          "name": "registerDragImage",
+          "params": [
+            {
+              "name": "elementRef",
+              "type": "ElementRef | undefined"
+            }
+          ],
+          "returnType": "any",
+          "description": "Registers the child element reference to use as the custom drag image.",
+          "descriptionZh": "注册用作自定义拖拽图像的子元素引用。"
+        }
+      ],
+      "properties": [
+        {
+          "name": "draggable",
+          "type": "any",
+          "default": "true",
+          "description": null,
+          "descriptionZh": "内部使用，绑定宿主元素的原生 `draggable` 属性。"
+        }
+      ]
+    },
+    {
+      "name": "DndDragImageOffsetFunction",
+      "kind": "type",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/common/dnd/dnd-utils.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "DndDragImageRefDirective",
+      "kind": "directive",
+      "selector": "[dndDragImageRef]",
+      "summary": "Marks a descendant of {@link DndDraggableDirective} as the custom drag image to use instead\nof the browser's default drag ghost.",
+      "summaryZh": "将 {@link DndDraggableDirective} 的子孙元素标记为拖拽时使用的自定义拖拽图像，\n取代浏览器默认的拖拽幽灵图。",
+      "sourceFile": "src/common/dnd/dnd-draggable.directive.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "DndDropEvent",
+      "kind": "interface",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/common/dnd/dnd-dropzone.directive.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "DndDropzoneDirective",
+      "kind": "directive",
+      "selector": "[dndDropzone]",
+      "summary": "Marks the host element as a valid drop target for {@link DndDraggableDirective} elements,\nwith optional type filtering (`dndDropzone`) and drop-position placeholder support.",
+      "summaryZh": "将宿主元素标记为 {@link DndDraggableDirective} 元素的有效放置目标，支持按类型过滤\n（`dndDropzone`）以及放置位置的占位符提示。",
+      "sourceFile": "src/common/dnd/dnd-dropzone.directive.ts",
+      "inputs": [
+        {
+          "name": "dndDropzone",
+          "type": "string[] | \"\"",
+          "default": "\"\"",
+          "description": "Restricts accepted draggables to those whose `dndType` is in this list; `\"\"` accepts any type.",
+          "descriptionZh": "限制仅接受 `dndType` 在此列表中的可拖拽元素；`\"\"` 表示接受任意类型。"
+        },
+        {
+          "name": "dndEffectAllowed",
+          "type": "EffectAllowed",
+          "default": "\"uninitialized\"",
+          "description": "The drop effect(s) this dropzone allows.",
+          "descriptionZh": "该放置区允许的放置效果。"
+        },
+        {
+          "name": "dndAllowExternal",
+          "type": "boolean",
+          "default": "false",
+          "description": "Whether to accept drags originating from outside this library's `dndDraggable` directives\n(e.g. native OS file drags).",
+          "descriptionZh": "是否接受来自本库 `dndDraggable` 指令之外的拖拽（如原生系统文件拖拽）。"
+        },
+        {
+          "name": "dndHorizontal",
+          "type": "boolean",
+          "default": "false",
+          "description": "Whether the placeholder positioning logic treats siblings as laid out horizontally\nrather than vertically.",
+          "descriptionZh": "占位符定位逻辑是否将同级元素视为水平排列而非垂直排列。"
+        },
+        {
+          "name": "dndDragoverClass",
+          "type": "string",
+          "default": "\"dndDragover\"",
+          "description": "CSS class applied to the host element while a valid drag is over the dropzone.",
+          "descriptionZh": "当有效拖拽悬停在放置区上方时应用到宿主元素上的 CSS 类名。"
+        },
+        {
+          "name": "dndDropzoneDisabledClass",
+          "type": "any",
+          "default": "\"dndDropzoneDisabled\"",
+          "description": "CSS class applied to the host element when the dropzone is disabled (via `dndDisableIf`).",
+          "descriptionZh": "放置区被禁用时（通过 `dndDisableIf`）应用到宿主元素上的 CSS 类名。"
+        },
+        {
+          "name": "dndDisableIf",
+          "type": "boolean",
+          "description": "When `true`, disables this dropzone and applies `dndDropzoneDisabledClass` to the host element.",
+          "descriptionZh": "为 `true` 时禁用该放置区，并将 `dndDropzoneDisabledClass` 应用到宿主元素上。"
+        },
+        {
+          "name": "dndDisableDropIf",
+          "type": "boolean",
+          "description": "Alias for `dndDisableIf`.",
+          "descriptionZh": "`dndDisableIf` 的别名。"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "dndDragover",
+          "type": "DragEvent",
+          "description": "Emits while a valid drag is over the dropzone (throttled to native `dragover`).",
+          "descriptionZh": "当有效拖拽悬停在放置区上方时发出（随原生 `dragover` 事件节流触发）。"
+        },
+        {
+          "name": "dndDragEnter",
+          "type": "DragEvent",
+          "description": "Emits when a valid drag first enters the dropzone.",
+          "descriptionZh": "有效拖拽首次进入放置区时发出。"
+        },
+        {
+          "name": "dndDropLeave",
+          "type": "DndEvent",
+          "description": "Emits when a drag leaves the dropzone without dropping.",
+          "descriptionZh": "拖拽离开放置区且未放置时发出。"
+        },
+        {
+          "name": "dndDrop",
+          "type": "DndDropEvent",
+          "description": "Emits when an item is dropped on this dropzone, with the resolved drop data/effect/index.",
+          "descriptionZh": "当有条目被放置到该放置区时发出，携带解析后的放置数据/效果/索引。"
+        }
+      ],
+      "methods": [
+        {
+          "name": "onDragEnter",
+          "params": [
+            {
+              "name": "event",
+              "type": "DndEvent"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": "内部使用，处理原生 `dragenter` 事件：若拖拽类型被接受则发出 `dndDragEnter`。"
+        },
+        {
+          "name": "onDragOver",
+          "params": [
+            {
+              "name": "event",
+              "type": "DragEvent"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": "内部使用，处理原生 `dragover` 事件：更新占位符位置并发出 `dndDragover`。"
+        },
+        {
+          "name": "onDrop",
+          "params": [
+            {
+              "name": "event",
+              "type": "DragEvent"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": "内部使用，处理原生 `drop` 事件：解析放置数据/索引并发出 `dndDrop`。"
+        },
+        {
+          "name": "onDragLeave",
+          "params": [
+            {
+              "name": "event",
+              "type": "DndEvent"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": "内部使用，处理原生 `dragleave` 事件：清理拖拽悬停状态并发出 `dndDropLeave`。"
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "DndEvent",
+      "kind": "interface",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/common/dnd/dnd-utils.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "DndHandleDirective",
+      "kind": "directive",
+      "selector": "[dndHandle]",
+      "summary": "Restricts dragging of a parent {@link DndDraggableDirective} to only start from this\nelement (a \"drag handle\"), rather than anywhere on the draggable element.",
+      "summaryZh": "将父级 {@link DndDraggableDirective} 的拖拽起始点限制为仅此元素（即\"拖拽手柄\"），\n而不是整个可拖拽元素的任意位置。",
+      "sourceFile": "src/common/dnd/dnd-handle.directive.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "onDragEvent",
+          "params": [
+            {
+              "name": "event",
+              "type": "DndEvent"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": "内部使用，标记发起的拖拽事件是通过该手柄触发的。"
+        }
+      ],
+      "properties": [
+        {
+          "name": "draggable",
+          "type": "any",
+          "default": "true",
+          "description": null,
+          "descriptionZh": "内部使用，绑定宿主元素的原生 `draggable` 属性。"
+        }
+      ]
+    },
+    {
+      "name": "DndModule",
+      "kind": "module",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/common/dnd/dnd.module.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "DndPlaceholderRefDirective",
+      "kind": "directive",
+      "selector": "[dndPlaceholderRef]",
+      "summary": "Marks a descendant of {@link DndDropzoneDirective} as the placeholder element to position\nat the prospective drop location while dragging over the dropzone.",
+      "summaryZh": "将 {@link DndDropzoneDirective} 的子孙元素标记为占位元素，\n在拖拽悬停于放置区上方时将其定位到预计的放置位置。",
+      "sourceFile": "src/common/dnd/dnd-dropzone.directive.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "dndState",
+      "kind": "constant",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/common/dnd/dnd-state.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "DndState",
+      "kind": "interface",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/common/dnd/dnd-state.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "DragDropData",
+      "kind": "interface",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/common/dnd/dnd-utils.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "DROP_EFFECTS",
+      "kind": "constant",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/common/dnd/dnd-utils.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "DropEffect",
+      "kind": "type",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/common/dnd/dnd-types.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "EffectAllowed",
+      "kind": "type",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/common/dnd/dnd-types.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "endDrag",
+      "kind": "function",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/common/dnd/dnd-state.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "filterEffects",
+      "kind": "function",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/common/dnd/dnd-utils.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "getDirectChildElement",
+      "kind": "function",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/common/dnd/dnd-utils.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "getDndType",
+      "kind": "function",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/common/dnd/dnd-state.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "getDropData",
+      "kind": "function",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/common/dnd/dnd-utils.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "getDropEffect",
+      "kind": "function",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/common/dnd/dnd-state.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "getWellKnownMimeType",
+      "kind": "function",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/common/dnd/dnd-utils.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "isExternalDrag",
+      "kind": "function",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/common/dnd/dnd-state.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "JSON_MIME_TYPE",
+      "kind": "constant",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/common/dnd/dnd-utils.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "MSIE_MIME_TYPE",
+      "kind": "constant",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/common/dnd/dnd-utils.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "setDragData",
+      "kind": "function",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/common/dnd/dnd-utils.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "setDragImage",
+      "kind": "function",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/common/dnd/dnd-utils.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "setDropEffect",
+      "kind": "function",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/common/dnd/dnd-state.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "shouldPositionPlaceholderBeforeElement",
+      "kind": "function",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/common/dnd/dnd-utils.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "startDrag",
+      "kind": "function",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/common/dnd/dnd-state.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    }
+  ],
+  "suggestedUsageSnippet": "import { DndModule } from '@dotos/dui/common/dnd';"
+}

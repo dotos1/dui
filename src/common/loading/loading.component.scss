@@ -1,0 +1,61 @@
+.dui-loading-wrapper {
+  position: relative;
+  display: block;
+
+  &.dui-fullscreen {
+    position: inherit;
+  }
+
+  .dui-loading {
+    // layout
+    box-sizing: border-box;
+    display: flex;
+    // [layout="row"]
+    flex-direction: row;
+    // [layout-align="center center"]
+    align-items: center;
+    align-content: center;
+    max-width: 100%;
+    justify-content: center;
+    // flex
+    flex: 1;
+  }
+
+  &.dui-overlay {
+    .dui-loading {
+      position: absolute;
+      margin: 0;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+
+      mat-progress-bar {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+      }
+    }
+  }
+
+  &.dui-overlay-circular {
+    .dui-loading {
+      bottom: 0;
+    }
+  }
+}
+
+// #1001：非阻塞加载遮罩——pane 不拦截指针事件，点击穿透到底层内容，
+// 加载指示器仅作状态显示。由 LoadingFactory._createOverlay 通过 panelClass 挂到 cdk-overlay-pane 上。
+// LoadingComponent 使用 ViewEncapsulation.None，此处样式为全局，可命中 overlay 容器里的 pane。
+.cdk-overlay-pane.dui-loading-nonblocking {
+  pointer-events: none;
+
+  .dui-loading,
+  .dui-loading-wrapper,
+  mat-progress-spinner,
+  mat-progress-bar {
+    pointer-events: none;
+  }
+}

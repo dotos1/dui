@@ -1,0 +1,361 @@
+{
+  "importPath": "@dotos/dui/core/config",
+  "exports": [
+    {
+      "name": "AppConfigValues",
+      "kind": "enum",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/core/config/config.service.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "CONFIG_FORROOT_GUARD",
+      "kind": "constant",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/core/config/config.module.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "configFactory",
+      "kind": "constant",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/core/config/config.module.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "ConfigHttpLoader",
+      "kind": "class",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/core/config/http-loader/config.http-loader.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "loadSettings",
+          "params": [],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "ConfigLoader",
+      "kind": "class",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/core/config/config.loader.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "loadSettings",
+          "params": [],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "ConfigMergeLoader",
+      "kind": "class",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/core/config/merge-loader/config.merge-loader.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "loadSettings",
+          "params": [],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "next",
+          "params": [
+            {
+              "name": "loader",
+              "type": "Function"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "ConfigModule",
+      "kind": "module",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/core/config/config.module.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "forRoot",
+          "params": [
+            {
+              "name": "configuredProvider",
+              "type": "any"
+            }
+          ],
+          "returnType": "ModuleWithProviders<ConfigModule>",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "forChild",
+          "params": [],
+          "returnType": "ModuleWithProviders<ConfigModule>",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "ConfigPipe",
+      "kind": "pipe",
+      "pipeName": "config",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/core/config/config.pipe.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "transform",
+          "params": [
+            {
+              "name": "value",
+              "type": "string | Array<string>"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "ConfigService",
+      "kind": "service",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/core/config/config.service.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "setLoader",
+          "params": [
+            {
+              "name": "loader",
+              "type": "ConfigLoader"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "init",
+          "params": [],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "loadFromStore",
+          "params": [],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "select",
+          "params": [
+            {
+              "name": "property",
+              "type": "string"
+            }
+          ],
+          "returnType": "Observable<any>",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "get",
+          "params": [
+            {
+              "name": "key",
+              "type": "string"
+            },
+            {
+              "name": "defaultValue",
+              "type": "T"
+            }
+          ],
+          "returnType": "T",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "getLocationProtocol",
+          "params": [],
+          "returnType": "string",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "getLocationHostname",
+          "params": [],
+          "returnType": "string",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "getLocationPort",
+          "params": [
+            {
+              "name": "prefix",
+              "type": "string"
+            }
+          ],
+          "returnType": "string",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "getSettings",
+          "params": [
+            {
+              "name": "key",
+              "type": "string | Array<string>"
+            },
+            {
+              "name": "defaultValue",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "setSetting",
+          "params": [
+            {
+              "name": "key",
+              "type": "string"
+            },
+            {
+              "name": "value",
+              "type": "any"
+            }
+          ],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "config",
+          "type": "any",
+          "default": "{}",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "onLoadSubject",
+          "type": "Subject<any>",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "onLoad",
+          "type": "Observable<any>",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "onErrorSubject",
+          "type": "Subject<any>",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "onError",
+          "type": "Observable<any>",
+          "description": null,
+          "descriptionZh": null
+        }
+      ]
+    },
+    {
+      "name": "ConfigStaticLoader",
+      "kind": "class",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/core/config/config.loader.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "loadSettings",
+          "params": [],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "initializerFactory",
+      "kind": "constant",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/core/config/config.module.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "provideForRootGuard",
+      "kind": "function",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/core/config/config.module.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    }
+  ],
+  "suggestedUsageSnippet": "import { ConfigModule } from '@dotos/dui/core/config';"
+}

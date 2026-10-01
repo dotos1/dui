@@ -1,0 +1,68 @@
+{
+  "importPath": "@dotos/dui/common/dynamic",
+  "exports": [
+    {
+      "name": "DynamicExtensionComponent",
+      "kind": "component",
+      "selector": "dui-dynamic-component",
+      "summary": "Dynamically instantiates a component registered in the `Dui` component factory registry\nunder the given `xtype`, based on runtime `config`.",
+      "summaryZh": "根据运行时 `config`，动态实例化在 `Dui` 组件工厂注册表中以给定 `xtype` 注册的组件。",
+      "sourceFile": "src/common/dynamic/dynamic.component.ts",
+      "inputs": [
+        {
+          "name": "id",
+          "type": "string",
+          "description": "Identifier assigned to (or read back from) the dynamically created component's config.",
+          "descriptionZh": "赋予（或从）动态创建组件的配置中读回的标识符。"
+        },
+        {
+          "name": "xtype",
+          "type": "string",
+          "description": "The registered factory key used to look up which component to instantiate.",
+          "descriptionZh": "用于查找应实例化哪个组件的已注册工厂键名。"
+        },
+        {
+          "name": "config",
+          "type": "any",
+          "description": "Runtime configuration passed to (or an already-rendered reference reused by) the dynamic component.",
+          "descriptionZh": "传递给动态组件的运行时配置（或复用一个已渲染完成的引用）。"
+        },
+        {
+          "name": "keep",
+          "type": "boolean",
+          "default": "false",
+          "description": "When `true`, the dynamically created component instance is not destroyed on `ngOnDestroy`.",
+          "descriptionZh": "为 `true` 时，`ngOnDestroy` 阶段不会销毁动态创建的组件实例。"
+        }
+      ],
+      "outputs": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "content",
+          "type": "ViewContainerRef",
+          "description": null,
+          "descriptionZh": "承载动态创建组件的视图容器。"
+        },
+        {
+          "name": "componentRef",
+          "type": "ComponentRef<any>",
+          "description": "Reference to the dynamically created component instance.",
+          "descriptionZh": "动态创建的组件实例的引用。"
+        }
+      ]
+    },
+    {
+      "name": "ExtensionsModule",
+      "kind": "module",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/common/dynamic/extensions.module.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    }
+  ],
+  "suggestedUsageSnippet": "import { DynamicExtensionComponent, ExtensionsModule } from '@dotos/dui/common/dynamic';\n\n<dui-dynamic-component [id]=\"...\" [xtype]=\"...\" [config]=\"...\"></dui-dynamic-component>"
+}

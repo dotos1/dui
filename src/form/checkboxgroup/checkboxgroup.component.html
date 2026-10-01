@@ -1,0 +1,14 @@
+  <ng-container *ngFor="let option of  field.options | selectOptionsPipe:field | async; let i = index;">
+    <mat-checkbox
+      [formAttributes]="field"
+      [tabindex]="field.tabindex || 0"
+      [color]="field.color"
+      [name]="option.name"
+      [labelPosition]="field.labelPosition"
+      class="checkgroup-margin"
+      [checked]="option.checked||(formControl.value && (field.type === 'array' ? formControl.value.includes(option.value) : formControl.value[option.value]))"
+      (change)="onChange(option, $event)">
+        {{ option.label|translate }}
+    </mat-checkbox>
+  </ng-container>
+  <input type="hidden"  class="mdc-text-field__input" [value]="true"/>

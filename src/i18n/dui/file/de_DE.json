@@ -1,0 +1,1578 @@
+{
+  "SAVE": "Speichern",
+  "COMPLETE": "Abschließen",
+  "CANCEL": "Abbrechen",
+  "CLAIM": "Beanspruchen",
+  "UNCLAIM": "Freigeben",
+  "START PROCESS": "Prozess starten",
+  "FILE": {
+    "CLOSE": "Schließen",
+    "DELELINE": "Bitte wählen Sie die zu löschende Zeile.",
+    "CONFDELE": "Löschen bestätigen",
+    "ROWS2": "Datensätze?",
+    "WARNING": "Warnung",
+    "OK": "OK",
+    "CANCEL": "Abbrechen",
+    "FILES": " Dateien?",
+    "GIVEUP": "Abbrechen",
+    "UPLOAD_URL": "Import-Dateiadresse",
+    "UPLOAD_URL_MAXLENGTH": "Die Import-Dateiadresse überschreitet die maximal zulässige Länge",
+    "UPLOAD_URL_NOT_NULL": "Die Import-Dateiadresse darf nicht leer sein",
+    "UPLOAD_TOKEN": "Token",
+    "UPLOAD_TOKEN_MAXLENGTH": "Token überschreitet die maximal zulässige Länge",
+    "UPLOAD_FROM_URL": "Von externer URL laden",
+    "UPLOADTIPS": "Datenbankspeicherdateien unterstützen keinen Upload, bitte verwenden Sie das Formular zur Dateneingabe!",
+    "DOWNTIPS": "Nur der Anhangmodus unterstützt den Ordner-Download!",
+    "DOWNTIPS2": "Nur der Anhangmodus unterstützt den freigegebenen Download!",
+    "CREATTIPS": "Nur der Anhangmodus unterstützt das Erstellen von Word-Dokumenten!",
+    "DOCNAME": "Dokumentname:",
+    "NEWDOC": "Neues Dokument",
+    "NOTNULL2": "Der Dateiname darf nicht leer sein",
+    "CREATEXCEL": "Nur der Anhangmodus unterstützt das Erstellen von Excel-Dokumenten!",
+    "CHARTNAME": "Tabellenname:",
+    "NEWCHART": "Neue Tabelle",
+    "CREATPPT": "Nur der Anhangmodus unterstützt das Erstellen von Präsentationen!",
+    "PPTNAME": "Name der Präsentation:",
+    "NEWPPT": "Neue Präsentation",
+    "NUMIMP": "Anzahl importierter Datenzeilen:",
+    "EXCELIMP": "Excel-Datenimport",
+    "NOTNULL3": "Die Anzahl der importierten Datenzeilen darf nicht leer sein",
+    "NOEDIT": "Listeneingabe unterstützt den Bearbeitungsbefehl nicht!",
+    "DOWNLOAD": "Herunterladen",
+    "CONFDOWNLOAD": "Download bestätigen",
+    "DIREEMPTY": "Das Verzeichnis ist leer",
+    "LISTLOADING": "Dateiliste wird geladen......",
+    "TRYAGAIN": "Ein Fehler ist aufgetreten, bitte versuchen Sie es erneut!",
+    "VIEW": "Anzeigen",
+    "REMOVE": "Entfernen",
+    "REMOVE_FOLDER": "Verzeichnis entfernen",
+    "NEWFOLDER": "Neuer Ordner",
+    "UPLOADFILE": "Datei hochladen",
+    "UPLOADFOLDER": "Ordner hochladen",
+    "REMOVE-FOLDER": "Verzeichnis löschen",
+    "UPLOADFROMURL": "Datei von URL hochladen",
+    "CONFIGURE": "Einstellungen",
+    "NEWWORD": "Neues Dokument",
+    "EMPDOC": "Leeres Dokument",
+    "PREFIX": "Präfix",
+    "PREFIX_NOT_NULL": "Präfix darf nicht leer sein",
+    "BASESHAREURL": "Freigabe-URL",
+    "BASESHAREURL_NOT_NULL": "Freigabe-URL darf nicht leer sein",
+    "MAX_UPLOAD_SIZE": "Maximale Dateigröße beim Hochladen",
+    "MAX_UPLOAD_SIZE_NOT_NULL": "Maximale Dateigröße beim Hochladen darf nicht leer sein",
+    "SHARED_LINK_DATETIMEPICKER_TYPE": "Datumstyp der freigegebenen Datei",
+    "DATE": "Kurzdatum",
+    "DATETIME": "Zeit",
+    "PAGINATION_SIZE": "Zeilen pro Seite",
+    "PAGINATION_SIZE_NOT_NULL": "Zeilen pro Seite darf nicht leer sein",
+    "CONFIGURE-TITLE": "Einstellungen",
+    "CONFIRM": "OK",
+    "NEWWORDTEMP": "Aus Vorlage erstellen",
+    "PERMMANA": "Berechtigungsverwaltung",
+    "MOVETO": "Verschieben nach",
+    "UNZIP": "Entpacken",
+    "FAVORITE": "Favorit",
+    "REMOVEFAV": "Favorit entfernen",
+    "DIRECTORY-REMOVE": "Verzeichnis löschen",
+    "RENAME": "Umbenennen",
+    "EMPTYTRASH": "Papierkorb leeren",
+    "SHARELINK": "Link freigeben",
+    "DETAIL": "Detaillierte Informationen",
+    "MOREOPER": "Weitere Vorgänge",
+    "OPEN": "Öffnen",
+    "COPYTO": "Kopieren nach",
+    "DELFOREVER": "Endgültig löschen",
+    "RESTORE": "Wiederherstellen",
+    "NOTEMPTY": "Der Dateiname darf nicht leer sein",
+    "CONFDEL": "Löschen bestätigen \"",
+    "PERDEL": "Alle Dateien und Ordner im Papierkorb werden endgültig gelöscht",
+    "NEW": "Neu",
+    "COPYSUCC": "Datei erfolgreich kopiert!",
+    "SELCHARTTEMP": "Tabellenvorlage auswählen",
+    "DOCTEMP": "Dokumentvorlage auswählen",
+    "PPTTEMP": "PPT-Vorlage auswählen",
+    "PREVIEWEDTIPS": "Der Ordner befindet sich im Papierkorb und kann nicht in der Vorschau angezeigt werden. Sie müssen ihn aus dem Papierkorb wiederherstellen!"
+  },
+  "NOTIFICATION_HISTORY": {
+    "NO_MESSAGE": "Keine Nachrichten",
+    "NOTIFICATIONS": "Benachrichtigungen",
+    "MARK_AS_READ": "Alle als gelesen markieren"
+  },
+  "BROWSE": {
+    "PERSONAL": {
+      "TITLE": "Persönliche Dateien",
+      "SIDENAV_LINK": {
+        "LABEL": "Persönliche Dateien",
+        "TOOLTIP": "Ihre persönlichen Dateien anzeigen"
+      }
+    },
+    "RECENT": {
+      "TITLE": "Kürzlich verwendete Dateien",
+      "SIDENAV_LINK": {
+        "LABEL": "Kürzlich verwendete Dateien",
+        "TOOLTIP": "Kürzlich bearbeitete Dateien anzeigen"
+      },
+      "EMPTY_STATE": {
+        "TITLE": "Keine kürzlich verwendeten Dateien",
+        "TEXT": "Hier werden die Elemente angezeigt, die Sie in den letzten 30 Tagen hochgeladen oder bearbeitet haben."
+      }
+    },
+    "FAVORITES": {
+      "TITLE": "Favoriten",
+      "SIDENAV_LINK": {
+        "LABEL": "Favoriten",
+        "TOOLTIP": "Ihre bevorzugten Dateien und Ordner anzeigen"
+      },
+      "EMPTY_STATE": {
+        "TITLE": "Keine bevorzugten Dateien oder Ordner",
+        "TEXT": "Elemente, die Sie als Favoriten markieren, um später schnell darauf zuzugreifen."
+      }
+    },
+    "TRASHCAN": {
+      "TITLE": "Papierkorb",
+      "SIDENAV_LINK": {
+        "LABEL": "Papierkorb",
+        "TOOLTIP": "Gelöschte Dateien im Papierkorb anzeigen"
+      },
+      "EMPTY_STATE": {
+        "TITLE": "Papierkorb ist leer",
+        "FIRST_TEXT": "Von Ihnen gelöschte Elemente werden in den Papierkorb verschoben.",
+        "SECOND_TEXT": "Leeren Sie den Papierkorb, um Elemente endgültig zu löschen."
+      }
+    },
+    "SEARCH": {
+      "TITLE": "Suchergebnisse",
+      "FOUND_RESULTS": "{{ number }} Ergebnisse gefunden",
+      "FOUND_ONE_RESULT": "{{ number }} Ergebnisse gefunden",
+      "CUSTOM_ROW": {
+        "MODIFIED": "Geändert",
+        "BY_USER": "Von {{ user }}",
+        "LOCATION": "Ort",
+        "SIZE": "Größe"
+      },
+      "UNKNOWN_LOCATION": "Unbekannt",
+      "NO_RESULTS": "Ihre Suche ergab 0 Ergebnisse",
+      "TOGGLE_SEARCH_FILTER": "Suchfilter umschalten",
+      "ERRORS": {
+        "500": "Bei der Verarbeitung der Suchanfrage ist ein Fehler aufgetreten [500]",
+        "GENERIC": "Bei der Verarbeitung der Suchanfrage ist ein Fehler aufgetreten"
+      }
+    },
+    "SEARCH_LIBRARIES": {
+      "TITLE": "Bibliotheken gefunden...",
+      "FOUND_RESULTS": "{{ number }} Ergebnisse",
+      "FOUND_ONE_RESULT": "{{ number }} Ergebnisse"
+    }
+  },
+  "FORM": {
+    "START_FORM": {
+      "TITLE": "Startformular"
+    },
+    "PREVIEW": {
+      "IMAGE_NOT_AVAILABLE": "Vorschau nicht verfügbar"
+    },
+    "FIELD": {
+      "LOCALSTORAGE": "Lokaler Speicher",
+      "SOURCE": "Quelle auswählen aus ",
+      "SHOW_FILE": "Anzeigen",
+      "DOWNLOAD_FILE": "Herunterladen",
+      "REMOVE_FILE": "Löschen",
+      "UPLOAD": "Hochladen",
+      "REQUIRED": "*Erforderlich",
+      "VALIDATOR": {
+        "INVALID_NUMBER": "Verwenden Sie ein anderes Zahlenformat",
+        "INVALID_DATE": "Verwenden Sie ein anderes Datumsformat",
+        "INVALID_VALUE": "Geben Sie einen anderen Wert ein",
+        "NOT_GREATER_THAN": "Darf nicht größer als {{ maxValue }} sein",
+        "NOT_LESS_THAN": "Darf nicht kleiner als {{ minValue }} sein",
+        "AT_LEAST_LONG": "Mindestens {{ minLength }} Zeichen eingeben",
+        "NO_LONGER_THAN": "Geben Sie höchstens {{ maxLength }} Zeichen ein"
+      }
+    },
+    "FORM_RENDERER": {
+      "NAMELESS_TASK": "Unbenannte Aufgabe"
+    }
+  },
+  "FILE_SIZE": {
+    "BYTES": "Bytes",
+    "KB": "KB",
+    "MB": "MB",
+    "GB": "GB",
+    "TB": "TB",
+    "PB": "PB",
+    "EB": "EB",
+    "ZB": "ZB",
+    "YB": "YB"
+  },
+  "PAGINATION": {
+    "ARIA": {
+      "ITEMS_PER_PAGE": "Seitengrößenwähler",
+      "CURRENT_PAGE": "Aktueller Seitenwähler",
+      "PREVIOUS_PAGE": "Schaltfläche „Vorherige Seite“",
+      "NEXT_PAGE": "Schaltfläche „Nächste Seite“"
+    },
+    "ITEMS_RANGE": "{{range}} von {{total}} werden angezeigt",
+    "ITEMS_PER_PAGE": "Einträge pro Seite",
+    "CURRENT_PAGE": "Seite {{number}}",
+    "TOTAL_PAGES": "von {{total}}"
+  },
+  "DIALOG": {
+    "DOWNLOAD_ZIP": {
+      "ACTIONS": {
+        "CANCEL": "Abbrechen"
+      },
+      "TITLE": "Dateien werden zu ZIP hinzugefügt, dies kann einige Minuten dauern"
+    }
+  },
+  "FILE_DIALOG": {
+    "FILE_LOCK": "Datei sperren",
+    "ALLOW_OTHERS_CHECKBOX": "Dem Eigentümer erlauben, diese Datei zu ändern",
+    "FILE_LOCK_CHECKBOX": "Datei sperren",
+    "TIME_LOCK_CHECKBOX": "Zeitsperre",
+    "SAVE_BUTTON": {
+      "LABEL": "Speichern"
+    },
+    "CANCEL_BUTTON": {
+      "LABEL": "Abbrechen"
+    }
+  },
+  "UPLOADURL_DIALOG": {
+    "URL_DOWNLOAD": "Datei über URL hochladen",
+    "FILE_NAME": {
+      "LABEL": "Dateiname",
+      "ERRORS": {
+        "REQUIRED": "Ordnername ist erforderlich",
+        "SPECIAL_CHARACTERS": "Der Dateiname darf keine Zeichen * \" < > \\ / ? : | enthalten",
+        "ENDING_DOT": "Der Dateiname darf nicht mit einem Punkt enden",
+        "ONLY_SPACES": "Der Dateiname darf nicht nur aus Leerzeichen bestehen"
+      }
+    },
+    "URL": {
+      "LABEL": "Datei-Download-URL"
+    },
+    "CREATE_BUTTON": {
+      "LABEL": "OK"
+    },
+    "CANCEL_BUTTON": {
+      "LABEL": "Abbrechen"
+    }
+  },
+  "FOLDER_DIALOG": {
+    "CREATE_FOLDER_TITLE": "Neuer Ordner",
+    "EDIT_FOLDER_TITLE": "Ordner bearbeiten",
+    "EDIT_FILE_TITLE": "Dateiname bearbeiten",
+    "FOLDER_NAME": {
+      "LABEL": "Name",
+      "ERRORS": {
+        "REQUIRED": "Ordnername ist erforderlich",
+        "SPECIAL_CHARACTERS": "Der Ordnername darf diese Zeichen nicht enthalten: * \" < > \\ / ? : |",
+        "ENDING_DOT": "Der Ordnername darf nicht mit einem Punkt enden .",
+        "ONLY_SPACES": "Der Ordnername darf nicht nur aus Leerzeichen bestehen"
+      }
+    },
+    "FOLDER_DESCRIPTION": {
+      "LABEL": "Beschreibung"
+    },
+    "CREATE_BUTTON": {
+      "LABEL": "Erstellen"
+    },
+    "UPDATE_BUTTON": {
+      "LABEL": "Aktualisieren"
+    },
+    "CANCEL_BUTTON": {
+      "LABEL": "Abbrechen"
+    }
+  },
+  "MESSAGES": {
+    "ERRORS": {
+      "GENERIC": "Die Aktion war nicht erfolgreich. Versuchen Sie es erneut oder wenden Sie sich an Ihr IT-Team.",
+      "EXISTENT_FOLDER": "Es existiert bereits ein Ordner mit diesem Namen. Versuchen Sie einen anderen Namen."
+    }
+  },
+  "RESTORE_NODE": {
+    "VIEW": "Anzeigen",
+    "PARTIAL_PLURAL": "{{ number }} Elemente konnten aufgrund von Problemen mit dem Wiederherstellungsort nicht wiederhergestellt werden",
+    "NODE_EXISTS": "Wiederherstellen nicht möglich, das Element „{{ name }}“ ist bereits vorhanden",
+    "LOCATION_MISSING": "Element „{{ name }}“ kann nicht wiederhergestellt werden, der ursprüngliche Speicherort existiert nicht mehr",
+    "GENERIC": "Beim Wiederherstellen des Elements „{{ name }}“ ist ein Problem aufgetreten",
+    "PLURAL": "Wiederherstellung erfolgreich",
+    "SINGULAR": "Element „{{ name }}“ wiederhergestellt"
+  },
+  "DELETE_NODE": {
+    "SINGULAR": "{{ name }} gelöscht",
+    "PLURAL": "{{ number }} Elemente gelöscht",
+    "PARTIAL_SINGULAR": "{{ success }} Element gelöscht, {{ failed }} konnte nicht gelöscht werden",
+    "PARTIAL_PLURAL": "{{ success }} Element gelöscht, {{ failed }} konnte nicht gelöscht werden",
+    "ERROR_SINGULAR": "{{ name }} konnte nicht gelöscht werden",
+    "ERROR_PLURAL": "{{ number }} Elemente konnten nicht gelöscht werden"
+  },
+  "CARDVIEW": {
+    "KEYVALUEPAIRS": {
+      "ADD": "Neu hinzufügen",
+      "NAME": "Name",
+      "VALUE": "Wert"
+    },
+    "VALIDATORS": {
+      "FLOAT_VALIDATION_ERROR": "Zahlenformat verwenden",
+      "INT_VALIDATION_ERROR": "Ganzzahlformat verwenden"
+    },
+    "NONE": "Keine"
+  },
+  "METADATA": {
+    "BASIC": {
+      "HEADER": "Eigenschaften",
+      "NAME": "Name",
+      "TITLE": "Titel",
+      "DESCRIPTION": "Beschreibung",
+      "AUTHOR": "Autor",
+      "MIMETYPE": "MIME-Typ",
+      "SIZE": "Dateigröße",
+      "CREATOR": "Ersteller",
+      "CREATED_DATE": "Erstellungsdatum",
+      "MODIFIER": "Bearbeiter",
+      "MODIFIED_DATE": "Änderungsdatum"
+    },
+    "ACTIONS": {
+      "EDIT": "Bearbeiten",
+      "SAVE": "Speichern",
+      "CANCEL": "Abbrechen",
+      "TOGGLE": "Wert umschalten",
+      "CLEAR": "Löschen"
+    },
+    "ERRORS": {
+      "GENERIC": "Fehler beim Aktualisieren der Eigenschaften",
+      "409": "Doppelte Unternamen sind nicht zulässig [409]",
+      "422": "Ungültiger Eigenschaftswert"
+    }
+  },
+  "COMMENTS": {
+    "NONE": "Keine Kommentare",
+    "ADD": "Hinzufügen",
+    "HEADER": "Kommentare ({{ count }})",
+    "CREATED_BY_HEADER": "Ersteller",
+    "MESSAGE_HEADER": "Nachricht",
+    "DIALOG": {
+      "TITLE": "Neuer Kommentar",
+      "LABELS": {
+        "MESSAGE": "Nachricht"
+      },
+      "BUTTON": {
+        "ADD": "Kommentar hinzufügen",
+        "CANCEL": "Abbrechen"
+      }
+    }
+  },
+  "EMPTY": {
+    "HEADER": "Dieser Ordner ist leer",
+    "DRAG-AND-DROP": {
+      "TITLE": "Drag & Drop",
+      "SUBTITLE": "um eine Datei hochzuladen"
+    }
+  },
+  "CONTENT-ACTIONS": {
+    "TOOLTIP": "Inhaltsaktionen"
+  },
+  "ACCESSIBILITY": {
+    "SELECT_ALL": "Alle auswählen",
+    "SELECT_FILE": "Datei auswählen"
+  },
+  "USER_PROFILE": {
+    "LABELS": {
+      "ECM": {
+        "JOB_TITLE": "Berufsbezeichnung"
+      },
+      "BPM": {
+        "TENANT": "Mandant"
+      }
+    },
+    "TAB": {
+      "CS": "Content Services",
+      "PS": "Process Services"
+    }
+  },
+  "ERROR_CONTENT": {
+    "UNKNOWN": {
+      "TITLE": "Es ist ein Problem aufgetreten.",
+      "DESCRIPTION": "Anscheinend ist etwas schiefgelaufen.",
+      "SECONDARY_BUTTON": {
+        "TEXT": ""
+      },
+      "RETURN_BUTTON": {
+        "TEXT": "Zurück zur Startseite"
+      }
+    },
+    "403": {
+      "TITLE": "Sie haben keine Berechtigung, auf diesen Server zuzugreifen.",
+      "DESCRIPTION": "Sie haben keinen Zugriff auf diese Ressource auf dem Server.",
+      "SECONDARY_BUTTON": {
+        "TEXT": "Problem melden"
+      },
+      "RETURN_BUTTON": {
+        "TEXT": "Zurück zur Startseite"
+      }
+    },
+    "404": {
+      "TITLE": "Ein Fehler ist aufgetreten.",
+      "DESCRIPTION": "Die gesuchte Seite wurde nicht gefunden.",
+      "SECONDARY_BUTTON": {
+        "TEXT": ""
+      },
+      "RETURN_BUTTON": {
+        "TEXT": "Zurück zur Startseite"
+      }
+    },
+    "500": {
+      "TITLE": "Ein Fehler ist aufgetreten.",
+      "DESCRIPTION": "Interner Serverfehler, versuchen Sie es erneut oder wenden Sie sich an den IT-Support [500].",
+      "SECONDARY_BUTTON": {
+        "TEXT": ""
+      },
+      "RETURN_BUTTON": {
+        "TEXT": "Zurück zur Startseite"
+      }
+    },
+    "502": {
+      "TITLE": "Ein Fehler ist aufgetreten.",
+      "DESCRIPTION": "Bad Gateway, versuchen Sie es erneut oder wenden Sie sich an den IT-Support [502].",
+      "SECONDARY_BUTTON": {
+        "TEXT": ""
+      },
+      "RETURN_BUTTON": {
+        "TEXT": "Zurück zur Startseite"
+      }
+    },
+    "504": {
+      "TITLE": "Ein Fehler ist aufgetreten.",
+      "DESCRIPTION": "Zeitüberschreitung des Servers, versuchen Sie es erneut oder wenden Sie sich an den IT-Support [504].",
+      "SECONDARY_BUTTON": {
+        "TEXT": ""
+      },
+      "RETURN_BUTTON": {
+        "TEXT": "Zurück zur Startseite"
+      }
+    }
+  },
+  "VERSION_LIST": {
+    "ACTIONS": {
+      "RESTORE": "Wiederherstellen",
+      "DELETE": "Löschen",
+      "DOWNLOAD": "Herunterladen",
+      "VIEW": "Anzeigen",
+      "UPLOAD": {
+        "TITLE": "Neue Version hochladen",
+        "TOOLTIP": "Einschränkung: Sie müssen eine Datei mit demselben Namen hochladen, um eine neue Version dieser Datei zu erstellen",
+        "MAJOR": "Hauptänderung (2.0)",
+        "MINOR": "Nebenänderung (1.1)",
+        "COMMENT": "Kommentar hinzufügen",
+        "ADD": "Neue Version hinzufügen",
+        "CANCEL": "Abbrechen"
+      }
+    },
+    "CONFIRM_DELETE": {
+      "TITLE": "Version löschen",
+      "MESSAGE": "Gelöschte Dateiversionen können nicht wiederhergestellt werden. Fortfahren?",
+      "YES_LABEL": "Ja",
+      "NO_LABEL": "Nein"
+    }
+  },
+  "EXT_DROPDOWN": {
+    "LOADING": "Wird geladen..."
+  },
+  "EXT_CONFIRM_DIALOG": {
+    "TITLE": "Bestätigen",
+    "ACTION": "Möchten Sie fortfahren?",
+    "YES_LABEL": "Ja",
+    "NO_LABEL": "Nein"
+  },
+  "NO_PERMISSION": "Sie haben keine Berechtigung, diese Datei oder diesen Ordner anzuzeigen.",
+  "LAYOUT": {
+    "CREATED": "Erstellt",
+    "THUMBNAIL": "Miniaturansicht",
+    "NAME": "Name",
+    "LOCATION": "Ort",
+    "SIZE": "Größe",
+    "DELETED_ON": "Gelöscht",
+    "DELETED_BY": "Gelöscht von",
+    "STATUS": "Status",
+    "DESCRIPTION": "Beschreibung",
+    "MODIFIED_ON": "Geändert",
+    "MODIFIED_BY": "Geändert von",
+    "SHARED_BY": "Freigegeben von",
+    "LOAD_MORE": "Mehr laden"
+  },
+  "MENU_ACTIONS": {
+    "VIEW": "Anzeigen",
+    "REMOVE": "Löschen",
+    "DOWNLOAD": "Herunterladen"
+  },
+  "ALFRESCO_DOCUMENT_LIST": {
+    "BUTTON": {
+      "ACTION_CREATE": "Erstellen...",
+      "ACTION_NEW_FOLDER": "Neuer Ordner",
+      "CREATE": "Erstellen",
+      "CANCEL": "Abbrechen"
+    }
+  },
+  "FOLDERAUTH": {
+    "VIEW": "Anzeigen",
+    "DOWNLOAD": "Herunterladen",
+    "UPLOAD": "Hochladen",
+    "FULL": "Vollzugriff",
+    "DEPT_ALL_USERS": "Alle Mitarbeiter der Abteilung",
+    "ALL_USERS": "Alle Mitarbeiter der Unterabteilungen"
+  },
+  "DROPDOWN": {
+    "PLACEHOLDER_LABEL": "Website-Liste",
+    "MY_FILES_OPTION": "Meine Dateien"
+  },
+  "NODE_SELECTOR": {
+    "CANCEL": "Abbrechen",
+    "CHOOSE": "Auswählen",
+    "COPY": "Kopieren",
+    "COPY_ITEM": "'{{ name }}' kopieren nach...",
+    "MOVE": "Verschieben",
+    "MOVE_ITEM": "'{{ name }}' verschieben nach...",
+    "NO_RESULTS": "Keine Ergebnisse gefunden",
+    "SEARCH_RESULTS": "Suchergebnisse",
+    "SELECT_LOCATION": "Standort auswählen",
+    "COPY_ITEMS": "{{ number }} Elemente kopieren nach...",
+    "MOVE_ITEMS": "{{ number }} Elemente verschieben nach...",
+    "SEARCH": "Suchen",
+    "NEXT": "Weiter",
+    "FILE_NAME": "Neuer Dateiname",
+    "SELECT_FILE_TEMPLATE_TITLE": "Dokumentvorlage auswählen",
+    "SELECT_FOLDER_TEMPLATE_TITLE": "Ordnervorlage auswählen"
+  },
+  "OPERATION": {
+    "SUCCESS": {
+      "CONTENT": {
+        "COPY": "Erfolgreich kopiert",
+        "MOVE": "Verschieben erfolgreich"
+      },
+      "FOLDER": {
+        "COPY": "Erfolgreich kopiert",
+        "MOVE": "Verschieben erfolgreich"
+      }
+    },
+    "ERROR": {
+      "CONFLICT": "Dieser Name wird bereits verwendet. Bitte versuchen Sie einen anderen Namen.",
+      "UNKNOWN": "Die Aktion war nicht erfolgreich. Versuchen Sie es erneut oder wenden Sie sich an Ihr IT-Team.",
+      "PERMISSION": "Sie haben keine Berechtigung, dies zu tun."
+    }
+  },
+  "TAG": {
+    "LABEL": {
+      "NEWTAG": "Neues Tag"
+    },
+    "MESSAGES": {
+      "EXIST": "Tag existiert bereits"
+    },
+    "BUTTON": {
+      "ADD": "Titel hinzufügen"
+    }
+  },
+  "FILE_UPLOAD": {
+    "BUTTON": {
+      "MINIMIZE": "Minimieren (&M)",
+      "MAXIMIZE": "Maximieren",
+      "CLOSE": "Schließen",
+      "CANCEL_ALL": "Upload abgebrochen",
+      "CANCEL_FILE": "Upload abgebrochen",
+      "REMOVE_FILE": "Hochgeladene Datei entfernen",
+      "UPLOAD_FILE": "Datei hochladen",
+      "UPLOAD_FOLDER": "Ordner hochladen"
+    },
+    "STATUS": {
+      "FILE_CANCELED_STATUS": "Abgebrochen"
+    },
+    "CONFIRMATION": {
+      "BUTTON": {
+        "CANCEL": "Ja",
+        "CONTINUE": "Nein"
+      },
+      "MESSAGE": {
+        "TITLE": "Upload abgebrochen",
+        "TEXT": "Upload stoppen und hochgeladene Dateien entfernen."
+      }
+    },
+    "VERSION": {
+      "MESSAGES": {
+        "NO_ACCEPTED_FILE_TYPES": "Bitte beachten Sie, dass die Einstellung \"acceptedFilesType\" keine Auswirkung auf das Hochladen neuer Versionen hat. Der Dateityp entspricht dem der Originaldatei.",
+        "INCOMPATIBLE_VERSION": "Als neue Version darf nur eine Datei desselben Typs hochgeladen werden."
+      }
+    },
+    "MESSAGES": {
+      "UPLOAD_CANCELED": "Upload abgebrochen",
+      "UPLOAD_PROGRESS": "{{completed}} / {{total}} hochgeladen",
+      "UPLOAD_ERROR": "{{total}} nicht erfolgreich hochgeladen",
+      "UPLOAD_ERRORS": "{{total}} nicht erfolgreich hochgeladen",
+      "PROGRESS": "Wird hochgeladen...",
+      "FOLDER_ALREADY_EXIST": "Der Ordner {0} existiert bereits",
+      "FOLDER_NOT_SUPPORTED": "Ihr Browser unterstützt keinen Ordner-Upload. Bitte verwenden Sie einen anderen Browser",
+      "REMOVE_FILE_ERROR": "{{fileName}} konnte nicht entfernt werden, bitte versuchen Sie es erneut oder wenden Sie sich an Ihr IT-Team.",
+      "REMOVE_FILES_ERROR": "{{total}} Dateien konnten nicht entfernt werden, bitte versuchen Sie es erneut oder wenden Sie sich an Ihr IT-Team.",
+      "EXCEED_MAX_FILE_SIZE": "Datei {{ fileName }} überschreitet die zulässige Dateigröße von {{allowSize}}"
+    },
+    "ACTION": {
+      "UNDO": "Rückgängig"
+    },
+    "ERRORS": {
+      "GENERIC": "Upload nicht erfolgreich. Wenden Sie sich an die IT-Abteilung, falls dieses Problem weiterhin besteht",
+      "500": "Interner Serverfehler, bitte erneut versuchen oder den IT-Support kontaktieren [500]",
+      "504": "Zeitüberschreitung des Servers, bitte erneut versuchen oder den IT-Support kontaktieren [504]",
+      "403": "Unzureichende Berechtigungen zum Hochladen an diesen Speicherort [403]",
+      "404": "Der Uploadspeicherort ist nicht mehr vorhanden [404]",
+      "409": "Es existiert bereits eine Datei mit demselben Namen [409]"
+    },
+    "ARIA-LABEL": {
+      "ERROR": "Fehler beim Hochladen",
+      "VERSION": "Dateiversion"
+    }
+  },
+  "WEBSCRIPT": {
+    "ERROR": "Aktion konnte nicht abgeschlossen werden. Teilen Sie diese Meldung Ihrem IT-Team mit: Fehler bei der Deserialisierung von {{data}} als {{contentType}}"
+  },
+  "SEARCH": {
+    "CONTROL": {},
+    "BUTTON": {
+      "TOOLTIP": "Suchen",
+      "ARIA-LABEL": "Suchschaltfläche"
+    },
+    "INPUT": {
+      "ARIA-LABEL": "Sucheingabe",
+      "PLACEHOLDER": "Suchen",
+      "FILES": "Dateien",
+      "FOLDERS": "Ordner",
+      "LIBRARIES": "Bibliotheken",
+      "HINT": "Die Sucheingabe muss mindestens 2 alphanumerische Zeichen enthalten."
+    },
+    "RESULTS": {
+      "SUMMARY": "{{numResults}} Ergebnis gefunden für {{searchTerm}}",
+      "NONE": "Keine Ergebnisse gefunden für {{searchTerm}}",
+      "ERROR": "Bei der Suche ist ein Problem aufgetreten – bitte versuchen Sie es erneut.",
+      "COLUMNS": {
+        "NAME": "Anzeigename",
+        "MODIFIED_BY": "Geändert von",
+        "MODIFIED_AT": "Zuletzt geändert"
+      }
+    },
+    "FILTER": {
+      "ACTIONS": {
+        "CLEAR": "Löschen",
+        "APPLY": "Anwenden",
+        "CLEAR-ALL": "Alle löschen",
+        "SHOW-MORE": "Mehr anzeigen",
+        "SHOW-LESS": "Weniger anzeigen",
+        "FILTER-CATEGORY": "Filterkategorie"
+      },
+      "BUTTONS": {
+        "CLEAR-ALL": {
+          "LABEL": "Alle löschen",
+          "TOOLTIP": "Dadurch werden alle Auswahlen entfernt"
+        },
+        "RESET-ALL": {
+          "LABEL": "Alles zurücksetzen",
+          "TOOLTIP": "Dadurch werden alle Auswahlen und alle Filter zurückgesetzt"
+        }
+      },
+      "RANGE": {
+        "FROM": "Von",
+        "TO": "Bis",
+        "FROM-DATE": "Von",
+        "TO-DATE": "Bis"
+      },
+      "VALIDATION": {
+        "REQUIRED-VALUE": "Erforderlicher Wert",
+        "NO-DAYS": "Keine Tage ausgewählt.",
+        "INVALID-FORMAT": "Ungültiges Format",
+        "INVALID-DATE": "Ungültiges Datum. Das Datum muss dem Format „{{ requiredFormat }}“ entsprechen",
+        "BEYOND-MAX-DATE": "Das Datum liegt nach dem maximal zulässigen Datum."
+      },
+      "INPUT": {
+        "PLACEHOLDER": "Suchen",
+        "FILES": "Datei",
+        "FOLDERS": "Ordner",
+        "LIBRARIES": "Bibliotheken",
+        "HINT": "Die Sucheingabe muss mindestens 2 alphanumerische Zeichen enthalten."
+      },
+      "SORT": {
+        "RELEVANCE": "Relevanz",
+        "FILENAME": "Dateiname",
+        "TITLE": "Titel",
+        "MODIFIED_DATE": "Änderungsdatum",
+        "SIZE": "Größe",
+        "TYPE": "Typ",
+        "MODIFIER": "Bearbeiter",
+        "CREATE_DATE": "Erstellungsdatum"
+      },
+      "FACET_FIELDS": {
+        "FILE_TYPE": "Dateityp",
+        "CREATOR": "Ersteller",
+        "MODIFIER": "Bearbeiter",
+        "LOCATION": "Ort"
+      },
+      "CATEGORIES": {
+        "MODIFIED_DATE": "Änderungsdatum",
+        "SIZE": "Größe",
+        "SIZE_OPTIONS": {
+          "SMALL": "Klein",
+          "MEDIUM": "Mittel",
+          "LARGE": "Groß",
+          "HUGE": "Riesig"
+        },
+        "CREATED_DATE": "Erstellungsdatum"
+      },
+      "FACET_QUERIES": {
+        "TODAY": "Heute",
+        "THIS_WEEK": "Diese Woche",
+        "THIS_MONTH": "Diesen Monat",
+        "LAST_6_MONTHS": "In den letzten 6 Monaten",
+        "THIS_YEAR": "Dieses Jahr"
+      }
+    },
+    "ICONS": {
+      "ft_ic_raster_image": "Bilddatei",
+      "ft_ic_pdf": "PDF-Dokument",
+      "ft_ic_ms_excel": "Microsoft Excel-Datei",
+      "ft_ic_ms_word": "Microsoft Word-Dokument",
+      "ft_ic_ms_powerpoint": "Microsoft PowerPoint-Datei",
+      "ft_ic_video": "Videodatei",
+      "ft_ic_document": "Dokumentdatei",
+      "ft_ic_website": "Webressource",
+      "ft_ic_archive": "Archivdatei",
+      "ft_ic_presentation": "Präsentationsdatei",
+      "ft_ic_spreadsheet": "Tabellenkalkulationsdatei"
+    },
+    "DOCUMENT_LIST": {
+      "COLUMNS": {
+        "DISPLAY_NAME": "Anzeigename",
+        "CREATED_BY": "Ersteller",
+        "CREATED_ON": "Erstellt"
+      },
+      "ACTIONS": {
+        "FOLDER": {
+          "DELETE": "Löschen",
+          "MOVE": "Verschieben",
+          "COPY": "Kopieren"
+        },
+        "DOCUMENT": {
+          "DOWNLOAD": "Herunterladen",
+          "DELETE": "Löschen",
+          "MOVE": "Verschieben",
+          "COPY": "Kopieren",
+          "PROCESS_ACTION": "Prozess starten"
+        }
+      }
+    },
+    "SORT": {
+      "RELEVANCE": "Relevanz",
+      "FILENAME": "Dateiname",
+      "TITLE": "Titel",
+      "MODIFIED_DATE": "Änderungsdatum",
+      "SIZE": "Größe",
+      "TYPE": "Typ",
+      "MODIFIER": "Bearbeiter",
+      "CREATE_DATE": "Erstellungsdatum"
+    },
+    "FACET_FIELDS": {
+      "FILE_TYPE": "Dateityp",
+      "CREATOR": "Ersteller",
+      "MODIFIER": "Bearbeiter",
+      "LOCATION": "Ort"
+    },
+    "CATEGORIES": {
+      "MODIFIED_DATE": "Änderungsdatum",
+      "SIZE": "Größe",
+      "SIZE_OPTIONS": {
+        "SMALL": "Klein",
+        "MEDIUM": "Mittel",
+        "LARGE": "Groß",
+        "HUGE": "Riesig"
+      },
+      "CREATED_DATE": "Erstellungsdatum"
+    },
+    "FACET_QUERIES": {
+      "TODAY": "Heute",
+      "THIS_WEEK": "Diese Woche",
+      "THIS_MONTH": "Diesen Monat",
+      "LAST_6_MONTHS": "In den letzten 6 Monaten",
+      "THIS_YEAR": "Dieses Jahr"
+    },
+    "SEARCH_HEADER": {
+      "TITLE": "Filter",
+      "TYPE": "Typ",
+      "FILTER_BY": "Nach {{ category }} filtern",
+      "CLEAR": "Löschen",
+      "APPLY": "Übernehmen",
+      "FILTERS": {
+        "NAME": {
+          "TITLE": "Name",
+          "PLACEHOLDER": "Namen eingeben"
+        },
+        "TYPE": {
+          "TITLE": "Typ prüfen",
+          "FOLDER": "Ordner",
+          "DOCUMENT": "Dokument"
+        },
+        "SIZE": {
+          "TITLE": "Inhaltsgröße (Bereich)",
+          "SMALL": "Klein",
+          "MEDIUM": "Mittel",
+          "LARGE": "Groß",
+          "HUGE": "Riesig"
+        },
+        "DATE": {
+          "TITLE": "Erstellungsdatum (Zeitraum)"
+        }
+      }
+    }
+  },
+  "PERMISSION": {
+    "LACKOF": "Sie haben nicht die Berechtigung {{permission}}, um {{type}} zu {{action}}"
+  },
+  "SHARE": {
+    "PUBLIC-LINK": "Öffentlicher Link",
+    "DIALOG-TITLE": "Freigeben",
+    "DESCRIPTION": "Klicken Sie auf den unten stehenden Link, um ihn in die Zwischenablage zu kopieren.",
+    "TITLE": "Link zum Teilen",
+    "EXPIRES": "Läuft ab am",
+    "CLIPBOARD-MESSAGE": "Link in die Zwischenablage kopiert",
+    "CLOSE": "Schließen",
+    "CONFIRMATION": {
+      "DIALOG-TITLE": "Diesen freigegebenen Link entfernen",
+      "MESSAGE": "Dieser Link wird gelöscht, und beim nächsten Freigeben dieser Datei wird ein neuer Link erstellt",
+      "CANCEL": "Abbrechen",
+      "REMOVE": "Löschen"
+    },
+    "UNSHARE_ERROR": "Fehler beim Aufheben der Freigabe dieser Datei",
+    "UNSHARE_PERMISSION_ERROR": "Sie sind nicht berechtigt, die Freigabe dieser Datei aufzuheben"
+  },
+  "PERMISSION_MANAGER": {
+    "PERMISSION": "Berechtigungen festlegen",
+    "PERMISSION_DISPLAY": {
+      "INHERITED": "Geerbt",
+      "AUTHORITY_ID": "Berechtigungs-ID",
+      "ROLE": "Rolle",
+      "LOCALLY_SET": "Lokal festgelegt",
+      "NO_PERMISSIONS": "Keine Berechtigungen"
+    },
+    "ADD-PERMISSION": {
+      "SEARCH": "Suchen",
+      "TYPE-MESSAGE": "Geben Sie etwas ein, um mit der Suche nach Gruppen oder Personen zu beginnen",
+      "NO-RESULT": "Keine Ergebnisse für diese Suche gefunden",
+      "ADD-ACTION": "Hinzufügen",
+      "CLOSE-ACTION": "Schließen",
+      "BASE-DIALOG-TITLE": "Nach einer Gruppe oder Person zum Hinzufügen suchen...",
+      "EVERYONE": "ALLE"
+    },
+    "ERROR": {
+      "DUPLICATE-PERMISSION": "Eine oder mehrere der von Ihnen festgelegten Berechtigungen sind bereits vorhanden: {{list}}",
+      "NOT-ALLOWED": "Sie dürfen keine Berechtigungen ändern"
+    },
+    "CANCEL": "Abbrechen",
+    "YES_LABEL": "OK"
+  },
+  "EXT-TREE-VIEW": {
+    "MISSING-ID": "Keine nodeId angegeben!"
+  },
+  "APP": {
+    "SETTINGS": {
+      "TITLE": "Einstellungen",
+      "APPLICATION-SETTINGS": "Anwendungseinstellungen",
+      "REPOSITORY-SETTINGS": "Repository-Einstellungen",
+      "INVALID-VALUE-FORMAT": "Ungültiges Wertformat",
+      "REQUIRED-FIELD": "Dieses Feld ist erforderlich",
+      "RESET": "Zurücksetzen",
+      "APPLY": "Anwenden"
+    },
+    "PREVIEW": {
+      "TITLE": "Vorschau"
+    },
+    "NEW_MENU": {
+      "LABEL": "Neu",
+      "TOOLTIP": "Neue Dateien und Ordner hinzufügen oder eine neue Dateibibliothek erstellen",
+      "MENU_ITEMS": {
+        "CREATE_FOLDER": "Ordner erstellen",
+        "UPLOAD_FILE": "Datei hochladen",
+        "UPLOAD_FOLDER": "Ordner hochladen",
+        "CREATE_LIBRARY": "Bibliothek erstellen"
+      },
+      "TOOLTIPS": {
+        "CREATE_FOLDER": "Neuer Ordner",
+        "CREATE_FOLDER_NOT_ALLOWED": "Beim Anzeigen der aktuellen Elemente können keine Ordner erstellt werden",
+        "UPLOAD_FILES": "Dateien zum Hochladen auswählen",
+        "UPLOAD_FILES_NOT_ALLOWED": "Beim Anzeigen der aktuellen Elemente können keine Dateien hochgeladen werden",
+        "UPLOAD_FOLDERS": "Ordner zum Hochladen auswählen",
+        "UPLOAD_FOLDERS_NOT_ALLOWED": "Beim Anzeigen der aktuellen Elemente können keine Ordner hochgeladen werden",
+        "CREATE_LIBRARY": "Eine neue Dateibibliothek erstellen"
+      }
+    },
+    "ACTIONS": {
+      "VIEW": "Anzeigen",
+      "EDIT": "Bearbeiten",
+      "DOWNLOAD": "Herunterladen",
+      "COPY": "Kopieren",
+      "MOVE": "Verschieben",
+      "DELETE": "Löschen",
+      "DELETE_PERMANENT": "Endgültig löschen",
+      "MORE": "Weitere Vorgänge",
+      "UNDO": "Rückgängig",
+      "PERMISSIONS": "Berechtigung",
+      "RESTORE": "Wiederherstellen",
+      "FAVORITE": "Favorit",
+      "ADD_FAVORITE": "Zu Favoriten hinzufügen",
+      "REMOVE_FAVORITE": "Aus Favoriten entfernen",
+      "UNSHARE": "Freigabe aufheben",
+      "DETAILS": "Details anzeigen",
+      "VERSIONS": "Versionen verwalten",
+      "UPLOAD_VIEW_FILE": "Datei hochladen und anzeigen",
+      "UPLOAD_VERSION": "Neue Version hochladen",
+      "TOGGLE-SIDENAV": "Seitennavigation umschalten",
+      "SHARE": "Freigeben",
+      "SHARE_EDIT": "Einstellungen für freigegebenen Link",
+      "PRINT": "Drucken",
+      "FULLSCREEN": "Vollbildmodus aktivieren",
+      "JOIN": "Beitreten",
+      "CANCEL_JOIN": "Beitrittsanfrage abbrechen",
+      "LEAVE": "Bibliothek verlassen",
+      "EDIT_OFFLINE": "Offline bearbeiten",
+      "EDIT_OFFLINE_CANCEL": "Bearbeitung abbrechen"
+    },
+    "DIALOGS": {
+      "CONFIRM_PURGE": {
+        "TITLE": "Aus dem Papierkorb löschen?",
+        "MESSAGE": "Dadurch werden die ausgewählten Elemente endgültig gelöscht.",
+        "YES_LABEL": "Löschen",
+        "NO_LABEL": "Behalten"
+      },
+      "CONFIRM_LEAVE": {
+        "TITLE": "Diese Bibliothek verlassen?",
+        "MESSAGE": "Wenn Sie die Bibliothek verlassen, verlieren Sie Ihren Zugriff.",
+        "YES_LABEL": "OK",
+        "NO_LABEL": "Abbrechen"
+      }
+    },
+    "DOCUMENT_LIST": {
+      "COLUMNS": {
+        "ID": "ID",
+        "NAME": "Name",
+        "SIZE": "Größe",
+        "MODIFIED_ON": "Geändert",
+        "MODIFIED_BY": "Geändert von",
+        "VISIBILITY": "Sichtbarkeit",
+        "TITLE": "Titel",
+        "LOCATION": "Ort",
+        "SHARED_BY": "Freigegeben von",
+        "DELETED_ON": "Gelöscht",
+        "DELETED_BY": "Gelöscht von",
+        "ROLE": "Meine Rolle"
+      },
+      "TOOLBAR": {
+        "CARDVIEW": "Kartenansicht",
+        "LISTVIEW": "Listenansicht"
+      }
+    },
+    "MESSAGES": {
+      "ERRORS": {
+        "CANNOT_NAVIGATE_LOCATION": "Dieser Speicherort kann nicht geöffnet werden",
+        "MISSING_CONTENT": "Dieses Element existiert nicht mehr oder Sie haben keine Berechtigung, es anzuzeigen.",
+        "GENERIC": "Die Aktion war nicht erfolgreich. Versuchen Sie es erneut oder wenden Sie sich an Ihr IT-Team.",
+        "CONFLICT": "Dieser Name wird bereits verwendet. Bitte versuchen Sie einen anderen Namen.",
+        "NODE_MOVE": "Verschieben nicht erfolgreich, es existiert bereits eine Datei mit demselben Namen.",
+        "EXISTENT_FOLDER": "Es existiert bereits ein Ordner mit diesem Namen. Versuchen Sie einen anderen Namen.",
+        "NODE_DELETION": "{{ name }} konnte nicht gelöscht werden",
+        "NODE_DELETION_PLURAL": "{{ number }} Elemente konnten nicht gelöscht werden",
+        "NODE_RESTORE": "{{ name }} konnte nicht wiederhergestellt werden",
+        "NODE_RESTORE_PLURAL": "{{ number }} Elemente konnten nicht wiederhergestellt werden",
+        "PERMISSION": "Sie haben keine Berechtigung, diese Aktion auszuführen",
+        "LOCK_NODE": "Beim Sperren der Datei {{ fileName }} ist ein Problem aufgetreten",
+        "UNLOCK_NODE": "Beim Entsperren der Datei {{ fileName }} ist ein Problem aufgetreten",
+        "TRASH": {
+          "NODES_PURGE": {
+            "PLURAL": "{{ number }} Elemente konnten nicht gelöscht werden",
+            "SINGULAR": "{{ name }} konnte nicht gelöscht werden"
+          },
+          "NODES_RESTORE": {
+            "PARTIAL_PLURAL": "{{ number }} Elemente konnten aufgrund von Problemen mit dem Wiederherstellungsort nicht wiederhergestellt werden",
+            "NODE_EXISTS": "Wiederherstellen nicht möglich, {{ name }} ist bereits vorhanden",
+            "LOCATION_MISSING": "{{ name }} kann nicht wiederhergestellt werden, der ursprüngliche Speicherort ist nicht mehr vorhanden",
+            "GENERIC": "Beim Wiederherstellen von {{ name }} ist ein Problem aufgetreten"
+          }
+        },
+        "DELETE_LIBRARY_FAILED": "Die Bibliothek kann nicht gelöscht werden",
+        "JOIN_REQUEST_FAILED": "Der Bibliothek kann nicht beigetreten werden",
+        "JOIN_CANCEL_FAILED": "Ihre Beitrittsanfrage kann nicht abgebrochen werden",
+        "LEAVE_LIBRARY_FAILED": "Diese Bibliothek kann nicht verlassen werden",
+        "INVALID_SENDER_EMAIL": "Ihre E-Mail-Adresse muss gültig sein, bevor Sie eine Beitrittsanfrage stellen können.",
+        "INVALID_RECEIVER_EMAIL": "Die E-Mail-Adresse(n) der Empfänger sind ungültig. Bitte kontaktieren Sie die IT-Abteilung."
+      },
+      "UPLOAD": {
+        "ERROR": {
+          "GENERIC": "Upload nicht erfolgreich. Wenden Sie sich an die IT-Abteilung, falls dieses Problem weiterhin besteht",
+          "CONFLICT": "Neue Version nicht hochgeladen, es existiert bereits eine andere Datei mit demselben Namen",
+          "500": "Interner Serverfehler, bitte erneut versuchen oder den IT-Support kontaktieren [500]",
+          "504": "Zeitüberschreitung des Servers, bitte erneut versuchen oder den IT-Support kontaktieren [504]",
+          "403": "Unzureichende Berechtigungen zum Hochladen an diesen Speicherort [403]",
+          "404": "Der Uploadspeicherort ist nicht mehr vorhanden [404]"
+        }
+      },
+      "INFO": {
+        "TRASH": {
+          "NODES_PURGE": {
+            "PLURAL": "{{ number }} Elemente gelöscht",
+            "SINGULAR": "{{ name }} gelöscht",
+            "PARTIAL_SINGULAR": "{{ name }} gelöscht, {{ failed }} konnten nicht gelöscht werden",
+            "PARTIAL_PLURAL": "{{ number }} Elemente gelöscht, {{ failed }} konnten nicht gelöscht werden"
+          },
+          "NODES_RESTORE": {
+            "PLURAL": "Wiederherstellung erfolgreich",
+            "SINGULAR": "{{ name }} wiederhergestellt"
+          }
+        },
+        "NODE_DELETION": {
+          "SINGULAR": "{{ name }} gelöscht",
+          "PLURAL": "{{ number }} Elemente gelöscht",
+          "PARTIAL_SINGULAR": "{{ success }} Element gelöscht, {{ failed }} konnte nicht gelöscht werden",
+          "PARTIAL_PLURAL": "{{ success }} Element gelöscht, {{ failed }} konnte nicht gelöscht werden"
+        },
+        "NODE_COPY": {
+          "SINGULAR": "{{ success }} Element kopiert",
+          "PLURAL": "{{ success }} Element kopiert",
+          "PARTIAL_SINGULAR": "{{ success }} Element kopiert, {{ failed }} konnten nicht kopiert werden.",
+          "PARTIAL_PLURAL": "{{ success }} Element kopiert, {{ failed }} konnten nicht kopiert werden.",
+          "FAIL_SINGULAR": "{{ failed }} Element konnte nicht kopiert werden.",
+          "FAIL_PLURAL": "{{ failed }} Element konnte nicht kopiert werden."
+        },
+        "NODE_MOVE": {
+          "SINGULAR": "{{ success }} Element verschoben.",
+          "PLURAL": "{{ success }} Element verschoben.",
+          "PARTIAL": {
+            "SINGULAR": "{{ partially }} Element teilweise verschoben.",
+            "PLURAL": "{{ partially }} Element teilweise verschoben.",
+            "FAIL": "{{ failed }} konnten nicht verschoben werden."
+          }
+        },
+        "LIBRARY_DELETED": "Bibliothek gelöscht",
+        "JOINED": "Bibliothek beigetreten",
+        "JOIN_REQUESTED": "Anfrage zum Beitritt zu dieser Bibliothek gesendet",
+        "JOIN_CANCELED": "Anfrage zum Beitritt zur Bibliothek abgebrochen",
+        "LEFT_LIBRARY": "Sie haben die Bibliothek verlassen"
+      }
+    },
+    "CONTENT_METADATA": {
+      "EXIF_GROUP_TITLE": "Bild-EXIF",
+      "EFFECTIVITY_GROUP_TITLE": "Gültigkeit"
+    },
+    "INFO_DRAWER": {
+      "TITLE": "Detaillierte Informationen",
+      "TABS": {
+        "PROPERTIES": "Eigenschaften",
+        "LIBRARY_PROPERTIES": "Info",
+        "VERSIONS": "Version",
+        "COMMENTS": "Kommentare"
+      }
+    },
+    "BROWSE": {
+      "PERSONAL": {
+        "TITLE": "Persönliche Dateien",
+        "SIDENAV_LINK": {
+          "LABEL": "Persönliche Dateien",
+          "TOOLTIP": "Ihre persönlichen Dateien anzeigen"
+        }
+      },
+      "LIBRARIES": {
+        "TITLE": "Dateibibliotheken",
+        "DESCRIPTION": "Auf Dateibibliotheken zugreifen",
+        "SIDENAV_LINK": {
+          "LABEL": "Dateibibliotheken",
+          "TOOLTIP": "Dateibibliotheken"
+        },
+        "EMPTY_STATE": {
+          "FILE_LIBRARIES": {
+            "TITLE": "Sie sind noch kein Mitglied einer Dateibibliothek",
+            "TEXT": "Treten Sie Bibliotheken bei, um Dateien hochzuladen, anzuzeigen und freizugeben."
+          },
+          "FAVORITE_LIBRARIES": {
+            "TITLE": "Keine favorisierten Bibliotheken",
+            "TEXT": "Markieren Sie eine Bibliothek als Favorit, die Sie später leicht wiederfinden möchten."
+          }
+        },
+        "MENU": {
+          "MY_LIBRARIES": {
+            "TITLE": "Meine Bibliotheken",
+            "SIDENAV_LINK": {
+              "LABEL": "Meine Bibliotheken",
+              "TOOLTIP": "Auf meine Bibliotheken zugreifen"
+            }
+          },
+          "FAVORITE_LIBRARIES": {
+            "TITLE": "Favorisierte Bibliotheken",
+            "SIDENAV_LINK": {
+              "LABEL": "Favorisierte Bibliotheken",
+              "TOOLTIP": "Auf meine favorisierten Bibliotheken zugreifen"
+            }
+          }
+        }
+      },
+      "SHARED": {
+        "TITLE": "Freigegebene Dateien",
+        "SIDENAV_LINK": {
+          "LABEL": "Freigegeben",
+          "TOOLTIP": "Freigegebene Dateien anzeigen"
+        },
+        "EMPTY_STATE": {
+          "TITLE": "Keine freigegebenen Dateien oder Ordner",
+          "TEXT": "Hier werden Elemente angezeigt, die Sie über die Option „Freigeben“ geteilt haben."
+        }
+      },
+      "RECENT": {
+        "TITLE": "Letzte Dateien",
+        "SIDENAV_LINK": {
+          "LABEL": "Letzte Dateien",
+          "TOOLTIP": "Zuletzt bearbeitete Dateien anzeigen"
+        },
+        "EMPTY_STATE": {
+          "TITLE": "Keine letzten Dateien",
+          "TEXT": "Hier werden Elemente angezeigt, die Sie in den letzten 30 Tagen hochgeladen oder bearbeitet haben."
+        }
+      },
+      "FAVORITES": {
+        "TITLE": "Favoriten",
+        "SIDENAV_LINK": {
+          "LABEL": "Favoriten",
+          "TOOLTIP": "Ihre favorisierten Dateien und Ordner anzeigen"
+        },
+        "EMPTY_STATE": {
+          "TITLE": "Keine favorisierten Dateien oder Ordner",
+          "TEXT": "Markieren Sie Elemente als Favoriten, die Sie später leicht wiederfinden möchten."
+        }
+      },
+      "TRASHCAN": {
+        "TITLE": "Papierkorb",
+        "SIDENAV_LINK": {
+          "LABEL": "Papierkorb",
+          "TOOLTIP": "Gelöschte Dateien im Papierkorb anzeigen"
+        },
+        "EMPTY_STATE": {
+          "TITLE": "Papierkorb ist leer",
+          "FIRST_TEXT": "Gelöschte Elemente werden in den Papierkorb verschoben.",
+          "SECOND_TEXT": "Leeren Sie den Papierkorb, um Elemente endgültig zu löschen."
+        }
+      },
+      "ABOUT": {
+        "TITLE": "Info"
+      },
+      "SEARCH": {
+        "TITLE": "Suchergebnisse",
+        "FOUND_RESULTS": "{{ number }} Ergebnisse gefunden",
+        "FOUND_ONE_RESULT": "{{ number }} Ergebnis gefunden",
+        "CUSTOM_ROW": {
+          "MODIFIED": "Geändert",
+          "BY_USER": "von {{ user }}",
+          "LOCATION": "Speicherort",
+          "SIZE": "Größe"
+        },
+        "UNKNOWN_LOCATION": "Unbekannt",
+        "NO_RESULTS": "Ihre Suche hat 0 Ergebnisse geliefert",
+        "TOGGLE_SEARCH_FILTER": "Suchfilter umschalten",
+        "ERRORS": {
+          "500": "Bei der Verarbeitung der Suchanfrage ist ein Fehler aufgetreten [500]",
+          "GENERIC": "Bei der Verarbeitung der Suchanfrage ist ein Fehler aufgetreten"
+        }
+      },
+      "SEARCH_LIBRARIES": {
+        "TITLE": "Bibliotheken gefunden...",
+        "FOUND_RESULTS": "{{ number }} Ergebnisse",
+        "FOUND_ONE_RESULT": "{{ number }} Ergebnis"
+      }
+    }
+  },
+  "NODE_FROM_TEMPLATE": {
+    "CANCEL": "Abbrechen",
+    "CREATE": "Erstellen",
+    "FOLDER_DIALOG_TITLE": "Neuen Ordner aus <span class=\"bold\">'{{ template }}'</span> erstellen",
+    "FILE_DIALOG_TITLE": "Neues Dokument aus <span class=\"bold\">'{{ template }}'</span> erstellen",
+    "FORM": {
+      "PLACEHOLDER": {
+        "NAME": "Name",
+        "TITLE": "Titel",
+        "DESCRIPTION": "Beschreibung"
+      },
+      "ERRORS": {
+        "DESCRIPTION_TOO_LONG": "Verwenden Sie höchstens 512 Zeichen für die Beschreibung",
+        "TITLE_TOO_LONG": "Verwenden Sie höchstens 256 Zeichen für den Titel",
+        "REQUIRED": "Ein Name ist erforderlich",
+        "SPECIAL_CHARACTERS": "Der Name darf diese Zeichen nicht enthalten: * \" < > \\ / ? : |",
+        "ENDING_DOT": "Der Name darf nicht mit einem Punkt . enden",
+        "ONLY_SPACES": "Der Name darf nicht nur aus Leerzeichen bestehen"
+      }
+    }
+  },
+  "PERMISSIONS": {
+    "DIALOG": {
+      "TITLE": "Berechtigungen verwalten",
+      "CLOSE": "Schließen",
+      "INHERIT_PERMISSIONS_BUTTON": "Berechtigungen erben",
+      "INHERITED_PERMISSIONS_BUTTON": "Geerbte Berechtigungen",
+      "ADD_USER_OR_GROUP": "Benutzer oder Gruppe hinzufügen"
+    }
+  },
+  "SHARED_LINK": {
+    "UNSHARE_PERMISSION_ERROR": "Sie sind nicht berechtigt, die Freigabe dieser Datei aufzuheben"
+  },
+  "VERSION": {
+    "DIALOG_ADF": {
+      "TITLE": "Versionen verwalten",
+      "CLOSE": "Schließen"
+    },
+    "DIALOG": {
+      "TITLE": "Neue Version hochladen",
+      "CANCEL": "Abbrechen",
+      "UPLOAD": "Hochladen"
+    },
+    "FORM": {
+      "SUBTITLE": "Welche Art von Änderungen wurden an dieser Version vorgenommen?",
+      "VERSION": {
+        "MINOR": "Nebenversion",
+        "MAJOR": "Hauptversion"
+      },
+      "COMMENT": {
+        "PLACEHOLDER": "Notizen zu den Änderungen hinzufügen"
+      }
+    },
+    "SELECTION": {
+      "EMPTY": "Bitte wählen Sie ein Dokument aus, um dessen Versionen anzuzeigen.",
+      "NO_PERMISSION": "Sie haben keine Berechtigung, die Versionen dieses Inhalts zu verwalten."
+    },
+    "ERROR": {
+      "GENERIC": "Beim Versionieren der Datei ist ein Fehler aufgetreten"
+    }
+  },
+  "LIBRARY": {
+    "ROLE": {
+      "MANAGER": "Administrator",
+      "COLLABORATOR": "Mitarbeiter",
+      "CONTRIBUTOR": "Mitwirkender",
+      "CONSUMER": "Verbraucher"
+    },
+    "DIALOG": {
+      "CREATE_TITLE": "Bibliothek erstellen",
+      "CREATE": "Erstellen",
+      "UPDATE": "Aktualisieren",
+      "EDIT": "Bearbeiten",
+      "CANCEL": "Abbrechen",
+      "FORM": {
+        "DESCRIPTION": "Beschreibung",
+        "SITE_ID": "Bibliotheks-ID",
+        "NAME": "Name",
+        "VISIBILITY": "Sichtbarkeit"
+      }
+    },
+    "VISIBILITY": {
+      "PRIVATE": "Privat",
+      "PUBLIC": "Öffentlich",
+      "MODERATED": "Moderiert"
+    },
+    "HINTS": {
+      "SITE_TITLE_EXISTS": "Bibliotheksname bereits vergeben"
+    },
+    "ERRORS": {
+      "GENERIC": "Es ist ein Problem aufgetreten",
+      "EXISTENT_SITE": "Diese Bibliotheks-ID ist nicht verfügbar. Versuchen Sie eine andere Bibliotheks-ID.",
+      "CONFLICT": "Diese Bibliotheks-ID wird bereits verwendet. Überprüfen Sie den Papierkorb.",
+      "ID_TOO_LONG": "Verwenden Sie höchstens 72 Zeichen für den URL-Namen",
+      "DESCRIPTION_TOO_LONG": "Verwenden Sie höchstens 512 Zeichen für die Beschreibung",
+      "TITLE_TOO_LONG": "Verwenden Sie höchstens 256 Zeichen für den Titel",
+      "ILLEGAL_CHARACTERS": "Verwenden Sie nur Zahlen und Buchstaben",
+      "ONLY_SPACES": "Der Bibliotheksname darf nicht nur aus Leerzeichen bestehen",
+      "LIBRARY_UPDATE_ERROR": "Beim Aktualisieren der Bibliothekseigenschaften ist ein Fehler aufgetreten",
+      "TITLE_TOO_SHORT": "Der Titel muss mindestens 2 Zeichen lang sein"
+    },
+    "SUCCESS": {
+      "LIBRARY_UPDATED": "Bibliothekseigenschaften aktualisiert"
+    }
+  },
+  "AVATAR": {
+    "ACCESSIBILITY": {
+      "AVATAR_BUTTON_ARIA_LABEL": "Benutzeroptionen"
+    }
+  },
+  "CORE": {
+    "METADATA": {
+      "ACTIONS": {
+        "SAVE": "Speichern",
+        "CANCEL": "Abbrechen"
+      }
+    }
+  },
+  "VIEWER": {
+    "PAGE_LABEL_SHOWING": "Anzeige",
+    "ACTIONS": {
+      "BACK": "Zurück",
+      "OPEN_WITH": "Öffnen mit",
+      "DOWNLOAD": "Herunterladen",
+      "PRINT": "Drucken",
+      "SHARE": "Freigeben",
+      "MORE_ACTIONS": "Weitere Vorgänge",
+      "INFO": "Details anzeigen",
+      "FULLSCREEN": "Vollbildmodus aktivieren",
+      "CLOSE": "Schließen",
+      "NEXT_FILE": "Nächste Datei",
+      "PREV_FILE": "Vorherige Datei"
+    },
+    "ARIA": {
+      "PREVIOUS_PAGE": "Vorherige Seite",
+      "NEXT_PAGE": "Nächste Seite",
+      "ZOOM_IN": "Vergrößern",
+      "ZOOM_OUT": "Verkleinern",
+      "ROTATE": "Drehen",
+      "CROP": "Ausschneiden",
+      "CANCEL": "Abbrechen",
+      "SAVE": "Speichern",
+      "FIT_PAGE": "Seite einpassen",
+      "FIT_WIDTH": "Breite anpassen",
+      "FIT_HEIGHT": "Höhe anpassen",
+      "ROTATE_LEFT": "Nach links drehen",
+      "ROTATE_RIGHT": "Nach rechts drehen",
+      "RESET": "Zurücksetzen",
+      "FIND": "Suchen",
+      "THUMBNAILS": "Dokumentminiaturansichten"
+    },
+    "PAGE_LABEL": {
+      "SHOWING": "Anzeige",
+      "OF": "/"
+    },
+    "LOADING": "Wird geladen",
+    "UNKNOWN_FORMAT": "Vorschau konnte nicht geladen werden. Unbekanntes Format.",
+    "SIDEBAR": {
+      "THUMBNAILS": {
+        "PAGE": "Seite {{ pageNum }}"
+      },
+      "METADATA": {
+        "MORE_INFORMATION": "Weitere Informationen",
+        "LESS_INFORMATION": "Weniger Informationen"
+      }
+    },
+    "PDF_DIALOG": {
+      "SUBMIT": "Absenden",
+      "CLOSE": "Schließen",
+      "PLACEHOLDER": "Passwort",
+      "ERROR": "Falsches Passwort"
+    }
+  },
+  "CUSTOM_NAME_COLUMN": {
+    "ACCESSIBILITY": {
+      "FILE_LINK_ARIA_LABEL": "{{ name }} anzeigen",
+      "FOLDER_LINK_ARIA_LABEL": "Ordner {{ name }} öffnen"
+    }
+  },
+  "ADF-DATATABLE": {
+    "FILE_TYPE": {
+      "BOOKS-24PX": "Dateibibliothek",
+      "BASELINE-LOCK-24PX": "Gesperrte Datei"
+    },
+    "EMPTY": {
+      "HEADER": "Diese Liste ist leer",
+      "DRAG-AND-DROP": {
+        "TITLE": "Drag & Drop",
+        "SUBTITLE": "um Dateien hochzuladen"
+      }
+    },
+    "CONTENT-ACTIONS": {
+      "TOOLTIP": "Inhaltsaktionen"
+    },
+    "ACCESSIBILITY": {
+      "SELECT_ALL": "Alle auswählen",
+      "SELECT_FILE": "Datei auswählen"
+    }
+  },
+  "HEADER": {
+    "LOGO_ARIA": "Firmenlogo"
+  },
+  "LOGIN": {
+    "LOGO": "Alfresco",
+    "LABEL": {
+      "LOGIN": "Anmelden",
+      "USERNAME": "Benutzername",
+      "PASSWORD": "Kennwort",
+      "REMEMBER": "Angemeldet bleiben"
+    },
+    "MESSAGES": {
+      "USERNAME-REQUIRED": "Erforderlich",
+      "USERNAME-MIN": "Ihr Benutzername muss mindestens {{ minLength }} Zeichen lang sein.",
+      "PASSWORD-REQUIRED": "Geben Sie Ihr Kennwort ein, um sich anzumelden",
+      "LOGIN-ERROR-CREDENTIALS": "Unbekannter Benutzername oder unbekanntes Kennwort",
+      "LOGIN-ERROR-PROVIDERS": "Provider dürfen nicht undefined sein",
+      "LOGIN-ERROR-CORS": "CORS-Ausnahme, überprüfen Sie Ihre Serverkonfiguration",
+      "LOGIN-ERROR-CSRF": "CSRF-Ausnahme, setzen Sie [disableCsrf]=\"true\" in login.component",
+      "LOGIN-ECM-LICENSE": "Das Alfresco Content Services-Repository befindet sich im schreibgeschützten Modus",
+      "SSO-WRONG-CONFIGURATION": "SSO-Authentifizierungsserver nicht erreichbar"
+    },
+    "BUTTON": {
+      "LOGIN": "ANMELDEN",
+      "CHECKING": "WIRD GEPRÜFT",
+      "WELCOME": "WILLKOMMEN",
+      "SSO": "MIT SSO ANMELDEN"
+    },
+    "ACTION": {
+      "HELP": "HILFE BENÖTIGT?",
+      "REGISTER": "REGISTRIEREN"
+    },
+    "DIALOG": {
+      "CANCEL": "Abbrechen",
+      "CHOOSE": "Auswählen"
+    }
+  },
+  "EXT_VIEWER": {
+    "ACTIONS": {
+      "BACK": "Zurück",
+      "OPEN_WITH": "Öffnen mit",
+      "DOWNLOAD": "Herunterladen",
+      "PRINT": "Drucken",
+      "SHARE": "Teilen",
+      "MORE_ACTIONS": "Weitere Aktionen",
+      "INFO": "Details anzeigen",
+      "FULLSCREEN": "Vollbildmodus aktivieren",
+      "CLOSE": "Schließen",
+      "NEXT_FILE": "Nächste Datei",
+      "PREV_FILE": "Vorherige Datei"
+    },
+    "ARIA": {
+      "PREVIOUS_PAGE": "Vorherige Seite",
+      "NEXT_PAGE": "Nächste Seite",
+      "ZOOM_IN": "Vergrößern",
+      "ZOOM_OUT": "Verkleinern",
+      "FIT_PAGE": "An Seite anpassen",
+      "ROTATE_LEFT": "Nach links drehen",
+      "ROTATE_RIGHT": "Nach rechts drehen",
+      "RESET": "Zurücksetzen"
+    },
+    "PAGE_LABEL": {
+      "SHOWING": "Anzeige",
+      "OF": "von"
+    },
+    "LOADING": "Wird geladen",
+    "UNKNOWN_FORMAT": "Vorschau konnte nicht geladen werden. Unbekanntes Format.",
+    "SIDEBAR": {
+      "THUMBNAILS": {
+        "PAGE": "Seite {{ pageNum }}"
+      },
+      "METADATA": {
+        "MORE_INFORMATION": "Weitere Informationen",
+        "LESS_INFORMATION": "Weniger Informationen"
+      }
+    },
+    "PDF_DIALOG": {
+      "SUBMIT": "Absenden",
+      "CLOSE": "Schließen",
+      "PLACEHOLDER": "Kennwort",
+      "ERROR": "Falsches Passwort"
+    }
+  },
+  "ABOUT": {
+    "SERVER_SETTINGS": {
+      "TITLE": "Servereinstellungen",
+      "DESCRIPTION": "Die folgenden Werte stammen aus dem AppConfigService",
+      "CONTENT_SERVICE_HOST": "Alfresco Content Services-URL: {{ value }}",
+      "PROCESS_SERVICE_HOST": "Alfresco Process Services-URL: {{ value }}"
+    },
+    "VERSIONS": {
+      "TITLE": "Produktversionen",
+      "CONTENT_SERVICE": "ECM",
+      "PROCESS_SERVICE": "BPM",
+      "LABELS": {
+        "EDITION": "Edition",
+        "VERSION": "Version",
+        "LICENSE": "Lizenz",
+        "STATUS": "Status",
+        "MODULES": "Module"
+      }
+    },
+    "SOURCE_CODE": {
+      "TITLE": "Quellcode",
+      "DESCRIPTION": "Sie führen das Projekt basierend auf folgendem Commit aus:"
+    },
+    "PACKAGES": {
+      "TITLE": "Pakete",
+      "DESCRIPTION": "Das aktuelle Projekt verwendet folgende ADF-Bibliotheken:"
+    },
+    "TABLE_HEADERS": {
+      "MODULES": {
+        "ID": "ID",
+        "TITLE": "Titel",
+        "DESCRIPTION": "Beschreibung",
+        "INSTALL_DATE": "Installationsdatum",
+        "INSTALL_STATE": "Installationsstatus",
+        "VERSION_MIN": "Min. Version",
+        "VERSION_MAX": "Max. Version"
+      },
+      "STATUS": {
+        "READ_ONLY": "Schreibgeschützt",
+        "AUDIT_ENABLED": "Audit aktiviert",
+        "QUICK_SHARE_ENABLED": "Quick Share aktiviert",
+        "THUMBNAIL_ENABLED": "Thumbnail-Erstellung"
+      },
+      "LICENSE": {
+        "ISSUES_AT": "Ausgestellt am",
+        "EXPIRES_AT": "Läuft ab am",
+        "REMAINING_DAYS": "Verbleibende Tage",
+        "HOLDER": "Inhaber",
+        "MODE": "Modus",
+        "CLUSTER_ENABLED": "Cluster aktiviert",
+        "CRYPTODOC_ENABLED": "Cryptodoc aktiviert"
+      }
+    }
+  },
+  "CLIPBOARD": {
+    "CLICK_TO_COPY": "Zum Kopieren klicken",
+    "SUCCESS_COPY": "Text in die Zwischenablage kopiert"
+  },
+  "EXT_VERSION_LIST": {
+    "ACTIONS": {
+      "RESTORE": "Wiederherstellen",
+      "DELETE": "Löschen",
+      "DOWNLOAD": "Herunterladen",
+      "UPLOAD": {
+        "TITLE": "Neue Version hochladen",
+        "TOOLTIP": "Neue Version hochladen",
+        "MAJOR": "Hauptversionsänderungen (2.0)",
+        "MINOR": "Nebenversionsänderungen (1.1)",
+        "COMMENT": "Kommentar hinterlassen",
+        "ADD": "Neue Version hinzufügen",
+        "CANCEL": "Abbrechen"
+      }
+    },
+    "CONFIRM_DELETE": {
+      "TITLE": "Version löschen",
+      "MESSAGE": "Gelöschte Dateiversionen können nicht wiederhergestellt werden. Fortfahren?",
+      "YES_LABEL": "Ja",
+      "NO_LABEL": "Nein"
+    }
+  },
+  "EXT_FILE_UPLOAD": {
+    "BUTTON": {
+      "MINIMIZE": "Minimieren",
+      "MAXIMIZE": "Maximieren",
+      "CLOSE": "Schließen",
+      "CANCEL_ALL": "Uploads abbrechen",
+      "CANCEL_FILE": "Upload abbrechen",
+      "REMOVE_FILE": "Hochgeladene Datei entfernen"
+    },
+    "STATUS": {
+      "FILE_CANCELED_STATUS": "Abgebrochen"
+    },
+    "CONFIRMATION": {
+      "BUTTON": {
+        "CANCEL": "Ja",
+        "CONTINUE": "Nein"
+      },
+      "MESSAGE": {
+        "TITLE": "Upload abbrechen",
+        "TEXT": "Upload stoppen und bereits hochgeladene Dateien entfernen."
+      }
+    },
+    "ARIA-LABEL": {
+      "VERSION": "Dateiversion"
+    }
+  }
+}

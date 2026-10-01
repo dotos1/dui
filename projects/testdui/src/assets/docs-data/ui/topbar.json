@@ -1,0 +1,67 @@
+{
+  "importPath": "@dotos/dui/ui/topbar",
+  "exports": [
+    {
+      "name": "ToolbarDividerComponent",
+      "kind": "component",
+      "selector": "dui-topbar-divider",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/ui/topbar/topbar-divider.component.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "TopbarComponent",
+      "kind": "component",
+      "selector": "dui-topbar",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/ui/topbar/topbar.component.ts",
+      "inputs": [
+        {
+          "name": "title",
+          "type": "string",
+          "default": "''",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "color",
+          "type": "string",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "TopbarModule",
+      "kind": "module",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/ui/topbar/topbar.module.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "TopbarTitleComponent",
+      "kind": "component",
+      "selector": "dui-topbar-title",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/ui/topbar/topbar-title.component.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    }
+  ],
+  "suggestedUsageSnippet": "import { ToolbarDividerComponent, TopbarModule } from '@dotos/dui/ui/topbar';\n\n<dui-topbar-divider></dui-topbar-divider>"
+}

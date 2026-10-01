@@ -1,0 +1,21 @@
+.menu-bar-item-menu {
+  &.menu-bar-item-menu--dense {
+    width: 250px;
+    min-height: 48px;
+    .mat-mdc-menu-item {
+      height: 40px;
+      line-height: 40px;
+    }
+  }
+  .mat-mdc-menu-item {
+    .menu-bar-item-menu-item--command {
+      float: right;
+    }
+  }
+  mat-divider {
+    margin: 8px 0;
+  }
+}
+.dui-menubar{
+  display: flex;
+}

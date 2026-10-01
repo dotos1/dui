@@ -1,0 +1,299 @@
+{
+  "importPath": "@dotos/dui/ux/link-preview",
+  "exports": [
+    {
+      "name": "LinkPreviewCacheService",
+      "kind": "service",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/ux/link-preview/services/link-preview-cache.service.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "updateCacheItem",
+          "params": [
+            {
+              "name": "cacheKey",
+              "type": "string"
+            },
+            {
+              "name": "data",
+              "type": "any"
+            }
+          ],
+          "returnType": "void",
+          "description": "Update item in RAM cache",
+          "descriptionZh": null
+        },
+        {
+          "name": "getCacheItem",
+          "params": [
+            {
+              "name": "cacheKey",
+              "type": "string"
+            }
+          ],
+          "returnType": "any",
+          "description": "Get item from cache",
+          "descriptionZh": null
+        },
+        {
+          "name": "saveCache",
+          "params": [],
+          "returnType": "void",
+          "description": "Save whole cache to localStorage",
+          "descriptionZh": null
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "LinkPreviewComponent",
+      "kind": "component",
+      "selector": "link-preview",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/ux/link-preview/components/link-preview.component.ts",
+      "inputs": [
+        {
+          "name": "links",
+          "type": "string[]",
+          "default": "[]",
+          "description": "Plain links string array",
+          "descriptionZh": null
+        },
+        {
+          "name": "parseForLinksStr",
+          "type": "string",
+          "description": "Input string to parse for links",
+          "descriptionZh": null
+        },
+        {
+          "name": "getApiEndpoint$",
+          "type": "(requestUrl: string) => Observable<any>",
+          "description": "Method that does the API request, provide as class member arrow function from parent",
+          "descriptionZh": null
+        },
+        {
+          "name": "apiRoute",
+          "type": "string",
+          "description": "API route where to get the meta data from, component will build the full request url\nSchema: api.example.com/api/get-meta-data?url=d3d3LmV4YW1wbGUuY29t",
+          "descriptionZh": null
+        },
+        {
+          "name": "queryParamName",
+          "type": "any",
+          "default": "'url'",
+          "description": "Target url will be attached as encodeURI(btoa(url)), so it must be decoded on the server",
+          "descriptionZh": null
+        },
+        {
+          "name": "showImage",
+          "type": "any",
+          "default": "true",
+          "description": "boolean: show image in preview",
+          "descriptionZh": null
+        },
+        {
+          "name": "showSiteName",
+          "type": "any",
+          "default": "true",
+          "description": "boolean: show site name in preview",
+          "descriptionZh": null
+        },
+        {
+          "name": "showTitle",
+          "type": "any",
+          "default": "true",
+          "description": "boolean: show title in preview",
+          "descriptionZh": null
+        },
+        {
+          "name": "showDescription",
+          "type": "any",
+          "default": "true",
+          "description": "boolean: show description in preview",
+          "descriptionZh": null
+        },
+        {
+          "name": "showLinkUrl",
+          "type": "any",
+          "default": "false",
+          "description": "boolean: show link url in preview",
+          "descriptionZh": null
+        },
+        {
+          "name": "useCache",
+          "type": "any",
+          "default": "true",
+          "description": "boolean: use cache to display previews faster on next rendering",
+          "descriptionZh": null
+        },
+        {
+          "name": "maxCacheAgeMs",
+          "type": "any",
+          "default": "1000 * 60 * 60 * 24 * 7",
+          "description": "number: max age the data cache of a link preview should be used",
+          "descriptionZh": null
+        },
+        {
+          "name": "showLoadingIndicator",
+          "type": "any",
+          "default": "true",
+          "description": "boolean: show loading indicator",
+          "descriptionZh": null
+        },
+        {
+          "name": "useHtmlLinkDefaultClickEvent",
+          "type": "any",
+          "default": "false",
+          "description": "boolean: whether the <a href=\"...\"></a> link should be clickable.\nThis is a question of context security. Otherwise use (previewClick) event.",
+          "descriptionZh": null
+        },
+        {
+          "name": "htmlLinkTarget",
+          "type": "HtmlLinkTarget",
+          "default": "'_blank'",
+          "description": "HtmlLinkTarget: where the HTML link should be opened on click.\nOnly has an effect if [useHtmlLinkDefaultClickEvent]=\"true\"",
+          "descriptionZh": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "previewClicked",
+          "type": "any",
+          "description": "Event emitter: on click to handle the click event, emits the clicked URL",
+          "descriptionZh": null
+        }
+      ],
+      "methods": [
+        {
+          "name": "onLinkClick",
+          "params": [
+            {
+              "name": "url",
+              "type": "string"
+            }
+          ],
+          "returnType": "void",
+          "description": "On link click emit to EventEmitter",
+          "descriptionZh": null
+        },
+        {
+          "name": "disableDefaultLink",
+          "params": [
+            {
+              "name": "event",
+              "type": "MouseEvent"
+            }
+          ],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "getSanitizedImageUrl",
+          "params": [
+            {
+              "name": "p",
+              "type": "OpenGraphMetaData"
+            }
+          ],
+          "returnType": "string",
+          "description": "Get sanitized image url due data often contains url errors",
+          "descriptionZh": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "previews",
+          "type": "OpenGraphMetaData[]",
+          "default": "[]",
+          "description": "Array of metadata objects where the preview is rendered from",
+          "descriptionZh": null
+        },
+        {
+          "name": "loadingSpinner",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "showLoadingSpinner",
+          "type": "any",
+          "default": "false",
+          "description": null,
+          "descriptionZh": null
+        }
+      ]
+    },
+    {
+      "name": "LinkPreviewLoadingManager",
+      "kind": "class",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/ux/link-preview/services/link-preview-loading.manager.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "addTask",
+          "params": [
+            {
+              "name": "name",
+              "type": "string"
+            }
+          ],
+          "returnType": "void",
+          "description": "Add task to stack",
+          "descriptionZh": null
+        },
+        {
+          "name": "removeTask",
+          "params": [
+            {
+              "name": "name",
+              "type": "string"
+            }
+          ],
+          "returnType": "void",
+          "description": "Remove task from stack",
+          "descriptionZh": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "hasPendingJobs$",
+          "type": "any",
+          "default": "new BehaviorSubject(false)",
+          "description": "Observable to retrieve if has pending jobs",
+          "descriptionZh": null
+        }
+      ]
+    },
+    {
+      "name": "LinkPreviewModule",
+      "kind": "module",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/ux/link-preview/link-preview.module.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "OpenGraphMetaData",
+      "kind": "interface",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/ux/link-preview/interfaces/open-graph-meta-data.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    }
+  ],
+  "suggestedUsageSnippet": "import { LinkPreviewComponent, LinkPreviewModule } from '@dotos/dui/ux/link-preview';\n\n<link-preview [links]=\"...\" [parseForLinksStr]=\"...\" [getApiEndpoint$]=\"...\" (previewClicked)=\"...\"></link-preview>"
+}

@@ -1,0 +1,55 @@
+.overview__import {
+  font-family: monospace;
+  font-size: 13px;
+  background: rgba(0, 0, 0, 0.04);
+  padding: 10px 14px;
+  border-radius: 6px;
+  overflow-x: auto;
+}
+
+.overview__exports {
+  margin: 16px 0;
+}
+
+.overview__kind {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 2px 6px;
+  border-radius: 4px;
+  background: #e3f2fd;
+  color: #1565c0;
+  width: auto !important;
+  height: auto !important;
+  display: inline-flex;
+  align-items: center;
+}
+
+.overview__name {
+  font-family: monospace;
+  font-weight: 600;
+  margin-right: 10px;
+}
+
+.overview__summary {
+  color: inherit;
+  opacity: 0.7;
+  font-size: 13px;
+}
+
+.overview__subheading {
+  font-size: 16px;
+  font-weight: 500;
+  margin: 24px 0 12px;
+}
+
+.overview__empty {
+  color: inherit;
+  opacity: 0.6;
+
+  code {
+    background: rgba(128, 128, 128, 0.16);
+    padding: 2px 4px;
+    border-radius: 4px;
+  }
+}

@@ -1,0 +1,134 @@
+{
+  "importPath": "@dotos/dui/ui/color-button",
+  "exports": [
+    {
+      "name": "ColorPickerButton",
+      "kind": "component",
+      "selector": "colorpicker-button",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/ui/color-button/color-button.ts",
+      "inputs": [
+        {
+          "name": "config",
+          "type": "any",
+          "default": "{}",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "data",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "ownerCt",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "click",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "methods": [
+        {
+          "name": "setValue",
+          "params": [
+            {
+              "name": "v",
+              "type": "any"
+            }
+          ],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "changeComplete",
+          "params": [
+            {
+              "name": "$event",
+              "type": "ColorEvent"
+            }
+          ],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "matTooltip",
+          "type": "MatTooltip",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "triggers",
+          "type": "QueryList<MatMenuTrigger>",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "state",
+          "type": "any",
+          "default": "{\n    h: 150,\n    s: 0.50,\n    l: 0.20,\n    a: 1,\n  }",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "displayFlex",
+          "type": "string",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "paddingLeft",
+          "type": "string",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "paddingRight",
+          "type": "string",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "iconStyle",
+          "type": "any",
+          "default": "{ \"border-bottom-color\":\"#000\"}",
+          "description": null,
+          "descriptionZh": null
+        }
+      ]
+    },
+    {
+      "name": "ColorPickerButtonModule",
+      "kind": "module",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/ui/color-button/color-button.module.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "entryComponents",
+          "type": "any",
+          "default": "[\n    ColorPickerButton,\n  ]",
+          "description": null,
+          "descriptionZh": null
+        }
+      ]
+    }
+  ],
+  "suggestedUsageSnippet": "import { ColorPickerButton, ColorPickerButtonModule } from '@dotos/dui/ui/color-button';\n\n<colorpicker-button [config]=\"...\" [data]=\"...\" [ownerCt]=\"...\" (click)=\"...\"></colorpicker-button>"
+}

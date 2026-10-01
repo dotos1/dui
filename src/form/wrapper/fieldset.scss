@@ -1,0 +1,20 @@
+.dui-fieldset,
+.dui-fieldset .dui-fieldset-legend {
+  padding: 0.6em 1em;
+}
+
+.dui-fieldset-toggleable .dui-fieldset-legend {
+  padding: 0.5em 1em 0.5em 0.5em;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.dui-fieldset .dui-fieldset-toggler {
+  margin-right: .1em;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.dui-fieldset .dui-fieldset-content-wrapper-overflown {
+  overflow: hidden;
+}

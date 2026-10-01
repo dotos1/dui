@@ -1,0 +1,215 @@
+{
+  "importPath": "@dotos/dui/common/resize-element",
+  "exports": [
+    {
+      "name": "BoundingRectangle",
+      "kind": "interface",
+      "summary": "The bounding rectangle of the resized element",
+      "summaryZh": null,
+      "sourceFile": "src/common/resize-element/interfaces/bounding-rectangle.interface.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "Edges",
+      "kind": "interface",
+      "summary": "The edges that the resize event were triggered on",
+      "summaryZh": null,
+      "sourceFile": "src/common/resize-element/interfaces/edges.interface.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "ResizableDirective",
+      "kind": "directive",
+      "selector": "[duiResizable]",
+      "summary": "Place this on an element to make it resizable. For example:\n\n```html\n<div\n  mwlResizable\n  [resizeEdges]=\"{bottom: true, right: true, top: true, left: true}\"\n  [enableGhostResize]=\"true\">\n</div>\n```\nOr in case they are sibling elements:\n```html\n<div mwlResizable #resizableElement=\"mwlResizable\"></div>\n<div duiResizeHandle [resizableContainer]=\"resizableElement\" [resizeEdges]=\"{bottom: true, right: true}\"></div>\n```",
+      "summaryZh": "将此指令用于元素使其可缩放，可配合 {@link ResizeHandleDirective} 作为独立的拖拽手柄。",
+      "sourceFile": "src/common/resize-element/resizable.directive.ts",
+      "inputs": [
+        {
+          "name": "validateResize",
+          "type": "(resizeEvent: ResizeEvent) => boolean",
+          "description": "A function that will be called before each resize event. Return `true` to allow the resize event to propagate or `false` to cancel it",
+          "descriptionZh": null
+        },
+        {
+          "name": "enableGhostResize",
+          "type": "boolean",
+          "default": "false",
+          "description": "Set to `true` to enable a temporary resizing effect of the element in between the `resizeStart` and `resizeEnd` events.",
+          "descriptionZh": null
+        },
+        {
+          "name": "resizeSnapGrid",
+          "type": "Edges",
+          "default": "{}",
+          "description": "A snap grid that resize events will be locked to.\n\ne.g. to only allow the element to be resized every 10px set it to `{left: 10, right: 10}`",
+          "descriptionZh": null
+        },
+        {
+          "name": "resizeCursors",
+          "type": "ResizeCursors",
+          "default": "DEFAULT_RESIZE_CURSORS",
+          "description": "The mouse cursors that will be set on the resize edges",
+          "descriptionZh": null
+        },
+        {
+          "name": "ghostElementPositioning",
+          "type": "'fixed' | 'absolute'",
+          "default": "'fixed'",
+          "description": "Define the positioning of the ghost element (can be fixed or absolute)",
+          "descriptionZh": null
+        },
+        {
+          "name": "allowNegativeResizes",
+          "type": "boolean",
+          "default": "false",
+          "description": "Allow elements to be resized to negative dimensions",
+          "descriptionZh": null
+        },
+        {
+          "name": "mouseMoveThrottleMS",
+          "type": "number",
+          "default": "MOUSE_MOVE_THROTTLE_MS",
+          "description": "The mouse move throttle in milliseconds, default: 50 ms",
+          "descriptionZh": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "resizeStart",
+          "type": "any",
+          "description": "Called when the mouse is pressed and a resize event is about to begin. `$event` is a `ResizeEvent` object.",
+          "descriptionZh": null
+        },
+        {
+          "name": "resizing",
+          "type": "any",
+          "description": "Called as the mouse is dragged after a resize event has begun. `$event` is a `ResizeEvent` object.",
+          "descriptionZh": null
+        },
+        {
+          "name": "resizeEnd",
+          "type": "any",
+          "description": "Called after the mouse is released after a resize event. `$event` is a `ResizeEvent` object.",
+          "descriptionZh": null
+        }
+      ],
+      "methods": [],
+      "properties": [
+        {
+          "name": "mouseup",
+          "type": "any",
+          "default": "new Subject<{\n    clientX: number;\n    clientY: number;\n    edges?: Edges;\n  }>()",
+          "description": null,
+          "descriptionZh": "内部使用，配对的 {@link ResizeHandleDirective} 通过它推送指针抬起事件。"
+        },
+        {
+          "name": "mousedown",
+          "type": "any",
+          "default": "new Subject<{\n    clientX: number;\n    clientY: number;\n    edges?: Edges;\n  }>()",
+          "description": null,
+          "descriptionZh": "内部使用，配对的 {@link ResizeHandleDirective} 通过它推送指针按下事件。"
+        },
+        {
+          "name": "mousemove",
+          "type": "any",
+          "default": "new Subject<{\n    clientX: number;\n    clientY: number;\n    edges?: Edges;\n    event: MouseEvent | TouchEvent;\n  }>()",
+          "description": null,
+          "descriptionZh": "内部使用，配对的 {@link ResizeHandleDirective} 通过它推送指针移动事件。"
+        }
+      ]
+    },
+    {
+      "name": "ResizableModule",
+      "kind": "module",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/common/resize-element/resizable.module.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "ResizeEvent",
+      "kind": "interface",
+      "summary": "The `$event` object that is passed to the resize events",
+      "summaryZh": null,
+      "sourceFile": "src/common/resize-element/interfaces/resize-event.interface.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "ResizeHandleDirective",
+      "kind": "directive",
+      "selector": "[duiResizeHandle]",
+      "summary": "Marks an element as a dedicated drag handle that triggers resizing on a sibling/ancestor\nelement carrying {@link ResizableDirective} (`resizableContainer` or nearest via DI).",
+      "summaryZh": "将元素标记为专用的拖拽手柄，拖拽它会触发携带 {@link ResizableDirective} 的\n兄弟/祖先元素（通过 `resizableContainer` 或最近的 DI 注入）进行缩放。",
+      "sourceFile": "src/common/resize-element/resize-handle.directive.ts",
+      "inputs": [
+        {
+          "name": "resizeEdges",
+          "type": "Edges",
+          "default": "{}",
+          "description": "The `Edges` object that contains the edges of the parent element that dragging the handle will trigger a resize on",
+          "descriptionZh": "描述父元素哪些边（edges）会因拖拽该手柄而触发缩放。"
+        },
+        {
+          "name": "resizableContainer",
+          "type": "ResizableDirective",
+          "description": "Reference to ResizableDirective in case if handle is not located inside of element with ResizableDirective",
+          "descriptionZh": "当手柄不在带有 {@link ResizableDirective} 的元素内部时，显式指定其引用。"
+        }
+      ],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "onMousedown",
+          "params": [
+            {
+              "name": "event",
+              "type": "MouseEvent | TouchEvent"
+            },
+            {
+              "name": "clientX",
+              "type": "number"
+            },
+            {
+              "name": "clientY",
+              "type": "number"
+            }
+          ],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": "内部使用，开始跟踪指针移动/抬起，并向配对的 {@link ResizableDirective} 转发按下事件。"
+        },
+        {
+          "name": "onMouseup",
+          "params": [
+            {
+              "name": "clientX",
+              "type": "number"
+            },
+            {
+              "name": "clientY",
+              "type": "number"
+            }
+          ],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": "内部使用，停止跟踪指针移动，并向配对的 {@link ResizableDirective} 转发抬起事件。"
+        }
+      ],
+      "properties": []
+    }
+  ],
+  "suggestedUsageSnippet": "import { ResizableModule } from '@dotos/dui/common/resize-element';"
+}

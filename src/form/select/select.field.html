@@ -1,0 +1,48 @@
+<ng-template #selectAll let-selectOptions="selectOptions">
+  <mat-option (click)="toggleSelectAll(selectOptions)">
+    <mat-pseudo-checkbox class="mat-mdc-option-pseudo-checkbox" [state]="getSelectAllState(selectOptions)">
+    </mat-pseudo-checkbox>
+    {{ field.selectAllOption |translate}}
+  </mat-option>
+</ng-template>
+
+<mat-select [id]="id" [formControl]="formControl" [formAttributes]="field"  [placeholder]="field.placeholder |translate"
+  [tabindex]="field.tabindex || 0"  [compareWith]="field.compareWith || compareWith" [multiple]="field.multiple"
+  (selectionChange)="change($event)" [errorStateMatcher]="errorStateMatcher" [aria-labelledby]="_getAriaLabelledby()"
+  [disableOptionCentering]="field.disableOptionCentering" (click)="openChanged($event)">
+
+  <ng-container>
+    <mat-option *ngIf="field.hasSearch">
+      <mat-select-search [formControl]="selectSearchControl" [searching]="searching"  >
+      </mat-select-search>
+    </mat-option>
+    <mat-option *ngIf="field.hasBlankOption" value=""></mat-option>
+    <ng-container *ngIf="field.options | selectOptionsPipe:field | async as selectOptions">
+    <ng-container *ngIf="field.multiple && field.selectAllOption" [ngTemplateOutlet]="selectAll"
+      [ngTemplateOutletContext]="{ selectOptions: selectOptions }">
+    </ng-container>
+    <ng-container *ngFor="let item of selectOptions">
+      <mat-optgroup *ngIf="item.group" [label]="item.label |translate">
+        <mat-option *ngFor="let child of item.group" [value]="child.value" [disabled]="child.disabled">
+          {{child.label |translate}}
+        </mat-option>
+      </mat-optgroup>
+      <mat-option *ngIf="!item.group" [value]="item.value" [disabled]="item.disabled" >
+        {{ item.label |translate }}
+      </mat-option>
+    </ng-container>
+  </ng-container>
+  </ng-container>
+</mat-select> 
+
+<ng-template #matSuffix>
+  <button *ngIf="(field.required===undefined|| field.required===false)&&value" mat-icon-button type="button" (click)="clear()">
+    <mat-icon (click)="clear()">close</mat-icon>
+  </button>
+</ng-template>
+<input type="hidden"  class="mdc-text-field__input" value="true"/>
+
+<!-- <ng-container
+[ngTemplateOutlet]="field.optionTemplate"
+[ngTemplateOutletContext]="{ $implicit: node, node: node, index: index }">
+</ng-container> -->

@@ -1,0 +1,169 @@
+{
+  "importPath": "@dotos/dui/ux/iconpicker",
+  "exports": [
+    {
+      "name": "DATEFIELD_VALIDATORS",
+      "kind": "constant",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/ux/iconpicker/icon-picker.field.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "DATEINPUT_CONTROL_VALUE_ACCESSOR",
+      "kind": "constant",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/ux/iconpicker/icon-picker.field.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "IconPickerField",
+      "kind": "component",
+      "selector": "icon-picker-field",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/ux/iconpicker/icon-picker.field.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "isColor",
+          "params": [
+            {
+              "name": "value",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "isPattern",
+          "params": [
+            {
+              "name": "value",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "clear",
+          "params": [],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "open",
+          "params": [],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "input",
+          "type": "ElementRef",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "mode",
+          "type": "'auto' | 'portrait' | 'landscape'",
+          "default": "'auto'",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "label",
+          "type": "any",
+          "default": "''",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "value",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "value",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "icon",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "openOnFocus",
+          "type": "boolean",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "openOnFocus",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "isOpen",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "enableKeyEvents",
+          "type": "any",
+          "default": "true",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "fontStyle",
+          "type": "any",
+          "default": "{}",
+          "description": null,
+          "descriptionZh": null
+        }
+      ]
+    },
+    {
+      "name": "IconPickerModule",
+      "kind": "module",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/ux/iconpicker/icon-picker.module.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "entryComponents",
+          "type": "any",
+          "default": "[\n    IconPickerField,\n    IconPickerComponent]",
+          "description": null,
+          "descriptionZh": null
+        }
+      ]
+    }
+  ],
+  "suggestedUsageSnippet": "import { IconPickerField, IconPickerModule } from '@dotos/dui/ux/iconpicker';\n\n<icon-picker-field></icon-picker-field>"
+}

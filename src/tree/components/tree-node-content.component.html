@@ -1,0 +1,8 @@
+    <span *ngIf="!template" class="node-content">
+      <dui-icon   *ngIf="node.icon"  [value]="node.icon"></dui-icon>
+      <span  class="node-content-title"> {{node.displayField|translate }}</span>
+    </span>
+    <ng-container
+      [ngTemplateOutlet]="template"
+      [ngTemplateOutletContext]="{ $implicit: node, node: node, index: index }">
+    </ng-container>

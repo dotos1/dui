@@ -1,0 +1,22 @@
+<input matInput #input [id]="id" [tabindex]="tabindex" [attr.disabled]="disabled" [formControl]="formControl"
+  [errorStateMatcher]="errorStateMatcher" [formAttributes]="field" [required]="required" autocomplete="off" readonly="true"
+  (click)="_handleFocus()" matTooltip={{toolTip|translate}} matTooltipPosition='below'/>
+
+<ng-template #matPrefix>
+  <div style="padding-inline-start: 10px">
+    <div class="colorpicker-preview" (click)="open()">
+      <div class="color-fill" [style.background-color]="formControl.value"> </div>
+    </div>
+  </div>
+</ng-template>
+<ng-template #matSuffix>
+  <div fxLayout="row">
+    <button *ngIf="(field.required===undefined|| field.required===false)&&value" mat-icon-button type="button"
+      (click)="clear()">
+      <mat-icon (click)="clear()">close</mat-icon>
+    </button>
+    <div class="mat-select-arrow-wrapper" (click)="open()">
+      <div class="mat-select-arrow"></div>
+    </div>
+  </div>
+</ng-template>

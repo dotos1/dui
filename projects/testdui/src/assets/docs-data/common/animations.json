@@ -1,0 +1,204 @@
+{
+  "importPath": "@dotos/dui/common/animations",
+  "exports": [
+    {
+      "name": "AnimationsModule",
+      "kind": "module",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/common/animations/animations.module.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "BounceAnimation",
+      "kind": "constant",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/common/animations/bounce/bounce.animation.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "CollapseAnimation",
+      "kind": "constant",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/common/animations/collapse/collapse.animation.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "duiAnimations",
+      "kind": "constant",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/common/animations/animations.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "FadeInOutAnimation",
+      "kind": "constant",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/common/animations/fade/fadeInOut.animation.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "FlashAnimation",
+      "kind": "constant",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/common/animations/flash/flash.animation.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "HeadshakeAnimation",
+      "kind": "constant",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/common/animations/headshake/headshake.animation.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "IAnimationOptions",
+      "kind": "interface",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/common/animations/common/interfaces.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "ICollapseAnimation",
+      "kind": "interface",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/common/animations/collapse/collapse.animation.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "IRotateAnimation",
+      "kind": "interface",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/common/animations/rotate/rotate.animation.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "JelloAnimation",
+      "kind": "constant",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/common/animations/jello/jello.animation.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "PulseAnimation",
+      "kind": "constant",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/common/animations/pulse/pulse.animation.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "RotateAnimation",
+      "kind": "constant",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/common/animations/rotate/rotate.animation.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "ToggleDirective",
+      "kind": "directive",
+      "selector": "[duiToggle]",
+      "summary": "Shows/hides the host element with an animated height transition, driven by the\n`duiToggle` boolean input (`true` hides, `false` shows).",
+      "summaryZh": "通过带高度过渡动画的方式显示/隐藏宿主元素，由 `duiToggle` 布尔输入驱动\n（`true` 隐藏，`false` 显示）。",
+      "sourceFile": "src/common/animations/toggle/toggle.directive.ts",
+      "inputs": [
+        {
+          "name": "duration",
+          "type": "number",
+          "default": "150",
+          "description": "Duration (ms) of the show/hide height animation.",
+          "descriptionZh": "显示/隐藏高度动画的持续时间（毫秒）。"
+        },
+        {
+          "name": "state",
+          "alias": "duiToggle",
+          "type": "boolean",
+          "description": "duiToggle: boolean\nToggles element, hides if its 'true', shows if its 'false'.",
+          "descriptionZh": null
+        }
+      ],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "hide",
+          "params": [],
+          "returnType": "void",
+          "description": "Hides element: sets \"display:[default]\" so animation is shown,\nstarts animation and adds \"display:'none'\" style at the end.",
+          "descriptionZh": null
+        },
+        {
+          "name": "show",
+          "params": [],
+          "returnType": "void",
+          "description": "Shows element: sets \"display:[default]\" so animation is shown,\nstarts animation and adds \"overflow:[default]\" style again at the end.",
+          "descriptionZh": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "ariaExpandedBinding",
+          "type": "boolean",
+          "description": "Binds native 'aria-expanded' attribute.",
+          "descriptionZh": null
+        },
+        {
+          "name": "ariaHiddenBinding",
+          "type": "boolean",
+          "description": "Binds native 'aria-hidden' attribute.",
+          "descriptionZh": null
+        }
+      ]
+    }
+  ],
+  "suggestedUsageSnippet": "import { AnimationsModule } from '@dotos/dui/common/animations';"
+}

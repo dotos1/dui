@@ -1,0 +1,20 @@
+  <mat-slider  #slider
+              [min]="field.min"
+              [max]="field.max"
+              [id]="id"
+              [discrete]="field.thumbLabel"
+              [step]="field.step"
+              [tabindex]="field.tabindex || 0"
+              [color]="field.color"
+              fxFlex>
+
+        <input matSliderStartThumb 
+         [formControl]="startCtrl"
+          [formAttributes]="field">
+
+        <input matSliderEndThumb  
+              [formControl]="endCtrl"
+               [formAttributes]="field">
+        </mat-slider>
+
+  <input type="hidden"  class="mdc-text-field__input" />

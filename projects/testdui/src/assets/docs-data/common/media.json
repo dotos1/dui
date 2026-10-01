@@ -1,0 +1,113 @@
+{
+  "importPath": "@dotos/dui/common/media",
+  "exports": [
+    {
+      "name": "MediaModule",
+      "kind": "module",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/common/media/media.module.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "MediaService",
+      "kind": "service",
+      "summary": "Registers and evaluates `matchMedia` queries (plus a set of built-in breakpoint aliases\nlike `xs`/`gt-sm`/`landscape`), broadcasting changes on window resize.",
+      "summaryZh": "注册并求值 `matchMedia` 媒体查询（内置一组断点别名，如 `xs`/`gt-sm`/`landscape`），\n并在窗口尺寸变化时广播结果变化。",
+      "sourceFile": "src/common/media/services/media.service.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "deregisterQuery",
+          "params": [
+            {
+              "name": "query",
+              "type": "string"
+            }
+          ],
+          "returnType": "void",
+          "description": "Deregisters a query so its stops being notified or used.",
+          "descriptionZh": null
+        },
+        {
+          "name": "query",
+          "params": [
+            {
+              "name": "query",
+              "type": "string"
+            }
+          ],
+          "returnType": "boolean",
+          "description": "Used to evaluate whether a given media query is true or false given the current device's screen / window size.",
+          "descriptionZh": null
+        },
+        {
+          "name": "registerQuery",
+          "params": [
+            {
+              "name": "query",
+              "type": "string"
+            }
+          ],
+          "returnType": "Observable<boolean>",
+          "description": "Registers a media query and returns an [Observable] that will re-evaluate and\nreturn if the given media query matches on window resize.\nNote: don't forget to unsubscribe from [Observable] when finished watching.",
+          "descriptionZh": null
+        },
+        {
+          "name": "broadcast",
+          "params": [],
+          "returnType": "void",
+          "description": "Trigger a match media event on all subscribed observables.",
+          "descriptionZh": null
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "MediaToggleDirective",
+      "kind": "directive",
+      "selector": "[extMediaToggle]",
+      "summary": "Toggles attributes/classes/styles on the host element based on whether a\n{@link MediaService} media query (`extMediaToggle`) currently matches.",
+      "summaryZh": "根据 {@link MediaService} 媒体查询（`extMediaToggle`）当前是否匹配，\n在宿主元素上切换属性/类名/样式。",
+      "sourceFile": "src/common/media/directives/media-toggle.directive.ts",
+      "inputs": [
+        {
+          "name": "query",
+          "alias": "extMediaToggle",
+          "type": "string",
+          "description": "extMediaToggle: string\nMedia query used to evaluate screen/window size.\nToggles attributes, classes and styles if media query is matched.",
+          "descriptionZh": null
+        },
+        {
+          "name": "attributes",
+          "alias": "mediaAttributes",
+          "type": "any",
+          "description": "mediaAttributes: {[key: string]: string}\nAttributes to be toggled when media query matches.",
+          "descriptionZh": null
+        },
+        {
+          "name": "classes",
+          "alias": "mediaClasses",
+          "type": "string[]",
+          "description": "mediaClasses: string[]\nCSS Classes to be toggled when media query matches.",
+          "descriptionZh": null
+        },
+        {
+          "name": "styles",
+          "alias": "mediaStyles",
+          "type": "any",
+          "description": "mediaStyles: {[key: string]: string}\nCSS Styles to be toggled when media query matches.",
+          "descriptionZh": null
+        }
+      ],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    }
+  ],
+  "suggestedUsageSnippet": "import { MediaModule } from '@dotos/dui/common/media';"
+}

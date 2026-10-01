@@ -1,0 +1,29 @@
+<div
+  class="dui-loading-wrapper"
+  [style.min-height]="getHeight()"
+  [class.dui-overlay-circular]="(isOverlay() || isFullScreen()) && !isLinear()"
+  [class.dui-overlay]="isOverlay() || isFullScreen()"
+  [class.dui-fullscreen]="isFullScreen()"
+>
+  <div
+    [@duiFadeInOut]="animation"
+    [style.min-height]="getHeight()"
+    class="dui-loading"
+  >
+    <mat-progress-spinner
+      *ngIf="isCircular()"
+      [mode]="mode"
+      [value]="value"
+      [color]="color"
+      [diameter]="getCircleDiameter()"
+      [strokeWidth]="getCircleStrokeWidth()"
+    ></mat-progress-spinner>
+    <mat-progress-bar
+      *ngIf="isLinear()"
+      [mode]="mode"
+      [value]="value"
+      [color]="color"
+    ></mat-progress-bar>
+  </div>
+  <ng-template [cdkPortalOutlet]="content"></ng-template>
+</div>

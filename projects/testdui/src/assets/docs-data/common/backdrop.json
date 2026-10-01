@@ -1,0 +1,51 @@
+{
+  "importPath": "@dotos/dui/common/backdrop",
+  "exports": [
+    {
+      "name": "BackdropComponent",
+      "kind": "component",
+      "selector": "dui-backdrop",
+      "summary": "A simple full-screen dimming backdrop overlay, toggled on/off via the `shown` input.",
+      "summaryZh": "一个简单的全屏遮罩层，通过 `shown` 输入属性控制显示/隐藏。",
+      "sourceFile": "src/common/backdrop/backdrop.component.ts",
+      "inputs": [
+        {
+          "name": "shown",
+          "type": "boolean",
+          "description": "Whether the backdrop is visible.",
+          "descriptionZh": "遮罩层是否可见。"
+        }
+      ],
+      "outputs": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "shown",
+          "type": "any",
+          "description": "Whether the backdrop is visible.",
+          "descriptionZh": "遮罩层是否可见。"
+        }
+      ]
+    },
+    {
+      "name": "BackdropModule",
+      "kind": "module",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/common/backdrop/backdrop.module.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "forRoot",
+          "params": [],
+          "returnType": "ModuleWithProviders<BackdropModule>",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "properties": []
+    }
+  ],
+  "suggestedUsageSnippet": "import { BackdropComponent, BackdropModule } from '@dotos/dui/common/backdrop';\n\n<dui-backdrop [shown]=\"...\"></dui-backdrop>"
+}

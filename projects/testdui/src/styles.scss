@@ -1,0 +1,16 @@
+/* You can add global styles to this file, and also import other style files */
+
+// Generates the `.{palette}-{hue}` utility classes (e.g. `.blue-500`) that
+// `color-picker` (@dotos/dui/common/matcolorpicker) relies on to render swatches.
+@import "../../../src/theming/dui/colors";
+
+html {
+  color-scheme: light;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  background-color: #fff;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}

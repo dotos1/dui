@@ -1,0 +1,10 @@
+[
+  {
+    "name": "Assets.FONT.default",
+    "path": "default"
+  },
+  {
+    "name": "Assets.FONT.public",
+    "path": "public"
+  }
+]

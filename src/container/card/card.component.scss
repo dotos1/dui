@@ -1,0 +1,39 @@
+.mat-mdc-card-title {
+  display: -webkit-box;
+  -webkit-box-align: center;
+}
+
+.rightbottom {
+  position: absolute;
+  display: inline-block;
+  bottom: 150px;
+  right: 120px;
+  z-index: 999;
+}
+
+.righttop {
+  position: absolute;
+  display: inline-block;
+  top: 100px;
+  right: 80px;
+}
+
+.mat-mdc-card .mat-divider-horizontal {
+  position: relative;
+  margin: 0;
+}
+.card {
+  .mat-mdc-icon-button {
+    height: 24px !important;
+    line-height: 24px !important;
+  }
+
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+:host ::ng-deep .mat-mdc-card-header-text {
+  margin: auto;
+}

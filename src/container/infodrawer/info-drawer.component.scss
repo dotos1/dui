@@ -1,0 +1,48 @@
+.dui {
+  &-info-drawer {
+    display: block;
+    .mat-mdc-tab-label {
+      min-width: 0;
+    }
+    & &-layout {
+      &-content {
+        &> :not(.dui-info-drawer-tabs) {
+          padding: 10px;
+          >* {
+            margin-bottom: 20px;
+            display: block;
+          }
+        }
+
+        .dui-info-drawer-tabs {
+          & .mat-mdc-tab-body-content>* {
+            margin-bottom: 20px;
+            display: block;
+          }
+
+          & .mat-mdc-tab-body-content>*:last-child {
+            margin-bottom: 0;
+          }
+          .mat-mdc-tab-label {
+            flex-grow: 1;
+
+            .mat-icon+span {
+              padding-left: 5px;
+            }
+          }
+
+          .mat-ink-bar {
+            height: 4px;
+          }
+          .mat-mdc-tab-body {
+            padding: 10px;
+            overflow: hidden;
+          }
+          .mat-mdc-tab-body-content {
+            overflow: initial;
+          }
+        }
+      }
+    }
+  }
+}

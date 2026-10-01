@@ -1,0 +1,84 @@
+.dui-scroll-view {
+    width: 100%;
+    height: 100%;
+    display: block;
+
+    &::-webkit-scrollbar {
+        width: 16px;
+    }
+
+    &::-webkit-scrollbar-corner {
+        background: #dfdfdf;
+    }
+
+    &::-webkit-scrollbar-track {
+        background: #e1e1e2;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: #bababa;
+
+        &:hover {
+            background: #8c8c8c;
+        }
+    }
+
+    &::-webkit-scrollbar-button {
+        display: block;
+        background-position: 50%;
+        background-repeat: no-repeat;
+        background-color: #e9e9e9;
+
+        &:hover {
+            background-color: #d2d2d2 !important;
+        }
+
+        &:active {
+            background-color: #5d5d5d !important;
+        }
+
+        &:vertical {
+            height: 16px;
+            &:start {
+                background-position: -16px 0px;
+                &:active {
+                    background-position: -16px -16px;
+                }
+                &:increment {
+                    display: none;
+                }
+            }
+            &:end {
+                background-position: 0px 0px;
+                &:active {
+                    background-position: 0px -16px;
+                }
+                &:decrement {
+                    display: none;
+                }
+            }
+        }
+
+        &:horizontal {
+            width: 16px;
+            &:start {
+                background-position: -48px 0px;
+                &:active {
+                    background-position: -48px -16px;
+                }
+                &:increment {
+                    display: none;
+                }
+            }
+            &:end {
+                background-position: -32px 0px;
+                &:active {
+                    background-position: -32px -16px;
+                }
+                &:decrement {
+                    display: none;
+                }
+            }
+        }
+    }
+}

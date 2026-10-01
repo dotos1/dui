@@ -1,0 +1,19 @@
+<div class="dui-property-field">
+        <mat-form-field class="dui-select-item-padding-editable dui-property-value" [appearance]="themeService.formType|async">
+          <mat-label [attr.data-automation-id]="'card-select-label-' + property.key">{{ property.label | translate }}</mat-label>
+          <div *ngIf="!isEditable()"
+          class="dui-select-item-padding dui-property-value"
+          data-automation-class="read-only-value">{{ property.displayValue | async }}</div>
+          <div *ngIf="isEditable()">
+            <mat-select [(value)]="value"
+                        (selectionChange)="onChange($event)"
+                        data-automation-class="select-box">
+                <mat-option *ngIf="showNoneOption()">{{ 'CORE.CARDVIEW.NONE' | translate }}</mat-option>
+                <mat-option *ngFor="let option of getOptions() | async"
+                            [value]="option.key">
+                    {{ option.label | translate }}
+                </mat-option>
+            </mat-select>
+          </div>
+        </mat-form-field>
+</div>

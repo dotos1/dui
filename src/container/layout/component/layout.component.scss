@@ -1,0 +1,127 @@
+:host {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: stretch;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+
+  & > .dui-split-gutter {
+    flex-grow: 0;
+    flex-shrink: 0;
+    // background-color: #eeeeee;
+    // 触摸时由这里阻止页面滚动，而不是靠 touchstart 里的 preventDefault ——
+    // 后者要求监听器是非被动的，浏览器每次滚动前都得等回调跑完。
+    touch-action: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    &.dui-split-gutter-collapsed {
+      flex-basis: 1px !important;
+      pointer-events: none;
+    }
+
+    & > .dui-split-gutter-icon {
+      width: 100%;
+      height: 100%;
+      background-position: center center;
+      background-repeat: no-repeat;
+    }
+  }
+
+  ::ng-deep > .dui-split-area {
+    flex-grow: 0;
+    flex-shrink: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    &.dui-hidden {
+      flex: 0 1 0px !important;
+      overflow-x: hidden;
+      overflow-y: hidden;
+    }
+  }
+
+  &.dui-horizontal {
+    flex-direction: row;
+    & > .dui-split-gutter {
+      flex-direction: row;
+      cursor: col-resize;
+      height: 100%;
+      -moz-box-sizing: border-box;
+      -webkit-box-sizing: border-box;
+      box-sizing: border-box;
+      z-index: 1;
+      -moz-background-clip: padding;
+      -webkit-background-clip: padding;
+      background-clip: padding-box;
+      & > .dui-split-gutter-icon {
+        display: flex;
+        flex: 1 1 0%;
+        height: 100%;
+        outline: none;
+        overflow: hidden;
+        user-select: text;
+        flex-direction: column;
+        min-height: 100%;
+        width: 100%;
+        margin: -4px 0;
+      }
+    }
+    & > .dui-split-gutter:hover {
+      -webkit-transition: all 2s ease;
+      transition: all 2s ease;
+      height: 100%;
+    }
+    ::ng-deep > .dui-split-area {
+      height: 100%;
+    }
+  }
+
+  &.dui-vertical {
+    flex-direction: column;
+    & > .dui-split-gutter {
+      flex-direction: column;
+      cursor: row-resize;
+      width: 100%;
+      -moz-box-sizing: border-box;
+      -webkit-box-sizing: border-box;
+      box-sizing: border-box;
+      z-index: 1;
+      -moz-background-clip: padding;
+      -webkit-background-clip: padding;
+      background-clip: padding-box;
+      .dui-split-gutter-icon {
+        display: flex;
+        flex: 1 1 0%;
+        height: 100%;
+        flex-direction: row;
+        outline: none;
+        overflow: hidden;
+        user-select: text;
+        width: 9px;
+        margin: 0 -4px;
+      }
+      .dui-split-gutter-icon:hover {
+        height: 100%;
+      }
+    }
+    ::ng-deep > .dui-split-area {
+      width: 100%;
+      &.dui-hidden {
+        max-width: 0;
+      }
+    }
+  }
+  &.dui-disabled {
+    & > .dui-split-gutter {
+      cursor: default;
+    }
+  }
+  &.dui-transition.dui-init:not(.dui-dragging) {
+    & > .dui-split-gutter,
+    ::ng-deep > .dui-split-area {
+      transition: flex-basis 0.3s;
+    }
+  }
+}

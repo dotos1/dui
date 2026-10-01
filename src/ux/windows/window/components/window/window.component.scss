@@ -1,0 +1,116 @@
+.dui-scroll-view  ng-component{
+  height: 100%;
+  width: 100%;
+  flex: 1;
+}
+$border-resizer-size: 4px;
+$border-offset: 0px;
+
+@mixin corner-resizer {
+    width: 5px;
+    height: 5px;
+    opacity: .999;
+    z-index: 999;
+}
+
+@mixin border-resizer {
+    opacity: .998;
+    z-index: 998;
+}
+
+.dui-resizable {
+    position: relative;
+}
+
+dui-resizers {
+    dui-resizer {
+        opacity: 0;
+        position: absolute;
+
+        &.top {
+            @include border-resizer;
+
+            width: 100%;
+            height: $border-resizer-size;
+            top: $border-offset;
+            left: $border-offset;
+        }
+
+        &.left {
+            @include border-resizer;
+
+            width: $border-resizer-size;
+            height: 100%;
+            top: $border-offset;
+            left: $border-offset;
+        }
+
+        &.right {
+            @include border-resizer;
+
+            width: $border-resizer-size;
+            height: 100%;
+            top: $border-offset;
+            right: $border-offset;
+        }
+
+        &.bottom {
+            @include border-resizer;
+
+            width: 100%;
+            height: $border-resizer-size;
+            bottom: $border-offset;
+            left: $border-offset;
+        }
+
+        &.top-left {
+            @include corner-resizer;
+
+            left: $border-offset;
+            top: $border-offset;
+        }
+
+        &.top-right {
+            @include corner-resizer;
+
+            right: $border-offset;
+            top: $border-offset;
+        }
+
+        &.bottom-left {
+            @include corner-resizer;
+
+            left: $border-offset;
+            bottom: $border-offset;
+        }
+
+        &.bottom-right {
+            @include corner-resizer;
+
+            right: $border-offset;
+            bottom: $border-offset;
+        }
+    }
+
+    &.dui-active {
+        dui-resizer.top,
+        dui-resizer.bottom {
+            cursor: ns-resize;
+        }
+
+        dui-resizer.left,
+        dui-resizer.right {
+            cursor: ew-resize;
+        }
+
+        dui-resizer.top-left,
+        dui-resizer.bottom-right {
+            cursor: nwse-resize;
+        }
+
+        dui-resizer.top-right,
+        dui-resizer.bottom-left {
+            cursor: nesw-resize;
+        }
+    }
+}

@@ -1,0 +1,4050 @@
+{
+  "importPath": "@dotos/dui/form",
+  "exports": [
+    {
+      "name": "AbstractTrigger",
+      "kind": "service",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/form/trigger/abstract.trigger.ts",
+      "inputs": [
+        {
+          "name": "touchUi",
+          "type": "boolean",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "panelClass",
+          "type": "string | string[]",
+          "description": "Classes to be passed to the date picker panel. Supports the same syntax as `ngClass`.",
+          "descriptionZh": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "selectedChanged",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "openedStream",
+          "type": "AbstractTrigger",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "closedStream",
+          "type": "AbstractTrigger",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "methods": [
+        {
+          "name": "init",
+          "params": [
+            {
+              "name": "config",
+              "type": "any"
+            }
+          ],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "open",
+          "params": [],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "registerOnValidatorChange",
+          "params": [
+            {
+              "name": "fn",
+              "type": "() => void"
+            }
+          ],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "close",
+          "params": [],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "getConnectedOverlayOrigin",
+          "params": [],
+          "returnType": "ElementRef",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "editable",
+          "type": "boolean",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "editable",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "touchUi",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "tabindex",
+          "type": "number",
+          "default": "0",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "enableKeyEvents",
+          "type": "any",
+          "default": "false",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "required",
+          "type": "boolean",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "required",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "opened",
+          "type": "any",
+          "default": "false",
+          "description": "Whether the calendar is open.",
+          "descriptionZh": null
+        },
+        {
+          "name": "isOpen",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        }
+      ]
+    },
+    {
+      "name": "ACTION_TYPES",
+      "kind": "type",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/form/action/action.service.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "ArrayInputComponent",
+      "kind": "component",
+      "selector": "array-input-field",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/form/array-input/array-input.component.ts",
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "result",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "methods": [
+        {
+          "name": "openChanged",
+          "params": [],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "selectData",
+          "type": "Array<any>",
+          "default": "[]",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "filteredData",
+          "type": "Observable<Array<any>>",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "filterString",
+          "type": "string",
+          "default": "''",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "filter",
+          "type": "any",
+          "default": "(filter: string): Array<any> => {\n    this.filterString = filter;\n    this.selectData=[];\n    if(this.field.options==undefined){\n      return [];\n    }\n    let opts=clone(this.field.options);\n     opts.map(option => {\n        option[\"selected\"]=false;\n     });\n    if (filter&&filter.length > 0) {\n      opts.map(option => {\n        let seleted=filter.indexOf(option.value) >= 0;\n        option[\"selected\"]=seleted;\n      });\n      opts.forEach(option => {\n        let seleted=filter.indexOf(option.value) >= 0;\n        if(seleted){\n          this.selectData.push(option);\n        }\n      });\n   \n      return opts;\n    } else {\n      return opts.slice();\n    }\n  }",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "displayFn",
+          "type": "any",
+          "default": "(): string => ''",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "optionClicked",
+          "type": "any",
+          "default": "(event: Event, data: any): void => {\n    event.stopPropagation();\n    this.toggleSelection(data);\n  }",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "toggleSelection",
+          "type": "any",
+          "default": "(data: any): void => {\n    data.selected = !data.selected;\n    if (data.selected === true) {\n      this.selectData.push(data);\n    } else {\n      const i = this.selectData.findIndex(val =>val.value === data.value);\n      this.selectData.splice(i, 1);\n    }\n    this.emitAdjustedData();\n  }",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "emitAdjustedData",
+          "type": "any",
+          "default": "(): void => {\n    const results: Array<string> = []\n    this.selectData.forEach((data: any) => {\n      results.push(data.value);\n    });\n\n    this.formControl.setValue(results.join(','));\n\n    this.result.emit({ key: this.field.name, data: results.join(',') });\n  }",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "removeChip",
+          "type": "any",
+          "default": "(data: any): void => {\n    this.toggleSelection(data);\n  }",
+          "description": null,
+          "descriptionZh": null
+        }
+      ]
+    },
+    {
+      "name": "ArrayInputModule",
+      "kind": "module",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/form/array-input/array-input.module.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "entryComponents",
+          "type": "any",
+          "default": "[\n    ArrayInputComponent]",
+          "description": null,
+          "descriptionZh": null
+        }
+      ]
+    },
+    {
+      "name": "AutoTrimDirective",
+      "kind": "directive",
+      "selector": "[duiAutoTrim]",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/form/directive/auto-trim.directive.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "onBlur",
+          "params": [
+            {
+              "name": "event",
+              "type": "Event"
+            }
+          ],
+          "returnType": "void",
+          "description": "Listens to host's (blur) event and trims value.",
+          "descriptionZh": null
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "CheckboxField",
+      "kind": "component",
+      "selector": "checkbox-field",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/form/checkbox/checkbox.component.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "onContainerClick",
+          "params": [
+            {
+              "name": "event",
+              "type": "MouseEvent"
+            }
+          ],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "change",
+          "params": [
+            {
+              "name": "$event",
+              "type": "MatCheckboxChange"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "checkbox",
+          "type": "MatCheckbox",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "defaultOptions",
+          "type": "any",
+          "default": "{\n    hideFieldUnderline: true,\n    indeterminate: true,\n    floatLabel: 'always',\n    hideLabel: true,\n    align: 'start',\n    color: 'accent',  // start or end\n  }",
+          "description": null,
+          "descriptionZh": null
+        }
+      ]
+    },
+    {
+      "name": "CheckBoxFieldModule",
+      "kind": "module",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/form/checkbox/checkbox.ext.module.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "entryComponents",
+          "type": "any",
+          "default": "[CheckboxField]",
+          "description": null,
+          "descriptionZh": null
+        }
+      ]
+    },
+    {
+      "name": "CheckboxGroupField",
+      "kind": "component",
+      "selector": "checkbox-group",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/form/checkboxgroup/checkboxgroup.component.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "init",
+          "params": [],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "onChange",
+          "params": [
+            {
+              "name": "option",
+              "type": "any"
+            },
+            {
+              "name": "event",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "onContainerClick",
+          "params": [
+            {
+              "name": "event",
+              "type": "MouseEvent"
+            }
+          ],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "checkboxes",
+          "type": "QueryList<MatCheckbox>",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "defaultOptions",
+          "type": "any",
+          "default": "{\n    hideFieldUnderline: true,\n    floatLabel: 'always',\n    options: [],\n    color: 'accent',\n  }",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "align",
+          "type": "any",
+          "default": "'start'",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "labelPosition",
+          "type": "any",
+          "default": "'after'",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "vertical",
+          "type": "any",
+          "default": "false",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "readonly",
+          "type": "any",
+          "default": "false",
+          "description": null,
+          "descriptionZh": null
+        }
+      ]
+    },
+    {
+      "name": "CheckboxGroupModule",
+      "kind": "module",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/form/checkboxgroup/checkboxgroup.module.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "entryComponents",
+          "type": "any",
+          "default": "[CheckboxGroupField]",
+          "description": null,
+          "descriptionZh": null
+        }
+      ]
+    },
+    {
+      "name": "ColorFieldModule",
+      "kind": "module",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/form/colorpicker/color-picker.module.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "entryComponents",
+          "type": "any",
+          "default": "[\n    ColorPickerContent,\n    ColorPickerField\n  ]",
+          "description": null,
+          "descriptionZh": null
+        }
+      ]
+    },
+    {
+      "name": "ColorPickerContent",
+      "kind": "component",
+      "selector": "color-picker-content",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/form/colorpicker/color-picker.content.ts",
+      "inputs": [
+        {
+          "name": "onlyPalette",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "color",
+          "type": "any",
+          "description": "Selected class\n\nparam value",
+          "descriptionZh": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "colorChanged",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "methods": [
+        {
+          "name": "selectPalette",
+          "params": [
+            {
+              "name": "event",
+              "type": "any"
+            },
+            {
+              "name": "palette",
+              "type": "any"
+            }
+          ],
+          "returnType": "void",
+          "description": "Select palette\n\nparam event\nparam palette",
+          "descriptionZh": null
+        },
+        {
+          "name": "selectHue",
+          "params": [
+            {
+              "name": "event",
+              "type": "any"
+            },
+            {
+              "name": "hue",
+              "type": "any"
+            }
+          ],
+          "returnType": "void",
+          "description": "Select hue\n\nparam event\nparam hue",
+          "descriptionZh": null
+        },
+        {
+          "name": "removeColor",
+          "params": [
+            {
+              "name": "event",
+              "type": "any"
+            }
+          ],
+          "returnType": "void",
+          "description": "Remove color\n\nparam event",
+          "descriptionZh": null
+        },
+        {
+          "name": "updateSelectedColor",
+          "params": [],
+          "returnType": "void",
+          "description": "Update selected color",
+          "descriptionZh": null
+        },
+        {
+          "name": "goToPalettesView",
+          "params": [
+            {
+              "name": "event",
+              "type": "any"
+            }
+          ],
+          "returnType": "void",
+          "description": "Go to palettes view\n\nparam event",
+          "descriptionZh": null
+        },
+        {
+          "name": "onMenuOpen",
+          "params": [],
+          "returnType": "void",
+          "description": "On menu open",
+          "descriptionZh": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "host",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "colors",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "hues",
+          "type": "string[]",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "view",
+          "type": "string",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "selectedColor",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "selectedPalette",
+          "type": "string",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "selectedHue",
+          "type": "string",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "params",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "params",
+          "type": "any",
+          "description": "set accessor including call the onchange callback",
+          "descriptionZh": null
+        },
+        {
+          "name": "color",
+          "type": "string",
+          "description": null,
+          "descriptionZh": null
+        }
+      ]
+    },
+    {
+      "name": "ColorPickerField",
+      "kind": "component",
+      "selector": "color-picker-field",
+      "summary": "Form field that opens one of the `color-*` picker style variants (sketch/chrome/compact/\ngithub/material, chosen via `colorType`) in a popup, and binds the selected hex value to\nthe form control.",
+      "summaryZh": "表单字段，在弹出层中打开某个 `color-*` 颜色选择器样式变体\n（通过 `colorType` 选择 sketch/chrome/compact/github/material），\n并将选中的十六进制颜色值绑定到表单控件。",
+      "sourceFile": "src/form/colorpicker/color-picker.field.ts",
+      "inputs": [
+        {
+          "name": "field",
+          "type": "F | any",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "init",
+          "params": [],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "clear",
+          "params": [],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "open",
+          "params": [],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "input",
+          "type": "ElementRef",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "field",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "colorType",
+          "type": "'sketch' | 'chrome' | 'compact' | 'github' | 'material'",
+          "default": "'sketch'",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "params",
+          "type": "any",
+          "default": "{}",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "default": "''",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "value",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "value",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "openOnFocus",
+          "type": "boolean",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "openOnFocus",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "isOpen",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "enableKeyEvents",
+          "type": "any",
+          "default": "true",
+          "description": null,
+          "descriptionZh": null
+        }
+      ]
+    },
+    {
+      "name": "CommonFieldModule",
+      "kind": "module",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/form/field/common-field.module.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "entryComponents",
+          "type": "any",
+          "default": "[\n    TextFieldComponent,\n    DisplayFieldComponent,\n    HiddenFieldComponent,\n    NumberFieldComponent,\n    TextAreaComponent]",
+          "description": null,
+          "descriptionZh": null
+        }
+      ]
+    },
+    {
+      "name": "DisplayFieldComponent",
+      "kind": "component",
+      "selector": "display-field",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/form/field/displayfield.component.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "type",
+          "type": "string",
+          "default": "'display'",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "xtype",
+          "type": "string",
+          "default": "'displayfield'",
+          "description": null,
+          "descriptionZh": null
+        }
+      ]
+    },
+    {
+      "name": "DuiFormDirectiveModule",
+      "kind": "module",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/form/directive/form.directive.module.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "ExtFieldWrapper",
+      "kind": "component",
+      "selector": "dui-field-wrapper",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/form/wrapper/field-wrapper.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "setDescribedByIds",
+          "params": [
+            {
+              "name": "ids",
+              "type": "string[]"
+            }
+          ],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "onContainerClick",
+          "params": [
+            {
+              "name": "event",
+              "type": "MouseEvent"
+            }
+          ],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "fieldComponent",
+          "type": "ViewContainerRef",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "stateChanges",
+          "type": "any",
+          "default": "new Subject<void>()",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "errorState",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "controlType",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "focused",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "disabled",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "required",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "placeholder",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "shouldPlaceholderFloat",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "value",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "ngControl",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "empty",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "shouldLabelFloat",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "fieldConfig",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        }
+      ]
+    },
+    {
+      "name": "FIELD_TYPE_COMPONENTS",
+      "kind": "constant",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/form/wrapper/wrapper.module.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "FieldComponent",
+      "kind": "component",
+      "selector": "dui-field",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/form/components/field.component.ts",
+      "inputs": [
+        {
+          "name": "field",
+          "type": "FieldConfig",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "init",
+          "params": [],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "refresh",
+          "params": [],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "containerRef",
+          "type": "ViewContainerRef",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "valueChangesUnsubscribe",
+          "type": "any",
+          "default": "() => {}",
+          "description": null,
+          "descriptionZh": null
+        }
+      ]
+    },
+    {
+      "name": "FieldSelect",
+      "kind": "component",
+      "selector": "select-field",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/form/select/select.field.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "searchChange",
+          "params": [
+            {
+              "name": "searchText",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "init",
+          "params": [],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "hasSearch",
+          "params": [],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "openChanged",
+          "params": [
+            {
+              "name": "e",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "setOptions",
+          "params": [
+            {
+              "name": "opts",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "getSelectAllState",
+          "params": [
+            {
+              "name": "options",
+              "type": "any[]"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "toggleSelectAll",
+          "params": [
+            {
+              "name": "options",
+              "type": "any[]"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "change",
+          "params": [
+            {
+              "name": "$event",
+              "type": "MatSelectChange"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "clear",
+          "params": [],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "compareWith",
+          "params": [
+            {
+              "name": "o1",
+              "type": "any"
+            },
+            {
+              "name": "o2",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "matSelect",
+          "type": "MatSelect",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "matSearch",
+          "type": "MatSelectSearchComponent",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "defaultOptions",
+          "type": "any",
+          "default": "{\n    options: []\n  }",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "isAlive",
+          "type": "any",
+          "default": "false",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "isLoading",
+          "type": "any",
+          "default": "false",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "options",
+          "type": "any",
+          "default": "[]",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "selectSearchControl",
+          "type": "FormControl<string>",
+          "default": "new FormControl<string>('', {nonNullable: true})",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "searching",
+          "type": "boolean",
+          "default": "false",
+          "description": null,
+          "descriptionZh": null
+        }
+      ]
+    },
+    {
+      "name": "Fieldset",
+      "kind": "component",
+      "selector": "dui-fieldset",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/form/wrapper/fieldset.ts",
+      "inputs": [
+        {
+          "name": "legend",
+          "type": "string",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "toggleable",
+          "type": "boolean",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "collapsed",
+          "type": "boolean",
+          "default": "false",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "style",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "styleClass",
+          "type": "string",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "onBeforeToggle",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "onAfterToggle",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "methods": [
+        {
+          "name": "toggle",
+          "params": [
+            {
+              "name": "event",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "expand",
+          "params": [
+            {
+              "name": "event",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "collapse",
+          "params": [
+            {
+              "name": "event",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "getBlockableElement",
+          "params": [],
+          "returnType": "HTMLElement",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "onToggleDone",
+          "params": [
+            {
+              "name": "event",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "animating",
+          "type": "boolean",
+          "description": null,
+          "descriptionZh": null
+        }
+      ]
+    },
+    {
+      "name": "FormAction",
+      "kind": "class",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/form/action/action.service.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "init",
+          "params": [
+            {
+              "name": "form",
+              "type": "any"
+            },
+            {
+              "name": "options",
+              "type": "any"
+            }
+          ],
+          "returnType": "FormAction",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "run",
+          "params": [
+            {
+              "name": "options",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "success",
+          "params": [
+            {
+              "name": "result",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "failure",
+          "params": [
+            {
+              "name": "result",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "getUrl",
+          "params": [],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "getMethod",
+          "params": [],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "getParams",
+          "params": [],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "createCallback",
+          "params": [
+            {
+              "name": "opt",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "CLIENT_INVALID",
+          "type": "string",
+          "default": "'client'",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "SERVER_INVALID",
+          "type": "string",
+          "default": "'server'",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "CONNECT_FAILURE",
+          "type": "string",
+          "default": "'connect'",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "LOAD_FAILURE",
+          "type": "string",
+          "default": "'load'",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "form",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "options",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "url",
+          "type": "string",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "method",
+          "type": "string",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "params",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "timeout",
+          "type": "number",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "scope",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "type",
+          "type": "string",
+          "default": "'default'",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "failureType",
+          "type": "string",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "result",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        }
+      ]
+    },
+    {
+      "name": "FormAttributes",
+      "kind": "directive",
+      "selector": "[formAttributes]",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/form/components/form.attributes.ts",
+      "inputs": [
+        {
+          "name": "field",
+          "alias": "formAttributes",
+          "type": "FieldConfig",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "toggleFocus",
+          "params": [
+            {
+              "name": "value",
+              "type": "boolean"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "onFocus",
+          "params": [
+            {
+              "name": "$event",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "onBlur",
+          "params": [
+            {
+              "name": "$event",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "onChange",
+          "params": [
+            {
+              "name": "$event",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "FormComponent",
+      "kind": "component",
+      "selector": "dui-form",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/form/components/form.component.ts",
+      "inputs": [
+        {
+          "name": "config",
+          "type": "any",
+          "default": "{}",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "form",
+          "type": "FormGroup | FormArray",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "model",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "items",
+          "type": "FieldConfig[]",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "options",
+          "type": "FormOptions",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "isRoot",
+          "type": "any",
+          "default": "true",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "modelChange",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "formInit",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "methods": [
+        {
+          "name": "buildForm",
+          "params": [],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "init",
+          "params": [
+            {
+              "name": "config",
+              "type": "any"
+            }
+          ],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "getStyle",
+          "params": [
+            {
+              "name": "field",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "changeModel",
+          "params": [
+            {
+              "name": "{ name, value, field }",
+              "type": "{ name: string, value: any, field: FieldConfig }|any"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "rebuildForm",
+          "params": [],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "submit",
+          "params": [
+            {
+              "name": "option",
+              "type": "any"
+            }
+          ],
+          "returnType": "Promise<any>",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "load",
+          "params": [
+            {
+              "name": "option",
+              "type": "any"
+            }
+          ],
+          "returnType": "Promise<any>",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "doAction",
+          "params": [
+            {
+              "name": "action",
+              "type": "any"
+            },
+            {
+              "name": "option",
+              "type": "any"
+            }
+          ],
+          "returnType": "Promise<any>",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "updateField",
+          "params": [
+            {
+              "name": "fields",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "getValues",
+          "params": [],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "setValues",
+          "params": [
+            {
+              "name": "values",
+              "type": "Array<any> | any"
+            }
+          ],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "getFieldValue",
+          "params": [
+            {
+              "name": "key",
+              "type": "string"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "setFieldValue",
+          "params": [
+            {
+              "name": "key",
+              "type": "string"
+            },
+            {
+              "name": "model",
+              "type": "any"
+            }
+          ],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "resetAllFields",
+          "params": [],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "refresh",
+          "params": [],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "clearInvalid",
+          "params": [],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "reset",
+          "params": [],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "afterAction",
+          "params": [
+            {
+              "name": "action",
+              "type": "FormAction"
+            },
+            {
+              "name": "result",
+              "type": "any"
+            },
+            {
+              "name": "success",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "getComponent",
+          "params": [
+            {
+              "name": "name",
+              "type": "string"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "findField",
+          "params": [
+            {
+              "name": "id",
+              "type": "string"
+            },
+            {
+              "name": "items",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "add",
+          "params": [
+            {
+              "name": "field",
+              "type": "any"
+            },
+            {
+              "name": "index",
+              "type": "number"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "remove",
+          "params": [
+            {
+              "name": "field",
+              "type": "string"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "form",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "model",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "items",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "options",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "method",
+          "type": "string",
+          "default": "'POST'",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "fileUpload",
+          "type": "boolean",
+          "default": "false",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "valid",
+          "type": "boolean",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "value",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "value",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        }
+      ]
+    },
+    {
+      "name": "FormGroup",
+      "kind": "component",
+      "selector": "form-group",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/form/components/form.group.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "getStyle",
+          "params": [
+            {
+              "name": "field",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "defaultOptions",
+          "type": "any",
+          "default": "{\n    defaultValue: {},\n  }",
+          "description": null,
+          "descriptionZh": null
+        }
+      ]
+    },
+    {
+      "name": "FormModule",
+      "kind": "module",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/form/components/form.module.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "forRoot",
+          "params": [],
+          "returnType": "ModuleWithProviders<FormModule>",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "forChild",
+          "params": [
+            {
+              "name": "config",
+              "type": "ConfigOption"
+            }
+          ],
+          "returnType": "ModuleWithProviders<FormModule>",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "entryComponents",
+          "type": "any",
+          "default": "[\n    FormComponent,\n    FormGroup,\n    FieldComponent,]",
+          "description": null,
+          "descriptionZh": null
+        }
+      ]
+    },
+    {
+      "name": "FormSection",
+      "kind": "component",
+      "selector": "form-section",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/form/wrapper/form.section.ts",
+      "inputs": [
+        {
+          "name": "collapsed",
+          "type": "boolean",
+          "default": "false",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "style",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "styleClass",
+          "type": "string",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "init",
+          "params": [
+            {
+              "name": "config",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "toggle",
+          "params": [],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "layout",
+          "type": "any",
+          "default": "'row'",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "defaultOptions",
+          "type": "any",
+          "default": "{\n    defaultValue: [],\n  }",
+          "description": null,
+          "descriptionZh": null
+        }
+      ]
+    },
+    {
+      "name": "FormWrapperModule",
+      "kind": "module",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/form/wrapper/wrapper.module.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "entryComponents",
+          "type": "any",
+          "default": "FIELD_TYPE_COMPONENTS",
+          "description": null,
+          "descriptionZh": null
+        }
+      ]
+    },
+    {
+      "name": "HiddenFieldComponent",
+      "kind": "component",
+      "selector": "hidden-field",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/form/field/hiddenfield.component.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "input",
+          "type": "ElementRef",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "type",
+          "type": "any",
+          "default": "'hidden'",
+          "description": null,
+          "descriptionZh": null
+        }
+      ]
+    },
+    {
+      "name": "LabelField",
+      "kind": "component",
+      "selector": "label-field",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/form/label/label-field.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "init",
+          "params": [
+            {
+              "name": "field",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "field",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "style",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        }
+      ]
+    },
+    {
+      "name": "LabelFieldModule",
+      "kind": "module",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/form/label/label.module.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "entryComponents",
+          "type": "any",
+          "default": "[\n    LabelField\n  ]",
+          "description": null,
+          "descriptionZh": null
+        }
+      ]
+    },
+    {
+      "name": "LabelWrapperField",
+      "kind": "component",
+      "selector": "label-field-wrapper",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/form/wrapper/label-field.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "init",
+          "params": [],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "showTip",
+          "params": [
+            {
+              "name": "e",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "hideTip",
+          "params": [],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "setDescribedByIds",
+          "params": [
+            {
+              "name": "ids",
+              "type": "string[]"
+            }
+          ],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "onContainerClick",
+          "params": [
+            {
+              "name": "event",
+              "type": "MouseEvent"
+            }
+          ],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "fieldComponent",
+          "type": "ViewContainerRef",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "stateChanges",
+          "type": "any",
+          "default": "new Subject<void>()",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "underTip",
+          "type": "string",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "showUnder",
+          "type": "any",
+          "default": "false",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "options",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "errorState",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "focused",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "disabled",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "required",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "placeholder",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "shouldPlaceholderFloat",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "value",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "ngControl",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "empty",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "shouldLabelFloat",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "fieldConfig",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        }
+      ]
+    },
+    {
+      "name": "Load",
+      "kind": "service",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/form/action/load.service.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "init",
+          "params": [
+            {
+              "name": "form",
+              "type": "any"
+            },
+            {
+              "name": "options",
+              "type": "any"
+            }
+          ],
+          "returnType": "FormAction",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "run",
+          "params": [],
+          "returnType": "Promise<any>",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "success",
+          "params": [
+            {
+              "name": "result",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "reader",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "failureType",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "type",
+          "type": "any",
+          "default": "'load'",
+          "description": null,
+          "descriptionZh": null
+        }
+      ]
+    },
+    {
+      "name": "MatCheckGroup",
+      "kind": "directive",
+      "selector": "mat-check-group",
+      "summary": "A group of radio buttons. May contain one or more `<mat-radio-button>` elements.",
+      "summaryZh": null,
+      "sourceFile": "src/form/checkboxgroup/checkboxgroup.exp.ts",
+      "inputs": [
+        {
+          "name": "name",
+          "type": "string",
+          "description": "Name of the radio button group. All radio buttons inside this group will use this name.",
+          "descriptionZh": null
+        },
+        {
+          "name": "align",
+          "type": "'start' | 'end'",
+          "description": "Alignment of the radio-buttons relative to their labels. Can be 'before' or 'after'.",
+          "descriptionZh": null
+        },
+        {
+          "name": "labelPosition",
+          "type": "any",
+          "description": "Whether the labels should appear after or before the radio-buttons. Defaults to 'after'",
+          "descriptionZh": null
+        },
+        {
+          "name": "value",
+          "type": "Array<string>",
+          "description": "Value of the radio button.",
+          "descriptionZh": null
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "description": "Whether the radio group is disabled",
+          "descriptionZh": null
+        },
+        {
+          "name": "required",
+          "type": "boolean",
+          "description": "Whether the radio group is required",
+          "descriptionZh": null
+        },
+        {
+          "name": "selected",
+          "type": "any",
+          "description": "Whether the radio button is selected.",
+          "descriptionZh": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "change",
+          "type": "MatCheckChange",
+          "description": "Event emitted when the group value changes.\nChange events are only emitted when the value changes due to user interaction with\na radio button (the same behavior as `<input type-\"radio\">`).",
+          "descriptionZh": null
+        }
+      ],
+      "methods": [],
+      "properties": [
+        {
+          "name": "onTouched",
+          "type": "() => any",
+          "default": "() => { }",
+          "description": "onTouch function registered via registerOnTouch (ControlValueAccessor).",
+          "descriptionZh": null
+        },
+        {
+          "name": "name",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "align",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "labelPosition",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "value",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "disabled",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "required",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "selected",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        }
+      ]
+    },
+    {
+      "name": "MATERIAL_FORMLY_CONFIG",
+      "kind": "constant",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/form/wrapper/wrapper.module.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "MatField",
+      "kind": "directive",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/form/base/mat.field.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "init",
+          "params": [
+            {
+              "name": "config",
+              "type": "any"
+            }
+          ],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "setDescribedByIds",
+          "params": [
+            {
+              "name": "ids",
+              "type": "string[]"
+            }
+          ],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "onContainerClick",
+          "params": [
+            {
+              "name": "event",
+              "type": "MouseEvent"
+            }
+          ],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "matPrefix",
+          "type": "TemplateRef<any>",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "matSuffix",
+          "type": "TemplateRef<any>",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "formFieldControl",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "formFieldControl",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "errorStateMatcher",
+          "type": "any",
+          "default": "new ExtErrorStateMatcher(this)",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "stateChanges",
+          "type": "any",
+          "default": "new Subject<void>()",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "invalidText",
+          "type": "string",
+          "default": "'The value in this field is invalid'",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "toolTip",
+          "type": "string",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "errorState",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "controlType",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "focused",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "disabled",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "required",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "placeholder",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "shouldPlaceholderFloat",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "value",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "value",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "ngControl",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "empty",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "shouldLabelFloat",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "formField",
+          "type": "MatFormField",
+          "description": null,
+          "descriptionZh": null
+        }
+      ]
+    },
+    {
+      "name": "NumberFieldComponent",
+      "kind": "component",
+      "selector": "number-field",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/form/field/numberfield.component.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "init",
+          "params": [],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "unitchange",
+          "params": [
+            {
+              "name": "event",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "onChange",
+          "params": [
+            {
+              "name": "e",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "type",
+          "type": "string",
+          "default": "'number'",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "defaultUnit",
+          "type": "any",
+          "default": "''",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "currentUnit",
+          "type": "any",
+          "default": "''",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "units",
+          "type": "any",
+          "default": "[]",
+          "description": null,
+          "descriptionZh": null
+        }
+      ]
+    },
+    {
+      "name": "OptionsResult",
+      "kind": "class",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/form/field/options.service.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "options",
+          "type": "string[]",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "params",
+          "type": "{}",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "error",
+          "type": "string",
+          "description": null,
+          "descriptionZh": null
+        }
+      ]
+    },
+    {
+      "name": "OptionsService",
+      "kind": "service",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/form/field/options.service.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "getOptions",
+          "params": [
+            {
+              "name": "url",
+              "type": "string"
+            },
+            {
+              "name": "method",
+              "type": "string"
+            },
+            {
+              "name": "params",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "options",
+          "type": "Observable<OptionsResult>",
+          "default": "this.optionsSubject.asObservable()",
+          "description": null,
+          "descriptionZh": null
+        }
+      ]
+    },
+    {
+      "name": "RadioGroupField",
+      "kind": "component",
+      "selector": "radio-group",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/form/radiogroup/radiogroup.component.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "init",
+          "params": [],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "onContainerClick",
+          "params": [
+            {
+              "name": "event",
+              "type": "MouseEvent"
+            }
+          ],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "radioGroup",
+          "type": "MatRadioGroup",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "defaultOptions",
+          "type": "any",
+          "default": "{\n    hideFieldUnderline: true,\n    floatLabel: 'always',\n    options: [],\n    tabindex: -1,\n  }",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "readOnly",
+          "type": "any",
+          "default": "false",
+          "description": null,
+          "descriptionZh": null
+        }
+      ]
+    },
+    {
+      "name": "RadioGroupModule",
+      "kind": "module",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/form/radiogroup/radiogroup.module.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "entryComponents",
+          "type": "any",
+          "default": "[RadioGroupField]",
+          "description": null,
+          "descriptionZh": null
+        }
+      ]
+    },
+    {
+      "name": "RangeSliderFieldComponent",
+      "kind": "component",
+      "selector": "range-slider-field",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/form/rang-slider/range-slider.field.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "onContainerClick",
+          "params": [
+            {
+              "name": "event",
+              "type": "MouseEvent"
+            }
+          ],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "startCtrl",
+          "type": "any",
+          "default": "new FormControl(20)",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "endCtrl",
+          "type": "any",
+          "default": "new FormControl(80)",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "defaultOptions",
+          "type": "any",
+          "default": "{\n    hideFieldUnderline: true,\n    floatLabel: 'always',\n  }",
+          "description": null,
+          "descriptionZh": null
+        }
+      ]
+    },
+    {
+      "name": "RangeSliderModule",
+      "kind": "module",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/form/rang-slider/range-slider.module.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "entryComponents",
+          "type": "any",
+          "default": "[RangeSliderFieldComponent]",
+          "description": null,
+          "descriptionZh": null
+        }
+      ]
+    },
+    {
+      "name": "RepeatTypeComponent",
+      "kind": "component",
+      "selector": "repeat-section",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/form/wrapper/repeat-section.type.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "change",
+          "params": [
+            {
+              "name": "val",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "init",
+          "params": [
+            {
+              "name": "conf",
+              "type": "any"
+            }
+          ],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "add",
+          "params": [
+            {
+              "name": "model",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "setName",
+          "params": [
+            {
+              "name": "i",
+              "type": "any"
+            },
+            {
+              "name": "name",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "getTitle",
+          "params": [
+            {
+              "name": "i",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "remove",
+          "params": [
+            {
+              "name": "i",
+              "type": "number"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "addButton",
+          "type": "ButtonComponent",
+          "description": null,
+          "descriptionZh": null
+        }
+      ]
+    },
+    {
+      "name": "RowEditorComponent",
+      "kind": "component",
+      "selector": "row-editor",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/form/wrapper/row.editor.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "add",
+          "params": [],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "remove",
+          "params": [
+            {
+              "name": "i",
+              "type": "number"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "SelectFieldModule",
+      "kind": "module",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/form/select/select.module.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "entryComponents",
+          "type": "any",
+          "default": "[ FieldSelect]",
+          "description": null,
+          "descriptionZh": null
+        }
+      ]
+    },
+    {
+      "name": "SelectOption",
+      "kind": "class",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/form/select/select.field.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "label",
+          "type": "string",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "value",
+          "type": "string",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "group",
+          "type": "SelectOption[]",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "description": null,
+          "descriptionZh": null
+        }
+      ]
+    },
+    {
+      "name": "SelectOptionsPipe",
+      "kind": "pipe",
+      "pipeName": "selectOptionsPipe",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/form/base/select-options.pipe.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "transform",
+          "params": [
+            {
+              "name": "options",
+              "type": "any"
+            },
+            {
+              "name": "field",
+              "type": "FieldConfig"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "SelectOptionsResult",
+      "kind": "class",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/form/select/options.service.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "options",
+          "type": "SelectOption[]",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "params",
+          "type": "{}",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "error",
+          "type": "string",
+          "description": null,
+          "descriptionZh": null
+        }
+      ]
+    },
+    {
+      "name": "SelectOptionsService",
+      "kind": "service",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/form/select/options.service.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "getOptions",
+          "params": [
+            {
+              "name": "url",
+              "type": "string"
+            },
+            {
+              "name": "method",
+              "type": "string"
+            },
+            {
+              "name": "params",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "setOptions",
+          "params": [
+            {
+              "name": "opts",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "options",
+          "type": "Observable<SelectOptionsResult>",
+          "default": "this.optionsSubject.asObservable()",
+          "description": null,
+          "descriptionZh": null
+        }
+      ]
+    },
+    {
+      "name": "SelectPipeModule",
+      "kind": "module",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/form/base/select.module.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "SliderFieldComponent",
+      "kind": "component",
+      "selector": "slider-field",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/form/ext-slider/slider.component.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "onContainerClick",
+          "params": [
+            {
+              "name": "event",
+              "type": "MouseEvent"
+            }
+          ],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "defaultOptions",
+          "type": "any",
+          "default": "{\n    hideFieldUnderline: true,\n    floatLabel: 'always',\n  }",
+          "description": null,
+          "descriptionZh": null
+        }
+      ]
+    },
+    {
+      "name": "SliderFieldModule",
+      "kind": "module",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/form/ext-slider/slider.ext.module.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "entryComponents",
+          "type": "any",
+          "default": "[SliderFieldComponent]",
+          "description": null,
+          "descriptionZh": null
+        }
+      ]
+    },
+    {
+      "name": "SliderToggleField",
+      "kind": "component",
+      "selector": "slide-toggle",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/form/slide-toggle/slide-toggle.component.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "onContainerClick",
+          "params": [
+            {
+              "name": "event",
+              "type": "MouseEvent"
+            }
+          ],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "click",
+          "params": [
+            {
+              "name": "event",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "init",
+          "params": [],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "defaultOptions",
+          "type": "any",
+          "default": "{\n    hideFieldUnderline: true,\n    floatLabel: 'always',\n    hideLabel: true,\n    color: 'accent',\n    defaultValue: false\n  }",
+          "description": null,
+          "descriptionZh": null
+        }
+      ]
+    },
+    {
+      "name": "SliderToggleFieldModule",
+      "kind": "module",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/form/slide-toggle/slide-toggle.ext.module.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "entryComponents",
+          "type": "any",
+          "default": "[SliderToggleField]",
+          "description": null,
+          "descriptionZh": null
+        }
+      ]
+    },
+    {
+      "name": "Submit",
+      "kind": "service",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/form/action/submit.service.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "run",
+          "params": [],
+          "returnType": "Promise<any>",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "success",
+          "params": [
+            {
+              "name": "result",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "failureType",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "type",
+          "type": "any",
+          "default": "'submit'",
+          "description": null,
+          "descriptionZh": null
+        }
+      ]
+    },
+    {
+      "name": "TextAreaComponent",
+      "kind": "component",
+      "selector": "textarea-field",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/form/field/textarea.component.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "defaultOptions",
+          "type": "any",
+          "default": "{\n    cols: 1,\n    rows: 3,\n  }",
+          "description": null,
+          "descriptionZh": null
+        }
+      ]
+    },
+    {
+      "name": "TextFieldComponent",
+      "kind": "component",
+      "selector": "text-field",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/form/field/textfield.component.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "init",
+          "params": [],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "openChanged",
+          "params": [
+            {
+              "name": "e",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "getLabel",
+          "params": [
+            {
+              "name": "option",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "getValue",
+          "params": [
+            {
+              "name": "option",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "autocompleteTrigger",
+          "type": "MatAutocompleteTrigger",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "disableKeyFilter",
+          "type": "any",
+          "default": "false",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "regexText",
+          "type": "string",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "filteredOptions",
+          "type": "Observable<string[]>",
+          "default": "new Observable<string[]>()",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "isAlive",
+          "type": "any",
+          "default": "false",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "isLoading",
+          "type": "any",
+          "default": "false",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "searching",
+          "type": "boolean",
+          "default": "false",
+          "description": null,
+          "descriptionZh": null
+        }
+      ]
+    },
+    {
+      "name": "TriggerField",
+      "kind": "component",
+      "selector": "trigger-field",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/form/trigger/trigger.field.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "init",
+          "params": [],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "open",
+          "params": [],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "input",
+          "type": "ElementRef",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "openOnFocus",
+          "type": "boolean",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "openOnFocus",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "isOpen",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "enableKeyEvents",
+          "type": "any",
+          "default": "true",
+          "description": null,
+          "descriptionZh": null
+        }
+      ]
+    },
+    {
+      "name": "TriggerModule",
+      "kind": "module",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/form/trigger/trigger.module.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "entryComponents",
+          "type": "any",
+          "default": "[TriggerField]",
+          "description": null,
+          "descriptionZh": null
+        }
+      ]
+    },
+    {
+      "name": "ValueChange",
+      "kind": "class",
+      "summary": "Change event object emitted by Md2Select.",
+      "summaryZh": null,
+      "sourceFile": "src/form/trigger/abstract.trigger.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "WrapperEditorField",
+      "kind": "component",
+      "selector": "editor-field-wrapper",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/form/wrapper/editor-field.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "setDescribedByIds",
+          "params": [
+            {
+              "name": "ids",
+              "type": "string[]"
+            }
+          ],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "init",
+          "params": [],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "showTip",
+          "params": [
+            {
+              "name": "e",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "hideTip",
+          "params": [],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "onContainerClick",
+          "params": [
+            {
+              "name": "event",
+              "type": "MouseEvent"
+            }
+          ],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "fieldComponent",
+          "type": "ViewContainerRef",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "formField",
+          "type": "MatFormField",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "popoverTrigger",
+          "type": "PopoverTrigger",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "popover",
+          "type": "Popover",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "stateChanges",
+          "type": "any",
+          "default": "new Subject<void>()",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "showUnder",
+          "type": "any",
+          "default": "false",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "errorState",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "color",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "controlType",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "focused",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "disabled",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "required",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "placeholder",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "shouldPlaceholderFloat",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "value",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "ngControl",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "empty",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "shouldLabelFloat",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "fieldConfig",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        }
+      ]
+    },
+    {
+      "name": "WrapperFormField",
+      "kind": "component",
+      "selector": "mat-form-field-wrapper",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/form/wrapper/form-field.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "init",
+          "params": [],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "showTip",
+          "params": [
+            {
+              "name": "e",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "hideTip",
+          "params": [],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "onContainerClick",
+          "params": [
+            {
+              "name": "event",
+              "type": "MouseEvent"
+            }
+          ],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "fieldComponent",
+          "type": "ViewContainerRef",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "formField",
+          "type": "MatFormField",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "stateChanges",
+          "type": "any",
+          "default": "new Subject<void>()",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "toolTip",
+          "type": "string",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "underTip",
+          "type": "string",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "showUnder",
+          "type": "any",
+          "default": "false",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "classFormField",
+          "type": "any",
+          "default": "\"\"",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "paddingStyle",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "errorState",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "color",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "controlType",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "focused",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "disabled",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "required",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "placeholder",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "shouldPlaceholderFloat",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "value",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "ngControl",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "empty",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "shouldLabelFloat",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "fieldConfig",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        }
+      ]
+    }
+  ],
+  "suggestedUsageSnippet": "import { ArrayInputComponent, ArrayInputModule } from '@dotos/dui/form';\n\n<array-input-field (result)=\"...\"></array-input-field>"
+}

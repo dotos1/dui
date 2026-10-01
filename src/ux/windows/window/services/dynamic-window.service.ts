@@ -1,0 +1,135 @@
+import { DOCUMENT } from '@angular/common';
+import {
+    ApplicationRef,
+    ComponentFactoryResolver,
+    ComponentRef,
+    EmbeddedViewRef,
+    Inject,
+    Injectable,
+    Injector,
+    Type
+} from '@angular/core';
+import { Observable } from 'rxjs';
+import { delay, tap } from 'rxjs/operators';
+import { ɵDynamicWindowInjector, ɵDynamicWindowRefModel } from '../classes';
+import { ɵDynamicWindowComponent } from '../components';
+import { DynamicWindowConfig, DynamicWindowRef, ɵDynamicWindowInputParams } from '../interfaces';
+import { ɵDynamicWindowReferencesService } from './dynamic-window-references.service';
+
+/** Allows open your component inside an dui-styled window **/
+@Injectable({
+    providedIn: 'root'
+})
+export class DynamicWindowService {
+
+   public windowSet:Map<string,ɵDynamicWindowRefModel>=new  Map<string,ɵDynamicWindowRefModel>();
+
+    /** Contains references to windows opened via the service */
+    public get references$(): Observable<DynamicWindowRef[]> {
+        return this.referencesService.data$;
+    }
+
+    /** Contains references to windows opened via the service */
+    public get references(): DynamicWindowRef[] {
+        return this.referencesService.data;
+    }
+
+    constructor(
+        @Inject(DOCUMENT) private readonly document: Document,
+        private readonly injector: Injector,
+        private readonly componentFactoryResolver: ComponentFactoryResolver,
+        private readonly applicationRef: ApplicationRef,
+        private readonly referencesService: ɵDynamicWindowReferencesService
+    ) {}
+
+    /** Opens a window containing the given component */
+    public open(component: Type<any>, config: DynamicWindowConfig = {}): DynamicWindowRef {
+        const windowRef = this.createDynamicWindow();
+        this.referencesService.register(windowRef, config);
+        this.applyDataForCreatedWindowInstance({ component, windowRef });
+        return windowRef;
+    }
+
+    public openWindow(config: DynamicWindowConfig = {}): DynamicWindowRef {
+      if(this.windowSet.has(config.id)){
+        const windowRef = this.windowSet.get(config.id);
+        windowRef.show();
+        windowRef.makeActive();
+        return windowRef;
+      }else{
+        const windowRef = this.createDynamicWindow();
+        this.windowSet.set(config.id,windowRef);
+        this.referencesService.register(windowRef, config);
+        return windowRef;
+      }
+    }
+
+    public hideAll(): void {
+      this.references
+          .forEach((windowRef) => windowRef.hide());
+    }
+
+    public showAll(): void {
+      this.references
+          .forEach((windowRef) => windowRef.show());
+    }
+
+    /** Closes all windows */
+    public closeAll(): void {
+        this.references
+            .forEach((windowRef) => windowRef.close());
+    }
+
+    private createDynamicWindow(): ɵDynamicWindowRefModel {
+        const windowRef = new ɵDynamicWindowRefModel();
+
+        windowRef.afterClosed$.subscribe(()=>{
+          this.windowSet.delete( windowRef.config.id);
+        });
+
+        const windowInjector = new ɵDynamicWindowInjector({ injector: this.injector, windowRef });
+        const componentRef = this.createComponentRef(windowInjector);
+        windowRef.setComponentRef(componentRef);
+        this.initWindowRefAfterClosedObserver(windowRef, componentRef);
+        this.appendWindowComponentToBody(componentRef);
+        return windowRef;
+    }
+
+    private createComponentRef(
+        windowInjector: ɵDynamicWindowInjector
+    ): ComponentRef<ɵDynamicWindowComponent> {
+        return this.componentFactoryResolver
+            .resolveComponentFactory(ɵDynamicWindowComponent)
+            .create(windowInjector);
+    }
+
+    private appendWindowComponentToBody(componentRef: ComponentRef<ɵDynamicWindowComponent>): void {
+        const componentHostView = componentRef.hostView as EmbeddedViewRef<unknown>;
+        const componentHtmlElement = componentHostView.rootNodes[0] as HTMLElement;
+
+        this.applicationRef.attachView(componentHostView);
+        this.document.body.appendChild(componentHtmlElement);
+    }
+
+    private initWindowRefAfterClosedObserver(
+        windowRef: ɵDynamicWindowRefModel,
+        componentRef: ComponentRef<ɵDynamicWindowComponent>
+    ): void {
+        const destroyDelayInMs = 300;
+
+        windowRef.afterClosed$
+            .pipe(
+                tap(() => this.referencesService.remove(windowRef)),
+                delay(destroyDelayInMs)
+            )
+            .subscribe(() => componentRef.destroy());
+    }
+
+    private applyDataForCreatedWindowInstance(
+        { windowRef, component }: ɵDynamicWindowInputParams
+    ): void {
+        const { instance: windowInstance } = windowRef.componentRef;
+        windowInstance.childComponentType = component;
+        windowInstance.windowRef = windowRef;
+    }
+}

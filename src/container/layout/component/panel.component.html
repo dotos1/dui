@@ -1,0 +1,5 @@
+
+<div  #containerOutlet [ngStyle]='style' fxFlexFill>
+    <ng-container *ngTemplateOutlet="panelContentTpl"></ng-container>
+</div>
+ <ng-template #panelContentTpl>  <ng-content></ng-content> </ng-template>

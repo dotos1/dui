@@ -1,0 +1,13 @@
+{
+
+  "dest": "../dist/dui",
+  "lib": {
+    "entryFile": "./index.ts"
+  },
+  "assets":[
+    "./theming","./i18n"
+  ],
+  "allowedNonPeerDependencies": [
+
+  ]
+}

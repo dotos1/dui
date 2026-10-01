@@ -1,0 +1,184 @@
+{
+  "importPath": "@dotos/dui/ux/highlight",
+  "exports": [
+    {
+      "name": "CopyCodeButtonComponent",
+      "kind": "component",
+      "selector": "copy-code-button",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/ux/highlight/copy-code-button/copy-code-button.component.ts",
+      "inputs": [
+        {
+          "name": "copiedContent",
+          "type": "string",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "copyCodeToClipboard",
+          "type": "boolean",
+          "default": "false",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "copyCodeTooltips",
+          "type": "ICopyCodeTooltips",
+          "default": "{}",
+          "description": "copyCodeTooltips?: ICopyCodeTooltips\n\nTooltips for copy button to copy and upon copying.",
+          "descriptionZh": null
+        }
+      ],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "textCopied",
+          "params": [
+            {
+              "name": "event",
+              "type": "boolean"
+            }
+          ],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "initializeTooltip",
+          "params": [],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "copyTooltip",
+          "type": "string",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "copiedTooltip",
+          "type": "string",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "tooltip",
+          "type": "MatTooltip",
+          "description": null,
+          "descriptionZh": null
+        }
+      ]
+    },
+    {
+      "name": "HighlightComponent",
+      "kind": "component",
+      "selector": "dui-highlight",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/ux/highlight/highlight.component.ts",
+      "inputs": [
+        {
+          "name": "content",
+          "type": "string",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "copyCodeToClipboard",
+          "type": "boolean",
+          "default": "false",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "copyCodeTooltips",
+          "type": "ICopyCodeTooltips",
+          "default": "{}",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "codeLang",
+          "type": "string",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "contentReady",
+          "type": "void",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "methods": [
+        {
+          "name": "setLanguage",
+          "params": [
+            {
+              "name": "lang",
+              "type": "string"
+            }
+          ],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "copyContent",
+          "type": "string",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "highlightComp",
+          "type": "ElementRef",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "copyComp",
+          "type": "ElementRef",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "tooltip",
+          "type": "MatTooltip",
+          "description": null,
+          "descriptionZh": null
+        }
+      ]
+    },
+    {
+      "name": "HighlightModule",
+      "kind": "module",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/ux/highlight/highlight.module.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "ICopyCodeTooltips",
+      "kind": "interface",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/ux/highlight/copy-code-button/copy-code-button.component.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    }
+  ],
+  "suggestedUsageSnippet": "import { CopyCodeButtonComponent, HighlightModule } from '@dotos/dui/ux/highlight';\n\n<copy-code-button [copiedContent]=\"...\" [copyCodeToClipboard]=\"...\" [copyCodeTooltips]=\"...\"></copy-code-button>"
+}

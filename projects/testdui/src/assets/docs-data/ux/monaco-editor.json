@@ -1,0 +1,517 @@
+{
+  "importPath": "@dotos/dui/ux/monaco-editor",
+  "exports": [
+    {
+      "name": "CodeEditorService",
+      "kind": "service",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/ux/monaco-editor/code-editor-service.service.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "addSchema",
+          "params": [
+            {
+              "name": "uri",
+              "type": "string"
+            },
+            {
+              "name": "fileMatch",
+              "type": "string | string[]"
+            },
+            {
+              "name": "schema",
+              "type": "string | Object"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "getConfig",
+          "params": [],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "DiffEditorComponent",
+      "kind": "component",
+      "selector": "monaco-diff-editor",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/ux/monaco-editor/diff-editor.component.ts",
+      "inputs": [
+        {
+          "name": "options",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "originalModel",
+          "type": "DiffEditorModel",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "modifiedModel",
+          "type": "DiffEditorModel",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "outputs": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "options",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        }
+      ]
+    },
+    {
+      "name": "DiffEditorModel",
+      "kind": "interface",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/ux/monaco-editor/types.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "EditorComponent",
+      "kind": "component",
+      "selector": "monaco-editor",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/ux/monaco-editor/editor.component.ts",
+      "inputs": [
+        {
+          "name": "options",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "model",
+          "type": "EditorModel",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "setTheme",
+          "params": [
+            {
+              "name": "config",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "setWriteMode",
+          "params": [
+            {
+              "name": "type",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "initMonaco",
+          "params": [
+            {
+              "name": "options",
+              "type": "any"
+            },
+            {
+              "name": "insideNg",
+              "type": "boolean"
+            }
+          ],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "changeLanguage",
+          "params": [
+            {
+              "name": "lang",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "setOptions",
+          "params": [
+            {
+              "name": "options",
+              "type": "any"
+            }
+          ],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "setOption",
+          "params": [
+            {
+              "name": "key",
+              "type": "any"
+            },
+            {
+              "name": "value",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "getLine",
+          "params": [
+            {
+              "name": "line",
+              "type": "number"
+            }
+          ],
+          "returnType": "string | undefined",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "getOffsetAt",
+          "params": [
+            {
+              "name": "position",
+              "type": "any"
+            }
+          ],
+          "returnType": "number",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "getPositionAt",
+          "params": [
+            {
+              "name": "offset",
+              "type": "number"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "undo",
+          "params": [],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "redo",
+          "params": [],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "find",
+          "params": [],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "goToLine",
+          "params": [],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "clearHistory",
+          "params": [],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "focus",
+          "params": [],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "hasFocus",
+          "params": [],
+          "returnType": "boolean",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "blur",
+          "params": [],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "refresh",
+          "params": [],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "resizeToFit",
+          "params": [],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "autoresize",
+          "params": [],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "getHostNode",
+          "params": [],
+          "returnType": "HTMLElement | undefined",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "getWidth",
+          "params": [
+            {
+              "name": "hostNode",
+              "type": "HTMLElement"
+            },
+            {
+              "name": "boxSizing",
+              "type": "any"
+            }
+          ],
+          "returnType": "number",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "getHeight",
+          "params": [
+            {
+              "name": "hostNode",
+              "type": "HTMLElement"
+            },
+            {
+              "name": "boxSizing",
+              "type": "any"
+            }
+          ],
+          "returnType": "number",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "computeLayoutSize",
+          "params": [
+            {
+              "name": "hostNode",
+              "type": "HTMLElement"
+            },
+            {
+              "name": "dimension",
+              "type": "monaco.editor.IDimension | null"
+            }
+          ],
+          "returnType": "monaco.editor.IDimension",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "resize",
+          "params": [
+            {
+              "name": "dimension",
+              "type": "monaco.editor.IDimension | null"
+            }
+          ],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "propagateChange",
+          "type": "any",
+          "default": "(_: any) => {}",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "onTouched",
+          "type": "any",
+          "default": "() => {}",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "options",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "monacoModel",
+          "type": "monaco.editor.IModel",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "vimMode",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "autoSizing",
+          "type": "boolean",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "minHeight",
+          "type": "number",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "readOnly",
+          "type": "boolean",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "readOnly",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "editor",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "lineCount",
+          "type": "number",
+          "description": null,
+          "descriptionZh": null
+        }
+      ]
+    },
+    {
+      "name": "EditorModel",
+      "kind": "interface",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/ux/monaco-editor/types.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "MONACO_EDITOR_CONFIG",
+      "kind": "constant",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/ux/monaco-editor/config.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "MonacoEditorConfig",
+      "kind": "interface",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/ux/monaco-editor/config.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "MonacoEditorModule",
+      "kind": "module",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/ux/monaco-editor/editor.module.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "forRoot",
+          "params": [
+            {
+              "name": "config",
+              "type": "MonacoEditorConfig"
+            }
+          ],
+          "returnType": "ModuleWithProviders<MonacoEditorModule>",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "provideMonacoEditor",
+      "kind": "function",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/ux/monaco-editor/editor.module.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    }
+  ],
+  "suggestedUsageSnippet": "import { DiffEditorComponent, MonacoEditorModule } from '@dotos/dui/ux/monaco-editor';\n\n<monaco-diff-editor [options]=\"...\" [originalModel]=\"...\" [modifiedModel]=\"...\"></monaco-diff-editor>"
+}

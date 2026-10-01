@@ -1,0 +1,304 @@
+{
+  "importPath": "@dotos/dui/common/clipboard",
+  "exports": [
+    {
+      "name": "ClipboardComponent",
+      "kind": "component",
+      "selector": "dui-copy-content-tooltip",
+      "summary": "Internal tooltip shown by {@link ClipboardDirective} while hovering over a copyable element.",
+      "summaryZh": "{@link ClipboardDirective} 在悬停可复制元素时显示的内部提示气泡。",
+      "sourceFile": "src/common/clipboard/clipboard.component.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "placeholder",
+          "type": "string",
+          "description": null,
+          "descriptionZh": "提示气泡显示的翻译键/文本，默认为 `'CLIPBOARD.CLICK_TO_COPY'`。"
+        }
+      ]
+    },
+    {
+      "name": "ClipboardDirective",
+      "kind": "directive",
+      "selector": "[dui-clipboard]",
+      "summary": "Attach to any element to copy its associated text/content to the clipboard on click.",
+      "summaryZh": "附加到任意元素上，点击时将关联的文本/内容复制到剪贴板。",
+      "sourceFile": "src/common/clipboard/clipboard.directive.ts",
+      "inputs": [
+        {
+          "name": "placeholder",
+          "alias": "dui-clipboard",
+          "type": "string",
+          "description": "Tooltip text shown on hover before copying.",
+          "descriptionZh": "悬停时显示的提示文字。"
+        },
+        {
+          "name": "target",
+          "type": "HTMLInputElement | HTMLTextAreaElement",
+          "description": "Reference to the HTML element containing the text to copy.",
+          "descriptionZh": "包含待复制文本的 HTML 元素引用。"
+        },
+        {
+          "name": "message",
+          "alias": "clipboard-notification",
+          "type": "string",
+          "description": "Toast message shown after a successful copy.",
+          "descriptionZh": "复制成功后显示的提示消息。"
+        }
+      ],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "handleClickEvent",
+          "params": [
+            {
+              "name": "event",
+              "type": "MouseEvent"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": "内部使用，处理宿主元素上的点击事件：将目标内容复制到剪贴板。"
+        },
+        {
+          "name": "showTooltip",
+          "params": [],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": "内部使用，悬停时若设置了 `placeholder` 则显示 {@link ClipboardComponent} 提示气泡。"
+        },
+        {
+          "name": "closeTooltip",
+          "params": [],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": "内部使用，指针离开宿主元素后移除提示气泡。"
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "ClipboardModule",
+      "kind": "module",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/common/clipboard/clipboard.module.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "entryComponents",
+          "type": "any",
+          "default": "[ClipboardComponent]",
+          "description": null,
+          "descriptionZh": null
+        }
+      ]
+    },
+    {
+      "name": "ClipboardService",
+      "kind": "service",
+      "summary": "Copies text from an input/textarea element, or arbitrary content, to the system clipboard.\nOptionally shows a toast notification (via {@link ToastrService}) on success.",
+      "summaryZh": "将输入框/文本域中的文本，或任意内容，复制到系统剪贴板。可选地在复制成功后显示提示（通过 {@link ToastrService}）。",
+      "sourceFile": "src/common/clipboard/clipboard.service.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "isTargetValid",
+          "params": [
+            {
+              "name": "target",
+              "type": "HTMLInputElement | HTMLTextAreaElement"
+            }
+          ],
+          "returnType": "any",
+          "description": "Checks whether the given element can be copied from (must be an enabled input/textarea).",
+          "descriptionZh": "判断目标元素是否可以被复制（必须是未禁用的 input/textarea）。"
+        },
+        {
+          "name": "copyToClipboard",
+          "params": [
+            {
+              "name": "target",
+              "type": "HTMLInputElement | HTMLTextAreaElement"
+            },
+            {
+              "name": "message",
+              "type": "string"
+            }
+          ],
+          "returnType": "any",
+          "description": "Selects the full text of an input/textarea element and copies it to the clipboard.",
+          "descriptionZh": "选中 input/textarea 元素的全部文本并复制到剪贴板。"
+        },
+        {
+          "name": "copyContentToClipboard",
+          "params": [
+            {
+              "name": "content",
+              "type": "any"
+            },
+            {
+              "name": "message",
+              "type": "string"
+            }
+          ],
+          "returnType": "any",
+          "description": "Copies arbitrary content (string or object, which is JSON-stringified) to the clipboard,\nwithout requiring a source input/textarea element.",
+          "descriptionZh": "将任意内容（字符串或对象，对象会被 JSON 序列化）复制到剪贴板，无需依赖某个 input/textarea 元素。"
+        },
+        {
+          "name": "get",
+          "params": [],
+          "returnType": "any",
+          "description": "Returns the last data stored via `set`/`copyContentToClipboard`.",
+          "descriptionZh": "返回最近一次通过 `set`/`copyContentToClipboard` 存储的数据。"
+        },
+        {
+          "name": "set",
+          "params": [
+            {
+              "name": "data",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": "Stores arbitrary data for later retrieval via `get` (does not touch the system clipboard).",
+          "descriptionZh": "存储任意数据以供之后通过 `get` 读取（不会操作系统剪贴板）。"
+        },
+        {
+          "name": "clear",
+          "params": [],
+          "returnType": "any",
+          "description": "Clears the internally stored data.",
+          "descriptionZh": "清空内部存储的数据。"
+        },
+        {
+          "name": "isEmpty",
+          "params": [],
+          "returnType": "boolean",
+          "description": "Whether there is currently no data stored.",
+          "descriptionZh": "当前是否没有存储任何数据。"
+        }
+      ],
+      "properties": [
+        {
+          "name": "data",
+          "type": "any",
+          "description": null,
+          "descriptionZh": "最近一次通过 `copyContentToClipboard` 复制的数据。"
+        }
+      ]
+    },
+    {
+      "name": "CopyButtonComponent",
+      "kind": "component",
+      "selector": "copy-button",
+      "summary": "A ready-made icon button that copies a given string to the clipboard when clicked,\nshowing a brief \"copied\" tooltip state.",
+      "summaryZh": "一个开箱即用的图标按钮，点击后将指定字符串复制到剪贴板，并短暂显示\"已复制\"提示状态。",
+      "sourceFile": "src/common/clipboard/copy-button.component.ts",
+      "inputs": [
+        {
+          "name": "copyText",
+          "type": "string",
+          "description": "The text to copy to the clipboard.",
+          "descriptionZh": "要复制到剪贴板的文本。"
+        },
+        {
+          "name": "disabled",
+          "type": "any",
+          "default": "false",
+          "description": "Disables the button.",
+          "descriptionZh": "禁用按钮。"
+        },
+        {
+          "name": "icon",
+          "type": "string",
+          "description": "Icon name shown on the button.",
+          "descriptionZh": "按钮上显示的图标名称。"
+        },
+        {
+          "name": "tooltipText",
+          "type": "string",
+          "description": "Tooltip text shown before copying.",
+          "descriptionZh": "复制前显示的提示文字。"
+        },
+        {
+          "name": "tooltipPosition",
+          "type": "TooltipPosition",
+          "description": "Tooltip position, per Angular Material's `TooltipPosition`.",
+          "descriptionZh": "提示气泡的位置（沿用 Angular Material 的 `TooltipPosition`）。"
+        },
+        {
+          "name": "style",
+          "type": "{[key: string]: any}",
+          "default": "{}",
+          "description": "Inline style object applied to the button.",
+          "descriptionZh": "应用到按钮上的内联样式对象。"
+        },
+        {
+          "name": "color",
+          "type": "ThemePalette",
+          "description": "Material theme color.",
+          "descriptionZh": "Material 主题色。"
+        },
+        {
+          "name": "miniButton",
+          "type": "any",
+          "default": "true",
+          "description": "Renders as a compact (mini) icon button.",
+          "descriptionZh": "是否渲染为紧凑（迷你）图标按钮。"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "successCopied",
+          "type": "any",
+          "description": "Emits the copied text after a successful copy.",
+          "descriptionZh": "复制成功后，发出被复制的文本。"
+        }
+      ],
+      "methods": [
+        {
+          "name": "copy",
+          "params": [
+            {
+              "name": "$event",
+              "type": "Event"
+            }
+          ],
+          "returnType": "void",
+          "description": "Copies `copyText` to the clipboard, emits `successCopied`, and briefly shows the\n\"copied\" tooltip state.",
+          "descriptionZh": "将 `copyText` 复制到剪贴板，发出 `successCopied`，并短暂显示\"已复制\"提示状态。"
+        }
+      ],
+      "properties": [
+        {
+          "name": "copied",
+          "type": "any",
+          "default": "false",
+          "description": null,
+          "descriptionZh": "是否刚完成一次复制（用于短暂显示\"已复制\"状态）。"
+        },
+        {
+          "name": "matTooltipText",
+          "type": "string",
+          "description": "The tooltip text currently shown: a translated \"copied\" message right after copying,\nelse `tooltipText`.",
+          "descriptionZh": "当前显示的提示文字：刚复制完成时显示已翻译的\"已复制\"提示，否则显示 `tooltipText`。"
+        },
+        {
+          "name": "matTooltipPosition",
+          "type": "TooltipPosition",
+          "description": "The tooltip position currently used: `'below'` right after copying, else `tooltipPosition`.",
+          "descriptionZh": "当前使用的提示气泡位置：刚复制完成时为 `'below'`，否则为 `tooltipPosition`。"
+        }
+      ]
+    }
+  ],
+  "suggestedUsageSnippet": "import { ClipboardComponent, ClipboardModule } from '@dotos/dui/common/clipboard';\n\n<dui-copy-content-tooltip></dui-copy-content-tooltip>"
+}

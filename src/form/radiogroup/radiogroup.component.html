@@ -1,0 +1,17 @@
+
+ <mat-radio-group [required]="field.required"
+                  [formControl]="formControl"
+                  [formAttributes]="field"
+                  [tabindex]="field.tabindex || 0"
+                  [labelPosition]="field.labelPosition"
+                   matTooltip={{toolTip|translate}} matTooltipPosition='below'>
+      <mat-radio-button  *ngFor="let option of  field.options | selectOptionsPipe:field | async; let i = index"  class="radiogroup-margin"
+                   [id]="id + '_' + i"
+                  [value]="option.value"
+                  [color]="field.color"
+                  [labelPosition]="field.labelPosition"
+                  [disabled]="option.disabled"
+                  [value]="option.value"
+                  >{{option.label|translate}}</mat-radio-button>
+ </mat-radio-group>
+ <input type="hidden"  class="mdc-text-field__input" [value]="true"/>

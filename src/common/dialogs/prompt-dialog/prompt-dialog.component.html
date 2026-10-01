@@ -1,0 +1,51 @@
+<dui-dialog>
+  <ng-container duiDialogTitle *ngIf="title">{{ title|translate }}</ng-container>
+  <ng-container duiDialogContent>
+    <span class="dui-dialog-message">{{ message|translate }}</span>
+    <form #form="ngForm" novalidate>
+      <div class="dui-dialog-input-wrapper">
+        <mat-form-field class="dui-dialog-input"  [appearance]="themeService.formType|async">
+          <input
+            matInput
+            #input 
+             flex [name]="name|translate" 
+             [type]="dataType" 
+            (keydown.enter)="$event.preventDefault(); form.valid && accept()"
+            [formControl]="formControl"
+             [minlength]="minlength"
+            [maxlength]="maxlength"
+            [min]="min"
+            [maxlength]="max"
+             [pattern]="pattern"
+             (keydown.enter)="$event.preventDefault(); form.valid && accept()" matTooltipPosition='below' required
+          />
+          <mat-error *ngIf="formControl.hasError('required')">
+            {{blankText|translate}}
+          </mat-error>
+          <mat-error *ngIf="formControl.hasError('maxLength') && !formControl.hasError('required')">
+            {{maxLengthText|translate}}
+          </mat-error>
+          <mat-error *ngIf="formControl.hasError('minLength') && !formControl.hasError('required')">
+            {{minLengthText|translate}}
+          </mat-error>
+          <mat-error *ngIf="formControl.hasError('pattern') && !formControl.hasError('required')">
+            {{regexText|translate}}
+          </mat-error>
+        </mat-form-field>
+      </div>
+    </form>
+  </ng-container>
+  <ng-container duiDialogActions>
+    <button
+      mat-button
+      color="accent"
+      #acceptBtn
+     (keydown.arrowleft)="closeBtn.focus()" 
+      [disabled]="!formControl.valid"
+      (click)="accept()"
+    >
+      {{ acceptButton|translate }}
+    </button>
+    <button mat-button #closeBtn (keydown.arrowright)="acceptBtn.focus()" (click)="cancel()">{{ cancelButton |translate }}</button>
+  </ng-container>
+</dui-dialog>

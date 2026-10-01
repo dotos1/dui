@@ -1,0 +1,24 @@
+<input matInput #input [id]="id" [tabindex]="tabindex" [attr.disabled]="disabled" [formControl]="formControl"
+  [errorStateMatcher]="errorStateMatcher" [formAttributes]="field" [required]="required" autocomplete="off"
+  (click)="_handleFocus()" matTooltip={{toolTip}} matTooltipPosition='below' />
+
+<ng-template #matPrefix>
+  <div *ngIf="isColor(value)" class="metatile" [ngStyle]="{'background-color':value}"
+    style='width: 30px; height: 30px;border-radius:4px'></div>
+  <div *ngIf="isPattern(value)" class="metatile" style='width: 30px; height: 30px;border-radius:4px'>
+    <img [src]="value" style='width: 100%; height: 100%; object-fit:cover'>
+  </div>
+  <dui-icon *ngIf="!isColor(value)&&!isPattern(value)"  [value]="value" [disabled]="disabled"
+    style="padding-inline-start:8px;padding-bottom:0px"></dui-icon>
+</ng-template>
+<ng-template #matSuffix>
+  <div fxLayout="row">
+    <div class="icon-picker-select-arrow-wrapper" (click)="open()">
+      <div class="icon-picker-select-arrow"></div>
+    </div>
+    <button *ngIf="(field.required===undefined|| field.required===false)&&value" mat-icon-button type="button"
+      (click)="clear()">
+      <mat-icon (click)="clear()">close</mat-icon>
+    </button>
+  </div>
+</ng-template>

@@ -1,0 +1,827 @@
+{
+  "importPath": "@dotos/dui/core/cache",
+  "exports": [
+    {
+      "name": "BaseObject",
+      "kind": "class",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/core/cache/base-obejct.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "get",
+          "params": [
+            {
+              "name": "key",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "getKeys",
+          "params": [],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "getProperties",
+          "params": [],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "hasProperties",
+          "params": [],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "addChangeListener",
+          "params": [
+            {
+              "name": "key",
+              "type": "any"
+            },
+            {
+              "name": "listener",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "removeChangeListener",
+          "params": [
+            {
+              "name": "key",
+              "type": "any"
+            },
+            {
+              "name": "listener",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "set",
+          "params": [
+            {
+              "name": "key",
+              "type": "any"
+            },
+            {
+              "name": "value",
+              "type": "any"
+            },
+            {
+              "name": "silent",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "setProperties",
+          "params": [
+            {
+              "name": "values",
+              "type": "any"
+            },
+            {
+              "name": "silent",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "applyProperties",
+          "params": [
+            {
+              "name": "source",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "unset",
+          "params": [
+            {
+              "name": "key",
+              "type": "any"
+            },
+            {
+              "name": "silent",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "Collection",
+      "kind": "class",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/core/cache/collection.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "clear",
+          "params": [],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "extend",
+          "params": [
+            {
+              "name": "arr",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "forEach",
+          "params": [
+            {
+              "name": "f",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "getArray",
+          "params": [],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "item",
+          "params": [
+            {
+              "name": "index",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "getLength",
+          "params": [],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "insertAt",
+          "params": [
+            {
+              "name": "index",
+              "type": "any"
+            },
+            {
+              "name": "elem",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "pop",
+          "params": [],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "push",
+          "params": [
+            {
+              "name": "elem",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "remove",
+          "params": [
+            {
+              "name": "elem",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "removeAt",
+          "params": [
+            {
+              "name": "index",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "setAt",
+          "params": [
+            {
+              "name": "index",
+              "type": "any"
+            },
+            {
+              "name": "elem",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "updateLength_",
+          "params": [],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "assertUnique_",
+          "params": [
+            {
+              "name": "elem",
+              "type": "any"
+            },
+            {
+              "name": "except",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "MixedCollection",
+      "kind": "class",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/core/cache/mixed.collection.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "add",
+          "params": [
+            {
+              "name": "key",
+              "type": "any"
+            },
+            {
+              "name": "o",
+              "type": "Object"
+            }
+          ],
+          "returnType": "Object",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "getKey",
+          "params": [
+            {
+              "name": "o",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "replace",
+          "params": [
+            {
+              "name": "key",
+              "type": "string"
+            },
+            {
+              "name": "o",
+              "type": "any"
+            }
+          ],
+          "returnType": "Object",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "addAll",
+          "params": [
+            {
+              "name": "objs",
+              "type": "Object | any[]"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "each",
+          "params": [
+            {
+              "name": "fn",
+              "type": "Function"
+            },
+            {
+              "name": "scope",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "eachKey",
+          "params": [
+            {
+              "name": "fn",
+              "type": "Function"
+            },
+            {
+              "name": "scope",
+              "type": "Object"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "find",
+          "params": [
+            {
+              "name": "fn",
+              "type": "Function"
+            },
+            {
+              "name": "scope",
+              "type": "Object"
+            }
+          ],
+          "returnType": "Object",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "insert",
+          "params": [
+            {
+              "name": "index",
+              "type": "number"
+            },
+            {
+              "name": "key",
+              "type": "string"
+            },
+            {
+              "name": "o",
+              "type": "Object"
+            }
+          ],
+          "returnType": "Object",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "remove",
+          "params": [
+            {
+              "name": "o",
+              "type": "Object"
+            }
+          ],
+          "returnType": "Object",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "removeAt",
+          "params": [
+            {
+              "name": "index",
+              "type": "number"
+            }
+          ],
+          "returnType": "Object",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "pop",
+          "params": [],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "removeKey",
+          "params": [
+            {
+              "name": "key",
+              "type": "string"
+            }
+          ],
+          "returnType": "Object",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "getCount",
+          "params": [],
+          "returnType": "number",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "indexOf",
+          "params": [
+            {
+              "name": "o",
+              "type": "Object"
+            }
+          ],
+          "returnType": "number",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "indexOfKey",
+          "params": [
+            {
+              "name": "key",
+              "type": "string"
+            }
+          ],
+          "returnType": "number",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "get",
+          "params": [
+            {
+              "name": "key",
+              "type": "number | string"
+            }
+          ],
+          "returnType": "Object",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "itemAt",
+          "params": [
+            {
+              "name": "index",
+              "type": "number"
+            }
+          ],
+          "returnType": "Object",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "key",
+          "params": [
+            {
+              "name": "key",
+              "type": "number | string"
+            }
+          ],
+          "returnType": "Object",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "contains",
+          "params": [
+            {
+              "name": "o",
+              "type": "Object"
+            }
+          ],
+          "returnType": "boolean",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "containsKey",
+          "params": [
+            {
+              "name": "key",
+              "type": "string"
+            }
+          ],
+          "returnType": "boolean",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "clear",
+          "params": [],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "first",
+          "params": [],
+          "returnType": "Object",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "last",
+          "params": [],
+          "returnType": "Object",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "sort",
+          "params": [
+            {
+              "name": "dir",
+              "type": "any"
+            },
+            {
+              "name": "fn",
+              "type": "Function"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "reorder",
+          "params": [
+            {
+              "name": "mapping",
+              "type": "Object"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "keySort",
+          "params": [
+            {
+              "name": "dir",
+              "type": "any"
+            },
+            {
+              "name": "fn",
+              "type": "Function"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "getRange",
+          "params": [
+            {
+              "name": "start",
+              "type": "any"
+            },
+            {
+              "name": "end",
+              "type": "any"
+            }
+          ],
+          "returnType": "Array<any>",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "filter",
+          "params": [
+            {
+              "name": "property",
+              "type": "string"
+            },
+            {
+              "name": "value",
+              "type": "any"
+            },
+            {
+              "name": "anyMatch",
+              "type": "boolean"
+            },
+            {
+              "name": "caseSensitive",
+              "type": "boolean"
+            }
+          ],
+          "returnType": "MixedCollection<any>",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "filterBy",
+          "params": [
+            {
+              "name": "fn",
+              "type": "Function"
+            },
+            {
+              "name": "scope",
+              "type": "any"
+            }
+          ],
+          "returnType": "MixedCollection<any>",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "findIndex",
+          "params": [
+            {
+              "name": "property",
+              "type": "string"
+            },
+            {
+              "name": "value",
+              "type": "any"
+            },
+            {
+              "name": "start",
+              "type": "number"
+            },
+            {
+              "name": "anyMatch",
+              "type": "boolean"
+            },
+            {
+              "name": "caseSensitive",
+              "type": "boolean"
+            }
+          ],
+          "returnType": "number",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "findIndexBy",
+          "params": [
+            {
+              "name": "fn",
+              "type": "Function"
+            },
+            {
+              "name": "scope",
+              "type": "Object"
+            },
+            {
+              "name": "start",
+              "type": "number"
+            }
+          ],
+          "returnType": "number",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "createValueMatcher",
+          "params": [
+            {
+              "name": "value",
+              "type": "any"
+            },
+            {
+              "name": "anyMatch",
+              "type": "boolean"
+            },
+            {
+              "name": "caseSensitive",
+              "type": "boolean"
+            },
+            {
+              "name": "exactMatch",
+              "type": "boolean"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "clone",
+          "params": [],
+          "returnType": "MixedCollection<any>",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "items",
+          "type": "any",
+          "default": "[]",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "map",
+          "type": "any",
+          "default": "{}",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "keys",
+          "type": "any",
+          "default": "[]",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "length",
+          "type": "any",
+          "default": "0",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "itemsSubject",
+          "type": "BehaviorSubject<Array<any>>",
+          "default": "new BehaviorSubject([])",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "allowFunctions",
+          "type": "any",
+          "default": "false",
+          "description": null,
+          "descriptionZh": null
+        }
+      ]
+    }
+  ],
+  "suggestedUsageSnippet": "import { /* ... */ } from '@dotos/dui/core/cache';"
+}

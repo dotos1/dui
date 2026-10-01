@@ -1,0 +1,16 @@
+<ng-container *ngIf="module$ | async as module">
+  <h1 class="module-shell__title">{{ module.importPath }}</h1>
+
+  <nav mat-tab-nav-bar [tabPanel]="tabPanel" class="module-shell__tabs">
+    <a mat-tab-link routerLink="overview" routerLinkActive #ov="routerLinkActive" [active]="ov.isActive">概览</a>
+    <a mat-tab-link routerLink="api" routerLinkActive #ap="routerLinkActive" [active]="ap.isActive">API 参考</a>
+    <a mat-tab-link
+       *ngIf="module.isFlagship"
+       [routerLink]="['/components', (categoryId$ | async), (moduleId$ | async), 'examples']"
+       routerLinkActive #ex="routerLinkActive" [active]="ex.isActive">示例</a>
+  </nav>
+
+  <mat-tab-nav-panel #tabPanel class="module-shell__panel">
+    <router-outlet></router-outlet>
+  </mat-tab-nav-panel>
+</ng-container>

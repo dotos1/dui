@@ -1,0 +1,79 @@
+{
+  "importPath": "@dotos/dui/ux/jsonEditor",
+  "exports": [
+    {
+      "name": "JsonEditor",
+      "kind": "component",
+      "selector": "json-editor",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/ux/jsonEditor/json.editor.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "save",
+          "params": [],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "monacoEditor",
+          "type": "EditorComponent",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "codeValue",
+          "type": "string",
+          "default": "''",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "parent",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "editorOptions",
+          "type": "any",
+          "default": "{\n    language: \"json\",\n    autoIndent: 'full',\n    smoothScrolling: true,\n    minimap: {\n      enabled: false\n    },\n    scrollbar: {\n      horizontal: 'visible',\n      horizontalHasArrows: true,\n      vertical: 'visible',\n      verticalHasArrows: true\n    }\n  }",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "cardConfig",
+          "type": "any",
+          "default": "{\n    xtype: 'card',\n    title: 'UX.JSONCODE',\n    fxLayout: 'row',\n    buttons: this.buttons\n  }",
+          "description": null,
+          "descriptionZh": null
+        }
+      ]
+    },
+    {
+      "name": "JsonEditorModule",
+      "kind": "module",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/ux/jsonEditor/json.editor.module.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "entryComponents",
+          "type": "any",
+          "default": "[JsonEditor]",
+          "description": null,
+          "descriptionZh": null
+        }
+      ]
+    }
+  ],
+  "suggestedUsageSnippet": "import { JsonEditor, JsonEditorModule } from '@dotos/dui/ux/jsonEditor';\n\n<json-editor></json-editor>"
+}

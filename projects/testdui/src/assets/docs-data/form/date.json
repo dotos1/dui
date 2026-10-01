@@ -1,0 +1,182 @@
+{
+  "importPath": "@dotos/dui/form/date",
+  "exports": [
+    {
+      "name": "DateFieldComponent",
+      "kind": "component",
+      "selector": "date-field",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/form/date/datefield.component.ts",
+      "inputs": [
+        {
+          "name": "matDatepickerFilter",
+          "type": "(date: D | null, type: MatDatetimepickerFilterType) => boolean",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "min",
+          "type": "D | null",
+          "description": "The minimum valid date.",
+          "descriptionZh": null
+        },
+        {
+          "name": "max",
+          "type": "D | null",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "dateChange",
+          "type": "any",
+          "description": "Emits when a `change` event is fired on this `<input>`.",
+          "descriptionZh": null
+        },
+        {
+          "name": "dateInput",
+          "type": "any",
+          "description": "Emits when an `input` event is fired on this `<input>`.",
+          "descriptionZh": null
+        }
+      ],
+      "methods": [
+        {
+          "name": "init",
+          "params": [
+            {
+              "name": "field",
+              "type": "any"
+            }
+          ],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "change",
+          "params": [
+            {
+              "name": "v",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "getDisplayFormat",
+          "params": [],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "getParseFormat",
+          "params": [],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "registerOnValidatorChange",
+          "params": [
+            {
+              "name": "fn",
+              "type": "() => void"
+            }
+          ],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "validate",
+          "params": [
+            {
+              "name": "c",
+              "type": "AbstractControl"
+            }
+          ],
+          "returnType": "ValidationErrors | null",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "datetimepicker",
+          "type": "MatDatetimepicker<D>",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "min",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "max",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "disabled",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "type",
+          "type": "string",
+          "default": "'date'",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "value",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "value",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        }
+      ]
+    },
+    {
+      "name": "DateFieldModule",
+      "kind": "module",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/form/date/datefield.module.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "entryComponents",
+          "type": "any",
+          "default": "[DateFieldComponent]",
+          "description": null,
+          "descriptionZh": null
+        }
+      ]
+    }
+  ],
+  "suggestedUsageSnippet": "import { DateFieldComponent, DateFieldModule } from '@dotos/dui/form/date';\n\n<date-field [matDatepickerFilter]=\"...\" [min]=\"...\" [max]=\"...\" (dateChange)=\"...\" (dateInput)=\"...\"></date-field>"
+}

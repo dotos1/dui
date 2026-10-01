@@ -1,0 +1,33 @@
+:host {
+  display: block;
+
+  .dui-paging-bar {
+    height: 42px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+    [mat-icon-button] {
+      font-size: 12px;
+      font-weight: normal;
+    }
+
+    mat-select {
+      &.mat-mdc-select {
+        padding-top: 0px;
+      }
+
+      & {
+        .mat-mdc-select-trigger {
+          min-width: 44px;
+          font-size: 12px;
+        }
+
+        .mat-select-underline {
+          display: none;
+        }
+      }
+    }
+  }
+}

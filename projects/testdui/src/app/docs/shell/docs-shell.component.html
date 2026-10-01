@@ -1,0 +1,10 @@
+<mat-sidenav-container class="docs-shell">
+  <mat-sidenav #sidenav mode="side" opened class="docs-shell__sidenav">
+    <app-nav-tree></app-nav-tree>
+  </mat-sidenav>
+  <mat-sidenav-content class="docs-shell__content">
+    <div class="docs-shell__body">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

@@ -1,0 +1,22 @@
+.docs-shell {
+  position: absolute;
+  inset: 0;
+}
+
+.docs-shell__sidenav {
+  width: 280px;
+  border-right: 1px solid rgba(128, 128, 128, 0.24);
+}
+
+.docs-shell__content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.docs-shell__body {
+  flex: 1 1 auto;
+  overflow: auto;
+  padding: 24px 32px;
+  box-sizing: border-box;
+}

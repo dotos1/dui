@@ -1,0 +1,42 @@
+<div>
+  <div style="visibility: hidden" [matMenuTriggerFor]="rootMenu" #rootTriggerEl></div>
+  <mat-menu #rootMenu="matMenu" class="dui-context-menu" hasBackdrop=false duiContextMenuOutsideEvent (clickOutside)="onClickOutsideEvent()"
+    >
+    <ng-container *ngFor="let entry of children;">
+      <ng-container *ngIf="!entry.hidden&&entry.children!==undefined&&entry.children.length>0">
+        <button mat-menu-item [id]="entry.id" [matMenuTriggerFor]="childMenu" hasBackdrop=false
+          [disabled]="entry.disable" (contextmenu)="contextMenu()">
+          <dui-icon *ngIf="entry.icon" [value]="entry.icon" style="padding-top: 6px;"></dui-icon>
+          <span  style="margin-top: auto;margin-bottom: auto;">{{ entry.title | translate }}</span>
+        </button>
+        <mat-menu #childMenu="matMenu" hasBackdrop=false>
+          <ng-container *ngFor="let child of entry.children;">
+            <dui-context-menu-item [menuItem]="child"></dui-context-menu-item>
+          </ng-container>
+        </mat-menu>
+      </ng-container>
+      <ng-container *ngIf="!entry.hidden&&(entry.children===undefined || entry.children.length===0)">
+        <ng-container [ngSwitch]="entry.type">
+          <ng-container *ngIf="!entry.hidden&&(entry.type!=='divider'&&entry.type!=='menu'&&entry.type!=='custom')">
+            <button mat-menu-item [id]="entry.id" (click)="runAction(entry,$event)" style="display:flex;"
+              [disabled]="entry.disable" (contextmenu)="contextMenu()">
+              <dui-icon *ngIf="entry.icon" [value]="entry.icon" style="padding-top: 6px;"></dui-icon>
+              <span  style="margin-top: auto;margin-bottom: auto;">{{ entry.title | translate }}</span>
+              <span *ngIf="entry.shortcut" style='flex: 1 1 auto;'></span>
+              <span *ngIf="entry.shortcut">{{entry.shortcut| translate}}</span>
+            </button>
+          </ng-container>
+          <ng-container *ngIf="!entry.hidden&&entry.type==='divider'">
+            <mat-divider></mat-divider>
+          </ng-container>
+          <ng-container *ngIf="!entry.hidden&&entry.type==='custom'">
+            <button mat-menu-item style="padding:0 0px !important" (contextmenu)="contextMenu()">
+              <dui-dynamic-component class="dynamic-menu" *ngIf="entry.hidden!==true" [config]="entry"
+                [xtype]="entry.xtype"></dui-dynamic-component>
+            </button>
+          </ng-container>
+        </ng-container>
+      </ng-container>
+    </ng-container>
+  </mat-menu>
+</div>

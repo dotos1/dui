@@ -1,0 +1,5 @@
+{
+	"name": "ESRIPublic1",
+	"range":[{"start":"21","end":"7D"},{"start":"A1","end":"AC"},{"start":"AE","end":"F7"}],
+	"url" :"/assets/map/font/public/public.woff2"
+}

@@ -1,0 +1,412 @@
+{
+  "importPath": "@dotos/dui/common/carousel",
+  "exports": [
+    {
+      "name": "MatCarousel",
+      "kind": "interface",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/common/carousel/carousel.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "MatCarouselComponent",
+      "kind": "component",
+      "selector": "mat-carousel",
+      "summary": "A Material-styled image/content carousel with autoplay, keyboard navigation, mouse-wheel\nand swipe/pan gesture support. Slides are projected as {@link MatCarouselSlideComponent}.",
+      "summaryZh": "Material 风格的图片/内容轮播组件，支持自动播放、键盘导航、鼠标滚轮以及滑动/拖拽手势。\n幻灯片以 {@link MatCarouselSlideComponent} 的形式投影进来。",
+      "sourceFile": "src/common/carousel/carousel.component.ts",
+      "inputs": [
+        {
+          "name": "timings",
+          "type": "any",
+          "default": "'250ms ease-in'",
+          "description": null,
+          "descriptionZh": "切换幻灯片时的过渡动画时长/缓动函数。"
+        },
+        {
+          "name": "svgIconOverrides",
+          "type": "SvgIconOverrides",
+          "description": null,
+          "descriptionZh": "用于覆盖左右箭头图标的自定义 SVG 图标配置。"
+        },
+        {
+          "name": "autoplay",
+          "type": "boolean",
+          "description": "Enables automatic slide advancing on the interval set by `interval`.",
+          "descriptionZh": "是否按 `interval` 设置的间隔自动切换幻灯片。"
+        },
+        {
+          "name": "interval",
+          "type": "number",
+          "description": "Autoplay interval in milliseconds.",
+          "descriptionZh": "自动播放间隔（毫秒）。"
+        },
+        {
+          "name": "loop",
+          "type": "boolean",
+          "description": "Wraps back to the first/last slide when navigating past the ends.",
+          "descriptionZh": "导航超出两端时是否循环回到第一张/最后一张幻灯片。"
+        },
+        {
+          "name": "hideArrows",
+          "type": "any",
+          "default": "true",
+          "description": null,
+          "descriptionZh": "是否隐藏左右箭头。"
+        },
+        {
+          "name": "hideIndicators",
+          "type": "any",
+          "default": "true",
+          "description": null,
+          "descriptionZh": "是否隐藏底部指示点。"
+        },
+        {
+          "name": "color",
+          "type": "ThemePalette",
+          "default": "'accent'",
+          "description": null,
+          "descriptionZh": "Material 主题色。"
+        },
+        {
+          "name": "maxWidth",
+          "type": "string",
+          "description": "The carousel's maximum width.",
+          "descriptionZh": "轮播组件的最大宽度。"
+        },
+        {
+          "name": "maintainAspectRatio",
+          "type": "any",
+          "default": "true",
+          "description": null,
+          "descriptionZh": "是否保持幻灯片宽高比。"
+        },
+        {
+          "name": "proportion",
+          "type": "any",
+          "default": "25",
+          "description": null,
+          "descriptionZh": "保持宽高比时使用的高度占宽度的百分比。"
+        },
+        {
+          "name": "slideHeight",
+          "type": "any",
+          "default": "'100%'",
+          "description": null,
+          "descriptionZh": "幻灯片高度（`maintainAspectRatio` 为 `false` 时使用）。"
+        },
+        {
+          "name": "slides",
+          "type": "number",
+          "description": "Limits the number of projected slides actually rendered/used.",
+          "descriptionZh": "限制实际渲染/使用的投影幻灯片数量。"
+        },
+        {
+          "name": "useKeyboard",
+          "type": "any",
+          "default": "false",
+          "description": null,
+          "descriptionZh": "是否启用左右方向键导航。"
+        },
+        {
+          "name": "useMouseWheel",
+          "type": "any",
+          "default": "false",
+          "description": null,
+          "descriptionZh": "是否启用鼠标滚轮切换幻灯片。"
+        },
+        {
+          "name": "orientation",
+          "type": "Orientation",
+          "description": "The carousel's text/layout direction: `'ltr'` or `'rtl'`.",
+          "descriptionZh": "轮播组件的文字/布局方向：`'ltr'` 或 `'rtl'`。"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "change",
+          "type": "number",
+          "description": "Emits the new active slide index after each slide transition completes.",
+          "descriptionZh": "每次幻灯片切换动画完成后，发出新的当前幻灯片索引。"
+        }
+      ],
+      "methods": [
+        {
+          "name": "next",
+          "params": [],
+          "returnType": "void",
+          "description": "Advances to the next slide.",
+          "descriptionZh": "切换到下一张幻灯片。"
+        },
+        {
+          "name": "previous",
+          "params": [],
+          "returnType": "void",
+          "description": "Goes back to the previous slide.",
+          "descriptionZh": "切换到上一张幻灯片。"
+        },
+        {
+          "name": "slideTo",
+          "params": [
+            {
+              "name": "index",
+              "type": "number"
+            }
+          ],
+          "returnType": "void",
+          "description": "Jumps directly to the slide at the given index.",
+          "descriptionZh": "直接跳转到指定索引的幻灯片。"
+        },
+        {
+          "name": "onKeyUp",
+          "params": [
+            {
+              "name": "event",
+              "type": "KeyboardEvent"
+            }
+          ],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": "内部使用，当 `useKeyboard` 启用时处理键盘导航。"
+        },
+        {
+          "name": "onMouseEnter",
+          "params": [],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": "内部使用，指针悬停在轮播组件上方时暂停自动播放。"
+        },
+        {
+          "name": "onMouseLeave",
+          "params": [],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": "内部使用，指针离开轮播组件后恢复自动播放。"
+        },
+        {
+          "name": "onMouseWheel",
+          "params": [
+            {
+              "name": "event",
+              "type": "any"
+            }
+          ],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": "内部使用，当 `useMouseWheel` 启用时处理鼠标滚轮滚动以切换幻灯片。"
+        },
+        {
+          "name": "onResize",
+          "params": [
+            {
+              "name": "event",
+              "type": "Event"
+            }
+          ],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": "内部使用，在窗口尺寸变化时重新同步幻灯片位置。"
+        },
+        {
+          "name": "onPan",
+          "params": [
+            {
+              "name": "event",
+              "type": "any"
+            },
+            {
+              "name": "slideElem",
+              "type": "HTMLElement"
+            }
+          ],
+          "returnType": "void",
+          "description": "Handles an in-progress pan/swipe gesture, translating the slide list to follow the pointer.",
+          "descriptionZh": "处理正在进行中的滑动/拖拽手势，使幻灯片列表跟随指针平移。"
+        },
+        {
+          "name": "onPanEnd",
+          "params": [
+            {
+              "name": "event",
+              "type": "any"
+            },
+            {
+              "name": "slideElem",
+              "type": "HTMLElement"
+            }
+          ],
+          "returnType": "void",
+          "description": "Handles the end of a pan/swipe gesture: advances/reverts to the nearest slide based on\nhow far the pointer moved.",
+          "descriptionZh": "处理滑动/拖拽手势结束：根据指针移动距离前进到下一张或还原到当前幻灯片。"
+        }
+      ],
+      "properties": [
+        {
+          "name": "loop",
+          "type": "boolean",
+          "description": "Wraps back to the first/last slide when navigating past the ends.",
+          "descriptionZh": "导航超出两端时是否循环回到第一张/最后一张幻灯片。"
+        },
+        {
+          "name": "maxWidth",
+          "type": "string",
+          "description": "The carousel's maximum width.",
+          "descriptionZh": "轮播组件的最大宽度。"
+        },
+        {
+          "name": "orientation",
+          "type": "Orientation",
+          "description": "The carousel's text/layout direction: `'ltr'` or `'rtl'`.",
+          "descriptionZh": "轮播组件的文字/布局方向：`'ltr'` 或 `'rtl'`。"
+        },
+        {
+          "name": "currentIndex",
+          "type": "number",
+          "description": "The currently active slide's index.",
+          "descriptionZh": "当前激活幻灯片的索引。"
+        },
+        {
+          "name": "currentSlide",
+          "type": "MatCarouselSlideComponent",
+          "description": "The currently active {@link MatCarouselSlideComponent}.",
+          "descriptionZh": "当前激活的 {@link MatCarouselSlideComponent}。"
+        },
+        {
+          "name": "slidesList",
+          "type": "QueryList< MatCarouselSlideComponent >",
+          "description": null,
+          "descriptionZh": "投影进来的全部 {@link MatCarouselSlideComponent} 幻灯片。"
+        },
+        {
+          "name": "listKeyManager",
+          "type": "ListKeyManager<MatCarouselSlideComponent>",
+          "description": null,
+          "descriptionZh": "内部使用，管理幻灯片焦点/激活状态的 CDK 键盘管理器。"
+        }
+      ]
+    },
+    {
+      "name": "MatCarouselHammerConfig",
+      "kind": "class",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/common/carousel/carousel.module.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "overrides",
+          "type": "any",
+          "default": "{\n    pinch: { enable: false },\n    rotate: { enable: false }\n  }",
+          "description": null,
+          "descriptionZh": null
+        }
+      ]
+    },
+    {
+      "name": "MatCarouselModule",
+      "kind": "module",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/common/carousel/carousel.module.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "forRoot",
+          "params": [],
+          "returnType": "ModuleWithProviders<MatCarouselModule>",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "MatCarouselSlide",
+      "kind": "interface",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/common/carousel/carousel-slide/carousel-slide.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "MatCarouselSlideComponent",
+      "kind": "component",
+      "selector": "mat-carousel-slide",
+      "summary": "A single slide projected into {@link MatCarouselComponent}.",
+      "summaryZh": "投影进 {@link MatCarouselComponent} 的单张幻灯片。",
+      "sourceFile": "src/common/carousel/carousel-slide/carousel-slide.component.ts",
+      "inputs": [
+        {
+          "name": "image",
+          "type": "SafeStyle",
+          "description": null,
+          "descriptionZh": "幻灯片背景图片 URL。"
+        },
+        {
+          "name": "overlayColor",
+          "type": "any",
+          "default": "'#00000040'",
+          "description": null,
+          "descriptionZh": "悬浮遮罩的颜色。"
+        },
+        {
+          "name": "hideOverlay",
+          "type": "any",
+          "default": "false",
+          "description": null,
+          "descriptionZh": "隐藏悬浮遮罩。"
+        },
+        {
+          "name": "disabled",
+          "type": "any",
+          "default": "false",
+          "description": null,
+          "descriptionZh": "禁用该幻灯片（跳过键盘导航）。"
+        }
+      ],
+      "outputs": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "templateRef",
+          "type": "TemplateRef<any>",
+          "description": null,
+          "descriptionZh": "该幻灯片投影内容的模板引用。"
+        }
+      ]
+    },
+    {
+      "name": "Orientation",
+      "kind": "type",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/common/carousel/carousel.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "SvgIconOverrides",
+      "kind": "interface",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/common/carousel/carousel.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    }
+  ],
+  "suggestedUsageSnippet": "import { MatCarouselComponent, MatCarouselModule } from '@dotos/dui/common/carousel';\n\n<mat-carousel [timings]=\"...\" [svgIconOverrides]=\"...\" [autoplay]=\"...\" (change)=\"...\"></mat-carousel>"
+}

@@ -1,0 +1,4230 @@
+{
+  "importPath": "@dotos/dui/container",
+  "exports": [
+    {
+      "name": "_DuiLayoutToggleMixinBase",
+      "kind": "constant",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/container/panel/layout-toggle.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "_ExpansionPanelMixinBase",
+      "kind": "constant",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/container/accordion/expansion-panel.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "AbstractPanel",
+      "kind": "directive",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/container/panel/abstract.panel.ts",
+      "inputs": [
+        {
+          "name": "config",
+          "type": "any",
+          "default": "{}",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "overflowX",
+          "type": "string",
+          "default": "\"auto\"",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "overflowY",
+          "type": "string",
+          "default": "\"auto\"",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "opened",
+          "type": "boolean",
+          "default": "false",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "gutterSize",
+          "type": "number",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "default": "false",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "width",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "height",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "order",
+          "type": "number | null",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "size",
+          "type": "number | null",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "minSize",
+          "type": "number",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "maxSize",
+          "type": "number",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "visible",
+          "type": "boolean",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "split",
+          "type": "boolean",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "dir",
+          "type": "'ltr' | 'rtl'",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "fxLayout",
+          "type": "'row' | 'column'",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "init",
+          "params": [
+            {
+              "name": "config",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "setActive",
+          "params": [
+            {
+              "name": "comp",
+              "type": "any"
+            }
+          ],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "lockEvents",
+          "params": [],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "unlockEvents",
+          "params": [],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "setStyleVisibleAndDir",
+          "params": [
+            {
+              "name": "isVisible",
+              "type": "boolean"
+            },
+            {
+              "name": "isDragging",
+              "type": "boolean"
+            },
+            {
+              "name": "direction",
+              "type": "'row' | 'column'"
+            }
+          ],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "setStyleOrder",
+          "params": [
+            {
+              "name": "value",
+              "type": "number"
+            }
+          ],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "setStyleFlexbasis",
+          "params": [
+            {
+              "name": "value",
+              "type": "string"
+            },
+            {
+              "name": "isDragging",
+              "type": "boolean"
+            }
+          ],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "getSizePixel",
+          "params": [
+            {
+              "name": "prop",
+              "type": "'offsetWidth' | 'offsetHeight'"
+            }
+          ],
+          "returnType": "number",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "initEvents",
+          "params": [],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "doLayout",
+          "params": [
+            {
+              "name": "shallow",
+              "type": "boolean"
+            },
+            {
+              "name": "force",
+              "type": "boolean"
+            }
+          ],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "add",
+          "params": [
+            {
+              "name": "comp",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "remove",
+          "params": [
+            {
+              "name": "c",
+              "type": "any"
+            },
+            {
+              "name": "ad",
+              "type": "boolean"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "havePanel",
+          "params": [
+            {
+              "name": "comp",
+              "type": "any"
+            }
+          ],
+          "returnType": "boolean",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "state",
+          "type": "any",
+          "default": "'none'",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "autoLoad",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "collapsed",
+          "type": "any",
+          "default": "false",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "flex",
+          "type": "string",
+          "default": "''",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "el",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "style",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "inTab",
+          "type": "boolean",
+          "default": "false",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "viewContainer",
+          "type": "ViewContainerRef",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "cssFlexdirection",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "cssMinwidth",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "cssMinheight",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "cssWidth",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "cssHeight",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "cssOverflowX",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "cssOverflowY",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "gutterSize",
+          "type": "number",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "width",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "height",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "order",
+          "type": "number | null",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "size",
+          "type": "number | null",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "minSize",
+          "type": "number",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "maxSize",
+          "type": "number",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "visible",
+          "type": "boolean",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "split",
+          "type": "boolean",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "dir",
+          "type": "'ltr' | 'rtl'",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "fxLayout",
+          "type": "'row' | 'column'",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "displayedAreas",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "displayedAreas",
+          "type": "IArea[]",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "hidedAreas",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "hidedAreas",
+          "type": "IArea[]",
+          "description": null,
+          "descriptionZh": null
+        }
+      ]
+    },
+    {
+      "name": "Accordion",
+      "kind": "component",
+      "selector": "accordion",
+      "summary": "Directive for a Exterial Design Accordion.",
+      "summaryZh": null,
+      "sourceFile": "src/container/accordion/accordion.ts",
+      "inputs": [
+        {
+          "name": "multi",
+          "type": "boolean",
+          "description": "Whether the accordion should allow multiple expanded accordion items simulateously.",
+          "descriptionZh": null
+        },
+        {
+          "name": "hideToggle",
+          "type": "boolean",
+          "description": "Whether the expansion indicator should be hidden.",
+          "descriptionZh": null
+        },
+        {
+          "name": "displayMode",
+          "type": "AccordionDisplayMode",
+          "default": "'default'",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "config",
+          "type": "any",
+          "default": "{}",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "fxLayout",
+          "type": "'row' | 'column'",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "init",
+          "params": [
+            {
+              "name": "config",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "id",
+          "type": "any",
+          "default": "`cdk-accordion-${nextId++}`",
+          "description": "A readonly id value to use for unique selection coordination.",
+          "descriptionZh": null
+        },
+        {
+          "name": "multi",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "hideToggle",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "xtype",
+          "type": "string",
+          "default": "'accordion'",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "viewContainer",
+          "type": "ViewContainerRef",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "fxLayout",
+          "type": "'row' | 'column'",
+          "description": null,
+          "descriptionZh": null
+        }
+      ]
+    },
+    {
+      "name": "AccordionDisplayMode",
+      "kind": "type",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/container/accordion/accordion.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "CardModule",
+      "kind": "module",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/container/card/card.module.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "entryComponents",
+          "type": "any",
+          "default": "[DuiCardComponent]",
+          "description": null,
+          "descriptionZh": null
+        }
+      ]
+    },
+    {
+      "name": "CompactType",
+      "kind": "enum",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/container/gridster/gridsterConfig.interface.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "Container",
+      "kind": "class",
+      "summary": "用于承载其它任何组件，容器负责一些基础性的行为，也就是装载子项、添加、插入和移除子项。\n根据容纳子项的不同，所产生的可视效果，需委托任意布局类layout中的一种来指点特定的布局逻辑（layout logic）。\n此类被于继承而且一般情况下不应通过关键字new来直接实例化。\n xtype container",
+      "summaryZh": null,
+      "sourceFile": "src/container/container.main.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "init",
+          "params": [
+            {
+              "name": "config",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "initItems",
+          "params": [],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "getComponentId",
+          "params": [
+            {
+              "name": "comp",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "add",
+          "params": [
+            {
+              "name": "comp",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "onAdd",
+          "params": [
+            {
+              "name": "c",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "onAdded",
+          "params": [
+            {
+              "name": "container",
+              "type": "any"
+            },
+            {
+              "name": "pos",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "insert",
+          "params": [
+            {
+              "name": "index",
+              "type": "number"
+            },
+            {
+              "name": "comp",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": "把插件(Component)插入到容器指定的位置（按索引）。执行插入之前触发beforeadd事件，插入完毕触发add事件\n 组件插入到容器collection集合的索引\n 欲加入的组件",
+          "descriptionZh": null
+        },
+        {
+          "name": "applyDefaults",
+          "params": [
+            {
+              "name": "c",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "onBeforeAdd",
+          "params": [
+            {
+              "name": "item",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "remove",
+          "params": [
+            {
+              "name": "comp",
+              "type": "any"
+            },
+            {
+              "name": "autoDestroy",
+              "type": "boolean"
+            }
+          ],
+          "returnType": "ComponentBase",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "onRemove",
+          "params": [
+            {
+              "name": "c",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "doRemove",
+          "params": [
+            {
+              "name": "c",
+              "type": "any"
+            },
+            {
+              "name": "autoDestroy",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "removeAll",
+          "params": [
+            {
+              "name": "autoDestroy",
+              "type": "boolean"
+            }
+          ],
+          "returnType": "Array<any>",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "getComponent",
+          "params": [
+            {
+              "name": "comp",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "lookupComponent",
+          "params": [
+            {
+              "name": "comp",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "createComponent",
+          "params": [
+            {
+              "name": "config",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "getLayout",
+          "params": [],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "beforeDestroy",
+          "params": [],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "cascade",
+          "params": [
+            {
+              "name": "fn",
+              "type": "Function"
+            },
+            {
+              "name": "scope",
+              "type": "Object"
+            },
+            {
+              "name": "args",
+              "type": "Array<any>"
+            }
+          ],
+          "returnType": "Container",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "findById",
+          "params": [
+            {
+              "name": "id",
+              "type": "string"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "findByType",
+          "params": [
+            {
+              "name": "xtype",
+              "type": "string | Object"
+            },
+            {
+              "name": "shallow",
+              "type": "boolean"
+            }
+          ],
+          "returnType": "Array<any>",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "find",
+          "params": [
+            {
+              "name": "prop",
+              "type": "string"
+            },
+            {
+              "name": "value",
+              "type": "string"
+            }
+          ],
+          "returnType": "Array<any>",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "findBy",
+          "params": [
+            {
+              "name": "fn",
+              "type": "Function"
+            },
+            {
+              "name": "scope",
+              "type": "any"
+            }
+          ],
+          "returnType": "Array<any>",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "get",
+          "params": [
+            {
+              "name": "key",
+              "type": "string | number"
+            }
+          ],
+          "returnType": "ComponentBase",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "layout",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "items",
+          "type": "any",
+          "description": "一个单独项，或子组件组成的数组，加入到此容器中。每一项的对象类型是基于dui.\nComponent可传入一个组件的配置对象即是lazy-rendering的做法，\n这样做的好处是组件不会立即渲染，减低直接构建组件对象带来的开销。\n要发挥\"lazy instantiation延时初始化\"的特性，应对组件所属的登记类型的dui.Componentxtype属性进行配置。",
+          "descriptionZh": null
+        },
+        {
+          "name": "autoDestroy",
+          "type": "boolean",
+          "default": "true",
+          "description": "cfg {boolean} autoDestroy\n若为true容器会自动销毁容器下面全部的组件，否则的话必须手动执行销毁过程（默认为true）。",
+          "descriptionZh": null
+        },
+        {
+          "name": "defaults",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "viewContainer",
+          "type": "ViewContainerRef",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "form",
+          "type": "FormGroup",
+          "description": null,
+          "descriptionZh": null
+        }
+      ]
+    },
+    {
+      "name": "declarations",
+      "kind": "function",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/container/infodrawer/info-drawer.module.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "DirTypes",
+      "kind": "enum",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/container/gridster/gridsterConfig.interface.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "DisplayGrid",
+      "kind": "enum",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/container/gridster/gridsterConfig.interface.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "Draggable",
+      "kind": "interface",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/container/gridster/gridsterConfig.interface.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "DuiCardComponent",
+      "kind": "component",
+      "selector": "card",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/container/card/card.component.ts",
+      "inputs": [
+        {
+          "name": "config",
+          "type": "any",
+          "default": "{}",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "init",
+          "params": [
+            {
+              "name": "config",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "initEvents",
+          "params": [],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "getPagebar",
+          "params": [],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "setTitle",
+          "params": [
+            {
+              "name": "title",
+              "type": "string"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "setSubTitle",
+          "params": [
+            {
+              "name": "subtitle",
+              "type": "string"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "lookupButton",
+          "params": [
+            {
+              "name": "c",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "addButton",
+          "params": [
+            {
+              "name": "config",
+              "type": "any"
+            },
+            {
+              "name": "options",
+              "type": "any"
+            }
+          ],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "addLeftTopButton",
+          "params": [
+            {
+              "name": "config",
+              "type": "any"
+            },
+            {
+              "name": "options",
+              "type": "any"
+            }
+          ],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "addRightTopButton",
+          "params": [
+            {
+              "name": "config",
+              "type": "any"
+            },
+            {
+              "name": "options",
+              "type": "any"
+            }
+          ],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "addFabButton",
+          "params": [
+            {
+              "name": "config",
+              "type": "any"
+            },
+            {
+              "name": "options",
+              "type": "any"
+            }
+          ],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "getButtons",
+          "params": [],
+          "returnType": "Array<any>",
+          "description": "Returns the {@link Dui.ui.Toolbar toolbar} from the footer (<code>{@link  #fbar}</code>) section of the panel.\n The toolbar",
+          "descriptionZh": null
+        },
+        {
+          "name": "getLtButtons",
+          "params": [],
+          "returnType": "Array<any>",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "getRtButtons",
+          "params": [],
+          "returnType": "Array<any>",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "getFabButtons",
+          "params": [],
+          "returnType": "Array<any>",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "getAllButtons",
+          "params": [],
+          "returnType": "Array<ComponentBase>",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "getButtonMenus",
+          "params": [
+            {
+              "name": "buttons",
+              "type": "any"
+            }
+          ],
+          "returnType": "Array<ComponentBase>",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "pagebar",
+          "type": "MatPaginator",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "xtype",
+          "type": "string",
+          "default": "'card'",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "direction",
+          "type": "string",
+          "default": "'top'",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "open",
+          "type": "boolean",
+          "default": "false",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "alwaysVisible",
+          "type": "boolean",
+          "default": "false",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "title",
+          "type": "string",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "subtitle",
+          "type": "string",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "width",
+          "type": "number",
+          "default": "100",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "color",
+          "type": "string",
+          "default": "'primary'",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "closable",
+          "type": "boolean",
+          "default": "false",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "default": "false",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "buttons",
+          "type": "Array<any>",
+          "default": "[]",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "buttonAlign",
+          "type": "any",
+          "default": "'right'",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "fabLocation",
+          "type": "string",
+          "default": "'bottom'",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "ltbar",
+          "type": "Array<any>",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "rtbar",
+          "type": "any[]",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "bbar",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "fbar",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "autoHeight",
+          "type": "boolean",
+          "default": "false",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "bottomToolbar",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "fxLayout",
+          "type": "string",
+          "default": "'row'",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "style",
+          "type": "any",
+          "default": "{ overflow: 'auto', width: '100%', height: '100%' }",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "contenStyle",
+          "type": "any",
+          "default": "{\"padding\":\"8px\"}",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "cardStyle",
+          "type": "any",
+          "default": "{}",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "viewContainer",
+          "type": "ViewContainerRef",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "actionbar",
+          "type": "ViewContainerRef",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "lefttopbar",
+          "type": "ViewContainerRef",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "righttopbar",
+          "type": "ViewContainerRef",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "rightopfab",
+          "type": "ViewContainerRef",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "righbottomfab",
+          "type": "ViewContainerRef",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "searchBoxTerm",
+          "type": "string",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "searchFacet",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "state",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "state",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "pageBar",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        }
+      ]
+    },
+    {
+      "name": "DuiLayoutCloseDirective",
+      "kind": "directive",
+      "selector": "[duiLayoutClose]",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/container/panel/layout.directives.ts",
+      "inputs": [
+        {
+          "name": "duiLayoutClose",
+          "type": "boolean",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "onClick",
+          "params": [],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "DuiLayoutOpenDirective",
+      "kind": "directive",
+      "selector": "[duiLayoutOpen]",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/container/panel/layout.directives.ts",
+      "inputs": [
+        {
+          "name": "duiLayoutClose",
+          "alias": "duiLayoutOpen",
+          "type": "boolean",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "onClick",
+          "params": [],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "DuiLayoutToggleDirective",
+      "kind": "directive",
+      "selector": "[duiLayoutToggle]",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/container/panel/layout.directives.ts",
+      "inputs": [
+        {
+          "name": "duiLayoutToggle",
+          "type": "boolean",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "onClick",
+          "params": [],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "DuiTabsModule",
+      "kind": "module",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/container/tabpanel/tabs-module.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "entryComponents",
+          "type": "any",
+          "default": "[TabPanel]",
+          "description": null,
+          "descriptionZh": null
+        }
+      ]
+    },
+    {
+      "name": "EXPANSION_PANEL_ANIMATION_TIMING",
+      "kind": "constant",
+      "summary": "Time and timing curve for expansion panel animations.",
+      "summaryZh": null,
+      "sourceFile": "src/container/accordion/expansion-panel.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "ExpansionModule",
+      "kind": "module",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/container/accordion/expansion-module.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "entryComponents",
+          "type": "any",
+          "default": "[\n    Accordion,\n    ExpansionPanel,]",
+          "description": null,
+          "descriptionZh": null
+        }
+      ]
+    },
+    {
+      "name": "ExpansionPanel",
+      "kind": "component",
+      "selector": "expansion-panel",
+      "summary": "<expansion-panel> component.\n\nThis component can be used as a single element to show expandable content, or as one of\nmultiple children of an element with the MdAccordion directive attached.\n\nPlease refer to README.md for examples on how to use it.",
+      "summaryZh": null,
+      "sourceFile": "src/container/accordion/expansion-panel.ts",
+      "inputs": [
+        {
+          "name": "hideToggle",
+          "type": "boolean",
+          "description": "Whether the toggle indicator should be hidden.",
+          "descriptionZh": null
+        }
+      ],
+      "outputs": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "hideToggle",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        }
+      ]
+    },
+    {
+      "name": "ExpansionPanelActionRow",
+      "kind": "directive",
+      "selector": "dui-action-row",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/container/accordion/expansion-panel.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "ExpansionPanelBase",
+      "kind": "component",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/container/accordion/expansion-panel.ts",
+      "inputs": [
+        {
+          "name": "config",
+          "type": "any",
+          "default": "{}",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "description": "label?: string\nSets label of [ExpansionPanelComponent] header.\nDefaults to 'Click to expand'",
+          "descriptionZh": null
+        },
+        {
+          "name": "description",
+          "type": "string",
+          "description": "sublabel?: string\nSets sublabel of [ExpansionPanelComponent] header.",
+          "descriptionZh": null
+        },
+        {
+          "name": "expanded",
+          "type": "any",
+          "description": "Whether the AccordionItem is expanded.",
+          "descriptionZh": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "closed",
+          "type": "any",
+          "description": "Event emitted every time the AccordionItem is closed.",
+          "descriptionZh": null
+        },
+        {
+          "name": "opened",
+          "type": "any",
+          "description": "Event emitted every time the AccordionItem is opened.",
+          "descriptionZh": null
+        },
+        {
+          "name": "destroyed",
+          "type": "any",
+          "description": "Event emitted when the AccordionItem is destroyed.",
+          "descriptionZh": null
+        }
+      ],
+      "methods": [
+        {
+          "name": "init",
+          "params": [
+            {
+              "name": "config",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "toggle",
+          "params": [],
+          "returnType": "void",
+          "description": "Toggles the expanded state of the accordion item.",
+          "descriptionZh": null
+        },
+        {
+          "name": "close",
+          "params": [],
+          "returnType": "void",
+          "description": "Sets the expanded state of the accordion item to false.",
+          "descriptionZh": null
+        },
+        {
+          "name": "open",
+          "params": [],
+          "returnType": "void",
+          "description": "Sets the expanded state of the accordion item to true.",
+          "descriptionZh": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "xtype",
+          "type": "string",
+          "default": "'expansion-panel'",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "viewContainer",
+          "type": "ViewContainerRef",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "buttons",
+          "type": "Array<any>",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "flex",
+          "type": "number",
+          "default": "0",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "id",
+          "type": "any",
+          "default": "`cdk-accordion-child-${nextId++}`",
+          "description": "The unique AccordionItem id.",
+          "descriptionZh": null
+        },
+        {
+          "name": "expanded",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        }
+      ]
+    },
+    {
+      "name": "ExpansionPanelDescription",
+      "kind": "directive",
+      "selector": "panel-description",
+      "summary": "<panel-description> directive.\n\nThis direction is to be used inside of the ExpansionPanelHeader component.",
+      "summaryZh": null,
+      "sourceFile": "src/container/accordion/expansion-panel-header.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "ExpansionPanelHeader",
+      "kind": "component",
+      "selector": "expansion-panel-header",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/container/accordion/expansion-panel-header.ts",
+      "inputs": [
+        {
+          "name": "expandedHeight",
+          "type": "string",
+          "description": "Height of the header while the panel is expanded.",
+          "descriptionZh": null
+        },
+        {
+          "name": "collapsedHeight",
+          "type": "string",
+          "description": "Height of the header while the panel is collapsed.",
+          "descriptionZh": null
+        }
+      ],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "ExpansionPanelState",
+      "kind": "type",
+      "summary": "ExpansionPanel's states.",
+      "summaryZh": null,
+      "sourceFile": "src/container/accordion/expansion-panel.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "ExpansionPanelTitle",
+      "kind": "directive",
+      "selector": "panel-title",
+      "summary": "<panel-title> directive.\n\nThis direction is to be used inside of the ExpansionPanelHeader component.",
+      "summaryZh": null,
+      "sourceFile": "src/container/accordion/expansion-panel-header.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "GridsterComponent",
+      "kind": "component",
+      "selector": "gridster",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/container/gridster/gridster.component.ts",
+      "inputs": [
+        {
+          "name": "id",
+          "type": "string",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "options",
+          "type": "GridsterConfig",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "checkCollisionTwoItems",
+          "params": [
+            {
+              "name": "item",
+              "type": "GridsterItem"
+            },
+            {
+              "name": "item2",
+              "type": "GridsterItem"
+            }
+          ],
+          "returnType": "boolean",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "resize",
+          "params": [],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "setOptions",
+          "params": [],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "optionsChanged",
+          "params": [],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "onResize",
+          "params": [],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "checkIfToResize",
+          "params": [],
+          "returnType": "boolean",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "setGridSize",
+          "params": [],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "setGridDimensions",
+          "params": [],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "calculateLayout",
+          "params": [],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "updateGrid",
+          "params": [],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "addItem",
+          "params": [
+            {
+              "name": "itemComponent",
+              "type": "GridsterItemComponentInterface"
+            }
+          ],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "removeItem",
+          "params": [
+            {
+              "name": "itemComponent",
+              "type": "GridsterItemComponentInterface"
+            }
+          ],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "checkCollision",
+          "params": [
+            {
+              "name": "item",
+              "type": "GridsterItem"
+            }
+          ],
+          "returnType": "GridsterItemComponentInterface | boolean",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "checkGridCollision",
+          "params": [
+            {
+              "name": "item",
+              "type": "GridsterItem"
+            }
+          ],
+          "returnType": "boolean",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "findItemWithItem",
+          "params": [
+            {
+              "name": "item",
+              "type": "GridsterItem"
+            }
+          ],
+          "returnType": "GridsterItemComponentInterface | boolean",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "findItemsWithItem",
+          "params": [
+            {
+              "name": "item",
+              "type": "GridsterItem"
+            }
+          ],
+          "returnType": "Array<GridsterItemComponentInterface>",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "autoPositionItem",
+          "params": [
+            {
+              "name": "itemComponent",
+              "type": "GridsterItemComponentInterface"
+            }
+          ],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "getNextPossiblePosition",
+          "params": [
+            {
+              "name": "newItem",
+              "type": "GridsterItem"
+            },
+            {
+              "name": "startingFrom",
+              "type": "{ y?: number, x?: number }"
+            }
+          ],
+          "returnType": "boolean",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "getFirstPossiblePosition",
+          "params": [
+            {
+              "name": "item",
+              "type": "GridsterItem"
+            }
+          ],
+          "returnType": "GridsterItem",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "getLastPossiblePosition",
+          "params": [
+            {
+              "name": "item",
+              "type": "GridsterItem"
+            }
+          ],
+          "returnType": "GridsterItem",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "pixelsToPositionX",
+          "params": [
+            {
+              "name": "x",
+              "type": "number"
+            },
+            {
+              "name": "roundingMethod",
+              "type": "(x: number) => number"
+            },
+            {
+              "name": "noLimit",
+              "type": "boolean"
+            }
+          ],
+          "returnType": "number",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "pixelsToPositionY",
+          "params": [
+            {
+              "name": "y",
+              "type": "number"
+            },
+            {
+              "name": "roundingMethod",
+              "type": "(x: number) => number"
+            },
+            {
+              "name": "noLimit",
+              "type": "boolean"
+            }
+          ],
+          "returnType": "number",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "positionXToPixels",
+          "params": [
+            {
+              "name": "x",
+              "type": "number"
+            }
+          ],
+          "returnType": "number",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "positionYToPixels",
+          "params": [
+            {
+              "name": "y",
+              "type": "number"
+            }
+          ],
+          "returnType": "number",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "checkCollisionTwoItemsForSwaping",
+          "params": [
+            {
+              "name": "item",
+              "type": "GridsterItem"
+            },
+            {
+              "name": "item2",
+              "type": "GridsterItem"
+            }
+          ],
+          "returnType": "boolean",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "checkCollisionForSwaping",
+          "params": [
+            {
+              "name": "item",
+              "type": "GridsterItem"
+            }
+          ],
+          "returnType": "GridsterItemComponentInterface | boolean",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "findItemWithItemForSwaping",
+          "params": [
+            {
+              "name": "item",
+              "type": "GridsterItem"
+            }
+          ],
+          "returnType": "GridsterItemComponentInterface | boolean",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "calculateLayoutDebounce",
+          "type": "() => void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "movingItem",
+          "type": "GridsterItem | null",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "previewStyle",
+          "type": "() => void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "el",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "$options",
+          "type": "GridsterConfigS",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "mobile",
+          "type": "boolean",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "curWidth",
+          "type": "number",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "curHeight",
+          "type": "number",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "grid",
+          "type": "Array<GridsterItemComponentInterface>",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "columns",
+          "type": "any",
+          "default": "0",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "rows",
+          "type": "any",
+          "default": "0",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "curColWidth",
+          "type": "number",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "curRowHeight",
+          "type": "number",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "gridColumns",
+          "type": "any",
+          "default": "[]",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "gridRows",
+          "type": "any",
+          "default": "[]",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "windowResize",
+          "type": "(() => void) | null",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "dragInProgress",
+          "type": "boolean",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "emptyCell",
+          "type": "GridsterEmptyCell",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "compact",
+          "type": "GridsterCompact",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "gridRenderer",
+          "type": "GridsterRenderer",
+          "description": null,
+          "descriptionZh": null
+        }
+      ]
+    },
+    {
+      "name": "GridsterComponentInterface",
+      "kind": "class",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/container/gridster/gridster.interface.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "$options",
+          "type": "GridsterConfigS",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "grid",
+          "type": "Array<GridsterItemComponentInterface>",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "checkCollision",
+          "type": "(item: GridsterItem) => GridsterItemComponentInterface | boolean",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "checkCollisionForSwaping",
+          "type": "(item: GridsterItem) => GridsterItemComponentInterface | boolean",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "positionXToPixels",
+          "type": "(x: number) => number",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "pixelsToPositionX",
+          "type": "(x: number, roundingMethod: (x: number) => number, noLimit?: boolean) => number",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "positionYToPixels",
+          "type": "(y: number) => number",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "pixelsToPositionY",
+          "type": "(y: number, roundingMethod: (x: number) => number, noLimit?: boolean) => number",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "findItemWithItem",
+          "type": "(item: GridsterItem) => GridsterItemComponentInterface | boolean",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "findItemsWithItem",
+          "type": "(item: GridsterItem) => Array<GridsterItemComponentInterface>",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "checkGridCollision",
+          "type": "(item: GridsterItem) => boolean",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "checkCollisionTwoItems",
+          "type": "(item: GridsterItem, item2: GridsterItem) => boolean",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "el",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "renderer",
+          "type": "Renderer2",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "gridRenderer",
+          "type": "GridsterRenderer",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "cdRef",
+          "type": "ChangeDetectorRef",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "options",
+          "type": "GridsterConfig",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "calculateLayoutDebounce",
+          "type": "() => void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "updateGrid",
+          "type": "() => void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "movingItem",
+          "type": "GridsterItem | null",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "addItem",
+          "type": "(item: GridsterItemComponentInterface) => void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "removeItem",
+          "type": "(item: GridsterItemComponentInterface) => void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "previewStyle",
+          "type": "(drag?: boolean) => void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "mobile",
+          "type": "boolean",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "curWidth",
+          "type": "number",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "curHeight",
+          "type": "number",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "columns",
+          "type": "number",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "rows",
+          "type": "number",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "curColWidth",
+          "type": "number",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "curRowHeight",
+          "type": "number",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "windowResize",
+          "type": "(() => void) | null",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "setGridDimensions",
+          "type": "(() => void)",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "dragInProgress",
+          "type": "boolean",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "emptyCell",
+          "type": "GridsterEmptyCell",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "compact",
+          "type": "GridsterCompact",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "zone",
+          "type": "NgZone",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "gridRows",
+          "type": "Array<number>",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "gridColumns",
+          "type": "Array<number>",
+          "description": null,
+          "descriptionZh": null
+        }
+      ]
+    },
+    {
+      "name": "GridsterConfig",
+      "kind": "interface",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/container/gridster/gridsterConfig.interface.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "GridsterConfigService",
+      "kind": "constant",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/container/gridster/gridsterConfig.constant.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "GridsterItem",
+      "kind": "interface",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/container/gridster/gridsterItem.interface.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "GridsterItemComponent",
+      "kind": "component",
+      "selector": "gridster-item",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/container/gridster/gridsterItem.component.ts",
+      "inputs": [
+        {
+          "name": "item",
+          "type": "GridsterItem",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "updateOptions",
+          "params": [],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "setSize",
+          "params": [],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "updateItemSize",
+          "params": [],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "itemChanged",
+          "params": [],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "checkItemChanges",
+          "params": [
+            {
+              "name": "newValue",
+              "type": "GridsterItem"
+            },
+            {
+              "name": "oldValue",
+              "type": "GridsterItem"
+            }
+          ],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "canBeDragged",
+          "params": [],
+          "returnType": "boolean",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "canBeResized",
+          "params": [],
+          "returnType": "boolean",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "bringToFront",
+          "params": [
+            {
+              "name": "offset",
+              "type": "number"
+            }
+          ],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "sendToBack",
+          "params": [
+            {
+              "name": "offset",
+              "type": "number"
+            }
+          ],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "$item",
+          "type": "GridsterItem",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "el",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "gridster",
+          "type": "GridsterComponent",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "top",
+          "type": "number",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "left",
+          "type": "number",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "width",
+          "type": "number",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "height",
+          "type": "number",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "drag",
+          "type": "GridsterDraggable",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "resize",
+          "type": "GridsterResizable",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "notPlaced",
+          "type": "boolean",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "init",
+          "type": "boolean",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "zIndex",
+          "type": "number",
+          "description": null,
+          "descriptionZh": null
+        }
+      ]
+    },
+    {
+      "name": "GridsterItemComponentInterface",
+      "kind": "class",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/container/gridster/gridsterItemComponent.interface.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "item",
+          "type": "GridsterItem",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "$item",
+          "type": "GridsterItem",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "top",
+          "type": "number",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "left",
+          "type": "number",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "width",
+          "type": "number",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "height",
+          "type": "number",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "drag",
+          "type": "GridsterDraggable",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "resize",
+          "type": "GridsterResizable",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "notPlaced",
+          "type": "boolean",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "updateOptions",
+          "type": "() => void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "itemChanged",
+          "type": "() => void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "setSize",
+          "type": "() => void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "checkItemChanges",
+          "type": "(newValue: GridsterItem, oldValue: GridsterItem) => void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "canBeDragged",
+          "type": "() => boolean",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "canBeResized",
+          "type": "() => boolean",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "bringToFront",
+          "type": "(offset: number) => void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "sendToBack",
+          "type": "(v: number) => void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "el",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "gridster",
+          "type": "GridsterComponentInterface",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "renderer",
+          "type": "Renderer2",
+          "description": null,
+          "descriptionZh": null
+        }
+      ]
+    },
+    {
+      "name": "GridsterModule",
+      "kind": "module",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/container/gridster/gridster.module.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "entryComponents",
+          "type": "any",
+          "default": "[GridsterComponent, GridsterItemComponent]",
+          "description": null,
+          "descriptionZh": null
+        }
+      ]
+    },
+    {
+      "name": "GridsterPush",
+      "kind": "service",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/container/gridster/gridsterPush.service.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "destroy",
+          "params": [],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "pushItems",
+          "params": [
+            {
+              "name": "direction",
+              "type": "string"
+            },
+            {
+              "name": "disable",
+              "type": "boolean"
+            }
+          ],
+          "returnType": "boolean",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "restoreTempItems",
+          "params": [],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "restoreItems",
+          "params": [],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "setPushedItems",
+          "params": [],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "checkPushBack",
+          "params": [],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "fromSouth",
+          "type": "string",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "fromNorth",
+          "type": "string",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "fromEast",
+          "type": "string",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "fromWest",
+          "type": "string",
+          "description": null,
+          "descriptionZh": null
+        }
+      ]
+    },
+    {
+      "name": "GridsterPushResize",
+      "kind": "service",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/container/gridster/gridsterPushResize.service.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "destroy",
+          "params": [],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "pushItems",
+          "params": [
+            {
+              "name": "direction",
+              "type": "string"
+            }
+          ],
+          "returnType": "boolean",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "restoreItems",
+          "params": [],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "setPushedItems",
+          "params": [],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "checkPushBack",
+          "params": [],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "fromSouth",
+          "type": "string",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "fromNorth",
+          "type": "string",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "fromEast",
+          "type": "string",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "fromWest",
+          "type": "string",
+          "description": null,
+          "descriptionZh": null
+        }
+      ]
+    },
+    {
+      "name": "GridsterSwap",
+      "kind": "service",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/container/gridster/gridsterSwap.service.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "destroy",
+          "params": [],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "swapItems",
+          "params": [],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "checkSwapBack",
+          "params": [],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "restoreSwapItem",
+          "params": [],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "setSwapItem",
+          "params": [],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "checkSwap",
+          "params": [
+            {
+              "name": "pushedBy",
+              "type": "GridsterItemComponentInterface"
+            }
+          ],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "GridType",
+      "kind": "enum",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/container/gridster/gridsterConfig.interface.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "IArea",
+      "kind": "interface",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/container/panel/interface/IArea.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "ILayoutTogglable",
+      "kind": "interface",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/container/panel/layout-toggle.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "InfoDrawerButtonsDirective",
+      "kind": "directive",
+      "selector": "[dui-info-drawer-buttons], [info-drawer-buttons]",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/container/infodrawer/info-drawer-layout.component.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "InfoDrawerComponent",
+      "kind": "component",
+      "selector": "dui-info-drawer",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/container/infodrawer/info-drawer.component.ts",
+      "inputs": [
+        {
+          "name": "title",
+          "type": "string | null",
+          "default": "null",
+          "description": "The title of the info drawer (string or translation key).",
+          "descriptionZh": null
+        },
+        {
+          "name": "selectedIndex",
+          "type": "number",
+          "default": "0",
+          "description": "The selected index tab.",
+          "descriptionZh": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "currentTab",
+          "type": "number",
+          "description": "Emitted when the currently active tab changes.",
+          "descriptionZh": null
+        },
+        {
+          "name": "onClose",
+          "type": "void",
+          "description": "Emitted when the currently active tab changes.",
+          "descriptionZh": null
+        }
+      ],
+      "methods": [
+        {
+          "name": "showTabLayout",
+          "params": [],
+          "returnType": "boolean",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "onTabChange",
+          "params": [
+            {
+              "name": "event",
+              "type": "MatTabChangeEvent"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "close",
+          "params": [],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "contentBlocks",
+          "type": "QueryList<InfoDrawerTabComponent>",
+          "description": null,
+          "descriptionZh": null
+        }
+      ]
+    },
+    {
+      "name": "InfoDrawerContentDirective",
+      "kind": "directive",
+      "selector": "[dui-info-drawer-content], [info-drawer-content]",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/container/infodrawer/info-drawer-layout.component.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "InfoDrawerLayoutComponent",
+      "kind": "component",
+      "selector": "dui-info-drawer-layout",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/container/infodrawer/info-drawer-layout.component.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "InfoDrawerModule",
+      "kind": "module",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/container/infodrawer/info-drawer.module.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "InfoDrawerTabComponent",
+      "kind": "component",
+      "selector": "dui-info-drawer-tab",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/container/infodrawer/info-drawer.component.ts",
+      "inputs": [
+        {
+          "name": "label",
+          "type": "string",
+          "default": "''",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "icon",
+          "type": "string",
+          "default": "null",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "outputs": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "content",
+          "type": "TemplateRef<any>",
+          "description": null,
+          "descriptionZh": null
+        }
+      ]
+    },
+    {
+      "name": "InfoDrawerTitleDirective",
+      "kind": "directive",
+      "selector": "[dui-info-drawer-title], [info-drawer-title]",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/container/infodrawer/info-drawer-layout.component.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "IPoint",
+      "kind": "interface",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/container/panel/interface/IPoint.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "LayoutToggle",
+      "kind": "directive",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/container/panel/layout-toggle.ts",
+      "inputs": [
+        {
+          "name": "hideWhenOpened",
+          "type": "boolean",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "clickListener",
+          "params": [
+            {
+              "name": "event",
+              "type": "Event"
+            }
+          ],
+          "returnType": "void",
+          "description": "Listens to host click event to trigger the layout toggle",
+          "descriptionZh": null
+        },
+        {
+          "name": "onClick",
+          "params": [],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "LayoutToggleBase",
+      "kind": "class",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/container/panel/layout-toggle.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "PanelComponent",
+      "kind": "component",
+      "selector": "panel",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/container/panel/panel.component.ts",
+      "inputs": [
+        {
+          "name": "config",
+          "type": "any",
+          "default": "{}",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "layout",
+          "type": "any",
+          "default": "'fit'",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "children",
+          "type": "Array<PanelComponent>",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "gutterColor",
+          "type": "string",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "fxLayout",
+          "type": "'row' | 'column'",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "useTransition",
+          "type": "boolean",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "dragStart",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "dragProgress",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "dragEnd",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "gutterClick",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "transitionEnd",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "methods": [
+        {
+          "name": "init",
+          "params": [
+            {
+              "name": "config",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "addArea",
+          "params": [
+            {
+              "name": "comp",
+              "type": "PanelComponent"
+            }
+          ],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "removeArea",
+          "params": [
+            {
+              "name": "comp",
+              "type": "PanelComponent"
+            }
+          ],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "updateArea",
+          "params": [
+            {
+              "name": "comp",
+              "type": "PanelComponent"
+            },
+            {
+              "name": "resetOrders",
+              "type": "boolean"
+            },
+            {
+              "name": "resetSizes",
+              "type": "boolean"
+            }
+          ],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "showArea",
+          "params": [
+            {
+              "name": "comp",
+              "type": "PanelComponent"
+            }
+          ],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "hideArea",
+          "params": [
+            {
+              "name": "comp",
+              "type": "PanelComponent"
+            }
+          ],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "doLayout",
+          "params": [
+            {
+              "name": "resetOrders",
+              "type": "boolean"
+            },
+            {
+              "name": "resetSizes",
+              "type": "boolean"
+            }
+          ],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "startDragging",
+          "params": [
+            {
+              "name": "startEvent",
+              "type": "MouseEvent | TouchEvent"
+            },
+            {
+              "name": "gutterOrder",
+              "type": "number"
+            },
+            {
+              "name": "gutterNum",
+              "type": "number"
+            }
+          ],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "notify",
+          "params": [
+            {
+              "name": "type",
+              "type": "'start' | 'progress' | 'end' | 'click' | 'transitionEnd'"
+            }
+          ],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "xtype",
+          "type": "string",
+          "default": "'panel'",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "gutterColor",
+          "type": "string",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "fxLayout",
+          "type": "'row' | 'column'",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "useTransition",
+          "type": "boolean",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "isViewInitialized",
+          "type": "boolean",
+          "default": "false",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "hasNorthSouth",
+          "type": "boolean",
+          "default": "false",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "hasWestEast",
+          "type": "boolean",
+          "default": "false",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "hasOutlet",
+          "type": "boolean",
+          "default": "false",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "displayedAreas",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "displayedAreas",
+          "type": "IArea[]",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "hidedAreas",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "hidedAreas",
+          "type": "IArea[]",
+          "description": null,
+          "descriptionZh": null
+        }
+      ]
+    },
+    {
+      "name": "PanelModule",
+      "kind": "module",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/container/panel/panel.module.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "dynamicComponents",
+          "type": "any",
+          "default": "[SplitComponent,PanelComponent]",
+          "description": null,
+          "descriptionZh": null
+        }
+      ]
+    },
+    {
+      "name": "PushDirections",
+      "kind": "interface",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/container/gridster/gridsterConfig.interface.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "Resizable",
+      "kind": "interface",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/container/gridster/gridsterConfig.interface.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "ResizableComponent",
+      "kind": "component",
+      "selector": "[Resizable]",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/container/resizable/resizable.component.ts",
+      "inputs": [
+        {
+          "name": "resizableConf",
+          "type": "IResizable",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "resizeStart",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "resizing",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "resizeEnd",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "methods": [
+        {
+          "name": "onMouseMove",
+          "params": [
+            {
+              "name": "e",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "onMouseDown",
+          "params": [
+            {
+              "name": "e",
+              "type": "any"
+            },
+            {
+              "name": "dir",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "onMouseUp",
+          "params": [],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "restore",
+          "params": [],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "setSize",
+          "params": [
+            {
+              "name": "size",
+              "type": "ISize"
+            },
+            {
+              "name": "pos",
+              "type": "IPoint"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "width",
+          "type": "number",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "height",
+          "type": "number",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "x",
+          "type": "number",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "y",
+          "type": "number",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "maxWidth",
+          "type": "any",
+          "default": "Infinity",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "minWidth",
+          "type": "any",
+          "default": "0",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "maxHeight",
+          "type": "any",
+          "default": "Infinity",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "minHeight",
+          "type": "any",
+          "default": "0",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "resizable",
+          "type": "boolean",
+          "default": "false",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "directions",
+          "type": "string[]",
+          "default": "['bottom', 'right']",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "grid",
+          "type": "ISize",
+          "default": "{ width: 1, height: 1 }",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "bound",
+          "type": "IRectangle",
+          "default": "null",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "ratio",
+          "type": "number",
+          "default": "null",
+          "description": null,
+          "descriptionZh": null
+        }
+      ]
+    },
+    {
+      "name": "ResizableModule",
+      "kind": "module",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/container/resizable/resize.module.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "SplitComponent",
+      "kind": "component",
+      "selector": "split-gutter",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/container/panel/split.component.ts",
+      "inputs": [
+        {
+          "name": "order",
+          "type": "number",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "direction",
+          "type": "'row' | 'column'",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "useTransition",
+          "type": "boolean",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "size",
+          "type": "number",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "color",
+          "type": "string",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "outputs": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "direction",
+          "type": "'row' | 'column'",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "size",
+          "type": "number",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "color",
+          "type": "string",
+          "description": null,
+          "descriptionZh": null
+        }
+      ]
+    },
+    {
+      "name": "TabPanel",
+      "kind": "component",
+      "selector": "tabpanel",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/container/tabpanel/tabpanel.component.ts",
+      "inputs": [
+        {
+          "name": "config",
+          "type": "any",
+          "default": "{}",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "init",
+          "params": [
+            {
+              "name": "config",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "add",
+          "params": [
+            {
+              "name": "comp",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "onAdd",
+          "params": [
+            {
+              "name": "c",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "onBeforeAdd",
+          "params": [
+            {
+              "name": "item",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "onRemove",
+          "params": [
+            {
+              "name": "c",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "tabChange",
+          "params": [
+            {
+              "name": "event",
+              "type": "MatTabChangeEvent"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "focusChange",
+          "params": [
+            {
+              "name": "event",
+              "type": "MatTabChangeEvent"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "setActiveTab",
+          "params": [
+            {
+              "name": "val",
+              "type": "number"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "getActiveTab",
+          "params": [],
+          "returnType": "number",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "getItem",
+          "params": [
+            {
+              "name": "item",
+              "type": "any"
+            }
+          ],
+          "returnType": "PanelComponent",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "findTabIndexByObjectId",
+          "params": [
+            {
+              "name": "targetObjectId",
+              "type": "any"
+            }
+          ],
+          "returnType": "number",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "switchTabByObjectId",
+          "params": [
+            {
+              "name": "params",
+              "type": "any"
+            },
+            {
+              "name": "parentTab",
+              "type": "any"
+            }
+          ],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "findTabIndex",
+          "params": [
+            {
+              "name": "idOrObjectId",
+              "type": "any"
+            }
+          ],
+          "returnType": "number",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "setTabVisibility",
+          "params": [
+            {
+              "name": "idOrObjectId",
+              "type": "any"
+            },
+            {
+              "name": "visible",
+              "type": "boolean"
+            }
+          ],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "hideTab",
+          "params": [
+            {
+              "name": "idOrObjectId",
+              "type": "any"
+            }
+          ],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "showTab",
+          "params": [
+            {
+              "name": "idOrObjectId",
+              "type": "any"
+            }
+          ],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "hideTabAll",
+          "params": [],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "showTabAll",
+          "params": [],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "xtype",
+          "type": "string",
+          "default": "'tabpanel'",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "resizeTabs",
+          "type": "boolean",
+          "default": "false",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "tabPosition",
+          "type": "MatTabHeaderPosition",
+          "default": "'above'",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "activeTab",
+          "type": "number",
+          "default": "0",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "oldTab",
+          "type": "number",
+          "default": "0",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "tabs",
+          "type": "any[]",
+          "default": "[]",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "noload",
+          "type": "boolean",
+          "default": "false",
+          "description": null,
+          "descriptionZh": null
+        }
+      ]
+    }
+  ],
+  "suggestedUsageSnippet": "import { Accordion, CardModule } from '@dotos/dui/container';\n\n<accordion [multi]=\"...\" [hideToggle]=\"...\" [displayMode]=\"...\"></accordion>"
+}

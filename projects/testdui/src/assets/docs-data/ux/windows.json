@@ -1,0 +1,3210 @@
+{
+  "importPath": "@dotos/dui/ux/windows",
+  "exports": [
+    {
+      "name": "AppendToBodyConfig",
+      "kind": "class",
+      "summary": "Settings for {@link AppendToBodyDirective}",
+      "summaryZh": null,
+      "sourceFile": "src/ux/windows/utils/classes/append-to-body-config.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "isEnabled",
+          "type": "boolean",
+          "default": "true",
+          "description": "Is should be append to body element or not",
+          "descriptionZh": null
+        }
+      ]
+    },
+    {
+      "name": "AppendToBodyDirective",
+      "kind": "directive",
+      "selector": "[osAppendToBody]",
+      "summary": "Moves element into the `body` element *",
+      "summaryZh": null,
+      "sourceFile": "src/ux/windows/utils/directives/append-to-body.directive.ts",
+      "inputs": [
+        {
+          "name": "parameters",
+          "alias": "osAppendToBody",
+          "type": "AppendToBodyConfig | undefined | ''",
+          "description": "Configuration of directive",
+          "descriptionZh": null
+        }
+      ],
+      "outputs": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "config",
+          "type": "AppendToBodyConfig",
+          "description": "Configuration of directive",
+          "descriptionZh": null
+        }
+      ]
+    },
+    {
+      "name": "Coordinate",
+      "kind": "interface",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/ux/windows/core/interfaces/coordinate.interface.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "CssCoordinate",
+      "kind": "interface",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/ux/windows/core/interfaces/css-coordinate.interface.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "DragAndDropModule",
+      "kind": "module",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/ux/windows/drag-and-drop/drag-and-drop.module.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "DraggableDirective",
+      "kind": "directive",
+      "selector": "[osDraggable]",
+      "summary": "Makes HTML element draggable by mouse",
+      "summaryZh": null,
+      "sourceFile": "src/ux/windows/drag-and-drop/directives/draggable.directive.ts",
+      "inputs": [
+        {
+          "name": "parameters",
+          "alias": "osDraggable",
+          "type": "DraggerConfig | undefined | ''",
+          "description": "Configuration of dragging",
+          "descriptionZh": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "osDraggableElementInit",
+          "type": "HTMLElement",
+          "description": "Fires when the draggable element init",
+          "descriptionZh": null
+        },
+        {
+          "name": "osMovableElementInit",
+          "type": "HTMLElement",
+          "description": "Fires when the movable element init",
+          "descriptionZh": null
+        },
+        {
+          "name": "osDragStart",
+          "type": "DragInfo",
+          "description": "Fires when calls mousedown handler over draggableElement",
+          "descriptionZh": null
+        },
+        {
+          "name": "osDragging",
+          "type": "DragInfo",
+          "description": "Fires when the `mousemove` is called",
+          "descriptionZh": null
+        },
+        {
+          "name": "osDragEnd",
+          "type": "DragInfo",
+          "description": "Fires when the `mouseup` is called and after all internal handlers removed",
+          "descriptionZh": null
+        }
+      ],
+      "methods": [
+        {
+          "name": "updateConfigWithoutChanges",
+          "params": [
+            {
+              "name": "config",
+              "type": "DraggerConfig"
+            }
+          ],
+          "returnType": "void",
+          "description": "Updates config without affecting any logic, like some internal initialization of different things",
+          "descriptionZh": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "draggableElement",
+          "type": "HTMLElement",
+          "description": "Target draggable HTML element",
+          "descriptionZh": null
+        },
+        {
+          "name": "movableElement",
+          "type": "HTMLElement",
+          "description": "Target movable HTML element",
+          "descriptionZh": null
+        },
+        {
+          "name": "strategy",
+          "type": "ɵBaseDragStrategyImpl",
+          "description": "Target dragging strategy",
+          "descriptionZh": null
+        },
+        {
+          "name": "config",
+          "type": "DraggerConfig",
+          "description": "Configuration of dragging",
+          "descriptionZh": null
+        },
+        {
+          "name": "whenViewInit$",
+          "type": "Observable<unknown>",
+          "description": null,
+          "descriptionZh": null
+        }
+      ]
+    },
+    {
+      "name": "DraggerConfig",
+      "kind": "interface",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/ux/windows/drag-and-drop/interfaces/dragger-config.interface.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "DragInfo",
+      "kind": "interface",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/ux/windows/drag-and-drop/interfaces/drag-info.interface.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "DragStrategyByAxisProperties",
+      "kind": "class",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/ux/windows/drag-and-drop/classes/drag-strategy/by-axis-properties-drag.strategy.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "type",
+          "type": "any",
+          "default": "ɵDragStrategyEnum.ByAxisProperties",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "xAxisLeftStyleProperty",
+          "type": "string",
+          "default": "'left'",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "yAxisTopStyleProperty",
+          "type": "string",
+          "default": "'top'",
+          "description": null,
+          "descriptionZh": null
+        }
+      ]
+    },
+    {
+      "name": "DragStrategyByTranslate3d",
+      "kind": "class",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/ux/windows/drag-and-drop/classes/drag-strategy/by-translate3d-drag.strategy.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "type",
+          "type": "any",
+          "default": "ɵDragStrategyEnum.ByTranslate3d",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "isLockAxisX",
+          "type": "boolean",
+          "default": "false",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "isLockAxisY",
+          "type": "boolean",
+          "default": "false",
+          "description": null,
+          "descriptionZh": null
+        }
+      ]
+    },
+    {
+      "name": "DragStrategyType",
+      "kind": "type",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/ux/windows/drag-and-drop/types/drag-strategy.type.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "DYNAMIC_WINDOW_REF",
+      "kind": "constant",
+      "summary": "An injection token that can be used to get window reference inside your component",
+      "summaryZh": null,
+      "sourceFile": "src/ux/windows/window/data/dynamic-window-ref.token.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "DYNAMIC_WINDOW_SHARED_CONFIG",
+      "kind": "constant",
+      "summary": "An injection token that can be used to get shared config of dynamic windows",
+      "summaryZh": null,
+      "sourceFile": "src/ux/windows/window/data/shared-dynamic-window-config.token.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "DynamicWindowConfig",
+      "kind": "interface",
+      "summary": "The parameters to set up a dynamic window and pass some custom data for the component which will be rendered inside",
+      "summaryZh": null,
+      "sourceFile": "src/ux/windows/window/interfaces/config.interface.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "DynamicWindowFullscreenOffset",
+      "kind": "interface",
+      "summary": "The offset of the dynamic window from sides of the screen in CSS format",
+      "summaryZh": null,
+      "sourceFile": "src/ux/windows/window/interfaces/fullscreen-offset.interface.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "DynamicWindowRef",
+      "kind": "interface",
+      "summary": "Public API of DynamicWindowRef.\n\nA mediator for manipulating and tracking the states of a dynamic window.\nIt can be used to manipulate the window itself (minimizing, closing, etc.),\nand to change the config, modify the initial window settings, or change the window data.",
+      "summaryZh": null,
+      "sourceFile": "src/ux/windows/window/interfaces/window-ref.interface.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "DynamicWindowService",
+      "kind": "service",
+      "summary": "Allows open your component inside an dui-styled window *",
+      "summaryZh": null,
+      "sourceFile": "src/ux/windows/window/services/dynamic-window.service.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "open",
+          "params": [
+            {
+              "name": "component",
+              "type": "Type<any>"
+            },
+            {
+              "name": "config",
+              "type": "DynamicWindowConfig"
+            }
+          ],
+          "returnType": "DynamicWindowRef",
+          "description": "Opens a window containing the given component",
+          "descriptionZh": null
+        },
+        {
+          "name": "openWindow",
+          "params": [
+            {
+              "name": "config",
+              "type": "DynamicWindowConfig"
+            }
+          ],
+          "returnType": "DynamicWindowRef",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "hideAll",
+          "params": [],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "showAll",
+          "params": [],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "closeAll",
+          "params": [],
+          "returnType": "void",
+          "description": "Closes all windows",
+          "descriptionZh": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "windowSet",
+          "type": "Map<string,ɵDynamicWindowRefModel>",
+          "default": "new  Map<string,ɵDynamicWindowRefModel>()",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "references$",
+          "type": "Observable<DynamicWindowRef[]>",
+          "description": "Contains references to windows opened via the service",
+          "descriptionZh": null
+        },
+        {
+          "name": "references",
+          "type": "DynamicWindowRef[]",
+          "description": "Contains references to windows opened via the service",
+          "descriptionZh": null
+        }
+      ]
+    },
+    {
+      "name": "DynamicWindowSharedConfigService",
+      "kind": "service",
+      "summary": "Allows manipulation with shared config for all windows",
+      "summaryZh": null,
+      "sourceFile": "src/ux/windows/window/services/shared-config.service.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "update",
+          "params": [
+            {
+              "name": "config",
+              "type": "DynamicWindowConfig"
+            }
+          ],
+          "returnType": "void",
+          "description": "Overrides some part of config on the new one",
+          "descriptionZh": null
+        },
+        {
+          "name": "clear",
+          "params": [],
+          "returnType": "void",
+          "description": "Cleans the shared config completely",
+          "descriptionZh": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "data$",
+          "type": "Observable<DynamicWindowConfig>",
+          "description": "Contains shared config",
+          "descriptionZh": null
+        },
+        {
+          "name": "data",
+          "type": "DynamicWindowConfig",
+          "description": "Contains shared config",
+          "descriptionZh": null
+        }
+      ]
+    },
+    {
+      "name": "FixedToParentConfig",
+      "kind": "class",
+      "summary": "Settings for {@link FixedToParentDirective}",
+      "summaryZh": null,
+      "sourceFile": "src/ux/windows/utils/classes/fixed-to-parent-config.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "isEnabled",
+          "type": "boolean",
+          "default": "true",
+          "description": "Is should be fixed to parent or not",
+          "descriptionZh": null
+        },
+        {
+          "name": "recalculationIntervalInMs",
+          "type": "number",
+          "default": "5",
+          "description": "Recalculation interval of the element position in milliseconds",
+          "descriptionZh": null
+        },
+        {
+          "name": "calculationIterationsCount",
+          "type": "number",
+          "default": "40",
+          "description": "Amount of calculations after scroll.\n\nSome browsers have animated scroll and need to run several iterations\nwith some delay between them to calculate actual element position.\n\nUnfortunately, there is no better way to observe the end of the scroll animation.",
+          "descriptionZh": null
+        }
+      ]
+    },
+    {
+      "name": "FixedToParentDirective",
+      "kind": "directive",
+      "selector": "[osFixedToParent]",
+      "summary": "Adapts the position of the element to the position of the parent element.\n\nUseful when used with the {@link AppendToBodyDirective}.\n\nThe child element will be appended to the body and \"save\" position near the parent element\nas if it continues to be inside the parent element.",
+      "summaryZh": null,
+      "sourceFile": "src/ux/windows/utils/directives/fixed-to-parent.directive.ts",
+      "inputs": [
+        {
+          "name": "parameters",
+          "alias": "osFixedToParent",
+          "type": "FixedToParentConfig | undefined | ''",
+          "description": "Configuration of directive",
+          "descriptionZh": null
+        }
+      ],
+      "outputs": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "config",
+          "type": "FixedToParentConfig",
+          "description": "Configuration of directive",
+          "descriptionZh": null
+        }
+      ]
+    },
+    {
+      "name": "fromArray",
+      "kind": "function",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/ux/windows/core/classes/css-classlist-manager/classlist-to-object.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "fromString",
+      "kind": "function",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/ux/windows/core/classes/css-classlist-manager/classlist-to-object.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "IS_DYNAMIC_WINDOW_CONTEXT",
+      "kind": "constant",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/ux/windows/window/data/is-dynamic-window-context.token.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "MouseButtonEnum",
+      "kind": "enum",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/ux/windows/core/enums/mouse-button.enum.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "ɵBaseDragStrategyImpl",
+      "kind": "class",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/ux/windows/drag-and-drop/classes/drag-strategy/base-drag-impl.strategy.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "registerMouseDown",
+          "params": [
+            {
+              "name": "{ originalEvent: mouseEvent, movableElement }",
+              "type": "DragInfo"
+            }
+          ],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "updateElementPosition",
+          "params": [
+            {
+              "name": "event",
+              "type": "PointerEvent | TouchEvent"
+            }
+          ],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "type",
+          "type": "ɵDragStrategyEnum",
+          "description": null,
+          "descriptionZh": null
+        }
+      ]
+    },
+    {
+      "name": "ɵBaseResizer",
+      "kind": "class",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/ux/windows/resizer/classes/base-resizer.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "init",
+          "params": [
+            {
+              "name": "resizableElement",
+              "type": "HTMLElement"
+            },
+            {
+              "name": "event",
+              "type": "PointerEvent | TouchEvent"
+            }
+          ],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "resizeElement",
+          "params": [
+            {
+              "name": "event",
+              "type": "PointerEvent | TouchEvent"
+            }
+          ],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "id",
+          "type": "ResizerEnum",
+          "default": "null",
+          "description": null,
+          "descriptionZh": null
+        }
+      ]
+    },
+    {
+      "name": "ɵBottomLeftResizer",
+      "kind": "class",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/ux/windows/resizer/classes/bottom-left-resizer.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "resizeElement",
+          "params": [
+            {
+              "name": "event",
+              "type": "PointerEvent"
+            }
+          ],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "id",
+          "type": "any",
+          "default": "ResizerEnum.BottomLeft",
+          "description": null,
+          "descriptionZh": null
+        }
+      ]
+    },
+    {
+      "name": "ɵBottomResizer",
+      "kind": "class",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/ux/windows/resizer/classes/bottom-resizer.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "resizeElement",
+          "params": [
+            {
+              "name": "event",
+              "type": "PointerEvent | TouchEvent"
+            }
+          ],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "id",
+          "type": "any",
+          "default": "ResizerEnum.Bottom",
+          "description": null,
+          "descriptionZh": null
+        }
+      ]
+    },
+    {
+      "name": "ɵBottomRightResizer",
+      "kind": "class",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/ux/windows/resizer/classes/bottom-right-resizer.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "resizeElement",
+          "params": [
+            {
+              "name": "event",
+              "type": "PointerEvent"
+            }
+          ],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "id",
+          "type": "any",
+          "default": "ResizerEnum.BottomRight",
+          "description": null,
+          "descriptionZh": null
+        }
+      ]
+    },
+    {
+      "name": "ɵCacheableReturnInstance",
+      "kind": "function",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/ux/windows/core/decorators/cacheable-return-instance.decorator.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "ɵCommonCssClassEnum",
+      "kind": "enum",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/ux/windows/core/enums/common-css-class.enum.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "ɵDeepClone",
+      "kind": "function",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/ux/windows/core/helpers/methods.helper.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "ɵDraggerConfigModel",
+      "kind": "class",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/ux/windows/drag-and-drop/classes/dragger-config.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "draggableElement",
+          "type": "HTMLElement",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "movableElement",
+          "type": "HTMLElement",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "childElementsBlackList",
+          "type": "HTMLElement[]",
+          "default": "[]",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "allowedMouseButtons",
+          "type": "MouseButtonEnum[]",
+          "default": "[MouseButtonEnum.Left]",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "shiftX",
+          "type": "number",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "shiftY",
+          "type": "number",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "strategy",
+          "type": "DragStrategyType",
+          "default": "new DragStrategyByTranslate3d()",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "isEnabled",
+          "type": "boolean",
+          "default": "true",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "isAllowMoveElement",
+          "type": "boolean",
+          "default": "true",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "mouseMoveHandler",
+          "type": "(event: DragInfo) => void",
+          "description": null,
+          "descriptionZh": null
+        }
+      ]
+    },
+    {
+      "name": "ɵDraggerCssClassEnum",
+      "kind": "enum",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/ux/windows/drag-and-drop/enums/dragger-css-class.enum.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "ɵDragStrategyByAxisPropertiesImpl",
+      "kind": "class",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/ux/windows/drag-and-drop/classes/drag-strategy/by-axis-properties-drag-impl.strategy.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "updateElementPosition",
+          "params": [
+            {
+              "name": "event",
+              "type": "PointerEvent | TouchEvent"
+            }
+          ],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "type",
+          "type": "any",
+          "default": "ɵDragStrategyEnum.ByAxisProperties",
+          "description": null,
+          "descriptionZh": null
+        }
+      ]
+    },
+    {
+      "name": "ɵDragStrategyByTranslate3dImpl",
+      "kind": "class",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/ux/windows/drag-and-drop/classes/drag-strategy/by-translate3d-drag-impl.strategy.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "registerMouseDown",
+          "params": [
+            {
+              "name": "dragInfo",
+              "type": "DragInfo"
+            }
+          ],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "updateElementPosition",
+          "params": [
+            {
+              "name": "event",
+              "type": "PointerEvent | TouchEvent"
+            }
+          ],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "type",
+          "type": "any",
+          "default": "ɵDragStrategyEnum.ByTranslate3d",
+          "description": null,
+          "descriptionZh": null
+        }
+      ]
+    },
+    {
+      "name": "ɵDragStrategyEnum",
+      "kind": "enum",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/ux/windows/drag-and-drop/enums/drag-strategy.enum.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "ɵDragStrategyFactory",
+      "kind": "class",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/ux/windows/drag-and-drop/classes/drag-strategy/drag-strategy.factory.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "create",
+          "params": [
+            {
+              "name": "strategyConfig",
+              "type": "DragStrategyType"
+            },
+            {
+              "name": "context",
+              "type": "DraggableDirective"
+            }
+          ],
+          "returnType": "ɵBaseDragStrategyImpl",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "isDifferent",
+          "params": [
+            {
+              "name": "newStrategyConfig",
+              "type": "DragStrategyType"
+            },
+            {
+              "name": "context",
+              "type": "DraggableDirective"
+            }
+          ],
+          "returnType": "boolean",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "ɵDYNAMIC_WINDOW_SHARED_CONFIG_PROVIDER",
+      "kind": "constant",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/ux/windows/window/data/dynamic-window-shared-config.provider.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "ɵDynamicStateEnum",
+      "kind": "enum",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/ux/windows/window/enums/dynamic-state.enum.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "ɵDynamicStateManager",
+      "kind": "class",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/ux/windows/window/classes/dynamic-state-manager.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "is",
+          "params": [
+            {
+              "name": "state",
+              "type": "ɵDynamicStateEnum"
+            }
+          ],
+          "returnType": "boolean",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "apply",
+          "params": [
+            {
+              "name": "state",
+              "type": "ɵDynamicStateEnum"
+            }
+          ],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "registerAfterStartCallback",
+          "params": [
+            {
+              "name": "callback",
+              "type": "() => void"
+            }
+          ],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "registerAfterEndCallback",
+          "params": [
+            {
+              "name": "callback",
+              "type": "() => void"
+            }
+          ],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "state",
+          "type": "ɵDynamicStateEnum",
+          "description": null,
+          "descriptionZh": null
+        }
+      ]
+    },
+    {
+      "name": "ɵDynamicWindowActivityService",
+      "kind": "service",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/ux/windows/window/services/dynamic-window-activity.service.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "makeAllInactiveExceptSpecificId",
+          "params": [
+            {
+              "name": "id",
+              "type": "string"
+            }
+          ],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "ɵDynamicWindowComponent",
+      "kind": "component",
+      "selector": "dui-dynamic-window",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/ux/windows/window/components/dynamic-window/dynamic-window.component.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "onHideButtonClick",
+          "params": [],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "onFullscreenButtonClick",
+          "params": [],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "onCloseButtonClick",
+          "params": [],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "onDragStart",
+          "params": [],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "onDragging",
+          "params": [],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "onDragEnd",
+          "params": [],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "onTitleBarDblClick",
+          "params": [],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "onResizeStart",
+          "params": [],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "onResizing",
+          "params": [
+            {
+              "name": "{ resizableElement }",
+              "type": "ResizeInfo"
+            }
+          ],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "onResizeEnd",
+          "params": [],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "viewRef",
+          "type": "ViewContainerRef",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "outlet",
+          "type": "any",
+          "description": null,
+          "descriptionZh": null
+        }
+      ]
+    },
+    {
+      "name": "ɵDynamicWindowConfigModel",
+      "kind": "class",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/ux/windows/window/classes/dynamic-window-config.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "title",
+          "type": "string",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "data",
+          "type": "D",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "type",
+          "type": "T",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "titleBarCustomContent",
+          "type": "Type<any>",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "width",
+          "type": "number",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "height",
+          "type": "number",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "minWidth",
+          "type": "number",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "minHeight",
+          "type": "number",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "maxWidth",
+          "type": "number",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "maxHeight",
+          "type": "number",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "allowedResizers",
+          "type": "ResizerEnum[]",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "positionX",
+          "type": "number",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "positionY",
+          "type": "number",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "iconUrl",
+          "type": "string",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "fullscreenOffset",
+          "type": "DynamicWindowFullscreenOffset",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "isFullscreenByDefault",
+          "type": "boolean",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "isHiddenByDefault",
+          "type": "boolean",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "isAllowHide",
+          "type": "boolean",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "isAllowFullscreen",
+          "type": "boolean",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "isAllowClose",
+          "type": "boolean",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "isAlwaysOnTop",
+          "type": "boolean",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "isToggleFullscreenByDblClickOnTitleBar",
+          "type": "boolean",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "isExitFullscreenByDragTitleBar",
+          "type": "boolean",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "isTitleBarVisible",
+          "type": "boolean",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "style",
+          "type": "object",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "styleClass",
+          "type": "string | string[] | object",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "titleBarStyle",
+          "type": "object",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "titleBarStyleClass",
+          "type": "string | string[] | object",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "scrollViewStyle",
+          "type": "object",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "scrollViewStyleClass",
+          "type": "string | string[] | object",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "draggerConfig",
+          "type": "DraggerConfig",
+          "default": "{}",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "resizerConfig",
+          "type": "ResizerConfig",
+          "default": "{}",
+          "description": null,
+          "descriptionZh": null
+        }
+      ]
+    },
+    {
+      "name": "ɵDynamicWindowCssClassEnum",
+      "kind": "enum",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/ux/windows/window/enums/dynamic-window-css-class.enum.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "ɵDynamicWindowCssVariableEnum",
+      "kind": "enum",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/ux/windows/window/enums/dynamic-window-css-variable.enum.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "ɵDynamicWindowDiParams",
+      "kind": "interface",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/ux/windows/window/interfaces/di-params.interface.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "ɵDynamicWindowInjector",
+      "kind": "class",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/ux/windows/window/classes/dynamic-window-injector.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "get",
+          "params": [
+            {
+              "name": "token",
+              "type": "Type<T> | InjectionToken<T>"
+            },
+            {
+              "name": "notFoundValue",
+              "type": "T"
+            },
+            {
+              "name": "flags",
+              "type": "InjectFlags | InjectOptions"
+            }
+          ],
+          "returnType": "T",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "get",
+          "params": [
+            {
+              "name": "token",
+              "type": "any"
+            },
+            {
+              "name": "notFoundValue",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "ɵDynamicWindowInputParams",
+      "kind": "interface",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/ux/windows/window/interfaces/input-params.interface.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "ɵDynamicWindowReferencesService",
+      "kind": "service",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/ux/windows/window/services/dynamic-window-references.service.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "register",
+          "params": [
+            {
+              "name": "windowRef",
+              "type": "ɵDynamicWindowRefModel"
+            },
+            {
+              "name": "config",
+              "type": "IDynamicWindowConfig"
+            }
+          ],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "remove",
+          "params": [
+            {
+              "name": "windowRef",
+              "type": "ɵDynamicWindowRefModel"
+            }
+          ],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "data$",
+          "type": "Observable<ɵDynamicWindowRefModel[]>",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "data",
+          "type": "ɵDynamicWindowRefModel[]",
+          "description": null,
+          "descriptionZh": null
+        }
+      ]
+    },
+    {
+      "name": "ɵDynamicWindowRefModel",
+      "kind": "class",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/ux/windows/window/classes/dynamic-window-ref.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "init",
+          "params": [
+            {
+              "name": "config",
+              "type": "DynamicWindowConfig"
+            }
+          ],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "updateConfig",
+          "params": [
+            {
+              "name": "config",
+              "type": "DynamicWindowConfig"
+            }
+          ],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "hide",
+          "params": [],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "show",
+          "params": [],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "toggleVisibility",
+          "params": [],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "setIsHiddenState",
+          "params": [
+            {
+              "name": "state",
+              "type": "boolean"
+            }
+          ],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "goFullscreen",
+          "params": [],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "goWindowed",
+          "params": [],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "toggleFullscreen",
+          "params": [],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "setIsFullscreenState",
+          "params": [
+            {
+              "name": "state",
+              "type": "boolean"
+            }
+          ],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "close",
+          "params": [
+            {
+              "name": "result",
+              "type": "T"
+            }
+          ],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "makeActive",
+          "params": [],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "makeInactive",
+          "params": [],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "setOrderIndex",
+          "params": [
+            {
+              "name": "orderIndex",
+              "type": "number"
+            }
+          ],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "setWindowElement",
+          "params": [
+            {
+              "name": "element",
+              "type": "HTMLElement"
+            }
+          ],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "setComponentRef",
+          "params": [
+            {
+              "name": "componentRef",
+              "type": "ComponentRef<ɵDynamicWindowComponent>"
+            }
+          ],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "setDraggableDirective",
+          "params": [
+            {
+              "name": "directive",
+              "type": "DraggableDirective"
+            }
+          ],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "setResizableDirective",
+          "params": [
+            {
+              "name": "directive",
+              "type": "ResizableDirective"
+            }
+          ],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "destroy",
+          "params": [],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "isHidden$",
+          "type": "Observable<boolean>",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "isHidden",
+          "type": "boolean",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "beforeHidden$",
+          "type": "Observable<unknown>",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "isFullscreen$",
+          "type": "Observable<boolean>",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "isFullscreen",
+          "type": "boolean",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "isActive$",
+          "type": "Observable<boolean>",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "isActive",
+          "type": "boolean",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "orderIndex$",
+          "type": "Observable<number>",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "afterClosed$",
+          "type": "Observable<any>",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "config$",
+          "type": "Observable<DynamicWindowConfig>",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "config",
+          "type": "DynamicWindowConfig",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "windowElement",
+          "type": "HTMLElement",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "componentRef",
+          "type": "ComponentRef<ɵDynamicWindowComponent>",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "draggableDirective",
+          "type": "DraggableDirective",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "resizableDirective",
+          "type": "ResizableDirective",
+          "description": null,
+          "descriptionZh": null
+        }
+      ]
+    },
+    {
+      "name": "ɵDynamicWindowRefOrderingService",
+      "kind": "service",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/ux/windows/window/services/dynamic-window-ref-ordering.service.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "getIndex",
+          "params": [
+            {
+              "name": "id",
+              "type": "string"
+            }
+          ],
+          "returnType": "number",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "updateForAll",
+          "params": [],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "remove",
+          "params": [
+            {
+              "name": "id",
+              "type": "string"
+            }
+          ],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "moveToTop",
+          "params": [
+            {
+              "name": "id",
+              "type": "string"
+            }
+          ],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "getHighestOpened",
+          "params": [],
+          "returnType": "ɵDynamicWindowRefModel | null",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "ɵDynamicWindowsDefaultCoordinatesService",
+      "kind": "service",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/ux/windows/window/services/dynamic-windows-coordinates.service.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "applyIfSpecificAbsent",
+          "params": [
+            {
+              "name": "windowRef",
+              "type": "ɵDynamicWindowRefModel"
+            }
+          ],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "ɵElementResizingObserver",
+      "kind": "function",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/ux/windows/core/helpers/element-resizing-observer.helper.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "ɵErrorHelper",
+      "kind": "class",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/ux/windows/core/helpers/error.helper.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "warn",
+          "params": [
+            {
+              "name": "context",
+              "type": "Object"
+            },
+            {
+              "name": "message",
+              "type": "string"
+            }
+          ],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "error",
+          "params": [
+            {
+              "name": "context",
+              "type": "Object"
+            },
+            {
+              "name": "message",
+              "type": "string"
+            }
+          ],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "ɵEventOutside",
+      "kind": "class",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/ux/windows/core/helpers/event-outside.helper.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "checkForElement",
+          "params": [
+            {
+              "name": "element",
+              "type": "HTMLElement"
+            },
+            {
+              "name": "event",
+              "type": "Event"
+            }
+          ],
+          "returnType": "boolean",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "ɵGlobalEvents",
+      "kind": "service",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/ux/windows/core/services/global-events.service.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "fromDocument",
+          "params": [
+            {
+              "name": "eventName",
+              "type": "keyof DocumentEventMap"
+            }
+          ],
+          "returnType": "Observable<T>",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "ɵIdGenerator",
+      "kind": "class",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/ux/windows/core/helpers/id-generator.helper.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "generate",
+          "params": [
+            {
+              "name": "name",
+              "type": "string"
+            }
+          ],
+          "returnType": "string",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "ɵIntervalCheckerHelper",
+      "kind": "class",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/ux/windows/core/helpers/interval-checker.helper.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "updateSettings",
+          "params": [
+            {
+              "name": "{ delayBetweenChecksInMs, maxCheckCount }",
+              "type": "Params"
+            }
+          ],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "start",
+          "params": [
+            {
+              "name": "{ onIteration, onEnd }",
+              "type": "StartParams"
+            }
+          ],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "reset",
+          "params": [],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "ɵInvertedKeysOfType",
+      "kind": "type",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/ux/windows/core/types/inverted-keys-of.type.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "ɵIsNil",
+      "kind": "function",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/ux/windows/core/helpers/methods.helper.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "ɵIsNumber",
+      "kind": "function",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/ux/windows/core/helpers/methods.helper.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "ɵIsObjectsWithSameData",
+      "kind": "function",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/ux/windows/core/helpers/methods.helper.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "ɵKeysOfType",
+      "kind": "type",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/ux/windows/core/types/keys-of.type.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "ɵLeftResizer",
+      "kind": "class",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/ux/windows/resizer/classes/left-resizer.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "resizeElement",
+          "params": [
+            {
+              "name": "event",
+              "type": "PointerEvent | TouchEvent"
+            }
+          ],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "id",
+          "type": "any",
+          "default": "ResizerEnum.Left",
+          "description": null,
+          "descriptionZh": null
+        }
+      ]
+    },
+    {
+      "name": "ɵOsBaseButtonComponent",
+      "kind": "component",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/ux/windows/core/classes/base-components/button.ts",
+      "inputs": [
+        {
+          "name": "isDisabled",
+          "type": "boolean",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "isFocused",
+          "type": "boolean",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "ariaLabel",
+          "type": "string",
+          "description": "Metadata of destination of the button",
+          "descriptionZh": null
+        },
+        {
+          "name": "ariaControls",
+          "type": "string",
+          "description": "Metadata of relation of the button",
+          "descriptionZh": null
+        },
+        {
+          "name": "ariaSelected",
+          "type": "string",
+          "description": "Metadata of selection state of the button",
+          "descriptionZh": null
+        },
+        {
+          "name": "role",
+          "type": "string",
+          "description": "Metadata of role of the button",
+          "descriptionZh": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "osFocus",
+          "type": "Observable<FocusEvent>",
+          "description": "Target internal element focus event",
+          "descriptionZh": null
+        },
+        {
+          "name": "osBlur",
+          "type": "Observable<FocusEvent>",
+          "description": "Target internal element blur event",
+          "descriptionZh": null
+        }
+      ],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "ɵOsBaseComponent",
+      "kind": "component",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/ux/windows/core/classes/base-components/component.ts",
+      "inputs": [
+        {
+          "name": "style",
+          "type": "object",
+          "description": "Target internal element stylelist",
+          "descriptionZh": null
+        },
+        {
+          "name": "styleClass",
+          "type": "string | string[] | object",
+          "description": "Target internal element classList",
+          "descriptionZh": null
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "description": "Target internal element id",
+          "descriptionZh": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "osClick",
+          "type": "Observable<PointerEvent>",
+          "description": "Target internal element click event",
+          "descriptionZh": null
+        },
+        {
+          "name": "osDblClick",
+          "type": "Observable<PointerEvent>",
+          "description": "Target internal element dblclick event",
+          "descriptionZh": null
+        },
+        {
+          "name": "osMouseDown",
+          "type": "Observable<PointerEvent>",
+          "description": "Target internal element mousedown event",
+          "descriptionZh": null
+        },
+        {
+          "name": "osMouseUp",
+          "type": "Observable<PointerEvent>",
+          "description": "Target internal element mouseup event",
+          "descriptionZh": null
+        },
+        {
+          "name": "osMouseMove",
+          "type": "Observable<PointerEvent>",
+          "description": "Target internal element mousemove event",
+          "descriptionZh": null
+        },
+        {
+          "name": "osMouseOut",
+          "type": "Observable<PointerEvent>",
+          "description": "Target internal element mouseout event",
+          "descriptionZh": null
+        },
+        {
+          "name": "osMouseOver",
+          "type": "Observable<PointerEvent>",
+          "description": "Target internal element mouseover event",
+          "descriptionZh": null
+        },
+        {
+          "name": "osWheel",
+          "type": "Observable<WheelEvent>",
+          "description": "Target internal element wheel event",
+          "descriptionZh": null
+        },
+        {
+          "name": "osKeyDown",
+          "type": "Observable<KeyboardEvent>",
+          "description": "Target internal element keydown event",
+          "descriptionZh": null
+        },
+        {
+          "name": "osKeyUp",
+          "type": "Observable<KeyboardEvent>",
+          "description": "Target internal element keyup event",
+          "descriptionZh": null
+        }
+      ],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "ɵOsBaseViewComponent",
+      "kind": "component",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/ux/windows/core/classes/base-components/view.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "whenViewInit$",
+          "type": "Observable<boolean>",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "viewDestroyed$",
+          "type": "Observable<boolean>",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "isViewInit",
+          "type": "boolean",
+          "description": null,
+          "descriptionZh": null
+        }
+      ]
+    },
+    {
+      "name": "ɵParseInt",
+      "kind": "function",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/ux/windows/core/helpers/methods.helper.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "ɵPointerHelper",
+      "kind": "class",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/ux/windows/core/helpers/pointer.helper.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "getClientX",
+          "params": [
+            {
+              "name": "event",
+              "type": "PointerEvent | TouchEvent"
+            }
+          ],
+          "returnType": "number",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "getClientY",
+          "params": [
+            {
+              "name": "event",
+              "type": "PointerEvent | TouchEvent"
+            }
+          ],
+          "returnType": "number",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "getPageX",
+          "params": [
+            {
+              "name": "event",
+              "type": "PointerEvent | TouchEvent"
+            }
+          ],
+          "returnType": "number",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "getPageY",
+          "params": [
+            {
+              "name": "event",
+              "type": "PointerEvent | TouchEvent"
+            }
+          ],
+          "returnType": "number",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "isPointerEvent",
+          "params": [
+            {
+              "name": "event",
+              "type": "Event"
+            }
+          ],
+          "returnType": "event is PointerEvent",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "isTouchEvent",
+          "params": [
+            {
+              "name": "event",
+              "type": "Event"
+            }
+          ],
+          "returnType": "event is TouchEvent",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "ɵRandomHelper",
+      "kind": "class",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/ux/windows/core/helpers/random.helper.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "getRandomInt",
+          "params": [
+            {
+              "name": "min",
+              "type": "number"
+            },
+            {
+              "name": "max",
+              "type": "number"
+            }
+          ],
+          "returnType": "number",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "ɵRawObject",
+      "kind": "type",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/ux/windows/core/types/raw-object.type.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "ɵResizerConfigModel",
+      "kind": "class",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/ux/windows/resizer/classes/resizer-config.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "targetElement",
+          "type": "HTMLElement",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "minWidth",
+          "type": "number",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "minHeight",
+          "type": "number",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "maxWidth",
+          "type": "number",
+          "default": "Infinity",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "maxHeight",
+          "type": "number",
+          "default": "Infinity",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "allowedResizers",
+          "type": "ResizerEnum[]",
+          "default": "[...ɵRESIZERS_ARRAY]",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "allowedMouseButtons",
+          "type": "MouseButtonEnum[]",
+          "default": "[MouseButtonEnum.Left]",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "xAxisLeftStyleProperty",
+          "type": "string",
+          "default": "'left'",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "xAxisRightStyleProperty",
+          "type": "string",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "yAxisTopStyleProperty",
+          "type": "string",
+          "default": "'top'",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "yAxisBottomStyleProperty",
+          "type": "string",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "widthStyleProperty",
+          "type": "string",
+          "default": "'width'",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "heightStyleProperty",
+          "type": "string",
+          "default": "'height'",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "isAllowChangePosition",
+          "type": "boolean",
+          "default": "true",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "isEnabled",
+          "type": "boolean",
+          "default": "true",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "mouseMoveHandler",
+          "type": "(event: ResizeInfo) => void",
+          "description": null,
+          "descriptionZh": null
+        }
+      ]
+    },
+    {
+      "name": "ɵResizerCssClassEnum",
+      "kind": "enum",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/ux/windows/resizer/enums/resizer-css-class.enum.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "ɵResizerElementTagEnum",
+      "kind": "enum",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/ux/windows/resizer/enums/resizer-element-tag.enum.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "ɵResizerFactory",
+      "kind": "service",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/ux/windows/resizer/classes/resizer.factory.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "create",
+          "params": [
+            {
+              "name": "id",
+              "type": "ResizerEnum"
+            },
+            {
+              "name": "context",
+              "type": "ResizableDirective"
+            }
+          ],
+          "returnType": "ɵBaseResizer",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "ɵRESIZERS_ARRAY",
+      "kind": "constant",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/ux/windows/resizer/data/resizers.array.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "ɵRightResizer",
+      "kind": "class",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/ux/windows/resizer/classes/right-resizer.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "resizeElement",
+          "params": [
+            {
+              "name": "event",
+              "type": "PointerEvent | TouchEvent"
+            }
+          ],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "id",
+          "type": "any",
+          "default": "ResizerEnum.Right",
+          "description": null,
+          "descriptionZh": null
+        }
+      ]
+    },
+    {
+      "name": "ɵTopLeftResizer",
+      "kind": "class",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/ux/windows/resizer/classes/top-left-resizer.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "resizeElement",
+          "params": [
+            {
+              "name": "event",
+              "type": "PointerEvent | TouchEvent"
+            }
+          ],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "id",
+          "type": "any",
+          "default": "ResizerEnum.TopLeft",
+          "description": null,
+          "descriptionZh": null
+        }
+      ]
+    },
+    {
+      "name": "ɵTopResizer",
+      "kind": "class",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/ux/windows/resizer/classes/top-resizer.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "resizeElement",
+          "params": [
+            {
+              "name": "event",
+              "type": "PointerEvent | TouchEvent"
+            }
+          ],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "id",
+          "type": "any",
+          "default": "ResizerEnum.Top",
+          "description": null,
+          "descriptionZh": null
+        }
+      ]
+    },
+    {
+      "name": "ɵTopRightResizer",
+      "kind": "class",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/ux/windows/resizer/classes/top-right-resizer.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "resizeElement",
+          "params": [
+            {
+              "name": "event",
+              "type": "PointerEvent | TouchEvent"
+            }
+          ],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "id",
+          "type": "any",
+          "default": "ResizerEnum.TopRight",
+          "description": null,
+          "descriptionZh": null
+        }
+      ]
+    },
+    {
+      "name": "ɵWhenViewInit",
+      "kind": "function",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/ux/windows/core/decorators/when-view-init.decorator.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "ResizableDirective",
+      "kind": "directive",
+      "selector": "[osResizable]",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/ux/windows/resizer/directives/resizable.directive.ts",
+      "inputs": [
+        {
+          "name": "parameters",
+          "alias": "osResizable",
+          "type": "ResizerConfig | undefined | ''",
+          "description": "Configuration of resizing",
+          "descriptionZh": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "osResizableElementInit",
+          "type": "HTMLElement",
+          "description": "Fires when the resizable element init",
+          "descriptionZh": null
+        },
+        {
+          "name": "osResizersWrapperElementInit",
+          "type": "HTMLElement",
+          "description": "Fires when the resizers wrapper element init",
+          "descriptionZh": null
+        },
+        {
+          "name": "osResizeStart",
+          "type": "ResizeInfo",
+          "description": "Fires when calls mousedown handler over resizableElement",
+          "descriptionZh": null
+        },
+        {
+          "name": "osResizing",
+          "type": "ResizeInfo",
+          "description": "Fires when the `mousemove` is called",
+          "descriptionZh": null
+        },
+        {
+          "name": "osResizeEnd",
+          "type": "ResizeInfo",
+          "description": "Fires when the `mouseup` is called and after all internal handlers removed",
+          "descriptionZh": null
+        }
+      ],
+      "methods": [
+        {
+          "name": "updateConfigWithoutChanges",
+          "params": [
+            {
+              "name": "config",
+              "type": "ResizerConfig"
+            }
+          ],
+          "returnType": "void",
+          "description": "Updates config without affecting any logic, like some internal initialization of different things",
+          "descriptionZh": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "resizableElement",
+          "type": "HTMLElement",
+          "description": "Target resizable HTML element",
+          "descriptionZh": null
+        },
+        {
+          "name": "resizer",
+          "type": "ɵBaseResizer",
+          "description": "Target resizer",
+          "descriptionZh": null
+        },
+        {
+          "name": "config",
+          "type": "ɵResizerConfigModel",
+          "description": "Configuration of resizing",
+          "descriptionZh": null
+        }
+      ]
+    },
+    {
+      "name": "ResizeInfo",
+      "kind": "interface",
+      "summary": "Model that emits by events of {@link DraggableDirective}",
+      "summaryZh": null,
+      "sourceFile": "src/ux/windows/resizer/interfaces/resize-info.interface.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "ResizerConfig",
+      "kind": "interface",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/ux/windows/resizer/interfaces/resizer-config.interface.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "ResizerEnum",
+      "kind": "enum",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/ux/windows/resizer/enums/resizer.enum.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "ResizerModule",
+      "kind": "module",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/ux/windows/resizer/resizer.module.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "ScrollViewComponent",
+      "kind": "component",
+      "selector": "dui-scroll-view",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/ux/windows/scroll-view/components/scroll-view/scroll-view.component.ts",
+      "inputs": [
+        {
+          "name": "isVerticalScrollEnabled",
+          "type": "boolean",
+          "default": "true",
+          "description": "Is vertical scroll enabled?",
+          "descriptionZh": null
+        },
+        {
+          "name": "isHorizontalScrollEnabled",
+          "type": "boolean",
+          "default": "false",
+          "description": "Is horizontal scroll enabled?",
+          "descriptionZh": null
+        },
+        {
+          "name": "isVerticalScrollHiding",
+          "type": "boolean",
+          "default": "false",
+          "description": "Does the vertical scroll hide when it is not needed?",
+          "descriptionZh": null
+        },
+        {
+          "name": "isHorizontalScrollHiding",
+          "type": "boolean",
+          "default": "false",
+          "description": "Does the horizontal scroll hide when it is not needed?",
+          "descriptionZh": null
+        }
+      ],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "scrollTo",
+          "params": [
+            {
+              "name": "left",
+              "type": "number"
+            },
+            {
+              "name": "top",
+              "type": "number"
+            }
+          ],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "ScrollViewModule",
+      "kind": "module",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/ux/windows/scroll-view/scroll-view.module.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "TitleBarButtonComponent",
+      "kind": "component",
+      "selector": "dui-title-bar-button",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/ux/windows/window/components/title-bar-button/title-bar-button.component.ts",
+      "inputs": [
+        {
+          "name": "iconUrl",
+          "type": "string",
+          "description": "Link to the icon",
+          "descriptionZh": null
+        },
+        {
+          "name": "iconStyle",
+          "type": "object",
+          "description": "Stylelist for the icon",
+          "descriptionZh": null
+        },
+        {
+          "name": "iconStyleClass",
+          "type": "string | string[] | object",
+          "description": "Classlist for the icon",
+          "descriptionZh": null
+        }
+      ],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "TitleBarComponent",
+      "kind": "component",
+      "selector": "dui-title-bar",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/ux/windows/window/components/title-bar/title-bar.component.ts",
+      "inputs": [
+        {
+          "name": "isActive",
+          "type": "boolean",
+          "default": "true",
+          "description": "Marks title bar as active (means user works with it right now)",
+          "descriptionZh": null
+        }
+      ],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "TitleBarContentComponent",
+      "kind": "component",
+      "selector": "dui-title-bar-content",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/ux/windows/window/components/title-bar-content/title-bar-content.component.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "TitleBarControlsComponent",
+      "kind": "component",
+      "selector": "dui-title-bar-controls",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/ux/windows/window/components/title-bar-controls/title-bar-controls.component.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "TitleBarIconComponent",
+      "kind": "component",
+      "selector": "dui-title-bar-icon",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/ux/windows/window/components/title-bar-icon/title-bar-icon.component.ts",
+      "inputs": [
+        {
+          "name": "iconType",
+          "type": "any",
+          "default": "'Font'",
+          "description": "The URL to the icon",
+          "descriptionZh": null
+        },
+        {
+          "name": "icon",
+          "type": "any",
+          "default": "''",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "iconClass",
+          "type": "any",
+          "default": "''",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "transform",
+      "kind": "function",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/ux/windows/core/classes/css-classlist-manager/classlist-to-object.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "UtilsModule",
+      "kind": "module",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/ux/windows/utils/utils.module.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "WindowComponent",
+      "kind": "component",
+      "selector": "dui-window",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/ux/windows/window/components/window/window.component.ts",
+      "inputs": [
+        {
+          "name": "isActive",
+          "type": "boolean",
+          "default": "false",
+          "description": "Marks window as active (means user works with it right now)",
+          "descriptionZh": null
+        },
+        {
+          "name": "scrollViewStyle",
+          "type": "object",
+          "description": "Stylelist for scroll view component of the window",
+          "descriptionZh": null
+        },
+        {
+          "name": "scrollViewStyleClass",
+          "type": "string | string[] | object",
+          "description": "Classlist for scroll view component of the window",
+          "descriptionZh": null
+        }
+      ],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "WindowModule",
+      "kind": "module",
+      "summary": null,
+      "summaryZh": null,
+      "sourceFile": "src/ux/windows/window/window.module.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    }
+  ],
+  "suggestedUsageSnippet": "import { ɵDynamicWindowComponent, DragAndDropModule } from '@dotos/dui/ux/windows';\n\n<dui-dynamic-window></dui-dynamic-window>"
+}

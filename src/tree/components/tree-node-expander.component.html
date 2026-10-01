@@ -1,0 +1,16 @@
+<ng-container *treeMobxAutorun="{dontDetach: true}">
+  <span
+    *ngIf="node.hasChildren"
+    class="toggle-children-wrapper">
+    <mat-icon *ngIf="!node.options.expanderAlign||node.options.expanderAlign==='left'">
+      {{node.isExpanded? 'keyboard_arrow_down' :  'keyboard_arrow_right'}}
+    </mat-icon>
+    <mat-icon *ngIf="node.options.expanderAlign&&node.options.expanderAlign==='right'">
+      {{node.isExpanded? 'keyboard_arrow_up' :  'keyboard_arrow_down'}}
+    </mat-icon>
+  </span>
+  <span
+    *ngIf="!node.hasChildren"
+    class="toggle-children-placeholder">
+  </span>
+</ng-container>
