@@ -31,6 +31,7 @@ export class SelectOption {
     hostID: 'select-field' + Math.random().toString(36).substring(2, 15),
   },
   changeDetection: ChangeDetectionStrategy.Default,
+  providers: [SelectOptionsService]
 })
 export class FieldSelect extends MatField implements OnInit,OnDestroy {
 
@@ -60,6 +61,18 @@ export class FieldSelect extends MatField implements OnInit,OnDestroy {
   // a late-arriving response for a superseded search can be told apart from the current
   // one (see comment on the `serviceData` subscribe below).
   private _lastRequestParams: any;
+  private _lastLoadedParams: any;
+
+  private areParamsEqual(a: any, b: any): boolean {
+    if (!a || !b) return false;
+    const keysA = Object.keys(a);
+    const keysB = Object.keys(b);
+    if (keysA.length !== keysB.length) return false;
+    for (const k of keysA) {
+      if (a[k] !== b[k]) return false;
+    }
+    return true;
+  }
 
   constructor(
     protected override translate: TranslateService,
@@ -87,12 +100,13 @@ export class FieldSelect extends MatField implements OnInit,OnDestroy {
         // Compare against the params object we actually sent for the request we're
         // still waiting on instead.
         if (serviceData && this._lastRequestParams === serviceData.params) {
+          this._lastLoadedParams = { ...this._lastRequestParams };
           this.options = this.field.options = serviceData.options === null ? [] : serviceData.options;
           if (!this.field.hasSearch) {
             this.hasSearch();
           }
           this.changeDetector.detectChanges();
-          if (this.isLoading) {
+          if (this.isLoading && this.matSelect && !this.matSelect.panelOpen) {
             this.matSelect.open();
           }
           this.isLoading = false;
@@ -177,14 +191,21 @@ export class FieldSelect extends MatField implements OnInit,OnDestroy {
     }
   }
 
-  openChanged(e) {
+  openedChanged(opened: boolean) {
+    if (opened) {
+      this.openChanged(true);
+    }
+  }
+
+  openChanged(e?) {
     if (this.field.remote) {
-      this.isLoading = true;
-      this.field.options = [];
-      this.field.formControl.reset();
-      let url = this.field.dataSource.url;
-      let method = this.field.dataSource.method;
       let params = { ...this.field.params };
+      if (this.field.options && this.field.options.length > 0 && this.areParamsEqual(this._lastLoadedParams, params)) {
+        return;
+      }
+      this.isLoading = true;
+      let url = this.field.dataSource?.url;
+      let method = this.field.dataSource?.method || 'POST';
       this._lastRequestParams = params;
       this.optionService.getOptions(url, method, params);
     }
