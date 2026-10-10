@@ -114,7 +114,7 @@ export class AbstractPanel extends Container implements AfterViewInit,OnDestroy{
   @Input() set order(v: number | null) {
     v = Number(v);
     this._order = !isNaN(v) ? v : null;
-    if (this.ownerCt) {
+    if (this.ownerCt && typeof this.ownerCt.updateArea === 'function') {
       this.ownerCt.updateArea(this, true, false);
     }
   }
@@ -129,7 +129,7 @@ export class AbstractPanel extends Container implements AfterViewInit,OnDestroy{
   @Input() set size(v: number | null) {
     v = Number(v);
     this._size = (!isNaN(v) && v >= 0 && v <= 100) ? (v / 100) : null;
-    if (this.ownerCt) {
+    if (this.ownerCt && typeof this.ownerCt.updateArea === 'function') {
       this.ownerCt.updateArea(this, false, true);
     }
   }
@@ -143,7 +143,7 @@ export class AbstractPanel extends Container implements AfterViewInit,OnDestroy{
   @Input() set minSize(v: number) {
     v = Number(v);
     this._minSize = (!isNaN(v) && v > 0) ? v : 0;
-    if (this.ownerCt) {
+    if (this.ownerCt && typeof this.ownerCt.updateArea === 'function') {
       this.ownerCt.updateArea(this, false, true);
     }
   }
@@ -158,7 +158,7 @@ export class AbstractPanel extends Container implements AfterViewInit,OnDestroy{
   @Input() set maxSize(v: number) {
     v = Number(v);
     this._maxSize = (!isNaN(v) && v > 0) ? v : 0;
-    if (this.ownerCt) {
+    if (this.ownerCt && typeof this.ownerCt.updateArea === 'function') {
       this.ownerCt.updateArea(this, false, true);
     }
   }
@@ -174,9 +174,9 @@ export class AbstractPanel extends Container implements AfterViewInit,OnDestroy{
     v = (typeof (v) === 'boolean') ? v : (v === 'false' ? false : true);
     this._visible = v;
     if (this.ownerCt) {
-      if (this.visible) {
+      if (this.visible && typeof this.ownerCt.showArea === 'function') {
         this.ownerCt.showArea(this);
-      } else {
+      } else if (!this.visible && typeof this.ownerCt.hideArea === 'function') {
         this.ownerCt.hideArea(this);
       }
     }
@@ -278,7 +278,7 @@ export class AbstractPanel extends Container implements AfterViewInit,OnDestroy{
 
   public override ngOnDestroy(): void {
     this.detectRef.detach();
-    if (this.ownerCt && this.ownerCt.xtype === 'panel') {
+    if (this.ownerCt && this.ownerCt.xtype === 'panel' && typeof this.ownerCt.removeArea === 'function') {
       this.ownerCt.removeArea(this);
     }
   }
@@ -344,9 +344,9 @@ export class AbstractPanel extends Container implements AfterViewInit,OnDestroy{
 
   public setStyleFlexbasis(value: string, isDragging: boolean): void {
     // If component not yet initialized or gutter being dragged, disable transition
-    if (this.ownerCt.isViewInitialized === false || isDragging === true) {
+    if (this.ownerCt && (this.ownerCt.isViewInitialized === false || isDragging === true)) {
       this._setStyleTransition(false);
-    } else {
+    } else if (this.ownerCt && this.ownerCt.useTransition !== undefined) {
       this._setStyleTransition(this.ownerCt.useTransition);
     }
     this.renderer.setStyle(this.el, 'flex-basis', value);
