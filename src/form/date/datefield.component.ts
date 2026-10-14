@@ -226,7 +226,7 @@ export class DateFieldComponent<D> extends MatField implements AfterContentInit,
   }
 
   ngOnChanges(changes: SimpleChanges) {
-    if (changes['datepicker']) {
+    if (changes['datetimepicker'] || changes['datepicker']) {
       this._watchStateChanges();
     }
   }
@@ -412,7 +412,7 @@ export class DateFieldComponent<D> extends MatField implements AfterContentInit,
     let date = this._dateAdapter.parse(value, this.getParseFormat());
     this._lastValueValid = !date || this._dateAdapter.isValid(date);
     date = this._dateAdapter.getValidDateOrNull(date);
-    this.formControl.value = date;
+    this.formControl.setValue(date);
     this._cvaOnChange(date);
     this._valueChange.emit(date);
     this.dateInput.emit(new MatDatetimepickerInputEvent(this));

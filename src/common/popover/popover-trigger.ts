@@ -61,6 +61,7 @@ export class PopoverTrigger implements AfterViewInit, OnDestroy {
   private _detachmentsSubscription: Subscription;
 
   private _mouseoverTimer: any;
+  private _mouseleaveTimer: any;
 
   private _openedByMouse = false;
 
@@ -139,7 +140,9 @@ export class PopoverTrigger implements AfterViewInit, OnDestroy {
   ngAfterViewInit() {
       this._checkPopover();
       this._setCurrentConfig();
-      this.popover.close.subscribe(() => this.closePopover());
+      this.popover.close
+        .pipe(takeUntil(this._onDestroy))
+        .subscribe(() => this.closePopover());
   }
 
   ngOnDestroy() {
@@ -233,7 +236,14 @@ export class PopoverTrigger implements AfterViewInit, OnDestroy {
   @HostListener('mouseenter', ['$event'])
   onMouseEnter(): void {
     this._halt = false;
+    if (this._mouseleaveTimer) {
+      clearTimeout(this._mouseleaveTimer);
+      this._mouseleaveTimer = null;
+    }
     if (this.popover.triggerEvent === 'hover') {
+      if (this._mouseoverTimer) {
+        clearTimeout(this._mouseoverTimer);
+      }
       this._mouseoverTimer = setTimeout(() => {
         this.openPopover();
       }, this.popover.enterDelay);
@@ -253,7 +263,11 @@ export class PopoverTrigger implements AfterViewInit, OnDestroy {
         this._mouseoverTimer = null;
       }
       if (this._popoverOpen) {
-        setTimeout(() => {
+        if (this._mouseleaveTimer) {
+          clearTimeout(this._mouseleaveTimer);
+        }
+        this._mouseleaveTimer = setTimeout(() => {
+          this._mouseleaveTimer = null;
           if (!this.popover.closeDisabled) {
               this.closePopover();
           }
@@ -307,6 +321,10 @@ export class PopoverTrigger implements AfterViewInit, OnDestroy {
           clearTimeout(this._mouseoverTimer);
           this._mouseoverTimer = null;
       }
+      if (this._mouseleaveTimer) {
+          clearTimeout(this._mouseleaveTimer);
+          this._mouseleaveTimer = null;
+      }
       if (this._overlayRef) {
         this._overlayRef.dispose();
         this._overlayRef = null;
@@ -335,7 +353,7 @@ export class PopoverTrigger implements AfterViewInit, OnDestroy {
 
   private _subscribeToBackdrop(): void {
     if (this._overlayRef) {
-      if (this.triggerEvent === 'click' && this.backdropCloseOnClick === true) {
+      if ((this.triggerEvent || this.popover.triggerEvent) === 'click' && this.backdropCloseOnClick === true) {
         this._overlayRef.backdropClick()
         .pipe(
           takeUntil(this.popoverClosed),
@@ -424,7 +442,7 @@ export class PopoverTrigger implements AfterViewInit, OnDestroy {
   private _getOverlayConfig(): OverlayConfig {
       const overlayState = new OverlayConfig();
       overlayState.positionStrategy = this.getPosition();
-      if (this.triggerEvent === 'click') {
+      if ((this.triggerEvent || this.popover.triggerEvent) === 'click') {
         overlayState.hasBackdrop = true;
         overlayState.backdropClass = 'cdk-overlay-transparent-backdrop';
       }

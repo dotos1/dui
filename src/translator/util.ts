@@ -61,8 +61,11 @@ export function mergeDeep(target: any, source: any): any {
   let output = Object.assign({}, target);
   if (isObject(target) && isObject(source)) {
     Object.keys(source).forEach((key: any) => {
+      if (key === '__proto__' || key === 'constructor' || key === 'prototype') {
+        return;
+      }
       if (isObject(source[key])) {
-        if (!(key in target)) {
+        if (!Object.prototype.hasOwnProperty.call(target, key)) {
           Object.assign(output, {[key]: source[key]});
         } else {
           output[key] = mergeDeep(target[key], source[key]);

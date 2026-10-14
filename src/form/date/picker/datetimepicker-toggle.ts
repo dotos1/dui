@@ -11,7 +11,7 @@ import {
   ViewEncapsulation
 } from "@angular/core";
 import {MatDatepickerIntl} from "@angular/material/datepicker";
-import {merge, of as observableOf, Subscription} from "rxjs";
+import {merge, Observable, of as observableOf, Subscription} from "rxjs";
 import {MatDatetimepicker} from "./datetimepicker";
 
 @Component({
@@ -48,7 +48,7 @@ export class MatDatetimepickerToggle<D> implements AfterContentInit, OnChanges, 
   }
 
   ngOnChanges(changes: SimpleChanges) {
-    if (changes["datepicker"]) {
+    if (changes["datetimepicker"] || changes["datepicker"]) {
       this._watchStateChanges();
     }
   }
@@ -74,7 +74,7 @@ export class MatDatetimepickerToggle<D> implements AfterContentInit, OnChanges, 
       this.datetimepicker._datepickerInput._disabledChange : observableOf();
 
     this._stateChanges.unsubscribe();
-    this._stateChanges = merge([this._intl.changes, datepickerDisabled, inputDisabled])
+    this._stateChanges = merge(this._intl.changes as Observable<any>, datepickerDisabled as Observable<any>, inputDisabled as Observable<any>)
       .subscribe(() => this._changeDetectorRef.markForCheck());
   }
 }

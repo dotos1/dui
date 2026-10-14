@@ -30,6 +30,8 @@ export interface IInternalLoadingOptions extends ILoadingConfig {
 export interface ILoadingRef {
   observable: Observable<any>;
   componentRef?: ComponentRef<any>;
+  overlayRef?: OverlayRef;
+  contentRef?: EmbeddedViewRef<object>;
   subject: Subject<any>;
   times: number;
   /**
@@ -69,6 +71,7 @@ export class LoadingFactory {
         if (registered > 0 && !loading) {
           loading = true;
           overlayRef = this._createOverlay(loadingRef.blocking);
+          loadingRef.overlayRef = overlayRef;
           loadingRef.componentRef = overlayRef.attach(
             new ComponentPortal(LoadingComponent)
           );
@@ -81,6 +84,7 @@ export class LoadingFactory {
           loadingRef.componentRef?.destroy();
           overlayRef.detach();
           overlayRef.dispose();
+          loadingRef.overlayRef = undefined;
         }
       });
     return loadingRef;
@@ -147,6 +151,7 @@ export class LoadingFactory {
     let loading = false;
     const contentRef: EmbeddedViewRef<object> =
       viewContainerRef.createEmbeddedView(templateRef, context);
+    loadingRef.contentRef = contentRef;
     loadingRef.observable
       .pipe(distinctUntilChanged())
       .subscribe((registered: number) => {

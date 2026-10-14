@@ -25,14 +25,24 @@ export class ObjectUtils {
     return target;
   }
 
+  private static isUnsafeKey(key: string): boolean {
+    return key === '__proto__' || key === 'constructor' || key === 'prototype';
+  }
+
   static merge(...objects): any {
     const result = {};
 
     objects.forEach((source) => {
+      if (!source || typeof source !== 'object') {
+        return;
+      }
       Object.keys(source).forEach((prop) => {
-        if (prop in result && Array.isArray(result[prop])) {
+        if (ObjectUtils.isUnsafeKey(prop)) {
+          return;
+        }
+        if (Object.prototype.hasOwnProperty.call(result, prop) && Array.isArray(result[prop])) {
           result[prop] = result[prop].concat(source[prop]);
-        } else if (prop in result && typeof result[prop] === 'object') {
+        } else if (Object.prototype.hasOwnProperty.call(result, prop) && result[prop] && typeof result[prop] === 'object') {
           result[prop] = ObjectUtils.merge(result[prop], source[prop]);
         } else {
           result[prop] = source[prop];
@@ -76,10 +86,10 @@ export class ObjectUtils {
     const output = Object.assign({}, target);
     if (ObjectUtils.isObject(target) && ObjectUtils.isObject(source)) {
       Object.keys(source)
-        .filter(key => !ignoreUndefined || source[key] !== undefined)
+        .filter(key => !ObjectUtils.isUnsafeKey(key) && (!ignoreUndefined || source[key] !== undefined))
         .forEach(key => {
           if (ObjectUtils.isObject(source[key])) {
-            if (!(key in target)) {
+            if (!Object.prototype.hasOwnProperty.call(target, key)) {
               Object.assign(output, { [key]: source[key] });
             } else {
               output[key] = ObjectUtils.mergeDeep(

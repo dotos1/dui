@@ -221,9 +221,8 @@ export default class EditorCommands {
     const { selection, schema, tr } = this.state;
     const { from, to } = selection;
 
-    const element = document.createElement('div');
-    element.innerHTML = html.trim();
-    const slice = DOMParser.fromSchema(schema).parseSlice(element);
+    const doc = new window.DOMParser().parseFromString((html ?? '').trim(), 'text/html');
+    const slice = DOMParser.fromSchema(schema).parseSlice(doc.body);
 
     const transaction = tr.replaceRange(from, to, slice);
     this.applyTrx(transaction);

@@ -21,7 +21,7 @@ export class CommandPaletteScrollCalculator {
       return rowTopPosition;
     }
 
-    if (this.isRowBelowContainer(rowTopPosition, containerScrollTop)) {
+    if (this.isRowBelowContainer(rowTopPosition, containerScrollBottom)) {
       return (rowTopPosition + rowHeight) - containerHeight;
     }
 

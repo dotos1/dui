@@ -51,6 +51,7 @@ export abstract class BaseEditor implements OnInit,AfterViewInit, OnDestroy {
   protected _editor: any;
   protected _options: any;
   protected _windowResizeSubscription: Subscription;
+  protected _destroyed: boolean = false;
   private _insideNg: boolean = false;
 
   constructor(
@@ -66,14 +67,18 @@ export abstract class BaseEditor implements OnInit,AfterViewInit, OnDestroy {
     if (loadedMonaco) {
       // Wait until monaco editor is available
       loadPromise.then(() => {
-        this.initMonaco(this._options, this.insideNg);
+        if (!this._destroyed) {
+          this.initMonaco(this._options, this.insideNg);
+        }
       });
     } else {
       loadedMonaco = true;
       loadPromise = new Promise<void>((resolve: any) => {
         const baseUrl = this.config.baseUrl || "./assets";
         if (typeof ((<any>window).monaco) === 'object') {
-          this.initMonaco(this._options, this.insideNg);
+          if (!this._destroyed) {
+            this.initMonaco(this._options, this.insideNg);
+          }
           resolve();
           return;
         }
@@ -88,7 +93,9 @@ export abstract class BaseEditor implements OnInit,AfterViewInit, OnDestroy {
             if (typeof this.config.onMonacoLoad === 'function') {
               this.config.onMonacoLoad();
             }
-            this.initMonaco(this._options, this.insideNg);
+            if (!this._destroyed) {
+              this.initMonaco(this._options, this.insideNg);
+            }
             resolve();
           });
         };
@@ -135,6 +142,7 @@ export abstract class BaseEditor implements OnInit,AfterViewInit, OnDestroy {
   protected abstract initMonaco(options: any, insideNg: boolean): void;
 
   ngOnDestroy() {
+    this._destroyed = true;
     if (this._windowResizeSubscription) {
       this._windowResizeSubscription.unsubscribe();
     }

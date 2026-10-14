@@ -57,29 +57,15 @@ export class InlineSVGService {
    * `always`/`once`/`never` eval mode.
    * @zh 提取并执行给定 SVG 内的 `<script>` 标签，遵循 `always`/`once`/`never` 求值模式。
    */
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   evalScripts(svg: SVGElement, url: string, evalMode: string): void {
     const scripts = svg.querySelectorAll('script');
-    const scriptsToEval = [];
 
-    // Fetch scripts from SVG
+    // Strip scripts from SVG for security
     for (let i = 0; i < scripts.length; i++) {
-      const scriptType = scripts[i].getAttribute('type');
-
-      if (!scriptType || scriptType === 'application/ecmascript' || scriptType === 'application/javascript') {
-        const script = scripts[i].innerText || scripts[i].textContent;
-        scriptsToEval.push(script);
+      if (scripts[i].parentNode) {
         this._renderer.removeChild(scripts[i].parentNode, scripts[i]);
       }
-    }
-
-    // Run scripts in closure as needed
-    if (scriptsToEval.length > 0 && (evalMode === SVGScriptEvalMode.ALWAYS ||
-      (evalMode === SVGScriptEvalMode.ONCE && !this._ranScripts[url]))) {
-      for (let i = 0; i < scriptsToEval.length; i++) {
-        new Function(scriptsToEval[i])(window);
-      }
-
-      this._ranScripts[url] = true;
     }
   }
 

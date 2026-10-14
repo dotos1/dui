@@ -111,11 +111,21 @@ export class PrintDirective {
    */
   private getHtmlContents() {
     let printContents = document.getElementById(this.printSectionId);
-    let innards = printContents.getElementsByTagName('input');
-    for (let i = 0; i < innards.length; i++) {
-      innards[i].defaultValue = innards[i].value;
+    if (!printContents) {
+      return '';
     }
-    return printContents.innerHTML;
+    const clonedContents = printContents.cloneNode(true) as HTMLElement;
+    const origInputs = printContents.getElementsByTagName('input');
+    const clonedInputs = clonedContents.getElementsByTagName('input');
+    for (let i = 0; i < origInputs.length; i++) {
+      clonedInputs[i].defaultValue = origInputs[i].value;
+    }
+    const origTextareas = printContents.getElementsByTagName('textarea');
+    const clonedTextareas = clonedContents.getElementsByTagName('textarea');
+    for (let i = 0; i < origTextareas.length; i++) {
+      clonedTextareas[i].textContent = origTextareas[i].value;
+    }
+    return clonedContents.innerHTML;
   }
 
   /**
@@ -134,11 +144,20 @@ export class PrintDirective {
 
     printContents = this.getHtmlContents();
     popupWin = window.open("", "_blank", "top=0,left=0,height=auto,width=auto");
+    if (!popupWin) {
+      return;
+    }
+    const escapedTitle = (this.printTitle ? this.printTitle : "")
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#39;');
     popupWin.document.open();
     popupWin.document.write(`
       <html>
         <head>
-          <title>${this.printTitle ? this.printTitle : ""}</title>
+          <title>${escapedTitle}</title>
           ${this.returnStyleValues()}
           ${this.returnStyleSheetLinkTags()}
           ${styles}
@@ -152,7 +171,7 @@ export class PrintDirective {
               setTimeout(function() {
                 window.print();
                 setTimeout(function() { window.close(); }, 0);
-              }, ${this.printDelay});
+              }, ${Number(this.printDelay) || 0});
             }
             window.addEventListener('load', triggerPrint, false);
           </script>

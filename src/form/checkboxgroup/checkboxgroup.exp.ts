@@ -188,7 +188,7 @@ export class MatCheckGroup extends MatField implements AfterContentInit, Control
     if (this._checks != null && !isAlreadySelected) {
       this._selected = [];
       this._checks.forEach(check => {
-        check.checked = indexOf(this.value, check.value) > 0;
+        check.checked = indexOf(this.value, check.value) >= 0;
         if (check.checked) {
           this._selected.push(check);
         }

@@ -62,6 +62,9 @@ export class TranslateDirective implements AfterViewChecked, OnDestroy {
     let nodes: NodeList = this.element.nativeElement.childNodes;
     // if the element is empty
     if (!nodes.length) {
+      if (!this.key) {
+        return;
+      }
       // we add the key as content
       this.setContent(this.element.nativeElement, this.key);
       nodes = this.element.nativeElement.childNodes;
@@ -72,6 +75,15 @@ export class TranslateDirective implements AfterViewChecked, OnDestroy {
         let key: string;
         if (forceUpdate) {
           node.lastKey = null;
+        }
+        if (!forceUpdate && isDefined(node.lastKey) && this.lastParams === this.currentParams) {
+          if (this.key) {
+            if (node.lastKey === this.key) {
+              continue;
+            }
+          } else if (this.getContent(node) === node.currentValue) {
+            continue;
+          }
         }
         if(isDefined(node.lookupKey)) {
           key = node.lookupKey;
@@ -90,12 +102,6 @@ export class TranslateDirective implements AfterViewChecked, OnDestroy {
             } else if (node.originalContent) { // the content seems ok, but the lang has changed
               // the current content is the translation, not the key, use the last real content as key
               key = node.originalContent.trim();
-            // eslint-disable-next-line no-dupe-else-if
-            } else if (content !== node.currentValue) {
-              // we want to use the content as a key, not the translation value
-              key = trimmedContent;
-              // the content was changed from the user, we'll use it as a reference if needed
-              node.originalContent = content || node.originalContent;
             }
           }
         }
@@ -113,7 +119,7 @@ export class TranslateDirective implements AfterViewChecked, OnDestroy {
       this.lastParams = this.currentParams;
 
       let onTranslation = (res: string) => {
-        if (res !== key) {
+        if (res !== key || !this.translateService['pending']) {
           node.lastKey = key;
         }
         if (!node.originalContent) {
@@ -121,8 +127,11 @@ export class TranslateDirective implements AfterViewChecked, OnDestroy {
         }
         node.currentValue = isDefined(res) ? res : (node.originalContent || key);
         // we replace in the original content to preserve spaces that we might have trimmed
-        this.setContent(node, this.key ? node.currentValue : node.originalContent.replace(key, node.currentValue));
-        this._ref.markForCheck();
+        const newContent = this.key ? node.currentValue : node.originalContent.replace(key, node.currentValue);
+        if (this.getContent(node) !== newContent) {
+          this.setContent(node, newContent);
+          this._ref.markForCheck();
+        }
       };
 
       if (isDefined(translations)) {

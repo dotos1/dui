@@ -53,7 +53,6 @@ export const DATEFIELD_VALIDATORS: any = {
   selector: 'color-picker-field',
   templateUrl: 'color-picker.field.html',
   styleUrls: ['color-picker.field.scss'],
-  providers: [DATEINPUT_CONTROL_VALUE_ACCESSOR, DATEFIELD_VALIDATORS],
   host: {
     'role': 'color-picker',
     '[class.color-picker-field-disabled]': 'disabled',

@@ -698,7 +698,7 @@ export class DatatableComponent implements OnInit, DoCheck,AfterContentInit,OnDe
    * content has been fully initialized.
    */
   ngAfterContentInit() {
-    this.columnTemplates.changes.subscribe(v => this.translateColumns(v));
+    this._subscriptions.push(this.columnTemplates.changes.subscribe(v => this.translateColumns(v)));
     this.listenForColumnInputChanges();
   }
 

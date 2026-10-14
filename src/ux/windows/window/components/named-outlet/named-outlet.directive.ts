@@ -27,6 +27,7 @@ export class NamedOutletDirective implements OnInit,OnDestroy {
   }
 
   ngOnDestroy(): void {
+    this.route.clearRouterOutlet(this.name);
     this.outlet.ngOnDestroy();
   }
 }

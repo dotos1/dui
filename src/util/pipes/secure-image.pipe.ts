@@ -22,9 +22,18 @@ export class SecureImagePipe implements PipeTransform {
         switchMap(blob => {
           return new Observable(observer => {
             const reader = new FileReader();
-            reader.readAsDataURL(blob);
             reader.onloadend = () => {
               observer.next(reader.result);
+              observer.complete();
+            };
+            reader.onerror = err => {
+              observer.error(err);
+            };
+            reader.readAsDataURL(blob);
+            return () => {
+              if (reader.readyState === FileReader.LOADING) {
+                reader.abort();
+              }
             };
           });
         })

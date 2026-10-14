@@ -48,7 +48,15 @@ export function i18nLazy<T extends object>(factory: () => T): T {
   };
 
   // Proxy 的 target 只用来决定"这是数组还是对象"，实际读写一律转发到 target()
-  const shape = (Array.isArray(factory()) ? [] : {}) as T;
+  const fnSrc = Function.prototype.toString.call(factory);
+  const isArrayLiteral = /^\s*(?:function\b[^(]*\([^)]*\)\s*\{\s*return\s*\[|\(?[^)]*\)?\s*=>\s*\(?\[)/.test(fnSrc);
+  const isObjectLiteral = /^\s*(?:function\b[^(]*\([^)]*\)\s*\{\s*return\s*\{|\(?[^)]*\)?\s*=>\s*\(\s*\{)/.test(fnSrc);
+  const isArr = isArrayLiteral
+    ? true
+    : isObjectLiteral
+      ? false
+      : Array.isArray(target());
+  const shape = (isArr ? [] : {}) as T;
 
   return new Proxy(shape, {
     get(_t, prop, receiver) {

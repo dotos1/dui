@@ -218,7 +218,7 @@ export class FloatingMenuComponent implements OnInit, OnDestroy {
     }
 
     this.calculateBubblePosition(this.view).then(({ top, left }) => {
-      if (!this.canShowMenu) {
+      if (!this.canShowMenu(view)) {
         this.hide();
         return;
       }

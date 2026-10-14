@@ -1,5 +1,4 @@
-import { ChangeDetectionStrategy, Component, ViewEncapsulation, forwardRef } from '@angular/core';
-import { NG_VALUE_ACCESSOR } from '@angular/forms';
+import { ChangeDetectionStrategy, Component, ViewEncapsulation } from '@angular/core';
 
 import { TranslateService } from '@dotos/dui/translator';
 import { RangeField } from './range.field';
@@ -21,11 +20,6 @@ import { RangeField } from './range.field';
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
   preserveWhitespaces: false,
-  providers: [{
-    provide: NG_VALUE_ACCESSOR,
-    useExisting: forwardRef(() => NumberRangeFieldComponent),
-    multi: true
-  }],
   host: {
     style: 'flex:1;display:flex;flex-direction:row;align-items:center;',
     hostID: 'number-range-field' + Math.random().toString(36).substring(2, 15),

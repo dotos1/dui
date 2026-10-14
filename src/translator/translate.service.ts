@@ -500,7 +500,7 @@ export class TranslateService {
     }else if(browserCultureLang=='en'){
         browserCultureLang = 'en_US';
     }else{
-      browserCultureLang = browserCultureLang.replace('-', '_');
+      browserCultureLang = browserCultureLang ? browserCultureLang.replace('-', '_') : undefined;
     }
     return browserCultureLang;
   }

@@ -186,6 +186,7 @@ export class AbstractPanel extends Container implements OnChanges,OnInit,OnDestr
       this.transitionListener()
     }
     this.split.removeArea(this)
+    super.ngOnDestroy()
   }
 
   public collapse(newSize = 0, gutter: 'left' | 'right' = 'right'): void {

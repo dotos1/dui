@@ -19,8 +19,8 @@ import { Directionality } from '@angular/cdk/bidi';
 import { MatMenuTrigger } from '@angular/material/menu';
 import { Router } from '@angular/router';
 import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 
-import { Dui } from '@dotos/dui/core';
 import { MenuBase,MenuDirective } from '@dotos/dui/ui/menu';
 
 import { ContextMenuOverlayRef } from './context-menu-overlay';
@@ -92,11 +92,6 @@ export class ContextMenuComponent extends MenuBase implements OnInit,OnDestroy,D
         // eslint-disable-next-line @typescript-eslint/no-unused-vars
         item.handler = (item) => { };
       }
-      if (item.xtype && item.xtype != 'menu' && item.type != 'divider') {
-        let component = Dui.create(Dui.apply({ ownerCt: this }, item), this);
-        component.ownerCt = this.ownerCt;
-        this.comps.push(component);
-      }
       this.initFieldExpression(item);
     });
   }
@@ -123,9 +118,20 @@ export class ContextMenuComponent extends MenuBase implements OnInit,OnDestroy,D
     this.extendMenus.forEach((menuHost) => {
       const viewContainerRef = menuHost.viewContainerRef;
       viewContainerRef.clear();
-      viewContainerRef.insert(this.comps[k].reference.hostView, 0);
+      if (this.comps[k]?.reference?.hostView) {
+        viewContainerRef.insert(this.comps[k].reference.hostView, 0);
+      }
       k++;
     })
+    if (this.menuTrigger) {
+      this.menuTrigger.menuClosed
+        .pipe(takeUntil(this.onDestroy$))
+        .subscribe(() => {
+          if (this.contextMenuOverlayRef) {
+            this.contextMenuOverlayRef.close();
+          }
+        });
+    }
     if(this.popup){
       this.menuTrigger.openMenu();
       this.changeDetectorRef.detectChanges();

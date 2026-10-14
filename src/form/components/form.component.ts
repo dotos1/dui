@@ -208,9 +208,11 @@ export class FormComponent implements DoCheck, OnChanges, OnDestroy {
 
   submit(option: any):Promise<any> {
     option = option || {};
-    let headers = new HttpHeaders();
-    headers = headers.append("Content-Type", this.enctype);
-    option['headers'] = headers;
+    if (!this.fileUpload) {
+      let headers = new HttpHeaders();
+      headers = headers.append("Content-Type", this.enctype);
+      option['headers'] = headers;
+    }
     return this.doAction('submit', option);
   }
 
@@ -251,7 +253,14 @@ export class FormComponent implements DoCheck, OnChanges, OnDestroy {
     this.detectRef.detectChanges();
   }
   getValues(): any {
-    let body: HttpParams = new HttpParams();
+    let body: any = this.fileUpload ? new FormData() : new HttpParams();
+    const appendValue = (name: string, val: any) => {
+      if (this.fileUpload) {
+        (body as FormData).append(name, val);
+      } else {
+        body = (body as HttpParams).append(name, val);
+      }
+    };
     let fieldFun = (field) => {
       if (field.name) {
         if (this.model[field.name] != undefined) {
@@ -261,16 +270,16 @@ export class FormComponent implements DoCheck, OnChanges, OnDestroy {
             this.model[field.name] = this.model[field.name].format('YYYY-MM-DD HH:mm:ss');
           }
           if (isObjectLike(this.model[field.name])) {
-            if(this.model[field.name].text){
-              body = body.append(field.name, this.model[field.name].value);
-            }else{
-              body = body.append(field.name, this.model[field.name]);
+            if (this.model[field.name].text != null && this.model[field.name].value !== undefined) {
+              appendValue(field.name, this.model[field.name].value);
+            } else {
+              appendValue(field.name, this.model[field.name]);
             }
           } else {
-            body = body.append(field.name, this.model[field.name]);
+            appendValue(field.name, this.model[field.name]);
           }
         } else {
-          body = body.append(field.name, '');
+          appendValue(field.name, '');
         }
       }
     };
@@ -306,7 +315,7 @@ export class FormComponent implements DoCheck, OnChanges, OnDestroy {
     let fieldFun = (field: FieldConfig, model) => {
       field.formControl.reset();
       if ( isObjectLike(model)) {
-        if(model.text && model.value){
+        if(model.text != null && model.value !== undefined){
           if (field.xtype == 'select-field') {
             let opts = [];
             opts.push(model);
@@ -323,7 +332,7 @@ export class FormComponent implements DoCheck, OnChanges, OnDestroy {
             field.formControl.patchValue(model);
             field.inputValue = model.text;
           }
-        }else if(model.value){
+        }else if(model.value !== undefined){
           if (model!=undefined) {
             field.inputValue = model;
           }
@@ -409,7 +418,7 @@ export class FormComponent implements DoCheck, OnChanges, OnDestroy {
             //   f.model={};
             // }
             // f.model[key]=model;
-            if(model.text){
+            if(model && model.text != null){
               f.inputValue = model.text;
             }
           }
@@ -417,7 +426,7 @@ export class FormComponent implements DoCheck, OnChanges, OnDestroy {
       })
     } else {
       if (field.name == key) {
-        if (isObjectLike(model) && model.text && model.value) {
+        if (isObjectLike(model) && model.text != null && model.value !== undefined) {
           field.inputValue = model.text;
           field.formControl.patchValue(model.value);
           field.model[key]=model.value;
@@ -478,7 +487,7 @@ export class FormComponent implements DoCheck, OnChanges, OnDestroy {
         delete field.inputValue
       });
       each(v, (model, key) => {
-        if (isObjectLike(model) && model.text && model.value) {
+        if (isObjectLike(model) && model.text != null && model.value !== undefined) {
           this.config.items.forEach((field) => {
             if (field.name == key) {
               if (field.xtype == 'select-field' ) {
@@ -508,10 +517,17 @@ export class FormComponent implements DoCheck, OnChanges, OnDestroy {
               field.inputValue = model;
             }
           });
+        } else if (typeof model === 'number') {
+          val[key] = model;
+          this.config.items.forEach((field) => {
+            if (field.name == key) {
+              field.inputValue = model;
+            }
+          });
         } else if (Array.isArray(model)) {
           let value = [];
           forEach(model, (item) => {
-            value.push(item.value);
+            value.push(isObjectLike(item) && 'value' in item ? item.value : item);
           });
           val[key] = value;
           // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -561,10 +577,10 @@ export class FormComponent implements DoCheck, OnChanges, OnDestroy {
   }
 
   findField(id: string, items?): any {
-    if (isUndefined(items)) items = this.items
-    let field ;
+    if (isUndefined(items)) items = this.items;
+    if (!items) return null;
     for (let i = 0; i < items.length; i++) {
-       field = items[i];
+      const field = items[i];
       if (field.name === id) {
         return field;
       }
@@ -572,14 +588,16 @@ export class FormComponent implements DoCheck, OnChanges, OnDestroy {
     for (let j = 0; j < items.length; j++) {
       let item = items[j];
 
-      if (item.fieldGroup&&item.fieldGroup.length!=0) {
-        field= this.findField(id, item.fieldGroup);
+      if (item.fieldGroup && item.fieldGroup.length != 0) {
+        const found = this.findField(id, item.fieldGroup);
+        if (found) return found;
       }
-      if (item.fieldArray&&item.fieldArray.fieldGroup) {
-        field= this.findField(id, item.fieldArray.fieldGroup);
+      if (item.fieldArray && item.fieldArray.fieldGroup) {
+        const found = this.findField(id, item.fieldArray.fieldGroup);
+        if (found) return found;
       }
     }
-    return field;
+    return null;
   }
 
   add(field: any, index?: number) {

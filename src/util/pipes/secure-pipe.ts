@@ -1,8 +1,8 @@
 import { OnDestroy, Pipe, PipeTransform } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
-import { Observable } from 'rxjs';
-import { map, shareReplay } from 'rxjs/operators';
+import { Observable, Subject } from 'rxjs';
+import { map, shareReplay, takeUntil } from 'rxjs/operators';
 
 /**
  * Fetches a URL that requires authentication headers and exposes the response blob as a
@@ -19,6 +19,7 @@ export class SecurePipe implements PipeTransform, OnDestroy {
     private objectUrl?: string;
     private lastUrl?: string;
     private lastResult?: Observable<SafeUrl>;
+    private destroy$ = new Subject<void>();
 
     constructor(private http: HttpClient, private sanitizer: DomSanitizer) { }
 
@@ -31,12 +32,13 @@ export class SecurePipe implements PipeTransform, OnDestroy {
         this.lastResult = this.http
             .get(url, { responseType: 'blob' })
             .pipe(
+                takeUntil(this.destroy$),
                 map(val => {
                     this.revoke();
                     this.objectUrl = URL.createObjectURL(val);
                     return this.sanitizer.bypassSecurityTrustUrl(this.objectUrl);
                 }),
-                shareReplay({ bufferSize: 1, refCount: false })
+                shareReplay({ bufferSize: 1, refCount: true })
             );
         return this.lastResult;
     }
@@ -49,6 +51,8 @@ export class SecurePipe implements PipeTransform, OnDestroy {
     }
 
     ngOnDestroy(): void {
+        this.destroy$.next();
+        this.destroy$.complete();
         this.revoke();
     }
 }

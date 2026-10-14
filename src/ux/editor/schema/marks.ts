@@ -1,6 +1,17 @@
 import { DOMOutputSpec, Mark, MarkSpec } from 'prosemirror-model';
 
 
+const sanitizeLinkHref = (href: string | null | undefined): string | null => {
+  if (!href) {
+    return null;
+  }
+  const trimmed = String(href).trim();
+  if (/^\s*(javascript|data|vbscript):/i.test(trimmed)) {
+    return '#';
+  }
+  return trimmed;
+};
+
 const link: MarkSpec = {
   attrs: {
     href: {},
@@ -14,7 +25,7 @@ const link: MarkSpec = {
       //@ts-ignore
       getAttrs(dom: HTMLElement): Record<string, any> {
         return {
-          href: dom.getAttribute('href'),
+          href: sanitizeLinkHref(dom.getAttribute('href')),
           title: dom.getAttribute('title'),
           target: dom.getAttribute('target'),
         };
@@ -23,7 +34,7 @@ const link: MarkSpec = {
   ],
   toDOM(node): DOMOutputSpec {
     const { href, title, target } = node.attrs;
-    return ['a', { href, title, target }, 0];
+    return ['a', { href: sanitizeLinkHref(href), title, target }, 0];
   },
 };
 

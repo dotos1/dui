@@ -203,7 +203,7 @@ export class DatatableCardComponent extends DuiCardComponent implements OnChange
   }
   onSort(e) {
     this.sort = e.sorts[0].prop;
-    this.start = e.sorts[0].dir;
+    this.dir = e.sorts[0].dir;
     this.load();
     this.trigger('sort', { grid: this.view, event: e });
   }

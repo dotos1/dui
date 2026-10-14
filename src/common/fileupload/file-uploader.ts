@@ -207,6 +207,12 @@ export class FileUploader {
 
   public cancelAll(): void {
     const items = this.getNotUploadedItems();
+    items.forEach((item: FileItem) => {
+      if (!item.isUploading) {
+        item.isReady = false;
+        item.isCancel = true;
+      }
+    });
     items.map((item: FileItem) => item.cancel());
   }
 

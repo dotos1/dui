@@ -562,16 +562,18 @@ export class QueryBuilderComponent implements OnChanges, ControlValueAccessor, V
 
     const entity: Entity = this.entities.find((e) => e.value === entityValue);
     const defaultField: Field = this.getDefaultField(entity);
-    data.rules[index] = {
-      ...rule,
-      field: defaultField.value
-    };
     if (defaultField) {
-      this.changeField(defaultField.value, {
+      const nextRule: Rule = {
         ...rule,
         field: defaultField.value
-      });
+      };
+      data.rules[index] = nextRule;
+      this.changeField(defaultField.value, nextRule);
     } else {
+      data.rules[index] = {
+        ...rule,
+        field: undefined
+      };
       this.handleTouched();
       this.handleDataChange();
     }

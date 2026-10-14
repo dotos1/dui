@@ -36,7 +36,7 @@
     </ng-container>
 
     <!-- Handle leaf node menu items -->
-    <ng-container *ngIf="!child.children || child.children.length === 0&&child.hidden!==true" [ngSwitch]="child.type">
+    <ng-container *ngIf="(!child.children || child.children.length === 0) && child.hidden !== true" [ngSwitch]="child.type">
       <ng-container *ngSwitchCase="'radio'">
         <button mat-menu-item *ngIf="(child.title&&child.title!=='' ||child.icon ) &&child.hidden!==true" [ngStyle]="child.style"   [disabled]="child.disable"  (click)="click(child, $event)"
         [matTooltip]="child.toolTip | translate" matTooltipPosition='below'>

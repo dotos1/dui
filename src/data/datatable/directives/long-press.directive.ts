@@ -111,6 +111,7 @@ export class LongPressDirective implements OnDestroy {
   }
 
   ngOnDestroy(): void {
+    clearTimeout(this.timeout);
     this._destroySubscription();
   }
 

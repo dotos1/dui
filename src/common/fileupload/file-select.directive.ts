@@ -55,10 +55,9 @@ export class FileSelectDirective implements OnChanges{
    */
   @HostBinding('attr.accept')
   get accept(): string {
-    let options = this.getOptions();
-    if (options.allowedFileType) {
-      options.allowedFileType = options.allowedFileType.map(ext => ext.toLowerCase());
-      let accepts = options.allowedFileType;
+    const options = this.getOptions();
+    if (options?.allowedFileType) {
+      const accepts = options.allowedFileType.map(ext => ext.toLowerCase());
       return accepts.join(",");
     } else {
       return undefined;
@@ -73,7 +72,10 @@ export class FileSelectDirective implements OnChanges{
   }
 
   ngOnChanges(): void {
-    let options = this.uploader.options;
+    let options = this.uploader?.options;
+    if (!options) {
+      return;
+    }
     if (!options.resize) {
       this.uploader.options.resize = {};
     }
@@ -90,18 +92,20 @@ export class FileSelectDirective implements OnChanges{
    */
   @HostListener('change', ['$event'])
   async readFiles(event) {
-    const files = this.element.nativeElement.files;
+    const fileList: FileList = this.element.nativeElement.files;
+    const files: File[] = fileList ? Array.from(fileList) : [];
     const options = this.getOptions();
     const filters = this.getFilters();
+    const allowedTypes = options?.allowedFileType ? options.allowedFileType.map((ext: string) => ext.toLowerCase()) : undefined;
+    this.uploader.addToQueue(files, options, filters);
     if (files.length > 0) {
-      const value: FileList | File = this._multiple ? (files.length > 1 ? files : files[0]) : files[0];
+      const value: File[] | FileList | File = this._multiple ? (files.length > 1 ? fileList : files[0]) : files[0];
       this.model ? this.model.update.emit(value) : this.onFileSelected.emit(value);
     }
-    this.uploader.addToQueue(files, options, filters);
     if (this.isEmptyAfterSelection()) {
       this.element.nativeElement.value = '';
     }
-    for (let file of event.target.files as File[]) {
+    for (let file of files) {
       const result: ImageResult = {
         file,
         url: URL.createObjectURL(file)
@@ -109,9 +113,9 @@ export class FileSelectDirective implements OnChanges{
       let ext: string = file.name.split('.').pop();
       ext = ext && ext.toLowerCase();
 
-      if (ext && options.allowedFileType
-        && options.allowedFileType.length
-        && options.allowedFileType.indexOf('.' + ext) === -1) {
+      if (ext && allowedTypes
+        && allowedTypes.length
+        && allowedTypes.indexOf('.' + ext) === -1) {
         result.error = new Error('Extension Not Allowed');
       } else {
         try {
@@ -119,7 +123,7 @@ export class FileSelectDirective implements OnChanges{
           for (const processor of this.imageFileProcessors) {
             result.dataURL = await processor.process(result.dataURL);
           }
-          result.resized = await this.resize(result.dataURL, options.resize);
+          result.resized = await this.resize(result.dataURL, options?.resize);
         } catch (e) {
           result.error = e;
         }
@@ -142,7 +146,7 @@ export class FileSelectDirective implements OnChanges{
    * @zh 返回上传器当前的选项，用于加入选中的文件时使用。
    */
   public getOptions(): any {
-    return this.uploader.options;
+    return this.uploader ? this.uploader.options : undefined;
   }
 
   /**

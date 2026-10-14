@@ -33,6 +33,7 @@ export class RadioGroupField extends MatField implements AfterViewInit,OnDestroy
   }
 
   override ngAfterViewInit() {
+    super.ngAfterViewInit();
     this.focusObserver = observe(this.field, ['focused'], ({ currentValue }) => {
       if (this.field.tabindex === -1 && currentValue && this.radioGroup._radios.length > 0) {
         setTimeout(() => {
@@ -60,7 +61,12 @@ export class RadioGroupField extends MatField implements AfterViewInit,OnDestroy
     super.onContainerClick(event);
   }
 
+  trackByOption(index: number, option: any) {
+    return option ? option.value : index;
+  }
+
   override ngOnDestroy() {
     this.focusObserver && this.focusObserver.unsubscribe();
+    super.ngOnDestroy();
   }
 }

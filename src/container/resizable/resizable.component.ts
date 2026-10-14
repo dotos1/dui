@@ -1,6 +1,6 @@
 import {
   Component, ElementRef, Renderer2, Input, Output, EventEmitter, OnInit, ChangeDetectorRef, OnChanges,
-  AfterViewInit
+  AfterViewInit, OnDestroy, NgZone
 } from '@angular/core';
 import { PositionStore } from '@dotos/dui/core/position';
 import {
@@ -16,14 +16,10 @@ import { Dui } from '@dotos/dui/core';
   templateUrl: 'resizable.component.html',
   styleUrls: ['resizable.component.scss'],
   host: {
-    '(document: mouseup)': 'onMouseUp($event)',
-    '(document: touchend)': 'onMouseUp($event)',
-    '(document: mousemove)': 'onMouseMove($event)',
-    '(document: touchmove)': 'onMouseMove($event)',
      hostID: 'dui-resizable' + Math.random().toString(36).substring(2, 15),
   }
 })
-export class ResizableComponent implements OnInit, OnChanges, AfterViewInit, IResizable {
+export class ResizableComponent implements OnInit, OnChanges, AfterViewInit, OnDestroy, IResizable {
 
   // Resize start event.
   @Output() resizeStart = new EventEmitter<IPositionEvent>();
@@ -61,10 +57,13 @@ export class ResizableComponent implements OnInit, OnChanges, AfterViewInit, IRe
   // Resize ratio.
   public ratio: number = null;
 
+  private _unlistenFns: Array<() => void> = [];
+
   constructor(private _el: ElementRef,
     private _store: PositionStore,
     private _renderer: Renderer2,
-    public detectRef: ChangeDetectorRef) { }
+    public detectRef: ChangeDetectorRef,
+    private _ngZone: NgZone) { }
 
   ngOnInit() {
     this._renderer.addClass(this._el.nativeElement, 'ngresizable');
@@ -96,12 +95,36 @@ export class ResizableComponent implements OnInit, OnChanges, AfterViewInit, IRe
     });
   }
 
+  ngOnDestroy() {
+    this._unbindDocumentListeners();
+  }
+
+  private _bindDocumentListeners() {
+    this._unbindDocumentListeners();
+    this._ngZone.runOutsideAngular(() => {
+      this._unlistenFns.push(
+        this._renderer.listen('document', 'mousemove', (e: any) => this.onMouseMove(e)),
+        this._renderer.listen('document', 'touchmove', (e: any) => this.onMouseMove(e)),
+        this._renderer.listen('document', 'mouseup', () => this._ngZone.run(() => this.onMouseUp())),
+        this._renderer.listen('document', 'touchend', () => this._ngZone.run(() => this.onMouseUp()))
+      );
+    });
+  }
+
+  private _unbindDocumentListeners() {
+    while (this._unlistenFns.length > 0) {
+      const unlisten = this._unlistenFns.pop();
+      if (unlisten) {
+        unlisten();
+      }
+    }
+  }
 
   onMouseMove(e: any) {
     if (e.touches) {
       e = e.touches[0];
     }
-    if (this._state.isResizing) {
+    if (this._state && this._state.isResizing) {
       this.emitAction(RESIZE, {
         x: e.clientX,
         y: e.clientY
@@ -117,6 +140,7 @@ export class ResizableComponent implements OnInit, OnChanges, AfterViewInit, IRe
     if (e.touches) {
       e = e.touches[0];
     }
+    this._bindDocumentListeners();
     this.emitAction(MOUSE_DOWN, {
       x: e.clientX,
       y: e.clientY
@@ -131,6 +155,10 @@ export class ResizableComponent implements OnInit, OnChanges, AfterViewInit, IRe
   }
 
   onMouseUp() {
+    this._unbindDocumentListeners();
+    if (!this._state || !this._state.isResizing) {
+      return;
+    }
     this.emitAction(RESIZE_STOP, { x: 0, y: 0 }, { x: 0, y: 0 });
     this.emitEvent(this.resizeEnd);
   }
@@ -149,11 +177,16 @@ export class ResizableComponent implements OnInit, OnChanges, AfterViewInit, IRe
   }
 
   private emitEvent(output: EventEmitter<IPositionEvent>) {
-    output.next({
+    const payload = {
       position: this._state.currentPosition,
       size: this._state.currentSize,
       direction: this._state.direction
-    });
+    };
+    if (NgZone.isInAngularZone()) {
+      output.next(payload);
+    } else {
+      this._ngZone.run(() => output.next(payload));
+    }
   }
 
   private get _state(): IPositionState {

@@ -28,6 +28,7 @@ export class TreeDropDirective implements AfterViewInit, OnDestroy {
   private readonly dragOverEventHandler: (ev: DragEvent) => void;
   private readonly dragEnterEventHandler: (ev: DragEvent) => void;
   private readonly dragLeaveEventHandler: (ev: DragEvent) => void;
+  private unlisteners: Array<() => void> = [];
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   private _allowDrop = (element, $event) => true;
@@ -53,17 +54,17 @@ export class TreeDropDirective implements AfterViewInit, OnDestroy {
   ngAfterViewInit() {
     let el: HTMLElement = this.el.nativeElement;
     this.ngZone.runOutsideAngular(() => {
-      this.renderer.listen(el, 'dragover', this.dragOverEventHandler.bind(this));
-      this.renderer.listen(el, 'dragenter', this.dragEnterEventHandler.bind(this));
-      this.renderer.listen(el, 'dragleave', this.dragLeaveEventHandler.bind(this));
+      this.unlisteners.push(
+        this.renderer.listen(el, 'dragover', this.dragOverEventHandler),
+        this.renderer.listen(el, 'dragenter', this.dragEnterEventHandler),
+        this.renderer.listen(el, 'dragleave', this.dragLeaveEventHandler),
+      );
     });
   }
 
   ngOnDestroy() {
-    let el: HTMLElement = this.el.nativeElement;
-    el.removeEventListener('dragover', this.dragOverEventHandler);
-    el.removeEventListener('dragenter', this.dragEnterEventHandler);
-    el.removeEventListener('dragleave', this.dragLeaveEventHandler);
+    this.unlisteners.forEach(unlisten => unlisten());
+    this.unlisteners = [];
   }
 
   onDragOver($event) {

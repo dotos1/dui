@@ -183,7 +183,7 @@ export class DuiToolbarComponent extends Container implements OnChanges, AfterCo
 
 
   addItem(item: MenuItem): MenuItem {
-    return this.add(arguments);
+    return this.add(item);
   }
 
   addField(field: any): MenuItem {
@@ -209,7 +209,7 @@ export class DuiToolbarComponent extends Container implements OnChanges, AfterCo
 
   // private
   override onAdd(c) {
-    super.onAdd(this);
+    super.onAdd(c);
     if (this.disabled) {
       c.disable();
     }

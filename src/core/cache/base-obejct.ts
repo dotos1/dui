@@ -37,7 +37,7 @@ export class BaseObject extends Observer {
 
 
   addChangeListener(key, listener) {
-    this.emit(`change:${key}`, listener);
+    this.on(`change:${key}`, listener);
   }
 
   removeChangeListener(key, listener) {

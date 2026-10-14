@@ -1,8 +1,8 @@
 import { Component, OnInit, ViewChild, ChangeDetectionStrategy, ChangeDetectorRef, OnDestroy, Input } from '@angular/core';
 import { MatSelect, MatSelectChange } from '@angular/material/select';
 import { FormControl } from '@angular/forms';
-import {  of, Subject } from 'rxjs';
-import { debounceTime, delay, tap,  map, takeUntil, takeWhile } from 'rxjs/operators';
+import { Subject } from 'rxjs';
+import { debounceTime, delay, filter, tap, map, takeUntil, takeWhile } from 'rxjs/operators';
 
 import { TranslateService } from '@dotos/dui/translator';
 import { SelectOptionsService } from './options.service';
@@ -85,9 +85,17 @@ export class FieldSelect extends MatField implements OnInit,OnDestroy {
   override ngOnInit() {
     super.ngOnInit();
     this.selectSearchControl.valueChanges
-      .pipe(takeUntil(this._onDestroy))
-      .subscribe(() => {
-         let searchText = this.selectSearchControl.value;
+      .pipe(
+        filter(search => !(this.field.remote && !this.matSelect?.panelOpen && !search)),
+        tap(() => { this.searching = true; }),
+        takeUntil(this._onDestroy),
+        debounceTime(500),
+        map(search => {
+          return search;
+        }),
+        delay(200)
+      )
+      .subscribe((searchText) => {
         this.searchChange(searchText);
       });
     if (this.field.remote) {
@@ -110,6 +118,7 @@ export class FieldSelect extends MatField implements OnInit,OnDestroy {
             this.matSelect.open();
           }
           this.isLoading = false;
+          this.searching = false;
           if (serviceData.error) {
             this.field.formControl.setErrors({ 'serviceFail': serviceData.error });
             this.matSelect.close();
@@ -123,58 +132,51 @@ export class FieldSelect extends MatField implements OnInit,OnDestroy {
 
   searchChange(searchText?) {
     this.searching = false;
-     of(searchText).pipe(
-      tap(() => { this.searching = true;  }),
-      takeUntil(this._onDestroy),
-      debounceTime(500),
-      map(search => {
-        return search;
-      }),
-      delay(200)
-    ).subscribe(searchText => {
-      this.searching = false;
-      if (this.field.remote) {
-        let url = this.field.dataSource.url;
-        let method = this.field.dataSource.method;
-        // Clone rather than mutate this.field.params in place -- otherwise every
-        // in-flight/queued request ends up pointing at the same object, which is what
-        // made the identity check above meaningless.
-        let params = { ...this.field.params, '$filter': searchText };
-        this._lastRequestParams = params;
-        this.optionService.getOptions(url, method, params);
-      } else {
-        // 两处都必须从**完整列表**过滤,且大小写都要归一:
-        //
-        //   1. 原先过滤的是 `this.field.options` —— 那是上一次按键之后**已经被
-        //      筛过**的列表。于是退格不会放宽:输入 "utm2" 再退成 "utm",是在
-        //      "utm2" 的结果里再找 "utm",永远回不到更宽的集合,
-        //      只有清空才恢复。
-        //   2. 原先只把 label 转小写、**没有转 searchText**。于是输入大写
-        //      "UTM" 一条都匹配不到,而输入小写 "utm" 正常 —— 用户几乎不可能
-        //      想到问题出在大小写上。
-        //
-        // 顺带把 value 也纳入匹配:坐标系这类选项,人记住的往往是标识
-        // (UTM23N)而不是那句中文标签。
-        const q = (searchText ?? '').toString().trim().toLowerCase();
-        const all = this.options ?? [];
-        if (q === '') {
-          this.field.options = all;
-        } else {
-          this.field.options = all.filter((option) => {
-            const label = (option?.label ?? '').toString().toLowerCase();
-            const value = (option?.value ?? '').toString().toLowerCase();
-            return label.indexOf(q) > -1 || value.indexOf(q) > -1;
-          });
-        }
-        this.changeDetector.detectChanges();
+    if (this.field.remote) {
+      if (!this.matSelect?.panelOpen && !searchText) {
+        return;
       }
-    });
+      let url = this.field.dataSource?.url;
+      let method = this.field.dataSource?.method || 'POST';
+      // Clone rather than mutate this.field.params in place -- otherwise every
+      // in-flight/queued request ends up pointing at the same object, which is what
+      // made the identity check above meaningless.
+      let params = { ...this.field.params, '$filter': searchText };
+      this._lastRequestParams = params;
+      this.optionService.getOptions(url, method, params);
+    } else {
+      // 两处都必须从**完整列表**过滤,且大小写都要归一:
+      //
+      //   1. 原先过滤的是 `this.field.options` —— 那是上一次按键之后**已经被
+      //      筛过**的列表。于是退格不会放宽:输入 "utm2" 再退成 "utm",是在
+      //      "utm2" 的结果里再找 "utm",永远回不到更宽的集合,
+      //      只有清空才恢复。
+      //   2. 原先只把 label 转小写、**没有转 searchText**。于是输入大写
+      //      "UTM" 一条都匹配不到,而输入小写 "utm" 正常 —— 用户几乎不可能
+      //      想到问题出在大小写上。
+      //
+      // 顺带把 value 也纳入匹配:坐标系这类选项,人记住的往往是标识
+      // (UTM23N)而不是那句中文标签。
+      const q = (searchText ?? '').toString().trim().toLowerCase();
+      const all = this.options ?? [];
+      if (q === '') {
+        this.field.options = all;
+      } else {
+        this.field.options = all.filter((option) => {
+          const label = (option?.label ?? '').toString().toLowerCase();
+          const value = (option?.value ?? '').toString().toLowerCase();
+          return label.indexOf(q) > -1 || value.indexOf(q) > -1;
+        });
+      }
+      this.changeDetector.detectChanges();
+    }
   }
 
   override ngOnDestroy() {
     this.isAlive = false;
     this._onDestroy.next();
     this._onDestroy.complete();
+    super.ngOnDestroy();
   }
   override init() {
     super.init();
@@ -250,6 +252,11 @@ export class FieldSelect extends MatField implements OnInit,OnDestroy {
   compareWith(o1: any, o2: any) {
     return o1 === o2;
   }
+
+  trackByOption(index: number, item: any) {
+    return item ? (item.value !== undefined ? item.value : item.label) : index;
+  }
+
   _getAriaLabelledby() {
     if (this.field.attributes && this.field.attributes['aria-labelledby']) {
       return this.field.attributes['aria-labelledby'];

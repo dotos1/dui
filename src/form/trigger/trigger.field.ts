@@ -109,8 +109,9 @@ export class TriggerField extends AbstractTrigger implements AfterViewInit {
     super.init();
     if (this.field.icon && this.field.icon.indexOf('svg') != -1) {
       let icon: string = this.field.icon;
+      const slashIdx = Math.max(icon.lastIndexOf('/'), icon.lastIndexOf('\\'));
       let iconName = icon.substring(
-        icon.lastIndexOf('\\') + 1,
+        slashIdx + 1,
         icon.lastIndexOf('.'),
       );
       this.matIconRegistry.addSvgIcon(

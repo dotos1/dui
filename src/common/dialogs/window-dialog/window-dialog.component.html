@@ -12,7 +12,7 @@
 
       <button
         mat-icon-button
-        [matTooltip]="toggleDockedStateLabel ?? ''|translate "
+        [matTooltip]="(toggleDockedStateLabel ?? '') | translate"
         (click)="toggleDockedState()"
       >
         <mat-icon [attr.aria-label]="toggleDockedStateLabel"
@@ -22,7 +22,7 @@
 
       <button
         mat-icon-button
-        [matTooltip]="closeLabel ?? ''|translate "
+        [matTooltip]="(closeLabel ?? '') | translate"
         (click)="closed.emit()"
         class="dui-window-dialog-close"
         [attr.data-test]="'close-button'"

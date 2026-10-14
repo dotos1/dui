@@ -94,9 +94,11 @@ export class IframeComponent implements OnInit, OnChanges,AfterViewInit, OnDestr
    */
   @Input() set resizeDebounceMillis(value: number) {
     if (this._resizeDebounceMillis !== value) {
+      this._resizeDebounceMillis = value;
       this.updateStyles();
+    } else {
+      this._resizeDebounceMillis = value;
     }
-    this._resizeDebounceMillis = value;
 
   }
   /**
@@ -157,7 +159,7 @@ export class IframeComponent implements OnInit, OnChanges,AfterViewInit, OnDestr
    * @zh 要在 iframe 中加载的 URL；会被清理并标记为受信任的资源 URL。
    */
   @Input() set source(value: string) {
-    this._source = this.sanitizer.bypassSecurityTrustResourceUrl(value);
+    this._source = value;
   }
 
   /**

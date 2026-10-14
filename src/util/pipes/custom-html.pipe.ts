@@ -6,6 +6,13 @@ export class SanitizeHtmlPipe implements PipeTransform {
   constructor(private _sanitizer: DomSanitizer) {
   }
   transform(v: string): SafeHtml {
-    return this._sanitizer.bypassSecurityTrustHtml(v);
+    if (!v) {
+      return '';
+    }
+    const cleaned = String(v)
+      .replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, '')
+      .replace(/\son\w+\s*=\s*(?:"[^"]*"|'[^']*'|[^\s>]+)/gi, '')
+      .replace(/\s(href|xlink:href|src)\s*=\s*(['"]?)\s*(?:javascript|vbscript):[^>\s'"]*\2/gi, '');
+    return this._sanitizer.bypassSecurityTrustHtml(cleaned);
   }
 }

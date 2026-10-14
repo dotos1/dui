@@ -59,11 +59,37 @@ export class AuthBearerInterceptor implements HttpInterceptor {
     return this.excludedUrlsRegex;
   }
 
+  private isSameOriginOrRelativeUrl(url: string): boolean {
+    if (!url || !/^https?:\/\//i.test(url)) {
+      return true;
+    }
+    if (typeof window !== 'undefined' && window.location) {
+      if (url.startsWith(window.location.origin)) {
+        return true;
+      }
+      try {
+        const parsed = new URL(url, window.location.origin);
+        const currentHost = window.location.hostname;
+        if (
+          parsed.hostname === currentHost ||
+          parsed.hostname === 'localhost' ||
+          parsed.hostname === '127.0.0.1' ||
+          (currentHost.includes('.') && parsed.hostname.endsWith('.' + currentHost.split('.').slice(-2).join('.')))
+        ) {
+          return true;
+        }
+      } catch {
+        return false;
+      }
+    }
+    return false;
+  }
+
   intercept(req: HttpRequest<any>, next: HttpHandler):
     Observable<HttpSentEvent | HttpHeaderResponse | HttpProgressEvent | HttpResponse<any> | HttpUserEvent<any>> {
 
     const urlRequest = req.url;
-    const shallPass: boolean = this.getExcludedUrlsRegex().some(regex => regex.test(urlRequest));
+    const shallPass: boolean = !this.isSameOriginOrRelativeUrl(urlRequest) || this.getExcludedUrlsRegex().some(regex => regex.test(urlRequest));
     if (shallPass) {
       return next.handle(req);
     }

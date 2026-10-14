@@ -152,7 +152,7 @@ export class KeyboardShortcutsService implements OnDestroy {
             shortcut.event.preventDefault();
             shortcut.event.stopPropagation();
         }),
-        throttle((shortcut) => timer(shortcut.throttleTime)),
+        throttle((shortcut) => timer(shortcut.throttleTime ?? shortcut.throttle ?? 0)),
         tap((shortcut) => shortcut.command({ event: shortcut.event, key: shortcut.key })),
         tap((shortcut) => this._pressed.next({ event: shortcut.event, key: shortcut.key })),
         takeUntil(this.keyup$),
@@ -254,7 +254,7 @@ export class KeyboardShortcutsService implements OnDestroy {
         ),
         filter(this.isAllowed),
         tap((shortcut) => !shortcut.preventDefault || shortcut.event.preventDefault()),
-        throttle((shortcut) => timer(shortcut.throttleTime)),
+        throttle((shortcut) => timer(shortcut.throttleTime ?? shortcut.throttle ?? 0)),
         tap((shortcut) => shortcut.command({ event: shortcut.event, key: shortcut.key })),
         tap((shortcut) => this._pressed.next({ event: shortcut.event, key: shortcut.key })),
         takeUntil(this.resetCounter$),
@@ -450,6 +450,11 @@ export class KeyboardShortcutsService implements OnDestroy {
                           .map((key) => key.trim())
                   )
                 : [];
+            const resolvedThrottle = !isNill(command.throttleTime)
+                ? command.throttleTime
+                : !isNill(command.throttle)
+                ? command.throttle
+                : this.throttleTime;
             return {
                 ...command,
                 isSequence,
@@ -457,7 +462,8 @@ export class KeyboardShortcutsService implements OnDestroy {
                 allowIn: command.allowIn || [],
                 key: keys,
                 id: `${guid++}`,
-                throttle: isNill(command.throttleTime) ? this.throttleTime : command.throttleTime,
+                throttle: resolvedThrottle,
+                throttleTime: resolvedThrottle,
                 priority: priority,
                 predicates: predicates
             } as ParsedShortcut;

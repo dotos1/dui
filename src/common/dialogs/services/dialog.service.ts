@@ -218,17 +218,20 @@ export class DialogService {
     promptDialogComponent.title = config.title;
     promptDialogComponent.message = config.message;
     promptDialogComponent.formControl.setValue(config.value);
-    if (config.minLength) {
+    if (config.minLength !== undefined) {
       promptDialogComponent.minlength = config.minLength;
     }
-    if (config.maxLength) {
+    if (config.maxLength !== undefined) {
       promptDialogComponent.maxlength = config.maxLength;
     }
-    if (config.min) {
+    if (config.min !== undefined) {
       promptDialogComponent.min = config.min;
     }
-    if (config.max) {
+    if (config.max !== undefined) {
       promptDialogComponent.max = config.max;
+    }
+    if (config.required !== undefined) {
+      promptDialogComponent.required = config.required;
     }
     if (config.dataType) {
       promptDialogComponent.dataType = config.dataType;
@@ -272,10 +275,16 @@ export class DialogService {
       config
     );
     this._componentMap.set(matDialogRef.id,matDialogRef.componentInstance);
+    const dragRefSubject: Subject<DragRef> = new Subject<DragRef>();
+    let draggableElement: DragRef;
+
     matDialogRef.afterClosed().subscribe(()=>{
       this._componentMap.delete(matDialogRef.id);
+      if (draggableElement) {
+        draggableElement.dispose();
+      }
+      dragRefSubject.complete();
     })
-    const dragRefSubject: Subject<DragRef> = new Subject<DragRef>();
 
     const CDK_OVERLAY_PANE_SELECTOR = '.cdk-overlay-pane';
     const CDK_OVERLAY_CONTAINER_SELECTOR = '.cdk-overlay-container';
@@ -289,7 +298,7 @@ export class DialogService {
         return;
       }
 
-      const draggableElement: DragRef =
+      draggableElement =
         this._dragDrop.createDrag(dialogElement);
 
       if (draggableClass) {

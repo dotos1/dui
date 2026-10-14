@@ -1,4 +1,4 @@
-  <ng-container *ngFor="let option of  field.options | selectOptionsPipe:field | async; let i = index;">
+  <ng-container *ngFor="let option of  field.options | selectOptionsPipe:field | async; let i = index; trackBy: trackByOption">
     <mat-checkbox
       [formAttributes]="field"
       [tabindex]="field.tabindex || 0"

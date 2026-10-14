@@ -121,12 +121,16 @@ export class ExtCodeEditorComponent implements OnInit, AfterViewInit, OnDestroy,
     this.onTouched = fn;
   }
 
+  private _destroyed: boolean = false;
+  private _registeredDisposables: Array<{ dispose: () => void }> = [];
+  private _registeredStyles: HTMLStyleElement[] = [];
+
   /**
    * getEditorContent?: function
    * Returns the content within the editor
    */
   getValue(): Observable<string> {
-      if (this._componentInitialized) {
+      if (this._componentInitialized && this._editor) {
             this._value = this._editor.getValue();
             setTimeout(() => {
                 this._subject.next(this._value);
@@ -147,7 +151,7 @@ export class ExtCodeEditorComponent implements OnInit, AfterViewInit, OnDestroy,
   @Input('language')
   set language(language: string) {
     this._language = language;
-    if (this._componentInitialized) {
+    if (this._componentInitialized && this._editor) {
             let currentValue: string = this._editor.getValue();
             this._editor.dispose();
             let myDiv: HTMLDivElement = this._editorContainer.nativeElement;
@@ -170,43 +174,60 @@ export class ExtCodeEditorComponent implements OnInit, AfterViewInit, OnDestroy,
 
 
   registerLanguage(language: any): void {
-    if (this._componentInitialized) {
-        // let currentValue: string = this._editor.getValue();
+    if (this._componentInitialized && this._editor && language) {
         this._editor.dispose();
 
-        for (let i: number = 0; i < language.completionItemProvider.length; i++) {
-            let provider: any = language.completionItemProvider[i];
+        const completionItems = (language.completionItemProvider || []).map((provider: any) => {
+            let resolvedKind = provider.kind;
+            if (typeof resolvedKind === 'string' && typeof monaco !== 'undefined') {
+                const kindKey = resolvedKind.replace(/^monaco\.languages\.CompletionItemKind\./, '');
+                resolvedKind = monaco.languages?.CompletionItemKind?.[kindKey] ?? resolvedKind;
+            }
+            return { ...provider, kind: resolvedKind };
+        });
 
-            provider.kind = (0, eval)(provider.kind);
-        }
-        for (let i: number = 0; i < language.monarchTokensProvider.length; i++) {
-            let monarchTokens: any = language.monarchTokensProvider[i];
+        const monarchTokens = (language.monarchTokensProvider || []).map((tokenRule: any) => {
+            if (!Array.isArray(tokenRule)) {
+                return tokenRule;
+            }
+            const copy = tokenRule.slice();
+            if (typeof copy[0] === 'string') {
+                const match = /^\/(.*)\/([gimsuy]*)$/.exec(copy[0]);
+                copy[0] = match ? new RegExp(match[1], match[2]) : new RegExp(copy[0]);
+            }
+            return copy;
+        });
 
-
-            monarchTokens[0] = (0, eval)(monarchTokens[0]);
-        }
         monaco.languages.register({ id: language.id });
 
         monaco.languages.setMonarchTokensProvider(language.id, {
             tokenizer: {
-                root: language.monarchTokensProvider,
+                root: monarchTokens,
             },
         });
 
         // Define a new theme that constains only rules that match this language
-        monaco.editor.defineTheme(language.customTheme.id, language.customTheme.theme);
-        this._theme = language.customTheme.id;
+        if (language.customTheme) {
+            monaco.editor.defineTheme(language.customTheme.id, language.customTheme.theme);
+            this._theme = language.customTheme.id;
+        }
 
-        monaco.languages.registerCompletionItemProvider(language.id, {
+        const disposable = monaco.languages.registerCompletionItemProvider(language.id, {
             provideCompletionItems: () => {
-                return language.completionItemProvider;
+                return completionItems;
             },
         });
+        if (disposable) {
+            this._registeredDisposables.push(disposable);
+        }
 
-        let css: HTMLStyleElement = document.createElement('style');
-        css.type = 'text/css';
-        css.innerHTML = language.monarchTokensProviderCSS;
-        document.body.appendChild(css);
+        if (language.monarchTokensProviderCSS) {
+            let css: HTMLStyleElement = document.createElement('style');
+            css.type = 'text/css';
+            css.textContent = language.monarchTokensProviderCSS;
+            document.body.appendChild(css);
+            this._registeredStyles.push(css);
+        }
         this.onEditorConfigurationChanged.emit(undefined);
     }
   }
@@ -218,7 +239,7 @@ export class ExtCodeEditorComponent implements OnInit, AfterViewInit, OnDestroy,
   @Input('editorStyle')
   set editorStyle(editorStyle: string) {
     this._editorStyle = editorStyle;
-    if (this._componentInitialized) {
+    if (this._componentInitialized && this._editor) {
         let containerDiv: HTMLDivElement = this._editorContainer.nativeElement;
         containerDiv.setAttribute('style', editorStyle);
         let currentValue: string = this._editor.getValue();
@@ -243,7 +264,7 @@ export class ExtCodeEditorComponent implements OnInit, AfterViewInit, OnDestroy,
   @Input('theme')
   set theme(theme: string) {
     this._theme = theme;
-    if (this._componentInitialized) {
+    if (this._componentInitialized && this._editor) {
         this._editor.updateOptions({'theme': theme});
         this.onEditorConfigurationChanged.emit(undefined);
     }
@@ -268,7 +289,7 @@ export class ExtCodeEditorComponent implements OnInit, AfterViewInit, OnDestroy,
   @Input('editorOptions')
   set editorOptions(editorOptions: any) {
       this._editorOptions = editorOptions;
-      if (this._componentInitialized) {
+      if (this._componentInitialized && this._editor) {
           this._editor.updateOptions(editorOptions);
           this.onEditorConfigurationChanged.emit(undefined);
       }
@@ -281,7 +302,7 @@ export class ExtCodeEditorComponent implements OnInit, AfterViewInit, OnDestroy,
    * layout method that calls layout method of editor and instructs the editor to remeasure its container
    */
    layout(): void {
-    if (this._componentInitialized) {
+    if (this._componentInitialized && this._editor) {
         this._editor.layout();
     }
   }
@@ -307,6 +328,7 @@ export class ExtCodeEditorComponent implements OnInit, AfterViewInit, OnDestroy,
         loadedMonaco = true;
         loadPromise = new Promise<void>((resolve: any) => {
             if (typeof((<any>window).monaco) === 'object') {
+                this.initMonaco();
                 resolve();
                 return;
             }
@@ -345,6 +367,9 @@ export class ExtCodeEditorComponent implements OnInit, AfterViewInit, OnDestroy,
    * and emit the onEditorInitialized event.  This is only used in the browser version.
    */
   private initMonaco(): void {
+    if (this._destroyed || !this._editorContainer?.nativeElement) {
+        return;
+    }
     let containerDiv: HTMLDivElement = this._editorContainer.nativeElement;
     containerDiv.id = this._editorInnerContainer;
     this._editor = monaco.editor.create(containerDiv, Object.assign({
@@ -354,7 +379,9 @@ export class ExtCodeEditorComponent implements OnInit, AfterViewInit, OnDestroy,
         automaticLayout: this._automaticLayout,
     }, this.editorOptions));
     setTimeout(() => {
-        this.onEditorInitialized.emit(undefined);
+        if (!this._destroyed) {
+            this.onEditorInitialized.emit(undefined);
+        }
     });
     this._editor.getModel().onDidChangeContent( () => {
         this._fromEditor = true;
@@ -369,7 +396,13 @@ export class ExtCodeEditorComponent implements OnInit, AfterViewInit, OnDestroy,
   };
 
   ngOnDestroy(): void {
+    this._destroyed = true;
     window.removeEventListener('resize', this._onWindowResize);
+    this._registeredDisposables.forEach(d => d.dispose());
+    this._registeredDisposables = [];
+    this._registeredStyles.forEach(s => s.remove());
+    this._registeredStyles = [];
     this._editor?.dispose();
+    this._editor = undefined;
   }
 }

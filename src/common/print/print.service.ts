@@ -85,7 +85,13 @@ export class PrintService {
     if (this.printStyle) {
       styles = `<style>${this.printStyle}</style>`;
     }
-    return `<head><title>${this.popTitle}</title>${styles}${links}</head>`;
+    const escapedTitle = (this.popTitle || '')
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#39;');
+    return `<head><title>${escapedTitle}</title>${styles}${links}</head>`;
   }
 
 	/**
@@ -174,6 +180,9 @@ export class PrintService {
     windowAttr += `,width=${window.screen.width},height=${window.screen.height};`;
     windowAttr += ',resizable=yes,personalbar=no,scrollbars=yes';
     let newWin = window.open('', '_blank', windowAttr);
+    if (!newWin) {
+      return;
+    }
     this.printWindow = newWin;
     this.printDoc = newWin.document;
   }
@@ -209,6 +218,10 @@ export class PrintService {
       clearTimeout(timeoutId);
       this.setInputAndTextareaValue();
       this.getPrintWindow();
+      if (!this.printWindow || !this.printDoc) {
+        this.setInputAndTextareaValue(true);
+        return;
+      }
       this.write();
       this.startPrint();
     }, 1000);
@@ -256,11 +269,11 @@ export class PrintService {
       if (!isReset) {
         if (!textarea.innerHTML) {
           textarea.setAttribute('isSetHtml', 'true'); 
-          textarea.innerHTML = textarea.value;
+          textarea.textContent = textarea.value;
         }
       } else {
         if (textarea.getAttribute('isSetHtml')) {
-          textarea.innerHTML = '';
+          textarea.textContent = '';
           textarea.removeAttribute('isSetHtml');
         }
       }

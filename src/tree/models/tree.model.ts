@@ -50,6 +50,12 @@ export class TreeModel implements ITreeModel, OnDestroy {
   subscribe(eventName, fn) {
     const subscription = this.events[eventName].subscribe(fn);
     this.subscriptions.push(subscription);
+    subscription.add(() => {
+      const idx = this.subscriptions.indexOf(subscription);
+      if (idx !== -1) {
+        this.subscriptions.splice(idx, 1);
+      }
+    });
     return subscription;
   }
 
@@ -202,6 +208,8 @@ export class TreeModel implements ITreeModel, OnDestroy {
 
   ngOnDestroy() {
     this.dispose();
+    this.mobxDisposers.forEach(dispose => dispose());
+    this.mobxDisposers = [];
     this.unsubscribeAll();
   }
 
@@ -209,14 +217,12 @@ export class TreeModel implements ITreeModel, OnDestroy {
     if (this.virtualRoot) {
       this.virtualRoot.dispose();
     }
-    this.mobxDisposers.forEach(dispose => dispose());
-    this.mobxDisposers = [];
     // 清空字典缓存
     this.nodeRegistry.clear();
   }
 
   unsubscribeAll() {
-    this.subscriptions.forEach(subscription => subscription.unsubscribe());
+    this.subscriptions.slice().forEach(subscription => subscription.unsubscribe());
     this.subscriptions =[];
   }
 

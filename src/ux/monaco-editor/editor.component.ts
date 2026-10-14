@@ -1,4 +1,4 @@
-import { Component, forwardRef, Inject, Input, NgZone, Renderer2, ViewEncapsulation } from '@angular/core';
+import { Component, ElementRef, forwardRef, Inject, Input, NgZone, Renderer2, ViewChild, ViewEncapsulation } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { fromEvent, Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
@@ -18,7 +18,7 @@ import { EditorTheme } from './editor.theme';
   selector: 'monaco-editor',
   template: `
     <div class="editor-container" #editorContainer style="height:100%"></div>
-    <div class="statusbar"></div>
+    <div #statusbar class="statusbar"></div>
   `,
   styleUrls: ['./editor.main.scss'],
   encapsulation: ViewEncapsulation.None,
@@ -33,6 +33,8 @@ import { EditorTheme } from './editor.theme';
 })
 export class EditorComponent extends BaseEditor implements ControlValueAccessor {
   private _value: string = '';
+  private _createdModel: any;
+  @ViewChild('statusbar', { static: true }) _statusbar: ElementRef;
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   propagateChange = (_: any) => {};
@@ -43,7 +45,7 @@ export class EditorComponent extends BaseEditor implements ControlValueAccessor 
     this._options = Object.assign({}, this.config.defaultOptions, options);
     if (this._editor) {
       this._editor.dispose();
-      this.initMonaco(options, this.insideNg);
+      this.initMonaco(this._options, this.insideNg);
     }
   }
 
@@ -53,10 +55,10 @@ export class EditorComponent extends BaseEditor implements ControlValueAccessor 
 
   @Input('model')
   set model(model: EditorModel) {
-    this.options.model = model;
+    this._options = Object.assign({}, this.config?.defaultOptions, this._options, { model });
     if (this._editor) {
       this._editor.dispose();
-      this.initMonaco(this.options, this.insideNg);
+      this.initMonaco(this._options, this.insideNg);
     }
   }
 
@@ -106,6 +108,14 @@ export class EditorComponent extends BaseEditor implements ControlValueAccessor 
   }
 
   override ngOnDestroy() {
+    if (this.vimMode) {
+      this.vimMode.dispose();
+      this.vimMode = undefined;
+    }
+    if (this._createdModel) {
+      this._createdModel.dispose();
+      this._createdModel = undefined;
+    }
     super.ngOnDestroy();
     this._unsubscribeAll.next();
     this._unsubscribeAll.complete();
@@ -125,7 +135,7 @@ export class EditorComponent extends BaseEditor implements ControlValueAccessor 
   writeValue(value: any): void {
     this._value = value || '';
     setTimeout(() => {
-      if (this._editor && !this.options.model) {
+      if (this._editor && !this.options?.model) {
         this._editor.setValue(this._value);
       }
     });
@@ -140,28 +150,40 @@ export class EditorComponent extends BaseEditor implements ControlValueAccessor 
   }
 
   setWriteMode(type) {
+    if (this.vimMode) {
+      this.vimMode.dispose();
+      this.vimMode = undefined;
+    }
     if (type == 'vim') {
       this.vimMode = initVimMode(
         this._editor,
-        document.getElementById('statusbar')
+        this._statusbar?.nativeElement
       );
-    } else if (this.vimMode) {
-      this.vimMode.dispose();
-      this.vimMode=undefined;
     }
   }
   public initMonaco(options: any, insideNg: boolean): void {
-
+    options = Object.assign({}, this.config?.defaultOptions, options);
     const hasModel = !!options.model;
 
     if (hasModel) {
       const model = monaco.editor.getModel(options.model.uri || '');
       if (model) {
+        if (this._createdModel && this._createdModel !== model) {
+          this._createdModel.dispose();
+          this._createdModel = undefined;
+        }
         options.model = model;
         options.model.setValue(this._value);
       } else {
-        options.model = monaco.editor.createModel(options.model.value, options.model.language, options.model.uri);
+        if (this._createdModel) {
+          this._createdModel.dispose();
+        }
+        this._createdModel = monaco.editor.createModel(options.model.value, options.model.language, options.model.uri);
+        options.model = this._createdModel;
       }
+    } else if (this._createdModel) {
+      this._createdModel.dispose();
+      this._createdModel = undefined;
     }
 
     if (insideNg) {

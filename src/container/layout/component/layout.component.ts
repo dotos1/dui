@@ -256,6 +256,7 @@ export class LayoutComponent
 
   /** @zh 分隔条上被动 touchstart 监听的解绑函数，*ngFor 变化与销毁时都要用。 */
   private gutterTouchListeners: Array<() => void> = [];
+  private gutterElsSub?: any;
 
   _clickTimeout: number | null = null;
 
@@ -268,7 +269,7 @@ export class LayoutComponent
     });
 
     this.bindGutterTouchStart();
-    this.gutterEls.changes.subscribe(() => this.bindGutterTouchStart());
+    this.gutterElsSub = this.gutterEls.changes.subscribe(() => this.bindGutterTouchStart());
   }
 
   /**
@@ -936,6 +937,13 @@ export class LayoutComponent
   public override ngOnDestroy(): void {
     this.stopDragging();
     this.unbindGutterTouchStart();
+    if (this._clickTimeout !== null) {
+      clearTimeout(this._clickTimeout);
+      this._clickTimeout = null;
+    }
+    this.gutterElsSub?.unsubscribe();
+    this.dragProgressSubject.complete();
+    super.ngOnDestroy();
   }
 
   public collapseArea(

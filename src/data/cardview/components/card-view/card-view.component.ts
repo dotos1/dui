@@ -40,4 +40,8 @@ export class CardViewComponent {
 
   @Input()
   multiValueSeparator: string = DEFAULT_SEPARATOR;
+
+  trackByProperty(index: number, property: CardViewItem): any {
+    return property ? property.key : index;
+  }
 }

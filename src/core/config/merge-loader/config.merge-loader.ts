@@ -58,7 +58,7 @@ export class ConfigMergeLoader implements ConfigLoader {
       );
 
     return new Promise((resolve, reject) => {
-      merge(mergedSettings, errorIfEmpty(mergedSettings), mergedSettings)
+      merge(mergedSettings, errorIfEmpty(mergedSettings))
         .pipe(
           reduce((merged: any, current: any) => mergeWith(merged)(current), {})
         )

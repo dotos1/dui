@@ -52,7 +52,10 @@ export function mixinControlValueAccessor<
     }
 
     writeValue(value: any): void {
-      this.value = value;
+      if (value !== this._value) {
+        this._value = value;
+        this._subjectValueChanges.next(value);
+      }
       this._changeDetectorRef.markForCheck();
     }
 

@@ -30,8 +30,12 @@ export class DataTableHeaderComponent implements OnDestroy {
 
   @Input() set innerWidth(val: number) {
     this._innerWidth = val;
-    setTimeout(() => {
-      if (this._columns) {
+    if (this._innerWidthTimeout) {
+      clearTimeout(this._innerWidthTimeout);
+    }
+    this._innerWidthTimeout = setTimeout(() => {
+      this._innerWidthTimeout = null;
+      if (this._columns && !this.destroyed) {
         const colByPin = columnsByPin(this._columns);
         this.columnGroupWidths = columnGroupWidths(colByPin, this._columns);
         this.setStylesByGroup();
@@ -111,11 +115,16 @@ export class DataTableHeaderComponent implements OnDestroy {
   };
 
   private destroyed = false;
+  private _innerWidthTimeout: any;
 
   constructor(private cd: ChangeDetectorRef) {}
 
   ngOnDestroy(): void {
     this.destroyed = true;
+    if (this._innerWidthTimeout) {
+      clearTimeout(this._innerWidthTimeout);
+      this._innerWidthTimeout = null;
+    }
   }
 
   onLongPressStart({ event, model }: { event: any; model: any }) {

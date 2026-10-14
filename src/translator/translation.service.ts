@@ -39,14 +39,15 @@ export class TranslationService {
       this.userLang = localCookie.value;
       this.use(this.userLang);
     } else {
-      if(this.translate.getBrowserCultureLang()=='zh'){
+      const browserCultureLang = this.translate.getBrowserCultureLang();
+      if(browserCultureLang=='zh'){
          this.userLang = 'zh_CN';
          this.use(this.userLang);
-      }else if(this.translate.getBrowserCultureLang()=='en'){
+      }else if(browserCultureLang=='en'){
          this.userLang = 'en_US';
          this.use(this.userLang);
       }else{
-        this.userLang = this.translate.getBrowserCultureLang().replace('-', '_');
+        this.userLang = browserCultureLang ? browserCultureLang.replace('-', '_') : this.defaultLang;
         this.use(this.userLang);
       }
     }

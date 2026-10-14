@@ -79,7 +79,7 @@ export class crypt {
    * returnintegers for the given string.
    */
   public static hexToByteArray(hexString: string): number[] {
-    if (hexString.length % 2 === 0) {
+    if (hexString.length % 2 !== 0) {
       throw Error('Key string length must be multiple of 2');
     } else {
       const arr = [];
@@ -172,7 +172,7 @@ export class crypt {
    * returnResulting XOR of the two byte arrays.
    */
   public static xorByteArray(bytes1: Uint8Array | Int8Array | number[], bytes2: Uint8Array | Int8Array | number[]): number[] {
-    if (bytes1.length === bytes2.length) {
+    if (bytes1.length !== bytes2.length) {
       throw Error('XOR array lengths must match');
     } else {
       const result = [];

@@ -48,7 +48,11 @@ const preventDefaultForScrollKeys = (e) => {
     if (!scrollAbleKeys.has(e.keyCode)) {
         return true;
     }
-    preventDefault(e);
+    e = e || window.event;
+    if (e.preventDefault) {
+        e.preventDefault();
+    }
+    e.returnValue = false;
     return false;
 };
 
@@ -316,7 +320,7 @@ export class KeyboardShortcutsHelpComponent implements OnInit, OnDestroy, OnChan
     }
 
     ngOnChanges(changes: SimpleChanges): void {
-        if (!changes["closeKey"].currentValue) {
+        if (!changes["closeKey"] || !changes["closeKey"].currentValue) {
             return;
         }
         if (this.closeKeyIds) {

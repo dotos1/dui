@@ -54,11 +54,14 @@ export class TerminalComponent implements  OnChanges, AfterViewInit, NgTerminal,
   set _dataSource(ds) {
     if (this.dataSourceSubscription != null) {
       this.dataSourceSubscription.unsubscribe();
+      this.dataSourceSubscription = null;
     }
     this.dataSource = ds;
-    this.dataSourceSubscription = this.dataSource.subscribe((data) => {
-      this.writeln(data);
-    })
+    if (this.dataSource) {
+      this.dataSourceSubscription = this.dataSource.subscribe((data) => {
+        this.writeln(data);
+      });
+    }
   }
   get _dataSource() {
     return this.dataSource;
@@ -280,8 +283,8 @@ export class TerminalComponent implements  OnChanges, AfterViewInit, NgTerminal,
         this.requestRenderFromAPI.next({ rowChanged: true });
       }
     }
-    if (changes?.['_rowsInput']) {
-      if (changes?.['_rowsInput']?.previousValue != changes?.['_rowsInput']?.currentValue) {
+    if (changes?.['_colsInput']) {
+      if (changes?.['_colsInput']?.previousValue != changes?.['_colsInput']?.currentValue) {
         this.requestRenderFromAPI.next({ columnChanged: true });
       }
     }
@@ -438,15 +441,15 @@ export class TerminalComponent implements  OnChanges, AfterViewInit, NgTerminal,
       this.term.dispose();
     }
      
-    this.resizableObservers.forEach(ob => ob.disconnect());
+    this.resizableObservers.forEach(ob => ob?.disconnect());
   }
 
   write(chars: string) {
-    this.term.write(chars);
+    this.term?.write(chars);
   }
 
   writeln(chars: string) {
-    this.term.writeln(chars);
+    this.term?.writeln(chars);
   }
 
   get keyInput(): Observable<string> {

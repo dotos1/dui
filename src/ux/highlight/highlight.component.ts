@@ -22,7 +22,7 @@ import hljs from 'highlight.js';
   templateUrl: './highlight.component.html',
   
 })
-export class HighlightComponent implements AfterViewInit, AfterViewChecked {
+export class HighlightComponent implements AfterViewInit {
   private _initialized: boolean = false;
 
   private _content: string;
@@ -66,10 +66,6 @@ export class HighlightComponent implements AfterViewInit, AfterViewChecked {
     private cdr: ChangeDetectorRef,
   ) {}
 
-  ngAfterViewChecked(): void {
-    this.cdr.detectChanges();
-  }
-
   ngAfterViewInit(): void {
     if (!this._content) {
       this._loadContent((<HTMLElement>this.highlightComp.nativeElement).textContent);
@@ -91,6 +87,7 @@ export class HighlightComponent implements AfterViewInit, AfterViewChecked {
       if (this.copyCodeToClipboard) {
         this._renderer.appendChild(this._elementRef.nativeElement, this.copyComp.nativeElement);
       }
+      this.cdr.detectChanges();
     }
     this.contentReady.emit();
   }

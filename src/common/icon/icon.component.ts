@@ -77,9 +77,21 @@ export class IconComponent {
    * @zh 应用到渲染出的 `mat-icon` 元素上的内联样式对象。
    */
   @Input()
-  set iconStyle(v: any) {
+  set style(v: any) {
     this._style = v;
     this._changeDetectorRef.detectChanges();
+  }
+  get style(): any {
+    return this._style;
+  }
+
+  /**
+   * Inline style object applied to the rendered `mat-icon` element.
+   * @zh 应用到渲染出的 `mat-icon` 元素上的内联样式对象。
+   */
+  @Input()
+  set iconStyle(v: any) {
+    this.style = v;
   }
   /**
    * Inline style object applied to the rendered `mat-icon` element.

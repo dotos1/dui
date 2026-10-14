@@ -24,14 +24,15 @@ export class CacheInterceptor implements HttpInterceptor {
     if (req.method !== "GET") {
       return next.handle(req);
     }
-    const cachedResponse = this.getFromCache(req.url);
+    const cacheKey = req.urlWithParams;
+    const cachedResponse = this.getFromCache(cacheKey);
     if (cachedResponse) {
       return of(cachedResponse);
     }
     return next.handle(req).pipe(
       tap(event => {
         if (event instanceof HttpResponse) {
-          this.setInCache(req.url, event);
+          this.setInCache(cacheKey, event);
         }
       })
     );

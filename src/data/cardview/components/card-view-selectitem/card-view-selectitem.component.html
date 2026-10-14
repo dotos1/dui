@@ -9,7 +9,7 @@
                         (selectionChange)="onChange($event)"
                         data-automation-class="select-box">
                 <mat-option *ngIf="showNoneOption()">{{ 'CORE.CARDVIEW.NONE' | translate }}</mat-option>
-                <mat-option *ngFor="let option of getOptions() | async"
+                <mat-option *ngFor="let option of getOptions() | async; trackBy: trackByOption"
                             [value]="option.key">
                     {{ option.label | translate }}
                 </mat-option>

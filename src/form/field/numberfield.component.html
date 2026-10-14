@@ -8,7 +8,7 @@
   [formControl]="formControl"
   [formAttributes]="field"
   [tabIndex]="field.tabindex"
-  [value]="field.inputValue ?field.inputValue:''"
+  [value]="field.inputValue ?? ''"
   [placeholder]="field.placeholder|translate"
   autocomplete="off"
   (change)="onChange($event)"

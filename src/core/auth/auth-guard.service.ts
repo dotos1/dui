@@ -28,7 +28,7 @@ export class AuthGuard extends AuthGuardBase implements OnDestroy {
         window.removeEventListener('storage', this.ticketChangeBind);
     }
     ticketChange(event: StorageEvent) {
-        if (event.newValue !== event.oldValue) {
+        if (event.key && event.key.endsWith('ticket') && event.newValue !== event.oldValue) {
             this.ticketChangeRedirect(event);
         }
         // Per the StorageEvent spec, `localStorage.clear()` (a common logout pattern)

@@ -3,7 +3,7 @@
   [disableRipple]="config.disableRipple" [matTooltip]="(config.title||config.text) | translate"
   matTooltipPosition='below'  (click)="onClick($event)" >
   <dui-icon [iconStyle]="iconStyle" [value]="icon"></dui-icon>
-  <mat-icon  [matMenuTriggerFor]="colorMenu" >arrow_drop_down</mat-icon>
+  <mat-icon>arrow_drop_down</mat-icon>
 </button>
 <button *ngIf='config.parentType==="menu"&&(config.title&&config.title!=="")&&!hidden' mat-menu-item  [disabled]="config.disabled" [ngStyle]='config.style' [matMenuTriggerFor]="colorMenu"  style="padding-inline-start: 8px;padding-inline-end: 8px;">
   <dui-icon [iconStyle]="iconStyle" [value]="icon"></dui-icon>

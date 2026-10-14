@@ -1,7 +1,6 @@
 import { Component, ViewChild ,  forwardRef, ChangeDetectionStrategy} from '@angular/core';
 import { MatField } from '../base/mat.field';
 import { MatSliderThumb  } from '@angular/material/slider';
-import { NG_VALUE_ACCESSOR } from '@angular/forms';
 @Component({
   selector: 'slider-field',
   styleUrls: ['./slider.component.scss'],
@@ -11,13 +10,6 @@ import { NG_VALUE_ACCESSOR } from '@angular/forms';
     hostID: 'slider-field' + Math.random().toString(36).substring(2, 15),
   },
   changeDetection: ChangeDetectionStrategy.OnPush,
-  providers: [
-    {
-      provide: NG_VALUE_ACCESSOR,
-      useExisting: forwardRef(() => SliderFieldComponent),
-      multi: true,
-    }
-  ]
 })
 export class SliderFieldComponent extends MatField {
 

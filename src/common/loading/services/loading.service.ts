@@ -123,7 +123,16 @@ export class LoadingService {
    * @zh 取消订阅并销毁指定名称的加载组件。
    */
   public removeComponent(name: string): void {
+    this._clearTimeout(name);
     if (this._context[name]) {
+      this._context[name].times = 0;
+      this._context[name].subject.next(0);
+      if (this._context[name].overlayRef) {
+        this._context[name].overlayRef?.dispose();
+      }
+      if (this._context[name].contentRef) {
+        this._context[name].contentRef?.destroy();
+      }
       this._context[name].subject.unsubscribe();
       if (this._context[name].componentRef) {
         this._context[name].componentRef?.destroy();

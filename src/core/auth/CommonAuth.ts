@@ -96,6 +96,7 @@ export class CommonAuth  {
                     resolve(ticket);
                 },
                 (error) => {
+                    this.authentications.basicAuth.password = null;
                     this.saveUsername('');
                     reject(error);
                 });
@@ -135,6 +136,8 @@ export class CommonAuth  {
                     resolve(response);
                 },
                 (error) => {
+                    this.invalidateSession();
+                    this.loader.storage.removeItem(this.loader.storageKey);
                     reject(error);
                 });
         });

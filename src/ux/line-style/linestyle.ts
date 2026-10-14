@@ -54,15 +54,20 @@ export class LineStyleSelector<F extends FieldConfig = FieldConfig>
 
   public inputValue = [];
 
+  private formControlSub?: any;
+
   @Input()
   override set field(f: F | any) {
     this._field = f;
-    if (this._field.formControl instanceof FormControl) {
-      this._field.formControl.registerOnChange((value) => {
-        if (value != null) {
-          this.setValue(value);
-        }
-      });
+    this.formControlSub?.unsubscribe();
+    if (this._field?.formControl instanceof FormControl) {
+      this.formControlSub = this._field.formControl.valueChanges
+        .pipe(takeUntil(this.onDestroy$))
+        .subscribe((value) => {
+          if (value != null) {
+            this.setValue(value);
+          }
+        });
     }
   }
   override get field() {

@@ -72,4 +72,8 @@ export class CheckboxGroupField extends MatField implements AfterViewInit {
     }
     super.onContainerClick(event);
   }
+
+  trackByOption(index: number, option: any) {
+    return option ? option.value : index;
+  }
 }

@@ -46,12 +46,19 @@ export class DuiBase {
       .replace(/-+$/, '');            // Trim - from end of text
   }
 
+  private static isUnsafeKey(key: string): boolean {
+    return key === '__proto__' || key === 'constructor' || key === 'prototype';
+  }
+
   public static apply(o, c, defaults?) {
     if (defaults) {
       DuiBase.apply(o, defaults);
     }
     if (o && c && typeof c === 'object') {
       for (const p in c) {
+        if (DuiBase.isUnsafeKey(p)) {
+          continue;
+        }
         try {
           o[p] = c[p];
         } catch (error) {
@@ -65,6 +72,9 @@ export class DuiBase {
   public static applyIf(o, c) {
     if (o) {
       for (const p in c) {
+        if (DuiBase.isUnsafeKey(p)) {
+          continue;
+        }
         if (isUndefined(o[p])) {
           o[p] = c[p];
         }
@@ -107,6 +117,9 @@ export class DuiBase {
   public static reverseDeepMerge(dest: any, ...args: any[]) {
     args.forEach(src => {
       for (const srcArg in src) {
+        if (DuiBase.isUnsafeKey(srcArg)) {
+          continue;
+        }
         if (isNullOrUndefined(dest[srcArg]) || isBlankString(dest[srcArg])) {
           if (isFunction(src[srcArg])) {
             dest[srcArg] = src[srcArg];
@@ -130,7 +143,7 @@ export class DuiBase {
       && !(Array.isArray(obj1) || Array.isArray(obj2));
   }
   public static stringIsInteger(str: string) {
-    return (!isUndefined(str)||!isNull(str)) && /^\d+$/.test(str);
+    return (!isUndefined(str) && !isNull(str)) && /^\d+$/.test(str);
   }
 
   public static evalFunctionExpression(expression: string, argNames: string[]) {
@@ -151,6 +164,9 @@ export class DuiBase {
   }
 
   public static evalExpressionValueSetter(expression: string, argNames: string[]) {
+    if (/(?:^|\.|\[['"`]?)(?:__proto__|constructor|prototype)\b/.test(expression)) {
+      return () => {};
+    }
     try {
       return Function(...argNames, `${expression} = expressionValue;`) as (value: any) => void;
     } catch (error) {

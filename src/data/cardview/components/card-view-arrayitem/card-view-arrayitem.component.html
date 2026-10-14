@@ -4,7 +4,7 @@
       <mat-chip-set #chipSet  *ngIf="items.length > 0; else elseEmptyValueBlock"
         data-automation-id="card-arrayitem-chip-list-container">
         <ng-container *ngIf="displayCount() > 0; else withOutDisplayCount">
-          <mat-chip *ngFor="let item of items.slice(0, displayCount())" (click)="clicked()"
+          <mat-chip *ngFor="let item of items.slice(0, displayCount()); trackBy: trackByItem" (click)="clicked()"
             [attr.data-automation-id]="'card-arrayitem-chip-' + item.value">
             <mat-icon *ngIf="item?.icon" class="dui-array-item-icon">{{item.icon}}</mat-icon>
             <span>{{item?.value}}</span>
@@ -15,7 +15,7 @@
           </mat-chip>
         </ng-container>
         <ng-template #withOutDisplayCount>
-          <mat-chip *ngFor="let item of items" (click)="clicked()"
+          <mat-chip *ngFor="let item of items; trackBy: trackByItem" (click)="clicked()"
             [attr.data-automation-id]="'card-arrayitem-chip-' + item.value">
             <mat-icon *ngIf="item?.icon" class="dui-array-item-icon">{{item.icon}}</mat-icon>
             <span>{{item?.value}}</span>
@@ -26,7 +26,7 @@
         <mat-card class="dui-array-item-more-chip-container">
           <mat-card-content>
             <mat-chip-set>
-              <mat-chip (click)="clicked()" *ngFor="let item of items.slice(displayCount(), items.length)"
+              <mat-chip (click)="clicked()" *ngFor="let item of items.slice(displayCount(), items.length); trackBy: trackByItem"
                 [attr.data-automation-id]="'card-arrayitem-chip-' + item.value">
                 <mat-icon *ngIf="item?.icon" class="dui-array-item-icon">{{item.icon}}</mat-icon>
                 <span>{{item?.value}}</span>

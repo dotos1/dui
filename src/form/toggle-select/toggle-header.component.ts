@@ -21,7 +21,7 @@ import {
 import { BehaviorSubject, Subject, Subscription } from 'rxjs';
 import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
 
-import { startWith, takeUntil } from 'rxjs/operators';
+import { distinctUntilChanged, startWith, takeUntil } from 'rxjs/operators';
 import { Platform } from '@angular/cdk/platform';
 import { MatButtonToggle, MatButtonToggleGroup } from '@angular/material/button-toggle';
 import { coerceBoolean } from '@dotos/dui/core/decorators';
@@ -190,9 +190,10 @@ export class ToggleHeaderComponent extends _ToggleBase implements OnInit, AfterV
   private isMdLgValue: boolean;
   private useSelectSubject = new BehaviorSubject(false);
 
-  useSelect$ = this.useSelectSubject.asObservable();
+  useSelect$ = this.useSelectSubject.asObservable().pipe(distinctUntilChanged());
 
   private observeBreakpointSubscription: Subscription;
+  private _paginationTimeout: any;
 
   constructor(
               private cd: ChangeDetectorRef,
@@ -227,6 +228,13 @@ export class ToggleHeaderComponent extends _ToggleBase implements OnInit, AfterV
   }
 
   override ngOnDestroy() {
+    if (this._paginationTimeout) {
+      clearTimeout(this._paginationTimeout);
+      this._paginationTimeout = null;
+    }
+    if (this.observeBreakpointSubscription) {
+      this.observeBreakpointSubscription.unsubscribe();
+    }
     this.stopObservePagination();
     super.ngOnDestroy();
   }
@@ -234,10 +242,15 @@ export class ToggleHeaderComponent extends _ToggleBase implements OnInit, AfterV
   ngAfterViewInit() {
     if (!this.disablePagination) {
       this.useSelect$.pipe(takeUntil(this._destroyed)).subscribe((useSelect) => {
+        if (this._paginationTimeout) {
+          clearTimeout(this._paginationTimeout);
+          this._paginationTimeout = null;
+        }
         if (useSelect) {
           this.removePagination();
         } else {
-          setTimeout(() => {
+          this._paginationTimeout = setTimeout(() => {
+            this._paginationTimeout = null;
             this.startObservePagination();
           }, 0);
         }
@@ -280,6 +293,10 @@ export class ToggleHeaderComponent extends _ToggleBase implements OnInit, AfterV
   }
 
   private startObservePagination() {
+    this.stopObservePagination();
+    if (!this.toggleGroupContainer?.nativeElement) {
+      return;
+    }
     this.toggleGroupResize$ = new ResizeObserver(() => {
       this.zone.run(() => {
         this.updatePagination();
