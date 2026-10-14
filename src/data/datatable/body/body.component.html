@@ -35,10 +35,10 @@
     [rowDetail]="rowDetail"
     [groupHeader]="groupHeader"
     [offsetX]="offsetX"
-    [detailRowHeight]="getDetailRowHeight(group[i], i)"
+    [detailRowHeight]="getDetailRowHeight(group, i)"
     [row]="group"
     [expanded]="getRowExpanded(group)"
-    [rowIndex]="getRowIndex(group[i])"
+    [rowIndex]="getRowIndex(group)"
     (rowContextmenu)="rowContextmenu.emit($event)"
 
   >

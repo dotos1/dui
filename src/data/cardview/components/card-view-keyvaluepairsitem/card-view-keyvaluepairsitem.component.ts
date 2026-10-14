@@ -9,7 +9,7 @@ import { CardViewKeyValuePairsItemType } from '../../interfaces';
 
 
 @Component({
-  selector: 'dui-card-view-boolitem',
+  selector: 'dui-card-view-keyvaluepairsitem',
   templateUrl: './card-view-keyvaluepairsitem.component.html',
   styleUrls: ['./card-view-keyvaluepairsitem.component.scss']
 })
@@ -75,5 +75,9 @@ export class CardViewKeyValuePairsItemComponent  implements OnChanges,OnDestroy 
       this.cardViewUpdateService.update(<CardViewKeyValuePairsItemModel>{ ...this.property }, validValues);
       this.property.value = validValues;
     }
+  }
+
+  trackByIndex(index: number): number {
+    return index;
   }
 }

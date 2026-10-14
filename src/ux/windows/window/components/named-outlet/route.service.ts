@@ -49,14 +49,14 @@ export class RouteService {
       // 永久订阅，且该订阅会对之后任意一次导航（不只是本次）都强制改写
       // event.url 为这里捕获的 firstUrl，调用次数越多，后续导航被污染的概率
       // 越大。只关心紧随其后的这一次 navigate() 触发的 NavigationStart。
-      this.router.events.pipe(take(1)).subscribe(
+      this.router.events.pipe(
+        filter((event): event is NavigationStart => event instanceof NavigationStart),
+        take(1)
+      ).subscribe(
         (event) => {
-          if (event instanceof NavigationStart) {
-            event.url=firstUrl;
-
-            return;
-          }
-      });
+          event.url = firstUrl;
+        }
+      );
 
       this.router.navigate([{ outlets }], {
         skipLocationChange: false,
@@ -65,9 +65,12 @@ export class RouteService {
       });
     }
   }
-  createRouterOutlet(  name: string): RouterOutlet {
+  createRouterOutlet(nameOrContexts: any, _location?: any, _resolver?: any, name?: string, _changeDetector?: any): RouterOutlet {
+    const outletName = typeof nameOrContexts === 'string' ? nameOrContexts : name;
     const outlet = new RouterOutlet();
-    this.routerOutletMap.set(name, outlet);
+    if (outletName) {
+      this.routerOutletMap.set(outletName, outlet);
+    }
     return outlet;
   }
   clearRouterOutlet(name): void {

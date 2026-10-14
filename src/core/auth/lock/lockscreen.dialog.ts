@@ -124,11 +124,11 @@ export class LockscreenDialog implements OnInit,OnDestroy {
     this.errorDiagnostic = null;
     let usrPwd = this._encrypt.md5(this.lockForm.value.password);
     this.authService.onLogin.pipe(takeUntil(this._unsubscribeAll), take(1)).subscribe((data: any) => {
-      if (this.authService.isLoggedIn()||data.success) {
+      if (data && (data.success || (data !== false && data.success !== false && data.type !== 'unauthorized' && this.authService.isLoggedIn()))) {
         this.dialogRef.close();
       } else {
         this.submitted = false;
-        this.errorDiagnostic = data.message;
+        this.errorDiagnostic = data ? (data.message || data.reason) : undefined;
       }
     });
     this.authService.login(this.user, usrPwd, this.lt);

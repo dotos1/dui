@@ -14,7 +14,7 @@ import { getHandleValue } from '../utils/utils'
 })
 export class GradientHueComponent implements OnInit,OnDestroy {
 
-  @ViewChild('paintSquare')   private barRef: ElementRef<HTMLElement>;
+  @ViewChild('paintSquare', { static: true })   private barRef: ElementRef<HTMLElement>;
 
   @Input()  public  dragging?: boolean=false;
   @Input()  public  setDragging?;
@@ -29,7 +29,9 @@ export class GradientHueComponent implements OnInit,OnDestroy {
   }
   
   ngOnInit(){
-    this.paintHueService.paintHue(this.barRef.nativeElement, this.conext .squareWidth)
+    if (this.barRef?.nativeElement) {
+      this.paintHueService.paintHue(this.barRef.nativeElement, this.conext .squareWidth)
+    }
     window.addEventListener('mouseup', this.stopDragging)
   }
 
@@ -37,7 +39,7 @@ export class GradientHueComponent implements OnInit,OnDestroy {
     window.removeEventListener('mouseup', this.stopDragging)
   }
 
-  public stopDragging()  {
+  public stopDragging = () => {
     this. setDragging(false)
   }
 

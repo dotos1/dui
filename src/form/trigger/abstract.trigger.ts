@@ -172,6 +172,7 @@ export class AbstractTrigger extends MatField implements OnInit,OnDestroy,DoChec
     if (this._popupRef) {
       this._popupRef.dispose();
     }
+    super.ngOnDestroy();
   }
 
   _select(val: any): void {

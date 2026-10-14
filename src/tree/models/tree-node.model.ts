@@ -178,6 +178,9 @@ export class TreeNode implements ITreeNode {
   }
   
   public clear() {
+    if (this.children) {
+      this.children.forEach(c => c.dispose());
+    }
     this.children =[];
   }
   
@@ -575,6 +578,9 @@ export class TreeNode implements ITreeNode {
   }
 
   @action _initChildren() {
+    if (this.children) {
+      this.children.forEach(c => c.dispose());
+    }
     let childs = this.getField('children');
     this.children = childs.map((c, index) => new TreeNode(c, this, this.treeModel, index));
   }

@@ -21,14 +21,16 @@ import { ContextService, PickerContextProps } from '../hooks/context.service';
 })
 export class GradientSquareComponent implements OnInit, OnDestroy {
 
-  @ViewChild('paintSquare')   private canvasElm: ElementRef<HTMLElement>;
+  @ViewChild('paintSquare', { static: true })   private canvasElm: ElementRef<HTMLElement>;
 
   @Input()  public  dragging?: boolean=false;
   @Input()  public  handleChange?;
   @Input()  public  setDragging?;
 
   public dragPos:any={};
-  public setDragPos;
+  public setDragPos = (pos: any) => {
+    this.dragPos = pos;
+  };
   public x=0;
   public y=0;
   public conext:PickerContextProps;
@@ -58,23 +60,23 @@ export class GradientSquareComponent implements OnInit, OnDestroy {
     this.stopDragging()
   }
 
+  private readonly throttledMouseMove = throttle((e: any) => {
+    const [x, y] = computePickerPosition(e)
+    if (x && y) {
+      const x1 = Math.min(x + crossSize / 2,this.conext. squareWidth - 1)
+      const y1 = Math.min(y + crossSize / 2, this.conext. squareHeight - 1)
+      const newS = (x1 /this.conext. squareWidth) * 100
+      const newY = 100 - (y1 /this.conext. squareHeight) * 100
+      this. setDragPos({ x: newY === 0 ?this. dragPos?.x : x, y })
+      const updated = tinycolor(
+        `hsva(${this.conext. hc?.h}, ${newS}%, ${newY}%, ${this.conext. hc?.a})`
+      )
+      this.handleChange(updated.toRgbString())
+    }
+  }, 250);
 
   public  handleColor(e: any) {
-    const onMouseMove = throttle(() => {
-      const [x, y] = computePickerPosition(e)
-      if (x && y) {
-        const x1 = Math.min(x + crossSize / 2,this.conext. squareWidth - 1)
-        const y1 = Math.min(y + crossSize / 2, this.conext. squareHeight - 1)
-        const newS = (x1 /this.conext. squareWidth) * 100
-        const newY = 100 - (y1 /this.conext. squareHeight) * 100
-       this. setDragPos({ x: newY === 0 ?this. dragPos?.x : x, y })
-        const updated = tinycolor(
-          `hsva(${this.conext. hc?.h}, ${newS}%, ${newY}%, ${this.conext. hc?.a})`
-        )
-       this.handleChange(updated.toRgbString())
-      }
-    }, 250)
-    onMouseMove()
+    this.throttledMouseMove(e);
   }
 
   public stopDragging = () => {

@@ -106,7 +106,7 @@ export class TabPanel extends AbstractPanel implements OnChanges, OnDestroy {
 
   override onAdd(c) {
     super.onAdd(c);
-    this.tabs.push({ title: c.titile, disable: c.disable });
+    this.tabs.push({ title: c.title ?? c.titile, disable: c.disable });
   }
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars

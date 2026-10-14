@@ -1,7 +1,7 @@
 <ng-container *ngIf="field.options||field.remote;else noAutocomplete">
   <div class="chip-list-wrapper">
     <mat-chip-set #chipList>
-      <ng-container *ngFor="let select of selectData">
+      <ng-container *ngFor="let select of selectData; trackBy: trackByOption">
         <mat-chip class="cardinal-colors" (click)="removeChip(select)">
           {{ select.value }}
           <mat-icon class="mat-chip-remove">cancel</mat-icon>
@@ -26,7 +26,7 @@
       (click)="openChanged()"/>
  
   <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
-    <mat-option *ngFor="let data of filteredData | async">
+    <mat-option *ngFor="let data of filteredData | async; trackBy: trackByOption">
       <div (click)="optionClicked($event, data)">
         <mat-checkbox [checked]="data.selected" 
           (change)="toggleSelection(data)" 
@@ -42,6 +42,6 @@
     <input matInput flex [id]="id" [type]="field.type || 'text'" [readonly]="field.readonly"
       [errorStateMatcher]="errorStateMatcher" [formControl]="formControl" [formAttributes]="field"
       (keypress)="onKeyPress($event)" [tabindex]="field.tabindex || 0" [placeholder]="field.placeholder|translate"
-      matTooltip={{toolTip|translate}} [value]="field.inputValue ?field.inputValue:''"  matTooltipPosition='below' autocomplete="off"  />
+      matTooltip={{toolTip|translate}} [value]="field.inputValue ?? ''"  matTooltipPosition='below' autocomplete="off"  />
   </ng-container>
 </ng-template>

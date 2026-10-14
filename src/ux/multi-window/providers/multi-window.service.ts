@@ -174,8 +174,8 @@ export class MultiWindowService {
     }
     const newWindowId = MultiWindowService.generateId();
 
-    if(this.storageService.getLocalObject(this.id)){
-      let childWindows:any=this.storageService.getLocalObject(this.id);
+    if(this.storageService.getLocalObject('parent-'+this.id)){
+      let childWindows:any=this.storageService.getLocalObject('parent-'+this.id);
       childWindows.push(newWindowId);
       this.storageService.setLocalObject('parent-'+this.id,childWindows);
     }else{

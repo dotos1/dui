@@ -71,7 +71,7 @@ function normalizeHtmlHrefs(html: string, currentHref: string): string {
         }
       });
 
-    return new XMLSerializer().serializeToString(document);
+    return document.body.innerHTML;
   }
   return html;
 }
@@ -110,7 +110,7 @@ function normalizeImageSrcs(html: string, currentHref: string): string {
         }
       });
 
-    return new XMLSerializer().serializeToString(document);
+    return document.body.innerHTML;
   }
   return html;
 }
@@ -127,7 +127,7 @@ function addIdsToHeadings(html: string): string {
         const id: string = genHeadingId(heading.innerHTML);
         heading.setAttribute('id', id);
       });
-    return new XMLSerializer().serializeToString(document);
+    return document.body.innerHTML;
   }
   return html;
 }

@@ -3,10 +3,10 @@
     [errorStateMatcher]="errorStateMatcher" [formControl]="formControl"
     [formAttributes]="field" [tabindex]="field.tabindex || 0"
     [placeholder]="field.placeholder|translate" matTooltip={{toolTip|translate}}  matTooltipPosition='below'
-    [matAutocomplete]="auto" [value]="field.inputValue ?field.inputValue:''"   
+    [matAutocomplete]="auto" [value]="field.inputValue ?? ''"   
     (click)="openChanged($event)"/>
   <mat-autocomplete  #auto="matAutocomplete" > 
-    <mat-option *ngFor="let option of filteredOptions | async" [value]="getValue(option)">
+    <mat-option *ngFor="let option of filteredOptions | async; trackBy: trackByOption" [value]="getValue(option)">
       {{getLabel(option)}}
     </mat-option>
   </mat-autocomplete>
@@ -16,6 +16,6 @@
     <input matInput flex [id]="id" [type]="field.type || 'text'" [readonly]="field.readonly"
       [errorStateMatcher]="errorStateMatcher" [formControl]="formControl" [formAttributes]="field"
       [tabindex]="field.tabindex || 0" [placeholder]="field.placeholder|translate"
-      matTooltip={{toolTip|translate}} [value]="field.inputValue ?field.inputValue:''"  matTooltipPosition='below' autocomplete="off"  />
+      matTooltip={{toolTip|translate}} [value]="field.inputValue ?? ''"  matTooltipPosition='below' autocomplete="off"  />
   </ng-container>
 </ng-template>

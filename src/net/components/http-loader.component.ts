@@ -16,6 +16,8 @@ import { SpinnerVisibilityService } from '../services/spinner-visibility.service
 export class HttpLoaderComponent implements OnDestroy, OnInit {
 
   private _isVisible$ = new BehaviorSubject<boolean>(false);
+  private readonly _isVisibleObservable$ = this._isVisible$.asObservable();
+  private addedUrlRegexes: RegExp[] = [];
   private subscriptions: Subscription;
   private visibleUntil = Date.now();
 
@@ -57,10 +59,20 @@ export class HttpLoaderComponent implements OnDestroy, OnInit {
 
   public ngOnDestroy(): void {
     this.subscriptions.unsubscribe();
+    if (this.addedUrlRegexes.length) {
+      const patterns = this.pendingRequestsInterceptor.filteredUrlPatterns;
+      for (const regex of this.addedUrlRegexes) {
+        const idx = patterns.indexOf(regex);
+        if (idx !== -1) {
+          patterns.splice(idx, 1);
+        }
+      }
+      this.addedUrlRegexes = [];
+    }
   }
 
   get isVisible$(): Observable<boolean> {
-    return this._isVisible$.asObservable();
+    return this._isVisibleObservable$;
   }
 
 
@@ -76,9 +88,11 @@ export class HttpLoaderComponent implements OnDestroy, OnInit {
     }
 
     if (this.filteredUrlPatterns.length) {
-      this.filteredUrlPatterns.forEach(e =>
-        this.pendingRequestsInterceptor.filteredUrlPatterns.push(new RegExp(e))
-      );
+      this.filteredUrlPatterns.forEach(e => {
+        const regex = new RegExp(e);
+        this.addedUrlRegexes.push(regex);
+        this.pendingRequestsInterceptor.filteredUrlPatterns.push(regex);
+      });
     }
   }
 

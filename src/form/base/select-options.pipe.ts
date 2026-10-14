@@ -40,11 +40,12 @@ export class SelectOptionsPipe implements PipeTransform {
   }
 
   private toOption(item, to) {
-    return Dui.apply(item, {
+    return {
+      ...item,
       label: this.getLabelProp(item, to),
       value: this.getValueProp(item, to),
       disabled: this.getDisabledProp(item, to) || false,
-    });
+    };
   }
 
   private getLabelProp(item, to): string {

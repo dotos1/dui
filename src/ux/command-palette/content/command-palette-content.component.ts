@@ -79,6 +79,10 @@ export class CommandPaletteContentComponent implements OnChanges, OnInit, AfterV
   private scrollToSelectedItem(): void {
     this.disableMouseEnter = true;
     const selectedElement = this.document.querySelectorAll<HTMLElement>('.command-palette__content-item')[this.selectedItemIndex] as HTMLElement;
+    if (!selectedElement) {
+      this.disableMouseEnter = false;
+      return;
+    }
     const selectedElementTopPosition = selectedElement.offsetTop;
     const containerTopPosition = this.elementRefNativeElem.offsetTop;
     const containerScrollTop: number = this.elementRefNativeElem.scrollTop;

@@ -58,4 +58,8 @@ export class CardViewArrayItemComponent  implements OnDestroy{
   isClickable(): boolean {
     return !!this.property.clickable;
   }
+
+  trackByItem(index: number, item: any): any {
+    return item?.value ?? index;
+  }
 }

@@ -266,11 +266,11 @@ setActiveNodeLabel(label: string) {
       this.config.click(nowNode);
       treeModel.setActiveNode(nowNode, true);
       return;
-    } else if (nowNode._parent === '0' && nowNode.index() === nowNode.parent.children.length - 1) {
+    } else if (nowNode._parent === '0' && nowNode.index === nowNode.parent.children.length - 1) {
       return;
     } else {
       let newNode: TreeNode = nowNode.findNextNode(true, false);
-      if (!newNode && newNode != inNode)//avoid endless loop
+      if (newNode && newNode !== inNode)//avoid endless loop
         this.exeHistoryNode(newNode);
     }
   }
@@ -291,26 +291,23 @@ setActiveNodeLabel(label: string) {
       subject.next(activeNode);
     }else{
       let lastnode = treeModel.getNodeByPath([paths[0]], startNode);
-      let subscription;
-      if (lastnode) {
-        subscription = treeModel.subscribe(TREE_EVENTS.loadNodeChildren, (node) => {
-           paths.splice(0,1);
-           let subject1:BehaviorSubject<any>=this.loadNodeByPath(paths,node.node);
-           subject1.subscribe((activeNode)=>{
-            subject.next(activeNode);
-           });
-           subscription.unsubscribe();
-        });
-        if(lastnode.hasChildren){
-          if(lastnode.children==undefined){
-             lastnode.loadNodeChildren();
-          }else{
+      if (lastnode && lastnode.hasChildren) {
+        if(lastnode.children==undefined){
+          let subscription = treeModel.subscribe(TREE_EVENTS.loadNodeChildren, (node) => {
             paths.splice(0,1);
-            let subject1:BehaviorSubject<any>=this.loadNodeByPath(paths,lastnode);
+            let subject1:BehaviorSubject<any>=this.loadNodeByPath(paths,node.node);
             subject1.subscribe((activeNode)=>{
               subject.next(activeNode);
-             });
-          }
+            });
+            subscription.unsubscribe();
+          });
+          lastnode.loadNodeChildren();
+        }else{
+          paths.splice(0,1);
+          let subject1:BehaviorSubject<any>=this.loadNodeByPath(paths,lastnode);
+          subject1.subscribe((activeNode)=>{
+            subject.next(activeNode);
+          });
         }
       }
     }

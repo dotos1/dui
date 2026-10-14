@@ -38,12 +38,8 @@ export class TranslateLoaderService implements TranslateLoader {
   }
 
   fetchLanguageFile(lang: string, component: ComponentTranslationModel, fallbackUrl?: string): Observable<void> {
-      
-    let translationUrl = fallbackUrl || `${component.path}/${component.name}/${lang}${this.suffix}?v=${Date.now()}`;
-    if(component.name==''){
-      translationUrl = fallbackUrl || `${component.path}/${lang}${this.suffix}?v=${Date.now()}`;
-    }
-
+    const basePath = component.name ? `${component.path}/${component.name}` : `${component.path}`;
+    const translationUrl = fallbackUrl || `${basePath}/${lang}${this.suffix}?v=${Date.now()}`;
 
     return this.http.get(translationUrl).pipe(
       map((res: any) => {
@@ -51,13 +47,19 @@ export class TranslateLoaderService implements TranslateLoader {
       }),
       retry(3),
       catchError(() => {
-        if (!fallbackUrl && lang.includes('-')) {
-          const [langId] = lang.split('-');
+        if (!fallbackUrl && /[-_]/.test(lang)) {
+          const [langId] = lang.split(/[-_]/);
 
           if (langId && langId !== this.defaultLang) {
-            const url = `${component.path}/${component.name}/${langId}${this.suffix}?v=${Date.now()}`;
+            const url = `${basePath}/${langId}${this.suffix}?v=${Date.now()}`;
 
             return this.fetchLanguageFile(lang, component, url);
+          }
+        }
+        if (this.queue[lang]) {
+          const idx = this.queue[lang].indexOf(component.name);
+          if (idx > -1) {
+            this.queue[lang].splice(idx, 1);
           }
         }
         return throwError(`Failed to load ${translationUrl}`);

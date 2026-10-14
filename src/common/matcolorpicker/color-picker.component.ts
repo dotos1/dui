@@ -166,8 +166,8 @@ export class ColorPickerComponent implements ControlValueAccessor {
       palette: this.selectedPalette,
       hue: this.selectedHue,
       class: this.selectedPalette + '-' + this.selectedHue,
-      bg: this.selectedPalette === '' ? '' : MatColors.getColor(this.selectedPalette)[this.selectedHue],
-      fg: this.selectedPalette === '' ? '' : MatColors.getColor(this.selectedPalette).contrast[this.selectedHue]
+      bg: !this.selectedPalette ? '' : MatColors.getColor(this.selectedPalette)[this.selectedHue],
+      fg: !this.selectedPalette ? '' : MatColors.getColor(this.selectedPalette).contrast[this.selectedHue]
     };
 
     // Emit the color changed event
@@ -195,7 +195,7 @@ export class ColorPickerComponent implements ControlValueAccessor {
    * @zh 根据是否已选中调色板，设置选择器菜单打开时显示的初始视图（调色板或色阶）。
    */
   onMenuOpen(): void {
-    if (this.selectedPalette === '') {
+    if (!this.selectedPalette) {
       this.view = 'palettes';
     }
     else {

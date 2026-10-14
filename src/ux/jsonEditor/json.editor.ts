@@ -102,8 +102,12 @@ export class JsonEditor {
   }
 
   save() {
-    let json = JSON.parse(this.codeValue);
-    this.parent.save(json);
-    this.dialogRef.close();
+    try {
+      let json = JSON.parse(this.codeValue);
+      this.parent.save(json);
+      this.dialogRef.close();
+    } catch (e: any) {
+      this.toastr?.error(e?.message || 'Invalid JSON');
+    }
   }
 };

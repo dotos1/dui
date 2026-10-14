@@ -23,16 +23,33 @@ export class HighlightTransformService {
             result = text;
 
         if (search && text) {
-            let pattern = search.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, '\\$&');
+            const escapedText = text
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;')
+                .replace(/'/g, '&#39;');
+            let pattern = search
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;')
+                .replace(/'/g, '&#39;')
+                .replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, '\\$&');
             pattern = pattern.split(' ').filter((t) => {
                 return t.length > 0;
             }).join('|');
 
-            const regex = new RegExp(pattern, 'gi');
-            result = text.replace(/<[^>]+>/g, '').replace(regex, (match) => {
-                isMatching = true;
-                return `<span class="${wrapperClass}">${match}</span>`;
-            });
+            if (pattern.length > 0) {
+                const safeWrapperClass = wrapperClass.replace(/["'<>]/g, '');
+                const regex = new RegExp(pattern, 'gi');
+                result = escapedText.replace(regex, (match) => {
+                    isMatching = true;
+                    return `<span class="${safeWrapperClass}">${match}</span>`;
+                });
+            } else {
+                result = escapedText;
+            }
 
             return { text: result, changed: isMatching };
         } else {

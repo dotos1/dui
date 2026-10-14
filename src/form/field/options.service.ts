@@ -18,16 +18,16 @@ export class OptionsService {
 
   getOptions(url:string,method:string,params: any) {
     let ops: string[] = [];
-    if(method.toUpperCase()=='GET'){
+    if((method || 'POST').toUpperCase()=='GET'){
       this.http.get(url,{
         params: params,
         responseType: 'json'
       }).subscribe((val:any) => {
-          if (val.success){
+          if (val && val.success){
             ops=val.result;
             this.optionsSubject.next({options: ops, params: params, error: null });
           }else{
-            this.optionsSubject.next({options: [], params: params, error: val.message});
+            this.optionsSubject.next({options: [], params: params, error: val ? val.message : 'Error'});
           }
         },
         error =>{
@@ -39,11 +39,11 @@ export class OptionsService {
         params: params,
         responseType: 'json'
       }).subscribe( (val: any) => {
-        if (val.success){
+        if (val && val.success){
              ops=val.result;
              this.optionsSubject.next({options: ops, params: params, error: null });
         }else{
-             this.optionsSubject.next({options: [], params: params, error: val.message});
+             this.optionsSubject.next({options: [], params: params, error: val ? val.message : 'Error'});
         };
       },
       error => {

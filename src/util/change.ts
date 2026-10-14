@@ -106,7 +106,7 @@ export class ChangeUtils {
         toItem[key] !== null
       ) {
         keysChanged = keysChanged.concat(
-          this.compareObject(fromItem[key], toItem[key], keyString)
+          this.compareObject(fromItem[key], toItem[key], keyString, ignoreKeys)
         );
       } else {
         if (fromItem[key] !== toItem[key]) {

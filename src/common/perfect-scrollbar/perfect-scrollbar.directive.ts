@@ -54,7 +54,7 @@ export class PerfectScrollbarDirective implements OnInit, OnDestroy, DoCheck, On
 
     private configDiff: KeyValueDiffer<string, any> | null = null;
 
-    private readonly ngDestroy = new Subject<void>();
+    private ngDestroy = new Subject<void>();
 
     /** @zh 是否禁用自定义滚动条（禁用后销毁底层 Perfect Scrollbar 实例）。 */
     @Input({ transform: booleanAttribute }) disabled: boolean = false;
@@ -97,6 +97,9 @@ export class PerfectScrollbarDirective implements OnInit, OnDestroy, DoCheck, On
 
     ngOnInit(): void {
         if (!this.disabled && isPlatformBrowser(this.platformId)) {
+            if (this.ngDestroy.closed) {
+                this.ngDestroy = new Subject<void>();
+            }
             const config = new PerfectScrollbarConfig(this.defaults);
 
             config.assign(this.config); // Custom configuration
@@ -137,7 +140,7 @@ export class PerfectScrollbarDirective implements OnInit, OnDestroy, DoCheck, On
         }
     }
 
-    ngOnDestroy(): void {
+    private destroyScrollbar(): void {
         if (isPlatformBrowser(this.platformId)) {
             this.ngDestroy.next();
             this.ngDestroy.complete();
@@ -150,6 +153,11 @@ export class PerfectScrollbarDirective implements OnInit, OnDestroy, DoCheck, On
                 window.clearTimeout(this.timeout);
             }
 
+            if (this.animation && typeof window !== 'undefined') {
+                window.cancelAnimationFrame(this.animation);
+                this.animation = null;
+            }
+
             this.zone.runOutsideAngular(() => {
                 if (this.instance) {
                     this.instance.destroy();
@@ -160,12 +168,16 @@ export class PerfectScrollbarDirective implements OnInit, OnDestroy, DoCheck, On
         }
     }
 
+    ngOnDestroy(): void {
+        this.destroyScrollbar();
+    }
+
     ngDoCheck(): void {
         if (!this.disabled && this.configDiff && isPlatformBrowser(this.platformId)) {
             const changes = this.configDiff.diff(this.config || {});
 
             if (changes) {
-                this.ngOnDestroy();
+                this.destroyScrollbar();
 
                 this.ngOnInit();
             }
@@ -177,7 +189,7 @@ export class PerfectScrollbarDirective implements OnInit, OnDestroy, DoCheck, On
         if (disabled && !disabled.isFirstChange() && isPlatformBrowser(this.platformId)) {
             if (disabled.currentValue !== disabled.previousValue) {
                 if (disabled.currentValue === true) {
-                    this.ngOnDestroy();
+                    this.destroyScrollbar();
                 } else if (disabled.currentValue === false) {
                     this.ngOnInit();
                 }
@@ -413,7 +425,7 @@ export class PerfectScrollbarDirective implements OnInit, OnDestroy, DoCheck, On
                 }
             };
 
-            window.requestAnimationFrame(step);
+            this.animation = window.requestAnimationFrame(step);
         }
     }
 }

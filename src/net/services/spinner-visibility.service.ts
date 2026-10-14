@@ -8,12 +8,13 @@ import { PendingRequestsInterceptor } from './pending-requests-interceptor.servi
 })
 export class SpinnerVisibilityService {
   private _visibility$ = new ReplaySubject<boolean>(1);
+  private readonly _visibilityObservable$ = this._visibility$.asObservable();
 
   constructor(private pendingRequestsInterceptor: PendingRequestsInterceptor) {
   }
 
   get visibility$(): Observable<boolean> {
-    return this._visibility$.asObservable();
+    return this._visibilityObservable$;
   }
 
   public show(): void {

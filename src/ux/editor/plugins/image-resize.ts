@@ -47,7 +47,7 @@ class ImageRezieView implements NodeView {
   }
 
   private computeChanges(prevAttrs: Record<string, any>, newAttrs: Record<string, any>): boolean {
-    return JSON.stringify(prevAttrs) === JSON.stringify(newAttrs);
+    return JSON.stringify(prevAttrs) !== JSON.stringify(newAttrs);
   }
 
   private setNodeAttributes(attrs: Record<string, any>): void {
@@ -82,9 +82,8 @@ class ImageRezieView implements NodeView {
       return false;
     }
 
-    this.node = node;
-
     const changed = this.computeChanges(this.node.attrs, node.attrs);
+    this.node = node;
     if (changed) {
       this.updating = true;
       this.setNodeAttributes(node.attrs);
@@ -108,6 +107,7 @@ class ImageRezieView implements NodeView {
   destroy(): void {
     this.resizeSubscription.unsubscribe();
     this.applicationRef.detachView(this.imageComponentRef.hostView);
+    this.imageComponentRef.destroy();
   }
 }
 

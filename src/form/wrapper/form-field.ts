@@ -50,6 +50,8 @@ export class WrapperFormField extends FieldWrapper<MatFieldConfig> implements On
   _errorState = false;
   private initialGapCalculated = false;
   private focusSubscription?: Subscription;
+  private observers: Array<{ unsubscribe: Function }> = [];
+  private unlisteners: Array<() => void> = [];
 
   public toolTip: string;
 
@@ -78,15 +80,17 @@ export class WrapperFormField extends FieldWrapper<MatFieldConfig> implements On
   ngOnInit() {
     defineHiddenProp(this.field, '__formField__', this.formField);
     ['prefix', 'suffix'].forEach((type) =>
-      observe<TemplateRef<any>>(
-        this.field,
-        [ type],
-        ({ currentValue }) =>
-          currentValue &&
-          Promise.resolve().then(() => {
-            (<any>this.field)[`_mat${type}`] = currentValue;
-            this.option.detectChanges!(this.field);
-          }),
+      this.observers.push(
+        observe<TemplateRef<any>>(
+          this.field,
+          [ type],
+          ({ currentValue }) =>
+            currentValue &&
+            Promise.resolve().then(() => {
+              (<any>this.field)[`_mat${type}`] = currentValue;
+              this.option.detectChanges!(this.field);
+            }),
+        ),
       ),
     );
     this.focusSubscription = this.focusMonitor.monitor(this.elementRef, true).subscribe((origin) => {
@@ -119,6 +123,10 @@ export class WrapperFormField extends FieldWrapper<MatFieldConfig> implements On
 
   ngOnDestroy() {
     delete this.field.__formField__;
+    this.observers.forEach(o => o?.unsubscribe());
+    this.observers = [];
+    this.unlisteners.forEach(unlisten => unlisten());
+    this.unlisteners = [];
     this.focusSubscription?.unsubscribe();
     this.focusMonitor.stopMonitoring(this.elementRef);
     // MatFormFieldControl 契约要求实现者在销毁时 complete 该 Subject。
@@ -129,8 +137,10 @@ export class WrapperFormField extends FieldWrapper<MatFieldConfig> implements On
     super.init();
     if (this.field.qtip && this.field.qtip === 'under') {
       if (!this._platform.IOS) {
-        this.renderer.listen(this.elementRef.nativeElement, 'mouseenter', ($event) => this.showTip($event));
-        this.renderer.listen(this.elementRef.nativeElement, 'mouseleave', () => this.hideTip());
+        this.unlisteners.push(
+          this.renderer.listen(this.elementRef.nativeElement, 'mouseenter', ($event) => this.showTip($event)),
+          this.renderer.listen(this.elementRef.nativeElement, 'mouseleave', () => this.hideTip()),
+        );
       }
       this.underTip = this.field.description;
       if(this.field.classFormField){

@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, Input, OnInit, ViewEncapsulation } from "@angular/core";
+import { ChangeDetectorRef, Component, ComponentRef, Input, OnDestroy, OnInit, ViewEncapsulation } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import {  inject, ViewContainerRef, ɵcompileComponent } from '@angular/core';
 import { SafeurlPipe } from "./safeurl.pipe";
@@ -8,7 +8,7 @@ import { SafeurlPipe } from "./safeurl.pipe";
   templateUrl: "./dynamic.component.html",
   encapsulation: ViewEncapsulation.None,
 })
-export class DynamicComponent implements OnInit {
+export class DynamicComponent implements OnInit, OnDestroy {
 
   @Input()
   tmpl: string;
@@ -20,6 +20,8 @@ export class DynamicComponent implements OnInit {
 
   viewRef = inject(ViewContainerRef);
 
+  private componentRef?: ComponentRef<any>;
+
   constructor(
     private safeUrl: SafeurlPipe,
     public detectChange: ChangeDetectorRef
@@ -29,19 +31,30 @@ export class DynamicComponent implements OnInit {
   ngOnInit() {
     const safe: any = this.safeUrl.transform(this.tmpl, "html");
     this.template = safe.changingThisBreaksApplicationSecurity;
+    if (this.componentRef) {
+      this.componentRef.destroy();
+    }
     const component = getComponentFromTemplate(this.template);
-    const componentRef = this.viewRef.createComponent(component);
-    componentRef.setInput('data', this.data);
+    this.componentRef = this.viewRef.createComponent(component);
+    this.componentRef.setInput('data', this.data);
+  }
+
+  ngOnDestroy() {
+    if (this.componentRef) {
+      this.componentRef.destroy();
+      this.componentRef = undefined;
+    }
   }
 }
 
-@Component({
-  template: '',
-}) class CustomComponent {
-  @Input() data: any = {};
-}
-
 function getComponentFromTemplate(template: string) {
+  @Component({
+    template: '',
+  })
+  class CustomComponent {
+    @Input() data: any = {};
+  }
+
   ɵcompileComponent(CustomComponent, {
     template,
     standalone: true,

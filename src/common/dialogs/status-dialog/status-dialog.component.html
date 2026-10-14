@@ -29,9 +29,9 @@
         (keydown.enter)="toggleDetails()"
       >
         {{
-          showDetails
+          (showDetails
             ? detailsLabels?.hideDetailsLabel
-            : detailsLabels?.showDetailsLabel|translate 
+            : detailsLabels?.showDetailsLabel) | translate
         }}
         <mat-icon
           [ngClass]="{

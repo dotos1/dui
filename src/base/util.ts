@@ -52,6 +52,10 @@ export function getValue(nameSpace: string, obj: unknown): unknown {
   return value;
 }
 
+function isUnsafeKey(key: string): boolean {
+  return key === '__proto__' || key === 'constructor' || key === 'prototype';
+}
+
 /** 按点分路径赋值。中途缺失的层级会补成空对象。 */
 export function setValue(nameSpace: string, value: unknown, obj: Record<string, unknown>): Record<string, unknown> {
   const keys: string[] = nameSpace.replace(/\[/g, '.').replace(/\]/g, '').split('.');
@@ -59,6 +63,9 @@ export function setValue(nameSpace: string, value: unknown, obj: Record<string, 
   let fromObj: Record<string, unknown> = start;
   for (let i = 0; i < keys.length; i++) {
     const key = keys[i];
+    if (isUnsafeKey(key)) {
+      return start;
+    }
     if (i + 1 === keys.length) {
       fromObj[key] = value === undefined ? {} : value;
     } else if (isNullOrUndefined(fromObj[key])) {
@@ -93,6 +100,7 @@ export function extend(
   for (const src of 源) {
     if (!src || typeof src !== 'object') { continue; }
     for (const key of Object.keys(src as Record<string, unknown>)) {
+      if (isUnsafeKey(key)) { continue; }
       const v = (src as Record<string, unknown>)[key];
       if (v === undefined) { delete 目标[key]; continue; }
       if (深 && (isObject(v) || Array.isArray(v))) {

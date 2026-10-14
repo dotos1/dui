@@ -2,6 +2,7 @@ import {
   Directive, Output, EventEmitter, ContentChildren,
   QueryList, KeyValueDiffers, AfterContentInit, OnDestroy, Inject
 } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { DraggableDirective } from './draggable.directive';
 import { DOCUMENT } from "@angular/common";
 
@@ -16,6 +17,8 @@ export class OrderableDirective implements AfterContentInit, OnDestroy {
   positions: any;
   differ: any;
   lastDraggingIndex: number;
+  private draggableSubscriptions = new Map<DraggableDirective, Subscription>();
+  private changesSubscription: Subscription;
 
   constructor(differs: KeyValueDiffers, @Inject(DOCUMENT) private document: any) {
     this.differ = differs.find({}).create();
@@ -24,15 +27,15 @@ export class OrderableDirective implements AfterContentInit, OnDestroy {
   ngAfterContentInit(): void {
     // HACK: Investigate Better Way
     this.updateSubscriptions();
-    this.draggables.changes.subscribe(this.updateSubscriptions.bind(this));
+    this.changesSubscription = this.draggables.changes.subscribe(this.updateSubscriptions.bind(this));
   }
 
   ngOnDestroy(): void {
-    this.draggables.forEach(d => {
-      d.dragStart.unsubscribe();
-      d.dragging.unsubscribe();
-      d.dragEnd.unsubscribe();
-    });
+    if (this.changesSubscription) {
+      this.changesSubscription.unsubscribe();
+    }
+    this.draggableSubscriptions.forEach(sub => sub.unsubscribe());
+    this.draggableSubscriptions.clear();
   }
 
   updateSubscriptions(): void {
@@ -43,17 +46,21 @@ export class OrderableDirective implements AfterContentInit, OnDestroy {
         unsubscribe({ previousValue });
 
         if (currentValue) {
-          currentValue.dragStart.subscribe(this.onDragStart.bind(this));
-          currentValue.dragging.subscribe(this.onDragging.bind(this));
-          currentValue.dragEnd.subscribe(this.onDragEnd.bind(this));
+          const sub = new Subscription();
+          sub.add(currentValue.dragStart.subscribe(this.onDragStart.bind(this)));
+          sub.add(currentValue.dragging.subscribe(this.onDragging.bind(this)));
+          sub.add(currentValue.dragEnd.subscribe(this.onDragEnd.bind(this)));
+          this.draggableSubscriptions.set(currentValue, sub);
         }
       };
 
       const unsubscribe = ({ previousValue }: any) => {
         if (previousValue) {
-          previousValue.dragStart.unsubscribe();
-          previousValue.dragging.unsubscribe();
-          previousValue.dragEnd.unsubscribe();
+          const sub = this.draggableSubscriptions.get(previousValue);
+          if (sub) {
+            sub.unsubscribe();
+            this.draggableSubscriptions.delete(previousValue);
+          }
         }
       };
 

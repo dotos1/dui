@@ -65,6 +65,9 @@ export class DynamicExtensionComponent implements OnChanges, OnDestroy {
   ngOnChanges(changes: SimpleChanges) {
     if (changes['config']) {
       let config=changes['config'].currentValue;
+      if (!config) {
+        return;
+      }
       if(config.rendered){
         this.loaded=true;
         this.content.clear();
@@ -81,6 +84,11 @@ export class DynamicExtensionComponent implements OnChanges, OnDestroy {
       this.loadComponent();
       this.loaded = true;
       this.updateInstance();
+      this.proxy('ngOnChanges', changes);
+    } else if (changes['config'] && !changes['config'].currentValue?.rendered) {
+      this.updateInstance();
+      this.proxy('ngOnChanges', changes);
+    } else {
       this.proxy('ngOnChanges', changes);
     }
   }

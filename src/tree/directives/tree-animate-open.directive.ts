@@ -1,6 +1,7 @@
 import {
   Directive,
   Input,
+  OnDestroy,
   TemplateRef,
   ViewContainerRef,
   Renderer2,
@@ -12,8 +13,10 @@ const EASE_ACCELERATION = 1.005;
 @Directive({
   selector: '[treeAnimateOpen]',
 })
-export class TreeAnimateOpenDirective {
+export class TreeAnimateOpenDirective implements OnDestroy {
   private _isOpen: boolean;
+  private _timeoutId: any;
+  private _intervalId: any;
 
   @Input('treeAnimateOpenSpeed') animateSpeed: number;
   @Input('treeAnimateOpenAcceleration') animateAcceleration: number;
@@ -41,6 +44,21 @@ export class TreeAnimateOpenDirective {
     private ngZone: NgZone,
   ) {}
 
+  ngOnDestroy() {
+    this._clearTimers();
+  }
+
+  private _clearTimers() {
+    if (this._timeoutId) {
+      clearTimeout(this._timeoutId);
+      this._timeoutId = null;
+    }
+    if (this._intervalId) {
+      clearInterval(this._intervalId);
+      this._intervalId = null;
+    }
+  }
+
   private _show() {
     if (this.innerElement) {
         this.renderer.removeStyle(this.innerElement, 'display');
@@ -52,6 +70,7 @@ export class TreeAnimateOpenDirective {
   }
 
   private _hide() {
+    this._clearTimers();
      if (this.innerElement) {
       this.renderer.setStyle(this.innerElement, 'display', 'none');
       this.renderer.removeStyle(this.innerElement, 'max-height');
@@ -59,6 +78,7 @@ export class TreeAnimateOpenDirective {
   }
 
   private _animateOpen() {
+    this._clearTimers();
     let delta = this.animateSpeed;
     let ease = this.animateAcceleration;
     let maxHeight = 0;
@@ -69,11 +89,12 @@ export class TreeAnimateOpenDirective {
 
   
     this.ngZone.runOutsideAngular(() => {
-      setTimeout(() => {
+      this._timeoutId = setTimeout(() => {
+        this._timeoutId = null;
         // Allow inner element to create its content
-        const i = setInterval(() => {
+        this._intervalId = setInterval(() => {
           if (!this._isOpen || !this.innerElement) {
-            return clearInterval(i);
+            return this._clearTimers();
           }
 
           maxHeight += delta;
@@ -89,7 +110,7 @@ export class TreeAnimateOpenDirective {
           ease *= EASE_ACCELERATION;
           if (roundedMaxHeight >= targetHeight) {
             this.renderer.removeStyle(this.innerElement, 'max-height');
-            clearInterval(i);
+            this._clearTimers();
           }
         }, 16);
       });
@@ -97,6 +118,7 @@ export class TreeAnimateOpenDirective {
   }
 
   private _animateClose() {
+    this._clearTimers();
     if (!this.innerElement) {
       return;
     }
@@ -107,9 +129,9 @@ export class TreeAnimateOpenDirective {
 
     // slowly decrease maxHeight to 0, starting from current height
     this.ngZone.runOutsideAngular(() => {
-      const i = setInterval(() => {
+      this._intervalId = setInterval(() => {
         if (this._isOpen || !this.innerElement) {
-          return clearInterval(i);
+          return this._clearTimers();
         }
 
         height -= delta;
@@ -118,7 +140,7 @@ export class TreeAnimateOpenDirective {
         ease *= EASE_ACCELERATION;
 
         if (height <= 0) {
-          clearInterval(i);
+          this._clearTimers();
           this.ngZone.run(() => {
              this._hide();
           });

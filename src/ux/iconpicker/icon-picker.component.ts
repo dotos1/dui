@@ -184,6 +184,25 @@ export class IconPickerComponent implements TriggerPopup, OnInit, OnDestroy {
     this.selectCategory=event.value;
     this.showCustomIcons();
   }
+  private sanitizeSvg(rawSvg: string) {
+    let doc = new DOMParser().parseFromString(rawSvg ?? '', 'image/svg+xml');
+    if (doc.querySelector('parsererror')) {
+      doc = new DOMParser().parseFromString(rawSvg ?? '', 'text/html');
+    }
+    doc.querySelectorAll('script, foreignObject, iframe, object, embed').forEach(el => el.remove());
+    doc.querySelectorAll('*').forEach(el => {
+      Array.from(el.attributes).forEach(attr => {
+        if (
+          /^on/i.test(attr.name) ||
+          (/^(href|xlink:href)$/i.test(attr.name) && /^\s*javascript:/i.test(attr.value))
+        ) {
+          el.removeAttribute(attr.name);
+        }
+      });
+    });
+    const svgRoot = doc.querySelector('svg');
+    return this.domSanitizer.bypassSecurityTrustHtml(svgRoot ? svgRoot.outerHTML : '');
+  }
   showCustomIcons(){
     this.service.getCustomIcons(this.selectCategory,this.params.custompath).pipe(takeUntil(this._unsubscribeAll)).subscribe(data => {
       for (let i = 0; i < data.length; i++) {
@@ -194,7 +213,7 @@ export class IconPickerComponent implements TriggerPopup, OnInit, OnDestroy {
             meta.svg=meta.svg.replace('width="48px"',' width="36px"');
             meta.svg=meta.svg.replace('height="48px"',' height="36px"');
             if(meta.svg&&meta.svg.length>0){
-              meta.svgElm=this.domSanitizer.bypassSecurityTrustHtml(meta.svg);
+              meta.svgElm=this.sanitizeSvg(meta.svg);
             }
             meta.url=this._apiBase+"/lib/icon/svg?id="+meta.id+"&type="+this.selectCategory;
             this.addCustomIcons(meta);
@@ -207,7 +226,7 @@ export class IconPickerComponent implements TriggerPopup, OnInit, OnDestroy {
   addCustomIcons(icon: any) {
     this.matIconRegistry.addSvgIconLiteral(
       icon.meta_name,
-      this.domSanitizer.bypassSecurityTrustHtml(icon.svg)
+      this.sanitizeSvg(icon.svg)
     );
   }
   private loadIcon(dir){

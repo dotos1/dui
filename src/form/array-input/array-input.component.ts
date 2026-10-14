@@ -46,22 +46,17 @@ export class ArrayInputComponent extends TextFieldComponent implements OnInit {
     if(this.field.options==undefined){
       return [];
     }
-    let opts=clone(this.field.options);
-     opts.map(option => {
-        option["selected"]=false;
-     });
-    if (filter&&filter.length > 0) {
-      opts.map(option => {
-        let seleted=filter.indexOf(option.value) >= 0;
-        option["selected"]=seleted;
-      });
+    let opts = this.field.options.map(o => ({ ...o, selected: false }));
+    if (filter && filter.length > 0) {
+      const selectedValues = String(filter).split(',').map(s => s.trim());
       opts.forEach(option => {
-        let seleted=filter.indexOf(option.value) >= 0;
-        if(seleted){
+        let seleted = selectedValues.includes(String(option.value));
+        option["selected"] = seleted;
+        if (seleted) {
           this.selectData.push(option);
         }
       });
-   
+
       return opts;
     } else {
       return opts.slice();

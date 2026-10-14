@@ -66,7 +66,7 @@ export class SVGCacheService {
     const req = this._http.get(imageUrl, { responseType: 'text' })
       .pipe(
         finalize(() => {
-          SVGCacheService._inProgressReqs.delete(imageUrl);
+          SVGCacheService._imageInProgressReqs.delete(imageUrl);
         }),
         share(),
         map((res: string) => {
@@ -149,7 +149,36 @@ export class SVGCacheService {
     if (!svg) {
       throw new Error('No SVG found in loaded contents');
     }
+    this._sanitizeSVG(svg);
     return svg;
+  }
+
+  private _sanitizeSVG(svg: SVGElement): void {
+    const forbiddenTags = ['script', 'foreignObject', 'iframe', 'object', 'embed'];
+    forbiddenTags.forEach(tag => {
+      const elements = svg.querySelectorAll(tag);
+      for (let i = 0; i < elements.length; i++) {
+        if (elements[i].parentNode) {
+          elements[i].parentNode.removeChild(elements[i]);
+        }
+      }
+    });
+    const allElements = [svg, ...Array.from(svg.querySelectorAll('*'))];
+    allElements.forEach((el: Element) => {
+      if (!el.attributes) {
+        return;
+      }
+      const attrsToRemove: string[] = [];
+      for (let i = 0; i < el.attributes.length; i++) {
+        const attr = el.attributes[i];
+        const name = attr.name.toLowerCase();
+        const val = (attr.value || '').trim().toLowerCase();
+        if (name.startsWith('on') || ((name === 'href' || name === 'xlink:href') && val.startsWith('javascript:'))) {
+          attrsToRemove.push(attr.name);
+        }
+      }
+      attrsToRemove.forEach(attrName => el.removeAttribute(attrName));
+    });
   }
 
   private _cloneSVG(svg: SVGElement): SVGElement {

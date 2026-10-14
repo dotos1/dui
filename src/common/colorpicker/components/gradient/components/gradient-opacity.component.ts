@@ -44,7 +44,7 @@ export class GradientOpacityComponent implements OnInit,OnDestroy {
     return left;
   }
 
-  public stopDragging (){
+  public stopDragging = () => {
     this. setDragging(false)
   }
 

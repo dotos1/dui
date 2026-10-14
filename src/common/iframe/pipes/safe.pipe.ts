@@ -1,5 +1,5 @@
 import {Pipe, PipeTransform, SecurityContext} from '@angular/core';
-import { DomSanitizer} from '@angular/platform-browser';
+import { DomSanitizer, SafeResourceUrl} from '@angular/platform-browser';
 
 /**
  * Sanitizes a URL and marks it as trusted resource URL, so it can be bound to `<iframe src>`
@@ -16,10 +16,22 @@ export class SafePipe implements PipeTransform {
      * Sanitizes the given URL and returns it wrapped as a trusted resource URL.
      * @zh 清理给定的 URL 并将其包装为受信任的资源 URL 返回。
      */
-    transform(url: string): any {
-     
-        return this.sanitizer.bypassSecurityTrustResourceUrl(
-          this.sanitizer.sanitize(SecurityContext.URL, url)
-        );
+    transform(url: string | SafeResourceUrl): any {
+        if (!url) {
+            return this.sanitizer.bypassSecurityTrustResourceUrl('');
+        }
+        if (typeof url !== 'string') {
+            return url;
+        }
+        const sanitized = this.sanitizer.sanitize(SecurityContext.URL, url) || '';
+        const trimmed = sanitized.trim();
+        const isSafe =
+            trimmed === '' ||
+            trimmed.startsWith('/') ||
+            trimmed.startsWith('./') ||
+            trimmed.startsWith('../') ||
+            !/^[a-zA-Z][a-zA-Z\d+\-.]*:/.test(trimmed) ||
+            /^(https?|blob):/i.test(trimmed);
+        return this.sanitizer.bypassSecurityTrustResourceUrl(isSafe ? trimmed : '');
     }
 }

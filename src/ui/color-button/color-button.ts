@@ -87,9 +87,9 @@ export class ColorPickerButton extends ButtonBase implements OnInit,DoCheck {
   override setValue(v:any): void {
     this.value=v;
     if(v==undefined){
-      this.iconStyle["border-bottom-color"]='transparent';
+      this.iconStyle = { ...this.iconStyle, "border-bottom-color": 'transparent' };
     }else{
-      this.iconStyle["border-bottom-color"]=v.hex;
+      this.iconStyle = { ...this.iconStyle, "border-bottom-color": v.hex };
     }
     this._changeDetectorRef.detectChanges();
   }
@@ -98,11 +98,11 @@ export class ColorPickerButton extends ButtonBase implements OnInit,DoCheck {
     $event.$event.stopPropagation();
     if($event.color==undefined){
       this.state = undefined;
-      this.iconStyle["border-bottom-color"]='transparent';
+      this.iconStyle = { ...this.iconStyle, "border-bottom-color": 'transparent' };
       this.onValueChange($event.color,this);
     }else{
       this.state = $event.color.hsl;
-      this.iconStyle["border-bottom-color"]=$event.color.hex;
+      this.iconStyle = { ...this.iconStyle, "border-bottom-color": $event.color.hex };
       this.onValueChange($event.color,this);
     }
 

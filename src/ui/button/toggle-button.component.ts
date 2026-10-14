@@ -225,8 +225,9 @@ export class ToggleButtonComponent extends ComponentBase implements OnInit,DoChe
       { comp },
       [comp, owner],
     );
-    if (disableExpressionResult !== comp.disable) {
+    if (disableExpressionResult !== comp.disable || disableExpressionResult !== comp.disabled) {
       comp.disable = disableExpressionResult;
+      comp.disabled = disableExpressionResult;
     }
   }
 }

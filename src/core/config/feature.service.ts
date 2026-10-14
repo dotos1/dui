@@ -67,6 +67,7 @@ export class FeatureService {
   readonly changed: Observable<void> = this.changedSubject.asObservable();
 
   constructor(private readonly config: ConfigService) {
+    this.config.onLoad.subscribe(() => this.changedSubject.next());
   }
 
   /**

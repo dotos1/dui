@@ -15,6 +15,7 @@ import { OptionsService } from './options.service';
   selector: 'text-field',
   templateUrl: './textfield.component.html',
   changeDetection: ChangeDetectionStrategy.Default,
+  providers: [OptionsService],
   host: {
     hostID: 'dui-text-field' + Math.random().toString(36).substring(2, 15),
   }
@@ -98,6 +99,7 @@ export class TextFieldComponent extends MatField implements OnInit, AfterViewIni
               this.filteredOptions = of(serviceData.options === null ? [] : serviceData.options);
               this.changeDetector.detectChanges();
               this.isLoading = false;
+              this.searching = false;
               if (serviceData.error) {
                 this.field.formControl.setErrors({ 'serviceFail': serviceData.error });
               }
@@ -105,18 +107,18 @@ export class TextFieldComponent extends MatField implements OnInit, AfterViewIni
           });
         this.formControl.valueChanges
           .pipe(
-            filter(search => !!search),
-            tap(() => this.searching = true),
             takeUntil(this._onDestroy),
             debounceTime(500),
+            tap(search => { this.searching = !!search; }),
+            filter(search => !!search),
             map(search => {
               return search;
             }),
             delay(200)
           ).subscribe(searchText => {
             this.searching = false;
-            let url = this.field.dataSource.url;
-            let method = this.field.dataSource.method;
+            let url = this.field.dataSource?.url;
+            let method = this.field.dataSource?.method || 'POST';
             // Clone rather than mutate this.field.params in place -- otherwise every
             // in-flight/queued request ends up pointing at the same object, which is
             // what made the identity check above meaningless.
@@ -126,6 +128,13 @@ export class TextFieldComponent extends MatField implements OnInit, AfterViewIni
           });
       } else {
         this.filteredOptions = of(this.field.options);
+        if (this.field.options) {
+          this.formControl.valueChanges
+            .pipe(takeUntil(this._onDestroy))
+            .subscribe(val => {
+              this.filteredOptions = of(typeof val === 'string' && val ? this._filter(val) : this.field.options);
+            });
+        }
       }
     }
 
@@ -161,6 +170,7 @@ export class TextFieldComponent extends MatField implements OnInit, AfterViewIni
     this.isAlive = false;
     this._onDestroy.next();
     this._onDestroy.complete();
+    super.ngOnDestroy();
   }
 
   public getLabel(option) {
@@ -177,6 +187,10 @@ export class TextFieldComponent extends MatField implements OnInit, AfterViewIni
     } else {
       return option;
     }
+  }
+
+  public trackByOption(index: number, option: any) {
+    return isObject(option) ? option.value : option;
   }
 
   private _filter(value: any): string[] {

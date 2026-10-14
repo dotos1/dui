@@ -17,8 +17,7 @@ import { TypographyMap } from './typography-theme';
 import { matDarkBlueTheme } from './mat-darkblue-theme';
 import { MatFormFieldAppearance } from '@angular/material/form-field';
 import { BehaviorSubject } from 'rxjs';
- const jss :any=create({ plugins: [jssPluginGlobal(), jssPluginNested()] });
-jss.use(jssPluginGlobal(),jssPluginNested ())
+const jss: any = create({ plugins: [jssPluginGlobal(), jssPluginNested()] });
 
 export function createMaterialCoreStyles(typographyConfig: TypographyConfig = null, override: Object = {}, dynamic: boolean = false): StyleSheet<any> {
   const styles = {
@@ -221,6 +220,13 @@ export class ThemeService {
     this.removeStyleSheet(this._materialThemeStyleSheet);
     this._materialThemeStyleSheet = createMaterialThemeStyles(this.theme, themeOverrides, dynamicThemeStyles);
     this._materialThemeStyleSheet.attach();
+
+    Array.from(this._loadedThemeStyleSheets.entries()).forEach(([themeFn, oldSheet]) => {
+      this.removeStyleSheet(oldSheet);
+      const newSheet = this.createThemeStyles(this.theme, themeFn, dynamicThemeStyles);
+      this._loadedThemeStyleSheets.set(themeFn, newSheet);
+      newSheet.attach();
+    });
   }
   getThemeByType(type:string){
     if(type=='default'){

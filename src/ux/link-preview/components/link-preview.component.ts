@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, OnChanges, OnDestroy, Output } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { Observable, Subscription } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { finalize, map } from 'rxjs/operators';
 import { OpenGraphMetaData } from '../interfaces/open-graph-meta-data';
 import { LinkPreviewCacheService } from '../services/link-preview-cache.service';
 import { LinkPreviewLoadingManager } from '../services/link-preview-loading.manager';
@@ -125,6 +125,8 @@ export class LinkPreviewComponent implements OnChanges, OnDestroy {
     );
   }
 
+  private requestSubscriptions: Subscription[] = [];
+
   /**
    * Unsubscribe all subscriptions
    */
@@ -132,12 +134,21 @@ export class LinkPreviewComponent implements OnChanges, OnDestroy {
     this.subscriptions.forEach((sub: Subscription) => {
       sub.unsubscribe();
     });
+    this.unsubscribeRequests();
+  }
+
+  private unsubscribeRequests(): void {
+    this.requestSubscriptions.forEach((sub: Subscription) => {
+      sub.unsubscribe();
+    });
+    this.requestSubscriptions = [];
   }
 
   /**
    * Init preview
    */
   private init(): void {
+    this.unsubscribeRequests();
     this.scannedLinks = [];
     this.previews = [];
     this.checkInputParameters();
@@ -171,18 +182,19 @@ export class LinkPreviewComponent implements OnChanges, OnDestroy {
       this.previews.push(cacheItem);
     } else {
       this.loadingMgr.addTask(encodedLink);
-      this.getApiEndpoint$(requestUrl)
+      const sub = this.getApiEndpoint$(requestUrl)
         .pipe(
           map((resp: OpenGraphMetaData) => {
             resp.timestampMs = new Date().valueOf();
             return resp;
-          })
+          }),
+          finalize(() => this.loadingMgr.removeTask(encodedLink))
         )
         .subscribe((resp: OpenGraphMetaData) => {
           this.cacheSvc.updateCacheItem(encodedLink, resp);
-          this.loadingMgr.removeTask(encodedLink);
           this.previews.push(resp);
         });
+      this.requestSubscriptions.push(sub);
     }
   }
 

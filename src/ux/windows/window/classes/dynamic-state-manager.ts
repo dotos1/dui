@@ -42,4 +42,8 @@ export class ɵDynamicStateManager {
     public registerAfterEndCallback(callback: () => void): void {
         this.afterEndCallback = callback;
     }
+
+    public destroy(): void {
+        clearTimeout(this.currentStateTimeoutId);
+    }
 }

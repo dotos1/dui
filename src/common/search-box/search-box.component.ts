@@ -143,7 +143,8 @@ export class SearchBoxComponent implements ControlValueAccessor {
    */
   get width() {
     if (this._width) {
-      return this._width + 'px';
+      const wStr = String(this._width);
+      return wStr.endsWith('px') || wStr.endsWith('%') ? wStr : wStr + 'px';
     } else {
       return '100%';
     }
@@ -175,6 +176,8 @@ export class SearchBoxComponent implements ControlValueAccessor {
 
   private sub: any;
   private _unsubscribeAll: Subject<void>;
+  private _onChange: (value: any) => void = noop;
+  private _onTouched: () => void = noop;
   constructor(
     private _dotosConfigService: DotosConfigService,
     protected _themeService: ThemeService,
@@ -184,15 +187,15 @@ export class SearchBoxComponent implements ControlValueAccessor {
     }
 
   ngOnInit(): void {
-    this.sub = this.activatedRoute.queryParams.subscribe((params:any) => {
-      let term = params.q;
-      this.value=term;
-      if(term!=undefined){
-        this._searchVisible=true;
-      }else{
-        this._searchVisible=false;
-      }
-    });
+    this.sub = this.activatedRoute.queryParams
+      .pipe(takeUntil(this._unsubscribeAll))
+      .subscribe((params:any) => {
+        let term = params.q;
+        if(term!=undefined){
+          this.value=term;
+          this._searchVisible=true;
+        }
+      });
     this._dotosConfigService.config
     .pipe(takeUntil(this._unsubscribeAll))
     .subscribe(() => {
@@ -209,7 +212,9 @@ export class SearchBoxComponent implements ControlValueAccessor {
   ngOnDestroy() {
     this._unsubscribeAll.next();
     this._unsubscribeAll.complete();
-    this.sub.unsubscribe();
+    if (this.sub) {
+      this.sub.unsubscribe();
+    }
   }
 
   /**
@@ -230,12 +235,12 @@ export class SearchBoxComponent implements ControlValueAccessor {
     this._changeDetectorRef.markForCheck();
   }
 
-  registerOnChange(): void {
-    noop;
+  registerOnChange(fn: any): void {
+    this._onChange = fn || noop;
   }
 
-  registerOnTouched(): void {
-    noop;
+  registerOnTouched(fn: any): void {
+    this._onTouched = fn || noop;
   }
 
 
@@ -268,6 +273,7 @@ export class SearchBoxComponent implements ControlValueAccessor {
    * @zh 内部使用，将防抖后的搜索值以 `searchDebounce` 转发出去。
    */
   handleSearchDebounce(value: any): void {
+    this._onChange(value);
     this.searchDebounce.emit(value);
   }
 
@@ -277,6 +283,7 @@ export class SearchBoxComponent implements ControlValueAccessor {
    */
   handleSearch(value: any): void {
     console.log(value);
+    this._onChange(value);
 
     this.onSearch.emit(value);
     if(this.search){
@@ -289,6 +296,7 @@ export class SearchBoxComponent implements ControlValueAccessor {
    * @zh 内部使用，发出 `onClear` 并调用 `config` 提供的 `clear` 回调（如果有）。
    */
   handleClear(): void {
+    this._onChange('');
     this.onClear.emit();
     if(this.clear){
       this.clear();
@@ -300,6 +308,7 @@ export class SearchBoxComponent implements ControlValueAccessor {
    * @zh 内部使用，将失焦事件以 `blurSearch` 转发出去。
    */
   handleBlur(): void {
+    this._onTouched();
     this.blurSearch.emit();
   }
 }

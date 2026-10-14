@@ -89,6 +89,9 @@ export class CommandPaletteComponent implements OnInit, OnDestroy {
 
   onCallCallbackItem(itemIndex?: number): void {
     const selectedItem = this.allFilteredItems[itemIndex ?? this.selectedItemIndex];
+    if (!selectedItem) {
+      return;
+    }
 
     if (selectedItem.callback) {
       selectedItem.callback();

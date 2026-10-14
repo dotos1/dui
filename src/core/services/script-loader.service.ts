@@ -16,7 +16,7 @@ declare const document: any;
 export class ScriptLoaderService {
 
     private scripts: any = {};
-    private pathMappings;
+    private pathMappings: Record<string, string> = {};
 
     constructor(private http: HttpClient) {
         ScriptStore.forEach((script: any) => {

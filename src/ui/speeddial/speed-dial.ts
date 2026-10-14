@@ -111,12 +111,13 @@ export class SpeedDialActionsComponent implements AfterContentInit {
       return;
     }
     this.resetAnimationState();
+    const total = this._buttons.length;
     const obs = this._buttons.map((button, i) => {
       let opacity = '1';
       let transitionDelay = 0;
       let transform;
       if (this._parent.animationMode === 'scale') {
-        transitionDelay = 3 - (65 * i);
+        transitionDelay = 3 + (65 * (total - 1 - i));
         transform = 'scale(0)';
         opacity = '0';
       } else {
@@ -126,10 +127,14 @@ export class SpeedDialActionsComponent implements AfterContentInit {
       this.changeElementStyle(hostElement, 'transition-delay', transitionDelay + 'ms');
       this.changeElementStyle(hostElement, 'opacity', opacity);
       this.changeElementStyle(hostElement, 'transform', transform);
-       this.changeElementStyle(hostElement, 'display', "none");
       return fromEvent(hostElement, 'transitionend').pipe(take(1));
     });
-    this.hideMiniFab = forkJoin(obs).subscribe(() => this.miniFabVisible = false);
+    this.hideMiniFab = forkJoin(obs).subscribe(() => {
+      this._buttons.forEach(button => {
+        this.changeElementStyle(button._elementRef.nativeElement, 'display', 'none');
+      });
+      this.miniFabVisible = false;
+    });
   }
 
   private getTranslateFunction(value: string): string {

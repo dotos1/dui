@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient,  HttpParams } from '@angular/common/http';
-import { Observable, ReplaySubject, throwError } from 'rxjs';
+import { Observable, ReplaySubject, Subject, throwError } from 'rxjs';
 import { ConfigService } from '@dotos/dui/core/config';
 import { CookieService, LogService } from '@dotos/dui/core/services';
 import { CommonAuth } from './CommonAuth';
@@ -25,8 +25,8 @@ export class AuthService {
 
   private redirectUrl: RedirectionModel = null;
 
-  onLogin: ReplaySubject<any> = new ReplaySubject<any>(1);
-  onLogout: ReplaySubject<any> = new ReplaySubject<any>(1);
+  onLogin: Subject<any> = new Subject<any>();
+  onLogout: Subject<any> = new Subject<any>();
 
   public _redirectUrl: string;
   public userId: string;
@@ -154,6 +154,8 @@ export class AuthService {
         this.saveRememberMeCookie(rememberMe);
         this.onLogin.next(response);
       }
+    }, (err) => {
+      this.onLogin.next({ success: false, message: err?.message || err });
     });
   }
   private _login(username: string, password: string, ticket: string): Promise<any> {

@@ -4,6 +4,10 @@ import { AbstractControl } from '@angular/forms';
 import { FieldConfigCache } from './models';
 
 
+function isUnsafeKey(key: any): boolean {
+  return key === '__proto__' || key === 'constructor' || key === 'prototype';
+}
+
 export function getFieldId(formId: string, field: FieldConfig, index: string|number) {
   if (field.id) {
     return field.id;
@@ -12,7 +16,7 @@ export function getFieldId(formId: string, field: FieldConfig, index: string|num
   if (!type && field.template) {
     type = 'template';
   }
-  return [formId, type, field['key'], index].join('_');
+  return [formId, type, field.name, index].join('_');
 }
 
 export function getKeyPath(field: FieldConfigCache): string[] {
@@ -31,7 +35,7 @@ export function getKeyPath(field: FieldConfigCache): string[] {
     } else {
       path = [`${field.name}`];
     }
-    defineHiddenProp(field, '_keyPath', { key: field['key'], path });
+    defineHiddenProp(field, '_keyPath', { key: field.name, path });
   }
 
   return field._keyPath.path.slice(0);
@@ -51,7 +55,10 @@ export function assignFieldValue(field: FieldConfigCache, value: any) {
   }
   if (value === undefined && field['autoClear']) {
     const k = paths.pop();
-    const m = paths.reduce((model, path) => model[path] || {}, root.model);
+    if (isUnsafeKey(k)) {
+      return;
+    }
+    const m = paths.reduce((model, path) => (isUnsafeKey(path) ? {} : (model[path] || {})), root.model);
     delete m[k];
     return;
   }
@@ -61,13 +68,20 @@ export function assignFieldValue(field: FieldConfigCache, value: any) {
 export function assignModelValue(model: any, paths: string[], value: any) {
   for (let i = 0; i < (paths.length - 1); i++) {
     const path = paths[i];
+    if (isUnsafeKey(path)) {
+      return;
+    }
     if (!model[path] || !isObject(model[path])) {
       model[path] = /^\d+$/.test(paths[i + 1]) ? [] : {};
     }
 
     model = model[path];
   }
-  model[paths[paths.length - 1]] = clone(value);
+  const lastPath = paths[paths.length - 1];
+  if (isUnsafeKey(lastPath)) {
+    return;
+  }
+  model[lastPath] = clone(value);
 }
 ///move from dui.ts ----- start
 export function getKeyPath2(field: { name?:  string  | string[], fieldGroup?: any, fieldArray?: any }): (string | number)[] {
@@ -106,11 +120,17 @@ export function assignModelValue2(model: any, path: string | (string | number)[]
   }
   if (path.length > 1) {
     const e = path.shift();
+    if (isUnsafeKey(e)) {
+      return;
+    }
     if (!model[e] || !isObject(model[e])) {
       model[e] = typeof path[0] === 'string' ? {} : [];
     }
     assignModelValue2(model[e], path, value);
   } else {
+    if (isUnsafeKey(path[0])) {
+      return;
+    }
     model[path[0]] = value;
   }
 }
@@ -162,6 +182,9 @@ export function getFieldValue(field: FieldConfig): any {
 export function reverseDeepMerge(dest: any, ...args: any[]) {
   args.forEach((src) => {
     for (const srcArg in src) {
+      if (isUnsafeKey(srcArg)) {
+        continue;
+      }
       if (isNil(dest[srcArg]) || isBlankString(dest[srcArg])) {
         dest[srcArg] = clone(src[srcArg]);
       } else if (objAndSameType(dest[srcArg], src[srcArg])) {

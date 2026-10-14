@@ -44,7 +44,7 @@ export class ConfigService {
     this.onLoadSubject = new Subject();
     this.onLoad = this.onLoadSubject.asObservable();
     this.onErrorSubject = new Subject();
-    this.onError = this.onLoadSubject.asObservable();
+    this.onError = this.onErrorSubject.asObservable();
   }
   setLoader(loader: ConfigLoader){
     this.loader=loader;

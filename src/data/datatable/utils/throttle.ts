@@ -22,6 +22,7 @@ export function throttle(func: any, wait: number, options?: any) {
 
     const remaining = wait - (now - previous);
 
+    context = this;
     args = arguments;
 
     if (remaining <= 0) {

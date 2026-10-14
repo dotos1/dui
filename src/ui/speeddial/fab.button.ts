@@ -112,7 +112,7 @@ export class FabButtonComponent extends ComponentBase implements OnChanges,DoChe
 
     }
     if (!this.disabled) {
-      if (this.matTooltip.message!='') {
+      if (this.matTooltip && this.matTooltip.message) {
         e.stopPropagation();
         e.stopImmediatePropagation();
         this.matTooltip.hide();

@@ -302,6 +302,14 @@ export class Oauth2Auth  {
         let text = '';
         const possible =
             'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+        if (typeof window !== 'undefined' && window.crypto && typeof window.crypto.getRandomValues === 'function') {
+            const randomValues = new Uint32Array(40);
+            window.crypto.getRandomValues(randomValues);
+            for (let i = 0; i < 40; i++) {
+                text += possible.charAt(randomValues[i] % possible.length);
+            }
+            return text;
+        }
         for (let i = 0; i < 40; i++) {
             text += possible.charAt(Math.floor(Math.random() * possible.length));
         }
@@ -455,7 +463,7 @@ export class Oauth2Auth  {
             let silentRefreshTokenIframe: any = document.getElementById('silent_refresh_token_iframe');
             let hash = silentRefreshTokenIframe.contentWindow.location.hash;
             try {
-                this.checkFragment('refresh_nonce', hash);
+                this.checkFragment(this.config.getSettings('oauth2'), 'refresh_nonce', hash);
             } catch (e) {
                 this.logOut();
             }

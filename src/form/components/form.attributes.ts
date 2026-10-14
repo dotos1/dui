@@ -36,6 +36,7 @@ export class FormAttributes implements OnChanges, DoCheck, OnDestroy {
     'step',
   ];
   private focusObserver: IObserver<boolean>;
+  private attributesObserver: IObserver<any>;
 
   private uiEvents = {
     listeners: [],
@@ -64,6 +65,7 @@ export class FormAttributes implements OnChanges, DoCheck, OnDestroy {
       if(typeof this.field.name =='string'){
         this.field.name && this.setAttribute('name', this.field.name);
         this.uiEvents.listeners.forEach(listener => listener());
+        this.uiEvents.listeners = [];
         this.uiEvents.events.forEach(eventName => {
           if (this.field[eventName]) {
             this.uiEvents.listeners.push(
@@ -76,8 +78,9 @@ export class FormAttributes implements OnChanges, DoCheck, OnDestroy {
           }
         });
       }
+      this.attributesObserver && this.attributesObserver.unsubscribe();
       if (this.field && this.field.attributes) {
-        observe(this.field, [ 'attributes'], ({ currentValue, previousValue }) => {
+        this.attributesObserver = observe(this.field, [ 'attributes'], ({ currentValue, previousValue }) => {
           if (previousValue) {
             Object.keys(previousValue).forEach((attr) => this.removeAttribute(attr));
           }
@@ -91,6 +94,7 @@ export class FormAttributes implements OnChanges, DoCheck, OnDestroy {
       this.attachElementRef(changes['field'].currentValue);
       if (this.fieldAttrElements.length === 1) {
         !this.id && this.field.id && this.setAttribute('id', this.field.id);
+        this.focusObserver && this.focusObserver.unsubscribe();
         this.focusObserver = observe<boolean>(this.field, ['focused'], ({ currentValue }) => {
           this.toggleFocus(currentValue);
         });
@@ -118,7 +122,9 @@ export class FormAttributes implements OnChanges, DoCheck, OnDestroy {
 
   ngOnDestroy() {
     this.uiEvents.listeners.forEach(listener => listener());
+    this.uiEvents.listeners = [];
     this.detachElementRef(this.field);
+    this.attributesObserver && this.attributesObserver.unsubscribe();
     this.focusObserver && this.focusObserver.unsubscribe();
   }
 
@@ -174,9 +180,9 @@ export class FormAttributes implements OnChanges, DoCheck, OnDestroy {
   }
 
   private detachElementRef(f: FieldConfig) {
-    const index = f && f['_elementRefs'] ? this.fieldAttrElements.indexOf(this.elementRef) : -1;
+    const index = f && f['_elementRefs'] ? f['_elementRefs'].indexOf(this.elementRef) : -1;
     if (index !== -1) {
-      this.field['_elementRefs'].splice(index, 1);
+      f['_elementRefs'].splice(index, 1);
     }
   }
 

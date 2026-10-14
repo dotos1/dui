@@ -34,16 +34,31 @@ export class DecimalNumberPipe implements PipeTransform, OnDestroy {
     }
   }
 
+  private cachedPipe?: DecimalPipe;
+  private cachedLocale?: string;
+
   transform(value: any, digitsInfo?: DecimalNumberModel, locale?: string): any {
-    const actualMinIntegerDigits: number = digitsInfo && digitsInfo.minIntegerDigits ? digitsInfo.minIntegerDigits : this.defaultMinIntegerDigits;
-    const actualMinFractionDigits: number = digitsInfo && digitsInfo.minFractionDigits ? digitsInfo.minFractionDigits : this.defaultMinFractionDigits;
-    const actualMaxFractionDigits: number = digitsInfo && digitsInfo.maxFractionDigits ? digitsInfo.maxFractionDigits : this.defaultMaxFractionDigits;
+    const actualMinIntegerDigits: number =
+      digitsInfo && digitsInfo.minIntegerDigits !== undefined && digitsInfo.minIntegerDigits !== null
+        ? digitsInfo.minIntegerDigits
+        : this.defaultMinIntegerDigits;
+    const actualMinFractionDigits: number =
+      digitsInfo && digitsInfo.minFractionDigits !== undefined && digitsInfo.minFractionDigits !== null
+        ? digitsInfo.minFractionDigits
+        : this.defaultMinFractionDigits;
+    const actualMaxFractionDigits: number =
+      digitsInfo && digitsInfo.maxFractionDigits !== undefined && digitsInfo.maxFractionDigits !== null
+        ? digitsInfo.maxFractionDigits
+        : this.defaultMaxFractionDigits;
 
     const actualDigitsInfo = `${actualMinIntegerDigits}.${actualMinFractionDigits}-${actualMaxFractionDigits}`;
     const actualLocale = locale || this.defaultLocale;
 
-    const datePipe: DecimalPipe = new DecimalPipe(actualLocale);
-    return datePipe.transform(value, actualDigitsInfo);
+    if (!this.cachedPipe || this.cachedLocale !== actualLocale) {
+      this.cachedLocale = actualLocale;
+      this.cachedPipe = new DecimalPipe(actualLocale);
+    }
+    return this.cachedPipe.transform(value, actualDigitsInfo);
   }
 
   ngOnDestroy(): void {

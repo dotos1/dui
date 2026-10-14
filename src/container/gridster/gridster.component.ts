@@ -152,7 +152,13 @@ export class GridsterComponent implements OnInit, OnChanges, OnDestroy, Gridster
     this.calculateLayout();
   }
 
+  private resizeTimeout: any;
+
   ngOnDestroy(): void {
+    if (this.resizeTimeout) {
+      clearTimeout(this.resizeTimeout);
+      this.resizeTimeout = null;
+    }
     if (this.windowResize) {
       this.windowResize();
     }
@@ -307,7 +313,10 @@ export class GridsterComponent implements OnInit, OnChanges, OnDestroy, Gridster
       widget.resize.toggle();
     }
 
-    setTimeout(this.resize.bind(this), 100);
+    if (this.resizeTimeout) {
+      clearTimeout(this.resizeTimeout);
+    }
+    this.resizeTimeout = setTimeout(this.resize.bind(this), 100);
   }
 
   updateGrid(): void {

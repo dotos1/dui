@@ -64,7 +64,7 @@ export class MenuItemComponent extends MenuBase implements OnInit,DoCheck,AfterV
     this._dense = value;
     if (value) {
       if (!(this.menuClasses.indexOf('menu-bar-item-menu--dense') > -1)) {
-        this.menuClasses.push(`${this.menuClass} menu-bar-item-menu--dense`);
+        this.menuClasses.push('menu-bar-item-menu--dense');
       }
     } else {
       if (this.menuClasses.indexOf('menu-bar-item-menu--dense') > -1) {
@@ -104,7 +104,7 @@ export class MenuItemComponent extends MenuBase implements OnInit,DoCheck,AfterV
   }
 
   get panelClass(): string {
-    return this.panelClass;
+    return this.menuClass;
   }
 
   public parentItem;
@@ -138,11 +138,6 @@ export class MenuItemComponent extends MenuBase implements OnInit,DoCheck,AfterV
         if (item.xtype && item.xtype == 'menuitem' && !item.handler) {
           item.handler = () => { };
         }
-        if (item.xtype && item.xtype != 'menuitem' && item.type != 'divider') {
-          let component = Dui.create(Dui.apply({ ownerCt: this }, item), this);
-          component.ownerCt = this.ownerCt;
-          this.comps.push(component);
-        }
         if(item.title==undefined&&item.text!=undefined){
           item.title=item.text;
         }
@@ -155,7 +150,9 @@ export class MenuItemComponent extends MenuBase implements OnInit,DoCheck,AfterV
     this.extendMenus.forEach((menuHost) => {
       const viewContainerRef = menuHost.viewContainerRef;
       viewContainerRef.clear();
-      viewContainerRef.insert(this.comps[k].reference.hostView, 0);
+      if (this.comps[k]?.reference?.hostView) {
+        viewContainerRef.insert(this.comps[k].reference.hostView, 0);
+      }
       k++;
     })
   }

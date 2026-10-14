@@ -44,6 +44,7 @@ export class WindowDialogComponent {
    * @zh 切换停靠状态并发出 `dockToggled`。
    */
   toggleDockedState(): void {
+    this.docked = !this.docked;
     this.dockToggled.emit(this.docked);
   }
 }

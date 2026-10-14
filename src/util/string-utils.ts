@@ -1,16 +1,27 @@
 export class StringUtils {
+  private static escapeHtml(str: string): string {
+    return String(str)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#39;');
+  }
+
   static diff(s1: string, s2: string, p = 4): string {
-    if (!s1 && !s2) {
+    const str1 = s1 === null || s1 === undefined ? '' : String(s1);
+    const str2 = s2 === null || s2 === undefined ? '' : String(s2);
+    if (!str1 && !str2) {
       return '';
     }
-    if (!s1) {
-      return '<span class="inserted">' + s2 + '</span>';
+    if (!str1) {
+      return '<span class="inserted">' + StringUtils.escapeHtml(str2) + '</span>';
     }
-    if (!s2) {
-      return '<span class="deleted">' + s1 + '</span>';
+    if (!str2) {
+      return '<span class="deleted">' + StringUtils.escapeHtml(str1) + '</span>';
     }
-    s1 = s1.toString();
-    s2 = s2.toString();
+    s1 = str1;
+    s2 = str2;
     const changeData = StringUtils.getChanges(s1, s2, '', p);
     const nextS = s2.slice(
       changeData.mtc.length + changeData.ins.length + changeData.sbs.length
@@ -20,12 +31,16 @@ export class StringUtils {
     ); // remaining part of "this"
     let result = ''; // the glorious result
     if (changeData.del.length > 0) {
-      changeData.del = '<span class="deleted">' + changeData.del + '</span>';
+      changeData.del = '<span class="deleted">' + StringUtils.escapeHtml(changeData.del) + '</span>';
     }
     if (changeData.ins.length > 0) {
-      changeData.ins = '<span class="inserted">' + changeData.ins + '</span>';
+      changeData.ins = '<span class="inserted">' + StringUtils.escapeHtml(changeData.ins) + '</span>';
     }
-    result = changeData.mtc + changeData.del + changeData.ins + changeData.sbs;
+    result =
+      StringUtils.escapeHtml(changeData.mtc) +
+      changeData.del +
+      changeData.ins +
+      StringUtils.escapeHtml(changeData.sbs);
     result +=
       nextThis !== '' || nextS !== ''
         ? StringUtils.diff(nextThis, nextS, p)
@@ -55,7 +70,7 @@ export class StringUtils {
   }
 
   private static getChanges(s1, s2, m, p) {
-    const isThisLonger = s1.length >= s1.length ? true : false;
+    const isThisLonger = s1.length >= s2.length ? true : false;
     let [longer, shorter] = isThisLonger ? [s1, s2] : [s2, s1]; // assignment of longer and shorter by es6 destructuring
     let bi = 0; // base index designating the index of first mismacthing character in both strings
 

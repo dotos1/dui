@@ -19,16 +19,19 @@ export class SelectOptionsService {
 
   getOptions(url:string,method:string,params: any) {
     let ops: SelectOption[] = [];
-    if(method.toUpperCase()=='GET'){
+    if((method || 'POST').toUpperCase()=='GET'){
       this.http.get(url,{
         params: params
       }).subscribe((val:any) => {
-          if (val.success){
+          if (val && val.success){
             ops=val.data;
             this.optionsSubject.next({options: ops, params: params, error: null });
           }else{
-            this.optionsSubject.next({options: [], params: params, error: val.message});
+            this.optionsSubject.next({options: [], params: params, error: val ? val.message : 'Error'});
           }
+        },
+        error => {
+          this.optionsSubject.next({options: [], params: params, error: error});
         }
       );
     }else{
@@ -36,12 +39,15 @@ export class SelectOptionsService {
         params: params,
         responseType: 'json'
       }).subscribe( (val: any) => {
-        if (val.success){
+        if (val && val.success){
              ops=val.data;
              this.optionsSubject.next({options: ops, params: params, error: null });
         }else{
-             this.optionsSubject.next({options: [], params: params, error: val.message});
+             this.optionsSubject.next({options: [], params: params, error: val ? val.message : 'Error'});
         };
+      },
+      error => {
+        this.optionsSubject.next({options: [], params: params, error: error});
       });
     }
   }

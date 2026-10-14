@@ -59,18 +59,21 @@ export class NumberFieldComponent extends MatField implements AfterViewInit {
   unitchange(event){
     this.currentUnit=event.value;
     let unit=this.units.filter((u)=>u.id== this.currentUnit)[0];
+    let val=this.field.formControl.value;
     if(this.currentUnit!=this.defaultUnit){
       // `!= ''` loosely coerces '' to 0, so `0 != ''` is false -- a formControl value of
       // exactly 0 (e.g. 0°C) silently skipped the conversion entirely. `!== ''` compares
       // by type as well as value, so 0 correctly passes the guard.
-      if(this.field.formControl.value!==''){
-        let val=this.field.formControl.value;
+      if(val !== '' && val !== null && val !== undefined){
         this.field.inputValue=val*unit.factor+unit.offset;
+      } else {
+        this.field.inputValue = null;
       }
     }else{
-      if(this.field.formControl.value!==''){
-        let val=this.field.formControl.value;
+      if(val !== '' && val !== null && val !== undefined){
         this.field.inputValue=val;
+      } else {
+        this.field.inputValue = null;
       }
     }
   }
@@ -78,16 +81,18 @@ export class NumberFieldComponent extends MatField implements AfterViewInit {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   public onChange(e) {
     let unit=this.units.filter((u)=>u.id== this.currentUnit)[0];
+    let val=this.field.formControl.value;
     if(this.currentUnit!=this.defaultUnit){
       // Same `!= ''` vs `0` pitfall as unitchange() above.
-      if(this.field.formControl.value!==''){
-        let val=this.field.formControl.value;
+      if(val !== '' && val !== null && val !== undefined){
         this.field.formControl.patchValue((val-unit.offset)/unit.factor);
         this.field.inputValue=val;
+      } else {
+        this.field.formControl.patchValue(null);
+        this.field.inputValue = null;
       }
     }else{
-        let val=this.field.formControl.value;
-        this.field.inputValue=val;
+      this.field.inputValue=val;
     }
   }
 }

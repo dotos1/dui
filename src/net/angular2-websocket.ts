@@ -41,6 +41,7 @@ export class $WebSocket {
   private dataStream: Subject<any>;
   private errorMessages: Subject<any>;
   private internalConnectionState: number;
+  private reconnectTimeoutId: any;
 
   constructor(private url: string,
     private protocols?: Array<string>,
@@ -60,6 +61,13 @@ export class $WebSocket {
   connect(force = false) {
 
     if (force || !this.socket || this.socket.readyState !== this.readyStateConstants.OPEN) {
+      if (this.socket && (this.socket.readyState === this.readyStateConstants.OPEN || this.socket.readyState === this.readyStateConstants.CONNECTING)) {
+        this.socket.onopen = null;
+        this.socket.onmessage = null;
+        this.socket.onclose = null;
+        this.socket.onerror = null;
+        this.socket.close(this.normalCloseCode);
+      }
       this.socket = this.protocols ? new WebSocket(this.url, this.protocols) : new WebSocket(this.url);
       this.socket.binaryType = this.binaryType;
 
@@ -291,6 +299,7 @@ export class $WebSocket {
     } else {
       this.sendQueue = [];
       this.dataStream.complete();
+      this.errorMessages.complete();
     }
   };
 
@@ -303,7 +312,11 @@ export class $WebSocket {
     let backoffDelay = this.getBackoffDelay(++this.reconnectAttempts);
     // let backoffDelaySeconds = backoffDelay / 1000;
     // console.log('Reconnecting in ' + backoffDelaySeconds + ' seconds');
-    setTimeout(() => {
+    if (this.reconnectTimeoutId) {
+      clearTimeout(this.reconnectTimeoutId);
+    }
+    this.reconnectTimeoutId = setTimeout(() => {
+      this.reconnectTimeoutId = null;
       if (this.config.reconnectIfNotNormalClose) {
         this.connect()
       }
@@ -314,6 +327,10 @@ export class $WebSocket {
   close(force: boolean = false, keepReconnectIfNotNormalClose?: boolean) {
     if (!keepReconnectIfNotNormalClose) {
       this.config.reconnectIfNotNormalClose = false;
+      if (this.reconnectTimeoutId) {
+        clearTimeout(this.reconnectTimeoutId);
+        this.reconnectTimeoutId = null;
+      }
     }
 
     if (force || !this.socket.bufferedAmount) {
@@ -347,7 +364,7 @@ export class $WebSocket {
     if (this.socket == null) {
       return this.readyStateConstants.UNINITIALIZED;
     }
-    return this.internalConnectionState || this.socket.readyState;
+    return this.internalConnectionState !== undefined ? this.internalConnectionState : this.socket.readyState;
   }
 }
 

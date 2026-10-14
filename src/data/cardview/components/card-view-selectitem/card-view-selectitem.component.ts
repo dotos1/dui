@@ -69,4 +69,8 @@ export class CardViewSelectItemComponent implements OnChanges,OnDestroy {
   showNoneOption() {
     return this.displayNoneOption;
   }
+
+  trackByOption(index: number, option: CardViewSelectItemOption<string>): any {
+    return option ? option.key : index;
+  }
 }

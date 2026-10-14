@@ -76,6 +76,7 @@ export class FixedToParentDirective implements OnChanges, OnInit, AfterViewInit,
     }
 
     public ngOnDestroy(): void {
+        this.intervalChecker.reset();
         this.destroyed$.next(true);
         this.destroyed$.complete();
     }

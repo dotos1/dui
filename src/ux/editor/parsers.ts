@@ -26,10 +26,9 @@ export const toHTML = (json: Record<string, any>, inputSchema?: Schema): string 
 export const toDoc = (html: string, inputSchema?: Schema): Record<string, any> => {
   const schema = inputSchema ?? defaultSchema;
 
-  const el = document.createElement('div');
-  el.innerHTML = html;
+  const doc = new window.DOMParser().parseFromString(html ?? '', 'text/html');
 
-  return DOMParser.fromSchema(schema).parse(el).toJSON();
+  return DOMParser.fromSchema(schema).parse(doc.body).toJSON();
 };
 
 export const parseContent = (value: string | Record<string, any> | null, schema: Schema): ProseMirrorNode => {

@@ -23,6 +23,10 @@ export class DataTableBodyCellComponent implements DoCheck, OnDestroy {
     this._displayCheck= f;
   }
 
+  get displayCheck() {
+    return this._displayCheck;
+  }
+
   isDisplayCheck(row, column, value) {
     if(typeof this._displayCheck=='function'){
       return this._displayCheck(row, column, value)
@@ -110,7 +114,7 @@ export class DataTableBodyCellComponent implements DoCheck, OnDestroy {
 
   @Input() set sorts(val: any[]) {
     this._sorts = val;
-    this.calcSortDir = this.calcSortDir(val);
+    this.sortDir = this.calcSortDir(val);
   }
 
   get sorts(): any[] {

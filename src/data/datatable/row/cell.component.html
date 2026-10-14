@@ -1,6 +1,6 @@
 <div class="datatable-body-cell-label" [style.margin-left.px]="calcLeftMargin(column, row)">
   <label
-    *ngIf="column.checkboxable && (!displayCheck || displayCheck(row, column, value))"
+    *ngIf="column.checkboxable && (!displayCheck || isDisplayCheck(row, column, value))"
     class="datatable-checkbox"
   >
   <mat-checkbox class="tree-node-checkbox" [checked]="isSelected" (change)="onCheckboxChange($event)" fxFlex>

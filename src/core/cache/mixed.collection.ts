@@ -144,7 +144,7 @@ export class MixedCollection<T>  extends EventEmitter{
   }
 
   pop() {
-    return this.removeAt(this.length() - 1);
+    return this.removeAt(this.length - 1);
   }
 
   removeKey(key: string): Object {

@@ -1,6 +1,6 @@
 import {
   Component, ElementRef, EventEmitter,
-  Input, Output, ViewChild,
+  Input, OnDestroy, Output, ViewChild,
 } from '@angular/core';
 import { EditorView } from 'prosemirror-view';
 
@@ -11,7 +11,7 @@ import { EditorView } from 'prosemirror-view';
   
 })
 
-export class ImageViewComponent {
+export class ImageViewComponent implements OnDestroy {
   @Input() src: string;
   @Input() alt = '';
   @Input() title = '';
@@ -23,12 +23,15 @@ export class ImageViewComponent {
 
   @ViewChild('imgEl', { static: true }) imgEl: ElementRef;
 
+  private activeCleanup?: () => void;
+
   startResizing(e: MouseEvent, direction: string): void {
     e.preventDefault();
     this.resizeImage(e, direction);
   }
 
   resizeImage(evt: MouseEvent, direction: string): void {
+    this.activeCleanup?.();
     const startX = evt.pageX;
     const startWidth = this.imgEl.nativeElement.clientWidth;
 
@@ -51,14 +54,24 @@ export class ImageViewComponent {
       this.outerWidth = `${computedWidth}px`;
     };
 
-    const onMouseUp = (e: MouseEvent) => {
-      e.preventDefault();
+    const cleanup = () => {
       document.removeEventListener('mousemove', onMouseMove);
       document.removeEventListener('mouseup', onMouseUp);
+      this.activeCleanup = undefined;
+    };
+
+    const onMouseUp = (e: MouseEvent) => {
+      e.preventDefault();
+      cleanup();
       this.imageResize.emit();
     };
 
+    this.activeCleanup = cleanup;
     document.addEventListener('mousemove', onMouseMove);
     document.addEventListener('mouseup', onMouseUp);
+  }
+
+  ngOnDestroy(): void {
+    this.activeCleanup?.();
   }
 }

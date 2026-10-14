@@ -34,6 +34,7 @@ export class ClickOutsideDirective implements OnInit, OnChanges, OnDestroy {
 
   private _nodesExcluded: Array<HTMLElement> = [];
   private _events: Array<string> = ['click'];
+  private _delayTimeoutId: any;
 
   constructor(private _el: ElementRef,
               @Inject(PLATFORM_ID) private platformId: Object) {
@@ -51,19 +52,29 @@ export class ClickOutsideDirective implements OnInit, OnChanges, OnDestroy {
   ngOnDestroy() {
     if (!isPlatformBrowser(this.platformId)) { return; }
 
-    if (this.attachOutsideOnClick) {
-      this._events.forEach(e => this._el.nativeElement.removeEventListener(e, this._initOnClickBody));
-    }
-
-    this._events.forEach(e => document.body.removeEventListener(e, this._onClickBody));
+    this._removeClickOutsideListener();
   }
 
   ngOnChanges(changes: SimpleChanges) {
     if (!isPlatformBrowser(this.platformId)) { return; }
 
     if (changes['attachOutsideOnClick'] || changes['exclude']) {
+      this._removeClickOutsideListener();
       this._init();
     }
+  }
+
+  private _removeClickOutsideListener() {
+    if (this._delayTimeoutId) {
+      clearTimeout(this._delayTimeoutId);
+      this._delayTimeoutId = null;
+    }
+
+    if (this.attachOutsideOnClick) {
+      this._events.forEach(e => this._el.nativeElement.removeEventListener(e, this._initOnClickBody));
+    }
+
+    this._events.forEach(e => document.body.removeEventListener(e, this._onClickBody));
   }
 
   private _init() {
@@ -82,7 +93,10 @@ export class ClickOutsideDirective implements OnInit, OnChanges, OnDestroy {
 
   private _initOnClickBody() {
     if (this.delayClickOutsideInit) {
-      setTimeout(this._initClickListeners.bind(this));
+      if (this._delayTimeoutId) {
+        clearTimeout(this._delayTimeoutId);
+      }
+      this._delayTimeoutId = setTimeout(this._initClickListeners.bind(this));
     } else {
       this._initClickListeners();
     }

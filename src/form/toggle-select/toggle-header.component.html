@@ -44,7 +44,7 @@
                   [class.fill-height]="fillHeight"
                   subscriptSizing="dynamic">
     <mat-select [(ngModel)]="value" (ngModelChange)="valueChange.emit($event)" [disabled]="disabled">
-      <mat-option *ngFor="let option of options" [value]="option.value"> {{ option.name }}</mat-option>
+      <mat-option *ngFor="let option of options; trackBy: trackByHeaderOption" [value]="option.value"> {{ option.name }}</mat-option>
     </mat-select>
   </mat-form-field>
 </ng-template>

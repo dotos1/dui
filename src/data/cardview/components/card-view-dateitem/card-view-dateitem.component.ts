@@ -48,8 +48,6 @@ export class CardViewDateItemComponent implements OnInit, OnDestroy {
 
   private onDestroy$ = new Subject<boolean>();
 
-  protected destroy$ = new Subject<boolean>();
-
 
   constructor(
     public cardViewUpdateService: CardViewUpdateService,
@@ -58,7 +56,7 @@ export class CardViewDateItemComponent implements OnInit, OnDestroy {
     private clipboardService: ClipboardService,
     public translateService: TranslationService) {
       this.cardViewUpdateService.updateItem$
-      .pipe(takeUntil(this.destroy$))
+      .pipe(takeUntil(this.onDestroy$))
       .subscribe((itemModel: any) => {
         if (this.property.key === itemModel.key) {
           this.property.value = itemModel.value;

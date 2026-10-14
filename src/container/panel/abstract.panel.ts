@@ -232,7 +232,8 @@ export class AbstractPanel extends Container implements AfterViewInit,OnDestroy{
   public  _displayedAreas: IArea[] = [];
 
   set hidedAreas(hidedAreas:IArea[]) {
-    hidedAreas  }
+    this._hidedAreas = hidedAreas;
+  }
 
   get hidedAreas():IArea[] {
     return this._hidedAreas;
@@ -277,10 +278,12 @@ export class AbstractPanel extends Container implements AfterViewInit,OnDestroy{
   }
 
   public override ngOnDestroy(): void {
+    this.unlockEvents();
     this.detectRef.detach();
     if (this.ownerCt && this.ownerCt.xtype === 'panel' && typeof this.ownerCt.removeArea === 'function') {
       this.ownerCt.removeArea(this);
     }
+    super.ngOnDestroy();
   }
 
   public setActive(comp: any): void {

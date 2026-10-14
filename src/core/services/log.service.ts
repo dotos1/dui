@@ -30,7 +30,7 @@ export let logLevels: any[] = [
 export class LogService {
 
   get currentLogLevel() {
-    if(this._currentLogLevel){
+    if (this._currentLogLevel !== undefined) {
       return this._currentLogLevel;
     }else{
       let configLevel: string = this.appConfig.get<string>('logLevel');
@@ -153,8 +153,9 @@ export class LogService {
    */
   assert(test?: boolean, message?: string, ...optionalParams: any[]) {
     if (this.currentLogLevel !== LogLevelsEnum.SILENT) {
-
-      this.messageBus(message, 'ASSERT');
+      if (!test) {
+        this.messageBus(message, 'ASSERT');
+      }
 
       console.assert(test, message, ...optionalParams);
     }

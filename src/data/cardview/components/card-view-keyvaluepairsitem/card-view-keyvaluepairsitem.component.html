@@ -29,7 +29,7 @@
         </div>
 
         <div class="dui-card-view__key-value-pairs__row"
-             *ngFor="let item of values; let i = index">
+             *ngFor="let item of values; let i = index; trackBy: trackByIndex">
             <div class="dui-card-view__key-value-pairs__col">
                 <mat-form-field>
                     <input matInput

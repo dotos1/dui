@@ -23,6 +23,9 @@ export class AuthenticatedGuard  {
               this.storage.remove('access_token');
               this.storage.remove('access_token_expires_in');
               this.storage.remove('access_token_stored_at');
+              if (this.authService.oauth2Auth) {
+                this.authService.oauth2Auth.setToken(null, null);
+              }
               this._router.navigate(['/lock', this._router.url]);
             } else {
               this._router.navigate(['/login']);
@@ -36,6 +39,9 @@ export class AuthenticatedGuard  {
           this.storage.remove('access_token');
           this.storage.remove('access_token_expires_in');
           this.storage.remove('access_token_stored_at');
+          if (this.authService.oauth2Auth) {
+            this.authService.oauth2Auth.setToken(null, null);
+          }
           this._router.navigate(['/lock', this._router.url]);
         }else{
           this._router.navigate(['/maintenance', document.URL]);

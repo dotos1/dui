@@ -44,7 +44,7 @@ export class InlineSVGDirective implements OnInit, OnChanges, OnDestroy {
   /** @zh 是否强制重新求值 SVG 内的 `<style>` 标签（部分浏览器插入后不生效时使用）。 */
   @Input() forceEvalStyles: boolean = false;
   /** @zh SVG 内联 `<script>` 的执行策略：`always`/`once`/`never`。 */
-  @Input() evalScripts: SVGScriptEvalMode = SVGScriptEvalMode.ALWAYS;
+  @Input() evalScripts: SVGScriptEvalMode = SVGScriptEvalMode.NEVER;
   /** @zh 加载失败时回退显示的 `<img>` URL。 */
   @Input() fallbackImgUrl: string;
   /** @zh SVG 加载完成后的回调，可返回替换后的元素以自定义处理结果。 */

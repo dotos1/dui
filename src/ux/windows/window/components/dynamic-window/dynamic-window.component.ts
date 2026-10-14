@@ -99,7 +99,6 @@ export class ɵDynamicWindowComponent
         this.initAfterClosedStateObserver();
         this.initWindowIdOrderObserver();
         this.initIsActiveObserver();
-        this.initOutsideClickObserver();
         this._dotosConfigService.config
         .pipe(takeUntil(this._unsubscribeAll))
         .subscribe(() => {
@@ -120,7 +119,7 @@ export class ɵDynamicWindowComponent
         this.windowRef.setResizableDirective(this.resizableDirective);
         this.changeDetector.detectChanges();
       //  this.router.navigate('/de')
-        let bootstrapComponents=this.moduleRef['_bootstrapComponents'];
+        let bootstrapComponents=this.moduleRef?.['_bootstrapComponents'];
         if(bootstrapComponents&&bootstrapComponents.length>0){
           let comp=this.viewRef.createComponent(bootstrapComponents[0], { ngModuleRef: this.moduleRef });
           if(this.config.params){
@@ -131,6 +130,7 @@ export class ɵDynamicWindowComponent
     }
 
     public override ngOnDestroy(): void {
+      this.dynamicStateManager.destroy();
       super.ngOnDestroy();
       this._unsubscribeAll.next();
       this._unsubscribeAll.complete();

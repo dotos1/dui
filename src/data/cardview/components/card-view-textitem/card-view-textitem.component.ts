@@ -161,7 +161,7 @@ export class CardViewTextItemComponent  implements OnChanges,OnDestroy {
   }
 
   copyToClipboard(valueToCopy: string) {
-    if (this.copyToClipboard) {
+    if (this.copyToClipboardAction) {
       const clipboardMessage = this.translateService.instant('METADATA.ACCESSIBILITY.COPY_TO_CLIPBOARD_MESSAGE');
       this.clipboardService.copyContentToClipboard(valueToCopy, clipboardMessage);
     }

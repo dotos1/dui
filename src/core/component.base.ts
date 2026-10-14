@@ -88,6 +88,7 @@ export class ComponentBase extends Base<HTMLElement> implements OnInit,DoCheck, 
     this.trigger('onDestroy', this);
     this.detectRef.detach();
     this.onDestroy();
+    this.destroy();
   }
 
   ngAfterViewChecked() {
@@ -126,6 +127,11 @@ export class ComponentBase extends Base<HTMLElement> implements OnInit,DoCheck, 
     if (config.hideExpression) {
       if (typeof config.hideExpression === 'string') {
         config.hideExpression = Dui.evalStringExpression(config.hideExpression, ['comp', 'owner']);
+      }
+    }
+    if (config.disableExpression) {
+      if (typeof config.disableExpression === 'string') {
+        config.disableExpression = Dui.evalStringExpression(config.disableExpression, ['comp', 'owner']);
       }
     }
   }
@@ -256,14 +262,7 @@ export class ComponentBase extends Base<HTMLElement> implements OnInit,DoCheck, 
   }
 
   isXType(comp: any, shallow: boolean) {
-    let xtype;
-    if (isFunction(comp)) {
-      xtype = comp['xtype'];
-    } else {
-      if (isObjectLike(xtype)) {
-        xtype = comp.constructor.xtype;
-      }
-    }
+    let xtype = typeof comp === 'string' ? comp : (isFunction(comp) ? comp['xtype'] : (isObjectLike(comp) ? (comp.xtype || comp.constructor?.xtype) : undefined));
     return !shallow ? ('/' + this.getXTypes() + '/').indexOf('/' + xtype + '/') !== -1 : this.xtype === xtype;
   }
 
@@ -285,7 +284,7 @@ export class ComponentBase extends Base<HTMLElement> implements OnInit,DoCheck, 
 
   findParentBy(fn: Function) {
     let p;
-    for (p = this.ownerCt; (p !== null) && !fn(p, this); p = p.ownerCt) { }
+    for (p = this.ownerCt; (p != null) && !fn(p, this); p = p.ownerCt) { }
     return p || null;
   }
 

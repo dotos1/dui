@@ -88,12 +88,14 @@ export class BreadcrumbsComponent
       .pipe(startWith(this._breadcrumbs), takeUntil(this._destroy$))
       .subscribe(() => {
         this.setCrumbIcons();
+        this._calculateVisibility();
         this._changeDetectorRef.markForCheck();
       });
   }
 
   ngOnDestroy(): void {
     this._destroy$.next();
+    this._destroy$.complete();
   }
 
 
@@ -148,11 +150,12 @@ export class BreadcrumbsComponent
     const crumbsArray: BreadcrumbComponent[] = this._breadcrumbs.toArray();
     let crumbWidthSum = 0;
     const hiddenCrumbs: BreadcrumbComponent[] = [];
+    const containerWidth = this.nativeElementWidth;
     // loop through crumbs in reverse order to calculate which ones should be removed
     for (let i: number = crumbsArray.length - 1; i >= 0; i--) {
       const breadcrumb: BreadcrumbComponent = crumbsArray[i];
 
-      if (crumbWidthSum + breadcrumb.width > this.nativeElementWidth) {
+      if (crumbWidthSum + breadcrumb.width > containerWidth) {
         breadcrumb.displayCrumb = false;
         hiddenCrumbs.push(breadcrumb);
       } else {

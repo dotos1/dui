@@ -1,6 +1,6 @@
 import { Component, ViewChild ,  forwardRef, ChangeDetectionStrategy} from '@angular/core';
 import { MatField } from '../base/mat.field';
-import { FormControl, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { FormControl } from '@angular/forms';
 import { MatSliderRangeThumb } from '@angular/material/slider';
 import { Subject, takeUntil, merge  } from 'rxjs';
 
@@ -14,13 +14,6 @@ import { Subject, takeUntil, merge  } from 'rxjs';
     hostID: 'slider-field' + Math.random().toString(36).substring(2, 15),
   },
   changeDetection: ChangeDetectionStrategy.OnPush,
-  providers: [
-    {
-      provide: NG_VALUE_ACCESSOR,
-      useExisting: forwardRef(() => RangeSliderFieldComponent),
-      multi: true,
-    }
-  ]
 })
 export class RangeSliderFieldComponent extends MatField {
   @ViewChild(forwardRef(() => MatSliderRangeThumb ),{static: true})
@@ -33,7 +26,7 @@ export class RangeSliderFieldComponent extends MatField {
   private destroy$ = new Subject<void>();
 
   override ngOnInit() {
-    super.ngOnInit
+    super.ngOnInit();
 
     this.formControl.valueChanges
       .pipe(takeUntil(this.destroy$))
