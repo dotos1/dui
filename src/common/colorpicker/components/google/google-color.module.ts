@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { ComponentFactoryResolver, NgModule } from '@angular/core';
+import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 
 import {  EditableInputModule,  RaisedModule,  SwatchModule,} from '@dotos/dui/common/colorpicker/common';
@@ -15,7 +16,7 @@ import { GoogleColorService } from './google-color.services';
     GoogColorComponent
   ],
   exports: [GoogColorPickerComponent, GoogColorComponent],
-  imports: [CommonModule,MatIconModule, EditableInputModule, SwatchModule, RaisedModule],
+  imports: [CommonModule, MatButtonModule, MatIconModule, EditableInputModule, SwatchModule, RaisedModule],
   providers: [
     GoogleColorService
   ]

@@ -278,3 +278,18 @@
   vertical-align: middle;
   width: 21px;
 }
+// 「自定义」行的添加按钮:和色块同高(色块约 20px),不撑高这一行;图标色跟随菜单文字色(暗色下自动变浅)。
+.add-custom {
+  --mdc-icon-button-state-layer-size: 24px;
+  --mat-icon-button-state-layer-size: 24px;
+  inline-size: 24px;
+  block-size: 24px;
+  padding: 0;
+  vertical-align: middle;
+  .mat-icon {
+    font-size: 20px;
+    inline-size: 20px;
+    block-size: 20px;
+    line-height: 20px;
+  }
+}
