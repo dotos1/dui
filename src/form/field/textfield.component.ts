@@ -107,14 +107,16 @@ export class TextFieldComponent extends MatField implements OnInit, AfterViewIni
           });
         this.formControl.valueChanges
           .pipe(
-            takeUntil(this._onDestroy),
             debounceTime(500),
             tap(search => { this.searching = !!search; }),
             filter(search => !!search),
             map(search => {
               return search;
             }),
-            delay(200)
+            delay(200),
+            // takeUntil 必须在最后:放在 debounceTime/delay 前面时,销毁那一刻
+            // 已经在防抖或 delay 里的值照样会发出,组件销毁后还会发一次远程请求。
+            takeUntil(this._onDestroy)
           ).subscribe(searchText => {
             this.searching = false;
             let url = this.field.dataSource?.url;

@@ -155,7 +155,14 @@ export class AuthService {
         this.onLogin.next(response);
       }
     }, (err) => {
-      this.onLogin.next({ success: false, message: err?.message || err });
+      // 登录失败只在这里发一次 onLogin(b8c5e5c 复核)。b8c5e5c 加了这个分支,
+      // 但 _login() 的 OAuth 分支里本来也发了一次,OAuth 密码错一次 onLogin 就
+      // 收到两条。并且对象要原样透传:oauth2Auth 拒绝时给的是
+      // {type:'unauthorized', reason},主应用 login.component 按 type/reason
+      // 判断(例如 2FA),包进 message 里它就认不出来了。
+      this.onLogin.next(err && typeof err === 'object'
+        ? { success: false, ...err }
+        : { success: false, message: err });
     });
   }
   private _login(username: string, password: string, ticket: string): Promise<any> {
@@ -172,8 +179,9 @@ export class AuthService {
             this.oauth2Auth.pollingRefreshToken();
             this.config.setSetting('accessToken', accessToken);
         },
-        (e) => {
-          this.onLogin.next(e);
+        () => {
+          // 失败由 login() 的 reject 分支统一发 onLogin,这里不再发。
+          // 留一个空的 reject 回调,免得这条派生 promise 报 unhandled rejection。
         });
         return oauth2AuthPromise;
     } else {

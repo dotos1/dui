@@ -97,7 +97,13 @@ export class PerfectScrollbarDirective implements OnInit, OnDestroy, DoCheck, On
 
     ngOnInit(): void {
         if (!this.disabled && isPlatformBrowser(this.platformId)) {
-            if (this.ngDestroy.closed) {
+            // config 变化(ngDoCheck)或 disabled 切回 false 时 ngOnInit 会被再次
+            // 调用,而上一轮 destroyScrollbar() 已经把 ngDestroy complete 了。判断要看
+            // isStopped:Subject.closed 只在 unsubscribe() 后才为 true,complete()
+            // 之后仍是 false(b8c5e5c 复核)。用 closed 判断等于从不重建:这一轮
+            // 绑的 fromEvent 挂在已停止的 Subject 上,之后 next() 是空操作,
+            // 销毁时这些监听永远解不掉,组件没了还在 emit。
+            if (this.ngDestroy.isStopped) {
                 this.ngDestroy = new Subject<void>();
             }
             const config = new PerfectScrollbarConfig(this.defaults);

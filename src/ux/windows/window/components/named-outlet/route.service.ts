@@ -1,6 +1,6 @@
 import {  Injectable } from '@angular/core';
 import { ActivatedRoute, ActivationStart,  NavigationStart, Router, RouterOutlet } from '@angular/router';
-import { take } from 'rxjs/operators';
+import { filter, take } from 'rxjs/operators';
 
 
 @Injectable({
