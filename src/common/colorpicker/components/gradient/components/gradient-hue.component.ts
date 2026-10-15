@@ -40,7 +40,11 @@ export class GradientHueComponent implements OnInit,OnDestroy {
   }
 
   public stopDragging = () => {
-    this. setDragging(false)
+    // 挂在 window 的 mouseup 上,页面任何地方松开鼠标都会进来;没绑 [setDragging]
+    // 的用法下直接调用会每次都抛 TypeError(b8c5e5c 复核)。
+    if (typeof this.setDragging === 'function') {
+      this.setDragging(false)
+    }
   }
 
   public handleDown (){

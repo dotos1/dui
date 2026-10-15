@@ -17,7 +17,7 @@ import {
   ViewEncapsulation,
 } from '@angular/core';
 import { MatMiniFabButton } from '@angular/material/button';
-import { Subscription, forkJoin, fromEvent } from 'rxjs';
+import { Subscription, forkJoin, fromEvent, race, timer } from 'rxjs';
 import { take } from 'rxjs/operators';
 
 const Z_INDEX_ITEM = 23;
@@ -112,6 +112,7 @@ export class SpeedDialActionsComponent implements AfterContentInit {
     }
     this.resetAnimationState();
     const total = this._buttons.length;
+    let maxDelay = 0;
     const obs = this._buttons.map((button, i) => {
       let opacity = '1';
       let transitionDelay = 0;
@@ -123,13 +124,17 @@ export class SpeedDialActionsComponent implements AfterContentInit {
       } else {
         transform = this.getTranslateFunction((55 * (i + 1) - (i * 5)) + 'px');
       }
+      maxDelay = Math.max(maxDelay, transitionDelay);
       const hostElement = button. _elementRef.nativeElement;
       this.changeElementStyle(hostElement, 'transition-delay', transitionDelay + 'ms');
       this.changeElementStyle(hostElement, 'opacity', opacity);
       this.changeElementStyle(hostElement, 'transform', transform);
       return fromEvent(hostElement, 'transitionend').pipe(take(1));
     });
-    this.hideMiniFab = forkJoin(obs).subscribe(() => {
+    // transitionend 不一定会来:样式值没变(已经是收起状态)、元素不可见、系统开了
+    // 「减少动态效果」都不触发。forkJoin 少一个就永远不完成,小按钮停在透明但仍可点击
+    // 的状态(b8c5e5c 复核)。最长延迟之后再等 500ms 兜底。
+    this.hideMiniFab = race(forkJoin(obs), timer(maxDelay + 500)).subscribe(() => {
       this._buttons.forEach(button => {
         this.changeElementStyle(button._elementRef.nativeElement, 'display', 'none');
       });
