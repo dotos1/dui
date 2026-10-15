@@ -34,11 +34,19 @@ jobs:
 
       - name: Configure Registry Auth
         run: |
-          echo "//npm.pkg.github.com/:_authToken=${NODE_AUTH_TOKEN}" > ~/.npmrc
+          # package.json 用别名 "@dotos/x": "npm:@dotos1/x@…"：yarn 1 按别名的 scope（@dotos）找 registry 决定带不带令牌，
+          # 所以 @dotos 与 @dotos1 都指向 GitHub Packages；always-auth 让下载 /download/ 包文件也带令牌
+          {
+            echo "@dotos1:registry=https://npm.pkg.github.com/"
+            echo "@dotos:registry=https://npm.pkg.github.com/"
+            echo "//npm.pkg.github.com/:_authToken=${NODE_AUTH_TOKEN}"
+            echo "always-auth=true"
+          } > ~/.npmrc
           if [ -n "${{ secrets.DOTOS_REGISTRY_TOKEN }}" ]; then
             echo "@dotos:registry=${{ secrets.DOTOS_REGISTRY_URL || 'http://192.168.1.123:4873' }}" >> ~/.npmrc
             echo "${{ secrets.DOTOS_REGISTRY_URL || '//192.168.1.123:4873' }}/:_authToken=${{ secrets.DOTOS_REGISTRY_TOKEN }}" >> ~/.npmrc
           fi
+          echo "NPM_CONFIG_USERCONFIG=$HOME/.npmrc" >> "$GITHUB_ENV"
         env:
           NODE_AUTH_TOKEN: ${{ secrets.DOTOS_PKG_TOKEN || secrets.GITHUB_TOKEN }}  # 组织级读包令牌：GITHUB_TOKEN 读不了别的仓库发布的 @dotos1/* 包（401）
 
