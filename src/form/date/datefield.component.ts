@@ -412,7 +412,13 @@ export class DateFieldComponent<D> extends MatField implements AfterContentInit,
     let date = this._dateAdapter.parse(value, this.getParseFormat());
     this._lastValueValid = !date || this._dateAdapter.isValid(date);
     date = this._dateAdapter.getValidDateOrNull(date);
-    this.formControl.setValue(date);
+    // 这里不写 formControl(b8c5e5c 复核)。这个 (input) 是从内层
+    // <input matDatetimepicker [formControl]> 冒泡上来的,内层
+    // MatDatetimepickerInput._onInput 已经通过它的 _cvaOnChange 把 date 写进了
+    // 同一个 formControl(@angular/forms updateControl:
+    // setValue(v, { emitModelToViewChange: false }),不回写视图)。
+    // 再 setValue(date) 一次会走 model→view,经 MatDatetimepickerInput.writeValue
+    // 把输入框改写成格式化后的日期:用户敲下 "2" 立刻变成 0002/01/01,没法往下输。
     this._cvaOnChange(date);
     this._valueChange.emit(date);
     this.dateInput.emit(new MatDatetimepickerInputEvent(this));
