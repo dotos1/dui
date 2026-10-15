@@ -2,7 +2,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 import { Observable, of as observableOf } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { FieldConfig } from '@dotos/dui/core/form';
-import { Dui } from '@dotos/dui/core';
+import { getOptionDisabled, getOptionGroup, getOptionLabel, getOptionValue } from './select-option-props';
 
 @Pipe({ name: 'selectOptionsPipe' })
 export class SelectOptionsPipe implements PipeTransform {
@@ -49,45 +49,18 @@ export class SelectOptionsPipe implements PipeTransform {
   }
 
   private getLabelProp(item, to): string {
-    if (typeof to.labelProp === 'function') {
-      return to.labelProp(item);
-    }
-    if (this.shouldUseLegacyOption(item, to)) {
-      return item.value;
-    }
-    return item[to.labelProp || 'label'];
+    return getOptionLabel(item, to);
   }
 
   private getValueProp(item, to): string {
-    if (typeof to.valueProp === 'function') {
-      return to.valueProp(item);
-    }
-    if (this.shouldUseLegacyOption(item, to)) {
-      return item.key;
-    }
-    return item[to.valueProp || 'value'];
+    return getOptionValue(item, to);
   }
 
   private getDisabledProp(item, to): string {
-    if (typeof to.disabledProp === 'function') {
-      return to.disabledProp(item);
-    }
-    return item[to.disabledProp || 'disabled'];
+    return getOptionDisabled(item, to);
   }
 
   private getGroupProp(item, to): string {
-    if (typeof to.groupProp === 'function') {
-      return to.groupProp(item);
-    }
-    return item[to.groupProp || 'group'];
-  }
-
-  private shouldUseLegacyOption(item, to) {
-    return !to.valueProp
-      && !to.labelProp
-      && item != null
-      && typeof item === 'object'
-      && 'key' in item
-      && 'value' in item;
+    return getOptionGroup(item, to);
   }
 }

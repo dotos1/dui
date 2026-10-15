@@ -54,21 +54,33 @@ export class LineStyleSelector<F extends FieldConfig = FieldConfig>
 
   public inputValue = [];
 
-  private formControlSub?: any;
+  private formControlUnbind?: () => void;
 
   @Input()
   override set field(f: F | any) {
     this._field = f;
-    this.formControlSub?.unsubscribe();
+    this.unbindFormControl();
     if (this._field?.formControl instanceof FormControl) {
-      this.formControlSub = this._field.formControl.valueChanges
-        .pipe(takeUntil(this.onDestroy$))
-        .subscribe((value) => {
-          if (value != null) {
-            this.setValue(value);
-          }
-        });
+      // 用 registerOnChange 而不是 valueChanges(b8c5e5c 复核):外部用
+      // setValue(v, { emitEvent: false }) 回填时 valueChanges 不发,线型预览就
+      // 停在旧值;registerOnChange 的回调只看 emitModelToViewChange,照样重绘。
+      // 换 field 或销毁时用 _unregisterOnChange 解绑(Angular 内部方法,
+      // @angular/forms 的 cleanUpControl 也是这么解的),否则回调挂在长寿的
+      // FormControl 上,组件销毁后还会被调用。
+      const control = this._field.formControl as FormControl;
+      const onChange = (value) => {
+        if (value != null) {
+          this.setValue(value);
+        }
+      };
+      control.registerOnChange(onChange);
+      this.formControlUnbind = () => (control as any)._unregisterOnChange?.(onChange);
     }
+  }
+
+  private unbindFormControl() {
+    this.formControlUnbind?.();
+    this.formControlUnbind = undefined;
   }
   override get field() {
     return this._field || {};
@@ -103,6 +115,7 @@ export class LineStyleSelector<F extends FieldConfig = FieldConfig>
   }
 
   override ngOnDestroy() {
+    this.unbindFormControl();
     super.ngOnDestroy();
     this.onDestroy$.next();
     this.onDestroy$.complete();

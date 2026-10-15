@@ -97,11 +97,15 @@ export class FileSelectDirective implements OnChanges{
     const options = this.getOptions();
     const filters = this.getFilters();
     const allowedTypes = options?.allowedFileType ? options.allowedFileType.map((ext: string) => ext.toLowerCase()) : undefined;
-    this.uploader.addToQueue(files, options, filters);
+    // 先发 onFileSelected 再入队,uploader 可以不绑(b8c5e5c 复核)。
+    // iotos 的 file-input 就只用 duiFileSelect + (onFileSelected),没有 [uploader]:
+    // b8c5e5c 把 this.uploader.addToQueue 挪到 emit 前面,uploader 为空时这里先抛
+    // TypeError,onFileSelected 永远不发,选了文件界面上什么都不发生。
     if (files.length > 0) {
       const value: File[] | FileList | File = this._multiple ? (files.length > 1 ? fileList : files[0]) : files[0];
       this.model ? this.model.update.emit(value) : this.onFileSelected.emit(value);
     }
+    this.uploader?.addToQueue(files, options, filters);
     if (this.isEmptyAfterSelection()) {
       this.element.nativeElement.value = '';
     }

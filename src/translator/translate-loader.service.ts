@@ -16,6 +16,7 @@ export class TranslateLoaderService implements TranslateLoader {
   private providers: ComponentTranslationModel[] = [];
   private queue: string[][] = [];
   private defaultLang: string = 'en_US';
+  private retriedOnce = new Set<string>();
 
   constructor(public http: HttpClient) {
   }
@@ -46,9 +47,12 @@ export class TranslateLoaderService implements TranslateLoader {
         component.json[lang] = res;
       }),
       retry(3),
-      catchError(() => {
-        if (!fallbackUrl && /[-_]/.test(lang)) {
-          const [langId] = lang.split(/[-_]/);
+      catchError((error) => {
+        // 只认 `-`(b8c5e5c 复核)。本系统的语言码是 zh_CN / en_US 这种下划线
+        // 写法,并没有 zh.json、en.json 这类短码文件;连 `_` 一起认,每个组件
+        // 加载失败都会再多发一个必然 404 的短码请求。
+        if (!fallbackUrl && lang.includes('-')) {
+          const [langId] = lang.split('-');
 
           if (langId && langId !== this.defaultLang) {
             const url = `${basePath}/${langId}${this.suffix}?v=${Date.now()}`;
@@ -56,15 +60,30 @@ export class TranslateLoaderService implements TranslateLoader {
             return this.fetchLanguageFile(lang, component, url);
           }
         }
-        if (this.queue[lang]) {
-          const idx = this.queue[lang].indexOf(component.name);
-          if (idx > -1) {
-            this.queue[lang].splice(idx, 1);
-          }
-        }
+        this.releaseForRetry(lang, component.name, error);
         return throwError(`Failed to load ${translationUrl}`);
       })
     );
+  }
+
+  /**
+   * 加载失败的组件默认**留在** queue 里,同一语言不再重新请求(b8c5e5c 复核)。
+   * 那次提交在失败时把它从 queue 删掉,结果之后每次 getTranslation(每次切语言、
+   * 每个懒加载模块注册 provider)都重试一遍,每次都弹一遍 404 的错误提示。
+   * 只有网络断开(status 0)或服务端 5xx 这类可能自愈的失败,才放行**一次**重试。
+   */
+  private releaseForRetry(lang: string, name: string, error: any) {
+    const status = error?.status;
+    const transient = status === 0 || (typeof status === 'number' && status >= 500);
+    const key = `${lang}|${name}`;
+    if (!transient || this.retriedOnce.has(key)) {
+      return;
+    }
+    this.retriedOnce.add(key);
+    const idx = (this.queue[lang] || []).indexOf(name);
+    if (idx > -1) {
+      this.queue[lang].splice(idx, 1);
+    }
   }
 
   getComponentToFetch(lang: string): Array<Observable<any>> {

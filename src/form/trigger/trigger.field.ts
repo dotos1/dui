@@ -109,9 +109,12 @@ export class TriggerField extends AbstractTrigger implements AfterViewInit {
     super.init();
     if (this.field.icon && this.field.icon.indexOf('svg') != -1) {
       let icon: string = this.field.icon;
-      const slashIdx = Math.max(icon.lastIndexOf('/'), icon.lastIndexOf('\\'));
+      // 只截到反斜杠为止,'/' 路径保留目录前缀(b8c5e5c 复核):
+      // 'assets/svg/foo.svg' 注册名是 'assets/svg/foo',仍含 'svg',模板靠
+      // field.icon.indexOf('svg') 选 svgIcon 分支。按 '/' 截成 'foo' 后
+      // 这个判断失效,图标位置显示成字面文字 "foo"。
       let iconName = icon.substring(
-        slashIdx + 1,
+        icon.lastIndexOf('\\') + 1,
         icon.lastIndexOf('.'),
       );
       this.matIconRegistry.addSvgIcon(

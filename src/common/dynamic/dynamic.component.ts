@@ -85,12 +85,11 @@ export class DynamicExtensionComponent implements OnChanges, OnDestroy {
       this.loaded = true;
       this.updateInstance();
       this.proxy('ngOnChanges', changes);
-    } else if (changes['config'] && !changes['config'].currentValue?.rendered) {
-      this.updateInstance();
-      this.proxy('ngOnChanges', changes);
-    } else {
-      this.proxy('ngOnChanges', changes);
     }
+    // 加载完成后 config 再变也不重新 updateInstance()/init()(b8c5e5c 复核)。
+    // duix/aios 的 xyflow node-wrapper 的 config 是 getter,每次变更检测都返回
+    // 新对象 —— 在这里响应它,iotos 规则流和 dataflow 的每个节点每一轮变更检测
+    // 都会被重新 init 一遍。需要换组件的调用方应当换掉 <dui-dynamic> 本身。
   }
   private loadComponent() {
     const factory: any = Dui.getComponentFactory(this.xtype);
