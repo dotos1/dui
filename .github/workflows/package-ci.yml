@@ -40,7 +40,7 @@ jobs:
             echo "${{ secrets.DOTOS_REGISTRY_URL || '//192.168.1.123:4873' }}/:_authToken=${{ secrets.DOTOS_REGISTRY_TOKEN }}" >> ~/.npmrc
           fi
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.DOTOS_PKG_TOKEN || secrets.GITHUB_TOKEN }}  # 组织级读包令牌：GITHUB_TOKEN 读不了别的仓库发布的 @dotos1/* 包（401）
 
       - name: Install Dependencies
         run: yarn install --prefer-offline || yarn install
