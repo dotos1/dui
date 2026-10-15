@@ -14,6 +14,12 @@
  *       但改成静默忽略会把"组件销毁后还有人发事件"这个真实缺陷藏起来 ——
  *       它现在是会响的。</li>
  * </ol>
+ *
+ * <p>与旧实现<b>有意不同</b>的一处:`destroy()` 之后的 `on` / `off` 静默返回
+ * (b8c5e5c 复核)。旧实现在这里同样在 `hasOwnProperty` 上炸,但这两个调用
+ * 多半来自拆卸顺序 —— 父组件先 destroy,子组件随后在自己的 ngOnDestroy 里
+ * `off` —— 炸出来的 TypeError 会打断后面的清理,而它并不指向真实缺陷。
+ * 销毁后 `notify` 仍然会抛,见上面第 3 条。
  */
 
 export interface BoundOptions {
@@ -31,8 +37,9 @@ export class Observer {
 
   on(property: string, handler: Function, context?: Object, id?: string): void {
     if (!handler) { return; }
+    const 表 = this.boundedEvents;
+    if (!表) { return; }   // destroy 之后,见类注释
     const cntxt = context || this.context;
-    const 表 = this.boundedEvents!;
     if (Object.prototype.hasOwnProperty.call(表, property)) {
       if (!表[property].some((e) => e.handler === handler)) {
         表[property].push({ handler, context: cntxt, id });
@@ -44,7 +51,8 @@ export class Observer {
 
   /** `handler` 不给就摘掉该事件的全部登记。 */
   off(property: string, handler?: Function, id?: string): void {
-    const 表 = this.boundedEvents!;
+    const 表 = this.boundedEvents;
+    if (!表) { return; }   // destroy 之后,见类注释
     if (!Object.prototype.hasOwnProperty.call(表, property)) { return; }
     if (!handler && !id) { delete 表[property]; return; }
     表[property] = 表[property].filter(
