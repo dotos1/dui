@@ -1,12 +1,13 @@
 import { Component, OnInit, ViewChild, ChangeDetectionStrategy, ChangeDetectorRef, OnDestroy, Input } from '@angular/core';
 import { MatSelect, MatSelectChange } from '@angular/material/select';
 import { FormControl } from '@angular/forms';
-import { Subject } from 'rxjs';
-import { debounceTime, delay, filter, tap, map, takeUntil, takeWhile } from 'rxjs/operators';
+import { Subject, timer } from 'rxjs';
+import { debounce, filter, tap, takeUntil, takeWhile } from 'rxjs/operators';
 
 import { TranslateService } from '@dotos/dui/translator';
 import { SelectOptionsService } from './options.service';
 import { MatField } from '../base/mat.field';
+import { getOptionLabel, getOptionValue } from '../base/select-option-props';
 import { MatSelectSearchComponent } from './search/mat-select-search.component';
 
 export class SelectOption {
@@ -63,6 +64,15 @@ export class FieldSelect extends MatField implements OnInit,OnDestroy {
   private _lastRequestParams: any;
   private _lastLoadedParams: any;
 
+  // 远程 select 的完整选项(不带 $filter 那次加载的结果)和它对应的参数。
+  // b8c5e5c 复核:远程搜过之后关面板,mat-select-search 会把搜索词清空,但
+  // 上面那条管道按设计不为「面板关着 + 空串」发请求,于是 field.options 停在
+  // 搜索结果上;当前值若不在结果里,mat-select 找不到对应 option,显示变成空白。
+  // 关面板时从这份缓存恢复,不再多发一次请求。params 变了缓存就作废。
+  private _fullOptions: any[] = null;
+  private _fullOptionsParams: any;
+  private _searched = false;
+
   private areParamsEqual(a: any, b: any): boolean {
     if (!a || !b) return false;
     const keysA = Object.keys(a);
@@ -84,18 +94,30 @@ export class FieldSelect extends MatField implements OnInit,OnDestroy {
 
   override ngOnInit() {
     super.ngOnInit();
+    // b8c5e5c 复核:
+    //  - 「面板关着、搜索词又是空」就不发远程请求,这个判断只放在这条管道里 ——
+    //    它拦的是 mat-select-search 关面板时 _reset() 回写的那个空串。不能放进
+    //    searchChange():主应用 widget.input.ts 在下拉框里新建记录后,会在面板
+    //    关着时主动调 searchChange('') 重新拉选项再 setValue,放进去就拉不到,
+    //    新记录回填后显示成空白。
+    //  - 防抖只给远程用(500ms)。本地过滤是内存操作,原来那 500ms + delay(200)
+    //    只会让每次按键后列表卡 0.7 秒才跟上。
+    //  - takeUntil 放在管道最后:放在 debounce 前面时,销毁触发的 complete 会让
+    //    debounce 把还在等的那个值立刻发出来,组件销毁后还会再搜一次。
     this.selectSearchControl.valueChanges
       .pipe(
         filter(search => !(this.field.remote && !this.matSelect?.panelOpen && !search)),
         tap(() => { this.searching = true; }),
-        takeUntil(this._onDestroy),
-        debounceTime(500),
-        map(search => {
-          return search;
-        }),
-        delay(200)
+        debounce(() => timer(this.field.remote ? 500 : 0)),
+        takeUntil(this._onDestroy)
       )
       .subscribe((searchText) => {
+        // 防抖的 500ms 里面板可能已经关了:这时再发远程搜索,回来的结果会把
+        // 关面板时恢复好的完整列表覆盖成搜索结果(见 openedChanged)。
+        if (this.field.remote && !this.matSelect?.panelOpen) {
+          this.searching = false;
+          return;
+        }
         this.searchChange(searchText);
       });
     if (this.field.remote) {
@@ -109,6 +131,12 @@ export class FieldSelect extends MatField implements OnInit,OnDestroy {
         // still waiting on instead.
         if (serviceData && this._lastRequestParams === serviceData.params) {
           this._lastLoadedParams = { ...this._lastRequestParams };
+          if (!serviceData.error && !serviceData.params?.['$filter']) {
+            const { $filter, ...base } = serviceData.params as any;
+            this._fullOptions = serviceData.options === null ? [] : serviceData.options;
+            this._fullOptionsParams = base;
+            this._searched = false;
+          }
           this.options = this.field.options = serviceData.options === null ? [] : serviceData.options;
           if (!this.field.hasSearch) {
             this.hasSearch();
@@ -133,9 +161,6 @@ export class FieldSelect extends MatField implements OnInit,OnDestroy {
   searchChange(searchText?) {
     this.searching = false;
     if (this.field.remote) {
-      if (!this.matSelect?.panelOpen && !searchText) {
-        return;
-      }
       let url = this.field.dataSource?.url;
       let method = this.field.dataSource?.method || 'POST';
       // Clone rather than mutate this.field.params in place -- otherwise every
@@ -143,6 +168,9 @@ export class FieldSelect extends MatField implements OnInit,OnDestroy {
       // made the identity check above meaningless.
       let params = { ...this.field.params, '$filter': searchText };
       this._lastRequestParams = params;
+      if (searchText) {
+        this._searched = true;
+      }
       this.optionService.getOptions(url, method, params);
     } else {
       // 两处都必须从**完整列表**过滤,且大小写都要归一:
@@ -157,14 +185,17 @@ export class FieldSelect extends MatField implements OnInit,OnDestroy {
       //
       // 顺带把 value 也纳入匹配:坐标系这类选项,人记住的往往是标识
       // (UTM23N)而不是那句中文标签。
+      //
+      // this.options 是原始选项,label/value 要按字段的 labelProp/valueProp 取,
+      // 和 SelectOptionsPipe 同一套规则(b8c5e5c 复核,见 select-option-props.ts)。
       const q = (searchText ?? '').toString().trim().toLowerCase();
       const all = this.options ?? [];
       if (q === '') {
         this.field.options = all;
       } else {
         this.field.options = all.filter((option) => {
-          const label = (option?.label ?? '').toString().toLowerCase();
-          const value = (option?.value ?? '').toString().toLowerCase();
+          const label = (getOptionLabel(option, this.field) ?? '').toString().toLowerCase();
+          const value = (getOptionValue(option, this.field) ?? '').toString().toLowerCase();
           return label.indexOf(q) > -1 || value.indexOf(q) > -1;
         });
       }
@@ -196,7 +227,28 @@ export class FieldSelect extends MatField implements OnInit,OnDestroy {
   openedChanged(opened: boolean) {
     if (opened) {
       this.openChanged(true);
+    } else {
+      this.restoreFullOptions();
     }
+  }
+
+  private restoreFullOptions() {
+    if (!this.field.remote || !this._searched) {
+      return;
+    }
+    this._searched = false;
+    if (!this._fullOptions || !this.areParamsEqual(this._fullOptionsParams, { ...this.field.params })) {
+      // params 变了:缓存的是旧条件下的列表,不能拿来恢复;下次打开时
+      // openChanged 会因 _lastLoadedParams 对不上而重新加载。
+      this._fullOptions = null;
+      return;
+    }
+    // 丢弃还在路上的搜索响应(subscribe 里按 _lastRequestParams 身份比对)。
+    this._lastRequestParams = null;
+    this.searching = false;
+    this._lastLoadedParams = { ...this._fullOptionsParams };
+    this.options = this.field.options = this._fullOptions;
+    this.changeDetector.detectChanges();
   }
 
   openChanged(e?) {
