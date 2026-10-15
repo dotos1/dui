@@ -4,6 +4,7 @@ import { Inject, Injectable, Optional, Renderer2, RendererFactory2 } from '@angu
 import { Observable, of } from 'rxjs';
 import { finalize, map, share } from 'rxjs/operators';
 import { InlineSVGConfig } from './inline-svg.config';
+import { parseSanitizedSvg } from '@dotos/dui/base';
 
 @Injectable({
   providedIn: 'root'
@@ -143,42 +144,15 @@ export class SVGCacheService {
   }
 
   private _svgElementFromString(str: string): SVGElement | never {
-    const div = this._renderer.createElement('DIV');
-    div.innerHTML = str;
-    const svg = div.querySelector('svg') as SVGElement;
+    // 先解析、净化,再进活文档(b8c5e5c 复核)。那次提交是先 div.innerHTML = str
+    // 再净化:innerHTML 那一刻 <img src=x onerror=…> 之类已经在当前文档里创建并
+    // 开始加载,事后再删属性来不及。现在在 DOMParser 的惰性文档里完成,规则
+    // (含 <set attributeName="href">、带空白的 javascript:)见 sanitize-dom.ts。
+    const svg = parseSanitizedSvg(str);
     if (!svg) {
       throw new Error('No SVG found in loaded contents');
     }
-    this._sanitizeSVG(svg);
     return svg;
-  }
-
-  private _sanitizeSVG(svg: SVGElement): void {
-    const forbiddenTags = ['script', 'foreignObject', 'iframe', 'object', 'embed'];
-    forbiddenTags.forEach(tag => {
-      const elements = svg.querySelectorAll(tag);
-      for (let i = 0; i < elements.length; i++) {
-        if (elements[i].parentNode) {
-          elements[i].parentNode.removeChild(elements[i]);
-        }
-      }
-    });
-    const allElements = [svg, ...Array.from(svg.querySelectorAll('*'))];
-    allElements.forEach((el: Element) => {
-      if (!el.attributes) {
-        return;
-      }
-      const attrsToRemove: string[] = [];
-      for (let i = 0; i < el.attributes.length; i++) {
-        const attr = el.attributes[i];
-        const name = attr.name.toLowerCase();
-        const val = (attr.value || '').trim().toLowerCase();
-        if (name.startsWith('on') || ((name === 'href' || name === 'xlink:href') && val.startsWith('javascript:'))) {
-          attrsToRemove.push(attr.name);
-        }
-      }
-      attrsToRemove.forEach(attrName => el.removeAttribute(attrName));
-    });
   }
 
   private _cloneSVG(svg: SVGElement): SVGElement {
