@@ -10,10 +10,11 @@ import {
   HttpSentEvent,
   HttpUserEvent
 } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Injectable, Injector, Optional } from '@angular/core';
 import { LocalStorageService } from '@dotos/dui/core/storage';
 import { Observable, Observer } from 'rxjs';
 import { mergeMap } from 'rxjs/operators';
+import { configuredTokenHosts, isTrustedTokenTarget } from './token-target';
 
 
 /**
@@ -44,7 +45,8 @@ export class AuthBearerInterceptor implements HttpInterceptor {
   private excludedUrlsRegex: RegExp[];
 
   constructor(
-    private storageService: LocalStorageService) {
+    private storageService: LocalStorageService,
+    @Optional() private injector?: Injector) {
 
   }
 
@@ -59,37 +61,16 @@ export class AuthBearerInterceptor implements HttpInterceptor {
     return this.excludedUrlsRegex;
   }
 
-  private isSameOriginOrRelativeUrl(url: string): boolean {
-    if (!url || !/^https?:\/\//i.test(url)) {
-      return true;
-    }
-    if (typeof window !== 'undefined' && window.location) {
-      if (url.startsWith(window.location.origin)) {
-        return true;
-      }
-      try {
-        const parsed = new URL(url, window.location.origin);
-        const currentHost = window.location.hostname;
-        if (
-          parsed.hostname === currentHost ||
-          parsed.hostname === 'localhost' ||
-          parsed.hostname === '127.0.0.1' ||
-          (currentHost.includes('.') && parsed.hostname.endsWith('.' + currentHost.split('.').slice(-2).join('.')))
-        ) {
-          return true;
-        }
-      } catch {
-        return false;
-      }
-    }
-    return false;
+  /** 同源 / 同主机不同端口 / 配置里的认证主机才带 token,见 token-target.ts。 */
+  private isTrustedUrl(url: string): boolean {
+    return isTrustedTokenTarget(url, undefined, configuredTokenHosts(this.injector));
   }
 
   intercept(req: HttpRequest<any>, next: HttpHandler):
     Observable<HttpSentEvent | HttpHeaderResponse | HttpProgressEvent | HttpResponse<any> | HttpUserEvent<any>> {
 
     const urlRequest = req.url;
-    const shallPass: boolean = !this.isSameOriginOrRelativeUrl(urlRequest) || this.getExcludedUrlsRegex().some(regex => regex.test(urlRequest));
+    const shallPass: boolean = !this.isTrustedUrl(urlRequest) || this.getExcludedUrlsRegex().some(regex => regex.test(urlRequest));
     if (shallPass) {
       return next.handle(req);
     }

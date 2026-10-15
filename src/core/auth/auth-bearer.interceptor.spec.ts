@@ -67,4 +67,32 @@ describe('AuthBearerInterceptor', () => {
       }
     });
   });
+
+  // b8c5e5c 复核:只信任同源、同主机不同端口、以及配置里的认证 / IM 主机。
+  describe('发往其他主机', () => {
+    const here = location.hostname;   // karma 页面所在主机
+
+    it('协议相对地址 //evil.example.com 不带 token', () => {
+      expect(authHeaderFor('//evil.example.com/steal')).toBeNull();
+    });
+    it('无关主机不带 token', () => {
+      expect(authHeaderFor('https://evil.example.com/steal')).toBeNull();
+    });
+    it('不再无条件信任 localhost / 127.0.0.1', () => {
+      const other = here === '127.0.0.1' ? 'localhost' : '127.0.0.1';
+      expect(authHeaderFor(`http://${other}:5000/x`)).toBeNull();
+    });
+    it('同主机不同端口(开发时 4200 → 8000)带 token', () => {
+      expect(authHeaderFor(`http://${here}:8000/api/x`)).toBe('Bearer tok123');
+    });
+    it('配置里的 IM / 认证主机带 token(dotos-auth 的 /admin/** 要 Bearer)', () => {
+      const config = { getSettings: (k: string) => k === 'system' ? { IMurl: 'auth.dotos.com' }
+        : k === 'oauth2' ? { host: 'https://sso.dotos.com' } : undefined };
+      const injector: any = { get: () => config };
+      interceptor = new (AuthBearerInterceptor as any)(new FakeStorage(), injector);
+      expect(authHeaderFor('https://auth.dotos.com:443/admin/user')).toBe('Bearer tok123');
+      expect(authHeaderFor('https://sso.dotos.com/userinfo')).toBe('Bearer tok123');
+      expect(authHeaderFor('https://evil.dotos.com/x')).toBeNull();
+    });
+  });
 });
