@@ -14,7 +14,6 @@ import {
     of,
     Subject,
     Subscription,
-    throwError,
     timer
 } from "rxjs";
 import {
@@ -24,7 +23,6 @@ import {
     ShortcutInput
 } from "./keyboard-shortcuts.interfaces";
 import {
-    catchError,
     filter,
     first,
     map,
@@ -35,7 +33,7 @@ import {
     tap,
     throttle
 } from "rxjs/operators";
-import { allPass, any, difference, identity, isFunction, isNill, maxArrayProp } from "./utils";
+import { allPass, any, difference, identity, isFunction, isNill, maxArrayProp, runShortcutCommand } from "./utils";
 import { DOCUMENT } from "@angular/common";
 
 
@@ -153,11 +151,12 @@ export class KeyboardShortcutsService implements OnDestroy {
             shortcut.event.stopPropagation();
         }),
         throttle((shortcut) => timer(shortcut.throttleTime ?? shortcut.throttle ?? 0)),
-        tap((shortcut) => shortcut.command({ event: shortcut.event, key: shortcut.key })),
+        // 命令出错只记日志不往外抛:原来这里抛出(外加 catchError 原样再抛)会让订阅终止,
+        // 一个命令出错一次,此后所有组合键都失效,直到刷新页面
+        tap((shortcut) => runShortcutCommand(shortcut.command, { event: shortcut.event, key: shortcut.key })),
         tap((shortcut) => this._pressed.next({ event: shortcut.event, key: shortcut.key })),
         takeUntil(this.keyup$),
-        repeat(),
-        catchError((error) => throwError(error))
+        repeat()
     );
 
 
@@ -255,7 +254,8 @@ export class KeyboardShortcutsService implements OnDestroy {
         filter(this.isAllowed),
         tap((shortcut) => !shortcut.preventDefault || shortcut.event.preventDefault()),
         throttle((shortcut) => timer(shortcut.throttleTime ?? shortcut.throttle ?? 0)),
-        tap((shortcut) => shortcut.command({ event: shortcut.event, key: shortcut.key })),
+        // 同上:序列快捷键的命令出错也不能让整条序列流终止
+        tap((shortcut) => runShortcutCommand(shortcut.command, { event: shortcut.event, key: shortcut.key })),
         tap((shortcut) => this._pressed.next({ event: shortcut.event, key: shortcut.key })),
         takeUntil(this.resetCounter$),
         repeat()

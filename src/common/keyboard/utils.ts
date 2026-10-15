@@ -84,6 +84,30 @@ export const minMaxArrayProp = type => (property, array) =>
     // eslint-disable-next-line prefer-spread
     Math[type].apply(Math, array.map(prop(property)));
 
+/**
+ * 执行一个快捷键命令;命令抛错时交给 onError(默认 console.error),**不往外抛**。
+ *
+ * 命令是在键盘事件流的 tap 里调用的。原来异常直接冒出去,订阅随之终止 ——
+ * 某一个命令出错一次,此后**所有**快捷键都没反应,直到刷新页面,而控制台里只有
+ * 一条与其余快捷键毫无关系的报错。
+ *
+ * @zh 执行快捷键命令并兜住异常,保证单个命令出错不会让整条键盘事件流终止。
+ * @returns 命令是否正常执行完
+ */
+export function runShortcutCommand(
+    command: (arg: any) => unknown,
+    arg: unknown,
+    onError: (error: unknown) => void = (error) => console.error('[KeyboardShortcuts] 快捷键命令执行出错:', error)
+): boolean {
+    try {
+        command(arg);
+        return true;
+    } catch (error) {
+        onError(error);
+        return false;
+    }
+}
+
 export const maxArrayProp = (property, array) => {
     return array.reduce(
         (acc, curr) => {
