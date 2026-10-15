@@ -19,3 +19,4 @@ export * from './dom';
 export * from './observer';
 export * from './util';
 export * from './object-utils';
+export * from './sanitize-dom';
