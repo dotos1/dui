@@ -40,7 +40,7 @@ export class CommonAuth  {
     }
 
     saveUsername(username: string) {
-       this.storage.add('USERNAME', username);
+       this.storage.set('USERNAME', username);
     }
     validateTicket(): Promise<any> {
       this.setTicket(this.config.getSettings('ticket'));
