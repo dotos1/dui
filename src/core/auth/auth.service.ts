@@ -137,8 +137,8 @@ export class AuthService {
         let p = new HttpParams().set(`lt`, ticket);
         this.http.get(this.loader.backend.loginUrl, { 
           params: p,
-         }).subscribe(
-          (data: any) => {
+         }).subscribe({
+          next: (data: any) => {
             if(data.success){
               this.saveRememberMeCookie(rememberMe);
               this.onLogin.next(response);
@@ -146,10 +146,22 @@ export class AuthService {
               this.logout();
               this.onLogin.next({
                 type:"unauthorized",
-                reason: data.message
+                reason: data.message,
+                message: data.message
               });
             }
-          });
+          },
+          error: (err: any) => {
+            this.logout();
+            const msg = err?.error?.message || err?.message || 'Server error';
+            this.onLogin.next({
+              success: false,
+              type: 'unauthorized',
+              reason: msg,
+              message: msg
+            });
+          }
+         });
       } else {
         this.saveRememberMeCookie(rememberMe);
         this.onLogin.next(response);
