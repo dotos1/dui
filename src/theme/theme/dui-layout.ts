@@ -1,12 +1,15 @@
 import { Theme } from '../interfaces/theme';
-import { matColor } from '../mat-color';
+import { matColor, mix } from '../mat-color';
 
 export function duiLayoutTheme(theme: Theme): Object {
-  const foregroundDivider: string = matColor(theme.foreground, 'divider');
+  const foregroundDivider: string = mix(theme.foreground.base, theme.background.card, 0.12);
   const backgroundColor: string = matColor(theme.background, 'card');
 
   return {
     ".dui-split-gutter":{
+        "background-color":foregroundDivider
+    },
+    ".dui-split-gutter-icon":{
         "background-color":foregroundDivider
     },
     ".dui-split-area":{
