@@ -230,7 +230,16 @@ export class Oauth2Auth  {
         if (refreshToken) {
             this.storage.set('refresh_token', refreshToken); // 必须加上这一行
         }
-        const expiresInMilliSeconds = expiresIn * 1000;
+        let lockMinutes = 480;
+        try {
+            const cfgMinutes = Number(this.config?.getSettings('security.lockScreenMinutes'));
+            if (cfgMinutes > 0) {
+                lockMinutes = cfgMinutes;
+            }
+        } catch {
+        }
+        const effectiveSeconds = Math.max(Number(expiresIn) || 0, lockMinutes * 60);
+        const expiresInMilliSeconds = effectiveSeconds * 1000;
         const now = new Date();
         const expiresAt = now.getTime() + expiresInMilliSeconds;
         this.storage.set('access_token_expires_in', expiresAt + "");
@@ -546,6 +555,15 @@ export class Oauth2Auth  {
         return this.refreshTokenPromise;
     }
 
+    const currentRefreshToken = this.authentications.oauth2.refreshToken || this.storage.get('refresh_token');
+    if (!currentRefreshToken) {
+        clearInterval(this.refreshTokenIntervalPolling);
+        if (this.getAccessToken()) {
+            return Promise.resolve({ access_token: this.getAccessToken() });
+        }
+        return Promise.reject(new Error('No refresh token available'));
+    }
+
     let oauth2 = this.config.getSettings('oauth2');
     // let auth = 'Basic ' + this.universalBtoa(oauth2.clientId + ':' + oauth2.secret);
 
@@ -557,7 +575,7 @@ export class Oauth2Auth  {
 
     let body = new HttpParams()
         .set('grant_type', 'refresh_token')
-        .set('refresh_token', this.authentications.oauth2.refreshToken)
+        .set('refresh_token', currentRefreshToken)
         .set('client_id', oauth2.clientId)
         .set('client_secret', oauth2.secret);
 
@@ -574,7 +592,18 @@ export class Oauth2Auth  {
                 resolve(data);
             },
             (error) => {
-                if (error.error && (error.status === 401 || error.status === 400)) {
+                if (error && (error.status === 401 || error.status === 400)) {
+                    // When auth server has non-rotating refresh_token (reuse-refresh-tokens=true)
+                    // with a shorter TTL (e.g. 20m) than the user's active session (lockScreenMinutes=480m),
+                    // refresh_token eventually returns 400 invalid_grant. Stop polling refresh_token,
+                    // but DO NOT call logOut() or wipe access_token while the user has an active session!
+                    clearInterval(this.refreshTokenIntervalPolling);
+                    this.storage.remove('refresh_token');
+                    this.authentications.oauth2.refreshToken = null;
+                    if (this.getAccessToken()) {
+                        resolve({ access_token: this.getAccessToken() });
+                        return;
+                    }
                     this.logOut();
                     this.subject.next('unauthorized');
                 }

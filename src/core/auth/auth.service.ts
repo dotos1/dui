@@ -137,6 +137,7 @@ export class AuthService {
         let p = new HttpParams().set(`lt`, ticket);
         this.http.get(this.loader.backend.loginUrl, { 
           params: p,
+          withCredentials: true,
          }).subscribe({
           next: (data: any) => {
             if(data.success){
