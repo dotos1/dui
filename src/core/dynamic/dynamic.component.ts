@@ -37,6 +37,8 @@ export class DynamicComponent implements OnInit, OnDestroy {
     const component = getComponentFromTemplate(this.template);
     this.componentRef = this.viewRef.createComponent(component);
     this.componentRef.setInput('data', this.data);
+    // 生产构建（ngDevMode=false）不跑 ɵsetClassMetadata，@Input 元数据没了；setInput 静默落空 —— 再直接赋一次
+    this.componentRef.instance.data = this.data;
   }
 
   ngOnDestroy() {
@@ -55,10 +57,13 @@ function getComponentFromTemplate(template: string) {
     @Input() data: any = {};
   }
 
+  // inputs 要显式写：@Input() 装饰器的元数据只在开发模式下由 ɵsetClassMetadata 补上，生产构建里运行时编译的组件
+  // 没有 data 输入，模板里 {{data.x}} 全是空（2026-10-22：平台看板卡片在生产构建里一片空白）
   ɵcompileComponent(CustomComponent, {
     template,
     standalone: true,
     imports: [CommonModule],
+    inputs: ['data'],
   });
   return CustomComponent;
 }
