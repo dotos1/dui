@@ -20,10 +20,13 @@ permissions:
 
 jobs:
   build-and-publish:
-    runs-on: ubuntu-24.04
+    runs-on: [self-hosted, Linux, X64, dotos-apps]
     steps:
       - name: Checkout Code
         uses: actions/checkout@v7
+        with:
+          clean: true                 # 自托管工作区跨 job 复用：先清掉上次的未跟踪文件
+          persist-credentials: false  # 不把令牌留在 runner 上的 .git/config
 
       - name: Setup Node.js
         uses: actions/setup-node@v7
@@ -41,12 +44,12 @@ jobs:
             echo "@dotos:registry=https://npm.pkg.github.com/"
             echo "//npm.pkg.github.com/:_authToken=${NODE_AUTH_TOKEN}"
             echo "always-auth=true"
-          } > ~/.npmrc
+          } > "$RUNNER_TEMP/.npmrc"
           if [ -n "${{ secrets.DOTOS_REGISTRY_TOKEN }}" ]; then
-            echo "@dotos:registry=${{ secrets.DOTOS_REGISTRY_URL || 'http://192.168.1.123:4873' }}" >> ~/.npmrc
-            echo "${{ secrets.DOTOS_REGISTRY_URL || '//192.168.1.123:4873' }}/:_authToken=${{ secrets.DOTOS_REGISTRY_TOKEN }}" >> ~/.npmrc
+            echo "@dotos:registry=${{ secrets.DOTOS_REGISTRY_URL || 'http://192.168.1.123:4873' }}" >> "$RUNNER_TEMP/.npmrc"
+            echo "${{ secrets.DOTOS_REGISTRY_URL || '//192.168.1.123:4873' }}/:_authToken=${{ secrets.DOTOS_REGISTRY_TOKEN }}" >> "$RUNNER_TEMP/.npmrc"
           fi
-          echo "NPM_CONFIG_USERCONFIG=$HOME/.npmrc" >> "$GITHUB_ENV"
+          echo "NPM_CONFIG_USERCONFIG=$RUNNER_TEMP/.npmrc" >> "$GITHUB_ENV"  # 令牌只写进 job 临时目录，不写 runner 的 ~/.npmrc
         env:
           NODE_AUTH_TOKEN: ${{ secrets.DOTOS_PKG_TOKEN || secrets.GITHUB_TOKEN }}  # 组织级读包令牌：GITHUB_TOKEN 读不了别的仓库发布的 @dotos1/* 包（401）
 
@@ -62,3 +65,7 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_CONFIG_REGISTRY: 'https://npm.pkg.github.com'
+
+      - name: 清理令牌文件
+        if: always()
+        run: rm -f "$RUNNER_TEMP/.npmrc"
