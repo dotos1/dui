@@ -336,6 +336,9 @@ export class DuiToolbarComponent extends Container implements OnChanges, AfterCo
    * @param item - item parameter (`any`) / 条目参数（`any`）
    */
   constructButton(item) {
+    if (item && !item.events && !item.xtype) {
+      item = Dui.apply({ xtype: 'dui-button' }, item);
+    }
     let b = item.events ? item : this.createComponent(item);
     return b;
   }

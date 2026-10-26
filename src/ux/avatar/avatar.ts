@@ -43,7 +43,7 @@ export class Avatar implements IAVatar {
    * @returns Result of type `string` / 类型为 `string` 的返回值
    */
   private getInitials(name: string, size: number): string {
-    name = name.trim();
+    name = (name || '').trim();
     if (!name) {
       return '';
     }
