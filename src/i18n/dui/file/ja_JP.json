@@ -1,5 +1,5 @@
 {
-  "SAVE": "保存",
+  "SAVE": "Save",
   "COMPLETE": "完了",
   "CANCEL": "キャンセル",
   "CLAIM": "申請",
@@ -230,7 +230,7 @@
     "FILE_LOCK_CHECKBOX": "ファイルをロック",
     "TIME_LOCK_CHECKBOX": "ロック時間",
     "SAVE_BUTTON": {
-      "LABEL": "保存"
+      "LABEL": "Save"
     },
     "CANCEL_BUTTON": {
       "LABEL": "キャンセル"
@@ -334,15 +334,19 @@
     },
     "ACTIONS": {
       "EDIT": "編集",
-      "SAVE": "保存",
+      "SAVE": "Save",
       "CANCEL": "キャンセル",
       "TOGGLE": "値を切り替え",
+      "COPY_TO_CLIPBOARD": "クリップボードにコピーしました",
       "CLEAR": "クリア"
     },
     "ERRORS": {
       "GENERIC": "プロパティの更新中にエラーが発生しました",
       "409": "重複するサブ名は使用できません [409]",
       "422": "プロパティ値が無効です"
+    },
+    "ACCESSIBILITY": {
+      "COPY_TO_CLIPBOARD_MESSAGE": "クリップボードにコピーしました"
     }
   },
   "COMMENTS": {
@@ -558,6 +562,11 @@
       "CONFLICT": "この名前は既に使用されています。別の名前を入力してください。",
       "UNKNOWN": "この操作は失敗しました。もう一度お試しいただくか、IT担当チームにお問い合わせください。",
       "PERMISSION": "この操作を行う権限がありません。"
+    },
+    "FAIL": {
+      "NODE": {
+        "NO_PERMISSION": "You do not have permission to perform this operation"
+      }
     }
   },
   "TAG": {
@@ -583,7 +592,8 @@
       "UPLOAD_FOLDER": "フォルダーをアップロード"
     },
     "STATUS": {
-      "FILE_CANCELED_STATUS": "キャンセル済み"
+      "FILE_CANCELED_STATUS": "キャンセル済み",
+      "FILE_DONE_STATUS": "処理済み"
     },
     "CONFIRMATION": {
       "BUTTON": {
@@ -626,7 +636,18 @@
     },
     "ARIA-LABEL": {
       "ERROR": "アップロードエラー",
-      "VERSION": "ファイルバージョン"
+      "VERSION": "ファイルバージョン",
+      "CANCEL_ALL": "Cancel all uploads",
+      "CANCEL_FILE": "Cancel file upload",
+      "CANCEL_FILE_UPLOAD": "Cancel uploading this file",
+      "CONFIRMATION": {
+        "CANCEL": "Confirm cancel upload",
+        "CONTINUE": "Continue upload"
+      },
+      "DIALOG": "File upload dialog",
+      "DIALOG_CLOSE": "Close upload dialog",
+      "REMOVE_FILE": "アップロード済みファイルを削除",
+      "UPLOAD_FILE_ERROR": "ファイルアップロードエラー"
     }
   },
   "WEBSCRIPT": {
@@ -1300,9 +1321,30 @@
   "CORE": {
     "METADATA": {
       "ACTIONS": {
-        "SAVE": "保存",
+        "SAVE": "Save",
         "CANCEL": "キャンセル"
       }
+    },
+    "CARDVIEW": {
+      "KEYVALUEPAIRS": {
+        "ADD": "追加",
+        "NAME": "名前",
+        "VALUE": "値"
+      },
+      "MORE": "もっと",
+      "NONE": "なし"
+    },
+    "FILE_DIALOG": {
+      "ALLOW_OTHERS_CHECKBOX": "Allow other users to modify this file",
+      "CANCEL_BUTTON": {
+        "LABEL": "キャンセル"
+      },
+      "FILE_LOCK": "ファイルをロック",
+      "FILE_LOCK_CHECKBOX": "Lock this file to prevent others from editing",
+      "SAVE_BUTTON": {
+        "LABEL": "Save"
+      },
+      "TIME_LOCK_CHECKBOX": "Set lock expiration time"
     }
   },
   "VIEWER": {
@@ -1328,7 +1370,7 @@
       "ROTATE": "回転",
       "CROP": "クリップ",
       "CANCEL": "キャンセル",
-      "SAVE": "保存",
+      "SAVE": "Save",
       "FIT_PAGE": "ページに合わせる",
       "FIT_WIDTH": "幅に合わせる",
       "FIT_HEIGHT": "高さに合わせる",
@@ -1385,6 +1427,9 @@
       "SELECT_ALL": "すべて選択",
       "SELECT_FILE": "ファイルを選択"
     }
+  },
+  "ACTIONS": {
+    "EDIT": "編集"
   },
   "HEADER": {
     "LOGO_ARIA": "会社ロゴ"

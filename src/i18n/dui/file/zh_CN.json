@@ -5,93 +5,93 @@
   "CLAIM": "申领",
   "UNCLAIM": "释放",
   "START PROCESS": "启动流程",
-  "FILE":{
-    "CLOSE":"关闭",
-    "DELELINE":"请选择要删除的行.",
-    "CONFDELE":"确认删除",
-    "ROWS2":"条记录?",
-    "WARNING":"警告",
-    "OK":"确定",
-    "CANCEL":"取消",
-    "FILES":"个文件?",
-    "GIVEUP":"取消",
-    "UPLOAD_URL":"导入文件地址",
-    "UPLOAD_URL_MAXLENGTH":"导入文件地址超过最大允许长度",
-    "UPLOAD_URL_NOT_NULL":"导入文件地址不能为空",
-    "UPLOAD_TOKEN":"令牌",
-    "UPLOAD_TOKEN_MAXLENGTH":"令牌超过最大允许长度",
-    "UPLOAD_FROM_URL":"远程Url加载",
-    "UPLOADTIPS":"数据库存储文件不支持上传,请用表单录入数据!",
-    "DOWNTIPS":"只有附件模式支持文件夹下载!",
-    "DOWNTIPS2":"只有附件模式支持共享下载!",
-    "CREATTIPS":"只有附件模式支持创建word文档!",
-    "DOCNAME":"文档名称:",
-    "NEWDOC":"新建文档",
-    "NOTNULL2":"文件名称不能为空",
-    "CREATEXCEL":"只有附件模式支持创建Excel文档!",
-    "CHARTNAME":"表格名称:",
-    "NEWCHART":"新建表格",
-    "CREATPPT":"只有附件模式支持创建幻灯片!",
-    "PPTNAME":"幻灯片名称:",
-    "NEWPPT":"新建幻灯片",
-    "NUMIMP":"导入数据行数:",
-    "EXCELIMP":"Excel数据导入",
-    "NOTNULL3":"导入数据行数不能为空",
-    "NOEDIT":"列表录入不支持编辑命令!",
+  "FILE": {
+    "CLOSE": "关闭",
+    "DELELINE": "请选择要删除的行.",
+    "CONFDELE": "确认删除",
+    "ROWS2": "条记录?",
+    "WARNING": "警告",
+    "OK": "确定",
+    "CANCEL": "取消",
+    "FILES": "个文件?",
+    "GIVEUP": "取消",
+    "UPLOAD_URL": "导入文件地址",
+    "UPLOAD_URL_MAXLENGTH": "导入文件地址超过最大允许长度",
+    "UPLOAD_URL_NOT_NULL": "导入文件地址不能为空",
+    "UPLOAD_TOKEN": "令牌",
+    "UPLOAD_TOKEN_MAXLENGTH": "令牌超过最大允许长度",
+    "UPLOAD_FROM_URL": "远程Url加载",
+    "UPLOADTIPS": "数据库存储文件不支持上传,请用表单录入数据!",
+    "DOWNTIPS": "只有附件模式支持文件夹下载!",
+    "DOWNTIPS2": "只有附件模式支持共享下载!",
+    "CREATTIPS": "只有附件模式支持创建word文档!",
+    "DOCNAME": "文档名称:",
+    "NEWDOC": "新建文档",
+    "NOTNULL2": "文件名称不能为空",
+    "CREATEXCEL": "只有附件模式支持创建Excel文档!",
+    "CHARTNAME": "表格名称:",
+    "NEWCHART": "新建表格",
+    "CREATPPT": "只有附件模式支持创建幻灯片!",
+    "PPTNAME": "幻灯片名称:",
+    "NEWPPT": "新建幻灯片",
+    "NUMIMP": "导入数据行数:",
+    "EXCELIMP": "Excel数据导入",
+    "NOTNULL3": "导入数据行数不能为空",
+    "NOEDIT": "列表录入不支持编辑命令!",
     "DOWNLOAD": "下载",
-    "CONFDOWNLOAD":"确认下载",
-    "DIREEMPTY":"目录为空",
-    "LISTLOADING":"文件列表载入中.....",
-    "TRYAGAIN":"发生错误,请重试!",
-    "VIEW":"查看",
-    "REMOVE":"移除",  
-    "REMOVE_FOLDER":"移除目录",
-    "NEWFOLDER":"新建文件夹",
-    "UPLOADFILE":"上传文件",
-    "UPLOADFOLDER":"上传文件夹",
-    "REMOVE-FOLDER":"删除目录",
-    "UPLOADFROMURL":"从Url上传文件",
-    "CONFIGURE":"设置",
-    "NEWWORD":"新建文档",
-    "EMPDOC":"空文档",
-    "PREFIX":"前缀",
-    "PREFIX_NOT_NULL":"前缀不能为空",
-    "BASESHAREURL":"共享地址",
-    "BASESHAREURL_NOT_NULL":"共享地址不能为空",
-    "MAX_UPLOAD_SIZE":"最大上传文件",
-    "MAX_UPLOAD_SIZE_NOT_NULL":"最大上传文件不能为空",
-     "SHARED_LINK_DATETIMEPICKER_TYPE":"共享文件日期类型",
-     "DATE":"短日期",
-     "DATETIME":"时间",
-     "PAGINATION_SIZE":"单页行数",
-     "PAGINATION_SIZE_NOT_NULL":"单页行数不能为空",
-     "CONFIGURE-TITLE":"设置",
-    "CONFIRM":"确定",
-    "NEWWORDTEMP":"从模板创建",
-    "PERMMANA":"权限管理",
-    "MOVETO":"移动到",
+    "CONFDOWNLOAD": "确认下载",
+    "DIREEMPTY": "目录为空",
+    "LISTLOADING": "文件列表载入中.....",
+    "TRYAGAIN": "发生错误,请重试!",
+    "VIEW": "查看",
+    "REMOVE": "移除",
+    "REMOVE_FOLDER": "移除目录",
+    "NEWFOLDER": "新建文件夹",
+    "UPLOADFILE": "上传文件",
+    "UPLOADFOLDER": "上传文件夹",
+    "REMOVE-FOLDER": "删除目录",
+    "UPLOADFROMURL": "从Url上传文件",
+    "CONFIGURE": "设置",
+    "NEWWORD": "新建文档",
+    "EMPDOC": "空文档",
+    "PREFIX": "前缀",
+    "PREFIX_NOT_NULL": "前缀不能为空",
+    "BASESHAREURL": "共享地址",
+    "BASESHAREURL_NOT_NULL": "共享地址不能为空",
+    "MAX_UPLOAD_SIZE": "最大上传文件",
+    "MAX_UPLOAD_SIZE_NOT_NULL": "最大上传文件不能为空",
+    "SHARED_LINK_DATETIMEPICKER_TYPE": "共享文件日期类型",
+    "DATE": "短日期",
+    "DATETIME": "时间",
+    "PAGINATION_SIZE": "单页行数",
+    "PAGINATION_SIZE_NOT_NULL": "单页行数不能为空",
+    "CONFIGURE-TITLE": "设置",
+    "CONFIRM": "确定",
+    "NEWWORDTEMP": "从模板创建",
+    "PERMMANA": "权限管理",
+    "MOVETO": "移动到",
     "UNZIP": "解压缩",
-    "FAVORITE":"收藏",
-    "REMOVEFAV":"取消收藏",
-    "DIRECTORY-REMOVE":"删除目录",
-    "RENAME":"重命名",
-    "EMPTYTRASH":"清空回收站",
-    "SHARELINK":"分享链接",
-    "DETAIL":"详细信息",
-    "MOREOPER":"更多操作",
-    "OPEN":"打开",
-    "COPYTO":"复制到",
-    "DELFOREVER":"永久删除",
-    "RESTORE":"恢复",
-    "NOTEMPTY":"文件名称不能为空",
-    "CONFDEL":"确认删除\"",
-    "PERDEL":"将永久删除回收站中的所有文件和文件夹",
-    "NEW":"新建",
-    "COPYSUCC":"文件复制成功!",
-    "SELCHARTTEMP":"选择表格模板",
-    "DOCTEMP":"选择文档模板",
-    "PPTTEMP":"选择幻灯片模板",
-    "PREVIEWEDTIPS":"文件夹位于回收站中,不可预览,您需要从回收站中还原!"
+    "FAVORITE": "收藏",
+    "REMOVEFAV": "取消收藏",
+    "DIRECTORY-REMOVE": "删除目录",
+    "RENAME": "重命名",
+    "EMPTYTRASH": "清空回收站",
+    "SHARELINK": "分享链接",
+    "DETAIL": "详细信息",
+    "MOREOPER": "更多操作",
+    "OPEN": "打开",
+    "COPYTO": "复制到",
+    "DELFOREVER": "永久删除",
+    "RESTORE": "恢复",
+    "NOTEMPTY": "文件名称不能为空",
+    "CONFDEL": "确认删除\"",
+    "PERDEL": "将永久删除回收站中的所有文件和文件夹",
+    "NEW": "新建",
+    "COPYSUCC": "文件复制成功!",
+    "SELCHARTTEMP": "选择表格模板",
+    "DOCTEMP": "选择文档模板",
+    "PPTTEMP": "选择幻灯片模板",
+    "PREVIEWEDTIPS": "文件夹位于回收站中,不可预览,您需要从回收站中还原!"
   },
   "NOTIFICATION_HISTORY": {
     "NO_MESSAGE": "无消息",
@@ -335,12 +335,16 @@
       "EDIT": "编辑",
       "SAVE": "保存",
       "CANCEL": "取消",
-      "TOGGLE": "切换值"
+      "TOGGLE": "切换值",
+      "COPY_TO_CLIPBOARD": "复制到剪贴板"
     },
     "ERRORS": {
       "GENERIC": "更新属性时出错",
       "409": "不允许存在重复的子名称 [409]",
       "422": "属性值无效"
+    },
+    "ACCESSIBILITY": {
+      "COPY_TO_CLIPBOARD_MESSAGE": "已复制到剪贴板"
     }
   },
   "COMMENTS": {
@@ -455,7 +459,7 @@
       "RESTORE": "恢复",
       "DELETE": "删除",
       "DOWNLOAD": "下载",
-      "VIEW":"查看",
+      "VIEW": "查看",
       "UPLOAD": {
         "TITLE": "上传新版本",
         "TOOLTIP": "限制：您必须上传同名文件才能创建该文件的新版本",
@@ -492,7 +496,7 @@
     "DELETED_ON": "已删除",
     "DELETED_BY": "删除人",
     "STATUS": "状态",
-    "DESCRIPTION":"描述",
+    "DESCRIPTION": "描述",
     "MODIFIED_ON": "已修改",
     "MODIFIED_BY": "修改人",
     "SHARED_BY": "分享人",
@@ -511,15 +515,14 @@
       "CANCEL": "取消"
     }
   },
-  "FOLDERAUTH":{
-    "VIEW":"查看",
-    "DOWNLOAD":"下载",
-    "UPLOAD":"上传",
-    "FULL":"完全控制",
-    "DEPT_ALL_USERS":"部门内所有人员",
-    "ALL_USERS":"所有子部门人员"
+  "FOLDERAUTH": {
+    "VIEW": "查看",
+    "DOWNLOAD": "下载",
+    "UPLOAD": "上传",
+    "FULL": "完全控制",
+    "DEPT_ALL_USERS": "部门内所有人员",
+    "ALL_USERS": "所有子部门人员"
   },
-
   "DROPDOWN": {
     "PLACEHOLDER_LABEL": "网站列表",
     "MY_FILES_OPTION": "我的文件"
@@ -557,6 +560,11 @@
       "CONFLICT": "此名称已使用，请尝试其他名称。",
       "UNKNOWN": "此操作未成功，请重试或联系您的 IT 团队。",
       "PERMISSION": "您没有执行此操作的访问权。"
+    },
+    "FAIL": {
+      "NODE": {
+        "NO_PERMISSION": "您没有权限执行此操作"
+      }
     }
   },
   "TAG": {
@@ -582,7 +590,8 @@
       "UPLOAD_FOLDER": "上传文件夹"
     },
     "STATUS": {
-      "FILE_CANCELED_STATUS": "已取消"
+      "FILE_CANCELED_STATUS": "已取消",
+      "FILE_DONE_STATUS": "已完成"
     },
     "CONFIRMATION": {
       "BUTTON": {
@@ -625,7 +634,18 @@
     },
     "ARIA-LABEL": {
       "ERROR": "上传错误",
-      "VERSION": "文件版本"
+      "VERSION": "文件版本",
+      "CANCEL_ALL": "取消全部上传",
+      "CANCEL_FILE": "取消文件上传",
+      "CANCEL_FILE_UPLOAD": "取消上传此文件",
+      "CONFIRMATION": {
+        "CANCEL": "确认取消上传",
+        "CONTINUE": "继续上传"
+      },
+      "DIALOG": "文件上传对话框",
+      "DIALOG_CLOSE": "关闭上传对话框",
+      "REMOVE_FILE": "移除已上传文件",
+      "UPLOAD_FILE_ERROR": "文件上传错误"
     }
   },
   "WEBSCRIPT": {
@@ -891,7 +911,7 @@
       "UNSHARE": "取消共享",
       "DETAILS": "查看详细信息",
       "VERSIONS": "管理版本",
-      "UPLOAD_VIEW_FILE":"上传查看文件",
+      "UPLOAD_VIEW_FILE": "上传查看文件",
       "UPLOAD_VERSION": "上传新版本",
       "TOGGLE-SIDENAV": "切换侧导航栏",
       "SHARE": "共享",
@@ -1154,10 +1174,31 @@
         "SAVE": "保存",
         "CANCEL": "取消"
       }
+    },
+    "CARDVIEW": {
+      "KEYVALUEPAIRS": {
+        "ADD": "添加",
+        "NAME": "名称",
+        "VALUE": "值"
+      },
+      "MORE": "更多",
+      "NONE": "无"
+    },
+    "FILE_DIALOG": {
+      "ALLOW_OTHERS_CHECKBOX": "允许其他用户修改此文件",
+      "CANCEL_BUTTON": {
+        "LABEL": "取消"
+      },
+      "FILE_LOCK": "锁定文件",
+      "FILE_LOCK_CHECKBOX": "锁定此文件以防止他人编辑",
+      "SAVE_BUTTON": {
+        "LABEL": "保存"
+      },
+      "TIME_LOCK_CHECKBOX": "设置锁定到期时间"
     }
   },
   "VIEWER": {
-    "PAGE_LABEL_SHOWING":"正在显示",
+    "PAGE_LABEL_SHOWING": "正在显示",
     "ACTIONS": {
       "BACK": "返回",
       "OPEN_WITH": "打开方式",
@@ -1176,17 +1217,17 @@
       "NEXT_PAGE": "下一页",
       "ZOOM_IN": "放大",
       "ZOOM_OUT": "缩小",
-      "ROTATE":"旋转",
-      "CROP":"剪裁",
-      "CANCEL":"取消",
-      "SAVE":"保存",
+      "ROTATE": "旋转",
+      "CROP": "剪裁",
+      "CANCEL": "取消",
+      "SAVE": "保存",
       "FIT_PAGE": "适合页面",
       "FIT_WIDTH": "符合宽度",
       "FIT_HEIGHT": "符合高度",
       "ROTATE_LEFT": "向左旋转",
       "ROTATE_RIGHT": "向右旋转",
       "RESET": "重置",
-      "FIND":"查找",
+      "FIND": "查找",
       "THUMBNAILS": "文档缩略图"
     },
     "PAGE_LABEL": {
@@ -1222,5 +1263,8 @@
       "BOOKS-24PX": "文件库",
       "BASELINE-LOCK-24PX": "已锁定文件"
     }
+  },
+  "ACTIONS": {
+    "EDIT": "编辑"
   }
 }

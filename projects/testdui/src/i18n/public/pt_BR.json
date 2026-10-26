@@ -71,6 +71,7 @@
     "TAB2": "2. Importar módulos",
     "TAB3": "3. Usar componentes",
     "TAB4": "4. Internacionalização e tema",
+    "TAB5": "5. Architecture & Dev Guide",
     "STEP1_H1": "Instalar o pacote",
     "STEP1_H2": "Instalar peer dependencies",
     "STEP1_P2": "O DUI é construído sobre o Angular Material e o CDK, portanto certifique-se de que seu projeto tenha as seguintes dependências instaladas:",
@@ -85,6 +86,12 @@
     "STEP4_H1": "Alternar idioma",
     "STEP4_P1": "O DUI vem com um framework multilíngue baseado no TranslationService, fornecendo zh_CN / en_US por padrão:",
     "STEP4_H2": "Alternar temas em tempo de execução",
-    "STEP4_P2": "Com o ThemeService, é possível alterar dinamicamente a cor primária, secundária, de alerta e o modo claro/escuro em tempo de execução, sem necessidade de recompilar:"
+    "STEP4_P2": "Com o ThemeService, é possível alterar dinamicamente a cor primária, secundária, de alerta e o modo claro/escuro em tempo de execução, sem necessidade de recompilar:",
+    "STEP5_H1": "Secondary Entry-Point Packaging Rules",
+    "STEP5_P1": "DUI uses ng-packagr secondary entry points. Each feature folder contains its own ng-package.json, index.ts, and public-api.ts. Always import across entry points via @dotos/dui/<category>/<module> rather than deep relative paths:",
+    "STEP5_H2": "RxJS Subscription Lifecycle & OnPush Performance",
+    "STEP5_P2": "Always clean up long-lived Observable subscriptions in ngOnDestroy using takeUntil(this.destroy$) to prevent memory leaks, and prefer ChangeDetectionStrategy.OnPush for high-frequency components:",
+    "STEP5_H3": "Bilingual JSDoc (@zh) & Automated Docs Generation",
+    "STEP5_P3": "Document all exported classes, interfaces, enums, functions, and public members with English JSDoc plus an @zh Chinese tag, then run npm run docs:generate to update the documentation portal:"
   }
 }

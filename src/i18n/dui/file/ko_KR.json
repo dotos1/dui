@@ -337,12 +337,16 @@
       "SAVE": "저장",
       "CANCEL": "취소",
       "TOGGLE": "값 전환",
+      "COPY_TO_CLIPBOARD": "클립보드에 복사되었습니다",
       "CLEAR": "지우기"
     },
     "ERRORS": {
       "GENERIC": "속성을 업데이트하는 중 오류가 발생했습니다",
       "409": "중복된 하위 이름은 허용되지 않습니다 [409]",
       "422": "속성 값이 유효하지 않습니다"
+    },
+    "ACCESSIBILITY": {
+      "COPY_TO_CLIPBOARD_MESSAGE": "클립보드에 복사되었습니다"
     }
   },
   "COMMENTS": {
@@ -558,6 +562,11 @@
       "CONFLICT": "이 이름은 이미 사용 중입니다. 다른 이름을 시도해 주세요.",
       "UNKNOWN": "작업이 실패했습니다. 다시 시도하거나 IT 팀에 문의하세요.",
       "PERMISSION": "이 작업을 수행할 권한이 없습니다."
+    },
+    "FAIL": {
+      "NODE": {
+        "NO_PERMISSION": "You do not have permission to perform this operation"
+      }
     }
   },
   "TAG": {
@@ -583,7 +592,8 @@
       "UPLOAD_FOLDER": "폴더 업로드"
     },
     "STATUS": {
-      "FILE_CANCELED_STATUS": "취소됨"
+      "FILE_CANCELED_STATUS": "취소됨",
+      "FILE_DONE_STATUS": "완료됨"
     },
     "CONFIRMATION": {
       "BUTTON": {
@@ -626,7 +636,18 @@
     },
     "ARIA-LABEL": {
       "ERROR": "업로드 오류",
-      "VERSION": "파일 버전"
+      "VERSION": "파일 버전",
+      "CANCEL_ALL": "Cancel all uploads",
+      "CANCEL_FILE": "Cancel file upload",
+      "CANCEL_FILE_UPLOAD": "Cancel uploading this file",
+      "CONFIRMATION": {
+        "CANCEL": "Confirm cancel upload",
+        "CONTINUE": "Continue upload"
+      },
+      "DIALOG": "File upload dialog",
+      "DIALOG_CLOSE": "Close upload dialog",
+      "REMOVE_FILE": "업로드된 파일 제거",
+      "UPLOAD_FILE_ERROR": "파일 업로드 오류"
     }
   },
   "WEBSCRIPT": {
@@ -1303,6 +1324,27 @@
         "SAVE": "저장",
         "CANCEL": "취소"
       }
+    },
+    "CARDVIEW": {
+      "KEYVALUEPAIRS": {
+        "ADD": "추가",
+        "NAME": "이름",
+        "VALUE": "값"
+      },
+      "MORE": "더보기",
+      "NONE": "없음"
+    },
+    "FILE_DIALOG": {
+      "ALLOW_OTHERS_CHECKBOX": "Allow other users to modify this file",
+      "CANCEL_BUTTON": {
+        "LABEL": "취소"
+      },
+      "FILE_LOCK": "파일 잠금",
+      "FILE_LOCK_CHECKBOX": "Lock this file to prevent others from editing",
+      "SAVE_BUTTON": {
+        "LABEL": "저장"
+      },
+      "TIME_LOCK_CHECKBOX": "Set lock expiration time"
     }
   },
   "VIEWER": {
@@ -1385,6 +1427,9 @@
       "SELECT_ALL": "전체 선택",
       "SELECT_FILE": "파일 선택"
     }
+  },
+  "ACTIONS": {
+    "EDIT": "편집"
   },
   "HEADER": {
     "LOGO_ARIA": "회사 로고"

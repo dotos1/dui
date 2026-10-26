@@ -337,12 +337,16 @@
       "SAVE": "Save",
       "CANCEL": "Cancel",
       "TOGGLE": "Toggle value",
-      "CLEAR": "Clear"
+      "CLEAR": "Clear",
+      "COPY_TO_CLIPBOARD": "Copy to clipboard"
     },
     "ERRORS": {
       "GENERIC": "Error updating properties",
       "409": "Duplicate sub-names are not allowed [409]",
       "422": "Invalid property value"
+    },
+    "ACCESSIBILITY": {
+      "COPY_TO_CLIPBOARD_MESSAGE": "Copied to clipboard"
     }
   },
   "COMMENTS": {
@@ -558,6 +562,11 @@
       "CONFLICT": "This name is already in use, try a different name.",
       "UNKNOWN": "The action was unsuccessful. Try again or contact your IT Team.",
       "PERMISSION": "You don't have access to do this."
+    },
+    "FAIL": {
+      "NODE": {
+        "NO_PERMISSION": "You do not have permission to perform this operation"
+      }
     }
   },
   "TAG": {
@@ -583,7 +592,8 @@
       "UPLOAD_FOLDER": "Upload folder"
     },
     "STATUS": {
-      "FILE_CANCELED_STATUS": "Canceled"
+      "FILE_CANCELED_STATUS": "Canceled",
+      "FILE_DONE_STATUS": "Done"
     },
     "CONFIRMATION": {
       "BUTTON": {
@@ -626,7 +636,18 @@
     },
     "ARIA-LABEL": {
       "ERROR": "Upload Error",
-      "VERSION": "File version"
+      "VERSION": "File version",
+      "CANCEL_ALL": "Cancel all uploads",
+      "CANCEL_FILE": "Cancel file upload",
+      "CANCEL_FILE_UPLOAD": "Cancel uploading this file",
+      "CONFIRMATION": {
+        "CANCEL": "Confirm cancel upload",
+        "CONTINUE": "Continue upload"
+      },
+      "DIALOG": "File upload dialog",
+      "DIALOG_CLOSE": "Close upload dialog",
+      "REMOVE_FILE": "Remove uploaded file",
+      "UPLOAD_FILE_ERROR": "File upload error"
     }
   },
   "WEBSCRIPT": {
@@ -1303,6 +1324,27 @@
         "SAVE": "Save",
         "CANCEL": "Cancel"
       }
+    },
+    "CARDVIEW": {
+      "KEYVALUEPAIRS": {
+        "ADD": "Add",
+        "NAME": "Name",
+        "VALUE": "Value"
+      },
+      "MORE": "More",
+      "NONE": "None"
+    },
+    "FILE_DIALOG": {
+      "ALLOW_OTHERS_CHECKBOX": "Allow other users to modify this file",
+      "CANCEL_BUTTON": {
+        "LABEL": "Cancel"
+      },
+      "FILE_LOCK": "Lock file",
+      "FILE_LOCK_CHECKBOX": "Lock this file to prevent others from editing",
+      "SAVE_BUTTON": {
+        "LABEL": "Save"
+      },
+      "TIME_LOCK_CHECKBOX": "Set lock expiration time"
     }
   },
   "VIEWER": {
@@ -1574,5 +1616,8 @@
     "ARIA-LABEL": {
       "VERSION": "File version"
     }
+  },
+  "ACTIONS": {
+    "EDIT": "Edit"
   }
 }

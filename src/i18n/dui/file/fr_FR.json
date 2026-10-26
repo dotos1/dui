@@ -337,12 +337,16 @@
       "SAVE": "Enregistrer",
       "CANCEL": "Annuler",
       "TOGGLE": "Basculer la valeur",
+      "COPY_TO_CLIPBOARD": "Copié dans le presse-papiers",
       "CLEAR": "Effacer"
     },
     "ERRORS": {
       "GENERIC": "Erreur lors de la mise à jour des propriétés",
       "409": "Les sous-noms en double ne sont pas autorisés [409]",
       "422": "Valeur de propriété non valide"
+    },
+    "ACCESSIBILITY": {
+      "COPY_TO_CLIPBOARD_MESSAGE": "Copié dans le presse-papiers"
     }
   },
   "COMMENTS": {
@@ -558,6 +562,11 @@
       "CONFLICT": "Ce nom est déjà utilisé, veuillez essayer un autre nom.",
       "UNKNOWN": "L'action a échoué. Réessayez ou contactez votre équipe informatique.",
       "PERMISSION": "Vous n'avez pas l'autorisation d'effectuer cette action."
+    },
+    "FAIL": {
+      "NODE": {
+        "NO_PERMISSION": "You do not have permission to perform this operation"
+      }
     }
   },
   "TAG": {
@@ -583,7 +592,8 @@
       "UPLOAD_FOLDER": "Téléverser un dossier"
     },
     "STATUS": {
-      "FILE_CANCELED_STATUS": "Annulé"
+      "FILE_CANCELED_STATUS": "Annulé",
+      "FILE_DONE_STATUS": "Traité"
     },
     "CONFIRMATION": {
       "BUTTON": {
@@ -626,7 +636,18 @@
     },
     "ARIA-LABEL": {
       "ERROR": "Erreur de téléversement",
-      "VERSION": "Version du fichier"
+      "VERSION": "Version du fichier",
+      "CANCEL_ALL": "Cancel all uploads",
+      "CANCEL_FILE": "Cancel file upload",
+      "CANCEL_FILE_UPLOAD": "Cancel uploading this file",
+      "CONFIRMATION": {
+        "CANCEL": "Confirm cancel upload",
+        "CONTINUE": "Continue upload"
+      },
+      "DIALOG": "File upload dialog",
+      "DIALOG_CLOSE": "Close upload dialog",
+      "REMOVE_FILE": "Supprimer le fichier téléversé",
+      "UPLOAD_FILE_ERROR": "Erreur de téléchargement du fichier"
     }
   },
   "WEBSCRIPT": {
@@ -1303,6 +1324,27 @@
         "SAVE": "Enregistrer",
         "CANCEL": "Annuler"
       }
+    },
+    "CARDVIEW": {
+      "KEYVALUEPAIRS": {
+        "ADD": "Ajouter",
+        "NAME": "Nom",
+        "VALUE": "Valeur"
+      },
+      "MORE": "Plus",
+      "NONE": "Aucun"
+    },
+    "FILE_DIALOG": {
+      "ALLOW_OTHERS_CHECKBOX": "Allow other users to modify this file",
+      "CANCEL_BUTTON": {
+        "LABEL": "Annuler"
+      },
+      "FILE_LOCK": "Verrouiller le fichier",
+      "FILE_LOCK_CHECKBOX": "Lock this file to prevent others from editing",
+      "SAVE_BUTTON": {
+        "LABEL": "Enregistrer"
+      },
+      "TIME_LOCK_CHECKBOX": "Set lock expiration time"
     }
   },
   "VIEWER": {
@@ -1385,6 +1427,9 @@
       "SELECT_ALL": "Tout sélectionner",
       "SELECT_FILE": "Sélectionner le fichier"
     }
+  },
+  "ACTIONS": {
+    "EDIT": "Modifier"
   },
   "HEADER": {
     "LOGO_ARIA": "Logo de l'entreprise"

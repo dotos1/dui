@@ -71,6 +71,7 @@
     "TAB2": "2. 모듈 가져오기",
     "TAB3": "3. 컴포넌트 사용",
     "TAB4": "4. 국제화 & 테마",
+    "TAB5": "5. Architecture & Dev Guide",
     "STEP1_H1": "패키지 설치",
     "STEP1_H2": "peer dependencies 설치",
     "STEP1_P2": "DUI는 Angular Material과 CDK를 기반으로 빌드되었습니다. 프로젝트에 다음 종속성이 설치되어 있는지 확인하세요:",
@@ -85,6 +86,12 @@
     "STEP4_H1": "언어 전환",
     "STEP4_P1": "DUI에는 TranslationService 기반의 다국어 프레임워크가 내장되어 있으며, 기본적으로 zh_CN / en_US 두 언어를 제공합니다:",
     "STEP4_H2": "런타임에 테마 전환",
-    "STEP4_P2": "ThemeService를 통해 재빌드 없이 런타임에 기본색, 보조색, 경고색과 명/암 모드를 동적으로 변경할 수 있습니다:"
+    "STEP4_P2": "ThemeService를 통해 재빌드 없이 런타임에 기본색, 보조색, 경고색과 명/암 모드를 동적으로 변경할 수 있습니다:",
+    "STEP5_H1": "Secondary Entry-Point Packaging Rules",
+    "STEP5_P1": "DUI uses ng-packagr secondary entry points. Each feature folder contains its own ng-package.json, index.ts, and public-api.ts. Always import across entry points via @dotos/dui/<category>/<module> rather than deep relative paths:",
+    "STEP5_H2": "RxJS Subscription Lifecycle & OnPush Performance",
+    "STEP5_P2": "Always clean up long-lived Observable subscriptions in ngOnDestroy using takeUntil(this.destroy$) to prevent memory leaks, and prefer ChangeDetectionStrategy.OnPush for high-frequency components:",
+    "STEP5_H3": "Bilingual JSDoc (@zh) & Automated Docs Generation",
+    "STEP5_P3": "Document all exported classes, interfaces, enums, functions, and public members with English JSDoc plus an @zh Chinese tag, then run npm run docs:generate to update the documentation portal:"
   }
 }
