@@ -337,12 +337,16 @@
       "SAVE": "Salvar",
       "CANCEL": "Cancelar",
       "TOGGLE": "Alternar valor",
+      "COPY_TO_CLIPBOARD": "Copiado para a área de transferência",
       "CLEAR": "Limpar"
     },
     "ERRORS": {
       "GENERIC": "Erro ao atualizar propriedades",
       "409": "Não são permitidos subnomes duplicados [409]",
       "422": "Valor de propriedade inválido"
+    },
+    "ACCESSIBILITY": {
+      "COPY_TO_CLIPBOARD_MESSAGE": "Copiado para a área de transferência"
     }
   },
   "COMMENTS": {
@@ -558,6 +562,11 @@
       "CONFLICT": "Este nome já está em uso, tente outro nome.",
       "UNKNOWN": "A ação não foi bem-sucedida. Tente novamente ou entre em contato com sua equipe de TI.",
       "PERMISSION": "Você não tem permissão para fazer isso."
+    },
+    "FAIL": {
+      "NODE": {
+        "NO_PERMISSION": "You do not have permission to perform this operation"
+      }
     }
   },
   "TAG": {
@@ -583,7 +592,8 @@
       "UPLOAD_FOLDER": "Enviar pasta"
     },
     "STATUS": {
-      "FILE_CANCELED_STATUS": "Cancelado"
+      "FILE_CANCELED_STATUS": "Cancelado",
+      "FILE_DONE_STATUS": "Processado"
     },
     "CONFIRMATION": {
       "BUTTON": {
@@ -626,7 +636,18 @@
     },
     "ARIA-LABEL": {
       "ERROR": "Erro de upload",
-      "VERSION": "Versão do arquivo"
+      "VERSION": "Versão do arquivo",
+      "CANCEL_ALL": "Cancel all uploads",
+      "CANCEL_FILE": "Cancel file upload",
+      "CANCEL_FILE_UPLOAD": "Cancel uploading this file",
+      "CONFIRMATION": {
+        "CANCEL": "Confirm cancel upload",
+        "CONTINUE": "Continue upload"
+      },
+      "DIALOG": "File upload dialog",
+      "DIALOG_CLOSE": "Close upload dialog",
+      "REMOVE_FILE": "Remover arquivo enviado",
+      "UPLOAD_FILE_ERROR": "Erro no Upload do Arquivo"
     }
   },
   "WEBSCRIPT": {
@@ -886,7 +907,7 @@
       "APPLY": "Aplicar"
     },
     "PREVIEW": {
-      "TITLE": "Pré-visualização"
+      "TITLE": "Pré-visualizar"
     },
     "NEW_MENU": {
       "LABEL": "Novo",
@@ -1303,6 +1324,27 @@
         "SAVE": "Salvar",
         "CANCEL": "Cancelar"
       }
+    },
+    "CARDVIEW": {
+      "KEYVALUEPAIRS": {
+        "ADD": "Adicionar",
+        "NAME": "Nome",
+        "VALUE": "Valor"
+      },
+      "MORE": "Mais",
+      "NONE": "Nenhum"
+    },
+    "FILE_DIALOG": {
+      "ALLOW_OTHERS_CHECKBOX": "Allow other users to modify this file",
+      "CANCEL_BUTTON": {
+        "LABEL": "Cancelar"
+      },
+      "FILE_LOCK": "Bloquear arquivo",
+      "FILE_LOCK_CHECKBOX": "Lock this file to prevent others from editing",
+      "SAVE_BUTTON": {
+        "LABEL": "Salvar"
+      },
+      "TIME_LOCK_CHECKBOX": "Set lock expiration time"
     }
   },
   "VIEWER": {
@@ -1385,6 +1427,9 @@
       "SELECT_ALL": "Selecionar tudo",
       "SELECT_FILE": "Selecionar arquivo"
     }
+  },
+  "ACTIONS": {
+    "EDIT": "Editar"
   },
   "HEADER": {
     "LOGO_ARIA": "Logotipo da empresa"

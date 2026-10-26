@@ -337,12 +337,16 @@
       "SAVE": "儲存",
       "CANCEL": "取消",
       "TOGGLE": "切換值",
+      "COPY_TO_CLIPBOARD": "複製到剪貼簿",
       "CLEAR": "Clear"
     },
     "ERRORS": {
       "GENERIC": "更新屬性時出錯",
       "409": "不允許存在重複的子名稱 [409]",
       "422": "屬性值無效"
+    },
+    "ACCESSIBILITY": {
+      "COPY_TO_CLIPBOARD_MESSAGE": "已複製到剪貼簿"
     }
   },
   "COMMENTS": {
@@ -558,6 +562,11 @@
       "CONFLICT": "此名稱已使用，請嘗試其他名稱。",
       "UNKNOWN": "此操作未成功，請重試或聯絡您的 IT 團隊。",
       "PERMISSION": "您沒有執行此操作的訪問權。"
+    },
+    "FAIL": {
+      "NODE": {
+        "NO_PERMISSION": "您沒有權限執行此操作"
+      }
     }
   },
   "TAG": {
@@ -583,7 +592,8 @@
       "UPLOAD_FOLDER": "上傳資料夾"
     },
     "STATUS": {
-      "FILE_CANCELED_STATUS": "已取消"
+      "FILE_CANCELED_STATUS": "已取消",
+      "FILE_DONE_STATUS": "已完成"
     },
     "CONFIRMATION": {
       "BUTTON": {
@@ -626,7 +636,18 @@
     },
     "ARIA-LABEL": {
       "ERROR": "上傳錯誤",
-      "VERSION": "檔案版本"
+      "VERSION": "檔案版本",
+      "CANCEL_ALL": "取消全部上傳",
+      "CANCEL_FILE": "取消檔案上傳",
+      "CANCEL_FILE_UPLOAD": "取消上傳此檔案",
+      "CONFIRMATION": {
+        "CANCEL": "確認取消上傳",
+        "CONTINUE": "繼續上傳"
+      },
+      "DIALOG": "檔案上傳對話方塊",
+      "DIALOG_CLOSE": "關閉上傳對話方塊",
+      "REMOVE_FILE": "移除已上傳檔案",
+      "UPLOAD_FILE_ERROR": "檔案上傳錯誤"
     }
   },
   "WEBSCRIPT": {
@@ -1303,6 +1324,27 @@
         "SAVE": "儲存",
         "CANCEL": "取消"
       }
+    },
+    "CARDVIEW": {
+      "KEYVALUEPAIRS": {
+        "ADD": "新增",
+        "NAME": "名稱",
+        "VALUE": "值"
+      },
+      "MORE": "更多",
+      "NONE": "無"
+    },
+    "FILE_DIALOG": {
+      "ALLOW_OTHERS_CHECKBOX": "允許其他用戶修改此檔案",
+      "CANCEL_BUTTON": {
+        "LABEL": "取消"
+      },
+      "FILE_LOCK": "鎖定檔案",
+      "FILE_LOCK_CHECKBOX": "鎖定此檔案以防止他人編輯",
+      "SAVE_BUTTON": {
+        "LABEL": "儲存"
+      },
+      "TIME_LOCK_CHECKBOX": "設置鎖定到期時間"
     }
   },
   "VIEWER": {
@@ -1385,6 +1427,9 @@
       "SELECT_ALL": "Select all",
       "SELECT_FILE": "Select file"
     }
+  },
+  "ACTIONS": {
+    "EDIT": "編輯"
   },
   "HEADER": {
     "LOGO_ARIA": "Company Logo"

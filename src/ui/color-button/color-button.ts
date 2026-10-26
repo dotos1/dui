@@ -29,7 +29,7 @@ export class ColorPickerButton extends ButtonBase implements OnInit,DoCheck {
    * Input property `config` (`any`) configuring config (default: `{}`).
    * @zh 输入属性 `config`（类型：`any`），用于配置配置（默认值：`{}`）。
    */
-  @Input() override config: { parentType? } = {};
+  @Input() override config: { parentType?; title?; disabled?; style?; iconCls?; color?; items?; tooltip?; [key: string]: unknown } = {};
 
   /**
    * Template/content query reference `matTooltip` (`@ViewChild`) targeting mat tooltip.
