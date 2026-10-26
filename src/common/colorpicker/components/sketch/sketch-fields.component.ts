@@ -1,8 +1,17 @@
+/**
+ * @fileoverview Module `src/common/colorpicker/components/sketch/sketch-fields.component.ts` providing sketch fields component definitions and implementation.
+ * @zh 模块文件 `src/common/colorpicker/components/sketch/sketch-fields.component.ts`，提供sketch字段列表组件相关的定义与实现。
+ */
+
 import {  ChangeDetectionStrategy,  Component,  EventEmitter,  Input,  Output,
 } from '@angular/core';
 import { isValidHex, HSLA, RGBA } from '@dotos/dui/common/colorpicker/common';
 import { TinyColor } from '@dotos/dui/core/color';
 
+/**
+ * Angular component `SketchFieldsComponent` (selector: 'color-sketch-fields') providing sketch fields component presentation and interaction in `src/common/colorpicker/components/sketch`.
+ * @zh Angular 组件 `SketchFieldsComponent`（selector: 'color-sketch-fields'），提供Sketch字段列表组件的视图渲染与交互逻辑（位于 `src/common/colorpicker/components/sketch`）。
+ */
 @Component({
   selector: 'color-sketch-fields',
   template: `
@@ -89,17 +98,39 @@ import { TinyColor } from '@dotos/dui/core/color';
  * @zh {@link SketchComponent} 使用的十六进制/RGB/透明度可编辑输入字段。
  */
 export class SketchFieldsComponent {
-  /** @zh 当前颜色的 HSL 表示。 */
+  /**
+   * @zh 当前颜色的 HSL 表示。
+   * @zh 当前颜色的 HSL 表示。
+   */
   @Input() hsl: HSLA;
-  /** @zh 当前颜色的 RGB 表示。 */
+  /**
+   * @zh 当前颜色的 RGB 表示。
+   * @zh 当前颜色的 RGB 表示。
+   */
   @Input() rgb: RGBA;
-  /** @zh 当前颜色的十六进制表示。 */
+  /**
+   * Input property `hex` (`string`) configuring hex.
+   * @zh 当前颜色的十六进制表示。
+   * @zh 当前颜色的十六进制表示。
+   */
   @Input() hex: string;
-  /** @zh 是否禁用透明度字段。 */
+  /**
+   * Input property `disableAlpha` (`boolean`) configuring disable alpha (default: `false`).
+   * @zh 是否禁用透明度字段。
+   * @zh 是否禁用透明度字段。
+   */
   @Input() disableAlpha = false;
-  /** @zh 字段值变化时发出。 */
-  @Output() onChange = new EventEmitter<any>();
-  /** @zh 输入框的内联样式。 */
+  /**
+   * Output event emitter `onChange` (`EventEmitter`) firing when on change occurs.
+   * @zh 字段值变化时发出。
+   * @zh 字段值变化时发出。
+   */
+  @Output() onChange = new EventEmitter();
+  /**
+   * Property `input` (`{ [key: string]: string }`) storing input.
+   * @zh 输入框的内联样式。
+   * @zh 输入框的内联样式。
+   */
   input: { [key: string]: string } = {
     width: '100%',
     padding: '4px 10% 3px',
@@ -108,7 +139,11 @@ export class SketchFieldsComponent {
     boxShadow: 'inset 0 0 0 1px #ccc',
     fontSize: '11px',
   };
-  /** @zh 标签的内联样式。 */
+  /**
+   * Property `label` (`{ [key: string]: string }`) storing label.
+   * @zh 标签的内联样式。
+   * @zh 标签的内联样式。
+   */
   label: { [key: string]: string } = {
     display: 'block',
     textAlign: 'center',

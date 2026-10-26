@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Module `src/common/inline-svg/svg-cache.service.spec.ts` providing svg cache service spec definitions and implementation.
+ * @zh 模块文件 `src/common/inline-svg/svg-cache.service.spec.ts`，提供SVG矢量图缓存服务spec相关的定义与实现。
+ */
+
 import { SVGCacheService } from './svg-cache.service';
 
 /** b8c5e5c 复核:SVG 在惰性文档里解析、净化后再进活文档。 */

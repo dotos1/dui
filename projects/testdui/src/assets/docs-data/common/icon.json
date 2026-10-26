@@ -4,8 +4,8 @@
     {
       "name": "FontLoaderService",
       "kind": "service",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Injectable Angular service `FontLoaderService` managing font loader service state and operations in `src/common/icon`.",
+      "summaryZh": "可注入的 Angular 服务 `FontLoaderService`，管理 `src/common/icon` 中的字体加载器服务状态与业务操作。",
       "sourceFile": "src/common/icon/font-loader.service.ts",
       "inputs": [],
       "outputs": [],
@@ -36,7 +36,7 @@
           "name": "fontSet",
           "type": "Set<string>",
           "default": "new Set<string>()",
-          "description": null,
+          "description": "Property `fontSet` (`Set<string>`) storing font set (default: `new Set<string>()`).",
           "descriptionZh": "已加载过的字体名称集合，避免重复加载。"
         }
       ]
@@ -44,8 +44,8 @@
     {
       "name": "Icon",
       "kind": "class",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Class `Icon` encapsulating icon data structures and logic in `src/common/icon`.",
+      "summaryZh": "类 `Icon`，封装 `src/common/icon` 中的图标数据结构与处理逻辑。",
       "sourceFile": "src/common/icon/icon.ts",
       "inputs": [],
       "outputs": [],
@@ -54,32 +54,32 @@
         {
           "name": "name",
           "type": "string",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `name` (`string`) storing name.",
+          "descriptionZh": "属性 `name`（类型：`string`），用于存储或配置名称。"
         },
         {
           "name": "id",
           "type": "string",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `id` (`string`) storing id.",
+          "descriptionZh": "属性 `id`（类型：`string`），用于存储或配置唯一标识。"
         },
         {
           "name": "filter",
           "type": "string[]",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `filter` (`string[]`) storing filter.",
+          "descriptionZh": "属性 `filter`（类型：`string[]`），用于存储或配置过滤。"
         },
         {
           "name": "aliases",
           "type": "string[]",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `aliases` (`string[]`) storing aliases.",
+          "descriptionZh": "属性 `aliases`（类型：`string[]`），用于存储或配置aliases。"
         },
         {
           "name": "type",
           "type": "IconType",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `type` (`IconType`) storing type.",
+          "descriptionZh": "属性 `type`（类型：`IconType`），用于存储或配置类型。"
         }
       ]
     },
@@ -159,7 +159,7 @@
         {
           "name": "fontStyle",
           "type": "any",
-          "description": null,
+          "description": "Property `fontStyle` (`any`) storing font style.",
           "descriptionZh": "内部使用，`EXTRA` 类型图标的自定义字体样式（`font-family`）。"
         }
       ]
@@ -167,8 +167,8 @@
     {
       "name": "IconModule",
       "kind": "module",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular module `IconModule` declaring and exporting icon module components, directives, pipes, and providers.",
+      "summaryZh": "Angular 模块 `IconModule`，声明并导出图标模块相关的组件、指令、管道与服务提供者。",
       "sourceFile": "src/common/icon/icon.module.ts",
       "inputs": [],
       "outputs": [],
@@ -178,8 +178,8 @@
     {
       "name": "IconPickerService",
       "kind": "service",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Injectable Angular service `IconPickerService` managing icon picker service state and operations in `src/common/icon`.",
+      "summaryZh": "可注入的 Angular 服务 `IconPickerService`，管理 `src/common/icon` 中的图标选择器服务状态与业务操作。",
       "sourceFile": "src/common/icon/icon-picker.service.ts",
       "inputs": [],
       "outputs": [],
@@ -250,19 +250,32 @@
     {
       "name": "IconType",
       "kind": "enum",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Enumeration `IconType` defining supported icon type constants.",
+      "summaryZh": "枚举 `IconType`，定义支持的图标类型常量集合。",
       "sourceFile": "src/common/icon/icon.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
-      "properties": []
+      "properties": [
+        {
+          "name": "FONT",
+          "type": "enum-member",
+          "description": "Enum member `IconType.FONT` representing font.",
+          "descriptionZh": "枚举项 `IconType.FONT`，表示字体。"
+        },
+        {
+          "name": "SVG",
+          "type": "enum-member",
+          "description": "Enum member `IconType.SVG` representing svg.",
+          "descriptionZh": "枚举项 `IconType.SVG`，表示SVG矢量图。"
+        }
+      ]
     },
     {
       "name": "SVGIcon",
       "kind": "class",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Class `SVGIcon` encapsulating svg icon data structures and logic in `src/common/icon`.",
+      "summaryZh": "类 `SVGIcon`，封装 `src/common/icon` 中的SVG矢量图图标数据结构与处理逻辑。",
       "sourceFile": "src/common/icon/icon.ts",
       "inputs": [],
       "outputs": [],
@@ -271,20 +284,20 @@
         {
           "name": "name",
           "type": "string",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `name` (`string`) storing name.",
+          "descriptionZh": "属性 `name`（类型：`string`），用于存储或配置名称。"
         },
         {
           "name": "url",
           "type": "string",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `url` (`string`) storing url.",
+          "descriptionZh": "属性 `url`（类型：`string`），用于存储或配置链接地址。"
         },
         {
           "name": "style",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `style` (`any`) storing style.",
+          "descriptionZh": "属性 `style`（类型：`any`），用于存储或配置样式。"
         }
       ]
     }

@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Module `src/common/colorpicker/common/color-wrap.component.ts` providing color wrap component definitions and implementation.
+ * @zh 模块文件 `src/common/colorpicker/common/color-wrap.component.ts`，提供颜色包裹组件相关的定义与实现。
+ */
+
 import { CommonModule } from '@angular/common';
 import {  Component,  EventEmitter,  Input,  NgModule,  OnChanges,  OnDestroy,  OnInit,  Output,
 } from '@angular/core';
@@ -9,8 +14,20 @@ import { simpleCheckForValidColor, toState } from './helpers/color';
 import { Color, HSLA, HSVA, RGBA } from './helpers/color.interfaces';
 import { ESCAPE } from '@angular/cdk/keycodes';
 
+/**
+ * Interface `ColorEvent` defining the contract and properties for color event.
+ * @zh 接口 `ColorEvent`，定义颜色事件的数据结构契约与属性规范。
+ */
 export interface ColorEvent {
+  /**
+   * Property `$event` (`Event`) storing event.
+   * @zh 属性 `$event`（类型：`Event`），用于存储或配置事件。
+   */
   $event: Event;
+  /**
+   * Property `color` (`Color`) storing color.
+   * @zh 属性 `color`（类型：`Color`），用于存储或配置颜色。
+   */
   color: Color;
 }
 
@@ -29,49 +46,104 @@ export interface ColorEvent {
 
 })
 export class ColorWrap implements OnInit, OnChanges, OnDestroy {
-  /** @zh 应用到宿主元素上的自定义 CSS 类名。 */
+  /**
+   * @zh 应用到宿主元素上的自定义 CSS 类名。
+   * @zh 应用到宿主元素上的自定义 CSS 类名。
+   */
   @Input() className?: string;
-  /** @zh 当前绑定的颜色值（HSL/HSV/RGB 对象或十六进制字符串）。 */
+  /**
+   * @zh 当前绑定的颜色值（HSL/HSV/RGB 对象或十六进制字符串）。
+   * @zh 当前绑定的颜色值（HSL/HSV/RGB 对象或十六进制字符串）。
+   */
   @Input() color: HSLA | HSVA | RGBA | string = {
     h: 250,
     s: 0.5,
     l: 0.2,
     a: 1,
   };
-  /** @zh 颜色变化时发出（防抖前）。 */
+  /**
+   * Output event emitter `onChange` (`EventEmitter`) firing when on change occurs.
+   * @zh 颜色变化时发出（防抖前）。
+   * @zh 颜色变化时发出（防抖前）。
+   */
   @Output() onChange = new EventEmitter<ColorEvent>();
-  /** @zh 颜色变化完成后发出（对 `onChange` 做了防抖）。 */
+  /**
+   * Output event emitter `onChangeComplete` (`EventEmitter`) firing when on change complete occurs.
+   * @zh 颜色变化完成后发出（对 `onChange` 做了防抖）。
+   * @zh 颜色变化完成后发出（对 `onChange` 做了防抖）。
+   */
   @Output() onChangeComplete = new EventEmitter<ColorEvent>();
-  /** @zh 悬停在色块上时发出。 */
+  /**
+   * Output event emitter `onSwatchHover` (`EventEmitter`) firing when on swatch hover occurs.
+   * @zh 悬停在色块上时发出。
+   * @zh 悬停在色块上时发出。
+   */
   @Output() onSwatchHover = new EventEmitter<ColorEvent>();
-  /** @zh 上一个有效的色相值，色相未变化（如切换到无色调的黑白）时用于保留。 */
+  /**
+   * Property `oldHue` (`number`) storing old hue.
+   * @zh 上一个有效的色相值，色相未变化（如切换到无色调的黑白）时用于保留。
+   * @zh 上一个有效的色相值，色相未变化（如切换到无色调的黑白）时用于保留。
+   */
   oldHue: number;
-  /** @zh 当前颜色的 HSL 表示。 */
+  /**
+   * @zh 当前颜色的 HSL 表示。
+   * @zh 当前颜色的 HSL 表示。
+   */
   hsl: HSLA;
-  /** @zh 当前颜色的 HSV 表示。 */
+  /**
+   * @zh 当前颜色的 HSV 表示。
+   * @zh 当前颜色的 HSV 表示。
+   */
   hsv: HSVA;
-  /** @zh 当前颜色的 RGB 表示。 */
+  /**
+   * @zh 当前颜色的 RGB 表示。
+   * @zh 当前颜色的 RGB 表示。
+   */
   rgb: RGBA;
-  /** @zh 当前颜色的十六进制表示。 */
+  /**
+   * Property `hex` (`string`) storing hex.
+   * @zh 当前颜色的十六进制表示。
+   * @zh 当前颜色的十六进制表示。
+   */
   hex: string;
-  /** @zh 最近一次颜色变化的来源标识（如 `'hex'`、`'rgb'`、`'hsva'`）。 */
+  /**
+   * Property `source` (`string`) storing source.
+   * @zh 最近一次颜色变化的来源标识（如 `'hex'`、`'rgb'`、`'hsva'`）。
+   * @zh 最近一次颜色变化的来源标识（如 `'hex'`、`'rgb'`、`'hsva'`）。
+   */
   source: string;
-  /** @zh 初始化时记录的当前颜色（十六进制）。 */
+  /**
+   * Property `currentColor` (`string`) storing current color.
+   * @zh 初始化时记录的当前颜色（十六进制）。
+   * @zh 初始化时记录的当前颜色（十六进制）。
+   */
   currentColor: string;
-  /** @zh 内部使用，`onChange` 到 `onChangeComplete` 的防抖订阅。 */
+  /**
+   * Property `changes` (`Subscription`) storing changes.
+   * @zh 内部使用，`onChange` 到 `onChangeComplete` 的防抖订阅。
+   * @zh 内部使用，`onChange` 到 `onChangeComplete` 的防抖订阅。
+   */
   changes: Subscription;
 
-  /** @zh 承载该选择器的弹出层触发宿主（用于选中后自动关闭）。 */
-  host: any;
+  /**
+   * Property `host` (`any`) storing host.
+   * @zh 承载该选择器的弹出层触发宿主（用于选中后自动关闭）。
+   * @zh 承载该选择器的弹出层触发宿主（用于选中后自动关闭）。
+   */
+  host;
 
-  _params: any;
+  /**
+   * Property `_params` (`any`) storing params.
+   * @zh 属性 `_params`（类型：`any`），用于存储或配置参数集合。
+   */
+  _params;
 
   /**
    * Combined params object: setting it applies `value` as the color and merges `config`
    * onto this instance.
    * @zh 组合参数对象：设置时会将 `value` 作为颜色应用，并将 `config` 合并到本实例上。
    */
-  get params(): any {
+  get params() {
     return this._params;
   }
 
@@ -80,7 +152,7 @@ export class ColorWrap implements OnInit, OnChanges, OnDestroy {
    * onto this instance.
    * @zh 组合参数对象：设置时会将 `value` 作为颜色应用，并将 `config` 合并到本实例上。
    */
-  set params(v: any) {
+  set params(v) {
     this._params = v;
     this.color = v.value;
     if(v.config){
@@ -88,6 +160,10 @@ export class ColorWrap implements OnInit, OnChanges, OnDestroy {
     }
   }
 
+  /**
+   * Angular lifecycle hook invoked once after component or directive inputs are initialized.
+   * @zh Angular 生命周期钩子：在组件或指令的输入属性初始化完成后调用一次。
+   */
   ngOnInit() {
     this.changes = this.onChange
       .pipe(debounceTime(100))
@@ -95,6 +171,10 @@ export class ColorWrap implements OnInit, OnChanges, OnDestroy {
     this.setState(toState(this.color, 0));
     this.currentColor = this.hex;
   }
+  /**
+   * Angular lifecycle hook invoked when data-bound input properties change.
+   * @zh Angular 生命周期钩子：当数据绑定的输入属性发生变更时调用。
+   */
   ngOnChanges() {
     if(this.color==undefined){
       this.setState(undefined);
@@ -103,6 +183,10 @@ export class ColorWrap implements OnInit, OnChanges, OnDestroy {
     }
 
   }
+  /**
+   * Angular lifecycle hook invoked just before the component, directive, or service is destroyed to release subscriptions and resources.
+   * @zh Angular 生命周期钩子：在组件、指令或服务销毁前调用，用于释放订阅与清理资源。
+   */
   ngOnDestroy() {
     this.changes.unsubscribe();
   }
@@ -153,7 +237,10 @@ export class ColorWrap implements OnInit, OnChanges, OnDestroy {
       }
     }
   }
-  /** hook for components after a complete change */
+  /**
+   * hook for components after a complete change
+   * @zh 执行 `afterValidChange`，用于之后有效变更。
+   */
   afterValidChange() {}
 
   /**
@@ -168,6 +255,11 @@ export class ColorWrap implements OnInit, OnChanges, OnDestroy {
       this.onSwatchHover.emit({ color, $event });
     }
   }
+  /**
+   * Executes `_handleKeydown` to handle handle keydown.
+   * @zh 执行 `_handleKeydown`，用于连接手柄按键按下。
+   * @param event - event parameter (`KeyboardEvent`) / 事件参数（`KeyboardEvent`）
+   */
   _handleKeydown(event: KeyboardEvent): void {
     switch (event.keyCode) {
       case ESCAPE:
@@ -180,6 +272,10 @@ export class ColorWrap implements OnInit, OnChanges, OnDestroy {
   }
 }
 
+/**
+ * Angular module `ColorWrapModule` declaring and exporting color wrap module components, directives, pipes, and providers.
+ * @zh Angular 模块 `ColorWrapModule`，声明并导出颜色包裹模块相关的组件、指令、管道与服务提供者。
+ */
 @NgModule({
   declarations: [ColorWrap],
   exports: [ColorWrap],

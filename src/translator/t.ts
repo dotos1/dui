@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Module `src/translator/t.ts` providing t definitions and implementation.
+ * @zh 模块文件 `src/translator/t.ts`，提供t相关的定义与实现。
+ */
+
 // 次级入口点之间必须走包路径：相对路径会让 ng-packagr 报 rootDir 越界
 import { ServiceLocator } from '@dotos/dui/core/services';
 import { TranslationService } from './translation.service';
@@ -20,6 +25,8 @@ import { TranslationService } from './translation.service';
  * <p><b>什么时候不要用它</b>：组件里能注入就注入 —— 注入的那份能跟着语言切换重新求值，
  * 而这个函数是<b>当场取值</b>。放在模块顶层的常量里（`const LABEL = t('X')`）等于把
  * 启动那一刻的语言钉死了，要在用到的时候才调。
+
+ * @zh 执行 `t`，用于t。
  */
 export function t(key: string, params?: Record<string, unknown>): string {
   const injector = ServiceLocator.injector;

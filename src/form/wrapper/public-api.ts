@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Module `src/form/wrapper/public-api.ts` providing public api definitions and implementation.
+ * @zh 模块文件 `src/form/wrapper/public-api.ts`，提供publicAPI接口相关的定义与实现。
+ */
+
 export { WrapperEditorField } from './editor-field';
 export { ExtFieldWrapper } from './field-wrapper';
 export { Fieldset } from './fieldset';

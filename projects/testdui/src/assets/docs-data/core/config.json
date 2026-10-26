@@ -4,19 +4,132 @@
     {
       "name": "AppConfigValues",
       "kind": "enum",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Enumeration `AppConfigValues` defining supported app config values constants.",
+      "summaryZh": "枚举 `AppConfigValues`，定义支持的App配置值列表常量集合。",
       "sourceFile": "src/core/config/config.service.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
-      "properties": []
+      "properties": [
+        {
+          "name": "APP_CONFIG_LANGUAGES_KEY",
+          "type": "enum-member",
+          "default": "'languages'",
+          "description": "Enum member `AppConfigValues.APP_CONFIG_LANGUAGES_KEY` = 'languages' representing app config languages key.",
+          "descriptionZh": "枚举项 `AppConfigValues.APP_CONFIG_LANGUAGES_KEY` = 'languages'，表示APP配置语言键。"
+        },
+        {
+          "name": "PROVIDERS",
+          "type": "enum-member",
+          "default": "'providers'",
+          "description": "Enum member `AppConfigValues.PROVIDERS` = 'providers' representing providers.",
+          "descriptionZh": "枚举项 `AppConfigValues.PROVIDERS` = 'providers'，表示提供者列表。"
+        },
+        {
+          "name": "OAUTHCONFIG",
+          "type": "enum-member",
+          "default": "'oauth2'",
+          "description": "Enum member `AppConfigValues.OAUTHCONFIG` = 'oauth2' representing oauthconfig.",
+          "descriptionZh": "枚举项 `AppConfigValues.OAUTHCONFIG` = 'oauth2'，表示OAUTHCONFIG。"
+        },
+        {
+          "name": "BASESHAREURL",
+          "type": "enum-member",
+          "default": "'baseShareUrl'",
+          "description": "Enum member `AppConfigValues.BASESHAREURL` = 'baseShareUrl' representing baseshareurl.",
+          "descriptionZh": "枚举项 `AppConfigValues.BASESHAREURL` = 'baseShareUrl'，表示BASESHAREURL。"
+        },
+        {
+          "name": "HOST",
+          "type": "enum-member",
+          "default": "'Host'",
+          "description": "Enum member `AppConfigValues.HOST` = 'Host' representing host.",
+          "descriptionZh": "枚举项 `AppConfigValues.HOST` = 'Host'，表示宿主。"
+        },
+        {
+          "name": "IDENTITY_HOST",
+          "type": "enum-member",
+          "default": "'identityHost'",
+          "description": "Enum member `AppConfigValues.IDENTITY_HOST` = 'identityHost' representing identity host.",
+          "descriptionZh": "枚举项 `AppConfigValues.IDENTITY_HOST` = 'identityHost'，表示IDENTITY宿主。"
+        },
+        {
+          "name": "AUTHTYPE",
+          "type": "enum-member",
+          "default": "'authType'",
+          "description": "Enum member `AppConfigValues.AUTHTYPE` = 'authType' representing authtype.",
+          "descriptionZh": "枚举项 `AppConfigValues.AUTHTYPE` = 'authType'，表示AUTHTYPE。"
+        },
+        {
+          "name": "CONTEXTROOTECM",
+          "type": "enum-member",
+          "default": "'contextRootEcm'",
+          "description": "Enum member `AppConfigValues.CONTEXTROOTECM` = 'contextRootEcm' representing contextrootecm.",
+          "descriptionZh": "枚举项 `AppConfigValues.CONTEXTROOTECM` = 'contextRootEcm'，表示CONTEXTROOTECM。"
+        },
+        {
+          "name": "CONTEXTROOTBPM",
+          "type": "enum-member",
+          "default": "'contextRootBpm'",
+          "description": "Enum member `AppConfigValues.CONTEXTROOTBPM` = 'contextRootBpm' representing contextrootbpm.",
+          "descriptionZh": "枚举项 `AppConfigValues.CONTEXTROOTBPM` = 'contextRootBpm'，表示CONTEXTROOTBPM。"
+        },
+        {
+          "name": "LOG_LEVEL",
+          "type": "enum-member",
+          "default": "'logLevel'",
+          "description": "Enum member `AppConfigValues.LOG_LEVEL` = 'logLevel' representing log level.",
+          "descriptionZh": "枚举项 `AppConfigValues.LOG_LEVEL` = 'logLevel'，表示日志层级。"
+        },
+        {
+          "name": "LOGIN_ROUTE",
+          "type": "enum-member",
+          "default": "'loginRoute'",
+          "description": "Enum member `AppConfigValues.LOGIN_ROUTE` = 'loginRoute' representing login route.",
+          "descriptionZh": "枚举项 `AppConfigValues.LOGIN_ROUTE` = 'loginRoute'，表示LOGINROUTE。"
+        },
+        {
+          "name": "DISABLECSRF",
+          "type": "enum-member",
+          "default": "'disableCSRF'",
+          "description": "Enum member `AppConfigValues.DISABLECSRF` = 'disableCSRF' representing disablecsrf.",
+          "descriptionZh": "枚举项 `AppConfigValues.DISABLECSRF` = 'disableCSRF'，表示DISABLECSRF。"
+        },
+        {
+          "name": "AUTH_WITH_CREDENTIALS",
+          "type": "enum-member",
+          "default": "'auth.withCredentials'",
+          "description": "Enum member `AppConfigValues.AUTH_WITH_CREDENTIALS` = 'auth.withCredentials' representing auth with credentials.",
+          "descriptionZh": "枚举项 `AppConfigValues.AUTH_WITH_CREDENTIALS` = 'auth.withCredentials'，表示认证带有CREDENTIALS。"
+        },
+        {
+          "name": "APPLICATION",
+          "type": "enum-member",
+          "default": "'application'",
+          "description": "Enum member `AppConfigValues.APPLICATION` = 'application' representing application.",
+          "descriptionZh": "枚举项 `AppConfigValues.APPLICATION` = 'application'，表示APPLICATION。"
+        },
+        {
+          "name": "STORAGE_PREFIX",
+          "type": "enum-member",
+          "default": "'application.storagePrefix'",
+          "description": "Enum member `AppConfigValues.STORAGE_PREFIX` = 'application.storagePrefix' representing storage prefix.",
+          "descriptionZh": "枚举项 `AppConfigValues.STORAGE_PREFIX` = 'application.storagePrefix'，表示存储前缀。"
+        },
+        {
+          "name": "NOTIFY_DURATION",
+          "type": "enum-member",
+          "default": "'notificationDefaultDuration'",
+          "description": "Enum member `AppConfigValues.NOTIFY_DURATION` = 'notificationDefaultDuration' representing notify duration.",
+          "descriptionZh": "枚举项 `AppConfigValues.NOTIFY_DURATION` = 'notificationDefaultDuration'，表示通知持续时间。"
+        }
+      ]
     },
     {
       "name": "CONFIG_FORROOT_GUARD",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular dependency-injection token `CONFIG_FORROOT_GUARD` for providing config forroot guard.",
+      "summaryZh": "Angular 依赖注入令牌 `CONFIG_FORROOT_GUARD`，用于提供与注入配置FORROOT路由守卫。",
       "sourceFile": "src/core/config/config.module.ts",
       "inputs": [],
       "outputs": [],
@@ -26,8 +139,8 @@
     {
       "name": "configFactory",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `configFactory` defining config factory in `src/core/config`.",
+      "summaryZh": "常量/变量 `configFactory`，定义 `src/core/config` 中的配置工厂。",
       "sourceFile": "src/core/config/config.module.ts",
       "inputs": [],
       "outputs": [],
@@ -37,8 +150,8 @@
     {
       "name": "ConfigHttpLoader",
       "kind": "class",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Class `ConfigHttpLoader` encapsulating config http loader data structures and logic in `src/core/config/http-loader`.",
+      "summaryZh": "类 `ConfigHttpLoader`，封装 `src/core/config/http-loader` 中的配置HTTP加载器数据结构与处理逻辑。",
       "sourceFile": "src/core/config/http-loader/config.http-loader.ts",
       "inputs": [],
       "outputs": [],
@@ -47,8 +160,8 @@
           "name": "loadSettings",
           "params": [],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `loadSettings` to handle load settings.",
+          "descriptionZh": "执行 `loadSettings`，用于加载设置项。"
         }
       ],
       "properties": []
@@ -56,8 +169,8 @@
     {
       "name": "ConfigLoader",
       "kind": "class",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Class `ConfigLoader` encapsulating config loader data structures and logic in `src/core/config`.",
+      "summaryZh": "类 `ConfigLoader`，封装 `src/core/config` 中的配置加载器数据结构与处理逻辑。",
       "sourceFile": "src/core/config/config.loader.ts",
       "inputs": [],
       "outputs": [],
@@ -66,8 +179,8 @@
           "name": "loadSettings",
           "params": [],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `loadSettings` to handle load settings.",
+          "descriptionZh": "执行 `loadSettings`，用于加载设置项。"
         }
       ],
       "properties": []
@@ -75,8 +188,8 @@
     {
       "name": "ConfigMergeLoader",
       "kind": "class",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Class `ConfigMergeLoader` encapsulating config merge loader data structures and logic in `src/core/config/merge-loader`.",
+      "summaryZh": "类 `ConfigMergeLoader`，封装 `src/core/config/merge-loader` 中的配置合并加载器数据结构与处理逻辑。",
       "sourceFile": "src/core/config/merge-loader/config.merge-loader.ts",
       "inputs": [],
       "outputs": [],
@@ -85,8 +198,8 @@
           "name": "loadSettings",
           "params": [],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `loadSettings` to handle load settings.",
+          "descriptionZh": "执行 `loadSettings`，用于加载设置项。"
         },
         {
           "name": "next",
@@ -97,8 +210,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `next` to handle next.",
+          "descriptionZh": "执行 `next`，用于下一个。"
         }
       ],
       "properties": []
@@ -106,8 +219,8 @@
     {
       "name": "ConfigModule",
       "kind": "module",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular module `ConfigModule` declaring and exporting config module components, directives, pipes, and providers.",
+      "summaryZh": "Angular 模块 `ConfigModule`，声明并导出配置模块相关的组件、指令、管道与服务提供者。",
       "sourceFile": "src/core/config/config.module.ts",
       "inputs": [],
       "outputs": [],
@@ -121,15 +234,15 @@
             }
           ],
           "returnType": "ModuleWithProviders<ConfigModule>",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `forRoot` to handle for root.",
+          "descriptionZh": "执行 `forRoot`，用于用于根节点。"
         },
         {
           "name": "forChild",
           "params": [],
           "returnType": "ModuleWithProviders<ConfigModule>",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `forChild` to handle for child.",
+          "descriptionZh": "执行 `forChild`，用于用于子级。"
         }
       ],
       "properties": []
@@ -138,8 +251,8 @@
       "name": "ConfigPipe",
       "kind": "pipe",
       "pipeName": "config",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular pipe `ConfigPipe` (name: 'config') transforming values for config pipe display in templates.",
+      "summaryZh": "Angular 管道 `ConfigPipe`（name: 'config'），在模板中转换数据以用于配置管道展示。",
       "sourceFile": "src/core/config/config.pipe.ts",
       "inputs": [],
       "outputs": [],
@@ -153,8 +266,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `transform` to handle transform.",
+          "descriptionZh": "执行 `transform`，用于转换。"
         }
       ],
       "properties": []
@@ -162,8 +275,8 @@
     {
       "name": "ConfigService",
       "kind": "service",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Injectable Angular service `ConfigService` managing config service state and operations in `src/core/config`.",
+      "summaryZh": "可注入的 Angular 服务 `ConfigService`，管理 `src/core/config` 中的配置服务状态与业务操作。",
       "sourceFile": "src/core/config/config.service.ts",
       "inputs": [],
       "outputs": [],
@@ -177,22 +290,22 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `setLoader` to handle set loader.",
+          "descriptionZh": "执行 `setLoader`，用于集合加载器。"
         },
         {
           "name": "init",
           "params": [],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `init` to handle init.",
+          "descriptionZh": "执行 `init`，用于初始化。"
         },
         {
           "name": "loadFromStore",
           "params": [],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `loadFromStore` to handle load from store.",
+          "descriptionZh": "执行 `loadFromStore`，用于加载从状态仓库。"
         },
         {
           "name": "select",
@@ -203,8 +316,8 @@
             }
           ],
           "returnType": "Observable<any>",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `select` to handle select.",
+          "descriptionZh": "执行 `select`，用于下拉选择。"
         },
         {
           "name": "get",
@@ -219,22 +332,22 @@
             }
           ],
           "returnType": "T",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `get` to handle get.",
+          "descriptionZh": "执行 `get`，用于获取。"
         },
         {
           "name": "getLocationProtocol",
           "params": [],
           "returnType": "string",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `getLocationProtocol` to handle get location protocol.",
+          "descriptionZh": "执行 `getLocationProtocol`，用于获取LocationProtocol。"
         },
         {
           "name": "getLocationHostname",
           "params": [],
           "returnType": "string",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `getLocationHostname` to handle get location hostname.",
+          "descriptionZh": "执行 `getLocationHostname`，用于获取LocationHostname。"
         },
         {
           "name": "getLocationPort",
@@ -245,8 +358,8 @@
             }
           ],
           "returnType": "string",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `getLocationPort` to handle get location port.",
+          "descriptionZh": "执行 `getLocationPort`，用于获取LocationPort。"
         },
         {
           "name": "getSettings",
@@ -261,8 +374,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `getSettings` to handle get settings.",
+          "descriptionZh": "执行 `getSettings`，用于获取设置项。"
         },
         {
           "name": "setSetting",
@@ -277,8 +390,8 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `setSetting` to handle set setting.",
+          "descriptionZh": "执行 `setSetting`，用于集合设置。"
         }
       ],
       "properties": [
@@ -286,40 +399,40 @@
           "name": "config",
           "type": "any",
           "default": "{}",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `config` (`any`) storing config (default: `{}`).",
+          "descriptionZh": "属性 `config`（类型：`any`），用于存储或配置配置（默认值：`{}`）。"
         },
         {
           "name": "onLoadSubject",
           "type": "Subject<any>",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `onLoadSubject` (`Subject<any>`) storing on load subject.",
+          "descriptionZh": "属性 `onLoadSubject`（类型：`Subject<any>`），用于存储或配置当加载主题流。"
         },
         {
           "name": "onLoad",
           "type": "Observable<any>",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `onLoad` (`Observable<any>`) storing on load.",
+          "descriptionZh": "属性 `onLoad`（类型：`Observable<any>`），用于存储或配置当加载。"
         },
         {
           "name": "onErrorSubject",
           "type": "Subject<any>",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `onErrorSubject` (`Subject<any>`) storing on error subject.",
+          "descriptionZh": "属性 `onErrorSubject`（类型：`Subject<any>`），用于存储或配置当错误主题流。"
         },
         {
           "name": "onError",
           "type": "Observable<any>",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `onError` (`Observable<any>`) storing on error.",
+          "descriptionZh": "属性 `onError`（类型：`Observable<any>`），用于存储或配置当错误。"
         }
       ]
     },
     {
       "name": "ConfigStaticLoader",
       "kind": "class",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Class `ConfigStaticLoader` encapsulating config static loader data structures and logic in `src/core/config`.",
+      "summaryZh": "类 `ConfigStaticLoader`，封装 `src/core/config` 中的配置静态加载器数据结构与处理逻辑。",
       "sourceFile": "src/core/config/config.loader.ts",
       "inputs": [],
       "outputs": [],
@@ -328,17 +441,130 @@
           "name": "loadSettings",
           "params": [],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `loadSettings` to handle load settings.",
+          "descriptionZh": "执行 `loadSettings`，用于加载设置项。"
         }
       ],
       "properties": []
     },
     {
+      "name": "FeatureDirective",
+      "kind": "directive",
+      "selector": "[duiFeature]",
+      "summary": "按功能开关决定渲不渲染。\n\n<pre>\n&lt;button *duiFeature=\"'sdos.contour'\"&gt;等值线&lt;/button&gt;\n&lt;div *duiFeature=\"'sdos.ai'; else notLicensed\"&gt;…&lt;/div&gt;\n</pre>\n\n<p><b>是不渲染,不是隐藏。</b>关掉的功能连 DOM 都不建 —— 用 `hidden` 或者\n`display:none` 的话,元素还在页面上,查看源码就能看见任务书里没有的功能名,\n而且里面的组件照样会实例化、照样发请求。\n\n<p>订了 {@link FeatureService.changed}:各库是在自己模块初始化时才登记功能的,\n时机可能<b>晚于</b>这个指令第一次求值。不订的话那些晚登记的功能会一直按\n\"没登记\"处理,在客户现场表现为\"这个功能怎么也开不出来\"。",
+      "summaryZh": "Angular 指令 `FeatureDirective`（selector: '[duiFeature]'），为宿主 DOM 元素附加Feature指令行为。",
+      "sourceFile": "src/core/config/feature.directive.ts",
+      "inputs": [
+        {
+          "name": "duiFeature",
+          "type": "string",
+          "description": "Input setter `duiFeature` updating dui feature.",
+          "descriptionZh": "输入属性 `duiFeature` 的设置器，用于更新DUIFeature。"
+        },
+        {
+          "name": "duiFeatureElse",
+          "type": "TemplateRef<any>",
+          "description": "Input setter `duiFeatureElse` updating dui feature else.\n关掉时改渲染这个模板。不给就什么都不渲染。",
+          "descriptionZh": "关掉时改渲染这个模板。不给就什么都不渲染。"
+        }
+      ],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "FeatureService",
+      "kind": "service",
+      "summary": "功能开关。\n\n<p>解决的是两件事:<b>前沿功能不该出现在客户现场</b>,以及\n<b>项目任务书里没有的功能要能快速关掉</b>。两者判据不同,所以有两层:\n\n<ol>\n  <li><b>阶段闸位</b> —— 站点级的一个开关,把整批未成熟功能一起挡住;</li>\n  <li><b>逐项覆盖</b> —— 按合同关掉(或额外打开)某个具体功能。</li>\n</ol>\n\n<p>配置放在 {@link ConfigService} 读的那份 JSON 里(部署时改,<b>不用重新构建</b>):\n\n<pre>\n\"features\": {\n  \"stage\": \"stable\",\n  \"overrides\": {\n    \"sdos.contour\": true,      // 合同里有,单独放行\n    \"sdos.ai\": false,          // 合同里没有,关掉\n    \"sdos.processing.*\": false // 整组关掉\n  }\n}\n</pre>\n\n<p><b>各库要登记自己的功能</b>({@link declare}),否则这边不知道它是什么阶段,\n只能按 {@link FeatureService.unknownStage} 当作 preview 处理 —— 也就是\n客户现场默认看不见。这是有意的:忘了登记的后果是\"少显示\",不是\"多显示\"。",
+      "summaryZh": "可注入的 Angular 服务 `FeatureService`，管理 `src/core/config` 中的Feature服务状态与业务操作。",
+      "sourceFile": "src/core/config/feature.service.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "declare",
+          "params": [
+            {
+              "name": "features",
+              "type": "Record<string, FeatureStage>"
+            }
+          ],
+          "returnType": "void",
+          "description": "登记一批功能与它们的阶段。各库在自己的模块里调一次。\n\n<p>重复登记以<b>后来的为准</b> —— 功能从 preview 转正到 stable 时\n只要改登记处一行,不必动配置。",
+          "descriptionZh": "登记一批功能与它们的阶段。各库在自己的模块里调一次。"
+        },
+        {
+          "name": "stageOf",
+          "params": [
+            {
+              "name": "key",
+              "type": "string"
+            }
+          ],
+          "returnType": "FeatureStage | undefined",
+          "description": "这个功能登记的阶段;没登记过返回 undefined。",
+          "descriptionZh": "这个功能登记的阶段;没登记过返回 undefined。"
+        },
+        {
+          "name": "list",
+          "params": [],
+          "returnType": "Array<{ key: string; stage: FeatureStage; enabled: boolean }>",
+          "description": "Executes `list` to handle list.\n已登记的全部功能,按名字排序。做设置界面或者排查时用。",
+          "descriptionZh": "已登记的全部功能,按名字排序。做设置界面或者排查时用。"
+        },
+        {
+          "name": "isEnabled",
+          "params": [
+            {
+              "name": "key",
+              "type": "string"
+            }
+          ],
+          "returnType": "boolean",
+          "description": "Executes `isEnabled` to handle is enabled.\n这个功能开不开。\n\n<p>判定顺序:<b>逐项覆盖优先于阶段闸位</b> —— 覆盖是按合同写死的,\n阶段只是个批量默认值。\n\n<ol>\n  <li>精确匹配 `overrides[key]`;</li>\n  <li>前缀通配 `overrides[\"a.b.*\"]`,<b>取最长的那条</b>(细的压过粗的,\n      这样才能写\"整组关掉、其中一个放行\");</li>\n  <li>都没有 → 比阶段:功能的阶段 ≤ 站点闸位就放行。</li>\n</ol>",
+          "descriptionZh": "这个功能开不开。"
+        },
+        {
+          "name": "stage",
+          "params": [],
+          "returnType": "FeatureStage",
+          "description": "站点闸位。配错了(比如写了个不认识的词)按 stable 算,不要放行更多。",
+          "descriptionZh": "站点闸位。配错了(比如写了个不认识的词)按 stable 算,不要放行更多。"
+        }
+      ],
+      "properties": [
+        {
+          "name": "unknownStage",
+          "type": "FeatureStage",
+          "default": "'preview'",
+          "description": "没登记过的功能按哪个阶段算。\n\n<p>取 preview 而不是 stable:忘了登记时宁可少显示,不要在客户现场\n多冒出一个任务书里没有的东西 —— 前者有人会来问,后者没人会发现。",
+          "descriptionZh": "没登记过的功能按哪个阶段算。"
+        },
+        {
+          "name": "changed",
+          "type": "Observable<void>",
+          "default": "this.changedSubject.asObservable()",
+          "description": "Property `changed` (`Observable<void>`) storing changed (default: `this.changedSubject.asObservable()`).\n开关变化时发一次。菜单一类\"算一次就存下来\"的地方要订它重算。",
+          "descriptionZh": "开关变化时发一次。菜单一类\"算一次就存下来\"的地方要订它重算。"
+        }
+      ]
+    },
+    {
+      "name": "FeatureStage",
+      "kind": "type",
+      "summary": "功能的成熟阶段。站点配一个闸位,闸位之外的一律不显示。\n\n<p><b>为什么用阶段而不是逐项清单。</b>逐项清单要求每加一个功能就去每个客户现场\n改一次配置 —— 漏改的那个现场就会突然冒出一个任务书里没有的功能,而没人会发现,\n因为\"多出来的东西\"不报错。按阶段的话新功能默认落在 preview,客户现场的闸位是\nstable,自动就藏住了;内部环境把闸位开到 experimental 就全看得见。",
+      "summaryZh": "功能的成熟阶段。站点配一个闸位,闸位之外的一律不显示。",
+      "sourceFile": "src/core/config/feature.service.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
       "name": "initializerFactory",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `initializerFactory` defining initializer factory in `src/core/config`.",
+      "summaryZh": "常量/变量 `initializerFactory`，定义 `src/core/config` 中的initializer工厂。",
       "sourceFile": "src/core/config/config.module.ts",
       "inputs": [],
       "outputs": [],
@@ -348,12 +574,25 @@
     {
       "name": "provideForRootGuard",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Executes `provideForRootGuard` to handle provide for root guard.",
+      "summaryZh": "执行 `provideForRootGuard`，用于提供用于根节点路由守卫。",
       "sourceFile": "src/core/config/config.module.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "provideForRootGuard",
+          "params": [
+            {
+              "name": "config",
+              "type": "ConfigService"
+            }
+          ],
+          "returnType": "any",
+          "description": "Executes `provideForRootGuard` to handle provide for root guard.",
+          "descriptionZh": "执行 `provideForRootGuard`，用于提供用于根节点路由守卫。"
+        }
+      ],
       "properties": []
     }
   ],

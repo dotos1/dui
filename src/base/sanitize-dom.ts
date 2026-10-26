@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Module `src/base/sanitize-dom.ts` providing sanitize dom definitions and implementation.
+ * @zh 模块文件 `src/base/sanitize-dom.ts`，提供sanitizeDOM节点相关的定义与实现。
+ */
+
 /*
  * HTML / SVG 片段的 DOM 级净化 —— `SanitizeHtmlPipe`(idos Jupyter 的 markdown 与
  * 输出都走它)和 inline-svg 的 `SVGCacheService` 共用。
@@ -16,7 +21,11 @@
  * <style> 元素按约定保留(Jupyter 的 DataFrame 输出、图标配色都靠它)。
  */
 
-/** 整个删除的元素(连同子树)。 */
+/**
+ * Constant/variable `FORBIDDEN_TAGS` defining forbidden tags in `src/base`.
+ * 整个删除的元素(连同子树)。
+ * @zh 整个删除的元素(连同子树)。
+ */
 const FORBIDDEN_TAGS = [
   'script', 'iframe', 'object', 'embed',
   // 惰性文档按「脚本关闭」解析 noscript/noembed/noframes,里面当标记;插回活文档
@@ -25,21 +34,37 @@ const FORBIDDEN_TAGS = [
   'noscript', 'noembed', 'noframes',
 ];
 
-/** 图标 SVG 里额外删除的元素。foreignObject 可以嵌任意 HTML,图标用不到。 */
+/**
+ * 图标 SVG 里额外删除的元素。foreignObject 可以嵌任意 HTML,图标用不到。
+ * @zh 图标 SVG 里额外删除的元素。foreignObject 可以嵌任意 HTML,图标用不到。
+ */
 const SVG_FORBIDDEN_TAGS = ['foreignObject'];
 
-/** 值会被当成 URL 打开 / 提交的属性。 */
+/**
+ * 值会被当成 URL 打开 / 提交的属性。
+ * @zh 值会被当成 URL 打开 / 提交的属性。
+ */
 const URL_ATTRS = ['href', 'src', 'xlink:href', 'action', 'formaction'];
 
-/** 能在运行时改写别的属性的 SVG 动画元素。 */
+/**
+ * 能在运行时改写别的属性的 SVG 动画元素。
+ * @zh 能在运行时改写别的属性的 SVG 动画元素。
+ */
 const SVG_ANIMATION_TAGS = ['animate', 'set', 'animatemotion', 'animatetransform'];
 
 // 浏览器解析 URL 前会剔掉的空白与控制字符:`java\tscript:`、`\u0001javascript:`
 // 在浏览器眼里都是 javascript:。
 // eslint-disable-next-line no-control-regex
+/**
+ * Constant/variable `URL_IGNORED_CHARS` defining url ignored chars in `src/base`.
+ * @zh 常量/变量 `URL_IGNORED_CHARS`，定义 `src/base` 中的链接地址已忽略字符。
+ */
 const URL_IGNORED_CHARS = /[\u0000-\u0020\u007f-\u00a0\u1680\u180e\u2000-\u200f\u2028\u2029\u205f\u3000\ufeff]/g;
 
-/** 去掉空白与控制字符后,是否是 `javascript:` / `vbscript:` 这类可执行的 URL。 */
+/**
+ * 去掉空白与控制字符后,是否是 `javascript:` / `vbscript:` 这类可执行的 URL。
+ * @zh 去掉空白与控制字符后,是否是 `javascript:` / `vbscript:` 这类可执行的 URL。
+ */
 export function isScriptUrl(value: string | null | undefined): boolean {
   if (value == null) {
     return false;
@@ -48,6 +73,12 @@ export function isScriptUrl(value: string | null | undefined): boolean {
   return v.startsWith('javascript:') || v.startsWith('vbscript:');
 }
 
+/**
+ * Executes `removeAll` to handle remove all.
+ * @zh 执行 `removeAll`，用于移除全部。
+ * @param root - root parameter (`ParentNode`) / 根节点参数（`ParentNode`）
+ * @param selector - selector parameter (`string`) / 选择器参数（`string`）
+ */
 function removeAll(root: ParentNode, selector: string) {
   const found = root.querySelectorAll(selector);
   for (let i = 0; i < found.length; i++) {
@@ -55,6 +86,11 @@ function removeAll(root: ParentNode, selector: string) {
   }
 }
 
+/**
+ * Executes `cleanAttributes` to handle clean attributes.
+ * @zh 执行 `cleanAttributes`，用于clean属性列表。
+ * @param el - el parameter (`Element`) / DOM元素参数（`Element`）
+ */
 function cleanAttributes(el: Element) {
   const names: string[] = [];
   for (let i = 0; i < el.attributes.length; i++) {
@@ -73,6 +109,8 @@ function cleanAttributes(el: Element) {
 /**
  * 在 root(元素、文档或 DocumentFragment)上就地净化。
  * template 的内容在单独的 DocumentFragment 里,querySelectorAll 看不到,递归进去。
+
+ * @zh 在 root(元素、文档或 DocumentFragment)上就地净化。
  */
 export function sanitizeDomTree(root: Element | Document | DocumentFragment, svg = false): void {
   const tags = svg ? FORBIDDEN_TAGS.concat(SVG_FORBIDDEN_TAGS) : FORBIDDEN_TAGS;
@@ -106,6 +144,8 @@ export function sanitizeDomTree(root: Element | Document | DocumentFragment, svg
  * 净化一段 HTML 字符串,返回净化后的 HTML。
  * 前面补一个 `<body>`:否则开头的 <style>/<meta>/<link> 会被解析器放进 <head>,
  * 序列化 body.innerHTML 时就丢了。
+
+ * @zh 净化一段 HTML 字符串,返回净化后的 HTML。
  */
 export function sanitizeHtmlString(html: string): string {
   if (html == null || html === '') {
@@ -116,6 +156,10 @@ export function sanitizeHtmlString(html: string): string {
   return doc.body.innerHTML;
 }
 
+/**
+ * Constant/variable `SVG_NS` defining svg ns in `src/base`.
+ * @zh 常量/变量 `SVG_NS`，定义 `src/base` 中的SVG矢量图NS。
+ */
 const SVG_NS = 'http://www.w3.org/2000/svg';
 
 /**
@@ -123,6 +167,8 @@ const SVG_NS = 'http://www.w3.org/2000/svg';
  * 先按 image/svg+xml 严格解析;不是良构 XML,或根元素不在 SVG 命名空间
  * (缺 xmlns 的片段)时,退回到 text/html 解析 —— 原来的 innerHTML 写法对这两种
  * 都宽容,图标库里有这样的文件。两种解析都在惰性文档里进行。
+
+ * @zh 把 SVG 文本解析成净化过的 <svg> 元素(已导入当前 document,可直接插入)。
  */
 export function parseSanitizedSvg(str: string, targetDoc: Document = document): SVGElement | null {
   const parser = new DOMParser();

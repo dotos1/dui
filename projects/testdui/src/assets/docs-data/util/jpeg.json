@@ -4,23 +4,57 @@
     {
       "name": "decode",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Executes `decode` to handle decode.",
+      "summaryZh": "执行 `decode`，用于解码。",
       "sourceFile": "src/util/jpeg/decoder.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "decode",
+          "params": [
+            {
+              "name": "jpegData",
+              "type": "any"
+            },
+            {
+              "name": "opts",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": "Executes `decode` to handle decode.",
+          "descriptionZh": "执行 `decode`，用于解码。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "encode",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Executes `encode` to handle encode.",
+      "summaryZh": "执行 `encode`，用于编码。",
       "sourceFile": "src/util/jpeg/encoder.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "encode",
+          "params": [
+            {
+              "name": "imgData",
+              "type": "any"
+            },
+            {
+              "name": "qu",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": "Executes `encode` to handle encode.",
+          "descriptionZh": "执行 `encode`，用于编码。"
+        }
+      ],
       "properties": []
     }
   ],

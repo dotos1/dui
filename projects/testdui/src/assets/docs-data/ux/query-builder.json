@@ -4,30 +4,74 @@
     {
       "name": "ArrowIconContext",
       "kind": "interface",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Interface `ArrowIconContext` defining the contract and properties for arrow icon context.",
+      "summaryZh": "接口 `ArrowIconContext`，定义箭头图标上下文的数据结构契约与属性规范。",
       "sourceFile": "src/ux/query-builder/query-builder.interfaces.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
-      "properties": []
+      "properties": [
+        {
+          "name": "getDisabledState",
+          "type": "() => boolean",
+          "description": "Property `getDisabledState` (`() => boolean`) storing get disabled state.",
+          "descriptionZh": "属性 `getDisabledState`（类型：`() => boolean`），用于存储或配置获取已禁用状态。"
+        },
+        {
+          "name": "$implicit",
+          "type": "RuleSet",
+          "description": "Property `$implicit` (`RuleSet`) storing implicit.",
+          "descriptionZh": "属性 `$implicit`（类型：`RuleSet`），用于存储或配置implicit。"
+        }
+      ]
     },
     {
       "name": "ButtonGroupContext",
       "kind": "interface",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Interface `ButtonGroupContext` defining the contract and properties for button group context.",
+      "summaryZh": "接口 `ButtonGroupContext`，定义按钮分组上下文的数据结构契约与属性规范。",
       "sourceFile": "src/ux/query-builder/query-builder.interfaces.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
-      "properties": []
+      "properties": [
+        {
+          "name": "addRule",
+          "type": "() => void",
+          "description": "Property `addRule` (`() => void`) storing add rule.",
+          "descriptionZh": "属性 `addRule`（类型：`() => void`），用于存储或配置添加规则。"
+        },
+        {
+          "name": "addRuleSet",
+          "type": "() => void",
+          "description": "Property `addRuleSet` (`() => void`) storing add rule set.",
+          "descriptionZh": "属性 `addRuleSet`（类型：`() => void`），用于存储或配置添加规则集合。"
+        },
+        {
+          "name": "removeRuleSet",
+          "type": "() => void",
+          "description": "Property `removeRuleSet` (`() => void`) storing remove rule set.",
+          "descriptionZh": "属性 `removeRuleSet`（类型：`() => void`），用于存储或配置移除规则集合。"
+        },
+        {
+          "name": "getDisabledState",
+          "type": "() => boolean",
+          "description": "Property `getDisabledState` (`() => boolean`) storing get disabled state.",
+          "descriptionZh": "属性 `getDisabledState`（类型：`() => boolean`），用于存储或配置获取已禁用状态。"
+        },
+        {
+          "name": "$implicit",
+          "type": "RuleSet",
+          "description": "Property `$implicit` (`RuleSet`) storing implicit.",
+          "descriptionZh": "属性 `$implicit`（类型：`RuleSet`），用于存储或配置implicit。"
+        }
+      ]
     },
     {
       "name": "CONTROL_VALUE_ACCESSOR",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `CONTROL_VALUE_ACCESSOR` defining control value accessor in `src/ux/query-builder`.",
+      "summaryZh": "常量/变量 `CONTROL_VALUE_ACCESSOR`，定义 `src/ux/query-builder` 中的表单控件值访问器。",
       "sourceFile": "src/ux/query-builder/query-builder.component.ts",
       "inputs": [],
       "outputs": [],
@@ -37,41 +81,104 @@
     {
       "name": "EmptyWarningContext",
       "kind": "interface",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Interface `EmptyWarningContext` defining the contract and properties for empty warning context.",
+      "summaryZh": "接口 `EmptyWarningContext`，定义空警告上下文的数据结构契约与属性规范。",
       "sourceFile": "src/ux/query-builder/query-builder.interfaces.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
-      "properties": []
+      "properties": [
+        {
+          "name": "getDisabledState",
+          "type": "() => boolean",
+          "description": "Property `getDisabledState` (`() => boolean`) storing get disabled state.",
+          "descriptionZh": "属性 `getDisabledState`（类型：`() => boolean`），用于存储或配置获取已禁用状态。"
+        },
+        {
+          "name": "message",
+          "type": "string",
+          "description": "Property `message` (`string`) storing message.",
+          "descriptionZh": "属性 `message`（类型：`string`），用于存储或配置消息。"
+        },
+        {
+          "name": "$implicit",
+          "type": "RuleSet",
+          "description": "Property `$implicit` (`RuleSet`) storing implicit.",
+          "descriptionZh": "属性 `$implicit`（类型：`RuleSet`），用于存储或配置implicit。"
+        }
+      ]
     },
     {
       "name": "Entity",
       "kind": "interface",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Interface `Entity` defining the contract and properties for entity.",
+      "summaryZh": "接口 `Entity`，定义实体的数据结构契约与属性规范。",
       "sourceFile": "src/ux/query-builder/query-builder.interfaces.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
-      "properties": []
+      "properties": [
+        {
+          "name": "name",
+          "type": "string",
+          "description": "Property `name` (`string`) storing name.",
+          "descriptionZh": "属性 `name`（类型：`string`），用于存储或配置名称。"
+        },
+        {
+          "name": "value",
+          "type": "string",
+          "description": "Property `value` (`string`) storing value.",
+          "descriptionZh": "属性 `value`（类型：`string`），用于存储或配置值。"
+        },
+        {
+          "name": "defaultField",
+          "type": "any",
+          "description": "Property `defaultField` (`any`) storing default field.",
+          "descriptionZh": "属性 `defaultField`（类型：`any`），用于存储或配置默认字段。"
+        }
+      ]
     },
     {
       "name": "EntityContext",
       "kind": "interface",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Interface `EntityContext` defining the contract and properties for entity context.",
+      "summaryZh": "接口 `EntityContext`，定义实体上下文的数据结构契约与属性规范。",
       "sourceFile": "src/ux/query-builder/query-builder.interfaces.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
-      "properties": []
+      "properties": [
+        {
+          "name": "onChange",
+          "type": "(entityValue: string, rule: Rule) => void",
+          "description": "Property `onChange` (`(entityValue: string, rule: Rule) => void`) storing on change.",
+          "descriptionZh": "属性 `onChange`（类型：`(entityValue: string, rule: Rule) => void`），用于存储或配置当变更。"
+        },
+        {
+          "name": "getDisabledState",
+          "type": "() => boolean",
+          "description": "Property `getDisabledState` (`() => boolean`) storing get disabled state.",
+          "descriptionZh": "属性 `getDisabledState`（类型：`() => boolean`），用于存储或配置获取已禁用状态。"
+        },
+        {
+          "name": "entities",
+          "type": "Entity[]",
+          "description": "Property `entities` (`Entity[]`) storing entities.",
+          "descriptionZh": "属性 `entities`（类型：`Entity[]`），用于存储或配置实体列表。"
+        },
+        {
+          "name": "$implicit",
+          "type": "Rule",
+          "description": "Property `$implicit` (`Rule`) storing implicit.",
+          "descriptionZh": "属性 `$implicit`（类型：`Rule`），用于存储或配置implicit。"
+        }
+      ]
     },
     {
       "name": "EntityMap",
       "kind": "interface",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Interface `EntityMap` defining the contract and properties for entity map.",
+      "summaryZh": "接口 `EntityMap`，定义实体映射表的数据结构契约与属性规范。",
       "sourceFile": "src/ux/query-builder/query-builder.interfaces.ts",
       "inputs": [],
       "outputs": [],
@@ -81,30 +188,122 @@
     {
       "name": "Field",
       "kind": "interface",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Interface `Field` defining the contract and properties for field.",
+      "summaryZh": "接口 `Field`，定义字段的数据结构契约与属性规范。",
       "sourceFile": "src/ux/query-builder/query-builder.interfaces.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
-      "properties": []
+      "properties": [
+        {
+          "name": "name",
+          "type": "string",
+          "description": "Property `name` (`string`) storing name.",
+          "descriptionZh": "属性 `name`（类型：`string`），用于存储或配置名称。"
+        },
+        {
+          "name": "value",
+          "type": "string",
+          "description": "Property `value` (`string`) storing value.",
+          "descriptionZh": "属性 `value`（类型：`string`），用于存储或配置值。"
+        },
+        {
+          "name": "type",
+          "type": "string",
+          "description": "Property `type` (`string`) storing type.",
+          "descriptionZh": "属性 `type`（类型：`string`），用于存储或配置类型。"
+        },
+        {
+          "name": "nullable",
+          "type": "boolean",
+          "description": "Property `nullable` (`boolean`) storing nullable.",
+          "descriptionZh": "属性 `nullable`（类型：`boolean`），用于存储或配置nullable。"
+        },
+        {
+          "name": "options",
+          "type": "Option[]",
+          "description": "Property `options` (`Option[]`) storing options.",
+          "descriptionZh": "属性 `options`（类型：`Option[]`），用于存储或配置配置选项。"
+        },
+        {
+          "name": "operators",
+          "type": "string[]",
+          "description": "Property `operators` (`string[]`) storing operators.",
+          "descriptionZh": "属性 `operators`（类型：`string[]`），用于存储或配置操作符。"
+        },
+        {
+          "name": "defaultValue",
+          "type": "any",
+          "description": "Property `defaultValue` (`any`) storing default value.",
+          "descriptionZh": "属性 `defaultValue`（类型：`any`），用于存储或配置默认值。"
+        },
+        {
+          "name": "defaultOperator",
+          "type": "any",
+          "description": "Property `defaultOperator` (`any`) storing default operator.",
+          "descriptionZh": "属性 `defaultOperator`（类型：`any`），用于存储或配置默认操作符。"
+        },
+        {
+          "name": "entity",
+          "type": "string",
+          "description": "Property `entity` (`string`) storing entity.",
+          "descriptionZh": "属性 `entity`（类型：`string`），用于存储或配置实体。"
+        },
+        {
+          "name": "validator",
+          "type": "(rule: Rule, parent: RuleSet) => any | null",
+          "description": "Property `validator` (`(rule: Rule, parent: RuleSet) => any | null`) storing validator.",
+          "descriptionZh": "属性 `validator`（类型：`(rule: Rule, parent: RuleSet) => any | null`），用于存储或配置校验器。"
+        }
+      ]
     },
     {
       "name": "FieldContext",
       "kind": "interface",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Interface `FieldContext` defining the contract and properties for field context.",
+      "summaryZh": "接口 `FieldContext`，定义字段上下文的数据结构契约与属性规范。",
       "sourceFile": "src/ux/query-builder/query-builder.interfaces.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
-      "properties": []
+      "properties": [
+        {
+          "name": "onChange",
+          "type": "(fieldValue: string, rule: Rule) => void",
+          "description": "Property `onChange` (`(fieldValue: string, rule: Rule) => void`) storing on change.",
+          "descriptionZh": "属性 `onChange`（类型：`(fieldValue: string, rule: Rule) => void`），用于存储或配置当变更。"
+        },
+        {
+          "name": "getFields",
+          "type": "(entityName: string) => void",
+          "description": "Property `getFields` (`(entityName: string) => void`) storing get fields.",
+          "descriptionZh": "属性 `getFields`（类型：`(entityName: string) => void`），用于存储或配置获取字段列表。"
+        },
+        {
+          "name": "getDisabledState",
+          "type": "() => boolean",
+          "description": "Property `getDisabledState` (`() => boolean`) storing get disabled state.",
+          "descriptionZh": "属性 `getDisabledState`（类型：`() => boolean`），用于存储或配置获取已禁用状态。"
+        },
+        {
+          "name": "fields",
+          "type": "Field[]",
+          "description": "Property `fields` (`Field[]`) storing fields.",
+          "descriptionZh": "属性 `fields`（类型：`Field[]`），用于存储或配置字段列表。"
+        },
+        {
+          "name": "$implicit",
+          "type": "Rule",
+          "description": "Property `$implicit` (`Rule`) storing implicit.",
+          "descriptionZh": "属性 `$implicit`（类型：`Rule`），用于存储或配置implicit。"
+        }
+      ]
     },
     {
       "name": "FieldMap",
       "kind": "interface",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Interface `FieldMap` defining the contract and properties for field map.",
+      "summaryZh": "接口 `FieldMap`，定义字段映射表的数据结构契约与属性规范。",
       "sourceFile": "src/ux/query-builder/query-builder.interfaces.ts",
       "inputs": [],
       "outputs": [],
@@ -114,53 +313,135 @@
     {
       "name": "InputContext",
       "kind": "interface",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Interface `InputContext` defining the contract and properties for input context.",
+      "summaryZh": "接口 `InputContext`，定义输入属性上下文的数据结构契约与属性规范。",
       "sourceFile": "src/ux/query-builder/query-builder.interfaces.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
-      "properties": []
+      "properties": [
+        {
+          "name": "onChange",
+          "type": "() => void",
+          "description": "Property `onChange` (`() => void`) storing on change.",
+          "descriptionZh": "属性 `onChange`（类型：`() => void`），用于存储或配置当变更。"
+        },
+        {
+          "name": "getDisabledState",
+          "type": "() => boolean",
+          "description": "Property `getDisabledState` (`() => boolean`) storing get disabled state.",
+          "descriptionZh": "属性 `getDisabledState`（类型：`() => boolean`），用于存储或配置获取已禁用状态。"
+        },
+        {
+          "name": "options",
+          "type": "Option[]",
+          "description": "Property `options` (`Option[]`) storing options.",
+          "descriptionZh": "属性 `options`（类型：`Option[]`），用于存储或配置配置选项。"
+        },
+        {
+          "name": "field",
+          "type": "Field",
+          "description": "Property `field` (`Field`) storing field.",
+          "descriptionZh": "属性 `field`（类型：`Field`），用于存储或配置字段。"
+        },
+        {
+          "name": "$implicit",
+          "type": "Rule",
+          "description": "Property `$implicit` (`Rule`) storing implicit.",
+          "descriptionZh": "属性 `$implicit`（类型：`Rule`），用于存储或配置implicit。"
+        }
+      ]
     },
     {
       "name": "LocalRuleMeta",
       "kind": "interface",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Interface `LocalRuleMeta` defining the contract and properties for local rule meta.",
+      "summaryZh": "接口 `LocalRuleMeta`，定义本地规则元数据的数据结构契约与属性规范。",
       "sourceFile": "src/ux/query-builder/query-builder.interfaces.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
-      "properties": []
+      "properties": [
+        {
+          "name": "ruleset",
+          "type": "boolean",
+          "description": "Property `ruleset` (`boolean`) storing ruleset.",
+          "descriptionZh": "属性 `ruleset`（类型：`boolean`），用于存储或配置ruleset。"
+        },
+        {
+          "name": "invalid",
+          "type": "boolean",
+          "description": "Property `invalid` (`boolean`) storing invalid.",
+          "descriptionZh": "属性 `invalid`（类型：`boolean`），用于存储或配置无效。"
+        }
+      ]
     },
     {
       "name": "OperatorContext",
       "kind": "interface",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Interface `OperatorContext` defining the contract and properties for operator context.",
+      "summaryZh": "接口 `OperatorContext`，定义操作符上下文的数据结构契约与属性规范。",
       "sourceFile": "src/ux/query-builder/query-builder.interfaces.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
-      "properties": []
+      "properties": [
+        {
+          "name": "onChange",
+          "type": "(a:any) => void",
+          "description": "Property `onChange` (`(a:any) => void`) storing on change.",
+          "descriptionZh": "属性 `onChange`（类型：`(a:any) => void`），用于存储或配置当变更。"
+        },
+        {
+          "name": "getDisabledState",
+          "type": "() => boolean",
+          "description": "Property `getDisabledState` (`() => boolean`) storing get disabled state.",
+          "descriptionZh": "属性 `getDisabledState`（类型：`() => boolean`），用于存储或配置获取已禁用状态。"
+        },
+        {
+          "name": "operators",
+          "type": "string[]",
+          "description": "Property `operators` (`string[]`) storing operators.",
+          "descriptionZh": "属性 `operators`（类型：`string[]`），用于存储或配置操作符。"
+        },
+        {
+          "name": "$implicit",
+          "type": "Rule",
+          "description": "Property `$implicit` (`Rule`) storing implicit.",
+          "descriptionZh": "属性 `$implicit`（类型：`Rule`），用于存储或配置implicit。"
+        }
+      ]
     },
     {
       "name": "Option",
       "kind": "interface",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Interface `Option` defining the contract and properties for option.",
+      "summaryZh": "接口 `Option`，定义选项的数据结构契约与属性规范。",
       "sourceFile": "src/ux/query-builder/query-builder.interfaces.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
-      "properties": []
+      "properties": [
+        {
+          "name": "name",
+          "type": "string",
+          "description": "Property `name` (`string`) storing name.",
+          "descriptionZh": "属性 `name`（类型：`string`），用于存储或配置名称。"
+        },
+        {
+          "name": "value",
+          "type": "any",
+          "description": "Property `value` (`any`) storing value.",
+          "descriptionZh": "属性 `value`（类型：`any`），用于存储或配置值。"
+        }
+      ]
     },
     {
       "name": "QueryArrowIconDirective",
       "kind": "directive",
       "selector": "[queryArrowIcon]",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular directive `QueryArrowIconDirective` (selector: '[queryArrowIcon]') attaching query arrow icon directive behavior to host DOM elements.",
+      "summaryZh": "Angular 指令 `QueryArrowIconDirective`（selector: '[queryArrowIcon]'），为宿主 DOM 元素附加查询箭头图标指令行为。",
       "sourceFile": "src/ux/query-builder/query-arrow-icon.directive.ts",
       "inputs": [],
       "outputs": [],
@@ -170,159 +451,352 @@
     {
       "name": "QueryBuilderClassNames",
       "kind": "interface",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Interface `QueryBuilderClassNames` defining the contract and properties for query builder class names.",
+      "summaryZh": "接口 `QueryBuilderClassNames`，定义查询构建器类名名称列表的数据结构契约与属性规范。",
       "sourceFile": "src/ux/query-builder/query-builder.interfaces.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
-      "properties": []
+      "properties": [
+        {
+          "name": "arrowIconButton",
+          "type": "string",
+          "description": "Property `arrowIconButton` (`string`) storing arrow icon button.",
+          "descriptionZh": "属性 `arrowIconButton`（类型：`string`），用于存储或配置箭头图标按钮。"
+        },
+        {
+          "name": "arrowIcon",
+          "type": "string",
+          "description": "Property `arrowIcon` (`string`) storing arrow icon.",
+          "descriptionZh": "属性 `arrowIcon`（类型：`string`），用于存储或配置箭头图标。"
+        },
+        {
+          "name": "removeIcon",
+          "type": "string",
+          "description": "Property `removeIcon` (`string`) storing remove icon.",
+          "descriptionZh": "属性 `removeIcon`（类型：`string`），用于存储或配置移除图标。"
+        },
+        {
+          "name": "addIcon",
+          "type": "string",
+          "description": "Property `addIcon` (`string`) storing add icon.",
+          "descriptionZh": "属性 `addIcon`（类型：`string`），用于存储或配置添加图标。"
+        },
+        {
+          "name": "button",
+          "type": "string",
+          "description": "Property `button` (`string`) storing button.",
+          "descriptionZh": "属性 `button`（类型：`string`），用于存储或配置按钮。"
+        },
+        {
+          "name": "buttonGroup",
+          "type": "string",
+          "description": "Property `buttonGroup` (`string`) storing button group.",
+          "descriptionZh": "属性 `buttonGroup`（类型：`string`），用于存储或配置按钮分组。"
+        },
+        {
+          "name": "removeButton",
+          "type": "string",
+          "description": "Property `removeButton` (`string`) storing remove button.",
+          "descriptionZh": "属性 `removeButton`（类型：`string`），用于存储或配置移除按钮。"
+        },
+        {
+          "name": "removeButtonSize",
+          "type": "string",
+          "description": "Property `removeButtonSize` (`string`) storing remove button size.",
+          "descriptionZh": "属性 `removeButtonSize`（类型：`string`），用于存储或配置移除按钮尺寸。"
+        },
+        {
+          "name": "switchRow",
+          "type": "string",
+          "description": "Property `switchRow` (`string`) storing switch row.",
+          "descriptionZh": "属性 `switchRow`（类型：`string`），用于存储或配置切换开关行。"
+        },
+        {
+          "name": "switchGroup",
+          "type": "string",
+          "description": "Property `switchGroup` (`string`) storing switch group.",
+          "descriptionZh": "属性 `switchGroup`（类型：`string`），用于存储或配置切换开关分组。"
+        },
+        {
+          "name": "switchLabel",
+          "type": "string",
+          "description": "Property `switchLabel` (`string`) storing switch label.",
+          "descriptionZh": "属性 `switchLabel`（类型：`string`），用于存储或配置切换开关标签。"
+        },
+        {
+          "name": "switchRadio",
+          "type": "string",
+          "description": "Property `switchRadio` (`string`) storing switch radio.",
+          "descriptionZh": "属性 `switchRadio`（类型：`string`），用于存储或配置切换开关单选框。"
+        },
+        {
+          "name": "switchControl",
+          "type": "string",
+          "description": "Property `switchControl` (`string`) storing switch control.",
+          "descriptionZh": "属性 `switchControl`（类型：`string`），用于存储或配置切换开关表单控件。"
+        },
+        {
+          "name": "rightAlign",
+          "type": "string",
+          "description": "Property `rightAlign` (`string`) storing right align.",
+          "descriptionZh": "属性 `rightAlign`（类型：`string`），用于存储或配置右侧位置对齐。"
+        },
+        {
+          "name": "transition",
+          "type": "string",
+          "description": "Property `transition` (`string`) storing transition.",
+          "descriptionZh": "属性 `transition`（类型：`string`），用于存储或配置过渡动画。"
+        },
+        {
+          "name": "collapsed",
+          "type": "string",
+          "description": "Property `collapsed` (`string`) storing collapsed.",
+          "descriptionZh": "属性 `collapsed`（类型：`string`），用于存储或配置已折叠。"
+        },
+        {
+          "name": "treeContainer",
+          "type": "string",
+          "description": "Property `treeContainer` (`string`) storing tree container.",
+          "descriptionZh": "属性 `treeContainer`（类型：`string`），用于存储或配置树形控件容器。"
+        },
+        {
+          "name": "tree",
+          "type": "string",
+          "description": "Property `tree` (`string`) storing tree.",
+          "descriptionZh": "属性 `tree`（类型：`string`），用于存储或配置树形控件。"
+        },
+        {
+          "name": "row",
+          "type": "string",
+          "description": "Property `row` (`string`) storing row.",
+          "descriptionZh": "属性 `row`（类型：`string`），用于存储或配置行。"
+        },
+        {
+          "name": "connector",
+          "type": "string",
+          "description": "Property `connector` (`string`) storing connector.",
+          "descriptionZh": "属性 `connector`（类型：`string`），用于存储或配置连接器。"
+        },
+        {
+          "name": "rule",
+          "type": "string",
+          "description": "Property `rule` (`string`) storing rule.",
+          "descriptionZh": "属性 `rule`（类型：`string`），用于存储或配置规则。"
+        },
+        {
+          "name": "ruleSet",
+          "type": "string",
+          "description": "Property `ruleSet` (`string`) storing rule set.",
+          "descriptionZh": "属性 `ruleSet`（类型：`string`），用于存储或配置规则集合。"
+        },
+        {
+          "name": "invalidRuleSet",
+          "type": "string",
+          "description": "Property `invalidRuleSet` (`string`) storing invalid rule set.",
+          "descriptionZh": "属性 `invalidRuleSet`（类型：`string`），用于存储或配置无效规则集合。"
+        },
+        {
+          "name": "emptyWarning",
+          "type": "string",
+          "description": "Property `emptyWarning` (`string`) storing empty warning.",
+          "descriptionZh": "属性 `emptyWarning`（类型：`string`），用于存储或配置空警告。"
+        },
+        {
+          "name": "fieldControl",
+          "type": "string",
+          "description": "Property `fieldControl` (`string`) storing field control.",
+          "descriptionZh": "属性 `fieldControl`（类型：`string`），用于存储或配置字段表单控件。"
+        },
+        {
+          "name": "fieldControlSize",
+          "type": "string",
+          "description": "Property `fieldControlSize` (`string`) storing field control size.",
+          "descriptionZh": "属性 `fieldControlSize`（类型：`string`），用于存储或配置字段表单控件尺寸。"
+        },
+        {
+          "name": "entityControl",
+          "type": "string",
+          "description": "Property `entityControl` (`string`) storing entity control.",
+          "descriptionZh": "属性 `entityControl`（类型：`string`），用于存储或配置实体表单控件。"
+        },
+        {
+          "name": "entityControlSize",
+          "type": "string",
+          "description": "Property `entityControlSize` (`string`) storing entity control size.",
+          "descriptionZh": "属性 `entityControlSize`（类型：`string`），用于存储或配置实体表单控件尺寸。"
+        },
+        {
+          "name": "operatorControl",
+          "type": "string",
+          "description": "Property `operatorControl` (`string`) storing operator control.",
+          "descriptionZh": "属性 `operatorControl`（类型：`string`），用于存储或配置操作符表单控件。"
+        },
+        {
+          "name": "operatorControlSize",
+          "type": "string",
+          "description": "Property `operatorControlSize` (`string`) storing operator control size.",
+          "descriptionZh": "属性 `operatorControlSize`（类型：`string`），用于存储或配置操作符表单控件尺寸。"
+        },
+        {
+          "name": "inputControl",
+          "type": "string",
+          "description": "Property `inputControl` (`string`) storing input control.",
+          "descriptionZh": "属性 `inputControl`（类型：`string`），用于存储或配置输入属性表单控件。"
+        },
+        {
+          "name": "inputControlSize",
+          "type": "string",
+          "description": "Property `inputControlSize` (`string`) storing input control size.",
+          "descriptionZh": "属性 `inputControlSize`（类型：`string`），用于存储或配置输入属性表单控件尺寸。"
+        }
+      ]
     },
     {
       "name": "QueryBuilderComponent",
       "kind": "component",
       "selector": "query-builder",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular component `QueryBuilderComponent` (selector: 'query-builder') providing query builder component presentation and interaction in `src/ux/query-builder`.",
+      "summaryZh": "Angular 组件 `QueryBuilderComponent`（selector: 'query-builder'），提供查询构建器组件的视图渲染与交互逻辑（位于 `src/ux/query-builder`）。",
       "sourceFile": "src/ux/query-builder/query-builder.component.ts",
       "inputs": [
         {
           "name": "disabled",
           "type": "boolean",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `disabled` (`boolean`) configuring disabled.",
+          "descriptionZh": "输入属性 `disabled`（类型：`boolean`），用于配置已禁用。"
         },
         {
           "name": "data",
           "type": "RuleSet | any",
           "default": "{ condition: 'and', rules: [] }",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `data` (`RuleSet | any`) configuring data (default: `{ condition: 'and', rules: [] }`).",
+          "descriptionZh": "输入属性 `data`（类型：`RuleSet | any`），用于配置数据（默认值：`{ condition: 'and', rules: [] }`）。"
         },
         {
           "name": "allowRuleset",
           "type": "boolean",
           "default": "true",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `allowRuleset` (`boolean`) configuring allow ruleset (default: `true`).",
+          "descriptionZh": "输入属性 `allowRuleset`（类型：`boolean`），用于配置允许Ruleset（默认值：`true`）。"
         },
         {
           "name": "allowCollapse",
           "type": "boolean",
           "default": "false",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `allowCollapse` (`boolean`) configuring allow collapse (default: `false`).",
+          "descriptionZh": "输入属性 `allowCollapse`（类型：`boolean`），用于配置允许折叠（默认值：`false`）。"
         },
         {
           "name": "emptyMessage",
           "type": "string",
           "default": "'A ruleset cannot be empty. Please add a rule or remove it all together.'",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `emptyMessage` (`string`) configuring empty message.",
+          "descriptionZh": "输入属性 `emptyMessage`（类型：`string`），用于配置空消息。"
         },
         {
           "name": "classNames",
           "type": "QueryBuilderClassNames",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `classNames` (`QueryBuilderClassNames`) configuring class names.",
+          "descriptionZh": "输入属性 `classNames`（类型：`QueryBuilderClassNames`），用于配置类名名称列表。"
         },
         {
           "name": "operatorMap",
           "type": "{ [key: string]: string[] }",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `operatorMap` (`{ [key: string]: string[] }`) configuring operator map.",
+          "descriptionZh": "输入属性 `operatorMap`（类型：`{ [key: string]: string[] }`），用于配置操作符映射表。"
         },
         {
           "name": "parentValue",
           "type": "RuleSet",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `parentValue` (`RuleSet`) configuring parent value.",
+          "descriptionZh": "输入属性 `parentValue`（类型：`RuleSet`），用于配置父级值。"
         },
         {
           "name": "config",
           "type": "QueryBuilderConfig",
           "default": "{ fields: {} }",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `config` (`QueryBuilderConfig`) configuring config (default: `{ fields: {} }`).",
+          "descriptionZh": "输入属性 `config`（类型：`QueryBuilderConfig`），用于配置配置（默认值：`{ fields: {} }`）。"
         },
         {
           "name": "parentArrowIconTemplate",
           "type": "QueryArrowIconDirective",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `parentArrowIconTemplate` (`QueryArrowIconDirective`) configuring parent arrow icon template.",
+          "descriptionZh": "输入属性 `parentArrowIconTemplate`（类型：`QueryArrowIconDirective`），用于配置父级箭头图标模板。"
         },
         {
           "name": "parentInputTemplates",
           "type": "QueryList<QueryInputDirective>",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `parentInputTemplates` (`QueryList<QueryInputDirective>`) configuring parent input templates.",
+          "descriptionZh": "输入属性 `parentInputTemplates`（类型：`QueryList<QueryInputDirective>`），用于配置父级输入属性模板。"
         },
         {
           "name": "parentOperatorTemplate",
           "type": "QueryOperatorDirective",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `parentOperatorTemplate` (`QueryOperatorDirective`) configuring parent operator template.",
+          "descriptionZh": "输入属性 `parentOperatorTemplate`（类型：`QueryOperatorDirective`），用于配置父级操作符模板。"
         },
         {
           "name": "parentFieldTemplate",
           "type": "QueryFieldDirective",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `parentFieldTemplate` (`QueryFieldDirective`) configuring parent field template.",
+          "descriptionZh": "输入属性 `parentFieldTemplate`（类型：`QueryFieldDirective`），用于配置父级字段模板。"
         },
         {
           "name": "parentEntityTemplate",
           "type": "QueryEntityDirective",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `parentEntityTemplate` (`QueryEntityDirective`) configuring parent entity template.",
+          "descriptionZh": "输入属性 `parentEntityTemplate`（类型：`QueryEntityDirective`），用于配置父级实体模板。"
         },
         {
           "name": "parentSwitchGroupTemplate",
           "type": "QuerySwitchGroupDirective",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `parentSwitchGroupTemplate` (`QuerySwitchGroupDirective`) configuring parent switch group template.",
+          "descriptionZh": "输入属性 `parentSwitchGroupTemplate`（类型：`QuerySwitchGroupDirective`），用于配置父级切换开关分组模板。"
         },
         {
           "name": "parentButtonGroupTemplate",
           "type": "QueryButtonGroupDirective",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `parentButtonGroupTemplate` (`QueryButtonGroupDirective`) configuring parent button group template.",
+          "descriptionZh": "输入属性 `parentButtonGroupTemplate`（类型：`QueryButtonGroupDirective`），用于配置父级按钮分组模板。"
         },
         {
           "name": "parentRemoveButtonTemplate",
           "type": "QueryRemoveButtonDirective",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `parentRemoveButtonTemplate` (`QueryRemoveButtonDirective`) configuring parent remove button template.",
+          "descriptionZh": "输入属性 `parentRemoveButtonTemplate`（类型：`QueryRemoveButtonDirective`），用于配置父级移除按钮模板。"
         },
         {
           "name": "parentEmptyWarningTemplate",
           "type": "QueryEmptyWarningDirective",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `parentEmptyWarningTemplate` (`QueryEmptyWarningDirective`) configuring parent empty warning template.",
+          "descriptionZh": "输入属性 `parentEmptyWarningTemplate`（类型：`QueryEmptyWarningDirective`），用于配置父级空警告模板。"
         },
         {
           "name": "parentChangeCallback",
           "type": "() => void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `parentChangeCallback` (`() => void`) configuring parent change callback.",
+          "descriptionZh": "输入属性 `parentChangeCallback`（类型：`() => void`），用于配置父级变更回调函数。"
         },
         {
           "name": "parentTouchedCallback",
           "type": "() => void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `parentTouchedCallback` (`() => void`) configuring parent touched callback.",
+          "descriptionZh": "输入属性 `parentTouchedCallback`（类型：`() => void`），用于配置父级是否已触碰回调函数。"
         },
         {
           "name": "persistValueOnFieldChange",
           "type": "boolean",
           "default": "false",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `persistValueOnFieldChange` (`boolean`) configuring persist value on field change (default: `false`).",
+          "descriptionZh": "输入属性 `persistValueOnFieldChange`（类型：`boolean`），用于配置persist值当字段变更（默认值：`false`）。"
         },
         {
           "name": "value",
           "type": "RuleSet",
-          "description": null,
-          "descriptionZh": null
+          "description": "Getter for input property `value` (`RuleSet`) returning value.",
+          "descriptionZh": "输入属性 `value`（类型：`RuleSet`）的读取器，返回当前值。"
         }
       ],
       "outputs": [],
@@ -336,8 +810,8 @@
             }
           ],
           "returnType": "ValidationErrors | null",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `validate` to handle validate.",
+          "descriptionZh": "执行 `validate`，用于校验。"
         },
         {
           "name": "findTemplateForRule",
@@ -348,8 +822,8 @@
             }
           ],
           "returnType": "TemplateRef<any>",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `findTemplateForRule` to handle find template for rule.",
+          "descriptionZh": "执行 `findTemplateForRule`，用于查找模板用于规则。"
         },
         {
           "name": "findQueryInput",
@@ -360,8 +834,8 @@
             }
           ],
           "returnType": "QueryInputDirective",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `findQueryInput` to handle find query input.",
+          "descriptionZh": "执行 `findQueryInput`，用于查找查询输入属性。"
         },
         {
           "name": "getOperators",
@@ -372,8 +846,8 @@
             }
           ],
           "returnType": "string[]",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `getOperators` to handle get operators.",
+          "descriptionZh": "执行 `getOperators`，用于获取操作符。"
         },
         {
           "name": "getFields",
@@ -384,8 +858,8 @@
             }
           ],
           "returnType": "Field[]",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `getFields` to handle get fields.",
+          "descriptionZh": "执行 `getFields`，用于获取字段列表。"
         },
         {
           "name": "getInputType",
@@ -400,8 +874,8 @@
             }
           ],
           "returnType": "string",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `getInputType` to handle get input type.",
+          "descriptionZh": "执行 `getInputType`，用于获取输入属性类型。"
         },
         {
           "name": "getOptions",
@@ -412,8 +886,8 @@
             }
           ],
           "returnType": "Option[]",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `getOptions` to handle get options.",
+          "descriptionZh": "执行 `getOptions`，用于获取配置选项。"
         },
         {
           "name": "getClassNames",
@@ -424,8 +898,8 @@
             }
           ],
           "returnType": "string",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `getClassNames` to handle get class names.",
+          "descriptionZh": "执行 `getClassNames`，用于获取类名名称列表。"
         },
         {
           "name": "getDefaultField",
@@ -436,8 +910,8 @@
             }
           ],
           "returnType": "Field",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `getDefaultField` to handle get default field.",
+          "descriptionZh": "执行 `getDefaultField`，用于获取默认字段。"
         },
         {
           "name": "getDefaultOperator",
@@ -448,8 +922,8 @@
             }
           ],
           "returnType": "string",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `getDefaultOperator` to handle get default operator.",
+          "descriptionZh": "执行 `getDefaultOperator`，用于获取默认操作符。"
         },
         {
           "name": "addRule",
@@ -460,8 +934,8 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `addRule` to handle add rule.",
+          "descriptionZh": "执行 `addRule`，用于添加规则。"
         },
         {
           "name": "removeRule",
@@ -476,8 +950,8 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `removeRule` to handle remove rule.",
+          "descriptionZh": "执行 `removeRule`，用于移除规则。"
         },
         {
           "name": "addRuleSet",
@@ -488,8 +962,8 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `addRuleSet` to handle add rule set.",
+          "descriptionZh": "执行 `addRuleSet`，用于添加规则集合。"
         },
         {
           "name": "removeRuleSet",
@@ -504,8 +978,8 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `removeRuleSet` to handle remove rule set.",
+          "descriptionZh": "执行 `removeRuleSet`，用于移除规则集合。"
         },
         {
           "name": "transitionEnd",
@@ -516,22 +990,22 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `transitionEnd` to handle transition end.",
+          "descriptionZh": "执行 `transitionEnd`，用于过渡动画结束。"
         },
         {
           "name": "toggleCollapse",
           "params": [],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `toggleCollapse` to handle toggle collapse.",
+          "descriptionZh": "执行 `toggleCollapse`，用于开关折叠。"
         },
         {
           "name": "computedTreeContainerHeight",
           "params": [],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `computedTreeContainerHeight` to handle computed tree container height.",
+          "descriptionZh": "执行 `computedTreeContainerHeight`，用于计算属性树形控件容器高度。"
         },
         {
           "name": "changeCondition",
@@ -542,8 +1016,8 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `changeCondition` to handle change condition.",
+          "descriptionZh": "执行 `changeCondition`，用于变更条件。"
         },
         {
           "name": "changeOperator",
@@ -554,8 +1028,8 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `changeOperator` to handle change operator.",
+          "descriptionZh": "执行 `changeOperator`，用于变更操作符。"
         },
         {
           "name": "coerceValueForOperator",
@@ -574,15 +1048,15 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `coerceValueForOperator` to handle coerce value for operator.",
+          "descriptionZh": "执行 `coerceValueForOperator`，用于coerce值用于操作符。"
         },
         {
           "name": "changeInput",
           "params": [],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `changeInput` to handle change input.",
+          "descriptionZh": "执行 `changeInput`，用于变更输入属性。"
         },
         {
           "name": "changeField",
@@ -597,8 +1071,8 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `changeField` to handle change field.",
+          "descriptionZh": "执行 `changeField`，用于变更字段。"
         },
         {
           "name": "changeEntity",
@@ -621,8 +1095,8 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `changeEntity` to handle change entity.",
+          "descriptionZh": "执行 `changeEntity`，用于变更实体。"
         },
         {
           "name": "getDefaultValue",
@@ -633,64 +1107,64 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `getDefaultValue` to handle get default value.",
+          "descriptionZh": "执行 `getDefaultValue`，用于获取默认值。"
         },
         {
           "name": "getOperatorTemplate",
           "params": [],
           "returnType": "TemplateRef<any>",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `getOperatorTemplate` to handle get operator template.",
+          "descriptionZh": "执行 `getOperatorTemplate`，用于获取操作符模板。"
         },
         {
           "name": "getFieldTemplate",
           "params": [],
           "returnType": "TemplateRef<any>",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `getFieldTemplate` to handle get field template.",
+          "descriptionZh": "执行 `getFieldTemplate`，用于获取字段模板。"
         },
         {
           "name": "getEntityTemplate",
           "params": [],
           "returnType": "TemplateRef<any>",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `getEntityTemplate` to handle get entity template.",
+          "descriptionZh": "执行 `getEntityTemplate`，用于获取实体模板。"
         },
         {
           "name": "getArrowIconTemplate",
           "params": [],
           "returnType": "TemplateRef<any>",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `getArrowIconTemplate` to handle get arrow icon template.",
+          "descriptionZh": "执行 `getArrowIconTemplate`，用于获取箭头图标模板。"
         },
         {
           "name": "getButtonGroupTemplate",
           "params": [],
           "returnType": "TemplateRef<any>",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `getButtonGroupTemplate` to handle get button group template.",
+          "descriptionZh": "执行 `getButtonGroupTemplate`，用于获取按钮分组模板。"
         },
         {
           "name": "getSwitchGroupTemplate",
           "params": [],
           "returnType": "TemplateRef<any>",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `getSwitchGroupTemplate` to handle get switch group template.",
+          "descriptionZh": "执行 `getSwitchGroupTemplate`，用于获取切换开关分组模板。"
         },
         {
           "name": "getRemoveButtonTemplate",
           "params": [],
           "returnType": "TemplateRef<any>",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `getRemoveButtonTemplate` to handle get remove button template.",
+          "descriptionZh": "执行 `getRemoveButtonTemplate`，用于获取移除按钮模板。"
         },
         {
           "name": "getEmptyWarningTemplate",
           "params": [],
           "returnType": "TemplateRef<any>",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `getEmptyWarningTemplate` to handle get empty warning template.",
+          "descriptionZh": "执行 `getEmptyWarningTemplate`，用于获取空警告模板。"
         },
         {
           "name": "getQueryItemClassName",
@@ -701,15 +1175,15 @@
             }
           ],
           "returnType": "string",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `getQueryItemClassName` to handle get query item class name.",
+          "descriptionZh": "执行 `getQueryItemClassName`，用于获取查询条目类名名称。"
         },
         {
           "name": "getButtonGroupContext",
           "params": [],
           "returnType": "ButtonGroupContext",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `getButtonGroupContext` to handle get button group context.",
+          "descriptionZh": "执行 `getButtonGroupContext`，用于获取按钮分组上下文。"
         },
         {
           "name": "getRemoveButtonContext",
@@ -720,8 +1194,8 @@
             }
           ],
           "returnType": "RemoveButtonContext",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `getRemoveButtonContext` to handle get remove button context.",
+          "descriptionZh": "执行 `getRemoveButtonContext`，用于获取移除按钮上下文。"
         },
         {
           "name": "getFieldContext",
@@ -732,8 +1206,8 @@
             }
           ],
           "returnType": "FieldContext",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `getFieldContext` to handle get field context.",
+          "descriptionZh": "执行 `getFieldContext`，用于获取字段上下文。"
         },
         {
           "name": "getEntityContext",
@@ -744,29 +1218,29 @@
             }
           ],
           "returnType": "EntityContext",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `getEntityContext` to handle get entity context.",
+          "descriptionZh": "执行 `getEntityContext`，用于获取实体上下文。"
         },
         {
           "name": "getSwitchGroupContext",
           "params": [],
           "returnType": "SwitchGroupContext",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `getSwitchGroupContext` to handle get switch group context.",
+          "descriptionZh": "执行 `getSwitchGroupContext`，用于获取切换开关分组上下文。"
         },
         {
           "name": "getArrowIconContext",
           "params": [],
           "returnType": "ArrowIconContext",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `getArrowIconContext` to handle get arrow icon context.",
+          "descriptionZh": "执行 `getArrowIconContext`，用于获取箭头图标上下文。"
         },
         {
           "name": "getEmptyWarningContext",
           "params": [],
           "returnType": "EmptyWarningContext",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `getEmptyWarningContext` to handle get empty warning context.",
+          "descriptionZh": "执行 `getEmptyWarningContext`，用于获取空警告上下文。"
         },
         {
           "name": "getOperatorContext",
@@ -777,8 +1251,8 @@
             }
           ],
           "returnType": "OperatorContext",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `getOperatorContext` to handle get operator context.",
+          "descriptionZh": "执行 `getOperatorContext`，用于获取操作符上下文。"
         },
         {
           "name": "getInputContext",
@@ -789,146 +1263,219 @@
             }
           ],
           "returnType": "InputContext",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `getInputContext` to handle get input context.",
+          "descriptionZh": "执行 `getInputContext`，用于获取输入属性上下文。"
         }
       ],
       "properties": [
         {
           "name": "fields",
           "type": "Field[]",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `fields` (`Field[]`) storing fields.",
+          "descriptionZh": "属性 `fields`（类型：`Field[]`），用于存储或配置字段列表。"
         },
         {
           "name": "filterFields",
           "type": "Field[]",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `filterFields` (`Field[]`) storing filter fields.",
+          "descriptionZh": "属性 `filterFields`（类型：`Field[]`），用于存储或配置过滤字段列表。"
         },
         {
           "name": "entities",
           "type": "Entity[]",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `entities` (`Entity[]`) storing entities.",
+          "descriptionZh": "属性 `entities`（类型：`Entity[]`），用于存储或配置实体列表。"
         },
         {
           "name": "defaultClassNames",
           "type": "QueryBuilderClassNames",
           "default": "{\n    arrowIconButton: 'q-arrow-icon-button',\n    arrowIcon: 'q-icon q-arrow-icon',\n    removeIcon: 'q-icon q-remove-icon',\n    addIcon: 'q-icon q-add-icon',\n    button: 'q-button',\n    buttonGroup: 'q-button-group',\n    removeButton: 'q-remove-button',\n    switchGroup: 'q-switch-group',\n    switchLabel: 'q-switch-label',\n    switchRadio: 'q-switch-radio',\n    rightAlign: 'q-right-align',\n    transition: 'q-transition',\n    collapsed: 'q-collapsed',\n    treeContainer: 'q-tree-container',\n    tree: 'q-tree',\n    row: 'q-row',\n    connector: 'q-connector',\n    rule: 'q-rule',\n    ruleSet: 'q-ruleset',\n    invalidRuleSet: 'q-invalid-ruleset',\n    emptyWarning: 'q-empty-warning',\n    fieldControl: 'q-field-control',\n    fieldControlSize: 'q-control-size',\n    entityControl: 'q-entity-control',\n    entityControlSize: 'q-control-size',\n    operatorControl: 'q-operator-control',\n    operatorControlSize: 'q-control-size',\n    inputControl: 'q-input-control',\n    inputControlSize: 'q-control-size'\n  }",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `defaultClassNames` (`QueryBuilderClassNames`) storing default class names.",
+          "descriptionZh": "属性 `defaultClassNames`（类型：`QueryBuilderClassNames`），用于存储或配置默认类名名称列表。"
         },
         {
           "name": "defaultOperatorMap",
           "type": "{ [key: string]: string[] }",
           "default": "{\n    string: ['=', '!=', 'contains', 'like'],\n    number: ['=', '!=', '>', '>=', '<', '<='],\n    time: ['=', '!=', '>', '>=', '<', '<='],\n    date: ['=', '!=', '>', '>=', '<', '<='],\n    category: ['=', '!=', 'in', 'not in'],\n    boolean: ['=']\n  }",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `defaultOperatorMap` (`{ [key: string]: string[] }`) storing default operator map.",
+          "descriptionZh": "属性 `defaultOperatorMap`（类型：`{ [key: string]: string[] }`），用于存储或配置默认操作符映射表。"
         },
         {
           "name": "onChangeCallback",
           "type": "() => void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `onChangeCallback` (`() => void`) storing on change callback.",
+          "descriptionZh": "属性 `onChangeCallback`（类型：`() => void`），用于存储或配置当变更回调函数。"
         },
         {
           "name": "onTouchedCallback",
           "type": "() => any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `onTouchedCallback` (`() => any`) storing on touched callback.",
+          "descriptionZh": "属性 `onTouchedCallback`（类型：`() => any`），用于存储或配置当是否已触碰回调函数。"
         },
         {
           "name": "treeContainer",
           "type": "ElementRef",
-          "description": null,
-          "descriptionZh": null
+          "description": "Template/content query reference `treeContainer` (`@ViewChild`) targeting tree container.",
+          "descriptionZh": "模板/内容视图查询引用 `treeContainer`（`@ViewChild`），指向树形控件容器。"
         },
         {
           "name": "buttonGroupTemplate",
           "type": "QueryButtonGroupDirective",
-          "description": null,
-          "descriptionZh": null
+          "description": "Template/content query reference `buttonGroupTemplate` (`@ContentChild`) targeting button group template.",
+          "descriptionZh": "模板/内容视图查询引用 `buttonGroupTemplate`（`@ContentChild`），指向按钮分组模板。"
         },
         {
           "name": "switchGroupTemplate",
           "type": "QuerySwitchGroupDirective",
-          "description": null,
-          "descriptionZh": null
+          "description": "Template/content query reference `switchGroupTemplate` (`@ContentChild`) targeting switch group template.",
+          "descriptionZh": "模板/内容视图查询引用 `switchGroupTemplate`（`@ContentChild`），指向切换开关分组模板。"
         },
         {
           "name": "fieldTemplate",
           "type": "QueryFieldDirective",
-          "description": null,
-          "descriptionZh": null
+          "description": "Template/content query reference `fieldTemplate` (`@ContentChild`) targeting field template.",
+          "descriptionZh": "模板/内容视图查询引用 `fieldTemplate`（`@ContentChild`），指向字段模板。"
         },
         {
           "name": "entityTemplate",
           "type": "QueryEntityDirective",
-          "description": null,
-          "descriptionZh": null
+          "description": "Template/content query reference `entityTemplate` (`@ContentChild`) targeting entity template.",
+          "descriptionZh": "模板/内容视图查询引用 `entityTemplate`（`@ContentChild`），指向实体模板。"
         },
         {
           "name": "operatorTemplate",
           "type": "QueryOperatorDirective",
-          "description": null,
-          "descriptionZh": null
+          "description": "Template/content query reference `operatorTemplate` (`@ContentChild`) targeting operator template.",
+          "descriptionZh": "模板/内容视图查询引用 `operatorTemplate`（`@ContentChild`），指向操作符模板。"
         },
         {
           "name": "removeButtonTemplate",
           "type": "QueryRemoveButtonDirective",
-          "description": null,
-          "descriptionZh": null
+          "description": "Template/content query reference `removeButtonTemplate` (`@ContentChild`) targeting remove button template.",
+          "descriptionZh": "模板/内容视图查询引用 `removeButtonTemplate`（`@ContentChild`），指向移除按钮模板。"
         },
         {
           "name": "emptyWarningTemplate",
           "type": "QueryEmptyWarningDirective",
-          "description": null,
-          "descriptionZh": null
+          "description": "Template/content query reference `emptyWarningTemplate` (`@ContentChild`) targeting empty warning template.",
+          "descriptionZh": "模板/内容视图查询引用 `emptyWarningTemplate`（`@ContentChild`），指向空警告模板。"
         },
         {
           "name": "inputTemplates",
           "type": "QueryList<QueryInputDirective>",
-          "description": null,
-          "descriptionZh": null
+          "description": "Template/content query reference `inputTemplates` (`@ContentChildren`) targeting input templates.",
+          "descriptionZh": "模板/内容视图查询引用 `inputTemplates`（`@ContentChildren`），指向输入属性模板。"
         },
         {
           "name": "arrowIconTemplate",
           "type": "QueryArrowIconDirective",
-          "description": null,
-          "descriptionZh": null
+          "description": "Template/content query reference `arrowIconTemplate` (`@ContentChild`) targeting arrow icon template.",
+          "descriptionZh": "模板/内容视图查询引用 `arrowIconTemplate`（`@ContentChild`），指向箭头图标模板。"
         },
         {
           "name": "value",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Sets the value (`value`).",
+          "descriptionZh": "设置值（`value`）。"
         },
         {
           "name": "getDisabledState",
           "type": "any",
           "default": "(): boolean => {\n    return this.disabled;\n  }",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `getDisabledState` (`any`) storing get disabled state.",
+          "descriptionZh": "属性 `getDisabledState`（类型：`any`），用于存储或配置获取已禁用状态。"
         }
       ]
     },
     {
       "name": "QueryBuilderConfig",
       "kind": "interface",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Interface `QueryBuilderConfig` defining the contract and properties for query builder config.",
+      "summaryZh": "接口 `QueryBuilderConfig`，定义查询构建器配置的数据结构契约与属性规范。",
       "sourceFile": "src/ux/query-builder/query-builder.interfaces.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
-      "properties": []
+      "properties": [
+        {
+          "name": "fields",
+          "type": "FieldMap",
+          "description": "Property `fields` (`FieldMap`) storing fields.",
+          "descriptionZh": "属性 `fields`（类型：`FieldMap`），用于存储或配置字段列表。"
+        },
+        {
+          "name": "entities",
+          "type": "EntityMap",
+          "description": "Property `entities` (`EntityMap`) storing entities.",
+          "descriptionZh": "属性 `entities`（类型：`EntityMap`），用于存储或配置实体列表。"
+        },
+        {
+          "name": "allowEmptyRulesets",
+          "type": "boolean",
+          "description": "Property `allowEmptyRulesets` (`boolean`) storing allow empty rulesets.",
+          "descriptionZh": "属性 `allowEmptyRulesets`（类型：`boolean`），用于存储或配置允许空Rulesets。"
+        },
+        {
+          "name": "getOperators",
+          "type": "(fieldName: string, field: Field) => string[]",
+          "description": "Property `getOperators` (`(fieldName: string, field: Field) => string[]`) storing get operators.",
+          "descriptionZh": "属性 `getOperators`（类型：`(fieldName: string, field: Field) => string[]`），用于存储或配置获取操作符。"
+        },
+        {
+          "name": "getInputType",
+          "type": "(field: string, operator: string) => string",
+          "description": "Property `getInputType` (`(field: string, operator: string) => string`) storing get input type.",
+          "descriptionZh": "属性 `getInputType`（类型：`(field: string, operator: string) => string`），用于存储或配置获取输入属性类型。"
+        },
+        {
+          "name": "getOptions",
+          "type": "(field: string) => Option[]",
+          "description": "Property `getOptions` (`(field: string) => Option[]`) storing get options.",
+          "descriptionZh": "属性 `getOptions`（类型：`(field: string) => Option[]`），用于存储或配置获取配置选项。"
+        },
+        {
+          "name": "addRuleSet",
+          "type": "(parent: RuleSet) => void",
+          "description": "Property `addRuleSet` (`(parent: RuleSet) => void`) storing add rule set.",
+          "descriptionZh": "属性 `addRuleSet`（类型：`(parent: RuleSet) => void`），用于存储或配置添加规则集合。"
+        },
+        {
+          "name": "addRule",
+          "type": "(parent: RuleSet) => void",
+          "description": "Property `addRule` (`(parent: RuleSet) => void`) storing add rule.",
+          "descriptionZh": "属性 `addRule`（类型：`(parent: RuleSet) => void`），用于存储或配置添加规则。"
+        },
+        {
+          "name": "removeRuleSet",
+          "type": "(ruleset: RuleSet, parent: RuleSet) => void",
+          "description": "Property `removeRuleSet` (`(ruleset: RuleSet, parent: RuleSet) => void`) storing remove rule set.",
+          "descriptionZh": "属性 `removeRuleSet`（类型：`(ruleset: RuleSet, parent: RuleSet) => void`），用于存储或配置移除规则集合。"
+        },
+        {
+          "name": "removeRule",
+          "type": "(rule: Rule, parent: RuleSet) => void",
+          "description": "Property `removeRule` (`(rule: Rule, parent: RuleSet) => void`) storing remove rule.",
+          "descriptionZh": "属性 `removeRule`（类型：`(rule: Rule, parent: RuleSet) => void`），用于存储或配置移除规则。"
+        },
+        {
+          "name": "coerceValueForOperator",
+          "type": "(operator: string, value: any, rule: Rule) => any",
+          "description": "Property `coerceValueForOperator` (`(operator: string, value: any, rule: Rule) => any`) storing coerce value for operator.",
+          "descriptionZh": "属性 `coerceValueForOperator`（类型：`(operator: string, value: any, rule: Rule) => any`），用于存储或配置coerce值用于操作符。"
+        },
+        {
+          "name": "calculateFieldChangeValue",
+          "type": "(currentField: Field, nextField: Field, currentValue: any) => any",
+          "description": "Property `calculateFieldChangeValue` (`(currentField: Field, nextField: Field, currentValue: any) => any`) storing calculate field change value.",
+          "descriptionZh": "属性 `calculateFieldChangeValue`（类型：`(currentField: Field, nextField: Field, currentValue: any) => any`），用于存储或配置计算字段变更值。"
+        }
+      ]
     },
     {
       "name": "QueryBuilderModule",
       "kind": "module",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular module `QueryBuilderModule` declaring and exporting query builder module components, directives, pipes, and providers.",
+      "summaryZh": "Angular 模块 `QueryBuilderModule`，声明并导出查询构建器模块相关的组件、指令、管道与服务提供者。",
       "sourceFile": "src/ux/query-builder/angular2-query-builder.module.ts",
       "inputs": [],
       "outputs": [],
@@ -939,8 +1486,8 @@
       "name": "QueryButtonGroupDirective",
       "kind": "directive",
       "selector": "[queryButtonGroup]",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular directive `QueryButtonGroupDirective` (selector: '[queryButtonGroup]') attaching query button group directive behavior to host DOM elements.",
+      "summaryZh": "Angular 指令 `QueryButtonGroupDirective`（selector: '[queryButtonGroup]'），为宿主 DOM 元素附加查询按钮分组指令行为。",
       "sourceFile": "src/ux/query-builder/query-button-group.directive.ts",
       "inputs": [],
       "outputs": [],
@@ -951,8 +1498,8 @@
       "name": "QueryEmptyWarningDirective",
       "kind": "directive",
       "selector": "[queryEmptyWarning]",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular directive `QueryEmptyWarningDirective` (selector: '[queryEmptyWarning]') attaching query empty warning directive behavior to host DOM elements.",
+      "summaryZh": "Angular 指令 `QueryEmptyWarningDirective`（selector: '[queryEmptyWarning]'），为宿主 DOM 元素附加查询空警告指令行为。",
       "sourceFile": "src/ux/query-builder/query-empty-warning.directive.ts",
       "inputs": [],
       "outputs": [],
@@ -963,8 +1510,8 @@
       "name": "QueryEntityDirective",
       "kind": "directive",
       "selector": "[queryEntity]",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular directive `QueryEntityDirective` (selector: '[queryEntity]') attaching query entity directive behavior to host DOM elements.",
+      "summaryZh": "Angular 指令 `QueryEntityDirective`（selector: '[queryEntity]'），为宿主 DOM 元素附加查询实体指令行为。",
       "sourceFile": "src/ux/query-builder/query-entity.directive.ts",
       "inputs": [],
       "outputs": [],
@@ -975,8 +1522,8 @@
       "name": "QueryFieldDirective",
       "kind": "directive",
       "selector": "[queryField]",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular directive `QueryFieldDirective` (selector: '[queryField]') attaching query field directive behavior to host DOM elements.",
+      "summaryZh": "Angular 指令 `QueryFieldDirective`（selector: '[queryField]'），为宿主 DOM 元素附加查询字段指令行为。",
       "sourceFile": "src/ux/query-builder/query-field.directive.ts",
       "inputs": [],
       "outputs": [],
@@ -987,15 +1534,15 @@
       "name": "QueryInputDirective",
       "kind": "directive",
       "selector": "[queryInput]",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular directive `QueryInputDirective` (selector: '[queryInput]') attaching query input directive behavior to host DOM elements.",
+      "summaryZh": "Angular 指令 `QueryInputDirective`（selector: '[queryInput]'），为宿主 DOM 元素附加查询输入属性指令行为。",
       "sourceFile": "src/ux/query-builder/query-input.directive.ts",
       "inputs": [
         {
           "name": "queryInputType",
           "type": "string",
           "description": "Unique name for query input type.",
-          "descriptionZh": null
+          "descriptionZh": "输入属性 `queryInputType`（类型：`string`）的读取器，返回当前查询输入属性类型。"
         }
       ],
       "outputs": [],
@@ -1004,8 +1551,8 @@
         {
           "name": "queryInputType",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Sets the query input type (`queryInputType`).",
+          "descriptionZh": "设置查询输入属性类型（`queryInputType`）。"
         }
       ]
     },
@@ -1013,8 +1560,8 @@
       "name": "QueryOperatorDirective",
       "kind": "directive",
       "selector": "[queryOperator]",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular directive `QueryOperatorDirective` (selector: '[queryOperator]') attaching query operator directive behavior to host DOM elements.",
+      "summaryZh": "Angular 指令 `QueryOperatorDirective`（selector: '[queryOperator]'），为宿主 DOM 元素附加查询操作符指令行为。",
       "sourceFile": "src/ux/query-builder/query-operator.directive.ts",
       "inputs": [],
       "outputs": [],
@@ -1025,8 +1572,8 @@
       "name": "QueryRemoveButtonDirective",
       "kind": "directive",
       "selector": "[queryRemoveButton]",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular directive `QueryRemoveButtonDirective` (selector: '[queryRemoveButton]') attaching query remove button directive behavior to host DOM elements.",
+      "summaryZh": "Angular 指令 `QueryRemoveButtonDirective`（selector: '[queryRemoveButton]'），为宿主 DOM 元素附加查询移除按钮指令行为。",
       "sourceFile": "src/ux/query-builder/query-remove-button.directive.ts",
       "inputs": [],
       "outputs": [],
@@ -1037,8 +1584,8 @@
       "name": "QuerySwitchGroupDirective",
       "kind": "directive",
       "selector": "[querySwitchGroup]",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular directive `QuerySwitchGroupDirective` (selector: '[querySwitchGroup]') attaching query switch group directive behavior to host DOM elements.",
+      "summaryZh": "Angular 指令 `QuerySwitchGroupDirective`（selector: '[querySwitchGroup]'），为宿主 DOM 元素附加查询切换开关分组指令行为。",
       "sourceFile": "src/ux/query-builder/query-switch-group.directive.ts",
       "inputs": [],
       "outputs": [],
@@ -1048,52 +1595,140 @@
     {
       "name": "RemoveButtonContext",
       "kind": "interface",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Interface `RemoveButtonContext` defining the contract and properties for remove button context.",
+      "summaryZh": "接口 `RemoveButtonContext`，定义移除按钮上下文的数据结构契约与属性规范。",
       "sourceFile": "src/ux/query-builder/query-builder.interfaces.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
-      "properties": []
+      "properties": [
+        {
+          "name": "removeRule",
+          "type": "(rule: Rule) => void",
+          "description": "Property `removeRule` (`(rule: Rule) => void`) storing remove rule.",
+          "descriptionZh": "属性 `removeRule`（类型：`(rule: Rule) => void`），用于存储或配置移除规则。"
+        },
+        {
+          "name": "getDisabledState",
+          "type": "() => boolean",
+          "description": "Property `getDisabledState` (`() => boolean`) storing get disabled state.",
+          "descriptionZh": "属性 `getDisabledState`（类型：`() => boolean`），用于存储或配置获取已禁用状态。"
+        },
+        {
+          "name": "$implicit",
+          "type": "Rule",
+          "description": "Property `$implicit` (`Rule`) storing implicit.",
+          "descriptionZh": "属性 `$implicit`（类型：`Rule`），用于存储或配置implicit。"
+        }
+      ]
     },
     {
       "name": "Rule",
       "kind": "interface",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Interface `Rule` defining the contract and properties for rule.",
+      "summaryZh": "接口 `Rule`，定义规则的数据结构契约与属性规范。",
       "sourceFile": "src/ux/query-builder/query-builder.interfaces.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
-      "properties": []
+      "properties": [
+        {
+          "name": "field",
+          "type": "string",
+          "description": "Property `field` (`string`) storing field.",
+          "descriptionZh": "属性 `field`（类型：`string`），用于存储或配置字段。"
+        },
+        {
+          "name": "value",
+          "type": "any",
+          "description": "Property `value` (`any`) storing value.",
+          "descriptionZh": "属性 `value`（类型：`any`），用于存储或配置值。"
+        },
+        {
+          "name": "operator",
+          "type": "string",
+          "description": "Property `operator` (`string`) storing operator.",
+          "descriptionZh": "属性 `operator`（类型：`string`），用于存储或配置操作符。"
+        },
+        {
+          "name": "entity",
+          "type": "string",
+          "description": "Property `entity` (`string`) storing entity.",
+          "descriptionZh": "属性 `entity`（类型：`string`），用于存储或配置实体。"
+        }
+      ]
     },
     {
       "name": "RuleSet",
       "kind": "interface",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Interface `RuleSet` defining the contract and properties for rule set.",
+      "summaryZh": "接口 `RuleSet`，定义规则集合的数据结构契约与属性规范。",
       "sourceFile": "src/ux/query-builder/query-builder.interfaces.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
-      "properties": []
+      "properties": [
+        {
+          "name": "condition",
+          "type": "string",
+          "description": "Property `condition` (`string`) storing condition.",
+          "descriptionZh": "属性 `condition`（类型：`string`），用于存储或配置条件。"
+        },
+        {
+          "name": "rules",
+          "type": "Array<RuleSet | Rule>",
+          "description": "Property `rules` (`Array<RuleSet | Rule>`) storing rules.",
+          "descriptionZh": "属性 `rules`（类型：`Array<RuleSet | Rule>`），用于存储或配置规则列表。"
+        },
+        {
+          "name": "collapsed",
+          "type": "boolean",
+          "description": "Property `collapsed` (`boolean`) storing collapsed.",
+          "descriptionZh": "属性 `collapsed`（类型：`boolean`），用于存储或配置已折叠。"
+        },
+        {
+          "name": "isChild",
+          "type": "boolean",
+          "description": "Property `isChild` (`boolean`) storing is child.",
+          "descriptionZh": "属性 `isChild`（类型：`boolean`），用于存储或配置是否为子级。"
+        }
+      ]
     },
     {
       "name": "SwitchGroupContext",
       "kind": "interface",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Interface `SwitchGroupContext` defining the contract and properties for switch group context.",
+      "summaryZh": "接口 `SwitchGroupContext`，定义切换开关分组上下文的数据结构契约与属性规范。",
       "sourceFile": "src/ux/query-builder/query-builder.interfaces.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
-      "properties": []
+      "properties": [
+        {
+          "name": "onChange",
+          "type": "(conditionValue: string) => void",
+          "description": "Property `onChange` (`(conditionValue: string) => void`) storing on change.",
+          "descriptionZh": "属性 `onChange`（类型：`(conditionValue: string) => void`），用于存储或配置当变更。"
+        },
+        {
+          "name": "getDisabledState",
+          "type": "() => boolean",
+          "description": "Property `getDisabledState` (`() => boolean`) storing get disabled state.",
+          "descriptionZh": "属性 `getDisabledState`（类型：`() => boolean`），用于存储或配置获取已禁用状态。"
+        },
+        {
+          "name": "$implicit",
+          "type": "RuleSet",
+          "description": "Property `$implicit` (`RuleSet`) storing implicit.",
+          "descriptionZh": "属性 `$implicit`（类型：`RuleSet`），用于存储或配置implicit。"
+        }
+      ]
     },
     {
       "name": "VALIDATOR",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `VALIDATOR` defining validator in `src/ux/query-builder`.",
+      "summaryZh": "常量/变量 `VALIDATOR`，定义 `src/ux/query-builder` 中的校验器。",
       "sourceFile": "src/ux/query-builder/query-builder.component.ts",
       "inputs": [],
       "outputs": [],

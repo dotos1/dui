@@ -5,8 +5,8 @@
       "name": "BytesPipe",
       "kind": "pipe",
       "pipeName": "bytes",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular pipe `BytesPipe` (name: 'bytes') transforming values for bytes pipe display in templates.",
+      "summaryZh": "Angular 管道 `BytesPipe`（name: 'bytes'），在模板中转换数据以用于Bytes管道展示。",
       "sourceFile": "src/util/pipes/bytes.pipe.ts",
       "inputs": [],
       "outputs": [],
@@ -24,8 +24,8 @@
             }
           ],
           "returnType": "string",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `transform` to handle transform.",
+          "descriptionZh": "执行 `transform`，用于转换。"
         }
       ],
       "properties": []
@@ -34,8 +34,8 @@
       "name": "CamelCaseToDashPipe",
       "kind": "pipe",
       "pipeName": "camelCaseToDash",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular pipe `CamelCaseToDashPipe` (name: 'camelCaseToDash') transforming values for camel case to dash pipe display in templates.",
+      "summaryZh": "Angular 管道 `CamelCaseToDashPipe`（name: 'camelCaseToDash'），在模板中转换数据以用于CamelCase转换为Dash管道展示。",
       "sourceFile": "src/util/pipes/camelCaseToDash.pipe.ts",
       "inputs": [],
       "outputs": [],
@@ -53,8 +53,8 @@
             }
           ],
           "returnType": "string",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `transform` to handle transform.",
+          "descriptionZh": "执行 `transform`，用于转换。"
         }
       ],
       "properties": []
@@ -63,8 +63,8 @@
       "name": "ClonePipe",
       "kind": "pipe",
       "pipeName": "clone",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular pipe `ClonePipe` (name: 'clone') transforming values for clone pipe display in templates.",
+      "summaryZh": "Angular 管道 `ClonePipe`（name: 'clone'），在模板中转换数据以用于克隆管道展示。",
       "sourceFile": "src/util/pipes/clone.pipe.ts",
       "inputs": [],
       "outputs": [],
@@ -82,8 +82,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `transform` to handle transform.",
+          "descriptionZh": "执行 `transform`，用于转换。"
         }
       ],
       "properties": []
@@ -92,8 +92,8 @@
       "name": "DecimalNumberPipe",
       "kind": "pipe",
       "pipeName": "DecimalNumber",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular pipe `DecimalNumberPipe` (name: 'DecimalNumber') transforming values for decimal number pipe display in templates.",
+      "summaryZh": "Angular 管道 `DecimalNumberPipe`（name: 'DecimalNumber'），在模板中转换数据以用于Decimal数字管道展示。",
       "sourceFile": "src/util/pipes/decimal-number.pipe.ts",
       "inputs": [],
       "outputs": [],
@@ -115,8 +115,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `transform` to handle transform.",
+          "descriptionZh": "执行 `transform`，用于转换。"
         }
       ],
       "properties": [
@@ -124,64 +124,64 @@
           "name": "DEFAULT_LOCALE",
           "type": "any",
           "default": "'en-US'",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `DEFAULT_LOCALE` (`string`) storing default locale (default: `'en-US'`).",
+          "descriptionZh": "属性 `DEFAULT_LOCALE`（类型：`string`），用于存储或配置默认语言区域（默认值：`'en-US'`）。"
         },
         {
           "name": "DEFAULT_MIN_INTEGER_DIGITS",
           "type": "any",
           "default": "1",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `DEFAULT_MIN_INTEGER_DIGITS` (`number`) storing default min integer digits (default: `1`).",
+          "descriptionZh": "属性 `DEFAULT_MIN_INTEGER_DIGITS`（类型：`number`），用于存储或配置默认最小值INTEGER数字位（默认值：`1`）。"
         },
         {
           "name": "DEFAULT_MIN_FRACTION_DIGITS",
           "type": "any",
           "default": "0",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `DEFAULT_MIN_FRACTION_DIGITS` (`number`) storing default min fraction digits (default: `0`).",
+          "descriptionZh": "属性 `DEFAULT_MIN_FRACTION_DIGITS`（类型：`number`），用于存储或配置默认最小值FRACTION数字位（默认值：`0`）。"
         },
         {
           "name": "DEFAULT_MAX_FRACTION_DIGITS",
           "type": "any",
           "default": "2",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `DEFAULT_MAX_FRACTION_DIGITS` (`number`) storing default max fraction digits (default: `2`).",
+          "descriptionZh": "属性 `DEFAULT_MAX_FRACTION_DIGITS`（类型：`number`），用于存储或配置默认最大值FRACTION数字位（默认值：`2`）。"
         },
         {
           "name": "defaultLocale",
           "type": "string",
           "default": "DecimalNumberPipe.DEFAULT_LOCALE",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `defaultLocale` (`string`) storing default locale (default: `DecimalNumberPipe.DEFAULT_LOCALE`).",
+          "descriptionZh": "属性 `defaultLocale`（类型：`string`），用于存储或配置默认语言区域（默认值：`DecimalNumberPipe.DEFAULT_LOCALE`）。"
         },
         {
           "name": "defaultMinIntegerDigits",
           "type": "number",
           "default": "DecimalNumberPipe.DEFAULT_MIN_INTEGER_DIGITS",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `defaultMinIntegerDigits` (`number`) storing default min integer digits.",
+          "descriptionZh": "属性 `defaultMinIntegerDigits`（类型：`number`），用于存储或配置默认最小值Integer数字位。"
         },
         {
           "name": "defaultMinFractionDigits",
           "type": "number",
           "default": "DecimalNumberPipe.DEFAULT_MIN_FRACTION_DIGITS",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `defaultMinFractionDigits` (`number`) storing default min fraction digits.",
+          "descriptionZh": "属性 `defaultMinFractionDigits`（类型：`number`），用于存储或配置默认最小值Fraction数字位。"
         },
         {
           "name": "defaultMaxFractionDigits",
           "type": "number",
           "default": "DecimalNumberPipe.DEFAULT_MAX_FRACTION_DIGITS",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `defaultMaxFractionDigits` (`number`) storing default max fraction digits.",
+          "descriptionZh": "属性 `defaultMaxFractionDigits`（类型：`number`），用于存储或配置默认最大值Fraction数字位。"
         },
         {
           "name": "onDestroy$",
           "type": "Subject<boolean>",
           "default": "new Subject<boolean>()",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `onDestroy$` (`Subject<boolean>`) storing on destroy (default: `new Subject<boolean>()`).",
+          "descriptionZh": "属性 `onDestroy$`（类型：`Subject<boolean>`），用于存储或配置当销毁（默认值：`new Subject<boolean>()`）。"
         }
       ]
     },
@@ -189,8 +189,8 @@
       "name": "DigitsPipe",
       "kind": "pipe",
       "pipeName": "digits",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular pipe `DigitsPipe` (name: 'digits') transforming values for digits pipe display in templates.",
+      "summaryZh": "Angular 管道 `DigitsPipe`（name: 'digits'），在模板中转换数据以用于数字位管道展示。",
       "sourceFile": "src/util/pipes/digits.pipe.ts",
       "inputs": [],
       "outputs": [],
@@ -208,8 +208,8 @@
             }
           ],
           "returnType": "string",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `transform` to handle transform.",
+          "descriptionZh": "执行 `transform`，用于转换。"
         }
       ],
       "properties": []
@@ -217,8 +217,8 @@
     {
       "name": "DuiPipesModule",
       "kind": "module",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular module `DuiPipesModule` declaring and exporting dui pipes module components, directives, pipes, and providers.",
+      "summaryZh": "Angular 模块 `DuiPipesModule`，声明并导出DUI管道模块相关的组件、指令、管道与服务提供者。",
       "sourceFile": "src/util/pipes/pipes.module.ts",
       "inputs": [],
       "outputs": [],
@@ -229,8 +229,8 @@
       "name": "FilterPipe",
       "kind": "pipe",
       "pipeName": "filter",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular pipe `FilterPipe` (name: 'filter') transforming values for filter pipe display in templates.",
+      "summaryZh": "Angular 管道 `FilterPipe`（name: 'filter'），在模板中转换数据以用于过滤管道展示。",
       "sourceFile": "src/util/pipes/filter.pipe.ts",
       "inputs": [],
       "outputs": [],
@@ -248,8 +248,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `transform` to handle transform.",
+          "descriptionZh": "执行 `transform`，用于转换。"
         }
       ],
       "properties": []
@@ -258,8 +258,8 @@
       "name": "FormatSpacePipe",
       "kind": "pipe",
       "pipeName": "formatSpace",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular pipe `FormatSpacePipe` (name: 'formatSpace') transforming values for format space pipe display in templates.",
+      "summaryZh": "Angular 管道 `FormatSpacePipe`（name: 'formatSpace'），在模板中转换数据以用于格式化Space管道展示。",
       "sourceFile": "src/util/pipes/format-space.pipe.ts",
       "inputs": [],
       "outputs": [],
@@ -281,8 +281,8 @@
             }
           ],
           "returnType": "string",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `transform` to handle transform.",
+          "descriptionZh": "执行 `transform`，用于转换。"
         }
       ],
       "properties": []
@@ -291,8 +291,8 @@
       "name": "GetByIdPipe",
       "kind": "pipe",
       "pipeName": "getById",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular pipe `GetByIdPipe` (name: 'getById') transforming values for get by id pipe display in templates.",
+      "summaryZh": "Angular 管道 `GetByIdPipe`（name: 'getById'），在模板中转换数据以用于获取按唯一标识管道展示。",
       "sourceFile": "src/util/pipes/getById.pipe.ts",
       "inputs": [],
       "outputs": [],
@@ -314,8 +314,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `transform` to handle transform.",
+          "descriptionZh": "执行 `transform`，用于转换。"
         }
       ],
       "properties": []
@@ -324,8 +324,8 @@
       "name": "HighlightPipe",
       "kind": "pipe",
       "pipeName": "highlight",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular pipe `HighlightPipe` (name: 'highlight') transforming values for highlight pipe display in templates.",
+      "summaryZh": "Angular 管道 `HighlightPipe`（name: 'highlight'），在模板中转换数据以用于Highlight管道展示。",
       "sourceFile": "src/util/pipes/text-highlight.pipe.ts",
       "inputs": [],
       "outputs": [],
@@ -343,8 +343,8 @@
             }
           ],
           "returnType": "string",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `transform` to handle transform.",
+          "descriptionZh": "执行 `transform`，用于转换。"
         }
       ],
       "properties": []
@@ -353,8 +353,8 @@
       "name": "HtmlToPlaintextPipe",
       "kind": "pipe",
       "pipeName": "htmlToPlaintext",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular pipe `HtmlToPlaintextPipe` (name: 'htmlToPlaintext') transforming values for html to plaintext pipe display in templates.",
+      "summaryZh": "Angular 管道 `HtmlToPlaintextPipe`（name: 'htmlToPlaintext'），在模板中转换数据以用于HTML内容转换为Plaintext管道展示。",
       "sourceFile": "src/util/pipes/htmlToPlaintext.pipe.ts",
       "inputs": [],
       "outputs": [],
@@ -372,8 +372,8 @@
             }
           ],
           "returnType": "string",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `transform` to handle transform.",
+          "descriptionZh": "执行 `transform`，用于转换。"
         }
       ],
       "properties": []
@@ -382,8 +382,8 @@
       "name": "KeysPipe",
       "kind": "pipe",
       "pipeName": "keys",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular pipe `KeysPipe` (name: 'keys') transforming values for keys pipe display in templates.",
+      "summaryZh": "Angular 管道 `KeysPipe`（name: 'keys'），在模板中转换数据以用于键列表管道展示。",
       "sourceFile": "src/util/pipes/keys.pipe.ts",
       "inputs": [],
       "outputs": [],
@@ -397,8 +397,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `transform` to handle transform.",
+          "descriptionZh": "执行 `transform`，用于转换。"
         }
       ],
       "properties": []
@@ -407,8 +407,8 @@
       "name": "LocalizedDatePipe",
       "kind": "pipe",
       "pipeName": "LocalizedDate",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular pipe `LocalizedDatePipe` (name: 'LocalizedDate') transforming values for localized date pipe display in templates.",
+      "summaryZh": "Angular 管道 `LocalizedDatePipe`（name: 'LocalizedDate'），在模板中转换数据以用于Localized日期管道展示。",
       "sourceFile": "src/util/pipes/localized-date.pipe.ts",
       "inputs": [],
       "outputs": [],
@@ -430,8 +430,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `transform` to handle transform.",
+          "descriptionZh": "执行 `transform`，用于转换。"
         }
       ],
       "properties": [
@@ -439,15 +439,15 @@
           "name": "DEFAULT_DATE_FORMAT",
           "type": "any",
           "default": "'mediumDate'",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `DEFAULT_DATE_FORMAT` (`string`) storing default date format (default: `'mediumDate'`).",
+          "descriptionZh": "属性 `DEFAULT_DATE_FORMAT`（类型：`string`），用于存储或配置默认日期格式化（默认值：`'mediumDate'`）。"
         },
         {
           "name": "defaultFormat",
           "type": "string",
           "default": "LocalizedDatePipe.DEFAULT_DATE_FORMAT",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `defaultFormat` (`string`) storing default format (default: `LocalizedDatePipe.DEFAULT_DATE_FORMAT`).",
+          "descriptionZh": "属性 `defaultFormat`（类型：`string`），用于存储或配置默认格式化（默认值：`LocalizedDatePipe.DEFAULT_DATE_FORMAT`）。"
         }
       ]
     },
@@ -455,8 +455,8 @@
       "name": "MultiValuePipe",
       "kind": "pipe",
       "pipeName": "multiValue",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular pipe `MultiValuePipe` (name: 'multiValue') transforming values for multi value pipe display in templates.",
+      "summaryZh": "Angular 管道 `MultiValuePipe`（name: 'multiValue'），在模板中转换数据以用于多值管道展示。",
       "sourceFile": "src/util/pipes/multi-value.pipe.ts",
       "inputs": [],
       "outputs": [],
@@ -474,8 +474,8 @@
             }
           ],
           "returnType": "string",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `transform` to handle transform.",
+          "descriptionZh": "执行 `transform`，用于转换。"
         }
       ],
       "properties": [
@@ -483,8 +483,8 @@
           "name": "DEFAULT_SEPARATOR",
           "type": "any",
           "default": "', '",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `DEFAULT_SEPARATOR` (`string`) storing default separator (default: `', '`).",
+          "descriptionZh": "属性 `DEFAULT_SEPARATOR`（类型：`string`），用于存储或配置默认SEPARATOR（默认值：`', '`）。"
         }
       ]
     },
@@ -492,8 +492,8 @@
       "name": "SanitizeHtmlPipe",
       "kind": "pipe",
       "pipeName": "sanitizeHtml",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular pipe `SanitizeHtmlPipe` (name: 'sanitizeHtml') transforming values for sanitize html pipe display in templates.",
+      "summaryZh": "Angular 管道 `SanitizeHtmlPipe`（name: 'sanitizeHtml'），在模板中转换数据以用于SanitizeHTML内容管道展示。",
       "sourceFile": "src/util/pipes/custom-html.pipe.ts",
       "inputs": [],
       "outputs": [],
@@ -507,8 +507,8 @@
             }
           ],
           "returnType": "SafeHtml",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `transform` to handle transform.",
+          "descriptionZh": "执行 `transform`，用于转换。"
         }
       ],
       "properties": []
@@ -517,8 +517,8 @@
       "name": "SecureImagePipe",
       "kind": "pipe",
       "pipeName": "secureImage",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular pipe `SecureImagePipe` (name: 'secureImage') transforming values for secure image pipe display in templates.",
+      "summaryZh": "Angular 管道 `SecureImagePipe`（name: 'secureImage'），在模板中转换数据以用于Secure图像管道展示。",
       "sourceFile": "src/util/pipes/secure-image.pipe.ts",
       "inputs": [],
       "outputs": [],
@@ -532,8 +532,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `transform` to handle transform.",
+          "descriptionZh": "执行 `transform`，用于转换。"
         }
       ],
       "properties": []
@@ -542,8 +542,8 @@
       "name": "SecurePipe",
       "kind": "pipe",
       "pipeName": "secure",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Fetches a URL that requires authentication headers and exposes the response blob as a\ntrusted object URL, e.g. `<img [src]=\"url | secure | async\">`.",
+      "summaryZh": "拉取需要携带鉴权头的 URL，把响应 blob 转成受信任的 object URL 供模板使用，\n例如 `<img [src]=\"url | secure | async\">`。\n\n每个绑定点持有自己的管道实例，实例负责释放它创建的 object URL：\nURL 变化时释放上一个，销毁时释放最后一个。不释放的话浏览器会一直持有对应 blob\n直到文档卸载（图片场景通常是 MB 级）。",
       "sourceFile": "src/util/pipes/secure-pipe.ts",
       "inputs": [],
       "outputs": [],
@@ -553,12 +553,12 @@
           "params": [
             {
               "name": "url",
-              "type": "any"
+              "type": "string"
             }
           ],
           "returnType": "Observable<SafeUrl>",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `transform` to handle transform.",
+          "descriptionZh": "执行 `transform`，用于转换。"
         }
       ],
       "properties": []
@@ -567,8 +567,8 @@
       "name": "TimeAgoPipe",
       "kind": "pipe",
       "pipeName": "timeAgo",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular pipe `TimeAgoPipe` (name: 'timeAgo') transforming values for time ago pipe display in templates.",
+      "summaryZh": "Angular 管道 `TimeAgoPipe`（name: 'timeAgo'），在模板中转换数据以用于时间Ago管道展示。",
       "sourceFile": "src/util/pipes/time-ago.pipe.ts",
       "inputs": [],
       "outputs": [],
@@ -586,8 +586,8 @@
             }
           ],
           "returnType": "string",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `transform` to handle transform.",
+          "descriptionZh": "执行 `transform`，用于转换。"
         }
       ],
       "properties": []
@@ -596,8 +596,8 @@
       "name": "TimeDifferencePipe",
       "kind": "pipe",
       "pipeName": "timeDifference",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular pipe `TimeDifferencePipe` (name: 'timeDifference') transforming values for time difference pipe display in templates.",
+      "summaryZh": "Angular 管道 `TimeDifferencePipe`（name: 'timeDifference'），在模板中转换数据以用于时间Difference管道展示。",
       "sourceFile": "src/util/pipes/time-difference.pipe.ts",
       "inputs": [],
       "outputs": [],
@@ -615,8 +615,8 @@
             }
           ],
           "returnType": "string",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `transform` to handle transform.",
+          "descriptionZh": "执行 `transform`，用于转换。"
         }
       ],
       "properties": []
@@ -625,8 +625,8 @@
       "name": "TruncatePipe",
       "kind": "pipe",
       "pipeName": "truncate",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular pipe `TruncatePipe` (name: 'truncate') transforming values for truncate pipe display in templates.",
+      "summaryZh": "Angular 管道 `TruncatePipe`（name: 'truncate'），在模板中转换数据以用于Truncate管道展示。",
       "sourceFile": "src/util/pipes/truncate.pipe.ts",
       "inputs": [],
       "outputs": [],
@@ -644,8 +644,8 @@
             }
           ],
           "returnType": "string",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `transform` to handle transform.",
+          "descriptionZh": "执行 `transform`，用于转换。"
         }
       ],
       "properties": []

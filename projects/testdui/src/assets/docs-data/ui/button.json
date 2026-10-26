@@ -4,8 +4,8 @@
     {
       "name": "ButtonBase",
       "kind": "class",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Class `ButtonBase` encapsulating button base data structures and logic in `src/ui/button`.",
+      "summaryZh": "类 `ButtonBase`，封装 `src/ui/button` 中的按钮基础数据结构与处理逻辑。",
       "sourceFile": "src/ui/button/button.base.ts",
       "inputs": [],
       "outputs": [],
@@ -14,8 +14,8 @@
           "name": "getEl",
           "params": [],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `getEl` to handle get el.",
+          "descriptionZh": "执行 `getEl`，用于获取DOM元素。"
         },
         {
           "name": "init",
@@ -26,8 +26,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `init` to handle init.",
+          "descriptionZh": "执行 `init`，用于初始化。"
         },
         {
           "name": "processItems",
@@ -38,8 +38,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `processItems` to handle process items.",
+          "descriptionZh": "执行 `processItems`，用于处理条目列表。"
         },
         {
           "name": "openMenu",
@@ -54,8 +54,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `openMenu` to handle open menu.",
+          "descriptionZh": "执行 `openMenu`，用于打开菜单。"
         },
         {
           "name": "onValueChange",
@@ -70,15 +70,15 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `onValueChange` to handle on value change.",
+          "descriptionZh": "执行 `onValueChange`，用于当值变更。"
         },
         {
           "name": "closeAllMenu",
           "params": [],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `closeAllMenu` to handle close all menu.",
+          "descriptionZh": "执行 `closeAllMenu`，用于关闭全部菜单。"
         },
         {
           "name": "closeSubMenu",
@@ -89,22 +89,22 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `closeSubMenu` to handle close sub menu.",
+          "descriptionZh": "执行 `closeSubMenu`，用于关闭子菜单。"
         },
         {
           "name": "hasIcon",
           "params": [],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `hasIcon` to handle has icon.",
+          "descriptionZh": "执行 `hasIcon`，用于是否包含图标。"
         },
         {
           "name": "onDestroy",
           "params": [],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `onDestroy` to handle on destroy.",
+          "descriptionZh": "执行 `onDestroy`，用于当销毁。"
         },
         {
           "name": "setHandler",
@@ -119,8 +119,8 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `setHandler` to handle set handler.",
+          "descriptionZh": "执行 `setHandler`，用于集合处理器。"
         },
         {
           "name": "setIcon",
@@ -131,15 +131,15 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `setIcon` to handle set icon.",
+          "descriptionZh": "执行 `setIcon`，用于集合图标。"
         },
         {
           "name": "getValue",
           "params": [],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `getValue` to handle get value.",
+          "descriptionZh": "执行 `getValue`，用于获取值。"
         },
         {
           "name": "setValue",
@@ -150,8 +150,8 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `setValue` to handle set value.",
+          "descriptionZh": "执行 `setValue`，用于集合值。"
         },
         {
           "name": "onClick",
@@ -162,22 +162,22 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `onClick` to handle on click.",
+          "descriptionZh": "执行 `onClick`，用于当点击。"
         },
         {
           "name": "onDisable",
           "params": [],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `onDisable` to handle on disable.",
+          "descriptionZh": "执行 `onDisable`，用于当禁用。"
         },
         {
           "name": "onEnable",
           "params": [],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `onEnable` to handle on enable.",
+          "descriptionZh": "执行 `onEnable`，用于当启用。"
         },
         {
           "name": "onDisableChange",
@@ -188,190 +188,190 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `onDisableChange` to handle on disable change.",
+          "descriptionZh": "执行 `onDisableChange`，用于当禁用变更。"
         }
       ],
       "properties": [
         {
           "name": "matTooltip",
           "type": "MatTooltip",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `matTooltip` (`MatTooltip`) storing mat tooltip.",
+          "descriptionZh": "属性 `matTooltip`（类型：`MatTooltip`），用于存储或配置Material悬浮提示。"
         },
         {
           "name": "config",
           "type": "any",
           "default": "{}",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `config` (`any`) storing config (default: `{}`).",
+          "descriptionZh": "属性 `config`（类型：`any`），用于存储或配置配置（默认值：`{}`）。"
         },
         {
           "name": "data",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `data` (`any`) storing data.",
+          "descriptionZh": "属性 `data`（类型：`any`），用于存储或配置数据。"
         },
         {
           "name": "ownerCt",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `ownerCt` (`any`) storing owner ct.",
+          "descriptionZh": "属性 `ownerCt`（类型：`any`），用于存储或配置所属者Ct。"
         },
         {
           "name": "click",
           "type": "any",
           "default": "new EventEmitter<any>()",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `click` (`EventEmitter`) storing click (default: `new EventEmitter<any>()`).",
+          "descriptionZh": "属性 `click`（类型：`EventEmitter`），用于存储或配置点击（默认值：`new EventEmitter<any>()`）。"
         },
         {
           "name": "type",
           "type": "any",
           "default": "'mat-button'",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `type` (`string`) storing type (default: `'mat-button'`).",
+          "descriptionZh": "属性 `type`（类型：`string`），用于存储或配置类型（默认值：`'mat-button'`）。"
         },
         {
           "name": "items",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current items (`items: any`).",
+          "descriptionZh": "获取当前条目列表（`items: any`）。"
         },
         {
           "name": "items",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Sets the items (`items`).",
+          "descriptionZh": "设置条目列表（`items`）。"
         },
         {
           "name": "flex",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `flex` (`any`) storing flex.",
+          "descriptionZh": "属性 `flex`（类型：`any`），用于存储或配置flex。"
         },
         {
           "name": "title",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `title` (`any`) storing title.",
+          "descriptionZh": "属性 `title`（类型：`any`），用于存储或配置标题。"
         },
         {
           "name": "text",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `text` (`any`) storing text.",
+          "descriptionZh": "属性 `text`（类型：`any`），用于存储或配置文本。"
         },
         {
           "name": "value",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `value` (`any`) storing value.",
+          "descriptionZh": "属性 `value`（类型：`any`），用于存储或配置值。"
         },
         {
           "name": "default",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `default` (`any`) storing default.",
+          "descriptionZh": "属性 `default`（类型：`any`），用于存储或配置默认。"
         },
         {
           "name": "disableRipple",
           "type": "boolean",
           "default": "false",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `disableRipple` (`boolean`) storing disable ripple (default: `false`).",
+          "descriptionZh": "属性 `disableRipple`（类型：`boolean`），用于存储或配置禁用Ripple（默认值：`false`）。"
         },
         {
           "name": "color",
           "type": "string",
           "default": "''",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `color` (`string`) storing color (default: `''`).",
+          "descriptionZh": "属性 `color`（类型：`string`），用于存储或配置颜色（默认值：`''`）。"
         },
         {
           "name": "toolTip",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `toolTip` (`any`) storing tool tip.",
+          "descriptionZh": "属性 `toolTip`（类型：`any`），用于存储或配置tool提示。"
         },
         {
           "name": "icon",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `icon` (`any`) storing icon.",
+          "descriptionZh": "属性 `icon`（类型：`any`），用于存储或配置图标。"
         },
         {
           "name": "iconType",
           "type": "any",
           "default": "\"FONT\"",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `iconType` (`string`) storing icon type (default: `\"FONT\"`).",
+          "descriptionZh": "属性 `iconType`（类型：`string`），用于存储或配置图标类型（默认值：`\"FONT\"`）。"
         },
         {
           "name": "svgIcon",
           "type": "any",
           "default": "\"\"",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `svgIcon` (`string`) storing svg icon (default: `\"\"`).",
+          "descriptionZh": "属性 `svgIcon`（类型：`string`），用于存储或配置SVG矢量图图标（默认值：`\"\"`）。"
         },
         {
           "name": "handler",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `handler` (`any`) storing handler.",
+          "descriptionZh": "属性 `handler`（类型：`any`），用于存储或配置处理器。"
         },
         {
           "name": "change",
           "type": "any",
           "default": "(value)=>{}",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `change` (`any`) storing change (default: `(value)=>{}`).",
+          "descriptionZh": "属性 `change`（类型：`any`），用于存储或配置变更（默认值：`(value)=>{}`）。"
         },
         {
           "name": "tabIndex",
           "type": "number",
           "default": "0",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `tabIndex` (`number`) storing tab index (default: `0`).",
+          "descriptionZh": "属性 `tabIndex`（类型：`number`），用于存储或配置选项卡索引（默认值：`0`）。"
         },
         {
           "name": "menu",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `menu` (`any`) storing menu.",
+          "descriptionZh": "属性 `menu`（类型：`any`），用于存储或配置菜单。"
         },
         {
           "name": "style",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `style` (`any`) storing style.",
+          "descriptionZh": "属性 `style`（类型：`any`），用于存储或配置样式。"
         },
         {
           "name": "checked",
           "type": "boolean",
           "default": "false",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `checked` (`boolean`) storing checked (default: `false`).",
+          "descriptionZh": "属性 `checked`（类型：`boolean`），用于存储或配置已勾选（默认值：`false`）。"
         },
         {
           "name": "dropdown",
           "type": "boolean",
           "default": "false",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `dropdown` (`boolean`) storing dropdown (default: `false`).",
+          "descriptionZh": "属性 `dropdown`（类型：`boolean`），用于存储或配置下拉框（默认值：`false`）。"
         },
         {
           "name": "iconPosition",
           "type": "any",
           "default": "'before'",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `iconPosition` (`string`) storing icon position (default: `'before'`).",
+          "descriptionZh": "属性 `iconPosition`（类型：`string`），用于存储或配置图标位置（默认值：`'before'`）。"
         },
         {
           "name": "triggers",
           "type": "QueryList<MatMenuTrigger>",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `triggers` (`QueryList<MatMenuTrigger>`) storing triggers.",
+          "descriptionZh": "属性 `triggers`（类型：`QueryList<MatMenuTrigger>`），用于存储或配置触发。"
         }
       ]
     },
@@ -379,49 +379,49 @@
       "name": "ButtonComponent",
       "kind": "component",
       "selector": "dui-button",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular component `ButtonComponent` (selector: 'dui-button') providing button component presentation and interaction in `src/ui/button`.",
+      "summaryZh": "Angular 组件 `ButtonComponent`（selector: 'dui-button'），提供按钮组件的视图渲染与交互逻辑（位于 `src/ui/button`）。",
       "sourceFile": "src/ui/button/button.component.ts",
       "inputs": [
         {
           "name": "config",
           "type": "any",
           "default": "{}",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `config` (`any`) configuring config (default: `{}`).",
+          "descriptionZh": "输入属性 `config`（类型：`any`），用于配置配置（默认值：`{}`）。"
         },
         {
           "name": "data",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `data` (`any`) configuring data.",
+          "descriptionZh": "输入属性 `data`（类型：`any`），用于配置数据。"
         },
         {
           "name": "ownerCt",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `ownerCt` (`any`) configuring owner ct.",
+          "descriptionZh": "输入属性 `ownerCt`（类型：`any`），用于配置所属者Ct。"
         },
         {
           "name": "iconStyle",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `iconStyle` (`any`) configuring icon style.",
+          "descriptionZh": "输入属性 `iconStyle`（类型：`any`），用于配置图标样式。"
         },
         {
           "name": "hasMenu",
           "type": "any",
           "default": "false",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `hasMenu` (`boolean`) configuring has menu (default: `false`).",
+          "descriptionZh": "输入属性 `hasMenu`（类型：`boolean`），用于配置是否包含菜单（默认值：`false`）。"
         }
       ],
       "outputs": [
         {
           "name": "click",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Output event emitter `click` (`EventEmitter`) firing when click occurs.",
+          "descriptionZh": "输出事件 `click`（类型：`EventEmitter`），当触发点击时向外发出事件。"
         }
       ],
       "methods": [
@@ -429,8 +429,8 @@
           "name": "getEl",
           "params": [],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `getEl` to handle get el.",
+          "descriptionZh": "执行 `getEl`，用于获取DOM元素。"
         },
         {
           "name": "onClick",
@@ -441,44 +441,44 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `onClick` to handle on click.",
+          "descriptionZh": "执行 `onClick`，用于当点击。"
         }
       ],
       "properties": [
         {
           "name": "matTooltip",
           "type": "MatTooltip",
-          "description": null,
-          "descriptionZh": null
+          "description": "Template/content query reference `matTooltip` (`@ViewChild`) targeting mat tooltip.",
+          "descriptionZh": "模板/内容视图查询引用 `matTooltip`（`@ViewChild`），指向Material悬浮提示。"
         },
         {
           "name": "showIcon",
           "type": "any",
           "default": "true",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `showIcon` (`boolean`) storing show icon (default: `true`).",
+          "descriptionZh": "属性 `showIcon`（类型：`boolean`），用于存储或配置显示图标（默认值：`true`）。"
         },
         {
           "name": "onlyIcon",
           "type": "any",
           "default": "false",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `onlyIcon` (`boolean`) storing only icon (default: `false`).",
+          "descriptionZh": "属性 `onlyIcon`（类型：`boolean`），用于存储或配置only图标（默认值：`false`）。"
         },
         {
           "name": "triggers",
           "type": "QueryList<MatMenuTrigger>",
-          "description": null,
-          "descriptionZh": null
+          "description": "Template/content query reference `triggers` (`@ViewChildren`) targeting triggers.",
+          "descriptionZh": "模板/内容视图查询引用 `triggers`（`@ViewChildren`），指向触发。"
         }
       ]
     },
     {
       "name": "ButtonModule",
       "kind": "module",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular module `ButtonModule` declaring and exporting button module components, directives, pipes, and providers.",
+      "summaryZh": "Angular 模块 `ButtonModule`，声明并导出按钮模块相关的组件、指令、管道与服务提供者。",
       "sourceFile": "src/ui/button/button.ext.module.ts",
       "inputs": [],
       "outputs": [],
@@ -488,8 +488,8 @@
           "name": "entryComponents",
           "type": "any",
           "default": "[\n     MatDivider,\n    ButtonComponent,]",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `entryComponents` (`any[]`) storing entry components (default: `[ MatDivider, ButtonComponent,]`).",
+          "descriptionZh": "属性 `entryComponents`（类型：`any[]`），用于存储或配置条目组件列表（默认值：`[ MatDivider, ButtonComponent,]`）。"
         }
       ]
     },
@@ -497,22 +497,22 @@
       "name": "ToggleButtonComponent",
       "kind": "component",
       "selector": "toggle-button",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular component `ToggleButtonComponent` (selector: 'toggle-button') providing toggle button component presentation and interaction in `src/ui/button`.",
+      "summaryZh": "Angular 组件 `ToggleButtonComponent`（selector: 'toggle-button'），提供开关按钮组件的视图渲染与交互逻辑（位于 `src/ui/button`）。",
       "sourceFile": "src/ui/button/toggle-button.component.ts",
       "inputs": [
         {
           "name": "config",
           "type": "any",
           "default": "{}",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `config` (`any`) configuring config (default: `{}`).",
+          "descriptionZh": "输入属性 `config`（类型：`any`），用于配置配置（默认值：`{}`）。"
         },
         {
           "name": "data",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `data` (`any`) configuring data.",
+          "descriptionZh": "输入属性 `data`（类型：`any`），用于配置数据。"
         }
       ],
       "outputs": [],
@@ -526,8 +526,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `init` to handle init.",
+          "descriptionZh": "执行 `init`，用于初始化。"
         },
         {
           "name": "hasIcon",
@@ -538,8 +538,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `hasIcon` to handle has icon.",
+          "descriptionZh": "执行 `hasIcon`，用于是否包含图标。"
         },
         {
           "name": "onClick",
@@ -554,8 +554,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `onClick` to handle on click.",
+          "descriptionZh": "执行 `onClick`，用于当点击。"
         },
         {
           "name": "setValue",
@@ -566,15 +566,15 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `setValue` to handle set value.",
+          "descriptionZh": "执行 `setValue`，用于集合值。"
         },
         {
           "name": "onDestroy",
           "params": [],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `onDestroy` to handle on destroy.",
+          "descriptionZh": "执行 `onDestroy`，用于当销毁。"
         },
         {
           "name": "initFieldExpression",
@@ -585,15 +585,15 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `initFieldExpression` to handle init field expression.",
+          "descriptionZh": "执行 `initFieldExpression`，用于初始化字段表达式。"
         },
         {
           "name": "checkExpressionChange",
           "params": [],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `checkExpressionChange` to handle check expression change.",
+          "descriptionZh": "执行 `checkExpressionChange`，用于检查表达式变更。"
         },
         {
           "name": "checkMenuExpressionChange",
@@ -608,8 +608,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `checkMenuExpressionChange` to handle check menu expression change.",
+          "descriptionZh": "执行 `checkMenuExpressionChange`，用于检查菜单表达式变更。"
         },
         {
           "name": "checkMenuVisibilityChange",
@@ -624,8 +624,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `checkMenuVisibilityChange` to handle check menu visibility change.",
+          "descriptionZh": "执行 `checkMenuVisibilityChange`，用于检查菜单Visibility变更。"
         },
         {
           "name": "checkMenuDisableChange",
@@ -640,126 +640,126 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `checkMenuDisableChange` to handle check menu disable change.",
+          "descriptionZh": "执行 `checkMenuDisableChange`，用于检查菜单禁用变更。"
         }
       ],
       "properties": [
         {
           "name": "childMenu",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Template/content query reference `childMenu` (`@ViewChild`) targeting child menu.",
+          "descriptionZh": "模板/内容视图查询引用 `childMenu`（`@ViewChild`），指向子级菜单。"
         },
         {
           "name": "items",
           "type": "Array<any>",
           "default": "[]",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `items` (`Array<any>`) storing items (default: `[]`).",
+          "descriptionZh": "属性 `items`（类型：`Array<any>`），用于存储或配置条目列表（默认值：`[]`）。"
         },
         {
           "name": "disableRipple",
           "type": "boolean",
           "default": "false",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `disableRipple` (`boolean`) storing disable ripple (default: `false`).",
+          "descriptionZh": "属性 `disableRipple`（类型：`boolean`），用于存储或配置禁用Ripple（默认值：`false`）。"
         },
         {
           "name": "appearance",
           "type": "MatButtonToggleAppearance",
           "default": "'standard'",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `appearance` (`MatButtonToggleAppearance`) storing appearance (default: `'standard'`).",
+          "descriptionZh": "属性 `appearance`（类型：`MatButtonToggleAppearance`），用于存储或配置appearance（默认值：`'standard'`）。"
         },
         {
           "name": "multiple",
           "type": "boolean",
           "default": "false",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `multiple` (`boolean`) storing multiple (default: `false`).",
+          "descriptionZh": "属性 `multiple`（类型：`boolean`），用于存储或配置多个（默认值：`false`）。"
         },
         {
           "name": "name",
           "type": "string",
           "default": "''",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `name` (`string`) storing name (default: `''`).",
+          "descriptionZh": "属性 `name`（类型：`string`），用于存储或配置名称（默认值：`''`）。"
         },
         {
           "name": "value",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `value` (`any`) storing value.",
+          "descriptionZh": "属性 `value`（类型：`any`），用于存储或配置值。"
         },
         {
           "name": "disabled",
           "type": "boolean",
           "default": "false",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `disabled` (`boolean`) storing disabled (default: `false`).",
+          "descriptionZh": "属性 `disabled`（类型：`boolean`），用于存储或配置已禁用（默认值：`false`）。"
         },
         {
           "name": "vertical",
           "type": "boolean",
           "default": "false",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `vertical` (`boolean`) storing vertical (default: `false`).",
+          "descriptionZh": "属性 `vertical`（类型：`boolean`），用于存储或配置垂直（默认值：`false`）。"
         },
         {
           "name": "style",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `style` (`any`) storing style.",
+          "descriptionZh": "属性 `style`（类型：`any`），用于存储或配置样式。"
         },
         {
           "name": "icon",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `icon` (`any`) storing icon.",
+          "descriptionZh": "属性 `icon`（类型：`any`），用于存储或配置图标。"
         },
         {
           "name": "checked",
           "type": "boolean",
           "default": "false",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `checked` (`boolean`) storing checked (default: `false`).",
+          "descriptionZh": "属性 `checked`（类型：`boolean`），用于存储或配置已勾选（默认值：`false`）。"
         },
         {
           "name": "iconPosition",
           "type": "any",
           "default": "'before'",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `iconPosition` (`string`) storing icon position (default: `'before'`).",
+          "descriptionZh": "属性 `iconPosition`（类型：`string`），用于存储或配置图标位置（默认值：`'before'`）。"
         },
         {
           "name": "toolTip",
           "type": "any",
           "default": "''",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `toolTip` (`string`) storing tool tip (default: `''`).",
+          "descriptionZh": "属性 `toolTip`（类型：`string`），用于存储或配置tool提示（默认值：`''`）。"
         },
         {
           "name": "text",
           "type": "any",
           "default": "''",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `text` (`string`) storing text (default: `''`).",
+          "descriptionZh": "属性 `text`（类型：`string`），用于存储或配置文本（默认值：`''`）。"
         },
         {
           "name": "change",
           "type": "any",
           "default": "(e) => { }",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `change` (`any`) storing change (default: `(e) => { }`).",
+          "descriptionZh": "属性 `change`（类型：`any`），用于存储或配置变更（默认值：`(e) => { }`）。"
         }
       ]
     },
     {
       "name": "ToggleButtonModule",
       "kind": "module",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular module `ToggleButtonModule` declaring and exporting toggle button module components, directives, pipes, and providers.",
+      "summaryZh": "Angular 模块 `ToggleButtonModule`，声明并导出开关按钮模块相关的组件、指令、管道与服务提供者。",
       "sourceFile": "src/ui/button/toggle-button.module.ts",
       "inputs": [],
       "outputs": [],
@@ -769,8 +769,8 @@
           "name": "entryComponents",
           "type": "any",
           "default": "[ToggleButtonComponent]",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `entryComponents` (`any[]`) storing entry components (default: `[ToggleButtonComponent]`).",
+          "descriptionZh": "属性 `entryComponents`（类型：`any[]`），用于存储或配置条目组件列表（默认值：`[ToggleButtonComponent]`）。"
         }
       ]
     }

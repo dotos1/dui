@@ -4,8 +4,8 @@
     {
       "name": "LinkPreviewCacheService",
       "kind": "service",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Injectable Angular service `LinkPreviewCacheService` managing link preview cache service state and operations in `src/ux/link-preview/services`.",
+      "summaryZh": "可注入的 Angular 服务 `LinkPreviewCacheService`，管理 `src/ux/link-preview/services` 中的链接预览缓存服务状态与业务操作。",
       "sourceFile": "src/ux/link-preview/services/link-preview-cache.service.ts",
       "inputs": [],
       "outputs": [],
@@ -24,7 +24,7 @@
           ],
           "returnType": "void",
           "description": "Update item in RAM cache",
-          "descriptionZh": null
+          "descriptionZh": "执行 `updateCacheItem`，用于更新缓存条目。"
         },
         {
           "name": "getCacheItem",
@@ -36,14 +36,14 @@
           ],
           "returnType": "any",
           "description": "Get item from cache",
-          "descriptionZh": null
+          "descriptionZh": "执行 `getCacheItem`，用于获取缓存条目。"
         },
         {
           "name": "saveCache",
           "params": [],
           "returnType": "void",
           "description": "Save whole cache to localStorage",
-          "descriptionZh": null
+          "descriptionZh": "执行 `saveCache`，用于保存缓存。"
         }
       ],
       "properties": []
@@ -52,8 +52,8 @@
       "name": "LinkPreviewComponent",
       "kind": "component",
       "selector": "link-preview",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular component `LinkPreviewComponent` (selector: 'link-preview') providing link preview component presentation and interaction in `src/ux/link-preview/components`.",
+      "summaryZh": "Angular 组件 `LinkPreviewComponent`（selector: 'link-preview'），提供链接预览组件的视图渲染与交互逻辑（位于 `src/ux/link-preview/components`）。",
       "sourceFile": "src/ux/link-preview/components/link-preview.component.ts",
       "inputs": [
         {
@@ -61,102 +61,102 @@
           "type": "string[]",
           "default": "[]",
           "description": "Plain links string array",
-          "descriptionZh": null
+          "descriptionZh": "输入属性 `links`（类型：`string[]`），用于配置链接（默认值：`[]`）。"
         },
         {
           "name": "parseForLinksStr",
           "type": "string",
           "description": "Input string to parse for links",
-          "descriptionZh": null
+          "descriptionZh": "输入属性 `parseForLinksStr`（类型：`string`），用于配置解析用于链接字符串。"
         },
         {
           "name": "getApiEndpoint$",
           "type": "(requestUrl: string) => Observable<any>",
           "description": "Method that does the API request, provide as class member arrow function from parent",
-          "descriptionZh": null
+          "descriptionZh": "输入属性 `getApiEndpoint$`（类型：`(requestUrl: string) => Observable<any>`），用于配置获取API接口Endpoint。"
         },
         {
           "name": "apiRoute",
           "type": "string",
           "description": "API route where to get the meta data from, component will build the full request url\nSchema: api.example.com/api/get-meta-data?url=d3d3LmV4YW1wbGUuY29t",
-          "descriptionZh": null
+          "descriptionZh": "输入属性 `apiRoute`（类型：`string`），用于配置API接口Route。"
         },
         {
           "name": "queryParamName",
           "type": "any",
           "default": "'url'",
           "description": "Target url will be attached as encodeURI(btoa(url)), so it must be decoded on the server",
-          "descriptionZh": null
+          "descriptionZh": "输入属性 `queryParamName`（类型：`string`），用于配置查询参数名称（默认值：`'url'`）。"
         },
         {
           "name": "showImage",
           "type": "any",
           "default": "true",
           "description": "boolean: show image in preview",
-          "descriptionZh": null
+          "descriptionZh": "输入属性 `showImage`（类型：`boolean`），用于配置显示图像（默认值：`true`）。"
         },
         {
           "name": "showSiteName",
           "type": "any",
           "default": "true",
           "description": "boolean: show site name in preview",
-          "descriptionZh": null
+          "descriptionZh": "输入属性 `showSiteName`（类型：`boolean`），用于配置显示Site名称（默认值：`true`）。"
         },
         {
           "name": "showTitle",
           "type": "any",
           "default": "true",
           "description": "boolean: show title in preview",
-          "descriptionZh": null
+          "descriptionZh": "输入属性 `showTitle`（类型：`boolean`），用于配置显示标题（默认值：`true`）。"
         },
         {
           "name": "showDescription",
           "type": "any",
           "default": "true",
           "description": "boolean: show description in preview",
-          "descriptionZh": null
+          "descriptionZh": "输入属性 `showDescription`（类型：`boolean`），用于配置显示描述（默认值：`true`）。"
         },
         {
           "name": "showLinkUrl",
           "type": "any",
           "default": "false",
           "description": "boolean: show link url in preview",
-          "descriptionZh": null
+          "descriptionZh": "输入属性 `showLinkUrl`（类型：`boolean`），用于配置显示链接链接地址（默认值：`false`）。"
         },
         {
           "name": "useCache",
           "type": "any",
           "default": "true",
           "description": "boolean: use cache to display previews faster on next rendering",
-          "descriptionZh": null
+          "descriptionZh": "输入属性 `useCache`（类型：`boolean`），用于配置使用缓存（默认值：`true`）。"
         },
         {
           "name": "maxCacheAgeMs",
           "type": "any",
           "default": "1000 * 60 * 60 * 24 * 7",
           "description": "number: max age the data cache of a link preview should be used",
-          "descriptionZh": null
+          "descriptionZh": "输入属性 `maxCacheAgeMs`（类型：`any`），用于配置最大值缓存Age毫秒（默认值：`1000 * 60 * 60 * 24 * 7`）。"
         },
         {
           "name": "showLoadingIndicator",
           "type": "any",
           "default": "true",
           "description": "boolean: show loading indicator",
-          "descriptionZh": null
+          "descriptionZh": "输入属性 `showLoadingIndicator`（类型：`boolean`），用于配置显示加载中指示器（默认值：`true`）。"
         },
         {
           "name": "useHtmlLinkDefaultClickEvent",
           "type": "any",
           "default": "false",
           "description": "boolean: whether the <a href=\"...\"></a> link should be clickable.\nThis is a question of context security. Otherwise use (previewClick) event.",
-          "descriptionZh": null
+          "descriptionZh": "输入属性 `useHtmlLinkDefaultClickEvent`（类型：`boolean`），用于配置使用HTML内容链接默认点击事件（默认值：`false`）。"
         },
         {
           "name": "htmlLinkTarget",
           "type": "HtmlLinkTarget",
           "default": "'_blank'",
           "description": "HtmlLinkTarget: where the HTML link should be opened on click.\nOnly has an effect if [useHtmlLinkDefaultClickEvent]=\"true\"",
-          "descriptionZh": null
+          "descriptionZh": "输入属性 `htmlLinkTarget`（类型：`HtmlLinkTarget`），用于配置HTML内容链接目标（默认值：`'_blank'`）。"
         }
       ],
       "outputs": [
@@ -164,7 +164,7 @@
           "name": "previewClicked",
           "type": "any",
           "description": "Event emitter: on click to handle the click event, emits the clicked URL",
-          "descriptionZh": null
+          "descriptionZh": "输出事件 `previewClicked`（类型：`EventEmitter`），当触发预览点击时向外发出事件。"
         }
       ],
       "methods": [
@@ -178,7 +178,7 @@
           ],
           "returnType": "void",
           "description": "On link click emit to EventEmitter",
-          "descriptionZh": null
+          "descriptionZh": "执行 `onLinkClick`，用于当链接点击。"
         },
         {
           "name": "disableDefaultLink",
@@ -189,8 +189,8 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `disableDefaultLink` to handle disable default link.",
+          "descriptionZh": "执行 `disableDefaultLink`，用于禁用默认链接。"
         },
         {
           "name": "getSanitizedImageUrl",
@@ -202,7 +202,7 @@
           ],
           "returnType": "string",
           "description": "Get sanitized image url due data often contains url errors",
-          "descriptionZh": null
+          "descriptionZh": "执行 `getSanitizedImageUrl`，用于获取Sanitized图像链接地址。"
         }
       ],
       "properties": [
@@ -211,28 +211,28 @@
           "type": "OpenGraphMetaData[]",
           "default": "[]",
           "description": "Array of metadata objects where the preview is rendered from",
-          "descriptionZh": null
+          "descriptionZh": "属性 `previews`（类型：`OpenGraphMetaData[]`），用于存储或配置预览（默认值：`[]`）。"
         },
         {
           "name": "loadingSpinner",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `loadingSpinner` (`any`) storing loading spinner.",
+          "descriptionZh": "属性 `loadingSpinner`（类型：`any`），用于存储或配置加载中加载指示器。"
         },
         {
           "name": "showLoadingSpinner",
           "type": "any",
           "default": "false",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `showLoadingSpinner` (`boolean`) storing show loading spinner (default: `false`).",
+          "descriptionZh": "属性 `showLoadingSpinner`（类型：`boolean`），用于存储或配置显示加载中加载指示器（默认值：`false`）。"
         }
       ]
     },
     {
       "name": "LinkPreviewLoadingManager",
       "kind": "class",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Class `LinkPreviewLoadingManager` encapsulating link preview loading manager data structures and logic in `src/ux/link-preview/services`.",
+      "summaryZh": "类 `LinkPreviewLoadingManager`，封装 `src/ux/link-preview/services` 中的链接预览加载中管理器数据结构与处理逻辑。",
       "sourceFile": "src/ux/link-preview/services/link-preview-loading.manager.ts",
       "inputs": [],
       "outputs": [],
@@ -247,7 +247,7 @@
           ],
           "returnType": "void",
           "description": "Add task to stack",
-          "descriptionZh": null
+          "descriptionZh": "执行 `addTask`，用于添加任务。"
         },
         {
           "name": "removeTask",
@@ -259,7 +259,7 @@
           ],
           "returnType": "void",
           "description": "Remove task from stack",
-          "descriptionZh": null
+          "descriptionZh": "执行 `removeTask`，用于移除任务。"
         }
       ],
       "properties": [
@@ -268,15 +268,15 @@
           "type": "any",
           "default": "new BehaviorSubject(false)",
           "description": "Observable to retrieve if has pending jobs",
-          "descriptionZh": null
+          "descriptionZh": "属性 `hasPendingJobs$`（类型：`BehaviorSubject`），用于存储或配置是否包含等待中Jobs（默认值：`new BehaviorSubject(false)`）。"
         }
       ]
     },
     {
       "name": "LinkPreviewModule",
       "kind": "module",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular module `LinkPreviewModule` declaring and exporting link preview module components, directives, pipes, and providers.",
+      "summaryZh": "Angular 模块 `LinkPreviewModule`，声明并导出链接预览模块相关的组件、指令、管道与服务提供者。",
       "sourceFile": "src/ux/link-preview/link-preview.module.ts",
       "inputs": [],
       "outputs": [],
@@ -286,13 +286,164 @@
     {
       "name": "OpenGraphMetaData",
       "kind": "interface",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Interface `OpenGraphMetaData` defining the contract and properties for open graph meta data.",
+      "summaryZh": "接口 `OpenGraphMetaData`，定义打开Graph元数据数据的数据结构契约与属性规范。",
       "sourceFile": "src/ux/link-preview/interfaces/open-graph-meta-data.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
-      "properties": []
+      "properties": [
+        {
+          "name": "url",
+          "type": "string",
+          "description": "Property `url` (`string`) storing url.",
+          "descriptionZh": "属性 `url`（类型：`string`），用于存储或配置链接地址。"
+        },
+        {
+          "name": "canonical",
+          "type": "string",
+          "description": "Property `canonical` (`string`) storing canonical.",
+          "descriptionZh": "属性 `canonical`（类型：`string`），用于存储或配置canonical。"
+        },
+        {
+          "name": "title",
+          "type": "string",
+          "description": "Property `title` (`string`) storing title.",
+          "descriptionZh": "属性 `title`（类型：`string`），用于存储或配置标题。"
+        },
+        {
+          "name": "image",
+          "type": "string",
+          "description": "Property `image` (`string`) storing image.",
+          "descriptionZh": "属性 `image`（类型：`string`），用于存储或配置图像。"
+        },
+        {
+          "name": "author",
+          "type": "string",
+          "description": "Property `author` (`string`) storing author.",
+          "descriptionZh": "属性 `author`（类型：`string`），用于存储或配置认证器。"
+        },
+        {
+          "name": "description",
+          "type": "string",
+          "description": "Property `description` (`string`) storing description.",
+          "descriptionZh": "属性 `description`（类型：`string`），用于存储或配置描述。"
+        },
+        {
+          "name": "keywords",
+          "type": "string",
+          "description": "Property `keywords` (`string`) storing keywords.",
+          "descriptionZh": "属性 `keywords`（类型：`string`），用于存储或配置keywords。"
+        },
+        {
+          "name": "source",
+          "type": "string",
+          "description": "Property `source` (`string`) storing source.",
+          "descriptionZh": "属性 `source`（类型：`string`），用于存储或配置源。"
+        },
+        {
+          "name": "'og:url'",
+          "type": "string",
+          "description": "Property `og:url` (`string`) storing og:url.",
+          "descriptionZh": "属性 `og:url`（类型：`string`），用于存储或配置og:url。"
+        },
+        {
+          "name": "'og:locale'",
+          "type": "string",
+          "description": "Property `og:locale` (`string`) storing og:locale.",
+          "descriptionZh": "属性 `og:locale`（类型：`string`），用于存储或配置og:locale。"
+        },
+        {
+          "name": "'og:locale:alternate'",
+          "type": "string",
+          "description": "Property `og:locale:alternate` (`string`) storing og:locale:alternate.",
+          "descriptionZh": "属性 `og:locale:alternate`（类型：`string`），用于存储或配置og:locale:alternate。"
+        },
+        {
+          "name": "'og:title'",
+          "type": "string",
+          "description": "Property `og:title` (`string`) storing og:title.",
+          "descriptionZh": "属性 `og:title`（类型：`string`），用于存储或配置og:title。"
+        },
+        {
+          "name": "'og:type'",
+          "type": "string",
+          "description": "Property `og:type` (`string`) storing og:type.",
+          "descriptionZh": "属性 `og:type`（类型：`string`），用于存储或配置og:type。"
+        },
+        {
+          "name": "'og:description'",
+          "type": "string",
+          "description": "Property `og:description` (`string`) storing og:description.",
+          "descriptionZh": "属性 `og:description`（类型：`string`），用于存储或配置og:description。"
+        },
+        {
+          "name": "'og:determiner'",
+          "type": "string",
+          "description": "Property `og:determiner` (`string`) storing og:determiner.",
+          "descriptionZh": "属性 `og:determiner`（类型：`string`），用于存储或配置og:determiner。"
+        },
+        {
+          "name": "'og:site_name'",
+          "type": "string",
+          "description": "Property `og:site_name` (`string`) storing og:site name.",
+          "descriptionZh": "属性 `og:site_name`（类型：`string`），用于存储或配置og:site名称。"
+        },
+        {
+          "name": "'og:image'",
+          "type": "string",
+          "description": "Property `og:image` (`string`) storing og:image.",
+          "descriptionZh": "属性 `og:image`（类型：`string`），用于存储或配置og:image。"
+        },
+        {
+          "name": "'og:image:secure_url'",
+          "type": "string",
+          "description": "Property `og:image:secure_url` (`string`) storing og:image:secure url.",
+          "descriptionZh": "属性 `og:image:secure_url`（类型：`string`），用于存储或配置og:image:secure链接地址。"
+        },
+        {
+          "name": "'og:image:type'",
+          "type": "string",
+          "description": "Property `og:image:type` (`string`) storing og:image:type.",
+          "descriptionZh": "属性 `og:image:type`（类型：`string`），用于存储或配置og:image:type。"
+        },
+        {
+          "name": "'og:image:width'",
+          "type": "string",
+          "description": "Property `og:image:width` (`string`) storing og:image:width.",
+          "descriptionZh": "属性 `og:image:width`（类型：`string`），用于存储或配置og:image:width。"
+        },
+        {
+          "name": "'og:image:height'",
+          "type": "string",
+          "description": "Property `og:image:height` (`string`) storing og:image:height.",
+          "descriptionZh": "属性 `og:image:height`（类型：`string`），用于存储或配置og:image:height。"
+        },
+        {
+          "name": "price",
+          "type": "string",
+          "description": "Property `price` (`string`) storing price.",
+          "descriptionZh": "属性 `price`（类型：`string`），用于存储或配置price。"
+        },
+        {
+          "name": "priceCurrency",
+          "type": "string",
+          "description": "Property `priceCurrency` (`string`) storing price currency.",
+          "descriptionZh": "属性 `priceCurrency`（类型：`string`），用于存储或配置priceCurrency。"
+        },
+        {
+          "name": "availability",
+          "type": "string",
+          "description": "Property `availability` (`string`) storing availability.",
+          "descriptionZh": "属性 `availability`（类型：`string`），用于存储或配置availability。"
+        },
+        {
+          "name": "timestampMs",
+          "type": "number",
+          "description": "Property `timestampMs` (`number`) storing timestamp ms.",
+          "descriptionZh": "属性 `timestampMs`（类型：`number`），用于存储或配置timestamp毫秒。"
+        }
+      ]
     }
   ],
   "suggestedUsageSnippet": "import { LinkPreviewComponent, LinkPreviewModule } from '@dotos/dui/ux/link-preview';\n\n<link-preview [links]=\"...\" [parseForLinksStr]=\"...\" [getApiEndpoint$]=\"...\" (previewClicked)=\"...\"></link-preview>"

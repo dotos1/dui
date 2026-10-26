@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Module `src/common/keyboard/keyboard-shortcuts-select.service.ts` providing keyboard shortcuts select service definitions and implementation.
+ * @zh 模块文件 `src/common/keyboard/keyboard-shortcuts-select.service.ts`，提供键盘快捷键列表下拉选择服务相关的定义与实现。
+ */
+
 import {Injectable} from '@angular/core';
 import {KeyboardShortcutsService} from './keyboard-shortcuts.service';
 
@@ -11,6 +16,11 @@ import {KeyboardShortcutsService} from './keyboard-shortcuts.service';
 })
 
 export class KeyboardShortcutsSelectService {
+    /**
+     * Creates an instance of `KeyboardShortcutsSelectService` and initializes its dependencies and internal state.
+     * @zh 创建 `KeyboardShortcutsSelectService` 实例，并初始化其依赖项与内部状态。
+     * @param keyboardService - Injected or initial keyboard service (`KeyboardShortcutsService`) / 注入或传入的键盘服务（`KeyboardShortcutsService`）
+     */
     constructor(private keyboardService: KeyboardShortcutsService) {
     }
 

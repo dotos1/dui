@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Module `src/core/form/extensions/field-expression/field-expression.ts` providing field expression definitions and implementation.
+ * @zh 模块文件 `src/core/form/extensions/field-expression/field-expression.ts`，提供字段表达式相关的定义与实现。
+ */
+
 import { FormArray } from '@angular/forms';
 import { FieldConfig, ValueChangeEvent, FieldConfigCache } from '../../models';
 import {
@@ -15,7 +20,16 @@ import { FormExtension } from '../../models';
 import { unregisterControl, registerControl, updateValidity } from '../field-form/utils';
 
 
+/**
+ * Class `FieldExpressionExtension` encapsulating field expression extension data structures and logic in `src/core/form/extensions/field-expression`.
+ * @zh 类 `FieldExpressionExtension`，封装 `src/core/form/extensions/field-expression` 中的字段表达式Extension数据结构与处理逻辑。
+ */
 export class FieldExpressionExtension implements FormExtension {
+  /**
+   * Executes `onPopulate` to handle on populate.
+   * @zh 执行 `onPopulate`，用于当Populate。
+   * @param field - field parameter (`FieldConfigCache`) / 字段参数（`FieldConfigCache`）
+   */
   onPopulate(field: FieldConfigCache) {
     if (field._expressions) {
       return;
@@ -27,7 +41,7 @@ export class FieldExpressionExtension implements FormExtension {
     observe(field, ['hide'], ({ currentValue, firstChange }) => {
       defineHiddenProp(field, '_hide', !!currentValue);
       if (!firstChange || (firstChange && currentValue === true)) {
-        field.hidden = currentValue;
+        field.hidden = currentValue as boolean;
         field.option._hiddenFieldsForCheck.push(field);
       }
     });
@@ -44,7 +58,7 @@ export class FieldExpressionExtension implements FormExtension {
           field._expressions[key] = this.parseExpressions(field, key, expr);
         } else if (expr instanceof Observable) {
           const subscribe = () =>
-            (expr as Observable<any>).subscribe((v) => {
+            (expr as Observable<unknown>).subscribe((v) => {
               this.evalExpr(field, key, v);
             });
 
@@ -68,6 +82,11 @@ export class FieldExpressionExtension implements FormExtension {
     }
   }
 
+  /**
+   * Executes `postPopulate` to handle post populate.
+   * @zh 执行 `postPopulate`，用于提交Populate。
+   * @param field - field parameter (`FieldConfigCache`) / 字段参数（`FieldConfigCache`）
+   */
   postPopulate(field: FieldConfigCache) {
     if (field.parent) {
       return;
@@ -101,8 +120,15 @@ export class FieldExpressionExtension implements FormExtension {
     }
   }
 
-  private parseExpressions(field: FieldConfigCache, path: string, expr: any) {
-    let parentExpression: any;
+  /**
+   * Executes `parseExpressions` to handle parse expressions.
+   * @zh 执行 `parseExpressions`，用于解析表达式。
+   * @param field - field parameter (`FieldConfigCache`) / 字段参数（`FieldConfigCache`）
+   * @param path - path parameter (`string`) / 路径参数（`string`）
+   * @param expr - expr parameter (`any`) / expr参数（`any`）
+   */
+  private parseExpressions(field: FieldConfigCache, path: string, expr) {
+    let parentExpression;
     if (field.parent && ['hide', 'disabled'].includes(path)) {
       const rootValue = (f) => {
         return path === 'hide' ? f.hide : f.disabled;
@@ -122,7 +148,7 @@ export class FieldExpressionExtension implements FormExtension {
       expr = evalStringExpression(expr, ['model', 'formState', 'field']);
     }
 
-    let currentValue: any;
+    let currentValue;
 
     return (ignoreCache?: boolean) => {
       try {
@@ -141,13 +167,19 @@ export class FieldExpressionExtension implements FormExtension {
           return true;
         }
         return false;
-      } catch (error:any) {
+      } catch (error) {
         error.message = `[Form Error] [Expression "${path}"] ${error.message}`;
         throw error;
       }
     };
   }
 
+  /**
+   * Executes `checkExpressions` to handle check expressions.
+   * @zh 执行 `checkExpressions`，用于检查表达式。
+   * @param field - field parameter (`FieldConfigCache`) / 字段参数（`FieldConfigCache`）
+   * @param ignoreCache - ignore cache parameter (`any`) / 忽略缓存参数（`any`）
+   */
   private checkExpressions(field: FieldConfigCache, ignoreCache = false) {
     if (!field) {
       return;
@@ -162,6 +194,12 @@ export class FieldExpressionExtension implements FormExtension {
     }
   }
 
+  /**
+   * Executes `changeDisabledState` to handle change disabled state.
+   * @zh 执行 `changeDisabledState`，用于变更已禁用状态。
+   * @param field - field parameter (`FieldConfig`) / 字段参数（`FieldConfig`）
+   * @param value - value parameter (`boolean`) / 值参数（`boolean`）
+   */
   private changeDisabledState(field: FieldConfig, value: boolean) {
     if (field.fieldGroup) {
       field.fieldGroup
@@ -173,6 +211,13 @@ export class FieldExpressionExtension implements FormExtension {
     }
   }
 
+  /**
+   * Executes `changeHideState` to handle change hide state.
+   * @zh 执行 `changeHideState`，用于变更隐藏状态。
+   * @param field - field parameter (`FieldConfig`) / 字段参数（`FieldConfig`）
+   * @param hide - hide parameter (`boolean`) / 隐藏参数（`boolean`）
+   * @param resetOnHide - reset on hide parameter (`boolean`) / 重置当隐藏参数（`boolean`）
+   */
   private changeHideState(field: FieldConfig, hide: boolean, resetOnHide: boolean) {
     if (field.formControl && field.name) {
       defineHiddenProp(field, '_hide', !!(hide || field.hide));
@@ -208,7 +253,14 @@ export class FieldExpressionExtension implements FormExtension {
       field.option.fieldChanges.next(<ValueChangeEvent>{ field, type: 'hidden', value: hide });
     }
   }
-  private evalExpr(field: FieldConfigCache, prop: string, value: any) {
+  /**
+   * Executes `evalExpr` to handle eval expr.
+   * @zh 执行 `evalExpr`，用于evalExpr。
+   * @param field - field parameter (`FieldConfigCache`) / 字段参数（`FieldConfigCache`）
+   * @param prop - prop parameter (`string`) / 属性参数（`string`）
+   * @param value - value parameter (`any`) / 值参数（`any`）
+   */
+  private evalExpr(field: FieldConfigCache, prop: string, value) {
     try {
       let target = field;
       const paths = (prop.indexOf('[') === -1 ? prop : prop.replace(/\[(\w+)\]/g, '.$1')).split('.');
@@ -217,10 +269,10 @@ export class FieldExpressionExtension implements FormExtension {
       }
       const lastIndex = paths.length - 1;
       for (let i = 0; i < lastIndex; i++) {
-        target = target[paths[i]];
+        target = target[paths[i]] as FieldConfigCache;
       }
       target[paths[lastIndex]] = value;
-    } catch (error:any) {
+    } catch (error) {
       error.message = `[Form Error] [Expression "${prop}"] ${error.message}`;
       throw error;
     }
@@ -236,7 +288,14 @@ export class FieldExpressionExtension implements FormExtension {
     }
     this.emitExpressionChanges(field, prop, value);
   }
-  private emitExpressionChanges(field: FieldConfigCache, property: string, value: any) {
+  /**
+   * Executes `emitExpressionChanges` to handle emit expression changes.
+   * @zh 执行 `emitExpressionChanges`，用于发出表达式变更集合。
+   * @param field - field parameter (`FieldConfigCache`) / 字段参数（`FieldConfigCache`）
+   * @param property - property parameter (`string`) / 属性参数（`string`）
+   * @param value - value parameter (`any`) / 值参数（`any`）
+   */
+  private emitExpressionChanges(field: FieldConfigCache, property: string, value) {
     if (!field.option.fieldChanges) {
       return;
     }

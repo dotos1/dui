@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Module `src/form/daterangepicker/daterangepicker.component.ts` providing daterangepicker component definitions and implementation.
+ * @zh 模块文件 `src/form/daterangepicker/daterangepicker.component.ts`，提供daterangepicker组件相关的定义与实现。
+ */
+
 import {
   ChangeDetectorRef,
   Component,
@@ -32,117 +37,409 @@ dayjs.extend(week);
 dayjs.extend(customParseFormat);
 dayjs.extend(utc);
 
+/**
+ * Enumeration `SideEnum` defining supported side enum constants.
+ * @zh 枚举 `SideEnum`，定义支持的SideEnum常量集合。
+ */
 export enum SideEnum {
+  /**
+   * Enum member `SideEnum.left` = 'left' representing left.
+   * @zh 枚举项 `SideEnum.left` = 'left'，表示左侧位置。
+   */
   left = 'left',
+  /**
+   * Enum member `SideEnum.right` = 'right' representing right.
+   * @zh 枚举项 `SideEnum.right` = 'right'，表示右侧位置。
+   */
   right = 'right'
 }
 
+/**
+ * Interface `DateRanges` defining the contract and properties for date ranges.
+ * @zh 接口 `DateRanges`，定义日期范围列表的数据结构契约与属性规范。
+ */
 export interface DateRanges {
   [index: string]: [Dayjs, Dayjs];
 }
 
+/**
+ * Interface `DateRange` defining the contract and properties for date range.
+ * @zh 接口 `DateRange`，定义日期范围的数据结构契约与属性规范。
+ */
 export interface DateRange {
+  /**
+   * Property `label` (`string`) storing label.
+   * @zh 属性 `label`（类型：`string`），用于存储或配置标签。
+   */
   label: string;
+  /**
+   * Property `dates` (`[Dayjs, Dayjs]`) storing dates.
+   * @zh 属性 `dates`（类型：`[Dayjs, Dayjs]`），用于存储或配置日期。
+   */
   dates: [Dayjs, Dayjs];
 }
 
+/**
+ * Interface `ChosenDate` defining the contract and properties for chosen date.
+ * @zh 接口 `ChosenDate`，定义Chosen日期的数据结构契约与属性规范。
+ */
 export interface ChosenDate {
+  /**
+   * Property `chosenLabel` (`string`) storing chosen label.
+   * @zh 属性 `chosenLabel`（类型：`string`），用于存储或配置chosen标签。
+   */
   chosenLabel: string;
+  /**
+   * Property `startDate` (`Dayjs`) storing start date.
+   * @zh 属性 `startDate`（类型：`Dayjs`），用于存储或配置开始日期。
+   */
   startDate: Dayjs;
+  /**
+   * Property `endDate` (`Dayjs`) storing end date.
+   * @zh 属性 `endDate`（类型：`Dayjs`），用于存储或配置结束日期。
+   */
   endDate: Dayjs;
 }
 
+/**
+ * Interface `TimePeriod` defining the contract and properties for time period.
+ * @zh 接口 `TimePeriod`，定义时间Period的数据结构契约与属性规范。
+ */
 export interface TimePeriod {
   [index: string]: Dayjs;
 
+  /**
+   * Property `startDate` (`Dayjs`) storing start date.
+   * @zh 属性 `startDate`（类型：`Dayjs`），用于存储或配置开始日期。
+   */
   startDate: Dayjs;
+  /**
+   * Property `endDate` (`Dayjs`) storing end date.
+   * @zh 属性 `endDate`（类型：`Dayjs`），用于存储或配置结束日期。
+   */
   endDate: Dayjs;
 }
 
+/**
+ * Interface `StartDate` defining the contract and properties for start date.
+ * @zh 接口 `StartDate`，定义开始日期的数据结构契约与属性规范。
+ */
 export interface StartDate {
+  /**
+   * Property `startDate` (`Dayjs`) storing start date.
+   * @zh 属性 `startDate`（类型：`Dayjs`），用于存储或配置开始日期。
+   */
   startDate: Dayjs;
 }
 
+/**
+ * Interface `EndDate` defining the contract and properties for end date.
+ * @zh 接口 `EndDate`，定义结束日期的数据结构契约与属性规范。
+ */
 export interface EndDate {
+  /**
+   * Property `endDate` (`Dayjs`) storing end date.
+   * @zh 属性 `endDate`（类型：`Dayjs`），用于存储或配置结束日期。
+   */
   endDate: Dayjs;
 }
 
+/**
+ * Interface `TimePickerVariables` defining the contract and properties for time picker variables.
+ * @zh 接口 `TimePickerVariables`，定义时间选择器Variables的数据结构契约与属性规范。
+ */
 interface TimePickerVariables {
+  /**
+   * Property `secondsLabel` (`string[]`) storing seconds label.
+   * @zh 属性 `secondsLabel`（类型：`string[]`），用于存储或配置秒数标签。
+   */
   secondsLabel: string[];
+  /**
+   * Property `selectedMinute` (`number`) storing selected minute.
+   * @zh 属性 `selectedMinute`（类型：`number`），用于存储或配置已选中分钟。
+   */
   selectedMinute: number;
+  /**
+   * Property `selectedSecond` (`number`) storing selected second.
+   * @zh 属性 `selectedSecond`（类型：`number`），用于存储或配置已选中秒。
+   */
   selectedSecond: number;
+  /**
+   * Property `hours` (`number[]`) storing hours.
+   * @zh 属性 `hours`（类型：`number[]`），用于存储或配置小时数。
+   */
   hours: number[];
+  /**
+   * Property `seconds` (`number[]`) storing seconds.
+   * @zh 属性 `seconds`（类型：`number[]`），用于存储或配置秒数。
+   */
   seconds: number[];
+  /**
+   * Property `disabledHours` (`number[]`) storing disabled hours.
+   * @zh 属性 `disabledHours`（类型：`number[]`），用于存储或配置已禁用小时数。
+   */
   disabledHours: number[];
+  /**
+   * Property `disabledMinutes` (`number[]`) storing disabled minutes.
+   * @zh 属性 `disabledMinutes`（类型：`number[]`），用于存储或配置已禁用分钟数。
+   */
   disabledMinutes: number[];
+  /**
+   * Property `minutes` (`number[]`) storing minutes.
+   * @zh 属性 `minutes`（类型：`number[]`），用于存储或配置分钟数。
+   */
   minutes: number[];
+  /**
+   * Property `minutesLabel` (`string[]`) storing minutes label.
+   * @zh 属性 `minutesLabel`（类型：`string[]`），用于存储或配置分钟数标签。
+   */
   minutesLabel: string[];
+  /**
+   * Property `selectedHour` (`number`) storing selected hour.
+   * @zh 属性 `selectedHour`（类型：`number`），用于存储或配置已选中小时。
+   */
   selectedHour: number;
+  /**
+   * Property `disabledSeconds` (`number[]`) storing disabled seconds.
+   * @zh 属性 `disabledSeconds`（类型：`number[]`），用于存储或配置已禁用秒数。
+   */
   disabledSeconds: number[];
+  /**
+   * Property `amDisabled` (`boolean`) storing am disabled.
+   * @zh 属性 `amDisabled`（类型：`boolean`），用于存储或配置am已禁用。
+   */
   amDisabled?: boolean;
+  /**
+   * Property `pmDisabled` (`boolean`) storing pm disabled.
+   * @zh 属性 `pmDisabled`（类型：`boolean`），用于存储或配置pm已禁用。
+   */
   pmDisabled?: boolean;
+  /**
+   * Property `ampmModel` (`string`) storing ampm model.
+   * @zh 属性 `ampmModel`（类型：`string`），用于存储或配置ampm模型。
+   */
   ampmModel?: string;
+  /**
+   * Property `selected` (`Dayjs`) storing selected.
+   * @zh 属性 `selected`（类型：`Dayjs`），用于存储或配置已选中。
+   */
   selected: Dayjs;
 }
 
+/**
+ * Interface `TimePickerVariablesHolder` defining the contract and properties for time picker variables holder.
+ * @zh 接口 `TimePickerVariablesHolder`，定义时间选择器VariablesHolder的数据结构契约与属性规范。
+ */
 interface TimePickerVariablesHolder {
   [index: string]: TimePickerVariables;
 }
 
+/**
+ * Interface `CalendarRowClasses` defining the contract and properties for calendar row classes.
+ * @zh 接口 `CalendarRowClasses`，定义日历行类名集合的数据结构契约与属性规范。
+ */
 interface CalendarRowClasses {
   [index: number]: string;
 
+  /**
+   * Property `classList` (`string`) storing class list.
+   * @zh 属性 `classList`（类型：`string`），用于存储或配置类名列表。
+   */
   classList: string;
 }
 
+/**
+ * Interface `CalendarClasses` defining the contract and properties for calendar classes.
+ * @zh 接口 `CalendarClasses`，定义日历类名集合的数据结构契约与属性规范。
+ */
 interface CalendarClasses {
   [index: number]: CalendarRowClasses;
 }
 
+/**
+ * Interface `Dropdowns` defining the contract and properties for dropdowns.
+ * @zh 接口 `Dropdowns`，定义下拉框的数据结构契约与属性规范。
+ */
 interface Dropdowns {
+  /**
+   * Property `inMaxYear` (`boolean`) storing in max year.
+   * @zh 属性 `inMaxYear`（类型：`boolean`），用于存储或配置在最大值年。
+   */
   inMaxYear: boolean;
+  /**
+   * Property `yearArrays` (`number[]`) storing year arrays.
+   * @zh 属性 `yearArrays`（类型：`number[]`），用于存储或配置年数组。
+   */
   yearArrays: number[];
+  /**
+   * Property `maxYear` (`number`) storing max year.
+   * @zh 属性 `maxYear`（类型：`number`），用于存储或配置最大值年。
+   */
   maxYear: number;
+  /**
+   * Property `minYear` (`number`) storing min year.
+   * @zh 属性 `minYear`（类型：`number`），用于存储或配置最小值年。
+   */
   minYear: number;
+  /**
+   * Property `currentMonth` (`number`) storing current month.
+   * @zh 属性 `currentMonth`（类型：`number`），用于存储或配置当前月。
+   */
   currentMonth: number;
+  /**
+   * Property `inMinYear` (`boolean`) storing in min year.
+   * @zh 属性 `inMinYear`（类型：`boolean`），用于存储或配置在最小值年。
+   */
   inMinYear: boolean;
+  /**
+   * Property `monthArrays` (`number[]`) storing month arrays.
+   * @zh 属性 `monthArrays`（类型：`number[]`），用于存储或配置月数组。
+   */
   monthArrays: number[];
+  /**
+   * Property `currentYear` (`number`) storing current year.
+   * @zh 属性 `currentYear`（类型：`number`），用于存储或配置当前年。
+   */
   currentYear: number;
 }
 
+/**
+ * Type alias `CalendarArrayWithProps` representing calendar array with props (`T[] & { firstDay?: Dayjs; lastDay?: Dayjs }`).
+ * @zh 类型别名 `CalendarArrayWithProps`，表示日历数组带有属性集合（`T[] & { firstDay?: Dayjs; lastDay?: Dayjs }`）。
+ */
 type CalendarArrayWithProps<T> = T[] & { firstDay?: Dayjs; lastDay?: Dayjs };
 
+/**
+ * Interface `CalendarVariables` defining the contract and properties for calendar variables.
+ * @zh 接口 `CalendarVariables`，定义日历Variables的数据结构契约与属性规范。
+ */
 interface CalendarVariables {
+  /**
+   * Property `calRows` (`number[]`) storing cal rows.
+   * @zh 属性 `calRows`（类型：`number[]`），用于存储或配置cal行列表。
+   */
   calRows: number[];
+  /**
+   * Property `calCols` (`number[]`) storing cal cols.
+   * @zh 属性 `calCols`（类型：`number[]`），用于存储或配置cal列列表。
+   */
   calCols: number[];
+  /**
+   * Property `calendar` (`CalendarArrayWithProps<Dayjs[]>`) storing calendar.
+   * @zh 属性 `calendar`（类型：`CalendarArrayWithProps<Dayjs[]>`），用于存储或配置日历。
+   */
   calendar: CalendarArrayWithProps<Dayjs[]>;
+  /**
+   * Property `minDate` (`dayjs.Dayjs`) storing min date.
+   * @zh 属性 `minDate`（类型：`dayjs.Dayjs`），用于存储或配置最小值日期。
+   */
   minDate: dayjs.Dayjs;
+  /**
+   * Property `year` (`number`) storing year.
+   * @zh 属性 `year`（类型：`number`），用于存储或配置年。
+   */
   year: number;
+  /**
+   * Property `classes` (`CalendarClasses`) storing classes.
+   * @zh 属性 `classes`（类型：`CalendarClasses`），用于存储或配置类名集合。
+   */
   classes: CalendarClasses;
+  /**
+   * Property `lastMonth` (`number`) storing last month.
+   * @zh 属性 `lastMonth`（类型：`number`），用于存储或配置末尾月。
+   */
   lastMonth: number;
+  /**
+   * Property `minute` (`number`) storing minute.
+   * @zh 属性 `minute`（类型：`number`），用于存储或配置分钟。
+   */
   minute: number;
+  /**
+   * Property `second` (`number`) storing second.
+   * @zh 属性 `second`（类型：`number`），用于存储或配置秒。
+   */
   second: number;
+  /**
+   * Property `daysInMonth` (`number`) storing days in month.
+   * @zh 属性 `daysInMonth`（类型：`number`），用于存储或配置天数在月。
+   */
   daysInMonth: number;
+  /**
+   * Property `dayOfWeek` (`number`) storing day of week.
+   * @zh 属性 `dayOfWeek`（类型：`number`），用于存储或配置日的周。
+   */
   dayOfWeek: number;
+  /**
+   * Property `month` (`number`) storing month.
+   * @zh 属性 `month`（类型：`number`），用于存储或配置月。
+   */
   month: number;
+  /**
+   * Property `hour` (`number`) storing hour.
+   * @zh 属性 `hour`（类型：`number`），用于存储或配置小时。
+   */
   hour: number;
+  /**
+   * Property `firstDay` (`dayjs.Dayjs`) storing first day.
+   * @zh 属性 `firstDay`（类型：`dayjs.Dayjs`），用于存储或配置首个日。
+   */
   firstDay: dayjs.Dayjs;
+  /**
+   * Property `lastYear` (`number`) storing last year.
+   * @zh 属性 `lastYear`（类型：`number`），用于存储或配置末尾年。
+   */
   lastYear: number;
+  /**
+   * Property `lastDay` (`dayjs.Dayjs`) storing last day.
+   * @zh 属性 `lastDay`（类型：`dayjs.Dayjs`），用于存储或配置末尾日。
+   */
   lastDay: dayjs.Dayjs;
+  /**
+   * Property `maxDate` (`dayjs.Dayjs`) storing max date.
+   * @zh 属性 `maxDate`（类型：`dayjs.Dayjs`），用于存储或配置最大值日期。
+   */
   maxDate: dayjs.Dayjs;
+  /**
+   * Property `daysInLastMonth` (`number`) storing days in last month.
+   * @zh 属性 `daysInLastMonth`（类型：`number`），用于存储或配置天数在末尾月。
+   */
   daysInLastMonth: number;
+  /**
+   * Property `dropdowns` (`Dropdowns`) storing dropdowns.
+   * @zh 属性 `dropdowns`（类型：`Dropdowns`），用于存储或配置下拉框。
+   */
   dropdowns?: Dropdowns;
 }
 
+/**
+ * Interface `CalendarVariableHolder` defining the contract and properties for calendar variable holder.
+ * @zh 接口 `CalendarVariableHolder`，定义日历VariableHolder的数据结构契约与属性规范。
+ */
 interface CalendarVariableHolder {
   [index: string]: CalendarVariables;
 }
 
+/**
+ * Interface `VisibleCalendar` defining the contract and properties for visible calendar.
+ * @zh 接口 `VisibleCalendar`，定义可见日历的数据结构契约与属性规范。
+ */
 interface VisibleCalendar {
+  /**
+   * Property `month` (`Dayjs`) storing month.
+   * @zh 属性 `month`（类型：`Dayjs`），用于存储或配置月。
+   */
   month: Dayjs;
+  /**
+   * Property `calendar` (`CalendarArrayWithProps<Dayjs[]>`) storing calendar.
+   * @zh 属性 `calendar`（类型：`CalendarArrayWithProps<Dayjs[]>`），用于存储或配置日历。
+   */
   calendar: CalendarArrayWithProps<Dayjs[]>;
 }
 
+/**
+ * Angular component `DaterangepickerComponent` (selector: 'ngx-daterangepicker-material') providing daterangepicker component presentation and interaction in `src/form/daterangepicker`.
+ * @zh Angular 组件 `DaterangepickerComponent`（selector: 'ngx-daterangepicker-material'），提供Daterangepicker组件的视图渲染与交互逻辑（位于 `src/form/daterangepicker`）。
+ */
 @Component({
   selector: 'ngx-daterangepicker-material',
   styleUrls: ['./daterangepicker.component.scss'],
@@ -157,143 +454,394 @@ interface VisibleCalendar {
   ]
 })
 export class DaterangepickerComponent implements OnInit, OnChanges {
+  /**
+   * Input property `initialDates` (`[string | Dayjs, string | Dayjs]`) configuring initial dates (default: `null`).
+   * @zh 输入属性 `initialDates`（类型：`[string | Dayjs, string | Dayjs]`），用于配置初始日期（默认值：`null`）。
+   */
   @Input()
   initialDates: [string | Dayjs, string | Dayjs] = null;
 
+  /**
+   * Input property `startDate` (`any`) configuring start date (default: `dayjs().utc(true).startOf('day')`).
+   * @zh 输入属性 `startDate`（类型：`any`），用于配置开始日期（默认值：`dayjs().utc(true).startOf('day')`）。
+   */
   @Input()
   startDate = dayjs().utc(true).startOf('day');
 
+  /**
+   * Input property `endDate` (`any`) configuring end date (default: `dayjs().utc(true).endOf('day')`).
+   * @zh 输入属性 `endDate`（类型：`any`），用于配置结束日期（默认值：`dayjs().utc(true).endOf('day')`）。
+   */
   @Input()
   endDate = dayjs().utc(true).endOf('day');
 
+  /**
+   * Input property `dateLimit` (`number`) configuring date limit (default: `null`).
+   * @zh 输入属性 `dateLimit`（类型：`number`），用于配置日期限制（默认值：`null`）。
+   */
   @Input()
   dateLimit: number = null;
 
   // general
+  /**
+   * Input property `autoApply` (`boolean`) configuring auto apply (default: `false`).
+   * @zh 输入属性 `autoApply`（类型：`boolean`），用于配置自动应用（默认值：`false`）。
+   */
   @Input()
   autoApply = false;
 
+  /**
+   * Input property `singleDatePicker` (`boolean`) configuring single date picker (default: `false`).
+   * @zh 输入属性 `singleDatePicker`（类型：`boolean`），用于配置单个日期选择器（默认值：`false`）。
+   */
   @Input()
   singleDatePicker = false;
 
+  /**
+   * Input property `showDropdowns` (`boolean`) configuring show dropdowns (default: `false`).
+   * @zh 输入属性 `showDropdowns`（类型：`boolean`），用于配置显示下拉框（默认值：`false`）。
+   */
   @Input()
   showDropdowns = false;
 
+  /**
+   * Input property `showWeekNumbers` (`boolean`) configuring show week numbers (default: `false`).
+   * @zh 输入属性 `showWeekNumbers`（类型：`boolean`），用于配置显示周数字（默认值：`false`）。
+   */
   @Input()
   showWeekNumbers = false;
 
+  /**
+   * Input property `showISOWeekNumbers` (`boolean`) configuring show iso week numbers (default: `false`).
+   * @zh 输入属性 `showISOWeekNumbers`（类型：`boolean`），用于配置显示ISO周数字（默认值：`false`）。
+   */
   @Input()
   showISOWeekNumbers = false;
 
+  /**
+   * Input property `linkedCalendars` (`boolean`) configuring linked calendars (default: `false`).
+   * @zh 输入属性 `linkedCalendars`（类型：`boolean`），用于配置已链接日历（默认值：`false`）。
+   */
   @Input()
   linkedCalendars = false;
 
+  /**
+   * Input property `autoUpdateInput` (`boolean`) configuring auto update input (default: `true`).
+   * @zh 输入属性 `autoUpdateInput`（类型：`boolean`），用于配置自动更新输入属性（默认值：`true`）。
+   */
   @Input()
   autoUpdateInput = true;
 
+  /**
+   * Input property `alwaysShowCalendars` (`boolean`) configuring always show calendars (default: `false`).
+   * @zh 输入属性 `alwaysShowCalendars`（类型：`boolean`），用于配置always显示日历（默认值：`false`）。
+   */
   @Input()
   alwaysShowCalendars = false;
 
+  /**
+   * Input property `maxSpan` (`boolean`) configuring max span (default: `false`).
+   * @zh 输入属性 `maxSpan`（类型：`boolean`），用于配置最大值Span（默认值：`false`）。
+   */
   @Input()
   maxSpan = false;
 
+  /**
+   * Input property `lockStartDate` (`boolean`) configuring lock start date (default: `false`).
+   * @zh 输入属性 `lockStartDate`（类型：`boolean`），用于配置锁定开始日期（默认值：`false`）。
+   */
   @Input()
   lockStartDate = false;
 
   // timepicker variables
+  /**
+   * Input property `timePicker` (`boolean`) configuring time picker (default: `false`).
+   * @zh 输入属性 `timePicker`（类型：`boolean`），用于配置时间选择器（默认值：`false`）。
+   */
   @Input()
   timePicker = false;
 
+  /**
+   * Input property `timePicker24Hour` (`boolean`) configuring time picker24 hour (default: `false`).
+   * @zh 输入属性 `timePicker24Hour`（类型：`boolean`），用于配置时间Picker24小时（默认值：`false`）。
+   */
   @Input()
   timePicker24Hour = false;
 
+  /**
+   * Input property `timePickerIncrement` (`number`) configuring time picker increment (default: `1`).
+   * @zh 输入属性 `timePickerIncrement`（类型：`number`），用于配置时间选择器Increment（默认值：`1`）。
+   */
   @Input()
   timePickerIncrement = 1;
 
+  /**
+   * Input property `timePickerSeconds` (`boolean`) configuring time picker seconds (default: `false`).
+   * @zh 输入属性 `timePickerSeconds`（类型：`boolean`），用于配置时间选择器秒数（默认值：`false`）。
+   */
   @Input()
   timePickerSeconds = false;
 
   // end of timepicker variables
+  /**
+   * Input property `showClearButton` (`boolean`) configuring show clear button (default: `false`).
+   * @zh 输入属性 `showClearButton`（类型：`boolean`），用于配置显示清空按钮（默认值：`false`）。
+   */
   @Input()
   showClearButton = false;
 
+  /**
+   * Input property `firstMonthDayClass` (`string`) configuring first month day class (default: `null`).
+   * @zh 输入属性 `firstMonthDayClass`（类型：`string`），用于配置首个月日类名（默认值：`null`）。
+   */
   @Input()
   firstMonthDayClass: string = null;
 
+  /**
+   * Input property `lastMonthDayClass` (`string`) configuring last month day class (default: `null`).
+   * @zh 输入属性 `lastMonthDayClass`（类型：`string`），用于配置末尾月日类名（默认值：`null`）。
+   */
   @Input()
   lastMonthDayClass: string = null;
 
+  /**
+   * Input property `emptyWeekRowClass` (`string`) configuring empty week row class (default: `null`).
+   * @zh 输入属性 `emptyWeekRowClass`（类型：`string`），用于配置空周行类名（默认值：`null`）。
+   */
   @Input()
   emptyWeekRowClass: string = null;
 
+  /**
+   * Input property `emptyWeekColumnClass` (`string`) configuring empty week column class (default: `null`).
+   * @zh 输入属性 `emptyWeekColumnClass`（类型：`string`），用于配置空周列类名（默认值：`null`）。
+   */
   @Input()
   emptyWeekColumnClass: string = null;
 
+  /**
+   * Input property `firstDayOfNextMonthClass` (`string`) configuring first day of next month class (default: `null`).
+   * @zh 输入属性 `firstDayOfNextMonthClass`（类型：`string`），用于配置首个日的下一个月类名（默认值：`null`）。
+   */
   @Input()
   firstDayOfNextMonthClass: string = null;
 
+  /**
+   * Input property `lastDayOfPreviousMonthClass` (`string`) configuring last day of previous month class (default: `null`).
+   * @zh 输入属性 `lastDayOfPreviousMonthClass`（类型：`string`），用于配置末尾日的上一个月类名（默认值：`null`）。
+   */
   @Input()
   lastDayOfPreviousMonthClass: string = null;
 
+  /**
+   * Input property `showCustomRangeLabel` (`boolean`) configuring show custom range label.
+   * @zh 输入属性 `showCustomRangeLabel`（类型：`boolean`），用于配置显示自定义范围标签。
+   */
   @Input()
   showCustomRangeLabel: boolean;
 
+  /**
+   * Input property `showCancel` (`boolean`) configuring show cancel (default: `false`).
+   * @zh 输入属性 `showCancel`（类型：`boolean`），用于配置显示取消（默认值：`false`）。
+   */
   @Input()
   showCancel = false;
 
+  /**
+   * Input property `keepCalendarOpeningWithRange` (`boolean`) configuring keep calendar opening with range (default: `false`).
+   * @zh 输入属性 `keepCalendarOpeningWithRange`（类型：`boolean`），用于配置keep日历打开带有范围（默认值：`false`）。
+   */
   @Input()
   keepCalendarOpeningWithRange = false;
 
+  /**
+   * Input property `showRangeLabelOnInput` (`boolean`) configuring show range label on input (default: `false`).
+   * @zh 输入属性 `showRangeLabelOnInput`（类型：`boolean`），用于配置显示范围标签当输入属性（默认值：`false`）。
+   */
   @Input()
   showRangeLabelOnInput = false;
 
+  /**
+   * Input property `customRangeDirection` (`boolean`) configuring custom range direction (default: `false`).
+   * @zh 输入属性 `customRangeDirection`（类型：`boolean`），用于配置自定义范围方向（默认值：`false`）。
+   */
   @Input()
   customRangeDirection = false;
 
+  /**
+   * Input property `drops` (`string`) configuring drops.
+   * @zh 输入属性 `drops`（类型：`string`），用于配置放置。
+   */
   @Input() drops: string;
+  /**
+   * Input property `opens` (`string`) configuring opens.
+   * @zh 输入属性 `opens`（类型：`string`），用于配置打开。
+   */
   @Input() opens: string;
+  /**
+   * Input property `closeOnAutoApply` (`boolean`) configuring close on auto apply (default: `true`).
+   * @zh 输入属性 `closeOnAutoApply`（类型：`boolean`），用于配置关闭当自动应用（默认值：`true`）。
+   */
   @Input() closeOnAutoApply = true;
+  /**
+   * Output event emitter `choosedDate` (`EventEmitter<ChosenDate>`) firing when choosed date occurs.
+   * @zh 输出事件 `choosedDate`（类型：`EventEmitter<ChosenDate>`），当触发choosed日期时向外发出事件。
+   */
   @Output() choosedDate: EventEmitter<ChosenDate>;
+  /**
+   * Output event emitter `rangeClicked` (`EventEmitter<DateRange>`) firing when range clicked occurs.
+   * @zh 输出事件 `rangeClicked`（类型：`EventEmitter<DateRange>`），当触发范围点击时向外发出事件。
+   */
   @Output() rangeClicked: EventEmitter<DateRange>;
+  /**
+   * Output event emitter `datesUpdated` (`EventEmitter<TimePeriod>`) firing when dates updated occurs.
+   * @zh 输出事件 `datesUpdated`（类型：`EventEmitter<TimePeriod>`），当触发日期已更新时向外发出事件。
+   */
   @Output() datesUpdated: EventEmitter<TimePeriod>;
+  /**
+   * Output event emitter `startDateChanged` (`EventEmitter<StartDate>`) firing when start date changed occurs.
+   * @zh 输出事件 `startDateChanged`（类型：`EventEmitter<StartDate>`），当触发开始日期已变更时向外发出事件。
+   */
   @Output() startDateChanged: EventEmitter<StartDate>;
+  /**
+   * Output event emitter `endDateChanged` (`EventEmitter<EndDate>`) firing when end date changed occurs.
+   * @zh 输出事件 `endDateChanged`（类型：`EventEmitter<EndDate>`），当触发结束日期已变更时向外发出事件。
+   */
   @Output() endDateChanged: EventEmitter<EndDate>;
+  /**
+   * Output event emitter `cancelClicked` (`EventEmitter<void>`) firing when cancel clicked occurs.
+   * @zh 输出事件 `cancelClicked`（类型：`EventEmitter<void>`），当触发取消点击时向外发出事件。
+   */
   @Output() cancelClicked: EventEmitter<void>;
+  /**
+   * Output event emitter `clearClicked` (`EventEmitter<void>`) firing when clear clicked occurs.
+   * @zh 输出事件 `clearClicked`（类型：`EventEmitter<void>`），当触发清空点击时向外发出事件。
+   */
   @Output() clearClicked: EventEmitter<void>;
+  /**
+   * Template/content query reference `pickerContainer` (`@ViewChild`) targeting picker container.
+   * @zh 模板/内容视图查询引用 `pickerContainer`（`@ViewChild`），指向选择器容器。
+   */
   @ViewChild('pickerContainer', { static: true }) pickerContainer: ElementRef;
 
+  /**
+   * Property `chosenLabel` (`string`) storing chosen label.
+   * @zh 属性 `chosenLabel`（类型：`string`），用于存储或配置chosen标签。
+   */
   public chosenLabel: string;
 
+  /**
+   * Property `calendarVariables` (`CalendarVariableHolder`) storing calendar variables (default: `{}`).
+   * @zh 属性 `calendarVariables`（类型：`CalendarVariableHolder`），用于存储或配置日历Variables（默认值：`{}`）。
+   */
   public calendarVariables: CalendarVariableHolder = {};
   // tooltiptext = []; // for storing tooltiptext
+  /**
+   * Property `timepickerVariables` (`TimePickerVariablesHolder`) storing timepicker variables (default: `{}`).
+   * @zh 属性 `timepickerVariables`（类型：`TimePickerVariablesHolder`），用于存储或配置timepickerVariables（默认值：`{}`）。
+   */
   public timepickerVariables: TimePickerVariablesHolder = {};
+  /**
+   * Property `daterangepicker` (`{ start: FormControl; end: FormControl }`) storing daterangepicker.
+   * @zh 属性 `daterangepicker`（类型：`{ start: FormControl; end: FormControl }`），用于存储或配置daterangepicker。
+   */
   daterangepicker: { start: FormControl; end: FormControl } = { start: new FormControl(), end: new FormControl() };
 
+  /**
+   * Property `applyBtn` (`{ disabled: boolean }`) storing apply btn (default: `{ disabled: false }`).
+   * @zh 属性 `applyBtn`（类型：`{ disabled: boolean }`），用于存储或配置应用按钮（默认值：`{ disabled: false }`）。
+   */
   public applyBtn: { disabled: boolean } = { disabled: false };
 
   // used in template for compile time support of enum values.
+  /**
+   * Property `sideEnum` (`any`) storing side enum (default: `SideEnum`).
+   * @zh 属性 `sideEnum`（类型：`any`），用于存储或配置sideEnum（默认值：`SideEnum`）。
+   */
   public sideEnum = SideEnum;
+  /**
+   * Property `chosenRange` (`string`) storing chosen range.
+   * @zh 属性 `chosenRange`（类型：`string`），用于存储或配置chosen范围。
+   */
   public chosenRange: string;
 
+  /**
+   * Property `rangesArray` (`Array<string>`) storing ranges array (default: `[]`).
+   * @zh 属性 `rangesArray`（类型：`Array<string>`），用于存储或配置范围列表数组（默认值：`[]`）。
+   */
   public rangesArray: Array<string> = [];
   // some state information
 
+  /**
+   * Property `isShown` (`boolean`) storing is shown (default: `false`).
+   * @zh 属性 `isShown`（类型：`boolean`），用于存储或配置是否为已显示（默认值：`false`）。
+   */
   public isShown = false;
+  /**
+   * Property `inline` (`boolean`) storing inline (default: `true`).
+   * @zh 属性 `inline`（类型：`boolean`），用于存储或配置inline（默认值：`true`）。
+   */
   public inline = true;
+  /**
+   * Property `leftCalendar` (`VisibleCalendar`) storing left calendar (default: `{ month: null, calendar: [] }`).
+   * @zh 属性 `leftCalendar`（类型：`VisibleCalendar`），用于存储或配置左侧位置日历（默认值：`{ month: null, calendar: [] }`）。
+   */
   leftCalendar: VisibleCalendar = { month: null, calendar: [] };
+  /**
+   * Property `rightCalendar` (`VisibleCalendar`) storing right calendar (default: `{ month: null, calendar: [] }`).
+   * @zh 属性 `rightCalendar`（类型：`VisibleCalendar`），用于存储或配置右侧位置日历（默认值：`{ month: null, calendar: [] }`）。
+   */
   rightCalendar: VisibleCalendar = { month: null, calendar: [] };
+  /**
+   * Property `showCalInRanges` (`boolean`) storing show cal in ranges (default: `false`).
+   * @zh 属性 `showCalInRanges`（类型：`boolean`），用于存储或配置显示Cal在范围列表（默认值：`false`）。
+   */
   public showCalInRanges = false;
+  /**
+   * Property `nowHoveredDate` (`any`) storing now hovered date (default: `null`).
+   * @zh 属性 `nowHoveredDate`（类型：`any`），用于存储或配置当前时间悬停日期（默认值：`null`）。
+   */
   nowHoveredDate = null;
+  /**
+   * Property `pickingDate` (`boolean`) storing picking date (default: `false`).
+   * @zh 属性 `pickingDate`（类型：`boolean`），用于存储或配置picking日期（默认值：`false`）。
+   */
   pickingDate = false;
   // options: any = {}; // should get some opt from user
   // protected
 
+  /**
+   * Property `minDateHolder` (`dayjs.Dayjs`) storing min date holder.
+   * @zh 属性 `minDateHolder`（类型：`dayjs.Dayjs`），用于存储或配置最小值日期Holder。
+   */
   protected minDateHolder: dayjs.Dayjs;
+  /**
+   * Property `maxDateHolder` (`dayjs.Dayjs`) storing max date holder.
+   * @zh 属性 `maxDateHolder`（类型：`dayjs.Dayjs`），用于存储或配置最大值日期Holder。
+   */
   protected maxDateHolder: dayjs.Dayjs;
+  /**
+   * Property `localeHolder` (`LocaleConfig`) storing locale holder (default: `{}`).
+   * @zh 属性 `localeHolder`（类型：`LocaleConfig`），用于存储或配置语言区域Holder（默认值：`{}`）。
+   */
   protected localeHolder: LocaleConfig = {};
+  /**
+   * Property `rangesHolder` (`DateRanges`) storing ranges holder (default: `{}`).
+   * @zh 属性 `rangesHolder`（类型：`DateRanges`），用于存储或配置范围列表Holder（默认值：`{}`）。
+   */
   protected rangesHolder: DateRanges = {};
+  /**
+   * Property `cachedVersion` (`{ start: Dayjs; end: Dayjs }`) storing cached version (default: `{ start: null, end: null }`).
+   * @zh 属性 `cachedVersion`（类型：`{ start: Dayjs; end: Dayjs }`），用于存储或配置已缓存Version（默认值：`{ start: null, end: null }`）。
+   */
   private cachedVersion: { start: Dayjs; end: Dayjs } = { start: null, end: null };
 
+  /**
+   * Creates an instance of `DaterangepickerComponent` and initializes its dependencies and internal state.
+   * @zh 创建 `DaterangepickerComponent` 实例，并初始化其依赖项与内部状态。
+   * @param el - Injected or initial el (`ElementRef`) / 注入或传入的DOM元素（`ElementRef`）
+   * @param ref - Injected or initial ref (`ChangeDetectorRef`) / 注入或传入的引用（`ChangeDetectorRef`）
+   * @param localeHolderService - Injected or initial locale holder service (`LocaleService`) / 注入或传入的语言区域Holder服务（`LocaleService`）
+   */
   constructor(private el: ElementRef, private ref: ChangeDetectorRef, private localeHolderService: LocaleService) {
     this.choosedDate = new EventEmitter();
     this.rangeClicked = new EventEmitter();
@@ -305,10 +853,19 @@ export class DaterangepickerComponent implements OnInit, OnChanges {
   }
 
   // accessors
+  /**
+   * Gets the current min date (`minDate: dayjs.Dayjs`).
+   * @zh 获取当前最小值日期（`minDate: dayjs.Dayjs`）。
+   */
   get minDate(): dayjs.Dayjs {
     return this.minDateHolder;
   }
 
+  /**
+   * Input setter `minDate` updating min date.
+   * @zh 输入属性 `minDate` 的设置器，用于更新最小值日期。
+   * @param value - New min date value (`dayjs.Dayjs | string`) / 新的最小值日期值（`dayjs.Dayjs | string`）
+   */
   @Input()
   set minDate(value: dayjs.Dayjs | string) {
     if (dayjs.isDayjs(value)) {
@@ -321,10 +878,19 @@ export class DaterangepickerComponent implements OnInit, OnChanges {
   }
 
   // eslint-disable-next-line @typescript-eslint/member-ordering
+  /**
+   * Gets the current locale (`locale: LocaleConfig`).
+   * @zh 获取当前语言区域（`locale: LocaleConfig`）。
+   */
   get locale(): LocaleConfig {
     return this.localeHolder;
   }
 
+  /**
+   * Input setter `locale` updating locale.
+   * @zh 输入属性 `locale` 的设置器，用于更新语言区域。
+   * @param value - New locale value (`LocaleConfig`) / 新的语言区域值（`LocaleConfig`）
+   */
   @Input() set locale(value: LocaleConfig) {
     this.localeHolder = { ...this.localeHolderService.config, ...value };
 
@@ -342,20 +908,38 @@ export class DaterangepickerComponent implements OnInit, OnChanges {
 
   // custom ranges
   // eslint-disable-next-line @typescript-eslint/member-ordering
+  /**
+   * Gets the current ranges (`ranges: DateRanges`).
+   * @zh 获取当前范围列表（`ranges: DateRanges`）。
+   */
   get ranges(): DateRanges {
     return this.rangesHolder;
   }
 
+  /**
+   * Input setter `ranges` updating ranges.
+   * @zh 输入属性 `ranges` 的设置器，用于更新范围列表。
+   * @param value - New ranges value (`DateRanges`) / 新的范围列表值（`DateRanges`）
+   */
   @Input() set ranges(value: DateRanges) {
     this.rangesHolder = value;
     this.renderRanges();
   }
 
   // eslint-disable-next-line @typescript-eslint/member-ordering
+  /**
+   * Gets the current max date (`maxDate: dayjs.Dayjs`).
+   * @zh 获取当前最大值日期（`maxDate: dayjs.Dayjs`）。
+   */
   get maxDate(): dayjs.Dayjs {
     return this.maxDateHolder;
   }
 
+  /**
+   * Input setter `maxDate` updating max date.
+   * @zh 输入属性 `maxDate` 的设置器，用于更新最大值日期。
+   * @param value - New max date value (`dayjs.Dayjs | string`) / 新的最大值日期值（`dayjs.Dayjs | string`）
+   */
   @Input()
   set maxDate(value: dayjs.Dayjs | string) {
     if (dayjs.isDayjs(value)) {
@@ -367,6 +951,12 @@ export class DaterangepickerComponent implements OnInit, OnChanges {
     }
   }
 
+  /**
+   * Executes `isInvalidDate` to handle is invalid date.
+   * @zh 执行 `isInvalidDate`，用于是否为无效日期。
+   * @param date - date parameter (`Dayjs`) / 日期参数（`Dayjs`）
+   * @returns Result of type `boolean` / 类型为 `boolean` 的返回值
+   */
   @Input()
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   isInvalidDate(date: Dayjs): boolean {
@@ -374,6 +964,12 @@ export class DaterangepickerComponent implements OnInit, OnChanges {
   }
   // eslint-disable-next-line @typescript-eslint/member-ordering
 
+  /**
+   * Executes `isCustomDate` to handle is custom date.
+   * @zh 执行 `isCustomDate`，用于是否为自定义日期。
+   * @param date - date parameter (`Dayjs`) / 日期参数（`Dayjs`）
+   * @returns Result of type `boolean` / 类型为 `boolean` 的返回值
+   */
   @Input()
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   isCustomDate(date: Dayjs): boolean {
@@ -381,6 +977,12 @@ export class DaterangepickerComponent implements OnInit, OnChanges {
   }
   // eslint-disable-next-line @typescript-eslint/member-ordering
 
+  /**
+   * Executes `isTooltipDate` to handle is tooltip date.
+   * @zh 执行 `isTooltipDate`，用于是否为悬浮提示日期。
+   * @param date - date parameter (`Dayjs`) / 日期参数（`Dayjs`）
+   * @returns Result of type `string | boolean | null` / 类型为 `string | boolean | null` 的返回值
+   */
   @Input()
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   isTooltipDate(date: Dayjs): string | boolean | null {
@@ -391,18 +993,29 @@ export class DaterangepickerComponent implements OnInit, OnChanges {
    * handle click on all element in the component, useful for outside of click
    *
    * @param e event
+
+   * @zh 宿主事件监听方法 `handleInternalClick`，响应 `click` 事件以处理连接手柄内部点击。
    */
   @HostListener('click', ['$event'])
   handleInternalClick(e: MouseEvent): void {
     return e.stopPropagation();
   }
 
-  ngOnChanges(changes: SimpleChanges|any): void {
+  /**
+   * Angular lifecycle hook invoked when data-bound input properties change.
+   * @zh Angular 生命周期钩子：当数据绑定的输入属性发生变更时调用。
+   * @param changes - changes parameter (`SimpleChanges|any`) / 变更集合参数（`SimpleChanges|any`）
+   */
+  ngOnChanges(changes): void {
     if ((changes.startDate || changes.endDate) && this.inline) {
       this.updateView();
     }
   }
 
+  /**
+   * Angular lifecycle hook invoked once after component or directive inputs are initialized.
+   * @zh Angular 生命周期钩子：在组件或指令的输入属性初始化完成后调用一次。
+   */
   ngOnInit(): void {
     this.buildLocale();
     const daysOfWeek = [...this.locale.daysOfWeek];
@@ -456,6 +1069,10 @@ export class DaterangepickerComponent implements OnInit, OnChanges {
     this.renderRanges();
   }
 
+  /**
+   * Executes `renderRanges` to handle render ranges.
+   * @zh 执行 `renderRanges`，用于渲染范围列表。
+   */
   renderRanges(): void {
     this.rangesArray = [];
     let start;
@@ -516,6 +1133,11 @@ export class DaterangepickerComponent implements OnInit, OnChanges {
     }
   }
 
+  /**
+   * Executes `renderTimePicker` to handle render time picker.
+   * @zh 执行 `renderTimePicker`，用于渲染时间选择器。
+   * @param side - side parameter (`SideEnum`) / side参数（`SideEnum`）
+   */
   renderTimePicker(side: SideEnum): void {
     let selected: Dayjs;
     let minDate: Dayjs;
@@ -635,6 +1257,11 @@ export class DaterangepickerComponent implements OnInit, OnChanges {
     this.timepickerVariables[side].selected = selected;
   }
 
+  /**
+   * Executes `renderCalendar` to handle render calendar.
+   * @zh 执行 `renderCalendar`，用于渲染日历。
+   * @param side - side parameter (`SideEnum`) / side参数（`SideEnum`）
+   */
   renderCalendar(side: SideEnum): void {
     // side enum
     const mainCalendar: VisibleCalendar = side === SideEnum.left ? this.leftCalendar : this.rightCalendar;
@@ -774,6 +1401,11 @@ export class DaterangepickerComponent implements OnInit, OnChanges {
     this.buildCells(calendar, side);
   }
 
+  /**
+   * Executes `setStartDate` to handle set start date.
+   * @zh 执行 `setStartDate`，用于集合开始日期。
+   * @param startDate - start date parameter (`string | Dayjs`) / 开始日期参数（`string | Dayjs`）
+   */
   setStartDate(startDate: string | Dayjs): void {
     if (typeof startDate === 'string') {
       this.startDate = dayjs(startDate, this.locale.format).utc(true);
@@ -813,6 +1445,11 @@ export class DaterangepickerComponent implements OnInit, OnChanges {
     this.updateMonthsInView();
   }
 
+  /**
+   * Executes `setEndDate` to handle set end date.
+   * @zh 执行 `setEndDate`，用于集合结束日期。
+   * @param endDate - end date parameter (`string | Dayjs`) / 结束日期参数（`string | Dayjs`）
+   */
   setEndDate(endDate: string | Dayjs): void {
     if (typeof endDate === 'string') {
       this.endDate = dayjs(endDate, this.locale.format).utc(true);
@@ -850,6 +1487,10 @@ export class DaterangepickerComponent implements OnInit, OnChanges {
     this.updateMonthsInView();
   }
 
+  /**
+   * Executes `updateView` to handle update view.
+   * @zh 执行 `updateView`，用于更新视图。
+   */
   updateView(): void {
     if (this.timePicker) {
       this.renderTimePicker(SideEnum.left);
@@ -859,6 +1500,10 @@ export class DaterangepickerComponent implements OnInit, OnChanges {
     this.updateCalendars();
   }
 
+  /**
+   * Executes `updateMonthsInView` to handle update months in view.
+   * @zh 执行 `updateMonthsInView`，用于更新月在视图。
+   */
   updateMonthsInView(): void {
     if (this.endDate) {
       // if both dates are visible already, do nothing
@@ -903,6 +1548,8 @@ export class DaterangepickerComponent implements OnInit, OnChanges {
 
   /**
    *  This is responsible for updating the calendars
+
+   * @zh 执行 `updateCalendars`，用于更新日历。
    */
   updateCalendars(): void {
     this.renderCalendar(SideEnum.left);
@@ -914,6 +1561,10 @@ export class DaterangepickerComponent implements OnInit, OnChanges {
     this.calculateChosenLabel();
   }
 
+  /**
+   * Executes `updateElement` to handle update element.
+   * @zh 执行 `updateElement`，用于更新元素。
+   */
   updateElement(): void {
     const format = this.locale.displayFormat ? this.locale.displayFormat : this.locale.format;
     if (!this.singleDatePicker && this.autoUpdateInput) {
@@ -944,12 +1595,18 @@ export class DaterangepickerComponent implements OnInit, OnChanges {
     }
   }
 
+  /**
+   * Executes `remove` to handle remove.
+   * @zh 执行 `remove`，用于移除。
+   */
   remove(): void {
     this.isShown = false;
   }
 
   /**
    * this should calculate the label
+
+   * @zh 执行 `calculateChosenLabel`，用于计算Chosen标签。
    */
   calculateChosenLabel(): void {
     if (!this.locale || !this.locale.separator) {
@@ -999,6 +1656,11 @@ export class DaterangepickerComponent implements OnInit, OnChanges {
     this.updateElement();
   }
 
+  /**
+   * Executes `clickApply` to handle click apply.
+   * @zh 执行 `clickApply`，用于点击应用。
+   * @param e - e parameter (`MouseEvent`) / e参数（`MouseEvent`）
+   */
   clickApply(e?: MouseEvent): void {
     if (!this.singleDatePicker && this.startDate && !this.endDate) {
       if (this.timePicker) {
@@ -1032,6 +1694,11 @@ export class DaterangepickerComponent implements OnInit, OnChanges {
   }
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  /**
+   * Executes `clickCancel` to handle click cancel.
+   * @zh 执行 `clickCancel`，用于点击取消。
+   * @param e - e parameter (`MouseEvent`) / e参数（`MouseEvent`）
+   */
   clickCancel(e: MouseEvent): void {
     this.startDate = this.cachedVersion.start;
     this.endDate = this.cachedVersion.end;
@@ -1047,6 +1714,8 @@ export class DaterangepickerComponent implements OnInit, OnChanges {
    *
    * @param monthEvent get value in event.target.value
    * @param side left or right
+
+   * @zh 执行 `monthChanged`，用于月已变更。
    */
   monthChanged(monthEvent: Event, side: SideEnum): void {
     const year = this.calendarVariables[side].dropdowns.currentYear;
@@ -1059,6 +1728,8 @@ export class DaterangepickerComponent implements OnInit, OnChanges {
    *
    * @param yearEvent get value in event.target.value
    * @param side left or right
+
+   * @zh 执行 `yearChanged`，用于年已变更。
    */
   yearChanged(yearEvent: Event, side: SideEnum): void {
     const month = this.calendarVariables[side].dropdowns.currentMonth;
@@ -1071,6 +1742,8 @@ export class DaterangepickerComponent implements OnInit, OnChanges {
    *
    * @param timeEvent  an event
    * @param side left or right
+
+   * @zh 执行 `timeChanged`，用于时间已变更。
    */
   timeChanged(timeEvent: Event, side: SideEnum): void {
     let hour = parseInt(String(this.timepickerVariables[side].selectedHour), 10);
@@ -1132,6 +1805,8 @@ export class DaterangepickerComponent implements OnInit, OnChanges {
    * @param month month number 0 -11
    * @param year year eg: 1995
    * @param side left or right
+
+   * @zh 执行 `monthOrYearChanged`，用于月Or年已变更。
    */
   monthOrYearChanged(month: number, year: number, side: SideEnum): void {
     const isLeft = side === SideEnum.left;
@@ -1178,6 +1853,8 @@ export class DaterangepickerComponent implements OnInit, OnChanges {
    * Click on previous month
    *
    * @param side left or right calendar
+
+   * @zh 执行 `clickPrev`，用于点击前一个。
    */
   clickPrev(side: SideEnum): void {
     if (side === SideEnum.left) {
@@ -1195,6 +1872,8 @@ export class DaterangepickerComponent implements OnInit, OnChanges {
    * Click on next month
    *
    * @param side left or right calendar
+
+   * @zh 属性 `clickNext`（类型：`any`），用于存储或配置点击下一个。
    */
   clickNext = (side: SideEnum) => {
     if (side === SideEnum.left) {
@@ -1215,6 +1894,8 @@ export class DaterangepickerComponent implements OnInit, OnChanges {
    * @param side left or right
    * @param row row position of the current date clicked
    * @param col col position of the current date clicked
+
+   * @zh 执行 `hoverDate`，用于hover日期。
    */
   hoverDate(e: Event, side: SideEnum, row: number, col: number): void {
     const leftCalDate = this.calendarVariables['left'].calendar[row][col];
@@ -1233,6 +1914,14 @@ export class DaterangepickerComponent implements OnInit, OnChanges {
   }
 
 
+  /**
+   * Executes `clickDate` to handle click date.
+   * @zh 执行 `clickDate`，用于点击日期。
+   * @param e - e parameter (`Event`) / e参数（`Event`）
+   * @param side - side parameter (`SideEnum`) / side参数（`SideEnum`）
+   * @param row - row parameter (`number`) / 行参数（`number`）
+   * @param col - col parameter (`number`) / 列参数（`number`）
+   */
   clickDate(e: Event, side: SideEnum, row: number, col: number): void {
     if ((e.target as HTMLTableCellElement).tagName === 'TD') {
       if (!(e.target as HTMLTableCellElement).classList.contains('available')) {
@@ -1300,6 +1989,8 @@ export class DaterangepickerComponent implements OnInit, OnChanges {
    *
    * @param e: Event
    * @param label
+
+   * @zh 执行 `clickRange`，用于点击范围。
    */
   clickRange(e: MouseEvent, label: string): void {
     this.chosenRange = label;
@@ -1363,6 +2054,11 @@ export class DaterangepickerComponent implements OnInit, OnChanges {
   }
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  /**
+   * Executes `show` to handle show.
+   * @zh 执行 `show`，用于显示。
+   * @param e - e parameter (`Event`) / e参数（`Event`）
+   */
   show(e?: Event): void {
     if (this.isShown) {
       return;
@@ -1374,6 +2070,11 @@ export class DaterangepickerComponent implements OnInit, OnChanges {
   }
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  /**
+   * Executes `hide` to handle hide.
+   * @zh 执行 `hide`，用于隐藏。
+   * @param e - e parameter (`Event`) / e参数（`Event`）
+   */
   hide(e?: Event): void {
     if (!this.isShown) {
       return;
@@ -1403,6 +2104,8 @@ export class DaterangepickerComponent implements OnInit, OnChanges {
    * update the locale options
    *
    * @param locale
+
+   * @zh 执行 `updateLocale`，用于更新语言区域。
    */
   updateLocale(locale: LocaleConfig): void {
     for (const key in locale) {
@@ -1417,6 +2120,8 @@ export class DaterangepickerComponent implements OnInit, OnChanges {
 
   /**
    *  clear the daterange picker
+
+   * @zh 执行 `clear`，用于清空。
    */
   clear(): void {
     this.startDate = dayjs().utc(true).startOf('day');
@@ -1430,6 +2135,8 @@ export class DaterangepickerComponent implements OnInit, OnChanges {
   /**
    * Find out if the selected range should be disabled if it doesn't
    * fit into minDate and maxDate limitations.
+
+   * @zh 执行 `disableRange`，用于禁用范围。
    */
   disableRange(range: string): boolean {
     if (range === this.locale.customRangeLabel) {
@@ -1456,6 +2163,8 @@ export class DaterangepickerComponent implements OnInit, OnChanges {
    *
    * @param date the date to add time
    * @param side left or right
+
+   * @zh 执行 `getDateWithTime`，用于获取日期带有时间。
    */
   private getDateWithTime(date, side: SideEnum): dayjs.Dayjs {
     if(!!this.timepickerVariables[side]) {
@@ -1480,6 +2189,8 @@ export class DaterangepickerComponent implements OnInit, OnChanges {
 
   /**
    *  build the locale config
+
+   * @zh 执行 `buildLocale`，用于构建语言区域。
    */
   private buildLocale() {
     this.locale = { ...this.localeHolderService.config, ...this.locale };
@@ -1492,6 +2203,12 @@ export class DaterangepickerComponent implements OnInit, OnChanges {
     }
   }
 
+  /**
+   * Executes `buildCells` to handle build cells.
+   * @zh 执行 `buildCells`，用于构建单元格集合。
+   * @param calendar - calendar parameter (`any`) / 日历参数（`any`）
+   * @param side - side parameter (`SideEnum`) / side参数（`SideEnum`）
+   */
   private buildCells(calendar, side: SideEnum) {
     for (let row = 0; row < 6; row++) {
       this.calendarVariables[side].classes[row] = { classList: '' };

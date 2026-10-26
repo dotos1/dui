@@ -7,10 +7,22 @@
  */
 import { Internationalization } from '@dotos/dui/translator';
 
+/**
+ * Constant/variable `矩阵` defining 矩阵 in `tools/intl`.
+ * @zh 常量/变量 `矩阵`，定义 `tools/intl` 中的矩阵。
+ */
 // @ts-ignore  由 gate.mjs 用 --define 注入
 declare const 矩阵: any;
 
+/**
+ * Constant/variable `intl` defining intl in `tools/intl`.
+ * @zh 常量/变量 `intl`，定义 `tools/intl` 中的intl。
+ */
 const intl = new Internationalization();
+/**
+ * Constant/variable `out` defining out in `tools/intl`.
+ * @zh 常量/变量 `out`，定义 `tools/intl` 中的输出。
+ */
 const out: Record<string, string> = {};
 
 for (const f of 矩阵.日期格式) {

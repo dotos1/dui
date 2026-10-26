@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Module `src/common/colorpicker/components/gradient/components/index.ts` providing index definitions and implementation.
+ * @zh 模块文件 `src/common/colorpicker/components/gradient/components/index.ts`，提供索引相关的定义与实现。
+ */
+
 
 // import PickerContextWrapper from '../hooks/context.service.js'
 // import Picker from './gradient-picker.component.js'

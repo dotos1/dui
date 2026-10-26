@@ -4,8 +4,8 @@
     {
       "name": "MediaModule",
       "kind": "module",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular module `MediaModule` declaring and exporting media module components, directives, pipes, and providers.",
+      "summaryZh": "Angular 模块 `MediaModule`，声明并导出媒体模块相关的组件、指令、管道与服务提供者。",
       "sourceFile": "src/common/media/media.module.ts",
       "inputs": [],
       "outputs": [],
@@ -31,7 +31,7 @@
           ],
           "returnType": "void",
           "description": "Deregisters a query so its stops being notified or used.",
-          "descriptionZh": null
+          "descriptionZh": "执行 `deregisterQuery`，用于deregister查询。"
         },
         {
           "name": "query",
@@ -43,7 +43,7 @@
           ],
           "returnType": "boolean",
           "description": "Used to evaluate whether a given media query is true or false given the current device's screen / window size.",
-          "descriptionZh": null
+          "descriptionZh": "执行 `query`，用于查询。"
         },
         {
           "name": "registerQuery",
@@ -55,14 +55,14 @@
           ],
           "returnType": "Observable<boolean>",
           "description": "Registers a media query and returns an [Observable] that will re-evaluate and\nreturn if the given media query matches on window resize.\nNote: don't forget to unsubscribe from [Observable] when finished watching.",
-          "descriptionZh": null
+          "descriptionZh": "执行 `registerQuery`，用于注册查询。"
         },
         {
           "name": "broadcast",
           "params": [],
           "returnType": "void",
           "description": "Trigger a match media event on all subscribed observables.",
-          "descriptionZh": null
+          "descriptionZh": "执行 `broadcast`，用于广播。"
         }
       ],
       "properties": []
@@ -80,28 +80,28 @@
           "alias": "extMediaToggle",
           "type": "string",
           "description": "extMediaToggle: string\nMedia query used to evaluate screen/window size.\nToggles attributes, classes and styles if media query is matched.",
-          "descriptionZh": null
+          "descriptionZh": "输入属性 `query` 的设置器，用于更新查询。"
         },
         {
           "name": "attributes",
           "alias": "mediaAttributes",
           "type": "any",
           "description": "mediaAttributes: {[key: string]: string}\nAttributes to be toggled when media query matches.",
-          "descriptionZh": null
+          "descriptionZh": "输入属性 `attributes` 的设置器，用于更新属性列表。"
         },
         {
           "name": "classes",
           "alias": "mediaClasses",
           "type": "string[]",
           "description": "mediaClasses: string[]\nCSS Classes to be toggled when media query matches.",
-          "descriptionZh": null
+          "descriptionZh": "输入属性 `classes` 的设置器，用于更新类名集合。"
         },
         {
           "name": "styles",
           "alias": "mediaStyles",
           "type": "any",
           "description": "mediaStyles: {[key: string]: string}\nCSS Styles to be toggled when media query matches.",
-          "descriptionZh": null
+          "descriptionZh": "输入属性 `styles` 的设置器，用于更新样式集合。"
         }
       ],
       "outputs": [],

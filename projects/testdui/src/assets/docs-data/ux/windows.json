@@ -5,7 +5,7 @@
       "name": "AppendToBodyConfig",
       "kind": "class",
       "summary": "Settings for {@link AppendToBodyDirective}",
-      "summaryZh": null,
+      "summaryZh": "类 `AppendToBodyConfig`，封装 `src/ux/windows/utils/classes` 中的追加转换为主体配置数据结构与处理逻辑。",
       "sourceFile": "src/ux/windows/utils/classes/append-to-body-config.ts",
       "inputs": [],
       "outputs": [],
@@ -16,7 +16,7 @@
           "type": "boolean",
           "default": "true",
           "description": "Is should be append to body element or not",
-          "descriptionZh": null
+          "descriptionZh": "属性 `isEnabled`（类型：`boolean`），用于存储或配置是否为已启用（默认值：`true`）。"
         }
       ]
     },
@@ -25,7 +25,7 @@
       "kind": "directive",
       "selector": "[osAppendToBody]",
       "summary": "Moves element into the `body` element *",
-      "summaryZh": null,
+      "summaryZh": "Angular 指令 `AppendToBodyDirective`（selector: '[osAppendToBody]'），为宿主 DOM 元素附加追加转换为主体指令行为。",
       "sourceFile": "src/ux/windows/utils/directives/append-to-body.directive.ts",
       "inputs": [
         {
@@ -33,7 +33,7 @@
           "alias": "osAppendToBody",
           "type": "AppendToBodyConfig | undefined | ''",
           "description": "Configuration of directive",
-          "descriptionZh": null
+          "descriptionZh": "输入属性 `osAppendToBody`（类型：`AppendToBodyConfig | undefined | ''`），用于配置参数列表。"
         }
       ],
       "outputs": [],
@@ -43,37 +43,63 @@
           "name": "config",
           "type": "AppendToBodyConfig",
           "description": "Configuration of directive",
-          "descriptionZh": null
+          "descriptionZh": "获取当前配置（`config: AppendToBodyConfig`）。"
         }
       ]
     },
     {
       "name": "Coordinate",
       "kind": "interface",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Interface `Coordinate` defining the contract and properties for coordinate.",
+      "summaryZh": "接口 `Coordinate`，定义坐标的数据结构契约与属性规范。",
       "sourceFile": "src/ux/windows/core/interfaces/coordinate.interface.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
-      "properties": []
+      "properties": [
+        {
+          "name": "x",
+          "type": "number",
+          "description": "The x-axis of coordinate",
+          "descriptionZh": "属性 `x`（类型：`number`），用于存储或配置X坐标。"
+        },
+        {
+          "name": "y",
+          "type": "number",
+          "description": "The y-axis of coordinate",
+          "descriptionZh": "属性 `y`（类型：`number`），用于存储或配置Y坐标。"
+        }
+      ]
     },
     {
       "name": "CssCoordinate",
       "kind": "interface",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Interface `CssCoordinate` defining the contract and properties for css coordinate.",
+      "summaryZh": "接口 `CssCoordinate`，定义CSS样式坐标的数据结构契约与属性规范。",
       "sourceFile": "src/ux/windows/core/interfaces/css-coordinate.interface.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
-      "properties": []
+      "properties": [
+        {
+          "name": "x",
+          "type": "string",
+          "description": "The x-axis of coordinate",
+          "descriptionZh": "属性 `x`（类型：`string`），用于存储或配置X坐标。"
+        },
+        {
+          "name": "y",
+          "type": "string",
+          "description": "The y-axis of coordinate",
+          "descriptionZh": "属性 `y`（类型：`string`），用于存储或配置Y坐标。"
+        }
+      ]
     },
     {
       "name": "DragAndDropModule",
       "kind": "module",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular module `DragAndDropModule` declaring and exporting drag and drop module components, directives, pipes, and providers.",
+      "summaryZh": "Angular 模块 `DragAndDropModule`，声明并导出拖拽And放置模块相关的组件、指令、管道与服务提供者。",
       "sourceFile": "src/ux/windows/drag-and-drop/drag-and-drop.module.ts",
       "inputs": [],
       "outputs": [],
@@ -85,7 +111,7 @@
       "kind": "directive",
       "selector": "[osDraggable]",
       "summary": "Makes HTML element draggable by mouse",
-      "summaryZh": null,
+      "summaryZh": "Angular 指令 `DraggableDirective`（selector: '[osDraggable]'），为宿主 DOM 元素附加是否可拖拽指令行为。",
       "sourceFile": "src/ux/windows/drag-and-drop/directives/draggable.directive.ts",
       "inputs": [
         {
@@ -93,7 +119,7 @@
           "alias": "osDraggable",
           "type": "DraggerConfig | undefined | ''",
           "description": "Configuration of dragging",
-          "descriptionZh": null
+          "descriptionZh": "输入属性 `osDraggable`（类型：`DraggerConfig | undefined | ''`），用于配置参数列表。"
         }
       ],
       "outputs": [
@@ -101,31 +127,31 @@
           "name": "osDraggableElementInit",
           "type": "HTMLElement",
           "description": "Fires when the draggable element init",
-          "descriptionZh": null
+          "descriptionZh": "输出事件 `osDraggableElementInit`（类型：`EventEmitter<HTMLElement>`），当触发os是否可拖拽元素初始化时向外发出事件。"
         },
         {
           "name": "osMovableElementInit",
           "type": "HTMLElement",
           "description": "Fires when the movable element init",
-          "descriptionZh": null
+          "descriptionZh": "输出事件 `osMovableElementInit`（类型：`EventEmitter<HTMLElement>`），当触发os是否可移动元素初始化时向外发出事件。"
         },
         {
           "name": "osDragStart",
           "type": "DragInfo",
           "description": "Fires when calls mousedown handler over draggableElement",
-          "descriptionZh": null
+          "descriptionZh": "输出事件 `osDragStart`（类型：`EventEmitter<DragInfo>`），当触发os拖拽开始时向外发出事件。"
         },
         {
           "name": "osDragging",
           "type": "DragInfo",
           "description": "Fires when the `mousemove` is called",
-          "descriptionZh": null
+          "descriptionZh": "输出事件 `osDragging`（类型：`EventEmitter<DragInfo>`），当触发os拖拽中时向外发出事件。"
         },
         {
           "name": "osDragEnd",
           "type": "DragInfo",
           "description": "Fires when the `mouseup` is called and after all internal handlers removed",
-          "descriptionZh": null
+          "descriptionZh": "输出事件 `osDragEnd`（类型：`EventEmitter<DragInfo>`），当触发os拖拽结束时向外发出事件。"
         }
       ],
       "methods": [
@@ -139,7 +165,7 @@
           ],
           "returnType": "void",
           "description": "Updates config without affecting any logic, like some internal initialization of different things",
-          "descriptionZh": null
+          "descriptionZh": "执行 `updateConfigWithoutChanges`，用于更新配置不含变更集合。"
         }
       ],
       "properties": [
@@ -147,61 +173,147 @@
           "name": "draggableElement",
           "type": "HTMLElement",
           "description": "Target draggable HTML element",
-          "descriptionZh": null
+          "descriptionZh": "获取当前是否可拖拽元素（`draggableElement: HTMLElement`）。"
         },
         {
           "name": "movableElement",
           "type": "HTMLElement",
           "description": "Target movable HTML element",
-          "descriptionZh": null
+          "descriptionZh": "获取当前是否可移动元素（`movableElement: HTMLElement`）。"
         },
         {
           "name": "strategy",
           "type": "ɵBaseDragStrategyImpl",
           "description": "Target dragging strategy",
-          "descriptionZh": null
+          "descriptionZh": "获取当前策略（`strategy: ɵBaseDragStrategyImpl`）。"
         },
         {
           "name": "config",
           "type": "DraggerConfig",
           "description": "Configuration of dragging",
-          "descriptionZh": null
+          "descriptionZh": "获取当前配置（`config: DraggerConfig`）。"
         },
         {
           "name": "whenViewInit$",
           "type": "Observable<unknown>",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current when view init (`whenViewInit$: Observable<unknown>`).",
+          "descriptionZh": "获取当前when视图初始化（`whenViewInit$: Observable<unknown>`）。"
         }
       ]
     },
     {
       "name": "DraggerConfig",
       "kind": "interface",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Interface `DraggerConfig` defining the contract and properties for dragger config.",
+      "summaryZh": "接口 `DraggerConfig`，定义Dragger配置的数据结构契约与属性规范。",
       "sourceFile": "src/ux/windows/drag-and-drop/interfaces/dragger-config.interface.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
-      "properties": []
+      "properties": [
+        {
+          "name": "isEnabled",
+          "type": "boolean",
+          "description": "Is dragging enabled",
+          "descriptionZh": "属性 `isEnabled`（类型：`boolean`），用于存储或配置是否为已启用。"
+        },
+        {
+          "name": "draggableElement",
+          "type": "HTMLElement",
+          "description": "The target element by dragging which the dragging of `movableElement` will take place",
+          "descriptionZh": "属性 `draggableElement`（类型：`HTMLElement`），用于存储或配置是否可拖拽元素。"
+        },
+        {
+          "name": "movableElement",
+          "type": "HTMLElement",
+          "description": "The target element will be moving as a result of dragging by `draggableElement`.",
+          "descriptionZh": "属性 `movableElement`（类型：`HTMLElement`），用于存储或配置是否可移动元素。"
+        },
+        {
+          "name": "childElementsBlackList",
+          "type": "HTMLElement[]",
+          "description": "Child elements by trying dragging which, prevent dragging process.\n\nPrevents dragging if some of those element contain in `mouseEvent.target`",
+          "descriptionZh": "属性 `childElementsBlackList`（类型：`HTMLElement[]`），用于存储或配置子级元素列表Black列表。"
+        },
+        {
+          "name": "allowedMouseButtons",
+          "type": "MouseButtonEnum[]",
+          "description": "Mouse buttons by using which dragging allowed",
+          "descriptionZh": "属性 `allowedMouseButtons`（类型：`MouseButtonEnum[]`），用于存储或配置允许的鼠标按钮。"
+        },
+        {
+          "name": "shiftX",
+          "type": "number",
+          "description": "Offset relative to the cursor by X-Axis when dragging",
+          "descriptionZh": "属性 `shiftX`（类型：`number`），用于存储或配置移出首项X坐标。"
+        },
+        {
+          "name": "shiftY",
+          "type": "number",
+          "description": "Offset relative to the cursor by Y-Axis when dragging",
+          "descriptionZh": "属性 `shiftY`（类型：`number`），用于存储或配置移出首项Y坐标。"
+        },
+        {
+          "name": "strategy",
+          "type": "DragStrategyType",
+          "description": "Dragging strategy. Different strategy affects element in a different way",
+          "descriptionZh": "属性 `strategy`（类型：`DragStrategyType`），用于存储或配置策略。"
+        },
+        {
+          "name": "isAllowMoveElement",
+          "type": "boolean",
+          "description": "Should directive move movable element?",
+          "descriptionZh": "属性 `isAllowMoveElement`（类型：`boolean`），用于存储或配置是否为允许移动元素。"
+        },
+        {
+          "name": "mouseMoveHandler",
+          "type": "(event: DragInfo) => void",
+          "description": "Handler for custom logic implementation for mousemove",
+          "descriptionZh": "属性 `mouseMoveHandler`（类型：`(event: DragInfo) => void`），用于存储或配置鼠标移动处理器。"
+        },
+        {
+          "name": "maxX",
+          "type": "number",
+          "description": "Property `maxX` (`number`) storing max x.",
+          "descriptionZh": "属性 `maxX`（类型：`number`），用于存储或配置最大值X坐标。"
+        },
+        {
+          "name": "maxY",
+          "type": "number",
+          "description": "Property `maxY` (`number`) storing max y.",
+          "descriptionZh": "属性 `maxY`（类型：`number`），用于存储或配置最大值Y坐标。"
+        }
+      ]
     },
     {
       "name": "DragInfo",
       "kind": "interface",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Interface `DragInfo` defining the contract and properties for drag info.",
+      "summaryZh": "接口 `DragInfo`，定义拖拽信息的数据结构契约与属性规范。",
       "sourceFile": "src/ux/windows/drag-and-drop/interfaces/drag-info.interface.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
-      "properties": []
+      "properties": [
+        {
+          "name": "movableElement",
+          "type": "HTMLElement",
+          "description": "Target movable HTML element. Useful to read properties about current position and size",
+          "descriptionZh": "属性 `movableElement`（类型：`HTMLElement`），用于存储或配置是否可移动元素。"
+        },
+        {
+          "name": "originalEvent",
+          "type": "PointerEvent | TouchEvent",
+          "description": "Original mouse event from movable HTML element",
+          "descriptionZh": "属性 `originalEvent`（类型：`PointerEvent | TouchEvent`），用于存储或配置原始事件。"
+        }
+      ]
     },
     {
       "name": "DragStrategyByAxisProperties",
       "kind": "class",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Class `DragStrategyByAxisProperties` encapsulating drag strategy by axis properties data structures and logic in `src/ux/windows/drag-and-drop/classes/drag-strategy`.",
+      "summaryZh": "类 `DragStrategyByAxisProperties`，封装 `src/ux/windows/drag-and-drop/classes/drag-strategy` 中的拖拽策略按坐标轴属性列表数据结构与处理逻辑。",
       "sourceFile": "src/ux/windows/drag-and-drop/classes/drag-strategy/by-axis-properties-drag.strategy.ts",
       "inputs": [],
       "outputs": [],
@@ -211,30 +323,30 @@
           "name": "type",
           "type": "any",
           "default": "ɵDragStrategyEnum.ByAxisProperties",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `type` (`any`) storing type (default: `ɵDragStrategyEnum.ByAxisProperties`).",
+          "descriptionZh": "属性 `type`（类型：`any`），用于存储或配置类型（默认值：`ɵDragStrategyEnum.ByAxisProperties`）。"
         },
         {
           "name": "xAxisLeftStyleProperty",
           "type": "string",
           "default": "'left'",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `xAxisLeftStyleProperty` (`string`) storing x axis left style property (default: `'left'`).",
+          "descriptionZh": "属性 `xAxisLeftStyleProperty`（类型：`string`），用于存储或配置X坐标坐标轴左侧位置样式属性（默认值：`'left'`）。"
         },
         {
           "name": "yAxisTopStyleProperty",
           "type": "string",
           "default": "'top'",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `yAxisTopStyleProperty` (`string`) storing y axis top style property (default: `'top'`).",
+          "descriptionZh": "属性 `yAxisTopStyleProperty`（类型：`string`），用于存储或配置Y坐标坐标轴顶部位置样式属性（默认值：`'top'`）。"
         }
       ]
     },
     {
       "name": "DragStrategyByTranslate3d",
       "kind": "class",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Class `DragStrategyByTranslate3d` encapsulating drag strategy by translate3d data structures and logic in `src/ux/windows/drag-and-drop/classes/drag-strategy`.",
+      "summaryZh": "类 `DragStrategyByTranslate3d`，封装 `src/ux/windows/drag-and-drop/classes/drag-strategy` 中的拖拽策略按Translate3d数据结构与处理逻辑。",
       "sourceFile": "src/ux/windows/drag-and-drop/classes/drag-strategy/by-translate3d-drag.strategy.ts",
       "inputs": [],
       "outputs": [],
@@ -244,30 +356,30 @@
           "name": "type",
           "type": "any",
           "default": "ɵDragStrategyEnum.ByTranslate3d",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `type` (`any`) storing type (default: `ɵDragStrategyEnum.ByTranslate3d`).",
+          "descriptionZh": "属性 `type`（类型：`any`），用于存储或配置类型（默认值：`ɵDragStrategyEnum.ByTranslate3d`）。"
         },
         {
           "name": "isLockAxisX",
           "type": "boolean",
           "default": "false",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `isLockAxisX` (`boolean`) storing is lock axis x (default: `false`).",
+          "descriptionZh": "属性 `isLockAxisX`（类型：`boolean`），用于存储或配置是否为锁定坐标轴X坐标（默认值：`false`）。"
         },
         {
           "name": "isLockAxisY",
           "type": "boolean",
           "default": "false",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `isLockAxisY` (`boolean`) storing is lock axis y (default: `false`).",
+          "descriptionZh": "属性 `isLockAxisY`（类型：`boolean`），用于存储或配置是否为锁定坐标轴Y坐标（默认值：`false`）。"
         }
       ]
     },
     {
       "name": "DragStrategyType",
       "kind": "type",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Type alias `DragStrategyType` representing drag strategy type (`DragStrategyByTranslate3d | DragStrategyByAxisProperties`).",
+      "summaryZh": "类型别名 `DragStrategyType`，表示拖拽策略类型（`DragStrategyByTranslate3d | DragStrategyByAxisProperties`）。",
       "sourceFile": "src/ux/windows/drag-and-drop/types/drag-strategy.type.ts",
       "inputs": [],
       "outputs": [],
@@ -278,7 +390,7 @@
       "name": "DYNAMIC_WINDOW_REF",
       "kind": "constant",
       "summary": "An injection token that can be used to get window reference inside your component",
-      "summaryZh": null,
+      "summaryZh": "Angular 依赖注入令牌 `DYNAMIC_WINDOW_REF`，用于提供与注入动态窗口引用。",
       "sourceFile": "src/ux/windows/window/data/dynamic-window-ref.token.ts",
       "inputs": [],
       "outputs": [],
@@ -289,7 +401,7 @@
       "name": "DYNAMIC_WINDOW_SHARED_CONFIG",
       "kind": "constant",
       "summary": "An injection token that can be used to get shared config of dynamic windows",
-      "summaryZh": null,
+      "summaryZh": "Angular 依赖注入令牌 `DYNAMIC_WINDOW_SHARED_CONFIG`，用于提供与注入动态窗口共享配置。",
       "sourceFile": "src/ux/windows/window/data/shared-dynamic-window-config.token.ts",
       "inputs": [],
       "outputs": [],
@@ -300,40 +412,532 @@
       "name": "DynamicWindowConfig",
       "kind": "interface",
       "summary": "The parameters to set up a dynamic window and pass some custom data for the component which will be rendered inside",
-      "summaryZh": null,
+      "summaryZh": "接口 `DynamicWindowConfig`，定义动态窗口配置的数据结构契约与属性规范。",
       "sourceFile": "src/ux/windows/window/interfaces/config.interface.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
-      "properties": []
+      "properties": [
+        {
+          "name": "id",
+          "type": "string",
+          "description": "Property `id` (`string`) storing id.",
+          "descriptionZh": "属性 `id`（类型：`string`），用于存储或配置唯一标识。"
+        },
+        {
+          "name": "title",
+          "type": "string",
+          "description": "The title text of the dynamic window's title bar",
+          "descriptionZh": "属性 `title`（类型：`string`），用于存储或配置标题。"
+        },
+        {
+          "name": "data",
+          "type": "D",
+          "description": "Custom data you can access via the component which rendered inside of the dynamic window",
+          "descriptionZh": "属性 `data`（类型：`D`），用于存储或配置数据。"
+        },
+        {
+          "name": "type",
+          "type": "T",
+          "description": "Custom data you can use to mark your window somehow you want.\nCan be useful when you want to work with a bunch of windows as with a group.\nFor example, you need to close a group of windows with the type: MY_TYPE1",
+          "descriptionZh": "属性 `type`（类型：`T`），用于存储或配置类型。"
+        },
+        {
+          "name": "titleBarCustomContent",
+          "type": "Type<any>",
+          "description": "The component for the title bar with content which will be rendered instead of default content",
+          "descriptionZh": "属性 `titleBarCustomContent`（类型：`Type<any>`），用于存储或配置标题条自定义内容。"
+        },
+        {
+          "name": "width",
+          "type": "number",
+          "description": "The width of the dynamic window",
+          "descriptionZh": "属性 `width`（类型：`number`），用于存储或配置宽度。"
+        },
+        {
+          "name": "height",
+          "type": "number",
+          "description": "The height of the dynamic window",
+          "descriptionZh": "属性 `height`（类型：`number`），用于存储或配置高度。"
+        },
+        {
+          "name": "minWidth",
+          "type": "number",
+          "description": "The minimum width of the dynamic window",
+          "descriptionZh": "属性 `minWidth`（类型：`number`），用于存储或配置最小值宽度。"
+        },
+        {
+          "name": "minHeight",
+          "type": "number",
+          "description": "The minimum height of the dynamic window",
+          "descriptionZh": "属性 `minHeight`（类型：`number`），用于存储或配置最小值高度。"
+        },
+        {
+          "name": "maxWidth",
+          "type": "number",
+          "description": "The maximum width of the dynamic window",
+          "descriptionZh": "属性 `maxWidth`（类型：`number`），用于存储或配置最大值宽度。"
+        },
+        {
+          "name": "maxHeight",
+          "type": "number",
+          "description": "The maximum height of the dynamic window",
+          "descriptionZh": "属性 `maxHeight`（类型：`number`），用于存储或配置最大值高度。"
+        },
+        {
+          "name": "allowedResizers",
+          "type": "ResizerEnum[]",
+          "description": "The allowed sides of the dynamic window to resize",
+          "descriptionZh": "属性 `allowedResizers`（类型：`ResizerEnum[]`），用于存储或配置允许的尺寸调整器。"
+        },
+        {
+          "name": "x",
+          "type": "number",
+          "description": "The position of the dynamic window by X-axis",
+          "descriptionZh": "属性 `x`（类型：`number`），用于存储或配置X坐标。"
+        },
+        {
+          "name": "y",
+          "type": "number",
+          "description": "The position of the dynamic window by Y-axis",
+          "descriptionZh": "属性 `y`（类型：`number`），用于存储或配置Y坐标。"
+        },
+        {
+          "name": "iconUrl",
+          "type": "string",
+          "description": "The link to the icon. Will be displayed in the window's title bar",
+          "descriptionZh": "属性 `iconUrl`（类型：`string`），用于存储或配置图标链接地址。"
+        },
+        {
+          "name": "fullscreenOffset",
+          "type": "DynamicWindowFullscreenOffset",
+          "description": "Parameters of offsets from the edges of the screen in the full-screen mode",
+          "descriptionZh": "属性 `fullscreenOffset`（类型：`DynamicWindowFullscreenOffset`），用于存储或配置全屏偏移量。"
+        },
+        {
+          "name": "hidesInto",
+          "type": "CssCoordinate",
+          "description": "Coordinates as CSS strings the dynamic window will be hidden into",
+          "descriptionZh": "属性 `hidesInto`（类型：`CssCoordinate`），用于存储或配置隐藏进入。"
+        },
+        {
+          "name": "isFullscreenByDefault",
+          "type": "boolean",
+          "description": "The dynamic window will be at full-screen mode after the creation",
+          "descriptionZh": "属性 `isFullscreenByDefault`（类型：`boolean`），用于存储或配置是否为全屏按默认。"
+        },
+        {
+          "name": "isHiddenByDefault",
+          "type": "boolean",
+          "description": "The dynamic window will be hidden after the creation",
+          "descriptionZh": "属性 `isHiddenByDefault`（类型：`boolean`），用于存储或配置是否为隐藏按默认。"
+        },
+        {
+          "name": "isAllowHide",
+          "type": "boolean",
+          "description": "Defines can the dynamic window be hidden by user",
+          "descriptionZh": "属性 `isAllowHide`（类型：`boolean`），用于存储或配置是否为允许隐藏。"
+        },
+        {
+          "name": "isAllowFullscreen",
+          "type": "boolean",
+          "description": "Defines can the dynamic window be switched at full-screen mode and to windowed mode by user",
+          "descriptionZh": "属性 `isAllowFullscreen`（类型：`boolean`），用于存储或配置是否为允许全屏。"
+        },
+        {
+          "name": "isAllowClose",
+          "type": "boolean",
+          "description": "Defines can the dynamic window be closed by user",
+          "descriptionZh": "属性 `isAllowClose`（类型：`boolean`），用于存储或配置是否为允许关闭。"
+        },
+        {
+          "name": "isAlwaysOnTop",
+          "type": "boolean",
+          "description": "Dynamic window with this flag will be always above other dynamic windows without this flag",
+          "descriptionZh": "属性 `isAlwaysOnTop`（类型：`boolean`），用于存储或配置是否为Always当顶部位置。"
+        },
+        {
+          "name": "isToggleFullscreenByDblClickOnTitleBar",
+          "type": "boolean",
+          "description": "Allows the switch to full-screen mode and to the windowed mode by double-clicking on title bar",
+          "descriptionZh": "属性 `isToggleFullscreenByDblClickOnTitleBar`（类型：`boolean`），用于存储或配置是否为开关全屏按Dbl点击当标题条。"
+        },
+        {
+          "name": "isExitFullscreenByDragTitleBar",
+          "type": "boolean",
+          "description": "Allows going to the windowed mode from the full-screen mode by dragging dynamic window's title bar",
+          "descriptionZh": "属性 `isExitFullscreenByDragTitleBar`（类型：`boolean`），用于存储或配置是否为Exit全屏按拖拽标题条。"
+        },
+        {
+          "name": "isTitleBarVisible",
+          "type": "boolean",
+          "description": "Is the need to display the title bar",
+          "descriptionZh": "属性 `isTitleBarVisible`（类型：`boolean`），用于存储或配置是否为标题条可见。"
+        },
+        {
+          "name": "style",
+          "type": "object",
+          "description": "Stylelist for the dynamic window",
+          "descriptionZh": "属性 `style`（类型：`object`），用于存储或配置样式。"
+        },
+        {
+          "name": "styleClass",
+          "type": "string | string[] | object",
+          "description": "Classlist for the dynamic window",
+          "descriptionZh": "属性 `styleClass`（类型：`string | string[] | object`），用于存储或配置样式类名。"
+        },
+        {
+          "name": "titleBarStyle",
+          "type": "object",
+          "description": "Stylelist for the title bar of the dynamic window",
+          "descriptionZh": "属性 `titleBarStyle`（类型：`object`），用于存储或配置标题条样式。"
+        },
+        {
+          "name": "titleBarStyleClass",
+          "type": "string | string[] | object",
+          "description": "Classlist for the title bar of the dynamic window",
+          "descriptionZh": "属性 `titleBarStyleClass`（类型：`string | string[] | object`），用于存储或配置标题条样式类名。"
+        },
+        {
+          "name": "scrollViewStyle",
+          "type": "object",
+          "description": "Stylelist for scroll view component of the window",
+          "descriptionZh": "属性 `scrollViewStyle`（类型：`object`），用于存储或配置滚动视图样式。"
+        },
+        {
+          "name": "scrollViewStyleClass",
+          "type": "string | string[] | object",
+          "description": "Classlist for scroll view component of the window",
+          "descriptionZh": "属性 `scrollViewStyleClass`（类型：`string | string[] | object`），用于存储或配置滚动视图样式类名。"
+        },
+        {
+          "name": "draggerConfig",
+          "type": "DraggerConfig",
+          "description": "Configuration for {@link DraggableDirective}",
+          "descriptionZh": "属性 `draggerConfig`（类型：`DraggerConfig`），用于存储或配置dragger配置。"
+        },
+        {
+          "name": "resizerConfig",
+          "type": "ResizerConfig",
+          "description": "Configuration for {@link ResizableDirective}",
+          "descriptionZh": "属性 `resizerConfig`（类型：`ResizerConfig`），用于存储或配置尺寸调整器配置。"
+        },
+        {
+          "name": "items",
+          "type": "any[]",
+          "description": "Property `items` (`any[]`) storing items.",
+          "descriptionZh": "属性 `items`（类型：`any[]`），用于存储或配置条目列表。"
+        },
+        {
+          "name": "listeners",
+          "type": "any",
+          "description": "Property `listeners` (`any`) storing listeners.",
+          "descriptionZh": "属性 `listeners`（类型：`any`），用于存储或配置监听器列表。"
+        },
+        {
+          "name": "icon",
+          "type": "string",
+          "description": "Property `icon` (`string`) storing icon.",
+          "descriptionZh": "属性 `icon`（类型：`string`），用于存储或配置图标。"
+        },
+        {
+          "name": "xtype",
+          "type": "string",
+          "description": "Property `xtype` (`string`) storing xtype.",
+          "descriptionZh": "属性 `xtype`（类型：`string`），用于存储或配置扩展类型。"
+        },
+        {
+          "name": "iconType",
+          "type": "string",
+          "description": "Property `iconType` (`string`) storing icon type.",
+          "descriptionZh": "属性 `iconType`（类型：`string`），用于存储或配置图标类型。"
+        },
+        {
+          "name": "svgIcon",
+          "type": "string",
+          "description": "Property `svgIcon` (`string`) storing svg icon.",
+          "descriptionZh": "属性 `svgIcon`（类型：`string`），用于存储或配置SVG矢量图图标。"
+        },
+        {
+          "name": "background",
+          "type": "string",
+          "description": "Property `background` (`string`) storing background.",
+          "descriptionZh": "属性 `background`（类型：`string`），用于存储或配置背景。"
+        },
+        {
+          "name": "radius",
+          "type": "string",
+          "description": "Property `radius` (`string`) storing radius.",
+          "descriptionZh": "属性 `radius`（类型：`string`），用于存储或配置半径。"
+        },
+        {
+          "name": "color",
+          "type": "string",
+          "description": "Property `color` (`string`) storing color.",
+          "descriptionZh": "属性 `color`（类型：`string`），用于存储或配置颜色。"
+        },
+        {
+          "name": "prefix",
+          "type": "string",
+          "description": "Property `prefix` (`string`) storing prefix.",
+          "descriptionZh": "属性 `prefix`（类型：`string`），用于存储或配置前缀。"
+        },
+        {
+          "name": "path",
+          "type": "string",
+          "description": "Property `path` (`string`) storing path.",
+          "descriptionZh": "属性 `path`（类型：`string`），用于存储或配置路径。"
+        },
+        {
+          "name": "addTask",
+          "type": "boolean",
+          "description": "Property `addTask` (`boolean`) storing add task.",
+          "descriptionZh": "属性 `addTask`（类型：`boolean`），用于存储或配置添加任务。"
+        },
+        {
+          "name": "route",
+          "type": "any",
+          "description": "Property `route` (`any`) storing route.",
+          "descriptionZh": "属性 `route`（类型：`any`），用于存储或配置route。"
+        },
+        {
+          "name": "params",
+          "type": "any",
+          "description": "Property `params` (`any`) storing params.",
+          "descriptionZh": "属性 `params`（类型：`any`），用于存储或配置参数集合。"
+        },
+        {
+          "name": "iconClass",
+          "type": "string",
+          "description": "Property `iconClass` (`string`) storing icon class.",
+          "descriptionZh": "属性 `iconClass`（类型：`string`），用于存储或配置图标类名。"
+        },
+        {
+          "name": "moduleRef",
+          "type": "NgModuleRef<any>",
+          "description": "Property `moduleRef` (`NgModuleRef<any>`) storing module ref.",
+          "descriptionZh": "属性 `moduleRef`（类型：`NgModuleRef<any>`），用于存储或配置模块引用。"
+        }
+      ]
     },
     {
       "name": "DynamicWindowFullscreenOffset",
       "kind": "interface",
       "summary": "The offset of the dynamic window from sides of the screen in CSS format",
-      "summaryZh": null,
+      "summaryZh": "接口 `DynamicWindowFullscreenOffset`，定义动态窗口全屏偏移量的数据结构契约与属性规范。",
       "sourceFile": "src/ux/windows/window/interfaces/fullscreen-offset.interface.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
-      "properties": []
+      "properties": [
+        {
+          "name": "top",
+          "type": "string",
+          "description": "The offset from the top",
+          "descriptionZh": "属性 `top`（类型：`string`），用于存储或配置顶部位置。"
+        },
+        {
+          "name": "left",
+          "type": "string",
+          "description": "The offset from the left",
+          "descriptionZh": "属性 `left`（类型：`string`），用于存储或配置左侧位置。"
+        },
+        {
+          "name": "bottom",
+          "type": "string",
+          "description": "The offset from the bottom",
+          "descriptionZh": "属性 `bottom`（类型：`string`），用于存储或配置底部位置。"
+        },
+        {
+          "name": "right",
+          "type": "string",
+          "description": "The offset from the right",
+          "descriptionZh": "属性 `right`（类型：`string`），用于存储或配置右侧位置。"
+        }
+      ]
     },
     {
       "name": "DynamicWindowRef",
       "kind": "interface",
       "summary": "Public API of DynamicWindowRef.\n\nA mediator for manipulating and tracking the states of a dynamic window.\nIt can be used to manipulate the window itself (minimizing, closing, etc.),\nand to change the config, modify the initial window settings, or change the window data.",
-      "summaryZh": null,
+      "summaryZh": "接口 `DynamicWindowRef`，定义动态窗口引用的数据结构契约与属性规范。",
       "sourceFile": "src/ux/windows/window/interfaces/window-ref.interface.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
-      "properties": []
+      "methods": [
+        {
+          "name": "updateConfig",
+          "params": [
+            {
+              "name": "config",
+              "type": "DynamicWindowConfig"
+            }
+          ],
+          "returnType": "void",
+          "description": "Changes the configuration of the dynamic window",
+          "descriptionZh": "执行 `updateConfig`，用于更新配置。"
+        },
+        {
+          "name": "makeActive",
+          "params": [],
+          "returnType": "void",
+          "description": "Makes the dynamic window active (means the user works with it right now)",
+          "descriptionZh": "执行 `makeActive`，用于生成激活。"
+        },
+        {
+          "name": "makeInactive",
+          "params": [],
+          "returnType": "void",
+          "description": "Makes the dynamic window inactive",
+          "descriptionZh": "执行 `makeInactive`，用于生成未激活。"
+        },
+        {
+          "name": "hide",
+          "params": [],
+          "returnType": "void",
+          "description": "Hides dynamic window",
+          "descriptionZh": "执行 `hide`，用于隐藏。"
+        },
+        {
+          "name": "show",
+          "params": [],
+          "returnType": "void",
+          "description": "Shows dynamic window",
+          "descriptionZh": "执行 `show`，用于显示。"
+        },
+        {
+          "name": "toggleVisibility",
+          "params": [],
+          "returnType": "void",
+          "description": "Makes dynamic window visible or hidden",
+          "descriptionZh": "执行 `toggleVisibility`，用于开关Visibility。"
+        },
+        {
+          "name": "goFullscreen",
+          "params": [],
+          "returnType": "void",
+          "description": "Maximizes the dynamic window at full-screen mode",
+          "descriptionZh": "执行 `goFullscreen`，用于go全屏。"
+        },
+        {
+          "name": "goWindowed",
+          "params": [],
+          "returnType": "void",
+          "description": "Minimizes the dynamic window at windowed mode",
+          "descriptionZh": "执行 `goWindowed`，用于go已窗口。"
+        },
+        {
+          "name": "toggleFullscreen",
+          "params": [],
+          "returnType": "void",
+          "description": "Makes dynamic window full-screen or windowed mode",
+          "descriptionZh": "执行 `toggleFullscreen`，用于开关全屏。"
+        },
+        {
+          "name": "close",
+          "params": [
+            {
+              "name": "result",
+              "type": "T"
+            }
+          ],
+          "returnType": "void",
+          "description": "Closes the dynamic window",
+          "descriptionZh": "执行 `close`，用于关闭。"
+        }
+      ],
+      "properties": [
+        {
+          "name": "isHidden$",
+          "type": "Observable<boolean>",
+          "description": "Is the dynamic window hidden",
+          "descriptionZh": "属性 `isHidden$`（类型：`Observable<boolean>`），用于存储或配置是否为隐藏。"
+        },
+        {
+          "name": "isFullscreen$",
+          "type": "Observable<boolean>",
+          "description": "Is the dynamic window at full-screen",
+          "descriptionZh": "属性 `isFullscreen$`（类型：`Observable<boolean>`），用于存储或配置是否为全屏。"
+        },
+        {
+          "name": "isActive$",
+          "type": "Observable<boolean>",
+          "description": "Is the dynamic window active (means the user works with it right now)",
+          "descriptionZh": "属性 `isActive$`（类型：`Observable<boolean>`），用于存储或配置是否为激活。"
+        },
+        {
+          "name": "config$",
+          "type": "Observable<DynamicWindowConfig>",
+          "description": "Configuration object for the dynamic window",
+          "descriptionZh": "属性 `config$`（类型：`Observable<DynamicWindowConfig>`），用于存储或配置配置。"
+        },
+        {
+          "name": "afterClosed$",
+          "type": "Observable<any>",
+          "description": "Emits value when the dynamic window closed",
+          "descriptionZh": "属性 `afterClosed$`（类型：`Observable<any>`），用于存储或配置之后是否关闭。"
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "description": "Id of the dynamic window",
+          "descriptionZh": "属性 `id`（类型：`string`），用于存储或配置唯一标识。"
+        },
+        {
+          "name": "isHidden",
+          "type": "boolean",
+          "description": "Is the dynamic window hidden",
+          "descriptionZh": "属性 `isHidden`（类型：`boolean`），用于存储或配置是否为隐藏。"
+        },
+        {
+          "name": "isFullscreen",
+          "type": "boolean",
+          "description": "Is the dynamic window at full-screen",
+          "descriptionZh": "属性 `isFullscreen`（类型：`boolean`），用于存储或配置是否为全屏。"
+        },
+        {
+          "name": "isActive",
+          "type": "boolean",
+          "description": "Is the dynamic window active (means the user works with it right now)",
+          "descriptionZh": "属性 `isActive`（类型：`boolean`），用于存储或配置是否为激活。"
+        },
+        {
+          "name": "config",
+          "type": "DynamicWindowConfig",
+          "description": "Configuration object for the dynamic window",
+          "descriptionZh": "属性 `config`（类型：`DynamicWindowConfig`），用于存储或配置配置。"
+        },
+        {
+          "name": "windowElement",
+          "type": "HTMLElement",
+          "description": "The HTML element of the dynamic window",
+          "descriptionZh": "属性 `windowElement`（类型：`HTMLElement`），用于存储或配置窗口元素。"
+        },
+        {
+          "name": "componentRef",
+          "type": "ComponentRef<ɵDynamicWindowComponent>",
+          "description": "The component rendered inside the dynamic window",
+          "descriptionZh": "属性 `componentRef`（类型：`ComponentRef<ɵDynamicWindowComponent>`），用于存储或配置组件引用。"
+        },
+        {
+          "name": "draggableDirective",
+          "type": "DraggableDirective",
+          "description": "{@link DraggableDirective} of the dynamic window. Might be used to track events",
+          "descriptionZh": "属性 `draggableDirective`（类型：`DraggableDirective`），用于存储或配置是否可拖拽指令。"
+        },
+        {
+          "name": "resizableDirective",
+          "type": "ResizableDirective",
+          "description": "{@link ResizableDirective} of the dynamic window. Might be used to track events",
+          "descriptionZh": "属性 `resizableDirective`（类型：`ResizableDirective`），用于存储或配置是否可调尺寸指令。"
+        }
+      ]
     },
     {
       "name": "DynamicWindowService",
       "kind": "service",
       "summary": "Allows open your component inside an dui-styled window *",
-      "summaryZh": null,
+      "summaryZh": "可注入的 Angular 服务 `DynamicWindowService`，管理 `src/ux/windows/window/services` 中的动态窗口服务状态与业务操作。",
       "sourceFile": "src/ux/windows/window/services/dynamic-window.service.ts",
       "inputs": [],
       "outputs": [],
@@ -352,7 +956,7 @@
           ],
           "returnType": "DynamicWindowRef",
           "description": "Opens a window containing the given component",
-          "descriptionZh": null
+          "descriptionZh": "执行 `open`，用于打开。"
         },
         {
           "name": "openWindow",
@@ -363,29 +967,29 @@
             }
           ],
           "returnType": "DynamicWindowRef",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `openWindow` to handle open window.",
+          "descriptionZh": "执行 `openWindow`，用于打开窗口。"
         },
         {
           "name": "hideAll",
           "params": [],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `hideAll` to handle hide all.",
+          "descriptionZh": "执行 `hideAll`，用于隐藏全部。"
         },
         {
           "name": "showAll",
           "params": [],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `showAll` to handle show all.",
+          "descriptionZh": "执行 `showAll`，用于显示全部。"
         },
         {
           "name": "closeAll",
           "params": [],
           "returnType": "void",
           "description": "Closes all windows",
-          "descriptionZh": null
+          "descriptionZh": "执行 `closeAll`，用于关闭全部。"
         }
       ],
       "properties": [
@@ -393,20 +997,20 @@
           "name": "windowSet",
           "type": "Map<string,ɵDynamicWindowRefModel>",
           "default": "new  Map<string,ɵDynamicWindowRefModel>()",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `windowSet` (`Map<string,ɵDynamicWindowRefModel>`) storing window set.",
+          "descriptionZh": "属性 `windowSet`（类型：`Map<string,ɵDynamicWindowRefModel>`），用于存储或配置窗口集合。"
         },
         {
           "name": "references$",
           "type": "Observable<DynamicWindowRef[]>",
           "description": "Contains references to windows opened via the service",
-          "descriptionZh": null
+          "descriptionZh": "获取当前引用（`references$: Observable<DynamicWindowRef[]>`）。"
         },
         {
           "name": "references",
           "type": "DynamicWindowRef[]",
           "description": "Contains references to windows opened via the service",
-          "descriptionZh": null
+          "descriptionZh": "获取当前引用（`references: DynamicWindowRef[]`）。"
         }
       ]
     },
@@ -414,7 +1018,7 @@
       "name": "DynamicWindowSharedConfigService",
       "kind": "service",
       "summary": "Allows manipulation with shared config for all windows",
-      "summaryZh": null,
+      "summaryZh": "可注入的 Angular 服务 `DynamicWindowSharedConfigService`，管理 `src/ux/windows/window/services` 中的动态窗口共享配置服务状态与业务操作。",
       "sourceFile": "src/ux/windows/window/services/shared-config.service.ts",
       "inputs": [],
       "outputs": [],
@@ -429,14 +1033,14 @@
           ],
           "returnType": "void",
           "description": "Overrides some part of config on the new one",
-          "descriptionZh": null
+          "descriptionZh": "执行 `update`，用于更新。"
         },
         {
           "name": "clear",
           "params": [],
           "returnType": "void",
           "description": "Cleans the shared config completely",
-          "descriptionZh": null
+          "descriptionZh": "执行 `clear`，用于清空。"
         }
       ],
       "properties": [
@@ -444,13 +1048,13 @@
           "name": "data$",
           "type": "Observable<DynamicWindowConfig>",
           "description": "Contains shared config",
-          "descriptionZh": null
+          "descriptionZh": "获取当前数据（`data$: Observable<DynamicWindowConfig>`）。"
         },
         {
           "name": "data",
           "type": "DynamicWindowConfig",
           "description": "Contains shared config",
-          "descriptionZh": null
+          "descriptionZh": "获取当前数据（`data: DynamicWindowConfig`）。"
         }
       ]
     },
@@ -458,7 +1062,7 @@
       "name": "FixedToParentConfig",
       "kind": "class",
       "summary": "Settings for {@link FixedToParentDirective}",
-      "summaryZh": null,
+      "summaryZh": "类 `FixedToParentConfig`，封装 `src/ux/windows/utils/classes` 中的固定转换为父级配置数据结构与处理逻辑。",
       "sourceFile": "src/ux/windows/utils/classes/fixed-to-parent-config.ts",
       "inputs": [],
       "outputs": [],
@@ -469,21 +1073,21 @@
           "type": "boolean",
           "default": "true",
           "description": "Is should be fixed to parent or not",
-          "descriptionZh": null
+          "descriptionZh": "属性 `isEnabled`（类型：`boolean`），用于存储或配置是否为已启用（默认值：`true`）。"
         },
         {
           "name": "recalculationIntervalInMs",
           "type": "number",
           "default": "5",
           "description": "Recalculation interval of the element position in milliseconds",
-          "descriptionZh": null
+          "descriptionZh": "属性 `recalculationIntervalInMs`（类型：`number`），用于存储或配置recalculation间隔定时器在毫秒（默认值：`5`）。"
         },
         {
           "name": "calculationIterationsCount",
           "type": "number",
           "default": "40",
           "description": "Amount of calculations after scroll.\n\nSome browsers have animated scroll and need to run several iterations\nwith some delay between them to calculate actual element position.\n\nUnfortunately, there is no better way to observe the end of the scroll animation.",
-          "descriptionZh": null
+          "descriptionZh": "属性 `calculationIterationsCount`（类型：`number`），用于存储或配置calculationIterations计数（默认值：`40`）。"
         }
       ]
     },
@@ -492,7 +1096,7 @@
       "kind": "directive",
       "selector": "[osFixedToParent]",
       "summary": "Adapts the position of the element to the position of the parent element.\n\nUseful when used with the {@link AppendToBodyDirective}.\n\nThe child element will be appended to the body and \"save\" position near the parent element\nas if it continues to be inside the parent element.",
-      "summaryZh": null,
+      "summaryZh": "Angular 指令 `FixedToParentDirective`（selector: '[osFixedToParent]'），为宿主 DOM 元素附加固定转换为父级指令行为。",
       "sourceFile": "src/ux/windows/utils/directives/fixed-to-parent.directive.ts",
       "inputs": [
         {
@@ -500,7 +1104,7 @@
           "alias": "osFixedToParent",
           "type": "FixedToParentConfig | undefined | ''",
           "description": "Configuration of directive",
-          "descriptionZh": null
+          "descriptionZh": "输入属性 `osFixedToParent`（类型：`FixedToParentConfig | undefined | ''`），用于配置参数列表。"
         }
       ],
       "outputs": [],
@@ -510,37 +1114,63 @@
           "name": "config",
           "type": "FixedToParentConfig",
           "description": "Configuration of directive",
-          "descriptionZh": null
+          "descriptionZh": "获取当前配置（`config: FixedToParentConfig`）。"
         }
       ]
     },
     {
       "name": "fromArray",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Executes `fromArray` to handle from array.",
+      "summaryZh": "执行 `fromArray`，用于从数组。",
       "sourceFile": "src/ux/windows/core/classes/css-classlist-manager/classlist-to-object.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "fromArray",
+          "params": [
+            {
+              "name": "classList",
+              "type": "string[]"
+            }
+          ],
+          "returnType": "object",
+          "description": "Executes `fromArray` to handle from array.",
+          "descriptionZh": "执行 `fromArray`，用于从数组。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "fromString",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Executes `fromString` to handle from string.",
+      "summaryZh": "执行 `fromString`，用于从字符串。",
       "sourceFile": "src/ux/windows/core/classes/css-classlist-manager/classlist-to-object.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "fromString",
+          "params": [
+            {
+              "name": "classList",
+              "type": "string"
+            }
+          ],
+          "returnType": "object",
+          "description": "Executes `fromString` to handle from string.",
+          "descriptionZh": "执行 `fromString`，用于从字符串。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "IS_DYNAMIC_WINDOW_CONTEXT",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular dependency-injection token `IS_DYNAMIC_WINDOW_CONTEXT` for providing is dynamic window context.",
+      "summaryZh": "Angular 依赖注入令牌 `IS_DYNAMIC_WINDOW_CONTEXT`，用于提供与注入是否为动态窗口上下文。",
       "sourceFile": "src/ux/windows/window/data/is-dynamic-window-context.token.ts",
       "inputs": [],
       "outputs": [],
@@ -550,19 +1180,41 @@
     {
       "name": "MouseButtonEnum",
       "kind": "enum",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Enumeration `MouseButtonEnum` defining supported mouse button enum constants.",
+      "summaryZh": "枚举 `MouseButtonEnum`，定义支持的鼠标按钮Enum常量集合。",
       "sourceFile": "src/ux/windows/core/enums/mouse-button.enum.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
-      "properties": []
+      "properties": [
+        {
+          "name": "Left",
+          "type": "enum-member",
+          "default": "0",
+          "description": "Enum member `MouseButtonEnum.Left` = 0 representing left.",
+          "descriptionZh": "枚举项 `MouseButtonEnum.Left` = 0，表示左侧位置。"
+        },
+        {
+          "name": "Middle",
+          "type": "enum-member",
+          "default": "1",
+          "description": "Enum member `MouseButtonEnum.Middle` = 1 representing middle.",
+          "descriptionZh": "枚举项 `MouseButtonEnum.Middle` = 1，表示中间。"
+        },
+        {
+          "name": "Right",
+          "type": "enum-member",
+          "default": "2",
+          "description": "Enum member `MouseButtonEnum.Right` = 2 representing right.",
+          "descriptionZh": "枚举项 `MouseButtonEnum.Right` = 2，表示右侧位置。"
+        }
+      ]
     },
     {
       "name": "ɵBaseDragStrategyImpl",
       "kind": "class",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Class `ɵBaseDragStrategyImpl` encapsulating ɵbase drag strategy impl data structures and logic in `src/ux/windows/drag-and-drop/classes/drag-strategy`.",
+      "summaryZh": "类 `ɵBaseDragStrategyImpl`，封装 `src/ux/windows/drag-and-drop/classes/drag-strategy` 中的ɵBase拖拽策略实现数据结构与处理逻辑。",
       "sourceFile": "src/ux/windows/drag-and-drop/classes/drag-strategy/base-drag-impl.strategy.ts",
       "inputs": [],
       "outputs": [],
@@ -576,8 +1228,8 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `registerMouseDown` to handle register mouse down.",
+          "descriptionZh": "执行 `registerMouseDown`，用于注册鼠标向下。"
         },
         {
           "name": "updateElementPosition",
@@ -588,24 +1240,24 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `updateElementPosition` to handle update element position.",
+          "descriptionZh": "执行 `updateElementPosition`，用于更新元素位置。"
         }
       ],
       "properties": [
         {
           "name": "type",
           "type": "ɵDragStrategyEnum",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `type` (`ɵDragStrategyEnum`) storing type.",
+          "descriptionZh": "属性 `type`（类型：`ɵDragStrategyEnum`），用于存储或配置类型。"
         }
       ]
     },
     {
       "name": "ɵBaseResizer",
       "kind": "class",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Class `ɵBaseResizer` encapsulating ɵbase resizer data structures and logic in `src/ux/windows/resizer/classes`.",
+      "summaryZh": "类 `ɵBaseResizer`，封装 `src/ux/windows/resizer/classes` 中的ɵBase尺寸调整器数据结构与处理逻辑。",
       "sourceFile": "src/ux/windows/resizer/classes/base-resizer.ts",
       "inputs": [],
       "outputs": [],
@@ -623,8 +1275,8 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `init` to handle init.",
+          "descriptionZh": "执行 `init`，用于初始化。"
         },
         {
           "name": "resizeElement",
@@ -635,8 +1287,8 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `resizeElement` to handle resize element.",
+          "descriptionZh": "执行 `resizeElement`，用于调整尺寸元素。"
         }
       ],
       "properties": [
@@ -644,16 +1296,16 @@
           "name": "id",
           "type": "ResizerEnum",
           "default": "null",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `id` (`ResizerEnum`) storing id (default: `null`).",
+          "descriptionZh": "属性 `id`（类型：`ResizerEnum`），用于存储或配置唯一标识（默认值：`null`）。"
         }
       ]
     },
     {
       "name": "ɵBottomLeftResizer",
       "kind": "class",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Class `ɵBottomLeftResizer` encapsulating ɵbottom left resizer data structures and logic in `src/ux/windows/resizer/classes`.",
+      "summaryZh": "类 `ɵBottomLeftResizer`，封装 `src/ux/windows/resizer/classes` 中的ɵBottom左侧位置尺寸调整器数据结构与处理逻辑。",
       "sourceFile": "src/ux/windows/resizer/classes/bottom-left-resizer.ts",
       "inputs": [],
       "outputs": [],
@@ -667,8 +1319,8 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `resizeElement` to handle resize element.",
+          "descriptionZh": "执行 `resizeElement`，用于调整尺寸元素。"
         }
       ],
       "properties": [
@@ -676,16 +1328,16 @@
           "name": "id",
           "type": "any",
           "default": "ResizerEnum.BottomLeft",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `id` (`any`) storing id (default: `ResizerEnum.BottomLeft`).",
+          "descriptionZh": "属性 `id`（类型：`any`），用于存储或配置唯一标识（默认值：`ResizerEnum.BottomLeft`）。"
         }
       ]
     },
     {
       "name": "ɵBottomResizer",
       "kind": "class",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Class `ɵBottomResizer` encapsulating ɵbottom resizer data structures and logic in `src/ux/windows/resizer/classes`.",
+      "summaryZh": "类 `ɵBottomResizer`，封装 `src/ux/windows/resizer/classes` 中的ɵBottom尺寸调整器数据结构与处理逻辑。",
       "sourceFile": "src/ux/windows/resizer/classes/bottom-resizer.ts",
       "inputs": [],
       "outputs": [],
@@ -699,8 +1351,8 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `resizeElement` to handle resize element.",
+          "descriptionZh": "执行 `resizeElement`，用于调整尺寸元素。"
         }
       ],
       "properties": [
@@ -708,16 +1360,16 @@
           "name": "id",
           "type": "any",
           "default": "ResizerEnum.Bottom",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `id` (`any`) storing id (default: `ResizerEnum.Bottom`).",
+          "descriptionZh": "属性 `id`（类型：`any`），用于存储或配置唯一标识（默认值：`ResizerEnum.Bottom`）。"
         }
       ]
     },
     {
       "name": "ɵBottomRightResizer",
       "kind": "class",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Class `ɵBottomRightResizer` encapsulating ɵbottom right resizer data structures and logic in `src/ux/windows/resizer/classes`.",
+      "summaryZh": "类 `ɵBottomRightResizer`，封装 `src/ux/windows/resizer/classes` 中的ɵBottom右侧位置尺寸调整器数据结构与处理逻辑。",
       "sourceFile": "src/ux/windows/resizer/classes/bottom-right-resizer.ts",
       "inputs": [],
       "outputs": [],
@@ -731,8 +1383,8 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `resizeElement` to handle resize element.",
+          "descriptionZh": "执行 `resizeElement`，用于调整尺寸元素。"
         }
       ],
       "properties": [
@@ -740,49 +1392,140 @@
           "name": "id",
           "type": "any",
           "default": "ResizerEnum.BottomRight",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `id` (`any`) storing id (default: `ResizerEnum.BottomRight`).",
+          "descriptionZh": "属性 `id`（类型：`any`），用于存储或配置唯一标识（默认值：`ResizerEnum.BottomRight`）。"
         }
       ]
     },
     {
       "name": "ɵCacheableReturnInstance",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Executes `ɵCacheableReturnInstance` to handle ɵcacheable return instance.",
+      "summaryZh": "执行 `ɵCacheableReturnInstance`，用于ɵCacheableReturn实例。",
       "sourceFile": "src/ux/windows/core/decorators/cacheable-return-instance.decorator.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "ɵCacheableReturnInstance",
+          "params": [
+            {
+              "name": "baseView",
+              "type": "ɵOsBaseViewComponent"
+            },
+            {
+              "name": "methodName",
+              "type": "string"
+            },
+            {
+              "name": "{ get, enumerable, value }",
+              "type": "TypedPropertyDescriptor<T>"
+            }
+          ],
+          "returnType": "any",
+          "description": "Executes `ɵCacheableReturnInstance` to handle ɵcacheable return instance.",
+          "descriptionZh": "执行 `ɵCacheableReturnInstance`，用于ɵCacheableReturn实例。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "ɵCommonCssClassEnum",
       "kind": "enum",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Enumeration `ɵCommonCssClassEnum` defining supported ɵcommon css class enum constants.",
+      "summaryZh": "枚举 `ɵCommonCssClassEnum`，定义支持的ɵCommonCSS样式类名Enum常量集合。",
       "sourceFile": "src/ux/windows/core/enums/common-css-class.enum.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
-      "properties": []
+      "properties": [
+        {
+          "name": "Active",
+          "type": "enum-member",
+          "default": "'dui-active'",
+          "description": "Enum member `ɵCommonCssClassEnum.Active` = 'dui-active' representing active.",
+          "descriptionZh": "枚举项 `ɵCommonCssClassEnum.Active` = 'dui-active'，表示激活。"
+        },
+        {
+          "name": "Focused",
+          "type": "enum-member",
+          "default": "'dui-focused'",
+          "description": "Enum member `ɵCommonCssClassEnum.Focused` = 'dui-focused' representing focused.",
+          "descriptionZh": "枚举项 `ɵCommonCssClassEnum.Focused` = 'dui-focused'，表示已聚焦。"
+        },
+        {
+          "name": "Disabled",
+          "type": "enum-member",
+          "default": "'dui-disabled'",
+          "description": "Enum member `ɵCommonCssClassEnum.Disabled` = 'dui-disabled' representing disabled.",
+          "descriptionZh": "枚举项 `ɵCommonCssClassEnum.Disabled` = 'dui-disabled'，表示已禁用。"
+        },
+        {
+          "name": "Readonly",
+          "type": "enum-member",
+          "default": "'dui-readonly'",
+          "description": "Enum member `ɵCommonCssClassEnum.Readonly` = 'dui-readonly' representing readonly.",
+          "descriptionZh": "枚举项 `ɵCommonCssClassEnum.Readonly` = 'dui-readonly'，表示是否只读。"
+        },
+        {
+          "name": "Checked",
+          "type": "enum-member",
+          "default": "'dui-checked'",
+          "description": "Enum member `ɵCommonCssClassEnum.Checked` = 'dui-checked' representing checked.",
+          "descriptionZh": "枚举项 `ɵCommonCssClassEnum.Checked` = 'dui-checked'，表示已勾选。"
+        },
+        {
+          "name": "Selected",
+          "type": "enum-member",
+          "default": "'dui-selected'",
+          "description": "Enum member `ɵCommonCssClassEnum.Selected` = 'dui-selected' representing selected.",
+          "descriptionZh": "枚举项 `ɵCommonCssClassEnum.Selected` = 'dui-selected'，表示已选中。"
+        },
+        {
+          "name": "HasIcon",
+          "type": "enum-member",
+          "default": "'dui-has-icon'",
+          "description": "Enum member `ɵCommonCssClassEnum.HasIcon` = 'dui-has-icon' representing has icon.",
+          "descriptionZh": "枚举项 `ɵCommonCssClassEnum.HasIcon` = 'dui-has-icon'，表示是否包含图标。"
+        },
+        {
+          "name": "HasLabel",
+          "type": "enum-member",
+          "default": "'dui-has-label'",
+          "description": "Enum member `ɵCommonCssClassEnum.HasLabel` = 'dui-has-label' representing has label.",
+          "descriptionZh": "枚举项 `ɵCommonCssClassEnum.HasLabel` = 'dui-has-label'，表示是否包含标签。"
+        }
+      ]
     },
     {
       "name": "ɵDeepClone",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Executes `ɵDeepClone` to handle ɵdeep clone.",
+      "summaryZh": "执行 `ɵDeepClone`，用于ɵDeep克隆。",
       "sourceFile": "src/ux/windows/core/helpers/methods.helper.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "ɵDeepClone",
+          "params": [
+            {
+              "name": "data",
+              "type": "T"
+            }
+          ],
+          "returnType": "T",
+          "description": "Executes `ɵDeepClone` to handle ɵdeep clone.",
+          "descriptionZh": "执行 `ɵDeepClone`，用于ɵDeep克隆。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "ɵDraggerConfigModel",
       "kind": "class",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Class `ɵDraggerConfigModel` encapsulating ɵdragger config model data structures and logic in `src/ux/windows/drag-and-drop/classes`.",
+      "summaryZh": "类 `ɵDraggerConfigModel`，封装 `src/ux/windows/drag-and-drop/classes` 中的ɵDragger配置模型数据结构与处理逻辑。",
       "sourceFile": "src/ux/windows/drag-and-drop/classes/dragger-config.ts",
       "inputs": [],
       "outputs": [],
@@ -791,86 +1534,108 @@
         {
           "name": "draggableElement",
           "type": "HTMLElement",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `draggableElement` (`HTMLElement`) storing draggable element.",
+          "descriptionZh": "属性 `draggableElement`（类型：`HTMLElement`），用于存储或配置是否可拖拽元素。"
         },
         {
           "name": "movableElement",
           "type": "HTMLElement",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `movableElement` (`HTMLElement`) storing movable element.",
+          "descriptionZh": "属性 `movableElement`（类型：`HTMLElement`），用于存储或配置是否可移动元素。"
         },
         {
           "name": "childElementsBlackList",
           "type": "HTMLElement[]",
           "default": "[]",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `childElementsBlackList` (`HTMLElement[]`) storing child elements black list (default: `[]`).",
+          "descriptionZh": "属性 `childElementsBlackList`（类型：`HTMLElement[]`），用于存储或配置子级元素列表Black列表（默认值：`[]`）。"
         },
         {
           "name": "allowedMouseButtons",
           "type": "MouseButtonEnum[]",
           "default": "[MouseButtonEnum.Left]",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `allowedMouseButtons` (`MouseButtonEnum[]`) storing allowed mouse buttons (default: `[MouseButtonEnum.Left]`).",
+          "descriptionZh": "属性 `allowedMouseButtons`（类型：`MouseButtonEnum[]`），用于存储或配置允许的鼠标按钮（默认值：`[MouseButtonEnum.Left]`）。"
         },
         {
           "name": "shiftX",
           "type": "number",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `shiftX` (`number`) storing shift x.",
+          "descriptionZh": "属性 `shiftX`（类型：`number`），用于存储或配置移出首项X坐标。"
         },
         {
           "name": "shiftY",
           "type": "number",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `shiftY` (`number`) storing shift y.",
+          "descriptionZh": "属性 `shiftY`（类型：`number`），用于存储或配置移出首项Y坐标。"
         },
         {
           "name": "strategy",
           "type": "DragStrategyType",
           "default": "new DragStrategyByTranslate3d()",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `strategy` (`DragStrategyType`) storing strategy (default: `new DragStrategyByTranslate3d()`).",
+          "descriptionZh": "属性 `strategy`（类型：`DragStrategyType`），用于存储或配置策略（默认值：`new DragStrategyByTranslate3d()`）。"
         },
         {
           "name": "isEnabled",
           "type": "boolean",
           "default": "true",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `isEnabled` (`boolean`) storing is enabled (default: `true`).",
+          "descriptionZh": "属性 `isEnabled`（类型：`boolean`），用于存储或配置是否为已启用（默认值：`true`）。"
         },
         {
           "name": "isAllowMoveElement",
           "type": "boolean",
           "default": "true",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `isAllowMoveElement` (`boolean`) storing is allow move element (default: `true`).",
+          "descriptionZh": "属性 `isAllowMoveElement`（类型：`boolean`），用于存储或配置是否为允许移动元素（默认值：`true`）。"
         },
         {
           "name": "mouseMoveHandler",
           "type": "(event: DragInfo) => void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `mouseMoveHandler` (`(event: DragInfo) => void`) storing mouse move handler.",
+          "descriptionZh": "属性 `mouseMoveHandler`（类型：`(event: DragInfo) => void`），用于存储或配置鼠标移动处理器。"
         }
       ]
     },
     {
       "name": "ɵDraggerCssClassEnum",
       "kind": "enum",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Enumeration `ɵDraggerCssClassEnum` defining supported ɵdragger css class enum constants.",
+      "summaryZh": "枚举 `ɵDraggerCssClassEnum`，定义支持的ɵDraggerCSS样式类名Enum常量集合。",
       "sourceFile": "src/ux/windows/drag-and-drop/enums/dragger-css-class.enum.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
-      "properties": []
+      "properties": [
+        {
+          "name": "Movable",
+          "type": "enum-member",
+          "default": "'dui-movable'",
+          "description": "Enum member `ɵDraggerCssClassEnum.Movable` = 'dui-movable' representing movable.",
+          "descriptionZh": "枚举项 `ɵDraggerCssClassEnum.Movable` = 'dui-movable'，表示是否可移动。"
+        },
+        {
+          "name": "Draggable",
+          "type": "enum-member",
+          "default": "'dui-draggable'",
+          "description": "Enum member `ɵDraggerCssClassEnum.Draggable` = 'dui-draggable' representing draggable.",
+          "descriptionZh": "枚举项 `ɵDraggerCssClassEnum.Draggable` = 'dui-draggable'，表示是否可拖拽。"
+        },
+        {
+          "name": "Dragging",
+          "type": "enum-member",
+          "default": "'dui-dragging'",
+          "description": "Enum member `ɵDraggerCssClassEnum.Dragging` = 'dui-dragging' representing dragging.",
+          "descriptionZh": "枚举项 `ɵDraggerCssClassEnum.Dragging` = 'dui-dragging'，表示拖拽中。"
+        }
+      ]
     },
     {
       "name": "ɵDragStrategyByAxisPropertiesImpl",
       "kind": "class",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Class `ɵDragStrategyByAxisPropertiesImpl` encapsulating ɵdrag strategy by axis properties impl data structures and logic in `src/ux/windows/drag-and-drop/classes/drag-strategy`.",
+      "summaryZh": "类 `ɵDragStrategyByAxisPropertiesImpl`，封装 `src/ux/windows/drag-and-drop/classes/drag-strategy` 中的ɵDrag策略按坐标轴属性列表实现数据结构与处理逻辑。",
       "sourceFile": "src/ux/windows/drag-and-drop/classes/drag-strategy/by-axis-properties-drag-impl.strategy.ts",
       "inputs": [],
       "outputs": [],
@@ -884,8 +1649,8 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `updateElementPosition` to handle update element position.",
+          "descriptionZh": "执行 `updateElementPosition`，用于更新元素位置。"
         }
       ],
       "properties": [
@@ -893,16 +1658,16 @@
           "name": "type",
           "type": "any",
           "default": "ɵDragStrategyEnum.ByAxisProperties",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `type` (`any`) storing type (default: `ɵDragStrategyEnum.ByAxisProperties`).",
+          "descriptionZh": "属性 `type`（类型：`any`），用于存储或配置类型（默认值：`ɵDragStrategyEnum.ByAxisProperties`）。"
         }
       ]
     },
     {
       "name": "ɵDragStrategyByTranslate3dImpl",
       "kind": "class",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Class `ɵDragStrategyByTranslate3dImpl` encapsulating ɵdrag strategy by translate3d impl data structures and logic in `src/ux/windows/drag-and-drop/classes/drag-strategy`.",
+      "summaryZh": "类 `ɵDragStrategyByTranslate3dImpl`，封装 `src/ux/windows/drag-and-drop/classes/drag-strategy` 中的ɵDrag策略按Translate3d实现数据结构与处理逻辑。",
       "sourceFile": "src/ux/windows/drag-and-drop/classes/drag-strategy/by-translate3d-drag-impl.strategy.ts",
       "inputs": [],
       "outputs": [],
@@ -916,8 +1681,8 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `registerMouseDown` to handle register mouse down.",
+          "descriptionZh": "执行 `registerMouseDown`，用于注册鼠标向下。"
         },
         {
           "name": "updateElementPosition",
@@ -928,8 +1693,8 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `updateElementPosition` to handle update element position.",
+          "descriptionZh": "执行 `updateElementPosition`，用于更新元素位置。"
         }
       ],
       "properties": [
@@ -937,27 +1702,40 @@
           "name": "type",
           "type": "any",
           "default": "ɵDragStrategyEnum.ByTranslate3d",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `type` (`any`) storing type (default: `ɵDragStrategyEnum.ByTranslate3d`).",
+          "descriptionZh": "属性 `type`（类型：`any`），用于存储或配置类型（默认值：`ɵDragStrategyEnum.ByTranslate3d`）。"
         }
       ]
     },
     {
       "name": "ɵDragStrategyEnum",
       "kind": "enum",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Enumeration `ɵDragStrategyEnum` defining supported ɵdrag strategy enum constants.",
+      "summaryZh": "枚举 `ɵDragStrategyEnum`，定义支持的ɵDrag策略Enum常量集合。",
       "sourceFile": "src/ux/windows/drag-and-drop/enums/drag-strategy.enum.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
-      "properties": []
+      "properties": [
+        {
+          "name": "ByTranslate3d",
+          "type": "enum-member",
+          "description": "Enum member `ɵDragStrategyEnum.ByTranslate3d` representing by translate3d.",
+          "descriptionZh": "枚举项 `ɵDragStrategyEnum.ByTranslate3d`，表示按Translate3d。"
+        },
+        {
+          "name": "ByAxisProperties",
+          "type": "enum-member",
+          "description": "Enum member `ɵDragStrategyEnum.ByAxisProperties` representing by axis properties.",
+          "descriptionZh": "枚举项 `ɵDragStrategyEnum.ByAxisProperties`，表示按坐标轴属性列表。"
+        }
+      ]
     },
     {
       "name": "ɵDragStrategyFactory",
       "kind": "class",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Class `ɵDragStrategyFactory` encapsulating ɵdrag strategy factory data structures and logic in `src/ux/windows/drag-and-drop/classes/drag-strategy`.",
+      "summaryZh": "类 `ɵDragStrategyFactory`，封装 `src/ux/windows/drag-and-drop/classes/drag-strategy` 中的ɵDrag策略工厂数据结构与处理逻辑。",
       "sourceFile": "src/ux/windows/drag-and-drop/classes/drag-strategy/drag-strategy.factory.ts",
       "inputs": [],
       "outputs": [],
@@ -975,8 +1753,8 @@
             }
           ],
           "returnType": "ɵBaseDragStrategyImpl",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `create` to handle create.",
+          "descriptionZh": "执行 `create`，用于创建。"
         },
         {
           "name": "isDifferent",
@@ -991,8 +1769,8 @@
             }
           ],
           "returnType": "boolean",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `isDifferent` to handle is different.",
+          "descriptionZh": "执行 `isDifferent`，用于是否为Different。"
         }
       ],
       "properties": []
@@ -1000,8 +1778,8 @@
     {
       "name": "ɵDYNAMIC_WINDOW_SHARED_CONFIG_PROVIDER",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `ɵDYNAMIC_WINDOW_SHARED_CONFIG_PROVIDER` defining ɵdynamic window shared config provider in `src/ux/windows/window/data`.",
+      "summaryZh": "常量/变量 `ɵDYNAMIC_WINDOW_SHARED_CONFIG_PROVIDER`，定义 `src/ux/windows/window/data` 中的ɵDYNAMIC窗口共享配置提供者。",
       "sourceFile": "src/ux/windows/window/data/dynamic-window-shared-config.provider.ts",
       "inputs": [],
       "outputs": [],
@@ -1011,19 +1789,57 @@
     {
       "name": "ɵDynamicStateEnum",
       "kind": "enum",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Enumeration `ɵDynamicStateEnum` defining supported ɵdynamic state enum constants.",
+      "summaryZh": "枚举 `ɵDynamicStateEnum`，定义支持的ɵDynamic状态Enum常量集合。",
       "sourceFile": "src/ux/windows/window/enums/dynamic-state.enum.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
-      "properties": []
+      "properties": [
+        {
+          "name": "Opening",
+          "type": "enum-member",
+          "default": "1",
+          "description": "Enum member `ɵDynamicStateEnum.Opening` = 1 representing opening.",
+          "descriptionZh": "枚举项 `ɵDynamicStateEnum.Opening` = 1，表示打开。"
+        },
+        {
+          "name": "Hiding",
+          "type": "enum-member",
+          "description": "Enum member `ɵDynamicStateEnum.Hiding` representing hiding.",
+          "descriptionZh": "枚举项 `ɵDynamicStateEnum.Hiding`，表示隐藏。"
+        },
+        {
+          "name": "Showing",
+          "type": "enum-member",
+          "description": "Enum member `ɵDynamicStateEnum.Showing` representing showing.",
+          "descriptionZh": "枚举项 `ɵDynamicStateEnum.Showing`，表示显示。"
+        },
+        {
+          "name": "EnteringFullscreen",
+          "type": "enum-member",
+          "description": "Enum member `ɵDynamicStateEnum.EnteringFullscreen` representing entering fullscreen.",
+          "descriptionZh": "枚举项 `ɵDynamicStateEnum.EnteringFullscreen`，表示进入全屏。"
+        },
+        {
+          "name": "EnteringWindowed",
+          "type": "enum-member",
+          "description": "Enum member `ɵDynamicStateEnum.EnteringWindowed` representing entering windowed.",
+          "descriptionZh": "枚举项 `ɵDynamicStateEnum.EnteringWindowed`，表示进入已窗口。"
+        },
+        {
+          "name": "Closing",
+          "type": "enum-member",
+          "description": "Enum member `ɵDynamicStateEnum.Closing` representing closing.",
+          "descriptionZh": "枚举项 `ɵDynamicStateEnum.Closing`，表示关闭。"
+        }
+      ]
     },
     {
       "name": "ɵDynamicStateManager",
       "kind": "class",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Class `ɵDynamicStateManager` encapsulating ɵdynamic state manager data structures and logic in `src/ux/windows/window/classes`.",
+      "summaryZh": "类 `ɵDynamicStateManager`，封装 `src/ux/windows/window/classes` 中的ɵDynamic状态管理器数据结构与处理逻辑。",
       "sourceFile": "src/ux/windows/window/classes/dynamic-state-manager.ts",
       "inputs": [],
       "outputs": [],
@@ -1037,8 +1853,8 @@
             }
           ],
           "returnType": "boolean",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `is` to handle is.",
+          "descriptionZh": "执行 `is`，用于是否为。"
         },
         {
           "name": "apply",
@@ -1049,8 +1865,8 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `apply` to handle apply.",
+          "descriptionZh": "执行 `apply`，用于应用。"
         },
         {
           "name": "registerAfterStartCallback",
@@ -1061,8 +1877,8 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `registerAfterStartCallback` to handle register after start callback.",
+          "descriptionZh": "执行 `registerAfterStartCallback`，用于注册之后开始回调函数。"
         },
         {
           "name": "registerAfterEndCallback",
@@ -1073,24 +1889,31 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `registerAfterEndCallback` to handle register after end callback.",
+          "descriptionZh": "执行 `registerAfterEndCallback`，用于注册之后结束回调函数。"
+        },
+        {
+          "name": "destroy",
+          "params": [],
+          "returnType": "void",
+          "description": "Executes `destroy` to handle destroy.",
+          "descriptionZh": "执行 `destroy`，用于销毁。"
         }
       ],
       "properties": [
         {
           "name": "state",
           "type": "ɵDynamicStateEnum",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current state (`state: ɵDynamicStateEnum`).",
+          "descriptionZh": "获取当前状态（`state: ɵDynamicStateEnum`）。"
         }
       ]
     },
     {
       "name": "ɵDynamicWindowActivityService",
       "kind": "service",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Injectable Angular service `ɵDynamicWindowActivityService` managing ɵdynamic window activity service state and operations in `src/ux/windows/window/services`.",
+      "summaryZh": "可注入的 Angular 服务 `ɵDynamicWindowActivityService`，管理 `src/ux/windows/window/services` 中的ɵDynamic窗口Activity服务状态与业务操作。",
       "sourceFile": "src/ux/windows/window/services/dynamic-window-activity.service.ts",
       "inputs": [],
       "outputs": [],
@@ -1104,8 +1927,8 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `makeAllInactiveExceptSpecificId` to handle make all inactive except specific id.",
+          "descriptionZh": "执行 `makeAllInactiveExceptSpecificId`，用于生成全部未激活ExceptSpecific唯一标识。"
         }
       ],
       "properties": []
@@ -1114,8 +1937,8 @@
       "name": "ɵDynamicWindowComponent",
       "kind": "component",
       "selector": "dui-dynamic-window",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular component `ɵDynamicWindowComponent` (selector: 'dui-dynamic-window') providing ɵdynamic window component presentation and interaction in `src/ux/windows/window/components/dynamic-window`.",
+      "summaryZh": "Angular 组件 `ɵDynamicWindowComponent`（selector: 'dui-dynamic-window'），提供ɵDynamic窗口组件的视图渲染与交互逻辑（位于 `src/ux/windows/window/components/dynamic-window`）。",
       "sourceFile": "src/ux/windows/window/components/dynamic-window/dynamic-window.component.ts",
       "inputs": [],
       "outputs": [],
@@ -1124,57 +1947,57 @@
           "name": "onHideButtonClick",
           "params": [],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `onHideButtonClick` to handle on hide button click.",
+          "descriptionZh": "执行 `onHideButtonClick`，用于当隐藏按钮点击。"
         },
         {
           "name": "onFullscreenButtonClick",
           "params": [],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `onFullscreenButtonClick` to handle on fullscreen button click.",
+          "descriptionZh": "执行 `onFullscreenButtonClick`，用于当全屏按钮点击。"
         },
         {
           "name": "onCloseButtonClick",
           "params": [],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `onCloseButtonClick` to handle on close button click.",
+          "descriptionZh": "执行 `onCloseButtonClick`，用于当关闭按钮点击。"
         },
         {
           "name": "onDragStart",
           "params": [],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `onDragStart` to handle on drag start.",
+          "descriptionZh": "执行 `onDragStart`，用于当拖拽开始。"
         },
         {
           "name": "onDragging",
           "params": [],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `onDragging` to handle on dragging.",
+          "descriptionZh": "执行 `onDragging`，用于当拖拽中。"
         },
         {
           "name": "onDragEnd",
           "params": [],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `onDragEnd` to handle on drag end.",
+          "descriptionZh": "执行 `onDragEnd`，用于当拖拽结束。"
         },
         {
           "name": "onTitleBarDblClick",
           "params": [],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `onTitleBarDblClick` to handle on title bar dbl click.",
+          "descriptionZh": "执行 `onTitleBarDblClick`，用于当标题条Dbl点击。"
         },
         {
           "name": "onResizeStart",
           "params": [],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `onResizeStart` to handle on resize start.",
+          "descriptionZh": "执行 `onResizeStart`，用于当调整尺寸开始。"
         },
         {
           "name": "onResizing",
@@ -1185,37 +2008,37 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `onResizing` to handle on resizing.",
+          "descriptionZh": "执行 `onResizing`，用于当调整尺寸中。"
         },
         {
           "name": "onResizeEnd",
           "params": [],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `onResizeEnd` to handle on resize end.",
+          "descriptionZh": "执行 `onResizeEnd`，用于当调整尺寸结束。"
         }
       ],
       "properties": [
         {
           "name": "viewRef",
           "type": "ViewContainerRef",
-          "description": null,
-          "descriptionZh": null
+          "description": "Template/content query reference `viewRef` (`@ViewChild`) targeting view ref.",
+          "descriptionZh": "模板/内容视图查询引用 `viewRef`（`@ViewChild`），指向视图引用。"
         },
         {
           "name": "outlet",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `outlet` (`any`) storing outlet.",
+          "descriptionZh": "属性 `outlet`（类型：`any`），用于存储或配置outlet。"
         }
       ]
     },
     {
       "name": "ɵDynamicWindowConfigModel",
       "kind": "class",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Class `ɵDynamicWindowConfigModel` encapsulating ɵdynamic window config model data structures and logic in `src/ux/windows/window/classes`.",
+      "summaryZh": "类 `ɵDynamicWindowConfigModel`，封装 `src/ux/windows/window/classes` 中的ɵDynamic窗口配置模型数据结构与处理逻辑。",
       "sourceFile": "src/ux/windows/window/classes/dynamic-window-config.ts",
       "inputs": [],
       "outputs": [],
@@ -1224,237 +2047,399 @@
         {
           "name": "title",
           "type": "string",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `title` (`string`) storing title.",
+          "descriptionZh": "属性 `title`（类型：`string`），用于存储或配置标题。"
         },
         {
           "name": "data",
           "type": "D",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `data` (`D`) storing data.",
+          "descriptionZh": "属性 `data`（类型：`D`），用于存储或配置数据。"
         },
         {
           "name": "type",
           "type": "T",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `type` (`T`) storing type.",
+          "descriptionZh": "属性 `type`（类型：`T`），用于存储或配置类型。"
         },
         {
           "name": "titleBarCustomContent",
           "type": "Type<any>",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `titleBarCustomContent` (`Type<any>`) storing title bar custom content.",
+          "descriptionZh": "属性 `titleBarCustomContent`（类型：`Type<any>`），用于存储或配置标题条自定义内容。"
         },
         {
           "name": "width",
           "type": "number",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `width` (`number`) storing width.",
+          "descriptionZh": "属性 `width`（类型：`number`），用于存储或配置宽度。"
         },
         {
           "name": "height",
           "type": "number",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `height` (`number`) storing height.",
+          "descriptionZh": "属性 `height`（类型：`number`），用于存储或配置高度。"
         },
         {
           "name": "minWidth",
           "type": "number",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `minWidth` (`number`) storing min width.",
+          "descriptionZh": "属性 `minWidth`（类型：`number`），用于存储或配置最小值宽度。"
         },
         {
           "name": "minHeight",
           "type": "number",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `minHeight` (`number`) storing min height.",
+          "descriptionZh": "属性 `minHeight`（类型：`number`），用于存储或配置最小值高度。"
         },
         {
           "name": "maxWidth",
           "type": "number",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `maxWidth` (`number`) storing max width.",
+          "descriptionZh": "属性 `maxWidth`（类型：`number`），用于存储或配置最大值宽度。"
         },
         {
           "name": "maxHeight",
           "type": "number",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `maxHeight` (`number`) storing max height.",
+          "descriptionZh": "属性 `maxHeight`（类型：`number`），用于存储或配置最大值高度。"
         },
         {
           "name": "allowedResizers",
           "type": "ResizerEnum[]",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `allowedResizers` (`ResizerEnum[]`) storing allowed resizers.",
+          "descriptionZh": "属性 `allowedResizers`（类型：`ResizerEnum[]`），用于存储或配置允许的尺寸调整器。"
         },
         {
           "name": "positionX",
           "type": "number",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `positionX` (`number`) storing position x.",
+          "descriptionZh": "属性 `positionX`（类型：`number`），用于存储或配置位置X坐标。"
         },
         {
           "name": "positionY",
           "type": "number",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `positionY` (`number`) storing position y.",
+          "descriptionZh": "属性 `positionY`（类型：`number`），用于存储或配置位置Y坐标。"
         },
         {
           "name": "iconUrl",
           "type": "string",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `iconUrl` (`string`) storing icon url.",
+          "descriptionZh": "属性 `iconUrl`（类型：`string`），用于存储或配置图标链接地址。"
         },
         {
           "name": "fullscreenOffset",
           "type": "DynamicWindowFullscreenOffset",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `fullscreenOffset` (`DynamicWindowFullscreenOffset`) storing fullscreen offset.",
+          "descriptionZh": "属性 `fullscreenOffset`（类型：`DynamicWindowFullscreenOffset`），用于存储或配置全屏偏移量。"
         },
         {
           "name": "isFullscreenByDefault",
           "type": "boolean",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `isFullscreenByDefault` (`boolean`) storing is fullscreen by default.",
+          "descriptionZh": "属性 `isFullscreenByDefault`（类型：`boolean`），用于存储或配置是否为全屏按默认。"
         },
         {
           "name": "isHiddenByDefault",
           "type": "boolean",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `isHiddenByDefault` (`boolean`) storing is hidden by default.",
+          "descriptionZh": "属性 `isHiddenByDefault`（类型：`boolean`），用于存储或配置是否为隐藏按默认。"
         },
         {
           "name": "isAllowHide",
           "type": "boolean",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `isAllowHide` (`boolean`) storing is allow hide.",
+          "descriptionZh": "属性 `isAllowHide`（类型：`boolean`），用于存储或配置是否为允许隐藏。"
         },
         {
           "name": "isAllowFullscreen",
           "type": "boolean",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `isAllowFullscreen` (`boolean`) storing is allow fullscreen.",
+          "descriptionZh": "属性 `isAllowFullscreen`（类型：`boolean`），用于存储或配置是否为允许全屏。"
         },
         {
           "name": "isAllowClose",
           "type": "boolean",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `isAllowClose` (`boolean`) storing is allow close.",
+          "descriptionZh": "属性 `isAllowClose`（类型：`boolean`），用于存储或配置是否为允许关闭。"
         },
         {
           "name": "isAlwaysOnTop",
           "type": "boolean",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `isAlwaysOnTop` (`boolean`) storing is always on top.",
+          "descriptionZh": "属性 `isAlwaysOnTop`（类型：`boolean`），用于存储或配置是否为Always当顶部位置。"
         },
         {
           "name": "isToggleFullscreenByDblClickOnTitleBar",
           "type": "boolean",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `isToggleFullscreenByDblClickOnTitleBar` (`boolean`) storing is toggle fullscreen by dbl click on title bar.",
+          "descriptionZh": "属性 `isToggleFullscreenByDblClickOnTitleBar`（类型：`boolean`），用于存储或配置是否为开关全屏按Dbl点击当标题条。"
         },
         {
           "name": "isExitFullscreenByDragTitleBar",
           "type": "boolean",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `isExitFullscreenByDragTitleBar` (`boolean`) storing is exit fullscreen by drag title bar.",
+          "descriptionZh": "属性 `isExitFullscreenByDragTitleBar`（类型：`boolean`），用于存储或配置是否为Exit全屏按拖拽标题条。"
         },
         {
           "name": "isTitleBarVisible",
           "type": "boolean",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `isTitleBarVisible` (`boolean`) storing is title bar visible.",
+          "descriptionZh": "属性 `isTitleBarVisible`（类型：`boolean`），用于存储或配置是否为标题条可见。"
         },
         {
           "name": "style",
           "type": "object",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `style` (`object`) storing style.",
+          "descriptionZh": "属性 `style`（类型：`object`），用于存储或配置样式。"
         },
         {
           "name": "styleClass",
           "type": "string | string[] | object",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `styleClass` (`string | string[] | object`) storing style class.",
+          "descriptionZh": "属性 `styleClass`（类型：`string | string[] | object`），用于存储或配置样式类名。"
         },
         {
           "name": "titleBarStyle",
           "type": "object",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `titleBarStyle` (`object`) storing title bar style.",
+          "descriptionZh": "属性 `titleBarStyle`（类型：`object`），用于存储或配置标题条样式。"
         },
         {
           "name": "titleBarStyleClass",
           "type": "string | string[] | object",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `titleBarStyleClass` (`string | string[] | object`) storing title bar style class.",
+          "descriptionZh": "属性 `titleBarStyleClass`（类型：`string | string[] | object`），用于存储或配置标题条样式类名。"
         },
         {
           "name": "scrollViewStyle",
           "type": "object",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `scrollViewStyle` (`object`) storing scroll view style.",
+          "descriptionZh": "属性 `scrollViewStyle`（类型：`object`），用于存储或配置滚动视图样式。"
         },
         {
           "name": "scrollViewStyleClass",
           "type": "string | string[] | object",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `scrollViewStyleClass` (`string | string[] | object`) storing scroll view style class.",
+          "descriptionZh": "属性 `scrollViewStyleClass`（类型：`string | string[] | object`），用于存储或配置滚动视图样式类名。"
         },
         {
           "name": "draggerConfig",
           "type": "DraggerConfig",
           "default": "{}",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `draggerConfig` (`DraggerConfig`) storing dragger config (default: `{}`).",
+          "descriptionZh": "属性 `draggerConfig`（类型：`DraggerConfig`），用于存储或配置dragger配置（默认值：`{}`）。"
         },
         {
           "name": "resizerConfig",
           "type": "ResizerConfig",
           "default": "{}",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `resizerConfig` (`ResizerConfig`) storing resizer config (default: `{}`).",
+          "descriptionZh": "属性 `resizerConfig`（类型：`ResizerConfig`），用于存储或配置尺寸调整器配置（默认值：`{}`）。"
         }
       ]
     },
     {
       "name": "ɵDynamicWindowCssClassEnum",
       "kind": "enum",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Enumeration `ɵDynamicWindowCssClassEnum` defining supported ɵdynamic window css class enum constants.",
+      "summaryZh": "枚举 `ɵDynamicWindowCssClassEnum`，定义支持的ɵDynamic窗口CSS样式类名Enum常量集合。",
       "sourceFile": "src/ux/windows/window/enums/dynamic-window-css-class.enum.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
-      "properties": []
+      "properties": [
+        {
+          "name": "Opening",
+          "type": "enum-member",
+          "default": "'dui-opening'",
+          "description": "Enum member `ɵDynamicWindowCssClassEnum.Opening` = 'dui-opening' representing opening.",
+          "descriptionZh": "枚举项 `ɵDynamicWindowCssClassEnum.Opening` = 'dui-opening'，表示打开。"
+        },
+        {
+          "name": "Hiding",
+          "type": "enum-member",
+          "default": "'dui-hiding'",
+          "description": "Enum member `ɵDynamicWindowCssClassEnum.Hiding` = 'dui-hiding' representing hiding.",
+          "descriptionZh": "枚举项 `ɵDynamicWindowCssClassEnum.Hiding` = 'dui-hiding'，表示隐藏。"
+        },
+        {
+          "name": "Showing",
+          "type": "enum-member",
+          "default": "'dui-showing'",
+          "description": "Enum member `ɵDynamicWindowCssClassEnum.Showing` = 'dui-showing' representing showing.",
+          "descriptionZh": "枚举项 `ɵDynamicWindowCssClassEnum.Showing` = 'dui-showing'，表示显示。"
+        },
+        {
+          "name": "Closing",
+          "type": "enum-member",
+          "default": "'dui-closing'",
+          "description": "Enum member `ɵDynamicWindowCssClassEnum.Closing` = 'dui-closing' representing closing.",
+          "descriptionZh": "枚举项 `ɵDynamicWindowCssClassEnum.Closing` = 'dui-closing'，表示关闭。"
+        },
+        {
+          "name": "EnteringFullscreen",
+          "type": "enum-member",
+          "default": "'dui-entering-fullscreen'",
+          "description": "Enum member `ɵDynamicWindowCssClassEnum.EnteringFullscreen` = 'dui-entering-fullscreen' representing entering fullscreen.",
+          "descriptionZh": "枚举项 `ɵDynamicWindowCssClassEnum.EnteringFullscreen` = 'dui-entering-fullscreen'，表示进入全屏。"
+        },
+        {
+          "name": "EnteringWindowed",
+          "type": "enum-member",
+          "default": "'dui-entering-windowed'",
+          "description": "Enum member `ɵDynamicWindowCssClassEnum.EnteringWindowed` = 'dui-entering-windowed' representing entering windowed.",
+          "descriptionZh": "枚举项 `ɵDynamicWindowCssClassEnum.EnteringWindowed` = 'dui-entering-windowed'，表示进入已窗口。"
+        },
+        {
+          "name": "Hidden",
+          "type": "enum-member",
+          "default": "'dui-hidden'",
+          "description": "Enum member `ɵDynamicWindowCssClassEnum.Hidden` = 'dui-hidden' representing hidden.",
+          "descriptionZh": "枚举项 `ɵDynamicWindowCssClassEnum.Hidden` = 'dui-hidden'，表示隐藏。"
+        },
+        {
+          "name": "Fullscreen",
+          "type": "enum-member",
+          "default": "'dui-fullscreen'",
+          "description": "Enum member `ɵDynamicWindowCssClassEnum.Fullscreen` = 'dui-fullscreen' representing fullscreen.",
+          "descriptionZh": "枚举项 `ɵDynamicWindowCssClassEnum.Fullscreen` = 'dui-fullscreen'，表示全屏。"
+        },
+        {
+          "name": "Windowed",
+          "type": "enum-member",
+          "default": "'dui-windowed'",
+          "description": "Enum member `ɵDynamicWindowCssClassEnum.Windowed` = 'dui-windowed' representing windowed.",
+          "descriptionZh": "枚举项 `ɵDynamicWindowCssClassEnum.Windowed` = 'dui-windowed'，表示已窗口。"
+        }
+      ]
     },
     {
       "name": "ɵDynamicWindowCssVariableEnum",
       "kind": "enum",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Enumeration `ɵDynamicWindowCssVariableEnum` defining supported ɵdynamic window css variable enum constants.",
+      "summaryZh": "枚举 `ɵDynamicWindowCssVariableEnum`，定义支持的ɵDynamic窗口CSS样式VariableEnum常量集合。",
       "sourceFile": "src/ux/windows/window/enums/dynamic-window-css-variable.enum.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
-      "properties": []
+      "properties": [
+        {
+          "name": "Width",
+          "type": "enum-member",
+          "default": "'--dui-width'",
+          "description": "Enum member `ɵDynamicWindowCssVariableEnum.Width` = '--dui-width' representing width.",
+          "descriptionZh": "枚举项 `ɵDynamicWindowCssVariableEnum.Width` = '--dui-width'，表示宽度。"
+        },
+        {
+          "name": "Height",
+          "type": "enum-member",
+          "default": "'--dui-height'",
+          "description": "Enum member `ɵDynamicWindowCssVariableEnum.Height` = '--dui-height' representing height.",
+          "descriptionZh": "枚举项 `ɵDynamicWindowCssVariableEnum.Height` = '--dui-height'，表示高度。"
+        },
+        {
+          "name": "RealWidth",
+          "type": "enum-member",
+          "default": "'--dui-real-width'",
+          "description": "Enum member `ɵDynamicWindowCssVariableEnum.RealWidth` = '--dui-real-width' representing real width.",
+          "descriptionZh": "枚举项 `ɵDynamicWindowCssVariableEnum.RealWidth` = '--dui-real-width'，表示Real宽度。"
+        },
+        {
+          "name": "RealHeight",
+          "type": "enum-member",
+          "default": "'--dui-real-height'",
+          "description": "Enum member `ɵDynamicWindowCssVariableEnum.RealHeight` = '--dui-real-height' representing real height.",
+          "descriptionZh": "枚举项 `ɵDynamicWindowCssVariableEnum.RealHeight` = '--dui-real-height'，表示Real高度。"
+        },
+        {
+          "name": "Top",
+          "type": "enum-member",
+          "default": "'--dui-top'",
+          "description": "Enum member `ɵDynamicWindowCssVariableEnum.Top` = '--dui-top' representing top.",
+          "descriptionZh": "枚举项 `ɵDynamicWindowCssVariableEnum.Top` = '--dui-top'，表示顶部位置。"
+        },
+        {
+          "name": "Left",
+          "type": "enum-member",
+          "default": "'--dui-left'",
+          "description": "Enum member `ɵDynamicWindowCssVariableEnum.Left` = '--dui-left' representing left.",
+          "descriptionZh": "枚举项 `ɵDynamicWindowCssVariableEnum.Left` = '--dui-left'，表示左侧位置。"
+        },
+        {
+          "name": "CoordinateForHidingX",
+          "type": "enum-member",
+          "default": "'--dui-coordinate-x-for-hiding'",
+          "description": "Enum member `ɵDynamicWindowCssVariableEnum.CoordinateForHidingX` = '--dui-coordinate-x-for-hiding' representing coordinate for hiding x.",
+          "descriptionZh": "枚举项 `ɵDynamicWindowCssVariableEnum.CoordinateForHidingX` = '--dui-coordinate-x-for-hiding'，表示坐标用于隐藏X坐标。"
+        },
+        {
+          "name": "CoordinateForHidingY",
+          "type": "enum-member",
+          "default": "'--dui-coordinate-y-for-hiding'",
+          "description": "Enum member `ɵDynamicWindowCssVariableEnum.CoordinateForHidingY` = '--dui-coordinate-y-for-hiding' representing coordinate for hiding y.",
+          "descriptionZh": "枚举项 `ɵDynamicWindowCssVariableEnum.CoordinateForHidingY` = '--dui-coordinate-y-for-hiding'，表示坐标用于隐藏Y坐标。"
+        },
+        {
+          "name": "FullscreenOffsetTop",
+          "type": "enum-member",
+          "default": "'--dui-fullscreen-offset-top'",
+          "description": "Enum member `ɵDynamicWindowCssVariableEnum.FullscreenOffsetTop` = '--dui-fullscreen-offset-top' representing fullscreen offset top.",
+          "descriptionZh": "枚举项 `ɵDynamicWindowCssVariableEnum.FullscreenOffsetTop` = '--dui-fullscreen-offset-top'，表示全屏偏移量顶部位置。"
+        },
+        {
+          "name": "FullscreenOffsetRight",
+          "type": "enum-member",
+          "default": "'--dui-fullscreen-offset-right'",
+          "description": "Enum member `ɵDynamicWindowCssVariableEnum.FullscreenOffsetRight` = '--dui-fullscreen-offset-right' representing fullscreen offset right.",
+          "descriptionZh": "枚举项 `ɵDynamicWindowCssVariableEnum.FullscreenOffsetRight` = '--dui-fullscreen-offset-right'，表示全屏偏移量右侧位置。"
+        },
+        {
+          "name": "FullscreenOffsetBottom",
+          "type": "enum-member",
+          "default": "'--dui-fullscreen-offset-bottom'",
+          "description": "Enum member `ɵDynamicWindowCssVariableEnum.FullscreenOffsetBottom` = '--dui-fullscreen-offset-bottom' representing fullscreen offset bottom.",
+          "descriptionZh": "枚举项 `ɵDynamicWindowCssVariableEnum.FullscreenOffsetBottom` = '--dui-fullscreen-offset-bottom'，表示全屏偏移量底部位置。"
+        },
+        {
+          "name": "FullscreenOffsetLeft",
+          "type": "enum-member",
+          "default": "'--dui-fullscreen-offset-left'",
+          "description": "Enum member `ɵDynamicWindowCssVariableEnum.FullscreenOffsetLeft` = '--dui-fullscreen-offset-left' representing fullscreen offset left.",
+          "descriptionZh": "枚举项 `ɵDynamicWindowCssVariableEnum.FullscreenOffsetLeft` = '--dui-fullscreen-offset-left'，表示全屏偏移量左侧位置。"
+        }
+      ]
     },
     {
       "name": "ɵDynamicWindowDiParams",
       "kind": "interface",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Interface `ɵDynamicWindowDiParams` defining the contract and properties for ɵdynamic window di params.",
+      "summaryZh": "接口 `ɵDynamicWindowDiParams`，定义ɵDynamic窗口Di参数集合的数据结构契约与属性规范。",
       "sourceFile": "src/ux/windows/window/interfaces/di-params.interface.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
-      "properties": []
+      "properties": [
+        {
+          "name": "injector",
+          "type": "Injector",
+          "description": "Property `injector` (`Injector`) storing injector.",
+          "descriptionZh": "属性 `injector`（类型：`Injector`），用于存储或配置注入器。"
+        },
+        {
+          "name": "windowRef",
+          "type": "ɵDynamicWindowRefModel",
+          "description": "Property `windowRef` (`ɵDynamicWindowRefModel`) storing window ref.",
+          "descriptionZh": "属性 `windowRef`（类型：`ɵDynamicWindowRefModel`），用于存储或配置窗口引用。"
+        }
+      ]
     },
     {
       "name": "ɵDynamicWindowInjector",
       "kind": "class",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Class `ɵDynamicWindowInjector` encapsulating ɵdynamic window injector data structures and logic in `src/ux/windows/window/classes`.",
+      "summaryZh": "类 `ɵDynamicWindowInjector`，封装 `src/ux/windows/window/classes` 中的ɵDynamic窗口注入器数据结构与处理逻辑。",
       "sourceFile": "src/ux/windows/window/classes/dynamic-window-injector.ts",
       "inputs": [],
       "outputs": [],
@@ -1476,8 +2461,8 @@
             }
           ],
           "returnType": "T",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `get` to handle get.",
+          "descriptionZh": "执行 `get`，用于获取。"
         },
         {
           "name": "get",
@@ -1492,8 +2477,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `get` to handle get.",
+          "descriptionZh": "执行 `get`，用于获取。"
         }
       ],
       "properties": []
@@ -1501,19 +2486,32 @@
     {
       "name": "ɵDynamicWindowInputParams",
       "kind": "interface",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Interface `ɵDynamicWindowInputParams` defining the contract and properties for ɵdynamic window input params.",
+      "summaryZh": "接口 `ɵDynamicWindowInputParams`，定义ɵDynamic窗口输入属性参数集合的数据结构契约与属性规范。",
       "sourceFile": "src/ux/windows/window/interfaces/input-params.interface.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
-      "properties": []
+      "properties": [
+        {
+          "name": "component",
+          "type": "Type<any>",
+          "description": "Property `component` (`Type<any>`) storing component.",
+          "descriptionZh": "属性 `component`（类型：`Type<any>`），用于存储或配置组件。"
+        },
+        {
+          "name": "windowRef",
+          "type": "ɵDynamicWindowRefModel",
+          "description": "Property `windowRef` (`ɵDynamicWindowRefModel`) storing window ref.",
+          "descriptionZh": "属性 `windowRef`（类型：`ɵDynamicWindowRefModel`），用于存储或配置窗口引用。"
+        }
+      ]
     },
     {
       "name": "ɵDynamicWindowReferencesService",
       "kind": "service",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Injectable Angular service `ɵDynamicWindowReferencesService` managing ɵdynamic window references service state and operations in `src/ux/windows/window/services`.",
+      "summaryZh": "可注入的 Angular 服务 `ɵDynamicWindowReferencesService`，管理 `src/ux/windows/window/services` 中的ɵDynamic窗口引用服务状态与业务操作。",
       "sourceFile": "src/ux/windows/window/services/dynamic-window-references.service.ts",
       "inputs": [],
       "outputs": [],
@@ -1531,8 +2529,8 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `register` to handle register.",
+          "descriptionZh": "执行 `register`，用于注册。"
         },
         {
           "name": "remove",
@@ -1543,30 +2541,30 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `remove` to handle remove.",
+          "descriptionZh": "执行 `remove`，用于移除。"
         }
       ],
       "properties": [
         {
           "name": "data$",
           "type": "Observable<ɵDynamicWindowRefModel[]>",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current data (`data$: Observable<ɵDynamicWindowRefModel[]>`).",
+          "descriptionZh": "获取当前数据（`data$: Observable<ɵDynamicWindowRefModel[]>`）。"
         },
         {
           "name": "data",
           "type": "ɵDynamicWindowRefModel[]",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current data (`data: ɵDynamicWindowRefModel[]`).",
+          "descriptionZh": "获取当前数据（`data: ɵDynamicWindowRefModel[]`）。"
         }
       ]
     },
     {
       "name": "ɵDynamicWindowRefModel",
       "kind": "class",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Class `ɵDynamicWindowRefModel` encapsulating ɵdynamic window ref model data structures and logic in `src/ux/windows/window/classes`.",
+      "summaryZh": "类 `ɵDynamicWindowRefModel`，封装 `src/ux/windows/window/classes` 中的ɵDynamic窗口引用模型数据结构与处理逻辑。",
       "sourceFile": "src/ux/windows/window/classes/dynamic-window-ref.ts",
       "inputs": [],
       "outputs": [],
@@ -1580,8 +2578,8 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `init` to handle init.",
+          "descriptionZh": "执行 `init`，用于初始化。"
         },
         {
           "name": "updateConfig",
@@ -1592,29 +2590,29 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `updateConfig` to handle update config.",
+          "descriptionZh": "执行 `updateConfig`，用于更新配置。"
         },
         {
           "name": "hide",
           "params": [],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `hide` to handle hide.",
+          "descriptionZh": "执行 `hide`，用于隐藏。"
         },
         {
           "name": "show",
           "params": [],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `show` to handle show.",
+          "descriptionZh": "执行 `show`，用于显示。"
         },
         {
           "name": "toggleVisibility",
           "params": [],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `toggleVisibility` to handle toggle visibility.",
+          "descriptionZh": "执行 `toggleVisibility`，用于开关Visibility。"
         },
         {
           "name": "setIsHiddenState",
@@ -1625,29 +2623,29 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `setIsHiddenState` to handle set is hidden state.",
+          "descriptionZh": "执行 `setIsHiddenState`，用于集合是否为隐藏状态。"
         },
         {
           "name": "goFullscreen",
           "params": [],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `goFullscreen` to handle go fullscreen.",
+          "descriptionZh": "执行 `goFullscreen`，用于go全屏。"
         },
         {
           "name": "goWindowed",
           "params": [],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `goWindowed` to handle go windowed.",
+          "descriptionZh": "执行 `goWindowed`，用于go已窗口。"
         },
         {
           "name": "toggleFullscreen",
           "params": [],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `toggleFullscreen` to handle toggle fullscreen.",
+          "descriptionZh": "执行 `toggleFullscreen`，用于开关全屏。"
         },
         {
           "name": "setIsFullscreenState",
@@ -1658,8 +2656,8 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `setIsFullscreenState` to handle set is fullscreen state.",
+          "descriptionZh": "执行 `setIsFullscreenState`，用于集合是否为全屏状态。"
         },
         {
           "name": "close",
@@ -1670,22 +2668,22 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `close` to handle close.",
+          "descriptionZh": "执行 `close`，用于关闭。"
         },
         {
           "name": "makeActive",
           "params": [],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `makeActive` to handle make active.",
+          "descriptionZh": "执行 `makeActive`，用于生成激活。"
         },
         {
           "name": "makeInactive",
           "params": [],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `makeInactive` to handle make inactive.",
+          "descriptionZh": "执行 `makeInactive`，用于生成未激活。"
         },
         {
           "name": "setOrderIndex",
@@ -1696,8 +2694,8 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `setOrderIndex` to handle set order index.",
+          "descriptionZh": "执行 `setOrderIndex`，用于集合顺序索引。"
         },
         {
           "name": "setWindowElement",
@@ -1708,8 +2706,8 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `setWindowElement` to handle set window element.",
+          "descriptionZh": "执行 `setWindowElement`，用于集合窗口元素。"
         },
         {
           "name": "setComponentRef",
@@ -1720,8 +2718,8 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `setComponentRef` to handle set component ref.",
+          "descriptionZh": "执行 `setComponentRef`，用于集合组件引用。"
         },
         {
           "name": "setDraggableDirective",
@@ -1732,8 +2730,8 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `setDraggableDirective` to handle set draggable directive.",
+          "descriptionZh": "执行 `setDraggableDirective`，用于集合是否可拖拽指令。"
         },
         {
           "name": "setResizableDirective",
@@ -1744,121 +2742,121 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `setResizableDirective` to handle set resizable directive.",
+          "descriptionZh": "执行 `setResizableDirective`，用于集合是否可调尺寸指令。"
         },
         {
           "name": "destroy",
           "params": [],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `destroy` to handle destroy.",
+          "descriptionZh": "执行 `destroy`，用于销毁。"
         }
       ],
       "properties": [
         {
           "name": "isHidden$",
           "type": "Observable<boolean>",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current is hidden (`isHidden$: Observable<boolean>`).",
+          "descriptionZh": "获取当前是否为隐藏（`isHidden$: Observable<boolean>`）。"
         },
         {
           "name": "isHidden",
           "type": "boolean",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current is hidden (`isHidden: boolean`).",
+          "descriptionZh": "获取当前是否为隐藏（`isHidden: boolean`）。"
         },
         {
           "name": "beforeHidden$",
           "type": "Observable<unknown>",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current before hidden (`beforeHidden$: Observable<unknown>`).",
+          "descriptionZh": "获取当前之前隐藏（`beforeHidden$: Observable<unknown>`）。"
         },
         {
           "name": "isFullscreen$",
           "type": "Observable<boolean>",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current is fullscreen (`isFullscreen$: Observable<boolean>`).",
+          "descriptionZh": "获取当前是否为全屏（`isFullscreen$: Observable<boolean>`）。"
         },
         {
           "name": "isFullscreen",
           "type": "boolean",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current is fullscreen (`isFullscreen: boolean`).",
+          "descriptionZh": "获取当前是否为全屏（`isFullscreen: boolean`）。"
         },
         {
           "name": "isActive$",
           "type": "Observable<boolean>",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current is active (`isActive$: Observable<boolean>`).",
+          "descriptionZh": "获取当前是否为激活（`isActive$: Observable<boolean>`）。"
         },
         {
           "name": "isActive",
           "type": "boolean",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current is active (`isActive: boolean`).",
+          "descriptionZh": "获取当前是否为激活（`isActive: boolean`）。"
         },
         {
           "name": "orderIndex$",
           "type": "Observable<number>",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current order index (`orderIndex$: Observable<number>`).",
+          "descriptionZh": "获取当前顺序索引（`orderIndex$: Observable<number>`）。"
         },
         {
           "name": "afterClosed$",
           "type": "Observable<any>",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current after closed (`afterClosed$: Observable<any>`).",
+          "descriptionZh": "获取当前之后是否关闭（`afterClosed$: Observable<any>`）。"
         },
         {
           "name": "config$",
           "type": "Observable<DynamicWindowConfig>",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current config (`config$: Observable<DynamicWindowConfig>`).",
+          "descriptionZh": "获取当前配置（`config$: Observable<DynamicWindowConfig>`）。"
         },
         {
           "name": "config",
           "type": "DynamicWindowConfig",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current config (`config: DynamicWindowConfig`).",
+          "descriptionZh": "获取当前配置（`config: DynamicWindowConfig`）。"
         },
         {
           "name": "id",
           "type": "string",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current id (`id: string`).",
+          "descriptionZh": "获取当前唯一标识（`id: string`）。"
         },
         {
           "name": "windowElement",
           "type": "HTMLElement",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current window element (`windowElement: HTMLElement`).",
+          "descriptionZh": "获取当前窗口元素（`windowElement: HTMLElement`）。"
         },
         {
           "name": "componentRef",
           "type": "ComponentRef<ɵDynamicWindowComponent>",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current component ref (`componentRef: ComponentRef<ɵDynamicWindowComponent>`).",
+          "descriptionZh": "获取当前组件引用（`componentRef: ComponentRef<ɵDynamicWindowComponent>`）。"
         },
         {
           "name": "draggableDirective",
           "type": "DraggableDirective",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current draggable directive (`draggableDirective: DraggableDirective`).",
+          "descriptionZh": "获取当前是否可拖拽指令（`draggableDirective: DraggableDirective`）。"
         },
         {
           "name": "resizableDirective",
           "type": "ResizableDirective",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current resizable directive (`resizableDirective: ResizableDirective`).",
+          "descriptionZh": "获取当前是否可调尺寸指令（`resizableDirective: ResizableDirective`）。"
         }
       ]
     },
     {
       "name": "ɵDynamicWindowRefOrderingService",
       "kind": "service",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Injectable Angular service `ɵDynamicWindowRefOrderingService` managing ɵdynamic window ref ordering service state and operations in `src/ux/windows/window/services`.",
+      "summaryZh": "可注入的 Angular 服务 `ɵDynamicWindowRefOrderingService`，管理 `src/ux/windows/window/services` 中的ɵDynamic窗口引用顺序服务状态与业务操作。",
       "sourceFile": "src/ux/windows/window/services/dynamic-window-ref-ordering.service.ts",
       "inputs": [],
       "outputs": [],
@@ -1872,15 +2870,15 @@
             }
           ],
           "returnType": "number",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `getIndex` to handle get index.",
+          "descriptionZh": "执行 `getIndex`，用于获取索引。"
         },
         {
           "name": "updateForAll",
           "params": [],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `updateForAll` to handle update for all.",
+          "descriptionZh": "执行 `updateForAll`，用于更新用于全部。"
         },
         {
           "name": "remove",
@@ -1891,8 +2889,8 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `remove` to handle remove.",
+          "descriptionZh": "执行 `remove`，用于移除。"
         },
         {
           "name": "moveToTop",
@@ -1903,15 +2901,15 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `moveToTop` to handle move to top.",
+          "descriptionZh": "执行 `moveToTop`，用于移动转换为顶部位置。"
         },
         {
           "name": "getHighestOpened",
           "params": [],
           "returnType": "ɵDynamicWindowRefModel | null",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `getHighestOpened` to handle get highest opened.",
+          "descriptionZh": "执行 `getHighestOpened`，用于获取Highest是否展开。"
         }
       ],
       "properties": []
@@ -1919,8 +2917,8 @@
     {
       "name": "ɵDynamicWindowsDefaultCoordinatesService",
       "kind": "service",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Injectable Angular service `ɵDynamicWindowsDefaultCoordinatesService` managing ɵdynamic windows default coordinates service state and operations in `src/ux/windows/window/services`.",
+      "summaryZh": "可注入的 Angular 服务 `ɵDynamicWindowsDefaultCoordinatesService`，管理 `src/ux/windows/window/services` 中的ɵDynamic多窗口默认坐标服务状态与业务操作。",
       "sourceFile": "src/ux/windows/window/services/dynamic-windows-coordinates.service.ts",
       "inputs": [],
       "outputs": [],
@@ -1934,8 +2932,8 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `applyIfSpecificAbsent` to handle apply if specific absent.",
+          "descriptionZh": "执行 `applyIfSpecificAbsent`，用于应用IfSpecificAbsent。"
         }
       ],
       "properties": []
@@ -1943,19 +2941,32 @@
     {
       "name": "ɵElementResizingObserver",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Executes `ɵElementResizingObserver` to handle ɵelement resizing observer.",
+      "summaryZh": "执行 `ɵElementResizingObserver`，用于ɵElement调整尺寸中观察者。",
       "sourceFile": "src/ux/windows/core/helpers/element-resizing-observer.helper.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "ɵElementResizingObserver",
+          "params": [
+            {
+              "name": "element",
+              "type": "HTMLElement"
+            }
+          ],
+          "returnType": "Observable<HTMLElement>",
+          "description": "Executes `ɵElementResizingObserver` to handle ɵelement resizing observer.",
+          "descriptionZh": "执行 `ɵElementResizingObserver`，用于ɵElement调整尺寸中观察者。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "ɵErrorHelper",
       "kind": "class",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Class `ɵErrorHelper` encapsulating ɵerror helper data structures and logic in `src/ux/windows/core/helpers`.",
+      "summaryZh": "类 `ɵErrorHelper`，封装 `src/ux/windows/core/helpers` 中的ɵError辅助工具数据结构与处理逻辑。",
       "sourceFile": "src/ux/windows/core/helpers/error.helper.ts",
       "inputs": [],
       "outputs": [],
@@ -1973,8 +2984,8 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `warn` to handle warn.",
+          "descriptionZh": "执行 `warn`，用于警告色。"
         },
         {
           "name": "error",
@@ -1989,8 +3000,8 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `error` to handle error.",
+          "descriptionZh": "执行 `error`，用于错误。"
         }
       ],
       "properties": []
@@ -1998,8 +3009,8 @@
     {
       "name": "ɵEventOutside",
       "kind": "class",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Class `ɵEventOutside` encapsulating ɵevent outside data structures and logic in `src/ux/windows/core/helpers`.",
+      "summaryZh": "类 `ɵEventOutside`，封装 `src/ux/windows/core/helpers` 中的ɵEvent外部数据结构与处理逻辑。",
       "sourceFile": "src/ux/windows/core/helpers/event-outside.helper.ts",
       "inputs": [],
       "outputs": [],
@@ -2017,8 +3028,8 @@
             }
           ],
           "returnType": "boolean",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `checkForElement` to handle check for element.",
+          "descriptionZh": "执行 `checkForElement`，用于检查用于元素。"
         }
       ],
       "properties": []
@@ -2026,8 +3037,8 @@
     {
       "name": "ɵGlobalEvents",
       "kind": "service",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Injectable Angular service `ɵGlobalEvents` managing ɵglobal events state and operations in `src/ux/windows/core/services`.",
+      "summaryZh": "可注入的 Angular 服务 `ɵGlobalEvents`，管理 `src/ux/windows/core/services` 中的ɵGlobal事件集合状态与业务操作。",
       "sourceFile": "src/ux/windows/core/services/global-events.service.ts",
       "inputs": [],
       "outputs": [],
@@ -2041,8 +3052,8 @@
             }
           ],
           "returnType": "Observable<T>",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `fromDocument` to handle from document.",
+          "descriptionZh": "执行 `fromDocument`，用于从文档对象。"
         }
       ],
       "properties": []
@@ -2050,8 +3061,8 @@
     {
       "name": "ɵIdGenerator",
       "kind": "class",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Class `ɵIdGenerator` encapsulating ɵid generator data structures and logic in `src/ux/windows/core/helpers`.",
+      "summaryZh": "类 `ɵIdGenerator`，封装 `src/ux/windows/core/helpers` 中的ɵIdGenerator数据结构与处理逻辑。",
       "sourceFile": "src/ux/windows/core/helpers/id-generator.helper.ts",
       "inputs": [],
       "outputs": [],
@@ -2065,8 +3076,8 @@
             }
           ],
           "returnType": "string",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `generate` to handle generate.",
+          "descriptionZh": "执行 `generate`，用于生成。"
         }
       ],
       "properties": []
@@ -2074,8 +3085,8 @@
     {
       "name": "ɵIntervalCheckerHelper",
       "kind": "class",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Class `ɵIntervalCheckerHelper` encapsulating ɵinterval checker helper data structures and logic in `src/ux/windows/core/helpers`.",
+      "summaryZh": "类 `ɵIntervalCheckerHelper`，封装 `src/ux/windows/core/helpers` 中的ɵInterval检查器辅助工具数据结构与处理逻辑。",
       "sourceFile": "src/ux/windows/core/helpers/interval-checker.helper.ts",
       "inputs": [],
       "outputs": [],
@@ -2089,8 +3100,8 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `updateSettings` to handle update settings.",
+          "descriptionZh": "执行 `updateSettings`，用于更新设置项。"
         },
         {
           "name": "start",
@@ -2101,15 +3112,15 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `start` to handle start.",
+          "descriptionZh": "执行 `start`，用于开始。"
         },
         {
           "name": "reset",
           "params": [],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `reset` to handle reset.",
+          "descriptionZh": "执行 `reset`，用于重置。"
         }
       ],
       "properties": []
@@ -2117,8 +3128,8 @@
     {
       "name": "ɵInvertedKeysOfType",
       "kind": "type",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Type alias `ɵInvertedKeysOfType` representing ɵinverted keys of type (`{ [K in keyof T as T[K] extends U ? never : K]: T[K] }`).",
+      "summaryZh": "类型别名 `ɵInvertedKeysOfType`，表示ɵInverted键列表的类型（`{ [K in keyof T as T[K] extends U ? never : K]: T[K] }`）。",
       "sourceFile": "src/ux/windows/core/types/inverted-keys-of.type.ts",
       "inputs": [],
       "outputs": [],
@@ -2128,41 +3139,84 @@
     {
       "name": "ɵIsNil",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Executes `ɵIsNil` to handle ɵis nil.",
+      "summaryZh": "执行 `ɵIsNil`，用于ɵIsNil。",
       "sourceFile": "src/ux/windows/core/helpers/methods.helper.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "ɵIsNil",
+          "params": [
+            {
+              "name": "value",
+              "type": "any"
+            }
+          ],
+          "returnType": "boolean",
+          "description": "Executes `ɵIsNil` to handle ɵis nil.",
+          "descriptionZh": "执行 `ɵIsNil`，用于ɵIsNil。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "ɵIsNumber",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Executes `ɵIsNumber` to handle ɵis number.",
+      "summaryZh": "执行 `ɵIsNumber`，用于ɵIs数字。",
       "sourceFile": "src/ux/windows/core/helpers/methods.helper.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "ɵIsNumber",
+          "params": [
+            {
+              "name": "value",
+              "type": "any"
+            }
+          ],
+          "returnType": "boolean",
+          "description": "Executes `ɵIsNumber` to handle ɵis number.",
+          "descriptionZh": "执行 `ɵIsNumber`，用于ɵIs数字。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "ɵIsObjectsWithSameData",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Executes `ɵIsObjectsWithSameData` to handle ɵis objects with same data.",
+      "summaryZh": "执行 `ɵIsObjectsWithSameData`，用于ɵIs对象带有相同数据。",
       "sourceFile": "src/ux/windows/core/helpers/methods.helper.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "ɵIsObjectsWithSameData",
+          "params": [
+            {
+              "name": "objectA",
+              "type": "Object"
+            },
+            {
+              "name": "objectB",
+              "type": "Object"
+            }
+          ],
+          "returnType": "boolean",
+          "description": "Executes `ɵIsObjectsWithSameData` to handle ɵis objects with same data.",
+          "descriptionZh": "执行 `ɵIsObjectsWithSameData`，用于ɵIs对象带有相同数据。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "ɵKeysOfType",
       "kind": "type",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Type alias `ɵKeysOfType` representing ɵkeys of type (`{ [P in keyof T]: T[P] extends PropType ? P : never }[keyof T]`).",
+      "summaryZh": "类型别名 `ɵKeysOfType`，表示ɵKeys的类型（`{ [P in keyof T]: T[P] extends PropType ? P : never }[keyof T]`）。",
       "sourceFile": "src/ux/windows/core/types/keys-of.type.ts",
       "inputs": [],
       "outputs": [],
@@ -2172,8 +3226,8 @@
     {
       "name": "ɵLeftResizer",
       "kind": "class",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Class `ɵLeftResizer` encapsulating ɵleft resizer data structures and logic in `src/ux/windows/resizer/classes`.",
+      "summaryZh": "类 `ɵLeftResizer`，封装 `src/ux/windows/resizer/classes` 中的ɵLeft尺寸调整器数据结构与处理逻辑。",
       "sourceFile": "src/ux/windows/resizer/classes/left-resizer.ts",
       "inputs": [],
       "outputs": [],
@@ -2187,8 +3241,8 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `resizeElement` to handle resize element.",
+          "descriptionZh": "执行 `resizeElement`，用于调整尺寸元素。"
         }
       ],
       "properties": [
@@ -2196,53 +3250,53 @@
           "name": "id",
           "type": "any",
           "default": "ResizerEnum.Left",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `id` (`any`) storing id (default: `ResizerEnum.Left`).",
+          "descriptionZh": "属性 `id`（类型：`any`），用于存储或配置唯一标识（默认值：`ResizerEnum.Left`）。"
         }
       ]
     },
     {
       "name": "ɵOsBaseButtonComponent",
       "kind": "component",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular component `ɵOsBaseButtonComponent` providing ɵos base button component presentation and interaction in `src/ux/windows/core/classes/base-components`.",
+      "summaryZh": "Angular 组件 `ɵOsBaseButtonComponent`，提供ɵOs基础按钮组件的视图渲染与交互逻辑（位于 `src/ux/windows/core/classes/base-components`）。",
       "sourceFile": "src/ux/windows/core/classes/base-components/button.ts",
       "inputs": [
         {
           "name": "isDisabled",
           "type": "boolean",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `isDisabled` (`boolean`) configuring is disabled.",
+          "descriptionZh": "输入属性 `isDisabled`（类型：`boolean`），用于配置是否为已禁用。"
         },
         {
           "name": "isFocused",
           "type": "boolean",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `isFocused` (`boolean`) configuring is focused.",
+          "descriptionZh": "输入属性 `isFocused`（类型：`boolean`），用于配置是否为已聚焦。"
         },
         {
           "name": "ariaLabel",
           "type": "string",
           "description": "Metadata of destination of the button",
-          "descriptionZh": null
+          "descriptionZh": "输入属性 `ariaLabel`（类型：`string`），用于配置aria标签。"
         },
         {
           "name": "ariaControls",
           "type": "string",
           "description": "Metadata of relation of the button",
-          "descriptionZh": null
+          "descriptionZh": "输入属性 `ariaControls`（类型：`string`），用于配置aria控件集合。"
         },
         {
           "name": "ariaSelected",
           "type": "string",
           "description": "Metadata of selection state of the button",
-          "descriptionZh": null
+          "descriptionZh": "输入属性 `ariaSelected`（类型：`string`），用于配置aria已选中。"
         },
         {
           "name": "role",
           "type": "string",
           "description": "Metadata of role of the button",
-          "descriptionZh": null
+          "descriptionZh": "输入属性 `role`（类型：`string`），用于配置角色。"
         }
       ],
       "outputs": [
@@ -2250,13 +3304,13 @@
           "name": "osFocus",
           "type": "Observable<FocusEvent>",
           "description": "Target internal element focus event",
-          "descriptionZh": null
+          "descriptionZh": "输出事件 `osFocus`（类型：`Observable<FocusEvent>`），当触发os聚焦时向外发出事件。"
         },
         {
           "name": "osBlur",
           "type": "Observable<FocusEvent>",
           "description": "Target internal element blur event",
-          "descriptionZh": null
+          "descriptionZh": "输出事件 `osBlur`（类型：`Observable<FocusEvent>`），当触发os失焦时向外发出事件。"
         }
       ],
       "methods": [],
@@ -2265,27 +3319,27 @@
     {
       "name": "ɵOsBaseComponent",
       "kind": "component",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular component `ɵOsBaseComponent` providing ɵos base component presentation and interaction in `src/ux/windows/core/classes/base-components`.",
+      "summaryZh": "Angular 组件 `ɵOsBaseComponent`，提供ɵOs基础组件的视图渲染与交互逻辑（位于 `src/ux/windows/core/classes/base-components`）。",
       "sourceFile": "src/ux/windows/core/classes/base-components/component.ts",
       "inputs": [
         {
           "name": "style",
           "type": "object",
           "description": "Target internal element stylelist",
-          "descriptionZh": null
+          "descriptionZh": "输入属性 `style`（类型：`object`），用于配置样式。"
         },
         {
           "name": "styleClass",
           "type": "string | string[] | object",
           "description": "Target internal element classList",
-          "descriptionZh": null
+          "descriptionZh": "输入属性 `styleClass`（类型：`string | string[] | object`），用于配置样式类名。"
         },
         {
           "name": "id",
           "type": "string",
           "description": "Target internal element id",
-          "descriptionZh": null
+          "descriptionZh": "输入属性 `id`（类型：`string`），用于配置唯一标识。"
         }
       ],
       "outputs": [
@@ -2293,61 +3347,61 @@
           "name": "osClick",
           "type": "Observable<PointerEvent>",
           "description": "Target internal element click event",
-          "descriptionZh": null
+          "descriptionZh": "输出事件 `osClick`（类型：`Observable<PointerEvent>`），当触发os点击时向外发出事件。"
         },
         {
           "name": "osDblClick",
           "type": "Observable<PointerEvent>",
           "description": "Target internal element dblclick event",
-          "descriptionZh": null
+          "descriptionZh": "输出事件 `osDblClick`（类型：`Observable<PointerEvent>`），当触发osDbl点击时向外发出事件。"
         },
         {
           "name": "osMouseDown",
           "type": "Observable<PointerEvent>",
           "description": "Target internal element mousedown event",
-          "descriptionZh": null
+          "descriptionZh": "输出事件 `osMouseDown`（类型：`Observable<PointerEvent>`），当触发os鼠标向下时向外发出事件。"
         },
         {
           "name": "osMouseUp",
           "type": "Observable<PointerEvent>",
           "description": "Target internal element mouseup event",
-          "descriptionZh": null
+          "descriptionZh": "输出事件 `osMouseUp`（类型：`Observable<PointerEvent>`），当触发os鼠标向上时向外发出事件。"
         },
         {
           "name": "osMouseMove",
           "type": "Observable<PointerEvent>",
           "description": "Target internal element mousemove event",
-          "descriptionZh": null
+          "descriptionZh": "输出事件 `osMouseMove`（类型：`Observable<PointerEvent>`），当触发os鼠标移动时向外发出事件。"
         },
         {
           "name": "osMouseOut",
           "type": "Observable<PointerEvent>",
           "description": "Target internal element mouseout event",
-          "descriptionZh": null
+          "descriptionZh": "输出事件 `osMouseOut`（类型：`Observable<PointerEvent>`），当触发os鼠标输出时向外发出事件。"
         },
         {
           "name": "osMouseOver",
           "type": "Observable<PointerEvent>",
           "description": "Target internal element mouseover event",
-          "descriptionZh": null
+          "descriptionZh": "输出事件 `osMouseOver`（类型：`Observable<PointerEvent>`），当触发os鼠标越过时向外发出事件。"
         },
         {
           "name": "osWheel",
           "type": "Observable<WheelEvent>",
           "description": "Target internal element wheel event",
-          "descriptionZh": null
+          "descriptionZh": "输出事件 `osWheel`（类型：`Observable<WheelEvent>`），当触发os滚轮时向外发出事件。"
         },
         {
           "name": "osKeyDown",
           "type": "Observable<KeyboardEvent>",
           "description": "Target internal element keydown event",
-          "descriptionZh": null
+          "descriptionZh": "输出事件 `osKeyDown`（类型：`Observable<KeyboardEvent>`），当触发os键向下时向外发出事件。"
         },
         {
           "name": "osKeyUp",
           "type": "Observable<KeyboardEvent>",
           "description": "Target internal element keyup event",
-          "descriptionZh": null
+          "descriptionZh": "输出事件 `osKeyUp`（类型：`Observable<KeyboardEvent>`），当触发os键向上时向外发出事件。"
         }
       ],
       "methods": [],
@@ -2356,8 +3410,8 @@
     {
       "name": "ɵOsBaseViewComponent",
       "kind": "component",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular component `ɵOsBaseViewComponent` providing ɵos base view component presentation and interaction in `src/ux/windows/core/classes/base-components`.",
+      "summaryZh": "Angular 组件 `ɵOsBaseViewComponent`，提供ɵOs基础视图组件的视图渲染与交互逻辑（位于 `src/ux/windows/core/classes/base-components`）。",
       "sourceFile": "src/ux/windows/core/classes/base-components/view.ts",
       "inputs": [],
       "outputs": [],
@@ -2366,39 +3420,52 @@
         {
           "name": "whenViewInit$",
           "type": "Observable<boolean>",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current when view init (`whenViewInit$: Observable<boolean>`).",
+          "descriptionZh": "获取当前when视图初始化（`whenViewInit$: Observable<boolean>`）。"
         },
         {
           "name": "viewDestroyed$",
           "type": "Observable<boolean>",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current view destroyed (`viewDestroyed$: Observable<boolean>`).",
+          "descriptionZh": "获取当前视图已销毁（`viewDestroyed$: Observable<boolean>`）。"
         },
         {
           "name": "isViewInit",
           "type": "boolean",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current is view init (`isViewInit: boolean`).",
+          "descriptionZh": "获取当前是否为视图初始化（`isViewInit: boolean`）。"
         }
       ]
     },
     {
       "name": "ɵParseInt",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Executes `ɵParseInt` to handle ɵparse int.",
+      "summaryZh": "执行 `ɵParseInt`，用于ɵParseInt。",
       "sourceFile": "src/ux/windows/core/helpers/methods.helper.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "ɵParseInt",
+          "params": [
+            {
+              "name": "value",
+              "type": "string"
+            }
+          ],
+          "returnType": "number",
+          "description": "Executes `ɵParseInt` to handle ɵparse int.",
+          "descriptionZh": "执行 `ɵParseInt`，用于ɵParseInt。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "ɵPointerHelper",
       "kind": "class",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Class `ɵPointerHelper` encapsulating ɵpointer helper data structures and logic in `src/ux/windows/core/helpers`.",
+      "summaryZh": "类 `ɵPointerHelper`，封装 `src/ux/windows/core/helpers` 中的ɵPointer辅助工具数据结构与处理逻辑。",
       "sourceFile": "src/ux/windows/core/helpers/pointer.helper.ts",
       "inputs": [],
       "outputs": [],
@@ -2412,8 +3479,8 @@
             }
           ],
           "returnType": "number",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `getClientX` to handle get client x.",
+          "descriptionZh": "执行 `getClientX`，用于获取ClientX坐标。"
         },
         {
           "name": "getClientY",
@@ -2424,8 +3491,8 @@
             }
           ],
           "returnType": "number",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `getClientY` to handle get client y.",
+          "descriptionZh": "执行 `getClientY`，用于获取ClientY坐标。"
         },
         {
           "name": "getPageX",
@@ -2436,8 +3503,8 @@
             }
           ],
           "returnType": "number",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `getPageX` to handle get page x.",
+          "descriptionZh": "执行 `getPageX`，用于获取页面X坐标。"
         },
         {
           "name": "getPageY",
@@ -2448,8 +3515,8 @@
             }
           ],
           "returnType": "number",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `getPageY` to handle get page y.",
+          "descriptionZh": "执行 `getPageY`，用于获取页面Y坐标。"
         },
         {
           "name": "isPointerEvent",
@@ -2460,8 +3527,8 @@
             }
           ],
           "returnType": "event is PointerEvent",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `isPointerEvent` to handle is pointer event.",
+          "descriptionZh": "执行 `isPointerEvent`，用于是否为指针事件。"
         },
         {
           "name": "isTouchEvent",
@@ -2472,8 +3539,8 @@
             }
           ],
           "returnType": "event is TouchEvent",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `isTouchEvent` to handle is touch event.",
+          "descriptionZh": "执行 `isTouchEvent`，用于是否为触摸事件。"
         }
       ],
       "properties": []
@@ -2481,8 +3548,8 @@
     {
       "name": "ɵRandomHelper",
       "kind": "class",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Class `ɵRandomHelper` encapsulating ɵrandom helper data structures and logic in `src/ux/windows/core/helpers`.",
+      "summaryZh": "类 `ɵRandomHelper`，封装 `src/ux/windows/core/helpers` 中的ɵRandom辅助工具数据结构与处理逻辑。",
       "sourceFile": "src/ux/windows/core/helpers/random.helper.ts",
       "inputs": [],
       "outputs": [],
@@ -2500,8 +3567,8 @@
             }
           ],
           "returnType": "number",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `getRandomInt` to handle get random int.",
+          "descriptionZh": "执行 `getRandomInt`，用于获取随机Int。"
         }
       ],
       "properties": []
@@ -2509,8 +3576,8 @@
     {
       "name": "ɵRawObject",
       "kind": "type",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Type alias `ɵRawObject` representing ɵraw object (`{ [key: string]: T; }`).",
+      "summaryZh": "类型别名 `ɵRawObject`，表示ɵRaw对象（`{ [key: string]: T; }`）。",
       "sourceFile": "src/ux/windows/core/types/raw-object.type.ts",
       "inputs": [],
       "outputs": [],
@@ -2520,8 +3587,8 @@
     {
       "name": "ɵResizerConfigModel",
       "kind": "class",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Class `ɵResizerConfigModel` encapsulating ɵresizer config model data structures and logic in `src/ux/windows/resizer/classes`.",
+      "summaryZh": "类 `ɵResizerConfigModel`，封装 `src/ux/windows/resizer/classes` 中的ɵResizer配置模型数据结构与处理逻辑。",
       "sourceFile": "src/ux/windows/resizer/classes/resizer-config.ts",
       "inputs": [],
       "outputs": [],
@@ -2530,138 +3597,168 @@
         {
           "name": "targetElement",
           "type": "HTMLElement",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `targetElement` (`HTMLElement`) storing target element.",
+          "descriptionZh": "属性 `targetElement`（类型：`HTMLElement`），用于存储或配置目标元素。"
         },
         {
           "name": "minWidth",
           "type": "number",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `minWidth` (`number`) storing min width.",
+          "descriptionZh": "属性 `minWidth`（类型：`number`），用于存储或配置最小值宽度。"
         },
         {
           "name": "minHeight",
           "type": "number",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `minHeight` (`number`) storing min height.",
+          "descriptionZh": "属性 `minHeight`（类型：`number`），用于存储或配置最小值高度。"
         },
         {
           "name": "maxWidth",
           "type": "number",
           "default": "Infinity",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `maxWidth` (`number`) storing max width (default: `Infinity`).",
+          "descriptionZh": "属性 `maxWidth`（类型：`number`），用于存储或配置最大值宽度（默认值：`Infinity`）。"
         },
         {
           "name": "maxHeight",
           "type": "number",
           "default": "Infinity",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `maxHeight` (`number`) storing max height (default: `Infinity`).",
+          "descriptionZh": "属性 `maxHeight`（类型：`number`），用于存储或配置最大值高度（默认值：`Infinity`）。"
         },
         {
           "name": "allowedResizers",
           "type": "ResizerEnum[]",
           "default": "[...ɵRESIZERS_ARRAY]",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `allowedResizers` (`ResizerEnum[]`) storing allowed resizers (default: `[...ɵRESIZERS_ARRAY]`).",
+          "descriptionZh": "属性 `allowedResizers`（类型：`ResizerEnum[]`），用于存储或配置允许的尺寸调整器（默认值：`[...ɵRESIZERS_ARRAY]`）。"
         },
         {
           "name": "allowedMouseButtons",
           "type": "MouseButtonEnum[]",
           "default": "[MouseButtonEnum.Left]",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `allowedMouseButtons` (`MouseButtonEnum[]`) storing allowed mouse buttons (default: `[MouseButtonEnum.Left]`).",
+          "descriptionZh": "属性 `allowedMouseButtons`（类型：`MouseButtonEnum[]`），用于存储或配置允许的鼠标按钮（默认值：`[MouseButtonEnum.Left]`）。"
         },
         {
           "name": "xAxisLeftStyleProperty",
           "type": "string",
           "default": "'left'",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `xAxisLeftStyleProperty` (`string`) storing x axis left style property (default: `'left'`).",
+          "descriptionZh": "属性 `xAxisLeftStyleProperty`（类型：`string`），用于存储或配置X坐标坐标轴左侧位置样式属性（默认值：`'left'`）。"
         },
         {
           "name": "xAxisRightStyleProperty",
           "type": "string",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `xAxisRightStyleProperty` (`string`) storing x axis right style property.",
+          "descriptionZh": "属性 `xAxisRightStyleProperty`（类型：`string`），用于存储或配置X坐标坐标轴右侧位置样式属性。"
         },
         {
           "name": "yAxisTopStyleProperty",
           "type": "string",
           "default": "'top'",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `yAxisTopStyleProperty` (`string`) storing y axis top style property (default: `'top'`).",
+          "descriptionZh": "属性 `yAxisTopStyleProperty`（类型：`string`），用于存储或配置Y坐标坐标轴顶部位置样式属性（默认值：`'top'`）。"
         },
         {
           "name": "yAxisBottomStyleProperty",
           "type": "string",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `yAxisBottomStyleProperty` (`string`) storing y axis bottom style property.",
+          "descriptionZh": "属性 `yAxisBottomStyleProperty`（类型：`string`），用于存储或配置Y坐标坐标轴底部位置样式属性。"
         },
         {
           "name": "widthStyleProperty",
           "type": "string",
           "default": "'width'",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `widthStyleProperty` (`string`) storing width style property (default: `'width'`).",
+          "descriptionZh": "属性 `widthStyleProperty`（类型：`string`），用于存储或配置宽度样式属性（默认值：`'width'`）。"
         },
         {
           "name": "heightStyleProperty",
           "type": "string",
           "default": "'height'",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `heightStyleProperty` (`string`) storing height style property (default: `'height'`).",
+          "descriptionZh": "属性 `heightStyleProperty`（类型：`string`），用于存储或配置高度样式属性（默认值：`'height'`）。"
         },
         {
           "name": "isAllowChangePosition",
           "type": "boolean",
           "default": "true",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `isAllowChangePosition` (`boolean`) storing is allow change position (default: `true`).",
+          "descriptionZh": "属性 `isAllowChangePosition`（类型：`boolean`），用于存储或配置是否为允许变更位置（默认值：`true`）。"
         },
         {
           "name": "isEnabled",
           "type": "boolean",
           "default": "true",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `isEnabled` (`boolean`) storing is enabled (default: `true`).",
+          "descriptionZh": "属性 `isEnabled`（类型：`boolean`），用于存储或配置是否为已启用（默认值：`true`）。"
         },
         {
           "name": "mouseMoveHandler",
           "type": "(event: ResizeInfo) => void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `mouseMoveHandler` (`(event: ResizeInfo) => void`) storing mouse move handler.",
+          "descriptionZh": "属性 `mouseMoveHandler`（类型：`(event: ResizeInfo) => void`），用于存储或配置鼠标移动处理器。"
         }
       ]
     },
     {
       "name": "ɵResizerCssClassEnum",
       "kind": "enum",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Enumeration `ɵResizerCssClassEnum` defining supported ɵresizer css class enum constants.",
+      "summaryZh": "枚举 `ɵResizerCssClassEnum`，定义支持的ɵResizerCSS样式类名Enum常量集合。",
       "sourceFile": "src/ux/windows/resizer/enums/resizer-css-class.enum.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
-      "properties": []
+      "properties": [
+        {
+          "name": "Resizable",
+          "type": "enum-member",
+          "default": "'dui-resizable'",
+          "description": "Enum member `ɵResizerCssClassEnum.Resizable` = 'dui-resizable' representing resizable.",
+          "descriptionZh": "枚举项 `ɵResizerCssClassEnum.Resizable` = 'dui-resizable'，表示是否可调尺寸。"
+        },
+        {
+          "name": "Resizing",
+          "type": "enum-member",
+          "default": "'dui-resizing'",
+          "description": "Enum member `ɵResizerCssClassEnum.Resizing` = 'dui-resizing' representing resizing.",
+          "descriptionZh": "枚举项 `ɵResizerCssClassEnum.Resizing` = 'dui-resizing'，表示调整尺寸中。"
+        }
+      ]
     },
     {
       "name": "ɵResizerElementTagEnum",
       "kind": "enum",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Enumeration `ɵResizerElementTagEnum` defining supported ɵresizer element tag enum constants.",
+      "summaryZh": "枚举 `ɵResizerElementTagEnum`，定义支持的ɵResizer元素标签Enum常量集合。",
       "sourceFile": "src/ux/windows/resizer/enums/resizer-element-tag.enum.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
-      "properties": []
+      "properties": [
+        {
+          "name": "Resizers",
+          "type": "enum-member",
+          "default": "'dui-resizers'",
+          "description": "Enum member `ɵResizerElementTagEnum.Resizers` = 'dui-resizers' representing resizers.",
+          "descriptionZh": "枚举项 `ɵResizerElementTagEnum.Resizers` = 'dui-resizers'，表示尺寸调整器。"
+        },
+        {
+          "name": "Resizer",
+          "type": "enum-member",
+          "default": "'dui-resizer'",
+          "description": "Enum member `ɵResizerElementTagEnum.Resizer` = 'dui-resizer' representing resizer.",
+          "descriptionZh": "枚举项 `ɵResizerElementTagEnum.Resizer` = 'dui-resizer'，表示尺寸调整器。"
+        }
+      ]
     },
     {
       "name": "ɵResizerFactory",
       "kind": "service",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Injectable Angular service `ɵResizerFactory` managing ɵresizer factory state and operations in `src/ux/windows/resizer/classes`.",
+      "summaryZh": "可注入的 Angular 服务 `ɵResizerFactory`，管理 `src/ux/windows/resizer/classes` 中的ɵResizer工厂状态与业务操作。",
       "sourceFile": "src/ux/windows/resizer/classes/resizer.factory.ts",
       "inputs": [],
       "outputs": [],
@@ -2679,8 +3776,8 @@
             }
           ],
           "returnType": "ɵBaseResizer",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `create` to handle create.",
+          "descriptionZh": "执行 `create`，用于创建。"
         }
       ],
       "properties": []
@@ -2688,8 +3785,8 @@
     {
       "name": "ɵRESIZERS_ARRAY",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `ɵRESIZERS_ARRAY` defining ɵresizers array in `src/ux/windows/resizer/data`.",
+      "summaryZh": "常量/变量 `ɵRESIZERS_ARRAY`，定义 `src/ux/windows/resizer/data` 中的ɵRESIZERS数组。",
       "sourceFile": "src/ux/windows/resizer/data/resizers.array.ts",
       "inputs": [],
       "outputs": [],
@@ -2699,8 +3796,8 @@
     {
       "name": "ɵRightResizer",
       "kind": "class",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Class `ɵRightResizer` encapsulating ɵright resizer data structures and logic in `src/ux/windows/resizer/classes`.",
+      "summaryZh": "类 `ɵRightResizer`，封装 `src/ux/windows/resizer/classes` 中的ɵRight尺寸调整器数据结构与处理逻辑。",
       "sourceFile": "src/ux/windows/resizer/classes/right-resizer.ts",
       "inputs": [],
       "outputs": [],
@@ -2714,8 +3811,8 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `resizeElement` to handle resize element.",
+          "descriptionZh": "执行 `resizeElement`，用于调整尺寸元素。"
         }
       ],
       "properties": [
@@ -2723,16 +3820,16 @@
           "name": "id",
           "type": "any",
           "default": "ResizerEnum.Right",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `id` (`any`) storing id (default: `ResizerEnum.Right`).",
+          "descriptionZh": "属性 `id`（类型：`any`），用于存储或配置唯一标识（默认值：`ResizerEnum.Right`）。"
         }
       ]
     },
     {
       "name": "ɵTopLeftResizer",
       "kind": "class",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Class `ɵTopLeftResizer` encapsulating ɵtop left resizer data structures and logic in `src/ux/windows/resizer/classes`.",
+      "summaryZh": "类 `ɵTopLeftResizer`，封装 `src/ux/windows/resizer/classes` 中的ɵTop左侧位置尺寸调整器数据结构与处理逻辑。",
       "sourceFile": "src/ux/windows/resizer/classes/top-left-resizer.ts",
       "inputs": [],
       "outputs": [],
@@ -2746,8 +3843,8 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `resizeElement` to handle resize element.",
+          "descriptionZh": "执行 `resizeElement`，用于调整尺寸元素。"
         }
       ],
       "properties": [
@@ -2755,16 +3852,16 @@
           "name": "id",
           "type": "any",
           "default": "ResizerEnum.TopLeft",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `id` (`any`) storing id (default: `ResizerEnum.TopLeft`).",
+          "descriptionZh": "属性 `id`（类型：`any`），用于存储或配置唯一标识（默认值：`ResizerEnum.TopLeft`）。"
         }
       ]
     },
     {
       "name": "ɵTopResizer",
       "kind": "class",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Class `ɵTopResizer` encapsulating ɵtop resizer data structures and logic in `src/ux/windows/resizer/classes`.",
+      "summaryZh": "类 `ɵTopResizer`，封装 `src/ux/windows/resizer/classes` 中的ɵTop尺寸调整器数据结构与处理逻辑。",
       "sourceFile": "src/ux/windows/resizer/classes/top-resizer.ts",
       "inputs": [],
       "outputs": [],
@@ -2778,8 +3875,8 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `resizeElement` to handle resize element.",
+          "descriptionZh": "执行 `resizeElement`，用于调整尺寸元素。"
         }
       ],
       "properties": [
@@ -2787,16 +3884,16 @@
           "name": "id",
           "type": "any",
           "default": "ResizerEnum.Top",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `id` (`any`) storing id (default: `ResizerEnum.Top`).",
+          "descriptionZh": "属性 `id`（类型：`any`），用于存储或配置唯一标识（默认值：`ResizerEnum.Top`）。"
         }
       ]
     },
     {
       "name": "ɵTopRightResizer",
       "kind": "class",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Class `ɵTopRightResizer` encapsulating ɵtop right resizer data structures and logic in `src/ux/windows/resizer/classes`.",
+      "summaryZh": "类 `ɵTopRightResizer`，封装 `src/ux/windows/resizer/classes` 中的ɵTop右侧位置尺寸调整器数据结构与处理逻辑。",
       "sourceFile": "src/ux/windows/resizer/classes/top-right-resizer.ts",
       "inputs": [],
       "outputs": [],
@@ -2810,8 +3907,8 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `resizeElement` to handle resize element.",
+          "descriptionZh": "执行 `resizeElement`，用于调整尺寸元素。"
         }
       ],
       "properties": [
@@ -2819,28 +3916,41 @@
           "name": "id",
           "type": "any",
           "default": "ResizerEnum.TopRight",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `id` (`any`) storing id (default: `ResizerEnum.TopRight`).",
+          "descriptionZh": "属性 `id`（类型：`any`），用于存储或配置唯一标识（默认值：`ResizerEnum.TopRight`）。"
         }
       ]
     },
     {
       "name": "ɵWhenViewInit",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Executes `ɵWhenViewInit` to handle ɵwhen view init.",
+      "summaryZh": "执行 `ɵWhenViewInit`，用于ɵWhen视图初始化。",
       "sourceFile": "src/ux/windows/core/decorators/when-view-init.decorator.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "ɵWhenViewInit",
+          "params": [
+            {
+              "name": "defaultValue",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": "Executes `ɵWhenViewInit` to handle ɵwhen view init.",
+          "descriptionZh": "执行 `ɵWhenViewInit`，用于ɵWhen视图初始化。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "ResizableDirective",
       "kind": "directive",
       "selector": "[osResizable]",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular directive `ResizableDirective` (selector: '[osResizable]') attaching resizable directive behavior to host DOM elements.",
+      "summaryZh": "Angular 指令 `ResizableDirective`（selector: '[osResizable]'），为宿主 DOM 元素附加是否可调尺寸指令行为。",
       "sourceFile": "src/ux/windows/resizer/directives/resizable.directive.ts",
       "inputs": [
         {
@@ -2848,7 +3958,7 @@
           "alias": "osResizable",
           "type": "ResizerConfig | undefined | ''",
           "description": "Configuration of resizing",
-          "descriptionZh": null
+          "descriptionZh": "输入属性 `osResizable`（类型：`ResizerConfig | undefined | ''`），用于配置参数列表。"
         }
       ],
       "outputs": [
@@ -2856,31 +3966,31 @@
           "name": "osResizableElementInit",
           "type": "HTMLElement",
           "description": "Fires when the resizable element init",
-          "descriptionZh": null
+          "descriptionZh": "输出事件 `osResizableElementInit`（类型：`EventEmitter<HTMLElement>`），当触发os是否可调尺寸元素初始化时向外发出事件。"
         },
         {
           "name": "osResizersWrapperElementInit",
           "type": "HTMLElement",
           "description": "Fires when the resizers wrapper element init",
-          "descriptionZh": null
+          "descriptionZh": "输出事件 `osResizersWrapperElementInit`（类型：`EventEmitter<HTMLElement>`），当触发os尺寸调整器包装器元素初始化时向外发出事件。"
         },
         {
           "name": "osResizeStart",
           "type": "ResizeInfo",
           "description": "Fires when calls mousedown handler over resizableElement",
-          "descriptionZh": null
+          "descriptionZh": "输出事件 `osResizeStart`（类型：`EventEmitter<ResizeInfo>`），当触发os调整尺寸开始时向外发出事件。"
         },
         {
           "name": "osResizing",
           "type": "ResizeInfo",
           "description": "Fires when the `mousemove` is called",
-          "descriptionZh": null
+          "descriptionZh": "输出事件 `osResizing`（类型：`EventEmitter<ResizeInfo>`），当触发os调整尺寸中时向外发出事件。"
         },
         {
           "name": "osResizeEnd",
           "type": "ResizeInfo",
           "description": "Fires when the `mouseup` is called and after all internal handlers removed",
-          "descriptionZh": null
+          "descriptionZh": "输出事件 `osResizeEnd`（类型：`EventEmitter<ResizeInfo>`），当触发os调整尺寸结束时向外发出事件。"
         }
       ],
       "methods": [
@@ -2894,7 +4004,7 @@
           ],
           "returnType": "void",
           "description": "Updates config without affecting any logic, like some internal initialization of different things",
-          "descriptionZh": null
+          "descriptionZh": "执行 `updateConfigWithoutChanges`，用于更新配置不含变更集合。"
         }
       ],
       "properties": [
@@ -2902,19 +4012,19 @@
           "name": "resizableElement",
           "type": "HTMLElement",
           "description": "Target resizable HTML element",
-          "descriptionZh": null
+          "descriptionZh": "获取当前是否可调尺寸元素（`resizableElement: HTMLElement`）。"
         },
         {
           "name": "resizer",
           "type": "ɵBaseResizer",
           "description": "Target resizer",
-          "descriptionZh": null
+          "descriptionZh": "获取当前尺寸调整器（`resizer: ɵBaseResizer`）。"
         },
         {
           "name": "config",
           "type": "ɵResizerConfigModel",
           "description": "Configuration of resizing",
-          "descriptionZh": null
+          "descriptionZh": "获取当前配置（`config: ɵResizerConfigModel`）。"
         }
       ]
     },
@@ -2922,40 +4032,207 @@
       "name": "ResizeInfo",
       "kind": "interface",
       "summary": "Model that emits by events of {@link DraggableDirective}",
-      "summaryZh": null,
+      "summaryZh": "接口 `ResizeInfo`，定义调整尺寸信息的数据结构契约与属性规范。",
       "sourceFile": "src/ux/windows/resizer/interfaces/resize-info.interface.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
-      "properties": []
+      "properties": [
+        {
+          "name": "resizableElement",
+          "type": "HTMLElement",
+          "description": "Target resizable HTML element. Useful to read properties about current position and size",
+          "descriptionZh": "属性 `resizableElement`（类型：`HTMLElement`），用于存储或配置是否可调尺寸元素。"
+        },
+        {
+          "name": "originalEvent",
+          "type": "PointerEvent | TouchEvent",
+          "description": "Original mouse event from movable HTML element",
+          "descriptionZh": "属性 `originalEvent`（类型：`PointerEvent | TouchEvent`），用于存储或配置原始事件。"
+        }
+      ]
     },
     {
       "name": "ResizerConfig",
       "kind": "interface",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Interface `ResizerConfig` defining the contract and properties for resizer config.",
+      "summaryZh": "接口 `ResizerConfig`，定义尺寸调整器配置的数据结构契约与属性规范。",
       "sourceFile": "src/ux/windows/resizer/interfaces/resizer-config.interface.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
-      "properties": []
+      "properties": [
+        {
+          "name": "isEnabled",
+          "type": "boolean",
+          "description": "Is resizing enabled",
+          "descriptionZh": "属性 `isEnabled`（类型：`boolean`），用于存储或配置是否为已启用。"
+        },
+        {
+          "name": "targetElement",
+          "type": "HTMLElement",
+          "description": "Target element that should be resizable",
+          "descriptionZh": "属性 `targetElement`（类型：`HTMLElement`），用于存储或配置目标元素。"
+        },
+        {
+          "name": "minWidth",
+          "type": "number",
+          "description": "The minimum width of the target element",
+          "descriptionZh": "属性 `minWidth`（类型：`number`），用于存储或配置最小值宽度。"
+        },
+        {
+          "name": "minHeight",
+          "type": "number",
+          "description": "The minimum height of the target element",
+          "descriptionZh": "属性 `minHeight`（类型：`number`），用于存储或配置最小值高度。"
+        },
+        {
+          "name": "maxWidth",
+          "type": "number",
+          "description": "The maximum width of the target element",
+          "descriptionZh": "属性 `maxWidth`（类型：`number`），用于存储或配置最大值宽度。"
+        },
+        {
+          "name": "maxHeight",
+          "type": "number",
+          "description": "The maximum height of the target element",
+          "descriptionZh": "属性 `maxHeight`（类型：`number`），用于存储或配置最大值高度。"
+        },
+        {
+          "name": "allowedResizers",
+          "type": "ResizerEnum[]",
+          "description": "Allowed resizers (sides and corners)",
+          "descriptionZh": "属性 `allowedResizers`（类型：`ResizerEnum[]`），用于存储或配置允许的尺寸调整器。"
+        },
+        {
+          "name": "allowedMouseButtons",
+          "type": "MouseButtonEnum[]",
+          "description": "Mouse buttons by using which resizing allowed",
+          "descriptionZh": "属性 `allowedMouseButtons`（类型：`MouseButtonEnum[]`），用于存储或配置允许的鼠标按钮。"
+        },
+        {
+          "name": "xAxisLeftStyleProperty",
+          "type": "string",
+          "description": "Name of CSS property X-Axis from the left side of the HTML element.\n\nFor example: `left`, `margin-left`",
+          "descriptionZh": "属性 `xAxisLeftStyleProperty`（类型：`string`），用于存储或配置X坐标坐标轴左侧位置样式属性。"
+        },
+        {
+          "name": "xAxisRightStyleProperty",
+          "type": "string",
+          "description": "Name of CSS property X-Axis from the right side of the HTML element.\n\nFor example: `right`, `margin-right`",
+          "descriptionZh": "属性 `xAxisRightStyleProperty`（类型：`string`），用于存储或配置X坐标坐标轴右侧位置样式属性。"
+        },
+        {
+          "name": "yAxisTopStyleProperty",
+          "type": "string",
+          "description": "Name of CSS property Y-Axis from the top side of the HTML element.\n\nFor example: `top`, `margin-top`",
+          "descriptionZh": "属性 `yAxisTopStyleProperty`（类型：`string`），用于存储或配置Y坐标坐标轴顶部位置样式属性。"
+        },
+        {
+          "name": "yAxisBottomStyleProperty",
+          "type": "string",
+          "description": "Name of CSS property Y-Axis from the bottom side of the HTML element.\n\nFor example: `bottom`, `margin-bottom`",
+          "descriptionZh": "属性 `yAxisBottomStyleProperty`（类型：`string`），用于存储或配置Y坐标坐标轴底部位置样式属性。"
+        },
+        {
+          "name": "widthStyleProperty",
+          "type": "string",
+          "description": "Name of CSS property for width of the HTML element.\n\nFor example: `width`, `min-width`",
+          "descriptionZh": "属性 `widthStyleProperty`（类型：`string`），用于存储或配置宽度样式属性。"
+        },
+        {
+          "name": "heightStyleProperty",
+          "type": "string",
+          "description": "Name of CSS property for height of the HTML element.\n\nFor example: `height`, `min-height`",
+          "descriptionZh": "属性 `heightStyleProperty`（类型：`string`），用于存储或配置高度样式属性。"
+        },
+        {
+          "name": "isAllowChangePosition",
+          "type": "boolean",
+          "description": "Is resizing should affect position of the HTML element",
+          "descriptionZh": "属性 `isAllowChangePosition`（类型：`boolean`），用于存储或配置是否为允许变更位置。"
+        },
+        {
+          "name": "mouseMoveHandler",
+          "type": "(event: ResizeInfo) => void",
+          "description": "Handler for custom logic implementation for mousemove",
+          "descriptionZh": "属性 `mouseMoveHandler`（类型：`(event: ResizeInfo) => void`），用于存储或配置鼠标移动处理器。"
+        }
+      ]
     },
     {
       "name": "ResizerEnum",
       "kind": "enum",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Enumeration `ResizerEnum` defining supported resizer enum constants.",
+      "summaryZh": "枚举 `ResizerEnum`，定义支持的尺寸调整器Enum常量集合。",
       "sourceFile": "src/ux/windows/resizer/enums/resizer.enum.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
-      "properties": []
+      "properties": [
+        {
+          "name": "Top",
+          "type": "enum-member",
+          "default": "'top'",
+          "description": "Enum member `ResizerEnum.Top` = 'top' representing top.",
+          "descriptionZh": "枚举项 `ResizerEnum.Top` = 'top'，表示顶部位置。"
+        },
+        {
+          "name": "Left",
+          "type": "enum-member",
+          "default": "'left'",
+          "description": "Enum member `ResizerEnum.Left` = 'left' representing left.",
+          "descriptionZh": "枚举项 `ResizerEnum.Left` = 'left'，表示左侧位置。"
+        },
+        {
+          "name": "Right",
+          "type": "enum-member",
+          "default": "'right'",
+          "description": "Enum member `ResizerEnum.Right` = 'right' representing right.",
+          "descriptionZh": "枚举项 `ResizerEnum.Right` = 'right'，表示右侧位置。"
+        },
+        {
+          "name": "Bottom",
+          "type": "enum-member",
+          "default": "'bottom'",
+          "description": "Enum member `ResizerEnum.Bottom` = 'bottom' representing bottom.",
+          "descriptionZh": "枚举项 `ResizerEnum.Bottom` = 'bottom'，表示底部位置。"
+        },
+        {
+          "name": "TopLeft",
+          "type": "enum-member",
+          "default": "'top-left'",
+          "description": "Enum member `ResizerEnum.TopLeft` = 'top-left' representing top left.",
+          "descriptionZh": "枚举项 `ResizerEnum.TopLeft` = 'top-left'，表示顶部位置左侧位置。"
+        },
+        {
+          "name": "TopRight",
+          "type": "enum-member",
+          "default": "'top-right'",
+          "description": "Enum member `ResizerEnum.TopRight` = 'top-right' representing top right.",
+          "descriptionZh": "枚举项 `ResizerEnum.TopRight` = 'top-right'，表示顶部位置右侧位置。"
+        },
+        {
+          "name": "BottomLeft",
+          "type": "enum-member",
+          "default": "'bottom-left'",
+          "description": "Enum member `ResizerEnum.BottomLeft` = 'bottom-left' representing bottom left.",
+          "descriptionZh": "枚举项 `ResizerEnum.BottomLeft` = 'bottom-left'，表示底部位置左侧位置。"
+        },
+        {
+          "name": "BottomRight",
+          "type": "enum-member",
+          "default": "'bottom-right'",
+          "description": "Enum member `ResizerEnum.BottomRight` = 'bottom-right' representing bottom right.",
+          "descriptionZh": "枚举项 `ResizerEnum.BottomRight` = 'bottom-right'，表示底部位置右侧位置。"
+        }
+      ]
     },
     {
       "name": "ResizerModule",
       "kind": "module",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular module `ResizerModule` declaring and exporting resizer module components, directives, pipes, and providers.",
+      "summaryZh": "Angular 模块 `ResizerModule`，声明并导出尺寸调整器模块相关的组件、指令、管道与服务提供者。",
       "sourceFile": "src/ux/windows/resizer/resizer.module.ts",
       "inputs": [],
       "outputs": [],
@@ -2966,8 +4243,8 @@
       "name": "ScrollViewComponent",
       "kind": "component",
       "selector": "dui-scroll-view",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular component `ScrollViewComponent` (selector: 'dui-scroll-view') providing scroll view component presentation and interaction in `src/ux/windows/scroll-view/components/scroll-view`.",
+      "summaryZh": "Angular 组件 `ScrollViewComponent`（selector: 'dui-scroll-view'），提供滚动视图组件的视图渲染与交互逻辑（位于 `src/ux/windows/scroll-view/components/scroll-view`）。",
       "sourceFile": "src/ux/windows/scroll-view/components/scroll-view/scroll-view.component.ts",
       "inputs": [
         {
@@ -2975,28 +4252,28 @@
           "type": "boolean",
           "default": "true",
           "description": "Is vertical scroll enabled?",
-          "descriptionZh": null
+          "descriptionZh": "输入属性 `isVerticalScrollEnabled`（类型：`boolean`），用于配置是否为垂直滚动已启用（默认值：`true`）。"
         },
         {
           "name": "isHorizontalScrollEnabled",
           "type": "boolean",
           "default": "false",
           "description": "Is horizontal scroll enabled?",
-          "descriptionZh": null
+          "descriptionZh": "输入属性 `isHorizontalScrollEnabled`（类型：`boolean`），用于配置是否为水平滚动已启用（默认值：`false`）。"
         },
         {
           "name": "isVerticalScrollHiding",
           "type": "boolean",
           "default": "false",
           "description": "Does the vertical scroll hide when it is not needed?",
-          "descriptionZh": null
+          "descriptionZh": "输入属性 `isVerticalScrollHiding`（类型：`boolean`），用于配置是否为垂直滚动隐藏（默认值：`false`）。"
         },
         {
           "name": "isHorizontalScrollHiding",
           "type": "boolean",
           "default": "false",
           "description": "Does the horizontal scroll hide when it is not needed?",
-          "descriptionZh": null
+          "descriptionZh": "输入属性 `isHorizontalScrollHiding`（类型：`boolean`），用于配置是否为水平滚动隐藏（默认值：`false`）。"
         }
       ],
       "outputs": [],
@@ -3014,8 +4291,8 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `scrollTo` to handle scroll to.",
+          "descriptionZh": "执行 `scrollTo`，用于滚动转换为。"
         }
       ],
       "properties": []
@@ -3023,8 +4300,8 @@
     {
       "name": "ScrollViewModule",
       "kind": "module",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular module `ScrollViewModule` declaring and exporting scroll view module components, directives, pipes, and providers.",
+      "summaryZh": "Angular 模块 `ScrollViewModule`，声明并导出滚动视图模块相关的组件、指令、管道与服务提供者。",
       "sourceFile": "src/ux/windows/scroll-view/scroll-view.module.ts",
       "inputs": [],
       "outputs": [],
@@ -3035,27 +4312,27 @@
       "name": "TitleBarButtonComponent",
       "kind": "component",
       "selector": "dui-title-bar-button",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular component `TitleBarButtonComponent` (selector: 'dui-title-bar-button') providing title bar button component presentation and interaction in `src/ux/windows/window/components/title-bar-button`.",
+      "summaryZh": "Angular 组件 `TitleBarButtonComponent`（selector: 'dui-title-bar-button'），提供标题条按钮组件的视图渲染与交互逻辑（位于 `src/ux/windows/window/components/title-bar-button`）。",
       "sourceFile": "src/ux/windows/window/components/title-bar-button/title-bar-button.component.ts",
       "inputs": [
         {
           "name": "iconUrl",
           "type": "string",
           "description": "Link to the icon",
-          "descriptionZh": null
+          "descriptionZh": "输入属性 `iconUrl`（类型：`string`），用于配置图标链接地址。"
         },
         {
           "name": "iconStyle",
           "type": "object",
           "description": "Stylelist for the icon",
-          "descriptionZh": null
+          "descriptionZh": "输入属性 `iconStyle`（类型：`object`），用于配置图标样式。"
         },
         {
           "name": "iconStyleClass",
           "type": "string | string[] | object",
           "description": "Classlist for the icon",
-          "descriptionZh": null
+          "descriptionZh": "输入属性 `iconStyleClass`（类型：`string | string[] | object`），用于配置图标样式类名。"
         }
       ],
       "outputs": [],
@@ -3066,8 +4343,8 @@
       "name": "TitleBarComponent",
       "kind": "component",
       "selector": "dui-title-bar",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular component `TitleBarComponent` (selector: 'dui-title-bar') providing title bar component presentation and interaction in `src/ux/windows/window/components/title-bar`.",
+      "summaryZh": "Angular 组件 `TitleBarComponent`（selector: 'dui-title-bar'），提供标题条组件的视图渲染与交互逻辑（位于 `src/ux/windows/window/components/title-bar`）。",
       "sourceFile": "src/ux/windows/window/components/title-bar/title-bar.component.ts",
       "inputs": [
         {
@@ -3075,7 +4352,7 @@
           "type": "boolean",
           "default": "true",
           "description": "Marks title bar as active (means user works with it right now)",
-          "descriptionZh": null
+          "descriptionZh": "输入属性 `isActive`（类型：`boolean`），用于配置是否为激活（默认值：`true`）。"
         }
       ],
       "outputs": [],
@@ -3086,8 +4363,8 @@
       "name": "TitleBarContentComponent",
       "kind": "component",
       "selector": "dui-title-bar-content",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular component `TitleBarContentComponent` (selector: 'dui-title-bar-content') providing title bar content component presentation and interaction in `src/ux/windows/window/components/title-bar-content`.",
+      "summaryZh": "Angular 组件 `TitleBarContentComponent`（selector: 'dui-title-bar-content'），提供标题条内容组件的视图渲染与交互逻辑（位于 `src/ux/windows/window/components/title-bar-content`）。",
       "sourceFile": "src/ux/windows/window/components/title-bar-content/title-bar-content.component.ts",
       "inputs": [],
       "outputs": [],
@@ -3098,8 +4375,8 @@
       "name": "TitleBarControlsComponent",
       "kind": "component",
       "selector": "dui-title-bar-controls",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular component `TitleBarControlsComponent` (selector: 'dui-title-bar-controls') providing title bar controls component presentation and interaction in `src/ux/windows/window/components/title-bar-controls`.",
+      "summaryZh": "Angular 组件 `TitleBarControlsComponent`（selector: 'dui-title-bar-controls'），提供标题条控件集合组件的视图渲染与交互逻辑（位于 `src/ux/windows/window/components/title-bar-controls`）。",
       "sourceFile": "src/ux/windows/window/components/title-bar-controls/title-bar-controls.component.ts",
       "inputs": [],
       "outputs": [],
@@ -3110,8 +4387,8 @@
       "name": "TitleBarIconComponent",
       "kind": "component",
       "selector": "dui-title-bar-icon",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular component `TitleBarIconComponent` (selector: 'dui-title-bar-icon') providing title bar icon component presentation and interaction in `src/ux/windows/window/components/title-bar-icon`.",
+      "summaryZh": "Angular 组件 `TitleBarIconComponent`（selector: 'dui-title-bar-icon'），提供标题条图标组件的视图渲染与交互逻辑（位于 `src/ux/windows/window/components/title-bar-icon`）。",
       "sourceFile": "src/ux/windows/window/components/title-bar-icon/title-bar-icon.component.ts",
       "inputs": [
         {
@@ -3119,21 +4396,21 @@
           "type": "any",
           "default": "'Font'",
           "description": "The URL to the icon",
-          "descriptionZh": null
+          "descriptionZh": "输入属性 `iconType`（类型：`string`），用于配置图标类型（默认值：`'Font'`）。"
         },
         {
           "name": "icon",
           "type": "any",
           "default": "''",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `icon` (`string`) configuring icon (default: `''`).",
+          "descriptionZh": "输入属性 `icon`（类型：`string`），用于配置图标（默认值：`''`）。"
         },
         {
           "name": "iconClass",
           "type": "any",
           "default": "''",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `iconClass` (`string`) configuring icon class (default: `''`).",
+          "descriptionZh": "输入属性 `iconClass`（类型：`string`），用于配置图标类名（默认值：`''`）。"
         }
       ],
       "outputs": [],
@@ -3143,19 +4420,32 @@
     {
       "name": "transform",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Executes `transform` to handle transform.",
+      "summaryZh": "执行 `transform`，用于转换。",
       "sourceFile": "src/ux/windows/core/classes/css-classlist-manager/classlist-to-object.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "transform",
+          "params": [
+            {
+              "name": "classList",
+              "type": "string | string[] | object"
+            }
+          ],
+          "returnType": "object",
+          "description": "Executes `transform` to handle transform.",
+          "descriptionZh": "执行 `transform`，用于转换。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "UtilsModule",
       "kind": "module",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular module `UtilsModule` declaring and exporting utils module components, directives, pipes, and providers.",
+      "summaryZh": "Angular 模块 `UtilsModule`，声明并导出工具集模块相关的组件、指令、管道与服务提供者。",
       "sourceFile": "src/ux/windows/utils/utils.module.ts",
       "inputs": [],
       "outputs": [],
@@ -3166,8 +4456,8 @@
       "name": "WindowComponent",
       "kind": "component",
       "selector": "dui-window",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular component `WindowComponent` (selector: 'dui-window') providing window component presentation and interaction in `src/ux/windows/window/components/window`.",
+      "summaryZh": "Angular 组件 `WindowComponent`（selector: 'dui-window'），提供窗口组件的视图渲染与交互逻辑（位于 `src/ux/windows/window/components/window`）。",
       "sourceFile": "src/ux/windows/window/components/window/window.component.ts",
       "inputs": [
         {
@@ -3175,19 +4465,19 @@
           "type": "boolean",
           "default": "false",
           "description": "Marks window as active (means user works with it right now)",
-          "descriptionZh": null
+          "descriptionZh": "输入属性 `isActive`（类型：`boolean`），用于配置是否为激活（默认值：`false`）。"
         },
         {
           "name": "scrollViewStyle",
           "type": "object",
           "description": "Stylelist for scroll view component of the window",
-          "descriptionZh": null
+          "descriptionZh": "输入属性 `scrollViewStyle`（类型：`object`），用于配置滚动视图样式。"
         },
         {
           "name": "scrollViewStyleClass",
           "type": "string | string[] | object",
           "description": "Classlist for scroll view component of the window",
-          "descriptionZh": null
+          "descriptionZh": "输入属性 `scrollViewStyleClass`（类型：`string | string[] | object`），用于配置滚动视图样式类名。"
         }
       ],
       "outputs": [],
@@ -3197,8 +4487,8 @@
     {
       "name": "WindowModule",
       "kind": "module",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular module `WindowModule` declaring and exporting window module components, directives, pipes, and providers.",
+      "summaryZh": "Angular 模块 `WindowModule`，声明并导出窗口模块相关的组件、指令、管道与服务提供者。",
       "sourceFile": "src/ux/windows/window/window.module.ts",
       "inputs": [],
       "outputs": [],

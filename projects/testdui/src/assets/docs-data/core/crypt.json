@@ -5,7 +5,7 @@
       "name": "base64",
       "kind": "class",
       "summary": "The properties declared here are discussed in the above algorithm document.",
-      "summaryZh": null,
+      "summaryZh": "类 `base64`，封装 `src/core/crypt` 中的base64数据结构与处理逻辑。",
       "sourceFile": "src/core/crypt/base64.ts",
       "inputs": [],
       "outputs": [],
@@ -24,7 +24,7 @@
           ],
           "returnType": "string",
           "description": "Base64-encode an array of bytes.\n\nparam input An array of bytes (numbers with\n    value in [0, 255]) to encode.\nparam opt_webSafe True indicates we should use the alternative\n    alphabet, which does not require escaping for use in URLs.\nreturnThe base64 encoded string.",
-          "descriptionZh": null
+          "descriptionZh": "执行 `encodeByteArray`，用于编码Byte数组。"
         },
         {
           "name": "encodeString",
@@ -40,7 +40,7 @@
           ],
           "returnType": "string",
           "description": "Base64-encode a string.\n\nparam input A string to encode.\nparam opt_webSafe True indicates we should use the alternative\n    alphabet, which does not require escaping for use in URLs.\nreturnThe base64 encoded string.",
-          "descriptionZh": null
+          "descriptionZh": "执行 `encodeString`，用于编码字符串。"
         },
         {
           "name": "decodeString",
@@ -56,7 +56,7 @@
           ],
           "returnType": "string",
           "description": "Base64-decode a string.\n\nparam input Input to decode. Any whitespace is ignored, and the\n    input maybe encoded with either supported alphabet (or a mix thereof).\nparam opt_webSafe True indicates we should use the alternative\n    alphabet, which does not require escaping for use in URLs. Note that\n    passing false may also still allow webSafe input decoding, when the\n    fallback decoder is used on browsers without native support.\nreturnstring representing the decoded value.",
-          "descriptionZh": null
+          "descriptionZh": "执行 `decodeString`，用于解码字符串。"
         },
         {
           "name": "decodeStringToByteArray",
@@ -68,7 +68,7 @@
           ],
           "returnType": "number[]",
           "description": "Base64-decode a string to an Array of numbers.\n\nIn base-64 decoding, groups of four characters are converted into three\nbytes.  If the encoder did not apply padding, the input length may not\nbe a multiple of 4.\n\nIn this case, the last group will have fewer than 4 characters, and\npadding will be inferred.  If the group has one or two characters, it decodes\nto one byte.  If the group has three characters, it decodes to two bytes.\n\nparam input Input to decode. Any whitespace is ignored, and the\n    input maybe encoded with either supported alphabet (or a mix thereof).\nparam opt_ignored Unused parameter, retained for compatibility.\nreturnbytes representing the decoded value.",
-          "descriptionZh": null
+          "descriptionZh": "执行 `decodeStringToByteArray`，用于解码字符串转换为Byte数组。"
         },
         {
           "name": "decodeStringToUint8Array",
@@ -80,7 +80,7 @@
           ],
           "returnType": "Uint8Array",
           "description": "Base64-decode a string to a Uint8Array.\n\nNote that Uint8Array is not supported on older browsers, e.g. IE < 10.",
-          "descriptionZh": null
+          "descriptionZh": "执行 `decodeStringToUint8Array`，用于解码字符串转换为Uint8数组。"
         },
         {
           "name": "decodeStringInternal_",
@@ -96,14 +96,14 @@
           ],
           "returnType": "any",
           "description": "param input Input to decode.\nparam pushByte result accumulator.",
-          "descriptionZh": null
+          "descriptionZh": "执行 `decodeStringInternal_`，用于解码字符串内部。"
         },
         {
           "name": "init_",
           "params": [],
           "returnType": "any",
           "description": "Lazy static initialization function. Called before\naccessing any of the static map variables.",
-          "descriptionZh": null
+          "descriptionZh": "执行 `init_`，用于初始化。"
         }
       ],
       "properties": [
@@ -112,71 +112,71 @@
           "type": "Object",
           "default": "null",
           "description": "Maps bytes to characters.",
-          "descriptionZh": null
+          "descriptionZh": "属性 `byteToCharMap_`（类型：`Object`），用于存储或配置byte转换为字符映射表（默认值：`null`）。"
         },
         {
           "name": "charToByteMap_",
           "type": "Object",
           "default": "null",
           "description": "Maps characters to bytes. Used for normal and websafe characters.",
-          "descriptionZh": null
+          "descriptionZh": "属性 `charToByteMap_`（类型：`Object`），用于存储或配置字符转换为Byte映射表（默认值：`null`）。"
         },
         {
           "name": "byteToCharMapWebSafe_",
           "type": "Object",
           "default": "null",
           "description": "Maps bytes to websafe characters.",
-          "descriptionZh": null
+          "descriptionZh": "属性 `byteToCharMapWebSafe_`（类型：`Object`），用于存储或配置byte转换为字符映射表Web安全（默认值：`null`）。"
         },
         {
           "name": "ENCODED_VALS_BASE",
           "type": "string",
           "default": "'ABCDEFGHIJKLMNOPQRSTUVWXYZ' + 'abcdefghijklmnopqrstuvwxyz' + '0123456789'",
           "description": "Our default alphabet, shared between\nENCODED_VALS and ENCODED_VALS_WEBSAFE",
-          "descriptionZh": null
+          "descriptionZh": "属性 `ENCODED_VALS_BASE`（类型：`string`），用于存储或配置已编码值基础。"
         },
         {
           "name": "ENCODED_VALS",
           "type": "string",
           "default": "base64.ENCODED_VALS_BASE + '+/='",
           "description": "Our default alphabet. Value 64 (=) is special; it means \"nothing.\"",
-          "descriptionZh": null
+          "descriptionZh": "属性 `ENCODED_VALS`（类型：`string`），用于存储或配置已编码值（默认值：`base64.ENCODED_VALS_BASE + '+/='`）。"
         },
         {
           "name": "ENCODED_VALS_WEBSAFE",
           "type": "string",
           "default": "base64.ENCODED_VALS_BASE + '-_.'",
           "description": "Our websafe alphabet.",
-          "descriptionZh": null
+          "descriptionZh": "属性 `ENCODED_VALS_WEBSAFE`（类型：`string`），用于存储或配置已编码值WEBSAFE（默认值：`base64.ENCODED_VALS_BASE + '-_.'`）。"
         },
         {
           "name": "ASSUME_NATIVE_SUPPORT_",
           "type": "boolean",
           "default": "true",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `ASSUME_NATIVE_SUPPORT_` (`boolean`) storing assume native support (default: `true`).",
+          "descriptionZh": "属性 `ASSUME_NATIVE_SUPPORT_`（类型：`boolean`），用于存储或配置ASSUME原生SUPPORT（默认值：`true`）。"
         },
         {
           "name": "HAS_NATIVE_ENCODE_",
           "type": "boolean",
           "default": "base64.ASSUME_NATIVE_SUPPORT_ || typeof Dui['btoa'] === 'function'",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `HAS_NATIVE_ENCODE_` (`boolean`) storing has native encode.",
+          "descriptionZh": "属性 `HAS_NATIVE_ENCODE_`（类型：`boolean`），用于存储或配置是否包含原生编码。"
         },
         {
           "name": "HAS_NATIVE_DECODE_",
           "type": "boolean",
           "default": "base64.ASSUME_NATIVE_SUPPORT_ && typeof Dui['btoa'] === 'function'",
           "description": "Does this browser have a working atob function?\nWe blacklist known-bad implementations:\n - IE (10+) added atob() but it does not tolerate whitespace on the input.",
-          "descriptionZh": null
+          "descriptionZh": "属性 `HAS_NATIVE_DECODE_`（类型：`boolean`），用于存储或配置是否包含原生解码。"
         }
       ]
     },
     {
       "name": "crypt",
       "kind": "class",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Class `crypt` encapsulating crypt data structures and logic in `src/core/crypt`.",
+      "summaryZh": "类 `crypt`，封装 `src/core/crypt` 中的crypt数据结构与处理逻辑。",
       "sourceFile": "src/core/crypt/crypt.ts",
       "inputs": [],
       "outputs": [],
@@ -191,7 +191,7 @@
           ],
           "returnType": "number[]",
           "description": "Turns a string into an array of bytes; a \"byte\" being a JS number in the\nrange 0-255. Multi-byte characters are written as little-endian.\nparam str String value to arrify.\nreturnArray of numbers corresponding to the\n    UCS character codes of each character in str.",
-          "descriptionZh": null
+          "descriptionZh": "执行 `stringToByteArray`，用于字符串转换为Byte数组。"
         },
         {
           "name": "byteArrayToString",
@@ -203,7 +203,7 @@
           ],
           "returnType": "string",
           "description": "Turns an array of numbers into the string given by the concatenation of the\ncharacters to which the numbers correspond.\nparam bytes Array of numbers representing\n    characters.\nreturnStringification of the array.",
-          "descriptionZh": null
+          "descriptionZh": "执行 `byteArrayToString`，用于byte数组转换为字符串。"
         },
         {
           "name": "byteArrayToHex",
@@ -215,7 +215,7 @@
           ],
           "returnType": "string",
           "description": "Turns an array of numbers into the hex string given by the concatenation of\nthe hex values to which the numbers correspond.\nparam array Array of numbers representing\n    characters.\nreturnHex string.",
-          "descriptionZh": null
+          "descriptionZh": "执行 `byteArrayToHex`，用于byte数组转换为十六进制颜色。"
         },
         {
           "name": "hexToByteArray",
@@ -227,7 +227,7 @@
           ],
           "returnType": "number[]",
           "description": "Converts a hex string into an integer array.\nparam hexString Hex string of 16-bit integers (two characters\n    per integer).\nreturnintegers for the given string.",
-          "descriptionZh": null
+          "descriptionZh": "执行 `hexToByteArray`，用于十六进制颜色转换为Byte数组。"
         },
         {
           "name": "stringToUtf8ByteArray",
@@ -239,7 +239,7 @@
           ],
           "returnType": "number[]",
           "description": "Converts a JS string to a UTF-8 \"byte\" array.\nparam str 16-bit unicode string.\nreturnUTF-8 byte array.",
-          "descriptionZh": null
+          "descriptionZh": "执行 `stringToUtf8ByteArray`，用于字符串转换为Utf8Byte数组。"
         },
         {
           "name": "utf8ByteArrayToString",
@@ -251,7 +251,7 @@
           ],
           "returnType": "string",
           "description": "Converts a UTF-8 byte array to JavaScript's 16-bit Unicode.\nparam bytes UTF-8 byte array.\nreturn16-bit Unicode string.",
-          "descriptionZh": null
+          "descriptionZh": "执行 `utf8ByteArrayToString`，用于utf8Byte数组转换为字符串。"
         },
         {
           "name": "xorByteArray",
@@ -267,7 +267,7 @@
           ],
           "returnType": "number[]",
           "description": "XOR two byte arrays.\nparam bytes1 Byte array 1.\nparam bytes2 Byte array 2.\nreturnResulting XOR of the two byte arrays.",
-          "descriptionZh": null
+          "descriptionZh": "执行 `xorByteArray`，用于X坐标器Byte数组。"
         }
       ],
       "properties": []
@@ -275,8 +275,8 @@
     {
       "name": "encrypt",
       "kind": "service",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Injectable Angular service `encrypt` managing encrypt state and operations in `src/core/crypt`.",
+      "summaryZh": "可注入的 Angular 服务 `encrypt`，管理 `src/core/crypt` 中的encrypt状态与业务操作。",
       "sourceFile": "src/core/crypt/md5.ts",
       "inputs": [],
       "outputs": [],
@@ -294,8 +294,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `md5cycle` to handle md5cycle.",
+          "descriptionZh": "执行 `md5cycle`，用于md5cycle。"
         },
         {
           "name": "cmn",
@@ -326,8 +326,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `cmn` to handle cmn.",
+          "descriptionZh": "执行 `cmn`，用于cmn。"
         },
         {
           "name": "ff",
@@ -362,8 +362,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `ff` to handle ff.",
+          "descriptionZh": "执行 `ff`，用于ff。"
         },
         {
           "name": "gg",
@@ -398,8 +398,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `gg` to handle gg.",
+          "descriptionZh": "执行 `gg`，用于gg。"
         },
         {
           "name": "hh",
@@ -434,8 +434,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `hh` to handle hh.",
+          "descriptionZh": "执行 `hh`，用于hh。"
         },
         {
           "name": "ii",
@@ -470,8 +470,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `ii` to handle ii.",
+          "descriptionZh": "执行 `ii`，用于ii。"
         },
         {
           "name": "md51",
@@ -482,8 +482,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `md51` to handle md51.",
+          "descriptionZh": "执行 `md51`，用于md51。"
         },
         {
           "name": "md5blk",
@@ -494,8 +494,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `md5blk` to handle md5blk.",
+          "descriptionZh": "执行 `md5blk`，用于md5blk。"
         },
         {
           "name": "rhex",
@@ -506,8 +506,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `rhex` to handle rhex.",
+          "descriptionZh": "执行 `rhex`，用于rhex。"
         },
         {
           "name": "hex",
@@ -518,8 +518,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `hex` to handle hex.",
+          "descriptionZh": "执行 `hex`，用于十六进制颜色。"
         },
         {
           "name": "md5",
@@ -530,8 +530,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `md5` to handle md5.",
+          "descriptionZh": "执行 `md5`，用于md5。"
         }
       ],
       "properties": [
@@ -539,8 +539,8 @@
           "name": "add32",
           "type": "any",
           "default": "function (a, b) {\n    return (a + b) & 0xFFFFFFFF;\n  }",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `add32` (`any`) storing add32.",
+          "descriptionZh": "属性 `add32`（类型：`any`），用于存储或配置add32。"
         }
       ]
     },
@@ -548,12 +548,37 @@
       "name": "Hash",
       "kind": "interface",
       "summary": "Create a cryptographic hash instance.",
-      "summaryZh": null,
+      "summaryZh": "接口 `Hash`，定义Hash的数据结构契约与属性规范。",
       "sourceFile": "src/core/crypt/hash.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
-      "properties": []
+      "properties": [
+        {
+          "name": "blockSize",
+          "type": "any",
+          "description": "The block size for the hasher.",
+          "descriptionZh": "属性 `blockSize`（类型：`any`），用于存储或配置块尺寸。"
+        },
+        {
+          "name": "reset",
+          "type": "any",
+          "description": "Resets the internal accumulator.",
+          "descriptionZh": "属性 `reset`（类型：`any`），用于存储或配置重置。"
+        },
+        {
+          "name": "update",
+          "type": "any",
+          "description": "Adds a byte array (array with values in [0-255] range) or a string (must\nonly contain 8-bit, i.e., Latin1 characters) to the internal accumulator.\n\nMany hash functions operate on blocks of data and implement optimizations\nwhen a full chunk of data is readily available. Hence it is often preferable\nto provide large chunks of data (a kilobyte or more) than to repeatedly\ncall the update method with few tens of bytes. If this is not possible, or\nnot feasible, it might be good to provide data in multiplies of hash block\nsize (often 64 bytes). Please see the implementation and performance tests\nof your favourite hash.\n\nparam bytes Data used for the update.\nparam opt_length Number of bytes to use.",
+          "descriptionZh": "属性 `update`（类型：`any`），用于存储或配置更新。"
+        },
+        {
+          "name": "digest",
+          "type": "any",
+          "description": "returnThe finalized hash computed\n    from the internal accumulator.",
+          "descriptionZh": "属性 `digest`（类型：`any`），用于存储或配置digest。"
+        }
+      ]
     }
   ],
   "suggestedUsageSnippet": "import { /* ... */ } from '@dotos/dui/core/crypt';"

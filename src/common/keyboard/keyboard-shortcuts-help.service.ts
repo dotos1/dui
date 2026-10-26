@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Module `src/common/keyboard/keyboard-shortcuts-help.service.ts` providing keyboard shortcuts help service definitions and implementation.
+ * @zh 模块文件 `src/common/keyboard/keyboard-shortcuts-help.service.ts`，提供键盘快捷键列表help服务相关的定义与实现。
+ */
+
 import {Injectable} from '@angular/core';
 import {KeyboardShortcutsService} from './keyboard-shortcuts.service';
 import {map} from 'rxjs/operators';
@@ -14,6 +19,11 @@ import {map} from 'rxjs/operators';
 })
 export class KeyboardShortcutsHelpService {
 
+    /**
+     * Creates an instance of `KeyboardShortcutsHelpService` and initializes its dependencies and internal state.
+     * @zh 创建 `KeyboardShortcutsHelpService` 实例，并初始化其依赖项与内部状态。
+     * @param keyboard - Injected or initial keyboard (`KeyboardShortcutsService`) / 注入或传入的键盘（`KeyboardShortcutsService`）
+     */
     constructor(private keyboard: KeyboardShortcutsService) {
     }
 

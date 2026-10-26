@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Module `src/common/carousel/carousel.component.ts` providing carousel component definitions and implementation.
+ * @zh 模块文件 `src/common/carousel/carousel.component.ts`，提供carousel组件相关的定义与实现。
+ */
+
 import { animate, style, AnimationBuilder } from '@angular/animations';
 import { ListKeyManager } from '@angular/cdk/a11y';
 import { isPlatformBrowser } from '@angular/common';
@@ -24,9 +29,25 @@ import { filter, takeUntil } from 'rxjs/operators';
 import { MatCarousel, Orientation, SvgIconOverrides } from './carousel';
 import { MatCarouselSlideComponent } from './carousel-slide/carousel-slide.component';
 
+/**
+ * Enumeration `Direction` defining supported direction constants.
+ * @zh 枚举 `Direction`，定义支持的方向常量集合。
+ */
 enum Direction {
+  /**
+   * Enum member `Direction.Left` representing left.
+   * @zh 枚举项 `Direction.Left`，表示左侧位置。
+   */
   Left,
+  /**
+   * Enum member `Direction.Right` representing right.
+   * @zh 枚举项 `Direction.Right`，表示右侧位置。
+   */
   Right,
+  /**
+   * Enum member `Direction.Index` representing index.
+   * @zh 枚举项 `Direction.Index`，表示索引。
+   */
   Index
 }
 
@@ -43,9 +64,16 @@ enum Direction {
 })
 export class MatCarouselComponent
   implements AfterContentInit, AfterViewInit, MatCarousel, OnDestroy {
-  /** @zh 切换幻灯片时的过渡动画时长/缓动函数。 */
+  /**
+   * Input property `timings` (`string`) configuring timings (default: `'250ms ease-in'`).
+   * @zh 切换幻灯片时的过渡动画时长/缓动函数。
+   * @zh 切换幻灯片时的过渡动画时长/缓动函数。
+   */
   @Input() public timings = '250ms ease-in';
-  /** @zh 用于覆盖左右箭头图标的自定义 SVG 图标配置。 */
+  /**
+   * @zh 用于覆盖左右箭头图标的自定义 SVG 图标配置。
+   * @zh 用于覆盖左右箭头图标的自定义 SVG 图标配置。
+   */
   @Input() public svgIconOverrides: SvgIconOverrides;
 
   /**
@@ -84,11 +112,22 @@ export class MatCarouselComponent
     this._loop = value;
   }
 
-  /** @zh 是否隐藏左右箭头。 */
+  /**
+   * Input property `hideArrows` (`boolean`) configuring hide arrows (default: `true`).
+   * @zh 是否隐藏左右箭头。
+   * @zh 是否隐藏左右箭头。
+   */
   @Input() public hideArrows = true;
-  /** @zh 是否隐藏底部指示点。 */
+  /**
+   * Input property `hideIndicators` (`boolean`) configuring hide indicators (default: `true`).
+   * @zh 是否隐藏底部指示点。
+   * @zh 是否隐藏底部指示点。
+   */
   @Input() public hideIndicators = true;
-  /** @zh Material 主题色。 */
+  /**
+   * @zh Material 主题色。
+   * @zh Material 主题色。
+   */
   @Input() public color: ThemePalette = 'accent';
 
   /**
@@ -108,11 +147,23 @@ export class MatCarouselComponent
     this.maxWidth$.next(0);
   }
 
-  /** @zh 是否保持幻灯片宽高比。 */
+  /**
+   * Input property `maintainAspectRatio` (`boolean`) configuring maintain aspect ratio (default: `true`).
+   * @zh 是否保持幻灯片宽高比。
+   * @zh 是否保持幻灯片宽高比。
+   */
   @Input() public maintainAspectRatio = true;
-  /** @zh 保持宽高比时使用的高度占宽度的百分比。 */
+  /**
+   * Input property `proportion` (`number`) configuring proportion (default: `25`).
+   * @zh 保持宽高比时使用的高度占宽度的百分比。
+   * @zh 保持宽高比时使用的高度占宽度的百分比。
+   */
   @Input() public proportion = 25;
-  /** @zh 幻灯片高度（`maintainAspectRatio` 为 `false` 时使用）。 */
+  /**
+   * Input property `slideHeight` (`string`) configuring slide height (default: `'100%'`).
+   * @zh 幻灯片高度（`maintainAspectRatio` 为 `false` 时使用）。
+   * @zh 幻灯片高度（`maintainAspectRatio` 为 `false` 时使用）。
+   */
   @Input() public slideHeight = '100%';
 
   /**
@@ -124,9 +175,17 @@ export class MatCarouselComponent
     this.slides$.next(value);
   }
 
-  /** @zh 是否启用左右方向键导航。 */
+  /**
+   * Input property `useKeyboard` (`boolean`) configuring use keyboard (default: `false`).
+   * @zh 是否启用左右方向键导航。
+   * @zh 是否启用左右方向键导航。
+   */
   @Input() public useKeyboard = false;
-  /** @zh 是否启用鼠标滚轮切换幻灯片。 */
+  /**
+   * Input property `useMouseWheel` (`boolean`) configuring use mouse wheel (default: `false`).
+   * @zh 是否启用鼠标滚轮切换幻灯片。
+   * @zh 是否启用鼠标滚轮切换幻灯片。
+   */
   @Input() public useMouseWheel = false;
 
   /**
@@ -176,44 +235,125 @@ export class MatCarouselComponent
     return null;
   }
 
-  /** @zh 投影进来的全部 {@link MatCarouselSlideComponent} 幻灯片。 */
+  /**
+   * @zh 投影进来的全部 {@link MatCarouselSlideComponent} 幻灯片。
+   * @zh 投影进来的全部 {@link MatCarouselSlideComponent} 幻灯片。
+   */
   @ContentChildren(MatCarouselSlideComponent) public slidesList: QueryList<
     MatCarouselSlideComponent
   >;
+  /**
+   * Template/content query reference `carouselContainer` (`@ViewChild`) targeting carousel container.
+   * @zh 模板/内容视图查询引用 `carouselContainer`（`@ViewChild`），指向carousel容器。
+   */
   @ViewChild('carouselContainer') private carouselContainer: ElementRef<
     HTMLDivElement
   >;
+  /**
+   * Template/content query reference `carouselList` (`@ViewChild`) targeting carousel list.
+   * @zh 模板/内容视图查询引用 `carouselList`（`@ViewChild`），指向carousel列表。
+   */
   @ViewChild('carouselList') private carouselList: ElementRef<HTMLElement>;
-  /** @zh 内部使用，管理幻灯片焦点/激活状态的 CDK 键盘管理器。 */
+  /**
+   * @zh 内部使用，管理幻灯片焦点/激活状态的 CDK 键盘管理器。
+   * @zh 内部使用，管理幻灯片焦点/激活状态的 CDK 键盘管理器。
+   */
   public listKeyManager: ListKeyManager<MatCarouselSlideComponent>;
 
+  /**
+   * Property `_autoplay` (`boolean`) storing autoplay (default: `true`).
+   * @zh 属性 `_autoplay`（类型：`boolean`），用于存储或配置autoplay（默认值：`true`）。
+   */
   private _autoplay = true;
+  /**
+   * Property `autoplay$` (`Subject`) storing autoplay (default: `new Subject<boolean>()`).
+   * @zh 属性 `autoplay$`（类型：`Subject`），用于存储或配置autoplay（默认值：`new Subject<boolean>()`）。
+   */
   private autoplay$ = new Subject<boolean>();
 
+  /**
+   * Property `interval$` (`BehaviorSubject`) storing interval (default: `new BehaviorSubject<number>(5000)`).
+   * @zh 属性 `interval$`（类型：`BehaviorSubject`），用于存储或配置间隔定时器（默认值：`new BehaviorSubject<number>(5000)`）。
+   */
   private interval$ = new BehaviorSubject<number>(5000);
+  /**
+   * Property `slides$` (`BehaviorSubject`) storing slides (default: `new BehaviorSubject<number>(null)`).
+   * @zh 属性 `slides$`（类型：`BehaviorSubject`），用于存储或配置slides（默认值：`new BehaviorSubject<number>(null)`）。
+   */
   private slides$ = new BehaviorSubject<number>(null);
 
+  /**
+   * Property `_maxWidth` (`string`) storing max width (default: `'auto'`).
+   * @zh 属性 `_maxWidth`（类型：`string`），用于存储或配置最大值宽度（默认值：`'auto'`）。
+   */
   private _maxWidth = 'auto';
+  /**
+   * Property `maxWidth$` (`Subject`) storing max width (default: `new Subject<number>()`).
+   * @zh 属性 `maxWidth$`（类型：`Subject`），用于存储或配置最大值宽度（默认值：`new Subject<number>()`）。
+   */
   private maxWidth$ = new Subject<number>();
 
+  /**
+   * Property `_loop` (`boolean`) storing loop (default: `true`).
+   * @zh 属性 `_loop`（类型：`boolean`），用于存储或配置loop（默认值：`true`）。
+   */
   private _loop = true;
+  /**
+   * Property `loop$` (`Subject`) storing loop (default: `new Subject<boolean>()`).
+   * @zh 属性 `loop$`（类型：`Subject`），用于存储或配置loop（默认值：`new Subject<boolean>()`）。
+   */
   private loop$ = new Subject<boolean>();
 
+  /**
+   * Property `_orientation` (`Orientation`) storing orientation (default: `'ltr'`).
+   * @zh 属性 `_orientation`（类型：`Orientation`），用于存储或配置方向（默认值：`'ltr'`）。
+   */
   private _orientation: Orientation = 'ltr';
+  /**
+   * Property `orientation$` (`Subject`) storing orientation (default: `new Subject<Orientation>()`).
+   * @zh 属性 `orientation$`（类型：`Subject`），用于存储或配置方向（默认值：`new Subject<Orientation>()`）。
+   */
   private orientation$ = new Subject<Orientation>();
 
+  /**
+   * Property `timer$` (`Observable<number>`) storing timer.
+   * @zh 属性 `timer$`（类型：`Observable<number>`），用于存储或配置定时器。
+   */
   private timer$: Observable<number>;
+  /**
+   * Property `timerStop$` (`Subject`) storing timer stop (default: `new Subject<void>()`).
+   * @zh 属性 `timerStop$`（类型：`Subject`），用于存储或配置定时器停止（默认值：`new Subject<void>()`）。
+   */
   private timerStop$ = new Subject<void>();
 
+  /**
+   * Property `destroy$` (`Subject`) storing destroy (default: `new Subject<void>()`).
+   * @zh 属性 `destroy$`（类型：`Subject`），用于存储或配置销毁（默认值：`new Subject<void>()`）。
+   */
   private destroy$ = new Subject<void>();
+  /**
+   * Property `playing` (`boolean`) storing playing (default: `false`).
+   * @zh 属性 `playing`（类型：`boolean`），用于存储或配置playing（默认值：`false`）。
+   */
   private playing = false;
 
+  /**
+   * Creates an instance of `MatCarouselComponent` and initializes its dependencies and internal state.
+   * @zh 创建 `MatCarouselComponent` 实例，并初始化其依赖项与内部状态。
+   * @param animationBuilder - Injected or initial animation builder (`AnimationBuilder`) / 注入或传入的动画构建器（`AnimationBuilder`）
+   * @param renderer - Injected or initial renderer (`Renderer2`) / 注入或传入的渲染器（`Renderer2`）
+   * @param platformId - Injected or initial platform id (`any`) / 注入或传入的platform唯一标识（`any`）
+   */
   constructor(
     private animationBuilder: AnimationBuilder,
     private renderer: Renderer2,
     @Inject(PLATFORM_ID) private platformId
   ) {}
 
+  /**
+   * Angular lifecycle hook invoked once after projected content (`ng-content`) is initialized.
+   * @zh Angular 生命周期钩子：在投影内容（`ng-content`）初始化完成后调用一次。
+   */
   public ngAfterContentInit(): void {
     this.listKeyManager = new ListKeyManager(this.slidesList)
       .withVerticalOrientation(false)
@@ -226,6 +366,10 @@ export class MatCarouselComponent
       .subscribe(() => this.playAnimation());
   }
 
+  /**
+   * Angular lifecycle hook invoked once after the component's view and child views are initialized.
+   * @zh Angular 生命周期钩子：在组件视图及其子视图初始化完成后调用一次。
+   */
   public ngAfterViewInit(): void {
     this.autoplay$.pipe(takeUntil(this.destroy$)).subscribe(value => {
       this.stopTimer();
@@ -258,6 +402,10 @@ export class MatCarouselComponent
       .subscribe(value => this.resetSlides(value));
   }
 
+  /**
+   * Angular lifecycle hook invoked just before the component, directive, or service is destroyed to release subscriptions and resources.
+   * @zh Angular 生命周期钩子：在组件、指令或服务销毁前调用，用于释放订阅与清理资源。
+   */
   public ngOnDestroy(): void {
     this.destroy$.next();
     this.destroy$.complete();
@@ -321,7 +469,7 @@ export class MatCarouselComponent
    * @zh 内部使用，当 `useMouseWheel` 启用时处理鼠标滚轮滚动以切换幻灯片。
    */
   @HostListener('mousewheel', ['$event'])
-  public onMouseWheel(event: any): void {
+  public onMouseWheel(event): void {
     if (this.useMouseWheel) {
       event.preventDefault(); // prevent window to scroll
       const Δ = Math.sign(event.wheelDelta);
@@ -348,7 +496,7 @@ export class MatCarouselComponent
    * Handles an in-progress pan/swipe gesture, translating the slide list to follow the pointer.
    * @zh 处理正在进行中的滑动/拖拽手势，使幻灯片列表跟随指针平移。
    */
-  public onPan(event: any, slideElem: HTMLElement): void {
+  public onPan(event, slideElem: HTMLElement): void {
     // https://github.com/angular/angular/issues/10541#issuecomment-346539242
     // if y velocity is greater, it's a panup/pandown, so ignore.
     if (Math.abs(event.velocityY) > Math.abs(event.velocityX)) {
@@ -372,7 +520,7 @@ export class MatCarouselComponent
    * how far the pointer moved.
    * @zh 处理滑动/拖拽手势结束：根据指针移动距离前进到下一张或还原到当前幻灯片。
    */
-  public onPanEnd(event: any, slideElem: HTMLElement): void {
+  public onPanEnd(event, slideElem: HTMLElement): void {
     this.renderer.removeStyle(slideElem, 'cursor');
 
     if (
@@ -389,6 +537,11 @@ export class MatCarouselComponent
     this.playAnimation(); // slide back, don't change current index
   }
 
+  /**
+   * Executes `isOutOfBounds` to handle is out of bounds.
+   * @zh 执行 `isOutOfBounds`，用于是否为输出的边界框。
+   * @returns Result of type `boolean` / 类型为 `boolean` 的返回值
+   */
   private isOutOfBounds(): boolean {
     const sign = this.orientation === 'rtl' ? -1 : 1;
     const left =
@@ -405,6 +558,11 @@ export class MatCarouselComponent
     );
   }
 
+  /**
+   * Executes `isVisible` to handle is visible.
+   * @zh 执行 `isVisible`，用于是否为可见。
+   * @returns Result of type `boolean` / 类型为 `boolean` 的返回值
+   */
   private isVisible(): boolean {
     if (!isPlatformBrowser(this.platformId)) {
       return false;
@@ -420,20 +578,42 @@ export class MatCarouselComponent
     return elemBottom <= docViewBottom || elemTop >= docViewTop;
   }
 
+  /**
+   * Executes `getOffset` to handle get offset.
+   * @zh 执行 `getOffset`，用于获取偏移量。
+   * @returns Result of type `number` / 类型为 `number` 的返回值
+   */
   private getOffset(): number {
     const offset = this.listKeyManager.activeItemIndex * this.getWidth();
     const sign = this.orientation === 'rtl' ? 1 : -1;
     return sign * offset;
   }
 
+  /**
+   * Executes `getTranslation` to handle get translation.
+   * @zh 执行 `getTranslation`，用于获取翻译文本。
+   * @param offset - offset parameter (`number`) / 偏移量参数（`number`）
+   * @returns Result of type `string` / 类型为 `string` 的返回值
+   */
   private getTranslation(offset: number): string {
     return `translateX(${offset}px)`;
   }
 
+  /**
+   * Executes `getWidth` to handle get width.
+   * @zh 执行 `getWidth`，用于获取宽度。
+   * @returns Result of type `number` / 类型为 `number` 的返回值
+   */
   private getWidth(): number {
     return this.carouselContainer.nativeElement.clientWidth;
   }
 
+  /**
+   * Executes `goto` to handle goto.
+   * @zh 执行 `goto`，用于goto。
+   * @param direction - direction parameter (`Direction`) / 方向参数（`Direction`）
+   * @param index - index parameter (`number`) / 索引参数（`number`）
+   */
   private goto(direction: Direction, index?: number): void {
     if (!this.playing) {
       const rtl = this.orientation === 'rtl';
@@ -453,6 +633,10 @@ export class MatCarouselComponent
     }
   }
 
+  /**
+   * Executes `playAnimation` to handle play animation.
+   * @zh 执行 `playAnimation`，用于play动画。
+   */
   private playAnimation(): void {
     const translation = this.getTranslation(this.getOffset());
     const factory = this.animationBuilder.build(
@@ -474,14 +658,29 @@ export class MatCarouselComponent
     animation.play();
   }
 
+  /**
+   * Executes `resetSlides` to handle reset slides.
+   * @zh 执行 `resetSlides`，用于重置Slides。
+   * @param slides - slides parameter (`number`) / slides参数（`number`）
+   */
   private resetSlides(slides: number): void {
     this.slidesList.reset(this.slidesList.toArray().slice(0, slides));
   }
 
+  /**
+   * Executes `resetTimer` to handle reset timer.
+   * @zh 执行 `resetTimer`，用于重置定时器。
+   * @param value - value parameter (`number`) / 值参数（`number`）
+   */
   private resetTimer(value: number): void {
     this.timer$ = interval(value);
   }
 
+  /**
+   * Executes `startTimer` to handle start timer.
+   * @zh 执行 `startTimer`，用于开始定时器。
+   * @param autoplay - autoplay parameter (`boolean`) / autoplay参数（`boolean`）
+   */
   private startTimer(autoplay: boolean): void {
     if (!autoplay) {
       return;
@@ -499,6 +698,10 @@ export class MatCarouselComponent
       });
   }
 
+  /**
+   * Executes `stopTimer` to handle stop timer.
+   * @zh 执行 `stopTimer`，用于停止定时器。
+   */
   private stopTimer(): void {
     this.timerStop$.next();
   }

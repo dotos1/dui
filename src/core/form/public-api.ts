@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Module `src/core/form/public-api.ts` providing public api definitions and implementation.
+ * @zh 模块文件 `src/core/form/public-api.ts`，提供publicAPI接口相关的定义与实现。
+ */
+
 export { FieldConfig, FormOptions, FieldConfigCache, FormOptionsCache, ConfigOption, FormExtension,FormLifeCycleEvent,ValueChangeEvent } from './models';
 export { FORM_CONFIG, FormConfig } from './services/form.config';
 export { FormBuilder } from './services/form.builder';

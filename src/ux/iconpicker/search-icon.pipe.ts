@@ -1,12 +1,28 @@
+/**
+ * @fileoverview Module `src/ux/iconpicker/search-icon.pipe.ts` providing search icon pipe definitions and implementation.
+ * @zh 模块文件 `src/ux/iconpicker/search-icon.pipe.ts`，提供搜索图标管道相关的定义与实现。
+ */
+
 import { Pipe, PipeTransform } from '@angular/core';
 import { Icon } from '@dotos/dui/common/icon';
 
+/**
+ * Angular pipe `SearchIconPipe` (name: 'searchIcon') transforming values for search icon pipe display in templates.
+ * @zh Angular 管道 `SearchIconPipe`（name: 'searchIcon'），在模板中转换数据以用于搜索图标管道展示。
+ */
 @Pipe({
   name: 'searchIcon'
 })
 
 export class SearchIconPipe implements PipeTransform {
-  transform(value: Icon[], search: string): any {
+  /**
+   * Executes `transform` to handle transform.
+   * @zh 执行 `transform`，用于转换。
+   * @param value - value parameter (`Icon[]`) / 值参数（`Icon[]`）
+   * @param search - search parameter (`string`) / 搜索参数（`string`）
+   * @returns Result of type `any` / 类型为 `any` 的返回值
+   */
+  transform(value: Icon[], search: string) {
     if (!search) {
       return value;
     }
@@ -29,6 +45,12 @@ export class SearchIconPipe implements PipeTransform {
       return keep;
     });
   }
+  /**
+   * Executes `clean` to handle clean.
+   * @zh 执行 `clean`，用于clean。
+   * @param value - value parameter (`string`) / 值参数（`string`）
+   * @returns Result of type `string` / 类型为 `string` 的返回值
+   */
   clean(value: string): string {
     if (typeof (value) == 'string') {
       return value.trim().toLowerCase();

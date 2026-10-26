@@ -4,8 +4,8 @@
     {
       "name": "CardItemTypeService",
       "kind": "service",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Injectable Angular service `CardItemTypeService` managing card item type service state and operations in `src/data/cardview/services`.",
+      "summaryZh": "可注入的 Angular 服务 `CardItemTypeService`，管理 `src/data/cardview/services` 中的卡片条目类型服务状态与业务操作。",
       "sourceFile": "src/data/cardview/services/card-item-types.service.ts",
       "inputs": [],
       "outputs": [],
@@ -15,27 +15,40 @@
     {
       "name": "CardViewArrayItem",
       "kind": "interface",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Interface `CardViewArrayItem` defining the contract and properties for card view array item.",
+      "summaryZh": "接口 `CardViewArrayItem`，定义卡片视图数组条目的数据结构契约与属性规范。",
       "sourceFile": "src/data/cardview/models/card-view-arrayitem.model.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
-      "properties": []
+      "properties": [
+        {
+          "name": "icon",
+          "type": "string",
+          "description": "Property `icon` (`string`) storing icon.",
+          "descriptionZh": "属性 `icon`（类型：`string`），用于存储或配置图标。"
+        },
+        {
+          "name": "value",
+          "type": "string",
+          "description": "Property `value` (`string`) storing value.",
+          "descriptionZh": "属性 `value`（类型：`string`），用于存储或配置值。"
+        }
+      ]
     },
     {
       "name": "CardViewArrayItemComponent",
       "kind": "component",
       "selector": "dui-card-view-arrayitem",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular component `CardViewArrayItemComponent` (selector: 'dui-card-view-arrayitem') providing card view array item component presentation and interaction in `src/data/cardview/components/card-view-arrayitem`.",
+      "summaryZh": "Angular 组件 `CardViewArrayItemComponent`（selector: 'dui-card-view-arrayitem'），提供卡片视图数组条目组件的视图渲染与交互逻辑（位于 `src/data/cardview/components/card-view-arrayitem`）。",
       "sourceFile": "src/data/cardview/components/card-view-arrayitem/card-view-arrayitem.component.ts",
       "inputs": [
         {
           "name": "property",
           "type": "CardViewArrayItemModel",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `property` (`CardViewArrayItemModel`) configuring property.",
+          "descriptionZh": "输入属性 `property`（类型：`CardViewArrayItemModel`），用于配置属性。"
         }
       ],
       "outputs": [],
@@ -44,36 +57,52 @@
           "name": "clicked",
           "params": [],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `clicked` to handle clicked.",
+          "descriptionZh": "执行 `clicked`，用于点击。"
         },
         {
           "name": "showClickableIcon",
           "params": [],
           "returnType": "boolean",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `showClickableIcon` to handle show clickable icon.",
+          "descriptionZh": "执行 `showClickableIcon`，用于显示是否可点击图标。"
         },
         {
           "name": "hasIcon",
           "params": [],
           "returnType": "boolean",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `hasIcon` to handle has icon.",
+          "descriptionZh": "执行 `hasIcon`，用于是否包含图标。"
         },
         {
           "name": "displayCount",
           "params": [],
           "returnType": "number",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `displayCount` to handle display count.",
+          "descriptionZh": "执行 `displayCount`，用于display计数。"
         },
         {
           "name": "isClickable",
           "params": [],
           "returnType": "boolean",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `isClickable` to handle is clickable.",
+          "descriptionZh": "执行 `isClickable`，用于是否为是否可点击。"
+        },
+        {
+          "name": "trackByItem",
+          "params": [
+            {
+              "name": "index",
+              "type": "number"
+            },
+            {
+              "name": "item",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": "Executes `trackByItem` to handle track by item.",
+          "descriptionZh": "执行 `trackByItem`，用于track按条目。"
         }
       ],
       "properties": []
@@ -81,8 +110,8 @@
     {
       "name": "CardViewArrayItemModel",
       "kind": "class",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Class `CardViewArrayItemModel` encapsulating card view array item model data structures and logic in `src/data/cardview/models`.",
+      "summaryZh": "类 `CardViewArrayItemModel`，封装 `src/data/cardview/models` 中的卡片视图数组条目模型数据结构与处理逻辑。",
       "sourceFile": "src/data/cardview/models/card-view-arrayitem.model.ts",
       "inputs": [],
       "outputs": [],
@@ -92,45 +121,52 @@
           "name": "type",
           "type": "string",
           "default": "'array'",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `type` (`string`) storing type (default: `'array'`).",
+          "descriptionZh": "属性 `type`（类型：`string`），用于存储或配置类型（默认值：`'array'`）。"
         },
         {
           "name": "value",
           "type": "Observable<CardViewArrayItem[]>",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `value` (`Observable<CardViewArrayItem[]>`) storing value.",
+          "descriptionZh": "属性 `value`（类型：`Observable<CardViewArrayItem[]>`），用于存储或配置值。"
         },
         {
           "name": "noOfItemsToDisplay",
           "type": "number",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `noOfItemsToDisplay` (`number`) storing no of items to display.",
+          "descriptionZh": "属性 `noOfItemsToDisplay`（类型：`number`），用于存储或配置no的条目列表转换为Display。"
         },
         {
           "name": "displayValue",
           "type": "Observable<CardViewArrayItem[]>",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current display value (`displayValue: Observable<CardViewArrayItem[]>`).",
+          "descriptionZh": "获取当前display值（`displayValue: Observable<CardViewArrayItem[]>`）。"
         }
       ]
     },
     {
       "name": "CardViewArrayItemProperties",
       "kind": "interface",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Interface `CardViewArrayItemProperties` defining the contract and properties for card view array item properties.",
+      "summaryZh": "接口 `CardViewArrayItemProperties`，定义卡片视图数组条目属性列表的数据结构契约与属性规范。",
       "sourceFile": "src/data/cardview/interfaces/card-view-arrayitem-properties.interface.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
-      "properties": []
+      "properties": [
+        {
+          "name": "noOfItemsToDisplay",
+          "type": "number",
+          "description": "Property `noOfItemsToDisplay` (`number`) storing no of items to display.",
+          "descriptionZh": "属性 `noOfItemsToDisplay`（类型：`number`），用于存储或配置no的条目列表转换为Display。"
+        }
+      ]
     },
     {
       "name": "CardViewBaseItemModel",
       "kind": "class",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Class `CardViewBaseItemModel` encapsulating card view base item model data structures and logic in `src/data/cardview/models`.",
+      "summaryZh": "类 `CardViewBaseItemModel`，封装 `src/data/cardview/models` 中的卡片视图基础条目模型数据结构与处理逻辑。",
       "sourceFile": "src/data/cardview/models/card-view-baseitem.model.ts",
       "inputs": [],
       "outputs": [],
@@ -139,8 +175,8 @@
           "name": "isEmpty",
           "params": [],
           "returnType": "boolean",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `isEmpty` to handle is empty.",
+          "descriptionZh": "执行 `isEmpty`，用于是否为空。"
         },
         {
           "name": "isValid",
@@ -151,8 +187,8 @@
             }
           ],
           "returnType": "boolean",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `isValid` to handle is valid.",
+          "descriptionZh": "执行 `isValid`，用于是否为有效。"
         },
         {
           "name": "getValidationErrors",
@@ -163,64 +199,64 @@
             }
           ],
           "returnType": "string[]",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `getValidationErrors` to handle get validation errors.",
+          "descriptionZh": "执行 `getValidationErrors`，用于获取校验错误列表。"
         }
       ],
       "properties": [
         {
           "name": "label",
           "type": "string",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `label` (`string`) storing label.",
+          "descriptionZh": "属性 `label`（类型：`string`），用于存储或配置标签。"
         },
         {
           "name": "value",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `value` (`any`) storing value.",
+          "descriptionZh": "属性 `value`（类型：`any`），用于存储或配置值。"
         },
         {
           "name": "key",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `key` (`any`) storing key.",
+          "descriptionZh": "属性 `key`（类型：`any`），用于存储或配置键。"
         },
         {
           "name": "default",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `default` (`any`) storing default.",
+          "descriptionZh": "属性 `default`（类型：`any`），用于存储或配置默认。"
         },
         {
           "name": "editable",
           "type": "boolean",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `editable` (`boolean`) storing editable.",
+          "descriptionZh": "属性 `editable`（类型：`boolean`），用于存储或配置是否可编辑。"
         },
         {
           "name": "clickable",
           "type": "boolean",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `clickable` (`boolean`) storing clickable.",
+          "descriptionZh": "属性 `clickable`（类型：`boolean`），用于存储或配置是否可点击。"
         },
         {
           "name": "icon",
           "type": "string",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `icon` (`string`) storing icon.",
+          "descriptionZh": "属性 `icon`（类型：`string`），用于存储或配置图标。"
         },
         {
           "name": "validators",
           "type": "CardViewItemValidator[]",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `validators` (`CardViewItemValidator[]`) storing validators.",
+          "descriptionZh": "属性 `validators`（类型：`CardViewItemValidator[]`），用于存储或配置校验器列表。"
         },
         {
           "name": "data",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `data` (`any`) storing data.",
+          "descriptionZh": "属性 `data`（类型：`any`），用于存储或配置数据。"
         }
       ]
     },
@@ -228,21 +264,21 @@
       "name": "CardViewBoolItemComponent",
       "kind": "component",
       "selector": "dui-card-view-boolitem",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular component `CardViewBoolItemComponent` (selector: 'dui-card-view-boolitem') providing card view bool item component presentation and interaction in `src/data/cardview/components/card-view-boolitem`.",
+      "summaryZh": "Angular 组件 `CardViewBoolItemComponent`（selector: 'dui-card-view-boolitem'），提供卡片视图Bool条目组件的视图渲染与交互逻辑（位于 `src/data/cardview/components/card-view-boolitem`）。",
       "sourceFile": "src/data/cardview/components/card-view-boolitem/card-view-boolitem.component.ts",
       "inputs": [
         {
           "name": "property",
           "type": "CardViewBoolItemModel",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `property` (`CardViewBoolItemModel`) configuring property.",
+          "descriptionZh": "输入属性 `property`（类型：`CardViewBoolItemModel`），用于配置属性。"
         },
         {
           "name": "editable",
           "type": "boolean",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `editable` (`boolean`) configuring editable.",
+          "descriptionZh": "输入属性 `editable`（类型：`boolean`），用于配置是否可编辑。"
         }
       ],
       "outputs": [],
@@ -251,8 +287,8 @@
           "name": "isEditable",
           "params": [],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `isEditable` to handle is editable.",
+          "descriptionZh": "执行 `isEditable`，用于是否为是否可编辑。"
         },
         {
           "name": "changed",
@@ -263,8 +299,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `changed` to handle changed.",
+          "descriptionZh": "执行 `changed`，用于已变更。"
         }
       ],
       "properties": []
@@ -272,8 +308,8 @@
     {
       "name": "CardViewBoolItemModel",
       "kind": "class",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Class `CardViewBoolItemModel` encapsulating card view bool item model data structures and logic in `src/data/cardview/models`.",
+      "summaryZh": "类 `CardViewBoolItemModel`，封装 `src/data/cardview/models` 中的卡片视图Bool条目模型数据结构与处理逻辑。",
       "sourceFile": "src/data/cardview/models/card-view-boolitem.model.ts",
       "inputs": [],
       "outputs": [],
@@ -283,114 +319,144 @@
           "name": "type",
           "type": "string",
           "default": "'bool'",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `type` (`string`) storing type (default: `'bool'`).",
+          "descriptionZh": "属性 `type`（类型：`string`），用于存储或配置类型（默认值：`'bool'`）。"
         },
         {
           "name": "value",
           "type": "boolean",
           "default": "false",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `value` (`boolean`) storing value (default: `false`).",
+          "descriptionZh": "属性 `value`（类型：`boolean`），用于存储或配置值（默认值：`false`）。"
         },
         {
           "name": "default",
           "type": "boolean",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `default` (`boolean`) storing default.",
+          "descriptionZh": "属性 `default`（类型：`boolean`），用于存储或配置默认。"
         },
         {
           "name": "displayValue",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current display value (`displayValue: any`).",
+          "descriptionZh": "获取当前display值（`displayValue: any`）。"
         }
       ]
     },
     {
       "name": "CardViewBoolItemProperties",
       "kind": "interface",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Interface `CardViewBoolItemProperties` defining the contract and properties for card view bool item properties.",
+      "summaryZh": "接口 `CardViewBoolItemProperties`，定义卡片视图Bool条目属性列表的数据结构契约与属性规范。",
       "sourceFile": "src/data/cardview/interfaces/card-view-boolitem-properties.interface.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
-      "properties": []
+      "properties": [
+        {
+          "name": "value",
+          "type": "any",
+          "description": "Property `value` (`any`) storing value.",
+          "descriptionZh": "属性 `value`（类型：`any`），用于存储或配置值。"
+        },
+        {
+          "name": "default",
+          "type": "boolean",
+          "description": "Property `default` (`boolean`) storing default.",
+          "descriptionZh": "属性 `default`（类型：`boolean`），用于存储或配置默认。"
+        }
+      ]
     },
     {
       "name": "CardViewComponent",
       "kind": "component",
       "selector": "dui-card-view",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular component `CardViewComponent` (selector: 'dui-card-view') providing card view component presentation and interaction in `src/data/cardview/components/card-view`.",
+      "summaryZh": "Angular 组件 `CardViewComponent`（selector: 'dui-card-view'），提供卡片视图组件的视图渲染与交互逻辑（位于 `src/data/cardview/components/card-view`）。",
       "sourceFile": "src/data/cardview/components/card-view/card-view.component.ts",
       "inputs": [
         {
           "name": "properties",
           "type": "CardViewItem[]",
           "description": "(**required**) Items to show in the card view.",
-          "descriptionZh": null
+          "descriptionZh": "输入属性 `properties`（类型：`CardViewItem[]`），用于配置属性列表。"
         },
         {
           "name": "editable",
           "type": "boolean",
           "description": "Toggles whether or not the items can be edited.",
-          "descriptionZh": null
+          "descriptionZh": "输入属性 `editable`（类型：`boolean`），用于配置是否可编辑。"
         },
         {
           "name": "displayEmpty",
           "type": "boolean",
           "default": "true",
           "description": "Toggles whether or not to show empty items in non-editable mode.",
-          "descriptionZh": null
+          "descriptionZh": "输入属性 `displayEmpty`（类型：`boolean`），用于配置display空（默认值：`true`）。"
         },
         {
           "name": "displayNoneOption",
           "type": "boolean",
           "default": "true",
           "description": "Toggles whether or not to display none option.",
-          "descriptionZh": null
+          "descriptionZh": "输入属性 `displayNoneOption`（类型：`boolean`），用于配置display无选项（默认值：`true`）。"
         },
         {
           "name": "displayClearAction",
           "type": "boolean",
           "default": "true",
           "description": "Toggles whether or not to display clear action.",
-          "descriptionZh": null
+          "descriptionZh": "输入属性 `displayClearAction`（类型：`boolean`），用于配置display清空动作（默认值：`true`）。"
         },
         {
           "name": "copyToClipboardAction",
           "type": "boolean",
           "default": "true",
           "description": "Toggles whether or not to enable copy to clipboard action.",
-          "descriptionZh": null
+          "descriptionZh": "输入属性 `copyToClipboardAction`（类型：`boolean`），用于配置复制转换为Clipboard动作（默认值：`true`）。"
         },
         {
           "name": "useChipsForMultiValueProperty",
           "type": "boolean",
           "default": "true",
           "description": "Toggles whether or not to enable chips for multivalued properties.",
-          "descriptionZh": null
+          "descriptionZh": "输入属性 `useChipsForMultiValueProperty`（类型：`boolean`），用于配置使用纸片标签用于多值属性（默认值：`true`）。"
         },
         {
           "name": "multiValueSeparator",
           "type": "string",
           "default": "DEFAULT_SEPARATOR",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `multiValueSeparator` (`string`) configuring multi value separator (default: `DEFAULT_SEPARATOR`).",
+          "descriptionZh": "输入属性 `multiValueSeparator`（类型：`string`），用于配置多值Separator（默认值：`DEFAULT_SEPARATOR`）。"
         }
       ],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "trackByProperty",
+          "params": [
+            {
+              "name": "index",
+              "type": "number"
+            },
+            {
+              "name": "property",
+              "type": "CardViewItem"
+            }
+          ],
+          "returnType": "any",
+          "description": "Executes `trackByProperty` to handle track by property.",
+          "descriptionZh": "执行 `trackByProperty`，用于track按属性。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "CardViewContentProxyDirective",
       "kind": "directive",
       "selector": "[dui-card-view-content-proxy]",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular directive `CardViewContentProxyDirective` (selector: '[dui-card-view-content-proxy]') attaching card view content proxy directive behavior to host DOM elements.",
+      "summaryZh": "Angular 指令 `CardViewContentProxyDirective`（selector: '[dui-card-view-content-proxy]'），为宿主 DOM 元素附加卡片视图内容Proxy指令行为。",
       "sourceFile": "src/data/cardview/directives/card-view-content-proxy.directive.ts",
       "inputs": [],
       "outputs": [],
@@ -401,36 +467,36 @@
       "name": "CardViewDateItemComponent",
       "kind": "component",
       "selector": "dui-card-view-dateitem",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular component `CardViewDateItemComponent` (selector: 'dui-card-view-dateitem') providing card view date item component presentation and interaction in `src/data/cardview/components/card-view-dateitem`.",
+      "summaryZh": "Angular 组件 `CardViewDateItemComponent`（selector: 'dui-card-view-dateitem'），提供卡片视图日期条目组件的视图渲染与交互逻辑（位于 `src/data/cardview/components/card-view-dateitem`）。",
       "sourceFile": "src/data/cardview/components/card-view-dateitem/card-view-dateitem.component.ts",
       "inputs": [
         {
           "name": "property",
           "type": "CardViewDateItemModel|any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `property` (`CardViewDateItemModel|any`) configuring property.",
+          "descriptionZh": "输入属性 `property`（类型：`CardViewDateItemModel|any`），用于配置属性。"
         },
         {
           "name": "editable",
           "type": "boolean",
           "default": "false",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `editable` (`boolean`) configuring editable (default: `false`).",
+          "descriptionZh": "输入属性 `editable`（类型：`boolean`），用于配置是否可编辑（默认值：`false`）。"
         },
         {
           "name": "displayEmpty",
           "type": "boolean",
           "default": "true",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `displayEmpty` (`boolean`) configuring display empty (default: `true`).",
+          "descriptionZh": "输入属性 `displayEmpty`（类型：`boolean`），用于配置display空（默认值：`true`）。"
         },
         {
           "name": "displayClearAction",
           "type": "boolean",
           "default": "true",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `displayClearAction` (`boolean`) configuring display clear action (default: `true`).",
+          "descriptionZh": "输入属性 `displayClearAction`（类型：`boolean`），用于配置display清空动作（默认值：`true`）。"
         }
       ],
       "outputs": [],
@@ -439,29 +505,29 @@
           "name": "showProperty",
           "params": [],
           "returnType": "boolean",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `showProperty` to handle show property.",
+          "descriptionZh": "执行 `showProperty`，用于显示属性。"
         },
         {
           "name": "showClearAction",
           "params": [],
           "returnType": "boolean",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `showClearAction` to handle show clear action.",
+          "descriptionZh": "执行 `showClearAction`，用于显示清空动作。"
         },
         {
           "name": "isEditable",
           "params": [],
           "returnType": "boolean",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `isEditable` to handle is editable.",
+          "descriptionZh": "执行 `isEditable`，用于是否为是否可编辑。"
         },
         {
           "name": "showDatePicker",
           "params": [],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `showDatePicker` to handle show date picker.",
+          "descriptionZh": "执行 `showDatePicker`，用于显示日期选择器。"
         },
         {
           "name": "onDateChanged",
@@ -472,15 +538,15 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `onDateChanged` to handle on date changed.",
+          "descriptionZh": "执行 `onDateChanged`，用于当日期已变更。"
         },
         {
           "name": "onDateClear",
           "params": [],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `onDateClear` to handle on date clear.",
+          "descriptionZh": "执行 `onDateClear`，用于当日期清空。"
         },
         {
           "name": "copyToClipboard",
@@ -491,36 +557,36 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `copyToClipboard` to handle copy to clipboard.",
+          "descriptionZh": "执行 `copyToClipboard`，用于复制转换为Clipboard。"
         }
       ],
       "properties": [
         {
           "name": "datepicker",
           "type": "MatDatetimepicker<any>",
-          "description": null,
-          "descriptionZh": null
+          "description": "Template/content query reference `datepicker` (`@ViewChild`) targeting datepicker.",
+          "descriptionZh": "模板/内容视图查询引用 `datepicker`（`@ViewChild`），指向日期选择器。"
         },
         {
           "name": "valueDate",
           "type": "Moment",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `valueDate` (`Moment`) storing value date.",
+          "descriptionZh": "属性 `valueDate`（类型：`Moment`），用于存储或配置值日期。"
         },
         {
           "name": "dateFormat",
           "type": "string",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `dateFormat` (`string`) storing date format.",
+          "descriptionZh": "属性 `dateFormat`（类型：`string`），用于存储或配置日期格式化。"
         }
       ]
     },
     {
       "name": "CardViewDateItemModel",
       "kind": "class",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Class `CardViewDateItemModel` encapsulating card view date item model data structures and logic in `src/data/cardview/models`.",
+      "summaryZh": "类 `CardViewDateItemModel`，封装 `src/data/cardview/models` 中的卡片视图日期条目模型数据结构与处理逻辑。",
       "sourceFile": "src/data/cardview/models/card-view-dateitem.model.ts",
       "inputs": [],
       "outputs": [],
@@ -530,51 +596,64 @@
           "name": "type",
           "type": "string",
           "default": "'date'",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `type` (`string`) storing type (default: `'date'`).",
+          "descriptionZh": "属性 `type`（类型：`string`），用于存储或配置类型（默认值：`'date'`）。"
         },
         {
           "name": "format",
           "type": "string",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `format` (`string`) storing format.",
+          "descriptionZh": "属性 `format`（类型：`string`），用于存储或配置格式化。"
         },
         {
           "name": "locale",
           "type": "string",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `locale` (`string`) storing locale.",
+          "descriptionZh": "属性 `locale`（类型：`string`），用于存储或配置语言区域。"
         },
         {
           "name": "localizedDatePipe",
           "type": "LocalizedDatePipe",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `localizedDatePipe` (`LocalizedDatePipe`) storing localized date pipe.",
+          "descriptionZh": "属性 `localizedDatePipe`（类型：`LocalizedDatePipe`），用于存储或配置localized日期管道。"
         },
         {
           "name": "displayValue",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current display value (`displayValue: any`).",
+          "descriptionZh": "获取当前display值（`displayValue: any`）。"
         }
       ]
     },
     {
       "name": "CardViewDateItemProperties",
       "kind": "interface",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Interface `CardViewDateItemProperties` defining the contract and properties for card view date item properties.",
+      "summaryZh": "接口 `CardViewDateItemProperties`，定义卡片视图日期条目属性列表的数据结构契约与属性规范。",
       "sourceFile": "src/data/cardview/interfaces/card-view-dateitem-properties.interface.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
-      "properties": []
+      "properties": [
+        {
+          "name": "format",
+          "type": "string",
+          "description": "Property `format` (`string`) storing format.",
+          "descriptionZh": "属性 `format`（类型：`string`），用于存储或配置格式化。"
+        },
+        {
+          "name": "locale",
+          "type": "string",
+          "description": "Property `locale` (`string`) storing locale.",
+          "descriptionZh": "属性 `locale`（类型：`string`），用于存储或配置语言区域。"
+        }
+      ]
     },
     {
       "name": "CardViewDatetimeItemModel",
       "kind": "class",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Class `CardViewDatetimeItemModel` encapsulating card view datetime item model data structures and logic in `src/data/cardview/models`.",
+      "summaryZh": "类 `CardViewDatetimeItemModel`，封装 `src/data/cardview/models` 中的卡片视图日期时间条目模型数据结构与处理逻辑。",
       "sourceFile": "src/data/cardview/models/card-view-datetimeitem.model.ts",
       "inputs": [],
       "outputs": [],
@@ -584,23 +663,23 @@
           "name": "type",
           "type": "string",
           "default": "'datetime'",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `type` (`string`) storing type (default: `'datetime'`).",
+          "descriptionZh": "属性 `type`（类型：`string`），用于存储或配置类型（默认值：`'datetime'`）。"
         },
         {
           "name": "format",
           "type": "string",
           "default": "'MMM d, y, H:mm'",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `format` (`string`) storing format (default: `'MMM d, y, H:mm'`).",
+          "descriptionZh": "属性 `format`（类型：`string`），用于存储或配置格式化（默认值：`'MMM d, y, H:mm'`）。"
         }
       ]
     },
     {
       "name": "CardViewFloatItemModel",
       "kind": "class",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Class `CardViewFloatItemModel` encapsulating card view float item model data structures and logic in `src/data/cardview/models`.",
+      "summaryZh": "类 `CardViewFloatItemModel`，封装 `src/data/cardview/models` 中的卡片视图Float条目模型数据结构与处理逻辑。",
       "sourceFile": "src/data/cardview/models/card-view-floatitem.model.ts",
       "inputs": [],
       "outputs": [],
@@ -610,23 +689,23 @@
           "name": "type",
           "type": "string",
           "default": "'float'",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `type` (`string`) storing type (default: `'float'`).",
+          "descriptionZh": "属性 `type`（类型：`string`），用于存储或配置类型（默认值：`'float'`）。"
         },
         {
           "name": "inputType",
           "type": "string",
           "default": "'number'",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `inputType` (`string`) storing input type (default: `'number'`).",
+          "descriptionZh": "属性 `inputType`（类型：`string`），用于存储或配置输入属性类型（默认值：`'number'`）。"
         }
       ]
     },
     {
       "name": "CardViewIntItemModel",
       "kind": "class",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Class `CardViewIntItemModel` encapsulating card view int item model data structures and logic in `src/data/cardview/models`.",
+      "summaryZh": "类 `CardViewIntItemModel`，封装 `src/data/cardview/models` 中的卡片视图Int条目模型数据结构与处理逻辑。",
       "sourceFile": "src/data/cardview/models/card-view-intitem.model.ts",
       "inputs": [],
       "outputs": [],
@@ -636,90 +715,139 @@
           "name": "type",
           "type": "string",
           "default": "'int'",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `type` (`string`) storing type (default: `'int'`).",
+          "descriptionZh": "属性 `type`（类型：`string`），用于存储或配置类型（默认值：`'int'`）。"
         },
         {
           "name": "inputType",
           "type": "string",
           "default": "'number'",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `inputType` (`string`) storing input type (default: `'number'`).",
+          "descriptionZh": "属性 `inputType`（类型：`string`），用于存储或配置输入属性类型（默认值：`'number'`）。"
         }
       ]
     },
     {
       "name": "CardViewItem",
       "kind": "interface",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Interface `CardViewItem` defining the contract and properties for card view item.",
+      "summaryZh": "接口 `CardViewItem`，定义卡片视图条目的数据结构契约与属性规范。",
       "sourceFile": "src/data/cardview/interfaces/card-view-item.interface.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
-      "properties": []
+      "properties": [
+        {
+          "name": "label",
+          "type": "string",
+          "description": "Property `label` (`string`) storing label.",
+          "descriptionZh": "属性 `label`（类型：`string`），用于存储或配置标签。"
+        },
+        {
+          "name": "value",
+          "type": "any",
+          "description": "Property `value` (`any`) storing value.",
+          "descriptionZh": "属性 `value`（类型：`any`），用于存储或配置值。"
+        },
+        {
+          "name": "key",
+          "type": "string",
+          "description": "Property `key` (`string`) storing key.",
+          "descriptionZh": "属性 `key`（类型：`string`），用于存储或配置键。"
+        },
+        {
+          "name": "default",
+          "type": "any",
+          "description": "Property `default` (`any`) storing default.",
+          "descriptionZh": "属性 `default`（类型：`any`），用于存储或配置默认。"
+        },
+        {
+          "name": "type",
+          "type": "string",
+          "description": "Property `type` (`string`) storing type.",
+          "descriptionZh": "属性 `type`（类型：`string`），用于存储或配置类型。"
+        },
+        {
+          "name": "displayValue",
+          "type": "any",
+          "description": "Property `displayValue` (`any`) storing display value.",
+          "descriptionZh": "属性 `displayValue`（类型：`any`），用于存储或配置display值。"
+        },
+        {
+          "name": "editable",
+          "type": "boolean",
+          "description": "Property `editable` (`boolean`) storing editable.",
+          "descriptionZh": "属性 `editable`（类型：`boolean`），用于存储或配置是否可编辑。"
+        },
+        {
+          "name": "icon",
+          "type": "string",
+          "description": "Property `icon` (`string`) storing icon.",
+          "descriptionZh": "属性 `icon`（类型：`string`），用于存储或配置图标。"
+        }
+      ]
     },
     {
       "name": "CardViewItemDispatcherComponent",
       "kind": "component",
       "selector": "dui-card-view-item-dispatcher",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular component `CardViewItemDispatcherComponent` (selector: 'dui-card-view-item-dispatcher') providing card view item dispatcher component presentation and interaction in `src/data/cardview/components/card-view-item-dispatcher`.",
+      "summaryZh": "Angular 组件 `CardViewItemDispatcherComponent`（selector: 'dui-card-view-item-dispatcher'），提供卡片视图条目派发器组件的视图渲染与交互逻辑（位于 `src/data/cardview/components/card-view-item-dispatcher`）。",
       "sourceFile": "src/data/cardview/components/card-view-item-dispatcher/card-view-item-dispatcher.component.ts",
       "inputs": [
         {
           "name": "property",
           "type": "CardViewItem",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `property` (`CardViewItem`) configuring property.",
+          "descriptionZh": "输入属性 `property`（类型：`CardViewItem`），用于配置属性。"
         },
         {
           "name": "editable",
           "type": "boolean",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `editable` (`boolean`) configuring editable.",
+          "descriptionZh": "输入属性 `editable`（类型：`boolean`），用于配置是否可编辑。"
         },
         {
           "name": "displayEmpty",
           "type": "boolean",
           "default": "true",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `displayEmpty` (`boolean`) configuring display empty (default: `true`).",
+          "descriptionZh": "输入属性 `displayEmpty`（类型：`boolean`），用于配置display空（默认值：`true`）。"
         },
         {
           "name": "displayNoneOption",
           "type": "boolean",
           "default": "true",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `displayNoneOption` (`boolean`) configuring display none option (default: `true`).",
+          "descriptionZh": "输入属性 `displayNoneOption`（类型：`boolean`），用于配置display无选项（默认值：`true`）。"
         },
         {
           "name": "displayClearAction",
           "type": "boolean",
           "default": "true",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `displayClearAction` (`boolean`) configuring display clear action (default: `true`).",
+          "descriptionZh": "输入属性 `displayClearAction`（类型：`boolean`），用于配置display清空动作（默认值：`true`）。"
         },
         {
           "name": "copyToClipboardAction",
           "type": "boolean",
           "default": "true",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `copyToClipboardAction` (`boolean`) configuring copy to clipboard action (default: `true`).",
+          "descriptionZh": "输入属性 `copyToClipboardAction`（类型：`boolean`），用于配置复制转换为Clipboard动作（默认值：`true`）。"
         },
         {
           "name": "useChipsForMultiValueProperty",
           "type": "boolean",
           "default": "true",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `useChipsForMultiValueProperty` (`boolean`) configuring use chips for multi value property (default: `true`).",
+          "descriptionZh": "输入属性 `useChipsForMultiValueProperty`（类型：`boolean`），用于配置使用纸片标签用于多值属性（默认值：`true`）。"
         },
         {
           "name": "multiValueSeparator",
           "type": "string",
           "default": "DEFAULT_SEPARATOR",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `multiValueSeparator` (`string`) configuring multi value separator (default: `DEFAULT_SEPARATOR`).",
+          "descriptionZh": "输入属性 `multiValueSeparator`（类型：`string`），用于配置多值Separator（默认值：`DEFAULT_SEPARATOR`）。"
         }
       ],
       "outputs": [],
@@ -728,22 +856,22 @@
         {
           "name": "ngOnInit",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `ngOnInit` (`any`) storing ng on init.",
+          "descriptionZh": "属性 `ngOnInit`（类型：`any`），用于存储或配置Angular当初始化。"
         },
         {
           "name": "ngDoCheck",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `ngDoCheck` (`any`) storing ng do check.",
+          "descriptionZh": "属性 `ngDoCheck`（类型：`any`），用于存储或配置AngularDo检查。"
         }
       ]
     },
     {
       "name": "CardViewItemFloatValidator",
       "kind": "class",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Class `CardViewItemFloatValidator` encapsulating card view item float validator data structures and logic in `src/data/cardview/validators`.",
+      "summaryZh": "类 `CardViewItemFloatValidator`，封装 `src/data/cardview/validators` 中的卡片视图条目Float校验器数据结构与处理逻辑。",
       "sourceFile": "src/data/cardview/validators/card-view-item-float.validator.ts",
       "inputs": [],
       "outputs": [],
@@ -757,8 +885,8 @@
             }
           ],
           "returnType": "boolean",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `isValid` to handle is valid.",
+          "descriptionZh": "执行 `isValid`，用于是否为有效。"
         }
       ],
       "properties": [
@@ -766,16 +894,16 @@
           "name": "message",
           "type": "any",
           "default": "'CORE.CARDVIEW.VALIDATORS.FLOAT_VALIDATION_ERROR'",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `message` (`string`) storing message.",
+          "descriptionZh": "属性 `message`（类型：`string`），用于存储或配置消息。"
         }
       ]
     },
     {
       "name": "CardViewItemIntValidator",
       "kind": "class",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Class `CardViewItemIntValidator` encapsulating card view item int validator data structures and logic in `src/data/cardview/validators`.",
+      "summaryZh": "类 `CardViewItemIntValidator`，封装 `src/data/cardview/validators` 中的卡片视图条目Int校验器数据结构与处理逻辑。",
       "sourceFile": "src/data/cardview/validators/card-view-item-int.validator.ts",
       "inputs": [],
       "outputs": [],
@@ -789,8 +917,8 @@
             }
           ],
           "returnType": "boolean",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `isValid` to handle is valid.",
+          "descriptionZh": "执行 `isValid`，用于是否为有效。"
         },
         {
           "name": "isIntegerNumber",
@@ -801,8 +929,8 @@
             }
           ],
           "returnType": "boolean",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `isIntegerNumber` to handle is integer number.",
+          "descriptionZh": "执行 `isIntegerNumber`，用于是否为Integer数字。"
         }
       ],
       "properties": [
@@ -810,53 +938,128 @@
           "name": "message",
           "type": "any",
           "default": "'CORE.CARDVIEW.VALIDATORS.INT_VALIDATION_ERROR'",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `message` (`string`) storing message.",
+          "descriptionZh": "属性 `message`（类型：`string`），用于存储或配置消息。"
         }
       ]
     },
     {
       "name": "CardViewItemProperties",
       "kind": "interface",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Interface `CardViewItemProperties` defining the contract and properties for card view item properties.",
+      "summaryZh": "接口 `CardViewItemProperties`，定义卡片视图条目属性列表的数据结构契约与属性规范。",
       "sourceFile": "src/data/cardview/interfaces/card-view-item-properties.interface.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
-      "properties": []
+      "properties": [
+        {
+          "name": "label",
+          "type": "string",
+          "description": "Property `label` (`string`) storing label.",
+          "descriptionZh": "属性 `label`（类型：`string`），用于存储或配置标签。"
+        },
+        {
+          "name": "value",
+          "type": "any",
+          "description": "Property `value` (`any`) storing value.",
+          "descriptionZh": "属性 `value`（类型：`any`），用于存储或配置值。"
+        },
+        {
+          "name": "key",
+          "type": "any",
+          "description": "Property `key` (`any`) storing key.",
+          "descriptionZh": "属性 `key`（类型：`any`），用于存储或配置键。"
+        },
+        {
+          "name": "default",
+          "type": "any",
+          "description": "Property `default` (`any`) storing default.",
+          "descriptionZh": "属性 `default`（类型：`any`），用于存储或配置默认。"
+        },
+        {
+          "name": "editable",
+          "type": "boolean",
+          "description": "Property `editable` (`boolean`) storing editable.",
+          "descriptionZh": "属性 `editable`（类型：`boolean`），用于存储或配置是否可编辑。"
+        },
+        {
+          "name": "clickable",
+          "type": "any",
+          "description": "Property `clickable` (`any`) storing clickable.",
+          "descriptionZh": "属性 `clickable`（类型：`any`），用于存储或配置是否可点击。"
+        },
+        {
+          "name": "icon",
+          "type": "string",
+          "description": "Property `icon` (`string`) storing icon.",
+          "descriptionZh": "属性 `icon`（类型：`string`），用于存储或配置图标。"
+        },
+        {
+          "name": "validators",
+          "type": "CardViewItemValidator[]",
+          "description": "Property `validators` (`CardViewItemValidator[]`) storing validators.",
+          "descriptionZh": "属性 `validators`（类型：`CardViewItemValidator[]`），用于存储或配置校验器列表。"
+        },
+        {
+          "name": "data",
+          "type": "any",
+          "description": "Property `data` (`any`) storing data.",
+          "descriptionZh": "属性 `data`（类型：`any`），用于存储或配置数据。"
+        }
+      ]
     },
     {
       "name": "CardViewItemValidator",
       "kind": "interface",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Interface `CardViewItemValidator` defining the contract and properties for card view item validator.",
+      "summaryZh": "接口 `CardViewItemValidator`，定义卡片视图条目校验器的数据结构契约与属性规范。",
       "sourceFile": "src/data/cardview/interfaces/card-view-item-validator.interface.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
-      "properties": []
+      "methods": [
+        {
+          "name": "isValid",
+          "params": [
+            {
+              "name": "value",
+              "type": "any"
+            }
+          ],
+          "returnType": "boolean",
+          "description": "Executes `isValid` to handle is valid.",
+          "descriptionZh": "执行 `isValid`，用于是否为有效。"
+        }
+      ],
+      "properties": [
+        {
+          "name": "message",
+          "type": "string",
+          "description": "Property `message` (`string`) storing message.",
+          "descriptionZh": "属性 `message`（类型：`string`），用于存储或配置消息。"
+        }
+      ]
     },
     {
       "name": "CardViewKeyValuePairsItemComponent",
       "kind": "component",
-      "selector": "dui-card-view-boolitem",
-      "summary": null,
-      "summaryZh": null,
+      "selector": "dui-card-view-keyvaluepairsitem",
+      "summary": "Angular component `CardViewKeyValuePairsItemComponent` (selector: 'dui-card-view-keyvaluepairsitem') providing card view key value pairs item component presentation and interaction in `src/data/cardview/components/card-view-keyvaluepairsitem`.",
+      "summaryZh": "Angular 组件 `CardViewKeyValuePairsItemComponent`（selector: 'dui-card-view-keyvaluepairsitem'），提供卡片视图键值Pairs条目组件的视图渲染与交互逻辑（位于 `src/data/cardview/components/card-view-keyvaluepairsitem`）。",
       "sourceFile": "src/data/cardview/components/card-view-keyvaluepairsitem/card-view-keyvaluepairsitem.component.ts",
       "inputs": [
         {
           "name": "property",
           "type": "CardViewKeyValuePairsItemModel",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `property` (`CardViewKeyValuePairsItemModel`) configuring property.",
+          "descriptionZh": "输入属性 `property`（类型：`CardViewKeyValuePairsItemModel`），用于配置属性。"
         },
         {
           "name": "editable",
           "type": "boolean",
           "default": "false",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `editable` (`boolean`) configuring editable (default: `false`).",
+          "descriptionZh": "输入属性 `editable`（类型：`boolean`），用于配置是否可编辑（默认值：`false`）。"
         }
       ],
       "outputs": [],
@@ -865,15 +1068,15 @@
           "name": "isEditable",
           "params": [],
           "returnType": "boolean",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `isEditable` to handle is editable.",
+          "descriptionZh": "执行 `isEditable`，用于是否为是否可编辑。"
         },
         {
           "name": "add",
           "params": [],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `add` to handle add.",
+          "descriptionZh": "执行 `add`，用于添加。"
         },
         {
           "name": "remove",
@@ -884,8 +1087,8 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `remove` to handle remove.",
+          "descriptionZh": "执行 `remove`，用于移除。"
         },
         {
           "name": "onBlur",
@@ -896,8 +1099,8 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `onBlur` to handle on blur.",
+          "descriptionZh": "执行 `onBlur`，用于当失焦。"
         },
         {
           "name": "save",
@@ -908,30 +1111,42 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `save` to handle save.",
+          "descriptionZh": "执行 `save`，用于保存。"
+        },
+        {
+          "name": "trackByIndex",
+          "params": [
+            {
+              "name": "index",
+              "type": "number"
+            }
+          ],
+          "returnType": "number",
+          "description": "Executes `trackByIndex` to handle track by index.",
+          "descriptionZh": "执行 `trackByIndex`，用于track按索引。"
         }
       ],
       "properties": [
         {
           "name": "values",
           "type": "CardViewKeyValuePairsItemType[]",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `values` (`CardViewKeyValuePairsItemType[]`) storing values.",
+          "descriptionZh": "属性 `values`（类型：`CardViewKeyValuePairsItemType[]`），用于存储或配置值列表。"
         },
         {
           "name": "matTableValues",
           "type": "MatTableDataSource<CardViewKeyValuePairsItemType>",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `matTableValues` (`MatTableDataSource<CardViewKeyValuePairsItemType>`) storing mat table values.",
+          "descriptionZh": "属性 `matTableValues`（类型：`MatTableDataSource<CardViewKeyValuePairsItemType>`），用于存储或配置Material表格值列表。"
         }
       ]
     },
     {
       "name": "CardViewKeyValuePairsItemModel",
       "kind": "class",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Class `CardViewKeyValuePairsItemModel` encapsulating card view key value pairs item model data structures and logic in `src/data/cardview/models`.",
+      "summaryZh": "类 `CardViewKeyValuePairsItemModel`，封装 `src/data/cardview/models` 中的卡片视图键值Pairs条目模型数据结构与处理逻辑。",
       "sourceFile": "src/data/cardview/models/card-view-keyvaluepairs.model.ts",
       "inputs": [],
       "outputs": [],
@@ -941,59 +1156,79 @@
           "name": "type",
           "type": "string",
           "default": "'keyvaluepairs'",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `type` (`string`) storing type (default: `'keyvaluepairs'`).",
+          "descriptionZh": "属性 `type`（类型：`string`），用于存储或配置类型（默认值：`'keyvaluepairs'`）。"
         },
         {
           "name": "displayValue",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current display value (`displayValue: any`).",
+          "descriptionZh": "获取当前display值（`displayValue: any`）。"
         }
       ]
     },
     {
       "name": "CardViewKeyValuePairsItemProperties",
       "kind": "interface",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Interface `CardViewKeyValuePairsItemProperties` defining the contract and properties for card view key value pairs item properties.",
+      "summaryZh": "接口 `CardViewKeyValuePairsItemProperties`，定义卡片视图键值Pairs条目属性列表的数据结构契约与属性规范。",
       "sourceFile": "src/data/cardview/interfaces/card-view-keyvaluepairsitem-properties.interface.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
-      "properties": []
+      "properties": [
+        {
+          "name": "value",
+          "type": "CardViewKeyValuePairsItemType[]",
+          "description": "Property `value` (`CardViewKeyValuePairsItemType[]`) storing value.",
+          "descriptionZh": "属性 `value`（类型：`CardViewKeyValuePairsItemType[]`），用于存储或配置值。"
+        }
+      ]
     },
     {
       "name": "CardViewKeyValuePairsItemType",
       "kind": "interface",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Interface `CardViewKeyValuePairsItemType` defining the contract and properties for card view key value pairs item type.",
+      "summaryZh": "接口 `CardViewKeyValuePairsItemType`，定义卡片视图键值Pairs条目类型的数据结构契约与属性规范。",
       "sourceFile": "src/data/cardview/interfaces/card-view-keyvaluepairsitem-properties.interface.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
-      "properties": []
+      "properties": [
+        {
+          "name": "name",
+          "type": "string",
+          "description": "Property `name` (`string`) storing name.",
+          "descriptionZh": "属性 `name`（类型：`string`），用于存储或配置名称。"
+        },
+        {
+          "name": "value",
+          "type": "string",
+          "description": "Property `value` (`string`) storing value.",
+          "descriptionZh": "属性 `value`（类型：`string`），用于存储或配置值。"
+        }
+      ]
     },
     {
       "name": "CardViewMapItemComponent",
       "kind": "component",
       "selector": "dui-card-view-mapitem",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular component `CardViewMapItemComponent` (selector: 'dui-card-view-mapitem') providing card view map item component presentation and interaction in `src/data/cardview/components/card-view-mapitem`.",
+      "summaryZh": "Angular 组件 `CardViewMapItemComponent`（selector: 'dui-card-view-mapitem'），提供卡片视图映射表条目组件的视图渲染与交互逻辑（位于 `src/data/cardview/components/card-view-mapitem`）。",
       "sourceFile": "src/data/cardview/components/card-view-mapitem/card-view-mapitem.component.ts",
       "inputs": [
         {
           "name": "property",
           "type": "CardViewMapItemModel",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `property` (`CardViewMapItemModel`) configuring property.",
+          "descriptionZh": "输入属性 `property`（类型：`CardViewMapItemModel`），用于配置属性。"
         },
         {
           "name": "displayEmpty",
           "type": "boolean",
           "default": "true",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `displayEmpty` (`boolean`) configuring display empty (default: `true`).",
+          "descriptionZh": "输入属性 `displayEmpty`（类型：`boolean`），用于配置display空（默认值：`true`）。"
         }
       ],
       "outputs": [],
@@ -1002,22 +1237,22 @@
           "name": "showProperty",
           "params": [],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `showProperty` to handle show property.",
+          "descriptionZh": "执行 `showProperty`，用于显示属性。"
         },
         {
           "name": "isClickable",
           "params": [],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `isClickable` to handle is clickable.",
+          "descriptionZh": "执行 `isClickable`，用于是否为是否可点击。"
         },
         {
           "name": "clicked",
           "params": [],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `clicked` to handle clicked.",
+          "descriptionZh": "执行 `clicked`，用于点击。"
         }
       ],
       "properties": []
@@ -1025,8 +1260,8 @@
     {
       "name": "CardViewMapItemModel",
       "kind": "class",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Class `CardViewMapItemModel` encapsulating card view map item model data structures and logic in `src/data/cardview/models`.",
+      "summaryZh": "类 `CardViewMapItemModel`，封装 `src/data/cardview/models` 中的卡片视图映射表条目模型数据结构与处理逻辑。",
       "sourceFile": "src/data/cardview/models/card-view-mapitem.model.ts",
       "inputs": [],
       "outputs": [],
@@ -1036,28 +1271,28 @@
           "name": "type",
           "type": "string",
           "default": "'map'",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `type` (`string`) storing type (default: `'map'`).",
+          "descriptionZh": "属性 `type`（类型：`string`），用于存储或配置类型（默认值：`'map'`）。"
         },
         {
           "name": "value",
           "type": "Map<string, string>",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `value` (`Map<string, string>`) storing value.",
+          "descriptionZh": "属性 `value`（类型：`Map<string, string>`），用于存储或配置值。"
         },
         {
           "name": "displayValue",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current display value (`displayValue: any`).",
+          "descriptionZh": "获取当前display值（`displayValue: any`）。"
         }
       ]
     },
     {
       "name": "CardViewModule",
       "kind": "module",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular module `CardViewModule` declaring and exporting card view module components, directives, pipes, and providers.",
+      "summaryZh": "Angular 模块 `CardViewModule`，声明并导出卡片视图模块相关的组件、指令、管道与服务提供者。",
       "sourceFile": "src/data/cardview/card-view.module.ts",
       "inputs": [],
       "outputs": [],
@@ -1067,8 +1302,8 @@
           "name": "entryComponents",
           "type": "any",
           "default": "[    CardViewBoolItemComponent,\n    CardViewDateItemComponent,\n    CardViewMapItemComponent,\n    CardViewTextItemComponent,\n    CardViewSelectItemComponent,\n    CardViewKeyValuePairsItemComponent,\n    CardViewArrayItemComponent]",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `entryComponents` (`any[]`) storing entry components.",
+          "descriptionZh": "属性 `entryComponents`（类型：`any[]`），用于存储或配置条目组件列表。"
         }
       ]
     },
@@ -1076,35 +1311,35 @@
       "name": "CardViewSelectItemComponent",
       "kind": "component",
       "selector": "dui-card-view-selectitem",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular component `CardViewSelectItemComponent` (selector: 'dui-card-view-selectitem') providing card view select item component presentation and interaction in `src/data/cardview/components/card-view-selectitem`.",
+      "summaryZh": "Angular 组件 `CardViewSelectItemComponent`（selector: 'dui-card-view-selectitem'），提供卡片视图下拉选择条目组件的视图渲染与交互逻辑（位于 `src/data/cardview/components/card-view-selectitem`）。",
       "sourceFile": "src/data/cardview/components/card-view-selectitem/card-view-selectitem.component.ts",
       "inputs": [
         {
           "name": "property",
           "type": "CardViewSelectItemModel<string>",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `property` (`CardViewSelectItemModel<string>`) configuring property.",
+          "descriptionZh": "输入属性 `property`（类型：`CardViewSelectItemModel<string>`），用于配置属性。"
         },
         {
           "name": "editable",
           "type": "boolean",
           "default": "false",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `editable` (`boolean`) configuring editable (default: `false`).",
+          "descriptionZh": "输入属性 `editable`（类型：`boolean`），用于配置是否可编辑（默认值：`false`）。"
         },
         {
           "name": "options$",
           "type": "Observable<CardViewSelectItemOption<string>[]>",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `options$` (`Observable<CardViewSelectItemOption<string>[]>`) configuring options.",
+          "descriptionZh": "输入属性 `options$`（类型：`Observable<CardViewSelectItemOption<string>[]>`），用于配置配置选项。"
         },
         {
           "name": "displayNoneOption",
           "type": "boolean",
           "default": "true",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `displayNoneOption` (`boolean`) configuring display none option (default: `true`).",
+          "descriptionZh": "输入属性 `displayNoneOption`（类型：`boolean`），用于配置display无选项（默认值：`true`）。"
         }
       ],
       "outputs": [],
@@ -1113,15 +1348,15 @@
           "name": "isEditable",
           "params": [],
           "returnType": "boolean",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `isEditable` to handle is editable.",
+          "descriptionZh": "执行 `isEditable`，用于是否为是否可编辑。"
         },
         {
           "name": "getOptions",
           "params": [],
           "returnType": "Observable<CardViewSelectItemOption<string>[]>",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `getOptions` to handle get options.",
+          "descriptionZh": "执行 `getOptions`，用于获取配置选项。"
         },
         {
           "name": "onChange",
@@ -1132,31 +1367,47 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `onChange` to handle on change.",
+          "descriptionZh": "执行 `onChange`，用于当变更。"
         },
         {
           "name": "showNoneOption",
           "params": [],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `showNoneOption` to handle show none option.",
+          "descriptionZh": "执行 `showNoneOption`，用于显示无选项。"
+        },
+        {
+          "name": "trackByOption",
+          "params": [
+            {
+              "name": "index",
+              "type": "number"
+            },
+            {
+              "name": "option",
+              "type": "CardViewSelectItemOption<string>"
+            }
+          ],
+          "returnType": "any",
+          "description": "Executes `trackByOption` to handle track by option.",
+          "descriptionZh": "执行 `trackByOption`，用于track按选项。"
         }
       ],
       "properties": [
         {
           "name": "value",
           "type": "string",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `value` (`string`) storing value.",
+          "descriptionZh": "属性 `value`（类型：`string`），用于存储或配置值。"
         }
       ]
     },
     {
       "name": "CardViewSelectItemModel",
       "kind": "class",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Class `CardViewSelectItemModel` encapsulating card view select item model data structures and logic in `src/data/cardview/models`.",
+      "summaryZh": "类 `CardViewSelectItemModel`，封装 `src/data/cardview/models` 中的卡片视图下拉选择条目模型数据结构与处理逻辑。",
       "sourceFile": "src/data/cardview/models/card-view-selectitem.model.ts",
       "inputs": [],
       "outputs": [],
@@ -1166,93 +1417,119 @@
           "name": "type",
           "type": "string",
           "default": "'select'",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `type` (`string`) storing type (default: `'select'`).",
+          "descriptionZh": "属性 `type`（类型：`string`），用于存储或配置类型（默认值：`'select'`）。"
         },
         {
           "name": "options$",
           "type": "Observable<CardViewSelectItemOption<T>[]>",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `options$` (`Observable<CardViewSelectItemOption<T>[]>`) storing options.",
+          "descriptionZh": "属性 `options$`（类型：`Observable<CardViewSelectItemOption<T>[]>`），用于存储或配置配置选项。"
         },
         {
           "name": "displayValue",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current display value (`displayValue: any`).",
+          "descriptionZh": "获取当前display值（`displayValue: any`）。"
         }
       ]
     },
     {
       "name": "CardViewSelectItemOption",
       "kind": "interface",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Interface `CardViewSelectItemOption` defining the contract and properties for card view select item option.",
+      "summaryZh": "接口 `CardViewSelectItemOption`，定义卡片视图下拉选择条目选项的数据结构契约与属性规范。",
       "sourceFile": "src/data/cardview/interfaces/card-view-selectitem-properties.interface.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
-      "properties": []
+      "properties": [
+        {
+          "name": "label",
+          "type": "string",
+          "description": "Property `label` (`string`) storing label.",
+          "descriptionZh": "属性 `label`（类型：`string`），用于存储或配置标签。"
+        },
+        {
+          "name": "key",
+          "type": "T",
+          "description": "Property `key` (`T`) storing key.",
+          "descriptionZh": "属性 `key`（类型：`T`），用于存储或配置键。"
+        }
+      ]
     },
     {
       "name": "CardViewSelectItemProperties",
       "kind": "interface",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Interface `CardViewSelectItemProperties` defining the contract and properties for card view select item properties.",
+      "summaryZh": "接口 `CardViewSelectItemProperties`，定义卡片视图下拉选择条目属性列表的数据结构契约与属性规范。",
       "sourceFile": "src/data/cardview/interfaces/card-view-selectitem-properties.interface.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
-      "properties": []
+      "properties": [
+        {
+          "name": "value",
+          "type": "string",
+          "description": "Property `value` (`string`) storing value.",
+          "descriptionZh": "属性 `value`（类型：`string`），用于存储或配置值。"
+        },
+        {
+          "name": "options$",
+          "type": "Observable<CardViewSelectItemOption<T>[]>",
+          "description": "Property `options$` (`Observable<CardViewSelectItemOption<T>[]>`) storing options.",
+          "descriptionZh": "属性 `options$`（类型：`Observable<CardViewSelectItemOption<T>[]>`），用于存储或配置配置选项。"
+        }
+      ]
     },
     {
       "name": "CardViewTextItemComponent",
       "kind": "component",
       "selector": "dui-card-view-textitem",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular component `CardViewTextItemComponent` (selector: 'dui-card-view-textitem') providing card view text item component presentation and interaction in `src/data/cardview/components/card-view-textitem`.",
+      "summaryZh": "Angular 组件 `CardViewTextItemComponent`（selector: 'dui-card-view-textitem'），提供卡片视图文本条目组件的视图渲染与交互逻辑（位于 `src/data/cardview/components/card-view-textitem`）。",
       "sourceFile": "src/data/cardview/components/card-view-textitem/card-view-textitem.component.ts",
       "inputs": [
         {
           "name": "property",
           "type": "CardViewTextItemModel",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `property` (`CardViewTextItemModel`) configuring property.",
+          "descriptionZh": "输入属性 `property`（类型：`CardViewTextItemModel`），用于配置属性。"
         },
         {
           "name": "editable",
           "type": "boolean",
           "default": "false",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `editable` (`boolean`) configuring editable (default: `false`).",
+          "descriptionZh": "输入属性 `editable`（类型：`boolean`），用于配置是否可编辑（默认值：`false`）。"
         },
         {
           "name": "displayEmpty",
           "type": "boolean",
           "default": "true",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `displayEmpty` (`boolean`) configuring display empty (default: `true`).",
+          "descriptionZh": "输入属性 `displayEmpty`（类型：`boolean`），用于配置display空（默认值：`true`）。"
         },
         {
           "name": "copyToClipboardAction",
           "type": "boolean",
           "default": "true",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `copyToClipboardAction` (`boolean`) configuring copy to clipboard action (default: `true`).",
+          "descriptionZh": "输入属性 `copyToClipboardAction`（类型：`boolean`），用于配置复制转换为Clipboard动作（默认值：`true`）。"
         },
         {
           "name": "useChipsForMultiValueProperty",
           "type": "boolean",
           "default": "true",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `useChipsForMultiValueProperty` (`boolean`) configuring use chips for multi value property (default: `true`).",
+          "descriptionZh": "输入属性 `useChipsForMultiValueProperty`（类型：`boolean`），用于配置使用纸片标签用于多值属性（默认值：`true`）。"
         },
         {
           "name": "multiValueSeparator",
           "type": "string",
           "default": "DEFAULT_SEPARATOR",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `multiValueSeparator` (`string`) configuring multi value separator (default: `DEFAULT_SEPARATOR`).",
+          "descriptionZh": "输入属性 `multiValueSeparator`（类型：`string`），用于配置多值Separator（默认值：`DEFAULT_SEPARATOR`）。"
         }
       ],
       "outputs": [],
@@ -1261,15 +1538,15 @@
           "name": "resetValue",
           "params": [],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `resetValue` to handle reset value.",
+          "descriptionZh": "执行 `resetValue`，用于重置值。"
         },
         {
           "name": "update",
           "params": [],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `update` to handle update.",
+          "descriptionZh": "执行 `update`，用于更新。"
         },
         {
           "name": "prepareValueForUpload",
@@ -1284,8 +1561,8 @@
             }
           ],
           "returnType": "string | string[]",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `prepareValueForUpload` to handle prepare value for upload.",
+          "descriptionZh": "执行 `prepareValueForUpload`，用于prepare值用于上传。"
         },
         {
           "name": "removeValueFromList",
@@ -1296,8 +1573,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `removeValueFromList` to handle remove value from list.",
+          "descriptionZh": "执行 `removeValueFromList`，用于移除值从列表。"
         },
         {
           "name": "addValueToList",
@@ -1308,22 +1585,22 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `addValueToList` to handle add value to list.",
+          "descriptionZh": "执行 `addValueToList`，用于添加值转换为列表。"
         },
         {
           "name": "clicked",
           "params": [],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `clicked` to handle clicked.",
+          "descriptionZh": "执行 `clicked`，用于点击。"
         },
         {
           "name": "clearValue",
           "params": [],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `clearValue` to handle clear value.",
+          "descriptionZh": "执行 `clearValue`，用于清空值。"
         },
         {
           "name": "copyToClipboard",
@@ -1334,78 +1611,78 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `copyToClipboard` to handle copy to clipboard.",
+          "descriptionZh": "执行 `copyToClipboard`，用于复制转换为Clipboard。"
         }
       ],
       "properties": [
         {
           "name": "editedValue",
           "type": "string | string[]",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `editedValue` (`string | string[]`) storing edited value.",
+          "descriptionZh": "属性 `editedValue`（类型：`string | string[]`），用于存储或配置已编辑值。"
         },
         {
           "name": "errorMessages",
           "type": "string[]",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `errorMessages` (`string[]`) storing error messages.",
+          "descriptionZh": "属性 `errorMessages`（类型：`string[]`），用于存储或配置错误消息列表。"
         },
         {
           "name": "templateType",
           "type": "string",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `templateType` (`string`) storing template type.",
+          "descriptionZh": "属性 `templateType`（类型：`string`），用于存储或配置模板类型。"
         },
         {
           "name": "showProperty",
           "type": "boolean",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current show property (`showProperty: boolean`).",
+          "descriptionZh": "获取当前显示属性（`showProperty: boolean`）。"
         },
         {
           "name": "showClickableIcon",
           "type": "boolean",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current show clickable icon (`showClickableIcon: boolean`).",
+          "descriptionZh": "获取当前显示是否可点击图标（`showClickableIcon: boolean`）。"
         },
         {
           "name": "isEditable",
           "type": "boolean",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current is editable (`isEditable: boolean`).",
+          "descriptionZh": "获取当前是否为是否可编辑（`isEditable: boolean`）。"
         },
         {
           "name": "isClickable",
           "type": "boolean",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current is clickable (`isClickable: boolean`).",
+          "descriptionZh": "获取当前是否为是否可点击（`isClickable: boolean`）。"
         },
         {
           "name": "hasIcon",
           "type": "boolean",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current has icon (`hasIcon: boolean`).",
+          "descriptionZh": "获取当前是否包含图标（`hasIcon: boolean`）。"
         },
         {
           "name": "hasErrors",
           "type": "boolean",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current has errors (`hasErrors: boolean`).",
+          "descriptionZh": "获取当前是否包含错误列表（`hasErrors: boolean`）。"
         },
         {
           "name": "isChipViewEnabled",
           "type": "boolean",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current is chip view enabled (`isChipViewEnabled: boolean`).",
+          "descriptionZh": "获取当前是否为纸片标签视图已启用（`isChipViewEnabled: boolean`）。"
         }
       ]
     },
     {
       "name": "CardViewTextItemModel",
       "kind": "class",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Class `CardViewTextItemModel` encapsulating card view text item model data structures and logic in `src/data/cardview/models`.",
+      "summaryZh": "类 `CardViewTextItemModel`，封装 `src/data/cardview/models` 中的卡片视图文本条目模型数据结构与处理逻辑。",
       "sourceFile": "src/data/cardview/models/card-view-textitem.model.ts",
       "inputs": [],
       "outputs": [],
@@ -1415,75 +1692,113 @@
           "name": "type",
           "type": "string",
           "default": "'text'",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `type` (`string`) storing type (default: `'text'`).",
+          "descriptionZh": "属性 `type`（类型：`string`），用于存储或配置类型（默认值：`'text'`）。"
         },
         {
           "name": "inputType",
           "type": "string",
           "default": "'text'",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `inputType` (`string`) storing input type (default: `'text'`).",
+          "descriptionZh": "属性 `inputType`（类型：`string`），用于存储或配置输入属性类型（默认值：`'text'`）。"
         },
         {
           "name": "multiline",
           "type": "boolean",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `multiline` (`boolean`) storing multiline.",
+          "descriptionZh": "属性 `multiline`（类型：`boolean`），用于存储或配置multiline。"
         },
         {
           "name": "multivalued",
           "type": "boolean",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `multivalued` (`boolean`) storing multivalued.",
+          "descriptionZh": "属性 `multivalued`（类型：`boolean`），用于存储或配置multivalued。"
         },
         {
           "name": "pipes",
           "type": "CardViewTextItemPipeProperty[]",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `pipes` (`CardViewTextItemPipeProperty[]`) storing pipes.",
+          "descriptionZh": "属性 `pipes`（类型：`CardViewTextItemPipeProperty[]`），用于存储或配置管道。"
         },
         {
           "name": "clickCallBack",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `clickCallBack` (`any`) storing click call back.",
+          "descriptionZh": "属性 `clickCallBack`（类型：`any`），用于存储或配置点击调用返回。"
         },
         {
           "name": "displayValue",
           "type": "string",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current display value (`displayValue: string`).",
+          "descriptionZh": "获取当前display值（`displayValue: string`）。"
         }
       ]
     },
     {
       "name": "CardViewTextItemPipeProperty",
       "kind": "interface",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Interface `CardViewTextItemPipeProperty` defining the contract and properties for card view text item pipe property.",
+      "summaryZh": "接口 `CardViewTextItemPipeProperty`，定义卡片视图文本条目管道属性的数据结构契约与属性规范。",
       "sourceFile": "src/data/cardview/interfaces/card-view-textitem-pipe-property.interface.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
-      "properties": []
+      "properties": [
+        {
+          "name": "pipe",
+          "type": "PipeTransform",
+          "description": "Property `pipe` (`PipeTransform`) storing pipe.",
+          "descriptionZh": "属性 `pipe`（类型：`PipeTransform`），用于存储或配置管道。"
+        },
+        {
+          "name": "params",
+          "type": "any[]",
+          "description": "Property `params` (`any[]`) storing params.",
+          "descriptionZh": "属性 `params`（类型：`any[]`），用于存储或配置参数集合。"
+        }
+      ]
     },
     {
       "name": "CardViewTextItemProperties",
       "kind": "interface",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Interface `CardViewTextItemProperties` defining the contract and properties for card view text item properties.",
+      "summaryZh": "接口 `CardViewTextItemProperties`，定义卡片视图文本条目属性列表的数据结构契约与属性规范。",
       "sourceFile": "src/data/cardview/interfaces/card-view-textitem-properties.interface.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
-      "properties": []
+      "properties": [
+        {
+          "name": "multiline",
+          "type": "boolean",
+          "description": "Property `multiline` (`boolean`) storing multiline.",
+          "descriptionZh": "属性 `multiline`（类型：`boolean`），用于存储或配置multiline。"
+        },
+        {
+          "name": "multivalued",
+          "type": "boolean",
+          "description": "Property `multivalued` (`boolean`) storing multivalued.",
+          "descriptionZh": "属性 `multivalued`（类型：`boolean`），用于存储或配置multivalued。"
+        },
+        {
+          "name": "pipes",
+          "type": "CardViewTextItemPipeProperty[]",
+          "description": "Property `pipes` (`CardViewTextItemPipeProperty[]`) storing pipes.",
+          "descriptionZh": "属性 `pipes`（类型：`CardViewTextItemPipeProperty[]`），用于存储或配置管道。"
+        },
+        {
+          "name": "clickCallBack",
+          "type": "any",
+          "description": "Property `clickCallBack` (`any`) storing click call back.",
+          "descriptionZh": "属性 `clickCallBack`（类型：`any`），用于存储或配置点击调用返回。"
+        }
+      ]
     },
     {
       "name": "CardViewUpdateService",
       "kind": "service",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Injectable Angular service `CardViewUpdateService` managing card view update service state and operations in `src/data/cardview/services`.",
+      "summaryZh": "可注入的 Angular 服务 `CardViewUpdateService`，管理 `src/data/cardview/services` 中的卡片视图更新服务状态与业务操作。",
       "sourceFile": "src/data/cardview/services/card-view-update.service.ts",
       "inputs": [],
       "outputs": [],
@@ -1501,8 +1816,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `update` to handle update.",
+          "descriptionZh": "执行 `update`，用于更新。"
         },
         {
           "name": "clicked",
@@ -1513,8 +1828,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `clicked` to handle clicked.",
+          "descriptionZh": "执行 `clicked`，用于点击。"
         },
         {
           "name": "updateElement",
@@ -1525,8 +1840,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `updateElement` to handle update element.",
+          "descriptionZh": "执行 `updateElement`，用于更新元素。"
         }
       ],
       "properties": [
@@ -1534,41 +1849,48 @@
           "name": "itemUpdated$",
           "type": "any",
           "default": "new Subject<UpdateNotification>()",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `itemUpdated$` (`Subject`) storing item updated (default: `new Subject<UpdateNotification>()`).",
+          "descriptionZh": "属性 `itemUpdated$`（类型：`Subject`），用于存储或配置条目已更新（默认值：`new Subject<UpdateNotification>()`）。"
         },
         {
           "name": "itemClicked$",
           "type": "any",
           "default": "new Subject<ClickNotification>()",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `itemClicked$` (`Subject`) storing item clicked (default: `new Subject<ClickNotification>()`).",
+          "descriptionZh": "属性 `itemClicked$`（类型：`Subject`），用于存储或配置条目点击（默认值：`new Subject<ClickNotification>()`）。"
         },
         {
           "name": "updateItem$",
           "type": "any",
           "default": "new Subject<CardViewBaseItemModel>()",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `updateItem$` (`Subject`) storing update item (default: `new Subject<CardViewBaseItemModel>()`).",
+          "descriptionZh": "属性 `updateItem$`（类型：`Subject`），用于存储或配置更新条目（默认值：`new Subject<CardViewBaseItemModel>()`）。"
         }
       ]
     },
     {
       "name": "ClickNotification",
       "kind": "interface",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Interface `ClickNotification` defining the contract and properties for click notification.",
+      "summaryZh": "接口 `ClickNotification`，定义点击通知的数据结构契约与属性规范。",
       "sourceFile": "src/data/cardview/services/card-view-update.service.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
-      "properties": []
+      "properties": [
+        {
+          "name": "target",
+          "type": "any",
+          "description": "Property `target` (`any`) storing target.",
+          "descriptionZh": "属性 `target`（类型：`any`），用于存储或配置目标。"
+        }
+      ]
     },
     {
       "name": "DEFAULT_SEPARATOR",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `DEFAULT_SEPARATOR` defining default separator in `src/data/cardview/components/card-view-textitem`.",
+      "summaryZh": "常量/变量 `DEFAULT_SEPARATOR`，定义 `src/data/cardview/components/card-view-textitem` 中的默认SEPARATOR。",
       "sourceFile": "src/data/cardview/components/card-view-textitem/card-view-textitem.component.ts",
       "inputs": [],
       "outputs": [],
@@ -1578,24 +1900,54 @@
     {
       "name": "transformKeyToObject",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Executes `transformKeyToObject` to handle transform key to object.",
+      "summaryZh": "执行 `transformKeyToObject`，用于转换键转换为对象。",
       "sourceFile": "src/data/cardview/services/card-view-update.service.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "transformKeyToObject",
+          "params": [
+            {
+              "name": "key",
+              "type": "string"
+            },
+            {
+              "name": "value",
+              "type": "any"
+            }
+          ],
+          "returnType": "Object",
+          "description": "Executes `transformKeyToObject` to handle transform key to object.",
+          "descriptionZh": "执行 `transformKeyToObject`，用于转换键转换为对象。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "UpdateNotification",
       "kind": "interface",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Interface `UpdateNotification` defining the contract and properties for update notification.",
+      "summaryZh": "接口 `UpdateNotification`，定义更新通知的数据结构契约与属性规范。",
       "sourceFile": "src/data/cardview/services/card-view-update.service.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
-      "properties": []
+      "properties": [
+        {
+          "name": "target",
+          "type": "any",
+          "description": "Property `target` (`any`) storing target.",
+          "descriptionZh": "属性 `target`（类型：`any`），用于存储或配置目标。"
+        },
+        {
+          "name": "changed",
+          "type": "any",
+          "description": "Property `changed` (`any`) storing changed.",
+          "descriptionZh": "属性 `changed`（类型：`any`），用于存储或配置已变更。"
+        }
+      ]
     }
   ],
   "suggestedUsageSnippet": "import { CardViewArrayItemComponent, CardViewModule } from '@dotos/dui/data/cardview';\n\n<dui-card-view-arrayitem [property]=\"...\"></dui-card-view-arrayitem>"

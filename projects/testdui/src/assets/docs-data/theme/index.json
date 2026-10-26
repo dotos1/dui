@@ -4,41 +4,92 @@
     {
       "name": "_getAmbientMap",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Executes `_getAmbientMap` to handle get ambient map.",
+      "summaryZh": "执行 `_getAmbientMap`，用于获取Ambient映射表。",
       "sourceFile": "src/theme/utils/elevation.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "_getAmbientMap",
+          "params": [
+            {
+              "name": "color",
+              "type": "any"
+            },
+            {
+              "name": "opacity",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": "Executes `_getAmbientMap` to handle get ambient map.",
+          "descriptionZh": "执行 `_getAmbientMap`，用于获取Ambient映射表。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "_getPenumbraMap",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Executes `_getPenumbraMap` to handle get penumbra map.",
+      "summaryZh": "执行 `_getPenumbraMap`，用于获取Penumbra映射表。",
       "sourceFile": "src/theme/utils/elevation.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "_getPenumbraMap",
+          "params": [
+            {
+              "name": "color",
+              "type": "any"
+            },
+            {
+              "name": "opacity",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": "Executes `_getPenumbraMap` to handle get penumbra map.",
+          "descriptionZh": "执行 `_getPenumbraMap`，用于获取Penumbra映射表。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "_getUmbraMap",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Executes `_getUmbraMap` to handle get umbra map.",
+      "summaryZh": "执行 `_getUmbraMap`，用于获取Umbra映射表。",
       "sourceFile": "src/theme/utils/elevation.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "_getUmbraMap",
+          "params": [
+            {
+              "name": "color",
+              "type": "any"
+            },
+            {
+              "name": "opacity",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": "Executes `_getUmbraMap` to handle get umbra map.",
+          "descriptionZh": "执行 `_getUmbraMap`，用于获取Umbra映射表。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "_matElevationPrefix",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `_matElevationPrefix` defining mat elevation prefix in `src/theme/utils`.",
+      "summaryZh": "常量/变量 `_matElevationPrefix`，定义 `src/theme/utils` 中的Material层级阴影前缀。",
       "sourceFile": "src/theme/utils/elevation.ts",
       "inputs": [],
       "outputs": [],
@@ -48,118 +99,398 @@
     {
       "name": "addRule",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Executes `addRule` to handle add rule.",
+      "summaryZh": "执行 `addRule`，用于添加规则。",
       "sourceFile": "src/theme/utils/rules-operations.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "addRule",
+          "params": [
+            {
+              "name": "rule",
+              "type": "number | string"
+            },
+            {
+              "name": "add",
+              "type": "number | string"
+            }
+          ],
+          "returnType": "number | string",
+          "description": "Executes `addRule` to handle add rule.",
+          "descriptionZh": "执行 `addRule`，用于添加规则。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "Background",
       "kind": "interface",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Interface `Background` defining the contract and properties for background.",
+      "summaryZh": "接口 `Background`，定义背景的数据结构契约与属性规范。",
       "sourceFile": "src/theme/interfaces/background.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
-      "properties": []
+      "properties": [
+        {
+          "name": "'status-bar'",
+          "type": "string",
+          "description": "Property `status-bar` (`string`) storing status bar.",
+          "descriptionZh": "属性 `status-bar`（类型：`string`），用于存储或配置状态条。"
+        },
+        {
+          "name": "'app-bar'",
+          "type": "string",
+          "description": "Property `app-bar` (`string`) storing app bar.",
+          "descriptionZh": "属性 `app-bar`（类型：`string`），用于存储或配置app条。"
+        },
+        {
+          "name": "background",
+          "type": "string",
+          "description": "Property `background` (`string`) storing background.",
+          "descriptionZh": "属性 `background`（类型：`string`），用于存储或配置背景。"
+        },
+        {
+          "name": "hover",
+          "type": "string",
+          "description": "Property `hover` (`string`) storing hover.",
+          "descriptionZh": "属性 `hover`（类型：`string`），用于存储或配置hover。"
+        },
+        {
+          "name": "card",
+          "type": "string",
+          "description": "Property `card` (`string`) storing card.",
+          "descriptionZh": "属性 `card`（类型：`string`），用于存储或配置卡片。"
+        },
+        {
+          "name": "dialog",
+          "type": "string",
+          "description": "Property `dialog` (`string`) storing dialog.",
+          "descriptionZh": "属性 `dialog`（类型：`string`），用于存储或配置对话框。"
+        },
+        {
+          "name": "'disabled-button'",
+          "type": "string",
+          "description": "Property `disabled-button` (`string`) storing disabled button.",
+          "descriptionZh": "属性 `disabled-button`（类型：`string`），用于存储或配置已禁用按钮。"
+        },
+        {
+          "name": "'raised-button'",
+          "type": "string",
+          "description": "Property `raised-button` (`string`) storing raised button.",
+          "descriptionZh": "属性 `raised-button`（类型：`string`），用于存储或配置raised按钮。"
+        },
+        {
+          "name": "'focused-button'",
+          "type": "string",
+          "description": "Property `focused-button` (`string`) storing focused button.",
+          "descriptionZh": "属性 `focused-button`（类型：`string`），用于存储或配置已聚焦按钮。"
+        },
+        {
+          "name": "'selected-button'",
+          "type": "string",
+          "description": "Property `selected-button` (`string`) storing selected button.",
+          "descriptionZh": "属性 `selected-button`（类型：`string`），用于存储或配置已选中按钮。"
+        },
+        {
+          "name": "'selected-disabled-button'",
+          "type": "string",
+          "description": "Property `selected-disabled-button` (`string`) storing selected disabled button.",
+          "descriptionZh": "属性 `selected-disabled-button`（类型：`string`），用于存储或配置已选中已禁用按钮。"
+        },
+        {
+          "name": "'disabled-button-toggle'",
+          "type": "string",
+          "description": "Property `disabled-button-toggle` (`string`) storing disabled button toggle.",
+          "descriptionZh": "属性 `disabled-button-toggle`（类型：`string`），用于存储或配置已禁用按钮开关。"
+        },
+        {
+          "name": "'unselected-chip'",
+          "type": "string",
+          "description": "Property `unselected-chip` (`string`) storing unselected chip.",
+          "descriptionZh": "属性 `unselected-chip`（类型：`string`），用于存储或配置已取消选中纸片标签。"
+        },
+        {
+          "name": "'disabled-list-option'",
+          "type": "string",
+          "description": "Property `disabled-list-option` (`string`) storing disabled list option.",
+          "descriptionZh": "属性 `disabled-list-option`（类型：`string`），用于存储或配置已禁用列表选项。"
+        },
+        {
+          "name": "'tooltip'",
+          "type": "string",
+          "description": "Property `tooltip` (`string`) storing tooltip.",
+          "descriptionZh": "属性 `tooltip`（类型：`string`），用于存储或配置悬浮提示。"
+        }
+      ]
     },
     {
       "name": "BasePalette",
       "kind": "interface",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Interface `BasePalette` defining the contract and properties for base palette.",
+      "summaryZh": "接口 `BasePalette`，定义基础调色板的数据结构契约与属性规范。",
       "sourceFile": "src/theme/interfaces/palette.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
-      "properties": []
+      "properties": [
+        {
+          "name": "50",
+          "type": "string",
+          "description": "Property `50` (`string`) storing 50.",
+          "descriptionZh": "属性 `50`（类型：`string`），用于存储或配置50。"
+        },
+        {
+          "name": "100",
+          "type": "string",
+          "description": "Property `100` (`string`) storing 100.",
+          "descriptionZh": "属性 `100`（类型：`string`），用于存储或配置100。"
+        },
+        {
+          "name": "200",
+          "type": "string",
+          "description": "Property `200` (`string`) storing 200.",
+          "descriptionZh": "属性 `200`（类型：`string`），用于存储或配置200。"
+        },
+        {
+          "name": "300",
+          "type": "string",
+          "description": "Property `300` (`string`) storing 300.",
+          "descriptionZh": "属性 `300`（类型：`string`），用于存储或配置300。"
+        },
+        {
+          "name": "400",
+          "type": "string",
+          "description": "Property `400` (`string`) storing 400.",
+          "descriptionZh": "属性 `400`（类型：`string`），用于存储或配置400。"
+        },
+        {
+          "name": "500",
+          "type": "string",
+          "description": "Property `500` (`string`) storing 500.",
+          "descriptionZh": "属性 `500`（类型：`string`），用于存储或配置500。"
+        },
+        {
+          "name": "600",
+          "type": "string",
+          "description": "Property `600` (`string`) storing 600.",
+          "descriptionZh": "属性 `600`（类型：`string`），用于存储或配置600。"
+        },
+        {
+          "name": "700",
+          "type": "string",
+          "description": "Property `700` (`string`) storing 700.",
+          "descriptionZh": "属性 `700`（类型：`string`），用于存储或配置700。"
+        },
+        {
+          "name": "800",
+          "type": "string",
+          "description": "Property `800` (`string`) storing 800.",
+          "descriptionZh": "属性 `800`（类型：`string`），用于存储或配置800。"
+        },
+        {
+          "name": "900",
+          "type": "string",
+          "description": "Property `900` (`string`) storing 900.",
+          "descriptionZh": "属性 `900`（类型：`string`），用于存储或配置900。"
+        },
+        {
+          "name": "A100",
+          "type": "string",
+          "description": "Property `A100` (`string`) storing a100.",
+          "descriptionZh": "属性 `A100`（类型：`string`），用于存储或配置A100。"
+        },
+        {
+          "name": "A200",
+          "type": "string",
+          "description": "Property `A200` (`string`) storing a200.",
+          "descriptionZh": "属性 `A200`（类型：`string`），用于存储或配置A200。"
+        },
+        {
+          "name": "A400",
+          "type": "string",
+          "description": "Property `A400` (`string`) storing a400.",
+          "descriptionZh": "属性 `A400`（类型：`string`），用于存储或配置A400。"
+        },
+        {
+          "name": "A700",
+          "type": "string",
+          "description": "Property `A700` (`string`) storing a700.",
+          "descriptionZh": "属性 `A700`（类型：`string`），用于存储或配置A700。"
+        }
+      ]
     },
     {
       "name": "cdkA11y",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Executes `cdkA11y` to handle cdk a11y.",
+      "summaryZh": "执行 `cdkA11y`，用于CDK工具A11y。",
       "sourceFile": "src/theme/core/cdk-a11y.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "cdkA11y",
+          "params": [],
+          "returnType": "Object",
+          "description": "Executes `cdkA11y` to handle cdk a11y.",
+          "descriptionZh": "执行 `cdkA11y`，用于CDK工具A11y。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "cdkOverlay",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Executes `cdkOverlay` to handle cdk overlay.",
+      "summaryZh": "执行 `cdkOverlay`，用于CDK工具浮层。",
       "sourceFile": "src/theme/core/cdk-overlay.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "cdkOverlay",
+          "params": [],
+          "returnType": "Object",
+          "description": "Executes `cdkOverlay` to handle cdk overlay.",
+          "descriptionZh": "执行 `cdkOverlay`，用于CDK工具浮层。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "cdkTextfieldAutoFill",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Executes `cdkTextfieldAutoFill` to handle cdk textfield auto fill.",
+      "summaryZh": "执行 `cdkTextfieldAutoFill`，用于CDK工具Textfield自动填充。",
       "sourceFile": "src/theme/core/cdk-textfield.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "cdkTextfieldAutoFill",
+          "params": [],
+          "returnType": "Object",
+          "description": "Executes `cdkTextfieldAutoFill` to handle cdk textfield auto fill.",
+          "descriptionZh": "执行 `cdkTextfieldAutoFill`，用于CDK工具Textfield自动填充。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "cdkTextfieldAutosize",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Executes `cdkTextfieldAutosize` to handle cdk textfield autosize.",
+      "summaryZh": "执行 `cdkTextfieldAutosize`，用于CDK工具TextfieldAutosize。",
       "sourceFile": "src/theme/core/cdk-textfield.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "cdkTextfieldAutosize",
+          "params": [],
+          "returnType": "Object",
+          "description": "Executes `cdkTextfieldAutosize` to handle cdk textfield autosize.",
+          "descriptionZh": "执行 `cdkTextfieldAutosize`，用于CDK工具TextfieldAutosize。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "CommandPaletteTheme",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Executes `CommandPaletteTheme` to handle command palette theme.",
+      "summaryZh": "执行 `CommandPaletteTheme`，用于命令调色板主题。",
       "sourceFile": "src/theme/theme/command-palette.theme.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "CommandPaletteTheme",
+          "params": [
+            {
+              "name": "theme",
+              "type": "Theme"
+            }
+          ],
+          "returnType": "Object",
+          "description": "Executes `CommandPaletteTheme` to handle command palette theme.",
+          "descriptionZh": "执行 `CommandPaletteTheme`，用于命令调色板主题。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "createMaterialCoreStyles",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Executes `createMaterialCoreStyles` to handle create material core styles.",
+      "summaryZh": "执行 `createMaterialCoreStyles`，用于创建Material核心样式集合。",
       "sourceFile": "src/theme/theme.service.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "createMaterialCoreStyles",
+          "params": [
+            {
+              "name": "typographyConfig",
+              "type": "TypographyConfig"
+            },
+            {
+              "name": "override",
+              "type": "Object"
+            },
+            {
+              "name": "dynamic",
+              "type": "boolean"
+            }
+          ],
+          "returnType": "StyleSheet<any>",
+          "description": "Executes `createMaterialCoreStyles` to handle create material core styles.",
+          "descriptionZh": "执行 `createMaterialCoreStyles`，用于创建Material核心样式集合。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "createMaterialThemeStyles",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Executes `createMaterialThemeStyles` to handle create material theme styles.",
+      "summaryZh": "执行 `createMaterialThemeStyles`，用于创建Material主题样式集合。",
       "sourceFile": "src/theme/theme.service.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "createMaterialThemeStyles",
+          "params": [
+            {
+              "name": "theme",
+              "type": "Theme"
+            },
+            {
+              "name": "override",
+              "type": "Object"
+            },
+            {
+              "name": "dynamic",
+              "type": "boolean"
+            }
+          ],
+          "returnType": "StyleSheet<any>",
+          "description": "Executes `createMaterialThemeStyles` to handle create material theme styles.",
+          "descriptionZh": "执行 `createMaterialThemeStyles`，用于创建Material主题样式集合。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "darkDisabledText",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `darkDisabledText` defining dark disabled text in `src/theme`.",
+      "summaryZh": "常量/变量 `darkDisabledText`，定义 `src/theme` 中的深色已禁用文本。",
       "sourceFile": "src/theme/constants.ts",
       "inputs": [],
       "outputs": [],
@@ -169,8 +500,8 @@
     {
       "name": "darkDividers",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `darkDividers` defining dark dividers in `src/theme`.",
+      "summaryZh": "常量/变量 `darkDividers`，定义 `src/theme` 中的深色Dividers。",
       "sourceFile": "src/theme/constants.ts",
       "inputs": [],
       "outputs": [],
@@ -180,8 +511,8 @@
     {
       "name": "darkFocused",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `darkFocused` defining dark focused in `src/theme`.",
+      "summaryZh": "常量/变量 `darkFocused`，定义 `src/theme` 中的深色已聚焦。",
       "sourceFile": "src/theme/constants.ts",
       "inputs": [],
       "outputs": [],
@@ -191,8 +522,8 @@
     {
       "name": "darkPrimaryText",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `darkPrimaryText` defining dark primary text in `src/theme`.",
+      "summaryZh": "常量/变量 `darkPrimaryText`，定义 `src/theme` 中的深色主色文本。",
       "sourceFile": "src/theme/constants.ts",
       "inputs": [],
       "outputs": [],
@@ -202,8 +533,8 @@
     {
       "name": "darkSecondaryText",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `darkSecondaryText` defining dark secondary text in `src/theme`.",
+      "summaryZh": "常量/变量 `darkSecondaryText`，定义 `src/theme` 中的深色Secondary文本。",
       "sourceFile": "src/theme/constants.ts",
       "inputs": [],
       "outputs": [],
@@ -213,41 +544,84 @@
     {
       "name": "density",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Executes `density` to handle density.",
+      "summaryZh": "执行 `density`，用于密度。",
       "sourceFile": "src/theme/theme/mat-icon-button-theme.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "density",
+          "params": [
+            {
+              "name": "theme",
+              "type": "Theme"
+            }
+          ],
+          "returnType": "Object",
+          "description": "Executes `density` to handle density.",
+          "descriptionZh": "执行 `density`，用于密度。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "divideRule",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Executes `divideRule` to handle divide rule.",
+      "summaryZh": "执行 `divideRule`，用于divide规则。",
       "sourceFile": "src/theme/utils/rules-operations.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "divideRule",
+          "params": [
+            {
+              "name": "rule",
+              "type": "number | string"
+            },
+            {
+              "name": "divide",
+              "type": "number"
+            }
+          ],
+          "returnType": "number | string",
+          "description": "Executes `divideRule` to handle divide rule.",
+          "descriptionZh": "执行 `divideRule`，用于divide规则。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "dockLayoutTheme",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Executes `dockLayoutTheme` to handle dock layout theme.",
+      "summaryZh": "执行 `dockLayoutTheme`，用于停靠面板布局主题。",
       "sourceFile": "src/theme/theme/dock-layout-host-theme.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "dockLayoutTheme",
+          "params": [
+            {
+              "name": "theme",
+              "type": "Theme"
+            }
+          ],
+          "returnType": "Object",
+          "description": "Executes `dockLayoutTheme` to handle dock layout theme.",
+          "descriptionZh": "执行 `dockLayoutTheme`，用于停靠面板布局主题。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "DOTOS_CONFIG",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular dependency-injection token `DOTOS_CONFIG` for providing dotos config.",
+      "summaryZh": "Angular 依赖注入令牌 `DOTOS_CONFIG`，用于提供与注入DotOS配置。",
       "sourceFile": "src/theme/config/config.service.ts",
       "inputs": [],
       "outputs": [],
@@ -257,8 +631,8 @@
     {
       "name": "dotosConfig",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `dotosConfig` defining dotos config in `src/theme/config`.",
+      "summaryZh": "常量/变量 `dotosConfig`，定义 `src/theme/config` 中的DotOS配置。",
       "sourceFile": "src/theme/config/config.ts",
       "inputs": [],
       "outputs": [],
@@ -268,19 +642,50 @@
     {
       "name": "DotosConfig",
       "kind": "interface",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Interface `DotosConfig` defining the contract and properties for dotos config.",
+      "summaryZh": "接口 `DotosConfig`，定义DotOS配置的数据结构契约与属性规范。",
       "sourceFile": "src/theme/types/dotos-config.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
-      "properties": []
+      "properties": [
+        {
+          "name": "isDesktop",
+          "type": "boolean",
+          "description": "Property `isDesktop` (`boolean`) storing is desktop.",
+          "descriptionZh": "属性 `isDesktop`（类型：`boolean`），用于存储或配置是否为Desktop。"
+        },
+        {
+          "name": "theme",
+          "type": "{ type: 'light'|'dark'|'darkblue'; primary: string; accent: string; warn: string; formType:'fill'|'outline'; }",
+          "description": "Property `theme` (`{ type: 'light'|'dark'|'darkblue'; primary: string; accent: string; wa...`) storing theme.",
+          "descriptionZh": "属性 `theme`（类型：`{ type: 'light'|'dark'|'darkblue'; primary: string; accent: string; wa...`），用于存储或配置主题。"
+        },
+        {
+          "name": "wallpaper",
+          "type": "string",
+          "description": "Property `wallpaper` (`string`) storing wallpaper.",
+          "descriptionZh": "属性 `wallpaper`（类型：`string`），用于存储或配置wallpaper。"
+        },
+        {
+          "name": "layout",
+          "type": "{ pagemodel: string; style: string; width: 'fullwidth' | 'boxed'; folded: boolean; variant: string; sidepanel: { hidden: boolean; position: 'left' | 'right' } }",
+          "description": "Property `layout` (`{ pagemodel: string; style: string; width: 'fullwidth' | 'boxed'; fold...`) storing layout.",
+          "descriptionZh": "属性 `layout`（类型：`{ pagemodel: string; style: string; width: 'fullwidth' | 'boxed'; fold...`），用于存储或配置布局。"
+        },
+        {
+          "name": "routerAnimation",
+          "type": "string",
+          "description": "Property `routerAnimation` (`string`) storing router animation.",
+          "descriptionZh": "属性 `routerAnimation`（类型：`string`），用于存储或配置router动画。"
+        }
+      ]
     },
     {
       "name": "DotosConfigModule",
       "kind": "module",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular module `DotosConfigModule` declaring and exporting dotos config module components, directives, pipes, and providers.",
+      "summaryZh": "Angular 模块 `DotosConfigModule`，声明并导出DotOS配置模块相关的组件、指令、管道与服务提供者。",
       "sourceFile": "src/theme/config/config.module.ts",
       "inputs": [],
       "outputs": [],
@@ -294,8 +699,8 @@
             }
           ],
           "returnType": "ModuleWithProviders<DotosConfigModule>",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `forRoot` to handle for root.",
+          "descriptionZh": "执行 `forRoot`，用于用于根节点。"
         }
       ],
       "properties": []
@@ -303,8 +708,8 @@
     {
       "name": "DotosConfigService",
       "kind": "service",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Injectable Angular service `DotosConfigService` managing dotos config service state and operations in `src/theme/config`.",
+      "summaryZh": "可注入的 Angular 服务 `DotosConfigService`，管理 `src/theme/config` 中的DotOS配置服务状态与业务操作。",
       "sourceFile": "src/theme/config/config.service.ts",
       "inputs": [],
       "outputs": [],
@@ -318,8 +723,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `getValue` to handle get value.",
+          "descriptionZh": "执行 `getValue`，用于获取值。"
         },
         {
           "name": "setValue",
@@ -338,274 +743,547 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `setValue` to handle set value.",
+          "descriptionZh": "执行 `setValue`，用于集合值。"
         },
         {
           "name": "resetToDefaults",
           "params": [],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `resetToDefaults` to handle reset to defaults.",
+          "descriptionZh": "执行 `resetToDefaults`，用于重置转换为默认值集合。"
         }
       ],
       "properties": [
         {
           "name": "config",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Sets the config (`config`).",
+          "descriptionZh": "设置配置（`config`）。"
         },
         {
           "name": "config",
           "type": "Observable<DotosConfig>",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current config (`config: Observable<DotosConfig>`).",
+          "descriptionZh": "获取当前配置（`config: Observable<DotosConfig>`）。"
         },
         {
           "name": "defaultConfig",
           "type": "DotosConfig",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current default config (`defaultConfig: DotosConfig`).",
+          "descriptionZh": "获取当前默认配置（`defaultConfig: DotosConfig`）。"
         }
       ]
     },
     {
       "name": "duiCardTheme",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Executes `duiCardTheme` to handle dui card theme.",
+      "summaryZh": "执行 `duiCardTheme`，用于DUI卡片主题。",
       "sourceFile": "src/theme/theme/dui-card-theme.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "duiCardTheme",
+          "params": [
+            {
+              "name": "theme",
+              "type": "Theme"
+            }
+          ],
+          "returnType": "Object",
+          "description": "Executes `duiCardTheme` to handle dui card theme.",
+          "descriptionZh": "执行 `duiCardTheme`，用于DUI卡片主题。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "duiChipsTheme",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Executes `duiChipsTheme` to handle dui chips theme.",
+      "summaryZh": "执行 `duiChipsTheme`，用于DUI纸片标签主题。",
       "sourceFile": "src/theme/theme/dui-chips-theme.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "duiChipsTheme",
+          "params": [
+            {
+              "name": "theme",
+              "type": "Theme"
+            }
+          ],
+          "returnType": "Object",
+          "description": "Executes `duiChipsTheme` to handle dui chips theme.",
+          "descriptionZh": "执行 `duiChipsTheme`，用于DUI纸片标签主题。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "duiClipboardTheme",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Executes `duiClipboardTheme` to handle dui clipboard theme.",
+      "summaryZh": "执行 `duiClipboardTheme`，用于DUIClipboard主题。",
       "sourceFile": "src/theme/theme/dui-clipboard-theme.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "duiClipboardTheme",
+          "params": [
+            {
+              "name": "theme",
+              "type": "Theme"
+            }
+          ],
+          "returnType": "Object",
+          "description": "Executes `duiClipboardTheme` to handle dui clipboard theme.",
+          "descriptionZh": "执行 `duiClipboardTheme`，用于DUIClipboard主题。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "duiDataTableTheme",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Executes `duiDataTableTheme` to handle dui data table theme.",
+      "summaryZh": "执行 `duiDataTableTheme`，用于DUI数据表格主题。",
       "sourceFile": "src/theme/theme/dui-datatable-theme.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "duiDataTableTheme",
+          "params": [
+            {
+              "name": "theme",
+              "type": "Theme"
+            }
+          ],
+          "returnType": "Object",
+          "description": "Executes `duiDataTableTheme` to handle dui data table theme.",
+          "descriptionZh": "执行 `duiDataTableTheme`，用于DUI数据表格主题。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "duiDateFieldTheme",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Executes `duiDateFieldTheme` to handle dui date field theme.",
+      "summaryZh": "执行 `duiDateFieldTheme`，用于DUI日期字段主题。",
       "sourceFile": "src/theme/theme/dui-datefield-theme.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "duiDateFieldTheme",
+          "params": [
+            {
+              "name": "theme",
+              "type": "Theme"
+            }
+          ],
+          "returnType": "Object",
+          "description": "Executes `duiDateFieldTheme` to handle dui date field theme.",
+          "descriptionZh": "执行 `duiDateFieldTheme`，用于DUI日期字段主题。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "duiDialogTheme",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Executes `duiDialogTheme` to handle dui dialog theme.",
+      "summaryZh": "执行 `duiDialogTheme`，用于DUI对话框主题。",
       "sourceFile": "src/theme/theme/dui-dialog-theme.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "duiDialogTheme",
+          "params": [
+            {
+              "name": "theme",
+              "type": "Theme"
+            }
+          ],
+          "returnType": "Object",
+          "description": "Executes `duiDialogTheme` to handle dui dialog theme.",
+          "descriptionZh": "执行 `duiDialogTheme`，用于DUI对话框主题。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "duiDragselectTheme",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Executes `duiDragselectTheme` to handle dui dragselect theme.",
+      "summaryZh": "执行 `duiDragselectTheme`，用于DUIDragselect主题。",
       "sourceFile": "src/theme/theme/drag-to-select-theme.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "duiDragselectTheme",
+          "params": [
+            {
+              "name": "theme",
+              "type": "Theme"
+            }
+          ],
+          "returnType": "Object",
+          "description": "Executes `duiDragselectTheme` to handle dui dragselect theme.",
+          "descriptionZh": "执行 `duiDragselectTheme`，用于DUIDragselect主题。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "duiEditorTheme",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Executes `duiEditorTheme` to handle dui editor theme.",
+      "summaryZh": "执行 `duiEditorTheme`，用于DUI编辑器主题。",
       "sourceFile": "src/theme/theme/dui-editor.theme.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "duiEditorTheme",
+          "params": [
+            {
+              "name": "theme",
+              "type": "Theme"
+            }
+          ],
+          "returnType": "Object",
+          "description": "Executes `duiEditorTheme` to handle dui editor theme.",
+          "descriptionZh": "执行 `duiEditorTheme`，用于DUI编辑器主题。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "duiExpansionPanelTheme",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Executes `duiExpansionPanelTheme` to handle dui expansion panel theme.",
+      "summaryZh": "执行 `duiExpansionPanelTheme`，用于DUI展开面板面板主题。",
       "sourceFile": "src/theme/theme/dui-expansion-panel-theme.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "duiExpansionPanelTheme",
+          "params": [
+            {
+              "name": "theme",
+              "type": "Theme"
+            }
+          ],
+          "returnType": "Object",
+          "description": "Executes `duiExpansionPanelTheme` to handle dui expansion panel theme.",
+          "descriptionZh": "执行 `duiExpansionPanelTheme`，用于DUI展开面板面板主题。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "duiFileFieldTheme",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Executes `duiFileFieldTheme` to handle dui file field theme.",
+      "summaryZh": "执行 `duiFileFieldTheme`，用于DUI文件字段主题。",
       "sourceFile": "src/theme/theme/dui-filefield-theme.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "duiFileFieldTheme",
+          "params": [
+            {
+              "name": "theme",
+              "type": "Theme"
+            }
+          ],
+          "returnType": "Object",
+          "description": "Executes `duiFileFieldTheme` to handle dui file field theme.",
+          "descriptionZh": "执行 `duiFileFieldTheme`，用于DUI文件字段主题。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "duiIconPickerTheme",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Executes `duiIconPickerTheme` to handle dui icon picker theme.",
+      "summaryZh": "执行 `duiIconPickerTheme`，用于DUI图标选择器主题。",
       "sourceFile": "src/theme/theme/icon-picker.theme.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "duiIconPickerTheme",
+          "params": [
+            {
+              "name": "theme",
+              "type": "Theme"
+            }
+          ],
+          "returnType": "Object",
+          "description": "Executes `duiIconPickerTheme` to handle dui icon picker theme.",
+          "descriptionZh": "执行 `duiIconPickerTheme`，用于DUI图标选择器主题。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "duiImageFieldTheme",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Executes `duiImageFieldTheme` to handle dui image field theme.",
+      "summaryZh": "执行 `duiImageFieldTheme`，用于DUI图像字段主题。",
       "sourceFile": "src/theme/theme/dui-imagefield-theme.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "duiImageFieldTheme",
+          "params": [
+            {
+              "name": "theme",
+              "type": "Theme"
+            }
+          ],
+          "returnType": "Object",
+          "description": "Executes `duiImageFieldTheme` to handle dui image field theme.",
+          "descriptionZh": "执行 `duiImageFieldTheme`，用于DUI图像字段主题。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "duiMarkdownTheme",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Executes `duiMarkdownTheme` to handle dui markdown theme.",
+      "summaryZh": "执行 `duiMarkdownTheme`，用于DUIMarkdown文档主题。",
       "sourceFile": "src/theme/theme/dui-markdown.theme.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "duiMarkdownTheme",
+          "params": [
+            {
+              "name": "theme",
+              "type": "Theme"
+            }
+          ],
+          "returnType": "Object",
+          "description": "Executes `duiMarkdownTheme` to handle dui markdown theme.",
+          "descriptionZh": "执行 `duiMarkdownTheme`，用于DUIMarkdown文档主题。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "duiMenuTheme",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Executes `duiMenuTheme` to handle dui menu theme.",
+      "summaryZh": "执行 `duiMenuTheme`，用于DUI菜单主题。",
       "sourceFile": "src/theme/theme/dui-menu-theme.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "duiMenuTheme",
+          "params": [
+            {
+              "name": "theme",
+              "type": "Theme"
+            }
+          ],
+          "returnType": "Object",
+          "description": "Executes `duiMenuTheme` to handle dui menu theme.",
+          "descriptionZh": "执行 `duiMenuTheme`，用于DUI菜单主题。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "duiMessageTheme",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Executes `duiMessageTheme` to handle dui message theme.",
+      "summaryZh": "执行 `duiMessageTheme`，用于DUI消息主题。",
       "sourceFile": "src/theme/theme/dui-message-theme.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "duiMessageTheme",
+          "params": [
+            {
+              "name": "theme",
+              "type": "Theme"
+            }
+          ],
+          "returnType": "Object",
+          "description": "Executes `duiMessageTheme` to handle dui message theme.",
+          "descriptionZh": "执行 `duiMessageTheme`，用于DUI消息主题。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "duiNotificationTheme",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Executes `duiNotificationTheme` to handle dui notification theme.",
+      "summaryZh": "执行 `duiNotificationTheme`，用于DUI通知主题。",
       "sourceFile": "src/theme/theme/dui-notification-count-theme.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "duiNotificationTheme",
+          "params": [
+            {
+              "name": "theme",
+              "type": "Theme"
+            }
+          ],
+          "returnType": "Object",
+          "description": "Executes `duiNotificationTheme` to handle dui notification theme.",
+          "descriptionZh": "执行 `duiNotificationTheme`，用于DUI通知主题。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "duiPagingTheme",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Executes `duiPagingTheme` to handle dui paging theme.",
+      "summaryZh": "执行 `duiPagingTheme`，用于DUI页面主题。",
       "sourceFile": "src/theme/theme/dui-paging-theme.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "duiPagingTheme",
+          "params": [
+            {
+              "name": "theme",
+              "type": "Theme"
+            }
+          ],
+          "returnType": "Object",
+          "description": "Executes `duiPagingTheme` to handle dui paging theme.",
+          "descriptionZh": "执行 `duiPagingTheme`，用于DUI页面主题。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "duiQueryBuilderTheme",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Executes `duiQueryBuilderTheme` to handle dui query builder theme.",
+      "summaryZh": "执行 `duiQueryBuilderTheme`，用于DUI查询构建器主题。",
       "sourceFile": "src/theme/theme/query-builder.theme.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "duiQueryBuilderTheme",
+          "params": [
+            {
+              "name": "theme",
+              "type": "Theme"
+            }
+          ],
+          "returnType": "Object",
+          "description": "Executes `duiQueryBuilderTheme` to handle dui query builder theme.",
+          "descriptionZh": "执行 `duiQueryBuilderTheme`，用于DUI查询构建器主题。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "duiSelectTheme",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Executes `duiSelectTheme` to handle dui select theme.",
+      "summaryZh": "执行 `duiSelectTheme`，用于DUI下拉选择主题。",
       "sourceFile": "src/theme/theme/dui-select-theme.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "duiSelectTheme",
+          "params": [
+            {
+              "name": "theme",
+              "type": "Theme"
+            }
+          ],
+          "returnType": "Object",
+          "description": "Executes `duiSelectTheme` to handle dui select theme.",
+          "descriptionZh": "执行 `duiSelectTheme`，用于DUI下拉选择主题。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "duiTreeTheme",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Executes `duiTreeTheme` to handle dui tree theme.",
+      "summaryZh": "执行 `duiTreeTheme`，用于DUI树形控件主题。",
       "sourceFile": "src/theme/theme/dui-tree-theme.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "duiTreeTheme",
+          "params": [
+            {
+              "name": "theme",
+              "type": "Theme"
+            }
+          ],
+          "returnType": "Object",
+          "description": "Executes `duiTreeTheme` to handle dui tree theme.",
+          "descriptionZh": "执行 `duiTreeTheme`，用于DUI树形控件主题。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "duiWindowsTheme",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Executes `duiWindowsTheme` to handle dui windows theme.",
+      "summaryZh": "执行 `duiWindowsTheme`，用于DUI多窗口主题。",
       "sourceFile": "src/theme/theme/dui-windows-theme.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "duiWindowsTheme",
+          "params": [
+            {
+              "name": "theme",
+              "type": "Theme"
+            }
+          ],
+          "returnType": "Object",
+          "description": "Executes `duiWindowsTheme` to handle dui windows theme.",
+          "descriptionZh": "执行 `duiWindowsTheme`，用于DUI多窗口主题。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "easeInOutCurveFunction",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `easeInOutCurveFunction` defining ease in out curve function in `src/theme/utils`.",
+      "summaryZh": "常量/变量 `easeInOutCurveFunction`，定义 `src/theme/utils` 中的ease在输出曲线函数。",
       "sourceFile": "src/theme/utils/variables.ts",
       "inputs": [],
       "outputs": [],
@@ -615,41 +1293,158 @@
     {
       "name": "Foreground",
       "kind": "interface",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Interface `Foreground` defining the contract and properties for foreground.",
+      "summaryZh": "接口 `Foreground`，定义前景的数据结构契约与属性规范。",
       "sourceFile": "src/theme/interfaces/foreground.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
-      "properties": []
+      "properties": [
+        {
+          "name": "base",
+          "type": "string",
+          "description": "Property `base` (`string`) storing base.",
+          "descriptionZh": "属性 `base`（类型：`string`），用于存储或配置基础。"
+        },
+        {
+          "name": "divider",
+          "type": "string",
+          "description": "Property `divider` (`string`) storing divider.",
+          "descriptionZh": "属性 `divider`（类型：`string`），用于存储或配置divider。"
+        },
+        {
+          "name": "dividers",
+          "type": "string",
+          "description": "Property `dividers` (`string`) storing dividers.",
+          "descriptionZh": "属性 `dividers`（类型：`string`），用于存储或配置dividers。"
+        },
+        {
+          "name": "disabled",
+          "type": "string",
+          "description": "Property `disabled` (`string`) storing disabled.",
+          "descriptionZh": "属性 `disabled`（类型：`string`），用于存储或配置已禁用。"
+        },
+        {
+          "name": "'disabled-button'",
+          "type": "string",
+          "description": "Property `disabled-button` (`string`) storing disabled button.",
+          "descriptionZh": "属性 `disabled-button`（类型：`string`），用于存储或配置已禁用按钮。"
+        },
+        {
+          "name": "'disabled-text'",
+          "type": "string",
+          "description": "Property `disabled-text` (`string`) storing disabled text.",
+          "descriptionZh": "属性 `disabled-text`（类型：`string`），用于存储或配置已禁用文本。"
+        },
+        {
+          "name": "'hint-text'",
+          "type": "string",
+          "description": "Property `hint-text` (`string`) storing hint text.",
+          "descriptionZh": "属性 `hint-text`（类型：`string`），用于存储或配置提示信息文本。"
+        },
+        {
+          "name": "'secondary-text'",
+          "type": "string",
+          "description": "Property `secondary-text` (`string`) storing secondary text.",
+          "descriptionZh": "属性 `secondary-text`（类型：`string`），用于存储或配置secondary文本。"
+        },
+        {
+          "name": "icon",
+          "type": "string",
+          "description": "Property `icon` (`string`) storing icon.",
+          "descriptionZh": "属性 `icon`（类型：`string`），用于存储或配置图标。"
+        },
+        {
+          "name": "icons",
+          "type": "string",
+          "description": "Property `icons` (`string`) storing icons.",
+          "descriptionZh": "属性 `icons`（类型：`string`），用于存储或配置图标集合。"
+        },
+        {
+          "name": "text",
+          "type": "string",
+          "description": "Property `text` (`string`) storing text.",
+          "descriptionZh": "属性 `text`（类型：`string`），用于存储或配置文本。"
+        },
+        {
+          "name": "elevation",
+          "type": "string",
+          "description": "Property `elevation` (`string`) storing elevation.",
+          "descriptionZh": "属性 `elevation`（类型：`string`），用于存储或配置层级阴影。"
+        },
+        {
+          "name": "'slider-min'",
+          "type": "string",
+          "description": "Property `slider-min` (`string`) storing slider min.",
+          "descriptionZh": "属性 `slider-min`（类型：`string`），用于存储或配置滑块最小值。"
+        },
+        {
+          "name": "'slider-off'",
+          "type": "string",
+          "description": "Property `slider-off` (`string`) storing slider off.",
+          "descriptionZh": "属性 `slider-off`（类型：`string`），用于存储或配置滑块off。"
+        },
+        {
+          "name": "'slider-off-active'",
+          "type": "string",
+          "description": "Property `slider-off-active` (`string`) storing slider off active.",
+          "descriptionZh": "属性 `slider-off-active`（类型：`string`），用于存储或配置滑块off激活。"
+        }
+      ]
     },
     {
       "name": "invert",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Executes `invert` to handle invert.",
+      "summaryZh": "执行 `invert`，用于invert。",
       "sourceFile": "src/theme/mat-color.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "invert",
+          "params": [
+            {
+              "name": "color",
+              "type": "string"
+            }
+          ],
+          "returnType": "string",
+          "description": "Executes `invert` to handle invert.",
+          "descriptionZh": "执行 `invert`，用于invert。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "invertSvgColor",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Executes `invertSvgColor` to handle invert svg color.",
+      "summaryZh": "执行 `invertSvgColor`，用于invertSVG矢量图颜色。",
       "sourceFile": "src/theme/mat-color.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "invertSvgColor",
+          "params": [
+            {
+              "name": "theme",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": "Executes `invertSvgColor` to handle invert svg color.",
+          "descriptionZh": "执行 `invertSvgColor`，用于invertSVG矢量图颜色。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "lightDisabledText",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `lightDisabledText` defining light disabled text in `src/theme`.",
+      "summaryZh": "常量/变量 `lightDisabledText`，定义 `src/theme` 中的浅色已禁用文本。",
       "sourceFile": "src/theme/constants.ts",
       "inputs": [],
       "outputs": [],
@@ -659,8 +1454,8 @@
     {
       "name": "lightDividers",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `lightDividers` defining light dividers in `src/theme`.",
+      "summaryZh": "常量/变量 `lightDividers`，定义 `src/theme` 中的浅色Dividers。",
       "sourceFile": "src/theme/constants.ts",
       "inputs": [],
       "outputs": [],
@@ -670,8 +1465,8 @@
     {
       "name": "lightFocused",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `lightFocused` defining light focused in `src/theme`.",
+      "summaryZh": "常量/变量 `lightFocused`，定义 `src/theme` 中的浅色已聚焦。",
       "sourceFile": "src/theme/constants.ts",
       "inputs": [],
       "outputs": [],
@@ -681,8 +1476,8 @@
     {
       "name": "lightPrimaryText",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `lightPrimaryText` defining light primary text in `src/theme`.",
+      "summaryZh": "常量/变量 `lightPrimaryText`，定义 `src/theme` 中的浅色主色文本。",
       "sourceFile": "src/theme/constants.ts",
       "inputs": [],
       "outputs": [],
@@ -692,8 +1487,8 @@
     {
       "name": "lightSecondaryText",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `lightSecondaryText` defining light secondary text in `src/theme`.",
+      "summaryZh": "常量/变量 `lightSecondaryText`，定义 `src/theme` 中的浅色Secondary文本。",
       "sourceFile": "src/theme/constants.ts",
       "inputs": [],
       "outputs": [],
@@ -703,19 +1498,32 @@
     {
       "name": "matAutocompleteTheme",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Executes `matAutocompleteTheme` to handle mat autocomplete theme.",
+      "summaryZh": "执行 `matAutocompleteTheme`，用于Material自动补全主题。",
       "sourceFile": "src/theme/theme/mat-autocomplete-theme.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "matAutocompleteTheme",
+          "params": [
+            {
+              "name": "theme",
+              "type": "Theme"
+            }
+          ],
+          "returnType": "Object",
+          "description": "Executes `matAutocompleteTheme` to handle mat autocomplete theme.",
+          "descriptionZh": "执行 `matAutocompleteTheme`，用于Material自动补全主题。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "matBlueGray",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `matBlueGray` defining mat blue gray in `src/theme/palettes`.",
+      "summaryZh": "常量/变量 `matBlueGray`，定义 `src/theme/palettes` 中的MaterialBlueGray。",
       "sourceFile": "src/theme/palettes/mat-blue-gray.ts",
       "inputs": [],
       "outputs": [],
@@ -725,107 +1533,232 @@
     {
       "name": "matBottomSheetTheme",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Executes `matBottomSheetTheme` to handle mat bottom sheet theme.",
+      "summaryZh": "执行 `matBottomSheetTheme`，用于Material底部位置Sheet主题。",
       "sourceFile": "src/theme/theme/bottom-sheet-theme.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "matBottomSheetTheme",
+          "params": [
+            {
+              "name": "theme",
+              "type": "Theme"
+            }
+          ],
+          "returnType": "Object",
+          "description": "Executes `matBottomSheetTheme` to handle mat bottom sheet theme.",
+          "descriptionZh": "执行 `matBottomSheetTheme`，用于Material底部位置Sheet主题。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "matButtonTheme",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Executes `matButtonTheme` to handle mat button theme.",
+      "summaryZh": "执行 `matButtonTheme`，用于Material按钮主题。",
       "sourceFile": "src/theme/theme/mat-button-theme.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "matButtonTheme",
+          "params": [
+            {
+              "name": "theme",
+              "type": "Theme"
+            }
+          ],
+          "returnType": "Object",
+          "description": "Executes `matButtonTheme` to handle mat button theme.",
+          "descriptionZh": "执行 `matButtonTheme`，用于Material按钮主题。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "matButtonToggleTheme",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Executes `matButtonToggleTheme` to handle mat button toggle theme.",
+      "summaryZh": "执行 `matButtonToggleTheme`，用于Material按钮开关主题。",
       "sourceFile": "src/theme/theme/mat-button-toggle-theme.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "matButtonToggleTheme",
+          "params": [
+            {
+              "name": "theme",
+              "type": "Theme"
+            }
+          ],
+          "returnType": "Object",
+          "description": "Executes `matButtonToggleTheme` to handle mat button toggle theme.",
+          "descriptionZh": "执行 `matButtonToggleTheme`，用于Material按钮开关主题。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "matCardTheme",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Executes `matCardTheme` to handle mat card theme.",
+      "summaryZh": "执行 `matCardTheme`，用于Material卡片主题。",
       "sourceFile": "src/theme/theme/mat-card-theme.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "matCardTheme",
+          "params": [
+            {
+              "name": "theme",
+              "type": "Theme"
+            }
+          ],
+          "returnType": "Object",
+          "description": "Executes `matCardTheme` to handle mat card theme.",
+          "descriptionZh": "执行 `matCardTheme`，用于Material卡片主题。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "matCheckboxTheme",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Executes `matCheckboxTheme` to handle mat checkbox theme.",
+      "summaryZh": "执行 `matCheckboxTheme`，用于Material复选框主题。",
       "sourceFile": "src/theme/theme/mat-checkbox-theme.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "matCheckboxTheme",
+          "params": [
+            {
+              "name": "theme",
+              "type": "Theme"
+            }
+          ],
+          "returnType": "Object",
+          "description": "Executes `matCheckboxTheme` to handle mat checkbox theme.",
+          "descriptionZh": "执行 `matCheckboxTheme`，用于Material复选框主题。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "matChipsTheme",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Executes `matChipsTheme` to handle mat chips theme.",
+      "summaryZh": "执行 `matChipsTheme`，用于Material纸片标签主题。",
       "sourceFile": "src/theme/theme/mat-chips-theme.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "matChipsTheme",
+          "params": [
+            {
+              "name": "theme",
+              "type": "Theme"
+            }
+          ],
+          "returnType": "Object",
+          "description": "Executes `matChipsTheme` to handle mat chips theme.",
+          "descriptionZh": "执行 `matChipsTheme`，用于Material纸片标签主题。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "matColor",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Executes `matColor` to handle mat color.",
+      "summaryZh": "执行 `matColor`，用于Material颜色。",
       "sourceFile": "src/theme/mat-color.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "matColor",
+          "params": [
+            {
+              "name": "palette",
+              "type": "Object"
+            },
+            {
+              "name": "hue",
+              "type": "string | number"
+            },
+            {
+              "name": "opacityParam",
+              "type": "number"
+            }
+          ],
+          "returnType": "string",
+          "description": "Executes `matColor` to handle mat color.",
+          "descriptionZh": "执行 `matColor`，用于Material颜色。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "matCore",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Executes `matCore` to handle mat core.",
+      "summaryZh": "执行 `matCore`，用于Material核心。",
       "sourceFile": "src/theme/mat-core.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "matCore",
+          "params": [
+            {
+              "name": "typographyConfig",
+              "type": "TypographyConfig"
+            }
+          ],
+          "returnType": "Object",
+          "description": "Executes `matCore` to handle mat core.",
+          "descriptionZh": "执行 `matCore`，用于Material核心。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "matCoreTheme",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Executes `matCoreTheme` to handle mat core theme.",
+      "summaryZh": "执行 `matCoreTheme`，用于Material核心主题。",
       "sourceFile": "src/theme/theme/mat-core-theme.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "matCoreTheme",
+          "params": [
+            {
+              "name": "theme",
+              "type": "Theme"
+            }
+          ],
+          "returnType": "Object",
+          "description": "Executes `matCoreTheme` to handle mat core theme.",
+          "descriptionZh": "执行 `matCoreTheme`，用于Material核心主题。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "matCyan",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `matCyan` defining mat cyan in `src/theme/palettes`.",
+      "summaryZh": "常量/变量 `matCyan`，定义 `src/theme/palettes` 中的MaterialCyan。",
       "sourceFile": "src/theme/palettes/mat-cyan.ts",
       "inputs": [],
       "outputs": [],
@@ -835,74 +1768,192 @@
     {
       "name": "matDarkBlueTheme",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Executes `matDarkBlueTheme` to handle mat dark blue theme.",
+      "summaryZh": "执行 `matDarkBlueTheme`，用于Material深色Blue主题。",
       "sourceFile": "src/theme/mat-darkblue-theme.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "matDarkBlueTheme",
+          "params": [
+            {
+              "name": "primary",
+              "type": "Palette"
+            },
+            {
+              "name": "accent",
+              "type": "Palette"
+            },
+            {
+              "name": "warn",
+              "type": "Palette"
+            },
+            {
+              "name": "density",
+              "type": "number"
+            },
+            {
+              "name": "typography",
+              "type": "TypographyConfig"
+            }
+          ],
+          "returnType": "Theme",
+          "description": "Executes `matDarkBlueTheme` to handle mat dark blue theme.",
+          "descriptionZh": "执行 `matDarkBlueTheme`，用于Material深色Blue主题。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "matDarkTheme",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Executes `matDarkTheme` to handle mat dark theme.",
+      "summaryZh": "执行 `matDarkTheme`，用于Material深色主题。",
       "sourceFile": "src/theme/mat-dark-theme.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "matDarkTheme",
+          "params": [
+            {
+              "name": "primary",
+              "type": "Palette"
+            },
+            {
+              "name": "accent",
+              "type": "Palette"
+            },
+            {
+              "name": "warn",
+              "type": "Palette"
+            },
+            {
+              "name": "density",
+              "type": "number"
+            },
+            {
+              "name": "typography",
+              "type": "TypographyConfig"
+            }
+          ],
+          "returnType": "Theme",
+          "description": "Executes `matDarkTheme` to handle mat dark theme.",
+          "descriptionZh": "执行 `matDarkTheme`，用于Material深色主题。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "matDatepickerTheme",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Executes `matDatepickerTheme` to handle mat datepicker theme.",
+      "summaryZh": "执行 `matDatepickerTheme`，用于Material日期选择器主题。",
       "sourceFile": "src/theme/theme/mat-datepicker-theme.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "matDatepickerTheme",
+          "params": [
+            {
+              "name": "theme",
+              "type": "Theme"
+            }
+          ],
+          "returnType": "Object",
+          "description": "Executes `matDatepickerTheme` to handle mat datepicker theme.",
+          "descriptionZh": "执行 `matDatepickerTheme`，用于Material日期选择器主题。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "matDialogTheme",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Executes `matDialogTheme` to handle mat dialog theme.",
+      "summaryZh": "执行 `matDialogTheme`，用于Material对话框主题。",
       "sourceFile": "src/theme/theme/mat-dialog-theme.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "matDialogTheme",
+          "params": [
+            {
+              "name": "theme",
+              "type": "Theme"
+            }
+          ],
+          "returnType": "Object",
+          "description": "Executes `matDialogTheme` to handle mat dialog theme.",
+          "descriptionZh": "执行 `matDialogTheme`，用于Material对话框主题。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "matDividerTheme",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Executes `matDividerTheme` to handle mat divider theme.",
+      "summaryZh": "执行 `matDividerTheme`，用于MaterialDivider主题。",
       "sourceFile": "src/theme/theme/mat-divider-theme.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "matDividerTheme",
+          "params": [
+            {
+              "name": "theme",
+              "type": "Theme"
+            }
+          ],
+          "returnType": "Object",
+          "description": "Executes `matDividerTheme` to handle mat divider theme.",
+          "descriptionZh": "执行 `matDividerTheme`，用于MaterialDivider主题。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "matElevation",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Executes `matElevation` to handle mat elevation.",
+      "summaryZh": "执行 `matElevation`，用于Material层级阴影。",
       "sourceFile": "src/theme/utils/elevation.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "matElevation",
+          "params": [
+            {
+              "name": "zValue",
+              "type": "any"
+            },
+            {
+              "name": "color",
+              "type": "any"
+            },
+            {
+              "name": "opacity",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": "Executes `matElevation` to handle mat elevation.",
+          "descriptionZh": "执行 `matElevation`，用于Material层级阴影。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "matElevationColor",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `matElevationColor` defining mat elevation color in `src/theme/utils`.",
+      "summaryZh": "常量/变量 `matElevationColor`，定义 `src/theme/utils` 中的Material层级阴影颜色。",
       "sourceFile": "src/theme/utils/elevation.ts",
       "inputs": [],
       "outputs": [],
@@ -912,8 +1963,8 @@
     {
       "name": "matElevationOpacity",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `matElevationOpacity` defining mat elevation opacity in `src/theme/utils`.",
+      "summaryZh": "常量/变量 `matElevationOpacity`，定义 `src/theme/utils` 中的Material层级阴影不透明度。",
       "sourceFile": "src/theme/utils/elevation.ts",
       "inputs": [],
       "outputs": [],
@@ -923,19 +1974,36 @@
     {
       "name": "matElevationTransition",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Executes `matElevationTransition` to handle mat elevation transition.",
+      "summaryZh": "执行 `matElevationTransition`，用于Material层级阴影过渡动画。",
       "sourceFile": "src/theme/utils/elevation.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "matElevationTransition",
+          "params": [
+            {
+              "name": "duration",
+              "type": "any"
+            },
+            {
+              "name": "easing",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": "Executes `matElevationTransition` to handle mat elevation transition.",
+          "descriptionZh": "执行 `matElevationTransition`，用于Material层级阴影过渡动画。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "matElevationTransitionDuration",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `matElevationTransitionDuration` defining mat elevation transition duration in `src/theme/utils`.",
+      "summaryZh": "常量/变量 `matElevationTransitionDuration`，定义 `src/theme/utils` 中的Material层级阴影过渡动画持续时间。",
       "sourceFile": "src/theme/utils/elevation.ts",
       "inputs": [],
       "outputs": [],
@@ -945,19 +2013,36 @@
     {
       "name": "matElevationTransitionPropertyValue",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Executes `matElevationTransitionPropertyValue` to handle mat elevation transition property value.",
+      "summaryZh": "执行 `matElevationTransitionPropertyValue`，用于Material层级阴影过渡动画属性值。",
       "sourceFile": "src/theme/utils/elevation.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "matElevationTransitionPropertyValue",
+          "params": [
+            {
+              "name": "duration",
+              "type": "any"
+            },
+            {
+              "name": "easing",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": "Executes `matElevationTransitionPropertyValue` to handle mat elevation transition property value.",
+          "descriptionZh": "执行 `matElevationTransitionPropertyValue`，用于Material层级阴影过渡动画属性值。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "matElevationTransitionTimingFunction",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `matElevationTransitionTimingFunction` defining mat elevation transition timing function in `src/theme/utils`.",
+      "summaryZh": "常量/变量 `matElevationTransitionTimingFunction`，定义 `src/theme/utils` 中的Material层级阴影过渡动画时间函数。",
       "sourceFile": "src/theme/utils/elevation.ts",
       "inputs": [],
       "outputs": [],
@@ -967,41 +2052,80 @@
     {
       "name": "matEvaluation",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Executes `matEvaluation` to handle mat evaluation.",
+      "summaryZh": "执行 `matEvaluation`，用于MaterialEvaluation。",
       "sourceFile": "src/theme/core/mat-elevation.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "matEvaluation",
+          "params": [
+            {
+              "name": "theme",
+              "type": "Theme"
+            }
+          ],
+          "returnType": "Object",
+          "description": "Executes `matEvaluation` to handle mat evaluation.",
+          "descriptionZh": "执行 `matEvaluation`，用于MaterialEvaluation。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "matExpansionPanelTheme",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Executes `matExpansionPanelTheme` to handle mat expansion panel theme.",
+      "summaryZh": "执行 `matExpansionPanelTheme`，用于Material展开面板面板主题。",
       "sourceFile": "src/theme/theme/mat-expansion-panel-theme.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "matExpansionPanelTheme",
+          "params": [
+            {
+              "name": "theme",
+              "type": "Theme"
+            }
+          ],
+          "returnType": "Object",
+          "description": "Executes `matExpansionPanelTheme` to handle mat expansion panel theme.",
+          "descriptionZh": "执行 `matExpansionPanelTheme`，用于Material展开面板面板主题。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "matFabTheme",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Executes `matFabTheme` to handle mat fab theme.",
+      "summaryZh": "执行 `matFabTheme`，用于MaterialFab主题。",
       "sourceFile": "src/theme/theme/mat-fab-theme.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "matFabTheme",
+          "params": [
+            {
+              "name": "theme",
+              "type": "Theme"
+            }
+          ],
+          "returnType": "Object",
+          "description": "Executes `matFabTheme` to handle mat fab theme.",
+          "descriptionZh": "执行 `matFabTheme`，用于MaterialFab主题。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "matFastOutLinearInTimingFunction",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `matFastOutLinearInTimingFunction` defining mat fast out linear in timing function in `src/theme/utils`.",
+      "summaryZh": "常量/变量 `matFastOutLinearInTimingFunction`，定义 `src/theme/utils` 中的MaterialFast输出Linear在时间函数。",
       "sourceFile": "src/theme/utils/variables.ts",
       "inputs": [],
       "outputs": [],
@@ -1011,8 +2135,8 @@
     {
       "name": "matFastOutSlowInTimingFunction",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `matFastOutSlowInTimingFunction` defining mat fast out slow in timing function in `src/theme/utils`.",
+      "summaryZh": "常量/变量 `matFastOutSlowInTimingFunction`，定义 `src/theme/utils` 中的MaterialFast输出Slow在时间函数。",
       "sourceFile": "src/theme/utils/variables.ts",
       "inputs": [],
       "outputs": [],
@@ -1022,63 +2146,135 @@
     {
       "name": "matFocus",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Executes `matFocus` to handle mat focus.",
+      "summaryZh": "执行 `matFocus`，用于Material聚焦。",
       "sourceFile": "src/theme/core/focus.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "matFocus",
+          "params": [],
+          "returnType": "Object",
+          "description": "Executes `matFocus` to handle mat focus.",
+          "descriptionZh": "执行 `matFocus`，用于Material聚焦。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "matFontFamily",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Executes `matFontFamily` to handle mat font family.",
+      "summaryZh": "执行 `matFontFamily`，用于Material字体Family。",
       "sourceFile": "src/theme/utils/mat-font-family.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "matFontFamily",
+          "params": [
+            {
+              "name": "config",
+              "type": "TypographyConfig"
+            },
+            {
+              "name": "level",
+              "type": "string"
+            }
+          ],
+          "returnType": "string",
+          "description": "Executes `matFontFamily` to handle mat font family.",
+          "descriptionZh": "执行 `matFontFamily`，用于Material字体Family。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "matFontSize",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Executes `matFontSize` to handle mat font size.",
+      "summaryZh": "执行 `matFontSize`，用于Material字体尺寸。",
       "sourceFile": "src/theme/utils/mat-font-size.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "matFontSize",
+          "params": [
+            {
+              "name": "config",
+              "type": "TypographyConfig"
+            },
+            {
+              "name": "level",
+              "type": "string"
+            }
+          ],
+          "returnType": "number | string",
+          "description": "Executes `matFontSize` to handle mat font size.",
+          "descriptionZh": "执行 `matFontSize`，用于Material字体尺寸。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "matFontWeight",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Executes `matFontWeight` to handle mat font weight.",
+      "summaryZh": "执行 `matFontWeight`，用于Material字体权重/字重。",
       "sourceFile": "src/theme/utils/mat-font-weight.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "matFontWeight",
+          "params": [
+            {
+              "name": "config",
+              "type": "TypographyConfig"
+            },
+            {
+              "name": "level",
+              "type": "string"
+            }
+          ],
+          "returnType": "number | string",
+          "description": "Executes `matFontWeight` to handle mat font weight.",
+          "descriptionZh": "执行 `matFontWeight`，用于Material字体权重/字重。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "matFormFieldTheme",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Executes `matFormFieldTheme` to handle mat form field theme.",
+      "summaryZh": "执行 `matFormFieldTheme`，用于Material表单字段主题。",
       "sourceFile": "src/theme/theme/mat-form-field-theme.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "matFormFieldTheme",
+          "params": [
+            {
+              "name": "theme",
+              "type": "Theme"
+            }
+          ],
+          "returnType": "Object",
+          "description": "Executes `matFormFieldTheme` to handle mat form field theme.",
+          "descriptionZh": "执行 `matFormFieldTheme`，用于Material表单字段主题。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "matGray",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `matGray` defining mat gray in `src/theme/palettes`.",
+      "summaryZh": "常量/变量 `matGray`，定义 `src/theme/palettes` 中的MaterialGray。",
       "sourceFile": "src/theme/palettes/mat-grey.ts",
       "inputs": [],
       "outputs": [],
@@ -1088,8 +2284,8 @@
     {
       "name": "matGreen",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `matGreen` defining mat green in `src/theme/palettes`.",
+      "summaryZh": "常量/变量 `matGreen`，定义 `src/theme/palettes` 中的MaterialGreen。",
       "sourceFile": "src/theme/palettes/mat-green.ts",
       "inputs": [],
       "outputs": [],
@@ -1099,8 +2295,8 @@
     {
       "name": "matGrey",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `matGrey` defining mat grey in `src/theme/palettes`.",
+      "summaryZh": "常量/变量 `matGrey`，定义 `src/theme/palettes` 中的MaterialGrey。",
       "sourceFile": "src/theme/palettes/mat-grey.ts",
       "inputs": [],
       "outputs": [],
@@ -1110,63 +2306,144 @@
     {
       "name": "matGridListTheme",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Executes `matGridListTheme` to handle mat grid list theme.",
+      "summaryZh": "执行 `matGridListTheme`，用于Material网格表格列表主题。",
       "sourceFile": "src/theme/theme/mat-grid-list-theme.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "matGridListTheme",
+          "params": [
+            {
+              "name": "theme",
+              "type": "Theme"
+            }
+          ],
+          "returnType": "Object",
+          "description": "Executes `matGridListTheme` to handle mat grid list theme.",
+          "descriptionZh": "执行 `matGridListTheme`，用于Material网格表格列表主题。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "matIconButtonTheme",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Executes `matIconButtonTheme` to handle mat icon button theme.",
+      "summaryZh": "执行 `matIconButtonTheme`，用于Material图标按钮主题。",
       "sourceFile": "src/theme/theme/mat-icon-button-theme.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "matIconButtonTheme",
+          "params": [
+            {
+              "name": "theme",
+              "type": "Theme"
+            }
+          ],
+          "returnType": "Object",
+          "description": "Executes `matIconButtonTheme` to handle mat icon button theme.",
+          "descriptionZh": "执行 `matIconButtonTheme`，用于Material图标按钮主题。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "matIconTheme",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Executes `matIconTheme` to handle mat icon theme.",
+      "summaryZh": "执行 `matIconTheme`，用于Material图标主题。",
       "sourceFile": "src/theme/theme/mat-icon-theme.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "matIconTheme",
+          "params": [
+            {
+              "name": "theme",
+              "type": "Theme"
+            }
+          ],
+          "returnType": "Object",
+          "description": "Executes `matIconTheme` to handle mat icon theme.",
+          "descriptionZh": "执行 `matIconTheme`，用于Material图标主题。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "matInputTheme",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Executes `matInputTheme` to handle mat input theme.",
+      "summaryZh": "执行 `matInputTheme`，用于Material输入属性主题。",
       "sourceFile": "src/theme/theme/mat-input-theme.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "matInputTheme",
+          "params": [
+            {
+              "name": "theme",
+              "type": "Theme"
+            }
+          ],
+          "returnType": "Object",
+          "description": "Executes `matInputTheme` to handle mat input theme.",
+          "descriptionZh": "执行 `matInputTheme`，用于Material输入属性主题。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "matLightTheme",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Executes `matLightTheme` to handle mat light theme.",
+      "summaryZh": "执行 `matLightTheme`，用于Material浅色主题。",
       "sourceFile": "src/theme/mat-light-theme.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "matLightTheme",
+          "params": [
+            {
+              "name": "primary",
+              "type": "Palette"
+            },
+            {
+              "name": "accent",
+              "type": "Palette"
+            },
+            {
+              "name": "warn",
+              "type": "Palette"
+            },
+            {
+              "name": "density",
+              "type": "number"
+            },
+            {
+              "name": "typography",
+              "type": "TypographyConfig"
+            }
+          ],
+          "returnType": "Theme",
+          "description": "Executes `matLightTheme` to handle mat light theme.",
+          "descriptionZh": "执行 `matLightTheme`，用于Material浅色主题。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "matLinearOutSlowInTimingFunction",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `matLinearOutSlowInTimingFunction` defining mat linear out slow in timing function in `src/theme/utils`.",
+      "summaryZh": "常量/变量 `matLinearOutSlowInTimingFunction`，定义 `src/theme/utils` 中的MaterialLinear输出Slow在时间函数。",
       "sourceFile": "src/theme/utils/variables.ts",
       "inputs": [],
       "outputs": [],
@@ -1176,52 +2453,108 @@
     {
       "name": "matLineBase",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Executes `matLineBase` to handle mat line base.",
+      "summaryZh": "执行 `matLineBase`，用于Material线段基础。",
       "sourceFile": "src/theme/utils/mat-line-base.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "matLineBase",
+          "params": [
+            {
+              "name": "secondaryFontSize",
+              "type": "number | string"
+            }
+          ],
+          "returnType": "Object",
+          "description": "Executes `matLineBase` to handle mat line base.",
+          "descriptionZh": "执行 `matLineBase`，用于Material线段基础。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "matLineHeight",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Executes `matLineHeight` to handle mat line height.",
+      "summaryZh": "执行 `matLineHeight`，用于Material线段高度。",
       "sourceFile": "src/theme/utils/mat-line-height.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "matLineHeight",
+          "params": [
+            {
+              "name": "config",
+              "type": "TypographyConfig"
+            },
+            {
+              "name": "level",
+              "type": "string"
+            }
+          ],
+          "returnType": "number | string",
+          "description": "Executes `matLineHeight` to handle mat line height.",
+          "descriptionZh": "执行 `matLineHeight`，用于Material线段高度。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "matListTheme",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Executes `matListTheme` to handle mat list theme.",
+      "summaryZh": "执行 `matListTheme`，用于Material列表主题。",
       "sourceFile": "src/theme/theme/mat-list-theme.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "matListTheme",
+          "params": [
+            {
+              "name": "theme",
+              "type": "Theme"
+            }
+          ],
+          "returnType": "Object",
+          "description": "Executes `matListTheme` to handle mat list theme.",
+          "descriptionZh": "执行 `matListTheme`，用于Material列表主题。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "matMenuTheme",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Executes `matMenuTheme` to handle mat menu theme.",
+      "summaryZh": "执行 `matMenuTheme`，用于Material菜单主题。",
       "sourceFile": "src/theme/theme/mat-menu-theme.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "matMenuTheme",
+          "params": [
+            {
+              "name": "theme",
+              "type": "Theme"
+            }
+          ],
+          "returnType": "Object",
+          "description": "Executes `matMenuTheme` to handle mat menu theme.",
+          "descriptionZh": "执行 `matMenuTheme`，用于Material菜单主题。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "matOrange",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `matOrange` defining mat orange in `src/theme/palettes`.",
+      "summaryZh": "常量/变量 `matOrange`，定义 `src/theme/palettes` 中的MaterialOrange。",
       "sourceFile": "src/theme/palettes/mat-orange.ts",
       "inputs": [],
       "outputs": [],
@@ -1231,74 +2564,176 @@
     {
       "name": "matOverridableElevation",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Executes `matOverridableElevation` to handle mat overridable elevation.",
+      "summaryZh": "执行 `matOverridableElevation`，用于MaterialOverridable层级阴影。",
       "sourceFile": "src/theme/utils/elevation.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "matOverridableElevation",
+          "params": [
+            {
+              "name": "zValue",
+              "type": "any"
+            },
+            {
+              "name": "color",
+              "type": "any"
+            },
+            {
+              "name": "opacity",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": "Executes `matOverridableElevation` to handle mat overridable elevation.",
+          "descriptionZh": "执行 `matOverridableElevation`，用于MaterialOverridable层级阴影。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "matPaginatorTheme",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Executes `matPaginatorTheme` to handle mat paginator theme.",
+      "summaryZh": "执行 `matPaginatorTheme`，用于Material分页器主题。",
       "sourceFile": "src/theme/theme/mat-paginator-theme.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "matPaginatorTheme",
+          "params": [
+            {
+              "name": "theme",
+              "type": "Theme"
+            }
+          ],
+          "returnType": "Object",
+          "description": "Executes `matPaginatorTheme` to handle mat paginator theme.",
+          "descriptionZh": "执行 `matPaginatorTheme`，用于Material分页器主题。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "matPalette",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Executes `matPalette` to handle mat palette.",
+      "summaryZh": "执行 `matPalette`，用于Material调色板。",
       "sourceFile": "src/theme/mat-palette.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "matPalette",
+          "params": [
+            {
+              "name": "basePalette",
+              "type": "Palette"
+            },
+            {
+              "name": "defaultColor",
+              "type": "number | string"
+            },
+            {
+              "name": "lighter",
+              "type": "number | string"
+            },
+            {
+              "name": "darker",
+              "type": "number | string"
+            },
+            {
+              "name": "text",
+              "type": "any"
+            }
+          ],
+          "returnType": "Palette",
+          "description": "Executes `matPalette` to handle mat palette.",
+          "descriptionZh": "执行 `matPalette`，用于Material调色板。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "matProgressBarTheme",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Executes `matProgressBarTheme` to handle mat progress bar theme.",
+      "summaryZh": "执行 `matProgressBarTheme`，用于Material进度条条主题。",
       "sourceFile": "src/theme/theme/mat-progress-bar-theme.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "matProgressBarTheme",
+          "params": [
+            {
+              "name": "theme",
+              "type": "Theme"
+            }
+          ],
+          "returnType": "Object",
+          "description": "Executes `matProgressBarTheme` to handle mat progress bar theme.",
+          "descriptionZh": "执行 `matProgressBarTheme`，用于Material进度条条主题。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "matProgressSpinnerTheme",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Executes `matProgressSpinnerTheme` to handle mat progress spinner theme.",
+      "summaryZh": "执行 `matProgressSpinnerTheme`，用于Material进度条加载指示器主题。",
       "sourceFile": "src/theme/theme/mat-progress-spinner-theme.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "matProgressSpinnerTheme",
+          "params": [
+            {
+              "name": "theme",
+              "type": "Theme"
+            }
+          ],
+          "returnType": "Object",
+          "description": "Executes `matProgressSpinnerTheme` to handle mat progress spinner theme.",
+          "descriptionZh": "执行 `matProgressSpinnerTheme`，用于Material进度条加载指示器主题。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "matRadioTheme",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Executes `matRadioTheme` to handle mat radio theme.",
+      "summaryZh": "执行 `matRadioTheme`，用于Material单选框主题。",
       "sourceFile": "src/theme/theme/mat-radio-theme.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "matRadioTheme",
+          "params": [
+            {
+              "name": "theme",
+              "type": "Theme"
+            }
+          ],
+          "returnType": "Object",
+          "description": "Executes `matRadioTheme` to handle mat radio theme.",
+          "descriptionZh": "执行 `matRadioTheme`，用于Material单选框主题。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "matRed",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `matRed` defining mat red in `src/theme/palettes`.",
+      "summaryZh": "常量/变量 `matRed`，定义 `src/theme/palettes` 中的MaterialRed。",
       "sourceFile": "src/theme/palettes/mat-red.ts",
       "inputs": [],
       "outputs": [],
@@ -1308,19 +2743,27 @@
     {
       "name": "matRipple",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Executes `matRipple` to handle mat ripple.",
+      "summaryZh": "执行 `matRipple`，用于MaterialRipple。",
       "sourceFile": "src/theme/core/mat-ripple.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "matRipple",
+          "params": [],
+          "returnType": "Object",
+          "description": "Executes `matRipple` to handle mat ripple.",
+          "descriptionZh": "执行 `matRipple`，用于MaterialRipple。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "matRippleColorOpacity",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `matRippleColorOpacity` defining mat ripple color opacity in `src/theme`.",
+      "summaryZh": "常量/变量 `matRippleColorOpacity`，定义 `src/theme` 中的MaterialRipple颜色不透明度。",
       "sourceFile": "src/theme/constants.ts",
       "inputs": [],
       "outputs": [],
@@ -1330,52 +2773,104 @@
     {
       "name": "matSelectTheme",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Executes `matSelectTheme` to handle mat select theme.",
+      "summaryZh": "执行 `matSelectTheme`，用于Material下拉选择主题。",
       "sourceFile": "src/theme/theme/mat-select-theme.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "matSelectTheme",
+          "params": [
+            {
+              "name": "theme",
+              "type": "Theme"
+            }
+          ],
+          "returnType": "Object",
+          "description": "Executes `matSelectTheme` to handle mat select theme.",
+          "descriptionZh": "执行 `matSelectTheme`，用于Material下拉选择主题。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "matSidenavTheme",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Executes `matSidenavTheme` to handle mat sidenav theme.",
+      "summaryZh": "执行 `matSidenavTheme`，用于Material侧边导航主题。",
       "sourceFile": "src/theme/theme/mat-sidenav-theme.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "matSidenavTheme",
+          "params": [
+            {
+              "name": "theme",
+              "type": "Theme"
+            }
+          ],
+          "returnType": "Object",
+          "description": "Executes `matSidenavTheme` to handle mat sidenav theme.",
+          "descriptionZh": "执行 `matSidenavTheme`，用于Material侧边导航主题。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "matSliderTheme",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Executes `matSliderTheme` to handle mat slider theme.",
+      "summaryZh": "执行 `matSliderTheme`，用于Material滑块主题。",
       "sourceFile": "src/theme/theme/mat-slider-theme.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "matSliderTheme",
+          "params": [
+            {
+              "name": "theme",
+              "type": "Theme"
+            }
+          ],
+          "returnType": "Object",
+          "description": "Executes `matSliderTheme` to handle mat slider theme.",
+          "descriptionZh": "执行 `matSliderTheme`，用于Material滑块主题。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "matSlideToggleTheme",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Executes `matSlideToggleTheme` to handle mat slide toggle theme.",
+      "summaryZh": "执行 `matSlideToggleTheme`，用于MaterialSlide开关主题。",
       "sourceFile": "src/theme/theme/mat-slide-toggle-theme.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "matSlideToggleTheme",
+          "params": [
+            {
+              "name": "theme",
+              "type": "Theme"
+            }
+          ],
+          "returnType": "Object",
+          "description": "Executes `matSlideToggleTheme` to handle mat slide toggle theme.",
+          "descriptionZh": "执行 `matSlideToggleTheme`，用于MaterialSlide开关主题。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "matSmall",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `matSmall` defining mat small in `src/theme/utils`.",
+      "summaryZh": "常量/变量 `matSmall`，定义 `src/theme/utils` 中的MaterialSmall。",
       "sourceFile": "src/theme/utils/variables.ts",
       "inputs": [],
       "outputs": [],
@@ -1385,96 +2880,216 @@
     {
       "name": "matSnackBarTheme",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Executes `matSnackBarTheme` to handle mat snack bar theme.",
+      "summaryZh": "执行 `matSnackBarTheme`，用于MaterialSnack条主题。",
       "sourceFile": "src/theme/theme/mat-snack-bar-theme.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "matSnackBarTheme",
+          "params": [
+            {
+              "name": "theme",
+              "type": "Theme"
+            }
+          ],
+          "returnType": "Object",
+          "description": "Executes `matSnackBarTheme` to handle mat snack bar theme.",
+          "descriptionZh": "执行 `matSnackBarTheme`，用于MaterialSnack条主题。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "matSortTheme",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Executes `matSortTheme` to handle mat sort theme.",
+      "summaryZh": "执行 `matSortTheme`，用于Material排序主题。",
       "sourceFile": "src/theme/theme/mat-sort-theme.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "matSortTheme",
+          "params": [
+            {
+              "name": "theme",
+              "type": "Theme"
+            }
+          ],
+          "returnType": "Object",
+          "description": "Executes `matSortTheme` to handle mat sort theme.",
+          "descriptionZh": "执行 `matSortTheme`，用于Material排序主题。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "matSpeedDialTheme",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Executes `matSpeedDialTheme` to handle mat speed dial theme.",
+      "summaryZh": "执行 `matSpeedDialTheme`，用于Material速度Dial主题。",
       "sourceFile": "src/theme/theme/dui-speeddial-theme.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "matSpeedDialTheme",
+          "params": [
+            {
+              "name": "theme",
+              "type": "Theme"
+            }
+          ],
+          "returnType": "Object",
+          "description": "Executes `matSpeedDialTheme` to handle mat speed dial theme.",
+          "descriptionZh": "执行 `matSpeedDialTheme`，用于Material速度Dial主题。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "matStepperTheme",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Executes `matStepperTheme` to handle mat stepper theme.",
+      "summaryZh": "执行 `matStepperTheme`，用于Material步骤条主题。",
       "sourceFile": "src/theme/theme/mat-stepper-theme.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "matStepperTheme",
+          "params": [
+            {
+              "name": "theme",
+              "type": "Theme"
+            }
+          ],
+          "returnType": "Object",
+          "description": "Executes `matStepperTheme` to handle mat stepper theme.",
+          "descriptionZh": "执行 `matStepperTheme`，用于Material步骤条主题。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "matTableTheme",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Executes `matTableTheme` to handle mat table theme.",
+      "summaryZh": "执行 `matTableTheme`，用于Material表格主题。",
       "sourceFile": "src/theme/theme/mat-table-theme.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "matTableTheme",
+          "params": [
+            {
+              "name": "theme",
+              "type": "Theme"
+            }
+          ],
+          "returnType": "Object",
+          "description": "Executes `matTableTheme` to handle mat table theme.",
+          "descriptionZh": "执行 `matTableTheme`，用于Material表格主题。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "matTabsTheme",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Executes `matTabsTheme` to handle mat tabs theme.",
+      "summaryZh": "执行 `matTabsTheme`，用于Material选项卡组主题。",
       "sourceFile": "src/theme/theme/mat-tabs-theme.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "matTabsTheme",
+          "params": [
+            {
+              "name": "theme",
+              "type": "Theme"
+            }
+          ],
+          "returnType": "Object",
+          "description": "Executes `matTabsTheme` to handle mat tabs theme.",
+          "descriptionZh": "执行 `matTabsTheme`，用于Material选项卡组主题。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "matThemeElevation",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Executes `matThemeElevation` to handle mat theme elevation.",
+      "summaryZh": "执行 `matThemeElevation`，用于Material主题层级阴影。",
       "sourceFile": "src/theme/utils/elevation.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "matThemeElevation",
+          "params": [
+            {
+              "name": "zValue",
+              "type": "any"
+            },
+            {
+              "name": "theme",
+              "type": "any"
+            },
+            {
+              "name": "opacity",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": "Executes `matThemeElevation` to handle mat theme elevation.",
+          "descriptionZh": "执行 `matThemeElevation`，用于Material主题层级阴影。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "matThemeOverridableElevation",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Executes `matThemeOverridableElevation` to handle mat theme overridable elevation.",
+      "summaryZh": "执行 `matThemeOverridableElevation`，用于Material主题Overridable层级阴影。",
       "sourceFile": "src/theme/utils/elevation.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "matThemeOverridableElevation",
+          "params": [
+            {
+              "name": "zValue",
+              "type": "any"
+            },
+            {
+              "name": "theme",
+              "type": "any"
+            },
+            {
+              "name": "opacity",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": "Executes `matThemeOverridableElevation` to handle mat theme overridable elevation.",
+          "descriptionZh": "执行 `matThemeOverridableElevation`，用于Material主题Overridable层级阴影。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "matTogglePadding",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `matTogglePadding` defining mat toggle padding in `src/theme/utils`.",
+      "summaryZh": "常量/变量 `matTogglePadding`，定义 `src/theme/utils` 中的Material开关内边距。",
       "sourceFile": "src/theme/utils/variables.ts",
       "inputs": [],
       "outputs": [],
@@ -1484,8 +3099,8 @@
     {
       "name": "matToggleSize",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `matToggleSize` defining mat toggle size in `src/theme/utils`.",
+      "summaryZh": "常量/变量 `matToggleSize`，定义 `src/theme/utils` 中的Material开关尺寸。",
       "sourceFile": "src/theme/utils/variables.ts",
       "inputs": [],
       "outputs": [],
@@ -1495,63 +3110,144 @@
     {
       "name": "matToolbarTheme",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Executes `matToolbarTheme` to handle mat toolbar theme.",
+      "summaryZh": "执行 `matToolbarTheme`，用于Material工具栏主题。",
       "sourceFile": "src/theme/theme/mat-toolbar-theme.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "matToolbarTheme",
+          "params": [
+            {
+              "name": "theme",
+              "type": "Theme"
+            }
+          ],
+          "returnType": "Object",
+          "description": "Executes `matToolbarTheme` to handle mat toolbar theme.",
+          "descriptionZh": "执行 `matToolbarTheme`，用于Material工具栏主题。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "matTooltipTheme",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Executes `matTooltipTheme` to handle mat tooltip theme.",
+      "summaryZh": "执行 `matTooltipTheme`，用于Material悬浮提示主题。",
       "sourceFile": "src/theme/theme/mat-tooltip-theme.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "matTooltipTheme",
+          "params": [
+            {
+              "name": "theme",
+              "type": "Theme"
+            }
+          ],
+          "returnType": "Object",
+          "description": "Executes `matTooltipTheme` to handle mat tooltip theme.",
+          "descriptionZh": "执行 `matTooltipTheme`，用于Material悬浮提示主题。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "matTreeTheme",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Executes `matTreeTheme` to handle mat tree theme.",
+      "summaryZh": "执行 `matTreeTheme`，用于Material树形控件主题。",
       "sourceFile": "src/theme/theme/mat-tree-theme.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "matTreeTheme",
+          "params": [
+            {
+              "name": "theme",
+              "type": "Theme"
+            }
+          ],
+          "returnType": "Object",
+          "description": "Executes `matTreeTheme` to handle mat tree theme.",
+          "descriptionZh": "执行 `matTreeTheme`，用于Material树形控件主题。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "matTypographyFontShorthand",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Executes `matTypographyFontShorthand` to handle mat typography font shorthand.",
+      "summaryZh": "执行 `matTypographyFontShorthand`，用于Material排版字体Shorthand。",
       "sourceFile": "src/theme/typography/mat-typography-font-shorthand.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "matTypographyFontShorthand",
+          "params": [
+            {
+              "name": "fontSize",
+              "type": "number | string"
+            },
+            {
+              "name": "fontWeight",
+              "type": "number | string"
+            },
+            {
+              "name": "lineHeight",
+              "type": "number | string"
+            },
+            {
+              "name": "fontFamily",
+              "type": "string"
+            }
+          ],
+          "returnType": "Object",
+          "description": "Executes `matTypographyFontShorthand` to handle mat typography font shorthand.",
+          "descriptionZh": "执行 `matTypographyFontShorthand`，用于Material排版字体Shorthand。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "matTypographyLevelToStyles",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Executes `matTypographyLevelToStyles` to handle mat typography level to styles.",
+      "summaryZh": "执行 `matTypographyLevelToStyles`，用于Material排版层级转换为样式集合。",
       "sourceFile": "src/theme/typography/mat-typography-level-to-styles.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "matTypographyLevelToStyles",
+          "params": [
+            {
+              "name": "config",
+              "type": "TypographyConfig"
+            },
+            {
+              "name": "level",
+              "type": "string"
+            }
+          ],
+          "returnType": "Object",
+          "description": "Executes `matTypographyLevelToStyles` to handle mat typography level to styles.",
+          "descriptionZh": "执行 `matTypographyLevelToStyles`，用于Material排版层级转换为样式集合。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "matXsmall",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `matXsmall` defining mat xsmall in `src/theme/utils`.",
+      "summaryZh": "常量/变量 `matXsmall`，定义 `src/theme/utils` 中的MaterialXsmall。",
       "sourceFile": "src/theme/utils/variables.ts",
       "inputs": [],
       "outputs": [],
@@ -1561,52 +3257,105 @@
     {
       "name": "mdcFocus",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Executes `mdcFocus` to handle mdc focus.",
+      "summaryZh": "执行 `mdcFocus`，用于MDC组件聚焦。",
       "sourceFile": "src/theme/core/focus.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "mdcFocus",
+          "params": [],
+          "returnType": "Object",
+          "description": "Executes `mdcFocus` to handle mdc focus.",
+          "descriptionZh": "执行 `mdcFocus`，用于MDC组件聚焦。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "mix",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Executes `mix` to handle mix.",
+      "summaryZh": "执行 `mix`，用于mix。",
       "sourceFile": "src/theme/mat-color.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "mix",
+          "params": [
+            {
+              "name": "color1",
+              "type": "string"
+            },
+            {
+              "name": "color2",
+              "type": "string"
+            },
+            {
+              "name": "weight",
+              "type": "number"
+            }
+          ],
+          "returnType": "string",
+          "description": "Executes `mix` to handle mix.",
+          "descriptionZh": "执行 `mix`，用于mix。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "multiplyRule",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Executes `multiplyRule` to handle multiply rule.",
+      "summaryZh": "执行 `multiplyRule`，用于multiply规则。",
       "sourceFile": "src/theme/utils/rules-operations.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "multiplyRule",
+          "params": [
+            {
+              "name": "rule",
+              "type": "number | string"
+            },
+            {
+              "name": "multiplier",
+              "type": "number"
+            }
+          ],
+          "returnType": "number | string",
+          "description": "Executes `multiplyRule` to handle multiply rule.",
+          "descriptionZh": "执行 `multiplyRule`，用于multiply规则。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "Palette",
       "kind": "interface",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Interface `Palette` defining the contract and properties for palette.",
+      "summaryZh": "接口 `Palette`，定义调色板的数据结构契约与属性规范。",
       "sourceFile": "src/theme/interfaces/palette.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
-      "properties": []
+      "properties": [
+        {
+          "name": "contrast",
+          "type": "BasePalette",
+          "description": "Property `contrast` (`BasePalette`) storing contrast.",
+          "descriptionZh": "属性 `contrast`（类型：`BasePalette`），用于存储或配置对比度。"
+        }
+      ]
     },
     {
       "name": "pi",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `pi` defining pi in `src/theme/utils`.",
+      "summaryZh": "常量/变量 `pi`，定义 `src/theme/utils` 中的pi。",
       "sourceFile": "src/theme/utils/variables.ts",
       "inputs": [],
       "outputs": [],
@@ -1616,63 +3365,136 @@
     {
       "name": "rgba",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Executes `rgba` to handle rgba.",
+      "summaryZh": "执行 `rgba`，用于RGBA颜色。",
       "sourceFile": "src/theme/mat-color.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "rgba",
+          "params": [
+            {
+              "name": "color",
+              "type": "string"
+            },
+            {
+              "name": "opacity",
+              "type": "number"
+            }
+          ],
+          "returnType": "string",
+          "description": "Executes `rgba` to handle rgba.",
+          "descriptionZh": "执行 `rgba`，用于RGBA颜色。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "roundRule",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Executes `roundRule` to handle round rule.",
+      "summaryZh": "执行 `roundRule`，用于四舍五入规则。",
       "sourceFile": "src/theme/utils/rules-operations.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "roundRule",
+          "params": [
+            {
+              "name": "rule",
+              "type": "number | string"
+            }
+          ],
+          "returnType": "string",
+          "description": "Executes `roundRule` to handle round rule.",
+          "descriptionZh": "执行 `roundRule`，用于四舍五入规则。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "structuralStyling",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Executes `structuralStyling` to handle structural styling.",
+      "summaryZh": "执行 `structuralStyling`，用于structural样式。",
       "sourceFile": "src/theme/core/focus.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "structuralStyling",
+          "params": [
+            {
+              "name": "prefix",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": "Executes `structuralStyling` to handle structural styling.",
+          "descriptionZh": "执行 `structuralStyling`，用于structural样式。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "subtractRule",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Executes `subtractRule` to handle subtract rule.",
+      "summaryZh": "执行 `subtractRule`，用于subtract规则。",
       "sourceFile": "src/theme/utils/rules-operations.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "subtractRule",
+          "params": [
+            {
+              "name": "rule",
+              "type": "number | string"
+            },
+            {
+              "name": "subtract",
+              "type": "number | string"
+            }
+          ],
+          "returnType": "number | string",
+          "description": "Executes `subtractRule` to handle subtract rule.",
+          "descriptionZh": "执行 `subtractRule`，用于subtract规则。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "svgColor",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Executes `svgColor` to handle svg color.",
+      "summaryZh": "执行 `svgColor`，用于SVG矢量图颜色。",
       "sourceFile": "src/theme/mat-color.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "svgColor",
+          "params": [
+            {
+              "name": "theme",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": "Executes `svgColor` to handle svg color.",
+          "descriptionZh": "执行 `svgColor`，用于SVG矢量图颜色。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "swiftEaseIn",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `swiftEaseIn` defining swift ease in in `src/theme/utils`.",
+      "summaryZh": "常量/变量 `swiftEaseIn`，定义 `src/theme/utils` 中的swiftEase在。",
       "sourceFile": "src/theme/utils/variables.ts",
       "inputs": [],
       "outputs": [],
@@ -1682,8 +3504,8 @@
     {
       "name": "swiftEaseInDuration",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `swiftEaseInDuration` defining swift ease in duration in `src/theme/utils`.",
+      "summaryZh": "常量/变量 `swiftEaseInDuration`，定义 `src/theme/utils` 中的swiftEase在持续时间。",
       "sourceFile": "src/theme/utils/variables.ts",
       "inputs": [],
       "outputs": [],
@@ -1693,8 +3515,8 @@
     {
       "name": "swiftEaseInOut",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `swiftEaseInOut` defining swift ease in out in `src/theme/utils`.",
+      "summaryZh": "常量/变量 `swiftEaseInOut`，定义 `src/theme/utils` 中的swiftEase在输出。",
       "sourceFile": "src/theme/utils/variables.ts",
       "inputs": [],
       "outputs": [],
@@ -1704,8 +3526,8 @@
     {
       "name": "swiftEaseInOutDuration",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `swiftEaseInOutDuration` defining swift ease in out duration in `src/theme/utils`.",
+      "summaryZh": "常量/变量 `swiftEaseInOutDuration`，定义 `src/theme/utils` 中的swiftEase在输出持续时间。",
       "sourceFile": "src/theme/utils/variables.ts",
       "inputs": [],
       "outputs": [],
@@ -1715,8 +3537,8 @@
     {
       "name": "swiftEaseInOutTimingFunction",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `swiftEaseInOutTimingFunction` defining swift ease in out timing function in `src/theme/utils`.",
+      "summaryZh": "常量/变量 `swiftEaseInOutTimingFunction`，定义 `src/theme/utils` 中的swiftEase在输出时间函数。",
       "sourceFile": "src/theme/utils/variables.ts",
       "inputs": [],
       "outputs": [],
@@ -1726,8 +3548,8 @@
     {
       "name": "swiftEaseInTimingFunction",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `swiftEaseInTimingFunction` defining swift ease in timing function in `src/theme/utils`.",
+      "summaryZh": "常量/变量 `swiftEaseInTimingFunction`，定义 `src/theme/utils` 中的swiftEase在时间函数。",
       "sourceFile": "src/theme/utils/variables.ts",
       "inputs": [],
       "outputs": [],
@@ -1737,8 +3559,8 @@
     {
       "name": "swiftEaseOut",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `swiftEaseOut` defining swift ease out in `src/theme/utils`.",
+      "summaryZh": "常量/变量 `swiftEaseOut`，定义 `src/theme/utils` 中的swiftEase输出。",
       "sourceFile": "src/theme/utils/variables.ts",
       "inputs": [],
       "outputs": [],
@@ -1748,8 +3570,8 @@
     {
       "name": "swiftEaseOutDuration",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `swiftEaseOutDuration` defining swift ease out duration in `src/theme/utils`.",
+      "summaryZh": "常量/变量 `swiftEaseOutDuration`，定义 `src/theme/utils` 中的swiftEase输出持续时间。",
       "sourceFile": "src/theme/utils/variables.ts",
       "inputs": [],
       "outputs": [],
@@ -1759,8 +3581,8 @@
     {
       "name": "swiftEaseOutTimingFunction",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `swiftEaseOutTimingFunction` defining swift ease out timing function in `src/theme/utils`.",
+      "summaryZh": "常量/变量 `swiftEaseOutTimingFunction`，定义 `src/theme/utils` 中的swiftEase输出时间函数。",
       "sourceFile": "src/theme/utils/variables.ts",
       "inputs": [],
       "outputs": [],
@@ -1770,8 +3592,8 @@
     {
       "name": "swiftLinear",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `swiftLinear` defining swift linear in `src/theme/utils`.",
+      "summaryZh": "常量/变量 `swiftLinear`，定义 `src/theme/utils` 中的swiftLinear。",
       "sourceFile": "src/theme/utils/variables.ts",
       "inputs": [],
       "outputs": [],
@@ -1781,8 +3603,8 @@
     {
       "name": "swiftLinearDuration",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `swiftLinearDuration` defining swift linear duration in `src/theme/utils`.",
+      "summaryZh": "常量/变量 `swiftLinearDuration`，定义 `src/theme/utils` 中的swiftLinear持续时间。",
       "sourceFile": "src/theme/utils/variables.ts",
       "inputs": [],
       "outputs": [],
@@ -1792,8 +3614,8 @@
     {
       "name": "swiftLinearTimingFunction",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `swiftLinearTimingFunction` defining swift linear timing function in `src/theme/utils`.",
+      "summaryZh": "常量/变量 `swiftLinearTimingFunction`，定义 `src/theme/utils` 中的swiftLinear时间函数。",
       "sourceFile": "src/theme/utils/variables.ts",
       "inputs": [],
       "outputs": [],
@@ -1803,19 +3625,68 @@
     {
       "name": "Theme",
       "kind": "interface",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Interface `Theme` defining the contract and properties for theme.",
+      "summaryZh": "接口 `Theme`，定义主题的数据结构契约与属性规范。",
       "sourceFile": "src/theme/interfaces/theme.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
-      "properties": []
+      "properties": [
+        {
+          "name": "primary",
+          "type": "Palette",
+          "description": "Property `primary` (`Palette`) storing primary.",
+          "descriptionZh": "属性 `primary`（类型：`Palette`），用于存储或配置主色。"
+        },
+        {
+          "name": "accent",
+          "type": "Palette",
+          "description": "Property `accent` (`Palette`) storing accent.",
+          "descriptionZh": "属性 `accent`（类型：`Palette`），用于存储或配置强调色。"
+        },
+        {
+          "name": "warn",
+          "type": "Palette",
+          "description": "Property `warn` (`Palette`) storing warn.",
+          "descriptionZh": "属性 `warn`（类型：`Palette`），用于存储或配置警告色。"
+        },
+        {
+          "name": "type",
+          "type": "'light'|'dark'|'darkblue'",
+          "description": "Property `type` (`'light'|'dark'|'darkblue'`) storing type.",
+          "descriptionZh": "属性 `type`（类型：`'light'|'dark'|'darkblue'`），用于存储或配置类型。"
+        },
+        {
+          "name": "foreground",
+          "type": "Foreground",
+          "description": "Property `foreground` (`Foreground`) storing foreground.",
+          "descriptionZh": "属性 `foreground`（类型：`Foreground`），用于存储或配置前景。"
+        },
+        {
+          "name": "background",
+          "type": "Background",
+          "description": "Property `background` (`Background`) storing background.",
+          "descriptionZh": "属性 `background`（类型：`Background`），用于存储或配置背景。"
+        },
+        {
+          "name": "density",
+          "type": "number",
+          "description": "Property `density` (`number`) storing density.",
+          "descriptionZh": "属性 `density`（类型：`number`），用于存储或配置密度。"
+        },
+        {
+          "name": "typography",
+          "type": "TypographyConfig",
+          "description": "Property `typography` (`TypographyConfig`) storing typography.",
+          "descriptionZh": "属性 `typography`（类型：`TypographyConfig`），用于存储或配置排版。"
+        }
+      ]
     },
     {
       "name": "THEME_SERVICE_PROVIDER",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `THEME_SERVICE_PROVIDER` defining theme service provider in `src/theme`.",
+      "summaryZh": "常量/变量 `THEME_SERVICE_PROVIDER`，定义 `src/theme` 中的主题服务提供者。",
       "sourceFile": "src/theme/theme.service.ts",
       "inputs": [],
       "outputs": [],
@@ -1825,8 +3696,8 @@
     {
       "name": "ThemeService",
       "kind": "service",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Injectable Angular service `ThemeService` managing theme service state and operations in `src/theme`.",
+      "summaryZh": "可注入的 Angular 服务 `ThemeService`，管理 `src/theme` 中的主题服务状态与业务操作。",
       "sourceFile": "src/theme/theme.service.ts",
       "inputs": [],
       "outputs": [],
@@ -1835,22 +3706,22 @@
           "name": "getInstance",
           "params": [],
           "returnType": "ThemeService",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `getInstance` to handle get instance.",
+          "descriptionZh": "执行 `getInstance`，用于获取实例。"
         },
         {
           "name": "refreshTheme",
           "params": [],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `refreshTheme` to handle refresh theme.",
+          "descriptionZh": "执行 `refreshTheme`，用于刷新主题。"
         },
         {
           "name": "getFormType",
           "params": [],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `getFormType` to handle get form type.",
+          "descriptionZh": "执行 `getFormType`，用于获取表单类型。"
         },
         {
           "name": "setTheme",
@@ -1861,8 +3732,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `setTheme` to handle set theme.",
+          "descriptionZh": "执行 `setTheme`，用于集合主题。"
         },
         {
           "name": "loadTheme",
@@ -1873,8 +3744,8 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `loadTheme` to handle load theme.",
+          "descriptionZh": "执行 `loadTheme`，用于加载主题。"
         },
         {
           "name": "createThemeStyles",
@@ -1893,8 +3764,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `createThemeStyles` to handle create theme styles.",
+          "descriptionZh": "执行 `createThemeStyles`，用于创建主题样式集合。"
         },
         {
           "name": "getThemeStyle",
@@ -1909,8 +3780,8 @@
             }
           ],
           "returnType": "Object",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `getThemeStyle` to handle get theme style.",
+          "descriptionZh": "执行 `getThemeStyle`，用于获取主题样式。"
         },
         {
           "name": "changeThemeWithConfig",
@@ -1921,8 +3792,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `changeThemeWithConfig` to handle change theme with config.",
+          "descriptionZh": "执行 `changeThemeWithConfig`，用于变更主题带有配置。"
         },
         {
           "name": "changeTheme",
@@ -1953,8 +3824,8 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `changeTheme` to handle change theme.",
+          "descriptionZh": "执行 `changeTheme`，用于变更主题。"
         },
         {
           "name": "getThemeByType",
@@ -1965,15 +3836,15 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `getThemeByType` to handle get theme by type.",
+          "descriptionZh": "执行 `getThemeByType`，用于获取主题按类型。"
         },
         {
           "name": "getTheme",
           "params": [],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `getTheme` to handle get theme.",
+          "descriptionZh": "执行 `getTheme`，用于获取主题。"
         }
       ],
       "properties": [
@@ -1981,55 +3852,190 @@
           "name": "formType",
           "type": "BehaviorSubject<MatFormFieldAppearance>",
           "default": "new BehaviorSubject<MatFormFieldAppearance>('fill')",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `formType` (`BehaviorSubject<MatFormFieldAppearance>`) storing form type.",
+          "descriptionZh": "属性 `formType`（类型：`BehaviorSubject<MatFormFieldAppearance>`），用于存储或配置表单类型。"
         },
         {
           "name": "dotosConfig",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `dotosConfig` (`any`) storing dotos config.",
+          "descriptionZh": "属性 `dotosConfig`（类型：`any`），用于存储或配置DotOS配置。"
         }
       ]
     },
     {
       "name": "typography",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Executes `typography` to handle typography.",
+      "summaryZh": "执行 `typography`，用于排版。",
       "sourceFile": "src/theme/theme/mat-progress-bar-theme.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "typography",
+          "params": [
+            {
+              "name": "config",
+              "type": "TypographyConfig"
+            }
+          ],
+          "returnType": "Object",
+          "description": "Executes `typography` to handle typography.",
+          "descriptionZh": "执行 `typography`，用于排版。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "TypographyConfig",
       "kind": "interface",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Interface `TypographyConfig` defining the contract and properties for typography config.",
+      "summaryZh": "接口 `TypographyConfig`，定义排版配置的数据结构契约与属性规范。",
       "sourceFile": "src/theme/interfaces/typography-config.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
-      "properties": []
+      "properties": [
+        {
+          "name": "'type'",
+          "type": "string",
+          "description": "Property `type` (`string`) storing type.",
+          "descriptionZh": "属性 `type`（类型：`string`），用于存储或配置类型。"
+        },
+        {
+          "name": "'display-4'",
+          "type": "TypographyLevel",
+          "description": "Property `display-4` (`TypographyLevel`) storing display 4.",
+          "descriptionZh": "属性 `display-4`（类型：`TypographyLevel`），用于存储或配置display4。"
+        },
+        {
+          "name": "'display-3'",
+          "type": "TypographyLevel",
+          "description": "Property `display-3` (`TypographyLevel`) storing display 3.",
+          "descriptionZh": "属性 `display-3`（类型：`TypographyLevel`），用于存储或配置display3。"
+        },
+        {
+          "name": "'display-2'",
+          "type": "TypographyLevel",
+          "description": "Property `display-2` (`TypographyLevel`) storing display 2.",
+          "descriptionZh": "属性 `display-2`（类型：`TypographyLevel`），用于存储或配置display2。"
+        },
+        {
+          "name": "'display-1'",
+          "type": "TypographyLevel",
+          "description": "Property `display-1` (`TypographyLevel`) storing display 1.",
+          "descriptionZh": "属性 `display-1`（类型：`TypographyLevel`），用于存储或配置display1。"
+        },
+        {
+          "name": "\"headline\"",
+          "type": "TypographyLevel",
+          "description": "Property `headline` (`TypographyLevel`) storing headline.",
+          "descriptionZh": "属性 `headline`（类型：`TypographyLevel`），用于存储或配置headline。"
+        },
+        {
+          "name": "\"title\"",
+          "type": "TypographyLevel",
+          "description": "Property `title` (`TypographyLevel`) storing title.",
+          "descriptionZh": "属性 `title`（类型：`TypographyLevel`），用于存储或配置标题。"
+        },
+        {
+          "name": "'subheading-2'",
+          "type": "TypographyLevel",
+          "description": "Property `subheading-2` (`TypographyLevel`) storing subheading 2.",
+          "descriptionZh": "属性 `subheading-2`（类型：`TypographyLevel`），用于存储或配置subheading2。"
+        },
+        {
+          "name": "'subheading-1'",
+          "type": "TypographyLevel",
+          "description": "Property `subheading-1` (`TypographyLevel`) storing subheading 1.",
+          "descriptionZh": "属性 `subheading-1`（类型：`TypographyLevel`），用于存储或配置subheading1。"
+        },
+        {
+          "name": "'body-2'",
+          "type": "TypographyLevel",
+          "description": "Property `body-2` (`TypographyLevel`) storing body 2.",
+          "descriptionZh": "属性 `body-2`（类型：`TypographyLevel`），用于存储或配置主体2。"
+        },
+        {
+          "name": "'body-1'",
+          "type": "TypographyLevel",
+          "description": "Property `body-1` (`TypographyLevel`) storing body 1.",
+          "descriptionZh": "属性 `body-1`（类型：`TypographyLevel`），用于存储或配置主体1。"
+        },
+        {
+          "name": "\"caption\"",
+          "type": "TypographyLevel",
+          "description": "Property `caption` (`TypographyLevel`) storing caption.",
+          "descriptionZh": "属性 `caption`（类型：`TypographyLevel`），用于存储或配置说明文字。"
+        },
+        {
+          "name": "\"button\"",
+          "type": "TypographyLevel",
+          "description": "Property `button` (`TypographyLevel`) storing button.",
+          "descriptionZh": "属性 `button`（类型：`TypographyLevel`），用于存储或配置按钮。"
+        },
+        {
+          "name": "\"input\"",
+          "type": "TypographyLevel",
+          "description": "Property `input` (`TypographyLevel`) storing input.",
+          "descriptionZh": "属性 `input`（类型：`TypographyLevel`），用于存储或配置输入属性。"
+        },
+        {
+          "name": "'font-family'",
+          "type": "string",
+          "description": "Property `font-family` (`string`) storing font family.",
+          "descriptionZh": "属性 `font-family`（类型：`string`），用于存储或配置字体family。"
+        }
+      ]
     },
     {
       "name": "TypographyLevel",
       "kind": "interface",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Interface `TypographyLevel` defining the contract and properties for typography level.",
+      "summaryZh": "接口 `TypographyLevel`，定义排版层级的数据结构契约与属性规范。",
       "sourceFile": "src/theme/interfaces/typography-level.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
-      "properties": []
+      "properties": [
+        {
+          "name": "'font-size'",
+          "type": "number | string",
+          "description": "Property `font-size` (`number | string`) storing font size.",
+          "descriptionZh": "属性 `font-size`（类型：`number | string`），用于存储或配置字体尺寸。"
+        },
+        {
+          "name": "'line-height'",
+          "type": "number | string",
+          "description": "Property `line-height` (`number | string`) storing line height.",
+          "descriptionZh": "属性 `line-height`（类型：`number | string`），用于存储或配置线段高度。"
+        },
+        {
+          "name": "'font-weight'",
+          "type": "number | string",
+          "description": "Property `font-weight` (`number | string`) storing font weight.",
+          "descriptionZh": "属性 `font-weight`（类型：`number | string`），用于存储或配置字体权重/字重。"
+        },
+        {
+          "name": "'font-family'",
+          "type": "string",
+          "description": "Property `font-family` (`string`) storing font family.",
+          "descriptionZh": "属性 `font-family`（类型：`string`），用于存储或配置字体family。"
+        },
+        {
+          "name": "'letter-spacing'",
+          "type": "string",
+          "description": "Property `letter-spacing` (`string`) storing letter spacing.",
+          "descriptionZh": "属性 `letter-spacing`（类型：`string`），用于存储或配置letter间距。"
+        }
+      ]
     },
     {
       "name": "TypographyMap",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `TypographyMap` defining typography map in `src/theme`.",
+      "summaryZh": "常量/变量 `TypographyMap`，定义 `src/theme` 中的排版映射表。",
       "sourceFile": "src/theme/typography-theme.ts",
       "inputs": [],
       "outputs": [],
@@ -2039,8 +4045,8 @@
     {
       "name": "zIndexDrawer",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `zIndexDrawer` defining z index drawer in `src/theme/utils`.",
+      "summaryZh": "常量/变量 `zIndexDrawer`，定义 `src/theme/utils` 中的Z坐标索引抽屉面板。",
       "sourceFile": "src/theme/utils/variables.ts",
       "inputs": [],
       "outputs": [],
@@ -2050,8 +4056,8 @@
     {
       "name": "zIndexFab",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `zIndexFab` defining z index fab in `src/theme/utils`.",
+      "summaryZh": "常量/变量 `zIndexFab`，定义 `src/theme/utils` 中的Z坐标索引Fab。",
       "sourceFile": "src/theme/utils/variables.ts",
       "inputs": [],
       "outputs": [],

@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Module `src/common/colorpicker/components/google/google.component.ts` providing google component definitions and implementation.
+ * @zh 模块文件 `src/common/colorpicker/components/google/google.component.ts`，提供google组件相关的定义与实现。
+ */
+
 
 import {
   AfterViewChecked,
@@ -9,6 +14,10 @@ import { SketchDialogComponent } from '../sketch/sketch-dialog.component';
 import { DialogService } from '@dotos/dui/common/dialogs';
 import { GoogleColorService } from './google-color.services';
 
+/**
+ * Angular component `GoogColorPickerComponent` (selector: 'goog-color-picker') providing goog color picker component presentation and interaction in `src/common/colorpicker/components/google`.
+ * @zh Angular 组件 `GoogColorPickerComponent`（selector: 'goog-color-picker'），提供Goog颜色选择器组件的视图渲染与交互逻辑（位于 `src/common/colorpicker/components/google`）。
+ */
 @Component({
   selector: 'goog-color-picker',
   templateUrl: './google.component.html',
@@ -26,11 +35,19 @@ import { GoogleColorService } from './google-color.services';
  * @zh Google 文档风格的颜色选择器：固定调色板网格，加一行用户自行管理的自定义颜色。
  */
 export class GoogColorPickerComponent extends ColorWrap implements TriggerPopup,AfterViewChecked {
-  /** @zh 用户添加的自定义颜色列表。 */
+  /**
+   * Property `customcolors` (`any[]`) storing customcolors (default: `[ '#cf1717' ]`).
+   * @zh 用户添加的自定义颜色列表。
+   * @zh 用户添加的自定义颜色列表。
+   */
   customcolors = [
     '#cf1717'
   ]
-  /** @zh 固定调色板颜色列表，每项为 `[十六进制值, 中文名称]`。 */
+  /**
+   * Input property `colors` (`any[]`) configuring colors.
+   * @zh 固定调色板颜色列表，每项为 `[十六进制值, 中文名称]`。
+   * @zh 固定调色板颜色列表，每项为 `[十六进制值, 中文名称]`。
+   */
   @Input() colors = [
       ['#000000',"黑色"],
       ['#434343',"深灰色 4"],
@@ -120,14 +137,37 @@ export class GoogColorPickerComponent extends ColorWrap implements TriggerPopup,
       ['#20124D',"深紫色 3"],
       ['#4C1130',"深洋红色 3"]
   ];
-  /** @zh 外层卡片的阴影层级。 */
+  /**
+   * Input property `zDepth` (`zDepth`) configuring z depth (default: `1`).
+   * @zh 外层卡片的阴影层级。
+   * @zh 外层卡片的阴影层级。
+   */
   @Input() zDepth: zDepth = 1;
-  /** @zh 外层卡片的圆角半径。 */
+  /**
+   * Input property `radius` (`number`) configuring radius (default: `1`).
+   * @zh 外层卡片的圆角半径。
+   * @zh 外层卡片的圆角半径。
+   */
   @Input() radius = 1;
-  /** @zh 外层卡片的背景颜色。 */
+  /**
+   * Input property `background` (`string`) configuring background (default: `'#fff'`).
+   * @zh 外层卡片的背景颜色。
+   * @zh 外层卡片的背景颜色。
+   */
   @Input() background = '#fff';
-  /** @zh 已同步的自定义颜色版本号，用于检测 `customService` 是否有新的自定义颜色。 */
+  /**
+   * Property `dataversion` (`number`) storing dataversion (default: `0`).
+   * @zh 已同步的自定义颜色版本号，用于检测 `customService` 是否有新的自定义颜色。
+   * @zh 已同步的自定义颜色版本号，用于检测 `customService` 是否有新的自定义颜色。
+   */
   dataversion=0;
+  /**
+   * Creates an instance of `GoogColorPickerComponent` and initializes its dependencies and internal state.
+   * @zh 创建 `GoogColorPickerComponent` 实例，并初始化其依赖项与内部状态。
+   * @param changeDetectionRef - Injected or initial change detection ref (`ChangeDetectorRef`) / 注入或传入的变更变更检测引用（`ChangeDetectorRef`）
+   * @param dialogService - Injected or initial dialog service (`DialogService`) / 注入或传入的对话框服务（`DialogService`）
+   * @param customService - Injected or initial custom service (`GoogleColorService`) / 注入或传入的自定义服务（`GoogleColorService`）
+   */
   constructor(
     protected changeDetectionRef: ChangeDetectorRef,
     private dialogService: DialogService,
@@ -175,7 +215,7 @@ export class GoogColorPickerComponent extends ColorWrap implements TriggerPopup,
       width: '270px',
       height: '430px',
 
-    }).afterClosed().subscribe((result:any) => {
+    }).afterClosed().subscribe((result) => {
       if(result){
         this.customService.addCustom(result);
         this.handleBlockChange({hex:result,$event});

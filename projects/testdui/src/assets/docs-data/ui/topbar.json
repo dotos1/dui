@@ -5,8 +5,8 @@
       "name": "ToolbarDividerComponent",
       "kind": "component",
       "selector": "dui-topbar-divider",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular component `ToolbarDividerComponent` (selector: 'dui-topbar-divider') providing toolbar divider component presentation and interaction in `src/ui/topbar`.",
+      "summaryZh": "Angular 组件 `ToolbarDividerComponent`（selector: 'dui-topbar-divider'），提供工具栏Divider组件的视图渲染与交互逻辑（位于 `src/ui/topbar`）。",
       "sourceFile": "src/ui/topbar/topbar-divider.component.ts",
       "inputs": [],
       "outputs": [],
@@ -17,22 +17,22 @@
       "name": "TopbarComponent",
       "kind": "component",
       "selector": "dui-topbar",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular component `TopbarComponent` (selector: 'dui-topbar') providing topbar component presentation and interaction in `src/ui/topbar`.",
+      "summaryZh": "Angular 组件 `TopbarComponent`（selector: 'dui-topbar'），提供顶栏组件的视图渲染与交互逻辑（位于 `src/ui/topbar`）。",
       "sourceFile": "src/ui/topbar/topbar.component.ts",
       "inputs": [
         {
           "name": "title",
           "type": "string",
           "default": "''",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `title` (`string`) configuring title (default: `''`).",
+          "descriptionZh": "输入属性 `title`（类型：`string`），用于配置标题（默认值：`''`）。"
         },
         {
           "name": "color",
           "type": "string",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `color` (`string`) configuring color.",
+          "descriptionZh": "输入属性 `color`（类型：`string`），用于配置颜色。"
         }
       ],
       "outputs": [],
@@ -42,8 +42,8 @@
     {
       "name": "TopbarModule",
       "kind": "module",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular module `TopbarModule` declaring and exporting topbar module components, directives, pipes, and providers.",
+      "summaryZh": "Angular 模块 `TopbarModule`，声明并导出顶栏模块相关的组件、指令、管道与服务提供者。",
       "sourceFile": "src/ui/topbar/topbar.module.ts",
       "inputs": [],
       "outputs": [],
@@ -54,8 +54,8 @@
       "name": "TopbarTitleComponent",
       "kind": "component",
       "selector": "dui-topbar-title",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular component `TopbarTitleComponent` (selector: 'dui-topbar-title') providing topbar title component presentation and interaction in `src/ui/topbar`.",
+      "summaryZh": "Angular 组件 `TopbarTitleComponent`（selector: 'dui-topbar-title'），提供顶栏标题组件的视图渲染与交互逻辑（位于 `src/ui/topbar`）。",
       "sourceFile": "src/ui/topbar/topbar-title.component.ts",
       "inputs": [],
       "outputs": [],

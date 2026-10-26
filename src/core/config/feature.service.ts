@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Module `src/core/config/feature.service.ts` providing feature service definitions and implementation.
+ * @zh 模块文件 `src/core/config/feature.service.ts`，提供feature服务相关的定义与实现。
+ */
+
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 
@@ -10,10 +15,16 @@ import { ConfigService } from './config.service';
  * 改一次配置 —— 漏改的那个现场就会突然冒出一个任务书里没有的功能,而没人会发现,
  * 因为"多出来的东西"不报错。按阶段的话新功能默认落在 preview,客户现场的闸位是
  * stable,自动就藏住了;内部环境把闸位开到 experimental 就全看得见。
+
+ * @zh 功能的成熟阶段。站点配一个闸位,闸位之外的一律不显示。
  */
 export type FeatureStage = 'stable' | 'preview' | 'experimental';
 
-/** 闸位高低。配置里的闸位 ≥ 功能的阶段才放行。 */
+/**
+ * Constant/variable `STAGE_RANK` defining stage rank in `src/core/config`.
+ * 闸位高低。配置里的闸位 ≥ 功能的阶段才放行。
+ * @zh 闸位高低。配置里的闸位 ≥ 功能的阶段才放行。
+ */
 const STAGE_RANK: Record<FeatureStage, number> = {
   stable: 0,
   preview: 1,
@@ -47,6 +58,8 @@ const STAGE_RANK: Record<FeatureStage, number> = {
  * <p><b>各库要登记自己的功能</b>({@link declare}),否则这边不知道它是什么阶段,
  * 只能按 {@link FeatureService.unknownStage} 当作 preview 处理 —— 也就是
  * 客户现场默认看不见。这是有意的:忘了登记的后果是"少显示",不是"多显示"。
+
+ * @zh 可注入的 Angular 服务 `FeatureService`，管理 `src/core/config` 中的Feature服务状态与业务操作。
  */
 @Injectable({ providedIn: 'root' })
 export class FeatureService {
@@ -56,16 +69,35 @@ export class FeatureService {
    *
    * <p>取 preview 而不是 stable:忘了登记时宁可少显示,不要在客户现场
    * 多冒出一个任务书里没有的东西 —— 前者有人会来问,后者没人会发现。
+
+   * @zh 没登记过的功能按哪个阶段算。
    */
   static unknownStage: FeatureStage = 'preview';
 
+  /**
+   * Property `declared` (`Map`) storing declared (default: `new Map<string, FeatureStage>()`).
+   * @zh 属性 `declared`（类型：`Map`），用于存储或配置已声明（默认值：`new Map<string, FeatureStage>()`）。
+   */
   private declared = new Map<string, FeatureStage>();
 
+  /**
+   * Property `changedSubject` (`BehaviorSubject`) storing changed subject (default: `new BehaviorSubject<void>(undefined)`).
+   * @zh 属性 `changedSubject`（类型：`BehaviorSubject`），用于存储或配置已变更主题流（默认值：`new BehaviorSubject<void>(undefined)`）。
+   */
   private changedSubject = new BehaviorSubject<void>(undefined);
 
-  /** 开关变化时发一次。菜单一类"算一次就存下来"的地方要订它重算。 */
+  /**
+   * Property `changed` (`Observable<void>`) storing changed (default: `this.changedSubject.asObservable()`).
+   * 开关变化时发一次。菜单一类"算一次就存下来"的地方要订它重算。
+   * @zh 开关变化时发一次。菜单一类"算一次就存下来"的地方要订它重算。
+   */
   readonly changed: Observable<void> = this.changedSubject.asObservable();
 
+  /**
+   * Creates an instance of `FeatureService` and initializes its dependencies and internal state.
+   * @zh 创建 `FeatureService` 实例，并初始化其依赖项与内部状态。
+   * @param config - Injected or initial config (`ConfigService`) / 注入或传入的配置（`ConfigService`）
+   */
   constructor(private readonly config: ConfigService) {
     this.config.onLoad.subscribe(() => this.changedSubject.next());
   }
@@ -75,6 +107,8 @@ export class FeatureService {
    *
    * <p>重复登记以<b>后来的为准</b> —— 功能从 preview 转正到 stable 时
    * 只要改登记处一行,不必动配置。
+
+   * @zh 登记一批功能与它们的阶段。各库在自己的模块里调一次。
    */
   declare(features: Record<string, FeatureStage>): void {
     for (const key of Object.keys(features)) {
@@ -83,12 +117,19 @@ export class FeatureService {
     this.changedSubject.next();
   }
 
-  /** 这个功能登记的阶段;没登记过返回 undefined。 */
+  /**
+   * 这个功能登记的阶段;没登记过返回 undefined。
+   * @zh 这个功能登记的阶段;没登记过返回 undefined。
+   */
   stageOf(key: string): FeatureStage | undefined {
     return this.declared.get(key);
   }
 
-  /** 已登记的全部功能,按名字排序。做设置界面或者排查时用。 */
+  /**
+   * Executes `list` to handle list.
+   * 已登记的全部功能,按名字排序。做设置界面或者排查时用。
+   * @zh 已登记的全部功能,按名字排序。做设置界面或者排查时用。
+   */
   list(): Array<{ key: string; stage: FeatureStage; enabled: boolean }> {
     return Array.from(this.declared.keys()).sort().map((key) => ({
       key,
@@ -98,6 +139,7 @@ export class FeatureService {
   }
 
   /**
+   * Executes `isEnabled` to handle is enabled.
    * 这个功能开不开。
    *
    * <p>判定顺序:<b>逐项覆盖优先于阶段闸位</b> —— 覆盖是按合同写死的,
@@ -109,6 +151,8 @@ export class FeatureService {
    *       这样才能写"整组关掉、其中一个放行");</li>
    *   <li>都没有 → 比阶段:功能的阶段 ≤ 站点闸位就放行。</li>
    * </ol>
+
+   * @zh 这个功能开不开。
    */
   isEnabled(key: string): boolean {
     if (!key) {
@@ -126,13 +170,21 @@ export class FeatureService {
     return STAGE_RANK[stage] <= STAGE_RANK[this.stage()];
   }
 
-  /** 站点闸位。配错了(比如写了个不认识的词)按 stable 算,不要放行更多。 */
+  /**
+   * 站点闸位。配错了(比如写了个不认识的词)按 stable 算,不要放行更多。
+   * @zh 站点闸位。配错了(比如写了个不认识的词)按 stable 算,不要放行更多。
+   */
   stage(): FeatureStage {
     const v = this.config.getSettings('features.stage');
     return (v === 'preview' || v === 'experimental' || v === 'stable') ? v : 'stable';
   }
 
-  private overrides(): Record<string, any> {
+  /**
+   * Executes `overrides` to handle overrides.
+   * @zh 执行 `overrides`，用于overrides。
+   * @returns Result of type `Record<string, any>` / 类型为 `Record<string, any>` 的返回值
+   */
+  private overrides() {
     return this.config.getSettings('features.overrides') ?? {};
   }
 
@@ -142,8 +194,10 @@ export class FeatureService {
    *
    * <p>多条同时命中时取<b>最长</b>的:`{"sdos.*": false, "sdos.contour.*": true}`
    * 要能表达"sdos 整组关掉,但等值线那一支放行"。
+
+   * @zh 前缀通配。`"a.b.*"` 命中 `a.b.c` 与 `a.b.c.d`,但**不命中 `a.b` 本身** ——
    */
-  private matchWildcard(key: string, overrides: Record<string, any>): boolean | undefined {
+  private matchWildcard(key: string, overrides): boolean | undefined {
     let best: string | undefined;
     for (const pattern of Object.keys(overrides)) {
       if (!pattern.endsWith('.*')) {

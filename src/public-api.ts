@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Module `src/public-api.ts` providing public api definitions and implementation.
+ * @zh 模块文件 `src/public-api.ts`，提供publicAPI接口相关的定义与实现。
+ */
+
 // @dotos/dui 的 API 全部通过二级入口点提供，例如：
 //   import { ThemeService } from '@dotos/dui/theme';
 //   import { AuthModule }   from '@dotos/dui/core/auth';

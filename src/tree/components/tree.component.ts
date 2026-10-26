@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Module `src/tree/components/tree.component.ts` providing tree component definitions and implementation.
+ * @zh 模块文件 `src/tree/components/tree.component.ts`，提供树形控件组件相关的定义与实现。
+ */
+
 import { HttpClient } from '@angular/common/http';
 import {
   ChangeDetectionStrategy,
@@ -28,14 +33,42 @@ import { TreeModel } from '../models/tree.model';
 import { TreeViewportComponent } from './tree-viewport.component';
 
 
+/**
+ * Interface `ITreeConfig` defining the contract and properties for i tree config.
+ * @zh 接口 `ITreeConfig`，定义I树形控件配置的数据结构契约与属性规范。
+ */
 export interface ITreeConfig {
+  /**
+   * Property `click` (`Function`) storing click.
+   * @zh 属性 `click`（类型：`Function`），用于存储或配置点击。
+   */
   click: Function;
+  /**
+   * Property `rootUrl` (`string`) storing root url.
+   * @zh 属性 `rootUrl`（类型：`string`），用于存储或配置根节点链接地址。
+   */
   rootUrl?: string;
+  /**
+   * Property `storeName` (`string`) storing store name.
+   * @zh 属性 `storeName`（类型：`string`），用于存储或配置状态仓库名称。
+   */
   storeName?: string;
+  /**
+   * Property `apiBase` (`string`) storing api base.
+   * @zh 属性 `apiBase`（类型：`string`），用于存储或配置API接口基础。
+   */
   apiBase?: string;
-  rootParams?: any
+  /**
+   * Property `rootParams` (`any`) storing root params.
+   * @zh 属性 `rootParams`（类型：`any`），用于存储或配置根节点参数集合。
+   */
+  rootParams?
 }
 
+/**
+ * Angular component `TreeComponent` (selector: 'Tree, tree-root') providing tree component presentation and interaction in `src/tree/components`.
+ * @zh Angular 组件 `TreeComponent`（selector: 'Tree, tree-root'），提供树形控件组件的视图渲染与交互逻辑（位于 `src/tree/components`）。
+ */
 @Component({
   selector: 'Tree, tree-root',
   providers: [TreeModel],
@@ -50,27 +83,71 @@ export interface ITreeConfig {
 export class TreeComponent implements OnChanges {
 
 
-  @ContentChild('loadingTemplate', { static: false }) loadingTemplate: TemplateRef<any>;
-  @ContentChild('treeNodeTemplate', { static: false }) treeNodeTemplate: TemplateRef<any>;
-  @ContentChild('treeNodeWrapperTemplate', { static: false }) treeNodeWrapperTemplate: TemplateRef<any>;
-  @ContentChild('treeNodeFullTemplate', { static: false }) treeNodeFullTemplate: TemplateRef<any>;
+  /**
+   * Template/content query reference `loadingTemplate` (`@ContentChild`) targeting loading template.
+   * @zh 模板/内容视图查询引用 `loadingTemplate`（`@ContentChild`），指向加载中模板。
+   */
+  @ContentChild('loadingTemplate', { static: false }) loadingTemplate: TemplateRef<unknown>;
+  /**
+   * Template/content query reference `treeNodeTemplate` (`@ContentChild`) targeting tree node template.
+   * @zh 模板/内容视图查询引用 `treeNodeTemplate`（`@ContentChild`），指向树形控件节点模板。
+   */
+  @ContentChild('treeNodeTemplate', { static: false }) treeNodeTemplate: TemplateRef<unknown>;
+  /**
+   * Template/content query reference `treeNodeWrapperTemplate` (`@ContentChild`) targeting tree node wrapper template.
+   * @zh 模板/内容视图查询引用 `treeNodeWrapperTemplate`（`@ContentChild`），指向树形控件节点包装器模板。
+   */
+  @ContentChild('treeNodeWrapperTemplate', { static: false }) treeNodeWrapperTemplate: TemplateRef<unknown>;
+  /**
+   * Template/content query reference `treeNodeFullTemplate` (`@ContentChild`) targeting tree node full template.
+   * @zh 模板/内容视图查询引用 `treeNodeFullTemplate`（`@ContentChild`），指向树形控件节点完整模板。
+   */
+  @ContentChild('treeNodeFullTemplate', { static: false }) treeNodeFullTemplate: TemplateRef<unknown>;
+  /**
+   * Template/content query reference `viewportComponent` (`@ViewChild`) targeting viewport component.
+   * @zh 模板/内容视图查询引用 `viewportComponent`（`@ViewChild`），指向视口组件。
+   */
   @ViewChild('viewport', { static: true }) viewportComponent: TreeViewportComponent;
 
   // Will be handled in ngOnChanges
-  @Input() set nodes(nodes: any[]) {
+  /**
+   * Input setter `nodes` updating nodes.
+   * @zh 输入属性 `nodes` 的设置器，用于更新节点列表。
+   * @param nodes - New nodes value (`any[]`) / 新的节点列表值（`any[]`）
+   */
+  @Input() set nodes(nodes) {
 
   }
+  /**
+   * Input setter `options` updating options.
+   * @zh 输入属性 `options` 的设置器，用于更新配置选项。
+   * @param options - New options value (`ITreeOptions`) / 新的配置选项值（`ITreeOptions`）
+   */
   @Input() set options(options: ITreeOptions) {
 
   }
+  /**
+   * Input setter `focused` updating focused.
+   * @zh 输入属性 `focused` 的设置器，用于更新已聚焦。
+   * @param value - New focused value (`boolean`) / 新的已聚焦值（`boolean`）
+   */
   @Input() set focused(value: boolean) {
     this.treeModel.setFocus(value);
   }
 
+  /**
+   * Input setter `state` updating state.
+   * @zh 输入属性 `state` 的设置器，用于更新状态。
+   * @param state - New state value (`any`) / 新的状态值（`any`）
+   */
   @Input() set state(state) {
     this.treeModel.setState(state);
   }
 
+  /**
+   * Input property `config` (`ITreeConfig`) configuring config.
+   * @zh 输入属性 `config`（类型：`ITreeConfig`），用于配置配置。
+   */
   @Input() config: ITreeConfig = {
     click: () => { },
     rootUrl: '',
@@ -79,26 +156,110 @@ export class TreeComponent implements OnChanges {
     rootParams: {}
   };
 
+  /**
+   * Output event emitter `toggleExpanded` (`any`) firing when toggle expanded occurs.
+   * @zh 输出事件 `toggleExpanded`（类型：`any`），当触发开关已展开时向外发出事件。
+   */
   @Output() toggleExpanded;
+  /**
+   * Output event emitter `activate` (`any`) firing when activate occurs.
+   * @zh 输出事件 `activate`（类型：`any`），当触发激活时向外发出事件。
+   */
   @Output() activate;
+  /**
+   * Output event emitter `deactivate` (`any`) firing when deactivate occurs.
+   * @zh 输出事件 `deactivate`（类型：`any`），当触发deactivate时向外发出事件。
+   */
   @Output() deactivate;
+  /**
+   * Output event emitter `nodeActivate` (`any`) firing when node activate occurs.
+   * @zh 输出事件 `nodeActivate`（类型：`any`），当触发节点激活时向外发出事件。
+   */
   @Output() nodeActivate;
+  /**
+   * Output event emitter `nodeDeactivate` (`any`) firing when node deactivate occurs.
+   * @zh 输出事件 `nodeDeactivate`（类型：`any`），当触发节点Deactivate时向外发出事件。
+   */
   @Output() nodeDeactivate;
+  /**
+   * Output event emitter `select` (`any`) firing when select occurs.
+   * @zh 输出事件 `select`（类型：`any`），当触发下拉选择时向外发出事件。
+   */
   @Output() select;
+  /**
+   * Output event emitter `deselect` (`any`) firing when deselect occurs.
+   * @zh 输出事件 `deselect`（类型：`any`），当触发取消选中时向外发出事件。
+   */
   @Output() deselect;
+  /**
+   * Output event emitter `focus` (`any`) firing when focus occurs.
+   * @zh 输出事件 `focus`（类型：`any`），当触发聚焦时向外发出事件。
+   */
   @Output() focus;
+  /**
+   * Output event emitter `blur` (`any`) firing when blur occurs.
+   * @zh 输出事件 `blur`（类型：`any`），当触发失焦时向外发出事件。
+   */
   @Output() blur;
+  /**
+   * Output event emitter `updateData` (`any`) firing when update data occurs.
+   * @zh 输出事件 `updateData`（类型：`any`），当触发更新数据时向外发出事件。
+   */
   @Output() updateData;
+  /**
+   * Output event emitter `initialized` (`any`) firing when initialized occurs.
+   * @zh 输出事件 `initialized`（类型：`any`），当触发已初始化时向外发出事件。
+   */
   @Output() initialized;
+  /**
+   * Output event emitter `moveNode` (`any`) firing when move node occurs.
+   * @zh 输出事件 `moveNode`（类型：`any`），当触发移动节点时向外发出事件。
+   */
   @Output() moveNode;
+  /**
+   * Output event emitter `copyNode` (`any`) firing when copy node occurs.
+   * @zh 输出事件 `copyNode`（类型：`any`），当触发复制节点时向外发出事件。
+   */
   @Output() copyNode;
+  /**
+   * Output event emitter `loadNodeChildren` (`any`) firing when load node children occurs.
+   * @zh 输出事件 `loadNodeChildren`（类型：`any`），当触发加载节点子级列表时向外发出事件。
+   */
   @Output() loadNodeChildren;
+  /**
+   * Output event emitter `changeFilter` (`any`) firing when change filter occurs.
+   * @zh 输出事件 `changeFilter`（类型：`any`），当触发变更过滤时向外发出事件。
+   */
   @Output() changeFilter;
+  /**
+   * Output event emitter `event` (`any`) firing when event occurs.
+   * @zh 输出事件 `event`（类型：`any`），当触发事件时向外发出事件。
+   */
   @Output() event;
+  /**
+   * Output event emitter `stateChange` (`any`) firing when state change occurs.
+   * @zh 输出事件 `stateChange`（类型：`any`），当触发状态变更时向外发出事件。
+   */
   @Output() stateChange;
 
+   /**
+    * Property `globalListeners` (`(() => void)[]`) storing global listeners (default: `[]`).
+    * @zh 属性 `globalListeners`（类型：`(() => void)[]`），用于存储或配置全局监听器列表（默认值：`[]`）。
+    */
    private globalListeners: (() => void)[] =[];
 
+  /**
+   * Creates an instance of `TreeComponent` and initializes its dependencies and internal state.
+   * @zh 创建 `TreeComponent` 实例，并初始化其依赖项与内部状态。
+   * @param treeModel - Injected or initial tree model (`TreeModel`) / 注入或传入的树形控件模型（`TreeModel`）
+   * @param treeDraggedElement - Injected or initial tree dragged element (`TreeDraggedElement`) / 注入或传入的树形控件Dragged元素（`TreeDraggedElement`）
+   * @param localStore - Injected or initial local store (`LocalStorageService`) / 注入或传入的本地状态仓库（`LocalStorageService`）
+   * @param http - Injected or initial http (`HttpClient`) / 注入或传入的HTTP（`HttpClient`）
+   * @param translator - Injected or initial translator (`TranslateService`) / 注入或传入的翻译器（`TranslateService`）
+   * @param ngZone - Injected or initial ng zone (`NgZone`) / 注入或传入的Angular区域(NgZone)（`NgZone`）
+   * @param el - Injected or initial el (`ElementRef`) / 注入或传入的DOM元素（`ElementRef`）
+   * @param _changeDetectorRef - Injected or initial change detector ref (`ChangeDetectorRef`) / 注入或传入的变更检测器引用（`ChangeDetectorRef`）
+   */
   constructor(
     public treeModel: TreeModel,
     public treeDraggedElement: TreeDraggedElement,
@@ -113,6 +274,10 @@ export class TreeComponent implements OnChanges {
     treeModel.setEvents(pick(this, this.treeModel.eventNames));
   }
 
+   /**
+    * Angular lifecycle hook invoked once after component or directive inputs are initialized.
+    * @zh Angular 生命周期钩子：在组件或指令的输入属性初始化完成后调用一次。
+    */
    ngOnInit() {
 
     this.ngZone.runOutsideAngular(() => {
@@ -127,15 +292,28 @@ export class TreeComponent implements OnChanges {
     });
   }
 
+  /**
+   * Angular lifecycle hook invoked just before the component, directive, or service is destroyed to release subscriptions and resources.
+   * @zh Angular 生命周期钩子：在组件、指令或服务销毁前调用，用于释放订阅与清理资源。
+   */
   ngOnDestroy() {
     this.globalListeners.forEach(cleanup => cleanup());
   }
 
+  /**
+   * Gets the current selected nodes (`selectedNodes: any`).
+   * @zh 获取当前已选中节点列表（`selectedNodes: any`）。
+   */
   get selectedNodes() {
     return this.treeModel.activeNodes;
   }
 
 
+  /**
+   * Executes `onKeydown` to handle on keydown.
+   * @zh 执行 `onKeydown`，用于当按键按下。
+   * @param $event - event parameter (`any`) / 事件参数（`any`）
+   */
   onKeydown($event) {
     if (!this.treeModel.isFocused) { return; }
     if (includes(['input', 'textarea'],
@@ -145,6 +323,11 @@ export class TreeComponent implements OnChanges {
   }
 
   // @HostListener('body: mousedown', ['$event'])
+  /**
+   * Executes `onMousedown` to handle on mousedown.
+   * @zh 执行 `onMousedown`，用于当鼠标按下。
+   * @param $event - event parameter (`any`) / 事件参数（`any`）
+   */
   onMousedown($event) {
    if (this.el.nativeElement && !this.el.nativeElement.contains($event.target as Node)) {
       if (this.treeModel.isFocused) {
@@ -155,6 +338,11 @@ export class TreeComponent implements OnChanges {
     }
   }
 
+  /**
+   * Executes `loadParentNode` to handle load parent node.
+   * @zh 执行 `loadParentNode`，用于加载父级节点。
+   * @param fn - fn parameter (`any`) / 函数参数（`any`）
+   */
   loadParentNode(fn) {
     try {
       let currentNode = this.treeModel.getActiveNode();
@@ -166,6 +354,11 @@ export class TreeComponent implements OnChanges {
   }
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  /**
+   * Executes `loadSelfNode` to handle load self node.
+   * @zh 执行 `loadSelfNode`，用于加载自身节点。
+   * @param id - id parameter (`any`) / 唯一标识参数（`any`）
+   */
   loadSelfNode(id) {
     try {
       let currentNode = this.treeModel.getActiveNode();
@@ -184,6 +377,11 @@ export class TreeComponent implements OnChanges {
     } catch (e) { console.log(e); }
   }
 
+/**
+ * Executes `setActiveNodeLabel` to handle set active node label.
+ * @zh 执行 `setActiveNodeLabel`，用于集合激活节点标签。
+ * @param label - label parameter (`string`) / 标签参数（`string`）
+ */
 setActiveNodeLabel(label: string) {
       let treeNode = this.treeModel.getActiveNode();
     if (treeNode) {
@@ -194,6 +392,11 @@ setActiveNodeLabel(label: string) {
     }
   }
 
+  /**
+   * Executes `setActiveNodeIcon` to handle set active node icon.
+   * @zh 执行 `setActiveNodeIcon`，用于集合激活节点图标。
+   * @param icon - icon parameter (`string`) / 图标参数（`string`）
+   */
   setActiveNodeIcon(icon: string) {
     let treeNode = this.treeModel.getActiveNode();
     if (treeNode) {
@@ -203,6 +406,11 @@ setActiveNodeLabel(label: string) {
     }
   }
 
+  /**
+   * Executes `dropActiveNode` to handle drop active node.
+   * @zh 执行 `dropActiveNode`，用于放置激活节点。
+   * @param fn - fn parameter (`any`) / 函数参数（`any`）
+   */
   dropActiveNode(fn) {
     try {
       let currentNode = this.treeModel.getActiveNode();
@@ -220,10 +428,19 @@ setActiveNodeLabel(label: string) {
     }
   }
 
+  /**
+   * Executes `refresh` to handle refresh.
+   * @zh 执行 `refresh`，用于刷新。
+   */
   refresh() {
     this._changeDetectorRef.detectChanges();
   }
 
+  /**
+   * Executes `loadSubNode` to handle load sub node.
+   * @zh 执行 `loadSubNode`，用于加载子节点。
+   * @param id - id parameter (`any`) / 唯一标识参数（`any`）
+   */
   loadSubNode(id) {
     try {
       let subscription;
@@ -237,6 +454,12 @@ setActiveNodeLabel(label: string) {
     } catch (e) { console.log(e); }
   }
 
+  /**
+   * Executes `setAcvitNode` to handle set acvit node.
+   * @zh 执行 `setAcvitNode`，用于集合Acvit节点。
+   * @param id - id parameter (`any`) / 唯一标识参数（`any`）
+   * @param event - event parameter (`any`) / 事件参数（`any`）
+   */
   setAcvitNode(id, event) {
     const node = event.node;
     node.expand();
@@ -248,6 +471,11 @@ setActiveNodeLabel(label: string) {
     this.config.click(NNode);
   }
 
+  /**
+   * Executes `getChildren` to handle get children.
+   * @zh 执行 `getChildren`，用于获取子级列表。
+   * @param node - node parameter (`TreeNode`) / 节点参数（`TreeNode`）
+   */
   getChildren(node: TreeNode) {
     if (node.data.virtual) {
       return [this.getTree(this.config.rootUrl, {})];
@@ -256,6 +484,11 @@ setActiveNodeLabel(label: string) {
     }
   }
 
+  /**
+   * Executes `exeHistoryNode` to handle exe history node.
+   * @zh 执行 `exeHistoryNode`，用于exe历史记录节点。
+   * @param nowNode - now node parameter (`any`) / 当前时间节点参数（`any`）
+   */
   public exeHistoryNode(nowNode?) {
     let inNode = nowNode;
     let treeModel = this.treeModel;
@@ -275,10 +508,16 @@ setActiveNodeLabel(label: string) {
     }
   }
 
+  /**
+   * Executes `loadNodeByPath` to handle load node by path.
+   * @zh 执行 `loadNodeByPath`，用于加载节点按路径。
+   * @param paths - paths parameter (`any`) / 路径参数（`any`）
+   * @param startNode - start node parameter (`any`) / 开始节点参数（`any`）
+   */
   public  loadNodeByPath(paths,startNode){
     let treeModel = this.treeModel;
     let activeNode;
-    let subject:BehaviorSubject<any>=new BehaviorSubject<any>(undefined);
+    let subject=new BehaviorSubject(undefined);
 
     if(paths.length==1){
       let lastnode = treeModel.getNodeByPath([paths[0]], startNode)
@@ -295,7 +534,7 @@ setActiveNodeLabel(label: string) {
         if(lastnode.children==undefined){
           let subscription = treeModel.subscribe(TREE_EVENTS.loadNodeChildren, (node) => {
             paths.splice(0,1);
-            let subject1:BehaviorSubject<any>=this.loadNodeByPath(paths,node.node);
+            let subject1=this.loadNodeByPath(paths,node.node);
             subject1.subscribe((activeNode)=>{
               subject.next(activeNode);
             });
@@ -304,7 +543,7 @@ setActiveNodeLabel(label: string) {
           lastnode.loadNodeChildren();
         }else{
           paths.splice(0,1);
-          let subject1:BehaviorSubject<any>=this.loadNodeByPath(paths,lastnode);
+          let subject1=this.loadNodeByPath(paths,lastnode);
           subject1.subscribe((activeNode)=>{
             subject.next(activeNode);
           });
@@ -314,6 +553,11 @@ setActiveNodeLabel(label: string) {
     return subject;
   }
 
+  /**
+   * Executes `loadPath` to handle load path.
+   * @zh 执行 `loadPath`，用于加载路径。
+   * @param paths - paths parameter (`any`) / 路径参数（`any`）
+   */
   public loadPath(paths) {
     let treeModel = this.treeModel;
     let startNode = null;
@@ -333,11 +577,22 @@ setActiveNodeLabel(label: string) {
     }
   }
 
-  public getTree(url: string, params?: any) {
+  /**
+   * Executes `getTree` to handle get tree.
+   * @zh 执行 `getTree`，用于获取树形控件。
+   * @param url - url parameter (`string`) / 链接地址参数（`string`）
+   * @param params - params parameter (`any`) / 参数集合参数（`any`）
+   */
+  public getTree(url: string, params?) {
     return this.http.get(this.config.apiBase + url, { withCredentials: true, params: params })
       .toPromise()
       .then(res => <Object[]>res)
   }
+  /**
+   * Angular lifecycle hook invoked when data-bound input properties change.
+   * @zh Angular 生命周期钩子：当数据绑定的输入属性发生变更时调用。
+   * @param changes - changes parameter (`any`) / 变更集合参数（`any`）
+   */
   ngOnChanges(changes) {
      if (changes.options || changes.nodes) {
       this.treeModel.setData({
@@ -352,8 +607,8 @@ setActiveNodeLabel(label: string) {
               this.treeModel.options.options.getChildren = this.getChildren.bind(this);
            }
         } else {
-           if ((this.treeModel.options as any).getChildren === undefined) {
-              (this.treeModel.options as any).getChildren = this.getChildren.bind(this);
+           if ((this.treeModel.options as unknown as { getChildren? }).getChildren === undefined) {
+              (this.treeModel.options as unknown as { getChildren? }).getChildren = this.getChildren.bind(this);
            }
         }
       }
@@ -367,6 +622,10 @@ setActiveNodeLabel(label: string) {
     }
 }
 
+  /**
+   * Executes `sizeChanged` to handle size changed.
+   * @zh 执行 `sizeChanged`，用于尺寸已变更。
+   */
   sizeChanged() {
     this.viewportComponent.setViewport();
   }

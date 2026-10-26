@@ -1,9 +1,18 @@
+/**
+ * @fileoverview Module `src/core/position/position.utils.ts` providing position utils definitions and implementation.
+ * @zh 模块文件 `src/core/position/position.utils.ts`，提供位置工具集相关的定义与实现。
+ */
+
 import {
   IPoint,
   IPosionOptions,
   ISize,
 } from './position.common';
 
+/**
+ * Constant/variable `resizeRight` defining resize right in `src/core/position`.
+ * @zh 常量/变量 `resizeRight`，定义 `src/core/position` 中的调整尺寸右侧位置。
+ */
 export const resizeRight = (nextWidth: number, options: IPosionOptions, currentElementPosition: IPoint) => {
   if (nextWidth <= options.minSize.width) {
     nextWidth = options.minSize.width;
@@ -17,6 +26,10 @@ export const resizeRight = (nextWidth: number, options: IPosionOptions, currentE
   return { nextWidth, nextLeft: currentElementPosition.x };
 };
 
+/**
+ * Constant/variable `resizeBottom` defining resize bottom in `src/core/position`.
+ * @zh 常量/变量 `resizeBottom`，定义 `src/core/position` 中的调整尺寸底部位置。
+ */
 export const resizeBottom = (nextHeight: number, options: IPosionOptions, currentElementPosition: IPoint) => {
   if (nextHeight <= options.minSize.height) {
     nextHeight = options.minSize.height;
@@ -30,6 +43,10 @@ export const resizeBottom = (nextHeight: number, options: IPosionOptions, curren
   return { nextHeight, nextTop: currentElementPosition.y };
 };
 
+/**
+ * Constant/variable `resizeTop` defining resize top in `src/core/position`.
+ * @zh 常量/变量 `resizeTop`，定义 `src/core/position` 中的调整尺寸顶部位置。
+ */
 export const resizeTop = (nextHeight: number, currentPos: IPoint, currentSize: ISize, options: IPosionOptions) => {
   let nextTop = currentPos.y + (currentSize.height - nextHeight);
   // Lower priorty compared to all others
@@ -48,6 +65,10 @@ export const resizeTop = (nextHeight: number, currentPos: IPoint, currentSize: I
   return { nextHeight, nextTop };
 };
 
+/**
+ * Constant/variable `resizeLeft` defining resize left in `src/core/position`.
+ * @zh 常量/变量 `resizeLeft`，定义 `src/core/position` 中的调整尺寸左侧位置。
+ */
 export const resizeLeft = (nextWidth: number, currentPos: IPoint, currentSize: ISize, options: IPosionOptions) => {
   let nextLeft = currentPos.x + (currentSize.width - nextWidth);
   // Lower priorty compared to all others
@@ -68,6 +89,10 @@ export const resizeLeft = (nextWidth: number, currentPos: IPoint, currentSize: I
 };
 
 
+/**
+ * Constant/variable `manageRatio` defining manage ratio in `src/core/position`.
+ * @zh 常量/变量 `manageRatio`，定义 `src/core/position` 中的manage比例。
+ */
 export const manageRatio = ({ nextWidth, nextHeight, nextTop, nextLeft }: {
     nextWidth: number,
     nextHeight: number,
@@ -75,7 +100,7 @@ export const manageRatio = ({ nextWidth, nextHeight, nextTop, nextLeft }: {
     nextLeft: number
   }, options: IPosionOptions, currentPos: IPoint, currentSize: ISize,
     direction: string, currentElementPosition: IPoint) => {
-  let data: any;
+  let data;
   const bound = options.bound;
   bound.x = parseInt(bound.x.toFixed());
   bound.y = parseInt(bound.y.toFixed());

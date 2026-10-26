@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Module `src/common/dynamic/dynamic.component.ts` providing dynamic component definitions and implementation.
+ * @zh 模块文件 `src/common/dynamic/dynamic.component.ts`，提供动态组件相关的定义与实现。
+ */
+
 
 import {
   Component,
@@ -25,7 +30,11 @@ import { Dui } from '@dotos/dui/core';
   }
 })
 export class DynamicExtensionComponent implements OnChanges, OnDestroy {
-  /** @zh 承载动态创建组件的视图容器。 */
+  /**
+   * Template/content query reference `content` (`@ViewChild`) targeting content.
+   * @zh 承载动态创建组件的视图容器。
+   * @zh 承载动态创建组件的视图容器。
+   */
   @ViewChild('content', {static:true, read: ViewContainerRef })
   content: ViewContainerRef;
 
@@ -45,7 +54,7 @@ export class DynamicExtensionComponent implements OnChanges, OnDestroy {
    * Runtime configuration passed to (or an already-rendered reference reused by) the dynamic component.
    * @zh 传递给动态组件的运行时配置（或复用一个已渲染完成的引用）。
    */
-  @Input() config: any;
+  @Input() config;
 
   /**
    * When `true`, the dynamically created component instance is not destroyed on `ngOnDestroy`.
@@ -57,11 +66,25 @@ export class DynamicExtensionComponent implements OnChanges, OnDestroy {
    * Reference to the dynamically created component instance.
    * @zh 动态创建的组件实例的引用。
    */
-  public componentRef:ComponentRef<any>;
+  public componentRef;
+  /**
+   * Property `loaded` (`boolean`) storing loaded (default: `false`).
+   * @zh 属性 `loaded`（类型：`boolean`），用于存储或配置已加载（默认值：`false`）。
+   */
   private loaded: boolean = false;
 
+  /**
+   * Creates an instance of `DynamicExtensionComponent` and initializes its dependencies and internal state.
+   * @zh 创建 `DynamicExtensionComponent` 实例，并初始化其依赖项与内部状态。
+   * @param componentFactoryResolver - Injected or initial component factory resolver (`ComponentFactoryResolver`) / 注入或传入的组件工厂解析器（`ComponentFactoryResolver`）
+   */
   constructor( private componentFactoryResolver: ComponentFactoryResolver) { }
 
+  /**
+   * Angular lifecycle hook invoked when data-bound input properties change.
+   * @zh Angular 生命周期钩子：当数据绑定的输入属性发生变更时调用。
+   * @param changes - changes parameter (`SimpleChanges`) / 变更集合参数（`SimpleChanges`）
+   */
   ngOnChanges(changes: SimpleChanges) {
     if (changes['config']) {
       let config=changes['config'].currentValue;
@@ -91,8 +114,12 @@ export class DynamicExtensionComponent implements OnChanges, OnDestroy {
     // 新对象 —— 在这里响应它,iotos 规则流和 dataflow 的每个节点每一轮变更检测
     // 都会被重新 init 一遍。需要换组件的调用方应当换掉 <dui-dynamic> 本身。
   }
+  /**
+   * Executes `loadComponent` to handle load component.
+   * @zh 执行 `loadComponent`，用于加载组件。
+   */
   private loadComponent() {
-    const factory: any = Dui.getComponentFactory(this.xtype);
+    const factory = Dui.getComponentFactory(this.xtype);
     if (factory) {
       const component = factory.componentType;
       const componentFactory = this.componentFactoryResolver.resolveComponentFactory(component);
@@ -105,12 +132,20 @@ export class DynamicExtensionComponent implements OnChanges, OnDestroy {
     }
   }
 
+  /**
+   * Angular lifecycle hook invoked just before the component, directive, or service is destroyed to release subscriptions and resources.
+   * @zh Angular 生命周期钩子：在组件、指令或服务销毁前调用，用于释放订阅与清理资源。
+   */
   ngOnDestroy() {
     if (this.componentCreated()&&!this.keep) {
       this.componentRef.destroy();
       this.componentRef = null;
     }
   }
+  /**
+   * Executes `updateInstance` to handle update instance.
+   * @zh 执行 `updateInstance`，用于更新实例。
+   */
   private updateInstance() {
     if (this.componentCreated()) {
       this.componentRef.instance.config = this.config;
@@ -118,16 +153,33 @@ export class DynamicExtensionComponent implements OnChanges, OnDestroy {
     }
   }
 
+  /**
+   * Executes `proxy` to handle proxy.
+   * @zh 执行 `proxy`，用于proxy。
+   * @param lifecycleMethod - lifecycle method parameter (`any`) / lifecycle方法参数（`any`）
+   * @param args - args parameter (`any`) / 参数列表参数（`any`）
+   */
   private proxy(lifecycleMethod, ...args) {
     if (this.componentCreated() && this.lifecycleHookIsImplemented(lifecycleMethod)) {
       this.componentRef.instance[lifecycleMethod].apply(this.componentRef.instance, args);
     }
   }
 
+  /**
+   * Executes `componentCreated` to handle component created.
+   * @zh 执行 `componentCreated`，用于组件已创建。
+   * @returns Result of type `boolean` / 类型为 `boolean` 的返回值
+   */
   private componentCreated(): boolean {
     return !!this.componentRef && !!this.componentRef.instance;
   }
 
+  /**
+   * Executes `lifecycleHookIsImplemented` to handle lifecycle hook is implemented.
+   * @zh 执行 `lifecycleHookIsImplemented`，用于lifecycleHook是否为Implemented。
+   * @param lifecycleMethod - lifecycle method parameter (`string`) / lifecycle方法参数（`string`）
+   * @returns Result of type `boolean` / 类型为 `boolean` 的返回值
+   */
   private lifecycleHookIsImplemented(lifecycleMethod: string): boolean {
     return !!this.componentRef.instance[lifecycleMethod];
   }

@@ -1,4 +1,7 @@
-/** Creates a deep clone of an element. */
+/**
+ * Creates a deep clone of an element.
+ * @zh 执行 `deepCloneNode`，用于deep克隆节点。
+ */
 export function deepCloneNode(node: HTMLElement): HTMLElement {
   const clone = node.cloneNode(true) as HTMLElement;
   const descendantsWithId = clone.querySelectorAll('[id]');
@@ -26,7 +29,10 @@ export function deepCloneNode(node: HTMLElement): HTMLElement {
   return clone;
 }
 
-/** Matches elements between an element and its clone and allows for their data to be cloned. */
+/**
+ * Matches elements between an element and its clone and allows for their data to be cloned.
+ * @zh 执行 `transferData`，用于transfer数据。
+ */
 function transferData<T extends Element>(
   selector: string,
   node: HTMLElement,
@@ -45,9 +51,16 @@ function transferData<T extends Element>(
 }
 
 // Counter for unique cloned radio button names.
+/**
+ * Constant/variable `cloneUniqueId` defining clone unique id in `src/common/resize-element/util`.
+ * @zh 常量/变量 `cloneUniqueId`，定义 `src/common/resize-element/util` 中的克隆唯一唯一标识。
+ */
 let cloneUniqueId = 0;
 
-/** Transfers the data of one input element to another. */
+/**
+ * Transfers the data of one input element to another.
+ * @zh 执行 `transferInputData`，用于transfer输入属性数据。
+ */
 function transferInputData(
   source: Element & { value: string },
   clone: Element & { value: string; name: string; type: string }
@@ -65,7 +78,10 @@ function transferInputData(
   }
 }
 
-/** Transfers the data of one canvas element to another. */
+/**
+ * Transfers the data of one canvas element to another.
+ * @zh 执行 `transferCanvasData`，用于transfer画布数据。
+ */
 function transferCanvasData(
   source: HTMLCanvasElement,
   clone: HTMLCanvasElement

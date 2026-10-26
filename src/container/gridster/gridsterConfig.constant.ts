@@ -1,5 +1,14 @@
+/**
+ * @fileoverview Module `src/container/gridster/gridsterConfig.constant.ts` providing gridster config constant definitions and implementation.
+ * @zh 模块文件 `src/container/gridster/gridsterConfig.constant.ts`，提供网格拖拽布局配置constant相关的定义与实现。
+ */
+
 import {CompactType, DirTypes, DisplayGrid, GridsterConfig, GridType} from './gridsterConfig.interface';
 
+/**
+ * Constant/variable `GridsterConfigService` defining gridster config service in `src/container/gridster`.
+ * @zh 常量/变量 `GridsterConfigService`，定义 `src/container/gridster` 中的网格拖拽布局配置服务。
+ */
 export const GridsterConfigService: GridsterConfig = {
   gridType: GridType.Fit, 
   // 'fit' will fit the items in the container without scroll;

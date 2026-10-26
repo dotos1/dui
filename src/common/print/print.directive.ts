@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Module `src/common/print/print.directive.ts` providing print directive definitions and implementation.
+ * @zh 模块文件 `src/common/print/print.directive.ts`，提供打印指令相关的定义与实现。
+ */
+
 import { Directive, HostListener, Input } from '@angular/core';
 /**
  * Attach to a clickable element to print the contents of another element (identified by
@@ -10,6 +15,10 @@ import { Directive, HostListener, Input } from '@angular/core';
 })
 export class PrintDirective {
 
+  /**
+   * Property `_printStyle` (`any[]`) storing print style (default: `[]`).
+   * @zh 属性 `_printStyle`（类型：`any[]`），用于存储或配置打印样式（默认值：`[]`）。
+   */
   public _printStyle = [];
 
   /**
@@ -34,6 +43,8 @@ export class PrintDirective {
    * A delay in milliseconds to force the print dialog to wait before opened. Default: 0
    *
    * @memberof NgxPrintDirective
+
+   * @zh 输入属性 `printDelay`（类型：`number`），用于配置打印延迟（默认值：`0`）。
    */
   @Input() printDelay: number = 0;
 
@@ -66,6 +77,8 @@ export class PrintDirective {
    * @returns html for the given tag
    *
    * @memberof NgxPrintDirective
+
+   * @zh 属性 `_styleSheetFile`（类型：`string`），用于存储或配置样式Sheet文件（默认值：`''`）。
    */
   private _styleSheetFile = '';
 
@@ -92,10 +105,18 @@ export class PrintDirective {
    * @returns string which contains the link tags containing the css which will
    * be injected later within <head></head> tag.
    *
+
+   * @zh 执行 `returnStyleSheetLinkTags`，用于return样式Sheet链接标签。
    */
   private returnStyleSheetLinkTags() {
     return this._styleSheetFile;
   }
+  /**
+   * Executes `getElementTag` to handle get element tag.
+   * @zh 执行 `getElementTag`，用于获取元素标签。
+   * @param tag - tag parameter (`keyof HTMLElementTagNameMap`) / 标签参数（`keyof HTMLElementTagNameMap`）
+   * @returns Result of type `string` / 类型为 `string` 的返回值
+   */
   private getElementTag(tag: keyof HTMLElementTagNameMap): string {
     const html: string[] = [];
     const elements = document.getElementsByTagName(tag);
@@ -108,6 +129,8 @@ export class PrintDirective {
   /**
    * @returns html section to be printed along with some associated inputs
    *
+
+   * @zh 执行 `getHtmlContents`，用于获取HTML内容内容。
    */
   private getHtmlContents() {
     let printContents = document.getElementById(this.printSectionId);

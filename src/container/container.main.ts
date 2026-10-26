@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Module `src/container/container.main.ts` providing container main definitions and implementation.
+ * @zh 模块文件 `src/container/container.main.ts`，提供容器主相关的定义与实现。
+ */
+
 import { ChangeDetectorRef, ComponentFactoryResolver, Injector, ViewContainerRef } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { ComponentBase, Dui } from '@dotos/dui/core';
@@ -11,33 +16,62 @@ import {isArray,each,isFunction,isObjectLike,isUndefined} from 'lodash-es';
  根据容纳子项的不同，所产生的可视效果，需委托任意布局类layout中的一种来指点特定的布局逻辑（layout logic）。
  此类被于继承而且一般情况下不应通过关键字new来直接实例化。
  * xtype container
+
+ * @zh 用于承载其它任何组件，容器负责一些基础性的行为，也就是装载子项、添加、插入和移除子项。
  */
 
 export class Container extends ComponentBase {
 
 
-  public layout: any;
+  /**
+   * Property `layout` (`any`) storing layout.
+   * @zh 属性 `layout`（类型：`any`），用于存储或配置布局。
+   */
+  public layout;
 
   /**
    *一个单独项，或子组件组成的数组，加入到此容器中。每一项的对象类型是基于dui.
    Component可传入一个组件的配置对象即是lazy-rendering的做法，
    这样做的好处是组件不会立即渲染，减低直接构建组件对象带来的开销。
    要发挥"lazy instantiation延时初始化"的特性，应对组件所属的登记类型的dui.Componentxtype属性进行配置。
+
+   * @zh 一个单独项，或子组件组成的数组，加入到此容器中。每一项的对象类型是基于dui.
    */
-  public items: any;
+  public items;
 
   /** cfg {boolean} autoDestroy
    * 若为true容器会自动销毁容器下面全部的组件，否则的话必须手动执行销毁过程（默认为true）。
+
+   * @zh cfg {boolean} autoDestroy
    */
 
   public autoDestroy: boolean = true;
 
-  public defaults: any;
+  /**
+   * Property `defaults` (`any`) storing defaults.
+   * @zh 属性 `defaults`（类型：`any`），用于存储或配置默认值集合。
+   */
+  public defaults;
 
+  /**
+   * Property `viewContainer` (`ViewContainerRef`) storing view container.
+   * @zh 属性 `viewContainer`（类型：`ViewContainerRef`），用于存储或配置视图容器。
+   */
   public viewContainer: ViewContainerRef;
 
+  /**
+   * Property `form` (`FormGroup`) storing form.
+   * @zh 属性 `form`（类型：`FormGroup`），用于存储或配置表单。
+   */
   public form: FormGroup;
 
+  /**
+   * Creates an instance of `Container` and initializes its dependencies and internal state.
+   * @zh 创建 `Container` 实例，并初始化其依赖项与内部状态。
+   * @param resolver - Injected or initial resolver (`ComponentFactoryResolver`) / 注入或传入的解析器（`ComponentFactoryResolver`）
+   * @param injector - Injected or initial injector (`Injector`) / 注入或传入的注入器（`Injector`）
+   * @param detectRef - Injected or initial detect ref (`ChangeDetectorRef`) / 注入或传入的检测引用（`ChangeDetectorRef`）
+   */
   constructor(
     public resolver: ComponentFactoryResolver,
     public injector: Injector,
@@ -47,11 +81,20 @@ export class Container extends ComponentBase {
   }
 
   // private
-  override init(config: any) {
+  /**
+   * Executes `init` to handle init.
+   * @zh 执行 `init`，用于初始化。
+   * @param config - config parameter (`any`) / 配置参数（`any`）
+   */
+  override init(config) {
     super.init(config);
   }
 
   // private
+  /**
+   * Executes `initItems` to handle init items.
+   * @zh 执行 `initItems`，用于初始化条目列表。
+   */
   public initItems() {
     if (!this.items) {
       this.items = new MixedCollection(false, this.getComponentId);
@@ -60,12 +103,23 @@ export class Container extends ComponentBase {
   }
 
   // private - used as the key lookup function for the items collection
+  /**
+   * Executes `getComponentId` to handle get component id.
+   * @zh 执行 `getComponentId`，用于获取组件唯一标识。
+   * @param comp - comp parameter (`any`) / 组件参数（`any`）
+   */
   getComponentId(comp) {
     return comp.id;
   }
 
 
-  add(comp): any {
+  /**
+   * Executes `add` to handle add.
+   * @zh 执行 `add`，用于添加。
+   * @param comp - comp parameter (`any`) / 组件参数（`any`）
+   * @returns Result of type `any` / 类型为 `any` 的返回值
+   */
+  add(comp) {
     this.initItems();
     const args = arguments.length > 1;
     if (args || isArray(comp)) {
@@ -98,12 +152,23 @@ export class Container extends ComponentBase {
   }
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  /**
+   * Executes `onAdd` to handle on add.
+   * @zh 执行 `onAdd`，用于当添加。
+   * @param c - c parameter (`any`) / c参数（`any`）
+   */
   onAdd(c) {
   }
 
 
   // private
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  /**
+   * Executes `onAdded` to handle on added.
+   * @zh 执行 `onAdded`，用于当已添加。
+   * @param container - container parameter (`any`) / 容器参数（`any`）
+   * @param pos - pos parameter (`any`) / 位置参数（`any`）
+   */
   override onAdded(container, pos) {
     this.ownerCt = container;
   }
@@ -112,8 +177,10 @@ export class Container extends ComponentBase {
    * 把插件(Component)插入到容器指定的位置（按索引）。执行插入之前触发beforeadd事件，插入完毕触发add事件
    *  组件插入到容器collection集合的索引
    *  欲加入的组件
+
+   * @zh 把插件(Component)插入到容器指定的位置（按索引）。执行插入之前触发beforeadd事件，插入完毕触发add事件
    */
-  insert(index: number, comp): any {
+  insert(index: number, comp) {
     const args = arguments, length = args.length, result = [];
     let i, c;
     this.initItems();
@@ -135,6 +202,11 @@ export class Container extends ComponentBase {
   }
 
   // private
+  /**
+   * Executes `applyDefaults` to handle apply defaults.
+   * @zh 执行 `applyDefaults`，用于应用默认值集合。
+   * @param c - c parameter (`any`) / c参数（`any`）
+   */
   applyDefaults(c) {
     let d = this.defaults;
     if (d) {
@@ -147,6 +219,11 @@ export class Container extends ComponentBase {
   }
 
   // private
+  /**
+   * Executes `onBeforeAdd` to handle on before add.
+   * @zh 执行 `onBeforeAdd`，用于当之前添加。
+   * @param item - item parameter (`any`) / 条目参数（`any`）
+   */
   onBeforeAdd(item) {
     if (item.ownerCt) {
       item.ownerCt.remove(item, false);
@@ -154,6 +231,13 @@ export class Container extends ComponentBase {
     return true;
   }
 
+  /**
+   * Executes `remove` to handle remove.
+   * @zh 执行 `remove`，用于移除。
+   * @param comp - comp parameter (`any`) / 组件参数（`any`）
+   * @param autoDestroy - auto destroy parameter (`boolean`) / 自动销毁参数（`boolean`）
+   * @returns Result of type `ComponentBase` / 类型为 `ComponentBase` 的返回值
+   */
   remove(comp, autoDestroy: boolean): ComponentBase {
     const c = this.getComponent(comp);
     this.doRemove(c, autoDestroy);
@@ -161,8 +245,19 @@ export class Container extends ComponentBase {
   }
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  /**
+   * Executes `onRemove` to handle on remove.
+   * @zh 执行 `onRemove`，用于当移除。
+   * @param c - c parameter (`any`) / c参数（`any`）
+   */
   public onRemove(c?) { }
 
+  /**
+   * Executes `doRemove` to handle do remove.
+   * @zh 执行 `doRemove`，用于do移除。
+   * @param c - c parameter (`any`) / c参数（`any`）
+   * @param autoDestroy - auto destroy parameter (`any`) / 自动销毁参数（`any`）
+   */
   doRemove(c, autoDestroy) {
     this.items.remove(c);
     this.onRemove(c);
@@ -171,7 +266,13 @@ export class Container extends ComponentBase {
     }
   }
 
-  removeAll(autoDestroy: boolean): Array<any> {
+  /**
+   * Executes `removeAll` to handle remove all.
+   * @zh 执行 `removeAll`，用于移除全部。
+   * @param autoDestroy - auto destroy parameter (`boolean`) / 自动销毁参数（`boolean`）
+   * @returns Result of type `Array<any>` / 类型为 `Array<any>` 的返回值
+   */
+  removeAll(autoDestroy: boolean) {
     this.initItems();
     let item;
     const rem = [], items = [];
@@ -189,7 +290,13 @@ export class Container extends ComponentBase {
   }
 
 
-  getComponent(comp: any): any {
+  /**
+   * Executes `getComponent` to handle get component.
+   * @zh 执行 `getComponent`，用于获取组件。
+   * @param comp - comp parameter (`any`) / 组件参数（`any`）
+   * @returns Result of type `any` / 类型为 `any` 的返回值
+   */
+  getComponent(comp) {
     if (isObjectLike(comp)) {
       comp = comp['id'];
     }
@@ -201,6 +308,11 @@ export class Container extends ComponentBase {
   }
 
   // private
+  /**
+   * Executes `lookupComponent` to handle lookup component.
+   * @zh 执行 `lookupComponent`，用于查找表组件。
+   * @param comp - comp parameter (`any`) / 组件参数（`any`）
+   */
   lookupComponent(comp) {
     if (!comp.events) {
       return this.createComponent(comp);
@@ -209,6 +321,11 @@ export class Container extends ComponentBase {
   }
 
   // private
+  /**
+   * Executes `createComponent` to handle create component.
+   * @zh 执行 `createComponent`，用于创建组件。
+   * @param config - config parameter (`any`) / 配置参数（`any`）
+   */
   createComponent(config) {
     if (config.render) {
       return config;
@@ -227,11 +344,20 @@ export class Container extends ComponentBase {
     return component;
   }
 
-  getLayout(): any {
+  /**
+   * Executes `getLayout` to handle get layout.
+   * @zh 执行 `getLayout`，用于获取布局。
+   * @returns Result of type `any` / 类型为 `any` 的返回值
+   */
+  getLayout() {
     return this.layout;
   }
 
   // private
+  /**
+   * Executes `beforeDestroy` to handle before destroy.
+   * @zh 执行 `beforeDestroy`，用于之前销毁。
+   */
   override beforeDestroy() {
     let c;
     if (this.items) {
@@ -244,7 +370,15 @@ export class Container extends ComponentBase {
     super.beforeDestroy();
   }
 
-  cascade(fn: Function, scope?: Object, args?: Array<any>): Container {
+  /**
+   * Executes `cascade` to handle cascade.
+   * @zh 执行 `cascade`，用于cascade。
+   * @param fn - fn parameter (`Function`) / 函数参数（`Function`）
+   * @param scope - scope parameter (`Object`) / scope参数（`Object`）
+   * @param args - args parameter (`Array<any>`) / 参数列表参数（`Array<any>`）
+   * @returns Result of type `Container` / 类型为 `Container` 的返回值
+   */
+  cascade(fn: Function, scope?: Object, args?): Container {
     if (fn.apply(scope || this, args || [this]) !== false) {
       if (this.items && this.items.items) {
         const cs = this.items.items;
@@ -260,7 +394,13 @@ export class Container extends ComponentBase {
     return this;
   }
 
-  findById(id: string): any {
+  /**
+   * Executes `findById` to handle find by id.
+   * @zh 执行 `findById`，用于查找按唯一标识。
+   * @param id - id parameter (`string`) / 唯一标识参数（`string`）
+   * @returns Result of type `any` / 类型为 `any` 的返回值
+   */
+  findById(id: string) {
     let m = null;
     // eslint-disable-next-line @typescript-eslint/no-this-alias
     const ct = this;
@@ -276,21 +416,42 @@ export class Container extends ComponentBase {
     return m;
   }
 
-  findByType(xtype: string | Object, shallow: boolean): Array<any> {
+  /**
+   * Executes `findByType` to handle find by type.
+   * @zh 执行 `findByType`，用于查找按类型。
+   * @param xtype - xtype parameter (`string | Object`) / 扩展类型参数（`string | Object`）
+   * @param shallow - shallow parameter (`boolean`) / shallow参数（`boolean`）
+   * @returns Result of type `Array<any>` / 类型为 `Array<any>` 的返回值
+   */
+  findByType(xtype: string | Object, shallow: boolean) {
     return this.findBy(
       (c) => {
         return c.isXType(xtype, shallow);
       });
   }
 
-  find(prop: string, value: string): Array<any> {
+  /**
+   * Executes `find` to handle find.
+   * @zh 执行 `find`，用于查找。
+   * @param prop - prop parameter (`string`) / 属性参数（`string`）
+   * @param value - value parameter (`string`) / 值参数（`string`）
+   * @returns Result of type `Array<any>` / 类型为 `Array<any>` 的返回值
+   */
+  find(prop: string, value: string) {
     return this.findBy(
       (c) => {
         return c[prop] === value;
       });
   }
 
-  findBy(fn: Function, scope?: any): Array<any> {
+  /**
+   * Executes `findBy` to handle find by.
+   * @zh 执行 `findBy`，用于查找按。
+   * @param fn - fn parameter (`Function`) / 函数参数（`Function`）
+   * @param scope - scope parameter (`any`) / scope参数（`any`）
+   * @returns Result of type `Array<any>` / 类型为 `Array<any>` 的返回值
+   */
+  findBy(fn: Function, scope?) {
     // eslint-disable-next-line @typescript-eslint/no-this-alias
     const m = [], ct = this;
     this.cascade(
@@ -302,6 +463,12 @@ export class Container extends ComponentBase {
     return m;
   }
 
+  /**
+   * Executes `get` to handle get.
+   * @zh 执行 `get`，用于获取。
+   * @param key - key parameter (`string | number`) / 键参数（`string | number`）
+   * @returns Result of type `ComponentBase` / 类型为 `ComponentBase` 的返回值
+   */
   get(key: string | number): ComponentBase {
     return this.getComponent(key);
   }

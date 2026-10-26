@@ -1,7 +1,16 @@
+/**
+ * @fileoverview Module `src/translator/lazy.ts` providing lazy definitions and implementation.
+ * @zh 模块文件 `src/translator/lazy.ts`，提供lazy相关的定义与实现。
+ */
+
 import { ServiceLocator } from '@dotos/dui/core/services';
 import { TranslationService } from './translation.service';
 
-/** 当前语言；取不到服务时返回空串（当成"还没就绪"，下次再算） */
+/**
+ * Executes `currentLang` to handle current lang.
+ * 当前语言；取不到服务时返回空串（当成"还没就绪"，下次再算）
+ * @zh 当前语言；取不到服务时返回空串（当成"还没就绪"，下次再算）
+ */
 function currentLang(): string {
   const injector = ServiceLocator.injector;
   if (!injector) {
@@ -33,6 +42,8 @@ function currentLang(): string {
  * <p><b>限制。</b>只包对象与数组 —— 字符串常量没法用 Proxy 代理，那种要在用到的
  * 地方调 `t()`。另外别把它的属性值缓存到别处（`const L = CLASS_LABEL.oil`），
  * 那等于又把语言钉死了一次。
+
+ * @zh 让一份<b>模块顶层的常量</b>跟着语言走。
  */
 export function i18nLazy<T extends object>(factory: () => T): T {
   let cache: T | null = null;

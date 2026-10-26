@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Module `src/common/fileupload/file-select.directive.ts` providing file select directive definitions and implementation.
+ * @zh 模块文件 `src/common/fileupload/file-select.directive.ts`，提供文件下拉选择指令相关的定义与实现。
+ */
+
 import {
   Directive, EventEmitter, ElementRef, Input,  Host,
   HostListener, Output, Optional, Inject, InjectionToken, HostBinding, OnChanges
@@ -7,6 +12,10 @@ import { NgModel } from '@angular/forms';
 import { FileUploader, ResizeOptions, ImageFileProcessor, ImageResult } from './file-uploader';
 import { fileToDataURL, getImageTypeFromDataUrl, resizeImage } from './utils';
 
+/**
+ * Angular dependency-injection token `IMAGE_FILE_PROCESSOR` for providing image file processor.
+ * @zh Angular 依赖注入令牌 `IMAGE_FILE_PROCESSOR`，用于提供与注入图像文件处理器。
+ */
 export const IMAGE_FILE_PROCESSOR = new InjectionToken<ImageFileProcessor>('ImageFileProcessor');
 
 /**
@@ -23,7 +32,11 @@ export class FileSelectDirective implements OnChanges{
    */
   @Input() public uploader: FileUploader;
 
-  /** @zh 文件选择完成后发出。 */
+  /**
+   * Output event emitter `onFileSelected` (`EventEmitter<File[] | FileList | File>`) firing when on file selected occurs.
+   * @zh 文件选择完成后发出。
+   * @zh 文件选择完成后发出。
+   */
   @Output() public onFileSelected: EventEmitter<File[] | FileList | File> = new EventEmitter<File[] | FileList | File>();
 
   /**
@@ -33,17 +46,33 @@ export class FileSelectDirective implements OnChanges{
   @Output() imageSelected = new EventEmitter<ImageResult>();
 
 
+  /**
+   * Property `element` (`ElementRef`) storing element.
+   * @zh 属性 `element`（类型：`ElementRef`），用于存储或配置元素。
+   */
   protected element: ElementRef;
 
+  /**
+   * Property `_multiple` (`boolean`) storing multiple (default: `false`).
+   * @zh 属性 `_multiple`（类型：`boolean`），用于存储或配置多个（默认值：`false`）。
+   */
   private _multiple: boolean = false;
 
-  /** @zh 是否允许一次选择多个文件。 */
+  /**
+   * Input setter `multiple` updating multiple.
+   * @zh 是否允许一次选择多个文件。
+   * @zh 是否允许一次选择多个文件。
+   */
   @Input('multiple')
   set multiple(multiple: boolean) {
     this._multiple = coerceBooleanProperty(multiple);
   }
 
-  /** @zh 内部使用，绑定宿主的原生 `multiple` 属性。 */
+  /**
+   * Host-bound getter `multipleBinding` (`attr.multiple`) computing multiple binding.
+   * @zh 内部使用，绑定宿主的原生 `multiple` 属性。
+   * @zh 内部使用，绑定宿主的原生 `multiple` 属性。
+   */
   @HostBinding('attr.multiple')
   get multipleBinding(): string {
     return this._multiple ? '' : undefined;
@@ -64,6 +93,13 @@ export class FileSelectDirective implements OnChanges{
     }
   }
 
+  /**
+   * Creates an instance of `FileSelectDirective` and initializes its dependencies and internal state.
+   * @zh 创建 `FileSelectDirective` 实例，并初始化其依赖项与内部状态。
+   * @param element - Injected or initial element (`ElementRef`) / 注入或传入的元素（`ElementRef`）
+   * @param model - Injected or initial model (`NgModel`) / 注入或传入的模型（`NgModel`）
+   * @param imageFileProcessors - Injected or initial image file processors (`ImageFileProcessor[]`) / 注入或传入的图像文件Processors（`ImageFileProcessor[]`）
+   */
   public constructor(element: ElementRef,
     @Optional() @Host() private model: NgModel,
     @Optional() @Inject(IMAGE_FILE_PROCESSOR) private imageFileProcessors: ImageFileProcessor[]) {
@@ -71,6 +107,10 @@ export class FileSelectDirective implements OnChanges{
     this.imageFileProcessors = imageFileProcessors || [];
   }
 
+  /**
+   * Angular lifecycle hook invoked when data-bound input properties change.
+   * @zh Angular 生命周期钩子：当数据绑定的输入属性发生变更时调用。
+   */
   ngOnChanges(): void {
     let options = this.uploader?.options;
     if (!options) {
@@ -105,7 +145,7 @@ export class FileSelectDirective implements OnChanges{
       const value: File[] | FileList | File = this._multiple ? (files.length > 1 ? fileList : files[0]) : files[0];
       this.model ? this.model.update.emit(value) : this.onFileSelected.emit(value);
     }
-    this.uploader?.addToQueue(files, options, filters);
+    this.uploader?.addToQueue(files, options, filters as never);
     if (this.isEmptyAfterSelection()) {
       this.element.nativeElement.value = '';
     }
@@ -136,6 +176,13 @@ export class FileSelectDirective implements OnChanges{
     }
   }
 
+  /**
+   * Executes `resize` to handle resize.
+   * @zh 执行 `resize`，用于调整尺寸。
+   * @param dataURL - data url parameter (`string`) / 数据链接地址参数（`string`）
+   * @param options - options parameter (`ResizeOptions`) / 配置选项参数（`ResizeOptions`）
+   * @returns Result of type `Promise<{ dataURL: string, type: string }>` / 类型为 `Promise<{ dataURL: string, type: string }>` 的返回值
+   */
   private async resize(dataURL: string, options: ResizeOptions): Promise<{ dataURL: string, type: string }> {
     if (!options) return null;
     const resisedDataUrl = await resizeImage(dataURL, options);
@@ -149,7 +196,7 @@ export class FileSelectDirective implements OnChanges{
    * Returns the uploader's current options, used when queuing selected files.
    * @zh 返回上传器当前的选项，用于加入选中的文件时使用。
    */
-  public getOptions(): any {
+  public getOptions() {
     return this.uploader ? this.uploader.options : undefined;
   }
 
@@ -157,7 +204,7 @@ export class FileSelectDirective implements OnChanges{
    * Returns the filter functions applied when queuing selected files (none by default).
    * @zh 返回加入选中的文件时应用的过滤函数（默认为空）。
    */
-  public getFilters(): any {
+  public getFilters() {
     return {};
   }
 

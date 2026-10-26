@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Module `src/form/select/select.field.ts` providing select field definitions and implementation.
+ * @zh 模块文件 `src/form/select/select.field.ts`，提供下拉选择字段相关的定义与实现。
+ */
+
 import { Component, OnInit, ViewChild, ChangeDetectionStrategy, ChangeDetectorRef, OnDestroy, Input } from '@angular/core';
 import { MatSelect, MatSelectChange } from '@angular/material/select';
 import { FormControl } from '@angular/forms';
@@ -10,13 +15,40 @@ import { MatField } from '../base/mat.field';
 import { getOptionLabel, getOptionValue } from '../base/select-option-props';
 import { MatSelectSearchComponent } from './search/mat-select-search.component';
 
+/**
+ * Class `SelectOption` encapsulating select option data structures and logic in `src/form/select`.
+ * @zh 类 `SelectOption`，封装 `src/form/select` 中的下拉选择选项数据结构与处理逻辑。
+ */
 export class SelectOption {
+  /**
+   * Property `label` (`string`) storing label.
+   * @zh 属性 `label`（类型：`string`），用于存储或配置标签。
+   */
   label: string;
+  /**
+   * Property `value` (`string`) storing value.
+   * @zh 属性 `value`（类型：`string`），用于存储或配置值。
+   */
   value?: string;
+  /**
+   * Property `group` (`SelectOption[]`) storing group.
+   * @zh 属性 `group`（类型：`SelectOption[]`），用于存储或配置分组。
+   */
   group?: SelectOption[];
+  /**
+   * Property `disabled` (`boolean`) storing disabled.
+   * @zh 属性 `disabled`（类型：`boolean`），用于存储或配置已禁用。
+   */
   disabled?: boolean;
-  [key: string]: any;
+  [key: string]: unknown;
 
+  /**
+   * Creates an instance of `SelectOption` and initializes its dependencies and internal state.
+   * @zh 创建 `SelectOption` 实例，并初始化其依赖项与内部状态。
+   * @param label - Injected or initial label (`string`) / 注入或传入的标签（`string`）
+   * @param value - Injected or initial value (`string`) / 注入或传入的值（`string`）
+   * @param children - Injected or initial children (`SelectOption[]`) / 注入或传入的子级列表（`SelectOption[]`）
+   */
   constructor(label: string, value?: string, children?: SelectOption[]) {
     this.label = label;
     this.value = value;
@@ -24,6 +56,10 @@ export class SelectOption {
   }
 }
 
+/**
+ * Angular component `FieldSelect` (selector: 'select-field') providing field select presentation and interaction in `src/form/select`.
+ * @zh Angular 组件 `FieldSelect`（selector: 'select-field'），提供字段下拉选择的视图渲染与交互逻辑（位于 `src/form/select`）。
+ */
 @Component({
   selector: 'select-field',
   templateUrl: './select.field.html',
@@ -36,44 +72,111 @@ export class SelectOption {
 })
 export class FieldSelect extends MatField implements OnInit,OnDestroy {
 
+  /**
+   * Template/content query reference `matSelect` (`@ViewChild`) targeting mat select.
+   * @zh 模板/内容视图查询引用 `matSelect`（`@ViewChild`），指向Material下拉选择。
+   */
   @ViewChild(MatSelect, { static: true }) matSelect!: MatSelect;
+  /**
+   * Template/content query reference `matSearch` (`@ViewChild`) targeting mat search.
+   * @zh 模板/内容视图查询引用 `matSearch`（`@ViewChild`），指向Material搜索。
+   */
   @ViewChild(MatSelectSearchComponent, { static: true }) matSearch: MatSelectSearchComponent;
 
     
+  /**
+   * Property `defaultOptions` (`any`) storing default options (default: `{ options: [] }`).
+   * @zh 属性 `defaultOptions`（类型：`any`），用于存储或配置默认配置选项（默认值：`{ options: [] }`）。
+   */
   override defaultOptions = {
     options: []
   };
 
+  /**
+   * Property `isAlive` (`boolean`) storing is alive (default: `false`).
+   * @zh 属性 `isAlive`（类型：`boolean`），用于存储或配置是否为Alive（默认值：`false`）。
+   */
   isAlive = false;
 
+  /**
+   * Property `isLoading` (`boolean`) storing is loading (default: `false`).
+   * @zh 属性 `isLoading`（类型：`boolean`），用于存储或配置是否为加载中（默认值：`false`）。
+   */
   isLoading = false;
 
+  /**
+   * Property `options` (`any[]`) storing options (default: `[]`).
+   * @zh 属性 `options`（类型：`any[]`），用于存储或配置配置选项（默认值：`[]`）。
+   */
   options = [];
 
+  /**
+   * Property `selectSearchControl` (`FormControl<string>`) storing select search control.
+   * @zh 属性 `selectSearchControl`（类型：`FormControl<string>`），用于存储或配置下拉选择搜索表单控件。
+   */
   public selectSearchControl:  FormControl<string> = new FormControl<string>('', {nonNullable: true});
 
+  /**
+   * Property `searching` (`boolean`) storing searching (default: `false`).
+   * @zh 属性 `searching`（类型：`boolean`），用于存储或配置搜索（默认值：`false`）。
+   */
   public searching: boolean = false;
 
+  /**
+   * Property `_onDestroy` (`Subject`) storing on destroy (default: `new Subject<void>()`).
+   * @zh 属性 `_onDestroy`（类型：`Subject`），用于存储或配置当销毁（默认值：`new Subject<void>()`）。
+   */
   protected _onDestroy = new Subject<void>();
 
-  private selectAllValue!: { options: any; value: any[] };
+  /**
+   * Property `selectAllValue` (`{ options: any; value: any[] }`) storing select all value.
+   * @zh 属性 `selectAllValue`（类型：`{ options: any; value: any[] }`），用于存储或配置下拉选择全部值。
+   */
+  private selectAllValue!: { options; value };
 
   // Tracks the exact params object sent with the most recently issued remote request, so
   // a late-arriving response for a superseded search can be told apart from the current
   // one (see comment on the `serviceData` subscribe below).
-  private _lastRequestParams: any;
-  private _lastLoadedParams: any;
+  /**
+   * Property `_lastRequestParams` (`any`) storing last request params.
+   * @zh 属性 `_lastRequestParams`（类型：`any`），用于存储或配置末尾请求参数集合。
+   */
+  private _lastRequestParams;
+  /**
+   * Property `_lastLoadedParams` (`any`) storing last loaded params.
+   * @zh 属性 `_lastLoadedParams`（类型：`any`），用于存储或配置末尾已加载参数集合。
+   */
+  private _lastLoadedParams;
 
   // 远程 select 的完整选项(不带 $filter 那次加载的结果)和它对应的参数。
   // b8c5e5c 复核:远程搜过之后关面板,mat-select-search 会把搜索词清空,但
   // 上面那条管道按设计不为「面板关着 + 空串」发请求,于是 field.options 停在
   // 搜索结果上;当前值若不在结果里,mat-select 找不到对应 option,显示变成空白。
   // 关面板时从这份缓存恢复,不再多发一次请求。params 变了缓存就作废。
-  private _fullOptions: any[] = null;
-  private _fullOptionsParams: any;
+  /**
+   * Property `_fullOptions` (`any[]`) storing full options (default: `null`).
+   * @zh 属性 `_fullOptions`（类型：`any[]`），用于存储或配置完整配置选项（默认值：`null`）。
+   */
+  private _fullOptions = null;
+  /**
+   * Property `_fullOptionsParams` (`any`) storing full options params.
+   * @zh 属性 `_fullOptionsParams`（类型：`any`），用于存储或配置完整配置选项参数集合。
+   */
+  private _fullOptionsParams;
+  /**
+   * Property `_searched` (`boolean`) storing searched (default: `false`).
+   * @zh 属性 `_searched`（类型：`boolean`），用于存储或配置已搜索（默认值：`false`）。
+   */
   private _searched = false;
 
-  private areParamsEqual(a: any, b: any): boolean {
+  /**
+   * Executes `areParamsEqual` to handle are params equal.
+   * @zh 执行 `areParamsEqual`，用于are参数集合Equal。
+   * @param a - a parameter (`any`) / a参数（`any`）
+   * @param b - b parameter (`any`) / b参数（`any`）
+   * @returns Result of type `boolean` / 类型为 `boolean` 的返回值
+   */
+  private areParamsEqual(a, b): boolean {
     if (!a || !b) return false;
     const keysA = Object.keys(a);
     const keysB = Object.keys(b);
@@ -84,6 +187,13 @@ export class FieldSelect extends MatField implements OnInit,OnDestroy {
     return true;
   }
 
+  /**
+   * Creates an instance of `FieldSelect` and initializes its dependencies and internal state.
+   * @zh 创建 `FieldSelect` 实例，并初始化其依赖项与内部状态。
+   * @param translate - Injected or initial translate (`TranslateService`) / 注入或传入的翻译（`TranslateService`）
+   * @param optionService - Injected or initial option service (`SelectOptionsService`) / 注入或传入的选项服务（`SelectOptionsService`）
+   * @param changeDetector - Injected or initial change detector (`ChangeDetectorRef`) / 注入或传入的变更检测器（`ChangeDetectorRef`）
+   */
   constructor(
     protected override translate: TranslateService,
     private optionService: SelectOptionsService,
@@ -92,6 +202,10 @@ export class FieldSelect extends MatField implements OnInit,OnDestroy {
     super(translate);
   }
 
+  /**
+   * Angular lifecycle hook invoked once after component or directive inputs are initialized.
+   * @zh Angular 生命周期钩子：在组件或指令的输入属性初始化完成后调用一次。
+   */
   override ngOnInit() {
     super.ngOnInit();
     // b8c5e5c 复核:
@@ -132,7 +246,7 @@ export class FieldSelect extends MatField implements OnInit,OnDestroy {
         if (serviceData && this._lastRequestParams === serviceData.params) {
           this._lastLoadedParams = { ...this._lastRequestParams };
           if (!serviceData.error && !serviceData.params?.['$filter']) {
-            const { $filter, ...base } = serviceData.params as any;
+            const { $filter, ...base } = serviceData.params as { $filter? };
             this._fullOptions = serviceData.options === null ? [] : serviceData.options;
             this._fullOptionsParams = base;
             this._searched = false;
@@ -158,6 +272,11 @@ export class FieldSelect extends MatField implements OnInit,OnDestroy {
 
 
 
+  /**
+   * Executes `searchChange` to handle search change.
+   * @zh 执行 `searchChange`，用于搜索变更。
+   * @param searchText - search text parameter (`any`) / 搜索文本参数（`any`）
+   */
   searchChange(searchText?) {
     this.searching = false;
     if (this.field.remote) {
@@ -203,12 +322,20 @@ export class FieldSelect extends MatField implements OnInit,OnDestroy {
     }
   }
 
+  /**
+   * Angular lifecycle hook invoked just before the component, directive, or service is destroyed to release subscriptions and resources.
+   * @zh Angular 生命周期钩子：在组件、指令或服务销毁前调用，用于释放订阅与清理资源。
+   */
   override ngOnDestroy() {
     this.isAlive = false;
     this._onDestroy.next();
     this._onDestroy.complete();
     super.ngOnDestroy();
   }
+  /**
+   * Executes `init` to handle init.
+   * @zh 执行 `init`，用于初始化。
+   */
   override init() {
     super.init();
     this.options = this.field.options;
@@ -216,6 +343,10 @@ export class FieldSelect extends MatField implements OnInit,OnDestroy {
       this.hasSearch();
     }
   }
+  /**
+   * Executes `hasSearch` to handle has search.
+   * @zh 执行 `hasSearch`，用于是否包含搜索。
+   */
   hasSearch() {
     if (this.field.options && this.field.options.length > 30) {
       this.field.hasSearch = true;
@@ -224,6 +355,11 @@ export class FieldSelect extends MatField implements OnInit,OnDestroy {
     }
   }
 
+  /**
+   * Executes `openedChanged` to handle opened changed.
+   * @zh 执行 `openedChanged`，用于是否展开已变更。
+   * @param opened - opened parameter (`boolean`) / 是否展开参数（`boolean`）
+   */
   openedChanged(opened: boolean) {
     if (opened) {
       this.openChanged(true);
@@ -232,6 +368,10 @@ export class FieldSelect extends MatField implements OnInit,OnDestroy {
     }
   }
 
+  /**
+   * Executes `restoreFullOptions` to handle restore full options.
+   * @zh 执行 `restoreFullOptions`，用于还原完整配置选项。
+   */
   private restoreFullOptions() {
     if (!this.field.remote || !this._searched) {
       return;
@@ -251,6 +391,11 @@ export class FieldSelect extends MatField implements OnInit,OnDestroy {
     this.changeDetector.detectChanges();
   }
 
+  /**
+   * Executes `openChanged` to handle open changed.
+   * @zh 执行 `openChanged`，用于打开已变更。
+   * @param e - e parameter (`any`) / e参数（`any`）
+   */
   openChanged(e?) {
     if (this.field.remote) {
       let params = { ...this.field.params };
@@ -265,11 +410,22 @@ export class FieldSelect extends MatField implements OnInit,OnDestroy {
     }
   }
 
+  /**
+   * Executes `setOptions` to handle set options.
+   * @zh 执行 `setOptions`，用于集合配置选项。
+   * @param opts - opts parameter (`any`) / 选项列表参数（`any`）
+   */
   setOptions(opts) {
     this.optionService.setOptions(opts);
   }
 
-  getSelectAllState(options: any[]):any {
+  /**
+   * Executes `getSelectAllState` to handle get select all state.
+   * @zh 执行 `getSelectAllState`，用于获取下拉选择全部状态。
+   * @param options - options parameter (`any[]`) / 配置选项参数（`any[]`）
+   * @returns Result of type `any` / 类型为 `any` 的返回值
+   */
+  getSelectAllState(options) {
     if (this.empty || this.value.length === 0) {
       return '';
     }
@@ -278,7 +434,12 @@ export class FieldSelect extends MatField implements OnInit,OnDestroy {
       : 'checked';
   }
 
-  toggleSelectAll(options: any[]) {
+  /**
+   * Executes `toggleSelectAll` to handle toggle select all.
+   * @zh 执行 `toggleSelectAll`，用于开关下拉选择全部。
+   * @param options - options parameter (`any[]`) / 配置选项参数（`any[]`）
+   */
+  toggleSelectAll(options) {
     const selectAllValue = this.getSelectAllValue(options);
     this.formControl.setValue(
       !this.value || this.value.length !== selectAllValue.length
@@ -287,6 +448,11 @@ export class FieldSelect extends MatField implements OnInit,OnDestroy {
     );
   }
 
+  /**
+   * Executes `change` to handle change.
+   * @zh 执行 `change`，用于变更。
+   * @param $event - event parameter (`MatSelectChange`) / 事件参数（`MatSelectChange`）
+   */
   change($event: MatSelectChange) {
     this.isLoading = false;
     let viewValue = $event.source.selected['viewValue'];
@@ -296,19 +462,39 @@ export class FieldSelect extends MatField implements OnInit,OnDestroy {
     }
   }
 
+  /**
+   * Executes `clear` to handle clear.
+   * @zh 执行 `clear`，用于清空。
+   */
   clear() {
     this.value = undefined;
     this.field.inputValue = undefined;
   }
 
-  compareWith(o1: any, o2: any) {
+  /**
+   * Executes `compareWith` to handle compare with.
+   * @zh 执行 `compareWith`，用于比较带有。
+   * @param o1 - o1 parameter (`any`) / o1参数（`any`）
+   * @param o2 - o2 parameter (`any`) / o2参数（`any`）
+   */
+  compareWith(o1, o2) {
     return o1 === o2;
   }
 
-  trackByOption(index: number, item: any) {
+  /**
+   * Executes `trackByOption` to handle track by option.
+   * @zh 执行 `trackByOption`，用于track按选项。
+   * @param index - index parameter (`number`) / 索引参数（`number`）
+   * @param item - item parameter (`any`) / 条目参数（`any`）
+   */
+  trackByOption(index: number, item) {
     return item ? (item.value !== undefined ? item.value : item.label) : index;
   }
 
+  /**
+   * Executes `_getAriaLabelledby` to handle get aria labelledby.
+   * @zh 执行 `_getAriaLabelledby`，用于获取AriaLabelledby。
+   */
   _getAriaLabelledby() {
     if (this.field.attributes && this.field.attributes['aria-labelledby']) {
       return this.field.attributes['aria-labelledby'];
@@ -319,9 +505,14 @@ export class FieldSelect extends MatField implements OnInit,OnDestroy {
     return null;
   }
 
-  private getSelectAllValue(options: any[]) {
+  /**
+   * Executes `getSelectAllValue` to handle get select all value.
+   * @zh 执行 `getSelectAllValue`，用于获取下拉选择全部值。
+   * @param options - options parameter (`any[]`) / 配置选项参数（`any[]`）
+   */
+  private getSelectAllValue(options) {
     if (!this.selectAllValue || options !== this.selectAllValue.options) {
-      const flatOptions: any[] = [];
+      const flatOptions = [];
       options.forEach(o => o.group
         ? flatOptions.push(...o.group)
         : flatOptions.push(o),

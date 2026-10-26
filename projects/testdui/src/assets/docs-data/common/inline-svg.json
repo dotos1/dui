@@ -4,12 +4,33 @@
     {
       "name": "createSymbolSvg",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Executes `createSymbolSvg` to handle create symbol svg.",
+      "summaryZh": "执行 `createSymbolSvg`，用于创建SymbolSVG矢量图。",
       "sourceFile": "src/common/inline-svg/svg-util.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "createSymbolSvg",
+          "params": [
+            {
+              "name": "renderer",
+              "type": "Renderer2"
+            },
+            {
+              "name": "svg",
+              "type": "SVGElement"
+            },
+            {
+              "name": "symbolId",
+              "type": "string"
+            }
+          ],
+          "returnType": "SVGElement",
+          "description": "Executes `createSymbolSvg` to handle create symbol svg.",
+          "descriptionZh": "执行 `createSymbolSvg`，用于创建SymbolSVG矢量图。"
+        }
+      ],
       "properties": []
     },
     {
@@ -35,13 +56,13 @@
         {
           "name": "replaceContents",
           "type": "boolean",
-          "description": null,
+          "description": "Input property `replaceContents` (`boolean`) configuring replace contents.",
           "descriptionZh": "插入内容前是否替换宿主原有内容。"
         },
         {
           "name": "prepend",
           "type": "boolean",
-          "description": null,
+          "description": "Input property `prepend` (`boolean`) configuring prepend.",
           "descriptionZh": "前置插入而不是追加。"
         }
       ],
@@ -52,8 +73,8 @@
     {
       "name": "InlineSVGConfig",
       "kind": "class",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Class `InlineSVGConfig` encapsulating inline svg config data structures and logic in `src/common/inline-svg`.",
+      "summaryZh": "类 `InlineSVGConfig`，封装 `src/common/inline-svg` 中的InlineSVG矢量图配置数据结构与处理逻辑。",
       "sourceFile": "src/common/inline-svg/inline-svg.config.ts",
       "inputs": [],
       "outputs": [],
@@ -62,20 +83,20 @@
         {
           "name": "baseUrl",
           "type": "string",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `baseUrl` (`string`) storing base url.",
+          "descriptionZh": "属性 `baseUrl`（类型：`string`），用于存储或配置基础链接地址。"
         },
         {
           "name": "clientOnly",
           "type": "boolean",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `clientOnly` (`boolean`) storing client only.",
+          "descriptionZh": "属性 `clientOnly`（类型：`boolean`），用于存储或配置clientOnly。"
         },
         {
           "name": "bypassHttpClientInterceptorChain",
           "type": "boolean",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `bypassHttpClientInterceptorChain` (`boolean`) storing bypass http client interceptor chain.",
+          "descriptionZh": "属性 `bypassHttpClientInterceptorChain`（类型：`boolean`），用于存储或配置bypassHTTPClient拦截器Chain。"
         }
       ]
     },
@@ -111,7 +132,7 @@
           "name": "prepend",
           "type": "boolean",
           "default": "false",
-          "description": null,
+          "description": "Input property `prepend` (`boolean`) configuring prepend (default: `false`).",
           "descriptionZh": "前置插入而不是追加。"
         },
         {
@@ -150,7 +171,7 @@
         {
           "name": "evalScripts",
           "type": "SVGScriptEvalMode",
-          "default": "SVGScriptEvalMode.ALWAYS",
+          "default": "SVGScriptEvalMode.NEVER",
           "description": null,
           "descriptionZh": "SVG 内联 `<script>` 的执行策略：`always`/`once`/`never`。"
         },
@@ -187,8 +208,8 @@
     {
       "name": "InlineSVGModule",
       "kind": "module",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular module `InlineSVGModule` declaring and exporting inline svg module components, directives, pipes, and providers.",
+      "summaryZh": "Angular 模块 `InlineSVGModule`，声明并导出InlineSVG矢量图模块相关的组件、指令、管道与服务提供者。",
       "sourceFile": "src/common/inline-svg/inline-svg.module.ts",
       "inputs": [],
       "outputs": [],
@@ -202,8 +223,8 @@
             }
           ],
           "returnType": "ModuleWithProviders<InlineSVGModule>",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `forRoot` to handle for root.",
+          "descriptionZh": "执行 `forRoot`，用于用于根节点。"
         }
       ],
       "properties": [
@@ -211,8 +232,8 @@
           "name": "entryComponents",
           "type": "any",
           "default": "[InlineSVGComponent]",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `entryComponents` (`any[]`) storing entry components (default: `[InlineSVGComponent]`).",
+          "descriptionZh": "属性 `entryComponents`（类型：`any[]`），用于存储或配置条目组件列表（默认值：`[InlineSVGComponent]`）。"
         }
       ]
     },
@@ -279,52 +300,107 @@
     {
       "name": "isSvgSupported",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Executes `isSvgSupported` to handle is svg supported.",
+      "summaryZh": "执行 `isSvgSupported`，用于是否为SVG矢量图Supported。",
       "sourceFile": "src/common/inline-svg/svg-util.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "isSvgSupported",
+          "params": [],
+          "returnType": "boolean",
+          "description": "Executes `isSvgSupported` to handle is svg supported.",
+          "descriptionZh": "执行 `isSvgSupported`，用于是否为SVG矢量图Supported。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "isUrlSymbol",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Executes `isUrlSymbol` to handle is url symbol.",
+      "summaryZh": "执行 `isUrlSymbol`，用于是否为链接地址Symbol。",
       "sourceFile": "src/common/inline-svg/svg-util.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "isUrlSymbol",
+          "params": [
+            {
+              "name": "url",
+              "type": "string"
+            }
+          ],
+          "returnType": "boolean",
+          "description": "Executes `isUrlSymbol` to handle is url symbol.",
+          "descriptionZh": "执行 `isUrlSymbol`，用于是否为链接地址Symbol。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "removeAttributes",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Executes `removeAttributes` to handle remove attributes.",
+      "summaryZh": "执行 `removeAttributes`，用于移除属性列表。",
       "sourceFile": "src/common/inline-svg/svg-util.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "removeAttributes",
+          "params": [
+            {
+              "name": "element",
+              "type": "Element"
+            },
+            {
+              "name": "attrs",
+              "type": "Array<string>"
+            }
+          ],
+          "returnType": "void",
+          "description": "Executes `removeAttributes` to handle remove attributes.",
+          "descriptionZh": "执行 `removeAttributes`，用于移除属性列表。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "setAttributes",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Executes `setAttributes` to handle set attributes.",
+      "summaryZh": "执行 `setAttributes`，用于集合属性列表。",
       "sourceFile": "src/common/inline-svg/svg-util.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "setAttributes",
+          "params": [
+            {
+              "name": "element",
+              "type": "any"
+            },
+            {
+              "name": "attrs",
+              "type": "{ [key: string]: any }"
+            }
+          ],
+          "returnType": "void",
+          "description": "Executes `setAttributes` to handle set attributes.",
+          "descriptionZh": "执行 `setAttributes`，用于集合属性列表。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "SVGCacheService",
       "kind": "service",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Injectable Angular service `SVGCacheService` managing svg cache service state and operations in `src/common/inline-svg`.",
+      "summaryZh": "可注入的 Angular 服务 `SVGCacheService`，管理 `src/common/inline-svg` 中的SVG矢量图缓存服务状态与业务操作。",
       "sourceFile": "src/common/inline-svg/svg-cache.service.ts",
       "inputs": [],
       "outputs": [],
@@ -394,13 +470,35 @@
     {
       "name": "SVGScriptEvalMode",
       "kind": "enum",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Enumeration `SVGScriptEvalMode` defining supported svg script eval mode constants.",
+      "summaryZh": "枚举 `SVGScriptEvalMode`，定义支持的SVG矢量图ScriptEval模式常量集合。",
       "sourceFile": "src/common/inline-svg/inline-svg.config.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
-      "properties": []
+      "properties": [
+        {
+          "name": "ALWAYS",
+          "type": "enum-member",
+          "default": "'always'",
+          "description": "Enum member `SVGScriptEvalMode.ALWAYS` = 'always' representing always.",
+          "descriptionZh": "枚举项 `SVGScriptEvalMode.ALWAYS` = 'always'，表示ALWAYS。"
+        },
+        {
+          "name": "ONCE",
+          "type": "enum-member",
+          "default": "'once'",
+          "description": "Enum member `SVGScriptEvalMode.ONCE` = 'once' representing once.",
+          "descriptionZh": "枚举项 `SVGScriptEvalMode.ONCE` = 'once'，表示ONCE。"
+        },
+        {
+          "name": "NEVER",
+          "type": "enum-member",
+          "default": "'never'",
+          "description": "Enum member `SVGScriptEvalMode.NEVER` = 'never' representing never.",
+          "descriptionZh": "枚举项 `SVGScriptEvalMode.NEVER` = 'never'，表示NEVER。"
+        }
+      ]
     }
   ],
   "suggestedUsageSnippet": "import { InlineSVGComponent, InlineSVGModule } from '@dotos/dui/common/inline-svg';\n\n<inline-svg [context]=\"...\" [content]=\"...\" [replaceContents]=\"...\"></inline-svg>"

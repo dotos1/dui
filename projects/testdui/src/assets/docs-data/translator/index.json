@@ -2,159 +2,46 @@
   "importPath": "@dotos/dui/translator",
   "exports": [
     {
-      "name": "Base2",
-      "kind": "class",
-      "summary": null,
-      "summaryZh": null,
-      "sourceFile": "src/translator/base.ts",
-      "inputs": [],
-      "outputs": [],
-      "methods": [],
-      "properties": []
-    },
-    {
-      "name": "basicPatterns",
-      "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
-      "sourceFile": "src/translator/date-formatter.ts",
-      "inputs": [],
-      "outputs": [],
-      "methods": [],
-      "properties": []
-    },
-    {
-      "name": "cldrData",
-      "kind": "constant",
-      "summary": "Specifies the CLDR data loaded for internationalization functionalities.\nprivate",
-      "summaryZh": null,
-      "sourceFile": "src/translator/internationalization.ts",
-      "inputs": [],
-      "outputs": [],
-      "methods": [],
-      "properties": []
-    },
-    {
-      "name": "CommonOptions",
-      "kind": "interface",
-      "summary": "Interface for common formatting options",
-      "summaryZh": null,
-      "sourceFile": "src/translator/number-formatter.ts",
-      "inputs": [],
-      "outputs": [],
-      "methods": [],
-      "properties": []
-    },
-    {
-      "name": "customFormat",
-      "kind": "function",
-      "summary": "Returns formatting options for custom number format\nprivate\nparam {string} format\nparam {CommonOptions} dOptions\nparam {Dependables} obj\nreturns {GenericFormatOptions}",
-      "summaryZh": null,
-      "sourceFile": "src/translator/number-formatter.ts",
-      "inputs": [],
-      "outputs": [],
-      "methods": [],
-      "properties": []
-    },
-    {
-      "name": "DateFormat",
-      "kind": "class",
-      "summary": "Date Format is a framework provides support for date formatting.\nprivate",
-      "summaryZh": null,
-      "sourceFile": "src/translator/date-formatter.ts",
-      "inputs": [],
-      "outputs": [],
-      "methods": [
-        {
-          "name": "dateFormat",
-          "params": [
-            {
-              "name": "option",
-              "type": "DateFormatOptions"
-            },
-            {
-              "name": "cldr",
-              "type": "Object"
-            }
-          ],
-          "returnType": "Function",
-          "description": "Returns the formatter function for given skeleton.\nparam {DateFormatOptions} - Specific the format in which date  will format.\nparam {cldr} - Specifies the global cldr data collection.\nreturn Function.",
-          "descriptionZh": null
-        },
-        {
-          "name": "getTimeZoneValue",
-          "params": [
-            {
-              "name": "tVal",
-              "type": "number"
-            },
-            {
-              "name": "pattern",
-              "type": "string"
-            }
-          ],
-          "returnType": "string",
-          "description": null,
-          "descriptionZh": null
-        }
-      ],
-      "properties": []
-    },
-    {
       "name": "DateFormatOptions",
       "kind": "interface",
-      "summary": null,
-      "summaryZh": null,
-      "sourceFile": "src/translator/date-formatter.ts",
+      "summary": "国际化格式化 —— 原生 `Intl` 版。\n\n<p>自研,替代 LEGACY 衍生的 intl 半边(`base.ts` / `intl-base.ts` /\n`date-formatter.ts` / `date-parser.ts` / `number-formatter.ts` /\n`number-parser.ts` / `parser-base.ts` / `internationalization.ts` /\n`l10n.ts`,共 2,942 行)。见 duix 的 `lib/PEEL-CLEANUP-PLAN.md` §P5。\n\n<p><b>为什么能只写这么点。</b>旧实现带着一整套 CLDR 装载机制,而\n`cldrData` 在本仓库里<u>始终是空对象</u> —— 没有一处调过 `loadCldr`。\n也就是说那 2,942 行一直跑在 en-US 的内置兜底路径上,等价于原生\n`Intl` 的 `'en-US'`。真正需要自己实现的只有一件事:\n<b>把 LEGACY 的格式串方言翻成 `Intl` 的选项</b>。\n\n<p><b>方言范围是枚举出来的,不是猜的</b>(`tools/intl/matrix.mjs` 记着出处):\n\n<ul>\n  <li>后端下发六种日期串:`yyyy/MM/dd`、`yyyy/MM/dd HH:mm:ss`、\n      `yyyy/MM/dd HH:mm`、`yyyy/MM`、`yyyy`、`yMd`;</li>\n  <li>应用里写死的:`y/M/d`、`y/M/d H:m:s`、`MMM dd, y`、`mediumDate`;</li>\n  <li>数值:`C2` 一种,外加透视表传的 `{ minimumFractionDigits }` 对象形态。</li>\n</ul>\n\n<p>门在 `tools/intl/gate.mjs`:期望值由**旧实现**算出(158 条),不是我写的。",
+      "summaryZh": "国际化格式化 —— 原生 `Intl` 版。",
+      "sourceFile": "src/translator/intl.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
-      "properties": []
-    },
-    {
-      "name": "DateParser",
-      "kind": "class",
-      "summary": "Date Parser.\nprivate",
-      "summaryZh": null,
-      "sourceFile": "src/translator/date-parser.ts",
-      "inputs": [],
-      "outputs": [],
-      "methods": [
+      "properties": [
         {
-          "name": "dateParser",
-          "params": [
-            {
-              "name": "option",
-              "type": "DateFormatOptions"
-            },
-            {
-              "name": "cldr",
-              "type": "Object"
-            }
-          ],
-          "returnType": "Function",
-          "description": null,
-          "descriptionZh": null
+          "name": "type",
+          "type": "string",
+          "description": "Property `type` (`string`) storing type.\n`'date'` / `'time'` / `'datetime'`。",
+          "descriptionZh": "属性 `type`（类型：`string`），用于存储或配置类型。"
+        },
+        {
+          "name": "format",
+          "type": "string",
+          "description": "Property `format` (`string`) storing format.\n具体模式串,如 `'yyyy/MM/dd'`。给了它就以它为准。",
+          "descriptionZh": "具体模式串,如 `'yyyy/MM/dd'`。给了它就以它为准。"
+        },
+        {
+          "name": "skeleton",
+          "type": "string",
+          "description": "Property `skeleton` (`string`) storing skeleton.\n骨架名,如 `'yMd'` / `'short'` / `'medium'`。`format` 缺席时才看它。",
+          "descriptionZh": "骨架名,如 `'yMd'` / `'short'` / `'medium'`。`format` 缺席时才看它。"
+        },
+        {
+          "name": "calendar",
+          "type": "string",
+          "description": "Property `calendar` (`string`) storing calendar.",
+          "descriptionZh": "属性 `calendar`（类型：`string`），用于存储或配置日历。"
         }
-      ],
-      "properties": []
-    },
-    {
-      "name": "datePartMatcher",
-      "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
-      "sourceFile": "src/translator/date-formatter.ts",
-      "inputs": [],
-      "outputs": [],
-      "methods": [],
-      "properties": []
+      ]
     },
     {
       "name": "DEFAULT_LANGUAGE",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular dependency-injection token `DEFAULT_LANGUAGE` for providing default language.",
+      "summaryZh": "Angular 依赖注入令牌 `DEFAULT_LANGUAGE`，用于提供与注入默认语言。",
       "sourceFile": "src/translator/translate.service.ts",
       "inputs": [],
       "outputs": [],
@@ -164,41 +51,60 @@
     {
       "name": "DefaultLangChangeEvent",
       "kind": "interface",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Interface `DefaultLangChangeEvent` defining the contract and properties for default lang change event.",
+      "summaryZh": "接口 `DefaultLangChangeEvent`，定义默认语言变更事件的数据结构契约与属性规范。",
       "sourceFile": "src/translator/translate.service.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
-      "properties": []
-    },
-    {
-      "name": "enableRtl",
-      "kind": "function",
-      "summary": null,
-      "summaryZh": null,
-      "sourceFile": "src/translator/internationalization.ts",
-      "inputs": [],
-      "outputs": [],
-      "methods": [],
-      "properties": []
+      "properties": [
+        {
+          "name": "lang",
+          "type": "string",
+          "description": "Property `lang` (`string`) storing lang.",
+          "descriptionZh": "属性 `lang`（类型：`string`），用于存储或配置语言。"
+        },
+        {
+          "name": "translations",
+          "type": "any",
+          "description": "Property `translations` (`any`) storing translations.",
+          "descriptionZh": "属性 `translations`（类型：`any`），用于存储或配置翻译文本。"
+        }
+      ]
     },
     {
       "name": "equals",
       "kind": "function",
       "summary": "Determines if two objects or two values are equivalent.\n\nTwo objects or values are considered equivalent if at least one of the following is true:\n\n* Both objects or values pass `===` comparison.\n* Both objects or values are of the same type and all of their properties are equal by\n  comparing them with `equals`.",
-      "summaryZh": null,
+      "summaryZh": "执行 `equals`，用于相等比较。",
       "sourceFile": "src/translator/util.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "equals",
+          "params": [
+            {
+              "name": "o1",
+              "type": "any"
+            },
+            {
+              "name": "o2",
+              "type": "any"
+            }
+          ],
+          "returnType": "boolean",
+          "description": "Determines if two objects or two values are equivalent.\n\nTwo objects or values are considered equivalent if at least one of the following is true:\n\n* Both objects or values pass `===` comparison.\n* Both objects or values are of the same type and all of their properties are equal by\n  comparing them with `equals`.",
+          "descriptionZh": "执行 `equals`，用于相等比较。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "FakeMissingTranslationHandler",
       "kind": "service",
       "summary": "This handler is just a placeholder that does nothing, in case you don't need a missing translation handler at all",
-      "summaryZh": null,
+      "summaryZh": "可注入的 Angular 服务 `FakeMissingTranslationHandler`，管理 `src/translator` 中的FakeMissing翻译文本处理器状态与业务操作。",
       "sourceFile": "src/translator/missing-translation-handler.ts",
       "inputs": [],
       "outputs": [],
@@ -212,98 +118,52 @@
             }
           ],
           "returnType": "string",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `handle` to handle handle.",
+          "descriptionZh": "执行 `handle`，用于连接手柄。"
         }
       ],
       "properties": []
     },
     {
-      "name": "FormatOptions",
-      "kind": "interface",
-      "summary": "Interface for Date Format Options Modules.\nprivate",
-      "summaryZh": null,
-      "sourceFile": "src/translator/date-formatter.ts",
-      "inputs": [],
-      "outputs": [],
-      "methods": [],
-      "properties": []
-    },
-    {
-      "name": "getActualDateTimeFormat",
+      "name": "i18nLazy",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
-      "sourceFile": "src/translator/date-formatter.ts",
+      "summary": "让一份<b>模块顶层的常量</b>跟着语言走。\n\n<pre>\n  export const CLASS_LABEL = i18nLazy(() => ({\n    oil: t('CROSSSECTION.FLUID_OIL'),\n    gas: t('CROSSSECTION.FLUID_GAS'),\n  }));\n</pre>\n\n<p><b>为什么不能直接写 `t()`。</b>顶层常量的值在<b>模块加载那一刻</b>就算出来了，\n那时语言可能还没定；而平台切语言是<b>就地生效</b>的（`TranslationService.loadTranslation`\n只调 `translate.use(lang)`，不重载页面），所以算过一次就再也不会变 ——\n界面上表现为\"切了语言，这几个标签还是中文\"。全平台这样的常量有九百多条。\n\n<p><b>调用方一行都不用改。</b>返回的是个 Proxy：读属性、`Object.keys`、`in`、\n展开、`JSON.stringify` 都照常，只是每次读之前会看一眼语言变没变，变了就用工厂重算。\n所以 `CLASS_LABEL[k]`、`Object.entries(CLASS_LABEL)` 这些写法原样能用。\n\n<p><b>限制。</b>只包对象与数组 —— 字符串常量没法用 Proxy 代理，那种要在用到的\n地方调 `t()`。另外别把它的属性值缓存到别处（`const L = CLASS_LABEL.oil`），\n那等于又把语言钉死了一次。",
+      "summaryZh": "让一份<b>模块顶层的常量</b>跟着语言走。",
+      "sourceFile": "src/translator/lazy.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
-      "properties": []
-    },
-    {
-      "name": "getActualNumberFormat",
-      "kind": "function",
-      "summary": "Returns Native Number pattern\nparam {NumberFormatOptions} options\nparam {Object} cldr\nreturns {string}",
-      "summaryZh": null,
-      "sourceFile": "src/translator/number-formatter.ts",
-      "inputs": [],
-      "outputs": [],
-      "methods": [],
-      "properties": []
-    },
-    {
-      "name": "getDefaultDateObject",
-      "kind": "function",
-      "summary": null,
-      "summaryZh": null,
-      "sourceFile": "src/translator/internationalization.ts",
-      "inputs": [],
-      "outputs": [],
-      "methods": [],
-      "properties": []
-    },
-    {
-      "name": "getNumberDependable",
-      "kind": "function",
-      "summary": "To get the numeric CLDR  number base object for given culture\nparam {string} locale - Specifies the locale for which numericObject to be returned.\nparam {string} currency - Specifies the currency for which numericObject to be returned.",
-      "summaryZh": null,
-      "sourceFile": "src/translator/internationalization.ts",
-      "inputs": [],
-      "outputs": [],
-      "methods": [],
-      "properties": []
-    },
-    {
-      "name": "getNumericObject",
-      "kind": "function",
-      "summary": "To get the numeric CLDR object for given culture\nparam {string} locale - Specifies the locale for which numericObject to be returned.",
-      "summaryZh": null,
-      "sourceFile": "src/translator/internationalization.ts",
-      "inputs": [],
-      "outputs": [],
-      "methods": [],
-      "properties": []
-    },
-    {
-      "name": "getResultantPattern",
-      "kind": "function",
-      "summary": null,
-      "summaryZh": null,
-      "sourceFile": "src/translator/date-formatter.ts",
-      "inputs": [],
-      "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "i18nLazy",
+          "params": [
+            {
+              "name": "factory",
+              "type": "() => T"
+            }
+          ],
+          "returnType": "T",
+          "description": "让一份<b>模块顶层的常量</b>跟着语言走。\n\n<pre>\n  export const CLASS_LABEL = i18nLazy(() => ({\n    oil: t('CROSSSECTION.FLUID_OIL'),\n    gas: t('CROSSSECTION.FLUID_GAS'),\n  }));\n</pre>\n\n<p><b>为什么不能直接写 `t()`。</b>顶层常量的值在<b>模块加载那一刻</b>就算出来了，\n那时语言可能还没定；而平台切语言是<b>就地生效</b>的（`TranslationService.loadTranslation`\n只调 `translate.use(lang)`，不重载页面），所以算过一次就再也不会变 ——\n界面上表现为\"切了语言，这几个标签还是中文\"。全平台这样的常量有九百多条。\n\n<p><b>调用方一行都不用改。</b>返回的是个 Proxy：读属性、`Object.keys`、`in`、\n展开、`JSON.stringify` 都照常，只是每次读之前会看一眼语言变没变，变了就用工厂重算。\n所以 `CLASS_LABEL[k]`、`Object.entries(CLASS_LABEL)` 这些写法原样能用。\n\n<p><b>限制。</b>只包对象与数组 —— 字符串常量没法用 Proxy 代理，那种要在用到的\n地方调 `t()`。另外别把它的属性值缓存到别处（`const L = CLASS_LABEL.oil`），\n那等于又把语言钉死了一次。",
+          "descriptionZh": "让一份<b>模块顶层的常量</b>跟着语言走。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "Internationalization",
       "kind": "class",
-      "summary": "Internationalization class provides support to parse and format the number and date object to the desired format.\n```typescript\n// To set the culture globally\nsetCulture('en-GB');\n\n// To set currency code globally\nsetCurrencyCode('EUR');\n\n//Load cldr data\nloadCldr(gregorainData);\nloadCldr(timeZoneData);\nloadCldr(numbersData);\nloadCldr(numberSystemData);\n\n// To use formatter in component side\nlet Intl:Internationalization = new Internationalization();\n\n// Date formatting\nlet dateFormatter: Function = Intl.getDateFormat({skeleton:'long',type:'dateTime'});\ndateFormatter(new Date('11/2/2016'));\ndateFormatter(new Date('25/2/2030'));\nIntl.formatDate(new Date(),{skeleton:'E'});\n\n//Number formatting\nlet numberFormatter: Function = Intl.getNumberFormat({skeleton:'C5'})\nnumberFormatter(24563334);\nIntl.formatNumber(123123,{skeleton:'p2'});\n\n// Date parser\nlet dateParser: Function = Intl.getDateParser({skeleton:'short',type:'time'});\ndateParser('10:30 PM');\nIntl.parseDate('10',{skeleton:'H'});\n```",
-      "summaryZh": null,
-      "sourceFile": "src/translator/internationalization.ts",
+      "summary": "Class `Internationalization` encapsulating internationalization data structures and logic in `src/translator`.\n与旧 `Internationalization` 同名同签名的门面。\n\n<p>只实现 `getDateFormat` / `getNumberFormat` —— 全仓库唯一的使用者是\n`@dotos/duix/grid` 的 `core/format.ts`,它只调这两个。\n旧类还有 `getDateParser` / `getNumberParser` / `formatDate` / `parseDate` …,\n<b>全部零使用者</b>,不重建(`PEEL-GUIDE.md` §门 4h 的反面:\n「没人用」不是不迁的理由,但也不是\"照搬一份\"的理由 —— 迁的是有人用的)。",
+      "summaryZh": "与旧 `Internationalization` 同名同签名的门面。",
+      "sourceFile": "src/translator/intl.ts",
       "inputs": [],
       "outputs": [],
       "methods": [
+        {
+          "name": "getCulture",
+          "params": [],
+          "returnType": "string",
+          "description": "Executes `getCulture` to handle get culture.",
+          "descriptionZh": "执行 `getCulture`，用于获取Culture。"
+        },
         {
           "name": "getDateFormat",
           "params": [
@@ -312,9 +172,9 @@
               "type": "DateFormatOptions"
             }
           ],
-          "returnType": "Function",
-          "description": null,
-          "descriptionZh": null
+          "returnType": "(value: Date) => string",
+          "description": "Executes `getDateFormat` to handle get date format.\n造日期格式化函数。`format` 优先,其次 `skeleton`,都没有就退回 `yMd`。",
+          "descriptionZh": "造日期格式化函数。`format` 优先,其次 `skeleton`,都没有就退回 `yMd`。"
         },
         {
           "name": "getNumberFormat",
@@ -324,49 +184,9 @@
               "type": "NumberFormatOptions"
             }
           ],
-          "returnType": "Function",
-          "description": null,
-          "descriptionZh": null
-        },
-        {
-          "name": "getDateParser",
-          "params": [
-            {
-              "name": "options",
-              "type": "DateFormatOptions"
-            }
-          ],
-          "returnType": "Function",
-          "description": null,
-          "descriptionZh": null
-        },
-        {
-          "name": "getNumberParser",
-          "params": [
-            {
-              "name": "options",
-              "type": "NumberFormatOptions"
-            }
-          ],
-          "returnType": "Function",
-          "description": null,
-          "descriptionZh": null
-        },
-        {
-          "name": "formatNumber",
-          "params": [
-            {
-              "name": "value",
-              "type": "Number"
-            },
-            {
-              "name": "option",
-              "type": "NumberFormatOptions"
-            }
-          ],
-          "returnType": "string",
-          "description": null,
-          "descriptionZh": null
+          "returnType": "(value: number) => string",
+          "description": "Executes `getNumberFormat` to handle get number format.\n造数值格式化函数。",
+          "descriptionZh": "造数值格式化函数。"
         },
         {
           "name": "formatDate",
@@ -376,168 +196,84 @@
               "type": "Date"
             },
             {
-              "name": "option",
+              "name": "options",
               "type": "DateFormatOptions"
             }
           ],
           "returnType": "string",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `formatDate` to handle format date.",
+          "descriptionZh": "执行 `formatDate`，用于格式化日期。"
         },
         {
-          "name": "parseDate",
+          "name": "formatNumber",
           "params": [
             {
               "name": "value",
-              "type": "string"
+              "type": "number"
             },
             {
-              "name": "option",
-              "type": "DateFormatOptions"
-            }
-          ],
-          "returnType": "Date",
-          "description": "Returns the date object for given date string and options.\nparam {string} value - Specifies the string to parse.\nparam {DateFormatOptions} option - Specifies the parse options in which the date string will be parsed.\nreturns {Date}",
-          "descriptionZh": null
-        },
-        {
-          "name": "parseNumber",
-          "params": [
-            {
-              "name": "value",
-              "type": "string"
-            },
-            {
-              "name": "option",
-              "type": "NumberFormatOptions"
-            }
-          ],
-          "returnType": "number",
-          "description": "Returns the number object from the given string value and options.\nparam {string} value - Specifies the string to parse.\nparam {NumberFormatOptions} option - Specifies the parse options in which the  string number  will be parsed.\nreturns {number}",
-          "descriptionZh": null
-        },
-        {
-          "name": "getDatePattern",
-          "params": [
-            {
-              "name": "option",
-              "type": "DateFormatOptions"
-            },
-            {
-              "name": "isExcelFormat",
-              "type": "boolean"
-            }
-          ],
-          "returnType": "string",
-          "description": "Returns Native Date Time Pattern\nparam {DateFormatOptions} option - Specifies the parse options for resultant date time pattern.\nparam {boolean} isExcelFormat - Specifies format value to be converted to excel pattern.\nreturns {string}\nprivate",
-          "descriptionZh": null
-        },
-        {
-          "name": "getNumberPattern",
-          "params": [
-            {
-              "name": "option",
+              "name": "options",
               "type": "NumberFormatOptions"
             }
           ],
           "returnType": "string",
-          "description": "Returns Native Number Pattern\nparam {NumberFormatOptions} option - Specifies the parse options for resultant number pattern.\nreturns {string}\nprivate",
-          "descriptionZh": null
-        },
-        {
-          "name": "getFirstDayOfWeek",
-          "params": [],
-          "returnType": "number",
-          "description": "Returns the First Day of the Week\nreturns {number}",
-          "descriptionZh": null
+          "description": "Executes `formatNumber` to handle format number.",
+          "descriptionZh": "执行 `formatNumber`，用于格式化数字。"
         }
       ],
       "properties": [
         {
           "name": "culture",
           "type": "string",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `culture` (`string`) storing culture.",
+          "descriptionZh": "属性 `culture`（类型：`string`），用于存储或配置culture。"
         }
       ]
     },
     {
-      "name": "IntlBase",
-      "kind": "class",
-      "summary": null,
-      "summaryZh": null,
-      "sourceFile": "src/translator/intl-base.ts",
-      "inputs": [],
-      "outputs": [],
-      "methods": [],
-      "properties": []
-    },
-    {
       "name": "isDefined",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Executes `isDefined` to handle is defined.",
+      "summaryZh": "执行 `isDefined`，用于是否为Defined。",
       "sourceFile": "src/translator/util.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "isDefined",
+          "params": [
+            {
+              "name": "value",
+              "type": "any"
+            }
+          ],
+          "returnType": "boolean",
+          "description": "Executes `isDefined` to handle is defined.",
+          "descriptionZh": "执行 `isDefined`，用于是否为Defined。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "isObject",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Executes `isObject` to handle is object.",
+      "summaryZh": "执行 `isObject`，用于是否为对象。",
       "sourceFile": "src/translator/util.ts",
-      "inputs": [],
-      "outputs": [],
-      "methods": [],
-      "properties": []
-    },
-    {
-      "name": "L10n",
-      "kind": "class",
-      "summary": null,
-      "summaryZh": null,
-      "sourceFile": "src/translator/l10n.ts",
       "inputs": [],
       "outputs": [],
       "methods": [
         {
-          "name": "setLocale",
+          "name": "isObject",
           "params": [
             {
-              "name": "locale",
-              "type": "string"
+              "name": "item",
+              "type": "any"
             }
           ],
-          "returnType": "void",
-          "description": "Sets the locale text\nparam {string} locale\nreturns {void}",
-          "descriptionZh": null
-        },
-        {
-          "name": "load",
-          "params": [
-            {
-              "name": "localeObject",
-              "type": "Object"
-            }
-          ],
-          "returnType": "void",
-          "description": "Sets the global locale for all components.\nparam {Object} localeObject - specifies the localeObject to be set as global locale.",
-          "descriptionZh": null
-        },
-        {
-          "name": "getConstant",
-          "params": [
-            {
-              "name": "prop",
-              "type": "string"
-            }
-          ],
-          "returnType": "string",
-          "description": "Returns current locale text for the property based on the culture name and control name.\nparam {string} propertyName - specifies the property for which localize text to be returned.\nreturn string",
-          "descriptionZh": null
+          "returnType": "boolean",
+          "description": "Executes `isObject` to handle is object.",
+          "descriptionZh": "执行 `isObject`，用于是否为对象。"
         }
       ],
       "properties": []
@@ -545,41 +281,60 @@
     {
       "name": "LangChangeEvent",
       "kind": "interface",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Interface `LangChangeEvent` defining the contract and properties for lang change event.",
+      "summaryZh": "接口 `LangChangeEvent`，定义语言变更事件的数据结构契约与属性规范。",
       "sourceFile": "src/translator/translate.service.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
-      "properties": []
-    },
-    {
-      "name": "loadCldr",
-      "kind": "function",
-      "summary": "Load the CLDR data into context\nparam {Object[]} obj Specifies the CLDR data's to be used for formatting and parser.\nreturns {void}",
-      "summaryZh": null,
-      "sourceFile": "src/translator/internationalization.ts",
-      "inputs": [],
-      "outputs": [],
-      "methods": [],
-      "properties": []
+      "properties": [
+        {
+          "name": "lang",
+          "type": "string",
+          "description": "Property `lang` (`string`) storing lang.",
+          "descriptionZh": "属性 `lang`（类型：`string`），用于存储或配置语言。"
+        },
+        {
+          "name": "translations",
+          "type": "any",
+          "description": "Property `translations` (`any`) storing translations.",
+          "descriptionZh": "属性 `translations`（类型：`any`），用于存储或配置翻译文本。"
+        }
+      ]
     },
     {
       "name": "mergeDeep",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Executes `mergeDeep` to handle merge deep.",
+      "summaryZh": "执行 `mergeDeep`，用于合并Deep。",
       "sourceFile": "src/translator/util.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "mergeDeep",
+          "params": [
+            {
+              "name": "target",
+              "type": "any"
+            },
+            {
+              "name": "source",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": "Executes `mergeDeep` to handle merge deep.",
+          "descriptionZh": "执行 `mergeDeep`，用于合并Deep。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "MissingTranslationHandler",
       "kind": "class",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Class `MissingTranslationHandler` encapsulating missing translation handler data structures and logic in `src/translator`.",
+      "summaryZh": "类 `MissingTranslationHandler`，封装 `src/translator` 中的Missing翻译文本处理器数据结构与处理逻辑。",
       "sourceFile": "src/translator/missing-translation-handler.ts",
       "inputs": [],
       "outputs": [],
@@ -594,7 +349,7 @@
           ],
           "returnType": "any",
           "description": "A function that handles missing translations.",
-          "descriptionZh": null
+          "descriptionZh": "执行 `handle`，用于连接手柄。"
         }
       ],
       "properties": []
@@ -602,153 +357,174 @@
     {
       "name": "MissingTranslationHandlerParams",
       "kind": "interface",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Interface `MissingTranslationHandlerParams` defining the contract and properties for missing translation handler params.",
+      "summaryZh": "接口 `MissingTranslationHandlerParams`，定义Missing翻译文本处理器参数集合的数据结构契约与属性规范。",
       "sourceFile": "src/translator/missing-translation-handler.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
-      "properties": []
-    },
-    {
-      "name": "NumberFormat",
-      "kind": "class",
-      "summary": "Module for number formatting.\nprivate",
-      "summaryZh": null,
-      "sourceFile": "src/translator/number-formatter.ts",
-      "inputs": [],
-      "outputs": [],
-      "methods": [
+      "properties": [
         {
-          "name": "numberFormatter",
-          "params": [
-            {
-              "name": "option",
-              "type": "NumberFormatOptions"
-            },
-            {
-              "name": "cldr",
-              "type": "Object"
-            }
-          ],
-          "returnType": "Function",
-          "description": "Returns the formatter function for given skeleton.\nparam {string} culture -  Specifies the culture name to be which formatting.\nparam {NumberFormatOptions} option - Specific the format in which number  will format.\nparam {Object} object- Specifies the global cldr data collection.\nreturn Function.",
-          "descriptionZh": null
+          "name": "key",
+          "type": "string",
+          "description": "the key that's missing in translation files",
+          "descriptionZh": "属性 `key`（类型：`string`），用于存储或配置键。"
         },
         {
-          "name": "getGroupingDetails",
-          "params": [
-            {
-              "name": "pattern",
-              "type": "string"
-            }
-          ],
-          "returnType": "Base2.GroupDetails",
-          "description": "Returns grouping details for the pattern provided\nparam {string} pattern\nreturns {GroupDetails}",
-          "descriptionZh": null
+          "name": "translateService",
+          "type": "TranslateService",
+          "description": "an instance of the service that was unable to translate the key.",
+          "descriptionZh": "属性 `translateService`（类型：`TranslateService`），用于存储或配置翻译服务。"
+        },
+        {
+          "name": "interpolateParams",
+          "type": "Object",
+          "description": "interpolation params that were passed along for translating the given key.",
+          "descriptionZh": "属性 `interpolateParams`（类型：`Object`），用于存储或配置interpolate参数集合。"
         }
-      ],
-      "properties": []
+      ]
     },
     {
       "name": "NumberFormatOptions",
       "kind": "interface",
-      "summary": null,
-      "summaryZh": null,
-      "sourceFile": "src/translator/base.ts",
+      "summary": "Interface `NumberFormatOptions` defining the contract and properties for number format options.",
+      "summaryZh": "接口 `NumberFormatOptions`，定义数字格式化配置选项的数据结构契约与属性规范。",
+      "sourceFile": "src/translator/intl.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
-      "properties": []
-    },
-    {
-      "name": "NumberParser",
-      "kind": "class",
-      "summary": "Module for Number Parser.\nprivate",
-      "summaryZh": null,
-      "sourceFile": "src/translator/number-parser.ts",
-      "inputs": [],
-      "outputs": [],
-      "methods": [
+      "properties": [
         {
-          "name": "numberParser",
-          "params": [
-            {
-              "name": "option",
-              "type": "NumberFormatOptions"
-            },
-            {
-              "name": "cldr",
-              "type": "Object"
-            }
-          ],
-          "returnType": "Function",
-          "description": "Returns the parser function for given skeleton.\nparam {string} -  Specifies the culture name to be which formatting.\nparam {NumberFormatOptions} - Specific the format in which number  will parsed.\nparam {cldr} - Specifies the global cldr data collection.\nreturn Function.",
-          "descriptionZh": null
+          "name": "format",
+          "type": "string",
+          "description": "Property `format` (`string`) storing format.\nEJ2 格式串:`'C2'` / `'N'` / `'P2'` / `'#,##0.00'` ……",
+          "descriptionZh": "LEGACY 格式串:`'C2'` / `'N'` / `'P2'` / `'#,##0.00'` ……"
+        },
+        {
+          "name": "minimumFractionDigits",
+          "type": "number",
+          "description": "Property `minimumFractionDigits` (`number`) storing minimum fraction digits.",
+          "descriptionZh": "属性 `minimumFractionDigits`（类型：`number`），用于存储或配置minimumFraction数字位。"
+        },
+        {
+          "name": "maximumFractionDigits",
+          "type": "number",
+          "description": "Property `maximumFractionDigits` (`number`) storing maximum fraction digits.",
+          "descriptionZh": "属性 `maximumFractionDigits`（类型：`number`），用于存储或配置maximumFraction数字位。"
+        },
+        {
+          "name": "minimumIntegerDigits",
+          "type": "number",
+          "description": "Property `minimumIntegerDigits` (`number`) storing minimum integer digits.",
+          "descriptionZh": "属性 `minimumIntegerDigits`（类型：`number`），用于存储或配置minimumInteger数字位。"
+        },
+        {
+          "name": "minimumSignificantDigits",
+          "type": "number",
+          "description": "Property `minimumSignificantDigits` (`number`) storing minimum significant digits.",
+          "descriptionZh": "属性 `minimumSignificantDigits`（类型：`number`），用于存储或配置minimumSignificant数字位。"
+        },
+        {
+          "name": "maximumSignificantDigits",
+          "type": "number",
+          "description": "Property `maximumSignificantDigits` (`number`) storing maximum significant digits.",
+          "descriptionZh": "属性 `maximumSignificantDigits`（类型：`number`），用于存储或配置maximumSignificant数字位。"
+        },
+        {
+          "name": "useGrouping",
+          "type": "boolean",
+          "description": "Property `useGrouping` (`boolean`) storing use grouping.",
+          "descriptionZh": "属性 `useGrouping`（类型：`boolean`），用于存储或配置使用分组。"
+        },
+        {
+          "name": "currency",
+          "type": "string",
+          "description": "Property `currency` (`string`) storing currency.",
+          "descriptionZh": "属性 `currency`（类型：`string`），用于存储或配置currency。"
         }
-      ],
-      "properties": []
-    },
-    {
-      "name": "NumericParts",
-      "kind": "interface",
-      "summary": "interface for Numeric Formatting Parts",
-      "summaryZh": null,
-      "sourceFile": "src/translator/number-formatter.ts",
-      "inputs": [],
-      "outputs": [],
-      "methods": [],
-      "properties": []
-    },
-    {
-      "name": "onIntlChange",
-      "kind": "constant",
-      "summary": "Specifies the observer used for external change detection.",
-      "summaryZh": null,
-      "sourceFile": "src/translator/internationalization.ts",
-      "inputs": [],
-      "outputs": [],
-      "methods": [],
-      "properties": []
-    },
-    {
-      "name": "rightToLeft",
-      "kind": "constant",
-      "summary": "Specifies the default rtl status for LEGACY components.",
-      "summaryZh": null,
-      "sourceFile": "src/translator/internationalization.ts",
-      "inputs": [],
-      "outputs": [],
-      "methods": [],
-      "properties": []
+      ]
     },
     {
       "name": "setCulture",
       "kind": "function",
-      "summary": "Set the default culture to all LEGACY components\nparam {string} cultureName - Specifies the culture name to be set as default culture.",
-      "summaryZh": null,
-      "sourceFile": "src/translator/internationalization.ts",
+      "summary": "Executes `setCulture` to handle set culture.",
+      "summaryZh": "执行 `setCulture`，用于集合Culture。",
+      "sourceFile": "src/translator/intl.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "setCulture",
+          "params": [
+            {
+              "name": "cultureName",
+              "type": "string"
+            }
+          ],
+          "returnType": "void",
+          "description": "Executes `setCulture` to handle set culture.",
+          "descriptionZh": "执行 `setCulture`，用于集合Culture。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "setCurrencyCode",
       "kind": "function",
-      "summary": "Set the default currency code to all LEGACY components\nparam {string} currencyCode Specifies the culture name to be set as default culture.\nreturns {void}",
-      "summaryZh": null,
-      "sourceFile": "src/translator/internationalization.ts",
+      "summary": "Executes `setCurrencyCode` to handle set currency code.",
+      "summaryZh": "执行 `setCurrencyCode`，用于集合Currency编码。",
+      "sourceFile": "src/translator/intl.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "setCurrencyCode",
+          "params": [
+            {
+              "name": "currencyCode",
+              "type": "string"
+            }
+          ],
+          "returnType": "void",
+          "description": "Executes `setCurrencyCode` to handle set currency code.",
+          "descriptionZh": "执行 `setCurrencyCode`，用于集合Currency编码。"
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "t",
+      "kind": "function",
+      "summary": "模块级的取译文入口。\n\n<p><b>为什么要有这一个。</b>翻译服务只能靠构造函数注入，于是三类文件没法接进多语言：\n描述符数组这样的<b>数据文件</b>（`const PARAMS = [{ label: '…' }]`，根本没有类）、\n纯函数模块（推断、算法、格式化），以及那些不是 Angular 组件的老面板。\n平台里这类文案有几千条，逐个去改构造函数既改不动、也改不对 —— 数据文件里压根没有构造函数。\n\n<p>走的是平台既有的 {@link ServiceLocator} 惯例（`@dotos/duix/datastore` 早就这么拿\nHttpClient 与 ToastrService），不新起一套机制。\n\n<p><b>取不到服务时返回 key 本身</b>，与 `translate` 管道的行为一致：宁可显示\n`CROSSSECTION.BOTTOMBOX` 也不要显示 `undefined`，而且一眼就看得出是哪个键没配。\n宿主应用在根注入器就绪后要设 `ServiceLocator.injector = injector`，这一条本来就要做。\n\n<p><b>什么时候不要用它</b>：组件里能注入就注入 —— 注入的那份能跟着语言切换重新求值，\n而这个函数是<b>当场取值</b>。放在模块顶层的常量里（`const LABEL = t('X')`）等于把\n启动那一刻的语言钉死了，要在用到的时候才调。",
+      "summaryZh": "执行 `t`，用于t。",
+      "sourceFile": "src/translator/t.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "t",
+          "params": [
+            {
+              "name": "key",
+              "type": "string"
+            },
+            {
+              "name": "params",
+              "type": "Record<string, unknown>"
+            }
+          ],
+          "returnType": "string",
+          "description": "模块级的取译文入口。\n\n<p><b>为什么要有这一个。</b>翻译服务只能靠构造函数注入，于是三类文件没法接进多语言：\n描述符数组这样的<b>数据文件</b>（`const PARAMS = [{ label: '…' }]`，根本没有类）、\n纯函数模块（推断、算法、格式化），以及那些不是 Angular 组件的老面板。\n平台里这类文案有几千条，逐个去改构造函数既改不动、也改不对 —— 数据文件里压根没有构造函数。\n\n<p>走的是平台既有的 {@link ServiceLocator} 惯例（`@dotos/duix/datastore` 早就这么拿\nHttpClient 与 ToastrService），不新起一套机制。\n\n<p><b>取不到服务时返回 key 本身</b>，与 `translate` 管道的行为一致：宁可显示\n`CROSSSECTION.BOTTOMBOX` 也不要显示 `undefined`，而且一眼就看得出是哪个键没配。\n宿主应用在根注入器就绪后要设 `ServiceLocator.injector = injector`，这一条本来就要做。\n\n<p><b>什么时候不要用它</b>：组件里能注入就注入 —— 注入的那份能跟着语言切换重新求值，\n而这个函数是<b>当场取值</b>。放在模块顶层的常量里（`const LABEL = t('X')`）等于把\n启动那一刻的语言钉死了，要在用到的时候才调。",
+          "descriptionZh": "执行 `t`，用于t。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "TranslateCompiler",
       "kind": "class",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Class `TranslateCompiler` encapsulating translate compiler data structures and logic in `src/translator`.",
+      "summaryZh": "类 `TranslateCompiler`，封装 `src/translator` 中的翻译Compiler数据结构与处理逻辑。",
       "sourceFile": "src/translator/translate.compiler.ts",
       "inputs": [],
       "outputs": [],
@@ -766,8 +542,8 @@
             }
           ],
           "returnType": "string | Function",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `compile` to handle compile.",
+          "descriptionZh": "执行 `compile`，用于compile。"
         },
         {
           "name": "compileTranslations",
@@ -782,8 +558,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `compileTranslations` to handle compile translations.",
+          "descriptionZh": "执行 `compileTranslations`，用于compile翻译文本。"
         }
       ],
       "properties": []
@@ -791,8 +567,8 @@
     {
       "name": "TranslateDefaultParser",
       "kind": "service",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Injectable Angular service `TranslateDefaultParser` managing translate default parser state and operations in `src/translator`.",
+      "summaryZh": "可注入的 Angular 服务 `TranslateDefaultParser`，管理 `src/translator` 中的翻译默认解析器状态与业务操作。",
       "sourceFile": "src/translator/translate.parser.ts",
       "inputs": [],
       "outputs": [],
@@ -810,8 +586,8 @@
             }
           ],
           "returnType": "string",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `interpolate` to handle interpolate.",
+          "descriptionZh": "执行 `interpolate`，用于interpolate。"
         },
         {
           "name": "getValue",
@@ -826,8 +602,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `getValue` to handle get value.",
+          "descriptionZh": "执行 `getValue`，用于获取值。"
         }
       ],
       "properties": [
@@ -835,8 +611,8 @@
           "name": "templateMatcher",
           "type": "RegExp",
           "default": "/{{\\s?([^{}\\s]*)\\s?}}/g",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `templateMatcher` (`RegExp`) storing template matcher (default: `/{{\\s?([^{}\\s]*)\\s?}}/g`).",
+          "descriptionZh": "属性 `templateMatcher`（类型：`RegExp`），用于存储或配置模板匹配器（默认值：`/{{\\s?([^{}\\s]*)\\s?}}/g`）。"
         }
       ]
     },
@@ -844,21 +620,21 @@
       "name": "TranslateDirective",
       "kind": "directive",
       "selector": "[translate],[ngx-translate]",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular directive `TranslateDirective` (selector: '[translate],[ngx-translate]') attaching translate directive behavior to host DOM elements.",
+      "summaryZh": "Angular 指令 `TranslateDirective`（selector: '[translate],[ngx-translate]'），为宿主 DOM 元素附加翻译指令行为。",
       "sourceFile": "src/translator/translate.directive.ts",
       "inputs": [
         {
           "name": "translate",
           "type": "string",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input setter `translate` updating translate.",
+          "descriptionZh": "输入属性 `translate` 的设置器，用于更新翻译。"
         },
         {
           "name": "translateParams",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input setter `translateParams` updating translate params.",
+          "descriptionZh": "输入属性 `translateParams` 的设置器，用于更新翻译参数集合。"
         }
       ],
       "outputs": [],
@@ -876,8 +652,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `checkNodes` to handle check nodes.",
+          "descriptionZh": "执行 `checkNodes`，用于检查节点列表。"
         },
         {
           "name": "updateValue",
@@ -896,8 +672,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `updateValue` to handle update value.",
+          "descriptionZh": "执行 `updateValue`，用于更新值。"
         },
         {
           "name": "getContent",
@@ -908,8 +684,8 @@
             }
           ],
           "returnType": "string",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `getContent` to handle get content.",
+          "descriptionZh": "执行 `getContent`，用于获取内容。"
         },
         {
           "name": "setContent",
@@ -924,46 +700,46 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `setContent` to handle set content.",
+          "descriptionZh": "执行 `setContent`，用于集合内容。"
         }
       ],
       "properties": [
         {
           "name": "key",
           "type": "string",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `key` (`string`) storing key.",
+          "descriptionZh": "属性 `key`（类型：`string`），用于存储或配置键。"
         },
         {
           "name": "lastParams",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `lastParams` (`any`) storing last params.",
+          "descriptionZh": "属性 `lastParams`（类型：`any`），用于存储或配置末尾参数集合。"
         },
         {
           "name": "currentParams",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `currentParams` (`any`) storing current params.",
+          "descriptionZh": "属性 `currentParams`（类型：`any`），用于存储或配置当前参数集合。"
         },
         {
           "name": "onLangChangeSub",
           "type": "Subscription",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `onLangChangeSub` (`Subscription`) storing on lang change sub.",
+          "descriptionZh": "属性 `onLangChangeSub`（类型：`Subscription`），用于存储或配置当语言变更子。"
         },
         {
           "name": "onDefaultLangChangeSub",
           "type": "Subscription",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `onDefaultLangChangeSub` (`Subscription`) storing on default lang change sub.",
+          "descriptionZh": "属性 `onDefaultLangChangeSub`（类型：`Subscription`），用于存储或配置当默认语言变更子。"
         },
         {
           "name": "onTranslationChangeSub",
           "type": "Subscription",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `onTranslationChangeSub` (`Subscription`) storing on translation change sub.",
+          "descriptionZh": "属性 `onTranslationChangeSub`（类型：`Subscription`），用于存储或配置当翻译文本变更子。"
         }
       ]
     },
@@ -971,7 +747,7 @@
       "name": "TranslateFakeCompiler",
       "kind": "service",
       "summary": "This compiler is just a placeholder that does nothing, in case you don't need a compiler at all",
-      "summaryZh": null,
+      "summaryZh": "可注入的 Angular 服务 `TranslateFakeCompiler`，管理 `src/translator` 中的翻译FakeCompiler状态与业务操作。",
       "sourceFile": "src/translator/translate.compiler.ts",
       "inputs": [],
       "outputs": [],
@@ -989,8 +765,8 @@
             }
           ],
           "returnType": "string | Function",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `compile` to handle compile.",
+          "descriptionZh": "执行 `compile`，用于compile。"
         },
         {
           "name": "compileTranslations",
@@ -1005,8 +781,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `compileTranslations` to handle compile translations.",
+          "descriptionZh": "执行 `compileTranslations`，用于compile翻译文本。"
         }
       ],
       "properties": []
@@ -1015,7 +791,7 @@
       "name": "TranslateFakeLoader",
       "kind": "service",
       "summary": "This loader is just a placeholder that does nothing, in case you don't need a loader at all",
-      "summaryZh": null,
+      "summaryZh": "可注入的 Angular 服务 `TranslateFakeLoader`，管理 `src/translator` 中的翻译Fake加载器状态与业务操作。",
       "sourceFile": "src/translator/translate.loader.ts",
       "inputs": [],
       "outputs": [],
@@ -1033,8 +809,8 @@
             }
           ],
           "returnType": "Observable<any>",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `getTranslation` to handle get translation.",
+          "descriptionZh": "执行 `getTranslation`，用于获取翻译文本。"
         }
       ],
       "properties": []
@@ -1042,8 +818,8 @@
     {
       "name": "TranslateGuard",
       "kind": "service",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Injectable Angular service `TranslateGuard` managing translate guard state and operations in `src/translator`.",
+      "summaryZh": "可注入的 Angular 服务 `TranslateGuard`，管理 `src/translator` 中的翻译路由守卫状态与业务操作。",
       "sourceFile": "src/translator/translate.guard.ts",
       "inputs": [],
       "outputs": [],
@@ -1052,8 +828,8 @@
           "name": "canActivate",
           "params": [],
           "returnType": "Observable<boolean> | boolean",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `canActivate` to handle can activate.",
+          "descriptionZh": "执行 `canActivate`，用于是否可以激活。"
         }
       ],
       "properties": []
@@ -1061,8 +837,8 @@
     {
       "name": "TranslateHttpLoader",
       "kind": "service",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Injectable Angular service `TranslateHttpLoader` managing translate http loader state and operations in `src/translator`.",
+      "summaryZh": "可注入的 Angular 服务 `TranslateHttpLoader`，管理 `src/translator` 中的翻译HTTP加载器状态与业务操作。",
       "sourceFile": "src/translator/http-loader.ts",
       "inputs": [],
       "outputs": [],
@@ -1076,8 +852,8 @@
             }
           ],
           "returnType": "Observable<Object>",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `getTranslation` to handle get translation.",
+          "descriptionZh": "执行 `getTranslation`，用于获取翻译文本。"
         }
       ],
       "properties": []
@@ -1085,8 +861,8 @@
     {
       "name": "TranslateLoader",
       "kind": "class",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Class `TranslateLoader` encapsulating translate loader data structures and logic in `src/translator`.",
+      "summaryZh": "类 `TranslateLoader`，封装 `src/translator` 中的翻译加载器数据结构与处理逻辑。",
       "sourceFile": "src/translator/translate.loader.ts",
       "inputs": [],
       "outputs": [],
@@ -1104,8 +880,8 @@
             }
           ],
           "returnType": "Observable<any>",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `getTranslation` to handle get translation.",
+          "descriptionZh": "执行 `getTranslation`，用于获取翻译文本。"
         }
       ],
       "properties": []
@@ -1113,8 +889,8 @@
     {
       "name": "TranslateLoaderService",
       "kind": "service",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Injectable Angular service `TranslateLoaderService` managing translate loader service state and operations in `src/translator`.",
+      "summaryZh": "可注入的 Angular 服务 `TranslateLoaderService`，管理 `src/translator` 中的翻译加载器服务状态与业务操作。",
       "sourceFile": "src/translator/translate-loader.service.ts",
       "inputs": [],
       "outputs": [],
@@ -1128,8 +904,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `setDefaultLang` to handle set default lang.",
+          "descriptionZh": "执行 `setDefaultLang`，用于集合默认语言。"
         },
         {
           "name": "registerProvider",
@@ -1144,8 +920,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `registerProvider` to handle register provider.",
+          "descriptionZh": "执行 `registerProvider`，用于注册提供者。"
         },
         {
           "name": "providerRegistered",
@@ -1156,8 +932,8 @@
             }
           ],
           "returnType": "boolean",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `providerRegistered` to handle provider registered.",
+          "descriptionZh": "执行 `providerRegistered`，用于提供者已注册。"
         },
         {
           "name": "fetchLanguageFile",
@@ -1176,8 +952,8 @@
             }
           ],
           "returnType": "Observable<void>",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `fetchLanguageFile` to handle fetch language file.",
+          "descriptionZh": "执行 `fetchLanguageFile`，用于获取语言文件。"
         },
         {
           "name": "getComponentToFetch",
@@ -1188,8 +964,8 @@
             }
           ],
           "returnType": "Array<Observable<any>>",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `getComponentToFetch` to handle get component to fetch.",
+          "descriptionZh": "执行 `getComponentToFetch`，用于获取组件转换为获取。"
         },
         {
           "name": "init",
@@ -1200,8 +976,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `init` to handle init.",
+          "descriptionZh": "执行 `init`，用于初始化。"
         },
         {
           "name": "isComponentInQueue",
@@ -1216,8 +992,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `isComponentInQueue` to handle is component in queue.",
+          "descriptionZh": "执行 `isComponentInQueue`，用于是否为组件在队列。"
         },
         {
           "name": "getFullTranslationJSON",
@@ -1228,8 +1004,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `getFullTranslationJSON` to handle get full translation json.",
+          "descriptionZh": "执行 `getFullTranslationJSON`，用于获取完整翻译文本JSON。"
         },
         {
           "name": "getTranslation",
@@ -1240,8 +1016,8 @@
             }
           ],
           "returnType": "Observable<any>",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `getTranslation` to handle get translation.",
+          "descriptionZh": "执行 `getTranslation`，用于获取翻译文本。"
         }
       ],
       "properties": []
@@ -1249,8 +1025,8 @@
     {
       "name": "TranslateModule",
       "kind": "module",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular module `TranslateModule` declaring and exporting translate module components, directives, pipes, and providers.",
+      "summaryZh": "Angular 模块 `TranslateModule`，声明并导出翻译模块相关的组件、指令、管道与服务提供者。",
       "sourceFile": "src/translator/translate.module.ts",
       "inputs": [],
       "outputs": [],
@@ -1265,7 +1041,7 @@
           ],
           "returnType": "ModuleWithProviders<TranslateModule>",
           "description": "Use this method in your root module to provide the TranslateService",
-          "descriptionZh": null
+          "descriptionZh": "执行 `forRoot`，用于用于根节点。"
         },
         {
           "name": "forChild",
@@ -1277,7 +1053,7 @@
           ],
           "returnType": "ModuleWithProviders<TranslateModule>",
           "description": "Use this method in your other (non root) modules to import the directive/pipe",
-          "descriptionZh": null
+          "descriptionZh": "执行 `forChild`，用于用于子级。"
         }
       ],
       "properties": []
@@ -1285,19 +1061,68 @@
     {
       "name": "TranslateModuleConfig",
       "kind": "interface",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Interface `TranslateModuleConfig` defining the contract and properties for translate module config.",
+      "summaryZh": "接口 `TranslateModuleConfig`，定义翻译模块配置的数据结构契约与属性规范。",
       "sourceFile": "src/translator/translate.module.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
-      "properties": []
+      "properties": [
+        {
+          "name": "loader",
+          "type": "Provider",
+          "description": "Property `loader` (`Provider`) storing loader.",
+          "descriptionZh": "属性 `loader`（类型：`Provider`），用于存储或配置加载器。"
+        },
+        {
+          "name": "compiler",
+          "type": "Provider",
+          "description": "Property `compiler` (`Provider`) storing compiler.",
+          "descriptionZh": "属性 `compiler`（类型：`Provider`），用于存储或配置compiler。"
+        },
+        {
+          "name": "parser",
+          "type": "Provider",
+          "description": "Property `parser` (`Provider`) storing parser.",
+          "descriptionZh": "属性 `parser`（类型：`Provider`），用于存储或配置解析器。"
+        },
+        {
+          "name": "missingTranslationHandler",
+          "type": "Provider",
+          "description": "Property `missingTranslationHandler` (`Provider`) storing missing translation handler.",
+          "descriptionZh": "属性 `missingTranslationHandler`（类型：`Provider`），用于存储或配置missing翻译文本处理器。"
+        },
+        {
+          "name": "isolate",
+          "type": "boolean",
+          "description": "Property `isolate` (`boolean`) storing isolate.",
+          "descriptionZh": "属性 `isolate`（类型：`boolean`），用于存储或配置isolate。"
+        },
+        {
+          "name": "extend",
+          "type": "boolean",
+          "description": "Property `extend` (`boolean`) storing extend.",
+          "descriptionZh": "属性 `extend`（类型：`boolean`），用于存储或配置extend。"
+        },
+        {
+          "name": "useDefaultLang",
+          "type": "boolean",
+          "description": "Property `useDefaultLang` (`boolean`) storing use default lang.",
+          "descriptionZh": "属性 `useDefaultLang`（类型：`boolean`），用于存储或配置使用默认语言。"
+        },
+        {
+          "name": "defaultLanguage",
+          "type": "string",
+          "description": "Property `defaultLanguage` (`string`) storing default language.",
+          "descriptionZh": "属性 `defaultLanguage`（类型：`string`），用于存储或配置默认语言。"
+        }
+      ]
     },
     {
       "name": "TranslateParser",
       "kind": "class",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Class `TranslateParser` encapsulating translate parser data structures and logic in `src/translator`.",
+      "summaryZh": "类 `TranslateParser`，封装 `src/translator` 中的翻译解析器数据结构与处理逻辑。",
       "sourceFile": "src/translator/translate.parser.ts",
       "inputs": [],
       "outputs": [],
@@ -1316,7 +1141,7 @@
           ],
           "returnType": "string",
           "description": "Interpolates a string to replace parameters\n\"This is a {{ key }}\" ==> \"This is a value\", with params = { key: \"value\" }",
-          "descriptionZh": null
+          "descriptionZh": "执行 `interpolate`，用于interpolate。"
         },
         {
           "name": "getValue",
@@ -1332,7 +1157,7 @@
           ],
           "returnType": "any",
           "description": "Gets a value from an object by composed key\nparser.getValue({ key1: { keyA: 'valueI' }}, 'key1.keyA') ==> 'valueI'",
-          "descriptionZh": null
+          "descriptionZh": "执行 `getValue`，用于获取值。"
         }
       ],
       "properties": []
@@ -1341,8 +1166,8 @@
       "name": "TranslatePipe",
       "kind": "pipe",
       "pipeName": "translate",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular pipe `TranslatePipe` (name: 'translate') transforming values for translate pipe display in templates.",
+      "summaryZh": "Angular 管道 `TranslatePipe`（name: 'translate'），在模板中转换数据以用于翻译管道展示。",
       "sourceFile": "src/translator/translate.pipe.ts",
       "inputs": [],
       "outputs": [],
@@ -1364,8 +1189,8 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `updateValue` to handle update value.",
+          "descriptionZh": "执行 `updateValue`，用于更新值。"
         },
         {
           "name": "transform",
@@ -1380,8 +1205,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `transform` to handle transform.",
+          "descriptionZh": "执行 `transform`，用于转换。"
         }
       ],
       "properties": [
@@ -1389,46 +1214,46 @@
           "name": "value",
           "type": "string",
           "default": "''",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `value` (`string`) storing value (default: `''`).",
+          "descriptionZh": "属性 `value`（类型：`string`），用于存储或配置值（默认值：`''`）。"
         },
         {
           "name": "lastKey",
           "type": "string",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `lastKey` (`string`) storing last key.",
+          "descriptionZh": "属性 `lastKey`（类型：`string`），用于存储或配置末尾键。"
         },
         {
           "name": "lastParams",
           "type": "any[]",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `lastParams` (`any[]`) storing last params.",
+          "descriptionZh": "属性 `lastParams`（类型：`any[]`），用于存储或配置末尾参数集合。"
         },
         {
           "name": "onTranslationChange",
           "type": "Subscription",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `onTranslationChange` (`Subscription`) storing on translation change.",
+          "descriptionZh": "属性 `onTranslationChange`（类型：`Subscription`），用于存储或配置当翻译文本变更。"
         },
         {
           "name": "onLangChange",
           "type": "Subscription",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `onLangChange` (`Subscription`) storing on lang change.",
+          "descriptionZh": "属性 `onLangChange`（类型：`Subscription`），用于存储或配置当语言变更。"
         },
         {
           "name": "onDefaultLangChange",
           "type": "Subscription",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `onDefaultLangChange` (`Subscription`) storing on default lang change.",
+          "descriptionZh": "属性 `onDefaultLangChange`（类型：`Subscription`），用于存储或配置当默认语言变更。"
         }
       ]
     },
     {
       "name": "TranslateService",
       "kind": "service",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Injectable Angular service `TranslateService` managing translate service state and operations in `src/translator`.",
+      "summaryZh": "可注入的 Angular 服务 `TranslateService`，管理 `src/translator` 中的翻译服务状态与业务操作。",
       "sourceFile": "src/translator/translate.service.ts",
       "inputs": [],
       "outputs": [],
@@ -1443,14 +1268,14 @@
           ],
           "returnType": "void",
           "description": "Sets the default language to use as a fallback",
-          "descriptionZh": null
+          "descriptionZh": "执行 `setDefaultLang`，用于集合默认语言。"
         },
         {
           "name": "getDefaultLang",
           "params": [],
           "returnType": "string",
           "description": "Gets the default language used",
-          "descriptionZh": null
+          "descriptionZh": "执行 `getDefaultLang`，用于获取默认语言。"
         },
         {
           "name": "use",
@@ -1462,7 +1287,7 @@
           ],
           "returnType": "Observable<any>",
           "description": "Changes the lang currently used",
-          "descriptionZh": null
+          "descriptionZh": "执行 `use`，用于使用。"
         },
         {
           "name": "getTranslation",
@@ -1474,7 +1299,7 @@
           ],
           "returnType": "Observable<any>",
           "description": "Gets an object of translations for a given language with the current loader\nand passes it through the compiler",
-          "descriptionZh": null
+          "descriptionZh": "执行 `getTranslation`，用于获取翻译文本。"
         },
         {
           "name": "setTranslation",
@@ -1493,15 +1318,15 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `setTranslation` to handle set translation.",
+          "descriptionZh": "执行 `setTranslation`，用于集合翻译文本。"
         },
         {
           "name": "getLangs",
           "params": [],
           "returnType": "Array<string>",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `getLangs` to handle get langs.",
+          "descriptionZh": "执行 `getLangs`，用于获取语言。"
         },
         {
           "name": "addLangs",
@@ -1512,8 +1337,8 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `addLangs` to handle add langs.",
+          "descriptionZh": "执行 `addLangs`，用于添加语言。"
         },
         {
           "name": "getParsedResult",
@@ -1533,7 +1358,7 @@
           ],
           "returnType": "any",
           "description": "Returns the parsed result of the translations",
-          "descriptionZh": null
+          "descriptionZh": "执行 `getParsedResult`，用于获取已解析结果。"
         },
         {
           "name": "get",
@@ -1549,7 +1374,7 @@
           ],
           "returnType": "Observable<string | any>",
           "description": "Gets the translated value of a key (or an array of keys)",
-          "descriptionZh": null
+          "descriptionZh": "执行 `get`，用于获取。"
         },
         {
           "name": "getStreamOnTranslationChange",
@@ -1564,8 +1389,8 @@
             }
           ],
           "returnType": "Observable<string | any>",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `getStreamOnTranslationChange` to handle get stream on translation change.",
+          "descriptionZh": "执行 `getStreamOnTranslationChange`，用于获取流当翻译文本变更。"
         },
         {
           "name": "stream",
@@ -1581,7 +1406,7 @@
           ],
           "returnType": "Observable<string | any>",
           "description": "Returns a stream of translated values of a key (or an array of keys) which updates\nwhenever the language changes.",
-          "descriptionZh": null
+          "descriptionZh": "执行 `stream`，用于流。"
         },
         {
           "name": "instant",
@@ -1596,8 +1421,8 @@
             }
           ],
           "returnType": "string | any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `instant` to handle instant.",
+          "descriptionZh": "执行 `instant`，用于即时。"
         },
         {
           "name": "set",
@@ -1617,7 +1442,7 @@
           ],
           "returnType": "void",
           "description": "Sets the translated value of a key, after compiling it",
-          "descriptionZh": null
+          "descriptionZh": "执行 `set`，用于集合。"
         },
         {
           "name": "reloadLang",
@@ -1628,8 +1453,8 @@
             }
           ],
           "returnType": "Observable<any>",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `reloadLang` to handle reload lang.",
+          "descriptionZh": "执行 `reloadLang`，用于重新加载语言。"
         },
         {
           "name": "resetLang",
@@ -1640,22 +1465,22 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `resetLang` to handle reset lang.",
+          "descriptionZh": "执行 `resetLang`，用于重置语言。"
         },
         {
           "name": "getBrowserLang",
           "params": [],
           "returnType": "string",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `getBrowserLang` to handle get browser lang.",
+          "descriptionZh": "执行 `getBrowserLang`，用于获取浏览器语言。"
         },
         {
           "name": "getBrowserCultureLang",
           "params": [],
           "returnType": "string",
           "description": "Returns the culture language code name from the browser, e.g. \"de-DE\"",
-          "descriptionZh": null
+          "descriptionZh": "执行 `getBrowserCultureLang`，用于获取浏览器Culture语言。"
         },
         {
           "name": "getDateFormat",
@@ -1666,8 +1491,8 @@
             }
           ],
           "returnType": "Function",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `getDateFormat` to handle get date format.",
+          "descriptionZh": "执行 `getDateFormat`，用于获取日期格式化。"
         },
         {
           "name": "getNumberFormat",
@@ -1678,32 +1503,8 @@
             }
           ],
           "returnType": "Function",
-          "description": null,
-          "descriptionZh": null
-        },
-        {
-          "name": "getDateParser",
-          "params": [
-            {
-              "name": "options",
-              "type": "DateFormatOptions"
-            }
-          ],
-          "returnType": "Function",
-          "description": null,
-          "descriptionZh": null
-        },
-        {
-          "name": "getNumberParser",
-          "params": [
-            {
-              "name": "options",
-              "type": "NumberFormatOptions"
-            }
-          ],
-          "returnType": "Function",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `getNumberFormat` to handle get number format.",
+          "descriptionZh": "执行 `getNumberFormat`，用于获取数字格式化。"
         },
         {
           "name": "formatNumber",
@@ -1718,8 +1519,8 @@
             }
           ],
           "returnType": "string",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `formatNumber` to handle format number.",
+          "descriptionZh": "执行 `formatNumber`，用于格式化数字。"
         },
         {
           "name": "formatDate",
@@ -1734,157 +1535,97 @@
             }
           ],
           "returnType": "string",
-          "description": null,
-          "descriptionZh": null
-        },
-        {
-          "name": "parseDate",
-          "params": [
-            {
-              "name": "value",
-              "type": "string"
-            },
-            {
-              "name": "option",
-              "type": "DateFormatOptions"
-            }
-          ],
-          "returnType": "Date",
-          "description": null,
-          "descriptionZh": null
-        },
-        {
-          "name": "parseNumber",
-          "params": [
-            {
-              "name": "value",
-              "type": "string"
-            },
-            {
-              "name": "option",
-              "type": "NumberFormatOptions"
-            }
-          ],
-          "returnType": "number",
-          "description": null,
-          "descriptionZh": null
-        },
-        {
-          "name": "getDatePattern",
-          "params": [
-            {
-              "name": "option",
-              "type": "DateFormatOptions"
-            },
-            {
-              "name": "isExcelFormat",
-              "type": "boolean"
-            }
-          ],
-          "returnType": "string",
-          "description": null,
-          "descriptionZh": null
-        },
-        {
-          "name": "getNumberPattern",
-          "params": [
-            {
-              "name": "option",
-              "type": "NumberFormatOptions"
-            }
-          ],
-          "returnType": "string",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `formatDate` to handle format date.",
+          "descriptionZh": "执行 `formatDate`，用于格式化日期。"
         },
         {
           "name": "getFirstDayOfWeek",
           "params": [],
           "returnType": "number",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `getFirstDayOfWeek` to handle get first day of week.\n一周的第一天。\n\n<p>旧实现是 `IntlBase.getWeekData(cldr)` —— 而那个函数<u>把查出来的\n`mapper` 算完就丢了</u>,永远返回 `firstDayMapper[defaultFirstDay]`,\n也就是常量 0(周日)。这里保持同样的返回值,不\"顺手修好它\":\n改成真按区域取会让日历控件的首列在没人预期的时候变。",
+          "descriptionZh": "一周的第一天。"
         }
       ],
       "properties": [
         {
           "name": "loadingTranslations",
           "type": "Observable<any>",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `loadingTranslations` (`Observable<any>`) storing loading translations.",
+          "descriptionZh": "属性 `loadingTranslations`（类型：`Observable<any>`），用于存储或配置加载中翻译文本。"
         },
         {
           "name": "onTranslationChange",
           "type": "EventEmitter<TranslationChangeEvent>",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current on translation change (`onTranslationChange: EventEmitter<TranslationChangeEvent>`).",
+          "descriptionZh": "获取当前当翻译文本变更（`onTranslationChange: EventEmitter<TranslationChangeEvent>`）。"
         },
         {
           "name": "onLangChange",
           "type": "EventEmitter<LangChangeEvent>",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current on lang change (`onLangChange: EventEmitter<LangChangeEvent>`).",
+          "descriptionZh": "获取当前当语言变更（`onLangChange: EventEmitter<LangChangeEvent>`）。"
         },
         {
           "name": "onDefaultLangChange",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current on default lang change (`onDefaultLangChange: any`).",
+          "descriptionZh": "获取当前当默认语言变更（`onDefaultLangChange: any`）。"
         },
         {
           "name": "defaultLang",
           "type": "string",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current default lang (`defaultLang: string`).",
+          "descriptionZh": "获取当前默认语言（`defaultLang: string`）。"
         },
         {
           "name": "defaultLang",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Sets the default lang (`defaultLang`).",
+          "descriptionZh": "设置默认语言（`defaultLang`）。"
         },
         {
           "name": "currentLang",
           "type": "string",
           "description": "The lang currently used",
-          "descriptionZh": null
+          "descriptionZh": "获取当前当前语言（`currentLang: string`）。"
         },
         {
           "name": "currentLang",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Sets the current lang (`currentLang`).",
+          "descriptionZh": "设置当前语言（`currentLang`）。"
         },
         {
           "name": "langs",
           "type": "string[]",
           "description": "an array of langs",
-          "descriptionZh": null
+          "descriptionZh": "获取当前语言（`langs: string[]`）。"
         },
         {
           "name": "langs",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Sets the langs (`langs`).",
+          "descriptionZh": "设置语言（`langs`）。"
         },
         {
           "name": "translations",
           "type": "any",
           "description": "a list of translations per lang",
-          "descriptionZh": null
+          "descriptionZh": "获取当前翻译文本（`translations: any`）。"
         },
         {
           "name": "translations",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Sets the translations (`translations`).",
+          "descriptionZh": "设置翻译文本（`translations`）。"
         }
       ]
     },
     {
       "name": "TranslateStore",
       "kind": "class",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Class `TranslateStore` encapsulating translate store data structures and logic in `src/translator`.",
+      "summaryZh": "类 `TranslateStore`，封装 `src/translator` 中的翻译状态仓库数据结构与处理逻辑。",
       "sourceFile": "src/translator/translate.store.ts",
       "inputs": [],
       "outputs": [],
@@ -1895,57 +1636,57 @@
           "type": "string",
           "default": "'en'",
           "description": "The default lang to fallback when translations are missing on the current lang",
-          "descriptionZh": null
+          "descriptionZh": "属性 `defaultLang`（类型：`string`），用于存储或配置默认语言（默认值：`'en'`）。"
         },
         {
           "name": "currentLang",
           "type": "string",
           "default": "this.defaultLang",
           "description": "The lang currently used",
-          "descriptionZh": null
+          "descriptionZh": "属性 `currentLang`（类型：`string`），用于存储或配置当前语言（默认值：`this.defaultLang`）。"
         },
         {
           "name": "translations",
           "type": "any",
           "default": "{}",
           "description": "a list of translations per lang",
-          "descriptionZh": null
+          "descriptionZh": "属性 `translations`（类型：`any`），用于存储或配置翻译文本（默认值：`{}`）。"
         },
         {
           "name": "langs",
           "type": "Array<string>",
           "default": "[]",
           "description": "an array of langs",
-          "descriptionZh": null
+          "descriptionZh": "属性 `langs`（类型：`Array<string>`），用于存储或配置语言（默认值：`[]`）。"
         },
         {
           "name": "onTranslationChange",
           "type": "EventEmitter<TranslationChangeEvent>",
           "default": "new EventEmitter<TranslationChangeEvent>()",
           "description": "An EventEmitter to listen to translation change events\nonTranslationChange.subscribe((params: TranslationChangeEvent) => {\n // do something\n });",
-          "descriptionZh": null
+          "descriptionZh": "属性 `onTranslationChange`（类型：`EventEmitter<TranslationChangeEvent>`），用于存储或配置当翻译文本变更。"
         },
         {
           "name": "onLangChange",
           "type": "EventEmitter<LangChangeEvent>",
           "default": "new EventEmitter<LangChangeEvent>()",
           "description": "An EventEmitter to listen to lang change events\nonLangChange.subscribe((params: LangChangeEvent) => {\n // do something\n });",
-          "descriptionZh": null
+          "descriptionZh": "属性 `onLangChange`（类型：`EventEmitter<LangChangeEvent>`），用于存储或配置当语言变更（默认值：`new EventEmitter<LangChangeEvent>()`）。"
         },
         {
           "name": "onDefaultLangChange",
           "type": "EventEmitter<DefaultLangChangeEvent>",
           "default": "new EventEmitter<DefaultLangChangeEvent>()",
           "description": "An EventEmitter to listen to default lang change events\nonDefaultLangChange.subscribe((params: DefaultLangChangeEvent) => {\n // do something\n });",
-          "descriptionZh": null
+          "descriptionZh": "属性 `onDefaultLangChange`（类型：`EventEmitter<DefaultLangChangeEvent>`），用于存储或配置当默认语言变更。"
         }
       ]
     },
     {
       "name": "TRANSLATION_PROVIDER",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular dependency-injection token `TRANSLATION_PROVIDER` for providing translation provider.",
+      "summaryZh": "Angular 依赖注入令牌 `TRANSLATION_PROVIDER`，用于提供与注入翻译文本提供者。",
       "sourceFile": "src/translator/translation.service.ts",
       "inputs": [],
       "outputs": [],
@@ -1955,30 +1696,56 @@
     {
       "name": "TranslationChangeEvent",
       "kind": "interface",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Interface `TranslationChangeEvent` defining the contract and properties for translation change event.",
+      "summaryZh": "接口 `TranslationChangeEvent`，定义翻译文本变更事件的数据结构契约与属性规范。",
       "sourceFile": "src/translator/translate.service.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
-      "properties": []
+      "properties": [
+        {
+          "name": "translations",
+          "type": "any",
+          "description": "Property `translations` (`any`) storing translations.",
+          "descriptionZh": "属性 `translations`（类型：`any`），用于存储或配置翻译文本。"
+        },
+        {
+          "name": "lang",
+          "type": "string",
+          "description": "Property `lang` (`string`) storing lang.",
+          "descriptionZh": "属性 `lang`（类型：`string`），用于存储或配置语言。"
+        }
+      ]
     },
     {
       "name": "TranslationProvider",
       "kind": "interface",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Interface `TranslationProvider` defining the contract and properties for translation provider.",
+      "summaryZh": "接口 `TranslationProvider`，定义翻译文本提供者的数据结构契约与属性规范。",
       "sourceFile": "src/translator/translation.service.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
-      "properties": []
+      "properties": [
+        {
+          "name": "name",
+          "type": "string",
+          "description": "Property `name` (`string`) storing name.",
+          "descriptionZh": "属性 `name`（类型：`string`），用于存储或配置名称。"
+        },
+        {
+          "name": "source",
+          "type": "string",
+          "description": "Property `source` (`string`) storing source.",
+          "descriptionZh": "属性 `source`（类型：`string`），用于存储或配置源。"
+        }
+      ]
     },
     {
       "name": "TranslationService",
       "kind": "service",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Injectable Angular service `TranslationService` managing translation service state and operations in `src/translator`.",
+      "summaryZh": "可注入的 Angular 服务 `TranslationService`，管理 `src/translator` 中的翻译文本服务状态与业务操作。",
       "sourceFile": "src/translator/translation.service.ts",
       "inputs": [],
       "outputs": [],
@@ -1996,8 +1763,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `addI10Folder` to handle add i10 folder.",
+          "descriptionZh": "执行 `addI10Folder`，用于添加I10文件夹。"
         },
         {
           "name": "loadI10",
@@ -2012,8 +1779,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `loadI10` to handle load i10.",
+          "descriptionZh": "执行 `loadI10`，用于加载I10。"
         },
         {
           "name": "addTranslationFolder",
@@ -2028,8 +1795,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `addTranslationFolder` to handle add translation folder.",
+          "descriptionZh": "执行 `addTranslationFolder`，用于添加翻译文本文件夹。"
         },
         {
           "name": "changeLang",
@@ -2040,8 +1807,20 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `changeLang` to handle change lang.",
+          "descriptionZh": "执行 `changeLang`，用于变更语言。"
+        },
+        {
+          "name": "applyDocumentDirection",
+          "params": [
+            {
+              "name": "lang",
+              "type": "string"
+            }
+          ],
+          "returnType": "any",
+          "description": "Publishes the active locale to CSS/`:lang()` selectors.\n\n文档方向一律 ltr。RTL 翻转(postcss-rtlcss)已整体撤掉:它把方向属性拆成\n`[dir=ltr] .x { right: … }`,而 Angular 样式封装又把 `[dir=ltr]` 改写成要求\n带组件作用域属性,匹配不到 <html>,结果 LTR 下方向属性全部失效。\n真要支持阿语等 RTL 语种时再重新设计。",
+          "descriptionZh": "Publishes the active locale to CSS/`:lang()` selectors."
         },
         {
           "name": "loadTranslation",
@@ -2056,8 +1835,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `loadTranslation` to handle load translation.",
+          "descriptionZh": "执行 `loadTranslation`，用于加载翻译文本。"
         },
         {
           "name": "onTranslationChanged",
@@ -2068,8 +1847,8 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `onTranslationChanged` to handle on translation changed.",
+          "descriptionZh": "执行 `onTranslationChanged`，用于当翻译文本已变更。"
         },
         {
           "name": "use",
@@ -2081,7 +1860,7 @@
           ],
           "returnType": "Observable<any>",
           "description": "Sets the target language for translations.",
-          "descriptionZh": null
+          "descriptionZh": "执行 `use`，用于使用。"
         },
         {
           "name": "get",
@@ -2097,7 +1876,7 @@
           ],
           "returnType": "Observable<string | any>",
           "description": "Gets the translation for the supplied key.",
-          "descriptionZh": null
+          "descriptionZh": "执行 `get`，用于获取。"
         },
         {
           "name": "instant",
@@ -2113,29 +1892,29 @@
           ],
           "returnType": "string | any",
           "description": "Directly returns the translation for the supplied key.",
-          "descriptionZh": null
+          "descriptionZh": "执行 `instant`，用于即时。"
         }
       ],
       "properties": [
         {
           "name": "defaultLang",
           "type": "string",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `defaultLang` (`string`) storing default lang.",
+          "descriptionZh": "属性 `defaultLang`（类型：`string`），用于存储或配置默认语言。"
         },
         {
           "name": "userLang",
           "type": "string",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `userLang` (`string`) storing user lang.",
+          "descriptionZh": "属性 `userLang`（类型：`string`），用于存储或配置用户语言。"
         }
       ]
     },
     {
       "name": "USE_DEFAULT_LANG",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular dependency-injection token `USE_DEFAULT_LANG` for providing use default lang.",
+      "summaryZh": "Angular 依赖注入令牌 `USE_DEFAULT_LANG`，用于提供与注入使用默认语言。",
       "sourceFile": "src/translator/translate.service.ts",
       "inputs": [],
       "outputs": [],
@@ -2145,8 +1924,8 @@
     {
       "name": "USE_EXTEND",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular dependency-injection token `USE_EXTEND` for providing use extend.",
+      "summaryZh": "Angular 依赖注入令牌 `USE_EXTEND`，用于提供与注入使用EXTEND。",
       "sourceFile": "src/translator/translate.service.ts",
       "inputs": [],
       "outputs": [],
@@ -2156,8 +1935,8 @@
     {
       "name": "USE_STORE",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular dependency-injection token `USE_STORE` for providing use store.",
+      "summaryZh": "Angular 依赖注入令牌 `USE_STORE`，用于提供与注入使用状态仓库。",
       "sourceFile": "src/translator/translate.service.ts",
       "inputs": [],
       "outputs": [],

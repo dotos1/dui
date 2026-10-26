@@ -15,7 +15,7 @@
         {
           "name": "placeholder",
           "type": "string",
-          "description": null,
+          "description": "Property `placeholder` (`string`) storing placeholder.",
           "descriptionZh": "提示气泡显示的翻译键/文本，默认为 `'CLIPBOARD.CLICK_TO_COPY'`。"
         }
       ]
@@ -83,8 +83,8 @@
     {
       "name": "ClipboardModule",
       "kind": "module",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular module `ClipboardModule` declaring and exporting clipboard module components, directives, pipes, and providers.",
+      "summaryZh": "Angular 模块 `ClipboardModule`，声明并导出Clipboard模块相关的组件、指令、管道与服务提供者。",
       "sourceFile": "src/common/clipboard/clipboard.module.ts",
       "inputs": [],
       "outputs": [],
@@ -94,8 +94,8 @@
           "name": "entryComponents",
           "type": "any",
           "default": "[ClipboardComponent]",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `entryComponents` (`any[]`) storing entry components (default: `[ClipboardComponent]`).",
+          "descriptionZh": "属性 `entryComponents`（类型：`any[]`），用于存储或配置条目组件列表（默认值：`[ClipboardComponent]`）。"
         }
       ]
     },
@@ -190,7 +190,7 @@
         {
           "name": "data",
           "type": "any",
-          "description": null,
+          "description": "Property `data` (`any`) storing data.",
           "descriptionZh": "最近一次通过 `copyContentToClipboard` 复制的数据。"
         }
       ]
@@ -282,7 +282,7 @@
           "name": "copied",
           "type": "any",
           "default": "false",
-          "description": null,
+          "description": "Property `copied` (`boolean`) storing copied (default: `false`).",
           "descriptionZh": "是否刚完成一次复制（用于短暂显示\"已复制\"状态）。"
         },
         {

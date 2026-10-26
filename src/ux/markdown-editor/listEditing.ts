@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Module `src/ux/markdown-editor/listEditing.ts` providing list editing definitions and implementation.
+ * @zh 模块文件 `src/ux/markdown-editor/listEditing.ts`，提供列表编辑中相关的定义与实现。
+ */
+
 
 import {TextEditor, TextEditorEdit,} from './vscode-monaco';
 import {isInFencedCodeBlock} from './util';
@@ -6,10 +11,20 @@ import {Position, WorkspaceEdit, Range, Selection} from "./extHostTypes";
 import {addKeybinding} from "./formatting";
 
 
+/**
+ * Executes `onShiftTabKey` to handle on shift tab key.
+ * @zh 执行 `onShiftTabKey`，用于当移出首项选项卡键。
+ * @param editor - editor parameter (`TextEditor`) / 编辑器参数（`TextEditor`）
+ */
 function onShiftTabKey(editor: TextEditor) {
     onTabKey(editor, 'shift');
 }
 
+/**
+ * Executes `activateListEditing` to handle activate list editing.
+ * @zh 执行 `activateListEditing`，用于激活列表编辑中。
+ * @param editor - editor parameter (`TextEditor`) / 编辑器参数（`TextEditor`）
+ */
 export function activateListEditing(editor: TextEditor) {
     let editorContext = "editorTextFocus && !editorReadonly && !suggestWidgetVisible";
     addKeybinding(editor, "onEnterKey", onEnterKey, [KeyCode.Enter], "", editorContext, null);
@@ -32,14 +47,30 @@ export function activateListEditing(editor: TextEditor) {
 }
 
 
+/**
+ * Executes `onShiftEnterKey` to handle on shift enter key.
+ * @zh 执行 `onShiftEnterKey`，用于当移出首项进入键。
+ * @param editor - editor parameter (`TextEditor`) / 编辑器参数（`TextEditor`）
+ */
 function onShiftEnterKey(editor: TextEditor) {
     onEnterKey(editor, 'shift');
 }
 
+/**
+ * Executes `onCtrlEnterKey` to handle on ctrl enter key.
+ * @zh 执行 `onCtrlEnterKey`，用于当Ctrl进入键。
+ * @param editor - editor parameter (`TextEditor`) / 编辑器参数（`TextEditor`）
+ */
 function onCtrlEnterKey(editor: TextEditor) {
     onEnterKey(editor, 'ctrl');
 }
 
+/**
+ * Executes `onEnterKey` to handle on enter key.
+ * @zh 执行 `onEnterKey`，用于当进入键。
+ * @param editor - editor parameter (`TextEditor`) / 编辑器参数（`TextEditor`）
+ * @param modifiers - modifiers parameter (`string`) / modifiers参数（`string`）
+ */
 function onEnterKey(editor: TextEditor, modifiers?: string) {
     let cursorPos: Position = editor.selection.active;
     let line = editor.document.lineAt(cursorPos.line);
@@ -128,6 +159,12 @@ function onEnterKey(editor: TextEditor, modifiers?: string) {
     }
 }
 
+/**
+ * Executes `onTabKey` to handle on tab key.
+ * @zh 执行 `onTabKey`，用于当选项卡键。
+ * @param editor - editor parameter (`TextEditor`) / 编辑器参数（`TextEditor`）
+ * @param modifiers - modifiers parameter (`string`) / modifiers参数（`string`）
+ */
 function onTabKey(editor: TextEditor, modifiers?: string) {
     let cursorPos = editor.selection.start;
     let lineText = editor.document.lineAt(cursorPos.line).text;
@@ -155,6 +192,11 @@ function onTabKey(editor: TextEditor, modifiers?: string) {
     }
 }
 
+/**
+ * Executes `onBackspaceKey` to handle on backspace key.
+ * @zh 执行 `onBackspaceKey`，用于当Backspace键。
+ * @param editor - editor parameter (`TextEditor`) / 编辑器参数（`TextEditor`）
+ */
 function onBackspaceKey(editor: TextEditor) {
     let cursor = editor.selection.active;
     let document = editor.document;
@@ -183,6 +225,14 @@ function onBackspaceKey(editor: TextEditor) {
     }
 }
 
+/**
+ * Executes `asNormal` to handle as normal.
+ * @zh 执行 `asNormal`，用于asNormal。
+ * @param editor - editor parameter (`TextEditor`) / 编辑器参数（`TextEditor`）
+ * @param key - key parameter (`string`) / 键参数（`string`）
+ * @param modifiers - modifiers parameter (`string`) / modifiers参数（`string`）
+ * @returns Result of type `Thenable<void>` / 类型为 `Thenable<void>` 的返回值
+ */
 function asNormal(editor: TextEditor, key: string, modifiers?: string): Thenable<void> {
     switch (key) {
         case 'enter':
@@ -212,6 +262,8 @@ function asNormal(editor: TextEditor, key: string, modifiers?: string): Thenable
  * 2. there is a Markdown list item before this line
  *
  * then indent the current line to align with the previous list item.
+
+ * @zh 执行 `indent`，用于indent。
  */
 function indent(editor: TextEditor): Thenable<void> {
     if (editor.getConfiguration("markdown.extension.list").get<string>("indentationSize") === "adaptive") {
@@ -237,6 +289,8 @@ function indent(editor: TextEditor): Thenable<void> {
 
 /**
  * Similar to `indent`-function
+
+ * @zh 执行 `outdent`，用于outdent。
  */
 function outdent(editor?: TextEditor): Thenable<void> {
     if (editor.getConfiguration("markdown.extension.list").get<string>("indentationSize") === "adaptive") {
@@ -267,6 +321,13 @@ function outdent(editor?: TextEditor): Thenable<void> {
     return editor.executeCommand('editor.action.outdentLines');
 }
 
+/**
+ * Executes `tryDetermineIndentationSize` to handle try determine indentation size.
+ * @zh 执行 `tryDetermineIndentationSize`，用于tryDetermineIndentation尺寸。
+ * @param editor - editor parameter (`TextEditor`) / 编辑器参数（`TextEditor`）
+ * @param line - line parameter (`number`) / 线段参数（`number`）
+ * @param currentIndentation - current indentation parameter (`number`) / 当前Indentation参数（`number`）
+ */
 function tryDetermineIndentationSize(editor: TextEditor, line: number, currentIndentation: number) {
     while (--line >= 0) {
         const lineText = editor.document.lineAt(line).text;
@@ -283,6 +344,8 @@ function tryDetermineIndentationSize(editor: TextEditor, line: number, currentIn
 /**
  * Returns the line number of the next ordered list item starting either from
  * the specified line or the beginning of the current selection.
+
+ * @zh 执行 `findNextMarkerLineNumber`，用于查找下一个标记点线段数字。
  */
 function findNextMarkerLineNumber(editor: TextEditor, line?: number): number {
     if (line === undefined) {
@@ -305,6 +368,8 @@ function findNextMarkerLineNumber(editor: TextEditor, line?: number): number {
  * and returns the marker number that should follow it.
  *
  * @returns the fixed marker number
+
+ * @zh 执行 `lookUpwardForMarker`，用于lookUpward用于标记点。
  */
 function lookUpwardForMarker(editor: TextEditor, line: number, currentIndentation: number): number {
     while (--line >= 0) {
@@ -332,6 +397,8 @@ function lookUpwardForMarker(editor: TextEditor, line: number, currentIndentatio
 
 /**
  * Fix ordered list marker *iteratively* starting from current line
+
+ * @zh 执行 `fixMarker`，用于fix标记点。
  */
 export function fixMarker(editor: TextEditor, line?: number): Promise<boolean> {
     // if (!workspace.getConfiguration('markdown.extension.orderedList').get<boolean>('autoRenumber')) return;
@@ -391,6 +458,13 @@ export function fixMarker(editor: TextEditor, line?: number): Promise<boolean> {
     return Promise.resolve(null)
 }
 
+/**
+ * Executes `deleteRange` to handle delete range.
+ * @zh 执行 `deleteRange`，用于删除范围。
+ * @param editor - editor parameter (`TextEditor`) / 编辑器参数（`TextEditor`）
+ * @param range - range parameter (`Range`) / 范围参数（`Range`）
+ * @returns Result of type `Thenable<void>` / 类型为 `Thenable<void>` 的返回值
+ */
 function deleteRange(editor: TextEditor, range: Range): Thenable<void> {
     return editor.edit(
         editBuilder => {
@@ -445,5 +519,9 @@ function deleteRange(editor: TextEditor, range: Range): Thenable<void> {
 //     return outdent().then(() => fixMarker());
 // }
 
+/**
+ * Executes `deactivate` to handle deactivate.
+ * @zh 执行 `deactivate`，用于deactivate。
+ */
 export function deactivate() {
 }

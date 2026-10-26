@@ -1,9 +1,18 @@
+/**
+ * @fileoverview Module `src/common/colorpicker/common/saturation.component.ts` providing saturation component definitions and implementation.
+ * @zh 模块文件 `src/common/colorpicker/common/saturation.component.ts`，提供饱和度组件相关的定义与实现。
+ */
+
 import { CommonModule } from '@angular/common';
 import {  ChangeDetectionStrategy,  Component,  EventEmitter,  Input,  NgModule,  OnChanges,  Output,
 } from '@angular/core';
 import { CoordinatesModule } from './coordinates.directive';
 import { HSLA, HSVA, HSVAsource } from './helpers/color.interfaces';
 
+/**
+ * Angular component `SaturationComponent` (selector: 'color-saturation') providing saturation component presentation and interaction in `src/common/colorpicker/common`.
+ * @zh Angular 组件 `SaturationComponent`（selector: 'color-saturation'），提供饱和度组件的视图渲染与交互逻辑（位于 `src/common/colorpicker/common`）。
+ */
 @Component({
   selector: 'color-saturation',
   template: `
@@ -64,25 +73,63 @@ import { HSLA, HSVA, HSVAsource } from './helpers/color.interfaces';
  * @zh `color-*` 颜色选择器样式变体使用的饱和度/明度选择面板。
  */
 export class SaturationComponent implements OnChanges {
-  /** @zh 当前颜色的 HSL 表示。 */
+  /**
+   * @zh 当前颜色的 HSL 表示。
+   * @zh 当前颜色的 HSL 表示。
+   */
   @Input() hsl: HSLA;
-  /** @zh 当前颜色的 HSV 表示。 */
+  /**
+   * @zh 当前颜色的 HSV 表示。
+   * @zh 当前颜色的 HSV 表示。
+   */
   @Input() hsv: HSVA;
-  /** @zh 面板的圆角半径。 */
+  /**
+   * Input property `radius` (`number`) configuring radius.
+   * @zh 面板的圆角半径。
+   * @zh 面板的圆角半径。
+   */
   @Input() radius: number;
-  /** @zh 指示器手柄的内联样式。 */
+  /**
+   * Input property `pointer` (`{ [key: string]: string }`) configuring pointer.
+   * @zh 指示器手柄的内联样式。
+   * @zh 指示器手柄的内联样式。
+   */
   @Input() pointer: { [key: string]: string };
-  /** @zh 指示器圆点的内联样式。 */
+  /**
+   * Input property `circle` (`{ [key: string]: string }`) configuring circle.
+   * @zh 指示器圆点的内联样式。
+   * @zh 指示器圆点的内联样式。
+   */
   @Input() circle: { [key: string]: string };
-  /** @zh 饱和度/明度变化时发出。 */
+  /**
+   * Output event emitter `onChange` (`EventEmitter`) firing when on change occurs.
+   * @zh 饱和度/明度变化时发出。
+   * @zh 饱和度/明度变化时发出。
+   */
   @Output() onChange = new EventEmitter<{ data: HSVAsource; $event: Event }>();
-  /** @zh 根据当前色相计算出的面板背景色。 */
+  /**
+   * Property `background` (`string`) storing background.
+   * @zh 根据当前色相计算出的面板背景色。
+   * @zh 根据当前色相计算出的面板背景色。
+   */
   background: string;
-  /** @zh 指示器的垂直位置百分比。 */
+  /**
+   * Property `pointerTop` (`string`) storing pointer top.
+   * @zh 指示器的垂直位置百分比。
+   * @zh 指示器的垂直位置百分比。
+   */
   pointerTop: string;
-  /** @zh 指示器的水平位置百分比。 */
+  /**
+   * Property `pointerLeft` (`string`) storing pointer left.
+   * @zh 指示器的水平位置百分比。
+   * @zh 指示器的水平位置百分比。
+   */
   pointerLeft: string;
 
+  /**
+   * Angular lifecycle hook invoked when data-bound input properties change.
+   * @zh Angular 生命周期钩子：当数据绑定的输入属性发生变更时调用。
+   */
   ngOnChanges() {
     this.background = `hsl(${this.hsl.h}, 100%, 50%)`;
     this.pointerTop = -(this.hsv.v * 100) + 1 + 100 + '%';
@@ -119,6 +166,10 @@ export class SaturationComponent implements OnChanges {
   }
 }
 
+/**
+ * Angular module `SaturationModule` declaring and exporting saturation module components, directives, pipes, and providers.
+ * @zh Angular 模块 `SaturationModule`，声明并导出饱和度模块相关的组件、指令、管道与服务提供者。
+ */
 @NgModule({
   declarations: [SaturationComponent],
   exports: [SaturationComponent],

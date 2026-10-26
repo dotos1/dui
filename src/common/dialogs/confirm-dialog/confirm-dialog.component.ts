@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Module `src/common/dialogs/confirm-dialog/confirm-dialog.component.ts` providing confirm dialog component definitions and implementation.
+ * @zh 模块文件 `src/common/dialogs/confirm-dialog/confirm-dialog.component.ts`，提供confirm对话框组件相关的定义与实现。
+ */
+
 import { Component } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
 
@@ -12,17 +17,42 @@ import { MatDialogRef } from '@angular/material/dialog';
 
 })
 export class ConfirmDialogComponent {
-  /** @zh 对话框标题。 */
+  /**
+   * Property `title` (`string`) storing title.
+   * @zh 对话框标题。
+   * @zh 对话框标题。
+   */
   title?: string;
-  /** @zh 对话框消息内容。 */
+  /**
+   * Property `message` (`string`) storing message.
+   * @zh 对话框消息内容。
+   * @zh 对话框消息内容。
+   */
   message?: string;
-  /** @zh 取消按钮的文字，默认为 `'CANCEL'`。 */
+  /**
+   * Property `cancelButton` (`string`) storing cancel button (default: `'CANCEL'`).
+   * @zh 取消按钮的文字，默认为 `'CANCEL'`。
+   * @zh 取消按钮的文字，默认为 `'CANCEL'`。
+   */
   cancelButton = 'CANCEL';
-  /** @zh 确认按钮的文字，默认为 `'ACCEPT'`。 */
+  /**
+   * Property `acceptButton` (`string`) storing accept button (default: `'ACCEPT'`).
+   * @zh 确认按钮的文字，默认为 `'ACCEPT'`。
+   * @zh 确认按钮的文字，默认为 `'ACCEPT'`。
+   */
   acceptButton = 'ACCEPT';
-  /** @zh 是否将确认按钮渲染为破坏性操作样式（如红色警示色）。 */
+  /**
+   * Property `isDestructive` (`boolean`) storing is destructive (default: `false`).
+   * @zh 是否将确认按钮渲染为破坏性操作样式（如红色警示色）。
+   * @zh 是否将确认按钮渲染为破坏性操作样式（如红色警示色）。
+   */
   isDestructive = false;
 
+  /**
+   * Creates an instance of `ConfirmDialogComponent` and initializes its dependencies and internal state.
+   * @zh 创建 `ConfirmDialogComponent` 实例，并初始化其依赖项与内部状态。
+   * @param _dialogRef - Injected or initial dialog ref (`MatDialogRef<ConfirmDialogComponent>`) / 注入或传入的对话框引用（`MatDialogRef<ConfirmDialogComponent>`）
+   */
   constructor(private _dialogRef: MatDialogRef<ConfirmDialogComponent>) {}
 
   /**

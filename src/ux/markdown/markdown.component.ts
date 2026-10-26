@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Module `src/ux/markdown/markdown.component.ts` providing markdown component definitions and implementation.
+ * @zh 模块文件 `src/ux/markdown/markdown.component.ts`，提供Markdown文档组件相关的定义与实现。
+ */
+
 import {
   Component,  AfterViewInit,  ElementRef,  Input,  Output,  EventEmitter,  Renderer2,
   SecurityContext,  OnChanges,  SimpleChanges,  HostBinding,  NgZone,  OnDestroy,
@@ -9,6 +14,13 @@ import {  scrollToAnchor,  genHeadingId,  isAnchorLink,  removeTrailingHash,
 
 import * as showdown from 'showdown';
 
+/**
+ * Executes `generateAbsoluteHref` to handle generate absolute href.
+ * @zh 执行 `generateAbsoluteHref`，用于生成AbsoluteHref。
+ * @param currentHref - current href parameter (`string`) / 当前Href参数（`string`）
+ * @param relativeHref - relative href parameter (`string`) / relativeHref参数（`string`）
+ * @returns Result of type `string` / 类型为 `string` 的返回值
+ */
 function generateAbsoluteHref(
   currentHref: string,
   relativeHref: string
@@ -28,6 +40,13 @@ function generateAbsoluteHref(
   return '';
 }
 
+/**
+ * Executes `normalizeHtmlHrefs` to handle normalize html hrefs.
+ * @zh 执行 `normalizeHtmlHrefs`，用于归一化HTML内容Hrefs。
+ * @param html - html parameter (`string`) / HTML内容参数（`string`）
+ * @param currentHref - current href parameter (`string`) / 当前Href参数（`string`）
+ * @returns Result of type `string` / 类型为 `string` 的返回值
+ */
 function normalizeHtmlHrefs(html: string, currentHref: string): string {
   if (currentHref) {
     const document: Document = new DOMParser().parseFromString(
@@ -76,6 +95,13 @@ function normalizeHtmlHrefs(html: string, currentHref: string): string {
   return html;
 }
 
+/**
+ * Executes `normalizeImageSrcs` to handle normalize image srcs.
+ * @zh 执行 `normalizeImageSrcs`，用于归一化图像源路径。
+ * @param html - html parameter (`string`) / HTML内容参数（`string`）
+ * @param currentHref - current href parameter (`string`) / 当前Href参数（`string`）
+ * @returns Result of type `string` / 类型为 `string` 的返回值
+ */
 function normalizeImageSrcs(html: string, currentHref: string): string {
   if (currentHref) {
     const document: Document = new DOMParser().parseFromString(
@@ -115,6 +141,12 @@ function normalizeImageSrcs(html: string, currentHref: string): string {
   return html;
 }
 
+/**
+ * Executes `addIdsToHeadings` to handle add ids to headings.
+ * @zh 执行 `addIdsToHeadings`，用于添加标识列表转换为Headings。
+ * @param html - html parameter (`string`) / HTML内容参数（`string`）
+ * @returns Result of type `string` / 类型为 `string` 的返回值
+ */
 function addIdsToHeadings(html: string): string {
   if (html) {
     const document: Document = new DOMParser().parseFromString(
@@ -132,6 +164,10 @@ function addIdsToHeadings(html: string): string {
   return html;
 }
 
+/**
+ * Angular component `MarkdownComponent` (selector: 'dui-markdown') providing markdown component presentation and interaction in `src/ux/markdown`.
+ * @zh Angular 组件 `MarkdownComponent`（selector: 'dui-markdown'），提供Markdown文档组件的视图渲染与交互逻辑（位于 `src/ux/markdown`）。
+ */
 @Component({
   selector: 'dui-markdown',
   styleUrls: ['./markdown.component.scss'],
@@ -140,40 +176,100 @@ function addIdsToHeadings(html: string): string {
 export class MarkdownComponent
   implements OnChanges, AfterViewInit, OnDestroy
 {
+  /**
+   * Property `_content` (`string`) storing content.
+   * @zh 属性 `_content`（类型：`string`），用于存储或配置内容。
+   */
   private _content!: string;
+  /**
+   * Property `_simpleLineBreaks` (`boolean`) storing simple line breaks (default: `false`).
+   * @zh 属性 `_simpleLineBreaks`（类型：`boolean`），用于存储或配置simple线段Breaks（默认值：`false`）。
+   */
   private _simpleLineBreaks = false;
+  /**
+   * Property `_hostedUrl` (`string`) storing hosted url.
+   * @zh 属性 `_hostedUrl`（类型：`string`），用于存储或配置已宿主链接地址。
+   */
   private _hostedUrl!: string;
+  /**
+   * Property `_anchor` (`string`) storing anchor.
+   * @zh 属性 `_anchor`（类型：`string`），用于存储或配置锚点。
+   */
   private _anchor!: string;
+  /**
+   * Property `_viewInit` (`boolean`) storing view init (default: `false`).
+   * @zh 属性 `_viewInit`（类型：`boolean`），用于存储或配置视图初始化（默认值：`false`）。
+   */
   private _viewInit = false;
+  /**
+   * Property `_anchorListener` (`VoidFunction`) storing anchor listener.
+   * @zh 属性 `_anchorListener`（类型：`VoidFunction`），用于存储或配置锚点监听器。
+   */
   private _anchorListener?: VoidFunction;
 
+  /**
+   * Host binding `class` bound to host attribute/property `class` for class.
+   * @zh 宿主绑定属性 `class`，绑定至宿主元素 `class` 以控制类名。
+   */
   @HostBinding('class') class = 'dui-markdown';
 
 
+  /**
+   * Input setter `content` updating content.
+   * @zh 输入属性 `content` 的设置器，用于更新内容。
+   * @param content - New content value (`string`) / 新的内容值（`string`）
+   */
   @Input()
   set content(content: string) {
     this._content = content;
   }
 
+  /**
+   * Input setter `simpleLineBreaks` updating simple line breaks.
+   * @zh 输入属性 `simpleLineBreaks` 的设置器，用于更新simple线段Breaks。
+   * @param simpleLineBreaks - New simple line breaks value (`boolean`) / 新的simple线段Breaks值（`boolean`）
+   */
   @Input()
   set simpleLineBreaks(simpleLineBreaks: boolean) {
     this._simpleLineBreaks = simpleLineBreaks;
   }
 
 
+  /**
+   * Input setter `hostedUrl` updating hosted url.
+   * @zh 输入属性 `hostedUrl` 的设置器，用于更新已宿主链接地址。
+   * @param hostedUrl - New hosted url value (`string`) / 新的已宿主链接地址值（`string`）
+   */
   @Input()
   set hostedUrl(hostedUrl: string) {
     this._hostedUrl = hostedUrl;
   }
 
 
+  /**
+   * Input setter `anchor` updating anchor.
+   * @zh 输入属性 `anchor` 的设置器，用于更新锚点。
+   * @param anchor - New anchor value (`string`) / 新的锚点值（`string`）
+   */
   @Input()
   set anchor(anchor: string) {
     this._anchor = anchor;
   }
 
+  /**
+   * Output event emitter `contentReady` (`EventEmitter<void>`) firing when content ready occurs.
+   * @zh 输出事件 `contentReady`（类型：`EventEmitter<void>`），当触发内容就绪时向外发出事件。
+   */
   @Output() contentReady: EventEmitter<void> = new EventEmitter<void>();
 
+  /**
+   * Creates an instance of `MarkdownComponent` and initializes its dependencies and internal state.
+   * @zh 创建 `MarkdownComponent` 实例，并初始化其依赖项与内部状态。
+   * @param _renderer - Injected or initial renderer (`Renderer2`) / 注入或传入的渲染器（`Renderer2`）
+   * @param _elementRef - Injected or initial element ref (`ElementRef`) / 注入或传入的元素引用（`ElementRef`）
+   * @param _domSanitizer - Injected or initial dom sanitizer (`DomSanitizer`) / 注入或传入的DOM节点安全清理器（`DomSanitizer`）
+   * @param _ngZone - Injected or initial ng zone (`NgZone`) / 注入或传入的Angular区域(NgZone)（`NgZone`）
+   */
   constructor(
     private _renderer: Renderer2,
     private _elementRef: ElementRef,
@@ -181,6 +277,11 @@ export class MarkdownComponent
     private _ngZone: NgZone
   ) {}
 
+  /**
+   * Angular lifecycle hook invoked when data-bound input properties change.
+   * @zh Angular 生命周期钩子：当数据绑定的输入属性发生变更时调用。
+   * @param changes - changes parameter (`SimpleChanges`) / 变更集合参数（`SimpleChanges`）
+   */
   ngOnChanges(changes: SimpleChanges): void {
     // only anchor changed
     if (
@@ -195,6 +296,10 @@ export class MarkdownComponent
     }
   }
 
+  /**
+   * Angular lifecycle hook invoked once after the component's view and child views are initialized.
+   * @zh Angular 生命周期钩子：在组件视图及其子视图初始化完成后调用一次。
+   */
   ngAfterViewInit(): void {
     if (!this._content) {
       this._loadContent(
@@ -219,10 +324,18 @@ export class MarkdownComponent
     });
   }
 
+  /**
+   * Angular lifecycle hook invoked just before the component, directive, or service is destroyed to release subscriptions and resources.
+   * @zh Angular 生命周期钩子：在组件、指令或服务销毁前调用，用于释放订阅与清理资源。
+   */
   ngOnDestroy(): void {
     this._anchorListener?.();
   }
 
+  /**
+   * Executes `refresh` to handle refresh.
+   * @zh 执行 `refresh`，用于刷新。
+   */
   refresh(): void {
     if (this._content) {
       this._loadContent(this._content);
@@ -233,6 +346,11 @@ export class MarkdownComponent
     }
   }
 
+  /**
+   * Executes `_loadContent` to handle load content.
+   * @zh 执行 `_loadContent`，用于加载内容。
+   * @param markdown - markdown parameter (`string | null`) / Markdown文档参数（`string | null`）
+   */
   private _loadContent(markdown: string | null): void {
     if (markdown && markdown.trim().length > 0) {
       // Clean container
@@ -254,6 +372,11 @@ export class MarkdownComponent
     this.contentReady.emit();
   }
 
+  /**
+   * Executes `handleAnchorClicks` to handle handle anchor clicks.
+   * @zh 执行 `handleAnchorClicks`，用于连接手柄锚点点击。
+   * @param event - event parameter (`Event`) / 事件参数（`Event`）
+   */
   private handleAnchorClicks(event: Event): void {
     event.preventDefault();
     const url: URL = new URL((<HTMLAnchorElement>event.target).href);
@@ -261,6 +384,12 @@ export class MarkdownComponent
     scrollToAnchor(this._elementRef.nativeElement, hash, true);
   }
 
+  /**
+   * Executes `_elementFromString` to handle element from string.
+   * @zh 执行 `_elementFromString`，用于元素从字符串。
+   * @param markupStr - markup str parameter (`string`) / markup字符串参数（`string`）
+   * @returns Result of type `HTMLDivElement` / 类型为 `HTMLDivElement` 的返回值
+   */
   private _elementFromString(markupStr: string): HTMLDivElement {
      const div: HTMLDivElement = this._renderer.createElement('div');
     this._renderer.appendChild(this._elementRef.nativeElement, div);
@@ -282,6 +411,12 @@ export class MarkdownComponent
     return div;
   }
 
+  /**
+   * Executes `_render` to handle render.
+   * @zh 执行 `_render`，用于渲染。
+   * @param markdown - markdown parameter (`string`) / Markdown文档参数（`string`）
+   * @returns Result of type `string` / 类型为 `string` 的返回值
+   */
   private _render(markdown: string): string {
     // Trim leading and trailing newlines
     markdown = markdown

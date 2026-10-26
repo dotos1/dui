@@ -1,6 +1,15 @@
+/**
+ * @fileoverview Module `src/ux/windows/window/helpers/configs-merger.helper.ts` providing configs merger helper definitions and implementation.
+ * @zh 模块文件 `src/ux/windows/window/helpers/configs-merger.helper.ts`，提供配置merger辅助工具相关的定义与实现。
+ */
+
 import { DynamicWindowConfig } from '../interfaces';
 
-/** @internal */
+/**
+ * Executes `ɵMergeConfigs` to handle ɵmerge configs.
+ * @internal
+ * @zh 执行 `ɵMergeConfigs`，用于ɵMerge配置。
+ */
 export function ɵMergeConfigs(
     updated: DynamicWindowConfig,
     shared: DynamicWindowConfig

@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Module `src/data/datatable/datatable.module.ts` providing datatable module definitions and implementation.
+ * @zh 模块文件 `src/data/datatable/datatable.module.ts`，提供数据表格模块相关的定义与实现。
+ */
+
 import { ComponentFactoryResolver, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -70,6 +75,10 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
 import { TranslateModule, TranslationService } from '@dotos/dui/translator';
 import { Dui } from '@dotos/dui/core';
 
+/**
+ * Angular module `DatatableModule` declaring and exporting datatable module components, directives, pipes, and providers.
+ * @zh Angular 模块 `DatatableModule`，声明并导出数据表格模块相关的组件、指令、管道与服务提供者。
+ */
 @NgModule({
   imports: [
     CommonModule,
@@ -142,7 +151,17 @@ import { Dui } from '@dotos/dui/core';
   ]
 })
 export class DatatableModule {
+  /**
+   * Property `entryComponents` (`any[]`) storing entry components (default: `[DatatableCardComponent]`).
+   * @zh 属性 `entryComponents`（类型：`any[]`），用于存储或配置条目组件列表（默认值：`[DatatableCardComponent]`）。
+   */
   entryComponents = [DatatableCardComponent];
+  /**
+   * Creates an instance of `DatatableModule` and initializes its dependencies and internal state.
+   * @zh 创建 `DatatableModule` 实例，并初始化其依赖项与内部状态。
+   * @param componentFactoryResolver - Injected or initial component factory resolver (`ComponentFactoryResolver`) / 注入或传入的组件工厂解析器（`ComponentFactoryResolver`）
+   * @param translateService - Injected or initial translate service (`TranslationService`) / 注入或传入的翻译服务（`TranslationService`）
+   */
   constructor(componentFactoryResolver: ComponentFactoryResolver,translateService: TranslationService) {
     Dui.registerComponentFactory(componentFactoryResolver,this.entryComponents);
     translateService.addTranslationFolder('duix/datatable', 'i18n');

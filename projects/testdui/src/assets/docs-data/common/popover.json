@@ -90,21 +90,21 @@
           "name": "arrowColor",
           "alias": "popoverArrowColor",
           "type": "string",
-          "description": null,
+          "description": "Getter for input property `arrowColor` (`string`) returning arrow color.",
           "descriptionZh": "箭头指示器的颜色。"
         },
         {
           "name": "closeOnClick",
           "alias": "popoverCloseOnClick",
           "type": "boolean",
-          "description": null,
+          "description": "Getter for input property `closeOnClick` (`boolean`) returning close on click.",
           "descriptionZh": "点击弹出层内部时是否自动关闭。"
         },
         {
           "name": "disableAnimation",
           "alias": "popoverDisableAnimation",
           "type": "boolean",
-          "description": null,
+          "description": "Getter for input property `disableAnimation` (`boolean`) returning disable animation.",
           "descriptionZh": "是否禁用弹出层的开关动画。"
         },
         {
@@ -116,7 +116,7 @@
         {
           "name": "focusTrapAutoCaptureEnabled",
           "type": "boolean",
-          "description": null,
+          "description": "Getter for input property `focusTrapAutoCaptureEnabled` (`boolean`) returning focus trap auto capture enabled.",
           "descriptionZh": "启用焦点陷阱时，弹出层打开后是否自动将焦点移入。"
         },
         {
@@ -138,7 +138,7 @@
           "name": "close",
           "type": "any",
           "description": "Event emitted when the popover is closed.",
-          "descriptionZh": null
+          "descriptionZh": "输出事件 `close`（类型：`EventEmitter`），当触发关闭时向外发出事件。"
         }
       ],
       "methods": [
@@ -147,21 +147,21 @@
           "params": [],
           "returnType": "any",
           "description": "Close popover on click if closeOnClick is true",
-          "descriptionZh": null
+          "descriptionZh": "执行 `onClick`，用于当点击。"
         },
         {
           "name": "onMouseOver",
           "params": [],
           "returnType": "any",
           "description": "Disables close of popover when leaving trigger element and mouse over the popover",
-          "descriptionZh": null
+          "descriptionZh": "执行 `onMouseOver`，用于当鼠标越过。"
         },
         {
           "name": "onMouseLeave",
           "params": [],
           "returnType": "any",
           "description": "Enables close of popover when mouse leaving popover element",
-          "descriptionZh": null
+          "descriptionZh": "执行 `onMouseLeave`，用于当鼠标离开。"
         },
         {
           "name": "setCurrentStyles",
@@ -184,7 +184,7 @@
           ],
           "returnType": "void",
           "description": "It's necessary to set position-based classes to ensure the popover panel animation\nfolds out from the correct direction.",
-          "descriptionZh": null
+          "descriptionZh": "执行 `setPositionClasses`，用于集合位置类名集合。"
         }
       ],
       "properties": [
@@ -192,7 +192,7 @@
           "name": "role",
           "type": "any",
           "default": "'dialog'",
-          "description": null,
+          "description": "Host binding `role` bound to host attribute/property `attr.role` for role.",
           "descriptionZh": "内部使用，绑定弹出层宿主的无障碍 `role` 属性。"
         },
         {
@@ -207,25 +207,25 @@
           "type": "any",
           "default": "false",
           "description": "Closing disabled on popover",
-          "descriptionZh": null
+          "descriptionZh": "属性 `closeDisabled`（类型：`boolean`），用于存储或配置关闭已禁用（默认值：`false`）。"
         },
         {
           "name": "popoverPanelStyles",
           "type": "{}",
           "description": "Config object to be passed into the popover's arrow ngStyle",
-          "descriptionZh": null
+          "descriptionZh": "属性 `popoverPanelStyles`（类型：`{}`），用于存储或配置气泡卡片面板样式集合。"
         },
         {
           "name": "popoverArrowStyles",
           "type": "{}",
           "description": "Config object to be passed into the popover's arrow ngStyle",
-          "descriptionZh": null
+          "descriptionZh": "属性 `popoverArrowStyles`（类型：`{}`），用于存储或配置气泡卡片箭头样式集合。"
         },
         {
           "name": "popoverContentStyles",
           "type": "{}",
           "description": "Config object to be passed into the popover's content ngStyle",
-          "descriptionZh": null
+          "descriptionZh": "属性 `popoverContentStyles`（类型：`{}`），用于存储或配置气泡卡片内容样式集合。"
         },
         {
           "name": "positionX",
@@ -296,19 +296,19 @@
         {
           "name": "arrowColor",
           "type": "any",
-          "description": null,
+          "description": "Sets the arrow color (`arrowColor`).",
           "descriptionZh": "箭头指示器的颜色。"
         },
         {
           "name": "closeOnClick",
           "type": "any",
-          "description": null,
+          "description": "Sets the close on click (`closeOnClick`).",
           "descriptionZh": "点击弹出层内部时是否自动关闭。"
         },
         {
           "name": "disableAnimation",
           "type": "any",
-          "description": null,
+          "description": "Sets the disable animation (`disableAnimation`).",
           "descriptionZh": "是否禁用弹出层的开关动画。"
         },
         {
@@ -320,7 +320,7 @@
         {
           "name": "focusTrapAutoCaptureEnabled",
           "type": "any",
-          "description": null,
+          "description": "Sets the focus trap auto capture enabled (`focusTrapAutoCaptureEnabled`).",
           "descriptionZh": "启用焦点陷阱时，弹出层打开后是否自动将焦点移入。"
         },
         {
@@ -332,7 +332,7 @@
         {
           "name": "templateRef",
           "type": "TemplateRef<any>",
-          "description": null,
+          "description": "Template/content query reference `templateRef` (`@ViewChild`) targeting template ref.",
           "descriptionZh": "弹出层内容的模板引用。"
         }
       ]
@@ -340,19 +340,86 @@
     {
       "name": "PopoverConfig",
       "kind": "interface",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Interface `PopoverConfig` defining the contract and properties for popover config.",
+      "summaryZh": "接口 `PopoverConfig`，定义气泡卡片配置的数据结构契约与属性规范。",
       "sourceFile": "src/common/popover/popover-interfaces.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
-      "properties": []
+      "properties": [
+        {
+          "name": "positionX",
+          "type": "PopoverPositionX",
+          "description": "Property `positionX` (`PopoverPositionX`) storing position x.",
+          "descriptionZh": "属性 `positionX`（类型：`PopoverPositionX`），用于存储或配置位置X坐标。"
+        },
+        {
+          "name": "positionY",
+          "type": "PopoverPositionY",
+          "description": "Property `positionY` (`PopoverPositionY`) storing position y.",
+          "descriptionZh": "属性 `positionY`（类型：`PopoverPositionY`），用于存储或配置位置Y坐标。"
+        },
+        {
+          "name": "overlapTrigger",
+          "type": "boolean",
+          "description": "Property `overlapTrigger` (`boolean`) storing overlap trigger.",
+          "descriptionZh": "属性 `overlapTrigger`（类型：`boolean`），用于存储或配置overlap触发。"
+        },
+        {
+          "name": "triggerEvent",
+          "type": "PopoverTriggerEvent",
+          "description": "Property `triggerEvent` (`PopoverTriggerEvent`) storing trigger event.",
+          "descriptionZh": "属性 `triggerEvent`（类型：`PopoverTriggerEvent`），用于存储或配置触发事件。"
+        },
+        {
+          "name": "triggerDelay",
+          "type": "number",
+          "description": "Property `triggerDelay` (`number`) storing trigger delay.",
+          "descriptionZh": "属性 `triggerDelay`（类型：`number`），用于存储或配置触发延迟。"
+        },
+        {
+          "name": "targetOffsetX",
+          "type": "number",
+          "description": "Property `targetOffsetX` (`number`) storing target offset x.",
+          "descriptionZh": "属性 `targetOffsetX`（类型：`number`），用于存储或配置目标偏移量X坐标。"
+        },
+        {
+          "name": "targetOffsetY",
+          "type": "number",
+          "description": "Property `targetOffsetY` (`number`) storing target offset y.",
+          "descriptionZh": "属性 `targetOffsetY`（类型：`number`），用于存储或配置目标偏移量Y坐标。"
+        },
+        {
+          "name": "arrowOffsetX",
+          "type": "number",
+          "description": "Property `arrowOffsetX` (`number`) storing arrow offset x.",
+          "descriptionZh": "属性 `arrowOffsetX`（类型：`number`），用于存储或配置箭头偏移量X坐标。"
+        },
+        {
+          "name": "arrowWidth",
+          "type": "number",
+          "description": "Property `arrowWidth` (`number`) storing arrow width.",
+          "descriptionZh": "属性 `arrowWidth`（类型：`number`），用于存储或配置箭头宽度。"
+        },
+        {
+          "name": "arrowColor",
+          "type": "string",
+          "description": "Property `arrowColor` (`string`) storing arrow color.",
+          "descriptionZh": "属性 `arrowColor`（类型：`string`），用于存储或配置箭头颜色。"
+        },
+        {
+          "name": "closeOnClick",
+          "type": "boolean",
+          "description": "Property `closeOnClick` (`boolean`) storing close on click.",
+          "descriptionZh": "属性 `closeOnClick`（类型：`boolean`），用于存储或配置关闭当点击。"
+        }
+      ]
     },
     {
       "name": "PopoverModule",
       "kind": "module",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular module `PopoverModule` declaring and exporting popover module components, directives, pipes, and providers.",
+      "summaryZh": "Angular 模块 `PopoverModule`，声明并导出气泡卡片模块相关的组件、指令、管道与服务提供者。",
       "sourceFile": "src/common/popover/popover-module.ts",
       "inputs": [],
       "outputs": [],
@@ -362,13 +429,146 @@
     {
       "name": "PopoverPanel",
       "kind": "interface",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Interface `PopoverPanel` defining the contract and properties for popover panel.",
+      "summaryZh": "接口 `PopoverPanel`，定义气泡卡片面板的数据结构契约与属性规范。",
       "sourceFile": "src/common/popover/popover-interfaces.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
-      "properties": []
+      "properties": [
+        {
+          "name": "positionX",
+          "type": "PopoverPositionX",
+          "description": "Property `positionX` (`PopoverPositionX`) storing position x.",
+          "descriptionZh": "属性 `positionX`（类型：`PopoverPositionX`），用于存储或配置位置X坐标。"
+        },
+        {
+          "name": "positionY",
+          "type": "PopoverPositionY",
+          "description": "Property `positionY` (`PopoverPositionY`) storing position y.",
+          "descriptionZh": "属性 `positionY`（类型：`PopoverPositionY`），用于存储或配置位置Y坐标。"
+        },
+        {
+          "name": "containerPositioning",
+          "type": "boolean",
+          "description": "Property `containerPositioning` (`boolean`) storing container positioning.",
+          "descriptionZh": "属性 `containerPositioning`（类型：`boolean`），用于存储或配置容器位置。"
+        },
+        {
+          "name": "overlapTrigger",
+          "type": "boolean",
+          "description": "Property `overlapTrigger` (`boolean`) storing overlap trigger.",
+          "descriptionZh": "属性 `overlapTrigger`（类型：`boolean`），用于存储或配置overlap触发。"
+        },
+        {
+          "name": "triggerEvent",
+          "type": "PopoverTriggerEvent",
+          "description": "Property `triggerEvent` (`PopoverTriggerEvent`) storing trigger event.",
+          "descriptionZh": "属性 `triggerEvent`（类型：`PopoverTriggerEvent`），用于存储或配置触发事件。"
+        },
+        {
+          "name": "popoverPanelStyles",
+          "type": "any",
+          "description": "Property `popoverPanelStyles` (`any`) storing popover panel styles.",
+          "descriptionZh": "属性 `popoverPanelStyles`（类型：`any`），用于存储或配置气泡卡片面板样式集合。"
+        },
+        {
+          "name": "scrollStrategy",
+          "type": "PopoverScrollStrategy",
+          "description": "Property `scrollStrategy` (`PopoverScrollStrategy`) storing scroll strategy.",
+          "descriptionZh": "属性 `scrollStrategy`（类型：`PopoverScrollStrategy`），用于存储或配置滚动策略。"
+        },
+        {
+          "name": "enterDelay",
+          "type": "number",
+          "description": "Property `enterDelay` (`number`) storing enter delay.",
+          "descriptionZh": "属性 `enterDelay`（类型：`number`），用于存储或配置进入延迟。"
+        },
+        {
+          "name": "leaveDelay",
+          "type": "number",
+          "description": "Property `leaveDelay` (`number`) storing leave delay.",
+          "descriptionZh": "属性 `leaveDelay`（类型：`number`），用于存储或配置离开延迟。"
+        },
+        {
+          "name": "targetOffsetX",
+          "type": "number",
+          "description": "Property `targetOffsetX` (`number`) storing target offset x.",
+          "descriptionZh": "属性 `targetOffsetX`（类型：`number`），用于存储或配置目标偏移量X坐标。"
+        },
+        {
+          "name": "targetOffsetY",
+          "type": "number",
+          "description": "Property `targetOffsetY` (`number`) storing target offset y.",
+          "descriptionZh": "属性 `targetOffsetY`（类型：`number`），用于存储或配置目标偏移量Y坐标。"
+        },
+        {
+          "name": "arrowOffsetX",
+          "type": "number",
+          "description": "Property `arrowOffsetX` (`number`) storing arrow offset x.",
+          "descriptionZh": "属性 `arrowOffsetX`（类型：`number`），用于存储或配置箭头偏移量X坐标。"
+        },
+        {
+          "name": "arrowWidth",
+          "type": "number",
+          "description": "Property `arrowWidth` (`number`) storing arrow width.",
+          "descriptionZh": "属性 `arrowWidth`（类型：`number`），用于存储或配置箭头宽度。"
+        },
+        {
+          "name": "arrowColor",
+          "type": "string",
+          "description": "Property `arrowColor` (`string`) storing arrow color.",
+          "descriptionZh": "属性 `arrowColor`（类型：`string`），用于存储或配置箭头颜色。"
+        },
+        {
+          "name": "closeOnClick",
+          "type": "boolean",
+          "description": "Property `closeOnClick` (`boolean`) storing close on click.",
+          "descriptionZh": "属性 `closeOnClick`（类型：`boolean`），用于存储或配置关闭当点击。"
+        },
+        {
+          "name": "closeDisabled",
+          "type": "boolean",
+          "description": "Property `closeDisabled` (`boolean`) storing close disabled.",
+          "descriptionZh": "属性 `closeDisabled`（类型：`boolean`），用于存储或配置关闭已禁用。"
+        },
+        {
+          "name": "setCurrentStyles",
+          "type": "() => void",
+          "description": "Property `setCurrentStyles` (`() => void`) storing set current styles.",
+          "descriptionZh": "属性 `setCurrentStyles`（类型：`() => void`），用于存储或配置集合当前样式集合。"
+        },
+        {
+          "name": "templateRef",
+          "type": "TemplateRef<any>",
+          "description": "Property `templateRef` (`TemplateRef<any>`) storing template ref.",
+          "descriptionZh": "属性 `templateRef`（类型：`TemplateRef<any>`），用于存储或配置模板引用。"
+        },
+        {
+          "name": "close",
+          "type": "EventEmitter<void>",
+          "description": "Property `close` (`EventEmitter<void>`) storing close.",
+          "descriptionZh": "属性 `close`（类型：`EventEmitter<void>`），用于存储或配置关闭。"
+        },
+        {
+          "name": "zone",
+          "type": "NgZone",
+          "description": "Property `zone` (`NgZone`) storing zone.",
+          "descriptionZh": "属性 `zone`（类型：`NgZone`），用于存储或配置区域(NgZone)。"
+        },
+        {
+          "name": "setPositionClasses",
+          "type": "(x: PopoverPositionX, y: PopoverPositionY) => void",
+          "description": "Property `setPositionClasses` (`(x: PopoverPositionX, y: PopoverPositionY) => void`) storing set position classes.",
+          "descriptionZh": "属性 `setPositionClasses`（类型：`(x: PopoverPositionX, y: PopoverPositionY) => void`），用于存储或配置集合位置类名集合。"
+        },
+        {
+          "name": "_emitCloseEvent",
+          "type": "() => void",
+          "description": "Property `_emitCloseEvent` (`() => void`) storing emit close event.",
+          "descriptionZh": "属性 `_emitCloseEvent`（类型：`() => void`），用于存储或配置发出关闭事件。"
+        }
+      ]
     },
     {
       "name": "PopoverTarget",
@@ -385,13 +585,20 @@
     {
       "name": "PopoverTargetInterface",
       "kind": "interface",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Interface `PopoverTargetInterface` defining the contract and properties for popover target interface.",
+      "summaryZh": "接口 `PopoverTargetInterface`，定义气泡卡片目标Interface的数据结构契约与属性规范。",
       "sourceFile": "src/common/popover/popover-interfaces.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
-      "properties": []
+      "properties": [
+        {
+          "name": "_elementRef",
+          "type": "ElementRef",
+          "description": "Property `_elementRef` (`ElementRef`) storing element ref.",
+          "descriptionZh": "属性 `_elementRef`（类型：`ElementRef`），用于存储或配置元素引用。"
+        }
+      ]
     },
     {
       "name": "PopoverTrigger",
@@ -404,7 +611,7 @@
         {
           "name": "name",
           "type": "string",
-          "description": null,
+          "description": "Input property `name` (`string`) configuring name.",
           "descriptionZh": "触发器实例的名称，供程序化查找/引用使用。"
         },
         {
@@ -412,13 +619,13 @@
           "alias": "popoverTriggerFor",
           "type": "PopoverPanel",
           "description": "References the popover instance that the trigger is associated with.",
-          "descriptionZh": null
+          "descriptionZh": "输入属性 `popoverTriggerFor`（类型：`PopoverPanel`），用于配置气泡卡片。"
         },
         {
           "name": "targetElement",
           "alias": "popoverTargetAt",
           "type": "PopoverTargetInterface",
-          "description": null,
+          "description": "Input property `popoverTargetAt` (`PopoverTargetInterface`) configuring target element.",
           "descriptionZh": "覆盖用于定位的目标元素（默认使用宿主元素自身）。"
         },
         {
@@ -426,98 +633,98 @@
           "alias": "popoverPositionX",
           "type": "PopoverPositionX",
           "description": "Position of the popover in the X axis",
-          "descriptionZh": null
+          "descriptionZh": "输入属性 `popoverPositionX`（类型：`PopoverPositionX`），用于配置位置X坐标。"
         },
         {
           "name": "positionY",
           "alias": "popoverPositionY",
           "type": "PopoverPositionY",
           "description": "Position of the popover in the Y axis",
-          "descriptionZh": null
+          "descriptionZh": "输入属性 `popoverPositionY`（类型：`PopoverPositionY`），用于配置位置Y坐标。"
         },
         {
           "name": "triggerEvent",
           "alias": "popoverTriggerOn",
           "type": "PopoverTriggerEvent",
           "description": "Popover trigger event",
-          "descriptionZh": null
+          "descriptionZh": "输入属性 `popoverTriggerOn`（类型：`PopoverTriggerEvent`），用于配置触发事件。"
         },
         {
           "name": "enterDelay",
           "alias": "popoverEnterDelay",
           "type": "number",
           "description": "Popover delay",
-          "descriptionZh": null
+          "descriptionZh": "输入属性 `popoverEnterDelay`（类型：`number`），用于配置进入延迟。"
         },
         {
           "name": "leaveDelay",
           "alias": "popoverLeaveDelay",
           "type": "number",
           "description": "Popover delay",
-          "descriptionZh": null
+          "descriptionZh": "输入属性 `popoverLeaveDelay`（类型：`number`），用于配置离开延迟。"
         },
         {
           "name": "overlapTrigger",
           "alias": "popoverOverlapTrigger",
           "type": "boolean",
           "description": "Popover overlap trigger",
-          "descriptionZh": null
+          "descriptionZh": "输入属性 `popoverOverlapTrigger`（类型：`boolean`），用于配置overlap触发。"
         },
         {
           "name": "targetOffsetX",
           "alias": "popoverOffsetX",
           "type": "number",
           "description": "Popover target offset x",
-          "descriptionZh": null
+          "descriptionZh": "输入属性 `popoverOffsetX`（类型：`number`），用于配置目标偏移量X坐标。"
         },
         {
           "name": "targetOffsetY",
           "alias": "popoverOffsetY",
           "type": "number",
           "description": "Popover target offset y",
-          "descriptionZh": null
+          "descriptionZh": "输入属性 `popoverOffsetY`（类型：`number`），用于配置目标偏移量Y坐标。"
         },
         {
           "name": "arrowOffsetX",
           "alias": "popoverArrowOffsetX",
           "type": "number",
           "description": "Popover arrow offset x",
-          "descriptionZh": null
+          "descriptionZh": "输入属性 `popoverArrowOffsetX`（类型：`number`），用于配置箭头偏移量X坐标。"
         },
         {
           "name": "arrowWidth",
           "alias": "popoverArrowWidth",
           "type": "number",
           "description": "Popover arrow width",
-          "descriptionZh": null
+          "descriptionZh": "输入属性 `popoverArrowWidth`（类型：`number`），用于配置箭头宽度。"
         },
         {
           "name": "arrowColor",
           "alias": "popoverArrowColor",
           "type": "string",
           "description": "Popover arrow color",
-          "descriptionZh": null
+          "descriptionZh": "输入属性 `popoverArrowColor`（类型：`string`），用于配置箭头颜色。"
         },
         {
           "name": "closeOnClick",
           "alias": "popoverCloseOnClick",
           "type": "boolean",
           "description": "Popover container close on click",
-          "descriptionZh": null
+          "descriptionZh": "输入属性 `popoverCloseOnClick`（类型：`boolean`），用于配置关闭当点击。"
         },
         {
           "name": "backdropCloseOnClick",
           "alias": "popoverBackdropCloseOnClick",
           "type": "any",
           "default": "true",
-          "description": null,
+          "description": "Input property `popoverBackdropCloseOnClick` (`boolean`) configuring backdrop close on click (default: `true`).",
           "descriptionZh": "点击遮罩层（背景）时是否关闭弹出层（仅 `click` 触发方式下的遮罩层）。"
         },
         {
           "name": "showPopOver",
           "type": "boolean",
           "default": "true",
-          "description": null,
+          "description": "Input property `showPopOver` (`boolean`) configuring show pop over (default: `true`).",
           "descriptionZh": "是否允许打开弹出层（`false` 时触发操作不会打开弹出层）。"
         }
       ],
@@ -525,13 +732,13 @@
         {
           "name": "opened",
           "type": "any",
-          "description": null,
+          "description": "Output event emitter `opened` (`EventEmitter`) firing when opened occurs.",
           "descriptionZh": "弹出层打开时发出。"
         },
         {
           "name": "closed",
           "type": "any",
-          "description": null,
+          "description": "Output event emitter `closed` (`EventEmitter`) firing when closed occurs.",
           "descriptionZh": "弹出层关闭时发出。"
         }
       ],
@@ -631,14 +838,14 @@
           "name": "popoverOpened",
           "type": "any",
           "default": "new Subject<void>()",
-          "description": null,
+          "description": "Property `popoverOpened` (`Subject`) storing popover opened (default: `new Subject<void>()`).",
           "descriptionZh": "弹出层打开时发出。"
         },
         {
           "name": "popoverClosed",
           "type": "any",
           "default": "new Subject<void>()",
-          "description": null,
+          "description": "Property `popoverClosed` (`Subject`) storing popover closed (default: `new Subject<void>()`).",
           "descriptionZh": "弹出层关闭时发出。"
         },
         {
@@ -658,8 +865,8 @@
     {
       "name": "transformPopover",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular animation trigger `transformPopover` defining state transitions for transform popover.",
+      "summaryZh": "Angular 动画触发器 `transformPopover`，定义转换气泡卡片的状态过渡动画。",
       "sourceFile": "src/common/popover/popover-animations.ts",
       "inputs": [],
       "outputs": [],

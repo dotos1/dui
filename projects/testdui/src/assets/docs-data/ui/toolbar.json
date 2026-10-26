@@ -5,23 +5,23 @@
       "name": "DuiToolbarComponent",
       "kind": "component",
       "selector": "dui-toolbar",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular component `DuiToolbarComponent` (selector: 'dui-toolbar') providing dui toolbar component presentation and interaction in `src/ui/toolbar`.",
+      "summaryZh": "Angular 组件 `DuiToolbarComponent`（selector: 'dui-toolbar'），提供DUI工具栏组件的视图渲染与交互逻辑（位于 `src/ui/toolbar`）。",
       "sourceFile": "src/ui/toolbar/toolbar.component.ts",
       "inputs": [
         {
           "name": "config",
           "type": "any",
           "default": "{}",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `config` (`any`) configuring config (default: `{}`).",
+          "descriptionZh": "输入属性 `config`（类型：`any`），用于配置配置（默认值：`{}`）。"
         },
         {
           "name": "height",
           "type": "number",
           "default": "40",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `height` (`number`) configuring height (default: `40`).",
+          "descriptionZh": "输入属性 `height`（类型：`number`），用于配置高度（默认值：`40`）。"
         }
       ],
       "outputs": [],
@@ -35,15 +35,15 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Host event listener `onRightClick` handling `contextmenu` events for on right click.",
+          "descriptionZh": "宿主事件监听方法 `onRightClick`，响应 `contextmenu` 事件以处理当右侧位置点击。"
         },
         {
           "name": "refresh",
           "params": [],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `refresh` to handle refresh.",
+          "descriptionZh": "执行 `refresh`，用于刷新。"
         },
         {
           "name": "init",
@@ -54,15 +54,15 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `init` to handle init.",
+          "descriptionZh": "执行 `init`，用于初始化。"
         },
         {
           "name": "getClassNames",
           "params": [],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `getClassNames` to handle get class names.",
+          "descriptionZh": "执行 `getClassNames`，用于获取类名名称列表。"
         },
         {
           "name": "lookupComponent",
@@ -73,29 +73,29 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `lookupComponent` to handle lookup component.",
+          "descriptionZh": "执行 `lookupComponent`，用于查找表组件。"
         },
         {
           "name": "addSeparator",
           "params": [],
           "returnType": "MenuItem",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `addSeparator` to handle add separator.",
+          "descriptionZh": "执行 `addSeparator`，用于添加Separator。"
         },
         {
           "name": "addSpacer",
           "params": [],
           "returnType": "Spacer",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `addSpacer` to handle add spacer.",
+          "descriptionZh": "执行 `addSpacer`，用于添加Spacer。"
         },
         {
           "name": "addFill",
           "params": [],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `addFill` to handle add fill.",
+          "descriptionZh": "执行 `addFill`，用于添加填充。"
         },
         {
           "name": "addText",
@@ -106,8 +106,8 @@
             }
           ],
           "returnType": "MenuItem",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `addText` to handle add text.",
+          "descriptionZh": "执行 `addText`，用于添加文本。"
         },
         {
           "name": "addButton",
@@ -118,8 +118,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `addButton` to handle add button.",
+          "descriptionZh": "执行 `addButton`，用于添加按钮。"
         },
         {
           "name": "addItem",
@@ -130,8 +130,8 @@
             }
           ],
           "returnType": "MenuItem",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `addItem` to handle add item.",
+          "descriptionZh": "执行 `addItem`，用于添加条目。"
         },
         {
           "name": "addField",
@@ -142,8 +142,8 @@
             }
           ],
           "returnType": "MenuItem",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `addField` to handle add field.",
+          "descriptionZh": "执行 `addField`，用于添加字段。"
         },
         {
           "name": "insertButton",
@@ -158,8 +158,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `insertButton` to handle insert button.",
+          "descriptionZh": "执行 `insertButton`，用于插入按钮。"
         },
         {
           "name": "constructButton",
@@ -170,8 +170,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `constructButton` to handle construct button.",
+          "descriptionZh": "执行 `constructButton`，用于construct按钮。"
         },
         {
           "name": "onAdd",
@@ -182,8 +182,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `onAdd` to handle on add.",
+          "descriptionZh": "执行 `onAdd`，用于当添加。"
         },
         {
           "name": "onRemove",
@@ -194,22 +194,22 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `onRemove` to handle on remove.",
+          "descriptionZh": "执行 `onRemove`，用于当移除。"
         },
         {
           "name": "onDisable",
           "params": [],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `onDisable` to handle on disable.",
+          "descriptionZh": "执行 `onDisable`，用于当禁用。"
         },
         {
           "name": "onEnable",
           "params": [],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `onEnable` to handle on enable.",
+          "descriptionZh": "执行 `onEnable`，用于当启用。"
         },
         {
           "name": "onButtonTriggerOver",
@@ -220,8 +220,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `onButtonTriggerOver` to handle on button trigger over.",
+          "descriptionZh": "执行 `onButtonTriggerOver`，用于当按钮触发越过。"
         },
         {
           "name": "onButtonMenuShow",
@@ -232,8 +232,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `onButtonMenuShow` to handle on button menu show.",
+          "descriptionZh": "执行 `onButtonMenuShow`，用于当按钮菜单显示。"
         },
         {
           "name": "onButtonMenuHide",
@@ -244,50 +244,50 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `onButtonMenuHide` to handle on button menu hide.",
+          "descriptionZh": "执行 `onButtonMenuHide`，用于当按钮菜单隐藏。"
         }
       ],
       "properties": [
         {
           "name": "heightStyle",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current height style (`heightStyle: any`).",
+          "descriptionZh": "获取当前高度样式（`heightStyle: any`）。"
         },
         {
           "name": "color",
           "type": "any",
           "default": "'primary'",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `color` (`string`) storing color (default: `'primary'`).",
+          "descriptionZh": "属性 `color`（类型：`string`），用于存储或配置颜色（默认值：`'primary'`）。"
         },
         {
           "name": "style",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `style` (`any`) storing style.",
+          "descriptionZh": "属性 `style`（类型：`any`），用于存储或配置样式。"
         },
         {
           "name": "vertical",
           "type": "boolean",
           "default": "false",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `vertical` (`boolean`) storing vertical (default: `false`).",
+          "descriptionZh": "属性 `vertical`（类型：`boolean`），用于存储或配置垂直（默认值：`false`）。"
         },
         {
           "name": "viewContainer",
           "type": "ViewContainerRef",
-          "description": null,
-          "descriptionZh": null
+          "description": "Template/content query reference `viewContainer` (`@ViewChild`) targeting view container.",
+          "descriptionZh": "模板/内容视图查询引用 `viewContainer`（`@ViewChild`），指向视图容器。"
         }
       ]
     },
     {
       "name": "DuiToolbarModule",
       "kind": "module",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular module `DuiToolbarModule` declaring and exporting dui toolbar module components, directives, pipes, and providers.",
+      "summaryZh": "Angular 模块 `DuiToolbarModule`，声明并导出DUI工具栏模块相关的组件、指令、管道与服务提供者。",
       "sourceFile": "src/ui/toolbar/toolbar.module.ts",
       "inputs": [],
       "outputs": [],
@@ -297,8 +297,8 @@
           "name": "entryComponents",
           "type": "any",
           "default": "[\n      DuiToolbarComponent,\n    Separator,\n    Spacer,\n    Fill,\n    TextItem]",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `entryComponents` (`any[]`) storing entry components.",
+          "descriptionZh": "属性 `entryComponents`（类型：`any[]`），用于存储或配置条目组件列表。"
         }
       ]
     },
@@ -306,8 +306,8 @@
       "name": "Fill",
       "kind": "component",
       "selector": "tbfill",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular component `Fill` (selector: 'tbfill') providing fill presentation and interaction in `src/ui/toolbar`.",
+      "summaryZh": "Angular 组件 `Fill`（selector: 'tbfill'），提供填充的视图渲染与交互逻辑（位于 `src/ui/toolbar`）。",
       "sourceFile": "src/ui/toolbar/toolbar.component.ts",
       "inputs": [],
       "outputs": [],
@@ -321,8 +321,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `init` to handle init.",
+          "descriptionZh": "执行 `init`，用于初始化。"
         }
       ],
       "properties": [
@@ -330,16 +330,16 @@
           "name": "isFill",
           "type": "any",
           "default": "true",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `isFill` (`boolean`) storing is fill (default: `true`).",
+          "descriptionZh": "属性 `isFill`（类型：`boolean`），用于存储或配置是否为填充（默认值：`true`）。"
         }
       ]
     },
     {
       "name": "MenuItem",
       "kind": "class",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Class `MenuItem` encapsulating menu item data structures and logic in `src/ui/toolbar`.",
+      "summaryZh": "类 `MenuItem`，封装 `src/ui/toolbar` 中的菜单条目数据结构与处理逻辑。",
       "sourceFile": "src/ui/toolbar/toolbar.component.ts",
       "inputs": [],
       "outputs": [],
@@ -353,15 +353,15 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `init` to handle init.",
+          "descriptionZh": "执行 `init`，用于初始化。"
         },
         {
           "name": "focus",
           "params": [],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `focus` to handle focus.",
+          "descriptionZh": "执行 `focus`，用于聚焦。"
         }
       ],
       "properties": [
@@ -369,8 +369,8 @@
           "name": "hideParent",
           "type": "any",
           "default": "true",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `hideParent` (`boolean`) storing hide parent (default: `true`).",
+          "descriptionZh": "属性 `hideParent`（类型：`boolean`），用于存储或配置隐藏父级（默认值：`true`）。"
         }
       ]
     },
@@ -378,8 +378,8 @@
       "name": "Separator",
       "kind": "component",
       "selector": "divider",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular component `Separator` (selector: 'divider') providing separator presentation and interaction in `src/ui/toolbar`.",
+      "summaryZh": "Angular 组件 `Separator`（selector: 'divider'），提供Separator的视图渲染与交互逻辑（位于 `src/ui/toolbar`）。",
       "sourceFile": "src/ui/toolbar/toolbar.component.ts",
       "inputs": [],
       "outputs": [],
@@ -393,30 +393,30 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `init` to handle init.",
+          "descriptionZh": "执行 `init`，用于初始化。"
         }
       ],
       "properties": [
         {
           "name": "el",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `el` (`any`) storing el.",
+          "descriptionZh": "属性 `el`（类型：`any`），用于存储或配置DOM元素。"
         },
         {
           "name": "vertical",
           "type": "boolean",
           "default": "true",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `vertical` (`boolean`) storing vertical (default: `true`).",
+          "descriptionZh": "属性 `vertical`（类型：`boolean`），用于存储或配置垂直（默认值：`true`）。"
         },
         {
           "name": "style",
           "type": "any",
           "default": "{}",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `style` (`any`) storing style (default: `{}`).",
+          "descriptionZh": "属性 `style`（类型：`any`），用于存储或配置样式（默认值：`{}`）。"
         }
       ]
     },
@@ -424,8 +424,8 @@
       "name": "Spacer",
       "kind": "component",
       "selector": "tbspacer",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular component `Spacer` (selector: 'tbspacer') providing spacer presentation and interaction in `src/ui/toolbar`.",
+      "summaryZh": "Angular 组件 `Spacer`（selector: 'tbspacer'），提供Spacer的视图渲染与交互逻辑（位于 `src/ui/toolbar`）。",
       "sourceFile": "src/ui/toolbar/toolbar.component.ts",
       "inputs": [],
       "outputs": [],
@@ -439,22 +439,22 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `init` to handle init.",
+          "descriptionZh": "执行 `init`，用于初始化。"
         }
       ],
       "properties": [
         {
           "name": "el",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `el` (`any`) storing el.",
+          "descriptionZh": "属性 `el`（类型：`any`），用于存储或配置DOM元素。"
         },
         {
           "name": "config",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `config` (`any`) storing config.",
+          "descriptionZh": "属性 `config`（类型：`any`），用于存储或配置配置。"
         }
       ]
     },
@@ -462,8 +462,8 @@
       "name": "TextItem",
       "kind": "component",
       "selector": "tbtext",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular component `TextItem` (selector: 'tbtext') providing text item presentation and interaction in `src/ui/toolbar`.",
+      "summaryZh": "Angular 组件 `TextItem`（selector: 'tbtext'），提供文本条目的视图渲染与交互逻辑（位于 `src/ui/toolbar`）。",
       "sourceFile": "src/ui/toolbar/toolbar.component.ts",
       "inputs": [],
       "outputs": [],
@@ -477,8 +477,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `init` to handle init.",
+          "descriptionZh": "执行 `init`，用于初始化。"
         },
         {
           "name": "setText",
@@ -489,22 +489,22 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `setText` to handle set text.",
+          "descriptionZh": "执行 `setText`，用于集合文本。"
         }
       ],
       "properties": [
         {
           "name": "text",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `text` (`any`) storing text.",
+          "descriptionZh": "属性 `text`（类型：`any`），用于存储或配置文本。"
         },
         {
           "name": "el",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `el` (`any`) storing el.",
+          "descriptionZh": "属性 `el`（类型：`any`），用于存储或配置DOM元素。"
         }
       ]
     }

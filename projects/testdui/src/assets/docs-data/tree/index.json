@@ -4,8 +4,8 @@
     {
       "name": "IActionHandler",
       "kind": "interface",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Interface `IActionHandler` defining the contract and properties for i action handler.",
+      "summaryZh": "接口 `IActionHandler`，定义I动作处理器的数据结构契约与属性规范。",
       "sourceFile": "src/tree/models/tree-options.model.ts",
       "inputs": [],
       "outputs": [],
@@ -15,19 +15,32 @@
     {
       "name": "IActionMapping",
       "kind": "interface",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Interface `IActionMapping` defining the contract and properties for i action mapping.",
+      "summaryZh": "接口 `IActionMapping`，定义I动作映射的数据结构契约与属性规范。",
       "sourceFile": "src/tree/models/tree-options.model.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
-      "properties": []
+      "properties": [
+        {
+          "name": "mouse",
+          "type": "{ click?: IActionHandler, dblClick?: IActionHandler, contextMenu?: IActionHandler, expanderClick?: IActionHandler, checkboxClick?: IActionHandler, dragStart?: IActionHandler, drag?: IActionHandler, dragEnd?: IActionHandler, dragOver?: IActionHandler, dragLeave?: IActionHandler, dragEnter?: IActionHandler, drop?: IActionHandler, mouseOver?: IActionHandler, mouseOut?: IActionHandler }",
+          "description": "Property `mouse` (`{ click?: IActionHandler, dblClick?: IActionHandler, contextMenu?: IAc...`) storing mouse.",
+          "descriptionZh": "属性 `mouse`（类型：`{ click?: IActionHandler, dblClick?: IActionHandler, contextMenu?: IAc...`），用于存储或配置鼠标。"
+        },
+        {
+          "name": "keys",
+          "type": "{ [key: number]: IActionHandler }",
+          "description": "Property `keys` (`{ [key: number]: IActionHandler }`) storing keys.",
+          "descriptionZh": "属性 `keys`（类型：`{ [key: number]: IActionHandler }`），用于存储或配置键列表。"
+        }
+      ]
     },
     {
       "name": "IAllowDragFn",
       "kind": "interface",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Interface `IAllowDragFn` defining the contract and properties for i allow drag fn.",
+      "summaryZh": "接口 `IAllowDragFn`，定义I允许拖拽函数的数据结构契约与属性规范。",
       "sourceFile": "src/tree/defs/api.ts",
       "inputs": [],
       "outputs": [],
@@ -37,8 +50,8 @@
     {
       "name": "IAllowDropFn",
       "kind": "interface",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Interface `IAllowDropFn` defining the contract and properties for i allow drop fn.",
+      "summaryZh": "接口 `IAllowDropFn`，定义I允许放置函数的数据结构契约与属性规范。",
       "sourceFile": "src/tree/defs/api.ts",
       "inputs": [],
       "outputs": [],
@@ -48,41 +61,290 @@
     {
       "name": "ITreeConfig",
       "kind": "interface",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Interface `ITreeConfig` defining the contract and properties for i tree config.",
+      "summaryZh": "接口 `ITreeConfig`，定义I树形控件配置的数据结构契约与属性规范。",
       "sourceFile": "src/tree/components/tree.component.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
-      "properties": []
+      "properties": [
+        {
+          "name": "click",
+          "type": "Function",
+          "description": "Property `click` (`Function`) storing click.",
+          "descriptionZh": "属性 `click`（类型：`Function`），用于存储或配置点击。"
+        },
+        {
+          "name": "rootUrl",
+          "type": "string",
+          "description": "Property `rootUrl` (`string`) storing root url.",
+          "descriptionZh": "属性 `rootUrl`（类型：`string`），用于存储或配置根节点链接地址。"
+        },
+        {
+          "name": "storeName",
+          "type": "string",
+          "description": "Property `storeName` (`string`) storing store name.",
+          "descriptionZh": "属性 `storeName`（类型：`string`），用于存储或配置状态仓库名称。"
+        },
+        {
+          "name": "apiBase",
+          "type": "string",
+          "description": "Property `apiBase` (`string`) storing api base.",
+          "descriptionZh": "属性 `apiBase`（类型：`string`），用于存储或配置API接口基础。"
+        },
+        {
+          "name": "rootParams",
+          "type": "any",
+          "description": "Property `rootParams` (`any`) storing root params.",
+          "descriptionZh": "属性 `rootParams`（类型：`any`），用于存储或配置根节点参数集合。"
+        }
+      ]
     },
     {
       "name": "ITreeOptions",
       "kind": "interface",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Interface `ITreeOptions` defining the contract and properties for i tree options.",
+      "summaryZh": "接口 `ITreeOptions`，定义I树形控件配置选项的数据结构契约与属性规范。",
       "sourceFile": "src/tree/defs/api.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
-      "properties": []
+      "properties": [
+        {
+          "name": "hasChildrenField",
+          "type": "string",
+          "description": "A string representing the attribute of the node that indicates whether there are child nodes.\n\n**Default value: `hasChildren`.**\n\nFor example, if your nodes have an `isDirectory` attribute that indicates whether there are children, use:\n```\noptions = { hasChildrenField: 'isDirectory' }\n```",
+          "descriptionZh": "属性 `hasChildrenField`（类型：`string`），用于存储或配置是否包含子级列表字段。"
+        },
+        {
+          "name": "childrenField",
+          "type": "string",
+          "description": "A string representing the attribute of the node that contains the array of children.\n\n**Default value: `children`.**\n\nFor example, if your nodes have a `nodes` attribute, that contains the children, use:\n```\noptions = { childrenField: 'nodes' }\n```",
+          "descriptionZh": "属性 `childrenField`（类型：`string`），用于存储或配置子级列表字段。"
+        },
+        {
+          "name": "displayField",
+          "type": "string",
+          "description": "A string representing the attribute of the node to display.\n\n**Default value: `name`**\n\nFor example, if your nodes have a `title` attribute that should be displayed, use:\n```\n  options = { displayField: 'title' }\n```",
+          "descriptionZh": "属性 `displayField`（类型：`string`），用于存储或配置display字段。"
+        },
+        {
+          "name": "idField",
+          "type": "string",
+          "description": "A string representing the attribute of the node that contains the unique ID.\nThis will be used to construct the `path`, which is an array of IDs that point to the node.\n\n **Default value: `id`.**\n\nFor example, if your nodes have a `uuid` attribute, that contains the unique key, use:\n```\n  options = { idField: 'uuid' }\n```",
+          "descriptionZh": "属性 `idField`（类型：`string`），用于存储或配置唯一标识字段。"
+        },
+        {
+          "name": "isExpandedField",
+          "type": "string",
+          "description": "A string representing the attribute of the node that contains whether the node starts as expanded.\n\n **Default value: `isExpanded`.**\n\nFor example, if your nodes have an `expanded` attribute, that contains a boolean value, use:\n```\n  options = { isExpandedField: 'expanded' }\n```",
+          "descriptionZh": "属性 `isExpandedField`（类型：`string`），用于存储或配置是否为已展开字段。"
+        },
+        {
+          "name": "getChildren",
+          "type": "(node: TreeNode) => any",
+          "description": "Function for loading a node's children.\nThe function receives a TreeNode, and returns a value or a promise that resolves to the node's children.\n\nThis function will be called whenever a node is expanded, the `hasChildren` (`options.hasChildrenField`)\nfield is true, and the `children` field is empty.\nThe result will be loaded into the node's children attribute.\n\nExample:\n```\n options = {\n getChildren: (node:TreeNode) => {\n return request('/api/children/' + node.id);\n }\n }\n```",
+          "descriptionZh": "属性 `getChildren`（类型：`(node: TreeNode) => any`），用于存储或配置获取子级列表。"
+        },
+        {
+          "name": "actionMapping",
+          "type": "any",
+          "description": "Rewire which trigger causes which action using this attribute, or create custom actions / event bindings.\nSee the [Action Mapping Section](https://angular2-tree.readme.io/docs/action-mapping) for more details.",
+          "descriptionZh": "属性 `actionMapping`（类型：`any`），用于存储或配置动作映射。"
+        },
+        {
+          "name": "allowDrag",
+          "type": "boolean | IAllowDragFn",
+          "description": "Specify if dragging tree nodes is allowed.\nThis could be a boolean, or a function that receives a TreeNode and returns a boolean\n\n**Default value: false**\n\nExample:\n```\noptions = {\n allowDrag: true\n}\n```",
+          "descriptionZh": "属性 `allowDrag`（类型：`boolean | IAllowDragFn`），用于存储或配置允许拖拽。"
+        },
+        {
+          "name": "allowDrop",
+          "type": "boolean | IAllowDropFn",
+          "description": "Specify whether dropping inside the tree is allowed. Optional types:\n - boolean\n - (element:any, to:{parent:TreeNode, index:number}):boolean\n   A function that receives the dragged element, and the drop location (parent node and index inside the parent),\n   and returns true or false.\n\n**Default Value: true**\n\nexample:\n```\noptions = {\n allowDrop: (element, {parent, index}) => parent.isLeaf\n}\n```",
+          "descriptionZh": "属性 `allowDrop`（类型：`boolean | IAllowDropFn`），用于存储或配置允许放置。"
+        },
+        {
+          "name": "allowDragoverStyling",
+          "type": "boolean",
+          "description": "boolean flag to allow adding and removing is-dragging-over and is-dragging-over-disabled classes.\n\nIf set to false it will not add the above mentioned classes and you should handle the styling yourself with css and in\nthe actionMapping -> mouse -> dragEnter, dragLeave\n\n **Default Value: true**\n\nexample:\n```\n options = {\n allowDrop: true,\n allowDragoverStyling: false\n }\n```",
+          "descriptionZh": "属性 `allowDragoverStyling`（类型：`boolean`），用于存储或配置允许Dragover样式。"
+        },
+        {
+          "name": "levelPadding",
+          "type": "number",
+          "description": "Specify padding per node (integer).\nEach node will have padding-left value of level * levelPadding, instead of using the default padding for children.\n\nThis option is good for example for allowing whole row selection, etc.\n\nYou can alternatively use the tree-node-level-X classes to give padding on a per-level basis.\n\n **Default value: 0**",
+          "descriptionZh": "属性 `levelPadding`（类型：`number`），用于存储或配置层级内边距。"
+        },
+        {
+          "name": "nodeClass",
+          "type": "(node: TreeNode) => string",
+          "description": "Specify a function that returns a class per node. Useful for styling the nodes individually.\n\nExample:\n```\n options = {\n nodeClass: (node:TreeNode) => {\n return 'icon-' + node.data.icon;\n }\n }\n```",
+          "descriptionZh": "属性 `nodeClass`（类型：`(node: TreeNode) => string`），用于存储或配置节点类名。"
+        },
+        {
+          "name": "useVirtualScroll",
+          "type": "boolean",
+          "description": "boolean flag to use the virtual scroll option.\n\nTo use this option, you must supply the height of the container, and the height of each node in the tree.\n\nYou can also specify height for the dropSlot which is located between nodes.\n\n **Default Value: false**\n\nexample:\n```\n options = {\n useVirtualScroll: true,\n nodeHeight: (node: TreeNode) => node.myHeight,\n dropSlotHeight: 3\n }\n```",
+          "descriptionZh": "属性 `useVirtualScroll`（类型：`boolean`），用于存储或配置使用虚拟滚动滚动。"
+        },
+        {
+          "name": "nodeHeight",
+          "type": "number | INodeHeightFn",
+          "description": "For use with `useVirtualScroll` option.\nSpecify a height for nodes in pixels. Could be either:\n- number\n- (node: TreeNode) => number\n\n**Default Value: 22**",
+          "descriptionZh": "属性 `nodeHeight`（类型：`number | INodeHeightFn`），用于存储或配置节点高度。"
+        },
+        {
+          "name": "dropSlotHeight",
+          "type": "number",
+          "description": "For use with `useVirtualScroll` option.\nSpecify a height for drop slots (located between nodes) in pixels\n\n**Default Value: 2**",
+          "descriptionZh": "属性 `dropSlotHeight`（类型：`number`），用于存储或配置放置Slot高度。"
+        },
+        {
+          "name": "animateExpand",
+          "type": "boolean",
+          "description": "boolean whether or not to animate expand / collapse of nodes.\n\n**Default Value: false**",
+          "descriptionZh": "属性 `animateExpand`（类型：`boolean`），用于存储或配置animate展开。"
+        },
+        {
+          "name": "animateSpeed",
+          "type": "number",
+          "description": "Speed of expand animation (described in pixels per 17 ms).\n\n**Default Value: 30**",
+          "descriptionZh": "属性 `animateSpeed`（类型：`number`），用于存储或配置animate速度。"
+        },
+        {
+          "name": "animateAcceleration",
+          "type": "number",
+          "description": "Increase of expand animation speed (described in multiply per 17 ms).\n\n**Default Value: 1.2**",
+          "descriptionZh": "属性 `animateAcceleration`（类型：`number`），用于存储或配置animateAcceleration。"
+        },
+        {
+          "name": "scrollOnActivate",
+          "type": "boolean",
+          "description": "Whether to scroll to the node to make it visible when it is activated.\n\n**Default Value: true**",
+          "descriptionZh": "属性 `scrollOnActivate`（类型：`boolean`），用于存储或配置滚动当激活。"
+        },
+        {
+          "name": "getNodeClone",
+          "type": "(node: TreeNode) => any",
+          "description": "Function to clone a node.\nReceives a TreeNode object, and returns a node object (only the data).\nThis callback will be called when copying a node inside the tree,\nby either calling copyNode, or by dragging and holding the ctrl key\n\nFor example:\n```\n  options: ITreeOptions = {\n    getNodeClone: (node) => ({\n      ...node.data,\n      id: uuid.v4(),\n      name: `copy of ${node.data.name}`\n    })\n  };\n```\n\n**Default Value: clone the node using Object.assign, and remove 'id' property**",
+          "descriptionZh": "属性 `getNodeClone`（类型：`(node: TreeNode) => any`），用于存储或配置获取节点克隆。"
+        },
+        {
+          "name": "rtl",
+          "type": "boolean",
+          "description": "Makes the tree right-to-left.\nThis include direction, expander style, and change key binding (right key collapse and left key expands instead of vice-versa)",
+          "descriptionZh": "属性 `rtl`（类型：`boolean`），用于存储或配置rtl。"
+        },
+        {
+          "name": "rootId",
+          "type": "any",
+          "description": "Specifies id of root node (virtualRoot)",
+          "descriptionZh": "属性 `rootId`（类型：`any`），用于存储或配置根节点唯一标识。"
+        },
+        {
+          "name": "useCheckbox",
+          "type": "boolean",
+          "description": "Whether to display a checkbox next to the node or not",
+          "descriptionZh": "属性 `useCheckbox`（类型：`boolean`），用于存储或配置使用复选框。"
+        },
+        {
+          "name": "useTriState",
+          "type": "boolean",
+          "description": "Whether to use master checkboxes mechanism if the useCheckbox is set to true",
+          "descriptionZh": "属性 `useTriState`（类型：`boolean`），用于存储或配置使用Tri状态。"
+        },
+        {
+          "name": "scrollContainer",
+          "type": "HTMLElement",
+          "description": "Property `scrollContainer` (`HTMLElement`) storing scroll container.",
+          "descriptionZh": "属性 `scrollContainer`（类型：`HTMLElement`），用于存储或配置滚动容器。"
+        },
+        {
+          "name": "expanderAlign",
+          "type": "'left' | 'right'",
+          "description": "define the expand align to left or right",
+          "descriptionZh": "属性 `expanderAlign`（类型：`'left' | 'right'`），用于存储或配置展开器对齐。"
+        },
+        {
+          "name": "dropZones",
+          "type": "Array<string>",
+          "description": "Property `dropZones` (`Array<string>`) storing drop zones.",
+          "descriptionZh": "属性 `dropZones`（类型：`Array<string>`），用于存储或配置放置区域(NgZone)。"
+        },
+        {
+          "name": "storeName",
+          "type": "string",
+          "description": "Property `storeName` (`string`) storing store name.",
+          "descriptionZh": "属性 `storeName`（类型：`string`），用于存储或配置状态仓库名称。"
+        },
+        {
+          "name": "apiBase",
+          "type": "string",
+          "description": "Property `apiBase` (`string`) storing api base.",
+          "descriptionZh": "属性 `apiBase`（类型：`string`），用于存储或配置API接口基础。"
+        },
+        {
+          "name": "cascadeSelect",
+          "type": "boolean",
+          "description": "Property `cascadeSelect` (`boolean`) storing cascade select.",
+          "descriptionZh": "属性 `cascadeSelect`（类型：`boolean`），用于存储或配置cascade下拉选择。"
+        }
+      ]
     },
     {
       "name": "ITreeState",
       "kind": "interface",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Interface `ITreeState` defining the contract and properties for i tree state.",
+      "summaryZh": "接口 `ITreeState`，定义I树形控件状态的数据结构契约与属性规范。",
       "sourceFile": "src/tree/defs/api.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
-      "properties": []
+      "properties": [
+        {
+          "name": "expandedNodeIds",
+          "type": "IDTypeDictionary",
+          "description": "Property `expandedNodeIds` (`IDTypeDictionary`) storing expanded node ids.",
+          "descriptionZh": "属性 `expandedNodeIds`（类型：`IDTypeDictionary`），用于存储或配置已展开节点标识列表。"
+        },
+        {
+          "name": "selectedNodeIds",
+          "type": "IDTypeDictionary",
+          "description": "Property `selectedNodeIds` (`IDTypeDictionary`) storing selected node ids.",
+          "descriptionZh": "属性 `selectedNodeIds`（类型：`IDTypeDictionary`），用于存储或配置已选中节点标识列表。"
+        },
+        {
+          "name": "activeNodeIds",
+          "type": "IDTypeDictionary",
+          "description": "Property `activeNodeIds` (`IDTypeDictionary`) storing active node ids.",
+          "descriptionZh": "属性 `activeNodeIds`（类型：`IDTypeDictionary`），用于存储或配置激活节点标识列表。"
+        },
+        {
+          "name": "hiddenNodeIds",
+          "type": "IDTypeDictionary",
+          "description": "Property `hiddenNodeIds` (`IDTypeDictionary`) storing hidden node ids.",
+          "descriptionZh": "属性 `hiddenNodeIds`（类型：`IDTypeDictionary`），用于存储或配置隐藏节点标识列表。"
+        },
+        {
+          "name": "selectedLeafNodeIds",
+          "type": "IDTypeDictionary",
+          "description": "Property `selectedLeafNodeIds` (`IDTypeDictionary`) storing selected leaf node ids.",
+          "descriptionZh": "属性 `selectedLeafNodeIds`（类型：`IDTypeDictionary`），用于存储或配置已选中叶子节点节点标识列表。"
+        },
+        {
+          "name": "focusedNodeId",
+          "type": "IDType",
+          "description": "Property `focusedNodeId` (`IDType`) storing focused node id.",
+          "descriptionZh": "属性 `focusedNodeId`（类型：`IDType`），用于存储或配置已聚焦节点唯一标识。"
+        }
+      ]
     },
     {
       "name": "KEYS",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `KEYS` defining keys in `src/tree/constants`.",
+      "summaryZh": "常量/变量 `KEYS`，定义 `src/tree/constants` 中的键列表。",
       "sourceFile": "src/tree/constants/keys.ts",
       "inputs": [],
       "outputs": [],
@@ -93,21 +355,21 @@
       "name": "LoadingComponent",
       "kind": "component",
       "selector": "tree-loading-component",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular component `LoadingComponent` (selector: 'tree-loading-component') providing loading component presentation and interaction in `src/tree/components`.",
+      "summaryZh": "Angular 组件 `LoadingComponent`（selector: 'tree-loading-component'），提供加载中组件的视图渲染与交互逻辑（位于 `src/tree/components`）。",
       "sourceFile": "src/tree/components/loading.component.ts",
       "inputs": [
         {
           "name": "template",
           "type": "TemplateRef<any>",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `template` (`TemplateRef<any>`) configuring template.",
+          "descriptionZh": "输入属性 `template`（类型：`TemplateRef<any>`），用于配置模板。"
         },
         {
           "name": "node",
           "type": "TreeNode",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `node` (`TreeNode`) configuring node.",
+          "descriptionZh": "输入属性 `node`（类型：`TreeNode`），用于配置节点。"
         }
       ],
       "outputs": [],
@@ -117,8 +379,8 @@
     {
       "name": "TREE_ACTIONS",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `TREE_ACTIONS` defining tree actions in `src/tree/models`.",
+      "summaryZh": "常量/变量 `TREE_ACTIONS`，定义 `src/tree/models` 中的树形控件动作列表。",
       "sourceFile": "src/tree/models/tree-options.model.ts",
       "inputs": [],
       "outputs": [],
@@ -128,8 +390,8 @@
     {
       "name": "TREE_EVENTS",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `TREE_EVENTS` defining tree events in `src/tree/constants`.",
+      "summaryZh": "常量/变量 `TREE_EVENTS`，定义 `src/tree/constants` 中的树形控件事件集合。",
       "sourceFile": "src/tree/constants/events.ts",
       "inputs": [],
       "outputs": [],
@@ -140,37 +402,37 @@
       "name": "TreeAnimateOpenDirective",
       "kind": "directive",
       "selector": "[treeAnimateOpen]",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular directive `TreeAnimateOpenDirective` (selector: '[treeAnimateOpen]') attaching tree animate open directive behavior to host DOM elements.",
+      "summaryZh": "Angular 指令 `TreeAnimateOpenDirective`（selector: '[treeAnimateOpen]'），为宿主 DOM 元素附加树形控件Animate打开指令行为。",
       "sourceFile": "src/tree/directives/tree-animate-open.directive.ts",
       "inputs": [
         {
           "name": "animateSpeed",
           "alias": "treeAnimateOpenSpeed",
           "type": "number",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `treeAnimateOpenSpeed` (`number`) configuring animate speed.",
+          "descriptionZh": "输入属性 `treeAnimateOpenSpeed`（类型：`number`），用于配置animate速度。"
         },
         {
           "name": "animateAcceleration",
           "alias": "treeAnimateOpenAcceleration",
           "type": "number",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `treeAnimateOpenAcceleration` (`number`) configuring animate acceleration.",
+          "descriptionZh": "输入属性 `treeAnimateOpenAcceleration`（类型：`number`），用于配置animateAcceleration。"
         },
         {
           "name": "isEnabled",
           "alias": "treeAnimateOpenEnabled",
           "type": "boolean",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `treeAnimateOpenEnabled` (`boolean`) configuring is enabled.",
+          "descriptionZh": "输入属性 `treeAnimateOpenEnabled`（类型：`boolean`），用于配置是否为已启用。"
         },
         {
           "name": "isOpen",
           "alias": "treeAnimateOpen",
           "type": "boolean",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input setter `isOpen` updating is open.",
+          "descriptionZh": "输入属性 `isOpen` 的设置器，用于更新是否为打开。"
         }
       ],
       "outputs": [],
@@ -181,144 +443,144 @@
       "name": "TreeComponent",
       "kind": "component",
       "selector": "Tree, tree-root",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular component `TreeComponent` (selector: 'Tree, tree-root') providing tree component presentation and interaction in `src/tree/components`.",
+      "summaryZh": "Angular 组件 `TreeComponent`（selector: 'Tree, tree-root'），提供树形控件组件的视图渲染与交互逻辑（位于 `src/tree/components`）。",
       "sourceFile": "src/tree/components/tree.component.ts",
       "inputs": [
         {
           "name": "nodes",
           "type": "any[]",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input setter `nodes` updating nodes.",
+          "descriptionZh": "输入属性 `nodes` 的设置器，用于更新节点列表。"
         },
         {
           "name": "options",
           "type": "ITreeOptions",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input setter `options` updating options.",
+          "descriptionZh": "输入属性 `options` 的设置器，用于更新配置选项。"
         },
         {
           "name": "focused",
           "type": "boolean",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input setter `focused` updating focused.",
+          "descriptionZh": "输入属性 `focused` 的设置器，用于更新已聚焦。"
         },
         {
           "name": "state",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input setter `state` updating state.",
+          "descriptionZh": "输入属性 `state` 的设置器，用于更新状态。"
         },
         {
           "name": "config",
           "type": "ITreeConfig",
           "default": "{\n    click: () => { },\n    rootUrl: '',\n    storeName: '',\n    apiBase: '/api/',\n    rootParams: {}\n  }",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `config` (`ITreeConfig`) configuring config.",
+          "descriptionZh": "输入属性 `config`（类型：`ITreeConfig`），用于配置配置。"
         }
       ],
       "outputs": [
         {
           "name": "toggleExpanded",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Output event emitter `toggleExpanded` (`any`) firing when toggle expanded occurs.",
+          "descriptionZh": "输出事件 `toggleExpanded`（类型：`any`），当触发开关已展开时向外发出事件。"
         },
         {
           "name": "activate",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Output event emitter `activate` (`any`) firing when activate occurs.",
+          "descriptionZh": "输出事件 `activate`（类型：`any`），当触发激活时向外发出事件。"
         },
         {
           "name": "deactivate",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Output event emitter `deactivate` (`any`) firing when deactivate occurs.",
+          "descriptionZh": "输出事件 `deactivate`（类型：`any`），当触发deactivate时向外发出事件。"
         },
         {
           "name": "nodeActivate",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Output event emitter `nodeActivate` (`any`) firing when node activate occurs.",
+          "descriptionZh": "输出事件 `nodeActivate`（类型：`any`），当触发节点激活时向外发出事件。"
         },
         {
           "name": "nodeDeactivate",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Output event emitter `nodeDeactivate` (`any`) firing when node deactivate occurs.",
+          "descriptionZh": "输出事件 `nodeDeactivate`（类型：`any`），当触发节点Deactivate时向外发出事件。"
         },
         {
           "name": "select",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Output event emitter `select` (`any`) firing when select occurs.",
+          "descriptionZh": "输出事件 `select`（类型：`any`），当触发下拉选择时向外发出事件。"
         },
         {
           "name": "deselect",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Output event emitter `deselect` (`any`) firing when deselect occurs.",
+          "descriptionZh": "输出事件 `deselect`（类型：`any`），当触发取消选中时向外发出事件。"
         },
         {
           "name": "focus",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Output event emitter `focus` (`any`) firing when focus occurs.",
+          "descriptionZh": "输出事件 `focus`（类型：`any`），当触发聚焦时向外发出事件。"
         },
         {
           "name": "blur",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Output event emitter `blur` (`any`) firing when blur occurs.",
+          "descriptionZh": "输出事件 `blur`（类型：`any`），当触发失焦时向外发出事件。"
         },
         {
           "name": "updateData",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Output event emitter `updateData` (`any`) firing when update data occurs.",
+          "descriptionZh": "输出事件 `updateData`（类型：`any`），当触发更新数据时向外发出事件。"
         },
         {
           "name": "initialized",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Output event emitter `initialized` (`any`) firing when initialized occurs.",
+          "descriptionZh": "输出事件 `initialized`（类型：`any`），当触发已初始化时向外发出事件。"
         },
         {
           "name": "moveNode",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Output event emitter `moveNode` (`any`) firing when move node occurs.",
+          "descriptionZh": "输出事件 `moveNode`（类型：`any`），当触发移动节点时向外发出事件。"
         },
         {
           "name": "copyNode",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Output event emitter `copyNode` (`any`) firing when copy node occurs.",
+          "descriptionZh": "输出事件 `copyNode`（类型：`any`），当触发复制节点时向外发出事件。"
         },
         {
           "name": "loadNodeChildren",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Output event emitter `loadNodeChildren` (`any`) firing when load node children occurs.",
+          "descriptionZh": "输出事件 `loadNodeChildren`（类型：`any`），当触发加载节点子级列表时向外发出事件。"
         },
         {
           "name": "changeFilter",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Output event emitter `changeFilter` (`any`) firing when change filter occurs.",
+          "descriptionZh": "输出事件 `changeFilter`（类型：`any`），当触发变更过滤时向外发出事件。"
         },
         {
           "name": "event",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Output event emitter `event` (`any`) firing when event occurs.",
+          "descriptionZh": "输出事件 `event`（类型：`any`），当触发事件时向外发出事件。"
         },
         {
           "name": "stateChange",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Output event emitter `stateChange` (`any`) firing when state change occurs.",
+          "descriptionZh": "输出事件 `stateChange`（类型：`any`），当触发状态变更时向外发出事件。"
         }
       ],
       "methods": [
@@ -331,8 +593,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `onKeydown` to handle on keydown.",
+          "descriptionZh": "执行 `onKeydown`，用于当按键按下。"
         },
         {
           "name": "onMousedown",
@@ -343,8 +605,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `onMousedown` to handle on mousedown.",
+          "descriptionZh": "执行 `onMousedown`，用于当鼠标按下。"
         },
         {
           "name": "loadParentNode",
@@ -355,8 +617,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `loadParentNode` to handle load parent node.",
+          "descriptionZh": "执行 `loadParentNode`，用于加载父级节点。"
         },
         {
           "name": "loadSelfNode",
@@ -367,8 +629,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `loadSelfNode` to handle load self node.",
+          "descriptionZh": "执行 `loadSelfNode`，用于加载自身节点。"
         },
         {
           "name": "setActiveNodeLabel",
@@ -379,8 +641,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `setActiveNodeLabel` to handle set active node label.",
+          "descriptionZh": "执行 `setActiveNodeLabel`，用于集合激活节点标签。"
         },
         {
           "name": "setActiveNodeIcon",
@@ -391,8 +653,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `setActiveNodeIcon` to handle set active node icon.",
+          "descriptionZh": "执行 `setActiveNodeIcon`，用于集合激活节点图标。"
         },
         {
           "name": "dropActiveNode",
@@ -403,15 +665,15 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `dropActiveNode` to handle drop active node.",
+          "descriptionZh": "执行 `dropActiveNode`，用于放置激活节点。"
         },
         {
           "name": "refresh",
           "params": [],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `refresh` to handle refresh.",
+          "descriptionZh": "执行 `refresh`，用于刷新。"
         },
         {
           "name": "loadSubNode",
@@ -422,8 +684,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `loadSubNode` to handle load sub node.",
+          "descriptionZh": "执行 `loadSubNode`，用于加载子节点。"
         },
         {
           "name": "setAcvitNode",
@@ -438,8 +700,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `setAcvitNode` to handle set acvit node.",
+          "descriptionZh": "执行 `setAcvitNode`，用于集合Acvit节点。"
         },
         {
           "name": "getChildren",
@@ -450,8 +712,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `getChildren` to handle get children.",
+          "descriptionZh": "执行 `getChildren`，用于获取子级列表。"
         },
         {
           "name": "exeHistoryNode",
@@ -462,8 +724,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `exeHistoryNode` to handle exe history node.",
+          "descriptionZh": "执行 `exeHistoryNode`，用于exe历史记录节点。"
         },
         {
           "name": "loadNodeByPath",
@@ -478,8 +740,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `loadNodeByPath` to handle load node by path.",
+          "descriptionZh": "执行 `loadNodeByPath`，用于加载节点按路径。"
         },
         {
           "name": "loadPath",
@@ -490,8 +752,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `loadPath` to handle load path.",
+          "descriptionZh": "执行 `loadPath`，用于加载路径。"
         },
         {
           "name": "getTree",
@@ -506,53 +768,53 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `getTree` to handle get tree.",
+          "descriptionZh": "执行 `getTree`，用于获取树形控件。"
         },
         {
           "name": "sizeChanged",
           "params": [],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `sizeChanged` to handle size changed.",
+          "descriptionZh": "执行 `sizeChanged`，用于尺寸已变更。"
         }
       ],
       "properties": [
         {
           "name": "loadingTemplate",
           "type": "TemplateRef<any>",
-          "description": null,
-          "descriptionZh": null
+          "description": "Template/content query reference `loadingTemplate` (`@ContentChild`) targeting loading template.",
+          "descriptionZh": "模板/内容视图查询引用 `loadingTemplate`（`@ContentChild`），指向加载中模板。"
         },
         {
           "name": "treeNodeTemplate",
           "type": "TemplateRef<any>",
-          "description": null,
-          "descriptionZh": null
+          "description": "Template/content query reference `treeNodeTemplate` (`@ContentChild`) targeting tree node template.",
+          "descriptionZh": "模板/内容视图查询引用 `treeNodeTemplate`（`@ContentChild`），指向树形控件节点模板。"
         },
         {
           "name": "treeNodeWrapperTemplate",
           "type": "TemplateRef<any>",
-          "description": null,
-          "descriptionZh": null
+          "description": "Template/content query reference `treeNodeWrapperTemplate` (`@ContentChild`) targeting tree node wrapper template.",
+          "descriptionZh": "模板/内容视图查询引用 `treeNodeWrapperTemplate`（`@ContentChild`），指向树形控件节点包装器模板。"
         },
         {
           "name": "treeNodeFullTemplate",
           "type": "TemplateRef<any>",
-          "description": null,
-          "descriptionZh": null
+          "description": "Template/content query reference `treeNodeFullTemplate` (`@ContentChild`) targeting tree node full template.",
+          "descriptionZh": "模板/内容视图查询引用 `treeNodeFullTemplate`（`@ContentChild`），指向树形控件节点完整模板。"
         },
         {
           "name": "viewportComponent",
           "type": "TreeViewportComponent",
-          "description": null,
-          "descriptionZh": null
+          "description": "Template/content query reference `viewportComponent` (`@ViewChild`) targeting viewport component.",
+          "descriptionZh": "模板/内容视图查询引用 `viewportComponent`（`@ViewChild`），指向视口组件。"
         },
         {
           "name": "selectedNodes",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current selected nodes (`selectedNodes: any`).",
+          "descriptionZh": "获取当前已选中节点列表（`selectedNodes: any`）。"
         }
       ]
     },
@@ -560,22 +822,22 @@
       "name": "TreeDragDirective",
       "kind": "directive",
       "selector": "[treeDrag]",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular directive `TreeDragDirective` (selector: '[treeDrag]') attaching tree drag directive behavior to host DOM elements.",
+      "summaryZh": "Angular 指令 `TreeDragDirective`（selector: '[treeDrag]'），为宿主 DOM 元素附加树形控件拖拽指令行为。",
       "sourceFile": "src/tree/directives/tree-drag.directive.ts",
       "inputs": [
         {
           "name": "draggedElement",
           "alias": "treeDrag",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `treeDrag` (`any`) configuring dragged element.",
+          "descriptionZh": "输入属性 `treeDrag`（类型：`any`），用于配置dragged元素。"
         },
         {
           "name": "treeDragEnabled",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `treeDragEnabled` (`any`) configuring tree drag enabled.",
+          "descriptionZh": "输入属性 `treeDragEnabled`（类型：`any`），用于配置树形控件拖拽已启用。"
         }
       ],
       "outputs": [],
@@ -589,8 +851,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Host event listener `onDragStart` handling `dragstart` events for on drag start.",
+          "descriptionZh": "宿主事件监听方法 `onDragStart`，响应 `dragstart` 事件以处理当拖拽开始。"
         },
         {
           "name": "onDrag",
@@ -601,15 +863,15 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `onDrag` to handle on drag.",
+          "descriptionZh": "执行 `onDrag`，用于当拖拽。"
         },
         {
           "name": "onDragEnd",
           "params": [],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Host event listener `onDragEnd` handling `dragend` events for on drag end.",
+          "descriptionZh": "宿主事件监听方法 `onDragEnd`，响应 `dragend` 事件以处理当拖拽结束。"
         }
       ],
       "properties": []
@@ -617,8 +879,8 @@
     {
       "name": "TreeDraggedElement",
       "kind": "service",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Injectable Angular service `TreeDraggedElement` managing tree dragged element state and operations in `src/tree/models`.",
+      "summaryZh": "可注入的 Angular 服务 `TreeDraggedElement`，管理 `src/tree/models` 中的树形控件Dragged元素状态与业务操作。",
       "sourceFile": "src/tree/models/tree-dragged-element.model.ts",
       "inputs": [],
       "outputs": [],
@@ -632,22 +894,22 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `set` to handle set.",
+          "descriptionZh": "执行 `set`，用于集合。"
         },
         {
           "name": "get",
           "params": [],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `get` to handle get.",
+          "descriptionZh": "执行 `get`，用于获取。"
         },
         {
           "name": "isDragging",
           "params": [],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `isDragging` to handle is dragging.",
+          "descriptionZh": "执行 `isDragging`，用于是否为拖拽中。"
         }
       ],
       "properties": []
@@ -656,48 +918,48 @@
       "name": "TreeDropDirective",
       "kind": "directive",
       "selector": "[treeDrop]",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular directive `TreeDropDirective` (selector: '[treeDrop]') attaching tree drop directive behavior to host DOM elements.",
+      "summaryZh": "Angular 指令 `TreeDropDirective`（selector: '[treeDrop]'），为宿主 DOM 元素附加树形控件放置指令行为。",
       "sourceFile": "src/tree/directives/tree-drop.directive.ts",
       "inputs": [
         {
           "name": "allowDragoverStyling",
           "type": "any",
           "default": "true",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `allowDragoverStyling` (`boolean`) configuring allow dragover styling (default: `true`).",
+          "descriptionZh": "输入属性 `allowDragoverStyling`（类型：`boolean`），用于配置允许Dragover样式（默认值：`true`）。"
         },
         {
           "name": "treeAllowDrop",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input setter `treeAllowDrop` updating tree allow drop.",
+          "descriptionZh": "输入属性 `treeAllowDrop` 的设置器，用于更新树形控件允许放置。"
         }
       ],
       "outputs": [
         {
           "name": "onDropCallback",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Output event emitter `treeDrop` (`EventEmitter`) firing when on drop callback occurs.",
+          "descriptionZh": "输出事件 `treeDrop`（类型：`EventEmitter`），当触发当放置回调函数时向外发出事件。"
         },
         {
           "name": "onDragOverCallback",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Output event emitter `treeDropDragOver` (`EventEmitter`) firing when on drag over callback occurs.",
+          "descriptionZh": "输出事件 `treeDropDragOver`（类型：`EventEmitter`），当触发当拖拽越过回调函数时向外发出事件。"
         },
         {
           "name": "onDragLeaveCallback",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Output event emitter `treeDropDragLeave` (`EventEmitter`) firing when on drag leave callback occurs.",
+          "descriptionZh": "输出事件 `treeDropDragLeave`（类型：`EventEmitter`），当触发当拖拽离开回调函数时向外发出事件。"
         },
         {
           "name": "onDragEnterCallback",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Output event emitter `treeDropDragEnter` (`EventEmitter`) firing when on drag enter callback occurs.",
+          "descriptionZh": "输出事件 `treeDropDragEnter`（类型：`EventEmitter`），当触发当拖拽进入回调函数时向外发出事件。"
         }
       ],
       "methods": [
@@ -710,8 +972,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `allowDrop` to handle allow drop.",
+          "descriptionZh": "执行 `allowDrop`，用于允许放置。"
         },
         {
           "name": "onDragOver",
@@ -722,8 +984,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `onDragOver` to handle on drag over.",
+          "descriptionZh": "执行 `onDragOver`，用于当拖拽越过。"
         },
         {
           "name": "onDragEnter",
@@ -734,8 +996,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `onDragEnter` to handle on drag enter.",
+          "descriptionZh": "执行 `onDragEnter`，用于当拖拽进入。"
         },
         {
           "name": "onDragLeave",
@@ -746,8 +1008,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `onDragLeave` to handle on drag leave.",
+          "descriptionZh": "执行 `onDragLeave`，用于当拖拽离开。"
         },
         {
           "name": "onDrop",
@@ -758,8 +1020,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Host event listener `onDrop` handling `drop` events for on drop.",
+          "descriptionZh": "宿主事件监听方法 `onDrop`，响应 `drop` 事件以处理当放置。"
         }
       ],
       "properties": []
@@ -768,15 +1030,15 @@
       "name": "TreeMobxAutorunDirective",
       "kind": "directive",
       "selector": "[treeMobxAutorun]",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular directive `TreeMobxAutorunDirective` (selector: '[treeMobxAutorun]') attaching tree mobx autorun directive behavior to host DOM elements.",
+      "summaryZh": "Angular 指令 `TreeMobxAutorunDirective`（selector: '[treeMobxAutorun]'），为宿主 DOM 元素附加树形控件MobxAutorun指令行为。",
       "sourceFile": "src/tree/mobx-angular/tree-mobx-autorun.directive.ts",
       "inputs": [
         {
           "name": "treeMobxAutorun",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `treeMobxAutorun` (`any`) configuring tree mobx autorun.",
+          "descriptionZh": "输入属性 `treeMobxAutorun`（类型：`any`），用于配置树形控件MobxAutorun。"
         }
       ],
       "outputs": [],
@@ -785,8 +1047,8 @@
           "name": "shouldDetach",
           "params": [],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `shouldDetach` to handle should detach.",
+          "descriptionZh": "执行 `shouldDetach`，用于是否应当卸载。"
         },
         {
           "name": "autoDetect",
@@ -797,8 +1059,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `autoDetect` to handle auto detect.",
+          "descriptionZh": "执行 `autoDetect`，用于自动检测。"
         }
       ],
       "properties": []
@@ -806,8 +1068,8 @@
     {
       "name": "TreeModel",
       "kind": "service",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Injectable Angular service `TreeModel` managing tree model state and operations in `src/tree/models`.",
+      "summaryZh": "可注入的 Angular 服务 `TreeModel`，管理 `src/tree/models` 中的树形控件模型状态与业务操作。",
       "sourceFile": "src/tree/models/tree.model.ts",
       "inputs": [],
       "outputs": [],
@@ -821,8 +1083,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `fireEvent` to handle fire event.",
+          "descriptionZh": "执行 `fireEvent`，用于触发事件。"
         },
         {
           "name": "subscribe",
@@ -837,8 +1099,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `subscribe` to handle subscribe.",
+          "descriptionZh": "执行 `subscribe`，用于订阅。"
         },
         {
           "name": "unsubscribe",
@@ -853,36 +1115,36 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `unsubscribe` to handle unsubscribe.",
+          "descriptionZh": "执行 `unsubscribe`，用于取消订阅。"
         },
         {
           "name": "getFocusedNode",
           "params": [],
           "returnType": "TreeNode",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `getFocusedNode` to handle get focused node.",
+          "descriptionZh": "执行 `getFocusedNode`，用于获取已聚焦节点。"
         },
         {
           "name": "getActiveNode",
           "params": [],
           "returnType": "TreeNode",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `getActiveNode` to handle get active node.",
+          "descriptionZh": "执行 `getActiveNode`，用于获取激活节点。"
         },
         {
           "name": "getActiveNodes",
           "params": [],
           "returnType": "TreeNode[]",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `getActiveNodes` to handle get active nodes.",
+          "descriptionZh": "执行 `getActiveNodes`，用于获取激活节点列表。"
         },
         {
           "name": "getVisibleRoots",
           "params": [],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `getVisibleRoots` to handle get visible roots.",
+          "descriptionZh": "执行 `getVisibleRoots`，用于获取可见根节点。"
         },
         {
           "name": "getFirstRoot",
@@ -893,8 +1155,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `getFirstRoot` to handle get first root.",
+          "descriptionZh": "执行 `getFirstRoot`，用于获取首个根节点。"
         },
         {
           "name": "getLastRoot",
@@ -905,8 +1167,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `getLastRoot` to handle get last root.",
+          "descriptionZh": "执行 `getLastRoot`，用于获取末尾根节点。"
         },
         {
           "name": "isNodeFocused",
@@ -917,22 +1179,22 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `isNodeFocused` to handle is node focused.",
+          "descriptionZh": "执行 `isNodeFocused`，用于是否为节点已聚焦。"
         },
         {
           "name": "isEmptyTree",
           "params": [],
           "returnType": "boolean",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `isEmptyTree` to handle is empty tree.",
+          "descriptionZh": "执行 `isEmptyTree`，用于是否为空树形控件。"
         },
         {
           "name": "getNodePath",
           "params": [],
           "returnType": "Array<TreeNode>",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `getNodePath` to handle get node path.",
+          "descriptionZh": "执行 `getNodePath`，用于获取节点路径。"
         },
         {
           "name": "getNodeByPath",
@@ -947,8 +1209,8 @@
             }
           ],
           "returnType": "TreeNode",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `getNodeByPath` to handle get node by path.",
+          "descriptionZh": "执行 `getNodeByPath`，用于获取节点按路径。"
         },
         {
           "name": "getNodeById",
@@ -959,8 +1221,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `getNodeById` to handle get node by id.",
+          "descriptionZh": "执行 `getNodeById`，用于获取节点按唯一标识。"
         },
         {
           "name": "getNodeBy",
@@ -975,8 +1237,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `getNodeBy` to handle get node by.",
+          "descriptionZh": "执行 `getNodeBy`，用于获取节点按。"
         },
         {
           "name": "isExpanded",
@@ -987,8 +1249,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `isExpanded` to handle is expanded.",
+          "descriptionZh": "执行 `isExpanded`，用于是否为已展开。"
         },
         {
           "name": "isHidden",
@@ -999,8 +1261,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `isHidden` to handle is hidden.",
+          "descriptionZh": "执行 `isHidden`，用于是否为隐藏。"
         },
         {
           "name": "isActive",
@@ -1011,8 +1273,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `isActive` to handle is active.",
+          "descriptionZh": "执行 `isActive`，用于是否为激活。"
         },
         {
           "name": "isSelected",
@@ -1023,8 +1285,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `isSelected` to handle is selected.",
+          "descriptionZh": "执行 `isSelected`，用于是否为已选中。"
         },
         {
           "name": "setEvents",
@@ -1035,22 +1297,22 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `setEvents` to handle set events.",
+          "descriptionZh": "执行 `setEvents`，用于集合事件集合。"
         },
         {
           "name": "dispose",
           "params": [],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `dispose` to handle dispose.",
+          "descriptionZh": "执行 `dispose`，用于释放。"
         },
         {
           "name": "unsubscribeAll",
           "params": [],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `unsubscribeAll` to handle unsubscribe all.",
+          "descriptionZh": "执行 `unsubscribeAll`，用于取消订阅全部。"
         },
         {
           "name": "setData",
@@ -1061,15 +1323,15 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `setData` to handle set data.",
+          "descriptionZh": "执行 `setData`，用于集合数据。"
         },
         {
           "name": "update",
           "params": [],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `update` to handle update.",
+          "descriptionZh": "执行 `update`，用于更新。"
         },
         {
           "name": "setFocusedNode",
@@ -1080,8 +1342,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `setFocusedNode` to handle set focused node.",
+          "descriptionZh": "执行 `setFocusedNode`，用于集合已聚焦节点。"
         },
         {
           "name": "setFocus",
@@ -1092,8 +1354,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `setFocus` to handle set focus.",
+          "descriptionZh": "执行 `setFocus`，用于集合聚焦。"
         },
         {
           "name": "doForAll",
@@ -1104,36 +1366,36 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `doForAll` to handle do for all.",
+          "descriptionZh": "执行 `doForAll`，用于do用于全部。"
         },
         {
           "name": "focusNextNode",
           "params": [],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `focusNextNode` to handle focus next node.",
+          "descriptionZh": "执行 `focusNextNode`，用于聚焦下一个节点。"
         },
         {
           "name": "focusPreviousNode",
           "params": [],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `focusPreviousNode` to handle focus previous node.",
+          "descriptionZh": "执行 `focusPreviousNode`，用于聚焦上一个节点。"
         },
         {
           "name": "focusDrillDown",
           "params": [],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `focusDrillDown` to handle focus drill down.",
+          "descriptionZh": "执行 `focusDrillDown`，用于聚焦Drill向下。"
         },
         {
           "name": "focusDrillUp",
           "params": [],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `focusDrillUp` to handle focus drill up.",
+          "descriptionZh": "执行 `focusDrillUp`，用于聚焦Drill向上。"
         },
         {
           "name": "setActiveNode",
@@ -1152,8 +1414,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `setActiveNode` to handle set active node.",
+          "descriptionZh": "执行 `setActiveNode`，用于集合激活节点。"
         },
         {
           "name": "setSelectedNode",
@@ -1172,8 +1434,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `setSelectedNode` to handle set selected node.",
+          "descriptionZh": "执行 `setSelectedNode`，用于集合已选中节点。"
         },
         {
           "name": "setExpandedNode",
@@ -1192,22 +1454,22 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `setExpandedNode` to handle set expanded node.",
+          "descriptionZh": "执行 `setExpandedNode`，用于集合已展开节点。"
         },
         {
           "name": "expandAll",
           "params": [],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `expandAll` to handle expand all.",
+          "descriptionZh": "执行 `expandAll`，用于展开全部。"
         },
         {
           "name": "collapseAll",
           "params": [],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `collapseAll` to handle collapse all.",
+          "descriptionZh": "执行 `collapseAll`，用于折叠全部。"
         },
         {
           "name": "setIsHidden",
@@ -1222,8 +1484,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `setIsHidden` to handle set is hidden.",
+          "descriptionZh": "执行 `setIsHidden`，用于集合是否为隐藏。"
         },
         {
           "name": "setHiddenNodeIds",
@@ -1234,8 +1496,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `setHiddenNodeIds` to handle set hidden node ids.",
+          "descriptionZh": "执行 `setHiddenNodeIds`，用于集合隐藏节点标识列表。"
         },
         {
           "name": "performKeyAction",
@@ -1250,8 +1512,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `performKeyAction` to handle perform key action.",
+          "descriptionZh": "执行 `performKeyAction`，用于perform键动作。"
         },
         {
           "name": "filterNodes",
@@ -1266,15 +1528,15 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `filterNodes` to handle filter nodes.",
+          "descriptionZh": "执行 `filterNodes`，用于过滤节点列表。"
         },
         {
           "name": "clearFilter",
           "params": [],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `clearFilter` to handle clear filter.",
+          "descriptionZh": "执行 `clearFilter`，用于清空过滤。"
         },
         {
           "name": "moveNode",
@@ -1289,8 +1551,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `moveNode` to handle move node.",
+          "descriptionZh": "执行 `moveNode`，用于移动节点。"
         },
         {
           "name": "removeNode",
@@ -1301,8 +1563,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `removeNode` to handle remove node.",
+          "descriptionZh": "执行 `removeNode`，用于移除节点。"
         },
         {
           "name": "copyNode",
@@ -1317,15 +1579,15 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `copyNode` to handle copy node.",
+          "descriptionZh": "执行 `copyNode`，用于复制节点。"
         },
         {
           "name": "getState",
           "params": [],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `getState` to handle get state.",
+          "descriptionZh": "执行 `getState`，用于获取状态。"
         },
         {
           "name": "setState",
@@ -1336,8 +1598,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `setState` to handle set state.",
+          "descriptionZh": "执行 `setState`，用于集合状态。"
         },
         {
           "name": "subscribeToState",
@@ -1348,8 +1610,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `subscribeToState` to handle subscribe to state.",
+          "descriptionZh": "执行 `subscribeToState`，用于订阅转换为状态。"
         },
         {
           "name": "canMoveNode",
@@ -1368,15 +1630,15 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `canMoveNode` to handle can move node.",
+          "descriptionZh": "执行 `canMoveNode`，用于是否可以移动节点。"
         },
         {
           "name": "calculateExpandedNodes",
           "params": [],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `calculateExpandedNodes` to handle calculate expanded nodes.",
+          "descriptionZh": "执行 `calculateExpandedNodes`，用于计算已展开节点列表。"
         }
       ],
       "properties": [
@@ -1384,146 +1646,146 @@
           "name": "focusedTree",
           "type": "any",
           "default": "null",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `focusedTree` (`any`) storing focused tree (default: `null`).",
+          "descriptionZh": "属性 `focusedTree`（类型：`any`），用于存储或配置已聚焦树形控件（默认值：`null`）。"
         },
         {
           "name": "options",
           "type": "TreeOptions",
           "default": "new TreeOptions()",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `options` (`TreeOptions`) storing options (default: `new TreeOptions()`).",
+          "descriptionZh": "属性 `options`（类型：`TreeOptions`），用于存储或配置配置选项（默认值：`new TreeOptions()`）。"
         },
         {
           "name": "nodes",
           "type": "any[]",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `nodes` (`any[]`) storing nodes.",
+          "descriptionZh": "属性 `nodes`（类型：`any[]`），用于存储或配置节点列表。"
         },
         {
           "name": "eventNames",
           "type": "any",
           "default": "Object.keys(TREE_EVENTS)",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `eventNames` (`any`) storing event names (default: `Object.keys(TREE_EVENTS)`).",
+          "descriptionZh": "属性 `eventNames`（类型：`any`），用于存储或配置事件名称列表（默认值：`Object.keys(TREE_EVENTS)`）。"
         },
         {
           "name": "virtualScroll",
           "type": "TreeVirtualScroll",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `virtualScroll` (`TreeVirtualScroll`) storing virtual scroll.",
+          "descriptionZh": "属性 `virtualScroll`（类型：`TreeVirtualScroll`），用于存储或配置虚拟滚动滚动。"
         },
         {
           "name": "roots",
           "type": "TreeNode[]",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `roots` (`TreeNode[]`) storing roots.",
+          "descriptionZh": "属性 `roots`（类型：`TreeNode[]`），用于存储或配置根节点。"
         },
         {
           "name": "expandedNodeIds",
           "type": "IDTypeDictionary",
           "default": "{}",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `expandedNodeIds` (`IDTypeDictionary`) storing expanded node ids (default: `{}`).",
+          "descriptionZh": "属性 `expandedNodeIds`（类型：`IDTypeDictionary`），用于存储或配置已展开节点标识列表（默认值：`{}`）。"
         },
         {
           "name": "selectedLeafNodeIds",
           "type": "IDTypeDictionary",
           "default": "{}",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `selectedLeafNodeIds` (`IDTypeDictionary`) storing selected leaf node ids (default: `{}`).",
+          "descriptionZh": "属性 `selectedLeafNodeIds`（类型：`IDTypeDictionary`），用于存储或配置已选中叶子节点节点标识列表（默认值：`{}`）。"
         },
         {
           "name": "activeNodeIds",
           "type": "IDTypeDictionary",
           "default": "{}",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `activeNodeIds` (`IDTypeDictionary`) storing active node ids (default: `{}`).",
+          "descriptionZh": "属性 `activeNodeIds`（类型：`IDTypeDictionary`），用于存储或配置激活节点标识列表（默认值：`{}`）。"
         },
         {
           "name": "hiddenNodeIds",
           "type": "IDTypeDictionary",
           "default": "{}",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `hiddenNodeIds` (`IDTypeDictionary`) storing hidden node ids (default: `{}`).",
+          "descriptionZh": "属性 `hiddenNodeIds`（类型：`IDTypeDictionary`），用于存储或配置隐藏节点标识列表（默认值：`{}`）。"
         },
         {
           "name": "focusedNodeId",
           "type": "IDType",
           "default": "null",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `focusedNodeId` (`IDType`) storing focused node id (default: `null`).",
+          "descriptionZh": "属性 `focusedNodeId`（类型：`IDType`），用于存储或配置已聚焦节点唯一标识（默认值：`null`）。"
         },
         {
           "name": "virtualRoot",
           "type": "TreeNode",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `virtualRoot` (`TreeNode`) storing virtual root.",
+          "descriptionZh": "属性 `virtualRoot`（类型：`TreeNode`），用于存储或配置虚拟滚动根节点。"
         },
         {
           "name": "firstUpdate",
           "type": "any",
           "default": "true",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `firstUpdate` (`boolean`) storing first update (default: `true`).",
+          "descriptionZh": "属性 `firstUpdate`（类型：`boolean`），用于存储或配置首个更新（默认值：`true`）。"
         },
         {
           "name": "idSet",
           "type": "Set<string>",
           "default": "new Set()",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `idSet` (`Set<string>`) storing id set (default: `new Set()`).",
+          "descriptionZh": "属性 `idSet`（类型：`Set<string>`），用于存储或配置唯一标识集合（默认值：`new Set()`）。"
         },
         {
           "name": "nodeRegistry",
           "type": "any",
           "default": "new Map<string, TreeNode>()",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `nodeRegistry` (`Map`) storing node registry (default: `new Map<string, TreeNode>()`).",
+          "descriptionZh": "属性 `nodeRegistry`（类型：`Map`），用于存储或配置节点Registry（默认值：`new Map<string, TreeNode>()`）。"
         },
         {
           "name": "isFocused",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current is focused (`isFocused: any`).",
+          "descriptionZh": "获取当前是否为已聚焦（`isFocused: any`）。"
         },
         {
           "name": "focusedNode",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current focused node (`focusedNode: any`).",
+          "descriptionZh": "获取当前已聚焦节点（`focusedNode: any`）。"
         },
         {
           "name": "expandedNodes",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current expanded nodes (`expandedNodes: any`).",
+          "descriptionZh": "获取当前已展开节点列表（`expandedNodes: any`）。"
         },
         {
           "name": "activeNodes",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current active nodes (`activeNodes: any`).",
+          "descriptionZh": "获取当前激活节点列表（`activeNodes: any`）。"
         },
         {
           "name": "hiddenNodes",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current hidden nodes (`hiddenNodes: any`).",
+          "descriptionZh": "获取当前隐藏节点列表（`hiddenNodes: any`）。"
         },
         {
           "name": "selectedLeafNodes",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current selected leaf nodes (`selectedLeafNodes: any`).",
+          "descriptionZh": "获取当前已选中叶子节点节点列表（`selectedLeafNodes: any`）。"
         }
       ]
     },
     {
       "name": "TreeModule",
       "kind": "module",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular module `TreeModule` declaring and exporting tree module components, directives, pipes, and providers.",
+      "summaryZh": "Angular 模块 `TreeModule`，声明并导出树形控件模块相关的组件、指令、管道与服务提供者。",
       "sourceFile": "src/tree/tree.module.ts",
       "inputs": [],
       "outputs": [],
@@ -1533,8 +1795,8 @@
     {
       "name": "TreeNode",
       "kind": "class",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Class `TreeNode` encapsulating tree node data structures and logic in `src/tree/models`.",
+      "summaryZh": "类 `TreeNode`，封装 `src/tree/models` 中的树形控件节点数据结构与处理逻辑。",
       "sourceFile": "src/tree/models/tree-node.model.ts",
       "inputs": [],
       "outputs": [],
@@ -1548,8 +1810,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `fireEvent` to handle fire event.",
+          "descriptionZh": "执行 `fireEvent`，用于触发事件。"
         },
         {
           "name": "getField",
@@ -1560,8 +1822,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `getField` to handle get field.",
+          "descriptionZh": "执行 `getField`，用于获取字段。"
         },
         {
           "name": "setField",
@@ -1576,15 +1838,15 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `setField` to handle set field.",
+          "descriptionZh": "执行 `setField`，用于集合字段。"
         },
         {
           "name": "clear",
           "params": [],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `clear` to handle clear.",
+          "descriptionZh": "执行 `clear`，用于清空。"
         },
         {
           "name": "addNode",
@@ -1595,15 +1857,15 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `addNode` to handle add node.",
+          "descriptionZh": "执行 `addNode`，用于添加节点。"
         },
         {
           "name": "destroy",
           "params": [],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `destroy` to handle destroy.",
+          "descriptionZh": "执行 `destroy`，用于销毁。"
         },
         {
           "name": "findNextSibling",
@@ -1614,8 +1876,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `findNextSibling` to handle find next sibling.",
+          "descriptionZh": "执行 `findNextSibling`，用于查找下一个兄弟节点。"
         },
         {
           "name": "findPreviousSibling",
@@ -1626,15 +1888,15 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `findPreviousSibling` to handle find previous sibling.",
+          "descriptionZh": "执行 `findPreviousSibling`，用于查找上一个兄弟节点。"
         },
         {
           "name": "getVisibleChildren",
           "params": [],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `getVisibleChildren` to handle get visible children.",
+          "descriptionZh": "执行 `getVisibleChildren`，用于获取可见子级列表。"
         },
         {
           "name": "getPathValue",
@@ -1649,8 +1911,8 @@
             }
           ],
           "returnType": "string[]",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `getPathValue` to handle get path value.",
+          "descriptionZh": "执行 `getPathValue`，用于获取路径值。"
         },
         {
           "name": "getFirstChild",
@@ -1661,8 +1923,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `getFirstChild` to handle get first child.",
+          "descriptionZh": "执行 `getFirstChild`，用于获取首个子级。"
         },
         {
           "name": "getLastChild",
@@ -1673,8 +1935,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `getLastChild` to handle get last child.",
+          "descriptionZh": "执行 `getLastChild`，用于获取末尾子级。"
         },
         {
           "name": "findNextNode",
@@ -1689,8 +1951,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `findNextNode` to handle find next node.",
+          "descriptionZh": "执行 `findNextNode`，用于查找下一个节点。"
         },
         {
           "name": "findPreviousNode",
@@ -1701,8 +1963,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `findPreviousNode` to handle find previous node.",
+          "descriptionZh": "执行 `findPreviousNode`，用于查找上一个节点。"
         },
         {
           "name": "getRoot",
@@ -1713,8 +1975,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `getRoot` to handle get root.",
+          "descriptionZh": "执行 `getRoot`，用于获取根节点。"
         },
         {
           "name": "getAllParents",
@@ -1725,8 +1987,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `getAllParents` to handle get all parents.",
+          "descriptionZh": "执行 `getAllParents`，用于获取全部父级。"
         },
         {
           "name": "getAllChildren",
@@ -1737,8 +1999,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `getAllChildren` to handle get all children.",
+          "descriptionZh": "执行 `getAllChildren`，用于获取全部子级列表。"
         },
         {
           "name": "getIndexInParent",
@@ -1749,8 +2011,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `getIndexInParent` to handle get index in parent.",
+          "descriptionZh": "执行 `getIndexInParent`，用于获取索引在父级。"
         },
         {
           "name": "isDescendantOf",
@@ -1761,22 +2023,22 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `isDescendantOf` to handle is descendant of.",
+          "descriptionZh": "执行 `isDescendantOf`，用于是否为后代节点的。"
         },
         {
           "name": "getNodePadding",
           "params": [],
           "returnType": "string",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `getNodePadding` to handle get node padding.",
+          "descriptionZh": "执行 `getNodePadding`，用于获取节点内边距。"
         },
         {
           "name": "getClass",
           "params": [],
           "returnType": "string",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `getClass` to handle get class.",
+          "descriptionZh": "执行 `getClass`，用于获取类名。"
         },
         {
           "name": "onDrop",
@@ -1787,15 +2049,15 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `onDrop` to handle on drop.",
+          "descriptionZh": "执行 `onDrop`，用于当放置。"
         },
         {
           "name": "allowDrag",
           "params": [],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `allowDrag` to handle allow drag.",
+          "descriptionZh": "执行 `allowDrag`，用于允许拖拽。"
         },
         {
           "name": "setNodeChildren",
@@ -1806,15 +2068,15 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `setNodeChildren` to handle set node children.",
+          "descriptionZh": "执行 `setNodeChildren`，用于集合节点子级列表。"
         },
         {
           "name": "loadNodeChildren",
           "params": [],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `loadNodeChildren` to handle load node children.",
+          "descriptionZh": "执行 `loadNodeChildren`，用于加载节点子级列表。"
         },
         {
           "name": "expand",
@@ -1825,8 +2087,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `expand` to handle expand.",
+          "descriptionZh": "执行 `expand`，用于展开。"
         },
         {
           "name": "collapse",
@@ -1837,8 +2099,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `collapse` to handle collapse.",
+          "descriptionZh": "执行 `collapse`，用于折叠。"
         },
         {
           "name": "doForAll",
@@ -1849,8 +2111,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `doForAll` to handle do for all.",
+          "descriptionZh": "执行 `doForAll`，用于do用于全部。"
         },
         {
           "name": "doForAncestors",
@@ -1861,36 +2123,36 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `doForAncestors` to handle do for ancestors.",
+          "descriptionZh": "执行 `doForAncestors`，用于do用于祖先节点。"
         },
         {
           "name": "expandAncestors",
           "params": [],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `expandAncestors` to handle expand ancestors.",
+          "descriptionZh": "执行 `expandAncestors`，用于展开祖先节点。"
         },
         {
           "name": "expandAll",
           "params": [],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `expandAll` to handle expand all.",
+          "descriptionZh": "执行 `expandAll`，用于展开全部。"
         },
         {
           "name": "collapseAll",
           "params": [],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `collapseAll` to handle collapse all.",
+          "descriptionZh": "执行 `collapseAll`，用于折叠全部。"
         },
         {
           "name": "ensureVisible",
           "params": [],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `ensureVisible` to handle ensure visible.",
+          "descriptionZh": "执行 `ensureVisible`，用于ensure可见。"
         },
         {
           "name": "toggleExpanded",
@@ -1901,8 +2163,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `toggleExpanded` to handle toggle expanded.",
+          "descriptionZh": "执行 `toggleExpanded`，用于开关已展开。"
         },
         {
           "name": "setIsExpanded",
@@ -1917,22 +2179,22 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `setIsExpanded` to handle set is expanded.",
+          "descriptionZh": "执行 `setIsExpanded`，用于集合是否为已展开。"
         },
         {
           "name": "autoLoadChildren",
           "params": [],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `autoLoadChildren` to handle auto load children.",
+          "descriptionZh": "执行 `autoLoadChildren`，用于自动加载子级列表。"
         },
         {
           "name": "dispose",
           "params": [],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `dispose` to handle dispose.",
+          "descriptionZh": "执行 `dispose`，用于释放。"
         },
         {
           "name": "setIsActive",
@@ -1947,15 +2209,15 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `setIsActive` to handle set is active.",
+          "descriptionZh": "执行 `setIsActive`，用于集合是否为激活。"
         },
         {
           "name": "isSelectable",
           "params": [],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `isSelectable` to handle is selectable.",
+          "descriptionZh": "执行 `isSelectable`，用于是否为是否可选中。"
         },
         {
           "name": "setIsSelected",
@@ -1970,15 +2232,15 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `setIsSelected` to handle set is selected.",
+          "descriptionZh": "执行 `setIsSelected`，用于集合是否为已选中。"
         },
         {
           "name": "toggleSelected",
           "params": [],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `toggleSelected` to handle toggle selected.",
+          "descriptionZh": "执行 `toggleSelected`，用于开关已选中。"
         },
         {
           "name": "toggleActivated",
@@ -1989,8 +2251,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `toggleActivated` to handle toggle activated.",
+          "descriptionZh": "执行 `toggleActivated`，用于开关已激活。"
         },
         {
           "name": "setActiveAndVisible",
@@ -2001,8 +2263,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `setActiveAndVisible` to handle set active and visible.",
+          "descriptionZh": "执行 `setActiveAndVisible`，用于集合激活And可见。"
         },
         {
           "name": "scrollIntoView",
@@ -2013,8 +2275,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `scrollIntoView` to handle scroll into view.",
+          "descriptionZh": "执行 `scrollIntoView`，用于滚动进入视图。"
         },
         {
           "name": "focus",
@@ -2025,15 +2287,15 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `focus` to handle focus.",
+          "descriptionZh": "执行 `focus`，用于聚焦。"
         },
         {
           "name": "blur",
           "params": [],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `blur` to handle blur.",
+          "descriptionZh": "执行 `blur`，用于失焦。"
         },
         {
           "name": "setIsHidden",
@@ -2044,22 +2306,22 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `setIsHidden` to handle set is hidden.",
+          "descriptionZh": "执行 `setIsHidden`，用于集合是否为隐藏。"
         },
         {
           "name": "hide",
           "params": [],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `hide` to handle hide.",
+          "descriptionZh": "执行 `hide`，用于隐藏。"
         },
         {
           "name": "show",
           "params": [],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `show` to handle show.",
+          "descriptionZh": "执行 `show`，用于显示。"
         },
         {
           "name": "mouseAction",
@@ -2078,236 +2340,236 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `mouseAction` to handle mouse action.",
+          "descriptionZh": "执行 `mouseAction`，用于鼠标动作。"
         },
         {
           "name": "getSelfHeight",
           "params": [],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `getSelfHeight` to handle get self height.",
+          "descriptionZh": "执行 `getSelfHeight`，用于获取自身高度。"
         }
       ],
       "properties": [
         {
           "name": "isHidden",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current is hidden (`isHidden: any`).",
+          "descriptionZh": "获取当前是否为隐藏（`isHidden: any`）。"
         },
         {
           "name": "isExpanded",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current is expanded (`isExpanded: any`).",
+          "descriptionZh": "获取当前是否为已展开（`isExpanded: any`）。"
         },
         {
           "name": "isActive",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current is active (`isActive: any`).",
+          "descriptionZh": "获取当前是否为激活（`isActive: any`）。"
         },
         {
           "name": "isFocused",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current is focused (`isFocused: any`).",
+          "descriptionZh": "获取当前是否为已聚焦（`isFocused: any`）。"
         },
         {
           "name": "isSelected",
           "type": "boolean",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current is selected (`isSelected: boolean`).",
+          "descriptionZh": "获取当前是否为已选中（`isSelected: boolean`）。"
         },
         {
           "name": "isAllSelected",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current is all selected (`isAllSelected: any`).",
+          "descriptionZh": "获取当前是否为全部已选中（`isAllSelected: any`）。"
         },
         {
           "name": "isPartiallySelected",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current is partially selected (`isPartiallySelected: any`).",
+          "descriptionZh": "获取当前是否为Partially已选中（`isPartiallySelected: any`）。"
         },
         {
           "name": "children",
           "type": "TreeNode[]",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `children` (`TreeNode[]`) storing children.",
+          "descriptionZh": "属性 `children`（类型：`TreeNode[]`），用于存储或配置子级列表。"
         },
         {
           "name": "index",
           "type": "number",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `index` (`number`) storing index.",
+          "descriptionZh": "属性 `index`（类型：`number`），用于存储或配置索引。"
         },
         {
           "name": "position",
           "type": "any",
           "default": "0",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `position` (`number`) storing position (default: `0`).",
+          "descriptionZh": "属性 `position`（类型：`number`），用于存储或配置位置（默认值：`0`）。"
         },
         {
           "name": "height",
           "type": "number",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `height` (`number`) storing height.",
+          "descriptionZh": "属性 `height`（类型：`number`），用于存储或配置高度。"
         },
         {
           "name": "level",
           "type": "number",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current level (`level: number`).",
+          "descriptionZh": "获取当前层级（`level: number`）。"
         },
         {
           "name": "path",
           "type": "string[]",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current path (`path: string[]`).",
+          "descriptionZh": "获取当前路径（`path: string[]`）。"
         },
         {
           "name": "elementRef",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current element ref (`elementRef: any`).",
+          "descriptionZh": "获取当前元素引用（`elementRef: any`）。"
         },
         {
           "name": "originalNode",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current original node (`originalNode: any`).",
+          "descriptionZh": "获取当前原始节点（`originalNode: any`）。"
         },
         {
           "name": "hasChildren",
           "type": "boolean",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current has children (`hasChildren: boolean`).",
+          "descriptionZh": "获取当前是否包含子级列表（`hasChildren: boolean`）。"
         },
         {
           "name": "isCollapsed",
           "type": "boolean",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current is collapsed (`isCollapsed: boolean`).",
+          "descriptionZh": "获取当前是否为已折叠（`isCollapsed: boolean`）。"
         },
         {
           "name": "isLeaf",
           "type": "boolean",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current is leaf (`isLeaf: boolean`).",
+          "descriptionZh": "获取当前是否为叶子节点（`isLeaf: boolean`）。"
         },
         {
           "name": "isRoot",
           "type": "boolean",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current is root (`isRoot: boolean`).",
+          "descriptionZh": "获取当前是否为根节点（`isRoot: boolean`）。"
         },
         {
           "name": "realParent",
           "type": "TreeNode",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current real parent (`realParent: TreeNode`).",
+          "descriptionZh": "获取当前real父级（`realParent: TreeNode`）。"
         },
         {
           "name": "options",
           "type": "TreeOptions",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current options (`options: TreeOptions`).",
+          "descriptionZh": "获取当前配置选项（`options: TreeOptions`）。"
         },
         {
           "name": "displayField",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current display field (`displayField: any`).",
+          "descriptionZh": "获取当前display字段（`displayField: any`）。"
         },
         {
           "name": "id",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current id (`id: any`).",
+          "descriptionZh": "获取当前唯一标识（`id: any`）。"
         },
         {
           "name": "id",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Sets the id (`id`).",
+          "descriptionZh": "设置唯一标识（`id`）。"
         },
         {
           "name": "expandedIcon",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current expanded icon (`expandedIcon: any`).",
+          "descriptionZh": "获取当前已展开图标（`expandedIcon: any`）。"
         },
         {
           "name": "icon",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current icon (`icon: any`).",
+          "descriptionZh": "获取当前图标（`icon: any`）。"
         },
         {
           "name": "icon",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Sets the icon (`icon`).",
+          "descriptionZh": "设置图标（`icon`）。"
         },
         {
           "name": "toolTip",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current tool tip (`toolTip: any`).",
+          "descriptionZh": "获取当前tool提示（`toolTip: any`）。"
         },
         {
           "name": "toolTip",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Sets the tool tip (`toolTip`).",
+          "descriptionZh": "设置tool提示（`toolTip`）。"
         },
         {
           "name": "checkable",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current checkable (`checkable: any`).",
+          "descriptionZh": "获取当前checkable（`checkable: any`）。"
         },
         {
           "name": "checkable",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Sets the checkable (`checkable`).",
+          "descriptionZh": "设置checkable（`checkable`）。"
         },
         {
           "name": "editable",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current editable (`editable: any`).",
+          "descriptionZh": "获取当前是否可编辑（`editable: any`）。"
         },
         {
           "name": "editable",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Sets the editable (`editable`).",
+          "descriptionZh": "设置是否可编辑（`editable`）。"
         },
         {
           "name": "visibleChildren",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current visible children (`visibleChildren: any`).",
+          "descriptionZh": "获取当前可见子级列表（`visibleChildren: any`）。"
         },
         {
           "name": "allowDrop",
           "type": "any",
           "default": "(element, $event?) => {\n    return this.options.allowDrop(element, { parent: this, index: 0 }, $event);\n  }",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `allowDrop` (`any`) storing allow drop.",
+          "descriptionZh": "属性 `allowDrop`（类型：`any`），用于存储或配置允许放置。"
         },
         {
           "name": "allowDragoverStyling",
           "type": "any",
           "default": "() => {\n    return this.options.allowDragoverStyling;\n  }",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `allowDragoverStyling` (`any`) storing allow dragover styling.",
+          "descriptionZh": "属性 `allowDragoverStyling`（类型：`any`），用于存储或配置允许Dragover样式。"
         }
       ]
     },
@@ -2315,77 +2577,117 @@
       "name": "TreeNodeCheckboxComponent",
       "kind": "component",
       "selector": "tree-node-checkbox",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular component `TreeNodeCheckboxComponent` (selector: 'tree-node-checkbox') providing tree node checkbox component presentation and interaction in `src/tree/components`.",
+      "summaryZh": "Angular 组件 `TreeNodeCheckboxComponent`（selector: 'tree-node-checkbox'），提供树形控件节点复选框组件的视图渲染与交互逻辑（位于 `src/tree/components`）。",
       "sourceFile": "src/tree/components/tree-node-checkbox.component.ts",
       "inputs": [
         {
           "name": "node",
-          "type": "TreeNode",
-          "description": null,
-          "descriptionZh": null
+          "type": "any",
+          "description": "Getter for input property `node` (`any`) returning node.",
+          "descriptionZh": "输入属性 `node`（类型：`any`）的读取器，返回当前节点。"
         },
         {
           "name": "label",
           "type": "string",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `label` (`string`) configuring label.",
+          "descriptionZh": "输入属性 `label`（类型：`string`），用于配置标签。"
         }
       ],
       "outputs": [],
-      "methods": [],
-      "properties": []
+      "methods": [
+        {
+          "name": "setNode",
+          "params": [
+            {
+              "name": "node",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": "Executes `setNode` to handle set node.",
+          "descriptionZh": "执行 `setNode`，用于集合节点。"
+        }
+      ],
+      "properties": [
+        {
+          "name": "node",
+          "type": "any",
+          "description": "Sets the node (`node`).",
+          "descriptionZh": "设置节点（`node`）。"
+        }
+      ]
     },
     {
       "name": "TreeNodeChildrenComponent",
       "kind": "component",
       "selector": "tree-node-children",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular component `TreeNodeChildrenComponent` (selector: 'tree-node-children') providing tree node children component presentation and interaction in `src/tree/components`.",
+      "summaryZh": "Angular 组件 `TreeNodeChildrenComponent`（selector: 'tree-node-children'），提供树形控件节点子级列表组件的视图渲染与交互逻辑（位于 `src/tree/components`）。",
       "sourceFile": "src/tree/components/tree-node-children.component.ts",
       "inputs": [
         {
           "name": "node",
-          "type": "TreeNode",
-          "description": null,
-          "descriptionZh": null
+          "type": "any",
+          "description": "Getter for input property `node` (`any`) returning node.",
+          "descriptionZh": "输入属性 `node`（类型：`any`）的读取器，返回当前节点。"
         },
         {
           "name": "templates",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `templates` (`any`) configuring templates.",
+          "descriptionZh": "输入属性 `templates`（类型：`any`），用于配置模板。"
         }
       ],
       "outputs": [],
-      "methods": [],
-      "properties": []
+      "methods": [
+        {
+          "name": "setNode",
+          "params": [
+            {
+              "name": "node",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": "Executes `setNode` to handle set node.",
+          "descriptionZh": "执行 `setNode`，用于集合节点。"
+        }
+      ],
+      "properties": [
+        {
+          "name": "node",
+          "type": "any",
+          "description": "Sets the node (`node`).",
+          "descriptionZh": "设置节点（`node`）。"
+        }
+      ]
     },
     {
       "name": "TreeNodeCollectionComponent",
       "kind": "component",
       "selector": "tree-node-collection",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular component `TreeNodeCollectionComponent` (selector: 'tree-node-collection') providing tree node collection component presentation and interaction in `src/tree/components`.",
+      "summaryZh": "Angular 组件 `TreeNodeCollectionComponent`（selector: 'tree-node-collection'），提供树形控件节点集合组件的视图渲染与交互逻辑（位于 `src/tree/components`）。",
       "sourceFile": "src/tree/components/tree-node-collection.component.ts",
       "inputs": [
         {
           "name": "nodes",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Getter for input property `nodes` (`any`) returning nodes.",
+          "descriptionZh": "输入属性 `nodes`（类型：`any`）的读取器，返回当前节点列表。"
         },
         {
           "name": "treeModel",
           "type": "TreeModel",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `treeModel` (`TreeModel`) configuring tree model.",
+          "descriptionZh": "输入属性 `treeModel`（类型：`TreeModel`），用于配置树形控件模型。"
         },
         {
           "name": "templates",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `templates` (`any`) configuring templates.",
+          "descriptionZh": "输入属性 `templates`（类型：`any`），用于配置模板。"
         }
       ],
       "outputs": [],
@@ -2399,8 +2701,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `setNodes` to handle set nodes.",
+          "descriptionZh": "执行 `setNodes`，用于集合节点列表。"
         },
         {
           "name": "trackNode",
@@ -2415,28 +2717,28 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `trackNode` to handle track node.",
+          "descriptionZh": "执行 `trackNode`，用于track节点。"
         }
       ],
       "properties": [
         {
           "name": "nodes",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Sets the nodes (`nodes`).",
+          "descriptionZh": "设置节点列表（`nodes`）。"
         },
         {
           "name": "viewportNodes",
           "type": "TreeNode[]",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `viewportNodes` (`TreeNode[]`) storing viewport nodes.",
+          "descriptionZh": "属性 `viewportNodes`（类型：`TreeNode[]`），用于存储或配置视口节点列表。"
         },
         {
           "name": "marginTop",
           "type": "string",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current margin top (`marginTop: string`).",
+          "descriptionZh": "获取当前外边距顶部位置（`marginTop: string`）。"
         }
       ]
     },
@@ -2444,27 +2746,27 @@
       "name": "TreeNodeComponent",
       "kind": "component",
       "selector": "TreeNode, tree-node",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular component `TreeNodeComponent` (selector: 'TreeNode, tree-node') providing tree node component presentation and interaction in `src/tree/components`.",
+      "summaryZh": "Angular 组件 `TreeNodeComponent`（selector: 'TreeNode, tree-node'），提供树形控件节点组件的视图渲染与交互逻辑（位于 `src/tree/components`）。",
       "sourceFile": "src/tree/components/tree-node.component.ts",
       "inputs": [
         {
           "name": "node",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Getter for input property `node` (`any`) returning node.",
+          "descriptionZh": "输入属性 `node`（类型：`any`）的读取器，返回当前节点。"
         },
         {
           "name": "index",
           "type": "number",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `index` (`number`) configuring index.",
+          "descriptionZh": "输入属性 `index`（类型：`number`），用于配置索引。"
         },
         {
           "name": "templates",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `templates` (`any`) configuring templates.",
+          "descriptionZh": "输入属性 `templates`（类型：`any`），用于配置模板。"
         }
       ],
       "outputs": [],
@@ -2478,16 +2780,16 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `setNode` to handle set node.",
+          "descriptionZh": "执行 `setNode`，用于集合节点。"
         }
       ],
       "properties": [
         {
           "name": "node",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Sets the node (`node`).",
+          "descriptionZh": "设置节点（`node`）。"
         }
       ]
     },
@@ -2495,27 +2797,27 @@
       "name": "TreeNodeContent",
       "kind": "component",
       "selector": "tree-node-content",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular component `TreeNodeContent` (selector: 'tree-node-content') providing tree node content presentation and interaction in `src/tree/components`.",
+      "summaryZh": "Angular 组件 `TreeNodeContent`（selector: 'tree-node-content'），提供树形控件节点内容的视图渲染与交互逻辑（位于 `src/tree/components`）。",
       "sourceFile": "src/tree/components/tree-node-content.component.ts",
       "inputs": [
         {
           "name": "node",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input setter `node` updating node.",
+          "descriptionZh": "输入属性 `node` 的设置器，用于更新节点。"
         },
         {
           "name": "index",
           "type": "number",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `index` (`number`) configuring index.",
+          "descriptionZh": "输入属性 `index`（类型：`number`），用于配置索引。"
         },
         {
           "name": "template",
           "type": "TemplateRef<any>",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `template` (`TemplateRef<any>`) configuring template.",
+          "descriptionZh": "输入属性 `template`（类型：`TemplateRef<any>`），用于配置模板。"
         }
       ],
       "outputs": [],
@@ -2524,8 +2826,8 @@
         {
           "name": "node",
           "type": "TreeNode",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current node (`node: TreeNode`).",
+          "descriptionZh": "获取当前节点（`node: TreeNode`）。"
         }
       ]
     },
@@ -2533,21 +2835,21 @@
       "name": "TreeNodeDropSlot",
       "kind": "component",
       "selector": "TreeNodeDropSlot, tree-node-drop-slot",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular component `TreeNodeDropSlot` (selector: 'TreeNodeDropSlot, tree-node-drop-slot') providing tree node drop slot presentation and interaction in `src/tree/components`.",
+      "summaryZh": "Angular 组件 `TreeNodeDropSlot`（selector: 'TreeNodeDropSlot, tree-node-drop-slot'），提供树形控件节点放置Slot的视图渲染与交互逻辑（位于 `src/tree/components`）。",
       "sourceFile": "src/tree/components/tree-node-drop-slot.component.ts",
       "inputs": [
         {
           "name": "node",
           "type": "TreeNode",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `node` (`TreeNode`) configuring node.",
+          "descriptionZh": "输入属性 `node`（类型：`TreeNode`），用于配置节点。"
         },
         {
           "name": "dropIndex",
           "type": "number",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `dropIndex` (`number`) configuring drop index.",
+          "descriptionZh": "输入属性 `dropIndex`（类型：`number`），用于配置放置索引。"
         }
       ],
       "outputs": [],
@@ -2561,8 +2863,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `onDrop` to handle on drop.",
+          "descriptionZh": "执行 `onDrop`，用于当放置。"
         },
         {
           "name": "allowDrop",
@@ -2577,8 +2879,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `allowDrop` to handle allow drop.",
+          "descriptionZh": "执行 `allowDrop`，用于允许放置。"
         }
       ],
       "properties": []
@@ -2587,58 +2889,98 @@
       "name": "TreeNodeExpanderComponent",
       "kind": "component",
       "selector": "tree-node-expander",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular component `TreeNodeExpanderComponent` (selector: 'tree-node-expander') providing tree node expander component presentation and interaction in `src/tree/components`.",
+      "summaryZh": "Angular 组件 `TreeNodeExpanderComponent`（selector: 'tree-node-expander'），提供树形控件节点展开器组件的视图渲染与交互逻辑（位于 `src/tree/components`）。",
       "sourceFile": "src/tree/components/tree-node-expander.component.ts",
       "inputs": [
         {
           "name": "node",
-          "type": "TreeNode",
-          "description": null,
-          "descriptionZh": null
+          "type": "any",
+          "description": "Getter for input property `node` (`any`) returning node.",
+          "descriptionZh": "输入属性 `node`（类型：`any`）的读取器，返回当前节点。"
         }
       ],
       "outputs": [],
-      "methods": [],
-      "properties": []
+      "methods": [
+        {
+          "name": "setNode",
+          "params": [
+            {
+              "name": "node",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": "Executes `setNode` to handle set node.",
+          "descriptionZh": "执行 `setNode`，用于集合节点。"
+        }
+      ],
+      "properties": [
+        {
+          "name": "node",
+          "type": "any",
+          "description": "Sets the node (`node`).",
+          "descriptionZh": "设置节点（`node`）。"
+        }
+      ]
     },
     {
       "name": "TreeNodeWrapperComponent",
       "kind": "component",
       "selector": "tree-node-wrapper",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular component `TreeNodeWrapperComponent` (selector: 'tree-node-wrapper') providing tree node wrapper component presentation and interaction in `src/tree/components`.",
+      "summaryZh": "Angular 组件 `TreeNodeWrapperComponent`（selector: 'tree-node-wrapper'），提供树形控件节点包装器组件的视图渲染与交互逻辑（位于 `src/tree/components`）。",
       "sourceFile": "src/tree/components/tree-node-wrapper.component.ts",
       "inputs": [
         {
           "name": "node",
-          "type": "TreeNode",
-          "description": null,
-          "descriptionZh": null
+          "type": "any",
+          "description": "Getter for input property `node` (`any`) returning node.",
+          "descriptionZh": "输入属性 `node`（类型：`any`）的读取器，返回当前节点。"
         },
         {
           "name": "index",
           "type": "number",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `index` (`number`) configuring index.",
+          "descriptionZh": "输入属性 `index`（类型：`number`），用于配置索引。"
         },
         {
           "name": "templates",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `templates` (`any`) configuring templates.",
+          "descriptionZh": "输入属性 `templates`（类型：`any`），用于配置模板。"
         }
       ],
       "outputs": [],
-      "methods": [],
-      "properties": []
+      "methods": [
+        {
+          "name": "setNode",
+          "params": [
+            {
+              "name": "node",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": "Executes `setNode` to handle set node.",
+          "descriptionZh": "执行 `setNode`，用于集合节点。"
+        }
+      ],
+      "properties": [
+        {
+          "name": "node",
+          "type": "any",
+          "description": "Sets the node (`node`).",
+          "descriptionZh": "设置节点（`node`）。"
+        }
+      ]
     },
     {
       "name": "TreeViewportComponent",
       "kind": "component",
       "selector": "tree-viewport",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular component `TreeViewportComponent` (selector: 'tree-viewport') providing tree viewport component presentation and interaction in `src/tree/components`.",
+      "summaryZh": "Angular 组件 `TreeViewportComponent`（selector: 'tree-viewport'），提供树形控件视口组件的视图渲染与交互逻辑（位于 `src/tree/components`）。",
       "sourceFile": "src/tree/components/tree-viewport.component.ts",
       "inputs": [],
       "outputs": [],
@@ -2647,8 +2989,8 @@
           "name": "getTotalHeight",
           "params": [],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `getTotalHeight` to handle get total height.",
+          "descriptionZh": "执行 `getTotalHeight`，用于获取总计高度。"
         }
       ],
       "properties": [
@@ -2656,16 +2998,16 @@
           "name": "setViewport",
           "type": "any",
           "default": "this.throttle(() => {\n    this.virtualScroll.setViewport(this.elementRef.nativeElement);\n  }, 17)",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `setViewport` (`any`) storing set viewport.",
+          "descriptionZh": "属性 `setViewport`（类型：`any`），用于存储或配置集合视口。"
         }
       ]
     },
     {
       "name": "TreeVirtualScroll",
       "kind": "service",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Injectable Angular service `TreeVirtualScroll` managing tree virtual scroll state and operations in `src/tree/models`.",
+      "summaryZh": "可注入的 Angular 服务 `TreeVirtualScroll`，管理 `src/tree/models` 中的树形控件虚拟滚动滚动状态与业务操作。",
       "sourceFile": "src/tree/models/tree-virtual-scroll.model.ts",
       "inputs": [],
       "outputs": [],
@@ -2679,36 +3021,36 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `fireEvent` to handle fire event.",
+          "descriptionZh": "执行 `fireEvent`，用于触发事件。"
         },
         {
           "name": "init",
           "params": [],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `init` to handle init.",
+          "descriptionZh": "执行 `init`，用于初始化。"
         },
         {
           "name": "isEnabled",
           "params": [],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `isEnabled` to handle is enabled.",
+          "descriptionZh": "执行 `isEnabled`，用于是否为已启用。"
         },
         {
           "name": "recalcPositions",
           "params": [],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `recalcPositions` to handle recalc positions.",
+          "descriptionZh": "执行 `recalcPositions`，用于recalc位置。"
         },
         {
           "name": "clear",
           "params": [],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `clear` to handle clear.",
+          "descriptionZh": "执行 `clear`，用于清空。"
         },
         {
           "name": "setViewport",
@@ -2719,8 +3061,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `setViewport` to handle set viewport.",
+          "descriptionZh": "执行 `setViewport`，用于集合视口。"
         },
         {
           "name": "scrollIntoView",
@@ -2739,8 +3081,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `scrollIntoView` to handle scroll into view.",
+          "descriptionZh": "执行 `scrollIntoView`，用于滚动进入视图。"
         },
         {
           "name": "getViewportNodes",
@@ -2751,15 +3093,15 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `getViewportNodes` to handle get viewport nodes.",
+          "descriptionZh": "执行 `getViewportNodes`，用于获取视口节点列表。"
         },
         {
           "name": "fixScroll",
           "params": [],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `fixScroll` to handle fix scroll.",
+          "descriptionZh": "执行 `fixScroll`，用于fix滚动。"
         }
       ],
       "properties": [
@@ -2767,41 +3109,41 @@
           "name": "yBlocks",
           "type": "any",
           "default": "0",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `yBlocks` (`number`) storing y blocks (default: `0`).",
+          "descriptionZh": "属性 `yBlocks`（类型：`number`），用于存储或配置Y坐标块列表（默认值：`0`）。"
         },
         {
           "name": "x",
           "type": "any",
           "default": "0",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `x` (`number`) storing x (default: `0`).",
+          "descriptionZh": "属性 `x`（类型：`number`），用于存储或配置X坐标（默认值：`0`）。"
         },
         {
           "name": "viewportHeight",
           "type": "any",
           "default": "null",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `viewportHeight` (`any`) storing viewport height (default: `null`).",
+          "descriptionZh": "属性 `viewportHeight`（类型：`any`），用于存储或配置视口高度（默认值：`null`）。"
         },
         {
           "name": "viewport",
           "type": "any",
           "default": "null",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `viewport` (`any`) storing viewport (default: `null`).",
+          "descriptionZh": "属性 `viewport`（类型：`any`），用于存储或配置视口（默认值：`null`）。"
         },
         {
           "name": "y",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current y (`y: any`).",
+          "descriptionZh": "获取当前Y坐标（`y: any`）。"
         },
         {
           "name": "totalHeight",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current total height (`totalHeight: any`).",
+          "descriptionZh": "获取当前总计高度（`totalHeight: any`）。"
         }
       ]
     }

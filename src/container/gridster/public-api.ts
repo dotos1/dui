@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Module `src/container/gridster/public-api.ts` providing public api definitions and implementation.
+ * @zh 模块文件 `src/container/gridster/public-api.ts`，提供publicAPI接口相关的定义与实现。
+ */
+
 
 export {GridsterComponent} from './gridster.component';
 export {GridsterItemComponent} from './gridsterItem.component';

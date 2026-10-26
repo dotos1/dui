@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Module `src/core/position/position.reducer.ts` providing position reducer definitions and implementation.
+ * @zh 模块文件 `src/core/position/position.reducer.ts`，提供位置归约器相关的定义与实现。
+ */
+
 import {
   IPoint,
   IPosionOptions,
@@ -9,6 +14,10 @@ import { RESIZE_INIT, RESIZE, RESIZE_STOP, MOUSE_DOWN, PICKUP, PUTBACK, MOVETO }
 import { manageRatio, resizeTop, resizeLeft, resizeBottom, resizeRight } from './position.utils';
 
 
+/**
+ * Constant/variable `resizeReducer` defining resize reducer in `src/core/position`.
+ * @zh 常量/变量 `resizeReducer`，定义 `src/core/position` 中的调整尺寸归约器。
+ */
 export const resizeReducer = (
   currentState: IPositionState,
   action: string,

@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Module `src/common/colorpicker/common/coordinates.directive.ts` providing coordinates directive definitions and implementation.
+ * @zh 模块文件 `src/common/colorpicker/common/coordinates.directive.ts`，提供坐标指令相关的定义与实现。
+ */
+
 import {  Directive,  ElementRef,  HostListener,  NgModule,  OnDestroy,  OnInit,  Output,
 } from '@angular/core';
 import { Subject, Subscription } from 'rxjs';
@@ -10,7 +15,11 @@ import { distinctUntilChanged } from 'rxjs/operators';
  */
 @Directive({ selector: '[ngx-color-coordinates]' })
 export class CoordinatesDirective implements OnInit, OnDestroy {
-  /** @zh 拖拽/点击坐标（相对宿主元素）变化时发出。 */
+  /**
+   * Output event emitter `coordinatesChange` (`Subject`) firing when coordinates change occurs.
+   * @zh 拖拽/点击坐标（相对宿主元素）变化时发出。
+   * @zh 拖拽/点击坐标（相对宿主元素）变化时发出。
+   */
   @Output()
   coordinatesChange = new Subject<{
     x: number;
@@ -19,16 +28,28 @@ export class CoordinatesDirective implements OnInit, OnDestroy {
     left: number;
     containerWidth: number;
     containerHeight: number;
-    $event: any;
+    $event;
   }>();
+  /**
+   * Property `mousechange` (`Subject`) storing mousechange.
+   * @zh 属性 `mousechange`（类型：`Subject`），用于存储或配置mousechange。
+   */
   private mousechange = new Subject<{
     x: number;
     y: number;
-    $event: any;
+    $event;
     isTouch: boolean;
   }>();
 
+  /**
+   * Property `mouseListening` (`boolean`) storing mouse listening (default: `false`).
+   * @zh 属性 `mouseListening`（类型：`boolean`），用于存储或配置鼠标监听（默认值：`false`）。
+   */
   private mouseListening = false;
+  /**
+   * Property `sub` (`Subscription`) storing sub.
+   * @zh 属性 `sub`（类型：`Subscription`），用于存储或配置子。
+   */
   private sub: Subscription;
   /**
    * @hidden Handles pointer/touch movement while dragging, forwarding raw coordinates.
@@ -73,8 +94,17 @@ export class CoordinatesDirective implements OnInit, OnDestroy {
     this.mousechange.next({ $event, x, y, isTouch });
   }
 
+  /**
+   * Creates an instance of `CoordinatesDirective` and initializes its dependencies and internal state.
+   * @zh 创建 `CoordinatesDirective` 实例，并初始化其依赖项与内部状态。
+   * @param el - Injected or initial el (`ElementRef`) / 注入或传入的DOM元素（`ElementRef`）
+   */
   constructor(private el: ElementRef) {}
 
+  /**
+   * Angular lifecycle hook invoked once after component or directive inputs are initialized.
+   * @zh Angular 生命周期钩子：在组件或指令的输入属性初始化完成后调用一次。
+   */
   ngOnInit() {
     this.sub = this.mousechange
       .pipe(
@@ -84,6 +114,10 @@ export class CoordinatesDirective implements OnInit, OnDestroy {
       .subscribe(n => this.handleChange(n.x, n.y, n.$event, n.isTouch));
   }
 
+  /**
+   * Angular lifecycle hook invoked just before the component, directive, or service is destroyed to release subscriptions and resources.
+   * @zh Angular 生命周期钩子：在组件、指令或服务销毁前调用，用于释放订阅与清理资源。
+   */
   ngOnDestroy() {
     this.sub.unsubscribe();
   }
@@ -116,6 +150,10 @@ export class CoordinatesDirective implements OnInit, OnDestroy {
   }
 }
 
+/**
+ * Angular module `CoordinatesModule` declaring and exporting coordinates module components, directives, pipes, and providers.
+ * @zh Angular 模块 `CoordinatesModule`，声明并导出坐标模块相关的组件、指令、管道与服务提供者。
+ */
 @NgModule({
   declarations: [CoordinatesDirective],
   exports: [CoordinatesDirective],

@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Module `src/form/rang-slider/range-slider.module.ts` providing range slider module definitions and implementation.
+ * @zh 模块文件 `src/form/rang-slider/range-slider.module.ts`，提供范围滑块模块相关的定义与实现。
+ */
+
 import {CommonModule} from '@angular/common';
 import { ComponentFactoryResolver, NgModule} from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -12,6 +17,10 @@ import { RangeSliderFieldComponent } from './range-slider.field';
 import { MatSliderModule } from '@angular/material/slider';
 import { FlexLayoutModule } from 'ngx-flexible-layout';
 
+/**
+ * Angular module `RangeSliderModule` declaring and exporting range slider module components, directives, pipes, and providers.
+ * @zh Angular 模块 `RangeSliderModule`，声明并导出范围滑块模块相关的组件、指令、管道与服务提供者。
+ */
 @NgModule({
   declarations: [RangeSliderFieldComponent],
   exports: [RangeSliderFieldComponent],
@@ -30,7 +39,16 @@ import { FlexLayoutModule } from 'ngx-flexible-layout';
   ]
 })
 export class RangeSliderModule {
+  /**
+   * Property `entryComponents` (`any[]`) storing entry components (default: `[RangeSliderFieldComponent]`).
+   * @zh 属性 `entryComponents`（类型：`any[]`），用于存储或配置条目组件列表（默认值：`[RangeSliderFieldComponent]`）。
+   */
   entryComponents = [RangeSliderFieldComponent];
+  /**
+   * Creates an instance of `RangeSliderModule` and initializes its dependencies and internal state.
+   * @zh 创建 `RangeSliderModule` 实例，并初始化其依赖项与内部状态。
+   * @param componentFactoryResolver - Injected or initial component factory resolver (`ComponentFactoryResolver`) / 注入或传入的组件工厂解析器（`ComponentFactoryResolver`）
+   */
   constructor(componentFactoryResolver: ComponentFactoryResolver) {
     Dui.registerComponentFactory(componentFactoryResolver,this.entryComponents);
   }

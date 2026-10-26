@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Module `src/common/inline-svg/inline-svg.service.ts` providing inline svg service definitions and implementation.
+ * @zh 模块文件 `src/common/inline-svg/inline-svg.service.ts`，提供inlineSVG矢量图服务相关的定义与实现。
+ */
+
 import { Injectable, Renderer2, RendererFactory2 } from '@angular/core';
 import { InlineSVGDirective } from './inline-svg.directive';
 import { SVGScriptEvalMode } from './inline-svg.config';
@@ -12,9 +17,22 @@ import { SVGScriptEvalMode } from './inline-svg.config';
 })
 export class InlineSVGService {
 
+  /**
+   * Property `_renderer` (`Renderer2`) storing renderer.
+   * @zh 属性 `_renderer`（类型：`Renderer2`），用于存储或配置渲染器。
+   */
   private _renderer: Renderer2;
+  /**
+   * Property `_ranScripts` (`{ [url: string]: boolean }`) storing ran scripts (default: `{}`).
+   * @zh 属性 `_ranScripts`（类型：`{ [url: string]: boolean }`），用于存储或配置ranScripts（默认值：`{}`）。
+   */
   private _ranScripts: { [url: string]: boolean } = {};
 
+  /**
+   * Creates an instance of `InlineSVGService` and initializes its dependencies and internal state.
+   * @zh 创建 `InlineSVGService` 实例，并初始化其依赖项与内部状态。
+   * @param rendererFactory - Injected or initial renderer factory (`RendererFactory2`) / 注入或传入的渲染器工厂（`RendererFactory2`）
+   */
   constructor(rendererFactory: RendererFactory2) {
     this._renderer = rendererFactory.createRenderer(null, null);
   }

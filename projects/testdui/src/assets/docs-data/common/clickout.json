@@ -13,14 +13,14 @@
           "name": "attachOutsideOnClick",
           "type": "boolean",
           "default": "false",
-          "description": null,
+          "description": "Input property `attachOutsideOnClick` (`boolean`) configuring attach outside on click (default: `false`).",
           "descriptionZh": "仅在宿主元素被点击之后才开始监听\"外部点击\"（而不是从一开始就监听）。"
         },
         {
           "name": "delayClickOutsideInit",
           "type": "boolean",
           "default": "false",
-          "description": null,
+          "description": "Input property `delayClickOutsideInit` (`boolean`) configuring delay click outside init (default: `false`).",
           "descriptionZh": "延迟初始化外部点击监听器（等待一个微任务）。"
         },
         {
@@ -34,14 +34,14 @@
           "name": "excludeBeforeClick",
           "type": "boolean",
           "default": "false",
-          "description": null,
+          "description": "Input property `excludeBeforeClick` (`boolean`) configuring exclude before click (default: `false`).",
           "descriptionZh": "在每次点击前都重新计算排除元素列表（否则只计算一次）。"
         },
         {
           "name": "clickOutsideEvents",
           "type": "string",
           "default": "''",
-          "description": null,
+          "description": "Input property `clickOutsideEvents` (`string`) configuring click outside events (default: `''`).",
           "descriptionZh": "逗号分隔的自定义监听事件列表，默认只监听 `click`。"
         }
       ],
@@ -59,8 +59,8 @@
     {
       "name": "ClickOutsideModule",
       "kind": "module",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular module `ClickOutsideModule` declaring and exporting click outside module components, directives, pipes, and providers.",
+      "summaryZh": "Angular 模块 `ClickOutsideModule`，声明并导出点击外部模块相关的组件、指令、管道与服务提供者。",
       "sourceFile": "src/common/clickout/click-outside.module.ts",
       "inputs": [],
       "outputs": [],

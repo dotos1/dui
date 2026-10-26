@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Module `src/common/loading/loading.component.ts` providing loading component definitions and implementation.
+ * @zh 模块文件 `src/common/loading/loading.component.ts`，提供加载中组件相关的定义与实现。
+ */
+
 import {
   Component,
   ChangeDetectorRef,
@@ -9,27 +14,83 @@ import {
 import { TemplatePortal } from '@angular/cdk/portal';
 import { FadeInOutAnimation } from '@dotos/dui/common/animations';
 
+/**
+ * Enumeration `LoadingType` defining supported loading type constants.
+ * @zh 枚举 `LoadingType`，定义支持的加载中类型常量集合。
+ */
 export enum LoadingType {
+  /**
+   * Enum member `LoadingType.Circular` = 'circular' representing circular.
+   * @zh 枚举项 `LoadingType.Circular` = 'circular'，表示Circular。
+   */
   Circular = 'circular',
+  /**
+   * Enum member `LoadingType.Linear` = 'linear' representing linear.
+   * @zh 枚举项 `LoadingType.Linear` = 'linear'，表示Linear。
+   */
   Linear = 'linear',
 }
 
+/**
+ * Enumeration `LoadingMode` defining supported loading mode constants.
+ * @zh 枚举 `LoadingMode`，定义支持的加载中模式常量集合。
+ */
 export enum LoadingMode {
+  /**
+   * Enum member `LoadingMode.Determinate` = 'determinate' representing determinate.
+   * @zh 枚举项 `LoadingMode.Determinate` = 'determinate'，表示Determinate。
+   */
   Determinate = 'determinate',
+  /**
+   * Enum member `LoadingMode.Indeterminate` = 'indeterminate' representing indeterminate.
+   * @zh 枚举项 `LoadingMode.Indeterminate` = 'indeterminate'，表示半选状态。
+   */
   Indeterminate = 'indeterminate',
 }
 
+/**
+ * Enumeration `LoadingStrategy` defining supported loading strategy constants.
+ * @zh 枚举 `LoadingStrategy`，定义支持的加载中策略常量集合。
+ */
 export enum LoadingStrategy {
+  /**
+   * Enum member `LoadingStrategy.Overlay` = 'overlay' representing overlay.
+   * @zh 枚举项 `LoadingStrategy.Overlay` = 'overlay'，表示浮层。
+   */
   Overlay = 'overlay',
+  /**
+   * Enum member `LoadingStrategy.Replace` = 'replace' representing replace.
+   * @zh 枚举项 `LoadingStrategy.Replace` = 'replace'，表示替换。
+   */
   Replace = 'replace',
 }
 
+/**
+ * Enumeration `LoadingStyle` defining supported loading style constants.
+ * @zh 枚举 `LoadingStyle`，定义支持的加载中样式常量集合。
+ */
 export enum LoadingStyle {
+  /**
+   * Enum member `LoadingStyle.FullScreen` = 'fullscreen' representing full screen.
+   * @zh 枚举项 `LoadingStyle.FullScreen` = 'fullscreen'，表示完整屏幕。
+   */
   FullScreen = 'fullscreen',
+  /**
+   * Enum member `LoadingStyle.Overlay` = 'overlay' representing overlay.
+   * @zh 枚举项 `LoadingStyle.Overlay` = 'overlay'，表示浮层。
+   */
   Overlay = 'overlay',
+  /**
+   * Enum member `LoadingStyle.None` = 'none' representing none.
+   * @zh 枚举项 `LoadingStyle.None` = 'none'，表示无。
+   */
   None = 'none',
 }
 
+/**
+ * Constant/variable `TD_CIRCLE_DIAMETER` defining td circle diameter in `src/common/loading`.
+ * @zh 常量/变量 `TD_CIRCLE_DIAMETER`，定义 `src/common/loading` 中的TD圆形DIAMETER。
+ */
 export const TD_CIRCLE_DIAMETER = 40;
 
 /**
@@ -50,20 +111,40 @@ export const TD_CIRCLE_DIAMETER = 40;
   }
 })
 export class LoadingComponent implements DoCheck {
+  /**
+   * Property `_mode` (`LoadingMode`) storing mode (default: `LoadingMode.Indeterminate`).
+   * @zh 属性 `_mode`（类型：`LoadingMode`），用于存储或配置模式（默认值：`LoadingMode.Indeterminate`）。
+   */
   private _mode: LoadingMode = LoadingMode.Indeterminate;
+  /**
+   * Property `_defaultMode` (`LoadingMode`) storing default mode (default: `LoadingMode.Indeterminate`).
+   * @zh 属性 `_defaultMode`（类型：`LoadingMode`），用于存储或配置默认模式（默认值：`LoadingMode.Indeterminate`）。
+   */
   private _defaultMode: LoadingMode = LoadingMode.Indeterminate;
+  /**
+   * Property `_value` (`number`) storing value (default: `0`).
+   * @zh 属性 `_value`（类型：`number`），用于存储或配置值（默认值：`0`）。
+   */
   private _value = 0;
+  /**
+   * Property `_circleDiameter` (`number`) storing circle diameter (default: `TD_CIRCLE_DIAMETER`).
+   * @zh 属性 `_circleDiameter`（类型：`number`），用于存储或配置圆形Diameter（默认值：`TD_CIRCLE_DIAMETER`）。
+   */
   private _circleDiameter: number = TD_CIRCLE_DIAMETER;
 
   /**
    * Flag for animation
+
+   * @zh 属性 `animation`（类型：`boolean`），用于存储或配置动画（默认值：`false`）。
    */
   animation = false;
 
   /**
    * Content injected into loading component.
+
+   * @zh 属性 `content`（类型：`TemplatePortal<any>`），用于存储或配置内容。
    */
-  content!: TemplatePortal<any>;
+  content;
 
   /**
    * Sets mode of [DuiLoadingComponent] to LoadingMode.Determinate or LoadingMode.Indeterminate
@@ -96,32 +177,52 @@ export class LoadingComponent implements DoCheck {
     return this._value;
   }
 
-  /** @zh 加载指示器的展示样式：全屏、覆盖层或无（内嵌）。 */
+  /**
+   * Property `style` (`LoadingStyle`) storing style (default: `LoadingStyle.None`).
+   * @zh 加载指示器的展示样式：全屏、覆盖层或无（内嵌）。
+   * @zh 加载指示器的展示样式：全屏、覆盖层或无（内嵌）。
+   */
   style: LoadingStyle = LoadingStyle.None;
 
   /**
    * height: number
    * Sets height of [DuiLoadingComponent].
+
+   * @zh 属性 `height`（类型：`number`），用于存储或配置高度（默认值：`100`）。
    */
   height = 100;
 
   /**
    * type: LoadingType
    * Sets type of [DuiLoadingComponent] rendered.
+
+   * @zh 属性 `type`（类型：`LoadingType`），用于存储或配置类型（默认值：`LoadingType.Circular`）。
    */
   type: LoadingType = LoadingType.Circular;
 
   /**
    * color: primary' | 'accent' | 'warn'
    * Sets theme color of [DuiLoadingComponent] rendered.
+
+   * @zh 属性 `color`（类型：`'primary' | 'accent' | 'warn'`），用于存储或配置颜色（默认值：`'primary'`）。
    */
   color: 'primary' | 'accent' | 'warn' = 'primary';
 
+  /**
+   * Creates an instance of `LoadingComponent` and initializes its dependencies and internal state.
+   * @zh 创建 `LoadingComponent` 实例，并初始化其依赖项与内部状态。
+   * @param _elementRef - Injected or initial element ref (`ElementRef`) / 注入或传入的元素引用（`ElementRef`）
+   * @param _changeDetectorRef - Injected or initial change detector ref (`ChangeDetectorRef`) / 注入或传入的变更检测器引用（`ChangeDetectorRef`）
+   */
   constructor(
     private _elementRef: ElementRef,
     private _changeDetectorRef: ChangeDetectorRef
   ) {}
 
+  /**
+   * Angular lifecycle hook invoked during every change-detection run for custom change detection.
+   * @zh Angular 生命周期钩子：在每次变更检测周期中调用，用于执行自定义变更检测。
+   */
   ngDoCheck(): void {
 
     if (this.isOverlay() && this._hostHeight() > 1 && this.animation) {
@@ -195,6 +296,8 @@ export class LoadingComponent implements DoCheck {
 
   /**
    * Starts in animation and returns an observable for completition event.
+
+   * @zh 执行 `show`，用于显示。
    */
   show(): void {
     /* need to switch back to the selected mode, so we have saved it in another variable
@@ -210,6 +313,8 @@ export class LoadingComponent implements DoCheck {
 
   /**
    * Starts out animation and returns an observable for completition event.
+
+   * @zh 执行 `hide`，用于隐藏。
    */
   hide(): void {
     this.animation = false;
@@ -229,6 +334,8 @@ export class LoadingComponent implements DoCheck {
 
   /**
    * Calculate the proper diameter for the circle and set it
+
+   * @zh 执行 `_setCircleDiameter`，用于集合圆形Diameter。
    */
   private _setCircleDiameter(): void {
     // we set a default diameter of 100 since this is the default in material
@@ -250,6 +357,8 @@ export class LoadingComponent implements DoCheck {
 
   /**
    * Returns the host height of the loading component
+
+   * @zh 执行 `_hostHeight`，用于宿主高度。
    */
   private _hostHeight(): number {
     if (<HTMLElement>this._elementRef.nativeElement) {

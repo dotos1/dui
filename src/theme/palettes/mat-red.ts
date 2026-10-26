@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Module `src/theme/palettes/mat-red.ts` providing mat red definitions and implementation.
+ * @zh 模块文件 `src/theme/palettes/mat-red.ts`，提供Materialred相关的定义与实现。
+ */
+
 import { Palette } from '../interfaces/palette';
 
 import {
@@ -5,6 +10,10 @@ import {
     lightPrimaryText
 } from '../constants';
 
+/**
+ * Constant/variable `matRed` defining mat red in `src/theme/palettes`.
+ * @zh 常量/变量 `matRed`，定义 `src/theme/palettes` 中的MaterialRed。
+ */
 export const matRed: Palette = {
     50: '#ffebee',
     100: '#ffcdd2',

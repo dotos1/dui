@@ -4,8 +4,8 @@
     {
       "name": "AnimationCurves",
       "kind": "class",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Class `AnimationCurves` encapsulating animation curves data structures and logic in `src/core/animation`.",
+      "summaryZh": "类 `AnimationCurves`，封装 `src/core/animation` 中的动画曲线数据结构与处理逻辑。",
       "sourceFile": "src/core/animation/animation.ts",
       "inputs": [],
       "outputs": [],
@@ -15,29 +15,29 @@
           "name": "STANDARD_CURVE",
           "type": "any",
           "default": "'cubic-bezier(0.4,0.0,0.2,1)'",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `STANDARD_CURVE` (`string`) storing standard curve (default: `'cubic-bezier(0.4,0.0,0.2,1)'`).",
+          "descriptionZh": "属性 `STANDARD_CURVE`（类型：`string`），用于存储或配置STANDARD曲线（默认值：`'cubic-bezier(0.4,0.0,0.2,1)'`）。"
         },
         {
           "name": "DECELERATION_CURVE",
           "type": "any",
           "default": "'cubic-bezier(0.0,0.0,0.2,1)'",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `DECELERATION_CURVE` (`string`) storing deceleration curve (default: `'cubic-bezier(0.0,0.0,0.2,1)'`).",
+          "descriptionZh": "属性 `DECELERATION_CURVE`（类型：`string`），用于存储或配置DECELERATION曲线（默认值：`'cubic-bezier(0.0,0.0,0.2,1)'`）。"
         },
         {
           "name": "ACCELERATION_CURVE",
           "type": "any",
           "default": "'cubic-bezier(0.4,0.0,1,1)'",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `ACCELERATION_CURVE` (`string`) storing acceleration curve (default: `'cubic-bezier(0.4,0.0,1,1)'`).",
+          "descriptionZh": "属性 `ACCELERATION_CURVE`（类型：`string`），用于存储或配置ACCELERATION曲线（默认值：`'cubic-bezier(0.4,0.0,1,1)'`）。"
         },
         {
           "name": "SHARP_CURVE",
           "type": "any",
           "default": "'cubic-bezier(0.4,0.0,0.6,1)'",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `SHARP_CURVE` (`string`) storing sharp curve (default: `'cubic-bezier(0.4,0.0,0.6,1)'`).",
+          "descriptionZh": "属性 `SHARP_CURVE`（类型：`string`），用于存储或配置SHARP曲线（默认值：`'cubic-bezier(0.4,0.0,0.6,1)'`）。"
         }
       ]
     },
@@ -45,7 +45,7 @@
       "name": "AnimationDurations",
       "kind": "class",
       "summary": null,
-      "summaryZh": null,
+      "summaryZh": "类 `AnimationDurations`，封装 `src/core/animation` 中的动画持续时间数据结构与处理逻辑。",
       "sourceFile": "src/core/animation/animation.ts",
       "inputs": [],
       "outputs": [],
@@ -55,22 +55,22 @@
           "name": "COMPLEX",
           "type": "any",
           "default": "'375ms'",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `COMPLEX` (`string`) storing complex (default: `'375ms'`).",
+          "descriptionZh": "属性 `COMPLEX`（类型：`string`），用于存储或配置COMPLEX（默认值：`'375ms'`）。"
         },
         {
           "name": "ENTERING",
           "type": "any",
           "default": "'225ms'",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `ENTERING` (`string`) storing entering (default: `'225ms'`).",
+          "descriptionZh": "属性 `ENTERING`（类型：`string`），用于存储或配置进入（默认值：`'225ms'`）。"
         },
         {
           "name": "EXITING",
           "type": "any",
           "default": "'195ms'",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `EXITING` (`string`) storing exiting (default: `'195ms'`).",
+          "descriptionZh": "属性 `EXITING`（类型：`string`），用于存储或配置EXITING（默认值：`'195ms'`）。"
         }
       ]
     }

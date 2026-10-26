@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Module `src/core/form/template/form.validation-message.ts` providing form validation message definitions and implementation.
+ * @zh 模块文件 `src/core/form/template/form.validation-message.ts`，提供表单校验消息相关的定义与实现。
+ */
+
 import { Component, Input, ChangeDetectionStrategy, OnChanges } from '@angular/core';
 import { FormConfig } from '../services/form.config';
 import {  FieldConfig } from '../models/field.config';
@@ -7,6 +12,10 @@ import { startWith, switchMap } from 'rxjs/operators';
 import { TranslateService } from '@dotos/dui/translator';
 
 
+/**
+ * Angular component `ValidationMessage` (selector: 'validation-message') providing validation message presentation and interaction in `src/core/form/template`.
+ * @zh Angular 组件 `ValidationMessage`（selector: 'validation-message'），提供校验消息的视图渲染与交互逻辑（位于 `src/core/form/template`）。
+ */
 @Component({
   selector: 'validation-message',
   template: `{{ errorMessage$ | async }}`,
@@ -16,12 +25,30 @@ import { TranslateService } from '@dotos/dui/translator';
   }
 })
 export class ValidationMessage implements OnChanges {
+  /**
+   * Input property `field` (`FieldConfig`) configuring field.
+   * @zh 输入属性 `field`（类型：`FieldConfig`），用于配置字段。
+   */
   @Input() field: FieldConfig;
-  errorMessage$: Observable<any>;
+  /**
+   * Property `errorMessage$` (`Observable<any>`) storing error message.
+   * @zh 属性 `errorMessage$`（类型：`Observable<any>`），用于存储或配置错误消息。
+   */
+  errorMessage$;
 
+  /**
+   * Creates an instance of `ValidationMessage` and initializes its dependencies and internal state.
+   * @zh 创建 `ValidationMessage` 实例，并初始化其依赖项与内部状态。
+   * @param formConfig - Injected or initial form config (`FormConfig`) / 注入或传入的表单配置（`FormConfig`）
+   * @param translate - Injected or initial translate (`TranslateService`) / 注入或传入的翻译（`TranslateService`）
+   */
   constructor(private formConfig: FormConfig,
     protected translate: TranslateService) {}
 
+  /**
+   * Angular lifecycle hook invoked when data-bound input properties change.
+   * @zh Angular 生命周期钩子：当数据绑定的输入属性发生变更时调用。
+   */
   ngOnChanges() {
     this.errorMessage$ = this.field.formControl.statusChanges.pipe(
       startWith(null),
@@ -30,11 +57,15 @@ export class ValidationMessage implements OnChanges {
   }
 
   // eslint-disable-next-line getter-return
-  get errorMessage() :any{
+  /**
+   * Gets the current error message (`errorMessage: any`).
+   * @zh 获取当前错误消息（`errorMessage: any`）。
+   */
+  get errorMessage() {
     const fieldForm = this.field.formControl;
     for (const error in fieldForm.errors) {
       if (fieldForm.errors.hasOwnProperty(error)) {
-        let message:any = this.formConfig.getValidatorMessage(error);
+        let message = this.formConfig.getValidatorMessage(error);
         if (isObject(fieldForm.errors[error])) {
           if (fieldForm.errors[error].errorPath) {
             // eslint-disable-next-line getter-return

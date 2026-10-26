@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Module `src/common/popover/popover-trigger.ts` providing popover trigger definitions and implementation.
+ * @zh 模块文件 `src/common/popover/popover-trigger.ts`，提供气泡卡片触发相关的定义与实现。
+ */
+
 import {
   AfterViewInit,
   Directive,
@@ -47,88 +52,214 @@ import { DOCUMENT } from '@angular/common';
 })
 export class PopoverTrigger implements AfterViewInit, OnDestroy {
 
-  /** @zh 弹出层打开时发出。 */
+  /**
+   * Property `popoverOpened` (`Subject`) storing popover opened (default: `new Subject<void>()`).
+   * @zh 弹出层打开时发出。
+   * @zh 弹出层打开时发出。
+   */
   popoverOpened = new Subject<void>();
-  /** @zh 弹出层关闭时发出。 */
+  /**
+   * Property `popoverClosed` (`Subject`) storing popover closed (default: `new Subject<void>()`).
+   * @zh 弹出层关闭时发出。
+   * @zh 弹出层关闭时发出。
+   */
   popoverClosed = new Subject<void>();
 
-  private _portal: TemplatePortal<any>;
+  /**
+   * Property `_portal` (`TemplatePortal<any>`) storing portal.
+   * @zh 属性 `_portal`（类型：`TemplatePortal<any>`），用于存储或配置传送门容器。
+   */
+  private _portal;
+  /**
+   * Property `_overlayRef` (`OverlayRef | null`) storing overlay ref (default: `null`).
+   * @zh 属性 `_overlayRef`（类型：`OverlayRef | null`），用于存储或配置浮层引用（默认值：`null`）。
+   */
   private _overlayRef: OverlayRef | null = null;
+  /**
+   * Property `_popoverOpen` (`boolean`) storing popover open (default: `false`).
+   * @zh 属性 `_popoverOpen`（类型：`boolean`），用于存储或配置气泡卡片打开（默认值：`false`）。
+   */
   private _popoverOpen = false;
+  /**
+   * Property `_halt` (`boolean`) storing halt (default: `false`).
+   * @zh 属性 `_halt`（类型：`boolean`），用于存储或配置halt（默认值：`false`）。
+   */
   private _halt = false;
+  /**
+   * Property `_backdropSubscription` (`Subscription`) storing backdrop subscription.
+   * @zh 属性 `_backdropSubscription`（类型：`Subscription`），用于存储或配置背景遮罩订阅对象。
+   */
   private _backdropSubscription: Subscription;
+  /**
+   * Property `_positionSubscription` (`Subscription`) storing position subscription.
+   * @zh 属性 `_positionSubscription`（类型：`Subscription`），用于存储或配置位置订阅对象。
+   */
   private _positionSubscription: Subscription;
+  /**
+   * Property `_detachmentsSubscription` (`Subscription`) storing detachments subscription.
+   * @zh 属性 `_detachmentsSubscription`（类型：`Subscription`），用于存储或配置detachments订阅对象。
+   */
   private _detachmentsSubscription: Subscription;
 
-  private _mouseoverTimer: any;
-  private _mouseleaveTimer: any;
+  /**
+   * Property `_mouseoverTimer` (`any`) storing mouseover timer.
+   * @zh 属性 `_mouseoverTimer`（类型：`any`），用于存储或配置mouseover定时器。
+   */
+  private _mouseoverTimer;
+  /**
+   * Property `_mouseleaveTimer` (`any`) storing mouseleave timer.
+   * @zh 属性 `_mouseleaveTimer`（类型：`any`），用于存储或配置鼠标离开定时器。
+   */
+  private _mouseleaveTimer;
 
+  /**
+   * Property `_openedByMouse` (`boolean`) storing opened by mouse (default: `false`).
+   * @zh 属性 `_openedByMouse`（类型：`boolean`），用于存储或配置是否展开按鼠标（默认值：`false`）。
+   */
   private _openedByMouse = false;
 
+  /**
+   * Property `_onDestroy` (`Subject`) storing on destroy (default: `new Subject<void>()`).
+   * @zh 属性 `_onDestroy`（类型：`Subject`），用于存储或配置当销毁（默认值：`new Subject<void>()`）。
+   */
   private _onDestroy = new Subject<void>();
 
-  /** @zh 触发器实例的名称，供程序化查找/引用使用。 */
+  /**
+   * Input property `name` (`string`) configuring name.
+   * @zh 触发器实例的名称，供程序化查找/引用使用。
+   * @zh 触发器实例的名称，供程序化查找/引用使用。
+   */
   @Input('name') name: string;
 
-  /** References the popover instance that the trigger is associated with. */
+  /**
+   * References the popover instance that the trigger is associated with.
+   * @zh 输入属性 `popoverTriggerFor`（类型：`PopoverPanel`），用于配置气泡卡片。
+   */
   @Input('popoverTriggerFor') popover: PopoverPanel;
 
-  /** @zh 覆盖用于定位的目标元素（默认使用宿主元素自身）。 */
+  /**
+   * Input property `popoverTargetAt` (`PopoverTargetInterface`) configuring target element.
+   * @zh 覆盖用于定位的目标元素（默认使用宿主元素自身）。
+   * @zh 覆盖用于定位的目标元素（默认使用宿主元素自身）。
+   */
   @Input('popoverTargetAt') targetElement: PopoverTargetInterface;
 
-  /** Position of the popover in the X axis */
+  /**
+   * Position of the popover in the X axis
+   * @zh 输入属性 `popoverPositionX`（类型：`PopoverPositionX`），用于配置位置X坐标。
+   */
   @Input('popoverPositionX') positionX: PopoverPositionX;
 
-  /** Position of the popover in the Y axis */
+  /**
+   * Position of the popover in the Y axis
+   * @zh 输入属性 `popoverPositionY`（类型：`PopoverPositionY`），用于配置位置Y坐标。
+   */
   @Input('popoverPositionY') positionY: PopoverPositionY;
 
-  /** Popover trigger event */
+  /**
+   * Popover trigger event
+   * @zh 输入属性 `popoverTriggerOn`（类型：`PopoverTriggerEvent`），用于配置触发事件。
+   */
   @Input('popoverTriggerOn') triggerEvent: PopoverTriggerEvent;
 
-  /** Popover delay */
+  /**
+   * Popover delay
+   * @zh 输入属性 `popoverEnterDelay`（类型：`number`），用于配置进入延迟。
+   */
   @Input('popoverEnterDelay') enterDelay: number;
 
-  /** Popover delay */
+  /**
+   * Popover delay
+   * @zh 输入属性 `popoverLeaveDelay`（类型：`number`），用于配置离开延迟。
+   */
   @Input('popoverLeaveDelay') leaveDelay: number;
 
-  /** Popover overlap trigger */
+  /**
+   * Popover overlap trigger
+   * @zh 输入属性 `popoverOverlapTrigger`（类型：`boolean`），用于配置overlap触发。
+   */
   @Input('popoverOverlapTrigger') overlapTrigger: boolean;
 
-  /** Popover target offset x */
+  /**
+   * Popover target offset x
+   * @zh 输入属性 `popoverOffsetX`（类型：`number`），用于配置目标偏移量X坐标。
+   */
   @Input('popoverOffsetX') targetOffsetX: number;
 
-  /** Popover target offset y */
+  /**
+   * Popover target offset y
+   * @zh 输入属性 `popoverOffsetY`（类型：`number`），用于配置目标偏移量Y坐标。
+   */
   @Input('popoverOffsetY') targetOffsetY: number;
 
-  /** Popover arrow offset x */
+  /**
+   * Popover arrow offset x
+   * @zh 输入属性 `popoverArrowOffsetX`（类型：`number`），用于配置箭头偏移量X坐标。
+   */
   @Input('popoverArrowOffsetX') arrowOffsetX: number;
 
 
-  /** Popover arrow width */
+  /**
+   * Popover arrow width
+   * @zh 输入属性 `popoverArrowWidth`（类型：`number`），用于配置箭头宽度。
+   */
   @Input('popoverArrowWidth') arrowWidth: number;
 
 
-  /** Popover arrow color */
+  /**
+   * Popover arrow color
+   * @zh 输入属性 `popoverArrowColor`（类型：`string`），用于配置箭头颜色。
+   */
   @Input('popoverArrowColor') arrowColor: string;
 
 
-  /** Popover container close on click */
+  /**
+   * Popover container close on click
+   * @zh 输入属性 `popoverCloseOnClick`（类型：`boolean`），用于配置关闭当点击。
+   */
   @Input('popoverCloseOnClick') closeOnClick: boolean;
 
 
-  /** @zh 点击遮罩层（背景）时是否关闭弹出层（仅 `click` 触发方式下的遮罩层）。 */
+  /**
+   * Input property `popoverBackdropCloseOnClick` (`boolean`) configuring backdrop close on click (default: `true`).
+   * @zh 点击遮罩层（背景）时是否关闭弹出层（仅 `click` 触发方式下的遮罩层）。
+   * @zh 点击遮罩层（背景）时是否关闭弹出层（仅 `click` 触发方式下的遮罩层）。
+   */
   @Input('popoverBackdropCloseOnClick') backdropCloseOnClick = true;
 
-  /** @zh 是否允许打开弹出层（`false` 时触发操作不会打开弹出层）。 */
+  /**
+   * Input property `showPopOver` (`boolean`) configuring show pop over (default: `true`).
+   * @zh 是否允许打开弹出层（`false` 时触发操作不会打开弹出层）。
+   * @zh 是否允许打开弹出层（`false` 时触发操作不会打开弹出层）。
+   */
   @Input('showPopOver') showPopOver: boolean=true;
 
-  /** @zh 弹出层打开时发出。 */
+  /**
+   * Output event emitter `opened` (`EventEmitter`) firing when opened occurs.
+   * @zh 弹出层打开时发出。
+   * @zh 弹出层打开时发出。
+   */
   @Output() opened = new EventEmitter<void>();
 
-  /** @zh 弹出层关闭时发出。 */
+  /**
+   * Output event emitter `closed` (`EventEmitter`) firing when closed occurs.
+   * @zh 弹出层关闭时发出。
+   * @zh 弹出层关闭时发出。
+   */
   @Output() closed = new EventEmitter<void>();
 
 
+  /**
+   * Creates an instance of `PopoverTrigger` and initializes its dependencies and internal state.
+   * @zh 创建 `PopoverTrigger` 实例，并初始化其依赖项与内部状态。
+   * @param renderer - Injected or initial renderer (`Renderer2`) / 注入或传入的渲染器（`Renderer2`）
+   * @param _overlay - Injected or initial overlay (`Overlay`) / 注入或传入的浮层（`Overlay`）
+   * @param _elementRef - Injected or initial element ref (`ElementRef`) / 注入或传入的元素引用（`ElementRef`）
+   * @param viewContainerRef - Injected or initial view container ref (`ViewContainerRef`) / 注入或传入的视图容器引用（`ViewContainerRef`）
+   * @param _dir - Injected or initial dir (`Directionality`) / 注入或传入的目录（`Directionality`）
+   * @param _changeDetectorRef - Injected or initial change detector ref (`ChangeDetectorRef`) / 注入或传入的变更检测器引用（`ChangeDetectorRef`）
+   * @param _document - Injected or initial document (`HTMLDocument`) / 注入或传入的文档对象（`HTMLDocument`）
+   */
   constructor(
             private renderer: Renderer2,
             private _overlay: Overlay, public _elementRef: ElementRef,
@@ -137,6 +268,10 @@ export class PopoverTrigger implements AfterViewInit, OnDestroy {
             private _changeDetectorRef: ChangeDetectorRef,
             @Inject(DOCUMENT) private _document: HTMLDocument) { }
 
+  /**
+   * Angular lifecycle hook invoked once after the component's view and child views are initialized.
+   * @zh Angular 生命周期钩子：在组件视图及其子视图初始化完成后调用一次。
+   */
   ngAfterViewInit() {
       this._checkPopover();
       this._setCurrentConfig();
@@ -145,6 +280,10 @@ export class PopoverTrigger implements AfterViewInit, OnDestroy {
         .subscribe(() => this.closePopover());
   }
 
+  /**
+   * Angular lifecycle hook invoked just before the component, directive, or service is destroyed to release subscriptions and resources.
+   * @zh Angular 生命周期钩子：在组件、指令或服务销毁前调用，用于释放订阅与清理资源。
+   */
   ngOnDestroy() {
     this.destroyPopover();
   }
@@ -158,6 +297,10 @@ export class PopoverTrigger implements AfterViewInit, OnDestroy {
     this._setCurrentConfig();
   }
 
+  /**
+   * Executes `_setCurrentConfig` to handle set current config.
+   * @zh 执行 `_setCurrentConfig`，用于集合当前配置。
+   */
   private _setCurrentConfig() {
 
       if (this.positionX === 'before' || this.positionX === 'after') {
@@ -351,6 +494,10 @@ export class PopoverTrigger implements AfterViewInit, OnDestroy {
   }
 
 
+  /**
+   * Executes `_subscribeToBackdrop` to handle subscribe to backdrop.
+   * @zh 执行 `_subscribeToBackdrop`，用于订阅转换为背景遮罩。
+   */
   private _subscribeToBackdrop(): void {
     if (this._overlayRef) {
       if ((this.triggerEvent || this.popover.triggerEvent) === 'click' && this.backdropCloseOnClick === true) {
@@ -366,6 +513,10 @@ export class PopoverTrigger implements AfterViewInit, OnDestroy {
     }
   }
 
+  /**
+   * Executes `_subscribeToDetachments` to handle subscribe to detachments.
+   * @zh 执行 `_subscribeToDetachments`，用于订阅转换为Detachments。
+   */
   private _subscribeToDetachments(): void {
     if (this._overlayRef) {
       this._overlayRef.detachments()
@@ -380,10 +531,18 @@ export class PopoverTrigger implements AfterViewInit, OnDestroy {
   }
 
 
+  /**
+   * Executes `_initPopover` to handle init popover.
+   * @zh 执行 `_initPopover`，用于初始化气泡卡片。
+   */
   private _initPopover(): void {
       this._setPopoverOpened();
   }
 
+  /**
+   * Executes `_resetPopover` to handle reset popover.
+   * @zh 执行 `_resetPopover`，用于重置气泡卡片。
+   */
   private _resetPopover(): void {
       this._setPopoverClosed();
       if (!this._openedByMouse) {
@@ -392,6 +551,10 @@ export class PopoverTrigger implements AfterViewInit, OnDestroy {
       this._openedByMouse = false;
   }
 
+  /**
+   * Executes `_setPopoverOpened` to handle set popover opened.
+   * @zh 执行 `_setPopoverOpened`，用于集合气泡卡片是否展开。
+   */
   private _setPopoverOpened(): void {
     if (!this._popoverOpen) {
       this._popoverOpen = true;
@@ -401,6 +564,10 @@ export class PopoverTrigger implements AfterViewInit, OnDestroy {
   }
 
 
+  /**
+   * Executes `_setPopoverClosed` to handle set popover closed.
+   * @zh 执行 `_setPopoverClosed`，用于集合气泡卡片是否关闭。
+   */
   private _setPopoverClosed(): void {
     if (this._popoverOpen) {
       this._popoverOpen = false;
@@ -410,6 +577,10 @@ export class PopoverTrigger implements AfterViewInit, OnDestroy {
   }
 
 
+  /**
+   * Executes `_checkPopover` to handle check popover.
+   * @zh 执行 `_checkPopover`，用于检查气泡卡片。
+   */
   private _checkPopover() {
       if (!this.popover) {
         throwPopoverMissingError();
@@ -424,6 +595,11 @@ export class PopoverTrigger implements AfterViewInit, OnDestroy {
     return this._portal;
   }
 
+  /**
+   * Executes `_createOverlay` to handle create overlay.
+   * @zh 执行 `_createOverlay`，用于创建浮层。
+   * @returns Result of type `OverlayRef` / 类型为 `OverlayRef` 的返回值
+   */
   private _createOverlay(): OverlayRef {
       if (!this._overlayRef) {
         this._portal = new TemplatePortal(this.popover.templateRef, this.viewContainerRef);
@@ -439,6 +615,11 @@ export class PopoverTrigger implements AfterViewInit, OnDestroy {
   }
 
 
+  /**
+   * Executes `_getOverlayConfig` to handle get overlay config.
+   * @zh 执行 `_getOverlayConfig`，用于获取浮层配置。
+   * @returns Result of type `OverlayConfig` / 类型为 `OverlayConfig` 的返回值
+   */
   private _getOverlayConfig(): OverlayConfig {
       const overlayState = new OverlayConfig();
       overlayState.positionStrategy = this.getPosition();
@@ -454,6 +635,12 @@ export class PopoverTrigger implements AfterViewInit, OnDestroy {
   }
 
 
+  /**
+   * Executes `_getOverlayScrollStrategy` to handle get overlay scroll strategy.
+   * @zh 执行 `_getOverlayScrollStrategy`，用于获取浮层滚动策略。
+   * @param strategy - strategy parameter (`PopoverScrollStrategy`) / 策略参数（`PopoverScrollStrategy`）
+   * @returns Result of type `ScrollStrategy` / 类型为 `ScrollStrategy` 的返回值
+   */
   private _getOverlayScrollStrategy(strategy: PopoverScrollStrategy): ScrollStrategy {
     switch(strategy) {
       case 'noop':
@@ -575,6 +762,10 @@ export class PopoverTrigger implements AfterViewInit, OnDestroy {
         .withDefaultOffsetY(offsetY);
   }
 
+  /**
+   * Executes `_cleanUpSubscriptions` to handle clean up subscriptions.
+   * @zh 执行 `_cleanUpSubscriptions`，用于clean向上订阅集合。
+   */
   private _cleanUpSubscriptions(): void {
       if (this._backdropSubscription) {
           this._backdropSubscription.unsubscribe();
@@ -587,6 +778,11 @@ export class PopoverTrigger implements AfterViewInit, OnDestroy {
       }
   }
 
+  /**
+   * Host event listener `_handleMousedown` handling `mousedown` events for handle mousedown.
+   * @zh 宿主事件监听方法 `_handleMousedown`，响应 `mousedown` 事件以处理连接手柄鼠标按下。
+   * @param event - event parameter (`MouseEvent`) / 事件参数（`MouseEvent`）
+   */
   @HostListener('mousedown', ['$event']) _handleMousedown(event: MouseEvent): void {
       if (event && !isFakeMousedownFromScreenReader(event)) {
           this._openedByMouse = true;

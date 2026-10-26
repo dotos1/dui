@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Module `src/container/dock-layout/layout-manager.ts` providing layout manager definitions and implementation.
+ * @zh 模块文件 `src/container/dock-layout/layout-manager.ts`，提供布局管理器相关的定义与实现。
+ */
+
 /* eslint-disable no-dupe-class-members */
 import { TranslateService } from '@dotos/dui/translator';
 import { ComponentItemConfig, ItemConfig, LayoutConfig, RowOrColumnItemConfig, StackItemConfig } from './config/config';
@@ -39,93 +44,280 @@ import {
 
 /** @internal */
 declare global {
+    /**
+     * Interface `Window` defining the contract and properties for window.
+     * @zh 接口 `Window`，定义窗口的数据结构契约与属性规范。
+     */
     interface Window {
+        /**
+         * Property `__glInstance` (`LayoutManager`) storing gl instance.
+         * @zh 属性 `__glInstance`（类型：`LayoutManager`），用于存储或配置gl实例。
+         */
         __glInstance: LayoutManager;
     }
 }
 
+/**
+ * Class `LayoutManager` encapsulating layout manager data structures and logic in `src/container/dock-layout`.
+ * @zh 类 `LayoutManager`，封装 `src/container/dock-layout` 中的布局管理器数据结构与处理逻辑。
+ */
 export abstract class LayoutManager extends EventEmitter {
 
+    /**
+     * Property `resizeWithContainerAutomatically` (`boolean`) storing resize with container automatically (default: `false`).
+     * @zh 属性 `resizeWithContainerAutomatically`（类型：`boolean`），用于存储或配置调整尺寸带有容器Automatically（默认值：`false`）。
+     */
     resizeWithContainerAutomatically = false;
   
+    /**
+     * Property `resizeDebounceInterval` (`number`) storing resize debounce interval (default: `100`).
+     * @zh 属性 `resizeDebounceInterval`（类型：`number`），用于存储或配置调整尺寸防抖间隔定时器（默认值：`100`）。
+     */
     resizeDebounceInterval = 100;
 
+    /**
+     * Property `resizeDebounceExtendedWhenPossible` (`boolean`) storing resize debounce extended when possible (default: `true`).
+     * @zh 属性 `resizeDebounceExtendedWhenPossible`（类型：`boolean`），用于存储或配置调整尺寸防抖ExtendedWhenPossible（默认值：`true`）。
+     */
     resizeDebounceExtendedWhenPossible = true;
 
-    /** @internal */
+    /**
+     * Property `_containerElement` (`HTMLElement`) storing container element.
+     * @internal
+     * @zh 属性 `_containerElement`（类型：`HTMLElement`），用于存储或配置容器元素。
+     */
     private _containerElement: HTMLElement;
-    /** @internal */
+    /**
+     * Property `_isInitialised` (`boolean`) storing is initialised (default: `false`).
+     * @internal
+     * @zh 属性 `_isInitialised`（类型：`boolean`），用于存储或配置是否为Initialised（默认值：`false`）。
+     */
     private _isInitialised = false;
-    /** @internal */
+    /**
+     * Property `_groundItem` (`GroundItem | undefined`) storing ground item (default: `undefined`).
+     * @internal
+     * @zh 属性 `_groundItem`（类型：`GroundItem | undefined`），用于存储或配置ground条目（默认值：`undefined`）。
+     */
     private _groundItem: GroundItem | undefined = undefined;
-    /** @internal */
+    /**
+     * Property `_openPopouts` (`BrowserPopout[]`) storing open popouts (default: `[]`).
+     * @internal
+     * @zh 属性 `_openPopouts`（类型：`BrowserPopout[]`），用于存储或配置打开弹出窗口（默认值：`[]`）。
+     */
     private _openPopouts: BrowserPopout[] = [];
-    /** @internal */
+    /**
+     * Property `_dropTargetIndicator` (`DropTargetIndicator | null`) storing drop target indicator (default: `null`).
+     * @internal
+     * @zh 属性 `_dropTargetIndicator`（类型：`DropTargetIndicator | null`），用于存储或配置放置目标指示器（默认值：`null`）。
+     */
     private _dropTargetIndicator: DropTargetIndicator | null = null;
-    /** @internal */
+    /**
+     * Property `_transitionIndicator` (`TransitionIndicator | null`) storing transition indicator (default: `null`).
+     * @internal
+     * @zh 属性 `_transitionIndicator`（类型：`TransitionIndicator | null`），用于存储或配置过渡动画指示器（默认值：`null`）。
+     */
     private _transitionIndicator: TransitionIndicator | null = null;
-    /** @internal */
+    /**
+     * Property `_resizeTimeoutId` (`ReturnType<typeof setTimeout> | undefined`) storing resize timeout id.
+     * @internal
+     * @zh 属性 `_resizeTimeoutId`（类型：`ReturnType<typeof setTimeout> | undefined`），用于存储或配置调整尺寸延时器唯一标识。
+     */
     private _resizeTimeoutId: ReturnType<typeof setTimeout> | undefined;
-    /** @internal */
+    /**
+     * Property `_itemAreas` (`ContentItem.Area[]`) storing item areas (default: `[]`).
+     * @internal
+     * @zh 属性 `_itemAreas`（类型：`ContentItem.Area[]`），用于存储或配置条目区域集合（默认值：`[]`）。
+     */
     private _itemAreas: ContentItem.Area[] = [];
-    /** @internal */
+    /**
+     * Property `_maximisedStack` (`Stack | undefined`) storing maximised stack.
+     * @internal
+     * @zh 属性 `_maximisedStack`（类型：`Stack | undefined`），用于存储或配置最大化栈。
+     */
     private _maximisedStack: Stack | undefined;
-    /** @internal */
+    /**
+     * Property `_maximisePlaceholder` (`any`) storing maximise placeholder.
+     * @internal
+     * @zh 属性 `_maximisePlaceholder`（类型：`any`），用于存储或配置最大化占位提示。
+     */
     private _maximisePlaceholder = LayoutManager.createMaximisePlaceElement(document);
-    /** @internal */
+    /**
+     * Property `_tabDropPlaceholder` (`any`) storing tab drop placeholder.
+     * @internal
+     * @zh 属性 `_tabDropPlaceholder`（类型：`any`），用于存储或配置选项卡放置占位提示。
+     */
     private _tabDropPlaceholder = LayoutManager.createTabDropPlaceholderElement(document);
-    /** @internal */
+    /**
+     * Property `_dragSources` (`DragSource[]`) storing drag sources (default: `[]`).
+     * @internal
+     * @zh 属性 `_dragSources`（类型：`DragSource[]`），用于存储或配置拖拽源（默认值：`[]`）。
+     */
     private _dragSources: DragSource[] = [];
-    /** @internal */
+    /**
+     * Property `_updatingColumnsResponsive` (`boolean`) storing updating columns responsive (default: `false`).
+     * @internal
+     * @zh 属性 `_updatingColumnsResponsive`（类型：`boolean`），用于存储或配置更新列集合Responsive（默认值：`false`）。
+     */
     private _updatingColumnsResponsive = false;
-    /** @internal */
+    /**
+     * Property `_firstLoad` (`boolean`) storing first load (default: `true`).
+     * @internal
+     * @zh 属性 `_firstLoad`（类型：`boolean`），用于存储或配置首个加载（默认值：`true`）。
+     */
     private _firstLoad = true;
-    /** @internal */
+    /**
+     * Property `_eventHub` (`EventHub`) storing event hub (default: `new EventHub(this)`).
+     * @internal
+     * @zh 属性 `_eventHub`（类型：`EventHub`），用于存储或配置事件Hub（默认值：`new EventHub(this)`）。
+     */
     private _eventHub = new EventHub(this);
-    /** @internal */
+    /**
+     * Property `_width` (`number | null`) storing width (default: `null`).
+     * @internal
+     * @zh 属性 `_width`（类型：`number | null`），用于存储或配置宽度（默认值：`null`）。
+     */
     private _width: number | null = null;
-    /** @internal */
+    /**
+     * Property `_height` (`number | null`) storing height (default: `null`).
+     * @internal
+     * @zh 属性 `_height`（类型：`number | null`），用于存储或配置高度（默认值：`null`）。
+     */
     private _height: number | null = null;
-    /** @internal */
+    /**
+     * Property `_focusedComponentItem` (`ComponentItem | undefined`) storing focused component item.
+     * @internal
+     * @zh 属性 `_focusedComponentItem`（类型：`ComponentItem | undefined`），用于存储或配置已聚焦组件条目。
+     */
     private _focusedComponentItem: ComponentItem | undefined;
-    /** @internal */
+    /**
+     * Property `_virtualSizedContainers` (`ComponentContainer[]`) storing virtual sized containers (default: `[]`).
+     * @internal
+     * @zh 属性 `_virtualSizedContainers`（类型：`ComponentContainer[]`），用于存储或配置虚拟滚动已尺寸容器（默认值：`[]`）。
+     */
     private _virtualSizedContainers: ComponentContainer[] = [];
-    /** @internal */
+    /**
+     * Property `_virtualSizedContainerAddingBeginCount` (`number`) storing virtual sized container adding begin count (default: `0`).
+     * @internal
+     * @zh 属性 `_virtualSizedContainerAddingBeginCount`（类型：`number`），用于存储或配置虚拟滚动已尺寸容器添加开始计数（默认值：`0`）。
+     */
     private _virtualSizedContainerAddingBeginCount = 0;
-    /** @internal */
+    /**
+     * Property `_sizeInvalidationBeginCount` (`number`) storing size invalidation begin count (default: `0`).
+     * @internal
+     * @zh 属性 `_sizeInvalidationBeginCount`（类型：`number`），用于存储或配置尺寸Invalidation开始计数（默认值：`0`）。
+     */
     private _sizeInvalidationBeginCount = 0;
-    /** @internal */
+    /**
+     * Property `_constructorOrSubWindowLayoutConfig` (`LayoutConfig | undefined`) storing constructor or sub window layout config.
+     * @internal
+     * @zh 属性 `_constructorOrSubWindowLayoutConfig`（类型：`LayoutConfig | undefined`），用于存储或配置constructorOr子窗口布局配置。
+     */
     protected _constructorOrSubWindowLayoutConfig: LayoutConfig | undefined; // protected for backwards compatibility
 
-    /** @internal */
+    /**
+     * Property `_resizeObserver` (`ResizeObserver`) storing resize observer.
+     * @internal
+     * @zh 属性 `_resizeObserver`（类型：`ResizeObserver`），用于存储或配置调整尺寸观察者。
+     */
     private _resizeObserver = new ResizeObserver(() => this.handleContainerResize());
 
+    /**
+     * Property `_windowBeforeUnloadListener` (`any`) storing window before unload listener (default: `() => this.onBeforeUnload()`).
+     * @zh 属性 `_windowBeforeUnloadListener`（类型：`any`），用于存储或配置窗口之前Unload监听器（默认值：`() => this.onBeforeUnload()`）。
+     */
     private _windowBeforeUnloadListener = () => this.onBeforeUnload();
 
+    /**
+     * Property `_windowBeforeUnloadListening` (`boolean`) storing window before unload listening (default: `false`).
+     * @zh 属性 `_windowBeforeUnloadListening`（类型：`boolean`），用于存储或配置窗口之前Unload监听（默认值：`false`）。
+     */
     private _windowBeforeUnloadListening = false;
-    /** @internal */
+    /**
+     * Property `_maximisedStackBeforeDestroyedListener` (`any`) storing maximised stack before destroyed listener.
+     * @internal
+     * @zh 属性 `_maximisedStackBeforeDestroyedListener`（类型：`any`），用于存储或配置最大化栈之前已销毁监听器。
+     */
     private _maximisedStackBeforeDestroyedListener = (ev: EventEmitter.BubblingEvent) => this.cleanupBeforeMaximisedStackDestroyed(ev);
 
+    /**
+     * Property `isSubWindow` (`boolean`) storing is sub window.
+     * @zh 属性 `isSubWindow`（类型：`boolean`），用于存储或配置是否为子窗口。
+     */
     readonly isSubWindow: boolean;
+    /**
+     * Property `layoutConfig` (`ResolvedLayoutConfig`) storing layout config.
+     * @zh 属性 `layoutConfig`（类型：`ResolvedLayoutConfig`），用于存储或配置布局配置。
+     */
     layoutConfig: ResolvedLayoutConfig;
 
+    /**
+     * Property `beforeVirtualRectingEvent` (`LayoutManager.BeforeVirtualRectingEvent | undefined`) storing before virtual recting event.
+     * @zh 属性 `beforeVirtualRectingEvent`（类型：`LayoutManager.BeforeVirtualRectingEvent | undefined`），用于存储或配置之前虚拟滚动矩形事件。
+     */
     beforeVirtualRectingEvent: LayoutManager.BeforeVirtualRectingEvent | undefined;
+    /**
+     * Property `afterVirtualRectingEvent` (`LayoutManager.AfterVirtualRectingEvent | undefined`) storing after virtual recting event.
+     * @zh 属性 `afterVirtualRectingEvent`（类型：`LayoutManager.AfterVirtualRectingEvent | undefined`），用于存储或配置之后虚拟滚动矩形事件。
+     */
     afterVirtualRectingEvent: LayoutManager.AfterVirtualRectingEvent | undefined;
 
+    /**
+     * Gets the current container (`container: HTMLElement`).
+     * @zh 获取当前容器（`container: HTMLElement`）。
+     */
     get container(): HTMLElement { return this._containerElement; }
+    /**
+     * Gets the current is initialised (`isInitialised: boolean`).
+     * @zh 获取当前是否为Initialised（`isInitialised: boolean`）。
+     */
     get isInitialised(): boolean { return this._isInitialised; }
-    /** @internal */
+    /**
+     * Gets the current ground item (`groundItem: GroundItem | undefined`).
+     * @internal
+     * @zh 获取当前ground条目（`groundItem: GroundItem | undefined`）。
+     */
     get groundItem(): GroundItem | undefined { return this._groundItem; }
-    /** @internal @deprecated use {@link (LayoutManager:class).groundItem} instead */
+    /**
+     * @internal @deprecated use {@link (LayoutManager:class).groundItem} instead
+     * @zh 获取当前根节点（`root: GroundItem | undefined`）。
+     */
     get root(): GroundItem | undefined { return this._groundItem; }
+    /**
+     * Gets the current open popouts (`openPopouts: BrowserPopout[]`).
+     * @zh 获取当前打开弹出窗口（`openPopouts: BrowserPopout[]`）。
+     */
     get openPopouts(): BrowserPopout[] { return this._openPopouts; }
-    /** @internal */
+    /**
+     * Gets the current drop target indicator (`dropTargetIndicator: DropTargetIndicator | null`).
+     * @internal
+     * @zh 获取当前放置目标指示器（`dropTargetIndicator: DropTargetIndicator | null`）。
+     */
     get dropTargetIndicator(): DropTargetIndicator | null { return this._dropTargetIndicator; }
 
+    /**
+     * Gets the current transition indicator (`transitionIndicator: TransitionIndicator | null`).
+     * @zh 获取当前过渡动画指示器（`transitionIndicator: TransitionIndicator | null`）。
+     */
     get transitionIndicator(): TransitionIndicator | null { return this._transitionIndicator; }
+    /**
+     * Gets the current width (`width: number | null`).
+     * @zh 获取当前宽度（`width: number | null`）。
+     */
     get width(): number | null { return this._width; }
+    /**
+     * Gets the current height (`height: number | null`).
+     * @zh 获取当前高度（`height: number | null`）。
+     */
     get height(): number | null { return this._height; }
+    /**
+     * Gets the current event hub (`eventHub: EventHub`).
+     * @zh 获取当前事件Hub（`eventHub: EventHub`）。
+     */
     get eventHub(): EventHub { return this._eventHub; }
+    /**
+     * Gets the current root item (`rootItem: ContentItem | undefined`).
+     * @zh 获取当前根节点条目（`rootItem: ContentItem | undefined`）。
+     */
     get rootItem(): ContentItem | undefined {
         if (this._groundItem === undefined) {
             throw new Error('Cannot access rootItem before init');
@@ -138,19 +330,40 @@ export abstract class LayoutManager extends EventEmitter {
             }
         }
     }
+    /**
+     * Gets the current focused component item (`focusedComponentItem: ComponentItem | undefined`).
+     * @zh 获取当前已聚焦组件条目（`focusedComponentItem: ComponentItem | undefined`）。
+     */
     get focusedComponentItem(): ComponentItem | undefined { return this._focusedComponentItem; }
-    /** @internal */
+    /**
+     * Gets the current tab drop placeholder (`tabDropPlaceholder: HTMLElement`).
+     * @internal
+     * @zh 获取当前选项卡放置占位提示（`tabDropPlaceholder: HTMLElement`）。
+     */
     get tabDropPlaceholder(): HTMLElement { return this._tabDropPlaceholder; }
+    /**
+     * Gets the current maximised stack (`maximisedStack: Stack | undefined`).
+     * @zh 获取当前最大化栈（`maximisedStack: Stack | undefined`）。
+     */
     get maximisedStack(): Stack | undefined { return this._maximisedStack; }
 
-    /** @deprecated indicates deprecated constructor use */
+    /**
+     * @deprecated indicates deprecated constructor use
+     * @zh 获取当前deprecatedConstructor（`deprecatedConstructor: boolean`）。
+     */
     get deprecatedConstructor(): boolean { return !this.isSubWindow && this._constructorOrSubWindowLayoutConfig !== undefined; }
 
+    /**
+     * Property `translator` (`any`) storing translator.
+     * @zh 属性 `translator`（类型：`any`），用于存储或配置翻译器。
+     */
     public translator;
     /**
     * @param container - A Dom HTML element. Defaults to body
     * @internal
-    */
+
+     * @zh 创建 `LayoutManager` 实例，并初始化其依赖项与内部状态。
+     */
     constructor(translator:TranslateService,parameters: LayoutManager.ConstructorParameters) {
         super();
         this.translator=translator;
@@ -165,6 +378,10 @@ export abstract class LayoutManager extends EventEmitter {
         }
     }
 
+    /**
+     * Executes `destroy` to handle destroy.
+     * @zh 执行 `destroy`，用于销毁。
+     */
     destroy(): void {
         if (this._isInitialised) {
             if (this._windowBeforeUnloadListening) {
@@ -200,20 +417,44 @@ export abstract class LayoutManager extends EventEmitter {
         }
     }
 
+    /**
+     * Executes `minifyConfig` to handle minify config.
+     * @zh 执行 `minifyConfig`，用于minify配置。
+     * @param config - config parameter (`ResolvedLayoutConfig`) / 配置参数（`ResolvedLayoutConfig`）
+     * @returns Result of type `ResolvedLayoutConfig` / 类型为 `ResolvedLayoutConfig` 的返回值
+     */
     minifyConfig(config: ResolvedLayoutConfig): ResolvedLayoutConfig {
         return ResolvedLayoutConfig.minifyConfig(config);
     }
 
+    /**
+     * Executes `unminifyConfig` to handle unminify config.
+     * @zh 执行 `unminifyConfig`，用于unminify配置。
+     * @param config - config parameter (`ResolvedLayoutConfig`) / 配置参数（`ResolvedLayoutConfig`）
+     * @returns Result of type `ResolvedLayoutConfig` / 类型为 `ResolvedLayoutConfig` 的返回值
+     */
     unminifyConfig(config: ResolvedLayoutConfig): ResolvedLayoutConfig {
         return ResolvedLayoutConfig.unminifyConfig(config);
     }
 
-    /** @internal */
+    /**
+     * Executes `bindComponent` to handle bind component.
+     * @internal
+     * @zh 执行 `bindComponent`，用于绑定组件。
+     */
     abstract bindComponent(translator:TranslateService,container: ComponentContainer, itemConfig: ResolvedComponentItemConfig): ComponentContainer.BindableComponent;
-    /** @internal */
+    /**
+     * Executes `unbindComponent` to handle unbind component.
+     * @internal
+     * @zh 执行 `unbindComponent`，用于解绑组件。
+     */
     abstract unbindComponent(container: ComponentContainer, virtual: boolean, component: ComponentContainer.Component | undefined): void;
 
 
+    /**
+     * Executes `init` to handle init.
+     * @zh 执行 `init`，用于初始化。
+     */
     init(): void {
         this.setContainer();
         this._dropTargetIndicator = new DropTargetIndicator(/*this.container*/);
@@ -271,6 +512,11 @@ export abstract class LayoutManager extends EventEmitter {
     }
 
 
+    /**
+     * Executes `loadLayout` to handle load layout.
+     * @zh 执行 `loadLayout`，用于加载布局。
+     * @param layoutConfig - layout config parameter (`LayoutConfig`) / 布局配置参数（`LayoutConfig`）
+     */
     loadLayout(layoutConfig: LayoutConfig): void {
         if (!this.isInitialised) {
             // In case application not correctly using legacy constructor
@@ -289,6 +535,11 @@ export abstract class LayoutManager extends EventEmitter {
         }
     }
 
+    /**
+     * Executes `saveLayout` to handle save layout.
+     * @zh 执行 `saveLayout`，用于保存布局。
+     * @returns Result of type `ResolvedLayoutConfig` / 类型为 `ResolvedLayoutConfig` 的返回值
+     */
     saveLayout(): ResolvedLayoutConfig {
         if (this._isInitialised === false) {
             throw new Error('Can\'t create config, layout not yet initialised');
@@ -327,6 +578,10 @@ export abstract class LayoutManager extends EventEmitter {
     }
 
 
+    /**
+     * Executes `clear` to handle clear.
+     * @zh 执行 `clear`，用于清空。
+     */
     clear(): void {
         if (this._groundItem === undefined) {
             throw new UnexpectedUndefinedError('LMCL11129');
@@ -335,10 +590,24 @@ export abstract class LayoutManager extends EventEmitter {
         }
     }
 
+    /**
+     * Executes `toConfig` to handle to config.
+     * @zh 执行 `toConfig`，用于转换为配置。
+     * @returns Result of type `ResolvedLayoutConfig` / 类型为 `ResolvedLayoutConfig` 的返回值
+     */
     toConfig(): ResolvedLayoutConfig {
         return this.saveLayout();
     }
 
+    /**
+     * Executes `newComponent` to handle new component.
+     * @zh 执行 `newComponent`，用于新组件。
+     * @param componentType - component type parameter (`JsonValue`) / 组件类型参数（`JsonValue`）
+     * @param componentState - component state parameter (`JsonValue`) / 组件状态参数（`JsonValue`）
+     * @param title - title parameter (`string`) / 标题参数（`string`）
+     * @param stackId - stack id parameter (`string`) / 栈唯一标识参数（`string`）
+     * @returns Result of type `ComponentItem` / 类型为 `ComponentItem` 的返回值
+     */
     newComponent(componentType: JsonValue, componentState?: JsonValue, title?: string,stackId?:string): ComponentItem {
         if(stackId){
             const componentItem = this.newComponentAtStack(componentType, componentState, title,stackId);
@@ -358,6 +627,15 @@ export abstract class LayoutManager extends EventEmitter {
     }
 
 
+    /**
+     * Executes `newComponentAtStack` to handle new component at stack.
+     * @zh 执行 `newComponentAtStack`，用于新组件位于栈。
+     * @param componentType - component type parameter (`JsonValue`) / 组件类型参数（`JsonValue`）
+     * @param componentState - component state parameter (`JsonValue`) / 组件状态参数（`JsonValue`）
+     * @param title - title parameter (`string`) / 标题参数（`string`）
+     * @param stackId - stack id parameter (`string`) / 栈唯一标识参数（`string`）
+     * @returns Result of type `ComponentItem | undefined` / 类型为 `ComponentItem | undefined` 的返回值
+     */
     newComponentAtStack(componentType: JsonValue, componentState?: JsonValue, title?: string,
         stackId?:string
     ): ComponentItem | undefined{
@@ -377,7 +655,16 @@ export abstract class LayoutManager extends EventEmitter {
             }
         }
     }
-    addComponentAtStack(componentType: any, componentState?: JsonValue, title?: string,
+    /**
+     * Executes `addComponentAtStack` to handle add component at stack.
+     * @zh 执行 `addComponentAtStack`，用于添加组件位于栈。
+     * @param componentType - component type parameter (`any`) / 组件类型参数（`any`）
+     * @param componentState - component state parameter (`JsonValue`) / 组件状态参数（`JsonValue`）
+     * @param title - title parameter (`string`) / 标题参数（`string`）
+     * @param stackId - stack id parameter (`string`) / 栈唯一标识参数（`string`）
+     * @returns Result of type `LayoutManager.Location | undefined` / 类型为 `LayoutManager.Location | undefined` 的返回值
+     */
+    addComponentAtStack(componentType, componentState?: JsonValue, title?: string,
         stackId?:string
     ): LayoutManager.Location | undefined {
         const itemConfig: ComponentItemConfig = {
@@ -391,24 +678,41 @@ export abstract class LayoutManager extends EventEmitter {
     }
 
 
+    /**
+     * Executes `addItemAtStack` to handle add item at stack.
+     * @zh 执行 `addItemAtStack`，用于添加条目位于栈。
+     * @param itemConfig - item config parameter (`ComponentItemConfig`) / 条目配置参数（`ComponentItemConfig`）
+     * @param stackId - stack id parameter (`string`) / 栈唯一标识参数（`string`）
+     * @returns Result of type `LayoutManager.Location | undefined` / 类型为 `LayoutManager.Location | undefined` 的返回值
+     */
     addItemAtStack(itemConfig: ComponentItemConfig,
         stackId?:string
     ): LayoutManager.Location | undefined {
         if (this._groundItem === undefined) {
             throw new Error('Cannot add component before init');
         } else {
-            const stack:Stack =this.findFirstStackComponentItemById(stackId);
+            const stack:Stack = this.findFirstStackComponentItemById(stackId) as unknown as Stack;
             let index=stack.contentItems.length;
             let addIdx= stack.addItem(itemConfig, index);
           
-            let location:any = {};
-            location.parentItem = stack;
-            location.index = addIdx;
+            let location: LayoutManager.Location = {
+                parentItem: stack,
+                index: addIdx
+            };
             return location;
         }
     }
 
 
+    /**
+     * Executes `newComponentAtLocation` to handle new component at location.
+     * @zh 执行 `newComponentAtLocation`，用于新组件位于Location。
+     * @param componentType - component type parameter (`JsonValue`) / 组件类型参数（`JsonValue`）
+     * @param componentState - component state parameter (`JsonValue`) / 组件状态参数（`JsonValue`）
+     * @param title - title parameter (`string`) / 标题参数（`string`）
+     * @param locationSelectors - location selectors parameter (`LayoutManager.LocationSelector[]`) / location选择器参数（`LayoutManager.LocationSelector[]`）
+     * @returns Result of type `ComponentItem | undefined` / 类型为 `ComponentItem | undefined` 的返回值
+     */
     newComponentAtLocation(componentType: JsonValue, componentState?: JsonValue, title?: string,
         locationSelectors?: LayoutManager.LocationSelector[]
     ): ComponentItem | undefined{
@@ -428,6 +732,14 @@ export abstract class LayoutManager extends EventEmitter {
             }
         }
     }
+    /**
+     * Executes `addComponent` to handle add component.
+     * @zh 执行 `addComponent`，用于添加组件。
+     * @param componentType - component type parameter (`JsonValue`) / 组件类型参数（`JsonValue`）
+     * @param componentState - component state parameter (`JsonValue`) / 组件状态参数（`JsonValue`）
+     * @param title - title parameter (`string`) / 标题参数（`string`）
+     * @returns Result of type `LayoutManager.Location` / 类型为 `LayoutManager.Location` 的返回值
+     */
     addComponent(componentType: JsonValue, componentState?: JsonValue, title?: string): LayoutManager.Location {
         const location = this.addComponentAtLocation(componentType, componentState, title);
         if (location === undefined) {
@@ -437,7 +749,16 @@ export abstract class LayoutManager extends EventEmitter {
         }
     }
 
-    addComponentAtLocation(componentType: any, componentState?: JsonValue, title?: string,
+    /**
+     * Executes `addComponentAtLocation` to handle add component at location.
+     * @zh 执行 `addComponentAtLocation`，用于添加组件位于Location。
+     * @param componentType - component type parameter (`any`) / 组件类型参数（`any`）
+     * @param componentState - component state parameter (`JsonValue`) / 组件状态参数（`JsonValue`）
+     * @param title - title parameter (`string`) / 标题参数（`string`）
+     * @param locationSelectors - location selectors parameter (`readonly LayoutManager.LocationSelector[]`) / location选择器参数（`readonly LayoutManager.LocationSelector[]`）
+     * @returns Result of type `LayoutManager.Location | undefined` / 类型为 `LayoutManager.Location | undefined` 的返回值
+     */
+    addComponentAtLocation(componentType, componentState?: JsonValue, title?: string,
         locationSelectors?: readonly LayoutManager.LocationSelector[]
     ): LayoutManager.Location | undefined {
         const itemConfig: ComponentItemConfig = {
@@ -451,6 +772,12 @@ export abstract class LayoutManager extends EventEmitter {
         return this.addItemAtLocation(itemConfig, locationSelectors);
     }
 
+    /**
+     * Executes `newItem` to handle new item.
+     * @zh 执行 `newItem`，用于新条目。
+     * @param itemConfig - item config parameter (`RowOrColumnItemConfig | StackItemConfig | ComponentItemConfi...`) / 条目配置参数（`RowOrColumnItemConfig | StackItemConfig | ComponentItemConfi...`）
+     * @returns Result of type `ContentItem` / 类型为 `ContentItem` 的返回值
+     */
     newItem(itemConfig: RowOrColumnItemConfig | StackItemConfig | ComponentItemConfig): ContentItem {
         const contentItem = this.newItemAtLocation(itemConfig);
         if (contentItem === undefined) {
@@ -460,6 +787,13 @@ export abstract class LayoutManager extends EventEmitter {
         }
     }
 
+     /**
+      * Executes `newItemAtLocation` to handle new item at location.
+      * @zh 执行 `newItemAtLocation`，用于新条目位于Location。
+      * @param itemConfig - item config parameter (`RowOrColumnItemConfig | StackItemConfig | ComponentItemConfi...`) / 条目配置参数（`RowOrColumnItemConfig | StackItemConfig | ComponentItemConfi...`）
+      * @param locationSelectors - location selectors parameter (`readonly LayoutManager.LocationSelector[]`) / location选择器参数（`readonly LayoutManager.LocationSelector[]`）
+      * @returns Result of type `ContentItem | undefined` / 类型为 `ContentItem | undefined` 的返回值
+      */
      newItemAtLocation(itemConfig: RowOrColumnItemConfig | StackItemConfig | ComponentItemConfig,
         locationSelectors?: readonly LayoutManager.LocationSelector[]
     ): ContentItem | undefined {
@@ -476,6 +810,12 @@ export abstract class LayoutManager extends EventEmitter {
         }
     }
 
+    /**
+     * Executes `addItem` to handle add item.
+     * @zh 执行 `addItem`，用于添加条目。
+     * @param itemConfig - item config parameter (`RowOrColumnItemConfig | StackItemConfig | ComponentItemConfi...`) / 条目配置参数（`RowOrColumnItemConfig | StackItemConfig | ComponentItemConfi...`）
+     * @returns Result of type `LayoutManager.Location` / 类型为 `LayoutManager.Location` 的返回值
+     */
     addItem(itemConfig: RowOrColumnItemConfig | StackItemConfig | ComponentItemConfig): LayoutManager.Location {
         const location = this.addItemAtLocation(itemConfig);
         if (location === undefined) {
@@ -485,6 +825,13 @@ export abstract class LayoutManager extends EventEmitter {
         }
     }
 
+    /**
+     * Executes `addItemAtLocation` to handle add item at location.
+     * @zh 执行 `addItemAtLocation`，用于添加条目位于Location。
+     * @param itemConfig - item config parameter (`RowOrColumnItemConfig | StackItemConfig | ComponentItemConfi...`) / 条目配置参数（`RowOrColumnItemConfig | StackItemConfig | ComponentItemConfi...`）
+     * @param locationSelectors - location selectors parameter (`readonly LayoutManager.LocationSelector[]`) / location选择器参数（`readonly LayoutManager.LocationSelector[]`）
+     * @returns Result of type `LayoutManager.Location | undefined` / 类型为 `LayoutManager.Location | undefined` 的返回值
+     */
     addItemAtLocation(itemConfig: RowOrColumnItemConfig | StackItemConfig | ComponentItemConfig,
         locationSelectors?: readonly LayoutManager.LocationSelector[]
     ): LayoutManager.Location | undefined {
@@ -551,6 +898,11 @@ export abstract class LayoutManager extends EventEmitter {
         }
     }
 
+    /**
+     * Executes `loadComponentAsRoot` to handle load component as root.
+     * @zh 执行 `loadComponentAsRoot`，用于加载组件As根节点。
+     * @param itemConfig - item config parameter (`ComponentItemConfig`) / 条目配置参数（`ComponentItemConfig`）
+     */
     loadComponentAsRoot(itemConfig: ComponentItemConfig): void {
         if (this._groundItem === undefined) {
             throw new Error('Cannot add item before init');
@@ -559,11 +911,23 @@ export abstract class LayoutManager extends EventEmitter {
         }
     }
 
+    /**
+     * Executes `updateSize` to handle update size.
+     * @zh 执行 `updateSize`，用于更新尺寸。
+     * @param width - width parameter (`number`) / 宽度参数（`number`）
+     * @param height - height parameter (`number`) / 高度参数（`number`）
+     */
     updateSize(width: number, height: number): void {
         this.setSize(width, height);
     }
 
 
+    /**
+     * Executes `setSize` to handle set size.
+     * @zh 执行 `setSize`，用于集合尺寸。
+     * @param width - width parameter (`number`) / 宽度参数（`number`）
+     * @param height - height parameter (`number`) / 高度参数（`number`）
+     */
     setSize(width: number, height: number): void {
         this._width = width;
         this._height = height;
@@ -586,25 +950,42 @@ export abstract class LayoutManager extends EventEmitter {
         }
     }
 
-    /** @internal */
+    /**
+     * Executes `beginSizeInvalidation` to handle begin size invalidation.
+     * @internal
+     * @zh 执行 `beginSizeInvalidation`，用于开始尺寸Invalidation。
+     */
     beginSizeInvalidation(): void {
         this._sizeInvalidationBeginCount++;
     }
 
-    /** @internal */
+    /**
+     * Executes `endSizeInvalidation` to handle end size invalidation.
+     * @internal
+     * @zh 执行 `endSizeInvalidation`，用于结束尺寸Invalidation。
+     */
     endSizeInvalidation(): void {
         if (--this._sizeInvalidationBeginCount === 0) {
             this.updateSizeFromContainer();
         }
     }
 
-    /** @internal */
+    /**
+     * Executes `updateSizeFromContainer` to handle update size from container.
+     * @internal
+     * @zh 执行 `updateSizeFromContainer`，用于更新尺寸从容器。
+     */
     updateSizeFromContainer(): void {
         const { width, height } = getElementWidthAndHeight(this._containerElement);
         this.setSize(width, height);
     }
 
 
+    /**
+     * Executes `updateRootSize` to handle update root size.
+     * @zh 执行 `updateRootSize`，用于更新根节点尺寸。
+     * @param force - force parameter (`any`) / force参数（`any`）
+     */
     updateRootSize(force = false): void {
         if (this._groundItem === undefined) {
             throw new UnexpectedUndefinedError('LMURS28881');
@@ -613,13 +994,24 @@ export abstract class LayoutManager extends EventEmitter {
         }
     }
 
-    /** @public */
+    /**
+     * Executes `createAndInitContentItem` to handle create and init content item.
+     * @public
+     * @zh 执行 `createAndInitContentItem`，用于创建And初始化内容条目。
+     */
     createAndInitContentItem(config: ResolvedItemConfig, parent: ContentItem): ContentItem {
         const newItem = this.createContentItem(config, parent);
         newItem.init();
         return newItem;
     }
 
+    /**
+     * Executes `createContentItem` to handle create content item.
+     * @zh 执行 `createContentItem`，用于创建内容条目。
+     * @param config - config parameter (`ResolvedItemConfig`) / 配置参数（`ResolvedItemConfig`）
+     * @param parent - parent parameter (`ContentItem`) / 父级参数（`ContentItem`）
+     * @returns Result of type `ContentItem` / 类型为 `ContentItem` 的返回值
+     */
     createContentItem(config: ResolvedItemConfig, parent: ContentItem): ContentItem {
         if (typeof config.type !== 'string') {
             throw new ConfigurationError('Missing parameter \'type\'', JSON.stringify(config));
@@ -658,7 +1050,13 @@ export abstract class LayoutManager extends EventEmitter {
         return contentItem;
     }
 
-    findFirstStackComponentItemById(id: string): any {
+    /**
+     * Executes `findFirstStackComponentItemById` to handle find first stack component item by id.
+     * @zh 执行 `findFirstStackComponentItemById`，用于查找首个栈组件条目按唯一标识。
+     * @param id - id parameter (`string`) / 唯一标识参数（`string`）
+     * @returns Result of type `any` / 类型为 `any` 的返回值
+     */
+    findFirstStackComponentItemById(id: string) {
         if (this._groundItem === undefined) {
             throw new UnexpectedUndefinedError('LMFFCIBI82446');
         } else {
@@ -666,6 +1064,12 @@ export abstract class LayoutManager extends EventEmitter {
         }
     }
 
+    /**
+     * Executes `findFirstComponentItemById` to handle find first component item by id.
+     * @zh 执行 `findFirstComponentItemById`，用于查找首个组件条目按唯一标识。
+     * @param id - id parameter (`string`) / 唯一标识参数（`string`）
+     * @returns Result of type `ComponentItem | undefined` / 类型为 `ComponentItem | undefined` 的返回值
+     */
     findFirstComponentItemById(id: string): ComponentItem | undefined {
         if (this._groundItem === undefined) {
             throw new UnexpectedUndefinedError('LMFFCIBI82446');
@@ -674,6 +1078,15 @@ export abstract class LayoutManager extends EventEmitter {
         }
     }
 
+    /**
+     * Executes `createPopout` to handle create popout.
+     * @zh 执行 `createPopout`，用于创建弹出窗口。
+     * @param itemConfigOrContentItem - item config or content item parameter (`ContentItem | ResolvedRootItemConfig`) / 条目配置Or内容条目参数（`ContentItem | ResolvedRootItemConfig`）
+     * @param positionAndSize - position and size parameter (`ResolvedPopoutLayoutConfig.Window`) / 位置And尺寸参数（`ResolvedPopoutLayoutConfig.Window`）
+     * @param parentId - parent id parameter (`string | null`) / 父级唯一标识参数（`string | null`）
+     * @param indexInParent - index in parent parameter (`number | null`) / 索引在父级参数（`number | null`）
+     * @returns Result of type `BrowserPopout` / 类型为 `BrowserPopout` 的返回值
+     */
     createPopout(itemConfigOrContentItem: ContentItem | ResolvedRootItemConfig,
         positionAndSize: ResolvedPopoutLayoutConfig.Window,
         parentId: string | null,
@@ -686,7 +1099,11 @@ export abstract class LayoutManager extends EventEmitter {
         }
     }
 
-    /** @internal */
+    /**
+     * Executes `createPopoutFromContentItem` to handle create popout from content item.
+     * @internal
+     * @zh 执行 `createPopoutFromContentItem`，用于创建弹出窗口从内容条目。
+     */
     createPopoutFromContentItem(item: ContentItem,
         window: ResolvedPopoutLayoutConfig.Window | undefined,
         parentId: string | null,
@@ -738,19 +1155,31 @@ export abstract class LayoutManager extends EventEmitter {
         }
     }
 
-    /** @internal */
+    /**
+     * Executes `beginVirtualSizedContainerAdding` to handle begin virtual sized container adding.
+     * @internal
+     * @zh 执行 `beginVirtualSizedContainerAdding`，用于开始虚拟滚动已尺寸容器添加。
+     */
     beginVirtualSizedContainerAdding(): void {
         if (++this._virtualSizedContainerAddingBeginCount === 0) {
             this._virtualSizedContainers.length = 0;
         }
     }
 
-    /** @internal */
+    /**
+     * Executes `addVirtualSizedContainer` to handle add virtual sized container.
+     * @internal
+     * @zh 执行 `addVirtualSizedContainer`，用于添加虚拟滚动已尺寸容器。
+     */
     addVirtualSizedContainer(container: ComponentContainer): void {
         this._virtualSizedContainers.push(container);
     }
 
-    /** @internal */
+    /**
+     * Executes `endVirtualSizedContainerAdding` to handle end virtual sized container adding.
+     * @internal
+     * @zh 执行 `endVirtualSizedContainerAdding`，用于结束虚拟滚动已尺寸容器添加。
+     */
     endVirtualSizedContainerAdding(): void {
         if (--this._virtualSizedContainerAddingBeginCount === 0) {
             const count = this._virtualSizedContainers.length;
@@ -766,21 +1195,33 @@ export abstract class LayoutManager extends EventEmitter {
         }
     }
 
-    /** @internal */
+    /**
+     * Executes `fireBeforeVirtualRectingEvent` to handle fire before virtual recting event.
+     * @internal
+     * @zh 执行 `fireBeforeVirtualRectingEvent`，用于触发之前虚拟滚动矩形事件。
+     */
     fireBeforeVirtualRectingEvent(count: number): void {
         if (this.beforeVirtualRectingEvent !== undefined) {
             this.beforeVirtualRectingEvent(count);
         }
     }
 
-    /** @internal */
+    /**
+     * Executes `fireAfterVirtualRectingEvent` to handle fire after virtual recting event.
+     * @internal
+     * @zh 执行 `fireAfterVirtualRectingEvent`，用于触发之后虚拟滚动矩形事件。
+     */
     fireAfterVirtualRectingEvent(): void {
         if (this.afterVirtualRectingEvent !== undefined) {
             this.afterVirtualRectingEvent();
         }
     }
 
-    /** @internal */
+    /**
+     * Executes `createPopoutFromItemConfig` to handle create popout from item config.
+     * @internal
+     * @zh 执行 `createPopoutFromItemConfig`，用于创建弹出窗口从条目配置。
+     */
     private createPopoutFromItemConfig(rootItemConfig: ResolvedRootItemConfig,
         window: ResolvedPopoutLayoutConfig.Window,
         parentId: string | null,
@@ -803,7 +1244,11 @@ export abstract class LayoutManager extends EventEmitter {
         return this.createPopoutFromPopoutLayoutConfig(popoutLayoutConfig);
     }
 
-    /** @internal */
+    /**
+     * Executes `createPopoutFromPopoutLayoutConfig` to handle create popout from popout layout config.
+     * @internal
+     * @zh 执行 `createPopoutFromPopoutLayoutConfig`，用于创建弹出窗口从弹出窗口布局配置。
+     */
     createPopoutFromPopoutLayoutConfig(config: ResolvedPopoutLayoutConfig): BrowserPopout {
         const configWindow = config.window;
         const initialWindow: Rect = {
@@ -829,6 +1274,10 @@ export abstract class LayoutManager extends EventEmitter {
     }
 
 
+    /**
+     * Executes `closeAllOpenPopouts` to handle close all open popouts.
+     * @zh 执行 `closeAllOpenPopouts`，用于关闭全部打开弹出窗口。
+     */
     closeAllOpenPopouts() {
         for (let i = 0; i < this._openPopouts.length; i++) {
             this._openPopouts[i].close();
@@ -843,9 +1292,29 @@ export abstract class LayoutManager extends EventEmitter {
     }
 
 
+    /**
+     * Executes `newDragSource` to handle new drag source.
+     * @zh 执行 `newDragSource`，用于新拖拽源。
+     * @param element - element parameter (`HTMLElement`) / 元素参数（`HTMLElement`）
+     * @param itemConfigCallback - item config callback parameter (`() => (DragSource.ComponentItemConfig | ComponentItemConfig)`) / 条目配置回调函数参数（`() => (DragSource.ComponentItemConfig | ComponentItemConfig)`）
+     * @returns Result of type `DragSource` / 类型为 `DragSource` 的返回值
+     */
     newDragSource(element: HTMLElement, itemConfigCallback: () => (DragSource.ComponentItemConfig | ComponentItemConfig)): DragSource;
-    /** @deprecated will be replaced in version 3 with newDragSource(element: HTMLElement, itemConfig: ComponentItemConfig) */
+    /**
+     * @deprecated will be replaced in version 3 with newDragSource(element: HTMLElement, itemConfig: ComponentItemConfig)
+     * @zh 执行 `newDragSource`，用于新拖拽源。
+     */
     newDragSource(element: HTMLElement, componentType: JsonValue, componentState?: JsonValue, title?: JsonValue, id?: string): DragSource;
+    /**
+     * Executes `newDragSource` to handle new drag source.
+     * @zh 执行 `newDragSource`，用于新拖拽源。
+     * @param element - element parameter (`HTMLElement`) / 元素参数（`HTMLElement`）
+     * @param componentTypeOrItemConfigCallb... - component type or item config callb parameter (`JsonValue | (() => (DragSource.ComponentItemConfig | Compone...`) / 组件类型Or条目配置Callb参数（`JsonValue | (() => (DragSource.ComponentItemConfig | Compone...`）
+     * @param componentState - component state parameter (`JsonValue`) / 组件状态参数（`JsonValue`）
+     * @param title - title parameter (`string`) / 标题参数（`string`）
+     * @param id - id parameter (`string`) / 唯一标识参数（`string`）
+     * @returns Result of type `DragSource` / 类型为 `DragSource` 的返回值
+     */
     newDragSource(element: HTMLElement,
         componentTypeOrItemConfigCallback: JsonValue | (() => (DragSource.ComponentItemConfig | ComponentItemConfig)),
         componentState?: JsonValue,
@@ -859,12 +1328,21 @@ export abstract class LayoutManager extends EventEmitter {
     }
 
 
+	/**
+	 * Executes `removeDragSource` to handle remove drag source.
+	 * @zh 执行 `removeDragSource`，用于移除拖拽源。
+	 * @param dragSource - drag source parameter (`DragSource`) / 拖拽源参数（`DragSource`）
+	 */
 	removeDragSource(dragSource: DragSource): void {
 		removeFromArray(dragSource, this._dragSources );
 		dragSource.destroy();
     }
 
-    /** @internal */
+    /**
+     * Executes `startComponentDrag` to handle start component drag.
+     * @internal
+     * @zh 执行 `startComponentDrag`，用于开始组件拖拽。
+     */
     startComponentDrag(x: number, y: number, dragListener: DragListener, componentItem: ComponentItem, stack: Stack): void {
         new DragProxy(
             x,
@@ -876,14 +1354,31 @@ export abstract class LayoutManager extends EventEmitter {
         );
     }
 
+    /**
+     * Executes `focusComponent` to handle focus component.
+     * @zh 执行 `focusComponent`，用于聚焦组件。
+     * @param item - item parameter (`ComponentItem`) / 条目参数（`ComponentItem`）
+     * @param suppressEvent - suppress event parameter (`any`) / suppress事件参数（`any`）
+     */
     focusComponent(item: ComponentItem, suppressEvent = false): void {
         item.focus(suppressEvent);
     }
 
+    /**
+     * Executes `clearComponentFocus` to handle clear component focus.
+     * @zh 执行 `clearComponentFocus`，用于清空组件聚焦。
+     * @param suppressEvent - suppress event parameter (`any`) / suppress事件参数（`any`）
+     */
     clearComponentFocus(suppressEvent = false): void {
         this.setFocusedComponentItem(undefined, suppressEvent);
     }
 
+    /**
+     * Executes `setFocusedComponentItem` to handle set focused component item.
+     * @zh 执行 `setFocusedComponentItem`，用于集合已聚焦组件条目。
+     * @param item - item parameter (`ComponentItem | undefined`) / 条目参数（`ComponentItem | undefined`）
+     * @param suppressEvents - suppress events parameter (`any`) / suppress事件集合参数（`any`）
+     */
     setFocusedComponentItem(item: ComponentItem | undefined, suppressEvents = false): void {
         if (item !== this._focusedComponentItem) {
 
@@ -920,7 +1415,11 @@ export abstract class LayoutManager extends EventEmitter {
         }
     }
 
-    /** @internal */
+    /**
+     * Executes `createContentItemFromConfig` to handle create content item from config.
+     * @internal
+     * @zh 执行 `createContentItemFromConfig`，用于创建内容条目从配置。
+     */
     private createContentItemFromConfig(config: ResolvedItemConfig, parent: ContentItem): ContentItem {
         switch (config.type) {
             case ItemType.ground: throw new AssertError('LMCCIFC68871');
@@ -935,6 +1434,11 @@ export abstract class LayoutManager extends EventEmitter {
     }
 
 
+    /**
+     * Executes `setMaximisedStack` to handle set maximised stack.
+     * @zh 执行 `setMaximisedStack`，用于集合最大化栈。
+     * @param stack - stack parameter (`Stack | undefined`) / 栈参数（`Stack | undefined`）
+     */
     setMaximisedStack(stack: Stack | undefined): void {
         if (stack === undefined) {
             if (this._maximisedStack !== undefined) {
@@ -951,6 +1455,10 @@ export abstract class LayoutManager extends EventEmitter {
         }
     }
 
+    /**
+     * Executes `checkMinimiseMaximisedStack` to handle check minimise maximised stack.
+     * @zh 执行 `checkMinimiseMaximisedStack`，用于检查Minimise最大化栈。
+     */
     checkMinimiseMaximisedStack(): void {
         if (this._maximisedStack !== undefined) {
             this._maximisedStack.minimise();
@@ -1001,7 +1509,11 @@ export abstract class LayoutManager extends EventEmitter {
     //     }
     // }
 
-    /** @internal */
+    /**
+     * Executes `cleanupBeforeMaximisedStackDestroyed` to handle cleanup before maximised stack destroyed.
+     * @internal
+     * @zh 执行 `cleanupBeforeMaximisedStackDestroyed`，用于cleanup之前最大化栈已销毁。
+     */
     private cleanupBeforeMaximisedStackDestroyed(event: EventEmitter.BubblingEvent) {
 		if (this._maximisedStack !== null && this._maximisedStack === event.target) {
 			this._maximisedStack.off('beforeItemDestroyed', this._maximisedStackBeforeDestroyedListener);
@@ -1009,11 +1521,19 @@ export abstract class LayoutManager extends EventEmitter {
 		}
     }
 
+    /**
+     * Executes `closeWindow` to handle close window.
+     * @zh 执行 `closeWindow`，用于关闭窗口。
+     */
     closeWindow(): void {
         globalThis.setTimeout(() => globalThis.close(), 1);
     }
 
-    /** @internal */
+    /**
+     * Executes `getArea` to handle get area.
+     * @internal
+     * @zh 执行 `getArea`，用于获取区域。
+     */
     getArea(x: number, y: number): ContentItem.Area | null {
         let matchingArea = null;
         let smallestSurface = Infinity;
@@ -1036,7 +1556,11 @@ export abstract class LayoutManager extends EventEmitter {
         return matchingArea;
     }
 
-    /** @internal */
+    /**
+     * Executes `calculateItemAreas` to handle calculate item areas.
+     * @internal
+     * @zh 执行 `calculateItemAreas`，用于计算条目区域集合。
+     */
     calculateItemAreas(): void {
         const allContentItems = this.getAllContentItems();
         const groundItem = this._groundItem;
@@ -1094,6 +1618,10 @@ export abstract class LayoutManager extends EventEmitter {
         }
     }
 
+    /**
+     * Executes `checkLoadedLayoutMaximiseItem` to handle check loaded layout maximise item.
+     * @zh 执行 `checkLoadedLayoutMaximiseItem`，用于检查已加载布局最大化条目。
+     */
     private checkLoadedLayoutMaximiseItem() {
         if (this._groundItem === undefined) {
             throw new UnexpectedUndefinedError('LMCLLMI43432');
@@ -1119,7 +1647,11 @@ export abstract class LayoutManager extends EventEmitter {
         }
     }
 
-    /** @internal */
+    /**
+     * Executes `processMaximiseStack` to handle process maximise stack.
+     * @internal
+     * @zh 执行 `processMaximiseStack`，用于处理最大化栈。
+     */
     private processMaximiseStack(stack: Stack): void {
         this._maximisedStack = stack;
         stack.on('beforeItemDestroyed', this._maximisedStackBeforeDestroyedListener);
@@ -1139,7 +1671,11 @@ export abstract class LayoutManager extends EventEmitter {
         }
     }
 
-    /** @internal */
+    /**
+     * Executes `processMinimiseMaximisedStack` to handle process minimise maximised stack.
+     * @internal
+     * @zh 执行 `processMinimiseMaximisedStack`，用于处理Minimise最大化栈。
+     */
     private processMinimiseMaximisedStack(): void {
         if (this._maximisedStack === undefined) {
             throw new AssertError('LMMMS74422');
@@ -1160,6 +1696,10 @@ export abstract class LayoutManager extends EventEmitter {
         }
     }
 
+    /**
+     * Executes `reconcilePopoutWindows` to handle reconcile popout windows.
+     * @zh 执行 `reconcilePopoutWindows`，用于reconcile弹出窗口多窗口。
+     */
     private reconcilePopoutWindows() {
         const openPopouts: BrowserPopout[] = [];
 
@@ -1178,6 +1718,10 @@ export abstract class LayoutManager extends EventEmitter {
 
     }
 
+    /**
+     * Executes `getAllContentItems` to handle get all content items.
+     * @zh 执行 `getAllContentItems`，用于获取全部内容条目列表。
+     */
     private getAllContentItems() {
         if (this._groundItem === undefined) {
             throw new UnexpectedUndefinedError('LMGACI13130');
@@ -1186,6 +1730,10 @@ export abstract class LayoutManager extends EventEmitter {
         }
     }
 
+    /**
+     * Executes `createSubWindows` to handle create sub windows.
+     * @zh 执行 `createSubWindows`，用于创建子多窗口。
+     */
     private createSubWindows() {
         for (let i = 0; i < this.layoutConfig.openPopouts.length; i++) {
             const popoutConfig = this.layoutConfig.openPopouts[i];
@@ -1194,6 +1742,10 @@ export abstract class LayoutManager extends EventEmitter {
     }
 
 
+    /**
+     * Executes `handleContainerResize` to handle handle container resize.
+     * @zh 执行 `handleContainerResize`，用于连接手柄容器调整尺寸。
+     */
     private handleContainerResize(): void {
         if (this.resizeWithContainerAutomatically) {
             this.processResizeWithDebounce();
@@ -1203,6 +1755,8 @@ export abstract class LayoutManager extends EventEmitter {
     /**
      * Debounces resize events
      * @internal
+
+     * @zh 执行 `processResizeWithDebounce`，用于处理调整尺寸带有防抖。
      */
     private processResizeWithDebounce(): void {
         if (this.resizeDebounceExtendedWhenPossible) {
@@ -1221,6 +1775,10 @@ export abstract class LayoutManager extends EventEmitter {
         }
     }
 
+    /**
+     * Executes `checkClearResizeTimeout` to handle check clear resize timeout.
+     * @zh 执行 `checkClearResizeTimeout`，用于检查清空调整尺寸延时器。
+     */
     private checkClearResizeTimeout() {
         if (this._resizeTimeoutId !== undefined) {
             clearTimeout(this._resizeTimeoutId);
@@ -1231,6 +1789,8 @@ export abstract class LayoutManager extends EventEmitter {
     /**
      * Determines what element the layout will be created in
      * @internal
+
+     * @zh 执行 `setContainer`，用于集合容器。
      */
     private setContainer() {
         const bodyElement = document.body;
@@ -1254,6 +1814,10 @@ export abstract class LayoutManager extends EventEmitter {
     }
 
   
+    /**
+     * Executes `onBeforeUnload` to handle on before unload.
+     * @zh 执行 `onBeforeUnload`，用于当之前Unload。
+     */
     private onBeforeUnload(): void {
         this.destroy();
     }
@@ -1261,6 +1825,8 @@ export abstract class LayoutManager extends EventEmitter {
     /**
      * Adjusts the number of columns to be lower to fit the screen and still maintain minItemWidth.
      * @internal
+
+     * @zh 执行 `adjustColumnsResponsive`，用于adjust列集合Responsive。
      */
     private adjustColumnsResponsive() {
         if (this._groundItem === undefined) {
@@ -1315,6 +1881,10 @@ export abstract class LayoutManager extends EventEmitter {
         }
     }
 
+    /**
+     * Executes `useResponsiveLayout` to handle use responsive layout.
+     * @zh 执行 `useResponsiveLayout`，用于使用Responsive布局。
+     */
     private useResponsiveLayout() {
         const settings = this.layoutConfig.settings;
         const alwaysResponsiveMode = settings.responsiveMode === ResponsiveMode.always;
@@ -1322,6 +1892,12 @@ export abstract class LayoutManager extends EventEmitter {
         return alwaysResponsiveMode || onLoadResponsiveModeAndFirst;
     }
 
+    /**
+     * Executes `addChildContentItemsToContainer` to handle add child content items to container.
+     * @zh 执行 `addChildContentItemsToContainer`，用于添加子级内容条目列表转换为容器。
+     * @param container - container parameter (`ContentItem`) / 容器参数（`ContentItem`）
+     * @param node - node parameter (`ContentItem`) / 节点参数（`ContentItem`）
+     */
     private addChildContentItemsToContainer(container: ContentItem, node: ContentItem) {
         const contentItems = node.contentItems;
         if (node instanceof Stack) {
@@ -1338,6 +1914,10 @@ export abstract class LayoutManager extends EventEmitter {
         }
     }
 
+    /**
+     * Executes `getAllStacks` to handle get all stacks.
+     * @zh 执行 `getAllStacks`，用于获取全部栈。
+     */
     public getAllStacks() {
         if (this._groundItem === undefined) {
             throw new UnexpectedUndefinedError('LMFASC52778');
@@ -1349,7 +1929,11 @@ export abstract class LayoutManager extends EventEmitter {
         }
     }
 
-    /** @internal */
+    /**
+     * Executes `findFirstContentItemType` to handle find first content item type.
+     * @internal
+     * @zh 执行 `findFirstContentItemType`，用于查找首个内容条目类型。
+     */
     private findFirstContentItemType(type: ItemType): ContentItem | undefined {
         if (this._groundItem === undefined) {
             throw new UnexpectedUndefinedError('LMFFCIT82446');
@@ -1358,7 +1942,11 @@ export abstract class LayoutManager extends EventEmitter {
         }
     }
 
-    /** @internal */
+    /**
+     * Executes `findFirstContentItemTypeRecursive` to handle find first content item type recursive.
+     * @internal
+     * @zh 执行 `findFirstContentItemTypeRecursive`，用于查找首个内容条目类型Recursive。
+     */
     private findFirstContentItemTypeRecursive(type: ItemType, node: ContentItem): ContentItem | undefined {
         const contentItems = node.contentItems;
         const contentItemCount = contentItems.length;
@@ -1384,7 +1972,11 @@ export abstract class LayoutManager extends EventEmitter {
         }
     }
 
-    /** @internal */
+    /**
+     * Executes `findFirstContentItemTypeByIdRecursive` to handle find first content item type by id recursive.
+     * @internal
+     * @zh 执行 `findFirstContentItemTypeByIdRecursive`，用于查找首个内容条目类型按唯一标识Recursive。
+     */
     private findFirstContentItemTypeByIdRecursive(type: ItemType, id: string, node: ContentItem): ContentItem | undefined {
         const contentItems = node.contentItems;
         const contentItemCount = contentItems.length;
@@ -1416,6 +2008,8 @@ export abstract class LayoutManager extends EventEmitter {
      * @param stacks - Set of containers to populate.
      * @param node - Current node to process.
      * @internal
+
+     * @zh 执行 `findAllStacksRecursive`，用于查找全部栈Recursive。
      */
     private findAllStacksRecursive(stacks: Stack[], node: ContentItem) {
         const contentItems = node.contentItems;
@@ -1432,6 +2026,12 @@ export abstract class LayoutManager extends EventEmitter {
     }
 
 
+    /**
+     * Executes `findFirstLocation` to handle find first location.
+     * @zh 执行 `findFirstLocation`，用于查找首个Location。
+     * @param selectors - selectors parameter (`readonly LayoutManager.LocationSelector[]`) / 选择器参数（`readonly LayoutManager.LocationSelector[]`）
+     * @returns Result of type `LayoutManager.Location | undefined` / 类型为 `LayoutManager.Location | undefined` 的返回值
+     */
     public findFirstLocation(selectors: readonly LayoutManager.LocationSelector[]): LayoutManager.Location | undefined {
         const count = selectors.length;
         for (let i = 0; i < count; i++) {
@@ -1444,7 +2044,11 @@ export abstract class LayoutManager extends EventEmitter {
         return undefined;
     }
 
-    /** @internal */
+    /**
+     * Executes `findLocation` to handle find location.
+     * @internal
+     * @zh 执行 `findLocation`，用于查找Location。
+     */
     private findLocation(selector: LayoutManager.LocationSelector): LayoutManager.Location | undefined {
         const selectorIndex = selector.index;
         switch (selector.typeId) {
@@ -1548,7 +2152,11 @@ export abstract class LayoutManager extends EventEmitter {
         }
     }
 
-    /** @internal */
+    /**
+     * Executes `tryCreateLocationFromParentItem` to handle try create location from parent item.
+     * @internal
+     * @zh 执行 `tryCreateLocationFromParentItem`，用于try创建Location从父级条目。
+     */
     private tryCreateLocationFromParentItem(parentItem: ContentItem,
         selectorIndex: number | undefined
     ): LayoutManager.Location | undefined {
@@ -1568,64 +2176,150 @@ export abstract class LayoutManager extends EventEmitter {
 
 /** @public */
 export namespace LayoutManager {
+    /**
+     * Type alias `BeforeVirtualRectingEvent` representing before virtual recting event (`(this: void, count: number) => void`).
+     * @zh 类型别名 `BeforeVirtualRectingEvent`，表示之前虚拟滚动矩形事件（`(this: void, count: number) => void`）。
+     */
     export type BeforeVirtualRectingEvent = (this: void, count: number) => void;
+    /**
+     * Type alias `AfterVirtualRectingEvent` representing after virtual recting event (`(this: void) => void`).
+     * @zh 类型别名 `AfterVirtualRectingEvent`，表示之后虚拟滚动矩形事件（`(this: void) => void`）。
+     */
     export type AfterVirtualRectingEvent = (this: void) => void;
 
-    /** @internal */
+    /**
+     * Interface `ConstructorParameters` defining the contract and properties for constructor parameters.
+     * @internal
+     * @zh 接口 `ConstructorParameters`，定义Constructor参数列表的数据结构契约与属性规范。
+     */
     export interface ConstructorParameters {
+        /**
+         * Property `constructorOrSubWindowLayoutConfig` (`LayoutConfig | undefined`) storing constructor or sub window layout config.
+         * @zh 属性 `constructorOrSubWindowLayoutConfig`（类型：`LayoutConfig | undefined`），用于存储或配置constructorOr子窗口布局配置。
+         */
         constructorOrSubWindowLayoutConfig: LayoutConfig | undefined;
+        /**
+         * Property `isSubWindow` (`boolean`) storing is sub window.
+         * @zh 属性 `isSubWindow`（类型：`boolean`），用于存储或配置是否为子窗口。
+         */
         isSubWindow: boolean;
+        /**
+         * Property `containerElement` (`HTMLElement | undefined`) storing container element.
+         * @zh 属性 `containerElement`（类型：`HTMLElement | undefined`），用于存储或配置容器元素。
+         */
         containerElement: HTMLElement | undefined;
     }
 
-    /** @internal */
+    /**
+     * Executes `createMaximisePlaceElement` to handle create maximise place element.
+     * @internal
+     * @zh 执行 `createMaximisePlaceElement`，用于创建最大化Place元素。
+     */
     export function createMaximisePlaceElement(document: Document): HTMLElement {
         const element = document.createElement('div');
         element.classList.add(DomConstants.ClassName.MaximisePlace);
         return element;
     }
 
-    /** @internal */
+    /**
+     * Executes `createTabDropPlaceholderElement` to handle create tab drop placeholder element.
+     * @internal
+     * @zh 执行 `createTabDropPlaceholderElement`，用于创建选项卡放置占位提示元素。
+     */
     export function createTabDropPlaceholderElement(document: Document): HTMLElement {
         const element = document.createElement('div');
         element.classList.add(DomConstants.ClassName.DropTabPlaceholder);
         return element;
     }
 
+    /**
+     * Interface `Location` defining the contract and properties for location.
+     * @zh 接口 `Location`，定义Location的数据结构契约与属性规范。
+     */
     export interface Location {
+        /**
+         * Property `parentItem` (`ContentItem`) storing parent item.
+         * @zh 属性 `parentItem`（类型：`ContentItem`），用于存储或配置父级条目。
+         */
         parentItem: ContentItem;
+        /**
+         * Property `index` (`number`) storing index.
+         * @zh 属性 `index`（类型：`number`），用于存储或配置索引。
+         */
         index: number;
     }
 
+    /**
+     * Interface `LocationSelector` defining the contract and properties for location selector.
+     * @zh 接口 `LocationSelector`，定义Location选择器的数据结构契约与属性规范。
+     */
     export interface LocationSelector {
-        /** Specifies selector algorithm */
+        /**
+         * Specifies selector algorithm
+         * @zh 属性 `typeId`（类型：`LocationSelector.TypeId`），用于存储或配置类型唯一标识。
+         */
         typeId: LocationSelector.TypeId;
-        /** Used by algorithm to determine index in found ContentItem */
+        /**
+         * Used by algorithm to determine index in found ContentItem
+         * @zh 属性 `index`（类型：`number`），用于存储或配置索引。
+         */
         index?: number;
     }
 
     /** @public */
     export namespace LocationSelector {
+        /**
+         * Enumeration `TypeId` defining supported type id constants.
+         * @zh 枚举 `TypeId`，定义支持的类型唯一标识常量集合。
+         */
         export const enum TypeId {
-            /** Stack with focused Item. Index specifies offset from index of focused item (eg 1 is the position after focused item) */
+            /**
+             * Stack with focused Item. Index specifies offset from index of focused item (eg 1 is the position after focused item)
+             * @zh 枚举项 `TypeId.FocusedItem`，表示已聚焦条目。
+             */
             FocusedItem,
-            /** Stack with focused Item. Index specfies ContentItems index */
+            /**
+             * Stack with focused Item. Index specfies ContentItems index
+             * @zh 枚举项 `TypeId.FocusedStack`，表示已聚焦栈。
+             */
             FocusedStack,
-            /** First stack found in layout */
+            /**
+             * First stack found in layout
+             * @zh 枚举项 `TypeId.FirstStack`，表示首个栈。
+             */
             FirstStack,
-            /** First Row or Column found in layout (rows are searched first) */
+            /**
+             * First Row or Column found in layout (rows are searched first)
+             * @zh 枚举项 `TypeId.FirstRowOrColumn`，表示首个行Or列。
+             */
             FirstRowOrColumn,
-            /** First Row in layout */
+            /**
+             * First Row in layout
+             * @zh 枚举项 `TypeId.FirstRow`，表示首个行。
+             */
             FirstRow,
-            /** First Column in layout */
+            /**
+             * First Column in layout
+             * @zh 枚举项 `TypeId.FirstColumn`，表示首个列。
+             */
             FirstColumn,
-            /** Finds a location if layout is empty. The found location will be the root ContentItem. */
+            /**
+             * Finds a location if layout is empty. The found location will be the root ContentItem.
+             * @zh 枚举项 `TypeId.Empty`，表示空。
+             */
             Empty,
-            /** Finds root if layout is empty, otherwise a child under root */
+            /**
+             * Finds root if layout is empty, otherwise a child under root
+             * @zh 枚举项 `TypeId.Root`，表示根节点。
+             */
             Root,
         }
     }
 
+    /**
+     * Constant/variable `defaultLocationSelectors` defining default location selectors in `src/container/dock-layout`.
+     * @zh 常量/变量 `defaultLocationSelectors`，定义 `src/container/dock-layout` 中的默认Location选择器。
+     */
     export const defaultLocationSelectors: readonly LocationSelector[] = [
         { typeId: LocationSelector.TypeId.FocusedStack, index: undefined },
         { typeId: LocationSelector.TypeId.FirstStack, index: undefined },
@@ -1636,6 +2330,8 @@ export namespace LayoutManager {
     /**
      * LocationSelectors to try to get location next to existing focused item
      * @public
+
+     * @zh 常量/变量 `afterFocusedItemIfPossibleLocationSelectors`，定义 `src/container/dock-layout` 中的之后已聚焦条目IfPossibleLocation选择器。
      */
     export const afterFocusedItemIfPossibleLocationSelectors: readonly LocationSelector[] = [
         { typeId: LocationSelector.TypeId.FocusedItem, index: 1 },

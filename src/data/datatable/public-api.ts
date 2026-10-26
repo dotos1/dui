@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Module `src/data/datatable/public-api.ts` providing public api definitions and implementation.
+ * @zh 模块文件 `src/data/datatable/public-api.ts`，提供publicAPI接口相关的定义与实现。
+ */
+
 export * from './body/index';
 export * from './columns/index';
 export * from './directives/index';

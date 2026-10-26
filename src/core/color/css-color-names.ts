@@ -1,4 +1,13 @@
+/**
+ * @fileoverview Module `src/core/color/css-color-names.ts` providing css color names definitions and implementation.
+ * @zh 模块文件 `src/core/color/css-color-names.ts`，提供CSS样式颜色名称列表相关的定义与实现。
+ */
 
+
+/**
+ * Constant/variable `names` defining names in `src/core/color`.
+ * @zh 常量/变量 `names`，定义 `src/core/color` 中的名称列表。
+ */
 export const names: { [key: string]: string } = {
   aliceblue: '#f0f8ff',
   antiquewhite: '#faebd7',

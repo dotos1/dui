@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Module `src/common/dynamic/dynamic.component.spec.ts` providing dynamic component spec definitions and implementation.
+ * @zh 模块文件 `src/common/dynamic/dynamic.component.spec.ts`，提供动态组件spec相关的定义与实现。
+ */
+
 import { SimpleChange } from '@angular/core';
 import { DynamicExtensionComponent } from './dynamic.component';
 

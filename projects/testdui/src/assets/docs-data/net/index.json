@@ -4,15 +4,15 @@
     {
       "name": "AbstractLoader",
       "kind": "directive",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular directive `AbstractLoader` attaching abstract loader behavior to host DOM elements.",
+      "summaryZh": "Angular 指令 `AbstractLoader`，为宿主 DOM 元素附加Abstract加载器行为。",
       "sourceFile": "src/net/components/abstract.loader.component.ts",
       "inputs": [
         {
           "name": "backgroundColor",
           "type": "string",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `backgroundColor` (`string`) configuring background color.",
+          "descriptionZh": "输入属性 `backgroundColor`（类型：`string`），用于配置背景颜色。"
         }
       ],
       "outputs": [],
@@ -22,8 +22,8 @@
     {
       "name": "CacheInterceptor",
       "kind": "service",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Injectable Angular service `CacheInterceptor` managing cache interceptor state and operations in `src/net/http/interceptors`.",
+      "summaryZh": "可注入的 Angular 服务 `CacheInterceptor`，管理 `src/net/http/interceptors` 中的缓存拦截器状态与业务操作。",
       "sourceFile": "src/net/http/interceptors/cache.interceptor.ts",
       "inputs": [],
       "outputs": [],
@@ -41,8 +41,8 @@
             }
           ],
           "returnType": "Observable<HttpEvent<any>>",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `intercept` to handle intercept.",
+          "descriptionZh": "执行 `intercept`，用于intercept。"
         }
       ],
       "properties": []
@@ -50,8 +50,8 @@
     {
       "name": "ErrorInterceptor",
       "kind": "service",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Injectable Angular service `ErrorInterceptor` managing error interceptor state and operations in `src/net/http/interceptors`.",
+      "summaryZh": "可注入的 Angular 服务 `ErrorInterceptor`，管理 `src/net/http/interceptors` 中的错误拦截器状态与业务操作。",
       "sourceFile": "src/net/http/interceptors/error.interceptor.ts",
       "inputs": [],
       "outputs": [],
@@ -69,8 +69,8 @@
             }
           ],
           "returnType": "Observable<HttpEvent<any>>",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `intercept` to handle intercept.",
+          "descriptionZh": "执行 `intercept`，用于intercept。"
         }
       ],
       "properties": []
@@ -78,8 +78,8 @@
     {
       "name": "HeaderInterceptor",
       "kind": "service",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Injectable Angular service `HeaderInterceptor` managing header interceptor state and operations in `src/net/http/interceptors`.",
+      "summaryZh": "可注入的 Angular 服务 `HeaderInterceptor`，管理 `src/net/http/interceptors` 中的表头拦截器状态与业务操作。",
       "sourceFile": "src/net/http/interceptors/header.interceptor.ts",
       "inputs": [],
       "outputs": [],
@@ -97,8 +97,8 @@
             }
           ],
           "returnType": "Observable<HttpEvent<any>>",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `intercept` to handle intercept.",
+          "descriptionZh": "执行 `intercept`，用于intercept。"
         }
       ],
       "properties": []
@@ -106,8 +106,8 @@
     {
       "name": "httpInterceptorProviders",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `httpInterceptorProviders` defining http interceptor providers in `src/net/http/interceptors`.",
+      "summaryZh": "常量/变量 `httpInterceptorProviders`，定义 `src/net/http/interceptors` 中的HTTP拦截器提供者列表。",
       "sourceFile": "src/net/http/interceptors/index.ts",
       "inputs": [],
       "outputs": [],
@@ -118,78 +118,78 @@
       "name": "HttpLoaderComponent",
       "kind": "component",
       "selector": "http-loader",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular component `HttpLoaderComponent` (selector: 'http-loader') providing http loader component presentation and interaction in `src/net/components`.",
+      "summaryZh": "Angular 组件 `HttpLoaderComponent`（selector: 'http-loader'），提供HTTP加载器组件的视图渲染与交互逻辑（位于 `src/net/components`）。",
       "sourceFile": "src/net/components/http-loader.component.ts",
       "inputs": [
         {
           "name": "backdrop",
           "type": "any",
           "default": "true",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `backdrop` (`boolean`) configuring backdrop (default: `true`).",
+          "descriptionZh": "输入属性 `backdrop`（类型：`boolean`），用于配置背景遮罩（默认值：`true`）。"
         },
         {
           "name": "backgroundColor",
           "type": "string",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `backgroundColor` (`string`) configuring background color.",
+          "descriptionZh": "输入属性 `backgroundColor`（类型：`string`），用于配置背景颜色。"
         },
         {
           "name": "debounceDelay",
           "type": "any",
           "default": "0",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `debounceDelay` (`number`) configuring debounce delay (default: `0`).",
+          "descriptionZh": "输入属性 `debounceDelay`（类型：`number`），用于配置防抖延迟（默认值：`0`）。"
         },
         {
           "name": "entryComponent",
           "type": "any",
           "default": "null",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `entryComponent` (`any`) configuring entry component (default: `null`).",
+          "descriptionZh": "输入属性 `entryComponent`（类型：`any`），用于配置条目组件（默认值：`null`）。"
         },
         {
           "name": "extraDuration",
           "type": "any",
           "default": "0",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `extraDuration` (`number`) configuring extra duration (default: `0`).",
+          "descriptionZh": "输入属性 `extraDuration`（类型：`number`），用于配置extra持续时间（默认值：`0`）。"
         },
         {
           "name": "filteredHeaders",
           "type": "string[]",
           "default": "[]",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `filteredHeaders` (`string[]`) configuring filtered headers (default: `[]`).",
+          "descriptionZh": "输入属性 `filteredHeaders`（类型：`string[]`），用于配置已过滤请求头（默认值：`[]`）。"
         },
         {
           "name": "filteredMethods",
           "type": "string[]",
           "default": "[]",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `filteredMethods` (`string[]`) configuring filtered methods (default: `[]`).",
+          "descriptionZh": "输入属性 `filteredMethods`（类型：`string[]`），用于配置已过滤方法（默认值：`[]`）。"
         },
         {
           "name": "filteredUrlPatterns",
           "type": "string[]",
           "default": "[]",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `filteredUrlPatterns` (`string[]`) configuring filtered url patterns (default: `[]`).",
+          "descriptionZh": "输入属性 `filteredUrlPatterns`（类型：`string[]`），用于配置已过滤链接地址模式/图案（默认值：`[]`）。"
         },
         {
           "name": "minDuration",
           "type": "any",
           "default": "0",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `minDuration` (`number`) configuring min duration (default: `0`).",
+          "descriptionZh": "输入属性 `minDuration`（类型：`number`），用于配置最小值持续时间（默认值：`0`）。"
         },
         {
           "name": "opacity",
           "type": "any",
           "default": "'.7'",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `opacity` (`string`) configuring opacity (default: `'.7'`).",
+          "descriptionZh": "输入属性 `opacity`（类型：`string`），用于配置不透明度（默认值：`'.7'`）。"
         }
       ],
       "outputs": [],
@@ -198,16 +198,16 @@
         {
           "name": "isVisible$",
           "type": "Observable<boolean>",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current is visible (`isVisible$: Observable<boolean>`).",
+          "descriptionZh": "获取当前是否为可见（`isVisible$: Observable<boolean>`）。"
         }
       ]
     },
     {
       "name": "HttpLoaderModule",
       "kind": "module",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular module `HttpLoaderModule` declaring and exporting http loader module components, directives, pipes, and providers.",
+      "summaryZh": "Angular 模块 `HttpLoaderModule`，声明并导出HTTP加载器模块相关的组件、指令、管道与服务提供者。",
       "sourceFile": "src/net/http-loader.module.ts",
       "inputs": [],
       "outputs": [],
@@ -216,8 +216,8 @@
           "name": "forRoot",
           "params": [],
           "returnType": "ModuleWithProviders<HttpLoaderModule>",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `forRoot` to handle for root.",
+          "descriptionZh": "执行 `forRoot`，用于用于根节点。"
         }
       ],
       "properties": [
@@ -225,16 +225,16 @@
           "name": "entryComponents",
           "type": "any",
           "default": "[MatSpinner]",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `entryComponents` (`any[]`) storing entry components (default: `[MatSpinner]`).",
+          "descriptionZh": "属性 `entryComponents`（类型：`any[]`），用于存储或配置条目组件列表（默认值：`[MatSpinner]`）。"
         }
       ]
     },
     {
       "name": "HttpsInterceptor",
       "kind": "service",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Injectable Angular service `HttpsInterceptor` managing https interceptor state and operations in `src/net/http/interceptors`.",
+      "summaryZh": "可注入的 Angular 服务 `HttpsInterceptor`，管理 `src/net/http/interceptors` 中的HTTP拦截器状态与业务操作。",
       "sourceFile": "src/net/http/interceptors/https.interceptor.ts",
       "inputs": [],
       "outputs": [],
@@ -252,8 +252,8 @@
             }
           ],
           "returnType": "Observable<HttpEvent<any>>",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `intercept` to handle intercept.",
+          "descriptionZh": "执行 `intercept`，用于intercept。"
         }
       ],
       "properties": []
@@ -261,8 +261,8 @@
     {
       "name": "NotifyInterceptor",
       "kind": "service",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Injectable Angular service `NotifyInterceptor` managing notify interceptor state and operations in `src/net/http/interceptors`.",
+      "summaryZh": "可注入的 Angular 服务 `NotifyInterceptor`，管理 `src/net/http/interceptors` 中的通知拦截器状态与业务操作。",
       "sourceFile": "src/net/http/interceptors/notify.interptor.ts",
       "inputs": [],
       "outputs": [],
@@ -280,8 +280,8 @@
             }
           ],
           "returnType": "Observable<HttpEvent<any>>",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `intercept` to handle intercept.",
+          "descriptionZh": "执行 `intercept`，用于intercept。"
         }
       ],
       "properties": []
@@ -289,8 +289,8 @@
     {
       "name": "PendingRequestsInterceptor",
       "kind": "service",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Injectable Angular service `PendingRequestsInterceptor` managing pending requests interceptor state and operations in `src/net/services`.",
+      "summaryZh": "可注入的 Angular 服务 `PendingRequestsInterceptor`，管理 `src/net/services` 中的等待中请求拦截器状态与业务操作。",
       "sourceFile": "src/net/services/pending-requests-interceptor.service.ts",
       "inputs": [],
       "outputs": [],
@@ -308,54 +308,54 @@
             }
           ],
           "returnType": "Observable<HttpEvent<any>>",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `intercept` to handle intercept.",
+          "descriptionZh": "执行 `intercept`，用于intercept。"
         }
       ],
       "properties": [
         {
           "name": "pendingRequestsStatus$",
           "type": "Observable<boolean>",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current pending requests status (`pendingRequestsStatus$: Observable<boolean>`).",
+          "descriptionZh": "获取当前等待中请求状态（`pendingRequestsStatus$: Observable<boolean>`）。"
         },
         {
           "name": "pendingRequests",
           "type": "number",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current pending requests (`pendingRequests: number`).",
+          "descriptionZh": "获取当前等待中请求（`pendingRequests: number`）。"
         },
         {
           "name": "filteredUrlPatterns",
           "type": "RegExp[]",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current filtered url patterns (`filteredUrlPatterns: RegExp[]`).",
+          "descriptionZh": "获取当前已过滤链接地址模式/图案（`filteredUrlPatterns: RegExp[]`）。"
         },
         {
           "name": "filteredMethods",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Sets the filtered methods (`filteredMethods`).",
+          "descriptionZh": "设置已过滤方法（`filteredMethods`）。"
         },
         {
           "name": "filteredHeaders",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Sets the filtered headers (`filteredHeaders`).",
+          "descriptionZh": "设置已过滤请求头（`filteredHeaders`）。"
         },
         {
           "name": "forceByPass",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Sets the force by pass (`forceByPass`).",
+          "descriptionZh": "设置force按传递（`forceByPass`）。"
         }
       ]
     },
     {
       "name": "PendingRequestsInterceptorProvider",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `PendingRequestsInterceptorProvider` defining pending requests interceptor provider in `src/net/services`.",
+      "summaryZh": "常量/变量 `PendingRequestsInterceptorProvider`，定义 `src/net/services` 中的等待中请求拦截器提供者。",
       "sourceFile": "src/net/services/pending-requests-interceptor.service.ts",
       "inputs": [],
       "outputs": [],
@@ -365,8 +365,8 @@
     {
       "name": "ProfilerInterceptor",
       "kind": "service",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Injectable Angular service `ProfilerInterceptor` managing profiler interceptor state and operations in `src/net/http/interceptors`.",
+      "summaryZh": "可注入的 Angular 服务 `ProfilerInterceptor`，管理 `src/net/http/interceptors` 中的Profiler拦截器状态与业务操作。",
       "sourceFile": "src/net/http/interceptors/profiler.interceptor.ts",
       "inputs": [],
       "outputs": [],
@@ -384,8 +384,8 @@
             }
           ],
           "returnType": "Observable<HttpEvent<any>>",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `intercept` to handle intercept.",
+          "descriptionZh": "执行 `intercept`，用于intercept。"
         }
       ],
       "properties": []
@@ -393,8 +393,8 @@
     {
       "name": "simpleInterceptorProviders",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `simpleInterceptorProviders` defining simple interceptor providers in `src/net/http/interceptors`.",
+      "summaryZh": "常量/变量 `simpleInterceptorProviders`，定义 `src/net/http/interceptors` 中的simple拦截器提供者列表。",
       "sourceFile": "src/net/http/interceptors/index.ts",
       "inputs": [],
       "outputs": [],
@@ -404,8 +404,8 @@
     {
       "name": "SpinnerVisibilityService",
       "kind": "service",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Injectable Angular service `SpinnerVisibilityService` managing spinner visibility service state and operations in `src/net/services`.",
+      "summaryZh": "可注入的 Angular 服务 `SpinnerVisibilityService`，管理 `src/net/services` 中的加载指示器Visibility服务状态与业务操作。",
       "sourceFile": "src/net/services/spinner-visibility.service.ts",
       "inputs": [],
       "outputs": [],
@@ -414,23 +414,23 @@
           "name": "show",
           "params": [],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `show` to handle show.",
+          "descriptionZh": "执行 `show`，用于显示。"
         },
         {
           "name": "hide",
           "params": [],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `hide` to handle hide.",
+          "descriptionZh": "执行 `hide`，用于隐藏。"
         }
       ],
       "properties": [
         {
           "name": "visibility$",
           "type": "Observable<boolean>",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current visibility (`visibility$: Observable<boolean>`).",
+          "descriptionZh": "获取当前visibility（`visibility$: Observable<boolean>`）。"
         }
       ]
     }

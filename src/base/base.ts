@@ -28,27 +28,72 @@
 import { Observer } from './observer';
 import { isUndefined, extend } from './util';
 
-/** 默认区域。旧实现放在这里,`@dotos/dui/translator` 现在有自己的一份。 */
+/**
+ * Constant/variable `defaultCulture` defining default culture in `src/base`.
+ * 默认区域。旧实现放在这里,`@dotos/dui/translator` 现在有自己的一份。
+ * @zh 默认区域。旧实现放在这里,`@dotos/dui/translator` 现在有自己的一份。
+ */
 export const defaultCulture = 'en-US';
 
+/**
+ * Interface `AngularEventEmitter` defining the contract and properties for angular event emitter.
+ * @zh 接口 `AngularEventEmitter`，定义Angular事件发射器的数据结构契约与属性规范。
+ */
 export interface AngularEventEmitter {
+  /**
+   * Property `subscribe` (`(generatorOrNext?: unknown, error?: unknown, complete?: unknown) => un...`) storing subscribe.
+   * @zh 属性 `subscribe`（类型：`(generatorOrNext?: unknown, error?: unknown, complete?: unknown) => un...`），用于存储或配置订阅。
+   */
   subscribe?: (generatorOrNext?: unknown, error?: unknown, complete?: unknown) => unknown;
 }
 
-/** 事件回调的类型。Angular 的 `EventEmitter` 也满足它。 */
+/**
+ * 事件回调的类型。Angular 的 `EventEmitter` 也满足它。
+ * @zh 事件回调的类型。Angular 的 `EventEmitter` 也满足它。
+ */
 export type EmitType<T> = AngularEventEmitter & ((arg?: T, ...rest: unknown[]) => void);
 
+/**
+ * Interface `BaseEventArgs` defining the contract and properties for base event args.
+ * @zh 接口 `BaseEventArgs`，定义基础事件参数列表的数据结构契约与属性规范。
+ */
 export interface BaseEventArgs {
-  /** 事件名。 */
+  /**
+   * Property `name` (`string`) storing name.
+   * 事件名。
+   * @zh 事件名。
+   */
   name?: string;
 }
 
+/**
+ * Class `Base` encapsulating base data structures and logic in `src/base`.
+ * @zh 类 `Base`，封装 `src/base` 中的基础数据结构与处理逻辑。
+ */
 export class Base<ElementType extends HTMLElement> {
+  /**
+   * Property `element` (`ElementType`) storing element.
+   * @zh 属性 `element`（类型：`ElementType`），用于存储或配置元素。
+   */
   element!: ElementType;
+  /**
+   * Property `isDestroyed` (`boolean`) storing is destroyed (default: `false`).
+   * @zh 属性 `isDestroyed`（类型：`boolean`），用于存储或配置是否为已销毁（默认值：`false`）。
+   */
   isDestroyed = false;
 
+  /**
+   * Property `modelObserver` (`Observer`) storing model observer.
+   * @zh 属性 `modelObserver`（类型：`Observer`），用于存储或配置模型观察者。
+   */
   protected modelObserver: Observer;
 
+  /**
+   * Creates an instance of `Base` and initializes its dependencies and internal state.
+   * @zh 创建 `Base` 实例，并初始化其依赖项与内部状态。
+   * @param options - Injected or initial options (`Object`) / 注入或传入的配置选项（`Object`）
+   * @param element - Injected or initial element (`ElementType | string`) / 注入或传入的元素（`ElementType | string`）
+   */
   constructor(options?: Object, element?: ElementType | string) {
     this.modelObserver = new Observer(this);
 
@@ -72,24 +117,51 @@ export class Base<ElementType extends HTMLElement> {
    * (28 处调用里没有一处真正依赖"不静默"那条路的副作用:
    *  `dataBind()` 在旧实现里也只是把变更表交给 `onPropertyChanged`,
    *  而 dui 侧的实现体是空的)。
+
+   * @zh 批量写属性。
    */
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   setProperties(prop: Record<string, unknown>, muteOnChange?: boolean): void {
     extend(this as unknown as Record<string, unknown>, prop);
   }
 
+  /**
+   * Executes `on` to handle on.
+   * @zh 执行 `on`，用于当。
+   * @param eventName - event name parameter (`string`) / 事件名称参数（`string`）
+   * @param handler - handler parameter (`Function`) / 处理器参数（`Function`）
+   * @param scope - scope parameter (`Object`) / scope参数（`Object`）
+   */
   on(eventName: string, handler: Function, scope?: Object): void {
     this.modelObserver.on(eventName, handler, scope);
   }
 
+  /**
+   * Executes `addEventListener` to handle add event listener.
+   * @zh 执行 `addEventListener`，用于添加事件监听器。
+   * @param eventName - event name parameter (`string`) / 事件名称参数（`string`）
+   * @param handler - handler parameter (`Function`) / 处理器参数（`Function`）
+   */
   addEventListener(eventName: string, handler: Function): void {
     this.modelObserver.on(eventName, handler);
   }
 
+  /**
+   * Executes `off` to handle off.
+   * @zh 执行 `off`，用于off。
+   * @param eventName - event name parameter (`string`) / 事件名称参数（`string`）
+   * @param handler - handler parameter (`Function`) / 处理器参数（`Function`）
+   */
   off(eventName: string, handler?: Function): void {
     this.modelObserver.off(eventName, handler);
   }
 
+  /**
+   * Executes `removeEventListener` to handle remove event listener.
+   * @zh 执行 `removeEventListener`，用于移除事件监听器。
+   * @param eventName - event name parameter (`string`) / 事件名称参数（`string`）
+   * @param handler - handler parameter (`Function`) / 处理器参数（`Function`）
+   */
   removeEventListener(eventName: string, handler: Function): void {
     this.modelObserver.off(eventName, handler);
   }
@@ -133,12 +205,18 @@ export class Base<ElementType extends HTMLElement> {
    * <p>需要"配置里写个同名函数就当回调"这种形状的,由调用方自己派发
    * (duix 的 `fire()` 已经这么做了),不要放回总线里 —— 放回来就分不清
    * "转发方法"和"回调",递归会再来一次。
+
+   * @zh 发事件。**只走总线**。
    */
   trigger(eventName: string, eventProp?: Object, successHandler?: Function, errorHandler?: Function): void | object {
     if (this.isDestroyed === true) { return; }
     return this.modelObserver.notify(eventName, eventProp, successHandler, errorHandler) as object;
   }
 
+  /**
+   * Executes `destroy` to handle destroy.
+   * @zh 执行 `destroy`，用于销毁。
+   */
   destroy(): void {
     this.modelObserver.destroy();
     this.isDestroyed = true;

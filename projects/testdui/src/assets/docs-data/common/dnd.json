@@ -4,19 +4,36 @@
     {
       "name": "calculateDragImageOffset",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Executes `calculateDragImageOffset` to handle calculate drag image offset.",
+      "summaryZh": "执行 `calculateDragImageOffset`，用于计算拖拽图像偏移量。",
       "sourceFile": "src/common/dnd/dnd-utils.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "calculateDragImageOffset",
+          "params": [
+            {
+              "name": "event",
+              "type": "DragEvent"
+            },
+            {
+              "name": "dragImage",
+              "type": "Element"
+            }
+          ],
+          "returnType": "{ x:number, y:number }",
+          "description": "Executes `calculateDragImageOffset` to handle calculate drag image offset.",
+          "descriptionZh": "执行 `calculateDragImageOffset`，用于计算拖拽图像偏移量。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "CUSTOM_MIME_TYPE",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `CUSTOM_MIME_TYPE` defining custom mime type in `src/common/dnd`.",
+      "summaryZh": "常量/变量 `CUSTOM_MIME_TYPE`，定义 `src/common/dnd` 中的自定义MIME类型类型。",
       "sourceFile": "src/common/dnd/dnd-utils.ts",
       "inputs": [],
       "outputs": [],
@@ -202,7 +219,7 @@
           "name": "draggable",
           "type": "any",
           "default": "true",
-          "description": null,
+          "description": "Host binding `draggable` bound to host attribute/property `attr.draggable` for draggable.",
           "descriptionZh": "内部使用，绑定宿主元素的原生 `draggable` 属性。"
         }
       ]
@@ -210,8 +227,8 @@
     {
       "name": "DndDragImageOffsetFunction",
       "kind": "type",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Type alias `DndDragImageOffsetFunction` representing dnd drag image offset function (`( event:DragEvent, dragImage:Element ) => { x:number, y:number }`).",
+      "summaryZh": "类型别名 `DndDragImageOffsetFunction`，表示拖放拖拽图像偏移量函数（`( event:DragEvent, dragImage:Element ) => { x:number, y:number }`）。",
       "sourceFile": "src/common/dnd/dnd-utils.ts",
       "inputs": [],
       "outputs": [],
@@ -233,13 +250,56 @@
     {
       "name": "DndDropEvent",
       "kind": "interface",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Interface `DndDropEvent` defining the contract and properties for dnd drop event.",
+      "summaryZh": "接口 `DndDropEvent`，定义拖放放置事件的数据结构契约与属性规范。",
       "sourceFile": "src/common/dnd/dnd-dropzone.directive.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
-      "properties": []
+      "properties": [
+        {
+          "name": "event",
+          "type": "DragEvent",
+          "description": "Property `event` (`DragEvent`) storing event.",
+          "descriptionZh": "属性 `event`（类型：`DragEvent`），用于存储或配置事件。"
+        },
+        {
+          "name": "dropEffect",
+          "type": "DropEffect",
+          "description": "Property `dropEffect` (`DropEffect`) storing drop effect.",
+          "descriptionZh": "属性 `dropEffect`（类型：`DropEffect`），用于存储或配置放置副作用。"
+        },
+        {
+          "name": "isExternal",
+          "type": "boolean",
+          "description": "Property `isExternal` (`boolean`) storing is external.",
+          "descriptionZh": "属性 `isExternal`（类型：`boolean`），用于存储或配置是否为外部。"
+        },
+        {
+          "name": "data",
+          "type": "any",
+          "description": "Property `data` (`any`) storing data.",
+          "descriptionZh": "属性 `data`（类型：`any`），用于存储或配置数据。"
+        },
+        {
+          "name": "index",
+          "type": "number",
+          "description": "Property `index` (`number`) storing index.",
+          "descriptionZh": "属性 `index`（类型：`number`），用于存储或配置索引。"
+        },
+        {
+          "name": "type",
+          "type": "any",
+          "description": "Property `type` (`any`) storing type.",
+          "descriptionZh": "属性 `type`（类型：`any`），用于存储或配置类型。"
+        },
+        {
+          "name": "dropTarget",
+          "type": "any",
+          "description": "Property `dropTarget` (`any`) storing drop target.",
+          "descriptionZh": "属性 `dropTarget`（类型：`any`），用于存储或配置放置目标。"
+        }
+      ]
     },
     {
       "name": "DndDropzoneDirective",
@@ -385,13 +445,26 @@
     {
       "name": "DndEvent",
       "kind": "interface",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Interface `DndEvent` defining the contract and properties for dnd event.",
+      "summaryZh": "接口 `DndEvent`，定义拖放事件的数据结构契约与属性规范。",
       "sourceFile": "src/common/dnd/dnd-utils.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
-      "properties": []
+      "properties": [
+        {
+          "name": "_dndUsingHandle",
+          "type": "boolean",
+          "description": "Property `_dndUsingHandle` (`boolean`) storing dnd using handle.",
+          "descriptionZh": "属性 `_dndUsingHandle`（类型：`boolean`），用于存储或配置拖放使用连接手柄。"
+        },
+        {
+          "name": "_dndDropzoneActive",
+          "type": "true",
+          "description": "Property `_dndDropzoneActive` (`true`) storing dnd dropzone active.",
+          "descriptionZh": "属性 `_dndDropzoneActive`（类型：`true`），用于存储或配置拖放Dropzone激活。"
+        }
+      ]
     },
     {
       "name": "DndHandleDirective",
@@ -421,7 +494,7 @@
           "name": "draggable",
           "type": "any",
           "default": "true",
-          "description": null,
+          "description": "Host binding `draggable` bound to host attribute/property `attr.draggable` for draggable.",
           "descriptionZh": "内部使用，绑定宿主元素的原生 `draggable` 属性。"
         }
       ]
@@ -429,8 +502,8 @@
     {
       "name": "DndModule",
       "kind": "module",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular module `DndModule` declaring and exporting dnd module components, directives, pipes, and providers.",
+      "summaryZh": "Angular 模块 `DndModule`，声明并导出拖放模块相关的组件、指令、管道与服务提供者。",
       "sourceFile": "src/common/dnd/dnd.module.ts",
       "inputs": [],
       "outputs": [],
@@ -452,8 +525,8 @@
     {
       "name": "dndState",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `dndState` defining dnd state in `src/common/dnd`.",
+      "summaryZh": "常量/变量 `dndState`，定义 `src/common/dnd` 中的拖放状态。",
       "sourceFile": "src/common/dnd/dnd-state.ts",
       "inputs": [],
       "outputs": [],
@@ -463,30 +536,68 @@
     {
       "name": "DndState",
       "kind": "interface",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Interface `DndState` defining the contract and properties for dnd state.",
+      "summaryZh": "接口 `DndState`，定义拖放状态的数据结构契约与属性规范。",
       "sourceFile": "src/common/dnd/dnd-state.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
-      "properties": []
+      "properties": [
+        {
+          "name": "isDragging",
+          "type": "boolean",
+          "description": "Property `isDragging` (`boolean`) storing is dragging.",
+          "descriptionZh": "属性 `isDragging`（类型：`boolean`），用于存储或配置是否为拖拽中。"
+        },
+        {
+          "name": "dropEffect",
+          "type": "DropEffect",
+          "description": "Property `dropEffect` (`DropEffect`) storing drop effect.",
+          "descriptionZh": "属性 `dropEffect`（类型：`DropEffect`），用于存储或配置放置副作用。"
+        },
+        {
+          "name": "effectAllowed",
+          "type": "EffectAllowed",
+          "description": "Property `effectAllowed` (`EffectAllowed`) storing effect allowed.",
+          "descriptionZh": "属性 `effectAllowed`（类型：`EffectAllowed`），用于存储或配置副作用允许的。"
+        },
+        {
+          "name": "type",
+          "type": "string",
+          "description": "Property `type` (`string`) storing type.",
+          "descriptionZh": "属性 `type`（类型：`string`），用于存储或配置类型。"
+        }
+      ]
     },
     {
       "name": "DragDropData",
       "kind": "interface",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Interface `DragDropData` defining the contract and properties for drag drop data.",
+      "summaryZh": "接口 `DragDropData`，定义拖拽放置数据的数据结构契约与属性规范。",
       "sourceFile": "src/common/dnd/dnd-utils.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
-      "properties": []
+      "properties": [
+        {
+          "name": "data",
+          "type": "any",
+          "description": "Property `data` (`any`) storing data.",
+          "descriptionZh": "属性 `data`（类型：`any`），用于存储或配置数据。"
+        },
+        {
+          "name": "type",
+          "type": "string",
+          "description": "Property `type` (`string`) storing type.",
+          "descriptionZh": "属性 `type`（类型：`string`），用于存储或配置类型。"
+        }
+      ]
     },
     {
       "name": "DROP_EFFECTS",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `DROP_EFFECTS` defining drop effects in `src/common/dnd`.",
+      "summaryZh": "常量/变量 `DROP_EFFECTS`，定义 `src/common/dnd` 中的放置副作用。",
       "sourceFile": "src/common/dnd/dnd-utils.ts",
       "inputs": [],
       "outputs": [],
@@ -496,8 +607,8 @@
     {
       "name": "DropEffect",
       "kind": "type",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Type alias `DropEffect` representing drop effect (`\"move\" | \"copy\" | \"link\" | \"none\"`).",
+      "summaryZh": "类型别名 `DropEffect`，表示放置副作用（`\"move\" | \"copy\" | \"link\" | \"none\"`）。",
       "sourceFile": "src/common/dnd/dnd-types.ts",
       "inputs": [],
       "outputs": [],
@@ -507,8 +618,8 @@
     {
       "name": "EffectAllowed",
       "kind": "type",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Type alias `EffectAllowed` representing effect allowed (`DropEffect | \"copyMove\" | \"copyLink\" | \"linkMove\" | \"all\" | \"uninitial...`).",
+      "summaryZh": "类型别名 `EffectAllowed`，表示副作用允许的（`DropEffect | \"copyMove\" | \"copyLink\" | \"linkMove\" | \"all\" | \"uninitial...`）。",
       "sourceFile": "src/common/dnd/dnd-types.ts",
       "inputs": [],
       "outputs": [],
@@ -518,96 +629,206 @@
     {
       "name": "endDrag",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Executes `endDrag` to handle end drag.",
+      "summaryZh": "执行 `endDrag`，用于结束拖拽。",
       "sourceFile": "src/common/dnd/dnd-state.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "endDrag",
+          "params": [],
+          "returnType": "any",
+          "description": "Executes `endDrag` to handle end drag.",
+          "descriptionZh": "执行 `endDrag`，用于结束拖拽。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "filterEffects",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Executes `filterEffects` to handle filter effects.",
+      "summaryZh": "执行 `filterEffects`，用于过滤副作用。",
       "sourceFile": "src/common/dnd/dnd-utils.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "filterEffects",
+          "params": [
+            {
+              "name": "effects",
+              "type": "DropEffect[]"
+            },
+            {
+              "name": "allowed",
+              "type": "EffectAllowed | DropEffect"
+            }
+          ],
+          "returnType": "DropEffect[]",
+          "description": "Executes `filterEffects` to handle filter effects.",
+          "descriptionZh": "执行 `filterEffects`，用于过滤副作用。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "getDirectChildElement",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Executes `getDirectChildElement` to handle get direct child element.",
+      "summaryZh": "执行 `getDirectChildElement`，用于获取Direct子级元素。",
       "sourceFile": "src/common/dnd/dnd-utils.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "getDirectChildElement",
+          "params": [
+            {
+              "name": "parentElement",
+              "type": "Element"
+            },
+            {
+              "name": "childElement",
+              "type": "Element"
+            }
+          ],
+          "returnType": "Element | null",
+          "description": "Executes `getDirectChildElement` to handle get direct child element.",
+          "descriptionZh": "执行 `getDirectChildElement`，用于获取Direct子级元素。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "getDndType",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Executes `getDndType` to handle get dnd type.",
+      "summaryZh": "执行 `getDndType`，用于获取拖放类型。",
       "sourceFile": "src/common/dnd/dnd-state.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "getDndType",
+          "params": [
+            {
+              "name": "event",
+              "type": "DragEvent"
+            }
+          ],
+          "returnType": "string | undefined",
+          "description": "Executes `getDndType` to handle get dnd type.",
+          "descriptionZh": "执行 `getDndType`，用于获取拖放类型。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "getDropData",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Executes `getDropData` to handle get drop data.",
+      "summaryZh": "执行 `getDropData`，用于获取放置数据。",
       "sourceFile": "src/common/dnd/dnd-utils.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "getDropData",
+          "params": [
+            {
+              "name": "event",
+              "type": "DragEvent"
+            },
+            {
+              "name": "dragIsExternal",
+              "type": "boolean"
+            }
+          ],
+          "returnType": "DragDropData",
+          "description": "Executes `getDropData` to handle get drop data.",
+          "descriptionZh": "执行 `getDropData`，用于获取放置数据。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "getDropEffect",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Executes `getDropEffect` to handle get drop effect.",
+      "summaryZh": "执行 `getDropEffect`，用于获取放置副作用。",
       "sourceFile": "src/common/dnd/dnd-state.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "getDropEffect",
+          "params": [
+            {
+              "name": "event",
+              "type": "DragEvent"
+            },
+            {
+              "name": "effectAllowed",
+              "type": "EffectAllowed | DropEffect"
+            }
+          ],
+          "returnType": "DropEffect",
+          "description": "Executes `getDropEffect` to handle get drop effect.",
+          "descriptionZh": "执行 `getDropEffect`，用于获取放置副作用。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "getWellKnownMimeType",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Executes `getWellKnownMimeType` to handle get well known mime type.",
+      "summaryZh": "执行 `getWellKnownMimeType`，用于获取WellKnownMIME类型类型。",
       "sourceFile": "src/common/dnd/dnd-utils.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "getWellKnownMimeType",
+          "params": [
+            {
+              "name": "event",
+              "type": "DragEvent"
+            }
+          ],
+          "returnType": "string | null",
+          "description": "Executes `getWellKnownMimeType` to handle get well known mime type.",
+          "descriptionZh": "执行 `getWellKnownMimeType`，用于获取WellKnownMIME类型类型。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "isExternalDrag",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Executes `isExternalDrag` to handle is external drag.",
+      "summaryZh": "执行 `isExternalDrag`，用于是否为外部拖拽。",
       "sourceFile": "src/common/dnd/dnd-state.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "isExternalDrag",
+          "params": [],
+          "returnType": "boolean",
+          "description": "Executes `isExternalDrag` to handle is external drag.",
+          "descriptionZh": "执行 `isExternalDrag`，用于是否为外部拖拽。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "JSON_MIME_TYPE",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `JSON_MIME_TYPE` defining json mime type in `src/common/dnd`.",
+      "summaryZh": "常量/变量 `JSON_MIME_TYPE`，定义 `src/common/dnd` 中的JSONMIME类型类型。",
       "sourceFile": "src/common/dnd/dnd-utils.ts",
       "inputs": [],
       "outputs": [],
@@ -617,8 +838,8 @@
     {
       "name": "MSIE_MIME_TYPE",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `MSIE_MIME_TYPE` defining msie mime type in `src/common/dnd`.",
+      "summaryZh": "常量/变量 `MSIE_MIME_TYPE`，定义 `src/common/dnd` 中的MSIEMIME类型类型。",
       "sourceFile": "src/common/dnd/dnd-utils.ts",
       "inputs": [],
       "outputs": [],
@@ -628,56 +849,157 @@
     {
       "name": "setDragData",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Executes `setDragData` to handle set drag data.",
+      "summaryZh": "执行 `setDragData`，用于集合拖拽数据。",
       "sourceFile": "src/common/dnd/dnd-utils.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "setDragData",
+          "params": [
+            {
+              "name": "event",
+              "type": "DragEvent"
+            },
+            {
+              "name": "data",
+              "type": "DragDropData"
+            },
+            {
+              "name": "effectAllowed",
+              "type": "EffectAllowed"
+            }
+          ],
+          "returnType": "void",
+          "description": "Executes `setDragData` to handle set drag data.",
+          "descriptionZh": "执行 `setDragData`，用于集合拖拽数据。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "setDragImage",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Executes `setDragImage` to handle set drag image.",
+      "summaryZh": "执行 `setDragImage`，用于集合拖拽图像。",
       "sourceFile": "src/common/dnd/dnd-utils.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "setDragImage",
+          "params": [
+            {
+              "name": "event",
+              "type": "DragEvent"
+            },
+            {
+              "name": "dragImage",
+              "type": "Element"
+            },
+            {
+              "name": "offsetFunction",
+              "type": "DndDragImageOffsetFunction"
+            }
+          ],
+          "returnType": "void",
+          "description": "Executes `setDragImage` to handle set drag image.",
+          "descriptionZh": "执行 `setDragImage`，用于集合拖拽图像。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "setDropEffect",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Executes `setDropEffect` to handle set drop effect.",
+      "summaryZh": "执行 `setDropEffect`，用于集合放置副作用。",
       "sourceFile": "src/common/dnd/dnd-state.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "setDropEffect",
+          "params": [
+            {
+              "name": "event",
+              "type": "DragEvent"
+            },
+            {
+              "name": "dropEffect",
+              "type": "DropEffect"
+            }
+          ],
+          "returnType": "any",
+          "description": "Executes `setDropEffect` to handle set drop effect.",
+          "descriptionZh": "执行 `setDropEffect`，用于集合放置副作用。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "shouldPositionPlaceholderBeforeElement",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Executes `shouldPositionPlaceholderBeforeElement` to handle should position placeholder before element.",
+      "summaryZh": "执行 `shouldPositionPlaceholderBeforeElement`，用于是否应当位置占位提示之前元素。",
       "sourceFile": "src/common/dnd/dnd-utils.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "shouldPositionPlaceholderBeforeElement",
+          "params": [
+            {
+              "name": "event",
+              "type": "DragEvent"
+            },
+            {
+              "name": "element",
+              "type": "Element"
+            },
+            {
+              "name": "horizontal",
+              "type": "boolean"
+            }
+          ],
+          "returnType": "any",
+          "description": "Executes `shouldPositionPlaceholderBeforeElement` to handle should position placeholder before element.",
+          "descriptionZh": "执行 `shouldPositionPlaceholderBeforeElement`，用于是否应当位置占位提示之前元素。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "startDrag",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Executes `startDrag` to handle start drag.",
+      "summaryZh": "执行 `startDrag`，用于开始拖拽。",
       "sourceFile": "src/common/dnd/dnd-state.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "startDrag",
+          "params": [
+            {
+              "name": "event",
+              "type": "DragEvent"
+            },
+            {
+              "name": "effectAllowed",
+              "type": "EffectAllowed"
+            },
+            {
+              "name": "type",
+              "type": "string | undefined"
+            }
+          ],
+          "returnType": "any",
+          "description": "Executes `startDrag` to handle start drag.",
+          "descriptionZh": "执行 `startDrag`，用于开始拖拽。"
+        }
+      ],
       "properties": []
     }
   ],

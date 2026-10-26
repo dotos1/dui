@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Module `src/form/select/select.field.spec.ts` providing select field spec definitions and implementation.
+ * @zh 模块文件 `src/form/select/select.field.spec.ts`，提供下拉选择字段spec相关的定义与实现。
+ */
+
 import { firstValueFrom } from 'rxjs';
 import { FieldSelect } from './select.field';
 import { SelectOptionsPipe } from '../base/select-options.pipe';
@@ -5,6 +10,8 @@ import { SelectOptionsPipe } from '../base/select-options.pipe';
 /**
  * b8c5e5c 复核的回归用例。不起 TestBed:直接拿原型方法、配一个最小的 this,
  * 只验证被改坏的那一段逻辑。
+
+ * @zh b8c5e5c 复核的回归用例。不起 TestBed:直接拿原型方法、配一个最小的 this,
  */
 function fakeSelect(field: any, extra: any = {}): any {
   const self: any = Object.create(FieldSelect.prototype);

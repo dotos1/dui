@@ -4,8 +4,8 @@
     {
       "name": "Cookie",
       "kind": "class",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Class `Cookie` encapsulating cookie data structures and logic in `src/core/cookie`.",
+      "summaryZh": "类 `Cookie`，封装 `src/core/cookie` 中的Cookie数据结构与处理逻辑。",
       "sourceFile": "src/core/cookie/cookie.ts",
       "inputs": [],
       "outputs": [],
@@ -14,58 +14,58 @@
         {
           "name": "key",
           "type": "string",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `key` (`string`) storing key.",
+          "descriptionZh": "属性 `key`（类型：`string`），用于存储或配置键。"
         },
         {
           "name": "value",
           "type": "string",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `value` (`string`) storing value.",
+          "descriptionZh": "属性 `value`（类型：`string`），用于存储或配置值。"
         },
         {
           "name": "expires",
           "type": "string|Date",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `expires` (`string|Date`) storing expires.",
+          "descriptionZh": "属性 `expires`（类型：`string|Date`），用于存储或配置expires。"
         },
         {
           "name": "maxAge",
           "type": "number",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `maxAge` (`number`) storing max age.",
+          "descriptionZh": "属性 `maxAge`（类型：`number`），用于存储或配置最大值Age。"
         },
         {
           "name": "path",
           "type": "string",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `path` (`string`) storing path.",
+          "descriptionZh": "属性 `path`（类型：`string`），用于存储或配置路径。"
         },
         {
           "name": "domain",
           "type": "string",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `domain` (`string`) storing domain.",
+          "descriptionZh": "属性 `domain`（类型：`string`），用于存储或配置domain。"
         },
         {
           "name": "secure",
           "type": "boolean",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `secure` (`boolean`) storing secure.",
+          "descriptionZh": "属性 `secure`（类型：`boolean`），用于存储或配置secure。"
         },
         {
           "name": "httpOnly",
           "type": "boolean",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `httpOnly` (`boolean`) storing http only.",
+          "descriptionZh": "属性 `httpOnly`（类型：`boolean`），用于存储或配置HTTPOnly。"
         }
       ]
     },
     {
       "name": "CookieSerializer",
       "kind": "class",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Class `CookieSerializer` encapsulating cookie serializer data structures and logic in `src/core/cookie`.",
+      "summaryZh": "类 `CookieSerializer`，封装 `src/core/cookie` 中的CookieSerializer数据结构与处理逻辑。",
       "sourceFile": "src/core/cookie/cookie-serializer.ts",
       "inputs": [],
       "outputs": [],
@@ -79,8 +79,8 @@
             }
           ],
           "returnType": "string",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `serializeCookie` to handle serialize cookie.",
+          "descriptionZh": "执行 `serializeCookie`，用于序列化Cookie。"
         },
         {
           "name": "serializeCookieArray",
@@ -91,8 +91,8 @@
             }
           ],
           "returnType": "string",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `serializeCookieArray` to handle serialize cookie array.",
+          "descriptionZh": "执行 `serializeCookieArray`，用于序列化Cookie数组。"
         },
         {
           "name": "deserializeCookie",
@@ -103,8 +103,8 @@
             }
           ],
           "returnType": "Cookie",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `deserializeCookie` to handle deserialize cookie.",
+          "descriptionZh": "执行 `deserializeCookie`，用于反序列化Cookie。"
         },
         {
           "name": "deserializeCookieArray",
@@ -115,8 +115,8 @@
             }
           ],
           "returnType": "Cookie[]",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `deserializeCookieArray` to handle deserialize cookie array.",
+          "descriptionZh": "执行 `deserializeCookieArray`，用于反序列化Cookie数组。"
         }
       ],
       "properties": []
@@ -124,8 +124,8 @@
     {
       "name": "CookieStorage",
       "kind": "class",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Class `CookieStorage` encapsulating cookie storage data structures and logic in `src/core/cookie`.",
+      "summaryZh": "类 `CookieStorage`，封装 `src/core/cookie` 中的Cookie存储数据结构与处理逻辑。",
       "sourceFile": "src/core/cookie/cookie-storage.ts",
       "inputs": [],
       "outputs": [],
@@ -134,8 +134,8 @@
           "name": "isEnabled",
           "params": [],
           "returnType": "boolean",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `isEnabled` to handle is enabled.",
+          "descriptionZh": "执行 `isEnabled`，用于是否为已启用。"
         },
         {
           "name": "getCookie",
@@ -146,15 +146,15 @@
             }
           ],
           "returnType": "Cookie | undefined",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `getCookie` to handle get cookie.",
+          "descriptionZh": "执行 `getCookie`，用于获取Cookie。"
         },
         {
           "name": "getCookies",
           "params": [],
           "returnType": "Cookie[]",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `getCookies` to handle get cookies.",
+          "descriptionZh": "执行 `getCookies`，用于获取Cookie。"
         },
         {
           "name": "addCookie",
@@ -165,8 +165,8 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `addCookie` to handle add cookie.",
+          "descriptionZh": "执行 `addCookie`，用于添加Cookie。"
         },
         {
           "name": "addCookies",
@@ -177,8 +177,8 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `addCookies` to handle add cookies.",
+          "descriptionZh": "执行 `addCookies`，用于添加Cookie。"
         },
         {
           "name": "removeCookie",
@@ -189,8 +189,8 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `removeCookie` to handle remove cookie.",
+          "descriptionZh": "执行 `removeCookie`，用于移除Cookie。"
         },
         {
           "name": "hasCookie",
@@ -201,8 +201,8 @@
             }
           ],
           "returnType": "boolean",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `hasCookie` to handle has cookie.",
+          "descriptionZh": "执行 `hasCookie`，用于是否包含Cookie。"
         }
       ],
       "properties": []

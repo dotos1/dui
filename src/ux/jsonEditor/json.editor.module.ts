@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Module `src/ux/jsonEditor/json.editor.module.ts` providing json editor module definitions and implementation.
+ * @zh 模块文件 `src/ux/jsonEditor/json.editor.module.ts`，提供JSON编辑器模块相关的定义与实现。
+ */
+
 import { CommonModule } from '@angular/common';
 import { ComponentFactoryResolver, NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -16,6 +21,10 @@ import { TranslationService } from '@dotos/dui/translator';
 import { MonacoEditorModule } from '@dotos/dui/ux/monaco-editor';
 
 import { JsonEditor } from './json.editor';
+/**
+ * Angular module `JsonEditorModule` declaring and exporting json editor module components, directives, pipes, and providers.
+ * @zh Angular 模块 `JsonEditorModule`，声明并导出JSON编辑器模块相关的组件、指令、管道与服务提供者。
+ */
 @NgModule({
   declarations: [
     JsonEditor,
@@ -36,7 +45,17 @@ import { JsonEditor } from './json.editor';
   ]
 })
 export class JsonEditorModule {
+  /**
+   * Property `entryComponents` (`any[]`) storing entry components (default: `[JsonEditor]`).
+   * @zh 属性 `entryComponents`（类型：`any[]`），用于存储或配置条目组件列表（默认值：`[JsonEditor]`）。
+   */
   entryComponents = [JsonEditor];
+  /**
+   * Creates an instance of `JsonEditorModule` and initializes its dependencies and internal state.
+   * @zh 创建 `JsonEditorModule` 实例，并初始化其依赖项与内部状态。
+   * @param componentFactoryResolver - Injected or initial component factory resolver (`ComponentFactoryResolver`) / 注入或传入的组件工厂解析器（`ComponentFactoryResolver`）
+   * @param translateService - Injected or initial translate service (`TranslationService`) / 注入或传入的翻译服务（`TranslationService`）
+   */
   constructor(
     componentFactoryResolver: ComponentFactoryResolver,
     translateService: TranslationService) {

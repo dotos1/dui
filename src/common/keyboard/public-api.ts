@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Module `src/common/keyboard/public-api.ts` providing public api definitions and implementation.
+ * @zh 模块文件 `src/common/keyboard/public-api.ts`，提供publicAPI接口相关的定义与实现。
+ */
+
 
 (function () {
     if (typeof Element === 'undefined') {
@@ -5,7 +10,7 @@
     }
     if (!Element.prototype.matches) {
         Element.prototype.matches =
-            (Element.prototype as any).msMatchesSelector || Element.prototype.webkitMatchesSelector;
+            (Element.prototype as unknown as { msMatchesSelector? }).msMatchesSelector || Element.prototype.webkitMatchesSelector;
     }
 
     if (!Element.prototype.closest) {
@@ -24,8 +29,8 @@
     }
 })();
 
-if (!(Array.prototype as any).flat) {
-    (Array.prototype as any).flat = function (depth) {
+if (!(Array.prototype as unknown as { flat? }).flat) {
+    (Array.prototype as unknown as { flat? }).flat = function (depth) {
         let flattend = [];
         (function flat(array, depth) {
             for (let el of array) {
@@ -39,8 +44,8 @@ if (!(Array.prototype as any).flat) {
         return flattend;
     };
 }
-if (!(Array.prototype as any).flatMap) {
-    (Array.prototype as any).flatMap = function () {
+if (!(Array.prototype as unknown as { flatMap? }).flatMap) {
+    (Array.prototype as unknown as { flatMap? }).flatMap = function () {
        //@ts-ignore
         return Array.prototype.map.apply(this, arguments).flat(1);
     };

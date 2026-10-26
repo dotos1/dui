@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Module `src/core/form/extensions/field-form/utils.ts` providing utils definitions and implementation.
+ * @zh 模块文件 `src/core/form/extensions/field-form/utils.ts`，提供工具集相关的定义与实现。
+ */
+
 import { EventEmitter } from '@angular/core';
 import { FormArray, FormGroup, FormControl, AbstractControl } from '@angular/forms';
 import { FieldConfig ,FieldConfigCache} from '../../models';
@@ -9,6 +14,12 @@ import {
   observe
 } from '../../utils';
 
+/**
+ * Executes `unregisterControl` to handle unregister control.
+ * @zh 执行 `unregisterControl`，用于注销表单控件。
+ * @param field - field parameter (`FieldConfig`) / 字段参数（`FieldConfig`）
+ * @param emitEvent - emit event parameter (`any`) / 发出事件参数（`any`）
+ */
 export function unregisterControl(field: FieldConfig, emitEvent = false) {
   const form = field.formControl.parent as FormArray | FormGroup;
   if (!form) {
@@ -31,6 +42,12 @@ export function unregisterControl(field: FieldConfig, emitEvent = false) {
   control.setParent(null);
 }
 
+/**
+ * Executes `findControl` to handle find control.
+ * @zh 执行 `findControl`，用于查找表单控件。
+ * @param field - field parameter (`FieldConfig`) / 字段参数（`FieldConfig`）
+ * @returns Result of type `AbstractControl` / 类型为 `AbstractControl` 的返回值
+ */
 export function findControl(field: FieldConfig): AbstractControl {
   if (field.formControl) {
     return field.formControl;
@@ -47,7 +64,14 @@ export function findControl(field: FieldConfig): AbstractControl {
   return form ? form.get(getKeyPath(field)) : null;
 }
 
-export function registerControl(field: FieldConfigCache, control?: any, emitEvent = false) {
+/**
+ * Executes `registerControl` to handle register control.
+ * @zh 执行 `registerControl`，用于注册表单控件。
+ * @param field - field parameter (`FieldConfigCache`) / 字段参数（`FieldConfigCache`）
+ * @param control - control parameter (`any`) / 表单控件参数（`any`）
+ * @param emitEvent - emit event parameter (`any`) / 发出事件参数（`any`）
+ */
+export function registerControl(field: FieldConfigCache, control?, emitEvent = false) {
   control = control || field.formControl;
   if (!control['_fields']) {
     defineHiddenProp(control, '_fields', []);
@@ -88,6 +112,11 @@ export function registerControl(field: FieldConfigCache, control?: any, emitEven
     updateControl(form, { emitEvent }, () => (form as FormGroup).setControl(key, control));
   }
 }
+/**
+ * Executes `updateValidity` to handle update validity.
+ * @zh 执行 `updateValidity`，用于更新Validity。
+ * @param c - c parameter (`AbstractControl`) / c参数（`AbstractControl`）
+ */
 export function updateValidity(c: AbstractControl) {
   const status = c.status;
   c.updateValueAndValidity({ emitEvent: false });
@@ -95,10 +124,17 @@ export function updateValidity(c: AbstractControl) {
     (c.statusChanges as EventEmitter<string>).emit(c.status);
   }
 }
+/**
+ * Executes `updateControl` to handle update control.
+ * @zh 执行 `updateControl`，用于更新表单控件。
+ * @param form - form parameter (`FormGroup | FormArray`) / 表单参数（`FormGroup | FormArray`）
+ * @param opts - opts parameter (`{ emitEvent: boolean }`) / 选项列表参数（`{ emitEvent: boolean }`）
+ * @param action - action parameter (`Function`) / 动作参数（`Function`）
+ */
 function updateControl(form: FormGroup | FormArray, opts: { emitEvent: boolean }, action: Function) {
   if (form instanceof FormGroup && !form['__patchForEachChild']) {
     defineHiddenProp(form, '__patchForEachChild', true);
-    (form as any)._forEachChild = (cb: Function) => {
+    (form as unknown as { _forEachChild? })._forEachChild = (cb: Function) => {
       Object.keys(form.controls).forEach((k) => form.controls[k] && cb(form.controls[k], k));
     };
   }
@@ -114,6 +150,11 @@ function updateControl(form: FormGroup | FormArray, opts: { emitEvent: boolean }
   }
 }
 
+/**
+ * Executes `clearControl` to handle clear control.
+ * @zh 执行 `clearControl`，用于清空表单控件。
+ * @param form - form parameter (`AbstractControl`) / 表单参数（`AbstractControl`）
+ */
 export function clearControl(form: AbstractControl) {
   form['_fields'] && delete form['_fields'];
   form.setValidators(null);

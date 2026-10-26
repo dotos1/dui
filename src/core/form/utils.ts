@@ -1,13 +1,31 @@
+/**
+ * @fileoverview Module `src/core/form/utils.ts` providing utils definitions and implementation.
+ * @zh 模块文件 `src/core/form/utils.ts`，提供工具集相关的定义与实现。
+ */
+
 import { FieldConfig } from './models/field.config';
 import { isObservable } from 'rxjs';
 import { AbstractControl } from '@angular/forms';
 import { FieldConfigCache } from './models';
 
 
-function isUnsafeKey(key: any): boolean {
+/**
+ * Executes `isUnsafeKey` to handle is unsafe key.
+ * @zh 执行 `isUnsafeKey`，用于是否为Unsafe键。
+ * @param key - key parameter (`any`) / 键参数（`any`）
+ * @returns Result of type `boolean` / 类型为 `boolean` 的返回值
+ */
+function isUnsafeKey(key): boolean {
   return key === '__proto__' || key === 'constructor' || key === 'prototype';
 }
 
+/**
+ * Executes `getFieldId` to handle get field id.
+ * @zh 执行 `getFieldId`，用于获取字段唯一标识。
+ * @param formId - form id parameter (`string`) / 表单唯一标识参数（`string`）
+ * @param field - field parameter (`FieldConfig`) / 字段参数（`FieldConfig`）
+ * @param index - index parameter (`string|number`) / 索引参数（`string|number`）
+ */
 export function getFieldId(formId: string, field: FieldConfig, index: string|number) {
   if (field.id) {
     return field.id;
@@ -19,6 +37,12 @@ export function getFieldId(formId: string, field: FieldConfig, index: string|num
   return [formId, type, field.name, index].join('_');
 }
 
+/**
+ * Executes `getKeyPath` to handle get key path.
+ * @zh 执行 `getKeyPath`，用于获取键路径。
+ * @param field - field parameter (`FieldConfigCache`) / 字段参数（`FieldConfigCache`）
+ * @returns Result of type `string[]` / 类型为 `string[]` 的返回值
+ */
 export function getKeyPath(field: FieldConfigCache): string[] {
   if (!field.name) {
     return [];
@@ -41,9 +65,19 @@ export function getKeyPath(field: FieldConfigCache): string[] {
   return field._keyPath.path.slice(0);
 }
 
+/**
+ * Constant/variable `FORM_VALIDATORS` defining form validators in `src/core/form`.
+ * @zh 常量/变量 `FORM_VALIDATORS`，定义 `src/core/form` 中的表单校验器列表。
+ */
 export const FORM_VALIDATORS = ['required', 'pattern', 'minLength', 'maxLength', 'min', 'max'];
 
-export function assignFieldValue(field: FieldConfigCache, value: any) {
+/**
+ * Executes `assignFieldValue` to handle assign field value.
+ * @zh 执行 `assignFieldValue`，用于赋值字段值。
+ * @param field - field parameter (`FieldConfigCache`) / 字段参数（`FieldConfigCache`）
+ * @param value - value parameter (`any`) / 值参数（`any`）
+ */
+export function assignFieldValue(field: FieldConfigCache, value) {
   let paths = getKeyPath(field);
   if (paths.length === 0) {
     return;
@@ -65,7 +99,14 @@ export function assignFieldValue(field: FieldConfigCache, value: any) {
   assignModelValue(root.model, paths, value);
 }
 
-export function assignModelValue(model: any, paths: string[], value: any) {
+/**
+ * Executes `assignModelValue` to handle assign model value.
+ * @zh 执行 `assignModelValue`，用于赋值模型值。
+ * @param model - model parameter (`any`) / 模型参数（`any`）
+ * @param paths - paths parameter (`string[]`) / 路径参数（`string[]`）
+ * @param value - value parameter (`any`) / 值参数（`any`）
+ */
+export function assignModelValue(model, paths: string[], value) {
   for (let i = 0; i < (paths.length - 1); i++) {
     const path = paths[i];
     if (isUnsafeKey(path)) {
@@ -84,9 +125,15 @@ export function assignModelValue(model: any, paths: string[], value: any) {
   model[lastPath] = clone(value);
 }
 ///move from dui.ts ----- start
-export function getKeyPath2(field: { name?:  string  | string[], fieldGroup?: any, fieldArray?: any }): (string | number)[] {
+/**
+ * Executes `getKeyPath2` to handle get key path2.
+ * @zh 执行 `getKeyPath2`，用于获取键Path2。
+ * @param field - field parameter (`{ name?: string | string[], fieldGroup?: any, fieldArray?: a...`) / 字段参数（`{ name?: string | string[], fieldGroup?: any, fieldArray?: a...`）
+ * @returns Result of type `(string | number)[]` / 类型为 `(string | number)[]` 的返回值
+ */
+export function getKeyPath2(field: { name?:  string  | string[], fieldGroup?, fieldArray? }): (string | number)[] {
   /* We store the keyPath in the field for performance reasons. This function will be called frequently. */
-  if (!(<any>field)['_formlyKeyPath'] || (<any>field)['_formlyKeyPath'].name !== field.name) {
+  if (!(<unknown>field)['_formlyKeyPath'] || (<unknown>field)['_formlyKeyPath'].name !== field.name) {
     let keyPath: (string | number)[] = [];
     if (field.name) {
       /* Also allow for an array key, hence the type check  */
@@ -107,14 +154,21 @@ export function getKeyPath2(field: { name?:  string  | string[], fieldGroup?: an
         }
       }
     }
-    (<any>field)['_formlyKeyPath'] = {
+    (<unknown>field)['_formlyKeyPath'] = {
       name: field.name,
       path: keyPath,
     };
   }
-  return (<any>field)['_formlyKeyPath'].path.slice(0);
+  return (<unknown>field)['_formlyKeyPath'].path.slice(0);
 }
-export function assignModelValue2(model: any, path: string | (string | number)[], value: any) {
+/**
+ * Executes `assignModelValue2` to handle assign model value2.
+ * @zh 执行 `assignModelValue2`，用于赋值模型Value2。
+ * @param model - model parameter (`any`) / 模型参数（`any`）
+ * @param path - path parameter (`string | (string | number)[]`) / 路径参数（`string | (string | number)[]`）
+ * @param value - value parameter (`any`) / 值参数（`any`）
+ */
+export function assignModelValue2(model, path: string | (string | number)[], value) {
   if (typeof path === 'string') {
     path = getKeyPath2({ name: path });
   }
@@ -135,7 +189,14 @@ export function assignModelValue2(model: any, path: string | (string | number)[]
   }
 }
 
-export function getValueForKey2(formValue: any, path: string | (string | number)[]): any {
+/**
+ * Executes `getValueForKey2` to handle get value for key2.
+ * @zh 执行 `getValueForKey2`，用于获取值用于Key2。
+ * @param formValue - form value parameter (`any`) / 表单值参数（`any`）
+ * @param path - path parameter (`string | (string | number)[]`) / 路径参数（`string | (string | number)[]`）
+ * @returns Result of type `any` / 类型为 `any` 的返回值
+ */
+export function getValueForKey2(formValue, path: string | (string | number)[]) {
   if (typeof path === 'string') {
     path = getKeyPath2({ name: path });
   }
@@ -150,6 +211,11 @@ export function getValueForKey2(formValue: any, path: string | (string | number)
   }
 }
 ///move from dui.ts  ------end
+/**
+ * Executes `getFieldInitialValue` to handle get field initial value.
+ * @zh 执行 `getFieldInitialValue`，用于获取字段初始值。
+ * @param field - field parameter (`FieldConfig`) / 字段参数（`FieldConfig`）
+ */
 export function getFieldInitialValue(field: FieldConfig) {
   let value = field.option['_initialModel'];
   let paths = getKeyPath(field);
@@ -168,7 +234,13 @@ export function getFieldInitialValue(field: FieldConfig) {
   return value;
 }
 
-export function getFieldValue(field: FieldConfig): any {
+/**
+ * Executes `getFieldValue` to handle get field value.
+ * @zh 执行 `getFieldValue`，用于获取字段值。
+ * @param field - field parameter (`FieldConfig`) / 字段参数（`FieldConfig`）
+ * @returns Result of type `any` / 类型为 `any` 的返回值
+ */
+export function getFieldValue(field: FieldConfig) {
   let model = field.parent ? field.parent.model : field.model;
   for (const path of getKeyPath(field)) {
     if (!model) {
@@ -179,7 +251,13 @@ export function getFieldValue(field: FieldConfig): any {
   return model;
 }
 
-export function reverseDeepMerge(dest: any, ...args: any[]) {
+/**
+ * Executes `reverseDeepMerge` to handle reverse deep merge.
+ * @zh 执行 `reverseDeepMerge`，用于反向Deep合并。
+ * @param dest - dest parameter (`any`) / 目标路径参数（`any`）
+ * @param args - args parameter (`any[]`) / 参数列表参数（`any[]`）
+ */
+export function reverseDeepMerge(dest, ...args) {
   args.forEach((src) => {
     for (const srcArg in src) {
       if (isUnsafeKey(srcArg)) {
@@ -195,23 +273,49 @@ export function reverseDeepMerge(dest: any, ...args: any[]) {
   return dest;
 }
 
-export function isNil(value: any) {
+/**
+ * Executes `isNil` to handle is nil.
+ * @zh 执行 `isNil`，用于是否为Nil。
+ * @param value - value parameter (`any`) / 值参数（`any`）
+ */
+export function isNil(value) {
   return value == null;
 }
 
-export function isUndefined(value: any) {
+/**
+ * Executes `isUndefined` to handle is undefined.
+ * @zh 执行 `isUndefined`，用于是否为未定义。
+ * @param value - value parameter (`any`) / 值参数（`any`）
+ */
+export function isUndefined(value) {
   return value === undefined;
 }
 
-export function isBlankString(value: any) {
+/**
+ * Executes `isBlankString` to handle is blank string.
+ * @zh 执行 `isBlankString`，用于是否为Blank字符串。
+ * @param value - value parameter (`any`) / 值参数（`any`）
+ */
+export function isBlankString(value) {
   return value === '';
 }
 
-export function isFunction(value: any) {
+/**
+ * Executes `isFunction` to handle is function.
+ * @zh 执行 `isFunction`，用于是否为函数。
+ * @param value - value parameter (`any`) / 值参数（`any`）
+ */
+export function isFunction(value) {
   return typeof(value) === 'function';
 }
 
-export function objAndSameType(obj1: any, obj2: any) {
+/**
+ * Executes `objAndSameType` to handle obj and same type.
+ * @zh 执行 `objAndSameType`，用于对象And相同类型。
+ * @param obj1 - obj1 parameter (`any`) / obj1参数（`any`）
+ * @param obj2 - obj2 parameter (`any`) / obj2参数（`any`）
+ */
+export function objAndSameType(obj1, obj2) {
   return (
     isObject(obj1) &&
     isObject(obj2) &&
@@ -220,15 +324,32 @@ export function objAndSameType(obj1: any, obj2: any) {
   );
 }
 
-export function isObject(x: any) {
+/**
+ * Executes `isObject` to handle is object.
+ * @zh 执行 `isObject`，用于是否为对象。
+ * @param x - x parameter (`any`) / X坐标参数（`any`）
+ */
+export function isObject(x) {
   return x != null && typeof x === 'object';
 }
 
-export function isPromise(obj: any): obj is Promise<any> {
+/**
+ * Executes `isPromise` to handle is promise.
+ * @zh 执行 `isPromise`，用于是否为Promise。
+ * @param obj - obj parameter (`any`) / 对象参数（`any`）
+ * @returns Result of type `obj is Promise<any>` / 类型为 `obj is Promise<any>` 的返回值
+ */
+export function isPromise(obj) {
   return !!obj && typeof obj.then === 'function';
 }
 
-export function clone(value: any): any {
+/**
+ * Executes `clone` to handle clone.
+ * @zh 执行 `clone`，用于克隆。
+ * @param value - value parameter (`any`) / 值参数（`any`）
+ * @returns Result of type `any` / 类型为 `any` 的返回值
+ */
+export function clone(value) {
   if (
     !isObject(value)
     || isObservable(value)
@@ -275,19 +396,50 @@ export function clone(value: any): any {
   }, c);
 }
 
-export function defineHiddenProp(field: any, prop: string, defaultValue: any) {
+/**
+ * Executes `defineHiddenProp` to handle define hidden prop.
+ * @zh 执行 `defineHiddenProp`，用于define隐藏属性。
+ * @param field - field parameter (`any`) / 字段参数（`any`）
+ * @param prop - prop parameter (`string`) / 属性参数（`string`）
+ * @param defaultValue - default value parameter (`any`) / 默认值参数（`any`）
+ */
+export function defineHiddenProp(field, prop: string, defaultValue) {
   Object.defineProperty(field, prop, { enumerable: false, writable: true, configurable: true });
   field[prop] = defaultValue;
 }
 
 
+/**
+ * Type alias `IObserveFn` representing i observe fn (`(change: { currentValue: T; previousValue?: T; firstChange: boolean })...`).
+ * @zh 类型别名 `IObserveFn`，表示IObserve函数（`(change: { currentValue: T; previousValue?: T; firstChange: boolean })...`）。
+ */
 type IObserveFn<T> = (change: { currentValue: T; previousValue?: T; firstChange: boolean }) => void;
+/**
+ * Interface `IObserver` defining the contract and properties for i observer.
+ * @zh 接口 `IObserver`，定义I观察者的数据结构契约与属性规范。
+ */
 export interface IObserver<T> {
+  /**
+   * Property `setValue` (`(value: T) => void`) storing set value.
+   * @zh 属性 `setValue`（类型：`(value: T) => void`），用于存储或配置集合值。
+   */
   setValue: (value: T) => void;
+  /**
+   * Property `unsubscribe` (`Function`) storing unsubscribe.
+   * @zh 属性 `unsubscribe`（类型：`Function`），用于存储或配置取消订阅。
+   */
   unsubscribe: Function;
 }
+/**
+ * Interface `IObserveTarget` defining the contract and properties for i observe target.
+ * @zh 接口 `IObserveTarget`，定义IObserve目标的数据结构契约与属性规范。
+ */
 interface IObserveTarget<T> {
-  [prop: string]: any;
+  [prop: string]: unknown;
+  /**
+   * Property `_observers` (`{ [prop: string]: { value: T; onChange: IObserveFn<T>[]; }; }`) storing observers.
+   * @zh 属性 `_observers`（类型：`{ [prop: string]: { value: T; onChange: IObserveFn<T>[]; }; }`），用于存储或配置观察者。
+   */
   _observers?: {
     [prop: string]: {
       value: T;
@@ -296,6 +448,11 @@ interface IObserveTarget<T> {
   };
 }
 
+/**
+ * Executes `observeDeep` to handle observe deep.
+ * @zh 执行 `observeDeep`，用于observeDeep。
+ * @param { source, paths, target, setFn... - { source, paths, target, set fn parameter (`any`) / {source,paths,target,集合函数参数（`any`）
+ */
 export function observeDeep({ source, paths, target, setFn }) {
   const observers = [];
   if (paths.length === 0) {
@@ -327,7 +484,15 @@ export function observeDeep({ source, paths, target, setFn }) {
   };
 }
 
-export function observe<T = any>(o: IObserveTarget<T>, paths: string[], setFn: IObserveFn<T>): IObserver<T> {
+/**
+ * Executes `observe` to handle observe.
+ * @zh 执行 `observe`，用于observe。
+ * @param o - o parameter (`IObserveTarget<T>`) / o参数（`IObserveTarget<T>`）
+ * @param paths - paths parameter (`string[]`) / 路径参数（`string[]`）
+ * @param setFn - set fn parameter (`IObserveFn<T>`) / 集合函数参数（`IObserveFn<T>`）
+ * @returns Result of type `IObserver<T>` / 类型为 `IObserver<T>` 的返回值
+ */
+export function observe<T = Parameters<{ (x) }>[0]>(o, paths: string[], setFn: IObserveFn<T>): IObserver<T> {
   if (!o._observers) {
     defineHiddenProp(o, '_observers', {});
   }
@@ -377,7 +542,13 @@ export function observe<T = any>(o: IObserveTarget<T>, paths: string[], setFn: I
   };
 }
 
-export function reduceFormUpdateValidityCalls(form: any, action: Function) {
+/**
+ * Executes `reduceFormUpdateValidityCalls` to handle reduce form update validity calls.
+ * @zh 执行 `reduceFormUpdateValidityCalls`，用于归约表单更新Validity调用。
+ * @param form - form parameter (`any`) / 表单参数（`any`）
+ * @param action - action parameter (`Function`) / 动作参数（`Function`）
+ */
+export function reduceFormUpdateValidityCalls(form, action: Function) {
   const updateValidity = form._updateTreeValidity.bind(form);
 
   let updateValidityArgs = { called: false, emitEvent: false };

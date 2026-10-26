@@ -4,19 +4,48 @@
     {
       "name": "AllowIn",
       "kind": "enum",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Enumeration `AllowIn` defining supported allow in constants.",
+      "summaryZh": "枚举 `AllowIn`，定义支持的允许在常量集合。",
       "sourceFile": "src/common/keyboard/keyboard-shortcuts.interfaces.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
-      "properties": []
+      "properties": [
+        {
+          "name": "Textarea",
+          "type": "enum-member",
+          "default": "'TEXTAREA'",
+          "description": "Enum member `AllowIn.Textarea` = 'TEXTAREA' representing textarea.",
+          "descriptionZh": "枚举项 `AllowIn.Textarea` = 'TEXTAREA'，表示Textarea。"
+        },
+        {
+          "name": "Input",
+          "type": "enum-member",
+          "default": "'INPUT'",
+          "description": "Enum member `AllowIn.Input` = 'INPUT' representing input.",
+          "descriptionZh": "枚举项 `AllowIn.Input` = 'INPUT'，表示输入属性。"
+        },
+        {
+          "name": "Select",
+          "type": "enum-member",
+          "default": "'SELECT'",
+          "description": "Enum member `AllowIn.Select` = 'SELECT' representing select.",
+          "descriptionZh": "枚举项 `AllowIn.Select` = 'SELECT'，表示下拉选择。"
+        },
+        {
+          "name": "ContentEditable",
+          "type": "enum-member",
+          "default": "\"CONTENT-EDITABLE\"",
+          "description": "Enum member `AllowIn.ContentEditable` = \"CONTENT-EDITABLE\" representing content editable.",
+          "descriptionZh": "枚举项 `AllowIn.ContentEditable` = \"CONTENT-EDITABLE\"，表示内容是否可编辑。"
+        }
+      ]
     },
     {
       "name": "allPass",
       "kind": "constant",
       "summary": null,
-      "summaryZh": null,
+      "summaryZh": "常量/变量 `allPass`，定义 `src/common/keyboard` 中的全部传递。",
       "sourceFile": "src/common/keyboard/utils.ts",
       "inputs": [],
       "outputs": [],
@@ -26,8 +55,8 @@
     {
       "name": "any",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `any` defining any in `src/common/keyboard`.",
+      "summaryZh": "常量/变量 `any`，定义 `src/common/keyboard` 中的任意。",
       "sourceFile": "src/common/keyboard/utils.ts",
       "inputs": [],
       "outputs": [],
@@ -38,7 +67,7 @@
       "name": "BasePortalOutlet",
       "kind": "class",
       "summary": null,
-      "summaryZh": null,
+      "summaryZh": "类 `BasePortalOutlet`，封装 `src/common/keyboard` 中的基础传送门容器Outlet数据结构与处理逻辑。",
       "sourceFile": "src/common/keyboard/portal.ts",
       "inputs": [],
       "outputs": [],
@@ -48,7 +77,7 @@
           "params": [],
           "returnType": "boolean",
           "description": "Whether this host has an attached portal.",
-          "descriptionZh": null
+          "descriptionZh": "执行 `hasAttached`，用于是否包含已附加。"
         },
         {
           "name": "attach",
@@ -60,7 +89,7 @@
           ],
           "returnType": "any",
           "description": "Attaches a portal.",
-          "descriptionZh": null
+          "descriptionZh": "执行 `attach`，用于挂载。"
         },
         {
           "name": "attachComponentPortal",
@@ -71,8 +100,8 @@
             }
           ],
           "returnType": "ComponentRef<T>",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `attachComponentPortal` to handle attach component portal.",
+          "descriptionZh": "执行 `attachComponentPortal`，用于挂载组件传送门容器。"
         },
         {
           "name": "attachTemplatePortal",
@@ -83,22 +112,22 @@
             }
           ],
           "returnType": "EmbeddedViewRef<C>",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `attachTemplatePortal` to handle attach template portal.",
+          "descriptionZh": "执行 `attachTemplatePortal`，用于挂载模板传送门容器。"
         },
         {
           "name": "detach",
           "params": [],
           "returnType": "void",
           "description": "Detaches a previously attached portal.",
-          "descriptionZh": null
+          "descriptionZh": "执行 `detach`，用于卸载。"
         },
         {
           "name": "dispose",
           "params": [],
           "returnType": "void",
           "description": "Permanently dispose of this portal host.",
-          "descriptionZh": null
+          "descriptionZh": "执行 `dispose`，用于释放。"
         },
         {
           "name": "setDisposeFn",
@@ -110,7 +139,7 @@
           ],
           "returnType": "any",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "执行 `setDisposeFn`，用于集合释放函数。"
         }
       ],
       "properties": []
@@ -118,8 +147,8 @@
     {
       "name": "ComponentPortal",
       "kind": "class",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Class `ComponentPortal` encapsulating component portal data structures and logic in `src/common/keyboard`.",
+      "summaryZh": "类 `ComponentPortal`，封装 `src/common/keyboard` 中的组件传送门容器数据结构与处理逻辑。",
       "sourceFile": "src/common/keyboard/portal.ts",
       "inputs": [],
       "outputs": [],
@@ -129,33 +158,33 @@
           "name": "component",
           "type": "ComponentType<T>",
           "description": "The type of the component that will be instantiated for attachment.",
-          "descriptionZh": null
+          "descriptionZh": "属性 `component`（类型：`ComponentType<T>`），用于存储或配置组件。"
         },
         {
           "name": "viewContainerRef",
           "type": "ViewContainerRef | null",
           "description": "[Optional] Where the attached component should live in Angular's *logical* component tree.\nThis is different from where the component *renders*, which is determined by the PortalOutlet.\nThe origin is necessary when the host is outside of the Angular application context.",
-          "descriptionZh": null
+          "descriptionZh": "属性 `viewContainerRef`（类型：`ViewContainerRef | null`），用于存储或配置视图容器引用。"
         },
         {
           "name": "injector",
           "type": "Injector | null",
           "description": "[Optional] Injector used for the instantiation of the component.",
-          "descriptionZh": null
+          "descriptionZh": "属性 `injector`（类型：`Injector | null`），用于存储或配置注入器。"
         },
         {
           "name": "componentFactoryResolver",
           "type": "ComponentFactoryResolver | null",
           "description": "Alternate `ComponentFactoryResolver` to use when resolving the associated component.\nDefaults to using the resolver from the outlet that the portal is attached to.",
-          "descriptionZh": null
+          "descriptionZh": "属性 `componentFactoryResolver`（类型：`ComponentFactoryResolver | null`），用于存储或配置组件工厂解析器。"
         }
       ]
     },
     {
       "name": "ComponentType",
       "kind": "interface",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Interface `ComponentType` defining the contract and properties for component type.",
+      "summaryZh": "接口 `ComponentType`，定义组件类型的数据结构契约与属性规范。",
       "sourceFile": "src/common/keyboard/portal.ts",
       "inputs": [],
       "outputs": [],
@@ -166,7 +195,7 @@
       "name": "difference",
       "kind": "constant",
       "summary": null,
-      "summaryZh": null,
+      "summaryZh": "常量/变量 `difference`，定义 `src/common/keyboard` 中的difference。",
       "sourceFile": "src/common/keyboard/utils.ts",
       "inputs": [],
       "outputs": [],
@@ -176,8 +205,8 @@
     {
       "name": "DomPortalOutlet",
       "kind": "class",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Class `DomPortalOutlet` encapsulating dom portal outlet data structures and logic in `src/common/keyboard`.",
+      "summaryZh": "类 `DomPortalOutlet`，封装 `src/common/keyboard` 中的DOM节点传送门容器Outlet数据结构与处理逻辑。",
       "sourceFile": "src/common/keyboard/dom-portal-outlet.ts",
       "inputs": [],
       "outputs": [],
@@ -191,8 +220,8 @@
             }
           ],
           "returnType": "ComponentRef<T>",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `attachComponentPortal` to handle attach component portal.",
+          "descriptionZh": "执行 `attachComponentPortal`，用于挂载组件传送门容器。"
         },
         {
           "name": "attachTemplatePortal",
@@ -203,15 +232,15 @@
             }
           ],
           "returnType": "EmbeddedViewRef<C>",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `attachTemplatePortal` to handle attach template portal.",
+          "descriptionZh": "执行 `attachTemplatePortal`，用于挂载模板传送门容器。"
         },
         {
           "name": "dispose",
           "params": [],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `dispose` to handle dispose.",
+          "descriptionZh": "执行 `dispose`，用于释放。"
         }
       ],
       "properties": []
@@ -220,18 +249,35 @@
       "name": "groupBy",
       "kind": "function",
       "summary": null,
-      "summaryZh": null,
+      "summaryZh": "执行 `groupBy`，用于分组按。",
       "sourceFile": "src/common/keyboard/utils.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "groupBy",
+          "params": [
+            {
+              "name": "xs",
+              "type": "readonly T[]"
+            },
+            {
+              "name": "key",
+              "type": "K"
+            }
+          ],
+          "returnType": "Record<K, T[]>",
+          "description": null,
+          "descriptionZh": "执行 `groupBy`，用于分组按。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "identity",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `identity` defining identity in `src/common/keyboard`.",
+      "summaryZh": "常量/变量 `identity`，定义 `src/common/keyboard` 中的identity。",
       "sourceFile": "src/common/keyboard/utils.ts",
       "inputs": [],
       "outputs": [],
@@ -241,30 +287,56 @@
     {
       "name": "invert",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Executes `invert` to handle invert.",
+      "summaryZh": "执行 `invert`，用于invert。",
       "sourceFile": "src/common/keyboard/utils.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "invert",
+          "params": [
+            {
+              "name": "obj",
+              "type": "Record<T, U>"
+            }
+          ],
+          "returnType": "any",
+          "description": "Executes `invert` to handle invert.",
+          "descriptionZh": "执行 `invert`，用于invert。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "isFunction",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Executes `isFunction` to handle is function.",
+      "summaryZh": "执行 `isFunction`，用于是否为函数。",
       "sourceFile": "src/common/keyboard/utils.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "isFunction",
+          "params": [
+            {
+              "name": "x",
+              "type": "any"
+            }
+          ],
+          "returnType": "x is () => void",
+          "description": "Executes `isFunction` to handle is function.",
+          "descriptionZh": "执行 `isFunction`，用于是否为函数。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "isNill",
       "kind": "constant",
       "summary": null,
-      "summaryZh": null,
+      "summaryZh": "常量/变量 `isNill`，定义 `src/common/keyboard` 中的是否为Nill。",
       "sourceFile": "src/common/keyboard/utils.ts",
       "inputs": [],
       "outputs": [],
@@ -282,19 +354,19 @@
         {
           "name": "description",
           "type": "string",
-          "description": null,
+          "description": "Input property `description` (`string`) configuring description.",
           "descriptionZh": "快捷键的描述文字（显示在帮助面板中）。"
         },
         {
           "name": "label",
           "type": "string",
-          "description": null,
+          "description": "Input property `label` (`string`) configuring label.",
           "descriptionZh": "快捷键的分组/标签文字（显示在帮助面板中）。"
         },
         {
           "name": "preventDefault",
           "type": "boolean",
-          "description": null,
+          "description": "Input property `preventDefault` (`boolean`) configuring prevent default.",
           "descriptionZh": "触发时是否阻止按键的默认行为。"
         },
         {
@@ -306,19 +378,19 @@
         {
           "name": "key",
           "type": "string | string[]",
-          "description": null,
+          "description": "Input property `key` (`string | string[]`) configuring key.",
           "descriptionZh": "触发该快捷键的按键组合，可以是单个或多个。"
         },
         {
           "name": "target",
           "type": "HTMLElement",
-          "description": null,
+          "description": "Input property `target` (`HTMLElement`) configuring target.",
           "descriptionZh": "监听按键事件的目标元素，默认为整个文档。"
         },
         {
           "name": "throttleTime",
           "type": "number",
-          "description": null,
+          "description": "Input property `throttleTime` (`number`) configuring throttle time.",
           "descriptionZh": "触发节流时间（毫秒）。"
         }
       ],
@@ -326,7 +398,7 @@
         {
           "name": "fire",
           "type": "any",
-          "description": null,
+          "description": "Output event emitter `fire` (`EventEmitter`) firing when fire occurs.",
           "descriptionZh": "快捷键被触发时发出。"
         }
       ],
@@ -415,25 +487,25 @@
         {
           "name": "keyDescription",
           "type": "string",
-          "description": null,
+          "description": "Input property `keyDescription` (`string`) configuring key description.",
           "descriptionZh": "切换本帮助面板的快捷键在帮助列表中显示的描述文字。"
         },
         {
           "name": "keyLabel",
           "type": "string",
-          "description": null,
+          "description": "Input property `keyLabel` (`string`) configuring key label.",
           "descriptionZh": "切换本帮助面板的快捷键在帮助列表中显示的分组标签。"
         },
         {
           "name": "closeKeyLabel",
           "type": "string",
-          "description": null,
+          "description": "Input property `closeKeyLabel` (`string`) configuring close key label.",
           "descriptionZh": "关闭快捷键在帮助列表中显示的分组标签。"
         },
         {
           "name": "closeKeyDescription",
           "type": "string",
-          "description": null,
+          "description": "Input property `closeKeyDescription` (`string`) configuring close key description.",
           "descriptionZh": "关闭快捷键在帮助列表中显示的描述文字。"
         },
         {
@@ -452,14 +524,14 @@
           "name": "title",
           "type": "any",
           "default": "\"COMMON.KEYBOARD_TITLE\"",
-          "description": null,
+          "description": "Input property `title` (`string`) configuring title (default: `\"COMMON.KEYBOARD_TITLE\"`).",
           "descriptionZh": "帮助面板的标题（翻译键）。"
         },
         {
           "name": "emptyMessage",
           "type": "any",
           "default": "\"COMMON.KEYBOARD_EMPTYMESSAGE\"",
-          "description": null,
+          "description": "Input property `emptyMessage` (`string`) configuring empty message (default: `\"COMMON.KEYBOARD_EMPTYMESSAGE\"`).",
           "descriptionZh": "没有已注册快捷键时显示的提示信息（翻译键）。"
         }
       ],
@@ -511,20 +583,20 @@
         {
           "name": "shortcuts",
           "type": "Record<\"label\", { key: string[]; label: string; description: string }[]>",
-          "description": null,
+          "description": "Property `shortcuts` (`Record<\"label\", { key: string[]; label: string; description: string }[...`) storing shortcuts.",
           "descriptionZh": "按标签分组后的已注册快捷键。"
         },
         {
           "name": "showing$",
           "type": "any",
           "default": "new BehaviorSubject(false)",
-          "description": null,
+          "description": "Property `showing$` (`BehaviorSubject`) storing showing (default: `new BehaviorSubject(false)`).",
           "descriptionZh": "帮助面板当前是否正在显示。"
         },
         {
           "name": "labels",
           "type": "string[]",
-          "description": null,
+          "description": "Property `labels` (`string[]`) storing labels.",
           "descriptionZh": "已注册快捷键的分组标签列表。"
         }
       ]
@@ -540,7 +612,7 @@
         {
           "name": "index",
           "type": "number",
-          "description": null,
+          "description": "Input property `index` (`number`) configuring index.",
           "descriptionZh": "该条目在列表中的索引。"
         },
         {
@@ -556,7 +628,7 @@
         {
           "name": "parsedKeys",
           "type": "string[][]",
-          "description": null,
+          "description": "Property `parsedKeys` (`string[][]`) storing parsed keys.",
           "descriptionZh": "解析后的按键组合，按符号数组分组，便于逐个渲染按键图标。"
         },
         {
@@ -589,8 +661,8 @@
     {
       "name": "KeyboardShortcutsModule",
       "kind": "module",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular module `KeyboardShortcutsModule` declaring and exporting keyboard shortcuts module components, directives, pipes, and providers.",
+      "summaryZh": "Angular 模块 `KeyboardShortcutsModule`，声明并导出键盘快捷键列表模块相关的组件、指令、管道与服务提供者。",
       "sourceFile": "src/common/keyboard/keyboard-shortcuts.module.ts",
       "inputs": [],
       "outputs": [],
@@ -599,8 +671,8 @@
           "name": "forRoot",
           "params": [],
           "returnType": "ModuleWithProviders<KeyboardShortcutsModule>",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `forRoot` to handle for root.",
+          "descriptionZh": "执行 `forRoot`，用于用于根节点。"
         }
       ],
       "properties": []
@@ -731,14 +803,14 @@
           "name": "pressed$",
           "type": "any",
           "default": "this._pressed.asObservable()",
-          "description": null,
+          "description": "Property `pressed$` (`any`) storing pressed (default: `this._pressed.asObservable()`).",
           "descriptionZh": "每当任意已注册快捷键被触发时发出事件（含触发的按键与原生事件）。"
         },
         {
           "name": "shortcuts$",
           "type": "any",
           "default": "this._shortcutsSub\n        .pipe(filter((shortcuts) =>{\n     \n            return shortcuts.length!=0;\n    } ))",
-          "description": null,
+          "description": "Property `shortcuts$` (`any`) storing shortcuts.",
           "descriptionZh": "发出当前已注册的（非空）快捷键列表，随注册/注销更新。"
         },
         {
@@ -752,8 +824,8 @@
     {
       "name": "maxArrayProp",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `maxArrayProp` defining max array prop in `src/common/keyboard`.",
+      "summaryZh": "常量/变量 `maxArrayProp`，定义 `src/common/keyboard` 中的最大值数组属性。",
       "sourceFile": "src/common/keyboard/utils.ts",
       "inputs": [],
       "outputs": [],
@@ -763,8 +835,8 @@
     {
       "name": "minMaxArrayProp",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `minMaxArrayProp` defining min max array prop in `src/common/keyboard`.",
+      "summaryZh": "常量/变量 `minMaxArrayProp`，定义 `src/common/keyboard` 中的最小值最大值数组属性。",
       "sourceFile": "src/common/keyboard/utils.ts",
       "inputs": [],
       "outputs": [],
@@ -774,8 +846,8 @@
     {
       "name": "Portal",
       "kind": "class",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Class `Portal` encapsulating portal data structures and logic in `src/common/keyboard`.",
+      "summaryZh": "类 `Portal`，封装 `src/common/keyboard` 中的传送门容器数据结构与处理逻辑。",
       "sourceFile": "src/common/keyboard/portal.ts",
       "inputs": [],
       "outputs": [],
@@ -790,14 +862,14 @@
           ],
           "returnType": "T",
           "description": "Attach this portal to a host.",
-          "descriptionZh": null
+          "descriptionZh": "执行 `attach`，用于挂载。"
         },
         {
           "name": "detach",
           "params": [],
           "returnType": "void",
           "description": "Detach this portal from its host",
-          "descriptionZh": null
+          "descriptionZh": "执行 `detach`，用于卸载。"
         },
         {
           "name": "setAttachedHost",
@@ -809,7 +881,7 @@
           ],
           "returnType": "any",
           "description": "Sets the PortalOutlet reference without performing `attach()`. This is used directly by\nthe PortalOutlet when it is performing an `attach()` or `detach()`.",
-          "descriptionZh": null
+          "descriptionZh": "执行 `setAttachedHost`，用于集合已附加宿主。"
         }
       ],
       "properties": [
@@ -817,7 +889,7 @@
           "name": "isAttached",
           "type": "boolean",
           "description": "Whether this portal is attached to a host.",
-          "descriptionZh": null
+          "descriptionZh": "获取当前是否为已附加（`isAttached: boolean`）。"
         }
       ]
     },
@@ -825,18 +897,52 @@
       "name": "PortalOutlet",
       "kind": "interface",
       "summary": null,
-      "summaryZh": null,
+      "summaryZh": "接口 `PortalOutlet`，定义传送门容器Outlet的数据结构契约与属性规范。",
       "sourceFile": "src/common/keyboard/portal.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "attach",
+          "params": [
+            {
+              "name": "portal",
+              "type": "Portal<any>"
+            }
+          ],
+          "returnType": "any",
+          "description": "Attaches a portal to this outlet.",
+          "descriptionZh": "执行 `attach`，用于挂载。"
+        },
+        {
+          "name": "detach",
+          "params": [],
+          "returnType": "any",
+          "description": "Detaches the currently attached portal from this outlet.",
+          "descriptionZh": "执行 `detach`，用于卸载。"
+        },
+        {
+          "name": "dispose",
+          "params": [],
+          "returnType": "void",
+          "description": "Performs cleanup before the outlet is destroyed.",
+          "descriptionZh": "执行 `dispose`，用于释放。"
+        },
+        {
+          "name": "hasAttached",
+          "params": [],
+          "returnType": "boolean",
+          "description": "Whether there is currently a portal attached to this outlet.",
+          "descriptionZh": "执行 `hasAttached`，用于是否包含已附加。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "prop",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `prop` defining prop in `src/common/keyboard`.",
+      "summaryZh": "常量/变量 `prop`，定义 `src/common/keyboard` 中的属性。",
       "sourceFile": "src/common/keyboard/utils.ts",
       "inputs": [],
       "outputs": [],
@@ -844,43 +950,151 @@
       "properties": []
     },
     {
+      "name": "runShortcutCommand",
+      "kind": "function",
+      "summary": "执行一个快捷键命令;命令抛错时交给 onError(默认 console.error),**不往外抛**。\n\n命令是在键盘事件流的 tap 里调用的。原来异常直接冒出去,订阅随之终止 ——\n某一个命令出错一次,此后**所有**快捷键都没反应,直到刷新页面,而控制台里只有\n一条与其余快捷键毫无关系的报错。",
+      "summaryZh": "执行快捷键命令并兜住异常,保证单个命令出错不会让整条键盘事件流终止。",
+      "sourceFile": "src/common/keyboard/utils.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "runShortcutCommand",
+          "params": [
+            {
+              "name": "command",
+              "type": "(arg: any) => unknown"
+            },
+            {
+              "name": "arg",
+              "type": "unknown"
+            },
+            {
+              "name": "onError",
+              "type": "(error: unknown) => void"
+            }
+          ],
+          "returnType": "boolean",
+          "description": "执行一个快捷键命令;命令抛错时交给 onError(默认 console.error),**不往外抛**。\n\n命令是在键盘事件流的 tap 里调用的。原来异常直接冒出去,订阅随之终止 ——\n某一个命令出错一次,此后**所有**快捷键都没反应,直到刷新页面,而控制台里只有\n一条与其余快捷键毫无关系的报错。",
+          "descriptionZh": "执行快捷键命令并兜住异常,保证单个命令出错不会让整条键盘事件流终止。"
+        }
+      ],
+      "properties": []
+    },
+    {
       "name": "Shortcut",
       "kind": "interface",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Interface `Shortcut` defining the contract and properties for shortcut.",
+      "summaryZh": "接口 `Shortcut`，定义快捷键的数据结构契约与属性规范。",
       "sourceFile": "src/common/keyboard/keyboard-shortcuts.interfaces.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
-      "properties": []
+      "methods": [
+        {
+          "name": "command",
+          "params": [
+            {
+              "name": "event",
+              "type": "ShortcutEventOutput"
+            }
+          ],
+          "returnType": "any",
+          "description": "Executes `command` to handle command.",
+          "descriptionZh": "执行 `command`，用于命令。"
+        }
+      ],
+      "properties": [
+        {
+          "name": "key",
+          "type": "string | string[]",
+          "description": "Property `key` (`string | string[]`) storing key.",
+          "descriptionZh": "属性 `key`（类型：`string | string[]`），用于存储或配置键。"
+        },
+        {
+          "name": "description",
+          "type": "string",
+          "description": "Property `description` (`string`) storing description.",
+          "descriptionZh": "属性 `description`（类型：`string`），用于存储或配置描述。"
+        },
+        {
+          "name": "throttleTime",
+          "type": "number",
+          "description": "Property `throttleTime` (`number`) storing throttle time.",
+          "descriptionZh": "属性 `throttleTime`（类型：`number`），用于存储或配置节流时间。"
+        },
+        {
+          "name": "throttle",
+          "type": "number",
+          "description": "Property `throttle` (`number`) storing throttle.",
+          "descriptionZh": "属性 `throttle`（类型：`number`），用于存储或配置节流。"
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "description": "Property `label` (`string`) storing label.",
+          "descriptionZh": "属性 `label`（类型：`string`），用于存储或配置标签。"
+        },
+        {
+          "name": "preventDefault",
+          "type": "boolean",
+          "description": "Property `preventDefault` (`boolean`) storing prevent default.",
+          "descriptionZh": "属性 `preventDefault`（类型：`boolean`），用于存储或配置阻止默认默认。"
+        }
+      ]
     },
     {
       "name": "ShortcutEventOutput",
       "kind": "interface",
       "summary": "The output type fired by the command when shortcut is triggered.",
-      "summaryZh": null,
+      "summaryZh": "接口 `ShortcutEventOutput`，定义快捷键事件输出事件的数据结构契约与属性规范。",
       "sourceFile": "src/common/keyboard/keyboard-shortcuts.interfaces.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
-      "properties": []
+      "properties": [
+        {
+          "name": "event",
+          "type": "KeyboardEvent",
+          "description": "The browser keyboard event",
+          "descriptionZh": "属性 `event`（类型：`KeyboardEvent`），用于存储或配置事件。"
+        },
+        {
+          "name": "key",
+          "type": "string[] | string",
+          "description": "The registered key that was triggered",
+          "descriptionZh": "属性 `key`（类型：`string[] | string`），用于存储或配置键。"
+        }
+      ]
     },
     {
       "name": "ShortcutInput",
       "kind": "interface",
       "summary": "The shortcut input type for ng-keyboard-shortcuts component",
-      "summaryZh": null,
+      "summaryZh": "接口 `ShortcutInput`，定义快捷键输入属性的数据结构契约与属性规范。",
       "sourceFile": "src/common/keyboard/keyboard-shortcuts.interfaces.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
-      "properties": []
+      "properties": [
+        {
+          "name": "allowIn",
+          "type": "AllowIn[]",
+          "description": "textarea, select and input are ignored by default, this is used to override\nthis behavior.\nallow in node names, accepts: [\"TEXTAREA\", \"SELECT\", \"INPUT\", \"CONTENTEDITABLE\"]",
+          "descriptionZh": "属性 `allowIn`（类型：`AllowIn[]`），用于存储或配置允许在。"
+        },
+        {
+          "name": "target",
+          "type": "HTMLElement",
+          "description": "Only trigger the command when the target is in focus.",
+          "descriptionZh": "属性 `target`（类型：`HTMLElement`），用于存储或配置目标。"
+        }
+      ]
     },
     {
       "name": "TemplatePortal",
       "kind": "class",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Class `TemplatePortal` encapsulating template portal data structures and logic in `src/common/keyboard`.",
+      "summaryZh": "类 `TemplatePortal`，封装 `src/common/keyboard` 中的模板传送门容器数据结构与处理逻辑。",
       "sourceFile": "src/common/keyboard/portal.ts",
       "inputs": [],
       "outputs": [],
@@ -899,14 +1113,14 @@
           ],
           "returnType": "C",
           "description": "Attach the portal to the provided `PortalOutlet`.\nWhen a context is provided it will override the `context` property of the `TemplatePortal`\ninstance.",
-          "descriptionZh": null
+          "descriptionZh": "执行 `attach`，用于挂载。"
         },
         {
           "name": "detach",
           "params": [],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `detach` to handle detach.",
+          "descriptionZh": "执行 `detach`，用于卸载。"
         }
       ],
       "properties": [
@@ -914,25 +1128,25 @@
           "name": "templateRef",
           "type": "TemplateRef<C>",
           "description": "The embedded template that will be used to instantiate an embedded View in the host.",
-          "descriptionZh": null
+          "descriptionZh": "属性 `templateRef`（类型：`TemplateRef<C>`），用于存储或配置模板引用。"
         },
         {
           "name": "viewContainerRef",
           "type": "ViewContainerRef",
           "description": "Reference to the ViewContainer into which the template will be stamped out.",
-          "descriptionZh": null
+          "descriptionZh": "属性 `viewContainerRef`（类型：`ViewContainerRef`），用于存储或配置视图容器引用。"
         },
         {
           "name": "context",
           "type": "C | undefined",
           "description": "Contextual data to be passed in to the embedded view.",
-          "descriptionZh": null
+          "descriptionZh": "属性 `context`（类型：`C | undefined`），用于存储或配置上下文。"
         },
         {
           "name": "origin",
           "type": "ElementRef",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current origin (`origin: ElementRef`).",
+          "descriptionZh": "获取当前origin（`origin: ElementRef`）。"
         }
       ]
     }

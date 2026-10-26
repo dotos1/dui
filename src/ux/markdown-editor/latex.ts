@@ -1,5 +1,14 @@
+/**
+ * @fileoverview Module `src/ux/markdown-editor/latex.ts` providing latex definitions and implementation.
+ * @zh 模块文件 `src/ux/markdown-editor/latex.ts`，提供latex相关的定义与实现。
+ */
 
 
+
+/**
+ * Constant/variable `accents1` defining accents1 in `src/ux/markdown-editor`.
+ * @zh 常量/变量 `accents1`，定义 `src/ux/markdown-editor` 中的accents1。
+ */
 let accents1 = [
     'tilde', 'mathring',
     'widetilde', 'overgroup',
@@ -14,6 +23,10 @@ let accents1 = [
     'hat', 'underline', 'underlinesegment',
     'widehat', 'widecheck'
 ];
+/**
+ * Constant/variable `delimiters0` defining delimiters0 in `src/ux/markdown-editor`.
+ * @zh 常量/变量 `delimiters0`，定义 `src/ux/markdown-editor` 中的delimiters0。
+ */
 let delimiters0 = [
     'lparen', 'rparen', 'lceil', 'rceil', 'uparrow',
     'lbrack', 'rbrack', 'lfloor', 'rfloor', 'downarrow', 'updownarrow',
@@ -23,12 +36,20 @@ let delimiters0 = [
     'lvert', 'rvert', 'lVert', 'rVert', 'backslash',
     'lang', 'rang', 'lt', 'gt'
 ];
+/**
+ * Constant/variable `delimeterSizing0` defining delimeter sizing0 in `src/ux/markdown-editor`.
+ * @zh 常量/变量 `delimeterSizing0`，定义 `src/ux/markdown-editor` 中的delimeterSizing0。
+ */
 let delimeterSizing0 = [
     'left', 'big', 'bigl', 'bigm', 'bigr',
     'middle', 'Big', 'Bigl', 'Bigm', 'Bigr',
     'right', 'bigg', 'biggl', 'biggm', 'biggr',
     'Bigg', 'Biggl', 'Biggm', 'Biggr'
 ];
+/**
+ * Constant/variable `greekLetters0` defining greek letters0 in `src/ux/markdown-editor`.
+ * @zh 常量/变量 `greekLetters0`，定义 `src/ux/markdown-editor` 中的greekLetters0。
+ */
 let greekLetters0 = [
     'Alpha', 'Beta', 'Gamma', 'Delta',
     'Epsilon', 'Zeta', 'Eta', 'Theta',
@@ -49,6 +70,10 @@ let greekLetters0 = [
     'varpi', 'varrho', 'varsigma', 'varphi',
     'digamma'
 ];
+/**
+ * Constant/variable `otherLetters0` defining other letters0 in `src/ux/markdown-editor`.
+ * @zh 常量/变量 `otherLetters0`，定义 `src/ux/markdown-editor` 中的其他Letters0。
+ */
 let otherLetters0 = [
     'imath', 'nabla', 'Im', 'Reals',
     'jmath', 'partial', 'image', 'wp',
@@ -60,6 +85,10 @@ let otherLetters0 = [
     'daleth', 'hbar', 'real',
     'eth', 'hslash', 'reals'
 ];
+/**
+ * Constant/variable `annotation1` defining annotation1 in `src/ux/markdown-editor`.
+ * @zh 常量/变量 `annotation1`，定义 `src/ux/markdown-editor` 中的annotation1。
+ */
 let annotation1 = [
     'cancel', 'overbrace',
     'bcancel', 'underbrace',
@@ -67,18 +96,42 @@ let annotation1 = [
     'sout', 'boxed',
     'tag', 'tag*'
 ];
+/**
+ * Constant/variable `verticalLayout0` defining vertical layout0 in `src/ux/markdown-editor`.
+ * @zh 常量/变量 `verticalLayout0`，定义 `src/ux/markdown-editor` 中的垂直Layout0。
+ */
 let verticalLayout0 = ['atop']
+/**
+ * Constant/variable `verticalLayout2` defining vertical layout2 in `src/ux/markdown-editor`.
+ * @zh 常量/变量 `verticalLayout2`，定义 `src/ux/markdown-editor` 中的垂直Layout2。
+ */
 let verticalLayout2 = ['stackrel', 'overset', 'underset', 'raisebox'];
+/**
+ * Constant/variable `overlap1` defining overlap1 in `src/ux/markdown-editor`.
+ * @zh 常量/变量 `overlap1`，定义 `src/ux/markdown-editor` 中的overlap1。
+ */
 let overlap1 = ['mathllap', 'mathrlap', 'mathclap', 'llap', 'rlap', 'clap', 'smash'];
+/**
+ * Constant/variable `spacing0` defining spacing0 in `src/ux/markdown-editor`.
+ * @zh 常量/变量 `spacing0`，定义 `src/ux/markdown-editor` 中的spacing0。
+ */
 let spacing0 = [
     'thinspace', 'medspace', 'thickspace', 'enspace',
     'quad', 'qquad', 'negthinspace', 'negmedspace',
     'nobreakspace', 'negthickspace'
 ];
+/**
+ * Constant/variable `spacing1` defining spacing1 in `src/ux/markdown-editor`.
+ * @zh 常量/变量 `spacing1`，定义 `src/ux/markdown-editor` 中的spacing1。
+ */
 let spacing1 = [
     'kern', 'mkern', 'mskip', 'hskip',
     'hspace', 'hspace*', 'phantom', 'hphantom', 'vphantom'
 ];
+/**
+ * Constant/variable `logicAndSetTheory0` defining logic and set theory0 in `src/ux/markdown-editor`.
+ * @zh 常量/变量 `logicAndSetTheory0`，定义 `src/ux/markdown-editor` 中的logicAnd集合Theory0。
+ */
 let logicAndSetTheory0 = [
     'forall', 'complement', 'therefore', 'emptyset',
     'exists', 'subset', 'because', 'empty',
@@ -88,6 +141,10 @@ let logicAndSetTheory0 = [
     'isin', 'lor', 'leftrightarrow', 'iff',
     'notin', 'ni', 'notni', 'neg', 'lnot'
 ];
+/**
+ * Constant/variable `bigOperators0` defining big operators0 in `src/ux/markdown-editor`.
+ * @zh 常量/变量 `bigOperators0`，定义 `src/ux/markdown-editor` 中的bigOperators0。
+ */
 let bigOperators0 = [
     'sum', 'prod', 'bigotimes', 'bigvee',
     'int', 'coprod', 'bigoplus', 'bigwedge',
@@ -95,6 +152,10 @@ let bigOperators0 = [
     'iiint', 'smallint', 'biguplus', 'bigcup',
     'oint', 'oiint', 'oiiint', 'bigsqcup'
 ];
+/**
+ * Constant/variable `binaryOperators0` defining binary operators0 in `src/ux/markdown-editor`.
+ * @zh 常量/变量 `binaryOperators0`，定义 `src/ux/markdown-editor` 中的binaryOperators0。
+ */
 let binaryOperators0 = [
     'cdot', 'gtrdot', 'pmod',
     'cdotp', 'intercal', 'pod',
@@ -114,10 +175,30 @@ let binaryOperators0 = [
     'Cap', 'doublecap', 'oslash', 'wedge',
     'cap', 'doublecup', 'pm', 'plusmn', 'wr'
 ];
+/**
+ * Constant/variable `fractions0` defining fractions0 in `src/ux/markdown-editor`.
+ * @zh 常量/变量 `fractions0`，定义 `src/ux/markdown-editor` 中的fractions0。
+ */
 let fractions0 = ['over', 'above'];
+/**
+ * Constant/variable `fractions2` defining fractions2 in `src/ux/markdown-editor`.
+ * @zh 常量/变量 `fractions2`，定义 `src/ux/markdown-editor` 中的fractions2。
+ */
 let fractions2 = ['frac', 'dfrac', 'tfrac', 'cfrac', 'genfrac'];
+/**
+ * Constant/variable `binomialCoefficients0` defining binomial coefficients0 in `src/ux/markdown-editor`.
+ * @zh 常量/变量 `binomialCoefficients0`，定义 `src/ux/markdown-editor` 中的binomialCoefficients0。
+ */
 let binomialCoefficients0 = ['choose'];
+/**
+ * Constant/variable `binomialCoefficients2` defining binomial coefficients2 in `src/ux/markdown-editor`.
+ * @zh 常量/变量 `binomialCoefficients2`，定义 `src/ux/markdown-editor` 中的binomialCoefficients2。
+ */
 let binomialCoefficients2 = ['binom', 'dbinom', 'tbinom', 'brace', 'brack'];
+/**
+ * Constant/variable `mathOperators0` defining math operators0 in `src/ux/markdown-editor`.
+ * @zh 常量/变量 `mathOperators0`，定义 `src/ux/markdown-editor` 中的mathOperators0。
+ */
 let mathOperators0 = [
     'arcsin', 'cotg', 'ln', 'det',
     'arccos', 'coth', 'log', 'gcd',
@@ -132,8 +213,20 @@ let mathOperators0 = [
     'cot', 'lg', 'argmax',
     'argmin', 'limits'
 ];
+/**
+ * Constant/variable `mathOperators1` defining math operators1 in `src/ux/markdown-editor`.
+ * @zh 常量/变量 `mathOperators1`，定义 `src/ux/markdown-editor` 中的mathOperators1。
+ */
 let mathOperators1 = ['operatorname'];
+/**
+ * Constant/variable `sqrt1` defining sqrt1 in `src/ux/markdown-editor`.
+ * @zh 常量/变量 `sqrt1`，定义 `src/ux/markdown-editor` 中的sqrt1。
+ */
 let sqrt1 = ['sqrt'];
+/**
+ * Constant/variable `relations0` defining relations0 in `src/ux/markdown-editor`.
+ * @zh 常量/变量 `relations0`，定义 `src/ux/markdown-editor` 中的relations0。
+ */
 let relations0 = [
     'eqcirc', 'lesseqgtr', 'sqsupset',
     'eqcolon', 'lesseqqgtr', 'sqsupseteq',
@@ -167,6 +260,10 @@ let relations0 = [
     'Doteq', 'leqslant', 'sqsubset',
     'doteqdot', 'lessapprox', 'sqsubseteq'
 ];
+/**
+ * Constant/variable `negatedRelations0` defining negated relations0 in `src/ux/markdown-editor`.
+ * @zh 常量/变量 `negatedRelations0`，定义 `src/ux/markdown-editor` 中的negatedRelations0。
+ */
 let negatedRelations0 = [
     'gnapprox', 'ngeqslant', 'nsubseteq', 'precneqq',
     'gneq', 'ngtr', 'nsubseteqq', 'precnsim',
@@ -184,6 +281,10 @@ let negatedRelations0 = [
     'ngeq', 'nshortparallel', 'nVdash',
     'ngeqq', 'nsim', 'precnapprox'
 ];
+/**
+ * Constant/variable `arrows0` defining arrows0 in `src/ux/markdown-editor`.
+ * @zh 常量/变量 `arrows0`，定义 `src/ux/markdown-editor` 中的arrows0。
+ */
 let arrows0 = [
     'circlearrowleft', 'leftharpoonup', 'rArr',
     'circlearrowright', 'leftleftarrows', 'rarr',
@@ -216,6 +317,10 @@ let arrows0 = [
     'Leftarrow', 'nRightarrow', 'upuparrows',
     'leftarrowtail', 'nwarrow', 'leftharpoondown', 'Rarr'
 ];
+/**
+ * Constant/variable `extensibleArrows1` defining extensible arrows1 in `src/ux/markdown-editor`.
+ * @zh 常量/变量 `extensibleArrows1`，定义 `src/ux/markdown-editor` 中的extensibleArrows1。
+ */
 let extensibleArrows1 = [
     'xleftarrow', 'xrightarrow',
     'xLeftarrow', 'xRightarrow',
@@ -228,12 +333,28 @@ let extensibleArrows1 = [
     'xtofrom', 'xmapsto',
     'xlongequal'
 ];
+/**
+ * Constant/variable `classAssignment1` defining class assignment1 in `src/ux/markdown-editor`.
+ * @zh 常量/变量 `classAssignment1`，定义 `src/ux/markdown-editor` 中的类名Assignment1。
+ */
 let classAssignment1 = [
     'mathbin', 'mathclose', 'mathinner', 'mathop',
     'mathopen', 'mathord', 'mathpunct', 'mathrel'
 ];
+/**
+ * Constant/variable `color2` defining color2 in `src/ux/markdown-editor`.
+ * @zh 常量/变量 `color2`，定义 `src/ux/markdown-editor` 中的color2。
+ */
 let color2 = ['color', 'textcolor', 'colorbox'];
+/**
+ * Constant/variable `font0` defining font0 in `src/ux/markdown-editor`.
+ * @zh 常量/变量 `font0`，定义 `src/ux/markdown-editor` 中的font0。
+ */
 let font0 = ['rm', 'bf', 'it', 'sf', 'tt'];
+/**
+ * Constant/variable `font1` defining font1 in `src/ux/markdown-editor`.
+ * @zh 常量/变量 `font1`，定义 `src/ux/markdown-editor` 中的font1。
+ */
 let font1 = [
     'mathrm', 'mathbf', 'mathit',
     'mathnormal', 'textbf', 'textit',
@@ -243,14 +364,26 @@ let font1 = [
     'mathsf', 'mathtt', 'mathfrak',
     'textsf', 'texttt', 'mathcal', 'mathscr'
 ];
+/**
+ * Constant/variable `size0` defining size0 in `src/ux/markdown-editor`.
+ * @zh 常量/变量 `size0`，定义 `src/ux/markdown-editor` 中的size0。
+ */
 let size0 = [
     'Huge', 'huge', 'LARGE', 'Large', 'large',
     'normalsize', 'small', 'footnotesize', 'scriptsize', 'tiny'
 ];
+/**
+ * Constant/variable `style0` defining style0 in `src/ux/markdown-editor`.
+ * @zh 常量/变量 `style0`，定义 `src/ux/markdown-editor` 中的style0。
+ */
 let style0 = [
     'displaystyle', 'textstyle', 'scriptstyle', 'scriptscriptstyle',
     'limits', 'nolimits', 'verb'
 ];
+/**
+ * Constant/variable `symbolsAndPunctuation0` defining symbols and punctuation0 in `src/ux/markdown-editor`.
+ * @zh 常量/变量 `symbolsAndPunctuation0`，定义 `src/ux/markdown-editor` 中的symbolsAndPunctuation0。
+ */
 let symbolsAndPunctuation0 = [
     'cdots', 'LaTeX',
     'ddots', 'TeX',
@@ -290,6 +423,10 @@ let symbolsAndPunctuation0 = [
     'maltese'
 ];
 
+/**
+ * Constant/variable `_c1` defining c1 in `src/ux/markdown-editor`.
+ * @zh 常量/变量 `_c1`，定义 `src/ux/markdown-editor` 中的c1。
+ */
 export let _c1 = Array.from(new Set(
     [
         ...delimiters0, ...delimeterSizing0,
@@ -304,6 +441,10 @@ export let _c1 = Array.from(new Set(
     ]
 ))
 
+/**
+ * Constant/variable `_c2` defining c2 in `src/ux/markdown-editor`.
+ * @zh 常量/变量 `_c2`，定义 `src/ux/markdown-editor` 中的c2。
+ */
 export let _c2 = Array.from(new Set(
     [
         ...accents1, ...annotation1,
@@ -314,6 +455,10 @@ export let _c2 = Array.from(new Set(
     ]
 ))
 
+/**
+ * Constant/variable `_c3` defining c3 in `src/ux/markdown-editor`.
+ * @zh 常量/变量 `_c3`，定义 `src/ux/markdown-editor` 中的c3。
+ */
 export let _c3 = Array.from(new Set(
     [
         ...verticalLayout2, ...binomialCoefficients2,
@@ -321,9 +466,21 @@ export let _c3 = Array.from(new Set(
     ]
 ))
 
+/**
+ * Constant/variable `_begin` defining begin in `src/ux/markdown-editor`.
+ * @zh 常量/变量 `_begin`，定义 `src/ux/markdown-editor` 中的开始。
+ */
 export let _begin = ['begin', 'end']
 
+/**
+ * Constant/variable `begin_args` defining begin args in `src/ux/markdown-editor`.
+ * @zh 常量/变量 `begin_args`，定义 `src/ux/markdown-editor` 中的开始参数列表。
+ */
 export let begin_args = ['aligned', 'alignedat', 'array', 'bmatrix', 'Bmatrix', 'cases',
     'darray', 'dcases', 'gathered', 'matrix', 'pmatrix', 'vmatrix', 'Vmatrix']
 
+/**
+ * Constant/variable `all` defining all in `src/ux/markdown-editor`.
+ * @zh 常量/变量 `all`，定义 `src/ux/markdown-editor` 中的全部。
+ */
 export let all = [..._c1, ..._c2, ..._c3, ..._begin].map(i => '\\' + i)

@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Module `src/ux/editor/modules/menu/menu.module.ts` providing menu module definitions and implementation.
+ * @zh 模块文件 `src/ux/editor/modules/menu/menu.module.ts`，提供菜单模块相关的定义与实现。
+ */
+
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -14,6 +19,10 @@ import { ToggleCommandComponent } from './toggle-command/toggle-command.componen
 import { MenuComponent } from './menu.component';
 import { SanitizeHtmlPipe } from '../../pipes/sanitize/sanitize-html.pipe';
 
+/**
+ * Angular module `EditorMenuModule` declaring and exporting editor menu module components, directives, pipes, and providers.
+ * @zh Angular 模块 `EditorMenuModule`，声明并导出编辑器菜单模块相关的组件、指令、管道与服务提供者。
+ */
 @NgModule({
   imports: [
     CommonModule,

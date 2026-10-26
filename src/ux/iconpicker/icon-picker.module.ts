@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Module `src/ux/iconpicker/icon-picker.module.ts` providing icon picker module definitions and implementation.
+ * @zh 模块文件 `src/ux/iconpicker/icon-picker.module.ts`，提供图标选择器模块相关的定义与实现。
+ */
+
 import { ComponentFactoryResolver, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { A11yModule } from '@angular/cdk/a11y';
@@ -26,6 +31,10 @@ import { IconModule } from '@dotos/dui/common/icon';
 import { MatButtonModule } from '@angular/material/button';
 
 
+/**
+ * Angular module `IconPickerModule` declaring and exporting icon picker module components, directives, pipes, and providers.
+ * @zh Angular 模块 `IconPickerModule`，声明并导出图标选择器模块相关的组件、指令、管道与服务提供者。
+ */
 @NgModule({
   imports: [
     CommonModule,
@@ -59,9 +68,19 @@ import { MatButtonModule } from '@angular/material/button';
   ]
 })
 export class IconPickerModule {
+  /**
+   * Property `entryComponents` (`any[]`) storing entry components (default: `[ IconPickerField, IconPickerComponent]`).
+   * @zh 属性 `entryComponents`（类型：`any[]`），用于存储或配置条目组件列表（默认值：`[ IconPickerField, IconPickerComponent]`）。
+   */
   entryComponents = [
     IconPickerField,
     IconPickerComponent];
+  /**
+   * Creates an instance of `IconPickerModule` and initializes its dependencies and internal state.
+   * @zh 创建 `IconPickerModule` 实例，并初始化其依赖项与内部状态。
+   * @param componentFactoryResolver - Injected or initial component factory resolver (`ComponentFactoryResolver`) / 注入或传入的组件工厂解析器（`ComponentFactoryResolver`）
+   * @param translateService - Injected or initial translate service (`TranslationService`) / 注入或传入的翻译服务（`TranslationService`）
+   */
   constructor(componentFactoryResolver: ComponentFactoryResolver,
     translateService: TranslationService) {
     Dui.registerComponentFactory(componentFactoryResolver,this.entryComponents);

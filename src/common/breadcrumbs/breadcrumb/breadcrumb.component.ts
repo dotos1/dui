@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Module `src/common/breadcrumbs/breadcrumb/breadcrumb.component.ts` providing breadcrumb component definitions and implementation.
+ * @zh 模块文件 `src/common/breadcrumbs/breadcrumb/breadcrumb.component.ts`，提供面包屑组件相关的定义与实现。
+ */
+
 import {
   Component,
   ElementRef,
@@ -18,14 +23,37 @@ import {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class BreadcrumbComponent implements AfterViewInit {
+  /**
+   * Property `_displayCrumb` (`boolean`) storing display crumb (default: `true`).
+   * @zh 属性 `_displayCrumb`（类型：`boolean`），用于存储或配置displayCrumb（默认值：`true`）。
+   */
   private _displayCrumb = true;
+  /**
+   * Property `_width` (`number`) storing width (default: `0`).
+   * @zh 属性 `_width`（类型：`number`），用于存储或配置宽度（默认值：`0`）。
+   */
   private _width = 0;
+  /**
+   * Property `_displayIcon` (`boolean`) storing display icon (default: `true`).
+   * @zh 属性 `_displayIcon`（类型：`boolean`），用于存储或配置display图标（默认值：`true`）。
+   */
   private _displayIcon = true;
+  /**
+   * Property `_separatorIcon` (`string`) storing separator icon (default: `'chevron_right'`).
+   * @zh 属性 `_separatorIcon`（类型：`string`），用于存储或配置separator图标（默认值：`'chevron_right'`）。
+   */
   private _separatorIcon = 'chevron_right';
 
-  /** @zh 内部使用，始终为 `true`，用于绑定 Material 按钮宿主类名。 */
+  /**
+   * @zh 内部使用，始终为 `true`，用于绑定 Material 按钮宿主类名。
+   * @zh 内部使用，始终为 `true`，用于绑定 Material 按钮宿主类名。
+   */
   @HostBinding('class.mat-mdc-button') matButtonClass = true;
-  /** @zh 内部使用，始终为 `true`，用于绑定 `dui-breadcrumb` 宿主类名。 */
+  /**
+   * Host binding `tdBreadCrumbClass` bound to host attribute/property `class.dui-breadcrumb` for td bread crumb class.
+   * @zh 内部使用，始终为 `true`，用于绑定 `dui-breadcrumb` 宿主类名。
+   * @zh 内部使用，始终为 `true`，用于绑定 `dui-breadcrumb` 宿主类名。
+   */
   @HostBinding('class.dui-breadcrumb') tdBreadCrumbClass = true;
 
   /**
@@ -100,17 +128,31 @@ export class BreadcrumbComponent implements AfterViewInit {
   }
 
 
-  /** @zh 内部使用，绑定宿主的 `display` 样式，隐藏时设置为 `'none'`。 */
+  /**
+   * Host-bound getter `displayBinding` (`style.display`) computing display binding.
+   * @zh 内部使用，绑定宿主的 `display` 样式，隐藏时设置为 `'none'`。
+   * @zh 内部使用，绑定宿主的 `display` 样式，隐藏时设置为 `'none'`。
+   */
   @HostBinding('style.display')
   get displayBinding(): string | undefined {
       return this._displayCrumb ? undefined : 'none';
   }
 
+  /**
+   * Creates an instance of `BreadcrumbComponent` and initializes its dependencies and internal state.
+   * @zh 创建 `BreadcrumbComponent` 实例，并初始化其依赖项与内部状态。
+   * @param _elementRef - Injected or initial element ref (`ElementRef`) / 注入或传入的元素引用（`ElementRef`）
+   * @param _changeDetectorRef - Injected or initial change detector ref (`ChangeDetectorRef`) / 注入或传入的变更检测器引用（`ChangeDetectorRef`）
+   */
   constructor(
     private _elementRef: ElementRef,
     private _changeDetectorRef: ChangeDetectorRef
   ) {}
 
+  /**
+   * Angular lifecycle hook invoked once after the component's view and child views are initialized.
+   * @zh Angular 生命周期钩子：在组件视图及其子视图初始化完成后调用一次。
+   */
   ngAfterViewInit(): void {
     setTimeout(() => {
       this._width = (<HTMLElement>(

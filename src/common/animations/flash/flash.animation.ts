@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Module `src/common/animations/flash/flash.animation.ts` providing flash animation definitions and implementation.
+ * @zh 模块文件 `src/common/animations/flash/flash.animation.ts`，提供flash动画相关的定义与实现。
+ */
+
 import {
   trigger,
   state,
@@ -11,6 +16,10 @@ import {
   group,
 } from '@angular/animations';
 
+/**
+ * Angular animation trigger `FlashAnimation` defining state transitions for flash animation.
+ * @zh Angular 动画触发器 `FlashAnimation`，定义Flash动画的状态过渡动画。
+ */
 export const FlashAnimation: AnimationTriggerMetadata = trigger('duiFlash', [
   state(
     '0',

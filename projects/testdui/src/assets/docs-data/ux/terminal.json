@@ -4,8 +4,8 @@
     {
       "name": "FunctionsUsingCSI",
       "kind": "class",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Class `FunctionsUsingCSI` encapsulating functions using csi data structures and logic in `src/ux/terminal`.",
+      "summaryZh": "类 `FunctionsUsingCSI`，封装 `src/ux/terminal` 中的函数使用CSI数据结构与处理逻辑。",
       "sourceFile": "src/ux/terminal/functions-using-csi.ts",
       "inputs": [],
       "outputs": [],
@@ -20,7 +20,7 @@
           ],
           "returnType": "any",
           "description": "CSI Ps @  Insert Ps (Blank) Character(s) (default = 1) (ICH).",
-          "descriptionZh": null
+          "descriptionZh": "执行 `insertBlank`，用于插入Blank。"
         },
         {
           "name": "cursorUp",
@@ -32,7 +32,7 @@
           ],
           "returnType": "any",
           "description": "CSI Ps A  Cursor Up Ps Times (default = 1) (CUU). \n\\x9b3A",
-          "descriptionZh": null
+          "descriptionZh": "执行 `cursorUp`，用于光标向上。"
         },
         {
           "name": "cursorDown",
@@ -44,7 +44,7 @@
           ],
           "returnType": "any",
           "description": "CSI Ps B  Cursor Down Ps Times (default = 1) (CUD).\n\\x9b3B",
-          "descriptionZh": null
+          "descriptionZh": "执行 `cursorDown`，用于光标向下。"
         },
         {
           "name": "cursorForward",
@@ -56,7 +56,7 @@
           ],
           "returnType": "any",
           "description": "CSI Ps C  Cursor Forward Ps Times (default = 1) (CUF). \n\\x9b3C",
-          "descriptionZh": null
+          "descriptionZh": "执行 `cursorForward`，用于光标向前。"
         },
         {
           "name": "cursorBackward",
@@ -68,7 +68,7 @@
           ],
           "returnType": "any",
           "description": "CSI Ps D  Cursor Backward Ps Times (default = 1) (CUB). \n\\x9b3D",
-          "descriptionZh": null
+          "descriptionZh": "执行 `cursorBackward`，用于光标向后。"
         },
         {
           "name": "cursorNextLine",
@@ -80,7 +80,7 @@
           ],
           "returnType": "any",
           "description": "CSI Ps E  Cursor Next Line Ps Times (default = 1) (CNL). \n\\x9b3E",
-          "descriptionZh": null
+          "descriptionZh": "执行 `cursorNextLine`，用于光标下一个线段。"
         },
         {
           "name": "cursorPrecedingLine",
@@ -92,7 +92,7 @@
           ],
           "returnType": "any",
           "description": "CSI Ps F  Cursor Preceding Line Ps Times (default = 1) (CPL).\n\\x9b3F",
-          "descriptionZh": null
+          "descriptionZh": "执行 `cursorPrecedingLine`，用于光标Preceding线段。"
         },
         {
           "name": "cursorColumn",
@@ -104,7 +104,7 @@
           ],
           "returnType": "any",
           "description": "CSI Ps G  Cursor Character Absolute  [column] (default = [row,1]) (CHA).\n\\x9b9G",
-          "descriptionZh": null
+          "descriptionZh": "执行 `cursorColumn`，用于光标列。"
         },
         {
           "name": "cursorPosition",
@@ -120,7 +120,7 @@
           ],
           "returnType": "any",
           "description": "CSI Ps ; Ps H  Cursor Position [row;column] (default = [1,1]) (CUP).\n\\x9b2;2H",
-          "descriptionZh": null
+          "descriptionZh": "执行 `cursorPosition`，用于光标位置。"
         },
         {
           "name": "eraseInDisplay",
@@ -132,7 +132,7 @@
           ],
           "returnType": "any",
           "description": "CSI Ps J  Erase in Display (ED), VT100.\n    Ps = 0  -> Erase Below (default).\n    Ps = 1  -> Erase Above.\n    Ps = 2  -> Erase All.\n    Ps = 3  -> Erase Saved Lines (xterm).\n\\x9b2J",
-          "descriptionZh": null
+          "descriptionZh": "执行 `eraseInDisplay`，用于erase在Display。"
         },
         {
           "name": "eraseSelectiveThingsInDisplay",
@@ -144,7 +144,7 @@
           ],
           "returnType": "any",
           "description": "CSI ? Ps J\nErase in Display (DECSED), VT220.\n  Ps = 0  -> Selective Erase Below (default).\n  Ps = 1  -> Selective Erase Above.\n  Ps = 2  -> Selective Erase All.\n  Ps = 3  -> Selective Erase Saved Lines (xterm).\n\\x9b?2J",
-          "descriptionZh": null
+          "descriptionZh": "执行 `eraseSelectiveThingsInDisplay`，用于eraseSelectiveThings在Display。"
         },
         {
           "name": "eraseInLine",
@@ -156,7 +156,7 @@
           ],
           "returnType": "any",
           "description": "CSI Ps K  \n Erase in Line (EL), VT100.\n   Ps = 0  -> Erase to Right (default).\n   Ps = 1  -> Erase to Left.\n   Ps = 2  -> Erase All.\n\\x9b?1K",
-          "descriptionZh": null
+          "descriptionZh": "执行 `eraseInLine`，用于erase在线段。"
         },
         {
           "name": "eraseSelectiveThingsInLine",
@@ -168,7 +168,7 @@
           ],
           "returnType": "any",
           "description": "CSI ? Ps K \n  Erase in Line (DECSEL), VT220.\n    Ps = 0  -> Selective Erase to Right (default).\n    Ps = 1  -> Selective Erase to Left.\n    Ps = 2  -> Selective Erase All.\n\\x9b?1K",
-          "descriptionZh": null
+          "descriptionZh": "执行 `eraseSelectiveThingsInLine`，用于eraseSelectiveThings在线段。"
         },
         {
           "name": "insertLines",
@@ -180,7 +180,7 @@
           ],
           "returnType": "any",
           "description": "CSI Ps L  Insert Ps Line(s) (default = 1) (IL).\n\\x9b2L",
-          "descriptionZh": null
+          "descriptionZh": "执行 `insertLines`，用于插入线段。"
         },
         {
           "name": "deleteLines",
@@ -192,7 +192,7 @@
           ],
           "returnType": "any",
           "description": "CSI Ps M  Delete Ps Line(s) (default = 1) (DL).\n\\x9b2M",
-          "descriptionZh": null
+          "descriptionZh": "执行 `deleteLines`，用于删除线段。"
         },
         {
           "name": "deleteCharacter",
@@ -204,7 +204,7 @@
           ],
           "returnType": "any",
           "description": "CSI Ps P  Delete Ps Character(s) (default = 1) (DCH).\n\\x9b2P",
-          "descriptionZh": null
+          "descriptionZh": "执行 `deleteCharacter`，用于删除字符。"
         },
         {
           "name": "scrollUpLines",
@@ -216,7 +216,7 @@
           ],
           "returnType": "any",
           "description": "CSI Ps S  Scroll up Ps lines (default = 1) (SU), VT420, ECMA-48.\n\\x9b2S",
-          "descriptionZh": null
+          "descriptionZh": "执行 `scrollUpLines`，用于滚动向上线段。"
         },
         {
           "name": "scrollDownLines",
@@ -228,7 +228,7 @@
           ],
           "returnType": "any",
           "description": "CSI Ps T  Scroll down Ps lines (default = 1) (SD), VT420. \n\\x9b2T",
-          "descriptionZh": null
+          "descriptionZh": "执行 `scrollDownLines`，用于滚动向下线段。"
         },
         {
           "name": "eraseCharacters",
@@ -240,7 +240,7 @@
           ],
           "returnType": "any",
           "description": "CSI Ps X  Erase Ps Character(s) (default = 1) (ECH).\n\\x9b2X",
-          "descriptionZh": null
+          "descriptionZh": "执行 `eraseCharacters`，用于erase字符。"
         }
       ],
       "properties": []
@@ -248,110 +248,234 @@
     {
       "name": "KindOfEraseInDisplay",
       "kind": "enum",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Enumeration `KindOfEraseInDisplay` defining supported kind of erase in display constants.",
+      "summaryZh": "枚举 `KindOfEraseInDisplay`，定义支持的种类的Erase在Display常量集合。",
       "sourceFile": "src/ux/terminal/functions-using-csi.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
-      "properties": []
+      "properties": [
+        {
+          "name": "Below",
+          "type": "enum-member",
+          "default": "0",
+          "description": "Enum member `KindOfEraseInDisplay.Below` = 0 representing below.",
+          "descriptionZh": "枚举项 `KindOfEraseInDisplay.Below` = 0，表示Below。"
+        },
+        {
+          "name": "Above",
+          "type": "enum-member",
+          "default": "1",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "All",
+          "type": "enum-member",
+          "default": "2",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "SavedLines",
+          "type": "enum-member",
+          "default": "3",
+          "description": null,
+          "descriptionZh": null
+        }
+      ]
     },
     {
       "name": "KindOfEraseInLine",
       "kind": "enum",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Enumeration `KindOfEraseInLine` defining supported kind of erase in line constants.",
+      "summaryZh": "枚举 `KindOfEraseInLine`，定义支持的种类的Erase在线段常量集合。",
       "sourceFile": "src/ux/terminal/functions-using-csi.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
-      "properties": []
+      "properties": [
+        {
+          "name": "Right",
+          "type": "enum-member",
+          "default": "0",
+          "description": "Enum member `KindOfEraseInLine.Right` = 0 representing right.",
+          "descriptionZh": "枚举项 `KindOfEraseInLine.Right` = 0，表示右侧位置。"
+        },
+        {
+          "name": "Left",
+          "type": "enum-member",
+          "default": "1",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "All",
+          "type": "enum-member",
+          "default": "2",
+          "description": null,
+          "descriptionZh": null
+        }
+      ]
     },
     {
       "name": "NgTerminal",
       "kind": "interface",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Interface `NgTerminal` defining the contract and properties for ng terminal.",
+      "summaryZh": "接口 `NgTerminal`，定义Angular终端的数据结构契约与属性规范。",
       "sourceFile": "src/ux/terminal/terminal.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "setDraggable",
+          "params": [
+            {
+              "name": "draggable",
+              "type": "boolean"
+            }
+          ],
+          "returnType": "void",
+          "description": "Enable or disable draggable.",
+          "descriptionZh": "执行 `setDraggable`，用于集合是否可拖拽。"
+        },
+        {
+          "name": "setRows",
+          "params": [
+            {
+              "name": "rows",
+              "type": "number"
+            }
+          ],
+          "returnType": "void",
+          "description": "Change the row count of a terminal immediately.",
+          "descriptionZh": "执行 `setRows`，用于集合行列表。"
+        },
+        {
+          "name": "setCols",
+          "params": [
+            {
+              "name": "cols",
+              "type": "number"
+            }
+          ],
+          "returnType": "void",
+          "description": "Change the column count of a terminal immediately.",
+          "descriptionZh": "执行 `setCols`，用于集合列列表。"
+        },
+        {
+          "name": "setMinHeight",
+          "params": [
+            {
+              "name": "height",
+              "type": "number"
+            }
+          ],
+          "returnType": "void",
+          "description": "Set the minimum height to limit dragging.",
+          "descriptionZh": "执行 `setMinHeight`，用于集合最小值高度。"
+        },
+        {
+          "name": "setMinWidth",
+          "params": [
+            {
+              "name": "width",
+              "type": "number"
+            }
+          ],
+          "returnType": "void",
+          "description": "Set the minimum width to limit dragging.",
+          "descriptionZh": "执行 `setMinWidth`，用于集合最小值宽度。"
+        },
+        {
+          "name": "setStyle",
+          "params": [
+            {
+              "name": "styleObject",
+              "type": "any"
+            }
+          ],
+          "returnType": "void",
+          "description": "Apply styles into an element that has .resize-box class.",
+          "descriptionZh": "执行 `setStyle`，用于集合样式。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "TerminalComponent",
       "kind": "component",
       "selector": "dui-terminal",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular component `TerminalComponent` (selector: 'dui-terminal') providing terminal component presentation and interaction in `src/ux/terminal`.",
+      "summaryZh": "Angular 组件 `TerminalComponent`（selector: 'dui-terminal'），提供终端组件的视图渲染与交互逻辑（位于 `src/ux/terminal`）。",
       "sourceFile": "src/ux/terminal/terminal.component.ts",
       "inputs": [
         {
           "name": "_dataSource",
           "alias": "dataSource",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input setter `_dataSource` updating data source.",
+          "descriptionZh": "输入属性 `_dataSource` 的设置器，用于更新数据源。"
         },
         {
           "name": "_rowsInput",
           "alias": "rows",
           "type": "number",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `rows` (`number`) configuring rows input.",
+          "descriptionZh": "输入属性 `rows`（类型：`number`），用于配置行列表输入属性。"
         },
         {
           "name": "_colsInput",
           "alias": "cols",
           "type": "number",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `cols` (`number`) configuring cols input.",
+          "descriptionZh": "输入属性 `cols`（类型：`number`），用于配置列列表输入属性。"
         },
         {
           "name": "_minWidthInput",
           "alias": "minWidth",
           "type": "number",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `minWidth` (`number`) configuring min width input.",
+          "descriptionZh": "输入属性 `minWidth`（类型：`number`），用于配置最小值宽度输入属性。"
         },
         {
           "name": "_minHeightInput",
           "alias": "minHeight",
           "type": "number",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `minHeight` (`number`) configuring min height input.",
+          "descriptionZh": "输入属性 `minHeight`（类型：`number`），用于配置最小值高度输入属性。"
         },
         {
           "name": "draggable",
           "type": "boolean",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input setter `draggable` updating draggable.",
+          "descriptionZh": "输入属性 `draggable` 的设置器，用于更新是否可拖拽。"
         },
         {
           "name": "xtermOptions",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input setter `xtermOptions` updating xterm options.",
+          "descriptionZh": "输入属性 `xtermOptions` 的设置器，用于更新xterm配置选项。"
         },
         {
           "name": "theme",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input setter `theme` updating theme.",
+          "descriptionZh": "输入属性 `theme` 的设置器，用于更新主题。"
         }
       ],
       "outputs": [
         {
           "name": "keyInputEmitter",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Output event emitter `keyInput` (`EventEmitter`) firing when key input emitter occurs.",
+          "descriptionZh": "输出事件 `keyInput`（类型：`EventEmitter`），当触发键输入属性发射器时向外发出事件。"
         },
         {
           "name": "keyEventEmitter",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Output event emitter `keyEvent` (`EventEmitter`) firing when key event emitter occurs.",
+          "descriptionZh": "输出事件 `keyEvent`（类型：`EventEmitter`），当触发键事件发射器时向外发出事件。"
         }
       ],
       "methods": [
@@ -364,8 +488,8 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `setMinWidth` to handle set min width.",
+          "descriptionZh": "执行 `setMinWidth`，用于集合最小值宽度。"
         },
         {
           "name": "setMinHeight",
@@ -376,8 +500,8 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `setMinHeight` to handle set min height.",
+          "descriptionZh": "执行 `setMinHeight`，用于集合最小值高度。"
         },
         {
           "name": "setDraggable",
@@ -388,8 +512,8 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `setDraggable` to handle set draggable.",
+          "descriptionZh": "执行 `setDraggable`，用于集合是否可拖拽。"
         },
         {
           "name": "setXtermOptions",
@@ -400,8 +524,8 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `setXtermOptions` to handle set xterm options.",
+          "descriptionZh": "执行 `setXtermOptions`，用于集合Xterm配置选项。"
         },
         {
           "name": "setRows",
@@ -412,8 +536,8 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `setRows` to handle set rows.",
+          "descriptionZh": "执行 `setRows`，用于集合行列表。"
         },
         {
           "name": "setCols",
@@ -424,8 +548,8 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `setCols` to handle set cols.",
+          "descriptionZh": "执行 `setCols`，用于集合列列表。"
         },
         {
           "name": "setStyle",
@@ -436,22 +560,22 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `setStyle` to handle set style.",
+          "descriptionZh": "执行 `setStyle`，用于集合样式。"
         },
         {
           "name": "observeTerminalDimension",
           "params": [],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `observeTerminalDimension` to handle observe terminal dimension.",
+          "descriptionZh": "执行 `observeTerminalDimension`，用于observe终端维度。"
         },
         {
           "name": "observeHostDimension",
           "params": [],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `observeHostDimension` to handle observe host dimension.",
+          "descriptionZh": "执行 `observeHostDimension`，用于observe宿主维度。"
         },
         {
           "name": "write",
@@ -462,8 +586,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `write` to handle write.",
+          "descriptionZh": "执行 `write`，用于写入。"
         },
         {
           "name": "writeln",
@@ -474,22 +598,22 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `writeln` to handle writeln.",
+          "descriptionZh": "执行 `writeln`，用于writeln。"
         },
         {
           "name": "onData",
           "params": [],
           "returnType": "Observable<string>",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `onData` to handle on data.",
+          "descriptionZh": "执行 `onData`，用于当数据。"
         },
         {
           "name": "onKey",
           "params": [],
           "returnType": "Observable<{ key: string; domEvent: KeyboardEvent; }>",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `onKey` to handle on key.",
+          "descriptionZh": "执行 `onKey`，用于当键。"
         },
         {
           "name": "onResizeEnd",
@@ -512,15 +636,15 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `onResizeEnd` to handle on resize end.",
+          "descriptionZh": "执行 `onResizeEnd`，用于当调整尺寸结束。"
         },
         {
           "name": "validatorFactory",
           "params": [],
           "returnType": "(re: ResizeEvent) => boolean",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `validatorFactory` to handle validator factory.",
+          "descriptionZh": "执行 `validatorFactory`，用于校验器工厂。"
         }
       ],
       "properties": [
@@ -528,94 +652,94 @@
           "name": "stylesForDiv",
           "type": "Partial<CSSStyleDeclaration>",
           "default": "{ 'display': 'block' }",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `stylesForDiv` (`Partial<CSSStyleDeclaration>`) storing styles for div (default: `{ 'display': 'block' }`).",
+          "descriptionZh": "属性 `stylesForDiv`（类型：`Partial<CSSStyleDeclaration>`），用于存储或配置样式集合用于Div（默认值：`{ 'display': 'block' }`）。"
         },
         {
           "name": "draggable",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current draggable (`draggable: any`).",
+          "descriptionZh": "获取当前是否可拖拽（`draggable: any`）。"
         },
         {
           "name": "xtermOptions",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current xterm options (`xtermOptions: any`).",
+          "descriptionZh": "获取当前xterm配置选项（`xtermOptions: any`）。"
         },
         {
           "name": "theme",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current theme (`theme: any`).",
+          "descriptionZh": "获取当前主题（`theme: any`）。"
         },
         {
           "name": "lastDraggedPosition",
           "type": "{ width: string, height: string }",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `lastDraggedPosition` (`{ width: string, height: string }`) storing last dragged position.",
+          "descriptionZh": "属性 `lastDraggedPosition`（类型：`{ width: string, height: string }`），用于存储或配置末尾Dragged位置。"
         },
         {
           "name": "terminalOuter",
           "type": "ElementRef",
-          "description": null,
-          "descriptionZh": null
+          "description": "Template/content query reference `terminalOuter` (`@ViewChild`) targeting terminal outer.",
+          "descriptionZh": "模板/内容视图查询引用 `terminalOuter`（`@ViewChild`），指向终端外部。"
         },
         {
           "name": "resizeBox",
           "type": "ElementRef",
-          "description": null,
-          "descriptionZh": null
+          "description": "Template/content query reference `resizeBox` (`@ViewChild`) targeting resize box.",
+          "descriptionZh": "模板/内容视图查询引用 `resizeBox`（`@ViewChild`），指向调整尺寸盒子容器。"
         },
         {
           "name": "interval",
           "type": "ReturnType<typeof setInterval>",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `interval` (`ReturnType<typeof setInterval>`) storing interval.",
+          "descriptionZh": "属性 `interval`（类型：`ReturnType<typeof setInterval>`），用于存储或配置间隔定时器。"
         },
         {
           "name": "resizeHandleStyleRule",
           "type": "CSSStyleRule",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `resizeHandleStyleRule` (`CSSStyleRule`) storing resize handle style rule.",
+          "descriptionZh": "属性 `resizeHandleStyleRule`（类型：`CSSStyleRule`），用于存储或配置调整尺寸连接手柄样式规则。"
         },
         {
           "name": "resizeHandleActiveStyleRule",
           "type": "CSSStyleRule",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `resizeHandleActiveStyleRule` (`CSSStyleRule`) storing resize handle active style rule.",
+          "descriptionZh": "属性 `resizeHandleActiveStyleRule`（类型：`CSSStyleRule`），用于存储或配置调整尺寸连接手柄激活样式规则。"
         },
         {
           "name": "keyInput",
           "type": "Observable<string>",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current key input (`keyInput: Observable<string>`).",
+          "descriptionZh": "获取当前键输入属性（`keyInput: Observable<string>`）。"
         },
         {
           "name": "keyEventInput",
           "type": "Observable<{ key: string; domEvent: KeyboardEvent; }>",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current key event input (`keyEventInput: Observable<{ key: string; domEvent: KeyboardEvent; }>`).",
+          "descriptionZh": "获取当前键事件输入属性（`keyEventInput: Observable<{ key: string; domEvent: KeyboardEvent; }>`）。"
         },
         {
           "name": "underlying",
           "type": "Terminal",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current underlying (`underlying: Terminal`).",
+          "descriptionZh": "获取当前underlying（`underlying: Terminal`）。"
         },
         {
           "name": "isDraggableOnEdgeActivated",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current is draggable on edge activated (`isDraggableOnEdgeActivated: any`).",
+          "descriptionZh": "获取当前是否为是否可拖拽当边/连线已激活（`isDraggableOnEdgeActivated: any`）。"
         }
       ]
     },
     {
       "name": "TerminalModule",
       "kind": "module",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular module `TerminalModule` declaring and exporting terminal module components, directives, pipes, and providers.",
+      "summaryZh": "Angular 模块 `TerminalModule`，声明并导出终端模块相关的组件、指令、管道与服务提供者。",
       "sourceFile": "src/ux/terminal/terminal.module.ts",
       "inputs": [],
       "outputs": [],

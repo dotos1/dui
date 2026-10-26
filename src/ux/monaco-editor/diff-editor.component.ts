@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Module `src/ux/monaco-editor/diff-editor.component.ts` providing diff editor component definitions and implementation.
+ * @zh 模块文件 `src/ux/monaco-editor/diff-editor.component.ts`，提供diff编辑器组件相关的定义与实现。
+ */
+
 import { ChangeDetectionStrategy, Component, Inject, Input, NgZone } from '@angular/core';
 import { fromEvent } from 'rxjs';
 import { BaseEditor } from './base-editor';
@@ -5,8 +10,16 @@ import { DiffEditorModel } from './types';
 import { TranslateService } from '@dotos/dui/translator';
 import { MONACO_EDITOR_CONFIG, MonacoEditorConfig } from './config';
 
-declare const monaco: any;
+/**
+ * Constant/variable `monaco` defining monaco in `src/ux/monaco-editor`.
+ * @zh 常量/变量 `monaco`，定义 `src/ux/monaco-editor` 中的Monaco编辑器。
+ */
+declare const monaco;
    
+/**
+ * Angular component `DiffEditorComponent` (selector: 'monaco-diff-editor') providing diff editor component presentation and interaction in `src/ux/monaco-editor`.
+ * @zh Angular 组件 `DiffEditorComponent`（selector: 'monaco-diff-editor'），提供Diff编辑器组件的视图渲染与交互逻辑（位于 `src/ux/monaco-editor`）。
+ */
 @Component({
   standalone: true,
   selector: 'monaco-diff-editor',
@@ -27,13 +40,34 @@ declare const monaco: any;
 export class DiffEditorComponent extends BaseEditor {
 
 
+  /**
+   * Property `_originalModel` (`DiffEditorModel`) storing original model.
+   * @zh 属性 `_originalModel`（类型：`DiffEditorModel`），用于存储或配置原始模型。
+   */
   _originalModel: DiffEditorModel;
+  /**
+   * Property `_modifiedModel` (`DiffEditorModel`) storing modified model.
+   * @zh 属性 `_modifiedModel`（类型：`DiffEditorModel`），用于存储或配置modified模型。
+   */
   _modifiedModel: DiffEditorModel;
-  private _createdOriginalModel: any;
-  private _createdModifiedModel: any;
+  /**
+   * Property `_createdOriginalModel` (`any`) storing created original model.
+   * @zh 属性 `_createdOriginalModel`（类型：`any`），用于存储或配置已创建原始模型。
+   */
+  private _createdOriginalModel;
+  /**
+   * Property `_createdModifiedModel` (`any`) storing created modified model.
+   * @zh 属性 `_createdModifiedModel`（类型：`any`），用于存储或配置已创建Modified模型。
+   */
+  private _createdModifiedModel;
 
+  /**
+   * Input setter `options` updating options.
+   * @zh 输入属性 `options` 的设置器，用于更新配置选项。
+   * @param options - New options value (`any`) / 新的配置选项值（`any`）
+   */
   @Input('options')
-  set options(options: any) {
+  set options(options) {
     this._options = Object.assign({}, this.config.defaultOptions, options);
     if (this._editor) {
       this._editor.dispose();
@@ -41,10 +75,19 @@ export class DiffEditorComponent extends BaseEditor {
     }
   }
 
-  get options(): any {
+  /**
+   * Gets the current options (`options: any`).
+   * @zh 获取当前配置选项（`options: any`）。
+   */
+  get options() {
     return this._options;
   }
 
+  /**
+   * Input setter `originalModel` updating original model.
+   * @zh 输入属性 `originalModel` 的设置器，用于更新原始模型。
+   * @param model - New original model value (`DiffEditorModel`) / 新的原始模型值（`DiffEditorModel`）
+   */
   @Input('originalModel')
   set originalModel(model: DiffEditorModel) {
     this._originalModel = model;
@@ -54,6 +97,11 @@ export class DiffEditorComponent extends BaseEditor {
     }
   }
 
+  /**
+   * Input setter `modifiedModel` updating modified model.
+   * @zh 输入属性 `modifiedModel` 的设置器，用于更新modified模型。
+   * @param model - New modified model value (`DiffEditorModel`) / 新的modified模型值（`DiffEditorModel`）
+   */
   @Input('modifiedModel')
   set modifiedModel(model: DiffEditorModel) {
     this._modifiedModel = model;
@@ -64,6 +112,13 @@ export class DiffEditorComponent extends BaseEditor {
   }
 
 
+  /**
+   * Creates an instance of `DiffEditorComponent` and initializes its dependencies and internal state.
+   * @zh 创建 `DiffEditorComponent` 实例，并初始化其依赖项与内部状态。
+   * @param zone - Injected or initial zone (`NgZone`) / 注入或传入的区域(NgZone)（`NgZone`）
+   * @param translate - Injected or initial translate (`TranslateService`) / 注入或传入的翻译（`TranslateService`）
+   * @param editorConfig - Injected or initial editor config (`MonacoEditorConfig`) / 注入或传入的编辑器配置（`MonacoEditorConfig`）
+   */
   constructor(private zone: NgZone, 
     public override translate: TranslateService,
     @Inject(MONACO_EDITOR_CONFIG) private editorConfig: MonacoEditorConfig) {
@@ -71,7 +126,13 @@ export class DiffEditorComponent extends BaseEditor {
   }
 
 
-  protected initMonaco(options: any, insideNg: boolean): void {
+  /**
+   * Executes `initMonaco` to handle init monaco.
+   * @zh 执行 `initMonaco`，用于初始化Monaco编辑器。
+   * @param options - options parameter (`any`) / 配置选项参数（`any`）
+   * @param insideNg - inside ng parameter (`boolean`) / 内部Angular参数（`boolean`）
+   */
+  protected initMonaco(options, insideNg: boolean): void {
 
     if (!this._originalModel || !this._modifiedModel) {
       throw new Error('originalModel or modifiedModel not found for ngx-monaco-diff-editor');
@@ -112,6 +173,10 @@ export class DiffEditorComponent extends BaseEditor {
     this.onInit.emit(this._editor);
   }
 
+  /**
+   * Executes `_disposeModels` to handle dispose models.
+   * @zh 执行 `_disposeModels`，用于释放模型集合。
+   */
   private _disposeModels(): void {
     this._createdOriginalModel?.dispose();
     this._createdModifiedModel?.dispose();
@@ -119,6 +184,10 @@ export class DiffEditorComponent extends BaseEditor {
     this._createdModifiedModel = undefined;
   }
 
+  /**
+   * Angular lifecycle hook invoked just before the component, directive, or service is destroyed to release subscriptions and resources.
+   * @zh Angular 生命周期钩子：在组件、指令或服务销毁前调用，用于释放订阅与清理资源。
+   */
   override ngOnDestroy(): void {
     this._disposeModels();
     super.ngOnDestroy();

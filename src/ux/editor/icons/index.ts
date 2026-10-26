@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Module `src/ux/editor/icons/index.ts` providing index definitions and implementation.
+ * @zh 模块文件 `src/ux/editor/icons/index.ts`，提供索引相关的定义与实现。
+ */
+
 // Icons source: https://material.io/
 
 import bold from './bold';
@@ -20,11 +25,27 @@ import colorFill from './color_fill';
 import horizontalRule from './horizontal_rule';
 import formatClear from './format_clear';
 
+/**
+ * Constant/variable `DEFAULT_ICON_HEIGHT` defining default icon height in `src/ux/editor/icons`.
+ * @zh 常量/变量 `DEFAULT_ICON_HEIGHT`，定义 `src/ux/editor/icons` 中的默认图标高度。
+ */
 const DEFAULT_ICON_HEIGHT = 20;
+/**
+ * Constant/variable `DEFAULT_ICON_WIDTH` defining default icon width in `src/ux/editor/icons`.
+ * @zh 常量/变量 `DEFAULT_ICON_WIDTH`，定义 `src/ux/editor/icons` 中的默认图标宽度。
+ */
 const DEFAULT_ICON_WIDTH = 20;
+/**
+ * Constant/variable `DEFAULT_ICON_FILL` defining default icon fill in `src/ux/editor/icons`.
+ * @zh 常量/变量 `DEFAULT_ICON_FILL`，定义 `src/ux/editor/icons` 中的默认图标填充。
+ */
 const DEFAULT_ICON_FILL = 'currentColor';
 
-const icons: Record<string, any> = {
+/**
+ * Constant/variable `icons` defining icons in `src/ux/editor/icons`.
+ * @zh 常量/变量 `icons`，定义 `src/ux/editor/icons` 中的图标集合。
+ */
+const icons = {
   bold,
   italic,
   code,
@@ -46,8 +67,19 @@ const icons: Record<string, any> = {
   format_clear: formatClear,
 };
 
+/**
+ * Class `Icon` encapsulating icon data structures and logic in `src/ux/editor/icons`.
+ * @zh 类 `Icon`，封装 `src/ux/editor/icons` 中的图标数据结构与处理逻辑。
+ */
 class Icon {
-  static get(name: keyof typeof icons, fill = DEFAULT_ICON_FILL): string {
+  /**
+   * Executes `get` to handle get.
+   * @zh 执行 `get`，用于获取。
+   * @param name - name parameter (`keyof typeof icons`) / 名称参数（`keyof typeof icons`）
+   * @param fill - fill parameter (`any`) / 填充参数（`any`）
+   * @returns Result of type `string` / 类型为 `string` 的返回值
+   */
+  static get(name: string, fill = DEFAULT_ICON_FILL): string {
     const path = icons[name] || '<path></path>';
     return `
       <svg

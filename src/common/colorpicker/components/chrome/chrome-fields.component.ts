@@ -1,8 +1,17 @@
+/**
+ * @fileoverview Module `src/common/colorpicker/components/chrome/chrome-fields.component.ts` providing chrome fields component definitions and implementation.
+ * @zh 模块文件 `src/common/colorpicker/components/chrome/chrome-fields.component.ts`，提供chrome字段列表组件相关的定义与实现。
+ */
+
 import {  ChangeDetectionStrategy,  Component,  EventEmitter,  Input,  OnInit,  Output,
 } from '@angular/core';
 import { isValidHex, HSLA, RGBA } from '@dotos/dui/common/colorpicker/common';
 import { TinyColor } from '@dotos/dui/core/color';
 
+/**
+ * Angular component `ChromeFieldsComponent` (selector: 'color-chrome-fields') providing chrome fields component presentation and interaction in `src/common/colorpicker/components/chrome`.
+ * @zh Angular 组件 `ChromeFieldsComponent`（selector: 'color-chrome-fields'），提供Chrome字段列表组件的视图渲染与交互逻辑（位于 `src/common/colorpicker/components/chrome`）。
+ */
 @Component({
   selector: 'color-chrome-fields',
   template: `
@@ -142,19 +151,45 @@ import { TinyColor } from '@dotos/dui/core/color';
  * @zh 带视图切换的十六进制/RGB/HSL 可编辑输入字段，供 {@link ChromeComponent} 使用。
  */
 export class ChromeFieldsComponent implements OnInit {
-  /** @zh 是否禁用透明度字段。 */
+  /**
+   * Input property `disableAlpha` (`boolean`) configuring disable alpha.
+   * @zh 是否禁用透明度字段。
+   * @zh 是否禁用透明度字段。
+   */
   @Input() disableAlpha: boolean;
-  /** @zh 当前颜色的 HSL 表示。 */
+  /**
+   * @zh 当前颜色的 HSL 表示。
+   * @zh 当前颜色的 HSL 表示。
+   */
   @Input() hsl: HSLA;
-  /** @zh 当前颜色的 RGB 表示。 */
+  /**
+   * @zh 当前颜色的 RGB 表示。
+   * @zh 当前颜色的 RGB 表示。
+   */
   @Input() rgb: RGBA;
-  /** @zh 当前颜色的十六进制表示。 */
+  /**
+   * Input property `hex` (`string`) configuring hex.
+   * @zh 当前颜色的十六进制表示。
+   * @zh 当前颜色的十六进制表示。
+   */
   @Input() hex: string;
-  /** @zh 字段值变化时发出。 */
-  @Output() onChange = new EventEmitter<any>();
-  /** @zh 当前显示的字段视图：`'hex'`、`'rgb'` 或 `'hsl'`。 */
+  /**
+   * Output event emitter `onChange` (`EventEmitter`) firing when on change occurs.
+   * @zh 字段值变化时发出。
+   * @zh 字段值变化时发出。
+   */
+  @Output() onChange = new EventEmitter();
+  /**
+   * Property `view` (`string`) storing view (default: `''`).
+   * @zh 当前显示的字段视图：`'hex'`、`'rgb'` 或 `'hsl'`。
+   * @zh 当前显示的字段视图：`'hex'`、`'rgb'` 或 `'hsl'`。
+   */
   view = '';
-  /** @zh 输入框的内联样式。 */
+  /**
+   * Property `input` (`{ [key: string]: string }`) storing input.
+   * @zh 输入框的内联样式。
+   * @zh 输入框的内联样式。
+   */
   input: { [key: string]: string } = {
     fontSize: '11px',
     color: '#333',
@@ -165,7 +200,11 @@ export class ChromeFieldsComponent implements OnInit {
     height: '21px',
     'text-align': 'center',
   };
-  /** @zh 标签的内联样式。 */
+  /**
+   * Property `label` (`{ [key: string]: string }`) storing label.
+   * @zh 标签的内联样式。
+   * @zh 标签的内联样式。
+   */
   label: { [key: string]: string } = {
     'text-transform': 'uppercase',
     fontSize: '11px',
@@ -176,6 +215,10 @@ export class ChromeFieldsComponent implements OnInit {
     marginTop: '12px',
   };
 
+  /**
+   * Angular lifecycle hook invoked once after component or directive inputs are initialized.
+   * @zh Angular 生命周期钩子：在组件或指令的输入属性初始化完成后调用一次。
+   */
   ngOnInit() {
     if (this.hsl.a === 1 && this.view !== 'hex') {
       this.view = 'hex';

@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Module `src/common/popover/popover.ts` providing popover definitions and implementation.
+ * @zh 模块文件 `src/common/popover/popover.ts`，提供气泡卡片相关的定义与实现。
+ */
+
 
 import {
   Component,
@@ -46,25 +51,92 @@ import { transformPopover } from './popover-animations';
 
 export class Popover implements PopoverPanel, OnDestroy {
 
-  /** @zh 内部使用，绑定弹出层宿主的无障碍 `role` 属性。 */
+  /**
+   * Host binding `role` bound to host attribute/property `attr.role` for role.
+   * @zh 内部使用，绑定弹出层宿主的无障碍 `role` 属性。
+   * @zh 内部使用，绑定弹出层宿主的无障碍 `role` 属性。
+   */
   @HostBinding('attr.role') role = 'dialog';
 
-  /** Settings for popover, view setters and getters for more detail */
+  /**
+   * Settings for popover, view setters and getters for more detail
+   * @zh 属性 `_positionX`（类型：`PopoverPositionX`），用于存储或配置位置X坐标（默认值：`'after'`）。
+   */
   private _positionX: PopoverPositionX = 'after';
+  /**
+   * Property `_positionY` (`PopoverPositionY`) storing position y (default: `'below'`).
+   * @zh 属性 `_positionY`（类型：`PopoverPositionY`），用于存储或配置位置Y坐标（默认值：`'below'`）。
+   */
   private _positionY: PopoverPositionY = 'below';
+  /**
+   * Property `_triggerEvent` (`PopoverTriggerEvent`) storing trigger event (default: `'hover'`).
+   * @zh 属性 `_triggerEvent`（类型：`PopoverTriggerEvent`），用于存储或配置触发事件（默认值：`'hover'`）。
+   */
   private _triggerEvent: PopoverTriggerEvent = 'hover';
+  /**
+   * Property `_scrollStrategy` (`PopoverScrollStrategy`) storing scroll strategy (default: `'reposition'`).
+   * @zh 属性 `_scrollStrategy`（类型：`PopoverScrollStrategy`），用于存储或配置滚动策略（默认值：`'reposition'`）。
+   */
   private _scrollStrategy: PopoverScrollStrategy = 'reposition';
+  /**
+   * Property `_enterDelay` (`number`) storing enter delay (default: `200`).
+   * @zh 属性 `_enterDelay`（类型：`number`），用于存储或配置进入延迟（默认值：`200`）。
+   */
   private _enterDelay = 200;
+  /**
+   * Property `_leaveDelay` (`number`) storing leave delay (default: `200`).
+   * @zh 属性 `_leaveDelay`（类型：`number`），用于存储或配置离开延迟（默认值：`200`）。
+   */
   private _leaveDelay = 200;
+  /**
+   * Property `_overlapTrigger` (`boolean`) storing overlap trigger (default: `true`).
+   * @zh 属性 `_overlapTrigger`（类型：`boolean`），用于存储或配置overlap触发（默认值：`true`）。
+   */
   private _overlapTrigger = true;
+  /**
+   * Property `_disableAnimation` (`boolean`) storing disable animation (default: `false`).
+   * @zh 属性 `_disableAnimation`（类型：`boolean`），用于存储或配置禁用动画（默认值：`false`）。
+   */
   private _disableAnimation = false;
+  /**
+   * Property `_targetOffsetX` (`number`) storing target offset x (default: `0`).
+   * @zh 属性 `_targetOffsetX`（类型：`number`），用于存储或配置目标偏移量X坐标（默认值：`0`）。
+   */
   private _targetOffsetX = 0;
+  /**
+   * Property `_targetOffsetY` (`number`) storing target offset y (default: `0`).
+   * @zh 属性 `_targetOffsetY`（类型：`number`），用于存储或配置目标偏移量Y坐标（默认值：`0`）。
+   */
   private _targetOffsetY = 0;
+  /**
+   * Property `_arrowOffsetX` (`number`) storing arrow offset x (default: `20`).
+   * @zh 属性 `_arrowOffsetX`（类型：`number`），用于存储或配置箭头偏移量X坐标（默认值：`20`）。
+   */
   private _arrowOffsetX = 20;
+  /**
+   * Property `_arrowWidth` (`number`) storing arrow width (default: `8`).
+   * @zh 属性 `_arrowWidth`（类型：`number`），用于存储或配置箭头宽度（默认值：`8`）。
+   */
   private _arrowWidth = 8;
+  /**
+   * Property `_arrowColor` (`string`) storing arrow color (default: `'rgba(0, 0, 0, 0.12)'`).
+   * @zh 属性 `_arrowColor`（类型：`string`），用于存储或配置箭头颜色（默认值：`'rgba(0, 0, 0, 0.12)'`）。
+   */
   private _arrowColor = 'rgba(0, 0, 0, 0.12)';
+  /**
+   * Property `_closeOnClick` (`boolean`) storing close on click (default: `true`).
+   * @zh 属性 `_closeOnClick`（类型：`boolean`），用于存储或配置关闭当点击（默认值：`true`）。
+   */
   private _closeOnClick = true;
+  /**
+   * Property `_focusTrapEnabled` (`boolean`) storing focus trap enabled (default: `true`).
+   * @zh 属性 `_focusTrapEnabled`（类型：`boolean`），用于存储或配置聚焦Trap已启用（默认值：`true`）。
+   */
   private _focusTrapEnabled = true;
+  /**
+   * Property `_focusTrapAutoCaptureEnabled` (`boolean`) storing focus trap auto capture enabled (default: `true`).
+   * @zh 属性 `_focusTrapAutoCaptureEnabled`（类型：`boolean`），用于存储或配置聚焦Trap自动Capture已启用（默认值：`true`）。
+   */
   private _focusTrapAutoCaptureEnabled = true;
 
   /** Config object to be passed into the popover's ngClass
@@ -75,19 +147,34 @@ export class Popover implements PopoverPanel, OnDestroy {
    * @zh 弹出层定位时是否考虑所在容器元素，而不是视口。 */
   public containerPositioning = false;
 
-  /** Closing disabled on popover */
+  /**
+   * Closing disabled on popover
+   * @zh 属性 `closeDisabled`（类型：`boolean`），用于存储或配置关闭已禁用（默认值：`false`）。
+   */
   public closeDisabled = false;
 
-  /** Config object to be passed into the popover's arrow ngStyle */
+  /**
+   * Config object to be passed into the popover's arrow ngStyle
+   * @zh 属性 `popoverPanelStyles`（类型：`{}`），用于存储或配置气泡卡片面板样式集合。
+   */
   public popoverPanelStyles: {};
 
-  /** Config object to be passed into the popover's arrow ngStyle */
+  /**
+   * Config object to be passed into the popover's arrow ngStyle
+   * @zh 属性 `popoverArrowStyles`（类型：`{}`），用于存储或配置气泡卡片箭头样式集合。
+   */
   public popoverArrowStyles: {};
 
-  /** Config object to be passed into the popover's content ngStyle */
+  /**
+   * Config object to be passed into the popover's content ngStyle
+   * @zh 属性 `popoverContentStyles`（类型：`{}`），用于存储或配置气泡卡片内容样式集合。
+   */
   public popoverContentStyles: {};
 
-  /** Emits the current animation state whenever it changes. */
+  /**
+   * Emits the current animation state whenever it changes.
+   * @zh 属性 `_onAnimationStateChange`（类型：`EventEmitter`），用于存储或配置当动画状态变更（默认值：`new EventEmitter<AnimationEvent>()`）。
+   */
   _onAnimationStateChange = new EventEmitter<AnimationEvent>();
 
 
@@ -191,34 +278,72 @@ export class Popover implements PopoverPanel, OnDestroy {
    * @zh 箭头指示器的宽度。 */
   set arrowWidth(value: number) { this._arrowWidth = value; }
 
-  /** @zh 箭头指示器的颜色。 */
+  /**
+   * Getter for input property `arrowColor` (`string`) returning arrow color.
+   * @zh 箭头指示器的颜色。
+   * @zh 箭头指示器的颜色。
+   */
   @Input('popoverArrowColor')
   get arrowColor(): string { return this._arrowColor; }
-  /** @zh 箭头指示器的颜色。 */
+  /**
+   * Sets the arrow color (`arrowColor`).
+   * @zh 箭头指示器的颜色。
+   * @zh 箭头指示器的颜色。
+   */
   set arrowColor(value: string) { this._arrowColor = value; }
 
-  /** @zh 点击弹出层内部时是否自动关闭。 */
+  /**
+   * Getter for input property `closeOnClick` (`boolean`) returning close on click.
+   * @zh 点击弹出层内部时是否自动关闭。
+   * @zh 点击弹出层内部时是否自动关闭。
+   */
   @Input('popoverCloseOnClick')
   get closeOnClick(): boolean { return this._closeOnClick; }
-  /** @zh 点击弹出层内部时是否自动关闭。 */
+  /**
+   * Sets the close on click (`closeOnClick`).
+   * @zh 点击弹出层内部时是否自动关闭。
+   * @zh 点击弹出层内部时是否自动关闭。
+   */
   set closeOnClick(value: boolean) { this._closeOnClick = coerceBooleanProperty(value); }
 
-  /** @zh 是否禁用弹出层的开关动画。 */
+  /**
+   * Getter for input property `disableAnimation` (`boolean`) returning disable animation.
+   * @zh 是否禁用弹出层的开关动画。
+   * @zh 是否禁用弹出层的开关动画。
+   */
   @Input('popoverDisableAnimation')
   get disableAnimation(): boolean { return this._disableAnimation; }
-  /** @zh 是否禁用弹出层的开关动画。 */
+  /**
+   * Sets the disable animation (`disableAnimation`).
+   * @zh 是否禁用弹出层的开关动画。
+   * @zh 是否禁用弹出层的开关动画。
+   */
   set disableAnimation(value: boolean) { this._disableAnimation = coerceBooleanProperty(value); }
 
-  /** @zh 弹出层打开时是否启用焦点陷阱（Tab 键循环限制在弹出层内）。 */
+  /**
+   * @zh 弹出层打开时是否启用焦点陷阱（Tab 键循环限制在弹出层内）。
+   * @zh 弹出层打开时是否启用焦点陷阱（Tab 键循环限制在弹出层内）。
+   */
   @Input('focusTrapEnabled')
   get focusTrapEnabled(): boolean { return this._focusTrapEnabled; }
-  /** @zh 弹出层打开时是否启用焦点陷阱（Tab 键循环限制在弹出层内）。 */
+  /**
+   * @zh 弹出层打开时是否启用焦点陷阱（Tab 键循环限制在弹出层内）。
+   * @zh 弹出层打开时是否启用焦点陷阱（Tab 键循环限制在弹出层内）。
+   */
   set focusTrapEnabled(value: boolean) { this._focusTrapEnabled = coerceBooleanProperty(value); }
 
-  /** @zh 启用焦点陷阱时，弹出层打开后是否自动将焦点移入。 */
+  /**
+   * Getter for input property `focusTrapAutoCaptureEnabled` (`boolean`) returning focus trap auto capture enabled.
+   * @zh 启用焦点陷阱时，弹出层打开后是否自动将焦点移入。
+   * @zh 启用焦点陷阱时，弹出层打开后是否自动将焦点移入。
+   */
   @Input('focusTrapAutoCaptureEnabled')
   get focusTrapAutoCaptureEnabled(): boolean { return this._focusTrapAutoCaptureEnabled; }
-  /** @zh 启用焦点陷阱时，弹出层打开后是否自动将焦点移入。 */
+  /**
+   * Sets the focus trap auto capture enabled (`focusTrapAutoCaptureEnabled`).
+   * @zh 启用焦点陷阱时，弹出层打开后是否自动将焦点移入。
+   * @zh 启用焦点陷阱时，弹出层打开后是否自动将焦点移入。
+   */
   set focusTrapAutoCaptureEnabled(value: boolean) { this._focusTrapAutoCaptureEnabled = coerceBooleanProperty(value); }
 
   /**
@@ -228,7 +353,7 @@ export class Popover implements PopoverPanel, OnDestroy {
   @Input('class')
   set panelClass(classes: string) {
     if (classes && classes.length) {
-      this._classList = classes.split(' ').reduce((obj: any, className: string) => {
+      this._classList = classes.split(' ').reduce((obj, className: string) => {
         obj[className] = true;
         return obj;
       }, {});
@@ -251,23 +376,43 @@ export class Popover implements PopoverPanel, OnDestroy {
    */
   set classList(classes: string) { this.panelClass = classes; }
 
-  /** Event emitted when the popover is closed. */
+  /**
+   * Event emitted when the popover is closed.
+   * @zh 输出事件 `close`（类型：`EventEmitter`），当触发关闭时向外发出事件。
+   */
   @Output() close = new EventEmitter<void>();
 
-  /** @zh 弹出层内容的模板引用。 */
-  @ViewChild(TemplateRef) templateRef: TemplateRef<any>;
+  /**
+   * Template/content query reference `templateRef` (`@ViewChild`) targeting template ref.
+   * @zh 弹出层内容的模板引用。
+   * @zh 弹出层内容的模板引用。
+   */
+  @ViewChild(TemplateRef) templateRef: TemplateRef<unknown>;
 
+  /**
+   * Creates an instance of `Popover` and initializes its dependencies and internal state.
+   * @zh 创建 `Popover` 实例，并初始化其依赖项与内部状态。
+   * @param _elementRef - Injected or initial element ref (`ElementRef`) / 注入或传入的元素引用（`ElementRef`）
+   * @param zone - Injected or initial zone (`NgZone`) / 注入或传入的区域(NgZone)（`NgZone`）
+   */
   constructor(private _elementRef: ElementRef, public zone: NgZone) {
     this.setPositionClasses();
   }
 
+  /**
+   * Angular lifecycle hook invoked just before the component, directive, or service is destroyed to release subscriptions and resources.
+   * @zh Angular 生命周期钩子：在组件、指令或服务销毁前调用，用于释放订阅与清理资源。
+   */
   ngOnDestroy() {
     this._emitCloseEvent();
     this.close.complete();
   }
 
 
-  /** Handle a keyboard event from the popover, delegating to the appropriate action. */
+  /**
+   * Handle a keyboard event from the popover, delegating to the appropriate action.
+   * @zh 执行 `_handleKeydown`，用于连接手柄按键按下。
+   */
   _handleKeydown(event: KeyboardEvent) {
     switch (event.keyCode) {
       case ESCAPE:
@@ -279,12 +424,17 @@ export class Popover implements PopoverPanel, OnDestroy {
   /**
    * This emits a close event to which the trigger is subscribed. When emitted, the
    * trigger will close the popover.
+
+   * @zh 执行 `_emitCloseEvent`，用于发出关闭事件。
    */
   _emitCloseEvent(): void {
     this.close.emit();
   }
 
-  /** Close popover on click if closeOnClick is true */
+  /**
+   * Close popover on click if closeOnClick is true
+   * @zh 执行 `onClick`，用于当点击。
+   */
   onClick() {
     if (this.closeOnClick) {
       this._emitCloseEvent();
@@ -292,13 +442,19 @@ export class Popover implements PopoverPanel, OnDestroy {
   }
 
 
-  /** Disables close of popover when leaving trigger element and mouse over the popover */
+  /**
+   * Disables close of popover when leaving trigger element and mouse over the popover
+   * @zh 执行 `onMouseOver`，用于当鼠标越过。
+   */
   onMouseOver() {
     if (this.triggerEvent === 'hover') {
       this.closeDisabled = true;
     }
   }
-  /** Enables close of popover when mouse leaving popover element */
+  /**
+   * Enables close of popover when mouse leaving popover element
+   * @zh 执行 `onMouseLeave`，用于当鼠标离开。
+   */
   onMouseLeave() {
     if (this.triggerEvent === 'hover') {
       this.closeDisabled = false;
@@ -341,6 +497,8 @@ export class Popover implements PopoverPanel, OnDestroy {
   /**
    * It's necessary to set position-based classes to ensure the popover panel animation
    * folds out from the correct direction.
+
+   * @zh 执行 `setPositionClasses`，用于集合位置类名集合。
    */
   setPositionClasses(posX = this.positionX, posY = this.positionY): void {
     this._classList['popover-before'] = posX === 'before';

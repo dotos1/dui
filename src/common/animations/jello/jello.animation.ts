@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Module `src/common/animations/jello/jello.animation.ts` providing jello animation definitions and implementation.
+ * @zh 模块文件 `src/common/animations/jello/jello.animation.ts`，提供jello动画相关的定义与实现。
+ */
+
 import {
   trigger,
   state,
@@ -11,6 +16,10 @@ import {
   group,
 } from '@angular/animations';
 
+/**
+ * Angular animation trigger `JelloAnimation` defining state transitions for jello animation.
+ * @zh Angular 动画触发器 `JelloAnimation`，定义Jello动画的状态过渡动画。
+ */
 export const JelloAnimation: AnimationTriggerMetadata = trigger('duiJello', [
   state(
     '0',

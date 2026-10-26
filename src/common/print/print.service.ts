@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Module `src/common/print/print.service.ts` providing print service definitions and implementation.
+ * @zh 模块文件 `src/common/print/print.service.ts`，提供打印服务相关的定义与实现。
+ */
+
 import { Input, Output, EventEmitter, Injectable } from '@angular/core';
 import { t as i18nT } from '@dotos/dui/translator';
 
@@ -9,26 +14,70 @@ import { t as i18nT } from '@dotos/dui/translator';
  */
 @Injectable()
 export class PrintService {
-  /** @zh 打印模式：`'iframe'`（隐藏 iframe）或 `'popup'`（弹出窗口）。 */
+  /**
+   * @zh 打印模式：`'iframe'`（隐藏 iframe）或 `'popup'`（弹出窗口）。
+   * @zh 打印模式：`'iframe'`（隐藏 iframe）或 `'popup'`（弹出窗口）。
+   */
   @Input() mode: string;
-  /** @zh 文档类型标准：`'strict'`、`'loose'` 或 `'html5'`。 */
+  /**
+   * Input property `standard` (`string`) configuring standard.
+   * @zh 文档类型标准：`'strict'`、`'loose'` 或 `'html5'`。
+   * @zh 文档类型标准：`'strict'`、`'loose'` 或 `'html5'`。
+   */
   @Input() standard: string;
-  /** @zh 打印窗口的标题。 */
+  /**
+   * Input property `popTitle` (`string`) configuring pop title.
+   * @zh 打印窗口的标题。
+   * @zh 打印窗口的标题。
+   */
   @Input() popTitle: string;
-  /** @zh 待打印的 HTML 内容，可以是元素或 HTML 字符串。 */
-  @Input() printHTML: any;
-  /** @zh 注入打印文档 `<head>` 的内联 CSS 文本。 */
+  /**
+   * @zh 待打印的 HTML 内容，可以是元素或 HTML 字符串。
+   * @zh 待打印的 HTML 内容，可以是元素或 HTML 字符串。
+   */
+  @Input() printHTML;
+  /**
+   * @zh 注入打印文档 `<head>` 的内联 CSS 文本。
+   * @zh 注入打印文档 `<head>` 的内联 CSS 文本。
+   */
   @Input() printStyle: string;
-  /** @zh 注入打印文档 `<head>` 的外部样式表 URL 列表。 */
+  /**
+   * @zh 注入打印文档 `<head>` 的外部样式表 URL 列表。
+   * @zh 注入打印文档 `<head>` 的外部样式表 URL 列表。
+   */
   @Input() printCSS: string[];
-  /** @zh 打印流程完成时发出。 */
-  @Output() printComplete: EventEmitter<any>;
+  /**
+   * Output event emitter `printComplete` (`EventEmitter<any>`) firing when print complete occurs.
+   * @zh 打印流程完成时发出。
+   * @zh 打印流程完成时发出。
+   */
+  @Output() printComplete;
 
-  private modes: any;
-  private standards: any;
+  /**
+   * Property `modes` (`any`) storing modes.
+   * @zh 属性 `modes`（类型：`any`），用于存储或配置模式。
+   */
+  private modes;
+  /**
+   * Property `standards` (`any`) storing standards.
+   * @zh 属性 `standards`（类型：`any`），用于存储或配置standards。
+   */
+  private standards;
+  /**
+   * Property `printWindow` (`Window`) storing print window.
+   * @zh 属性 `printWindow`（类型：`Window`），用于存储或配置打印窗口。
+   */
   private printWindow: Window;
+  /**
+   * Property `printDoc` (`Document`) storing print doc.
+   * @zh 属性 `printDoc`（类型：`Document`），用于存储或配置打印文档。
+   */
   private printDoc: Document;
 
+  /**
+   * Creates an instance of `PrintService` and initializes its dependencies and internal state.
+   * @zh 创建 `PrintService` 实例，并初始化其依赖项与内部状态。
+   */
   constructor() {
     this.modes = {
       iframe: 'iframe',
@@ -42,13 +91,16 @@ export class PrintService {
     this.mode = this.modes.iframe;
     this.standard = this.standards.html5;
     this.popTitle = i18nT('COMMON.PRINT_WINDOW');
-    this.printComplete = new EventEmitter<any>(false);
+    this.printComplete = new EventEmitter(false);
   }
 
 	/**
+	 * Executes `write` to handle write.
 	 * 写入文档
+
+	 * @zh 写入文档
 	 */
-  private write(): any {
+  private write() {
     this.printDoc.open();
     this.printDoc.write(`${this.docType()}${this.getHead()}${this.getBody()}`);
     this.printDoc.close();
@@ -57,6 +109,8 @@ export class PrintService {
 	/**
 	 * 获取DOCTYPE
 	 * returns {string}
+
+	 * @zh 获取DOCTYPE
 	 */
   private docType(): string {
     if (this.mode === this.modes.iframe) {
@@ -73,6 +127,8 @@ export class PrintService {
 	/**
 	 * 获取head
 	 * returns {string}
+
+	 * @zh 获取head
 	 */
   private getHead(): string {
     let styles: string = '',
@@ -97,6 +153,8 @@ export class PrintService {
 	/**
 	 * 获取body
 	 * returns {string}
+
+	 * @zh 获取body
 	 */
   private getBody() {
     let html: string = '';
@@ -111,7 +169,10 @@ export class PrintService {
   }
 
 	/**
+	 * Executes `startPrint` to handle start print.
 	 * 开始打印
+
+	 * @zh 开始打印
 	 */
   private startPrint() {
     const timeoutId = setTimeout(() => {
@@ -139,14 +200,16 @@ export class PrintService {
 
 	/**
 	 * 创建iframe
+
+	 * @zh 创建iframe
 	 */
   private createIframe() {
-    let oldFrame: any = document.getElementsByClassName('e-ngx-print-frame');
+    let oldFrame = document.getElementsByClassName('e-ngx-print-frame');
     if (oldFrame.length > 0) {
       oldFrame[0].parentNode.removeChild(oldFrame[0]);
     }
     try {
-      let printIframe: any = document.createElement('iframe');
+      let printIframe = document.createElement('iframe');
       document.body.appendChild(printIframe);
       printIframe.style.position = 'absolute';
       printIframe.style.border = '0';
@@ -157,7 +220,7 @@ export class PrintService {
       printIframe.style.zIndex = '-1';
       printIframe.className = 'e-ngx-print-frame';
       this.printWindow = printIframe.contentWindow;
-      this.printDoc = printIframe.contentDocument ? printIframe.contentDocument : (printIframe.contentWindow ? printIframe.contentWindow.document : printIframe.document);
+      this.printDoc = printIframe.contentDocument ? printIframe.contentDocument : (printIframe.contentWindow ? printIframe.contentWindow.document : (printIframe as HTMLIFrameElement & { document?: Document }).document);
     }
     catch (e) {
       throw e + '. iframes may not be supported in this browser.';
@@ -173,7 +236,10 @@ export class PrintService {
   }
 
 	/**
+	 * Executes `createPopup` to handle create popup.
 	 * 创建弹出窗口
+
+	 * @zh 创建弹出窗口
 	 */
   private createPopup() {
     let windowAttr = `location=yes,statusbar=no,directories=no,menubar=no,titlebar=no,toolbar=no,dependent=no`;
@@ -188,6 +254,10 @@ export class PrintService {
   }
 
 
+  /**
+   * Executes `getPrintWindow` to handle get print window.
+   * @zh 执行 `getPrintWindow`，用于获取打印窗口。
+   */
   private getPrintWindow() {
     if (this.mode === this.modes.iframe) {
       this.createIframe();
@@ -199,8 +269,10 @@ export class PrintService {
 	/**
 	 * 开始打印
 	 * param printHTML 打印的HTML
+
+	 * @zh 开始打印
 	 */
-  print(printHTML?: any) {
+  print(printHTML?) {
     this.printHTML = printHTML ? printHTML : this.printHTML;
     if (!this.printHTML.outerHTML) {
       const div: HTMLDivElement = document.createElement('div');
@@ -230,12 +302,14 @@ export class PrintService {
 	/**
 	 * 设置打印文档中输入框和文本域的值
 	 * param {boolean} isReset 是否恢复到初始状态
+
+	 * @zh 设置打印文档中输入框和文本域的值
 	 */
   setInputAndTextareaValue(isReset: boolean = false) {
-    const inputs: any = this.printHTML.getElementsByTagName('input');
+    const inputs = this.printHTML.getElementsByTagName('input');
     const excludeTypes: string[] = ['hidden', 'button', 'reset', 'submit']; // 排除的 input 类型
-    const textareas: any = this.printHTML.getElementsByTagName('textarea');
-    const selects: any = this.printHTML.getElementsByTagName('select');
+    const textareas = this.printHTML.getElementsByTagName('textarea');
+    const selects = this.printHTML.getElementsByTagName('select');
     this.toArray(inputs).forEach((input: HTMLInputElement) => {
       if (excludeTypes.indexOf(input.type) < 0) {
         if (!isReset) {
@@ -299,8 +373,10 @@ export class PrintService {
 	 * 将类数组转换成数组
 	 * param arr
 	 * returns {any[]}
+
+	 * @zh 将类数组转换成数组
 	 */
-  toArray(arr: any): any[] {
+  toArray(arr) {
     return arr ? Array.prototype.slice.call(arr, 0) : [];
   }
 }

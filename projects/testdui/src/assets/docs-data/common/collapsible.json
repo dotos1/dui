@@ -95,8 +95,8 @@
     {
       "name": "CollapsibleModule",
       "kind": "module",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular module `CollapsibleModule` declaring and exporting collapsible module components, directives, pipes, and providers.",
+      "summaryZh": "Angular 模块 `CollapsibleModule`，声明并导出可折叠面板模块相关的组件、指令、管道与服务提供者。",
       "sourceFile": "src/common/collapsible/collapsible.module.ts",
       "inputs": [],
       "outputs": [],
@@ -105,8 +105,8 @@
           "name": "forRoot",
           "params": [],
           "returnType": "ModuleWithProviders<CollapsibleModule>",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `forRoot` to handle for root.",
+          "descriptionZh": "执行 `forRoot`，用于用于根节点。"
         }
       ],
       "properties": []

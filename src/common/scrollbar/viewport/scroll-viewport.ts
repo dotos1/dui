@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Module `src/common/scrollbar/viewport/scroll-viewport.ts` providing scroll viewport definitions and implementation.
+ * @zh 模块文件 `src/common/scrollbar/viewport/scroll-viewport.ts`，提供滚动视口相关的定义与实现。
+ */
+
 import { Directive, inject, ElementRef } from '@angular/core';
 
 /**
@@ -11,7 +16,11 @@ import { Directive, inject, ElementRef } from '@angular/core';
 })
 export class ScrollViewport {
 
-  /** @zh 标记该指令所在的原生元素。 */
+  /**
+   * Property `nativeElement` (`HTMLElement`) storing native element.
+   * @zh 标记该指令所在的原生元素。
+   * @zh 标记该指令所在的原生元素。
+   */
   readonly nativeElement: HTMLElement = inject(ElementRef<HTMLElement>).nativeElement;
 
 }

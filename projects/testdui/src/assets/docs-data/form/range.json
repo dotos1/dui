@@ -1,0 +1,194 @@
+{
+  "importPath": "@dotos/dui/form/range",
+  "exports": [
+    {
+      "name": "DateRangeFieldComponent",
+      "kind": "component",
+      "selector": "date-range-field",
+      "summary": "日期区间输入，用于 `between` 条件。\n\n用 Material 自带的 mat-date-range-input + mat-date-range-picker：一次日历\n交互就选完起止两端，整体仍然只占一个表单字段，所以扩展过滤器那种一行一个\n值单元格的地方也放得下。\n\n注意：Material 的区间日历只有「天」粒度，没有月/日期时间区间。列上配了\nYYYYMM 之类 SpecialSet 时，界面按天选，后台 appendWhere 再按 SpecialSet\n归一化，查询结果仍然正确，只是选取精度比单值的 date-field 粗。",
+      "summaryZh": "日期区间输入，用于 `between` 条件。",
+      "sourceFile": "src/form/range/daterange.field.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "type",
+          "type": "string",
+          "default": "'date-range'",
+          "description": "Property `type` (`string`) storing type (default: `'date-range'`).",
+          "descriptionZh": "属性 `type`（类型：`string`），用于存储或配置类型（默认值：`'date-range'`）。"
+        },
+        {
+          "name": "valueFormat",
+          "type": "any",
+          "default": "'YYYY-MM-DD HH:mm:ss'",
+          "description": "回传后台的格式，与 date-field 一致——后台的 $str_date() 只认这一种。",
+          "descriptionZh": "回传后台的格式，与 date-field 一致——后台的 $str_date() 只认这一种。"
+        },
+        {
+          "name": "displayFormat",
+          "type": "any",
+          "description": "界面展示格式，取 Material 的显示格式，与单值日期框保持一致。",
+          "descriptionZh": "界面展示格式，取 Material 的显示格式，与单值日期框保持一致。"
+        }
+      ]
+    },
+    {
+      "name": "isRangeValue",
+      "kind": "function",
+      "summary": "Executes `isRangeValue` to handle is range value.",
+      "summaryZh": "执行 `isRangeValue`，用于是否为范围值。",
+      "sourceFile": "src/form/range/range.field.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "isRangeValue",
+          "params": [
+            {
+              "name": "value",
+              "type": "any"
+            }
+          ],
+          "returnType": "value is RangeValue",
+          "description": "Executes `isRangeValue` to handle is range value.",
+          "descriptionZh": "执行 `isRangeValue`，用于是否为范围值。"
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "NumberRangeFieldComponent",
+      "kind": "component",
+      "selector": "number-range-field",
+      "summary": "数值区间输入，用于 `between` 条件。\n\n用 Material 的双滑块 mat-slider（matSliderStartThumb / matSliderEndThumb）：\n一个控件拖完起止两端，整体只占一个表单字段，扩展过滤器的单值单元格也放得下。\n\n滑块必须有上下界，`min` / `max` 由配置提供：条件列的「输入扩展项」里写\n{\"min\":\"202001\",\"max\":\"203012\"}。这是数值区间框的必填项，条件字段设置在\n保存时会校验——像年月 202401 这种列，没有上下界的滑块是拖不出正确值的。",
+      "summaryZh": "数值区间输入，用于 `between` 条件。",
+      "sourceFile": "src/form/range/numberrange.field.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "type",
+          "type": "string",
+          "default": "'number-range'",
+          "description": "Property `type` (`string`) storing type (default: `'number-range'`).",
+          "descriptionZh": "属性 `type`（类型：`string`），用于存储或配置类型（默认值：`'number-range'`）。"
+        },
+        {
+          "name": "sliderMin",
+          "type": "number",
+          "description": "Gets the current slider min (`sliderMin: number`).",
+          "descriptionZh": "获取当前滑块最小值（`sliderMin: number`）。"
+        },
+        {
+          "name": "sliderMax",
+          "type": "number",
+          "description": "Gets the current slider max (`sliderMax: number`).",
+          "descriptionZh": "获取当前滑块最大值（`sliderMax: number`）。"
+        },
+        {
+          "name": "sliderStep",
+          "type": "number",
+          "description": "Gets the current slider step (`sliderStep: number`).",
+          "descriptionZh": "获取当前滑块步骤（`sliderStep: number`）。"
+        }
+      ]
+    },
+    {
+      "name": "RangeField",
+      "kind": "directive",
+      "summary": "区间输入字段的公共实现：对外只暴露一个 formControl，值为 `{from,to}`；\n对内维护 fromControl / toControl 两个子控件。\n\n这样一个列上的 between 条件只占一个表单控件名，不必像以前那样拆成\n“起始X >=” 和 “终止X <=” 两条件——它们的 name 都是列 id，会共用同一个\nFormControl，改一个另一个跟着变（见 dotos-7.0 #710）。",
+      "summaryZh": "区间输入字段的公共实现：对外只暴露一个 formControl，值为 `{from,to}`；",
+      "sourceFile": "src/form/range/range.field.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "fromControl",
+          "type": "any",
+          "default": "new FormControl()",
+          "description": "Property `fromControl` (`FormControl`) storing from control (default: `new FormControl()`).",
+          "descriptionZh": "属性 `fromControl`（类型：`FormControl`），用于存储或配置从表单控件（默认值：`new FormControl()`）。"
+        },
+        {
+          "name": "toControl",
+          "type": "any",
+          "default": "new FormControl()",
+          "description": "Property `toControl` (`FormControl`) storing to control (default: `new FormControl()`).",
+          "descriptionZh": "属性 `toControl`（类型：`FormControl`），用于存储或配置转换为表单控件（默认值：`new FormControl()`）。"
+        },
+        {
+          "name": "fromPlaceholder",
+          "type": "string",
+          "description": "Gets the current from placeholder (`fromPlaceholder: string`).",
+          "descriptionZh": "获取当前从占位提示（`fromPlaceholder: string`）。"
+        },
+        {
+          "name": "toPlaceholder",
+          "type": "string",
+          "description": "Gets the current to placeholder (`toPlaceholder: string`).",
+          "descriptionZh": "获取当前转换为占位提示（`toPlaceholder: string`）。"
+        },
+        {
+          "name": "empty",
+          "type": "any",
+          "description": "两端都为空时整个条件视为未设置，`empty` 决定 label 是否上浮。",
+          "descriptionZh": "两端都为空时整个条件视为未设置，`empty` 决定 label 是否上浮。"
+        },
+        {
+          "name": "displayText",
+          "type": "string",
+          "description": "Gets the current display text (`displayText: string`).\n展示文本，例如 “2024/01 ~ 2024/12”。",
+          "descriptionZh": "展示文本，例如 “2024/01 ~ 2024/12”。"
+        }
+      ]
+    },
+    {
+      "name": "RangeFieldModule",
+      "kind": "module",
+      "summary": "Angular module `RangeFieldModule` declaring and exporting range field module components, directives, pipes, and providers.",
+      "summaryZh": "Angular 模块 `RangeFieldModule`，声明并导出范围字段模块相关的组件、指令、管道与服务提供者。",
+      "sourceFile": "src/form/range/range.module.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "entryComponents",
+          "type": "any",
+          "default": "[DateRangeFieldComponent, NumberRangeFieldComponent]",
+          "description": "Property `entryComponents` (`any[]`) storing entry components.",
+          "descriptionZh": "属性 `entryComponents`（类型：`any[]`），用于存储或配置条目组件列表。"
+        }
+      ]
+    },
+    {
+      "name": "RangeValue",
+      "kind": "interface",
+      "summary": "区间条件（between）的值。两端都是可选的：只填一端时由调用方决定退化成\n`>=` 还是 `<=`，字段本身不做这种判断。",
+      "summaryZh": "区间条件（between）的值。两端都是可选的：只填一端时由调用方决定退化成",
+      "sourceFile": "src/form/range/range.field.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "from",
+          "type": "any",
+          "description": "Property `from` (`any`) storing from.",
+          "descriptionZh": "属性 `from`（类型：`any`），用于存储或配置从。"
+        },
+        {
+          "name": "to",
+          "type": "any",
+          "description": "Property `to` (`any`) storing to.",
+          "descriptionZh": "属性 `to`（类型：`any`），用于存储或配置转换为。"
+        }
+      ]
+    }
+  ],
+  "suggestedUsageSnippet": "import { DateRangeFieldComponent, RangeFieldModule } from '@dotos/dui/form/range';\n\n<date-range-field></date-range-field>"
+}

@@ -1,8 +1,16 @@
+/**
+ * @fileoverview Module `src/core/crypt/crypt.ts` providing crypt definitions and implementation.
+ * @zh 模块文件 `src/core/crypt/crypt.ts`，提供crypt相关的定义与实现。
+ */
+
 
 import {slice,map}  from 'lodash-es';
 
 /**
+ * Class `crypt` encapsulating crypt data structures and logic in `src/core/crypt`.
  * @dynamic
+
+ * @zh 类 `crypt`，封装 `src/core/crypt` 中的crypt数据结构与处理逻辑。
  */
 
 
@@ -14,6 +22,8 @@ export class crypt {
    * param str String value to arrify.
    * returnArray of numbers corresponding to the
    *     UCS character codes of each character in str.
+
+   * @zh 执行 `stringToByteArray`，用于字符串转换为Byte数组。
    */
   public static stringToByteArray(str: string): number[] {
     let p = 0;
@@ -37,6 +47,8 @@ export class crypt {
    * param bytes Array of numbers representing
    *     characters.
    * returnStringification of the array.
+
+   * @zh 执行 `byteArrayToString`，用于byte数组转换为字符串。
    */
   public static byteArrayToString(bytes: number[]): string {
     const CHUNK_SIZE = 8192;
@@ -63,6 +75,8 @@ export class crypt {
    * param array Array of numbers representing
    *     characters.
    * returnHex string.
+
+   * @zh 执行 `byteArrayToHex`，用于byte数组转换为十六进制颜色。
    */
   public static byteArrayToHex(array: number[]): string {
     return map(array,
@@ -77,6 +91,8 @@ export class crypt {
    * param hexString Hex string of 16-bit integers (two characters
    *     per integer).
    * returnintegers for the given string.
+
+   * @zh 执行 `hexToByteArray`，用于十六进制颜色转换为Byte数组。
    */
   public static hexToByteArray(hexString: string): number[] {
     if (hexString.length % 2 !== 0) {
@@ -94,6 +110,8 @@ export class crypt {
    * Converts a JS string to a UTF-8 "byte" array.
    * param str 16-bit unicode string.
    * returnUTF-8 byte array.
+
+   * @zh 执行 `stringToUtf8ByteArray`，用于字符串转换为Utf8Byte数组。
    */
   public static stringToUtf8ByteArray(str: string): number[] {
 
@@ -130,6 +148,8 @@ export class crypt {
    * Converts a UTF-8 byte array to JavaScript's 16-bit Unicode.
    * param bytes UTF-8 byte array.
    * return16-bit Unicode string.
+
+   * @zh 执行 `utf8ByteArrayToString`，用于utf8Byte数组转换为字符串。
    */
   public static utf8ByteArrayToString(bytes: Uint8Array | number[]): string {
 
@@ -170,6 +190,8 @@ export class crypt {
    * param bytes1 Byte array 1.
    * param bytes2 Byte array 2.
    * returnResulting XOR of the two byte arrays.
+
+   * @zh 执行 `xorByteArray`，用于X坐标器Byte数组。
    */
   public static xorByteArray(bytes1: Uint8Array | Int8Array | number[], bytes2: Uint8Array | Int8Array | number[]): number[] {
     if (bytes1.length !== bytes2.length) {

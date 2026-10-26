@@ -1,18 +1,35 @@
+/**
+ * @fileoverview Module `src/ux/editor/schema/nodes.ts` providing nodes definitions and implementation.
+ * @zh 模块文件 `src/ux/editor/schema/nodes.ts`，提供节点列表相关的定义与实现。
+ */
+
 import { DOMOutputSpec, Node as ProseMirrorNode, NodeSpec } from 'prosemirror-model';
 import * as sl from 'prosemirror-schema-list';
 import toStyleString from '../utils/toStyleString';
 
+/**
+ * Constant/variable `doc` defining doc in `src/ux/editor/schema`.
+ * @zh 常量/变量 `doc`，定义 `src/ux/editor/schema` 中的文档。
+ */
 const doc: NodeSpec = {
   content: 'block+',
 };
 
 // :: NodeSpec The text node.
+/**
+ * Constant/variable `text` defining text in `src/ux/editor/schema`.
+ * @zh 常量/变量 `text`，定义 `src/ux/editor/schema` 中的文本。
+ */
 const text: NodeSpec = {
   group: 'inline',
 };
 
 // :: NodeSpec A plain paragraph textblock. Represented in the DOM
 // as a `<p>` element.
+/**
+ * Constant/variable `paragraph` defining paragraph in `src/ux/editor/schema`.
+ * @zh 常量/变量 `paragraph`，定义 `src/ux/editor/schema` 中的paragraph。
+ */
 const paragraph: NodeSpec = {
   content: 'inline*',
   group: 'block',
@@ -25,7 +42,7 @@ const paragraph: NodeSpec = {
     {
       tag: 'p',
         //@ts-ignore
-      getAttrs(dom: HTMLElement): Record<string, any> {
+      getAttrs(dom: HTMLElement) {
         const { textAlign } = dom.style;
         const align = dom.getAttribute('align') || textAlign || null;
 
@@ -47,6 +64,10 @@ const paragraph: NodeSpec = {
 };
 
 // :: NodeSpec A blockquote (`<blockquote>`) wrapping one or more blocks.
+/**
+ * Constant/variable `blockquote` defining blockquote in `src/ux/editor/schema`.
+ * @zh 常量/变量 `blockquote`，定义 `src/ux/editor/schema` 中的blockquote。
+ */
 const blockquote: NodeSpec = {
   content: 'block+',
   group: 'block',
@@ -58,6 +79,10 @@ const blockquote: NodeSpec = {
 };
 
 // :: NodeSpec A horizontal rule (`<hr>`).
+/**
+ * Constant/variable `horizontalRule` defining horizontal rule in `src/ux/editor/schema`.
+ * @zh 常量/变量 `horizontalRule`，定义 `src/ux/editor/schema` 中的水平规则。
+ */
 const horizontalRule: NodeSpec = {
   group: 'block',
   parseDOM: [{ tag: 'hr' }],
@@ -69,6 +94,10 @@ const horizontalRule: NodeSpec = {
 // :: NodeSpec A heading textblock, with a `level` attribute that
 // should hold the number 1 to 6. Parsed and serialized as `<h1>` to
 // `<h6>` elements.
+/**
+ * Constant/variable `heading` defining heading in `src/ux/editor/schema`.
+ * @zh 常量/变量 `heading`，定义 `src/ux/editor/schema` 中的heading。
+ */
 const heading: NodeSpec = {
   attrs: {
     level: {
@@ -85,7 +114,7 @@ const heading: NodeSpec = {
     {
       tag: 'h1',
         //@ts-ignore
-      getAttrs(dom: HTMLElement): Record<string, any> {
+      getAttrs(dom: HTMLElement) {
         const { textAlign } = dom.style;
         const align = dom.getAttribute('align') || textAlign || null;
         return {
@@ -97,7 +126,7 @@ const heading: NodeSpec = {
     {
       tag: 'h2',
         //@ts-ignore
-      getAttrs(dom: HTMLElement): Record<string, any> {
+      getAttrs(dom: HTMLElement) {
         const { textAlign } = dom.style;
         const align = dom.getAttribute('align') || textAlign || null;
         return {
@@ -109,7 +138,7 @@ const heading: NodeSpec = {
     {
       tag: 'h3',
         //@ts-ignore
-      getAttrs(dom: HTMLElement): Record<string, any> {
+      getAttrs(dom: HTMLElement) {
         const { textAlign } = dom.style;
         const align = dom.getAttribute('align') || textAlign || null;
         return {
@@ -121,7 +150,7 @@ const heading: NodeSpec = {
     {
       tag: 'h4',
         //@ts-ignore
-      getAttrs(dom: HTMLElement): Record<string, any> {
+      getAttrs(dom: HTMLElement) {
         const { textAlign } = dom.style;
         const align = dom.getAttribute('align') || textAlign || null;
         return {
@@ -133,7 +162,7 @@ const heading: NodeSpec = {
     {
       tag: 'h5',
         //@ts-ignore
-      getAttrs(dom: HTMLElement): Record<string, any> {
+      getAttrs(dom: HTMLElement) {
         const { textAlign } = dom.style;
         const align = dom.getAttribute('align') || textAlign || null;
         return {
@@ -145,7 +174,7 @@ const heading: NodeSpec = {
     {
       tag: 'h6',
         //@ts-ignore
-      getAttrs(dom: HTMLElement): Record<string, any> {
+      getAttrs(dom: HTMLElement) {
         const { textAlign } = dom.style;
         const align = dom.getAttribute('align') || textAlign || null;
         return {
@@ -170,6 +199,10 @@ const heading: NodeSpec = {
 // :: NodeSpec A code listing. Disallows marks or non-text inline
 // nodes by default. Represented as a `<pre>` element with a
 // `<code>` element inside of it.
+/**
+ * Constant/variable `codeBlock` defining code block in `src/ux/editor/schema`.
+ * @zh 常量/变量 `codeBlock`，定义 `src/ux/editor/schema` 中的编码块。
+ */
 const codeBlock: NodeSpec = {
   content: 'text*',
   marks: '',
@@ -188,6 +221,10 @@ const codeBlock: NodeSpec = {
 };
 
 // :: NodeSpec A hard line break, represented in the DOM as `<br>`.
+/**
+ * Constant/variable `hardBreak` defining hard break in `src/ux/editor/schema`.
+ * @zh 常量/变量 `hardBreak`，定义 `src/ux/editor/schema` 中的hardBreak。
+ */
 const hardBreak: NodeSpec = {
   inline: true,
   group: 'inline',
@@ -201,6 +238,10 @@ const hardBreak: NodeSpec = {
 // :: NodeSpec An inline image (`<img>`) node. Supports `src`,
 // `alt`, and `href` attributes. The latter two default to the empty
 // string.
+/**
+ * Constant/variable `image` defining image in `src/ux/editor/schema`.
+ * @zh 常量/变量 `image`，定义 `src/ux/editor/schema` 中的图像。
+ */
 export const image: NodeSpec = {
   inline: true,
   attrs: {
@@ -215,7 +256,7 @@ export const image: NodeSpec = {
     {
       tag: 'img[src]',
       //@ts-ignore
-      getAttrs(dom: HTMLElement): Record<string, any> {
+      getAttrs(dom: HTMLElement) {
         return {
           src: dom.getAttribute('src'),
           title: dom.getAttribute('title'),
@@ -231,23 +272,39 @@ export const image: NodeSpec = {
   },
 };
 
+/**
+ * Constant/variable `listItem` defining list item in `src/ux/editor/schema`.
+ * @zh 常量/变量 `listItem`，定义 `src/ux/editor/schema` 中的列表条目。
+ */
 const listItem = {
   ...sl.listItem,
   content: 'paragraph block*',
 };
 
+/**
+ * Constant/variable `orderedList` defining ordered list in `src/ux/editor/schema`.
+ * @zh 常量/变量 `orderedList`，定义 `src/ux/editor/schema` 中的已顺序列表。
+ */
 const orderedList = {
   ...sl.orderedList,
   content: 'list_item+',
   group: 'block',
 };
 
+/**
+ * Constant/variable `bulletList` defining bullet list in `src/ux/editor/schema`.
+ * @zh 常量/变量 `bulletList`，定义 `src/ux/editor/schema` 中的bullet列表。
+ */
 const bulletList = {
   ...sl.bulletList,
   content: 'list_item+',
   group: 'block',
 };
 
+/**
+ * Constant/variable `nodes` defining nodes in `src/ux/editor/schema`.
+ * @zh 常量/变量 `nodes`，定义 `src/ux/editor/schema` 中的节点列表。
+ */
 export const nodes = {
   doc,
   text,

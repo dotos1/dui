@@ -4,52 +4,52 @@
     {
       "name": "AbstractPanel",
       "kind": "directive",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular directive `AbstractPanel` attaching abstract panel behavior to host DOM elements.",
+      "summaryZh": "Angular 指令 `AbstractPanel`，为宿主 DOM 元素附加Abstract面板行为。",
       "sourceFile": "src/container/layout/component/abstract.panel.ts",
       "inputs": [
         {
           "name": "config",
           "type": "any",
           "default": "{}",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `config` (`any`) configuring config (default: `{}`).",
+          "descriptionZh": "输入属性 `config`（类型：`any`），用于配置配置（默认值：`{}`）。"
         },
         {
           "name": "order",
           "type": "number | null",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input setter `order` updating order.",
+          "descriptionZh": "输入属性 `order` 的设置器，用于更新顺序。"
         },
         {
           "name": "size",
           "type": "number | null",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input setter `size` updating size.",
+          "descriptionZh": "输入属性 `size` 的设置器，用于更新尺寸。"
         },
         {
           "name": "minSize",
           "type": "number | null",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input setter `minSize` updating min size.",
+          "descriptionZh": "输入属性 `minSize` 的设置器，用于更新最小值尺寸。"
         },
         {
           "name": "maxSize",
           "type": "number | null",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input setter `maxSize` updating max size.",
+          "descriptionZh": "输入属性 `maxSize` 的设置器，用于更新最大值尺寸。"
         },
         {
           "name": "lockSize",
           "type": "boolean",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input setter `lockSize` updating lock size.",
+          "descriptionZh": "输入属性 `lockSize` 的设置器，用于更新锁定尺寸。"
         },
         {
           "name": "visible",
           "type": "boolean",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input setter `visible` updating visible.",
+          "descriptionZh": "输入属性 `visible` 的设置器，用于更新可见。"
         }
       ],
       "outputs": [],
@@ -63,8 +63,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `init` to handle init.",
+          "descriptionZh": "执行 `init`，用于初始化。"
         },
         {
           "name": "setStyleOrder",
@@ -75,8 +75,8 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `setStyleOrder` to handle set style order.",
+          "descriptionZh": "执行 `setStyleOrder`，用于集合样式顺序。"
         },
         {
           "name": "setStyleFlex",
@@ -103,22 +103,22 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `setStyleFlex` to handle set style flex.",
+          "descriptionZh": "执行 `setStyleFlex`，用于集合样式Flex。"
         },
         {
           "name": "lockEvents",
           "params": [],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `lockEvents` to handle lock events.",
+          "descriptionZh": "执行 `lockEvents`，用于锁定事件集合。"
         },
         {
           "name": "unlockEvents",
           "params": [],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `unlockEvents` to handle unlock events.",
+          "descriptionZh": "执行 `unlockEvents`，用于解锁事件集合。"
         },
         {
           "name": "collapse",
@@ -133,15 +133,15 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `collapse` to handle collapse.",
+          "descriptionZh": "执行 `collapse`，用于折叠。"
         },
         {
           "name": "expand",
           "params": [],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `expand` to handle expand.",
+          "descriptionZh": "执行 `expand`，用于展开。"
         },
         {
           "name": "add",
@@ -152,8 +152,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `add` to handle add.",
+          "descriptionZh": "执行 `add`，用于添加。"
         },
         {
           "name": "remove",
@@ -168,8 +168,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `remove` to handle remove.",
+          "descriptionZh": "执行 `remove`，用于移除。"
         },
         {
           "name": "havePanel",
@@ -180,66 +180,66 @@
             }
           ],
           "returnType": "boolean",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `havePanel` to handle have panel.",
+          "descriptionZh": "执行 `havePanel`，用于have面板。"
         }
       ],
       "properties": [
         {
           "name": "el",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `el` (`any`) storing el.",
+          "descriptionZh": "属性 `el`（类型：`any`），用于存储或配置DOM元素。"
         },
         {
           "name": "style",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `style` (`any`) storing style.",
+          "descriptionZh": "属性 `style`（类型：`any`），用于存储或配置样式。"
         },
         {
           "name": "order",
           "type": "number | null",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current order (`order: number | null`).",
+          "descriptionZh": "获取当前顺序（`order: number | null`）。"
         },
         {
           "name": "size",
           "type": "number | null",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current size (`size: number | null`).",
+          "descriptionZh": "获取当前尺寸（`size: number | null`）。"
         },
         {
           "name": "minSize",
           "type": "number | null",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current min size (`minSize: number | null`).",
+          "descriptionZh": "获取当前最小值尺寸（`minSize: number | null`）。"
         },
         {
           "name": "maxSize",
           "type": "number | null",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current max size (`maxSize: number | null`).",
+          "descriptionZh": "获取当前最大值尺寸（`maxSize: number | null`）。"
         },
         {
           "name": "lockSize",
           "type": "boolean",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current lock size (`lockSize: boolean`).",
+          "descriptionZh": "获取当前锁定尺寸（`lockSize: boolean`）。"
         },
         {
           "name": "visible",
           "type": "boolean",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current visible (`visible: boolean`).",
+          "descriptionZh": "获取当前可见（`visible: boolean`）。"
         }
       ]
     },
     {
       "name": "DuiLayoutModule",
       "kind": "module",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular module `DuiLayoutModule` declaring and exporting dui layout module components, directives, pipes, and providers.",
+      "summaryZh": "Angular 模块 `DuiLayoutModule`，声明并导出DUI布局模块相关的组件、指令、管道与服务提供者。",
       "sourceFile": "src/container/layout/layout.module.ts",
       "inputs": [],
       "outputs": [],
@@ -249,8 +249,8 @@
           "name": "dynamicComponents",
           "type": "any",
           "default": "[LayoutComponent,DuiPanelComponent]",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `dynamicComponents` (`any[]`) storing dynamic components (default: `[LayoutComponent,DuiPanelComponent]`).",
+          "descriptionZh": "属性 `dynamicComponents`（类型：`any[]`），用于存储或配置动态组件列表（默认值：`[LayoutComponent,DuiPanelComponent]`）。"
         }
       ]
     },
@@ -258,8 +258,8 @@
       "name": "DuiPanelComponent",
       "kind": "component",
       "selector": "dui-panel",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular component `DuiPanelComponent` (selector: 'dui-panel') providing dui panel component presentation and interaction in `src/container/layout/component`.",
+      "summaryZh": "Angular 组件 `DuiPanelComponent`（selector: 'dui-panel'），提供DUI面板组件的视图渲染与交互逻辑（位于 `src/container/layout/component`）。",
       "sourceFile": "src/container/layout/component/panel.component.ts",
       "inputs": [],
       "outputs": [],
@@ -269,96 +269,224 @@
     {
       "name": "getAreaMaxSize",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Executes `getAreaMaxSize` to handle get area max size.",
+      "summaryZh": "执行 `getAreaMaxSize`，用于获取区域最大值尺寸。",
       "sourceFile": "src/container/layout/utils.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "getAreaMaxSize",
+          "params": [
+            {
+              "name": "a",
+              "type": "IArea"
+            }
+          ],
+          "returnType": "null | number",
+          "description": "Executes `getAreaMaxSize` to handle get area max size.",
+          "descriptionZh": "执行 `getAreaMaxSize`，用于获取区域最大值尺寸。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "getAreaMinSize",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Executes `getAreaMinSize` to handle get area min size.",
+      "summaryZh": "执行 `getAreaMinSize`，用于获取区域最小值尺寸。",
       "sourceFile": "src/container/layout/utils.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "getAreaMinSize",
+          "params": [
+            {
+              "name": "a",
+              "type": "IArea"
+            }
+          ],
+          "returnType": "null | number",
+          "description": "Executes `getAreaMinSize` to handle get area min size.",
+          "descriptionZh": "执行 `getAreaMinSize`，用于获取区域最小值尺寸。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "getElementPixelSize",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Executes `getElementPixelSize` to handle get element pixel size.",
+      "summaryZh": "执行 `getElementPixelSize`，用于获取元素像素尺寸。",
       "sourceFile": "src/container/layout/utils.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "getElementPixelSize",
+          "params": [
+            {
+              "name": "elRef",
+              "type": "ElementRef"
+            },
+            {
+              "name": "direction",
+              "type": "'horizontal' | 'vertical'"
+            }
+          ],
+          "returnType": "number",
+          "description": "Executes `getElementPixelSize` to handle get element pixel size.",
+          "descriptionZh": "执行 `getElementPixelSize`，用于获取元素像素尺寸。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "getGutterSideAbsorptionCapacity",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Executes `getGutterSideAbsorptionCapacity` to handle get gutter side absorption capacity.",
+      "summaryZh": "执行 `getGutterSideAbsorptionCapacity`，用于获取分隔槽SideAbsorptionCapacity。",
       "sourceFile": "src/container/layout/utils.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "getGutterSideAbsorptionCapacity",
+          "params": [
+            {
+              "name": "unit",
+              "type": "'percent' | 'pixel'"
+            },
+            {
+              "name": "sideAreas",
+              "type": "Array<IAreaSnapshot>"
+            },
+            {
+              "name": "pixels",
+              "type": "number"
+            },
+            {
+              "name": "allAreasSizePixel",
+              "type": "number"
+            }
+          ],
+          "returnType": "ISplitSideAbsorptionCapacity",
+          "description": "Executes `getGutterSideAbsorptionCapacity` to handle get gutter side absorption capacity.",
+          "descriptionZh": "执行 `getGutterSideAbsorptionCapacity`，用于获取分隔槽SideAbsorptionCapacity。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "getInputboolean",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Executes `getInputboolean` to handle get inputboolean.",
+      "summaryZh": "执行 `getInputboolean`，用于获取Inputboolean。",
       "sourceFile": "src/container/layout/utils.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "getInputboolean",
+          "params": [
+            {
+              "name": "v",
+              "type": "any"
+            }
+          ],
+          "returnType": "boolean",
+          "description": "Executes `getInputboolean` to handle get inputboolean.",
+          "descriptionZh": "执行 `getInputboolean`，用于获取Inputboolean。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "getInputPositiveNumber",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Executes `getInputPositiveNumber` to handle get input positive number.",
+      "summaryZh": "执行 `getInputPositiveNumber`，用于获取输入属性Positive数字。",
       "sourceFile": "src/container/layout/utils.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "getInputPositiveNumber",
+          "params": [
+            {
+              "name": "v",
+              "type": "any"
+            },
+            {
+              "name": "defaultValue",
+              "type": "T"
+            }
+          ],
+          "returnType": "number | T",
+          "description": "Executes `getInputPositiveNumber` to handle get input positive number.",
+          "descriptionZh": "执行 `getInputPositiveNumber`，用于获取输入属性Positive数字。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "getKeyboardEndpoint",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Executes `getKeyboardEndpoint` to handle get keyboard endpoint.",
+      "summaryZh": "执行 `getKeyboardEndpoint`，用于获取键盘Endpoint。",
       "sourceFile": "src/container/layout/utils.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "getKeyboardEndpoint",
+          "params": [
+            {
+              "name": "event",
+              "type": "KeyboardEvent"
+            },
+            {
+              "name": "direction",
+              "type": "'horizontal' | 'vertical'"
+            }
+          ],
+          "returnType": "IPoint | null",
+          "description": "Executes `getKeyboardEndpoint` to handle get keyboard endpoint.",
+          "descriptionZh": "执行 `getKeyboardEndpoint`，用于获取键盘Endpoint。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "getPointFromEvent",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Executes `getPointFromEvent` to handle get point from event.",
+      "summaryZh": "执行 `getPointFromEvent`，用于获取坐标点从事件。",
       "sourceFile": "src/container/layout/utils.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "getPointFromEvent",
+          "params": [
+            {
+              "name": "event",
+              "type": "MouseEvent | TouchEvent"
+            }
+          ],
+          "returnType": "IPoint",
+          "description": "Executes `getPointFromEvent` to handle get point from event.",
+          "descriptionZh": "执行 `getPointFromEvent`，用于获取坐标点从事件。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "IOutputAreaSizes",
       "kind": "interface",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Interface `IOutputAreaSizes` defining the contract and properties for i output area sizes.",
+      "summaryZh": "接口 `IOutputAreaSizes`，定义I输出事件区域尺寸列表的数据结构契约与属性规范。",
       "sourceFile": "src/container/layout/interface.ts",
       "inputs": [],
       "outputs": [],
@@ -368,23 +496,77 @@
     {
       "name": "IOutputData",
       "kind": "interface",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Interface `IOutputData` defining the contract and properties for i output data.",
+      "summaryZh": "接口 `IOutputData`，定义I输出事件数据的数据结构契约与属性规范。",
       "sourceFile": "src/container/layout/interface.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
+      "properties": [
+        {
+          "name": "gutterNum",
+          "type": "number",
+          "description": "Property `gutterNum` (`number`) storing gutter num.",
+          "descriptionZh": "属性 `gutterNum`（类型：`number`），用于存储或配置分隔槽数值。"
+        },
+        {
+          "name": "sizes",
+          "type": "IOutputAreaSizes",
+          "description": "Property `sizes` (`IOutputAreaSizes`) storing sizes.",
+          "descriptionZh": "属性 `sizes`（类型：`IOutputAreaSizes`），用于存储或配置尺寸列表。"
+        }
+      ]
+    },
+    {
+      "name": "isTouchEvent",
+      "kind": "function",
+      "summary": "Whether the pointer event came from a touch screen.",
+      "summaryZh": "这个指针事件是不是来自触摸屏。\n\n<p>用 changedTouches 特征判断而不是 {@code instanceof TouchEvent} ——\n桌面 Firefox 上没有 TouchEvent 这个全局构造函数，instanceof 会直接抛错。\n与 {@link getPointFromEvent} 的判断口径保持一致。",
+      "sourceFile": "src/container/layout/utils.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "isTouchEvent",
+          "params": [
+            {
+              "name": "event",
+              "type": "MouseEvent | TouchEvent"
+            }
+          ],
+          "returnType": "boolean",
+          "description": "Whether the pointer event came from a touch screen.",
+          "descriptionZh": "这个指针事件是不是来自触摸屏。\n\n<p>用 changedTouches 特征判断而不是 {@code instanceof TouchEvent} ——\n桌面 Firefox 上没有 TouchEvent 这个全局构造函数，instanceof 会直接抛错。\n与 {@link getPointFromEvent} 的判断口径保持一致。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "isUserSizesValid",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Executes `isUserSizesValid` to handle is user sizes valid.",
+      "summaryZh": "执行 `isUserSizesValid`，用于是否为用户尺寸列表有效。",
       "sourceFile": "src/container/layout/utils.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "isUserSizesValid",
+          "params": [
+            {
+              "name": "unit",
+              "type": "'percent' | 'pixel'"
+            },
+            {
+              "name": "sizes",
+              "type": "Array<number | null>"
+            }
+          ],
+          "returnType": "boolean",
+          "description": "Executes `isUserSizesValid` to handle is user sizes valid.",
+          "descriptionZh": "执行 `isUserSizesValid`，用于是否为用户尺寸列表有效。"
+        }
+      ],
       "properties": []
     },
     {
@@ -392,108 +574,108 @@
       "kind": "component",
       "selector": "dui-layout",
       "summary": "angular-split\n\n\n PERCENT MODE ([unit]=\"'percent'\")\n ___________________________________________________________________________________________\n|       A       [g1]       B       [g2]       C       [g3]       D       [g4]       E       |\n|-------------------------------------------------------------------------------------------|\n|       20                 30                 20                 15                 15      | <-- [size]=\"x\"\n|               10px               10px               10px               10px               | <-- [gutterSize]=\"10\"\n|calc(20% - 8px)    calc(30% - 12px)   calc(20% - 8px)    calc(15% - 6px)    calc(15% - 6px)| <-- CSS flex-basis property (with flex-grow&shrink at 0)\n|     152px              228px              152px              114px              114px     | <-- el.getBoundingClientRect().width\n|___________________________________________________________________________________________|\n                                                                                800px         <-- el.getBoundingClientRect().width\n flex-basis = calc( { area.size }% - { area.size/100 * nbGutter*gutterSize }px );\n\n\n PIXEL MODE ([unit]=\"'pixel'\")\n ___________________________________________________________________________________________\n|       A       [g1]       B       [g2]       C       [g3]       D       [g4]       E       |\n|-------------------------------------------------------------------------------------------|\n|      100                250                 *                 150                100      | <-- [size]=\"y\"\n|               10px               10px               10px               10px               | <-- [gutterSize]=\"10\"\n|   0 0 100px          0 0 250px           1 1 auto          0 0 150px          0 0 100px   | <-- CSS flex property (flex-grow/flex-shrink/flex-basis)\n|     100px              250px              200px              150px              100px     | <-- el.getBoundingClientRect().width\n|___________________________________________________________________________________________|\n                                                                                800px         <-- el.getBoundingClientRect().width",
-      "summaryZh": null,
+      "summaryZh": "Angular 组件 `LayoutComponent`（selector: 'dui-layout'），提供布局组件的视图渲染与交互逻辑（位于 `src/container/layout/component`）。",
       "sourceFile": "src/container/layout/component/layout.component.ts",
       "inputs": [
         {
           "name": "config",
           "type": "any",
           "default": "{}",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `config` (`any`) configuring config (default: `{}`).",
+          "descriptionZh": "输入属性 `config`（类型：`any`），用于配置配置（默认值：`{}`）。"
         },
         {
           "name": "gutterClickDeltaPx",
           "type": "any",
           "default": "2",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `gutterClickDeltaPx` (`number`) configuring gutter click delta px (default: `2`).",
+          "descriptionZh": "输入属性 `gutterClickDeltaPx`（类型：`number`），用于配置分隔槽点击增量像素（默认值：`2`）。"
         },
         {
           "name": "gutterAriaLabel",
           "type": "string",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `gutterAriaLabel` (`string`) configuring gutter aria label.",
+          "descriptionZh": "输入属性 `gutterAriaLabel`（类型：`string`），用于配置分隔槽Aria标签。"
         },
         {
           "name": "direction",
           "type": "'horizontal' | 'vertical'",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input setter `direction` updating direction.",
+          "descriptionZh": "输入属性 `direction` 的设置器，用于更新方向。"
         },
         {
           "name": "unit",
           "type": "'percent' | 'pixel'",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input setter `unit` updating unit.",
+          "descriptionZh": "输入属性 `unit` 的设置器，用于更新unit。"
         },
         {
           "name": "gutterSize",
           "type": "number | null",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input setter `gutterSize` updating gutter size.",
+          "descriptionZh": "输入属性 `gutterSize` 的设置器，用于更新分隔槽尺寸。"
         },
         {
           "name": "gutterStep",
           "type": "number",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input setter `gutterStep` updating gutter step.",
+          "descriptionZh": "输入属性 `gutterStep` 的设置器，用于更新分隔槽步骤。"
         },
         {
           "name": "restrictMove",
           "type": "boolean",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input setter `restrictMove` updating restrict move.",
+          "descriptionZh": "输入属性 `restrictMove` 的设置器，用于更新restrict移动。"
         },
         {
           "name": "useTransition",
           "type": "boolean",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input setter `useTransition` updating use transition.",
+          "descriptionZh": "输入属性 `useTransition` 的设置器，用于更新使用过渡动画。"
         },
         {
           "name": "disable",
           "type": "boolean",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input setter `disable` updating disable.",
+          "descriptionZh": "输入属性 `disable` 的设置器，用于更新禁用。"
         },
         {
           "name": "dir",
           "type": "'ltr' | 'rtl'",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input setter `dir` updating dir.",
+          "descriptionZh": "输入属性 `dir` 的设置器，用于更新目录。"
         },
         {
           "name": "gutterDblClickDuration",
           "type": "number",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input setter `gutterDblClickDuration` updating gutter dbl click duration.",
+          "descriptionZh": "输入属性 `gutterDblClickDuration` 的设置器，用于更新分隔槽Dbl点击持续时间。"
         }
       ],
       "outputs": [
         {
           "name": "dragStart",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Output event emitter `dragStart` (`EventEmitter`) firing when drag start occurs.",
+          "descriptionZh": "输出事件 `dragStart`（类型：`EventEmitter`），当触发拖拽开始时向外发出事件。"
         },
         {
           "name": "dragEnd",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Output event emitter `dragEnd` (`EventEmitter`) firing when drag end occurs.",
+          "descriptionZh": "输出事件 `dragEnd`（类型：`EventEmitter`），当触发拖拽结束时向外发出事件。"
         },
         {
           "name": "gutterClick",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Output event emitter `gutterClick` (`EventEmitter`) firing when gutter click occurs.",
+          "descriptionZh": "输出事件 `gutterClick`（类型：`EventEmitter`），当触发分隔槽点击时向外发出事件。"
         },
         {
           "name": "gutterDblClick",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Output event emitter `gutterDblClick` (`EventEmitter`) firing when gutter dbl click occurs.",
+          "descriptionZh": "输出事件 `gutterDblClick`（类型：`EventEmitter`），当触发分隔槽Dbl点击时向外发出事件。"
         }
       ],
       "methods": [
@@ -506,8 +688,8 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `addArea` to handle add area.",
+          "descriptionZh": "执行 `addArea`，用于添加区域。"
         },
         {
           "name": "removeArea",
@@ -518,8 +700,8 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `removeArea` to handle remove area.",
+          "descriptionZh": "执行 `removeArea`，用于移除区域。"
         },
         {
           "name": "updateArea",
@@ -538,8 +720,8 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `updateArea` to handle update area.",
+          "descriptionZh": "执行 `updateArea`，用于更新区域。"
         },
         {
           "name": "showArea",
@@ -550,8 +732,8 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `showArea` to handle show area.",
+          "descriptionZh": "执行 `showArea`，用于显示区域。"
         },
         {
           "name": "hideArea",
@@ -562,15 +744,15 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `hideArea` to handle hide area.",
+          "descriptionZh": "执行 `hideArea`，用于隐藏区域。"
         },
         {
           "name": "getVisibleAreaSizes",
           "params": [],
           "returnType": "IOutputAreaSizes",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `getVisibleAreaSizes` to handle get visible area sizes.",
+          "descriptionZh": "执行 `getVisibleAreaSizes`，用于获取可见区域尺寸列表。"
         },
         {
           "name": "setVisibleAreaSizes",
@@ -581,8 +763,8 @@
             }
           ],
           "returnType": "boolean",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `setVisibleAreaSizes` to handle set visible area sizes.",
+          "descriptionZh": "执行 `setVisibleAreaSizes`，用于集合可见区域尺寸列表。"
         },
         {
           "name": "clickGutter",
@@ -597,8 +779,8 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `clickGutter` to handle click gutter.",
+          "descriptionZh": "执行 `clickGutter`，用于点击分隔槽。"
         },
         {
           "name": "startKeyboardDrag",
@@ -617,8 +799,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `startKeyboardDrag` to handle start keyboard drag.",
+          "descriptionZh": "执行 `startKeyboardDrag`，用于开始键盘拖拽。"
         },
         {
           "name": "startMouseDrag",
@@ -637,8 +819,8 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `startMouseDrag` to handle start mouse drag.",
+          "descriptionZh": "执行 `startMouseDrag`，用于开始鼠标拖拽。"
         },
         {
           "name": "notify",
@@ -653,8 +835,8 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `notify` to handle notify.",
+          "descriptionZh": "执行 `notify`，用于通知。"
         },
         {
           "name": "collapseArea",
@@ -673,8 +855,8 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `collapseArea` to handle collapse area.",
+          "descriptionZh": "执行 `collapseArea`，用于折叠区域。"
         },
         {
           "name": "expandArea",
@@ -685,8 +867,8 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `expandArea` to handle expand area.",
+          "descriptionZh": "执行 `expandArea`，用于展开区域。"
         },
         {
           "name": "getAriaAreaSizeText",
@@ -697,8 +879,8 @@
             }
           ],
           "returnType": "string",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `getAriaAreaSizeText` to handle get aria area size text.",
+          "descriptionZh": "执行 `getAriaAreaSizeText`，用于获取Aria区域尺寸文本。"
         },
         {
           "name": "add",
@@ -709,8 +891,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `add` to handle add.",
+          "descriptionZh": "执行 `add`，用于添加。"
         },
         {
           "name": "remove",
@@ -725,8 +907,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `remove` to handle remove.",
+          "descriptionZh": "执行 `remove`，用于移除。"
         },
         {
           "name": "havePanel",
@@ -737,147 +919,168 @@
             }
           ],
           "returnType": "boolean",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `havePanel` to handle have panel.",
+          "descriptionZh": "执行 `havePanel`，用于have面板。"
         }
       ],
       "properties": [
         {
           "name": "el",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `el` (`any`) storing el.",
+          "descriptionZh": "属性 `el`（类型：`any`），用于存储或配置DOM元素。"
         },
         {
           "name": "direction",
           "type": "'horizontal' | 'vertical'",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current direction (`direction: 'horizontal' | 'vertical'`).",
+          "descriptionZh": "获取当前方向（`direction: 'horizontal' | 'vertical'`）。"
         },
         {
           "name": "unit",
           "type": "'percent' | 'pixel'",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current unit (`unit: 'percent' | 'pixel'`).",
+          "descriptionZh": "获取当前unit（`unit: 'percent' | 'pixel'`）。"
         },
         {
           "name": "gutterSize",
           "type": "number | null",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current gutter size (`gutterSize: number | null`).",
+          "descriptionZh": "获取当前分隔槽尺寸（`gutterSize: number | null`）。"
         },
         {
           "name": "gutterStep",
           "type": "number",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current gutter step (`gutterStep: number`).",
+          "descriptionZh": "获取当前分隔槽步骤（`gutterStep: number`）。"
         },
         {
           "name": "restrictMove",
           "type": "boolean",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current restrict move (`restrictMove: boolean`).",
+          "descriptionZh": "获取当前restrict移动（`restrictMove: boolean`）。"
         },
         {
           "name": "useTransition",
           "type": "boolean",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current use transition (`useTransition: boolean`).",
+          "descriptionZh": "获取当前使用过渡动画（`useTransition: boolean`）。"
         },
         {
           "name": "disable",
           "type": "boolean",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current disable (`disable: boolean`).",
+          "descriptionZh": "获取当前禁用（`disable: boolean`）。"
         },
         {
           "name": "dir",
           "type": "'ltr' | 'rtl'",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current dir (`dir: 'ltr' | 'rtl'`).",
+          "descriptionZh": "获取当前目录（`dir: 'ltr' | 'rtl'`）。"
         },
         {
           "name": "gutterDblClickDuration",
           "type": "number",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current gutter dbl click duration (`gutterDblClickDuration: number`).",
+          "descriptionZh": "获取当前分隔槽Dbl点击持续时间（`gutterDblClickDuration: number`）。"
         },
         {
           "name": "dragProgress$",
           "type": "Observable<IOutputData>",
           "default": "this.dragProgressSubject.asObservable()",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `dragProgress$` (`Observable<IOutputData>`) storing drag progress (default: `this.dragProgressSubject.asObservable()`).",
+          "descriptionZh": "属性 `dragProgress$`（类型：`Observable<IOutputData>`），用于存储或配置拖拽进度条（默认值：`this.dragProgressSubject.asObservable()`）。"
         },
         {
           "name": "displayedAreas",
           "type": "Array<IArea>",
           "default": "[]",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `displayedAreas` (`Array<IArea>`) storing displayed areas (default: `[]`).",
+          "descriptionZh": "属性 `displayedAreas`（类型：`Array<IArea>`），用于存储或配置已展示区域集合（默认值：`[]`）。"
         }
       ]
     },
     {
       "name": "pointDeltaEquals",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Executes `pointDeltaEquals` to handle point delta equals.",
+      "summaryZh": "执行 `pointDeltaEquals`，用于坐标点增量相等比较。",
       "sourceFile": "src/container/layout/utils.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "pointDeltaEquals",
+          "params": [
+            {
+              "name": "lhs",
+              "type": "IPoint"
+            },
+            {
+              "name": "rhs",
+              "type": "IPoint"
+            },
+            {
+              "name": "deltaPx",
+              "type": "number"
+            }
+          ],
+          "returnType": "any",
+          "description": "Executes `pointDeltaEquals` to handle point delta equals.",
+          "descriptionZh": "执行 `pointDeltaEquals`，用于坐标点增量相等比较。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "SplitAreaDirective",
       "kind": "directive",
       "selector": "dui-split-area, [dui-split-area]",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular directive `SplitAreaDirective` (selector: 'dui-split-area, [dui-split-area]') attaching split area directive behavior to host DOM elements.",
+      "summaryZh": "Angular 指令 `SplitAreaDirective`（selector: 'dui-split-area, [dui-split-area]'），为宿主 DOM 元素附加分割面板区域指令行为。",
       "sourceFile": "src/container/layout/directive/split-area.directive.ts",
       "inputs": [
         {
           "name": "id",
           "type": "string",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input setter `id` updating id.",
+          "descriptionZh": "输入属性 `id` 的设置器，用于更新唯一标识。"
         },
         {
           "name": "order",
           "type": "number | null",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input setter `order` updating order.",
+          "descriptionZh": "输入属性 `order` 的设置器，用于更新顺序。"
         },
         {
           "name": "size",
           "type": "number | null",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input setter `size` updating size.",
+          "descriptionZh": "输入属性 `size` 的设置器，用于更新尺寸。"
         },
         {
           "name": "minSize",
           "type": "number | null",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input setter `minSize` updating min size.",
+          "descriptionZh": "输入属性 `minSize` 的设置器，用于更新最小值尺寸。"
         },
         {
           "name": "maxSize",
           "type": "number | null",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input setter `maxSize` updating max size.",
+          "descriptionZh": "输入属性 `maxSize` 的设置器，用于更新最大值尺寸。"
         },
         {
           "name": "lockSize",
           "type": "boolean",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input setter `lockSize` updating lock size.",
+          "descriptionZh": "输入属性 `lockSize` 的设置器，用于更新锁定尺寸。"
         },
         {
           "name": "visible",
           "type": "boolean",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input setter `visible` updating visible.",
+          "descriptionZh": "输入属性 `visible` 的设置器，用于更新可见。"
         }
       ],
       "outputs": [],
@@ -891,8 +1094,8 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `setStyleOrder` to handle set style order.",
+          "descriptionZh": "执行 `setStyleOrder`，用于集合样式顺序。"
         },
         {
           "name": "setStyleFlex",
@@ -919,22 +1122,22 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `setStyleFlex` to handle set style flex.",
+          "descriptionZh": "执行 `setStyleFlex`，用于集合样式Flex。"
         },
         {
           "name": "lockEvents",
           "params": [],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `lockEvents` to handle lock events.",
+          "descriptionZh": "执行 `lockEvents`，用于锁定事件集合。"
         },
         {
           "name": "unlockEvents",
           "params": [],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `unlockEvents` to handle unlock events.",
+          "descriptionZh": "执行 `unlockEvents`，用于解锁事件集合。"
         },
         {
           "name": "collapse",
@@ -949,71 +1152,88 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `collapse` to handle collapse.",
+          "descriptionZh": "执行 `collapse`，用于折叠。"
         },
         {
           "name": "expand",
           "params": [],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `expand` to handle expand.",
+          "descriptionZh": "执行 `expand`，用于展开。"
         }
       ],
       "properties": [
         {
           "name": "id",
           "type": "string",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current id (`id: string`).",
+          "descriptionZh": "获取当前唯一标识（`id: string`）。"
         },
         {
           "name": "order",
           "type": "number | null",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current order (`order: number | null`).",
+          "descriptionZh": "获取当前顺序（`order: number | null`）。"
         },
         {
           "name": "size",
           "type": "number | null",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current size (`size: number | null`).",
+          "descriptionZh": "获取当前尺寸（`size: number | null`）。"
         },
         {
           "name": "minSize",
           "type": "number | null",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current min size (`minSize: number | null`).",
+          "descriptionZh": "获取当前最小值尺寸（`minSize: number | null`）。"
         },
         {
           "name": "maxSize",
           "type": "number | null",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current max size (`maxSize: number | null`).",
+          "descriptionZh": "获取当前最大值尺寸（`maxSize: number | null`）。"
         },
         {
           "name": "lockSize",
           "type": "boolean",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current lock size (`lockSize: boolean`).",
+          "descriptionZh": "获取当前锁定尺寸（`lockSize: boolean`）。"
         },
         {
           "name": "visible",
           "type": "boolean",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current visible (`visible: boolean`).",
+          "descriptionZh": "获取当前可见（`visible: boolean`）。"
         }
       ]
     },
     {
       "name": "updateAreaSize",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Executes `updateAreaSize` to handle update area size.",
+      "summaryZh": "执行 `updateAreaSize`，用于更新区域尺寸。",
       "sourceFile": "src/container/layout/utils.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "updateAreaSize",
+          "params": [
+            {
+              "name": "unit",
+              "type": "'percent' | 'pixel'"
+            },
+            {
+              "name": "item",
+              "type": "IAreaAbsorptionCapacity"
+            }
+          ],
+          "returnType": "any",
+          "description": "Executes `updateAreaSize` to handle update area size.",
+          "descriptionZh": "执行 `updateAreaSize`，用于更新区域尺寸。"
+        }
+      ],
       "properties": []
     }
   ],

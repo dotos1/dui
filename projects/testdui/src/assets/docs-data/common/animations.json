@@ -4,8 +4,8 @@
     {
       "name": "AnimationsModule",
       "kind": "module",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular module `AnimationsModule` declaring and exporting animations module components, directives, pipes, and providers.",
+      "summaryZh": "Angular 模块 `AnimationsModule`，声明并导出动画模块相关的组件、指令、管道与服务提供者。",
       "sourceFile": "src/common/animations/animations.module.ts",
       "inputs": [],
       "outputs": [],
@@ -15,8 +15,8 @@
     {
       "name": "BounceAnimation",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular animation trigger `BounceAnimation` defining state transitions for bounce animation.",
+      "summaryZh": "Angular 动画触发器 `BounceAnimation`，定义Bounce动画的状态过渡动画。",
       "sourceFile": "src/common/animations/bounce/bounce.animation.ts",
       "inputs": [],
       "outputs": [],
@@ -26,8 +26,8 @@
     {
       "name": "CollapseAnimation",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular animation trigger `CollapseAnimation` defining state transitions for collapse animation.",
+      "summaryZh": "Angular 动画触发器 `CollapseAnimation`，定义折叠动画的状态过渡动画。",
       "sourceFile": "src/common/animations/collapse/collapse.animation.ts",
       "inputs": [],
       "outputs": [],
@@ -37,8 +37,8 @@
     {
       "name": "duiAnimations",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular animation trigger `duiAnimations` defining state transitions for dui animations.",
+      "summaryZh": "Angular 动画触发器 `duiAnimations`，定义DUI动画的状态过渡动画。",
       "sourceFile": "src/common/animations/animations.ts",
       "inputs": [],
       "outputs": [],
@@ -48,8 +48,8 @@
     {
       "name": "FadeInOutAnimation",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular animation trigger `FadeInOutAnimation` defining state transitions for fade in out animation.",
+      "summaryZh": "Angular 动画触发器 `FadeInOutAnimation`，定义Fade在输出动画的状态过渡动画。",
       "sourceFile": "src/common/animations/fade/fadeInOut.animation.ts",
       "inputs": [],
       "outputs": [],
@@ -59,8 +59,8 @@
     {
       "name": "FlashAnimation",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular animation trigger `FlashAnimation` defining state transitions for flash animation.",
+      "summaryZh": "Angular 动画触发器 `FlashAnimation`，定义Flash动画的状态过渡动画。",
       "sourceFile": "src/common/animations/flash/flash.animation.ts",
       "inputs": [],
       "outputs": [],
@@ -70,8 +70,8 @@
     {
       "name": "HeadshakeAnimation",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular animation trigger `HeadshakeAnimation` defining state transitions for headshake animation.",
+      "summaryZh": "Angular 动画触发器 `HeadshakeAnimation`，定义Headshake动画的状态过渡动画。",
       "sourceFile": "src/common/animations/headshake/headshake.animation.ts",
       "inputs": [],
       "outputs": [],
@@ -81,41 +81,86 @@
     {
       "name": "IAnimationOptions",
       "kind": "interface",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Interface `IAnimationOptions` defining the contract and properties for i animation options.",
+      "summaryZh": "接口 `IAnimationOptions`，定义I动画配置选项的数据结构契约与属性规范。",
       "sourceFile": "src/common/animations/common/interfaces.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
-      "properties": []
+      "properties": [
+        {
+          "name": "anchor",
+          "type": "string",
+          "description": "Property `anchor` (`string`) storing anchor.",
+          "descriptionZh": "属性 `anchor`（类型：`string`），用于存储或配置锚点。"
+        },
+        {
+          "name": "duration",
+          "type": "number",
+          "description": "Property `duration` (`number`) storing duration.",
+          "descriptionZh": "属性 `duration`（类型：`number`），用于存储或配置持续时间。"
+        },
+        {
+          "name": "delay",
+          "type": "number",
+          "description": "Property `delay` (`number`) storing delay.",
+          "descriptionZh": "属性 `delay`（类型：`number`），用于存储或配置延迟。"
+        }
+      ]
     },
     {
       "name": "ICollapseAnimation",
       "kind": "interface",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Interface `ICollapseAnimation` defining the contract and properties for i collapse animation.",
+      "summaryZh": "接口 `ICollapseAnimation`，定义I折叠动画的数据结构契约与属性规范。",
       "sourceFile": "src/common/animations/collapse/collapse.animation.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
-      "properties": []
+      "properties": [
+        {
+          "name": "easeOnClose",
+          "type": "string",
+          "description": "Property `easeOnClose` (`string`) storing ease on close.",
+          "descriptionZh": "属性 `easeOnClose`（类型：`string`），用于存储或配置ease当关闭。"
+        },
+        {
+          "name": "easeOnOpen",
+          "type": "string",
+          "description": "Property `easeOnOpen` (`string`) storing ease on open.",
+          "descriptionZh": "属性 `easeOnOpen`（类型：`string`），用于存储或配置ease当打开。"
+        }
+      ]
     },
     {
       "name": "IRotateAnimation",
       "kind": "interface",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Interface `IRotateAnimation` defining the contract and properties for i rotate animation.",
+      "summaryZh": "接口 `IRotateAnimation`，定义I旋转动画的数据结构契约与属性规范。",
       "sourceFile": "src/common/animations/rotate/rotate.animation.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
-      "properties": []
+      "properties": [
+        {
+          "name": "degrees",
+          "type": "number",
+          "description": "Property `degrees` (`number`) storing degrees.",
+          "descriptionZh": "属性 `degrees`（类型：`number`），用于存储或配置度数。"
+        },
+        {
+          "name": "ease",
+          "type": "string",
+          "description": "Property `ease` (`string`) storing ease.",
+          "descriptionZh": "属性 `ease`（类型：`string`），用于存储或配置ease。"
+        }
+      ]
     },
     {
       "name": "JelloAnimation",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular animation trigger `JelloAnimation` defining state transitions for jello animation.",
+      "summaryZh": "Angular 动画触发器 `JelloAnimation`，定义Jello动画的状态过渡动画。",
       "sourceFile": "src/common/animations/jello/jello.animation.ts",
       "inputs": [],
       "outputs": [],
@@ -125,8 +170,8 @@
     {
       "name": "PulseAnimation",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular animation trigger `PulseAnimation` defining state transitions for pulse animation.",
+      "summaryZh": "Angular 动画触发器 `PulseAnimation`，定义Pulse动画的状态过渡动画。",
       "sourceFile": "src/common/animations/pulse/pulse.animation.ts",
       "inputs": [],
       "outputs": [],
@@ -136,8 +181,8 @@
     {
       "name": "RotateAnimation",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular animation trigger `RotateAnimation` defining state transitions for rotate animation.",
+      "summaryZh": "Angular 动画触发器 `RotateAnimation`，定义旋转动画的状态过渡动画。",
       "sourceFile": "src/common/animations/rotate/rotate.animation.ts",
       "inputs": [],
       "outputs": [],
@@ -164,7 +209,7 @@
           "alias": "duiToggle",
           "type": "boolean",
           "description": "duiToggle: boolean\nToggles element, hides if its 'true', shows if its 'false'.",
-          "descriptionZh": null
+          "descriptionZh": "输入属性 `state` 的设置器，用于更新状态。"
         }
       ],
       "outputs": [],
@@ -174,14 +219,14 @@
           "params": [],
           "returnType": "void",
           "description": "Hides element: sets \"display:[default]\" so animation is shown,\nstarts animation and adds \"display:'none'\" style at the end.",
-          "descriptionZh": null
+          "descriptionZh": "执行 `hide`，用于隐藏。"
         },
         {
           "name": "show",
           "params": [],
           "returnType": "void",
           "description": "Shows element: sets \"display:[default]\" so animation is shown,\nstarts animation and adds \"overflow:[default]\" style again at the end.",
-          "descriptionZh": null
+          "descriptionZh": "执行 `show`，用于显示。"
         }
       ],
       "properties": [
@@ -189,13 +234,13 @@
           "name": "ariaExpandedBinding",
           "type": "boolean",
           "description": "Binds native 'aria-expanded' attribute.",
-          "descriptionZh": null
+          "descriptionZh": "宿主绑定读取器 `ariaExpandedBinding`（绑定至 `attr.aria-expanded`），计算并返回aria已展开绑定。"
         },
         {
           "name": "ariaHiddenBinding",
           "type": "boolean",
           "description": "Binds native 'aria-hidden' attribute.",
-          "descriptionZh": null
+          "descriptionZh": "宿主绑定读取器 `ariaHiddenBinding`（绑定至 `attr.aria-hidden`），计算并返回aria隐藏绑定。"
         }
       ]
     }

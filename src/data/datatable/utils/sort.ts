@@ -1,8 +1,20 @@
+/**
+ * @fileoverview Module `src/data/datatable/utils/sort.ts` providing sort definitions and implementation.
+ * @zh 模块文件 `src/data/datatable/utils/sort.ts`，提供排序相关的定义与实现。
+ */
+
 import { SortType } from '../types/sort.type';
 import { SortDirection } from '../types/sort-direction.type';
 import { SortPropDir } from '../types/sort-prop-dir.type';
 import { getterForProp } from './column-prop-getters';
 
+/**
+ * Executes `nextSortDir` to handle next sort dir.
+ * @zh 执行 `nextSortDir`，用于下一个排序目录。
+ * @param sortType - sort type parameter (`SortType`) / 排序类型参数（`SortType`）
+ * @param current - current parameter (`SortDirection`) / 当前参数（`SortDirection`）
+ * @returns Result of type `SortDirection | undefined` / 类型为 `SortDirection | undefined` 的返回值
+ */
 export function nextSortDir(sortType: SortType, current: SortDirection): SortDirection | undefined {
   if (sortType === SortType.single) {
     if (current === SortDirection.asc) {
@@ -24,7 +36,14 @@ export function nextSortDir(sortType: SortType, current: SortDirection): SortDir
 }
 
 
-export function orderByComparator(a: any, b: any): number {
+/**
+ * Executes `orderByComparator` to handle order by comparator.
+ * @zh 执行 `orderByComparator`，用于顺序按Comparator。
+ * @param a - a parameter (`any`) / a参数（`any`）
+ * @param b - b parameter (`any`) / b参数（`any`）
+ * @returns Result of type `number` / 类型为 `number` 的返回值
+ */
+export function orderByComparator(a, b): number {
   if (a === null || typeof a === 'undefined') a = 0;
   if (b === null || typeof b === 'undefined') b = 0;
   if (a instanceof Date && b instanceof Date) {
@@ -50,8 +69,10 @@ export function orderByComparator(a: any, b: any): number {
 /**
  * creates a shallow copy of the `rows` input and returns the sorted copy. this function
  * does not sort the `rows` argument in place
+
+ * @zh 执行 `sortRows`，用于排序行列表。
  */
-export function sortRows(rows: any[], columns: any[], dirs: SortPropDir[]): any[] {
+export function sortRows(rows, columns, dirs: SortPropDir[]) {
   if (!rows) return [];
   if (!dirs || !dirs.length || !columns) return [...rows];
 
@@ -59,7 +80,7 @@ export function sortRows(rows: any[], columns: any[], dirs: SortPropDir[]): any[
    * record the row ordering of results from prior sort operations (if applicable)
    * this is necessary to guarantee stable sorting behavior
    */
-  const rowToIndexMap = new Map<any, number>();
+  const rowToIndexMap = new Map<unknown, number>();
   rows.forEach((row, index) => rowToIndexMap.set(row, index));
 
   const temp = [...rows];
@@ -82,7 +103,7 @@ export function sortRows(rows: any[], columns: any[], dirs: SortPropDir[]): any[
     };
   });
 
-  return temp.sort(function (rowA: any, rowB: any) {
+  return temp.sort(function (rowA, rowB) {
     for (const cachedDir of cachedDirs) {
       // Get property and valuegetters for column to be sorted
       const { prop, valueGetter } = cachedDir;

@@ -68,8 +68,8 @@
     {
       "name": "IconSpriteConfig",
       "kind": "class",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Class `IconSpriteConfig` encapsulating icon sprite config data structures and logic in `src/common/icon-sprite`.",
+      "summaryZh": "类 `IconSpriteConfig`，封装 `src/common/icon-sprite` 中的图标Sprite配置数据结构与处理逻辑。",
       "sourceFile": "src/common/icon-sprite/icon-sprite-config.model.ts",
       "inputs": [],
       "outputs": [],
@@ -78,8 +78,8 @@
         {
           "name": "path",
           "type": "string",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `path` (`string`) storing path.",
+          "descriptionZh": "属性 `path`（类型：`string`），用于存储或配置路径。"
         }
       ]
     },
@@ -105,8 +105,8 @@
     {
       "name": "IconSpriteModule",
       "kind": "module",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular module `IconSpriteModule` declaring and exporting icon sprite module components, directives, pipes, and providers.",
+      "summaryZh": "Angular 模块 `IconSpriteModule`，声明并导出图标Sprite模块相关的组件、指令、管道与服务提供者。",
       "sourceFile": "src/common/icon-sprite/icon-sprite.module.ts",
       "inputs": [],
       "outputs": [],
@@ -120,8 +120,8 @@
             }
           ],
           "returnType": "ModuleWithProviders<IconSpriteModule>",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `forRoot` to handle for root.",
+          "descriptionZh": "执行 `forRoot`，用于用于根节点。"
         }
       ],
       "properties": []

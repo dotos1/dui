@@ -1,8 +1,17 @@
+/**
+ * @fileoverview Module `src/common/colorpicker/components/slider/slider.component.ts` providing slider component definitions and implementation.
+ * @zh 模块文件 `src/common/colorpicker/components/slider/slider.component.ts`，提供滑块组件相关的定义与实现。
+ */
+
 import {
   ChangeDetectionStrategy,  Component,  Input,
 } from '@angular/core';
 import { ColorWrap } from '@dotos/dui/common/colorpicker/common';
 
+/**
+ * Angular component `ColorSliderComponent` (selector: 'color-slider') providing color slider component presentation and interaction in `src/common/colorpicker/components/slider`.
+ * @zh Angular 组件 `ColorSliderComponent`（selector: 'color-slider'），提供颜色滑块组件的视图渲染与交互逻辑（位于 `src/common/colorpicker/components/slider`）。
+ */
 @Component({
   selector: 'color-slider',
   template: `
@@ -37,7 +46,11 @@ import { ColorWrap } from '@dotos/dui/common/colorpicker/common';
  * @zh 紧凑型色相滑块，下方带一排预设色块。
  */
 export class ColorSliderComponent extends ColorWrap {
-  /** @zh 滑块手柄的内联样式。 */
+  /**
+   * Input property `pointer` (`{ [key: string]: string }`) configuring pointer.
+   * @zh 滑块手柄的内联样式。
+   * @zh 滑块手柄的内联样式。
+   */
   @Input()
   pointer: { [key: string]: string } = {
     width: '14px',
@@ -47,9 +60,17 @@ export class ColorSliderComponent extends ColorWrap {
     backgroundColor: 'rgb(248, 248, 248)',
     boxShadow: '0 1px 4px 0 rgba(0, 0, 0, 0.37)',
   };
-  /** @zh 色相滑动条的圆角半径。 */
+  /**
+   * Input property `radius` (`number`) configuring radius (default: `2`).
+   * @zh 色相滑动条的圆角半径。
+   * @zh 色相滑动条的圆角半径。
+   */
   @Input() radius = 2;
 
+  /**
+   * Creates an instance of `ColorSliderComponent` and initializes its dependencies and internal state.
+   * @zh 创建 `ColorSliderComponent` 实例，并初始化其依赖项与内部状态。
+   */
   constructor() {
     super();
   }

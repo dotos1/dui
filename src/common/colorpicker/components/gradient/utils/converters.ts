@@ -1,3 +1,15 @@
+/**
+ * @fileoverview Module `src/common/colorpicker/components/gradient/utils/converters.ts` providing converters definitions and implementation.
+ * @zh 模块文件 `src/common/colorpicker/components/gradient/utils/converters.ts`，提供converters相关的定义与实现。
+ */
+
+/**
+ * Executes `rgb2cmyk` to handle rgb2cmyk.
+ * @zh 执行 `rgb2cmyk`，用于rgb2cmyk。
+ * @param r - r parameter (`number`) / r参数（`number`）
+ * @param g - g parameter (`number`) / g参数（`number`）
+ * @param b - b parameter (`number`) / b参数（`number`）
+ */
 export function rgb2cmyk(r: number, g: number, b: number) {
   let computedC = 0
   let computedM = 0
@@ -38,6 +50,10 @@ export function rgb2cmyk(r: number, g: number, b: number) {
   return { c: computedC, m: computedM, y: computedY, k: computedK }
 }
 
+/**
+ * Constant/variable `cmykToRgb` defining cmyk to rgb in `src/common/colorpicker/components/gradient/utils`.
+ * @zh 常量/变量 `cmykToRgb`，定义 `src/common/colorpicker/components/gradient/utils` 中的cmyk转换为RGB颜色。
+ */
 export const cmykToRgb = ({
   c,
   m,

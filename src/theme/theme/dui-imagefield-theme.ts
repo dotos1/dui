@@ -1,9 +1,20 @@
+/**
+ * @fileoverview Module `src/theme/theme/dui-imagefield-theme.ts` providing dui imagefield theme definitions and implementation.
+ * @zh 模块文件 `src/theme/theme/dui-imagefield-theme.ts`，提供DUIimagefield主题相关的定义与实现。
+ */
+
 
 import { matFontSize, matFontWeight, matFontFamily } from '../utils/index';
 
 import { Theme } from '../interfaces';
 
 
+/**
+ * Executes `duiImageFieldTheme` to handle dui image field theme.
+ * @zh 执行 `duiImageFieldTheme`，用于DUI图像字段主题。
+ * @param theme - theme parameter (`Theme`) / 主题参数（`Theme`）
+ * @returns Result of type `Object` / 类型为 `Object` 的返回值
+ */
 export function duiImageFieldTheme(theme: Theme): Object {
 
 let config=theme.typography;

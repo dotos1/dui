@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Module `src/form/array-input/array-input.component.ts` providing array input component definitions and implementation.
+ * @zh 模块文件 `src/form/array-input/array-input.component.ts`，提供数组输入属性组件相关的定义与实现。
+ */
+
 import { ChangeDetectionStrategy, Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { MAT_INPUT_VALUE_ACCESSOR } from '@angular/material/input';
 import {clone}  from 'lodash-es';
@@ -5,6 +10,10 @@ import { Observable, of } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { TextFieldComponent } from '../field';
 
+/**
+ * Angular component `ArrayInputComponent` (selector: 'array-input-field') providing array input component presentation and interaction in `src/form/array-input`.
+ * @zh Angular 组件 `ArrayInputComponent`（selector: 'array-input-field'），提供数组输入属性组件的视图渲染与交互逻辑（位于 `src/form/array-input`）。
+ */
 @Component({
   selector: 'array-input-field',
   templateUrl: './array-input.component.html',
@@ -19,13 +28,33 @@ import { TextFieldComponent } from '../field';
 })
 export class ArrayInputComponent extends TextFieldComponent implements OnInit {
 
+  /**
+   * Output event emitter `result` (`EventEmitter`) firing when result occurs.
+   * @zh 输出事件 `result`（类型：`EventEmitter`），当触发结果时向外发出事件。
+   */
   @Output() result = new EventEmitter<{ key: string, data: string }>();
 
-  selectData: Array<any> = [];
-  filteredData: Observable<Array<any>>;
+  /**
+   * Property `selectData` (`Array<any>`) storing select data (default: `[]`).
+   * @zh 属性 `selectData`（类型：`Array<any>`），用于存储或配置下拉选择数据（默认值：`[]`）。
+   */
+  selectData = [];
+  /**
+   * Property `filteredData` (`Observable<Array<any>>`) storing filtered data.
+   * @zh 属性 `filteredData`（类型：`Observable<Array<any>>`），用于存储或配置已过滤数据。
+   */
+  filteredData;
+  /**
+   * Property `filterString` (`string`) storing filter string (default: `''`).
+   * @zh 属性 `filterString`（类型：`string`），用于存储或配置过滤字符串（默认值：`''`）。
+   */
   filterString: string = '';
 
   
+  /**
+   * Angular lifecycle hook invoked once after component or directive inputs are initialized.
+   * @zh Angular 生命周期钩子：在组件或指令的输入属性初始化完成后调用一次。
+   */
   override ngOnInit(): void {
     super.ngOnInit();
 
@@ -40,7 +69,11 @@ export class ArrayInputComponent extends TextFieldComponent implements OnInit {
     );    
   }
 
-  filter = (filter: string): Array<any> => {
+  /**
+   * Property `filter` (`any`) storing filter.
+   * @zh 属性 `filter`（类型：`any`），用于存储或配置过滤。
+   */
+  filter = (filter: string) => {
     this.filterString = filter;
     this.selectData=[];
     if(this.field.options==undefined){
@@ -63,19 +96,35 @@ export class ArrayInputComponent extends TextFieldComponent implements OnInit {
     }
   };
   
+  /**
+   * Executes `openChanged` to handle open changed.
+   * @zh 执行 `openChanged`，用于打开已变更。
+   */
   override openChanged() {
     let value=this.formControl.value;
     this.filteredData=of(this.filter(value));
   }
 
+  /**
+   * Property `displayFn` (`any`) storing display fn (default: `(): string => ''`).
+   * @zh 属性 `displayFn`（类型：`any`），用于存储或配置display函数（默认值：`(): string => ''`）。
+   */
   displayFn = (): string => '';
 
-  optionClicked = (event: Event, data: any): void => {
+  /**
+   * Property `optionClicked` (`any`) storing option clicked.
+   * @zh 属性 `optionClicked`（类型：`any`），用于存储或配置选项点击。
+   */
+  optionClicked = (event: Event, data): void => {
     event.stopPropagation();
     this.toggleSelection(data);
   };
 
-  toggleSelection = (data: any): void => {
+  /**
+   * Property `toggleSelection` (`any`) storing toggle selection.
+   * @zh 属性 `toggleSelection`（类型：`any`），用于存储或配置开关Selection。
+   */
+  toggleSelection = (data): void => {
     data.selected = !data.selected;
     if (data.selected === true) {
       this.selectData.push(data);
@@ -86,9 +135,13 @@ export class ArrayInputComponent extends TextFieldComponent implements OnInit {
     this.emitAdjustedData();
   };
 
+  /**
+   * Property `emitAdjustedData` (`any`) storing emit adjusted data.
+   * @zh 属性 `emitAdjustedData`（类型：`any`），用于存储或配置发出Adjusted数据。
+   */
   emitAdjustedData = (): void => {
     const results: Array<string> = []
-    this.selectData.forEach((data: any) => {
+    this.selectData.forEach((data: { value? }) => {
       results.push(data.value);
     });
 
@@ -97,7 +150,11 @@ export class ArrayInputComponent extends TextFieldComponent implements OnInit {
     this.result.emit({ key: this.field.name, data: results.join(',') });
   };
 
-  removeChip = (data: any): void => {
+  /**
+   * Property `removeChip` (`any`) storing remove chip.
+   * @zh 属性 `removeChip`（类型：`any`），用于存储或配置移除纸片标签。
+   */
+  removeChip = (data): void => {
     this.toggleSelection(data);
   };
 }

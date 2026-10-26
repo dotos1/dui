@@ -1,6 +1,18 @@
+/**
+ * @fileoverview Module `src/core/color/readability.ts` providing readability definitions and implementation.
+ * @zh 模块文件 `src/core/color/readability.ts`，提供readability相关的定义与实现。
+ */
+
 import { ColorInput, TinyColor } from './tinycolor';
 
 
+/**
+ * Executes `readability` to handle readability.
+ * @zh 执行 `readability`，用于readability。
+ * @param color1 - color1 parameter (`ColorInput`) / color1参数（`ColorInput`）
+ * @param color2 - color2 parameter (`ColorInput`) / color2参数（`ColorInput`）
+ * @returns Result of type `number` / 类型为 `number` 的返回值
+ */
 export function readability(color1: ColorInput, color2: ColorInput): number {
   const c1 = new TinyColor(color1);
   const c2 = new TinyColor(color2);
@@ -10,12 +22,32 @@ export function readability(color1: ColorInput, color2: ColorInput): number {
   );
 }
 
+/**
+ * Interface `WCAG2Parms` defining the contract and properties for wcag2 parms.
+ * @zh 接口 `WCAG2Parms`，定义WCAG2Parms的数据结构契约与属性规范。
+ */
 export interface WCAG2Parms {
+  /**
+   * Property `level` (`'AA' | 'AAA'`) storing level.
+   * @zh 属性 `level`（类型：`'AA' | 'AAA'`），用于存储或配置层级。
+   */
   level?: 'AA' | 'AAA';
+  /**
+   * Property `size` (`'large' | 'small'`) storing size.
+   * @zh 属性 `size`（类型：`'large' | 'small'`），用于存储或配置尺寸。
+   */
   size?: 'large' | 'small';
 }
 
 
+/**
+ * Executes `isReadable` to handle is readable.
+ * @zh 执行 `isReadable`，用于是否为Readable。
+ * @param color1 - color1 parameter (`ColorInput`) / color1参数（`ColorInput`）
+ * @param color2 - color2 parameter (`ColorInput`) / color2参数（`ColorInput`）
+ * @param wcag2 - wcag2 parameter (`WCAG2Parms`) / wcag2参数（`WCAG2Parms`）
+ * @returns Result of type `boolean` / 类型为 `boolean` 的返回值
+ */
 export function isReadable(
   color1: ColorInput,
   color2: ColorInput,
@@ -35,7 +67,15 @@ export function isReadable(
   }
 }
 
+/**
+ * Interface `WCAG2FallbackParms` defining the contract and properties for wcag2 fallback parms.
+ * @zh 接口 `WCAG2FallbackParms`，定义WCAG2FallbackParms的数据结构契约与属性规范。
+ */
 export interface WCAG2FallbackParms extends WCAG2Parms {
+  /**
+   * Property `includeFallbackColors` (`boolean`) storing include fallback colors.
+   * @zh 属性 `includeFallbackColors`（类型：`boolean`），用于存储或配置includeFallback颜色列表。
+   */
   includeFallbackColors?: boolean;
 }
 
@@ -55,6 +95,8 @@ export interface WCAG2FallbackParms extends WCAG2Parms {
  * new TinyColor().mostReadable('#a8015a', ["#faf3f3"], { includeFallbackColors:true, level: 'AAA', size: 'large' }).toHexString(); // "#faf3f3"
  * new TinyColor().mostReadable('#a8015a', ["#faf3f3"], { includeFallbackColors:true, level: 'AAA', size: 'small' }).toHexString(); // "#ffffff"
  * ```
+
+ * @zh 执行 `mostReadable`，用于mostReadable。
  */
 export function mostReadable(
   baseColor: ColorInput,

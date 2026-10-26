@@ -1,15 +1,34 @@
+/**
+ * @fileoverview Module `src/theme/tokens/mat/_select.ts` providing select definitions and implementation.
+ * @zh 模块文件 `src/theme/tokens/mat/_select.ts`，提供下拉选择相关的定义与实现。
+ */
+
 import * as inspection from '../../mdc/inspection';
 import * as token_utils from '../../mdc/token-utils';
 import * as elevation from '../../mdc/elevation-theme';
 import * as theming from '../../mdc/theming';
 import * as sass from '../../mdc/_sass-utils';
+/**
+ * Constant/variable `$prefix` defining prefix in `src/theme/tokens/mat`.
+ * @zh 常量/变量 `$prefix`，定义 `src/theme/tokens/mat` 中的前缀。
+ */
 export const $prefix=["mat", "select"];
 
+/**
+ * Executes `get_unthemable_tokens` to handle get unthemable tokens.
+ * @zh 执行 `get_unthemable_tokens`，用于获取不可主题化设计令牌。
+ */
 export function get_unthemable_tokens() {
     return {
       "container-elevation-shadow": elevation.elevation_box_shadow(8),
     };
 }
+/**
+ * Executes `get_color_tokens` to handle get color tokens.
+ * @zh 执行 `get_color_tokens`，用于获取颜色设计令牌。
+ * @param $theme - theme parameter (`any`) / 主题参数（`any`）
+ * @param $palette_name - palette name parameter (`any`) / 调色板名称参数（`any`）
+ */
 export function get_color_tokens($theme, $palette_name= "primary") {
     let $is_dark= inspection.get_theme_type($theme) == "dark";
     let $on_surface= $is_dark? "#fff": "#000";
@@ -28,6 +47,11 @@ export function get_color_tokens($theme, $palette_name= "primary") {
       "invalid-arrow-color":sass.safe_color_change(inspection.get_theme_color($theme, "warn", "default"),0.87)
       };
   }
+/**
+ * Executes `get_typography_tokens` to handle get typography tokens.
+ * @zh 执行 `get_typography_tokens`，用于获取排版设计令牌。
+ * @param $theme - theme parameter (`any`) / 主题参数（`any`）
+ */
 export function get_typography_tokens($theme) {
     return {
       "trigger-text-font": inspection.get_theme_typography($theme, "body-1", "font-family"),
@@ -37,6 +61,11 @@ export function get_typography_tokens($theme) {
       "trigger-text-weight": inspection.get_theme_typography($theme, "body-1", "font-weight")
     };
   }
+/**
+ * Executes `get_density_tokens` to handle get density tokens.
+ * @zh 执行 `get_density_tokens`，用于获取密度设计令牌。
+ * @param $theme - theme parameter (`any`) / 主题参数（`any`）
+ */
 export function get_density_tokens($theme) {
     let $density_scale= theming.clamp_density(inspection.get_theme_density($theme), -2);
     let mm={

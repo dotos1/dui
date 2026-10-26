@@ -16,8 +16,8 @@
     {
       "name": "Geometry",
       "kind": "class",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Class `Geometry` encapsulating geometry data structures and logic in `src/common/perfect-scrollbar`.",
+      "summaryZh": "类 `Geometry`，封装 `src/common/perfect-scrollbar` 中的几何体数据结构与处理逻辑。",
       "sourceFile": "src/common/perfect-scrollbar/perfect-scrollbar.interfaces.ts",
       "inputs": [],
       "outputs": [],
@@ -26,34 +26,34 @@
         {
           "name": "x",
           "type": "number",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `x` (`number`) storing x.",
+          "descriptionZh": "属性 `x`（类型：`number`），用于存储或配置X坐标。"
         },
         {
           "name": "y",
           "type": "number",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `y` (`number`) storing y.",
+          "descriptionZh": "属性 `y`（类型：`number`），用于存储或配置Y坐标。"
         },
         {
           "name": "w",
           "type": "number",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `w` (`number`) storing w.",
+          "descriptionZh": "属性 `w`（类型：`number`），用于存储或配置w。"
         },
         {
           "name": "h",
           "type": "number",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `h` (`number`) storing h.",
+          "descriptionZh": "属性 `h`（类型：`number`），用于存储或配置h。"
         }
       ]
     },
     {
       "name": "PERFECT_SCROLLBAR_CONFIG",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular dependency-injection token `PERFECT_SCROLLBAR_CONFIG` for providing perfect scrollbar config.",
+      "summaryZh": "Angular 依赖注入令牌 `PERFECT_SCROLLBAR_CONFIG`，用于提供与注入PERFECT滚动条配置。",
       "sourceFile": "src/common/perfect-scrollbar/perfect-scrollbar.interfaces.ts",
       "inputs": [],
       "outputs": [],
@@ -72,7 +72,7 @@
           "name": "disabled",
           "type": "boolean",
           "default": "false",
-          "description": null,
+          "description": "Input property `disabled` (`boolean`) configuring disabled (default: `false`).",
           "descriptionZh": "是否禁用自定义滚动条。"
         },
         {
@@ -93,7 +93,7 @@
           "name": "scrollIndicators",
           "type": "boolean",
           "default": "false",
-          "description": null,
+          "description": "Input property `scrollIndicators` (`boolean`) configuring scroll indicators (default: `false`).",
           "descriptionZh": "是否显示滚动位置指示条覆层。"
         },
         {
@@ -107,61 +107,61 @@
         {
           "name": "psScrollY",
           "type": "any",
-          "description": null,
+          "description": "Output event emitter `psScrollY` (`EventEmitter`) firing when ps scroll y occurs.",
           "descriptionZh": "垂直滚动时发出。"
         },
         {
           "name": "psScrollX",
           "type": "any",
-          "description": null,
+          "description": "Output event emitter `psScrollX` (`EventEmitter`) firing when ps scroll x occurs.",
           "descriptionZh": "水平滚动时发出。"
         },
         {
           "name": "psScrollUp",
           "type": "any",
-          "description": null,
+          "description": "Output event emitter `psScrollUp` (`EventEmitter`) firing when ps scroll up occurs.",
           "descriptionZh": "向上滚动时发出。"
         },
         {
           "name": "psScrollDown",
           "type": "any",
-          "description": null,
+          "description": "Output event emitter `psScrollDown` (`EventEmitter`) firing when ps scroll down occurs.",
           "descriptionZh": "向下滚动时发出。"
         },
         {
           "name": "psScrollLeft",
           "type": "any",
-          "description": null,
+          "description": "Output event emitter `psScrollLeft` (`EventEmitter`) firing when ps scroll left occurs.",
           "descriptionZh": "向左滚动时发出。"
         },
         {
           "name": "psScrollRight",
           "type": "any",
-          "description": null,
+          "description": "Output event emitter `psScrollRight` (`EventEmitter`) firing when ps scroll right occurs.",
           "descriptionZh": "向右滚动时发出。"
         },
         {
           "name": "psYReachEnd",
           "type": "any",
-          "description": null,
+          "description": "Output event emitter `psYReachEnd` (`EventEmitter`) firing when ps y reach end occurs.",
           "descriptionZh": "垂直方向滚动到底部时发出。"
         },
         {
           "name": "psYReachStart",
           "type": "any",
-          "description": null,
+          "description": "Output event emitter `psYReachStart` (`EventEmitter`) firing when ps y reach start occurs.",
           "descriptionZh": "垂直方向滚动到顶部时发出。"
         },
         {
           "name": "psXReachEnd",
           "type": "any",
-          "description": null,
+          "description": "Output event emitter `psXReachEnd` (`EventEmitter`) firing when ps x reach end occurs.",
           "descriptionZh": "水平方向滚动到右侧末端时发出。"
         },
         {
           "name": "psXReachStart",
           "type": "any",
-          "description": null,
+          "description": "Output event emitter `psXReachStart` (`EventEmitter`) firing when ps x reach start occurs.",
           "descriptionZh": "水平方向滚动到左侧起始位置时发出。"
         }
       ],
@@ -171,28 +171,28 @@
           "name": "states",
           "type": "any",
           "default": "{}",
-          "description": null,
+          "description": "Property `states` (`any`) storing states (default: `{}`).",
           "descriptionZh": "记录当前是否处于左/右/上/下边缘状态，驱动指示条显示。"
         },
         {
           "name": "indicatorX",
           "type": "boolean",
           "default": "false",
-          "description": null,
+          "description": "Property `indicatorX` (`boolean`) storing indicator x (default: `false`).",
           "descriptionZh": "水平方向的边缘指示条当前是否显示。"
         },
         {
           "name": "indicatorY",
           "type": "boolean",
           "default": "false",
-          "description": null,
+          "description": "Property `indicatorY` (`boolean`) storing indicator y (default: `false`).",
           "descriptionZh": "垂直方向的边缘指示条当前是否显示。"
         },
         {
           "name": "interaction",
           "type": "boolean",
           "default": "false",
-          "description": null,
+          "description": "Property `interaction` (`boolean`) storing interaction (default: `false`).",
           "descriptionZh": "用户当前是否正在滚轮/触摸交互中（用于边缘滚动传播判断）。"
         },
         {
@@ -206,8 +206,8 @@
     {
       "name": "PerfectScrollbarConfig",
       "kind": "class",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Class `PerfectScrollbarConfig` encapsulating perfect scrollbar config data structures and logic in `src/common/perfect-scrollbar`.",
+      "summaryZh": "类 `PerfectScrollbarConfig`，封装 `src/common/perfect-scrollbar` 中的Perfect滚动条配置数据结构与处理逻辑。",
       "sourceFile": "src/common/perfect-scrollbar/perfect-scrollbar.interfaces.ts",
       "inputs": [],
       "outputs": [],
@@ -221,95 +221,168 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `assign` to handle assign.",
+          "descriptionZh": "执行 `assign`，用于赋值。"
         }
       ],
       "properties": [
         {
           "name": "handlers",
           "type": "string[]",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `handlers` (`string[]`) storing handlers.",
+          "descriptionZh": "属性 `handlers`（类型：`string[]`），用于存储或配置处理器。"
         },
         {
           "name": "wheelSpeed",
           "type": "number",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `wheelSpeed` (`number`) storing wheel speed.",
+          "descriptionZh": "属性 `wheelSpeed`（类型：`number`），用于存储或配置滚轮速度。"
         },
         {
           "name": "swipeEasing",
           "type": "boolean",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `swipeEasing` (`boolean`) storing swipe easing.",
+          "descriptionZh": "属性 `swipeEasing`（类型：`boolean`），用于存储或配置swipeEasing。"
         },
         {
           "name": "suppressScrollX",
           "type": "boolean",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `suppressScrollX` (`boolean`) storing suppress scroll x.",
+          "descriptionZh": "属性 `suppressScrollX`（类型：`boolean`），用于存储或配置suppress滚动X坐标。"
         },
         {
           "name": "suppressScrollY",
           "type": "boolean",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `suppressScrollY` (`boolean`) storing suppress scroll y.",
+          "descriptionZh": "属性 `suppressScrollY`（类型：`boolean`），用于存储或配置suppress滚动Y坐标。"
         },
         {
           "name": "wheelPropagation",
           "type": "boolean",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `wheelPropagation` (`boolean`) storing wheel propagation.",
+          "descriptionZh": "属性 `wheelPropagation`（类型：`boolean`），用于存储或配置滚轮事件冒泡。"
         },
         {
           "name": "useBothWheelAxes",
           "type": "boolean",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `useBothWheelAxes` (`boolean`) storing use both wheel axes.",
+          "descriptionZh": "属性 `useBothWheelAxes`（类型：`boolean`），用于存储或配置使用Both滚轮坐标轴集合。"
         },
         {
           "name": "scrollingThreshold",
           "type": "number",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `scrollingThreshold` (`number`) storing scrolling threshold.",
+          "descriptionZh": "属性 `scrollingThreshold`（类型：`number`），用于存储或配置滚动中Threshold。"
         },
         {
           "name": "minScrollbarLength",
           "type": "number",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `minScrollbarLength` (`number`) storing min scrollbar length.",
+          "descriptionZh": "属性 `minScrollbarLength`（类型：`number`），用于存储或配置最小值滚动条长度。"
         },
         {
           "name": "maxScrollbarLength",
           "type": "number",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `maxScrollbarLength` (`number`) storing max scrollbar length.",
+          "descriptionZh": "属性 `maxScrollbarLength`（类型：`number`），用于存储或配置最大值滚动条长度。"
         },
         {
           "name": "scrollXMarginOffset",
           "type": "number",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `scrollXMarginOffset` (`number`) storing scroll x margin offset.",
+          "descriptionZh": "属性 `scrollXMarginOffset`（类型：`number`），用于存储或配置滚动X坐标外边距偏移量。"
         },
         {
           "name": "scrollYMarginOffset",
           "type": "number",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `scrollYMarginOffset` (`number`) storing scroll y margin offset.",
+          "descriptionZh": "属性 `scrollYMarginOffset`（类型：`number`），用于存储或配置滚动Y坐标外边距偏移量。"
         }
       ]
     },
     {
       "name": "PerfectScrollbarConfigInterface",
       "kind": "interface",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Interface `PerfectScrollbarConfigInterface` defining the contract and properties for perfect scrollbar config interface.",
+      "summaryZh": "接口 `PerfectScrollbarConfigInterface`，定义Perfect滚动条配置Interface的数据结构契约与属性规范。",
       "sourceFile": "src/common/perfect-scrollbar/perfect-scrollbar.interfaces.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
-      "properties": []
+      "properties": [
+        {
+          "name": "handlers",
+          "type": "string[]",
+          "description": "Property `handlers` (`string[]`) storing handlers.",
+          "descriptionZh": "属性 `handlers`（类型：`string[]`），用于存储或配置处理器。"
+        },
+        {
+          "name": "wheelSpeed",
+          "type": "number",
+          "description": "Property `wheelSpeed` (`number`) storing wheel speed.",
+          "descriptionZh": "属性 `wheelSpeed`（类型：`number`），用于存储或配置滚轮速度。"
+        },
+        {
+          "name": "swipeEasing",
+          "type": "boolean",
+          "description": "Property `swipeEasing` (`boolean`) storing swipe easing.",
+          "descriptionZh": "属性 `swipeEasing`（类型：`boolean`），用于存储或配置swipeEasing。"
+        },
+        {
+          "name": "suppressScrollX",
+          "type": "boolean",
+          "description": "Property `suppressScrollX` (`boolean`) storing suppress scroll x.",
+          "descriptionZh": "属性 `suppressScrollX`（类型：`boolean`），用于存储或配置suppress滚动X坐标。"
+        },
+        {
+          "name": "suppressScrollY",
+          "type": "boolean",
+          "description": "Property `suppressScrollY` (`boolean`) storing suppress scroll y.",
+          "descriptionZh": "属性 `suppressScrollY`（类型：`boolean`），用于存储或配置suppress滚动Y坐标。"
+        },
+        {
+          "name": "wheelPropagation",
+          "type": "boolean",
+          "description": "Property `wheelPropagation` (`boolean`) storing wheel propagation.",
+          "descriptionZh": "属性 `wheelPropagation`（类型：`boolean`），用于存储或配置滚轮事件冒泡。"
+        },
+        {
+          "name": "useBothWheelAxes",
+          "type": "boolean",
+          "description": "Property `useBothWheelAxes` (`boolean`) storing use both wheel axes.",
+          "descriptionZh": "属性 `useBothWheelAxes`（类型：`boolean`），用于存储或配置使用Both滚轮坐标轴集合。"
+        },
+        {
+          "name": "scrollingThreshold",
+          "type": "number",
+          "description": "Property `scrollingThreshold` (`number`) storing scrolling threshold.",
+          "descriptionZh": "属性 `scrollingThreshold`（类型：`number`），用于存储或配置滚动中Threshold。"
+        },
+        {
+          "name": "minScrollbarLength",
+          "type": "number",
+          "description": "Property `minScrollbarLength` (`number`) storing min scrollbar length.",
+          "descriptionZh": "属性 `minScrollbarLength`（类型：`number`），用于存储或配置最小值滚动条长度。"
+        },
+        {
+          "name": "maxScrollbarLength",
+          "type": "number",
+          "description": "Property `maxScrollbarLength` (`number`) storing max scrollbar length.",
+          "descriptionZh": "属性 `maxScrollbarLength`（类型：`number`），用于存储或配置最大值滚动条长度。"
+        },
+        {
+          "name": "scrollXMarginOffset",
+          "type": "number",
+          "description": "Property `scrollXMarginOffset` (`number`) storing scroll x margin offset.",
+          "descriptionZh": "属性 `scrollXMarginOffset`（类型：`number`），用于存储或配置滚动X坐标外边距偏移量。"
+        },
+        {
+          "name": "scrollYMarginOffset",
+          "type": "number",
+          "description": "Property `scrollYMarginOffset` (`number`) storing scroll y margin offset.",
+          "descriptionZh": "属性 `scrollYMarginOffset`（类型：`number`），用于存储或配置滚动Y坐标外边距偏移量。"
+        }
+      ]
     },
     {
       "name": "PerfectScrollbarDirective",
@@ -338,61 +411,61 @@
         {
           "name": "psScrollY",
           "type": "any",
-          "description": null,
+          "description": "Output event emitter `psScrollY` (`EventEmitter`) firing when ps scroll y occurs.",
           "descriptionZh": "垂直滚动时发出。"
         },
         {
           "name": "psScrollX",
           "type": "any",
-          "description": null,
+          "description": "Output event emitter `psScrollX` (`EventEmitter`) firing when ps scroll x occurs.",
           "descriptionZh": "水平滚动时发出。"
         },
         {
           "name": "psScrollUp",
           "type": "any",
-          "description": null,
+          "description": "Output event emitter `psScrollUp` (`EventEmitter`) firing when ps scroll up occurs.",
           "descriptionZh": "向上滚动时发出。"
         },
         {
           "name": "psScrollDown",
           "type": "any",
-          "description": null,
+          "description": "Output event emitter `psScrollDown` (`EventEmitter`) firing when ps scroll down occurs.",
           "descriptionZh": "向下滚动时发出。"
         },
         {
           "name": "psScrollLeft",
           "type": "any",
-          "description": null,
+          "description": "Output event emitter `psScrollLeft` (`EventEmitter`) firing when ps scroll left occurs.",
           "descriptionZh": "向左滚动时发出。"
         },
         {
           "name": "psScrollRight",
           "type": "any",
-          "description": null,
+          "description": "Output event emitter `psScrollRight` (`EventEmitter`) firing when ps scroll right occurs.",
           "descriptionZh": "向右滚动时发出。"
         },
         {
           "name": "psYReachEnd",
           "type": "any",
-          "description": null,
+          "description": "Output event emitter `psYReachEnd` (`EventEmitter`) firing when ps y reach end occurs.",
           "descriptionZh": "垂直方向滚动到底部时发出。"
         },
         {
           "name": "psYReachStart",
           "type": "any",
-          "description": null,
+          "description": "Output event emitter `psYReachStart` (`EventEmitter`) firing when ps y reach start occurs.",
           "descriptionZh": "垂直方向滚动到顶部时发出。"
         },
         {
           "name": "psXReachEnd",
           "type": "any",
-          "description": null,
+          "description": "Output event emitter `psXReachEnd` (`EventEmitter`) firing when ps x reach end occurs.",
           "descriptionZh": "水平方向滚动到右侧末端时发出。"
         },
         {
           "name": "psXReachStart",
           "type": "any",
-          "description": null,
+          "description": "Output event emitter `psXReachStart` (`EventEmitter`) firing when ps x reach start occurs.",
           "descriptionZh": "水平方向滚动到左侧起始位置时发出。"
         }
       ],
@@ -589,8 +662,8 @@
     {
       "name": "PerfectScrollbarModule",
       "kind": "module",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular module `PerfectScrollbarModule` declaring and exporting perfect scrollbar module components, directives, pipes, and providers.",
+      "summaryZh": "Angular 模块 `PerfectScrollbarModule`，声明并导出Perfect滚动条模块相关的组件、指令、管道与服务提供者。",
       "sourceFile": "src/common/perfect-scrollbar/perfect-scrollbar.module.ts",
       "inputs": [],
       "outputs": [],
@@ -600,8 +673,8 @@
     {
       "name": "Position",
       "kind": "class",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Class `Position` encapsulating position data structures and logic in `src/common/perfect-scrollbar`.",
+      "summaryZh": "类 `Position`，封装 `src/common/perfect-scrollbar` 中的位置数据结构与处理逻辑。",
       "sourceFile": "src/common/perfect-scrollbar/perfect-scrollbar.interfaces.ts",
       "inputs": [],
       "outputs": [],
@@ -610,14 +683,14 @@
         {
           "name": "x",
           "type": "number | 'start' | 'end'",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `x` (`number | 'start' | 'end'`) storing x.",
+          "descriptionZh": "属性 `x`（类型：`number | 'start' | 'end'`），用于存储或配置X坐标。"
         },
         {
           "name": "y",
           "type": "number | 'start' | 'end'",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `y` (`number | 'start' | 'end'`) storing y.",
+          "descriptionZh": "属性 `y`（类型：`number | 'start' | 'end'`），用于存储或配置Y坐标。"
         }
       ]
     }

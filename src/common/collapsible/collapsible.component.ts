@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Module `src/common/collapsible/collapsible.component.ts` providing collapsible component definitions and implementation.
+ * @zh 模块文件 `src/common/collapsible/collapsible.component.ts`，提供可折叠面板组件相关的定义与实现。
+ */
+
 import { Component, Input, ViewEncapsulation } from '@angular/core';
 
 /**
@@ -27,6 +32,10 @@ export class CollapsibleComponent {
   set title(value: string) {
     this._title = value;
   }
+  /**
+   * Property `_title` (`string`) storing title (default: `''`).
+   * @zh 属性 `_title`（类型：`string`），用于存储或配置标题（默认值：`''`）。
+   */
   private _title = '';
 
   /**
@@ -44,7 +53,15 @@ export class CollapsibleComponent {
   set collapsed(value: boolean) {
     this._collapsed = value;
   }
+  /**
+   * Property `_collapsed` (`boolean`) storing collapsed (default: `false`).
+   * @zh 属性 `_collapsed`（类型：`boolean`），用于存储或配置已折叠（默认值：`false`）。
+   */
   private _collapsed = false;
 
+  /**
+   * Creates an instance of `CollapsibleComponent` and initializes its dependencies and internal state.
+   * @zh 创建 `CollapsibleComponent` 实例，并初始化其依赖项与内部状态。
+   */
   constructor() { }
 }

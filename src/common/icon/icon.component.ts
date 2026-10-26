@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Module `src/common/icon/icon.component.ts` providing icon component definitions and implementation.
+ * @zh 模块文件 `src/common/icon/icon.component.ts`，提供图标组件相关的定义与实现。
+ */
+
 
 
 import {
@@ -30,6 +35,10 @@ import { FontLoaderService } from './font-loader.service';
   }
 })
 export class IconComponent {
+  /**
+   * Property `_value` (`string`) storing value (default: `''`).
+   * @zh 属性 `_value`（类型：`string`），用于存储或配置值（默认值：`''`）。
+   */
   private _value = '';
   /**
    * The resolved icon source kind: `'FONT'`, `'SVG'`, `'font'`, or `'EXTRA'`, derived from `value`'s prefix.
@@ -44,9 +53,12 @@ export class IconComponent {
   @Input()
   color: ThemePalette|string;
 
-  /** @zh 内部使用，根据图标类型绑定宿主 CSS 类名（`dui-icon` 或 `dui-font-icon`）。 */
+  /**
+   * @zh 内部使用，根据图标类型绑定宿主 CSS 类名（`dui-icon` 或 `dui-font-icon`）。
+   * @zh 内部使用，根据图标类型绑定宿主 CSS 类名（`dui-icon` 或 `dui-font-icon`）。
+   */
   @HostBinding('class')
-  get hostClasses(): any {
+  get hostClasses() {
     if( this.iconType != "font"){
       return 'dui-icon'
     }else{
@@ -70,6 +82,10 @@ export class IconComponent {
   get disabled(): boolean {
     return this._disable;
   }
+  /**
+   * Property `_disable` (`boolean`) storing disable (default: `false`).
+   * @zh 属性 `_disable`（类型：`boolean`），用于存储或配置禁用（默认值：`false`）。
+   */
   _disable:boolean=false;
 
   // 不要再加名叫 `style` 的 @Input(b8c5e5c 复核)。Angular 会把宿主上的静态
@@ -81,7 +97,7 @@ export class IconComponent {
    * @zh 应用到渲染出的 `mat-icon` 元素上的内联样式对象。
    */
   @Input()
-  set iconStyle(v: any) {
+  set iconStyle(v) {
     this._style = v;
     this._changeDetectorRef.detectChanges();
   }
@@ -89,18 +105,22 @@ export class IconComponent {
    * Inline style object applied to the rendered `mat-icon` element.
    * @zh 应用到渲染出的 `mat-icon` 元素上的内联样式对象。
    */
-  get iconStyle(): any {
+  get iconStyle() {
     return this._style;
   }
   /**
    * The font-set prefix parsed from `value` (for `iconType === 'font'`).
    * @zh 从 `value` 中解析出的字体集前缀（当 `iconType === 'font'` 时使用）。
    */
-  get fontSet(): any {
+  get fontSet() {
     let vals = this._value.split("_");
     return vals[0];
   }
-  _style: any;
+  /**
+   * Property `_style` (`any`) storing style.
+   * @zh 属性 `_style`（类型：`any`），用于存储或配置样式。
+   */
+  _style;
 
   /**
    * The resolved icon name/id/glyph used for rendering (with source prefix stripped).
@@ -110,7 +130,11 @@ export class IconComponent {
     return this._value;
   }
 
-  /** @zh 内部使用，`EXTRA` 类型图标的自定义字体样式（`font-family`）。 */
+  /**
+   * Property `fontStyle` (`any`) storing font style.
+   * @zh 内部使用，`EXTRA` 类型图标的自定义字体样式（`font-family`）。
+   * @zh 内部使用，`EXTRA` 类型图标的自定义字体样式（`font-family`）。
+   */
   public fontStyle;
 
   /**
@@ -152,6 +176,14 @@ export class IconComponent {
       this._value = value;
     }
   }
+  /**
+   * Creates an instance of `IconComponent` and initializes its dependencies and internal state.
+   * @zh 创建 `IconComponent` 实例，并初始化其依赖项与内部状态。
+   * @param _changeDetectorRef - Injected or initial change detector ref (`ChangeDetectorRef`) / 注入或传入的变更检测器引用（`ChangeDetectorRef`）
+   * @param matIconRegistry - Injected or initial mat icon registry (`MatIconRegistry`) / 注入或传入的Material图标Registry（`MatIconRegistry`）
+   * @param fontLoaderService - Injected or initial font loader service (`FontLoaderService`) / 注入或传入的字体加载器服务（`FontLoaderService`）
+   * @param domSanitizer - Injected or initial dom sanitizer (`DomSanitizer`) / 注入或传入的DOM节点安全清理器（`DomSanitizer`）
+   */
   constructor(
     public _changeDetectorRef: ChangeDetectorRef,
     private matIconRegistry: MatIconRegistry,

@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Module `src/common/clipboard/copy-button.component.ts` providing copy button component definitions and implementation.
+ * @zh 模块文件 `src/common/clipboard/copy-button.component.ts`，提供复制按钮组件相关的定义与实现。
+ */
+
 
 import { ChangeDetectorRef, Component, EventEmitter, Input, Output } from '@angular/core';
 
@@ -19,9 +24,17 @@ import { coerceBoolean } from '@dotos/dui/core/decorators';
 })
 export class CopyButtonComponent {
 
+  /**
+   * Property `timer` (`any`) storing timer.
+   * @zh 属性 `timer`（类型：`any`），用于存储或配置定时器。
+   */
   private timer;
 
-  /** @zh 是否刚完成一次复制（用于短暂显示"已复制"状态）。 */
+  /**
+   * Property `copied` (`boolean`) storing copied (default: `false`).
+   * @zh 是否刚完成一次复制（用于短暂显示"已复制"状态）。
+   * @zh 是否刚完成一次复制（用于短暂显示"已复制"状态）。
+   */
   copied = false;
 
   /**
@@ -65,7 +78,7 @@ export class CopyButtonComponent {
    * @zh 应用到按钮上的内联样式对象。
    */
   @Input()
-  style: {[key: string]: any} = {};
+  style: {[key: string]: unknown} = {};
 
   /**
    * Material theme color.
@@ -89,6 +102,13 @@ export class CopyButtonComponent {
   @Output()
   successCopied = new EventEmitter<string>();
 
+  /**
+   * Creates an instance of `CopyButtonComponent` and initializes its dependencies and internal state.
+   * @zh 创建 `CopyButtonComponent` 实例，并初始化其依赖项与内部状态。
+   * @param clipboardService - Injected or initial clipboard service (`ClipboardService`) / 注入或传入的clipboard服务（`ClipboardService`）
+   * @param translate - Injected or initial translate (`TranslateService`) / 注入或传入的翻译（`TranslateService`）
+   * @param cd - Injected or initial cd (`ChangeDetectorRef`) / 注入或传入的cd（`ChangeDetectorRef`）
+   */
   constructor(private clipboardService: ClipboardService,
               private translate: TranslateService,
               private cd: ChangeDetectorRef) {

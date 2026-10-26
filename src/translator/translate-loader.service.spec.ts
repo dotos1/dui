@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Module `src/translator/translate-loader.service.spec.ts` providing translate loader service spec definitions and implementation.
+ * @zh 模块文件 `src/translator/translate-loader.service.spec.ts`，提供翻译加载器服务spec相关的定义与实现。
+ */
+
 import { throwError } from 'rxjs';
 import { TranslateLoaderService } from './translate-loader.service';
 

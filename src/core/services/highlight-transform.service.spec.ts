@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Module `src/core/services/highlight-transform.service.spec.ts` providing highlight transform service spec definitions and implementation.
+ * @zh 模块文件 `src/core/services/highlight-transform.service.spec.ts`，提供highlight转换服务spec相关的定义与实现。
+ */
+
 import { HighlightTransformService } from './highlight-transform.service';
 
 /** b8c5e5c 复核:在 Text 节点上高亮,不二次转义,重复执行幂等。 */

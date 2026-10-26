@@ -1,9 +1,18 @@
+/**
+ * @fileoverview Module `src/common/matcolorpicker/color-picker.component.ts` providing color picker component definitions and implementation.
+ * @zh 模块文件 `src/common/matcolorpicker/color-picker.component.ts`，提供颜色选择器组件相关的定义与实现。
+ */
+
 import { Component, EventEmitter, forwardRef, Input, Output, ViewEncapsulation,ChangeDetectionStrategy } from '@angular/core';
 import { duiAnimations } from '@dotos/dui/common/animations';
 import { MatColors } from '@dotos/dui/core/color';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
-export const MATERIAL_COLOR_PICKER_VALUE_ACCESSOR: any = {
+/**
+ * Constant/variable `MATERIAL_COLOR_PICKER_VALUE_ACCESSOR` defining material color picker value accessor in `src/common/matcolorpicker`.
+ * @zh 常量/变量 `MATERIAL_COLOR_PICKER_VALUE_ACCESSOR`，定义 `src/common/matcolorpicker` 中的MATERIAL颜色选择器值访问器。
+ */
+export const MATERIAL_COLOR_PICKER_VALUE_ACCESSOR = {
   provide: NG_VALUE_ACCESSOR,
   useExisting: forwardRef(() => ColorPickerComponent),
   multi: true
@@ -25,17 +34,38 @@ export const MATERIAL_COLOR_PICKER_VALUE_ACCESSOR: any = {
   providers: [MATERIAL_COLOR_PICKER_VALUE_ACCESSOR]
 })
 export class ColorPickerComponent implements ControlValueAccessor {
-  /** @zh 可选的调色板集合，来自 `MatColors.all`。 */
-  colors: any;
-  /** @zh 可选的色阶（hue）列表。 */
+  /**
+   * Property `colors` (`any`) storing colors.
+   * @zh 可选的调色板集合，来自 `MatColors.all`。
+   * @zh 可选的调色板集合，来自 `MatColors.all`。
+   */
+  colors;
+  /**
+   * @zh 可选的色阶（hue）列表。
+   * @zh 可选的色阶（hue）列表。
+   */
   hues: string[];
-  /** @zh 当前显示的面板视图：`'palettes'`（调色板）或 `'hues'`（色阶）。 */
+  /**
+   * Property `view` (`string`) storing view.
+   * @zh 当前显示的面板视图：`'palettes'`（调色板）或 `'hues'`（色阶）。
+   * @zh 当前显示的面板视图：`'palettes'`（调色板）或 `'hues'`（色阶）。
+   */
   view: string;
-  /** @zh 当前选中的颜色对象（含 palette/hue/class/bg/fg）。 */
-  selectedColor: any;
-  /** @zh 当前选中的调色板名称。 */
+  /**
+   * @zh 当前选中的颜色对象（含 palette/hue/class/bg/fg）。
+   * @zh 当前选中的颜色对象（含 palette/hue/class/bg/fg）。
+   */
+  selectedColor;
+  /**
+   * Property `selectedPalette` (`string`) storing selected palette.
+   * @zh 当前选中的调色板名称。
+   * @zh 当前选中的调色板名称。
+   */
   selectedPalette: string;
-  /** @zh 当前选中的色阶（hue）。 */
+  /**
+   * @zh 当前选中的色阶（hue）。
+   * @zh 当前选中的色阶（hue）。
+   */
   selectedHue: string;
 
   /**
@@ -43,15 +73,29 @@ export class ColorPickerComponent implements ControlValueAccessor {
    * @zh 选中颜色发生变化时发出对应的颜色对象。
    */
   @Output()
-  colorChanged: EventEmitter<any>;
+  colorChanged;
 
   // Private
+  /**
+   * Property `_color` (`string`) storing color.
+   * @zh 属性 `_color`（类型：`string`），用于存储或配置颜色。
+   */
   private _color: string;
-  private _modelChange: (value: any) => void;
-  private _modelTouched: (value: any) => void;
+  /**
+   * Property `_modelChange` (`(value: any) => void`) storing model change.
+   * @zh 属性 `_modelChange`（类型：`(value: any) => void`），用于存储或配置模型变更。
+   */
+  private _modelChange: (value) => void;
+  /**
+   * Property `_modelTouched` (`(value: any) => void`) storing model touched.
+   * @zh 属性 `_modelTouched`（类型：`(value: any) => void`），用于存储或配置模型是否已触碰。
+   */
+  private _modelTouched: (value) => void;
 
   /**
    * Constructor
+
+   * @zh 创建 `ColorPickerComponent` 实例，并初始化其依赖项与内部状态。
    */
   constructor() {
     // Set the defaults
@@ -93,18 +137,27 @@ export class ColorPickerComponent implements ControlValueAccessor {
     return this._color;
   }
 
-  /** @zh Angular 表单 `ControlValueAccessor` 接口方法：注册值变化回调。 */
-  registerOnChange(fn: any): void {
+  /**
+   * @zh Angular 表单 `ControlValueAccessor` 接口方法：注册值变化回调。
+   * @zh Angular 表单 `ControlValueAccessor` 接口方法：注册值变化回调。
+   */
+  registerOnChange(fn): void {
     this._modelChange = fn;
   }
 
-  /** @zh Angular 表单 `ControlValueAccessor` 接口方法：注册触摸回调。 */
-  registerOnTouched(fn: any): void {
+  /**
+   * @zh Angular 表单 `ControlValueAccessor` 接口方法：注册触摸回调。
+   * @zh Angular 表单 `ControlValueAccessor` 接口方法：注册触摸回调。
+   */
+  registerOnTouched(fn): void {
     this._modelTouched = fn;
   }
 
-  /** @zh Angular 表单 `ControlValueAccessor` 接口方法：写入外部传入的值。 */
-  writeValue(color: any): void {
+  /**
+   * @zh Angular 表单 `ControlValueAccessor` 接口方法：写入外部传入的值。
+   * @zh Angular 表单 `ControlValueAccessor` 接口方法：写入外部传入的值。
+   */
+  writeValue(color): void {
     // Return if null
     if (!color) {
       return;
@@ -155,6 +208,8 @@ export class ColorPickerComponent implements ControlValueAccessor {
 
   /**
    * Update selected color
+
+   * @zh 执行 `updateSelectedColor`，用于更新已选中颜色。
    */
   updateSelectedColor(): void {
     if (this.selectedColor && this.selectedColor.palette === this.selectedPalette && this.selectedColor.hue === this.selectedHue) {

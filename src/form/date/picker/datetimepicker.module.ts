@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Module `src/form/date/picker/datetimepicker.module.ts` providing datetimepicker module definitions and implementation.
+ * @zh 模块文件 `src/form/date/picker/datetimepicker.module.ts`，提供日期时间选择器模块相关的定义与实现。
+ */
+
 import {A11yModule} from "@angular/cdk/a11y";
 import {OverlayModule} from "@angular/cdk/overlay";
 import {CommonModule} from "@angular/common";
@@ -15,6 +20,10 @@ import {MatDatetimepickerMonthView} from "./month-view";
 import {MatDatetimepickerYearView} from "./year-view";
 import {MatDatetimepickerMultiYearView} from "./multi-year-view";
 
+/**
+ * Angular module `MatDatetimepickerModule` declaring and exporting mat datetimepicker module components, directives, pipes, and providers.
+ * @zh Angular 模块 `MatDatetimepickerModule`，声明并导出Material日期时间选择器模块相关的组件、指令、管道与服务提供者。
+ */
 @NgModule({
     imports: [
         CommonModule,

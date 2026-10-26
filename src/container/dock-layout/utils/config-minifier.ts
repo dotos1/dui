@@ -1,10 +1,31 @@
+/**
+ * @fileoverview Module `src/container/dock-layout/utils/config-minifier.ts` providing config minifier definitions and implementation.
+ * @zh 模块文件 `src/container/dock-layout/utils/config-minifier.ts`，提供配置minifier相关的定义与实现。
+ */
+
 
 export namespace ConfigMinifier {
 
+    /**
+     * Type alias `YY` representing yy (`'id' | 'title'`).
+     * @zh 类型别名 `YY`，表示YY（`'id' | 'title'`）。
+     */
     export type YY = 'id' | 'title';
+    /**
+     * Enumeration `XX` defining supported xx constants.
+     * @zh 枚举 `XX`，定义支持的XX常量集合。
+     */
     export const enum XX {
+        /**
+         * Enum member `XX.id` = 'id' representing id.
+         * @zh 枚举项 `XX.id` = 'id'，表示唯一标识。
+         */
         id = 'id'
     }
+    /**
+     * Constant/variable `keys` defining keys in `src/container/dock-layout/utils`.
+     * @zh 常量/变量 `keys`，定义 `src/container/dock-layout/utils` 中的键列表。
+     */
     const keys: readonly string[] = [
         'settings',
         'hasHeaders',
@@ -44,6 +65,10 @@ export namespace ConfigMinifier {
         //Maximum 36 entries, do not cross this line!
     ];
 
+    /**
+     * Constant/variable `values` defining values in `src/container/dock-layout/utils`.
+     * @zh 常量/变量 `values`，定义 `src/container/dock-layout/utils` 中的值列表。
+     */
     const values: readonly (boolean | string)[] = [
         true,
         false,
@@ -57,12 +82,23 @@ export namespace ConfigMinifier {
         'open in new window'
     ];
 
+    /**
+     * Executes `checkInitialise` to handle check initialise.
+     * @zh 执行 `checkInitialise`，用于检查Initialise。
+     */
     export function checkInitialise(): void {
         if (keys.length > 36) {
             throw new Error('Too many keys in config minifier map');
         }
     }
 
+    /**
+     * Executes `translateObject` to handle translate object.
+     * @zh 执行 `translateObject`，用于翻译对象。
+     * @param from - from parameter (`Record<string, unknown>`) / 从参数（`Record<string, unknown>`）
+     * @param minify - minify parameter (`boolean`) / minify参数（`boolean`）
+     * @returns Result of type `Record<string, unknown>` / 类型为 `Record<string, unknown>` 的返回值
+     */
     export function translateObject(from: Record<string, unknown>, minify: boolean): Record<string, unknown> {
         const to: Record<string, unknown> = {};
         for (const key in from) {
@@ -82,6 +118,12 @@ export namespace ConfigMinifier {
         return to;
     }
 
+    /**
+     * Executes `translateArray` to handle translate array.
+     * @zh 执行 `translateArray`，用于翻译数组。
+     * @param from - from parameter (`unknown[]`) / 从参数（`unknown[]`）
+     * @param minify - minify parameter (`boolean`) / minify参数（`boolean`）
+     */
     function translateArray(from: unknown[], minify: boolean) {
         const length = from.length;
         const to = new Array<unknown>(length);
@@ -93,6 +135,12 @@ export namespace ConfigMinifier {
         return to;
     }
 
+    /**
+     * Executes `translateValue` to handle translate value.
+     * @zh 执行 `translateValue`，用于翻译值。
+     * @param from - from parameter (`unknown`) / 从参数（`unknown`）
+     * @param minify - minify parameter (`boolean`) / minify参数（`boolean`）
+     */
     function translateValue(from: unknown, minify: boolean) {
         if (typeof from === 'object') {
             if (from === null) {
@@ -113,6 +161,11 @@ export namespace ConfigMinifier {
         }
     }
 
+    /**
+     * Executes `minifyKey` to handle minify key.
+     * @zh 执行 `minifyKey`，用于minify键。
+     * @param value - value parameter (`string`) / 值参数（`string`）
+     */
     function minifyKey(value: string) {
         /**
          * If a value actually is a single character, prefix it
@@ -138,6 +191,11 @@ export namespace ConfigMinifier {
         }
     }
 
+    /**
+     * Executes `unminifyKey` to handle unminify key.
+     * @zh 执行 `unminifyKey`，用于unminify键。
+     * @param key - key parameter (`string`) / 键参数（`string`）
+     */
     function unminifyKey(key: string) {
         /**
          * value is a single character. Assume that it's a translation
@@ -161,6 +219,11 @@ export namespace ConfigMinifier {
         return key;
     }
 
+    /**
+     * Executes `minifyValue` to handle minify value.
+     * @zh 执行 `minifyValue`，用于minify值。
+     * @param value - value parameter (`unknown`) / 值参数（`unknown`）
+     */
     function minifyValue(value: unknown) {
         /**
          * If a value actually is a single character, prefix it
@@ -186,6 +249,11 @@ export namespace ConfigMinifier {
         }
     }
 
+    /**
+     * Executes `unminifyValue` to handle unminify value.
+     * @zh 执行 `unminifyValue`，用于unminify值。
+     * @param value - value parameter (`unknown`) / 值参数（`unknown`）
+     */
     function unminifyValue(value: unknown) {
         /**
          * value is a single character. Assume that it's a translation
@@ -209,6 +277,11 @@ export namespace ConfigMinifier {
         return value;
     }
 
+    /**
+     * Executes `indexOfKey` to handle index of key.
+     * @zh 执行 `indexOfKey`，用于索引的键。
+     * @param key - key parameter (`string`) / 键参数（`string`）
+     */
     function indexOfKey(key: string) {
         for (let i = 0; i < keys.length; i++) {
             if (keys[i] === key) {
@@ -218,6 +291,11 @@ export namespace ConfigMinifier {
         return -1;
     }
 
+    /**
+     * Executes `indexOfValue` to handle index of value.
+     * @zh 执行 `indexOfValue`，用于索引的值。
+     * @param value - value parameter (`unknown`) / 值参数（`unknown`）
+     */
     function indexOfValue(value: unknown) {
         for (let i = 0; i < values.length; i++) {
             if (values[i] === value) {

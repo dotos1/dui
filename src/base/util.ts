@@ -6,12 +6,20 @@
  *
  * <p><b>行为按旧实现的实测输出对齐,不按"应该怎样"写。</b>
  * 几个反直觉但必须保留的点都在各自函数的注释里,门在 `tools/base/gate.mjs`。
+
+ * @zh 基础工具。
  */
 
 export function isNullOrUndefined(value: unknown): boolean {
   return value === undefined || value === null;
 }
 
+/**
+ * Executes `isUndefined` to handle is undefined.
+ * @zh 执行 `isUndefined`，用于是否为未定义。
+ * @param value - value parameter (`unknown`) / 值参数（`unknown`）
+ * @returns Result of type `boolean` / 类型为 `boolean` 的返回值
+ */
 export function isUndefined(value: unknown): boolean {
   return value === undefined;
 }
@@ -24,12 +32,17 @@ export function isUndefined(value: unknown): boolean {
  * 于是 `[]` / `new Date()` 都不算。调用方(`extend` 的深合并、
  * `mergeDeep` 之类)正是靠这条把数组和日期当叶子节点处理 ——
  * 改成 `typeof v === 'object'` 会让日期被逐字段拆开合并。
+
+ * @zh 是不是"普通对象"。
  */
 export function isObject(value: unknown): boolean {
   return Object.prototype.toString.call(value) === '[object Object]';
 }
 
-/** 空串算 true;<b>纯空白不算</b>(旧实现不 trim)。 */
+/**
+ * 空串算 true;<b>纯空白不算</b>(旧实现不 trim)。
+ * @zh 空串算 true;<b>纯空白不算</b>(旧实现不 trim)。
+ */
 export function isBlankString(value: unknown): boolean {
   return value === '';
 }
@@ -42,6 +55,8 @@ export function isBlankString(value: unknown): boolean {
  * (它只在每一步之后判 `undefined`,不判 `null`),而且有调用方靠它
  * 把"配置里显式写了 null"和"这一段不存在"区分开。补一个 null 守卫
  * 看着是修 bug,实际是改语义。
+
+ * @zh 按点分路径取值。
  */
 export function getValue(nameSpace: string, obj: unknown): unknown {
   let value: unknown = obj;
@@ -52,11 +67,21 @@ export function getValue(nameSpace: string, obj: unknown): unknown {
   return value;
 }
 
+/**
+ * Executes `isUnsafeKey` to handle is unsafe key.
+ * @zh 执行 `isUnsafeKey`，用于是否为Unsafe键。
+ * @param key - key parameter (`string`) / 键参数（`string`）
+ * @returns Result of type `boolean` / 类型为 `boolean` 的返回值
+ */
 function isUnsafeKey(key: string): boolean {
   return key === '__proto__' || key === 'constructor' || key === 'prototype';
 }
 
-/** 按点分路径赋值。中途缺失的层级会补成空对象。 */
+/**
+ * Executes `setValue` to handle set value.
+ * 按点分路径赋值。中途缺失的层级会补成空对象。
+ * @zh 按点分路径赋值。中途缺失的层级会补成空对象。
+ */
 export function setValue(nameSpace: string, value: unknown, obj: Record<string, unknown>): Record<string, unknown> {
   const keys: string[] = nameSpace.replace(/\[/g, '.').replace(/\]/g, '').split('.');
   const start = obj || {};
@@ -77,6 +102,7 @@ export function setValue(nameSpace: string, value: unknown, obj: Record<string, 
 }
 
 /**
+ * Executes `extend` to handle extend.
  * 合并到 `copied`。
  *
  * <p>三处必须照抄的行为:
@@ -88,6 +114,8 @@ export function setValue(nameSpace: string, value: unknown, obj: Record<string, 
  *   <li>数组按下标并:浅合并 `[1,2] + [3]` → `[3]`(整替),
  *       深合并 → `[3,2]`(只覆盖下标 0)。</li>
  * </ol>
+
+ * @zh 合并到 `copied`。
  */
 export function extend(
   copied: Record<string, unknown>, first?: unknown, second?: unknown, deep?: boolean | unknown, ...rest: unknown[]
@@ -117,34 +145,66 @@ export function extend(
   return 目标;
 }
 
-/** 浅合并到 `first`。`extend` 的两参数快捷方式。 */
+/**
+ * Executes `merge` to handle merge.
+ * 浅合并到 `first`。`extend` 的两参数快捷方式。
+ * @zh 浅合并到 `first`。`extend` 的两参数快捷方式。
+ */
 export function merge(first: Record<string, unknown>, second: unknown): void {
   extend(first, second);
 }
 
-/** `key=value&…`,键与值都做百分号编码。`null` / `undefined` 会写成字面量。 */
+/**
+ * Executes `queryParams` to handle query params.
+ * `key=value&…`,键与值都做百分号编码。`null` / `undefined` 会写成字面量。
+ * @zh `key=value&…`,键与值都做百分号编码。`null` / `undefined` 会写成字面量。
+ */
 export function queryParams(data: Record<string, unknown>): string {
   return Object.keys(data)
     .map((key) => encodeURIComponent(key) + '=' + encodeURIComponent('' + data[key]))
     .join('&');
 }
 
+/**
+ * Executes `throwError` to handle throw error.
+ * @zh 执行 `throwError`，用于throw错误。
+ * @param message - message parameter (`string`) / 消息参数（`string`）
+ * @returns Result of type `never` / 类型为 `never` 的返回值
+ */
 export function throwError(message: string): never {
   throw new Error(message);
 }
 
+/**
+ * Constant/variable `序号` defining 序号 in `src/base`.
+ * @zh 常量/变量 `序号`，定义 `src/base` 中的序号。
+ */
 let 序号 = 0;
-/** 生成一个进程内唯一的 id。 */
+/**
+ * Executes `getUniqueID` to handle get unique id.
+ * 生成一个进程内唯一的 id。
+ * @zh 生成一个进程内唯一的 id。
+ */
 export function getUniqueID(prefix?: string): string {
   return (prefix ? prefix + '_' : '') + 序号++ + '_' + Math.random().toString(36).slice(2, 8);
 }
 
-/** `12` → `'12px'`;已经带单位的原样返回。 */
+/**
+ * Executes `formatUnit` to handle format unit.
+ * `12` → `'12px'`;已经带单位的原样返回。
+ * @zh `12` → `'12px'`;已经带单位的原样返回。
+ */
 export function formatUnit(value: string | number): string {
   const s = String(value);
   return /^[-+]?[0-9]*\.?[0-9]+$/.test(s) ? s + 'px' : s;
 }
 
+/**
+ * Executes `setImmediate` to handle set immediate.
+ * @zh 执行 `setImmediate`，用于集合Immediate。
+ * @param handler - handler parameter (`Function`) / 处理器参数（`Function`）
+ * @returns Result of type `number` / 类型为 `number` 的返回值
+ */
 export function setImmediate(handler: Function): number {
   return window.setTimeout(handler, 0);
 }

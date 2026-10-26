@@ -1,7 +1,16 @@
+/**
+ * @fileoverview Module `src/common/colorpicker/components/gradient/utils/gradientParser.ts` providing gradient parser definitions and implementation.
+ * @zh 模块文件 `src/common/colorpicker/components/gradient/utils/gradientParser.ts`，提供渐变解析器相关的定义与实现。
+ */
+
 import { high, low } from './formatters';
 import { isUpperCase } from './utils';
 import tinycolor from 'tinycolor2';
 
+/**
+ * Constant/variable `gradientParser` defining gradient parser in `src/common/colorpicker/components/gradient/utils`.
+ * @zh 常量/变量 `gradientParser`，定义 `src/common/colorpicker/components/gradient/utils` 中的渐变解析器。
+ */
 export const gradientParser = (input = '') => {
   const tokens = {
     linearGradient: /^(-(webkit|o|ms|moz)-)?(linear-gradient)/i,
@@ -28,17 +37,17 @@ export const gradientParser = (input = '') => {
     number: /^(([0-9]*\.[0-9]+)|([0-9]+\.?))/,
   }
 
-  function error(msg: any) {
+  function error(msg) {
     const err = new Error(input + ': ' + msg)
     // err.source = input
     throw err
   }
 
-  function consume(size: any) {
+  function consume(size) {
     input = input.substr(size)
   }
 
-  function scan(regexp: any) {
+  function scan(regexp) {
     const blankCaptures = /^[\n\r\t\s]+/.exec(input)
     if (blankCaptures) {
       consume(blankCaptures[0].length)
@@ -52,7 +61,7 @@ export const gradientParser = (input = '') => {
     return captures
   }
 
-  function matchListing(matcher: any) {
+  function matchListing(matcher) {
     let captures = matcher()
     const result = []
 
@@ -71,7 +80,7 @@ export const gradientParser = (input = '') => {
     return result
   }
 
-  function match(type: any, pattern: any, captureIndex: any) {
+  function match(type, pattern, captureIndex) {
     const captures = scan(pattern)
     if (captures) {
       return {
@@ -91,14 +100,14 @@ export const gradientParser = (input = '') => {
     }
   }
 
-  const checkCaps = (val: any) => {
+  const checkCaps = (val) => {
     const capIt = isUpperCase(val?.[0])
     return {
       value: `${capIt ? 'RGBA' : 'rgba'}(${matchListing(matchNumber)})`,
     }
   }
 
-  function matchCall(pattern: any, callback: any) {
+  function matchCall(pattern, callback) {
     const captures = scan(pattern)
     if (captures) {
       if (!scan(tokens.startCall)) {
@@ -161,9 +170,9 @@ export const gradientParser = (input = '') => {
   }
 
   function matchGradient(
-    gradientType: any,
-    pattern: any,
-    orientationMatcher: any
+    gradientType,
+    pattern,
+    orientationMatcher
   ) {
     return matchCall(pattern, function () {
       const orientation = orientationMatcher()
@@ -222,7 +231,7 @@ export const gradientParser = (input = '') => {
     }
 
     const ast0 = ast[0]
-    const checkSelected = ast0?.colorStops?.filter((c: any) =>
+    const checkSelected = ast0?.colorStops?.filter((c: { value? }) =>
       isUpperCase(c.value)
     ).length
 
@@ -230,10 +239,10 @@ export const gradientParser = (input = '') => {
       if (checkSelected > 0) {
         return ast0
       } else {
-        const val = (c: any, i: number) => (i === 0 ? high(c) : low(c))
+        const val = (c, i: number) => (i === 0 ? high(c) : low(c))
         return {
           ...ast0,
-          colorStops: ast0.colorStops.map((c: any, i: number) => ({
+          colorStops: ast0.colorStops.map((c, i: number) => ({
             ...c,
             value: val(c, i),
           })),
@@ -369,7 +378,7 @@ export const gradientParser = (input = '') => {
     return scan(tokens.number)[1]
   }
 
-  const convertHsl = (val: any) => {
+  const convertHsl = (val) => {
     const capIt = isUpperCase(val?.[0])
     const hsl = matchListing(matchNumber)
     const { r, g, b, a } = tinycolor({
@@ -383,7 +392,7 @@ export const gradientParser = (input = '') => {
     }
   }
 
-  const convertHsv = (val: any) => {
+  const convertHsv = (val) => {
     const capIt = isUpperCase(val?.[0])
     const hsv = matchListing(matchNumber)
     const { r, g, b, a } = tinycolor({
@@ -397,7 +406,7 @@ export const gradientParser = (input = '') => {
     }
   }
 
-  const convertRgb = (val: any) => {
+  const convertRgb = (val) => {
     const capIt = isUpperCase(val?.[0])
     const captures = scan(tokens.spacedRgbColor)
     const [, r, g, b, a = 1] = captures || [null, ...matchListing(matchNumber)]

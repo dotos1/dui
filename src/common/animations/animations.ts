@@ -1,5 +1,14 @@
+/**
+ * @fileoverview Module `src/common/animations/animations.ts` providing animations definitions and implementation.
+ * @zh 模块文件 `src/common/animations/animations.ts`，提供动画相关的定义与实现。
+ */
+
 import { sequence, trigger, animate, style, group, query, transition, animateChild, state, animation, useAnimation, stagger } from '@angular/animations';
 
+/**
+ * Constant/variable `customAnimation` defining custom animation in `src/common/animations`.
+ * @zh 常量/变量 `customAnimation`，定义 `src/common/animations` 中的自定义动画。
+ */
 const customAnimation = animation([
     style({
         opacity  : '{{opacity}}',
@@ -18,6 +27,10 @@ const customAnimation = animation([
     }
 });
 
+/**
+ * Angular animation trigger `duiAnimations` defining state transitions for dui animations.
+ * @zh Angular 动画触发器 `duiAnimations`，定义DUI动画的状态过渡动画。
+ */
 export const duiAnimations = [
 
     trigger('animate', [transition('void => *', [useAnimation(customAnimation)])]),

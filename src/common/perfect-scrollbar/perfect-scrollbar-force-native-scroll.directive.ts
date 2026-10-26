@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Module `src/common/perfect-scrollbar/perfect-scrollbar-force-native-scroll.directive.ts` providing perfect scrollbar force native scroll directive definitions and implementation.
+ * @zh 模块文件 `src/common/perfect-scrollbar/perfect-scrollbar-force-native-scroll.directive.ts`，提供perfect滚动条force原生滚动指令相关的定义与实现。
+ */
+
 import { Directive, ElementRef, Renderer2 } from '@angular/core';
 
 /**
@@ -10,6 +15,12 @@ import { Directive, ElementRef, Renderer2 } from '@angular/core';
     selector: '[forceNativeScrolling]',
 })
 export class ForceNativeScrollDirective {
+    /**
+     * Creates an instance of `ForceNativeScrollDirective` and initializes its dependencies and internal state.
+     * @zh 创建 `ForceNativeScrollDirective` 实例，并初始化其依赖项与内部状态。
+     * @param renderer - Injected or initial renderer (`Renderer2`) / 注入或传入的渲染器（`Renderer2`）
+     * @param el - Injected or initial el (`ElementRef`) / 注入或传入的DOM元素（`ElementRef`）
+     */
     constructor(private renderer: Renderer2, el: ElementRef) {
         ['ps__child', 'ps__child--consume'].forEach(className => {
             this.renderer.addClass(el?.nativeElement, className);

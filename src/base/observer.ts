@@ -20,21 +20,64 @@
  * 多半来自拆卸顺序 —— 父组件先 destroy,子组件随后在自己的 ngOnDestroy 里
  * `off` —— 炸出来的 TypeError 会打断后面的清理,而它并不指向真实缺陷。
  * 销毁后 `notify` 仍然会抛,见上面第 3 条。
+
+ * @zh 极小事件总线。
  */
 
 export interface BoundOptions {
+  /**
+   * Property `handler` (`Function`) storing handler.
+   * @zh 属性 `handler`（类型：`Function`），用于存储或配置处理器。
+   */
   handler?: Function;
+  /**
+   * Property `context` (`Object`) storing context.
+   * @zh 属性 `context`（类型：`Object`），用于存储或配置上下文。
+   */
   context?: Object;
+  /**
+   * Property `event` (`string`) storing event.
+   * @zh 属性 `event`（类型：`string`），用于存储或配置事件。
+   */
   event?: string;
+  /**
+   * Property `id` (`string`) storing id.
+   * @zh 属性 `id`（类型：`string`），用于存储或配置唯一标识。
+   */
   id?: string;
 }
 
+/**
+ * Class `Observer` encapsulating observer data structures and logic in `src/base`.
+ * @zh 类 `Observer`，封装 `src/base` 中的观察者数据结构与处理逻辑。
+ */
 export class Observer {
+  /**
+   * Property `boundedEvents` (`{ [key: string]: BoundOptions[] } | undefined`) storing bounded events (default: `{}`).
+   * @zh 属性 `boundedEvents`（类型：`{ [key: string]: BoundOptions[] } | undefined`），用于存储或配置已已绑定事件集合（默认值：`{}`）。
+   */
   private boundedEvents: { [key: string]: BoundOptions[] } | undefined = {};
+  /**
+   * Property `context` (`Object`) storing context.
+   * @zh 属性 `context`（类型：`Object`），用于存储或配置上下文。
+   */
   private context: Object;
 
+  /**
+   * Creates an instance of `Observer` and initializes its dependencies and internal state.
+   * @zh 创建 `Observer` 实例，并初始化其依赖项与内部状态。
+   * @param context - Injected or initial context (`Object`) / 注入或传入的上下文（`Object`）
+   */
   constructor(context?: Object) { this.context = context || this; }
 
+  /**
+   * Executes `on` to handle on.
+   * @zh 执行 `on`，用于当。
+   * @param property - property parameter (`string`) / 属性参数（`string`）
+   * @param handler - handler parameter (`Function`) / 处理器参数（`Function`）
+   * @param context - context parameter (`Object`) / 上下文参数（`Object`）
+   * @param id - id parameter (`string`) / 唯一标识参数（`string`）
+   */
   on(property: string, handler: Function, context?: Object, id?: string): void {
     if (!handler) { return; }
     const 表 = this.boundedEvents;
@@ -49,7 +92,11 @@ export class Observer {
     }
   }
 
-  /** `handler` 不给就摘掉该事件的全部登记。 */
+  /**
+   * Executes `off` to handle off.
+   * `handler` 不给就摘掉该事件的全部登记。
+   * @zh `handler` 不给就摘掉该事件的全部登记。
+   */
   off(property: string, handler?: Function, id?: string): void {
     const 表 = this.boundedEvents;
     if (!表) { return; }   // destroy 之后,见类注释
@@ -73,6 +120,8 @@ export class Observer {
    * <u>Observer 自己</u>,不是登记时给的 context。两条都是旧行为。
    *
    * <p>`errorHandler` 旧实现根本没用过,保留形参只为签名兼容。
+
+   * @zh 触发。
    */
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   notify(property: string, argument?: Object, successHandler?: Function, errorHandler?: Function): void | Object {
@@ -89,11 +138,19 @@ export class Observer {
     if (successHandler) { successHandler.call(this, argument); }
   }
 
-  /** `notify` 的别名。同样不返回值。 */
+  /**
+   * Executes `emit` to handle emit.
+   * `notify` 的别名。同样不返回值。
+   * @zh `notify` 的别名。同样不返回值。
+   */
   emit(property: string, argument?: Object, successHandler?: Function, errorHandler?: Function): void | Object {
     this.notify(property, argument, successHandler, errorHandler);
   }
 
+  /**
+   * Executes `destroy` to handle destroy.
+   * @zh 执行 `destroy`，用于销毁。
+   */
   destroy(): void {
     this.boundedEvents = undefined;
     this.context = undefined as never;

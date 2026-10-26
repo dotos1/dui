@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Module `src/common/perfect-scrollbar/perfect-scrollbar.directive.spec.ts` providing perfect scrollbar directive spec definitions and implementation.
+ * @zh 模块文件 `src/common/perfect-scrollbar/perfect-scrollbar.directive.spec.ts`，提供perfect滚动条指令spec相关的定义与实现。
+ */
+
 import { ElementRef, KeyValueDiffers, NgZone } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { PerfectScrollbarDirective } from './perfect-scrollbar.directive';

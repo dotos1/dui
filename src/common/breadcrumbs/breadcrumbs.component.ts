@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Module `src/common/breadcrumbs/breadcrumbs.component.ts` providing breadcrumbs component definitions and implementation.
+ * @zh 模块文件 `src/common/breadcrumbs/breadcrumbs.component.ts`，提供面包屑导航组件相关的定义与实现。
+ */
+
 import {
   Component,
   ContentChildren,
@@ -31,13 +36,33 @@ import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
 export class BreadcrumbsComponent
   implements OnInit, AfterContentInit, OnDestroy
 {
+  /**
+   * Property `_resizing` (`boolean`) storing resizing (default: `false`).
+   * @zh 属性 `_resizing`（类型：`boolean`），用于存储或配置调整尺寸中（默认值：`false`）。
+   */
   private _resizing = false;
+  /**
+   * Property `_separatorIcon` (`string`) storing separator icon (default: `'chevron_right'`).
+   * @zh 属性 `_separatorIcon`（类型：`string`），用于存储或配置separator图标（默认值：`'chevron_right'`）。
+   */
   private _separatorIcon = 'chevron_right';
+  /**
+   * Property `_destroy$` (`Subject`) storing destroy (default: `new Subject<void>()`).
+   * @zh 属性 `_destroy$`（类型：`Subject`），用于存储或配置销毁（默认值：`new Subject<void>()`）。
+   */
   private _destroy$ = new Subject<void>();
 
-  /** @zh 内部使用，始终为 `true`，用于绑定 `dui-breadcrumbs` 宿主类名。 */
+  /**
+   * Host binding `tdBreadCrumbsClass` bound to host attribute/property `class.dui-breadcrumbs` for td bread crumbs class.
+   * @zh 内部使用，始终为 `true`，用于绑定 `dui-breadcrumbs` 宿主类名。
+   * @zh 内部使用，始终为 `true`，用于绑定 `dui-breadcrumbs` 宿主类名。
+   */
   @HostBinding('class.dui-breadcrumbs') tdBreadCrumbsClass = true;
 
+  /**
+   * Template/content query reference `_breadcrumbs` (`@ContentChildren`) targeting breadcrumbs.
+   * @zh 模板/内容视图查询引用 `_breadcrumbs`（`@ContentChildren`），指向面包屑导航。
+   */
   @ContentChildren(BreadcrumbComponent, { descendants: true })
   _breadcrumbs!: QueryList<BreadcrumbComponent>;
   /**
@@ -63,11 +88,21 @@ export class BreadcrumbsComponent
     return this._separatorIcon;
   }
 
+  /**
+   * Creates an instance of `BreadcrumbsComponent` and initializes its dependencies and internal state.
+   * @zh 创建 `BreadcrumbsComponent` 实例，并初始化其依赖项与内部状态。
+   * @param _elementRef - Injected or initial element ref (`ElementRef`) / 注入或传入的元素引用（`ElementRef`）
+   * @param _changeDetectorRef - Injected or initial change detector ref (`ChangeDetectorRef`) / 注入或传入的变更检测器引用（`ChangeDetectorRef`）
+   */
   constructor(
     private _elementRef: ElementRef,
     private _changeDetectorRef: ChangeDetectorRef
   ) {}
 
+  /**
+   * Angular lifecycle hook invoked once after component or directive inputs are initialized.
+   * @zh Angular 生命周期钩子：在组件或指令的输入属性初始化完成后调用一次。
+   */
   ngOnInit(): void {
     fromEvent(window, 'resize')
       .pipe(debounceTime(10), takeUntil(this._destroy$))
@@ -83,6 +118,10 @@ export class BreadcrumbsComponent
       });
   }
 
+  /**
+   * Angular lifecycle hook invoked once after projected content (`ng-content`) is initialized.
+   * @zh Angular 生命周期钩子：在投影内容（`ng-content`）初始化完成后调用一次。
+   */
   ngAfterContentInit(): void {
     this._breadcrumbs.changes
       .pipe(startWith(this._breadcrumbs), takeUntil(this._destroy$))
@@ -93,6 +132,10 @@ export class BreadcrumbsComponent
       });
   }
 
+  /**
+   * Angular lifecycle hook invoked just before the component, directive, or service is destroyed to release subscriptions and resources.
+   * @zh Angular 生命周期钩子：在组件、指令或服务销毁前调用，用于释放订阅与清理资源。
+   */
   ngOnDestroy(): void {
     this._destroy$.next();
     this._destroy$.complete();
@@ -132,6 +175,10 @@ export class BreadcrumbsComponent
     return this._breadcrumbs ? this._breadcrumbs.length : 0;
   }
 
+  /**
+   * Executes `setCrumbIcons` to handle set crumb icons.
+   * @zh 执行 `setCrumbIcons`，用于集合Crumb图标集合。
+   */
   private setCrumbIcons(): void {
     if (this._breadcrumbs) {
       const breadcrumbArray: BreadcrumbComponent[] =
@@ -146,6 +193,10 @@ export class BreadcrumbsComponent
     }
   }
 
+  /**
+   * Executes `_calculateVisibility` to handle calculate visibility.
+   * @zh 执行 `_calculateVisibility`，用于计算Visibility。
+   */
   private _calculateVisibility(): void {
     const crumbsArray: BreadcrumbComponent[] = this._breadcrumbs.toArray();
     let crumbWidthSum = 0;

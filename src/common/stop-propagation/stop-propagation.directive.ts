@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Module `src/common/stop-propagation/stop-propagation.directive.ts` providing stop propagation directive definitions and implementation.
+ * @zh 模块文件 `src/common/stop-propagation/stop-propagation.directive.ts`，提供停止事件冒泡指令相关的定义与实现。
+ */
+
 import { Directive, HostListener } from '@angular/core';
 
 /**
@@ -13,7 +18,7 @@ export class StopPropagationDirective {
    * @zh 处理原生 `click` 事件并停止其冒泡传播。
    */
   @HostListener('click', ['$event'])
-  public onClick(event: any): void {
+  public onClick(event): void {
     event.stopPropagation();
   }
 }

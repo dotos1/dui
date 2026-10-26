@@ -1,6 +1,17 @@
+/**
+ * @fileoverview Module `src/theme/mdc/theme-utils.ts` providing theme utils definitions and implementation.
+ * @zh 模块文件 `src/theme/mdc/theme-utils.ts`，提供主题工具集相关的定义与实现。
+ */
+
 
 import * as elevation from './elevation-theme';
 
+/**
+ * Executes `resolve_theme` to handle resolve theme.
+ * @zh 执行 `resolve_theme`，用于解析主题。
+ * @param $theme - theme parameter (`any`) / 主题参数（`any`）
+ * @param $elevation_keys - elevation keys parameter (`any`) / 层级阴影键列表参数（`any`）
+ */
 export function resolve_theme($theme, $elevation_keys) {
     let $shadow_color= $theme["container-shadow-color"];
     $elevation_keys.forEach(($key)=> {
@@ -13,6 +24,12 @@ export function resolve_theme($theme, $elevation_keys) {
     });
     return $theme;
   }
+  /**
+   * Executes `resolve_theme_typography` to handle resolve theme typography.
+   * @zh 执行 `resolve_theme_typography`，用于解析主题排版。
+   * @param $theme - theme parameter (`any`) / 主题参数（`any`）
+   * @param $token_prefixes - token prefixes parameter (`any`) / 令牌前缀参数（`any`）
+   */
   function resolve_theme_typography($theme,  $token_prefixes) {
 
     // @each $token-prefix in $token-prefixes {
@@ -39,6 +56,11 @@ export function resolve_theme($theme, $elevation_keys) {
   
     return $theme;
   }
+  /**
+   * Executes `fab_theme` to handle fab theme.
+   * @zh 执行 `fab_theme`，用于fab主题。
+   * @param $theme - theme parameter (`any`) / 主题参数（`any`）
+   */
   export function fab_theme($theme){
     let $elevation_keys=[
       "container-elevation",
@@ -53,6 +75,11 @@ export function resolve_theme($theme, $elevation_keys) {
     ];
     return resolve_theme($theme, $elevation_keys);
   }
+  /**
+   * Executes `button_theme` to handle button theme.
+   * @zh 执行 `button_theme`，用于按钮主题。
+   * @param $theme - theme parameter (`any`) / 主题参数（`any`）
+   */
   export function button_theme($theme){
     let $elevation_keys=[
       "container-elevation",
@@ -63,36 +90,66 @@ export function resolve_theme($theme, $elevation_keys) {
     ];
     return resolve_theme($theme, $elevation_keys);
   }
+  /**
+   * Executes `chip_theme` to handle chip theme.
+   * @zh 执行 `chip_theme`，用于纸片标签主题。
+   * @param $theme - theme parameter (`any`) / 主题参数（`any`）
+   */
   export function chip_theme($theme){//TODO
     let $elevation_keys=[
       "container-elevation",
     ];
     return resolve_theme($theme, $elevation_keys);
   }
+  /**
+   * Executes `dialog_theme` to handle dialog theme.
+   * @zh 执行 `dialog_theme`，用于对话框主题。
+   * @param $theme - theme parameter (`any`) / 主题参数（`any`）
+   */
   export function dialog_theme($theme){
     let $elevation_keys=[
       "container-elevation",
     ];
     return resolve_theme($theme, $elevation_keys);
   }
+  /**
+   * Executes `list_theme` to handle list theme.
+   * @zh 执行 `list_theme`，用于列表主题。
+   * @param $theme - theme parameter (`any`) / 主题参数（`any`）
+   */
   export function list_theme($theme){//TODO
     let $elevation_keys=[
       "list-item-container-elevation",
     ];
     return resolve_theme($theme, $elevation_keys);
   }
+  /**
+   * Executes `menu_theme` to handle menu theme.
+   * @zh 执行 `menu_theme`，用于菜单主题。
+   * @param $theme - theme parameter (`any`) / 主题参数（`any`）
+   */
   export function menu_theme($theme){
     let $elevation_keys=[
       "container-elevation",
     ];
     return resolve_theme($theme, $elevation_keys);
   }
+  /**
+   * Executes `snackbar_theme` to handle snackbar theme.
+   * @zh 执行 `snackbar_theme`，用于snackbar主题。
+   * @param $theme - theme parameter (`any`) / 主题参数（`any`）
+   */
   export function snackbar_theme($theme){
     let $elevation_keys=[
       "container-elevation",
     ];
     return resolve_theme($theme, $elevation_keys);
   }
+  /**
+   * Executes `tab_theme` to handle tab theme.
+   * @zh 执行 `tab_theme`，用于选项卡主题。
+   * @param $theme - theme parameter (`any`) / 主题参数（`any`）
+   */
   export function tab_theme($theme){
     let $elevation_keys=[
       "label-tex",

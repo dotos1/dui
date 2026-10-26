@@ -1,8 +1,19 @@
+/**
+ * @fileoverview Module `src/theme/theme/dui-markdown.theme.ts` providing dui markdown theme definitions and implementation.
+ * @zh 模块文件 `src/theme/theme/dui-markdown.theme.ts`，提供DUIMarkdown文档主题相关的定义与实现。
+ */
+
 /* stylelint-disable no-duplicate-selectors */
 
 import { Theme } from '../interfaces';
 import { matColor } from '../mat-color';
 
+/**
+ * Executes `duiMarkdownTheme` to handle dui markdown theme.
+ * @zh 执行 `duiMarkdownTheme`，用于DUIMarkdown文档主题。
+ * @param theme - theme parameter (`Theme`) / 主题参数（`Theme`）
+ * @returns Result of type `Object` / 类型为 `Object` 的返回值
+ */
 export function duiMarkdownTheme(theme: Theme): Object {
   return {
     '.dui-markdown':

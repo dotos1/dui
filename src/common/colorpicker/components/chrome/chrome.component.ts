@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Module `src/common/colorpicker/components/chrome/chrome.component.ts` providing chrome component definitions and implementation.
+ * @zh 模块文件 `src/common/colorpicker/components/chrome/chrome.component.ts`，提供chrome组件相关的定义与实现。
+ */
+
 
 import {  ChangeDetectionStrategy,  Component,  Input,} from '@angular/core';
 import { ColorWrap } from '@dotos/dui/common/colorpicker/common';
@@ -119,9 +124,16 @@ import { TriggerPopup } from '@dotos/dui/common/trigger';
 
 })
 export class ChromeComponent extends ColorWrap implements TriggerPopup {
-  /** Remove alpha slider and options from picker */
+  /**
+   * Remove alpha slider and options from picker
+   * @zh 输入属性 `disableAlpha`（类型：`boolean`），用于配置禁用透明度（默认值：`false`）。
+   */
   @Input() disableAlpha = false;
-  /** @zh 饱和度面板指示圆点的内联样式。 */
+  /**
+   * Property `circle` (`{ [key: string]: string }`) storing circle.
+   * @zh 饱和度面板指示圆点的内联样式。
+   * @zh 饱和度面板指示圆点的内联样式。
+   */
   circle: { [key: string]: string } = {
     width: '12px',
     height: '12px',
@@ -129,7 +141,11 @@ export class ChromeComponent extends ColorWrap implements TriggerPopup {
     boxShadow: 'rgb(255, 255, 255) 0px 0px 0px 1px inset',
     transform: 'translate(-6px, -8px)',
   };
-  /** @zh 色相/透明度滑块手柄的内联样式。 */
+  /**
+   * Property `pointer` (`{ [key: string]: string }`) storing pointer.
+   * @zh 色相/透明度滑块手柄的内联样式。
+   * @zh 色相/透明度滑块手柄的内联样式。
+   */
   pointer: { [key: string]: string } = {
     width: '12px',
     height: '12px',
@@ -138,9 +154,17 @@ export class ChromeComponent extends ColorWrap implements TriggerPopup {
     backgroundColor: 'rgb(248, 248, 248)',
     boxShadow: '0 1px 4px 0 rgba(0, 0, 0, 0.37)',
   };
-  /** @zh 当前颜色预览色块的背景色（含透明度）。 */
+  /**
+   * Property `activeBackground` (`string`) storing active background.
+   * @zh 当前颜色预览色块的背景色（含透明度）。
+   * @zh 当前颜色预览色块的背景色（含透明度）。
+   */
   activeBackground: string;
 
+  /**
+   * Creates an instance of `ChromeComponent` and initializes its dependencies and internal state.
+   * @zh 创建 `ChromeComponent` 实例，并初始化其依赖项与内部状态。
+   */
   constructor() {
     super();
   }

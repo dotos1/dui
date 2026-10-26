@@ -1,6 +1,16 @@
+/**
+ * @fileoverview Module `src/common/colorpicker/common/helpers/color.ts` providing color definitions and implementation.
+ * @zh 模块文件 `src/common/colorpicker/common/helpers/color.ts`，提供颜色相关的定义与实现。
+ */
+
 import { TinyColor } from '@dotos/dui/core/color';
 import { Color } from './color.interfaces';
 
+/**
+ * Executes `simpleCheckForValidColor` to handle simple check for valid color.
+ * @zh 执行 `simpleCheckForValidColor`，用于simple检查用于有效颜色。
+ * @param data - data parameter (`any`) / 数据参数（`any`）
+ */
 export function simpleCheckForValidColor(data) {
   const keysToCheck = ['r', 'g', 'b', 'a', 'h', 's', 'l', 'v'];
   let checked = 0;
@@ -23,6 +33,13 @@ export function simpleCheckForValidColor(data) {
   return checked === passed ? data : false;
 }
 
+/**
+ * Executes `toState` to handle to state.
+ * @zh 执行 `toState`，用于转换为状态。
+ * @param data - data parameter (`any`) / 数据参数（`any`）
+ * @param oldHue - old hue parameter (`number`) / 旧色相参数（`number`）
+ * @returns Result of type `Color` / 类型为 `Color` 的返回值
+ */
 export function toState(data, oldHue?: number): Color {
   const color = data.hex ? new TinyColor(data.hex) : new TinyColor(data);
   const hsl = color.toHsl();
@@ -45,10 +62,20 @@ export function toState(data, oldHue?: number): Color {
   };
 }
 
+/**
+ * Executes `isValidHex` to handle is valid hex.
+ * @zh 执行 `isValidHex`，用于是否为有效十六进制颜色。
+ * @param hex - hex parameter (`string`) / 十六进制颜色参数（`string`）
+ */
 export function isValidHex(hex: string) {
   return new TinyColor(hex).isValid;
 }
 
+/**
+ * Executes `getContrastingColor` to handle get contrasting color.
+ * @zh 执行 `getContrastingColor`，用于获取对比度颜色。
+ * @param data - data parameter (`any`) / 数据参数（`any`）
+ */
 export function getContrastingColor(data) {
   if (!data) {
     return '#fff';

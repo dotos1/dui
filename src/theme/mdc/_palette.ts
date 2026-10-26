@@ -1,8 +1,33 @@
+/**
+ * @fileoverview Module `src/theme/mdc/_palette.ts` providing palette definitions and implementation.
+ * @zh 模块文件 `src/theme/mdc/_palette.ts`，提供调色板相关的定义与实现。
+ */
+
+/**
+ * Constant/variable `black87` defining black87 in `src/theme/mdc`.
+ * @zh 常量/变量 `black87`，定义 `src/theme/mdc` 中的black87。
+ */
 const black87 = 'rgba(black, 0.87)';
+/**
+ * Constant/variable `white87` defining white87 in `src/theme/mdc`.
+ * @zh 常量/变量 `white87`，定义 `src/theme/mdc` 中的white87。
+ */
 const white87 = 'rgba(white, 0.87)';
+/**
+ * Constant/variable `$dark_primary_text` defining dark primary text in `src/theme/mdc`.
+ * @zh 常量/变量 `$dark_primary_text`，定义 `src/theme/mdc` 中的深色主色文本。
+ */
 export const $dark_primary_text = 'rgba(black, 0.87)';
+/**
+ * Constant/variable `$dark_disabled_text` defining dark disabled text in `src/theme/mdc`.
+ * @zh 常量/变量 `$dark_disabled_text`，定义 `src/theme/mdc` 中的深色已禁用文本。
+ */
 export const $dark_disabled_text = 'rgba(black, 0.38)';
 
+/**
+ * Constant/variable `matColors` defining mat colors in `src/theme/mdc`.
+ * @zh 常量/变量 `matColors`，定义 `src/theme/mdc` 中的Material颜色列表。
+ */
 const matColors = {
   'red': {
     50: '#ffebee',
@@ -685,6 +710,10 @@ const matColors = {
 };
 
 
+/**
+ * Constant/variable `matPresetColors` defining mat preset colors in `src/theme/mdc`.
+ * @zh 常量/变量 `matPresetColors`，定义 `src/theme/mdc` 中的MaterialPreset颜色列表。
+ */
 const matPresetColors = [
   '#ffebee', '#ffcdd2', '#ef9a9a', '#e57373', '#ef5350', '#f44336', '#e53935', '#d32f2f', '#c62828', '#b71c1c', '#ff8a80', '#ff5252', '#ff1744', '#d50000', '#fce4ec', '#f8bbd0',
   '#f48fb1', '#f06292', '#ec407a', '#e91e63', '#d81b60', '#c2185b', '#ad1457', '#880e4f', '#ff80ab', '#ff4081', '#f50057', '#c51162', '#f3e5f5', '#e1bee7', '#ce93d8', '#ba68c8',
@@ -705,6 +734,11 @@ const matPresetColors = [
   '#78909c', '#607d8b', '#546e7a', '#455a64', '#37474f', '#263238', '#cfd8dc', '#b0bec5', '#78909c', '#455a64'
 ];
 
+/**
+ * Executes `get_palette` to handle get palette.
+ * @zh 执行 `get_palette`，用于获取调色板。
+ * @param pname - pname parameter (`any`) / pname参数（`any`）
+ */
 export function get_palette(pname){
     return matColors[pname];
 }

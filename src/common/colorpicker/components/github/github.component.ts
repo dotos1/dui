@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Module `src/common/colorpicker/components/github/github.component.ts` providing github component definitions and implementation.
+ * @zh 模块文件 `src/common/colorpicker/components/github/github.component.ts`，提供github组件相关的定义与实现。
+ */
+
 import {  ChangeDetectionStrategy,  Component,  Input,} from '@angular/core';
 import { ColorWrap, isValidHex } from '@dotos/dui/common/colorpicker/common';
 import { TriggerPopup } from '@dotos/dui/common/trigger';
@@ -88,9 +93,15 @@ import { TriggerPopup } from '@dotos/dui/common/trigger';
   preserveWhitespaces: false,
 })
 export class GithubComponent extends ColorWrap implements TriggerPopup {
-  /** Pixel value for picker width */
+  /**
+   * Pixel value for picker width
+   * @zh 输入属性 `width`（类型：`string | number`），用于配置宽度（默认值：`212`）。
+   */
   @Input() width: string | number = 212;
-  /** Color squares to display */
+  /**
+   * Color squares to display
+   * @zh 输入属性 `colors`（类型：`any[]`），用于配置颜色列表。
+   */
   @Input() colors = [
     '#B80000',
     '#DB3E00',
@@ -109,9 +120,17 @@ export class GithubComponent extends ColorWrap implements TriggerPopup {
     '#BED3F3',
     '#D4C4FB',
   ];
-  /** @zh 指示三角形的方向，或 `'hide'` 隐藏它。 */
+  /**
+   * Input property `triangle` (`'hide' | 'top-left' | 'top-right' | 'bottom-right'`) configuring triangle (default: `'top-left'`).
+   * @zh 指示三角形的方向，或 `'hide'` 隐藏它。
+   * @zh 指示三角形的方向，或 `'hide'` 隐藏它。
+   */
   @Input() triangle: 'hide' | 'top-left' | 'top-right' | 'bottom-right' = 'top-left';
 
+  /**
+   * Creates an instance of `GithubComponent` and initializes its dependencies and internal state.
+   * @zh 创建 `GithubComponent` 实例，并初始化其依赖项与内部状态。
+   */
   constructor() {
     super();
   }

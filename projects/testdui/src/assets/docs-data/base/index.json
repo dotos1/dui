@@ -4,63 +4,82 @@
     {
       "name": "addClass",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Executes `addClass` to handle add class.",
+      "summaryZh": "执行 `addClass`，用于添加类名。",
       "sourceFile": "src/base/dom.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
-      "properties": []
-    },
-    {
-      "name": "addInstance",
-      "kind": "function",
-      "summary": "Function to add instances for the given element.\nparam {string | HTMLElement} element\nparam {Object} instance\nreturn {void}\nprivate",
-      "summaryZh": null,
-      "sourceFile": "src/base/util.ts",
-      "inputs": [],
-      "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "addClass",
+          "params": [
+            {
+              "name": "elements",
+              "type": "Element[] | NodeList"
+            },
+            {
+              "name": "classes",
+              "type": "string | string[]"
+            }
+          ],
+          "returnType": "Element[] | NodeList",
+          "description": "Executes `addClass` to handle add class.",
+          "descriptionZh": "执行 `addClass`，用于添加类名。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "AngularEventEmitter",
       "kind": "interface",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Interface `AngularEventEmitter` defining the contract and properties for angular event emitter.",
+      "summaryZh": "接口 `AngularEventEmitter`，定义Angular事件发射器的数据结构契约与属性规范。",
       "sourceFile": "src/base/base.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
-      "properties": []
-    },
-    {
-      "name": "append",
-      "kind": "function",
-      "summary": null,
-      "summaryZh": null,
-      "sourceFile": "src/base/dom.ts",
-      "inputs": [],
-      "outputs": [],
-      "methods": [],
-      "properties": []
+      "properties": [
+        {
+          "name": "subscribe",
+          "type": "(generatorOrNext?: unknown, error?: unknown, complete?: unknown) => unknown",
+          "description": "Property `subscribe` (`(generatorOrNext?: unknown, error?: unknown, complete?: unknown) => un...`) storing subscribe.",
+          "descriptionZh": "属性 `subscribe`（类型：`(generatorOrNext?: unknown, error?: unknown, complete?: unknown) => un...`），用于存储或配置订阅。"
+        }
+      ]
     },
     {
       "name": "attributes",
       "kind": "function",
-      "summary": "The function helps to set multiple attributes to an element\nparam  {Element|Node} element - An element that need to set attributes.\nparam  {{[key:string]:string}} attributes - JSON Object that is going to as attributes.\nprivate",
-      "summaryZh": null,
+      "summary": "Executes `attributes` to handle attributes.",
+      "summaryZh": "执行 `attributes`，用于属性列表。",
       "sourceFile": "src/base/dom.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "attributes",
+          "params": [
+            {
+              "name": "element",
+              "type": "Element | Node"
+            },
+            {
+              "name": "attrs",
+              "type": "{ [key: string]: string }"
+            }
+          ],
+          "returnType": "Element",
+          "description": "Executes `attributes` to handle attributes.",
+          "descriptionZh": "执行 `attributes`，用于属性列表。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "Base",
       "kind": "class",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Class `Base` encapsulating base data structures and logic in `src/base`.",
+      "summaryZh": "类 `Base`，封装 `src/base` 中的基础数据结构与处理逻辑。",
       "sourceFile": "src/base/base.ts",
       "inputs": [],
       "outputs": [],
@@ -70,7 +89,7 @@
           "params": [
             {
               "name": "prop",
-              "type": "any"
+              "type": "Record<string, unknown>"
             },
             {
               "name": "muteOnChange",
@@ -78,27 +97,8 @@
             }
           ],
           "returnType": "void",
-          "description": "Function used to set bunch of property at a time.\nprivate\nparam  {Object} prop - JSON object which holds components properties.\nparam  {boolean} muteOnChange? - Specifies to true when we set properties.",
-          "descriptionZh": null
-        },
-        {
-          "name": "dataBind",
-          "params": [],
-          "returnType": "void",
-          "description": "Bind property changes immediately to components",
-          "descriptionZh": null
-        },
-        {
-          "name": "serverDataBind",
-          "params": [
-            {
-              "name": "newChanges",
-              "type": "{ [key: string]: any }"
-            }
-          ],
-          "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "批量写属性。\n\n<p>旧实现在这里还会记 `changedProperties` 并调 `dataBind()` 触发\n`onPropertyChanged` —— 那是属性系统的一部分,已随之删除。\n现在它就是一次浅合并,`muteOnChange` 形参保留只为不改调用方\n(28 处调用里没有一处真正依赖\"不静默\"那条路的副作用:\n `dataBind()` 在旧实现里也只是把变更表交给 `onPropertyChanged`,\n 而 dui 侧的实现体是空的)。",
+          "descriptionZh": "批量写属性。"
         },
         {
           "name": "on",
@@ -113,12 +113,12 @@
             },
             {
               "name": "scope",
-              "type": "any"
+              "type": "Object"
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `on` to handle on.",
+          "descriptionZh": "执行 `on`，用于当。"
         },
         {
           "name": "addEventListener",
@@ -133,8 +133,8 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `addEventListener` to handle add event listener.",
+          "descriptionZh": "执行 `addEventListener`，用于添加事件监听器。"
         },
         {
           "name": "off",
@@ -149,8 +149,8 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `off` to handle off.",
+          "descriptionZh": "执行 `off`，用于off。"
         },
         {
           "name": "removeEventListener",
@@ -165,8 +165,8 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `removeEventListener` to handle remove event listener.",
+          "descriptionZh": "执行 `removeEventListener`，用于移除事件监听器。"
         },
         {
           "name": "trigger",
@@ -189,172 +189,180 @@
             }
           ],
           "returnType": "void | object",
-          "description": "Triggers the handlers in the specified event.\nprivate\nparam {string} eventName - Specifies the event to trigger for the specified component properties.\nCan be a custom event, or any of the standard events.\nparam {Event} eventProp - Additional parameters to pass on to the event properties\nparam {Function} successHandler - this function will invoke after event successfully triggered\nparam {Function} errorHandler - this function will invoke after event if it failured to call.\nreturn {void}",
-          "descriptionZh": null
+          "description": "发事件。**只走总线**。\n\n<p><b>这里曾经还会调「同名的实例成员」</b> —— `trigger('change', e)` 时若\n`this.change` 是个函数就一并调用,注释写的理由是\"这条是旧行为,配置式组件\n靠它支持 `{ change: fn }` 这种写法\"。<u>那条注释是错的,旧实现从来没执行过\n这段。</u>旧代码是:\n\n<pre>\n  const isColEName = new RegExp(']');      // ← 注意匹配的是右方括号\n  …\n  if (isColEName.test(eventName)) { …调同名成员… }\n</pre>\n\n<p>那个正则是给 `columns[0].field` 这类<b>属性路径</b>准备的(LEGACY 的属性系统\n遗留),而事件名里不可能出现 `]` —— 所以这个分支对任何一个真实事件名都是\n<b>死代码</b>。自研版把守卫丢了、把死代码\"恢复\"成了活代码,后果是:\n\n<ol>\n  <li><b>无限递归。</b>下游把事件转发方法<u>按事件名命名</u>是常规写法,\n      比如 duix 的树表卡片有 50 个\n      `headerCellInfo(e) { this.trigger(\"headerCellInfo\", e); }` ——\n      `trigger` 调同名成员、同名成员再 `trigger`,一进去就\n      `Maximum call stack size exceeded`,整页白屏。实测能力页 card 一载入就炸。</li>\n  <li><b>回调跑两遍。</b>调用方自己也会派发同名成员(duix 平表卡片的\n      `fire()` 就是),于是 config 里写的 `actionBegin` 之类被调两次。\n      字典管理那份配置在 `actionBegin` 里 `this.max_index_id++`,跑两遍就跳号。</li>\n  <li><b>`ComponentBase` 自己也中招。</b>`ngOnDestroy()` 先\n      `trigger('onDestroy', this)` 再 `this.onDestroy()` —— 同名成员那条路\n      让 `onDestroy()` 执行了两次。</li>\n</ol>\n\n<p>所以整段删掉,回到旧实现的<u>实际</u>行为:只通知总线。`successHandler`\n不受影响 —— `Observer.notify()` 本来就负责调它(两条分支都调),\n旧实现在这里的那次调用属于\"名字里带 `]` 时多调一次\",不是常规路径。\n\n<p>需要\"配置里写个同名函数就当回调\"这种形状的,由调用方自己派发\n(duix 的 `fire()` 已经这么做了),不要放回总线里 —— 放回来就分不清\n\"转发方法\"和\"回调\",递归会再来一次。",
+          "descriptionZh": "发事件。**只走总线**。"
+        },
+        {
+          "name": "destroy",
+          "params": [],
+          "returnType": "void",
+          "description": "Executes `destroy` to handle destroy.",
+          "descriptionZh": "执行 `destroy`，用于销毁。"
         }
       ],
       "properties": [
         {
           "name": "element",
           "type": "ElementType",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `element` (`ElementType`) storing element.",
+          "descriptionZh": "属性 `element`（类型：`ElementType`），用于存储或配置元素。"
         },
         {
           "name": "isDestroyed",
-          "type": "boolean",
-          "description": null,
-          "descriptionZh": null
-        },
-        {
-          "name": "isServerRendered",
-          "type": "boolean",
+          "type": "any",
           "default": "false",
-          "description": null,
-          "descriptionZh": null
-        },
-        {
-          "name": "allowServerDataBinding",
-          "type": "boolean",
-          "default": "true",
-          "description": null,
-          "descriptionZh": null
-        },
-        {
-          "name": "ignoreCollectionWatch",
-          "type": "boolean",
-          "default": "false",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `isDestroyed` (`boolean`) storing is destroyed (default: `false`).",
+          "descriptionZh": "属性 `isDestroyed`（类型：`boolean`），用于存储或配置是否为已销毁（默认值：`false`）。"
         }
       ]
     },
     {
       "name": "BaseEventArgs",
       "kind": "interface",
-      "summary": "Common Event argument for all base Essential JavaScript 2 Events.\nprivate",
-      "summaryZh": null,
-      "sourceFile": "src/base/event-handler.ts",
+      "summary": "Interface `BaseEventArgs` defining the contract and properties for base event args.",
+      "summaryZh": "接口 `BaseEventArgs`，定义基础事件参数列表的数据结构契约与属性规范。",
+      "sourceFile": "src/base/base.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
-      "properties": []
+      "properties": [
+        {
+          "name": "name",
+          "type": "string",
+          "description": "Property `name` (`string`) storing name.\n事件名。",
+          "descriptionZh": "事件名。"
+        }
+      ]
     },
     {
       "name": "BoundOptions",
       "kind": "interface",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "极小事件总线。\n\n<p>自研,替代 LEGACY 衍生的那份(121 行)。见 duix 的\n`lib/PEEL-CLEANUP-PLAN.md` §P6。\n\n<p>三处按旧行为对齐、看着都像\"应该修一下\"但不能改的地方:\n\n<ol>\n  <li><b>同一个函数重复 `on` 只登记一次。</b>去重键是函数引用本身。</li>\n  <li><b>`notify` 一个没人登记的事件返回 `undefined`</b>,不抛也不返回空数组。</li>\n  <li><b>`destroy()` 之后再 `notify` 会抛。</b>旧实现把内部表置成\n      `undefined`,下一次 `notify` 在 `.slice()` 上炸。这不是好设计,\n      但改成静默忽略会把\"组件销毁后还有人发事件\"这个真实缺陷藏起来 ——\n      它现在是会响的。</li>\n</ol>\n\n<p>与旧实现<b>有意不同</b>的一处:`destroy()` 之后的 `on` / `off` 静默返回\n(b8c5e5c 复核)。旧实现在这里同样在 `hasOwnProperty` 上炸,但这两个调用\n多半来自拆卸顺序 —— 父组件先 destroy,子组件随后在自己的 ngOnDestroy 里\n`off` —— 炸出来的 TypeError 会打断后面的清理,而它并不指向真实缺陷。\n销毁后 `notify` 仍然会抛,见上面第 3 条。",
+      "summaryZh": "极小事件总线。",
       "sourceFile": "src/base/observer.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
-      "properties": []
+      "properties": [
+        {
+          "name": "handler",
+          "type": "Function",
+          "description": "Property `handler` (`Function`) storing handler.",
+          "descriptionZh": "属性 `handler`（类型：`Function`），用于存储或配置处理器。"
+        },
+        {
+          "name": "context",
+          "type": "Object",
+          "description": "Property `context` (`Object`) storing context.",
+          "descriptionZh": "属性 `context`（类型：`Object`），用于存储或配置上下文。"
+        },
+        {
+          "name": "event",
+          "type": "string",
+          "description": "Property `event` (`string`) storing event.",
+          "descriptionZh": "属性 `event`（类型：`string`），用于存储或配置事件。"
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "description": "Property `id` (`string`) storing id.",
+          "descriptionZh": "属性 `id`（类型：`string`），用于存储或配置唯一标识。"
+        }
+      ]
     },
     {
       "name": "classList",
       "kind": "function",
-      "summary": "Method for add and remove classes to a dom element.\nparam {Element} element - Element for add and remove classes\nparam {string[]} addClasses - List of classes need to be add to the element\nparam {string[]} removeClasses - List of classes need to be remove from the element\nreturn {void}\nprivate",
-      "summaryZh": null,
+      "summary": "Executes `classList` to handle class list.\n一次加一批、去一批。",
+      "summaryZh": "一次加一批、去一批。",
       "sourceFile": "src/base/dom.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "classList",
+          "params": [
+            {
+              "name": "element",
+              "type": "Element"
+            },
+            {
+              "name": "addClasses",
+              "type": "string[]"
+            },
+            {
+              "name": "removeClasses",
+              "type": "string[]"
+            }
+          ],
+          "returnType": "void",
+          "description": "Executes `classList` to handle class list.\n一次加一批、去一批。",
+          "descriptionZh": "一次加一批、去一批。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "closest",
       "kind": "function",
-      "summary": "Returns single closest parent element based on class selector.\nparam  {Element} element - An element that need to find the closest element.\nparam  {string} selector - A classSelector of closest element.\nprivate",
-      "summaryZh": null,
+      "summary": "往上找最近的匹配祖先(含自身)。\n\n<p>旧实现还带一段 `Element.closest` 不存在时的手写回退 ——\n那是给 IE 用的。Angular 18 不支持 IE,直接用原生。",
+      "summaryZh": "往上找最近的匹配祖先(含自身)。",
       "sourceFile": "src/base/dom.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
-      "properties": []
-    },
-    {
-      "name": "compareElementParent",
-      "kind": "function",
-      "summary": "To check whether the  child element is descendant to parent element or parent and child are same element.\nparam{Element} - Specifies the child element to compare with parent.\nparam{Element} - Specifies the parent element.\nreturn boolean\nprivate",
-      "summaryZh": null,
-      "sourceFile": "src/base/util.ts",
-      "inputs": [],
-      "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "closest",
+          "params": [
+            {
+              "name": "element",
+              "type": "Element | Node"
+            },
+            {
+              "name": "selector",
+              "type": "string"
+            }
+          ],
+          "returnType": "Element | null",
+          "description": "往上找最近的匹配祖先(含自身)。\n\n<p>旧实现还带一段 `Element.closest` 不存在时的手写回退 ——\n那是给 IE 用的。Angular 18 不支持 IE,直接用原生。",
+          "descriptionZh": "往上找最近的匹配祖先(含自身)。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "createElement",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "建元素。\n\n<p>`svg` / `path` / `g` 走 `createElementNS` —— 用 `createElement` 建出来的\nSVG 标签在文档里是 HTMLUnknownElement,不渲染。这条判断是旧实现的,保留。",
+      "summaryZh": "建元素。",
       "sourceFile": "src/base/dom.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
-      "properties": []
-    },
-    {
-      "name": "createInstance",
-      "kind": "function",
-      "summary": null,
-      "summaryZh": null,
-      "sourceFile": "src/base/util.ts",
-      "inputs": [],
-      "outputs": [],
-      "methods": [],
-      "properties": []
-    },
-    {
-      "name": "debounce",
-      "kind": "function",
-      "summary": "It limits the rate at which a function can fire. The function will fire only once every provided second instead of as quickly.\nparam {Function} eventFunction - Specifies the function to run when the event occurs\nparam {number} delay - A number that specifies the milliseconds for function delay call option\nreturn {Function}\nprivate",
-      "summaryZh": null,
-      "sourceFile": "src/base/util.ts",
-      "inputs": [],
-      "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "createElement",
+          "params": [
+            {
+              "name": "tagName",
+              "type": "string"
+            },
+            {
+              "name": "properties",
+              "type": "{ id?: string; className?: string; innerHTML?: string; styles?: string; attrs?: { [key: string]: string } }"
+            }
+          ],
+          "returnType": "HTMLElement",
+          "description": "建元素。\n\n<p>`svg` / `path` / `g` 走 `createElementNS` —— 用 `createElement` 建出来的\nSVG 标签在文档里是 HTMLUnknownElement,不渲染。这条判断是旧实现的,保留。",
+          "descriptionZh": "建元素。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "defaultCulture",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
-      "sourceFile": "src/base/base.ts",
-      "inputs": [],
-      "outputs": [],
-      "methods": [],
-      "properties": []
-    },
-    {
-      "name": "deleteObject",
-      "kind": "function",
-      "summary": "Delete an item from Object\nparam {any} obj - Object in which we need to delete an item.\nparam {string} params - String value to the get the inner object\nreturn {void}\nprivate",
-      "summaryZh": null,
-      "sourceFile": "src/base/util.ts",
-      "inputs": [],
-      "outputs": [],
-      "methods": [],
-      "properties": []
-    },
-    {
-      "name": "detach",
-      "kind": "function",
-      "summary": "The function used to remove the element from the\nparam  {Element|Node|HTMLElement} element - An element that is going to detach from the Dom\nprivate",
-      "summaryZh": null,
-      "sourceFile": "src/base/dom.ts",
-      "inputs": [],
-      "outputs": [],
-      "methods": [],
-      "properties": []
-    },
-    {
-      "name": "DomElements",
-      "kind": "interface",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `defaultCulture` defining default culture in `src/base`.\n默认区域。旧实现放在这里,`@dotos/dui/translator` 现在有自己的一份。",
+      "summaryZh": "默认区域。旧实现放在这里,`@dotos/dui/translator` 现在有自己的一份。",
       "sourceFile": "src/base/base.ts",
       "inputs": [],
       "outputs": [],
@@ -364,8 +372,8 @@
     {
       "name": "DuiBase",
       "kind": "class",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Class `DuiBase` encapsulating dui base data structures and logic in `src/base`.",
+      "summaryZh": "类 `DuiBase`，封装 `src/base` 中的DUI基础数据结构与处理逻辑。",
       "sourceFile": "src/base/duibase.ts",
       "inputs": [],
       "outputs": [],
@@ -383,8 +391,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `registerComponentFactory` to handle register component factory.",
+          "descriptionZh": "执行 `registerComponentFactory`，用于注册组件工厂。"
         },
         {
           "name": "hasComponentFactory",
@@ -395,8 +403,8 @@
             }
           ],
           "returnType": "boolean",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `hasComponentFactory` to handle has component factory.",
+          "descriptionZh": "执行 `hasComponentFactory`，用于是否包含组件工厂。"
         },
         {
           "name": "getComponentFactory",
@@ -407,15 +415,15 @@
             }
           ],
           "returnType": "ComponentFactory<any>",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `getComponentFactory` to handle get component factory.",
+          "descriptionZh": "执行 `getComponentFactory`，用于获取组件工厂。"
         },
         {
           "name": "emptyFn",
           "params": [],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `emptyFn` to handle empty fn.",
+          "descriptionZh": "执行 `emptyFn`，用于空函数。"
         },
         {
           "name": "toggleInArray",
@@ -430,8 +438,8 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `toggleInArray` to handle toggle in array.",
+          "descriptionZh": "执行 `toggleInArray`，用于开关在数组。"
         },
         {
           "name": "handleize",
@@ -442,8 +450,8 @@
             }
           ],
           "returnType": "string",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `handleize` to handle handleize.",
+          "descriptionZh": "执行 `handleize`，用于handleize。"
         },
         {
           "name": "apply",
@@ -462,8 +470,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `apply` to handle apply.",
+          "descriptionZh": "执行 `apply`，用于应用。"
         },
         {
           "name": "applyIf",
@@ -478,8 +486,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `applyIf` to handle apply if.",
+          "descriptionZh": "执行 `applyIf`，用于应用If。"
         },
         {
           "name": "override",
@@ -494,8 +502,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `override` to handle override.",
+          "descriptionZh": "执行 `override`，用于override。"
         },
         {
           "name": "getFieldByType",
@@ -506,8 +514,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `getFieldByType` to handle get field by type.",
+          "descriptionZh": "执行 `getFieldByType`，用于获取字段按类型。"
         },
         {
           "name": "getCmp",
@@ -518,8 +526,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `getCmp` to handle get cmp.",
+          "descriptionZh": "执行 `getCmp`，用于获取Cmp。"
         },
         {
           "name": "getKey",
@@ -534,8 +542,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `getKey` to handle get key.",
+          "descriptionZh": "执行 `getKey`，用于获取键。"
         },
         {
           "name": "reverseDeepMerge",
@@ -550,8 +558,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `reverseDeepMerge` to handle reverse deep merge.",
+          "descriptionZh": "执行 `reverseDeepMerge`，用于反向Deep合并。"
         },
         {
           "name": "defineHiddenProp",
@@ -570,8 +578,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `defineHiddenProp` to handle define hidden prop.",
+          "descriptionZh": "执行 `defineHiddenProp`，用于define隐藏属性。"
         },
         {
           "name": "objAndSameType",
@@ -586,8 +594,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `objAndSameType` to handle obj and same type.",
+          "descriptionZh": "执行 `objAndSameType`，用于对象And相同类型。"
         },
         {
           "name": "stringIsInteger",
@@ -598,8 +606,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `stringIsInteger` to handle string is integer.",
+          "descriptionZh": "执行 `stringIsInteger`，用于字符串是否为Integer。"
         },
         {
           "name": "evalFunctionExpression",
@@ -614,8 +622,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `evalFunctionExpression` to handle eval function expression.",
+          "descriptionZh": "执行 `evalFunctionExpression`，用于eval函数表达式。"
         },
         {
           "name": "evalStringExpression",
@@ -630,8 +638,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `evalStringExpression` to handle eval string expression.",
+          "descriptionZh": "执行 `evalStringExpression`，用于eval字符串表达式。"
         },
         {
           "name": "evalExpressionValueSetter",
@@ -646,8 +654,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `evalExpressionValueSetter` to handle eval expression value setter.",
+          "descriptionZh": "执行 `evalExpressionValueSetter`，用于eval表达式值Setter。"
         },
         {
           "name": "evalExpression",
@@ -666,8 +674,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `evalExpression` to handle eval expression.",
+          "descriptionZh": "执行 `evalExpression`，用于eval表达式。"
         },
         {
           "name": "copyTo",
@@ -686,8 +694,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `copyTo` to handle copy to.",
+          "descriptionZh": "执行 `copyTo`，用于复制转换为。"
         },
         {
           "name": "isEmpty",
@@ -702,8 +710,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `isEmpty` to handle is empty.",
+          "descriptionZh": "执行 `isEmpty`，用于是否为空。"
         },
         {
           "name": "escapeRe",
@@ -714,8 +722,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `escapeRe` to handle escape re.",
+          "descriptionZh": "执行 `escapeRe`，用于escapeRe。"
         },
         {
           "name": "destroy",
@@ -726,8 +734,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `destroy` to handle destroy.",
+          "descriptionZh": "执行 `destroy`，用于销毁。"
         },
         {
           "name": "intercept",
@@ -750,8 +758,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `intercept` to handle intercept.",
+          "descriptionZh": "执行 `intercept`，用于intercept。"
         },
         {
           "name": "callback",
@@ -774,8 +782,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `callback` to handle callback.",
+          "descriptionZh": "执行 `callback`，用于回调函数。"
         },
         {
           "name": "format",
@@ -786,8 +794,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `format` to handle format.",
+          "descriptionZh": "执行 `format`，用于格式化。"
         },
         {
           "name": "toArray",
@@ -806,8 +814,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `toArray` to handle to array.",
+          "descriptionZh": "执行 `toArray`，用于转换为数组。"
         },
         {
           "name": "filterArrayByString",
@@ -822,8 +830,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `filterArrayByString` to handle filter array by string.",
+          "descriptionZh": "执行 `filterArrayByString`，用于过滤数组按字符串。"
         },
         {
           "name": "searchInObj",
@@ -838,8 +846,8 @@
             }
           ],
           "returnType": "boolean",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `searchInObj` to handle search in obj.",
+          "descriptionZh": "执行 `searchInObj`，用于搜索在对象。"
         },
         {
           "name": "searchInArray",
@@ -855,7 +863,7 @@
           ],
           "returnType": "boolean",
           "description": "Search in array\n\n arr\n searchText\n {boolean}",
-          "descriptionZh": null
+          "descriptionZh": "执行 `searchInArray`，用于搜索在数组。"
         },
         {
           "name": "searchInString",
@@ -870,8 +878,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `searchInString` to handle search in string.",
+          "descriptionZh": "执行 `searchInString`，用于搜索在字符串。"
         }
       ],
       "properties": []
@@ -879,331 +887,283 @@
     {
       "name": "EmitType",
       "kind": "type",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "事件回调的类型。Angular 的 `EventEmitter` 也满足它。",
+      "summaryZh": "事件回调的类型。Angular 的 `EventEmitter` 也满足它。",
       "sourceFile": "src/base/base.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
-      "properties": []
-    },
-    {
-      "name": "EventHandler",
-      "kind": "class",
-      "summary": null,
-      "summaryZh": null,
-      "sourceFile": "src/base/event-handler.ts",
-      "inputs": [],
-      "outputs": [],
-      "methods": [
-        {
-          "name": "add",
-          "params": [
-            {
-              "name": "element",
-              "type": "Element | HTMLElement | Document | any"
-            },
-            {
-              "name": "eventName",
-              "type": "string"
-            },
-            {
-              "name": "listener",
-              "type": "Function"
-            },
-            {
-              "name": "bindTo",
-              "type": "any"
-            },
-            {
-              "name": "intDebounce",
-              "type": "number"
-            }
-          ],
-          "returnType": "Function",
-          "description": null,
-          "descriptionZh": null
-        },
-        {
-          "name": "remove",
-          "params": [
-            {
-              "name": "element",
-              "type": "Element | HTMLElement | Document | any"
-            },
-            {
-              "name": "eventName",
-              "type": "string"
-            },
-            {
-              "name": "listener",
-              "type": "Function"
-            }
-          ],
-          "returnType": "void",
-          "description": "Remove an event listener that has been attached before.\nparam {any} element - Specifies the target html element to remove the event\nparam {string} eventName - A string that specifies the name of the event to remove\nparam {Function} listener - Specifies the function to remove\nreturn {void}",
-          "descriptionZh": null
-        },
-        {
-          "name": "clearEvents",
-          "params": [
-            {
-              "name": "element",
-              "type": "Element"
-            }
-          ],
-          "returnType": "void",
-          "description": null,
-          "descriptionZh": null
-        },
-        {
-          "name": "trigger",
-          "params": [
-            {
-              "name": "element",
-              "type": "HTMLElement"
-            },
-            {
-              "name": "eventName",
-              "type": "string"
-            },
-            {
-              "name": "eventProp",
-              "type": "Object"
-            }
-          ],
-          "returnType": "void",
-          "description": "Trigger particular event of the element.\nparam {any} element - Specifies the target html element to trigger the events\nparam {string} eventName - Specifies the event to trigger for the specified element.\nCan be a custom event, or any of the standard events.\nparam {any} eventProp - Additional parameters to pass on to the event properties\nreturn {void}",
-          "descriptionZh": null
-        }
-      ],
       "properties": []
     },
     {
       "name": "extend",
       "kind": "function",
-      "summary": "Extend the two object with newer one.\nparam {any} copied - Resultant object after merged\nparam {Object} first - First object need to merge\nparam {Object} second - Second object need to merge\nreturn {Object}\nprivate",
-      "summaryZh": null,
+      "summary": "Executes `extend` to handle extend.\n合并到 `copied`。\n\n<p>三处必须照抄的行为:\n\n<ol>\n  <li><b>`undefined` 的值会把键删掉</b>,不是\"跳过\"。\n      `extend({a:1}, {a:undefined})` → `{}`。</li>\n  <li>浅合并时嵌套对象<b>整个替换</b>;深合并才逐键并。</li>\n  <li>数组按下标并:浅合并 `[1,2] + [3]` → `[3]`(整替),\n      深合并 → `[3,2]`(只覆盖下标 0)。</li>\n</ol>",
+      "summaryZh": "合并到 `copied`。",
       "sourceFile": "src/base/util.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "extend",
+          "params": [
+            {
+              "name": "copied",
+              "type": "Record<string, unknown>"
+            },
+            {
+              "name": "first",
+              "type": "unknown"
+            },
+            {
+              "name": "second",
+              "type": "unknown"
+            },
+            {
+              "name": "deep",
+              "type": "boolean | unknown"
+            },
+            {
+              "name": "rest",
+              "type": "unknown[]"
+            }
+          ],
+          "returnType": "Record<string, unknown>",
+          "description": "Executes `extend` to handle extend.\n合并到 `copied`。\n\n<p>三处必须照抄的行为:\n\n<ol>\n  <li><b>`undefined` 的值会把键删掉</b>,不是\"跳过\"。\n      `extend({a:1}, {a:undefined})` → `{}`。</li>\n  <li>浅合并时嵌套对象<b>整个替换</b>;深合并才逐键并。</li>\n  <li>数组按下标并:浅合并 `[1,2] + [3]` → `[3]`(整替),\n      深合并 → `[3,2]`(只覆盖下标 0)。</li>\n</ol>",
+          "descriptionZh": "合并到 `copied`。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "formatUnit",
       "kind": "function",
-      "summary": "Function to normalize the units applied to the element.\nparam  {number|string} value\nreturn {string} result\nprivate",
-      "summaryZh": null,
+      "summary": "Executes `formatUnit` to handle format unit.\n`12` → `'12px'`;已经带单位的原样返回。",
+      "summaryZh": "`12` → `'12px'`;已经带单位的原样返回。",
       "sourceFile": "src/base/util.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
-      "properties": []
-    },
-    {
-      "name": "getAttributeOrDefault",
-      "kind": "function",
-      "summary": "set the value if not exist. Otherwise set the existing value\nparam  {HTMLElement} element - An element to which we need to set value.\nparam  {string} property - Property need to get or set.\nparam  {string} value - value need to set.\nprivate",
-      "summaryZh": null,
-      "sourceFile": "src/base/dom.ts",
-      "inputs": [],
-      "outputs": [],
-      "methods": [],
-      "properties": []
-    },
-    {
-      "name": "getComponent",
-      "kind": "function",
-      "summary": "Global function to get the component instance from the rendered element.\nparam elem Specifies the HTMLElement or element id string.\nparam comp Specifies the component module name or Component.",
-      "summaryZh": null,
-      "sourceFile": "src/base/base.ts",
-      "inputs": [],
-      "outputs": [],
-      "methods": [],
-      "properties": []
-    },
-    {
-      "name": "getElement",
-      "kind": "function",
-      "summary": "Function to convert xPath to DOM element in blazor platform\nreturn {HTMLElement} result\nparam {HTMLElement | object} element\nprivate",
-      "summaryZh": null,
-      "sourceFile": "src/base/util.ts",
-      "inputs": [],
-      "outputs": [],
-      "methods": [],
-      "properties": []
-    },
-    {
-      "name": "getEnumValue",
-      "kind": "function",
-      "summary": "To get enum value by giving the string.\nparam {any} enumObject - Enum object.\nparam {string} enumValue - Enum value to be searched\nreturn {any}\nprivate",
-      "summaryZh": null,
-      "sourceFile": "src/base/util.ts",
-      "inputs": [],
-      "outputs": [],
-      "methods": [],
-      "properties": []
-    },
-    {
-      "name": "getInstance",
-      "kind": "function",
-      "summary": "Function to fetch the Instances of a HTML element for the given component.\nparam {string | HTMLElement} element\nparam {any} component\nreturn {Object} inst\nprivate",
-      "summaryZh": null,
-      "sourceFile": "src/base/util.ts",
-      "inputs": [],
-      "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "formatUnit",
+          "params": [
+            {
+              "name": "value",
+              "type": "string | number"
+            }
+          ],
+          "returnType": "string",
+          "description": "Executes `formatUnit` to handle format unit.\n`12` → `'12px'`;已经带单位的原样返回。",
+          "descriptionZh": "`12` → `'12px'`;已经带单位的原样返回。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "getUniqueID",
       "kind": "function",
-      "summary": "To return the generated unique name\nparam {string} definedName - To concatenate the unique id to provided name\nreturn {string}\nprivate",
-      "summaryZh": null,
+      "summary": "Executes `getUniqueID` to handle get unique id.\n生成一个进程内唯一的 id。",
+      "summaryZh": "生成一个进程内唯一的 id。",
       "sourceFile": "src/base/util.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "getUniqueID",
+          "params": [
+            {
+              "name": "prefix",
+              "type": "string"
+            }
+          ],
+          "returnType": "string",
+          "description": "Executes `getUniqueID` to handle get unique id.\n生成一个进程内唯一的 id。",
+          "descriptionZh": "生成一个进程内唯一的 id。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "getValue",
       "kind": "function",
-      "summary": "To get nameSpace value from the desired object.\nparam {string} nameSpace - String value to the get the inner object\nparam {any} obj - Object to get the inner object value.\nreturn {any}\nprivate",
-      "summaryZh": null,
+      "summary": "按点分路径取值。\n\n<p><b>中途遇到 `null` 会抛,不会返回 undefined。</b>\n`getValue('n.x', { n: null })` → `TypeError`。这是旧实现的行为\n(它只在每一步之后判 `undefined`,不判 `null`),而且有调用方靠它\n把\"配置里显式写了 null\"和\"这一段不存在\"区分开。补一个 null 守卫\n看着是修 bug,实际是改语义。",
+      "summaryZh": "按点分路径取值。",
       "sourceFile": "src/base/util.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
-      "properties": []
-    },
-    {
-      "name": "HijriParser",
-      "kind": "class",
-      "summary": null,
-      "summaryZh": null,
-      "sourceFile": "src/base/hijri-parser.ts",
-      "inputs": [],
-      "outputs": [],
-      "methods": [],
-      "properties": []
-    },
-    {
-      "name": "IKeyValue",
-      "kind": "interface",
-      "summary": null,
-      "summaryZh": null,
-      "sourceFile": "src/base/util.ts",
-      "inputs": [],
-      "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "getValue",
+          "params": [
+            {
+              "name": "nameSpace",
+              "type": "string"
+            },
+            {
+              "name": "obj",
+              "type": "unknown"
+            }
+          ],
+          "returnType": "unknown",
+          "description": "按点分路径取值。\n\n<p><b>中途遇到 `null` 会抛,不会返回 undefined。</b>\n`getValue('n.x', { n: null })` → `TypeError`。这是旧实现的行为\n(它只在每一步之后判 `undefined`,不判 `null`),而且有调用方靠它\n把\"配置里显式写了 null\"和\"这一段不存在\"区分开。补一个 null 守卫\n看着是修 bug,实际是改语义。",
+          "descriptionZh": "按点分路径取值。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "isBlankString",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "空串算 true;<b>纯空白不算</b>(旧实现不 trim)。",
+      "summaryZh": "空串算 true;<b>纯空白不算</b>(旧实现不 trim)。",
       "sourceFile": "src/base/util.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
-      "properties": []
-    },
-    {
-      "name": "isBlazor",
-      "kind": "function",
-      "summary": "Function to check whether the platform is blazor or not.\nreturn {boolean} result\nprivate",
-      "summaryZh": null,
-      "sourceFile": "src/base/util.ts",
-      "inputs": [],
-      "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "isBlankString",
+          "params": [
+            {
+              "name": "value",
+              "type": "unknown"
+            }
+          ],
+          "returnType": "boolean",
+          "description": "空串算 true;<b>纯空白不算</b>(旧实现不 trim)。",
+          "descriptionZh": "空串算 true;<b>纯空白不算</b>(旧实现不 trim)。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "isNullOrUndefined",
       "kind": "function",
-      "summary": "To check whether the object is null or undefined.\nparam {Object} value - To check the object is null or undefined\nreturn {boolean}\nprivate",
-      "summaryZh": null,
+      "summary": "基础工具。\n\n<p>自研,替代 LEGACY 衍生的那份(409 行)。见 duix 的\n`lib/PEEL-CLEANUP-PLAN.md` §P6。\n\n<p><b>行为按旧实现的实测输出对齐,不按\"应该怎样\"写。</b>\n几个反直觉但必须保留的点都在各自函数的注释里,门在 `tools/base/gate.mjs`。",
+      "summaryZh": "基础工具。",
       "sourceFile": "src/base/util.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "isNullOrUndefined",
+          "params": [
+            {
+              "name": "value",
+              "type": "unknown"
+            }
+          ],
+          "returnType": "boolean",
+          "description": "基础工具。\n\n<p>自研,替代 LEGACY 衍生的那份(409 行)。见 duix 的\n`lib/PEEL-CLEANUP-PLAN.md` §P6。\n\n<p><b>行为按旧实现的实测输出对齐,不按\"应该怎样\"写。</b>\n几个反直觉但必须保留的点都在各自函数的注释里,门在 `tools/base/gate.mjs`。",
+          "descriptionZh": "基础工具。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "isObject",
       "kind": "function",
-      "summary": "Check weather the given argument is only object.\nparam {any} obj - Object which is need to check.\nreturn {boolean}\nprivate",
-      "summaryZh": null,
+      "summary": "是不是\"普通对象\"。\n\n<p><b>数组与 `Date` 都算 false。</b>旧实现用的是\n`Object.prototype.toString.call(v) === '[object Object]'`,\n于是 `[]` / `new Date()` 都不算。调用方(`extend` 的深合并、\n`mergeDeep` 之类)正是靠这条把数组和日期当叶子节点处理 ——\n改成 `typeof v === 'object'` 会让日期被逐字段拆开合并。",
+      "summaryZh": "是不是\"普通对象\"。",
       "sourceFile": "src/base/util.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "isObject",
+          "params": [
+            {
+              "name": "value",
+              "type": "unknown"
+            }
+          ],
+          "returnType": "boolean",
+          "description": "是不是\"普通对象\"。\n\n<p><b>数组与 `Date` 都算 false。</b>旧实现用的是\n`Object.prototype.toString.call(v) === '[object Object]'`,\n于是 `[]` / `new Date()` 都不算。调用方(`extend` 的深合并、\n`mergeDeep` 之类)正是靠这条把数组和日期当叶子节点处理 ——\n改成 `typeof v === 'object'` 会让日期被逐字段拆开合并。",
+          "descriptionZh": "是不是\"普通对象\"。"
+        }
+      ],
       "properties": []
     },
     {
-      "name": "isObjectArray",
+      "name": "isScriptUrl",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
-      "sourceFile": "src/base/util.ts",
+      "summary": "去掉空白与控制字符后,是否是 `javascript:` / `vbscript:` 这类可执行的 URL。",
+      "summaryZh": "去掉空白与控制字符后,是否是 `javascript:` / `vbscript:` 这类可执行的 URL。",
+      "sourceFile": "src/base/sanitize-dom.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "isScriptUrl",
+          "params": [
+            {
+              "name": "value",
+              "type": "string | null | undefined"
+            }
+          ],
+          "returnType": "boolean",
+          "description": "去掉空白与控制字符后,是否是 `javascript:` / `vbscript:` 这类可执行的 URL。",
+          "descriptionZh": "去掉空白与控制字符后,是否是 `javascript:` / `vbscript:` 这类可执行的 URL。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "isUndefined",
       "kind": "function",
-      "summary": "To check whether the object is undefined.\nparam {Object} value - To check the object is undefined\nreturn {boolean}\nprivate",
-      "summaryZh": null,
+      "summary": "Executes `isUndefined` to handle is undefined.",
+      "summaryZh": "执行 `isUndefined`，用于是否为未定义。",
       "sourceFile": "src/base/util.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
-      "properties": []
-    },
-    {
-      "name": "isVisible",
-      "kind": "function",
-      "summary": null,
-      "summaryZh": null,
-      "sourceFile": "src/base/dom.ts",
-      "inputs": [],
-      "outputs": [],
-      "methods": [],
-      "properties": []
-    },
-    {
-      "name": "matches",
-      "kind": "function",
-      "summary": "Method to check whether the element matches the given selector.\nparam {Element} element - Element to compare with the selector.\nparam {string} selector - String selector which element will satisfy.\nreturn {void}\nprivate",
-      "summaryZh": null,
-      "sourceFile": "src/base/dom.ts",
-      "inputs": [],
-      "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "isUndefined",
+          "params": [
+            {
+              "name": "value",
+              "type": "unknown"
+            }
+          ],
+          "returnType": "boolean",
+          "description": "Executes `isUndefined` to handle is undefined.",
+          "descriptionZh": "执行 `isUndefined`，用于是否为未定义。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "merge",
       "kind": "function",
-      "summary": "Merge the source object into destination object.\nparam {any} source - source object which is going to merge with destination object\nparam {any} destination - object need to be merged\nreturn {void}\nprivate",
-      "summaryZh": null,
+      "summary": "Executes `merge` to handle merge.\n浅合并到 `first`。`extend` 的两参数快捷方式。",
+      "summaryZh": "浅合并到 `first`。`extend` 的两参数快捷方式。",
       "sourceFile": "src/base/util.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "merge",
+          "params": [
+            {
+              "name": "first",
+              "type": "Record<string, unknown>"
+            },
+            {
+              "name": "second",
+              "type": "unknown"
+            }
+          ],
+          "returnType": "void",
+          "description": "Executes `merge` to handle merge.\n浅合并到 `first`。`extend` 的两参数快捷方式。",
+          "descriptionZh": "浅合并到 `first`。`extend` 的两参数快捷方式。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "ObjectUtils",
       "kind": "class",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Class `ObjectUtils` encapsulating object utils data structures and logic in `src/base`.",
+      "summaryZh": "类 `ObjectUtils`，封装 `src/base` 中的对象工具集数据结构与处理逻辑。",
       "sourceFile": "src/base/object-utils.ts",
       "inputs": [],
       "outputs": [],
@@ -1221,8 +1181,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `getValue` to handle get value.",
+          "descriptionZh": "执行 `getValue`，用于获取值。"
         },
         {
           "name": "merge",
@@ -1233,8 +1193,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `merge` to handle merge.",
+          "descriptionZh": "执行 `merge`，用于合并。"
         },
         {
           "name": "resolve",
@@ -1249,8 +1209,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `resolve` to handle resolve.",
+          "descriptionZh": "执行 `resolve`，用于解析。"
         },
         {
           "name": "isObject",
@@ -1261,8 +1221,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `isObject` to handle is object.",
+          "descriptionZh": "执行 `isObject`，用于是否为对象。"
         },
         {
           "name": "mergeDeep",
@@ -1281,8 +1241,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `mergeDeep` to handle merge deep.",
+          "descriptionZh": "执行 `mergeDeep`，用于合并Deep。"
         },
         {
           "name": "removeUndefined",
@@ -1293,8 +1253,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `removeUndefined` to handle remove undefined.",
+          "descriptionZh": "执行 `removeUndefined`，用于移除未定义。"
         },
         {
           "name": "copyDeep",
@@ -1305,8 +1265,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `copyDeep` to handle copy deep.",
+          "descriptionZh": "执行 `copyDeep`，用于复制Deep。"
         },
         {
           "name": "removeNull",
@@ -1317,8 +1277,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `removeNull` to handle remove null.",
+          "descriptionZh": "执行 `removeNull`，用于移除空值。"
         },
         {
           "name": "naturalCompare",
@@ -1341,8 +1301,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `naturalCompare` to handle natural compare.",
+          "descriptionZh": "执行 `naturalCompare`，用于natural比较。"
         },
         {
           "name": "objectsAreEquivalent",
@@ -1358,7 +1318,7 @@
           ],
           "returnType": "boolean",
           "description": "Return true if two object are equivalent.\nObjects are considered equivalent if they have the same properties and\nif all of their properties (first-level only) share the same value.",
-          "descriptionZh": null
+          "descriptionZh": "执行 `objectsAreEquivalent`，用于对象AreEquivalent。"
         },
         {
           "name": "removeKeys",
@@ -1374,7 +1334,7 @@
           ],
           "returnType": "object",
           "description": "Return a new object with an array of keys removed",
-          "descriptionZh": null
+          "descriptionZh": "执行 `removeKeys`，用于移除键列表。"
         }
       ],
       "properties": []
@@ -1382,8 +1342,8 @@
     {
       "name": "Observer",
       "kind": "class",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Class `Observer` encapsulating observer data structures and logic in `src/base`.",
+      "summaryZh": "类 `Observer`，封装 `src/base` 中的观察者数据结构与处理逻辑。",
       "sourceFile": "src/base/observer.ts",
       "inputs": [],
       "outputs": [],
@@ -1409,8 +1369,8 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `on` to handle on.",
+          "descriptionZh": "执行 `on`，用于当。"
         },
         {
           "name": "off",
@@ -1429,32 +1389,8 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
-        },
-        {
-          "name": "emit",
-          "params": [
-            {
-              "name": "property",
-              "type": "string"
-            },
-            {
-              "name": "argument",
-              "type": "Object"
-            },
-            {
-              "name": "successHandler",
-              "type": "Function"
-            },
-            {
-              "name": "errorHandler",
-              "type": "Function"
-            }
-          ],
-          "returnType": "void | Object",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `off` to handle off.\n`handler` 不给就摘掉该事件的全部登记。",
+          "descriptionZh": "`handler` 不给就摘掉该事件的全部登记。"
         },
         {
           "name": "notify",
@@ -1477,172 +1413,281 @@
             }
           ],
           "returnType": "void | Object",
-          "description": null,
-          "descriptionZh": null
+          "description": "触发。\n\n<p><b>永远返回 `undefined`。</b>旧实现两条分支都没有 return 值,\n而 `Base.trigger()` 会把这个返回值再往外传 —— 也就是说\n`trigger()` 的返回值一直是 `undefined`。看着像\"忘了 return\",\n但已经有调用方按\"没有返回值\"写了,补上会让 `if (obj.trigger(...))`\n这类写法悄悄改变分支。\n\n<p><b>`successHandler` 在事件没人登记时也会调</b>,而且 `this` 绑的是\n<u>Observer 自己</u>,不是登记时给的 context。两条都是旧行为。\n\n<p>`errorHandler` 旧实现根本没用过,保留形参只为签名兼容。",
+          "descriptionZh": "触发。"
         },
         {
-          "name": "isJson",
+          "name": "emit",
           "params": [
             {
-              "name": "value",
+              "name": "property",
               "type": "string"
+            },
+            {
+              "name": "argument",
+              "type": "Object"
+            },
+            {
+              "name": "successHandler",
+              "type": "Function"
+            },
+            {
+              "name": "errorHandler",
+              "type": "Function"
             }
           ],
-          "returnType": "boolean",
-          "description": null,
-          "descriptionZh": null
+          "returnType": "void | Object",
+          "description": "Executes `emit` to handle emit.\n`notify` 的别名。同样不返回值。",
+          "descriptionZh": "`notify` 的别名。同样不返回值。"
         },
         {
           "name": "destroy",
           "params": [],
           "returnType": "void",
-          "description": "To destroy handlers in the event",
-          "descriptionZh": null
+          "description": "Executes `destroy` to handle destroy.",
+          "descriptionZh": "执行 `destroy`，用于销毁。"
         }
       ],
       "properties": []
     },
     {
-      "name": "prepend",
+      "name": "parseSanitizedSvg",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
-      "sourceFile": "src/base/dom.ts",
+      "summary": "把 SVG 文本解析成净化过的 <svg> 元素(已导入当前 document,可直接插入)。\n先按 image/svg+xml 严格解析;不是良构 XML,或根元素不在 SVG 命名空间\n(缺 xmlns 的片段)时,退回到 text/html 解析 —— 原来的 innerHTML 写法对这两种\n都宽容,图标库里有这样的文件。两种解析都在惰性文档里进行。",
+      "summaryZh": "把 SVG 文本解析成净化过的 <svg> 元素(已导入当前 document,可直接插入)。",
+      "sourceFile": "src/base/sanitize-dom.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
-      "properties": []
-    },
-    {
-      "name": "print",
-      "kind": "function",
-      "summary": "This function is used to print given element\nparam{Element} element - Specifies the print content element.\nparam{Window} printWindow - Specifies the print window.\nprivate",
-      "summaryZh": null,
-      "sourceFile": "src/base/util.ts",
-      "inputs": [],
-      "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "parseSanitizedSvg",
+          "params": [
+            {
+              "name": "str",
+              "type": "string"
+            },
+            {
+              "name": "targetDoc",
+              "type": "Document"
+            }
+          ],
+          "returnType": "SVGElement | null",
+          "description": "把 SVG 文本解析成净化过的 <svg> 元素(已导入当前 document,可直接插入)。\n先按 image/svg+xml 严格解析;不是良构 XML,或根元素不在 SVG 命名空间\n(缺 xmlns 的片段)时,退回到 text/html 解析 —— 原来的 innerHTML 写法对这两种\n都宽容,图标库里有这样的文件。两种解析都在惰性文档里进行。",
+          "descriptionZh": "把 SVG 文本解析成净化过的 <svg> 元素(已导入当前 document,可直接插入)。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "queryParams",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Executes `queryParams` to handle query params.\n`key=value&…`,键与值都做百分号编码。`null` / `undefined` 会写成字面量。",
+      "summaryZh": "`key=value&…`,键与值都做百分号编码。`null` / `undefined` 会写成字面量。",
       "sourceFile": "src/base/util.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
-      "properties": []
-    },
-    {
-      "name": "remove",
-      "kind": "function",
-      "summary": "The function used to remove the element from Dom also clear the bounded events\nparam  {Element|Node|HTMLElement} element - An element remove from the Dom\nprivate",
-      "summaryZh": null,
-      "sourceFile": "src/base/dom.ts",
-      "inputs": [],
-      "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "queryParams",
+          "params": [
+            {
+              "name": "data",
+              "type": "Record<string, unknown>"
+            }
+          ],
+          "returnType": "string",
+          "description": "Executes `queryParams` to handle query params.\n`key=value&…`,键与值都做百分号编码。`null` / `undefined` 会写成字面量。",
+          "descriptionZh": "`key=value&…`,键与值都做百分号编码。`null` / `undefined` 会写成字面量。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "removeClass",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Executes `removeClass` to handle remove class.",
+      "summaryZh": "执行 `removeClass`，用于移除类名。",
       "sourceFile": "src/base/dom.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "removeClass",
+          "params": [
+            {
+              "name": "elements",
+              "type": "Element[] | NodeList"
+            },
+            {
+              "name": "classes",
+              "type": "string | string[]"
+            }
+          ],
+          "returnType": "Element[] | NodeList",
+          "description": "Executes `removeClass` to handle remove class.",
+          "descriptionZh": "执行 `removeClass`，用于移除类名。"
+        }
+      ],
       "properties": []
     },
     {
-      "name": "selectAll",
+      "name": "sanitizeDomTree",
       "kind": "function",
-      "summary": "The function selects an array of element from the given context.\nparam  {string} selector - Selector string need fetch element from the\nparam  {Document|Element=document} context - It is an optional type, That specifies a Dom context.\nprivate",
-      "summaryZh": null,
-      "sourceFile": "src/base/dom.ts",
+      "summary": "在 root(元素、文档或 DocumentFragment)上就地净化。\ntemplate 的内容在单独的 DocumentFragment 里,querySelectorAll 看不到,递归进去。",
+      "summaryZh": "在 root(元素、文档或 DocumentFragment)上就地净化。",
+      "sourceFile": "src/base/sanitize-dom.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "sanitizeDomTree",
+          "params": [
+            {
+              "name": "root",
+              "type": "Element | Document | DocumentFragment"
+            },
+            {
+              "name": "svg",
+              "type": "any"
+            }
+          ],
+          "returnType": "void",
+          "description": "在 root(元素、文档或 DocumentFragment)上就地净化。\ntemplate 的内容在单独的 DocumentFragment 里,querySelectorAll 看不到,递归进去。",
+          "descriptionZh": "在 root(元素、文档或 DocumentFragment)上就地净化。"
+        }
+      ],
       "properties": []
     },
     {
-      "name": "selectNode",
+      "name": "sanitizeHtmlString",
       "kind": "function",
-      "summary": "The function selects the element from giving context.\nparam  {string} selector - Selector string need fetch element from the\nparam  {Document|Element=document} context - It is an optional type, That specifies a Dom context.\nprivate",
-      "summaryZh": null,
-      "sourceFile": "src/base/dom.ts",
+      "summary": "净化一段 HTML 字符串,返回净化后的 HTML。\n前面补一个 `<body>`:否则开头的 <style>/<meta>/<link> 会被解析器放进 <head>,\n序列化 body.innerHTML 时就丢了。",
+      "summaryZh": "净化一段 HTML 字符串,返回净化后的 HTML。",
+      "sourceFile": "src/base/sanitize-dom.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "sanitizeHtmlString",
+          "params": [
+            {
+              "name": "html",
+              "type": "string"
+            }
+          ],
+          "returnType": "string",
+          "description": "净化一段 HTML 字符串,返回净化后的 HTML。\n前面补一个 `<body>`:否则开头的 <style>/<meta>/<link> 会被解析器放进 <head>,\n序列化 body.innerHTML 时就丢了。",
+          "descriptionZh": "净化一段 HTML 字符串,返回净化后的 HTML。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "setImmediate",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Executes `setImmediate` to handle set immediate.",
+      "summaryZh": "执行 `setImmediate`，用于集合Immediate。",
       "sourceFile": "src/base/util.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "setImmediate",
+          "params": [
+            {
+              "name": "handler",
+              "type": "Function"
+            }
+          ],
+          "returnType": "number",
+          "description": "Executes `setImmediate` to handle set immediate.",
+          "descriptionZh": "执行 `setImmediate`，用于集合Immediate。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "setStyleAttribute",
       "kind": "function",
-      "summary": "Set the style attributes to Html element.\nparam {HTMLElement} element - Element which we want to set attributes\nparam {any} attrs - Set the given attributes to element\nreturn {void}\nprivate",
-      "summaryZh": null,
+      "summary": "逐键写 `style`。键是 JS 的驼峰写法(`backgroundColor`),不是 CSS 属性名。",
+      "summaryZh": "逐键写 `style`。键是 JS 的驼峰写法(`backgroundColor`),不是 CSS 属性名。",
       "sourceFile": "src/base/dom.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "setStyleAttribute",
+          "params": [
+            {
+              "name": "element",
+              "type": "HTMLElement"
+            },
+            {
+              "name": "attrs",
+              "type": "{ [key: string]: unknown }"
+            }
+          ],
+          "returnType": "void",
+          "description": "逐键写 `style`。键是 JS 的驼峰写法(`backgroundColor`),不是 CSS 属性名。",
+          "descriptionZh": "逐键写 `style`。键是 JS 的驼峰写法(`backgroundColor`),不是 CSS 属性名。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "setValue",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Executes `setValue` to handle set value.\n按点分路径赋值。中途缺失的层级会补成空对象。",
+      "summaryZh": "按点分路径赋值。中途缺失的层级会补成空对象。",
       "sourceFile": "src/base/util.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
-      "properties": []
-    },
-    {
-      "name": "siblings",
-      "kind": "function",
-      "summary": "Returns all sibling elements of the given element.\nparam  {Element|Node} element - An element that need to get siblings.\nprivate",
-      "summaryZh": null,
-      "sourceFile": "src/base/dom.ts",
-      "inputs": [],
-      "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "setValue",
+          "params": [
+            {
+              "name": "nameSpace",
+              "type": "string"
+            },
+            {
+              "name": "value",
+              "type": "unknown"
+            },
+            {
+              "name": "obj",
+              "type": "Record<string, unknown>"
+            }
+          ],
+          "returnType": "Record<string, unknown>",
+          "description": "Executes `setValue` to handle set value.\n按点分路径赋值。中途缺失的层级会补成空对象。",
+          "descriptionZh": "按点分路径赋值。中途缺失的层级会补成空对象。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "throwError",
       "kind": "function",
-      "summary": "To throw custom error message.\nparam{string} - Specifies the error message to be thrown.\nprivate",
-      "summaryZh": null,
+      "summary": "Executes `throwError` to handle throw error.",
+      "summaryZh": "执行 `throwError`，用于throw错误。",
       "sourceFile": "src/base/util.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
-      "properties": []
-    },
-    {
-      "name": "uniqueID",
-      "kind": "function",
-      "summary": "Function to generate the unique id.\nreturn {any}\nprivate",
-      "summaryZh": null,
-      "sourceFile": "src/base/util.ts",
-      "inputs": [],
-      "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "throwError",
+          "params": [
+            {
+              "name": "message",
+              "type": "string"
+            }
+          ],
+          "returnType": "never",
+          "description": "Executes `throwError` to handle throw error.",
+          "descriptionZh": "执行 `throwError`，用于throw错误。"
+        }
+      ],
       "properties": []
     }
   ],

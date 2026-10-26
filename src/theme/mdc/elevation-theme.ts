@@ -1,10 +1,39 @@
+/**
+ * @fileoverview Module `src/theme/mdc/elevation-theme.ts` providing elevation theme definitions and implementation.
+ * @zh 模块文件 `src/theme/mdc/elevation-theme.ts`，提供层级阴影主题相关的定义与实现。
+ */
+
 import {rgba} from '../mat-color';
+/**
+ * Constant/variable `$color` defining color in `src/theme/mdc`.
+ * @zh 常量/变量 `$color`，定义 `src/theme/mdc` 中的颜色。
+ */
 export const $color= "black";
+/**
+ * Constant/variable `$baseline_color` defining baseline color in `src/theme/mdc`.
+ * @zh 常量/变量 `$baseline_color`，定义 `src/theme/mdc` 中的基线颜色。
+ */
 const $baseline_color= "black";
+/**
+ * Constant/variable `$umbra_opacity` defining umbra opacity in `src/theme/mdc`.
+ * @zh 常量/变量 `$umbra_opacity`，定义 `src/theme/mdc` 中的umbra不透明度。
+ */
 const $umbra_opacity= 0.2;
+/**
+ * Constant/variable `$penumbra_opacity` defining penumbra opacity in `src/theme/mdc`.
+ * @zh 常量/变量 `$penumbra_opacity`，定义 `src/theme/mdc` 中的penumbra不透明度。
+ */
 const $penumbra_opacity= 0.14;
+/**
+ * Constant/variable `$ambient_opacity` defining ambient opacity in `src/theme/mdc`.
+ * @zh 常量/变量 `$ambient_opacity`，定义 `src/theme/mdc` 中的ambient不透明度。
+ */
 const $ambient_opacity= 0.12;
 
+/**
+ * Constant/variable `umbraMap` defining umbra map in `src/theme/mdc`.
+ * @zh 常量/变量 `umbraMap`，定义 `src/theme/mdc` 中的umbra映射表。
+ */
 const umbraMap: Map<number, string> = new Map([
     [0, '0px 0px 0px 0px'],
     [1, '0px 2px 1px -1px'],
@@ -33,6 +62,10 @@ const umbraMap: Map<number, string> = new Map([
     [24, '0px 11px 15px -7px']
 ]);
 
+/**
+ * Constant/variable `penumbraMap` defining penumbra map in `src/theme/mdc`.
+ * @zh 常量/变量 `penumbraMap`，定义 `src/theme/mdc` 中的penumbra映射表。
+ */
 const penumbraMap: Map<number, string> = new Map([
     [0, '0px 0px 0px 0px'],
     [1, '0px 1px 1px 0px'],
@@ -61,6 +94,10 @@ const penumbraMap: Map<number, string> = new Map([
     [24, '0px 24px 38px 3px']
 ]);
 
+/**
+ * Constant/variable `ambientMap` defining ambient map in `src/theme/mdc`.
+ * @zh 常量/变量 `ambientMap`，定义 `src/theme/mdc` 中的ambient映射表。
+ */
 const ambientMap: Map<number, string> = new Map([
     [0, '0px 0px 0px 0px'],
     [1, '0px 1px 3px 0px'],
@@ -89,6 +126,13 @@ const ambientMap: Map<number, string> = new Map([
     [24, '0px 9px 46px 8px']
 ]);
 
+/**
+ * Executes `elevation_box_shadow` to handle elevation box shadow.
+ * @zh 执行 `elevation_box_shadow`，用于层级阴影盒子容器阴影。
+ * @param $z_value - z value parameter (`any`) / Z坐标值参数（`any`）
+ * @param $color - color parameter (`any`) / 颜色参数（`any`）
+ * @param $opacity_boost - opacity boost parameter (`any`) / 不透明度boost参数（`any`）
+ */
 export function elevation_box_shadow(
     $z_value,
     $color= $baseline_color,
@@ -109,6 +153,13 @@ export function elevation_box_shadow(
     return _box_shadow($z_value, $color, $opacity_boost);
   }
 
+  /**
+   * Executes `_box_shadow` to handle box shadow.
+   * @zh 执行 `_box_shadow`，用于盒子容器阴影。
+   * @param $level - level parameter (`any`) / 层级参数（`any`）
+   * @param $color - color parameter (`any`) / 颜色参数（`any`）
+   * @param $opacity_boost - opacity boost parameter (`any`) / 不透明度boost参数（`any`）
+   */
   function _box_shadow($level, $color, $opacity_boost= 0) {
     // $color: prop-value($color);
     let $umbra_z_value= umbraMap.get($level);
@@ -122,6 +173,12 @@ export function elevation_box_shadow(
     return `${$umbra_z_value} ${$umbra_color},${$penumbra_z_value} ${$penumbra_color},${$ambient_z_value} ${$ambient_color}`;
   }
 
+/**
+ * Executes `_shadow` to handle shadow.
+ * @zh 执行 `_shadow`，用于阴影。
+ * @param $level - level parameter (`any`) / 层级参数（`any`）
+ * @param $color - color parameter (`any`) / 颜色参数（`any`）
+ */
 export function _shadow($level, $color) {
     if($level == null && $color == null){
       // Do not emit a warning if both are null, which means the user did not

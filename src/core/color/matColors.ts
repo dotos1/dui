@@ -1,6 +1,23 @@
+/**
+ * @fileoverview Module `src/core/color/matColors.ts` providing mat colors definitions and implementation.
+ * @zh 模块文件 `src/core/color/matColors.ts`，提供Material颜色列表相关的定义与实现。
+ */
+
+/**
+ * Constant/variable `black87` defining black87 in `src/core/color`.
+ * @zh 常量/变量 `black87`，定义 `src/core/color` 中的black87。
+ */
 const black87 = 'rgba(black, 0.87)';
+/**
+ * Constant/variable `white87` defining white87 in `src/core/color`.
+ * @zh 常量/变量 `white87`，定义 `src/core/color` 中的white87。
+ */
 const white87 = 'rgba(white, 0.87)';
 
+/**
+ * Constant/variable `matColors` defining mat colors in `src/core/color`.
+ * @zh 常量/变量 `matColors`，定义 `src/core/color` 中的Material颜色列表。
+ */
 const matColors = {
   'red': {
     50: '#ffebee',
@@ -683,6 +700,10 @@ const matColors = {
 };
 
 
+/**
+ * Constant/variable `matPresetColors` defining mat preset colors in `src/core/color`.
+ * @zh 常量/变量 `matPresetColors`，定义 `src/core/color` 中的MaterialPreset颜色列表。
+ */
 const matPresetColors = [
   '#ffebee', '#ffcdd2', '#ef9a9a', '#e57373', '#ef5350', '#f44336', '#e53935', '#d32f2f', '#c62828', '#b71c1c', '#ff8a80', '#ff5252', '#ff1744', '#d50000', '#fce4ec', '#f8bbd0',
   '#f48fb1', '#f06292', '#ec407a', '#e91e63', '#d81b60', '#c2185b', '#ad1457', '#880e4f', '#ff80ab', '#ff4081', '#f50057', '#c51162', '#f3e5f5', '#e1bee7', '#ce93d8', '#ba68c8',
@@ -705,11 +726,28 @@ const matPresetColors = [
 
 
 // @dynamic
+/**
+ * Class `MatColors` encapsulating mat colors data structures and logic in `src/core/color`.
+ * @zh 类 `MatColors`，封装 `src/core/color` 中的Material颜色列表数据结构与处理逻辑。
+ */
 export class MatColors {
+  /**
+   * Property `all` (`any`) storing all (default: `matColors`).
+   * @zh 属性 `all`（类型：`any`），用于存储或配置全部（默认值：`matColors`）。
+   */
   public static all = matColors;
 
+  /**
+   * Property `presets` (`any`) storing presets (default: `matPresetColors`).
+   * @zh 属性 `presets`（类型：`any`），用于存储或配置presets（默认值：`matPresetColors`）。
+   */
   public static presets = matPresetColors;
 
+  /**
+   * Executes `getColor` to handle get color.
+   * @zh 执行 `getColor`，用于获取颜色。
+   * @param colorName - color name parameter (`any`) / 颜色名称参数（`any`）
+   */
   public static getColor(colorName) {
     if (matColors[colorName]) {
       return matColors[colorName];
@@ -717,11 +755,22 @@ export class MatColors {
     return false;
   }
 
+  /**
+   * Executes `getColorStr` to handle get color str.
+   * @zh 执行 `getColorStr`，用于获取颜色字符串。
+   * @param color - color parameter (`string`) / 颜色参数（`string`）
+   */
   public static getColorStr(color: string) {
     let palletes = MatColors.getColor(color.substring(0, color.lastIndexOf("-")));
     return palletes[color.substring(color.lastIndexOf("-") + 1, color.length)];
   }
 
+  /**
+   * Executes `getColorByHue` to handle get color by hue.
+   * @zh 执行 `getColorByHue`，用于获取颜色按色相。
+   * @param colorName - color name parameter (`string`) / 颜色名称参数（`string`）
+   * @param hue - hue parameter (`string`) / 色相参数（`string`）
+   */
   public static getColorByHue(colorName: string, hue: string) {
     if (matColors[colorName]) {
       let palletes = matColors[colorName];
@@ -730,11 +779,22 @@ export class MatColors {
     return false;
   }
 
+  /**
+   * Executes `getColorName` to handle get color name.
+   * @zh 执行 `getColorName`，用于获取颜色名称。
+   * @param color - color parameter (`String`) / 颜色参数（`String`）
+   */
   public static getColorName(color: String) {
     let colors = MatColors.getPath(matColors, color);
     return colors.join('-');
   }
 
+  /**
+   * Executes `getPath` to handle get path.
+   * @zh 执行 `getPath`，用于获取路径。
+   * @param obj - obj parameter (`any`) / 对象参数（`any`）
+   * @param value - value parameter (`any`) / 值参数（`any`）
+   */
   public static getPath(obj, value) {
     if (obj.constructor !== Object) {
       throw new TypeError('getPath() can only operate on object with Object as constructor');

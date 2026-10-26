@@ -1,6 +1,16 @@
+/**
+ * @fileoverview Module `src/util/jpeg/encoder.ts` providing encoder definitions and implementation.
+ * @zh 模块文件 `src/util/jpeg/encoder.ts`，提供encoder相关的定义与实现。
+ */
+
 import * as Buffer from 'buffer';
 
 
+/**
+ * Executes `JPEGEncoder` to handle jpeg encoder.
+ * @zh 执行 `JPEGEncoder`，用于JPEGEncoder。
+ * @param quality - quality parameter (`any`) / quality参数（`any`）
+ */
 function JPEGEncoder(quality) {
 	 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 	 let  fround = Math.round;
@@ -688,6 +698,12 @@ function JPEGEncoder(quality) {
 	init();
 };
 
+/**
+ * Executes `encode` to handle encode.
+ * @zh 执行 `encode`，用于编码。
+ * @param imgData - img data parameter (`any`) / 图片数据参数（`any`）
+ * @param qu - qu parameter (`any`) / qu参数（`any`）
+ */
 export function encode(imgData, qu) {
   if (typeof qu === 'undefined') qu = 50;
    let  encoder = new JPEGEncoder(qu);
@@ -701,6 +717,11 @@ export function encode(imgData, qu) {
 
 // helper function to get the imageData of an existing image on the current page.
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
+/**
+ * Executes `getImageDataFromImage` to handle get image data from image.
+ * @zh 执行 `getImageDataFromImage`，用于获取图像数据从图像。
+ * @param idOrElement - id or element parameter (`any`) / 唯一标识Or元素参数（`any`）
+ */
 function getImageDataFromImage(idOrElement){
 	 let  theImg = (typeof(idOrElement)=='string')? document.getElementById(idOrElement):idOrElement;
 	 let  cvs = document.createElement('canvas');

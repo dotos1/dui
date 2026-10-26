@@ -1,8 +1,17 @@
+/**
+ * @fileoverview Module `src/ux/editor/commands/applyMark.ts` providing apply mark definitions and implementation.
+ * @zh 模块文件 `src/ux/editor/commands/applyMark.ts`，提供应用标记相关的定义与实现。
+ */
+
 import { MarkType } from 'prosemirror-model';
 import { EditorState, TextSelection, Transaction, type Command } from 'prosemirror-state';
 import { markApplies } from '../helpers/markApplies';
 
-export const applyMark = (type: MarkType, attrs: Record<string, any> = {}): Command => {
+/**
+ * Constant/variable `applyMark` defining apply mark in `src/ux/editor/commands`.
+ * @zh 常量/变量 `applyMark`，定义 `src/ux/editor/commands` 中的应用标记。
+ */
+export const applyMark = (type: MarkType, attrs = {}): Command => {
   return (state: EditorState, dispatch?: (tr: Transaction) => void): boolean => {
     const { tr, selection } = state;
     const { empty, ranges, $from, $to } = selection;

@@ -4,13 +4,135 @@
     {
       "name": "_NgScrollbar",
       "kind": "interface",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Interface `_NgScrollbar` defining the contract and properties for ng scrollbar.",
+      "summaryZh": "接口 `_NgScrollbar`，定义Angular滚动条的数据结构契约与属性规范。",
       "sourceFile": "src/common/scrollbar/utils/scrollbar-base.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
-      "properties": []
+      "methods": [
+        {
+          "name": "scrollTo",
+          "params": [
+            {
+              "name": "options",
+              "type": "SmoothScrollToOptions"
+            }
+          ],
+          "returnType": "Promise<void>",
+          "description": "Executes `scrollTo` to handle scroll to.",
+          "descriptionZh": "执行 `scrollTo`，用于滚动转换为。"
+        }
+      ],
+      "properties": [
+        {
+          "name": "nativeElement",
+          "type": "HTMLElement",
+          "description": "Property `nativeElement` (`HTMLElement`) storing native element.",
+          "descriptionZh": "属性 `nativeElement`（类型：`HTMLElement`），用于存储或配置原生元素。"
+        },
+        {
+          "name": "dragging",
+          "type": "WritableSignal<ScrollbarDragging>",
+          "description": "Property `dragging` (`WritableSignal<ScrollbarDragging>`) storing dragging.",
+          "descriptionZh": "属性 `dragging`（类型：`WritableSignal<ScrollbarDragging>`），用于存储或配置拖拽中。"
+        },
+        {
+          "name": "direction",
+          "type": "Signal<Direction>",
+          "description": "Property `direction` (`Signal<Direction>`) storing direction.",
+          "descriptionZh": "属性 `direction`（类型：`Signal<Direction>`），用于存储或配置方向。"
+        },
+        {
+          "name": "trackScrollDuration",
+          "type": "Signal<number>",
+          "description": "Property `trackScrollDuration` (`Signal<number>`) storing track scroll duration.",
+          "descriptionZh": "属性 `trackScrollDuration`（类型：`Signal<number>`），用于存储或配置track滚动持续时间。"
+        },
+        {
+          "name": "hoverOffset",
+          "type": "Signal<boolean>",
+          "description": "Property `hoverOffset` (`Signal<boolean>`) storing hover offset.",
+          "descriptionZh": "属性 `hoverOffset`（类型：`Signal<boolean>`），用于存储或配置hover偏移量。"
+        },
+        {
+          "name": "buttons",
+          "type": "Signal<boolean>",
+          "description": "Property `buttons` (`Signal<boolean>`) storing buttons.",
+          "descriptionZh": "属性 `buttons`（类型：`Signal<boolean>`），用于存储或配置按钮。"
+        },
+        {
+          "name": "disableSensor",
+          "type": "Signal<boolean>",
+          "description": "Property `disableSensor` (`Signal<boolean>`) storing disable sensor.",
+          "descriptionZh": "属性 `disableSensor`（类型：`Signal<boolean>`），用于存储或配置禁用Sensor。"
+        },
+        {
+          "name": "sensorThrottleTime",
+          "type": "Signal<number>",
+          "description": "Property `sensorThrottleTime` (`Signal<number>`) storing sensor throttle time.",
+          "descriptionZh": "属性 `sensorThrottleTime`（类型：`Signal<number>`），用于存储或配置sensor节流时间。"
+        },
+        {
+          "name": "disableInteraction",
+          "type": "Signal<boolean>",
+          "description": "Property `disableInteraction` (`Signal<boolean>`) storing disable interaction.",
+          "descriptionZh": "属性 `disableInteraction`（类型：`Signal<boolean>`），用于存储或配置禁用Interaction。"
+        },
+        {
+          "name": "isVerticallyScrollable",
+          "type": "Signal<boolean>",
+          "description": "Property `isVerticallyScrollable` (`Signal<boolean>`) storing is vertically scrollable.",
+          "descriptionZh": "属性 `isVerticallyScrollable`（类型：`Signal<boolean>`），用于存储或配置是否为VerticallyScrollable。"
+        },
+        {
+          "name": "isHorizontallyScrollable",
+          "type": "Signal<boolean>",
+          "description": "Property `isHorizontallyScrollable` (`Signal<boolean>`) storing is horizontally scrollable.",
+          "descriptionZh": "属性 `isHorizontallyScrollable`（类型：`Signal<boolean>`），用于存储或配置是否为HorizontallyScrollable。"
+        },
+        {
+          "name": "verticalUsed",
+          "type": "Signal<boolean>",
+          "description": "Property `verticalUsed` (`Signal<boolean>`) storing vertical used.",
+          "descriptionZh": "属性 `verticalUsed`（类型：`Signal<boolean>`），用于存储或配置垂直已使用。"
+        },
+        {
+          "name": "horizontalUsed",
+          "type": "Signal<boolean>",
+          "description": "Property `horizontalUsed` (`Signal<boolean>`) storing horizontal used.",
+          "descriptionZh": "属性 `horizontalUsed`（类型：`Signal<boolean>`），用于存储或配置水平已使用。"
+        },
+        {
+          "name": "thumbClass",
+          "type": "Signal<string>",
+          "description": "Property `thumbClass` (`Signal<string>`) storing thumb class.",
+          "descriptionZh": "属性 `thumbClass`（类型：`Signal<string>`），用于存储或配置thumb类名。"
+        },
+        {
+          "name": "trackClass",
+          "type": "Signal<string>",
+          "description": "Property `trackClass` (`Signal<string>`) storing track class.",
+          "descriptionZh": "属性 `trackClass`（类型：`Signal<string>`），用于存储或配置track类名。"
+        },
+        {
+          "name": "buttonClass",
+          "type": "Signal<string>",
+          "description": "Property `buttonClass` (`Signal<string>`) storing button class.",
+          "descriptionZh": "属性 `buttonClass`（类型：`Signal<string>`），用于存储或配置按钮类名。"
+        },
+        {
+          "name": "viewportDimension",
+          "type": "WritableSignal<ElementDimension>",
+          "description": "Property `viewportDimension` (`WritableSignal<ElementDimension>`) storing viewport dimension.",
+          "descriptionZh": "属性 `viewportDimension`（类型：`WritableSignal<ElementDimension>`），用于存储或配置视口维度。"
+        },
+        {
+          "name": "contentDimension",
+          "type": "WritableSignal<ElementDimension>",
+          "description": "Property `contentDimension` (`WritableSignal<ElementDimension>`) storing content dimension.",
+          "descriptionZh": "属性 `contentDimension`（类型：`WritableSignal<ElementDimension>`），用于存储或配置内容维度。"
+        }
+      ]
     },
     {
       "name": "AsyncDetection",
@@ -19,35 +141,51 @@
       "summary": "Companion directive for `ng-scrollbar[externalViewport]` that watches the content for\nDOM mutations (via `ContentObserver`) and re-triggers scrollbar layout updates.",
       "summaryZh": "用于 `ng-scrollbar[externalViewport]` 的配套指令，通过 `ContentObserver` 监听内容的\nDOM 变化，并重新触发滚动条布局更新。",
       "sourceFile": "src/common/scrollbar/async-detection.ts",
-      "inputs": [],
-      "outputs": [],
-      "methods": [],
-      "properties": [
+      "inputs": [
         {
           "name": "asyncDetection",
-          "type": "InputSignal<'auto' | ''>",
-          "default": "input()",
+          "type": "'auto' | ''",
           "description": "`'auto'` to keep watching for viewport/content-wrapper/spacer element changes indefinitely,\nor `''` (default) to stop watching once found once.",
           "descriptionZh": "`'auto'` 表示持续监听视口/内容包裹层/占位符元素的变化，`''`（默认）表示找到一次后即停止监听。"
         }
-      ]
-    },
-    {
-      "name": "filterResizeEntries",
-      "kind": "function",
-      "summary": null,
-      "summaryZh": null,
-      "sourceFile": "src/common/scrollbar/ng-scrollbar.model.ts",
-      "inputs": [],
+      ],
       "outputs": [],
       "methods": [],
       "properties": []
     },
     {
+      "name": "filterResizeEntries",
+      "kind": "function",
+      "summary": "Executes `filterResizeEntries` to handle filter resize entries.",
+      "summaryZh": "执行 `filterResizeEntries`，用于过滤调整尺寸条目集合。",
+      "sourceFile": "src/common/scrollbar/ng-scrollbar.model.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "filterResizeEntries",
+          "params": [
+            {
+              "name": "entries",
+              "type": "ResizeObserverEntry[]"
+            },
+            {
+              "name": "target",
+              "type": "Element"
+            }
+          ],
+          "returnType": "DOMRectReadOnly",
+          "description": "Executes `filterResizeEntries` to handle filter resize entries.",
+          "descriptionZh": "执行 `filterResizeEntries`，用于过滤调整尺寸条目集合。"
+        }
+      ],
+      "properties": []
+    },
+    {
       "name": "NG_SCROLLBAR",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular dependency-injection token `NG_SCROLLBAR` for providing ng scrollbar.",
+      "summaryZh": "Angular 依赖注入令牌 `NG_SCROLLBAR`，用于提供与注入Angular滚动条。",
       "sourceFile": "src/common/scrollbar/utils/scrollbar-base.ts",
       "inputs": [],
       "outputs": [],
@@ -57,8 +195,8 @@
     {
       "name": "NG_SCROLLBAR_OPTIONS",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular dependency-injection token `NG_SCROLLBAR_OPTIONS` for providing ng scrollbar options.",
+      "summaryZh": "Angular 依赖注入令牌 `NG_SCROLLBAR_OPTIONS`，用于提供与注入Angular滚动条配置选项。",
       "sourceFile": "src/common/scrollbar/ng-scrollbar.model.ts",
       "inputs": [],
       "outputs": [],
@@ -68,8 +206,8 @@
     {
       "name": "NG_SCROLLBAR_POLYFILL",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular dependency-injection token `NG_SCROLLBAR_POLYFILL` for providing ng scrollbar polyfill.",
+      "summaryZh": "Angular 依赖注入令牌 `NG_SCROLLBAR_POLYFILL`，用于提供与注入Angular滚动条POLYFILL。",
       "sourceFile": "src/common/scrollbar/ng-scrollbar.model.ts",
       "inputs": [],
       "outputs": [],
@@ -91,7 +229,7 @@
           "name": "contentWrapper",
           "type": "Signal<ElementRef<HTMLElement>>",
           "default": "viewChild.required('contentWrapper')",
-          "description": null,
+          "description": "Property `contentWrapper` (`Signal<ElementRef<HTMLElement>>`) storing content wrapper (default: `viewChild.required('contentWrapper')`).",
           "descriptionZh": "内部内容包裹层元素的引用。"
         }
       ]
@@ -105,36 +243,33 @@
       "sourceFile": "src/common/scrollbar/ng-scrollbar-ext.ts",
       "inputs": [
         {
+          "name": "externalViewport",
+          "type": "string",
+          "description": "Selector used to query the viewport element.",
+          "descriptionZh": "属性 `externalViewport`（类型：`InputSignal<string>`），用于存储或配置外部视口（默认值：`input<string>()`）。"
+        },
+        {
+          "name": "externalContentWrapper",
+          "type": "string",
+          "description": "Selector used to query the content wrapper element.",
+          "descriptionZh": "属性 `externalContentWrapper`（类型：`InputSignal<string>`），用于存储或配置外部内容包装器（默认值：`input<string>()`）。"
+        },
+        {
+          "name": "externalSpacer",
+          "type": "string",
+          "description": "Selector used to query the spacer element (virtual scroll integration).\nIn the case of integrating the scrollbar with a virtual scroll component,\na spacer element is typically created to match the real size of the content.\nThe scrollbar will use the size of this spacer element for calculations instead of the content wrapper size.",
+          "descriptionZh": "属性 `externalSpacer`（类型：`InputSignal<string>`），用于存储或配置外部Spacer（默认值：`input<string>()`）。"
+        },
+        {
           "name": "skipInit",
           "type": "boolean",
           "description": "Skip initializing the viewport and the scrollbar\nthis is used when the component needs to wait for 3rd party library to render",
-          "descriptionZh": null
+          "descriptionZh": "输入属性 `skipInit`（类型：`boolean`），用于配置skip初始化。"
         }
       ],
       "outputs": [],
       "methods": [],
       "properties": [
-        {
-          "name": "externalViewport",
-          "type": "InputSignal<string>",
-          "default": "input<string>()",
-          "description": "Selector used to query the viewport element.",
-          "descriptionZh": null
-        },
-        {
-          "name": "externalContentWrapper",
-          "type": "InputSignal<string>",
-          "default": "input<string>()",
-          "description": "Selector used to query the content wrapper element.",
-          "descriptionZh": null
-        },
-        {
-          "name": "externalSpacer",
-          "type": "InputSignal<string>",
-          "default": "input<string>()",
-          "description": "Selector used to query the spacer element (virtual scroll integration).\nIn the case of integrating the scrollbar with a virtual scroll component,\na spacer element is typically created to match the real size of the content.\nThe scrollbar will use the size of this spacer element for calculations instead of the content wrapper size.",
-          "descriptionZh": null
-        },
         {
           "name": "altViewport",
           "type": "WritableSignal<HTMLElement>",
@@ -203,7 +338,7 @@
           "type": "Signal<ScrollViewport>",
           "default": "contentChild(ScrollViewport, { descendants: true })",
           "description": "Reference to the external viewport directive if used",
-          "descriptionZh": null
+          "descriptionZh": "属性 `customViewport`（类型：`Signal<ScrollViewport>`），用于存储或配置自定义视口。"
         }
       ]
     },
@@ -221,41 +356,146 @@
     {
       "name": "NgScrollbarOptions",
       "kind": "interface",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Interface `NgScrollbarOptions` defining the contract and properties for ng scrollbar options.",
+      "summaryZh": "接口 `NgScrollbarOptions`，定义Angular滚动条配置选项的数据结构契约与属性规范。",
       "sourceFile": "src/common/scrollbar/ng-scrollbar.model.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
-      "properties": []
+      "properties": [
+        {
+          "name": "orientation",
+          "type": "ScrollbarOrientation",
+          "description": "Sets the scroll axis of the viewport.\n- 'auto': Scrollbars are displayed for both vertical and horizontal scrolling.\n- 'vertical': Scrollbars are displayed for vertical scrolling.\n- 'horizontal': Scrollbars are displayed for horizontal scrolling.\nDefaults to 'auto'.",
+          "descriptionZh": "属性 `orientation`（类型：`ScrollbarOrientation`），用于存储或配置方向。"
+        },
+        {
+          "name": "visibility",
+          "type": "ScrollbarVisibility",
+          "description": "Determines when to show the scrollbar.\n- 'native': Scrollbar is visible when the viewport is scrollable, similar to native scrollbars.\n- 'hover': Scrollbars are hidden by default and become visible on scrolling or hovering.\n- 'visible': Scrollbars are always visible, even if the viewport is not scrollable.\nDefaults to 'native'.",
+          "descriptionZh": "属性 `visibility`（类型：`ScrollbarVisibility`），用于存储或配置visibility。"
+        },
+        {
+          "name": "appearance",
+          "type": "ScrollbarAppearance",
+          "description": "Sets the appearance of the scrollbar.\n- 'native': Scrollbar space is reserved within the viewport, similar to native scrollbars.\n- 'compact': Scrollbars do not reserve any space and are placed over the viewport.\nDefaults to 'native'.",
+          "descriptionZh": "属性 `appearance`（类型：`ScrollbarAppearance`），用于存储或配置appearance。"
+        },
+        {
+          "name": "position",
+          "type": "ScrollbarPosition",
+          "description": "Sets the position of each scrollbar.\n- 'native': Uses the default position as in native scrollbars.\n- 'invertY': Inverts the vertical scrollbar position.\n- 'invertX': Inverts the horizontal scrollbar position.\n- 'invertAll': Inverts the positions of both vertical and horizontal scrollbars.\nDefaults to 'native'.",
+          "descriptionZh": "属性 `position`（类型：`ScrollbarPosition`），用于存储或配置位置。"
+        },
+        {
+          "name": "trackClass",
+          "type": "string",
+          "description": "A class forwarded to the scrollbar track element",
+          "descriptionZh": "属性 `trackClass`（类型：`string`），用于存储或配置track类名。"
+        },
+        {
+          "name": "thumbClass",
+          "type": "string",
+          "description": "A class forwarded to the scrollbar thumb element",
+          "descriptionZh": "属性 `thumbClass`（类型：`string`），用于存储或配置thumb类名。"
+        },
+        {
+          "name": "buttonClass",
+          "type": "string",
+          "description": "A class forwarded to the scrollbar button element",
+          "descriptionZh": "属性 `buttonClass`（类型：`string`），用于存储或配置按钮类名。"
+        },
+        {
+          "name": "trackScrollDuration",
+          "type": "number",
+          "description": "Scrolling speed when clicking on scrollbar rail",
+          "descriptionZh": "属性 `trackScrollDuration`（类型：`number`），用于存储或配置track滚动持续时间。"
+        },
+        {
+          "name": "disableInteraction",
+          "type": "boolean",
+          "description": "A flag used to enable/disable the scrollbar pointer events",
+          "descriptionZh": "属性 `disableInteraction`（类型：`boolean`），用于存储或配置禁用Interaction。"
+        },
+        {
+          "name": "sensorThrottleTime",
+          "type": "number",
+          "description": "Debounce interval for detecting changes via ResizeObserver",
+          "descriptionZh": "属性 `sensorThrottleTime`（类型：`number`），用于存储或配置sensor节流时间。"
+        },
+        {
+          "name": "disableSensor",
+          "type": "boolean",
+          "description": "Whether ResizeObserver is disabled",
+          "descriptionZh": "属性 `disableSensor`（类型：`boolean`），用于存储或配置禁用Sensor。"
+        },
+        {
+          "name": "buttons",
+          "type": "boolean",
+          "description": "Show scrollbar buttons",
+          "descriptionZh": "属性 `buttons`（类型：`boolean`），用于存储或配置按钮。"
+        },
+        {
+          "name": "hoverOffset",
+          "type": "boolean",
+          "description": "A flag used to activate hover effect on the offset area around the scrollbar",
+          "descriptionZh": "属性 `hoverOffset`（类型：`boolean`），用于存储或配置hover偏移量。"
+        }
+      ]
     },
     {
       "name": "provideScrollbarOptions",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Executes `provideScrollbarOptions` to handle provide scrollbar options.",
+      "summaryZh": "执行 `provideScrollbarOptions`，用于提供滚动条配置选项。",
       "sourceFile": "src/common/scrollbar/ng-scrollbar.module.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "provideScrollbarOptions",
+          "params": [
+            {
+              "name": "options",
+              "type": "NgScrollbarOptions"
+            }
+          ],
+          "returnType": "Provider[]",
+          "description": "Executes `provideScrollbarOptions` to handle provide scrollbar options.",
+          "descriptionZh": "执行 `provideScrollbarOptions`，用于提供滚动条配置选项。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "provideScrollbarPolyfill",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Executes `provideScrollbarPolyfill` to handle provide scrollbar polyfill.",
+      "summaryZh": "执行 `provideScrollbarPolyfill`，用于提供滚动条Polyfill。",
       "sourceFile": "src/common/scrollbar/ng-scrollbar.module.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "provideScrollbarPolyfill",
+          "params": [
+            {
+              "name": "url",
+              "type": "string"
+            }
+          ],
+          "returnType": "Provider[]",
+          "description": "Executes `provideScrollbarPolyfill` to handle provide scrollbar polyfill.",
+          "descriptionZh": "执行 `provideScrollbarPolyfill`，用于提供滚动条Polyfill。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "ScrollbarAppearance",
       "kind": "type",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Type alias `ScrollbarAppearance` representing scrollbar appearance (`'native' | 'compact'`).",
+      "summaryZh": "类型别名 `ScrollbarAppearance`，表示滚动条Appearance（`'native' | 'compact'`）。",
       "sourceFile": "src/common/scrollbar/ng-scrollbar.model.ts",
       "inputs": [],
       "outputs": [],
@@ -265,8 +505,8 @@
     {
       "name": "ScrollbarOrientation",
       "kind": "type",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Type alias `ScrollbarOrientation` representing scrollbar orientation (`'auto' | 'vertical' | 'horizontal'`).",
+      "summaryZh": "类型别名 `ScrollbarOrientation`，表示滚动条方向（`'auto' | 'vertical' | 'horizontal'`）。",
       "sourceFile": "src/common/scrollbar/ng-scrollbar.model.ts",
       "inputs": [],
       "outputs": [],
@@ -276,8 +516,8 @@
     {
       "name": "ScrollbarPosition",
       "kind": "type",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Type alias `ScrollbarPosition` representing scrollbar position (`'native' | 'invertY' | 'invertX' | 'invertAll'`).",
+      "summaryZh": "类型别名 `ScrollbarPosition`，表示滚动条位置（`'native' | 'invertY' | 'invertX' | 'invertAll'`）。",
       "sourceFile": "src/common/scrollbar/ng-scrollbar.model.ts",
       "inputs": [],
       "outputs": [],
@@ -287,19 +527,34 @@
     {
       "name": "ScrollbarUpdateReason",
       "kind": "enum",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Enumeration `ScrollbarUpdateReason` defining supported scrollbar update reason constants.",
+      "summaryZh": "枚举 `ScrollbarUpdateReason`，定义支持的滚动条更新Reason常量集合。",
       "sourceFile": "src/common/scrollbar/ng-scrollbar.model.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
-      "properties": []
+      "properties": [
+        {
+          "name": "AfterInit",
+          "type": "enum-member",
+          "default": "'AfterInit'",
+          "description": "Enum member `ScrollbarUpdateReason.AfterInit` = 'AfterInit' representing after init.",
+          "descriptionZh": "枚举项 `ScrollbarUpdateReason.AfterInit` = 'AfterInit'，表示之后初始化。"
+        },
+        {
+          "name": "Resized",
+          "type": "enum-member",
+          "default": "'ResizeObserver'",
+          "description": "Enum member `ScrollbarUpdateReason.Resized` = 'ResizeObserver' representing resized.",
+          "descriptionZh": "枚举项 `ScrollbarUpdateReason.Resized` = 'ResizeObserver'，表示已调整尺寸。"
+        }
+      ]
     },
     {
       "name": "ScrollbarVisibility",
       "kind": "type",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Type alias `ScrollbarVisibility` representing scrollbar visibility (`'native' | 'hover' | 'visible'`).",
+      "summaryZh": "类型别名 `ScrollbarVisibility`，表示滚动条Visibility（`'native' | 'hover' | 'visible'`）。",
       "sourceFile": "src/common/scrollbar/ng-scrollbar.model.ts",
       "inputs": [],
       "outputs": [],
@@ -321,7 +576,7 @@
           "name": "nativeElement",
           "type": "HTMLElement",
           "default": "inject(ElementRef<HTMLElement>).nativeElement",
-          "description": null,
+          "description": "Property `nativeElement` (`HTMLElement`) storing native element.",
           "descriptionZh": "标记该指令所在的原生元素。"
         }
       ]
@@ -342,7 +597,7 @@
           "type": "WritableSignal<ElementDimension>",
           "default": "signal({})",
           "description": "A signal used to sync spacer dimension when content dimension changes",
-          "descriptionZh": null
+          "descriptionZh": "属性 `spacerDimension`（类型：`WritableSignal<ElementDimension>`），用于存储或配置spacer维度（默认值：`signal({})`）。"
         }
       ]
     }

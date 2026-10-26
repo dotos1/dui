@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Module `src/common/perfect-scrollbar/perfect-scrollbar.directive.ts` providing perfect scrollbar directive definitions and implementation.
+ * @zh 模块文件 `src/common/perfect-scrollbar/perfect-scrollbar.directive.ts`，提供perfect滚动条指令相关的定义与实现。
+ */
+
 import PerfectScrollbar from 'perfect-scrollbar';
 
 import { Subject, fromEvent } from 'rxjs';
@@ -45,46 +50,125 @@ import {
     exportAs: 'ngxPerfectScrollbar',
 })
 export class PerfectScrollbarDirective implements OnInit, OnDestroy, DoCheck, OnChanges {
+    /**
+     * Property `instance` (`PerfectScrollbar | null`) storing instance (default: `null`).
+     * @zh 属性 `instance`（类型：`PerfectScrollbar | null`），用于存储或配置实例（默认值：`null`）。
+     */
     private instance: PerfectScrollbar | null = null;
 
+    /**
+     * Property `ro` (`ResizeObserver | null`) storing ro (default: `null`).
+     * @zh 属性 `ro`（类型：`ResizeObserver | null`），用于存储或配置ro（默认值：`null`）。
+     */
     private ro: ResizeObserver | null = null;
 
+    /**
+     * Property `timeout` (`number | null`) storing timeout (default: `null`).
+     * @zh 属性 `timeout`（类型：`number | null`），用于存储或配置延时器（默认值：`null`）。
+     */
     private timeout: number | null = null;
+    /**
+     * Property `animation` (`number | null`) storing animation (default: `null`).
+     * @zh 属性 `animation`（类型：`number | null`），用于存储或配置动画（默认值：`null`）。
+     */
     private animation: number | null = null;
 
-    private configDiff: KeyValueDiffer<string, any> | null = null;
+    /**
+     * Property `configDiff` (`KeyValueDiffer<string, any> | null`) storing config diff (default: `null`).
+     * @zh 属性 `configDiff`（类型：`KeyValueDiffer<string, any> | null`），用于存储或配置配置Diff（默认值：`null`）。
+     */
+    private configDiff = null;
 
+    /**
+     * Property `ngDestroy` (`Subject`) storing ng destroy (default: `new Subject<void>()`).
+     * @zh 属性 `ngDestroy`（类型：`Subject`），用于存储或配置Angular销毁（默认值：`new Subject<void>()`）。
+     */
     private ngDestroy = new Subject<void>();
 
-    /** @zh 是否禁用自定义滚动条（禁用后销毁底层 Perfect Scrollbar 实例）。 */
+    /**
+     * @zh 是否禁用自定义滚动条（禁用后销毁底层 Perfect Scrollbar 实例）。
+     * @zh 是否禁用自定义滚动条（禁用后销毁底层 Perfect Scrollbar 实例）。
+     */
     @Input({ transform: booleanAttribute }) disabled: boolean = false;
 
-    /** @zh 传给底层 Perfect Scrollbar 实例的配置项。 */
+    /**
+     * @zh 传给底层 Perfect Scrollbar 实例的配置项。
+     * @zh 传给底层 Perfect Scrollbar 实例的配置项。
+     */
     @Input('perfectScrollbar') config?: PerfectScrollbarConfigInterface;
 
-    /** @zh 垂直滚动时发出。 */
-    @Output() psScrollY = new EventEmitter<any>();
-    /** @zh 水平滚动时发出。 */
-    @Output() psScrollX = new EventEmitter<any>();
+    /**
+     * Output event emitter `psScrollY` (`EventEmitter`) firing when ps scroll y occurs.
+     * @zh 垂直滚动时发出。
+     * @zh 垂直滚动时发出。
+     */
+    @Output() psScrollY = new EventEmitter();
+    /**
+     * Output event emitter `psScrollX` (`EventEmitter`) firing when ps scroll x occurs.
+     * @zh 水平滚动时发出。
+     * @zh 水平滚动时发出。
+     */
+    @Output() psScrollX = new EventEmitter();
 
-    /** @zh 向上滚动时发出。 */
-    @Output() psScrollUp = new EventEmitter<any>();
-    /** @zh 向下滚动时发出。 */
-    @Output() psScrollDown = new EventEmitter<any>();
-    /** @zh 向左滚动时发出。 */
-    @Output() psScrollLeft = new EventEmitter<any>();
-    /** @zh 向右滚动时发出。 */
-    @Output() psScrollRight = new EventEmitter<any>();
+    /**
+     * Output event emitter `psScrollUp` (`EventEmitter`) firing when ps scroll up occurs.
+     * @zh 向上滚动时发出。
+     * @zh 向上滚动时发出。
+     */
+    @Output() psScrollUp = new EventEmitter();
+    /**
+     * Output event emitter `psScrollDown` (`EventEmitter`) firing when ps scroll down occurs.
+     * @zh 向下滚动时发出。
+     * @zh 向下滚动时发出。
+     */
+    @Output() psScrollDown = new EventEmitter();
+    /**
+     * Output event emitter `psScrollLeft` (`EventEmitter`) firing when ps scroll left occurs.
+     * @zh 向左滚动时发出。
+     * @zh 向左滚动时发出。
+     */
+    @Output() psScrollLeft = new EventEmitter();
+    /**
+     * Output event emitter `psScrollRight` (`EventEmitter`) firing when ps scroll right occurs.
+     * @zh 向右滚动时发出。
+     * @zh 向右滚动时发出。
+     */
+    @Output() psScrollRight = new EventEmitter();
 
-    /** @zh 垂直方向滚动到底部时发出。 */
-    @Output() psYReachEnd = new EventEmitter<any>();
-    /** @zh 垂直方向滚动到顶部时发出。 */
-    @Output() psYReachStart = new EventEmitter<any>();
-    /** @zh 水平方向滚动到右侧末端时发出。 */
-    @Output() psXReachEnd = new EventEmitter<any>();
-    /** @zh 水平方向滚动到左侧起始位置时发出。 */
-    @Output() psXReachStart = new EventEmitter<any>();
+    /**
+     * Output event emitter `psYReachEnd` (`EventEmitter`) firing when ps y reach end occurs.
+     * @zh 垂直方向滚动到底部时发出。
+     * @zh 垂直方向滚动到底部时发出。
+     */
+    @Output() psYReachEnd = new EventEmitter();
+    /**
+     * Output event emitter `psYReachStart` (`EventEmitter`) firing when ps y reach start occurs.
+     * @zh 垂直方向滚动到顶部时发出。
+     * @zh 垂直方向滚动到顶部时发出。
+     */
+    @Output() psYReachStart = new EventEmitter();
+    /**
+     * Output event emitter `psXReachEnd` (`EventEmitter`) firing when ps x reach end occurs.
+     * @zh 水平方向滚动到右侧末端时发出。
+     * @zh 水平方向滚动到右侧末端时发出。
+     */
+    @Output() psXReachEnd = new EventEmitter();
+    /**
+     * Output event emitter `psXReachStart` (`EventEmitter`) firing when ps x reach start occurs.
+     * @zh 水平方向滚动到左侧起始位置时发出。
+     * @zh 水平方向滚动到左侧起始位置时发出。
+     */
+    @Output() psXReachStart = new EventEmitter();
 
+    /**
+     * Creates an instance of `PerfectScrollbarDirective` and initializes its dependencies and internal state.
+     * @zh 创建 `PerfectScrollbarDirective` 实例，并初始化其依赖项与内部状态。
+     * @param zone - Injected or initial zone (`NgZone`) / 注入或传入的区域(NgZone)（`NgZone`）
+     * @param differs - Injected or initial differs (`KeyValueDiffers`) / 注入或传入的differs（`KeyValueDiffers`）
+     * @param elementRef - Injected or initial element ref (`ElementRef`) / 注入或传入的元素引用（`ElementRef`）
+     * @param platformId - Injected or initial platform id (`Object`) / 注入或传入的platform唯一标识（`Object`）
+     * @param defaults - Injected or initial defaults (`PerfectScrollbarConfigInterface`) / 注入或传入的默认值集合（`PerfectScrollbarConfigInterface`）
+     */
     constructor(
         private zone: NgZone,
         private differs: KeyValueDiffers,
@@ -95,6 +179,10 @@ export class PerfectScrollbarDirective implements OnInit, OnDestroy, DoCheck, On
         private defaults: PerfectScrollbarConfigInterface,
     ) {}
 
+    /**
+     * Angular lifecycle hook invoked once after component or directive inputs are initialized.
+     * @zh Angular 生命周期钩子：在组件或指令的输入属性初始化完成后调用一次。
+     */
     ngOnInit(): void {
         if (!this.disabled && isPlatformBrowser(this.platformId)) {
             // config 变化(ngDoCheck)或 disabled 切回 false 时 ngOnInit 会被再次
@@ -146,6 +234,10 @@ export class PerfectScrollbarDirective implements OnInit, OnDestroy, DoCheck, On
         }
     }
 
+    /**
+     * Executes `destroyScrollbar` to handle destroy scrollbar.
+     * @zh 执行 `destroyScrollbar`，用于销毁滚动条。
+     */
     private destroyScrollbar(): void {
         if (isPlatformBrowser(this.platformId)) {
             this.ngDestroy.next();
@@ -174,10 +266,18 @@ export class PerfectScrollbarDirective implements OnInit, OnDestroy, DoCheck, On
         }
     }
 
+    /**
+     * Angular lifecycle hook invoked just before the component, directive, or service is destroyed to release subscriptions and resources.
+     * @zh Angular 生命周期钩子：在组件、指令或服务销毁前调用，用于释放订阅与清理资源。
+     */
     ngOnDestroy(): void {
         this.destroyScrollbar();
     }
 
+    /**
+     * Angular lifecycle hook invoked during every change-detection run for custom change detection.
+     * @zh Angular 生命周期钩子：在每次变更检测周期中调用，用于执行自定义变更检测。
+     */
     ngDoCheck(): void {
         if (!this.disabled && this.configDiff && isPlatformBrowser(this.platformId)) {
             const changes = this.configDiff.diff(this.config || {});
@@ -190,6 +290,11 @@ export class PerfectScrollbarDirective implements OnInit, OnDestroy, DoCheck, On
         }
     }
 
+    /**
+     * Angular lifecycle hook invoked when data-bound input properties change.
+     * @zh Angular 生命周期钩子：当数据绑定的输入属性发生变更时调用。
+     * @param changes - changes parameter (`SimpleChanges`) / 变更集合参数（`SimpleChanges`）
+     */
     ngOnChanges(changes: SimpleChanges): void {
         const disabled = changes['disabled'];
         if (disabled && !disabled.isFirstChange() && isPlatformBrowser(this.platformId)) {
@@ -391,6 +496,13 @@ export class PerfectScrollbarDirective implements OnInit, OnDestroy, DoCheck, On
         }
     }
 
+    /**
+     * Executes `animateScrolling` to handle animate scrolling.
+     * @zh 执行 `animateScrolling`，用于animate滚动中。
+     * @param target - target parameter (`string`) / 目标参数（`string`）
+     * @param value - value parameter (`number`) / 值参数（`number`）
+     * @param speed - speed parameter (`number`) / 速度参数（`number`）
+     */
     private animateScrolling(target: string, value: number, speed?: number): void {
         if (this.animation) {
             window.cancelAnimationFrame(this.animation);

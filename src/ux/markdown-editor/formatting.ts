@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Module `src/ux/markdown-editor/formatting.ts` providing formatting definitions and implementation.
+ * @zh 模块文件 `src/ux/markdown-editor/formatting.ts`，提供formatting相关的定义与实现。
+ */
+
 /* eslint-disable @typescript-eslint/no-unused-vars */
 
 import {editor, KeyCode, KeyMod} from 'monaco-editor';
@@ -5,6 +10,17 @@ import { fixMarker } from './listEditing';
 import {TextDocument, TextEditor} from "./vscode-monaco";
 import {Position, Selection, Range, WorkspaceEdit} from "./extHostTypes";
 
+/**
+ * Executes `addKeybinding` to handle add keybinding.
+ * @zh 执行 `addKeybinding`，用于添加Keybinding。
+ * @param editor - editor parameter (`TextEditor`) / 编辑器参数（`TextEditor`）
+ * @param name - name parameter (`String`) / 名称参数（`String`）
+ * @param fun - fun parameter (`CallableFunction`) / fun参数（`CallableFunction`）
+ * @param keybindings - keybindings parameter (`number[]`) / keybindings参数（`number[]`）
+ * @param label - label parameter (`string`) / 标签参数（`string`）
+ * @param context - context parameter (`string`) / 上下文参数（`string`）
+ * @param contextMenuGroupId - context menu group id parameter (`any`) / 上下文菜单分组唯一标识参数（`any`）
+ */
 export function addKeybinding(editor: TextEditor, name: String, fun: CallableFunction, keybindings: number[], label?: string, context?: string, contextMenuGroupId = "markdown.extension.editing") {
     editor.addAction({
         contextMenuGroupId: contextMenuGroupId,
@@ -21,6 +37,11 @@ export function addKeybinding(editor: TextEditor, name: String, fun: CallableFun
     });
 }
 
+/**
+ * Executes `activateFormatting` to handle activate formatting.
+ * @zh 执行 `activateFormatting`，用于激活Formatting。
+ * @param editor - editor parameter (`TextEditor`) / 编辑器参数（`TextEditor`）
+ */
 export function activateFormatting(editor: TextEditor) {
     addKeybinding(editor, "toggleBold", toggleBold, [KeyMod.CtrlCmd | KeyCode.KeyB], "Toggle bold");
     addKeybinding(editor, "toggleItalic", toggleItalic, [KeyMod.CtrlCmd | KeyCode.KeyI], "Toggle italic");
@@ -36,30 +57,61 @@ export function activateFormatting(editor: TextEditor) {
 
 /**
  * Here we store Regexp to check if the text is the single link.
+
+ * @zh 常量/变量 `singleLinkRegex`，定义 `src/ux/markdown-editor` 中的单个链接正则表达式。
  */
 const singleLinkRegex: RegExp = createLinkRegex();
 
 // Return Promise because need to chain operations in unit tests
 
+/**
+ * Executes `toggleBold` to handle toggle bold.
+ * @zh 执行 `toggleBold`，用于开关Bold。
+ * @param editor - editor parameter (`TextEditor`) / 编辑器参数（`TextEditor`）
+ */
 function toggleBold(editor: TextEditor) {
     return styleByWrapping(editor, '**');
 }
 
+/**
+ * Executes `toggleItalic` to handle toggle italic.
+ * @zh 执行 `toggleItalic`，用于开关Italic。
+ * @param editor - editor parameter (`TextEditor`) / 编辑器参数（`TextEditor`）
+ */
 function toggleItalic(editor: TextEditor) {
     // let indicator = workspace.getConfiguration('markdown.extension.italic').get<string>('indicator');
     return styleByWrapping(editor, '*');
 }
 
+/**
+ * Executes `toggleCodeSpan` to handle toggle code span.
+ * @zh 执行 `toggleCodeSpan`，用于开关编码Span。
+ * @param editor - editor parameter (`TextEditor`) / 编辑器参数（`TextEditor`）
+ */
 function toggleCodeSpan(editor: TextEditor) {
     return styleByWrapping(editor, '`');
 }
 
+/**
+ * Executes `toggleStrikethrough` to handle toggle strikethrough.
+ * @zh 执行 `toggleStrikethrough`，用于开关Strikethrough。
+ * @param editor - editor parameter (`TextEditor`) / 编辑器参数（`TextEditor`）
+ */
 function toggleStrikethrough(editor: TextEditor) {
     return styleByWrapping(editor, '~~');
 }
 
+/**
+ * Constant/variable `maxHeading` defining max heading in `src/ux/markdown-editor`.
+ * @zh 常量/变量 `maxHeading`，定义 `src/ux/markdown-editor` 中的最大值Heading。
+ */
 const maxHeading = '######';
 
+/**
+ * Executes `toggleHeadingUp` to handle toggle heading up.
+ * @zh 执行 `toggleHeadingUp`，用于开关Heading向上。
+ * @param editor - editor parameter (`TextEditor`) / 编辑器参数（`TextEditor`）
+ */
 function toggleHeadingUp(editor: TextEditor) {
     let lineIndex = editor.selection.active.line;
     let lineText = editor.document.lineAt(lineIndex).text;
@@ -76,6 +128,11 @@ function toggleHeadingUp(editor: TextEditor) {
     });
 }
 
+/**
+ * Executes `toggleHeadingDown` to handle toggle heading down.
+ * @zh 执行 `toggleHeadingDown`，用于开关Heading向下。
+ * @param editor - editor parameter (`TextEditor`) / 编辑器参数（`TextEditor`）
+ */
 function toggleHeadingDown(editor: TextEditor) {
     let lineIndex = editor.selection.active.line;
     let lineText = editor.document.lineAt(lineIndex).text;
@@ -91,20 +148,47 @@ function toggleHeadingDown(editor: TextEditor) {
     });
 }
 
+/**
+ * Enumeration `MathBlockState` defining supported math block state constants.
+ * @zh 枚举 `MathBlockState`，定义支持的Math块状态常量集合。
+ */
 enum MathBlockState {
     // State 1: not in any others states
+    /**
+     * Enum member `MathBlockState.NONE` representing none.
+     * @zh 枚举项 `MathBlockState.NONE`，表示无。
+     */
     NONE,
     // State 2: $|$
+    /**
+     * Enum member `MathBlockState.INLINE` representing inline.
+     * @zh 枚举项 `MathBlockState.INLINE`，表示INLINE。
+     */
     INLINE,
     // State 3: $$ | $$
+    /**
+     * Enum member `MathBlockState.SINGLE_DISPLAYED` representing single displayed.
+     * @zh 枚举项 `MathBlockState.SINGLE_DISPLAYED`，表示单个已展示。
+     */
     SINGLE_DISPLAYED,
     // State 4:
     // $$
     // |
     // $$
+    /**
+     * Enum member `MathBlockState.MULTI_DISPLAYED` representing multi displayed.
+     * @zh 枚举项 `MathBlockState.MULTI_DISPLAYED`，表示多已展示。
+     */
     MULTI_DISPLAYED
 }
 
+/**
+ * Executes `getMathState` to handle get math state.
+ * @zh 执行 `getMathState`，用于获取Math状态。
+ * @param editor - editor parameter (`TextEditor`) / 编辑器参数（`TextEditor`）
+ * @param cursor - cursor parameter (`Position`) / 光标参数（`Position`）
+ * @returns Result of type `MathBlockState` / 类型为 `MathBlockState` 的返回值
+ */
 function getMathState(editor: TextEditor, cursor: Position): MathBlockState {
     if (getContext(editor, cursor, '$') === '$|$') {
         return MathBlockState.INLINE;
@@ -129,6 +213,8 @@ function getMathState(editor: TextEditor, cursor: Position): MathBlockState {
  * @param cursor
  * @param oldMathBlockState
  * @param newMathBlockState
+
+ * @zh 执行 `setMathState`，用于集合Math状态。
  */
 function setMathState(editor: TextEditor, cursor: Position, oldMathBlockState: MathBlockState, newMathBlockState: MathBlockState) {
     // Step 1: Delete old math block.
@@ -192,6 +278,10 @@ function setMathState(editor: TextEditor, cursor: Position, oldMathBlockState: M
     });
 }
 
+/**
+ * Constant/variable `transTable` defining trans table in `src/ux/markdown-editor`.
+ * @zh 常量/变量 `transTable`，定义 `src/ux/markdown-editor` 中的trans表格。
+ */
 const transTable = [
     MathBlockState.NONE,
     MathBlockState.INLINE,
@@ -199,16 +289,36 @@ const transTable = [
     MathBlockState.SINGLE_DISPLAYED
 ];
 
+/**
+ * Constant/variable `reverseTransTable` defining reverse trans table in `src/ux/markdown-editor`.
+ * @zh 常量/变量 `reverseTransTable`，定义 `src/ux/markdown-editor` 中的反向Trans表格。
+ */
 const reverseTransTable = new Array(...transTable).reverse();
 
+/**
+ * Executes `toggleMath` to handle toggle math.
+ * @zh 执行 `toggleMath`，用于开关Math。
+ * @param editor - editor parameter (`TextEditor`) / 编辑器参数（`TextEditor`）
+ */
 function toggleMath(editor: TextEditor) {
     _toggleMath(editor, transTable)
 }
 
+/**
+ * Executes `toggleMathReverse` to handle toggle math reverse.
+ * @zh 执行 `toggleMathReverse`，用于开关Math反向。
+ * @param editor - editor parameter (`TextEditor`) / 编辑器参数（`TextEditor`）
+ */
 function toggleMathReverse(editor: TextEditor) {
     _toggleMath(editor, reverseTransTable)
 }
 
+/**
+ * Executes `_toggleMath` to handle toggle math.
+ * @zh 执行 `_toggleMath`，用于开关Math。
+ * @param editor - editor parameter (`TextEditor`) / 编辑器参数（`TextEditor`）
+ * @param transTable - trans table parameter (`MathBlockState[]`) / trans表格参数（`MathBlockState[]`）
+ */
 function _toggleMath(editor: TextEditor, transTable: MathBlockState[]) {
     if (!editor.selection.isEmpty) return;
     let cursor = editor.selection.active;
@@ -218,6 +328,11 @@ function _toggleMath(editor: TextEditor, transTable: MathBlockState[]) {
     setMathState(editor, cursor, oldMathBlockState, transTable[(currentStateIndex + 1) % transTable.length])
 }
 
+/**
+ * Executes `toggleList` to handle toggle list.
+ * @zh 执行 `toggleList`，用于开关列表。
+ * @param editor - editor parameter (`TextEditor`) / 编辑器参数（`TextEditor`）
+ */
 function toggleList(editor: TextEditor) {
     const doc = editor.document;
     let batchEdit = new WorkspaceEdit();
@@ -236,6 +351,13 @@ function toggleList(editor: TextEditor) {
         .then(() => fixMarker(editor));
 }
 
+/**
+ * Executes `toggleListSingleLine` to handle toggle list single line.
+ * @zh 执行 `toggleListSingleLine`，用于开关列表单个线段。
+ * @param doc - doc parameter (`TextDocument`) / 文档参数（`TextDocument`）
+ * @param line - line parameter (`number`) / 线段参数（`number`）
+ * @param wsEdit - ws edit parameter (`WorkspaceEdit`) / ws编辑参数（`WorkspaceEdit`）
+ */
 function toggleListSingleLine(doc: TextDocument, line: number, wsEdit: WorkspaceEdit) {
     const lineText = doc.lineAt(line).text;
     const indentation = lineText.trim().length === 0 ? lineText.length : lineText.indexOf(lineText.trim());
@@ -272,6 +394,8 @@ function toggleListSingleLine(doc: TextDocument, line: number, wsEdit: Workspace
  * Creates Regexp to check if the text is a link (further detailes in the isSingleLink() documentation).
  *
  * @return Regexp
+
+ * @zh 执行 `createLinkRegex`，用于创建链接正则表达式。
  */
 function createLinkRegex(): RegExp {
     // unicode letters range(must not be a raw string)
@@ -316,11 +440,20 @@ function createLinkRegex(): RegExp {
  * @param text string to check
  *
  * @return boolean
+
+ * @zh 执行 `isSingleLink`，用于是否为单个链接。
  */
 export function isSingleLink(text: string): boolean {
     return singleLinkRegex.test(text);
 }
 
+/**
+ * Executes `styleByWrapping` to handle style by wrapping.
+ * @zh 执行 `styleByWrapping`，用于样式按Wrapping。
+ * @param editor - editor parameter (`TextEditor`) / 编辑器参数（`TextEditor`）
+ * @param startPattern - start pattern parameter (`string`) / 开始模式/图案参数（`string`）
+ * @param endPattern - end pattern parameter (`string`) / 结束模式/图案参数（`string`）
+ */
 function styleByWrapping(editor: TextEditor, startPattern: string, endPattern?: string) {
     if (endPattern == undefined) {
         endPattern = startPattern;
@@ -386,6 +519,8 @@ function styleByWrapping(editor: TextEditor, startPattern: string, endPattern?: 
  * @param isSelected is this range selected
  * @param startPtn
  * @param endPtn
+
+ * @zh 执行 `wrapRange`，用于包裹范围。
  */
 function wrapRange(editor: TextEditor, wsEdit: WorkspaceEdit, shifts: [Position, number][], newSelections: Selection[], i: number, shift: number, cursor: Position, range: Range, isSelected: boolean, startPtn: string, endPtn?: string) {
     if (endPtn == undefined) {
@@ -451,6 +586,14 @@ function wrapRange(editor: TextEditor, wsEdit: WorkspaceEdit, shifts: [Position,
     newSelections[i] = newSelection;
 }
 
+/**
+ * Executes `isWrapped` to handle is wrapped.
+ * @zh 执行 `isWrapped`，用于是否为Wrapped。
+ * @param text - text parameter (`string`) / 文本参数（`string`）
+ * @param startPattern - start pattern parameter (`string`) / 开始模式/图案参数（`string`）
+ * @param endPattern - end pattern parameter (`string`) / 结束模式/图案参数（`string`）
+ * @returns Result of type `boolean` / 类型为 `boolean` 的返回值
+ */
 function isWrapped(text: string, startPattern: string, endPattern?: string): boolean {
     if (endPattern == undefined) {
         endPattern = startPattern;
@@ -458,6 +601,15 @@ function isWrapped(text: string, startPattern: string, endPattern?: string): boo
     return text.startsWith(startPattern) && text.endsWith(endPattern);
 }
 
+/**
+ * Executes `getContext` to handle get context.
+ * @zh 执行 `getContext`，用于获取上下文。
+ * @param editor - editor parameter (`TextEditor`) / 编辑器参数（`TextEditor`）
+ * @param cursorPos - cursor pos parameter (`Position`) / 光标位置参数（`Position`）
+ * @param startPattern - start pattern parameter (`string`) / 开始模式/图案参数（`string`）
+ * @param endPattern - end pattern parameter (`string`) / 结束模式/图案参数（`string`）
+ * @returns Result of type `string` / 类型为 `string` 的返回值
+ */
 function getContext(editor: TextEditor, cursorPos: Position, startPattern: string, endPattern?: string): string {
     if (endPattern == undefined) {
         endPattern = startPattern;

@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Module `src/core/color/public-api.ts` providing public api definitions and implementation.
+ * @zh 模块文件 `src/core/color/public-api.ts`，提供publicAPI接口相关的定义与实现。
+ */
+
 export * from './conversion';
 export * from './matColors';
 export { tinycolor } from './tinycolor';

@@ -5,28 +5,28 @@
       "name": "MenuBarComponent",
       "kind": "component",
       "selector": "dui-menu-bar",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular component `MenuBarComponent` (selector: 'dui-menu-bar') providing menu bar component presentation and interaction in `src/ui/menu`.",
+      "summaryZh": "Angular 组件 `MenuBarComponent`（selector: 'dui-menu-bar'），提供菜单条组件的视图渲染与交互逻辑（位于 `src/ui/menu`）。",
       "sourceFile": "src/ui/menu/menu-bar.component.ts",
       "inputs": [
         {
           "name": "dense",
           "type": "boolean",
           "default": "true",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `dense` (`boolean`) configuring dense (default: `true`).",
+          "descriptionZh": "输入属性 `dense`（类型：`boolean`），用于配置dense（默认值：`true`）。"
         },
         {
           "name": "items",
           "type": "MenuBarItem[]",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `items` (`MenuBarItem[]`) configuring items.",
+          "descriptionZh": "输入属性 `items`（类型：`MenuBarItem[]`），用于配置条目列表。"
         },
         {
           "name": "menuClasses",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `menuClasses` (`any`) configuring menu classes.",
+          "descriptionZh": "输入属性 `menuClasses`（类型：`any`），用于配置菜单类名集合。"
         }
       ],
       "outputs": [],
@@ -40,8 +40,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Host event listener `onRightClick` handling `contextmenu` events for on right click.",
+          "descriptionZh": "宿主事件监听方法 `onRightClick`，响应 `contextmenu` 事件以处理当右侧位置点击。"
         },
         {
           "name": "click",
@@ -56,8 +56,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `click` to handle click.",
+          "descriptionZh": "执行 `click`，用于点击。"
         }
       ],
       "properties": []
@@ -65,26 +65,57 @@
     {
       "name": "MenuBarItem",
       "kind": "interface",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Interface `MenuBarItem` defining the contract and properties for menu bar item.",
+      "summaryZh": "接口 `MenuBarItem`，定义菜单条条目的数据结构契约与属性规范。",
       "sourceFile": "src/ui/menu/menu-model.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
-      "properties": []
+      "properties": [
+        {
+          "name": "title",
+          "type": "string",
+          "description": "Property `title` (`string`) storing title.",
+          "descriptionZh": "属性 `title`（类型：`string`），用于存储或配置标题。"
+        },
+        {
+          "name": "children",
+          "type": "MenuModel[]",
+          "description": "Property `children` (`MenuModel[]`) storing children.",
+          "descriptionZh": "属性 `children`（类型：`MenuModel[]`），用于存储或配置子级列表。"
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "description": "Property `disabled` (`boolean`) storing disabled.",
+          "descriptionZh": "属性 `disabled`（类型：`boolean`），用于存储或配置已禁用。"
+        },
+        {
+          "name": "hidden",
+          "type": "boolean",
+          "description": "Property `hidden` (`boolean`) storing hidden.",
+          "descriptionZh": "属性 `hidden`（类型：`boolean`），用于存储或配置隐藏。"
+        },
+        {
+          "name": "doCheck",
+          "type": "(item?: any) => void",
+          "description": "Property `doCheck` (`(item?: any) => void`) storing do check.",
+          "descriptionZh": "属性 `doCheck`（类型：`(item?: any) => void`），用于存储或配置do检查。"
+        }
+      ]
     },
     {
       "name": "MenuBase",
       "kind": "service",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Injectable Angular service `MenuBase` managing menu base state and operations in `src/ui/menu`.",
+      "summaryZh": "可注入的 Angular 服务 `MenuBase`，管理 `src/ui/menu` 中的菜单基础状态与业务操作。",
       "sourceFile": "src/ui/menu/menu-base.ts",
       "inputs": [
         {
           "name": "children",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input setter `children` updating children.",
+          "descriptionZh": "输入属性 `children` 的设置器，用于更新子级列表。"
         }
       ],
       "outputs": [],
@@ -98,8 +129,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `init` to handle init.",
+          "descriptionZh": "执行 `init`，用于初始化。"
         },
         {
           "name": "initFieldExpression",
@@ -110,22 +141,22 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `initFieldExpression` to handle init field expression.",
+          "descriptionZh": "执行 `initFieldExpression`，用于初始化字段表达式。"
         },
         {
           "name": "doCheck",
           "params": [],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `doCheck` to handle do check.",
+          "descriptionZh": "执行 `doCheck`，用于do检查。"
         },
         {
           "name": "checkExpressionChange",
           "params": [],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `checkExpressionChange` to handle check expression change.",
+          "descriptionZh": "执行 `checkExpressionChange`，用于检查表达式变更。"
         },
         {
           "name": "checkMenuExpressionChange",
@@ -140,8 +171,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `checkMenuExpressionChange` to handle check menu expression change.",
+          "descriptionZh": "执行 `checkMenuExpressionChange`，用于检查菜单表达式变更。"
         },
         {
           "name": "checkMenuVisibilityChange",
@@ -156,8 +187,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `checkMenuVisibilityChange` to handle check menu visibility change.",
+          "descriptionZh": "执行 `checkMenuVisibilityChange`，用于检查菜单Visibility变更。"
         },
         {
           "name": "checkMenuDisableChange",
@@ -172,29 +203,29 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `checkMenuDisableChange` to handle check menu disable change.",
+          "descriptionZh": "执行 `checkMenuDisableChange`，用于检查菜单禁用变更。"
         }
       ],
       "properties": [
         {
           "name": "children",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current children (`children: any`).",
+          "descriptionZh": "获取当前子级列表（`children: any`）。"
         },
         {
           "name": "ownerCt",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `ownerCt` (`any`) storing owner ct.",
+          "descriptionZh": "属性 `ownerCt`（类型：`any`），用于存储或配置所属者Ct。"
         },
         {
           "name": "items",
           "type": "MenuBarItem[]",
           "default": "[]",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `items` (`MenuBarItem[]`) storing items (default: `[]`).",
+          "descriptionZh": "属性 `items`（类型：`MenuBarItem[]`），用于存储或配置条目列表（默认值：`[]`）。"
         }
       ]
     },
@@ -202,8 +233,8 @@
       "name": "MenuDirective",
       "kind": "directive",
       "selector": "[menu-host]",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular directive `MenuDirective` (selector: '[menu-host]') attaching menu directive behavior to host DOM elements.",
+      "summaryZh": "Angular 指令 `MenuDirective`（selector: '[menu-host]'），为宿主 DOM 元素附加菜单指令行为。",
       "sourceFile": "src/ui/menu/menu-item.directive.ts",
       "inputs": [],
       "outputs": [],
@@ -214,52 +245,52 @@
       "name": "MenuItemComponent",
       "kind": "component",
       "selector": "dui-menu-item",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular component `MenuItemComponent` (selector: 'dui-menu-item') providing menu item component presentation and interaction in `src/ui/menu`.",
+      "summaryZh": "Angular 组件 `MenuItemComponent`（selector: 'dui-menu-item'），提供菜单条目组件的视图渲染与交互逻辑（位于 `src/ui/menu`）。",
       "sourceFile": "src/ui/menu/menu-item.component.ts",
       "inputs": [
         {
           "name": "children",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input setter `children` updating children.",
+          "descriptionZh": "输入属性 `children` 的设置器，用于更新子级列表。"
         },
         {
           "name": "ownerCt",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `ownerCt` (`any`) configuring owner ct.",
+          "descriptionZh": "输入属性 `ownerCt`（类型：`any`），用于配置所属者Ct。"
         },
         {
           "name": "value",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `value` (`any`) configuring value.",
+          "descriptionZh": "输入属性 `value`（类型：`any`），用于配置值。"
         },
         {
           "name": "dense",
           "type": "boolean",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input setter `dense` updating dense.",
+          "descriptionZh": "输入属性 `dense` 的设置器，用于更新dense。"
         },
         {
           "name": "onlyIcon",
           "type": "boolean",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input setter `onlyIcon` updating only icon.",
+          "descriptionZh": "输入属性 `onlyIcon` 的设置器，用于更新only图标。"
         },
         {
           "name": "showIcon",
           "type": "any",
           "default": "true",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `showIcon` (`boolean`) configuring show icon (default: `true`).",
+          "descriptionZh": "输入属性 `showIcon`（类型：`boolean`），用于配置显示图标（默认值：`true`）。"
         },
         {
           "name": "panelClass",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input setter `panelClass` updating panel class.",
+          "descriptionZh": "输入属性 `panelClass` 的设置器，用于更新面板类名。"
         }
       ],
       "outputs": [],
@@ -273,15 +304,15 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `init` to handle init.",
+          "descriptionZh": "执行 `init`，用于初始化。"
         },
         {
           "name": "processItem",
           "params": [],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `processItem` to handle process item.",
+          "descriptionZh": "执行 `processItem`，用于处理条目。"
         },
         {
           "name": "click",
@@ -296,8 +327,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `click` to handle click.",
+          "descriptionZh": "执行 `click`，用于点击。"
         },
         {
           "name": "onRadioMenuItemClick",
@@ -316,8 +347,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `onRadioMenuItemClick` to handle on radio menu item click.",
+          "descriptionZh": "执行 `onRadioMenuItemClick`，用于当单选框菜单条目点击。"
         },
         {
           "name": "onCheckboxMenuItemClick",
@@ -332,98 +363,357 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `onCheckboxMenuItemClick` to handle on checkbox menu item click.",
+          "descriptionZh": "执行 `onCheckboxMenuItemClick`，用于当复选框菜单条目点击。"
         }
       ],
       "properties": [
         {
           "name": "extendMenus",
           "type": "QueryList<MenuDirective>",
-          "description": null,
-          "descriptionZh": null
+          "description": "Template/content query reference `extendMenus` (`@ViewChildren`) targeting extend menus.",
+          "descriptionZh": "模板/内容视图查询引用 `extendMenus`（`@ViewChildren`），指向extend菜单。"
         },
         {
           "name": "children",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current children (`children: any`).",
+          "descriptionZh": "获取当前子级列表（`children: any`）。"
         },
         {
           "name": "childMenu",
           "type": "MatMenu",
-          "description": null,
-          "descriptionZh": null
+          "description": "Template/content query reference `childMenu` (`@ViewChild`) targeting child menu.",
+          "descriptionZh": "模板/内容视图查询引用 `childMenu`（`@ViewChild`），指向子级菜单。"
         },
         {
           "name": "xPosition",
           "type": "any",
           "default": "'after'",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `xPosition` (`string`) storing x position (default: `'after'`).",
+          "descriptionZh": "属性 `xPosition`（类型：`string`），用于存储或配置X坐标位置（默认值：`'after'`）。"
         },
         {
           "name": "yPosition",
           "type": "any",
           "default": "'below'",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `yPosition` (`string`) storing y position (default: `'below'`).",
+          "descriptionZh": "属性 `yPosition`（类型：`string`），用于存储或配置Y坐标位置（默认值：`'below'`）。"
         },
         {
           "name": "menuClasses",
           "type": "string[]",
           "default": "['menu-bar-item-menu']",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `menuClasses` (`string[]`) storing menu classes (default: `['menu-bar-item-menu']`).",
+          "descriptionZh": "属性 `menuClasses`（类型：`string[]`），用于存储或配置菜单类名集合（默认值：`['menu-bar-item-menu']`）。"
         },
         {
           "name": "dense",
           "type": "boolean",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current dense (`dense: boolean`).",
+          "descriptionZh": "获取当前dense（`dense: boolean`）。"
         },
         {
           "name": "onlyIcon",
           "type": "boolean",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current only icon (`onlyIcon: boolean`).",
+          "descriptionZh": "获取当前only图标（`onlyIcon: boolean`）。"
         },
         {
           "name": "menuClass",
           "type": "string",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current menu class (`menuClass: string`).",
+          "descriptionZh": "获取当前菜单类名（`menuClass: string`）。"
         },
         {
           "name": "panelClass",
           "type": "string",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current panel class (`panelClass: string`).",
+          "descriptionZh": "获取当前面板类名（`panelClass: string`）。"
         },
         {
           "name": "parentItem",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `parentItem` (`any`) storing parent item.",
+          "descriptionZh": "属性 `parentItem`（类型：`any`），用于存储或配置父级条目。"
         }
       ]
     },
     {
       "name": "MenuModel",
       "kind": "interface",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Interface `MenuModel` defining the contract and properties for menu model.",
+      "summaryZh": "接口 `MenuModel`，定义菜单模型的数据结构契约与属性规范。",
       "sourceFile": "src/ui/menu/menu-model.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
-      "properties": []
+      "properties": [
+        {
+          "name": "id",
+          "type": "string",
+          "description": "Property `id` (`string`) storing id.",
+          "descriptionZh": "属性 `id`（类型：`string`），用于存储或配置唯一标识。"
+        },
+        {
+          "name": "title",
+          "type": "string",
+          "description": "Property `title` (`string`) storing title.",
+          "descriptionZh": "属性 `title`（类型：`string`），用于存储或配置标题。"
+        },
+        {
+          "name": "type",
+          "type": "string",
+          "description": "Property `type` (`string`) storing type.",
+          "descriptionZh": "属性 `type`（类型：`string`），用于存储或配置类型。"
+        },
+        {
+          "name": "value",
+          "type": "boolean|string",
+          "description": "Property `value` (`boolean|string`) storing value.",
+          "descriptionZh": "属性 `value`（类型：`boolean|string`），用于存储或配置值。"
+        },
+        {
+          "name": "order",
+          "type": "number",
+          "description": "Property `order` (`number`) storing order.",
+          "descriptionZh": "属性 `order`（类型：`number`），用于存储或配置顺序。"
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "description": "Property `disabled` (`boolean`) storing disabled.",
+          "descriptionZh": "属性 `disabled`（类型：`boolean`），用于存储或配置已禁用。"
+        },
+        {
+          "name": "data",
+          "type": "any",
+          "description": "Property `data` (`any`) storing data.",
+          "descriptionZh": "属性 `data`（类型：`any`），用于存储或配置数据。"
+        },
+        {
+          "name": "toolTip",
+          "type": "any",
+          "description": "Property `toolTip` (`any`) storing tool tip.",
+          "descriptionZh": "属性 `toolTip`（类型：`any`），用于存储或配置tool提示。"
+        },
+        {
+          "name": "style",
+          "type": "any",
+          "description": "Property `style` (`any`) storing style.",
+          "descriptionZh": "属性 `style`（类型：`any`），用于存储或配置样式。"
+        },
+        {
+          "name": "showIcon",
+          "type": "boolean",
+          "description": "Property `showIcon` (`boolean`) storing show icon.",
+          "descriptionZh": "属性 `showIcon`（类型：`boolean`），用于存储或配置显示图标。"
+        },
+        {
+          "name": "showWhen",
+          "type": "any",
+          "description": "Property `showWhen` (`any`) storing show when.",
+          "descriptionZh": "属性 `showWhen`（类型：`any`），用于存储或配置显示When。"
+        },
+        {
+          "name": "translate",
+          "type": "string",
+          "description": "Property `translate` (`string`) storing translate.",
+          "descriptionZh": "属性 `translate`（类型：`string`），用于存储或配置翻译。"
+        },
+        {
+          "name": "disable",
+          "type": "boolean",
+          "description": "Property `disable` (`boolean`) storing disable.",
+          "descriptionZh": "属性 `disable`（类型：`boolean`），用于存储或配置禁用。"
+        },
+        {
+          "name": "iconType",
+          "type": "string",
+          "description": "Property `iconType` (`string`) storing icon type.",
+          "descriptionZh": "属性 `iconType`（类型：`string`），用于存储或配置图标类型。"
+        },
+        {
+          "name": "icon",
+          "type": "string",
+          "description": "Property `icon` (`string`) storing icon.",
+          "descriptionZh": "属性 `icon`（类型：`string`），用于存储或配置图标。"
+        },
+        {
+          "name": "iconStyle",
+          "type": "any",
+          "description": "Property `iconStyle` (`any`) storing icon style.",
+          "descriptionZh": "属性 `iconStyle`（类型：`any`），用于存储或配置图标样式。"
+        },
+        {
+          "name": "svgIcon",
+          "type": "string",
+          "description": "Property `svgIcon` (`string`) storing svg icon.",
+          "descriptionZh": "属性 `svgIcon`（类型：`string`），用于存储或配置SVG矢量图图标。"
+        },
+        {
+          "name": "extraText",
+          "type": "string",
+          "description": "Property `extraText` (`string`) storing extra text.",
+          "descriptionZh": "属性 `extraText`（类型：`string`），用于存储或配置extra文本。"
+        },
+        {
+          "name": "xtype",
+          "type": "string",
+          "description": "Property `xtype` (`string`) storing xtype.",
+          "descriptionZh": "属性 `xtype`（类型：`string`），用于存储或配置扩展类型。"
+        },
+        {
+          "name": "parent",
+          "type": "string",
+          "description": "Property `parent` (`string`) storing parent.",
+          "descriptionZh": "属性 `parent`（类型：`string`），用于存储或配置父级。"
+        },
+        {
+          "name": "isIframe",
+          "type": "boolean",
+          "description": "Property `isIframe` (`boolean`) storing is iframe.",
+          "descriptionZh": "属性 `isIframe`（类型：`boolean`），用于存储或配置是否为Iframe。"
+        },
+        {
+          "name": "object_id",
+          "type": "string",
+          "description": "Property `object_id` (`string`) storing object id.",
+          "descriptionZh": "属性 `object_id`（类型：`string`），用于存储或配置对象唯一标识。"
+        },
+        {
+          "name": "url",
+          "type": "string",
+          "description": "Property `url` (`string`) storing url.",
+          "descriptionZh": "属性 `url`（类型：`string`），用于存储或配置链接地址。"
+        },
+        {
+          "name": "x",
+          "type": "number",
+          "description": "Property `x` (`number`) storing x.",
+          "descriptionZh": "属性 `x`（类型：`number`），用于存储或配置X坐标。"
+        },
+        {
+          "name": "y",
+          "type": "number",
+          "description": "Property `y` (`number`) storing y.",
+          "descriptionZh": "属性 `y`（类型：`number`），用于存储或配置Y坐标。"
+        },
+        {
+          "name": "text",
+          "type": "string",
+          "description": "Property `text` (`string`) storing text.",
+          "descriptionZh": "属性 `text`（类型：`string`），用于存储或配置文本。"
+        },
+        {
+          "name": "width",
+          "type": "number",
+          "description": "Property `width` (`number`) storing width.",
+          "descriptionZh": "属性 `width`（类型：`number`），用于存储或配置宽度。"
+        },
+        {
+          "name": "height",
+          "type": "number",
+          "description": "Property `height` (`number`) storing height.",
+          "descriptionZh": "属性 `height`（类型：`number`），用于存储或配置高度。"
+        },
+        {
+          "name": "hidden",
+          "type": "boolean",
+          "description": "Property `hidden` (`boolean`) storing hidden.",
+          "descriptionZh": "属性 `hidden`（类型：`boolean`），用于存储或配置隐藏。"
+        },
+        {
+          "name": "classes",
+          "type": "string",
+          "description": "Property `classes` (`string`) storing classes.",
+          "descriptionZh": "属性 `classes`（类型：`string`），用于存储或配置类名集合。"
+        },
+        {
+          "name": "exactMatch",
+          "type": "boolean",
+          "description": "Property `exactMatch` (`boolean`) storing exact match.",
+          "descriptionZh": "属性 `exactMatch`（类型：`boolean`），用于存储或配置exact匹配。"
+        },
+        {
+          "name": "externalUrl",
+          "type": "boolean",
+          "description": "Property `externalUrl` (`boolean`) storing external url.",
+          "descriptionZh": "属性 `externalUrl`（类型：`boolean`），用于存储或配置外部链接地址。"
+        },
+        {
+          "name": "openInNewTab",
+          "type": "boolean",
+          "description": "Property `openInNewTab` (`boolean`) storing open in new tab.",
+          "descriptionZh": "属性 `openInNewTab`（类型：`boolean`），用于存储或配置打开在新选项卡。"
+        },
+        {
+          "name": "shortcut",
+          "type": "string",
+          "description": "Property `shortcut` (`string`) storing shortcut.",
+          "descriptionZh": "属性 `shortcut`（类型：`string`），用于存储或配置快捷键。"
+        },
+        {
+          "name": "hideExpression",
+          "type": "boolean | string | ((model: any, formState: any) => boolean)",
+          "description": "Property `hideExpression` (`boolean | string | ((model: any, formState: any) => boolean)`) storing hide expression.",
+          "descriptionZh": "属性 `hideExpression`（类型：`boolean | string | ((model: any, formState: any) => boolean)`），用于存储或配置隐藏表达式。"
+        },
+        {
+          "name": "disableExpression",
+          "type": "boolean | string | ((model: any, formState: any) => boolean)",
+          "description": "Property `disableExpression` (`boolean | string | ((model: any, formState: any) => boolean)`) storing disable expression.",
+          "descriptionZh": "属性 `disableExpression`（类型：`boolean | string | ((model: any, formState: any) => boolean)`），用于存储或配置禁用表达式。"
+        },
+        {
+          "name": "expressionProperties",
+          "type": "{ [property: string]: string | ((model: any, formState: any) => boolean) } | any",
+          "description": "Property `expressionProperties` (`{ [property: string]: string | ((model: any, formState: any) => boolea...`) storing expression properties.",
+          "descriptionZh": "属性 `expressionProperties`（类型：`{ [property: string]: string | ((model: any, formState: any) => boolea...`），用于存储或配置表达式属性列表。"
+        },
+        {
+          "name": "badge",
+          "type": "{ title?: string; translate?: string; bg?: string; fg?: string; }",
+          "description": "Property `badge` (`{ title?: string; translate?: string; bg?: string; fg?: string; }`) storing badge.",
+          "descriptionZh": "属性 `badge`（类型：`{ title?: string; translate?: string; bg?: string; fg?: string; }`），用于存储或配置徽标。"
+        },
+        {
+          "name": "children",
+          "type": "Array<MenuModel>",
+          "description": "Property `children` (`Array<MenuModel>`) storing children.",
+          "descriptionZh": "属性 `children`（类型：`Array<MenuModel>`），用于存储或配置子级列表。"
+        },
+        {
+          "name": "handler",
+          "type": "(item?: any) => void",
+          "description": "Property `handler` (`(item?: any) => void`) storing handler.",
+          "descriptionZh": "属性 `handler`（类型：`(item?: any) => void`），用于存储或配置处理器。"
+        },
+        {
+          "name": "onClick",
+          "type": "(item: MenuModel, ev: Event) => void",
+          "description": "Property `onClick` (`(item: MenuModel, ev: Event) => void`) storing on click.",
+          "descriptionZh": "属性 `onClick`（类型：`(item: MenuModel, ev: Event) => void`），用于存储或配置当点击。"
+        },
+        {
+          "name": "onValueChange",
+          "type": "(newValue: any, oldValue: any) => void",
+          "description": "Property `onValueChange` (`(newValue: any, oldValue: any) => void`) storing on value change.",
+          "descriptionZh": "属性 `onValueChange`（类型：`(newValue: any, oldValue: any) => void`），用于存储或配置当值变更。"
+        },
+        {
+          "name": "doCheck",
+          "type": "(item?: any) => void",
+          "description": "Property `doCheck` (`(item?: any) => void`) storing do check.",
+          "descriptionZh": "属性 `doCheck`（类型：`(item?: any) => void`），用于存储或配置do检查。"
+        }
+      ]
     },
     {
       "name": "MenuModule",
       "kind": "module",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular module `MenuModule` declaring and exporting menu module components, directives, pipes, and providers.",
+      "summaryZh": "Angular 模块 `MenuModule`，声明并导出菜单模块相关的组件、指令、管道与服务提供者。",
       "sourceFile": "src/ui/menu/menu.module.ts",
       "inputs": [],
       "outputs": [],
@@ -433,8 +723,8 @@
           "name": "entryComponents",
           "type": "any",
           "default": "[\n     MatDivider,\n     MenuBarComponent,\n    MenuItemComponent,]",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `entryComponents` (`any[]`) storing entry components.",
+          "descriptionZh": "属性 `entryComponents`（类型：`any[]`），用于存储或配置条目组件列表。"
         }
       ]
     }

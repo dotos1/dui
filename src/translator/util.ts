@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Module `src/translator/util.ts` providing util definitions and implementation.
+ * @zh 模块文件 `src/translator/util.ts`，提供工具相关的定义与实现。
+ */
+
 /* tslint:disable */
 /**
  * Determines if two objects or two values are equivalent.
@@ -11,12 +16,14 @@
  * @param o1 Object or value to compare.
  * @param o2 Object or value to compare.
  * @returns true if arguments are equal.
+
+ * @zh 执行 `equals`，用于相等比较。
  */
-export function equals(o1: any, o2: any): boolean {
+export function equals(o1, o2): boolean {
   if (o1 === o2) return true;
   if (o1 === null || o2 === null) return false;
   if (o1 !== o1 && o2 !== o2) return true; // NaN === NaN
-  let t1 = typeof o1, t2 = typeof o2, length: number, key: any, keySet: any;
+  let t1 = typeof o1, t2 = typeof o2, length: number, key, keySet;
   if (t1 == t2 && t1 == 'object') {
     if (Array.isArray(o1)) {
       if (!Array.isArray(o2)) return false;
@@ -49,18 +56,37 @@ export function equals(o1: any, o2: any): boolean {
 }
 /* tslint:enable */
 
-export function isDefined(value: any): boolean {
+/**
+ * Executes `isDefined` to handle is defined.
+ * @zh 执行 `isDefined`，用于是否为Defined。
+ * @param value - value parameter (`any`) / 值参数（`any`）
+ * @returns Result of type `boolean` / 类型为 `boolean` 的返回值
+ */
+export function isDefined(value): boolean {
   return typeof value !== 'undefined' && value !== null;
 }
 
-export function isObject(item: any): boolean {
+/**
+ * Executes `isObject` to handle is object.
+ * @zh 执行 `isObject`，用于是否为对象。
+ * @param item - item parameter (`any`) / 条目参数（`any`）
+ * @returns Result of type `boolean` / 类型为 `boolean` 的返回值
+ */
+export function isObject(item): boolean {
   return (item && typeof item === 'object' && !Array.isArray(item));
 }
 
-export function mergeDeep(target: any, source: any): any {
+/**
+ * Executes `mergeDeep` to handle merge deep.
+ * @zh 执行 `mergeDeep`，用于合并Deep。
+ * @param target - target parameter (`any`) / 目标参数（`any`）
+ * @param source - source parameter (`any`) / 源参数（`any`）
+ * @returns Result of type `any` / 类型为 `any` 的返回值
+ */
+export function mergeDeep(target, source) {
   let output = Object.assign({}, target);
   if (isObject(target) && isObject(source)) {
-    Object.keys(source).forEach((key: any) => {
+    Object.keys(source).forEach((key) => {
       if (key === '__proto__' || key === 'constructor' || key === 'prototype') {
         return;
       }

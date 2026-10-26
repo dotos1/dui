@@ -1,9 +1,18 @@
+/**
+ * @fileoverview Module `src/ui/toolbar/toolbar.component.ts` providing toolbar component definitions and implementation.
+ * @zh 模块文件 `src/ui/toolbar/toolbar.component.ts`，提供工具栏组件相关的定义与实现。
+ */
+
 import { Platform } from '@angular/cdk/platform';
 import { AfterContentInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, ComponentFactoryResolver, ElementRef, HostListener, Injector, Input, OnChanges, Renderer2, SimpleChanges, ViewChild, ViewContainerRef } from '@angular/core';
 import { Container } from '@dotos/dui/container';
 import { ComponentBase, Dui } from '@dotos/dui/core';
 import { isArray, isObjectLike, isString } from 'lodash-es';
 
+/**
+ * Angular component `DuiToolbarComponent` (selector: 'dui-toolbar') providing dui toolbar component presentation and interaction in `src/ui/toolbar`.
+ * @zh Angular 组件 `DuiToolbarComponent`（selector: 'dui-toolbar'），提供DUI工具栏组件的视图渲染与交互逻辑（位于 `src/ui/toolbar`）。
+ */
 @Component({
   selector: 'dui-toolbar',
   styleUrls: ['./toolbar.component.scss'],
@@ -13,10 +22,22 @@ import { isArray, isObjectLike, isString } from 'lodash-es';
 
 export class DuiToolbarComponent extends Container implements OnChanges, AfterContentInit {
 
-  @Input() config: any = {};
+  /**
+   * Input property `config` (`any`) configuring config (default: `{}`).
+   * @zh 输入属性 `config`（类型：`any`），用于配置配置（默认值：`{}`）。
+   */
+  @Input() config = {};
 
+  /**
+   * Input property `height` (`number`) configuring height (default: `40`).
+   * @zh 输入属性 `height`（类型：`number`），用于配置高度（默认值：`40`）。
+   */
   @Input() height: number = 40;
 
+  /**
+   * Gets the current height style (`heightStyle: any`).
+   * @zh 获取当前高度样式（`heightStyle: any`）。
+   */
   get heightStyle() {
     if (this.vertical) {
       return {}
@@ -28,21 +49,56 @@ export class DuiToolbarComponent extends Container implements OnChanges, AfterCo
 
   }
 
-  private activeMenuBtn: any;
+  /**
+   * Property `activeMenuBtn` (`any`) storing active menu btn.
+   * @zh 属性 `activeMenuBtn`（类型：`any`），用于存储或配置激活菜单按钮。
+   */
+  private activeMenuBtn;
 
+  /**
+   * Property `color` (`string`) storing color (default: `'primary'`).
+   * @zh 属性 `color`（类型：`string`），用于存储或配置颜色（默认值：`'primary'`）。
+   */
   public color = 'primary';
 
-  public override style: any;
+  /**
+   * Property `style` (`any`) storing style.
+   * @zh 属性 `style`（类型：`any`），用于存储或配置样式。
+   */
+  public override style;
 
+  /**
+   * Property `vertical` (`boolean`) storing vertical (default: `false`).
+   * @zh 属性 `vertical`（类型：`boolean`），用于存储或配置垂直（默认值：`false`）。
+   */
   public vertical: boolean = false;
 
+  /**
+   * Template/content query reference `viewContainer` (`@ViewChild`) targeting view container.
+   * @zh 模板/内容视图查询引用 `viewContainer`（`@ViewChild`），指向视图容器。
+   */
   @ViewChild('toolbar', { read: ViewContainerRef, static: true }) public override viewContainer: ViewContainerRef;
 
+  /**
+   * Host event listener `onRightClick` handling `contextmenu` events for on right click.
+   * @zh 宿主事件监听方法 `onRightClick`，响应 `contextmenu` 事件以处理当右侧位置点击。
+   * @param event - event parameter (`any`) / 事件参数（`any`）
+   */
   @HostListener('contextmenu', ['$event'])
   onRightClick(event) {
     event.preventDefault();
   }
 
+  /**
+   * Creates an instance of `DuiToolbarComponent` and initializes its dependencies and internal state.
+   * @zh 创建 `DuiToolbarComponent` 实例，并初始化其依赖项与内部状态。
+   * @param _element - Injected or initial element (`ElementRef`) / 注入或传入的元素（`ElementRef`）
+   * @param renderer - Injected or initial renderer (`Renderer2`) / 注入或传入的渲染器（`Renderer2`）
+   * @param _platform - Injected or initial platform (`Platform`) / 注入或传入的platform（`Platform`）
+   * @param resolver - Injected or initial resolver (`ComponentFactoryResolver`) / 注入或传入的解析器（`ComponentFactoryResolver`）
+   * @param injector - Injected or initial injector (`Injector`) / 注入或传入的注入器（`Injector`）
+   * @param detectRef - Injected or initial detect ref (`ChangeDetectorRef`) / 注入或传入的检测引用（`ChangeDetectorRef`）
+   */
   constructor(public _element: ElementRef,
     protected renderer: Renderer2,
     public _platform: Platform,
@@ -52,17 +108,31 @@ export class DuiToolbarComponent extends Container implements OnChanges, AfterCo
     super(resolver, injector, detectRef);
   }
 
+  /**
+   * Executes `refresh` to handle refresh.
+   * @zh 执行 `refresh`，用于刷新。
+   */
   refresh() {
     this.detectRef.markForCheck();
   }
 
+  /**
+   * Angular lifecycle hook invoked when data-bound input properties change.
+   * @zh Angular 生命周期钩子：当数据绑定的输入属性发生变更时调用。
+   * @param changes - changes parameter (`SimpleChanges`) / 变更集合参数（`SimpleChanges`）
+   */
   override ngOnChanges(changes: SimpleChanges) {
     if (changes['config']) {
       this.init(this.config);
     }
   }
 
-  override init(config: any) {
+  /**
+   * Executes `init` to handle init.
+   * @zh 执行 `init`，用于初始化。
+   * @param config - config parameter (`any`) / 配置参数（`any`）
+   */
+  override init(config) {
     if (Array.isArray(config)) {
       config = { items: config };
     } else {
@@ -82,14 +152,27 @@ export class DuiToolbarComponent extends Container implements OnChanges, AfterCo
     }
   }
 
+  /**
+   * Executes `getClassNames` to handle get class names.
+   * @zh 执行 `getClassNames`，用于获取类名名称列表。
+   */
   getClassNames() {
     return this.vertical ? 'toolbar-vertical' : 'toolbar-horizontal';
   }
 
+  /**
+   * Angular lifecycle hook invoked once after projected content (`ng-content`) is initialized.
+   * @zh Angular 生命周期钩子：在投影内容（`ng-content`）初始化完成后调用一次。
+   */
   override ngAfterContentInit() {
     super.ngAfterContentChecked();
   }
 
+  /**
+   * Executes `lookupComponent` to handle lookup component.
+   * @zh 执行 `lookupComponent`，用于查找表组件。
+   * @param c - c parameter (`any`) / c参数（`any`）
+   */
   override lookupComponent(c) {
     if (isString(c)) {
       if (c == '-') {
@@ -139,6 +222,11 @@ export class DuiToolbarComponent extends Container implements OnChanges, AfterCo
     return c;
   }
 
+  /**
+   * Executes `addSeparator` to handle add separator.
+   * @zh 执行 `addSeparator`，用于添加Separator。
+   * @returns Result of type `MenuItem` / 类型为 `MenuItem` 的返回值
+   */
   addSeparator(): MenuItem {
     let comp = this.createComponent({
       xtype: 'separator',
@@ -147,6 +235,11 @@ export class DuiToolbarComponent extends Container implements OnChanges, AfterCo
     return this.add(comp);
   }
 
+  /**
+   * Executes `addSpacer` to handle add spacer.
+   * @zh 执行 `addSpacer`，用于添加Spacer。
+   * @returns Result of type `Spacer` / 类型为 `Spacer` 的返回值
+   */
   addSpacer(): Spacer {
     let comp = this.createComponent({
       xtype: 'spacer',
@@ -155,6 +248,10 @@ export class DuiToolbarComponent extends Container implements OnChanges, AfterCo
     return this.add(comp);
   }
 
+  /**
+   * Executes `addFill` to handle add fill.
+   * @zh 执行 `addFill`，用于添加填充。
+   */
   addFill() {
     let comp = this.createComponent({
       xtype: 'tbfill'
@@ -162,6 +259,12 @@ export class DuiToolbarComponent extends Container implements OnChanges, AfterCo
     this.add(comp);
   }
 
+  /**
+   * Executes `addText` to handle add text.
+   * @zh 执行 `addText`，用于添加文本。
+   * @param text - text parameter (`string`) / 文本参数（`string`）
+   * @returns Result of type `MenuItem` / 类型为 `MenuItem` 的返回值
+   */
   addText(text: string): MenuItem {
     let comp = this.createComponent({
       xtype: 'tbtext',
@@ -170,7 +273,13 @@ export class DuiToolbarComponent extends Container implements OnChanges, AfterCo
     return this.add(comp);
   }
 
-  addButton(config: any): any {
+  /**
+   * Executes `addButton` to handle add button.
+   * @zh 执行 `addButton`，用于添加按钮。
+   * @param config - config parameter (`any`) / 配置参数（`any`）
+   * @returns Result of type `any` / 类型为 `any` 的返回值
+   */
+  addButton(config) {
     if (isArray(config)) {
       let buttons = [];
       for (let i = 0, len = config.length; i < len; i++) {
@@ -182,15 +291,34 @@ export class DuiToolbarComponent extends Container implements OnChanges, AfterCo
   }
 
 
+  /**
+   * Executes `addItem` to handle add item.
+   * @zh 执行 `addItem`，用于添加条目。
+   * @param item - item parameter (`MenuItem`) / 条目参数（`MenuItem`）
+   * @returns Result of type `MenuItem` / 类型为 `MenuItem` 的返回值
+   */
   addItem(item: MenuItem): MenuItem {
     return this.add(item);
   }
 
-  addField(field: any): MenuItem {
+  /**
+   * Executes `addField` to handle add field.
+   * @zh 执行 `addField`，用于添加字段。
+   * @param field - field parameter (`any`) / 字段参数（`any`）
+   * @returns Result of type `MenuItem` / 类型为 `MenuItem` 的返回值
+   */
+  addField(field): MenuItem {
     return this.add(field);
   }
 
-  insertButton(index: number, item: any): any {
+  /**
+   * Executes `insertButton` to handle insert button.
+   * @zh 执行 `insertButton`，用于插入按钮。
+   * @param index - index parameter (`number`) / 索引参数（`number`）
+   * @param item - item parameter (`any`) / 条目参数（`any`）
+   * @returns Result of type `any` / 类型为 `any` 的返回值
+   */
+  insertButton(index: number, item) {
     if (isArray(item)) {
       let buttons = [];
       for (let i = 0, len = item.length; i < len; i++) {
@@ -202,12 +330,22 @@ export class DuiToolbarComponent extends Container implements OnChanges, AfterCo
   }
 
   // private
+  /**
+   * Executes `constructButton` to handle construct button.
+   * @zh 执行 `constructButton`，用于construct按钮。
+   * @param item - item parameter (`any`) / 条目参数（`any`）
+   */
   constructButton(item) {
     let b = item.events ? item : this.createComponent(item);
     return b;
   }
 
   // private
+  /**
+   * Executes `onAdd` to handle on add.
+   * @zh 执行 `onAdd`，用于当添加。
+   * @param c - c parameter (`any`) / c参数（`any`）
+   */
   override onAdd(c) {
     super.onAdd(c);
     if (this.disabled) {
@@ -216,6 +354,11 @@ export class DuiToolbarComponent extends Container implements OnChanges, AfterCo
   }
 
   // private
+  /**
+   * Executes `onRemove` to handle on remove.
+   * @zh 执行 `onRemove`，用于当移除。
+   * @param c - c parameter (`any`) / c参数（`any`）
+   */
   override onRemove(c) {
     super.onRemove();
     if (c == this.activeMenuBtn) {
@@ -224,6 +367,10 @@ export class DuiToolbarComponent extends Container implements OnChanges, AfterCo
   }
 
   // private
+  /**
+   * Executes `onDisable` to handle on disable.
+   * @zh 执行 `onDisable`，用于当禁用。
+   */
   onDisable() {
     this.items.each(
       function (item) {
@@ -234,6 +381,10 @@ export class DuiToolbarComponent extends Container implements OnChanges, AfterCo
   }
 
   // private
+  /**
+   * Executes `onEnable` to handle on enable.
+   * @zh 执行 `onEnable`，用于当启用。
+   */
   onEnable() {
     this.items.each(
       function (item) {
@@ -244,6 +395,11 @@ export class DuiToolbarComponent extends Container implements OnChanges, AfterCo
   }
 
   // private
+  /**
+   * Executes `onButtonTriggerOver` to handle on button trigger over.
+   * @zh 执行 `onButtonTriggerOver`，用于当按钮触发越过。
+   * @param btn - btn parameter (`any`) / 按钮参数（`any`）
+   */
   onButtonTriggerOver(btn) {
     if (this.activeMenuBtn && this.activeMenuBtn != btn) {
       this.activeMenuBtn.hideMenu();
@@ -253,32 +409,68 @@ export class DuiToolbarComponent extends Container implements OnChanges, AfterCo
   }
 
   // private
+  /**
+   * Executes `onButtonMenuShow` to handle on button menu show.
+   * @zh 执行 `onButtonMenuShow`，用于当按钮菜单显示。
+   * @param btn - btn parameter (`any`) / 按钮参数（`any`）
+   */
   onButtonMenuShow(btn) {
     this.activeMenuBtn = btn;
   }
 
   // private
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  /**
+   * Executes `onButtonMenuHide` to handle on button menu hide.
+   * @zh 执行 `onButtonMenuHide`，用于当按钮菜单隐藏。
+   * @param btn - btn parameter (`any`) / 按钮参数（`any`）
+   */
   onButtonMenuHide(btn) {
     delete this.activeMenuBtn;
   }
 }
 
 
+/**
+ * Class `MenuItem` encapsulating menu item data structures and logic in `src/ui/toolbar`.
+ * @zh 类 `MenuItem`，封装 `src/ui/toolbar` 中的菜单条目数据结构与处理逻辑。
+ */
 export class MenuItem extends ComponentBase {
+  /**
+   * Property `hideParent` (`boolean`) storing hide parent (default: `true`).
+   * @zh 属性 `hideParent`（类型：`boolean`），用于存储或配置隐藏父级（默认值：`true`）。
+   */
   public hideParent = true;
+  /**
+   * Creates an instance of `MenuItem` and initializes its dependencies and internal state.
+   * @zh 创建 `MenuItem` 实例，并初始化其依赖项与内部状态。
+   * @param detectRef - Injected or initial detect ref (`ChangeDetectorRef`) / 注入或传入的检测引用（`ChangeDetectorRef`）
+   */
   constructor(public override detectRef: ChangeDetectorRef) {
     super(detectRef);
     //    this.el = _element.nativeElement;
   }
+  /**
+   * Executes `init` to handle init.
+   * @zh 执行 `init`，用于初始化。
+   * @param config - config parameter (`any`) / 配置参数（`any`）
+   */
   override init(config) {
     super.init(config)
   };
 
+  /**
+   * Executes `focus` to handle focus.
+   * @zh 执行 `focus`，用于聚焦。
+   */
   public focus() { return this };
 }
 
 
+/**
+ * Angular component `Separator` (selector: 'divider') providing separator presentation and interaction in `src/ui/toolbar`.
+ * @zh Angular 组件 `Separator`（selector: 'divider'），提供Separator的视图渲染与交互逻辑（位于 `src/ui/toolbar`）。
+ */
 @Component({
   selector: 'divider',
   template: "<mat-divider [vertical]='vertical' [ngStyle]='style'></mat-divider>",
@@ -286,17 +478,43 @@ export class MenuItem extends ComponentBase {
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class Separator extends MenuItem {
-  el: any;
+  /**
+   * Property `el` (`any`) storing el.
+   * @zh 属性 `el`（类型：`any`），用于存储或配置DOM元素。
+   */
+  el;
+  /**
+   * Property `vertical` (`boolean`) storing vertical (default: `true`).
+   * @zh 属性 `vertical`（类型：`boolean`），用于存储或配置垂直（默认值：`true`）。
+   */
   vertical: boolean = true;
-  public override style: any = {};
+  /**
+   * Property `style` (`any`) storing style (default: `{}`).
+   * @zh 属性 `style`（类型：`any`），用于存储或配置样式（默认值：`{}`）。
+   */
+  public override style = {};
+  /**
+   * Creates an instance of `Separator` and initializes its dependencies and internal state.
+   * @zh 创建 `Separator` 实例，并初始化其依赖项与内部状态。
+   * @param detectRef - Injected or initial detect ref (`ChangeDetectorRef`) / 注入或传入的检测引用（`ChangeDetectorRef`）
+   */
   constructor(public override detectRef: ChangeDetectorRef) {
     super(detectRef);
   }
-  override init(config: any) {
+  /**
+   * Executes `init` to handle init.
+   * @zh 执行 `init`，用于初始化。
+   * @param config - config parameter (`any`) / 配置参数（`any`）
+   */
+  override init(config) {
     super.init(config);
   }
 }
 
+/**
+ * Angular component `Spacer` (selector: 'tbspacer') providing spacer presentation and interaction in `src/ui/toolbar`.
+ * @zh Angular 组件 `Spacer`（selector: 'tbspacer'），提供Spacer的视图渲染与交互逻辑（位于 `src/ui/toolbar`）。
+ */
 @Component({
   selector: 'tbspacer',
   template: `
@@ -305,17 +523,39 @@ export class Separator extends MenuItem {
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class Spacer extends MenuItem {
-  el: any;
-  config: any;
+  /**
+   * Property `el` (`any`) storing el.
+   * @zh 属性 `el`（类型：`any`），用于存储或配置DOM元素。
+   */
+  el;
+  /**
+   * Property `config` (`any`) storing config.
+   * @zh 属性 `config`（类型：`any`），用于存储或配置配置。
+   */
+  config;
+  /**
+   * Creates an instance of `Spacer` and initializes its dependencies and internal state.
+   * @zh 创建 `Spacer` 实例，并初始化其依赖项与内部状态。
+   * @param detectRef - Injected or initial detect ref (`ChangeDetectorRef`) / 注入或传入的检测引用（`ChangeDetectorRef`）
+   */
   constructor(public override detectRef: ChangeDetectorRef) {
     super(detectRef);
   }
-  override init(config: any) {
+  /**
+   * Executes `init` to handle init.
+   * @zh 执行 `init`，用于初始化。
+   * @param config - config parameter (`any`) / 配置参数（`any`）
+   */
+  override init(config) {
     this.config = config;
     super.init(config);
   }
 }
 
+/**
+ * Angular component `Fill` (selector: 'tbfill') providing fill presentation and interaction in `src/ui/toolbar`.
+ * @zh Angular 组件 `Fill`（selector: 'tbfill'），提供填充的视图渲染与交互逻辑（位于 `src/ui/toolbar`）。
+ */
 @Component({
   selector: 'tbfill',
   template: '<span></span>',
@@ -330,30 +570,72 @@ export class Spacer extends MenuItem {
 })
 
 export class Fill extends Spacer {
+  /**
+   * Creates an instance of `Fill` and initializes its dependencies and internal state.
+   * @zh 创建 `Fill` 实例，并初始化其依赖项与内部状态。
+   * @param detectRef - Injected or initial detect ref (`ChangeDetectorRef`) / 注入或传入的检测引用（`ChangeDetectorRef`）
+   */
   constructor(public override detectRef: ChangeDetectorRef) {
     super(detectRef);
   }
-  override init(config: any) {
+  /**
+   * Executes `init` to handle init.
+   * @zh 执行 `init`，用于初始化。
+   * @param config - config parameter (`any`) / 配置参数（`any`）
+   */
+  override init(config) {
     super.init(config);
   }
+  /**
+   * Property `isFill` (`boolean`) storing is fill (default: `true`).
+   * @zh 属性 `isFill`（类型：`boolean`），用于存储或配置是否为填充（默认值：`true`）。
+   */
   public isFill = true;
 }
 
+/**
+ * Angular component `TextItem` (selector: 'tbtext') providing text item presentation and interaction in `src/ui/toolbar`.
+ * @zh Angular 组件 `TextItem`（selector: 'tbtext'），提供文本条目的视图渲染与交互逻辑（位于 `src/ui/toolbar`）。
+ */
 @Component({
   selector: 'tbtext',
   template: "<span>{{text}}</span>",
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TextItem extends MenuItem {
-  text: any;
-  el: any;
+  /**
+   * Property `text` (`any`) storing text.
+   * @zh 属性 `text`（类型：`any`），用于存储或配置文本。
+   */
+  text;
+  /**
+   * Property `el` (`any`) storing el.
+   * @zh 属性 `el`（类型：`any`），用于存储或配置DOM元素。
+   */
+  el;
+  /**
+   * Creates an instance of `TextItem` and initializes its dependencies and internal state.
+   * @zh 创建 `TextItem` 实例，并初始化其依赖项与内部状态。
+   * @param _element - Injected or initial element (`ElementRef`) / 注入或传入的元素（`ElementRef`）
+   * @param detectRef - Injected or initial detect ref (`ChangeDetectorRef`) / 注入或传入的检测引用（`ChangeDetectorRef`）
+   */
   constructor(private _element: ElementRef, public override detectRef: ChangeDetectorRef) {
     super(detectRef);
     this.el = _element.nativeElement;
   }
-  override init(config: any) {
+  /**
+   * Executes `init` to handle init.
+   * @zh 执行 `init`，用于初始化。
+   * @param config - config parameter (`any`) / 配置参数（`any`）
+   */
+  override init(config) {
     super.init(isString(config) ? { text: config } : config);
   }
+  /**
+   * Executes `setText` to handle set text.
+   * @zh 执行 `setText`，用于集合文本。
+   * @param t - t parameter (`string`) / t参数（`string`）
+   */
   setText(t: string) {
     this.text = t;
   }

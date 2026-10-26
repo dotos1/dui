@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Module `src/common/dragselect/select-container.component.ts` providing select container component definitions and implementation.
+ * @zh 模块文件 `src/common/dragselect/select-container.component.ts`，提供下拉选择容器组件相关的定义与实现。
+ */
+
 import {
   Component,
   ElementRef,
@@ -93,16 +98,35 @@ import { KeyboardEventsService } from './keyboard-events.service';
   styleUrls: ['./select-container.component.scss']
 })
 export class SelectContainerComponent implements AfterViewInit, OnDestroy, AfterContentInit {
-  /** @zh 宿主原生元素及其边界信息。 */
+  /**
+   * Property `host` (`SelectContainerHost`) storing host.
+   * @zh 宿主原生元素及其边界信息。
+   * @zh 宿主原生元素及其边界信息。
+   */
   host: SelectContainerHost;
-  /** @zh 内部使用，绑定到选框元素的样式流。 */
+  /**
+   * Property `selectBoxStyles$` (`Observable<SelectBox<string>>`) storing select box styles.
+   * @zh 内部使用，绑定到选框元素的样式流。
+   * @zh 内部使用，绑定到选框元素的样式流。
+   */
   selectBoxStyles$: Observable<SelectBox<string>>;
-  /** @zh 内部使用，绑定到选框元素的 CSS 类流。 */
+  /**
+   * @zh 内部使用，绑定到选框元素的 CSS 类流。
+   * @zh 内部使用，绑定到选框元素的 CSS 类流。
+   */
   selectBoxClasses$: Observable<{ [key: string]: boolean }>;
 
+  /**
+   * Template/content query reference `$selectBox` (`@ViewChild`) targeting select box.
+   * @zh 模板/内容视图查询引用 `$selectBox`（`@ViewChild`），指向下拉选择盒子容器。
+   */
   @ViewChild('selectBox', { static: true })
   private $selectBox: ElementRef;
 
+  /**
+   * Template/content query reference `$selectableItems` (`@ContentChildren`) targeting selectable items.
+   * @zh 模板/内容视图查询引用 `$selectableItems`（`@ContentChildren`），指向是否可选中条目列表。
+   */
   @ContentChildren(SelectItemDirective, { descendants: true })
   private $selectableItems: QueryList<SelectItemDirective>;
 
@@ -110,59 +134,164 @@ export class SelectContainerComponent implements AfterViewInit, OnDestroy, After
    * The currently selected items' values (two-way bindable via `selectedItemsChange`).
    * @zh 当前选中的条目值（可通过 `selectedItemsChange` 双向绑定）。
    */
-  @Input() selectedItems: any;
+  @Input() selectedItems;
   /**
    * Whether dragging a selection box selects intersecting items. Defaults to `true`.
    * @zh 拖拽选框是否会选中与之相交的条目，默认为 `true`。
    */
   @Input() selectOnDrag = true;
-  /** @zh 是否禁用整个选择容器（拖拽和点击均不生效）。 */
+  /**
+   * Input property `disabled` (`boolean`) configuring disabled (default: `false`).
+   * @zh 是否禁用整个选择容器（拖拽和点击均不生效）。
+   * @zh 是否禁用整个选择容器（拖拽和点击均不生效）。
+   */
   @Input() disabled = false;
-  /** @zh 是否禁用拖拽绘制选框（点击选择仍可用）。 */
+  /**
+   * Input property `disableDrag` (`boolean`) configuring disable drag (default: `false`).
+   * @zh 是否禁用拖拽绘制选框（点击选择仍可用）。
+   * @zh 是否禁用拖拽绘制选框（点击选择仍可用）。
+   */
   @Input() disableDrag = false;
-  /** @zh 是否允许通过单击选中条目。默认为 `true`。 */
+  /**
+   * Input property `selectOnClick` (`boolean`) configuring select on click (default: `true`).
+   * @zh 是否允许通过单击选中条目。默认为 `true`。
+   * @zh 是否允许通过单击选中条目。默认为 `true`。
+   */
   @Input() selectOnClick = true;
-  /** @zh 拖拽选框是否需要覆盖条目才能选中它们（而不仅仅是相交）。默认为 `true`。 */
+  /**
+   * Input property `dragOverItems` (`boolean`) configuring drag over items (default: `true`).
+   * @zh 拖拽选框是否需要覆盖条目才能选中它们（而不仅仅是相交）。默认为 `true`。
+   * @zh 拖拽选框是否需要覆盖条目才能选中它们（而不仅仅是相交）。默认为 `true`。
+   */
   @Input() dragOverItems = true;
-  /** @zh 是否禁用 shift 范围选择。 */
+  /**
+   * @zh 是否禁用 shift 范围选择。
+   * @zh 是否禁用 shift 范围选择。
+   */
   @Input() disableRangeSelection = false;
-  /** @zh 是否进入"选择模式"（悬停/拖过即切换选中状态，而非常规拖框选择）。 */
+  /**
+   * Input property `selectMode` (`boolean`) configuring select mode (default: `false`).
+   * @zh 是否进入"选择模式"（悬停/拖过即切换选中状态，而非常规拖框选择）。
+   * @zh 是否进入"选择模式"（悬停/拖过即切换选中状态，而非常规拖框选择）。
+   */
   @Input() selectMode = false;
-  /** @zh 是否要求配合快捷键才能选择（禁用纯点击/拖拽选择）。 */
+  /**
+   * Input property `selectWithShortcut` (`boolean`) configuring select with shortcut (default: `false`).
+   * @zh 是否要求配合快捷键才能选择（禁用纯点击/拖拽选择）。
+   * @zh 是否要求配合快捷键才能选择（禁用纯点击/拖拽选择）。
+   */
   @Input() selectWithShortcut = false;
 
-  /** @zh 是否启用自定义选择逻辑（跳过内置的选框绘制样式类）。 */
+  /**
+   * Input property `custom` (`boolean`) configuring custom (default: `false`).
+   * @zh 是否启用自定义选择逻辑（跳过内置的选框绘制样式类）。
+   * @zh 是否启用自定义选择逻辑（跳过内置的选框绘制样式类）。
+   */
   @Input()
   @HostBinding('class.dts-custom')
   custom = false;
-  /** @zh 内部使用，始终为 `true`，用于绑定 `dts-select-container` 宿主类名。 */
+  /**
+   * Host binding `hostClass` bound to host attribute/property `class.dts-select-container` for host class.
+   * @zh 内部使用，始终为 `true`，用于绑定 `dts-select-container` 宿主类名。
+   * @zh 内部使用，始终为 `true`，用于绑定 `dts-select-container` 宿主类名。
+   */
   @HostBinding('class.dts-select-container')
   readonly hostClass = true;
-  /** @zh 当前选中项集合发生变化时发出（用于配合 `selectedItems` 双向绑定）。 */
-  @Output() selectedItemsChange = new EventEmitter<any>();
-  /** @zh 当前选中项集合发生变化时发出。 */
-  @Output() select = new EventEmitter<any>();
-  /** @zh 单个条目被选中时发出该条目的值。 */
-  @Output() itemSelected = new EventEmitter<any>();
-  /** @zh 单个条目被取消选中时发出该条目的值。 */
-  @Output() itemDeselected = new EventEmitter<any>();
-  /** @zh 一次框选/选择操作开始时发出。 */
+  /**
+   * Output event emitter `selectedItemsChange` (`EventEmitter`) firing when selected items change occurs.
+   * @zh 当前选中项集合发生变化时发出（用于配合 `selectedItems` 双向绑定）。
+   * @zh 当前选中项集合发生变化时发出（用于配合 `selectedItems` 双向绑定）。
+   */
+  @Output() selectedItemsChange = new EventEmitter();
+  /**
+   * Output event emitter `select` (`EventEmitter`) firing when select occurs.
+   * @zh 当前选中项集合发生变化时发出。
+   * @zh 当前选中项集合发生变化时发出。
+   */
+  @Output() select = new EventEmitter();
+  /**
+   * Output event emitter `itemSelected` (`EventEmitter`) firing when item selected occurs.
+   * @zh 单个条目被选中时发出该条目的值。
+   * @zh 单个条目被选中时发出该条目的值。
+   */
+  @Output() itemSelected = new EventEmitter();
+  /**
+   * Output event emitter `itemDeselected` (`EventEmitter`) firing when item deselected occurs.
+   * @zh 单个条目被取消选中时发出该条目的值。
+   * @zh 单个条目被取消选中时发出该条目的值。
+   */
+  @Output() itemDeselected = new EventEmitter();
+  /**
+   * Output event emitter `selectionStarted` (`EventEmitter`) firing when selection started occurs.
+   * @zh 一次框选/选择操作开始时发出。
+   * @zh 一次框选/选择操作开始时发出。
+   */
   @Output() selectionStarted = new EventEmitter<void>();
-  /** @zh 一次框选/选择操作结束时发出最终选中的条目集合。 */
-  @Output() selectionEnded = new EventEmitter<Array<any>>();
+  /**
+   * Output event emitter `selectionEnded` (`EventEmitter`) firing when selection ended occurs.
+   * @zh 一次框选/选择操作结束时发出最终选中的条目集合。
+   * @zh 一次框选/选择操作结束时发出最终选中的条目集合。
+   */
+  @Output() selectionEnded = new EventEmitter<Array<unknown>>();
 
+  /**
+   * Property `_tmpItems` (`Map`) storing tmp items (default: `new Map<SelectItemDirective, Action>()`).
+   * @zh 属性 `_tmpItems`（类型：`Map`），用于存储或配置临时条目列表（默认值：`new Map<SelectItemDirective, Action>()`）。
+   */
   private _tmpItems = new Map<SelectItemDirective, Action>();
 
-  private _selectedItems$ = new BehaviorSubject<Array<any>>([]);
+  /**
+   * Property `_selectedItems$` (`BehaviorSubject`) storing selected items (default: `new BehaviorSubject<Array<any>>([])`).
+   * @zh 属性 `_selectedItems$`（类型：`BehaviorSubject`），用于存储或配置已选中条目列表（默认值：`new BehaviorSubject<Array<any>>([])`）。
+   */
+  private _selectedItems$ = new BehaviorSubject<Array<unknown>>([]);
+  /**
+   * Property `_selectableItems` (`Array<SelectItemDirective>`) storing selectable items (default: `[]`).
+   * @zh 属性 `_selectableItems`（类型：`Array<SelectItemDirective>`），用于存储或配置是否可选中条目列表（默认值：`[]`）。
+   */
   private _selectableItems: Array<SelectItemDirective> = [];
+  /**
+   * Property `updateItems$` (`Subject`) storing update items (default: `new Subject<UpdateAction>()`).
+   * @zh 属性 `updateItems$`（类型：`Subject`），用于存储或配置更新条目列表（默认值：`new Subject<UpdateAction>()`）。
+   */
   private updateItems$ = new Subject<UpdateAction>();
+  /**
+   * Property `destroy$` (`Subject`) storing destroy (default: `new Subject<void>()`).
+   * @zh 属性 `destroy$`（类型：`Subject`），用于存储或配置销毁（默认值：`new Subject<void>()`）。
+   */
   private destroy$ = new Subject<void>();
 
+  /**
+   * Property `_lastRange` (`[number, number]`) storing last range (default: `[-1, -1]`).
+   * @zh 属性 `_lastRange`（类型：`[number, number]`），用于存储或配置末尾范围（默认值：`[-1, -1]`）。
+   */
   private _lastRange: [number, number] = [-1, -1];
+  /**
+   * Property `_lastStartIndex` (`number | undefined`) storing last start index (default: `undefined`).
+   * @zh 属性 `_lastStartIndex`（类型：`number | undefined`），用于存储或配置末尾开始索引（默认值：`undefined`）。
+   */
   private _lastStartIndex: number | undefined = undefined;
+  /**
+   * Property `_newRangeStart` (`boolean`) storing new range start (default: `false`).
+   * @zh 属性 `_newRangeStart`（类型：`boolean`），用于存储或配置新范围开始（默认值：`false`）。
+   */
   private _newRangeStart = false;
+  /**
+   * Property `_lastRangeSelection` (`Map<SelectItemDirective, boolean>`) storing last range selection (default: `new Map()`).
+   * @zh 属性 `_lastRangeSelection`（类型：`Map<SelectItemDirective, boolean>`），用于存储或配置末尾范围Selection（默认值：`new Map()`）。
+   */
   private _lastRangeSelection: Map<SelectItemDirective, boolean> = new Map();
 
+  /**
+   * Creates an instance of `SelectContainerComponent` and initializes its dependencies and internal state.
+   * @zh 创建 `SelectContainerComponent` 实例，并初始化其依赖项与内部状态。
+   * @param platformId - Injected or initial platform id (`Object`) / 注入或传入的platform唯一标识（`Object`）
+   * @param shortcuts - Injected or initial shortcuts (`ShortcutService`) / 注入或传入的快捷键列表（`ShortcutService`）
+   * @param keyboardEvents - Injected or initial keyboard events (`KeyboardEventsService`) / 注入或传入的键盘事件集合（`KeyboardEventsService`）
+   * @param hostElementRef - Injected or initial host element ref (`ElementRef`) / 注入或传入的宿主元素引用（`ElementRef`）
+   * @param renderer - Injected or initial renderer (`Renderer2`) / 注入或传入的渲染器（`Renderer2`）
+   * @param ngZone - Injected or initial ng zone (`NgZone`) / 注入或传入的Angular区域(NgZone)（`NgZone`）
+   */
   constructor(
     @Inject(PLATFORM_ID) private platformId: Object,
     private shortcuts: ShortcutService,
@@ -172,6 +301,10 @@ export class SelectContainerComponent implements AfterViewInit, OnDestroy, After
     private ngZone: NgZone
   ) { }
 
+  /**
+   * Angular lifecycle hook invoked once after the component's view and child views are initialized.
+   * @zh Angular 生命周期钩子：在组件视图及其子视图初始化完成后调用一次。
+   */
   ngAfterViewInit() {
     if (isPlatformBrowser(this.platformId)) {
       this.host = this.hostElementRef.nativeElement;
@@ -296,6 +429,10 @@ export class SelectContainerComponent implements AfterViewInit, OnDestroy, After
     }
   }
 
+  /**
+   * Angular lifecycle hook invoked once after projected content (`ng-content`) is initialized.
+   * @zh Angular 生命周期钩子：在投影内容（`ng-content`）初始化完成后调用一次。
+   */
   ngAfterContentInit() {
     this._selectableItems = this.$selectableItems.toArray();
   }
@@ -364,15 +501,28 @@ export class SelectContainerComponent implements AfterViewInit, OnDestroy, After
     this.$selectableItems.forEach(item => item.calculateBoundingClientRect());
   }
 
+  /**
+   * Angular lifecycle hook invoked just before the component, directive, or service is destroyed to release subscriptions and resources.
+   * @zh Angular 生命周期钩子：在组件、指令或服务销毁前调用，用于释放订阅与清理资源。
+   */
   ngOnDestroy() {
     this.destroy$.next();
     this.destroy$.complete();
   }
 
+  /**
+   * Executes `_filterSelectableItems` to handle filter selectable items.
+   * @zh 执行 `_filterSelectableItems`，用于过滤是否可选中条目列表。
+   * @param predicate - predicate parameter (`PredicateFn<T>`) / predicate参数（`PredicateFn<T>`）
+   */
   private _filterSelectableItems<T>(predicate: PredicateFn<T>) {
     return from(this._selectableItems).pipe(filter(item => predicate(item.value)));
   }
 
+  /**
+   * Executes `_initSelectedItemsChange` to handle init selected items change.
+   * @zh 执行 `_initSelectedItemsChange`，用于初始化已选中条目列表变更。
+   */
   private _initSelectedItemsChange() {
     this._selectedItems$
       .pipe(
@@ -390,6 +540,10 @@ export class SelectContainerComponent implements AfterViewInit, OnDestroy, After
       });
   }
 
+  /**
+   * Executes `_observeSelectableItems` to handle observe selectable items.
+   * @zh 执行 `_observeSelectableItems`，用于observe是否可选中条目列表。
+   */
   private _observeSelectableItems() {
     // Listen for updates and either select or deselect an item
     this.updateItems$
@@ -398,7 +552,7 @@ export class SelectContainerComponent implements AfterViewInit, OnDestroy, After
         takeUntil(this.destroy$),
         filter(([update]) => !update.item.dtsDisabled)
       )
-      .subscribe(([update, selectedItems]: [UpdateAction, any[]]) => {
+      .subscribe(([update, selectedItems]) => {
         const item = update.item;
         switch (update.type) {
           case UpdateActions.Add:
@@ -421,20 +575,24 @@ export class SelectContainerComponent implements AfterViewInit, OnDestroy, After
         observeOn(asyncScheduler),
         takeUntil(this.destroy$)
       )
-      .subscribe(([items, selectedItems]: [QueryList<SelectItemDirective>, any[]]) => {
+      .subscribe(([items, selectedItems]) => {
         const newList = items.toArray();
         this._selectableItems = newList;
           const newValues = newList.map((item) => item.value);
         const removedItems = selectedItems.filter(item => !newValues.includes(item));
 
         if (removedItems.length) {
-          removedItems.forEach(item => this._removeItem(item, selectedItems));
+          removedItems.forEach(item => this._removeItem(item as SelectItemDirective, selectedItems));
         }
 
         this.update();
       });
   }
 
+  /**
+   * Executes `_observeBoundingRectChanges` to handle observe bounding rect changes.
+   * @zh 执行 `_observeBoundingRectChanges`，用于observe包围边界矩形变更集合。
+   */
   private _observeBoundingRectChanges() {
     this.ngZone.runOutsideAngular(() => {
       const resize$ = fromEvent(window, 'resize');
@@ -453,6 +611,12 @@ export class SelectContainerComponent implements AfterViewInit, OnDestroy, After
     });
   }
 
+  /**
+   * Executes `_initSelectionOutputs` to handle init selection outputs.
+   * @zh 执行 `_initSelectionOutputs`，用于初始化Selection输出事件。
+   * @param mousedown$ - mousedown parameter (`Observable<MouseEvent>`) / 鼠标按下参数（`Observable<MouseEvent>`）
+   * @param mouseup$ - mouseup parameter (`Observable<MouseEvent>`) / 鼠标抬起参数（`Observable<MouseEvent>`）
+   */
   private _initSelectionOutputs(mousedown$: Observable<MouseEvent>, mouseup$: Observable<MouseEvent>) {
     mousedown$
       .pipe(
@@ -468,19 +632,37 @@ export class SelectContainerComponent implements AfterViewInit, OnDestroy, After
       });
   }
 
+  /**
+   * Executes `_calculateBoundingClientRect` to handle calculate bounding client rect.
+   * @zh 执行 `_calculateBoundingClientRect`，用于计算包围边界Client矩形。
+   */
   private _calculateBoundingClientRect() {
     this.host.boundingClientRect = calculateBoundingClientRect(this.host);
   }
 
+  /**
+   * Executes `_cursorWithinHost` to handle cursor within host.
+   * @zh 执行 `_cursorWithinHost`，用于光标Within宿主。
+   * @param event - event parameter (`MouseEvent`) / 事件参数（`MouseEvent`）
+   */
   private _cursorWithinHost(event: MouseEvent) {
     return cursorWithinElement(event, this.host);
   }
 
+  /**
+   * Executes `_onMouseUp` to handle on mouse up.
+   * @zh 执行 `_onMouseUp`，用于当鼠标向上。
+   */
   private _onMouseUp() {
     this._flushItems();
     this.renderer.removeClass(document.body, NO_SELECT_CLASS);
   }
 
+  /**
+   * Executes `_onMouseDown` to handle on mouse down.
+   * @zh 执行 `_onMouseDown`，用于当鼠标向下。
+   * @param event - event parameter (`MouseEvent`) / 事件参数（`MouseEvent`）
+   */
   private _onMouseDown(event: MouseEvent) {
     if (this.shortcuts.disableSelection(event) || this.disabled) {
       return;
@@ -593,6 +775,11 @@ export class SelectContainerComponent implements AfterViewInit, OnDestroy, After
     }
   }
 
+  /**
+   * Executes `_selectItems` to handle select items.
+   * @zh 执行 `_selectItems`，用于下拉选择条目列表。
+   * @param event - event parameter (`Event`) / 事件参数（`Event`）
+   */
   private _selectItems(event: Event) {
     const selectionBox = calculateBoundingClientRect(this.$selectBox.nativeElement);
 
@@ -610,10 +797,22 @@ export class SelectContainerComponent implements AfterViewInit, OnDestroy, After
     });
   }
 
+  /**
+   * Executes `_isExtendedSelection` to handle is extended selection.
+   * @zh 执行 `_isExtendedSelection`，用于是否为ExtendedSelection。
+   * @param event - event parameter (`Event`) / 事件参数（`Event`）
+   */
   private _isExtendedSelection(event: Event) {
     return this.shortcuts.extendedSelectionShortcut(event) && this.selectOnDrag;
   }
 
+  /**
+   * Executes `_normalSelectionMode` to handle normal selection mode.
+   * @zh 执行 `_normalSelectionMode`，用于normalSelection模式。
+   * @param selectBox - select box parameter (`BoundingBox`) / 下拉选择盒子容器参数（`BoundingBox`）
+   * @param item - item parameter (`SelectItemDirective`) / 条目参数（`SelectItemDirective`）
+   * @param event - event parameter (`Event`) / 事件参数（`Event`）
+   */
   private _normalSelectionMode(selectBox: BoundingBox, item: SelectItemDirective, event: Event) {
     const inSelection = boxIntersects(selectBox, item.getBoundingClientRect());
 
@@ -630,6 +829,13 @@ export class SelectContainerComponent implements AfterViewInit, OnDestroy, After
     }
   }
 
+  /**
+   * Executes `_extendedSelectionMode` to handle extended selection mode.
+   * @zh 执行 `_extendedSelectionMode`，用于extendedSelection模式。
+   * @param selectBox - select box parameter (`any`) / 下拉选择盒子容器参数（`any`）
+   * @param item - item parameter (`SelectItemDirective`) / 条目参数（`SelectItemDirective`）
+   * @param event - event parameter (`Event`) / 事件参数（`Event`）
+   */
   private _extendedSelectionMode(selectBox, item: SelectItemDirective, event: Event) {
     const inSelection = boxIntersects(selectBox, item.getBoundingClientRect());
 
@@ -664,6 +870,10 @@ export class SelectContainerComponent implements AfterViewInit, OnDestroy, After
     }
   }
 
+  /**
+   * Executes `_flushItems` to handle flush items.
+   * @zh 执行 `_flushItems`，用于flush条目列表。
+   */
   private _flushItems() {
     this._tmpItems.forEach((action, item) => {
       if (action === Action.Add) {
@@ -678,7 +888,13 @@ export class SelectContainerComponent implements AfterViewInit, OnDestroy, After
     this._tmpItems.clear();
   }
 
-  private _addItem(item: SelectItemDirective, selectedItems: Array<any>) {
+  /**
+   * Executes `_addItem` to handle add item.
+   * @zh 执行 `_addItem`，用于添加条目。
+   * @param item - item parameter (`SelectItemDirective`) / 条目参数（`SelectItemDirective`）
+   * @param selectedItems - selected items parameter (`Array<any>`) / 已选中条目列表参数（`Array<any>`）
+   */
+  private _addItem(item: SelectItemDirective, selectedItems) {
     let success = false;
 
     if (!this._hasItem(item, selectedItems)) {
@@ -691,7 +907,13 @@ export class SelectContainerComponent implements AfterViewInit, OnDestroy, After
     return success;
   }
 
-  private _removeItem(item: SelectItemDirective, selectedItems: Array<any>) {
+  /**
+   * Executes `_removeItem` to handle remove item.
+   * @zh 执行 `_removeItem`，用于移除条目。
+   * @param item - item parameter (`SelectItemDirective`) / 条目参数（`SelectItemDirective`）
+   * @param selectedItems - selected items parameter (`Array<any>`) / 已选中条目列表参数（`Array<any>`）
+   */
+  private _removeItem(item: SelectItemDirective, selectedItems) {
     let success = false;
     const value = item instanceof SelectItemDirective ? item.value : item;
     const index = selectedItems.indexOf(value);
@@ -706,6 +928,11 @@ export class SelectContainerComponent implements AfterViewInit, OnDestroy, After
     return success;
   }
 
+  /**
+   * Executes `_toggleItem` to handle toggle item.
+   * @zh 执行 `_toggleItem`，用于开关条目。
+   * @param item - item parameter (`SelectItemDirective`) / 条目参数（`SelectItemDirective`）
+   */
   private _toggleItem(item: SelectItemDirective) {
     if (item.selected) {
       this._deselectItem(item);
@@ -722,18 +949,40 @@ export class SelectContainerComponent implements AfterViewInit, OnDestroy, After
     this.updateItems$.next({ type: UpdateActions.Add, item });
   }
 
+  /**
+   * Executes `_selectItem` to handle select item.
+   * @zh 执行 `_selectItem`，用于下拉选择条目。
+   * @param item - item parameter (`SelectItemDirective`) / 条目参数（`SelectItemDirective`）
+   */
   private _selectItem(item: SelectItemDirective) {
     this.updateItems$.next({ type: UpdateActions.Add, item });
   }
 
+  /**
+   * Executes `_deselectItem` to handle deselect item.
+   * @zh 执行 `_deselectItem`，用于取消选中条目。
+   * @param item - item parameter (`SelectItemDirective`) / 条目参数（`SelectItemDirective`）
+   */
   private _deselectItem(item: SelectItemDirective) {
     this.updateItems$.next({ type: UpdateActions.Remove, item });
   }
 
-  private _hasItem(item: SelectItemDirective, selectedItems: Array<any>) {
+  /**
+   * Executes `_hasItem` to handle has item.
+   * @zh 执行 `_hasItem`，用于是否包含条目。
+   * @param item - item parameter (`SelectItemDirective`) / 条目参数（`SelectItemDirective`）
+   * @param selectedItems - selected items parameter (`Array<any>`) / 已选中条目列表参数（`Array<any>`）
+   */
+  private _hasItem(item: SelectItemDirective, selectedItems) {
     return selectedItems.includes(item.value);
   }
 
+  /**
+   * Executes `_getClosestSelectItem` to handle get closest select item.
+   * @zh 执行 `_getClosestSelectItem`，用于获取Closest下拉选择条目。
+   * @param event - event parameter (`Event`) / 事件参数（`Event`）
+   * @returns Result of type `[number, SelectItemDirective]` / 类型为 `[number, SelectItemDirective]` 的返回值
+   */
   private _getClosestSelectItem(event: Event): [number, SelectItemDirective] {
     const target = (event.target as HTMLElement).closest('.dts-select-item');
     let index = -1;
@@ -745,6 +994,10 @@ export class SelectContainerComponent implements AfterViewInit, OnDestroy, After
     return [index, targetItem];
   }
 
+  /**
+   * Executes `_resetRangeStart` to handle reset range start.
+   * @zh 执行 `_resetRangeStart`，用于重置范围开始。
+   */
   private _resetRangeStart() {
     this._lastRange = [-1, -1];
     const lastRangeStart = this._getLastRangeSelection();
@@ -754,6 +1007,11 @@ export class SelectContainerComponent implements AfterViewInit, OnDestroy, After
     }
   }
 
+  /**
+   * Executes `_getLastRangeSelection` to handle get last range selection.
+   * @zh 执行 `_getLastRangeSelection`，用于获取末尾范围Selection。
+   * @returns Result of type `SelectItemDirective | null` / 类型为 `SelectItemDirective | null` 的返回值
+   */
   private _getLastRangeSelection(): SelectItemDirective | null {
     if (this._lastStartIndex >= 0) {
       return this._selectableItems[this._lastStartIndex];

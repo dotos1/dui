@@ -4,8 +4,8 @@
     {
       "name": "DatetimeAdapter",
       "kind": "class",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Class `DatetimeAdapter` encapsulating datetime adapter data structures and logic in `src/form/date/adapter`.",
+      "summaryZh": "类 `DatetimeAdapter`，封装 `src/form/date/adapter` 中的日期时间适配器数据结构与处理逻辑。",
       "sourceFile": "src/form/date/adapter/datetime-adapter.ts",
       "inputs": [],
       "outputs": [],
@@ -19,8 +19,8 @@
             }
           ],
           "returnType": "number",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `getHour` to handle get hour.",
+          "descriptionZh": "执行 `getHour`，用于获取小时。"
         },
         {
           "name": "getMinute",
@@ -31,8 +31,8 @@
             }
           ],
           "returnType": "number",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `getMinute` to handle get minute.",
+          "descriptionZh": "执行 `getMinute`，用于获取分钟。"
         },
         {
           "name": "getFirstDateOfMonth",
@@ -43,8 +43,8 @@
             }
           ],
           "returnType": "D",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `getFirstDateOfMonth` to handle get first date of month.",
+          "descriptionZh": "执行 `getFirstDateOfMonth`，用于获取首个日期的月。"
         },
         {
           "name": "isInNextMonth",
@@ -59,22 +59,22 @@
             }
           ],
           "returnType": "boolean",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `isInNextMonth` to handle is in next month.",
+          "descriptionZh": "执行 `isInNextMonth`，用于是否为在下一个月。"
         },
         {
           "name": "getHourNames",
           "params": [],
           "returnType": "string[]",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `getHourNames` to handle get hour names.",
+          "descriptionZh": "执行 `getHourNames`，用于获取小时名称列表。"
         },
         {
           "name": "getMinuteNames",
           "params": [],
           "returnType": "string[]",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `getMinuteNames` to handle get minute names.",
+          "descriptionZh": "执行 `getMinuteNames`，用于获取分钟名称列表。"
         },
         {
           "name": "addCalendarHours",
@@ -89,8 +89,8 @@
             }
           ],
           "returnType": "D",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `addCalendarHours` to handle add calendar hours.",
+          "descriptionZh": "执行 `addCalendarHours`，用于添加日历小时数。"
         },
         {
           "name": "addCalendarMinutes",
@@ -105,8 +105,8 @@
             }
           ],
           "returnType": "D",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `addCalendarMinutes` to handle add calendar minutes.",
+          "descriptionZh": "执行 `addCalendarMinutes`，用于添加日历分钟数。"
         },
         {
           "name": "createDatetime",
@@ -133,8 +133,8 @@
             }
           ],
           "returnType": "D",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `createDatetime` to handle create datetime.",
+          "descriptionZh": "执行 `createDatetime`，用于创建日期时间。"
         },
         {
           "name": "getValidDateOrNull",
@@ -145,8 +145,8 @@
             }
           ],
           "returnType": "D | null",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `getValidDateOrNull` to handle get valid date or null.",
+          "descriptionZh": "执行 `getValidDateOrNull`，用于获取有效日期Or空值。"
         },
         {
           "name": "compareDatetime",
@@ -165,8 +165,8 @@
             }
           ],
           "returnType": "number",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `compareDatetime` to handle compare datetime.",
+          "descriptionZh": "执行 `compareDatetime`，用于比较日期时间。"
         },
         {
           "name": "sameDatetime",
@@ -181,8 +181,8 @@
             }
           ],
           "returnType": "boolean",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `sameDatetime` to handle same datetime.",
+          "descriptionZh": "执行 `sameDatetime`，用于相同日期时间。"
         },
         {
           "name": "sameYear",
@@ -197,8 +197,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `sameYear` to handle same year.",
+          "descriptionZh": "执行 `sameYear`，用于相同年。"
         },
         {
           "name": "sameDay",
@@ -213,8 +213,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `sameDay` to handle same day.",
+          "descriptionZh": "执行 `sameDay`，用于相同日。"
         },
         {
           "name": "sameHour",
@@ -229,8 +229,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `sameHour` to handle same hour.",
+          "descriptionZh": "执行 `sameHour`，用于相同小时。"
         },
         {
           "name": "sameMinute",
@@ -245,8 +245,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `sameMinute` to handle same minute.",
+          "descriptionZh": "执行 `sameMinute`，用于相同分钟。"
         },
         {
           "name": "sameMonthAndYear",
@@ -261,8 +261,8 @@
             }
           ],
           "returnType": "boolean",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `sameMonthAndYear` to handle same month and year.",
+          "descriptionZh": "执行 `sameMonthAndYear`，用于相同月And年。"
         },
         {
           "name": "clone",
@@ -273,8 +273,8 @@
             }
           ],
           "returnType": "D",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `clone` to handle clone.",
+          "descriptionZh": "执行 `clone`，用于克隆。"
         },
         {
           "name": "addCalendarYears",
@@ -289,8 +289,8 @@
             }
           ],
           "returnType": "D",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `addCalendarYears` to handle add calendar years.",
+          "descriptionZh": "执行 `addCalendarYears`，用于添加日历年。"
         },
         {
           "name": "addCalendarMonths",
@@ -305,8 +305,8 @@
             }
           ],
           "returnType": "D",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `addCalendarMonths` to handle add calendar months.",
+          "descriptionZh": "执行 `addCalendarMonths`，用于添加日历月。"
         },
         {
           "name": "addCalendarDays",
@@ -321,8 +321,8 @@
             }
           ],
           "returnType": "D",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `addCalendarDays` to handle add calendar days.",
+          "descriptionZh": "执行 `addCalendarDays`，用于添加日历天数。"
         },
         {
           "name": "getYear",
@@ -333,8 +333,8 @@
             }
           ],
           "returnType": "number",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `getYear` to handle get year.",
+          "descriptionZh": "执行 `getYear`，用于获取年。"
         },
         {
           "name": "getMonth",
@@ -345,8 +345,8 @@
             }
           ],
           "returnType": "number",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `getMonth` to handle get month.",
+          "descriptionZh": "执行 `getMonth`，用于获取月。"
         },
         {
           "name": "getDate",
@@ -357,8 +357,8 @@
             }
           ],
           "returnType": "number",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `getDate` to handle get date.",
+          "descriptionZh": "执行 `getDate`，用于获取日期。"
         },
         {
           "name": "getDayOfWeek",
@@ -369,8 +369,8 @@
             }
           ],
           "returnType": "number",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `getDayOfWeek` to handle get day of week.",
+          "descriptionZh": "执行 `getDayOfWeek`，用于获取日的周。"
         },
         {
           "name": "getMonthNames",
@@ -381,15 +381,15 @@
             }
           ],
           "returnType": "string[]",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `getMonthNames` to handle get month names.",
+          "descriptionZh": "执行 `getMonthNames`，用于获取月名称列表。"
         },
         {
           "name": "getDateNames",
           "params": [],
           "returnType": "string[]",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `getDateNames` to handle get date names.",
+          "descriptionZh": "执行 `getDateNames`，用于获取日期名称列表。"
         },
         {
           "name": "getDayOfWeekNames",
@@ -400,8 +400,8 @@
             }
           ],
           "returnType": "string[]",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `getDayOfWeekNames` to handle get day of week names.",
+          "descriptionZh": "执行 `getDayOfWeekNames`，用于获取日的周名称列表。"
         },
         {
           "name": "getYearName",
@@ -412,15 +412,15 @@
             }
           ],
           "returnType": "string",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `getYearName` to handle get year name.",
+          "descriptionZh": "执行 `getYearName`，用于获取年名称。"
         },
         {
           "name": "getFirstDayOfWeek",
           "params": [],
           "returnType": "number",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `getFirstDayOfWeek` to handle get first day of week.",
+          "descriptionZh": "执行 `getFirstDayOfWeek`，用于获取首个日的周。"
         },
         {
           "name": "getNumDaysInMonth",
@@ -431,8 +431,8 @@
             }
           ],
           "returnType": "number",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `getNumDaysInMonth` to handle get num days in month.",
+          "descriptionZh": "执行 `getNumDaysInMonth`，用于获取数值天数在月。"
         },
         {
           "name": "createDate",
@@ -451,15 +451,15 @@
             }
           ],
           "returnType": "D",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `createDate` to handle create date.",
+          "descriptionZh": "执行 `createDate`，用于创建日期。"
         },
         {
           "name": "today",
           "params": [],
           "returnType": "D",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `today` to handle today.",
+          "descriptionZh": "执行 `today`，用于today。"
         },
         {
           "name": "parse",
@@ -474,8 +474,8 @@
             }
           ],
           "returnType": "D | null",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `parse` to handle parse.",
+          "descriptionZh": "执行 `parse`，用于解析。"
         },
         {
           "name": "format",
@@ -490,8 +490,8 @@
             }
           ],
           "returnType": "string",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `format` to handle format.",
+          "descriptionZh": "执行 `format`，用于格式化。"
         },
         {
           "name": "toIso8601",
@@ -502,8 +502,8 @@
             }
           ],
           "returnType": "string",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `toIso8601` to handle to iso8601.",
+          "descriptionZh": "执行 `toIso8601`，用于转换为Iso8601。"
         },
         {
           "name": "isDateInstance",
@@ -514,8 +514,8 @@
             }
           ],
           "returnType": "boolean",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `isDateInstance` to handle is date instance.",
+          "descriptionZh": "执行 `isDateInstance`，用于是否为日期实例。"
         },
         {
           "name": "isValid",
@@ -526,15 +526,15 @@
             }
           ],
           "returnType": "boolean",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `isValid` to handle is valid.",
+          "descriptionZh": "执行 `isValid`，用于是否为有效。"
         },
         {
           "name": "invalid",
           "params": [],
           "returnType": "D",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `invalid` to handle invalid.",
+          "descriptionZh": "执行 `invalid`，用于无效。"
         },
         {
           "name": "clampDate",
@@ -553,8 +553,8 @@
             }
           ],
           "returnType": "D",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `clampDate` to handle clamp date.",
+          "descriptionZh": "执行 `clampDate`，用于限制范围日期。"
         }
       ],
       "properties": []
@@ -562,8 +562,8 @@
     {
       "name": "MAT_DATETIME_FORMATS",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular dependency-injection token `MAT_DATETIME_FORMATS` for providing mat datetime formats.",
+      "summaryZh": "Angular 依赖注入令牌 `MAT_DATETIME_FORMATS`，用于提供与注入Material日期时间格式列表。",
       "sourceFile": "src/form/date/adapter/datetime-formats.ts",
       "inputs": [],
       "outputs": [],
@@ -573,8 +573,8 @@
     {
       "name": "MAT_NATIVE_DATETIME_FORMATS",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `MAT_NATIVE_DATETIME_FORMATS` defining mat native datetime formats in `src/form/date/adapter`.",
+      "summaryZh": "常量/变量 `MAT_NATIVE_DATETIME_FORMATS`，定义 `src/form/date/adapter` 中的Material原生日期时间格式列表。",
       "sourceFile": "src/form/date/adapter/native-datetime-formats.ts",
       "inputs": [],
       "outputs": [],
@@ -584,19 +584,32 @@
     {
       "name": "MatDatetimeFormats",
       "kind": "interface",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Interface `MatDatetimeFormats` defining the contract and properties for mat datetime formats.",
+      "summaryZh": "接口 `MatDatetimeFormats`，定义Material日期时间格式列表的数据结构契约与属性规范。",
       "sourceFile": "src/form/date/adapter/datetime-formats.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
-      "properties": []
+      "properties": [
+        {
+          "name": "parse",
+          "type": "{ dateInput?: any; monthInput?: any; timeInput?: any; datetimeInput?: any; }",
+          "description": "Property `parse` (`{ dateInput?: any; monthInput?: any; timeInput?: any; datetimeInput?:...`) storing parse.",
+          "descriptionZh": "属性 `parse`（类型：`{ dateInput?: any; monthInput?: any; timeInput?: any; datetimeInput?:...`），用于存储或配置解析。"
+        },
+        {
+          "name": "display",
+          "type": "{ dateInput: any; monthInput: any; timeInput: any; datetimeInput: any; monthYearLabel: any; dateA11yLabel: any; monthYearA11yLabel: any; popupHeaderDateLabel: any; }",
+          "description": "Property `display` (`{ dateInput: any; monthInput: any; timeInput: any; datetimeInput: any;...`) storing display.",
+          "descriptionZh": "属性 `display`（类型：`{ dateInput: any; monthInput: any; timeInput: any; datetimeInput: any;...`），用于存储或配置display。"
+        }
+      ]
     },
     {
       "name": "MatNativeDatetimeModule",
       "kind": "module",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular module `MatNativeDatetimeModule` declaring and exporting mat native datetime module components, directives, pipes, and providers.",
+      "summaryZh": "Angular 模块 `MatNativeDatetimeModule`，声明并导出Material原生日期时间模块相关的组件、指令、管道与服务提供者。",
       "sourceFile": "src/form/date/adapter/adapter.module.ts",
       "inputs": [],
       "outputs": [],
@@ -606,8 +619,8 @@
     {
       "name": "NativeDatetimeAdapter",
       "kind": "service",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Injectable Angular service `NativeDatetimeAdapter` managing native datetime adapter state and operations in `src/form/date/adapter`.",
+      "summaryZh": "可注入的 Angular 服务 `NativeDatetimeAdapter`，管理 `src/form/date/adapter` 中的原生日期时间适配器状态与业务操作。",
       "sourceFile": "src/form/date/adapter/native-datetime-adapter.ts",
       "inputs": [],
       "outputs": [],
@@ -621,8 +634,8 @@
             }
           ],
           "returnType": "Date",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `clone` to handle clone.",
+          "descriptionZh": "执行 `clone`，用于克隆。"
         },
         {
           "name": "getHour",
@@ -633,8 +646,8 @@
             }
           ],
           "returnType": "number",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `getHour` to handle get hour.",
+          "descriptionZh": "执行 `getHour`，用于获取小时。"
         },
         {
           "name": "getMinute",
@@ -645,8 +658,8 @@
             }
           ],
           "returnType": "number",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `getMinute` to handle get minute.",
+          "descriptionZh": "执行 `getMinute`，用于获取分钟。"
         },
         {
           "name": "isInNextMonth",
@@ -661,8 +674,8 @@
             }
           ],
           "returnType": "boolean",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `isInNextMonth` to handle is in next month.",
+          "descriptionZh": "执行 `isInNextMonth`，用于是否为在下一个月。"
         },
         {
           "name": "createDatetime",
@@ -689,8 +702,8 @@
             }
           ],
           "returnType": "Date",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `createDatetime` to handle create datetime.",
+          "descriptionZh": "执行 `createDatetime`，用于创建日期时间。"
         },
         {
           "name": "getFirstDateOfMonth",
@@ -701,22 +714,22 @@
             }
           ],
           "returnType": "Date",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `getFirstDateOfMonth` to handle get first date of month.",
+          "descriptionZh": "执行 `getFirstDateOfMonth`，用于获取首个日期的月。"
         },
         {
           "name": "getHourNames",
           "params": [],
           "returnType": "string[]",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `getHourNames` to handle get hour names.",
+          "descriptionZh": "执行 `getHourNames`，用于获取小时名称列表。"
         },
         {
           "name": "getMinuteNames",
           "params": [],
           "returnType": "string[]",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `getMinuteNames` to handle get minute names.",
+          "descriptionZh": "执行 `getMinuteNames`，用于获取分钟名称列表。"
         },
         {
           "name": "addCalendarYears",
@@ -731,8 +744,8 @@
             }
           ],
           "returnType": "Date",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `addCalendarYears` to handle add calendar years.",
+          "descriptionZh": "执行 `addCalendarYears`，用于添加日历年。"
         },
         {
           "name": "addCalendarMonths",
@@ -747,8 +760,8 @@
             }
           ],
           "returnType": "Date",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `addCalendarMonths` to handle add calendar months.",
+          "descriptionZh": "执行 `addCalendarMonths`，用于添加日历月。"
         },
         {
           "name": "addCalendarDays",
@@ -763,8 +776,8 @@
             }
           ],
           "returnType": "Date",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `addCalendarDays` to handle add calendar days.",
+          "descriptionZh": "执行 `addCalendarDays`，用于添加日历天数。"
         },
         {
           "name": "addCalendarHours",
@@ -779,8 +792,8 @@
             }
           ],
           "returnType": "Date",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `addCalendarHours` to handle add calendar hours.",
+          "descriptionZh": "执行 `addCalendarHours`，用于添加日历小时数。"
         },
         {
           "name": "addCalendarMinutes",
@@ -795,8 +808,8 @@
             }
           ],
           "returnType": "Date",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `addCalendarMinutes` to handle add calendar minutes.",
+          "descriptionZh": "执行 `addCalendarMinutes`，用于添加日历分钟数。"
         },
         {
           "name": "toIso8601",
@@ -807,8 +820,8 @@
             }
           ],
           "returnType": "string",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `toIso8601` to handle to iso8601.",
+          "descriptionZh": "执行 `toIso8601`，用于转换为Iso8601。"
         }
       ],
       "properties": []
@@ -816,8 +829,8 @@
     {
       "name": "NativeDatetimeModule",
       "kind": "module",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular module `NativeDatetimeModule` declaring and exporting native datetime module components, directives, pipes, and providers.",
+      "summaryZh": "Angular 模块 `NativeDatetimeModule`，声明并导出原生日期时间模块相关的组件、指令、管道与服务提供者。",
       "sourceFile": "src/form/date/adapter/adapter.module.ts",
       "inputs": [],
       "outputs": [],

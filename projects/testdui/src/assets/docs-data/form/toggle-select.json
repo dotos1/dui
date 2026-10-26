@@ -4,16 +4,16 @@
     {
       "name": "_ToggleBase",
       "kind": "directive",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular directive `_ToggleBase` attaching toggle base behavior to host DOM elements.",
+      "summaryZh": "Angular 指令 `_ToggleBase`，为宿主 DOM 元素附加开关基础行为。",
       "sourceFile": "src/form/toggle-select/toggle-header.component.ts",
       "inputs": [
         {
           "name": "options",
           "type": "ToggleHeaderOption[]",
           "default": "[]",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `options` (`ToggleHeaderOption[]`) configuring options (default: `[]`).",
+          "descriptionZh": "输入属性 `options`（类型：`ToggleHeaderOption[]`），用于配置配置选项（默认值：`[]`）。"
         }
       ],
       "outputs": [],
@@ -22,16 +22,16 @@
         {
           "name": "toggleOptions",
           "type": "QueryList<ToggleOption>",
-          "description": null,
-          "descriptionZh": null
+          "description": "Template/content query reference `toggleOptions` (`@ContentChildren`) targeting toggle options.",
+          "descriptionZh": "模板/内容视图查询引用 `toggleOptions`（`@ContentChildren`），指向开关配置选项。"
         }
       ]
     },
     {
       "name": "ScrollDirection",
       "kind": "type",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Type alias `ScrollDirection` representing scroll direction (`'after' | 'before'`).",
+      "summaryZh": "类型别名 `ScrollDirection`，表示滚动方向（`'after' | 'before'`）。",
       "sourceFile": "src/form/toggle-select/toggle-header.component.ts",
       "inputs": [],
       "outputs": [],
@@ -41,8 +41,8 @@
     {
       "name": "ToggleHeaderAppearance",
       "kind": "type",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Type alias `ToggleHeaderAppearance` representing toggle header appearance (`'fill' | 'fill-invert' | 'stroked'`).",
+      "summaryZh": "类型别名 `ToggleHeaderAppearance`，表示开关表头Appearance（`'fill' | 'fill-invert' | 'stroked'`）。",
       "sourceFile": "src/form/toggle-select/toggle-header.component.ts",
       "inputs": [],
       "outputs": [],
@@ -53,91 +53,91 @@
       "name": "ToggleHeaderComponent",
       "kind": "component",
       "selector": "toggle-header",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular component `ToggleHeaderComponent` (selector: 'toggle-header') providing toggle header component presentation and interaction in `src/form/toggle-select`.",
+      "summaryZh": "Angular 组件 `ToggleHeaderComponent`（selector: 'toggle-header'），提供开关表头组件的视图渲染与交互逻辑（位于 `src/form/toggle-select`）。",
       "sourceFile": "src/form/toggle-select/toggle-header.component.ts",
       "inputs": [
         {
           "name": "value",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `value` (`any`) configuring value.",
+          "descriptionZh": "输入属性 `value`（类型：`any`），用于配置值。"
         },
         {
           "name": "name",
           "type": "string",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `name` (`string`) configuring name.",
+          "descriptionZh": "输入属性 `name`（类型：`string`），用于配置名称。"
         },
         {
           "name": "disablePagination",
           "type": "any",
           "default": "false",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `disablePagination` (`boolean`) configuring disable pagination (default: `false`).",
+          "descriptionZh": "输入属性 `disablePagination`（类型：`boolean`），用于配置禁用分页（默认值：`false`）。"
         },
         {
           "name": "selectMediaBreakpoint",
           "type": "any",
           "default": "'md-lg'",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `selectMediaBreakpoint` (`string`) configuring select media breakpoint (default: `'md-lg'`).",
+          "descriptionZh": "输入属性 `selectMediaBreakpoint`（类型：`string`），用于配置下拉选择媒体Breakpoint（默认值：`'md-lg'`）。"
         },
         {
           "name": "useSelectOnMdLg",
           "type": "boolean",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input setter `useSelectOnMdLg` updating use select on md lg.",
+          "descriptionZh": "输入属性 `useSelectOnMdLg` 的设置器，用于更新使用下拉选择当MdLg。"
         },
         {
           "name": "ignoreMdLgSize",
           "type": "any",
           "default": "false",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `ignoreMdLgSize` (`boolean`) configuring ignore md lg size (default: `false`).",
+          "descriptionZh": "输入属性 `ignoreMdLgSize`（类型：`boolean`），用于配置忽略MdLg尺寸（默认值：`false`）。"
         },
         {
           "name": "appearance",
           "type": "ToggleHeaderAppearance",
           "default": "'stroked'",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `appearance` (`ToggleHeaderAppearance`) configuring appearance (default: `'stroked'`).",
+          "descriptionZh": "输入属性 `appearance`（类型：`ToggleHeaderAppearance`），用于配置appearance（默认值：`'stroked'`）。"
         },
         {
           "name": "disabled",
           "type": "any",
           "default": "false",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `disabled` (`boolean`) configuring disabled (default: `false`).",
+          "descriptionZh": "输入属性 `disabled`（类型：`boolean`），用于配置已禁用（默认值：`false`）。"
         },
         {
           "name": "fillHeight",
           "type": "any",
           "default": "false",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `fillHeight` (`boolean`) configuring fill height (default: `false`).",
+          "descriptionZh": "输入属性 `fillHeight`（类型：`boolean`），用于配置填充高度（默认值：`false`）。"
         },
         {
           "name": "extraPadding",
           "type": "any",
           "default": "false",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `extraPadding` (`boolean`) configuring extra padding (default: `false`).",
+          "descriptionZh": "输入属性 `extraPadding`（类型：`boolean`），用于配置extra内边距（默认值：`false`）。"
         },
         {
           "name": "primaryBackground",
           "type": "any",
           "default": "false",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `primaryBackground` (`boolean`) configuring primary background (default: `false`).",
+          "descriptionZh": "输入属性 `primaryBackground`（类型：`boolean`），用于配置主色背景（默认值：`false`）。"
         }
       ],
       "outputs": [
         {
           "name": "valueChange",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Output event emitter `valueChange` (`EventEmitter`) firing when value change occurs.",
+          "descriptionZh": "输出事件 `valueChange`（类型：`EventEmitter`），当触发值变更时向外发出事件。"
         }
       ],
       "methods": [
@@ -154,8 +154,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `trackByHeaderOption` to handle track by header option.",
+          "descriptionZh": "执行 `trackByHeaderOption`，用于track按表头选项。"
         },
         {
           "name": "handlePaginatorClick",
@@ -170,8 +170,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `handlePaginatorClick` to handle handle paginator click.",
+          "descriptionZh": "执行 `handlePaginatorClick`，用于连接手柄分页器点击。"
         },
         {
           "name": "handlePaginatorTouchStart",
@@ -186,94 +186,107 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `handlePaginatorTouchStart` to handle handle paginator touch start.",
+          "descriptionZh": "执行 `handlePaginatorTouchStart`，用于连接手柄分页器触摸开始。"
         }
       ],
       "properties": [
         {
           "name": "toggleGroup",
           "type": "ElementRef<HTMLElement>",
-          "description": null,
-          "descriptionZh": null
+          "description": "Template/content query reference `toggleGroup` (`@ViewChild`) targeting toggle group.",
+          "descriptionZh": "模板/内容视图查询引用 `toggleGroup`（`@ViewChild`），指向开关分组。"
         },
         {
           "name": "buttonToggleGroup",
           "type": "MatButtonToggleGroup",
-          "description": null,
-          "descriptionZh": null
+          "description": "Template/content query reference `buttonToggleGroup` (`@ViewChild`) targeting button toggle group.",
+          "descriptionZh": "模板/内容视图查询引用 `buttonToggleGroup`（`@ViewChild`），指向按钮开关分组。"
         },
         {
           "name": "toggleGroupContainer",
           "type": "ElementRef<HTMLElement>",
-          "description": null,
-          "descriptionZh": null
+          "description": "Template/content query reference `toggleGroupContainer` (`@ViewChild`) targeting toggle group container.",
+          "descriptionZh": "模板/内容视图查询引用 `toggleGroupContainer`（`@ViewChild`），指向开关分组容器。"
         },
         {
           "name": "leftPaginationEnabled",
           "type": "any",
           "default": "false",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `leftPaginationEnabled` (`boolean`) storing left pagination enabled (default: `false`).",
+          "descriptionZh": "属性 `leftPaginationEnabled`（类型：`boolean`），用于存储或配置左侧位置分页已启用（默认值：`false`）。"
         },
         {
           "name": "rightPaginationEnabled",
           "type": "any",
           "default": "false",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `rightPaginationEnabled` (`boolean`) storing right pagination enabled (default: `false`).",
+          "descriptionZh": "属性 `rightPaginationEnabled`（类型：`boolean`），用于存储或配置右侧位置分页已启用（默认值：`false`）。"
         },
         {
           "name": "scrollDistance",
           "type": "number",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current scroll distance (`scrollDistance: number`).",
+          "descriptionZh": "获取当前滚动距离（`scrollDistance: number`）。"
         },
         {
           "name": "scrollDistance",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Sets the scroll distance (`scrollDistance`).",
+          "descriptionZh": "设置滚动距离（`scrollDistance`）。"
         },
         {
           "name": "isMdLg",
           "type": "boolean",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current is md lg (`isMdLg: boolean`).",
+          "descriptionZh": "获取当前是否为MdLg（`isMdLg: boolean`）。"
         },
         {
           "name": "useSelect$",
           "type": "any",
-          "default": "this.useSelectSubject.asObservable()",
-          "description": null,
-          "descriptionZh": null
+          "default": "this.useSelectSubject.asObservable().pipe(distinctUntilChanged())",
+          "description": "Property `useSelect$` (`any`) storing use select.",
+          "descriptionZh": "属性 `useSelect$`（类型：`any`），用于存储或配置使用下拉选择。"
         }
       ]
     },
     {
       "name": "ToggleHeaderOption",
       "kind": "interface",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Interface `ToggleHeaderOption` defining the contract and properties for toggle header option.",
+      "summaryZh": "接口 `ToggleHeaderOption`，定义开关表头选项的数据结构契约与属性规范。",
       "sourceFile": "src/form/toggle-select/toggle-header.component.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
-      "properties": []
+      "properties": [
+        {
+          "name": "name",
+          "type": "string",
+          "description": "Property `name` (`string`) storing name.",
+          "descriptionZh": "属性 `name`（类型：`string`），用于存储或配置名称。"
+        },
+        {
+          "name": "value",
+          "type": "any",
+          "description": "Property `value` (`any`) storing value.",
+          "descriptionZh": "属性 `value`（类型：`any`），用于存储或配置值。"
+        }
+      ]
     },
     {
       "name": "ToggleOption",
       "kind": "directive",
       "selector": "toggle-option",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular directive `ToggleOption` (selector: 'toggle-option') attaching toggle option behavior to host DOM elements.",
+      "summaryZh": "Angular 指令 `ToggleOption`（selector: 'toggle-option'），为宿主 DOM 元素附加开关选项行为。",
       "sourceFile": "src/form/toggle-select/toggle-header.component.ts",
       "inputs": [
         {
           "name": "value",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `value` (`any`) configuring value.",
+          "descriptionZh": "输入属性 `value`（类型：`any`），用于配置值。"
         }
       ],
       "outputs": [],
@@ -282,8 +295,8 @@
         {
           "name": "viewValue",
           "type": "string",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current view value (`viewValue: string`).",
+          "descriptionZh": "获取当前视图值（`viewValue: string`）。"
         }
       ]
     },
@@ -291,56 +304,56 @@
       "name": "ToggleSelectComponent",
       "kind": "component",
       "selector": "toggle-select",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular component `ToggleSelectComponent` (selector: 'toggle-select') providing toggle select component presentation and interaction in `src/form/toggle-select`.",
+      "summaryZh": "Angular 组件 `ToggleSelectComponent`（selector: 'toggle-select'），提供开关下拉选择组件的视图渲染与交互逻辑（位于 `src/form/toggle-select`）。",
       "sourceFile": "src/form/toggle-select/toggle-select.component.ts",
       "inputs": [
         {
           "name": "disabled",
           "type": "boolean",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `disabled` (`boolean`) configuring disabled.",
+          "descriptionZh": "输入属性 `disabled`（类型：`boolean`），用于配置已禁用。"
         },
         {
           "name": "selectMediaBreakpoint",
           "type": "string",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `selectMediaBreakpoint` (`string`) configuring select media breakpoint.",
+          "descriptionZh": "输入属性 `selectMediaBreakpoint`（类型：`string`），用于配置下拉选择媒体Breakpoint。"
         },
         {
           "name": "appearance",
           "type": "ToggleHeaderAppearance",
           "default": "'stroked'",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `appearance` (`ToggleHeaderAppearance`) configuring appearance (default: `'stroked'`).",
+          "descriptionZh": "输入属性 `appearance`（类型：`ToggleHeaderAppearance`），用于配置appearance（默认值：`'stroked'`）。"
         },
         {
           "name": "disablePagination",
           "type": "any",
           "default": "false",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `disablePagination` (`boolean`) configuring disable pagination (default: `false`).",
+          "descriptionZh": "输入属性 `disablePagination`（类型：`boolean`），用于配置禁用分页（默认值：`false`）。"
         },
         {
           "name": "fillHeight",
           "type": "any",
           "default": "false",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `fillHeight` (`boolean`) configuring fill height (default: `false`).",
+          "descriptionZh": "输入属性 `fillHeight`（类型：`boolean`），用于配置填充高度（默认值：`false`）。"
         },
         {
           "name": "extraPadding",
           "type": "any",
           "default": "false",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `extraPadding` (`boolean`) configuring extra padding (default: `false`).",
+          "descriptionZh": "输入属性 `extraPadding`（类型：`boolean`），用于配置extra内边距（默认值：`false`）。"
         },
         {
           "name": "primaryBackground",
           "type": "any",
           "default": "false",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `primaryBackground` (`boolean`) configuring primary background (default: `false`).",
+          "descriptionZh": "输入属性 `primaryBackground`（类型：`boolean`），用于配置主色背景（默认值：`false`）。"
         }
       ],
       "outputs": [],
@@ -354,30 +367,30 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `updateModel` to handle update model.",
+          "descriptionZh": "执行 `updateModel`，用于更新模型。"
         }
       ],
       "properties": [
         {
           "name": "maxWidth",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Host-bound getter `maxWidth` (`style.maxWidth`) computing max width.",
+          "descriptionZh": "宿主绑定读取器 `maxWidth`（绑定至 `style.maxWidth`），计算并返回最大值宽度。"
         },
         {
           "name": "modelValue",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `modelValue` (`any`) storing model value.",
+          "descriptionZh": "属性 `modelValue`（类型：`any`），用于存储或配置模型值。"
         }
       ]
     },
     {
       "name": "ToggleSelectModule",
       "kind": "module",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular module `ToggleSelectModule` declaring and exporting toggle select module components, directives, pipes, and providers.",
+      "summaryZh": "Angular 模块 `ToggleSelectModule`，声明并导出开关下拉选择模块相关的组件、指令、管道与服务提供者。",
       "sourceFile": "src/form/toggle-select/toggle-select.module.ts",
       "inputs": [],
       "outputs": [],
@@ -387,8 +400,8 @@
           "name": "entryComponents",
           "type": "any",
           "default": "[ToggleSelectComponent]",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `entryComponents` (`any[]`) storing entry components (default: `[ToggleSelectComponent]`).",
+          "descriptionZh": "属性 `entryComponents`（类型：`any[]`），用于存储或配置条目组件列表（默认值：`[ToggleSelectComponent]`）。"
         }
       ]
     }

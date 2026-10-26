@@ -4,41 +4,41 @@
     {
       "name": "AbstractTrigger",
       "kind": "service",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Injectable Angular service `AbstractTrigger` managing abstract trigger state and operations in `src/form/trigger`.",
+      "summaryZh": "可注入的 Angular 服务 `AbstractTrigger`，管理 `src/form/trigger` 中的Abstract触发状态与业务操作。",
       "sourceFile": "src/form/trigger/abstract.trigger.ts",
       "inputs": [
         {
           "name": "touchUi",
           "type": "boolean",
-          "description": null,
-          "descriptionZh": null
+          "description": "Getter for input property `touchUi` (`boolean`) returning touch ui.",
+          "descriptionZh": "输入属性 `touchUi`（类型：`boolean`）的读取器，返回当前触摸界面。"
         },
         {
           "name": "panelClass",
           "type": "string | string[]",
           "description": "Classes to be passed to the date picker panel. Supports the same syntax as `ngClass`.",
-          "descriptionZh": null
+          "descriptionZh": "输入属性 `panelClass`（类型：`string | string[]`），用于配置面板类名。"
         }
       ],
       "outputs": [
         {
           "name": "selectedChanged",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Output event emitter `selectedChanged` (`EventEmitter`) firing when selected changed occurs.",
+          "descriptionZh": "输出事件 `selectedChanged`（类型：`EventEmitter`），当触发已选中已变更时向外发出事件。"
         },
         {
           "name": "openedStream",
           "type": "AbstractTrigger",
-          "description": null,
-          "descriptionZh": null
+          "description": "Output event emitter `opened` (`EventEmitter<AbstractTrigger>`) firing when opened stream occurs.",
+          "descriptionZh": "输出事件 `opened`（类型：`EventEmitter<AbstractTrigger>`），当触发是否展开流时向外发出事件。"
         },
         {
           "name": "closedStream",
           "type": "AbstractTrigger",
-          "description": null,
-          "descriptionZh": null
+          "description": "Output event emitter `closed` (`EventEmitter<AbstractTrigger>`) firing when closed stream occurs.",
+          "descriptionZh": "输出事件 `closed`（类型：`EventEmitter<AbstractTrigger>`），当触发是否关闭流时向外发出事件。"
         }
       ],
       "methods": [
@@ -51,15 +51,15 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `init` to handle init.",
+          "descriptionZh": "执行 `init`，用于初始化。"
         },
         {
           "name": "open",
           "params": [],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `open` to handle open.",
+          "descriptionZh": "执行 `open`，用于打开。"
         },
         {
           "name": "registerOnValidatorChange",
@@ -70,89 +70,89 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `registerOnValidatorChange` to handle register on validator change.",
+          "descriptionZh": "执行 `registerOnValidatorChange`，用于注册当校验器变更。"
         },
         {
           "name": "close",
           "params": [],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `close` to handle close.",
+          "descriptionZh": "执行 `close`，用于关闭。"
         },
         {
           "name": "getConnectedOverlayOrigin",
           "params": [],
           "returnType": "ElementRef",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `getConnectedOverlayOrigin` to handle get connected overlay origin.",
+          "descriptionZh": "执行 `getConnectedOverlayOrigin`，用于获取已连接浮层Origin。"
         }
       ],
       "properties": [
         {
           "name": "editable",
           "type": "boolean",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current editable (`editable: boolean`).",
+          "descriptionZh": "获取当前是否可编辑（`editable: boolean`）。"
         },
         {
           "name": "editable",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Sets the editable (`editable`).",
+          "descriptionZh": "设置是否可编辑（`editable`）。"
         },
         {
           "name": "touchUi",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Sets the touch ui (`touchUi`).",
+          "descriptionZh": "设置触摸界面（`touchUi`）。"
         },
         {
           "name": "tabindex",
           "type": "number",
           "default": "0",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `tabindex` (`number`) storing tabindex (default: `0`).",
+          "descriptionZh": "属性 `tabindex`（类型：`number`），用于存储或配置tabindex（默认值：`0`）。"
         },
         {
           "name": "enableKeyEvents",
           "type": "any",
           "default": "false",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `enableKeyEvents` (`boolean`) storing enable key events (default: `false`).",
+          "descriptionZh": "属性 `enableKeyEvents`（类型：`boolean`），用于存储或配置启用键事件集合（默认值：`false`）。"
         },
         {
           "name": "required",
           "type": "boolean",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current required (`required: boolean`).",
+          "descriptionZh": "获取当前必填（`required: boolean`）。"
         },
         {
           "name": "required",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Sets the required (`required`).",
+          "descriptionZh": "设置必填（`required`）。"
         },
         {
           "name": "opened",
           "type": "any",
           "default": "false",
           "description": "Whether the calendar is open.",
-          "descriptionZh": null
+          "descriptionZh": "属性 `opened`（类型：`boolean`），用于存储或配置是否展开（默认值：`false`）。"
         },
         {
           "name": "isOpen",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Sets the is open (`isOpen`).",
+          "descriptionZh": "设置是否为打开（`isOpen`）。"
         }
       ]
     },
     {
       "name": "ACTION_TYPES",
       "kind": "type",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Type alias `ACTION_TYPES` representing action types (`{ 'load': Load; 'submit': Submit }`).",
+      "summaryZh": "类型别名 `ACTION_TYPES`，表示动作类型列表（`{ 'load': Load; 'submit': Submit }`）。",
       "sourceFile": "src/form/action/action.service.ts",
       "inputs": [],
       "outputs": [],
@@ -163,16 +163,16 @@
       "name": "ArrayInputComponent",
       "kind": "component",
       "selector": "array-input-field",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular component `ArrayInputComponent` (selector: 'array-input-field') providing array input component presentation and interaction in `src/form/array-input`.",
+      "summaryZh": "Angular 组件 `ArrayInputComponent`（selector: 'array-input-field'），提供数组输入属性组件的视图渲染与交互逻辑（位于 `src/form/array-input`）。",
       "sourceFile": "src/form/array-input/array-input.component.ts",
       "inputs": [],
       "outputs": [
         {
           "name": "result",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Output event emitter `result` (`EventEmitter`) firing when result occurs.",
+          "descriptionZh": "输出事件 `result`（类型：`EventEmitter`），当触发结果时向外发出事件。"
         }
       ],
       "methods": [
@@ -180,8 +180,8 @@
           "name": "openChanged",
           "params": [],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `openChanged` to handle open changed.",
+          "descriptionZh": "执行 `openChanged`，用于打开已变更。"
         }
       ],
       "properties": [
@@ -189,71 +189,71 @@
           "name": "selectData",
           "type": "Array<any>",
           "default": "[]",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `selectData` (`Array<any>`) storing select data (default: `[]`).",
+          "descriptionZh": "属性 `selectData`（类型：`Array<any>`），用于存储或配置下拉选择数据（默认值：`[]`）。"
         },
         {
           "name": "filteredData",
           "type": "Observable<Array<any>>",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `filteredData` (`Observable<Array<any>>`) storing filtered data.",
+          "descriptionZh": "属性 `filteredData`（类型：`Observable<Array<any>>`），用于存储或配置已过滤数据。"
         },
         {
           "name": "filterString",
           "type": "string",
           "default": "''",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `filterString` (`string`) storing filter string (default: `''`).",
+          "descriptionZh": "属性 `filterString`（类型：`string`），用于存储或配置过滤字符串（默认值：`''`）。"
         },
         {
           "name": "filter",
           "type": "any",
-          "default": "(filter: string): Array<any> => {\n    this.filterString = filter;\n    this.selectData=[];\n    if(this.field.options==undefined){\n      return [];\n    }\n    let opts=clone(this.field.options);\n     opts.map(option => {\n        option[\"selected\"]=false;\n     });\n    if (filter&&filter.length > 0) {\n      opts.map(option => {\n        let seleted=filter.indexOf(option.value) >= 0;\n        option[\"selected\"]=seleted;\n      });\n      opts.forEach(option => {\n        let seleted=filter.indexOf(option.value) >= 0;\n        if(seleted){\n          this.selectData.push(option);\n        }\n      });\n   \n      return opts;\n    } else {\n      return opts.slice();\n    }\n  }",
-          "description": null,
-          "descriptionZh": null
+          "default": "(filter: string): Array<any> => {\n    this.filterString = filter;\n    this.selectData=[];\n    if(this.field.options==undefined){\n      return [];\n    }\n    let opts = this.field.options.map(o => ({ ...o, selected: false }));\n    if (filter && filter.length > 0) {\n      const selectedValues = String(filter).split(',').map(s => s.trim());\n      opts.forEach(option => {\n        let seleted = selectedValues.includes(String(option.value));\n        option[\"selected\"] = seleted;\n        if (seleted) {\n          this.selectData.push(option);\n        }\n      });\n\n      return opts;\n    } else {\n      return opts.slice();\n    }\n  }",
+          "description": "Property `filter` (`any`) storing filter.",
+          "descriptionZh": "属性 `filter`（类型：`any`），用于存储或配置过滤。"
         },
         {
           "name": "displayFn",
           "type": "any",
           "default": "(): string => ''",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `displayFn` (`any`) storing display fn (default: `(): string => ''`).",
+          "descriptionZh": "属性 `displayFn`（类型：`any`），用于存储或配置display函数（默认值：`(): string => ''`）。"
         },
         {
           "name": "optionClicked",
           "type": "any",
           "default": "(event: Event, data: any): void => {\n    event.stopPropagation();\n    this.toggleSelection(data);\n  }",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `optionClicked` (`any`) storing option clicked.",
+          "descriptionZh": "属性 `optionClicked`（类型：`any`），用于存储或配置选项点击。"
         },
         {
           "name": "toggleSelection",
           "type": "any",
           "default": "(data: any): void => {\n    data.selected = !data.selected;\n    if (data.selected === true) {\n      this.selectData.push(data);\n    } else {\n      const i = this.selectData.findIndex(val =>val.value === data.value);\n      this.selectData.splice(i, 1);\n    }\n    this.emitAdjustedData();\n  }",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `toggleSelection` (`any`) storing toggle selection.",
+          "descriptionZh": "属性 `toggleSelection`（类型：`any`），用于存储或配置开关Selection。"
         },
         {
           "name": "emitAdjustedData",
           "type": "any",
           "default": "(): void => {\n    const results: Array<string> = []\n    this.selectData.forEach((data: any) => {\n      results.push(data.value);\n    });\n\n    this.formControl.setValue(results.join(','));\n\n    this.result.emit({ key: this.field.name, data: results.join(',') });\n  }",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `emitAdjustedData` (`any`) storing emit adjusted data.",
+          "descriptionZh": "属性 `emitAdjustedData`（类型：`any`），用于存储或配置发出Adjusted数据。"
         },
         {
           "name": "removeChip",
           "type": "any",
           "default": "(data: any): void => {\n    this.toggleSelection(data);\n  }",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `removeChip` (`any`) storing remove chip.",
+          "descriptionZh": "属性 `removeChip`（类型：`any`），用于存储或配置移除纸片标签。"
         }
       ]
     },
     {
       "name": "ArrayInputModule",
       "kind": "module",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular module `ArrayInputModule` declaring and exporting array input module components, directives, pipes, and providers.",
+      "summaryZh": "Angular 模块 `ArrayInputModule`，声明并导出数组输入属性模块相关的组件、指令、管道与服务提供者。",
       "sourceFile": "src/form/array-input/array-input.module.ts",
       "inputs": [],
       "outputs": [],
@@ -263,8 +263,8 @@
           "name": "entryComponents",
           "type": "any",
           "default": "[\n    ArrayInputComponent]",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `entryComponents` (`any[]`) storing entry components (default: `[ ArrayInputComponent]`).",
+          "descriptionZh": "属性 `entryComponents`（类型：`any[]`），用于存储或配置条目组件列表（默认值：`[ ArrayInputComponent]`）。"
         }
       ]
     },
@@ -272,8 +272,8 @@
       "name": "AutoTrimDirective",
       "kind": "directive",
       "selector": "[duiAutoTrim]",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular directive `AutoTrimDirective` (selector: '[duiAutoTrim]') attaching auto trim directive behavior to host DOM elements.",
+      "summaryZh": "Angular 指令 `AutoTrimDirective`（selector: '[duiAutoTrim]'），为宿主 DOM 元素附加自动去除首尾空白指令行为。",
       "sourceFile": "src/form/directive/auto-trim.directive.ts",
       "inputs": [],
       "outputs": [],
@@ -288,7 +288,7 @@
           ],
           "returnType": "void",
           "description": "Listens to host's (blur) event and trims value.",
-          "descriptionZh": null
+          "descriptionZh": "宿主事件监听方法 `onBlur`，响应 `blur` 事件以处理当失焦。"
         }
       ],
       "properties": []
@@ -297,8 +297,8 @@
       "name": "CheckboxField",
       "kind": "component",
       "selector": "checkbox-field",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular component `CheckboxField` (selector: 'checkbox-field') providing checkbox field presentation and interaction in `src/form/checkbox`.",
+      "summaryZh": "Angular 组件 `CheckboxField`（selector: 'checkbox-field'），提供复选框字段的视图渲染与交互逻辑（位于 `src/form/checkbox`）。",
       "sourceFile": "src/form/checkbox/checkbox.component.ts",
       "inputs": [],
       "outputs": [],
@@ -312,8 +312,8 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `onContainerClick` to handle on container click.",
+          "descriptionZh": "执行 `onContainerClick`，用于当容器点击。"
         },
         {
           "name": "change",
@@ -324,31 +324,31 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `change` to handle change.",
+          "descriptionZh": "执行 `change`，用于变更。"
         }
       ],
       "properties": [
         {
           "name": "checkbox",
           "type": "MatCheckbox",
-          "description": null,
-          "descriptionZh": null
+          "description": "Template/content query reference `checkbox` (`@ViewChild`) targeting checkbox.",
+          "descriptionZh": "模板/内容视图查询引用 `checkbox`（`@ViewChild`），指向复选框。"
         },
         {
           "name": "defaultOptions",
           "type": "any",
           "default": "{\n    hideFieldUnderline: true,\n    indeterminate: true,\n    floatLabel: 'always',\n    hideLabel: true,\n    align: 'start',\n    color: 'accent',  // start or end\n  }",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `defaultOptions` (`any`) storing default options.",
+          "descriptionZh": "属性 `defaultOptions`（类型：`any`），用于存储或配置默认配置选项。"
         }
       ]
     },
     {
       "name": "CheckBoxFieldModule",
       "kind": "module",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular module `CheckBoxFieldModule` declaring and exporting check box field module components, directives, pipes, and providers.",
+      "summaryZh": "Angular 模块 `CheckBoxFieldModule`，声明并导出检查盒子容器字段模块相关的组件、指令、管道与服务提供者。",
       "sourceFile": "src/form/checkbox/checkbox.ext.module.ts",
       "inputs": [],
       "outputs": [],
@@ -358,8 +358,8 @@
           "name": "entryComponents",
           "type": "any",
           "default": "[CheckboxField]",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `entryComponents` (`any[]`) storing entry components (default: `[CheckboxField]`).",
+          "descriptionZh": "属性 `entryComponents`（类型：`any[]`），用于存储或配置条目组件列表（默认值：`[CheckboxField]`）。"
         }
       ]
     },
@@ -367,8 +367,8 @@
       "name": "CheckboxGroupField",
       "kind": "component",
       "selector": "checkbox-group",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular component `CheckboxGroupField` (selector: 'checkbox-group') providing checkbox group field presentation and interaction in `src/form/checkboxgroup`.",
+      "summaryZh": "Angular 组件 `CheckboxGroupField`（selector: 'checkbox-group'），提供复选框分组字段的视图渲染与交互逻辑（位于 `src/form/checkboxgroup`）。",
       "sourceFile": "src/form/checkboxgroup/checkboxgroup.component.ts",
       "inputs": [],
       "outputs": [],
@@ -377,8 +377,8 @@
           "name": "init",
           "params": [],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `init` to handle init.",
+          "descriptionZh": "执行 `init`，用于初始化。"
         },
         {
           "name": "onChange",
@@ -393,8 +393,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `onChange` to handle on change.",
+          "descriptionZh": "执行 `onChange`，用于当变更。"
         },
         {
           "name": "onContainerClick",
@@ -405,59 +405,75 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `onContainerClick` to handle on container click.",
+          "descriptionZh": "执行 `onContainerClick`，用于当容器点击。"
+        },
+        {
+          "name": "trackByOption",
+          "params": [
+            {
+              "name": "index",
+              "type": "number"
+            },
+            {
+              "name": "option",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": "Executes `trackByOption` to handle track by option.",
+          "descriptionZh": "执行 `trackByOption`，用于track按选项。"
         }
       ],
       "properties": [
         {
           "name": "checkboxes",
           "type": "QueryList<MatCheckbox>",
-          "description": null,
-          "descriptionZh": null
+          "description": "Template/content query reference `checkboxes` (`@ViewChildren`) targeting checkboxes.",
+          "descriptionZh": "模板/内容视图查询引用 `checkboxes`（`@ViewChildren`），指向复选框。"
         },
         {
           "name": "defaultOptions",
           "type": "any",
           "default": "{\n    hideFieldUnderline: true,\n    floatLabel: 'always',\n    options: [],\n    color: 'accent',\n  }",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `defaultOptions` (`any`) storing default options.",
+          "descriptionZh": "属性 `defaultOptions`（类型：`any`），用于存储或配置默认配置选项。"
         },
         {
           "name": "align",
           "type": "any",
           "default": "'start'",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `align` (`string`) storing align (default: `'start'`).",
+          "descriptionZh": "属性 `align`（类型：`string`），用于存储或配置对齐（默认值：`'start'`）。"
         },
         {
           "name": "labelPosition",
           "type": "any",
           "default": "'after'",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `labelPosition` (`string`) storing label position (default: `'after'`).",
+          "descriptionZh": "属性 `labelPosition`（类型：`string`），用于存储或配置标签位置（默认值：`'after'`）。"
         },
         {
           "name": "vertical",
           "type": "any",
           "default": "false",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `vertical` (`boolean`) storing vertical (default: `false`).",
+          "descriptionZh": "属性 `vertical`（类型：`boolean`），用于存储或配置垂直（默认值：`false`）。"
         },
         {
           "name": "readonly",
           "type": "any",
           "default": "false",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `readonly` (`boolean`) storing readonly (default: `false`).",
+          "descriptionZh": "属性 `readonly`（类型：`boolean`），用于存储或配置是否只读（默认值：`false`）。"
         }
       ]
     },
     {
       "name": "CheckboxGroupModule",
       "kind": "module",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular module `CheckboxGroupModule` declaring and exporting checkbox group module components, directives, pipes, and providers.",
+      "summaryZh": "Angular 模块 `CheckboxGroupModule`，声明并导出复选框分组模块相关的组件、指令、管道与服务提供者。",
       "sourceFile": "src/form/checkboxgroup/checkboxgroup.module.ts",
       "inputs": [],
       "outputs": [],
@@ -467,16 +483,16 @@
           "name": "entryComponents",
           "type": "any",
           "default": "[CheckboxGroupField]",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `entryComponents` (`any[]`) storing entry components (default: `[CheckboxGroupField]`).",
+          "descriptionZh": "属性 `entryComponents`（类型：`any[]`），用于存储或配置条目组件列表（默认值：`[CheckboxGroupField]`）。"
         }
       ]
     },
     {
       "name": "ColorFieldModule",
       "kind": "module",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular module `ColorFieldModule` declaring and exporting color field module components, directives, pipes, and providers.",
+      "summaryZh": "Angular 模块 `ColorFieldModule`，声明并导出颜色字段模块相关的组件、指令、管道与服务提供者。",
       "sourceFile": "src/form/colorpicker/color-picker.module.ts",
       "inputs": [],
       "outputs": [],
@@ -486,8 +502,8 @@
           "name": "entryComponents",
           "type": "any",
           "default": "[\n    ColorPickerContent,\n    ColorPickerField\n  ]",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `entryComponents` (`any[]`) storing entry components.",
+          "descriptionZh": "属性 `entryComponents`（类型：`any[]`），用于存储或配置条目组件列表。"
         }
       ]
     },
@@ -495,29 +511,29 @@
       "name": "ColorPickerContent",
       "kind": "component",
       "selector": "color-picker-content",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular component `ColorPickerContent` (selector: 'color-picker-content') providing color picker content presentation and interaction in `src/form/colorpicker`.",
+      "summaryZh": "Angular 组件 `ColorPickerContent`（selector: 'color-picker-content'），提供颜色选择器内容的视图渲染与交互逻辑（位于 `src/form/colorpicker`）。",
       "sourceFile": "src/form/colorpicker/color-picker.content.ts",
       "inputs": [
         {
           "name": "onlyPalette",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input setter `onlyPalette` updating only palette.",
+          "descriptionZh": "输入属性 `onlyPalette` 的设置器，用于更新only调色板。"
         },
         {
           "name": "color",
           "type": "any",
           "description": "Selected class\n\nparam value",
-          "descriptionZh": null
+          "descriptionZh": "输入属性 `color` 的设置器，用于更新颜色。"
         }
       ],
       "outputs": [
         {
           "name": "colorChanged",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Output event emitter `colorChanged` (`EventEmitter<any>`) firing when color changed occurs.",
+          "descriptionZh": "输出事件 `colorChanged`（类型：`EventEmitter<any>`），当触发颜色已变更时向外发出事件。"
         }
       ],
       "methods": [
@@ -535,7 +551,7 @@
           ],
           "returnType": "void",
           "description": "Select palette\n\nparam event\nparam palette",
-          "descriptionZh": null
+          "descriptionZh": "执行 `selectPalette`，用于下拉选择调色板。"
         },
         {
           "name": "selectHue",
@@ -551,7 +567,7 @@
           ],
           "returnType": "void",
           "description": "Select hue\n\nparam event\nparam hue",
-          "descriptionZh": null
+          "descriptionZh": "执行 `selectHue`，用于下拉选择色相。"
         },
         {
           "name": "removeColor",
@@ -563,14 +579,14 @@
           ],
           "returnType": "void",
           "description": "Remove color\n\nparam event",
-          "descriptionZh": null
+          "descriptionZh": "执行 `removeColor`，用于移除颜色。"
         },
         {
           "name": "updateSelectedColor",
           "params": [],
           "returnType": "void",
           "description": "Update selected color",
-          "descriptionZh": null
+          "descriptionZh": "执行 `updateSelectedColor`，用于更新已选中颜色。"
         },
         {
           "name": "goToPalettesView",
@@ -582,76 +598,76 @@
           ],
           "returnType": "void",
           "description": "Go to palettes view\n\nparam event",
-          "descriptionZh": null
+          "descriptionZh": "执行 `goToPalettesView`，用于go转换为调色板视图。"
         },
         {
           "name": "onMenuOpen",
           "params": [],
           "returnType": "void",
           "description": "On menu open",
-          "descriptionZh": null
+          "descriptionZh": "执行 `onMenuOpen`，用于当菜单打开。"
         }
       ],
       "properties": [
         {
           "name": "host",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `host` (`any`) storing host.",
+          "descriptionZh": "属性 `host`（类型：`any`），用于存储或配置宿主。"
         },
         {
           "name": "colors",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `colors` (`any`) storing colors.",
+          "descriptionZh": "属性 `colors`（类型：`any`），用于存储或配置颜色列表。"
         },
         {
           "name": "hues",
           "type": "string[]",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `hues` (`string[]`) storing hues.",
+          "descriptionZh": "属性 `hues`（类型：`string[]`），用于存储或配置色相。"
         },
         {
           "name": "view",
           "type": "string",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `view` (`string`) storing view.",
+          "descriptionZh": "属性 `view`（类型：`string`），用于存储或配置视图。"
         },
         {
           "name": "selectedColor",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `selectedColor` (`any`) storing selected color.",
+          "descriptionZh": "属性 `selectedColor`（类型：`any`），用于存储或配置已选中颜色。"
         },
         {
           "name": "selectedPalette",
           "type": "string",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `selectedPalette` (`string`) storing selected palette.",
+          "descriptionZh": "属性 `selectedPalette`（类型：`string`），用于存储或配置已选中调色板。"
         },
         {
           "name": "selectedHue",
           "type": "string",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `selectedHue` (`string`) storing selected hue.",
+          "descriptionZh": "属性 `selectedHue`（类型：`string`），用于存储或配置已选中色相。"
         },
         {
           "name": "params",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current params (`params: any`).",
+          "descriptionZh": "获取当前参数集合（`params: any`）。"
         },
         {
           "name": "params",
           "type": "any",
           "description": "set accessor including call the onchange callback",
-          "descriptionZh": null
+          "descriptionZh": "设置参数集合（`params`）。"
         },
         {
           "name": "color",
           "type": "string",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current color (`color: string`).",
+          "descriptionZh": "获取当前颜色（`color: string`）。"
         }
       ]
     },
@@ -666,8 +682,8 @@
         {
           "name": "field",
           "type": "F | any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input setter `field` updating field.",
+          "descriptionZh": "输入属性 `field` 的设置器，用于更新字段。"
         }
       ],
       "outputs": [],
@@ -676,102 +692,102 @@
           "name": "init",
           "params": [],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `init` to handle init.",
+          "descriptionZh": "执行 `init`，用于初始化。"
         },
         {
           "name": "clear",
           "params": [],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `clear` to handle clear.",
+          "descriptionZh": "执行 `clear`，用于清空。"
         },
         {
           "name": "open",
           "params": [],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `open` to handle open.",
+          "descriptionZh": "执行 `open`，用于打开。"
         }
       ],
       "properties": [
         {
           "name": "input",
           "type": "ElementRef",
-          "description": null,
-          "descriptionZh": null
+          "description": "Template/content query reference `input` (`@ViewChild`) targeting input.",
+          "descriptionZh": "模板/内容视图查询引用 `input`（`@ViewChild`），指向输入属性。"
         },
         {
           "name": "field",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current field (`field: any`).",
+          "descriptionZh": "获取当前字段（`field: any`）。"
         },
         {
           "name": "colorType",
           "type": "'sketch' | 'chrome' | 'compact' | 'github' | 'material'",
           "default": "'sketch'",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `colorType` (`'sketch' | 'chrome' | 'compact' | 'github' | 'material'`) storing color type (default: `'sketch'`).",
+          "descriptionZh": "属性 `colorType`（类型：`'sketch' | 'chrome' | 'compact' | 'github' | 'material'`），用于存储或配置颜色类型（默认值：`'sketch'`）。"
         },
         {
           "name": "params",
           "type": "any",
           "default": "{}",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `params` (`any`) storing params (default: `{}`).",
+          "descriptionZh": "属性 `params`（类型：`any`），用于存储或配置参数集合（默认值：`{}`）。"
         },
         {
           "name": "label",
           "type": "string",
           "default": "''",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `label` (`string`) storing label (default: `''`).",
+          "descriptionZh": "属性 `label`（类型：`string`），用于存储或配置标签（默认值：`''`）。"
         },
         {
           "name": "value",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current value (`value: any`).",
+          "descriptionZh": "获取当前值（`value: any`）。"
         },
         {
           "name": "value",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Sets the value (`value`).",
+          "descriptionZh": "设置值（`value`）。"
         },
         {
           "name": "openOnFocus",
           "type": "boolean",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current open on focus (`openOnFocus: boolean`).",
+          "descriptionZh": "获取当前打开当聚焦（`openOnFocus: boolean`）。"
         },
         {
           "name": "openOnFocus",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Sets the open on focus (`openOnFocus`).",
+          "descriptionZh": "设置打开当聚焦（`openOnFocus`）。"
         },
         {
           "name": "isOpen",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Sets the is open (`isOpen`).",
+          "descriptionZh": "设置是否为打开（`isOpen`）。"
         },
         {
           "name": "enableKeyEvents",
           "type": "any",
           "default": "true",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `enableKeyEvents` (`boolean`) storing enable key events (default: `true`).",
+          "descriptionZh": "属性 `enableKeyEvents`（类型：`boolean`），用于存储或配置启用键事件集合（默认值：`true`）。"
         }
       ]
     },
     {
       "name": "CommonFieldModule",
       "kind": "module",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular module `CommonFieldModule` declaring and exporting common field module components, directives, pipes, and providers.",
+      "summaryZh": "Angular 模块 `CommonFieldModule`，声明并导出通用字段模块相关的组件、指令、管道与服务提供者。",
       "sourceFile": "src/form/field/common-field.module.ts",
       "inputs": [],
       "outputs": [],
@@ -781,8 +797,8 @@
           "name": "entryComponents",
           "type": "any",
           "default": "[\n    TextFieldComponent,\n    DisplayFieldComponent,\n    HiddenFieldComponent,\n    NumberFieldComponent,\n    TextAreaComponent]",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `entryComponents` (`any[]`) storing entry components.",
+          "descriptionZh": "属性 `entryComponents`（类型：`any[]`），用于存储或配置条目组件列表。"
         }
       ]
     },
@@ -790,8 +806,8 @@
       "name": "DisplayFieldComponent",
       "kind": "component",
       "selector": "display-field",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular component `DisplayFieldComponent` (selector: 'display-field') providing display field component presentation and interaction in `src/form/field`.",
+      "summaryZh": "Angular 组件 `DisplayFieldComponent`（selector: 'display-field'），提供Display字段组件的视图渲染与交互逻辑（位于 `src/form/field`）。",
       "sourceFile": "src/form/field/displayfield.component.ts",
       "inputs": [],
       "outputs": [],
@@ -801,23 +817,23 @@
           "name": "type",
           "type": "string",
           "default": "'display'",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `type` (`string`) storing type (default: `'display'`).",
+          "descriptionZh": "属性 `type`（类型：`string`），用于存储或配置类型（默认值：`'display'`）。"
         },
         {
           "name": "xtype",
           "type": "string",
           "default": "'displayfield'",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `xtype` (`string`) storing xtype (default: `'displayfield'`).",
+          "descriptionZh": "属性 `xtype`（类型：`string`），用于存储或配置扩展类型（默认值：`'displayfield'`）。"
         }
       ]
     },
     {
       "name": "DuiFormDirectiveModule",
       "kind": "module",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular module `DuiFormDirectiveModule` declaring and exporting dui form directive module components, directives, pipes, and providers.",
+      "summaryZh": "Angular 模块 `DuiFormDirectiveModule`，声明并导出DUI表单指令模块相关的组件、指令、管道与服务提供者。",
       "sourceFile": "src/form/directive/form.directive.module.ts",
       "inputs": [],
       "outputs": [],
@@ -828,8 +844,8 @@
       "name": "ExtFieldWrapper",
       "kind": "component",
       "selector": "dui-field-wrapper",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular component `ExtFieldWrapper` (selector: 'dui-field-wrapper') providing ext field wrapper presentation and interaction in `src/form/wrapper`.",
+      "summaryZh": "Angular 组件 `ExtFieldWrapper`（selector: 'dui-field-wrapper'），提供Ext字段包装器的视图渲染与交互逻辑（位于 `src/form/wrapper`）。",
       "sourceFile": "src/form/wrapper/field-wrapper.ts",
       "inputs": [],
       "outputs": [],
@@ -843,8 +859,8 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `setDescribedByIds` to handle set described by ids.",
+          "descriptionZh": "执行 `setDescribedByIds`，用于集合Described按标识列表。"
         },
         {
           "name": "onContainerClick",
@@ -855,103 +871,103 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `onContainerClick` to handle on container click.",
+          "descriptionZh": "执行 `onContainerClick`，用于当容器点击。"
         }
       ],
       "properties": [
         {
           "name": "fieldComponent",
           "type": "ViewContainerRef",
-          "description": null,
-          "descriptionZh": null
+          "description": "Template/content query reference `fieldComponent` (`@ViewChild`) targeting field component.",
+          "descriptionZh": "模板/内容视图查询引用 `fieldComponent`（`@ViewChild`），指向字段组件。"
         },
         {
           "name": "stateChanges",
           "type": "any",
           "default": "new Subject<void>()",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `stateChanges` (`Subject`) storing state changes (default: `new Subject<void>()`).",
+          "descriptionZh": "属性 `stateChanges`（类型：`Subject`），用于存储或配置状态变更集合（默认值：`new Subject<void>()`）。"
         },
         {
           "name": "errorState",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current error state (`errorState: any`).",
+          "descriptionZh": "获取当前错误状态（`errorState: any`）。"
         },
         {
           "name": "controlType",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current control type (`controlType: any`).",
+          "descriptionZh": "获取当前表单控件类型（`controlType: any`）。"
         },
         {
           "name": "focused",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current focused (`focused: any`).",
+          "descriptionZh": "获取当前已聚焦（`focused: any`）。"
         },
         {
           "name": "disabled",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current disabled (`disabled: any`).",
+          "descriptionZh": "获取当前已禁用（`disabled: any`）。"
         },
         {
           "name": "required",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current required (`required: any`).",
+          "descriptionZh": "获取当前必填（`required: any`）。"
         },
         {
           "name": "placeholder",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current placeholder (`placeholder: any`).",
+          "descriptionZh": "获取当前占位提示（`placeholder: any`）。"
         },
         {
           "name": "shouldPlaceholderFloat",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current should placeholder float (`shouldPlaceholderFloat: any`).",
+          "descriptionZh": "获取当前是否应当占位提示Float（`shouldPlaceholderFloat: any`）。"
         },
         {
           "name": "value",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current value (`value: any`).",
+          "descriptionZh": "获取当前值（`value: any`）。"
         },
         {
           "name": "ngControl",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current ng control (`ngControl: any`).",
+          "descriptionZh": "获取当前Angular表单控件（`ngControl: any`）。"
         },
         {
           "name": "empty",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current empty (`empty: any`).",
+          "descriptionZh": "获取当前空（`empty: any`）。"
         },
         {
           "name": "shouldLabelFloat",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current should label float (`shouldLabelFloat: any`).",
+          "descriptionZh": "获取当前是否应当标签Float（`shouldLabelFloat: any`）。"
         },
         {
           "name": "fieldConfig",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current field config (`fieldConfig: any`).",
+          "descriptionZh": "获取当前字段配置（`fieldConfig: any`）。"
         }
       ]
     },
     {
       "name": "FIELD_TYPE_COMPONENTS",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `FIELD_TYPE_COMPONENTS` defining field type components in `src/form/wrapper`.",
+      "summaryZh": "常量/变量 `FIELD_TYPE_COMPONENTS`，定义 `src/form/wrapper` 中的字段类型组件列表。",
       "sourceFile": "src/form/wrapper/wrapper.module.ts",
       "inputs": [],
       "outputs": [],
@@ -962,15 +978,15 @@
       "name": "FieldComponent",
       "kind": "component",
       "selector": "dui-field",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular component `FieldComponent` (selector: 'dui-field') providing field component presentation and interaction in `src/form/components`.",
+      "summaryZh": "Angular 组件 `FieldComponent`（selector: 'dui-field'），提供字段组件的视图渲染与交互逻辑（位于 `src/form/components`）。",
       "sourceFile": "src/form/components/field.component.ts",
       "inputs": [
         {
           "name": "field",
           "type": "FieldConfig",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `field` (`FieldConfig`) configuring field.",
+          "descriptionZh": "输入属性 `field`（类型：`FieldConfig`），用于配置字段。"
         }
       ],
       "outputs": [],
@@ -979,30 +995,30 @@
           "name": "init",
           "params": [],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `init` to handle init.",
+          "descriptionZh": "执行 `init`，用于初始化。"
         },
         {
           "name": "refresh",
           "params": [],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `refresh` to handle refresh.",
+          "descriptionZh": "执行 `refresh`，用于刷新。"
         }
       ],
       "properties": [
         {
           "name": "containerRef",
           "type": "ViewContainerRef",
-          "description": null,
-          "descriptionZh": null
+          "description": "Template/content query reference `containerRef` (`@ViewChild`) targeting container ref.",
+          "descriptionZh": "模板/内容视图查询引用 `containerRef`（`@ViewChild`），指向容器引用。"
         },
         {
           "name": "valueChangesUnsubscribe",
           "type": "any",
           "default": "() => {}",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `valueChangesUnsubscribe` (`any`) storing value changes unsubscribe (default: `() => {}`).",
+          "descriptionZh": "属性 `valueChangesUnsubscribe`（类型：`any`），用于存储或配置值变更集合取消订阅（默认值：`() => {}`）。"
         }
       ]
     },
@@ -1010,8 +1026,8 @@
       "name": "FieldSelect",
       "kind": "component",
       "selector": "select-field",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular component `FieldSelect` (selector: 'select-field') providing field select presentation and interaction in `src/form/select`.",
+      "summaryZh": "Angular 组件 `FieldSelect`（selector: 'select-field'），提供字段下拉选择的视图渲染与交互逻辑（位于 `src/form/select`）。",
       "sourceFile": "src/form/select/select.field.ts",
       "inputs": [],
       "outputs": [],
@@ -1025,22 +1041,34 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `searchChange` to handle search change.",
+          "descriptionZh": "执行 `searchChange`，用于搜索变更。"
         },
         {
           "name": "init",
           "params": [],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `init` to handle init.",
+          "descriptionZh": "执行 `init`，用于初始化。"
         },
         {
           "name": "hasSearch",
           "params": [],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `hasSearch` to handle has search.",
+          "descriptionZh": "执行 `hasSearch`，用于是否包含搜索。"
+        },
+        {
+          "name": "openedChanged",
+          "params": [
+            {
+              "name": "opened",
+              "type": "boolean"
+            }
+          ],
+          "returnType": "any",
+          "description": "Executes `openedChanged` to handle opened changed.",
+          "descriptionZh": "执行 `openedChanged`，用于是否展开已变更。"
         },
         {
           "name": "openChanged",
@@ -1051,8 +1079,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `openChanged` to handle open changed.",
+          "descriptionZh": "执行 `openChanged`，用于打开已变更。"
         },
         {
           "name": "setOptions",
@@ -1063,8 +1091,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `setOptions` to handle set options.",
+          "descriptionZh": "执行 `setOptions`，用于集合配置选项。"
         },
         {
           "name": "getSelectAllState",
@@ -1075,8 +1103,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `getSelectAllState` to handle get select all state.",
+          "descriptionZh": "执行 `getSelectAllState`，用于获取下拉选择全部状态。"
         },
         {
           "name": "toggleSelectAll",
@@ -1087,8 +1115,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `toggleSelectAll` to handle toggle select all.",
+          "descriptionZh": "执行 `toggleSelectAll`，用于开关下拉选择全部。"
         },
         {
           "name": "change",
@@ -1099,15 +1127,15 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `change` to handle change.",
+          "descriptionZh": "执行 `change`，用于变更。"
         },
         {
           "name": "clear",
           "params": [],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `clear` to handle clear.",
+          "descriptionZh": "执行 `clear`，用于清空。"
         },
         {
           "name": "compareWith",
@@ -1122,64 +1150,80 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `compareWith` to handle compare with.",
+          "descriptionZh": "执行 `compareWith`，用于比较带有。"
+        },
+        {
+          "name": "trackByOption",
+          "params": [
+            {
+              "name": "index",
+              "type": "number"
+            },
+            {
+              "name": "item",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": "Executes `trackByOption` to handle track by option.",
+          "descriptionZh": "执行 `trackByOption`，用于track按选项。"
         }
       ],
       "properties": [
         {
           "name": "matSelect",
           "type": "MatSelect",
-          "description": null,
-          "descriptionZh": null
+          "description": "Template/content query reference `matSelect` (`@ViewChild`) targeting mat select.",
+          "descriptionZh": "模板/内容视图查询引用 `matSelect`（`@ViewChild`），指向Material下拉选择。"
         },
         {
           "name": "matSearch",
           "type": "MatSelectSearchComponent",
-          "description": null,
-          "descriptionZh": null
+          "description": "Template/content query reference `matSearch` (`@ViewChild`) targeting mat search.",
+          "descriptionZh": "模板/内容视图查询引用 `matSearch`（`@ViewChild`），指向Material搜索。"
         },
         {
           "name": "defaultOptions",
           "type": "any",
           "default": "{\n    options: []\n  }",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `defaultOptions` (`any`) storing default options (default: `{ options: [] }`).",
+          "descriptionZh": "属性 `defaultOptions`（类型：`any`），用于存储或配置默认配置选项（默认值：`{ options: [] }`）。"
         },
         {
           "name": "isAlive",
           "type": "any",
           "default": "false",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `isAlive` (`boolean`) storing is alive (default: `false`).",
+          "descriptionZh": "属性 `isAlive`（类型：`boolean`），用于存储或配置是否为Alive（默认值：`false`）。"
         },
         {
           "name": "isLoading",
           "type": "any",
           "default": "false",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `isLoading` (`boolean`) storing is loading (default: `false`).",
+          "descriptionZh": "属性 `isLoading`（类型：`boolean`），用于存储或配置是否为加载中（默认值：`false`）。"
         },
         {
           "name": "options",
           "type": "any",
           "default": "[]",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `options` (`any[]`) storing options (default: `[]`).",
+          "descriptionZh": "属性 `options`（类型：`any[]`），用于存储或配置配置选项（默认值：`[]`）。"
         },
         {
           "name": "selectSearchControl",
           "type": "FormControl<string>",
           "default": "new FormControl<string>('', {nonNullable: true})",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `selectSearchControl` (`FormControl<string>`) storing select search control.",
+          "descriptionZh": "属性 `selectSearchControl`（类型：`FormControl<string>`），用于存储或配置下拉选择搜索表单控件。"
         },
         {
           "name": "searching",
           "type": "boolean",
           "default": "false",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `searching` (`boolean`) storing searching (default: `false`).",
+          "descriptionZh": "属性 `searching`（类型：`boolean`），用于存储或配置搜索（默认值：`false`）。"
         }
       ]
     },
@@ -1187,54 +1231,54 @@
       "name": "Fieldset",
       "kind": "component",
       "selector": "dui-fieldset",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular component `Fieldset` (selector: 'dui-fieldset') providing fieldset presentation and interaction in `src/form/wrapper`.",
+      "summaryZh": "Angular 组件 `Fieldset`（selector: 'dui-fieldset'），提供Fieldset的视图渲染与交互逻辑（位于 `src/form/wrapper`）。",
       "sourceFile": "src/form/wrapper/fieldset.ts",
       "inputs": [
         {
           "name": "legend",
           "type": "string",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `legend` (`string`) configuring legend.",
+          "descriptionZh": "输入属性 `legend`（类型：`string`），用于配置图例。"
         },
         {
           "name": "toggleable",
           "type": "boolean",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `toggleable` (`boolean`) configuring toggleable.",
+          "descriptionZh": "输入属性 `toggleable`（类型：`boolean`），用于配置toggleable。"
         },
         {
           "name": "collapsed",
           "type": "boolean",
           "default": "false",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `collapsed` (`boolean`) configuring collapsed (default: `false`).",
+          "descriptionZh": "输入属性 `collapsed`（类型：`boolean`），用于配置已折叠（默认值：`false`）。"
         },
         {
           "name": "style",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `style` (`any`) configuring style.",
+          "descriptionZh": "输入属性 `style`（类型：`any`），用于配置样式。"
         },
         {
           "name": "styleClass",
           "type": "string",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `styleClass` (`string`) configuring style class.",
+          "descriptionZh": "输入属性 `styleClass`（类型：`string`），用于配置样式类名。"
         }
       ],
       "outputs": [
         {
           "name": "onBeforeToggle",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Output event emitter `onBeforeToggle` (`EventEmitter<any>`) firing when on before toggle occurs.",
+          "descriptionZh": "输出事件 `onBeforeToggle`（类型：`EventEmitter<any>`），当触发当之前开关时向外发出事件。"
         },
         {
           "name": "onAfterToggle",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Output event emitter `onAfterToggle` (`EventEmitter<any>`) firing when on after toggle occurs.",
+          "descriptionZh": "输出事件 `onAfterToggle`（类型：`EventEmitter<any>`），当触发当之后开关时向外发出事件。"
         }
       ],
       "methods": [
@@ -1247,8 +1291,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `toggle` to handle toggle.",
+          "descriptionZh": "执行 `toggle`，用于开关。"
         },
         {
           "name": "expand",
@@ -1259,8 +1303,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `expand` to handle expand.",
+          "descriptionZh": "执行 `expand`，用于展开。"
         },
         {
           "name": "collapse",
@@ -1271,15 +1315,15 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `collapse` to handle collapse.",
+          "descriptionZh": "执行 `collapse`，用于折叠。"
         },
         {
           "name": "getBlockableElement",
           "params": [],
           "returnType": "HTMLElement",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `getBlockableElement` to handle get blockable element.",
+          "descriptionZh": "执行 `getBlockableElement`，用于获取Blockable元素。"
         },
         {
           "name": "onToggleDone",
@@ -1290,24 +1334,24 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `onToggleDone` to handle on toggle done.",
+          "descriptionZh": "执行 `onToggleDone`，用于当开关完成。"
         }
       ],
       "properties": [
         {
           "name": "animating",
           "type": "boolean",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `animating` (`boolean`) storing animating.",
+          "descriptionZh": "属性 `animating`（类型：`boolean`），用于存储或配置动画执行中。"
         }
       ]
     },
     {
       "name": "FormAction",
       "kind": "class",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Class `FormAction` encapsulating form action data structures and logic in `src/form/action`.",
+      "summaryZh": "类 `FormAction`，封装 `src/form/action` 中的表单动作数据结构与处理逻辑。",
       "sourceFile": "src/form/action/action.service.ts",
       "inputs": [],
       "outputs": [],
@@ -1325,8 +1369,8 @@
             }
           ],
           "returnType": "FormAction",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `init` to handle init.",
+          "descriptionZh": "执行 `init`，用于初始化。"
         },
         {
           "name": "run",
@@ -1337,8 +1381,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `run` to handle run.",
+          "descriptionZh": "执行 `run`，用于运行。"
         },
         {
           "name": "success",
@@ -1349,8 +1393,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `success` to handle success.",
+          "descriptionZh": "执行 `success`，用于成功。"
         },
         {
           "name": "failure",
@@ -1361,29 +1405,29 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `failure` to handle failure.",
+          "descriptionZh": "执行 `failure`，用于failure。"
         },
         {
           "name": "getUrl",
           "params": [],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `getUrl` to handle get url.",
+          "descriptionZh": "执行 `getUrl`，用于获取链接地址。"
         },
         {
           "name": "getMethod",
           "params": [],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `getMethod` to handle get method.",
+          "descriptionZh": "执行 `getMethod`，用于获取方法。"
         },
         {
           "name": "getParams",
           "params": [],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `getParams` to handle get params.",
+          "descriptionZh": "执行 `getParams`，用于获取参数集合。"
         },
         {
           "name": "createCallback",
@@ -1394,8 +1438,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `createCallback` to handle create callback.",
+          "descriptionZh": "执行 `createCallback`，用于创建回调函数。"
         }
       ],
       "properties": [
@@ -1403,90 +1447,90 @@
           "name": "CLIENT_INVALID",
           "type": "string",
           "default": "'client'",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `CLIENT_INVALID` (`string`) storing client invalid (default: `'client'`).",
+          "descriptionZh": "属性 `CLIENT_INVALID`（类型：`string`），用于存储或配置CLIENT无效（默认值：`'client'`）。"
         },
         {
           "name": "SERVER_INVALID",
           "type": "string",
           "default": "'server'",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `SERVER_INVALID` (`string`) storing server invalid (default: `'server'`).",
+          "descriptionZh": "属性 `SERVER_INVALID`（类型：`string`），用于存储或配置SERVER无效（默认值：`'server'`）。"
         },
         {
           "name": "CONNECT_FAILURE",
           "type": "string",
           "default": "'connect'",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `CONNECT_FAILURE` (`string`) storing connect failure (default: `'connect'`).",
+          "descriptionZh": "属性 `CONNECT_FAILURE`（类型：`string`），用于存储或配置连接FAILURE（默认值：`'connect'`）。"
         },
         {
           "name": "LOAD_FAILURE",
           "type": "string",
           "default": "'load'",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `LOAD_FAILURE` (`string`) storing load failure (default: `'load'`).",
+          "descriptionZh": "属性 `LOAD_FAILURE`（类型：`string`），用于存储或配置加载FAILURE（默认值：`'load'`）。"
         },
         {
           "name": "form",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `form` (`any`) storing form.",
+          "descriptionZh": "属性 `form`（类型：`any`），用于存储或配置表单。"
         },
         {
           "name": "options",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `options` (`any`) storing options.",
+          "descriptionZh": "属性 `options`（类型：`any`），用于存储或配置配置选项。"
         },
         {
           "name": "url",
           "type": "string",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `url` (`string`) storing url.",
+          "descriptionZh": "属性 `url`（类型：`string`），用于存储或配置链接地址。"
         },
         {
           "name": "method",
           "type": "string",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `method` (`string`) storing method.",
+          "descriptionZh": "属性 `method`（类型：`string`），用于存储或配置方法。"
         },
         {
           "name": "params",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `params` (`any`) storing params.",
+          "descriptionZh": "属性 `params`（类型：`any`），用于存储或配置参数集合。"
         },
         {
           "name": "timeout",
           "type": "number",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `timeout` (`number`) storing timeout.",
+          "descriptionZh": "属性 `timeout`（类型：`number`），用于存储或配置延时器。"
         },
         {
           "name": "scope",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `scope` (`any`) storing scope.",
+          "descriptionZh": "属性 `scope`（类型：`any`），用于存储或配置scope。"
         },
         {
           "name": "type",
           "type": "string",
           "default": "'default'",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `type` (`string`) storing type (default: `'default'`).",
+          "descriptionZh": "属性 `type`（类型：`string`），用于存储或配置类型（默认值：`'default'`）。"
         },
         {
           "name": "failureType",
           "type": "string",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `failureType` (`string`) storing failure type.",
+          "descriptionZh": "属性 `failureType`（类型：`string`），用于存储或配置failure类型。"
         },
         {
           "name": "result",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `result` (`any`) storing result.",
+          "descriptionZh": "属性 `result`（类型：`any`），用于存储或配置结果。"
         }
       ]
     },
@@ -1494,22 +1538,22 @@
       "name": "FormAttributes",
       "kind": "directive",
       "selector": "[formAttributes]",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular directive `FormAttributes` (selector: '[formAttributes]') attaching form attributes behavior to host DOM elements.",
+      "summaryZh": "Angular 指令 `FormAttributes`（selector: '[formAttributes]'），为宿主 DOM 元素附加表单属性列表行为。",
       "sourceFile": "src/form/components/form.attributes.ts",
       "inputs": [
         {
           "name": "field",
           "alias": "formAttributes",
           "type": "FieldConfig",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `formAttributes` (`FieldConfig`) configuring field.",
+          "descriptionZh": "输入属性 `formAttributes`（类型：`FieldConfig`），用于配置字段。"
         },
         {
           "name": "id",
           "type": "string",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `id` (`string`) configuring id.",
+          "descriptionZh": "输入属性 `id`（类型：`string`），用于配置唯一标识。"
         }
       ],
       "outputs": [],
@@ -1523,8 +1567,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `toggleFocus` to handle toggle focus.",
+          "descriptionZh": "执行 `toggleFocus`，用于开关聚焦。"
         },
         {
           "name": "onFocus",
@@ -1535,8 +1579,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `onFocus` to handle on focus.",
+          "descriptionZh": "执行 `onFocus`，用于当聚焦。"
         },
         {
           "name": "onBlur",
@@ -1547,8 +1591,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `onBlur` to handle on blur.",
+          "descriptionZh": "执行 `onBlur`，用于当失焦。"
         },
         {
           "name": "onChange",
@@ -1559,8 +1603,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `onChange` to handle on change.",
+          "descriptionZh": "执行 `onChange`，用于当变更。"
         }
       ],
       "properties": []
@@ -1569,61 +1613,61 @@
       "name": "FormComponent",
       "kind": "component",
       "selector": "dui-form",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular component `FormComponent` (selector: 'dui-form') providing form component presentation and interaction in `src/form/components`.",
+      "summaryZh": "Angular 组件 `FormComponent`（selector: 'dui-form'），提供表单组件的视图渲染与交互逻辑（位于 `src/form/components`）。",
       "sourceFile": "src/form/components/form.component.ts",
       "inputs": [
         {
           "name": "config",
           "type": "any",
           "default": "{}",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `config` (`any`) configuring config (default: `{}`).",
+          "descriptionZh": "输入属性 `config`（类型：`any`），用于配置配置（默认值：`{}`）。"
         },
         {
           "name": "form",
           "type": "FormGroup | FormArray",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input setter `form` updating form.",
+          "descriptionZh": "输入属性 `form` 的设置器，用于更新表单。"
         },
         {
           "name": "model",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input setter `model` updating model.",
+          "descriptionZh": "输入属性 `model` 的设置器，用于更新模型。"
         },
         {
           "name": "items",
           "type": "FieldConfig[]",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input setter `items` updating items.",
+          "descriptionZh": "输入属性 `items` 的设置器，用于更新条目列表。"
         },
         {
           "name": "options",
           "type": "FormOptions",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input setter `options` updating options.",
+          "descriptionZh": "输入属性 `options` 的设置器，用于更新配置选项。"
         },
         {
           "name": "isRoot",
           "type": "any",
           "default": "true",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `isRoot` (`boolean`) configuring is root (default: `true`).",
+          "descriptionZh": "输入属性 `isRoot`（类型：`boolean`），用于配置是否为根节点（默认值：`true`）。"
         }
       ],
       "outputs": [
         {
           "name": "modelChange",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Output event emitter `modelChange` (`EventEmitter`) firing when model change occurs.",
+          "descriptionZh": "输出事件 `modelChange`（类型：`EventEmitter`），当触发模型变更时向外发出事件。"
         },
         {
           "name": "formInit",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Output event emitter `formInit` (`EventEmitter`) firing when form init occurs.",
+          "descriptionZh": "输出事件 `formInit`（类型：`EventEmitter`），当触发表单初始化时向外发出事件。"
         }
       ],
       "methods": [
@@ -1631,8 +1675,8 @@
           "name": "buildForm",
           "params": [],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `buildForm` to handle build form.",
+          "descriptionZh": "执行 `buildForm`，用于构建表单。"
         },
         {
           "name": "init",
@@ -1643,8 +1687,8 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `init` to handle init.",
+          "descriptionZh": "执行 `init`，用于初始化。"
         },
         {
           "name": "getStyle",
@@ -1655,8 +1699,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `getStyle` to handle get style.",
+          "descriptionZh": "执行 `getStyle`，用于获取样式。"
         },
         {
           "name": "changeModel",
@@ -1667,15 +1711,15 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `changeModel` to handle change model.",
+          "descriptionZh": "执行 `changeModel`，用于变更模型。"
         },
         {
           "name": "rebuildForm",
           "params": [],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `rebuildForm` to handle rebuild form.",
+          "descriptionZh": "执行 `rebuildForm`，用于rebuild表单。"
         },
         {
           "name": "submit",
@@ -1686,8 +1730,8 @@
             }
           ],
           "returnType": "Promise<any>",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `submit` to handle submit.",
+          "descriptionZh": "执行 `submit`，用于提交。"
         },
         {
           "name": "load",
@@ -1698,8 +1742,8 @@
             }
           ],
           "returnType": "Promise<any>",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `load` to handle load.",
+          "descriptionZh": "执行 `load`，用于加载。"
         },
         {
           "name": "doAction",
@@ -1714,8 +1758,8 @@
             }
           ],
           "returnType": "Promise<any>",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `doAction` to handle do action.",
+          "descriptionZh": "执行 `doAction`，用于do动作。"
         },
         {
           "name": "updateField",
@@ -1726,15 +1770,15 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `updateField` to handle update field.",
+          "descriptionZh": "执行 `updateField`，用于更新字段。"
         },
         {
           "name": "getValues",
           "params": [],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `getValues` to handle get values.",
+          "descriptionZh": "执行 `getValues`，用于获取值列表。"
         },
         {
           "name": "setValues",
@@ -1745,8 +1789,8 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `setValues` to handle set values.",
+          "descriptionZh": "执行 `setValues`，用于集合值列表。"
         },
         {
           "name": "getFieldValue",
@@ -1757,8 +1801,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `getFieldValue` to handle get field value.",
+          "descriptionZh": "执行 `getFieldValue`，用于获取字段值。"
         },
         {
           "name": "setFieldValue",
@@ -1773,36 +1817,36 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `setFieldValue` to handle set field value.",
+          "descriptionZh": "执行 `setFieldValue`，用于集合字段值。"
         },
         {
           "name": "resetAllFields",
           "params": [],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `resetAllFields` to handle reset all fields.",
+          "descriptionZh": "执行 `resetAllFields`，用于重置全部字段列表。"
         },
         {
           "name": "refresh",
           "params": [],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `refresh` to handle refresh.",
+          "descriptionZh": "执行 `refresh`，用于刷新。"
         },
         {
           "name": "clearInvalid",
           "params": [],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `clearInvalid` to handle clear invalid.",
+          "descriptionZh": "执行 `clearInvalid`，用于清空无效。"
         },
         {
           "name": "reset",
           "params": [],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `reset` to handle reset.",
+          "descriptionZh": "执行 `reset`，用于重置。"
         },
         {
           "name": "afterAction",
@@ -1821,8 +1865,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `afterAction` to handle after action.",
+          "descriptionZh": "执行 `afterAction`，用于之后动作。"
         },
         {
           "name": "getComponent",
@@ -1833,8 +1877,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `getComponent` to handle get component.",
+          "descriptionZh": "执行 `getComponent`，用于获取组件。"
         },
         {
           "name": "findField",
@@ -1849,8 +1893,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `findField` to handle find field.",
+          "descriptionZh": "执行 `findField`，用于查找字段。"
         },
         {
           "name": "add",
@@ -1865,8 +1909,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `add` to handle add.",
+          "descriptionZh": "执行 `add`，用于添加。"
         },
         {
           "name": "remove",
@@ -1877,66 +1921,66 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `remove` to handle remove.",
+          "descriptionZh": "执行 `remove`，用于移除。"
         }
       ],
       "properties": [
         {
           "name": "form",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current form (`form: any`).",
+          "descriptionZh": "获取当前表单（`form: any`）。"
         },
         {
           "name": "model",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current model (`model: any`).",
+          "descriptionZh": "获取当前模型（`model: any`）。"
         },
         {
           "name": "items",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current items (`items: any`).",
+          "descriptionZh": "获取当前条目列表（`items: any`）。"
         },
         {
           "name": "options",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current options (`options: any`).",
+          "descriptionZh": "获取当前配置选项（`options: any`）。"
         },
         {
           "name": "method",
           "type": "string",
           "default": "'POST'",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `method` (`string`) storing method (default: `'POST'`).",
+          "descriptionZh": "属性 `method`（类型：`string`），用于存储或配置方法（默认值：`'POST'`）。"
         },
         {
           "name": "fileUpload",
           "type": "boolean",
           "default": "false",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `fileUpload` (`boolean`) storing file upload (default: `false`).",
+          "descriptionZh": "属性 `fileUpload`（类型：`boolean`），用于存储或配置文件上传（默认值：`false`）。"
         },
         {
           "name": "valid",
           "type": "boolean",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current valid (`valid: boolean`).",
+          "descriptionZh": "获取当前有效（`valid: boolean`）。"
         },
         {
           "name": "value",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current value (`value: any`).",
+          "descriptionZh": "获取当前值（`value: any`）。"
         },
         {
           "name": "value",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Sets the value (`value`).",
+          "descriptionZh": "设置值（`value`）。"
         }
       ]
     },
@@ -1944,8 +1988,8 @@
       "name": "FormGroup",
       "kind": "component",
       "selector": "form-group",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular component `FormGroup` (selector: 'form-group') providing form group presentation and interaction in `src/form/components`.",
+      "summaryZh": "Angular 组件 `FormGroup`（selector: 'form-group'），提供表单分组的视图渲染与交互逻辑（位于 `src/form/components`）。",
       "sourceFile": "src/form/components/form.group.ts",
       "inputs": [],
       "outputs": [],
@@ -1959,8 +2003,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `getStyle` to handle get style.",
+          "descriptionZh": "执行 `getStyle`，用于获取样式。"
         }
       ],
       "properties": [
@@ -1968,16 +2012,16 @@
           "name": "defaultOptions",
           "type": "any",
           "default": "{\n    defaultValue: {},\n  }",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `defaultOptions` (`any`) storing default options (default: `{ defaultValue: {}, }`).",
+          "descriptionZh": "属性 `defaultOptions`（类型：`any`），用于存储或配置默认配置选项（默认值：`{ defaultValue: {}, }`）。"
         }
       ]
     },
     {
       "name": "FormModule",
       "kind": "module",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular module `FormModule` declaring and exporting form module components, directives, pipes, and providers.",
+      "summaryZh": "Angular 模块 `FormModule`，声明并导出表单模块相关的组件、指令、管道与服务提供者。",
       "sourceFile": "src/form/components/form.module.ts",
       "inputs": [],
       "outputs": [],
@@ -1986,8 +2030,8 @@
           "name": "forRoot",
           "params": [],
           "returnType": "ModuleWithProviders<FormModule>",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `forRoot` to handle for root.",
+          "descriptionZh": "执行 `forRoot`，用于用于根节点。"
         },
         {
           "name": "forChild",
@@ -1998,8 +2042,8 @@
             }
           ],
           "returnType": "ModuleWithProviders<FormModule>",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `forChild` to handle for child.",
+          "descriptionZh": "执行 `forChild`，用于用于子级。"
         }
       ],
       "properties": [
@@ -2007,8 +2051,8 @@
           "name": "entryComponents",
           "type": "any",
           "default": "[\n    FormComponent,\n    FormGroup,\n    FieldComponent,]",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `entryComponents` (`any[]`) storing entry components.",
+          "descriptionZh": "属性 `entryComponents`（类型：`any[]`），用于存储或配置条目组件列表。"
         }
       ]
     },
@@ -2016,28 +2060,28 @@
       "name": "FormSection",
       "kind": "component",
       "selector": "form-section",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular component `FormSection` (selector: 'form-section') providing form section presentation and interaction in `src/form/wrapper`.",
+      "summaryZh": "Angular 组件 `FormSection`（selector: 'form-section'），提供表单Section的视图渲染与交互逻辑（位于 `src/form/wrapper`）。",
       "sourceFile": "src/form/wrapper/form.section.ts",
       "inputs": [
         {
           "name": "collapsed",
           "type": "boolean",
           "default": "false",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `collapsed` (`boolean`) configuring collapsed (default: `false`).",
+          "descriptionZh": "输入属性 `collapsed`（类型：`boolean`），用于配置已折叠（默认值：`false`）。"
         },
         {
           "name": "style",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `style` (`any`) configuring style.",
+          "descriptionZh": "输入属性 `style`（类型：`any`），用于配置样式。"
         },
         {
           "name": "styleClass",
           "type": "string",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `styleClass` (`string`) configuring style class.",
+          "descriptionZh": "输入属性 `styleClass`（类型：`string`），用于配置样式类名。"
         }
       ],
       "outputs": [],
@@ -2051,15 +2095,15 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `init` to handle init.",
+          "descriptionZh": "执行 `init`，用于初始化。"
         },
         {
           "name": "toggle",
           "params": [],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `toggle` to handle toggle.",
+          "descriptionZh": "执行 `toggle`，用于开关。"
         }
       ],
       "properties": [
@@ -2067,23 +2111,23 @@
           "name": "layout",
           "type": "any",
           "default": "'row'",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `layout` (`string`) storing layout (default: `'row'`).",
+          "descriptionZh": "属性 `layout`（类型：`string`），用于存储或配置布局（默认值：`'row'`）。"
         },
         {
           "name": "defaultOptions",
           "type": "any",
           "default": "{\n    defaultValue: [],\n  }",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `defaultOptions` (`any`) storing default options (default: `{ defaultValue: [], }`).",
+          "descriptionZh": "属性 `defaultOptions`（类型：`any`），用于存储或配置默认配置选项（默认值：`{ defaultValue: [], }`）。"
         }
       ]
     },
     {
       "name": "FormWrapperModule",
       "kind": "module",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular module `FormWrapperModule` declaring and exporting form wrapper module components, directives, pipes, and providers.",
+      "summaryZh": "Angular 模块 `FormWrapperModule`，声明并导出表单包装器模块相关的组件、指令、管道与服务提供者。",
       "sourceFile": "src/form/wrapper/wrapper.module.ts",
       "inputs": [],
       "outputs": [],
@@ -2093,17 +2137,129 @@
           "name": "entryComponents",
           "type": "any",
           "default": "FIELD_TYPE_COMPONENTS",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `entryComponents` (`any`) storing entry components (default: `FIELD_TYPE_COMPONENTS`).",
+          "descriptionZh": "属性 `entryComponents`（类型：`any`），用于存储或配置条目组件列表（默认值：`FIELD_TYPE_COMPONENTS`）。"
         }
       ]
+    },
+    {
+      "name": "getOptionDisabled",
+      "kind": "function",
+      "summary": "Executes `getOptionDisabled` to handle get option disabled.",
+      "summaryZh": "执行 `getOptionDisabled`，用于获取选项已禁用。",
+      "sourceFile": "src/form/base/select-option-props.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "getOptionDisabled",
+          "params": [
+            {
+              "name": "item",
+              "type": "any"
+            },
+            {
+              "name": "to",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": "Executes `getOptionDisabled` to handle get option disabled.",
+          "descriptionZh": "执行 `getOptionDisabled`，用于获取选项已禁用。"
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "getOptionGroup",
+      "kind": "function",
+      "summary": "Executes `getOptionGroup` to handle get option group.",
+      "summaryZh": "执行 `getOptionGroup`，用于获取选项分组。",
+      "sourceFile": "src/form/base/select-option-props.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "getOptionGroup",
+          "params": [
+            {
+              "name": "item",
+              "type": "any"
+            },
+            {
+              "name": "to",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": "Executes `getOptionGroup` to handle get option group.",
+          "descriptionZh": "执行 `getOptionGroup`，用于获取选项分组。"
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "getOptionLabel",
+      "kind": "function",
+      "summary": "Executes `getOptionLabel` to handle get option label.",
+      "summaryZh": "执行 `getOptionLabel`，用于获取选项标签。",
+      "sourceFile": "src/form/base/select-option-props.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "getOptionLabel",
+          "params": [
+            {
+              "name": "item",
+              "type": "any"
+            },
+            {
+              "name": "to",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": "Executes `getOptionLabel` to handle get option label.",
+          "descriptionZh": "执行 `getOptionLabel`，用于获取选项标签。"
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "getOptionValue",
+      "kind": "function",
+      "summary": "Executes `getOptionValue` to handle get option value.",
+      "summaryZh": "执行 `getOptionValue`，用于获取选项值。",
+      "sourceFile": "src/form/base/select-option-props.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "getOptionValue",
+          "params": [
+            {
+              "name": "item",
+              "type": "any"
+            },
+            {
+              "name": "to",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": "Executes `getOptionValue` to handle get option value.",
+          "descriptionZh": "执行 `getOptionValue`，用于获取选项值。"
+        }
+      ],
+      "properties": []
     },
     {
       "name": "HiddenFieldComponent",
       "kind": "component",
       "selector": "hidden-field",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular component `HiddenFieldComponent` (selector: 'hidden-field') providing hidden field component presentation and interaction in `src/form/field`.",
+      "summaryZh": "Angular 组件 `HiddenFieldComponent`（selector: 'hidden-field'），提供隐藏字段组件的视图渲染与交互逻辑（位于 `src/form/field`）。",
       "sourceFile": "src/form/field/hiddenfield.component.ts",
       "inputs": [],
       "outputs": [],
@@ -2112,15 +2268,15 @@
         {
           "name": "input",
           "type": "ElementRef",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `input` (`ElementRef`) storing input.",
+          "descriptionZh": "属性 `input`（类型：`ElementRef`），用于存储或配置输入属性。"
         },
         {
           "name": "type",
           "type": "any",
           "default": "'hidden'",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `type` (`string`) storing type (default: `'hidden'`).",
+          "descriptionZh": "属性 `type`（类型：`string`），用于存储或配置类型（默认值：`'hidden'`）。"
         }
       ]
     },
@@ -2128,8 +2284,8 @@
       "name": "LabelField",
       "kind": "component",
       "selector": "label-field",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular component `LabelField` (selector: 'label-field') providing label field presentation and interaction in `src/form/label`.",
+      "summaryZh": "Angular 组件 `LabelField`（selector: 'label-field'），提供标签字段的视图渲染与交互逻辑（位于 `src/form/label`）。",
       "sourceFile": "src/form/label/label-field.ts",
       "inputs": [],
       "outputs": [],
@@ -2143,30 +2299,30 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `init` to handle init.",
+          "descriptionZh": "执行 `init`，用于初始化。"
         }
       ],
       "properties": [
         {
           "name": "field",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `field` (`any`) storing field.",
+          "descriptionZh": "属性 `field`（类型：`any`），用于存储或配置字段。"
         },
         {
           "name": "style",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `style` (`any`) storing style.",
+          "descriptionZh": "属性 `style`（类型：`any`），用于存储或配置样式。"
         }
       ]
     },
     {
       "name": "LabelFieldModule",
       "kind": "module",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular module `LabelFieldModule` declaring and exporting label field module components, directives, pipes, and providers.",
+      "summaryZh": "Angular 模块 `LabelFieldModule`，声明并导出标签字段模块相关的组件、指令、管道与服务提供者。",
       "sourceFile": "src/form/label/label.module.ts",
       "inputs": [],
       "outputs": [],
@@ -2176,8 +2332,8 @@
           "name": "entryComponents",
           "type": "any",
           "default": "[\n    LabelField\n  ]",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `entryComponents` (`any[]`) storing entry components (default: `[ LabelField ]`).",
+          "descriptionZh": "属性 `entryComponents`（类型：`any[]`），用于存储或配置条目组件列表（默认值：`[ LabelField ]`）。"
         }
       ]
     },
@@ -2185,8 +2341,8 @@
       "name": "LabelWrapperField",
       "kind": "component",
       "selector": "label-field-wrapper",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular component `LabelWrapperField` (selector: 'label-field-wrapper') providing label wrapper field presentation and interaction in `src/form/wrapper`.",
+      "summaryZh": "Angular 组件 `LabelWrapperField`（selector: 'label-field-wrapper'），提供标签包装器字段的视图渲染与交互逻辑（位于 `src/form/wrapper`）。",
       "sourceFile": "src/form/wrapper/label-field.ts",
       "inputs": [],
       "outputs": [],
@@ -2195,8 +2351,8 @@
           "name": "init",
           "params": [],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `init` to handle init.",
+          "descriptionZh": "执行 `init`，用于初始化。"
         },
         {
           "name": "showTip",
@@ -2207,15 +2363,15 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `showTip` to handle show tip.",
+          "descriptionZh": "执行 `showTip`，用于显示提示。"
         },
         {
           "name": "hideTip",
           "params": [],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `hideTip` to handle hide tip.",
+          "descriptionZh": "执行 `hideTip`，用于隐藏提示。"
         },
         {
           "name": "setDescribedByIds",
@@ -2226,8 +2382,8 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `setDescribedByIds` to handle set described by ids.",
+          "descriptionZh": "执行 `setDescribedByIds`，用于集合Described按标识列表。"
         },
         {
           "name": "onContainerClick",
@@ -2238,116 +2394,116 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `onContainerClick` to handle on container click.",
+          "descriptionZh": "执行 `onContainerClick`，用于当容器点击。"
         }
       ],
       "properties": [
         {
           "name": "fieldComponent",
           "type": "ViewContainerRef",
-          "description": null,
-          "descriptionZh": null
+          "description": "Template/content query reference `fieldComponent` (`@ViewChild`) targeting field component.",
+          "descriptionZh": "模板/内容视图查询引用 `fieldComponent`（`@ViewChild`），指向字段组件。"
         },
         {
           "name": "stateChanges",
           "type": "any",
           "default": "new Subject<void>()",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `stateChanges` (`Subject`) storing state changes (default: `new Subject<void>()`).",
+          "descriptionZh": "属性 `stateChanges`（类型：`Subject`），用于存储或配置状态变更集合（默认值：`new Subject<void>()`）。"
         },
         {
           "name": "underTip",
           "type": "string",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `underTip` (`string`) storing under tip.",
+          "descriptionZh": "属性 `underTip`（类型：`string`），用于存储或配置下方提示。"
         },
         {
           "name": "showUnder",
           "type": "any",
           "default": "false",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `showUnder` (`boolean`) storing show under (default: `false`).",
+          "descriptionZh": "属性 `showUnder`（类型：`boolean`），用于存储或配置显示下方（默认值：`false`）。"
         },
         {
           "name": "options",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `options` (`any`) storing options.",
+          "descriptionZh": "属性 `options`（类型：`any`），用于存储或配置配置选项。"
         },
         {
           "name": "errorState",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current error state (`errorState: any`).",
+          "descriptionZh": "获取当前错误状态（`errorState: any`）。"
         },
         {
           "name": "focused",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current focused (`focused: any`).",
+          "descriptionZh": "获取当前已聚焦（`focused: any`）。"
         },
         {
           "name": "disabled",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current disabled (`disabled: any`).",
+          "descriptionZh": "获取当前已禁用（`disabled: any`）。"
         },
         {
           "name": "required",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current required (`required: any`).",
+          "descriptionZh": "获取当前必填（`required: any`）。"
         },
         {
           "name": "placeholder",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current placeholder (`placeholder: any`).",
+          "descriptionZh": "获取当前占位提示（`placeholder: any`）。"
         },
         {
           "name": "shouldPlaceholderFloat",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current should placeholder float (`shouldPlaceholderFloat: any`).",
+          "descriptionZh": "获取当前是否应当占位提示Float（`shouldPlaceholderFloat: any`）。"
         },
         {
           "name": "value",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current value (`value: any`).",
+          "descriptionZh": "获取当前值（`value: any`）。"
         },
         {
           "name": "ngControl",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current ng control (`ngControl: any`).",
+          "descriptionZh": "获取当前Angular表单控件（`ngControl: any`）。"
         },
         {
           "name": "empty",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current empty (`empty: any`).",
+          "descriptionZh": "获取当前空（`empty: any`）。"
         },
         {
           "name": "shouldLabelFloat",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current should label float (`shouldLabelFloat: any`).",
+          "descriptionZh": "获取当前是否应当标签Float（`shouldLabelFloat: any`）。"
         },
         {
           "name": "fieldConfig",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current field config (`fieldConfig: any`).",
+          "descriptionZh": "获取当前字段配置（`fieldConfig: any`）。"
         }
       ]
     },
     {
       "name": "Load",
       "kind": "service",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Injectable Angular service `Load` managing load state and operations in `src/form/action`.",
+      "summaryZh": "可注入的 Angular 服务 `Load`，管理 `src/form/action` 中的加载状态与业务操作。",
       "sourceFile": "src/form/action/load.service.ts",
       "inputs": [],
       "outputs": [],
@@ -2365,15 +2521,15 @@
             }
           ],
           "returnType": "FormAction",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `init` to handle init.",
+          "descriptionZh": "执行 `init`，用于初始化。"
         },
         {
           "name": "run",
           "params": [],
           "returnType": "Promise<any>",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `run` to handle run.",
+          "descriptionZh": "执行 `run`，用于运行。"
         },
         {
           "name": "success",
@@ -2384,29 +2540,29 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `success` to handle success.",
+          "descriptionZh": "执行 `success`，用于成功。"
         }
       ],
       "properties": [
         {
           "name": "reader",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `reader` (`any`) storing reader.",
+          "descriptionZh": "属性 `reader`（类型：`any`），用于存储或配置读取器。"
         },
         {
           "name": "failureType",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `failureType` (`any`) storing failure type.",
+          "descriptionZh": "属性 `failureType`（类型：`any`），用于存储或配置failure类型。"
         },
         {
           "name": "type",
           "type": "any",
           "default": "'load'",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `type` (`string`) storing type (default: `'load'`).",
+          "descriptionZh": "属性 `type`（类型：`string`），用于存储或配置类型（默认值：`'load'`）。"
         }
       ]
     },
@@ -2415,50 +2571,50 @@
       "kind": "directive",
       "selector": "mat-check-group",
       "summary": "A group of radio buttons. May contain one or more `<mat-radio-button>` elements.",
-      "summaryZh": null,
+      "summaryZh": "Angular 指令 `MatCheckGroup`（selector: 'mat-check-group'），为宿主 DOM 元素附加Material检查分组行为。",
       "sourceFile": "src/form/checkboxgroup/checkboxgroup.exp.ts",
       "inputs": [
         {
           "name": "name",
           "type": "string",
           "description": "Name of the radio button group. All radio buttons inside this group will use this name.",
-          "descriptionZh": null
+          "descriptionZh": "输入属性 `name`（类型：`string`）的读取器，返回当前名称。"
         },
         {
           "name": "align",
           "type": "'start' | 'end'",
           "description": "Alignment of the radio-buttons relative to their labels. Can be 'before' or 'after'.",
-          "descriptionZh": null
+          "descriptionZh": "输入属性 `align`（类型：`'start' | 'end'`）的读取器，返回当前对齐。"
         },
         {
           "name": "labelPosition",
           "type": "any",
           "description": "Whether the labels should appear after or before the radio-buttons. Defaults to 'after'",
-          "descriptionZh": null
+          "descriptionZh": "输入属性 `labelPosition`（类型：`any`）的读取器，返回当前标签位置。"
         },
         {
           "name": "value",
           "type": "Array<string>",
           "description": "Value of the radio button.",
-          "descriptionZh": null
+          "descriptionZh": "输入属性 `value`（类型：`Array<string>`）的读取器，返回当前值。"
         },
         {
           "name": "disabled",
           "type": "boolean",
           "description": "Whether the radio group is disabled",
-          "descriptionZh": null
+          "descriptionZh": "输入属性 `disabled`（类型：`boolean`）的读取器，返回当前已禁用。"
         },
         {
           "name": "required",
           "type": "boolean",
           "description": "Whether the radio group is required",
-          "descriptionZh": null
+          "descriptionZh": "输入属性 `required`（类型：`boolean`）的读取器，返回当前必填。"
         },
         {
           "name": "selected",
           "type": "any",
           "description": "Whether the radio button is selected.",
-          "descriptionZh": null
+          "descriptionZh": "输入属性 `selected`（类型：`any`）的读取器，返回当前已选中。"
         }
       ],
       "outputs": [
@@ -2466,7 +2622,7 @@
           "name": "change",
           "type": "MatCheckChange",
           "description": "Event emitted when the group value changes.\nChange events are only emitted when the value changes due to user interaction with\na radio button (the same behavior as `<input type-\"radio\">`).",
-          "descriptionZh": null
+          "descriptionZh": "输出事件 `change`（类型：`EventEmitter<MatCheckChange>`），当触发变更时向外发出事件。"
         }
       ],
       "methods": [],
@@ -2476,57 +2632,57 @@
           "type": "() => any",
           "default": "() => { }",
           "description": "onTouch function registered via registerOnTouch (ControlValueAccessor).",
-          "descriptionZh": null
+          "descriptionZh": "属性 `onTouched`（类型：`() => any`），用于存储或配置当是否已触碰（默认值：`() => { }`）。"
         },
         {
           "name": "name",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Sets the name (`name`).",
+          "descriptionZh": "设置名称（`name`）。"
         },
         {
           "name": "align",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Sets the align (`align`).",
+          "descriptionZh": "设置对齐（`align`）。"
         },
         {
           "name": "labelPosition",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Sets the label position (`labelPosition`).",
+          "descriptionZh": "设置标签位置（`labelPosition`）。"
         },
         {
           "name": "value",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Sets the value (`value`).",
+          "descriptionZh": "设置值（`value`）。"
         },
         {
           "name": "disabled",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Sets the disabled (`disabled`).",
+          "descriptionZh": "设置已禁用（`disabled`）。"
         },
         {
           "name": "required",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Sets the required (`required`).",
+          "descriptionZh": "设置必填（`required`）。"
         },
         {
           "name": "selected",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Sets the selected (`selected`).",
+          "descriptionZh": "设置已选中（`selected`）。"
         }
       ]
     },
     {
       "name": "MATERIAL_FORMLY_CONFIG",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `MATERIAL_FORMLY_CONFIG` defining material formly config in `src/form/wrapper`.",
+      "summaryZh": "常量/变量 `MATERIAL_FORMLY_CONFIG`，定义 `src/form/wrapper` 中的MATERIALFORMLY配置。",
       "sourceFile": "src/form/wrapper/wrapper.module.ts",
       "inputs": [],
       "outputs": [],
@@ -2536,8 +2692,8 @@
     {
       "name": "MatField",
       "kind": "directive",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular directive `MatField` attaching mat field behavior to host DOM elements.",
+      "summaryZh": "Angular 指令 `MatField`，为宿主 DOM 元素附加Material字段行为。",
       "sourceFile": "src/form/base/mat.field.ts",
       "inputs": [],
       "outputs": [],
@@ -2551,8 +2707,8 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `init` to handle init.",
+          "descriptionZh": "执行 `init`，用于初始化。"
         },
         {
           "name": "setDescribedByIds",
@@ -2563,8 +2719,8 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `setDescribedByIds` to handle set described by ids.",
+          "descriptionZh": "执行 `setDescribedByIds`，用于集合Described按标识列表。"
         },
         {
           "name": "onContainerClick",
@@ -2575,139 +2731,139 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `onContainerClick` to handle on container click.",
+          "descriptionZh": "执行 `onContainerClick`，用于当容器点击。"
         }
       ],
       "properties": [
         {
           "name": "matPrefix",
           "type": "TemplateRef<any>",
-          "description": null,
-          "descriptionZh": null
+          "description": "Template/content query reference `matPrefix` (`@ViewChild`) targeting mat prefix.",
+          "descriptionZh": "模板/内容视图查询引用 `matPrefix`（`@ViewChild`），指向Material前缀。"
         },
         {
           "name": "matSuffix",
           "type": "TemplateRef<any>",
-          "description": null,
-          "descriptionZh": null
+          "description": "Template/content query reference `matSuffix` (`@ViewChild`) targeting mat suffix.",
+          "descriptionZh": "模板/内容视图查询引用 `matSuffix`（`@ViewChild`），指向Material后缀。"
         },
         {
           "name": "formFieldControl",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current form field control (`formFieldControl: any`).",
+          "descriptionZh": "获取当前表单字段表单控件（`formFieldControl: any`）。"
         },
         {
           "name": "formFieldControl",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Sets the form field control (`formFieldControl`).",
+          "descriptionZh": "设置表单字段表单控件（`formFieldControl`）。"
         },
         {
           "name": "errorStateMatcher",
           "type": "any",
           "default": "new ExtErrorStateMatcher(this)",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `errorStateMatcher` (`ExtErrorStateMatcher`) storing error state matcher (default: `new ExtErrorStateMatcher(this)`).",
+          "descriptionZh": "属性 `errorStateMatcher`（类型：`ExtErrorStateMatcher`），用于存储或配置错误状态匹配器（默认值：`new ExtErrorStateMatcher(this)`）。"
         },
         {
           "name": "stateChanges",
           "type": "any",
           "default": "new Subject<void>()",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `stateChanges` (`Subject`) storing state changes (default: `new Subject<void>()`).",
+          "descriptionZh": "属性 `stateChanges`（类型：`Subject`），用于存储或配置状态变更集合（默认值：`new Subject<void>()`）。"
         },
         {
           "name": "invalidText",
           "type": "string",
           "default": "'The value in this field is invalid'",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `invalidText` (`string`) storing invalid text (default: `'The value in this field is invalid'`).",
+          "descriptionZh": "属性 `invalidText`（类型：`string`），用于存储或配置无效文本（默认值：`'The value in this field is invalid'`）。"
         },
         {
           "name": "toolTip",
           "type": "string",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `toolTip` (`string`) storing tool tip.",
+          "descriptionZh": "属性 `toolTip`（类型：`string`），用于存储或配置tool提示。"
         },
         {
           "name": "errorState",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current error state (`errorState: any`).",
+          "descriptionZh": "获取当前错误状态（`errorState: any`）。"
         },
         {
           "name": "controlType",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current control type (`controlType: any`).",
+          "descriptionZh": "获取当前表单控件类型（`controlType: any`）。"
         },
         {
           "name": "focused",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current focused (`focused: any`).",
+          "descriptionZh": "获取当前已聚焦（`focused: any`）。"
         },
         {
           "name": "disabled",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current disabled (`disabled: any`).",
+          "descriptionZh": "获取当前已禁用（`disabled: any`）。"
         },
         {
           "name": "required",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current required (`required: any`).",
+          "descriptionZh": "获取当前必填（`required: any`）。"
         },
         {
           "name": "placeholder",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current placeholder (`placeholder: any`).",
+          "descriptionZh": "获取当前占位提示（`placeholder: any`）。"
         },
         {
           "name": "shouldPlaceholderFloat",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current should placeholder float (`shouldPlaceholderFloat: any`).",
+          "descriptionZh": "获取当前是否应当占位提示Float（`shouldPlaceholderFloat: any`）。"
         },
         {
           "name": "value",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current value (`value: any`).",
+          "descriptionZh": "获取当前值（`value: any`）。"
         },
         {
           "name": "value",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Sets the value (`value`).",
+          "descriptionZh": "设置值（`value`）。"
         },
         {
           "name": "ngControl",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current ng control (`ngControl: any`).",
+          "descriptionZh": "获取当前Angular表单控件（`ngControl: any`）。"
         },
         {
           "name": "empty",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current empty (`empty: any`).",
+          "descriptionZh": "获取当前空（`empty: any`）。"
         },
         {
           "name": "shouldLabelFloat",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current should label float (`shouldLabelFloat: any`).",
+          "descriptionZh": "获取当前是否应当标签Float（`shouldLabelFloat: any`）。"
         },
         {
           "name": "formField",
           "type": "MatFormField",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current form field (`formField: MatFormField`).",
+          "descriptionZh": "获取当前表单字段（`formField: MatFormField`）。"
         }
       ]
     },
@@ -2715,8 +2871,8 @@
       "name": "NumberFieldComponent",
       "kind": "component",
       "selector": "number-field",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular component `NumberFieldComponent` (selector: 'number-field') providing number field component presentation and interaction in `src/form/field`.",
+      "summaryZh": "Angular 组件 `NumberFieldComponent`（selector: 'number-field'），提供数字字段组件的视图渲染与交互逻辑（位于 `src/form/field`）。",
       "sourceFile": "src/form/field/numberfield.component.ts",
       "inputs": [],
       "outputs": [],
@@ -2725,8 +2881,8 @@
           "name": "init",
           "params": [],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `init` to handle init.",
+          "descriptionZh": "执行 `init`，用于初始化。"
         },
         {
           "name": "unitchange",
@@ -2737,8 +2893,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `unitchange` to handle unitchange.",
+          "descriptionZh": "执行 `unitchange`，用于unitchange。"
         },
         {
           "name": "onChange",
@@ -2749,8 +2905,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `onChange` to handle on change.",
+          "descriptionZh": "执行 `onChange`，用于当变更。"
         }
       ],
       "properties": [
@@ -2758,37 +2914,37 @@
           "name": "type",
           "type": "string",
           "default": "'number'",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `type` (`string`) storing type (default: `'number'`).",
+          "descriptionZh": "属性 `type`（类型：`string`），用于存储或配置类型（默认值：`'number'`）。"
         },
         {
           "name": "defaultUnit",
           "type": "any",
           "default": "''",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `defaultUnit` (`string`) storing default unit (default: `''`).",
+          "descriptionZh": "属性 `defaultUnit`（类型：`string`），用于存储或配置默认Unit（默认值：`''`）。"
         },
         {
           "name": "currentUnit",
           "type": "any",
           "default": "''",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `currentUnit` (`string`) storing current unit (default: `''`).",
+          "descriptionZh": "属性 `currentUnit`（类型：`string`），用于存储或配置当前Unit（默认值：`''`）。"
         },
         {
           "name": "units",
           "type": "any",
           "default": "[]",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `units` (`any[]`) storing units (default: `[]`).",
+          "descriptionZh": "属性 `units`（类型：`any[]`），用于存储或配置units（默认值：`[]`）。"
         }
       ]
     },
     {
       "name": "OptionsResult",
       "kind": "class",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Class `OptionsResult` encapsulating options result data structures and logic in `src/form/field`.",
+      "summaryZh": "类 `OptionsResult`，封装 `src/form/field` 中的配置选项结果数据结构与处理逻辑。",
       "sourceFile": "src/form/field/options.service.ts",
       "inputs": [],
       "outputs": [],
@@ -2797,28 +2953,28 @@
         {
           "name": "options",
           "type": "string[]",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `options` (`string[]`) storing options.",
+          "descriptionZh": "属性 `options`（类型：`string[]`），用于存储或配置配置选项。"
         },
         {
           "name": "params",
           "type": "{}",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `params` (`{}`) storing params.",
+          "descriptionZh": "属性 `params`（类型：`{}`），用于存储或配置参数集合。"
         },
         {
           "name": "error",
           "type": "string",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `error` (`string`) storing error.",
+          "descriptionZh": "属性 `error`（类型：`string`），用于存储或配置错误。"
         }
       ]
     },
     {
       "name": "OptionsService",
       "kind": "service",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Injectable Angular service `OptionsService` managing options service state and operations in `src/form/field`.",
+      "summaryZh": "可注入的 Angular 服务 `OptionsService`，管理 `src/form/field` 中的配置选项服务状态与业务操作。",
       "sourceFile": "src/form/field/options.service.ts",
       "inputs": [],
       "outputs": [],
@@ -2840,8 +2996,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `getOptions` to handle get options.",
+          "descriptionZh": "执行 `getOptions`，用于获取配置选项。"
         }
       ],
       "properties": [
@@ -2849,8 +3005,8 @@
           "name": "options",
           "type": "Observable<OptionsResult>",
           "default": "this.optionsSubject.asObservable()",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `options` (`Observable<OptionsResult>`) storing options (default: `this.optionsSubject.asObservable()`).",
+          "descriptionZh": "属性 `options`（类型：`Observable<OptionsResult>`），用于存储或配置配置选项（默认值：`this.optionsSubject.asObservable()`）。"
         }
       ]
     },
@@ -2858,8 +3014,8 @@
       "name": "RadioGroupField",
       "kind": "component",
       "selector": "radio-group",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular component `RadioGroupField` (selector: 'radio-group') providing radio group field presentation and interaction in `src/form/radiogroup`.",
+      "summaryZh": "Angular 组件 `RadioGroupField`（selector: 'radio-group'），提供单选框分组字段的视图渲染与交互逻辑（位于 `src/form/radiogroup`）。",
       "sourceFile": "src/form/radiogroup/radiogroup.component.ts",
       "inputs": [],
       "outputs": [],
@@ -2868,8 +3024,8 @@
           "name": "init",
           "params": [],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `init` to handle init.",
+          "descriptionZh": "执行 `init`，用于初始化。"
         },
         {
           "name": "onContainerClick",
@@ -2880,38 +3036,54 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `onContainerClick` to handle on container click.",
+          "descriptionZh": "执行 `onContainerClick`，用于当容器点击。"
+        },
+        {
+          "name": "trackByOption",
+          "params": [
+            {
+              "name": "index",
+              "type": "number"
+            },
+            {
+              "name": "option",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": "Executes `trackByOption` to handle track by option.",
+          "descriptionZh": "执行 `trackByOption`，用于track按选项。"
         }
       ],
       "properties": [
         {
           "name": "radioGroup",
           "type": "MatRadioGroup",
-          "description": null,
-          "descriptionZh": null
+          "description": "Template/content query reference `radioGroup` (`@ViewChild`) targeting radio group.",
+          "descriptionZh": "模板/内容视图查询引用 `radioGroup`（`@ViewChild`），指向单选框分组。"
         },
         {
           "name": "defaultOptions",
           "type": "any",
           "default": "{\n    hideFieldUnderline: true,\n    floatLabel: 'always',\n    options: [],\n    tabindex: -1,\n  }",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `defaultOptions` (`any`) storing default options.",
+          "descriptionZh": "属性 `defaultOptions`（类型：`any`），用于存储或配置默认配置选项。"
         },
         {
           "name": "readOnly",
           "type": "any",
           "default": "false",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `readOnly` (`boolean`) storing read only (default: `false`).",
+          "descriptionZh": "属性 `readOnly`（类型：`boolean`），用于存储或配置读取Only（默认值：`false`）。"
         }
       ]
     },
     {
       "name": "RadioGroupModule",
       "kind": "module",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular module `RadioGroupModule` declaring and exporting radio group module components, directives, pipes, and providers.",
+      "summaryZh": "Angular 模块 `RadioGroupModule`，声明并导出单选框分组模块相关的组件、指令、管道与服务提供者。",
       "sourceFile": "src/form/radiogroup/radiogroup.module.ts",
       "inputs": [],
       "outputs": [],
@@ -2921,8 +3093,8 @@
           "name": "entryComponents",
           "type": "any",
           "default": "[RadioGroupField]",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `entryComponents` (`any[]`) storing entry components (default: `[RadioGroupField]`).",
+          "descriptionZh": "属性 `entryComponents`（类型：`any[]`），用于存储或配置条目组件列表（默认值：`[RadioGroupField]`）。"
         }
       ]
     },
@@ -2930,8 +3102,8 @@
       "name": "RangeSliderFieldComponent",
       "kind": "component",
       "selector": "range-slider-field",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular component `RangeSliderFieldComponent` (selector: 'range-slider-field') providing range slider field component presentation and interaction in `src/form/rang-slider`.",
+      "summaryZh": "Angular 组件 `RangeSliderFieldComponent`（selector: 'range-slider-field'），提供范围滑块字段组件的视图渲染与交互逻辑（位于 `src/form/rang-slider`）。",
       "sourceFile": "src/form/rang-slider/range-slider.field.ts",
       "inputs": [],
       "outputs": [],
@@ -2945,8 +3117,8 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `onContainerClick` to handle on container click.",
+          "descriptionZh": "执行 `onContainerClick`，用于当容器点击。"
         }
       ],
       "properties": [
@@ -2954,30 +3126,30 @@
           "name": "startCtrl",
           "type": "any",
           "default": "new FormControl(20)",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `startCtrl` (`FormControl`) storing start ctrl (default: `new FormControl(20)`).",
+          "descriptionZh": "属性 `startCtrl`（类型：`FormControl`），用于存储或配置开始Ctrl（默认值：`new FormControl(20)`）。"
         },
         {
           "name": "endCtrl",
           "type": "any",
           "default": "new FormControl(80)",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `endCtrl` (`FormControl`) storing end ctrl (default: `new FormControl(80)`).",
+          "descriptionZh": "属性 `endCtrl`（类型：`FormControl`），用于存储或配置结束Ctrl（默认值：`new FormControl(80)`）。"
         },
         {
           "name": "defaultOptions",
           "type": "any",
           "default": "{\n    hideFieldUnderline: true,\n    floatLabel: 'always',\n  }",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `defaultOptions` (`any`) storing default options.",
+          "descriptionZh": "属性 `defaultOptions`（类型：`any`），用于存储或配置默认配置选项。"
         }
       ]
     },
     {
       "name": "RangeSliderModule",
       "kind": "module",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular module `RangeSliderModule` declaring and exporting range slider module components, directives, pipes, and providers.",
+      "summaryZh": "Angular 模块 `RangeSliderModule`，声明并导出范围滑块模块相关的组件、指令、管道与服务提供者。",
       "sourceFile": "src/form/rang-slider/range-slider.module.ts",
       "inputs": [],
       "outputs": [],
@@ -2987,8 +3159,8 @@
           "name": "entryComponents",
           "type": "any",
           "default": "[RangeSliderFieldComponent]",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `entryComponents` (`any[]`) storing entry components (default: `[RangeSliderFieldComponent]`).",
+          "descriptionZh": "属性 `entryComponents`（类型：`any[]`），用于存储或配置条目组件列表（默认值：`[RangeSliderFieldComponent]`）。"
         }
       ]
     },
@@ -2996,8 +3168,8 @@
       "name": "RepeatTypeComponent",
       "kind": "component",
       "selector": "repeat-section",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular component `RepeatTypeComponent` (selector: 'repeat-section') providing repeat type component presentation and interaction in `src/form/wrapper`.",
+      "summaryZh": "Angular 组件 `RepeatTypeComponent`（selector: 'repeat-section'），提供Repeat类型组件的视图渲染与交互逻辑（位于 `src/form/wrapper`）。",
       "sourceFile": "src/form/wrapper/repeat-section.type.ts",
       "inputs": [],
       "outputs": [],
@@ -3011,8 +3183,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `change` to handle change.",
+          "descriptionZh": "执行 `change`，用于变更。"
         },
         {
           "name": "init",
@@ -3023,8 +3195,8 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `init` to handle init.",
+          "descriptionZh": "执行 `init`，用于初始化。"
         },
         {
           "name": "add",
@@ -3035,8 +3207,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `add` to handle add.",
+          "descriptionZh": "执行 `add`，用于添加。"
         },
         {
           "name": "setName",
@@ -3051,8 +3223,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `setName` to handle set name.",
+          "descriptionZh": "执行 `setName`，用于集合名称。"
         },
         {
           "name": "getTitle",
@@ -3063,8 +3235,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `getTitle` to handle get title.",
+          "descriptionZh": "执行 `getTitle`，用于获取标题。"
         },
         {
           "name": "remove",
@@ -3075,16 +3247,16 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `remove` to handle remove.",
+          "descriptionZh": "执行 `remove`，用于移除。"
         }
       ],
       "properties": [
         {
           "name": "addButton",
           "type": "ButtonComponent",
-          "description": null,
-          "descriptionZh": null
+          "description": "Template/content query reference `addButton` (`@ViewChild`) targeting add button.",
+          "descriptionZh": "模板/内容视图查询引用 `addButton`（`@ViewChild`），指向添加按钮。"
         }
       ]
     },
@@ -3092,8 +3264,8 @@
       "name": "RowEditorComponent",
       "kind": "component",
       "selector": "row-editor",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular component `RowEditorComponent` (selector: 'row-editor') providing row editor component presentation and interaction in `src/form/wrapper`.",
+      "summaryZh": "Angular 组件 `RowEditorComponent`（selector: 'row-editor'），提供行编辑器组件的视图渲染与交互逻辑（位于 `src/form/wrapper`）。",
       "sourceFile": "src/form/wrapper/row.editor.ts",
       "inputs": [],
       "outputs": [],
@@ -3102,8 +3274,8 @@
           "name": "add",
           "params": [],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `add` to handle add.",
+          "descriptionZh": "执行 `add`，用于添加。"
         },
         {
           "name": "remove",
@@ -3114,8 +3286,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `remove` to handle remove.",
+          "descriptionZh": "执行 `remove`，用于移除。"
         }
       ],
       "properties": []
@@ -3123,8 +3295,8 @@
     {
       "name": "SelectFieldModule",
       "kind": "module",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular module `SelectFieldModule` declaring and exporting select field module components, directives, pipes, and providers.",
+      "summaryZh": "Angular 模块 `SelectFieldModule`，声明并导出下拉选择字段模块相关的组件、指令、管道与服务提供者。",
       "sourceFile": "src/form/select/select.module.ts",
       "inputs": [],
       "outputs": [],
@@ -3134,16 +3306,16 @@
           "name": "entryComponents",
           "type": "any",
           "default": "[ FieldSelect]",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `entryComponents` (`any[]`) storing entry components (default: `[ FieldSelect]`).",
+          "descriptionZh": "属性 `entryComponents`（类型：`any[]`），用于存储或配置条目组件列表（默认值：`[ FieldSelect]`）。"
         }
       ]
     },
     {
       "name": "SelectOption",
       "kind": "class",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Class `SelectOption` encapsulating select option data structures and logic in `src/form/select`.",
+      "summaryZh": "类 `SelectOption`，封装 `src/form/select` 中的下拉选择选项数据结构与处理逻辑。",
       "sourceFile": "src/form/select/select.field.ts",
       "inputs": [],
       "outputs": [],
@@ -3152,26 +3324,26 @@
         {
           "name": "label",
           "type": "string",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `label` (`string`) storing label.",
+          "descriptionZh": "属性 `label`（类型：`string`），用于存储或配置标签。"
         },
         {
           "name": "value",
           "type": "string",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `value` (`string`) storing value.",
+          "descriptionZh": "属性 `value`（类型：`string`），用于存储或配置值。"
         },
         {
           "name": "group",
           "type": "SelectOption[]",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `group` (`SelectOption[]`) storing group.",
+          "descriptionZh": "属性 `group`（类型：`SelectOption[]`），用于存储或配置分组。"
         },
         {
           "name": "disabled",
           "type": "boolean",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `disabled` (`boolean`) storing disabled.",
+          "descriptionZh": "属性 `disabled`（类型：`boolean`），用于存储或配置已禁用。"
         }
       ]
     },
@@ -3179,8 +3351,8 @@
       "name": "SelectOptionsPipe",
       "kind": "pipe",
       "pipeName": "selectOptionsPipe",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular pipe `SelectOptionsPipe` (name: 'selectOptionsPipe') transforming values for select options pipe display in templates.",
+      "summaryZh": "Angular 管道 `SelectOptionsPipe`（name: 'selectOptionsPipe'），在模板中转换数据以用于下拉选择配置选项管道展示。",
       "sourceFile": "src/form/base/select-options.pipe.ts",
       "inputs": [],
       "outputs": [],
@@ -3198,8 +3370,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `transform` to handle transform.",
+          "descriptionZh": "执行 `transform`，用于转换。"
         }
       ],
       "properties": []
@@ -3207,8 +3379,8 @@
     {
       "name": "SelectOptionsResult",
       "kind": "class",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Class `SelectOptionsResult` encapsulating select options result data structures and logic in `src/form/select`.",
+      "summaryZh": "类 `SelectOptionsResult`，封装 `src/form/select` 中的下拉选择配置选项结果数据结构与处理逻辑。",
       "sourceFile": "src/form/select/options.service.ts",
       "inputs": [],
       "outputs": [],
@@ -3217,28 +3389,28 @@
         {
           "name": "options",
           "type": "SelectOption[]",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `options` (`SelectOption[]`) storing options.",
+          "descriptionZh": "属性 `options`（类型：`SelectOption[]`），用于存储或配置配置选项。"
         },
         {
           "name": "params",
           "type": "{}",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `params` (`{}`) storing params.",
+          "descriptionZh": "属性 `params`（类型：`{}`），用于存储或配置参数集合。"
         },
         {
           "name": "error",
           "type": "string",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `error` (`string`) storing error.",
+          "descriptionZh": "属性 `error`（类型：`string`），用于存储或配置错误。"
         }
       ]
     },
     {
       "name": "SelectOptionsService",
       "kind": "service",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Injectable Angular service `SelectOptionsService` managing select options service state and operations in `src/form/select`.",
+      "summaryZh": "可注入的 Angular 服务 `SelectOptionsService`，管理 `src/form/select` 中的下拉选择配置选项服务状态与业务操作。",
       "sourceFile": "src/form/select/options.service.ts",
       "inputs": [],
       "outputs": [],
@@ -3260,8 +3432,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `getOptions` to handle get options.",
+          "descriptionZh": "执行 `getOptions`，用于获取配置选项。"
         },
         {
           "name": "setOptions",
@@ -3272,8 +3444,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `setOptions` to handle set options.",
+          "descriptionZh": "执行 `setOptions`，用于集合配置选项。"
         }
       ],
       "properties": [
@@ -3281,16 +3453,16 @@
           "name": "options",
           "type": "Observable<SelectOptionsResult>",
           "default": "this.optionsSubject.asObservable()",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `options` (`Observable<SelectOptionsResult>`) storing options (default: `this.optionsSubject.asObservable()`).",
+          "descriptionZh": "属性 `options`（类型：`Observable<SelectOptionsResult>`），用于存储或配置配置选项（默认值：`this.optionsSubject.asObservable()`）。"
         }
       ]
     },
     {
       "name": "SelectPipeModule",
       "kind": "module",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular module `SelectPipeModule` declaring and exporting select pipe module components, directives, pipes, and providers.",
+      "summaryZh": "Angular 模块 `SelectPipeModule`，声明并导出下拉选择管道模块相关的组件、指令、管道与服务提供者。",
       "sourceFile": "src/form/base/select.module.ts",
       "inputs": [],
       "outputs": [],
@@ -3301,8 +3473,8 @@
       "name": "SliderFieldComponent",
       "kind": "component",
       "selector": "slider-field",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular component `SliderFieldComponent` (selector: 'slider-field') providing slider field component presentation and interaction in `src/form/ext-slider`.",
+      "summaryZh": "Angular 组件 `SliderFieldComponent`（selector: 'slider-field'），提供滑块字段组件的视图渲染与交互逻辑（位于 `src/form/ext-slider`）。",
       "sourceFile": "src/form/ext-slider/slider.component.ts",
       "inputs": [],
       "outputs": [],
@@ -3316,8 +3488,8 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `onContainerClick` to handle on container click.",
+          "descriptionZh": "执行 `onContainerClick`，用于当容器点击。"
         }
       ],
       "properties": [
@@ -3325,16 +3497,16 @@
           "name": "defaultOptions",
           "type": "any",
           "default": "{\n    hideFieldUnderline: true,\n    floatLabel: 'always',\n  }",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `defaultOptions` (`any`) storing default options.",
+          "descriptionZh": "属性 `defaultOptions`（类型：`any`），用于存储或配置默认配置选项。"
         }
       ]
     },
     {
       "name": "SliderFieldModule",
       "kind": "module",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular module `SliderFieldModule` declaring and exporting slider field module components, directives, pipes, and providers.",
+      "summaryZh": "Angular 模块 `SliderFieldModule`，声明并导出滑块字段模块相关的组件、指令、管道与服务提供者。",
       "sourceFile": "src/form/ext-slider/slider.ext.module.ts",
       "inputs": [],
       "outputs": [],
@@ -3344,8 +3516,8 @@
           "name": "entryComponents",
           "type": "any",
           "default": "[SliderFieldComponent]",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `entryComponents` (`any[]`) storing entry components (default: `[SliderFieldComponent]`).",
+          "descriptionZh": "属性 `entryComponents`（类型：`any[]`），用于存储或配置条目组件列表（默认值：`[SliderFieldComponent]`）。"
         }
       ]
     },
@@ -3353,8 +3525,8 @@
       "name": "SliderToggleField",
       "kind": "component",
       "selector": "slide-toggle",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular component `SliderToggleField` (selector: 'slide-toggle') providing slider toggle field presentation and interaction in `src/form/slide-toggle`.",
+      "summaryZh": "Angular 组件 `SliderToggleField`（selector: 'slide-toggle'），提供滑块开关字段的视图渲染与交互逻辑（位于 `src/form/slide-toggle`）。",
       "sourceFile": "src/form/slide-toggle/slide-toggle.component.ts",
       "inputs": [],
       "outputs": [],
@@ -3368,8 +3540,8 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `onContainerClick` to handle on container click.",
+          "descriptionZh": "执行 `onContainerClick`，用于当容器点击。"
         },
         {
           "name": "click",
@@ -3380,15 +3552,15 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `click` to handle click.",
+          "descriptionZh": "执行 `click`，用于点击。"
         },
         {
           "name": "init",
           "params": [],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `init` to handle init.",
+          "descriptionZh": "执行 `init`，用于初始化。"
         }
       ],
       "properties": [
@@ -3396,16 +3568,16 @@
           "name": "defaultOptions",
           "type": "any",
           "default": "{\n    hideFieldUnderline: true,\n    floatLabel: 'always',\n    hideLabel: true,\n    color: 'accent',\n    defaultValue: false\n  }",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `defaultOptions` (`any`) storing default options.",
+          "descriptionZh": "属性 `defaultOptions`（类型：`any`），用于存储或配置默认配置选项。"
         }
       ]
     },
     {
       "name": "SliderToggleFieldModule",
       "kind": "module",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular module `SliderToggleFieldModule` declaring and exporting slider toggle field module components, directives, pipes, and providers.",
+      "summaryZh": "Angular 模块 `SliderToggleFieldModule`，声明并导出滑块开关字段模块相关的组件、指令、管道与服务提供者。",
       "sourceFile": "src/form/slide-toggle/slide-toggle.ext.module.ts",
       "inputs": [],
       "outputs": [],
@@ -3415,16 +3587,16 @@
           "name": "entryComponents",
           "type": "any",
           "default": "[SliderToggleField]",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `entryComponents` (`any[]`) storing entry components (default: `[SliderToggleField]`).",
+          "descriptionZh": "属性 `entryComponents`（类型：`any[]`），用于存储或配置条目组件列表（默认值：`[SliderToggleField]`）。"
         }
       ]
     },
     {
       "name": "Submit",
       "kind": "service",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Injectable Angular service `Submit` managing submit state and operations in `src/form/action`.",
+      "summaryZh": "可注入的 Angular 服务 `Submit`，管理 `src/form/action` 中的提交状态与业务操作。",
       "sourceFile": "src/form/action/submit.service.ts",
       "inputs": [],
       "outputs": [],
@@ -3433,8 +3605,8 @@
           "name": "run",
           "params": [],
           "returnType": "Promise<any>",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `run` to handle run.",
+          "descriptionZh": "执行 `run`，用于运行。"
         },
         {
           "name": "success",
@@ -3445,23 +3617,23 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `success` to handle success.",
+          "descriptionZh": "执行 `success`，用于成功。"
         }
       ],
       "properties": [
         {
           "name": "failureType",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `failureType` (`any`) storing failure type.",
+          "descriptionZh": "属性 `failureType`（类型：`any`），用于存储或配置failure类型。"
         },
         {
           "name": "type",
           "type": "any",
           "default": "'submit'",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `type` (`string`) storing type (default: `'submit'`).",
+          "descriptionZh": "属性 `type`（类型：`string`），用于存储或配置类型（默认值：`'submit'`）。"
         }
       ]
     },
@@ -3469,8 +3641,8 @@
       "name": "TextAreaComponent",
       "kind": "component",
       "selector": "textarea-field",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular component `TextAreaComponent` (selector: 'textarea-field') providing text area component presentation and interaction in `src/form/field`.",
+      "summaryZh": "Angular 组件 `TextAreaComponent`（selector: 'textarea-field'），提供文本区域组件的视图渲染与交互逻辑（位于 `src/form/field`）。",
       "sourceFile": "src/form/field/textarea.component.ts",
       "inputs": [],
       "outputs": [],
@@ -3480,8 +3652,8 @@
           "name": "defaultOptions",
           "type": "any",
           "default": "{\n    cols: 1,\n    rows: 3,\n  }",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `defaultOptions` (`any`) storing default options (default: `{ cols: 1, rows: 3, }`).",
+          "descriptionZh": "属性 `defaultOptions`（类型：`any`），用于存储或配置默认配置选项（默认值：`{ cols: 1, rows: 3, }`）。"
         }
       ]
     },
@@ -3489,8 +3661,8 @@
       "name": "TextFieldComponent",
       "kind": "component",
       "selector": "text-field",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular component `TextFieldComponent` (selector: 'text-field') providing text field component presentation and interaction in `src/form/field`.",
+      "summaryZh": "Angular 组件 `TextFieldComponent`（selector: 'text-field'），提供文本字段组件的视图渲染与交互逻辑（位于 `src/form/field`）。",
       "sourceFile": "src/form/field/textfield.component.ts",
       "inputs": [],
       "outputs": [],
@@ -3499,8 +3671,8 @@
           "name": "init",
           "params": [],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `init` to handle init.",
+          "descriptionZh": "执行 `init`，用于初始化。"
         },
         {
           "name": "openChanged",
@@ -3511,8 +3683,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `openChanged` to handle open changed.",
+          "descriptionZh": "执行 `openChanged`，用于打开已变更。"
         },
         {
           "name": "getLabel",
@@ -3523,8 +3695,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `getLabel` to handle get label.",
+          "descriptionZh": "执行 `getLabel`，用于获取标签。"
         },
         {
           "name": "getValue",
@@ -3535,57 +3707,73 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `getValue` to handle get value.",
+          "descriptionZh": "执行 `getValue`，用于获取值。"
+        },
+        {
+          "name": "trackByOption",
+          "params": [
+            {
+              "name": "index",
+              "type": "number"
+            },
+            {
+              "name": "option",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": "Executes `trackByOption` to handle track by option.",
+          "descriptionZh": "执行 `trackByOption`，用于track按选项。"
         }
       ],
       "properties": [
         {
           "name": "autocompleteTrigger",
           "type": "MatAutocompleteTrigger",
-          "description": null,
-          "descriptionZh": null
+          "description": "Template/content query reference `autocompleteTrigger` (`@ViewChild`) targeting autocomplete trigger.",
+          "descriptionZh": "模板/内容视图查询引用 `autocompleteTrigger`（`@ViewChild`），指向自动补全触发。"
         },
         {
           "name": "disableKeyFilter",
           "type": "any",
           "default": "false",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `disableKeyFilter` (`boolean`) storing disable key filter (default: `false`).",
+          "descriptionZh": "属性 `disableKeyFilter`（类型：`boolean`），用于存储或配置禁用键过滤（默认值：`false`）。"
         },
         {
           "name": "regexText",
           "type": "string",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `regexText` (`string`) storing regex text.",
+          "descriptionZh": "属性 `regexText`（类型：`string`），用于存储或配置正则表达式文本。"
         },
         {
           "name": "filteredOptions",
           "type": "Observable<string[]>",
           "default": "new Observable<string[]>()",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `filteredOptions` (`Observable<string[]>`) storing filtered options (default: `new Observable<string[]>()`).",
+          "descriptionZh": "属性 `filteredOptions`（类型：`Observable<string[]>`），用于存储或配置已过滤配置选项（默认值：`new Observable<string[]>()`）。"
         },
         {
           "name": "isAlive",
           "type": "any",
           "default": "false",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `isAlive` (`boolean`) storing is alive (default: `false`).",
+          "descriptionZh": "属性 `isAlive`（类型：`boolean`），用于存储或配置是否为Alive（默认值：`false`）。"
         },
         {
           "name": "isLoading",
           "type": "any",
           "default": "false",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `isLoading` (`boolean`) storing is loading (default: `false`).",
+          "descriptionZh": "属性 `isLoading`（类型：`boolean`），用于存储或配置是否为加载中（默认值：`false`）。"
         },
         {
           "name": "searching",
           "type": "boolean",
           "default": "false",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `searching` (`boolean`) storing searching (default: `false`).",
+          "descriptionZh": "属性 `searching`（类型：`boolean`），用于存储或配置搜索（默认值：`false`）。"
         }
       ]
     },
@@ -3593,8 +3781,8 @@
       "name": "TriggerField",
       "kind": "component",
       "selector": "trigger-field",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular component `TriggerField` (selector: 'trigger-field') providing trigger field presentation and interaction in `src/form/trigger`.",
+      "summaryZh": "Angular 组件 `TriggerField`（selector: 'trigger-field'），提供触发字段的视图渲染与交互逻辑（位于 `src/form/trigger`）。",
       "sourceFile": "src/form/trigger/trigger.field.ts",
       "inputs": [],
       "outputs": [],
@@ -3603,62 +3791,62 @@
           "name": "init",
           "params": [],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `init` to handle init.",
+          "descriptionZh": "执行 `init`，用于初始化。"
         },
         {
           "name": "open",
           "params": [],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `open` to handle open.",
+          "descriptionZh": "执行 `open`，用于打开。"
         }
       ],
       "properties": [
         {
           "name": "input",
           "type": "ElementRef",
-          "description": null,
-          "descriptionZh": null
+          "description": "Template/content query reference `input` (`@ViewChild`) targeting input.",
+          "descriptionZh": "模板/内容视图查询引用 `input`（`@ViewChild`），指向输入属性。"
         },
         {
           "name": "label",
           "type": "string",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `label` (`string`) storing label.",
+          "descriptionZh": "属性 `label`（类型：`string`），用于存储或配置标签。"
         },
         {
           "name": "openOnFocus",
           "type": "boolean",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current open on focus (`openOnFocus: boolean`).",
+          "descriptionZh": "获取当前打开当聚焦（`openOnFocus: boolean`）。"
         },
         {
           "name": "openOnFocus",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Sets the open on focus (`openOnFocus`).",
+          "descriptionZh": "设置打开当聚焦（`openOnFocus`）。"
         },
         {
           "name": "isOpen",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Sets the is open (`isOpen`).",
+          "descriptionZh": "设置是否为打开（`isOpen`）。"
         },
         {
           "name": "enableKeyEvents",
           "type": "any",
           "default": "true",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `enableKeyEvents` (`boolean`) storing enable key events (default: `true`).",
+          "descriptionZh": "属性 `enableKeyEvents`（类型：`boolean`），用于存储或配置启用键事件集合（默认值：`true`）。"
         }
       ]
     },
     {
       "name": "TriggerModule",
       "kind": "module",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular module `TriggerModule` declaring and exporting trigger module components, directives, pipes, and providers.",
+      "summaryZh": "Angular 模块 `TriggerModule`，声明并导出触发模块相关的组件、指令、管道与服务提供者。",
       "sourceFile": "src/form/trigger/trigger.module.ts",
       "inputs": [],
       "outputs": [],
@@ -3668,8 +3856,8 @@
           "name": "entryComponents",
           "type": "any",
           "default": "[TriggerField]",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `entryComponents` (`any[]`) storing entry components (default: `[TriggerField]`).",
+          "descriptionZh": "属性 `entryComponents`（类型：`any[]`），用于存储或配置条目组件列表（默认值：`[TriggerField]`）。"
         }
       ]
     },
@@ -3677,7 +3865,7 @@
       "name": "ValueChange",
       "kind": "class",
       "summary": "Change event object emitted by Md2Select.",
-      "summaryZh": null,
+      "summaryZh": "类 `ValueChange`，封装 `src/form/trigger` 中的值变更数据结构与处理逻辑。",
       "sourceFile": "src/form/trigger/abstract.trigger.ts",
       "inputs": [],
       "outputs": [],
@@ -3688,8 +3876,8 @@
       "name": "WrapperEditorField",
       "kind": "component",
       "selector": "editor-field-wrapper",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular component `WrapperEditorField` (selector: 'editor-field-wrapper') providing wrapper editor field presentation and interaction in `src/form/wrapper`.",
+      "summaryZh": "Angular 组件 `WrapperEditorField`（selector: 'editor-field-wrapper'），提供包装器编辑器字段的视图渲染与交互逻辑（位于 `src/form/wrapper`）。",
       "sourceFile": "src/form/wrapper/editor-field.ts",
       "inputs": [],
       "outputs": [],
@@ -3703,15 +3891,15 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `setDescribedByIds` to handle set described by ids.",
+          "descriptionZh": "执行 `setDescribedByIds`，用于集合Described按标识列表。"
         },
         {
           "name": "init",
           "params": [],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `init` to handle init.",
+          "descriptionZh": "执行 `init`，用于初始化。"
         },
         {
           "name": "showTip",
@@ -3722,15 +3910,15 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `showTip` to handle show tip.",
+          "descriptionZh": "执行 `showTip`，用于显示提示。"
         },
         {
           "name": "hideTip",
           "params": [],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `hideTip` to handle hide tip.",
+          "descriptionZh": "执行 `hideTip`，用于隐藏提示。"
         },
         {
           "name": "onContainerClick",
@@ -3741,126 +3929,126 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `onContainerClick` to handle on container click.",
+          "descriptionZh": "执行 `onContainerClick`，用于当容器点击。"
         }
       ],
       "properties": [
         {
           "name": "fieldComponent",
           "type": "ViewContainerRef",
-          "description": null,
-          "descriptionZh": null
+          "description": "Template/content query reference `fieldComponent` (`@ViewChild`) targeting field component.",
+          "descriptionZh": "模板/内容视图查询引用 `fieldComponent`（`@ViewChild`），指向字段组件。"
         },
         {
           "name": "formField",
           "type": "MatFormField",
-          "description": null,
-          "descriptionZh": null
+          "description": "Template/content query reference `formField` (`@ViewChild`) targeting form field.",
+          "descriptionZh": "模板/内容视图查询引用 `formField`（`@ViewChild`），指向表单字段。"
         },
         {
           "name": "popoverTrigger",
           "type": "PopoverTrigger",
-          "description": null,
-          "descriptionZh": null
+          "description": "Template/content query reference `popoverTrigger` (`@ViewChild`) targeting popover trigger.",
+          "descriptionZh": "模板/内容视图查询引用 `popoverTrigger`（`@ViewChild`），指向气泡卡片触发。"
         },
         {
           "name": "popover",
           "type": "Popover",
-          "description": null,
-          "descriptionZh": null
+          "description": "Template/content query reference `popover` (`@ViewChild`) targeting popover.",
+          "descriptionZh": "模板/内容视图查询引用 `popover`（`@ViewChild`），指向气泡卡片。"
         },
         {
           "name": "stateChanges",
           "type": "any",
           "default": "new Subject<void>()",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `stateChanges` (`Subject`) storing state changes (default: `new Subject<void>()`).",
+          "descriptionZh": "属性 `stateChanges`（类型：`Subject`），用于存储或配置状态变更集合（默认值：`new Subject<void>()`）。"
         },
         {
           "name": "showUnder",
           "type": "any",
           "default": "false",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `showUnder` (`boolean`) storing show under (default: `false`).",
+          "descriptionZh": "属性 `showUnder`（类型：`boolean`），用于存储或配置显示下方（默认值：`false`）。"
         },
         {
           "name": "errorState",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current error state (`errorState: any`).",
+          "descriptionZh": "获取当前错误状态（`errorState: any`）。"
         },
         {
           "name": "color",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current color (`color: any`).",
+          "descriptionZh": "获取当前颜色（`color: any`）。"
         },
         {
           "name": "controlType",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current control type (`controlType: any`).",
+          "descriptionZh": "获取当前表单控件类型（`controlType: any`）。"
         },
         {
           "name": "focused",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current focused (`focused: any`).",
+          "descriptionZh": "获取当前已聚焦（`focused: any`）。"
         },
         {
           "name": "disabled",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current disabled (`disabled: any`).",
+          "descriptionZh": "获取当前已禁用（`disabled: any`）。"
         },
         {
           "name": "required",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current required (`required: any`).",
+          "descriptionZh": "获取当前必填（`required: any`）。"
         },
         {
           "name": "placeholder",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current placeholder (`placeholder: any`).",
+          "descriptionZh": "获取当前占位提示（`placeholder: any`）。"
         },
         {
           "name": "shouldPlaceholderFloat",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current should placeholder float (`shouldPlaceholderFloat: any`).",
+          "descriptionZh": "获取当前是否应当占位提示Float（`shouldPlaceholderFloat: any`）。"
         },
         {
           "name": "value",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current value (`value: any`).",
+          "descriptionZh": "获取当前值（`value: any`）。"
         },
         {
           "name": "ngControl",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current ng control (`ngControl: any`).",
+          "descriptionZh": "获取当前Angular表单控件（`ngControl: any`）。"
         },
         {
           "name": "empty",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current empty (`empty: any`).",
+          "descriptionZh": "获取当前空（`empty: any`）。"
         },
         {
           "name": "shouldLabelFloat",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current should label float (`shouldLabelFloat: any`).",
+          "descriptionZh": "获取当前是否应当标签Float（`shouldLabelFloat: any`）。"
         },
         {
           "name": "fieldConfig",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current field config (`fieldConfig: any`).",
+          "descriptionZh": "获取当前字段配置（`fieldConfig: any`）。"
         }
       ]
     },
@@ -3868,8 +4056,8 @@
       "name": "WrapperFormField",
       "kind": "component",
       "selector": "mat-form-field-wrapper",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular component `WrapperFormField` (selector: 'mat-form-field-wrapper') providing wrapper form field presentation and interaction in `src/form/wrapper`.",
+      "summaryZh": "Angular 组件 `WrapperFormField`（selector: 'mat-form-field-wrapper'），提供包装器表单字段的视图渲染与交互逻辑（位于 `src/form/wrapper`）。",
       "sourceFile": "src/form/wrapper/form-field.ts",
       "inputs": [],
       "outputs": [],
@@ -3878,8 +4066,8 @@
           "name": "init",
           "params": [],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `init` to handle init.",
+          "descriptionZh": "执行 `init`，用于初始化。"
         },
         {
           "name": "showTip",
@@ -3890,15 +4078,15 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `showTip` to handle show tip.",
+          "descriptionZh": "执行 `showTip`，用于显示提示。"
         },
         {
           "name": "hideTip",
           "params": [],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `hideTip` to handle hide tip.",
+          "descriptionZh": "执行 `hideTip`，用于隐藏提示。"
         },
         {
           "name": "onContainerClick",
@@ -3909,139 +4097,139 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `onContainerClick` to handle on container click.",
+          "descriptionZh": "执行 `onContainerClick`，用于当容器点击。"
         }
       ],
       "properties": [
         {
           "name": "fieldComponent",
           "type": "ViewContainerRef",
-          "description": null,
-          "descriptionZh": null
+          "description": "Template/content query reference `fieldComponent` (`@ViewChild`) targeting field component.",
+          "descriptionZh": "模板/内容视图查询引用 `fieldComponent`（`@ViewChild`），指向字段组件。"
         },
         {
           "name": "formField",
           "type": "MatFormField",
-          "description": null,
-          "descriptionZh": null
+          "description": "Template/content query reference `formField` (`@ViewChild`) targeting form field.",
+          "descriptionZh": "模板/内容视图查询引用 `formField`（`@ViewChild`），指向表单字段。"
         },
         {
           "name": "stateChanges",
           "type": "any",
           "default": "new Subject<void>()",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `stateChanges` (`Subject`) storing state changes (default: `new Subject<void>()`).",
+          "descriptionZh": "属性 `stateChanges`（类型：`Subject`），用于存储或配置状态变更集合（默认值：`new Subject<void>()`）。"
         },
         {
           "name": "toolTip",
           "type": "string",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `toolTip` (`string`) storing tool tip.",
+          "descriptionZh": "属性 `toolTip`（类型：`string`），用于存储或配置tool提示。"
         },
         {
           "name": "underTip",
           "type": "string",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `underTip` (`string`) storing under tip.",
+          "descriptionZh": "属性 `underTip`（类型：`string`），用于存储或配置下方提示。"
         },
         {
           "name": "showUnder",
           "type": "any",
           "default": "false",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `showUnder` (`boolean`) storing show under (default: `false`).",
+          "descriptionZh": "属性 `showUnder`（类型：`boolean`），用于存储或配置显示下方（默认值：`false`）。"
         },
         {
           "name": "classFormField",
           "type": "any",
           "default": "\"\"",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `classFormField` (`string`) storing class form field (default: `\"\"`).",
+          "descriptionZh": "属性 `classFormField`（类型：`string`），用于存储或配置类名表单字段（默认值：`\"\"`）。"
         },
         {
           "name": "paddingStyle",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current padding style (`paddingStyle: any`).",
+          "descriptionZh": "获取当前内边距样式（`paddingStyle: any`）。"
         },
         {
           "name": "errorState",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current error state (`errorState: any`).",
+          "descriptionZh": "获取当前错误状态（`errorState: any`）。"
         },
         {
           "name": "color",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current color (`color: any`).",
+          "descriptionZh": "获取当前颜色（`color: any`）。"
         },
         {
           "name": "controlType",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current control type (`controlType: any`).",
+          "descriptionZh": "获取当前表单控件类型（`controlType: any`）。"
         },
         {
           "name": "focused",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current focused (`focused: any`).",
+          "descriptionZh": "获取当前已聚焦（`focused: any`）。"
         },
         {
           "name": "disabled",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current disabled (`disabled: any`).",
+          "descriptionZh": "获取当前已禁用（`disabled: any`）。"
         },
         {
           "name": "required",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current required (`required: any`).",
+          "descriptionZh": "获取当前必填（`required: any`）。"
         },
         {
           "name": "placeholder",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current placeholder (`placeholder: any`).",
+          "descriptionZh": "获取当前占位提示（`placeholder: any`）。"
         },
         {
           "name": "shouldPlaceholderFloat",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current should placeholder float (`shouldPlaceholderFloat: any`).",
+          "descriptionZh": "获取当前是否应当占位提示Float（`shouldPlaceholderFloat: any`）。"
         },
         {
           "name": "value",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current value (`value: any`).",
+          "descriptionZh": "获取当前值（`value: any`）。"
         },
         {
           "name": "ngControl",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current ng control (`ngControl: any`).",
+          "descriptionZh": "获取当前Angular表单控件（`ngControl: any`）。"
         },
         {
           "name": "empty",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current empty (`empty: any`).",
+          "descriptionZh": "获取当前空（`empty: any`）。"
         },
         {
           "name": "shouldLabelFloat",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current should label float (`shouldLabelFloat: any`).",
+          "descriptionZh": "获取当前是否应当标签Float（`shouldLabelFloat: any`）。"
         },
         {
           "name": "fieldConfig",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current field config (`fieldConfig: any`).",
+          "descriptionZh": "获取当前字段配置（`fieldConfig: any`）。"
         }
       ]
     }

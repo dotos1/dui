@@ -1,6 +1,17 @@
+/**
+ * @fileoverview Module `src/ux/markdown-editor/toc.ts` providing toc definitions and implementation.
+ * @zh 模块文件 `src/ux/markdown-editor/toc.ts`，提供toc相关的定义与实现。
+ */
+
 
 import {TextDocument} from "./vscode-monaco";
-export function buildToc(doc: TextDocument): any {
+/**
+ * Executes `buildToc` to handle build toc.
+ * @zh 执行 `buildToc`，用于构建Toc。
+ * @param doc - doc parameter (`TextDocument`) / 文档参数（`TextDocument`）
+ * @returns Result of type `any` / 类型为 `any` 的返回值
+ */
+export function buildToc(doc: TextDocument) {
     let toc;
     let lines = doc.getText()
         .replace(/^```[\W\w]+?^```/gm, '')      // Remove code blocks

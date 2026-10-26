@@ -1,7 +1,18 @@
+/**
+ * @fileoverview Module `src/theme/theme/dui-speeddial-theme.ts` providing dui speeddial theme definitions and implementation.
+ * @zh 模块文件 `src/theme/theme/dui-speeddial-theme.ts`，提供DUIspeeddial主题相关的定义与实现。
+ */
+
 import { Theme } from '../interfaces/theme';
 import { matColor } from '../mat-color';
 import { matFontSize, matFontWeight } from '../utils/index';
 
+/**
+ * Executes `matSpeedDialTheme` to handle mat speed dial theme.
+ * @zh 执行 `matSpeedDialTheme`，用于Material速度Dial主题。
+ * @param theme - theme parameter (`Theme`) / 主题参数（`Theme`）
+ * @returns Result of type `Object` / 类型为 `Object` 的返回值
+ */
 export function matSpeedDialTheme(theme: Theme): Object {
     const primaryDefault: string = matColor(theme.primary, 'default');
     const foregroundText: string = matColor(theme.primary, 'darker-contrast');

@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Module `src/form/wrapper/wrapper.module.ts` providing wrapper module definitions and implementation.
+ * @zh 模块文件 `src/form/wrapper/wrapper.module.ts`，提供包装器模块相关的定义与实现。
+ */
+
 import { ComponentFactoryResolver, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -29,6 +34,10 @@ import { Dui } from '@dotos/dui/core';
 import { TranslateModule } from '@dotos/dui/translator';
 import { MatButtonModule } from '@angular/material/button';
 
+/**
+ * Constant/variable `FIELD_TYPE_COMPONENTS` defining field type components in `src/form/wrapper`.
+ * @zh 常量/变量 `FIELD_TYPE_COMPONENTS`，定义 `src/form/wrapper` 中的字段类型组件列表。
+ */
 export const FIELD_TYPE_COMPONENTS = [
   FormSection,
   ExtFieldWrapper,
@@ -40,6 +49,10 @@ export const FIELD_TYPE_COMPONENTS = [
   RowEditorComponent
 ];
 
+/**
+ * Constant/variable `MATERIAL_FORMLY_CONFIG` defining material formly config in `src/form/wrapper`.
+ * @zh 常量/变量 `MATERIAL_FORMLY_CONFIG`，定义 `src/form/wrapper` 中的MATERIALFORMLY配置。
+ */
 export const MATERIAL_FORMLY_CONFIG: ConfigOption = {
   wrappers: [
     { name: 'label-field', component: LabelWrapperField },
@@ -50,6 +63,10 @@ export const MATERIAL_FORMLY_CONFIG: ConfigOption = {
   ]
 };
 
+/**
+ * Angular module `FormWrapperModule` declaring and exporting form wrapper module components, directives, pipes, and providers.
+ * @zh Angular 模块 `FormWrapperModule`，声明并导出表单包装器模块相关的组件、指令、管道与服务提供者。
+ */
 @NgModule({
   declarations: FIELD_TYPE_COMPONENTS,
   imports: [
@@ -74,7 +91,16 @@ export const MATERIAL_FORMLY_CONFIG: ConfigOption = {
   exports: FIELD_TYPE_COMPONENTS
 })
 export class FormWrapperModule {
+  /**
+   * Property `entryComponents` (`any`) storing entry components (default: `FIELD_TYPE_COMPONENTS`).
+   * @zh 属性 `entryComponents`（类型：`any`），用于存储或配置条目组件列表（默认值：`FIELD_TYPE_COMPONENTS`）。
+   */
   entryComponents = FIELD_TYPE_COMPONENTS;
+  /**
+   * Creates an instance of `FormWrapperModule` and initializes its dependencies and internal state.
+   * @zh 创建 `FormWrapperModule` 实例，并初始化其依赖项与内部状态。
+   * @param componentFactoryResolver - Injected or initial component factory resolver (`ComponentFactoryResolver`) / 注入或传入的组件工厂解析器（`ComponentFactoryResolver`）
+   */
   constructor(componentFactoryResolver: ComponentFactoryResolver) {
     Dui.registerComponentFactory(componentFactoryResolver,this.entryComponents);
   }

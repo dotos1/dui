@@ -5,33 +5,33 @@
       "name": "DateFieldComponent",
       "kind": "component",
       "selector": "date-field",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular component `DateFieldComponent` (selector: 'date-field') providing date field component presentation and interaction in `src/form/date`.",
+      "summaryZh": "Angular 组件 `DateFieldComponent`（selector: 'date-field'），提供日期字段组件的视图渲染与交互逻辑（位于 `src/form/date`）。",
       "sourceFile": "src/form/date/datefield.component.ts",
       "inputs": [
         {
           "name": "matDatepickerFilter",
           "type": "(date: D | null, type: MatDatetimepickerFilterType) => boolean",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input setter `matDatepickerFilter` updating mat datepicker filter.",
+          "descriptionZh": "输入属性 `matDatepickerFilter` 的设置器，用于更新Material日期选择器过滤。"
         },
         {
           "name": "min",
           "type": "D | null",
           "description": "The minimum valid date.",
-          "descriptionZh": null
+          "descriptionZh": "输入属性 `min`（类型：`D | null`）的读取器，返回当前最小值。"
         },
         {
           "name": "max",
           "type": "D | null",
-          "description": null,
-          "descriptionZh": null
+          "description": "Getter for input property `max` (`D | null`) returning max.",
+          "descriptionZh": "输入属性 `max`（类型：`D | null`）的读取器，返回当前最大值。"
         },
         {
           "name": "disabled",
           "type": "boolean",
-          "description": null,
-          "descriptionZh": null
+          "description": "Getter for input property `disabled` (`boolean`) returning disabled.",
+          "descriptionZh": "输入属性 `disabled`（类型：`boolean`）的读取器，返回当前已禁用。"
         }
       ],
       "outputs": [
@@ -39,13 +39,13 @@
           "name": "dateChange",
           "type": "any",
           "description": "Emits when a `change` event is fired on this `<input>`.",
-          "descriptionZh": null
+          "descriptionZh": "输出事件 `dateChange`（类型：`EventEmitter`），当触发日期变更时向外发出事件。"
         },
         {
           "name": "dateInput",
           "type": "any",
           "description": "Emits when an `input` event is fired on this `<input>`.",
-          "descriptionZh": null
+          "descriptionZh": "输出事件 `dateInput`（类型：`EventEmitter`），当触发日期输入属性时向外发出事件。"
         }
       ],
       "methods": [
@@ -58,8 +58,8 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `init` to handle init.",
+          "descriptionZh": "执行 `init`，用于初始化。"
         },
         {
           "name": "change",
@@ -70,22 +70,22 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `change` to handle change.",
+          "descriptionZh": "执行 `change`，用于变更。"
         },
         {
           "name": "getDisplayFormat",
           "params": [],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `getDisplayFormat` to handle get display format.",
+          "descriptionZh": "执行 `getDisplayFormat`，用于获取Display格式化。"
         },
         {
           "name": "getParseFormat",
           "params": [],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `getParseFormat` to handle get parse format.",
+          "descriptionZh": "执行 `getParseFormat`，用于获取解析格式化。"
         },
         {
           "name": "registerOnValidatorChange",
@@ -96,8 +96,8 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `registerOnValidatorChange` to handle register on validator change.",
+          "descriptionZh": "执行 `registerOnValidatorChange`，用于注册当校验器变更。"
         },
         {
           "name": "validate",
@@ -108,61 +108,61 @@
             }
           ],
           "returnType": "ValidationErrors | null",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `validate` to handle validate.",
+          "descriptionZh": "执行 `validate`，用于校验。"
         }
       ],
       "properties": [
         {
           "name": "datetimepicker",
           "type": "MatDatetimepicker<D>",
-          "description": null,
-          "descriptionZh": null
+          "description": "Template/content query reference `datetimepicker` (`@ViewChild`) targeting datetimepicker.",
+          "descriptionZh": "模板/内容视图查询引用 `datetimepicker`（`@ViewChild`），指向日期时间选择器。"
         },
         {
           "name": "min",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Sets the min (`min`).",
+          "descriptionZh": "设置最小值（`min`）。"
         },
         {
           "name": "max",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Sets the max (`max`).",
+          "descriptionZh": "设置最大值（`max`）。"
         },
         {
           "name": "disabled",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Sets the disabled (`disabled`).",
+          "descriptionZh": "设置已禁用（`disabled`）。"
         },
         {
           "name": "type",
           "type": "string",
           "default": "'date'",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `type` (`string`) storing type (default: `'date'`).",
+          "descriptionZh": "属性 `type`（类型：`string`），用于存储或配置类型（默认值：`'date'`）。"
         },
         {
           "name": "value",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current value (`value: any`).",
+          "descriptionZh": "获取当前值（`value: any`）。"
         },
         {
           "name": "value",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Sets the value (`value`).",
+          "descriptionZh": "设置值（`value`）。"
         }
       ]
     },
     {
       "name": "DateFieldModule",
       "kind": "module",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular module `DateFieldModule` declaring and exporting date field module components, directives, pipes, and providers.",
+      "summaryZh": "Angular 模块 `DateFieldModule`，声明并导出日期字段模块相关的组件、指令、管道与服务提供者。",
       "sourceFile": "src/form/date/datefield.module.ts",
       "inputs": [],
       "outputs": [],
@@ -172,8 +172,8 @@
           "name": "entryComponents",
           "type": "any",
           "default": "[DateFieldComponent]",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `entryComponents` (`any[]`) storing entry components (default: `[DateFieldComponent]`).",
+          "descriptionZh": "属性 `entryComponents`（类型：`any[]`），用于存储或配置条目组件列表（默认值：`[DateFieldComponent]`）。"
         }
       ]
     }

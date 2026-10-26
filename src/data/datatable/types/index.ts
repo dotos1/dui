@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Module `src/data/datatable/types/index.ts` providing index definitions and implementation.
+ * @zh 模块文件 `src/data/datatable/types/index.ts`，提供索引相关的定义与实现。
+ */
+
 export * from './column-mode.type';
 export * from './sort.type';
 export * from './sort-direction.type';

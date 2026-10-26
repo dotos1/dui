@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Module `src/form/colorpicker/color-picker.module.ts` providing color picker module definitions and implementation.
+ * @zh 模块文件 `src/form/colorpicker/color-picker.module.ts`，提供颜色选择器模块相关的定义与实现。
+ */
+
 import { ComponentFactoryResolver, NgModule } from '@angular/core';
 import { A11yModule } from '@angular/cdk/a11y';
 import { PortalModule } from '@angular/cdk/portal';
@@ -22,6 +27,10 @@ import { ColorGithubModule } from '@dotos/dui/common/colorpicker/components';
 import { ColorSketchModule } from '@dotos/dui/common/colorpicker/components';
 import { TranslateModule } from '@dotos/dui/translator';
 
+/**
+ * Angular module `ColorFieldModule` declaring and exporting color field module components, directives, pipes, and providers.
+ * @zh Angular 模块 `ColorFieldModule`，声明并导出颜色字段模块相关的组件、指令、管道与服务提供者。
+ */
 @NgModule({
   declarations: [
     ColorPickerContent,
@@ -58,10 +67,19 @@ import { TranslateModule } from '@dotos/dui/translator';
   ],
 })
 export class ColorFieldModule {
+  /**
+   * Property `entryComponents` (`any[]`) storing entry components.
+   * @zh 属性 `entryComponents`（类型：`any[]`），用于存储或配置条目组件列表。
+   */
   entryComponents = [
     ColorPickerContent,
     ColorPickerField
   ];
+  /**
+   * Creates an instance of `ColorFieldModule` and initializes its dependencies and internal state.
+   * @zh 创建 `ColorFieldModule` 实例，并初始化其依赖项与内部状态。
+   * @param componentFactoryResolver - Injected or initial component factory resolver (`ComponentFactoryResolver`) / 注入或传入的组件工厂解析器（`ComponentFactoryResolver`）
+   */
   constructor(componentFactoryResolver: ComponentFactoryResolver) {
     Dui.registerComponentFactory(componentFactoryResolver,this.entryComponents);
   }

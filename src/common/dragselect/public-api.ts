@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Module `src/common/dragselect/public-api.ts` providing public api definitions and implementation.
+ * @zh 模块文件 `src/common/dragselect/public-api.ts`，提供publicAPI接口相关的定义与实现。
+ */
+
 
 export { CONFIG_FACTORY, DragToSelectModule } from './drag-to-select.module';
 export { SelectContainerComponent } from './select-container.component';

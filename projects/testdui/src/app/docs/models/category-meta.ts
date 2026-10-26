@@ -1,5 +1,22 @@
+/**
+ * @fileoverview Module `projects/testdui/src/app/docs/models/category-meta.ts` providing category meta definitions and implementation.
+ * @zh 模块文件 `projects/testdui/src/app/docs/models/category-meta.ts`，提供分类元数据相关的定义与实现。
+ */
+
+/**
+ * Interface `CategoryMeta` defining the contract and properties for category meta.
+ * @zh 接口 `CategoryMeta`，定义分类元数据的数据结构契约与属性规范。
+ */
 export interface CategoryMeta {
+  /**
+   * Property `icon` (`string`) storing icon.
+   * @zh 属性 `icon`（类型：`string`），用于存储或配置图标。
+   */
   icon: string;
+  /**
+   * Property `tagline` (`string`) storing tagline.
+   * @zh 属性 `tagline`（类型：`string`），用于存储或配置tagline。
+   */
   tagline: string;
 }
 
@@ -7,6 +24,8 @@ export interface CategoryMeta {
  * Static per-category icon + one-sentence theme description for the docs
  * navigation (nav tree / category cards). Keyed by the category id used in
  * `manifest.json` (e.g. 'common', 'ux').
+
+ * @zh 常量/变量 `CATEGORY_META`，定义 `projects/testdui/src/app/docs/models` 中的分类元数据。
  */
 export const CATEGORY_META: Record<string, CategoryMeta> = {
   base: {
@@ -71,8 +90,18 @@ export const CATEGORY_META: Record<string, CategoryMeta> = {
   },
 };
 
+/**
+ * Constant/variable `DEFAULT_META` defining default meta in `projects/testdui/src/app/docs/models`.
+ * @zh 常量/变量 `DEFAULT_META`，定义 `projects/testdui/src/app/docs/models` 中的默认元数据。
+ */
 const DEFAULT_META: CategoryMeta = { icon: 'category', tagline: '' };
 
+/**
+ * Executes `getCategoryMeta` to handle get category meta.
+ * @zh 执行 `getCategoryMeta`，用于获取分类元数据。
+ * @param id - id parameter (`string`) / 唯一标识参数（`string`）
+ * @returns Result of type `CategoryMeta` / 类型为 `CategoryMeta` 的返回值
+ */
 export function getCategoryMeta(id: string): CategoryMeta {
   return CATEGORY_META[id] || DEFAULT_META;
 }

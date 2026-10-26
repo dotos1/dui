@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Module `src/ux/windows/window/window.module.ts` providing window module definitions and implementation.
+ * @zh 模块文件 `src/ux/windows/window/window.module.ts`，提供窗口模块相关的定义与实现。
+ */
+
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
@@ -17,6 +22,10 @@ import {
 } from './components';
 import { ɵDYNAMIC_WINDOW_SHARED_CONFIG_PROVIDER } from './data';
 
+/**
+ * Angular module `WindowModule` declaring and exporting window module components, directives, pipes, and providers.
+ * @zh Angular 模块 `WindowModule`，声明并导出窗口模块相关的组件、指令、管道与服务提供者。
+ */
 @NgModule({
     declarations: [
         ɵDynamicWindowComponent,

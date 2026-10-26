@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Module `src/common/keyboard/keyboard-shortcuts.service.ts` providing keyboard shortcuts service definitions and implementation.
+ * @zh 模块文件 `src/common/keyboard/keyboard-shortcuts.service.ts`，提供键盘快捷键列表服务相关的定义与实现。
+ */
+
 import { Inject, Injectable, OnDestroy } from "@angular/core";
 import {
     _INVERTED_SHIFT_MAP,
@@ -37,6 +42,10 @@ import { allPass, any, difference, identity, isFunction, isNill, maxArrayProp, r
 import { DOCUMENT } from "@angular/common";
 
 
+/**
+ * Constant/variable `guid` defining guid in `src/common/keyboard`.
+ * @zh 常量/变量 `guid`，定义 `src/common/keyboard` 中的全局唯一标识。
+ */
 let guid = 0;
 
 /**
@@ -50,32 +59,76 @@ let guid = 0;
 })
 export class KeyboardShortcutsService implements OnDestroy {
 
+    /**
+     * Property `_shortcuts` (`ParsedShortcut[]`) storing shortcuts (default: `[]`).
+     * @zh 属性 `_shortcuts`（类型：`ParsedShortcut[]`），用于存储或配置快捷键列表（默认值：`[]`）。
+     */
     private _shortcuts: ParsedShortcut[] = [];
 
+    /**
+     * Property `_sequences` (`ParsedShortcut[]`) storing sequences (default: `[]`).
+     * @zh 属性 `_sequences`（类型：`ParsedShortcut[]`），用于存储或配置sequences（默认值：`[]`）。
+     */
     private _sequences: ParsedShortcut[] = [];
 
+    /**
+     * Property `throttleTime` (`number`) storing throttle time (default: `0`).
+     * @zh 属性 `throttleTime`（类型：`number`），用于存储或配置节流时间（默认值：`0`）。
+     */
     private throttleTime = 0;
 
+    /**
+     * Property `_pressed` (`Subject`) storing pressed (default: `new Subject<ShortcutEventOutput>()`).
+     * @zh 属性 `_pressed`（类型：`Subject`），用于存储或配置按下（默认值：`new Subject<ShortcutEventOutput>()`）。
+     */
     private _pressed = new Subject<ShortcutEventOutput>();
 
-    /** @zh 每当任意已注册快捷键被触发时发出事件（含触发的按键与原生事件）。 */
+    /**
+     * Property `pressed$` (`any`) storing pressed (default: `this._pressed.asObservable()`).
+     * @zh 每当任意已注册快捷键被触发时发出事件（含触发的按键与原生事件）。
+     * @zh 每当任意已注册快捷键被触发时发出事件（含触发的按键与原生事件）。
+     */
     public pressed$ = this._pressed.asObservable();
 
+    /**
+     * Property `disabled` (`boolean`) storing disabled (default: `false`).
+     * @zh 属性 `disabled`（类型：`boolean`），用于存储或配置已禁用（默认值：`false`）。
+     */
     private disabled = false;
 
+    /**
+     * Property `TIMEOUT_SEQUENCE` (`number`) storing timeout sequence (default: `1000`).
+     * @zh 属性 `TIMEOUT_SEQUENCE`（类型：`number`），用于存储或配置延时器SEQUENCE（默认值：`1000`）。
+     */
     private static readonly TIMEOUT_SEQUENCE = 1000;
 
+    /**
+     * Property `_shortcutsSub` (`BehaviorSubject`) storing shortcuts sub.
+     * @zh 属性 `_shortcutsSub`（类型：`BehaviorSubject`），用于存储或配置快捷键列表子。
+     */
     private _shortcutsSub = new BehaviorSubject<ParsedShortcut[]>([]);
-    /** @zh 发出当前已注册的（非空）快捷键列表，随注册/注销更新。 */
+    /**
+     * Property `shortcuts$` (`any`) storing shortcuts.
+     * @zh 发出当前已注册的（非空）快捷键列表，随注册/注销更新。
+     * @zh 发出当前已注册的（非空）快捷键列表，随注册/注销更新。
+     */
     public shortcuts$ = this._shortcutsSub
         .pipe(filter((shortcuts) =>{
      
             return shortcuts.length!=0;
     } ));
 
+    /**
+     * Property `_ignored` (`any[]`) storing ignored.
+     * @zh 属性 `_ignored`（类型：`any[]`），用于存储或配置已忽略。
+     */
     private _ignored = [AllowIn.Input, AllowIn.Textarea, AllowIn.Select, AllowIn.ContentEditable];
 
 
+    /**
+     * Property `isAllowed` (`any`) storing is allowed.
+     * @zh 属性 `isAllowed`（类型：`any`），用于存储或配置是否为允许的。
+     */
     private isAllowed = (shortcut: ParsedShortcut) => {
         const target = shortcut.event.target as HTMLElement;
         const isContentEditable = !!target.getAttribute("contenteditable");
@@ -96,6 +149,10 @@ export class KeyboardShortcutsService implements OnDestroy {
     };
 
 
+    /**
+     * Property `mapEvent` (`any`) storing map event.
+     * @zh 属性 `mapEvent`（类型：`any`），用于存储或配置映射表事件。
+     */
     private mapEvent = (event) => {
         return this._shortcuts
             .filter((shortcut) => !shortcut.isSequence)
@@ -103,7 +160,7 @@ export class KeyboardShortcutsService implements OnDestroy {
                 Object.assign({}, shortcut, {
                     predicates: any(
                         identity,
-                        shortcut.predicates.map((predicates: any) => allPass(predicates)(event))
+                        shortcut.predicates.map((predicates) => allPass(predicates)(event))
                     ),
                     event: event
                 })
@@ -115,25 +172,49 @@ export class KeyboardShortcutsService implements OnDestroy {
     };
 
 
+    /**
+     * Property `subscriptions` (`Subscription[]`) storing subscriptions (default: `[]`).
+     * @zh 属性 `subscriptions`（类型：`Subscription[]`），用于存储或配置订阅集合（默认值：`[]`）。
+     */
     private readonly subscriptions: Subscription[] = [];
 
+    /**
+     * Property `keydown$` (`Observable<KeyboardEvent>`) storing keydown (default: `fromEvent(this.document, "keydown")`).
+     * @zh 属性 `keydown$`（类型：`Observable<KeyboardEvent>`），用于存储或配置按键按下（默认值：`fromEvent(this.document, "keydown")`）。
+     */
     private keydown$: Observable<KeyboardEvent> = fromEvent(this.document, "keydown");
 
+    /**
+     * Property `ignore$` (`any`) storing ignore.
+     * @zh 属性 `ignore$`（类型：`any`），用于存储或配置忽略。
+     */
     private ignore$ = this.pressed$.pipe(
         filter((e) => e.event.defaultPrevented),
         switchMap(() => this.clicks$.pipe(first())),
-        tap((e: any) => {
+        tap((e: { preventDefault?; stopPropagation? }) => {
             e.preventDefault();
             e.stopPropagation();
         }),
         repeat()
     );
 
+    /**
+     * Property `clicks$` (`any`) storing clicks.
+     * @zh 属性 `clicks$`（类型：`any`），用于存储或配置点击。
+     */
     private clicks$ = fromEvent(this.document, "click", { capture: true });
 
+    /**
+     * Property `keyup$` (`any`) storing keyup (default: `fromEvent(this.document, "keyup")`).
+     * @zh 属性 `keyup$`（类型：`any`），用于存储或配置按键抬起（默认值：`fromEvent(this.document, "keyup")`）。
+     */
     private keyup$ = fromEvent(this.document, "keyup");
 
 
+    /**
+     * Property `keydownCombo$` (`any`) storing keydown combo.
+     * @zh 属性 `keydownCombo$`（类型：`any`），用于存储或配置按键按下Combo。
+     */
     private keydownCombo$ = this.keydown$.pipe(
         filter(() => !this.disabled),
         map(this.mapEvent),
@@ -160,19 +241,31 @@ export class KeyboardShortcutsService implements OnDestroy {
     );
 
 
+    /**
+     * Property `timer$` (`Subject`) storing timer (default: `new Subject()`).
+     * @zh 属性 `timer$`（类型：`Subject`），用于存储或配置定时器（默认值：`new Subject()`）。
+     */
     private timer$ = new Subject();
    
+    /**
+     * Property `resetCounter$` (`any`) storing reset counter.
+     * @zh 属性 `resetCounter$`（类型：`any`），用于存储或配置重置计数器。
+     */
     private resetCounter$ = this.timer$
         .asObservable()
         .pipe(switchMap(() => timer(KeyboardShortcutsService.TIMEOUT_SEQUENCE)));
 
+    /**
+     * Property `keydownSequence$` (`any`) storing keydown sequence.
+     * @zh 属性 `keydownSequence$`（类型：`any`），用于存储或配置按键按下Sequence。
+     */
     private keydownSequence$ = this.keydown$.pipe(
         map((event) => ({
             event,
             sequences: this._sequences
         })),
         scan(
-            (acc: { events: any[]; command?: any; sequences: any[] }, arg: any) => {
+            (acc: { events; command?; sequences }, arg: { event?; sequences? }) => {
                 const { event } = arg;
                 const currentLength = acc.events.length;
                 const sequences = currentLength ? acc.sequences : arg.sequences;
@@ -262,6 +355,11 @@ export class KeyboardShortcutsService implements OnDestroy {
     );
 
 
+    /**
+     * Executes `isFullMatch` to handle is full match.
+     * @zh 执行 `isFullMatch`，用于是否为完整匹配。
+     * @param options - { command, events } parameter (`any`) / {command,事件集合}参数（`any`）
+     */
     private isFullMatch({ command, events }) {
         if (!command) {
             return false;
@@ -280,7 +378,12 @@ export class KeyboardShortcutsService implements OnDestroy {
     }
 
 
-    constructor(@Inject(DOCUMENT) private document: any) {
+    /**
+     * Creates an instance of `KeyboardShortcutsService` and initializes its dependencies and internal state.
+     * @zh 创建 `KeyboardShortcutsService` 实例，并初始化其依赖项与内部状态。
+     * @param document - Injected or initial document (`any`) / 注入或传入的文档对象（`any`）
+     */
+    constructor(@Inject(DOCUMENT) private document) {
         this.subscriptions.push(
             this.keydownSequence$.subscribe(),
             this.keydownCombo$.subscribe()
@@ -289,6 +392,12 @@ export class KeyboardShortcutsService implements OnDestroy {
     }
 
 
+    /**
+     * Executes `_characterFromEvent` to handle character from event.
+     * @zh 执行 `_characterFromEvent`，用于字符从事件。
+     * @param event - event parameter (`any`) / 事件参数（`any`）
+     * @returns Result of type `[string, boolean]` / 类型为 `[string, boolean]` 的返回值
+     */
     private _characterFromEvent(event): [string, boolean] {
         if (typeof event.which !== "number") {
             event.which = event.keyCode;
@@ -312,6 +421,11 @@ export class KeyboardShortcutsService implements OnDestroy {
         return [event.key, event.shiftKey];
     }
 
+    /**
+     * Executes `characterFromEvent` to handle character from event.
+     * @zh 执行 `characterFromEvent`，用于字符从事件。
+     * @param event - event parameter (`any`) / 事件参数（`any`）
+     */
     private characterFromEvent(event) {
         const [key, shiftKey] = this._characterFromEvent(event);
         if (shiftKey && _SHIFT_MAP[key]) {
@@ -321,11 +435,21 @@ export class KeyboardShortcutsService implements OnDestroy {
     }
 
 
+    /**
+     * Angular lifecycle hook invoked just before the component, directive, or service is destroyed to release subscriptions and resources.
+     * @zh Angular 生命周期钩子：在组件、指令或服务销毁前调用，用于释放订阅与清理资源。
+     */
     ngOnDestroy(): void {
         this.subscriptions.forEach((sub) => sub.unsubscribe());
     }
 
 
+    /**
+     * Executes `isSequence` to handle is sequence.
+     * @zh 执行 `isSequence`，用于是否为Sequence。
+     * @param shortcuts - shortcuts parameter (`string[]`) / 快捷键列表参数（`string[]`）
+     * @returns Result of type `boolean` / 类型为 `boolean` 的返回值
+     */
     private isSequence(shortcuts: string[]): boolean {
         return !shortcuts.some((shortcut) => shortcut.includes("+") || shortcut.length === 1);
     }
@@ -383,6 +507,10 @@ export class KeyboardShortcutsService implements OnDestroy {
         );
     }
 
+    /**
+     * Property `getKeys` (`any`) storing get keys.
+     * @zh 属性 `getKeys`（类型：`any`），用于存储或配置获取键列表。
+     */
     private getKeys = (keys: string[]) => {
         return keys
             .map((key) => key.trim())
@@ -429,11 +557,22 @@ export class KeyboardShortcutsService implements OnDestroy {
     };
 
 
+    /**
+     * Executes `modifiersOn` to handle modifiers on.
+     * @zh 执行 `modifiersOn`，用于modifiers当。
+     * @param event - event parameter (`any`) / 事件参数（`any`）
+     */
     private modifiersOn(event) {
         return ["metaKey", "altKey", "ctrlKey"].some((mod) => event[mod]);
     }
 
 
+    /**
+     * Executes `parseCommand` to handle parse command.
+     * @zh 执行 `parseCommand`，用于解析命令。
+     * @param command - command parameter (`ShortcutInput | ShortcutInput[]`) / 命令参数（`ShortcutInput | ShortcutInput[]`）
+     * @returns Result of type `ParsedShortcut[]` / 类型为 `ParsedShortcut[]` 的返回值
+     */
     private parseCommand(command: ShortcutInput | ShortcutInput[]): ParsedShortcut[] {
         const commands = Array.isArray(command) ? command : [command];
         return commands.map((command) => {

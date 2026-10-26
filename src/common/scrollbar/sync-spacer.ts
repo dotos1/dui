@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Module `src/common/scrollbar/sync-spacer.ts` providing sync spacer definitions and implementation.
+ * @zh 模块文件 `src/common/scrollbar/sync-spacer.ts`，提供同步spacer相关的定义与实现。
+ */
+
 import {
   Directive,
   inject,
@@ -30,17 +35,35 @@ import { ElementDimension, getThrottledStream } from './utils/common';
 })
 export class SyncSpacer {
 
+  /**
+   * Property `sharedResizeObserver` (`SharedResizeObserver`) storing shared resize observer (default: `inject(SharedResizeObserver)`).
+   * @zh 属性 `sharedResizeObserver`（类型：`SharedResizeObserver`），用于存储或配置共享调整尺寸观察者（默认值：`inject(SharedResizeObserver)`）。
+   */
   private readonly sharedResizeObserver: SharedResizeObserver = inject(SharedResizeObserver);
 
+  /**
+   * Property `scrollbar` (`NgScrollbarExt`) storing scrollbar (default: `inject(NgScrollbarExt, { self: true })`).
+   * @zh 属性 `scrollbar`（类型：`NgScrollbarExt`），用于存储或配置滚动条（默认值：`inject(NgScrollbarExt, { self: true })`）。
+   */
   private readonly scrollbar: NgScrollbarExt = inject(NgScrollbarExt, { self: true });
 
+  /**
+   * Property `zone` (`NgZone`) storing zone (default: `inject(NgZone)`).
+   * @zh 属性 `zone`（类型：`NgZone`），用于存储或配置区域(NgZone)（默认值：`inject(NgZone)`）。
+   */
   private readonly zone: NgZone = inject(NgZone);
 
   /**
    * A signal used to sync spacer dimension when content dimension changes
+
+   * @zh 属性 `spacerDimension`（类型：`WritableSignal<ElementDimension>`），用于存储或配置spacer维度（默认值：`signal({})`）。
    */
   spacerDimension: WritableSignal<ElementDimension> = signal({});
 
+  /**
+   * Creates an instance of `SyncSpacer` and initializes its dependencies and internal state.
+   * @zh 创建 `SyncSpacer` 实例，并初始化其依赖项与内部状态。
+   */
   constructor() {
     let sub$: Subscription;
 

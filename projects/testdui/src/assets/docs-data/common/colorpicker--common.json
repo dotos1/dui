@@ -5,8 +5,8 @@
       "name": "AlphaComponent",
       "kind": "component",
       "selector": "color-alpha",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular component `AlphaComponent` (selector: 'color-alpha') providing alpha component presentation and interaction in `src/common/colorpicker/common`.",
+      "summaryZh": "Angular 组件 `AlphaComponent`（selector: 'color-alpha'），提供透明度组件的视图渲染与交互逻辑（位于 `src/common/colorpicker/common`）。",
       "sourceFile": "src/common/colorpicker/common/alpha.component.ts",
       "inputs": [
         {
@@ -24,26 +24,26 @@
         {
           "name": "pointer",
           "type": "{ [key: string]: string }",
-          "description": null,
+          "description": "Input property `pointer` (`{ [key: string]: string }`) configuring pointer.",
           "descriptionZh": "滑块手柄的内联样式。"
         },
         {
           "name": "shadow",
           "type": "string",
-          "description": null,
+          "description": "Input property `shadow` (`string`) configuring shadow.",
           "descriptionZh": "滑动条的阴影样式。"
         },
         {
           "name": "radius",
           "type": "string|number",
-          "description": null,
+          "description": "Input property `radius` (`string|number`) configuring radius.",
           "descriptionZh": "滑动条的圆角半径。"
         },
         {
           "name": "direction",
           "type": "'horizontal' | 'vertical'",
           "default": "'horizontal'",
-          "description": null,
+          "description": "Input property `direction` (`'horizontal' | 'vertical'`) configuring direction (default: `'horizontal'`).",
           "descriptionZh": "滑动条方向：水平或垂直。"
         }
       ],
@@ -73,19 +73,19 @@
         {
           "name": "gradient",
           "type": "{ [key: string]: string }",
-          "description": null,
+          "description": "Property `gradient` (`{ [key: string]: string }`) storing gradient.",
           "descriptionZh": "根据当前颜色计算出的渐变背景样式。"
         },
         {
           "name": "pointerLeft",
           "type": "number",
-          "description": null,
+          "description": "Property `pointerLeft` (`number`) storing pointer left.",
           "descriptionZh": "滑块手柄的水平位置百分比。"
         },
         {
           "name": "pointerTop",
           "type": "number",
-          "description": null,
+          "description": "Property `pointerTop` (`number`) storing pointer top.",
           "descriptionZh": "滑块手柄的垂直位置百分比。"
         }
       ]
@@ -93,8 +93,8 @@
     {
       "name": "AlphaModule",
       "kind": "module",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular module `AlphaModule` declaring and exporting alpha module components, directives, pipes, and providers.",
+      "summaryZh": "Angular 模块 `AlphaModule`，声明并导出透明度模块相关的组件、指令、管道与服务提供者。",
       "sourceFile": "src/common/colorpicker/common/alpha.component.ts",
       "inputs": [],
       "outputs": [],
@@ -105,41 +105,41 @@
       "name": "CheckboardComponent",
       "kind": "component",
       "selector": "color-checkboard",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular component `CheckboardComponent` (selector: 'color-checkboard') providing checkboard component presentation and interaction in `src/common/colorpicker/common`.",
+      "summaryZh": "Angular 组件 `CheckboardComponent`（selector: 'color-checkboard'），提供Checkboard组件的视图渲染与交互逻辑（位于 `src/common/colorpicker/common`）。",
       "sourceFile": "src/common/colorpicker/common/checkboard.component.ts",
       "inputs": [
         {
           "name": "white",
           "type": "any",
           "default": "'transparent'",
-          "description": null,
+          "description": "Input property `white` (`string`) configuring white (default: `'transparent'`).",
           "descriptionZh": "棋盘格\"白色\"方块的颜色。"
         },
         {
           "name": "size",
           "type": "any",
           "default": "8",
-          "description": null,
+          "description": "Input property `size` (`number`) configuring size (default: `8`).",
           "descriptionZh": "每个棋盘格方块的像素尺寸。"
         },
         {
           "name": "grey",
           "type": "any",
           "default": "'rgba(0,0,0,.08)'",
-          "description": null,
+          "description": "Input property `grey` (`string`) configuring grey (default: `'rgba(0,0,0,.08)'`).",
           "descriptionZh": "棋盘格\"灰色\"方块的颜色。"
         },
         {
           "name": "boxShadow",
           "type": "string",
-          "description": null,
+          "description": "Input property `boxShadow` (`string`) configuring box shadow.",
           "descriptionZh": "应用到棋盘格上的阴影样式。"
         },
         {
           "name": "borderRadius",
           "type": "string",
-          "description": null,
+          "description": "Input property `borderRadius` (`string`) configuring border radius.",
           "descriptionZh": "棋盘格的圆角半径。"
         }
       ],
@@ -149,7 +149,7 @@
         {
           "name": "gridStyles",
           "type": "{ [key: string]: string }",
-          "description": null,
+          "description": "Property `gridStyles` (`{ [key: string]: string }`) storing grid styles.",
           "descriptionZh": "根据输入计算出的棋盘格背景样式。"
         }
       ]
@@ -157,8 +157,8 @@
     {
       "name": "CheckboardModule",
       "kind": "module",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular module `CheckboardModule` declaring and exporting checkboard module components, directives, pipes, and providers.",
+      "summaryZh": "Angular 模块 `CheckboardModule`，声明并导出Checkboard模块相关的组件、指令、管道与服务提供者。",
       "sourceFile": "src/common/colorpicker/common/checkboard.component.ts",
       "inputs": [],
       "outputs": [],
@@ -168,24 +168,74 @@
     {
       "name": "Color",
       "kind": "interface",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Interface `Color` defining the contract and properties for color.",
+      "summaryZh": "接口 `Color`，定义颜色的数据结构契约与属性规范。",
       "sourceFile": "src/common/colorpicker/common/helpers/color.interfaces.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
-      "properties": []
+      "properties": [
+        {
+          "name": "hex",
+          "type": "string",
+          "description": "Property `hex` (`string`) storing hex.",
+          "descriptionZh": "属性 `hex`（类型：`string`），用于存储或配置十六进制颜色。"
+        },
+        {
+          "name": "rgb",
+          "type": "RGBA",
+          "description": "Property `rgb` (`RGBA`) storing rgb.",
+          "descriptionZh": "属性 `rgb`（类型：`RGBA`），用于存储或配置RGB颜色。"
+        },
+        {
+          "name": "hsl",
+          "type": "HSLA",
+          "description": "Property `hsl` (`HSLA`) storing hsl.",
+          "descriptionZh": "属性 `hsl`（类型：`HSLA`），用于存储或配置HSL颜色。"
+        },
+        {
+          "name": "hsv",
+          "type": "HSVA",
+          "description": "Property `hsv` (`HSVA`) storing hsv.",
+          "descriptionZh": "属性 `hsv`（类型：`HSVA`），用于存储或配置HSV颜色。"
+        },
+        {
+          "name": "oldHue",
+          "type": "number",
+          "description": "Property `oldHue` (`number`) storing old hue.",
+          "descriptionZh": "属性 `oldHue`（类型：`number`），用于存储或配置旧色相。"
+        },
+        {
+          "name": "source",
+          "type": "string",
+          "description": "Property `source` (`string`) storing source.",
+          "descriptionZh": "属性 `source`（类型：`string`），用于存储或配置源。"
+        }
+      ]
     },
     {
       "name": "ColorEvent",
       "kind": "interface",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Interface `ColorEvent` defining the contract and properties for color event.",
+      "summaryZh": "接口 `ColorEvent`，定义颜色事件的数据结构契约与属性规范。",
       "sourceFile": "src/common/colorpicker/common/color-wrap.component.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
-      "properties": []
+      "properties": [
+        {
+          "name": "$event",
+          "type": "Event",
+          "description": "Property `$event` (`Event`) storing event.",
+          "descriptionZh": "属性 `$event`（类型：`Event`），用于存储或配置事件。"
+        },
+        {
+          "name": "color",
+          "type": "Color",
+          "description": "Property `color` (`Color`) storing color.",
+          "descriptionZh": "属性 `color`（类型：`Color`），用于存储或配置颜色。"
+        }
+      ]
     },
     {
       "name": "ColorWrap",
@@ -213,19 +263,19 @@
         {
           "name": "onChange",
           "type": "any",
-          "description": null,
+          "description": "Output event emitter `onChange` (`EventEmitter`) firing when on change occurs.",
           "descriptionZh": "颜色变化时发出（防抖前）。"
         },
         {
           "name": "onChangeComplete",
           "type": "any",
-          "description": null,
+          "description": "Output event emitter `onChangeComplete` (`EventEmitter`) firing when on change complete occurs.",
           "descriptionZh": "颜色变化完成后发出（对 `onChange` 做了防抖）。"
         },
         {
           "name": "onSwatchHover",
           "type": "any",
-          "description": null,
+          "description": "Output event emitter `onSwatchHover` (`EventEmitter`) firing when on swatch hover occurs.",
           "descriptionZh": "悬停在色块上时发出。"
         }
       ],
@@ -263,7 +313,7 @@
           "params": [],
           "returnType": "any",
           "description": "hook for components after a complete change",
-          "descriptionZh": null
+          "descriptionZh": "执行 `afterValidChange`，用于之后有效变更。"
         },
         {
           "name": "handleSwatchHover",
@@ -286,7 +336,7 @@
         {
           "name": "oldHue",
           "type": "number",
-          "description": null,
+          "description": "Property `oldHue` (`number`) storing old hue.",
           "descriptionZh": "上一个有效的色相值，色相未变化（如切换到无色调的黑白）时用于保留。"
         },
         {
@@ -310,31 +360,31 @@
         {
           "name": "hex",
           "type": "string",
-          "description": null,
+          "description": "Property `hex` (`string`) storing hex.",
           "descriptionZh": "当前颜色的十六进制表示。"
         },
         {
           "name": "source",
           "type": "string",
-          "description": null,
+          "description": "Property `source` (`string`) storing source.",
           "descriptionZh": "最近一次颜色变化的来源标识（如 `'hex'`、`'rgb'`、`'hsva'`）。"
         },
         {
           "name": "currentColor",
           "type": "string",
-          "description": null,
+          "description": "Property `currentColor` (`string`) storing current color.",
           "descriptionZh": "初始化时记录的当前颜色（十六进制）。"
         },
         {
           "name": "changes",
           "type": "Subscription",
-          "description": null,
+          "description": "Property `changes` (`Subscription`) storing changes.",
           "descriptionZh": "内部使用，`onChange` 到 `onChangeComplete` 的防抖订阅。"
         },
         {
           "name": "host",
           "type": "any",
-          "description": null,
+          "description": "Property `host` (`any`) storing host.",
           "descriptionZh": "承载该选择器的弹出层触发宿主（用于选中后自动关闭）。"
         },
         {
@@ -354,8 +404,8 @@
     {
       "name": "ColorWrapModule",
       "kind": "module",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular module `ColorWrapModule` declaring and exporting color wrap module components, directives, pipes, and providers.",
+      "summaryZh": "Angular 模块 `ColorWrapModule`，声明并导出颜色包裹模块相关的组件、指令、管道与服务提供者。",
       "sourceFile": "src/common/colorpicker/common/color-wrap.component.ts",
       "inputs": [],
       "outputs": [],
@@ -374,7 +424,7 @@
         {
           "name": "coordinatesChange",
           "type": "any",
-          "description": null,
+          "description": "Output event emitter `coordinatesChange` (`Subject`) firing when coordinates change occurs.",
           "descriptionZh": "拖拽/点击坐标（相对宿主元素）变化时发出。"
         }
       ],
@@ -464,8 +514,8 @@
     {
       "name": "CoordinatesModule",
       "kind": "module",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular module `CoordinatesModule` declaring and exporting coordinates module components, directives, pipes, and providers.",
+      "summaryZh": "Angular 模块 `CoordinatesModule`，声明并导出坐标模块相关的组件、指令、管道与服务提供者。",
       "sourceFile": "src/common/colorpicker/common/coordinates.directive.ts",
       "inputs": [],
       "outputs": [],
@@ -476,51 +526,51 @@
       "name": "EditableInputComponent",
       "kind": "component",
       "selector": "color-editable-input",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular component `EditableInputComponent` (selector: 'color-editable-input') providing editable input component presentation and interaction in `src/common/colorpicker/common`.",
+      "summaryZh": "Angular 组件 `EditableInputComponent`（selector: 'color-editable-input'），提供是否可编辑输入属性组件的视图渲染与交互逻辑（位于 `src/common/colorpicker/common`）。",
       "sourceFile": "src/common/colorpicker/common/editable-input.component.ts",
       "inputs": [
         {
           "name": "style",
           "type": "{ wrap?: { [key: string]: string }; input: { [key: string]: string }; label: { [key: string]: string }; }",
-          "description": null,
+          "description": "Input property `style` (`{ wrap?: { [key: string]: string }; input: { [key: string]: string };...`) configuring style.",
           "descriptionZh": "包裹层/输入框/标签各自的内联样式。"
         },
         {
           "name": "label",
           "type": "string",
-          "description": null,
+          "description": "Input property `label` (`string`) configuring label.",
           "descriptionZh": "字段标签文字（也用作 `onChange` 发出数据对象的键名）。"
         },
         {
           "name": "value",
           "type": "string | number",
-          "description": null,
+          "description": "Input property `value` (`string | number`) configuring value.",
           "descriptionZh": "当前字段值。"
         },
         {
           "name": "arrowOffset",
           "type": "number",
-          "description": null,
+          "description": "Input property `arrowOffset` (`number`) configuring arrow offset.",
           "descriptionZh": "使用方向键调整数值时的步进量。"
         },
         {
           "name": "dragLabel",
           "type": "boolean",
-          "description": null,
+          "description": "Input property `dragLabel` (`boolean`) configuring drag label.",
           "descriptionZh": "是否允许通过拖拽标签调整数值。"
         },
         {
           "name": "dragMax",
           "type": "number",
-          "description": null,
+          "description": "Input property `dragMax` (`number`) configuring drag max.",
           "descriptionZh": "通过拖拽标签调整数值时允许的最大值。"
         },
         {
           "name": "placeholder",
           "type": "any",
           "default": "''",
-          "description": null,
+          "description": "Input property `placeholder` (`string`) configuring placeholder (default: `''`).",
           "descriptionZh": "输入框占位提示文字。"
         }
       ],
@@ -528,7 +578,7 @@
         {
           "name": "onChange",
           "type": "any",
-          "description": null,
+          "description": "Output event emitter `onChange` (`EventEmitter`) firing when on change occurs.",
           "descriptionZh": "字段值变化时发出。"
         }
       ],
@@ -614,50 +664,50 @@
         {
           "name": "currentValue",
           "type": "string | number",
-          "description": null,
+          "description": "Property `currentValue` (`string | number`) storing current value.",
           "descriptionZh": "输入框当前显示的值。"
         },
         {
           "name": "blurValue",
           "type": "string",
-          "description": null,
+          "description": "Property `blurValue` (`string`) storing blur value.",
           "descriptionZh": "失焦时应恢复显示的值。"
         },
         {
           "name": "wrapStyle",
           "type": "{ [key: string]: string }",
-          "description": null,
+          "description": "Property `wrapStyle` (`{ [key: string]: string }`) storing wrap style.",
           "descriptionZh": "包裹层的内联样式。"
         },
         {
           "name": "inputStyle",
           "type": "{ [key: string]: string }",
-          "description": null,
+          "description": "Property `inputStyle` (`{ [key: string]: string }`) storing input style.",
           "descriptionZh": "输入框的内联样式。"
         },
         {
           "name": "labelStyle",
           "type": "{ [key: string]: string }",
-          "description": null,
+          "description": "Property `labelStyle` (`{ [key: string]: string }`) storing label style.",
           "descriptionZh": "标签的内联样式。"
         },
         {
           "name": "focus",
           "type": "any",
           "default": "false",
-          "description": null,
+          "description": "Property `focus` (`boolean`) storing focus (default: `false`).",
           "descriptionZh": "输入框当前是否处于聚焦状态。"
         },
         {
           "name": "mousemove",
           "type": "Subscription",
-          "description": null,
+          "description": "Property `mousemove` (`Subscription`) storing mousemove.",
           "descriptionZh": "内部使用，拖拽标签调整数值时的鼠标移动订阅。"
         },
         {
           "name": "mouseup",
           "type": "Subscription",
-          "description": null,
+          "description": "Property `mouseup` (`Subscription`) storing mouseup.",
           "descriptionZh": "内部使用，拖拽标签调整数值时的鼠标抬起订阅。"
         }
       ]
@@ -665,8 +715,8 @@
     {
       "name": "EditableInputModule",
       "kind": "module",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular module `EditableInputModule` declaring and exporting editable input module components, directives, pipes, and providers.",
+      "summaryZh": "Angular 模块 `EditableInputModule`，声明并导出是否可编辑输入属性模块相关的组件、指令、管道与服务提供者。",
       "sourceFile": "src/common/colorpicker/common/editable-input.component.ts",
       "inputs": [],
       "outputs": [],
@@ -676,97 +726,197 @@
     {
       "name": "getCheckerboard",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Executes `getCheckerboard` to handle get checkerboard.",
+      "summaryZh": "执行 `getCheckerboard`，用于获取Checkerboard。",
       "sourceFile": "src/common/colorpicker/common/helpers/checkboard.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "getCheckerboard",
+          "params": [
+            {
+              "name": "c1",
+              "type": "string"
+            },
+            {
+              "name": "c2",
+              "type": "string"
+            },
+            {
+              "name": "size",
+              "type": "number"
+            }
+          ],
+          "returnType": "any",
+          "description": "Executes `getCheckerboard` to handle get checkerboard.",
+          "descriptionZh": "执行 `getCheckerboard`，用于获取Checkerboard。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "getContrastingColor",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Executes `getContrastingColor` to handle get contrasting color.",
+      "summaryZh": "执行 `getContrastingColor`，用于获取对比度颜色。",
       "sourceFile": "src/common/colorpicker/common/helpers/color.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "getContrastingColor",
+          "params": [
+            {
+              "name": "data",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": "Executes `getContrastingColor` to handle get contrasting color.",
+          "descriptionZh": "执行 `getContrastingColor`，用于获取对比度颜色。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "HSL",
       "kind": "interface",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Interface `HSL` defining the contract and properties for hsl.",
+      "summaryZh": "接口 `HSL`，定义HSL颜色的数据结构契约与属性规范。",
       "sourceFile": "src/common/colorpicker/common/helpers/color.interfaces.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
-      "properties": []
+      "properties": [
+        {
+          "name": "h",
+          "type": "number",
+          "description": "Property `h` (`number`) storing h.",
+          "descriptionZh": "属性 `h`（类型：`number`），用于存储或配置h。"
+        },
+        {
+          "name": "s",
+          "type": "number",
+          "description": "Property `s` (`number`) storing s.",
+          "descriptionZh": "属性 `s`（类型：`number`），用于存储或配置s。"
+        },
+        {
+          "name": "l",
+          "type": "number",
+          "description": "Property `l` (`number`) storing l.",
+          "descriptionZh": "属性 `l`（类型：`number`），用于存储或配置l。"
+        }
+      ]
     },
     {
       "name": "HSLA",
       "kind": "interface",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Interface `HSLA` defining the contract and properties for hsla.",
+      "summaryZh": "接口 `HSLA`，定义HSLA颜色的数据结构契约与属性规范。",
       "sourceFile": "src/common/colorpicker/common/helpers/color.interfaces.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
-      "properties": []
+      "properties": [
+        {
+          "name": "a",
+          "type": "number",
+          "description": "Property `a` (`number`) storing a.",
+          "descriptionZh": "属性 `a`（类型：`number`），用于存储或配置a。"
+        }
+      ]
     },
     {
       "name": "HSLAsource",
       "kind": "interface",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Interface `HSLAsource` defining the contract and properties for hsl asource.",
+      "summaryZh": "接口 `HSLAsource`，定义HSL颜色Asource的数据结构契约与属性规范。",
       "sourceFile": "src/common/colorpicker/common/helpers/color.interfaces.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
-      "properties": []
+      "properties": [
+        {
+          "name": "source",
+          "type": "string",
+          "description": "Property `source` (`string`) storing source.",
+          "descriptionZh": "属性 `source`（类型：`string`），用于存储或配置源。"
+        }
+      ]
     },
     {
       "name": "HSV",
       "kind": "interface",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Interface `HSV` defining the contract and properties for hsv.",
+      "summaryZh": "接口 `HSV`，定义HSV颜色的数据结构契约与属性规范。",
       "sourceFile": "src/common/colorpicker/common/helpers/color.interfaces.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
-      "properties": []
+      "properties": [
+        {
+          "name": "h",
+          "type": "number",
+          "description": "Property `h` (`number`) storing h.",
+          "descriptionZh": "属性 `h`（类型：`number`），用于存储或配置h。"
+        },
+        {
+          "name": "s",
+          "type": "number",
+          "description": "Property `s` (`number`) storing s.",
+          "descriptionZh": "属性 `s`（类型：`number`），用于存储或配置s。"
+        },
+        {
+          "name": "v",
+          "type": "number",
+          "description": "Property `v` (`number`) storing v.",
+          "descriptionZh": "属性 `v`（类型：`number`），用于存储或配置v。"
+        }
+      ]
     },
     {
       "name": "HSVA",
       "kind": "interface",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Interface `HSVA` defining the contract and properties for hsva.",
+      "summaryZh": "接口 `HSVA`，定义HSVA的数据结构契约与属性规范。",
       "sourceFile": "src/common/colorpicker/common/helpers/color.interfaces.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
-      "properties": []
+      "properties": [
+        {
+          "name": "a",
+          "type": "number",
+          "description": "Property `a` (`number`) storing a.",
+          "descriptionZh": "属性 `a`（类型：`number`），用于存储或配置a。"
+        }
+      ]
     },
     {
       "name": "HSVAsource",
       "kind": "interface",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Interface `HSVAsource` defining the contract and properties for hsv asource.",
+      "summaryZh": "接口 `HSVAsource`，定义HSV颜色Asource的数据结构契约与属性规范。",
       "sourceFile": "src/common/colorpicker/common/helpers/color.interfaces.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
-      "properties": []
+      "properties": [
+        {
+          "name": "source",
+          "type": "string",
+          "description": "Property `source` (`string`) storing source.",
+          "descriptionZh": "属性 `source`（类型：`string`），用于存储或配置源。"
+        }
+      ]
     },
     {
       "name": "HueComponent",
       "kind": "component",
       "selector": "color-hue",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular component `HueComponent` (selector: 'color-hue') providing hue component presentation and interaction in `src/common/colorpicker/common`.",
+      "summaryZh": "Angular 组件 `HueComponent`（selector: 'color-hue'），提供色相组件的视图渲染与交互逻辑（位于 `src/common/colorpicker/common`）。",
       "sourceFile": "src/common/colorpicker/common/hue.component.ts",
       "inputs": [
         {
@@ -778,33 +928,33 @@
         {
           "name": "pointer",
           "type": "{ [key: string]: string }",
-          "description": null,
+          "description": "Input property `pointer` (`{ [key: string]: string }`) configuring pointer.",
           "descriptionZh": "滑块手柄的内联样式。"
         },
         {
           "name": "radius",
           "type": "number",
-          "description": null,
+          "description": "Input property `radius` (`number`) configuring radius.",
           "descriptionZh": "滑动条的圆角半径。"
         },
         {
           "name": "shadow",
           "type": "string",
-          "description": null,
+          "description": "Input property `shadow` (`string`) configuring shadow.",
           "descriptionZh": "滑动条的阴影样式。"
         },
         {
           "name": "hidePointer",
           "type": "any",
           "default": "false",
-          "description": null,
+          "description": "Input property `hidePointer` (`boolean`) configuring hide pointer (default: `false`).",
           "descriptionZh": "是否隐藏滑块手柄。"
         },
         {
           "name": "direction",
           "type": "'horizontal' | 'vertical'",
           "default": "'horizontal'",
-          "description": null,
+          "description": "Input property `direction` (`'horizontal' | 'vertical'`) configuring direction (default: `'horizontal'`).",
           "descriptionZh": "滑动条方向：水平或垂直。"
         }
       ],
@@ -812,7 +962,7 @@
         {
           "name": "onChange",
           "type": "any",
-          "description": null,
+          "description": "Output event emitter `onChange` (`EventEmitter`) firing when on change occurs.",
           "descriptionZh": "色相值变化时发出。"
         }
       ],
@@ -835,14 +985,14 @@
           "name": "left",
           "type": "any",
           "default": "'0px'",
-          "description": null,
+          "description": "Property `left` (`string`) storing left (default: `'0px'`).",
           "descriptionZh": "滑块手柄的水平位置。"
         },
         {
           "name": "top",
           "type": "any",
           "default": "''",
-          "description": null,
+          "description": "Property `top` (`string`) storing top (default: `''`).",
           "descriptionZh": "滑块手柄的垂直位置。"
         }
       ]
@@ -850,8 +1000,8 @@
     {
       "name": "HueModule",
       "kind": "module",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular module `HueModule` declaring and exporting hue module components, directives, pipes, and providers.",
+      "summaryZh": "Angular 模块 `HueModule`，声明并导出色相模块相关的组件、指令、管道与服务提供者。",
       "sourceFile": "src/common/colorpicker/common/hue.component.ts",
       "inputs": [],
       "outputs": [],
@@ -861,41 +1011,54 @@
     {
       "name": "isValidHex",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Executes `isValidHex` to handle is valid hex.",
+      "summaryZh": "执行 `isValidHex`，用于是否为有效十六进制颜色。",
       "sourceFile": "src/common/colorpicker/common/helpers/color.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "isValidHex",
+          "params": [
+            {
+              "name": "hex",
+              "type": "string"
+            }
+          ],
+          "returnType": "any",
+          "description": "Executes `isValidHex` to handle is valid hex.",
+          "descriptionZh": "执行 `isValidHex`，用于是否为有效十六进制颜色。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "RaisedComponent",
       "kind": "component",
       "selector": "color-raised",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular component `RaisedComponent` (selector: 'color-raised') providing raised component presentation and interaction in `src/common/colorpicker/common`.",
+      "summaryZh": "Angular 组件 `RaisedComponent`（selector: 'color-raised'），提供Raised组件的视图渲染与交互逻辑（位于 `src/common/colorpicker/common`）。",
       "sourceFile": "src/common/colorpicker/common/raised.component.ts",
       "inputs": [
         {
           "name": "zDepth",
           "type": "zDepth",
           "default": "1",
-          "description": null,
+          "description": "Input property `zDepth` (`zDepth`) configuring z depth (default: `1`).",
           "descriptionZh": "阴影层级（0-5），层级越高阴影越明显。"
         },
         {
           "name": "radius",
           "type": "any",
           "default": "1",
-          "description": null,
+          "description": "Input property `radius` (`number`) configuring radius (default: `1`).",
           "descriptionZh": "圆角半径。"
         },
         {
           "name": "background",
           "type": "any",
           "default": "'#fff'",
-          "description": null,
+          "description": "Input property `background` (`string`) configuring background (default: `'#fff'`).",
           "descriptionZh": "背景颜色。"
         }
       ],
@@ -906,8 +1069,8 @@
     {
       "name": "RaisedModule",
       "kind": "module",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular module `RaisedModule` declaring and exporting raised module components, directives, pipes, and providers.",
+      "summaryZh": "Angular 模块 `RaisedModule`，声明并导出Raised模块相关的组件、指令、管道与服务提供者。",
       "sourceFile": "src/common/colorpicker/common/raised.component.ts",
       "inputs": [],
       "outputs": [],
@@ -917,42 +1080,89 @@
     {
       "name": "render",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Executes `render` to handle render.",
+      "summaryZh": "执行 `render`，用于渲染。",
       "sourceFile": "src/common/colorpicker/common/helpers/checkboard.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "render",
+          "params": [
+            {
+              "name": "c1",
+              "type": "string"
+            },
+            {
+              "name": "c2",
+              "type": "string"
+            },
+            {
+              "name": "size",
+              "type": "number"
+            }
+          ],
+          "returnType": "any",
+          "description": "Executes `render` to handle render.",
+          "descriptionZh": "执行 `render`，用于渲染。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "RGB",
       "kind": "interface",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Interface `RGB` defining the contract and properties for rgb.",
+      "summaryZh": "接口 `RGB`，定义RGB颜色的数据结构契约与属性规范。",
       "sourceFile": "src/common/colorpicker/common/helpers/color.interfaces.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
-      "properties": []
+      "properties": [
+        {
+          "name": "r",
+          "type": "number",
+          "description": "Property `r` (`number`) storing r.",
+          "descriptionZh": "属性 `r`（类型：`number`），用于存储或配置r。"
+        },
+        {
+          "name": "g",
+          "type": "number",
+          "description": "Property `g` (`number`) storing g.",
+          "descriptionZh": "属性 `g`（类型：`number`），用于存储或配置g。"
+        },
+        {
+          "name": "b",
+          "type": "number",
+          "description": "Property `b` (`number`) storing b.",
+          "descriptionZh": "属性 `b`（类型：`number`），用于存储或配置b。"
+        }
+      ]
     },
     {
       "name": "RGBA",
       "kind": "interface",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Interface `RGBA` defining the contract and properties for rgba.",
+      "summaryZh": "接口 `RGBA`，定义RGBA颜色的数据结构契约与属性规范。",
       "sourceFile": "src/common/colorpicker/common/helpers/color.interfaces.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
-      "properties": []
+      "properties": [
+        {
+          "name": "a",
+          "type": "number",
+          "description": "Property `a` (`number`) storing a.",
+          "descriptionZh": "属性 `a`（类型：`number`），用于存储或配置a。"
+        }
+      ]
     },
     {
       "name": "SaturationComponent",
       "kind": "component",
       "selector": "color-saturation",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular component `SaturationComponent` (selector: 'color-saturation') providing saturation component presentation and interaction in `src/common/colorpicker/common`.",
+      "summaryZh": "Angular 组件 `SaturationComponent`（selector: 'color-saturation'），提供饱和度组件的视图渲染与交互逻辑（位于 `src/common/colorpicker/common`）。",
       "sourceFile": "src/common/colorpicker/common/saturation.component.ts",
       "inputs": [
         {
@@ -970,19 +1180,19 @@
         {
           "name": "radius",
           "type": "number",
-          "description": null,
+          "description": "Input property `radius` (`number`) configuring radius.",
           "descriptionZh": "面板的圆角半径。"
         },
         {
           "name": "pointer",
           "type": "{ [key: string]: string }",
-          "description": null,
+          "description": "Input property `pointer` (`{ [key: string]: string }`) configuring pointer.",
           "descriptionZh": "指示器手柄的内联样式。"
         },
         {
           "name": "circle",
           "type": "{ [key: string]: string }",
-          "description": null,
+          "description": "Input property `circle` (`{ [key: string]: string }`) configuring circle.",
           "descriptionZh": "指示器圆点的内联样式。"
         }
       ],
@@ -990,7 +1200,7 @@
         {
           "name": "onChange",
           "type": "any",
-          "description": null,
+          "description": "Output event emitter `onChange` (`EventEmitter`) firing when on change occurs.",
           "descriptionZh": "饱和度/明度变化时发出。"
         }
       ],
@@ -1012,19 +1222,19 @@
         {
           "name": "background",
           "type": "string",
-          "description": null,
+          "description": "Property `background` (`string`) storing background.",
           "descriptionZh": "根据当前色相计算出的面板背景色。"
         },
         {
           "name": "pointerTop",
           "type": "string",
-          "description": null,
+          "description": "Property `pointerTop` (`string`) storing pointer top.",
           "descriptionZh": "指示器的垂直位置百分比。"
         },
         {
           "name": "pointerLeft",
           "type": "string",
-          "description": null,
+          "description": "Property `pointerLeft` (`string`) storing pointer left.",
           "descriptionZh": "指示器的水平位置百分比。"
         }
       ]
@@ -1032,8 +1242,8 @@
     {
       "name": "SaturationModule",
       "kind": "module",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular module `SaturationModule` declaring and exporting saturation module components, directives, pipes, and providers.",
+      "summaryZh": "Angular 模块 `SaturationModule`，声明并导出饱和度模块相关的组件、指令、管道与服务提供者。",
       "sourceFile": "src/common/colorpicker/common/saturation.component.ts",
       "inputs": [],
       "outputs": [],
@@ -1044,8 +1254,8 @@
       "name": "ShadeComponent",
       "kind": "component",
       "selector": "color-shade",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular component `ShadeComponent` (selector: 'color-shade') providing shade component presentation and interaction in `src/common/colorpicker/common`.",
+      "summaryZh": "Angular 组件 `ShadeComponent`（selector: 'color-shade'），提供Shade组件的视图渲染与交互逻辑（位于 `src/common/colorpicker/common`）。",
       "sourceFile": "src/common/colorpicker/common/shade.component.ts",
       "inputs": [
         {
@@ -1063,19 +1273,19 @@
         {
           "name": "pointer",
           "type": "{ [key: string]: string }",
-          "description": null,
+          "description": "Input property `pointer` (`{ [key: string]: string }`) configuring pointer.",
           "descriptionZh": "滑块手柄的内联样式。"
         },
         {
           "name": "shadow",
           "type": "string",
-          "description": null,
+          "description": "Input property `shadow` (`string`) configuring shadow.",
           "descriptionZh": "滑动条的阴影样式。"
         },
         {
           "name": "radius",
           "type": "string",
-          "description": null,
+          "description": "Input property `radius` (`string`) configuring radius.",
           "descriptionZh": "滑动条的圆角半径。"
         }
       ],
@@ -1083,7 +1293,7 @@
         {
           "name": "onChange",
           "type": "any",
-          "description": null,
+          "description": "Output event emitter `onChange` (`EventEmitter`) firing when on change occurs.",
           "descriptionZh": "明暗值变化时发出。"
         }
       ],
@@ -1105,19 +1315,19 @@
         {
           "name": "gradient",
           "type": "{ [key: string]: string }",
-          "description": null,
+          "description": "Property `gradient` (`{ [key: string]: string }`) storing gradient.",
           "descriptionZh": "根据当前色相计算出的渐变背景样式。"
         },
         {
           "name": "pointerLeft",
           "type": "number",
-          "description": null,
+          "description": "Property `pointerLeft` (`number`) storing pointer left.",
           "descriptionZh": "滑块手柄的水平位置百分比。"
         },
         {
           "name": "pointerTop",
           "type": "number",
-          "description": null,
+          "description": "Property `pointerTop` (`number`) storing pointer top.",
           "descriptionZh": "滑块手柄的垂直位置百分比。"
         }
       ]
@@ -1125,8 +1335,8 @@
     {
       "name": "ShadeModule",
       "kind": "module",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular module `ShadeModule` declaring and exporting shade module components, directives, pipes, and providers.",
+      "summaryZh": "Angular 模块 `ShadeModule`，声明并导出Shade模块相关的组件、指令、管道与服务提供者。",
       "sourceFile": "src/common/colorpicker/common/shade.component.ts",
       "inputs": [],
       "outputs": [],
@@ -1136,57 +1346,83 @@
     {
       "name": "Shape",
       "kind": "interface",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Interface `Shape` defining the contract and properties for shape.",
+      "summaryZh": "接口 `Shape`，定义图形的数据结构契约与属性规范。",
       "sourceFile": "src/common/colorpicker/common/helpers/color.interfaces.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
-      "properties": []
+      "properties": [
+        {
+          "name": "color",
+          "type": "string",
+          "description": "Property `color` (`string`) storing color.",
+          "descriptionZh": "属性 `color`（类型：`string`），用于存储或配置颜色。"
+        },
+        {
+          "name": "title",
+          "type": "string",
+          "description": "Property `title` (`string`) storing title.",
+          "descriptionZh": "属性 `title`（类型：`string`），用于存储或配置标题。"
+        }
+      ]
     },
     {
       "name": "simpleCheckForValidColor",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Executes `simpleCheckForValidColor` to handle simple check for valid color.",
+      "summaryZh": "执行 `simpleCheckForValidColor`，用于simple检查用于有效颜色。",
       "sourceFile": "src/common/colorpicker/common/helpers/color.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "simpleCheckForValidColor",
+          "params": [
+            {
+              "name": "data",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": "Executes `simpleCheckForValidColor` to handle simple check for valid color.",
+          "descriptionZh": "执行 `simpleCheckForValidColor`，用于simple检查用于有效颜色。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "SwatchComponent",
       "kind": "component",
       "selector": "color-swatch",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular component `SwatchComponent` (selector: 'color-swatch') providing swatch component presentation and interaction in `src/common/colorpicker/common`.",
+      "summaryZh": "Angular 组件 `SwatchComponent`（selector: 'color-swatch'），提供Swatch组件的视图渲染与交互逻辑（位于 `src/common/colorpicker/common`）。",
       "sourceFile": "src/common/colorpicker/common/swatch.component.ts",
       "inputs": [
         {
           "name": "color",
           "type": "any",
-          "description": null,
+          "description": "Input property `color` (`any`) configuring color.",
           "descriptionZh": "该色块代表的颜色值。"
         },
         {
           "name": "style",
           "type": "{ [key: string]: string }",
           "default": "{}",
-          "description": null,
+          "description": "Input property `style` (`{ [key: string]: string }`) configuring style (default: `{}`).",
           "descriptionZh": "应用到色块上的内联样式。"
         },
         {
           "name": "focusStyle",
           "type": "{ [key: string]: string }",
           "default": "{}",
-          "description": null,
+          "description": "Input property `focusStyle` (`{ [key: string]: string }`) configuring focus style (default: `{}`).",
           "descriptionZh": "获得焦点时叠加的内联样式。"
         },
         {
           "name": "focus",
           "type": "boolean",
-          "description": null,
+          "description": "Input property `focus` (`boolean`) configuring focus.",
           "descriptionZh": "是否强制以聚焦样式渲染。"
         }
       ],
@@ -1194,13 +1430,13 @@
         {
           "name": "onClick",
           "type": "any",
-          "description": null,
+          "description": "Output event emitter `onClick` (`EventEmitter`) firing when on click occurs.",
           "descriptionZh": "色块被点击/回车确认时发出。"
         },
         {
           "name": "onHover",
           "type": "any",
-          "description": null,
+          "description": "Output event emitter `onHover` (`EventEmitter`) firing when on hover occurs.",
           "descriptionZh": "鼠标悬停在色块上时发出。"
         }
       ],
@@ -1264,21 +1500,21 @@
           "name": "divStyles",
           "type": "{ [key: string]: string }",
           "default": "{}",
-          "description": null,
+          "description": "Property `divStyles` (`{ [key: string]: string }`) storing div styles (default: `{}`).",
           "descriptionZh": "色块的基础样式。"
         },
         {
           "name": "focusStyles",
           "type": "{ [key: string]: string }",
           "default": "{}",
-          "description": null,
+          "description": "Property `focusStyles` (`{ [key: string]: string }`) storing focus styles (default: `{}`).",
           "descriptionZh": "色块的聚焦样式（基础样式与 `focusStyle` 合并后的结果）。"
         },
         {
           "name": "inFocus",
           "type": "any",
           "default": "false",
-          "description": null,
+          "description": "Property `inFocus` (`boolean`) storing in focus (default: `false`).",
           "descriptionZh": "色块当前是否处于聚焦状态。"
         }
       ]
@@ -1286,8 +1522,8 @@
     {
       "name": "SwatchModule",
       "kind": "module",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular module `SwatchModule` declaring and exporting swatch module components, directives, pipes, and providers.",
+      "summaryZh": "Angular 模块 `SwatchModule`，声明并导出Swatch模块相关的组件、指令、管道与服务提供者。",
       "sourceFile": "src/common/colorpicker/common/swatch.component.ts",
       "inputs": [],
       "outputs": [],
@@ -1297,19 +1533,36 @@
     {
       "name": "toState",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Executes `toState` to handle to state.",
+      "summaryZh": "执行 `toState`，用于转换为状态。",
       "sourceFile": "src/common/colorpicker/common/helpers/color.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "toState",
+          "params": [
+            {
+              "name": "data",
+              "type": "any"
+            },
+            {
+              "name": "oldHue",
+              "type": "number"
+            }
+          ],
+          "returnType": "Color",
+          "description": "Executes `toState` to handle to state.",
+          "descriptionZh": "执行 `toState`，用于转换为状态。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "zDepth",
       "kind": "type",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Type alias `zDepth` representing z depth (`0 | 1 | 2 | 3 | 4 | 5`).",
+      "summaryZh": "类型别名 `zDepth`，表示Z坐标Depth（`0 | 1 | 2 | 3 | 4 | 5`）。",
       "sourceFile": "src/common/colorpicker/common/raised.component.ts",
       "inputs": [],
       "outputs": [],

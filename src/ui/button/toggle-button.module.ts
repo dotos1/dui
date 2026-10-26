@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Module `src/ui/button/toggle-button.module.ts` providing toggle button module definitions and implementation.
+ * @zh 模块文件 `src/ui/button/toggle-button.module.ts`，提供开关按钮模块相关的定义与实现。
+ */
+
 import { ComponentFactoryResolver, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
@@ -10,6 +15,10 @@ import { Dui } from '@dotos/dui/core';
 import { IconModule } from '@dotos/dui/common/icon';
 import { TranslateModule } from '@dotos/dui/translator';
 import { ToggleButtonComponent } from './toggle-button.component';
+/**
+ * Angular module `ToggleButtonModule` declaring and exporting toggle button module components, directives, pipes, and providers.
+ * @zh Angular 模块 `ToggleButtonModule`，声明并导出开关按钮模块相关的组件、指令、管道与服务提供者。
+ */
 @NgModule({
   imports: [
     CommonModule,
@@ -30,7 +39,16 @@ import { ToggleButtonComponent } from './toggle-button.component';
   ]
 })
 export class ToggleButtonModule {
+  /**
+   * Property `entryComponents` (`any[]`) storing entry components (default: `[ToggleButtonComponent]`).
+   * @zh 属性 `entryComponents`（类型：`any[]`），用于存储或配置条目组件列表（默认值：`[ToggleButtonComponent]`）。
+   */
   entryComponents = [ToggleButtonComponent];
+  /**
+   * Creates an instance of `ToggleButtonModule` and initializes its dependencies and internal state.
+   * @zh 创建 `ToggleButtonModule` 实例，并初始化其依赖项与内部状态。
+   * @param componentFactoryResolver - Injected or initial component factory resolver (`ComponentFactoryResolver`) / 注入或传入的组件工厂解析器（`ComponentFactoryResolver`）
+   */
   constructor(componentFactoryResolver: ComponentFactoryResolver) {
     Dui.registerComponentFactory(componentFactoryResolver,this.entryComponents);
   }

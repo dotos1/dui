@@ -4,8 +4,8 @@
     {
       "name": "CLOCK_INNER_RADIUS",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `CLOCK_INNER_RADIUS` defining clock inner radius in `src/form/date/picker`.",
+      "summaryZh": "常量/变量 `CLOCK_INNER_RADIUS`，定义 `src/form/date/picker` 中的时钟内部半径。",
       "sourceFile": "src/form/date/picker/clock.ts",
       "inputs": [],
       "outputs": [],
@@ -15,8 +15,8 @@
     {
       "name": "CLOCK_OUTER_RADIUS",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `CLOCK_OUTER_RADIUS` defining clock outer radius in `src/form/date/picker`.",
+      "summaryZh": "常量/变量 `CLOCK_OUTER_RADIUS`，定义 `src/form/date/picker` 中的时钟外部半径。",
       "sourceFile": "src/form/date/picker/clock.ts",
       "inputs": [],
       "outputs": [],
@@ -26,8 +26,8 @@
     {
       "name": "CLOCK_RADIUS",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `CLOCK_RADIUS` defining clock radius in `src/form/date/picker`.",
+      "summaryZh": "常量/变量 `CLOCK_RADIUS`，定义 `src/form/date/picker` 中的时钟半径。",
       "sourceFile": "src/form/date/picker/clock.ts",
       "inputs": [],
       "outputs": [],
@@ -37,8 +37,8 @@
     {
       "name": "CLOCK_TICK_RADIUS",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `CLOCK_TICK_RADIUS` defining clock tick radius in `src/form/date/picker`.",
+      "summaryZh": "常量/变量 `CLOCK_TICK_RADIUS`，定义 `src/form/date/picker` 中的时钟刻度半径。",
       "sourceFile": "src/form/date/picker/clock.ts",
       "inputs": [],
       "outputs": [],
@@ -49,18 +49,31 @@
       "name": "createMissingDateImplError",
       "kind": "function",
       "summary": null,
-      "summaryZh": null,
+      "summaryZh": "执行 `createMissingDateImplError`，用于创建Missing日期实现错误。",
       "sourceFile": "src/form/date/picker/datetimepicker-errors.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "createMissingDateImplError",
+          "params": [
+            {
+              "name": "provider",
+              "type": "string"
+            }
+          ],
+          "returnType": "any",
+          "description": null,
+          "descriptionZh": "执行 `createMissingDateImplError`，用于创建Missing日期实现错误。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "fadeInContent",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular animation trigger `fadeInContent` defining state transitions for fade in content.",
+      "summaryZh": "Angular 动画触发器 `fadeInContent`，定义fade在内容的状态过渡动画。",
       "sourceFile": "src/form/date/picker/datetimepicker-animations.ts",
       "inputs": [],
       "outputs": [],
@@ -71,29 +84,83 @@
       "name": "getActiveOffset",
       "kind": "function",
       "summary": "When the multi-year view is first opened, the active year will be in view.\nSo we compute how many years are between the active year and the *slot* where our\n\"startingYear\" will render when paged into view.",
-      "summaryZh": null,
+      "summaryZh": "执行 `getActiveOffset`，用于获取激活偏移量。",
       "sourceFile": "src/form/date/picker/multi-year-view.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "getActiveOffset",
+          "params": [
+            {
+              "name": "dateAdapter",
+              "type": "DatetimeAdapter<D>"
+            },
+            {
+              "name": "activeDate",
+              "type": "D"
+            },
+            {
+              "name": "minDate",
+              "type": "D | null"
+            },
+            {
+              "name": "maxDate",
+              "type": "D | null"
+            }
+          ],
+          "returnType": "number",
+          "description": "When the multi-year view is first opened, the active year will be in view.\nSo we compute how many years are between the active year and the *slot* where our\n\"startingYear\" will render when paged into view.",
+          "descriptionZh": "执行 `getActiveOffset`，用于获取激活偏移量。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "isSameMultiYearView",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Executes `isSameMultiYearView` to handle is same multi year view.",
+      "summaryZh": "执行 `isSameMultiYearView`，用于是否为相同多年视图。",
       "sourceFile": "src/form/date/picker/multi-year-view.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "isSameMultiYearView",
+          "params": [
+            {
+              "name": "dateAdapter",
+              "type": "DatetimeAdapter<D>"
+            },
+            {
+              "name": "date1",
+              "type": "D"
+            },
+            {
+              "name": "date2",
+              "type": "D"
+            },
+            {
+              "name": "minDate",
+              "type": "D | null"
+            },
+            {
+              "name": "maxDate",
+              "type": "D | null"
+            }
+          ],
+          "returnType": "boolean",
+          "description": "Executes `isSameMultiYearView` to handle is same multi year view.",
+          "descriptionZh": "执行 `isSameMultiYearView`，用于是否为相同多年视图。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "MAT_DATETIMEPICKER_VALIDATORS",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `MAT_DATETIMEPICKER_VALIDATORS` defining mat datetimepicker validators in `src/form/date/picker`.",
+      "summaryZh": "常量/变量 `MAT_DATETIMEPICKER_VALIDATORS`，定义 `src/form/date/picker` 中的Material日期时间选择器校验器列表。",
       "sourceFile": "src/form/date/picker/datetimepicker-input.ts",
       "inputs": [],
       "outputs": [],
@@ -103,8 +170,8 @@
     {
       "name": "MAT_DATETIMEPICKER_VALUE_ACCESSOR",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `MAT_DATETIMEPICKER_VALUE_ACCESSOR` defining mat datetimepicker value accessor in `src/form/date/picker`.",
+      "summaryZh": "常量/变量 `MAT_DATETIMEPICKER_VALUE_ACCESSOR`，定义 `src/form/date/picker` 中的Material日期时间选择器值访问器。",
       "sourceFile": "src/form/date/picker/datetimepicker-input.ts",
       "inputs": [],
       "outputs": [],
@@ -114,8 +181,8 @@
     {
       "name": "MatCalendarView",
       "kind": "type",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Type alias `MatCalendarView` representing mat calendar view (`\"clock\" | \"month\" | \"year\" | \"multi-year\"`).",
+      "summaryZh": "类型别名 `MatCalendarView`，表示Material日历视图（`\"clock\" | \"month\" | \"year\" | \"multi-year\"`）。",
       "sourceFile": "src/form/date/picker/calendar.ts",
       "inputs": [],
       "outputs": [],
@@ -125,8 +192,8 @@
     {
       "name": "MatClockView",
       "kind": "type",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Type alias `MatClockView` representing mat clock view (`\"hour\" | \"minute\"`).",
+      "summaryZh": "类型别名 `MatClockView`，表示Material时钟视图（`\"hour\" | \"minute\"`）。",
       "sourceFile": "src/form/date/picker/clock.ts",
       "inputs": [],
       "outputs": [],
@@ -137,8 +204,8 @@
       "name": "MatDatetimepicker",
       "kind": "component",
       "selector": "mat-datetimepicker",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular component `MatDatetimepicker` (selector: 'mat-datetimepicker') providing mat datetimepicker presentation and interaction in `src/form/date/picker`.",
+      "summaryZh": "Angular 组件 `MatDatetimepicker`（selector: 'mat-datetimepicker'），提供Material日期时间选择器的视图渲染与交互逻辑（位于 `src/form/date/picker`）。",
       "sourceFile": "src/form/date/picker/datetimepicker.ts",
       "inputs": [
         {
@@ -146,106 +213,106 @@
           "type": "boolean",
           "default": "false",
           "description": "Active multi year view when click on year.",
-          "descriptionZh": null
+          "descriptionZh": "输入属性 `multiYearSelector`（类型：`boolean`），用于配置多年选择器（默认值：`false`）。"
         },
         {
           "name": "twelvehour",
           "type": "boolean",
           "default": "false",
           "description": "if true change the clock to 12 hour format.",
-          "descriptionZh": null
+          "descriptionZh": "输入属性 `twelvehour`（类型：`boolean`），用于配置twelvehour（默认值：`false`）。"
         },
         {
           "name": "startView",
           "type": "MatCalendarView",
           "default": "\"month\"",
           "description": "The view that the calendar should start in.",
-          "descriptionZh": null
+          "descriptionZh": "输入属性 `startView`（类型：`MatCalendarView`），用于配置开始视图（默认值：`\"month\"`）。"
         },
         {
           "name": "mode",
           "type": "MatDatetimepickerMode",
           "default": "\"auto\"",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `mode` (`MatDatetimepickerMode`) configuring mode (default: `\"auto\"`).",
+          "descriptionZh": "输入属性 `mode`（类型：`MatDatetimepickerMode`），用于配置模式（默认值：`\"auto\"`）。"
         },
         {
           "name": "timeInterval",
           "type": "number",
           "default": "1",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `timeInterval` (`number`) configuring time interval (default: `1`).",
+          "descriptionZh": "输入属性 `timeInterval`（类型：`number`），用于配置时间间隔定时器（默认值：`1`）。"
         },
         {
           "name": "ariaNextMonthLabel",
           "type": "any",
           "default": "\"Next month\"",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `ariaNextMonthLabel` (`string`) configuring aria next month label (default: `\"Next month\"`).",
+          "descriptionZh": "输入属性 `ariaNextMonthLabel`（类型：`string`），用于配置aria下一个月标签（默认值：`\"Next month\"`）。"
         },
         {
           "name": "ariaPrevMonthLabel",
           "type": "any",
           "default": "\"Previous month\"",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `ariaPrevMonthLabel` (`string`) configuring aria prev month label (default: `\"Previous month\"`).",
+          "descriptionZh": "输入属性 `ariaPrevMonthLabel`（类型：`string`），用于配置aria前一个月标签（默认值：`\"Previous month\"`）。"
         },
         {
           "name": "ariaNextYearLabel",
           "type": "any",
           "default": "\"Next year\"",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `ariaNextYearLabel` (`string`) configuring aria next year label (default: `\"Next year\"`).",
+          "descriptionZh": "输入属性 `ariaNextYearLabel`（类型：`string`），用于配置aria下一个年标签（默认值：`\"Next year\"`）。"
         },
         {
           "name": "ariaPrevYearLabel",
           "type": "any",
           "default": "\"Previous year\"",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `ariaPrevYearLabel` (`string`) configuring aria prev year label (default: `\"Previous year\"`).",
+          "descriptionZh": "输入属性 `ariaPrevYearLabel`（类型：`string`），用于配置aria前一个年标签（默认值：`\"Previous year\"`）。"
         },
         {
           "name": "preventSameDateTimeSelection",
           "type": "any",
           "default": "false",
           "description": "Prevent user to select same date time",
-          "descriptionZh": null
+          "descriptionZh": "输入属性 `preventSameDateTimeSelection`（类型：`boolean`），用于配置阻止默认相同日期时间Selection（默认值：`false`）。"
         },
         {
           "name": "panelClass",
           "type": "string | string[]",
           "description": "Classes to be passed to the date picker panel. Supports the same syntax as `ngClass`.",
-          "descriptionZh": null
+          "descriptionZh": "输入属性 `panelClass`（类型：`string | string[]`），用于配置面板类名。"
         },
         {
           "name": "startAt",
           "type": "D | null",
           "description": "The date to open the calendar to initially.",
-          "descriptionZh": null
+          "descriptionZh": "输入属性 `startAt`（类型：`D | null`）的读取器，返回当前开始位于。"
         },
         {
           "name": "openOnFocus",
           "type": "boolean",
-          "description": null,
-          "descriptionZh": null
+          "description": "Getter for input property `openOnFocus` (`boolean`) returning open on focus.",
+          "descriptionZh": "输入属性 `openOnFocus`（类型：`boolean`）的读取器，返回当前打开当聚焦。"
         },
         {
           "name": "type",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Getter for input property `type` (`any`) returning type.",
+          "descriptionZh": "输入属性 `type`（类型：`any`）的读取器，返回当前类型。"
         },
         {
           "name": "touchUi",
           "type": "boolean",
           "description": "Whether the calendar UI is in touch mode. In touch mode the calendar opens in a dialog rather\nthan a popup and elements have more padding to allow for bigger touch targets.",
-          "descriptionZh": null
+          "descriptionZh": "输入属性 `touchUi`（类型：`boolean`）的读取器，返回当前触摸界面。"
         },
         {
           "name": "disabled",
           "type": "boolean",
           "description": "Whether the datepicker pop-up should be disabled.",
-          "descriptionZh": null
+          "descriptionZh": "输入属性 `disabled`（类型：`boolean`）的读取器，返回当前已禁用。"
         }
       ],
       "outputs": [
@@ -253,25 +320,25 @@
           "name": "selectedChanged",
           "type": "any",
           "description": "Emits new selected date when selected date changes.",
-          "descriptionZh": null
+          "descriptionZh": "输出事件 `selectedChanged`（类型：`EventEmitter`），当触发已选中已变更时向外发出事件。"
         },
         {
           "name": "openedStream",
           "type": "void",
           "description": "Emits when the datepicker has been opened.",
-          "descriptionZh": null
+          "descriptionZh": "输出事件 `opened`（类型：`EventEmitter<void>`），当触发是否展开流时向外发出事件。"
         },
         {
           "name": "closedStream",
           "type": "void",
           "description": "Emits when the datepicker has been closed.",
-          "descriptionZh": null
+          "descriptionZh": "输出事件 `closed`（类型：`EventEmitter<void>`），当触发是否关闭流时向外发出事件。"
         },
         {
           "name": "viewChanged",
           "type": "MatCalendarView",
           "description": "Emits when the view has been changed. *",
-          "descriptionZh": null
+          "descriptionZh": "输出事件 `viewChanged`（类型：`EventEmitter<MatCalendarView>`），当触发视图已变更时向外发出事件。"
         }
       ],
       "methods": [
@@ -280,14 +347,14 @@
           "params": [],
           "returnType": "void",
           "description": "Open the calendar.",
-          "descriptionZh": null
+          "descriptionZh": "执行 `open`，用于打开。"
         },
         {
           "name": "close",
           "params": [],
           "returnType": "void",
           "description": "Close the calendar.",
-          "descriptionZh": null
+          "descriptionZh": "执行 `close`，用于关闭。"
         }
       ],
       "properties": [
@@ -296,44 +363,44 @@
           "type": "any",
           "default": "false",
           "description": "Whether the calendar is open.",
-          "descriptionZh": null
+          "descriptionZh": "属性 `opened`（类型：`boolean`），用于存储或配置是否展开（默认值：`false`）。"
         },
         {
           "name": "id",
           "type": "any",
           "default": "`mat-datetimepicker-${datetimepickerUid++}`",
           "description": "The id for the datepicker calendar.",
-          "descriptionZh": null
+          "descriptionZh": "属性 `id`（类型：`any`），用于存储或配置唯一标识。"
         },
         {
           "name": "startAt",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Sets the start at (`startAt`).",
+          "descriptionZh": "设置开始位于（`startAt`）。"
         },
         {
           "name": "openOnFocus",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Sets the open on focus (`openOnFocus`).",
+          "descriptionZh": "设置打开当聚焦（`openOnFocus`）。"
         },
         {
           "name": "type",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Sets the type (`type`).",
+          "descriptionZh": "设置类型（`type`）。"
         },
         {
           "name": "touchUi",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Sets the touch ui (`touchUi`).",
+          "descriptionZh": "设置触摸界面（`touchUi`）。"
         },
         {
           "name": "disabled",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Sets the disabled (`disabled`).",
+          "descriptionZh": "设置已禁用（`disabled`）。"
         }
       ]
     },
@@ -342,7 +409,7 @@
       "kind": "component",
       "selector": "mat-datetimepicker-calendar",
       "summary": "A calendar that is used as part of the datepicker.",
-      "summaryZh": null,
+      "summaryZh": "Angular 组件 `MatDatetimepickerCalendar`（selector: 'mat-datetimepicker-calendar'），提供Material日期时间选择器日历的视图渲染与交互逻辑（位于 `src/form/date/picker`）。",
       "sourceFile": "src/form/date/picker/calendar.ts",
       "inputs": [
         {
@@ -350,140 +417,140 @@
           "type": "boolean",
           "default": "false",
           "description": "Active multi year view when click on year.",
-          "descriptionZh": null
+          "descriptionZh": "输入属性 `multiYearSelector`（类型：`boolean`），用于配置多年选择器（默认值：`false`）。"
         },
         {
           "name": "startView",
           "type": "MatCalendarView",
           "default": "\"month\"",
           "description": "Whether the calendar should be started in month or year view.",
-          "descriptionZh": null
+          "descriptionZh": "输入属性 `startView`（类型：`MatCalendarView`），用于配置开始视图（默认值：`\"month\"`）。"
         },
         {
           "name": "twelvehour",
           "type": "boolean",
           "default": "false",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `twelvehour` (`boolean`) configuring twelvehour (default: `false`).",
+          "descriptionZh": "输入属性 `twelvehour`（类型：`boolean`），用于配置twelvehour（默认值：`false`）。"
         },
         {
           "name": "timeInterval",
           "type": "number",
           "default": "1",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `timeInterval` (`number`) configuring time interval (default: `1`).",
+          "descriptionZh": "输入属性 `timeInterval`（类型：`number`），用于配置时间间隔定时器（默认值：`1`）。"
         },
         {
           "name": "dateFilter",
           "type": "(date: D, type: MatDatetimepickerFilterType) => boolean",
           "description": "A function used to filter which dates are selectable.",
-          "descriptionZh": null
+          "descriptionZh": "输入属性 `dateFilter`（类型：`(date: D, type: MatDatetimepickerFilterType) => boolean`），用于配置日期过滤。"
         },
         {
           "name": "ariaLabel",
           "type": "any",
           "default": "\"Use arrow keys to navigate\"",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `ariaLabel` (`string`) configuring aria label (default: `\"Use arrow keys to navigate\"`).",
+          "descriptionZh": "输入属性 `ariaLabel`（类型：`string`），用于配置aria标签（默认值：`\"Use arrow keys to navigate\"`）。"
         },
         {
           "name": "ariaNextMonthLabel",
           "type": "any",
           "default": "\"Next month\"",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `ariaNextMonthLabel` (`string`) configuring aria next month label (default: `\"Next month\"`).",
+          "descriptionZh": "输入属性 `ariaNextMonthLabel`（类型：`string`），用于配置aria下一个月标签（默认值：`\"Next month\"`）。"
         },
         {
           "name": "ariaPrevMonthLabel",
           "type": "any",
           "default": "\"Previous month\"",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `ariaPrevMonthLabel` (`string`) configuring aria prev month label (default: `\"Previous month\"`).",
+          "descriptionZh": "输入属性 `ariaPrevMonthLabel`（类型：`string`），用于配置aria前一个月标签（默认值：`\"Previous month\"`）。"
         },
         {
           "name": "ariaNextYearLabel",
           "type": "any",
           "default": "\"Next year\"",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `ariaNextYearLabel` (`string`) configuring aria next year label (default: `\"Next year\"`).",
+          "descriptionZh": "输入属性 `ariaNextYearLabel`（类型：`string`），用于配置aria下一个年标签（默认值：`\"Next year\"`）。"
         },
         {
           "name": "ariaPrevYearLabel",
           "type": "any",
           "default": "\"Previous year\"",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `ariaPrevYearLabel` (`string`) configuring aria prev year label (default: `\"Previous year\"`).",
+          "descriptionZh": "输入属性 `ariaPrevYearLabel`（类型：`string`），用于配置aria前一个年标签（默认值：`\"Previous year\"`）。"
         },
         {
           "name": "ariaNextMultiYearLabel",
           "type": "any",
           "default": "\"Next year range\"",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `ariaNextMultiYearLabel` (`string`) configuring aria next multi year label (default: `\"Next year range\"`).",
+          "descriptionZh": "输入属性 `ariaNextMultiYearLabel`（类型：`string`），用于配置aria下一个多年标签（默认值：`\"Next year range\"`）。"
         },
         {
           "name": "ariaPrevMultiYearLabel",
           "type": "any",
           "default": "\"Previous year range\"",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `ariaPrevMultiYearLabel` (`string`) configuring aria prev multi year label (default: `\"Previous year range\"`).",
+          "descriptionZh": "输入属性 `ariaPrevMultiYearLabel`（类型：`string`），用于配置aria前一个多年标签（默认值：`\"Previous year range\"`）。"
         },
         {
           "name": "preventSameDateTimeSelection",
           "type": "any",
           "default": "false",
           "description": "Prevent user to select same date time",
-          "descriptionZh": null
+          "descriptionZh": "输入属性 `preventSameDateTimeSelection`（类型：`boolean`），用于配置阻止默认相同日期时间Selection（默认值：`false`）。"
         },
         {
           "name": "type",
           "type": "MatDatetimepickerType",
-          "description": null,
-          "descriptionZh": null
+          "description": "Getter for input property `type` (`MatDatetimepickerType`) returning type.",
+          "descriptionZh": "输入属性 `type`（类型：`MatDatetimepickerType`）的读取器，返回当前类型。"
         },
         {
           "name": "startAt",
           "type": "D | null",
           "description": "A date representing the period (month or year) to start the calendar in.",
-          "descriptionZh": null
+          "descriptionZh": "输入属性 `startAt`（类型：`D | null`）的读取器，返回当前开始位于。"
         },
         {
           "name": "selected",
           "type": "D | null",
           "description": "The currently selected date.",
-          "descriptionZh": null
+          "descriptionZh": "输入属性 `selected`（类型：`D | null`）的读取器，返回当前已选中。"
         },
         {
           "name": "minDate",
           "type": "D | null",
           "description": "The minimum selectable date.",
-          "descriptionZh": null
+          "descriptionZh": "输入属性 `minDate`（类型：`D | null`）的读取器，返回当前最小值日期。"
         },
         {
           "name": "maxDate",
           "type": "D | null",
           "description": "The maximum selectable date.",
-          "descriptionZh": null
+          "descriptionZh": "输入属性 `maxDate`（类型：`D | null`）的读取器，返回当前最大值日期。"
         }
       ],
       "outputs": [
         {
           "name": "_userSelection",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Output event emitter `_userSelection` (`EventEmitter`) firing when user selection occurs.",
+          "descriptionZh": "输出事件 `_userSelection`（类型：`EventEmitter`），当触发用户Selection时向外发出事件。"
         },
         {
           "name": "selectedChange",
           "type": "D",
           "description": "Emits when the currently selected date changes.",
-          "descriptionZh": null
+          "descriptionZh": "输出事件 `selectedChange`（类型：`EventEmitter<D>`），当触发已选中变更时向外发出事件。"
         },
         {
           "name": "viewChanged",
           "type": "MatCalendarView",
           "description": "Emits when the view has been changed. *",
-          "descriptionZh": null
+          "descriptionZh": "输出事件 `viewChanged`（类型：`EventEmitter<MatCalendarView>`），当触发视图已变更时向外发出事件。"
         }
       ],
       "methods": [],
@@ -491,44 +558,44 @@
         {
           "name": "type",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Sets the type (`type`).",
+          "descriptionZh": "设置类型（`type`）。"
         },
         {
           "name": "startAt",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Sets the start at (`startAt`).",
+          "descriptionZh": "设置开始位于（`startAt`）。"
         },
         {
           "name": "selected",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Sets the selected (`selected`).",
+          "descriptionZh": "设置已选中（`selected`）。"
         },
         {
           "name": "minDate",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Sets the min date (`minDate`).",
+          "descriptionZh": "设置最小值日期（`minDate`）。"
         },
         {
           "name": "maxDate",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Sets the max date (`maxDate`).",
+          "descriptionZh": "设置最大值日期（`maxDate`）。"
         },
         {
           "name": "currentView",
           "type": "MatCalendarView",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current current view (`currentView: MatCalendarView`).",
+          "descriptionZh": "获取当前当前视图（`currentView: MatCalendarView`）。"
         },
         {
           "name": "currentView",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Sets the current view (`currentView`).",
+          "descriptionZh": "设置当前视图（`currentView`）。"
         }
       ]
     },
@@ -536,60 +603,60 @@
       "name": "MatDatetimepickerCalendarBody",
       "kind": "component",
       "selector": "[mat-datetimepicker-calendar-body]",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular component `MatDatetimepickerCalendarBody` (selector: '[mat-datetimepicker-calendar-body]') providing mat datetimepicker calendar body presentation and interaction in `src/form/date/picker`.",
+      "summaryZh": "Angular 组件 `MatDatetimepickerCalendarBody`（selector: '[mat-datetimepicker-calendar-body]'），提供Material日期时间选择器日历主体的视图渲染与交互逻辑（位于 `src/form/date/picker`）。",
       "sourceFile": "src/form/date/picker/calendar-body.ts",
       "inputs": [
         {
           "name": "label",
           "type": "string",
           "description": "The label for the table. (e.g. \"Jan 2017\").",
-          "descriptionZh": null
+          "descriptionZh": "输入属性 `label`（类型：`string`），用于配置标签。"
         },
         {
           "name": "rows",
           "type": "MatDatetimepickerCalendarCell[][]",
           "description": "The cells to display in the table.",
-          "descriptionZh": null
+          "descriptionZh": "输入属性 `rows`（类型：`MatDatetimepickerCalendarCell[][]`），用于配置行列表。"
         },
         {
           "name": "todayValue",
           "type": "number",
           "description": "The value in the table that corresponds to today.",
-          "descriptionZh": null
+          "descriptionZh": "输入属性 `todayValue`（类型：`number`），用于配置today值。"
         },
         {
           "name": "selectedValue",
           "type": "number",
           "description": "The value in the table that is currently selected.",
-          "descriptionZh": null
+          "descriptionZh": "输入属性 `selectedValue`（类型：`number`），用于配置已选中值。"
         },
         {
           "name": "labelMinRequiredCells",
           "type": "number",
           "description": "The minimum number of free cells needed to fit the label in the first row.",
-          "descriptionZh": null
+          "descriptionZh": "输入属性 `labelMinRequiredCells`（类型：`number`），用于配置标签最小值必填单元格集合。"
         },
         {
           "name": "numCols",
           "type": "any",
           "default": "7",
           "description": "The number of columns in the table.",
-          "descriptionZh": null
+          "descriptionZh": "输入属性 `numCols`（类型：`number`），用于配置数值列列表（默认值：`7`）。"
         },
         {
           "name": "allowDisabledSelection",
           "type": "any",
           "default": "false",
           "description": "Whether to allow selection of disabled cells.",
-          "descriptionZh": null
+          "descriptionZh": "输入属性 `allowDisabledSelection`（类型：`boolean`），用于配置允许已禁用Selection（默认值：`false`）。"
         },
         {
           "name": "activeCell",
           "type": "any",
           "default": "0",
           "description": "The cell number of the active cell in the table.",
-          "descriptionZh": null
+          "descriptionZh": "输入属性 `activeCell`（类型：`number`），用于配置激活单元格（默认值：`0`）。"
         }
       ],
       "outputs": [
@@ -597,7 +664,7 @@
           "name": "selectedValueChange",
           "type": "any",
           "description": "Emits when a new value is selected.",
-          "descriptionZh": null
+          "descriptionZh": "输出事件 `selectedValueChange`（类型：`EventEmitter`），当触发已选中值变更时向外发出事件。"
         }
       ],
       "methods": [],
@@ -606,8 +673,8 @@
     {
       "name": "MatDatetimepickerCalendarCell",
       "kind": "class",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Class `MatDatetimepickerCalendarCell` encapsulating mat datetimepicker calendar cell data structures and logic in `src/form/date/picker`.",
+      "summaryZh": "类 `MatDatetimepickerCalendarCell`，封装 `src/form/date/picker` 中的Material日期时间选择器日历单元格数据结构与处理逻辑。",
       "sourceFile": "src/form/date/picker/calendar-body.ts",
       "inputs": [],
       "outputs": [],
@@ -619,78 +686,78 @@
       "kind": "component",
       "selector": "mat-datetimepicker-clock",
       "summary": "A clock that is used as part of the datepicker.",
-      "summaryZh": null,
+      "summaryZh": "Angular 组件 `MatDatetimepickerClock`（selector: 'mat-datetimepicker-clock'），提供Material日期时间选择器时钟的视图渲染与交互逻辑（位于 `src/form/date/picker`）。",
       "sourceFile": "src/form/date/picker/clock.ts",
       "inputs": [
         {
           "name": "dateFilter",
           "type": "(date: D, type: MatDatetimepickerFilterType) => boolean",
           "description": "A function used to filter which dates are selectable.",
-          "descriptionZh": null
+          "descriptionZh": "输入属性 `dateFilter`（类型：`(date: D, type: MatDatetimepickerFilterType) => boolean`），用于配置日期过滤。"
         },
         {
           "name": "interval",
           "type": "number",
           "default": "1",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `interval` (`number`) configuring interval (default: `1`).",
+          "descriptionZh": "输入属性 `interval`（类型：`number`），用于配置间隔定时器（默认值：`1`）。"
         },
         {
           "name": "twelvehour",
           "type": "boolean",
           "default": "false",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `twelvehour` (`boolean`) configuring twelvehour (default: `false`).",
+          "descriptionZh": "输入属性 `twelvehour`（类型：`boolean`），用于配置twelvehour（默认值：`false`）。"
         },
         {
           "name": "activeDate",
           "type": "D",
           "description": "The date to display in this clock view.",
-          "descriptionZh": null
+          "descriptionZh": "输入属性 `activeDate`（类型：`D`）的读取器，返回当前激活日期。"
         },
         {
           "name": "selected",
           "type": "D | null",
           "description": "The currently selected date.",
-          "descriptionZh": null
+          "descriptionZh": "输入属性 `selected`（类型：`D | null`）的读取器，返回当前已选中。"
         },
         {
           "name": "minDate",
           "type": "D | null",
           "description": "The minimum selectable date.",
-          "descriptionZh": null
+          "descriptionZh": "输入属性 `minDate`（类型：`D | null`）的读取器，返回当前最小值日期。"
         },
         {
           "name": "maxDate",
           "type": "D | null",
           "description": "The maximum selectable date.",
-          "descriptionZh": null
+          "descriptionZh": "输入属性 `maxDate`（类型：`D | null`）的读取器，返回当前最大值日期。"
         },
         {
           "name": "startView",
           "type": "MatClockView",
           "description": "Whether the clock should be started in hour or minute view.",
-          "descriptionZh": null
+          "descriptionZh": "输入属性 `startView` 的设置器，用于更新开始视图。"
         }
       ],
       "outputs": [
         {
           "name": "_userSelection",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Output event emitter `_userSelection` (`EventEmitter`) firing when user selection occurs.",
+          "descriptionZh": "输出事件 `_userSelection`（类型：`EventEmitter`），当触发用户Selection时向外发出事件。"
         },
         {
           "name": "selectedChange",
           "type": "any",
           "description": "Emits when the currently selected date changes.",
-          "descriptionZh": null
+          "descriptionZh": "输出事件 `selectedChange`（类型：`EventEmitter`），当触发已选中变更时向外发出事件。"
         },
         {
           "name": "activeDateChange",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Output event emitter `activeDateChange` (`EventEmitter`) firing when active date change occurs.",
+          "descriptionZh": "输出事件 `activeDateChange`（类型：`EventEmitter`），当触发激活日期变更时向外发出事件。"
         }
       ],
       "methods": [],
@@ -698,26 +765,26 @@
         {
           "name": "activeDate",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Sets the active date (`activeDate`).",
+          "descriptionZh": "设置激活日期（`activeDate`）。"
         },
         {
           "name": "selected",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Sets the selected (`selected`).",
+          "descriptionZh": "设置已选中（`selected`）。"
         },
         {
           "name": "minDate",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Sets the min date (`minDate`).",
+          "descriptionZh": "设置最小值日期（`minDate`）。"
         },
         {
           "name": "maxDate",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Sets the max date (`maxDate`).",
+          "descriptionZh": "设置最大值日期（`maxDate`）。"
         }
       ]
     },
@@ -726,7 +793,7 @@
       "kind": "component",
       "selector": "mat-datetimepicker-content",
       "summary": "Component used as the content for the datepicker dialog and popup. We use this instead of using\nMatCalendar directly as the content so we can control the initial focus. This also gives us a\nplace to put additional features of the popup that are not part of the calendar itself in the\nfuture. (e.g. confirmation buttons).",
-      "summaryZh": null,
+      "summaryZh": "Angular 组件 `MatDatetimepickerContent`（selector: 'mat-datetimepicker-content'），提供Material日期时间选择器内容的视图渲染与交互逻辑（位于 `src/form/date/picker`）。",
       "sourceFile": "src/form/date/picker/datetimepicker.ts",
       "inputs": [],
       "outputs": [],
@@ -740,73 +807,92 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `onSelectionChange` to handle on selection change.",
+          "descriptionZh": "执行 `onSelectionChange`，用于当Selection变更。"
         }
       ],
       "properties": [
         {
           "name": "datetimepicker",
           "type": "MatDatetimepicker<D>",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `datetimepicker` (`MatDatetimepicker<D>`) storing datetimepicker.",
+          "descriptionZh": "属性 `datetimepicker`（类型：`MatDatetimepicker<D>`），用于存储或配置日期时间选择器。"
         }
       ]
     },
     {
       "name": "MatDatetimepickerFilterType",
       "kind": "enum",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Enumeration `MatDatetimepickerFilterType` defining supported mat datetimepicker filter type constants.",
+      "summaryZh": "枚举 `MatDatetimepickerFilterType`，定义支持的Material日期时间选择器过滤类型常量集合。",
       "sourceFile": "src/form/date/picker/datetimepicker-filtertype.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
-      "properties": []
+      "properties": [
+        {
+          "name": "DATE",
+          "type": "enum-member",
+          "description": "Enum member `MatDatetimepickerFilterType.DATE` representing date.",
+          "descriptionZh": "枚举项 `MatDatetimepickerFilterType.DATE`，表示日期。"
+        },
+        {
+          "name": "HOUR",
+          "type": "enum-member",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "MINUTE",
+          "type": "enum-member",
+          "description": null,
+          "descriptionZh": null
+        }
+      ]
     },
     {
       "name": "MatDatetimepickerInput",
       "kind": "directive",
       "selector": "input[matDatetimepicker]",
       "summary": "Directive used to connect an input to a MatDatepicker.",
-      "summaryZh": null,
+      "summaryZh": "Angular 指令 `MatDatetimepickerInput`（selector: 'input[matDatetimepicker]'），为宿主 DOM 元素附加Material日期时间选择器输入属性行为。",
       "sourceFile": "src/form/date/picker/datetimepicker-input.ts",
       "inputs": [
         {
           "name": "matDatetimepicker",
           "type": "MatDatetimepicker<D>",
           "description": "The datepicker that this input is associated with.",
-          "descriptionZh": null
+          "descriptionZh": "输入属性 `matDatetimepicker` 的设置器，用于更新Material日期时间选择器。"
         },
         {
           "name": "matDatepickerFilter",
           "type": "(date: D | null, type: MatDatetimepickerFilterType) => boolean",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input setter `matDatepickerFilter` updating mat datepicker filter.",
+          "descriptionZh": "输入属性 `matDatepickerFilter` 的设置器，用于更新Material日期选择器过滤。"
         },
         {
           "name": "value",
           "type": "D | null",
           "description": "The value of the input.",
-          "descriptionZh": null
+          "descriptionZh": "输入属性 `value`（类型：`D | null`）的读取器，返回当前值。"
         },
         {
           "name": "min",
           "type": "D | null",
           "description": "The minimum valid date.",
-          "descriptionZh": null
+          "descriptionZh": "输入属性 `min`（类型：`D | null`）的读取器，返回当前最小值。"
         },
         {
           "name": "max",
           "type": "D | null",
           "description": "The maximum valid date.",
-          "descriptionZh": null
+          "descriptionZh": "输入属性 `max`（类型：`D | null`）的读取器，返回当前最大值。"
         },
         {
           "name": "disabled",
           "type": "any",
           "description": "Whether the datepicker-input is disabled.",
-          "descriptionZh": null
+          "descriptionZh": "输入属性 `disabled`（类型：`any`）的读取器，返回当前已禁用。"
         }
       ],
       "outputs": [
@@ -814,13 +900,13 @@
           "name": "dateChange",
           "type": "any",
           "description": "Emits when a `change` event is fired on this `<input>`.",
-          "descriptionZh": null
+          "descriptionZh": "输出事件 `dateChange`（类型：`EventEmitter`），当触发日期变更时向外发出事件。"
         },
         {
           "name": "dateInput",
           "type": "any",
           "description": "Emits when an `input` event is fired on this `<input>`.",
-          "descriptionZh": null
+          "descriptionZh": "输出事件 `dateInput`（类型：`EventEmitter`），当触发日期输入属性时向外发出事件。"
         }
       ],
       "methods": [
@@ -833,8 +919,8 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `registerOnValidatorChange` to handle register on validator change.",
+          "descriptionZh": "执行 `registerOnValidatorChange`，用于注册当校验器变更。"
         },
         {
           "name": "validate",
@@ -845,41 +931,41 @@
             }
           ],
           "returnType": "ValidationErrors | null",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `validate` to handle validate.",
+          "descriptionZh": "执行 `validate`，用于校验。"
         },
         {
           "name": "getConnectedOverlayOrigin",
           "params": [],
           "returnType": "ElementRef",
           "description": "Gets the element that the datepicker popup should be connected to.",
-          "descriptionZh": null
+          "descriptionZh": "执行 `getConnectedOverlayOrigin`，用于获取已连接浮层Origin。"
         }
       ],
       "properties": [
         {
           "name": "value",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Sets the value (`value`).",
+          "descriptionZh": "设置值（`value`）。"
         },
         {
           "name": "min",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Sets the min (`min`).",
+          "descriptionZh": "设置最小值（`min`）。"
         },
         {
           "name": "max",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Sets the max (`max`).",
+          "descriptionZh": "设置最大值（`max`）。"
         },
         {
           "name": "disabled",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Sets the disabled (`disabled`).",
+          "descriptionZh": "设置已禁用（`disabled`）。"
         }
       ]
     },
@@ -887,7 +973,7 @@
       "name": "MatDatetimepickerInputEvent",
       "kind": "class",
       "summary": "An event used for datepicker input and change events. We don't always have access to a native\ninput or change event because the event may have been triggered by the user clicking on the\ncalendar popup. For consistency, we always use MatDatepickerInputEvent instead.",
-      "summaryZh": null,
+      "summaryZh": "类 `MatDatetimepickerInputEvent`，封装 `src/form/date/picker` 中的Material日期时间选择器输入属性事件数据结构与处理逻辑。",
       "sourceFile": "src/form/date/picker/datetimepicker-input.ts",
       "inputs": [],
       "outputs": [],
@@ -897,15 +983,15 @@
           "name": "value",
           "type": "D | null",
           "description": "The new value for the target datepicker input.",
-          "descriptionZh": null
+          "descriptionZh": "属性 `value`（类型：`D | null`），用于存储或配置值。"
         }
       ]
     },
     {
       "name": "MatDatetimepickerMode",
       "kind": "type",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Type alias `MatDatetimepickerMode` representing mat datetimepicker mode (`\"auto\" | \"portrait\" | \"landscape\"`).",
+      "summaryZh": "类型别名 `MatDatetimepickerMode`，表示Material日期时间选择器模式（`\"auto\" | \"portrait\" | \"landscape\"`）。",
       "sourceFile": "src/form/date/picker/datetimepicker.ts",
       "inputs": [],
       "outputs": [],
@@ -915,8 +1001,8 @@
     {
       "name": "MatDatetimepickerModule",
       "kind": "module",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular module `MatDatetimepickerModule` declaring and exporting mat datetimepicker module components, directives, pipes, and providers.",
+      "summaryZh": "Angular 模块 `MatDatetimepickerModule`，声明并导出Material日期时间选择器模块相关的组件、指令、管道与服务提供者。",
       "sourceFile": "src/form/date/picker/datetimepicker.module.ts",
       "inputs": [],
       "outputs": [],
@@ -928,47 +1014,47 @@
       "kind": "component",
       "selector": "mat-datetimepicker-month-view",
       "summary": "An internal component used to display a single month in the datepicker.",
-      "summaryZh": null,
+      "summaryZh": "Angular 组件 `MatDatetimepickerMonthView`（selector: 'mat-datetimepicker-month-view'），提供Material日期时间选择器月视图的视图渲染与交互逻辑（位于 `src/form/date/picker`）。",
       "sourceFile": "src/form/date/picker/month-view.ts",
       "inputs": [
         {
           "name": "type",
           "type": "MatDatetimepickerType",
           "default": "\"date\"",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `type` (`MatDatetimepickerType`) configuring type (default: `\"date\"`).",
+          "descriptionZh": "输入属性 `type`（类型：`MatDatetimepickerType`），用于配置类型（默认值：`\"date\"`）。"
         },
         {
           "name": "dateFilter",
           "type": "(date: D) => boolean",
           "description": "A function used to filter which dates are selectable.",
-          "descriptionZh": null
+          "descriptionZh": "输入属性 `dateFilter`（类型：`(date: D) => boolean`），用于配置日期过滤。"
         },
         {
           "name": "activeDate",
           "type": "D",
           "description": "The date to display in this month view (everything other than the month and year is ignored).",
-          "descriptionZh": null
+          "descriptionZh": "输入属性 `activeDate`（类型：`D`）的读取器，返回当前激活日期。"
         },
         {
           "name": "selected",
           "type": "D",
           "description": "The currently selected date.",
-          "descriptionZh": null
+          "descriptionZh": "输入属性 `selected`（类型：`D`）的读取器，返回当前已选中。"
         }
       ],
       "outputs": [
         {
           "name": "_userSelection",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Output event emitter `_userSelection` (`EventEmitter`) firing when user selection occurs.",
+          "descriptionZh": "输出事件 `_userSelection`（类型：`EventEmitter`），当触发用户Selection时向外发出事件。"
         },
         {
           "name": "selectedChange",
           "type": "any",
           "description": "Emits when a new date is selected.",
-          "descriptionZh": null
+          "descriptionZh": "输出事件 `selectedChange`（类型：`EventEmitter`），当触发已选中变更时向外发出事件。"
         }
       ],
       "methods": [],
@@ -976,14 +1062,14 @@
         {
           "name": "activeDate",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Sets the active date (`activeDate`).",
+          "descriptionZh": "设置激活日期（`activeDate`）。"
         },
         {
           "name": "selected",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Sets the selected (`selected`).",
+          "descriptionZh": "设置已选中（`selected`）。"
         }
       ]
     },
@@ -992,59 +1078,59 @@
       "kind": "component",
       "selector": "mat-datetimepicker-multi-year-view",
       "summary": "An internal component used to display multiple years in the datepicker.",
-      "summaryZh": null,
+      "summaryZh": "Angular 组件 `MatDatetimepickerMultiYearView`（selector: 'mat-datetimepicker-multi-year-view'），提供Material日期时间选择器多年视图的视图渲染与交互逻辑（位于 `src/form/date/picker`）。",
       "sourceFile": "src/form/date/picker/multi-year-view.ts",
       "inputs": [
         {
           "name": "type",
           "type": "MatDatetimepickerType",
           "default": "\"date\"",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `type` (`MatDatetimepickerType`) configuring type (default: `\"date\"`).",
+          "descriptionZh": "输入属性 `type`（类型：`MatDatetimepickerType`），用于配置类型（默认值：`\"date\"`）。"
         },
         {
           "name": "dateFilter",
           "type": "(date: D) => boolean",
           "description": "A function used to filter which dates are selectable.",
-          "descriptionZh": null
+          "descriptionZh": "输入属性 `dateFilter`（类型：`(date: D) => boolean`），用于配置日期过滤。"
         },
         {
           "name": "activeDate",
           "type": "D",
           "description": "The date to display in this multi year view",
-          "descriptionZh": null
+          "descriptionZh": "输入属性 `activeDate`（类型：`D`）的读取器，返回当前激活日期。"
         },
         {
           "name": "selected",
           "type": "D",
           "description": "The currently selected date.",
-          "descriptionZh": null
+          "descriptionZh": "输入属性 `selected`（类型：`D`）的读取器，返回当前已选中。"
         },
         {
           "name": "minDate",
           "type": "D | null",
           "description": "The minimum selectable date.",
-          "descriptionZh": null
+          "descriptionZh": "输入属性 `minDate`（类型：`D | null`）的读取器，返回当前最小值日期。"
         },
         {
           "name": "maxDate",
           "type": "D | null",
           "description": "The maximum selectable date.",
-          "descriptionZh": null
+          "descriptionZh": "输入属性 `maxDate`（类型：`D | null`）的读取器，返回当前最大值日期。"
         }
       ],
       "outputs": [
         {
           "name": "_userSelection",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Output event emitter `_userSelection` (`EventEmitter`) firing when user selection occurs.",
+          "descriptionZh": "输出事件 `_userSelection`（类型：`EventEmitter`），当触发用户Selection时向外发出事件。"
         },
         {
           "name": "selectedChange",
           "type": "any",
           "description": "Emits when a new month is selected.",
-          "descriptionZh": null
+          "descriptionZh": "输出事件 `selectedChange`（类型：`EventEmitter`），当触发已选中变更时向外发出事件。"
         }
       ],
       "methods": [],
@@ -1052,26 +1138,26 @@
         {
           "name": "activeDate",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Sets the active date (`activeDate`).",
+          "descriptionZh": "设置激活日期（`activeDate`）。"
         },
         {
           "name": "selected",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Sets the selected (`selected`).",
+          "descriptionZh": "设置已选中（`selected`）。"
         },
         {
           "name": "minDate",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Sets the min date (`minDate`).",
+          "descriptionZh": "设置最小值日期（`minDate`）。"
         },
         {
           "name": "maxDate",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Sets the max date (`maxDate`).",
+          "descriptionZh": "设置最大值日期（`maxDate`）。"
         }
       ]
     },
@@ -1079,8 +1165,8 @@
       "name": "MatDatetimepickerToggle",
       "kind": "component",
       "selector": "mat-datetimepicker-toggle",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular component `MatDatetimepickerToggle` (selector: 'mat-datetimepicker-toggle') providing mat datetimepicker toggle presentation and interaction in `src/form/date/picker`.",
+      "summaryZh": "Angular 组件 `MatDatetimepickerToggle`（selector: 'mat-datetimepicker-toggle'），提供Material日期时间选择器开关的视图渲染与交互逻辑（位于 `src/form/date/picker`）。",
       "sourceFile": "src/form/date/picker/datetimepicker-toggle.ts",
       "inputs": [
         {
@@ -1088,13 +1174,13 @@
           "alias": "for",
           "type": "MatDatetimepicker<D>",
           "description": "Datepicker instance that the button will toggle.",
-          "descriptionZh": null
+          "descriptionZh": "输入属性 `for`（类型：`MatDatetimepicker<D>`），用于配置日期时间选择器。"
         },
         {
           "name": "disabled",
           "type": "boolean",
           "description": "Whether the toggle button is disabled.",
-          "descriptionZh": null
+          "descriptionZh": "输入属性 `disabled`（类型：`boolean`）的读取器，返回当前已禁用。"
         }
       ],
       "outputs": [],
@@ -1103,16 +1189,16 @@
         {
           "name": "disabled",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Sets the disabled (`disabled`).",
+          "descriptionZh": "设置已禁用（`disabled`）。"
         }
       ]
     },
     {
       "name": "MatDatetimepickerType",
       "kind": "type",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Type alias `MatDatetimepickerType` representing mat datetimepicker type (`\"date\" | \"time\" | \"month\" | \"year\" | \"datetime\"`).",
+      "summaryZh": "类型别名 `MatDatetimepickerType`，表示Material日期时间选择器类型（`\"date\" | \"time\" | \"month\" | \"year\" | \"datetime\"`）。",
       "sourceFile": "src/form/date/picker/datetimepicker.ts",
       "inputs": [],
       "outputs": [],
@@ -1124,47 +1210,47 @@
       "kind": "component",
       "selector": "mat-datetimepicker-year-view",
       "summary": "An internal component used to display a single year in the datepicker.",
-      "summaryZh": null,
+      "summaryZh": "Angular 组件 `MatDatetimepickerYearView`（selector: 'mat-datetimepicker-year-view'），提供Material日期时间选择器年视图的视图渲染与交互逻辑（位于 `src/form/date/picker`）。",
       "sourceFile": "src/form/date/picker/year-view.ts",
       "inputs": [
         {
           "name": "type",
           "type": "MatDatetimepickerType",
           "default": "\"date\"",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `type` (`MatDatetimepickerType`) configuring type (default: `\"date\"`).",
+          "descriptionZh": "输入属性 `type`（类型：`MatDatetimepickerType`），用于配置类型（默认值：`\"date\"`）。"
         },
         {
           "name": "dateFilter",
           "type": "(date: D) => boolean",
           "description": "A function used to filter which dates are selectable.",
-          "descriptionZh": null
+          "descriptionZh": "输入属性 `dateFilter`（类型：`(date: D) => boolean`），用于配置日期过滤。"
         },
         {
           "name": "activeDate",
           "type": "D",
           "description": "The date to display in this year view (everything other than the year is ignored).",
-          "descriptionZh": null
+          "descriptionZh": "输入属性 `activeDate`（类型：`D`）的读取器，返回当前激活日期。"
         },
         {
           "name": "selected",
           "type": "D",
           "description": "The currently selected date.",
-          "descriptionZh": null
+          "descriptionZh": "输入属性 `selected`（类型：`D`）的读取器，返回当前已选中。"
         }
       ],
       "outputs": [
         {
           "name": "_userSelection",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Output event emitter `_userSelection` (`EventEmitter`) firing when user selection occurs.",
+          "descriptionZh": "输出事件 `_userSelection`（类型：`EventEmitter`），当触发用户Selection时向外发出事件。"
         },
         {
           "name": "selectedChange",
           "type": "any",
           "description": "Emits when a new month is selected.",
-          "descriptionZh": null
+          "descriptionZh": "输出事件 `selectedChange`（类型：`EventEmitter`），当触发已选中变更时向外发出事件。"
         }
       ],
       "methods": [],
@@ -1172,22 +1258,22 @@
         {
           "name": "activeDate",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Sets the active date (`activeDate`).",
+          "descriptionZh": "设置激活日期（`activeDate`）。"
         },
         {
           "name": "selected",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Sets the selected (`selected`).",
+          "descriptionZh": "设置已选中（`selected`）。"
         }
       ]
     },
     {
       "name": "slideCalendar",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular animation trigger `slideCalendar` defining state transitions for slide calendar.",
+      "summaryZh": "Angular 动画触发器 `slideCalendar`，定义slide日历的状态过渡动画。",
       "sourceFile": "src/form/date/picker/datetimepicker-animations.ts",
       "inputs": [],
       "outputs": [],
@@ -1197,8 +1283,8 @@
     {
       "name": "yearsPerPage",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `yearsPerPage` defining years per page in `src/form/date/picker`.",
+      "summaryZh": "常量/变量 `yearsPerPage`，定义 `src/form/date/picker` 中的年Per页面。",
       "sourceFile": "src/form/date/picker/multi-year-view.ts",
       "inputs": [],
       "outputs": [],
@@ -1208,8 +1294,8 @@
     {
       "name": "yearsPerRow",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `yearsPerRow` defining years per row in `src/form/date/picker`.",
+      "summaryZh": "常量/变量 `yearsPerRow`，定义 `src/form/date/picker` 中的年Per行。",
       "sourceFile": "src/form/date/picker/multi-year-view.ts",
       "inputs": [],
       "outputs": [],

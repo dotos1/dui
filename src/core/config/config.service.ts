@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Module `src/core/config/config.service.ts` providing config service definitions and implementation.
+ * @zh 模块文件 `src/core/config/config.service.ts`，提供配置服务相关的定义与实现。
+ */
+
 
 import { Injectable } from '@angular/core';
 import { ConfigLoader } from './config.loader';
@@ -7,37 +12,135 @@ import { DuiBase } from '@dotos/dui/base';
 import { getValue } from '@dotos/dui/base';
 import { LocalStorageService } from '@dotos/dui/core/storage';
 
+/**
+ * Enumeration `AppConfigValues` defining supported app config values constants.
+ * @zh 枚举 `AppConfigValues`，定义支持的App配置值列表常量集合。
+ */
 export enum AppConfigValues {
+  /**
+   * Enum member `AppConfigValues.APP_CONFIG_LANGUAGES_KEY` = 'languages' representing app config languages key.
+   * @zh 枚举项 `AppConfigValues.APP_CONFIG_LANGUAGES_KEY` = 'languages'，表示APP配置语言键。
+   */
   APP_CONFIG_LANGUAGES_KEY = 'languages',
+  /**
+   * Enum member `AppConfigValues.PROVIDERS` = 'providers' representing providers.
+   * @zh 枚举项 `AppConfigValues.PROVIDERS` = 'providers'，表示提供者列表。
+   */
   PROVIDERS = 'providers',
+  /**
+   * Enum member `AppConfigValues.OAUTHCONFIG` = 'oauth2' representing oauthconfig.
+   * @zh 枚举项 `AppConfigValues.OAUTHCONFIG` = 'oauth2'，表示OAUTHCONFIG。
+   */
   OAUTHCONFIG = 'oauth2',
+  /**
+   * Enum member `AppConfigValues.BASESHAREURL` = 'baseShareUrl' representing baseshareurl.
+   * @zh 枚举项 `AppConfigValues.BASESHAREURL` = 'baseShareUrl'，表示BASESHAREURL。
+   */
   BASESHAREURL = 'baseShareUrl',
+  /**
+   * Enum member `AppConfigValues.HOST` = 'Host' representing host.
+   * @zh 枚举项 `AppConfigValues.HOST` = 'Host'，表示宿主。
+   */
   HOST = 'Host',
+  /**
+   * Enum member `AppConfigValues.IDENTITY_HOST` = 'identityHost' representing identity host.
+   * @zh 枚举项 `AppConfigValues.IDENTITY_HOST` = 'identityHost'，表示IDENTITY宿主。
+   */
   IDENTITY_HOST = 'identityHost',
+  /**
+   * Enum member `AppConfigValues.AUTHTYPE` = 'authType' representing authtype.
+   * @zh 枚举项 `AppConfigValues.AUTHTYPE` = 'authType'，表示AUTHTYPE。
+   */
   AUTHTYPE = 'authType',
+  /**
+   * Enum member `AppConfigValues.CONTEXTROOTECM` = 'contextRootEcm' representing contextrootecm.
+   * @zh 枚举项 `AppConfigValues.CONTEXTROOTECM` = 'contextRootEcm'，表示CONTEXTROOTECM。
+   */
   CONTEXTROOTECM = 'contextRootEcm',
+  /**
+   * Enum member `AppConfigValues.CONTEXTROOTBPM` = 'contextRootBpm' representing contextrootbpm.
+   * @zh 枚举项 `AppConfigValues.CONTEXTROOTBPM` = 'contextRootBpm'，表示CONTEXTROOTBPM。
+   */
   CONTEXTROOTBPM = 'contextRootBpm',
+  /**
+   * Enum member `AppConfigValues.LOG_LEVEL` = 'logLevel' representing log level.
+   * @zh 枚举项 `AppConfigValues.LOG_LEVEL` = 'logLevel'，表示日志层级。
+   */
   LOG_LEVEL = 'logLevel',
+  /**
+   * Enum member `AppConfigValues.LOGIN_ROUTE` = 'loginRoute' representing login route.
+   * @zh 枚举项 `AppConfigValues.LOGIN_ROUTE` = 'loginRoute'，表示LOGINROUTE。
+   */
   LOGIN_ROUTE = 'loginRoute',
+  /**
+   * Enum member `AppConfigValues.DISABLECSRF` = 'disableCSRF' representing disablecsrf.
+   * @zh 枚举项 `AppConfigValues.DISABLECSRF` = 'disableCSRF'，表示DISABLECSRF。
+   */
   DISABLECSRF = 'disableCSRF',
+  /**
+   * Enum member `AppConfigValues.AUTH_WITH_CREDENTIALS` = 'auth.withCredentials' representing auth with credentials.
+   * @zh 枚举项 `AppConfigValues.AUTH_WITH_CREDENTIALS` = 'auth.withCredentials'，表示认证带有CREDENTIALS。
+   */
   AUTH_WITH_CREDENTIALS = 'auth.withCredentials',
+  /**
+   * Enum member `AppConfigValues.APPLICATION` = 'application' representing application.
+   * @zh 枚举项 `AppConfigValues.APPLICATION` = 'application'，表示APPLICATION。
+   */
   APPLICATION = 'application',
+  /**
+   * Enum member `AppConfigValues.STORAGE_PREFIX` = 'application.storagePrefix' representing storage prefix.
+   * @zh 枚举项 `AppConfigValues.STORAGE_PREFIX` = 'application.storagePrefix'，表示存储前缀。
+   */
   STORAGE_PREFIX = 'application.storagePrefix',
+  /**
+   * Enum member `AppConfigValues.NOTIFY_DURATION` = 'notificationDefaultDuration' representing notify duration.
+   * @zh 枚举项 `AppConfigValues.NOTIFY_DURATION` = 'notificationDefaultDuration'，表示通知持续时间。
+   */
   NOTIFY_DURATION = 'notificationDefaultDuration'
 }
 
+/**
+ * Injectable Angular service `ConfigService` managing config service state and operations in `src/core/config`.
+ * @zh 可注入的 Angular 服务 `ConfigService`，管理 `src/core/config` 中的配置服务状态与业务操作。
+ */
 @Injectable({
   providedIn: 'root'
 })
 export class ConfigService {
-  public config: any={};
+  /**
+   * Property `config` (`any`) storing config (default: `{}`).
+   * @zh 属性 `config`（类型：`any`），用于存储或配置配置（默认值：`{}`）。
+   */
+  public config={};
 
-  public onLoadSubject: Subject<any>;
-  public onLoad: Observable<any>;
+  /**
+   * Property `onLoadSubject` (`Subject<any>`) storing on load subject.
+   * @zh 属性 `onLoadSubject`（类型：`Subject<any>`），用于存储或配置当加载主题流。
+   */
+  public onLoadSubject;
+  /**
+   * Property `onLoad` (`Observable<any>`) storing on load.
+   * @zh 属性 `onLoad`（类型：`Observable<any>`），用于存储或配置当加载。
+   */
+  public onLoad;
 
-  public onErrorSubject: Subject<any>;
-  public onError: Observable<any>;
+  /**
+   * Property `onErrorSubject` (`Subject<any>`) storing on error subject.
+   * @zh 属性 `onErrorSubject`（类型：`Subject<any>`），用于存储或配置当错误主题流。
+   */
+  public onErrorSubject;
+  /**
+   * Property `onError` (`Observable<any>`) storing on error.
+   * @zh 属性 `onError`（类型：`Observable<any>`），用于存储或配置当错误。
+   */
+  public onError;
 
+  /**
+   * Creates an instance of `ConfigService` and initializes its dependencies and internal state.
+   * @zh 创建 `ConfigService` 实例，并初始化其依赖项与内部状态。
+   * @param localStore - Injected or initial local store (`LocalStorageService`) / 注入或传入的本地状态仓库（`LocalStorageService`）
+   * @param loader - Injected or initial loader (`ConfigLoader`) / 注入或传入的加载器（`ConfigLoader`）
+   */
   constructor(
     protected localStore: LocalStorageService,
     public loader: ConfigLoader) {
@@ -46,11 +149,20 @@ export class ConfigService {
     this.onErrorSubject = new Subject();
     this.onError = this.onErrorSubject.asObservable();
   }
+  /**
+   * Executes `setLoader` to handle set loader.
+   * @zh 执行 `setLoader`，用于集合加载器。
+   * @param loader - loader parameter (`ConfigLoader`) / 加载器参数（`ConfigLoader`）
+   */
   setLoader(loader: ConfigLoader){
     this.loader=loader;
   }
+  /**
+   * Executes `init` to handle init.
+   * @zh 执行 `init`，用于初始化。
+   */
   init() {
-    this.loader.loadSettings().then((res: any) => {
+    this.loader.loadSettings().then((res) => {
       if (this.config) {
         DuiBase.apply(this.config, res);
       } else {
@@ -62,10 +174,20 @@ export class ConfigService {
       this.onErrorSubject.next(error);
    });;
   }
+  /**
+   * Executes `loadFromStore` to handle load from store.
+   * @zh 执行 `loadFromStore`，用于加载从状态仓库。
+   */
   loadFromStore(){
     this.config=this.localStore.get("config");
   }
-  select(property: string): Observable<any> {
+  /**
+   * Executes `select` to handle select.
+   * @zh 执行 `select`，用于下拉选择。
+   * @param property - property parameter (`string`) / 属性参数（`string`）
+   * @returns Result of type `Observable<any>` / 类型为 `Observable<any>` 的返回值
+   */
+  select(property: string) {
     return this.onLoadSubject
       .pipe(
         map((config) => config[property]),
@@ -73,8 +195,15 @@ export class ConfigService {
       );
   }
 
+  /**
+   * Executes `get` to handle get.
+   * @zh 执行 `get`，用于获取。
+   * @param key - key parameter (`string`) / 键参数（`string`）
+   * @param defaultValue - default value parameter (`T`) / 默认值参数（`T`）
+   * @returns Result of type `T` / 类型为 `T` 的返回值
+   */
   get<T>(key: string, defaultValue?: T): T {
-    let result: any = getValue(key, this.config);
+    let result = getValue(key, this.config);
     if (typeof result === 'string') {
       const keywords = new Map<string, string>();
       keywords.set('hostname', this.getLocationHostname());
@@ -89,18 +218,41 @@ export class ConfigService {
     return <T>result;
   }
 
+  /**
+   * Executes `getLocationProtocol` to handle get location protocol.
+   * @zh 执行 `getLocationProtocol`，用于获取LocationProtocol。
+   * @returns Result of type `string` / 类型为 `string` 的返回值
+   */
   getLocationProtocol(): string {
     return location.protocol;
   }
 
+  /**
+   * Executes `getLocationHostname` to handle get location hostname.
+   * @zh 执行 `getLocationHostname`，用于获取LocationHostname。
+   * @returns Result of type `string` / 类型为 `string` 的返回值
+   */
   getLocationHostname(): string {
     return location.hostname;
   }
 
+  /**
+   * Executes `getLocationPort` to handle get location port.
+   * @zh 执行 `getLocationPort`，用于获取LocationPort。
+   * @param prefix - prefix parameter (`string`) / 前缀参数（`string`）
+   * @returns Result of type `string` / 类型为 `string` 的返回值
+   */
   getLocationPort(prefix: string = ''): string {
     return location.port ? prefix + location.port : '';
   }
 
+  /**
+   * Executes `formatString` to handle format string.
+   * @zh 执行 `formatString`，用于格式化字符串。
+   * @param str - str parameter (`string`) / 字符串参数（`string`）
+   * @param keywords - keywords parameter (`Map<string, string>`) / keywords参数（`Map<string, string>`）
+   * @returns Result of type `string` / 类型为 `string` 的返回值
+   */
   private formatString(str: string, keywords: Map<string, string>): string {
     let result = str;
     keywords.forEach((value, key) => {
@@ -110,7 +262,14 @@ export class ConfigService {
     return result;
   }
 
-  getSettings(key?: string | Array<string>, defaultValue?: any): any {
+  /**
+   * Executes `getSettings` to handle get settings.
+   * @zh 执行 `getSettings`，用于获取设置项。
+   * @param key - key parameter (`string | Array<string>`) / 键参数（`string | Array<string>`）
+   * @param defaultValue - default value parameter (`any`) / 默认值参数（`any`）
+   * @returns Result of type `any` / 类型为 `any` 的返回值
+   */
+  getSettings(key?: string | Array<string>, defaultValue?) {
 
     if (!key || (Array.isArray(key) && !key[0]))
       return this.config;
@@ -119,7 +278,7 @@ export class ConfigService {
       key = key.split('.');
 
     let result = key
-      .reduce((acc: any, current: string) => acc && acc[current], this.config);
+      .reduce((acc, current: string) => acc && acc[current], this.config);
 
     if (result === undefined) {
       result = defaultValue;
@@ -128,7 +287,13 @@ export class ConfigService {
     }
     return result;
   }
-  setSetting(key: string , value: any): void {
+  /**
+   * Executes `setSetting` to handle set setting.
+   * @zh 执行 `setSetting`，用于集合设置。
+   * @param key - key parameter (`string`) / 键参数（`string`）
+   * @param value - value parameter (`any`) / 值参数（`any`）
+   */
+  setSetting(key: string , value): void {
     this.config[key]=value;
   }
 }

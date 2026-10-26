@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Module `src/container/dock-layout/controls/browser-popout.ts` providing browser popout definitions and implementation.
+ * @zh 模块文件 `src/container/dock-layout/controls/browser-popout.ts`，提供浏览器弹出窗口相关的定义与实现。
+ */
+
 import { ResolvedLayoutConfig, ResolvedPopoutLayoutConfig } from '../config/resolved-config';
 import { PopoutBlockedError } from '../errors/external-error';
 import { UnexpectedNullError, UnexpectedUndefinedError } from '../errors/internal-error';
@@ -17,20 +22,36 @@ import { deepExtend, getErrorMessage, getUniqueId } from '../utils/utils';
  *    - DockLayout when opened in the new window will look for the GET parameter
  *      and use it instead of the provided configuration
  * @public
+
+ * @zh 类 `BrowserPopout`，封装 `src/container/dock-layout/controls` 中的浏览器弹出窗口数据结构与处理逻辑。
  */
 
 export class BrowserPopout extends EventEmitter {
-    /** @internal */
+    /**
+     * Property `_popoutWindow` (`Window | null`) storing popout window.
+     * @internal
+     * @zh 属性 `_popoutWindow`（类型：`Window | null`），用于存储或配置弹出窗口窗口。
+     */
     private _popoutWindow: Window | null;
-    /** @internal */
+    /**
+     * Property `_isInitialised` (`any`) storing is initialised.
+     * @internal
+     * @zh 属性 `_isInitialised`（类型：`any`），用于存储或配置是否为Initialised。
+     */
     private _isInitialised;
-    /** @internal */
+    /**
+     * Property `_checkReadyInterval` (`ReturnType<typeof setTimeout> | undefined`) storing check ready interval.
+     * @internal
+     * @zh 属性 `_checkReadyInterval`（类型：`ReturnType<typeof setTimeout> | undefined`），用于存储或配置检查就绪间隔定时器。
+     */
     private _checkReadyInterval: ReturnType<typeof setTimeout> | undefined;
 
     /**
      * @param _config - DockLayout item config
      * @param _initialWindowSize - A map with width, height, top and left
      * @internal
+
+     * @zh 创建 `BrowserPopout` 实例，并初始化其依赖项与内部状态。
      */
     constructor(
         /** @internal */
@@ -47,6 +68,11 @@ export class BrowserPopout extends EventEmitter {
         this.createWindow();
     }
 
+    /**
+     * Executes `toConfig` to handle to config.
+     * @zh 执行 `toConfig`，用于转换为配置。
+     * @returns Result of type `ResolvedPopoutLayoutConfig` / 类型为 `ResolvedPopoutLayoutConfig` 的返回值
+     */
     toConfig(): ResolvedPopoutLayoutConfig {
         if (this._isInitialised === false) {
             throw new Error('Can\'t create config, layout not yet initialised');
@@ -87,6 +113,11 @@ export class BrowserPopout extends EventEmitter {
         return config;
     }
 
+    /**
+     * Executes `getGlInstance` to handle get gl instance.
+     * @zh 执行 `getGlInstance`，用于获取Gl实例。
+     * @returns Result of type `LayoutManager` / 类型为 `LayoutManager` 的返回值
+     */
     getGlInstance(): LayoutManager {
         if (this._popoutWindow === null) {
             throw new UnexpectedNullError('BPGGI24693');
@@ -98,6 +129,8 @@ export class BrowserPopout extends EventEmitter {
      * Retrieves the native BrowserWindow backing this popout.
      * Might throw an UnexpectedNullError exception when the window is not initialized yet.
      * @public
+
+     * @zh 执行 `getWindow`，用于获取窗口。
      */
     getWindow(): Window {
         if (this._popoutWindow === null) {
@@ -106,6 +139,10 @@ export class BrowserPopout extends EventEmitter {
         return this._popoutWindow;
     }
 
+    /**
+     * Executes `close` to handle close.
+     * @zh 执行 `close`，用于关闭。
+     */
     close(): void {
         if (this.getGlInstance()) {
             this.getGlInstance().closeWindow();
@@ -121,6 +158,8 @@ export class BrowserPopout extends EventEmitter {
     /**
      * Returns the popped out item to its original position. If the original
      * parent isn't available anymore it falls back to the layout's topmost element
+
+     * @zh 执行 `popIn`，用于弹出在。
      */
     popIn(): void {
         let parentItem: ContentItem;
@@ -178,6 +217,8 @@ export class BrowserPopout extends EventEmitter {
      * Creates the URL and window parameter
      * and opens a new window
      * @internal
+
+     * @zh 执行 `createWindow`，用于创建窗口。
      */
     private createWindow(): void {
         const url = this.createUrl();
@@ -235,7 +276,11 @@ export class BrowserPopout extends EventEmitter {
         this._checkReadyInterval = setInterval(() => this.checkReady(), 10);
     }
 
-    /** @internal */
+    /**
+     * Executes `checkReady` to handle check ready.
+     * @internal
+     * @zh 执行 `checkReady`，用于检查就绪。
+     */
     private checkReady() {
         if (this._popoutWindow === null) {
             throw new UnexpectedNullError('BPCR01844');
@@ -257,6 +302,8 @@ export class BrowserPopout extends EventEmitter {
      *
      * @returns serialised window options
      * @internal
+
+     * @zh 执行 `serializeWindowFeatures`，用于序列化窗口Features。
      */
     private serializeWindowFeatures(windowOptions: Record<string, string | number>): string {
         const windowOptionsString: string[] = [];
@@ -274,6 +321,8 @@ export class BrowserPopout extends EventEmitter {
      *
      * @returns URL
      * @internal
+
+     * @zh 执行 `createUrl`，用于创建链接地址。
      */
     private createUrl(): string {
         const storageKey = 'gl-window-config-' + getUniqueId();
@@ -294,6 +343,8 @@ export class BrowserPopout extends EventEmitter {
      * Move the newly created window roughly to
      * where the component used to be.
      * @internal
+
+     * @zh 执行 `positionWindow`，用于位置窗口。
      */
     private positionWindow() {
         if (this._popoutWindow === null) {
@@ -305,6 +356,10 @@ export class BrowserPopout extends EventEmitter {
     }
 
 
+    /**
+     * Executes `onInitialised` to handle on initialised.
+     * @zh 执行 `onInitialised`，用于当Initialised。
+     */
     private onInitialised(): void {
         this._isInitialised = true;
         this.getGlInstance().on('popIn', () => this.popIn());
@@ -312,6 +367,10 @@ export class BrowserPopout extends EventEmitter {
     }
 
 
+    /**
+     * Executes `_onClose` to handle on close.
+     * @zh 执行 `_onClose`，用于当关闭。
+     */
     private _onClose() {
         if (this._checkReadyInterval !== undefined) {
             clearInterval(this._checkReadyInterval);

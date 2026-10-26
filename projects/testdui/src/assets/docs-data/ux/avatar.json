@@ -4,8 +4,8 @@
     {
       "name": "Avatar",
       "kind": "class",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Class `Avatar` encapsulating avatar data structures and logic in `src/ux/avatar`.",
+      "summaryZh": "类 `Avatar`，封装 `src/ux/avatar` 中的头像数据结构与处理逻辑。",
       "sourceFile": "src/ux/avatar/avatar.ts",
       "inputs": [],
       "outputs": [],
@@ -19,8 +19,8 @@
             }
           ],
           "returnType": "string",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `getAvatar` to handle get avatar.",
+          "descriptionZh": "执行 `getAvatar`，用于获取头像。"
         }
       ],
       "properties": []
@@ -29,84 +29,84 @@
       "name": "AvatarComponent",
       "kind": "component",
       "selector": "dui-avatar",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular component `AvatarComponent` (selector: 'dui-avatar') providing avatar component presentation and interaction in `src/ux/avatar`.",
+      "summaryZh": "Angular 组件 `AvatarComponent`（selector: 'dui-avatar'），提供头像组件的视图渲染与交互逻辑（位于 `src/ux/avatar`）。",
       "sourceFile": "src/ux/avatar/avatar.component.ts",
       "inputs": [
         {
           "name": "round",
           "type": "any",
           "default": "true",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `round` (`boolean`) configuring round (default: `true`).",
+          "descriptionZh": "输入属性 `round`（类型：`boolean`），用于配置四舍五入（默认值：`true`）。"
         },
         {
           "name": "size",
           "type": "string | number",
           "default": "50",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `size` (`string | number`) configuring size (default: `50`).",
+          "descriptionZh": "输入属性 `size`（类型：`string | number`），用于配置尺寸（默认值：`50`）。"
         },
         {
           "name": "textSizeRatio",
           "type": "any",
           "default": "3",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `textSizeRatio` (`number`) configuring text size ratio (default: `3`).",
+          "descriptionZh": "输入属性 `textSizeRatio`（类型：`number`），用于配置文本尺寸比例（默认值：`3`）。"
         },
         {
           "name": "bgColor",
           "type": "string | undefined",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `bgColor` (`string | undefined`) configuring bg color.",
+          "descriptionZh": "输入属性 `bgColor`（类型：`string | undefined`），用于配置背景颜色。"
         },
         {
           "name": "fgColor",
           "type": "any",
           "default": "'#FFF'",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `fgColor` (`string`) configuring fg color (default: `'#FFF'`).",
+          "descriptionZh": "输入属性 `fgColor`（类型：`string`），用于配置前景颜色（默认值：`'#FFF'`）。"
         },
         {
           "name": "borderColor",
           "type": "string | undefined",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `borderColor` (`string | undefined`) configuring border color.",
+          "descriptionZh": "输入属性 `borderColor`（类型：`string | undefined`），用于配置边框颜色。"
         },
         {
           "name": "style",
           "type": "Style",
           "default": "{}",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `style` (`Style`) configuring style (default: `{}`).",
+          "descriptionZh": "输入属性 `style`（类型：`Style`），用于配置样式（默认值：`{}`）。"
         },
         {
           "name": "cornerRadius",
           "type": "string | number",
           "default": "0",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `cornerRadius` (`string | number`) configuring corner radius (default: `0`).",
+          "descriptionZh": "输入属性 `cornerRadius`（类型：`string | number`），用于配置corner半径（默认值：`0`）。"
         },
         {
           "name": "value",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input setter `value` updating value.",
+          "descriptionZh": "输入属性 `value` 的设置器，用于更新值。"
         },
         {
           "name": "initialsSize",
           "type": "string | number",
           "default": "0",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `initialsSize` (`string | number`) configuring initials size (default: `0`).",
+          "descriptionZh": "输入属性 `initialsSize`（类型：`string | number`），用于配置初始尺寸（默认值：`0`）。"
         }
       ],
       "outputs": [
         {
           "name": "clickOnAvatar",
           "type": "IAVatar",
-          "description": null,
-          "descriptionZh": null
+          "description": "Output event emitter `clickOnAvatar` (`EventEmitter<IAVatar>`) firing when click on avatar occurs.",
+          "descriptionZh": "输出事件 `clickOnAvatar`（类型：`EventEmitter<IAVatar>`），当触发点击当头像时向外发出事件。"
         }
       ],
       "methods": [
@@ -114,90 +114,97 @@
           "name": "onAvatarClicked",
           "params": [],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `onAvatarClicked` to handle on avatar clicked.",
+          "descriptionZh": "执行 `onAvatarClicked`，用于当头像点击。"
         },
         {
           "name": "fetchAvatarSource",
           "params": [],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `fetchAvatarSource` to handle fetch avatar source.",
+          "descriptionZh": "执行 `fetchAvatarSource`，用于获取头像源。"
         }
       ],
       "properties": [
         {
           "name": "imgElement",
           "type": "ElementRef",
-          "description": null,
-          "descriptionZh": null
+          "description": "Template/content query reference `imgElement` (`@ViewChild`) targeting img element.",
+          "descriptionZh": "模板/内容视图查询引用 `imgElement`（`@ViewChild`），指向图片元素。"
         },
         {
           "name": "value",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current value (`value: any`).",
+          "descriptionZh": "获取当前值（`value: any`）。"
         },
         {
           "name": "isAlive",
           "type": "any",
           "default": "true",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `isAlive` (`boolean`) storing is alive (default: `true`).",
+          "descriptionZh": "属性 `isAlive`（类型：`boolean`），用于存储或配置是否为Alive（默认值：`true`）。"
         },
         {
           "name": "avatarSrc",
           "type": "string | SafeUrl",
           "default": "null",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `avatarSrc` (`string | SafeUrl`) storing avatar src (default: `null`).",
+          "descriptionZh": "属性 `avatarSrc`（类型：`string | SafeUrl`），用于存储或配置头像源路径（默认值：`null`）。"
         },
         {
           "name": "avatarText",
           "type": "string | null",
           "default": "null",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `avatarText` (`string | null`) storing avatar text (default: `null`).",
+          "descriptionZh": "属性 `avatarText`（类型：`string | null`），用于存储或配置头像文本（默认值：`null`）。"
         },
         {
           "name": "avatarStyle",
           "type": "Style",
           "default": "{}",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `avatarStyle` (`Style`) storing avatar style (default: `{}`).",
+          "descriptionZh": "属性 `avatarStyle`（类型：`Style`），用于存储或配置头像样式（默认值：`{}`）。"
         },
         {
           "name": "hostStyle",
           "type": "Style",
           "default": "{}",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `hostStyle` (`Style`) storing host style (default: `{}`).",
+          "descriptionZh": "属性 `hostStyle`（类型：`Style`），用于存储或配置宿主样式（默认值：`{}`）。"
         },
         {
           "name": "isImageAvatar",
           "type": "any",
           "default": "false",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `isImageAvatar` (`boolean`) storing is image avatar (default: `false`).",
+          "descriptionZh": "属性 `isImageAvatar`（类型：`boolean`），用于存储或配置是否为图像头像（默认值：`false`）。"
         }
       ]
     },
     {
       "name": "AvatarConfig",
       "kind": "interface",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Interface `AvatarConfig` defining the contract and properties for avatar config.",
+      "summaryZh": "接口 `AvatarConfig`，定义头像配置的数据结构契约与属性规范。",
       "sourceFile": "src/ux/avatar/avatar-config.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
-      "properties": []
+      "properties": [
+        {
+          "name": "colors",
+          "type": "string[]",
+          "description": "The avatars colors.",
+          "descriptionZh": "属性 `colors`（类型：`string[]`），用于存储或配置颜色列表。"
+        }
+      ]
     },
     {
       "name": "AvatarModule",
       "kind": "module",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular module `AvatarModule` declaring and exporting avatar module components, directives, pipes, and providers.",
+      "summaryZh": "Angular 模块 `AvatarModule`，声明并导出头像模块相关的组件、指令、管道与服务提供者。",
       "sourceFile": "src/ux/avatar/avatar.module.ts",
       "inputs": [],
       "outputs": [],
@@ -211,8 +218,8 @@
             }
           ],
           "returnType": "ModuleWithProviders<AvatarModule>",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `forRoot` to handle for root.",
+          "descriptionZh": "执行 `forRoot`，用于用于根节点。"
         }
       ],
       "properties": []
@@ -221,7 +228,7 @@
       "name": "AvatarService",
       "kind": "service",
       "summary": "Provides utilities methods related to Avatar component",
-      "summaryZh": null,
+      "summaryZh": "可注入的 Angular 服务 `AvatarService`，管理 `src/ux/avatar` 中的头像服务状态与业务操作。",
       "sourceFile": "src/ux/avatar/avatar.service.ts",
       "inputs": [],
       "outputs": [],
@@ -235,8 +242,8 @@
             }
           ],
           "returnType": "Observable<unknown>",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `fetchAvatar` to handle fetch avatar.",
+          "descriptionZh": "执行 `fetchAvatar`，用于获取头像。"
         },
         {
           "name": "getRandomColor",
@@ -247,8 +254,8 @@
             }
           ],
           "returnType": "string",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `getRandomColor` to handle get random color.",
+          "descriptionZh": "执行 `getRandomColor`，用于获取随机颜色。"
         },
         {
           "name": "isTextAvatar",
@@ -259,8 +266,8 @@
             }
           ],
           "returnType": "boolean",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `isTextAvatar` to handle is text avatar.",
+          "descriptionZh": "执行 `isTextAvatar`，用于是否为文本头像。"
         }
       ],
       "properties": [
@@ -268,16 +275,16 @@
           "name": "avatarColors",
           "type": "string[]",
           "default": "defaultColors",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `avatarColors` (`string[]`) storing avatar colors (default: `defaultColors`).",
+          "descriptionZh": "属性 `avatarColors`（类型：`string[]`），用于存储或配置头像颜色列表（默认值：`defaultColors`）。"
         }
       ]
     },
     {
       "name": "defaultColors",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `defaultColors` defining default colors in `src/ux/avatar`.",
+      "summaryZh": "常量/变量 `defaultColors`，定义 `src/ux/avatar` 中的默认颜色列表。",
       "sourceFile": "src/ux/avatar/avatar.service.ts",
       "inputs": [],
       "outputs": [],

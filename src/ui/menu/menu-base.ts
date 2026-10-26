@@ -1,23 +1,61 @@
+/**
+ * @fileoverview Module `src/ui/menu/menu-base.ts` providing menu base definitions and implementation.
+ * @zh 模块文件 `src/ui/menu/menu-base.ts`，提供菜单基础相关的定义与实现。
+ */
+
 import { ChangeDetectorRef, ComponentFactoryResolver, DoCheck, Injectable, Injector, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { ComponentBase, Dui } from '@dotos/dui/core';
 import {isFunction,isObjectLike}  from 'lodash-es';
 import { MenuBarItem, MenuModel } from './menu-model';
+/**
+ * Injectable Angular service `MenuBase` managing menu base state and operations in `src/ui/menu`.
+ * @zh 可注入的 Angular 服务 `MenuBase`，管理 `src/ui/menu` 中的菜单基础状态与业务操作。
+ */
 @Injectable()
 export abstract class MenuBase implements DoCheck{
 
+  /**
+   * Input setter `children` updating children.
+   * @zh 输入属性 `children` 的设置器，用于更新子级列表。
+   * @param c - New children value (`any`) / 新的子级列表值（`any`）
+   */
   @Input() set children(c) {
     this._children = c;
   }
+  /**
+   * Gets the current children (`children: any`).
+   * @zh 获取当前子级列表（`children: any`）。
+   */
   get children() {
     return this._children;
   }
+  /**
+   * Property `_children` (`MenuModel[]`) storing children (default: `[]`).
+   * @zh 属性 `_children`（类型：`MenuModel[]`），用于存储或配置子级列表（默认值：`[]`）。
+   */
   protected _children: MenuModel[] = [];
 
-  ownerCt: any;
+  /**
+   * Property `ownerCt` (`any`) storing owner ct.
+   * @zh 属性 `ownerCt`（类型：`any`），用于存储或配置所属者Ct。
+   */
+  ownerCt;
 
+  /**
+   * Property `items` (`MenuBarItem[]`) storing items (default: `[]`).
+   * @zh 属性 `items`（类型：`MenuBarItem[]`），用于存储或配置条目列表（默认值：`[]`）。
+   */
   items: MenuBarItem[] = [];
 
+  /**
+   * Creates an instance of `MenuBase` and initializes its dependencies and internal state.
+   * @zh 创建 `MenuBase` 实例，并初始化其依赖项与内部状态。
+   * @param router - Injected or initial router (`Router`) / 注入或传入的router（`Router`）
+   * @param changeDetectorRef - Injected or initial change detector ref (`ChangeDetectorRef`) / 注入或传入的变更检测器引用（`ChangeDetectorRef`）
+   * @param resolver - Injected or initial resolver (`ComponentFactoryResolver`) / 注入或传入的解析器（`ComponentFactoryResolver`）
+   * @param injector - Injected or initial injector (`Injector`) / 注入或传入的注入器（`Injector`）
+   */
   constructor(
     protected router: Router,
     public changeDetectorRef: ChangeDetectorRef,
@@ -25,19 +63,33 @@ export abstract class MenuBase implements DoCheck{
     protected injector: Injector) {
   }
 
-  init(config: any) {
+  /**
+   * Executes `init` to handle init.
+   * @zh 执行 `init`，用于初始化。
+   * @param config - config parameter (`any`) / 配置参数（`any`）
+   */
+  init(config) {
     if (config && config.children) {
       this.children = config.children;
     }
   }
+  /**
+   * Angular lifecycle hook invoked during every change-detection run for custom change detection.
+   * @zh Angular 生命周期钩子：在每次变更检测周期中调用，用于执行自定义变更检测。
+   */
   ngDoCheck() {
     this.doCheck();
     this.checkExpressionChange();
     this.changeDetectorRef.markForCheck();
   }
-  public initFieldExpression(config: any) {
+  /**
+   * Executes `initFieldExpression` to handle init field expression.
+   * @zh 执行 `initFieldExpression`，用于初始化字段表达式。
+   * @param config - config parameter (`any`) / 配置参数（`any`）
+   */
+  public initFieldExpression(config) {
     if (config.expressionProperties) {
-      for (const key in config.expressionProperties as any) {
+      for (const key in config.expressionProperties) {
         if (typeof config.expressionProperties[key] === 'string' || isFunction(config.expressionProperties[key])) {
           config.expressionProperties[key] = {
             expression: isFunction(config.expressionProperties[key]) ? config.expressionProperties[key] : Dui.evalStringExpression(config.expressionProperties[key], ['comp', 'owner']),
@@ -58,6 +110,10 @@ export abstract class MenuBase implements DoCheck{
     }
   }
 
+  /**
+   * Executes `doCheck` to handle do check.
+   * @zh 执行 `doCheck`，用于do检查。
+   */
   public doCheck() {
     
     if (this.children) {
@@ -79,6 +135,10 @@ export abstract class MenuBase implements DoCheck{
       }
     }
   }
+  /**
+   * Executes `checkExpressionChange` to handle check expression change.
+   * @zh 执行 `checkExpressionChange`，用于检查表达式变更。
+   */
   public checkExpressionChange() {
     if (this.children && this.children.length != 0) {
       this.children.forEach(item => {
@@ -98,6 +158,12 @@ export abstract class MenuBase implements DoCheck{
     }
   }
 
+  /**
+   * Executes `checkMenuExpressionChange` to handle check menu expression change.
+   * @zh 执行 `checkMenuExpressionChange`，用于检查菜单表达式变更。
+   * @param comp - comp parameter (`MenuModel`) / 组件参数（`MenuModel`）
+   * @param owner - owner parameter (`ComponentBase`) / 所属者参数（`ComponentBase`）
+   */
   public checkMenuExpressionChange(comp: MenuModel, owner: ComponentBase) {
     if (!comp || !comp.expressionProperties) {
       return;
@@ -123,6 +189,12 @@ export abstract class MenuBase implements DoCheck{
       }
     }
   }
+  /**
+   * Executes `checkMenuVisibilityChange` to handle check menu visibility change.
+   * @zh 执行 `checkMenuVisibilityChange`，用于检查菜单Visibility变更。
+   * @param comp - comp parameter (`MenuModel`) / 组件参数（`MenuModel`）
+   * @param owner - owner parameter (`ComponentBase`) / 所属者参数（`ComponentBase`）
+   */
   public checkMenuVisibilityChange(comp: MenuModel, owner: ComponentBase) {
     if (!comp || !comp.hideExpression) {
       return;
@@ -136,6 +208,12 @@ export abstract class MenuBase implements DoCheck{
       comp.hidden = hideExpressionResult;
     }
   }
+  /**
+   * Executes `checkMenuDisableChange` to handle check menu disable change.
+   * @zh 执行 `checkMenuDisableChange`，用于检查菜单禁用变更。
+   * @param comp - comp parameter (`MenuModel`) / 组件参数（`MenuModel`）
+   * @param owner - owner parameter (`ComponentBase`) / 所属者参数（`ComponentBase`）
+   */
   public checkMenuDisableChange(comp: MenuModel, owner: ComponentBase) {
     if (!comp || !comp.disableExpression) {
       return;

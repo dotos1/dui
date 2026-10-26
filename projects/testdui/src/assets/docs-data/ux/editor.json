@@ -4,8 +4,8 @@
     {
       "name": "Align",
       "kind": "type",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Type alias `Align` representing align (`'left' | 'center' | 'right' | 'justify'`).",
+      "summaryZh": "类型别名 `Align`，表示对齐（`'left' | 'center' | 'right' | 'justify'`）。",
       "sourceFile": "src/ux/editor/commands/TextAlign.ts",
       "inputs": [],
       "outputs": [],
@@ -15,8 +15,8 @@
     {
       "name": "ALIGN_CENTER",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `ALIGN_CENTER` defining align center in `src/ux/editor/commands`.",
+      "summaryZh": "常量/变量 `ALIGN_CENTER`，定义 `src/ux/editor/commands` 中的对齐居中。",
       "sourceFile": "src/ux/editor/commands/public-api.ts",
       "inputs": [],
       "outputs": [],
@@ -26,8 +26,8 @@
     {
       "name": "ALIGN_JUSTIFY",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `ALIGN_JUSTIFY` defining align justify in `src/ux/editor/commands`.",
+      "summaryZh": "常量/变量 `ALIGN_JUSTIFY`，定义 `src/ux/editor/commands` 中的对齐JUSTIFY。",
       "sourceFile": "src/ux/editor/commands/public-api.ts",
       "inputs": [],
       "outputs": [],
@@ -37,8 +37,8 @@
     {
       "name": "ALIGN_LEFT",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `ALIGN_LEFT` defining align left in `src/ux/editor/commands`.",
+      "summaryZh": "常量/变量 `ALIGN_LEFT`，定义 `src/ux/editor/commands` 中的对齐左侧位置。",
       "sourceFile": "src/ux/editor/commands/public-api.ts",
       "inputs": [],
       "outputs": [],
@@ -48,8 +48,8 @@
     {
       "name": "ALIGN_RIGHT",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `ALIGN_RIGHT` defining align right in `src/ux/editor/commands`.",
+      "summaryZh": "常量/变量 `ALIGN_RIGHT`，定义 `src/ux/editor/commands` 中的对齐右侧位置。",
       "sourceFile": "src/ux/editor/commands/public-api.ts",
       "inputs": [],
       "outputs": [],
@@ -59,8 +59,8 @@
     {
       "name": "applyMark",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `applyMark` defining apply mark in `src/ux/editor/commands`.",
+      "summaryZh": "常量/变量 `applyMark`，定义 `src/ux/editor/commands` 中的应用标记。",
       "sourceFile": "src/ux/editor/commands/applyMark.ts",
       "inputs": [],
       "outputs": [],
@@ -70,8 +70,8 @@
     {
       "name": "attributesPlugin",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `attributesPlugin` defining attributes plugin in `src/ux/editor/plugins`.",
+      "summaryZh": "常量/变量 `attributesPlugin`，定义 `src/ux/editor/plugins` 中的属性列表Plugin。",
       "sourceFile": "src/ux/editor/plugins/attributes.ts",
       "inputs": [],
       "outputs": [],
@@ -81,8 +81,8 @@
     {
       "name": "autoLink",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `autoLink` defining auto link in `src/ux/editor/input-rules`.",
+      "summaryZh": "常量/变量 `autoLink`，定义 `src/ux/editor/input-rules` 中的自动链接。",
       "sourceFile": "src/ux/editor/input-rules/auto-link.ts",
       "inputs": [],
       "outputs": [],
@@ -92,8 +92,8 @@
     {
       "name": "BLOCKQUOTE",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `BLOCKQUOTE` defining blockquote in `src/ux/editor/commands`.",
+      "summaryZh": "常量/变量 `BLOCKQUOTE`，定义 `src/ux/editor/commands` 中的BLOCKQUOTE。",
       "sourceFile": "src/ux/editor/commands/public-api.ts",
       "inputs": [],
       "outputs": [],
@@ -103,8 +103,8 @@
     {
       "name": "blurPlugin",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `blurPlugin` defining blur plugin in `src/ux/editor/plugins`.",
+      "summaryZh": "常量/变量 `blurPlugin`，定义 `src/ux/editor/plugins` 中的失焦Plugin。",
       "sourceFile": "src/ux/editor/plugins/blur.ts",
       "inputs": [],
       "outputs": [],
@@ -115,15 +115,15 @@
       "name": "BubbleComponent",
       "kind": "component",
       "selector": "ux-bubble",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular component `BubbleComponent` (selector: 'ux-bubble') providing bubble component presentation and interaction in `src/ux/editor/modules/menu/bubble`.",
+      "summaryZh": "Angular 组件 `BubbleComponent`（selector: 'ux-bubble'），提供Bubble组件的视图渲染与交互逻辑（位于 `src/ux/editor/modules/menu/bubble`）。",
       "sourceFile": "src/ux/editor/modules/menu/bubble/bubble.component.ts",
       "inputs": [
         {
           "name": "editor",
           "type": "Editor",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `editor` (`Editor`) configuring editor.",
+          "descriptionZh": "输入属性 `editor`（类型：`Editor`），用于配置编辑器。"
         }
       ],
       "outputs": [],
@@ -137,8 +137,8 @@
             }
           ],
           "returnType": "SafeHtml",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `getIcon` to handle get icon.",
+          "descriptionZh": "执行 `getIcon`，用于获取图标。"
         },
         {
           "name": "getTitle",
@@ -149,8 +149,8 @@
             }
           ],
           "returnType": "string",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `getTitle` to handle get title.",
+          "descriptionZh": "执行 `getTitle`，用于获取标题。"
         },
         {
           "name": "trackByIndex",
@@ -161,8 +161,8 @@
             }
           ],
           "returnType": "number",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `trackByIndex` to handle track by index.",
+          "descriptionZh": "执行 `trackByIndex`，用于track按索引。"
         },
         {
           "name": "onClick",
@@ -177,8 +177,8 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `onClick` to handle on click.",
+          "descriptionZh": "执行 `onClick`，用于当点击。"
         }
       ],
       "properties": [
@@ -186,37 +186,37 @@
           "name": "execulableItems",
           "type": "TBItems[]",
           "default": "[]",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `execulableItems` (`TBItems[]`) storing execulable items (default: `[]`).",
+          "descriptionZh": "属性 `execulableItems`（类型：`TBItems[]`），用于存储或配置execulable条目列表（默认值：`[]`）。"
         },
         {
           "name": "activeItems",
           "type": "TBItems[]",
           "default": "[]",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `activeItems` (`TBItems[]`) storing active items (default: `[]`).",
+          "descriptionZh": "属性 `activeItems`（类型：`TBItems[]`），用于存储或配置激活条目列表（默认值：`[]`）。"
         },
         {
           "name": "toolbar",
           "type": "TBItems[][]",
           "default": "[\n    ['bold', 'italic', 'underline', 'strike'],\n    ['ordered_list', 'bullet_list', 'blockquote', 'code'],\n    ['align_left', 'align_center', 'align_right', 'align_justify'],\n  ]",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `toolbar` (`TBItems[][]`) storing toolbar.",
+          "descriptionZh": "属性 `toolbar`（类型：`TBItems[][]`），用于存储或配置工具栏。"
         },
         {
           "name": "toggleCommands",
           "type": "TBItems[]",
           "default": "[\n    'bold',\n    'italic',\n    'underline',\n    'strike',\n    'ordered_list',\n    'bullet_list',\n    'blockquote',\n    'code',\n    'align_left',\n    'align_center',\n    'align_right',\n    'align_justify',\n  ]",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `toggleCommands` (`TBItems[]`) storing toggle commands.",
+          "descriptionZh": "属性 `toggleCommands`（类型：`TBItems[]`），用于存储或配置开关命令。"
         }
       ]
     },
     {
       "name": "canInsert",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `canInsert` defining can insert in `src/ux/editor/helpers`.",
+      "summaryZh": "常量/变量 `canInsert`，定义 `src/ux/editor/helpers` 中的是否可以插入。",
       "sourceFile": "src/ux/editor/helpers/canInsertNode.ts",
       "inputs": [],
       "outputs": [],
@@ -226,8 +226,8 @@
     {
       "name": "CODE",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `CODE` defining code in `src/ux/editor/commands`.",
+      "summaryZh": "常量/变量 `CODE`，定义 `src/ux/editor/commands` 中的编码。",
       "sourceFile": "src/ux/editor/commands/public-api.ts",
       "inputs": [],
       "outputs": [],
@@ -238,21 +238,21 @@
       "name": "ColorPickerComponent",
       "kind": "component",
       "selector": "ux-color-picker",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular component `ColorPickerComponent` (selector: 'ux-color-picker') providing color picker component presentation and interaction in `src/ux/editor/modules/menu/color-picker`.",
+      "summaryZh": "Angular 组件 `ColorPickerComponent`（selector: 'ux-color-picker'），提供颜色选择器组件的视图渲染与交互逻辑（位于 `src/ux/editor/modules/menu/color-picker`）。",
       "sourceFile": "src/ux/editor/modules/menu/color-picker/color-picker.component.ts",
       "inputs": [
         {
           "name": "presets",
           "type": "string[][]",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `presets` (`string[][]`) configuring presets.",
+          "descriptionZh": "输入属性 `presets`（类型：`string[][]`），用于配置presets。"
         },
         {
           "name": "type",
           "type": "string",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `type` (`string`) configuring type.",
+          "descriptionZh": "输入属性 `type`（类型：`string`），用于配置类型。"
         }
       ],
       "outputs": [],
@@ -266,8 +266,8 @@
             }
           ],
           "returnType": "string",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `getContrastYIQ` to handle get contrast yiq.",
+          "descriptionZh": "执行 `getContrastYIQ`，用于获取对比度YIQ。"
         },
         {
           "name": "onDocumentClick",
@@ -278,8 +278,8 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Host event listener `onDocumentClick` handling `document:mousedown` events for on document click.",
+          "descriptionZh": "宿主事件监听方法 `onDocumentClick`，响应 `document:mousedown` 事件以处理当文档对象点击。"
         },
         {
           "name": "togglePopup",
@@ -290,8 +290,8 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `togglePopup` to handle toggle popup.",
+          "descriptionZh": "执行 `togglePopup`，用于开关弹窗。"
         },
         {
           "name": "remove",
@@ -302,8 +302,8 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `remove` to handle remove.",
+          "descriptionZh": "执行 `remove`，用于移除。"
         },
         {
           "name": "trackByIndex",
@@ -314,8 +314,8 @@
             }
           ],
           "returnType": "number",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `trackByIndex` to handle track by index.",
+          "descriptionZh": "执行 `trackByIndex`，用于track按索引。"
         },
         {
           "name": "onColorSelect",
@@ -330,8 +330,8 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `onColorSelect` to handle on color select.",
+          "descriptionZh": "执行 `onColorSelect`，用于当颜色下拉选择。"
         },
         {
           "name": "getLabel",
@@ -342,58 +342,58 @@
             }
           ],
           "returnType": "string",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `getLabel` to handle get label.",
+          "descriptionZh": "执行 `getLabel`，用于获取标签。"
         }
       ],
       "properties": [
         {
           "name": "title",
           "type": "string",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current title (`title: string`).",
+          "descriptionZh": "获取当前标题（`title: string`）。"
         },
         {
           "name": "icon",
           "type": "string",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current icon (`icon: string`).",
+          "descriptionZh": "获取当前图标（`icon: string`）。"
         },
         {
           "name": "showPopup",
           "type": "any",
           "default": "false",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `showPopup` (`boolean`) storing show popup (default: `false`).",
+          "descriptionZh": "属性 `showPopup`（类型：`boolean`），用于存储或配置显示弹窗（默认值：`false`）。"
         },
         {
           "name": "isActive",
           "type": "any",
           "default": "false",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `isActive` (`boolean`) storing is active (default: `false`).",
+          "descriptionZh": "属性 `isActive`（类型：`boolean`），用于存储或配置是否为激活（默认值：`false`）。"
         },
         {
           "name": "activeColors",
           "type": "string[]",
           "default": "[]",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `activeColors` (`string[]`) storing active colors (default: `[]`).",
+          "descriptionZh": "属性 `activeColors`（类型：`string[]`），用于存储或配置激活颜色列表（默认值：`[]`）。"
         },
         {
           "name": "canExecute",
           "type": "any",
           "default": "true",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `canExecute` (`boolean`) storing can execute (default: `true`).",
+          "descriptionZh": "属性 `canExecute`（类型：`boolean`），用于存储或配置是否可以执行（默认值：`true`）。"
         }
       ]
     },
     {
       "name": "defaults",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `defaults` defining defaults in `src/ux/editor`.",
+      "summaryZh": "常量/变量 `defaults`，定义 `src/ux/editor` 中的默认值集合。",
       "sourceFile": "src/ux/editor/Locals.ts",
       "inputs": [],
       "outputs": [],
@@ -403,8 +403,8 @@
     {
       "name": "Dispatch",
       "kind": "type",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Type alias `Dispatch` representing dispatch (`(tr: Transaction) => void | null`).",
+      "summaryZh": "类型别名 `Dispatch`，表示派发（`(tr: Transaction) => void | null`）。",
       "sourceFile": "src/ux/editor/commands/types.ts",
       "inputs": [],
       "outputs": [],
@@ -415,21 +415,21 @@
       "name": "DropdownComponent",
       "kind": "component",
       "selector": "ux-dropdown",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular component `DropdownComponent` (selector: 'ux-dropdown') providing dropdown component presentation and interaction in `src/ux/editor/modules/menu/dropdown`.",
+      "summaryZh": "Angular 组件 `DropdownComponent`（selector: 'ux-dropdown'），提供下拉框组件的视图渲染与交互逻辑（位于 `src/ux/editor/modules/menu/dropdown`）。",
       "sourceFile": "src/ux/editor/modules/menu/dropdown/dropdown.component.ts",
       "inputs": [
         {
           "name": "group",
           "type": "string",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `group` (`string`) configuring group.",
+          "descriptionZh": "输入属性 `group`（类型：`string`），用于配置分组。"
         },
         {
           "name": "items",
           "type": "TBHeadingItems[]",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `items` (`TBHeadingItems[]`) configuring items.",
+          "descriptionZh": "输入属性 `items`（类型：`TBHeadingItems[]`），用于配置条目列表。"
         }
       ],
       "outputs": [],
@@ -443,8 +443,8 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Host event listener `onDocumentClick` handling `document:mousedown` events for on document click.",
+          "descriptionZh": "宿主事件监听方法 `onDocumentClick`，响应 `document:mousedown` 事件以处理当文档对象点击。"
         },
         {
           "name": "getName",
@@ -455,8 +455,8 @@
             }
           ],
           "returnType": "string",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `getName` to handle get name.",
+          "descriptionZh": "执行 `getName`，用于获取名称。"
         },
         {
           "name": "toggleDropdown",
@@ -467,8 +467,8 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `toggleDropdown` to handle toggle dropdown.",
+          "descriptionZh": "执行 `toggleDropdown`，用于开关下拉框。"
         },
         {
           "name": "trackByIndex",
@@ -479,8 +479,8 @@
             }
           ],
           "returnType": "number",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `trackByIndex` to handle track by index.",
+          "descriptionZh": "执行 `trackByIndex`，用于track按索引。"
         },
         {
           "name": "onClick",
@@ -495,8 +495,8 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `onClick` to handle on click.",
+          "descriptionZh": "执行 `onClick`，用于当点击。"
         }
       ],
       "properties": [
@@ -504,41 +504,41 @@
           "name": "isDropdownOpen",
           "type": "any",
           "default": "false",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `isDropdownOpen` (`boolean`) storing is dropdown open (default: `false`).",
+          "descriptionZh": "属性 `isDropdownOpen`（类型：`boolean`），用于存储或配置是否为下拉框打开（默认值：`false`）。"
         },
         {
           "name": "disabledItems",
           "type": "string[]",
           "default": "[]",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `disabledItems` (`string[]`) storing disabled items (default: `[]`).",
+          "descriptionZh": "属性 `disabledItems`（类型：`string[]`），用于存储或配置已禁用条目列表（默认值：`[]`）。"
         },
         {
           "name": "activeItem",
           "type": "string | null",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `activeItem` (`string | null`) storing active item.",
+          "descriptionZh": "属性 `activeItem`（类型：`string | null`），用于存储或配置激活条目。"
         },
         {
           "name": "isSelected",
           "type": "boolean",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current is selected (`isSelected: boolean`).",
+          "descriptionZh": "获取当前是否为已选中（`isSelected: boolean`）。"
         },
         {
           "name": "isDropdownDisabled",
           "type": "boolean",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current is dropdown disabled (`isDropdownDisabled: boolean`).",
+          "descriptionZh": "获取当前是否为下拉框已禁用（`isDropdownDisabled: boolean`）。"
         }
       ]
     },
     {
       "name": "editablePlugin",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `editablePlugin` defining editable plugin in `src/ux/editor/plugins`.",
+      "summaryZh": "常量/变量 `editablePlugin`，定义 `src/ux/editor/plugins` 中的是否可编辑Plugin。",
       "sourceFile": "src/ux/editor/plugins/editable.ts",
       "inputs": [],
       "outputs": [],
@@ -548,8 +548,8 @@
     {
       "name": "Editor",
       "kind": "class",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Class `Editor` encapsulating editor data structures and logic in `src/ux/editor`.",
+      "summaryZh": "类 `Editor`，封装 `src/ux/editor` 中的编辑器数据结构与处理逻辑。",
       "sourceFile": "src/ux/editor/Editor.ts",
       "inputs": [],
       "outputs": [],
@@ -563,8 +563,8 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `setContent` to handle set content.",
+          "descriptionZh": "执行 `setContent`，用于集合内容。"
         },
         {
           "name": "registerPlugin",
@@ -575,67 +575,67 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `registerPlugin` to handle register plugin.",
+          "descriptionZh": "执行 `registerPlugin`，用于注册Plugin。"
         },
         {
           "name": "destroy",
           "params": [],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `destroy` to handle destroy.",
+          "descriptionZh": "执行 `destroy`，用于销毁。"
         }
       ],
       "properties": [
         {
           "name": "view",
           "type": "EditorView",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `view` (`EditorView`) storing view.",
+          "descriptionZh": "属性 `view`（类型：`EditorView`），用于存储或配置视图。"
         },
         {
           "name": "valueChanges",
           "type": "Observable<JSONDoc>",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current value changes (`valueChanges: Observable<JSONDoc>`).",
+          "descriptionZh": "获取当前值变更集合（`valueChanges: Observable<JSONDoc>`）。"
         },
         {
           "name": "update",
           "type": "Observable<EditorView>",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current update (`update: Observable<EditorView>`).",
+          "descriptionZh": "获取当前更新（`update: Observable<EditorView>`）。"
         },
         {
           "name": "schema",
           "type": "Schema",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current schema (`schema: Schema`).",
+          "descriptionZh": "获取当前结构定义（`schema: Schema`）。"
         },
         {
           "name": "linkValidationPattern",
           "type": "string",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current link validation pattern (`linkValidationPattern: string`).",
+          "descriptionZh": "获取当前链接校验模式/图案（`linkValidationPattern: string`）。"
         },
         {
           "name": "commands",
           "type": "EditorCommands",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current commands (`commands: EditorCommands`).",
+          "descriptionZh": "获取当前命令（`commands: EditorCommands`）。"
         },
         {
           "name": "features",
           "type": "EditorFeatures",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current features (`features: EditorFeatures`).",
+          "descriptionZh": "获取当前features（`features: EditorFeatures`）。"
         }
       ]
     },
     {
       "name": "EDITOR_CONFIG_TOKEN",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular dependency-injection token `EDITOR_CONFIG_TOKEN` for providing editor config token.",
+      "summaryZh": "Angular 依赖注入令牌 `EDITOR_CONFIG_TOKEN`，用于提供与注入编辑器配置令牌。",
       "sourceFile": "src/ux/editor/editor.module.ts",
       "inputs": [],
       "outputs": [],
@@ -646,42 +646,42 @@
       "name": "EditorComponent",
       "kind": "component",
       "selector": "dui-editor",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular component `EditorComponent` (selector: 'dui-editor') providing editor component presentation and interaction in `src/ux/editor`.",
+      "summaryZh": "Angular 组件 `EditorComponent`（selector: 'dui-editor'），提供编辑器组件的视图渲染与交互逻辑（位于 `src/ux/editor`）。",
       "sourceFile": "src/ux/editor/editor.component.ts",
       "inputs": [
         {
           "name": "editor",
           "type": "Editor",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `editor` (`Editor`) configuring editor.",
+          "descriptionZh": "输入属性 `editor`（类型：`Editor`），用于配置编辑器。"
         },
         {
           "name": "outputFormat",
           "type": "'doc' | 'html'",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `outputFormat` (`'doc' | 'html'`) configuring output format.",
+          "descriptionZh": "输入属性 `outputFormat`（类型：`'doc' | 'html'`），用于配置输出事件格式化。"
         },
         {
           "name": "placeholder",
           "type": "any",
           "default": "'Type Here...'",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `placeholder` (`string`) configuring placeholder (default: `'Type Here...'`).",
+          "descriptionZh": "输入属性 `placeholder`（类型：`string`），用于配置占位提示（默认值：`'Type Here...'`）。"
         }
       ],
       "outputs": [
         {
           "name": "focusOut",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Output event emitter `focusOut` (`EventEmitter`) firing when focus out occurs.",
+          "descriptionZh": "输出事件 `focusOut`（类型：`EventEmitter`），当触发聚焦输出时向外发出事件。"
         },
         {
           "name": "focusIn",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Output event emitter `focusIn` (`EventEmitter`) firing when focus in occurs.",
+          "descriptionZh": "输出事件 `focusIn`（类型：`EventEmitter`），当触发聚焦在时向外发出事件。"
         }
       ],
       "methods": [],
@@ -690,19 +690,26 @@
     {
       "name": "EditorConfig",
       "kind": "interface",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Interface `EditorConfig` defining the contract and properties for editor config.",
+      "summaryZh": "接口 `EditorConfig`，定义编辑器配置的数据结构契约与属性规范。",
       "sourceFile": "src/ux/editor/types.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
-      "properties": []
+      "properties": [
+        {
+          "name": "locals",
+          "type": "Partial<Record<LocalsKeys, string>>",
+          "description": "Property `locals` (`Partial<Record<LocalsKeys, string>>`) storing locals.",
+          "descriptionZh": "属性 `locals`（类型：`Partial<Record<LocalsKeys, string>>`），用于存储或配置本地。"
+        }
+      ]
     },
     {
       "name": "EditorError",
       "kind": "class",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Class `EditorError` encapsulating editor error data structures and logic in `src/ux/editor/utils`.",
+      "summaryZh": "类 `EditorError`，封装 `src/ux/editor/utils` 中的编辑器错误数据结构与处理逻辑。",
       "sourceFile": "src/ux/editor/utils/error.ts",
       "inputs": [],
       "outputs": [],
@@ -712,8 +719,8 @@
     {
       "name": "EditorMenuModule",
       "kind": "module",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular module `EditorMenuModule` declaring and exporting editor menu module components, directives, pipes, and providers.",
+      "summaryZh": "Angular 模块 `EditorMenuModule`，声明并导出编辑器菜单模块相关的组件、指令、管道与服务提供者。",
       "sourceFile": "src/ux/editor/modules/menu/menu.module.ts",
       "inputs": [],
       "outputs": [],
@@ -723,8 +730,8 @@
     {
       "name": "EditorModule",
       "kind": "module",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular module `EditorModule` declaring and exporting editor module components, directives, pipes, and providers.",
+      "summaryZh": "Angular 模块 `EditorModule`，声明并导出编辑器模块相关的组件、指令、管道与服务提供者。",
       "sourceFile": "src/ux/editor/editor.module.ts",
       "inputs": [],
       "outputs": [],
@@ -738,8 +745,8 @@
             }
           ],
           "returnType": "ModuleWithProviders<EditorModule>",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `forRoot` to handle for root.",
+          "descriptionZh": "执行 `forRoot`，用于用于根节点。"
         },
         {
           "name": "forChild",
@@ -750,8 +757,8 @@
             }
           ],
           "returnType": "ModuleWithProviders<EditorModule>",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `forChild` to handle for child.",
+          "descriptionZh": "执行 `forChild`，用于用于子级。"
         }
       ],
       "properties": []
@@ -759,8 +766,8 @@
     {
       "name": "EditorServiceConfig",
       "kind": "service",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Injectable Angular service `EditorServiceConfig` managing editor service config state and operations in `src/ux/editor`.",
+      "summaryZh": "可注入的 Angular 服务 `EditorServiceConfig`，管理 `src/ux/editor` 中的编辑器服务配置状态与业务操作。",
       "sourceFile": "src/ux/editor/editor-config.service.ts",
       "inputs": [],
       "outputs": [],
@@ -770,16 +777,16 @@
           "name": "locals",
           "type": "any",
           "default": "{}",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `locals` (`any`) storing locals (default: `{}`).",
+          "descriptionZh": "属性 `locals`（类型：`any`），用于存储或配置本地（默认值：`{}`）。"
         }
       ]
     },
     {
       "name": "EM",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `EM` defining em in `src/ux/editor/commands`.",
+      "summaryZh": "常量/变量 `EM`，定义 `src/ux/editor/commands` 中的EM。",
       "sourceFile": "src/ux/editor/commands/public-api.ts",
       "inputs": [],
       "outputs": [],
@@ -789,8 +796,8 @@
     {
       "name": "emptyDoc",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `emptyDoc` defining empty doc in `src/ux/editor`.",
+      "summaryZh": "常量/变量 `emptyDoc`，定义 `src/ux/editor` 中的空文档。",
       "sourceFile": "src/ux/editor/parsers.ts",
       "inputs": [],
       "outputs": [],
@@ -801,22 +808,22 @@
       "name": "FloatingMenuComponent",
       "kind": "component",
       "selector": "editor-floating-menu",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular component `FloatingMenuComponent` (selector: 'editor-floating-menu') providing floating menu component presentation and interaction in `src/ux/editor/modules/menu/floating-menu`.",
+      "summaryZh": "Angular 组件 `FloatingMenuComponent`（selector: 'editor-floating-menu'），提供Floating菜单组件的视图渲染与交互逻辑（位于 `src/ux/editor/modules/menu/floating-menu`）。",
       "sourceFile": "src/ux/editor/modules/menu/floating-menu/floating-menu.component.ts",
       "inputs": [
         {
           "name": "editor",
           "type": "Editor",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `editor` (`Editor`) configuring editor.",
+          "descriptionZh": "输入属性 `editor`（类型：`Editor`），用于配置编辑器。"
         },
         {
           "name": "autoPlace",
           "type": "any",
           "default": "false",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `autoPlace` (`boolean`) configuring auto place (default: `false`).",
+          "descriptionZh": "输入属性 `autoPlace`（类型：`boolean`），用于配置自动Place（默认值：`false`）。"
         }
       ],
       "outputs": [],
@@ -830,8 +837,8 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Host event listener `onMouseDown` handling `document:mousedown` events for on mouse down.",
+          "descriptionZh": "宿主事件监听方法 `onMouseDown`，响应 `document:mousedown` 事件以处理当鼠标向下。"
         },
         {
           "name": "onKeyDown",
@@ -842,8 +849,8 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Host event listener `onKeyDown` handling `document:keydown` events for on key down.",
+          "descriptionZh": "宿主事件监听方法 `onKeyDown`，响应 `document:keydown` 事件以处理当键向下。"
         },
         {
           "name": "onMouseUp",
@@ -854,8 +861,8 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Host event listener `onMouseUp` handling `document:mouseup` events for on mouse up.",
+          "descriptionZh": "宿主事件监听方法 `onMouseUp`，响应 `document:mouseup` 事件以处理当鼠标向上。"
         },
         {
           "name": "onKeyUp",
@@ -866,24 +873,24 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Host event listener `onKeyUp` handling `document:keyup` events for on key up.",
+          "descriptionZh": "宿主事件监听方法 `onKeyUp`，响应 `document:keyup` 事件以处理当键向上。"
         }
       ],
       "properties": [
         {
           "name": "display",
           "type": "Partial<CSSStyleDeclaration>",
-          "description": null,
-          "descriptionZh": null
+          "description": "Host-bound getter `display` (`style`) computing display.",
+          "descriptionZh": "宿主绑定读取器 `display`（绑定至 `style`），计算并返回display。"
         }
       ]
     },
     {
       "name": "focusPlugin",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `focusPlugin` defining focus plugin in `src/ux/editor/plugins`.",
+      "summaryZh": "常量/变量 `focusPlugin`，定义 `src/ux/editor/plugins` 中的聚焦Plugin。",
       "sourceFile": "src/ux/editor/plugins/focus.ts",
       "inputs": [],
       "outputs": [],
@@ -893,8 +900,8 @@
     {
       "name": "FORMAT_CLEAR",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `FORMAT_CLEAR` defining format clear in `src/ux/editor/commands`.",
+      "summaryZh": "常量/变量 `FORMAT_CLEAR`，定义 `src/ux/editor/commands` 中的格式化清空。",
       "sourceFile": "src/ux/editor/commands/public-api.ts",
       "inputs": [],
       "outputs": [],
@@ -904,8 +911,8 @@
     {
       "name": "getKeyboardShortcuts",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `getKeyboardShortcuts` defining get keyboard shortcuts in `src/ux/editor`.",
+      "summaryZh": "常量/变量 `getKeyboardShortcuts`，定义 `src/ux/editor` 中的获取键盘快捷键列表。",
       "sourceFile": "src/ux/editor/defaultPlugins.ts",
       "inputs": [],
       "outputs": [],
@@ -915,8 +922,8 @@
     {
       "name": "getSelectionMarks",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `getSelectionMarks` defining get selection marks in `src/ux/editor/helpers`.",
+      "summaryZh": "常量/变量 `getSelectionMarks`，定义 `src/ux/editor/helpers` 中的获取Selection标记。",
       "sourceFile": "src/ux/editor/helpers/getSelectionMarks.ts",
       "inputs": [],
       "outputs": [],
@@ -926,8 +933,8 @@
     {
       "name": "getSelectionNodes",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `getSelectionNodes` defining get selection nodes in `src/ux/editor/helpers`.",
+      "summaryZh": "常量/变量 `getSelectionNodes`，定义 `src/ux/editor/helpers` 中的获取Selection节点列表。",
       "sourceFile": "src/ux/editor/helpers/getSelectionNodes.ts",
       "inputs": [],
       "outputs": [],
@@ -937,8 +944,8 @@
     {
       "name": "H1",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `H1` defining h1 in `src/ux/editor/commands`.",
+      "summaryZh": "常量/变量 `H1`，定义 `src/ux/editor/commands` 中的H1。",
       "sourceFile": "src/ux/editor/commands/public-api.ts",
       "inputs": [],
       "outputs": [],
@@ -948,8 +955,8 @@
     {
       "name": "H2",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `H2` defining h2 in `src/ux/editor/commands`.",
+      "summaryZh": "常量/变量 `H2`，定义 `src/ux/editor/commands` 中的H2。",
       "sourceFile": "src/ux/editor/commands/public-api.ts",
       "inputs": [],
       "outputs": [],
@@ -959,8 +966,8 @@
     {
       "name": "H3",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `H3` defining h3 in `src/ux/editor/commands`.",
+      "summaryZh": "常量/变量 `H3`，定义 `src/ux/editor/commands` 中的H3。",
       "sourceFile": "src/ux/editor/commands/public-api.ts",
       "inputs": [],
       "outputs": [],
@@ -970,8 +977,8 @@
     {
       "name": "H4",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `H4` defining h4 in `src/ux/editor/commands`.",
+      "summaryZh": "常量/变量 `H4`，定义 `src/ux/editor/commands` 中的H4。",
       "sourceFile": "src/ux/editor/commands/public-api.ts",
       "inputs": [],
       "outputs": [],
@@ -981,8 +988,8 @@
     {
       "name": "H5",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `H5` defining h5 in `src/ux/editor/commands`.",
+      "summaryZh": "常量/变量 `H5`，定义 `src/ux/editor/commands` 中的H5。",
       "sourceFile": "src/ux/editor/commands/public-api.ts",
       "inputs": [],
       "outputs": [],
@@ -992,8 +999,8 @@
     {
       "name": "H6",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `H6` defining h6 in `src/ux/editor/commands`.",
+      "summaryZh": "常量/变量 `H6`，定义 `src/ux/editor/commands` 中的H6。",
       "sourceFile": "src/ux/editor/commands/public-api.ts",
       "inputs": [],
       "outputs": [],
@@ -1003,8 +1010,8 @@
     {
       "name": "HeadingLevels",
       "kind": "type",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Type alias `HeadingLevels` representing heading levels (`1 | 2 | 3 | 4 | 5 | 6`).",
+      "summaryZh": "类型别名 `HeadingLevels`，表示Heading层级（`1 | 2 | 3 | 4 | 5 | 6`）。",
       "sourceFile": "src/ux/editor/commands/Heading.ts",
       "inputs": [],
       "outputs": [],
@@ -1014,8 +1021,8 @@
     {
       "name": "HORIZONTAL_RULE",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `HORIZONTAL_RULE` defining horizontal rule in `src/ux/editor/commands`.",
+      "summaryZh": "常量/变量 `HORIZONTAL_RULE`，定义 `src/ux/editor/commands` 中的水平规则。",
       "sourceFile": "src/ux/editor/commands/public-api.ts",
       "inputs": [],
       "outputs": [],
@@ -1025,8 +1032,8 @@
     {
       "name": "Image",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `Image` defining image in `src/ux/editor/modules/menu`.",
+      "summaryZh": "常量/变量 `Image`，定义 `src/ux/editor/modules/menu` 中的图像。",
       "sourceFile": "src/ux/editor/modules/menu/MenuCommands.ts",
       "inputs": [],
       "outputs": [],
@@ -1036,8 +1043,8 @@
     {
       "name": "IMAGE",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `IMAGE` defining image in `src/ux/editor/commands`.",
+      "summaryZh": "常量/变量 `IMAGE`，定义 `src/ux/editor/commands` 中的图像。",
       "sourceFile": "src/ux/editor/commands/public-api.ts",
       "inputs": [],
       "outputs": [],
@@ -1047,20 +1054,39 @@
     {
       "name": "ImageAttrs",
       "kind": "interface",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Interface `ImageAttrs` defining the contract and properties for image attrs.",
+      "summaryZh": "接口 `ImageAttrs`，定义图像属性集合的数据结构契约与属性规范。",
       "sourceFile": "src/ux/editor/commands/Image.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
-      "properties": []
+      "properties": [
+        {
+          "name": "alt",
+          "type": "string",
+          "description": "Property `alt` (`string`) storing alt.",
+          "descriptionZh": "属性 `alt`（类型：`string`），用于存储或配置alt。"
+        },
+        {
+          "name": "title",
+          "type": "string",
+          "description": "Property `title` (`string`) storing title.",
+          "descriptionZh": "属性 `title`（类型：`string`），用于存储或配置标题。"
+        },
+        {
+          "name": "width",
+          "type": "string",
+          "description": "Property `width` (`string`) storing width.",
+          "descriptionZh": "属性 `width`（类型：`string`），用于存储或配置宽度。"
+        }
+      ]
     },
     {
       "name": "ImageComponent",
       "kind": "component",
       "selector": "ux-image",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular component `ImageComponent` (selector: 'ux-image') providing image component presentation and interaction in `src/ux/editor/modules/menu/image`.",
+      "summaryZh": "Angular 组件 `ImageComponent`（selector: 'ux-image'），提供图像组件的视图渲染与交互逻辑（位于 `src/ux/editor/modules/menu/image`）。",
       "sourceFile": "src/ux/editor/modules/menu/image/image.component.ts",
       "inputs": [],
       "outputs": [],
@@ -1074,8 +1100,8 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Host event listener `onDocumentClick` handling `document:mousedown` events for on document click.",
+          "descriptionZh": "宿主事件监听方法 `onDocumentClick`，响应 `document:mousedown` 事件以处理当文档对象点击。"
         },
         {
           "name": "getLabel",
@@ -1086,8 +1112,8 @@
             }
           ],
           "returnType": "string",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `getLabel` to handle get label.",
+          "descriptionZh": "执行 `getLabel`，用于获取标签。"
         },
         {
           "name": "onMouseDown",
@@ -1098,8 +1124,8 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `onMouseDown` to handle on mouse down.",
+          "descriptionZh": "执行 `onMouseDown`，用于当鼠标向下。"
         },
         {
           "name": "insertLink",
@@ -1110,8 +1136,8 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `insertLink` to handle insert link.",
+          "descriptionZh": "执行 `insertLink`，用于插入链接。"
         }
       ],
       "properties": [
@@ -1119,42 +1145,42 @@
           "name": "showPopup",
           "type": "any",
           "default": "false",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `showPopup` (`boolean`) storing show popup (default: `false`).",
+          "descriptionZh": "属性 `showPopup`（类型：`boolean`），用于存储或配置显示弹窗（默认值：`false`）。"
         },
         {
           "name": "isActive",
           "type": "any",
           "default": "false",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `isActive` (`boolean`) storing is active (default: `false`).",
+          "descriptionZh": "属性 `isActive`（类型：`boolean`），用于存储或配置是否为激活（默认值：`false`）。"
         },
         {
           "name": "form",
           "type": "any",
           "default": "new FormGroup({\n    src: new FormControl('', [\n      Validators.required,\n      Validators.pattern('(https?://)?([\\\\da-z.-]+)\\\\.([a-z.]{2,6})[/\\\\w .-]*/??([^#\\n\\r]*)?#?([^\\n\\r]*)'),\n    ]),\n    alt: new FormControl(''),\n    title: new FormControl(''),\n  })",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `form` (`FormGroup`) storing form.",
+          "descriptionZh": "属性 `form`（类型：`FormGroup`），用于存储或配置表单。"
         },
         {
           "name": "icon",
           "type": "string",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current icon (`icon: string`).",
+          "descriptionZh": "获取当前图标（`icon: string`）。"
         },
         {
           "name": "src",
           "type": "AbstractControl",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current src (`src: AbstractControl`).",
+          "descriptionZh": "获取当前源路径（`src: AbstractControl`）。"
         }
       ]
     },
     {
       "name": "imageResizePlugin",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `imageResizePlugin` defining image resize plugin in `src/ux/editor/plugins`.",
+      "summaryZh": "常量/变量 `imageResizePlugin`，定义 `src/ux/editor/plugins` 中的图像调整尺寸Plugin。",
       "sourceFile": "src/ux/editor/plugins/image-resize.ts",
       "inputs": [],
       "outputs": [],
@@ -1165,57 +1191,57 @@
       "name": "ImageViewComponent",
       "kind": "component",
       "selector": "ux-image-view",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular component `ImageViewComponent` (selector: 'ux-image-view') providing image view component presentation and interaction in `src/ux/editor/components/image-view`.",
+      "summaryZh": "Angular 组件 `ImageViewComponent`（selector: 'ux-image-view'），提供图像视图组件的视图渲染与交互逻辑（位于 `src/ux/editor/components/image-view`）。",
       "sourceFile": "src/ux/editor/components/image-view/image-view.component.ts",
       "inputs": [
         {
           "name": "src",
           "type": "string",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `src` (`string`) configuring src.",
+          "descriptionZh": "输入属性 `src`（类型：`string`），用于配置源路径。"
         },
         {
           "name": "alt",
           "type": "any",
           "default": "''",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `alt` (`string`) configuring alt (default: `''`).",
+          "descriptionZh": "输入属性 `alt`（类型：`string`），用于配置alt（默认值：`''`）。"
         },
         {
           "name": "title",
           "type": "any",
           "default": "''",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `title` (`string`) configuring title (default: `''`).",
+          "descriptionZh": "输入属性 `title`（类型：`string`），用于配置标题（默认值：`''`）。"
         },
         {
           "name": "outerWidth",
           "type": "any",
           "default": "''",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `outerWidth` (`string`) configuring outer width (default: `''`).",
+          "descriptionZh": "输入属性 `outerWidth`（类型：`string`），用于配置外部宽度（默认值：`''`）。"
         },
         {
           "name": "selected",
           "type": "any",
           "default": "false",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `selected` (`boolean`) configuring selected (default: `false`).",
+          "descriptionZh": "输入属性 `selected`（类型：`boolean`），用于配置已选中（默认值：`false`）。"
         },
         {
           "name": "view",
           "type": "EditorView",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `view` (`EditorView`) configuring view.",
+          "descriptionZh": "输入属性 `view`（类型：`EditorView`），用于配置视图。"
         }
       ],
       "outputs": [
         {
           "name": "imageResize",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Output event emitter `imageResize` (`EventEmitter`) firing when image resize occurs.",
+          "descriptionZh": "输出事件 `imageResize`（类型：`EventEmitter`），当触发图像调整尺寸时向外发出事件。"
         }
       ],
       "methods": [
@@ -1232,8 +1258,8 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `startResizing` to handle start resizing.",
+          "descriptionZh": "执行 `startResizing`，用于开始调整尺寸中。"
         },
         {
           "name": "resizeImage",
@@ -1248,43 +1274,50 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `resizeImage` to handle resize image.",
+          "descriptionZh": "执行 `resizeImage`，用于调整尺寸图像。"
         }
       ],
       "properties": [
         {
           "name": "imgEl",
           "type": "ElementRef",
-          "description": null,
-          "descriptionZh": null
+          "description": "Template/content query reference `imgEl` (`@ViewChild`) targeting img el.",
+          "descriptionZh": "模板/内容视图查询引用 `imgEl`（`@ViewChild`），指向图片DOM元素。"
         }
       ]
     },
     {
       "name": "InsertCommand",
       "kind": "interface",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Interface `InsertCommand` defining the contract and properties for insert command.",
+      "summaryZh": "接口 `InsertCommand`，定义插入命令的数据结构契约与属性规范。",
       "sourceFile": "src/ux/editor/commands/types.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
-      "properties": []
+      "properties": [
+        {
+          "name": "insert",
+          "type": "() => Command",
+          "description": "Property `insert` (`() => Command`) storing insert.",
+          "descriptionZh": "属性 `insert`（类型：`() => Command`），用于存储或配置插入。"
+        }
+      ]
     },
     {
       "name": "InsertCommandComponent",
       "kind": "component",
       "selector": "ux-insert-command",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular component `InsertCommandComponent` (selector: 'ux-insert-command') providing insert command component presentation and interaction in `src/ux/editor/modules/menu/insert-command`.",
+      "summaryZh": "Angular 组件 `InsertCommandComponent`（selector: 'ux-insert-command'），提供插入命令组件的视图渲染与交互逻辑（位于 `src/ux/editor/modules/menu/insert-command`）。",
       "sourceFile": "src/ux/editor/modules/menu/insert-command/insert-command.component.ts",
       "inputs": [
         {
           "name": "toolbarItem",
           "type": "ToolbarItem",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `toolbarItem` (`ToolbarItem`) configuring toolbar item.",
+          "descriptionZh": "输入属性 `toolbarItem`（类型：`ToolbarItem`），用于配置工具栏条目。"
         }
       ],
       "outputs": [],
@@ -1298,8 +1331,8 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `insert` to handle insert.",
+          "descriptionZh": "执行 `insert`，用于插入。"
         },
         {
           "name": "getTitle",
@@ -1310,50 +1343,50 @@
             }
           ],
           "returnType": "string",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `getTitle` to handle get title.",
+          "descriptionZh": "执行 `getTitle`，用于获取标题。"
         }
       ],
       "properties": [
         {
           "name": "name",
           "type": "TBItems",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current name (`name: TBItems`).",
+          "descriptionZh": "获取当前名称（`name: TBItems`）。"
         },
         {
           "name": "html",
           "type": "string",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `html` (`string`) storing html.",
+          "descriptionZh": "属性 `html`（类型：`string`），用于存储或配置HTML内容。"
         },
         {
           "name": "editorView",
           "type": "EditorView",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `editorView` (`EditorView`) storing editor view.",
+          "descriptionZh": "属性 `editorView`（类型：`EditorView`），用于存储或配置编辑器视图。"
         },
         {
           "name": "disabled",
           "type": "any",
           "default": "false",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `disabled` (`boolean`) storing disabled (default: `false`).",
+          "descriptionZh": "属性 `disabled`（类型：`boolean`），用于存储或配置已禁用（默认值：`false`）。"
         },
         {
           "name": "update",
           "type": "any",
           "default": "(view: EditorView): void => {\n    const { state } = view;\n    const command = InsertCommands[this.name];\n    this.disabled = !command.canExecute(state);\n  }",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `update` (`any`) storing update.",
+          "descriptionZh": "属性 `update`（类型：`any`），用于存储或配置更新。"
         }
       ]
     },
     {
       "name": "InsertCommands",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `InsertCommands` defining insert commands in `src/ux/editor/modules/menu`.",
+      "summaryZh": "常量/变量 `InsertCommands`，定义 `src/ux/editor/modules/menu` 中的插入命令。",
       "sourceFile": "src/ux/editor/modules/menu/MenuCommands.ts",
       "inputs": [],
       "outputs": [],
@@ -1363,8 +1396,8 @@
     {
       "name": "isMarkActive",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `isMarkActive` defining is mark active in `src/ux/editor/helpers`.",
+      "summaryZh": "常量/变量 `isMarkActive`，定义 `src/ux/editor/helpers` 中的是否为标记激活。",
       "sourceFile": "src/ux/editor/helpers/isMarkActive.ts",
       "inputs": [],
       "outputs": [],
@@ -1374,8 +1407,8 @@
     {
       "name": "isNil",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `isNil` defining is nil in `src/ux/editor/utils`.",
+      "summaryZh": "常量/变量 `isNil`，定义 `src/ux/editor/utils` 中的是否为Nil。",
       "sourceFile": "src/ux/editor/utils/isNil.ts",
       "inputs": [],
       "outputs": [],
@@ -1385,8 +1418,8 @@
     {
       "name": "isNodeActive",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `isNodeActive` defining is node active in `src/ux/editor/helpers`.",
+      "summaryZh": "常量/变量 `isNodeActive`，定义 `src/ux/editor/helpers` 中的是否为节点激活。",
       "sourceFile": "src/ux/editor/helpers/isNodeActive.ts",
       "inputs": [],
       "outputs": [],
@@ -1396,8 +1429,8 @@
     {
       "name": "Link",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `Link` defining link in `src/ux/editor/modules/menu`.",
+      "summaryZh": "常量/变量 `Link`，定义 `src/ux/editor/modules/menu` 中的链接。",
       "sourceFile": "src/ux/editor/modules/menu/MenuCommands.ts",
       "inputs": [],
       "outputs": [],
@@ -1407,8 +1440,8 @@
     {
       "name": "LINK",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `LINK` defining link in `src/ux/editor/commands`.",
+      "summaryZh": "常量/变量 `LINK`，定义 `src/ux/editor/commands` 中的链接。",
       "sourceFile": "src/ux/editor/commands/public-api.ts",
       "inputs": [],
       "outputs": [],
@@ -1418,20 +1451,39 @@
     {
       "name": "LinkAttrs",
       "kind": "interface",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Interface `LinkAttrs` defining the contract and properties for link attrs.",
+      "summaryZh": "接口 `LinkAttrs`，定义链接属性集合的数据结构契约与属性规范。",
       "sourceFile": "src/ux/editor/commands/Link.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
-      "properties": []
+      "properties": [
+        {
+          "name": "href",
+          "type": "string",
+          "description": "Property `href` (`string`) storing href.",
+          "descriptionZh": "属性 `href`（类型：`string`），用于存储或配置href。"
+        },
+        {
+          "name": "title",
+          "type": "string",
+          "description": "Property `title` (`string`) storing title.",
+          "descriptionZh": "属性 `title`（类型：`string`），用于存储或配置标题。"
+        },
+        {
+          "name": "target",
+          "type": "string",
+          "description": "Property `target` (`string`) storing target.",
+          "descriptionZh": "属性 `target`（类型：`string`），用于存储或配置目标。"
+        }
+      ]
     },
     {
       "name": "LinkComponent",
       "kind": "component",
       "selector": "ux-link",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular component `LinkComponent` (selector: 'ux-link') providing link component presentation and interaction in `src/ux/editor/modules/menu/link`.",
+      "summaryZh": "Angular 组件 `LinkComponent`（selector: 'ux-link'），提供链接组件的视图渲染与交互逻辑（位于 `src/ux/editor/modules/menu/link`）。",
       "sourceFile": "src/ux/editor/modules/menu/link/link.component.ts",
       "inputs": [],
       "outputs": [],
@@ -1445,8 +1497,8 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Host event listener `onDocumentClick` handling `document:mousedown` events for on document click.",
+          "descriptionZh": "宿主事件监听方法 `onDocumentClick`，响应 `document:mousedown` 事件以处理当文档对象点击。"
         },
         {
           "name": "getLabel",
@@ -1457,8 +1509,8 @@
             }
           ],
           "returnType": "string",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `getLabel` to handle get label.",
+          "descriptionZh": "执行 `getLabel`，用于获取标签。"
         },
         {
           "name": "onMouseDown",
@@ -1469,8 +1521,8 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `onMouseDown` to handle on mouse down.",
+          "descriptionZh": "执行 `onMouseDown`，用于当鼠标向下。"
         },
         {
           "name": "insertLink",
@@ -1481,8 +1533,8 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `insertLink` to handle insert link.",
+          "descriptionZh": "执行 `insertLink`，用于插入链接。"
         }
       ],
       "properties": [
@@ -1490,60 +1542,60 @@
           "name": "showPopup",
           "type": "any",
           "default": "false",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `showPopup` (`boolean`) storing show popup (default: `false`).",
+          "descriptionZh": "属性 `showPopup`（类型：`boolean`），用于存储或配置显示弹窗（默认值：`false`）。"
         },
         {
           "name": "isActive",
           "type": "any",
           "default": "false",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `isActive` (`boolean`) storing is active (default: `false`).",
+          "descriptionZh": "属性 `isActive`（类型：`boolean`），用于存储或配置是否为激活（默认值：`false`）。"
         },
         {
           "name": "canExecute",
           "type": "any",
           "default": "true",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `canExecute` (`boolean`) storing can execute (default: `true`).",
+          "descriptionZh": "属性 `canExecute`（类型：`boolean`），用于存储或配置是否可以执行（默认值：`true`）。"
         },
         {
           "name": "form",
           "type": "FormGroup",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `form` (`FormGroup`) storing form.",
+          "descriptionZh": "属性 `form`（类型：`FormGroup`），用于存储或配置表单。"
         },
         {
           "name": "icon",
           "type": "string",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current icon (`icon: string`).",
+          "descriptionZh": "获取当前图标（`icon: string`）。"
         },
         {
           "name": "title",
           "type": "string",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current title (`title: string`).",
+          "descriptionZh": "获取当前标题（`title: string`）。"
         },
         {
           "name": "href",
           "type": "AbstractControl",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current href (`href: AbstractControl`).",
+          "descriptionZh": "获取当前href（`href: AbstractControl`）。"
         },
         {
           "name": "text",
           "type": "AbstractControl",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current text (`text: AbstractControl`).",
+          "descriptionZh": "获取当前文本（`text: AbstractControl`）。"
         }
       ]
     },
     {
       "name": "linkifyPlugin",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `linkifyPlugin` defining linkify plugin in `src/ux/editor/plugins`.",
+      "summaryZh": "常量/变量 `linkifyPlugin`，定义 `src/ux/editor/plugins` 中的linkifyPlugin。",
       "sourceFile": "src/ux/editor/plugins/link.ts",
       "inputs": [],
       "outputs": [],
@@ -1553,8 +1605,8 @@
     {
       "name": "LocalsKeys",
       "kind": "type",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Type alias `LocalsKeys` representing locals keys (`keyof typeof defaults`).",
+      "summaryZh": "类型别名 `LocalsKeys`，表示本地键列表（`keyof typeof defaults`）。",
       "sourceFile": "src/ux/editor/Locals.ts",
       "inputs": [],
       "outputs": [],
@@ -1564,8 +1616,8 @@
     {
       "name": "markApplies",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `markApplies` defining mark applies in `src/ux/editor/helpers`.",
+      "summaryZh": "常量/变量 `markApplies`，定义 `src/ux/editor/helpers` 中的标记应用。",
       "sourceFile": "src/ux/editor/helpers/markApplies.ts",
       "inputs": [],
       "outputs": [],
@@ -1575,8 +1627,8 @@
     {
       "name": "markInputRule",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `markInputRule` defining mark input rule in `src/ux/editor/helpers`.",
+      "summaryZh": "常量/变量 `markInputRule`，定义 `src/ux/editor/helpers` 中的标记输入属性规则。",
       "sourceFile": "src/ux/editor/helpers/markInputRule.ts",
       "inputs": [],
       "outputs": [],
@@ -1586,8 +1638,8 @@
     {
       "name": "marks",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `marks` defining marks in `src/ux/editor/schema`.",
+      "summaryZh": "常量/变量 `marks`，定义 `src/ux/editor/schema` 中的标记。",
       "sourceFile": "src/ux/editor/schema/marks.ts",
       "inputs": [],
       "outputs": [],
@@ -1598,50 +1650,50 @@
       "name": "MenuComponent",
       "kind": "component",
       "selector": "ux-editor-menu",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular component `MenuComponent` (selector: 'ux-editor-menu') providing menu component presentation and interaction in `src/ux/editor/modules/menu`.",
+      "summaryZh": "Angular 组件 `MenuComponent`（selector: 'ux-editor-menu'），提供菜单组件的视图渲染与交互逻辑（位于 `src/ux/editor/modules/menu`）。",
       "sourceFile": "src/ux/editor/modules/menu/menu.component.ts",
       "inputs": [
         {
           "name": "toolbar",
           "type": "Toolbar",
           "default": "TOOLBAR_MINIMAL",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `toolbar` (`Toolbar`) configuring toolbar (default: `TOOLBAR_MINIMAL`).",
+          "descriptionZh": "输入属性 `toolbar`（类型：`Toolbar`），用于配置工具栏（默认值：`TOOLBAR_MINIMAL`）。"
         },
         {
           "name": "colorPresets",
           "type": "string[]",
           "default": "DEFAULT_COLOR_PRESETS",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `colorPresets` (`string[]`) configuring color presets (default: `DEFAULT_COLOR_PRESETS`).",
+          "descriptionZh": "输入属性 `colorPresets`（类型：`string[]`），用于配置颜色Presets（默认值：`DEFAULT_COLOR_PRESETS`）。"
         },
         {
           "name": "disabled",
           "type": "any",
           "default": "false",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `disabled` (`boolean`) configuring disabled (default: `false`).",
+          "descriptionZh": "输入属性 `disabled`（类型：`boolean`），用于配置已禁用（默认值：`false`）。"
         },
         {
           "name": "editor",
           "type": "Editor",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `editor` (`Editor`) configuring editor.",
+          "descriptionZh": "输入属性 `editor`（类型：`Editor`），用于配置编辑器。"
         },
         {
           "name": "customMenuRef",
           "type": "TemplateRef<any> | null",
           "default": "null",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `customMenuRef` (`TemplateRef<any> | null`) configuring custom menu ref (default: `null`).",
+          "descriptionZh": "输入属性 `customMenuRef`（类型：`TemplateRef<any> | null`），用于配置自定义菜单引用（默认值：`null`）。"
         },
         {
           "name": "dropdownPlacement",
           "type": "'top' | 'bottom'",
           "default": "'bottom'",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `dropdownPlacement` (`'top' | 'bottom'`) configuring dropdown placement (default: `'bottom'`).",
+          "descriptionZh": "输入属性 `dropdownPlacement`（类型：`'top' | 'bottom'`），用于配置下拉框Placement（默认值：`'bottom'`）。"
         }
       ],
       "outputs": [],
@@ -1655,8 +1707,8 @@
             }
           ],
           "returnType": "number",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `trackByIndex` to handle track by index.",
+          "descriptionZh": "执行 `trackByIndex`，用于track按索引。"
         },
         {
           "name": "isDropDown",
@@ -1667,8 +1719,8 @@
             }
           ],
           "returnType": "boolean",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `isDropDown` to handle is drop down.",
+          "descriptionZh": "执行 `isDropDown`，用于是否为放置向下。"
         },
         {
           "name": "getDropdownItems",
@@ -1679,8 +1731,8 @@
             }
           ],
           "returnType": "ToolbarDropdown",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `getDropdownItems` to handle get dropdown items.",
+          "descriptionZh": "执行 `getDropdownItems`，用于获取下拉框条目列表。"
         }
       ],
       "properties": [
@@ -1688,50 +1740,50 @@
           "name": "toggleCommands",
           "type": "ToolbarItem[]",
           "default": "[\n    'bold',\n    'italic',\n    'underline',\n    'strike',\n    'code',\n    'blockquote',\n    'ordered_list',\n    'bullet_list',\n    'align_left',\n    'align_center',\n    'align_right',\n    'align_justify',\n  ]",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `toggleCommands` (`ToolbarItem[]`) storing toggle commands.",
+          "descriptionZh": "属性 `toggleCommands`（类型：`ToolbarItem[]`），用于存储或配置开关命令。"
         },
         {
           "name": "insertCommands",
           "type": "ToolbarItem[]",
           "default": "[\n    'horizontal_rule',\n    'format_clear',\n  ]",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `insertCommands` (`ToolbarItem[]`) storing insert commands (default: `[ 'horizontal_rule', 'format_clear', ]`).",
+          "descriptionZh": "属性 `insertCommands`（类型：`ToolbarItem[]`），用于存储或配置插入命令（默认值：`[ 'horizontal_rule', 'format_clear', ]`）。"
         },
         {
           "name": "iconContainerClass",
           "type": "any",
           "default": "['Editor__MenuItem', 'Editor__MenuItem--Icon']",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `iconContainerClass` (`any[]`) storing icon container class.",
+          "descriptionZh": "属性 `iconContainerClass`（类型：`any[]`），用于存储或配置图标容器类名。"
         },
         {
           "name": "dropdownContainerClass",
           "type": "any",
           "default": "['Editor__Dropdown']",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `dropdownContainerClass` (`any[]`) storing dropdown container class (default: `['Editor__Dropdown']`).",
+          "descriptionZh": "属性 `dropdownContainerClass`（类型：`any[]`），用于存储或配置下拉框容器类名（默认值：`['Editor__Dropdown']`）。"
         },
         {
           "name": "seperatorClass",
           "type": "any",
           "default": "['Editor__Seperator']",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `seperatorClass` (`any[]`) storing seperator class (default: `['Editor__Seperator']`).",
+          "descriptionZh": "属性 `seperatorClass`（类型：`any[]`），用于存储或配置seperator类名（默认值：`['Editor__Seperator']`）。"
         },
         {
           "name": "presets",
           "type": "string[][]",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current presets (`presets: string[][]`).",
+          "descriptionZh": "获取当前presets（`presets: string[][]`）。"
         }
       ]
     },
     {
       "name": "MenuService",
       "kind": "service",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Injectable Angular service `MenuService` managing menu service state and operations in `src/ux/editor/modules/menu`.",
+      "summaryZh": "可注入的 Angular 服务 `MenuService`，管理 `src/ux/editor/modules/menu` 中的菜单服务状态与业务操作。",
       "sourceFile": "src/ux/editor/modules/menu/menu.service.ts",
       "inputs": [],
       "outputs": [],
@@ -1745,31 +1797,31 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `setCustomMenuRef` to handle set custom menu ref.",
+          "descriptionZh": "执行 `setCustomMenuRef`，用于集合自定义菜单引用。"
         }
       ],
       "properties": [
         {
           "name": "editor",
           "type": "Editor",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `editor` (`Editor`) storing editor.",
+          "descriptionZh": "属性 `editor`（类型：`Editor`），用于存储或配置编辑器。"
         },
         {
           "name": "customMenuRefChange",
           "type": "Subject<TemplateRef<any>>",
           "default": "new Subject<TemplateRef<any>>()",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `customMenuRefChange` (`Subject<TemplateRef<any>>`) storing custom menu ref change (default: `new Subject<TemplateRef<any>>()`).",
+          "descriptionZh": "属性 `customMenuRefChange`（类型：`Subject<TemplateRef<any>>`），用于存储或配置自定义菜单引用变更（默认值：`new Subject<TemplateRef<any>>()`）。"
         }
       ]
     },
     {
       "name": "nodes",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `nodes` defining nodes in `src/ux/editor/schema`.",
+      "summaryZh": "常量/变量 `nodes`，定义 `src/ux/editor/schema` 中的节点列表。",
       "sourceFile": "src/ux/editor/schema/nodes.ts",
       "inputs": [],
       "outputs": [],
@@ -1779,8 +1831,8 @@
     {
       "name": "OL",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `OL` defining ol in `src/ux/editor/commands`.",
+      "summaryZh": "常量/变量 `OL`，定义 `src/ux/editor/commands` 中的OL。",
       "sourceFile": "src/ux/editor/commands/public-api.ts",
       "inputs": [],
       "outputs": [],
@@ -1790,8 +1842,8 @@
     {
       "name": "parseContent",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `parseContent` defining parse content in `src/ux/editor`.",
+      "summaryZh": "常量/变量 `parseContent`，定义 `src/ux/editor` 中的解析内容。",
       "sourceFile": "src/ux/editor/parsers.ts",
       "inputs": [],
       "outputs": [],
@@ -1801,8 +1853,8 @@
     {
       "name": "placeholderPlugin",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `placeholderPlugin` defining placeholder plugin in `src/ux/editor/plugins`.",
+      "summaryZh": "常量/变量 `placeholderPlugin`，定义 `src/ux/editor/plugins` 中的占位提示Plugin。",
       "sourceFile": "src/ux/editor/plugins/placeholder.ts",
       "inputs": [],
       "outputs": [],
@@ -1812,8 +1864,8 @@
     {
       "name": "removeLink",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `removeLink` defining remove link in `src/ux/editor/commands`.",
+      "summaryZh": "常量/变量 `removeLink`，定义 `src/ux/editor/commands` 中的移除链接。",
       "sourceFile": "src/ux/editor/commands/removeLink.ts",
       "inputs": [],
       "outputs": [],
@@ -1823,8 +1875,8 @@
     {
       "name": "removeMark",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `removeMark` defining remove mark in `src/ux/editor/commands`.",
+      "summaryZh": "常量/变量 `removeMark`，定义 `src/ux/editor/commands` 中的移除标记。",
       "sourceFile": "src/ux/editor/commands/removeMark.ts",
       "inputs": [],
       "outputs": [],
@@ -1835,8 +1887,8 @@
       "name": "SanitizeHtmlPipe",
       "kind": "pipe",
       "pipeName": "sanitizeHtml",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular pipe `SanitizeHtmlPipe` (name: 'sanitizeHtml') transforming values for sanitize html pipe display in templates.",
+      "summaryZh": "Angular 管道 `SanitizeHtmlPipe`（name: 'sanitizeHtml'），在模板中转换数据以用于SanitizeHTML内容管道展示。",
       "sourceFile": "src/ux/editor/pipes/sanitize/sanitize-html.pipe.ts",
       "inputs": [],
       "outputs": [],
@@ -1850,8 +1902,8 @@
             }
           ],
           "returnType": "SafeHtml",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `transform` to handle transform.",
+          "descriptionZh": "执行 `transform`，用于转换。"
         }
       ],
       "properties": []
@@ -1859,8 +1911,8 @@
     {
       "name": "schema",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `schema` defining schema in `src/ux/editor/schema`.",
+      "summaryZh": "常量/变量 `schema`，定义 `src/ux/editor/schema` 中的结构定义。",
       "sourceFile": "src/ux/editor/schema/schema.ts",
       "inputs": [],
       "outputs": [],
@@ -1870,8 +1922,8 @@
     {
       "name": "STRIKE",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `STRIKE` defining strike in `src/ux/editor/commands`.",
+      "summaryZh": "常量/变量 `STRIKE`，定义 `src/ux/editor/commands` 中的STRIKE。",
       "sourceFile": "src/ux/editor/commands/public-api.ts",
       "inputs": [],
       "outputs": [],
@@ -1881,8 +1933,8 @@
     {
       "name": "STRONG",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `STRONG` defining strong in `src/ux/editor/commands`.",
+      "summaryZh": "常量/变量 `STRONG`，定义 `src/ux/editor/commands` 中的STRONG。",
       "sourceFile": "src/ux/editor/commands/public-api.ts",
       "inputs": [],
       "outputs": [],
@@ -1892,8 +1944,8 @@
     {
       "name": "TBHeadingItems",
       "kind": "type",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Type alias `TBHeadingItems` representing tb heading items (`'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'`).",
+      "summaryZh": "类型别名 `TBHeadingItems`，表示TBHeading条目列表（`'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'`）。",
       "sourceFile": "src/ux/editor/types.ts",
       "inputs": [],
       "outputs": [],
@@ -1903,8 +1955,8 @@
     {
       "name": "TBItems",
       "kind": "type",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Type alias `TBItems` representing tb items (`'bold' | 'italic' | 'code' | 'blockquote' | 'underline' | 'strike' | '...`).",
+      "summaryZh": "类型别名 `TBItems`，表示TB条目列表（`'bold' | 'italic' | 'code' | 'blockquote' | 'underline' | 'strike' | '...`）。",
       "sourceFile": "src/ux/editor/types.ts",
       "inputs": [],
       "outputs": [],
@@ -1914,8 +1966,8 @@
     {
       "name": "TEXT_BACKGROUND_COLOR",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `TEXT_BACKGROUND_COLOR` defining text background color in `src/ux/editor/commands`.",
+      "summaryZh": "常量/变量 `TEXT_BACKGROUND_COLOR`，定义 `src/ux/editor/commands` 中的文本背景颜色。",
       "sourceFile": "src/ux/editor/commands/public-api.ts",
       "inputs": [],
       "outputs": [],
@@ -1925,8 +1977,8 @@
     {
       "name": "TEXT_COLOR",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `TEXT_COLOR` defining text color in `src/ux/editor/commands`.",
+      "summaryZh": "常量/变量 `TEXT_COLOR`，定义 `src/ux/editor/commands` 中的文本颜色。",
       "sourceFile": "src/ux/editor/commands/public-api.ts",
       "inputs": [],
       "outputs": [],
@@ -1936,8 +1988,8 @@
     {
       "name": "TextBackgroundColor",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `TextBackgroundColor` defining text background color in `src/ux/editor/modules/menu`.",
+      "summaryZh": "常量/变量 `TextBackgroundColor`，定义 `src/ux/editor/modules/menu` 中的文本背景颜色。",
       "sourceFile": "src/ux/editor/modules/menu/MenuCommands.ts",
       "inputs": [],
       "outputs": [],
@@ -1947,8 +1999,8 @@
     {
       "name": "TextColor",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `TextColor` defining text color in `src/ux/editor/modules/menu`.",
+      "summaryZh": "常量/变量 `TextColor`，定义 `src/ux/editor/modules/menu` 中的文本颜色。",
       "sourceFile": "src/ux/editor/modules/menu/MenuCommands.ts",
       "inputs": [],
       "outputs": [],
@@ -1958,8 +2010,8 @@
     {
       "name": "toDoc",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `toDoc` defining to doc in `src/ux/editor`.",
+      "summaryZh": "常量/变量 `toDoc`，定义 `src/ux/editor` 中的转换为文档。",
       "sourceFile": "src/ux/editor/parsers.ts",
       "inputs": [],
       "outputs": [],
@@ -1969,27 +2021,40 @@
     {
       "name": "ToggleCommand",
       "kind": "interface",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Interface `ToggleCommand` defining the contract and properties for toggle command.",
+      "summaryZh": "接口 `ToggleCommand`，定义开关命令的数据结构契约与属性规范。",
       "sourceFile": "src/ux/editor/commands/types.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
-      "properties": []
+      "properties": [
+        {
+          "name": "toggle",
+          "type": "() => Command",
+          "description": "Property `toggle` (`() => Command`) storing toggle.",
+          "descriptionZh": "属性 `toggle`（类型：`() => Command`），用于存储或配置开关。"
+        },
+        {
+          "name": "isActive",
+          "type": "(state: EditorState) => boolean",
+          "description": "Property `isActive` (`(state: EditorState) => boolean`) storing is active.",
+          "descriptionZh": "属性 `isActive`（类型：`(state: EditorState) => boolean`），用于存储或配置是否为激活。"
+        }
+      ]
     },
     {
       "name": "ToggleCommandComponent",
       "kind": "component",
       "selector": "ux-toggle-command",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular component `ToggleCommandComponent` (selector: 'ux-toggle-command') providing toggle command component presentation and interaction in `src/ux/editor/modules/menu/toggle-command`.",
+      "summaryZh": "Angular 组件 `ToggleCommandComponent`（selector: 'ux-toggle-command'），提供开关命令组件的视图渲染与交互逻辑（位于 `src/ux/editor/modules/menu/toggle-command`）。",
       "sourceFile": "src/ux/editor/modules/menu/toggle-command/toggle-command.component.ts",
       "inputs": [
         {
           "name": "toolbarItem",
           "type": "ToolbarItem",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `toolbarItem` (`ToolbarItem`) configuring toolbar item.",
+          "descriptionZh": "输入属性 `toolbarItem`（类型：`ToolbarItem`），用于配置工具栏条目。"
         }
       ],
       "outputs": [],
@@ -2003,8 +2068,8 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `toggle` to handle toggle.",
+          "descriptionZh": "执行 `toggle`，用于开关。"
         },
         {
           "name": "getTitle",
@@ -2015,57 +2080,57 @@
             }
           ],
           "returnType": "string",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `getTitle` to handle get title.",
+          "descriptionZh": "执行 `getTitle`，用于获取标题。"
         }
       ],
       "properties": [
         {
           "name": "name",
           "type": "TBItems",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current name (`name: TBItems`).",
+          "descriptionZh": "获取当前名称（`name: TBItems`）。"
         },
         {
           "name": "html",
           "type": "string",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `html` (`string`) storing html.",
+          "descriptionZh": "属性 `html`（类型：`string`），用于存储或配置HTML内容。"
         },
         {
           "name": "editorView",
           "type": "EditorView",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `editorView` (`EditorView`) storing editor view.",
+          "descriptionZh": "属性 `editorView`（类型：`EditorView`），用于存储或配置编辑器视图。"
         },
         {
           "name": "isActive",
           "type": "any",
           "default": "false",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `isActive` (`boolean`) storing is active (default: `false`).",
+          "descriptionZh": "属性 `isActive`（类型：`boolean`），用于存储或配置是否为激活（默认值：`false`）。"
         },
         {
           "name": "disabled",
           "type": "any",
           "default": "false",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `disabled` (`boolean`) storing disabled (default: `false`).",
+          "descriptionZh": "属性 `disabled`（类型：`boolean`），用于存储或配置已禁用（默认值：`false`）。"
         },
         {
           "name": "update",
           "type": "any",
           "default": "(view: EditorView): void => {\n    const { state } = view;\n    const command = ToggleCommands[this.name];\n    this.isActive = command.isActive(state);\n    this.disabled = !command.canExecute(state);\n  }",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `update` (`any`) storing update.",
+          "descriptionZh": "属性 `update`（类型：`any`），用于存储或配置更新。"
         }
       ]
     },
     {
       "name": "ToggleCommands",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `ToggleCommands` defining toggle commands in `src/ux/editor/modules/menu`.",
+      "summaryZh": "常量/变量 `ToggleCommands`，定义 `src/ux/editor/modules/menu` 中的开关命令。",
       "sourceFile": "src/ux/editor/modules/menu/MenuCommands.ts",
       "inputs": [],
       "outputs": [],
@@ -2075,8 +2140,8 @@
     {
       "name": "toHTML",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `toHTML` defining to html in `src/ux/editor`.",
+      "summaryZh": "常量/变量 `toHTML`，定义 `src/ux/editor` 中的转换为HTML内容。",
       "sourceFile": "src/ux/editor/parsers.ts",
       "inputs": [],
       "outputs": [],
@@ -2086,8 +2151,8 @@
     {
       "name": "Toolbar",
       "kind": "type",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Type alias `Toolbar` representing toolbar (`Array<ToolbarItem[]>`).",
+      "summaryZh": "类型别名 `Toolbar`，表示工具栏（`Array<ToolbarItem[]>`）。",
       "sourceFile": "src/ux/editor/types.ts",
       "inputs": [],
       "outputs": [],
@@ -2097,8 +2162,8 @@
     {
       "name": "ToolbarCustomMenuItem",
       "kind": "type",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Type alias `ToolbarCustomMenuItem` representing toolbar custom menu item (`(editorView: EditorView) => TCR`).",
+      "summaryZh": "类型别名 `ToolbarCustomMenuItem`，表示工具栏自定义菜单条目（`(editorView: EditorView) => TCR`）。",
       "sourceFile": "src/ux/editor/types.ts",
       "inputs": [],
       "outputs": [],
@@ -2108,8 +2173,8 @@
     {
       "name": "ToolbarDropdown",
       "kind": "type",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Type alias `ToolbarDropdown` representing toolbar dropdown (`{ heading?: TBHeadingItems[] }`).",
+      "summaryZh": "类型别名 `ToolbarDropdown`，表示工具栏下拉框（`{ heading?: TBHeadingItems[] }`）。",
       "sourceFile": "src/ux/editor/types.ts",
       "inputs": [],
       "outputs": [],
@@ -2119,8 +2184,8 @@
     {
       "name": "ToolbarDropdownGroupKeys",
       "kind": "type",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Type alias `ToolbarDropdownGroupKeys` representing toolbar dropdown group keys (`keyof ToolbarDropdown`).",
+      "summaryZh": "类型别名 `ToolbarDropdownGroupKeys`，表示工具栏下拉框分组键列表（`keyof ToolbarDropdown`）。",
       "sourceFile": "src/ux/editor/types.ts",
       "inputs": [],
       "outputs": [],
@@ -2130,8 +2195,8 @@
     {
       "name": "ToolbarDropdownGroupValues",
       "kind": "type",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Type alias `ToolbarDropdownGroupValues` representing toolbar dropdown group values (`ToolbarDropdown[ToolbarDropdownGroupKeys]`).",
+      "summaryZh": "类型别名 `ToolbarDropdownGroupValues`，表示工具栏下拉框分组值列表（`ToolbarDropdown[ToolbarDropdownGroupKeys]`）。",
       "sourceFile": "src/ux/editor/types.ts",
       "inputs": [],
       "outputs": [],
@@ -2141,8 +2206,8 @@
     {
       "name": "ToolbarItem",
       "kind": "type",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Type alias `ToolbarItem` representing toolbar item (`TBItems | ToolbarDropdown | ToolbarCustomMenuItem`).",
+      "summaryZh": "类型别名 `ToolbarItem`，表示工具栏条目（`TBItems | ToolbarDropdown | ToolbarCustomMenuItem`）。",
       "sourceFile": "src/ux/editor/types.ts",
       "inputs": [],
       "outputs": [],
@@ -2152,8 +2217,8 @@
     {
       "name": "toStyleString",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `toStyleString` defining to style string in `src/ux/editor/utils`.",
+      "summaryZh": "常量/变量 `toStyleString`，定义 `src/ux/editor/utils` 中的转换为样式字符串。",
       "sourceFile": "src/ux/editor/utils/toStyleString.ts",
       "inputs": [],
       "outputs": [],
@@ -2163,8 +2228,8 @@
     {
       "name": "UL",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `UL` defining ul in `src/ux/editor/commands`.",
+      "summaryZh": "常量/变量 `UL`，定义 `src/ux/editor/commands` 中的UL。",
       "sourceFile": "src/ux/editor/commands/public-api.ts",
       "inputs": [],
       "outputs": [],
@@ -2174,8 +2239,8 @@
     {
       "name": "UNDERLINE",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `UNDERLINE` defining underline in `src/ux/editor/commands`.",
+      "summaryZh": "常量/变量 `UNDERLINE`，定义 `src/ux/editor/commands` 中的UNDERLINE。",
       "sourceFile": "src/ux/editor/commands/public-api.ts",
       "inputs": [],
       "outputs": [],
@@ -2185,8 +2250,8 @@
     {
       "name": "Validators",
       "kind": "class",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Class `Validators` encapsulating validators data structures and logic in `src/ux/editor`.",
+      "summaryZh": "类 `Validators`，封装 `src/ux/editor` 中的校验器列表数据结构与处理逻辑。",
       "sourceFile": "src/ux/editor/validators.ts",
       "inputs": [],
       "outputs": [],
@@ -2200,8 +2265,8 @@
             }
           ],
           "returnType": "ValidatorFn",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `required` to handle required.",
+          "descriptionZh": "执行 `required`，用于必填。"
         },
         {
           "name": "maxLength",
@@ -2216,8 +2281,8 @@
             }
           ],
           "returnType": "ValidatorFn",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `maxLength` to handle max length.",
+          "descriptionZh": "执行 `maxLength`，用于最大值长度。"
         },
         {
           "name": "minLength",
@@ -2232,8 +2297,8 @@
             }
           ],
           "returnType": "ValidatorFn",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `minLength` to handle min length.",
+          "descriptionZh": "执行 `minLength`，用于最小值长度。"
         }
       ],
       "properties": []

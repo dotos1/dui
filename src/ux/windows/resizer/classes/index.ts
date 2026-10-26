@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Module `src/ux/windows/resizer/classes/index.ts` providing index definitions and implementation.
+ * @zh 模块文件 `src/ux/windows/resizer/classes/index.ts`，提供索引相关的定义与实现。
+ */
+
 export * from './base-resizer';
 export * from './bottom-left-resizer';
 export * from './bottom-resizer';

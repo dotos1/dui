@@ -1,12 +1,33 @@
+/**
+ * @fileoverview Module `src/core/services/highlight-transform.service.ts` providing highlight transform service definitions and implementation.
+ * @zh 模块文件 `src/core/services/highlight-transform.service.ts`，提供highlight转换服务相关的定义与实现。
+ */
+
 
 import { Injectable } from '@angular/core';
 import { sanitizeDomTree } from '@dotos/dui/base';
 
+/**
+ * Interface `HighlightTransformResult` defining the contract and properties for highlight transform result.
+ * @zh 接口 `HighlightTransformResult`，定义Highlight转换结果的数据结构契约与属性规范。
+ */
 export interface HighlightTransformResult {
+    /**
+     * Property `text` (`string`) storing text.
+     * @zh 属性 `text`（类型：`string`），用于存储或配置文本。
+     */
     text: string;
+    /**
+     * Property `changed` (`boolean`) storing changed.
+     * @zh 属性 `changed`（类型：`boolean`），用于存储或配置已变更。
+     */
     changed: boolean;
 }
 
+/**
+ * Injectable Angular service `HighlightTransformService` managing highlight transform service state and operations in `src/core/services`.
+ * @zh 可注入的 Angular 服务 `HighlightTransformService`，管理 `src/core/services` 中的Highlight转换服务状态与业务操作。
+ */
 @Injectable({
     providedIn: 'root'
 })
@@ -18,6 +39,8 @@ export class HighlightTransformService {
      * @param search Text pattern to search for
      * @param wrapperClass CSS class used to provide highlighting style
      * @returns New text along with boolean value to indicate whether anything was highlighted
+
+     * @zh 执行 `highlight`，用于highlight。
      */
     public highlight(text: string, search: string, wrapperClass: string = 'dui-highlight'): HighlightTransformResult {
         if (!search || !text) {

@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Module `src/common/dialogs/window-dialog/window-dialog.component.ts` providing window dialog component definitions and implementation.
+ * @zh 模块文件 `src/common/dialogs/window-dialog/window-dialog.component.ts`，提供窗口对话框组件相关的定义与实现。
+ */
+
 import {
   Component,
   Input,
@@ -19,24 +24,55 @@ import { ThemePalette } from '@angular/material/core';
 
 })
 export class WindowDialogComponent {
-  /** @zh 标题栏的 Material 主题色。 */
+  /**
+   * @zh 标题栏的 Material 主题色。
+   * @zh 标题栏的 Material 主题色。
+   */
   @Input() toolbarColor?: ThemePalette;
-  /** @zh 窗口当前是否处于停靠状态。 */
+  /**
+   * Input property `docked` (`boolean`) configuring docked (default: `false`).
+   * @zh 窗口当前是否处于停靠状态。
+   * @zh 窗口当前是否处于停靠状态。
+   */
   @Input() docked? = false;
 
-  /** @zh 窗口标题。 */
+  /**
+   * Input property `title` (`string`) configuring title.
+   * @zh 窗口标题。
+   * @zh 窗口标题。
+   */
   @Input() title?: string;
-  /** @zh "切换停靠状态"按钮的无障碍标签文字。 */
+  /**
+   * Input property `toggleDockedStateLabel` (`string`) configuring toggle docked state label.
+   * @zh "切换停靠状态"按钮的无障碍标签文字。
+   * @zh "切换停靠状态"按钮的无障碍标签文字。
+   */
   @Input() toggleDockedStateLabel?: string;
-  /** @zh 关闭按钮的无障碍标签文字。 */
+  /**
+   * Input property `closeLabel` (`string`) configuring close label.
+   * @zh 关闭按钮的无障碍标签文字。
+   * @zh 关闭按钮的无障碍标签文字。
+   */
   @Input() closeLabel?: string;
 
-  /** @zh 停靠状态切换时发出新的停靠状态。 */
+  /**
+   * Output event emitter `dockToggled` (`EventEmitter<boolean>`) firing when dock toggled occurs.
+   * @zh 停靠状态切换时发出新的停靠状态。
+   * @zh 停靠状态切换时发出新的停靠状态。
+   */
   @Output() dockToggled: EventEmitter<boolean> = new EventEmitter();
-  /** @zh 关闭按钮被点击时发出。 */
+  /**
+   * Output event emitter `closed` (`EventEmitter<void>`) firing when closed occurs.
+   * @zh 关闭按钮被点击时发出。
+   * @zh 关闭按钮被点击时发出。
+   */
   @Output() closed: EventEmitter<void> = new EventEmitter();
 
-  /** @zh 标题栏的高度（像素）。 */
+  /**
+   * Property `toolbarHeight` (`number`) storing toolbar height (default: `56`).
+   * @zh 标题栏的高度（像素）。
+   * @zh 标题栏的高度（像素）。
+   */
   toolbarHeight = 56;
 
   /**

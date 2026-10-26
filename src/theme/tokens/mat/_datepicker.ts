@@ -1,27 +1,66 @@
+/**
+ * @fileoverview Module `src/theme/tokens/mat/_datepicker.ts` providing datepicker definitions and implementation.
+ * @zh 模块文件 `src/theme/tokens/mat/_datepicker.ts`，提供日期选择器相关的定义与实现。
+ */
+
 import * as elevation from '../../mdc/elevation-theme';
 import * as inspection from '../../mdc/inspection';
 import {rgba} from '../../mat-color';
 
 
+/**
+ * Constant/variable `$prefix` defining prefix in `src/theme/tokens/mat`.
+ * @zh 常量/变量 `$prefix`，定义 `src/theme/tokens/mat` 中的前缀。
+ */
 export const $prefix=["mat", "datepicker"];
 
 
+/**
+ * Constant/variable `$_selected_fade_amount` defining selected fade amount in `src/theme/tokens/mat`.
+ * @zh 常量/变量 `$_selected_fade_amount`，定义 `src/theme/tokens/mat` 中的已选中fadeamount。
+ */
 const $_selected_fade_amount= 0.6;
+/**
+ * Constant/variable `$_today_fade_amount` defining today fade amount in `src/theme/tokens/mat`.
+ * @zh 常量/变量 `$_today_fade_amount`，定义 `src/theme/tokens/mat` 中的todayfadeamount。
+ */
 const $_today_fade_amount= 0.2;
 
+/**
+ * Executes `private_get_range_background_color` to handle private get range background color.
+ * @zh 执行 `private_get_range_background_color`，用于private获取范围背景颜色。
+ * @param $color - color parameter (`any`) / 颜色参数（`any`）
+ */
 export function private_get_range_background_color($color) {
   return rgba($color, 0.2);
 }
 
+/**
+ * Executes `private_get_default_overlap_selected_color` to handle private get default overlap selected color.
+ * @zh 执行 `private_get_default_overlap_selected_color`，用于private获取默认overlap已选中颜色。
+ * @param $overlap_color - overlap color parameter (`any`) / overlap颜色参数（`any`）
+ */
 function private_get_default_overlap_selected_color($overlap_color) {
   return $overlap_color;
   // return color.adjust($overlap_color, $lightness: -30%);
 }
 
+/**
+ * Constant/variable `$private_default_comparison_color` defining private default comparison color in `src/theme/tokens/mat`.
+ * @zh 常量/变量 `$private_default_comparison_color`，定义 `src/theme/tokens/mat` 中的private默认comparison颜色。
+ */
 const $private_default_comparison_color= private_get_range_background_color("#f9ab00");
 
+/**
+ * Constant/variable `$private_default_overlap_color` defining private default overlap color in `src/theme/tokens/mat`.
+ * @zh 常量/变量 `$private_default_overlap_color`，定义 `src/theme/tokens/mat` 中的private默认overlap颜色。
+ */
 const $private_default_overlap_color= "#a8dab5";
 
+/**
+ * Executes `get_unthemable_tokens` to handle get unthemable tokens.
+ * @zh 执行 `get_unthemable_tokens`，用于获取不可主题化设计令牌。
+ */
 export function get_unthemable_tokens() {
   return {
     "calendar-container-shape": "4px",
@@ -31,6 +70,11 @@ export function get_unthemable_tokens() {
  };
 }
 
+/**
+ * Executes `get_color_tokens` to handle get color tokens.
+ * @zh 执行 `get_color_tokens`，用于获取颜色设计令牌。
+ * @param $theme - theme parameter (`any`) / 主题参数（`any`）
+ */
 export function get_color_tokens($theme) {
   let $inactive_icon_color= inspection.get_theme_color($theme, "foreground", "icon");
   let $text_color= inspection.get_theme_color($theme, "foreground", "text");
@@ -87,6 +131,11 @@ export function get_color_tokens($theme) {
   }
 }
 
+/**
+ * Executes `get_typography_tokens` to handle get typography tokens.
+ * @zh 执行 `get_typography_tokens`，用于获取排版设计令牌。
+ * @param $theme - theme parameter (`any`) / 主题参数（`any`）
+ */
 export function get_typography_tokens($theme) {
   return {
     "calendar-text-font": inspection.get_theme_typography($theme, "body-1", "font-family"),
@@ -103,6 +152,12 @@ export function get_typography_tokens($theme) {
  };
 }
 
+/**
+ * Executes `private_get_calendar_color_palette_color_tokens` to handle private get calendar color palette color tokens.
+ * @zh 执行 `private_get_calendar_color_palette_color_tokens`，用于private获取日历颜色调色板颜色设计令牌。
+ * @param $theme - theme parameter (`any`) / 主题参数（`any`）
+ * @param $palette_name - palette name parameter (`any`) / 调色板名称参数（`any`）
+ */
 export function private_get_calendar_color_palette_color_tokens($theme, $palette_name) {
   let $palette_color= inspection.get_theme_color($theme, $palette_name);
   let $default_contrast= inspection.get_theme_color($theme, $palette_name, "default-contrast");
@@ -126,11 +181,25 @@ export function private_get_calendar_color_palette_color_tokens($theme, $palette
  };
 }
 
+/**
+ * Executes `private_get_toggle_color_palette_color_tokens` to handle private get toggle color palette color tokens.
+ * @zh 执行 `private_get_toggle_color_palette_color_tokens`，用于private获取开关颜色调色板颜色设计令牌。
+ * @param $theme - theme parameter (`any`) / 主题参数（`any`）
+ * @param $palette_name - palette name parameter (`any`) / 调色板名称参数（`any`）
+ */
 export function private_get_toggle_color_palette_color_tokens($theme, $palette_name) {
   return {
     "toggle-active-state-icon-color": inspection.get_theme_color($theme, $palette_name, "text"),
  };
 }
+/**
+ * Executes `get_range_color_tokens` to handle get range color tokens.
+ * @zh 执行 `get_range_color_tokens`，用于获取范围颜色设计令牌。
+ * @param $range_color - range color parameter (`any`) / 范围颜色参数（`any`）
+ * @param $comparison_color - comparison color parameter (`any`) / comparison颜色参数（`any`）
+ * @param $overlap_color - overlap color parameter (`any`) / overlap颜色参数（`any`）
+ * @param $overlap_selected_color - overlap selected color parameter (`any`) / overlap已选中颜色参数（`any`）
+ */
 export function get_range_color_tokens(
   $range_color,
   $comparison_color= $private_default_comparison_color,
@@ -145,6 +214,11 @@ export function get_range_color_tokens(
   };
 }
 
+/**
+ * Executes `get_density_tokens` to handle get density tokens.
+ * @zh 执行 `get_density_tokens`，用于获取密度设计令牌。
+ * @param $theme - theme parameter (`any`) / 主题参数（`any`）
+ */
 export function get_density_tokens($theme) {
   return {};
 }

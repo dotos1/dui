@@ -4,8 +4,8 @@
     {
       "name": "CONTEXT_MENU_DIRECTION",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular dependency-injection token `CONTEXT_MENU_DIRECTION` for providing context menu direction.",
+      "summaryZh": "Angular 依赖注入令牌 `CONTEXT_MENU_DIRECTION`，用于提供与注入上下文菜单方向。",
       "sourceFile": "src/ui/context-menu/direction.token.ts",
       "inputs": [],
       "outputs": [],
@@ -16,22 +16,22 @@
       "name": "ContextMenuComponent",
       "kind": "component",
       "selector": "dui-context-menu",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular component `ContextMenuComponent` (selector: 'dui-context-menu') providing context menu component presentation and interaction in `src/ui/context-menu`.",
+      "summaryZh": "Angular 组件 `ContextMenuComponent`（selector: 'dui-context-menu'），提供上下文菜单组件的视图渲染与交互逻辑（位于 `src/ui/context-menu`）。",
       "sourceFile": "src/ui/context-menu/context-menu.component.ts",
       "inputs": [
         {
           "name": "popup",
           "type": "any",
           "default": "true",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `popup` (`boolean`) configuring popup (default: `true`).",
+          "descriptionZh": "输入属性 `popup`（类型：`boolean`），用于配置弹窗（默认值：`true`）。"
         },
         {
           "name": "children",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input setter `children` updating children.",
+          "descriptionZh": "输入属性 `children` 的设置器，用于更新子级列表。"
         }
       ],
       "outputs": [],
@@ -45,15 +45,15 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Host event listener `handleKeydownEscape` handling `document:keydown.Escape` events for handle keydown escape.",
+          "descriptionZh": "宿主事件监听方法 `handleKeydownEscape`，响应 `document:keydown.Escape` 事件以处理连接手柄按键按下Escape。"
         },
         {
           "name": "onClickOutsideEvent",
           "params": [],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `onClickOutsideEvent` to handle on click outside event.",
+          "descriptionZh": "执行 `onClickOutsideEvent`，用于当点击外部事件。"
         },
         {
           "name": "runAction",
@@ -68,8 +68,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `runAction` to handle run action.",
+          "descriptionZh": "执行 `runAction`，用于运行动作。"
         },
         {
           "name": "trackById",
@@ -84,41 +84,41 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `trackById` to handle track by id.",
+          "descriptionZh": "执行 `trackById`，用于track按唯一标识。"
         },
         {
           "name": "contextMenu",
           "params": [],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `contextMenu` to handle context menu.",
+          "descriptionZh": "执行 `contextMenu`，用于上下文菜单。"
         }
       ],
       "properties": [
         {
           "name": "extendMenus",
           "type": "QueryList<MenuDirective>",
-          "description": null,
-          "descriptionZh": null
+          "description": "Template/content query reference `extendMenus` (`@ViewChildren`) targeting extend menus.",
+          "descriptionZh": "模板/内容视图查询引用 `extendMenus`（`@ViewChildren`），指向extend菜单。"
         },
         {
           "name": "children",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current children (`children: any`).",
+          "descriptionZh": "获取当前子级列表（`children: any`）。"
         },
         {
           "name": "menuTrigger",
           "type": "MatMenuTrigger",
-          "description": null,
-          "descriptionZh": null
+          "description": "Template/content query reference `menuTrigger` (`@ViewChild`) targeting menu trigger.",
+          "descriptionZh": "模板/内容视图查询引用 `menuTrigger`（`@ViewChild`），指向菜单触发。"
         },
         {
           "name": "source",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `source` (`any`) storing source.",
+          "descriptionZh": "属性 `source`（类型：`any`），用于存储或配置源。"
         }
       ]
     },
@@ -126,15 +126,15 @@
       "name": "ContextMenuItemComponent",
       "kind": "component",
       "selector": "dui-context-menu-item",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular component `ContextMenuItemComponent` (selector: 'dui-context-menu-item') providing context menu item component presentation and interaction in `src/ui/context-menu`.",
+      "summaryZh": "Angular 组件 `ContextMenuItemComponent`（selector: 'dui-context-menu-item'），提供上下文菜单条目组件的视图渲染与交互逻辑（位于 `src/ui/context-menu`）。",
       "sourceFile": "src/ui/context-menu/context-menu-item.component.ts",
       "inputs": [
         {
           "name": "menuItem",
           "type": "MenuModel",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `menuItem` (`MenuModel`) configuring menu item.",
+          "descriptionZh": "输入属性 `menuItem`（类型：`MenuModel`），用于配置菜单条目。"
         }
       ],
       "outputs": [],
@@ -152,8 +152,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `runAction` to handle run action.",
+          "descriptionZh": "执行 `runAction`，用于运行动作。"
         },
         {
           "name": "trackById",
@@ -168,15 +168,15 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `trackById` to handle track by id.",
+          "descriptionZh": "执行 `trackById`，用于track按唯一标识。"
         },
         {
           "name": "contextMenu",
           "params": [],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `contextMenu` to handle context menu.",
+          "descriptionZh": "执行 `contextMenu`，用于上下文菜单。"
         }
       ],
       "properties": []
@@ -184,8 +184,8 @@
     {
       "name": "ContextMenuModule",
       "kind": "module",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular module `ContextMenuModule` declaring and exporting context menu module components, directives, pipes, and providers.",
+      "summaryZh": "Angular 模块 `ContextMenuModule`，声明并导出上下文菜单模块相关的组件、指令、管道与服务提供者。",
       "sourceFile": "src/ui/context-menu/context-menu.module.ts",
       "inputs": [],
       "outputs": [],
@@ -195,16 +195,16 @@
           "name": "entryComponents",
           "type": "any",
           "default": "[ContextMenuComponent]",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `entryComponents` (`any[]`) storing entry components (default: `[ContextMenuComponent]`).",
+          "descriptionZh": "属性 `entryComponents`（类型：`any[]`），用于存储或配置条目组件列表（默认值：`[ContextMenuComponent]`）。"
         }
       ]
     },
     {
       "name": "ContextMenuOverlayRef",
       "kind": "class",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Class `ContextMenuOverlayRef` encapsulating context menu overlay ref data structures and logic in `src/ui/context-menu`.",
+      "summaryZh": "类 `ContextMenuOverlayRef`，封装 `src/ui/context-menu` 中的上下文菜单浮层引用数据结构与处理逻辑。",
       "sourceFile": "src/ui/context-menu/context-menu-overlay.ts",
       "inputs": [],
       "outputs": [],
@@ -213,8 +213,8 @@
           "name": "close",
           "params": [],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `close` to handle close.",
+          "descriptionZh": "执行 `close`，用于关闭。"
         }
       ],
       "properties": []
@@ -222,8 +222,8 @@
     {
       "name": "ContextMenuService",
       "kind": "service",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Injectable Angular service `ContextMenuService` managing context menu service state and operations in `src/ui/context-menu`.",
+      "summaryZh": "可注入的 Angular 服务 `ContextMenuService`，管理 `src/ui/context-menu` 中的上下文菜单服务状态与业务操作。",
       "sourceFile": "src/ui/context-menu/context-menu.service.ts",
       "inputs": [],
       "outputs": [],
@@ -237,8 +237,8 @@
             }
           ],
           "returnType": "ContextMenuOverlayRef",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `open` to handle open.",
+          "descriptionZh": "执行 `open`，用于打开。"
         }
       ],
       "properties": []
@@ -247,16 +247,16 @@
       "name": "OutsideEventDirective",
       "kind": "directive",
       "selector": "[duiContextMenuOutsideEvent]",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular directive `OutsideEventDirective` (selector: '[duiContextMenuOutsideEvent]') attaching outside event directive behavior to host DOM elements.",
+      "summaryZh": "Angular 指令 `OutsideEventDirective`（selector: '[duiContextMenuOutsideEvent]'），为宿主 DOM 元素附加外部事件指令行为。",
       "sourceFile": "src/ui/context-menu/context-menu-outside-event.directive.ts",
       "inputs": [],
       "outputs": [
         {
           "name": "clickOutside",
           "type": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Output event emitter `clickOutside` (`EventEmitter<void>`) firing when click outside occurs.",
+          "descriptionZh": "输出事件 `clickOutside`（类型：`EventEmitter<void>`），当触发点击外部时向外发出事件。"
         }
       ],
       "methods": [],

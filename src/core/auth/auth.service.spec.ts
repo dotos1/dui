@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Module `src/core/auth/auth.service.spec.ts` providing auth service spec definitions and implementation.
+ * @zh 模块文件 `src/core/auth/auth.service.spec.ts`，提供认证服务spec相关的定义与实现。
+ */
+
 import { Subject } from 'rxjs';
 import { AuthService } from './auth.service';
 

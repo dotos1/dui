@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Module `src/core/color/format-input.ts` providing format input definitions and implementation.
+ * @zh 模块文件 `src/core/color/format-input.ts`，提供格式化输入属性相关的定义与实现。
+ */
+
 import { convertHexToDecimal, hslToRgb, hsvToRgb, parseIntFromHex, rgbToRgb } from './conversion';
 import { names } from './css-color-names';
 import { HSL, HSLA, HSV, HSVA, RGB, RGBA } from './interfaces';
@@ -20,12 +25,14 @@ import { boundAlpha, convertToPercentage } from './util';
  * "hsla(0, 100%, 50%, 1)" or "hsla 0 100% 50%, 1"
  * "hsv(0, 100%, 100%)" or "hsv 0 100% 100%"
  * ```
+
+ * @zh 执行 `inputToRGB`，用于输入属性转换为RGB颜色。
  */
 export function inputToRGB(
-  color: string | RGB | RGBA | HSL | HSLA | HSV | HSVA | any,
+  color,
 ): {
     ok: boolean;
-    format: any;
+    format;
     r: number;
     g: number;
     b: number;
@@ -80,20 +87,44 @@ export function inputToRGB(
 }
 
 // <http://www.w3.org/TR/css3-values/#integers>
+/**
+ * Constant/variable `CSS_INTEGER` defining css integer in `src/core/color`.
+ * @zh 常量/变量 `CSS_INTEGER`，定义 `src/core/color` 中的CSS样式INTEGER。
+ */
 const CSS_INTEGER = '[-\\+]?\\d+%?';
 
 // <http://www.w3.org/TR/css3-values/#number-value>
+/**
+ * Constant/variable `CSS_NUMBER` defining css number in `src/core/color`.
+ * @zh 常量/变量 `CSS_NUMBER`，定义 `src/core/color` 中的CSS样式数字。
+ */
 const CSS_NUMBER = '[-\\+]?\\d*\\.\\d+%?';
 
 // Allow positive/negative integer/number.  Don't capture the either/or, just the entire outcome.
+/**
+ * Constant/variable `CSS_UNIT` defining css unit in `src/core/color`.
+ * @zh 常量/变量 `CSS_UNIT`，定义 `src/core/color` 中的CSS样式UNIT。
+ */
 const CSS_UNIT = `(?:${CSS_NUMBER})|(?:${CSS_INTEGER})`;
 
 // Actual matching.
 // Parentheses and commas are optional, but not required.
 // Whitespace can take the place of commas or opening paren
+/**
+ * Constant/variable `PERMISSIVE_MATCH3` defining permissive match3 in `src/core/color`.
+ * @zh 常量/变量 `PERMISSIVE_MATCH3`，定义 `src/core/color` 中的PERMISSIVEMATCH3。
+ */
 const PERMISSIVE_MATCH3 = `[\\s|\\(]+(${CSS_UNIT})[,|\\s]+(${CSS_UNIT})[,|\\s]+(${CSS_UNIT})\\s*\\)?`;
+/**
+ * Constant/variable `PERMISSIVE_MATCH4` defining permissive match4 in `src/core/color`.
+ * @zh 常量/变量 `PERMISSIVE_MATCH4`，定义 `src/core/color` 中的PERMISSIVEMATCH4。
+ */
 const PERMISSIVE_MATCH4 = `[\\s|\\(]+(${CSS_UNIT})[,|\\s]+(${CSS_UNIT})[,|\\s]+(${CSS_UNIT})[,|\\s]+(${CSS_UNIT})\\s*\\)?`;
 
+/**
+ * Constant/variable `matchers` defining matchers in `src/core/color`.
+ * @zh 常量/变量 `matchers`，定义 `src/core/color` 中的matchers。
+ */
 const matchers = {
   CSS_UNIT: new RegExp(CSS_UNIT),
   rgb: new RegExp('rgb' + PERMISSIVE_MATCH3),
@@ -111,8 +142,10 @@ const matchers = {
 /**
  * Permissive string parsing.  Take in a number of formats, and output an object
  * based on detected format.  Returns `{ r, g, b }` or `{ h, s, l }` or `{ h, s, v}`
+
+ * @zh 执行 `stringInputToObject`，用于字符串输入属性转换为对象。
  */
-export function stringInputToObject(color: string): any {
+export function stringInputToObject(color: string) {
   color = color.trim().toLowerCase();
   if (color.length === 0) {
     return false;
@@ -205,6 +238,11 @@ export function stringInputToObject(color: string): any {
   return false;
 }
 
+/**
+ * Executes `isValidCSSUnit` to handle is valid css unit.
+ * @zh 执行 `isValidCSSUnit`，用于是否为有效CSS样式Unit。
+ * @param color - color parameter (`string | number`) / 颜色参数（`string | number`）
+ */
 export function isValidCSSUnit(color: string | number) {
   return matchers.CSS_UNIT.exec(String(color));
 }

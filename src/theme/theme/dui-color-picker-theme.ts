@@ -1,7 +1,18 @@
+/**
+ * @fileoverview Module `src/theme/theme/dui-color-picker-theme.ts` providing dui color picker theme definitions and implementation.
+ * @zh 模块文件 `src/theme/theme/dui-color-picker-theme.ts`，提供DUI颜色选择器主题相关的定义与实现。
+ */
+
 import { Theme } from '../interfaces/theme';
 import { matColor } from '../mat-color';
 import { matThemeElevation } from '../utils/elevation';
 
+/**
+ * Executes `duiColorPickerTheme` to handle dui color picker theme.
+ * @zh 执行 `duiColorPickerTheme`，用于DUI颜色选择器主题。
+ * @param theme - theme parameter (`Theme`) / 主题参数（`Theme`）
+ * @returns Result of type `Object` / 类型为 `Object` 的返回值
+ */
 export function duiColorPickerTheme(theme: Theme): Object {
   return {
     ".color-picker":{

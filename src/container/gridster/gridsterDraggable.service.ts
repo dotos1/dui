@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Module `src/container/gridster/gridsterDraggable.service.ts` providing gridster draggable service definitions and implementation.
+ * @zh 模块文件 `src/container/gridster/gridsterDraggable.service.ts`，提供网格拖拽布局是否可拖拽服务相关的定义与实现。
+ */
+
 import {Injectable, NgZone} from '@angular/core';
 import {GridsterComponentInterface} from './gridster.interface';
 import {DirTypes} from './gridsterConfig.interface';
@@ -7,46 +12,193 @@ import {cancelScroll, scroll} from './gridsterScroll.service';
 import {GridsterSwap} from './gridsterSwap.service';
 import {GridsterUtils} from './gridsterUtils.service';
 
+/**
+ * Injectable Angular service `GridsterDraggable` managing gridster draggable state and operations in `src/container/gridster`.
+ * @zh 可注入的 Angular 服务 `GridsterDraggable`，管理 `src/container/gridster` 中的网格拖拽布局是否可拖拽状态与业务操作。
+ */
 @Injectable()
 export class GridsterDraggable {
+  /**
+   * Property `gridsterItem` (`GridsterItemComponentInterface`) storing gridster item.
+   * @zh 属性 `gridsterItem`（类型：`GridsterItemComponentInterface`），用于存储或配置网格拖拽布局条目。
+   */
   gridsterItem: GridsterItemComponentInterface;
+  /**
+   * Property `gridster` (`GridsterComponentInterface`) storing gridster.
+   * @zh 属性 `gridster`（类型：`GridsterComponentInterface`），用于存储或配置网格拖拽布局。
+   */
   gridster: GridsterComponentInterface;
+  /**
+   * Property `lastMouse` (`{ clientX: number, clientY: number }`) storing last mouse.
+   * @zh 属性 `lastMouse`（类型：`{ clientX: number, clientY: number }`），用于存储或配置末尾鼠标。
+   */
   lastMouse: {
     clientX: number,
     clientY: number
   };
+  /**
+   * Property `offsetLeft` (`number`) storing offset left.
+   * @zh 属性 `offsetLeft`（类型：`number`），用于存储或配置偏移量左侧位置。
+   */
   offsetLeft: number;
+  /**
+   * Property `offsetTop` (`number`) storing offset top.
+   * @zh 属性 `offsetTop`（类型：`number`），用于存储或配置偏移量顶部位置。
+   */
   offsetTop: number;
+  /**
+   * Property `margin` (`number`) storing margin.
+   * @zh 属性 `margin`（类型：`number`），用于存储或配置外边距。
+   */
   margin: number;
+  /**
+   * Property `diffTop` (`number`) storing diff top.
+   * @zh 属性 `diffTop`（类型：`number`），用于存储或配置diff顶部位置。
+   */
   diffTop: number;
+  /**
+   * Property `diffLeft` (`number`) storing diff left.
+   * @zh 属性 `diffLeft`（类型：`number`），用于存储或配置diff左侧位置。
+   */
   diffLeft: number;
+  /**
+   * Property `top` (`number`) storing top.
+   * @zh 属性 `top`（类型：`number`），用于存储或配置顶部位置。
+   */
   top: number;
+  /**
+   * Property `left` (`number`) storing left.
+   * @zh 属性 `left`（类型：`number`），用于存储或配置左侧位置。
+   */
   left: number;
+  /**
+   * Property `height` (`number`) storing height.
+   * @zh 属性 `height`（类型：`number`），用于存储或配置高度。
+   */
   height: number;
+  /**
+   * Property `width` (`number`) storing width.
+   * @zh 属性 `width`（类型：`number`），用于存储或配置宽度。
+   */
   width: number;
+  /**
+   * Property `positionX` (`number`) storing position x.
+   * @zh 属性 `positionX`（类型：`number`），用于存储或配置位置X坐标。
+   */
   positionX: number;
+  /**
+   * Property `positionY` (`number`) storing position y.
+   * @zh 属性 `positionY`（类型：`number`），用于存储或配置位置Y坐标。
+   */
   positionY: number;
+  /**
+   * Property `positionXBackup` (`number`) storing position x backup.
+   * @zh 属性 `positionXBackup`（类型：`number`），用于存储或配置位置X坐标Backup。
+   */
   positionXBackup: number;
+  /**
+   * Property `positionYBackup` (`number`) storing position y backup.
+   * @zh 属性 `positionYBackup`（类型：`number`），用于存储或配置位置Y坐标Backup。
+   */
   positionYBackup: number;
+  /**
+   * Property `enabled` (`boolean`) storing enabled.
+   * @zh 属性 `enabled`（类型：`boolean`），用于存储或配置已启用。
+   */
   enabled: boolean;
-  dragStartFunction: (event: any) => void;
-  dragFunction: (event: any) => void;
-  dragStopFunction: (event: any) => void;
+  /**
+   * Property `dragStartFunction` (`(event: any) => void`) storing drag start function.
+   * @zh 属性 `dragStartFunction`（类型：`(event: any) => void`），用于存储或配置拖拽开始函数。
+   */
+  dragStartFunction: (event) => void;
+  /**
+   * Property `dragFunction` (`(event: any) => void`) storing drag function.
+   * @zh 属性 `dragFunction`（类型：`(event: any) => void`），用于存储或配置拖拽函数。
+   */
+  dragFunction: (event) => void;
+  /**
+   * Property `dragStopFunction` (`(event: any) => void`) storing drag stop function.
+   * @zh 属性 `dragStopFunction`（类型：`(event: any) => void`），用于存储或配置拖拽停止函数。
+   */
+  dragStopFunction: (event) => void;
+  /**
+   * Property `updateGridFrame` (`number`) storing update grid frame.
+   * @zh 属性 `updateGridFrame`（类型：`number`），用于存储或配置更新网格表格框架。
+   */
   private updateGridFrame: number;
+  /**
+   * Property `mousemove` (`() => void`) storing mousemove.
+   * @zh 属性 `mousemove`（类型：`() => void`），用于存储或配置鼠标移动。
+   */
   mousemove: () => void;
+  /**
+   * Property `mouseup` (`() => void`) storing mouseup.
+   * @zh 属性 `mouseup`（类型：`() => void`），用于存储或配置鼠标抬起。
+   */
   mouseup: () => void;
+  /**
+   * Property `mouseleave` (`() => void`) storing mouseleave.
+   * @zh 属性 `mouseleave`（类型：`() => void`），用于存储或配置鼠标离开。
+   */
   mouseleave: () => void;
+  /**
+   * Property `cancelOnBlur` (`() => void`) storing cancel on blur.
+   * @zh 属性 `cancelOnBlur`（类型：`() => void`），用于存储或配置取消当失焦。
+   */
   cancelOnBlur: () => void;
+  /**
+   * Property `touchmove` (`() => void`) storing touchmove.
+   * @zh 属性 `touchmove`（类型：`() => void`），用于存储或配置touchmove。
+   */
   touchmove: () => void;
+  /**
+   * Property `touchend` (`() => void`) storing touchend.
+   * @zh 属性 `touchend`（类型：`() => void`），用于存储或配置touchend。
+   */
   touchend: () => void;
+  /**
+   * Property `touchcancel` (`() => void`) storing touchcancel.
+   * @zh 属性 `touchcancel`（类型：`() => void`），用于存储或配置touchcancel。
+   */
   touchcancel: () => void;
+  /**
+   * Property `mousedown` (`() => void`) storing mousedown.
+   * @zh 属性 `mousedown`（类型：`() => void`），用于存储或配置鼠标按下。
+   */
   mousedown: () => void;
+  /**
+   * Property `touchstart` (`() => void`) storing touchstart.
+   * @zh 属性 `touchstart`（类型：`() => void`），用于存储或配置touchstart。
+   */
   touchstart: () => void;
+  /**
+   * Property `push` (`GridsterPush`) storing push.
+   * @zh 属性 `push`（类型：`GridsterPush`），用于存储或配置推入。
+   */
   push: GridsterPush;
+  /**
+   * Property `swap` (`GridsterSwap`) storing swap.
+   * @zh 属性 `swap`（类型：`GridsterSwap`），用于存储或配置swap。
+   */
   swap: GridsterSwap;
+  /**
+   * Property `path` (`Array<{ x: number, y: number }>`) storing path.
+   * @zh 属性 `path`（类型：`Array<{ x: number, y: number }>`），用于存储或配置路径。
+   */
   path: Array<{ x: number, y: number }>;
+  /**
+   * Property `collision` (`GridsterItemComponentInterface | boolean`) storing collision (default: `false`).
+   * @zh 属性 `collision`（类型：`GridsterItemComponentInterface | boolean`），用于存储或配置collision（默认值：`false`）。
+   */
   collision: GridsterItemComponentInterface | boolean = false;
 
+  /**
+   * Creates an instance of `GridsterDraggable` and initializes its dependencies and internal state.
+   * @zh 创建 `GridsterDraggable` 实例，并初始化其依赖项与内部状态。
+   * @param gridsterItem - Injected or initial gridster item (`GridsterItemComponentInterface`) / 注入或传入的网格拖拽布局条目（`GridsterItemComponentInterface`）
+   * @param gridster - Injected or initial gridster (`GridsterComponentInterface`) / 注入或传入的网格拖拽布局（`GridsterComponentInterface`）
+   * @param zone - Injected or initial zone (`NgZone`) / 注入或传入的区域(NgZone)（`NgZone`）
+   */
   constructor(gridsterItem: GridsterItemComponentInterface, gridster: GridsterComponentInterface, private zone: NgZone) {
     this.gridsterItem = gridsterItem;
     this.gridster = gridster;
@@ -57,6 +209,10 @@ export class GridsterDraggable {
     this.path = [];
   }
 
+  /**
+   * Executes `destroy` to handle destroy.
+   * @zh 执行 `destroy`，用于销毁。
+   */
   destroy(): void {
     if (this.gridster.previewStyle) {
       this.gridster.previewStyle(true);
@@ -70,7 +226,12 @@ export class GridsterDraggable {
     }
   }
 
-  dragStart(e: any): void {
+  /**
+   * Executes `dragStart` to handle drag start.
+   * @zh 执行 `dragStart`，用于拖拽开始。
+   * @param e - e parameter (`any`) / e参数（`any`）
+   */
+  dragStart(e): void {
     if (e.which && e.which !== 1) {
       return;
     }
@@ -116,7 +277,12 @@ export class GridsterDraggable {
     this.path.push({x: this.gridsterItem.item.x || 0, y: this.gridsterItem.item.y || 0});
   }
 
-  dragMove(e: any): void {
+  /**
+   * Executes `dragMove` to handle drag move.
+   * @zh 执行 `dragMove`，用于拖拽移动。
+   * @param e - e parameter (`any`) / e参数（`any`）
+   */
+  dragMove(e): void {
     e.stopPropagation();
     e.preventDefault();
     GridsterUtils.checkTouchEvent(e);
@@ -128,7 +294,12 @@ export class GridsterDraggable {
     this.calculateItemPositionFromMousePosition(e);
   }
 
-  calculateItemPositionFromMousePosition(e: any): void {
+  /**
+   * Executes `calculateItemPositionFromMousePosition` to handle calculate item position from mouse position.
+   * @zh 执行 `calculateItemPositionFromMousePosition`，用于计算条目位置从鼠标位置。
+   * @param e - e parameter (`any`) / e参数（`any`）
+   */
+  calculateItemPositionFromMousePosition(e): void {
     if (this.gridster.$options.dirType === DirTypes.RTL) {
       this.left = this.gridster.el.scrollWidth - e.clientX + this.diffLeft;
     } else {
@@ -154,7 +325,12 @@ export class GridsterDraggable {
     });
   }
 
-  dragStop(e: any): void {
+  /**
+   * Executes `dragStop` to handle drag stop.
+   * @zh 执行 `dragStop`，用于拖拽停止。
+   * @param e - e parameter (`any`) / e参数（`any`）
+   */
+  dragStop(e): void {
     e.stopPropagation();
     e.preventDefault();
 
@@ -188,6 +364,10 @@ export class GridsterDraggable {
     });
   }
 
+  /**
+   * Executes `cancelDrag` to handle cancel drag.
+   * @zh 执行 `cancelDrag`，用于取消拖拽。
+   */
   cancelDrag() {
     this.gridsterItem.$item.x = this.gridsterItem.item.x || 0;
     this.gridsterItem.$item.y = this.gridsterItem.item.y || 0;
@@ -208,6 +388,10 @@ export class GridsterDraggable {
     }
   }
 
+  /**
+   * Executes `makeDrag` to handle make drag.
+   * @zh 执行 `makeDrag`，用于生成拖拽。
+   */
   makeDrag() {
     if (this.gridster.$options.draggable.dropOverItems && this.gridster.options.draggable
       && this.gridster.options.draggable.dropOverItemsCallback
@@ -233,6 +417,10 @@ export class GridsterDraggable {
     }
   }
 
+  /**
+   * Executes `calculateItemPosition` to handle calculate item position.
+   * @zh 执行 `calculateItemPosition`，用于计算条目位置。
+   */
   calculateItemPosition() {
     this.gridster.movingItem = this.gridsterItem.$item;
     this.positionX = this.gridster.pixelsToPositionX(this.left, Math.round);
@@ -278,6 +466,10 @@ export class GridsterDraggable {
     this.gridster.previewStyle(true);
   }
 
+  /**
+   * Executes `toggle` to handle toggle.
+   * @zh 执行 `toggle`，用于开关。
+   */
   toggle() {
     const enableDrag = this.gridsterItem.canBeDragged();
     if (!this.enabled && enableDrag) {
@@ -292,7 +484,12 @@ export class GridsterDraggable {
     }
   }
 
-  dragStartDelay(e: any): void {
+  /**
+   * Executes `dragStartDelay` to handle drag start delay.
+   * @zh 执行 `dragStartDelay`，用于拖拽开始延迟。
+   * @param e - e parameter (`any`) / e参数（`any`）
+   */
+  dragStartDelay(e): void {
     if (e.target.hasAttribute('class') && e.target.getAttribute('class').split(' ').indexOf('gridster-item-resizable-handler') > -1) {
       return;
     }
@@ -315,7 +512,7 @@ export class GridsterDraggable {
     const cancelTouchEnd = this.gridsterItem.renderer.listen('document', 'touchend', cancelDrag);
     const cancelTouchCancel = this.gridsterItem.renderer.listen('document', 'touchcancel', cancelDrag);
 
-    function cancelMove(eventMove: any) {
+    function cancelMove(eventMove) {
       GridsterUtils.checkTouchEvent(eventMove);
       if (Math.abs(eventMove.clientX - e.clientX) > 9 || Math.abs(eventMove.clientY - e.clientY) > 9) {
         cancelDrag();

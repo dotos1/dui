@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Module `src/ux/line-style/linestyle.module.ts` providing linestyle module definitions and implementation.
+ * @zh 模块文件 `src/ux/line-style/linestyle.module.ts`，提供linestyle模块相关的定义与实现。
+ */
+
 import { ComponentFactoryResolver, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -18,6 +23,10 @@ import { TranslateModule } from '@dotos/dui/translator';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatInputModule } from '@angular/material/input';
 
+/**
+ * Angular module `LineStyleModule` declaring and exporting line style module components, directives, pipes, and providers.
+ * @zh Angular 模块 `LineStyleModule`，声明并导出线段样式模块相关的组件、指令、管道与服务提供者。
+ */
 @NgModule({
   imports: [
     CommonModule,
@@ -47,10 +56,19 @@ import { MatInputModule } from '@angular/material/input';
   ]
 })
 export class LineStyleModule {
+  /**
+   * Property `entryComponents` (`any[]`) storing entry components (default: `[ LineStyleSelector, LineSizeSelector ]`).
+   * @zh 属性 `entryComponents`（类型：`any[]`），用于存储或配置条目组件列表（默认值：`[ LineStyleSelector, LineSizeSelector ]`）。
+   */
   entryComponents = [
     LineStyleSelector,
     LineSizeSelector
   ];
+  /**
+   * Creates an instance of `LineStyleModule` and initializes its dependencies and internal state.
+   * @zh 创建 `LineStyleModule` 实例，并初始化其依赖项与内部状态。
+   * @param componentFactoryResolver - Injected or initial component factory resolver (`ComponentFactoryResolver`) / 注入或传入的组件工厂解析器（`ComponentFactoryResolver`）
+   */
   constructor(componentFactoryResolver: ComponentFactoryResolver) {
     Dui.registerComponentFactory(componentFactoryResolver,this.entryComponents);
   }

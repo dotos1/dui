@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Module `src/util/pipes/pipes.module.ts` providing pipes module definitions and implementation.
+ * @zh 模块文件 `src/util/pipes/pipes.module.ts`，提供管道模块相关的定义与实现。
+ */
+
 import { NgModule } from '@angular/core';
 
 import { KeysPipe } from './keys.pipe';
@@ -20,6 +25,10 @@ import { SecureImagePipe } from './secure-image.pipe';
 import { SanitizeHtmlPipe } from './custom-html.pipe';
 import { TranslationService } from '@dotos/dui/translator';
 import { SecurePipe } from './secure-pipe';
+/**
+ * Angular module `DuiPipesModule` declaring and exporting dui pipes module components, directives, pipes, and providers.
+ * @zh Angular 模块 `DuiPipesModule`，声明并导出DUI管道模块相关的组件、指令、管道与服务提供者。
+ */
 @NgModule({
   declarations: [
     KeysPipe,
@@ -65,6 +74,11 @@ import { SecurePipe } from './secure-pipe';
   ]
 })
 export class DuiPipesModule {
+  /**
+   * Creates an instance of `DuiPipesModule` and initializes its dependencies and internal state.
+   * @zh 创建 `DuiPipesModule` 实例，并初始化其依赖项与内部状态。
+   * @param translateService - Injected or initial translate service (`TranslationService`) / 注入或传入的翻译服务（`TranslationService`）
+   */
   constructor(
     translateService: TranslationService) {
     translateService.addTranslationFolder('dui', 'i18n');

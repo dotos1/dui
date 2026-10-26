@@ -1,16 +1,39 @@
+/**
+ * @fileoverview Module `src/ux/windows/resizer/classes/top-right-resizer.ts` providing top right resizer definitions and implementation.
+ * @zh 模块文件 `src/ux/windows/resizer/classes/top-right-resizer.ts`，提供顶部位置右侧位置尺寸调整器相关的定义与实现。
+ */
+
 import { ɵPointerHelper } from '../../core';
 import { ResizerEnum } from '../enums';
 import { ɵBaseResizer } from './base-resizer';
 
-/** @internal */
+/**
+ * Class `ɵTopRightResizer` encapsulating ɵtop right resizer data structures and logic in `src/ux/windows/resizer/classes`.
+ * @internal
+ * @zh 类 `ɵTopRightResizer`，封装 `src/ux/windows/resizer/classes` 中的ɵTop右侧位置尺寸调整器数据结构与处理逻辑。
+ */
 export class ɵTopRightResizer extends ɵBaseResizer {
+    /**
+     * Property `id` (`any`) storing id (default: `ResizerEnum.TopRight`).
+     * @zh 属性 `id`（类型：`any`），用于存储或配置唯一标识（默认值：`ResizerEnum.TopRight`）。
+     */
     public static override id = ResizerEnum.TopRight;
 
+    /**
+     * Executes `resizeElement` to handle resize element.
+     * @zh 执行 `resizeElement`，用于调整尺寸元素。
+     * @param event - event parameter (`PointerEvent | TouchEvent`) / 事件参数（`PointerEvent | TouchEvent`）
+     */
     public resizeElement(event: PointerEvent | TouchEvent): void {
         this.processAxisX(event);
         this.processAxisY(event);
     }
 
+    /**
+     * Executes `processAxisX` to handle process axis x.
+     * @zh 执行 `processAxisX`，用于处理坐标轴X坐标。
+     * @param event - event parameter (`PointerEvent | TouchEvent`) / 事件参数（`PointerEvent | TouchEvent`）
+     */
     private processAxisX(event: PointerEvent | TouchEvent): void {
         const pageX = ɵPointerHelper.getPageX(event);
         const clientX = ɵPointerHelper.getClientX(event);
@@ -28,6 +51,11 @@ export class ɵTopRightResizer extends ɵBaseResizer {
         }
     }
 
+    /**
+     * Executes `processAxisY` to handle process axis y.
+     * @zh 执行 `processAxisY`，用于处理坐标轴Y坐标。
+     * @param event - event parameter (`PointerEvent | TouchEvent`) / 事件参数（`PointerEvent | TouchEvent`）
+     */
     private processAxisY(event: PointerEvent | TouchEvent): void {
         const pageY = ɵPointerHelper.getPageY(event);
         const height = this.originalHeight - (pageY - this.originalMouseY);

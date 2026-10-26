@@ -4,8 +4,8 @@
     {
       "name": "DuiDirectivesModule",
       "kind": "module",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular module `DuiDirectivesModule` declaring and exporting dui directives module components, directives, pipes, and providers.",
+      "summaryZh": "Angular 模块 `DuiDirectivesModule`，声明并导出DUI指令模块相关的组件、指令、管道与服务提供者。",
       "sourceFile": "src/common/directives/directives.module.ts",
       "inputs": [],
       "outputs": [],

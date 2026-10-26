@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Module `src/common/search-box/search-input/search-input.component.ts` providing search input component definitions and implementation.
+ * @zh 模块文件 `src/common/search-box/search-input/search-input.component.ts`，提供搜索输入属性组件相关的定义与实现。
+ */
+
 import {
   Component,
   ViewChild,
@@ -30,13 +35,30 @@ import { IControlValueAccessor, mixinControlValueAccessor } from '@dotos/dui/cor
 import { ThemeService } from '@dotos/dui/theme';
 
 
+/**
+ * Class `SearchInputBase` encapsulating search input base data structures and logic in `src/common/search-box/search-input`.
+ * @zh 类 `SearchInputBase`，封装 `src/common/search-box/search-input` 中的搜索输入属性基础数据结构与处理逻辑。
+ */
 export class SearchInputBase {
+  /**
+   * Creates an instance of `SearchInputBase` and initializes its dependencies and internal state.
+   * @zh 创建 `SearchInputBase` 实例，并初始化其依赖项与内部状态。
+   * @param _changeDetectorRef - Injected or initial change detector ref (`ChangeDetectorRef`) / 注入或传入的变更检测器引用（`ChangeDetectorRef`）
+   */
   constructor(public _changeDetectorRef: ChangeDetectorRef) {}
 }
 
+/**
+ * Constant/variable `_SearchInputMixinBase` defining search input mixin base in `src/common/search-box/search-input`.
+ * @zh 常量/变量 `_SearchInputMixinBase`，定义 `src/common/search-box/search-input` 中的搜索输入属性Mixin基础。
+ */
 export const _SearchInputMixinBase =
   mixinControlValueAccessor(SearchInputBase);
 
+/**
+ * Angular component `SearchInputComponent` (selector: 'search-input') providing search input component presentation and interaction in `src/common/search-box/search-input`.
+ * @zh Angular 组件 `SearchInputComponent`（selector: 'search-input'），提供搜索输入属性组件的视图渲染与交互逻辑（位于 `src/common/search-box/search-input`）。
+ */
 @Component({
   providers: [
     {
@@ -85,40 +107,87 @@ export class SearchInputComponent
   extends _SearchInputMixinBase
   implements IControlValueAccessor, OnInit, OnDestroy
 {
+  /**
+   * Template/content query reference `_input` (`@ViewChild`) targeting input.
+   * @zh 模板/内容视图查询引用 `_input`（`@ViewChild`），指向输入属性。
+   */
   @ViewChild(MatInput, { static: true }) _input?: MatInput;
 
+  /**
+   * Template/content query reference `_searchElement` (`@ViewChild`) targeting search element.
+   * @zh 模板/内容视图查询引用 `_searchElement`（`@ViewChild`），指向搜索元素。
+   */
   @ViewChild('searchElement', { static: true, read: ElementRef })
   _searchElement!: ElementRef<HTMLInputElement>;
 
 
-  /** @zh Material 表单字段外观：`'outline'`、`'fill'` 等。 */
+  /**
+   * @zh Material 表单字段外观：`'outline'`、`'fill'` 等。
+   * @zh Material 表单字段外观：`'outline'`、`'fill'` 等。
+   */
   @Input() appearance: MatFormFieldAppearance = 'outline';
 
-  /** @zh 是否显示下划线。 */
+  /**
+   * Input property `showUnderline` (`boolean`) configuring show underline (default: `false`).
+   * @zh 是否显示下划线。
+   * @zh 是否显示下划线。
+   */
   @Input() showUnderline = false;
 
-  /** @zh 停止输入后，多久（毫秒）触发一次 `searchDebounce`。 */
+  /**
+   * Input property `debounce` (`number`) configuring debounce (default: `400`).
+   * @zh 停止输入后，多久（毫秒）触发一次 `searchDebounce`。
+   * @zh 停止输入后，多久（毫秒）触发一次 `searchDebounce`。
+   */
   @Input() debounce = 400;
 
-  /** @zh 输入框占位提示文字。 */
+  /**
+   * Input property `placeholder` (`string`) configuring placeholder (default: `''`).
+   * @zh 输入框占位提示文字。
+   * @zh 输入框占位提示文字。
+   */
   @Input() placeholder = '';
 
-  /** @zh 清空按钮图标。 */
+  /**
+   * Input property `clearIcon` (`string`) configuring clear icon (default: `'cancel'`).
+   * @zh 清空按钮图标。
+   * @zh 清空按钮图标。
+   */
   @Input() clearIcon = 'cancel';
 
-  /** @zh 输入框当前值（`ControlValueAccessor` 绑定值）。 */
+  /**
+   * Input property `value` (`unknown`) configuring value.
+   * @zh 输入框当前值（`ControlValueAccessor` 绑定值）。
+   * @zh 输入框当前值（`ControlValueAccessor` 绑定值）。
+   */
   @Input() override value!: unknown;
 
-  /** @zh 停止输入 `debounce` 毫秒后发出当前输入值。 */
+  /**
+   * Output event emitter `searchDebounce` (`EventEmitter<string>`) firing when search debounce occurs.
+   * @zh 停止输入 `debounce` 毫秒后发出当前输入值。
+   * @zh 停止输入 `debounce` 毫秒后发出当前输入值。
+   */
   @Output() searchDebounce: EventEmitter<string> = new EventEmitter<string>();
 
-  /** @zh 触发搜索时（如按下回车）发出当前输入值。 */
+  /**
+   * Output event emitter `onSearch` (`EventEmitter<string>`) firing when on search occurs.
+   * @zh 触发搜索时（如按下回车）发出当前输入值。
+   * @zh 触发搜索时（如按下回车）发出当前输入值。
+   */
   @Output() onSearch: EventEmitter<string> = new EventEmitter<string>();
 
-  /** @zh 输入框被清空时发出。 */
+  /**
+   * Output event emitter `onClear` (`EventEmitter<void>`) firing when on clear occurs.
+   * @zh 输入框被清空时发出。
+   * @zh 输入框被清空时发出。
+   */
   @Output() onClear: EventEmitter<void> = new EventEmitter<void>();
 
-  /** @zh 输入框失去焦点时发出。 */
+  /**
+   * Output event emitter `blurSearch` (`EventEmitter<void>`) firing when blur search occurs.
+   * @zh 输入框失去焦点时发出。
+   * @zh 输入框失去焦点时发出。
+   */
   @Output() blurSearch: EventEmitter<void> = new EventEmitter<void>();
 
   /**
@@ -132,8 +201,20 @@ export class SearchInputComponent
     return false;
   }
 
+  /**
+   * Property `_destroy$` (`Subject`) storing destroy (default: `new Subject<void>()`).
+   * @zh 属性 `_destroy$`（类型：`Subject`），用于存储或配置销毁（默认值：`new Subject<void>()`）。
+   */
   private _destroy$ = new Subject<void>();
 
+  /**
+   * Creates an instance of `SearchInputComponent` and initializes its dependencies and internal state.
+   * @zh 创建 `SearchInputComponent` 实例，并初始化其依赖项与内部状态。
+   * @param themeService - Injected or initial theme service (`ThemeService`) / 注入或传入的主题服务（`ThemeService`）
+   * @param _dir - Injected or initial dir (`Dir`) / 注入或传入的目录（`Dir`）
+   * @param _changeDetectorRef - Injected or initial change detector ref (`ChangeDetectorRef`) / 注入或传入的变更检测器引用（`ChangeDetectorRef`）
+   * @param _ngZone - Injected or initial ng zone (`NgZone`) / 注入或传入的Angular区域(NgZone)（`NgZone`）
+   */
   constructor(
     public themeService: ThemeService,
     @Optional() private _dir: Dir,
@@ -143,6 +224,10 @@ export class SearchInputComponent
     super(_changeDetectorRef);
   }
 
+  /**
+   * Angular lifecycle hook invoked once after component or directive inputs are initialized.
+   * @zh Angular 生命周期钩子：在组件或指令的输入属性初始化完成后调用一次。
+   */
   ngOnInit(): void {
     this._input?.ngControl?.valueChanges
       ?.pipe(
@@ -161,6 +246,10 @@ export class SearchInputComponent
     );
   }
 
+  /**
+   * Angular lifecycle hook invoked just before the component, directive, or service is destroyed to release subscriptions and resources.
+   * @zh Angular 生命周期钩子：在组件、指令或服务销毁前调用，用于释放订阅与清理资源。
+   */
   ngOnDestroy(): void {
     this._destroy$.next();
   }
@@ -204,10 +293,20 @@ export class SearchInputComponent
     this.onClear.emit();
   }
 
+  /**
+   * Executes `_searchTermChanged` to handle search term changed.
+   * @zh 执行 `_searchTermChanged`，用于搜索Term已变更。
+   * @param value - value parameter (`string`) / 值参数（`string`）
+   */
   private _searchTermChanged(value: string): void {
     this.searchDebounce.emit(value);
   }
 
+  /**
+   * Executes `_stopPropagation` to handle stop propagation.
+   * @zh 执行 `_stopPropagation`，用于停止事件冒泡。
+   * @param event - event parameter (`Event`) / 事件参数（`Event`）
+   */
   private _stopPropagation(event: Event): void {
     event.stopPropagation();
   }

@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Module `src/common/scrollbar/async-detection.ts` providing async detection definitions and implementation.
+ * @zh 模块文件 `src/common/scrollbar/async-detection.ts`，提供async变更检测相关的定义与实现。
+ */
+
 import {
   Directive,
   inject,
@@ -24,9 +29,21 @@ import { NgScrollbarExt } from './ng-scrollbar-ext';
 })
 export class AsyncDetection {
 
+  /**
+   * Property `scrollbar` (`NgScrollbarExt`) storing scrollbar (default: `inject(NgScrollbarExt, { self: true })`).
+   * @zh 属性 `scrollbar`（类型：`NgScrollbarExt`），用于存储或配置滚动条（默认值：`inject(NgScrollbarExt, { self: true })`）。
+   */
   private readonly scrollbar: NgScrollbarExt = inject(NgScrollbarExt, { self: true });
+  /**
+   * Property `zone` (`NgZone`) storing zone (default: `inject(NgZone)`).
+   * @zh 属性 `zone`（类型：`NgZone`），用于存储或配置区域(NgZone)（默认值：`inject(NgZone)`）。
+   */
   private readonly zone: NgZone = inject(NgZone);
 
+  /**
+   * Property `contentObserver` (`ContentObserver`) storing content observer (default: `inject(ContentObserver)`).
+   * @zh 属性 `contentObserver`（类型：`ContentObserver`），用于存储或配置内容观察者（默认值：`inject(ContentObserver)`）。
+   */
   private readonly contentObserver: ContentObserver = inject(ContentObserver);
 
   /**
@@ -36,6 +53,10 @@ export class AsyncDetection {
    */
   asyncDetection: InputSignal<'auto' | ''> = input();
 
+  /**
+   * Creates an instance of `AsyncDetection` and initializes its dependencies and internal state.
+   * @zh 创建 `AsyncDetection` 实例，并初始化其依赖项与内部状态。
+   */
   constructor() {
     this.scrollbar.skipInit = true;
     let sub$: Subscription;

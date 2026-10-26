@@ -4,41 +4,92 @@
     {
       "name": "ILocalStorageEvent",
       "kind": "interface",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Interface `ILocalStorageEvent` defining the contract and properties for i local storage event.",
+      "summaryZh": "接口 `ILocalStorageEvent`，定义I本地存储事件的数据结构契约与属性规范。",
       "sourceFile": "src/core/storage/local-storage-events.interface.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
-      "properties": []
+      "properties": [
+        {
+          "name": "key",
+          "type": "string",
+          "description": "Property `key` (`string`) storing key.",
+          "descriptionZh": "属性 `key`（类型：`string`），用于存储或配置键。"
+        },
+        {
+          "name": "newvalue",
+          "type": "any",
+          "description": "Property `newvalue` (`any`) storing newvalue.",
+          "descriptionZh": "属性 `newvalue`（类型：`any`），用于存储或配置newvalue。"
+        },
+        {
+          "name": "storageType",
+          "type": "string",
+          "description": "Property `storageType` (`string`) storing storage type.",
+          "descriptionZh": "属性 `storageType`（类型：`string`），用于存储或配置存储类型。"
+        }
+      ]
     },
     {
       "name": "ILocalStorageServiceConfig",
       "kind": "interface",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Interface `ILocalStorageServiceConfig` defining the contract and properties for i local storage service config.",
+      "summaryZh": "接口 `ILocalStorageServiceConfig`，定义I本地存储服务配置的数据结构契约与属性规范。",
       "sourceFile": "src/core/storage/local-storage.config.interface.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
-      "properties": []
+      "properties": [
+        {
+          "name": "notifyOptions",
+          "type": "INotifyOptions",
+          "description": "Property `notifyOptions` (`INotifyOptions`) storing notify options.",
+          "descriptionZh": "属性 `notifyOptions`（类型：`INotifyOptions`），用于存储或配置通知配置选项。"
+        },
+        {
+          "name": "prefix",
+          "type": "string",
+          "description": "Property `prefix` (`string`) storing prefix.",
+          "descriptionZh": "属性 `prefix`（类型：`string`），用于存储或配置前缀。"
+        },
+        {
+          "name": "storageType",
+          "type": "'sessionStorage' | 'localStorage'",
+          "description": "Property `storageType` (`'sessionStorage' | 'localStorage'`) storing storage type.",
+          "descriptionZh": "属性 `storageType`（类型：`'sessionStorage' | 'localStorage'`），用于存储或配置存储类型。"
+        }
+      ]
     },
     {
       "name": "INotifyOptions",
       "kind": "interface",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Interface `INotifyOptions` defining the contract and properties for i notify options.",
+      "summaryZh": "接口 `INotifyOptions`，定义I通知配置选项的数据结构契约与属性规范。",
       "sourceFile": "src/core/storage/notify-options.interface.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
-      "properties": []
+      "properties": [
+        {
+          "name": "setItem",
+          "type": "boolean",
+          "description": "Property `setItem` (`boolean`) storing set item.",
+          "descriptionZh": "属性 `setItem`（类型：`boolean`），用于存储或配置集合条目。"
+        },
+        {
+          "name": "removeItem",
+          "type": "boolean",
+          "description": "Property `removeItem` (`boolean`) storing remove item.",
+          "descriptionZh": "属性 `removeItem`（类型：`boolean`），用于存储或配置移除条目。"
+        }
+      ]
     },
     {
       "name": "LocalStorageModule",
       "kind": "module",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular module `LocalStorageModule` declaring and exporting local storage module components, directives, pipes, and providers.",
+      "summaryZh": "Angular 模块 `LocalStorageModule`，声明并导出本地存储模块相关的组件、指令、管道与服务提供者。",
       "sourceFile": "src/core/storage/local-storage.module.ts",
       "inputs": [],
       "outputs": [],
@@ -52,8 +103,8 @@
             }
           ],
           "returnType": "ModuleWithProviders<LocalStorageModule>",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `withConfig` to handle with config.",
+          "descriptionZh": "执行 `withConfig`，用于带有配置。"
         }
       ],
       "properties": []
@@ -61,8 +112,8 @@
     {
       "name": "LocalStorageService",
       "kind": "service",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Injectable Angular service `LocalStorageService` managing local storage service state and operations in `src/core/storage`.",
+      "summaryZh": "可注入的 Angular 服务 `LocalStorageService`，管理 `src/core/storage` 中的本地存储服务状态与业务操作。",
       "sourceFile": "src/core/storage/local-storage.service.ts",
       "inputs": [],
       "outputs": [],
@@ -80,8 +131,8 @@
             }
           ],
           "returnType": "boolean",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `add` to handle add.",
+          "descriptionZh": "执行 `add`，用于添加。"
         },
         {
           "name": "clearAll",
@@ -92,8 +143,8 @@
             }
           ],
           "returnType": "boolean",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `clearAll` to handle clear all.",
+          "descriptionZh": "执行 `clearAll`，用于清空全部。"
         },
         {
           "name": "deriveKey",
@@ -104,8 +155,8 @@
             }
           ],
           "returnType": "string",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `deriveKey` to handle derive key.",
+          "descriptionZh": "执行 `deriveKey`，用于derive键。"
         },
         {
           "name": "has",
@@ -116,8 +167,8 @@
             }
           ],
           "returnType": "boolean",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `has` to handle has.",
+          "descriptionZh": "执行 `has`，用于是否包含。"
         },
         {
           "name": "get",
@@ -128,29 +179,29 @@
             }
           ],
           "returnType": "T",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `get` to handle get.",
+          "descriptionZh": "执行 `get`，用于获取。"
         },
         {
           "name": "getStorageType",
           "params": [],
           "returnType": "string",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `getStorageType` to handle get storage type.",
+          "descriptionZh": "执行 `getStorageType`，用于获取存储类型。"
         },
         {
           "name": "keys",
           "params": [],
           "returnType": "Array<string>",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `keys` to handle keys.",
+          "descriptionZh": "执行 `keys`，用于键列表。"
         },
         {
           "name": "length",
           "params": [],
           "returnType": "number",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `length` to handle length.",
+          "descriptionZh": "执行 `length`，用于长度。"
         },
         {
           "name": "remove",
@@ -161,8 +212,8 @@
             }
           ],
           "returnType": "boolean",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `remove` to handle remove.",
+          "descriptionZh": "执行 `remove`，用于移除。"
         },
         {
           "name": "set",
@@ -177,8 +228,8 @@
             }
           ],
           "returnType": "boolean",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `set` to handle set.",
+          "descriptionZh": "执行 `set`，用于集合。"
         }
       ],
       "properties": [
@@ -186,32 +237,32 @@
           "name": "isSupported",
           "type": "boolean",
           "default": "false",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `isSupported` (`boolean`) storing is supported (default: `false`).",
+          "descriptionZh": "属性 `isSupported`（类型：`boolean`），用于存储或配置是否为Supported（默认值：`false`）。"
         },
         {
           "name": "errors$",
           "type": "Observable<string>",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `errors$` (`Observable<string>`) storing errors.",
+          "descriptionZh": "属性 `errors$`（类型：`Observable<string>`），用于存储或配置错误列表。"
         },
         {
           "name": "removeItems$",
           "type": "Observable<ILocalStorageEvent>",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `removeItems$` (`Observable<ILocalStorageEvent>`) storing remove items.",
+          "descriptionZh": "属性 `removeItems$`（类型：`Observable<ILocalStorageEvent>`），用于存储或配置移除条目列表。"
         },
         {
           "name": "setItems$",
           "type": "Observable<ILocalStorageEvent>",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `setItems$` (`Observable<ILocalStorageEvent>`) storing set items.",
+          "descriptionZh": "属性 `setItems$`（类型：`Observable<ILocalStorageEvent>`），用于存储或配置集合条目列表。"
         },
         {
           "name": "warnings$",
           "type": "Observable<string>",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `warnings$` (`Observable<string>`) storing warnings.",
+          "descriptionZh": "属性 `warnings$`（类型：`Observable<string>`），用于存储或配置警告。"
         }
       ]
     }

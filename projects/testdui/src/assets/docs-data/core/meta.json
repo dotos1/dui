@@ -4,19 +4,27 @@
     {
       "name": "metaFactory",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Executes `metaFactory` to handle meta factory.",
+      "summaryZh": "执行 `metaFactory`，用于元数据工厂。",
       "sourceFile": "src/core/meta/public-api.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "metaFactory",
+          "params": [],
+          "returnType": "MetaLoader",
+          "description": "Executes `metaFactory` to handle meta factory.",
+          "descriptionZh": "执行 `metaFactory`，用于元数据工厂。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "MetaGuard",
       "kind": "service",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Injectable Angular service `MetaGuard` managing meta guard state and operations in `src/core/meta`.",
+      "summaryZh": "可注入的 Angular 服务 `MetaGuard`，管理 `src/core/meta` 中的元数据路由守卫状态与业务操作。",
       "sourceFile": "src/core/meta/meta.guard.ts",
       "inputs": [],
       "outputs": [],
@@ -34,8 +42,8 @@
             }
           ],
           "returnType": "boolean",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `canActivate` to handle can activate.",
+          "descriptionZh": "执行 `canActivate`，用于是否可以激活。"
         },
         {
           "name": "canActivateChild",
@@ -50,8 +58,8 @@
             }
           ],
           "returnType": "boolean",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `canActivateChild` to handle can activate child.",
+          "descriptionZh": "执行 `canActivateChild`，用于是否可以激活子级。"
         }
       ],
       "properties": []
@@ -59,8 +67,8 @@
     {
       "name": "MetaLoader",
       "kind": "class",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Class `MetaLoader` encapsulating meta loader data structures and logic in `src/core/meta`.",
+      "summaryZh": "类 `MetaLoader`，封装 `src/core/meta` 中的元数据加载器数据结构与处理逻辑。",
       "sourceFile": "src/core/meta/meta.loader.ts",
       "inputs": [],
       "outputs": [],
@@ -69,16 +77,16 @@
         {
           "name": "settings",
           "type": "MetaSettings",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current settings (`settings: MetaSettings`).",
+          "descriptionZh": "获取当前设置项（`settings: MetaSettings`）。"
         }
       ]
     },
     {
       "name": "MetaModule",
       "kind": "module",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular module `MetaModule` declaring and exporting meta module components, directives, pipes, and providers.",
+      "summaryZh": "Angular 模块 `MetaModule`，声明并导出元数据模块相关的组件、指令、管道与服务提供者。",
       "sourceFile": "src/core/meta/public-api.ts",
       "inputs": [],
       "outputs": [],
@@ -92,8 +100,8 @@
             }
           ],
           "returnType": "ModuleWithProviders<MetaModule>",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `forRoot` to handle for root.",
+          "descriptionZh": "执行 `forRoot`，用于用于根节点。"
         }
       ],
       "properties": []
@@ -101,8 +109,8 @@
     {
       "name": "MetaService",
       "kind": "service",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Injectable Angular service `MetaService` managing meta service state and operations in `src/core/meta`.",
+      "summaryZh": "可注入的 Angular 服务 `MetaService`，管理 `src/core/meta` 中的元数据服务状态与业务操作。",
       "sourceFile": "src/core/meta/meta.service.ts",
       "inputs": [],
       "outputs": [],
@@ -120,8 +128,8 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `setTitle` to handle set title.",
+          "descriptionZh": "执行 `setTitle`，用于集合标题。"
         },
         {
           "name": "setTag",
@@ -136,8 +144,8 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `setTag` to handle set tag.",
+          "descriptionZh": "执行 `setTag`，用于集合标签。"
         },
         {
           "name": "update",
@@ -152,8 +160,8 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `update` to handle update.",
+          "descriptionZh": "执行 `update`，用于更新。"
         },
         {
           "name": "removeTag",
@@ -164,8 +172,8 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `removeTag` to handle remove tag.",
+          "descriptionZh": "执行 `removeTag`，用于移除标签。"
         }
       ],
       "properties": []
@@ -173,19 +181,56 @@
     {
       "name": "MetaSettings",
       "kind": "interface",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Interface `MetaSettings` defining the contract and properties for meta settings.",
+      "summaryZh": "接口 `MetaSettings`，定义元数据设置项的数据结构契约与属性规范。",
       "sourceFile": "src/core/meta/models/meta-settings.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
-      "properties": []
+      "properties": [
+        {
+          "name": "callback",
+          "type": "Function",
+          "description": "callback function, to use a custom logic on the meta tag contents (http-get, translate, etc.)",
+          "descriptionZh": "属性 `callback`（类型：`Function`），用于存储或配置回调函数。"
+        },
+        {
+          "name": "pageTitlePositioning",
+          "type": "PageTitlePositioning",
+          "description": "represents whether title attributes are positioned before/after the application name",
+          "descriptionZh": "属性 `pageTitlePositioning`（类型：`PageTitlePositioning`），用于存储或配置页面标题位置。"
+        },
+        {
+          "name": "pageTitleSeparator",
+          "type": "string",
+          "description": "Property `pageTitleSeparator` (`string`) storing page title separator.",
+          "descriptionZh": "属性 `pageTitleSeparator`（类型：`string`），用于存储或配置页面标题Separator。"
+        },
+        {
+          "name": "applicationName",
+          "type": "string",
+          "description": "application name, used as a prefix/suffix to the title attribute",
+          "descriptionZh": "属性 `applicationName`（类型：`string`），用于存储或配置application名称。"
+        },
+        {
+          "name": "applicationUrl",
+          "type": "string",
+          "description": "application url, used in og:url as a prefix to the current page URL",
+          "descriptionZh": "属性 `applicationUrl`（类型：`string`），用于存储或配置application链接地址。"
+        },
+        {
+          "name": "defaults",
+          "type": "{ /** * default meta title, used when a route does not have its own title attribute */ title?: string; /** * default meta description, used when a route does not have its own description attribute */ description?: string; /** * default meta keywords, used when a route does not have its own keywords attribute */ keywords?: string; /** * represents a key/value pair of default meta tag and its value */ [key: string]: string | undefined; }",
+          "description": "represents a dictionary of default meta tags and their values",
+          "descriptionZh": "属性 `defaults`（类型：`{ title?: string; description?: string; keywords?: string; [key: strin...`），用于存储或配置默认值集合。"
+        }
+      ]
     },
     {
       "name": "MetaStaticLoader",
       "kind": "class",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Class `MetaStaticLoader` encapsulating meta static loader data structures and logic in `src/core/meta`.",
+      "summaryZh": "类 `MetaStaticLoader`，封装 `src/core/meta` 中的元数据静态加载器数据结构与处理逻辑。",
       "sourceFile": "src/core/meta/meta.loader.ts",
       "inputs": [],
       "outputs": [],
@@ -194,21 +239,36 @@
         {
           "name": "settings",
           "type": "MetaSettings",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current settings (`settings: MetaSettings`).",
+          "descriptionZh": "获取当前设置项（`settings: MetaSettings`）。"
         }
       ]
     },
     {
       "name": "PageTitlePositioning",
       "kind": "enum",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Enumeration `PageTitlePositioning` defining supported page title positioning constants.",
+      "summaryZh": "枚举 `PageTitlePositioning`，定义支持的页面标题位置常量集合。",
       "sourceFile": "src/core/meta/models/page-title-positioning.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
-      "properties": []
+      "properties": [
+        {
+          "name": "AppendPageTitle",
+          "type": "enum-member",
+          "default": "0",
+          "description": "append page title after application name",
+          "descriptionZh": "枚举项 `PageTitlePositioning.AppendPageTitle` = 0，表示追加页面标题。"
+        },
+        {
+          "name": "PrependPageTitle",
+          "type": "enum-member",
+          "default": "10",
+          "description": "prepend page title before application name",
+          "descriptionZh": "枚举项 `PageTitlePositioning.PrependPageTitle` = 10，表示前置添加页面标题。"
+        }
+      ]
     }
   ],
   "suggestedUsageSnippet": "import { MetaModule } from '@dotos/dui/core/meta';"

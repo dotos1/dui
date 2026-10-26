@@ -1,9 +1,20 @@
+/**
+ * @fileoverview Module `src/theme/theme/mat-pseudo-checkbox-theme.ts` providing mat pseudo checkbox theme definitions and implementation.
+ * @zh 模块文件 `src/theme/theme/mat-pseudo-checkbox-theme.ts`，提供Materialpseudo复选框主题相关的定义与实现。
+ */
+
 import { Theme } from '../interfaces/theme';
 
 import { matColor } from '../mat-color';
 import { multiplyRule, subtractRule, divideRule
 } from '../utils/index';
 
+/**
+ * Executes `matPseudoCheckboxTheme` to handle mat pseudo checkbox theme.
+ * @zh 执行 `matPseudoCheckboxTheme`，用于MaterialPseudo复选框主题。
+ * @param theme - theme parameter (`Theme`) / 主题参数（`Theme`）
+ * @returns Result of type `Object` / 类型为 `Object` 的返回值
+ */
 export function matPseudoCheckboxTheme(theme: Theme): Object {
     const type: string = theme.typography['type'];
     let px2: string = type === 'loose' ? '2px' : type === 'normal' ? '1.8px' : '1.6px';

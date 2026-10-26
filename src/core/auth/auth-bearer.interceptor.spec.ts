@@ -1,15 +1,38 @@
+/**
+ * @fileoverview Module `src/core/auth/auth-bearer.interceptor.spec.ts` providing auth bearer interceptor spec definitions and implementation.
+ * @zh 模块文件 `src/core/auth/auth-bearer.interceptor.spec.ts`，提供认证bearer拦截器spec相关的定义与实现。
+ */
+
 import { HttpHandler, HttpRequest } from '@angular/common/http';
 import { of } from 'rxjs';
 import { AuthBearerInterceptor } from './auth-bearer.interceptor';
 
+/**
+ * Class `FakeStorage` encapsulating fake storage data structures and logic in `src/core/auth`.
+ * @zh 类 `FakeStorage`，封装 `src/core/auth` 中的Fake存储数据结构与处理逻辑。
+ */
 class FakeStorage {
+  /**
+   * Creates an instance of `FakeStorage` and initializes its dependencies and internal state.
+   * @zh 创建 `FakeStorage` 实例，并初始化其依赖项与内部状态。
+   * @param token - Injected or initial token (`string | null`) / 注入或传入的令牌（`string | null`）
+   */
   constructor(private token: string | null = 'tok123') {}
+  /**
+   * Executes `get` to handle get.
+   * @zh 执行 `get`，用于获取。
+   * @param _key - key parameter (`string`) / 键参数（`string`）
+   * @returns Result of type `string` / 类型为 `string` 的返回值
+   */
   get(_key: string): string {
     return this.token;
   }
 }
 
-/** 记录最终发出的请求，便于断言 Authorization 头。 */
+/**
+ * 记录最终发出的请求，便于断言 Authorization 头。
+ * @zh 记录最终发出的请求，便于断言 Authorization 头。
+ */
 function captureHandler(): { handler: HttpHandler; seen: () => HttpRequest<any> } {
   let captured: HttpRequest<any>;
   return {
@@ -18,6 +41,12 @@ function captureHandler(): { handler: HttpHandler; seen: () => HttpRequest<any> 
   };
 }
 
+/**
+ * Executes `get` to handle get.
+ * @zh 执行 `get`，用于获取。
+ * @param url - url parameter (`string`) / 链接地址参数（`string`）
+ * @returns Result of type `HttpRequest<any>` / 类型为 `HttpRequest<any>` 的返回值
+ */
 function get(url: string): HttpRequest<any> {
   return new HttpRequest('GET', url);
 }

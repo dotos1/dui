@@ -1,8 +1,19 @@
+/**
+ * @fileoverview Module `src/theme/theme/dui-message-theme.ts` providing dui message theme definitions and implementation.
+ * @zh 模块文件 `src/theme/theme/dui-message-theme.ts`，提供DUI消息主题相关的定义与实现。
+ */
+
 import { Theme } from '../interfaces/theme';
 import { matColor} from '../mat-color';
 import { matFontSize } from '../utils';
 import { matFontFamily } from '../utils/mat-font-family';
 
+/**
+ * Executes `duiMessageTheme` to handle dui message theme.
+ * @zh 执行 `duiMessageTheme`，用于DUI消息主题。
+ * @param theme - theme parameter (`Theme`) / 主题参数（`Theme`）
+ * @returns Result of type `Object` / 类型为 `Object` 的返回值
+ */
 export function duiMessageTheme(theme: Theme): Object {
   const primaryColor: string = matColor(theme.primary);
   const warnColor: string = matColor(theme.warn);

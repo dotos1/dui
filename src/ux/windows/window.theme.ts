@@ -1,8 +1,19 @@
+/**
+ * @fileoverview Module `src/ux/windows/window.theme.ts` providing window theme definitions and implementation.
+ * @zh 模块文件 `src/ux/windows/window.theme.ts`，提供窗口主题相关的定义与实现。
+ */
+
 
 import { rgba, Theme } from '@dotos/dui/theme';
 import { matColor } from '@dotos/dui/theme';
 import { matThemeElevation } from '@dotos/dui/theme';
 
+/**
+ * Executes `duiWindowTheme` to handle dui window theme.
+ * @zh 执行 `duiWindowTheme`，用于DUI窗口主题。
+ * @param theme - theme parameter (`Theme`) / 主题参数（`Theme`）
+ * @returns Result of type `Object` / 类型为 `Object` 的返回值
+ */
 export function duiWindowTheme(theme: Theme): Object {
 
   const backgroundCardColor: string = matColor(theme.background, 'card');

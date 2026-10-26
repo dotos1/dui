@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Module `src/common/keyboard/keyboard-shortcuts.component.ts` providing keyboard shortcuts component definitions and implementation.
+ * @zh 模块文件 `src/common/keyboard/keyboard-shortcuts.component.ts`，提供键盘快捷键列表组件相关的定义与实现。
+ */
+
 import {
     Component,
     Input,
@@ -28,9 +33,17 @@ export class KeyboardShortcutsComponent implements OnChanges, OnDestroy {
      */
     @Input() shortcuts: ShortcutInput[] | ShortcutInput = [];
 
+    /**
+     * Property `clearIds` (`string[]`) storing clear ids (default: `[]`).
+     * @zh 属性 `clearIds`（类型：`string[]`），用于存储或配置清空标识列表（默认值：`[]`）。
+     */
     private clearIds: string[] = [];
 
 
+    /**
+     * Property `_disabled` (`boolean`) storing disabled (default: `false`).
+     * @zh 属性 `_disabled`（类型：`boolean`），用于存储或配置已禁用（默认值：`false`）。
+     */
     private _disabled = false;
 
     /**
@@ -50,6 +63,11 @@ export class KeyboardShortcutsComponent implements OnChanges, OnDestroy {
     }
 
 
+    /**
+     * Creates an instance of `KeyboardShortcutsComponent` and initializes its dependencies and internal state.
+     * @zh 创建 `KeyboardShortcutsComponent` 实例，并初始化其依赖项与内部状态。
+     * @param keyboard - Injected or initial keyboard (`KeyboardShortcutsService`) / 注入或传入的键盘（`KeyboardShortcutsService`）
+     */
     constructor(private keyboard: KeyboardShortcutsService) {
     }
 
@@ -61,6 +79,11 @@ export class KeyboardShortcutsComponent implements OnChanges, OnDestroy {
         return this.keyboard.select(key);
     }
 
+    /**
+     * Angular lifecycle hook invoked when data-bound input properties change.
+     * @zh Angular 生命周期钩子：当数据绑定的输入属性发生变更时调用。
+     * @param changes - changes parameter (`SimpleChanges`) / 变更集合参数（`SimpleChanges`）
+     */
     ngOnChanges(changes: SimpleChanges): void {
        if (!changes['shortcuts'] || !changes['shortcuts'].currentValue) {
             return;
@@ -73,6 +96,10 @@ export class KeyboardShortcutsComponent implements OnChanges, OnDestroy {
         }
     }
 
+    /**
+     * Angular lifecycle hook invoked just before the component, directive, or service is destroyed to release subscriptions and resources.
+     * @zh Angular 生命周期钩子：在组件、指令或服务销毁前调用，用于释放订阅与清理资源。
+     */
     ngOnDestroy(): void {
         this.keyboard.remove(this.clearIds);
     }
