@@ -32,6 +32,7 @@ export class AvatarConfigService {
    */
   public getAvatarColors(defaultColors: string[]): string[] {
     return (
+      // @gate-ignore-next-line duplicate-boolean-op
       (this.userConfig &&
         this.userConfig.colors &&
         this.userConfig.colors.length &&

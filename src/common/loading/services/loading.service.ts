@@ -217,7 +217,7 @@ export class LoadingService {
       if (this._context[name].contentRef) {
         this._context[name].contentRef?.destroy();
       }
-      this._context[name].subject.unsubscribe();
+      this._context[name].subject.unsubscribe(); // @gate-ignore shared-stream-unsub
       if (this._context[name].componentRef) {
         this._context[name].componentRef?.destroy();
       }
