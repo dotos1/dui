@@ -140,6 +140,9 @@ export class Container extends ComponentBase {
       this.onAdd(comp);
     } else {
       const component = this.lookupComponent(this.applyDefaults(comp));
+      if (!component) {
+        return null;
+      }
       const index = this.items.length;
       this.items.add(component);
       if (component.onAdded) {
@@ -340,7 +343,9 @@ export class Container extends ComponentBase {
       }
     }
     const component = Dui.create(Dui.apply({ ownerCt: this }, config), this);
-    delete component.ownerCt;
+    if (component) {
+      delete component.ownerCt;
+    }
     return component;
   }
 
