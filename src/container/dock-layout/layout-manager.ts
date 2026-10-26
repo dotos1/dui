@@ -1384,7 +1384,7 @@ export abstract class LayoutManager extends EventEmitter {
 
             let newFocusedParentItem: ComponentParentableItem | undefined;
             if (item === undefined) {
-                newFocusedParentItem === undefined;
+                newFocusedParentItem = undefined;
             } else {
                 newFocusedParentItem = item.parentItem;
               
