@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Module `src/common/loading/services/loading.service.ts` providing loading service definitions and implementation.
+ * @zh 模块文件 `src/common/loading/services/loading.service.ts`，提供加载中服务相关的定义与实现。
+ */
+
 import { Injectable, Provider, SkipSelf, Optional } from '@angular/core';
 import { ViewContainerRef, TemplateRef } from '@angular/core';
 
@@ -10,19 +15,64 @@ import {
 } from '../loading.component';
 import { LoadingFactory, ILoadingRef } from './loading.factory';
 
+/**
+ * Interface `ILoadingConfig` defining the contract and properties for i loading config.
+ * @zh 接口 `ILoadingConfig`，定义I加载中配置的数据结构契约与属性规范。
+ */
 export interface ILoadingConfig {
+  /**
+   * Property `name` (`string`) storing name.
+   * @zh 属性 `name`（类型：`string`），用于存储或配置名称。
+   */
   name: string;
+  /**
+   * Property `type` (`LoadingType`) storing type.
+   * @zh 属性 `type`（类型：`LoadingType`），用于存储或配置类型。
+   */
   type?: LoadingType;
+  /**
+   * Property `mode` (`LoadingMode`) storing mode.
+   * @zh 属性 `mode`（类型：`LoadingMode`），用于存储或配置模式。
+   */
   mode?: LoadingMode;
+  /**
+   * Property `color` (`'primary' | 'accent' | 'warn'`) storing color.
+   * @zh 属性 `color`（类型：`'primary' | 'accent' | 'warn'`），用于存储或配置颜色。
+   */
   color?: 'primary' | 'accent' | 'warn';
 }
 
+/**
+ * Class `LoadingConfig` encapsulating loading config data structures and logic in `src/common/loading/services`.
+ * @zh 类 `LoadingConfig`，封装 `src/common/loading/services` 中的加载中配置数据结构与处理逻辑。
+ */
 export class LoadingConfig implements ILoadingConfig {
+  /**
+   * Property `name` (`string`) storing name.
+   * @zh 属性 `name`（类型：`string`），用于存储或配置名称。
+   */
   name: string;
+  /**
+   * Property `type` (`LoadingType`) storing type.
+   * @zh 属性 `type`（类型：`LoadingType`），用于存储或配置类型。
+   */
   type?: LoadingType;
+  /**
+   * Property `mode` (`LoadingMode`) storing mode.
+   * @zh 属性 `mode`（类型：`LoadingMode`），用于存储或配置模式。
+   */
   mode?: LoadingMode;
+  /**
+   * Property `color` (`'primary' | 'accent' | 'warn'`) storing color.
+   * @zh 属性 `color`（类型：`'primary' | 'accent' | 'warn'`），用于存储或配置颜色。
+   */
   color?: 'primary' | 'accent' | 'warn';
 
+  /**
+   * Creates an instance of `LoadingConfig` and initializes its dependencies and internal state.
+   * @zh 创建 `LoadingConfig` 实例，并初始化其依赖项与内部状态。
+   * @param config - Injected or initial config (`ILoadingConfig`) / 注入或传入的配置（`ILoadingConfig`）
+   */
   constructor(config: ILoadingConfig) {
     this.name = config.name;
     if (!this.name) {
@@ -34,16 +84,37 @@ export class LoadingConfig implements ILoadingConfig {
   }
 }
 
+/**
+ * Interface `ILoadingDirectiveConfig` defining the contract and properties for i loading directive config.
+ * @zh 接口 `ILoadingDirectiveConfig`，定义I加载中指令配置的数据结构契约与属性规范。
+ */
 export interface ILoadingDirectiveConfig extends ILoadingConfig {
+  /**
+   * Property `strategy` (`LoadingStrategy`) storing strategy.
+   * @zh 属性 `strategy`（类型：`LoadingStrategy`），用于存储或配置策略。
+   */
   strategy?: LoadingStrategy;
 }
 
+/**
+ * Class `LoadingDirectiveConfig` encapsulating loading directive config data structures and logic in `src/common/loading/services`.
+ * @zh 类 `LoadingDirectiveConfig`，封装 `src/common/loading/services` 中的加载中指令配置数据结构与处理逻辑。
+ */
 export class LoadingDirectiveConfig
   extends LoadingConfig
   implements ILoadingDirectiveConfig
 {
+  /**
+   * Property `strategy` (`LoadingStrategy`) storing strategy.
+   * @zh 属性 `strategy`（类型：`LoadingStrategy`），用于存储或配置策略。
+   */
   strategy: LoadingStrategy;
 
+  /**
+   * Creates an instance of `LoadingDirectiveConfig` and initializes its dependencies and internal state.
+   * @zh 创建 `LoadingDirectiveConfig` 实例，并初始化其依赖项与内部状态。
+   * @param config - Injected or initial config (`ILoadingDirectiveConfig`) / 注入或传入的配置（`ILoadingDirectiveConfig`）
+   */
   constructor(config: ILoadingDirectiveConfig) {
     super(config);
     this.strategy = config.strategy ? config.strategy : LoadingStrategy.Replace;
@@ -58,9 +129,22 @@ export class LoadingDirectiveConfig
  */
 @Injectable()
 export class LoadingService {
+  /**
+   * Property `_context` (`{ [key: string]: ILoadingRef }`) storing context (default: `{}`).
+   * @zh 属性 `_context`（类型：`{ [key: string]: ILoadingRef }`），用于存储或配置上下文（默认值：`{}`）。
+   */
   private _context: { [key: string]: ILoadingRef } = {};
-  private _timeouts: { [key: string]: any } = {};
+  /**
+   * Property `_timeouts` (`{ [key: string]: any }`) storing timeouts (default: `{}`).
+   * @zh 属性 `_timeouts`（类型：`{ [key: string]: any }`），用于存储或配置延时器（默认值：`{}`）。
+   */
+  private _timeouts: { [key: string]: unknown } = {};
 
+  /**
+   * Creates an instance of `LoadingService` and initializes its dependencies and internal state.
+   * @zh 创建 `LoadingService` 实例，并初始化其依赖项与内部状态。
+   * @param _loadingFactory - Injected or initial loading factory (`LoadingFactory`) / 注入或传入的加载中工厂（`LoadingFactory`）
+   */
   constructor(private _loadingFactory: LoadingFactory) {
     this.create({
       name: 'dui-loading-main',
@@ -233,12 +317,24 @@ export class LoadingService {
     return false;
   }
 
+  /**
+   * Executes `_clearTimeout` to handle clear timeout.
+   * @zh 执行 `_clearTimeout`，用于清空延时器。
+   * @param name - name parameter (`string`) / 名称参数（`string`）
+   */
   private _clearTimeout(name: string): void {
-    clearTimeout(this._timeouts[name]);
+    clearTimeout(this._timeouts[name] as number);
     delete this._timeouts[name];
   }
 }
 
+/**
+ * Executes `LOADING_PROVIDER_FACTORY` to handle loading provider factory.
+ * @zh 执行 `LOADING_PROVIDER_FACTORY`，用于加载中提供者工厂。
+ * @param parent - parent parameter (`LoadingService`) / 父级参数（`LoadingService`）
+ * @param loadingFactory - loading factory parameter (`LoadingFactory`) / 加载中工厂参数（`LoadingFactory`）
+ * @returns Result of type `LoadingService` / 类型为 `LoadingService` 的返回值
+ */
 export function LOADING_PROVIDER_FACTORY(
   parent: LoadingService,
   loadingFactory: LoadingFactory
@@ -246,6 +342,10 @@ export function LOADING_PROVIDER_FACTORY(
   return parent || new LoadingService(loadingFactory);
 }
 
+/**
+ * Constant/variable `LOADING_PROVIDER` defining loading provider in `src/common/loading/services`.
+ * @zh 常量/变量 `LOADING_PROVIDER`，定义 `src/common/loading/services` 中的加载中提供者。
+ */
 export const LOADING_PROVIDER: Provider = {
   provide: LoadingService,
   deps: [[new Optional(), new SkipSelf(), LoadingService], LoadingFactory],

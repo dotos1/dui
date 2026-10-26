@@ -41,7 +41,7 @@
         {
           "name": "content",
           "type": "ViewContainerRef",
-          "description": null,
+          "description": "Template/content query reference `content` (`@ViewChild`) targeting content.",
           "descriptionZh": "承载动态创建组件的视图容器。"
         },
         {
@@ -55,8 +55,8 @@
     {
       "name": "ExtensionsModule",
       "kind": "module",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular module `ExtensionsModule` declaring and exporting extensions module components, directives, pipes, and providers.",
+      "summaryZh": "Angular 模块 `ExtensionsModule`，声明并导出Extensions模块相关的组件、指令、管道与服务提供者。",
       "sourceFile": "src/common/dynamic/extensions.module.ts",
       "inputs": [],
       "outputs": [],

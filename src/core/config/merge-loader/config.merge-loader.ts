@@ -1,10 +1,19 @@
+/**
+ * @fileoverview Module `src/core/config/merge-loader/config.merge-loader.ts` providing config merge loader definitions and implementation.
+ * @zh 模块文件 `src/core/config/merge-loader/config.merge-loader.ts`，提供配置合并加载器相关的定义与实现。
+ */
+
 
 import { EMPTY, from as fromObservable, merge, Observable, onErrorResumeNext, throwError } from 'rxjs';
 import { filter, isEmpty, mergeMap, reduce, share } from 'rxjs/operators';
 import { mergeWith as _mergeWith } from 'lodash/fp';
 import { ConfigLoader, ConfigStaticLoader } from '../config.loader';
 
-const errorIfEmpty = (source: Observable<any>): Observable<any> => {
+/**
+ * Constant/variable `errorIfEmpty` defining error if empty in `src/core/config/merge-loader`.
+ * @zh 常量/变量 `errorIfEmpty`，定义 `src/core/config/merge-loader` 中的错误If空。
+ */
+const errorIfEmpty = (source) => {
   return source
     .pipe(
       isEmpty(),
@@ -14,55 +23,93 @@ const errorIfEmpty = (source: Observable<any>): Observable<any> => {
     );
 };
 
-const mergeWith = (object: any) => (source: Array<any>): any => {
-  return _mergeWith((objValue: any, srcValue: any) => {
+/**
+ * Constant/variable `mergeWith` defining merge with in `src/core/config/merge-loader`.
+ * @zh 常量/变量 `mergeWith`，定义 `src/core/config/merge-loader` 中的合并带有。
+ */
+const mergeWith = (object) => (source) => {
+  return _mergeWith((objValue, srcValue) => {
     if (Array.isArray(objValue))
       return srcValue;
+    return undefined;
   })(object)(source);
 };
 
-const mergeSeries = (merged: any, current: Promise<any>): any => {
+/**
+ * Constant/variable `mergeSeries` defining merge series in `src/core/config/merge-loader`.
+ * @zh 常量/变量 `mergeSeries`，定义 `src/core/config/merge-loader` 中的合并数据系列。
+ */
+const mergeSeries = (merged, current) => {
   return current.then(mergeWith(merged));
 };
 
+/**
+ * Class `ConfigMergeLoader` encapsulating config merge loader data structures and logic in `src/core/config/merge-loader`.
+ * @zh 类 `ConfigMergeLoader`，封装 `src/core/config/merge-loader` 中的配置合并加载器数据结构与处理逻辑。
+ */
 export class ConfigMergeLoader implements ConfigLoader {
+  /**
+   * Property `nextLoader` (`Function`) storing next loader.
+   * @zh 属性 `nextLoader`（类型：`Function`），用于存储或配置下一个加载器。
+   */
   private nextLoader: Function;
 
+  /**
+   * Creates an instance of `ConfigMergeLoader` and initializes its dependencies and internal state.
+   * @zh 创建 `ConfigMergeLoader` 实例，并初始化其依赖项与内部状态。
+   * @param loaders - Injected or initial loaders (`Array<ConfigLoader>`) / 注入或传入的加载器（`Array<ConfigLoader>`）
+   */
   constructor(private readonly loaders: Array<ConfigLoader> = []) {
   }
 
-  loadSettings(): any {
+  /**
+   * Executes `loadSettings` to handle load settings.
+   * @zh 执行 `loadSettings`，用于加载设置项。
+   * @returns Result of type `any` / 类型为 `any` 的返回值
+   */
+  loadSettings() {
     if (this.nextLoader)
       return this.mergeParallel()
-        .then((res: any) => mergeSeries(res, this.nextLoader(res)
+        .then((res) => mergeSeries(res, this.nextLoader(res)
           .loadSettings()));
 
     return this.mergeParallel();
   }
 
-  next(loader: Function): any {
+  /**
+   * Executes `next` to handle next.
+   * @zh 执行 `next`，用于下一个。
+   * @param loader - loader parameter (`Function`) / 加载器参数（`Function`）
+   * @returns Result of type `any` / 类型为 `any` 的返回值
+   */
+  next(loader: Function) {
     this.nextLoader = loader;
 
     return this;
   }
 
-  private mergeParallel(): Promise<any> {
+  /**
+   * Executes `mergeParallel` to handle merge parallel.
+   * @zh 执行 `mergeParallel`，用于合并Parallel。
+   * @returns Result of type `Promise<any>` / 类型为 `Promise<any>` 的返回值
+   */
+  private mergeParallel() {
     const loaders: Array<ConfigLoader> = [new ConfigStaticLoader(), ...this.loaders];
 
     const mergedSettings = onErrorResumeNext(loaders
       .map((loader: ConfigLoader) => fromObservable(loader.loadSettings()))
     )
       .pipe(
-        filter((res: any) => res),
+        filter((res) => Boolean(res)),
         share()
       );
 
     return new Promise((resolve, reject) => {
       merge(mergedSettings, errorIfEmpty(mergedSettings))
         .pipe(
-          reduce((merged: any, current: any) => mergeWith(merged)(current), {})
+          reduce((merged, current) => mergeWith(merged)(current), {} as never)
         )
-        .subscribe((res: any) => resolve(res), () => reject('Loaders unreachable!'));
+        .subscribe((res) => resolve(res), () => reject('Loaders unreachable!'));
     });
   }
 }

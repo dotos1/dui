@@ -4,8 +4,8 @@
     {
       "name": "CommonServicesModule",
       "kind": "module",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular module `CommonServicesModule` declaring and exporting common services module components, directives, pipes, and providers.",
+      "summaryZh": "Angular 模块 `CommonServicesModule`，声明并导出通用服务模块相关的组件、指令、管道与服务提供者。",
       "sourceFile": "src/core/services/services.module.ts",
       "inputs": [],
       "outputs": [],
@@ -15,8 +15,8 @@
     {
       "name": "CookieService",
       "kind": "service",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Injectable Angular service `CookieService` managing cookie service state and operations in `src/core/services`.",
+      "summaryZh": "可注入的 Angular 服务 `CookieService`，管理 `src/core/services` 中的Cookie服务状态与业务操作。",
       "sourceFile": "src/core/services/cookie.service.ts",
       "inputs": [],
       "outputs": [],
@@ -26,7 +26,7 @@
           "params": [],
           "returnType": "boolean",
           "description": "Checks if cookies are enabled.",
-          "descriptionZh": null
+          "descriptionZh": "执行 `isEnabled`，用于是否为已启用。"
         },
         {
           "name": "getItem",
@@ -38,7 +38,7 @@
           ],
           "returnType": "string | null",
           "description": "Retrieves a cookie by its key.",
-          "descriptionZh": null
+          "descriptionZh": "执行 `getItem`，用于获取条目。"
         },
         {
           "name": "setItem",
@@ -62,14 +62,14 @@
           ],
           "returnType": "void",
           "description": "Sets a cookie.",
-          "descriptionZh": null
+          "descriptionZh": "执行 `setItem`，用于集合条目。"
         },
         {
           "name": "clear",
           "params": [],
           "returnType": "any",
           "description": "Placeholder for testing purposes - do not use.",
-          "descriptionZh": null
+          "descriptionZh": "执行 `clear`，用于清空。"
         }
       ],
       "properties": []
@@ -77,8 +77,8 @@
     {
       "name": "DynamicComponentMapper",
       "kind": "class",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Class `DynamicComponentMapper` encapsulating dynamic component mapper data structures and logic in `src/core/services`.",
+      "summaryZh": "类 `DynamicComponentMapper`，封装 `src/core/services` 中的动态组件Mapper数据结构与处理逻辑。",
       "sourceFile": "src/core/services/dynamic-component-mapper.service.ts",
       "inputs": [],
       "outputs": [],
@@ -97,7 +97,7 @@
           ],
           "returnType": "DynamicComponentResolveFunction",
           "description": "Gets the currently active DynamicComponentResolveFunction for a field type.",
-          "descriptionZh": null
+          "descriptionZh": "执行 `getComponentTypeResolver`，用于获取组件类型解析器。"
         },
         {
           "name": "setComponentTypeResolver",
@@ -117,7 +117,7 @@
           ],
           "returnType": "any",
           "description": "Sets or optionally replaces a DynamicComponentResolveFunction for a field type.",
-          "descriptionZh": null
+          "descriptionZh": "执行 `setComponentTypeResolver`，用于集合组件类型解析器。"
         },
         {
           "name": "resolveComponentType",
@@ -133,7 +133,7 @@
           ],
           "returnType": "Type<{}>",
           "description": "Finds the component type that is needed to render a form field.",
-          "descriptionZh": null
+          "descriptionZh": "执行 `resolveComponentType`，用于解析组件类型。"
         }
       ],
       "properties": []
@@ -141,19 +141,26 @@
     {
       "name": "DynamicComponentModel",
       "kind": "interface",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Interface `DynamicComponentModel` defining the contract and properties for dynamic component model.",
+      "summaryZh": "接口 `DynamicComponentModel`，定义动态组件模型的数据结构契约与属性规范。",
       "sourceFile": "src/core/services/dynamic-component-mapper.service.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
-      "properties": []
+      "properties": [
+        {
+          "name": "type",
+          "type": "string",
+          "description": null,
+          "descriptionZh": null
+        }
+      ]
     },
     {
       "name": "DynamicComponentResolveFunction",
       "kind": "type",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Type alias `DynamicComponentResolveFunction` representing dynamic component resolve function (`(model: DynamicComponentModel) => Type<{}>`).",
+      "summaryZh": "类型别名 `DynamicComponentResolveFunction`，表示动态组件解析函数（`(model: DynamicComponentModel) => Type<{}>`）。",
       "sourceFile": "src/core/services/dynamic-component-mapper.service.ts",
       "inputs": [],
       "outputs": [],
@@ -163,8 +170,8 @@
     {
       "name": "DynamicComponentResolver",
       "kind": "class",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Class `DynamicComponentResolver` encapsulating dynamic component resolver data structures and logic in `src/core/services`.",
+      "summaryZh": "类 `DynamicComponentResolver`，封装 `src/core/services` 中的动态组件解析器数据结构与处理逻辑。",
       "sourceFile": "src/core/services/dynamic-component-mapper.service.ts",
       "inputs": [],
       "outputs": [],
@@ -178,8 +185,8 @@
             }
           ],
           "returnType": "DynamicComponentResolveFunction",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `fromType` to handle from type.",
+          "descriptionZh": "执行 `fromType`，用于从类型。"
         }
       ],
       "properties": []
@@ -187,30 +194,56 @@
     {
       "name": "getType",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Executes `getType` to handle get type.",
+      "summaryZh": "执行 `getType`，用于获取类型。",
       "sourceFile": "src/core/services/dynamic-component-mapper.service.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "getType",
+          "params": [
+            {
+              "name": "type",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": "Executes `getType` to handle get type.",
+          "descriptionZh": "执行 `getType`，用于获取类型。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "HighlightTransformResult",
       "kind": "interface",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Interface `HighlightTransformResult` defining the contract and properties for highlight transform result.",
+      "summaryZh": "接口 `HighlightTransformResult`，定义Highlight转换结果的数据结构契约与属性规范。",
       "sourceFile": "src/core/services/highlight-transform.service.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
-      "properties": []
+      "properties": [
+        {
+          "name": "text",
+          "type": "string",
+          "description": "Property `text` (`string`) storing text.",
+          "descriptionZh": "属性 `text`（类型：`string`），用于存储或配置文本。"
+        },
+        {
+          "name": "changed",
+          "type": "boolean",
+          "description": "Property `changed` (`boolean`) storing changed.",
+          "descriptionZh": "属性 `changed`（类型：`boolean`），用于存储或配置已变更。"
+        }
+      ]
     },
     {
       "name": "HighlightTransformService",
       "kind": "service",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Injectable Angular service `HighlightTransformService` managing highlight transform service state and operations in `src/core/services`.",
+      "summaryZh": "可注入的 Angular 服务 `HighlightTransformService`，管理 `src/core/services` 中的Highlight转换服务状态与业务操作。",
       "sourceFile": "src/core/services/highlight-transform.service.ts",
       "inputs": [],
       "outputs": [],
@@ -233,7 +266,7 @@
           ],
           "returnType": "HighlightTransformResult",
           "description": "Searches for `search` string(s) within `text` and highlights all occurrences.",
-          "descriptionZh": null
+          "descriptionZh": "执行 `highlight`，用于highlight。"
         }
       ],
       "properties": []
@@ -241,8 +274,8 @@
     {
       "name": "LogService",
       "kind": "service",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Injectable Angular service `LogService` managing log service state and operations in `src/core/services`.",
+      "summaryZh": "可注入的 Angular 服务 `LogService`，管理 `src/core/services` 中的日志服务状态与业务操作。",
       "sourceFile": "src/core/services/log.service.ts",
       "inputs": [],
       "outputs": [],
@@ -261,7 +294,7 @@
           ],
           "returnType": "any",
           "description": "Logs a message at the \"ERROR\" level.",
-          "descriptionZh": null
+          "descriptionZh": "执行 `error`，用于错误。"
         },
         {
           "name": "debug",
@@ -277,7 +310,7 @@
           ],
           "returnType": "any",
           "description": "Logs a message at the \"DEBUG\" level.",
-          "descriptionZh": null
+          "descriptionZh": "执行 `debug`，用于debug。"
         },
         {
           "name": "info",
@@ -293,7 +326,7 @@
           ],
           "returnType": "any",
           "description": "Logs a message at the \"INFO\" level.",
-          "descriptionZh": null
+          "descriptionZh": "执行 `info`，用于信息。"
         },
         {
           "name": "log",
@@ -309,7 +342,7 @@
           ],
           "returnType": "any",
           "description": "Logs a message at any level from \"TRACE\" upwards.",
-          "descriptionZh": null
+          "descriptionZh": "执行 `log`，用于日志。"
         },
         {
           "name": "trace",
@@ -325,7 +358,7 @@
           ],
           "returnType": "any",
           "description": "Logs a message at the \"TRACE\" level.",
-          "descriptionZh": null
+          "descriptionZh": "执行 `trace`，用于trace。"
         },
         {
           "name": "warn",
@@ -341,7 +374,7 @@
           ],
           "returnType": "any",
           "description": "Logs a message at the \"WARN\" level.",
-          "descriptionZh": null
+          "descriptionZh": "执行 `warn`，用于警告色。"
         },
         {
           "name": "assert",
@@ -361,7 +394,7 @@
           ],
           "returnType": "any",
           "description": "Logs a message if a boolean test fails.",
-          "descriptionZh": null
+          "descriptionZh": "执行 `assert`，用于断言。"
         },
         {
           "name": "group",
@@ -377,14 +410,14 @@
           ],
           "returnType": "any",
           "description": "Starts an indented group of log messages.",
-          "descriptionZh": null
+          "descriptionZh": "执行 `group`，用于分组。"
         },
         {
           "name": "groupEnd",
           "params": [],
           "returnType": "any",
           "description": "Ends a indented group of log messages.",
-          "descriptionZh": null
+          "descriptionZh": "执行 `groupEnd`，用于分组结束。"
         },
         {
           "name": "getLogLevel",
@@ -396,7 +429,7 @@
           ],
           "returnType": "LogLevelsEnum",
           "description": "Converts a log level name string into its numeric equivalent.",
-          "descriptionZh": null
+          "descriptionZh": "执行 `getLogLevel`，用于获取日志层级。"
         },
         {
           "name": "messageBus",
@@ -412,35 +445,35 @@
           ],
           "returnType": "any",
           "description": "Triggers notification callback for log messages.",
-          "descriptionZh": null
+          "descriptionZh": "执行 `messageBus`，用于消息Bus。"
         }
       ],
       "properties": [
         {
           "name": "currentLogLevel",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current current log level (`currentLogLevel: any`).",
+          "descriptionZh": "获取当前当前日志层级（`currentLogLevel: any`）。"
         },
         {
           "name": "currentLogLevel",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Sets the current log level (`currentLogLevel`).",
+          "descriptionZh": "设置当前日志层级（`currentLogLevel`）。"
         },
         {
           "name": "onMessage",
           "type": "Subject<any>",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `onMessage` (`Subject<any>`) storing on message.",
+          "descriptionZh": "属性 `onMessage`（类型：`Subject<any>`），用于存储或配置当消息。"
         }
       ]
     },
     {
       "name": "ScriptLoaderService",
       "kind": "service",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Injectable Angular service `ScriptLoaderService` managing script loader service state and operations in `src/core/services`.",
+      "summaryZh": "可注入的 Angular 服务 `ScriptLoaderService`，管理 `src/core/services` 中的Script加载器服务状态与业务操作。",
       "sourceFile": "src/core/services/script-loader.service.ts",
       "inputs": [],
       "outputs": [],
@@ -454,8 +487,8 @@
             }
           ],
           "returnType": "Promise<any>",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `load` to handle load.",
+          "descriptionZh": "执行 `load`，用于加载。"
         }
       ],
       "properties": []
@@ -463,8 +496,8 @@
     {
       "name": "ScriptStore",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `ScriptStore` defining script store in `src/core/services`.",
+      "summaryZh": "常量/变量 `ScriptStore`，定义 `src/core/services` 中的Script状态仓库。",
       "sourceFile": "src/core/services/script-loader.service.ts",
       "inputs": [],
       "outputs": [],
@@ -474,8 +507,8 @@
     {
       "name": "ServiceLocator",
       "kind": "class",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Class `ServiceLocator` encapsulating service locator data structures and logic in `src/core/services`.",
+      "summaryZh": "类 `ServiceLocator`，封装 `src/core/services` 中的服务Locator数据结构与处理逻辑。",
       "sourceFile": "src/core/services/locator.service.ts",
       "inputs": [],
       "outputs": [],
@@ -484,16 +517,16 @@
         {
           "name": "injector",
           "type": "Injector",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `injector` (`Injector`) storing injector.",
+          "descriptionZh": "属性 `injector`（类型：`Injector`），用于存储或配置注入器。"
         }
       ]
     },
     {
       "name": "ShareParamService",
       "kind": "service",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Injectable Angular service `ShareParamService` managing share param service state and operations in `src/core/services`.",
+      "summaryZh": "可注入的 Angular 服务 `ShareParamService`，管理 `src/core/services` 中的Share参数服务状态与业务操作。",
       "sourceFile": "src/core/services/share-param.service.ts",
       "inputs": [],
       "outputs": [],
@@ -507,8 +540,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `get` to handle get.",
+          "descriptionZh": "执行 `get`，用于获取。"
         },
         {
           "name": "set",
@@ -523,15 +556,15 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `set` to handle set.",
+          "descriptionZh": "执行 `set`，用于集合。"
         },
         {
           "name": "clear",
           "params": [],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `clear` to handle clear.",
+          "descriptionZh": "执行 `clear`，用于清空。"
         }
       ],
       "properties": [
@@ -539,8 +572,8 @@
           "name": "data",
           "type": "any",
           "default": "{}",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `data` (`any`) storing data (default: `{}`).",
+          "descriptionZh": "属性 `data`（类型：`any`），用于存储或配置数据（默认值：`{}`）。"
         }
       ]
     }

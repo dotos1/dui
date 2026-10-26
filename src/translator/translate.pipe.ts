@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Module `src/translator/translate.pipe.ts` providing translate pipe definitions and implementation.
+ * @zh 模块文件 `src/translator/translate.pipe.ts`，提供翻译管道相关的定义与实现。
+ */
+
 import {ChangeDetectorRef,  Injectable, OnDestroy, Pipe, PipeTransform} from '@angular/core';
 import {isObservable} from 'rxjs';
 import { LangChangeEvent, TranslateService, TranslationChangeEvent} from './translate.service';
@@ -7,23 +12,64 @@ import { Subscription } from 'rxjs';
 // 注意：不要给本类加 `providedIn: 'root'`。它是 `pure: false` 的有状态管道，
 // 每个绑定点持有自己的 value/lastKey/lastParams 与三个订阅；若变成全局单例被注入，
 // 各调用点会互相覆盖状态并返回上一次的翻译结果。
+/**
+ * Angular pipe `TranslatePipe` (name: 'translate') transforming values for translate pipe display in templates.
+ * @zh Angular 管道 `TranslatePipe`（name: 'translate'），在模板中转换数据以用于翻译管道展示。
+ */
 @Injectable()
 @Pipe({
   name: 'translate',
   pure: false // required to update the value when the promise is resolved
 })
 export class TranslatePipe implements PipeTransform, OnDestroy {
+  /**
+   * Property `value` (`string`) storing value (default: `''`).
+   * @zh 属性 `value`（类型：`string`），用于存储或配置值（默认值：`''`）。
+   */
   value: string = '';
+  /**
+   * Property `lastKey` (`string`) storing last key.
+   * @zh 属性 `lastKey`（类型：`string`），用于存储或配置末尾键。
+   */
   lastKey: string;
-  lastParams: any[];
+  /**
+   * Property `lastParams` (`any[]`) storing last params.
+   * @zh 属性 `lastParams`（类型：`any[]`），用于存储或配置末尾参数集合。
+   */
+  lastParams;
+  /**
+   * Property `onTranslationChange` (`Subscription`) storing on translation change.
+   * @zh 属性 `onTranslationChange`（类型：`Subscription`），用于存储或配置当翻译文本变更。
+   */
   onTranslationChange: Subscription;
+  /**
+   * Property `onLangChange` (`Subscription`) storing on lang change.
+   * @zh 属性 `onLangChange`（类型：`Subscription`），用于存储或配置当语言变更。
+   */
   onLangChange: Subscription;
+  /**
+   * Property `onDefaultLangChange` (`Subscription`) storing on default lang change.
+   * @zh 属性 `onDefaultLangChange`（类型：`Subscription`），用于存储或配置当默认语言变更。
+   */
   onDefaultLangChange: Subscription;
 
+  /**
+   * Creates an instance of `TranslatePipe` and initializes its dependencies and internal state.
+   * @zh 创建 `TranslatePipe` 实例，并初始化其依赖项与内部状态。
+   * @param translate - Injected or initial translate (`TranslateService`) / 注入或传入的翻译（`TranslateService`）
+   * @param _ref - Injected or initial ref (`ChangeDetectorRef`) / 注入或传入的引用（`ChangeDetectorRef`）
+   */
   constructor(private translate: TranslateService, private _ref: ChangeDetectorRef) {
   }
 
-  updateValue(key: string, interpolateParams?: Object, translations?: any): void {
+  /**
+   * Executes `updateValue` to handle update value.
+   * @zh 执行 `updateValue`，用于更新值。
+   * @param key - key parameter (`string`) / 键参数（`string`）
+   * @param interpolateParams - interpolate params parameter (`Object`) / interpolate参数集合参数（`Object`）
+   * @param translations - translations parameter (`any`) / 翻译文本参数（`any`）
+   */
+  updateValue(key: string, interpolateParams?: Object, translations?): void {
     let onTranslation = (res: string) => {
       this.value = res !== undefined ? res : key;
       this.lastKey = key;
@@ -44,7 +90,14 @@ export class TranslatePipe implements PipeTransform, OnDestroy {
     }
   }
 
-  transform(query: string, ...args: any[]): any {
+  /**
+   * Executes `transform` to handle transform.
+   * @zh 执行 `transform`，用于转换。
+   * @param query - query parameter (`string`) / 查询参数（`string`）
+   * @param args - args parameter (`any[]`) / 参数列表参数（`any[]`）
+   * @returns Result of type `any` / 类型为 `any` 的返回值
+   */
+  transform(query: string, ...args) {
     if (!query || !query.length) {
       return query;
     }
@@ -119,6 +172,8 @@ export class TranslatePipe implements PipeTransform, OnDestroy {
 
   /**
    * Clean any existing subscription to change events
+
+   * @zh 执行 `_dispose`，用于释放。
    */
   private _dispose(): void {
     if (typeof this.onTranslationChange !== 'undefined') {
@@ -135,6 +190,10 @@ export class TranslatePipe implements PipeTransform, OnDestroy {
     }
   }
 
+  /**
+   * Angular lifecycle hook invoked just before the component, directive, or service is destroyed to release subscriptions and resources.
+   * @zh Angular 生命周期钩子：在组件、指令或服务销毁前调用，用于释放订阅与清理资源。
+   */
   ngOnDestroy(): void {
     this._dispose();
   }

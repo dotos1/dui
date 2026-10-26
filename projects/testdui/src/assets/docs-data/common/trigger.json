@@ -4,13 +4,32 @@
     {
       "name": "TriggerPopup",
       "kind": "interface",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Interface `TriggerPopup` defining the contract and properties for trigger popup.",
+      "summaryZh": "接口 `TriggerPopup`，定义触发弹窗的数据结构契约与属性规范。",
       "sourceFile": "src/common/trigger/trigger.model.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
-      "properties": []
+      "properties": [
+        {
+          "name": "host",
+          "type": "any",
+          "description": "Property `host` (`any`) storing host.",
+          "descriptionZh": "属性 `host`（类型：`any`），用于存储或配置宿主。"
+        },
+        {
+          "name": "params",
+          "type": "any",
+          "description": "Property `params` (`any`) storing params.",
+          "descriptionZh": "属性 `params`（类型：`any`），用于存储或配置参数集合。"
+        },
+        {
+          "name": "_handleKeydown",
+          "type": "Function",
+          "description": "Property `_handleKeydown` (`Function`) storing handle keydown.",
+          "descriptionZh": "属性 `_handleKeydown`（类型：`Function`），用于存储或配置连接手柄按键按下。"
+        }
+      ]
     }
   ],
   "suggestedUsageSnippet": "import { /* ... */ } from '@dotos/dui/common/trigger';"

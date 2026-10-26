@@ -1,3 +1,13 @@
+/**
+ * @fileoverview Module `src/theme/core/mat-ripple.ts` providing mat ripple definitions and implementation.
+ * @zh 模块文件 `src/theme/core/mat-ripple.ts`，提供Materialripple相关的定义与实现。
+ */
+
+/**
+ * Executes `matRipple` to handle mat ripple.
+ * @zh 执行 `matRipple`，用于MaterialRipple。
+ * @returns Result of type `Object` / 类型为 `Object` 的返回值
+ */
 export function matRipple(): Object {
     return {
         '.mat-ripple': {

@@ -1,17 +1,38 @@
+/**
+ * @fileoverview Module `src/util/pipes/time-difference.pipe.ts` providing time difference pipe definitions and implementation.
+ * @zh 模块文件 `src/util/pipes/time-difference.pipe.ts`，提供时间difference管道相关的定义与实现。
+ */
+
 import { Pipe, PipeTransform } from '@angular/core';
 import { TranslationService } from '@dotos/dui/translator';
 
+/**
+ * Angular pipe `TimeDifferencePipe` (name: 'timeDifference') transforming values for time difference pipe display in templates.
+ * @zh Angular 管道 `TimeDifferencePipe`（name: 'timeDifference'），在模板中转换数据以用于时间Difference管道展示。
+ */
 @Pipe({
   name: 'timeDifference',
 })
 
 export class TimeDifferencePipe implements PipeTransform {
 
+  /**
+   * Creates an instance of `TimeDifferencePipe` and initializes its dependencies and internal state.
+   * @zh 创建 `TimeDifferencePipe` 实例，并初始化其依赖项与内部状态。
+   * @param translation - Injected or initial translation (`TranslationService`) / 注入或传入的翻译文本（`TranslationService`）
+   */
   constructor(
     public readonly translation: TranslationService) {
   }
   
-  transform(start: any, end: any): string {
+  /**
+   * Executes `transform` to handle transform.
+   * @zh 执行 `transform`，用于转换。
+   * @param start - start parameter (`any`) / 开始参数（`any`）
+   * @param end - end parameter (`any`) / 结束参数（`any`）
+   * @returns Result of type `string` / 类型为 `string` 的返回值
+   */
+  transform(start, end): string {
     const startTime: Date = new Date(start);
     let endTime: Date;
 

@@ -74,7 +74,7 @@
           "params": [],
           "returnType": "void",
           "description": "Update selected color",
-          "descriptionZh": null
+          "descriptionZh": "执行 `updateSelectedColor`，用于更新已选中颜色。"
         },
         {
           "name": "goToPalettesView",
@@ -100,7 +100,7 @@
         {
           "name": "colors",
           "type": "any",
-          "description": null,
+          "description": "Property `colors` (`any`) storing colors.",
           "descriptionZh": "可选的调色板集合，来自 `MatColors.all`。"
         },
         {
@@ -112,7 +112,7 @@
         {
           "name": "view",
           "type": "string",
-          "description": null,
+          "description": "Property `view` (`string`) storing view.",
           "descriptionZh": "当前显示的面板视图：`'palettes'`（调色板）或 `'hues'`（色阶）。"
         },
         {
@@ -124,7 +124,7 @@
         {
           "name": "selectedPalette",
           "type": "string",
-          "description": null,
+          "description": "Property `selectedPalette` (`string`) storing selected palette.",
           "descriptionZh": "当前选中的调色板名称。"
         },
         {
@@ -144,8 +144,8 @@
     {
       "name": "ColorPickerModule",
       "kind": "module",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular module `ColorPickerModule` declaring and exporting color picker module components, directives, pipes, and providers.",
+      "summaryZh": "Angular 模块 `ColorPickerModule`，声明并导出颜色选择器模块相关的组件、指令、管道与服务提供者。",
       "sourceFile": "src/common/matcolorpicker/color-picker.module.ts",
       "inputs": [],
       "outputs": [],
@@ -155,8 +155,8 @@
     {
       "name": "MATERIAL_COLOR_PICKER_VALUE_ACCESSOR",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `MATERIAL_COLOR_PICKER_VALUE_ACCESSOR` defining material color picker value accessor in `src/common/matcolorpicker`.",
+      "summaryZh": "常量/变量 `MATERIAL_COLOR_PICKER_VALUE_ACCESSOR`，定义 `src/common/matcolorpicker` 中的MATERIAL颜色选择器值访问器。",
       "sourceFile": "src/common/matcolorpicker/color-picker.component.ts",
       "inputs": [],
       "outputs": [],

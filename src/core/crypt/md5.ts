@@ -1,13 +1,31 @@
+/**
+ * @fileoverview Module `src/core/crypt/md5.ts` providing md5 definitions and implementation.
+ * @zh 模块文件 `src/core/crypt/md5.ts`，提供md5相关的定义与实现。
+ */
+
 import { Injectable } from '@angular/core';
 
 /**
+ * Injectable Angular service `encrypt` managing encrypt state and operations in `src/core/crypt`.
  * @dynamic
+
+ * @zh 可注入的 Angular 服务 `encrypt`，管理 `src/core/crypt` 中的encrypt状态与业务操作。
  */
 @Injectable()
 export class encrypt {
+  /**
+   * Creates an instance of `encrypt` and initializes its dependencies and internal state.
+   * @zh 创建 `encrypt` 实例，并初始化其依赖项与内部状态。
+   */
   constructor() {
 
   }
+  /**
+   * Executes `md5cycle` to handle md5cycle.
+   * @zh 执行 `md5cycle`，用于md5cycle。
+   * @param x - x parameter (`any`) / X坐标参数（`any`）
+   * @param k - k parameter (`any`) / k参数（`any`）
+   */
   static md5cycle(x, k) {
     let a = x[0],
       b = x[1],
@@ -89,27 +107,86 @@ export class encrypt {
 
   }
 
+  /**
+   * Executes `cmn` to handle cmn.
+   * @zh 执行 `cmn`，用于cmn。
+   * @param q - q parameter (`any`) / q参数（`any`）
+   * @param a - a parameter (`any`) / a参数（`any`）
+   * @param b - b parameter (`any`) / b参数（`any`）
+   * @param x - x parameter (`any`) / X坐标参数（`any`）
+   * @param s - s parameter (`any`) / s参数（`any`）
+   * @param t - t parameter (`any`) / t参数（`any`）
+   */
   static cmn(q, a, b, x, s, t) {
     a = encrypt.add32(encrypt.add32(a, q), encrypt.add32(x, t));
     return encrypt.add32((a << s) | (a >>> (32 - s)), b);
   }
 
+  /**
+   * Executes `ff` to handle ff.
+   * @zh 执行 `ff`，用于ff。
+   * @param a - a parameter (`any`) / a参数（`any`）
+   * @param b - b parameter (`any`) / b参数（`any`）
+   * @param c - c parameter (`any`) / c参数（`any`）
+   * @param d - d parameter (`any`) / d参数（`any`）
+   * @param x - x parameter (`any`) / X坐标参数（`any`）
+   * @param s - s parameter (`any`) / s参数（`any`）
+   * @param t - t parameter (`any`) / t参数（`any`）
+   */
   static ff(a, b, c, d, x, s, t) {
     return encrypt.cmn((b & c) | ((~b) & d), a, b, x, s, t);
   }
 
+  /**
+   * Executes `gg` to handle gg.
+   * @zh 执行 `gg`，用于gg。
+   * @param a - a parameter (`any`) / a参数（`any`）
+   * @param b - b parameter (`any`) / b参数（`any`）
+   * @param c - c parameter (`any`) / c参数（`any`）
+   * @param d - d parameter (`any`) / d参数（`any`）
+   * @param x - x parameter (`any`) / X坐标参数（`any`）
+   * @param s - s parameter (`any`) / s参数（`any`）
+   * @param t - t parameter (`any`) / t参数（`any`）
+   */
   static gg(a, b, c, d, x, s, t) {
     return encrypt.cmn((b & d) | (c & (~d)), a, b, x, s, t);
   }
 
+  /**
+   * Executes `hh` to handle hh.
+   * @zh 执行 `hh`，用于hh。
+   * @param a - a parameter (`any`) / a参数（`any`）
+   * @param b - b parameter (`any`) / b参数（`any`）
+   * @param c - c parameter (`any`) / c参数（`any`）
+   * @param d - d parameter (`any`) / d参数（`any`）
+   * @param x - x parameter (`any`) / X坐标参数（`any`）
+   * @param s - s parameter (`any`) / s参数（`any`）
+   * @param t - t parameter (`any`) / t参数（`any`）
+   */
   static hh(a, b, c, d, x, s, t) {
     return encrypt.cmn(b ^ c ^ d, a, b, x, s, t);
   }
 
+  /**
+   * Executes `ii` to handle ii.
+   * @zh 执行 `ii`，用于ii。
+   * @param a - a parameter (`any`) / a参数（`any`）
+   * @param b - b parameter (`any`) / b参数（`any`）
+   * @param c - c parameter (`any`) / c参数（`any`）
+   * @param d - d parameter (`any`) / d参数（`any`）
+   * @param x - x parameter (`any`) / X坐标参数（`any`）
+   * @param s - s parameter (`any`) / s参数（`any`）
+   * @param t - t parameter (`any`) / t参数（`any`）
+   */
   static ii(a, b, c, d, x, s, t) {
     return encrypt.cmn(c ^ (b | (~d)), a, b, x, s, t);
   }
 
+  /**
+   * Executes `md51` to handle md51.
+   * @zh 执行 `md51`，用于md51。
+   * @param s - s parameter (`any`) / s参数（`any`）
+   */
   static md51(s) {
     const txt = '';
     const n = s.length, state = [1732584193, -271733879, -1732584194, 271733878];
@@ -132,6 +209,11 @@ export class encrypt {
     return state;
   }
 
+  /**
+   * Executes `md5blk` to handle md5blk.
+   * @zh 执行 `md5blk`，用于md5blk。
+   * @param s - s parameter (`any`) / s参数（`any`）
+   */
   static md5blk(s) { /* I figured global was faster.   */
     const md5blks = [];
     let i;
@@ -142,6 +224,11 @@ export class encrypt {
   }
 
 
+  /**
+   * Executes `rhex` to handle rhex.
+   * @zh 执行 `rhex`，用于rhex。
+   * @param n - n parameter (`any`) / n参数（`any`）
+   */
   static rhex(n) {
     let s = '', j = 0;
     const hex_chr = '0123456789abcdef'.split('');
@@ -152,6 +239,11 @@ export class encrypt {
     return s;
   }
 
+  /**
+   * Executes `hex` to handle hex.
+   * @zh 执行 `hex`，用于十六进制颜色。
+   * @param x - x parameter (`any`) / X坐标参数（`any`）
+   */
   static hex(x) {
     const hex_chr = '0123456789abcdef'.split('');
     for (let i = 0; i < x.length; i++) {
@@ -160,6 +252,11 @@ export class encrypt {
     return x.join('');
   }
 
+  /**
+   * Executes `md5` to handle md5.
+   * @zh 执行 `md5`，用于md5。
+   * @param s - s parameter (`any`) / s参数（`any`）
+   */
   md5(s) {
     return encrypt.hex(encrypt.md51(s));
   }
@@ -170,6 +267,10 @@ export class encrypt {
   need the idiotic second function,
   generated by an if clause.  */
 
+  /**
+   * Property `add32` (`any`) storing add32.
+   * @zh 属性 `add32`（类型：`any`），用于存储或配置add32。
+   */
   static add32 = function (a, b) {
     return (a + b) & 0xFFFFFFFF;
   };

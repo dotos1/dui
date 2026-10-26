@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Module `src/theme/theme/mat-input-theme.ts` providing mat input theme definitions and implementation.
+ * @zh 模块文件 `src/theme/theme/mat-input-theme.ts`，提供Material输入属性主题相关的定义与实现。
+ */
+
 import { Theme } from '../interfaces/theme';
 import { matColor } from '../mat-color';
 import { matControlPlaceholderColor } from './mat-control-placeholder-color';
@@ -6,6 +11,12 @@ import {
     roundRule
 } from '../utils/index';
 
+/**
+ * Executes `matInputTheme` to handle mat input theme.
+ * @zh 执行 `matInputTheme`，用于Material输入属性主题。
+ * @param theme - theme parameter (`Theme`) / 主题参数（`Theme`）
+ * @returns Result of type `Object` / 类型为 `Object` 的返回值
+ */
 export function matInputTheme(theme: Theme): Object {
     const lineHeight: number = matLineHeight(theme.typography, 'input') as number;
     const lineSpacing: number = -(lineHeight - 1) / 2;
@@ -31,6 +42,12 @@ export function matInputTheme(theme: Theme): Object {
     };
 }
 
+/**
+ * Executes `inputPlaceholder` to handle input placeholder.
+ * @zh 执行 `inputPlaceholder`，用于输入属性占位提示。
+ * @param theme - theme parameter (`Theme`) / 主题参数（`Theme`）
+ * @returns Result of type `Object` / 类型为 `Object` 的返回值
+ */
 function inputPlaceholder(theme: Theme): Object {
     const content: Object = {
         color: matControlPlaceholderColor(theme)

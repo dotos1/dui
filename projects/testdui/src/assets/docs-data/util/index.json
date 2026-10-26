@@ -4,8 +4,8 @@
     {
       "name": "ActivityInterceptor",
       "kind": "service",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Injectable Angular service `ActivityInterceptor` managing activity interceptor state and operations in `src/util/activity`.",
+      "summaryZh": "可注入的 Angular 服务 `ActivityInterceptor`，管理 `src/util/activity` 中的Activity拦截器状态与业务操作。",
       "sourceFile": "src/util/activity/activity.interceptor.ts",
       "inputs": [],
       "outputs": [],
@@ -23,8 +23,8 @@
             }
           ],
           "returnType": "Observable<HttpEvent<any>>",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `intercept` to handle intercept.",
+          "descriptionZh": "执行 `intercept`，用于intercept。"
         }
       ],
       "properties": []
@@ -32,8 +32,8 @@
     {
       "name": "ActivityService",
       "kind": "service",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Injectable Angular service `ActivityService` managing activity service state and operations in `src/util/activity`.",
+      "summaryZh": "可注入的 Angular 服务 `ActivityService`，管理 `src/util/activity` 中的Activity服务状态与业务操作。",
       "sourceFile": "src/util/activity/activity.service.ts",
       "inputs": [],
       "outputs": [],
@@ -42,8 +42,8 @@
           "name": "register",
           "params": [],
           "returnType": "string",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `register` to handle register.",
+          "descriptionZh": "执行 `register`，用于注册。"
         },
         {
           "name": "unregister",
@@ -54,8 +54,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `unregister` to handle unregister.",
+          "descriptionZh": "执行 `unregister`，用于注销。"
         }
       ],
       "properties": [
@@ -63,16 +63,16 @@
           "name": "counter$",
           "type": "any",
           "default": "new BehaviorSubject<number>(0)",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `counter$` (`BehaviorSubject`) storing counter (default: `new BehaviorSubject<number>(0)`).",
+          "descriptionZh": "属性 `counter$`（类型：`BehaviorSubject`），用于存储或配置计数器（默认值：`new BehaviorSubject<number>(0)`）。"
         }
       ]
     },
     {
       "name": "Base64",
       "kind": "class",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Class `Base64` encapsulating base64 data structures and logic in `src/util`.",
+      "summaryZh": "类 `Base64`，封装 `src/util` 中的Base64数据结构与处理逻辑。",
       "sourceFile": "src/util/base64.ts",
       "inputs": [],
       "outputs": [],
@@ -86,8 +86,8 @@
             }
           ],
           "returnType": "string",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `decode` to handle decode.",
+          "descriptionZh": "执行 `decode`，用于解码。"
         },
         {
           "name": "encode",
@@ -98,8 +98,8 @@
             }
           ],
           "returnType": "string",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `encode` to handle encode.",
+          "descriptionZh": "执行 `encode`，用于编码。"
         }
       ],
       "properties": []
@@ -107,41 +107,101 @@
     {
       "name": "Change",
       "kind": "interface",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Interface `Change` defining the contract and properties for change.",
+      "summaryZh": "接口 `Change`，定义变更的数据结构契约与属性规范。",
       "sourceFile": "src/util/change.interface.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
-      "properties": []
+      "properties": [
+        {
+          "name": "type",
+          "type": "ChangeType",
+          "description": "Property `type` (`ChangeType`) storing type.",
+          "descriptionZh": "属性 `type`（类型：`ChangeType`），用于存储或配置类型。"
+        },
+        {
+          "name": "keysChanged",
+          "type": "{ key: string; newValue: any; oldValue: any; }[]",
+          "description": "Property `keysChanged` (`{ key: string; newValue: any; oldValue: any; }[]`) storing keys changed.",
+          "descriptionZh": "属性 `keysChanged`（类型：`{ key: string; newValue: any; oldValue: any; }[]`），用于存储或配置键列表已变更。"
+        }
+      ]
     },
     {
       "name": "ChangeItem",
       "kind": "interface",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Interface `ChangeItem` defining the contract and properties for change item.",
+      "summaryZh": "接口 `ChangeItem`，定义变更条目的数据结构契约与属性规范。",
       "sourceFile": "src/util/change.interface.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
-      "properties": []
+      "properties": [
+        {
+          "name": "change",
+          "type": "Change",
+          "description": "Property `change` (`Change`) storing change.",
+          "descriptionZh": "属性 `change`（类型：`Change`），用于存储或配置变更。"
+        },
+        {
+          "name": "value",
+          "type": "any",
+          "description": "Property `value` (`any`) storing value.",
+          "descriptionZh": "属性 `value`（类型：`any`），用于存储或配置值。"
+        },
+        {
+          "name": "oldValue",
+          "type": "any",
+          "description": "Property `oldValue` (`any`) storing old value.",
+          "descriptionZh": "属性 `oldValue`（类型：`any`），用于存储或配置旧值。"
+        },
+        {
+          "name": "newValue",
+          "type": "any",
+          "description": "Property `newValue` (`any`) storing new value.",
+          "descriptionZh": "属性 `newValue`（类型：`any`），用于存储或配置新值。"
+        }
+      ]
     },
     {
       "name": "ChangeType",
       "kind": "enum",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Enumeration `ChangeType` defining supported change type constants.",
+      "summaryZh": "枚举 `ChangeType`，定义支持的变更类型常量集合。",
       "sourceFile": "src/util/change.interface.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
-      "properties": []
+      "properties": [
+        {
+          "name": "ADDED",
+          "type": "enum-member",
+          "default": "'added'",
+          "description": "Enum member `ChangeType.ADDED` = 'added' representing added.",
+          "descriptionZh": "枚举项 `ChangeType.ADDED` = 'added'，表示已添加。"
+        },
+        {
+          "name": "DELETED",
+          "type": "enum-member",
+          "default": "'deleted'",
+          "description": "Enum member `ChangeType.DELETED` = 'deleted' representing deleted.",
+          "descriptionZh": "枚举项 `ChangeType.DELETED` = 'deleted'，表示已删除。"
+        },
+        {
+          "name": "MODIFIED",
+          "type": "enum-member",
+          "default": "'modified'",
+          "description": "Enum member `ChangeType.MODIFIED` = 'modified' representing modified.",
+          "descriptionZh": "枚举项 `ChangeType.MODIFIED` = 'modified'，表示MODIFIED。"
+        }
+      ]
     },
     {
       "name": "ChangeUtils",
       "kind": "class",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Class `ChangeUtils` encapsulating change utils data structures and logic in `src/util`.",
+      "summaryZh": "类 `ChangeUtils`，封装 `src/util` 中的变更工具集数据结构与处理逻辑。",
       "sourceFile": "src/util/change.ts",
       "inputs": [],
       "outputs": [],
@@ -163,8 +223,8 @@
             }
           ],
           "returnType": "GroupingChanges",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `findChanges` to handle find changes.",
+          "descriptionZh": "执行 `findChanges`，用于查找变更集合。"
         }
       ],
       "properties": []
@@ -173,7 +233,7 @@
       "name": "DataType",
       "kind": "type",
       "summary": "The data type for the resized image.",
-      "summaryZh": null,
+      "summaryZh": "类型别名 `DataType`，表示数据类型（`'image/png' | 'image/jpeg' | 'image/webp'`）。",
       "sourceFile": "src/util/resize-image.ts",
       "inputs": [],
       "outputs": [],
@@ -183,8 +243,8 @@
     {
       "name": "DecimalNumberModel",
       "kind": "class",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Class `DecimalNumberModel` encapsulating decimal number model data structures and logic in `src/util/models`.",
+      "summaryZh": "类 `DecimalNumberModel`，封装 `src/util/models` 中的Decimal数字模型数据结构与处理逻辑。",
       "sourceFile": "src/util/models/decimal-number.model.ts",
       "inputs": [],
       "outputs": [],
@@ -193,28 +253,28 @@
         {
           "name": "minIntegerDigits",
           "type": "number",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `minIntegerDigits` (`number`) storing min integer digits.",
+          "descriptionZh": "属性 `minIntegerDigits`（类型：`number`），用于存储或配置最小值Integer数字位。"
         },
         {
           "name": "minFractionDigits",
           "type": "number",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `minFractionDigits` (`number`) storing min fraction digits.",
+          "descriptionZh": "属性 `minFractionDigits`（类型：`number`），用于存储或配置最小值Fraction数字位。"
         },
         {
           "name": "maxFractionDigits",
           "type": "number",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `maxFractionDigits` (`number`) storing max fraction digits.",
+          "descriptionZh": "属性 `maxFractionDigits`（类型：`number`），用于存储或配置最大值Fraction数字位。"
         }
       ]
     },
     {
       "name": "ExtUtilModule",
       "kind": "module",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular module `ExtUtilModule` declaring and exporting ext util module components, directives, pipes, and providers.",
+      "summaryZh": "Angular 模块 `ExtUtilModule`，声明并导出Ext工具模块相关的组件、指令、管道与服务提供者。",
       "sourceFile": "src/util/util.module.ts",
       "inputs": [],
       "outputs": [],
@@ -224,74 +284,214 @@
     {
       "name": "GroupingChanges",
       "kind": "interface",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Interface `GroupingChanges` defining the contract and properties for grouping changes.",
+      "summaryZh": "接口 `GroupingChanges`，定义分组变更集合的数据结构契约与属性规范。",
       "sourceFile": "src/util/change.interface.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
-      "properties": []
+      "properties": [
+        {
+          "name": "added",
+          "type": "ChangeItem[]",
+          "description": "Property `added` (`ChangeItem[]`) storing added.",
+          "descriptionZh": "属性 `added`（类型：`ChangeItem[]`），用于存储或配置已添加。"
+        },
+        {
+          "name": "deleted",
+          "type": "ChangeItem[]",
+          "description": "Property `deleted` (`ChangeItem[]`) storing deleted.",
+          "descriptionZh": "属性 `deleted`（类型：`ChangeItem[]`），用于存储或配置已删除。"
+        },
+        {
+          "name": "modified",
+          "type": "ChangeItem[]",
+          "description": "Property `modified` (`ChangeItem[]`) storing modified.",
+          "descriptionZh": "属性 `modified`（类型：`ChangeItem[]`），用于存储或配置modified。"
+        }
+      ]
     },
     {
       "name": "Options",
       "kind": "interface",
       "summary": "The options for image resizing.",
-      "summaryZh": null,
+      "summaryZh": "接口 `Options`，定义配置选项的数据结构契约与属性规范。",
       "sourceFile": "src/util/resize-image.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
-      "properties": []
+      "properties": [
+        {
+          "name": "type",
+          "type": "DataType",
+          "description": "Property `type` (`DataType`) storing type.",
+          "descriptionZh": "属性 `type`（类型：`DataType`），用于存储或配置类型。"
+        },
+        {
+          "name": "width",
+          "type": "number",
+          "description": "Property `width` (`number`) storing width.",
+          "descriptionZh": "属性 `width`（类型：`number`），用于存储或配置宽度。"
+        },
+        {
+          "name": "height",
+          "type": "number",
+          "description": "Property `height` (`number`) storing height.",
+          "descriptionZh": "属性 `height`（类型：`number`），用于存储或配置高度。"
+        },
+        {
+          "name": "quality",
+          "type": "number",
+          "description": "Property `quality` (`number`) storing quality.",
+          "descriptionZh": "属性 `quality`（类型：`number`），用于存储或配置quality。"
+        }
+      ]
     },
     {
       "name": "resizeImage",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Executes `resizeImage` to handle resize image.",
+      "summaryZh": "执行 `resizeImage`，用于调整尺寸图像。",
       "sourceFile": "src/util/resize-image.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "resizeImage",
+          "params": [
+            {
+              "name": "img",
+              "type": "File"
+            },
+            {
+              "name": "width",
+              "type": "number"
+            },
+            {
+              "name": "height",
+              "type": "number"
+            },
+            {
+              "name": "quality",
+              "type": "number"
+            },
+            {
+              "name": "type",
+              "type": "DataType"
+            }
+          ],
+          "returnType": "Promise<Result<string, string>>",
+          "description": "Executes `resizeImage` to handle resize image.",
+          "descriptionZh": "执行 `resizeImage`，用于调整尺寸图像。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "resizeImageHeight",
       "kind": "function",
       "summary": "Resizes an image to a specific height while maintaining the aspect ratio, using the provided `File` object as input.",
-      "summaryZh": null,
+      "summaryZh": "执行 `resizeImageHeight`，用于调整尺寸图像高度。",
       "sourceFile": "src/util/resize-image.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "resizeImageHeight",
+          "params": [
+            {
+              "name": "img",
+              "type": "File"
+            },
+            {
+              "name": "height",
+              "type": "number"
+            },
+            {
+              "name": "quality",
+              "type": "number"
+            },
+            {
+              "name": "type",
+              "type": "DataType"
+            }
+          ],
+          "returnType": "Promise<Result<string, string>>",
+          "description": "Resizes an image to a specific height while maintaining the aspect ratio, using the provided `File` object as input.",
+          "descriptionZh": "执行 `resizeImageHeight`，用于调整尺寸图像高度。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "resizeImageWidth",
       "kind": "function",
       "summary": "Resizes an image to a specific width while maintaining the aspect ratio, using the provided `File` object as input.",
-      "summaryZh": null,
+      "summaryZh": "执行 `resizeImageWidth`，用于调整尺寸图像宽度。",
       "sourceFile": "src/util/resize-image.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "resizeImageWidth",
+          "params": [
+            {
+              "name": "img",
+              "type": "File"
+            },
+            {
+              "name": "width",
+              "type": "number"
+            },
+            {
+              "name": "quality",
+              "type": "number"
+            },
+            {
+              "name": "type",
+              "type": "DataType"
+            }
+          ],
+          "returnType": "Promise<Result<string, string>>",
+          "description": "Resizes an image to a specific width while maintaining the aspect ratio, using the provided `File` object as input.",
+          "descriptionZh": "执行 `resizeImageWidth`，用于调整尺寸图像宽度。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "resizeImg",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Executes `resizeImg` to handle resize img.",
+      "summaryZh": "执行 `resizeImg`，用于调整尺寸图片。",
       "sourceFile": "src/util/resize-image.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "resizeImg",
+          "params": [
+            {
+              "name": "img",
+              "type": "File"
+            },
+            {
+              "name": "opt",
+              "type": "Options"
+            }
+          ],
+          "returnType": "Promise<Result<string, string>>",
+          "description": "Executes `resizeImg` to handle resize img.",
+          "descriptionZh": "执行 `resizeImg`，用于调整尺寸图片。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "Result",
       "kind": "type",
       "summary": "Represents a result type that can either hold a successful value of type `T` or an error value of type `E`.",
-      "summaryZh": null,
+      "summaryZh": "类型别名 `Result`，表示结果（`Ok<T> | Err<E>`）。",
       "sourceFile": "src/util/resize-image.ts",
       "inputs": [],
       "outputs": [],
@@ -301,30 +501,51 @@
     {
       "name": "S4",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Executes `S4` to handle s4.",
+      "summaryZh": "执行 `S4`，用于S4。",
       "sourceFile": "src/util/uuid.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "S4",
+          "params": [],
+          "returnType": "any",
+          "description": "Executes `S4` to handle s4.",
+          "descriptionZh": "执行 `S4`，用于S4。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "strEnum",
       "kind": "function",
       "summary": "Utility function to create a K:V from a list of strings",
-      "summaryZh": null,
+      "summaryZh": "执行 `strEnum`，用于字符串Enum。",
       "sourceFile": "src/util/strenum.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "strEnum",
+          "params": [
+            {
+              "name": "o",
+              "type": "Array<T>"
+            }
+          ],
+          "returnType": "{ [K in T]: K }",
+          "description": "Utility function to create a K:V from a list of strings",
+          "descriptionZh": "执行 `strEnum`，用于字符串Enum。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "StringUtils",
       "kind": "class",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Class `StringUtils` encapsulating string utils data structures and logic in `src/util`.",
+      "summaryZh": "类 `StringUtils`，封装 `src/util` 中的字符串工具集数据结构与处理逻辑。",
       "sourceFile": "src/util/string-utils.ts",
       "inputs": [],
       "outputs": [],
@@ -346,8 +567,8 @@
             }
           ],
           "returnType": "string",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `diff` to handle diff.",
+          "descriptionZh": "执行 `diff`，用于diff。"
         }
       ],
       "properties": []
@@ -355,41 +576,91 @@
     {
       "name": "SubjectStatus",
       "kind": "enum",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Enumeration `SubjectStatus` defining supported subject status constants.",
+      "summaryZh": "枚举 `SubjectStatus`，定义支持的主题流状态常量集合。",
       "sourceFile": "src/util/watcher.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
-      "properties": []
+      "properties": [
+        {
+          "name": "Error",
+          "type": "enum-member",
+          "default": "0",
+          "description": "Enum member `SubjectStatus.Error` = 0 representing error.",
+          "descriptionZh": "枚举项 `SubjectStatus.Error` = 0，表示错误。"
+        },
+        {
+          "name": "Done",
+          "type": "enum-member",
+          "default": "1",
+          "description": "Enum member `SubjectStatus.Done` = 1 representing done.",
+          "descriptionZh": "枚举项 `SubjectStatus.Done` = 1，表示完成。"
+        },
+        {
+          "name": "Working",
+          "type": "enum-member",
+          "default": "2",
+          "description": "Enum member `SubjectStatus.Working` = 2 representing working.",
+          "descriptionZh": "枚举项 `SubjectStatus.Working` = 2，表示Working。"
+        },
+        {
+          "name": "Waiting",
+          "type": "enum-member",
+          "default": "3",
+          "description": "Enum member `SubjectStatus.Waiting` = 3 representing waiting.",
+          "descriptionZh": "枚举项 `SubjectStatus.Waiting` = 3，表示Waiting。"
+        }
+      ]
     },
     {
       "name": "switchCase",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Executes `switchCase` to handle switch case.",
+      "summaryZh": "执行 `switchCase`，用于切换开关Case。",
       "sourceFile": "src/util/func.util.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "switchCase",
+          "params": [
+            {
+              "name": "cases",
+              "type": "any"
+            }
+          ],
+          "returnType": "(defaultCase?: any) => (key: any) => any",
+          "description": "Executes `switchCase` to handle switch case.",
+          "descriptionZh": "执行 `switchCase`，用于切换开关Case。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "uuid",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Executes `uuid` to handle uuid.",
+      "summaryZh": "执行 `uuid`，用于唯一标识符。",
       "sourceFile": "src/util/uuid.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "uuid",
+          "params": [],
+          "returnType": "any",
+          "description": "Executes `uuid` to handle uuid.",
+          "descriptionZh": "执行 `uuid`，用于唯一标识符。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "Watcher",
       "kind": "class",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Class `Watcher` encapsulating watcher data structures and logic in `src/util`.",
+      "summaryZh": "类 `Watcher`，封装 `src/util` 中的Watcher数据结构与处理逻辑。",
       "sourceFile": "src/util/watcher.ts",
       "inputs": [],
       "outputs": [],
@@ -407,15 +678,15 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `subscribe` to handle subscribe.",
+          "descriptionZh": "执行 `subscribe`，用于订阅。"
         },
         {
           "name": "unsubscribe",
           "params": [],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `unsubscribe` to handle unsubscribe.",
+          "descriptionZh": "执行 `unsubscribe`，用于取消订阅。"
         }
       ],
       "properties": [
@@ -423,20 +694,20 @@
           "name": "status$",
           "type": "any",
           "default": "new Subject<SubjectStatus>()",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `status$` (`Subject`) storing status (default: `new Subject<SubjectStatus>()`).",
+          "descriptionZh": "属性 `status$`（类型：`Subject`），用于存储或配置状态（默认值：`new Subject<SubjectStatus>()`）。"
         },
         {
           "name": "status",
           "type": "SubjectStatus",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current status (`status: SubjectStatus`).",
+          "descriptionZh": "获取当前状态（`status: SubjectStatus`）。"
         },
         {
           "name": "status",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Sets the status (`status`).",
+          "descriptionZh": "设置状态（`status`）。"
         }
       ]
     }

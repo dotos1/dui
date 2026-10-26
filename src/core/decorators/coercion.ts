@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Module `src/core/decorators/coercion.ts` providing coercion definitions and implementation.
+ * @zh 模块文件 `src/core/decorators/coercion.ts`，提供coercion相关的定义与实现。
+ */
+
 
 import {
   coerceArray as coerceArrayAngular,
@@ -7,7 +12,11 @@ import {
   coerceStringArray as coerceStringArrayAngular
 } from '@angular/cdk/coercion';
 
-export const coerceBoolean = () => (target: any, key: string, propertyDescriptor?: PropertyDescriptor): void => {
+/**
+ * Constant/variable `coerceBoolean` defining coerce boolean in `src/core/decorators`.
+ * @zh 常量/变量 `coerceBoolean`，定义 `src/core/decorators` 中的coerce布尔值。
+ */
+export const coerceBoolean = () => (target, key: string, propertyDescriptor?: PropertyDescriptor): void => {
   if (!!propertyDescriptor && !!propertyDescriptor.set) {
     const original = propertyDescriptor.set;
 
@@ -19,7 +28,7 @@ export const coerceBoolean = () => (target: any, key: string, propertyDescriptor
       return this['__' + key];
     };
 
-    const setter = function(next: any) {
+    const setter = function(next) {
       this['__' + key] = coerceBooleanProperty(next);
     };
 
@@ -32,7 +41,11 @@ export const coerceBoolean = () => (target: any, key: string, propertyDescriptor
   }
 };
 
-export const coerceNumber = () => (target: any, key: string, propertyDescriptor?: PropertyDescriptor): void => {
+/**
+ * Constant/variable `coerceNumber` defining coerce number in `src/core/decorators`.
+ * @zh 常量/变量 `coerceNumber`，定义 `src/core/decorators` 中的coerce数字。
+ */
+export const coerceNumber = () => (target, key: string, propertyDescriptor?: PropertyDescriptor): void => {
   if (!!propertyDescriptor && !!propertyDescriptor.set) {
     const original = propertyDescriptor.set;
 
@@ -44,7 +57,7 @@ export const coerceNumber = () => (target: any, key: string, propertyDescriptor?
       return this['__' + key];
     };
 
-    const setter = function(next: any) {
+    const setter = function(next) {
       this['__' + key] = coerceNumberProperty(next);
     };
 
@@ -57,7 +70,11 @@ export const coerceNumber = () => (target: any, key: string, propertyDescriptor?
   }
 };
 
-export const coerceCssPixelValue = () => (target: any, key: string, propertyDescriptor?: PropertyDescriptor): void => {
+/**
+ * Constant/variable `coerceCssPixelValue` defining coerce css pixel value in `src/core/decorators`.
+ * @zh 常量/变量 `coerceCssPixelValue`，定义 `src/core/decorators` 中的coerceCSS样式像素值。
+ */
+export const coerceCssPixelValue = () => (target, key: string, propertyDescriptor?: PropertyDescriptor): void => {
   if (!!propertyDescriptor && !!propertyDescriptor.set) {
     const original = propertyDescriptor.set;
 
@@ -69,7 +86,7 @@ export const coerceCssPixelValue = () => (target: any, key: string, propertyDesc
       return this['__' + key];
     };
 
-    const setter = function(next: any) {
+    const setter = function(next) {
       this['__' + key] = coerceCssPixelValueAngular(next);
     };
 
@@ -82,7 +99,11 @@ export const coerceCssPixelValue = () => (target: any, key: string, propertyDesc
   }
 };
 
-export const coerceArray = () => (target: any, key: string, propertyDescriptor?: PropertyDescriptor): void => {
+/**
+ * Constant/variable `coerceArray` defining coerce array in `src/core/decorators`.
+ * @zh 常量/变量 `coerceArray`，定义 `src/core/decorators` 中的coerce数组。
+ */
+export const coerceArray = () => (target, key: string, propertyDescriptor?: PropertyDescriptor): void => {
   if (!!propertyDescriptor && !!propertyDescriptor.set) {
     const original = propertyDescriptor.set;
 
@@ -94,7 +115,7 @@ export const coerceArray = () => (target: any, key: string, propertyDescriptor?:
       return this['__' + key];
     };
 
-    const setter = function(next: any) {
+    const setter = function(next) {
       this['__' + key] = coerceArrayAngular(next);
     };
 
@@ -107,8 +128,12 @@ export const coerceArray = () => (target: any, key: string, propertyDescriptor?:
   }
 };
 
+/**
+ * Constant/variable `coerceStringArray` defining coerce string array in `src/core/decorators`.
+ * @zh 常量/变量 `coerceStringArray`，定义 `src/core/decorators` 中的coerce字符串数组。
+ */
 export const coerceStringArray = (separator?: string | RegExp) =>
-  (target: any, key: string, propertyDescriptor?: PropertyDescriptor): void => {
+  (target, key: string, propertyDescriptor?: PropertyDescriptor): void => {
   if (!!propertyDescriptor && !!propertyDescriptor.set) {
     const original = propertyDescriptor.set;
 
@@ -120,7 +145,7 @@ export const coerceStringArray = (separator?: string | RegExp) =>
       return this['__' + key];
     };
 
-    const setter = function(next: any) {
+    const setter = function(next) {
       this['__' + key] = coerceStringArrayAngular(next, separator);
     };
 

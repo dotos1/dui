@@ -1,3 +1,13 @@
+/**
+ * @fileoverview Module `src/theme/core/cdk-a11y.ts` providing cdk a11y definitions and implementation.
+ * @zh 模块文件 `src/theme/core/cdk-a11y.ts`，提供CDK工具a11y相关的定义与实现。
+ */
+
+/**
+ * Executes `cdkA11y` to handle cdk a11y.
+ * @zh 执行 `cdkA11y`，用于CDK工具A11y。
+ * @returns Result of type `Object` / 类型为 `Object` 的返回值
+ */
 export function cdkA11y(): Object {
     return {
         '.cdk-visually-hidden': {

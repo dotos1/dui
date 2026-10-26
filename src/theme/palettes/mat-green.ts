@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Module `src/theme/palettes/mat-green.ts` providing mat green definitions and implementation.
+ * @zh 模块文件 `src/theme/palettes/mat-green.ts`，提供Materialgreen相关的定义与实现。
+ */
+
 import { Palette } from '../interfaces/palette';
 
 import {
@@ -5,6 +10,10 @@ import {
     lightPrimaryText
 } from '../constants';
 
+/**
+ * Constant/variable `matGreen` defining mat green in `src/theme/palettes`.
+ * @zh 常量/变量 `matGreen`，定义 `src/theme/palettes` 中的MaterialGreen。
+ */
 export const matGreen: Palette = {
     50: '#e8f5e9',
     100: '#c8e6c9',

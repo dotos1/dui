@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Module `projects/testdui/src/app/app.component.spec.ts` providing app component spec definitions and implementation.
+ * @zh 模块文件 `projects/testdui/src/app/app.component.spec.ts`，提供app组件spec相关的定义与实现。
+ */
+
 import { TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
 

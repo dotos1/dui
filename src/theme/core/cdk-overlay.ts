@@ -1,3 +1,13 @@
+/**
+ * @fileoverview Module `src/theme/core/cdk-overlay.ts` providing cdk overlay definitions and implementation.
+ * @zh 模块文件 `src/theme/core/cdk-overlay.ts`，提供CDK工具浮层相关的定义与实现。
+ */
+
+/**
+ * Executes `cdkOverlay` to handle cdk overlay.
+ * @zh 执行 `cdkOverlay`，用于CDK工具浮层。
+ * @returns Result of type `Object` / 类型为 `Object` 的返回值
+ */
 export function cdkOverlay(): Object {
     const zOverlay: number = 1000;
 

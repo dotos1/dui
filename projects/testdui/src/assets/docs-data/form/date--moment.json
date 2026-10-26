@@ -4,8 +4,8 @@
     {
       "name": "MAT_MOMENT_DATETIME_FORMATS",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `MAT_MOMENT_DATETIME_FORMATS` defining mat moment datetime formats in `src/form/date/moment`.",
+      "summaryZh": "常量/变量 `MAT_MOMENT_DATETIME_FORMATS`，定义 `src/form/date/moment` 中的MaterialMOMENT日期时间格式列表。",
       "sourceFile": "src/form/date/moment/moment-datetime-formats.ts",
       "inputs": [],
       "outputs": [],
@@ -15,8 +15,8 @@
     {
       "name": "MatMomentDatetimeModule",
       "kind": "module",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular module `MatMomentDatetimeModule` declaring and exporting mat moment datetime module components, directives, pipes, and providers.",
+      "summaryZh": "Angular 模块 `MatMomentDatetimeModule`，声明并导出MaterialMoment日期时间模块相关的组件、指令、管道与服务提供者。",
       "sourceFile": "src/form/date/moment/moment-datetime.module.ts",
       "inputs": [],
       "outputs": [],
@@ -26,8 +26,8 @@
     {
       "name": "MOMENT_DATE_FORMATS",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `MOMENT_DATE_FORMATS` defining moment date formats in `src/form/date/moment`.",
+      "summaryZh": "常量/变量 `MOMENT_DATE_FORMATS`，定义 `src/form/date/moment` 中的MOMENT日期格式列表。",
       "sourceFile": "src/form/date/moment/moment-datetime-formats.ts",
       "inputs": [],
       "outputs": [],
@@ -37,8 +37,8 @@
     {
       "name": "MomentDatetimeAdapter",
       "kind": "service",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Injectable Angular service `MomentDatetimeAdapter` managing moment datetime adapter state and operations in `src/form/date/moment`.",
+      "summaryZh": "可注入的 Angular 服务 `MomentDatetimeAdapter`，管理 `src/form/date/moment` 中的Moment日期时间适配器状态与业务操作。",
       "sourceFile": "src/form/date/moment/moment-datetime-adapter.ts",
       "inputs": [],
       "outputs": [],
@@ -52,8 +52,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `setLocale` to handle set locale.",
+          "descriptionZh": "执行 `setLocale`，用于集合语言区域。"
         },
         {
           "name": "getHour",
@@ -64,8 +64,8 @@
             }
           ],
           "returnType": "number",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `getHour` to handle get hour.",
+          "descriptionZh": "执行 `getHour`，用于获取小时。"
         },
         {
           "name": "getMinute",
@@ -76,8 +76,8 @@
             }
           ],
           "returnType": "number",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `getMinute` to handle get minute.",
+          "descriptionZh": "执行 `getMinute`，用于获取分钟。"
         },
         {
           "name": "isInNextMonth",
@@ -92,8 +92,8 @@
             }
           ],
           "returnType": "boolean",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `isInNextMonth` to handle is in next month.",
+          "descriptionZh": "执行 `isInNextMonth`，用于是否为在下一个月。"
         },
         {
           "name": "createDatetime",
@@ -120,8 +120,8 @@
             }
           ],
           "returnType": "Moment",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `createDatetime` to handle create datetime.",
+          "descriptionZh": "执行 `createDatetime`，用于创建日期时间。"
         },
         {
           "name": "getFirstDateOfMonth",
@@ -132,22 +132,22 @@
             }
           ],
           "returnType": "Moment",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `getFirstDateOfMonth` to handle get first date of month.",
+          "descriptionZh": "执行 `getFirstDateOfMonth`，用于获取首个日期的月。"
         },
         {
           "name": "getHourNames",
           "params": [],
           "returnType": "string[]",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `getHourNames` to handle get hour names.",
+          "descriptionZh": "执行 `getHourNames`，用于获取小时名称列表。"
         },
         {
           "name": "getMinuteNames",
           "params": [],
           "returnType": "string[]",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `getMinuteNames` to handle get minute names.",
+          "descriptionZh": "执行 `getMinuteNames`，用于获取分钟名称列表。"
         },
         {
           "name": "addCalendarHours",
@@ -162,8 +162,8 @@
             }
           ],
           "returnType": "Moment",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `addCalendarHours` to handle add calendar hours.",
+          "descriptionZh": "执行 `addCalendarHours`，用于添加日历小时数。"
         },
         {
           "name": "addCalendarMinutes",
@@ -178,8 +178,8 @@
             }
           ],
           "returnType": "Moment",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `addCalendarMinutes` to handle add calendar minutes.",
+          "descriptionZh": "执行 `addCalendarMinutes`，用于添加日历分钟数。"
         },
         {
           "name": "deserialize",
@@ -190,8 +190,8 @@
             }
           ],
           "returnType": "Moment | null",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `deserialize` to handle deserialize.",
+          "descriptionZh": "执行 `deserialize`，用于反序列化。"
         }
       ],
       "properties": []
@@ -199,8 +199,8 @@
     {
       "name": "MomentDatetimeModule",
       "kind": "module",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular module `MomentDatetimeModule` declaring and exporting moment datetime module components, directives, pipes, and providers.",
+      "summaryZh": "Angular 模块 `MomentDatetimeModule`，声明并导出Moment日期时间模块相关的组件、指令、管道与服务提供者。",
       "sourceFile": "src/form/date/moment/moment-datetime.module.ts",
       "inputs": [],
       "outputs": [],

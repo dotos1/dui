@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Module `src/theme/palettes/mat-blue-gray.ts` providing mat blue gray definitions and implementation.
+ * @zh 模块文件 `src/theme/palettes/mat-blue-gray.ts`，提供Materialbluegray相关的定义与实现。
+ */
+
 import { Palette } from '../interfaces/palette';
 
 import {
@@ -5,6 +10,10 @@ import {
     lightPrimaryText
 } from '../constants';
 
+/**
+ * Constant/variable `matBlueGray` defining mat blue gray in `src/theme/palettes`.
+ * @zh 常量/变量 `matBlueGray`，定义 `src/theme/palettes` 中的MaterialBlueGray。
+ */
 export const matBlueGray: Palette = {
     50: "#eceff1",
     100: "#cfd8dc",

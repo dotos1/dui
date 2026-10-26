@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Module `src/theme/mat-color.ts` providing mat color definitions and implementation.
+ * @zh 模块文件 `src/theme/mat-color.ts`，提供Material颜色相关的定义与实现。
+ */
+
 import cssColorToHex from 'colornames';
 import { Color, Solver, TinyColor } from '@dotos/dui/core/color';
 
@@ -11,6 +16,14 @@ import { Color, Solver, TinyColor } from '@dotos/dui/core/color';
 // param $hue The hue from the palette to use. If this is a value between 0 and 1, it will
 //     be treated as opacity.
 // param $opacity The alpha channel value for the color.
+/**
+ * Executes `matColor` to handle mat color.
+ * @zh 执行 `matColor`，用于Material颜色。
+ * @param palette - palette parameter (`Object`) / 调色板参数（`Object`）
+ * @param hue - hue parameter (`string | number`) / 色相参数（`string | number`）
+ * @param opacityParam - opacity param parameter (`number`) / 不透明度参数参数（`number`）
+ * @returns Result of type `string` / 类型为 `string` 的返回值
+ */
 export function matColor(
   palette: Object,
   hue: string | number = 'default',
@@ -26,9 +39,24 @@ export function matColor(
   const opacity: number = opacityParam === null ? colorToOpacity(color) : opacityParam;
   return rgba(color, opacity);
 }
+/**
+ * Executes `rgbToHex` to handle rgb to hex.
+ * @zh 执行 `rgbToHex`，用于RGB颜色转换为十六进制颜色。
+ * @param r - r parameter (`number`) / r参数（`number`）
+ * @param g - g parameter (`number`) / g参数（`number`）
+ * @param b - b parameter (`number`) / b参数（`number`）
+ */
 function rgbToHex(r: number, g: number, b: number) {
   return "#" + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1);
 }
+/**
+ * Executes `mix` to handle mix.
+ * @zh 执行 `mix`，用于mix。
+ * @param color1 - color1 parameter (`string`) / color1参数（`string`）
+ * @param color2 - color2 parameter (`string`) / color2参数（`string`）
+ * @param weight - weight parameter (`number`) / 权重/字重参数（`number`）
+ * @returns Result of type `string` / 类型为 `string` 的返回值
+ */
 export function mix(color1: string,color2: string, weight: number = 1): string {
     let rgba_color1= rgba(color1).slice(5).split(',');
     let rgba_color2= rgba(color2).slice(5).split(',');
@@ -46,6 +74,13 @@ export function mix(color1: string,color2: string, weight: number = 1): string {
     
     return rgbToHex(r,g,b);
 }
+/**
+ * Executes `rgba` to handle rgba.
+ * @zh 执行 `rgba`，用于RGBA颜色。
+ * @param color - color parameter (`string`) / 颜色参数（`string`）
+ * @param opacity - opacity parameter (`number`) / 不透明度参数（`number`）
+ * @returns Result of type `string` / 类型为 `string` 的返回值
+ */
 export function rgba(color: string, opacity: number = 1): string {
   if (color.indexOf('#') === 0) {
     const colorValue: string = color.substr(1);
@@ -95,6 +130,12 @@ export function rgba(color: string, opacity: number = 1): string {
   return 'rgba(0,0,0,1)';
 }
 
+/**
+ * Executes `invert` to handle invert.
+ * @zh 执行 `invert`，用于invert。
+ * @param color - color parameter (`string`) / 颜色参数（`string`）
+ * @returns Result of type `string` / 类型为 `string` 的返回值
+ */
 export function invert(color: string): string {
   if (color.indexOf('rgba(') === 0) {
     let colorValue: string = color.substring(
@@ -125,6 +166,12 @@ export function invert(color: string): string {
   return color;
 }
 
+/**
+ * Executes `colorToOpacity` to handle color to opacity.
+ * @zh 执行 `colorToOpacity`，用于颜色转换为不透明度。
+ * @param color - color parameter (`string`) / 颜色参数（`string`）
+ * @returns Result of type `number` / 类型为 `number` 的返回值
+ */
 function colorToOpacity(color: string): number {
   if (color.indexOf('rgba(') === 0) {
     return parseFloat(
@@ -135,6 +182,11 @@ function colorToOpacity(color: string): number {
 }
 
 
+/**
+ * Executes `invertSvgColor` to handle invert svg color.
+ * @zh 执行 `invertSvgColor`，用于invertSVG矢量图颜色。
+ * @param theme - theme parameter (`any`) / 主题参数（`any`）
+ */
 export function invertSvgColor(theme) {
     let iconColor =matColor(theme.background, 'card'); 
     let backgroundColor = matColor(theme.foreground, 'icon');
@@ -148,6 +200,11 @@ export function invertSvgColor(theme) {
     return result;
 }
 
+/**
+ * Executes `svgColor` to handle svg color.
+ * @zh 执行 `svgColor`，用于SVG矢量图颜色。
+ * @param theme - theme parameter (`any`) / 主题参数（`any`）
+ */
 export function svgColor(theme) {
   let iconColor = matColor(theme.foreground, 'icon');
   let backgroundColor = matColor(theme.background, 'card');

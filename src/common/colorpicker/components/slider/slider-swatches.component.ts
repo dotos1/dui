@@ -1,8 +1,17 @@
+/**
+ * @fileoverview Module `src/common/colorpicker/components/slider/slider-swatches.component.ts` providing slider swatches component definitions and implementation.
+ * @zh 模块文件 `src/common/colorpicker/components/slider/slider-swatches.component.ts`，提供滑块swatches组件相关的定义与实现。
+ */
+
 import {
   ChangeDetectionStrategy,  Component,  EventEmitter,  Input,  Output,
 } from '@angular/core';
 import { HSL } from '@dotos/dui/common/colorpicker/common';
 
+/**
+ * Angular component `SliderSwatchesComponent` (selector: 'color-slider-swatches') providing slider swatches component presentation and interaction in `src/common/colorpicker/components/slider`.
+ * @zh Angular 组件 `SliderSwatchesComponent`（selector: 'color-slider-swatches'），提供滑块Swatches组件的视图渲染与交互逻辑（位于 `src/common/colorpicker/components/slider`）。
+ */
 @Component({
   selector: 'color-slider-swatches',
   template: `
@@ -74,13 +83,28 @@ import { HSL } from '@dotos/dui/common/colorpicker/common';
  * @zh {@link ColorSliderComponent} 使用的一排（5 个）当前色相下固定明度预设的色块。
  */
 export class SliderSwatchesComponent {
-  /** @zh 当前颜色的 HSL 表示。 */
+  /**
+   * @zh 当前颜色的 HSL 表示。
+   * @zh 当前颜色的 HSL 表示。
+   */
   @Input() hsl: HSL;
-  /** @zh 某个色块被点击时发出。 */
-  @Output() onClick = new EventEmitter<any>();
-  /** @zh 鼠标悬停在某个色块上时发出。 */
-  @Output() onSwatchHover = new EventEmitter<any>();
-  /** @zh 色块的内联样式。 */
+  /**
+   * Output event emitter `onClick` (`EventEmitter`) firing when on click occurs.
+   * @zh 某个色块被点击时发出。
+   * @zh 某个色块被点击时发出。
+   */
+  @Output() onClick = new EventEmitter();
+  /**
+   * Output event emitter `onSwatchHover` (`EventEmitter`) firing when on swatch hover occurs.
+   * @zh 鼠标悬停在某个色块上时发出。
+   * @zh 鼠标悬停在某个色块上时发出。
+   */
+  @Output() onSwatchHover = new EventEmitter();
+  /**
+   * Property `swatchStyle` (`{ [key: string]: string }`) storing swatch style.
+   * @zh 色块的内联样式。
+   * @zh 色块的内联样式。
+   */
   swatchStyle: { [key: string]: string };
 
   /**

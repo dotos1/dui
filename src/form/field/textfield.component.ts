@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Module `src/form/field/textfield.component.ts` providing textfield component definitions and implementation.
+ * @zh 模块文件 `src/form/field/textfield.component.ts`，提供textfield组件相关的定义与实现。
+ */
+
 import { AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { MatAutocompleteTrigger } from '@angular/material/autocomplete';
 import { isObject } from '@dotos/dui/base';
@@ -11,6 +16,10 @@ import { OptionsService } from './options.service';
 
 
 
+/**
+ * Angular component `TextFieldComponent` (selector: 'text-field') providing text field component presentation and interaction in `src/form/field`.
+ * @zh Angular 组件 `TextFieldComponent`（selector: 'text-field'），提供文本字段组件的视图渲染与交互逻辑（位于 `src/form/field`）。
+ */
 @Component({
   selector: 'text-field',
   templateUrl: './textfield.component.html',
@@ -22,31 +31,75 @@ import { OptionsService } from './options.service';
 })
 export class TextFieldComponent extends MatField implements OnInit, AfterViewInit, OnDestroy {
 
+  /**
+   * Template/content query reference `autocompleteTrigger` (`@ViewChild`) targeting autocomplete trigger.
+   * @zh 模板/内容视图查询引用 `autocompleteTrigger`（`@ViewChild`），指向自动补全触发。
+   */
   @ViewChild('autoCompleteInput', { read: MatAutocompleteTrigger })
   autocompleteTrigger: MatAutocompleteTrigger;
 
   // protected maskRe;
 
+  /**
+   * Property `disableKeyFilter` (`boolean`) storing disable key filter (default: `false`).
+   * @zh 属性 `disableKeyFilter`（类型：`boolean`），用于存储或配置禁用键过滤（默认值：`false`）。
+   */
   public disableKeyFilter = false;
 
   // vtype: string = undefined;
 
+  /**
+   * Property `regexText` (`string`) storing regex text.
+   * @zh 属性 `regexText`（类型：`string`），用于存储或配置正则表达式文本。
+   */
   regexText: string;
 
+  /**
+   * Property `filteredOptions` (`Observable<string[]>`) storing filtered options (default: `new Observable<string[]>()`).
+   * @zh 属性 `filteredOptions`（类型：`Observable<string[]>`），用于存储或配置已过滤配置选项（默认值：`new Observable<string[]>()`）。
+   */
   filteredOptions: Observable<string[]> = new Observable<string[]>();
 
+  /**
+   * Property `isAlive` (`boolean`) storing is alive (default: `false`).
+   * @zh 属性 `isAlive`（类型：`boolean`），用于存储或配置是否为Alive（默认值：`false`）。
+   */
   isAlive = false;
 
+  /**
+   * Property `isLoading` (`boolean`) storing is loading (default: `false`).
+   * @zh 属性 `isLoading`（类型：`boolean`），用于存储或配置是否为加载中（默认值：`false`）。
+   */
   isLoading = false;
 
+  /**
+   * Property `searching` (`boolean`) storing searching (default: `false`).
+   * @zh 属性 `searching`（类型：`boolean`），用于存储或配置搜索（默认值：`false`）。
+   */
   public searching: boolean = false;
 
+  /**
+   * Property `_onDestroy` (`Subject`) storing on destroy (default: `new Subject<void>()`).
+   * @zh 属性 `_onDestroy`（类型：`Subject`），用于存储或配置当销毁（默认值：`new Subject<void>()`）。
+   */
   protected _onDestroy = new Subject<void>();
 
   // Tracks the exact params object sent with the most recently issued remote request; see
   // comment on the `serviceData` subscribe below.
-  private _lastRequestParams: any;
+  /**
+   * Property `_lastRequestParams` (`any`) storing last request params.
+   * @zh 属性 `_lastRequestParams`（类型：`any`），用于存储或配置末尾请求参数集合。
+   */
+  private _lastRequestParams;
 
+  /**
+   * Creates an instance of `TextFieldComponent` and initializes its dependencies and internal state.
+   * @zh 创建 `TextFieldComponent` 实例，并初始化其依赖项与内部状态。
+   * @param _elementRef - Injected or initial element ref (`ElementRef`) / 注入或传入的元素引用（`ElementRef`）
+   * @param translate - Injected or initial translate (`TranslateService`) / 注入或传入的翻译（`TranslateService`）
+   * @param optionService - Injected or initial option service (`OptionsService`) / 注入或传入的选项服务（`OptionsService`）
+   * @param changeDetector - Injected or initial change detector (`ChangeDetectorRef`) / 注入或传入的变更检测器（`ChangeDetectorRef`）
+   */
   constructor(
     protected _elementRef: ElementRef,
     protected override translate: TranslateService,
@@ -56,6 +109,10 @@ export class TextFieldComponent extends MatField implements OnInit, AfterViewIni
     super(translate);
   }
 
+  /**
+   * Executes `init` to handle init.
+   * @zh 执行 `init`，用于初始化。
+   */
   override init() {
     super.init();
     if (this.field.minLength) {
@@ -73,6 +130,10 @@ export class TextFieldComponent extends MatField implements OnInit, AfterViewIni
     this.filteredOptions = of(this.field.options);
   }
 
+  /**
+   * Angular lifecycle hook invoked once after component or directive inputs are initialized.
+   * @zh Angular 生命周期钩子：在组件或指令的输入属性初始化完成后调用一次。
+   */
   override ngOnInit() {
     super.ngOnInit();
 
@@ -141,6 +202,10 @@ export class TextFieldComponent extends MatField implements OnInit, AfterViewIni
     }
 
   }
+  /**
+   * Angular lifecycle hook invoked once after the component's view and child views are initialized.
+   * @zh Angular 生命周期钩子：在组件视图及其子视图初始化完成后调用一次。
+   */
   override ngAfterViewInit() {
     super.ngAfterViewInit()
     if (this.field.remote) {
@@ -158,6 +223,11 @@ export class TextFieldComponent extends MatField implements OnInit, AfterViewIni
     }
   }
 
+  /**
+   * Executes `openChanged` to handle open changed.
+   * @zh 执行 `openChanged`，用于打开已变更。
+   * @param e - e parameter (`any`) / e参数（`any`）
+   */
   openChanged(e) {
     if (this.field.remote) {
 
@@ -168,6 +238,10 @@ export class TextFieldComponent extends MatField implements OnInit, AfterViewIni
   }
 
 
+  /**
+   * Angular lifecycle hook invoked just before the component, directive, or service is destroyed to release subscriptions and resources.
+   * @zh Angular 生命周期钩子：在组件、指令或服务销毁前调用，用于释放订阅与清理资源。
+   */
   override ngOnDestroy() {
     this.isAlive = false;
     this._onDestroy.next();
@@ -175,6 +249,11 @@ export class TextFieldComponent extends MatField implements OnInit, AfterViewIni
     super.ngOnDestroy();
   }
 
+  /**
+   * Executes `getLabel` to handle get label.
+   * @zh 执行 `getLabel`，用于获取标签。
+   * @param option - option parameter (`any`) / 选项参数（`any`）
+   */
   public getLabel(option) {
     if (isObject(option)) {
       return this.translate.instant(option.label);
@@ -183,6 +262,11 @@ export class TextFieldComponent extends MatField implements OnInit, AfterViewIni
     }
   }
 
+  /**
+   * Executes `getValue` to handle get value.
+   * @zh 执行 `getValue`，用于获取值。
+   * @param option - option parameter (`any`) / 选项参数（`any`）
+   */
   public getValue(option) {
     if (isObject(option)) {
       return option.value;
@@ -191,11 +275,23 @@ export class TextFieldComponent extends MatField implements OnInit, AfterViewIni
     }
   }
 
-  public trackByOption(index: number, option: any) {
+  /**
+   * Executes `trackByOption` to handle track by option.
+   * @zh 执行 `trackByOption`，用于track按选项。
+   * @param index - index parameter (`number`) / 索引参数（`number`）
+   * @param option - option parameter (`any`) / 选项参数（`any`）
+   */
+  public trackByOption(index: number, option) {
     return isObject(option) ? option.value : option;
   }
 
-  private _filter(value: any): string[] {
+  /**
+   * Executes `_filter` to handle filter.
+   * @zh 执行 `_filter`，用于过滤。
+   * @param value - value parameter (`any`) / 值参数（`any`）
+   * @returns Result of type `string[]` / 类型为 `string[]` 的返回值
+   */
+  private _filter(value): string[] {
     if (this.field.options == null || value == null) {
       return [];
     } else {

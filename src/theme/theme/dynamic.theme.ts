@@ -1,6 +1,17 @@
+/**
+ * @fileoverview Module `src/theme/theme/dynamic.theme.ts` providing dynamic theme definitions and implementation.
+ * @zh 模块文件 `src/theme/theme/dynamic.theme.ts`，提供动态主题相关的定义与实现。
+ */
+
 import { Theme } from '../interfaces/theme';
 import { matColor } from '../mat-color';
 
+/**
+ * Executes `duiDynamicComponentTheme` to handle dui dynamic component theme.
+ * @zh 执行 `duiDynamicComponentTheme`，用于DUI动态组件主题。
+ * @param theme - theme parameter (`Theme`) / 主题参数（`Theme`）
+ * @returns Result of type `Object` / 类型为 `Object` 的返回值
+ */
 export function duiDynamicComponentTheme(theme: Theme): Object {
   const secondaryText: string = matColor(theme.foreground, 'secondary-text');
 

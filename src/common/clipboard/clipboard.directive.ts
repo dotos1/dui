@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Module `src/common/clipboard/clipboard.directive.ts` providing clipboard directive definitions and implementation.
+ * @zh 模块文件 `src/common/clipboard/clipboard.directive.ts`，提供clipboard指令相关的定义与实现。
+ */
+
 
 import {
   Directive, Input, HostListener, ViewContainerRef,  ComponentFactoryResolver
@@ -35,6 +40,13 @@ export class ClipboardDirective {
    */
   @Input('clipboard-notification') message: string;
 
+  /**
+   * Creates an instance of `ClipboardDirective` and initializes its dependencies and internal state.
+   * @zh 创建 `ClipboardDirective` 实例，并初始化其依赖项与内部状态。
+   * @param clipboardService - Injected or initial clipboard service (`ClipboardService`) / 注入或传入的clipboard服务（`ClipboardService`）
+   * @param viewContainerRef - Injected or initial view container ref (`ViewContainerRef`) / 注入或传入的视图容器引用（`ViewContainerRef`）
+   * @param resolver - Injected or initial resolver (`ComponentFactoryResolver`) / 注入或传入的解析器（`ComponentFactoryResolver`）
+   */
   constructor(private clipboardService: ClipboardService,
     public viewContainerRef: ViewContainerRef,
     private resolver: ComponentFactoryResolver) { }
@@ -72,6 +84,10 @@ export class ClipboardDirective {
     this.viewContainerRef.remove();
   }
 
+  /**
+   * Executes `copyToClipboard` to handle copy to clipboard.
+   * @zh 执行 `copyToClipboard`，用于复制转换为Clipboard。
+   */
   private copyToClipboard() {
     const isValidTarget = this.clipboardService.isTargetValid(this.target);
 
@@ -82,7 +98,12 @@ export class ClipboardDirective {
     }
   }
 
-  private copyContentToClipboard(content:any) {
+  /**
+   * Executes `copyContentToClipboard` to handle copy content to clipboard.
+   * @zh 执行 `copyContentToClipboard`，用于复制内容转换为Clipboard。
+   * @param content - content parameter (`any`) / 内容参数（`any`）
+   */
+  private copyContentToClipboard(content) {
     this.clipboardService.copyContentToClipboard(content, this.message);
   }
 }

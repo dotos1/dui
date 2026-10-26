@@ -5,8 +5,8 @@
       "name": "LockscreenDialog",
       "kind": "component",
       "selector": "lock-dialog",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular component `LockscreenDialog` (selector: 'lock-dialog') providing lockscreen dialog presentation and interaction in `src/core/auth/lock`.",
+      "summaryZh": "Angular 组件 `LockscreenDialog`（selector: 'lock-dialog'），提供Lockscreen对话框的视图渲染与交互逻辑（位于 `src/core/auth/lock`）。",
       "sourceFile": "src/core/auth/lock/lockscreen.dialog.ts",
       "inputs": [],
       "outputs": [],
@@ -15,116 +15,116 @@
           "name": "onSubmit",
           "params": [],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `onSubmit` to handle on submit.",
+          "descriptionZh": "执行 `onSubmit`，用于当提交。"
         }
       ],
       "properties": [
         {
           "name": "lockForm",
           "type": "FormGroup",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `lockForm` (`FormGroup`) storing lock form.",
+          "descriptionZh": "属性 `lockForm`（类型：`FormGroup`），用于存储或配置锁定表单。"
         },
         {
           "name": "style",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `style` (`any`) storing style.",
+          "descriptionZh": "属性 `style`（类型：`any`），用于存储或配置样式。"
         },
         {
           "name": "currentTime",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `currentTime` (`any`) storing current time.",
+          "descriptionZh": "属性 `currentTime`（类型：`any`），用于存储或配置当前时间。"
         },
         {
           "name": "currentWeek",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `currentWeek` (`any`) storing current week.",
+          "descriptionZh": "属性 `currentWeek`（类型：`any`），用于存储或配置当前周。"
         },
         {
           "name": "attachOutsideOnClick",
           "type": "any",
           "default": "true",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `attachOutsideOnClick` (`boolean`) storing attach outside on click (default: `true`).",
+          "descriptionZh": "属性 `attachOutsideOnClick`（类型：`boolean`），用于存储或配置挂载外部当点击（默认值：`true`）。"
         },
         {
           "name": "errorDiagnostic",
           "type": "string",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `errorDiagnostic` (`string`) storing error diagnostic.",
+          "descriptionZh": "属性 `errorDiagnostic`（类型：`string`），用于存储或配置错误Diagnostic。"
         },
         {
           "name": "submitted",
           "type": "any",
           "default": "false",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `submitted` (`boolean`) storing submitted (default: `false`).",
+          "descriptionZh": "属性 `submitted`（类型：`boolean`），用于存储或配置submitted（默认值：`false`）。"
         },
         {
           "name": "cryptType",
           "type": "any",
           "default": "''",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `cryptType` (`string`) storing crypt type (default: `''`).",
+          "descriptionZh": "属性 `cryptType`（类型：`string`），用于存储或配置crypt类型（默认值：`''`）。"
         },
         {
           "name": "userName",
           "type": "any",
           "default": "''",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `userName` (`string`) storing user name (default: `''`).",
+          "descriptionZh": "属性 `userName`（类型：`string`），用于存储或配置用户名称（默认值：`''`）。"
         },
         {
           "name": "lt",
           "type": "any",
           "default": "''",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `lt` (`string`) storing lt (default: `''`).",
+          "descriptionZh": "属性 `lt`（类型：`string`），用于存储或配置lt（默认值：`''`）。"
         },
         {
           "name": "user",
           "type": "any",
           "default": "''",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `user` (`string`) storing user (default: `''`).",
+          "descriptionZh": "属性 `user`（类型：`string`），用于存储或配置用户（默认值：`''`）。"
         },
         {
           "name": "from",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `from` (`any`) storing from.",
+          "descriptionZh": "属性 `from`（类型：`any`），用于存储或配置从。"
         },
         {
           "name": "system",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `system` (`any`) storing system.",
+          "descriptionZh": "属性 `system`（类型：`any`），用于存储或配置system。"
         },
         {
           "name": "wallpapers",
           "type": "any",
           "default": "[]",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `wallpapers` (`any[]`) storing wallpapers (default: `[]`).",
+          "descriptionZh": "属性 `wallpapers`（类型：`any[]`），用于存储或配置wallpapers（默认值：`[]`）。"
         },
         {
           "name": "index",
           "type": "any",
           "default": "1",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `index` (`number`) storing index (default: `1`).",
+          "descriptionZh": "属性 `index`（类型：`number`），用于存储或配置索引（默认值：`1`）。"
         }
       ]
     },
     {
       "name": "LockscreenSaverModule",
       "kind": "module",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular module `LockscreenSaverModule` declaring and exporting lockscreen saver module components, directives, pipes, and providers.",
+      "summaryZh": "Angular 模块 `LockscreenSaverModule`，声明并导出LockscreenSaver模块相关的组件、指令、管道与服务提供者。",
       "sourceFile": "src/core/auth/lock/lockscreen.module.ts",
       "inputs": [],
       "outputs": [],
@@ -134,8 +134,8 @@
     {
       "name": "USER_STATUS_CODES",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `USER_STATUS_CODES` defining user status codes in `src/core/auth/lock`.",
+      "summaryZh": "常量/变量 `USER_STATUS_CODES`，定义 `src/core/auth/lock` 中的用户状态编码。",
       "sourceFile": "src/core/auth/lock/lockscreen.dialog.ts",
       "inputs": [],
       "outputs": [],

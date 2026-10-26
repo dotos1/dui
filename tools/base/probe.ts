@@ -9,12 +9,24 @@
 import { getValue, setValue, extend, isNullOrUndefined, isUndefined, isObject, isBlankString, queryParams } from '../../src/base/util';
 import { Observer } from '../../src/base/observer';
 
+/**
+ * Constant/variable `out` defining out in `tools/base`.
+ * @zh 常量/变量 `out`，定义 `tools/base` 中的输出。
+ */
 const out: Record<string, unknown> = {};
+/**
+ * Constant/variable `记` defining 记 in `tools/base`.
+ * @zh 常量/变量 `记`，定义 `tools/base` 中的记。
+ */
 const 记 = (k: string, fn: () => unknown) => {
   try { out[k] = fn(); } catch (e) { out[k] = 'THROW:' + (e as Error).message; }
 };
 
 /* ── getValue:路径取值 ─────────────────────────────────────────────────── */
+/**
+ * Constant/variable `样本` defining 样本 in `tools/base`.
+ * @zh 常量/变量 `样本`，定义 `tools/base` 中的样本。
+ */
 const 样本 = { a: { b: { c: 1 } }, arr: [10, 20], n: null, u: undefined, zero: 0, s: '', f: false };
 for (const p of ['a', 'a.b', 'a.b.c', 'a.b.c.d', 'a.x.y', 'arr', 'arr.0', 'arr.1', 'n', 'n.x',
                  'u', 'zero', 's', 'f', '', 'nope']) {

@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Module `src/common/perfect-scrollbar/perfect-scrollbar.component.ts` providing perfect scrollbar component definitions and implementation.
+ * @zh 模块文件 `src/common/perfect-scrollbar/perfect-scrollbar.component.ts`，提供perfect滚动条组件相关的定义与实现。
+ */
+
 import { Subject, fromEvent, merge } from 'rxjs';
 import { distinctUntilChanged, mapTo, takeUntil } from 'rxjs/operators';
 
@@ -45,39 +50,106 @@ import {
     encapsulation: ViewEncapsulation.None,
 })
 export class PerfectScrollbarComponent implements OnInit, OnDestroy, DoCheck {
-    /** @zh 记录当前是否处于左/右/上/下边缘状态，驱动指示条显示。 */
-    public states: any = {};
+    /**
+     * Property `states` (`any`) storing states (default: `{}`).
+     * @zh 记录当前是否处于左/右/上/下边缘状态，驱动指示条显示。
+     * @zh 记录当前是否处于左/右/上/下边缘状态，驱动指示条显示。
+     */
+    public states: { left?; right?; top?; bottom? } = {};
 
-    /** @zh 水平方向的边缘指示条当前是否显示。 */
+    /**
+     * Property `indicatorX` (`boolean`) storing indicator x (default: `false`).
+     * @zh 水平方向的边缘指示条当前是否显示。
+     * @zh 水平方向的边缘指示条当前是否显示。
+     */
     public indicatorX: boolean = false;
-    /** @zh 垂直方向的边缘指示条当前是否显示。 */
+    /**
+     * Property `indicatorY` (`boolean`) storing indicator y (default: `false`).
+     * @zh 垂直方向的边缘指示条当前是否显示。
+     * @zh 垂直方向的边缘指示条当前是否显示。
+     */
     public indicatorY: boolean = false;
 
-    /** @zh 用户当前是否正在滚轮/触摸交互中（用于边缘滚动传播判断）。 */
+    /**
+     * Property `interaction` (`boolean`) storing interaction (default: `false`).
+     * @zh 用户当前是否正在滚轮/触摸交互中（用于边缘滚动传播判断）。
+     * @zh 用户当前是否正在滚轮/触摸交互中（用于边缘滚动传播判断）。
+     */
     public interaction: boolean = false;
 
+    /**
+     * Property `scrollPositionX` (`number`) storing scroll position x (default: `0`).
+     * @zh 属性 `scrollPositionX`（类型：`number`），用于存储或配置滚动位置X坐标（默认值：`0`）。
+     */
     private scrollPositionX: number = 0;
+    /**
+     * Property `scrollPositionY` (`number`) storing scroll position y (default: `0`).
+     * @zh 属性 `scrollPositionY`（类型：`number`），用于存储或配置滚动位置Y坐标（默认值：`0`）。
+     */
     private scrollPositionY: number = 0;
 
+    /**
+     * Property `scrollDirectionX` (`number`) storing scroll direction x (default: `0`).
+     * @zh 属性 `scrollDirectionX`（类型：`number`），用于存储或配置滚动方向X坐标（默认值：`0`）。
+     */
     private scrollDirectionX: number = 0;
+    /**
+     * Property `scrollDirectionY` (`number`) storing scroll direction y (default: `0`).
+     * @zh 属性 `scrollDirectionY`（类型：`number`），用于存储或配置滚动方向Y坐标（默认值：`0`）。
+     */
     private scrollDirectionY: number = 0;
 
+    /**
+     * Property `usePropagationX` (`boolean`) storing use propagation x (default: `false`).
+     * @zh 属性 `usePropagationX`（类型：`boolean`），用于存储或配置使用事件冒泡X坐标（默认值：`false`）。
+     */
     private usePropagationX: boolean = false;
+    /**
+     * Property `usePropagationY` (`boolean`) storing use propagation y (default: `false`).
+     * @zh 属性 `usePropagationY`（类型：`boolean`），用于存储或配置使用事件冒泡Y坐标（默认值：`false`）。
+     */
     private usePropagationY: boolean = false;
 
+    /**
+     * Property `allowPropagationX` (`boolean`) storing allow propagation x (default: `false`).
+     * @zh 属性 `allowPropagationX`（类型：`boolean`），用于存储或配置允许事件冒泡X坐标（默认值：`false`）。
+     */
     private allowPropagationX: boolean = false;
+    /**
+     * Property `allowPropagationY` (`boolean`) storing allow propagation y (default: `false`).
+     * @zh 属性 `allowPropagationY`（类型：`boolean`），用于存储或配置允许事件冒泡Y坐标（默认值：`false`）。
+     */
     private allowPropagationY: boolean = false;
 
+    /**
+     * Property `stateTimeout` (`number | null`) storing state timeout (default: `null`).
+     * @zh 属性 `stateTimeout`（类型：`number | null`），用于存储或配置状态延时器（默认值：`null`）。
+     */
     private stateTimeout: number | null = null;
 
+    /**
+     * Property `ngDestroy` (`Subject`) storing ng destroy (default: `new Subject<void>()`).
+     * @zh 属性 `ngDestroy`（类型：`Subject`），用于存储或配置Angular销毁（默认值：`new Subject<void>()`）。
+     */
     private readonly ngDestroy = new Subject<void>();
 
+    /**
+     * Property `stateUpdate` (`Subject`) storing state update (default: `new Subject<string>()`).
+     * @zh 属性 `stateUpdate`（类型：`Subject`），用于存储或配置状态更新（默认值：`new Subject<string>()`）。
+     */
     private readonly stateUpdate = new Subject<string>();
 
-    /** @zh 是否禁用自定义滚动条。 */
+    /**
+     * Input property `disabled` (`boolean`) configuring disabled (default: `false`).
+     * @zh 是否禁用自定义滚动条。
+     * @zh 是否禁用自定义滚动条。
+     */
     @Input({ transform: booleanAttribute }) disabled: boolean = false;
 
-    /** @zh 是否使用 Perfect Scrollbar 的默认样式类。 */
+    /**
+     * @zh 是否使用 Perfect Scrollbar 的默认样式类。
+     * @zh 是否使用 Perfect Scrollbar 的默认样式类。
+     */
     @Input({ transform: booleanAttribute }) usePSClass: boolean = true;
 
     /**
@@ -89,47 +161,108 @@ export class PerfectScrollbarComponent implements OnInit, OnDestroy, DoCheck {
     @Input({ transform: booleanAttribute })
     autoPropagation: boolean = false;
 
-    /** @zh 是否显示滚动位置指示条覆层。 */
+    /**
+     * Input property `scrollIndicators` (`boolean`) configuring scroll indicators (default: `false`).
+     * @zh 是否显示滚动位置指示条覆层。
+     * @zh 是否显示滚动位置指示条覆层。
+     */
     @HostBinding('class.ps-show-active')
     @Input({ transform: booleanAttribute })
     scrollIndicators: boolean = false;
 
-    /** @zh 传给底层 Perfect Scrollbar 实例的配置项。 */
+    /**
+     * @zh 传给底层 Perfect Scrollbar 实例的配置项。
+     * @zh 传给底层 Perfect Scrollbar 实例的配置项。
+     */
     @Input() config?: PerfectScrollbarConfigInterface;
 
-    /** @zh 垂直滚动时发出。 */
-    @Output() psScrollY = new EventEmitter<any>();
-    /** @zh 水平滚动时发出。 */
-    @Output() psScrollX = new EventEmitter<any>();
+    /**
+     * Output event emitter `psScrollY` (`EventEmitter`) firing when ps scroll y occurs.
+     * @zh 垂直滚动时发出。
+     * @zh 垂直滚动时发出。
+     */
+    @Output() psScrollY = new EventEmitter();
+    /**
+     * Output event emitter `psScrollX` (`EventEmitter`) firing when ps scroll x occurs.
+     * @zh 水平滚动时发出。
+     * @zh 水平滚动时发出。
+     */
+    @Output() psScrollX = new EventEmitter();
 
-    /** @zh 向上滚动时发出。 */
-    @Output() psScrollUp = new EventEmitter<any>();
-    /** @zh 向下滚动时发出。 */
-    @Output() psScrollDown = new EventEmitter<any>();
-    /** @zh 向左滚动时发出。 */
-    @Output() psScrollLeft = new EventEmitter<any>();
-    /** @zh 向右滚动时发出。 */
-    @Output() psScrollRight = new EventEmitter<any>();
+    /**
+     * Output event emitter `psScrollUp` (`EventEmitter`) firing when ps scroll up occurs.
+     * @zh 向上滚动时发出。
+     * @zh 向上滚动时发出。
+     */
+    @Output() psScrollUp = new EventEmitter();
+    /**
+     * Output event emitter `psScrollDown` (`EventEmitter`) firing when ps scroll down occurs.
+     * @zh 向下滚动时发出。
+     * @zh 向下滚动时发出。
+     */
+    @Output() psScrollDown = new EventEmitter();
+    /**
+     * Output event emitter `psScrollLeft` (`EventEmitter`) firing when ps scroll left occurs.
+     * @zh 向左滚动时发出。
+     * @zh 向左滚动时发出。
+     */
+    @Output() psScrollLeft = new EventEmitter();
+    /**
+     * Output event emitter `psScrollRight` (`EventEmitter`) firing when ps scroll right occurs.
+     * @zh 向右滚动时发出。
+     * @zh 向右滚动时发出。
+     */
+    @Output() psScrollRight = new EventEmitter();
 
-    /** @zh 垂直方向滚动到底部时发出。 */
-    @Output() psYReachEnd = new EventEmitter<any>();
-    /** @zh 垂直方向滚动到顶部时发出。 */
-    @Output() psYReachStart = new EventEmitter<any>();
-    /** @zh 水平方向滚动到右侧末端时发出。 */
-    @Output() psXReachEnd = new EventEmitter<any>();
-    /** @zh 水平方向滚动到左侧起始位置时发出。 */
-    @Output() psXReachStart = new EventEmitter<any>();
+    /**
+     * Output event emitter `psYReachEnd` (`EventEmitter`) firing when ps y reach end occurs.
+     * @zh 垂直方向滚动到底部时发出。
+     * @zh 垂直方向滚动到底部时发出。
+     */
+    @Output() psYReachEnd = new EventEmitter();
+    /**
+     * Output event emitter `psYReachStart` (`EventEmitter`) firing when ps y reach start occurs.
+     * @zh 垂直方向滚动到顶部时发出。
+     * @zh 垂直方向滚动到顶部时发出。
+     */
+    @Output() psYReachStart = new EventEmitter();
+    /**
+     * Output event emitter `psXReachEnd` (`EventEmitter`) firing when ps x reach end occurs.
+     * @zh 水平方向滚动到右侧末端时发出。
+     * @zh 水平方向滚动到右侧末端时发出。
+     */
+    @Output() psXReachEnd = new EventEmitter();
+    /**
+     * Output event emitter `psXReachStart` (`EventEmitter`) firing when ps x reach start occurs.
+     * @zh 水平方向滚动到左侧起始位置时发出。
+     * @zh 水平方向滚动到左侧起始位置时发出。
+     */
+    @Output() psXReachStart = new EventEmitter();
 
-    /** @zh 内部使用的底层 {@link PerfectScrollbarDirective} 引用。 */
+    /**
+     * @zh 内部使用的底层 {@link PerfectScrollbarDirective} 引用。
+     * @zh 内部使用的底层 {@link PerfectScrollbarDirective} 引用。
+     */
     @ViewChild(PerfectScrollbarDirective, { static: true })
     directiveRef?: PerfectScrollbarDirective;
 
+    /**
+     * Creates an instance of `PerfectScrollbarComponent` and initializes its dependencies and internal state.
+     * @zh 创建 `PerfectScrollbarComponent` 实例，并初始化其依赖项与内部状态。
+     * @param zone - Injected or initial zone (`NgZone`) / 注入或传入的区域(NgZone)（`NgZone`）
+     * @param cdRef - Injected or initial cd ref (`ChangeDetectorRef`) / 注入或传入的cd引用（`ChangeDetectorRef`）
+     * @param platformId - Injected or initial platform id (`Object`) / 注入或传入的platform唯一标识（`Object`）
+     */
     constructor(
         private zone: NgZone,
         private cdRef: ChangeDetectorRef,
         @Inject(PLATFORM_ID) private platformId: Object,
     ) {}
 
+    /**
+     * Angular lifecycle hook invoked once after component or directive inputs are initialized.
+     * @zh Angular 生命周期钩子：在组件或指令的输入属性初始化完成后调用一次。
+     */
     ngOnInit(): void {
         if (isPlatformBrowser(this.platformId)) {
             this.stateUpdate
@@ -270,6 +403,10 @@ export class PerfectScrollbarComponent implements OnInit, OnDestroy, DoCheck {
         }
     }
 
+    /**
+     * Angular lifecycle hook invoked just before the component, directive, or service is destroyed to release subscriptions and resources.
+     * @zh Angular 生命周期钩子：在组件、指令或服务销毁前调用，用于释放订阅与清理资源。
+     */
     ngOnDestroy(): void {
         if (isPlatformBrowser(this.platformId)) {
             this.ngDestroy.next();
@@ -281,6 +418,10 @@ export class PerfectScrollbarComponent implements OnInit, OnDestroy, DoCheck {
         }
     }
 
+    /**
+     * Angular lifecycle hook invoked during every change-detection run for custom change detection.
+     * @zh Angular 生命周期钩子：在每次变更检测周期中调用，用于执行自定义变更检测。
+     */
     ngDoCheck(): void {
         if (isPlatformBrowser(this.platformId)) {
             if (!this.disabled && this.autoPropagation && this.directiveRef) {
@@ -293,7 +434,14 @@ export class PerfectScrollbarComponent implements OnInit, OnDestroy, DoCheck {
         }
     }
 
-    private checkPropagation(event: any, deltaX: number, deltaY: number): void {
+    /**
+     * Executes `checkPropagation` to handle check propagation.
+     * @zh 执行 `checkPropagation`，用于检查事件冒泡。
+     * @param event - event parameter (`any`) / 事件参数（`any`）
+     * @param deltaX - delta x parameter (`number`) / 增量X坐标参数（`number`）
+     * @param deltaY - delta y parameter (`number`) / 增量Y坐标参数（`number`）
+     */
+    private checkPropagation(event, deltaX: number, deltaY: number): void {
         this.interaction = true;
 
         const scrollDirectionX = deltaX < 0 ? -1 : 1;

@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Module `src/theme/palettes/mat-grey.ts` providing mat grey definitions and implementation.
+ * @zh 模块文件 `src/theme/palettes/mat-grey.ts`，提供Materialgrey相关的定义与实现。
+ */
+
 import { Palette } from '../interfaces/palette';
 
 import {
@@ -5,6 +10,10 @@ import {
     lightPrimaryText
 } from '../constants';
 
+/**
+ * Constant/variable `matGrey` defining mat grey in `src/theme/palettes`.
+ * @zh 常量/变量 `matGrey`，定义 `src/theme/palettes` 中的MaterialGrey。
+ */
 export const matGrey: Palette = {
     50: '#fafafa',
     100: '#f5f5f5',
@@ -38,4 +47,8 @@ export const matGrey: Palette = {
     }
 };
 
+/**
+ * Constant/variable `matGray` defining mat gray in `src/theme/palettes`.
+ * @zh 常量/变量 `matGray`，定义 `src/theme/palettes` 中的MaterialGray。
+ */
 export const matGray: Palette = matGrey;

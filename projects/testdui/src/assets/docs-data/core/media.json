@@ -4,19 +4,41 @@
     {
       "name": "Media",
       "kind": "enum",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Enumeration `Media` defining supported media constants.",
+      "summaryZh": "枚举 `Media`，定义支持的媒体常量集合。",
       "sourceFile": "src/core/media/media.enum.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
-      "properties": []
+      "properties": [
+        {
+          "name": "Mobile",
+          "type": "enum-member",
+          "default": "'mobile'",
+          "description": "Enum member `Media.Mobile` = 'mobile' representing mobile.",
+          "descriptionZh": "枚举项 `Media.Mobile` = 'mobile'，表示Mobile。"
+        },
+        {
+          "name": "Tablet",
+          "type": "enum-member",
+          "default": "'tablet'",
+          "description": "Enum member `Media.Tablet` = 'tablet' representing tablet.",
+          "descriptionZh": "枚举项 `Media.Tablet` = 'tablet'，表示Tablet。"
+        },
+        {
+          "name": "Desktop",
+          "type": "enum-member",
+          "default": "'desktop'",
+          "description": "Enum member `Media.Desktop` = 'desktop' representing desktop.",
+          "descriptionZh": "枚举项 `Media.Desktop` = 'desktop'，表示Desktop。"
+        }
+      ]
     },
     {
       "name": "MediaBreakpoints",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `MediaBreakpoints` defining media breakpoints in `src/core/media`.",
+      "summaryZh": "常量/变量 `MediaBreakpoints`，定义 `src/core/media` 中的媒体Breakpoints。",
       "sourceFile": "src/core/media/media.enum.ts",
       "inputs": [],
       "outputs": [],
@@ -26,19 +48,34 @@
     {
       "name": "MediaOrientation",
       "kind": "enum",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Enumeration `MediaOrientation` defining supported media orientation constants.",
+      "summaryZh": "枚举 `MediaOrientation`，定义支持的媒体方向常量集合。",
       "sourceFile": "src/core/media/media.enum.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
-      "properties": []
+      "properties": [
+        {
+          "name": "Portrait",
+          "type": "enum-member",
+          "default": "'portrait'",
+          "description": "Enum member `MediaOrientation.Portrait` = 'portrait' representing portrait.",
+          "descriptionZh": "枚举项 `MediaOrientation.Portrait` = 'portrait'，表示Portrait。"
+        },
+        {
+          "name": "Landscape",
+          "type": "enum-member",
+          "default": "'landscape'",
+          "description": "Enum member `MediaOrientation.Landscape` = 'landscape' representing landscape.",
+          "descriptionZh": "枚举项 `MediaOrientation.Landscape` = 'landscape'，表示Landscape。"
+        }
+      ]
     },
     {
       "name": "MediaService",
       "kind": "service",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Injectable Angular service `MediaService` managing media service state and operations in `src/core/media`.",
+      "summaryZh": "可注入的 Angular 服务 `MediaService`，管理 `src/core/media` 中的媒体服务状态与业务操作。",
       "sourceFile": "src/core/media/media.service.ts",
       "inputs": [],
       "outputs": [],
@@ -47,15 +84,15 @@
           "name": "getMedia",
           "params": [],
           "returnType": "Media",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `getMedia` to handle get media.",
+          "descriptionZh": "执行 `getMedia`，用于获取媒体。"
         },
         {
           "name": "getOrientation",
           "params": [],
           "returnType": "MediaOrientation",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `getOrientation` to handle get orientation.",
+          "descriptionZh": "执行 `getOrientation`，用于获取方向。"
         }
       ],
       "properties": [
@@ -63,15 +100,15 @@
           "name": "media$",
           "type": "any",
           "default": "new BehaviorSubject<Media>(undefined)",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `media$` (`BehaviorSubject`) storing media (default: `new BehaviorSubject<Media>(undefined)`).",
+          "descriptionZh": "属性 `media$`（类型：`BehaviorSubject`），用于存储或配置媒体（默认值：`new BehaviorSubject<Media>(undefined)`）。"
         },
         {
           "name": "orientation$",
           "type": "any",
           "default": "new BehaviorSubject<MediaOrientation>(undefined)",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `orientation$` (`BehaviorSubject`) storing orientation.",
+          "descriptionZh": "属性 `orientation$`（类型：`BehaviorSubject`），用于存储或配置方向。"
         }
       ]
     }

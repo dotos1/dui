@@ -1,7 +1,20 @@
+/**
+ * @fileoverview Module `src/common/keyboard/keys.ts` providing keys definitions and implementation.
+ * @zh 模块文件 `src/common/keyboard/keys.ts`，提供键列表相关的定义与实现。
+ */
+
 import {invert} from './utils';
 
+/**
+ * Constant/variable `isMac` defining is mac in `src/common/keyboard`.
+ * @zh 常量/变量 `isMac`，定义 `src/common/keyboard` 中的是否为Mac。
+ */
 const isMac = typeof navigator !== 'undefined' ? navigator.userAgent.includes('Mac OS') : false;
 
+/**
+ * Constant/variable `modifiers` defining modifiers in `src/common/keyboard`.
+ * @zh 常量/变量 `modifiers`，定义 `src/common/keyboard` 中的modifiers。
+ */
 export const modifiers = {
     shift: 'shiftKey',
     ctrl: 'ctrlKey',
@@ -16,10 +29,18 @@ export const modifiers = {
     ctl: 'ctrlKey',
     control: 'ctrlKey'
 };
+/**
+ * Constant/variable `_SPECIAL_CASES` defining special cases in `src/common/keyboard`.
+ * @zh 常量/变量 `_SPECIAL_CASES`，定义 `src/common/keyboard` 中的SPECIALCASES。
+ */
 export const _SPECIAL_CASES = {
     plus: '+'
 };
 
+/**
+ * Constant/variable `symbols` defining symbols in `src/common/keyboard`.
+ * @zh 常量/变量 `symbols`，定义 `src/common/keyboard` 中的symbols。
+ */
 export const symbols = {
     cmd: isMac ? '⌘' : 'Ctrl',
     command: isMac ? '⌘' : 'Ctrl',
@@ -37,6 +58,10 @@ export const symbols = {
     shift: '⇧'
 };
 
+/**
+ * Constant/variable `_MAP` defining map in `src/common/keyboard`.
+ * @zh 常量/变量 `_MAP`，定义 `src/common/keyboard` 中的映射表。
+ */
 export const _MAP = {
     8: 'backspace',
     9: 'tab',
@@ -63,6 +88,10 @@ export const _MAP = {
 };
 
 
+/**
+ * Constant/variable `_KEYCODE_MAP` defining keycode map in `src/common/keyboard`.
+ * @zh 常量/变量 `_KEYCODE_MAP`，定义 `src/common/keyboard` 中的KEYCODE映射表。
+ */
 export const _KEYCODE_MAP = {
     106: '*',
     107: '+',
@@ -83,6 +112,10 @@ export const _KEYCODE_MAP = {
 };
 
 
+/**
+ * Constant/variable `_SHIFT_MAP` defining shift map in `src/common/keyboard`.
+ * @zh 常量/变量 `_SHIFT_MAP`，定义 `src/common/keyboard` 中的移出首项映射表。
+ */
 export const _SHIFT_MAP: Record<string, string> = {
     '`': '~',
     '1': '!',
@@ -104,6 +137,10 @@ export const _SHIFT_MAP: Record<string, string> = {
     '/': '?',
     '\\': '|'
 };
+/**
+ * Constant/variable `_INVERTED_SHIFT_MAP` defining inverted shift map in `src/common/keyboard`.
+ * @zh 常量/变量 `_INVERTED_SHIFT_MAP`，定义 `src/common/keyboard` 中的INVERTED移出首项映射表。
+ */
 export const _INVERTED_SHIFT_MAP = invert(_SHIFT_MAP);
 
 /**

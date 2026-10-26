@@ -4,52 +4,140 @@
     {
       "name": "IInternalLoadingOptions",
       "kind": "interface",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Interface `IInternalLoadingOptions` defining the contract and properties for i internal loading options.",
+      "summaryZh": "接口 `IInternalLoadingOptions`，定义I内部加载中配置选项的数据结构契约与属性规范。",
       "sourceFile": "src/common/loading/services/loading.factory.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
-      "properties": []
+      "properties": [
+        {
+          "name": "height",
+          "type": "number",
+          "description": "Property `height` (`number`) storing height.",
+          "descriptionZh": "属性 `height`（类型：`number`），用于存储或配置高度。"
+        },
+        {
+          "name": "style",
+          "type": "LoadingStyle",
+          "description": "Property `style` (`LoadingStyle`) storing style.",
+          "descriptionZh": "属性 `style`（类型：`LoadingStyle`），用于存储或配置样式。"
+        }
+      ]
     },
     {
       "name": "ILoadingConfig",
       "kind": "interface",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Interface `ILoadingConfig` defining the contract and properties for i loading config.",
+      "summaryZh": "接口 `ILoadingConfig`，定义I加载中配置的数据结构契约与属性规范。",
       "sourceFile": "src/common/loading/services/loading.service.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
-      "properties": []
+      "properties": [
+        {
+          "name": "name",
+          "type": "string",
+          "description": "Property `name` (`string`) storing name.",
+          "descriptionZh": "属性 `name`（类型：`string`），用于存储或配置名称。"
+        },
+        {
+          "name": "type",
+          "type": "LoadingType",
+          "description": "Property `type` (`LoadingType`) storing type.",
+          "descriptionZh": "属性 `type`（类型：`LoadingType`），用于存储或配置类型。"
+        },
+        {
+          "name": "mode",
+          "type": "LoadingMode",
+          "description": "Property `mode` (`LoadingMode`) storing mode.",
+          "descriptionZh": "属性 `mode`（类型：`LoadingMode`），用于存储或配置模式。"
+        },
+        {
+          "name": "color",
+          "type": "'primary' | 'accent' | 'warn'",
+          "description": "Property `color` (`'primary' | 'accent' | 'warn'`) storing color.",
+          "descriptionZh": "属性 `color`（类型：`'primary' | 'accent' | 'warn'`），用于存储或配置颜色。"
+        }
+      ]
     },
     {
       "name": "ILoadingDirectiveConfig",
       "kind": "interface",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Interface `ILoadingDirectiveConfig` defining the contract and properties for i loading directive config.",
+      "summaryZh": "接口 `ILoadingDirectiveConfig`，定义I加载中指令配置的数据结构契约与属性规范。",
       "sourceFile": "src/common/loading/services/loading.service.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
-      "properties": []
+      "properties": [
+        {
+          "name": "strategy",
+          "type": "LoadingStrategy",
+          "description": "Property `strategy` (`LoadingStrategy`) storing strategy.",
+          "descriptionZh": "属性 `strategy`（类型：`LoadingStrategy`），用于存储或配置策略。"
+        }
+      ]
     },
     {
       "name": "ILoadingRef",
       "kind": "interface",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Interface `ILoadingRef` defining the contract and properties for i loading ref.",
+      "summaryZh": "接口 `ILoadingRef`，定义I加载中引用的数据结构契约与属性规范。",
       "sourceFile": "src/common/loading/services/loading.factory.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
-      "properties": []
+      "properties": [
+        {
+          "name": "observable",
+          "type": "Observable<any>",
+          "description": "Property `observable` (`Observable<any>`) storing observable.",
+          "descriptionZh": "属性 `observable`（类型：`Observable<any>`），用于存储或配置可观察流。"
+        },
+        {
+          "name": "componentRef",
+          "type": "ComponentRef<any>",
+          "description": "Property `componentRef` (`ComponentRef<any>`) storing component ref.",
+          "descriptionZh": "属性 `componentRef`（类型：`ComponentRef<any>`），用于存储或配置组件引用。"
+        },
+        {
+          "name": "overlayRef",
+          "type": "OverlayRef",
+          "description": "Property `overlayRef` (`OverlayRef`) storing overlay ref.",
+          "descriptionZh": "属性 `overlayRef`（类型：`OverlayRef`），用于存储或配置浮层引用。"
+        },
+        {
+          "name": "contentRef",
+          "type": "EmbeddedViewRef<object>",
+          "description": "Property `contentRef` (`EmbeddedViewRef<object>`) storing content ref.",
+          "descriptionZh": "属性 `contentRef`（类型：`EmbeddedViewRef<object>`），用于存储或配置内容引用。"
+        },
+        {
+          "name": "subject",
+          "type": "Subject<any>",
+          "description": "Property `subject` (`Subject<any>`) storing subject.",
+          "descriptionZh": "属性 `subject`（类型：`Subject<any>`），用于存储或配置主题流。"
+        },
+        {
+          "name": "times",
+          "type": "number",
+          "description": "Property `times` (`number`) storing times.",
+          "descriptionZh": "属性 `times`（类型：`number`），用于存储或配置时间。"
+        },
+        {
+          "name": "blocking",
+          "type": "boolean",
+          "description": "#1001：是否阻塞屏幕交互。缺省 false（非阻塞，指示器仅显示状态，点击穿透到底层内容）；\n为 true 时全屏遮罩拦截交互（保持旧的锁屏行为）。",
+          "descriptionZh": "#1001：是否阻塞屏幕交互。缺省 false（非阻塞，指示器仅显示状态，点击穿透到底层内容）；"
+        }
+      ]
     },
     {
       "name": "LOADING_FACTORY_PROVIDER",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `LOADING_FACTORY_PROVIDER` defining loading factory provider in `src/common/loading/services`.",
+      "summaryZh": "常量/变量 `LOADING_FACTORY_PROVIDER`，定义 `src/common/loading/services` 中的加载中工厂提供者。",
       "sourceFile": "src/common/loading/services/loading.factory.ts",
       "inputs": [],
       "outputs": [],
@@ -59,19 +147,44 @@
     {
       "name": "LOADING_FACTORY_PROVIDER_FACTORY",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Executes `LOADING_FACTORY_PROVIDER_FACTORY` to handle loading factory provider factory.",
+      "summaryZh": "执行 `LOADING_FACTORY_PROVIDER_FACTORY`，用于加载中工厂提供者工厂。",
       "sourceFile": "src/common/loading/services/loading.factory.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "LOADING_FACTORY_PROVIDER_FACTORY",
+          "params": [
+            {
+              "name": "parent",
+              "type": "LoadingFactory"
+            },
+            {
+              "name": "componentFactoryResolver",
+              "type": "ComponentFactoryResolver"
+            },
+            {
+              "name": "overlay",
+              "type": "Overlay"
+            },
+            {
+              "name": "injector",
+              "type": "Injector"
+            }
+          ],
+          "returnType": "LoadingFactory",
+          "description": "Executes `LOADING_FACTORY_PROVIDER_FACTORY` to handle loading factory provider factory.",
+          "descriptionZh": "执行 `LOADING_FACTORY_PROVIDER_FACTORY`，用于加载中工厂提供者工厂。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "LOADING_PROVIDER",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `LOADING_PROVIDER` defining loading provider in `src/common/loading/services`.",
+      "summaryZh": "常量/变量 `LOADING_PROVIDER`，定义 `src/common/loading/services` 中的加载中提供者。",
       "sourceFile": "src/common/loading/services/loading.service.ts",
       "inputs": [],
       "outputs": [],
@@ -81,12 +194,29 @@
     {
       "name": "LOADING_PROVIDER_FACTORY",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Executes `LOADING_PROVIDER_FACTORY` to handle loading provider factory.",
+      "summaryZh": "执行 `LOADING_PROVIDER_FACTORY`，用于加载中提供者工厂。",
       "sourceFile": "src/common/loading/services/loading.service.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "LOADING_PROVIDER_FACTORY",
+          "params": [
+            {
+              "name": "parent",
+              "type": "LoadingService"
+            },
+            {
+              "name": "loadingFactory",
+              "type": "LoadingFactory"
+            }
+          ],
+          "returnType": "LoadingService",
+          "description": "Executes `LOADING_PROVIDER_FACTORY` to handle loading provider factory.",
+          "descriptionZh": "执行 `LOADING_PROVIDER_FACTORY`，用于加载中提供者工厂。"
+        }
+      ],
       "properties": []
     },
     {
@@ -153,14 +283,14 @@
           "params": [],
           "returnType": "void",
           "description": "Starts in animation and returns an observable for completition event.",
-          "descriptionZh": null
+          "descriptionZh": "执行 `show`，用于显示。"
         },
         {
           "name": "hide",
           "params": [],
           "returnType": "void",
           "description": "Starts out animation and returns an observable for completition event.",
-          "descriptionZh": null
+          "descriptionZh": "执行 `hide`，用于隐藏。"
         }
       ],
       "properties": [
@@ -169,13 +299,13 @@
           "type": "any",
           "default": "false",
           "description": "Flag for animation",
-          "descriptionZh": null
+          "descriptionZh": "属性 `animation`（类型：`boolean`），用于存储或配置动画（默认值：`false`）。"
         },
         {
           "name": "content",
           "type": "TemplatePortal<any>",
           "description": "Content injected into loading component.",
-          "descriptionZh": null
+          "descriptionZh": "属性 `content`（类型：`TemplatePortal<any>`），用于存储或配置内容。"
         },
         {
           "name": "mode",
@@ -205,7 +335,7 @@
           "name": "style",
           "type": "LoadingStyle",
           "default": "LoadingStyle.None",
-          "description": null,
+          "description": "Property `style` (`LoadingStyle`) storing style (default: `LoadingStyle.None`).",
           "descriptionZh": "加载指示器的展示样式：全屏、覆盖层或无（内嵌）。"
         },
         {
@@ -213,29 +343,29 @@
           "type": "any",
           "default": "100",
           "description": "height: number\nSets height of [DuiLoadingComponent].",
-          "descriptionZh": null
+          "descriptionZh": "属性 `height`（类型：`number`），用于存储或配置高度（默认值：`100`）。"
         },
         {
           "name": "type",
           "type": "LoadingType",
           "default": "LoadingType.Circular",
           "description": "type: LoadingType\nSets type of [DuiLoadingComponent] rendered.",
-          "descriptionZh": null
+          "descriptionZh": "属性 `type`（类型：`LoadingType`），用于存储或配置类型（默认值：`LoadingType.Circular`）。"
         },
         {
           "name": "color",
           "type": "'primary' | 'accent' | 'warn'",
           "default": "'primary'",
           "description": "color: primary' | 'accent' | 'warn'\nSets theme color of [DuiLoadingComponent] rendered.",
-          "descriptionZh": null
+          "descriptionZh": "属性 `color`（类型：`'primary' | 'accent' | 'warn'`），用于存储或配置颜色（默认值：`'primary'`）。"
         }
       ]
     },
     {
       "name": "LoadingConfig",
       "kind": "class",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Class `LoadingConfig` encapsulating loading config data structures and logic in `src/common/loading/services`.",
+      "summaryZh": "类 `LoadingConfig`，封装 `src/common/loading/services` 中的加载中配置数据结构与处理逻辑。",
       "sourceFile": "src/common/loading/services/loading.service.ts",
       "inputs": [],
       "outputs": [],
@@ -244,34 +374,34 @@
         {
           "name": "name",
           "type": "string",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `name` (`string`) storing name.",
+          "descriptionZh": "属性 `name`（类型：`string`），用于存储或配置名称。"
         },
         {
           "name": "type",
           "type": "LoadingType",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `type` (`LoadingType`) storing type.",
+          "descriptionZh": "属性 `type`（类型：`LoadingType`），用于存储或配置类型。"
         },
         {
           "name": "mode",
           "type": "LoadingMode",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `mode` (`LoadingMode`) storing mode.",
+          "descriptionZh": "属性 `mode`（类型：`LoadingMode`），用于存储或配置模式。"
         },
         {
           "name": "color",
           "type": "'primary' | 'accent' | 'warn'",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `color` (`'primary' | 'accent' | 'warn'`) storing color.",
+          "descriptionZh": "属性 `color`（类型：`'primary' | 'accent' | 'warn'`），用于存储或配置颜色。"
         }
       ]
     },
     {
       "name": "LoadingContext",
       "kind": "class",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Class `LoadingContext` encapsulating loading context data structures and logic in `src/common/loading/directives`.",
+      "summaryZh": "类 `LoadingContext`，封装 `src/common/loading/directives` 中的加载中上下文数据结构与处理逻辑。",
       "sourceFile": "src/common/loading/directives/loading.directive.ts",
       "inputs": [],
       "outputs": [],
@@ -281,15 +411,15 @@
           "name": "$implicit",
           "type": "any",
           "default": "undefined",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `$implicit` (`any`) storing implicit (default: `undefined`).",
+          "descriptionZh": "属性 `$implicit`（类型：`any`），用于存储或配置implicit（默认值：`undefined`）。"
         },
         {
           "name": "tdLoading",
           "type": "any",
           "default": "undefined",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `tdLoading` (`any`) storing td loading (default: `undefined`).",
+          "descriptionZh": "属性 `tdLoading`（类型：`any`），用于存储或配置td加载中（默认值：`undefined`）。"
         }
       ]
     },
@@ -320,7 +450,7 @@
           "alias": "duiLoadingType",
           "type": "LoadingType",
           "default": "LoadingType.Circular",
-          "description": null,
+          "description": "Input property `duiLoadingType` (`LoadingType`) configuring type (default: `LoadingType.Circular`).",
           "descriptionZh": "加载指示器的样式类型：圆形或线性。"
         },
         {
@@ -328,7 +458,7 @@
           "alias": "duiLoadingMode",
           "type": "LoadingMode",
           "default": "LoadingMode.Indeterminate",
-          "description": null,
+          "description": "Input property `duiLoadingMode` (`LoadingMode`) configuring mode (default: `LoadingMode.Indeterminate`).",
           "descriptionZh": "加载指示器的模式：确定或不确定。"
         },
         {
@@ -355,8 +485,8 @@
     {
       "name": "LoadingDirectiveConfig",
       "kind": "class",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Class `LoadingDirectiveConfig` encapsulating loading directive config data structures and logic in `src/common/loading/services`.",
+      "summaryZh": "类 `LoadingDirectiveConfig`，封装 `src/common/loading/services` 中的加载中指令配置数据结构与处理逻辑。",
       "sourceFile": "src/common/loading/services/loading.service.ts",
       "inputs": [],
       "outputs": [],
@@ -365,8 +495,8 @@
         {
           "name": "strategy",
           "type": "LoadingStrategy",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `strategy` (`LoadingStrategy`) storing strategy.",
+          "descriptionZh": "属性 `strategy`（类型：`LoadingStrategy`），用于存储或配置策略。"
         }
       ]
     },
@@ -441,19 +571,34 @@
     {
       "name": "LoadingMode",
       "kind": "enum",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Enumeration `LoadingMode` defining supported loading mode constants.",
+      "summaryZh": "枚举 `LoadingMode`，定义支持的加载中模式常量集合。",
       "sourceFile": "src/common/loading/loading.component.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
-      "properties": []
+      "properties": [
+        {
+          "name": "Determinate",
+          "type": "enum-member",
+          "default": "'determinate'",
+          "description": "Enum member `LoadingMode.Determinate` = 'determinate' representing determinate.",
+          "descriptionZh": "枚举项 `LoadingMode.Determinate` = 'determinate'，表示Determinate。"
+        },
+        {
+          "name": "Indeterminate",
+          "type": "enum-member",
+          "default": "'indeterminate'",
+          "description": "Enum member `LoadingMode.Indeterminate` = 'indeterminate' representing indeterminate.",
+          "descriptionZh": "枚举项 `LoadingMode.Indeterminate` = 'indeterminate'，表示半选状态。"
+        }
+      ]
     },
     {
       "name": "LoadingModule",
       "kind": "module",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular module `LoadingModule` declaring and exporting loading module components, directives, pipes, and providers.",
+      "summaryZh": "Angular 模块 `LoadingModule`，声明并导出加载中模块相关的组件、指令、管道与服务提供者。",
       "sourceFile": "src/common/loading/loading.module.ts",
       "inputs": [],
       "outputs": [],
@@ -463,8 +608,8 @@
           "name": "entryComponents",
           "type": "any",
           "default": "EXT_LOADING_ENTRY_COMPONENTS",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `entryComponents` (`any`) storing entry components (default: `EXT_LOADING_ENTRY_COMPONENTS`).",
+          "descriptionZh": "属性 `entryComponents`（类型：`any`），用于存储或配置条目组件列表（默认值：`EXT_LOADING_ENTRY_COMPONENTS`）。"
         }
       ]
     },
@@ -535,6 +680,10 @@
             {
               "name": "registers",
               "type": "number"
+            },
+            {
+              "name": "blocking",
+              "type": "boolean"
             }
           ],
           "returnType": "boolean",
@@ -591,41 +740,93 @@
     {
       "name": "LoadingStrategy",
       "kind": "enum",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Enumeration `LoadingStrategy` defining supported loading strategy constants.",
+      "summaryZh": "枚举 `LoadingStrategy`，定义支持的加载中策略常量集合。",
       "sourceFile": "src/common/loading/loading.component.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
-      "properties": []
+      "properties": [
+        {
+          "name": "Overlay",
+          "type": "enum-member",
+          "default": "'overlay'",
+          "description": "Enum member `LoadingStrategy.Overlay` = 'overlay' representing overlay.",
+          "descriptionZh": "枚举项 `LoadingStrategy.Overlay` = 'overlay'，表示浮层。"
+        },
+        {
+          "name": "Replace",
+          "type": "enum-member",
+          "default": "'replace'",
+          "description": "Enum member `LoadingStrategy.Replace` = 'replace' representing replace.",
+          "descriptionZh": "枚举项 `LoadingStrategy.Replace` = 'replace'，表示替换。"
+        }
+      ]
     },
     {
       "name": "LoadingStyle",
       "kind": "enum",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Enumeration `LoadingStyle` defining supported loading style constants.",
+      "summaryZh": "枚举 `LoadingStyle`，定义支持的加载中样式常量集合。",
       "sourceFile": "src/common/loading/loading.component.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
-      "properties": []
+      "properties": [
+        {
+          "name": "FullScreen",
+          "type": "enum-member",
+          "default": "'fullscreen'",
+          "description": "Enum member `LoadingStyle.FullScreen` = 'fullscreen' representing full screen.",
+          "descriptionZh": "枚举项 `LoadingStyle.FullScreen` = 'fullscreen'，表示完整屏幕。"
+        },
+        {
+          "name": "Overlay",
+          "type": "enum-member",
+          "default": "'overlay'",
+          "description": "Enum member `LoadingStyle.Overlay` = 'overlay' representing overlay.",
+          "descriptionZh": "枚举项 `LoadingStyle.Overlay` = 'overlay'，表示浮层。"
+        },
+        {
+          "name": "None",
+          "type": "enum-member",
+          "default": "'none'",
+          "description": "Enum member `LoadingStyle.None` = 'none' representing none.",
+          "descriptionZh": "枚举项 `LoadingStyle.None` = 'none'，表示无。"
+        }
+      ]
     },
     {
       "name": "LoadingType",
       "kind": "enum",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Enumeration `LoadingType` defining supported loading type constants.",
+      "summaryZh": "枚举 `LoadingType`，定义支持的加载中类型常量集合。",
       "sourceFile": "src/common/loading/loading.component.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
-      "properties": []
+      "properties": [
+        {
+          "name": "Circular",
+          "type": "enum-member",
+          "default": "'circular'",
+          "description": "Enum member `LoadingType.Circular` = 'circular' representing circular.",
+          "descriptionZh": "枚举项 `LoadingType.Circular` = 'circular'，表示Circular。"
+        },
+        {
+          "name": "Linear",
+          "type": "enum-member",
+          "default": "'linear'",
+          "description": "Enum member `LoadingType.Linear` = 'linear' representing linear.",
+          "descriptionZh": "枚举项 `LoadingType.Linear` = 'linear'，表示Linear。"
+        }
+      ]
     },
     {
       "name": "TD_CIRCLE_DIAMETER",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `TD_CIRCLE_DIAMETER` defining td circle diameter in `src/common/loading`.",
+      "summaryZh": "常量/变量 `TD_CIRCLE_DIAMETER`，定义 `src/common/loading` 中的TD圆形DIAMETER。",
       "sourceFile": "src/common/loading/loading.component.ts",
       "inputs": [],
       "outputs": [],

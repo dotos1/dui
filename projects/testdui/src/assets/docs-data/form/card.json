@@ -5,16 +5,16 @@
       "name": "FormCard",
       "kind": "component",
       "selector": "form-card",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular component `FormCard` (selector: 'form-card') providing form card presentation and interaction in `src/form/card`.",
+      "summaryZh": "Angular 组件 `FormCard`（selector: 'form-card'），提供表单卡片的视图渲染与交互逻辑（位于 `src/form/card`）。",
       "sourceFile": "src/form/card/form.card.ts",
       "inputs": [
         {
           "name": "config",
           "type": "any",
           "default": "{}",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `config` (`any`) configuring config (default: `{}`).",
+          "descriptionZh": "输入属性 `config`（类型：`any`），用于配置配置（默认值：`{}`）。"
         }
       ],
       "outputs": [],
@@ -28,22 +28,22 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `init` to handle init.",
+          "descriptionZh": "执行 `init`，用于初始化。"
         },
         {
           "name": "getForm",
           "params": [],
           "returnType": "FormComponent",
           "description": "Provides access to the {@link Ext.form.BasicForm Form} which this Panel contains.\nreturnwhich this Panel contains.",
-          "descriptionZh": null
+          "descriptionZh": "执行 `getForm`，用于获取表单。"
         },
         {
           "name": "beforeDestroy",
           "params": [],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `beforeDestroy` to handle before destroy.",
+          "descriptionZh": "执行 `beforeDestroy`，用于之前销毁。"
         },
         {
           "name": "isField",
@@ -54,38 +54,38 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `isField` to handle is field.",
+          "descriptionZh": "执行 `isField`，用于是否为字段。"
         }
       ],
       "properties": [
         {
           "name": "formComponent",
           "type": "FormComponent",
-          "description": null,
-          "descriptionZh": null
+          "description": "Template/content query reference `formComponent` (`@ViewChild`) targeting form component.",
+          "descriptionZh": "模板/内容视图查询引用 `formComponent`（`@ViewChild`），指向表单组件。"
         },
         {
           "name": "hideHead",
           "type": "boolean",
           "default": "false",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `hideHead` (`boolean`) storing hide head (default: `false`).",
+          "descriptionZh": "属性 `hideHead`（类型：`boolean`），用于存储或配置隐藏Head（默认值：`false`）。"
         },
         {
           "name": "layout",
           "type": "any",
           "default": "'form'",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `layout` (`string`) storing layout (default: `'form'`).",
+          "descriptionZh": "属性 `layout`（类型：`string`），用于存储或配置布局（默认值：`'form'`）。"
         }
       ]
     },
     {
       "name": "FormCardModule",
       "kind": "module",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular module `FormCardModule` declaring and exporting form card module components, directives, pipes, and providers.",
+      "summaryZh": "Angular 模块 `FormCardModule`，声明并导出表单卡片模块相关的组件、指令、管道与服务提供者。",
       "sourceFile": "src/form/card/form.card.module.ts",
       "inputs": [],
       "outputs": [],
@@ -95,8 +95,8 @@
           "name": "entryComponents",
           "type": "any",
           "default": "[FormCard]",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `entryComponents` (`any[]`) storing entry components (default: `[FormCard]`).",
+          "descriptionZh": "属性 `entryComponents`（类型：`any[]`），用于存储或配置条目组件列表（默认值：`[FormCard]`）。"
         }
       ]
     }

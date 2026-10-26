@@ -4,12 +4,29 @@
     {
       "name": "applyCssTransform",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Executes `applyCssTransform` to handle apply css transform.",
+      "summaryZh": "执行 `applyCssTransform`，用于应用CSS样式转换。",
       "sourceFile": "src/core/style/apply-transform.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "applyCssTransform",
+          "params": [
+            {
+              "name": "element",
+              "type": "HTMLElement"
+            },
+            {
+              "name": "transformValue",
+              "type": "string"
+            }
+          ],
+          "returnType": "any",
+          "description": "Executes `applyCssTransform` to handle apply css transform.",
+          "descriptionZh": "执行 `applyCssTransform`，用于应用CSS样式转换。"
+        }
+      ],
       "properties": []
     },
     {
@@ -17,15 +34,15 @@
       "kind": "directive",
       "selector": "[cdkMonitorElementFocus], [cdkMonitorSubtreeFocus]",
       "summary": "Directive that determines how a particular element was focused (via keyboard, mouse, touch, or\nprogrammatically) and adds corresponding classes to the element.\n\nThere are two variants of this directive:\n1) cdkMonitorElementFocus: does not consider an element to be focused if one of its children is\n   focused.\n2) cdkMonitorSubtreeFocus: considers an element focused if it or any of its children are focused.",
-      "summaryZh": null,
+      "summaryZh": "Angular 指令 `CdkMonitorFocus`（selector: '[cdkMonitorElementFocus], [cdkMonitorSubtreeFocus]'），为宿主 DOM 元素附加CDK工具Monitor聚焦行为。",
       "sourceFile": "src/core/style/focus-origin-monitor.ts",
       "inputs": [],
       "outputs": [
         {
           "name": "cdkFocusChange",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Output event emitter `cdkFocusChange` (`EventEmitter`) firing when cdk focus change occurs.",
+          "descriptionZh": "输出事件 `cdkFocusChange`（类型：`EventEmitter`），当触发CDK工具聚焦变更时向外发出事件。"
         }
       ],
       "methods": [],
@@ -34,22 +51,22 @@
     {
       "name": "ComponentBase",
       "kind": "directive",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular directive `ComponentBase` attaching component base behavior to host DOM elements.",
+      "summaryZh": "Angular 指令 `ComponentBase`，为宿主 DOM 元素附加组件基础行为。",
       "sourceFile": "src/core/component.base.ts",
       "inputs": [
         {
           "name": "ownerCt",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `ownerCt` (`any`) configuring owner ct.",
+          "descriptionZh": "输入属性 `ownerCt`（类型：`any`），用于配置所属者Ct。"
         },
         {
           "name": "disabled",
           "type": "any",
           "default": "false",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `disabled` (`any`) configuring disabled (default: `false`).",
+          "descriptionZh": "输入属性 `disabled`（类型：`any`），用于配置已禁用（默认值：`false`）。"
         }
       ],
       "outputs": [],
@@ -58,15 +75,15 @@
           "name": "show",
           "params": [],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `show` to handle show.",
+          "descriptionZh": "执行 `show`，用于显示。"
         },
         {
           "name": "hide",
           "params": [],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `hide` to handle hide.",
+          "descriptionZh": "执行 `hide`，用于隐藏。"
         },
         {
           "name": "initFieldExpression",
@@ -77,15 +94,15 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `initFieldExpression` to handle init field expression.",
+          "descriptionZh": "执行 `initFieldExpression`，用于初始化字段表达式。"
         },
         {
           "name": "checkExpressionChange",
           "params": [],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `checkExpressionChange` to handle check expression change.",
+          "descriptionZh": "执行 `checkExpressionChange`，用于检查表达式变更。"
         },
         {
           "name": "checkCompExpressionChange",
@@ -100,8 +117,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `checkCompExpressionChange` to handle check comp expression change.",
+          "descriptionZh": "执行 `checkCompExpressionChange`，用于检查组件表达式变更。"
         },
         {
           "name": "checkCompVisibilityChange",
@@ -116,8 +133,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `checkCompVisibilityChange` to handle check comp visibility change.",
+          "descriptionZh": "执行 `checkCompVisibilityChange`，用于检查组件Visibility变更。"
         },
         {
           "name": "checkCompDisableChange",
@@ -132,8 +149,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `checkCompDisableChange` to handle check comp disable change.",
+          "descriptionZh": "执行 `checkCompDisableChange`，用于检查组件禁用变更。"
         },
         {
           "name": "init",
@@ -144,15 +161,15 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `init` to handle init.",
+          "descriptionZh": "执行 `init`，用于初始化。"
         },
         {
           "name": "initComponent",
           "params": [],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `initComponent` to handle init component.",
+          "descriptionZh": "执行 `initComponent`，用于初始化组件。"
         },
         {
           "name": "initPlugin",
@@ -163,8 +180,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `initPlugin` to handle init plugin.",
+          "descriptionZh": "执行 `initPlugin`，用于初始化Plugin。"
         },
         {
           "name": "on",
@@ -179,8 +196,8 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `on` to handle on.",
+          "descriptionZh": "执行 `on`，用于当。"
         },
         {
           "name": "off",
@@ -195,8 +212,8 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `off` to handle off.",
+          "descriptionZh": "执行 `off`，用于off。"
         },
         {
           "name": "onAdded",
@@ -211,22 +228,22 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `onAdded` to handle on added.",
+          "descriptionZh": "执行 `onAdded`，用于当已添加。"
         },
         {
           "name": "onRemoved",
           "params": [],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `onRemoved` to handle on removed.",
+          "descriptionZh": "执行 `onRemoved`，用于当已移除。"
         },
         {
           "name": "getXType",
           "params": [],
           "returnType": "string",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `getXType` to handle get x type.",
+          "descriptionZh": "执行 `getXType`，用于获取X坐标类型。"
         },
         {
           "name": "isXType",
@@ -241,15 +258,15 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `isXType` to handle is x type.",
+          "descriptionZh": "执行 `isXType`，用于是否为X坐标类型。"
         },
         {
           "name": "getXTypes",
           "params": [],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `getXTypes` to handle get x types.",
+          "descriptionZh": "执行 `getXTypes`，用于获取X坐标类型列表。"
         },
         {
           "name": "findParentBy",
@@ -260,8 +277,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `findParentBy` to handle find parent by.",
+          "descriptionZh": "执行 `findParentBy`，用于查找父级按。"
         },
         {
           "name": "findParentByType",
@@ -276,36 +293,36 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `findParentByType` to handle find parent by type.",
+          "descriptionZh": "执行 `findParentByType`，用于查找父级按类型。"
         },
         {
           "name": "nextSibling",
           "params": [],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `nextSibling` to handle next sibling.",
+          "descriptionZh": "执行 `nextSibling`，用于下一个兄弟节点。"
         },
         {
           "name": "previousSibling",
           "params": [],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `previousSibling` to handle previous sibling.",
+          "descriptionZh": "执行 `previousSibling`，用于上一个兄弟节点。"
         },
         {
           "name": "beforeDestroy",
           "params": [],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `beforeDestroy` to handle before destroy.",
+          "descriptionZh": "执行 `beforeDestroy`，用于之前销毁。"
         },
         {
           "name": "onDestroy",
           "params": [],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `onDestroy` to handle on destroy.",
+          "descriptionZh": "执行 `onDestroy`，用于当销毁。"
         }
       ],
       "properties": [
@@ -313,115 +330,176 @@
           "name": "display",
           "type": "any",
           "default": "'inherit'",
-          "description": null,
-          "descriptionZh": null
+          "description": "Host binding `display` bound to host attribute/property `style.display` for display.",
+          "descriptionZh": "宿主绑定属性 `display`，绑定至宿主元素 `style.display` 以控制display。"
         },
         {
           "name": "id",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `id` (`any`) storing id.",
+          "descriptionZh": "属性 `id`（类型：`any`），用于存储或配置唯一标识。"
         },
         {
           "name": "xtype",
           "type": "any",
           "default": "'component'",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `xtype` (`string`) storing xtype (default: `'component'`).",
+          "descriptionZh": "属性 `xtype`（类型：`string`），用于存储或配置扩展类型（默认值：`'component'`）。"
         },
         {
           "name": "reference",
           "type": "ComponentRef<ComponentBase>",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `reference` (`ComponentRef<ComponentBase>`) storing reference.",
+          "descriptionZh": "属性 `reference`（类型：`ComponentRef<ComponentBase>`），用于存储或配置引用。"
         },
         {
           "name": "plugins",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `plugins` (`any`) storing plugins.",
+          "descriptionZh": "属性 `plugins`（类型：`any`），用于存储或配置plugins。"
         },
         {
           "name": "inited",
           "type": "boolean",
           "default": "false",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `inited` (`boolean`) storing inited (default: `false`).",
+          "descriptionZh": "属性 `inited`（类型：`boolean`），用于存储或配置已初始化（默认值：`false`）。"
         },
         {
           "name": "ref",
           "type": "any",
           "default": "''",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `ref` (`string`) storing ref (default: `''`).",
+          "descriptionZh": "属性 `ref`（类型：`string`），用于存储或配置引用（默认值：`''`）。"
         },
         {
           "name": "style",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `style` (`any`) storing style.",
+          "descriptionZh": "属性 `style`（类型：`any`），用于存储或配置样式。"
         },
         {
           "name": "hideExpression",
           "type": "boolean | string | ((model: any, formState: any) => boolean)",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `hideExpression` (`boolean | string | ((model: any, formState: any) => boolean)`) storing hide expression.",
+          "descriptionZh": "属性 `hideExpression`（类型：`boolean | string | ((model: any, formState: any) => boolean)`），用于存储或配置隐藏表达式。"
         },
         {
           "name": "disableExpression",
           "type": "boolean | string | ((model: any, formState: any) => boolean)",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `disableExpression` (`boolean | string | ((model: any, formState: any) => boolean)`) storing disable expression.",
+          "descriptionZh": "属性 `disableExpression`（类型：`boolean | string | ((model: any, formState: any) => boolean)`），用于存储或配置禁用表达式。"
         },
         {
           "name": "expressionProperties",
           "type": "{ [property: string]: string | ((model: any, formState: any) => boolean) } | any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `expressionProperties` (`{ [property: string]: string | ((model: any, formState: any) => boolea...`) storing expression properties.",
+          "descriptionZh": "属性 `expressionProperties`（类型：`{ [property: string]: string | ((model: any, formState: any) => boolea...`），用于存储或配置表达式属性列表。"
         },
         {
           "name": "hidden",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current hidden (`hidden: any`).",
+          "descriptionZh": "获取当前隐藏（`hidden: any`）。"
         },
         {
           "name": "hidden",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Sets the hidden (`hidden`).",
+          "descriptionZh": "设置隐藏（`hidden`）。"
         },
         {
           "name": "disable",
           "type": "boolean",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current disable (`disable: boolean`).",
+          "descriptionZh": "获取当前禁用（`disable: boolean`）。"
         },
         {
           "name": "disable",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Sets the disable (`disable`).",
+          "descriptionZh": "设置禁用（`disable`）。"
         }
       ]
     },
     {
       "name": "Console",
       "kind": "interface",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Interface `Console` defining the contract and properties for console.",
+      "summaryZh": "接口 `Console`，定义Console的数据结构契约与属性规范。",
       "sourceFile": "src/core/models/console.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "log",
+          "params": [
+            {
+              "name": "m",
+              "type": "any"
+            }
+          ],
+          "returnType": "void",
+          "description": "Executes `log` to handle log.",
+          "descriptionZh": "执行 `log`，用于日志。"
+        },
+        {
+          "name": "debug",
+          "params": [
+            {
+              "name": "m",
+              "type": "any"
+            }
+          ],
+          "returnType": "void",
+          "description": "Executes `debug` to handle debug.",
+          "descriptionZh": "执行 `debug`，用于debug。"
+        },
+        {
+          "name": "error",
+          "params": [
+            {
+              "name": "m",
+              "type": "any"
+            }
+          ],
+          "returnType": "void",
+          "description": "Executes `error` to handle error.",
+          "descriptionZh": "执行 `error`，用于错误。"
+        },
+        {
+          "name": "warn",
+          "params": [
+            {
+              "name": "m",
+              "type": "any"
+            }
+          ],
+          "returnType": "void",
+          "description": "Executes `warn` to handle warn.",
+          "descriptionZh": "执行 `warn`，用于警告色。"
+        },
+        {
+          "name": "info",
+          "params": [
+            {
+              "name": "m",
+              "type": "any"
+            }
+          ],
+          "returnType": "void",
+          "description": "Executes `info` to handle info.",
+          "descriptionZh": "执行 `info`，用于信息。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "Dir",
       "kind": "directive",
       "selector": "[dir]",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular directive `Dir` (selector: '[dir]') attaching dir behavior to host DOM elements.",
+      "summaryZh": "Angular 指令 `Dir`（selector: '[dir]'），为宿主 DOM 元素附加目录行为。",
       "sourceFile": "src/core/rtl/dir.ts",
       "inputs": [
         {
@@ -430,7 +508,7 @@
           "type": "LayoutDirection",
           "default": "'ltr'",
           "description": "Layout direction of the element.",
-          "descriptionZh": null
+          "descriptionZh": "输入属性 `dir`（类型：`LayoutDirection`），用于配置目录（默认值：`'ltr'`）。"
         }
       ],
       "outputs": [
@@ -438,7 +516,7 @@
           "name": "dirChange",
           "type": "any",
           "description": "Event emitted when the direction changes.",
-          "descriptionZh": null
+          "descriptionZh": "输出事件 `dirChange`（类型：`EventEmitter`），当触发目录变更时向外发出事件。"
         }
       ],
       "methods": [],
@@ -447,33 +525,33 @@
           "name": "dir",
           "type": "LayoutDirection",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "宿主绑定读取器 `dir`（绑定至 `attr.dir`），计算并返回目录。"
         },
         {
           "name": "dir",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Sets the dir (`dir`).",
+          "descriptionZh": "设置目录（`dir`）。"
         },
         {
           "name": "value",
           "type": "LayoutDirection",
           "description": "Current layout direction of the element.",
-          "descriptionZh": null
+          "descriptionZh": "获取当前值（`value: LayoutDirection`）。"
         },
         {
           "name": "value",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Sets the value (`value`).",
+          "descriptionZh": "设置值（`value`）。"
         }
       ]
     },
     {
       "name": "Dui",
       "kind": "class",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Class `Dui` encapsulating dui data structures and logic in `src/core`.",
+      "summaryZh": "类 `Dui`，封装 `src/core` 中的DUI数据结构与处理逻辑。",
       "sourceFile": "src/core/dui.ts",
       "inputs": [],
       "outputs": [],
@@ -482,8 +560,8 @@
           "name": "generateGUID",
           "params": [],
           "returnType": "string",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `generateGUID` to handle generate guid.",
+          "descriptionZh": "执行 `generateGUID`，用于生成全局唯一标识。"
         },
         {
           "name": "getParam",
@@ -494,8 +572,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `getParam` to handle get param.",
+          "descriptionZh": "执行 `getParam`，用于获取参数。"
         },
         {
           "name": "getComponent",
@@ -510,8 +588,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `getComponent` to handle get component.",
+          "descriptionZh": "执行 `getComponent`，用于获取组件。"
         },
         {
           "name": "create",
@@ -526,8 +604,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `create` to handle create.",
+          "descriptionZh": "执行 `create`，用于创建。"
         },
         {
           "name": "createField",
@@ -542,8 +620,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `createField` to handle create field.",
+          "descriptionZh": "执行 `createField`，用于创建字段。"
         },
         {
           "name": "initOption",
@@ -554,8 +632,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `initOption` to handle init option.",
+          "descriptionZh": "执行 `initOption`，用于初始化选项。"
         },
         {
           "name": "assignModelValue",
@@ -574,8 +652,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `assignModelValue` to handle assign model value.",
+          "descriptionZh": "执行 `assignModelValue`，用于赋值模型值。"
         },
         {
           "name": "addFormControl",
@@ -586,8 +664,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `addFormControl` to handle add form control.",
+          "descriptionZh": "执行 `addFormControl`，用于添加表单表单控件。"
         },
         {
           "name": "isPluginRegistered",
@@ -598,8 +676,8 @@
             }
           ],
           "returnType": "boolean",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `isPluginRegistered` to handle is plugin registered.",
+          "descriptionZh": "执行 `isPluginRegistered`，用于是否为Plugin已注册。"
         },
         {
           "name": "registerPlugin",
@@ -614,8 +692,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `registerPlugin` to handle register plugin.",
+          "descriptionZh": "执行 `registerPlugin`，用于注册Plugin。"
         },
         {
           "name": "createPlugin",
@@ -630,8 +708,8 @@
             }
           ],
           "returnType": "ComponentBase",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `createPlugin` to handle create plugin.",
+          "descriptionZh": "执行 `createPlugin`，用于创建Plugin。"
         },
         {
           "name": "id",
@@ -646,8 +724,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `id` to handle id.",
+          "descriptionZh": "执行 `id`，用于唯一标识。"
         },
         {
           "name": "getTarget",
@@ -662,8 +740,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `getTarget` to handle get target.",
+          "descriptionZh": "执行 `getTarget`，用于获取目标。"
         },
         {
           "name": "query",
@@ -682,8 +760,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `query` to handle query.",
+          "descriptionZh": "执行 `query`，用于查询。"
         },
         {
           "name": "getDom",
@@ -698,8 +776,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `getDom` to handle get dom.",
+          "descriptionZh": "执行 `getDom`，用于获取DOM节点。"
         },
         {
           "name": "getUid",
@@ -710,8 +788,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `getUid` to handle get uid.",
+          "descriptionZh": "执行 `getUid`，用于获取Uid。"
         },
         {
           "name": "hasUid",
@@ -722,8 +800,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `hasUid` to handle has uid.",
+          "descriptionZh": "执行 `hasUid`，用于是否包含Uid。"
         },
         {
           "name": "removeUid",
@@ -734,8 +812,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `removeUid` to handle remove uid.",
+          "descriptionZh": "执行 `removeUid`，用于移除Uid。"
         },
         {
           "name": "removeFieldControl",
@@ -750,8 +828,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `removeFieldControl` to handle remove field control.",
+          "descriptionZh": "执行 `removeFieldControl`，用于移除字段表单控件。"
         }
       ],
       "properties": [
@@ -759,58 +837,58 @@
           "name": "navigator",
           "type": "any",
           "default": "navigator",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `navigator` (`any`) storing navigator (default: `navigator`).",
+          "descriptionZh": "属性 `navigator`（类型：`any`），用于存储或配置navigator（默认值：`navigator`）。"
         },
         {
           "name": "idSeed",
           "type": "any",
           "default": "0",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `idSeed` (`number`) storing id seed (default: `0`).",
+          "descriptionZh": "属性 `idSeed`（类型：`number`），用于存储或配置唯一标识Seed（默认值：`0`）。"
         },
         {
           "name": "DOC",
           "type": "any",
           "default": "document",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `DOC` (`any`) storing doc (default: `document`).",
+          "descriptionZh": "属性 `DOC`（类型：`any`），用于存储或配置文档（默认值：`document`）。"
         },
         {
           "name": "UID_PROPERTY_",
           "type": "any",
           "default": "'dui_' + ((Math.random() * 1e9) >>> 0)",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `UID_PROPERTY_` (`any`) storing uid property (default: `'dui_' + ((Math.random() * 1e9) >>> 0)`).",
+          "descriptionZh": "属性 `UID_PROPERTY_`（类型：`any`），用于存储或配置UID属性（默认值：`'dui_' + ((Math.random() * 1e9) >>> 0)`）。"
         },
         {
           "name": "uidCounter_",
           "type": "any",
           "default": "0",
           "description": "Counter for UID.",
-          "descriptionZh": null
+          "descriptionZh": "属性 `uidCounter_`（类型：`number`），用于存储或配置uid计数器（默认值：`0`）。"
         },
         {
           "name": "getHashCode",
           "type": "any",
           "default": "Dui.getUid",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `getHashCode` (`any`) storing get hash code (default: `Dui.getUid`).",
+          "descriptionZh": "属性 `getHashCode`（类型：`any`），用于存储或配置获取Hash编码（默认值：`Dui.getUid`）。"
         },
         {
           "name": "removeHashCode",
           "type": "any",
           "default": "Dui.removeUid",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `removeHashCode` (`any`) storing remove hash code (default: `Dui.removeUid`).",
+          "descriptionZh": "属性 `removeHashCode`（类型：`any`），用于存储或配置移除Hash编码（默认值：`Dui.removeUid`）。"
         }
       ]
     },
     {
       "name": "FOCUS_ORIGIN_MONITOR_PROVIDER",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `FOCUS_ORIGIN_MONITOR_PROVIDER` defining focus origin monitor provider in `src/core/style`.",
+      "summaryZh": "常量/变量 `FOCUS_ORIGIN_MONITOR_PROVIDER`，定义 `src/core/style` 中的聚焦ORIGINMONITOR提供者。",
       "sourceFile": "src/core/style/focus-origin-monitor.ts",
       "inputs": [],
       "outputs": [],
@@ -820,19 +898,40 @@
     {
       "name": "FOCUS_ORIGIN_MONITOR_PROVIDER_FACTORY",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Executes `FOCUS_ORIGIN_MONITOR_PROVIDER_FACTORY` to handle focus origin monitor provider factory.",
+      "summaryZh": "执行 `FOCUS_ORIGIN_MONITOR_PROVIDER_FACTORY`，用于聚焦ORIGINMONITOR提供者工厂。",
       "sourceFile": "src/core/style/focus-origin-monitor.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "FOCUS_ORIGIN_MONITOR_PROVIDER_FACTORY",
+          "params": [
+            {
+              "name": "parentDispatcher",
+              "type": "FocusOriginMonitor"
+            },
+            {
+              "name": "ngZone",
+              "type": "NgZone"
+            },
+            {
+              "name": "platform",
+              "type": "Platform"
+            }
+          ],
+          "returnType": "any",
+          "description": "Executes `FOCUS_ORIGIN_MONITOR_PROVIDER_FACTORY` to handle focus origin monitor provider factory.",
+          "descriptionZh": "执行 `FOCUS_ORIGIN_MONITOR_PROVIDER_FACTORY`，用于聚焦ORIGINMONITOR提供者工厂。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "FocusOrigin",
       "kind": "type",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Type alias `FocusOrigin` representing focus origin (`'touch' | 'mouse' | 'keyboard' | 'program'`).",
+      "summaryZh": "类型别名 `FocusOrigin`，表示聚焦Origin（`'touch' | 'mouse' | 'keyboard' | 'program'`）。",
       "sourceFile": "src/core/style/focus-origin-monitor.ts",
       "inputs": [],
       "outputs": [],
@@ -843,7 +942,7 @@
       "name": "FocusOriginMonitor",
       "kind": "service",
       "summary": "Monitors mouse and keyboard events to determine the cause of focus events.",
-      "summaryZh": null,
+      "summaryZh": "可注入的 Angular 服务 `FocusOriginMonitor`，管理 `src/core/style` 中的聚焦OriginMonitor状态与业务操作。",
       "sourceFile": "src/core/style/focus-origin-monitor.ts",
       "inputs": [],
       "outputs": [],
@@ -866,7 +965,7 @@
           ],
           "returnType": "Observable<FocusOrigin>",
           "description": "Monitors focus on an element and applies appropriate CSS classes.\nparam element The element to monitor\nparam renderer The renderer to use to apply CSS classes to the element.\nparam checkChildren Whether to count the element as focused when its children are focused.\n An observable that emits when the focus state of the element changes.\n    When the element is blurred, null will be emitted.",
-          "descriptionZh": null
+          "descriptionZh": "执行 `monitor`，用于monitor。"
         },
         {
           "name": "stopMonitoring",
@@ -878,7 +977,7 @@
           ],
           "returnType": "void",
           "description": "Stops monitoring an element and removes all focus classes.\nparam element The element to stop monitoring.",
-          "descriptionZh": null
+          "descriptionZh": "执行 `stopMonitoring`，用于停止Monitoring。"
         },
         {
           "name": "focusVia",
@@ -894,7 +993,7 @@
           ],
           "returnType": "void",
           "description": "Focuses the element via the specified focus origin.\nparam element The element to focus.\nparam origin The focus origin.",
-          "descriptionZh": null
+          "descriptionZh": "执行 `focusVia`，用于聚焦Via。"
         }
       ],
       "properties": []
@@ -902,8 +1001,8 @@
     {
       "name": "LayoutDirection",
       "kind": "type",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Type alias `LayoutDirection` representing layout direction (`'ltr' | 'rtl'`).",
+      "summaryZh": "类型别名 `LayoutDirection`，表示布局方向（`'ltr' | 'rtl'`）。",
       "sourceFile": "src/core/rtl/dir.ts",
       "inputs": [],
       "outputs": [],
@@ -913,30 +1012,81 @@
     {
       "name": "LogLevel",
       "kind": "enum",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Enumeration `LogLevel` defining supported log level constants.",
+      "summaryZh": "枚举 `LogLevel`，定义支持的日志层级常量集合。",
       "sourceFile": "src/core/models/log-level.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
-      "properties": []
+      "properties": [
+        {
+          "name": "Info",
+          "type": "enum-member",
+          "default": "1",
+          "description": "Enum member `LogLevel.Info` = 1 representing info.",
+          "descriptionZh": "枚举项 `LogLevel.Info` = 1，表示信息。"
+        },
+        {
+          "name": "Warn",
+          "type": "enum-member",
+          "default": "2",
+          "description": "Enum member `LogLevel.Warn` = 2 representing warn.",
+          "descriptionZh": "枚举项 `LogLevel.Warn` = 2，表示警告色。"
+        },
+        {
+          "name": "Error",
+          "type": "enum-member",
+          "default": "3",
+          "description": "Enum member `LogLevel.Error` = 3 representing error.",
+          "descriptionZh": "枚举项 `LogLevel.Error` = 3，表示错误。"
+        },
+        {
+          "name": "Debug",
+          "type": "enum-member",
+          "default": "4",
+          "description": "Enum member `LogLevel.Debug` = 4 representing debug.",
+          "descriptionZh": "枚举项 `LogLevel.Debug` = 4，表示Debug。"
+        }
+      ]
     },
     {
       "name": "Media",
       "kind": "enum",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Enumeration `Media` defining supported media constants.",
+      "summaryZh": "枚举 `Media`，定义支持的媒体常量集合。",
       "sourceFile": "src/core/media/media.enum.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
-      "properties": []
+      "properties": [
+        {
+          "name": "Mobile",
+          "type": "enum-member",
+          "default": "'mobile'",
+          "description": "Enum member `Media.Mobile` = 'mobile' representing mobile.",
+          "descriptionZh": "枚举项 `Media.Mobile` = 'mobile'，表示Mobile。"
+        },
+        {
+          "name": "Tablet",
+          "type": "enum-member",
+          "default": "'tablet'",
+          "description": "Enum member `Media.Tablet` = 'tablet' representing tablet.",
+          "descriptionZh": "枚举项 `Media.Tablet` = 'tablet'，表示Tablet。"
+        },
+        {
+          "name": "Desktop",
+          "type": "enum-member",
+          "default": "'desktop'",
+          "description": "Enum member `Media.Desktop` = 'desktop' representing desktop.",
+          "descriptionZh": "枚举项 `Media.Desktop` = 'desktop'，表示Desktop。"
+        }
+      ]
     },
     {
       "name": "MediaBreakpoints",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `MediaBreakpoints` defining media breakpoints in `src/core/media`.",
+      "summaryZh": "常量/变量 `MediaBreakpoints`，定义 `src/core/media` 中的媒体Breakpoints。",
       "sourceFile": "src/core/media/media.enum.ts",
       "inputs": [],
       "outputs": [],
@@ -946,19 +1096,34 @@
     {
       "name": "MediaOrientation",
       "kind": "enum",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Enumeration `MediaOrientation` defining supported media orientation constants.",
+      "summaryZh": "枚举 `MediaOrientation`，定义支持的媒体方向常量集合。",
       "sourceFile": "src/core/media/media.enum.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
-      "properties": []
+      "properties": [
+        {
+          "name": "Portrait",
+          "type": "enum-member",
+          "default": "'portrait'",
+          "description": "Enum member `MediaOrientation.Portrait` = 'portrait' representing portrait.",
+          "descriptionZh": "枚举项 `MediaOrientation.Portrait` = 'portrait'，表示Portrait。"
+        },
+        {
+          "name": "Landscape",
+          "type": "enum-member",
+          "default": "'landscape'",
+          "description": "Enum member `MediaOrientation.Landscape` = 'landscape' representing landscape.",
+          "descriptionZh": "枚举项 `MediaOrientation.Landscape` = 'landscape'，表示Landscape。"
+        }
+      ]
     },
     {
       "name": "MediaService",
       "kind": "service",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Injectable Angular service `MediaService` managing media service state and operations in `src/core/media`.",
+      "summaryZh": "可注入的 Angular 服务 `MediaService`，管理 `src/core/media` 中的媒体服务状态与业务操作。",
       "sourceFile": "src/core/media/media.service.ts",
       "inputs": [],
       "outputs": [],
@@ -967,15 +1132,15 @@
           "name": "getMedia",
           "params": [],
           "returnType": "Media",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `getMedia` to handle get media.",
+          "descriptionZh": "执行 `getMedia`，用于获取媒体。"
         },
         {
           "name": "getOrientation",
           "params": [],
           "returnType": "MediaOrientation",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `getOrientation` to handle get orientation.",
+          "descriptionZh": "执行 `getOrientation`，用于获取方向。"
         }
       ],
       "properties": [
@@ -983,23 +1148,23 @@
           "name": "media$",
           "type": "any",
           "default": "new BehaviorSubject<Media>(undefined)",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `media$` (`BehaviorSubject`) storing media (default: `new BehaviorSubject<Media>(undefined)`).",
+          "descriptionZh": "属性 `media$`（类型：`BehaviorSubject`），用于存储或配置媒体（默认值：`new BehaviorSubject<Media>(undefined)`）。"
         },
         {
           "name": "orientation$",
           "type": "any",
           "default": "new BehaviorSubject<MediaOrientation>(undefined)",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `orientation$` (`BehaviorSubject`) storing orientation.",
+          "descriptionZh": "属性 `orientation$`（类型：`BehaviorSubject`），用于存储或配置方向。"
         }
       ]
     },
     {
       "name": "OverlayState",
       "kind": "class",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Class `OverlayState` encapsulating overlay state data structures and logic in `src/core/overlay`.",
+      "summaryZh": "类 `OverlayState`，封装 `src/core/overlay` 中的浮层状态数据结构与处理逻辑。",
       "sourceFile": "src/core/overlay/overlay-state.ts",
       "inputs": [],
       "outputs": [],
@@ -1009,73 +1174,73 @@
           "name": "positionStrategy",
           "type": "PositionStrategy",
           "description": "Strategy with which to position the overlay.",
-          "descriptionZh": null
+          "descriptionZh": "属性 `positionStrategy`（类型：`PositionStrategy`），用于存储或配置位置策略。"
         },
         {
           "name": "scrollStrategy",
           "type": "ScrollStrategy",
           "description": "Strategy to be used when handling scroll events while the overlay is open.",
-          "descriptionZh": null
+          "descriptionZh": "属性 `scrollStrategy`（类型：`ScrollStrategy`），用于存储或配置滚动策略。"
         },
         {
           "name": "panelClass",
           "type": "string",
           "default": "''",
           "description": "Custom class to add to the overlay pane.",
-          "descriptionZh": null
+          "descriptionZh": "属性 `panelClass`（类型：`string`），用于存储或配置面板类名（默认值：`''`）。"
         },
         {
           "name": "hasBackdrop",
           "type": "boolean",
           "default": "false",
           "description": "Whether the overlay has a backdrop.",
-          "descriptionZh": null
+          "descriptionZh": "属性 `hasBackdrop`（类型：`boolean`），用于存储或配置是否包含背景遮罩（默认值：`false`）。"
         },
         {
           "name": "backdropClass",
           "type": "string",
           "default": "'cdk-overlay-dark-backdrop'",
           "description": "Custom class to add to the backdrop",
-          "descriptionZh": null
+          "descriptionZh": "属性 `backdropClass`（类型：`string`），用于存储或配置背景遮罩类名（默认值：`'cdk-overlay-dark-backdrop'`）。"
         },
         {
           "name": "width",
           "type": "number | string",
           "description": "The width of the overlay panel. If a number is provided, pixel units are assumed.",
-          "descriptionZh": null
+          "descriptionZh": "属性 `width`（类型：`number | string`），用于存储或配置宽度。"
         },
         {
           "name": "height",
           "type": "number | string",
           "description": "The height of the overlay panel. If a number is provided, pixel units are assumed.",
-          "descriptionZh": null
+          "descriptionZh": "属性 `height`（类型：`number | string`），用于存储或配置高度。"
         },
         {
           "name": "minWidth",
           "type": "number | string",
           "description": "The min-width of the overlay panel. If a number is provided, pixel units are assumed.",
-          "descriptionZh": null
+          "descriptionZh": "属性 `minWidth`（类型：`number | string`），用于存储或配置最小值宽度。"
         },
         {
           "name": "minHeight",
           "type": "number | string",
           "description": "The min-height of the overlay panel. If a number is provided, pixel units are assumed.",
-          "descriptionZh": null
+          "descriptionZh": "属性 `minHeight`（类型：`number | string`），用于存储或配置最小值高度。"
         },
         {
           "name": "direction",
           "type": "LayoutDirection",
           "default": "'ltr'",
           "description": "The direction of the text in the overlay panel.",
-          "descriptionZh": null
+          "descriptionZh": "属性 `direction`（类型：`LayoutDirection`），用于存储或配置方向（默认值：`'ltr'`）。"
         }
       ]
     },
     {
       "name": "RtlModule",
       "kind": "module",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular module `RtlModule` declaring and exporting rtl module components, directives, pipes, and providers.",
+      "summaryZh": "Angular 模块 `RtlModule`，声明并导出Rtl模块相关的组件、指令、管道与服务提供者。",
       "sourceFile": "src/core/rtl/dir.ts",
       "inputs": [],
       "outputs": [],
@@ -1085,8 +1250,8 @@
     {
       "name": "StyleModule",
       "kind": "module",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular module `StyleModule` declaring and exporting style module components, directives, pipes, and providers.",
+      "summaryZh": "Angular 模块 `StyleModule`，声明并导出样式模块相关的组件、指令、管道与服务提供者。",
       "sourceFile": "src/core/style/style.module.ts",
       "inputs": [],
       "outputs": [],
@@ -1096,8 +1261,8 @@
     {
       "name": "TOUCH_BUFFER_MS",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `TOUCH_BUFFER_MS` defining touch buffer ms in `src/core/style`.",
+      "summaryZh": "常量/变量 `TOUCH_BUFFER_MS`，定义 `src/core/style` 中的触摸缓冲区毫秒。",
       "sourceFile": "src/core/style/focus-origin-monitor.ts",
       "inputs": [],
       "outputs": [],
@@ -1107,19 +1272,57 @@
     {
       "name": "Window",
       "kind": "interface",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Interface `Window` defining the contract and properties for window.",
+      "summaryZh": "接口 `Window`，定义窗口的数据结构契约与属性规范。",
       "sourceFile": "src/core/models/window.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
-      "properties": []
+      "methods": [
+        {
+          "name": "alert",
+          "params": [
+            {
+              "name": "msg",
+              "type": "string"
+            }
+          ],
+          "returnType": "void",
+          "description": "Executes `alert` to handle alert.",
+          "descriptionZh": "执行 `alert`，用于警告框。"
+        },
+        {
+          "name": "confirm",
+          "params": [
+            {
+              "name": "msg",
+              "type": "string"
+            }
+          ],
+          "returnType": "void",
+          "description": "Executes `confirm` to handle confirm.",
+          "descriptionZh": "执行 `confirm`，用于confirm。"
+        }
+      ],
+      "properties": [
+        {
+          "name": "navigator",
+          "type": "any",
+          "description": "Property `navigator` (`any`) storing navigator.",
+          "descriptionZh": "属性 `navigator`（类型：`any`），用于存储或配置navigator。"
+        },
+        {
+          "name": "location",
+          "type": "any",
+          "description": "Property `location` (`any`) storing location.",
+          "descriptionZh": "属性 `location`（类型：`any`），用于存储或配置location。"
+        }
+      ]
     },
     {
       "name": "WindowRef",
       "kind": "service",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Injectable Angular service `WindowRef` managing window ref state and operations in `src/core`.",
+      "summaryZh": "可注入的 Angular 服务 `WindowRef`，管理 `src/core` 中的窗口引用状态与业务操作。",
       "sourceFile": "src/core/WindowRef.ts",
       "inputs": [],
       "outputs": [],
@@ -1128,16 +1331,16 @@
         {
           "name": "nativeWindow",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current native window (`nativeWindow: any`).",
+          "descriptionZh": "获取当前原生窗口（`nativeWindow: any`）。"
         }
       ]
     },
     {
       "name": "WindowService",
       "kind": "service",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Injectable Angular service `WindowService` managing window service state and operations in `src/core`.",
+      "summaryZh": "可注入的 Angular 服务 `WindowService`，管理 `src/core` 中的窗口服务状态与业务操作。",
       "sourceFile": "src/core/window.service.ts",
       "inputs": [],
       "outputs": [],
@@ -1151,8 +1354,8 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `alert` to handle alert.",
+          "descriptionZh": "执行 `alert`，用于警告框。"
         },
         {
           "name": "confirm",
@@ -1163,8 +1366,8 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `confirm` to handle confirm.",
+          "descriptionZh": "执行 `confirm`，用于confirm。"
         }
       ],
       "properties": [
@@ -1172,15 +1375,15 @@
           "name": "navigator",
           "type": "any",
           "default": "{}",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `navigator` (`any`) storing navigator (default: `{}`).",
+          "descriptionZh": "属性 `navigator`（类型：`any`），用于存储或配置navigator（默认值：`{}`）。"
         },
         {
           "name": "location",
           "type": "any",
           "default": "{}",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `location` (`any`) storing location (default: `{}`).",
+          "descriptionZh": "属性 `location`（类型：`any`），用于存储或配置location（默认值：`{}`）。"
         }
       ]
     }

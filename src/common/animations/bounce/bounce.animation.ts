@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Module `src/common/animations/bounce/bounce.animation.ts` providing bounce animation definitions and implementation.
+ * @zh 模块文件 `src/common/animations/bounce/bounce.animation.ts`，提供bounce动画相关的定义与实现。
+ */
+
 import {
   trigger,
   state,
@@ -11,6 +16,10 @@ import {
   group,
 } from '@angular/animations';
 
+/**
+ * Angular animation trigger `BounceAnimation` defining state transitions for bounce animation.
+ * @zh Angular 动画触发器 `BounceAnimation`，定义Bounce动画的状态过渡动画。
+ */
 export const BounceAnimation: AnimationTriggerMetadata = trigger('duiBounce', [
   state(
     '0',

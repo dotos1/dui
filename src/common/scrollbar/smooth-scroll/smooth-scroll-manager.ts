@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Module `src/common/scrollbar/smooth-scroll/smooth-scroll-manager.ts` providing smooth scroll manager definitions and implementation.
+ * @zh 模块文件 `src/common/scrollbar/smooth-scroll/smooth-scroll-manager.ts`，提供smooth滚动管理器相关的定义与实现。
+ */
+
 import { Injectable, inject, ElementRef, NgZone } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
 import { coerceElement } from '@angular/cdk/coercion';
@@ -23,26 +28,48 @@ import {
   SmoothScrollToOptions
 } from './smooth-scroll.model';
 
+/**
+ * Injectable Angular service `SmoothScrollManager` managing smooth scroll manager state and operations in `src/common/scrollbar/smooth-scroll`.
+ * @zh 可注入的 Angular 服务 `SmoothScrollManager`，管理 `src/common/scrollbar/smooth-scroll` 中的Smooth滚动管理器状态与业务操作。
+ */
 @Injectable({
   providedIn: 'root'
 })
 export class SmoothScrollManager {
 
+  /**
+   * Property `document` (`Document`) storing document (default: `inject(DOCUMENT)`).
+   * @zh 属性 `document`（类型：`Document`），用于存储或配置文档对象（默认值：`inject(DOCUMENT)`）。
+   */
   private document: Document = inject(DOCUMENT);
 
+  /**
+   * Property `zone` (`NgZone`) storing zone (default: `inject(NgZone)`).
+   * @zh 属性 `zone`（类型：`NgZone`），用于存储或配置区域(NgZone)（默认值：`inject(NgZone)`）。
+   */
   private zone: NgZone = inject(NgZone);
 
   // Default options
+  /**
+   * Property `_defaultOptions` (`SmoothScrollOptions`) storing default options (default: `inject(SMOOTH_SCROLL_OPTIONS)`).
+   * @zh 属性 `_defaultOptions`（类型：`SmoothScrollOptions`），用于存储或配置默认配置选项（默认值：`inject(SMOOTH_SCROLL_OPTIONS)`）。
+   */
   private readonly _defaultOptions: SmoothScrollOptions = inject(SMOOTH_SCROLL_OPTIONS);
 
   // Keeps track of the ongoing SmoothScroll functions, so they can be handled in case of duplication.
   // Each scrolled element gets a destroyer stream which gets deleted immediately after it completes.
   // Purpose: If user called a scroll function again on the same element before the scrolls completes,
   // it cancels the ongoing scroll and starts a new one
+  /**
+   * Property `onGoingScrolls` (`Map<Element, Subject<void>>`) storing on going scrolls (default: `new Map<Element, Subject<void>>()`).
+   * @zh 属性 `onGoingScrolls`（类型：`Map<Element, Subject<void>>`），用于存储或配置当Going滚动（默认值：`new Map<Element, Subject<void>>()`）。
+   */
   private onGoingScrolls: Map<Element, Subject<void>> = new Map<Element, Subject<void>>();
 
   /**
    * Timing method
+
+   * @zh 获取当前当前时间（`now: () => number`）。
    */
   private get now(): () => number {
     return this.document.defaultView.performance?.now?.bind(this.document.defaultView.performance) || Date.now;
@@ -50,6 +77,8 @@ export class SmoothScrollManager {
 
   /**
    * changes scroll position inside an element
+
+   * @zh 执行 `scrollElement`，用于滚动元素。
    */
   private scrollElement(el: Element, x: number, y: number): void {
     el.scrollLeft = x;
@@ -58,6 +87,8 @@ export class SmoothScrollManager {
 
   /**
    * Handles a given parameter of type HTMLElement, ElementRef or selector
+
+   * @zh 执行 `getElement`，用于获取元素。
    */
   private getElement(el: Element | ElementRef | string, parent?: Element): Element {
     if (typeof el === 'string') {
@@ -68,6 +99,8 @@ export class SmoothScrollManager {
 
   /**
    * Initializes a destroyer stream, re-initializes it if the element is already being scrolled
+
+   * @zh 执行 `getScrollDestroyerRef`，用于获取滚动销毁器引用。
    */
   private getScrollDestroyerRef(el: Element): Subject<void> {
     if (this.onGoingScrolls.has(el)) {
@@ -78,6 +111,8 @@ export class SmoothScrollManager {
 
   /**
    * A function called recursively that, given a context, steps through scrolling
+
+   * @zh 执行 `step`，用于步骤。
    */
   private step(context: SmoothScrollStep): Observable<void> {
     return new Observable((subscriber: Subscriber<void>) => {
@@ -103,6 +138,8 @@ export class SmoothScrollManager {
 
   /**
    * Checks if smooth scroll has reached, cleans up the smooth scroll stream
+
+   * @zh 执行 `isReached`，用于是否为Reached。
    */
   private isReached(context: SmoothScrollStep, destroyed: Subject<void>): boolean {
     if (context.currentX === context.x && context.currentY === context.y) {
@@ -117,6 +154,8 @@ export class SmoothScrollManager {
    * Scroll recursively until coordinates are reached
    * @param context
    * @param destroyed
+
+   * @zh 执行 `scrolling`，用于滚动中。
    */
   scrolling(context: SmoothScrollStep, destroyed: Subject<void>): Observable<void> {
     return this.step(context).pipe(
@@ -128,6 +167,8 @@ export class SmoothScrollManager {
 
   /**
    * Deletes the destroyer function, runs if the smooth scroll has finished or interrupted
+
+   * @zh 执行 `onScrollReached`，用于当滚动Reached。
    */
   private onScrollReached(el: Element, resolve: () => void, destroyed: Subject<void>): void {
     destroyed.complete();
@@ -137,6 +178,8 @@ export class SmoothScrollManager {
 
   /**
    * Terminates an ongoing smooth scroll
+
+   * @zh 执行 `interrupted`，用于interrupted。
    */
   private interrupted(el: Element, destroyed: Subject<void>): Observable<Event | void> {
     return merge(
@@ -146,6 +189,13 @@ export class SmoothScrollManager {
     ).pipe(take(1));
   }
 
+  /**
+   * Executes `applyScrollToOptions` to handle apply scroll to options.
+   * @zh 执行 `applyScrollToOptions`，用于应用滚动转换为配置选项。
+   * @param el - el parameter (`Element`) / DOM元素参数（`Element`）
+   * @param options - options parameter (`SmoothScrollToOptions`) / 配置选项参数（`SmoothScrollToOptions`）
+   * @returns Result of type `Promise<void>` / 类型为 `Promise<void>` 的返回值
+   */
   private applyScrollToOptions(el: Element, options: SmoothScrollToOptions): Promise<void> {
     if (!options.duration) {
       this.scrollElement(el, options.left, options.top);
@@ -186,6 +236,8 @@ export class SmoothScrollManager {
    * in an RTL context.
    * @param scrollable element
    * @param customOptions specified the offsets to scroll to.
+
+   * @zh 执行 `scrollTo`，用于滚动转换为。
    */
   scrollTo(scrollable: SmoothScrollElement, customOptions: SmoothScrollToOptions): Promise<void> {
     const el: Element = this.getElement(scrollable);
@@ -222,6 +274,8 @@ export class SmoothScrollManager {
 
   /**
    * Scroll to element by reference or selector
+
+   * @zh 执行 `scrollToElement`，用于滚动转换为元素。
    */
   scrollToElement(scrollable: SmoothScrollElement, target: SmoothScrollElement, customOptions: SmoothScrollToElementOptions = {}): Promise<void> {
     const scrollableEl: Element = this.getElement(scrollable);

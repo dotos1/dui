@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Module `src/common/toastr/toastr/toast.component.ts` providing toast component definitions and implementation.
+ * @zh 模块文件 `src/common/toastr/toastr/toast.component.ts`，提供toast组件相关的定义与实现。
+ */
+
 import {
   animate,
   state,
@@ -22,6 +27,10 @@ import { Subscription } from 'rxjs';
 import { IndividualConfig, ToastPackage } from './toastr-config';
 import { ToastrService } from './toastr.service';
 
+/**
+ * Angular component `Toast` (selector: '[toast-component]') providing toast presentation and interaction in `src/common/toastr/toastr`.
+ * @zh Angular 组件 `Toast`（selector: '[toast-component]'），提供Toast的视图渲染与交互逻辑（位于 `src/common/toastr/toastr`）。
+ */
 @Component({
   selector: '[toast-component]',
   template: `
@@ -58,29 +67,64 @@ import { ToastrService } from './toastr.service';
   changeDetection: ChangeDetectionStrategy.OnPush,
   
 })
-export class Toast<ConfigPayload = any> implements OnDestroy {
-  /** @zh 提示消息的正文文本。 */
+export class Toast<ConfigPayload = unknown> implements OnDestroy {
+  /**
+   * Property `message` (`string | null`) storing message.
+   * @zh 提示消息的正文文本。
+   * @zh 提示消息的正文文本。
+   */
   message?: string | null;
-  /** @zh 提示消息的标题。 */
+  /**
+   * Property `title` (`string`) storing title.
+   * @zh 提示消息的标题。
+   * @zh 提示消息的标题。
+   */
   title?: string;
-  /** @zh 该提示的解析后配置项。 */
+  /**
+   * Property `options` (`IndividualConfig<ConfigPayload>`) storing options.
+   * @zh 该提示的解析后配置项。
+   * @zh 该提示的解析后配置项。
+   */
   options: IndividualConfig<ConfigPayload>;
-  /** @zh 该提示被重复触发的次数。 */
+  /**
+   * Property `duplicatesCount` (`number`) storing duplicates count.
+   * @zh 该提示被重复触发的次数。
+   * @zh 该提示被重复触发的次数。
+   */
   duplicatesCount!: number;
-  /** @zh 该提示的原始自动关闭时长（毫秒）。 */
+  /**
+   * Property `originalTimeout` (`number`) storing original timeout.
+   * @zh 该提示的原始自动关闭时长（毫秒）。
+   * @zh 该提示的原始自动关闭时长（毫秒）。
+   */
   originalTimeout: number;
-  /** @zh 进度条当前宽度百分比。 */
+  /**
+   * Property `width` (`any`) storing width (default: `signal(-1)`).
+   * @zh 进度条当前宽度百分比。
+   * @zh 进度条当前宽度百分比。
+   */
   width = signal(-1);
-  /** @zh 内部使用，绑定宿主的 CSS 类名（提示类型 + 自定义类）。 */
+  /**
+   * @zh 内部使用，绑定宿主的 CSS 类名（提示类型 + 自定义类）。
+   * @zh 内部使用，绑定宿主的 CSS 类名（提示类型 + 自定义类）。
+   */
   @HostBinding('class') toastClasses = '';
 
-  /** @zh 内部使用，驱动进入/激活/移除动画的状态信号。 */
+  /**
+   * Property `state` (`WritableSignal<{ value: 'inactive' | 'active' | 'removed'; params: { e...`) storing state.
+   * @zh 内部使用，驱动进入/激活/移除动画的状态信号。
+   * @zh 内部使用，驱动进入/激活/移除动画的状态信号。
+   */
   state: WritableSignal<{
     value: 'inactive' | 'active' | 'removed';
     params: { easeTime: number | string; easing: string };
   }>;
 
-  /** @zh 内部使用，绑定 `flyInOut` 动画触发器。 */
+  /**
+   * Host-bound getter `_state` (`@flyInOut`) computing state.
+   * @zh 内部使用，绑定 `flyInOut` 动画触发器。
+   * @zh 内部使用，绑定 `flyInOut` 动画触发器。
+   */
   @HostBinding('@flyInOut') get _state() {
     return this.state();
   }
@@ -97,14 +141,50 @@ export class Toast<ConfigPayload = any> implements OnDestroy {
     return undefined;
   }
 
-  private timeout: any;
-  private intervalId: any;
+  /**
+   * Property `timeout` (`any`) storing timeout.
+   * @zh 属性 `timeout`（类型：`any`），用于存储或配置延时器。
+   */
+  private timeout;
+  /**
+   * Property `intervalId` (`any`) storing interval id.
+   * @zh 属性 `intervalId`（类型：`any`），用于存储或配置间隔定时器唯一标识。
+   */
+  private intervalId;
+  /**
+   * Property `hideTime` (`number`) storing hide time.
+   * @zh 属性 `hideTime`（类型：`number`），用于存储或配置隐藏时间。
+   */
   private hideTime!: number;
+  /**
+   * Property `sub` (`Subscription`) storing sub.
+   * @zh 属性 `sub`（类型：`Subscription`），用于存储或配置子。
+   */
   private sub: Subscription;
+  /**
+   * Property `sub1` (`Subscription`) storing sub1.
+   * @zh 属性 `sub1`（类型：`Subscription`），用于存储或配置sub1。
+   */
   private sub1: Subscription;
+  /**
+   * Property `sub2` (`Subscription`) storing sub2.
+   * @zh 属性 `sub2`（类型：`Subscription`），用于存储或配置sub2。
+   */
   private sub2: Subscription;
+  /**
+   * Property `sub3` (`Subscription`) storing sub3.
+   * @zh 属性 `sub3`（类型：`Subscription`），用于存储或配置sub3。
+   */
   private sub3: Subscription;
 
+  /**
+   * Creates an instance of `Toast` and initializes its dependencies and internal state.
+   * @zh 创建 `Toast` 实例，并初始化其依赖项与内部状态。
+   * @param toastrService - Injected or initial toastr service (`ToastrService`) / 注入或传入的轻提示服务（`ToastrService`）
+   * @param injector - Injected or initial injector (`Injector`) / 注入或传入的注入器（`Injector`）
+   * @param toastPackage - Injected or initial toast package (`ToastPackage`) / 注入或传入的toastPackage（`ToastPackage`）
+   * @param ngZone - Injected or initial ng zone (`NgZone`) / 注入或传入的Angular区域(NgZone)（`NgZone`）
+   */
   constructor(
     protected toastrService: ToastrService,
     private injector: Injector,
@@ -115,7 +195,7 @@ export class Toast<ConfigPayload = any> implements OnDestroy {
 
     this.message =toastPackage.message;
     this.title = toastPackage.title;
-    this.options = toastPackage.config;
+    this.options = toastPackage.config as IndividualConfig<ConfigPayload>;
     this.originalTimeout = toastPackage.config.timeOut;
     this.toastClasses = `${toastPackage.toastType} ${toastPackage.config.toastClass}`;
     this.sub = toastPackage.toastRef.afterActivate().subscribe(() => {
@@ -138,6 +218,10 @@ export class Toast<ConfigPayload = any> implements OnDestroy {
       },
     });
   }
+  /**
+   * Angular lifecycle hook invoked just before the component, directive, or service is destroyed to release subscriptions and resources.
+   * @zh Angular 生命周期钩子：在组件、指令或服务销毁前调用，用于释放订阅与清理资源。
+   */
   ngOnDestroy() {
     this.sub.unsubscribe();
     this.sub1.unsubscribe();
@@ -166,6 +250,8 @@ export class Toast<ConfigPayload = any> implements OnDestroy {
   }
   /**
    * updates progress bar width
+
+   * @zh 执行 `updateProgress`，用于更新进度条。
    */
   updateProgress() {
     if (this.width() === 0 || this.width() === 100 || !this.options.timeOut) {
@@ -205,6 +291,8 @@ export class Toast<ConfigPayload = any> implements OnDestroy {
 
   /**
    * tells toastrService to remove this toast after animation time
+
+   * @zh 执行 `remove`，用于移除。
    */
   remove() {
     if (this.state().value === 'removed') {
@@ -279,7 +367,7 @@ export class Toast<ConfigPayload = any> implements OnDestroy {
    * @zh 在 Angular zone 之外（若提供了 `ngZone`）执行 `setTimeout`，避免不必要的变更检测，
    * 回调触发时重新进入 zone。
    */
-  outsideTimeout(func: () => any, timeout: number) {
+  outsideTimeout(func: { () }, timeout: number) {
     if (this.ngZone) {
       this.ngZone.runOutsideAngular(
         () =>
@@ -299,7 +387,7 @@ export class Toast<ConfigPayload = any> implements OnDestroy {
    * @zh 在 Angular zone 之外（若提供了 `ngZone`）执行 `setInterval`，避免不必要的变更检测，
    * 每次触发时重新进入 zone。
    */
-  outsideInterval(func: () => any, timeout: number) {
+  outsideInterval(func: { () }, timeout: number) {
     if (this.ngZone) {
       this.ngZone.runOutsideAngular(
         () =>
@@ -313,7 +401,12 @@ export class Toast<ConfigPayload = any> implements OnDestroy {
     }
   }
 
-  private runInsideAngular(func: () => any) {
+  /**
+   * Executes `runInsideAngular` to handle run inside angular.
+   * @zh 执行 `runInsideAngular`，用于运行内部Angular。
+   * @param func - func parameter (`() => any`) / func参数（`() => any`）
+   */
+  private runInsideAngular(func: { () }) {
     if (this.ngZone) {
       this.ngZone.run(() => func());
     } else {

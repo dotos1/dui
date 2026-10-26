@@ -7,6 +7,12 @@
 import { KeyboardShortcutsService } from './keyboard-shortcuts.service';
 import { runShortcutCommand } from './utils';
 
+/**
+ * Executes `keydown` to handle keydown.
+ * @zh 执行 `keydown`，用于按键按下。
+ * @param key - key parameter (`string`) / 键参数（`string`）
+ * @param keyCode - key code parameter (`number`) / 键编码参数（`number`）
+ */
 function keydown(key: string, keyCode: number) {
     const e = new KeyboardEvent('keydown', { key, bubbles: true, cancelable: true });
     Object.defineProperty(e, 'keyCode', { get: () => keyCode });

@@ -57,9 +57,17 @@
             ],
             "tsConfig": "projects/testdui/tsconfig.app.json",
             "inlineStyleLanguage": "scss",
+            "loader": {
+              ".ttf": "file"
+            },
             "assets": [
               "projects/testdui/src/assets",
-              "projects/testdui/src/i18n"
+              "projects/testdui/src/i18n",
+              {
+                "glob": "**/*",
+                "input": "src/i18n/dui",
+                "output": "/i18n/dui"
+              }
             ],
             "styles": [
               "node_modules/material-icons/iconfont/material-icons.css",

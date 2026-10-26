@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Module `src/form/components/field.component.ts` providing field component definitions and implementation.
+ * @zh 模块文件 `src/form/components/field.component.ts`，提供字段组件相关的定义与实现。
+ */
+
 import {
   Component,
   Input,
@@ -25,6 +30,10 @@ import { FieldType } from '@dotos/dui/core/form';
 import { isObservable } from 'rxjs';
 import { debounceTime, distinctUntilChanged, startWith } from 'rxjs/operators';
 
+/**
+ * Angular component `FieldComponent` (selector: 'dui-field') providing field component presentation and interaction in `src/form/components`.
+ * @zh Angular 组件 `FieldComponent`（selector: 'dui-field'），提供字段组件的视图渲染与交互逻辑（位于 `src/form/components`）。
+ */
 @Component({
   selector: 'dui-field',
   template: `
@@ -40,18 +49,51 @@ import { debounceTime, distinctUntilChanged, startWith } from 'rxjs/operators';
 })
 export class FieldComponent implements OnInit, OnChanges,  AfterContentInit, AfterViewInit, OnDestroy {
 
+  /**
+   * Input property `field` (`FieldConfig`) configuring field.
+   * @zh 输入属性 `field`（类型：`FieldConfig`），用于配置字段。
+   */
   @Input() field: FieldConfig;
 
+  /**
+   * Template/content query reference `containerRef` (`@ViewChild`) targeting container ref.
+   * @zh 模板/内容视图查询引用 `containerRef`（`@ViewChild`），指向容器引用。
+   */
   @ViewChild('container', { read: ViewContainerRef, static: true }) containerRef: ViewContainerRef;
 
+  /**
+   * Property `hostObservers` (`ReturnType<typeof observe>[]`) storing host observers (default: `[]`).
+   * @zh 属性 `hostObservers`（类型：`ReturnType<typeof observe>[]`），用于存储或配置宿主观察者（默认值：`[]`）。
+   */
   private hostObservers: ReturnType<typeof observe>[] = [];
 
-  private componentRefs: any[] = [];
+  /**
+   * Property `componentRefs` (`any[]`) storing component refs (default: `[]`).
+   * @zh 属性 `componentRefs`（类型：`any[]`），用于存储或配置组件引用（默认值：`[]`）。
+   */
+  private componentRefs = [];
 
+  /**
+   * Property `hooksObservers` (`Function[]`) storing hooks observers (default: `[]`).
+   * @zh 属性 `hooksObservers`（类型：`Function[]`），用于存储或配置hooks观察者（默认值：`[]`）。
+   */
   private hooksObservers: Function[] = [];
 
+  /**
+   * Property `valueChangesUnsubscribe` (`any`) storing value changes unsubscribe (default: `() => {}`).
+   * @zh 属性 `valueChangesUnsubscribe`（类型：`any`），用于存储或配置值变更集合取消订阅（默认值：`() => {}`）。
+   */
   valueChangesUnsubscribe = () => {};
 
+  /**
+   * Creates an instance of `FieldComponent` and initializes its dependencies and internal state.
+   * @zh 创建 `FieldComponent` 实例，并初始化其依赖项与内部状态。
+   * @param formConfig - Injected or initial form config (`FormConfig`) / 注入或传入的表单配置（`FormConfig`）
+   * @param renderer - Injected or initial renderer (`Renderer2`) / 注入或传入的渲染器（`Renderer2`）
+   * @param changeDetector - Injected or initial change detector (`ChangeDetectorRef`) / 注入或传入的变更检测器（`ChangeDetectorRef`）
+   * @param resolver - Injected or initial resolver (`ComponentFactoryResolver`) / 注入或传入的解析器（`ComponentFactoryResolver`）
+   * @param elementRef - Injected or initial element ref (`ElementRef`) / 注入或传入的元素引用（`ElementRef`）
+   */
   constructor(
     private formConfig: FormConfig,
     private renderer: Renderer2,
@@ -61,30 +103,59 @@ export class FieldComponent implements OnInit, OnChanges,  AfterContentInit, Aft
   ) {
   }
 
+  /**
+   * Executes `init` to handle init.
+   * @zh 执行 `init`，用于初始化。
+   */
   init() {
     this.resetRefs(this.field);
     this.render();
   }
 
+  /**
+   * Angular lifecycle hook invoked once after projected content (`ng-content`) is initialized.
+   * @zh Angular 生命周期钩子：在投影内容（`ng-content`）初始化完成后调用一次。
+   */
   ngAfterContentInit() {
     this.triggerHook('afterContentInit');
   }
 
+  /**
+   * Angular lifecycle hook invoked once after the component's view and child views are initialized.
+   * @zh Angular 生命周期钩子：在组件视图及其子视图初始化完成后调用一次。
+   */
   ngAfterViewInit() {
     this.triggerHook('afterViewInit');
   }
 
+  /**
+   * Angular lifecycle hook invoked once after component or directive inputs are initialized.
+   * @zh Angular 生命周期钩子：在组件或指令的输入属性初始化完成后调用一次。
+   */
   ngOnInit() {
     this.triggerHook('onInit');
   }
 
+  /**
+   * Angular lifecycle hook invoked when data-bound input properties change.
+   * @zh Angular 生命周期钩子：当数据绑定的输入属性发生变更时调用。
+   * @param changes - changes parameter (`SimpleChanges`) / 变更集合参数（`SimpleChanges`）
+   */
   ngOnChanges(changes: SimpleChanges) {
     this.triggerHook('onChanges', changes);
   }
+  /**
+   * Executes `refresh` to handle refresh.
+   * @zh 执行 `refresh`，用于刷新。
+   */
   refresh(){
     this.changeDetector.detectChanges();
   }
 
+  /**
+   * Angular lifecycle hook invoked just before the component, directive, or service is destroyed to release subscriptions and resources.
+   * @zh Angular 生命周期钩子：在组件、指令或服务销毁前调用，用于释放订阅与清理资源。
+   */
   ngOnDestroy() {
     this.resetRefs(this.field);
     this.hostObservers.forEach((hostObserver) => hostObserver.unsubscribe());
@@ -93,6 +164,13 @@ export class FieldComponent implements OnInit, OnChanges,  AfterContentInit, Aft
     this.triggerHook('onDestroy');
   }
 
+  /**
+   * Executes `renderField` to handle render field.
+   * @zh 执行 `renderField`，用于渲染字段。
+   * @param containerRef - container ref parameter (`ViewContainerRef`) / 容器引用参数（`ViewContainerRef`）
+   * @param f - f parameter (`FieldConfigCache`) / f参数（`FieldConfigCache`）
+   * @param wrappers - wrappers parameter (`string[]`) / 包装器列表参数（`string[]`）
+   */
   private renderField(containerRef: ViewContainerRef, f: FieldConfigCache, wrappers: string[] = []) {
     if (this.containerRef === containerRef) {
       this.resetRefs(this.field);
@@ -104,7 +182,7 @@ export class FieldComponent implements OnInit, OnChanges,  AfterContentInit, Aft
       const { component } = this.formConfig.getWrapper(wrapper);
       const ref = containerRef.createComponent<FieldWrapper>(component);
       this.attachComponentRef(ref, f);
-      observe<ViewContainerRef>(ref.instance, ['fieldComponent'], ({ currentValue, previousValue, firstChange }) => {
+      observe<ViewContainerRef>(ref.instance as never, ['fieldComponent'], ({ currentValue, previousValue, firstChange }) => {
         if (currentValue) {
           const viewRef = previousValue ? previousValue.detach() : null;
           if (viewRef && !viewRef.destroyed) {
@@ -123,6 +201,12 @@ export class FieldComponent implements OnInit, OnChanges,  AfterContentInit, Aft
     }
   }
 
+  /**
+   * Executes `triggerHook` to handle trigger hook.
+   * @zh 执行 `triggerHook`，用于触发Hook。
+   * @param name - name parameter (`string`) / 名称参数（`string`）
+   * @param changes - changes parameter (`SimpleChanges`) / 变更集合参数（`SimpleChanges`）
+   */
   private triggerHook(name: string, changes?: SimpleChanges) {
     if (name === 'onInit' || (name === 'onChanges' && changes['field'] && !changes['field'].firstChange)) {
       this.valueChangesUnsubscribe = this.fieldChanges(this.field);
@@ -142,6 +226,12 @@ export class FieldComponent implements OnInit, OnChanges,  AfterContentInit, Aft
     }
   }
 
+  /**
+   * Executes `attachComponentRef` to handle attach component ref.
+   * @zh 执行 `attachComponentRef`，用于挂载组件引用。
+   * @param ref - ref parameter (`ComponentRef<T>`) / 引用参数（`ComponentRef<T>`）
+   * @param field - field parameter (`FieldConfigCache`) / 字段参数（`FieldConfigCache`）
+   */
   private attachComponentRef<T extends FieldType>(ref: ComponentRef<T>, field: FieldConfigCache) {
     this.componentRefs.push(ref);
     field._componentRefs.push(ref);
@@ -150,13 +240,17 @@ export class FieldComponent implements OnInit, OnChanges,  AfterContentInit, Aft
     this.componentRefs.push(ref);
   }
 
+  /**
+   * Executes `render` to handle render.
+   * @zh 执行 `render`，用于渲染。
+   */
   private render() {
     if (!this.field) {
       return;
     }
     this.hostObservers.forEach((hostObserver) => hostObserver.unsubscribe());
     this.hostObservers = [
-      observe<any>(this.field, ['hide'], ({ firstChange, currentValue }) => {
+      observe(this.field, ['hide'], ({ firstChange, currentValue }) => {
         if (!this.formConfig.extras.lazyRender) {
           firstChange && this.renderField(this.containerRef, this.field);
           if (!firstChange || (firstChange && currentValue)) {
@@ -172,13 +266,18 @@ export class FieldComponent implements OnInit, OnChanges,  AfterContentInit, Aft
 
         this.field.option.detectChanges(this.field);
       }),
-      observe<any>(this.field, ['className'], ({ firstChange, currentValue }) => {
+      observe(this.field, ['className'], ({ firstChange, currentValue }) => {
         if (!firstChange || (firstChange && currentValue)) {
-          this.renderer.setAttribute(this.elementRef.nativeElement, 'class', currentValue);
+          this.renderer.setAttribute(this.elementRef.nativeElement, 'class', currentValue as string);
         }
       }),
     ];
   }
+  /**
+   * Executes `resetRefs` to handle reset refs.
+   * @zh 执行 `resetRefs`，用于重置引用。
+   * @param field - field parameter (`FieldConfigCache`) / 字段参数（`FieldConfigCache`）
+   */
   private resetRefs(field: FieldConfigCache) {
     if (field) {
       if (field._componentRefs) {
@@ -190,6 +289,11 @@ export class FieldComponent implements OnInit, OnChanges,  AfterContentInit, Aft
     this.componentRefs = [];
   }
 
+  /**
+   * Executes `fieldChanges` to handle field changes.
+   * @zh 执行 `fieldChanges`，用于字段变更集合。
+   * @param field - field parameter (`FieldConfigCache`) / 字段参数（`FieldConfigCache`）
+   */
   private fieldChanges(field: FieldConfigCache) {
     this.valueChangesUnsubscribe();
     if (!field) {

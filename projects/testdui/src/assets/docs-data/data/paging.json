@@ -5,8 +5,8 @@
       "name": "DuiPagingBarComponent",
       "kind": "component",
       "selector": "dui-paging-bar",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular component `DuiPagingBarComponent` (selector: 'dui-paging-bar') providing dui paging bar component presentation and interaction in `src/data/paging`.",
+      "summaryZh": "Angular 组件 `DuiPagingBarComponent`（selector: 'dui-paging-bar'），提供DUI页面条组件的视图渲染与交互逻辑（位于 `src/data/paging`）。",
       "sourceFile": "src/data/paging/paging-bar.component.ts",
       "inputs": [
         {
@@ -14,32 +14,32 @@
           "type": "boolean",
           "default": "true",
           "description": "firstLast?: boolean\nShows or hides the first and last page buttons of the paging bar. Defaults to 'false'",
-          "descriptionZh": null
+          "descriptionZh": "输入属性 `firstLast`（类型：`boolean`），用于配置首个末尾（默认值：`true`）。"
         },
         {
           "name": "initialPage",
           "type": "number",
           "default": "1",
           "description": "initialPage?: number\nSets starting page for the paging bar. Defaults to '1'",
-          "descriptionZh": null
+          "descriptionZh": "输入属性 `initialPage`（类型：`number`），用于配置初始页面（默认值：`1`）。"
         },
         {
           "name": "pageLinkCount",
           "type": "number",
           "description": "pageLinkCount?: number\nAmount of page navigation links for the paging bar. Defaults to '0'",
-          "descriptionZh": null
+          "descriptionZh": "输入属性 `pageLinkCount` 的设置器，用于更新页面链接计数。"
         },
         {
           "name": "pageSize",
           "type": "number",
           "description": "pageSize?: number\nSelected page size for the pagination. Defaults 50.",
-          "descriptionZh": null
+          "descriptionZh": "输入属性 `pageSize` 的设置器，用于更新页面尺寸。"
         },
         {
           "name": "total",
           "type": "number",
           "description": "total: number\nTotal rows for the pagination.",
-          "descriptionZh": null
+          "descriptionZh": "输入属性 `total` 的设置器，用于更新总计。"
         }
       ],
       "outputs": [
@@ -47,7 +47,7 @@
           "name": "onChange",
           "type": "IPageChangeEvent",
           "description": "change?: function\nMethod to be executed when page size changes or any button is clicked in the paging bar.\nEmits an [IPageChangeEvent] implemented object.",
-          "descriptionZh": null
+          "descriptionZh": "输出事件 `change`（类型：`EventEmitter<IPageChangeEvent>`），当触发当变更时向外发出事件。"
         }
       ],
       "methods": [
@@ -60,57 +60,57 @@
             }
           ],
           "returnType": "boolean",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `navigateToPage` to handle navigate to page.",
+          "descriptionZh": "执行 `navigateToPage`，用于导航转换为页面。"
         },
         {
           "name": "firstPage",
           "params": [],
           "returnType": "boolean",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `firstPage` to handle first page.",
+          "descriptionZh": "执行 `firstPage`，用于首个页面。"
         },
         {
           "name": "prevPage",
           "params": [],
           "returnType": "boolean",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `prevPage` to handle prev page.",
+          "descriptionZh": "执行 `prevPage`，用于前一个页面。"
         },
         {
           "name": "nextPage",
           "params": [],
           "returnType": "boolean",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `nextPage` to handle next page.",
+          "descriptionZh": "执行 `nextPage`，用于下一个页面。"
         },
         {
           "name": "lastPage",
           "params": [],
           "returnType": "boolean",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `lastPage` to handle last page.",
+          "descriptionZh": "执行 `lastPage`，用于末尾页面。"
         },
         {
           "name": "isMinPage",
           "params": [],
           "returnType": "boolean",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `isMinPage` to handle is min page.",
+          "descriptionZh": "执行 `isMinPage`，用于是否为最小值页面。"
         },
         {
           "name": "isMaxPage",
           "params": [],
           "returnType": "boolean",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `isMaxPage` to handle is max page.",
+          "descriptionZh": "执行 `isMaxPage`，用于是否为最大值页面。"
         },
         {
           "name": "doRefresh",
           "params": [],
           "returnType": "any",
           "description": "Refresh the current page, has the same effect as clicking the 'refresh' button.",
-          "descriptionZh": null
+          "descriptionZh": "执行 `doRefresh`，用于do刷新。"
         }
       ],
       "properties": [
@@ -119,96 +119,96 @@
           "type": "any",
           "default": "'Displaying {0} - {1} of {2}'",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "属性 `displayMsg`（类型：`string`），用于存储或配置displayMsg（默认值：`'Displaying {0} - {1} of {2}'`）。"
         },
         {
           "name": "emptyMsg",
           "type": "any",
           "default": "'No data to display'",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "属性 `emptyMsg`（类型：`string`），用于存储或配置空Msg（默认值：`'No data to display'`）。"
         },
         {
           "name": "beforePageText",
           "type": "any",
           "default": "'Page'",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "属性 `beforePageText`（类型：`string`），用于存储或配置之前页面文本（默认值：`'Page'`）。"
         },
         {
           "name": "afterPageText",
           "type": "'of {0}'",
           "description": null,
-          "descriptionZh": null
+          "descriptionZh": "属性 `afterPageText`（类型：`'of {0}'`），用于存储或配置之后页面文本。"
         },
         {
           "name": "freshDisable",
           "type": "boolean",
           "default": "false",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `freshDisable` (`boolean`) storing fresh disable (default: `false`).",
+          "descriptionZh": "属性 `freshDisable`（类型：`boolean`），用于存储或配置fresh禁用（默认值：`false`）。"
         },
         {
           "name": "pageLinkCount",
           "type": "number",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current page link count (`pageLinkCount: number`).",
+          "descriptionZh": "获取当前页面链接计数（`pageLinkCount: number`）。"
         },
         {
           "name": "pageSize",
           "type": "number",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current page size (`pageSize: number`).",
+          "descriptionZh": "获取当前页面尺寸（`pageSize: number`）。"
         },
         {
           "name": "total",
           "type": "number",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current total (`total: number`).",
+          "descriptionZh": "获取当前总计（`total: number`）。"
         },
         {
           "name": "pageLinks",
           "type": "number[]",
           "description": "pageLinks: number[]\nReturns the pageLinks in an array",
-          "descriptionZh": null
+          "descriptionZh": "获取当前页面链接（`pageLinks: number[]`）。"
         },
         {
           "name": "range",
           "type": "string",
           "description": "range: string\nReturns the range of the rows.",
-          "descriptionZh": null
+          "descriptionZh": "获取当前范围（`range: string`）。"
         },
         {
           "name": "page",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Sets the page (`page`).",
+          "descriptionZh": "设置页面（`page`）。"
         },
         {
           "name": "page",
           "type": "number",
           "description": "page: number\nReturns the current page.",
-          "descriptionZh": null
+          "descriptionZh": "获取当前页面（`page: number`）。"
         },
         {
           "name": "maxPage",
           "type": "number",
           "description": "page: number\nReturns the max page for the current pageSize and total.",
-          "descriptionZh": null
+          "descriptionZh": "获取当前最大值页面（`maxPage: number`）。"
         },
         {
           "name": "isRTL",
           "type": "boolean",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current is rtl (`isRTL: boolean`).",
+          "descriptionZh": "获取当前是否为RTL（`isRTL: boolean`）。"
         }
       ]
     },
     {
       "name": "DuiPagingModule",
       "kind": "module",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular module `DuiPagingModule` declaring and exporting dui paging module components, directives, pipes, and providers.",
+      "summaryZh": "Angular 模块 `DuiPagingModule`，声明并导出DUI页面模块相关的组件、指令、管道与服务提供者。",
       "sourceFile": "src/data/paging/paging.module.ts",
       "inputs": [],
       "outputs": [],
@@ -218,13 +218,50 @@
     {
       "name": "IPageChangeEvent",
       "kind": "interface",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Interface `IPageChangeEvent` defining the contract and properties for i page change event.",
+      "summaryZh": "接口 `IPageChangeEvent`，定义I页面变更事件的数据结构契约与属性规范。",
       "sourceFile": "src/data/paging/paging-bar.component.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
-      "properties": []
+      "properties": [
+        {
+          "name": "page",
+          "type": "number",
+          "description": "Property `page` (`number`) storing page.",
+          "descriptionZh": "属性 `page`（类型：`number`），用于存储或配置页面。"
+        },
+        {
+          "name": "maxPage",
+          "type": "number",
+          "description": "Property `maxPage` (`number`) storing max page.",
+          "descriptionZh": "属性 `maxPage`（类型：`number`），用于存储或配置最大值页面。"
+        },
+        {
+          "name": "pageSize",
+          "type": "number",
+          "description": "Property `pageSize` (`number`) storing page size.",
+          "descriptionZh": "属性 `pageSize`（类型：`number`），用于存储或配置页面尺寸。"
+        },
+        {
+          "name": "total",
+          "type": "number",
+          "description": "Property `total` (`number`) storing total.",
+          "descriptionZh": "属性 `total`（类型：`number`），用于存储或配置总计。"
+        },
+        {
+          "name": "fromRow",
+          "type": "number",
+          "description": "Property `fromRow` (`number`) storing from row.",
+          "descriptionZh": "属性 `fromRow`（类型：`number`），用于存储或配置从行。"
+        },
+        {
+          "name": "toRow",
+          "type": "number",
+          "description": "Property `toRow` (`number`) storing to row.",
+          "descriptionZh": "属性 `toRow`（类型：`number`），用于存储或配置转换为行。"
+        }
+      ]
     }
   ],
   "suggestedUsageSnippet": "import { DuiPagingBarComponent, DuiPagingModule } from '@dotos/dui/data/paging';\n\n<dui-paging-bar [firstLast]=\"...\" [initialPage]=\"...\" [pageLinkCount]=\"...\" (onChange)=\"...\"></dui-paging-bar>"

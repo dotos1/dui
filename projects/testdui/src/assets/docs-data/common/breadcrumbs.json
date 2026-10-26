@@ -23,7 +23,7 @@
           "name": "tdBreadCrumbClass",
           "type": "any",
           "default": "true",
-          "description": null,
+          "description": "Host binding `tdBreadCrumbClass` bound to host attribute/property `class.dui-breadcrumb` for td bread crumb class.",
           "descriptionZh": "内部使用，始终为 `true`，用于绑定 `dui-breadcrumb` 宿主类名。"
         },
         {
@@ -71,7 +71,7 @@
         {
           "name": "displayBinding",
           "type": "string | undefined",
-          "description": null,
+          "description": "Host-bound getter `displayBinding` (`style.display`) computing display binding.",
           "descriptionZh": "内部使用，绑定宿主的 `display` 样式，隐藏时设置为 `'none'`。"
         }
       ]
@@ -98,7 +98,7 @@
           "name": "tdBreadCrumbsClass",
           "type": "any",
           "default": "true",
-          "description": null,
+          "description": "Host binding `tdBreadCrumbsClass` bound to host attribute/property `class.dui-breadcrumbs` for td bread crumbs class.",
           "descriptionZh": "内部使用，始终为 `true`，用于绑定 `dui-breadcrumbs` 宿主类名。"
         },
         {
@@ -131,8 +131,8 @@
     {
       "name": "BreadcrumbsModule",
       "kind": "module",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular module `BreadcrumbsModule` declaring and exporting breadcrumbs module components, directives, pipes, and providers.",
+      "summaryZh": "Angular 模块 `BreadcrumbsModule`，声明并导出面包屑导航模块相关的组件、指令、管道与服务提供者。",
       "sourceFile": "src/common/breadcrumbs/breadcrumbs.module.ts",
       "inputs": [],
       "outputs": [],

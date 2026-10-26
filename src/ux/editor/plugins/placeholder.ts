@@ -1,9 +1,22 @@
+/**
+ * @fileoverview Module `src/ux/editor/plugins/placeholder.ts` providing placeholder definitions and implementation.
+ * @zh 模块文件 `src/ux/editor/plugins/placeholder.ts`，提供占位提示相关的定义与实现。
+ */
+
 import { Plugin, EditorState, PluginKey, Transaction } from 'prosemirror-state';
 import { DecorationSet, Decoration } from 'prosemirror-view';
 import { Node as ProseMirrorNode } from 'prosemirror-model';
 
+/**
+ * Constant/variable `PLACEHOLDER_CLASSNAME` defining placeholder classname in `src/ux/editor/plugins`.
+ * @zh 常量/变量 `PLACEHOLDER_CLASSNAME`，定义 `src/ux/editor/plugins` 中的占位提示CLASSNAME。
+ */
 const PLACEHOLDER_CLASSNAME = 'Editor__Placeholder';
 
+/**
+ * Constant/variable `placeholderPlugin` defining placeholder plugin in `src/ux/editor/plugins`.
+ * @zh 常量/变量 `placeholderPlugin`，定义 `src/ux/editor/plugins` 中的占位提示Plugin。
+ */
 const placeholderPlugin = (text?: string): Plugin => {
   return new Plugin({
     key: new PluginKey('placeholder'),

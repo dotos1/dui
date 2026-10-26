@@ -4,8 +4,8 @@
     {
       "name": "DATEFIELD_VALIDATORS",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `DATEFIELD_VALIDATORS` defining datefield validators in `src/ux/iconpicker`.",
+      "summaryZh": "常量/变量 `DATEFIELD_VALIDATORS`，定义 `src/ux/iconpicker` 中的DATEFIELD校验器列表。",
       "sourceFile": "src/ux/iconpicker/icon-picker.field.ts",
       "inputs": [],
       "outputs": [],
@@ -15,8 +15,8 @@
     {
       "name": "DATEINPUT_CONTROL_VALUE_ACCESSOR",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `DATEINPUT_CONTROL_VALUE_ACCESSOR` defining dateinput control value accessor in `src/ux/iconpicker`.",
+      "summaryZh": "常量/变量 `DATEINPUT_CONTROL_VALUE_ACCESSOR`，定义 `src/ux/iconpicker` 中的DATEINPUT表单控件值访问器。",
       "sourceFile": "src/ux/iconpicker/icon-picker.field.ts",
       "inputs": [],
       "outputs": [],
@@ -27,8 +27,8 @@
       "name": "IconPickerField",
       "kind": "component",
       "selector": "icon-picker-field",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular component `IconPickerField` (selector: 'icon-picker-field') providing icon picker field presentation and interaction in `src/ux/iconpicker`.",
+      "summaryZh": "Angular 组件 `IconPickerField`（selector: 'icon-picker-field'），提供图标选择器字段的视图渲染与交互逻辑（位于 `src/ux/iconpicker`）。",
       "sourceFile": "src/ux/iconpicker/icon-picker.field.ts",
       "inputs": [],
       "outputs": [],
@@ -42,8 +42,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `isColor` to handle is color.",
+          "descriptionZh": "执行 `isColor`，用于是否为颜色。"
         },
         {
           "name": "isPattern",
@@ -54,102 +54,102 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `isPattern` to handle is pattern.",
+          "descriptionZh": "执行 `isPattern`，用于是否为模式/图案。"
         },
         {
           "name": "clear",
           "params": [],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `clear` to handle clear.",
+          "descriptionZh": "执行 `clear`，用于清空。"
         },
         {
           "name": "open",
           "params": [],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `open` to handle open.",
+          "descriptionZh": "执行 `open`，用于打开。"
         }
       ],
       "properties": [
         {
           "name": "input",
           "type": "ElementRef",
-          "description": null,
-          "descriptionZh": null
+          "description": "Template/content query reference `input` (`@ViewChild`) targeting input.",
+          "descriptionZh": "模板/内容视图查询引用 `input`（`@ViewChild`），指向输入属性。"
         },
         {
           "name": "mode",
           "type": "'auto' | 'portrait' | 'landscape'",
           "default": "'auto'",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `mode` (`'auto' | 'portrait' | 'landscape'`) storing mode (default: `'auto'`).",
+          "descriptionZh": "属性 `mode`（类型：`'auto' | 'portrait' | 'landscape'`），用于存储或配置模式（默认值：`'auto'`）。"
         },
         {
           "name": "label",
           "type": "any",
           "default": "''",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `label` (`string`) storing label (default: `''`).",
+          "descriptionZh": "属性 `label`（类型：`string`），用于存储或配置标签（默认值：`''`）。"
         },
         {
           "name": "value",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current value (`value: any`).",
+          "descriptionZh": "获取当前值（`value: any`）。"
         },
         {
           "name": "value",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Sets the value (`value`).",
+          "descriptionZh": "设置值（`value`）。"
         },
         {
           "name": "icon",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current icon (`icon: any`).",
+          "descriptionZh": "获取当前图标（`icon: any`）。"
         },
         {
           "name": "openOnFocus",
           "type": "boolean",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current open on focus (`openOnFocus: boolean`).",
+          "descriptionZh": "获取当前打开当聚焦（`openOnFocus: boolean`）。"
         },
         {
           "name": "openOnFocus",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Sets the open on focus (`openOnFocus`).",
+          "descriptionZh": "设置打开当聚焦（`openOnFocus`）。"
         },
         {
           "name": "isOpen",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Sets the is open (`isOpen`).",
+          "descriptionZh": "设置是否为打开（`isOpen`）。"
         },
         {
           "name": "enableKeyEvents",
           "type": "any",
           "default": "true",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `enableKeyEvents` (`boolean`) storing enable key events (default: `true`).",
+          "descriptionZh": "属性 `enableKeyEvents`（类型：`boolean`），用于存储或配置启用键事件集合（默认值：`true`）。"
         },
         {
           "name": "fontStyle",
           "type": "any",
           "default": "{}",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `fontStyle` (`any`) storing font style (default: `{}`).",
+          "descriptionZh": "属性 `fontStyle`（类型：`any`），用于存储或配置字体样式（默认值：`{}`）。"
         }
       ]
     },
     {
       "name": "IconPickerModule",
       "kind": "module",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular module `IconPickerModule` declaring and exporting icon picker module components, directives, pipes, and providers.",
+      "summaryZh": "Angular 模块 `IconPickerModule`，声明并导出图标选择器模块相关的组件、指令、管道与服务提供者。",
       "sourceFile": "src/ux/iconpicker/icon-picker.module.ts",
       "inputs": [],
       "outputs": [],
@@ -159,8 +159,8 @@
           "name": "entryComponents",
           "type": "any",
           "default": "[\n    IconPickerField,\n    IconPickerComponent]",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `entryComponents` (`any[]`) storing entry components (default: `[ IconPickerField, IconPickerComponent]`).",
+          "descriptionZh": "属性 `entryComponents`（类型：`any[]`），用于存储或配置条目组件列表（默认值：`[ IconPickerField, IconPickerComponent]`）。"
         }
       ]
     }

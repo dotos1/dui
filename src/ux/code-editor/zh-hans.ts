@@ -1,3 +1,12 @@
+/**
+ * @fileoverview Module `src/ux/code-editor/zh-hans.ts` providing zh hans definitions and implementation.
+ * @zh 模块文件 `src/ux/code-editor/zh-hans.ts`，提供zhhans相关的定义与实现。
+ */
+
+/**
+ * Constant/variable `zh_CN` defining zh cn in `src/ux/code-editor`.
+ * @zh 常量/变量 `zh_CN`，定义 `src/ux/code-editor` 中的zhCN。
+ */
 export const zh_CN={
     "vs/base/common/date": {
         "date.fromNow.in": "{0} 后",

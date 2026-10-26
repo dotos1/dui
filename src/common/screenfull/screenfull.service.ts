@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Module `src/common/screenfull/screenfull.service.ts` providing screenfull service definitions and implementation.
+ * @zh 模块文件 `src/common/screenfull/screenfull.service.ts`，提供screenfull服务相关的定义与实现。
+ */
+
 import { Injectable } from '@angular/core';
 
 /**
@@ -23,9 +28,21 @@ export class ScreenfullService {
     return document[this.fn.fullscreenElement] as boolean;
   }
 
-  private fn: any;
+  /**
+   * Property `fn` (`any`) storing fn.
+   * @zh 属性 `fn`（类型：`any`），用于存储或配置函数。
+   */
+  private fn;
+  /**
+   * Property `eventNameMap` (`{ change: () => {}; error: () => {} }`) storing event name map.
+   * @zh 属性 `eventNameMap`（类型：`{ change: () => {}; error: () => {} }`），用于存储或配置事件名称映射表。
+   */
   private eventNameMap: { change: () => {}; error: () => {} };
 
+  /**
+   * Creates an instance of `ScreenfullService` and initializes its dependencies and internal state.
+   * @zh 创建 `ScreenfullService` 实例，并初始化其依赖项与内部状态。
+   */
   constructor() {
     this.fn = this.init();
     this.eventNameMap = {
@@ -64,13 +81,17 @@ export class ScreenfullService {
       if (/ Version\/5\.1(?:\.\d+)? Safari\//.test(navigator.userAgent)) {
         element[request]();
       } else {
-        element[request](this.keyboardAllowed ? (Element as any).ALLOW_KEYBOARD_INPUT : {});
+        element[request](this.keyboardAllowed ? (Element as unknown as { ALLOW_KEYBOARD_INPUT? }).ALLOW_KEYBOARD_INPUT : {});
       }
 
       this.on('change', onFullScreenEntered);
     });
   }
 
+  /**
+   * Executes `exit` to handle exit.
+   * @zh 执行 `exit`，用于exit。
+   */
   private exit() {
     return new Promise((resolve) => {
       if (!this.isFullscreen) {
@@ -86,6 +107,12 @@ export class ScreenfullService {
     });
   }
 
+  /**
+   * Executes `off` to handle off.
+   * @zh 执行 `off`，用于off。
+   * @param event - event parameter (`any`) / 事件参数（`any`）
+   * @param callback - callback parameter (`any`) / 回调函数参数（`any`）
+   */
   private off(event, callback) {
     const eventName = this.eventNameMap[event];
     if (eventName) {
@@ -93,6 +120,12 @@ export class ScreenfullService {
     }
   }
 
+  /**
+   * Executes `on` to handle on.
+   * @zh 执行 `on`，用于当。
+   * @param event - event parameter (`any`) / 事件参数（`any`）
+   * @param callback - callback parameter (`any`) / 回调函数参数（`any`）
+   */
   private on(event, callback) {
     const eventName = this.eventNameMap[event];
     if (eventName) {
@@ -100,6 +133,10 @@ export class ScreenfullService {
     }
   }
 
+  /**
+   * Executes `init` to handle init.
+   * @zh 执行 `init`，用于初始化。
+   */
   private init() {
     let val;
     const fnMap = [

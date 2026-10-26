@@ -1,7 +1,20 @@
+/**
+ * @fileoverview Module `src/common/fileupload/file-type.ts` providing file type definitions and implementation.
+ * @zh 模块文件 `src/common/fileupload/file-type.ts`，提供文件类型相关的定义与实现。
+ */
+
 import { FileLikeObject } from './file-like-object';
 
+/**
+ * Class `FileType` encapsulating file type data structures and logic in `src/common/fileupload`.
+ * @zh 类 `FileType`，封装 `src/common/fileupload` 中的文件类型数据结构与处理逻辑。
+ */
 export class FileType {
   /*  MS office  */
+  /**
+   * Property `mime_doc` (`string[]`) storing mime doc.
+   * @zh 属性 `mime_doc`（类型：`string[]`），用于存储或配置MIME类型文档。
+   */
   public static mime_doc: string[] = [
     'application/msword',
     'application/msword',
@@ -10,6 +23,10 @@ export class FileType {
     'application/vnd.ms-word.document.macroEnabled.12',
     'application/vnd.ms-word.template.macroEnabled.12'
   ];
+  /**
+   * Property `mime_xsl` (`string[]`) storing mime xsl.
+   * @zh 属性 `mime_xsl`（类型：`string[]`），用于存储或配置MIME类型xsl。
+   */
   public static mime_xsl: string[] = [
     'application/vnd.ms-excel',
     'application/vnd.ms-excel',
@@ -21,6 +38,10 @@ export class FileType {
     'application/vnd.ms-excel.addin.macroEnabled.12',
     'application/vnd.ms-excel.sheet.binary.macroEnabled.12'
   ];
+  /**
+   * Property `mime_ppt` (`string[]`) storing mime ppt.
+   * @zh 属性 `mime_ppt`（类型：`string[]`），用于存储或配置MIME类型ppt。
+   */
   public static mime_ppt: string[] = [
     'application/vnd.ms-powerpoint',
     'application/vnd.ms-powerpoint',
@@ -36,6 +57,10 @@ export class FileType {
   ];
 
   /* PSD */
+  /**
+   * Property `mime_psd` (`string[]`) storing mime psd.
+   * @zh 属性 `mime_psd`（类型：`string[]`），用于存储或配置MIME类型psd。
+   */
   public static mime_psd: string[] = [
     'image/photoshop',
     'image/x-photoshop',
@@ -46,6 +71,10 @@ export class FileType {
   ];
 
   /* Compressed files */
+  /**
+   * Property `mime_compress` (`string[]`) storing mime compress.
+   * @zh 属性 `mime_compress`（类型：`string[]`），用于存储或配置MIME类型compress。
+   */
   public static mime_compress: string[] = [
     'application/x-gtar',
     'application/x-gcompress',
@@ -60,6 +89,12 @@ export class FileType {
     'application/x-bzip2'
   ];
 
+  /**
+   * Executes `getMimeClass` to handle get mime class.
+   * @zh 执行 `getMimeClass`，用于获取MIME类型类名。
+   * @param file - file parameter (`FileLikeObject`) / 文件参数（`FileLikeObject`）
+   * @returns Result of type `string` / 类型为 `string` 的返回值
+   */
   public static getMimeClass(file: FileLikeObject): string {
     let mimeClass = 'application';
     if (this.mime_psd.indexOf(file.type) !== -1) {
@@ -88,6 +123,12 @@ export class FileType {
     return mimeClass;
   }
 
+  /**
+   * Executes `fileTypeDetection` to handle file type detection.
+   * @zh 执行 `fileTypeDetection`，用于文件类型变更检测。
+   * @param inputFilename - input filename parameter (`string`) / 输入属性Filename参数（`string`）
+   * @returns Result of type `string` / 类型为 `string` 的返回值
+   */
   public static fileTypeDetection(inputFilename: string): string {
     const types: { [ key: string ]: string } = {
       'jpg': 'image',

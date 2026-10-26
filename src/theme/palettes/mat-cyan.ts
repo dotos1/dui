@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Module `src/theme/palettes/mat-cyan.ts` providing mat cyan definitions and implementation.
+ * @zh 模块文件 `src/theme/palettes/mat-cyan.ts`，提供Materialcyan相关的定义与实现。
+ */
+
 import { Palette } from '../interfaces/palette';
 
 import {
@@ -5,6 +10,10 @@ import {
     lightPrimaryText
 } from '../constants';
 
+/**
+ * Constant/variable `matCyan` defining mat cyan in `src/theme/palettes`.
+ * @zh 常量/变量 `matCyan`，定义 `src/theme/palettes` 中的MaterialCyan。
+ */
 export const matCyan: Palette = {
     50: '#e0f7fa',
     100: '#b2ebf2',

@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Module `src/tree/models/tree-node.model.ts` providing tree node model definitions and implementation.
+ * @zh 模块文件 `src/tree/models/tree-node.model.ts`，提供树形控件节点模型相关的定义与实现。
+ */
+
 import { TranslateService } from '@dotos/dui/translator';
 import { concat, first, last, some, every } from 'lodash-es';
 import { IReactionDisposer, action, computed, observable, reaction } from 'mobx';
@@ -7,14 +12,42 @@ import { ITreeNode } from '../defs/api';
 import { TreeOptions } from './tree-options.model';
 import { TreeModel } from './tree.model';
 
+/**
+ * Class `TreeNode` encapsulating tree node data structures and logic in `src/tree/models`.
+ * @zh 类 `TreeNode`，封装 `src/tree/models` 中的树形控件节点数据结构与处理逻辑。
+ */
 export class TreeNode implements ITreeNode {
+  /**
+   * Property `handler` (`IReactionDisposer`) storing handler.
+   * @zh 属性 `handler`（类型：`IReactionDisposer`），用于存储或配置处理器。
+   */
   private handler: IReactionDisposer;
   
+  /**
+   * Gets the current is hidden (`isHidden: any`).
+   * @zh 获取当前是否为隐藏（`isHidden: any`）。
+   */
   @computed get isHidden() { return this.treeModel.isHidden(this); }
+  /**
+   * Gets the current is expanded (`isExpanded: any`).
+   * @zh 获取当前是否为已展开（`isExpanded: any`）。
+   */
   @computed get isExpanded() { return this.treeModel.isExpanded(this); }
+  /**
+   * Gets the current is active (`isActive: any`).
+   * @zh 获取当前是否为激活（`isActive: any`）。
+   */
   @computed get isActive() { return this.treeModel.isActive(this); }
+  /**
+   * Gets the current is focused (`isFocused: any`).
+   * @zh 获取当前是否为已聚焦（`isFocused: any`）。
+   */
   @computed get isFocused() { return this.treeModel.isNodeFocused(this); }
 
+  /**
+   * Gets the current is selected (`isSelected: boolean`).
+   * @zh 获取当前是否为已选中（`isSelected: boolean`）。
+   */
   @computed get isSelected(): boolean {
     if (this.isSelectable()) {
       return this.treeModel.isSelected(this);
@@ -23,6 +56,10 @@ export class TreeNode implements ITreeNode {
     }
   }
   
+  /**
+   * Gets the current is all selected (`isAllSelected: any`).
+   * @zh 获取当前是否为全部已选中（`isAllSelected: any`）。
+   */
   @computed get isAllSelected() {
     if (this.isSelectable()) {
       return this.treeModel.isSelected(this);
@@ -31,32 +68,84 @@ export class TreeNode implements ITreeNode {
     }
   }
   
+  /**
+   * Gets the current is partially selected (`isPartiallySelected: any`).
+   * @zh 获取当前是否为Partially已选中（`isPartiallySelected: any`）。
+   */
   @computed get isPartiallySelected() {
     return this.isSelected && !this.isAllSelected;
   }
 
+  /**
+   * Property `children` (`TreeNode[]`) storing children.
+   * @zh 属性 `children`（类型：`TreeNode[]`），用于存储或配置子级列表。
+   */
   @observable children: TreeNode[];
+  /**
+   * Property `index` (`number`) storing index.
+   * @zh 属性 `index`（类型：`number`），用于存储或配置索引。
+   */
   @observable index: number;
+  /**
+   * Property `position` (`number`) storing position (default: `0`).
+   * @zh 属性 `position`（类型：`number`），用于存储或配置位置（默认值：`0`）。
+   */
   @observable position = 0;
+  /**
+   * Property `height` (`number`) storing height.
+   * @zh 属性 `height`（类型：`number`），用于存储或配置高度。
+   */
   @observable height: number;
   
+  /**
+   * Gets the current level (`level: number`).
+   * @zh 获取当前层级（`level: number`）。
+   */
   @computed get level(): number {
     return this.parent ? this.parent.level + 1 : 0;
   }
+  /**
+   * Gets the current path (`path: string[]`).
+   * @zh 获取当前路径（`path: string[]`）。
+   */
   @computed get path(): string[] {
     return this.parent ? [...this.parent.path, this.id] :[];
   }
 
-  get elementRef(): any {
+  /**
+   * Gets the current element ref (`elementRef: any`).
+   * @zh 获取当前元素引用（`elementRef: any`）。
+   */
+  get elementRef() {
     throw new Error(`Element Ref is no longer supported since introducing virtual scroll\n
       You may use a template to obtain a reference to the element`);
   }
 
-  private _originalNode: any;
+  /**
+   * Property `_originalNode` (`any`) storing original node.
+   * @zh 属性 `_originalNode`（类型：`any`），用于存储或配置原始节点。
+   */
+  private _originalNode;
+  /**
+   * Gets the current original node (`originalNode: any`).
+   * @zh 获取当前原始节点（`originalNode: any`）。
+   */
   get originalNode() { return this._originalNode; }
+  /**
+   * Property `translator` (`TranslateService`) storing translator.
+   * @zh 属性 `translator`（类型：`TranslateService`），用于存储或配置翻译器。
+   */
   private translator: TranslateService;
   
-  constructor(public data: any, public parent: TreeNode, public treeModel: TreeModel, index?: number) {
+  /**
+   * Creates an instance of `TreeNode` and initializes its dependencies and internal state.
+   * @zh 创建 `TreeNode` 实例，并初始化其依赖项与内部状态。
+   * @param data - Injected or initial data (`any`) / 注入或传入的数据（`any`）
+   * @param parent - Injected or initial parent (`TreeNode`) / 注入或传入的父级（`TreeNode`）
+   * @param treeModel - Injected or initial tree model (`TreeModel`) / 注入或传入的树形控件模型（`TreeModel`）
+   * @param index - Injected or initial index (`number`) / 注入或传入的索引（`number`）
+   */
+  constructor(public data, public parent: TreeNode, public treeModel: TreeModel, index?: number) {
     if (this.id === undefined || this.id === null) {
       this.id = uuid();
     }
@@ -79,28 +168,70 @@ export class TreeNode implements ITreeNode {
   }
 
   // helper get functions:
+  /**
+   * Gets the current has children (`hasChildren: boolean`).
+   * @zh 获取当前是否包含子级列表（`hasChildren: boolean`）。
+   */
   get hasChildren(): boolean {
     return !!(this.getField('hasChildren') || (this.children && this.children.length > 0));
   }
+  /**
+   * Gets the current is collapsed (`isCollapsed: boolean`).
+   * @zh 获取当前是否为已折叠（`isCollapsed: boolean`）。
+   */
   get isCollapsed(): boolean { return !this.isExpanded; }
+  /**
+   * Gets the current is leaf (`isLeaf: boolean`).
+   * @zh 获取当前是否为叶子节点（`isLeaf: boolean`）。
+   */
   get isLeaf(): boolean { return !this.hasChildren; }
+  /**
+   * Gets the current is root (`isRoot: boolean`).
+   * @zh 获取当前是否为根节点（`isRoot: boolean`）。
+   */
   get isRoot(): boolean { return this.parent == null || this.parent.data.virtual; }
+  /**
+   * Gets the current real parent (`realParent: TreeNode`).
+   * @zh 获取当前real父级（`realParent: TreeNode`）。
+   */
   get realParent(): TreeNode { return this.isRoot ? null : this.parent; }
 
   // proxy functions:
+  /**
+   * Gets the current options (`options: TreeOptions`).
+   * @zh 获取当前配置选项（`options: TreeOptions`）。
+   */
   get options(): TreeOptions { return this.treeModel.options; }
 
+  /**
+   * Executes `fireEvent` to handle fire event.
+   * @zh 执行 `fireEvent`，用于触发事件。
+   * @param event - event parameter (`any`) / 事件参数（`any`）
+   */
   fireEvent(event) { this.treeModel.fireEvent(event); }
 
+  /**
+   * Gets the current display field (`displayField: any`).
+   * @zh 获取当前display字段（`displayField: any`）。
+   */
   get displayField() {
     return this.translator.instant(this.getField('display'));
   }
 
+  /**
+   * Gets the current id (`id: any`).
+   * @zh 获取当前唯一标识（`id: any`）。
+   */
   get id() {
     return this.getField('id');
   }
 
   // ✨ 核心机制修复：处理运行时 ID 变更的异常情况，保障 Map 数据一致性
+  /**
+   * Sets the id (`id`).
+   * @zh 设置唯一标识（`id`）。
+   * @param value - New id value (`any`) / 新的唯一标识值（`any`）
+   */
   set id(value) {
     const oldId = this.getField('id');
     // 如果原先有旧的ID，先从字典里清除
@@ -114,26 +245,52 @@ export class TreeNode implements ITreeNode {
     }
   }
 
+  /**
+   * Gets the current expanded icon (`expandedIcon: any`).
+   * @zh 获取当前已展开图标（`expandedIcon: any`）。
+   */
   get expandedIcon() {
     return this.data['expandedIcon'];
   }
 
+  /**
+   * Gets the current icon (`icon: any`).
+   * @zh 获取当前图标（`icon: any`）。
+   */
   get icon() {
     return this.data['icon'];
   }
 
+  /**
+   * Sets the icon (`icon`).
+   * @zh 设置图标（`icon`）。
+   * @param icon - New icon value (`any`) / 新的图标值（`any`）
+   */
   set icon(icon) {
     this.data['icon'] = icon;
   }
 
+  /**
+   * Gets the current tool tip (`toolTip: any`).
+   * @zh 获取当前tool提示（`toolTip: any`）。
+   */
   get toolTip() {
     return this.data['toolTip'] ? this.translator.instant(this.data['toolTip']) : undefined;
   }
 
+  /**
+   * Sets the tool tip (`toolTip`).
+   * @zh 设置tool提示（`toolTip`）。
+   * @param toolTip - New tool tip value (`any`) / 新的tool提示值（`any`）
+   */
   set toolTip(toolTip) {
     this.data['toolTip'] = toolTip;
   }
 
+  /**
+   * Gets the current checkable (`checkable: any`).
+   * @zh 获取当前checkable（`checkable: any`）。
+   */
   get checkable() {
     if (this.data['checkable'] == undefined) {
       return true;
@@ -142,8 +299,17 @@ export class TreeNode implements ITreeNode {
     }
   }
 
+  /**
+   * Sets the checkable (`checkable`).
+   * @zh 设置checkable（`checkable`）。
+   * @param c - New checkable value (`any`) / 新的checkable值（`any`）
+   */
   set checkable(c) { this.data['checkable'] = c; }
 
+  /**
+   * Gets the current editable (`editable: any`).
+   * @zh 获取当前是否可编辑（`editable: any`）。
+   */
   get editable() {
     if (this.data['editable'] == undefined) {
       return false;
@@ -152,12 +318,28 @@ export class TreeNode implements ITreeNode {
     }
   }
 
+  /**
+   * Sets the editable (`editable`).
+   * @zh 设置是否可编辑（`editable`）。
+   * @param c - New editable value (`any`) / 新的是否可编辑值（`any`）
+   */
   set editable(c) { this.data['editable'] = c; }
 
+  /**
+   * Executes `getField` to handle get field.
+   * @zh 执行 `getField`，用于获取字段。
+   * @param key - key parameter (`any`) / 键参数（`any`）
+   */
   getField(key) {
     return this.data[this.options[`${key}Field`]];
   }
 
+  /**
+   * Executes `setField` to handle set field.
+   * @zh 执行 `setField`，用于集合字段。
+   * @param key - key parameter (`any`) / 键参数（`any`）
+   * @param value - value parameter (`any`) / 值参数（`any`）
+   */
   setField(key, value) {
     const field = this.options[`${key}Field`];
     if (this.data == undefined || this.data[field] === value) {
@@ -177,6 +359,10 @@ export class TreeNode implements ITreeNode {
     }
   }
   
+  /**
+   * Executes `clear` to handle clear.
+   * @zh 执行 `clear`，用于清空。
+   */
   public clear() {
     if (this.children) {
       this.children.forEach(c => c.dispose());
@@ -184,6 +370,11 @@ export class TreeNode implements ITreeNode {
     this.children =[];
   }
   
+  /**
+   * Executes `addNode` to handle add node.
+   * @zh 执行 `addNode`，用于添加节点。
+   * @param node - node parameter (`any`) / 节点参数（`any`）
+   */
   public addNode(node) {
     if (this.children == undefined) {
       this.children =[];
@@ -193,6 +384,10 @@ export class TreeNode implements ITreeNode {
     return treeNode;
   }
 
+  /**
+   * Executes `destroy` to handle destroy.
+   * @zh 执行 `destroy`，用于销毁。
+   */
   public destroy() {
     let children = this.parent.children;
     for (let k = 0; k < children.length; k++) {
@@ -206,24 +401,51 @@ export class TreeNode implements ITreeNode {
   }
 
   // traversing:
+  /**
+   * Executes `_findAdjacentSibling` to handle find adjacent sibling.
+   * @zh 执行 `_findAdjacentSibling`，用于查找Adjacent兄弟节点。
+   * @param steps - steps parameter (`any`) / 步骤参数（`any`）
+   * @param skipHidden - skip hidden parameter (`any`) / skip隐藏参数（`any`）
+   */
   _findAdjacentSibling(steps, skipHidden = false) {
     const siblings = this._getParentsChildren(skipHidden);
     const index = siblings.indexOf(this);
     return siblings.length > index + steps ? siblings[index + steps] : null;
   }
 
+  /**
+   * Executes `findNextSibling` to handle find next sibling.
+   * @zh 执行 `findNextSibling`，用于查找下一个兄弟节点。
+   * @param skipHidden - skip hidden parameter (`any`) / skip隐藏参数（`any`）
+   */
   findNextSibling(skipHidden = false) {
     return this._findAdjacentSibling(+1, skipHidden);
   }
 
+  /**
+   * Executes `findPreviousSibling` to handle find previous sibling.
+   * @zh 执行 `findPreviousSibling`，用于查找上一个兄弟节点。
+   * @param skipHidden - skip hidden parameter (`any`) / skip隐藏参数（`any`）
+   */
   findPreviousSibling(skipHidden = false) {
     return this._findAdjacentSibling(-1, skipHidden);
   }
 
+  /**
+   * Executes `getVisibleChildren` to handle get visible children.
+   * @zh 执行 `getVisibleChildren`，用于获取可见子级列表。
+   */
   getVisibleChildren() {
     return this.visibleChildren;
   }
 
+  /**
+   * Executes `getPathValue` to handle get path value.
+   * @zh 执行 `getPathValue`，用于获取路径值。
+   * @param val - val parameter (`any`) / 值参数（`any`）
+   * @param name - name parameter (`any`) / 名称参数（`any`）
+   * @returns Result of type `string[]` / 类型为 `string[]` 的返回值
+   */
   getPathValue(val, name): string[] {
     if (this.parent) {
       val = this.parent.getPathValue(val, name);
@@ -236,26 +458,51 @@ export class TreeNode implements ITreeNode {
     return val;
   }
 
+  /**
+   * Gets the current visible children (`visibleChildren: any`).
+   * @zh 获取当前可见子级列表（`visibleChildren: any`）。
+   */
   @computed get visibleChildren() {
     return (this.children ||[]).filter((node) => !node.isHidden);
   }
 
+  /**
+   * Executes `getFirstChild` to handle get first child.
+   * @zh 执行 `getFirstChild`，用于获取首个子级。
+   * @param skipHidden - skip hidden parameter (`any`) / skip隐藏参数（`any`）
+   */
   getFirstChild(skipHidden = false) {
     const children = skipHidden ? this.visibleChildren : this.children;
     return first(children ||[]);
   }
 
+  /**
+   * Executes `getLastChild` to handle get last child.
+   * @zh 执行 `getLastChild`，用于获取末尾子级。
+   * @param skipHidden - skip hidden parameter (`any`) / skip隐藏参数（`any`）
+   */
   getLastChild(skipHidden = false) {
     const children = skipHidden ? this.visibleChildren : this.children;
     return last(children ||[]);
   }
 
+  /**
+   * Executes `findNextNode` to handle find next node.
+   * @zh 执行 `findNextNode`，用于查找下一个节点。
+   * @param goInside - go inside parameter (`any`) / go内部参数（`any`）
+   * @param skipHidden - skip hidden parameter (`any`) / skip隐藏参数（`any`）
+   */
   findNextNode(goInside = true, skipHidden = false) {
     return goInside && this.isExpanded && this.getFirstChild(skipHidden) ||
       this.findNextSibling(skipHidden) ||
       this.parent && this.parent.findNextNode(false, skipHidden);
   }
 
+  /**
+   * Executes `findPreviousNode` to handle find previous node.
+   * @zh 执行 `findPreviousNode`，用于查找上一个节点。
+   * @param skipHidden - skip hidden parameter (`any`) / skip隐藏参数（`any`）
+   */
   findPreviousNode(skipHidden = false) {
     const previousSibling = this.findPreviousSibling(skipHidden);
     if (!previousSibling) {
@@ -264,6 +511,11 @@ export class TreeNode implements ITreeNode {
     return previousSibling._getLastOpenDescendant(skipHidden);
   }
 
+  /**
+   * Executes `_getLastOpenDescendant` to handle get last open descendant.
+   * @zh 执行 `_getLastOpenDescendant`，用于获取末尾打开后代节点。
+   * @param skipHidden - skip hidden parameter (`any`) / skip隐藏参数（`any`）
+   */
   _getLastOpenDescendant(skipHidden = false) {
     const lastChild = this.getLastChild(skipHidden);
     return (this.isCollapsed || !lastChild)
@@ -271,12 +523,23 @@ export class TreeNode implements ITreeNode {
       : lastChild._getLastOpenDescendant(skipHidden);
   }
 
-  private _getParentsChildren(skipHidden = false): any[] {
+  /**
+   * Executes `_getParentsChildren` to handle get parents children.
+   * @zh 执行 `_getParentsChildren`，用于获取父级子级列表。
+   * @param skipHidden - skip hidden parameter (`any`) / skip隐藏参数（`any`）
+   * @returns Result of type `any[]` / 类型为 `any[]` 的返回值
+   */
+  private _getParentsChildren(skipHidden = false) {
     const children = this.parent &&
       (skipHidden ? this.parent.getVisibleChildren() : this.parent.children);
     return children ||[];
   }
 
+  /**
+   * Executes `getRoot` to handle get root.
+   * @zh 执行 `getRoot`，用于获取根节点。
+   * @param node - node parameter (`TreeNode`) / 节点参数（`TreeNode`）
+   */
   public getRoot(node?: TreeNode) {
     if (node == undefined) node = this;
     if (node.isRoot) return node;
@@ -287,6 +550,11 @@ export class TreeNode implements ITreeNode {
     }
   }
 
+  /**
+   * Executes `getAllParents` to handle get all parents.
+   * @zh 执行 `getAllParents`，用于获取全部父级。
+   * @param result - result parameter (`TreeNode[]`) / 结果参数（`TreeNode[]`）
+   */
   public getAllParents(result: TreeNode[]) {
     if (this.parent) {
       result.push(this.parent);
@@ -294,6 +562,11 @@ export class TreeNode implements ITreeNode {
     }
   }
   
+  /**
+   * Executes `getAllChildren` to handle get all children.
+   * @zh 执行 `getAllChildren`，用于获取全部子级列表。
+   * @param result - result parameter (`TreeNode[]`) / 结果参数（`TreeNode[]`）
+   */
   public getAllChildren(result: TreeNode[]) {
     if (this.children) {
       this.children.forEach((child) => {
@@ -305,24 +578,49 @@ export class TreeNode implements ITreeNode {
     }
   }
 
+  /**
+   * Executes `getIndexInParent` to handle get index in parent.
+   * @zh 执行 `getIndexInParent`，用于获取索引在父级。
+   * @param skipHidden - skip hidden parameter (`any`) / skip隐藏参数（`any`）
+   */
   getIndexInParent(skipHidden = false) {
     return this._getParentsChildren(skipHidden).indexOf(this);
   }
 
+  /**
+   * Executes `isDescendantOf` to handle is descendant of.
+   * @zh 执行 `isDescendantOf`，用于是否为后代节点的。
+   * @param node - node parameter (`TreeNode`) / 节点参数（`TreeNode`）
+   */
   isDescendantOf(node: TreeNode) {
     if (this === node) {
       return true;
     } else { return this.parent && this.parent.isDescendantOf(node); }
   }
 
+  /**
+   * Executes `getNodePadding` to handle get node padding.
+   * @zh 执行 `getNodePadding`，用于获取节点内边距。
+   * @returns Result of type `string` / 类型为 `string` 的返回值
+   */
   getNodePadding(): string {
     return this.options.levelPadding * (this.level - 1) + 'px';
   }
 
+  /**
+   * Executes `getClass` to handle get class.
+   * @zh 执行 `getClass`，用于获取类名。
+   * @returns Result of type `string` / 类型为 `string` 的返回值
+   */
   getClass(): string {
     return[this.options.nodeClass(this), `tree-node-level-${this.level}`].join(' ');
   }
 
+  /**
+   * Executes `onDrop` to handle on drop.
+   * @zh 执行 `onDrop`，用于当放置。
+   * @param $event - event parameter (`any`) / 事件参数（`any`）
+   */
   onDrop($event) {
     this.mouseAction('drop', $event.event, {
       from: $event.element,
@@ -330,18 +628,35 @@ export class TreeNode implements ITreeNode {
     });
   }
 
+  /**
+   * Property `allowDrop` (`any`) storing allow drop.
+   * @zh 属性 `allowDrop`（类型：`any`），用于存储或配置允许放置。
+   */
   allowDrop = (element, $event?) => {
     return this.options.allowDrop(element, { parent: this, index: 0 }, $event);
   }
 
+  /**
+   * Property `allowDragoverStyling` (`any`) storing allow dragover styling.
+   * @zh 属性 `allowDragoverStyling`（类型：`any`），用于存储或配置允许Dragover样式。
+   */
   allowDragoverStyling = () => {
     return this.options.allowDragoverStyling;
   }
 
+  /**
+   * Executes `allowDrag` to handle allow drag.
+   * @zh 执行 `allowDrag`，用于允许拖拽。
+   */
   allowDrag() {
     return this.options.allowDrag(this);
   }
 
+  /**
+   * Executes `setNodeChildren` to handle set node children.
+   * @zh 执行 `setNodeChildren`，用于集合节点子级列表。
+   * @param children - children parameter (`any`) / 子级列表参数（`any`）
+   */
   setNodeChildren(children) {
     if (children) {
       this.setField('hasChildren', children.length > 0);
@@ -359,6 +674,10 @@ export class TreeNode implements ITreeNode {
     });
   }
   
+  /**
+   * Executes `loadNodeChildren` to handle load node children.
+   * @zh 执行 `loadNodeChildren`，用于加载节点子级列表。
+   */
   loadNodeChildren() {
     if (!this.options.getChildren) {
       return Promise.resolve();
@@ -386,6 +705,11 @@ export class TreeNode implements ITreeNode {
       });
   }
 
+  /**
+   * Executes `expand` to handle expand.
+   * @zh 执行 `expand`，用于展开。
+   * @param silent - silent parameter (`any`) / silent参数（`any`）
+   */
   expand(silent = false) {
     if (!this.isExpanded) {
       this.toggleExpanded(silent);
@@ -393,6 +717,11 @@ export class TreeNode implements ITreeNode {
     return this;
   }
 
+  /**
+   * Executes `collapse` to handle collapse.
+   * @zh 执行 `collapse`，用于折叠。
+   * @param silent - silent parameter (`any`) / silent参数（`any`）
+   */
   collapse(silent = false) {
     if (this.isExpanded) {
       this.toggleExpanded(silent);
@@ -400,7 +729,12 @@ export class TreeNode implements ITreeNode {
     return this;
   }
 
-  doForAll(fn: (node: ITreeNode) => any) {
+  /**
+   * Executes `doForAll` to handle do for all.
+   * @zh 执行 `doForAll`，用于do用于全部。
+   * @param fn - fn parameter (`(node: ITreeNode) => any`) / 函数参数（`(node: ITreeNode) => any`）
+   */
+  doForAll(fn: { (node: ITreeNode) }) {
     Promise.resolve(fn(this)).then(() => {
       if (this.children) {
         this.children.forEach((child) => child.doForAll(fn));
@@ -408,7 +742,12 @@ export class TreeNode implements ITreeNode {
     });
   }
 
-  doForAncestors(fn: (node: ITreeNode) => any) {
+  /**
+   * Executes `doForAncestors` to handle do for ancestors.
+   * @zh 执行 `doForAncestors`，用于do用于祖先节点。
+   * @param fn - fn parameter (`(node: ITreeNode) => any`) / 函数参数（`(node: ITreeNode) => any`）
+   */
+  doForAncestors(fn: { (node: ITreeNode) }) {
     Promise.resolve(fn(this)).then(() => {
       if (this.parent) {
         this.parent.doForAncestors(fn);
@@ -416,18 +755,34 @@ export class TreeNode implements ITreeNode {
     });
   }
 
+  /**
+   * Executes `expandAncestors` to handle expand ancestors.
+   * @zh 执行 `expandAncestors`，用于展开祖先节点。
+   */
   expandAncestors() {
     this.doForAncestors((node) => node.expand());
   }
 
+  /**
+   * Executes `expandAll` to handle expand all.
+   * @zh 执行 `expandAll`，用于展开全部。
+   */
   expandAll() {
     this.doForAll((node) => node.expand());
   }
 
+  /**
+   * Executes `collapseAll` to handle collapse all.
+   * @zh 执行 `collapseAll`，用于折叠全部。
+   */
   collapseAll() {
     this.doForAll((node) => node.collapse());
   }
 
+  /**
+   * Executes `ensureVisible` to handle ensure visible.
+   * @zh 执行 `ensureVisible`，用于ensure可见。
+   */
   ensureVisible() {
     if (this.realParent) {
       this.realParent.expand();
@@ -436,11 +791,22 @@ export class TreeNode implements ITreeNode {
     return this;
   }
 
+  /**
+   * Executes `toggleExpanded` to handle toggle expanded.
+   * @zh 执行 `toggleExpanded`，用于开关已展开。
+   * @param silent - silent parameter (`any`) / silent参数（`any`）
+   */
   toggleExpanded(silent) {
     this.setIsExpanded(!this.isExpanded, silent);
     return this;
   }
 
+  /**
+   * Executes `setIsExpanded` to handle set is expanded.
+   * @zh 执行 `setIsExpanded`，用于集合是否为已展开。
+   * @param value - value parameter (`any`) / 值参数（`any`）
+   * @param silent - silent parameter (`any`) / silent参数（`any`）
+   */
   setIsExpanded(value, silent) {
     if (this.hasChildren) {
       this.treeModel.setExpandedNode(this, value, silent);
@@ -448,6 +814,10 @@ export class TreeNode implements ITreeNode {
     return this;
   }
 
+  /**
+   * Executes `autoLoadChildren` to handle auto load children.
+   * @zh 执行 `autoLoadChildren`，用于自动加载子级列表。
+   */
   autoLoadChildren() {
     this.handler = reaction(
       () => this.isExpanded,
@@ -461,6 +831,10 @@ export class TreeNode implements ITreeNode {
   }
 
   // ✨ 核心机制：在组件或节点被卸载时，释放 Map 中的引用，防止内存泄漏
+  /**
+   * Executes `dispose` to handle dispose.
+   * @zh 执行 `dispose`，用于释放。
+   */
   dispose() {
     if (this.children) {
       this.children.forEach((child) => child.dispose());
@@ -477,6 +851,12 @@ export class TreeNode implements ITreeNode {
     this.children = null;
   }
 
+  /**
+   * Executes `setIsActive` to handle set is active.
+   * @zh 执行 `setIsActive`，用于集合是否为激活。
+   * @param value - value parameter (`any`) / 值参数（`any`）
+   * @param multi - multi parameter (`any`) / 多参数（`any`）
+   */
   setIsActive(value, multi = false) {
     this.treeModel.setActiveNode(this, value, multi);
     if (value) {
@@ -485,10 +865,20 @@ export class TreeNode implements ITreeNode {
     return this;
   }
 
+  /**
+   * Executes `isSelectable` to handle is selectable.
+   * @zh 执行 `isSelectable`，用于是否为是否可选中。
+   */
   isSelectable() {
     return this.isLeaf || !this.children || !this.options.useTriState;
   }
   
+  /**
+   * Executes `setIsSelected` to handle set is selected.
+   * @zh 执行 `setIsSelected`，用于集合是否为已选中。
+   * @param value - value parameter (`any`) / 值参数（`any`）
+   * @param silent - silent parameter (`any`) / silent参数（`any`）
+   */
   @action setIsSelected(value, silent?) {
     if (this.options.cascadeSelect) {
       if (this.isLeaf) {
@@ -508,26 +898,50 @@ export class TreeNode implements ITreeNode {
     return this;
   }
 
+  /**
+   * Executes `toggleSelected` to handle toggle selected.
+   * @zh 执行 `toggleSelected`，用于开关已选中。
+   */
   toggleSelected() {
     this.setIsSelected(!this.isSelected);
     return this;
   }
 
+  /**
+   * Executes `toggleActivated` to handle toggle activated.
+   * @zh 执行 `toggleActivated`，用于开关已激活。
+   * @param multi - multi parameter (`any`) / 多参数（`any`）
+   */
   toggleActivated(multi = false) {
     this.setIsActive(!this.isActive, multi);
     return this;
   }
   
+  /**
+   * Executes `setActiveAndVisible` to handle set active and visible.
+   * @zh 执行 `setActiveAndVisible`，用于集合激活And可见。
+   * @param multi - multi parameter (`any`) / 多参数（`any`）
+   */
   setActiveAndVisible(multi = false) {
     this.setIsActive(true, multi).ensureVisible();
     setTimeout(this.scrollIntoView.bind(this));
     return this;
   }
 
+  /**
+   * Executes `scrollIntoView` to handle scroll into view.
+   * @zh 执行 `scrollIntoView`，用于滚动进入视图。
+   * @param force - force parameter (`any`) / force参数（`any`）
+   */
   scrollIntoView(force = false) {
     this.treeModel.virtualScroll.scrollIntoView(this, force);
   }
 
+  /**
+   * Executes `focus` to handle focus.
+   * @zh 执行 `focus`，用于聚焦。
+   * @param scroll - scroll parameter (`any`) / 滚动参数（`any`）
+   */
   focus(scroll = true) {
     const previousNode = this.treeModel.getFocusedNode();
     this.treeModel.setFocusedNode(this);
@@ -541,6 +955,10 @@ export class TreeNode implements ITreeNode {
     return this;
   }
 
+  /**
+   * Executes `blur` to handle blur.
+   * @zh 执行 `blur`，用于失焦。
+   */
   blur() {
     const previousNode = this.treeModel.getFocusedNode();
     this.treeModel.setFocusedNode(null);
@@ -550,19 +968,39 @@ export class TreeNode implements ITreeNode {
     return this;
   }
 
+  /**
+   * Executes `setIsHidden` to handle set is hidden.
+   * @zh 执行 `setIsHidden`，用于集合是否为隐藏。
+   * @param value - value parameter (`any`) / 值参数（`any`）
+   */
   setIsHidden(value) {
     this.treeModel.setIsHidden(this, value);
   }
 
+  /**
+   * Executes `hide` to handle hide.
+   * @zh 执行 `hide`，用于隐藏。
+   */
   hide() {
     this.setIsHidden(true);
   }
 
+  /**
+   * Executes `show` to handle show.
+   * @zh 执行 `show`，用于显示。
+   */
   show() {
     this.setIsHidden(false);
   }
 
-  mouseAction(actionName: string, $event, data: any = null) {
+  /**
+   * Executes `mouseAction` to handle mouse action.
+   * @zh 执行 `mouseAction`，用于鼠标动作。
+   * @param actionName - action name parameter (`string`) / 动作名称参数（`string`）
+   * @param $event - event parameter (`any`) / 事件参数（`any`）
+   * @param data - data parameter (`any`) / 数据参数（`any`）
+   */
+  mouseAction(actionName: string, $event, data = null) {
     this.treeModel.setFocus(true);
 
     const actionMapping = this.options.actionMapping.mouse;
@@ -573,10 +1011,18 @@ export class TreeNode implements ITreeNode {
     }
   }
 
+  /**
+   * Executes `getSelfHeight` to handle get self height.
+   * @zh 执行 `getSelfHeight`，用于获取自身高度。
+   */
   getSelfHeight() {
     return this.options.nodeHeight(this);
   }
 
+  /**
+   * Executes `_initChildren` to handle init children.
+   * @zh 执行 `_initChildren`，用于初始化子级列表。
+   */
   @action _initChildren() {
     if (this.children) {
       this.children.forEach(c => c.dispose());
@@ -586,6 +1032,10 @@ export class TreeNode implements ITreeNode {
   }
 }
 
+/**
+ * Executes `uuid` to handle uuid.
+ * @zh 执行 `uuid`，用于唯一标识符。
+ */
 function uuid() {
   return Math.floor(Math.random() * 10000000000000);
 }

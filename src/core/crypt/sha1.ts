@@ -1,33 +1,66 @@
+/**
+ * @fileoverview Module `src/core/crypt/sha1.ts` providing sha1 definitions and implementation.
+ * @zh 模块文件 `src/core/crypt/sha1.ts`，提供sha1相关的定义与实现。
+ */
+
 
 import {isString,isUndefined}  from 'lodash-es';
 import { Hash } from './hash';
+/**
+ * Class `Sha1` encapsulating sha1 data structures and logic in `src/core/crypt`.
+ * @zh 类 `Sha1`，封装 `src/core/crypt` 中的Sha1数据结构与处理逻辑。
+ */
 export class Sha1 implements Hash {
-  blockSize: any;
+  /**
+   * Property `blockSize` (`any`) storing block size.
+   * @zh 属性 `blockSize`（类型：`any`），用于存储或配置块尺寸。
+   */
+  blockSize;
 
   /**
      * Holds the previous values of accumulated variables a-e in the compress_
      * function.
-     */
+
+   * @zh 属性 `chain_`（类型：`number[]`），用于存储或配置chain（默认值：`[]`）。
+   */
   private chain_: number[] = [];
 
   /**
      * A buffer holding the partially computed hash result.
-     */
+
+   * @zh 属性 `buf_`（类型：`number[]`），用于存储或配置buf（默认值：`[]`）。
+   */
   private buf_: number[] = [];
 
   /**
      * An array of 80 bytes, each a part of the message to be hashed.  Referred to
      * as the message schedule in the docs.
-     */
+
+   * @zh 属性 `W_`（类型：`number[]`），用于存储或配置W（默认值：`[]`）。
+   */
   private W_: number[] = [];
 
   /**
      * Contains data needed to pad messages less than 64 bytes.
-     */
+
+   * @zh 属性 `pad_`（类型：`number[]`），用于存储或配置pad（默认值：`[]`）。
+   */
   private pad_: number[] = [];
+  /**
+   * Property `inbuf_` (`number`) storing inbuf (default: `0`).
+   * @zh 属性 `inbuf_`（类型：`number`），用于存储或配置inbuf（默认值：`0`）。
+   */
   private inbuf_: number = 0;
+  /**
+   * Property `total_` (`number`) storing total (default: `0`).
+   * @zh 属性 `total_`（类型：`number`），用于存储或配置总计（默认值：`0`）。
+   */
   private total_: number = 0;
 
+  /**
+   * Creates an instance of `Sha1` and initializes its dependencies and internal state.
+   * @zh 创建 `Sha1` 实例，并初始化其依赖项与内部状态。
+   */
   constructor() {
     this.blockSize = 512 / 8;
     this.pad_[0] = 128;
@@ -37,7 +70,11 @@ export class Sha1 implements Hash {
     this.reset();
   }
 
-  /** @override */
+  /**
+   * Executes `reset` to handle reset.
+   * @override
+   * @zh 执行 `reset`，用于重置。
+   */
   reset() {
     this.chain_[0] = 1732584193;
     this.chain_[1] = 4023233417;
@@ -52,6 +89,8 @@ export class Sha1 implements Hash {
    * Internal compress helper function.
    * param buf Block to compress.
    * param opt_offset Offset of the block in the buffer.
+
+   * @zh 执行 `compress_`，用于compress。
    */
   private compress_(buf, opt_offset?: number) {
     if (!opt_offset) {
@@ -126,7 +165,11 @@ export class Sha1 implements Hash {
     this.chain_[4] = this.chain_[4] + e & 4294967295;
   }
 
-  /** @override */
+  /**
+   * Executes `update` to handle update.
+   * @override
+   * @zh 执行 `update`，用于更新。
+   */
   public update(bytes, opt_length?) {
 
     // TODO(johnlenz): tighten the function signature and remove this check
@@ -188,7 +231,11 @@ export class Sha1 implements Hash {
     this.total_ += opt_length;
   }
 
-  /** @override */
+  /**
+   * Executes `digest` to handle digest.
+   * @override
+   * @zh 执行 `digest`，用于digest。
+   */
   digest() {
     const digest = [];
     let totalBits = this.total_ * 8;

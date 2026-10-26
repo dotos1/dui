@@ -1,19 +1,40 @@
+/**
+ * @fileoverview Module `src/ux/link-preview/services/link-preview-cache.service.ts` providing link preview cache service definitions and implementation.
+ * @zh 模块文件 `src/ux/link-preview/services/link-preview-cache.service.ts`，提供链接预览缓存服务相关的定义与实现。
+ */
+
 import { Injectable } from '@angular/core';
 
+/**
+ * Injectable Angular service `LinkPreviewCacheService` managing link preview cache service state and operations in `src/ux/link-preview/services`.
+ * @zh 可注入的 Angular 服务 `LinkPreviewCacheService`，管理 `src/ux/link-preview/services` 中的链接预览缓存服务状态与业务操作。
+ */
 @Injectable()
 export class LinkPreviewCacheService {
-   /** Holds the current cache state (RAM cache) */
+   /**
+    * Holds the current cache state (RAM cache)
+    * @zh 属性 `cache`（类型：`any`），用于存储或配置缓存（默认值：`{}`）。
+    */
    private cache = {};
 
-   /** localStorage cache key */
+   /**
+    * localStorage cache key
+    * @zh 属性 `localStorageKey`（类型：`string`），用于存储或配置本地存储键（默认值：`'LinkPreviewCache_q16qy4aOCzm2'`）。
+    */
    private localStorageKey = 'LinkPreviewCache_q16qy4aOCzm2';
 
+   /**
+    * Creates an instance of `LinkPreviewCacheService` and initializes its dependencies and internal state.
+    * @zh 创建 `LinkPreviewCacheService` 实例，并初始化其依赖项与内部状态。
+    */
    constructor() {
       this.loadCacheFromLocalStorage();
    }
 
    /**
     * Try to load the cache from localstorage
+
+    * @zh 执行 `loadCacheFromLocalStorage`，用于加载缓存从本地存储。
     */
    private loadCacheFromLocalStorage(): void {
       try {
@@ -27,8 +48,10 @@ export class LinkPreviewCacheService {
 
    /**
     * Update item in RAM cache
+
+    * @zh 执行 `updateCacheItem`，用于更新缓存条目。
     */
-   public updateCacheItem(cacheKey: string, data: any): void {
+   public updateCacheItem(cacheKey: string, data): void {
       if (!this.cache) {
          this.cache = {};
       }
@@ -38,8 +61,10 @@ export class LinkPreviewCacheService {
 
    /**
     * Get item from cache
+
+    * @zh 执行 `getCacheItem`，用于获取缓存条目。
     */
-   public getCacheItem(cacheKey: string): any {
+   public getCacheItem(cacheKey: string) {
       let cacheData;
       try {
          cacheData = this.cache[cacheKey];
@@ -56,6 +81,8 @@ export class LinkPreviewCacheService {
 
    /**
     * Save whole cache to localStorage
+
+    * @zh 执行 `saveCache`，用于保存缓存。
     */
    public saveCache(): void {
       try {

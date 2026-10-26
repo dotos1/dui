@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Module `src/container/panel/panel.component.ts` providing panel component definitions and implementation.
+ * @zh 模块文件 `src/container/panel/panel.component.ts`，提供面板组件相关的定义与实现。
+ */
+
 
 import { AfterViewInit, ChangeDetectorRef, Component, ComponentFactoryResolver, ElementRef, EventEmitter, Injector, Input, OnChanges, OnDestroy, OnInit, Output, Renderer2, SimpleChanges } from '@angular/core';
 import {forEach}  from 'lodash-es';
@@ -8,6 +13,10 @@ import { IArea } from './interface/IArea';
 import { IPoint } from './interface/IPoint';
 import { ILayoutTogglable } from './layout-toggle';
 
+/**
+ * Angular component `PanelComponent` (selector: 'panel') providing panel component presentation and interaction in `src/container/panel`.
+ * @zh Angular 组件 `PanelComponent`（selector: 'panel'），提供面板组件的视图渲染与交互逻辑（位于 `src/container/panel`）。
+ */
 @Component({
   selector: 'panel',
   styleUrls: ['./panel.component.scss'],
@@ -20,10 +29,23 @@ import { ILayoutTogglable } from './layout-toggle';
 
 
 export class PanelComponent extends AbstractPanel implements ILayoutTogglable,OnChanges,OnInit,AfterViewInit,OnDestroy {
-  @Input() override config: any = {};
+  /**
+   * Input property `config` (`any`) configuring config (default: `{}`).
+   * @zh 输入属性 `config`（类型：`any`），用于配置配置（默认值：`{}`）。
+   */
+  @Input() override config = {};
 
+  /**
+   * Input property `layout` (`string`) configuring layout (default: `'fit'`).
+   * @zh 输入属性 `layout`（类型：`string`），用于配置布局（默认值：`'fit'`）。
+   */
   @Input() override layout = 'fit';
 
+  /**
+   * Input setter `children` updating children.
+   * @zh 输入属性 `children` 的设置器，用于更新子级列表。
+   * @param v - New children value (`Array<PanelComponent>`) / 新的子级列表值（`Array<PanelComponent>`）
+   */
   @Input()
   public set children(v: Array<PanelComponent>) {
     forEach(v, (panel) => {
@@ -32,31 +54,81 @@ export class PanelComponent extends AbstractPanel implements ILayoutTogglable,On
     });
   }
 
+  /**
+   * Property `xtype` (`string`) storing xtype (default: `'panel'`).
+   * @zh 属性 `xtype`（类型：`string`），用于存储或配置扩展类型（默认值：`'panel'`）。
+   */
   public override xtype: string = 'panel';
 
+  /**
+   * Output event emitter `dragStart` (`EventEmitter`) firing when drag start occurs.
+   * @zh 输出事件 `dragStart`（类型：`EventEmitter`），当触发拖拽开始时向外发出事件。
+   */
   @Output() dragStart = new EventEmitter<{ gutterNum: number, sizes: number[] }>(false);
 
+  /**
+   * Output event emitter `dragProgress` (`EventEmitter`) firing when drag progress occurs.
+   * @zh 输出事件 `dragProgress`（类型：`EventEmitter`），当触发拖拽进度条时向外发出事件。
+   */
   @Output() dragProgress = new EventEmitter<{ gutterNum: number, sizes: number[] }>(false);
 
+  /**
+   * Output event emitter `dragEnd` (`EventEmitter`) firing when drag end occurs.
+   * @zh 输出事件 `dragEnd`（类型：`EventEmitter`），当触发拖拽结束时向外发出事件。
+   */
   @Output() dragEnd = new EventEmitter<{ gutterNum: number, sizes: number[] }>(false);
 
+  /**
+   * Output event emitter `gutterClick` (`EventEmitter`) firing when gutter click occurs.
+   * @zh 输出事件 `gutterClick`（类型：`EventEmitter`），当触发分隔槽点击时向外发出事件。
+   */
   @Output() gutterClick = new EventEmitter<{ gutterNum: number, sizes: number[] }>(false);
 
+  /**
+   * Property `transitionEndInternal` (`Subject`) storing transition end internal (default: `new Subject<number[]>()`).
+   * @zh 属性 `transitionEndInternal`（类型：`Subject`），用于存储或配置过渡动画结束内部（默认值：`new Subject<number[]>()`）。
+   */
   private transitionEndInternal = new Subject<number[]>();
 
+  /**
+   * Output event emitter `transitionEnd` (`any`) firing when transition end occurs.
+   * @zh 输出事件 `transitionEnd`（类型：`any`），当触发过渡动画结束时向外发出事件。
+   */
   @Output() transitionEnd = (<Observable<number[]>>this.transitionEndInternal.asObservable()).pipe(debounceTime(20));
 
+  /**
+   * Property `_gutterColor` (`string`) storing gutter color (default: `''`).
+   * @zh 属性 `_gutterColor`（类型：`string`），用于存储或配置分隔槽颜色（默认值：`''`）。
+   */
   private _gutterColor: string = '';
+  /**
+   * Input setter `gutterColor` updating gutter color.
+   * @zh 输入属性 `gutterColor` 的设置器，用于更新分隔槽颜色。
+   * @param v - New gutter color value (`string`) / 新的分隔槽颜色值（`string`）
+   */
   @Input() set gutterColor(v: string) {
     this._gutterColor = (typeof v === 'string' && v !== '') ? v : '';
     this.detectRef.markForCheck();
   }
+  /**
+   * Gets the current gutter color (`gutterColor: string`).
+   * @zh 获取当前分隔槽颜色（`gutterColor: string`）。
+   */
   get gutterColor(): string {
     return this._gutterColor;
   }
 
+  /**
+   * Property `_fxLayout` (`'row' | 'column'`) storing fx layout (default: `'row'`).
+   * @zh 属性 `_fxLayout`（类型：`'row' | 'column'`），用于存储或配置fx布局（默认值：`'row'`）。
+   */
   public override _fxLayout: 'row' | 'column' = 'row';
 
+  /**
+   * Input setter `fxLayout` updating fx layout.
+   * @zh 输入属性 `fxLayout` 的设置器，用于更新fx布局。
+   * @param v - New fx layout value (`'row' | 'column'`) / 新的fx布局值（`'row' | 'column'`）
+   */
   @Input() override set fxLayout(v: 'row' | 'column') {
     v = (v === 'row') ? 'row' : 'column';
     this._fxLayout = v;
@@ -66,38 +138,91 @@ export class PanelComponent extends AbstractPanel implements ILayoutTogglable,On
     this.doLayout(false, false);
   }
 
+  /**
+   * Gets the current fx layout (`fxLayout: 'row' | 'column'`).
+   * @zh 获取当前fx布局（`fxLayout: 'row' | 'column'`）。
+   */
   override get fxLayout(): 'row' | 'column' {
     return this._fxLayout;
   }
 
+  /**
+   * Property `_useTransition` (`boolean`) storing use transition (default: `false`).
+   * @zh 属性 `_useTransition`（类型：`boolean`），用于存储或配置使用过渡动画（默认值：`false`）。
+   */
   private _useTransition: boolean = false;
 
+  /**
+   * Input setter `useTransition` updating use transition.
+   * @zh 输入属性 `useTransition` 的设置器，用于更新使用过渡动画。
+   * @param v - New use transition value (`boolean`) / 新的使用过渡动画值（`boolean`）
+   */
   @Input() set useTransition(v: boolean) {
     v = (typeof (v) === 'boolean') ? v : (v === 'false' ? false : true);
     this._useTransition = v;
   }
 
+  /**
+   * Gets the current use transition (`useTransition: boolean`).
+   * @zh 获取当前使用过渡动画（`useTransition: boolean`）。
+   */
   get useTransition(): boolean {
     return this._useTransition;
   }
 
 
+  /**
+   * Property `isViewInitialized` (`boolean`) storing is view initialized (default: `false`).
+   * @zh 属性 `isViewInitialized`（类型：`boolean`），用于存储或配置是否为视图已初始化（默认值：`false`）。
+   */
   public isViewInitialized: boolean = false;
 
+  /**
+   * Property `isDragging` (`boolean`) storing is dragging (default: `false`).
+   * @zh 属性 `isDragging`（类型：`boolean`），用于存储或配置是否为拖拽中（默认值：`false`）。
+   */
   private isDragging: boolean = false;
 
+  /**
+   * Property `draggingWithoutMove` (`boolean`) storing dragging without move (default: `false`).
+   * @zh 属性 `draggingWithoutMove`（类型：`boolean`），用于存储或配置拖拽中不含移动（默认值：`false`）。
+   */
   private draggingWithoutMove: boolean = false;
 
+  /**
+   * Property `currentGutterNum` (`number`) storing current gutter num (default: `0`).
+   * @zh 属性 `currentGutterNum`（类型：`number`），用于存储或配置当前分隔槽数值（默认值：`0`）。
+   */
   private currentGutterNum: number = 0;
 
+  /**
+   * Property `dragListeners` (`Function[]`) storing drag listeners (default: `[]`).
+   * @zh 属性 `dragListeners`（类型：`Function[]`），用于存储或配置拖拽监听器列表（默认值：`[]`）。
+   */
   private readonly dragListeners: Function[] = [];
 
+  /**
+   * Property `hasNorthSouth` (`boolean`) storing has north south (default: `false`).
+   * @zh 属性 `hasNorthSouth`（类型：`boolean`），用于存储或配置是否包含NorthSouth（默认值：`false`）。
+   */
   public hasNorthSouth: boolean = false;
 
+  /**
+   * Property `hasWestEast` (`boolean`) storing has west east (default: `false`).
+   * @zh 属性 `hasWestEast`（类型：`boolean`），用于存储或配置是否包含WestEast（默认值：`false`）。
+   */
   public hasWestEast: boolean = false;
 
+  /**
+   * Property `hasOutlet` (`boolean`) storing has outlet (default: `false`).
+   * @zh 属性 `hasOutlet`（类型：`boolean`），用于存储或配置是否包含Outlet（默认值：`false`）。
+   */
   public hasOutlet: boolean = false;
 
+  /**
+   * Property `dragStartValues` (`any`) storing drag start values.
+   * @zh 属性 `dragStartValues`（类型：`any`），用于存储或配置拖拽开始值列表。
+   */
   private readonly dragStartValues = {
     sizePixelContainer: 0,
     sizePixelA: 0,
@@ -107,22 +232,49 @@ export class PanelComponent extends AbstractPanel implements ILayoutTogglable,On
   };
 
 
+  /**
+   * Sets the displayed areas (`displayedAreas`).
+   * @zh 设置已展示区域集合（`displayedAreas`）。
+   * @param displayedAreas - New displayed areas value (`IArea[]`) / 新的已展示区域集合值（`IArea[]`）
+   */
   override set displayedAreas(displayedAreas:IArea[]) {
     super.displayedAreas=displayedAreas;
   }
 
+  /**
+   * Gets the current displayed areas (`displayedAreas: IArea[]`).
+   * @zh 获取当前已展示区域集合（`displayedAreas: IArea[]`）。
+   */
   override get displayedAreas():IArea[] {
     return super.displayedAreas;
   }
 
+  /**
+   * Sets the hided areas (`hidedAreas`).
+   * @zh 设置已隐藏区域集合（`hidedAreas`）。
+   * @param hidedAreas - New hided areas value (`IArea[]`) / 新的已隐藏区域集合值（`IArea[]`）
+   */
   override set hidedAreas(hidedAreas:IArea[]) {
     super.hidedAreas= hidedAreas;
   }
 
+  /**
+   * Gets the current hided areas (`hidedAreas: IArea[]`).
+   * @zh 获取当前已隐藏区域集合（`hidedAreas: IArea[]`）。
+   */
   override get hidedAreas():IArea[] {
     return super.hidedAreas;
   }
 
+  /**
+   * Creates an instance of `PanelComponent` and initializes its dependencies and internal state.
+   * @zh 创建 `PanelComponent` 实例，并初始化其依赖项与内部状态。
+   * @param _element - Injected or initial element (`ElementRef`) / 注入或传入的元素（`ElementRef`）
+   * @param renderer - Injected or initial renderer (`Renderer2`) / 注入或传入的渲染器（`Renderer2`）
+   * @param resolver - Injected or initial resolver (`ComponentFactoryResolver`) / 注入或传入的解析器（`ComponentFactoryResolver`）
+   * @param injector - Injected or initial injector (`Injector`) / 注入或传入的注入器（`Injector`）
+   * @param detectRef - Injected or initial detect ref (`ChangeDetectorRef`) / 注入或传入的检测引用（`ChangeDetectorRef`）
+   */
   constructor(
     protected override _element: ElementRef,
     protected override renderer: Renderer2,
@@ -133,6 +285,11 @@ export class PanelComponent extends AbstractPanel implements ILayoutTogglable,On
     this.el = this._element.nativeElement;
   }
 
+  /**
+   * Angular lifecycle hook invoked when data-bound input properties change.
+   * @zh Angular 生命周期钩子：当数据绑定的输入属性发生变更时调用。
+   * @param changes - changes parameter (`SimpleChanges`) / 变更集合参数（`SimpleChanges`）
+   */
   override ngOnChanges(changes: SimpleChanges) {
     if (changes['config']) {
       this.init(changes['config'].currentValue);
@@ -140,22 +297,39 @@ export class PanelComponent extends AbstractPanel implements ILayoutTogglable,On
   }
 
   // private
-  override init(config: any) {
+  /**
+   * Executes `init` to handle init.
+   * @zh 执行 `init`，用于初始化。
+   * @param config - config parameter (`any`) / 配置参数（`any`）
+   */
+  override init(config) {
     if(config){
       this.fxLayout=config.fxLayout;
       super.init(config);
     }
   }
 
+  /**
+   * Angular lifecycle hook invoked once after the component's view and child views are initialized.
+   * @zh Angular 生命周期钩子：在组件视图及其子视图初始化完成后调用一次。
+   */
   public override ngAfterViewInit() {
     super.ngAfterViewInit();
     this.isViewInitialized = true;
   }
 
+  /**
+   * Angular lifecycle hook invoked once after component or directive inputs are initialized.
+   * @zh Angular 生命周期钩子：在组件或指令的输入属性初始化完成后调用一次。
+   */
   public override ngOnInit(): void {
     super.ngOnInit();
   }
 
+  /**
+   * Angular lifecycle hook invoked just before the component, directive, or service is destroyed to release subscriptions and resources.
+   * @zh Angular 生命周期钩子：在组件、指令或服务销毁前调用，用于释放订阅与清理资源。
+   */
   public override ngOnDestroy(): void {
     super.ngOnDestroy();
     if (this.ownerCt && this.ownerCt.xtype === 'panel') {
@@ -164,6 +338,12 @@ export class PanelComponent extends AbstractPanel implements ILayoutTogglable,On
   }
 
 
+  /**
+   * Executes `_addItem` to handle add item.
+   * @zh 执行 `_addItem`，用于添加条目。
+   * @param comp - comp parameter (`any`) / 组件参数（`any`）
+   * @param index - index parameter (`any`) / 索引参数（`any`）
+   */
   protected override _addItem(comp, index) {
     super._addItem(comp, index);
     if (this.layout === 'border') {
@@ -171,6 +351,11 @@ export class PanelComponent extends AbstractPanel implements ILayoutTogglable,On
     }
   }
 
+  /**
+   * Executes `addArea` to handle add area.
+   * @zh 执行 `addArea`，用于添加区域。
+   * @param comp - comp parameter (`PanelComponent`) / 组件参数（`PanelComponent`）
+   */
   public addArea(comp: PanelComponent): void {
     const newArea: IArea = {
       comp,
@@ -187,6 +372,11 @@ export class PanelComponent extends AbstractPanel implements ILayoutTogglable,On
     comp.setStyleVisibleAndDir(comp.visible, this.isDragging, this.fxLayout);
   }
 
+  /**
+   * Executes `removeArea` to handle remove area.
+   * @zh 执行 `removeArea`，用于移除区域。
+   * @param comp - comp parameter (`PanelComponent`) / 组件参数（`PanelComponent`）
+   */
   public removeArea(comp: PanelComponent): void {
     if (this.displayedAreas.some(a => a.comp === comp)) {
       const area = <IArea>this.displayedAreas.find(a => a.comp === comp);
@@ -198,6 +388,13 @@ export class PanelComponent extends AbstractPanel implements ILayoutTogglable,On
     }
   }
 
+  /**
+   * Executes `updateArea` to handle update area.
+   * @zh 执行 `updateArea`，用于更新区域。
+   * @param comp - comp parameter (`PanelComponent`) / 组件参数（`PanelComponent`）
+   * @param resetOrders - reset orders parameter (`boolean`) / 重置顺序参数（`boolean`）
+   * @param resetSizes - reset sizes parameter (`boolean`) / 重置尺寸列表参数（`boolean`）
+   */
   public updateArea(comp: PanelComponent, resetOrders: boolean, resetSizes: boolean): void {
     const item = this.displayedAreas.find(a => a.comp === comp);
     if (item) {
@@ -205,6 +402,11 @@ export class PanelComponent extends AbstractPanel implements ILayoutTogglable,On
     }
   }
 
+  /**
+   * Executes `showArea` to handle show area.
+   * @zh 执行 `showArea`，用于显示区域。
+   * @param comp - comp parameter (`PanelComponent`) / 组件参数（`PanelComponent`）
+   */
   public showArea(comp: PanelComponent): void {
     const area = this.hidedAreas.find(a => a.comp === comp);
     if (area) {
@@ -215,6 +417,11 @@ export class PanelComponent extends AbstractPanel implements ILayoutTogglable,On
     }
   }
 
+  /**
+   * Executes `hideArea` to handle hide area.
+   * @zh 执行 `hideArea`，用于隐藏区域。
+   * @param comp - comp parameter (`PanelComponent`) / 组件参数（`PanelComponent`）
+   */
   public hideArea(comp: PanelComponent): void {
     const area = this.displayedAreas.find(a => a.comp === comp);
     if (area) {
@@ -230,6 +437,12 @@ export class PanelComponent extends AbstractPanel implements ILayoutTogglable,On
     }
   }
 
+  /**
+   * Executes `doLayout` to handle do layout.
+   * @zh 执行 `doLayout`，用于do布局。
+   * @param resetOrders - reset orders parameter (`boolean`) / 重置顺序参数（`boolean`）
+   * @param resetSizes - reset sizes parameter (`boolean`) / 重置尺寸列表参数（`boolean`）
+   */
   public override doLayout(resetOrders: boolean, resetSizes: boolean): void {
     this.stopDragging();
     if (resetOrders === true) {
@@ -283,6 +496,10 @@ export class PanelComponent extends AbstractPanel implements ILayoutTogglable,On
     this.detectRef.markForCheck();
   }
 
+  /**
+   * Executes `refreshStyleSizes` to handle refresh style sizes.
+   * @zh 执行 `refreshStyleSizes`，用于刷新样式尺寸列表。
+   */
   private refreshStyleSizes(): void {
     const sumGutterSize = this._getNbGutters() * this.gutterSize;
     this.displayedAreas.forEach(area => {
@@ -290,6 +507,13 @@ export class PanelComponent extends AbstractPanel implements ILayoutTogglable,On
     });
   }
 
+  /**
+   * Executes `startDragging` to handle start dragging.
+   * @zh 执行 `startDragging`，用于开始拖拽中。
+   * @param startEvent - start event parameter (`MouseEvent | TouchEvent`) / 开始事件参数（`MouseEvent | TouchEvent`）
+   * @param gutterOrder - gutter order parameter (`number`) / 分隔槽顺序参数（`number`）
+   * @param gutterNum - gutter num parameter (`number`) / 分隔槽数值参数（`number`）
+   */
   public startDragging(startEvent: MouseEvent | TouchEvent, gutterOrder: number, gutterNum: number): void {
     startEvent.preventDefault();
 
@@ -340,6 +564,14 @@ export class PanelComponent extends AbstractPanel implements ILayoutTogglable,On
     this.notify('start');
   }
 
+  /**
+   * Executes `dragEvent` to handle drag event.
+   * @zh 执行 `dragEvent`，用于拖拽事件。
+   * @param event - event parameter (`MouseEvent | TouchEvent`) / 事件参数（`MouseEvent | TouchEvent`）
+   * @param start - start parameter (`IPoint`) / 开始参数（`IPoint`）
+   * @param areaA - area a parameter (`IArea`) / 区域A参数（`IArea`）
+   * @param areaB - area b parameter (`IArea`) / 区域B参数（`IArea`）
+   */
   private dragEvent(event: MouseEvent | TouchEvent, start: IPoint, areaA: IArea, areaB: IArea): void {
     if (!this.isDragging) {
       return;
@@ -362,6 +594,14 @@ export class PanelComponent extends AbstractPanel implements ILayoutTogglable,On
     this.drag(start, end, areaA, areaB);
   }
 
+  /**
+   * Executes `drag` to handle drag.
+   * @zh 执行 `drag`，用于拖拽。
+   * @param start - start parameter (`IPoint`) / 开始参数（`IPoint`）
+   * @param end - end parameter (`IPoint`) / 结束参数（`IPoint`）
+   * @param areaA - area a parameter (`IArea`) / 区域A参数（`IArea`）
+   * @param areaB - area b parameter (`IArea`) / 区域B参数（`IArea`）
+   */
   private drag(start: IPoint, end: IPoint, areaA: IArea, areaB: IArea): void {
 
     let offsetPixel = (this.fxLayout === 'row') ? (start.x - end.x) : (start.y - end.y);
@@ -418,7 +658,12 @@ export class PanelComponent extends AbstractPanel implements ILayoutTogglable,On
     this.notify('progress');
   }
 
-  private stopDragging(e?:any): void {
+  /**
+   * Executes `stopDragging` to handle stop dragging.
+   * @zh 执行 `stopDragging`，用于停止拖拽中。
+   * @param e - e parameter (`any`) / e参数（`any`）
+   */
+  private stopDragging(e?): void {
     if(e){
       e.stopPropagation();
       e.preventDefault();
@@ -444,6 +689,11 @@ export class PanelComponent extends AbstractPanel implements ILayoutTogglable,On
     this.draggingWithoutMove = false;
   }
 
+  /**
+   * Executes `notify` to handle notify.
+   * @zh 执行 `notify`，用于通知。
+   * @param type - type parameter (`'start' | 'progress' | 'end' | 'click' | 'transitionEnd'`) / 类型参数（`'start' | 'progress' | 'end' | 'click' | 'transitionEnd'`）
+   */
   public notify(type: 'start' | 'progress' | 'end' | 'click' | 'transitionEnd'): void {
     const areasSize: number[] = this.displayedAreas.map(a => a.size * 100);
     switch (type) {

@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Module `src/container/dock-layout/items/ground-item.ts` providing ground item definitions and implementation.
+ * @zh 模块文件 `src/container/dock-layout/items/ground-item.ts`，提供ground条目相关的定义与实现。
+ */
+
 import { TranslateService } from '@dotos/dui/translator';
 import { ComponentItemConfig, ItemConfig, RowOrColumnItemConfig, StackItemConfig } from '../config/config';
 import { ResolvedComponentItemConfig, ResolvedGroundItemConfig, ResolvedHeaderedItemConfig, ResolvedItemConfig, ResolvedRootItemConfig, ResolvedStackItemConfig } from '../config/resolved-config';
@@ -16,11 +21,29 @@ import { RowOrColumn } from './row-or-column';
  * (Previously it was called root however this was incorrect as its child is the root item)
  * There is only one instance of GroundItem and it is automatically created by the Layout Manager
  * @internal
+
+ * @zh 类 `GroundItem`，封装 `src/container/dock-layout/items` 中的Ground条目数据结构与处理逻辑。
  */
 export class GroundItem extends ComponentParentableItem {
+    /**
+     * Property `_childElementContainer` (`HTMLElement`) storing child element container.
+     * @zh 属性 `_childElementContainer`（类型：`HTMLElement`），用于存储或配置子级元素容器。
+     */
     private readonly _childElementContainer: HTMLElement;
+    /**
+     * Property `_containerElement` (`HTMLElement`) storing container element.
+     * @zh 属性 `_containerElement`（类型：`HTMLElement`），用于存储或配置容器元素。
+     */
     private readonly _containerElement: HTMLElement;
 
+    /**
+     * Creates an instance of `GroundItem` and initializes its dependencies and internal state.
+     * @zh 创建 `GroundItem` 实例，并初始化其依赖项与内部状态。
+     * @param translator - Injected or initial translator (`TranslateService`) / 注入或传入的翻译器（`TranslateService`）
+     * @param layoutManager - Injected or initial layout manager (`LayoutManager`) / 注入或传入的布局管理器（`LayoutManager`）
+     * @param rootItemConfig - Injected or initial root item config (`ResolvedRootItemConfig | undefined`) / 注入或传入的根节点条目配置（`ResolvedRootItemConfig | undefined`）
+     * @param containerElement - Injected or initial container element (`HTMLElement`) / 注入或传入的容器元素（`HTMLElement`）
+     */
     constructor(private translator:TranslateService,layoutManager: LayoutManager, rootItemConfig: ResolvedRootItemConfig | undefined, containerElement: HTMLElement) {
 
         super(layoutManager, ResolvedGroundItemConfig.create(rootItemConfig), null, GroundItem.createElement(document));
@@ -45,6 +68,10 @@ export class GroundItem extends ComponentParentableItem {
         this._containerElement.insertBefore(this.element, before);
     }
 
+    /**
+     * Executes `init` to handle init.
+     * @zh 执行 `init`，用于初始化。
+     */
     override init(): void {
         if (this.isInitialised === true) return;
 
@@ -62,6 +89,8 @@ export class GroundItem extends ComponentParentableItem {
     /**
      * Loads a new Layout
      * Internal only.  To load a new layout with API, use {@link (LayoutManager:class).loadLayout}
+
+     * @zh 执行 `loadRoot`，用于加载根节点。
      */
     loadRoot(rootItemConfig: ResolvedRootItemConfig | undefined): void {
         // Remove existing root if it exists
@@ -73,6 +102,10 @@ export class GroundItem extends ComponentParentableItem {
         }
     }
 
+    /**
+     * Executes `clearRoot` to handle clear root.
+     * @zh 执行 `clearRoot`，用于清空根节点。
+     */
     clearRoot(): void {
         // Remove existing root if it exists
         const contentItems = this.contentItems;
@@ -95,6 +128,8 @@ export class GroundItem extends ComponentParentableItem {
      * Adds a ContentItem child to root ContentItem.
      * Internal only.  To load a add with API, use {@link (LayoutManager:class).addItem}
      * @returns -1 if added as root otherwise index in root ContentItem's content
+
+     * @zh 执行 `addItem`，用于添加条目。
      */
     addItem(itemConfig: RowOrColumnItemConfig | StackItemConfig | ComponentItemConfig,
         index?: number
@@ -118,6 +153,11 @@ export class GroundItem extends ComponentParentableItem {
         }
     }
 
+    /**
+     * Executes `loadComponentAsRoot` to handle load component as root.
+     * @zh 执行 `loadComponentAsRoot`，用于加载组件As根节点。
+     * @param itemConfig - item config parameter (`ComponentItemConfig`) / 条目配置参数（`ComponentItemConfig`）
+     */
     loadComponentAsRoot(itemConfig: ComponentItemConfig): void {
         // Remove existing root if it exists
         this.clearRoot();
@@ -136,6 +176,8 @@ export class GroundItem extends ComponentParentableItem {
     /**
      * Adds a Root ContentItem.
      * Internal only.  To replace Root ContentItem with API, use {@link (LayoutManager:class).loadLayout}
+
+     * @zh 执行 `addChild`，用于添加子级。
      */
     override addChild(contentItem: ContentItem, index?: number): number {
         if (this.contentItems.length > 0) {
@@ -152,7 +194,11 @@ export class GroundItem extends ComponentParentableItem {
         }
     }
 
-    /** @internal */
+    /**
+     * Executes `calculateConfigContent` to handle calculate config content.
+     * @internal
+     * @zh 执行 `calculateConfigContent`，用于计算配置内容。
+     */
     override calculateConfigContent(): ResolvedRootItemConfig[] {
         const contentItems = this.contentItems;
         const count = contentItems.length;
@@ -169,7 +215,11 @@ export class GroundItem extends ComponentParentableItem {
         return result;
     }
 
-    /** @internal */
+    /**
+     * Executes `setSize` to handle set size.
+     * @internal
+     * @zh 执行 `setSize`，用于集合尺寸。
+     */
     setSize(width: number, height: number): void {
         if (width === undefined || height === undefined) {
             this.updateSize(false); // For backwards compatibility with v1.x API
@@ -188,6 +238,11 @@ export class GroundItem extends ComponentParentableItem {
     }
 
 
+    /**
+     * Executes `updateSize` to handle update size.
+     * @zh 执行 `updateSize`，用于更新尺寸。
+     * @param force - force parameter (`boolean`) / force参数（`boolean`）
+     */
     override updateSize(force: boolean): void {
         this.layoutManager.beginVirtualSizedContainerAdding();
         try {
@@ -198,6 +253,11 @@ export class GroundItem extends ComponentParentableItem {
         }
     }
 
+    /**
+     * Executes `createSideAreas` to handle create side areas.
+     * @zh 执行 `createSideAreas`，用于创建Side区域集合。
+     * @returns Result of type `GroundItem.Area[]` / 类型为 `GroundItem.Area[]` 的返回值
+     */
     createSideAreas(): GroundItem.Area[] {
         const areaSize = 50;
 
@@ -224,11 +284,24 @@ export class GroundItem extends ComponentParentableItem {
         return result;
     }
 
+    /**
+     * Executes `highlightDropZone` to handle highlight drop zone.
+     * @zh 执行 `highlightDropZone`，用于highlight放置区域(NgZone)。
+     * @param x - x parameter (`number`) / X坐标参数（`number`）
+     * @param y - y parameter (`number`) / Y坐标参数（`number`）
+     * @param area - area parameter (`AreaLinkedRect`) / 区域参数（`AreaLinkedRect`）
+     */
     override highlightDropZone(x: number, y: number, area: AreaLinkedRect): void {
         this.layoutManager.tabDropPlaceholder.remove();
         super.highlightDropZone(x, y, area);
     }
 
+    /**
+     * Executes `onDrop` to handle on drop.
+     * @zh 执行 `onDrop`，用于当放置。
+     * @param contentItem - content item parameter (`ContentItem`) / 内容条目参数（`ContentItem`）
+     * @param area - area parameter (`GroundItem.Area`) / 区域参数（`GroundItem.Area`）
+     */
     override onDrop(contentItem: ContentItem, area: GroundItem.Area): void {
 
         if (contentItem.isComponent) {
@@ -283,6 +356,10 @@ export class GroundItem extends ComponentParentableItem {
     // No ContentItem can dock with groundItem.  However Stack can have a GroundItem parent and Stack requires that
     // its parent implement dock() function.  Accordingly this function is implemented but throws an exception as it should
     // never be called
+    /**
+     * Executes `dock` to handle dock.
+     * @zh 执行 `dock`，用于停靠面板。
+     */
     dock(): void {
         throw new AssertError('GID87731');
     }
@@ -290,16 +367,30 @@ export class GroundItem extends ComponentParentableItem {
     // No ContentItem can dock with groundItem.  However Stack can have a GroundItem parent and Stack requires that
     // its parent implement validateDocking() function.  Accordingly this function is implemented but throws an exception as it should
     // never be called
+    /**
+     * Executes `validateDocking` to handle validate docking.
+     * @zh 执行 `validateDocking`，用于校验停靠面板。
+     */
     validateDocking(): void {
         throw new AssertError('GIVD87732');
     }
 
+    /**
+     * Executes `getAllContentItems` to handle get all content items.
+     * @zh 执行 `getAllContentItems`，用于获取全部内容条目列表。
+     * @returns Result of type `ContentItem[]` / 类型为 `ContentItem[]` 的返回值
+     */
     getAllContentItems(): ContentItem[] {
         const result: ContentItem[] = [this];
         this.deepGetAllContentItems(this.contentItems, result);
         return result;
     }
 
+    /**
+     * Executes `getConfigMaximisedItems` to handle get config maximised items.
+     * @zh 执行 `getConfigMaximisedItems`，用于获取配置最大化条目列表。
+     * @returns Result of type `ContentItem[]` / 类型为 `ContentItem[]` 的返回值
+     */
     getConfigMaximisedItems(): ContentItem[] {
         const result: ContentItem[] = [];
         this.deepFilterContentItems(this.contentItems, result, (item) => {
@@ -317,21 +408,43 @@ export class GroundItem extends ComponentParentableItem {
         return result;
     }
 
+    /**
+     * Executes `getItemsByPopInParentId` to handle get items by pop in parent id.
+     * @zh 执行 `getItemsByPopInParentId`，用于获取条目列表按弹出在父级唯一标识。
+     * @param popInParentId - pop in parent id parameter (`string`) / 弹出在父级唯一标识参数（`string`）
+     * @returns Result of type `ContentItem[]` / 类型为 `ContentItem[]` 的返回值
+     */
     getItemsByPopInParentId(popInParentId: string): ContentItem[] {
         const result: ContentItem[] = [];
         this.deepFilterContentItems(this.contentItems, result, (item) => item.popInParentIds.includes(popInParentId));
         return result;
     }
 
+    /**
+     * Executes `toConfig` to handle to config.
+     * @zh 执行 `toConfig`，用于转换为配置。
+     * @returns Result of type `ResolvedItemConfig` / 类型为 `ResolvedItemConfig` 的返回值
+     */
     toConfig(): ResolvedItemConfig {
         throw new Error('Cannot generate GroundItem config');
     }
 
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    /**
+     * Executes `setActiveComponentItem` to handle set active component item.
+     * @zh 执行 `setActiveComponentItem`，用于集合激活组件条目。
+     * @param item - item parameter (`ComponentItem`) / 条目参数（`ComponentItem`）
+     * @param focus - focus parameter (`boolean`) / 聚焦参数（`boolean`）
+     * @param suppressFocusEvent - suppress focus event parameter (`boolean`) / suppress聚焦事件参数（`boolean`）
+     */
     setActiveComponentItem(item: ComponentItem, focus: boolean, suppressFocusEvent: boolean): void {
         // only applicable if ComponentItem is root and then it always has focus
     }
 
+    /**
+     * Executes `updateNodeSize` to handle update node size.
+     * @zh 执行 `updateNodeSize`，用于更新节点尺寸。
+     */
     private updateNodeSize(): void {
         const { width, height } = getElementWidthAndHeight(this._containerElement);
 
@@ -347,6 +460,12 @@ export class GroundItem extends ComponentParentableItem {
         }
     }
 
+    /**
+     * Executes `deepGetAllContentItems` to handle deep get all content items.
+     * @zh 执行 `deepGetAllContentItems`，用于deep获取全部内容条目列表。
+     * @param content - content parameter (`readonly ContentItem[]`) / 内容参数（`readonly ContentItem[]`）
+     * @param result - result parameter (`ContentItem[]`) / 结果参数（`ContentItem[]`）
+     */
     private deepGetAllContentItems(content: readonly ContentItem[], result: ContentItem[]): void {
         for (let i = 0; i < content.length; i++) {
             const contentItem = content[i];
@@ -355,6 +474,13 @@ export class GroundItem extends ComponentParentableItem {
         }
     }
 
+    /**
+     * Executes `deepFilterContentItems` to handle deep filter content items.
+     * @zh 执行 `deepFilterContentItems`，用于deep过滤内容条目列表。
+     * @param content - content parameter (`readonly ContentItem[]`) / 内容参数（`readonly ContentItem[]`）
+     * @param result - result parameter (`ContentItem[]`) / 结果参数（`ContentItem[]`）
+     * @param checkAcceptFtn - check accept ftn parameter (`((this: void, item: ContentItem) => boolean)`) / 检查AcceptFtn参数（`((this: void, item: ContentItem) => boolean)`）
+     */
     private deepFilterContentItems(content: readonly ContentItem[], result: ContentItem[],
         checkAcceptFtn: ((this: void, item: ContentItem) => boolean)
     ): void {
@@ -371,20 +497,56 @@ export class GroundItem extends ComponentParentableItem {
 
 /** @internal */
 export namespace GroundItem {
+    /**
+     * Interface `Area` defining the contract and properties for area.
+     * @zh 接口 `Area`，定义区域的数据结构契约与属性规范。
+     */
     export interface Area extends ContentItem.Area {
+        /**
+         * Property `side` (`keyof typeof Area.Side`) storing side.
+         * @zh 属性 `side`（类型：`keyof typeof Area.Side`），用于存储或配置side。
+         */
         side: keyof typeof Area.Side;
     }
 
     export namespace Area {
+        /**
+         * Enumeration `Side` defining supported side constants.
+         * @zh 枚举 `Side`，定义支持的Side常量集合。
+         */
         export const enum Side {
+            /**
+             * Enum member `Side.y2` representing y2.
+             * @zh 枚举项 `Side.y2`，表示y2。
+             */
             y2,
+            /**
+             * Enum member `Side.x2` representing x2.
+             * @zh 枚举项 `Side.x2`，表示x2。
+             */
             x2,
+            /**
+             * Enum member `Side.y1` representing y1.
+             * @zh 枚举项 `Side.y1`，表示y1。
+             */
             y1,
+            /**
+             * Enum member `Side.x1` representing x1.
+             * @zh 枚举项 `Side.x1`，表示x1。
+             */
             x1,
         }
 
+        /**
+         * Type alias `Sides` representing sides (`{ [side in keyof typeof Side]: keyof typeof Side; }`).
+         * @zh 类型别名 `Sides`，表示Sides（`{ [side in keyof typeof Side]: keyof typeof Side; }`）。
+         */
         export type Sides = { [side in keyof typeof Side]: keyof typeof Side; }
 
+        /**
+         * Constant/variable `oppositeSides` defining opposite sides in `src/container/dock-layout/items`.
+         * @zh 常量/变量 `oppositeSides`，定义 `src/container/dock-layout/items` 中的oppositeSides。
+         */
         export const oppositeSides: Sides = {
             y2: 'y1',
             x2: 'x1',
@@ -393,6 +555,12 @@ export namespace GroundItem {
         };
     }
 
+    /**
+     * Executes `createElement` to handle create element.
+     * @zh 执行 `createElement`，用于创建元素。
+     * @param document - document parameter (`Document`) / 文档对象参数（`Document`）
+     * @returns Result of type `HTMLDivElement` / 类型为 `HTMLDivElement` 的返回值
+     */
     export function createElement(document: Document): HTMLDivElement {
         const element = document.createElement('div');
         element.classList.add(DomConstants.ClassName.DockLayout);

@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Module `src/common/scrollbar/ng-scrollbar.ts` providing ng scrollbar definitions and implementation.
+ * @zh 模块文件 `src/common/scrollbar/ng-scrollbar.ts`，提供Angular滚动条相关的定义与实现。
+ */
+
 import { Component, effect, untracked, viewChild, Signal, ElementRef, ChangeDetectionStrategy } from '@angular/core';
 import { ViewportAdapter } from './viewport';
 import { NgScrollbarCore } from './ng-scrollbar-core';
@@ -29,11 +34,23 @@ import { Scrollbars } from './scrollbars/scrollbars';
 })
 export class NgScrollbar extends NgScrollbarCore {
 
-  /** @zh 内部内容包裹层元素的引用。 */
+  /**
+   * Property `contentWrapper` (`Signal<ElementRef<HTMLElement>>`) storing content wrapper (default: `viewChild.required('contentWrapper')`).
+   * @zh 内部内容包裹层元素的引用。
+   * @zh 内部内容包裹层元素的引用。
+   */
   contentWrapper: Signal<ElementRef<HTMLElement>> = viewChild.required('contentWrapper');
 
+  /**
+   * Property `_scrollbars` (`Signal<Scrollbars>`) storing scrollbars (default: `viewChild.required(Scrollbars)`).
+   * @zh 属性 `_scrollbars`（类型：`Signal<Scrollbars>`），用于存储或配置滚动条（默认值：`viewChild.required(Scrollbars)`）。
+   */
   _scrollbars: Signal<Scrollbars> = viewChild.required(Scrollbars);
 
+  /**
+   * Creates an instance of `NgScrollbar` and initializes its dependencies and internal state.
+   * @zh 创建 `NgScrollbar` 实例，并初始化其依赖项与内部状态。
+   */
   constructor() {
     effect(() => {
       const contentWrapper: HTMLElement = this.contentWrapper().nativeElement;

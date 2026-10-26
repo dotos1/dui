@@ -4,8 +4,8 @@
     {
       "name": "coerceArray",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `coerceArray` defining coerce array in `src/core/decorators`.",
+      "summaryZh": "常量/变量 `coerceArray`，定义 `src/core/decorators` 中的coerce数组。",
       "sourceFile": "src/core/decorators/coercion.ts",
       "inputs": [],
       "outputs": [],
@@ -15,8 +15,8 @@
     {
       "name": "coerceBoolean",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `coerceBoolean` defining coerce boolean in `src/core/decorators`.",
+      "summaryZh": "常量/变量 `coerceBoolean`，定义 `src/core/decorators` 中的coerce布尔值。",
       "sourceFile": "src/core/decorators/coercion.ts",
       "inputs": [],
       "outputs": [],
@@ -26,8 +26,8 @@
     {
       "name": "coerceCssPixelValue",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `coerceCssPixelValue` defining coerce css pixel value in `src/core/decorators`.",
+      "summaryZh": "常量/变量 `coerceCssPixelValue`，定义 `src/core/decorators` 中的coerceCSS样式像素值。",
       "sourceFile": "src/core/decorators/coercion.ts",
       "inputs": [],
       "outputs": [],
@@ -37,8 +37,8 @@
     {
       "name": "coerceNumber",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `coerceNumber` defining coerce number in `src/core/decorators`.",
+      "summaryZh": "常量/变量 `coerceNumber`，定义 `src/core/decorators` 中的coerce数字。",
       "sourceFile": "src/core/decorators/coercion.ts",
       "inputs": [],
       "outputs": [],
@@ -48,8 +48,8 @@
     {
       "name": "coerceStringArray",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `coerceStringArray` defining coerce string array in `src/core/decorators`.",
+      "summaryZh": "常量/变量 `coerceStringArray`，定义 `src/core/decorators` 中的coerce字符串数组。",
       "sourceFile": "src/core/decorators/coercion.ts",
       "inputs": [],
       "outputs": [],
@@ -59,12 +59,25 @@
     {
       "name": "enumerable",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Executes `enumerable` to handle enumerable.",
+      "summaryZh": "执行 `enumerable`，用于enumerable。",
       "sourceFile": "src/core/decorators/enumerable.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "enumerable",
+          "params": [
+            {
+              "name": "value",
+              "type": "boolean"
+            }
+          ],
+          "returnType": "any",
+          "description": "Executes `enumerable` to handle enumerable.",
+          "descriptionZh": "执行 `enumerable`，用于enumerable。"
+        }
+      ],
       "properties": []
     }
   ],

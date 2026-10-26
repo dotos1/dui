@@ -1,11 +1,27 @@
+/**
+ * @fileoverview Module `src/common/icon/icon-picker.service.ts` providing icon picker service definitions and implementation.
+ * @zh 模块文件 `src/common/icon/icon-picker.service.ts`，提供图标选择器服务相关的定义与实现。
+ */
+
 import { Injectable, Inject } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { TranslateService } from '@dotos/dui/translator';
 import { Icon, IconType } from './icon';
 
+/**
+ * Injectable Angular service `IconPickerService` managing icon picker service state and operations in `src/common/icon`.
+ * @zh 可注入的 Angular 服务 `IconPickerService`，管理 `src/common/icon` 中的图标选择器服务状态与业务操作。
+ */
 @Injectable({ providedIn: 'root' })
 export class IconPickerService {
+  /**
+   * Creates an instance of `IconPickerService` and initializes its dependencies and internal state.
+   * @zh 创建 `IconPickerService` 实例，并初始化其依赖项与内部状态。
+   * @param http - Injected or initial http (`HttpClient`) / 注入或传入的HTTP（`HttpClient`）
+   * @param translate - Injected or initial translate (`TranslateService`) / 注入或传入的翻译（`TranslateService`）
+   * @param _apiBase - Injected or initial api base (`string`) / 注入或传入的API接口基础（`string`）
+   */
   constructor(
     private http: HttpClient,
     protected translate: TranslateService,
@@ -34,7 +50,7 @@ export class IconPickerService {
    * Fetches the list of SVG icons available under the given server-side directory/path.
    * @zh 获取给定服务端目录/路径下可用的 SVG 图标列表。
    */
-  getSVGIcons(dir: string, iconpath: string): Observable<any> {
+  getSVGIcons(dir: string, iconpath: string) {
     let params: HttpParams = new HttpParams()
       .set('dir', dir)
       .set('iconpath', iconpath);
@@ -45,7 +61,7 @@ export class IconPickerService {
    * Fetches the list of custom icons available under the given server-side directory/path.
    * @zh 获取给定服务端目录/路径下可用的自定义图标列表。
    */
-  getCustomIcons(dir: string, iconpath: string): Observable<any> {
+  getCustomIcons(dir: string, iconpath: string) {
     let params: HttpParams = new HttpParams()
       .set('dir', dir)
       .set('iconpath', iconpath);
@@ -58,7 +74,7 @@ export class IconPickerService {
    * Fetches the list of font icons available under the given server-side directory/path.
    * @zh 获取给定服务端目录/路径下可用的字体图标列表。
    */
-  getFontIcons(dir: string, fontpath: string): Observable<any> {
+  getFontIcons(dir: string, fontpath: string) {
     let params: HttpParams = new HttpParams()
       .set('dir', dir)
       .set('fontpath', fontpath);
@@ -67,6 +83,11 @@ export class IconPickerService {
     });
   }
 
+  /**
+   * Executes `getFaIcons` to handle get fa icons.
+   * @zh 执行 `getFaIcons`，用于获取Fa图标集合。
+   * @returns Result of type `Icon[]` / 类型为 `Icon[]` 的返回值
+   */
   private getFaIcons(): Icon[] {
     return [
       {

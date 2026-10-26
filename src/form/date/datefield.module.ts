@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Module `src/form/date/datefield.module.ts` providing datefield module definitions and implementation.
+ * @zh 模块文件 `src/form/date/datefield.module.ts`，提供datefield模块相关的定义与实现。
+ */
+
 import { ComponentFactoryResolver, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
@@ -15,6 +20,10 @@ import { NativeDatetimeAdapter } from '@dotos/dui/form/date/adapter';
 import { TranslateModule } from '@dotos/dui/translator';
 import { DateFieldComponent } from './datefield.component';
 
+/**
+ * Angular module `DateFieldModule` declaring and exporting date field module components, directives, pipes, and providers.
+ * @zh Angular 模块 `DateFieldModule`，声明并导出日期字段模块相关的组件、指令、管道与服务提供者。
+ */
 @NgModule({
   declarations: [
     DateFieldComponent,
@@ -38,7 +47,16 @@ import { DateFieldComponent } from './datefield.component';
   providers: [NativeDatetimeAdapter]
 })
 export class DateFieldModule {
+  /**
+   * Property `entryComponents` (`any[]`) storing entry components (default: `[DateFieldComponent]`).
+   * @zh 属性 `entryComponents`（类型：`any[]`），用于存储或配置条目组件列表（默认值：`[DateFieldComponent]`）。
+   */
   entryComponents = [DateFieldComponent];
+  /**
+   * Creates an instance of `DateFieldModule` and initializes its dependencies and internal state.
+   * @zh 创建 `DateFieldModule` 实例，并初始化其依赖项与内部状态。
+   * @param componentFactoryResolver - Injected or initial component factory resolver (`ComponentFactoryResolver`) / 注入或传入的组件工厂解析器（`ComponentFactoryResolver`）
+   */
   constructor(componentFactoryResolver: ComponentFactoryResolver) {
     Dui.registerComponentFactory(componentFactoryResolver,this.entryComponents);
   }

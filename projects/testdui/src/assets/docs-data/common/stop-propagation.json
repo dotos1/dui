@@ -54,8 +54,8 @@
     {
       "name": "StopPropagationModule",
       "kind": "module",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular module `StopPropagationModule` declaring and exporting stop propagation module components, directives, pipes, and providers.",
+      "summaryZh": "Angular 模块 `StopPropagationModule`，声明并导出停止事件冒泡模块相关的组件、指令、管道与服务提供者。",
       "sourceFile": "src/common/stop-propagation/stop-propagation.module.ts",
       "inputs": [],
       "outputs": [],
@@ -64,8 +64,8 @@
           "name": "forRoot",
           "params": [],
           "returnType": "ModuleWithProviders<StopPropagationModule>",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `forRoot` to handle for root.",
+          "descriptionZh": "执行 `forRoot`，用于用于根节点。"
         }
       ],
       "properties": []

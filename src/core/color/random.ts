@@ -1,9 +1,26 @@
+/**
+ * @fileoverview Module `src/core/color/random.ts` providing random definitions and implementation.
+ * @zh 模块文件 `src/core/color/random.ts`，提供随机相关的定义与实现。
+ */
+
 
 import { TinyColor } from './tinycolor';
 import { HSVA } from './interfaces';
 
+/**
+ * Interface `RandomOptions` defining the contract and properties for random options.
+ * @zh 接口 `RandomOptions`，定义随机配置选项的数据结构契约与属性规范。
+ */
 export interface RandomOptions {
+  /**
+   * Property `seed` (`number`) storing seed.
+   * @zh 属性 `seed`（类型：`number`），用于存储或配置seed。
+   */
   seed?: number;
+  /**
+   * Property `hue` (`| number | string | 'red' | 'orange' | 'yellow' | 'green' | 'blue' | '...`) storing hue.
+   * @zh 属性 `hue`（类型：`| number | string | 'red' | 'orange' | 'yellow' | 'green' | 'blue' | '...`），用于存储或配置色相。
+   */
   hue?:
   | number
   | string
@@ -15,18 +32,52 @@ export interface RandomOptions {
   | 'purple'
   | 'pink'
   | 'monochrome';
+  /**
+   * Property `luminosity` (`'random' | 'bright' | 'dark' | 'light'`) storing luminosity.
+   * @zh 属性 `luminosity`（类型：`'random' | 'bright' | 'dark' | 'light'`），用于存储或配置luminosity。
+   */
   luminosity?: 'random' | 'bright' | 'dark' | 'light';
+  /**
+   * Property `alpha` (`number`) storing alpha.
+   * @zh 属性 `alpha`（类型：`number`），用于存储或配置透明度。
+   */
   alpha?: number;
 }
 
+/**
+ * Interface `RandomCountOptions` defining the contract and properties for random count options.
+ * @zh 接口 `RandomCountOptions`，定义随机计数配置选项的数据结构契约与属性规范。
+ */
 export interface RandomCountOptions extends RandomOptions {
+  /**
+   * Property `count` (`number | null`) storing count.
+   * @zh 属性 `count`（类型：`number | null`），用于存储或配置计数。
+   */
   count?: number | null;
 }
 
+/**
+ * Executes `random` to handle random.
+ * @zh 执行 `random`，用于随机。
+ * @param options - options parameter (`RandomOptions`) / 配置选项参数（`RandomOptions`）
+ * @returns Result of type `TinyColor` / 类型为 `TinyColor` 的返回值
+ */
 export function random(options?: RandomOptions): TinyColor;
 // eslint-disable-next-line no-redeclare
+/**
+ * Executes `random` to handle random.
+ * @zh 执行 `random`，用于随机。
+ * @param options - options parameter (`RandomCountOptions`) / 配置选项参数（`RandomCountOptions`）
+ * @returns Result of type `TinyColor[]` / 类型为 `TinyColor[]` 的返回值
+ */
 export function random(options?: RandomCountOptions): TinyColor[];
 // eslint-disable-next-line no-redeclare
+/**
+ * Executes `random` to handle random.
+ * @zh 执行 `random`，用于随机。
+ * @param options - options parameter (`RandomOptions | RandomCountOptions`) / 配置选项参数（`RandomOptions | RandomCountOptions`）
+ * @returns Result of type `TinyColor | TinyColor[]` / 类型为 `TinyColor | TinyColor[]` 的返回值
+ */
 export function random(options: RandomOptions | RandomCountOptions = {}): TinyColor | TinyColor[] {
   // Check if we need to generate multiple colors
   if ((options as RandomCountOptions).count !== undefined && (options as RandomCountOptions).count !== null) {
@@ -66,6 +117,13 @@ export function random(options: RandomOptions | RandomCountOptions = {}): TinyCo
   return new TinyColor(res as HSVA);
 }
 
+/**
+ * Executes `pickHue` to handle pick hue.
+ * @zh 执行 `pickHue`，用于pick色相。
+ * @param hue - hue parameter (`number | string | undefined`) / 色相参数（`number | string | undefined`）
+ * @param seed - seed parameter (`number`) / seed参数（`number`）
+ * @returns Result of type `number` / 类型为 `number` 的返回值
+ */
 function pickHue(hue: number | string | undefined, seed?: number): number {
   const hueRange = getHueRange(hue);
   let res = randomWithin(hueRange, seed);
@@ -79,6 +137,13 @@ function pickHue(hue: number | string | undefined, seed?: number): number {
   return res;
 }
 
+/**
+ * Executes `pickSaturation` to handle pick saturation.
+ * @zh 执行 `pickSaturation`，用于pick饱和度。
+ * @param hue - hue parameter (`number`) / 色相参数（`number`）
+ * @param options - options parameter (`RandomOptions`) / 配置选项参数（`RandomOptions`）
+ * @returns Result of type `number` / 类型为 `number` 的返回值
+ */
 function pickSaturation(hue: number, options: RandomOptions): number {
   if (options.hue === 'monochrome') {
     return 0;
@@ -110,6 +175,14 @@ function pickSaturation(hue: number, options: RandomOptions): number {
   return randomWithin([sMin, sMax], options.seed);
 }
 
+/**
+ * Executes `pickBrightness` to handle pick brightness.
+ * @zh 执行 `pickBrightness`，用于pick明度。
+ * @param H - h parameter (`number`) / H参数（`number`）
+ * @param S - s parameter (`number`) / S参数（`number`）
+ * @param options - options parameter (`RandomOptions`) / 配置选项参数（`RandomOptions`）
+ * @returns Result of type `number` / 类型为 `number` 的返回值
+ */
 function pickBrightness(H: number, S: number, options: RandomOptions): number {
   let bMin = getMinimumBrightness(H, S);
   let bMax = 100;
@@ -132,6 +205,13 @@ function pickBrightness(H: number, S: number, options: RandomOptions): number {
   return randomWithin([bMin, bMax], options.seed);
 }
 
+/**
+ * Executes `getMinimumBrightness` to handle get minimum brightness.
+ * @zh 执行 `getMinimumBrightness`，用于获取Minimum明度。
+ * @param H - h parameter (`number`) / H参数（`number`）
+ * @param S - s parameter (`number`) / S参数（`number`）
+ * @returns Result of type `number` / 类型为 `number` 的返回值
+ */
 function getMinimumBrightness(H: number, S: number): number {
   const { lowerBounds } = getColorInfo(H);
 
@@ -153,6 +233,12 @@ function getMinimumBrightness(H: number, S: number): number {
   return 0;
 }
 
+/**
+ * Executes `getHueRange` to handle get hue range.
+ * @zh 执行 `getHueRange`，用于获取色相范围。
+ * @param colorInput - color input parameter (`number | string`) / 颜色输入属性参数（`number | string`）
+ * @returns Result of type `[number, number]` / 类型为 `[number, number]` 的返回值
+ */
 function getHueRange(colorInput?: number | string): [number, number] {
   const num = parseInt(colorInput as string, 10);
   if (!Number.isNaN(num) && num < 360 && num > 0) {
@@ -178,6 +264,12 @@ function getHueRange(colorInput?: number | string): [number, number] {
   return [0, 360];
 }
 
+/**
+ * Executes `getColorInfo` to handle get color info.
+ * @zh 执行 `getColorInfo`，用于获取颜色信息。
+ * @param hue - hue parameter (`number`) / 色相参数（`number`）
+ * @returns Result of type `{ name: string; hueRange: [number, number] | null; lowerBoun...` / 类型为 `{ name: string; hueRange: [number, number] | null; lowerBoun...` 的返回值
+ */
 function getColorInfo(hue: number): {
   name: string;
   hueRange: [number, number] | null;
@@ -200,6 +292,13 @@ function getColorInfo(hue: number): {
   throw Error('Color not found');
 }
 
+/**
+ * Executes `randomWithin` to handle random within.
+ * @zh 执行 `randomWithin`，用于随机Within。
+ * @param range - range parameter (`[number, number]`) / 范围参数（`[number, number]`）
+ * @param seed - seed parameter (`number`) / seed参数（`number`）
+ * @returns Result of type `number` / 类型为 `number` 的返回值
+ */
 function randomWithin(range: [number, number], seed?: number): number {
   if (seed === undefined) {
     return Math.floor(range[0] + (Math.random() * (range[1] + 1 - range[0])));
@@ -213,6 +312,12 @@ function randomWithin(range: [number, number], seed?: number): number {
   return Math.floor(min + (rnd * (max - min)));
 }
 
+/**
+ * Executes `defineColor` to handle define color.
+ * @zh 执行 `defineColor`，用于define颜色。
+ * @param bound - bound parameter (`ColorBound`) / 已绑定参数（`ColorBound`）
+ * @returns Result of type `{ name: string; hueRange: [number, number] | null; lowerBoun...` / 类型为 `{ name: string; hueRange: [number, number] | null; lowerBoun...` 的返回值
+ */
 function defineColor(bound: ColorBound): {
   name: string;
   hueRange: [number, number] | null;
@@ -235,16 +340,34 @@ function defineColor(bound: ColorBound): {
 }
 
 /**
+ * Interface `ColorBound` defining the contract and properties for color bound.
  * @hidden
+
+ * @zh 接口 `ColorBound`，定义颜色已绑定的数据结构契约与属性规范。
  */
 export interface ColorBound {
+  /**
+   * Property `name` (`string`) storing name.
+   * @zh 属性 `name`（类型：`string`），用于存储或配置名称。
+   */
   name: string;
+  /**
+   * Property `hueRange` (`[number, number] | null`) storing hue range.
+   * @zh 属性 `hueRange`（类型：`[number, number] | null`），用于存储或配置色相范围。
+   */
   hueRange: [number, number] | null;
+  /**
+   * Property `lowerBounds` (`Array<[number, number]>`) storing lower bounds.
+   * @zh 属性 `lowerBounds`（类型：`Array<[number, number]>`），用于存储或配置下限边界框。
+   */
   lowerBounds: Array<[number, number]>;
 }
 
 /**
+ * Constant/variable `bounds` defining bounds in `src/core/color`.
  * @hidden
+
+ * @zh 常量/变量 `bounds`，定义 `src/core/color` 中的边界框。
  */
 export const bounds: ColorBound[] = [
   {

@@ -4,8 +4,8 @@
     {
       "name": "DEFAULT_NOTIFICATION_LIMIT",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `DEFAULT_NOTIFICATION_LIMIT` defining default notification limit in `src/common/notifications`.",
+      "summaryZh": "常量/变量 `DEFAULT_NOTIFICATION_LIMIT`，定义 `src/common/notifications` 中的默认通知限制。",
       "sourceFile": "src/common/notifications/notification-count.component.ts",
       "inputs": [],
       "outputs": [],
@@ -25,31 +25,31 @@
           "type": "'primary' | 'accent' | 'warn'",
           "default": "'warn'",
           "description": "color?: \"primary\" | \"accent\" | \"warn\"\nSets the theme color of the notification tip. Defaults to \"warn\"",
-          "descriptionZh": null
+          "descriptionZh": "输入属性 `color`（类型：`'primary' | 'accent' | 'warn'`），用于配置颜色（默认值：`'warn'`）。"
         },
         {
           "name": "positionX",
           "type": "NotificationCountPositionX",
           "description": "positionX?: NotificationCountPositionX or \"before\" | \"after\" | \"center\"\nSets the X position of the notification tip.\nDefaults to \"after\" if it has content, else 'center'.",
-          "descriptionZh": null
+          "descriptionZh": "输入属性 `positionX` 的设置器，用于更新位置X坐标。"
         },
         {
           "name": "positionY",
           "type": "NotificationCountPositionY",
           "description": "positionY?: NotificationCountPositionY or \"top\" | \"bottom\" | \"center\"\nSets the Y position of the notification tip.\nDefaults to \"top\" if it has content, else 'center'.",
-          "descriptionZh": null
+          "descriptionZh": "输入属性 `positionY` 的设置器，用于更新位置Y坐标。"
         },
         {
           "name": "notifications",
           "type": "number | boolean",
           "description": "notifications?: number | boolean\nNumber for the notification count. Shows component only if the input is a positive number or 'true'",
-          "descriptionZh": null
+          "descriptionZh": "输入属性 `notifications` 的设置器，用于更新通知。"
         },
         {
           "name": "limit",
           "type": "number",
           "description": "limit?: number\nLimit for notification count. If the number of notifications is greater than limit, then + will be added. Defaults to 99.",
-          "descriptionZh": null
+          "descriptionZh": "输入属性 `limit` 的设置器，用于更新限制。"
         }
       ],
       "outputs": [],
@@ -59,7 +59,7 @@
           "name": "content",
           "type": "ElementRef",
           "description": "Div content wrapper of `ng-content`.",
-          "descriptionZh": null
+          "descriptionZh": "模板/内容视图查询引用 `content`（`@ViewChild`），指向内容。"
         },
         {
           "name": "positionX",
@@ -76,56 +76,100 @@
         {
           "name": "hideHost",
           "type": "boolean",
-          "description": null,
+          "description": "Host-bound getter `hideHost` (`class.dui-notification-hidden`) computing hide host.",
           "descriptionZh": "内部使用，当通知提示不显示且无投影内容时隐藏宿主元素。"
         },
         {
           "name": "noCount",
           "type": "string | boolean",
           "description": "Sets the component in its 'noCount' state if [notifications] is a boolean 'true'.\nMakes the notification tip show without a count.",
-          "descriptionZh": null
+          "descriptionZh": "获取当前no计数（`noCount: string | boolean`）。"
         },
         {
           "name": "notificationsDisplay",
           "type": "string",
           "description": "Notification display string when a count is available.\nAnything over 99 gets set as 99+",
-          "descriptionZh": null
+          "descriptionZh": "获取当前通知Display（`notificationsDisplay: string`）。"
         },
         {
           "name": "show",
           "type": "boolean",
           "description": "Shows notification tip only when [notifications] is true or a positive integer.",
-          "descriptionZh": null
+          "descriptionZh": "获取当前显示（`show: boolean`）。"
         }
       ]
     },
     {
       "name": "NotificationCountPositionX",
       "kind": "enum",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Enumeration `NotificationCountPositionX` defining supported notification count position x constants.",
+      "summaryZh": "枚举 `NotificationCountPositionX`，定义支持的通知计数位置X坐标常量集合。",
       "sourceFile": "src/common/notifications/notification-count.component.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
-      "properties": []
+      "properties": [
+        {
+          "name": "Before",
+          "type": "enum-member",
+          "default": "'before'",
+          "description": "Enum member `NotificationCountPositionX.Before` = 'before' representing before.",
+          "descriptionZh": "枚举项 `NotificationCountPositionX.Before` = 'before'，表示之前。"
+        },
+        {
+          "name": "After",
+          "type": "enum-member",
+          "default": "'after'",
+          "description": "Enum member `NotificationCountPositionX.After` = 'after' representing after.",
+          "descriptionZh": "枚举项 `NotificationCountPositionX.After` = 'after'，表示之后。"
+        },
+        {
+          "name": "Center",
+          "type": "enum-member",
+          "default": "'center'",
+          "description": "Enum member `NotificationCountPositionX.Center` = 'center' representing center.",
+          "descriptionZh": "枚举项 `NotificationCountPositionX.Center` = 'center'，表示居中。"
+        }
+      ]
     },
     {
       "name": "NotificationCountPositionY",
       "kind": "enum",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Enumeration `NotificationCountPositionY` defining supported notification count position y constants.",
+      "summaryZh": "枚举 `NotificationCountPositionY`，定义支持的通知计数位置Y坐标常量集合。",
       "sourceFile": "src/common/notifications/notification-count.component.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
-      "properties": []
+      "properties": [
+        {
+          "name": "Top",
+          "type": "enum-member",
+          "default": "'top'",
+          "description": "Enum member `NotificationCountPositionY.Top` = 'top' representing top.",
+          "descriptionZh": "枚举项 `NotificationCountPositionY.Top` = 'top'，表示顶部位置。"
+        },
+        {
+          "name": "Bottom",
+          "type": "enum-member",
+          "default": "'bottom'",
+          "description": "Enum member `NotificationCountPositionY.Bottom` = 'bottom' representing bottom.",
+          "descriptionZh": "枚举项 `NotificationCountPositionY.Bottom` = 'bottom'，表示底部位置。"
+        },
+        {
+          "name": "Center",
+          "type": "enum-member",
+          "default": "'center'",
+          "description": "Enum member `NotificationCountPositionY.Center` = 'center' representing center.",
+          "descriptionZh": "枚举项 `NotificationCountPositionY.Center` = 'center'，表示居中。"
+        }
+      ]
     },
     {
       "name": "NotificationsModule",
       "kind": "module",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular module `NotificationsModule` declaring and exporting notifications module components, directives, pipes, and providers.",
+      "summaryZh": "Angular 模块 `NotificationsModule`，声明并导出通知模块相关的组件、指令、管道与服务提供者。",
       "sourceFile": "src/common/notifications/notifications.module.ts",
       "inputs": [],
       "outputs": [],

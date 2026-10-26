@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Module `src/common/dnd/dnd-draggable.directive.ts` providing dnd draggable directive definitions and implementation.
+ * @zh 模块文件 `src/common/dnd/dnd-draggable.directive.ts`，提供拖放是否可拖拽指令相关的定义与实现。
+ */
+
 import {
   AfterViewInit,
   Directive,
@@ -29,6 +34,12 @@ import { EffectAllowed } from "./dnd-types";
 } )
 export class DndDragImageRefDirective {
 
+  /**
+   * Creates an instance of `DndDragImageRefDirective` and initializes its dependencies and internal state.
+   * @zh 创建 `DndDragImageRefDirective` 实例，并初始化其依赖项与内部状态。
+   * @param parent - Injected or initial parent (`DndDraggableDirective`) / 注入或传入的父级（`DndDraggableDirective`）
+   * @param elementRef - Injected or initial element ref (`ElementRef`) / 注入或传入的元素引用（`ElementRef`）
+   */
   constructor(@Inject(forwardRef(() => DndDraggableDirective)) parent: DndDraggableDirective, elementRef:ElementRef ) {
     parent.registerDragImage( elementRef );
   }
@@ -51,7 +62,7 @@ export class DndDraggableDirective implements AfterViewInit, OnDestroy {
    * @zh 放置成功时传递给放置目标的任意载荷数据。
    */
   @Input()
-  dndDraggable:any;
+  dndDraggable;
 
   /**
    * The set of drop effects this draggable allows (`copy`/`move`/`link`/etc.).
@@ -144,18 +155,42 @@ export class DndDraggableDirective implements AfterViewInit, OnDestroy {
   @Output()
   readonly dndCanceled:EventEmitter<DragEvent> = new EventEmitter<DragEvent>();
 
-  /** @zh 内部使用，绑定宿主元素的原生 `draggable` 属性。 */
+  /**
+   * Host binding `draggable` bound to host attribute/property `attr.draggable` for draggable.
+   * @zh 内部使用，绑定宿主元素的原生 `draggable` 属性。
+   * @zh 内部使用，绑定宿主元素的原生 `draggable` 属性。
+   */
   @HostBinding( "attr.draggable" )
   draggable = true;
 
+  /**
+   * Property `dndHandle` (`DndHandleDirective`) storing dnd handle.
+   * @zh 属性 `dndHandle`（类型：`DndHandleDirective`），用于存储或配置拖放连接手柄。
+   */
   private dndHandle?:DndHandleDirective;
 
+  /**
+   * Property `dndDragImageElementRef` (`ElementRef`) storing dnd drag image element ref.
+   * @zh 属性 `dndDragImageElementRef`（类型：`ElementRef`），用于存储或配置拖放拖拽图像元素引用。
+   */
   private dndDragImageElementRef?:ElementRef;
 
+  /**
+   * Property `dragImage` (`Element | undefined`) storing drag image.
+   * @zh 属性 `dragImage`（类型：`Element | undefined`），用于存储或配置拖拽图像。
+   */
   private dragImage:Element | undefined;
 
+  /**
+   * Property `isDragStarted` (`boolean`) storing is drag started (default: `false`).
+   * @zh 属性 `isDragStarted`（类型：`boolean`），用于存储或配置是否为拖拽已开始（默认值：`false`）。
+   */
   private isDragStarted:boolean = false;
 
+  /**
+   * Property `dragEventHandler` (`( event:DragEvent ) => void`) storing drag event handler.
+   * @zh 属性 `dragEventHandler`（类型：`( event:DragEvent ) => void`），用于存储或配置拖拽事件处理器。
+   */
   private readonly dragEventHandler:( event:DragEvent ) => void = ( event:DragEvent ) => this.onDrag( event );
 
   /**
@@ -183,17 +218,32 @@ export class DndDraggableDirective implements AfterViewInit, OnDestroy {
     this.dndDisableIf = value;
   }
 
+  /**
+   * Creates an instance of `DndDraggableDirective` and initializes its dependencies and internal state.
+   * @zh 创建 `DndDraggableDirective` 实例，并初始化其依赖项与内部状态。
+   * @param elementRef - Injected or initial element ref (`ElementRef`) / 注入或传入的元素引用（`ElementRef`）
+   * @param renderer - Injected or initial renderer (`Renderer2`) / 注入或传入的渲染器（`Renderer2`）
+   * @param ngZone - Injected or initial ng zone (`NgZone`) / 注入或传入的Angular区域(NgZone)（`NgZone`）
+   */
   constructor( private elementRef:ElementRef,
                private renderer:Renderer2,
                private ngZone:NgZone ) {
   }
 
+  /**
+   * Angular lifecycle hook invoked once after the component's view and child views are initialized.
+   * @zh Angular 生命周期钩子：在组件视图及其子视图初始化完成后调用一次。
+   */
   ngAfterViewInit():void {
     this.ngZone.runOutsideAngular( () => {
       this.elementRef.nativeElement.addEventListener( "drag", this.dragEventHandler );
     } );
   }
 
+  /**
+   * Angular lifecycle hook invoked just before the component, directive, or service is destroyed to release subscriptions and resources.
+   * @zh Angular 生命周期钩子：在组件、指令或服务销毁前调用，用于释放订阅与清理资源。
+   */
   ngOnDestroy():void {
     this.elementRef.nativeElement.removeEventListener( "drag", this.dragEventHandler );
     if(this.isDragStarted === true) {
@@ -318,6 +368,11 @@ export class DndDraggableDirective implements AfterViewInit, OnDestroy {
     this.dndDragImageElementRef = elementRef;
   }
 
+  /**
+   * Executes `determineDragImage` to handle determine drag image.
+   * @zh 执行 `determineDragImage`，用于determine拖拽图像。
+   * @returns Result of type `Element` / 类型为 `Element` 的返回值
+   */
   private determineDragImage():Element {
     if( typeof this.dndDragImageElementRef !== "undefined" ) {
       return this.dndDragImageElementRef.nativeElement as Element;

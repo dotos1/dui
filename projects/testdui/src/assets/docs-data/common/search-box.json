@@ -4,8 +4,8 @@
     {
       "name": "_SearchInputMixinBase",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `_SearchInputMixinBase` defining search input mixin base in `src/common/search-box/search-input`.",
+      "summaryZh": "常量/变量 `_SearchInputMixinBase`，定义 `src/common/search-box/search-input` 中的搜索输入属性Mixin基础。",
       "sourceFile": "src/common/search-box/search-input/search-input.component.ts",
       "inputs": [],
       "outputs": [],
@@ -15,8 +15,8 @@
     {
       "name": "SearchBoxBase",
       "kind": "class",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Class `SearchBoxBase` encapsulating search box base data structures and logic in `src/common/search-box`.",
+      "summaryZh": "类 `SearchBoxBase`，封装 `src/common/search-box` 中的搜索盒子容器基础数据结构与处理逻辑。",
       "sourceFile": "src/common/search-box/search-box.component.ts",
       "inputs": [],
       "outputs": [],
@@ -42,28 +42,28 @@
           "name": "backIcon",
           "type": "any",
           "default": "'search'",
-          "description": null,
+          "description": "Input property `backIcon` (`string`) configuring back icon (default: `'search'`).",
           "descriptionZh": "收起状态下显示的图标。"
         },
         {
           "name": "searchIcon",
           "type": "any",
           "default": "'search'",
-          "description": null,
+          "description": "Input property `searchIcon` (`string`) configuring search icon (default: `'search'`).",
           "descriptionZh": "搜索图标。"
         },
         {
           "name": "clearIcon",
           "type": "any",
           "default": "'cancel'",
-          "description": null,
+          "description": "Input property `clearIcon` (`string`) configuring clear icon (default: `'cancel'`).",
           "descriptionZh": "清空按钮图标。"
         },
         {
           "name": "showUnderline",
           "type": "any",
           "default": "false",
-          "description": null,
+          "description": "Input property `showUnderline` (`boolean`) configuring show underline (default: `false`).",
           "descriptionZh": "是否显示下划线。"
         },
         {
@@ -84,20 +84,20 @@
           "name": "placeholder",
           "type": "any",
           "default": "''",
-          "description": null,
+          "description": "Input property `placeholder` (`string`) configuring placeholder (default: `''`).",
           "descriptionZh": "输入框占位提示文字。"
         },
         {
           "name": "value",
           "type": "unknown",
-          "description": null,
+          "description": "Input property `value` (`unknown`) configuring value.",
           "descriptionZh": "输入框当前值（`ControlValueAccessor` 绑定值）。"
         },
         {
           "name": "disabled",
           "type": "boolean",
           "default": "false",
-          "description": null,
+          "description": "Input property `disabled` (`boolean`) configuring disabled (default: `false`).",
           "descriptionZh": "是否禁用输入框。"
         }
       ],
@@ -105,37 +105,37 @@
         {
           "name": "searchDebounce",
           "type": "string",
-          "description": null,
+          "description": "Output event emitter `searchDebounce` (`EventEmitter<string>`) firing when search debounce occurs.",
           "descriptionZh": "停止输入 `debounce` 毫秒后发出当前输入值。"
         },
         {
           "name": "onSearch",
           "type": "string",
-          "description": null,
+          "description": "Output event emitter `onSearch` (`EventEmitter<string>`) firing when on search occurs.",
           "descriptionZh": "触发搜索时（如按下回车）发出当前输入值。"
         },
         {
           "name": "onClear",
           "type": "void",
-          "description": null,
+          "description": "Output event emitter `onClear` (`EventEmitter<void>`) firing when on clear occurs.",
           "descriptionZh": "输入框被清空时发出。"
         },
         {
           "name": "blurSearch",
           "type": "void",
-          "description": null,
+          "description": "Output event emitter `blurSearch` (`EventEmitter<void>`) firing when blur search occurs.",
           "descriptionZh": "输入框失去焦点时发出。"
         },
         {
           "name": "onUserDefined",
           "type": "string",
-          "description": null,
+          "description": "Output event emitter `userDefined` (`EventEmitter<string>`) firing when on user defined occurs.",
           "descriptionZh": "由 `config` 中的自定义回调触发时发出（用户自定义行为）。"
         },
         {
           "name": "onSearching",
           "type": "boolean",
-          "description": null,
+          "description": "Output event emitter `onSearching` (`EventEmitter<boolean>`) firing when on searching occurs.",
           "descriptionZh": "搜索框展开/收起状态切换时发出。"
         }
       ],
@@ -227,13 +227,13 @@
         {
           "name": "search",
           "type": "Function",
-          "description": null,
+          "description": "Property `search` (`Function`) storing search.",
           "descriptionZh": "由 `config` 提供的自定义搜索回调函数（若设置，会在 `handleSearch` 中一并调用）。"
         },
         {
           "name": "clear",
           "type": "Function",
-          "description": null,
+          "description": "Property `clear` (`Function`) storing clear.",
           "descriptionZh": "由 `config` 提供的自定义清空回调函数（若设置，会在 `handleClear` 中一并调用）。"
         }
       ]
@@ -241,8 +241,8 @@
     {
       "name": "SearchBoxModule",
       "kind": "module",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular module `SearchBoxModule` declaring and exporting search box module components, directives, pipes, and providers.",
+      "summaryZh": "Angular 模块 `SearchBoxModule`，声明并导出搜索盒子容器模块相关的组件、指令、管道与服务提供者。",
       "sourceFile": "src/common/search-box/search-box.module.ts",
       "inputs": [],
       "outputs": [],
@@ -252,16 +252,16 @@
           "name": "entryComponents",
           "type": "any",
           "default": "[\n    SearchBoxComponent\n  ]",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `entryComponents` (`any[]`) storing entry components (default: `[ SearchBoxComponent ]`).",
+          "descriptionZh": "属性 `entryComponents`（类型：`any[]`），用于存储或配置条目组件列表（默认值：`[ SearchBoxComponent ]`）。"
         }
       ]
     },
     {
       "name": "SearchInputBase",
       "kind": "class",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Class `SearchInputBase` encapsulating search input base data structures and logic in `src/common/search-box/search-input`.",
+      "summaryZh": "类 `SearchInputBase`，封装 `src/common/search-box/search-input` 中的搜索输入属性基础数据结构与处理逻辑。",
       "sourceFile": "src/common/search-box/search-input/search-input.component.ts",
       "inputs": [],
       "outputs": [],
@@ -272,8 +272,8 @@
       "name": "SearchInputComponent",
       "kind": "component",
       "selector": "search-input",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular component `SearchInputComponent` (selector: 'search-input') providing search input component presentation and interaction in `src/common/search-box/search-input`.",
+      "summaryZh": "Angular 组件 `SearchInputComponent`（selector: 'search-input'），提供搜索输入属性组件的视图渲染与交互逻辑（位于 `src/common/search-box/search-input`）。",
       "sourceFile": "src/common/search-box/search-input/search-input.component.ts",
       "inputs": [
         {
@@ -287,34 +287,34 @@
           "name": "showUnderline",
           "type": "any",
           "default": "false",
-          "description": null,
+          "description": "Input property `showUnderline` (`boolean`) configuring show underline (default: `false`).",
           "descriptionZh": "是否显示下划线。"
         },
         {
           "name": "debounce",
           "type": "any",
           "default": "400",
-          "description": null,
+          "description": "Input property `debounce` (`number`) configuring debounce (default: `400`).",
           "descriptionZh": "停止输入后，多久（毫秒）触发一次 `searchDebounce`。"
         },
         {
           "name": "placeholder",
           "type": "any",
           "default": "''",
-          "description": null,
+          "description": "Input property `placeholder` (`string`) configuring placeholder (default: `''`).",
           "descriptionZh": "输入框占位提示文字。"
         },
         {
           "name": "clearIcon",
           "type": "any",
           "default": "'cancel'",
-          "description": null,
+          "description": "Input property `clearIcon` (`string`) configuring clear icon (default: `'cancel'`).",
           "descriptionZh": "清空按钮图标。"
         },
         {
           "name": "value",
           "type": "unknown",
-          "description": null,
+          "description": "Input property `value` (`unknown`) configuring value.",
           "descriptionZh": "输入框当前值（`ControlValueAccessor` 绑定值）。"
         }
       ],
@@ -322,25 +322,25 @@
         {
           "name": "searchDebounce",
           "type": "string",
-          "description": null,
+          "description": "Output event emitter `searchDebounce` (`EventEmitter<string>`) firing when search debounce occurs.",
           "descriptionZh": "停止输入 `debounce` 毫秒后发出当前输入值。"
         },
         {
           "name": "onSearch",
           "type": "string",
-          "description": null,
+          "description": "Output event emitter `onSearch` (`EventEmitter<string>`) firing when on search occurs.",
           "descriptionZh": "触发搜索时（如按下回车）发出当前输入值。"
         },
         {
           "name": "onClear",
           "type": "void",
-          "description": null,
+          "description": "Output event emitter `onClear` (`EventEmitter<void>`) firing when on clear occurs.",
           "descriptionZh": "输入框被清空时发出。"
         },
         {
           "name": "blurSearch",
           "type": "void",
-          "description": null,
+          "description": "Output event emitter `blurSearch` (`EventEmitter<void>`) firing when blur search occurs.",
           "descriptionZh": "输入框失去焦点时发出。"
         }
       ],

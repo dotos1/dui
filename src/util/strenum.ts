@@ -1,4 +1,7 @@
-/** Utility function to create a K:V from a list of strings */
+/**
+ * Utility function to create a K:V from a list of strings
+ * @zh 执行 `strEnum`，用于字符串Enum。
+ */
 export function strEnum<T extends string>(o: Array<T>): { [K in T]: K } {
   return o.reduce((res, key) => {
     res[key] = key;

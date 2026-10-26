@@ -1,22 +1,66 @@
+/**
+ * @fileoverview Module `src/core/color/solver.ts` providing solver definitions and implementation.
+ * @zh 模块文件 `src/core/color/solver.ts`，提供solver相关的定义与实现。
+ */
 
+
+/**
+ * Class `Color` encapsulating color data structures and logic in `src/core/color`.
+ * @zh 类 `Color`，封装 `src/core/color` 中的颜色数据结构与处理逻辑。
+ */
 export class Color {
+  /**
+   * Property `r` (`any`) storing r.
+   * @zh 属性 `r`（类型：`any`），用于存储或配置r。
+   */
   public r;
+  /**
+   * Property `g` (`any`) storing g.
+   * @zh 属性 `g`（类型：`any`），用于存储或配置g。
+   */
   public g;
+  /**
+   * Property `b` (`any`) storing b.
+   * @zh 属性 `b`（类型：`any`），用于存储或配置b。
+   */
   public b;
+  /**
+   * Creates an instance of `Color` and initializes its dependencies and internal state.
+   * @zh 创建 `Color` 实例，并初始化其依赖项与内部状态。
+   * @param r - Injected or initial r (`any`) / 注入或传入的r（`any`）
+   * @param g - Injected or initial g (`any`) / 注入或传入的g（`any`）
+   * @param b - Injected or initial b (`any`) / 注入或传入的b（`any`）
+   */
   constructor(r, g, b) {
     this.set(r, g, b);
   }
 
+  /**
+   * Executes `toString` to handle to string.
+   * @zh 执行 `toString`，用于转换为字符串。
+   */
   toString() {
     return `rgb(${Math.round(this.r)}, ${Math.round(this.g)}, ${Math.round(this.b)})`;
   }
 
+  /**
+   * Executes `set` to handle set.
+   * @zh 执行 `set`，用于集合。
+   * @param r - r parameter (`any`) / r参数（`any`）
+   * @param g - g parameter (`any`) / g参数（`any`）
+   * @param b - b parameter (`any`) / b参数（`any`）
+   */
   set(r, g, b) {
     this.r = this.clamp(r);
     this.g = this.clamp(g);
     this.b = this.clamp(b);
   }
 
+  /**
+   * Executes `hueRotate` to handle hue rotate.
+   * @zh 执行 `hueRotate`，用于色相旋转。
+   * @param angle - angle parameter (`any`) / 角度参数（`any`）
+   */
   hueRotate(angle = 0) {
     angle = angle / 180 * Math.PI;
     const sin = Math.sin(angle);
@@ -35,6 +79,11 @@ export class Color {
     ]);
   }
 
+  /**
+   * Executes `grayscale` to handle grayscale.
+   * @zh 执行 `grayscale`，用于grayscale。
+   * @param value - value parameter (`any`) / 值参数（`any`）
+   */
   grayscale(value = 1) {
     this.multiply([
       0.2126 + 0.7874 * (1 - value),
@@ -49,6 +98,11 @@ export class Color {
     ]);
   }
 
+  /**
+   * Executes `sepia` to handle sepia.
+   * @zh 执行 `sepia`，用于sepia。
+   * @param value - value parameter (`any`) / 值参数（`any`）
+   */
   sepia(value = 1) {
     this.multiply([
       0.393 + 0.607 * (1 - value),
@@ -63,6 +117,11 @@ export class Color {
     ]);
   }
 
+  /**
+   * Executes `saturate` to handle saturate.
+   * @zh 执行 `saturate`，用于saturate。
+   * @param value - value parameter (`any`) / 值参数（`any`）
+   */
   saturate(value = 1) {
     this.multiply([
       0.213 + 0.787 * value,
@@ -77,6 +136,11 @@ export class Color {
     ]);
   }
 
+  /**
+   * Executes `multiply` to handle multiply.
+   * @zh 执行 `multiply`，用于multiply。
+   * @param matrix - matrix parameter (`any`) / 矩阵参数（`any`）
+   */
   multiply(matrix) {
     const newR = this.clamp(this.r * matrix[0] + this.g * matrix[1] + this.b * matrix[2]);
     const newG = this.clamp(this.r * matrix[3] + this.g * matrix[4] + this.b * matrix[5]);
@@ -86,25 +150,50 @@ export class Color {
     this.b = newB;
   }
 
+  /**
+   * Executes `brightness` to handle brightness.
+   * @zh 执行 `brightness`，用于明度。
+   * @param value - value parameter (`any`) / 值参数（`any`）
+   */
   brightness(value = 1) {
     this.linear(value);
   }
+  /**
+   * Executes `contrast` to handle contrast.
+   * @zh 执行 `contrast`，用于对比度。
+   * @param value - value parameter (`any`) / 值参数（`any`）
+   */
   contrast(value = 1) {
     this.linear(value, -(0.5 * value) + 0.5);
   }
 
+  /**
+   * Executes `linear` to handle linear.
+   * @zh 执行 `linear`，用于linear。
+   * @param slope - slope parameter (`any`) / slope参数（`any`）
+   * @param intercept - intercept parameter (`any`) / intercept参数（`any`）
+   */
   linear(slope = 1, intercept = 0) {
     this.r = this.clamp(this.r * slope + intercept * 255);
     this.g = this.clamp(this.g * slope + intercept * 255);
     this.b = this.clamp(this.b * slope + intercept * 255);
   }
 
+  /**
+   * Executes `invert` to handle invert.
+   * @zh 执行 `invert`，用于invert。
+   * @param value - value parameter (`any`) / 值参数（`any`）
+   */
   invert(value = 1) {
     this.r = this.clamp((value + this.r / 255 * (1 - 2 * value)) * 255);
     this.g = this.clamp((value + this.g / 255 * (1 - 2 * value)) * 255);
     this.b = this.clamp((value + this.b / 255 * (1 - 2 * value)) * 255);
   }
 
+  /**
+   * Executes `hsl` to handle hsl.
+   * @zh 执行 `hsl`，用于HSL颜色。
+   */
   hsl() {
     // Code taken from https://stackoverflow.com/a/9493060/2688027, licensed under CC BY-SA.
     const r = this.r / 255;
@@ -142,6 +231,11 @@ export class Color {
     };
   }
 
+  /**
+   * Executes `clamp` to handle clamp.
+   * @zh 执行 `clamp`，用于限制范围。
+   * @param value - value parameter (`any`) / 值参数（`any`）
+   */
   clamp(value) {
     if (value > 255) {
       value = 255;
@@ -152,8 +246,17 @@ export class Color {
   }
 }
 
+/**
+ * Class `Solver` encapsulating solver data structures and logic in `src/core/color`.
+ * @zh 类 `Solver`，封装 `src/core/color` 中的Solver数据结构与处理逻辑。
+ */
 export class Solver {
 
+  /**
+   * Executes `hexToRgb` to handle hex to rgb.
+   * @zh 执行 `hexToRgb`，用于十六进制颜色转换为RGB颜色。
+   * @param hex - hex parameter (`any`) / 十六进制颜色参数（`any`）
+   */
   public static hexToRgb(hex) {
     const shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;
     hex = hex.replace(shorthandRegex, (m, r, g, b) => {
@@ -169,17 +272,39 @@ export class Solver {
       : null;
   }
 
+  /**
+   * Property `target` (`any`) storing target.
+   * @zh 属性 `target`（类型：`any`），用于存储或配置目标。
+   */
   public target;
+  /**
+   * Property `targetHSL` (`any`) storing target hsl.
+   * @zh 属性 `targetHSL`（类型：`any`），用于存储或配置目标HSL颜色。
+   */
   public targetHSL;
+  /**
+   * Property `reusedColor` (`any`) storing reused color.
+   * @zh 属性 `reusedColor`（类型：`any`），用于存储或配置reused颜色。
+   */
   public reusedColor;
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  /**
+   * Creates an instance of `Solver` and initializes its dependencies and internal state.
+   * @zh 创建 `Solver` 实例，并初始化其依赖项与内部状态。
+   * @param target - Injected or initial target (`any`) / 注入或传入的目标（`any`）
+   * @param baseColor - Injected or initial base color (`any`) / 注入或传入的基础颜色（`any`）
+   */
   constructor(target, baseColor?) {
     this.target = target;
     this.targetHSL = target.hsl();
     this.reusedColor = new Color(0, 0, 0);
   }
 
+  /**
+   * Executes `solve` to handle solve.
+   * @zh 执行 `solve`，用于solve。
+   */
   solve() {
     const result = this.solveNarrow(this.solveWide());
     return {
@@ -189,6 +314,10 @@ export class Solver {
     };
   }
 
+  /**
+   * Executes `solveWide` to handle solve wide.
+   * @zh 执行 `solveWide`，用于solveWide。
+   */
   solveWide() {
     const A = 5;
     const c = 15;
@@ -205,6 +334,11 @@ export class Solver {
     return best;
   }
 
+  /**
+   * Executes `solveNarrow` to handle solve narrow.
+   * @zh 执行 `solveNarrow`，用于solveNarrow。
+   * @param wide - wide parameter (`any`) / wide参数（`any`）
+   */
   solveNarrow(wide) {
     const A = wide.loss;
     const c = 2;
@@ -213,6 +347,15 @@ export class Solver {
     return this.spsa(A, a, c, wide.values, 500);
   }
 
+  /**
+   * Executes `spsa` to handle spsa.
+   * @zh 执行 `spsa`，用于spsa。
+   * @param A - a parameter (`any`) / A参数（`any`）
+   * @param a - a parameter (`any`) / a参数（`any`）
+   * @param c - c parameter (`any`) / c参数（`any`）
+   * @param values - values parameter (`any`) / 值列表参数（`any`）
+   * @param iters - iters parameter (`any`) / iters参数（`any`）
+   */
   spsa(A, a, c, values, iters) {
     const alpha = 1;
     const gamma = 0.16666666666666666;
@@ -269,6 +412,11 @@ export class Solver {
     }
   }
 
+  /**
+   * Executes `loss` to handle loss.
+   * @zh 执行 `loss`，用于loss。
+   * @param filters - filters parameter (`any`) / 过滤器列表参数（`any`）
+   */
   loss(filters) {
     // Argument is array of percentages.
     const color = this.reusedColor;
@@ -291,6 +439,11 @@ export class Solver {
       Math.abs(colorHSL.l - this.targetHSL.l)
     );
   }
+  /**
+   * Executes `css` to handle css.
+   * @zh 执行 `css`，用于CSS样式。
+   * @param filters - filters parameter (`any`) / 过滤器列表参数（`any`）
+   */
   css(filters) {
     function fmt(idx, multiplier = 1) {
       return Math.round(filters[idx] * multiplier);

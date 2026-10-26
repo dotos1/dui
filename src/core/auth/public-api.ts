@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Module `src/core/auth/public-api.ts` providing public api definitions and implementation.
+ * @zh 模块文件 `src/core/auth/public-api.ts`，提供publicAPI接口相关的定义与实现。
+ */
+
 export * from './auth-bearer.interceptor';
 export * from './auth.module';
 export * from './auth-guard-sso-role.service';

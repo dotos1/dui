@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Module `src/container/dock-layout/controls/tabs-container.ts` providing tabs container definitions and implementation.
+ * @zh 模块文件 `src/container/dock-layout/controls/tabs-container.ts`，提供选项卡组容器相关的定义与实现。
+ */
+
 import { AssertError } from '../errors/internal-error';
 import { ComponentItem } from '../items/component-item';
 import { LayoutManager } from '../layout-manager';
@@ -6,24 +11,81 @@ import { DragListener } from '../utils/drag-listener';
 import { numberToPixels, pixelsToNumber } from '../utils/utils';
 import { Tab } from './tab';
 
-/** @internal */
+/**
+ * Class `TabsContainer` encapsulating tabs container data structures and logic in `src/container/dock-layout/controls`.
+ * @internal
+ * @zh 类 `TabsContainer`，封装 `src/container/dock-layout/controls` 中的选项卡组容器数据结构与处理逻辑。
+ */
 export class TabsContainer {
     // There is one tab per ComponentItem in stack.  However they may not be ordered the same
+    /**
+     * Property `_tabs` (`Tab[]`) storing tabs (default: `[]`).
+     * @zh 属性 `_tabs`（类型：`Tab[]`），用于存储或配置选项卡组（默认值：`[]`）。
+     */
     private readonly _tabs: Tab[] = [];
 
+    /**
+     * Property `_dropdownElement` (`HTMLElement`) storing dropdown element.
+     * @zh 属性 `_dropdownElement`（类型：`HTMLElement`），用于存储或配置下拉框元素。
+     */
     private readonly _dropdownElement: HTMLElement;
+    /**
+     * Property `_element` (`HTMLElement`) storing element.
+     * @zh 属性 `_element`（类型：`HTMLElement`），用于存储或配置元素。
+     */
     private readonly _element: HTMLElement;
+    /**
+     * Property `_lastVisibleTabIndex` (`any`) storing last visible tab index (default: `-1`).
+     * @zh 属性 `_lastVisibleTabIndex`（类型：`any`），用于存储或配置末尾可见选项卡索引（默认值：`-1`）。
+     */
     private _lastVisibleTabIndex = -1;
+    /**
+     * Property `_dropdownActive` (`boolean`) storing dropdown active (default: `false`).
+     * @zh 属性 `_dropdownActive`（类型：`boolean`），用于存储或配置下拉框激活（默认值：`false`）。
+     */
     private _dropdownActive = false;
 
+    /**
+     * Gets the current tabs (`tabs: Tab[]`).
+     * @zh 获取当前选项卡组（`tabs: Tab[]`）。
+     */
     get tabs(): Tab[] { return this._tabs; }
+    /**
+     * Gets the current tab count (`tabCount: number`).
+     * @zh 获取当前选项卡计数（`tabCount: number`）。
+     */
     get tabCount(): number { return this._tabs.length; }
+    /**
+     * Gets the current last visible tab index (`lastVisibleTabIndex: number`).
+     * @zh 获取当前末尾可见选项卡索引（`lastVisibleTabIndex: number`）。
+     */
     get lastVisibleTabIndex(): number { return this._lastVisibleTabIndex; }
 
+    /**
+     * Gets the current element (`element: HTMLElement`).
+     * @zh 获取当前元素（`element: HTMLElement`）。
+     */
     get element(): HTMLElement { return this._element; }
+    /**
+     * Gets the current dropdown element (`dropdownElement: HTMLElement`).
+     * @zh 获取当前下拉框元素（`dropdownElement: HTMLElement`）。
+     */
     get dropdownElement(): HTMLElement { return this._dropdownElement; }
+    /**
+     * Gets the current dropdown active (`dropdownActive: boolean`).
+     * @zh 获取当前下拉框激活（`dropdownActive: boolean`）。
+     */
     get dropdownActive(): boolean { return this._dropdownActive; }
 
+    /**
+     * Creates an instance of `TabsContainer` and initializes its dependencies and internal state.
+     * @zh 创建 `TabsContainer` 实例，并初始化其依赖项与内部状态。
+     * @param _layoutManager - Injected or initial layout manager (`LayoutManager`) / 注入或传入的布局管理器（`LayoutManager`）
+     * @param _componentRemoveEvent - Injected or initial component remove event (`TabsContainer.ComponentItemRemoveEvent`) / 注入或传入的组件移除事件（`TabsContainer.ComponentItemRemoveEvent`）
+     * @param _componentFocusEvent - Injected or initial component focus event (`TabsContainer.ComponentItemFocusEvent`) / 注入或传入的组件聚焦事件（`TabsContainer.ComponentItemFocusEvent`）
+     * @param _componentDragStartEvent - Injected or initial component drag start event (`TabsContainer.ComponentItemDragStartEvent`) / 注入或传入的组件拖拽开始事件（`TabsContainer.ComponentItemDragStartEvent`）
+     * @param _dropdownActiveChangedEvent - Injected or initial dropdown active changed event (`TabsContainer.DropdownActiveChangedEvent`) / 注入或传入的下拉框激活已变更事件（`TabsContainer.DropdownActiveChangedEvent`）
+     */
     constructor(private _layoutManager: LayoutManager,
         private _componentRemoveEvent: TabsContainer.ComponentItemRemoveEvent,
         private _componentFocusEvent: TabsContainer.ComponentItemFocusEvent,
@@ -38,6 +100,10 @@ export class TabsContainer {
         this._dropdownElement.style.display = 'none';
     }
 
+    /**
+     * Executes `destroy` to handle destroy.
+     * @zh 执行 `destroy`，用于销毁。
+     */
     destroy(): void {
         for (let i = 0; i < this._tabs.length; i++) {
             this._tabs[i].destroy();
@@ -47,6 +113,8 @@ export class TabsContainer {
     /**
      * Creates a new tab and associates it with a contentItem
      * @param index - The position of the tab
+
+     * @zh 执行 `createTab`，用于创建选项卡。
      */
     createTab(componentItem: ComponentItem, index: number): void {
         //If there's already a tab relating to the
@@ -76,6 +144,11 @@ export class TabsContainer {
         }
     }
 
+    /**
+     * Executes `removeTab` to handle remove tab.
+     * @zh 执行 `removeTab`，用于移除选项卡。
+     * @param componentItem - component item parameter (`ComponentItem`) / 组件条目参数（`ComponentItem`）
+     */
     removeTab(componentItem: ComponentItem): void {
         // componentItem cannot be ActiveComponentItem
         for (let i = 0; i < this._tabs.length; i++) {
@@ -90,6 +163,11 @@ export class TabsContainer {
         throw new Error('contentItem is not controlled by this header');
     }
 
+    /**
+     * Executes `processActiveComponentChanged` to handle process active component changed.
+     * @zh 执行 `processActiveComponentChanged`，用于处理激活组件已变更。
+     * @param newActiveComponentItem - new active component item parameter (`ComponentItem`) / 新激活组件条目参数（`ComponentItem`）
+     */
     processActiveComponentChanged(newActiveComponentItem: ComponentItem): void {
         let activeIndex = -1;
         for (let i = 0; i < this._tabs.length; i++) {
@@ -123,6 +201,8 @@ export class TabsContainer {
 
     /**
      * Pushes the tabs to the tab dropdown if the available space is not sufficient
+
+     * @zh 执行 `updateTabSizes`，用于更新选项卡尺寸列表。
      */
     updateTabSizes(availableWidth: number, activeComponentItem: ComponentItem | undefined): void {
         let dropDownActive = false;
@@ -139,6 +219,14 @@ export class TabsContainer {
         }
     }
 
+    /**
+     * Executes `tryUpdateTabSizes` to handle try update tab sizes.
+     * @zh 执行 `tryUpdateTabSizes`，用于try更新选项卡尺寸列表。
+     * @param dropdownActive - dropdown active parameter (`boolean`) / 下拉框激活参数（`boolean`）
+     * @param availableWidth - available width parameter (`number`) / available宽度参数（`number`）
+     * @param activeComponentItem - active component item parameter (`ComponentItem | undefined`) / 激活组件条目参数（`ComponentItem | undefined`）
+     * @returns Result of type `boolean` / 类型为 `boolean` 的返回值
+     */
     tryUpdateTabSizes(dropdownActive: boolean, availableWidth: number, activeComponentItem: ComponentItem | undefined): boolean {
         if (this._tabs.length > 0) {
             if (activeComponentItem === undefined) {
@@ -246,6 +334,8 @@ export class TabsContainer {
 
     /**
      * Shows drop down for additional tabs when there are too many to display.
+
+     * @zh 执行 `showAdditionalTabsDropdown`，用于显示Additional选项卡组下拉框。
      */
     showAdditionalTabsDropdown(): void {
         this._dropdownElement.style.display = '';
@@ -253,19 +343,39 @@ export class TabsContainer {
 
     /**
      * Hides drop down for additional tabs when there are too many to display.
+
+     * @zh 执行 `hideAdditionalTabsDropdown`，用于隐藏Additional选项卡组下拉框。
      */
     hideAdditionalTabsDropdown(): void {
         this._dropdownElement.style.display = 'none';
     }
 
+    /**
+     * Executes `handleTabCloseEvent` to handle handle tab close event.
+     * @zh 执行 `handleTabCloseEvent`，用于连接手柄选项卡关闭事件。
+     * @param componentItem - component item parameter (`ComponentItem`) / 组件条目参数（`ComponentItem`）
+     */
     private handleTabCloseEvent(componentItem: ComponentItem) {
         this._componentRemoveEvent(componentItem);
     }
 
+    /**
+     * Executes `handleTabFocusEvent` to handle handle tab focus event.
+     * @zh 执行 `handleTabFocusEvent`，用于连接手柄选项卡聚焦事件。
+     * @param componentItem - component item parameter (`ComponentItem`) / 组件条目参数（`ComponentItem`）
+     */
     private handleTabFocusEvent(componentItem: ComponentItem) {
         this._componentFocusEvent(componentItem);
     }
 
+    /**
+     * Executes `handleTabDragStartEvent` to handle handle tab drag start event.
+     * @zh 执行 `handleTabDragStartEvent`，用于连接手柄选项卡拖拽开始事件。
+     * @param x - x parameter (`number`) / X坐标参数（`number`）
+     * @param y - y parameter (`number`) / Y坐标参数（`number`）
+     * @param dragListener - drag listener parameter (`DragListener`) / 拖拽监听器参数（`DragListener`）
+     * @param componentItem - component item parameter (`ComponentItem`) / 组件条目参数（`ComponentItem`）
+     */
     private handleTabDragStartEvent(x: number, y: number, dragListener: DragListener, componentItem: ComponentItem) {
         this._componentDragStartEvent(x, y, dragListener, componentItem);
     }
@@ -274,8 +384,24 @@ export class TabsContainer {
 
 /** @internal */
 export namespace TabsContainer {
+    /**
+     * Type alias `ComponentItemRemoveEvent` representing component item remove event (`(this: void, componentItem: ComponentItem) => void`).
+     * @zh 类型别名 `ComponentItemRemoveEvent`，表示组件条目移除事件（`(this: void, componentItem: ComponentItem) => void`）。
+     */
     export type ComponentItemRemoveEvent = (this: void, componentItem: ComponentItem) => void;
+    /**
+     * Type alias `ComponentItemFocusEvent` representing component item focus event (`(this: void, componentItem: ComponentItem) => void`).
+     * @zh 类型别名 `ComponentItemFocusEvent`，表示组件条目聚焦事件（`(this: void, componentItem: ComponentItem) => void`）。
+     */
     export type ComponentItemFocusEvent = (this: void, componentItem: ComponentItem) => void;
+    /**
+     * Type alias `ComponentItemDragStartEvent` representing component item drag start event (`(this: void, x: number, y: number, dragListener: DragListener, compone...`).
+     * @zh 类型别名 `ComponentItemDragStartEvent`，表示组件条目拖拽开始事件（`(this: void, x: number, y: number, dragListener: DragListener, compone...`）。
+     */
     export type ComponentItemDragStartEvent = (this: void, x: number, y: number, dragListener: DragListener, componentItem: ComponentItem) => void;
+    /**
+     * Type alias `DropdownActiveChangedEvent` representing dropdown active changed event (`(this: void) => void`).
+     * @zh 类型别名 `DropdownActiveChangedEvent`，表示下拉框激活已变更事件（`(this: void) => void`）。
+     */
     export type DropdownActiveChangedEvent = (this: void) => void;
 }

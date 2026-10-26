@@ -13,19 +13,19 @@
           "name": "label",
           "type": "string",
           "description": "label: string\n\nSets the label of the message.",
-          "descriptionZh": null
+          "descriptionZh": "输入属性 `label`（类型：`string`），用于配置标签。"
         },
         {
           "name": "sublabel",
           "type": "string",
           "description": "sublabel?: string\n\nSets the sublabel of the message.",
-          "descriptionZh": null
+          "descriptionZh": "输入属性 `sublabel`（类型：`string`），用于配置副标签。"
         },
         {
           "name": "icon",
           "type": "string",
           "default": "'info'",
-          "description": null,
+          "description": "Input property `icon` (`string`) configuring icon (default: `'info'`).",
           "descriptionZh": "消息图标名称，默认为 `'info'`。"
         },
         {
@@ -38,7 +38,7 @@
           "name": "opened",
           "type": "boolean",
           "description": "opened?: boolean\n\nShows or hiddes the message depending on its value.\nDefaults to 'true'.",
-          "descriptionZh": null
+          "descriptionZh": "输入属性 `opened` 的设置器，用于更新是否展开。"
         }
       ],
       "outputs": [],
@@ -48,28 +48,28 @@
           "params": [],
           "returnType": "void",
           "description": "Detach element when close animation is finished to set animating state to false\nhidden state to true and detach element from DOM",
-          "descriptionZh": null
+          "descriptionZh": "宿主事件监听方法 `animationDoneListener`，响应 `@duiCollapse.done` 事件以处理动画完成监听器。"
         },
         {
           "name": "open",
           "params": [],
           "returnType": "void",
           "description": "Renders the message on screen\nValidates if there is an animation currently and if its already opened",
-          "descriptionZh": null
+          "descriptionZh": "执行 `open`，用于打开。"
         },
         {
           "name": "close",
           "params": [],
           "returnType": "void",
           "description": "Removes the message content from screen.\nValidates if there is an animation currently and if its already closed",
-          "descriptionZh": null
+          "descriptionZh": "执行 `close`，用于关闭。"
         },
         {
           "name": "toggle",
           "params": [],
           "returnType": "void",
           "description": "Toggles between open and close depending on state.",
-          "descriptionZh": null
+          "descriptionZh": "执行 `toggle`，用于开关。"
         }
       ],
       "properties": [
@@ -77,13 +77,13 @@
           "name": "collapsedAnimation",
           "type": "any",
           "description": "Binding host to duiCollapse animation",
-          "descriptionZh": null
+          "descriptionZh": "宿主绑定读取器 `collapsedAnimation`（绑定至 `@duiCollapse`），计算并返回已折叠动画。"
         },
         {
           "name": "hidden",
           "type": "string",
           "description": "Binding host to display style when hidden",
-          "descriptionZh": null
+          "descriptionZh": "宿主绑定读取器 `hidden`（绑定至 `style.display`），计算并返回隐藏。"
         },
         {
           "name": "color",
@@ -114,8 +114,8 @@
     {
       "name": "MessageModule",
       "kind": "module",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular module `MessageModule` declaring and exporting message module components, directives, pipes, and providers.",
+      "summaryZh": "Angular 模块 `MessageModule`，声明并导出消息模块相关的组件、指令、管道与服务提供者。",
       "sourceFile": "src/common/message/message.module.ts",
       "inputs": [],
       "outputs": [],

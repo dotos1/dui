@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Module `projects/testdui/src/app/app.module.ts` providing app module definitions and implementation.
+ * @zh 模块文件 `projects/testdui/src/app/app.module.ts`，提供app模块相关的定义与实现。
+ */
+
 import { Overlay, ScrollStrategy } from '@angular/cdk/overlay';
 import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { Injector, NgModule } from '@angular/core';
@@ -23,6 +28,10 @@ import { ThemeSettingsModule } from './theme-settings/theme-settings.module';
 import { MAT_TOOLTIP_SCROLL_STRATEGY } from '@angular/material/tooltip';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app.routes';
+/**
+ * Angular module `AppModule` declaring and exporting app module components, directives, pipes, and providers.
+ * @zh Angular 模块 `AppModule`，声明并导出App模块相关的组件、指令、管道与服务提供者。
+ */
 @NgModule({
     declarations: [
       AppComponent
@@ -81,6 +90,12 @@ import { AppRoutingModule } from './app.routes';
     bootstrap: [AppComponent]
 })
 export class AppModule { 
+  /**
+   * Creates an instance of `AppModule` and initializes its dependencies and internal state.
+   * @zh 创建 `AppModule` 实例，并初始化其依赖项与内部状态。
+   * @param injector - Injected or initial injector (`Injector`) / 注入或传入的注入器（`Injector`）
+   * @param translation - Injected or initial translation (`TranslationService`) / 注入或传入的翻译文本（`TranslationService`）
+   */
   constructor(
     private injector: Injector,
     public readonly translation: TranslationService) {

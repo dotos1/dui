@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Module `src/tree/tree.module.ts` providing tree module definitions and implementation.
+ * @zh 模块文件 `src/tree/tree.module.ts`，提供树形控件模块相关的定义与实现。
+ */
+
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
@@ -36,6 +41,10 @@ import { IActionHandler, IActionMapping, TREE_ACTIONS } from './models/tree-opti
 import { TreeVirtualScroll } from './models/tree-virtual-scroll.model';
 import { TreeModel } from './models/tree.model';
 
+/**
+ * Angular module `TreeModule` declaring and exporting tree module components, directives, pipes, and providers.
+ * @zh Angular 模块 `TreeModule`，声明并导出树形控件模块相关的组件、指令、管道与服务提供者。
+ */
 @NgModule({
   declarations: [
     TreeComponent,

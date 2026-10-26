@@ -4,8 +4,8 @@
     {
       "name": "CommandItem",
       "kind": "type",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Type alias `CommandItem` representing command item (`{ readonly text: string; readonly iconClass?: string; readonly callbac...`).",
+      "summaryZh": "类型别名 `CommandItem`，表示命令条目（`{ readonly text: string; readonly iconClass?: string; readonly callbac...`）。",
       "sourceFile": "src/ux/command-palette/model/command-item.ts",
       "inputs": [],
       "outputs": [],
@@ -15,8 +15,8 @@
     {
       "name": "CommandItemGroup",
       "kind": "type",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Type alias `CommandItemGroup` representing command item group (`{ readonly title?: string; readonly items: CommandItem[]; }`).",
+      "summaryZh": "类型别名 `CommandItemGroup`，表示命令条目分组（`{ readonly title?: string; readonly items: CommandItem[]; }`）。",
       "sourceFile": "src/ux/command-palette/model/command-item-group.ts",
       "inputs": [],
       "outputs": [],
@@ -27,8 +27,8 @@
       "name": "CommandPaletteComponent",
       "kind": "component",
       "selector": "command-palette",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular component `CommandPaletteComponent` (selector: 'command-palette') providing command palette component presentation and interaction in `src/ux/command-palette`.",
+      "summaryZh": "Angular 组件 `CommandPaletteComponent`（selector: 'command-palette'），提供命令调色板组件的视图渲染与交互逻辑（位于 `src/ux/command-palette`）。",
       "sourceFile": "src/ux/command-palette/command-palette.component.ts",
       "inputs": [],
       "outputs": [],
@@ -42,22 +42,22 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `onSearchedValue` to handle on searched value.",
+          "descriptionZh": "执行 `onSearchedValue`，用于当已搜索值。"
         },
         {
           "name": "onSelectNextItem",
           "params": [],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `onSelectNextItem` to handle on select next item.",
+          "descriptionZh": "执行 `onSelectNextItem`，用于当下拉选择下一个条目。"
         },
         {
           "name": "onSelectPreviousItem",
           "params": [],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `onSelectPreviousItem` to handle on select previous item.",
+          "descriptionZh": "执行 `onSelectPreviousItem`，用于当下拉选择上一个条目。"
         },
         {
           "name": "onSelectItem",
@@ -68,8 +68,8 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `onSelectItem` to handle on select item.",
+          "descriptionZh": "执行 `onSelectItem`，用于当下拉选择条目。"
         },
         {
           "name": "onCallCallbackItem",
@@ -80,8 +80,8 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `onCallCallbackItem` to handle on call callback item.",
+          "descriptionZh": "执行 `onCallCallbackItem`，用于当调用回调函数条目。"
         }
       ],
       "properties": [
@@ -89,23 +89,23 @@
           "name": "filteredGroups",
           "type": "CommandItemGroup[]",
           "default": "[]",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `filteredGroups` (`CommandItemGroup[]`) storing filtered groups (default: `[]`).",
+          "descriptionZh": "属性 `filteredGroups`（类型：`CommandItemGroup[]`），用于存储或配置已过滤分组（默认值：`[]`）。"
         },
         {
           "name": "selectedItemIndex",
           "type": "number",
           "default": "0",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `selectedItemIndex` (`number`) storing selected item index (default: `0`).",
+          "descriptionZh": "属性 `selectedItemIndex`（类型：`number`），用于存储或配置已选中条目索引（默认值：`0`）。"
         }
       ]
     },
     {
       "name": "CommandPaletteConfig",
       "kind": "type",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Type alias `CommandPaletteConfig` representing command palette config (`{ darkMode?: boolean; }`).",
+      "summaryZh": "类型别名 `CommandPaletteConfig`，表示命令调色板配置（`{ darkMode?: boolean; }`）。",
       "sourceFile": "src/ux/command-palette/model/command-palette-config.ts",
       "inputs": [],
       "outputs": [],
@@ -116,37 +116,37 @@
       "name": "CommandPaletteContentComponent",
       "kind": "component",
       "selector": "command-palette-content",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular component `CommandPaletteContentComponent` (selector: 'command-palette-content') providing command palette content component presentation and interaction in `src/ux/command-palette/content`.",
+      "summaryZh": "Angular 组件 `CommandPaletteContentComponent`（selector: 'command-palette-content'），提供命令调色板内容组件的视图渲染与交互逻辑（位于 `src/ux/command-palette/content`）。",
       "sourceFile": "src/ux/command-palette/content/command-palette-content.component.ts",
       "inputs": [
         {
           "name": "groups",
           "type": "CommandItemGroup[]",
           "default": "[]",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `groups` (`CommandItemGroup[]`) configuring groups (default: `[]`).",
+          "descriptionZh": "输入属性 `groups`（类型：`CommandItemGroup[]`），用于配置分组（默认值：`[]`）。"
         },
         {
           "name": "selectedItemIndex",
           "type": "number",
           "default": "0",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `selectedItemIndex` (`number`) configuring selected item index (default: `0`).",
+          "descriptionZh": "输入属性 `selectedItemIndex`（类型：`number`），用于配置已选中条目索引（默认值：`0`）。"
         }
       ],
       "outputs": [
         {
           "name": "itemVisited$",
           "type": "number",
-          "description": null,
-          "descriptionZh": null
+          "description": "Output event emitter `itemVisited$` (`EventEmitter<number>`) firing when item visited occurs.",
+          "descriptionZh": "输出事件 `itemVisited$`（类型：`EventEmitter<number>`），当触发条目已访问时向外发出事件。"
         },
         {
           "name": "itemClicked$",
           "type": "number",
-          "description": null,
-          "descriptionZh": null
+          "description": "Output event emitter `itemClicked$` (`EventEmitter<number>`) firing when item clicked occurs.",
+          "descriptionZh": "输出事件 `itemClicked$`（类型：`EventEmitter<number>`），当触发条目点击时向外发出事件。"
         }
       ],
       "methods": [
@@ -159,17 +159,32 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `onMouseenter` to handle on mouseenter.",
+          "descriptionZh": "执行 `onMouseenter`，用于当鼠标进入。"
         }
       ],
-      "properties": []
+      "properties": [
+        {
+          "name": "trackByGroupTitle",
+          "type": "any",
+          "default": "(_index: number, group: CommandItemGroup): any => group ? group.title : _index",
+          "description": "搜索时每次按键都会重建 groups，trackBy 让未变化的分组/条目保留原 DOM。",
+          "descriptionZh": "搜索时每次按键都会重建 groups，trackBy 让未变化的分组/条目保留原 DOM。"
+        },
+        {
+          "name": "trackByItemText",
+          "type": "any",
+          "default": "(_index: number, item: any): any => item ? item.text : _index",
+          "description": "Property `trackByItemText` (`any`) storing track by item text.",
+          "descriptionZh": "属性 `trackByItemText`（类型：`any`），用于存储或配置track按条目文本。"
+        }
+      ]
     },
     {
       "name": "CommandPaletteCreatorService",
       "kind": "service",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Injectable Angular service `CommandPaletteCreatorService` managing command palette creator service state and operations in `src/ux/command-palette/services`.",
+      "summaryZh": "可注入的 Angular 服务 `CommandPaletteCreatorService`，管理 `src/ux/command-palette/services` 中的命令调色板Creator服务状态与业务操作。",
       "sourceFile": "src/ux/command-palette/services/command-palette-creator-service.ts",
       "inputs": [],
       "outputs": [],
@@ -178,15 +193,15 @@
           "name": "create",
           "params": [],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `create` to handle create.",
+          "descriptionZh": "执行 `create`，用于创建。"
         },
         {
           "name": "destroy",
           "params": [],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `destroy` to handle destroy.",
+          "descriptionZh": "执行 `destroy`，用于销毁。"
         }
       ],
       "properties": []
@@ -194,8 +209,8 @@
     {
       "name": "CommandPaletteGroupStorageService",
       "kind": "service",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Injectable Angular service `CommandPaletteGroupStorageService` managing command palette group storage service state and operations in `src/ux/command-palette/services`.",
+      "summaryZh": "可注入的 Angular 服务 `CommandPaletteGroupStorageService`，管理 `src/ux/command-palette/services` 中的命令调色板分组存储服务状态与业务操作。",
       "sourceFile": "src/ux/command-palette/services/command-palette-group-storage.service.ts",
       "inputs": [],
       "outputs": [],
@@ -204,15 +219,15 @@
           "name": "select",
           "params": [],
           "returnType": "Observable<CommandItemGroup[]>",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `select` to handle select.",
+          "descriptionZh": "执行 `select`，用于下拉选择。"
         },
         {
           "name": "get",
           "params": [],
           "returnType": "CommandItemGroup[]",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `get` to handle get.",
+          "descriptionZh": "执行 `get`，用于获取。"
         },
         {
           "name": "set",
@@ -223,8 +238,8 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `set` to handle set.",
+          "descriptionZh": "执行 `set`，用于集合。"
         }
       ],
       "properties": []
@@ -233,34 +248,34 @@
       "name": "CommandPaletteHeaderComponent",
       "kind": "component",
       "selector": "command-palette-header",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular component `CommandPaletteHeaderComponent` (selector: 'command-palette-header') providing command palette header component presentation and interaction in `src/ux/command-palette/header`.",
+      "summaryZh": "Angular 组件 `CommandPaletteHeaderComponent`（selector: 'command-palette-header'），提供命令调色板表头组件的视图渲染与交互逻辑（位于 `src/ux/command-palette/header`）。",
       "sourceFile": "src/ux/command-palette/header/command-palette-header.component.ts",
       "inputs": [],
       "outputs": [
         {
           "name": "searchedValue$",
           "type": "string",
-          "description": null,
-          "descriptionZh": null
+          "description": "Output event emitter `searchedValue$` (`EventEmitter<string>`) firing when searched value occurs.",
+          "descriptionZh": "输出事件 `searchedValue$`（类型：`EventEmitter<string>`），当触发已搜索值时向外发出事件。"
         },
         {
           "name": "keyUpPressed$",
           "type": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Output event emitter `keyUpPressed$` (`EventEmitter<void>`) firing when key up pressed occurs.",
+          "descriptionZh": "输出事件 `keyUpPressed$`（类型：`EventEmitter<void>`），当触发键向上按下时向外发出事件。"
         },
         {
           "name": "keyDownPressed$",
           "type": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Output event emitter `keyDownPressed$` (`EventEmitter<void>`) firing when key down pressed occurs.",
+          "descriptionZh": "输出事件 `keyDownPressed$`（类型：`EventEmitter<void>`），当触发键向下按下时向外发出事件。"
         },
         {
           "name": "keyEnterPressed$",
           "type": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Output event emitter `keyEnterPressed$` (`EventEmitter<void>`) firing when key enter pressed occurs.",
+          "descriptionZh": "输出事件 `keyEnterPressed$`（类型：`EventEmitter<void>`），当触发键进入按下时向外发出事件。"
         }
       ],
       "methods": [
@@ -273,8 +288,8 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `onKeyUp` to handle on key up.",
+          "descriptionZh": "执行 `onKeyUp`，用于当键向上。"
         },
         {
           "name": "onKeyDown",
@@ -285,8 +300,8 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `onKeyDown` to handle on key down.",
+          "descriptionZh": "执行 `onKeyDown`，用于当键向下。"
         },
         {
           "name": "onKeyEnter",
@@ -297,15 +312,15 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `onKeyEnter` to handle on key enter.",
+          "descriptionZh": "执行 `onKeyEnter`，用于当键进入。"
         },
         {
           "name": "clearInput",
           "params": [],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `clearInput` to handle clear input.",
+          "descriptionZh": "执行 `clearInput`，用于清空输入属性。"
         }
       ],
       "properties": [
@@ -313,23 +328,23 @@
           "name": "inputControl",
           "type": "FormControl",
           "default": "new FormControl('')",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `inputControl` (`FormControl`) storing input control (default: `new FormControl('')`).",
+          "descriptionZh": "属性 `inputControl`（类型：`FormControl`），用于存储或配置输入属性表单控件（默认值：`new FormControl('')`）。"
         },
         {
           "name": "clearBtnVisible",
           "type": "boolean",
           "default": "false",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `clearBtnVisible` (`boolean`) storing clear btn visible (default: `false`).",
+          "descriptionZh": "属性 `clearBtnVisible`（类型：`boolean`），用于存储或配置清空按钮可见（默认值：`false`）。"
         }
       ]
     },
     {
       "name": "CommandPaletteModule",
       "kind": "module",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular module `CommandPaletteModule` declaring and exporting command palette module components, directives, pipes, and providers.",
+      "summaryZh": "Angular 模块 `CommandPaletteModule`，声明并导出命令调色板模块相关的组件、指令、管道与服务提供者。",
       "sourceFile": "src/ux/command-palette/command-palette.module.ts",
       "inputs": [],
       "outputs": [],
@@ -339,8 +354,8 @@
     {
       "name": "CommandPaletteService",
       "kind": "service",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Injectable Angular service `CommandPaletteService` managing command palette service state and operations in `src/ux/command-palette`.",
+      "summaryZh": "可注入的 Angular 服务 `CommandPaletteService`，管理 `src/ux/command-palette` 中的命令调色板服务状态与业务操作。",
       "sourceFile": "src/ux/command-palette/command-palette.service.ts",
       "inputs": [],
       "outputs": [],
@@ -349,15 +364,15 @@
           "name": "init",
           "params": [],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `init` to handle init.",
+          "descriptionZh": "执行 `init`，用于初始化。"
         },
         {
           "name": "destroy",
           "params": [],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `destroy` to handle destroy.",
+          "descriptionZh": "执行 `destroy`，用于销毁。"
         },
         {
           "name": "addGroups",
@@ -368,8 +383,8 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `addGroups` to handle add groups.",
+          "descriptionZh": "执行 `addGroups`，用于添加分组。"
         },
         {
           "name": "removeGroups",
@@ -380,8 +395,8 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `removeGroups` to handle remove groups.",
+          "descriptionZh": "执行 `removeGroups`，用于移除分组。"
         }
       ],
       "properties": []
@@ -389,8 +404,8 @@
     {
       "name": "CommandPaletteShortcutsService",
       "kind": "service",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Injectable Angular service `CommandPaletteShortcutsService` managing command palette shortcuts service state and operations in `src/ux/command-palette/services`.",
+      "summaryZh": "可注入的 Angular 服务 `CommandPaletteShortcutsService`，管理 `src/ux/command-palette/services` 中的命令调色板快捷键列表服务状态与业务操作。",
       "sourceFile": "src/ux/command-palette/services/command-palette-shortcuts.service.ts",
       "inputs": [],
       "outputs": [],
@@ -399,15 +414,15 @@
           "name": "listen",
           "params": [],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `listen` to handle listen.",
+          "descriptionZh": "执行 `listen`，用于监听。"
         },
         {
           "name": "destroy",
           "params": [],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `destroy` to handle destroy.",
+          "descriptionZh": "执行 `destroy`，用于销毁。"
         }
       ],
       "properties": []

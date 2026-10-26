@@ -5,15 +5,15 @@
       "name": "LineSizeSelector",
       "kind": "component",
       "selector": "line-size-field",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular component `LineSizeSelector` (selector: 'line-size-field') providing line size selector presentation and interaction in `src/ux/line-style`.",
+      "summaryZh": "Angular 组件 `LineSizeSelector`（selector: 'line-size-field'），提供线段尺寸选择器的视图渲染与交互逻辑（位于 `src/ux/line-style`）。",
       "sourceFile": "src/ux/line-style/linesize.ts",
       "inputs": [
         {
           "name": "field",
           "type": "F | any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input setter `field` updating field.",
+          "descriptionZh": "输入属性 `field` 的设置器，用于更新字段。"
         }
       ],
       "outputs": [],
@@ -22,8 +22,8 @@
           "name": "openedChange",
           "params": [],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `openedChange` to handle opened change.",
+          "descriptionZh": "执行 `openedChange`，用于是否展开变更。"
         },
         {
           "name": "drawLine",
@@ -38,8 +38,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `drawLine` to handle draw line.",
+          "descriptionZh": "执行 `drawLine`，用于绘制线段。"
         },
         {
           "name": "change",
@@ -50,8 +50,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `change` to handle change.",
+          "descriptionZh": "执行 `change`，用于变更。"
         },
         {
           "name": "setValue",
@@ -62,8 +62,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `setValue` to handle set value.",
+          "descriptionZh": "执行 `setValue`，用于集合值。"
         },
         {
           "name": "compareWith",
@@ -78,8 +78,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `compareWith` to handle compare with.",
+          "descriptionZh": "执行 `compareWith`，用于比较带有。"
         }
       ],
       "properties": [
@@ -87,35 +87,35 @@
           "name": "inputValue",
           "type": "string",
           "default": "'1'",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `inputValue` (`string`) storing input value (default: `'1'`).",
+          "descriptionZh": "属性 `inputValue`（类型：`string`），用于存储或配置输入属性值（默认值：`'1'`）。"
         },
         {
           "name": "lineCavases",
           "type": "QueryList<ElementRef>",
-          "description": null,
-          "descriptionZh": null
+          "description": "Template/content query reference `lineCavases` (`@ViewChildren`) targeting line cavases.",
+          "descriptionZh": "模板/内容视图查询引用 `lineCavases`（`@ViewChildren`），指向线段Cavases。"
         },
         {
           "name": "field",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current field (`field: any`).",
+          "descriptionZh": "获取当前字段（`field: any`）。"
         },
         {
           "name": "sizeOptions",
           "type": "any",
-          "default": "PRE_DEFINED_THEMES",
-          "description": null,
-          "descriptionZh": null
+          "default": "[...PRE_DEFINED_THEMES]",
+          "description": "Property `sizeOptions` (`any[]`) storing size options (default: `[...PRE_DEFINED_THEMES]`).",
+          "descriptionZh": "属性 `sizeOptions`（类型：`any[]`），用于存储或配置尺寸配置选项（默认值：`[...PRE_DEFINED_THEMES]`）。"
         }
       ]
     },
     {
       "name": "LineStyleModule",
       "kind": "module",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular module `LineStyleModule` declaring and exporting line style module components, directives, pipes, and providers.",
+      "summaryZh": "Angular 模块 `LineStyleModule`，声明并导出线段样式模块相关的组件、指令、管道与服务提供者。",
       "sourceFile": "src/ux/line-style/linestyle.module.ts",
       "inputs": [],
       "outputs": [],
@@ -125,8 +125,8 @@
           "name": "entryComponents",
           "type": "any",
           "default": "[\n    LineStyleSelector,\n    LineSizeSelector\n  ]",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `entryComponents` (`any[]`) storing entry components (default: `[ LineStyleSelector, LineSizeSelector ]`).",
+          "descriptionZh": "属性 `entryComponents`（类型：`any[]`），用于存储或配置条目组件列表（默认值：`[ LineStyleSelector, LineSizeSelector ]`）。"
         }
       ]
     },
@@ -134,15 +134,15 @@
       "name": "LineStyleSelector",
       "kind": "component",
       "selector": "line-style-field",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular component `LineStyleSelector` (selector: 'line-style-field') providing line style selector presentation and interaction in `src/ux/line-style`.",
+      "summaryZh": "Angular 组件 `LineStyleSelector`（selector: 'line-style-field'），提供线段样式选择器的视图渲染与交互逻辑（位于 `src/ux/line-style`）。",
       "sourceFile": "src/ux/line-style/linestyle.ts",
       "inputs": [
         {
           "name": "field",
           "type": "F | any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input setter `field` updating field.",
+          "descriptionZh": "输入属性 `field` 的设置器，用于更新字段。"
         }
       ],
       "outputs": [],
@@ -151,8 +151,8 @@
           "name": "openedChange",
           "params": [],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `openedChange` to handle opened change.",
+          "descriptionZh": "执行 `openedChange`，用于是否展开变更。"
         },
         {
           "name": "drawDashedLine",
@@ -167,8 +167,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `drawDashedLine` to handle draw dashed line.",
+          "descriptionZh": "执行 `drawDashedLine`，用于绘制Dashed线段。"
         },
         {
           "name": "change",
@@ -179,8 +179,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `change` to handle change.",
+          "descriptionZh": "执行 `change`，用于变更。"
         },
         {
           "name": "setValue",
@@ -191,8 +191,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `setValue` to handle set value.",
+          "descriptionZh": "执行 `setValue`，用于集合值。"
         },
         {
           "name": "compareWith",
@@ -207,44 +207,44 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `compareWith` to handle compare with.",
+          "descriptionZh": "执行 `compareWith`，用于比较带有。"
         }
       ],
       "properties": [
         {
           "name": "lineCavases",
           "type": "QueryList<ElementRef>",
-          "description": null,
-          "descriptionZh": null
+          "description": "Template/content query reference `lineCavases` (`@ViewChildren`) targeting line cavases.",
+          "descriptionZh": "模板/内容视图查询引用 `lineCavases`（`@ViewChildren`），指向线段Cavases。"
         },
         {
           "name": "styleOptions",
           "type": "any",
           "default": "PRE_DEFINED_THEMES",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `styleOptions` (`any`) storing style options (default: `PRE_DEFINED_THEMES`).",
+          "descriptionZh": "属性 `styleOptions`（类型：`any`），用于存储或配置样式配置选项（默认值：`PRE_DEFINED_THEMES`）。"
         },
         {
           "name": "inputValue",
           "type": "any",
           "default": "[]",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `inputValue` (`any[]`) storing input value (default: `[]`).",
+          "descriptionZh": "属性 `inputValue`（类型：`any[]`），用于存储或配置输入属性值（默认值：`[]`）。"
         },
         {
           "name": "field",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current field (`field: any`).",
+          "descriptionZh": "获取当前字段（`field: any`）。"
         }
       ]
     },
     {
       "name": "PRE_DEFINED_THEMES",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `PRE_DEFINED_THEMES` defining pre defined themes in `src/ux/line-style`.",
+      "summaryZh": "常量/变量 `PRE_DEFINED_THEMES`，定义 `src/ux/line-style` 中的PREDEFINED主题。",
       "sourceFile": "src/ux/line-style/linestyle.ts",
       "inputs": [],
       "outputs": [],

@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Module `src/common/message/message.component.ts` providing message component definitions and implementation.
+ * @zh 模块文件 `src/common/message/message.component.ts`，提供消息组件相关的定义与实现。
+ */
+
 import {
   Component,
   Directive,
@@ -24,6 +29,11 @@ import { duiCollapseAnimation } from './collapse.animation';
   selector: '[duiMessageContainer]',
 })
 export class MessageContainerDirective {
+  /**
+   * Creates an instance of `MessageContainerDirective` and initializes its dependencies and internal state.
+   * @zh 创建 `MessageContainerDirective` 实例，并初始化其依赖项与内部状态。
+   * @param viewContainer - Injected or initial view container (`ViewContainerRef`) / 注入或传入的视图容器（`ViewContainerRef`）
+   */
   constructor(public viewContainer: ViewContainerRef) {}
 }
 
@@ -39,26 +49,58 @@ export class MessageContainerDirective {
   animations: [duiCollapseAnimation],
 })
 export class MessageComponent implements AfterViewInit {
+  /**
+   * Property `_color` (`string`) storing color.
+   * @zh 属性 `_color`（类型：`string`），用于存储或配置颜色。
+   */
   private _color!: string;
+  /**
+   * Property `_opened` (`boolean`) storing opened (default: `true`).
+   * @zh 属性 `_opened`（类型：`boolean`），用于存储或配置是否展开（默认值：`true`）。
+   */
   private _opened = true;
+  /**
+   * Property `_hidden` (`boolean`) storing hidden (default: `false`).
+   * @zh 属性 `_hidden`（类型：`boolean`），用于存储或配置隐藏（默认值：`false`）。
+   */
   private _hidden = false;
+  /**
+   * Property `_animating` (`boolean`) storing animating (default: `false`).
+   * @zh 属性 `_animating`（类型：`boolean`），用于存储或配置动画执行中（默认值：`false`）。
+   */
   private _animating = false;
+  /**
+   * Property `_initialized` (`boolean`) storing initialized (default: `false`).
+   * @zh 属性 `_initialized`（类型：`boolean`），用于存储或配置已初始化（默认值：`false`）。
+   */
   private _initialized = false;
 
+  /**
+   * Template/content query reference `_childElement` (`@ViewChild`) targeting child element.
+   * @zh 模板/内容视图查询引用 `_childElement`（`@ViewChild`），指向子级元素。
+   */
   @ViewChild(MessageContainerDirective, { static: true })
   _childElement?: MessageContainerDirective;
-  @ViewChild(TemplateRef) _template!: TemplateRef<any>;
+  /**
+   * Template/content query reference `_template` (`@ViewChild`) targeting template.
+   * @zh 模板/内容视图查询引用 `_template`（`@ViewChild`），指向模板。
+   */
+  @ViewChild(TemplateRef) _template!: TemplateRef<unknown>;
 
   /**
    * Binding host to duiCollapse animation
+
+   * @zh 宿主绑定读取器 `collapsedAnimation`（绑定至 `@duiCollapse`），计算并返回已折叠动画。
    */
   @HostBinding('@duiCollapse')
-  get collapsedAnimation(): any {
+  get collapsedAnimation() {
     return { value: !this._opened, duration: 100 };
   }
 
   /**
    * Binding host to display style when hidden
+
+   * @zh 宿主绑定读取器 `hidden`（绑定至 `style.display`），计算并返回隐藏。
    */
   @HostBinding('style.display')
   get hidden(): string {
@@ -69,6 +111,8 @@ export class MessageComponent implements AfterViewInit {
    * label: string
    *
    * Sets the label of the message.
+
+   * @zh 输入属性 `label`（类型：`string`），用于配置标签。
    */
   @Input() label?: string;
 
@@ -76,11 +120,17 @@ export class MessageComponent implements AfterViewInit {
    * sublabel?: string
    *
    * Sets the sublabel of the message.
+
+   * @zh 输入属性 `sublabel`（类型：`string`），用于配置副标签。
    */
   @Input() sublabel?: string;
 
 
-  /** @zh 消息图标名称，默认为 `'info'`。 */
+  /**
+   * Input property `icon` (`string`) configuring icon (default: `'info'`).
+   * @zh 消息图标名称，默认为 `'info'`。
+   * @zh 消息图标名称，默认为 `'info'`。
+   */
   @Input() icon?: string = 'info';
 
   /**
@@ -131,6 +181,8 @@ export class MessageComponent implements AfterViewInit {
    *
    * Shows or hiddes the message depending on its value.
    * Defaults to 'true'.
+
+   * @zh 输入属性 `opened` 的设置器，用于更新是否展开。
    */
   @Input()
   set opened(opened: boolean) {
@@ -152,6 +204,13 @@ export class MessageComponent implements AfterViewInit {
     return this._opened;
   }
 
+  /**
+   * Creates an instance of `MessageComponent` and initializes its dependencies and internal state.
+   * @zh 创建 `MessageComponent` 实例，并初始化其依赖项与内部状态。
+   * @param _renderer - Injected or initial renderer (`Renderer2`) / 注入或传入的渲染器（`Renderer2`）
+   * @param _changeDetectorRef - Injected or initial change detector ref (`ChangeDetectorRef`) / 注入或传入的变更检测器引用（`ChangeDetectorRef`）
+   * @param _elementRef - Injected or initial element ref (`ElementRef`) / 注入或传入的元素引用（`ElementRef`）
+   */
   constructor(
     private _renderer: Renderer2,
     private _changeDetectorRef: ChangeDetectorRef,
@@ -163,6 +222,8 @@ export class MessageComponent implements AfterViewInit {
   /**
    * Detach element when close animation is finished to set animating state to false
    * hidden state to true and detach element from DOM
+
+   * @zh 宿主事件监听方法 `animationDoneListener`，响应 `@duiCollapse.done` 事件以处理动画完成监听器。
    */
   @HostListener('@duiCollapse.done')
   animationDoneListener(): void {
@@ -176,6 +237,8 @@ export class MessageComponent implements AfterViewInit {
 
   /**
    * Initializes the component and attaches the content.
+
+   * @zh Angular 生命周期钩子：在组件视图及其子视图初始化完成后调用一次。
    */
   ngAfterViewInit(): void {
     Promise.resolve(undefined).then(() => {
@@ -189,6 +252,8 @@ export class MessageComponent implements AfterViewInit {
   /**
    * Renders the message on screen
    * Validates if there is an animation currently and if its already opened
+
+   * @zh 执行 `open`，用于打开。
    */
   open(): void {
     if (!this._opened && !this._animating) {
@@ -201,6 +266,8 @@ export class MessageComponent implements AfterViewInit {
   /**
    * Removes the message content from screen.
    * Validates if there is an animation currently and if its already closed
+
+   * @zh 执行 `close`，用于关闭。
    */
   close(): void {
     if (this._opened && !this._animating) {
@@ -211,6 +278,8 @@ export class MessageComponent implements AfterViewInit {
 
   /**
    * Toggles between open and close depending on state.
+
+   * @zh 执行 `toggle`，用于开关。
    */
   toggle(): void {
     if (this._opened) {
@@ -222,6 +291,8 @@ export class MessageComponent implements AfterViewInit {
 
   /**
    * Method to set the state before starting an animation
+
+   * @zh 执行 `_startAnimationState`，用于开始动画状态。
    */
   private _startAnimationState(): void {
     this._animating = true;
@@ -231,6 +302,8 @@ export class MessageComponent implements AfterViewInit {
 
   /**
    * Method to attach template to DOM
+
+   * @zh 执行 `_attach`，用于挂载。
    */
   private _attach(): void {
     this._childElement?.viewContainer.createEmbeddedView(this._template);
@@ -239,6 +312,8 @@ export class MessageComponent implements AfterViewInit {
 
   /**
    * Method to detach template from DOM
+
+   * @zh 执行 `_detach`，用于卸载。
    */
   private _detach(): void {
     this._childElement?.viewContainer.clear();

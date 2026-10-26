@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Module `src/ux/markdown-editor/tableFormatter.ts` providing table formatter definitions and implementation.
+ * @zh 模块文件 `src/ux/markdown-editor/tableFormatter.ts`，提供表格格式化器相关的定义与实现。
+ */
+
 
 import {CancellationToken, editor, languages, Thenable, Range as _Range} from "monaco-editor";
 import {TextDocument, TextEditor} from "./vscode-monaco";
@@ -6,14 +11,35 @@ import {EndOfLine, Range} from './extHostTypes'
 
 import * as TypeConverters from './vscode-converters'
 
+/**
+ * Executes `activateTableFormatter` to handle activate table formatter.
+ * @zh 执行 `activateTableFormatter`，用于激活表格格式化器。
+ * @param editor - editor parameter (`TextEditor`) / 编辑器参数（`TextEditor`）
+ */
 export function activateTableFormatter(editor: TextEditor) {
     languages.registerDocumentFormattingEditProvider(editor.languageId, new MarkdownDocumentFormatter());
 }
 
+/**
+ * Executes `deactivate` to handle deactivate.
+ * @zh 执行 `deactivate`，用于deactivate。
+ */
 export function deactivate() {
 }
 
+/**
+ * Class `MarkdownDocumentFormatter` encapsulating markdown document formatter data structures and logic in `src/ux/markdown-editor`.
+ * @zh 类 `MarkdownDocumentFormatter`，封装 `src/ux/markdown-editor` 中的Markdown文档文档对象格式化器数据结构与处理逻辑。
+ */
 class MarkdownDocumentFormatter implements languages.DocumentFormattingEditProvider {
+    /**
+     * Executes `provideDocumentFormattingEdits` to handle provide document formatting edits.
+     * @zh 执行 `provideDocumentFormattingEdits`，用于提供文档对象Formatting编辑。
+     * @param model - model parameter (`editor.ITextModel`) / 模型参数（`editor.ITextModel`）
+     * @param options - options parameter (`languages.FormattingOptions`) / 配置选项参数（`languages.FormattingOptions`）
+     * @param _ - _ parameter (`CancellationToken`) / _参数（`CancellationToken`）
+     * @returns Result of type `languages.TextEdit[] | Thenable<languages.TextEdit[]>` / 类型为 `languages.TextEdit[] | Thenable<languages.TextEdit[]>` 的返回值
+     */
     public provideDocumentFormattingEdits(model: editor.ITextModel, options: languages.FormattingOptions, _: CancellationToken): languages.TextEdit[] | Thenable<languages.TextEdit[]> {
         let edits: languages.TextEdit[] = [];
         let document = new TextDocument(model)
@@ -28,6 +54,11 @@ class MarkdownDocumentFormatter implements languages.DocumentFormattingEditProvi
         }
     }
 
+    /**
+     * Executes `detectTables` to handle detect tables.
+     * @zh 执行 `detectTables`，用于检测表格。
+     * @param text - text parameter (`string`) / 文本参数（`string`）
+     */
     private detectTables(text: string) {
         const lineBreak = '\\r?\\n';
         const contentLine = '\\|?.*\\|.*\\|?';
@@ -36,6 +67,13 @@ class MarkdownDocumentFormatter implements languages.DocumentFormattingEditProvi
         return text.match(tableRegex);
     }
 
+    /**
+     * Executes `getRange` to handle get range.
+     * @zh 执行 `getRange`，用于获取范围。
+     * @param document - document parameter (`TextDocument`) / 文档对象参数（`TextDocument`）
+     * @param text - text parameter (`string`) / 文本参数（`string`）
+     * @returns Result of type `Range` / 类型为 `Range` 的返回值
+     */
     private getRange(document: TextDocument, text: string): Range {
         let documentText = document.getText();
         let start = document.positionAt(documentText.indexOf(text));
@@ -47,6 +85,8 @@ class MarkdownDocumentFormatter implements languages.DocumentFormattingEditProvi
      * Return the indentation of a table as a string of spaces by reading it from the first line.
      * In case of `markdown.extension.table.normalizeIndentation` is `enabled` it is rounded to the closest multiple of
      * the configured `tabSize`.
+
+     * @zh 执行 `getTableIndentation`，用于获取表格Indentation。
      */
     private getTableIndentation(text: string, options: languages.FormattingOptions) {
         // let doNormalize = workspace.getConfiguration('markdown.extension.tableFormatter').get<boolean>('normalizeIndentation');
@@ -59,6 +99,13 @@ class MarkdownDocumentFormatter implements languages.DocumentFormattingEditProvi
         return spaces;
     }
 
+    /**
+     * Executes `formatTable` to handle format table.
+     * @zh 执行 `formatTable`，用于格式化表格。
+     * @param text - text parameter (`string`) / 文本参数（`string`）
+     * @param doc - doc parameter (`TextDocument`) / 文档参数（`TextDocument`）
+     * @param options - options parameter (`languages.FormattingOptions`) / 配置选项参数（`languages.FormattingOptions`）
+     */
     private formatTable(text: string, doc: TextDocument, options: languages.FormattingOptions) {
         let indentation = this.getTableIndentation(text, options);
 
@@ -147,6 +194,13 @@ class MarkdownDocumentFormatter implements languages.DocumentFormattingEditProvi
         }).join(doc.eol === EndOfLine.LF ? '\n' : '\r\n');
     }
 
+    /**
+     * Executes `alignText` to handle align text.
+     * @zh 执行 `alignText`，用于对齐文本。
+     * @param text - text parameter (`string`) / 文本参数（`string`）
+     * @param align - align parameter (`string`) / 对齐参数（`string`）
+     * @param length - length parameter (`number`) / 长度参数（`number`）
+     */
     private alignText(text: string, align: string, length: number) {
         if (align === 'c' && length > text.length) {
             return (' '.repeat(Math.floor((length - text.length) / 2)) + text + ' '.repeat(length)).slice(0, length);

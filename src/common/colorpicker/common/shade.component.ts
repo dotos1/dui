@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Module `src/common/colorpicker/common/shade.component.ts` providing shade component definitions and implementation.
+ * @zh 模块文件 `src/common/colorpicker/common/shade.component.ts`，提供shade组件相关的定义与实现。
+ */
+
 import { CommonModule } from '@angular/common';
 import {  ChangeDetectionStrategy,  Component,  EventEmitter,  Input,  NgModule,  OnChanges,  Output,
 } from '@angular/core';
@@ -5,6 +10,10 @@ import { CoordinatesModule } from './coordinates.directive';
 import { HSLA, RGBA } from './helpers/color.interfaces';
 import { TinyColor } from '@dotos/dui/core/color';
 
+/**
+ * Angular component `ShadeComponent` (selector: 'color-shade') providing shade component presentation and interaction in `src/common/colorpicker/common`.
+ * @zh Angular 组件 `ShadeComponent`（selector: 'color-shade'），提供Shade组件的视图渲染与交互逻辑（位于 `src/common/colorpicker/common`）。
+ */
 @Component({
   selector: 'color-shade',
   templateUrl: './shade.component.html',
@@ -18,25 +27,63 @@ import { TinyColor } from '@dotos/dui/core/color';
  * @zh 部分 `color-*` 颜色选择器样式变体使用的明暗（shade）滑块。
  */
 export class ShadeComponent implements OnChanges {
-  /** @zh 当前颜色的 HSL 表示。 */
+  /**
+   * @zh 当前颜色的 HSL 表示。
+   * @zh 当前颜色的 HSL 表示。
+   */
   @Input() hsl: HSLA;
-  /** @zh 当前颜色的 RGB 表示。 */
+  /**
+   * @zh 当前颜色的 RGB 表示。
+   * @zh 当前颜色的 RGB 表示。
+   */
   @Input() rgb: RGBA;
-  /** @zh 滑块手柄的内联样式。 */
+  /**
+   * Input property `pointer` (`{ [key: string]: string }`) configuring pointer.
+   * @zh 滑块手柄的内联样式。
+   * @zh 滑块手柄的内联样式。
+   */
   @Input() pointer: { [key: string]: string };
-  /** @zh 滑动条的阴影样式。 */
+  /**
+   * Input property `shadow` (`string`) configuring shadow.
+   * @zh 滑动条的阴影样式。
+   * @zh 滑动条的阴影样式。
+   */
   @Input() shadow: string;
-  /** @zh 滑动条的圆角半径。 */
+  /**
+   * Input property `radius` (`string`) configuring radius.
+   * @zh 滑动条的圆角半径。
+   * @zh 滑动条的圆角半径。
+   */
   @Input() radius: string;
-  /** @zh 明暗值变化时发出。 */
-  @Output() onChange = new EventEmitter<any>();
-  /** @zh 根据当前色相计算出的渐变背景样式。 */
+  /**
+   * Output event emitter `onChange` (`EventEmitter`) firing when on change occurs.
+   * @zh 明暗值变化时发出。
+   * @zh 明暗值变化时发出。
+   */
+  @Output() onChange = new EventEmitter();
+  /**
+   * Property `gradient` (`{ [key: string]: string }`) storing gradient.
+   * @zh 根据当前色相计算出的渐变背景样式。
+   * @zh 根据当前色相计算出的渐变背景样式。
+   */
   gradient: { [key: string]: string };
-  /** @zh 滑块手柄的水平位置百分比。 */
+  /**
+   * Property `pointerLeft` (`number`) storing pointer left.
+   * @zh 滑块手柄的水平位置百分比。
+   * @zh 滑块手柄的水平位置百分比。
+   */
   pointerLeft: number;
-  /** @zh 滑块手柄的垂直位置百分比。 */
+  /**
+   * Property `pointerTop` (`number`) storing pointer top.
+   * @zh 滑块手柄的垂直位置百分比。
+   * @zh 滑块手柄的垂直位置百分比。
+   */
   pointerTop: number;
 
+  /**
+   * Angular lifecycle hook invoked when data-bound input properties change.
+   * @zh Angular 生命周期钩子：当数据绑定的输入属性发生变更时调用。
+   */
   ngOnChanges() {
     this.gradient = {
       background: `linear-gradient(to right,
@@ -82,6 +129,10 @@ export class ShadeComponent implements OnChanges {
   }
 }
 
+/**
+ * Angular module `ShadeModule` declaring and exporting shade module components, directives, pipes, and providers.
+ * @zh Angular 模块 `ShadeModule`，声明并导出Shade模块相关的组件、指令、管道与服务提供者。
+ */
 @NgModule({
   declarations: [ShadeComponent],
   exports: [ShadeComponent],

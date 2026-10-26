@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Module `src/common/colorpicker/components/compact/compact.component.ts` providing compact component definitions and implementation.
+ * @zh 模块文件 `src/common/colorpicker/components/compact/compact.component.ts`，提供紧凑组件相关的定义与实现。
+ */
+
 
 import {
   ChangeDetectionStrategy,  Component,  Input,
@@ -63,7 +68,10 @@ import { TriggerPopup } from '@dotos/dui/common/trigger';
 
 })
 export class CompactComponent extends ColorWrap implements TriggerPopup {
-  /** Color squares to display */
+  /**
+   * Color squares to display
+   * @zh 输入属性 `colors`（类型：`any[]`），用于配置颜色列表。
+   */
   @Input() colors = [
     '#4D4D4D',
     '#999999',
@@ -102,13 +110,29 @@ export class CompactComponent extends ColorWrap implements TriggerPopup {
     '#653294',
     '#AB149E',
   ];
-  /** @zh 外层卡片的阴影层级。 */
+  /**
+   * Input property `zDepth` (`zDepth`) configuring z depth (default: `1`).
+   * @zh 外层卡片的阴影层级。
+   * @zh 外层卡片的阴影层级。
+   */
   @Input() zDepth: zDepth = 1;
-  /** @zh 外层卡片的圆角半径。 */
+  /**
+   * Input property `radius` (`number`) configuring radius (default: `1`).
+   * @zh 外层卡片的圆角半径。
+   * @zh 外层卡片的圆角半径。
+   */
   @Input() radius = 1;
-  /** @zh 外层卡片的背景颜色。 */
+  /**
+   * Input property `background` (`string`) configuring background (default: `'#fff'`).
+   * @zh 外层卡片的背景颜色。
+   * @zh 外层卡片的背景颜色。
+   */
   @Input() background = '#fff';
 
+  /**
+   * Creates an instance of `CompactComponent` and initializes its dependencies and internal state.
+   * @zh 创建 `CompactComponent` 实例，并初始化其依赖项与内部状态。
+   */
   constructor() {
     super();
   }

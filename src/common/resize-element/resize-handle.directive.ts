@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Module `src/common/resize-element/resize-handle.directive.ts` providing resize handle directive definitions and implementation.
+ * @zh 模块文件 `src/common/resize-element/resize-handle.directive.ts`，提供调整尺寸连接手柄指令相关的定义与实现。
+ */
+
 import {
   Directive,
   Input,
@@ -35,14 +40,30 @@ export class ResizeHandleDirective implements OnInit, OnDestroy {
    */
   @Input() resizableContainer: ResizableDirective;
 
+  /**
+   * Property `eventListeners` (`{ touchmove?: () => void; mousemove?: () => void; [key: string]: (() =...`) storing event listeners (default: `{}`).
+   * @zh 属性 `eventListeners`（类型：`{ touchmove?: () => void; mousemove?: () => void; [key: string]: (() =...`），用于存储或配置事件监听器列表（默认值：`{}`）。
+   */
   private eventListeners: {
     touchmove?: () => void;
     mousemove?: () => void;
     [key: string]: (() => void) | undefined;
   } = {};
 
+  /**
+   * Property `destroy$` (`Subject`) storing destroy (default: `new Subject<void>()`).
+   * @zh 属性 `destroy$`（类型：`Subject`），用于存储或配置销毁（默认值：`new Subject<void>()`）。
+   */
   private destroy$ = new Subject<void>();
 
+  /**
+   * Creates an instance of `ResizeHandleDirective` and initializes its dependencies and internal state.
+   * @zh 创建 `ResizeHandleDirective` 实例，并初始化其依赖项与内部状态。
+   * @param renderer - Injected or initial renderer (`Renderer2`) / 注入或传入的渲染器（`Renderer2`）
+   * @param element - Injected or initial element (`ElementRef`) / 注入或传入的元素（`ElementRef`）
+   * @param zone - Injected or initial zone (`NgZone`) / 注入或传入的区域(NgZone)（`NgZone`）
+   * @param resizableDirective - Injected or initial resizable directive (`ResizableDirective`) / 注入或传入的是否可调尺寸指令（`ResizableDirective`）
+   */
   constructor(
     private renderer: Renderer2,
     private element: ElementRef,
@@ -50,6 +71,10 @@ export class ResizeHandleDirective implements OnInit, OnDestroy {
     @Optional() private resizableDirective: ResizableDirective
   ) {}
 
+  /**
+   * Angular lifecycle hook invoked once after component or directive inputs are initialized.
+   * @zh Angular 生命周期钩子：在组件或指令的输入属性初始化完成后调用一次。
+   */
   ngOnInit(): void {
     this.zone.runOutsideAngular(() => {
       this.listenOnTheHost<MouseEvent>('mousedown').subscribe((event) => {
@@ -82,6 +107,10 @@ export class ResizeHandleDirective implements OnInit, OnDestroy {
     });
   }
 
+  /**
+   * Angular lifecycle hook invoked just before the component, directive, or service is destroyed to release subscriptions and resources.
+   * @zh Angular 生命周期钩子：在组件、指令或服务销毁前调用，用于释放订阅与清理资源。
+   */
   ngOnDestroy(): void {
     this.destroy$.next();
     this.unsubscribeEventListeners();
@@ -146,10 +175,21 @@ export class ResizeHandleDirective implements OnInit, OnDestroy {
   }
 
   // directive might be passed from DI or as an input
+  /**
+   * Gets the current resizable (`resizable: ResizableDirective`).
+   * @zh 获取当前是否可调尺寸（`resizable: ResizableDirective`）。
+   */
   private get resizable(): ResizableDirective {
     return this.resizableDirective || this.resizableContainer;
   }
 
+  /**
+   * Executes `onMousemove` to handle on mousemove.
+   * @zh 执行 `onMousemove`，用于当鼠标移动。
+   * @param event - event parameter (`MouseEvent | TouchEvent`) / 事件参数（`MouseEvent | TouchEvent`）
+   * @param clientX - client x parameter (`number`) / clientX坐标参数（`number`）
+   * @param clientY - client y parameter (`number`) / clientY坐标参数（`number`）
+   */
   private onMousemove(
     event: MouseEvent | TouchEvent,
     clientX: number,
@@ -163,13 +203,22 @@ export class ResizeHandleDirective implements OnInit, OnDestroy {
     });
   }
 
+  /**
+   * Executes `unsubscribeEventListeners` to handle unsubscribe event listeners.
+   * @zh 执行 `unsubscribeEventListeners`，用于取消订阅事件监听器列表。
+   */
   private unsubscribeEventListeners(): void {
     Object.keys(this.eventListeners).forEach((type) => {
-      (this as any).eventListeners[type]();
+      (this as unknown as { eventListeners? }).eventListeners[type]();
       delete this.eventListeners[type];
     });
   }
 
+  /**
+   * Executes `listenOnTheHost` to handle listen on the host.
+   * @zh 执行 `listenOnTheHost`，用于监听当The宿主。
+   * @param eventName - event name parameter (`string`) / 事件名称参数（`string`）
+   */
   private listenOnTheHost<T extends Event>(eventName: string) {
     return fromEvent<T>(this.element.nativeElement, eventName).pipe(
       takeUntil(this.destroy$)

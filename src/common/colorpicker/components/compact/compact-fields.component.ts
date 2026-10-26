@@ -1,8 +1,17 @@
+/**
+ * @fileoverview Module `src/common/colorpicker/components/compact/compact-fields.component.ts` providing compact fields component definitions and implementation.
+ * @zh 模块文件 `src/common/colorpicker/components/compact/compact-fields.component.ts`，提供紧凑字段列表组件相关的定义与实现。
+ */
+
 import {
   ChangeDetectionStrategy,  Component,  EventEmitter,  Input,  Output,
 } from '@angular/core';
 import { isValidHex, RGBA } from '@dotos/dui/common/colorpicker/common';
 
+/**
+ * Angular component `CompactFieldsComponent` (selector: 'color-compact-fields') providing compact fields component presentation and interaction in `src/common/colorpicker/components/compact`.
+ * @zh Angular 组件 `CompactFieldsComponent`（selector: 'color-compact-fields'），提供紧凑字段列表组件的视图渲染与交互逻辑（位于 `src/common/colorpicker/components/compact`）。
+ */
 @Component({
   selector: 'color-compact-fields',
   template: `
@@ -68,22 +77,41 @@ import { isValidHex, RGBA } from '@dotos/dui/common/colorpicker/common';
  * @zh {@link CompactComponent} 使用的十六进制/RGB 可编辑输入字段。
  */
 export class CompactFieldsComponent {
-  /** @zh 当前颜色的十六进制表示。 */
+  /**
+   * Input property `hex` (`string`) configuring hex.
+   * @zh 当前颜色的十六进制表示。
+   * @zh 当前颜色的十六进制表示。
+   */
   @Input() hex: string;
-  /** @zh 当前颜色的 RGB 表示。 */
+  /**
+   * @zh 当前颜色的 RGB 表示。
+   * @zh 当前颜色的 RGB 表示。
+   */
   @Input() rgb: RGBA;
-  /** @zh 字段值变化时发出。 */
-  @Output() onChange = new EventEmitter<any>();
+  /**
+   * Output event emitter `onChange` (`EventEmitter`) firing when on change occurs.
+   * @zh 字段值变化时发出。
+   * @zh 字段值变化时发出。
+   */
+  @Output() onChange = new EventEmitter();
 
 
-  /** @zh 十六进制字段包裹层的内联样式。 */
+  /**
+   * Property `HEXWrap` (`{ [key: string]: string }`) storing hex wrap.
+   * @zh 十六进制字段包裹层的内联样式。
+   * @zh 十六进制字段包裹层的内联样式。
+   */
   HEXWrap: { [key: string]: string } = {
     marginTop: '-3px',
     marginBottom: '-3px',
     // flex: '6 1 0%',
     position: 'relative',
   };
-  /** @zh 十六进制字段输入框的内联样式。 */
+  /**
+   * Property `HEXinput` (`{ [key: string]: string }`) storing he xinput.
+   * @zh 十六进制字段输入框的内联样式。
+   * @zh 十六进制字段输入框的内联样式。
+   */
   HEXinput: { [key: string]: string } = {
     width: '80%',
     padding: '0px',
@@ -95,18 +123,28 @@ export class CompactFieldsComponent {
     color: '#333',
     height: '16px',
   };
-  /** @zh 十六进制字段标签的内联样式（默认隐藏）。 */
+  /**
+   * Property `HEXlabel` (`{ [key: string]: string }`) storing he xlabel (default: `{ display: 'none', }`).
+   * @zh 十六进制字段标签的内联样式（默认隐藏）。
+   * @zh 十六进制字段标签的内联样式（默认隐藏）。
+   */
   HEXlabel: { [key: string]: string } = {
     display: 'none',
   };
-  /** @zh RGB 字段包裹层的内联样式。 */
+  /**
+   * @zh RGB 字段包裹层的内联样式。
+   * @zh RGB 字段包裹层的内联样式。
+   */
   RGBwrap: { [key: string]: string } = {
     marginTop: '-3px',
     marginBottom: '-3px',
     // flex: '3 1 0%',
     position: 'relative',
   };
-  /** @zh RGB 字段输入框的内联样式。 */
+  /**
+   * @zh RGB 字段输入框的内联样式。
+   * @zh RGB 字段输入框的内联样式。
+   */
   RGBinput: { [key: string]: string } = {
     width: '80%',
     padding: '0px',
@@ -118,7 +156,10 @@ export class CompactFieldsComponent {
     color: '#333',
     height: '16px',
   };
-  /** @zh RGB 字段标签的内联样式。 */
+  /**
+   * @zh RGB 字段标签的内联样式。
+   * @zh RGB 字段标签的内联样式。
+   */
   RGBlabel: { [key: string]: string } = {
     position: 'absolute',
     top: '6px',

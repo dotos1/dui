@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Module `src/common/dialogs/prompt-dialog/prompt-dialog.component.ts` providing prompt dialog component definitions and implementation.
+ * @zh 模块文件 `src/common/dialogs/prompt-dialog/prompt-dialog.component.ts`，提供prompt对话框组件相关的定义与实现。
+ */
+
 import {
   Component,
   ViewChild,
@@ -27,74 +32,171 @@ import { ThemeService } from '@dotos/dui/theme';
 
 })
 export class PromptDialogComponent implements AfterViewInit, OnDestroy {
-  /** @zh 对话框标题。 */
+  /**
+   * Property `title` (`string`) storing title.
+   * @zh 对话框标题。
+   * @zh 对话框标题。
+   */
   title?: string;
-  /** @zh 对话框消息内容。 */
+  /**
+   * Property `message` (`string`) storing message.
+   * @zh 对话框消息内容。
+   * @zh 对话框消息内容。
+   */
   message?: string;
-  /** @zh 内部使用，字段名称。 */
+  /**
+   * Property `name` (`string`) storing name.
+   * @zh 内部使用，字段名称。
+   * @zh 内部使用，字段名称。
+   */
   name: string;
 
-  /** @zh 取消按钮的文字，默认为 `'CANCEL'`。 */
+  /**
+   * Property `cancelButton` (`string`) storing cancel button (default: `'CANCEL'`).
+   * @zh 取消按钮的文字，默认为 `'CANCEL'`。
+   * @zh 取消按钮的文字，默认为 `'CANCEL'`。
+   */
   cancelButton = 'CANCEL';
-  /** @zh 确认按钮的文字，默认为 `'ACCEPT'`。 */
+  /**
+   * Property `acceptButton` (`string`) storing accept button (default: `'ACCEPT'`).
+   * @zh 确认按钮的文字，默认为 `'ACCEPT'`。
+   * @zh 确认按钮的文字，默认为 `'ACCEPT'`。
+   */
   acceptButton = 'ACCEPT';
 
-  /** The native `<input matInput />` element. */
+  /**
+   * The native `<input matInput />` element.
+   * @zh 模板/内容视图查询引用 `_input`（`@ViewChild`），指向输入属性。
+   */
   @ViewChild('input', { static: true }) _input!: ElementRef<HTMLInputElement>;
 
+  /**
+   * Template/content query reference `_closeBtn` (`@ViewChild`) targeting close btn.
+   * @zh 模板/内容视图查询引用 `_closeBtn`（`@ViewChild`），指向关闭按钮。
+   */
   @ViewChild('closeBtn', { static: true, read: ElementRef })
   _closeBtn!: ElementRef<HTMLButtonElement>;
 
+  /**
+   * Template/content query reference `_acceptBtn` (`@ViewChild`) targeting accept btn.
+   * @zh 模板/内容视图查询引用 `_acceptBtn`（`@ViewChild`），指向accept按钮。
+   */
   @ViewChild('acceptBtn', { static: true, read: ElementRef })
   _acceptBtn!: ElementRef<HTMLButtonElement>;
 
+  /**
+   * Property `_destroy$` (`Subject`) storing destroy (default: `new Subject<void>()`).
+   * @zh 属性 `_destroy$`（类型：`Subject`），用于存储或配置销毁（默认值：`new Subject<void>()`）。
+   */
   private _destroy$ = new Subject<void>();
 
-  /** @zh 底层 Material 输入框控件的引用。 */
+  /**
+   * @zh 底层 Material 输入框控件的引用。
+   * @zh 底层 Material 输入框控件的引用。
+   */
   @ViewChild(MatInput) formFieldControl: MatInput;
 
-  /** @zh 输入内容短于 `minlength` 时显示的错误文案，`{0}` 会被替换为 `minlength`。 */
+  /**
+   * Property `minLengthText` (`string`) storing min length text.
+   * @zh 输入内容短于 `minlength` 时显示的错误文案，`{0}` 会被替换为 `minlength`。
+   * @zh 输入内容短于 `minlength` 时显示的错误文案，`{0}` 会被替换为 `minlength`。
+   */
   minLengthText: string = 'The minimum length for this field is {0}';
 
-  /** @zh 输入内容超过 `maxlength` 时显示的错误文案，`{0}` 会被替换为 `maxlength`。 */
+  /**
+   * Property `maxLengthText` (`string`) storing max length text.
+   * @zh 输入内容超过 `maxlength` 时显示的错误文案，`{0}` 会被替换为 `maxlength`。
+   * @zh 输入内容超过 `maxlength` 时显示的错误文案，`{0}` 会被替换为 `maxlength`。
+   */
   maxLengthText: string = 'The maximum length for this field is {0}';
 
-  /** @zh 用于校验输入内容的正则表达式（或其字符串形式）。 */
+  /**
+   * Property `pattern` (`string | RegExp`) storing pattern (default: `null`).
+   * @zh 用于校验输入内容的正则表达式（或其字符串形式）。
+   * @zh 用于校验输入内容的正则表达式（或其字符串形式）。
+   */
   pattern: string | RegExp = null;
 
-  /** @zh 输入内容不匹配 `pattern` 时显示的错误文案。 */
+  /**
+   * Property `regexText` (`string`) storing regex text (default: `' format is not correct'`).
+   * @zh 输入内容不匹配 `pattern` 时显示的错误文案。
+   * @zh 输入内容不匹配 `pattern` 时显示的错误文案。
+   */
   regexText: string = ' format is not correct';
 
-  /** @zh 输入内容为空且 `required` 为 `true` 时显示的错误文案。 */
+  /**
+   * Property `blankText` (`string`) storing blank text (default: `' This field is can not be blank!'`).
+   * @zh 输入内容为空且 `required` 为 `true` 时显示的错误文案。
+   * @zh 输入内容为空且 `required` 为 `true` 时显示的错误文案。
+   */
   blankText: string = ' This field is can not be blank!';
 
-  /** @zh 输入内容的最小长度。 */
+  /**
+   * Property `minlength` (`number`) storing minlength (default: `0`).
+   * @zh 输入内容的最小长度。
+   * @zh 输入内容的最小长度。
+   */
   minlength: number = 0;
 
-  /** @zh 输入内容的最大长度。 */
+  /**
+   * Property `maxlength` (`number`) storing maxlength (default: `255`).
+   * @zh 输入内容的最大长度。
+   * @zh 输入内容的最大长度。
+   */
   maxlength: number = 255;
 
-  /** @zh 当 `dataType` 为数字类型时的最小值。 */
+  /**
+   * Property `min` (`number`) storing min (default: `-Infinity`).
+   * @zh 当 `dataType` 为数字类型时的最小值。
+   * @zh 当 `dataType` 为数字类型时的最小值。
+   */
   min: number = -Infinity;
 
-  /** @zh 当 `dataType` 为数字类型时的最大值。 */
+  /**
+   * Property `max` (`number`) storing max (default: `Infinity`).
+   * @zh 当 `dataType` 为数字类型时的最大值。
+   * @zh 当 `dataType` 为数字类型时的最大值。
+   */
   max: number = Infinity;
 
-  /** @zh 输入内容是否为必填项。 */
+  /**
+   * Property `required` (`boolean`) storing required (default: `true`).
+   * @zh 输入内容是否为必填项。
+   * @zh 输入内容是否为必填项。
+   */
   required: boolean = true;
 
-  /** @zh 输入框的数据类型（如 `'text'`）。 */
+  /**
+   * Property `dataType` (`string`) storing data type (default: `'text'`).
+   * @zh 输入框的数据类型（如 `'text'`）。
+   * @zh 输入框的数据类型（如 `'text'`）。
+   */
   dataType: string = 'text';
 
-  /** @zh 绑定输入框值的表单控件。 */
+  /**
+   * Property `formControl` (`FormControl`) storing form control (default: `new FormControl()`).
+   * @zh 绑定输入框值的表单控件。
+   * @zh 绑定输入框值的表单控件。
+   */
   formControl = new FormControl();
 
+  /**
+   * Creates an instance of `PromptDialogComponent` and initializes its dependencies and internal state.
+   * @zh 创建 `PromptDialogComponent` 实例，并初始化其依赖项与内部状态。
+   * @param _ngZone - Injected or initial ng zone (`NgZone`) / 注入或传入的Angular区域(NgZone)（`NgZone`）
+   * @param themeService - Injected or initial theme service (`ThemeService`) / 注入或传入的主题服务（`ThemeService`）
+   * @param _dialogRef - Injected or initial dialog ref (`MatDialogRef<PromptDialogComponent>`) / 注入或传入的对话框引用（`MatDialogRef<PromptDialogComponent>`）
+   */
   constructor(
     private _ngZone: NgZone,
     public themeService: ThemeService,
     private _dialogRef: MatDialogRef<PromptDialogComponent>
   ) {}
 
+  /**
+   * Angular lifecycle hook invoked once after the component's view and child views are initialized.
+   * @zh Angular 生命周期钩子：在组件视图及其子视图初始化完成后调用一次。
+   */
   ngAfterViewInit(): void {
     this._ngZone.runOutsideAngular(() => {
       requestAnimationFrame(() => this._input.nativeElement.focus());
@@ -122,6 +224,10 @@ export class PromptDialogComponent implements AfterViewInit, OnDestroy {
     });
   }
 
+  /**
+   * Angular lifecycle hook invoked just before the component, directive, or service is destroyed to release subscriptions and resources.
+   * @zh Angular 生命周期钩子：在组件、指令或服务销毁前调用，用于释放订阅与清理资源。
+   */
   ngOnDestroy(): void {
     this._destroy$.next();
   }

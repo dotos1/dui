@@ -4,8 +4,8 @@
     {
       "name": "action",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `action` defining action in `src/core/mobx`.",
+      "summaryZh": "常量/变量 `action`，定义 `src/core/mobx` 中的动作。",
       "sourceFile": "src/core/mobx/mobx-angular.ts",
       "inputs": [],
       "outputs": [],
@@ -15,19 +15,32 @@
     {
       "name": "actionInternal",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Executes `actionInternal` to handle action internal.",
+      "summaryZh": "执行 `actionInternal`，用于动作内部。",
       "sourceFile": "src/core/mobx/mobx-angular.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "actionInternal",
+          "params": [
+            {
+              "name": "args",
+              "type": "any"
+            }
+          ],
+          "returnType": "any",
+          "description": "Executes `actionInternal` to handle action internal.",
+          "descriptionZh": "执行 `actionInternal`，用于动作内部。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "computed",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `computed` defining computed in `src/core/mobx`.",
+      "summaryZh": "常量/变量 `computed`，定义 `src/core/mobx` 中的计算属性。",
       "sourceFile": "src/core/mobx/mobx-angular.ts",
       "inputs": [],
       "outputs": [],
@@ -37,8 +50,8 @@
     {
       "name": "MobxAngularModule",
       "kind": "module",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular module `MobxAngularModule` declaring and exporting mobx angular module components, directives, pipes, and providers.",
+      "summaryZh": "Angular 模块 `MobxAngularModule`，声明并导出MobxAngular模块相关的组件、指令、管道与服务提供者。",
       "sourceFile": "src/core/mobx/mobx.module.ts",
       "inputs": [],
       "outputs": [],
@@ -49,15 +62,15 @@
       "name": "MobxAutorunDirective",
       "kind": "directive",
       "selector": "[mobxAutorun]",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular directive `MobxAutorunDirective` (selector: '[mobxAutorun]') attaching mobx autorun directive behavior to host DOM elements.",
+      "summaryZh": "Angular 指令 `MobxAutorunDirective`（selector: '[mobxAutorun]'），为宿主 DOM 元素附加MobxAutorun指令行为。",
       "sourceFile": "src/core/mobx/directives/mobx-autorun.directive.ts",
       "inputs": [
         {
           "name": "mobxAutorun",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `mobxAutorun` (`any`) configuring mobx autorun.",
+          "descriptionZh": "输入属性 `mobxAutorun`（类型：`any`），用于配置mobxAutorun。"
         }
       ],
       "outputs": [],
@@ -66,8 +79,8 @@
           "name": "shouldDetach",
           "params": [],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `shouldDetach` to handle should detach.",
+          "descriptionZh": "执行 `shouldDetach`，用于是否应当卸载。"
         },
         {
           "name": "autoDetect",
@@ -78,8 +91,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `autoDetect` to handle auto detect.",
+          "descriptionZh": "执行 `autoDetect`，用于自动检测。"
         }
       ],
       "properties": []
@@ -88,15 +101,15 @@
       "name": "MobxReactionDirective",
       "kind": "directive",
       "selector": "[mobxReaction]",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular directive `MobxReactionDirective` (selector: '[mobxReaction]') attaching mobx reaction directive behavior to host DOM elements.",
+      "summaryZh": "Angular 指令 `MobxReactionDirective`（selector: '[mobxReaction]'），为宿主 DOM 元素附加MobxReaction指令行为。",
       "sourceFile": "src/core/mobx/directives/mobx-reaction.directive.ts",
       "inputs": [
         {
           "name": "mobxReaction",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `mobxReaction` (`any`) configuring mobx reaction.",
+          "descriptionZh": "输入属性 `mobxReaction`（类型：`any`），用于配置mobxReaction。"
         }
       ],
       "outputs": [],
@@ -110,8 +123,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `autoDetect` to handle auto detect.",
+          "descriptionZh": "执行 `autoDetect`，用于自动检测。"
         }
       ],
       "properties": []
@@ -119,8 +132,8 @@
     {
       "name": "observable",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `observable` defining observable in `src/core/mobx`.",
+      "summaryZh": "常量/变量 `observable`，定义 `src/core/mobx` 中的可观察流。",
       "sourceFile": "src/core/mobx/mobx-angular.ts",
       "inputs": [],
       "outputs": [],

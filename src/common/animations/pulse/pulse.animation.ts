@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Module `src/common/animations/pulse/pulse.animation.ts` providing pulse animation definitions and implementation.
+ * @zh 模块文件 `src/common/animations/pulse/pulse.animation.ts`，提供pulse动画相关的定义与实现。
+ */
+
 import {
   trigger,
   state,
@@ -11,6 +16,10 @@ import {
   group,
 } from '@angular/animations';
 
+/**
+ * Angular animation trigger `PulseAnimation` defining state transitions for pulse animation.
+ * @zh Angular 动画触发器 `PulseAnimation`，定义Pulse动画的状态过渡动画。
+ */
 export const PulseAnimation: AnimationTriggerMetadata = trigger('duiPulse', [
   state(
     '0',

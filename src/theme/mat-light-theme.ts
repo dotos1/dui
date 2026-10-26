@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Module `src/theme/mat-light-theme.ts` providing mat light theme definitions and implementation.
+ * @zh 模块文件 `src/theme/mat-light-theme.ts`，提供Material浅色主题相关的定义与实现。
+ */
+
 import {
     Palette,
     Theme,
@@ -21,6 +26,10 @@ import {
 } from './constants';
 
 // Foreground palette for light themes.
+/**
+ * Constant/variable `matLightThemeForeground` defining mat light theme foreground in `src/theme`.
+ * @zh 常量/变量 `matLightThemeForeground`，定义 `src/theme` 中的Material浅色主题前景。
+ */
 const matLightThemeForeground: Foreground = {
     base: 'black',
     divider: darkDividers,
@@ -40,6 +49,10 @@ const matLightThemeForeground: Foreground = {
 };
 
 // Background palette for dark themes.
+/**
+ * Constant/variable `matLightThemeBackground` defining mat light theme background in `src/theme`.
+ * @zh 常量/变量 `matLightThemeBackground`，定义 `src/theme` 中的Material浅色主题背景。
+ */
 const matLightThemeBackground: Background = {
     'status-bar': matGrey[300],
     'app-bar': matGrey[100],
@@ -59,6 +72,16 @@ const matLightThemeBackground: Background = {
 };
 
 
+/**
+ * Executes `matLightTheme` to handle mat light theme.
+ * @zh 执行 `matLightTheme`，用于Material浅色主题。
+ * @param primary - primary parameter (`Palette`) / 主色参数（`Palette`）
+ * @param accent - accent parameter (`Palette`) / 强调色参数（`Palette`）
+ * @param warn - warn parameter (`Palette`) / 警告色参数（`Palette`）
+ * @param density - density parameter (`number`) / 密度参数（`number`）
+ * @param typography - typography parameter (`TypographyConfig`) / 排版参数（`TypographyConfig`）
+ * @returns Result of type `Theme` / 类型为 `Theme` 的返回值
+ */
 export function matLightTheme(primary: Palette, accent: Palette, warn: Palette = matPalette(matRed), density:number=-1,typography:TypographyConfig): Theme {
     return {
         primary,

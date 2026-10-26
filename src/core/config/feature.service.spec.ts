@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Module `src/core/config/feature.service.spec.ts` providing feature service spec definitions and implementation.
+ * @zh 模块文件 `src/core/config/feature.service.spec.ts`，提供feature服务spec相关的定义与实现。
+ */
+
 import { FeatureService } from './feature.service';
 
 /**

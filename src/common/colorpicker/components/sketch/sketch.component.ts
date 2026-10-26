@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Module `src/common/colorpicker/components/sketch/sketch.component.ts` providing sketch component definitions and implementation.
+ * @zh 模块文件 `src/common/colorpicker/components/sketch/sketch.component.ts`，提供sketch组件相关的定义与实现。
+ */
+
 import {
   ChangeDetectionStrategy,  Component,  Input,
 } from '@angular/core';
@@ -115,9 +120,15 @@ import { TriggerPopup } from '@dotos/dui/common/trigger';
 
 })
 export class SketchComponent extends ColorWrap implements TriggerPopup {
-  /** Remove alpha slider and options from picker */
+  /**
+   * Remove alpha slider and options from picker
+   * @zh 输入属性 `disableAlpha`（类型：`boolean`），用于配置禁用透明度（默认值：`false`）。
+   */
   @Input() disableAlpha = false;
-  /** Hex strings for default colors at bottom of picker */
+  /**
+   * Hex strings for default colors at bottom of picker
+   * @zh 输入属性 `presetColors`（类型：`any[]`），用于配置preset颜色列表。
+   */
   @Input() presetColors = [
     '#D0021B',
     '#F5A623',
@@ -135,10 +146,21 @@ export class SketchComponent extends ColorWrap implements TriggerPopup {
     '#9B9B9B',
     '#FFFFFF',
   ];
-  /** Width of picker */
+  /**
+   * Width of picker
+   * @zh 输入属性 `width`（类型：`number`），用于配置宽度（默认值：`200`）。
+   */
   @Input() width = 200;
-  /** @zh 当前颜色预览色块的背景色（含透明度）。 */
+  /**
+   * Property `activeBackground` (`string`) storing active background.
+   * @zh 当前颜色预览色块的背景色（含透明度）。
+   * @zh 当前颜色预览色块的背景色（含透明度）。
+   */
   activeBackground: string;
+  /**
+   * Creates an instance of `SketchComponent` and initializes its dependencies and internal state.
+   * @zh 创建 `SketchComponent` 实例，并初始化其依赖项与内部状态。
+   */
   constructor() {
     super();
   }

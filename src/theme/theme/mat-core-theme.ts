@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Module `src/theme/theme/mat-core-theme.ts` providing mat core theme definitions and implementation.
+ * @zh 模块文件 `src/theme/theme/mat-core-theme.ts`，提供Material核心主题相关的定义与实现。
+ */
+
 import { Theme } from '../interfaces/theme';
 import { TypographyConfig } from '../interfaces';
 import { matColor } from '../mat-color';
@@ -16,6 +21,12 @@ import {
     matFontFamily
 } from '../utils/index';
 
+/**
+ * Executes `matCoreTheme` to handle mat core theme.
+ * @zh 执行 `matCoreTheme`，用于Material核心主题。
+ * @param theme - theme parameter (`Theme`) / 主题参数（`Theme`）
+ * @returns Result of type `Object` / 类型为 `Object` 的返回值
+ */
 export function matCoreTheme(theme: Theme): Object {
 
     let config= theme.typography;

@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Module `src/core/auth/CommonAuth.ts` providing common auth definitions and implementation.
+ * @zh 模块文件 `src/core/auth/CommonAuth.ts`，提供通用认证相关的定义与实现。
+ */
+
 
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { ConfigService } from  '@dotos/dui/core/config';
@@ -6,14 +11,34 @@ import { AuthLoader } from './auth.loader';
 import { Authentication } from './model/authentication';
 import { LocalStorageService } from '@dotos/dui/core/storage';
 
+/**
+ * Class `CommonAuth` encapsulating common auth data structures and logic in `src/core/auth`.
+ * @zh 类 `CommonAuth`，封装 `src/core/auth` 中的通用认证数据结构与处理逻辑。
+ */
 export class CommonAuth  {
 
+    /**
+     * Property `ticket` (`string`) storing ticket.
+     * @zh 属性 `ticket`（类型：`string`），用于存储或配置ticket。
+     */
     ticket: string;
 
+    /**
+     * Property `authentications` (`Authentication`) storing authentications (default: `{ 'basicAuth': { ticket: '' } }`).
+     * @zh 属性 `authentications`（类型：`Authentication`），用于存储或配置身份认证（默认值：`{ 'basicAuth': { ticket: '' } }`）。
+     */
     authentications: Authentication = {
         'basicAuth': { ticket: '' }
     };
 
+    /**
+     * Creates an instance of `CommonAuth` and initializes its dependencies and internal state.
+     * @zh 创建 `CommonAuth` 实例，并初始化其依赖项与内部状态。
+     * @param config - Injected or initial config (`ConfigService`) / 注入或传入的配置（`ConfigService`）
+     * @param http - Injected or initial http (`HttpClient`) / 注入或传入的HTTP（`HttpClient`）
+     * @param loader - Injected or initial loader (`AuthLoader`) / 注入或传入的加载器（`AuthLoader`）
+     * @param storage - Injected or initial storage (`LocalStorageService`) / 注入或传入的存储（`LocalStorageService`）
+     */
     constructor(
       private config: ConfigService,
       private http: HttpClient,
@@ -22,6 +47,10 @@ export class CommonAuth  {
       ) {
         this.setConfig();
     }
+    /**
+     * Executes `setConfig` to handle set config.
+     * @zh 执行 `setConfig`，用于集合配置。
+     */
     setConfig() {
         this.ticket = undefined;
         if (this.config.getSettings('ticket')) {
@@ -31,21 +60,40 @@ export class CommonAuth  {
         }
     }
 
+    /**
+     * Executes `changeHost` to handle change host.
+     * @zh 执行 `changeHost`，用于变更宿主。
+     */
     changeHost() {
         this.ticket = undefined;
     }
 
+    /**
+     * Executes `changeCsrfConfig` to handle change csrf config.
+     * @zh 执行 `changeCsrfConfig`，用于变更Csrf配置。
+     * @param disableCsrf - disable csrf parameter (`boolean`) / 禁用Csrf参数（`boolean`）
+     */
     changeCsrfConfig(disableCsrf: boolean) {
         this.config.setSetting('disableCsrf',disableCsrf);
     }
 
+    /**
+     * Executes `saveUsername` to handle save username.
+     * @zh 执行 `saveUsername`，用于保存用户名。
+     * @param username - username parameter (`string`) / 用户名参数（`string`）
+     */
     saveUsername(username: string) {
        this.storage.set('USERNAME', username);
     }
-    validateTicket(): Promise<any> {
+    /**
+     * Executes `validateTicket` to handle validate ticket.
+     * @zh 执行 `validateTicket`，用于校验Ticket。
+     * @returns Result of type `Promise<any>` / 类型为 `Promise<any>` 的返回值
+     */
+    validateTicket() {
       this.setTicket(this.config.getSettings('ticket'));
-      let promise: any = new Promise((resolve, reject) => {
-          this._validateTicket().then((data: any) => {
+      let promise = new Promise((resolve, reject) => {
+          this._validateTicket().then((data: { entry? }) => {
                   this.setTicket(data.entry.id);
                   resolve(data.entry.id);
               },
@@ -55,7 +103,12 @@ export class CommonAuth  {
       });
       return promise;
   }
-  _validateTicket(): Promise<any> {
+  /**
+   * Executes `_validateTicket` to handle validate ticket.
+   * @zh 执行 `_validateTicket`，用于校验Ticket。
+   * @returns Result of type `Promise<any>` / 类型为 `Promise<any>` 的返回值
+   */
+  _validateTicket() {
       let headers:HttpHeaders=new HttpHeaders({
         'Content-Type': 'application/json',
         responseType: 'json'
@@ -66,7 +119,15 @@ export class CommonAuth  {
          } ).toPromise();
     }
 
-    login(username: string, password: string, ticket: string): Promise<any> {
+    /**
+     * Executes `login` to handle login.
+     * @zh 执行 `login`，用于login。
+     * @param username - username parameter (`string`) / 用户名参数（`string`）
+     * @param password - password parameter (`string`) / 密码参数（`string`）
+     * @param ticket - ticket parameter (`string`) / ticket参数（`string`）
+     * @returns Result of type `Promise<any>` / 类型为 `Promise<any>` 的返回值
+     */
+    login(username: string, password: string, ticket: string) {
         this.authentications.basicAuth.username = username;
         this.authentications.basicAuth.password = password;
 
@@ -82,7 +143,7 @@ export class CommonAuth  {
           responseType: 'json'
         });
         this.loader.storage.removeItem(this.loader.storageKey);
-        let promise: any = new Promise((resolve, reject) => {
+        let promise = new Promise((resolve, reject) => {
            this.http.post(
                   this.loader.backend.loginUrl, body,{
                   headers:headers
@@ -104,8 +165,15 @@ export class CommonAuth  {
         return promise;
     }
 
+    /**
+     * Executes `basicAuth` to handle basic auth.
+     * @zh 执行 `basicAuth`，用于basic认证。
+     * @param username - username parameter (`string`) / 用户名参数（`string`）
+     * @param password - password parameter (`string`) / 密码参数（`string`）
+     * @returns Result of type `string` / 类型为 `string` 的返回值
+     */
     basicAuth(username: string, password: string): string {
-      const str: any = username + ':' + password;
+      const str = username + ':' + password;
       let base64;
       //@ts-ignore
       if (typeof Buffer === 'function') {
@@ -116,13 +184,18 @@ export class CommonAuth  {
       }
       return 'Basic ' + base64;
   }
-  logout(): Promise<any> {
+  /**
+   * Executes `logout` to handle logout.
+   * @zh 执行 `logout`，用于logout。
+   * @returns Result of type `Promise<any>` / 类型为 `Promise<any>` 的返回值
+   */
+  logout() {
         this.saveUsername('');
         let headers:HttpHeaders=new HttpHeaders({
           'Content-Type': 'application/json',
           responseType: 'json'
         });
-        let promise: any = new Promise((resolve, reject) => {
+        let promise = new Promise((resolve, reject) => {
           this.http.get(
                 this.loader.backend.logoutApi,
                 {
@@ -144,6 +217,11 @@ export class CommonAuth  {
         return promise;
     }
 
+    /**
+     * Executes `setTicket` to handle set ticket.
+     * @zh 执行 `setTicket`，用于集合Ticket。
+     * @param ticket - ticket parameter (`string`) / ticket参数（`string`）
+     */
     setTicket(ticket: string) {
         this.authentications.basicAuth.ticket = ticket;
         this.authentications.basicAuth.password = null;
@@ -152,6 +230,10 @@ export class CommonAuth  {
         this.ticket = ticket;
     }
 
+    /**
+     * Executes `invalidateSession` to handle invalidate session.
+     * @zh 执行 `invalidateSession`，用于invalidate会话。
+     */
     invalidateSession() {
         this.storage.remove('ticket');
         this.authentications.basicAuth.ticket = null;
@@ -161,15 +243,30 @@ export class CommonAuth  {
         this.ticket = null;
     }
 
+    /**
+     * Executes `getTicket` to handle get ticket.
+     * @zh 执行 `getTicket`，用于获取Ticket。
+     * @returns Result of type `string` / 类型为 `string` 的返回值
+     */
     getTicket(): string {
         return this.ticket;
     }
 
+    /**
+     * Executes `isLoggedIn` to handle is logged in.
+     * @zh 执行 `isLoggedIn`，用于是否为Logged在。
+     * @returns Result of type `boolean` / 类型为 `boolean` 的返回值
+     */
     isLoggedIn(): boolean {
         return !!this.ticket;
     }
 
-    getAuthentication(): any {
+    /**
+     * Executes `getAuthentication` to handle get authentication.
+     * @zh 执行 `getAuthentication`，用于获取身份认证。
+     * @returns Result of type `any` / 类型为 `any` 的返回值
+     */
+    getAuthentication() {
         return  this.authentications;
     }
 }

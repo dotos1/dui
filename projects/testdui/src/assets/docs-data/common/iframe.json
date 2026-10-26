@@ -87,7 +87,7 @@
         {
           "name": "iframe",
           "type": "ElementRef",
-          "description": null,
+          "description": "Template/content query reference `iframe` (`@ViewChild`) targeting iframe.",
           "descriptionZh": "底层原生 `<iframe>` 元素的引用。"
         },
         {
@@ -151,7 +151,7 @@
         {
           "name": "$styling",
           "type": "Observable<any>",
-          "description": null,
+          "description": "Property `$styling` (`Observable<any>`) storing styling.",
           "descriptionZh": "内部使用，根据内容高度变化推导出的样式流，用于自动调整高度。"
         },
         {
@@ -175,13 +175,13 @@
         {
           "name": "elementResizeDetector",
           "type": "elementResizeDetectorMaker.Erd",
-          "description": null,
+          "description": "Property `elementResizeDetector` (`elementResizeDetectorMaker.Erd`) storing element resize detector.",
           "descriptionZh": "内部使用的元素尺寸变化检测器实例。"
         },
         {
           "name": "elementRef",
           "type": "ElementRef",
-          "description": null,
+          "description": "Template/content query reference `elementRef` (`@ViewChild`) targeting element ref.",
           "descriptionZh": "底层原生 `<iframe>` 元素的引用（内部使用，与 `iframe` 指向同一元素）。"
         }
       ]
@@ -189,8 +189,8 @@
     {
       "name": "IFrameModule",
       "kind": "module",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular module `IFrameModule` declaring and exporting i frame module components, directives, pipes, and providers.",
+      "summaryZh": "Angular 模块 `IFrameModule`，声明并导出I框架模块相关的组件、指令、管道与服务提供者。",
       "sourceFile": "src/common/iframe/iframe.module.ts",
       "inputs": [],
       "outputs": [],
@@ -200,8 +200,8 @@
           "name": "entryComponents",
           "type": "any",
           "default": "[IframeComponent]",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `entryComponents` (`any[]`) storing entry components (default: `[IframeComponent]`).",
+          "descriptionZh": "属性 `entryComponents`（类型：`any[]`），用于存储或配置条目组件列表（默认值：`[IframeComponent]`）。"
         }
       ]
     },
@@ -220,7 +220,7 @@
           "params": [
             {
               "name": "url",
-              "type": "string"
+              "type": "string | SafeResourceUrl"
             }
           ],
           "returnType": "any",

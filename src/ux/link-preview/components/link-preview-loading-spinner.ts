@@ -1,4 +1,13 @@
+/**
+ * @fileoverview Module `src/ux/link-preview/components/link-preview-loading-spinner.ts` providing link preview loading spinner definitions and implementation.
+ * @zh 模块文件 `src/ux/link-preview/components/link-preview-loading-spinner.ts`，提供链接预览加载中加载指示器相关的定义与实现。
+ */
+
 /* tslint:disable:max-line-length */
+/**
+ * Constant/variable `LinkPreviewLoadingSpinner` defining link preview loading spinner in `src/ux/link-preview/components`.
+ * @zh 常量/变量 `LinkPreviewLoadingSpinner`，定义 `src/ux/link-preview/components` 中的链接预览加载中加载指示器。
+ */
 export const LinkPreviewLoadingSpinner = `
 <svg class="lds-message" width="60px"  height="60px"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid"><g transform="translate(20 50)">
 <circle cx="0" cy="0" r="7" fill="#1B364C" transform="scale(0.99275 0.99275)">

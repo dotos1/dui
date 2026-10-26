@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Module `src/common/colorpicker/components/gradient/gradient.module.ts` providing gradient module definitions and implementation.
+ * @zh 模块文件 `src/common/colorpicker/components/gradient/gradient.module.ts`，提供渐变模块相关的定义与实现。
+ */
+
 import { CommonModule } from '@angular/common';
 import { ComponentFactoryResolver, NgModule } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
@@ -22,6 +27,10 @@ import { ControlsComponent } from './components/controls.component';
 import { MatIconModule } from '@angular/material/icon';
 
 
+/**
+ * Angular module `ColorGradientModule` declaring and exporting color gradient module components, directives, pipes, and providers.
+ * @zh Angular 模块 `ColorGradientModule`，声明并导出颜色渐变模块相关的组件、指令、管道与服务提供者。
+ */
 @NgModule({
   declarations: [
    GradientComponent,
@@ -57,10 +66,19 @@ import { MatIconModule } from '@angular/material/icon';
   ],
 })
 export class ColorGradientModule {
+  /**
+   * Property `entryComponents` (`any[]`) storing entry components.
+   * @zh 属性 `entryComponents`（类型：`any[]`），用于存储或配置条目组件列表。
+   */
   entryComponents = [
     GradientComponent,
    GradientFieldsComponent,
    ];
+  /**
+   * Creates an instance of `ColorGradientModule` and initializes its dependencies and internal state.
+   * @zh 创建 `ColorGradientModule` 实例，并初始化其依赖项与内部状态。
+   * @param componentFactoryResolver - Injected or initial component factory resolver (`ComponentFactoryResolver`) / 注入或传入的组件工厂解析器（`ComponentFactoryResolver`）
+   */
   constructor(componentFactoryResolver: ComponentFactoryResolver) {
     Dui.registerComponentFactory(componentFactoryResolver,this.entryComponents);
   }

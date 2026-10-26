@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Module `src/ux/line-style/linesize.spec.ts` providing linesize spec definitions and implementation.
+ * @zh 模块文件 `src/ux/line-style/linesize.spec.ts`，提供linesizespec相关的定义与实现。
+ */
+
 import { FormControl } from '@angular/forms';
 import { Subject } from 'rxjs';
 import { LineSizeSelector } from './linesize';

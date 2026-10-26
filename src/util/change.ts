@@ -1,10 +1,27 @@
+/**
+ * @fileoverview Module `src/util/change.ts` providing change definitions and implementation.
+ * @zh 模块文件 `src/util/change.ts`，提供变更相关的定义与实现。
+ */
+
 import { StringUtils } from './string-utils';
 import { GroupingChanges, ChangeType } from './change.interface';
 
+/**
+ * Class `ChangeUtils` encapsulating change utils data structures and logic in `src/util`.
+ * @zh 类 `ChangeUtils`，封装 `src/util` 中的变更工具集数据结构与处理逻辑。
+ */
 export class ChangeUtils {
+  /**
+   * Executes `findChanges` to handle find changes.
+   * @zh 执行 `findChanges`，用于查找变更集合。
+   * @param obj1 - obj1 parameter (`any[]`) / obj1参数（`any[]`）
+   * @param obj2 - obj2 parameter (`any[]`) / obj2参数（`any[]`）
+   * @param ignoreKeys - ignore keys parameter (`string[]`) / 忽略键列表参数（`string[]`）
+   * @returns Result of type `GroupingChanges` / 类型为 `GroupingChanges` 的返回值
+   */
   static findChanges(
-    obj1: any[],
-    obj2: any[],
+    obj1,
+    obj2,
     ignoreKeys: string[] = []
   ): GroupingChanges {
     const items: GroupingChanges = {
@@ -21,7 +38,7 @@ export class ChangeUtils {
     // Index obj2 by id once (O(n)) so each obj1 item is matched/consumed in O(1); the
     // Map also naturally preserves obj2's original order for whatever's left over
     // (the "added" items), same as the old splice-and-collect-remainder approach.
-    const obj2ById = new Map<any, any>();
+    const obj2ById = new Map();
     for (const item of obj2) {
       obj2ById.set(item.id, item);
     }
@@ -71,8 +88,16 @@ export class ChangeUtils {
     return items;
   }
 
+  /**
+   * Executes `compareObject` to handle compare object.
+   * @zh 执行 `compareObject`，用于比较对象。
+   * @param fromItem - from item parameter (`any`) / 从条目参数（`any`）
+   * @param toItem - to item parameter (`any`) / 转换为条目参数（`any`）
+   * @param baseKey - base key parameter (`any`) / 基础键参数（`any`）
+   * @param ignoreKeys - ignore keys parameter (`any`) / 忽略键列表参数（`any`）
+   */
   private static compareObject(fromItem, toItem, baseKey?, ignoreKeys = []) {
-    const keys: any = new Set([
+    const keys = new Set([
       ...Object.keys(fromItem),
       ...Object.keys(toItem)
     ]);

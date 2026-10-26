@@ -1,8 +1,21 @@
+/**
+ * @fileoverview Module `src/ux/editor/plugins/link.ts` providing link definitions and implementation.
+ * @zh 模块文件 `src/ux/editor/plugins/link.ts`，提供链接相关的定义与实现。
+ */
+
 import { Fragment, Slice, Node as ProseMirrorNode } from 'prosemirror-model';
 import { Plugin, PluginKey } from 'prosemirror-state';
 
+/**
+ * Constant/variable `HTTP_LINK_REGEX` defining http link regex in `src/ux/editor/plugins`.
+ * @zh 常量/变量 `HTTP_LINK_REGEX`，定义 `src/ux/editor/plugins` 中的HTTP链接正则表达式。
+ */
 const HTTP_LINK_REGEX = /(?:https?:\/\/)?[\w-]+(?:\.[\w-]+)+\.?(?:\d+)?(?:\/\S*)?$/;
 
+/**
+ * Constant/variable `linkify` defining linkify in `src/ux/editor/plugins`.
+ * @zh 常量/变量 `linkify`，定义 `src/ux/editor/plugins` 中的linkify。
+ */
 const linkify = (fragment: Fragment): Fragment => {
   const linkified: ProseMirrorNode[] = [];
 
@@ -40,6 +53,10 @@ const linkify = (fragment: Fragment): Fragment => {
   return Fragment.fromArray(linkified);
 };
 
+/**
+ * Constant/variable `linkifyPlugin` defining linkify plugin in `src/ux/editor/plugins`.
+ * @zh 常量/变量 `linkifyPlugin`，定义 `src/ux/editor/plugins` 中的linkifyPlugin。
+ */
 const linkifyPlugin = ():Plugin => {
   return new Plugin({
     key: new PluginKey('linkify'),

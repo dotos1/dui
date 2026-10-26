@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Module `src/core/auth/oauth2Auth.ts` providing oauth2 auth definitions and implementation.
+ * @zh 模块文件 `src/core/auth/oauth2Auth.ts`，提供oauth2认证相关的定义与实现。
+ */
+
 import { HttpClient, HttpHeaders, HttpParams } from "@angular/common/http";
 import { ConfigService } from '@dotos/dui/core/config';
 import minimatch from 'minimatch-browser';
@@ -6,34 +11,98 @@ import { Authentication } from './model/authentication';
 import { JwtHelperService } from "./jwt-helper.service";
 import { LocalStorageService } from "@dotos/dui/core/storage";
 
-declare const Buffer: any;
+/**
+ * Constant/variable `Buffer` defining buffer in `src/core/auth`.
+ * @zh 常量/变量 `Buffer`，定义 `src/core/auth` 中的缓冲区。
+ */
+declare const Buffer;
 
 
+/**
+ * Constant/variable `window` defining window in `src/core/auth`.
+ * @zh 常量/变量 `window`，定义 `src/core/auth` 中的窗口。
+ */
 declare let window: Window;
 
+/**
+ * Class `Oauth2Auth` encapsulating oauth2 auth data structures and logic in `src/core/auth`.
+ * @zh 类 `Oauth2Auth`，封装 `src/core/auth` 中的Oauth2认证数据结构与处理逻辑。
+ */
 export class Oauth2Auth  {
 
-    private refreshTokenIntervalPolling: any;
-    private refreshTokenTimeoutIframe: any;
+    /**
+     * Property `refreshTokenIntervalPolling` (`any`) storing refresh token interval polling.
+     * @zh 属性 `refreshTokenIntervalPolling`（类型：`any`），用于存储或配置刷新令牌间隔定时器Polling。
+     */
+    private refreshTokenIntervalPolling;
+    /**
+     * Property `refreshTokenTimeoutIframe` (`any`) storing refresh token timeout iframe.
+     * @zh 属性 `refreshTokenTimeoutIframe`（类型：`any`），用于存储或配置刷新令牌延时器Iframe。
+     */
+    private refreshTokenTimeoutIframe;
+    /**
+     * Property `checkAccessToken` (`boolean`) storing check access token (default: `true`).
+     * @zh 属性 `checkAccessToken`（类型：`boolean`），用于存储或配置检查Access令牌（默认值：`true`）。
+     */
     private checkAccessToken: boolean = true;
 
-    hashFragmentParams: any;
+    /**
+     * Property `hashFragmentParams` (`any`) storing hash fragment params.
+     * @zh 属性 `hashFragmentParams`（类型：`any`），用于存储或配置hashFragment参数集合。
+     */
+    hashFragmentParams;
+    /**
+     * Property `token` (`string`) storing token.
+     * @zh 属性 `token`（类型：`string`），用于存储或配置令牌。
+     */
     token: string;
-    discovery: any = {};
+    /**
+     * Property `discovery` (`any`) storing discovery (default: `{}`).
+     * @zh 属性 `discovery`（类型：`any`），用于存储或配置discovery（默认值：`{}`）。
+     */
+    discovery: { loginUrl?; logoutUrl?; tokenEndpoint? } = {};
 
+    /**
+     * Property `authentications` (`Authentication`) storing authentications.
+     * @zh 属性 `authentications`（类型：`Authentication`），用于存储或配置身份认证。
+     */
     authentications: Authentication = {
         'oauth2': { accessToken: '' }, type: 'oauth2', 'basicAuth': {}
     };
 
-    iFrameHashListener: any;
+    /**
+     * Property `iFrameHashListener` (`any`) storing i frame hash listener.
+     * @zh 属性 `iFrameHashListener`（类型：`any`），用于存储或配置i框架Hash监听器。
+     */
+    iFrameHashListener;
 
+    /**
+     * Property `url` (`string`) storing url.
+     * @zh 属性 `url`（类型：`string`），用于存储或配置链接地址。
+     */
     url: string;
 
+    /**
+     * Property `host` (`string`) storing host.
+     * @zh 属性 `host`（类型：`string`），用于存储或配置宿主。
+     */
     host: string;
 
 
-    subject: Subject<any> = new Subject<any>();
+    /**
+     * Property `subject` (`Subject<any>`) storing subject (default: `new Subject<any>()`).
+     * @zh 属性 `subject`（类型：`Subject<any>`），用于存储或配置主题流（默认值：`new Subject<any>()`）。
+     */
+    subject = new Subject();
 
+    /**
+     * Creates an instance of `Oauth2Auth` and initializes its dependencies and internal state.
+     * @zh 创建 `Oauth2Auth` 实例，并初始化其依赖项与内部状态。
+     * @param config - Injected or initial config (`ConfigService`) / 注入或传入的配置（`ConfigService`）
+     * @param http - Injected or initial http (`HttpClient`) / 注入或传入的HTTP（`HttpClient`）
+     * @param storage - Injected or initial storage (`LocalStorageService`) / 注入或传入的存储（`LocalStorageService`）
+     * @param jwtHelperService - Injected or initial jwt helper service (`JwtHelperService`) / 注入或传入的jwt辅助工具服务（`JwtHelperService`）
+     */
     constructor(private config: ConfigService,
          private http: HttpClient, 
         public storage: LocalStorageService, public jwtHelperService: JwtHelperService) {
@@ -42,6 +111,10 @@ export class Oauth2Auth  {
         }
     }
 
+    /**
+     * Executes `setConfig` to handle set config.
+     * @zh 执行 `setConfig`，用于集合配置。
+     */
     setConfig() {
          let oauth2 =this.config.getSettings('oauth2');
 
@@ -85,6 +158,11 @@ export class Oauth2Auth  {
         }
     }
 
+    /**
+     * Executes `initOauth` to handle init oauth.
+     * @zh 执行 `initOauth`，用于初始化Oauth。
+     * @param oauth2 - oauth2 parameter (`any`) / oauth2参数（`any`）
+     */
     initOauth(oauth2) {
         if (!oauth2.implicitFlow) {
             const refreshToken = this.storage.get('refresh_token') as string;
@@ -112,13 +190,25 @@ export class Oauth2Auth  {
         }
     }
 
+    /**
+     * Executes `discoveryUrls` to handle discovery urls.
+     * @zh 执行 `discoveryUrls`，用于discovery链接列表。
+     */
     discoveryUrls() {
         this.discovery.loginUrl = `${this.host}/oauth2/token`;
         this.discovery.logoutUrl = `${this.host}/oauth2/token`;
         this.discovery.tokenEndpoint = `${this.host}/oauth2/token`;
     }
 
-    checkFragment(oauth2,nonceKey?: string, externalHash?: any): any {
+    /**
+     * Executes `checkFragment` to handle check fragment.
+     * @zh 执行 `checkFragment`，用于检查Fragment。
+     * @param oauth2 - oauth2 parameter (`any`) / oauth2参数（`any`）
+     * @param nonceKey - nonce key parameter (`string`) / nonce键参数（`string`）
+     * @param externalHash - external hash parameter (`any`) / 外部Hash参数（`any`）
+     * @returns Result of type `any` / 类型为 `any` 的返回值
+     */
+    checkFragment(oauth2,nonceKey?: string, externalHash?) {
         this.hashFragmentParams = this.getHashFragmentParams(externalHash);
         if (this.hashFragmentParams && this.hashFragmentParams.error === undefined) {
             this.useFragmentTimeLogin(nonceKey);
@@ -127,6 +217,11 @@ export class Oauth2Auth  {
         }
     }
 
+    /**
+     * Executes `refreshBrowserLogin` to handle refresh browser login.
+     * @zh 执行 `refreshBrowserLogin`，用于刷新浏览器Login。
+     * @param oauth2 - oauth2 parameter (`any`) / oauth2参数（`any`）
+     */
     private refreshBrowserLogin(oauth2) {
         if (oauth2.silentLogin && !this.isPublicUrl(oauth2)) {
             this.implicitLogin();
@@ -138,6 +233,11 @@ export class Oauth2Auth  {
         }
     }
 
+    /**
+     * Executes `useFragmentTimeLogin` to handle use fragment time login.
+     * @zh 执行 `useFragmentTimeLogin`，用于使用Fragment时间Login。
+     * @param nonceKey - nonce key parameter (`string`) / nonce键参数（`string`）
+     */
     private useFragmentTimeLogin(nonceKey: string) {
         let accessToken = this.hashFragmentParams.access_token;
         let idToken = this.hashFragmentParams.id_token;
@@ -161,6 +261,12 @@ export class Oauth2Auth  {
         }
     }
 
+    /**
+     * Executes `isPublicUrl` to handle is public url.
+     * @zh 执行 `isPublicUrl`，用于是否为Public链接地址。
+     * @param oauth2 - oauth2 parameter (`any`) / oauth2参数（`any`）
+     * @returns Result of type `boolean` / 类型为 `boolean` 的返回值
+     */
     isPublicUrl(oauth2): boolean {
         const publicUrls = oauth2.publicUrls || [];
         if (Array.isArray(publicUrls)) {
@@ -170,14 +276,26 @@ export class Oauth2Auth  {
         return false;
     }
 
-    padBase64(base64data: any) {
+    /**
+     * Executes `padBase64` to handle pad base64.
+     * @zh 执行 `padBase64`，用于padBase64。
+     * @param base64data - base64data parameter (`any`) / base64data参数（`any`）
+     */
+    padBase64(base64data) {
         while (base64data.length % 4 !== 0) {
             base64data += '=';
         }
         return base64data;
     }
 
-    processJWTToken(jwt: any, nonceKey: string): any {
+    /**
+     * Executes `processJWTToken` to handle process jwt token.
+     * @zh 执行 `processJWTToken`，用于处理JWT令牌。
+     * @param jwt - jwt parameter (`any`) / jwt参数（`any`）
+     * @param nonceKey - nonce key parameter (`string`) / nonce键参数（`string`）
+     * @returns Result of type `any` / 类型为 `any` 的返回值
+     */
+    processJWTToken(jwt, nonceKey: string) {
         if (jwt) {
             const jwtArray = jwt.split('.');
             const headerBase64 = this.padBase64(jwtArray[0]);
@@ -196,7 +314,7 @@ export class Oauth2Auth  {
 
             if (payload.nonce !== savedNonce) {
                 console.log('Failing nonce JWT is not corresponding' + payload.nonce);
-                return;
+                return undefined;
             }
 
             return {
@@ -205,8 +323,14 @@ export class Oauth2Auth  {
                 header: header
             };
         }
+        return undefined;
     }
 
+    /**
+     * Executes `b64DecodeUnicode` to handle b64 decode unicode.
+     * @zh 执行 `b64DecodeUnicode`，用于b64解码Unicode。
+     * @param b64string - b64string parameter (`string`) / b64string参数（`string`）
+     */
     b64DecodeUnicode(b64string: string) {
         const base64 = b64string.replace(/\-/g, '+').replace(/\_/g, '/');
         return decodeURIComponent(
@@ -219,12 +343,25 @@ export class Oauth2Auth  {
         );
     }
 
+    /**
+     * Executes `storeIdToken` to handle store id token.
+     * @zh 执行 `storeIdToken`，用于状态仓库唯一标识令牌。
+     * @param idToken - id token parameter (`string`) / 唯一标识令牌参数（`string`）
+     * @param exp - exp parameter (`number`) / exp参数（`number`）
+     */
     storeIdToken(idToken: string, exp: number) {
         this.storage.set('id_token', idToken);
         this.storage.set('id_token_expires_at', Number(exp * 1000).toString());
         this.storage.set('id_token_stored_at', Date.now().toString());
     }
 
+    /**
+     * Executes `storeAccessToken` to handle store access token.
+     * @zh 执行 `storeAccessToken`，用于状态仓库Access令牌。
+     * @param accessToken - access token parameter (`string`) / access令牌参数（`string`）
+     * @param expiresIn - expires in parameter (`number`) / expires在参数（`number`）
+     * @param refreshToken - refresh token parameter (`string`) / 刷新令牌参数（`string`）
+     */
     storeAccessToken(accessToken: string, expiresIn: number, refreshToken?: string) {
         this.storage.set('access_token', accessToken);
         if (refreshToken) {
@@ -247,16 +384,30 @@ export class Oauth2Auth  {
         this.setToken(accessToken, refreshToken);
     }
 
+    /**
+     * Executes `saveUsername` to handle save username.
+     * @zh 执行 `saveUsername`，用于保存用户名。
+     * @param username - username parameter (`string`) / 用户名参数（`string`）
+     */
     saveUsername(username: string) {
          this.storage.set('USERNAME', username);
     }
 
+    /**
+     * Executes `implicitLogin` to handle implicit login.
+     * @zh 执行 `implicitLogin`，用于implicitLogin。
+     */
     implicitLogin() {
         if (!this.isValidToken() || !this.isValidAccessToken()) {
             this.redirectLogin();
         }
     }
 
+    /**
+     * Executes `isValidToken` to handle is valid token.
+     * @zh 执行 `isValidToken`，用于是否为有效令牌。
+     * @returns Result of type `boolean` / 类型为 `boolean` 的返回值
+     */
     isValidToken(): boolean {
         let validToken = false;
         if (this.getIdToken()) {
@@ -272,8 +423,17 @@ export class Oauth2Auth  {
     // Safety margin so a client clock running slightly ahead of the auth server -- or the
     // few ms between this check and the request actually reaching the server -- doesn't
     // let an about-to-expire token through as "valid".
+    /**
+     * Property `ACCESS_TOKEN_EXPIRY_BUFFER_MS` (`number`) storing access token expiry buffer ms (default: `30000`).
+     * @zh 属性 `ACCESS_TOKEN_EXPIRY_BUFFER_MS`（类型：`number`），用于存储或配置ACCESS令牌EXPIRY缓冲区毫秒（默认值：`30000`）。
+     */
     private static readonly ACCESS_TOKEN_EXPIRY_BUFFER_MS = 30000;
 
+    /**
+     * Executes `isValidAccessToken` to handle is valid access token.
+     * @zh 执行 `isValidAccessToken`，用于是否为有效Access令牌。
+     * @returns Result of type `boolean` / 类型为 `boolean` 的返回值
+     */
     isValidAccessToken(): boolean {
         let validAccessToken = false;
         if (this.getAccessToken()) {
@@ -286,14 +446,28 @@ export class Oauth2Auth  {
         return validAccessToken;
     }
 
+    /**
+     * Executes `getIdToken` to handle get id token.
+     * @zh 执行 `getIdToken`，用于获取唯一标识令牌。
+     * @returns Result of type `string` / 类型为 `string` 的返回值
+     */
     getIdToken(): string {
         return this.storage.get('id_token');
     }
 
+    /**
+     * Executes `getAccessToken` to handle get access token.
+     * @zh 执行 `getAccessToken`，用于获取Access令牌。
+     * @returns Result of type `string` / 类型为 `string` 的返回值
+     */
     getAccessToken(): string {
         return this.storage.get('access_token');
     }
 
+    /**
+     * Executes `redirectLogin` to handle redirect login.
+     * @zh 执行 `redirectLogin`，用于重定向Login。
+     */
     redirectLogin(): void {
       let oauth2 =this.config.getSettings('oauth2');
         if (oauth2.implicitFlow && typeof window !== 'undefined') {
@@ -303,10 +477,19 @@ export class Oauth2Auth  {
         }
     }
 
+    /**
+     * Executes `isRedirectionUrl` to handle is redirection url.
+     * @zh 执行 `isRedirectionUrl`，用于是否为Redirection链接地址。
+     */
     isRedirectionUrl() {
         return window.location.hash && window.location.hash.split('&')[0].indexOf('session_state') === -1;
     }
 
+    /**
+     * Executes `genNonce` to handle gen nonce.
+     * @zh 执行 `genNonce`，用于genNonce。
+     * @returns Result of type `string` / 类型为 `string` 的返回值
+     */
     genNonce(): string {
         let text = '';
         const possible =
@@ -325,6 +508,11 @@ export class Oauth2Auth  {
         return text;
     }
 
+    /**
+     * Executes `composeImplicitLoginUrl` to handle compose implicit login url.
+     * @zh 执行 `composeImplicitLoginUrl`，用于composeImplicitLogin链接地址。
+     * @returns Result of type `string` / 类型为 `string` 的返回值
+     */
     composeImplicitLoginUrl(): string {
        let oauth2 =this.config.getSettings('oauth2');
         let nonce = this.genNonce();
@@ -346,6 +534,11 @@ export class Oauth2Auth  {
             encodeURIComponent(nonce);
     }
 
+    /**
+     * Executes `composeIframeLoginUrl` to handle compose iframe login url.
+     * @zh 执行 `composeIframeLoginUrl`，用于composeIframeLogin链接地址。
+     * @returns Result of type `string` / 类型为 `string` 的返回值
+     */
     composeIframeLoginUrl(): string {
         let nonce = this.genNonce();
         let oauth2 =this.config.getSettings('oauth2');
@@ -366,14 +559,31 @@ export class Oauth2Auth  {
             '&prompt=none';
     }
 
+    /**
+     * Executes `hasHashCharacter` to handle has hash character.
+     * @zh 执行 `hasHashCharacter`，用于是否包含Hash字符。
+     * @param hash - hash parameter (`string`) / hash参数（`string`）
+     * @returns Result of type `boolean` / 类型为 `boolean` 的返回值
+     */
     hasHashCharacter(hash: string): boolean {
         return hash.indexOf('#') === 0;
     }
 
+    /**
+     * Executes `startWithHashRoute` to handle start with hash route.
+     * @zh 执行 `startWithHashRoute`，用于开始带有HashRoute。
+     * @param hash - hash parameter (`string`) / hash参数（`string`）
+     */
     startWithHashRoute(hash: string) {
         return hash.startsWith('#/');
     }
 
+    /**
+     * Executes `getHashFragmentParams` to handle get hash fragment params.
+     * @zh 执行 `getHashFragmentParams`，用于获取HashFragment参数集合。
+     * @param externalHash - external hash parameter (`string`) / 外部Hash参数（`string`）
+     * @returns Result of type `string` / 类型为 `string` 的返回值
+     */
     getHashFragmentParams(externalHash: string): string {
         let hashFragmentParams = null;
         if (typeof window !== 'undefined') {
@@ -402,7 +612,13 @@ export class Oauth2Auth  {
         return hashFragmentParams;
     }
 
-    parseQueryString(queryString: string): any {
+    /**
+     * Executes `parseQueryString` to handle parse query string.
+     * @zh 执行 `parseQueryString`，用于解析查询字符串。
+     * @param queryString - query string parameter (`string`) / 查询字符串参数（`string`）
+     * @returns Result of type `any` / 类型为 `any` 的返回值
+     */
+    parseQueryString(queryString: string) {
         const data: { [key: string]: Object } = {};
         let pairs, pair, separatorIndex, escapedKey, escapedValue, key, value;
 
@@ -435,6 +651,10 @@ export class Oauth2Auth  {
         return data;
     }
 
+    /**
+     * Executes `silentRefresh` to handle silent refresh.
+     * @zh 执行 `silentRefresh`，用于silent刷新。
+     */
     silentRefresh(): void {
       let oauth2 =this.config.getSettings('oauth2');
         if (typeof document === 'undefined') {
@@ -453,13 +673,21 @@ export class Oauth2Auth  {
         }, oauth2.refreshTokenTimeout);
     }
 
+    /**
+     * Executes `removeHashFromSilentIframe` to handle remove hash from silent iframe.
+     * @zh 执行 `removeHashFromSilentIframe`，用于移除Hash从SilentIframe。
+     */
     removeHashFromSilentIframe() {
-        let iframe: any = document.getElementById('silent_refresh_token_iframe');
+        let iframe = document.getElementById('silent_refresh_token_iframe') as HTMLIFrameElement;
         if (iframe && iframe.contentWindow.location.hash) {
             iframe.contentWindow.location.hash = '';
         }
     }
 
+    /**
+     * Executes `createIframe` to handle create iframe.
+     * @zh 执行 `createIframe`，用于创建Iframe。
+     */
     createIframe() {
         const iframe = document.createElement('iframe');
         iframe.id = 'silent_refresh_token_iframe';
@@ -469,7 +697,7 @@ export class Oauth2Auth  {
         document.body.appendChild(iframe);
 
         this.iFrameHashListener = () => {
-            let silentRefreshTokenIframe: any = document.getElementById('silent_refresh_token_iframe');
+            let silentRefreshTokenIframe = document.getElementById('silent_refresh_token_iframe') as HTMLIFrameElement;
             let hash = silentRefreshTokenIframe.contentWindow.location.hash;
             try {
                 this.checkFragment(this.config.getSettings('oauth2'), 'refresh_nonce', hash);
@@ -481,6 +709,10 @@ export class Oauth2Auth  {
         iframe.addEventListener('load', this.iFrameHashListener);
     }
 
+    /**
+     * Executes `destroyIframe` to handle destroy iframe.
+     * @zh 执行 `destroyIframe`，用于销毁Iframe。
+     */
     destroyIframe() {
         const iframe = document.getElementById('silent_refresh_token_iframe');
 
@@ -490,7 +722,14 @@ export class Oauth2Auth  {
         }
     }
 
-    login(username: string, password: string): Promise<any> {
+    /**
+     * Executes `login` to handle login.
+     * @zh 执行 `login`，用于login。
+     * @param username - username parameter (`string`) / 用户名参数（`string`）
+     * @param password - password parameter (`string`) / 密码参数（`string`）
+     * @returns Result of type `Promise<any>` / 类型为 `Promise<any>` 的返回值
+     */
+    login(username: string, password: string) {
       let oauth2 =this.config.getSettings('oauth2');
       this.invalidateSession();
 
@@ -504,9 +743,9 @@ export class Oauth2Auth  {
 
 
         let promise = new Promise((resolve, reject) => {
-           this.http.post<any>(this.discovery.loginUrl, body
+           this.http.post(this.discovery.loginUrl, body
         ).toPromise().then(
-                (data: any) => {
+                (data: { access_token?: string; expires_in?: number; refresh_token?: string }) => {
                     this.saveUsername(username);
                      this.storeAccessToken(data.access_token, data.expires_in, data.refresh_token);
                      let userId=this.jwtHelperService.getValueFromToken(data.access_token,'userId');
@@ -526,6 +765,10 @@ export class Oauth2Auth  {
         });
         return promise;
     }
+    /**
+     * Executes `pollingRefreshToken` to handle polling refresh token.
+     * @zh 执行 `pollingRefreshToken`，用于polling刷新令牌。
+     */
     pollingRefreshToken() {
       let oauth2 =this.config.getSettings('oauth2');
         clearInterval(this.refreshTokenIntervalPolling);
@@ -547,9 +790,18 @@ export class Oauth2Auth  {
         }, oauth2.refreshTokenTimeout);
         // this.refreshTokenIntervalPolling.unref();
     }
-  private refreshTokenPromise: Promise<any> = null;
+  /**
+   * Property `refreshTokenPromise` (`Promise<any>`) storing refresh token promise (default: `null`).
+   * @zh 属性 `refreshTokenPromise`（类型：`Promise<any>`），用于存储或配置刷新令牌Promise（默认值：`null`）。
+   */
+  private refreshTokenPromise = null;
 
-  refreshToken(): Promise<any> {
+  /**
+   * Executes `refreshToken` to handle refresh token.
+   * @zh 执行 `refreshToken`，用于刷新令牌。
+   * @returns Result of type `Promise<any>` / 类型为 `Promise<any>` 的返回值
+   */
+  refreshToken() {
 
     if (this.refreshTokenPromise) {
         return this.refreshTokenPromise;
@@ -585,7 +837,7 @@ export class Oauth2Auth  {
             body,
             { headers: headers }
         ).toPromise().then(
-            (data: any) => {
+            (data: { access_token?: string; expires_in?: number; refresh_token?: string }) => {
                 this.setToken(data.access_token, data.refresh_token);
 
                 this.storeAccessToken(data.access_token, data.expires_in, data.refresh_token);
@@ -616,6 +868,11 @@ export class Oauth2Auth  {
     return this.refreshTokenPromise;
 }
 
+    /**
+     * Executes `universalBtoa` to handle universal btoa.
+     * @zh 执行 `universalBtoa`，用于universalBtoa。
+     * @param stringToConvert - string to convert parameter (`string`) / 字符串转换为转换参数（`string`）
+     */
     universalBtoa(stringToConvert: string) {
         try {
             return window.btoa(stringToConvert);
@@ -623,6 +880,12 @@ export class Oauth2Auth  {
             return Buffer.from(stringToConvert).toString('base64');
         }
     }
+    /**
+     * Executes `setToken` to handle set token.
+     * @zh 执行 `setToken`，用于集合令牌。
+     * @param token - token parameter (`string`) / 令牌参数（`string`）
+     * @param refreshToken - refresh token parameter (`string`) / 刷新令牌参数（`string`）
+     */
     setToken(token: string, refreshToken: string) {
         this.authentications.oauth2.accessToken = token;
         // Many OAuth2 servers don't rotate refresh_token on every access-token refresh
@@ -638,18 +901,42 @@ export class Oauth2Auth  {
           this.subject.next('token_issued');
         }
     }
+    /**
+     * Executes `getToken` to handle get token.
+     * @zh 执行 `getToken`，用于获取令牌。
+     * @returns Result of type `string` / 类型为 `string` 的返回值
+     */
     getToken(): string {
         return this.token;
     }
+    /**
+     * Executes `getAuthentication` to handle get authentication.
+     * @zh 执行 `getAuthentication`，用于获取身份认证。
+     * @returns Result of type `Authentication` / 类型为 `Authentication` 的返回值
+     */
     getAuthentication(): Authentication {
         return this.authentications;
     }
+    /**
+     * Executes `changeHost` to handle change host.
+     * @zh 执行 `changeHost`，用于变更宿主。
+     * @param host - host parameter (`string`) / 宿主参数（`string`）
+     */
     changeHost(host: string) {
         this.config.setSetting('hostOauth2', host);
     }
+    /**
+     * Executes `isLoggedIn` to handle is logged in.
+     * @zh 执行 `isLoggedIn`，用于是否为Logged在。
+     * @returns Result of type `boolean` / 类型为 `boolean` 的返回值
+     */
     isLoggedIn(): boolean {
         return !!this.authentications.oauth2.accessToken;
     }
+     /**
+      * Executes `logOut` to handle log out.
+      * @zh 执行 `logOut`，用于日志输出。
+      */
      logOut() {
         let oauth2 =this.config.getSettings('oauth2');
         this.checkAccessToken = true;
@@ -673,6 +960,10 @@ export class Oauth2Auth  {
         }
     }
 
+    /**
+     * Executes `invalidateSession` to handle invalidate session.
+     * @zh 执行 `invalidateSession`，用于invalidate会话。
+     */
     invalidateSession() {
         clearTimeout(this.refreshTokenTimeoutIframe);
         clearInterval(this.refreshTokenIntervalPolling);

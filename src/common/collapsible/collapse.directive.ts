@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Module `src/common/collapsible/collapse.directive.ts` providing collapse directive definitions and implementation.
+ * @zh 模块文件 `src/common/collapsible/collapse.directive.ts`，提供折叠指令相关的定义与实现。
+ */
+
 import {  Directive,  Input,  Output,  EventEmitter,  HostListener,  ElementRef,  Renderer2} from '@angular/core';
 
 /**
@@ -24,6 +29,10 @@ export class CollapseDirective {
   set target(value: Element) {
     this._target = value;
   }
+  /**
+   * Property `_target` (`Element`) storing target.
+   * @zh 属性 `_target`（类型：`Element`），用于存储或配置目标。
+   */
   private _target: Element;
 
   /**
@@ -43,6 +52,10 @@ export class CollapseDirective {
     this._collapsed = collapsed;
     this.toggle.emit(collapsed);
   }
+  /**
+   * Property `_collapsed` (`boolean`) storing collapsed (default: `false`).
+   * @zh 属性 `_collapsed`（类型：`boolean`），用于存储或配置已折叠（默认值：`false`）。
+   */
   private _collapsed = false;
 
   /**
@@ -60,13 +73,27 @@ export class CollapseDirective {
     this.collapsed = !this.collapsed;
   }
 
+  /**
+   * Creates an instance of `CollapseDirective` and initializes its dependencies and internal state.
+   * @zh 创建 `CollapseDirective` 实例，并初始化其依赖项与内部状态。
+   * @param renderer - Injected or initial renderer (`Renderer2`) / 注入或传入的渲染器（`Renderer2`）
+   * @param el - Injected or initial el (`ElementRef`) / 注入或传入的DOM元素（`ElementRef`）
+   */
   constructor(private renderer: Renderer2, private el: ElementRef) { }
 
+  /**
+   * Executes `collapseTarget` to handle collapse target.
+   * @zh 执行 `collapseTarget`，用于折叠目标。
+   */
   private collapseTarget() {
     this.renderer.addClass(this.target, 'dui-collapsed');
     this.renderer.addClass(this.el.nativeElement, 'collapsed');
   }
 
+  /**
+   * Executes `expandTarget` to handle expand target.
+   * @zh 执行 `expandTarget`，用于展开目标。
+   */
   private expandTarget() {
     this.renderer.removeClass(this.target, 'dui-collapsed');
     this.renderer.removeClass(this.el.nativeElement, 'collapsed');

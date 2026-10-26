@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Module `src/theme/palettes/mat-orange.ts` providing mat orange definitions and implementation.
+ * @zh 模块文件 `src/theme/palettes/mat-orange.ts`，提供Materialorange相关的定义与实现。
+ */
+
 import { Palette } from '../interfaces/palette';
 
 import {
@@ -5,6 +10,10 @@ import {
     lightPrimaryText
 } from '../constants';
 
+/**
+ * Constant/variable `matOrange` defining mat orange in `src/theme/palettes`.
+ * @zh 常量/变量 `matOrange`，定义 `src/theme/palettes` 中的MaterialOrange。
+ */
 export const matOrange: Palette = {
     50: '#fff3e0',
     100: '#ffe0b2',

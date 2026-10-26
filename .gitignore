@@ -9,3 +9,4 @@ e2e/.editorconfig
 .nx/cache
 .nx/workspace-data
 .vscode/
+projects/testdui/tools/.dist-tools/

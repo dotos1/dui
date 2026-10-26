@@ -1,8 +1,21 @@
+/**
+ * @fileoverview Module `src/core/color/conversion.ts` providing conversion definitions and implementation.
+ * @zh 模块文件 `src/core/color/conversion.ts`，提供conversion相关的定义与实现。
+ */
+
 import { bound01, pad2 } from './util';
 import { RGB, HSL, HSV, Numberify } from './interfaces';
 
 
 
+ /**
+  * Executes `rgbToRgb1` to handle rgb to rgb1.
+  * @zh 执行 `rgbToRgb1`，用于RGB颜色转换为Rgb1。
+  * @param r - r parameter (`number`) / r参数（`number`）
+  * @param g - g parameter (`number`) / g参数（`number`）
+  * @param b - b parameter (`number`) / b参数（`number`）
+  * @returns Result of type `Numberify<RGB>` / 类型为 `Numberify<RGB>` 的返回值
+  */
  export function rgbToRgb1(r: number, g: number, b: number): Numberify<RGB> {
   return {
     r: Math.round( 255*r),
@@ -11,6 +24,14 @@ import { RGB, HSL, HSV, Numberify } from './interfaces';
   };
 }
 
+/**
+ * Executes `rgbToRgb` to handle rgb to rgb.
+ * @zh 执行 `rgbToRgb`，用于RGB颜色转换为RGB颜色。
+ * @param r - r parameter (`number`) / r参数（`number`）
+ * @param g - g parameter (`number`) / g参数（`number`）
+ * @param b - b parameter (`number`) / b参数（`number`）
+ * @returns Result of type `Numberify<RGB>` / 类型为 `Numberify<RGB>` 的返回值
+ */
 export function rgbToRgb(r: number, g: number, b: number): Numberify<RGB> {
   return {
     r: bound01(r, 255) * 255,
@@ -23,6 +44,8 @@ export function rgbToRgb(r: number, g: number, b: number): Numberify<RGB> {
  * Converts an RGB color value to HSL.
  * *Assumes:* r, g, and b are contained in [0, 255] or [0, 1]
  * *Returns:* { h, s, l } in [0,1]
+
+ * @zh 执行 `rgbToHsl`，用于RGB颜色转换为HSL颜色。
  */
 export function rgbToHsl(r: number, g: number, b: number): Numberify<HSL> {
   r = bound01(r, 255);
@@ -61,6 +84,14 @@ export function rgbToHsl(r: number, g: number, b: number): Numberify<HSL> {
   return { h, s, l };
 }
 
+/**
+ * Executes `hue2rgb` to handle hue2rgb.
+ * @zh 执行 `hue2rgb`，用于hue2rgb。
+ * @param p - p parameter (`number`) / p参数（`number`）
+ * @param q - q parameter (`number`) / q参数（`number`）
+ * @param t - t parameter (`number`) / t参数（`number`）
+ * @returns Result of type `number` / 类型为 `number` 的返回值
+ */
 function hue2rgb(p: number, q: number, t: number): number {
   if (t < 0) {
     t += 1;
@@ -90,6 +121,8 @@ function hue2rgb(p: number, q: number, t: number): number {
  *
  * *Assumes:* h is contained in [0, 1] or [0, 360] and s and l are contained [0, 1] or [0, 100]
  * *Returns:* { r, g, b } in the set [0, 255]
+
+ * @zh 执行 `hslToRgb`，用于HSL颜色转换为RGB颜色。
  */
 export function hslToRgb(h: number, s: number, l: number): Numberify<RGB> {
   let r;
@@ -121,6 +154,8 @@ export function hslToRgb(h: number, s: number, l: number): Numberify<RGB> {
  *
  * *Assumes:* r, g, and b are contained in the set [0, 255] or [0, 1]
  * *Returns:* { h, s, v } in [0,1]
+
+ * @zh 执行 `rgbToHsv`，用于RGB颜色转换为HSV颜色。
  */
 export function rgbToHsv(r: number, g: number, b: number): Numberify<HSV> {
   r = bound01(r, 255);
@@ -162,6 +197,8 @@ export function rgbToHsv(r: number, g: number, b: number): Numberify<HSV> {
  *
  * *Assumes:* h is contained in [0, 1] or [0, 360] and s and v are contained in [0, 1] or [0, 100]
  * *Returns:* { r, g, b } in the set [0, 255]
+
+ * @zh 执行 `hsvToRgb`，用于HSV颜色转换为RGB颜色。
  */
 export function hsvToRgb(h: number, s: number, v: number): Numberify<RGB> {
   h = bound01(h, 360) * 6;
@@ -186,6 +223,8 @@ export function hsvToRgb(h: number, s: number, v: number): Numberify<RGB> {
  *
  * Assumes r, g, and b are contained in the set [0, 255]
  * Returns a 3 or 6 character hex
+
+ * @zh 执行 `rgbToHex`，用于RGB颜色转换为十六进制颜色。
  */
 export function rgbToHex(r: number, g: number, b: number, allow3Char: boolean): string {
   const hex = [
@@ -208,6 +247,16 @@ export function rgbToHex(r: number, g: number, b: number, allow3Char: boolean): 
 }
 
 
+/**
+ * Executes `rgbaToHex` to handle rgba to hex.
+ * @zh 执行 `rgbaToHex`，用于RGBA颜色转换为十六进制颜色。
+ * @param r - r parameter (`number`) / r参数（`number`）
+ * @param g - g parameter (`number`) / g参数（`number`）
+ * @param b - b parameter (`number`) / b参数（`number`）
+ * @param a - a parameter (`number`) / a参数（`number`）
+ * @param allow4Char - allow4 char parameter (`boolean`) / allow4字符参数（`boolean`）
+ * @returns Result of type `string` / 类型为 `string` 的返回值
+ */
 export function rgbaToHex(r: number, g: number, b: number, a: number, allow4Char: boolean): string {
   const hex = [
     pad2(Math.round(r).toString(16)),
@@ -233,6 +282,8 @@ export function rgbaToHex(r: number, g: number, b: number, a: number, allow4Char
 /**
  * Converts an RGBA color to an ARGB Hex8 string
  * Rarely used, but required for "toFilter()"
+
+ * @zh 执行 `rgbaToArgbHex`，用于RGBA颜色转换为Argb十六进制颜色。
  */
 export function rgbaToArgbHex(r: number, g: number, b: number, a: number): string {
   const hex = [
@@ -245,17 +296,26 @@ export function rgbaToArgbHex(r: number, g: number, b: number, a: number): strin
   return hex.join('');
 }
 
-/** Converts a decimal to a hex value */
+/**
+ * Converts a decimal to a hex value
+ * @zh 执行 `convertDecimalToHex`，用于转换Decimal转换为十六进制颜色。
+ */
 export function convertDecimalToHex(d: string | number): string {
   return Math.round(parseFloat(d as string) * 255).toString(16);
 }
 
-/** Converts a hex value to a decimal */
+/**
+ * Converts a hex value to a decimal
+ * @zh 执行 `convertHexToDecimal`，用于转换十六进制颜色转换为Decimal。
+ */
 export function convertHexToDecimal(h: string): number {
   return parseIntFromHex(h) / 255;
 }
 
-/** Parse a base-16 hex value into a base-10 integer */
+/**
+ * Parse a base-16 hex value into a base-10 integer
+ * @zh 执行 `parseIntFromHex`，用于解析Int从十六进制颜色。
+ */
 export function parseIntFromHex(val: string): number {
   return parseInt(val, 16);
 }

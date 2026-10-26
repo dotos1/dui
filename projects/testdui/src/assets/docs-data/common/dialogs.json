@@ -23,20 +23,20 @@
         {
           "name": "title",
           "type": "string",
-          "description": null,
+          "description": "Property `title` (`string`) storing title.",
           "descriptionZh": "对话框标题。"
         },
         {
           "name": "message",
           "type": "string",
-          "description": null,
+          "description": "Property `message` (`string`) storing message.",
           "descriptionZh": "对话框消息内容。"
         },
         {
           "name": "closeButton",
           "type": "string",
           "default": "'CLOSE'",
-          "description": null,
+          "description": "Property `closeButton` (`string`) storing close button (default: `'CLOSE'`).",
           "descriptionZh": "关闭按钮的文字，默认为 `'CLOSE'`。"
         }
       ]
@@ -70,34 +70,34 @@
         {
           "name": "title",
           "type": "string",
-          "description": null,
+          "description": "Property `title` (`string`) storing title.",
           "descriptionZh": "对话框标题。"
         },
         {
           "name": "message",
           "type": "string",
-          "description": null,
+          "description": "Property `message` (`string`) storing message.",
           "descriptionZh": "对话框消息内容。"
         },
         {
           "name": "cancelButton",
           "type": "any",
           "default": "'CANCEL'",
-          "description": null,
+          "description": "Property `cancelButton` (`string`) storing cancel button (default: `'CANCEL'`).",
           "descriptionZh": "取消按钮的文字，默认为 `'CANCEL'`。"
         },
         {
           "name": "acceptButton",
           "type": "any",
           "default": "'ACCEPT'",
-          "description": null,
+          "description": "Property `acceptButton` (`string`) storing accept button (default: `'ACCEPT'`).",
           "descriptionZh": "确认按钮的文字，默认为 `'ACCEPT'`。"
         },
         {
           "name": "isDestructive",
           "type": "any",
           "default": "false",
-          "description": null,
+          "description": "Property `isDestructive` (`boolean`) storing is destructive (default: `false`).",
           "descriptionZh": "是否将确认按钮渲染为破坏性操作样式（如红色警示色）。"
         }
       ]
@@ -139,7 +139,7 @@
           "params": [],
           "returnType": "void",
           "description": "Wrapper function over the closeAll() method in MatDialog.\nCloses all of the currently-open dialogs.",
-          "descriptionZh": null
+          "descriptionZh": "执行 `closeAll`，用于关闭全部。"
         },
         {
           "name": "openAlert",
@@ -163,7 +163,7 @@
           ],
           "returnType": "MatDialogRef<ConfirmDialogComponent>",
           "description": "params:\n- config: IConfirmConfig {\n    message: string;\n    title?: string;\n    viewContainerRef?: ViewContainerRef;\n    acceptButton?: string;\n    cancelButton?: string;\n    isDestructive?: boolean;\n}\n\nOpens a confirm dialog with the provided config.\nReturns an MatDialogRef<TdConfirmDialogComponent> object.",
-          "descriptionZh": null
+          "descriptionZh": "执行 `openConfirm`，用于打开Confirm。"
         },
         {
           "name": "openPrompt",
@@ -175,7 +175,7 @@
           ],
           "returnType": "MatDialogRef<PromptDialogComponent>",
           "description": "params:\n- config: IPromptConfig {\n    message: string;\n    title?: string;\n    value?: string;\n    viewContainerRef?: ViewContainerRef;\n    acceptButton?: string;\n    cancelButton?: string;\n}\n\nOpens a prompt dialog with the provided config.\nReturns an MatDialogRef<TdPromptDialogComponent> object.",
-          "descriptionZh": null
+          "descriptionZh": "执行 `openPrompt`，用于打开Prompt。"
         },
         {
           "name": "openDraggable",
@@ -187,7 +187,7 @@
           ],
           "returnType": "IDraggableRefs<T>",
           "description": "Opens a draggable dialog containing the given component.",
-          "descriptionZh": null
+          "descriptionZh": "执行 `openDraggable`，用于打开是否可拖拽。"
         },
         {
           "name": "openStatus",
@@ -218,8 +218,8 @@
           "name": "entryComponents",
           "type": "any",
           "default": "DIALOGS_ENTRY_COMPONENTS",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `entryComponents` (`any`) storing entry components (default: `DIALOGS_ENTRY_COMPONENTS`).",
+          "descriptionZh": "属性 `entryComponents`（类型：`any`），用于存储或配置条目组件列表（默认值：`DIALOGS_ENTRY_COMPONENTS`）。"
         }
       ]
     },
@@ -227,7 +227,7 @@
       "name": "duiDialogActionsDirective",
       "kind": "directive",
       "selector": "[duiDialogActions]",
-      "summary": null,
+      "summary": "Angular directive `duiDialogActionsDirective` (selector: '[duiDialogActions]') attaching dui dialog actions directive behavior to host DOM elements.",
       "summaryZh": "标记 `dui-dialog` 内容投影中的操作按钮区域。",
       "sourceFile": "src/common/dialogs/dialog.component.ts",
       "inputs": [],
@@ -262,25 +262,25 @@
         {
           "name": "dialogTitle",
           "type": "QueryList<duiDialogTitleDirective>",
-          "description": null,
+          "description": "Template/content query reference `dialogTitle` (`@ContentChildren`) targeting dialog title.",
           "descriptionZh": "投影进来的标题区域（`duiDialogTitle`），最多允许一个。"
         },
         {
           "name": "dialogContent",
           "type": "QueryList<duiDialogContentDirective>",
-          "description": null,
+          "description": "Template/content query reference `dialogContent` (`@ContentChildren`) targeting dialog content.",
           "descriptionZh": "投影进来的内容区域（`duiDialogContent`），最多允许一个。"
         },
         {
           "name": "dialogActions",
           "type": "QueryList<duiDialogActionsDirective>",
-          "description": null,
+          "description": "Template/content query reference `dialogActions` (`@ContentChildren`) targeting dialog actions.",
           "descriptionZh": "投影进来的操作按钮区域（`duiDialogActions`），最多允许一个。"
         },
         {
           "name": "dialogStatus",
           "type": "QueryList<duiDialogStatusDirective>",
-          "description": null,
+          "description": "Template/content query reference `dialogStatus` (`@ContentChildren`) targeting dialog status.",
           "descriptionZh": "投影进来的状态提示区域（`duiDialogStatus`），最多允许一个。"
         }
       ]
@@ -289,7 +289,7 @@
       "name": "duiDialogContentDirective",
       "kind": "directive",
       "selector": "[duiDialogContent]",
-      "summary": null,
+      "summary": "Angular directive `duiDialogContentDirective` (selector: '[duiDialogContent]') attaching dui dialog content directive behavior to host DOM elements.",
       "summaryZh": "标记 `dui-dialog` 内容投影中的主体内容区域。",
       "sourceFile": "src/common/dialogs/dialog.component.ts",
       "inputs": [],
@@ -301,7 +301,7 @@
       "name": "duiDialogStatusDirective",
       "kind": "directive",
       "selector": "[duiDialogStatus]",
-      "summary": null,
+      "summary": "Angular directive `duiDialogStatusDirective` (selector: '[duiDialogStatus]') attaching dui dialog status directive behavior to host DOM elements.",
       "summaryZh": "标记 `dui-dialog` 内容投影中的状态提示区域。",
       "sourceFile": "src/common/dialogs/dialog.component.ts",
       "inputs": [],
@@ -313,7 +313,7 @@
       "name": "duiDialogTitleDirective",
       "kind": "directive",
       "selector": "[duiDialogTitle]",
-      "summary": null,
+      "summary": "Angular directive `duiDialogTitleDirective` (selector: '[duiDialogTitle]') attaching dui dialog title directive behavior to host DOM elements.",
       "summaryZh": "标记 `dui-dialog` 内容投影中的标题区域。",
       "sourceFile": "src/common/dialogs/dialog.component.ts",
       "inputs": [],
@@ -324,79 +324,266 @@
     {
       "name": "IAlertConfig",
       "kind": "interface",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Interface `IAlertConfig` defining the contract and properties for i alert config.",
+      "summaryZh": "接口 `IAlertConfig`，定义I警告框配置的数据结构契约与属性规范。",
       "sourceFile": "src/common/dialogs/services/dialog.service.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
-      "properties": []
+      "properties": [
+        {
+          "name": "closeButton",
+          "type": "string",
+          "description": "Property `closeButton` (`string`) storing close button.",
+          "descriptionZh": "属性 `closeButton`（类型：`string`），用于存储或配置关闭按钮。"
+        }
+      ]
     },
     {
       "name": "IConfirmConfig",
       "kind": "interface",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Interface `IConfirmConfig` defining the contract and properties for i confirm config.",
+      "summaryZh": "接口 `IConfirmConfig`，定义IConfirm配置的数据结构契约与属性规范。",
       "sourceFile": "src/common/dialogs/services/dialog.service.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
-      "properties": []
+      "properties": [
+        {
+          "name": "acceptButton",
+          "type": "string",
+          "description": "Property `acceptButton` (`string`) storing accept button.",
+          "descriptionZh": "属性 `acceptButton`（类型：`string`），用于存储或配置accept按钮。"
+        },
+        {
+          "name": "cancelButton",
+          "type": "string",
+          "description": "Property `cancelButton` (`string`) storing cancel button.",
+          "descriptionZh": "属性 `cancelButton`（类型：`string`），用于存储或配置取消按钮。"
+        },
+        {
+          "name": "isDestructive",
+          "type": "boolean",
+          "description": "Property `isDestructive` (`boolean`) storing is destructive.",
+          "descriptionZh": "属性 `isDestructive`（类型：`boolean`），用于存储或配置是否为Destructive。"
+        }
+      ]
     },
     {
       "name": "IDialogConfig",
       "kind": "interface",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Interface `IDialogConfig` defining the contract and properties for i dialog config.",
+      "summaryZh": "接口 `IDialogConfig`，定义I对话框配置的数据结构契约与属性规范。",
       "sourceFile": "src/common/dialogs/services/dialog.service.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
-      "properties": []
+      "properties": [
+        {
+          "name": "title",
+          "type": "string",
+          "description": "Property `title` (`string`) storing title.",
+          "descriptionZh": "属性 `title`（类型：`string`），用于存储或配置标题。"
+        },
+        {
+          "name": "message",
+          "type": "string",
+          "description": "Property `message` (`string`) storing message.",
+          "descriptionZh": "属性 `message`（类型：`string`），用于存储或配置消息。"
+        },
+        {
+          "name": "viewContainerRef",
+          "type": "ViewContainerRef",
+          "description": "Property `viewContainerRef` (`ViewContainerRef`) storing view container ref.",
+          "descriptionZh": "属性 `viewContainerRef`（类型：`ViewContainerRef`），用于存储或配置视图容器引用。"
+        },
+        {
+          "name": "disableClose",
+          "type": "boolean",
+          "description": "Property `disableClose` (`boolean`) storing disable close.",
+          "descriptionZh": "属性 `disableClose`（类型：`boolean`），用于存储或配置禁用关闭。"
+        }
+      ]
     },
     {
       "name": "IDraggableConfig",
       "kind": "interface",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Interface `IDraggableConfig` defining the contract and properties for i draggable config.",
+      "summaryZh": "接口 `IDraggableConfig`，定义I是否可拖拽配置的数据结构契约与属性规范。",
       "sourceFile": "src/common/dialogs/services/dialog.service.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
-      "properties": []
+      "properties": [
+        {
+          "name": "component",
+          "type": "ComponentType<T>",
+          "description": "Property `component` (`ComponentType<T>`) storing component.",
+          "descriptionZh": "属性 `component`（类型：`ComponentType<T>`），用于存储或配置组件。"
+        },
+        {
+          "name": "config",
+          "type": "MatDialogConfig",
+          "description": "Property `config` (`MatDialogConfig`) storing config.",
+          "descriptionZh": "属性 `config`（类型：`MatDialogConfig`），用于存储或配置配置。"
+        },
+        {
+          "name": "constraint",
+          "type": "boolean",
+          "description": "Property `constraint` (`boolean`) storing constraint.",
+          "descriptionZh": "属性 `constraint`（类型：`boolean`），用于存储或配置constraint。"
+        },
+        {
+          "name": "dragHandleSelectors",
+          "type": "string[]",
+          "description": "Property `dragHandleSelectors` (`string[]`) storing drag handle selectors.",
+          "descriptionZh": "属性 `dragHandleSelectors`（类型：`string[]`），用于存储或配置拖拽连接手柄选择器。"
+        },
+        {
+          "name": "draggableClass",
+          "type": "string",
+          "description": "Property `draggableClass` (`string`) storing draggable class.",
+          "descriptionZh": "属性 `draggableClass`（类型：`string`），用于存储或配置是否可拖拽类名。"
+        }
+      ]
     },
     {
       "name": "IDraggableRefs",
       "kind": "interface",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Interface `IDraggableRefs` defining the contract and properties for i draggable refs.",
+      "summaryZh": "接口 `IDraggableRefs`，定义I是否可拖拽引用的数据结构契约与属性规范。",
       "sourceFile": "src/common/dialogs/services/dialog.service.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
-      "properties": []
+      "properties": [
+        {
+          "name": "matDialogRef",
+          "type": "MatDialogRef<T>",
+          "description": "Property `matDialogRef` (`MatDialogRef<T>`) storing mat dialog ref.",
+          "descriptionZh": "属性 `matDialogRef`（类型：`MatDialogRef<T>`），用于存储或配置Material对话框引用。"
+        },
+        {
+          "name": "dragRefSubject",
+          "type": "Subject<DragRef>",
+          "description": "Property `dragRefSubject` (`Subject<DragRef>`) storing drag ref subject.",
+          "descriptionZh": "属性 `dragRefSubject`（类型：`Subject<DragRef>`），用于存储或配置拖拽引用主题流。"
+        }
+      ]
     },
     {
       "name": "IPromptConfig",
       "kind": "interface",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Interface `IPromptConfig` defining the contract and properties for i prompt config.",
+      "summaryZh": "接口 `IPromptConfig`，定义IPrompt配置的数据结构契约与属性规范。",
       "sourceFile": "src/common/dialogs/services/dialog.service.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
-      "properties": []
+      "properties": [
+        {
+          "name": "value",
+          "type": "string|number",
+          "description": "Property `value` (`string|number`) storing value.",
+          "descriptionZh": "属性 `value`（类型：`string|number`），用于存储或配置值。"
+        },
+        {
+          "name": "minLength",
+          "type": "number",
+          "description": "Property `minLength` (`number`) storing min length.",
+          "descriptionZh": "属性 `minLength`（类型：`number`），用于存储或配置最小值长度。"
+        },
+        {
+          "name": "maxLength",
+          "type": "number",
+          "description": "Property `maxLength` (`number`) storing max length.",
+          "descriptionZh": "属性 `maxLength`（类型：`number`），用于存储或配置最大值长度。"
+        },
+        {
+          "name": "dataType",
+          "type": "string",
+          "description": "Property `dataType` (`string`) storing data type.",
+          "descriptionZh": "属性 `dataType`（类型：`string`），用于存储或配置数据类型。"
+        },
+        {
+          "name": "min",
+          "type": "number",
+          "description": "Property `min` (`number`) storing min.",
+          "descriptionZh": "属性 `min`（类型：`number`），用于存储或配置最小值。"
+        },
+        {
+          "name": "max",
+          "type": "number",
+          "description": "Property `max` (`number`) storing max.",
+          "descriptionZh": "属性 `max`（类型：`number`），用于存储或配置最大值。"
+        },
+        {
+          "name": "required",
+          "type": "boolean",
+          "description": "Property `required` (`boolean`) storing required.",
+          "descriptionZh": "属性 `required`（类型：`boolean`），用于存储或配置必填。"
+        },
+        {
+          "name": "pattern",
+          "type": "string | RegExp",
+          "description": "Property `pattern` (`string | RegExp`) storing pattern.",
+          "descriptionZh": "属性 `pattern`（类型：`string | RegExp`），用于存储或配置模式/图案。"
+        },
+        {
+          "name": "blankText",
+          "type": "string",
+          "description": "Property `blankText` (`string`) storing blank text.",
+          "descriptionZh": "属性 `blankText`（类型：`string`），用于存储或配置blank文本。"
+        },
+        {
+          "name": "maxLengthText",
+          "type": "string",
+          "description": "Property `maxLengthText` (`string`) storing max length text.",
+          "descriptionZh": "属性 `maxLengthText`（类型：`string`），用于存储或配置最大值长度文本。"
+        },
+        {
+          "name": "minLengthText",
+          "type": "string",
+          "description": "Property `minLengthText` (`string`) storing min length text.",
+          "descriptionZh": "属性 `minLengthText`（类型：`string`），用于存储或配置最小值长度文本。"
+        },
+        {
+          "name": "regexText",
+          "type": "string",
+          "description": "Property `regexText` (`string`) storing regex text.",
+          "descriptionZh": "属性 `regexText`（类型：`string`），用于存储或配置正则表达式文本。"
+        }
+      ]
     },
     {
       "name": "IStatusConfig",
       "kind": "interface",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Interface `IStatusConfig` defining the contract and properties for i status config.",
+      "summaryZh": "接口 `IStatusConfig`，定义I状态配置的数据结构契约与属性规范。",
       "sourceFile": "src/common/dialogs/services/dialog.service.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
-      "properties": []
+      "properties": [
+        {
+          "name": "state",
+          "type": "StatusDialogStates",
+          "description": "Property `state` (`StatusDialogStates`) storing state.",
+          "descriptionZh": "属性 `state`（类型：`StatusDialogStates`），用于存储或配置状态。"
+        },
+        {
+          "name": "details",
+          "type": "string",
+          "description": "Property `details` (`string`) storing details.",
+          "descriptionZh": "属性 `details`（类型：`string`），用于存储或配置详情列表。"
+        },
+        {
+          "name": "detailsLabels",
+          "type": "StatusDialogDetailsLabels",
+          "description": "Property `detailsLabels` (`StatusDialogDetailsLabels`) storing details labels.",
+          "descriptionZh": "属性 `detailsLabels`（类型：`StatusDialogDetailsLabels`），用于存储或配置详情列表标签。"
+        }
+      ]
     },
     {
       "name": "PromptDialogComponent",
@@ -427,33 +614,33 @@
         {
           "name": "title",
           "type": "string",
-          "description": null,
+          "description": "Property `title` (`string`) storing title.",
           "descriptionZh": "对话框标题。"
         },
         {
           "name": "message",
           "type": "string",
-          "description": null,
+          "description": "Property `message` (`string`) storing message.",
           "descriptionZh": "对话框消息内容。"
         },
         {
           "name": "name",
           "type": "string",
-          "description": null,
+          "description": "Property `name` (`string`) storing name.",
           "descriptionZh": "内部使用，字段名称。"
         },
         {
           "name": "cancelButton",
           "type": "any",
           "default": "'CANCEL'",
-          "description": null,
+          "description": "Property `cancelButton` (`string`) storing cancel button (default: `'CANCEL'`).",
           "descriptionZh": "取消按钮的文字，默认为 `'CANCEL'`。"
         },
         {
           "name": "acceptButton",
           "type": "any",
           "default": "'ACCEPT'",
-          "description": null,
+          "description": "Property `acceptButton` (`string`) storing accept button (default: `'ACCEPT'`).",
           "descriptionZh": "确认按钮的文字，默认为 `'ACCEPT'`。"
         },
         {
@@ -466,84 +653,84 @@
           "name": "minLengthText",
           "type": "string",
           "default": "'The minimum length for this field is {0}'",
-          "description": null,
+          "description": "Property `minLengthText` (`string`) storing min length text.",
           "descriptionZh": "输入内容短于 `minlength` 时显示的错误文案，`{0}` 会被替换为 `minlength`。"
         },
         {
           "name": "maxLengthText",
           "type": "string",
           "default": "'The maximum length for this field is {0}'",
-          "description": null,
+          "description": "Property `maxLengthText` (`string`) storing max length text.",
           "descriptionZh": "输入内容超过 `maxlength` 时显示的错误文案，`{0}` 会被替换为 `maxlength`。"
         },
         {
           "name": "pattern",
           "type": "string | RegExp",
           "default": "null",
-          "description": null,
+          "description": "Property `pattern` (`string | RegExp`) storing pattern (default: `null`).",
           "descriptionZh": "用于校验输入内容的正则表达式（或其字符串形式）。"
         },
         {
           "name": "regexText",
           "type": "string",
           "default": "' format is not correct'",
-          "description": null,
+          "description": "Property `regexText` (`string`) storing regex text (default: `' format is not correct'`).",
           "descriptionZh": "输入内容不匹配 `pattern` 时显示的错误文案。"
         },
         {
           "name": "blankText",
           "type": "string",
           "default": "' This field is can not be blank!'",
-          "description": null,
+          "description": "Property `blankText` (`string`) storing blank text (default: `' This field is can not be blank!'`).",
           "descriptionZh": "输入内容为空且 `required` 为 `true` 时显示的错误文案。"
         },
         {
           "name": "minlength",
           "type": "number",
           "default": "0",
-          "description": null,
+          "description": "Property `minlength` (`number`) storing minlength (default: `0`).",
           "descriptionZh": "输入内容的最小长度。"
         },
         {
           "name": "maxlength",
           "type": "number",
           "default": "255",
-          "description": null,
+          "description": "Property `maxlength` (`number`) storing maxlength (default: `255`).",
           "descriptionZh": "输入内容的最大长度。"
         },
         {
           "name": "min",
           "type": "number",
           "default": "-Infinity",
-          "description": null,
+          "description": "Property `min` (`number`) storing min (default: `-Infinity`).",
           "descriptionZh": "当 `dataType` 为数字类型时的最小值。"
         },
         {
           "name": "max",
           "type": "number",
           "default": "Infinity",
-          "description": null,
+          "description": "Property `max` (`number`) storing max (default: `Infinity`).",
           "descriptionZh": "当 `dataType` 为数字类型时的最大值。"
         },
         {
           "name": "required",
           "type": "boolean",
           "default": "true",
-          "description": null,
+          "description": "Property `required` (`boolean`) storing required (default: `true`).",
           "descriptionZh": "输入内容是否为必填项。"
         },
         {
           "name": "dataType",
           "type": "string",
           "default": "'text'",
-          "description": null,
+          "description": "Property `dataType` (`string`) storing data type (default: `'text'`).",
           "descriptionZh": "输入框的数据类型（如 `'text'`）。"
         },
         {
           "name": "formControl",
           "type": "any",
           "default": "new FormControl()",
-          "description": null,
+          "description": "Property `formControl` (`FormControl`) storing form control (default: `new FormControl()`).",
           "descriptionZh": "绑定输入框值的表单控件。"
         }
       ]
@@ -561,15 +748,15 @@
           "name": "attach",
           "params": [],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `attach` to handle attach.",
+          "descriptionZh": "执行 `attach`，用于挂载。"
         },
         {
           "name": "detach",
           "params": [],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `detach` to handle detach.",
+          "descriptionZh": "执行 `detach`，用于卸载。"
         }
       ],
       "properties": [
@@ -577,15 +764,15 @@
           "name": "cornerElements",
           "type": "HTMLElement[]",
           "default": "[]",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `cornerElements` (`HTMLElement[]`) storing corner elements (default: `[]`).",
+          "descriptionZh": "属性 `cornerElements`（类型：`HTMLElement[]`），用于存储或配置corner元素列表（默认值：`[]`）。"
         },
         {
           "name": "pointerDownSubs",
           "type": "Subscription[]",
           "default": "[]",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `pointerDownSubs` (`Subscription[]`) storing pointer down subs (default: `[]`).",
+          "descriptionZh": "属性 `pointerDownSubs`（类型：`Subscription[]`），用于存储或配置指针向下子（默认值：`[]`）。"
         }
       ]
     },
@@ -626,46 +813,46 @@
           "name": "closeButton",
           "type": "string",
           "default": "'CLOSE'",
-          "description": null,
+          "description": "Property `closeButton` (`string`) storing close button (default: `'CLOSE'`).",
           "descriptionZh": "底部关闭按钮的文字。"
         },
         {
           "name": "message",
           "type": "string",
-          "description": null,
+          "description": "Property `message` (`string`) storing message.",
           "descriptionZh": "对话框消息内容。"
         },
         {
           "name": "state",
           "type": "StatusDialogStates",
           "default": "'error'",
-          "description": null,
+          "description": "Property `state` (`StatusDialogStates`) storing state (default: `'error'`).",
           "descriptionZh": "对话框状态：`'error'`、`'positive'` 或 `'warning'`。"
         },
         {
           "name": "title",
           "type": "string",
-          "description": null,
+          "description": "Property `title` (`string`) storing title.",
           "descriptionZh": "对话框标题。"
         },
         {
           "name": "details",
           "type": "string",
-          "description": null,
+          "description": "Property `details` (`string`) storing details.",
           "descriptionZh": "消息之后显示的附加详情内容。"
         },
         {
           "name": "showDetails",
           "type": "any",
           "default": "false",
-          "description": null,
+          "description": "Property `showDetails` (`boolean`) storing show details (default: `false`).",
           "descriptionZh": "附加详情区域是否展开。"
         },
         {
           "name": "detailsLabels",
           "type": "StatusDialogDetailsLabels",
           "default": "{\n    showDetailsLabel: 'Show details',\n    hideDetailsLabel: 'Hide details',\n  }",
-          "description": null,
+          "description": "Property `detailsLabels` (`StatusDialogDetailsLabels`) storing details labels.",
           "descriptionZh": "展开/收起详情链接的文案。"
         }
       ]
@@ -673,8 +860,8 @@
     {
       "name": "StatusDialogDetailsLabels",
       "kind": "type",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Type alias `StatusDialogDetailsLabels` representing status dialog details labels (`{ showDetailsLabel: string; hideDetailsLabel: string; }`).",
+      "summaryZh": "类型别名 `StatusDialogDetailsLabels`，表示状态对话框详情列表标签（`{ showDetailsLabel: string; hideDetailsLabel: string; }`）。",
       "sourceFile": "src/common/dialogs/status-dialog/status-dialog.component.ts",
       "inputs": [],
       "outputs": [],
@@ -684,8 +871,8 @@
     {
       "name": "StatusDialogStates",
       "kind": "type",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Type alias `StatusDialogStates` representing status dialog states (`'error' | 'positive' | 'warning'`).",
+      "summaryZh": "类型别名 `StatusDialogStates`，表示状态对话框状态（`'error' | 'positive' | 'warning'`）。",
       "sourceFile": "src/common/dialogs/status-dialog/status-dialog.component.ts",
       "inputs": [],
       "outputs": [],
@@ -710,25 +897,25 @@
           "name": "docked",
           "type": "any",
           "default": "false",
-          "description": null,
+          "description": "Input property `docked` (`boolean`) configuring docked (default: `false`).",
           "descriptionZh": "窗口当前是否处于停靠状态。"
         },
         {
           "name": "title",
           "type": "string",
-          "description": null,
+          "description": "Input property `title` (`string`) configuring title.",
           "descriptionZh": "窗口标题。"
         },
         {
           "name": "toggleDockedStateLabel",
           "type": "string",
-          "description": null,
+          "description": "Input property `toggleDockedStateLabel` (`string`) configuring toggle docked state label.",
           "descriptionZh": "\"切换停靠状态\"按钮的无障碍标签文字。"
         },
         {
           "name": "closeLabel",
           "type": "string",
-          "description": null,
+          "description": "Input property `closeLabel` (`string`) configuring close label.",
           "descriptionZh": "关闭按钮的无障碍标签文字。"
         }
       ],
@@ -736,13 +923,13 @@
         {
           "name": "dockToggled",
           "type": "boolean",
-          "description": null,
+          "description": "Output event emitter `dockToggled` (`EventEmitter<boolean>`) firing when dock toggled occurs.",
           "descriptionZh": "停靠状态切换时发出新的停靠状态。"
         },
         {
           "name": "closed",
           "type": "void",
-          "description": null,
+          "description": "Output event emitter `closed` (`EventEmitter<void>`) firing when closed occurs.",
           "descriptionZh": "关闭按钮被点击时发出。"
         }
       ],
@@ -760,7 +947,7 @@
           "name": "toolbarHeight",
           "type": "any",
           "default": "56",
-          "description": null,
+          "description": "Property `toolbarHeight` (`number`) storing toolbar height (default: `56`).",
           "descriptionZh": "标题栏的高度（像素）。"
         }
       ]

@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Module `src/common/toastr/toastr/toastr.service.ts` providing toastr service definitions and implementation.
+ * @zh 模块文件 `src/common/toastr/toastr/toastr.service.ts`，提供轻提示服务相关的定义与实现。
+ */
+
 import { ComponentRef, Inject, Injectable, Injector, NgZone, SecurityContext } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 
@@ -17,25 +22,56 @@ import {
 import { TranslateService } from '@dotos/dui/translator';
 
 
+/**
+ * Interface `ActiveToast` defining the contract and properties for active toast.
+ * @zh 接口 `ActiveToast`，定义激活Toast的数据结构契约与属性规范。
+ */
 export interface ActiveToast<C> {
-  /** Your Toast ID. Use this to close it individually */
+  /**
+   * Your Toast ID. Use this to close it individually
+   * @zh 属性 `toastId`（类型：`number`），用于存储或配置toast唯一标识。
+   */
   toastId: number;
-  /** the title of your toast. Stored to prevent duplicates */
+  /**
+   * the title of your toast. Stored to prevent duplicates
+   * @zh 属性 `title`（类型：`string`），用于存储或配置标题。
+   */
   title: string;
-  /** the message of your toast. Stored to prevent duplicates */
+  /**
+   * the message of your toast. Stored to prevent duplicates
+   * @zh 属性 `message`（类型：`string`），用于存储或配置消息。
+   */
   message: string;
-  /** a reference to the component see portal.ts */
+  /**
+   * a reference to the component see portal.ts
+   * @zh 属性 `portal`（类型：`ComponentRef<C>`），用于存储或配置传送门容器。
+   */
   portal: ComponentRef<C>;
-  /** a reference to your toast */
+  /**
+   * a reference to your toast
+   * @zh 属性 `toastRef`（类型：`ToastRef<C>`），用于存储或配置toast引用。
+   */
   toastRef: ToastRef<C>;
-  /** triggered when toast is active */
+  /**
+   * triggered when toast is active
+   * @zh 属性 `onShown`（类型：`Observable<void>`），用于存储或配置当已显示。
+   */
   onShown: Observable<void>;
-  /** triggered when toast is destroyed */
+  /**
+   * triggered when toast is destroyed
+   * @zh 属性 `onHidden`（类型：`Observable<void>`），用于存储或配置当隐藏。
+   */
   onHidden: Observable<void>;
-  /** triggered on toast click */
+  /**
+   * triggered on toast click
+   * @zh 属性 `onTap`（类型：`Observable<void>`），用于存储或配置当Tap。
+   */
   onTap: Observable<void>;
-  /** available for your use in custom toast */
-  onAction: Observable<any>;
+  /**
+   * available for your use in custom toast
+   * @zh 属性 `onAction`（类型：`Observable<any>`），用于存储或配置当动作。
+   */
+  onAction;
 }
 
 /**
@@ -45,18 +81,51 @@ export interface ActiveToast<C> {
  */
 @Injectable({ providedIn: 'root' })
 export class ToastrService {
-  /** @zh 当前生效的全局配置（默认配置与模块注册时传入的配置合并后的结果）。 */
+  /**
+   * Property `toastrConfig` (`GlobalConfig`) storing toastr config.
+   * @zh 当前生效的全局配置（默认配置与模块注册时传入的配置合并后的结果）。
+   * @zh 当前生效的全局配置（默认配置与模块注册时传入的配置合并后的结果）。
+   */
   toastrConfig: GlobalConfig;
-  /** @zh 当前处于激活（可见）状态的提示数量。 */
+  /**
+   * Property `currentlyActive` (`number`) storing currently active (default: `0`).
+   * @zh 当前处于激活（可见）状态的提示数量。
+   * @zh 当前处于激活（可见）状态的提示数量。
+   */
   currentlyActive = 0;
-  /** @zh 当前已加入队列/展示中的全部提示。 */
-  toasts: ActiveToast<any>[] = [];
-  /** @zh 自定义的提示容器，未设置时使用默认的全局覆盖层容器。 */
+  /**
+   * Property `toasts` (`ActiveToast<any>[]`) storing toasts (default: `[]`).
+   * @zh 当前已加入队列/展示中的全部提示。
+   * @zh 当前已加入队列/展示中的全部提示。
+   */
+  toasts = [];
+  /**
+   * Property `overlayContainer` (`ToastContainerDirective`) storing overlay container.
+   * @zh 自定义的提示容器，未设置时使用默认的全局覆盖层容器。
+   * @zh 自定义的提示容器，未设置时使用默认的全局覆盖层容器。
+   */
   overlayContainer?: ToastContainerDirective;
-  /** @zh 上一条展示的提示消息文本（用于去重判断）。 */
+  /**
+   * Property `previousToastMessage` (`string | undefined`) storing previous toast message.
+   * @zh 上一条展示的提示消息文本（用于去重判断）。
+   * @zh 上一条展示的提示消息文本（用于去重判断）。
+   */
   previousToastMessage: string | undefined;
+  /**
+   * Property `index` (`number`) storing index (default: `0`).
+   * @zh 属性 `index`（类型：`number`），用于存储或配置索引（默认值：`0`）。
+   */
   private index = 0;
 
+  /**
+   * Creates an instance of `ToastrService` and initializes its dependencies and internal state.
+   * @zh 创建 `ToastrService` 实例，并初始化其依赖项与内部状态。
+   * @param token - Injected or initial token (`ToastToken`) / 注入或传入的令牌（`ToastToken`）
+   * @param overlay - Injected or initial overlay (`Overlay`) / 注入或传入的浮层（`Overlay`）
+   * @param _injector - Injected or initial injector (`Injector`) / 注入或传入的注入器（`Injector`）
+   * @param sanitizer - Injected or initial sanitizer (`DomSanitizer`) / 注入或传入的安全清理器（`DomSanitizer`）
+   * @param ngZone - Injected or initial ng zone (`NgZone`) / 注入或传入的Angular区域(NgZone)（`NgZone`）
+   */
   constructor(
     @Inject(TOAST_CONFIG) token: ToastToken,
   
@@ -80,7 +149,7 @@ export class ToastrService {
    * Shows a toast of a custom/blank type.
    * @zh 显示一个自定义/空类型的 toast。
    */
-  show<ConfigPayload = any>(message?: string, title?: string, override: Partial<IndividualConfig<ConfigPayload>> = {}, type = '') {
+  show<ConfigPayload = unknown>(message?: string, title?: string, override: Partial<IndividualConfig<ConfigPayload>> = {}, type = '') {
     let translateService: TranslateService=this._injector.get(TranslateService);
     let msg=message?translateService.instant(message):'';
     let translateedTitle=title?translateService.instant(title):undefined;
@@ -94,7 +163,7 @@ export class ToastrService {
    * Shows a success toast.
    * @zh 显示一个成功类型的 toast。
    */
-  success<ConfigPayload = any>(message?: string, title?: string, override: Partial<IndividualConfig<ConfigPayload>> = {}) {
+  success<ConfigPayload = unknown>(message?: string, title?: string, override: Partial<IndividualConfig<ConfigPayload>> = {}) {
     let translateService: TranslateService=this._injector.get(TranslateService);
     const type = this.toastrConfig.iconClasses.success || '';
     let msg=message?translateService.instant(message):'';
@@ -109,7 +178,7 @@ export class ToastrService {
    * Shows an error toast.
    * @zh 显示一个错误类型的 toast。
    */
-  error<ConfigPayload = any>(message?: string, title?: string, override: Partial<IndividualConfig<ConfigPayload>> = {}) {
+  error<ConfigPayload = unknown>(message?: string, title?: string, override: Partial<IndividualConfig<ConfigPayload>> = {}) {
     const type = this.toastrConfig.iconClasses.error || '';
         let translateService: TranslateService=this._injector.get(TranslateService);
             let msg=message?translateService.instant(message):'';
@@ -123,7 +192,7 @@ export class ToastrService {
    * Shows an info toast.
    * @zh 显示一个提示类型的 toast。
    */
-  info<ConfigPayload = any>(message?: string, title?: string, override: Partial<IndividualConfig<ConfigPayload>> = {}) {
+  info<ConfigPayload = unknown>(message?: string, title?: string, override: Partial<IndividualConfig<ConfigPayload>> = {}) {
     const type = this.toastrConfig.iconClasses.info || '';
        let translateService: TranslateService=this._injector.get(TranslateService);
            let msg=message?translateService.instant(message):'';
@@ -137,7 +206,7 @@ export class ToastrService {
    * Shows a warning toast.
    * @zh 显示一个警告类型的 toast。
    */
-  warning<ConfigPayload = any>(message?: string, title?: string, override: Partial<IndividualConfig<ConfigPayload>> = {}) {
+  warning<ConfigPayload = unknown>(message?: string, title?: string, override: Partial<IndividualConfig<ConfigPayload>> = {}) {
     const type = this.toastrConfig.iconClasses.warning || '';
        let translateService: TranslateService=this._injector.get(TranslateService);
        let msg=message?translateService.instant(message):'';
@@ -210,15 +279,20 @@ export class ToastrService {
     return null;
   }
 
-  /** create a clone of global config and apply individual settings */
+  /**
+   * create a clone of global config and apply individual settings
+   * @zh 执行 `applyConfig`，用于应用配置。
+   */
   private applyConfig(override: Partial<IndividualConfig> = {}): GlobalConfig {
     return { ...this.toastrConfig, ...override };
   }
 
   /**
    * Find toast object by id
+
+   * @zh 执行 `_findToast`，用于查找Toast。
    */
-  private _findToast(toastId: number): { index: number; activeToast: ActiveToast<any> } | null {
+  private _findToast(toastId: number) {
     for (let i = 0; i < this.toasts.length; i++) {
       if (this.toasts[i].toastId === toastId) {
         return { index: i, activeToast: this.toasts[i] };
@@ -229,13 +303,15 @@ export class ToastrService {
 
   /**
    * Determines the need to run inside angular's zone then builds the toast
+
+   * @zh 执行 `_preBuildNotification`，用于pre构建通知。
    */
   private _preBuildNotification(
     toastType: string,
     message: string | undefined,
     title: string | undefined,
     config: GlobalConfig,
-  ): ActiveToast<any> | null {
+  ) {
     if (config.onActivateTick) {
       return this.ngZone.run(() => this._buildNotification(toastType, message, title, config));
     }
@@ -245,13 +321,15 @@ export class ToastrService {
   /**
    * Creates and attaches toast data to component
    * returns the active toast, or in case preventDuplicates is enabled the original/non-duplicate active toast.
+
+   * @zh 执行 `_buildNotification`，用于构建通知。
    */
   private _buildNotification(
     toastType: string,
     message: string | undefined,
     title: string | undefined,
     config: GlobalConfig,
-  ): ActiveToast<any> | null {
+  ) {
     if (!config.toastComponent) {
       throw new Error('toastComponent required');
     }
@@ -305,7 +383,7 @@ export class ToastrService {
     const component = new ComponentPortal(config.toastComponent, toastInjector);
     const portal = overlayRef.attach(component, config.newestOnTop);
     toastRef.componentInstance = portal.instance;
-    const ins: ActiveToast<any> = {
+    const ins = {
       toastId: this.index,
       title: title || '',
       message: message || '',

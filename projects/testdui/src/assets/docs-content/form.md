@@ -1,7 +1,38 @@
 ## 概述
 
-`form` 是一套通过 JSON 配置驱动的动态表单引擎（内部依赖 `core/form` 的 `FieldConfig`/`FormBuilder`），根入口 `@dotos/dui/form` 聚合了大量字段类型（文本、单选、复选、滑块、颜色选择器、图标选择器、日期选择器、触发器弹层等），只需声明一份 `items` 配置数组即可渲染出完整表单，无需手写每个字段的模板。子模块里还有 `date`（日期选择字段及 moment/native 适配器）、`card`（表单卡片容器）、`toggle-select`（分段选择器）。
+`form`（`@dotos/dui/form*`）是一套由 JSON 配置驱动的动态表单引擎（底层衔接 `@dotos/dui/core/form`），允许开发者通过声明式 `items` 字段配置快速渲染复杂业务表单，同时提供独立的日期时间选择器（`form/date/*`）、分段选择器（`form/toggle-select`）、滑块范围（`form/range`）与表单卡片容器（`form/card`）。
 
-## 何时使用
+## 核心模块与职责
 
-需要通过配置快速搭建表单、且字段种类繁多/需要动态增删字段时用它；如果只是一两个简单输入框，直接用 Angular Reactive Forms + Material 可能更直接。可参考 testdui 应用自带的 `/color` 演示路由，里面展示了颜色选择器和图标选择器字段的实际配置写法。
+| 二级入口 | 核心导出 | 职责说明 |
+| --- | --- | --- |
+| `@dotos/dui/form` | `FormModule`, `TextField`, `SelectField`, `CheckboxField`, `RadioField`, `ColorField`, `IconField`, `DateField`, `TriggerField` | 动态表单主模块，注册文本、下拉、复选、单选、颜色、图标、日期与弹层触发器等全部内置字段组件 |
+| `@dotos/dui/form/date` | `DateModule`, `DateComponent` | 日期表单包装组件 |
+| `@dotos/dui/form/date/picker` | `MatDatetimepickerModule`, `MatDatetimepicker` | 支持日期 + 时间（时/分）联动选择的 Material 日期时间选择器 |
+| `@dotos/dui/form/date/adapter` | `MatNativeDatetimeModule`, `DatetimeAdapter` | 原生 `Date` 日期时间适配器 |
+| `@dotos/dui/form/date/moment` | `MatMomentDatetimeModule`, `MomentDatetimeAdapter` | 基于 `Moment.js` 的日期时间适配器 |
+| `@dotos/dui/form/toggle-select` | `ToggleSelectModule`, `ToggleSelectComponent` | 按钮组分段单选/多选控件 |
+| `@dotos/dui/form/card` | `FormCardModule`, `FormCardComponent` | 表单分组卡片容器 |
+
+## 架构与设计模式
+
+- **Schema 驱动与 Reactive Forms 双向同步**：每个字段组件通过 `xtype`（如 `'textfield'`、`'selectfield'`、`'colorfield'`）在 `FormModule` 中注册，底层自动绑定到 Angular `FormGroup`，兼具声明式配置的简洁与 Reactive Forms 的强校验能力。
+
+## 典型用法与最佳实践
+
+```typescript
+import { FormModule } from '@dotos/dui/form';
+
+// 在组件中定义动态表单配置：
+formConfig = {
+  items: [
+    { xtype: 'textfield', name: 'username', label: '用户名', value: 'admin', required: true },
+    { xtype: 'colorfield', name: 'themeColor', label: '主题色', value: '#2196f3' },
+    { xtype: 'checkboxfield', name: 'enabled', label: '立即启用', value: true },
+  ],
+};
+```
+
+```html
+<dui-form [config]="formConfig"></dui-form>
+```

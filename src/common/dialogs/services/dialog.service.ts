@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Module `src/common/dialogs/services/dialog.service.ts` providing dialog service definitions and implementation.
+ * @zh 模块文件 `src/common/dialogs/services/dialog.service.ts`，提供对话框服务相关的定义与实现。
+ */
+
 import { Injectable, Inject, Renderer2, RendererFactory2, ViewContainerRef } from '@angular/core';
 import {
   MatDialog,
@@ -18,56 +23,204 @@ import {
   StatusDialogDetailsLabels,
 } from '../status-dialog/status-dialog.component';
 
+/**
+ * Interface `IDialogConfig` defining the contract and properties for i dialog config.
+ * @zh 接口 `IDialogConfig`，定义I对话框配置的数据结构契约与属性规范。
+ */
 export interface IDialogConfig extends MatDialogConfig {
+  /**
+   * Property `title` (`string`) storing title.
+   * @zh 属性 `title`（类型：`string`），用于存储或配置标题。
+   */
   title?: string;
+  /**
+   * Property `message` (`string`) storing message.
+   * @zh 属性 `message`（类型：`string`），用于存储或配置消息。
+   */
   message?: string;
+  /**
+   * Property `viewContainerRef` (`ViewContainerRef`) storing view container ref.
+   * @zh 属性 `viewContainerRef`（类型：`ViewContainerRef`），用于存储或配置视图容器引用。
+   */
   viewContainerRef?: ViewContainerRef;
+  /**
+   * Property `disableClose` (`boolean`) storing disable close.
+   * @zh 属性 `disableClose`（类型：`boolean`），用于存储或配置禁用关闭。
+   */
   disableClose?: boolean;
 }
 
+/**
+ * Interface `IAlertConfig` defining the contract and properties for i alert config.
+ * @zh 接口 `IAlertConfig`，定义I警告框配置的数据结构契约与属性规范。
+ */
 export interface IAlertConfig extends IDialogConfig {
+  /**
+   * Property `closeButton` (`string`) storing close button.
+   * @zh 属性 `closeButton`（类型：`string`），用于存储或配置关闭按钮。
+   */
   closeButton?: string;
 }
 
+/**
+ * Interface `IConfirmConfig` defining the contract and properties for i confirm config.
+ * @zh 接口 `IConfirmConfig`，定义IConfirm配置的数据结构契约与属性规范。
+ */
 export interface IConfirmConfig extends IDialogConfig {
+  /**
+   * Property `acceptButton` (`string`) storing accept button.
+   * @zh 属性 `acceptButton`（类型：`string`），用于存储或配置accept按钮。
+   */
   acceptButton?: string;
+  /**
+   * Property `cancelButton` (`string`) storing cancel button.
+   * @zh 属性 `cancelButton`（类型：`string`），用于存储或配置取消按钮。
+   */
   cancelButton?: string;
+  /**
+   * Property `isDestructive` (`boolean`) storing is destructive.
+   * @zh 属性 `isDestructive`（类型：`boolean`），用于存储或配置是否为Destructive。
+   */
   isDestructive?: boolean;
 }
 
+/**
+ * Interface `IPromptConfig` defining the contract and properties for i prompt config.
+ * @zh 接口 `IPromptConfig`，定义IPrompt配置的数据结构契约与属性规范。
+ */
 export interface IPromptConfig extends IConfirmConfig {
+  /**
+   * Property `value` (`string|number`) storing value.
+   * @zh 属性 `value`（类型：`string|number`），用于存储或配置值。
+   */
   value?: string|number;
+  /**
+   * Property `minLength` (`number`) storing min length.
+   * @zh 属性 `minLength`（类型：`number`），用于存储或配置最小值长度。
+   */
   minLength?: number;
+  /**
+   * Property `maxLength` (`number`) storing max length.
+   * @zh 属性 `maxLength`（类型：`number`），用于存储或配置最大值长度。
+   */
   maxLength?: number;
+  /**
+   * Property `dataType` (`string`) storing data type.
+   * @zh 属性 `dataType`（类型：`string`），用于存储或配置数据类型。
+   */
   dataType?:string,
+  /**
+   * Property `min` (`number`) storing min.
+   * @zh 属性 `min`（类型：`number`），用于存储或配置最小值。
+   */
   min?: number;
+  /**
+   * Property `max` (`number`) storing max.
+   * @zh 属性 `max`（类型：`number`），用于存储或配置最大值。
+   */
   max?: number;
+  /**
+   * Property `required` (`boolean`) storing required.
+   * @zh 属性 `required`（类型：`boolean`），用于存储或配置必填。
+   */
   required?: boolean;
+  /**
+   * Property `pattern` (`string | RegExp`) storing pattern.
+   * @zh 属性 `pattern`（类型：`string | RegExp`），用于存储或配置模式/图案。
+   */
   pattern?: string | RegExp;
+  /**
+   * Property `blankText` (`string`) storing blank text.
+   * @zh 属性 `blankText`（类型：`string`），用于存储或配置blank文本。
+   */
   blankText?: string;
+  /**
+   * Property `maxLengthText` (`string`) storing max length text.
+   * @zh 属性 `maxLengthText`（类型：`string`），用于存储或配置最大值长度文本。
+   */
   maxLengthText?: string;
+  /**
+   * Property `minLengthText` (`string`) storing min length text.
+   * @zh 属性 `minLengthText`（类型：`string`），用于存储或配置最小值长度文本。
+   */
   minLengthText?: string;
+  /**
+   * Property `regexText` (`string`) storing regex text.
+   * @zh 属性 `regexText`（类型：`string`），用于存储或配置正则表达式文本。
+   */
   regexText?: string;
 }
 
+/**
+ * Interface `IStatusConfig` defining the contract and properties for i status config.
+ * @zh 接口 `IStatusConfig`，定义I状态配置的数据结构契约与属性规范。
+ */
 export interface IStatusConfig extends IAlertConfig {
+  /**
+   * Property `state` (`StatusDialogStates`) storing state.
+   * @zh 属性 `state`（类型：`StatusDialogStates`），用于存储或配置状态。
+   */
   state?: StatusDialogStates;
+  /**
+   * Property `details` (`string`) storing details.
+   * @zh 属性 `details`（类型：`string`），用于存储或配置详情列表。
+   */
   details?: string;
+  /**
+   * Property `detailsLabels` (`StatusDialogDetailsLabels`) storing details labels.
+   * @zh 属性 `detailsLabels`（类型：`StatusDialogDetailsLabels`），用于存储或配置详情列表标签。
+   */
   detailsLabels?: StatusDialogDetailsLabels;
 }
 
+/**
+ * Interface `IDraggableConfig` defining the contract and properties for i draggable config.
+ * @zh 接口 `IDraggableConfig`，定义I是否可拖拽配置的数据结构契约与属性规范。
+ */
 export interface IDraggableConfig<T> {
+  /**
+   * Property `component` (`ComponentType<T>`) storing component.
+   * @zh 属性 `component`（类型：`ComponentType<T>`），用于存储或配置组件。
+   */
   component: ComponentType<T>;
+  /**
+   * Property `config` (`MatDialogConfig`) storing config.
+   * @zh 属性 `config`（类型：`MatDialogConfig`），用于存储或配置配置。
+   */
   config?: MatDialogConfig;
+  /**
+   * Property `constraint` (`boolean`) storing constraint.
+   * @zh 属性 `constraint`（类型：`boolean`），用于存储或配置constraint。
+   */
   constraint?:boolean;
 
+  /**
+   * Property `dragHandleSelectors` (`string[]`) storing drag handle selectors.
+   * @zh 属性 `dragHandleSelectors`（类型：`string[]`），用于存储或配置拖拽连接手柄选择器。
+   */
   dragHandleSelectors?: string[];
 
+  /**
+   * Property `draggableClass` (`string`) storing draggable class.
+   * @zh 属性 `draggableClass`（类型：`string`），用于存储或配置是否可拖拽类名。
+   */
   draggableClass?: string;
 }
 
+/**
+ * Interface `IDraggableRefs` defining the contract and properties for i draggable refs.
+ * @zh 接口 `IDraggableRefs`，定义I是否可拖拽引用的数据结构契约与属性规范。
+ */
 export interface IDraggableRefs<T> {
+  /**
+   * Property `matDialogRef` (`MatDialogRef<T>`) storing mat dialog ref.
+   * @zh 属性 `matDialogRef`（类型：`MatDialogRef<T>`），用于存储或配置Material对话框引用。
+   */
   matDialogRef: MatDialogRef<T>;
+  /**
+   * Property `dragRefSubject` (`Subject<DragRef>`) storing drag ref subject.
+   * @zh 属性 `dragRefSubject`（类型：`Subject<DragRef>`），用于存储或配置拖拽引用主题流。
+   */
   dragRefSubject: Subject<DragRef>;
 }
 
@@ -95,11 +248,27 @@ export interface IDraggableRefs<T> {
  */
 @Injectable({ providedIn: 'root' })
 export class DialogService {
+  /**
+   * Property `_renderer2` (`Renderer2`) storing renderer2.
+   * @zh 属性 `_renderer2`（类型：`Renderer2`），用于存储或配置renderer2。
+   */
   private _renderer2: Renderer2;
-  private _componentMap:Map<string,any>=new Map();
+  /**
+   * Property `_componentMap` (`Map<string,any>`) storing component map (default: `new Map()`).
+   * @zh 属性 `_componentMap`（类型：`Map<string,any>`），用于存储或配置组件映射表（默认值：`new Map()`）。
+   */
+  private _componentMap=new Map();
 
+  /**
+   * Creates an instance of `DialogService` and initializes its dependencies and internal state.
+   * @zh 创建 `DialogService` 实例，并初始化其依赖项与内部状态。
+   * @param _document - Injected or initial document (`any`) / 注入或传入的文档对象（`any`）
+   * @param _dialogService - Injected or initial dialog service (`MatDialog`) / 注入或传入的对话框服务（`MatDialog`）
+   * @param _dragDrop - Injected or initial drag drop (`DragDrop`) / 注入或传入的拖拽放置（`DragDrop`）
+   * @param rendererFactory - Injected or initial renderer factory (`RendererFactory2`) / 注入或传入的渲染器工厂（`RendererFactory2`）
+   */
   constructor(
-    @Inject(DOCUMENT) private _document: any,
+    @Inject(DOCUMENT) private _document,
     private _dialogService: MatDialog,
     private _dragDrop: DragDrop,
     private rendererFactory: RendererFactory2
@@ -134,6 +303,8 @@ export class DialogService {
   /**
    * Wrapper function over the closeAll() method in MatDialog.
    * Closes all of the currently-open dialogs.
+
+   * @zh 执行 `closeAll`，用于关闭全部。
    */
   public closeAll(): void {
     this._dialogService.closeAll();
@@ -170,6 +341,8 @@ export class DialogService {
    *
    * Opens a confirm dialog with the provided config.
    * Returns an MatDialogRef<TdConfirmDialogComponent> object.
+
+   * @zh 执行 `openConfirm`，用于打开Confirm。
    */
   public openConfirm(
     config: IConfirmConfig
@@ -206,6 +379,8 @@ export class DialogService {
    *
    * Opens a prompt dialog with the provided config.
    * Returns an MatDialogRef<TdPromptDialogComponent> object.
+
+   * @zh 执行 `openPrompt`，用于打开Prompt。
    */
   public openPrompt(
     config: IPromptConfig
@@ -262,6 +437,8 @@ export class DialogService {
 
   /**
    * Opens a draggable dialog containing the given component.
+
+   * @zh 执行 `openDraggable`，用于打开是否可拖拽。
    */
   public openDraggable<T>({
     component,
@@ -270,7 +447,7 @@ export class DialogService {
     dragHandleSelectors,
     draggableClass,
   }: IDraggableConfig<T>): IDraggableRefs<T> {
-    const matDialogRef: MatDialogRef<T, any> = this._dialogService.open(
+    const matDialogRef: MatDialogRef<T, unknown> = this._dialogService.open(
       component,
       config
     );
@@ -336,6 +513,12 @@ export class DialogService {
     return { matDialogRef, dragRefSubject };
   }
 
+  /**
+   * Executes `_createConfig` to handle create config.
+   * @zh 执行 `_createConfig`，用于创建配置。
+   * @param config - config parameter (`IDialogConfig`) / 配置参数（`IDialogConfig`）
+   * @returns Result of type `MatDialogConfig` / 类型为 `MatDialogConfig` 的返回值
+   */
   private _createConfig(config: IDialogConfig): MatDialogConfig {
     const dialogConfig: MatDialogConfig = new MatDialogConfig();
     dialogConfig.width = '400px';

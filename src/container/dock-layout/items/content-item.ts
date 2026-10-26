@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Module `src/container/dock-layout/items/content-item.ts` providing content item definitions and implementation.
+ * @zh 模块文件 `src/container/dock-layout/items/content-item.ts`，提供内容条目相关的定义与实现。
+ */
+
 import { uuid } from '@dotos/dui/util'
 import { ResolvedItemConfig } from '../config/resolved-config'
 import { BrowserPopout } from '../controls/browser-popout'
@@ -16,65 +21,194 @@ import { Stack } from './stack'
  *
  * It also provides a number of functions for tree traversal
  * @public
+
+ * @zh 类 `ContentItem`，封装 `src/container/dock-layout/items` 中的内容条目数据结构与处理逻辑。
  */
 
 export abstract class ContentItem extends EventEmitter {
-    /** @internal */
+    /**
+     * Property `_type` (`ItemType`) storing type.
+     * @internal
+     * @zh 属性 `_type`（类型：`ItemType`），用于存储或配置类型。
+     */
     private _type: ItemType;
-    /** @internal */
+    /**
+     * Property `_id` (`string`) storing id.
+     * @internal
+     * @zh 属性 `_id`（类型：`string`），用于存储或配置唯一标识。
+     */
     private _id: string;
-    /** @internal */
+    /**
+     * Property `_popInParentIds` (`string[]`) storing pop in parent ids (default: `[]`).
+     * @internal
+     * @zh 属性 `_popInParentIds`（类型：`string[]`），用于存储或配置弹出在父级标识列表（默认值：`[]`）。
+     */
     private _popInParentIds: string[] = [];
-    /** @internal */
+    /**
+     * Property `_contentItems` (`ContentItem[]`) storing content items.
+     * @internal
+     * @zh 属性 `_contentItems`（类型：`ContentItem[]`），用于存储或配置内容条目列表。
+     */
     private _contentItems: ContentItem[];
-    /** @internal */
+    /**
+     * Property `_isClosable` (`any`) storing is closable.
+     * @internal
+     * @zh 属性 `_isClosable`（类型：`any`），用于存储或配置是否为是否可关闭。
+     */
     private _isClosable;
-    /** @internal */
+    /**
+     * Property `_pendingEventPropagations` (`Record<string, unknown>`) storing pending event propagations.
+     * @internal
+     * @zh 属性 `_pendingEventPropagations`（类型：`Record<string, unknown>`），用于存储或配置等待中事件事件冒泡。
+     */
     private _pendingEventPropagations: Record<string, unknown>;
-    /** @internal */
+    /**
+     * Property `_throttledEvents` (`string[]`) storing throttled events.
+     * @internal
+     * @zh 属性 `_throttledEvents`（类型：`string[]`），用于存储或配置已节流事件集合。
+     */
     private _throttledEvents: string[];
-    /** @internal */
+    /**
+     * Property `_isInitialised` (`any`) storing is initialised.
+     * @internal
+     * @zh 属性 `_isInitialised`（类型：`any`），用于存储或配置是否为Initialised。
+     */
     private _isInitialised;
 
-    /** @internal */
+    /**
+     * Property `size` (`number`) storing size.
+     * @internal
+     * @zh 属性 `size`（类型：`number`），用于存储或配置尺寸。
+     */
     size: number;
-    /** @internal */
+    /**
+     * Property `sizeUnit` (`SizeUnitEnum`) storing size unit.
+     * @internal
+     * @zh 属性 `sizeUnit`（类型：`SizeUnitEnum`），用于存储或配置尺寸Unit。
+     */
     sizeUnit: SizeUnitEnum;
-    /** @internal */
+    /**
+     * Property `minSize` (`number | undefined`) storing min size.
+     * @internal
+     * @zh 属性 `minSize`（类型：`number | undefined`），用于存储或配置最小值尺寸。
+     */
     minSize: number | undefined;
-    /** @internal */
+    /**
+     * Property `minSizeUnit` (`SizeUnitEnum`) storing min size unit.
+     * @internal
+     * @zh 属性 `minSizeUnit`（类型：`SizeUnitEnum`），用于存储或配置最小值尺寸Unit。
+     */
     minSizeUnit: SizeUnitEnum;
 
+    /**
+     * Property `isGround` (`boolean`) storing is ground.
+     * @zh 属性 `isGround`（类型：`boolean`），用于存储或配置是否为Ground。
+     */
     isGround: boolean
+    /**
+     * Property `isRow` (`boolean`) storing is row.
+     * @zh 属性 `isRow`（类型：`boolean`），用于存储或配置是否为行。
+     */
     isRow: boolean
+    /**
+     * Property `isColumn` (`boolean`) storing is column.
+     * @zh 属性 `isColumn`（类型：`boolean`），用于存储或配置是否为列。
+     */
     isColumn: boolean
+    /**
+     * Property `isStack` (`boolean`) storing is stack.
+     * @zh 属性 `isStack`（类型：`boolean`），用于存储或配置是否为栈。
+     */
     isStack: boolean
+    /**
+     * Property `isComponent` (`boolean`) storing is component.
+     * @zh 属性 `isComponent`（类型：`boolean`），用于存储或配置是否为组件。
+     */
     isComponent: boolean
 
+    /**
+     * Gets the current type (`type: ItemType`).
+     * @zh 获取当前类型（`type: ItemType`）。
+     */
     get type(): ItemType { return this._type; }
+    /**
+     * Gets the current id (`id: string`).
+     * @zh 获取当前唯一标识（`id: string`）。
+     */
     get id(): string { return this._id; }
+    /**
+     * Sets the id (`id`).
+     * @zh 设置唯一标识（`id`）。
+     * @param value - New id value (`string`) / 新的唯一标识值（`string`）
+     */
     set id(value: string) { this._id = value; }
-    /** @internal */
+    /**
+     * Gets the current pop in parent ids (`popInParentIds: string[]`).
+     * @internal
+     * @zh 获取当前弹出在父级标识列表（`popInParentIds: string[]`）。
+     */
     get popInParentIds(): string[] { return this._popInParentIds; }
+    /**
+     * Gets the current parent (`parent: ContentItem | null`).
+     * @zh 获取当前父级（`parent: ContentItem | null`）。
+     */
     get parent(): ContentItem | null { return this._parent; }
+    /**
+     * Gets the current content items (`contentItems: ContentItem[]`).
+     * @zh 获取当前内容条目列表（`contentItems: ContentItem[]`）。
+     */
     get contentItems(): ContentItem[] { return this._contentItems; }
+    /**
+     * Gets the current is closable (`isClosable: boolean`).
+     * @zh 获取当前是否为是否可关闭（`isClosable: boolean`）。
+     */
     get isClosable(): boolean { return this._isClosable; }
+    /**
+     * Gets the current element (`element: HTMLElement`).
+     * @zh 获取当前元素（`element: HTMLElement`）。
+     */
     get element(): HTMLElement { return this._element; }
+    /**
+     * Gets the current is initialised (`isInitialised: boolean`).
+     * @zh 获取当前是否为Initialised（`isInitialised: boolean`）。
+     */
     get isInitialised(): boolean { return this._isInitialised; }
 
+    /**
+     * Executes `isStack` to handle is stack.
+     * @zh 执行 `isStack`，用于是否为栈。
+     * @param item - item parameter (`ContentItem`) / 条目参数（`ContentItem`）
+     * @returns Result of type `item is Stack` / 类型为 `item is Stack` 的返回值
+     */
     static isStack(item: ContentItem): item is Stack {
         return item.isStack;
     }
 
+    /**
+     * Executes `isComponentItem` to handle is component item.
+     * @zh 执行 `isComponentItem`，用于是否为组件条目。
+     * @param item - item parameter (`ContentItem`) / 条目参数（`ContentItem`）
+     * @returns Result of type `item is ComponentItem` / 类型为 `item is ComponentItem` 的返回值
+     */
     static isComponentItem(item: ContentItem): item is ComponentItem {
         return item.isComponent;
     }
 
+    /**
+     * Executes `isComponentParentableItem` to handle is component parentable item.
+     * @zh 执行 `isComponentParentableItem`，用于是否为组件Parentable条目。
+     * @param item - item parameter (`ContentItem`) / 条目参数（`ContentItem`）
+     * @returns Result of type `item is ComponentParentableItem` / 类型为 `item is ComponentParentableItem` 的返回值
+     */
     static isComponentParentableItem(item: ContentItem): item is ComponentParentableItem {
         return item.isStack || item.isGround;
     }
 
-    /** @internal */
+    /**
+     * Creates an instance of `ContentItem` and initializes its dependencies and internal state.
+     * @internal
+     * @zh 创建 `ContentItem` 实例，并初始化其依赖项与内部状态。
+     */
     constructor(public readonly layoutManager: LayoutManager,
         config: ResolvedItemConfig,
         /** @internal */
@@ -114,6 +248,8 @@ export abstract class ContentItem extends EventEmitter {
      * the respective events are fired. This is sometimes necessary when a component's size has not changed but it has become visible, and the
      * relevant events need to be fired.
      * @internal
+
+     * @zh 执行 `updateSize`，用于更新尺寸。
      */
     abstract updateSize(force: boolean): void;
 
@@ -121,6 +257,8 @@ export abstract class ContentItem extends EventEmitter {
      * Removes a child node (and its children) from the tree
      * @param contentItem - The child item to remove
      * @param keepChild - Whether to destroy the removed item
+
+     * @zh 执行 `removeChild`，用于移除子级。
      */
     removeChild(contentItem: ContentItem, keepChild = false): void {
         /*
@@ -175,6 +313,8 @@ export abstract class ContentItem extends EventEmitter {
      * @param contentItem -
      * @param index - If omitted item will be appended
      * @param suspendResize - Used by descendent implementations
+
+     * @zh 执行 `addChild`，用于添加子级。
      */
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     addChild(contentItem: ContentItem, index?: number | null, suspendResize?: boolean): number {
@@ -195,6 +335,8 @@ export abstract class ContentItem extends EventEmitter {
      * @param oldChild -
      * @param newChild -
      * @internal
+
+     * @zh 执行 `replaceChild`，用于替换子级。
      */
     replaceChild(oldChild: ContentItem, newChild: ContentItem, destroyOldChild = false): void {
         // Do not try to replace ComponentItem - will not work
@@ -243,6 +385,10 @@ export abstract class ContentItem extends EventEmitter {
     }
 
 
+    /**
+     * Executes `remove` to handle remove.
+     * @zh 执行 `remove`，用于移除。
+     */
     remove(): void {
         if (this._parent === null) {
             throw new UnexpectedNullError('CIR11110');
@@ -252,6 +398,11 @@ export abstract class ContentItem extends EventEmitter {
     }
 
 
+    /**
+     * Executes `popout` to handle popout.
+     * @zh 执行 `popout`，用于弹出窗口。
+     * @returns Result of type `BrowserPopout` / 类型为 `BrowserPopout` 的返回值
+     */
     popout(): BrowserPopout {
         const parentId = getUniqueId();
         const browserPopout = this.layoutManager.createPopoutFromContentItem(this, undefined, parentId, undefined);
@@ -259,9 +410,18 @@ export abstract class ContentItem extends EventEmitter {
         return browserPopout;
     }
 
+    /**
+     * Executes `toConfig` to handle to config.
+     * @zh 执行 `toConfig`，用于转换为配置。
+     * @returns Result of type `ResolvedItemConfig` / 类型为 `ResolvedItemConfig` 的返回值
+     */
     abstract toConfig(): ResolvedItemConfig;
 
-    /** @internal */
+    /**
+     * Executes `calculateConfigContent` to handle calculate config content.
+     * @internal
+     * @zh 执行 `calculateConfigContent`，用于计算配置内容。
+     */
     calculateConfigContent(): ResolvedItemConfig[] {
         const contentItems = this._contentItems;
         const count = contentItems.length;
@@ -273,7 +433,11 @@ export abstract class ContentItem extends EventEmitter {
         return result;
     }
 
-    /** @internal */
+    /**
+     * Executes `highlightDropZone` to handle highlight drop zone.
+     * @internal
+     * @zh 执行 `highlightDropZone`，用于highlight放置区域(NgZone)。
+     */
     highlightDropZone(x: number, y: number, area: AreaLinkedRect): void {
         const dropTargetIndicator = this.layoutManager.dropTargetIndicator;
         if (dropTargetIndicator === null) {
@@ -283,13 +447,21 @@ export abstract class ContentItem extends EventEmitter {
         }
     }
 
-    /** @internal */
+    /**
+     * Executes `onDrop` to handle on drop.
+     * @internal
+     * @zh 执行 `onDrop`，用于当放置。
+     */
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     onDrop(contentItem: ContentItem, area: ContentItem.Area): void {
         this.addChild(contentItem);
     }
 
-    /** @internal */
+    /**
+     * Executes `show` to handle show.
+     * @internal
+     * @zh 执行 `show`，用于显示。
+     */
     show(): void {
         this.layoutManager.beginSizeInvalidation();
         try {
@@ -310,6 +482,8 @@ export abstract class ContentItem extends EventEmitter {
     /**
      * Destroys this item ands its children
      * @internal
+
+     * @zh 执行 `destroy`，用于销毁。
      */
     destroy(): void {
         for (let i = 0; i < this._contentItems.length; i++) {
@@ -325,6 +499,8 @@ export abstract class ContentItem extends EventEmitter {
     /**
      * Returns the area the component currently occupies
      * @internal
+
+     * @zh 执行 `getElementArea`，用于获取元素区域。
      */
     getElementArea(element?: HTMLElement): ContentItem.Area | null {
         element = element ?? this._element;
@@ -346,32 +522,52 @@ export abstract class ContentItem extends EventEmitter {
         };
     }
 
+    /**
+     * Executes `init` to handle init.
+     * @zh 执行 `init`，用于初始化。
+     */
     init(): void {
         this._isInitialised = true;
         this.emitBaseBubblingEvent('itemCreated');
         this.emitUnknownBubblingEvent(this.type + 'Created');
     }
 
-    /** @internal */
+    /**
+     * Executes `setParent` to handle set parent.
+     * @internal
+     * @zh 执行 `setParent`，用于集合父级。
+     */
     protected setParent(parent: ContentItem): void {
         this._parent = parent;
     }
 
-    /** @internal */
+    /**
+     * Executes `addPopInParentId` to handle add pop in parent id.
+     * @internal
+     * @zh 执行 `addPopInParentId`，用于添加弹出在父级唯一标识。
+     */
     addPopInParentId(id: string): void {
         if (!this.popInParentIds.includes(id)) {
             this.popInParentIds.push(id);
         }
     }
 
-    /** @internal */
+    /**
+     * Executes `initContentItems` to handle init content items.
+     * @internal
+     * @zh 执行 `initContentItems`，用于初始化内容条目列表。
+     */
     protected initContentItems(): void {
         for (let i = 0; i < this._contentItems.length; i++) {
             this._contentItems[i].init();
         }
     }
 
-    /** @internal */
+    /**
+     * Executes `hide` to handle hide.
+     * @internal
+     * @zh 执行 `hide`，用于隐藏。
+     */
     protected hide(): void {
         this.layoutManager.beginSizeInvalidation();
         try {
@@ -382,7 +578,11 @@ export abstract class ContentItem extends EventEmitter {
         }
     }
 
-    /** @internal */
+    /**
+     * Executes `updateContentItemsSize` to handle update content items size.
+     * @internal
+     * @zh 执行 `updateContentItemsSize`，用于更新内容条目列表尺寸。
+     */
     protected updateContentItemsSize(force: boolean): void {
         for (let i = 0; i < this._contentItems.length; i++) {
             this._contentItems[i].updateSize(force);
@@ -393,6 +593,8 @@ export abstract class ContentItem extends EventEmitter {
      * creates all content items for this node at initialisation time
      * PLEASE NOTE, please see addChild for adding contentItems at runtime
      * @internal
+
+     * @zh 执行 `createContentItems`，用于创建内容条目列表。
      */
     private createContentItems(content: readonly ResolvedItemConfig[]) {
         const count = content.length;
@@ -410,6 +612,8 @@ export abstract class ContentItem extends EventEmitter {
      * @param name - The name of the event
      * @param event -
      * @internal
+
+     * @zh 执行 `propagateEvent`，用于propagate事件。
      */
     private propagateEvent(name: string, args: unknown[]) {
         if (args.length === 1) {
@@ -433,6 +637,12 @@ export abstract class ContentItem extends EventEmitter {
         }
     }
 
+    /**
+     * Executes `tryBubbleEvent` to handle try bubble event.
+     * @zh 执行 `tryBubbleEvent`，用于tryBubble事件。
+     * @param name - name parameter (`string`) / 名称参数（`string`）
+     * @param args - args parameter (`unknown[]`) / 参数列表参数（`unknown[]`）
+     */
     override tryBubbleEvent(name: string, args: unknown[]): void {
         if (args.length === 1) {
             const event = args[0];
@@ -462,6 +672,8 @@ export abstract class ContentItem extends EventEmitter {
      *
      * @param name - The name of the event
      * @internal
+
+     * @zh 执行 `scheduleEventPropagationToLayoutManager`，用于计划表事件事件冒泡转换为布局管理器。
      */
     private scheduleEventPropagationToLayoutManager(name: string, event: EventEmitter.BubblingEvent) {
         if (this._throttledEvents.indexOf(name) === -1) {
@@ -480,6 +692,8 @@ export abstract class ContentItem extends EventEmitter {
      *
      * @param name - The name of the event
      * @internal
+
+     * @zh 执行 `propagateEventToLayoutManager`，用于propagate事件转换为布局管理器。
      */
     private propagateEventToLayoutManager(name: string, event: EventEmitter.BubblingEvent) {
         this._pendingEventPropagations[name] = false;
@@ -489,12 +703,27 @@ export abstract class ContentItem extends EventEmitter {
 
 /** @public */
 export namespace ContentItem {
-    /** @internal */
+    /**
+     * Interface `Area` defining the contract and properties for area.
+     * @internal
+     * @zh 接口 `Area`，定义区域的数据结构契约与属性规范。
+     */
     export interface Area extends AreaLinkedRect {
+        /**
+         * Property `surface` (`number`) storing surface.
+         * @zh 属性 `surface`（类型：`number`），用于存储或配置surface。
+         */
         surface: number;
+        /**
+         * Property `contentItem` (`ContentItem`) storing content item.
+         * @zh 属性 `contentItem`（类型：`ContentItem`），用于存储或配置内容条目。
+         */
         contentItem: ContentItem;
     }
 }
 
-/** @public @deprecated Use {@link (ContentItem:class)} */
+/**
+ * @public @deprecated Use {@link (ContentItem:class)}
+ * @zh 类型别名 `AbstractContentItem`，表示Abstract内容条目（`ContentItem`）。
+ */
 export type AbstractContentItem = ContentItem;

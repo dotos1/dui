@@ -33,7 +33,7 @@
           "type": "number",
           "default": "0",
           "description": "A delay in milliseconds to force the print dialog to wait before opened. Default: 0",
-          "descriptionZh": null
+          "descriptionZh": "输入属性 `printDelay`（类型：`number`），用于配置打印延迟（默认值：`0`）。"
         },
         {
           "name": "printStyle",
@@ -70,8 +70,8 @@
     {
       "name": "PrintModule",
       "kind": "module",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular module `PrintModule` declaring and exporting print module components, directives, pipes, and providers.",
+      "summaryZh": "Angular 模块 `PrintModule`，声明并导出打印模块相关的组件、指令、管道与服务提供者。",
       "sourceFile": "src/common/print/print.module.ts",
       "inputs": [],
       "outputs": [],
@@ -94,13 +94,13 @@
         {
           "name": "standard",
           "type": "string",
-          "description": null,
+          "description": "Input property `standard` (`string`) configuring standard.",
           "descriptionZh": "文档类型标准：`'strict'`、`'loose'` 或 `'html5'`。"
         },
         {
           "name": "popTitle",
           "type": "string",
-          "description": null,
+          "description": "Input property `popTitle` (`string`) configuring pop title.",
           "descriptionZh": "打印窗口的标题。"
         },
         {
@@ -126,7 +126,7 @@
         {
           "name": "printComplete",
           "type": "any",
-          "description": null,
+          "description": "Output event emitter `printComplete` (`EventEmitter<any>`) firing when print complete occurs.",
           "descriptionZh": "打印流程完成时发出。"
         }
       ],
@@ -141,7 +141,7 @@
           ],
           "returnType": "any",
           "description": "开始打印\nparam printHTML 打印的HTML",
-          "descriptionZh": null
+          "descriptionZh": "开始打印"
         },
         {
           "name": "setInputAndTextareaValue",
@@ -153,7 +153,7 @@
           ],
           "returnType": "any",
           "description": "设置打印文档中输入框和文本域的值\nparam {boolean} isReset 是否恢复到初始状态",
-          "descriptionZh": null
+          "descriptionZh": "设置打印文档中输入框和文本域的值"
         },
         {
           "name": "toArray",
@@ -165,7 +165,7 @@
           ],
           "returnType": "any[]",
           "description": "将类数组转换成数组\nparam arr\nreturns {any[]}",
-          "descriptionZh": null
+          "descriptionZh": "将类数组转换成数组"
         }
       ],
       "properties": []

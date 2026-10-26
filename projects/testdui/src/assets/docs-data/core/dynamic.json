@@ -5,21 +5,21 @@
       "name": "DynamicComponent",
       "kind": "component",
       "selector": "dui-dynamic",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular component `DynamicComponent` (selector: 'dui-dynamic') providing dynamic component presentation and interaction in `src/core/dynamic`.",
+      "summaryZh": "Angular 组件 `DynamicComponent`（selector: 'dui-dynamic'），提供动态组件的视图渲染与交互逻辑（位于 `src/core/dynamic`）。",
       "sourceFile": "src/core/dynamic/dynamic.component.ts",
       "inputs": [
         {
           "name": "tmpl",
           "type": "string",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `tmpl` (`string`) configuring tmpl.",
+          "descriptionZh": "输入属性 `tmpl`（类型：`string`），用于配置tmpl。"
         },
         {
           "name": "data",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `data` (`any`) configuring data.",
+          "descriptionZh": "输入属性 `data`（类型：`any`），用于配置数据。"
         }
       ],
       "outputs": [],
@@ -28,23 +28,23 @@
         {
           "name": "template",
           "type": "string",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `template` (`string`) storing template.",
+          "descriptionZh": "属性 `template`（类型：`string`），用于存储或配置模板。"
         },
         {
           "name": "viewRef",
           "type": "any",
           "default": "inject(ViewContainerRef)",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `viewRef` (`any`) storing view ref (default: `inject(ViewContainerRef)`).",
+          "descriptionZh": "属性 `viewRef`（类型：`any`），用于存储或配置视图引用（默认值：`inject(ViewContainerRef)`）。"
         }
       ]
     },
     {
       "name": "DynamicModule",
       "kind": "module",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular module `DynamicModule` declaring and exporting dynamic module components, directives, pipes, and providers.",
+      "summaryZh": "Angular 模块 `DynamicModule`，声明并导出动态模块相关的组件、指令、管道与服务提供者。",
       "sourceFile": "src/core/dynamic/dynamic.module.ts",
       "inputs": [],
       "outputs": [],
@@ -55,8 +55,8 @@
       "name": "SafeurlPipe",
       "kind": "pipe",
       "pipeName": "safeurl",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular pipe `SafeurlPipe` (name: 'safeurl') transforming values for safeurl pipe display in templates.",
+      "summaryZh": "Angular 管道 `SafeurlPipe`（name: 'safeurl'），在模板中转换数据以用于Safeurl管道展示。",
       "sourceFile": "src/core/dynamic/safeurl.pipe.ts",
       "inputs": [],
       "outputs": [],
@@ -74,8 +74,8 @@
             }
           ],
           "returnType": "SafeHtml | SafeStyle | SafeScript | SafeUrl | SafeResourceUrl",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `transform` to handle transform.",
+          "descriptionZh": "执行 `transform`，用于转换。"
         }
       ],
       "properties": []

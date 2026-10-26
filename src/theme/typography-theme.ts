@@ -1,7 +1,16 @@
+/**
+ * @fileoverview Module `src/theme/typography-theme.ts` providing typography theme definitions and implementation.
+ * @zh 模块文件 `src/theme/typography-theme.ts`，提供排版主题相关的定义与实现。
+ */
+
 import { TypographyConfig } from './interfaces';
 
 
 // Foreground palette for light themes.
+/**
+ * Constant/variable `looseTypography` defining loose typography in `src/theme`.
+ * @zh 常量/变量 `looseTypography`，定义 `src/theme` 中的loose排版。
+ */
 const looseTypography: TypographyConfig = {
     type: 'loose',
     'display-4': { 'font-size': '112px', 'line-height': '112px', 'font-weight': 300,"letter-spacing":"normal" },
@@ -20,6 +29,10 @@ const looseTypography: TypographyConfig = {
     'font-family': 'Roboto, "Helvetica Neue", sans-serif',
 };
 
+/**
+ * Constant/variable `normalTypography` defining normal typography in `src/theme`.
+ * @zh 常量/变量 `normalTypography`，定义 `src/theme` 中的normal排版。
+ */
 const normalTypography: TypographyConfig = {
     type: 'normal',
     'display-4': { 'font-size': '100px', 'line-height': '100px', 'font-weight': 300 ,"letter-spacing":"normal"},
@@ -39,6 +52,10 @@ const normalTypography: TypographyConfig = {
 };
 
 
+/**
+ * Constant/variable `compactTypography` defining compact typography in `src/theme`.
+ * @zh 常量/变量 `compactTypography`，定义 `src/theme` 中的紧凑排版。
+ */
 const compactTypography: TypographyConfig = {
     type: 'compact',
     'display-4': { 'font-size': '90px', 'line-height': '90px', 'font-weight': 300 ,"letter-spacing":"normal"},
@@ -57,6 +74,10 @@ const compactTypography: TypographyConfig = {
     'font-family': 'Roboto, "Helvetica Neue", sans-serif',
 };
 
+/**
+ * Constant/variable `TypographyMap` defining typography map in `src/theme`.
+ * @zh 常量/变量 `TypographyMap`，定义 `src/theme` 中的排版映射表。
+ */
 export const TypographyMap = {
     compact: compactTypography,
     normal: normalTypography,

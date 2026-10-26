@@ -5,77 +5,192 @@
       "name": "ICanDisable",
       "kind": "interface",
       "summary": "Interface to implement when applying the disabled mixin",
-      "summaryZh": null,
+      "summaryZh": "接口 `ICanDisable`，定义I是否可以禁用的数据结构契约与属性规范。",
       "sourceFile": "src/core/behaviors/disabled.mixin.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
-      "properties": []
+      "methods": [
+        {
+          "name": "onDisabledChange",
+          "params": [
+            {
+              "name": "v",
+              "type": "boolean"
+            }
+          ],
+          "returnType": "void",
+          "description": "Executes `onDisabledChange` to handle on disabled change.",
+          "descriptionZh": "执行 `onDisabledChange`，用于当已禁用变更。"
+        }
+      ],
+      "properties": [
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "description": "Property `disabled` (`boolean`) storing disabled.",
+          "descriptionZh": "属性 `disabled`（类型：`boolean`），用于存储或配置已禁用。"
+        }
+      ]
     },
     {
       "name": "ICanDisableRipple",
       "kind": "interface",
       "summary": "Interface to implement when applying the disabled mixin",
-      "summaryZh": null,
+      "summaryZh": "接口 `ICanDisableRipple`，定义I是否可以禁用Ripple的数据结构契约与属性规范。",
       "sourceFile": "src/core/behaviors/disable-ripple.mixin.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
-      "properties": []
+      "methods": [
+        {
+          "name": "onDisableRippleChange",
+          "params": [
+            {
+              "name": "v",
+              "type": "boolean"
+            }
+          ],
+          "returnType": "void",
+          "description": "Executes `onDisableRippleChange` to handle on disable ripple change.",
+          "descriptionZh": "执行 `onDisableRippleChange`，用于当禁用Ripple变更。"
+        }
+      ],
+      "properties": [
+        {
+          "name": "disableRipple",
+          "type": "boolean",
+          "description": "Property `disableRipple` (`boolean`) storing disable ripple.",
+          "descriptionZh": "属性 `disableRipple`（类型：`boolean`），用于存储或配置禁用Ripple。"
+        }
+      ]
     },
     {
       "name": "IControlValueAccessor",
       "kind": "interface",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Interface `IControlValueAccessor` defining the contract and properties for i control value accessor.",
+      "summaryZh": "接口 `IControlValueAccessor`，定义I表单控件值访问器的数据结构契约与属性规范。",
       "sourceFile": "src/core/behaviors/control-value-accesor.mixin.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
-      "properties": []
+      "properties": [
+        {
+          "name": "value",
+          "type": "any",
+          "description": "Property `value` (`any`) storing value.",
+          "descriptionZh": "属性 `value`（类型：`any`），用于存储或配置值。"
+        },
+        {
+          "name": "valueChanges",
+          "type": "Observable<any>",
+          "description": "Property `valueChanges` (`Observable<any>`) storing value changes.",
+          "descriptionZh": "属性 `valueChanges`（类型：`Observable<any>`），用于存储或配置值变更集合。"
+        },
+        {
+          "name": "onChange",
+          "type": "(_: any) => any",
+          "description": "Property `onChange` (`(_: any) => any`) storing on change.",
+          "descriptionZh": "属性 `onChange`（类型：`(_: any) => any`），用于存储或配置当变更。"
+        },
+        {
+          "name": "onTouched",
+          "type": "() => any",
+          "description": "Property `onTouched` (`() => any`) storing on touched.",
+          "descriptionZh": "属性 `onTouched`（类型：`() => any`），用于存储或配置当是否已触碰。"
+        }
+      ]
     },
     {
       "name": "IHasChangeDetectorRef",
       "kind": "interface",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Interface `IHasChangeDetectorRef` defining the contract and properties for i has change detector ref.",
+      "summaryZh": "接口 `IHasChangeDetectorRef`，定义I是否包含变更检测器引用的数据结构契约与属性规范。",
       "sourceFile": "src/core/behaviors/control-value-accesor.mixin.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
-      "properties": []
+      "properties": [
+        {
+          "name": "_changeDetectorRef",
+          "type": "ChangeDetectorRef",
+          "description": "Property `_changeDetectorRef` (`ChangeDetectorRef`) storing change detector ref.",
+          "descriptionZh": "属性 `_changeDetectorRef`（类型：`ChangeDetectorRef`），用于存储或配置变更检测器引用。"
+        }
+      ]
     },
     {
       "name": "mixinControlValueAccessor",
       "kind": "function",
       "summary": "Mixin to augment a component with ngModel support.",
-      "summaryZh": null,
+      "summaryZh": "执行 `mixinControlValueAccessor`，用于mixin表单控件值访问器。",
       "sourceFile": "src/core/behaviors/control-value-accesor.mixin.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "mixinControlValueAccessor",
+          "params": [
+            {
+              "name": "base",
+              "type": "T"
+            },
+            {
+              "name": "initialValue",
+              "type": "any"
+            }
+          ],
+          "returnType": "Constructor<IControlValueAccessor> & T",
+          "description": "Mixin to augment a component with ngModel support.",
+          "descriptionZh": "执行 `mixinControlValueAccessor`，用于mixin表单控件值访问器。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "mixinDisabled",
       "kind": "function",
       "summary": "Mixin to augment a component or directive with a `disabled` property.",
-      "summaryZh": null,
+      "summaryZh": "执行 `mixinDisabled`，用于mixin已禁用。",
       "sourceFile": "src/core/behaviors/disabled.mixin.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "mixinDisabled",
+          "params": [
+            {
+              "name": "base",
+              "type": "T"
+            }
+          ],
+          "returnType": "Constructor<ICanDisable> & T",
+          "description": "Mixin to augment a component or directive with a `disabled` property.",
+          "descriptionZh": "执行 `mixinDisabled`，用于mixin已禁用。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "mixinDisableRipple",
       "kind": "function",
       "summary": "Mixin to augment a component or directive with a `disabled` property.",
-      "summaryZh": null,
+      "summaryZh": "执行 `mixinDisableRipple`，用于mixin禁用Ripple。",
       "sourceFile": "src/core/behaviors/disable-ripple.mixin.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "mixinDisableRipple",
+          "params": [
+            {
+              "name": "base",
+              "type": "T"
+            }
+          ],
+          "returnType": "Constructor<ICanDisableRipple> & T",
+          "description": "Mixin to augment a component or directive with a `disabled` property.",
+          "descriptionZh": "执行 `mixinDisableRipple`，用于mixin禁用Ripple。"
+        }
+      ],
       "properties": []
     }
   ],

@@ -1,11 +1,28 @@
+/**
+ * @fileoverview Module `src/core/meta/util.ts` providing util definitions and implementation.
+ * @zh 模块文件 `src/core/meta/util.ts`，提供工具相关的定义与实现。
+ */
+
 
 import { Observable } from 'rxjs';
 
-export function isPromise(obj: any): obj is Promise<any> {
+/**
+ * Executes `isPromise` to handle is promise.
+ * @zh 执行 `isPromise`，用于是否为Promise。
+ * @param obj - obj parameter (`any`) / 对象参数（`any`）
+ * @returns Result of type `obj is Promise<any>` / 类型为 `obj is Promise<any>` 的返回值
+ */
+export function isPromise(obj) {
   return !!obj && typeof obj.then === 'function';
 }
 
-export function isObservable(obj: any | Observable<any>): obj is Observable<any> {
+/**
+ * Executes `isObservable` to handle is observable.
+ * @zh 执行 `isObservable`，用于是否为可观察流。
+ * @param obj - obj parameter (`any | Observable<any>`) / 对象参数（`any | Observable<any>`）
+ * @returns Result of type `obj is Observable<any>` / 类型为 `obj is Observable<any>` 的返回值
+ */
+export function isObservable(obj) {
 
   return !!obj && typeof obj.subscribe === 'function';
 }

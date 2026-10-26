@@ -1,7 +1,16 @@
+/**
+ * @fileoverview Module `src/ux/markdown-editor/markdown.ts` providing markdown definitions and implementation.
+ * @zh 模块文件 `src/ux/markdown-editor/markdown.ts`，提供Markdown文档相关的定义与实现。
+ */
+
 
 import {languages} from "monaco-editor"
 import {begin_args, all} from "./latex";
 
+/**
+ * Constant/variable `conf` defining conf in `src/ux/markdown-editor`.
+ * @zh 常量/变量 `conf`，定义 `src/ux/markdown-editor` 中的conf。
+ */
 export const conf: languages.LanguageConfiguration = {
 	comments: {
 		blockComment: ['<!--', '-->',]
@@ -30,6 +39,10 @@ export const conf: languages.LanguageConfiguration = {
 	}
 };
 
+/**
+ * Constant/variable `language` defining language in `src/ux/markdown-editor`.
+ * @zh 常量/变量 `language`，定义 `src/ux/markdown-editor` 中的语言。
+ */
 export const language = <languages.IMonarchLanguage>{
 	defaultToken: '',
 	tokenPostfix: '.md',

@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Module `src/common/fileupload/file-select.directive.spec.ts` providing file select directive spec definitions and implementation.
+ * @zh 模块文件 `src/common/fileupload/file-select.directive.spec.ts`，提供文件下拉选择指令spec相关的定义与实现。
+ */
+
 import { EventEmitter } from '@angular/core';
 import { FileSelectDirective } from './file-select.directive';
 

@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Module `projects/testdui/tools/generate-api-docs.ts` providing generate api docs definitions and implementation.
+ * @zh 模块文件 `projects/testdui/tools/generate-api-docs.ts`，提供生成API接口文档相关的定义与实现。
+ */
+
 import * as fs from 'fs';
 import * as path from 'path';
 import * as ts from 'typescript';
@@ -6,18 +11,61 @@ import { extractExport, buildSuggestedUsageSnippet, ApiExport } from './ts-ast-e
 import { isFlagshipModule } from './flagship-modules';
 
 // __dirname at runtime is the compiled output dir: projects/testdui/tools/.dist-tools
+/**
+ * Constant/variable `REPO_ROOT` defining repo root in `projects/testdui/tools`.
+ * @zh 常量/变量 `REPO_ROOT`，定义 `projects/testdui/tools` 中的REPO根节点。
+ */
 const REPO_ROOT = path.resolve(__dirname, '../../../..');
+/**
+ * Constant/variable `SRC_ROOT` defining src root in `projects/testdui/tools`.
+ * @zh 常量/变量 `SRC_ROOT`，定义 `projects/testdui/tools` 中的源路径根节点。
+ */
 const SRC_ROOT = path.join(REPO_ROOT, 'src');
+/**
+ * Constant/variable `OUT_ROOT` defining out root in `projects/testdui/tools`.
+ * @zh 常量/变量 `OUT_ROOT`，定义 `projects/testdui/tools` 中的输出根节点。
+ */
 const OUT_ROOT = path.join(REPO_ROOT, 'projects/testdui/src/assets/docs-data');
 
+/**
+ * Interface `EntryPoint` defining the contract and properties for entry point.
+ * @zh 接口 `EntryPoint`，定义条目坐标点的数据结构契约与属性规范。
+ */
 interface EntryPoint {
+  /**
+   * Property `category` (`string`) storing category.
+   * @zh 属性 `category`（类型：`string`），用于存储或配置分类。
+   */
   category: string;
+  /**
+   * Property `moduleId` (`string`) storing module id.
+   * @zh 属性 `moduleId`（类型：`string`），用于存储或配置模块唯一标识。
+   */
   moduleId: string;
+  /**
+   * Property `importPath` (`string`) storing import path.
+   * @zh 属性 `importPath`（类型：`string`），用于存储或配置导入路径。
+   */
   importPath: string;
+  /**
+   * Property `entryFileAbs` (`string`) storing entry file abs.
+   * @zh 属性 `entryFileAbs`（类型：`string`），用于存储或配置条目文件绝对值。
+   */
   entryFileAbs: string;
+  /**
+   * Property `dirAbs` (`string`) storing dir abs.
+   * @zh 属性 `dirAbs`（类型：`string`），用于存储或配置目录绝对值。
+   */
   dirAbs: string;
 }
 
+/**
+ * Executes `findNgPackageFiles` to handle find ng package files.
+ * @zh 执行 `findNgPackageFiles`，用于查找AngularPackage文件列表。
+ * @param dir - dir parameter (`string`) / 目录参数（`string`）
+ * @param results - results parameter (`string[]`) / 结果参数（`string[]`）
+ * @returns Result of type `string[]` / 类型为 `string[]` 的返回值
+ */
 function findNgPackageFiles(dir: string, results: string[] = []): string[] {
   for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
     if (entry.name === 'node_modules' || entry.name.startsWith('.')) continue;
@@ -31,10 +79,21 @@ function findNgPackageFiles(dir: string, results: string[] = []): string[] {
   return results;
 }
 
+/**
+ * Executes `toPosix` to handle to posix.
+ * @zh 执行 `toPosix`，用于转换为Posix。
+ * @param p - p parameter (`string`) / p参数（`string`）
+ * @returns Result of type `string` / 类型为 `string` 的返回值
+ */
 function toPosix(p: string): string {
   return p.split(path.sep).join('/');
 }
 
+/**
+ * Executes `computeEntryPoints` to handle compute entry points.
+ * @zh 执行 `computeEntryPoints`，用于计算条目点集合。
+ * @returns Result of type `EntryPoint[]` / 类型为 `EntryPoint[]` 的返回值
+ */
 function computeEntryPoints(): EntryPoint[] {
   const ngPackageFiles = findNgPackageFiles(SRC_ROOT);
   const entryPoints: EntryPoint[] = [];
@@ -74,6 +133,11 @@ function computeEntryPoints(): EntryPoint[] {
   return entryPoints;
 }
 
+/**
+ * Executes `loadCompilerOptions` to handle load compiler options.
+ * @zh 执行 `loadCompilerOptions`，用于加载Compiler配置选项。
+ * @returns Result of type `ts.CompilerOptions` / 类型为 `ts.CompilerOptions` 的返回值
+ */
 function loadCompilerOptions(): ts.CompilerOptions {
   const configPath = path.join(REPO_ROOT, 'tsconfig.json');
   const configFile = ts.readConfigFile(configPath, ts.sys.readFile);
@@ -84,6 +148,10 @@ function loadCompilerOptions(): ts.CompilerOptions {
   return { ...parsed.options, noEmit: true };
 }
 
+/**
+ * Constant/variable `ALL_CATEGORY_IDS` defining all category ids in `projects/testdui/tools`.
+ * @zh 常量/变量 `ALL_CATEGORY_IDS`，定义 `projects/testdui/tools` 中的全部分类标识列表。
+ */
 const ALL_CATEGORY_IDS = [
   'base',
   'common',
@@ -102,6 +170,10 @@ const ALL_CATEGORY_IDS = [
   'ux',
 ];
 
+/**
+ * Executes `main` to handle main.
+ * @zh 执行 `main`，用于主。
+ */
 function main(): void {
   let entryPoints = computeEntryPoints();
   console.log(`[docs:generate] found ${entryPoints.length} entry points`);

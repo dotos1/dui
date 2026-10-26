@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Module `src/common/dialogs/alert-dialog/alert-dialog.component.ts` providing alert dialog component definitions and implementation.
+ * @zh 模块文件 `src/common/dialogs/alert-dialog/alert-dialog.component.ts`，提供警告框对话框组件相关的定义与实现。
+ */
+
 import { Component } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
 
@@ -13,13 +18,30 @@ import { MatDialogRef } from '@angular/material/dialog';
 
 })
 export class AlertDialogComponent {
-  /** @zh 对话框标题。 */
+  /**
+   * Property `title` (`string`) storing title.
+   * @zh 对话框标题。
+   * @zh 对话框标题。
+   */
   title?: string;
-  /** @zh 对话框消息内容。 */
+  /**
+   * Property `message` (`string`) storing message.
+   * @zh 对话框消息内容。
+   * @zh 对话框消息内容。
+   */
   message?: string;
-  /** @zh 关闭按钮的文字，默认为 `'CLOSE'`。 */
+  /**
+   * Property `closeButton` (`string`) storing close button (default: `'CLOSE'`).
+   * @zh 关闭按钮的文字，默认为 `'CLOSE'`。
+   * @zh 关闭按钮的文字，默认为 `'CLOSE'`。
+   */
   closeButton?: string = 'CLOSE';
 
+  /**
+   * Creates an instance of `AlertDialogComponent` and initializes its dependencies and internal state.
+   * @zh 创建 `AlertDialogComponent` 实例，并初始化其依赖项与内部状态。
+   * @param _dialogRef - Injected or initial dialog ref (`MatDialogRef<AlertDialogComponent>`) / 注入或传入的对话框引用（`MatDialogRef<AlertDialogComponent>`）
+   */
   constructor(private _dialogRef: MatDialogRef<AlertDialogComponent>) {}
 
   /**

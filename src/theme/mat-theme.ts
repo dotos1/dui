@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Module `src/theme/mat-theme.ts` providing mat theme definitions and implementation.
+ * @zh 模块文件 `src/theme/mat-theme.ts`，提供Material主题相关的定义与实现。
+ */
+
 import { duiDragselectTheme } from './theme/drag-to-select-theme';
 import { duiIconPickerTheme } from './theme/icon-picker.theme';
 import { duiQueryBuilderTheme } from './theme/query-builder.theme';
@@ -90,6 +95,12 @@ import { duiScrollbarTheme } from './theme/dui-scrollbar-theme';
 
 
 // Create a theme.
+/**
+ * Executes `materialTheme` to handle material theme.
+ * @zh 执行 `materialTheme`，用于material主题。
+ * @param theme - theme parameter (`Theme`) / 主题参数（`Theme`）
+ * @returns Result of type `Object` / 类型为 `Object` 的返回值
+ */
 export function materialTheme(theme: Theme): Object {
   return {
     ...matEvaluation(theme),

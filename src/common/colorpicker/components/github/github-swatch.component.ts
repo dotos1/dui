@@ -1,5 +1,14 @@
+/**
+ * @fileoverview Module `src/common/colorpicker/components/github/github-swatch.component.ts` providing github swatch component definitions and implementation.
+ * @zh 模块文件 `src/common/colorpicker/components/github/github-swatch.component.ts`，提供githubswatch组件相关的定义与实现。
+ */
+
 import {  ChangeDetectionStrategy,  Component,  EventEmitter,  Input,  Output,} from '@angular/core';
 
+/**
+ * Angular component `GithubSwatchComponent` (selector: 'color-github-swatch') providing github swatch component presentation and interaction in `src/common/colorpicker/components/github`.
+ * @zh Angular 组件 `GithubSwatchComponent`（selector: 'color-github-swatch'），提供GithubSwatch组件的视图渲染与交互逻辑（位于 `src/common/colorpicker/components/github`）。
+ */
 @Component({
   selector: 'color-github-swatch',
   template: `
@@ -40,15 +49,35 @@ import {  ChangeDetectionStrategy,  Component,  EventEmitter,  Input,  Output,} 
  * @zh {@link GithubComponent} 调色板网格中使用的单个方形色块。
  */
 export class GithubSwatchComponent {
-  /** @zh 该色块代表的颜色值。 */
+  /**
+   * Input property `color` (`string`) configuring color.
+   * @zh 该色块代表的颜色值。
+   * @zh 该色块代表的颜色值。
+   */
   @Input() color: string;
-  /** @zh 色块被点击时发出。 */
-  @Output() onClick = new EventEmitter<any>();
-  /** @zh 鼠标悬停在色块上时发出。 */
-  @Output() onSwatchHover = new EventEmitter<any>();
-  /** @zh 色块的内联样式。 */
+  /**
+   * Output event emitter `onClick` (`EventEmitter`) firing when on click occurs.
+   * @zh 色块被点击时发出。
+   * @zh 色块被点击时发出。
+   */
+  @Output() onClick = new EventEmitter();
+  /**
+   * Output event emitter `onSwatchHover` (`EventEmitter`) firing when on swatch hover occurs.
+   * @zh 鼠标悬停在色块上时发出。
+   * @zh 鼠标悬停在色块上时发出。
+   */
+  @Output() onSwatchHover = new EventEmitter();
+  /**
+   * Property `swatchStyle` (`{ [key: string]: string }`) storing swatch style.
+   * @zh 色块的内联样式。
+   * @zh 色块的内联样式。
+   */
   swatchStyle: { [key: string]: string };
 
+  /**
+   * Creates an instance of `GithubSwatchComponent` and initializes its dependencies and internal state.
+   * @zh 创建 `GithubSwatchComponent` 实例，并初始化其依赖项与内部状态。
+   */
   constructor() {}
 
   /**

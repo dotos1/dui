@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Module `src/common/toastr/toastr/toast-noanimation.component.ts` providing toast noanimation component definitions and implementation.
+ * @zh 模块文件 `src/common/toastr/toastr/toast-noanimation.component.ts`，提供toastnoanimation组件相关的定义与实现。
+ */
+
 
 import { ChangeDetectionStrategy, ModuleWithProviders, ViewEncapsulation, signal } from '@angular/core';
 import {
@@ -22,6 +27,10 @@ import { ToastrService } from './toastr.service';
 import { CommonModule } from '@angular/common';
 import { TranslateModule } from '@dotos/dui/translator';
 
+/**
+ * Angular component `ToastNoAnimation` (selector: '[toast-component]') providing toast no animation presentation and interaction in `src/common/toastr/toastr`.
+ * @zh Angular 组件 `ToastNoAnimation`（selector: '[toast-component]'），提供ToastNo动画的视图渲染与交互逻辑（位于 `src/common/toastr/toastr`）。
+ */
 @Component({
   selector: '[toast-component]',
   template: `
@@ -48,22 +57,51 @@ import { TranslateModule } from '@dotos/dui/translator';
   
 })
 export class ToastNoAnimation implements OnDestroy {
-  /** @zh 提示消息的正文文本。 */
+  /**
+   * Property `message` (`string | null`) storing message.
+   * @zh 提示消息的正文文本。
+   * @zh 提示消息的正文文本。
+   */
   message?: string | null;
-  /** @zh 提示消息的标题。 */
+  /**
+   * Property `title` (`string`) storing title.
+   * @zh 提示消息的标题。
+   * @zh 提示消息的标题。
+   */
   title?: string;
-  /** @zh 该提示的解析后配置项。 */
+  /**
+   * Property `options` (`IndividualConfig`) storing options.
+   * @zh 该提示的解析后配置项。
+   * @zh 该提示的解析后配置项。
+   */
   options: IndividualConfig;
-  /** @zh 该提示被重复触发的次数。 */
+  /**
+   * Property `duplicatesCount` (`number`) storing duplicates count.
+   * @zh 该提示被重复触发的次数。
+   * @zh 该提示被重复触发的次数。
+   */
   duplicatesCount!: number;
-  /** @zh 该提示的原始自动关闭时长（毫秒）。 */
+  /**
+   * Property `originalTimeout` (`number`) storing original timeout.
+   * @zh 该提示的原始自动关闭时长（毫秒）。
+   * @zh 该提示的原始自动关闭时长（毫秒）。
+   */
   originalTimeout: number;
-  /** width of progress bar */
+  /**
+   * width of progress bar
+   * @zh 属性 `width`（类型：`any`），用于存储或配置宽度（默认值：`signal(-1)`）。
+   */
   width = signal(-1);
-  /** a combination of toast type and options.toastClass */
+  /**
+   * a combination of toast type and options.toastClass
+   * @zh 宿主绑定属性 `toastClasses`，绑定至宿主元素 `class` 以控制toast类名集合。
+   */
   @HostBinding('class') toastClasses = '';
 
-  /** hides component when waiting to be displayed */
+  /**
+   * hides component when waiting to be displayed
+   * @zh 宿主绑定读取器 `displayStyle`（绑定至 `style.display`），计算并返回display样式。
+   */
   @HostBinding('style.display')
   get displayStyle() {
     if (this.state() === 'inactive') {
@@ -73,16 +111,54 @@ export class ToastNoAnimation implements OnDestroy {
     return null;
   }
 
-  /** controls animation */
+  /**
+   * controls animation
+   * @zh 属性 `state`（类型：`any`），用于存储或配置状态（默认值：`signal('inactive')`）。
+   */
   state = signal('inactive');
-  private timeout: any;
-  private intervalId: any;
+  /**
+   * Property `timeout` (`any`) storing timeout.
+   * @zh 属性 `timeout`（类型：`any`），用于存储或配置延时器。
+   */
+  private timeout;
+  /**
+   * Property `intervalId` (`any`) storing interval id.
+   * @zh 属性 `intervalId`（类型：`any`），用于存储或配置间隔定时器唯一标识。
+   */
+  private intervalId;
+  /**
+   * Property `hideTime` (`number`) storing hide time.
+   * @zh 属性 `hideTime`（类型：`number`），用于存储或配置隐藏时间。
+   */
   private hideTime!: number;
+  /**
+   * Property `sub` (`Subscription`) storing sub.
+   * @zh 属性 `sub`（类型：`Subscription`），用于存储或配置子。
+   */
   private sub: Subscription;
+  /**
+   * Property `sub1` (`Subscription`) storing sub1.
+   * @zh 属性 `sub1`（类型：`Subscription`），用于存储或配置sub1。
+   */
   private sub1: Subscription;
+  /**
+   * Property `sub2` (`Subscription`) storing sub2.
+   * @zh 属性 `sub2`（类型：`Subscription`），用于存储或配置sub2。
+   */
   private sub2: Subscription;
+  /**
+   * Property `sub3` (`Subscription`) storing sub3.
+   * @zh 属性 `sub3`（类型：`Subscription`），用于存储或配置sub3。
+   */
   private sub3: Subscription;
 
+  /**
+   * Creates an instance of `ToastNoAnimation` and initializes its dependencies and internal state.
+   * @zh 创建 `ToastNoAnimation` 实例，并初始化其依赖项与内部状态。
+   * @param toastrService - Injected or initial toastr service (`ToastrService`) / 注入或传入的轻提示服务（`ToastrService`）
+   * @param toastPackage - Injected or initial toast package (`ToastPackage`) / 注入或传入的toastPackage（`ToastPackage`）
+   * @param appRef - Injected or initial app ref (`ApplicationRef`) / 注入或传入的app引用（`ApplicationRef`）
+   */
   constructor(
     protected toastrService: ToastrService,
     public toastPackage: ToastPackage,
@@ -108,6 +184,10 @@ export class ToastNoAnimation implements OnDestroy {
       this.duplicatesCount = count;
     });
   }
+  /**
+   * Angular lifecycle hook invoked just before the component, directive, or service is destroyed to release subscriptions and resources.
+   * @zh Angular 生命周期钩子：在组件、指令或服务销毁前调用，用于释放订阅与清理资源。
+   */
   ngOnDestroy() {
     this.sub.unsubscribe();
     this.sub1.unsubscribe();
@@ -138,6 +218,8 @@ export class ToastNoAnimation implements OnDestroy {
   }
   /**
    * updates progress bar width
+
+   * @zh 执行 `updateProgress`，用于更新进度条。
    */
   updateProgress() {
     if (this.width() === 0 || this.width() === 100 || !this.options.timeOut) {
@@ -177,6 +259,8 @@ export class ToastNoAnimation implements OnDestroy {
 
   /**
    * tells toastrService to remove this toast after animation time
+
+   * @zh 执行 `remove`，用于移除。
    */
   remove() {
     if (this.state() === 'removed') {
@@ -245,11 +329,19 @@ export class ToastNoAnimation implements OnDestroy {
   }
 }
 
+/**
+ * Constant/variable `DefaultNoAnimationsGlobalConfig` defining default no animations global config in `src/common/toastr/toastr`.
+ * @zh 常量/变量 `DefaultNoAnimationsGlobalConfig`，定义 `src/common/toastr/toastr` 中的默认No动画全局配置。
+ */
 export const DefaultNoAnimationsGlobalConfig: GlobalConfig = {
   ...DefaultNoComponentGlobalConfig,
   toastComponent: ToastNoAnimation,
 };
 
+/**
+ * Angular module `ToastNoAnimationModule` declaring and exporting toast no animation module components, directives, pipes, and providers.
+ * @zh Angular 模块 `ToastNoAnimationModule`，声明并导出ToastNo动画模块相关的组件、指令、管道与服务提供者。
+ */
 @NgModule({
   declarations: [ToastNoAnimation],
   imports: [    
@@ -260,6 +352,12 @@ export const DefaultNoAnimationsGlobalConfig: GlobalConfig = {
 
 })
 export class ToastNoAnimationModule {
+  /**
+   * Executes `forRoot` to handle for root.
+   * @zh 执行 `forRoot`，用于用于根节点。
+   * @param config - config parameter (`Partial<GlobalConfig>`) / 配置参数（`Partial<GlobalConfig>`）
+   * @returns Result of type `ModuleWithProviders<ToastNoAnimationModule>` / 类型为 `ModuleWithProviders<ToastNoAnimationModule>` 的返回值
+   */
   static forRoot(config: Partial<GlobalConfig> = {}): ModuleWithProviders<ToastNoAnimationModule> {
     return {
       ngModule: ToastNoAnimationModule,

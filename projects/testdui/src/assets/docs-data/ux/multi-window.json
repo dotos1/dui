@@ -5,18 +5,25 @@
       "name": "AppWindow",
       "kind": "interface",
       "summary": "Represents a window with the current application how it is stored\nin the localstorage. It has an id, name, heartbeat represented in a timestamp\nand an array of messages that that window sent out.\n\nIt's named \"AppWindow\" to avoid confusion with the type Window\nof the global variable \"window\".",
-      "summaryZh": null,
+      "summaryZh": "接口 `AppWindow`，定义App窗口的数据结构契约与属性规范。",
       "sourceFile": "src/ux/multi-window/types/window.type.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
-      "properties": []
+      "properties": [
+        {
+          "name": "messages",
+          "type": "Message[]",
+          "description": "Property `messages` (`Message[]`) storing messages.",
+          "descriptionZh": "属性 `messages`（类型：`Message[]`），用于存储或配置消息列表。"
+        }
+      ]
     },
     {
       "name": "defaultMultiWindowConfig",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `defaultMultiWindowConfig` defining default multi window config in `src/ux/multi-window/providers`.",
+      "summaryZh": "常量/变量 `defaultMultiWindowConfig`，定义 `src/ux/multi-window/providers` 中的默认多窗口配置。",
       "sourceFile": "src/ux/multi-window/providers/config.provider.ts",
       "inputs": [],
       "outputs": [],
@@ -26,63 +33,188 @@
     {
       "name": "KnownAppWindow",
       "kind": "interface",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Interface `KnownAppWindow` defining the contract and properties for known app window.",
+      "summaryZh": "接口 `KnownAppWindow`，定义KnownApp窗口的数据结构契约与属性规范。",
       "sourceFile": "src/ux/multi-window/types/window.type.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
-      "properties": []
+      "properties": [
+        {
+          "name": "stalled",
+          "type": "boolean",
+          "description": "Property `stalled` (`boolean`) storing stalled.",
+          "descriptionZh": "属性 `stalled`（类型：`boolean`），用于存储或配置stalled。"
+        },
+        {
+          "name": "self",
+          "type": "boolean",
+          "description": "Property `self` (`boolean`) storing self.",
+          "descriptionZh": "属性 `self`（类型：`boolean`），用于存储或配置自身。"
+        }
+      ]
     },
     {
       "name": "Message",
       "kind": "interface",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Interface `Message` defining the contract and properties for message.",
+      "summaryZh": "接口 `Message`，定义消息的数据结构契约与属性规范。",
       "sourceFile": "src/ux/multi-window/types/message.type.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
-      "properties": []
+      "properties": [
+        {
+          "name": "send",
+          "type": "boolean",
+          "description": "Property `send` (`boolean`) storing send.",
+          "descriptionZh": "属性 `send`（类型：`boolean`），用于存储或配置发送。"
+        },
+        {
+          "name": "messageId",
+          "type": "string",
+          "description": "Property `messageId` (`string`) storing message id.",
+          "descriptionZh": "属性 `messageId`（类型：`string`），用于存储或配置消息唯一标识。"
+        },
+        {
+          "name": "sendTime",
+          "type": "number",
+          "description": "Property `sendTime` (`number`) storing send time.",
+          "descriptionZh": "属性 `sendTime`（类型：`number`），用于存储或配置发送时间。"
+        },
+        {
+          "name": "senderId",
+          "type": "string",
+          "description": "Property `senderId` (`string`) storing sender id.",
+          "descriptionZh": "属性 `senderId`（类型：`string`），用于存储或配置发送器唯一标识。"
+        }
+      ]
     },
     {
       "name": "MessageTemplate",
       "kind": "interface",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Interface `MessageTemplate` defining the contract and properties for message template.",
+      "summaryZh": "接口 `MessageTemplate`，定义消息模板的数据结构契约与属性规范。",
       "sourceFile": "src/ux/multi-window/types/message.type.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
-      "properties": []
+      "properties": [
+        {
+          "name": "recipientId",
+          "type": "string",
+          "description": "Property `recipientId` (`string`) storing recipient id.",
+          "descriptionZh": "属性 `recipientId`（类型：`string`），用于存储或配置recipient唯一标识。"
+        },
+        {
+          "name": "type",
+          "type": "MessageType",
+          "description": "Property `type` (`MessageType`) storing type.",
+          "descriptionZh": "属性 `type`（类型：`MessageType`），用于存储或配置类型。"
+        },
+        {
+          "name": "event",
+          "type": "string",
+          "description": "Property `event` (`string`) storing event.",
+          "descriptionZh": "属性 `event`（类型：`string`），用于存储或配置事件。"
+        },
+        {
+          "name": "data",
+          "type": "any",
+          "description": "Property `data` (`any`) storing data.",
+          "descriptionZh": "属性 `data`（类型：`any`），用于存储或配置数据。"
+        },
+        {
+          "name": "payload",
+          "type": "any",
+          "description": "Property `payload` (`any`) storing payload.",
+          "descriptionZh": "属性 `payload`（类型：`any`），用于存储或配置payload。"
+        }
+      ]
     },
     {
       "name": "MessageType",
       "kind": "enum",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Enumeration `MessageType` defining supported message type constants.",
+      "summaryZh": "枚举 `MessageType`，定义支持的消息类型常量集合。",
       "sourceFile": "src/ux/multi-window/types/message.type.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
-      "properties": []
+      "properties": [
+        {
+          "name": "MESSAGE",
+          "type": "enum-member",
+          "description": "Enum member `MessageType.MESSAGE` representing message.",
+          "descriptionZh": "枚举项 `MessageType.MESSAGE`，表示消息。"
+        },
+        {
+          "name": "MESSAGE_RECEIVED",
+          "type": "enum-member",
+          "description": "Enum member `MessageType.MESSAGE_RECEIVED` representing message received.",
+          "descriptionZh": "枚举项 `MessageType.MESSAGE_RECEIVED`，表示消息已接收。"
+        },
+        {
+          "name": "PING",
+          "type": "enum-member",
+          "description": "Enum member `MessageType.PING` representing ping.",
+          "descriptionZh": "枚举项 `MessageType.PING`，表示PING。"
+        }
+      ]
     },
     {
       "name": "MultiWindowConfig",
       "kind": "interface",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Interface `MultiWindowConfig` defining the contract and properties for multi window config.",
+      "summaryZh": "接口 `MultiWindowConfig`，定义多窗口配置的数据结构契约与属性规范。",
       "sourceFile": "src/ux/multi-window/types/multi-window.config.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
-      "properties": []
+      "properties": [
+        {
+          "name": "keyPrefix",
+          "type": "string",
+          "description": "String to be used as prefix when storing data in the localstorage",
+          "descriptionZh": "属性 `keyPrefix`（类型：`string`），用于存储或配置键前缀。"
+        },
+        {
+          "name": "heartbeat",
+          "type": "number",
+          "description": "Time in milliseconds how often a heartbeat should be performed. During a heartbeat a window\nlooks for new messages from other windows and processes these messages.",
+          "descriptionZh": "属性 `heartbeat`（类型：`number`），用于存储或配置heartbeat。"
+        },
+        {
+          "name": "newWindowScan",
+          "type": "number",
+          "description": "Time in milliseconds how often a scan for new windows should be performed.",
+          "descriptionZh": "属性 `newWindowScan`（类型：`number`），用于存储或配置新窗口Scan。"
+        },
+        {
+          "name": "messageTimeout",
+          "type": "number",
+          "description": "Time in milliseconds after which a message delivery is considered to have failed.\nIf no \"message_received\" confirmation has arrived during the specified duration,\nthe message will be removed from the outbox.",
+          "descriptionZh": "属性 `messageTimeout`（类型：`number`），用于存储或配置消息延时器。"
+        },
+        {
+          "name": "windowTimeout",
+          "type": "number",
+          "description": "Time in milliseconds after which a window is considered dead.\n\nShould be a multiple of {@link MultiWindowConfig#newWindowScan}",
+          "descriptionZh": "属性 `windowTimeout`（类型：`number`），用于存储或配置窗口延时器。"
+        },
+        {
+          "name": "windowSaveStrategy",
+          "type": "WindowSaveStrategy",
+          "description": "A strategy to be used when it comes to saving the window name.\n\nRefer to the different enum values for detailed description about the possible values.",
+          "descriptionZh": "属性 `windowSaveStrategy`（类型：`WindowSaveStrategy`），用于存储或配置窗口保存策略。"
+        }
+      ]
     },
     {
       "name": "MultiWindowModule",
       "kind": "module",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular module `MultiWindowModule` declaring and exporting multi window module components, directives, pipes, and providers.",
+      "summaryZh": "Angular 模块 `MultiWindowModule`，声明并导出多窗口模块相关的组件、指令、管道与服务提供者。",
       "sourceFile": "src/ux/multi-window/multi-window.module.ts",
       "inputs": [],
       "outputs": [],
@@ -96,8 +228,8 @@
             }
           ],
           "returnType": "ModuleWithProviders<MultiWindowModule>",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `forRoot` to handle for root.",
+          "descriptionZh": "执行 `forRoot`，用于用于根节点。"
         }
       ],
       "properties": []
@@ -105,8 +237,8 @@
     {
       "name": "MultiWindowRef",
       "kind": "service",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Injectable Angular service `MultiWindowRef` managing multi window ref state and operations in `src/ux/multi-window/providers`.",
+      "summaryZh": "可注入的 Angular 服务 `MultiWindowRef`，管理 `src/ux/multi-window/providers` 中的多窗口引用状态与业务操作。",
       "sourceFile": "src/ux/multi-window/providers/window.provider.ts",
       "inputs": [],
       "outputs": [],
@@ -115,16 +247,16 @@
         {
           "name": "nativeWindow",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current native window (`nativeWindow: any`).",
+          "descriptionZh": "获取当前原生窗口（`nativeWindow: any`）。"
         }
       ]
     },
     {
       "name": "MultiWindowService",
       "kind": "service",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Injectable Angular service `MultiWindowService` managing multi window service state and operations in `src/ux/multi-window/providers`.",
+      "summaryZh": "可注入的 Angular 服务 `MultiWindowService`，管理 `src/ux/multi-window/providers` 中的多窗口服务状态与业务操作。",
       "sourceFile": "src/ux/multi-window/providers/multi-window.service.ts",
       "inputs": [],
       "outputs": [],
@@ -133,43 +265,43 @@
           "name": "onMessage",
           "params": [],
           "returnType": "Observable<Message>",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `onMessage` to handle on message.",
+          "descriptionZh": "执行 `onMessage`，用于当消息。"
         },
         {
           "name": "onWindows",
           "params": [],
           "returnType": "Observable<KnownAppWindow[]>",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `onWindows` to handle on windows.",
+          "descriptionZh": "执行 `onWindows`，用于当多窗口。"
         },
         {
           "name": "getKnownWindows",
           "params": [],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `getKnownWindows` to handle get known windows.",
+          "descriptionZh": "执行 `getKnownWindows`，用于获取Known多窗口。"
         },
         {
           "name": "start",
           "params": [],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `start` to handle start.",
+          "descriptionZh": "执行 `start`，用于开始。"
         },
         {
           "name": "stop",
           "params": [],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `stop` to handle stop.",
+          "descriptionZh": "执行 `stop`，用于停止。"
         },
         {
           "name": "clear",
           "params": [],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `clear` to handle clear.",
+          "descriptionZh": "执行 `clear`，用于清空。"
         },
         {
           "name": "sendMessage",
@@ -192,15 +324,15 @@
             }
           ],
           "returnType": "Observable<string>",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `sendMessage` to handle send message.",
+          "descriptionZh": "执行 `sendMessage`，用于发送消息。"
         },
         {
           "name": "newWindow",
           "params": [],
           "returnType": "{ windowId: string, urlString: string, created: Observable<string> }",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `newWindow` to handle new window.",
+          "descriptionZh": "执行 `newWindow`，用于新窗口。"
         },
         {
           "name": "resetWindow",
@@ -211,43 +343,43 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `resetWindow` to handle reset window.",
+          "descriptionZh": "执行 `resetWindow`，用于重置窗口。"
         },
         {
           "name": "saveWindow",
           "params": [],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `saveWindow` to handle save window.",
+          "descriptionZh": "执行 `saveWindow`，用于保存窗口。"
         }
       ],
       "properties": [
         {
           "name": "name",
           "type": "string",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current name (`name: string`).",
+          "descriptionZh": "获取当前名称（`name: string`）。"
         },
         {
           "name": "name",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Sets the name (`name`).",
+          "descriptionZh": "设置名称（`name`）。"
         },
         {
           "name": "id",
           "type": "string",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current id (`id: string`).",
+          "descriptionZh": "获取当前唯一标识（`id: string`）。"
         }
       ]
     },
     {
       "name": "NGXMW_CONFIG",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular dependency-injection token `NGXMW_CONFIG` for providing ngxmw config.",
+      "summaryZh": "Angular 依赖注入令牌 `NGXMW_CONFIG`，用于提供与注入NGXMW配置。",
       "sourceFile": "src/ux/multi-window/providers/config.provider.ts",
       "inputs": [],
       "outputs": [],
@@ -257,8 +389,8 @@
     {
       "name": "StorageServiceProvider",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `StorageServiceProvider` defining storage service provider in `src/ux/multi-window/providers`.",
+      "summaryZh": "常量/变量 `StorageServiceProvider`，定义 `src/ux/multi-window/providers` 中的存储服务提供者。",
       "sourceFile": "src/ux/multi-window/providers/storage.service.ts",
       "inputs": [],
       "outputs": [],
@@ -268,8 +400,8 @@
     {
       "name": "StorageServiceProviderFactory",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `StorageServiceProviderFactory` defining storage service provider factory in `src/ux/multi-window/providers`.",
+      "summaryZh": "常量/变量 `StorageServiceProviderFactory`，定义 `src/ux/multi-window/providers` 中的存储服务提供者工厂。",
       "sourceFile": "src/ux/multi-window/providers/storage.service.ts",
       "inputs": [],
       "outputs": [],
@@ -279,30 +411,74 @@
     {
       "name": "WindowData",
       "kind": "interface",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Interface `WindowData` defining the contract and properties for window data.",
+      "summaryZh": "接口 `WindowData`，定义窗口数据的数据结构契约与属性规范。",
       "sourceFile": "src/ux/multi-window/types/window.type.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
-      "properties": []
+      "properties": [
+        {
+          "name": "heartbeat",
+          "type": "number",
+          "description": "Property `heartbeat` (`number`) storing heartbeat.",
+          "descriptionZh": "属性 `heartbeat`（类型：`number`），用于存储或配置heartbeat。"
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "description": "Property `id` (`string`) storing id.",
+          "descriptionZh": "属性 `id`（类型：`string`），用于存储或配置唯一标识。"
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "description": "Property `name` (`string`) storing name.",
+          "descriptionZh": "属性 `name`（类型：`string`），用于存储或配置名称。"
+        }
+      ]
     },
     {
       "name": "WindowSaveStrategy",
       "kind": "enum",
       "summary": "A representation of a strategy on how to save the window id in the native window.name property.",
-      "summaryZh": null,
+      "summaryZh": "枚举 `WindowSaveStrategy`，定义支持的窗口保存策略常量集合。",
       "sourceFile": "src/ux/multi-window/types/window-save-strategy.enum.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
-      "properties": []
+      "properties": [
+        {
+          "name": "NONE",
+          "type": "enum-member",
+          "description": "Default behaviour. Window data will not be saved.",
+          "descriptionZh": "枚举项 `WindowSaveStrategy.NONE`，表示无。"
+        },
+        {
+          "name": "SAVE_WHEN_EMPTY",
+          "type": "enum-member",
+          "description": "Only save the window data when the storage (native window.name property) is empty/undefined, meaning nothing else is\nprobably utilizing it",
+          "descriptionZh": "枚举项 `WindowSaveStrategy.SAVE_WHEN_EMPTY`，表示保存WHEN空。"
+        },
+        {
+          "name": "SAVE_FORCE",
+          "type": "enum-member",
+          "description": "Save the window data without checking whether the storage might be used by another script",
+          "descriptionZh": "枚举项 `WindowSaveStrategy.SAVE_FORCE`，表示保存FORCE。"
+        },
+        {
+          "name": "SAVE_BACKUP",
+          "type": "enum-member",
+          "description": "Save window data, but backup probable existing data in the storage and restore the original data after reading the window data.\nRestoring the original data might not happen \"on time\" for the script using it, which would require delaying it's execution.",
+          "descriptionZh": "枚举项 `WindowSaveStrategy.SAVE_BACKUP`，表示保存BACKUP。"
+        }
+      ]
     },
     {
       "name": "WStorageService",
       "kind": "service",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Injectable Angular service `WStorageService` managing w storage service state and operations in `src/ux/multi-window/providers`.",
+      "summaryZh": "可注入的 Angular 服务 `WStorageService`，管理 `src/ux/multi-window/providers` 中的W存储服务状态与业务操作。",
       "sourceFile": "src/ux/multi-window/providers/storage.service.ts",
       "inputs": [],
       "outputs": [],
@@ -320,8 +496,8 @@
             }
           ],
           "returnType": "boolean",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `setLocalObject` to handle set local object.",
+          "descriptionZh": "执行 `setLocalObject`，用于集合本地对象。"
         },
         {
           "name": "setLocalItem",
@@ -336,8 +512,8 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `setLocalItem` to handle set local item.",
+          "descriptionZh": "执行 `setLocalItem`，用于集合本地条目。"
         },
         {
           "name": "setSessionObject",
@@ -352,8 +528,8 @@
             }
           ],
           "returnType": "boolean",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `setSessionObject` to handle set session object.",
+          "descriptionZh": "执行 `setSessionObject`，用于集合会话对象。"
         },
         {
           "name": "setSessionItem",
@@ -368,8 +544,8 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `setSessionItem` to handle set session item.",
+          "descriptionZh": "执行 `setSessionItem`，用于集合会话条目。"
         },
         {
           "name": "setWindowName",
@@ -380,8 +556,8 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `setWindowName` to handle set window name.",
+          "descriptionZh": "执行 `setWindowName`，用于集合窗口名称。"
         },
         {
           "name": "getLocalObject",
@@ -392,8 +568,8 @@
             }
           ],
           "returnType": "T | null",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `getLocalObject` to handle get local object.",
+          "descriptionZh": "执行 `getLocalObject`，用于获取本地对象。"
         },
         {
           "name": "getLocalObjects",
@@ -404,8 +580,8 @@
             }
           ],
           "returnType": "(T | null)[]",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `getLocalObjects` to handle get local objects.",
+          "descriptionZh": "执行 `getLocalObjects`，用于获取本地对象。"
         },
         {
           "name": "getLocalItem",
@@ -416,8 +592,8 @@
             }
           ],
           "returnType": "string | null",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `getLocalItem` to handle get local item.",
+          "descriptionZh": "执行 `getLocalItem`，用于获取本地条目。"
         },
         {
           "name": "getSessionObject",
@@ -428,8 +604,8 @@
             }
           ],
           "returnType": "T | null",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `getSessionObject` to handle get session object.",
+          "descriptionZh": "执行 `getSessionObject`，用于获取会话对象。"
         },
         {
           "name": "getSessionObjects",
@@ -440,8 +616,8 @@
             }
           ],
           "returnType": "(T | null)[]",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `getSessionObjects` to handle get session objects.",
+          "descriptionZh": "执行 `getSessionObjects`，用于获取会话对象。"
         },
         {
           "name": "getSessionItem",
@@ -452,8 +628,8 @@
             }
           ],
           "returnType": "string | null",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `getSessionItem` to handle get session item.",
+          "descriptionZh": "执行 `getSessionItem`，用于获取会话条目。"
         },
         {
           "name": "getObjects",
@@ -468,15 +644,15 @@
             }
           ],
           "returnType": "(T | null)[]",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `getObjects` to handle get objects.",
+          "descriptionZh": "执行 `getObjects`，用于获取对象。"
         },
         {
           "name": "getWindowName",
           "params": [],
           "returnType": "string",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `getWindowName` to handle get window name.",
+          "descriptionZh": "执行 `getWindowName`，用于获取窗口名称。"
         },
         {
           "name": "removeLocalItem",
@@ -487,8 +663,8 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `removeLocalItem` to handle remove local item.",
+          "descriptionZh": "执行 `removeLocalItem`，用于移除本地条目。"
         },
         {
           "name": "removeSessionItem",
@@ -499,36 +675,36 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `removeSessionItem` to handle remove session item.",
+          "descriptionZh": "执行 `removeSessionItem`，用于移除会话条目。"
         },
         {
           "name": "clearLocalStorage",
           "params": [],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `clearLocalStorage` to handle clear local storage.",
+          "descriptionZh": "执行 `clearLocalStorage`，用于清空本地存储。"
         },
         {
           "name": "clearSessionStorage",
           "params": [],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `clearSessionStorage` to handle clear session storage.",
+          "descriptionZh": "执行 `clearSessionStorage`，用于清空会话存储。"
         },
         {
           "name": "getLocalItemKeys",
           "params": [],
           "returnType": "string[]",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `getLocalItemKeys` to handle get local item keys.",
+          "descriptionZh": "执行 `getLocalItemKeys`，用于获取本地条目键列表。"
         },
         {
           "name": "getSessionItemKeys",
           "params": [],
           "returnType": "string[]",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `getSessionItemKeys` to handle get session item keys.",
+          "descriptionZh": "执行 `getSessionItemKeys`，用于获取会话条目键列表。"
         }
       ],
       "properties": []

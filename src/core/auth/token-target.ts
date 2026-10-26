@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Module `src/core/auth/token-target.ts` providing token target definitions and implementation.
+ * @zh 模块文件 `src/core/auth/token-target.ts`，提供令牌目标相关的定义与实现。
+ */
+
 import { Injector } from '@angular/core';
 import { ConfigService } from '@dotos/dui/core/config';
 
@@ -14,7 +19,10 @@ import { ConfigService } from '@dotos/dui/core/config';
  * 现在一律用 `new URL(url, location.href)` 解析后比较。
  */
 
-/** 解析为 http(s) 时,是否可以把 token 发过去。 */
+/**
+ * 解析为 http(s) 时,是否可以把 token 发过去。
+ * @zh 解析为 http(s) 时,是否可以把 token 发过去。
+ */
 export function isTrustedTokenTarget(url: string, baseHref?: string, extraHosts: string[] = []): boolean {
   if (baseHref === undefined && typeof location !== 'undefined') {
     baseHref = location.href;
@@ -48,8 +56,11 @@ export function isTrustedTokenTarget(url: string, baseHref?: string, extraHosts:
   return extraHosts.some((h) => h && h.toLowerCase() === host);
 }
 
-/** 取主机名:接受完整 URL('https://auth.dotos.com')或裸主机('auth.dotos.com')。 */
-function hostnameOf(v: any): string | null {
+/**
+ * 取主机名:接受完整 URL('https://auth.dotos.com')或裸主机('auth.dotos.com')。
+ * @zh 取主机名:接受完整 URL('https://auth.dotos.com')或裸主机('auth.dotos.com')。
+ */
+function hostnameOf(v): string | null {
   if (!v || typeof v !== 'string') {
     return null;
   }
@@ -70,6 +81,8 @@ function hostnameOf(v: any): string | null {
  *
  * ConfigService 经 Injector 惰性获取:拦截器在 HttpClient 的构造链上,构造时直接注入
  * ConfigService(它的 loader 依赖 HttpClient)会形成循环依赖。
+
+ * @zh 配置里声明的、签发 / 认这个 token 的主机,同样可以收 token:
  */
 export function configuredTokenHosts(injector?: Injector | null): string[] {
   if (!injector) {

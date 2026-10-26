@@ -1,6 +1,16 @@
+/**
+ * @fileoverview Module `src/data/datatable/utils/column.ts` providing column definitions and implementation.
+ * @zh 模块文件 `src/data/datatable/utils/column.ts`，提供列相关的定义与实现。
+ */
 
-export function columnsByPin(cols: any[]) {
-  const ret: { left: any; center: any; right: any } = {
+
+/**
+ * Executes `columnsByPin` to handle columns by pin.
+ * @zh 执行 `columnsByPin`，用于列集合按Pin。
+ * @param cols - cols parameter (`any[]`) / 列列表参数（`any[]`）
+ */
+export function columnsByPin(cols) {
+  const ret: { left; center; right } = {
     left: [],
     center: [],
     right: []
@@ -23,8 +33,10 @@ export function columnsByPin(cols: any[]) {
 
 /**
  * Returns the widths of all group sets of a column
+
+ * @zh 执行 `columnGroupWidths`，用于列分组宽度。
  */
-export function columnGroupWidths(groups: any, all: any) {
+export function columnGroupWidths(groups, all) {
   return {
     left: columnTotalWidth(groups.left),
     center: columnTotalWidth(groups.center),
@@ -35,8 +47,10 @@ export function columnGroupWidths(groups: any, all: any) {
 
 /**
  * Calculates the total width of all columns and their groups
+
+ * @zh 执行 `columnTotalWidth`，用于列总计宽度。
  */
-export function columnTotalWidth(columns: any[], prop?: string) {
+export function columnTotalWidth(columns, prop?: string) {
   let totalWidth = 0;
 
   if (columns && Array.isArray(columns)) {
@@ -51,8 +65,10 @@ export function columnTotalWidth(columns: any[], prop?: string) {
 
 /**
  * Calculates the total width of all columns and their groups
+
+ * @zh 执行 `columnsTotalWidth`，用于列集合总计宽度。
  */
-export function columnsTotalWidth(columns: any, prop?: any) {
+export function columnsTotalWidth(columns, prop?) {
   let totalWidth = 0;
 
   for (const column of columns) {
@@ -63,7 +79,12 @@ export function columnsTotalWidth(columns: any, prop?: any) {
   return totalWidth;
 }
 
-export function columnsByPinArr(val: any) {
+/**
+ * Executes `columnsByPinArr` to handle columns by pin arr.
+ * @zh 执行 `columnsByPinArr`，用于列集合按PinArr。
+ * @param val - val parameter (`any`) / 值参数（`any`）
+ */
+export function columnsByPinArr(val) {
   const colsByPinArr = [];
   const colsByPin = columnsByPin(val);
 

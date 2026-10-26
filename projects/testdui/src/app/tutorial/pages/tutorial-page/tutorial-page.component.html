@@ -49,5 +49,21 @@
         <dui-highlight [content]="themeSnippet" [codeLang]="'typescript'" [copyCodeToClipboard]="true"></dui-highlight>
       </div>
     </mat-tab>
+
+    <mat-tab [label]="'TUTORIAL.TAB5' | translate">
+      <div class="tutorial-page__panel">
+        <h3>{{ 'TUTORIAL.STEP5_H1' | translate }}</h3>
+        <p>{{ 'TUTORIAL.STEP5_P1' | translate }}</p>
+        <dui-highlight [content]="entryPointSnippet" [codeLang]="'typescript'" [copyCodeToClipboard]="true"></dui-highlight>
+
+        <h3>{{ 'TUTORIAL.STEP5_H2' | translate }}</h3>
+        <p>{{ 'TUTORIAL.STEP5_P2' | translate }}</p>
+        <dui-highlight [content]="lifecycleSnippet" [codeLang]="'typescript'" [copyCodeToClipboard]="true"></dui-highlight>
+
+        <h3>{{ 'TUTORIAL.STEP5_H3' | translate }}</h3>
+        <p>{{ 'TUTORIAL.STEP5_P3' | translate }}</p>
+        <dui-highlight [content]="jsdocSnippet" [codeLang]="'typescript'" [copyCodeToClipboard]="true"></dui-highlight>
+      </div>
+    </mat-tab>
   </mat-tab-group>
 </div>

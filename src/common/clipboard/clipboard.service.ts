@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Module `src/common/clipboard/clipboard.service.ts` providing clipboard service definitions and implementation.
+ * @zh 模块文件 `src/common/clipboard/clipboard.service.ts`，提供clipboard服务相关的定义与实现。
+ */
+
 
 import { Injectable, Inject } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
@@ -14,11 +19,22 @@ import { ToastrService } from "@dotos/dui/common/toastr";
 })
 export class ClipboardService {
 
-  /** @zh 最近一次通过 `copyContentToClipboard` 复制的数据。 */
-  data: any;
+  /**
+   * Property `data` (`any`) storing data.
+   * @zh 最近一次通过 `copyContentToClipboard` 复制的数据。
+   * @zh 最近一次通过 `copyContentToClipboard` 复制的数据。
+   */
+  data;
 
+  /**
+   * Creates an instance of `ClipboardService` and initializes its dependencies and internal state.
+   * @zh 创建 `ClipboardService` 实例，并初始化其依赖项与内部状态。
+   * @param document - Injected or initial document (`any`) / 注入或传入的文档对象（`any`）
+   * @param logService - Injected or initial log service (`LogService`) / 注入或传入的日志服务（`LogService`）
+   * @param notificationService - Injected or initial notification service (`ToastrService`) / 注入或传入的通知服务（`ToastrService`）
+   */
   constructor(
-    @Inject(DOCUMENT) private document: any,
+    @Inject(DOCUMENT) private document,
     private logService: LogService,
     private notificationService: ToastrService) { }
 
@@ -58,7 +74,7 @@ export class ClipboardService {
    * without requiring a source input/textarea element.
    * @zh 将任意内容（字符串或对象，对象会被 JSON 序列化）复制到剪贴板，无需依赖某个 input/textarea 元素。
    */
-  copyContentToClipboard(content: any, message?: string) {
+  copyContentToClipboard(content, message?: string) {
     const handler = (e: ClipboardEvent) => {
       if(typeof(content)!='string'){
         content=JSON.stringify(content);
@@ -79,7 +95,12 @@ export class ClipboardService {
     }
   }
 
-  private notify(message:any) {
+  /**
+   * Executes `notify` to handle notify.
+   * @zh 执行 `notify`，用于通知。
+   * @param message - message parameter (`any`) / 消息参数（`any`）
+   */
+  private notify(message) {
     if (message) {
       this.notificationService.success(message);
     }
@@ -89,7 +110,7 @@ export class ClipboardService {
      * Returns the last data stored via `set`/`copyContentToClipboard`.
      * @zh 返回最近一次通过 `set`/`copyContentToClipboard` 存储的数据。
      */
-    get(): any {
+    get() {
         return this.data;
     }
 
@@ -105,7 +126,7 @@ export class ClipboardService {
      * Clears the internally stored data.
      * @zh 清空内部存储的数据。
      */
-    clear(): any {
+    clear() {
         this.data = undefined;
         return this.data;
     }

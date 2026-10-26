@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Module `src/common/scrollbar/thumb/thumb-adapter.ts` providing thumb adapter definitions and implementation.
+ * @zh 模块文件 `src/common/scrollbar/thumb/thumb-adapter.ts`，提供thumb适配器相关的定义与实现。
+ */
+
 import { Directive, inject, effect, untracked } from '@angular/core';
 import { Observable, of, fromEvent, map, takeUntil, tap, switchMap } from 'rxjs';
 import {
@@ -11,22 +16,46 @@ import { ScrollbarManager } from '../utils/scrollbar-manager';
 import { TrackAdapter } from '../track/track-adapter';
 import { PointerEventsAdapter } from '../utils/pointer-events-adapter';
 
+/**
+ * Angular directive `ThumbAdapter` attaching thumb adapter behavior to host DOM elements.
+ * @zh Angular 指令 `ThumbAdapter`，为宿主 DOM 元素附加Thumb适配器行为。
+ */
 @Directive()
 export abstract class ThumbAdapter extends PointerEventsAdapter {
 
+  /**
+   * Property `manager` (`ScrollbarManager`) storing manager (default: `inject(ScrollbarManager)`).
+   * @zh 属性 `manager`（类型：`ScrollbarManager`），用于存储或配置管理器（默认值：`inject(ScrollbarManager)`）。
+   */
   protected readonly manager: ScrollbarManager = inject(ScrollbarManager);
 
+  /**
+   * Property `track` (`TrackAdapter`) storing track (default: `inject(TrackAdapter)`).
+   * @zh 属性 `track`（类型：`TrackAdapter`），用于存储或配置track（默认值：`inject(TrackAdapter)`）。
+   */
   private readonly track: TrackAdapter = inject(TrackAdapter);
 
   // The animation reference used for enabling the polyfill on Safari and Firefox.
+  /**
+   * Property `_animation` (`Animation`) storing animation.
+   * @zh 属性 `_animation`（类型：`Animation`），用于存储或配置动画。
+   */
   _animation: Animation;
 
   // Returns thumb size
+  /**
+   * Gets the current size (`size: number`).
+   * @zh 获取当前尺寸（`size: number`）。
+   */
   get size(): number {
     return this.nativeElement.getBoundingClientRect()[this.control.rectSizeProperty];
   }
 
   // The maximum space available for scrolling.
+  /**
+   * Gets the current track max (`trackMax: number`).
+   * @zh 获取当前track最大值（`trackMax: number`）。
+   */
   get trackMax(): number {
     return this.track.size - this.size;
   }
@@ -34,6 +63,8 @@ export abstract class ThumbAdapter extends PointerEventsAdapter {
   /**
    * Stream that emits the 'scrollTo' position when a scrollbar thumb element is dragged
    * This function is called by thumb drag event using viewport or scrollbar pointer events
+
+   * @zh 获取当前指针事件集合（`pointerEvents: Observable<PointerEvent>`）。
    */
   get pointerEvents(): Observable<PointerEvent> {
     return fromEvent<PointerEvent>(this.nativeElement, 'pointerdown').pipe(
@@ -75,6 +106,10 @@ export abstract class ThumbAdapter extends PointerEventsAdapter {
     );
   }
 
+  /**
+   * Creates an instance of `ThumbAdapter` and initializes its dependencies and internal state.
+   * @zh 创建 `ThumbAdapter` 实例，并初始化其依赖项与内部状态。
+   */
   constructor() {
     effect(() => {
       const script: ScrollTimelineFunc = this.manager.scrollTimelinePolyfill();
@@ -87,11 +122,25 @@ export abstract class ThumbAdapter extends PointerEventsAdapter {
     super();
   }
 
+  /**
+   * Executes `setDragging` to handle set dragging.
+   * @zh 执行 `setDragging`，用于集合拖拽中。
+   * @param value - value parameter (`ScrollbarDragging`) / 值参数（`ScrollbarDragging`）
+   */
   private setDragging(value: ScrollbarDragging): void {
     this.zone.run(() => this.cmp.dragging.set(value));
   }
 }
 
+/**
+ * Executes `startPolyfill` to handle start polyfill.
+ * @zh 执行 `startPolyfill`，用于开始Polyfill。
+ * @param ScrollTimeline - scroll timeline parameter (`ScrollTimelineFunc`) / 滚动时间轴参数（`ScrollTimelineFunc`）
+ * @param element - element parameter (`HTMLElement`) / 元素参数（`HTMLElement`）
+ * @param source - source parameter (`HTMLElement`) / 源参数（`HTMLElement`）
+ * @param axis - axis parameter (`'x' | 'y'`) / 坐标轴参数（`'x' | 'y'`）
+ * @returns Result of type `Animation` / 类型为 `Animation` 的返回值
+ */
 function startPolyfill(ScrollTimeline: ScrollTimelineFunc, element: HTMLElement, source: HTMLElement, axis: 'x' | 'y'): Animation {
   return element.animate(
     {

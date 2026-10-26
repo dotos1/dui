@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Module `src/common/loading/services/loading.factory.ts` providing loading factory definitions and implementation.
+ * @zh 模块文件 `src/common/loading/services/loading.factory.ts`，提供加载中工厂相关的定义与实现。
+ */
+
 import {
   Injectable,
   ComponentFactoryResolver,
@@ -22,21 +27,63 @@ import { LoadingContext } from '../directives/loading.directive';
 import { LoadingComponent, LoadingStyle } from '../loading.component';
 import { ILoadingConfig } from './loading.service';
 
+/**
+ * Interface `IInternalLoadingOptions` defining the contract and properties for i internal loading options.
+ * @zh 接口 `IInternalLoadingOptions`，定义I内部加载中配置选项的数据结构契约与属性规范。
+ */
 export interface IInternalLoadingOptions extends ILoadingConfig {
+  /**
+   * Property `height` (`number`) storing height.
+   * @zh 属性 `height`（类型：`number`），用于存储或配置高度。
+   */
   height?: number;
+  /**
+   * Property `style` (`LoadingStyle`) storing style.
+   * @zh 属性 `style`（类型：`LoadingStyle`），用于存储或配置样式。
+   */
   style?: LoadingStyle;
 }
 
+/**
+ * Interface `ILoadingRef` defining the contract and properties for i loading ref.
+ * @zh 接口 `ILoadingRef`，定义I加载中引用的数据结构契约与属性规范。
+ */
 export interface ILoadingRef {
-  observable: Observable<any>;
-  componentRef?: ComponentRef<any>;
+  /**
+   * Property `observable` (`Observable<any>`) storing observable.
+   * @zh 属性 `observable`（类型：`Observable<any>`），用于存储或配置可观察流。
+   */
+  observable;
+  /**
+   * Property `componentRef` (`ComponentRef<any>`) storing component ref.
+   * @zh 属性 `componentRef`（类型：`ComponentRef<any>`），用于存储或配置组件引用。
+   */
+  componentRef?;
+  /**
+   * Property `overlayRef` (`OverlayRef`) storing overlay ref.
+   * @zh 属性 `overlayRef`（类型：`OverlayRef`），用于存储或配置浮层引用。
+   */
   overlayRef?: OverlayRef;
+  /**
+   * Property `contentRef` (`EmbeddedViewRef<object>`) storing content ref.
+   * @zh 属性 `contentRef`（类型：`EmbeddedViewRef<object>`），用于存储或配置内容引用。
+   */
   contentRef?: EmbeddedViewRef<object>;
-  subject: Subject<any>;
+  /**
+   * Property `subject` (`Subject<any>`) storing subject.
+   * @zh 属性 `subject`（类型：`Subject<any>`），用于存储或配置主题流。
+   */
+  subject;
+  /**
+   * Property `times` (`number`) storing times.
+   * @zh 属性 `times`（类型：`number`），用于存储或配置时间。
+   */
   times: number;
   /**
    * #1001：是否阻塞屏幕交互。缺省 false（非阻塞，指示器仅显示状态，点击穿透到底层内容）；
    * 为 true 时全屏遮罩拦截交互（保持旧的锁屏行为）。
+
+   * @zh #1001：是否阻塞屏幕交互。缺省 false（非阻塞，指示器仅显示状态，点击穿透到底层内容）；
    */
   blocking?: boolean;
 }
@@ -49,6 +96,13 @@ export interface ILoadingRef {
  */
 @Injectable()
 export class LoadingFactory {
+  /**
+   * Creates an instance of `LoadingFactory` and initializes its dependencies and internal state.
+   * @zh 创建 `LoadingFactory` 实例，并初始化其依赖项与内部状态。
+   * @param _componentFactoryResolver - Injected or initial component factory resolver (`ComponentFactoryResolver`) / 注入或传入的组件工厂解析器（`ComponentFactoryResolver`）
+   * @param _overlay - Injected or initial overlay (`Overlay`) / 注入或传入的浮层（`Overlay`）
+   * @param _injector - Injected or initial injector (`Injector`) / 注入或传入的注入器（`Injector`）
+   */
   constructor(
     private _componentFactoryResolver: ComponentFactoryResolver,
     private _overlay: Overlay,
@@ -184,6 +238,12 @@ export class LoadingFactory {
     return loadingRef;
   }
 
+  /**
+   * Executes `_createOverlay` to handle create overlay.
+   * @zh 执行 `_createOverlay`，用于创建浮层。
+   * @param blocking - blocking parameter (`boolean`) / 块参数（`boolean`）
+   * @returns Result of type `OverlayRef` / 类型为 `OverlayRef` 的返回值
+   */
   private _createOverlay(blocking: boolean = false): OverlayRef {
     const state: OverlayConfig = new OverlayConfig();
     state.hasBackdrop = false;
@@ -201,6 +261,12 @@ export class LoadingFactory {
     return this._overlay.create(state);
   }
 
+  /**
+   * Executes `_createComponent` to handle create component.
+   * @zh 执行 `_createComponent`，用于创建组件。
+   * @param options - options parameter (`IInternalLoadingOptions`) / 配置选项参数（`IInternalLoadingOptions`）
+   * @returns Result of type `ILoadingRef` / 类型为 `ILoadingRef` 的返回值
+   */
   private _createComponent(options: IInternalLoadingOptions): ILoadingRef {
     const compRef: ILoadingRef = this._initializeContext();
     compRef.componentRef = this._componentFactoryResolver
@@ -210,8 +276,13 @@ export class LoadingFactory {
     return compRef;
   }
 
+  /**
+   * Executes `_initializeContext` to handle initialize context.
+   * @zh 执行 `_initializeContext`，用于初始化上下文。
+   * @returns Result of type `ILoadingRef` / 类型为 `ILoadingRef` 的返回值
+   */
   private _initializeContext(): ILoadingRef {
-    const subject: Subject<any> = new Subject<any>();
+    const subject = new Subject();
     return {
       observable: subject.asObservable(),
       subject,
@@ -220,6 +291,12 @@ export class LoadingFactory {
     };
   }
 
+  /**
+   * Executes `_mapOptions` to handle map options.
+   * @zh 执行 `_mapOptions`，用于映射表配置选项。
+   * @param options - options parameter (`IInternalLoadingOptions`) / 配置选项参数（`IInternalLoadingOptions`）
+   * @param instance - instance parameter (`LoadingComponent`) / 实例参数（`LoadingComponent`）
+   */
   private _mapOptions(
     options: IInternalLoadingOptions,
     instance: LoadingComponent
@@ -243,6 +320,15 @@ export class LoadingFactory {
   }
 }
 
+/**
+ * Executes `LOADING_FACTORY_PROVIDER_FACTORY` to handle loading factory provider factory.
+ * @zh 执行 `LOADING_FACTORY_PROVIDER_FACTORY`，用于加载中工厂提供者工厂。
+ * @param parent - parent parameter (`LoadingFactory`) / 父级参数（`LoadingFactory`）
+ * @param componentFactoryResolver - component factory resolver parameter (`ComponentFactoryResolver`) / 组件工厂解析器参数（`ComponentFactoryResolver`）
+ * @param overlay - overlay parameter (`Overlay`) / 浮层参数（`Overlay`）
+ * @param injector - injector parameter (`Injector`) / 注入器参数（`Injector`）
+ * @returns Result of type `LoadingFactory` / 类型为 `LoadingFactory` 的返回值
+ */
 export function LOADING_FACTORY_PROVIDER_FACTORY(
   parent: LoadingFactory,
   componentFactoryResolver: ComponentFactoryResolver,
@@ -254,6 +340,10 @@ export function LOADING_FACTORY_PROVIDER_FACTORY(
   );
 }
 
+/**
+ * Constant/variable `LOADING_FACTORY_PROVIDER` defining loading factory provider in `src/common/loading/services`.
+ * @zh 常量/变量 `LOADING_FACTORY_PROVIDER`，定义 `src/common/loading/services` 中的加载中工厂提供者。
+ */
 export const LOADING_FACTORY_PROVIDER: Provider = {
   // If there is already a service available, use that. Otherwise, provide a new one.
   provide: LoadingFactory,

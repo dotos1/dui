@@ -1,9 +1,18 @@
+/**
+ * @fileoverview Module `src/common/colorpicker/common/editable-input.component.ts` providing editable input component definitions and implementation.
+ * @zh 模块文件 `src/common/colorpicker/common/editable-input.component.ts`，提供是否可编辑输入属性组件相关的定义与实现。
+ */
+
 import { CommonModule } from '@angular/common';
 import {  ChangeDetectionStrategy,  Component,  EventEmitter,  Input,  NgModule,  OnChanges,  OnDestroy,  OnInit, Output,
 } from '@angular/core';
 import { TranslateModule } from '@dotos/dui/translator';
 import { fromEvent, Subscription } from 'rxjs';
 
+/**
+ * Angular component `EditableInputComponent` (selector: 'color-editable-input') providing editable input component presentation and interaction in `src/common/colorpicker/common`.
+ * @zh Angular 组件 `EditableInputComponent`（selector: 'color-editable-input'），提供是否可编辑输入属性组件的视图渲染与交互逻辑（位于 `src/common/colorpicker/common`）。
+ */
 @Component({
   selector: 'color-editable-input',
   template: `
@@ -37,43 +46,111 @@ import { fromEvent, Subscription } from 'rxjs';
  * 支持方向键增减，以及可选的通过拖拽标签调整数值。
  */
 export class EditableInputComponent implements OnInit, OnChanges, OnDestroy {
-  /** @zh 包裹层/输入框/标签各自的内联样式。 */
+  /**
+   * Input property `style` (`{ wrap?: { [key: string]: string }; input: { [key: string]: string };...`) configuring style.
+   * @zh 包裹层/输入框/标签各自的内联样式。
+   * @zh 包裹层/输入框/标签各自的内联样式。
+   */
   @Input() style: {
     wrap?: { [key: string]: string };
     input: { [key: string]: string };
     label: { [key: string]: string };
   };
-  /** @zh 字段标签文字（也用作 `onChange` 发出数据对象的键名）。 */
+  /**
+   * Input property `label` (`string`) configuring label.
+   * @zh 字段标签文字（也用作 `onChange` 发出数据对象的键名）。
+   * @zh 字段标签文字（也用作 `onChange` 发出数据对象的键名）。
+   */
   @Input() label: string;
-  /** @zh 当前字段值。 */
+  /**
+   * Input property `value` (`string | number`) configuring value.
+   * @zh 当前字段值。
+   * @zh 当前字段值。
+   */
   @Input() value: string | number;
-  /** @zh 使用方向键调整数值时的步进量。 */
+  /**
+   * Input property `arrowOffset` (`number`) configuring arrow offset.
+   * @zh 使用方向键调整数值时的步进量。
+   * @zh 使用方向键调整数值时的步进量。
+   */
   @Input() arrowOffset: number;
-  /** @zh 是否允许通过拖拽标签调整数值。 */
+  /**
+   * Input property `dragLabel` (`boolean`) configuring drag label.
+   * @zh 是否允许通过拖拽标签调整数值。
+   * @zh 是否允许通过拖拽标签调整数值。
+   */
   @Input() dragLabel: boolean;
-  /** @zh 通过拖拽标签调整数值时允许的最大值。 */
+  /**
+   * Input property `dragMax` (`number`) configuring drag max.
+   * @zh 通过拖拽标签调整数值时允许的最大值。
+   * @zh 通过拖拽标签调整数值时允许的最大值。
+   */
   @Input() dragMax: number;
-  /** @zh 输入框占位提示文字。 */
+  /**
+   * Input property `placeholder` (`string`) configuring placeholder (default: `''`).
+   * @zh 输入框占位提示文字。
+   * @zh 输入框占位提示文字。
+   */
   @Input() placeholder = '';
-  /** @zh 字段值变化时发出。 */
+  /**
+   * Output event emitter `onChange` (`EventEmitter`) firing when on change occurs.
+   * @zh 字段值变化时发出。
+   * @zh 字段值变化时发出。
+   */
   @Output() onChange = new EventEmitter();
-  /** @zh 输入框当前显示的值。 */
+  /**
+   * Property `currentValue` (`string | number`) storing current value.
+   * @zh 输入框当前显示的值。
+   * @zh 输入框当前显示的值。
+   */
   currentValue: string | number;
-  /** @zh 失焦时应恢复显示的值。 */
+  /**
+   * Property `blurValue` (`string`) storing blur value.
+   * @zh 失焦时应恢复显示的值。
+   * @zh 失焦时应恢复显示的值。
+   */
   blurValue: string;
-  /** @zh 包裹层的内联样式。 */
+  /**
+   * Property `wrapStyle` (`{ [key: string]: string }`) storing wrap style.
+   * @zh 包裹层的内联样式。
+   * @zh 包裹层的内联样式。
+   */
   wrapStyle: { [key: string]: string };
-  /** @zh 输入框的内联样式。 */
+  /**
+   * Property `inputStyle` (`{ [key: string]: string }`) storing input style.
+   * @zh 输入框的内联样式。
+   * @zh 输入框的内联样式。
+   */
   inputStyle: { [key: string]: string };
-  /** @zh 标签的内联样式。 */
+  /**
+   * Property `labelStyle` (`{ [key: string]: string }`) storing label style.
+   * @zh 标签的内联样式。
+   * @zh 标签的内联样式。
+   */
   labelStyle: { [key: string]: string };
-  /** @zh 输入框当前是否处于聚焦状态。 */
+  /**
+   * Property `focus` (`boolean`) storing focus (default: `false`).
+   * @zh 输入框当前是否处于聚焦状态。
+   * @zh 输入框当前是否处于聚焦状态。
+   */
   focus = false;
-  /** @zh 内部使用，拖拽标签调整数值时的鼠标移动订阅。 */
+  /**
+   * Property `mousemove` (`Subscription`) storing mousemove.
+   * @zh 内部使用，拖拽标签调整数值时的鼠标移动订阅。
+   * @zh 内部使用，拖拽标签调整数值时的鼠标移动订阅。
+   */
   mousemove: Subscription;
-  /** @zh 内部使用，拖拽标签调整数值时的鼠标抬起订阅。 */
+  /**
+   * Property `mouseup` (`Subscription`) storing mouseup.
+   * @zh 内部使用，拖拽标签调整数值时的鼠标抬起订阅。
+   * @zh 内部使用，拖拽标签调整数值时的鼠标抬起订阅。
+   */
   mouseup: Subscription;
 
+  /**
+   * Angular lifecycle hook invoked once after component or directive inputs are initialized.
+   * @zh Angular 生命周期钩子：在组件或指令的输入属性初始化完成后调用一次。
+   */
   ngOnInit() {
     this.wrapStyle = this.style && this.style.wrap ? this.style.wrap : {};
     this.inputStyle = this.style && this.style.input ? this.style.input : {};
@@ -162,6 +239,10 @@ export class EditableInputComponent implements OnInit, OnChanges, OnDestroy {
       this.onChange.emit({ data: $event.target.value, $event });
     }
   }
+  /**
+   * Angular lifecycle hook invoked when data-bound input properties change.
+   * @zh Angular 生命周期钩子：当数据绑定的输入属性发生变更时调用。
+   */
   ngOnChanges() {
     if (!this.focus) {
       this.currentValue = String(this.value).toUpperCase();
@@ -170,6 +251,10 @@ export class EditableInputComponent implements OnInit, OnChanges, OnDestroy {
       this.blurValue = String(this.value).toUpperCase();
     }
   }
+  /**
+   * Angular lifecycle hook invoked just before the component, directive, or service is destroyed to release subscriptions and resources.
+   * @zh Angular 生命周期钩子：在组件、指令或服务销毁前调用，用于释放订阅与清理资源。
+   */
   ngOnDestroy() {
     this.unsubscribe();
   }
@@ -222,6 +307,10 @@ export class EditableInputComponent implements OnInit, OnChanges, OnDestroy {
   }
 }
 
+/**
+ * Angular module `EditableInputModule` declaring and exporting editable input module components, directives, pipes, and providers.
+ * @zh Angular 模块 `EditableInputModule`，声明并导出是否可编辑输入属性模块相关的组件、指令、管道与服务提供者。
+ */
 @NgModule({
   declarations: [EditableInputComponent],
   exports: [EditableInputComponent],

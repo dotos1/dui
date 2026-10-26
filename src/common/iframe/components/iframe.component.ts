@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Module `src/common/iframe/components/iframe.component.ts` providing iframe component definitions and implementation.
+ * @zh 模块文件 `src/common/iframe/components/iframe.component.ts`，提供iframe组件相关的定义与实现。
+ */
+
 import {
   AfterViewInit,
   ChangeDetectorRef,
@@ -65,14 +70,18 @@ import { DomSanitizer } from '@angular/platform-browser';
     `]
 })
 export class IframeComponent implements OnInit, OnChanges,AfterViewInit, OnDestroy {
-  /** @zh 底层原生 `<iframe>` 元素的引用。 */
+  /**
+   * Template/content query reference `iframe` (`@ViewChild`) targeting iframe.
+   * @zh 底层原生 `<iframe>` 元素的引用。
+   * @zh 底层原生 `<iframe>` 元素的引用。
+   */
   @ViewChild('iframe') iframe: ElementRef;
 
   /**
    * Bulk-applies arbitrary properties onto this component (via `Dui.apply`) whenever it changes.
    * @zh 每当变化时，通过 `Dui.apply` 将任意属性批量应用到本组件上。
    */
-  @Input() config: any = {};
+  @Input() config = {};
 
   /**
    * The native `<iframe scrolling>` attribute value.
@@ -150,7 +159,7 @@ export class IframeComponent implements OnInit, OnChanges,AfterViewInit, OnDestr
    * The (sanitized, trusted) URL currently loaded in the iframe.
    * @zh 当前加载到 iframe 中的（经过清理、受信任的）URL。
    */
-  get source(): any {
+  get source() {
     return this._source;
   }
 
@@ -168,11 +177,20 @@ export class IframeComponent implements OnInit, OnChanges,AfterViewInit, OnDestr
    */
   @Output() iframeEvent: EventEmitter<IframeEvent> = new EventEmitter();
 
-  /** @zh 内部使用，转发 iframe 内部的点击事件。 */
+  /**
+   * @zh 内部使用，转发 iframe 内部的点击事件。
+   * @zh 内部使用，转发 iframe 内部的点击事件。
+   */
   $iframeClick: ReplaySubject<MouseEvent> = new ReplaySubject<MouseEvent>(1);
-  /** @zh 内部使用，转发 iframe 内部的按键事件。 */
+  /**
+   * @zh 内部使用，转发 iframe 内部的按键事件。
+   * @zh 内部使用，转发 iframe 内部的按键事件。
+   */
   $iframeKeyUp: ReplaySubject<KeyboardEvent> = new ReplaySubject<KeyboardEvent>(1);
-  /** @zh 内部使用，转发 iframe 内部的卸载事件。 */
+  /**
+   * @zh 内部使用，转发 iframe 内部的卸载事件。
+   * @zh 内部使用，转发 iframe 内部的卸载事件。
+   */
   $iframeUnload: ReplaySubject<BeforeUnloadEvent> = new ReplaySubject<BeforeUnloadEvent>(1);
   /**
    * Emits `true` while the iframe content/stylesheets are still loading, `false` once ready,
@@ -181,33 +199,98 @@ export class IframeComponent implements OnInit, OnChanges,AfterViewInit, OnDestr
    * 加载失败（如跨域错误）时发出 `null`。
    */
   $loading: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(true);
-  /** @zh 内部使用，根据内容高度变化推导出的样式流，用于自动调整高度。 */
-  $styling: Observable<any>;
-  /** @zh 同源 iframe 的 `document` 对象，跨域时不可用。 */
+  /**
+   * Property `$styling` (`Observable<any>`) storing styling.
+   * @zh 内部使用，根据内容高度变化推导出的样式流，用于自动调整高度。
+   * @zh 内部使用，根据内容高度变化推导出的样式流，用于自动调整高度。
+   */
+  $styling;
+  /**
+   * @zh 同源 iframe 的 `document` 对象，跨域时不可用。
+   * @zh 同源 iframe 的 `document` 对象，跨域时不可用。
+   */
   iframeDocument: Document;
-  /** @zh 同源 iframe 的 `document.body` 元素，跨域时不可用。 */
+  /**
+   * @zh 同源 iframe 的 `document.body` 元素，跨域时不可用。
+   * @zh 同源 iframe 的 `document.body` 元素，跨域时不可用。
+   */
   iframeBody: HTMLElement;
-  /** @zh 当前处于活动状态的 iframe 内容 URL。 */
+  /**
+   * @zh 当前处于活动状态的 iframe 内容 URL。
+   * @zh 当前处于活动状态的 iframe 内容 URL。
+   */
   activeSource: string;
-  /** @zh 内部使用的元素尺寸变化检测器实例。 */
+  /**
+   * Property `elementResizeDetector` (`elementResizeDetectorMaker.Erd`) storing element resize detector.
+   * @zh 内部使用的元素尺寸变化检测器实例。
+   * @zh 内部使用的元素尺寸变化检测器实例。
+   */
   elementResizeDetector: elementResizeDetectorMaker.Erd;
-  private eventListeners: Array<any> = [];
+  /**
+   * Property `eventListeners` (`Array<any>`) storing event listeners (default: `[]`).
+   * @zh 属性 `eventListeners`（类型：`Array<any>`），用于存储或配置事件监听器列表（默认值：`[]`）。
+   */
+  private eventListeners = [];
+  /**
+   * Property `$unsubscribe` (`Subject`) storing unsubscribe (default: `new Subject()`).
+   * @zh 属性 `$unsubscribe`（类型：`Subject`），用于存储或配置取消订阅（默认值：`new Subject()`）。
+   */
   private $unsubscribe = new Subject();
-  /** @zh 底层原生 `<iframe>` 元素的引用（内部使用，与 `iframe` 指向同一元素）。 */
+  /**
+   * Template/content query reference `elementRef` (`@ViewChild`) targeting element ref.
+   * @zh 底层原生 `<iframe>` 元素的引用（内部使用，与 `iframe` 指向同一元素）。
+   * @zh 底层原生 `<iframe>` 元素的引用（内部使用，与 `iframe` 指向同一元素）。
+   */
   @ViewChild('iframe') elementRef: ElementRef;
-  private _source: any;
+  /**
+   * Property `_source` (`any`) storing source.
+   * @zh 属性 `_source`（类型：`any`），用于存储或配置源。
+   */
+  private _source;
+  /**
+   * Property `_styles` (`string`) storing styles.
+   * @zh 属性 `_styles`（类型：`string`），用于存储或配置样式集合。
+   */
   private _styles: string;
+  /**
+   * Property `$bodyHeight` (`Subject<number>`) storing body height (default: `new Subject<number>()`).
+   * @zh 属性 `$bodyHeight`（类型：`Subject<number>`），用于存储或配置主体高度（默认值：`new Subject<number>()`）。
+   */
   private $bodyHeight: Subject<number> = new Subject<number>();
+  /**
+   * Property `_styleUrls` (`Array<string>`) storing style urls.
+   * @zh 属性 `_styleUrls`（类型：`Array<string>`），用于存储或配置样式链接列表。
+   */
   private _styleUrls: Array<string>;
+  /**
+   * Property `_autoResize` (`boolean`) storing auto resize (default: `true`).
+   * @zh 属性 `_autoResize`（类型：`boolean`），用于存储或配置自动调整尺寸（默认值：`true`）。
+   */
   private _autoResize = true;
+  /**
+   * Property `_resizeDebounceMillis` (`number`) storing resize debounce millis (default: `50`).
+   * @zh 属性 `_resizeDebounceMillis`（类型：`number`），用于存储或配置调整尺寸防抖Millis（默认值：`50`）。
+   */
   private _resizeDebounceMillis = 50;
   
+  /**
+   * Creates an instance of `IframeComponent` and initializes its dependencies and internal state.
+   * @zh 创建 `IframeComponent` 实例，并初始化其依赖项与内部状态。
+   * @param renderer - Injected or initial renderer (`Renderer2`) / 注入或传入的渲染器（`Renderer2`）
+   * @param sanitizer - Injected or initial sanitizer (`DomSanitizer`) / 注入或传入的安全清理器（`DomSanitizer`）
+   * @param cdr - Injected or initial cdr (`ChangeDetectorRef`) / 注入或传入的cdr（`ChangeDetectorRef`）
+   */
   constructor(
     private renderer: Renderer2,
     private sanitizer: DomSanitizer,
      private cdr: ChangeDetectorRef) { }
 
 
+  /**
+   * Angular lifecycle hook invoked when data-bound input properties change.
+   * @zh Angular 生命周期钩子：当数据绑定的输入属性发生变更时调用。
+   * @param changes - changes parameter (`SimpleChanges`) / 变更集合参数（`SimpleChanges`）
+   */
   ngOnChanges(changes: SimpleChanges) {
     if (changes['config']) {
       this.init(this.config);
@@ -218,10 +301,14 @@ export class IframeComponent implements OnInit, OnChanges,AfterViewInit, OnDestr
    * Applies the given config object's properties onto this component instance.
    * @zh 将给定配置对象的属性应用到本组件实例上。
    */
-  init(config: any) {
+  init(config) {
     Dui.apply(this, config);
   }
 
+  /**
+   * Executes `updateStyles` to handle update styles.
+   * @zh 执行 `updateStyles`，用于更新样式集合。
+   */
   private updateStyles() {
     this.$styling = this.$bodyHeight.pipe(
       distinctUntilChanged(),
@@ -230,6 +317,11 @@ export class IframeComponent implements OnInit, OnChanges,AfterViewInit, OnDestr
       map((height) => ({ 'height.px': height })));
   }
 
+  /**
+   * Executes `addStyleSheets` to handle add style sheets.
+   * @zh 执行 `addStyleSheets`，用于添加样式Sheets。
+   * @param styleUrls - style urls parameter (`any`) / 样式链接列表参数（`any`）
+   */
   private addStyleSheets(styleUrls) {
     if (styleUrls.length > 0) {
 
@@ -281,6 +373,11 @@ export class IframeComponent implements OnInit, OnChanges,AfterViewInit, OnDestr
     }
   }
 
+  /**
+   * Executes `addCss` to handle add css.
+   * @zh 执行 `addCss`，用于添加CSS样式。
+   * @param styles - styles parameter (`string`) / 样式集合参数（`string`）
+   */
   private addCss(styles: string) {
     const styleElement = this.iframeDocument.createElement('style');
     styleElement.appendChild(this.iframeDocument.createTextNode(styles));
@@ -288,7 +385,13 @@ export class IframeComponent implements OnInit, OnChanges,AfterViewInit, OnDestr
     this.emitEvent('iframe-styles-added');
   }
 
-  private addElementResizeDetector(body: HTMLElement, style: any) {
+  /**
+   * Executes `addElementResizeDetector` to handle add element resize detector.
+   * @zh 执行 `addElementResizeDetector`，用于添加元素调整尺寸检测器。
+   * @param body - body parameter (`HTMLElement`) / 主体参数（`HTMLElement`）
+   * @param style - style parameter (`any`) / 样式参数（`any`）
+   */
+  private addElementResizeDetector(body: HTMLElement, style) {
     this.elementResizeDetector = elementResizeDetectorMaker({ strategy: 'scroll' });
     this.elementResizeDetector.listenTo(body, () => {
       const offsetHeight = body.offsetHeight;
@@ -299,12 +402,22 @@ export class IframeComponent implements OnInit, OnChanges,AfterViewInit, OnDestr
     });
   }
 
+  /**
+   * Executes `removeElementResizeDetector` to handle remove element resize detector.
+   * @zh 执行 `removeElementResizeDetector`，用于移除元素调整尺寸检测器。
+   */
   private removeElementResizeDetector() {
     if (this.iframeBody && this.elementResizeDetector) {
       this.elementResizeDetector.uninstall(this.iframeBody);
     }
   }
 
+  /**
+   * Executes `emitEvent` to handle emit event.
+   * @zh 执行 `emitEvent`，用于发出事件。
+   * @param eventName - event name parameter (`IframeEventName`) / 事件名称参数（`IframeEventName`）
+   * @param resource - resource parameter (`string`) / 资源参数（`string`）
+   */
   private emitEvent(eventName: IframeEventName, resource?: string) {
     const iframeEvent: IframeEvent = { event: eventName, src: this.activeSource };
     if (resource) {
@@ -323,6 +436,10 @@ export class IframeComponent implements OnInit, OnChanges,AfterViewInit, OnDestr
     }
   }
 
+  /**
+   * Angular lifecycle hook invoked once after component or directive inputs are initialized.
+   * @zh Angular 生命周期钩子：在组件或指令的输入属性初始化完成后调用一次。
+   */
   ngOnInit() {
     this.activeSource = this.source;
     this.$loading.pipe(
@@ -334,6 +451,10 @@ export class IframeComponent implements OnInit, OnChanges,AfterViewInit, OnDestr
     this.updateStyles();
   }
 
+  /**
+   * Angular lifecycle hook invoked once after the component's view and child views are initialized.
+   * @zh Angular 生命周期钩子：在组件视图及其子视图初始化完成后调用一次。
+   */
   ngAfterViewInit() {
     const iframe = this.elementRef.nativeElement;
     this.$iframeClick
@@ -417,6 +538,10 @@ export class IframeComponent implements OnInit, OnChanges,AfterViewInit, OnDestr
       });
   }
 
+  /**
+   * Angular lifecycle hook invoked just before the component, directive, or service is destroyed to release subscriptions and resources.
+   * @zh Angular 生命周期钩子：在组件、指令或服务销毁前调用，用于释放订阅与清理资源。
+   */
   ngOnDestroy(): void {
     this.$unsubscribe.next(undefined);
     this.$unsubscribe.complete();

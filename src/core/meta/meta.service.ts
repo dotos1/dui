@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Module `src/core/meta/meta.service.ts` providing meta service definitions and implementation.
+ * @zh 模块文件 `src/core/meta/meta.service.ts`，提供元数据服务相关的定义与实现。
+ */
+
 // angular
 import { Injectable } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
@@ -11,11 +16,30 @@ import { MetaLoader } from './meta.loader';
 import { isObservable, isPromise } from './util';
 import { MetaSettings } from './models/meta-settings';
 
+/**
+ * Injectable Angular service `MetaService` managing meta service state and operations in `src/core/meta`.
+ * @zh 可注入的 Angular 服务 `MetaService`，管理 `src/core/meta` 中的元数据服务状态与业务操作。
+ */
 @Injectable()
 export class MetaService {
+  /**
+   * Property `settings` (`MetaSettings`) storing settings.
+   * @zh 属性 `settings`（类型：`MetaSettings`），用于存储或配置设置项。
+   */
   protected readonly settings: MetaSettings;
-  private readonly isMetaTagSet: any;
+  /**
+   * Property `isMetaTagSet` (`any`) storing is meta tag set.
+   * @zh 属性 `isMetaTagSet`（类型：`any`），用于存储或配置是否为元数据标签集合。
+   */
+  private readonly isMetaTagSet;
 
+  /**
+   * Creates an instance of `MetaService` and initializes its dependencies and internal state.
+   * @zh 创建 `MetaService` 实例，并初始化其依赖项与内部状态。
+   * @param loader - Injected or initial loader (`MetaLoader`) / 注入或传入的加载器（`MetaLoader`）
+   * @param title - Injected or initial title (`Title`) / 注入或传入的标题（`Title`）
+   * @param meta - Injected or initial meta (`Meta`) / 注入或传入的元数据（`Meta`）
+   */
   constructor(readonly loader: MetaLoader,
               private readonly title: Title,
               private readonly meta: Meta) {
@@ -23,6 +47,12 @@ export class MetaService {
     this.isMetaTagSet = {};
   }
 
+  /**
+   * Executes `setTitle` to handle set title.
+   * @zh 执行 `setTitle`，用于集合标题。
+   * @param title - title parameter (`string`) / 标题参数（`string`）
+   * @param override - override parameter (`any`) / override参数（`any`）
+   */
   setTitle(title: string, override = false): void {
     const title$ = title
       ? this.callback(title)
@@ -59,6 +89,12 @@ export class MetaService {
       });
   }
 
+  /**
+   * Executes `setTag` to handle set tag.
+   * @zh 执行 `setTag`，用于集合标签。
+   * @param key - key parameter (`string`) / 键参数（`string`）
+   * @param value - value parameter (`string`) / 值参数（`string`）
+   */
   setTag(key: string, value: string): void {
     if (key === 'title')
       throw new Error(`Attempt to set ${key} through "setTag": "title" is a reserved tag name. `
@@ -78,7 +114,13 @@ export class MetaService {
       });
   }
 
-  update(currentUrl: string, metaSettings?: any): void {
+  /**
+   * Executes `update` to handle update.
+   * @zh 执行 `update`，用于更新。
+   * @param currentUrl - current url parameter (`string`) / 当前链接地址参数（`string`）
+   * @param metaSettings - meta settings parameter (`any`) / 元数据设置项参数（`any`）
+   */
+  update(currentUrl: string, metaSettings?): void {
     if (!metaSettings) {
       const fallbackTitle = this.settings.defaults
         ? (this.settings.defaults['title'] || this.settings['applicationName'])
@@ -139,10 +181,21 @@ export class MetaService {
     this.setTag('og:url', url || '/');
   }
 
+  /**
+   * Executes `removeTag` to handle remove tag.
+   * @zh 执行 `removeTag`，用于移除标签。
+   * @param key - key parameter (`string`) / 键参数（`string`）
+   */
   removeTag(key: string): void {
     this.meta.removeTag(key);
   }
 
+  /**
+   * Executes `callback` to handle callback.
+   * @zh 执行 `callback`，用于回调函数。
+   * @param value - value parameter (`string`) / 值参数（`string`）
+   * @returns Result of type `Observable<string>` / 类型为 `Observable<string>` 的返回值
+   */
   private callback(value: string): Observable<string> {
     if (this.settings.callback) {
       const value$ = this.settings.callback(value);
@@ -158,6 +211,13 @@ export class MetaService {
     return observableOf(value);
   }
 
+  /**
+   * Executes `getTitleWithPositioning` to handle get title with positioning.
+   * @zh 执行 `getTitleWithPositioning`，用于获取标题带有位置。
+   * @param title - title parameter (`string`) / 标题参数（`string`）
+   * @param applicationName - application name parameter (`string`) / application名称参数（`string`）
+   * @returns Result of type `string` / 类型为 `string` 的返回值
+   */
   private getTitleWithPositioning(title: string, applicationName: string): string {
     switch (this.settings.pageTitlePositioning) {
       case PageTitlePositioning.AppendPageTitle:
@@ -169,6 +229,11 @@ export class MetaService {
     }
   }
 
+  /**
+   * Executes `updateTitle` to handle update title.
+   * @zh 执行 `updateTitle`，用于更新标题。
+   * @param title - title parameter (`string`) / 标题参数（`string`）
+   */
   private updateTitle(title: string): void {
     this.title.setTitle(title);
     this.meta.updateTag({
@@ -177,6 +242,12 @@ export class MetaService {
     });
   }
 
+  /**
+   * Executes `updateLocales` to handle update locales.
+   * @zh 执行 `updateLocales`，用于更新本地。
+   * @param currentLocale - current locale parameter (`string`) / 当前语言区域参数（`string`）
+   * @param availableLocales - available locales parameter (`string`) / available本地参数（`string`）
+   */
   private updateLocales(currentLocale: string, availableLocales: string): void {
     currentLocale = currentLocale || (this.settings.defaults
       ? this.settings.defaults['og:locale']
@@ -188,7 +259,7 @@ export class MetaService {
 
     const elements = this.meta.getTags('property="og:locale:alternate"');
 
-    elements.forEach((element: any) => {
+    elements.forEach((element) => {
       this.meta.removeTagElement(element);
     });
 
@@ -203,6 +274,12 @@ export class MetaService {
         });
   }
 
+  /**
+   * Executes `updateTag` to handle update tag.
+   * @zh 执行 `updateTag`，用于更新标签。
+   * @param key - key parameter (`string`) / 键参数（`string`）
+   * @param value - value parameter (`string`) / 值参数（`string`）
+   */
   private updateTag(key: string, value: string): void {
     if (key.lastIndexOf('og:', 0) === 0)
       this.meta.updateTag({

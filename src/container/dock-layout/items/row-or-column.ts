@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Module `src/container/dock-layout/items/row-or-column.ts` providing row or column definitions and implementation.
+ * @zh 模块文件 `src/container/dock-layout/items/row-or-column.ts`，提供行or列相关的定义与实现。
+ */
+
 import { TranslateService } from '@dotos/dui/translator'
 import { ComponentItemConfig, ItemConfig, RowOrColumnItemConfig, StackItemConfig } from '../config/config'
 import { ResolvedRowOrColumnItemConfig, ResolvedStackItemConfig } from '../config/resolved-config'
@@ -18,30 +23,78 @@ import {
 import { ComponentItem } from './component-item'
 import { ContentItem } from './content-item'
 
-/** @public */
+/**
+ * Class `RowOrColumn` encapsulating row or column data structures and logic in `src/container/dock-layout/items`.
+ * @public
+ * @zh 类 `RowOrColumn`，封装 `src/container/dock-layout/items` 中的行Or列数据结构与处理逻辑。
+ */
 export class RowOrColumn extends ContentItem {
-    /** @internal */
+    /**
+     * Property `_childElementContainer` (`HTMLElement`) storing child element container.
+     * @internal
+     * @zh 属性 `_childElementContainer`（类型：`HTMLElement`），用于存储或配置子级元素容器。
+     */
     private readonly _childElementContainer: HTMLElement;
-    /** @internal */
+    /**
+     * Property `_configType` (`'row' | 'column'`) storing config type.
+     * @internal
+     * @zh 属性 `_configType`（类型：`'row' | 'column'`），用于存储或配置配置类型。
+     */
     private readonly _configType: 'row' | 'column';
-    /** @internal */
+    /**
+     * Property `_isColumn` (`boolean`) storing is column.
+     * @internal
+     * @zh 属性 `_isColumn`（类型：`boolean`），用于存储或配置是否为列。
+     */
     private readonly _isColumn: boolean;
-    /** @internal */
+    /**
+     * Property `_splitterSize` (`number`) storing splitter size.
+     * @internal
+     * @zh 属性 `_splitterSize`（类型：`number`），用于存储或配置分割条尺寸。
+     */
     private readonly _splitterSize: number;
-    /** @internal */
+    /**
+     * Property `_splitterGrabSize` (`number`) storing splitter grab size.
+     * @internal
+     * @zh 属性 `_splitterGrabSize`（类型：`number`），用于存储或配置分割条Grab尺寸。
+     */
     private readonly _splitterGrabSize: number;
-    /** @internal */
+    /**
+     * Property `_dimension` (`WidthOrHeightPropertyName`) storing dimension.
+     * @internal
+     * @zh 属性 `_dimension`（类型：`WidthOrHeightPropertyName`），用于存储或配置维度。
+     */
     private readonly _dimension: WidthOrHeightPropertyName;
-    /** @internal */
+    /**
+     * Property `_splitter` (`Splitter[]`) storing splitter (default: `[]`).
+     * @internal
+     * @zh 属性 `_splitter`（类型：`Splitter[]`），用于存储或配置分割条（默认值：`[]`）。
+     */
     private readonly _splitter: Splitter[] = [];
-    /** @internal */
+    /**
+     * Property `_splitterPosition` (`number | null`) storing splitter position.
+     * @internal
+     * @zh 属性 `_splitterPosition`（类型：`number | null`），用于存储或配置分割条位置。
+     */
     private _splitterPosition: number | null;
-    /** @internal */
+    /**
+     * Property `_splitterMinPosition` (`number | null`) storing splitter min position.
+     * @internal
+     * @zh 属性 `_splitterMinPosition`（类型：`number | null`），用于存储或配置分割条最小值位置。
+     */
     private _splitterMinPosition: number | null;
-    /** @internal */
+    /**
+     * Property `_splitterMaxPosition` (`number | null`) storing splitter max position.
+     * @internal
+     * @zh 属性 `_splitterMaxPosition`（类型：`number | null`），用于存储或配置分割条最大值位置。
+     */
     private _splitterMaxPosition: number | null;
 
-    /** @internal */
+    /**
+     * Creates an instance of `RowOrColumn` and initializes its dependencies and internal state.
+     * @internal
+     * @zh 创建 `RowOrColumn` 实例，并初始化其依赖项与内部状态。
+     */
     constructor(private translator:TranslateService,isColumn: boolean, layoutManager: LayoutManager, config: ResolvedRowOrColumnItemConfig,
         /** @internal */
         private _rowOrColumnParent: ContentItem
@@ -71,6 +124,15 @@ export class RowOrColumn extends ContentItem {
         }
     }
 
+    /**
+     * Executes `newComponent` to handle new component.
+     * @zh 执行 `newComponent`，用于新组件。
+     * @param componentType - component type parameter (`JsonValue`) / 组件类型参数（`JsonValue`）
+     * @param componentState - component state parameter (`JsonValue`) / 组件状态参数（`JsonValue`）
+     * @param title - title parameter (`string`) / 标题参数（`string`）
+     * @param index - index parameter (`number`) / 索引参数（`number`）
+     * @returns Result of type `ComponentItem` / 类型为 `ComponentItem` 的返回值
+     */
     newComponent(componentType: JsonValue, componentState?: JsonValue, title?: string, index?: number): ComponentItem {
         const itemConfig: ComponentItemConfig = {
             type: 'component',
@@ -81,6 +143,15 @@ export class RowOrColumn extends ContentItem {
         return this.newItem(itemConfig, index) as ComponentItem;
     }
 
+    /**
+     * Executes `addComponent` to handle add component.
+     * @zh 执行 `addComponent`，用于添加组件。
+     * @param componentType - component type parameter (`JsonValue`) / 组件类型参数（`JsonValue`）
+     * @param componentState - component state parameter (`JsonValue`) / 组件状态参数（`JsonValue`）
+     * @param title - title parameter (`string`) / 标题参数（`string`）
+     * @param index - index parameter (`number`) / 索引参数（`number`）
+     * @returns Result of type `number` / 类型为 `number` 的返回值
+     */
     addComponent(componentType: JsonValue, componentState?: JsonValue, title?: string, index?: number): number {
         const itemConfig: ComponentItemConfig = {
             type: 'component',
@@ -91,6 +162,13 @@ export class RowOrColumn extends ContentItem {
         return this.addItem(itemConfig, index);
     }
 
+    /**
+     * Executes `newItem` to handle new item.
+     * @zh 执行 `newItem`，用于新条目。
+     * @param itemConfig - item config parameter (`RowOrColumnItemConfig | StackItemConfig | ComponentItemConfi...`) / 条目配置参数（`RowOrColumnItemConfig | StackItemConfig | ComponentItemConfi...`）
+     * @param index - index parameter (`number`) / 索引参数（`number`）
+     * @returns Result of type `ContentItem` / 类型为 `ContentItem` 的返回值
+     */
     newItem(itemConfig: RowOrColumnItemConfig | StackItemConfig | ComponentItemConfig,  index?: number): ContentItem {
         index = this.addItem(itemConfig, index);
         const createdItem = this.contentItems[index];
@@ -103,6 +181,13 @@ export class RowOrColumn extends ContentItem {
         }
     }
 
+    /**
+     * Executes `addItem` to handle add item.
+     * @zh 执行 `addItem`，用于添加条目。
+     * @param itemConfig - item config parameter (`RowOrColumnItemConfig | StackItemConfig | ComponentItemConfi...`) / 条目配置参数（`RowOrColumnItemConfig | StackItemConfig | ComponentItemConfi...`）
+     * @param index - index parameter (`number`) / 索引参数（`number`）
+     * @returns Result of type `number` / 类型为 `number` 的返回值
+     */
     addItem(itemConfig: RowOrColumnItemConfig | StackItemConfig | ComponentItemConfig,
         index?: number
     ): number {
@@ -123,6 +208,8 @@ export class RowOrColumn extends ContentItem {
      *                        children need to be added in one go and resize is called afterwards
      *
      * @returns
+
+     * @zh 执行 `addChild`，用于添加子级。
      */
     override addChild(contentItem: ContentItem, index?: number, suspendResize?: boolean): number {
 
@@ -172,6 +259,12 @@ export class RowOrColumn extends ContentItem {
     }
 
 
+    /**
+     * Executes `removeChild` to handle remove child.
+     * @zh 执行 `removeChild`，用于移除子级。
+     * @param contentItem - content item parameter (`ContentItem`) / 内容条目参数（`ContentItem`）
+     * @param keepChild - keep child parameter (`boolean`) / keep子级参数（`boolean`）
+     */
     override removeChild(contentItem: ContentItem, keepChild: boolean): void {
         const index = this.contentItems.indexOf(contentItem);
         const splitterIndex = Math.max(index - 1, 0);
@@ -203,6 +296,8 @@ export class RowOrColumn extends ContentItem {
 
     /**
      * Replaces a child of this Row or Column with another contentItem
+
+     * @zh 执行 `replaceChild`，用于替换子级。
      */
     override replaceChild(oldChild: ContentItem, newChild: ContentItem): void {
         const size = oldChild.size;
@@ -214,6 +309,8 @@ export class RowOrColumn extends ContentItem {
 
     /**
      * Called whenever the dimensions of this item or one of its parents change
+
+     * @zh 执行 `updateSize`，用于更新尺寸。
      */
     override updateSize(force: boolean): void {
         this.layoutManager.beginVirtualSizedContainerAdding();
@@ -230,6 +327,8 @@ export class RowOrColumn extends ContentItem {
      * the contentItem's DOM elements to the container, RowOrColumn init adds splitters
      * in between them
      * @internal
+
+     * @zh 执行 `init`，用于初始化。
      */
     override init(): void {
         if (this.isInitialised === true) return;
@@ -249,6 +348,11 @@ export class RowOrColumn extends ContentItem {
         this.initContentItems();
     }
 
+    /**
+     * Executes `toConfig` to handle to config.
+     * @zh 执行 `toConfig`，用于转换为配置。
+     * @returns Result of type `ResolvedRowOrColumnItemConfig` / 类型为 `ResolvedRowOrColumnItemConfig` 的返回值
+     */
     toConfig(): ResolvedRowOrColumnItemConfig {
         const result: ResolvedRowOrColumnItemConfig = {
             type: this.type as 'row' | 'column',
@@ -263,13 +367,21 @@ export class RowOrColumn extends ContentItem {
         return result;
     }
 
-    /** @internal */
+    /**
+     * Executes `setParent` to handle set parent.
+     * @internal
+     * @zh 执行 `setParent`，用于集合父级。
+     */
     protected override setParent(parent: ContentItem): void {
         this._rowOrColumnParent = parent;
         super.setParent(parent);
     }
 
-    /** @internal */
+    /**
+     * Executes `updateNodeSize` to handle update node size.
+     * @internal
+     * @zh 执行 `updateNodeSize`，用于更新节点尺寸。
+     */
     private updateNodeSize(): void {
         if (this.contentItems.length > 0) {
             this.calculateRelativeSizes();
@@ -285,6 +397,8 @@ export class RowOrColumn extends ContentItem {
      *
      * Assigns additional pixels to counteract Math.floor
      * @internal
+
+     * @zh 执行 `setAbsoluteSizes`，用于集合Absolute尺寸列表。
      */
     private setAbsoluteSizes() {
         const absoluteSizes = this.calculateAbsoluteSizes();
@@ -308,6 +422,8 @@ export class RowOrColumn extends ContentItem {
      * Calculates the absolute sizes of all of the children of this Item.
      * @returns Set with absolute sizes and additional pixels.
      * @internal
+
+     * @zh 执行 `calculateAbsoluteSizes`，用于计算Absolute尺寸列表。
      */
     private calculateAbsoluteSizes(): RowOrColumn.AbsoluteSizes {
         const totalSplitterSize = (this.contentItems.length - 1) * this._splitterSize;
@@ -368,6 +484,8 @@ export class RowOrColumn extends ContentItem {
      *        their original size so that they add up to 100
      *
      * @internal
+
+     * @zh 执行 `calculateRelativeSizes`，用于计算Relative尺寸列表。
      */
     private calculateRelativeSizes() {
 
@@ -445,9 +563,15 @@ export class RowOrColumn extends ContentItem {
     /**
      * Adjusts the column widths to respect the dimensions minItemWidth if set.
      * @internal
+
+     * @zh 执行 `respectMinItemSize`，用于respect最小值条目尺寸。
      */
     private respectMinItemSize() {
         interface Entry {
+            /**
+             * Property `size` (`number`) storing size.
+             * @zh 属性 `size`（类型：`number`），用于存储或配置尺寸。
+             */
             size: number;
         }
 
@@ -533,6 +657,8 @@ export class RowOrColumn extends ContentItem {
      *
      * @returns
      * @internal
+
+     * @zh 执行 `createSplitter`，用于创建分割条。
      */
     private createSplitter(index: number): Splitter {
         const splitter = new Splitter(this._isColumn, this._splitterSize, this._splitterGrabSize);
@@ -551,6 +677,8 @@ export class RowOrColumn extends ContentItem {
      *
      * @returns A map of contentItems that the splitter affects
      * @internal
+
+     * @zh 执行 `getSplitItems`，用于获取分割面板条目列表。
      */
     private getSplitItems(splitter: Splitter) {
         const index = this._splitter.indexOf(splitter);
@@ -561,6 +689,11 @@ export class RowOrColumn extends ContentItem {
         };
     }
 
+    /**
+     * Executes `calculateContentItemMinSize` to handle calculate content item min size.
+     * @zh 执行 `calculateContentItemMinSize`，用于计算内容条目最小值尺寸。
+     * @param contentItem - content item parameter (`ContentItem`) / 内容条目参数（`ContentItem`）
+     */
     private calculateContentItemMinSize(contentItem: ContentItem) {
         const minSize = contentItem.minSize;
         if (minSize !== undefined) {
@@ -578,6 +711,8 @@ export class RowOrColumn extends ContentItem {
     /**
      * Gets the minimum dimensions for the given item configuration array
      * @internal
+
+     * @zh 执行 `calculateContentItemsTotalMinSize`，用于计算内容条目列表总计最小值尺寸。
      */
     private calculateContentItemsTotalMinSize(contentItems: readonly ContentItem[]) {
         let totalMinSize = 0;
@@ -593,6 +728,8 @@ export class RowOrColumn extends ContentItem {
      * Invoked when a splitter's dragListener fires dragStart. Calculates the splitters
      * movement area once (so that it doesn't need calculating on every mousemove event)
      * @internal
+
+     * @zh 执行 `onSplitterDragStart`，用于当分割条拖拽开始。
      */
     private onSplitterDragStart(splitter: Splitter) {
         const items = this.getSplitItems(splitter);
@@ -615,6 +752,8 @@ export class RowOrColumn extends ContentItem {
      * @param offsetX - Relative pixel values to the splitter's original position. Can be negative
      * @param offsetY - Relative pixel values to the splitter's original position. Can be negative
      * @internal
+
+     * @zh 执行 `onSplitterDrag`，用于当分割条拖拽。
      */
     private onSplitterDrag(splitter: Splitter, offsetX: number, offsetY: number) {
         let offset = this._isColumn ? offsetY : offsetX;
@@ -639,6 +778,8 @@ export class RowOrColumn extends ContentItem {
      * and applies the new sizes to the elements before and after the splitter and their children
      * on the next animation frame
      * @internal
+
+     * @zh 执行 `onSplitterDragStop`，用于当分割条拖拽停止。
      */
     private onSplitterDragStop(splitter: Splitter) {
         if (this._splitterPosition === null) {
@@ -663,15 +804,39 @@ export class RowOrColumn extends ContentItem {
 
 /** @public */
 export namespace RowOrColumn {
-    /** @internal */
+    /**
+     * Interface `AbsoluteSizes` defining the contract and properties for absolute sizes.
+     * @internal
+     * @zh 接口 `AbsoluteSizes`，定义Absolute尺寸列表的数据结构契约与属性规范。
+     */
     export interface AbsoluteSizes {
+        /**
+         * Property `itemSizes` (`number[]`) storing item sizes.
+         * @zh 属性 `itemSizes`（类型：`number[]`），用于存储或配置条目尺寸列表。
+         */
         itemSizes: number[],
+        /**
+         * Property `additionalPixel` (`number`) storing additional pixel.
+         * @zh 属性 `additionalPixel`（类型：`number`），用于存储或配置additional像素。
+         */
         additionalPixel: number,
+        /**
+         * Property `totalSize` (`number`) storing total size.
+         * @zh 属性 `totalSize`（类型：`number`），用于存储或配置总计尺寸。
+         */
         totalSize: number,
+        /**
+         * Property `crossAxisSize` (`number`) storing cross axis size.
+         * @zh 属性 `crossAxisSize`（类型：`number`），用于存储或配置cross坐标轴尺寸。
+         */
         crossAxisSize: number
     }
 
-    /** @internal */
+    /**
+     * Executes `getElementDimensionSize` to handle get element dimension size.
+     * @internal
+     * @zh 执行 `getElementDimensionSize`，用于获取元素维度尺寸。
+     */
     export function getElementDimensionSize(element: HTMLElement, dimension: WidthOrHeightPropertyName): number {
         if (dimension === 'width') {
             return getElementWidth(element);
@@ -680,7 +845,11 @@ export namespace RowOrColumn {
         }
     }
 
-    /** @internal */
+    /**
+     * Executes `setElementDimensionSize` to handle set element dimension size.
+     * @internal
+     * @zh 执行 `setElementDimensionSize`，用于集合元素维度尺寸。
+     */
     export function setElementDimensionSize(element: HTMLElement, dimension: WidthOrHeightPropertyName, value: number): void {
         if (dimension === 'width') {
             return setElementWidth(element, value);
@@ -689,7 +858,11 @@ export namespace RowOrColumn {
         }
     }
 
-    /** @internal */
+    /**
+     * Executes `createElement` to handle create element.
+     * @internal
+     * @zh 执行 `createElement`，用于创建元素。
+     */
     export function createElement(document: Document, isColumn: boolean): HTMLDivElement {
         const element = document.createElement('div');
         element.classList.add(DomConstants.ClassName.Item);

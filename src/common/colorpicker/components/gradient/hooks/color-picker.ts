@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Module `src/common/colorpicker/components/gradient/hooks/color-picker.ts` providing color picker definitions and implementation.
+ * @zh 模块文件 `src/common/colorpicker/components/gradient/hooks/color-picker.ts`，提供颜色选择器相关的定义与实现。
+ */
+
 
 import { isUpperCase, getDetails, getColorObj } from '../utils/utils';
 import { low, high, getColors, formatInputValues } from '../utils/formatters';
@@ -5,12 +10,20 @@ import { rgb2cmyk } from '../utils/converters';
 import { config } from '../constants'
 import tc from 'tinycolor2'
 import { ColorsProps, GradientProps } from '../shared/types'
+/**
+ * Constant/variable `{ defaultColor, defaultGradient }` defining { default color, default gradient } in `src/common/colorpicker/components/gradient/hooks`.
+ * @zh 常量/变量 `{ defaultColor, defaultGradient }`，定义 `src/common/colorpicker/components/gradient/hooks` 中的{默认Color,默认渐变}。
+ */
 const { defaultColor, defaultGradient } = config
 
+/**
+ * Constant/variable `useColorPicker` defining use color picker in `src/common/colorpicker/components/gradient/hooks`.
+ * @zh 常量/变量 `useColorPicker`，定义 `src/common/colorpicker/components/gradient/hooks` 中的使用颜色选择器。
+ */
 export const useColorPicker = (
   value: string,
-  previousColors:any,
-  setPreviousColors:any,
+  previousColors:{ slice? },
+  setPreviousColors,
   onChange: (arg0: string) => void
 ) => {
   const colors = getColors(value)

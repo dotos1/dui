@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Module `src/ux/markdown-editor/completion.ts` providing completion definitions and implementation.
+ * @zh 模块文件 `src/ux/markdown-editor/completion.ts`，提供completion相关的定义与实现。
+ */
+
 import * as TypeConverters from './vscode-converters'
 import {CancellationToken, editor, languages, Position as _Position} from 'monaco-editor';
 import {TextDocument, TextEditor,} from './vscode-monaco'
@@ -5,8 +10,17 @@ import {Range, SnippetString, Position} from './extHostTypes'
 import {slugify} from './util';
 import {buildToc} from './toc';
 import * as latex from './latex'
+/**
+ * Constant/variable `completionActivated` defining completion activated in `src/ux/markdown-editor`.
+ * @zh 常量/变量 `completionActivated`，定义 `src/ux/markdown-editor` 中的completion已激活。
+ */
 let completionActivated = false
 
+/**
+ * Executes `activateCompletion` to handle activate completion.
+ * @zh 执行 `activateCompletion`，用于激活Completion。
+ * @param editor - editor parameter (`TextEditor`) / 编辑器参数（`TextEditor`）
+ */
 export function activateCompletion(editor: TextEditor) {
     if (!completionActivated) {
         let provider = new MdCompletionItemProvider();
@@ -15,10 +29,23 @@ export function activateCompletion(editor: TextEditor) {
     }
 }
 
+/**
+ * Executes `completionList` to handle completion list.
+ * @zh 执行 `completionList`，用于completion列表。
+ * @param items - items parameter (`languages.CompletionItem[]`) / 条目列表参数（`languages.CompletionItem[]`）
+ * @returns Result of type `languages.CompletionList` / 类型为 `languages.CompletionList` 的返回值
+ */
 function completionList(items: languages.CompletionItem[]): languages.CompletionList {
     return {suggestions: items.map((v, _,) => Object.assign({}, v))};
 }
 
+/**
+ * Executes `newCompletionItem` to handle new completion item.
+ * @zh 执行 `newCompletionItem`，用于新Completion条目。
+ * @param text - text parameter (`string`) / 文本参数（`string`）
+ * @param kind - kind parameter (`languages.CompletionItemKind`) / 种类参数（`languages.CompletionItemKind`）
+ * @returns Result of type `languages.CompletionItem` / 类型为 `languages.CompletionItem` 的返回值
+ */
 function newCompletionItem(text: string, kind: languages.CompletionItemKind): languages.CompletionItem {
     return {
         label: text,
@@ -37,7 +64,15 @@ function newCompletionItem(text: string, kind: languages.CompletionItemKind): la
     }
 }
 
+/**
+ * Class `MdCompletionItemProvider` encapsulating md completion item provider data structures and logic in `src/ux/markdown-editor`.
+ * @zh 类 `MdCompletionItemProvider`，封装 `src/ux/markdown-editor` 中的MdCompletion条目提供者数据结构与处理逻辑。
+ */
 class MdCompletionItemProvider implements languages.CompletionItemProvider {
+    /**
+     * Property `triggerCharacters` (`any[]`) storing trigger characters (default: `['(', '\\', '/', '[', '#']`).
+     * @zh 属性 `triggerCharacters`（类型：`any[]`），用于存储或配置触发字符（默认值：`['(', '\\', '/', '[', '#']`）。
+     */
     triggerCharacters = ['(', '\\', '/', '[', '#']
     // Suffixes explained:
     // \cmd         -> 0
@@ -45,7 +80,15 @@ class MdCompletionItemProvider implements languages.CompletionItemProvider {
     // \cmd{$1}{$2} -> 2
     //
     // Use linebreak to mimic the structure of the KaTeX [Support Table](https://katex.org/docs/supported.html)
+    /**
+     * Property `mathCompletions` (`languages.CompletionItem[]`) storing math completions.
+     * @zh 属性 `mathCompletions`（类型：`languages.CompletionItem[]`），用于存储或配置mathCompletions。
+     */
     mathCompletions: languages.CompletionItem[];
+    /**
+     * Creates an instance of `MdCompletionItemProvider` and initializes its dependencies and internal state.
+     * @zh 创建 `MdCompletionItemProvider` 实例，并初始化其依赖项与内部状态。
+     */
     constructor() {
         // \cmd
         let c1 = latex._c1.map(cmd => {
@@ -86,6 +129,15 @@ class MdCompletionItemProvider implements languages.CompletionItemProvider {
         });
     }
 
+    /**
+     * Executes `provideCompletionItems` to handle provide completion items.
+     * @zh 执行 `provideCompletionItems`，用于提供Completion条目列表。
+     * @param model - model parameter (`editor.ITextModel`) / 模型参数（`editor.ITextModel`）
+     * @param _position - position parameter (`_Position`) / 位置参数（`_Position`）
+     * @param _context - context parameter (`languages.CompletionContext`) / 上下文参数（`languages.CompletionContext`）
+     * @param _token - token parameter (`CancellationToken`) / 令牌参数（`CancellationToken`）
+     * @returns Result of type `languages.ProviderResult<languages.CompletionList>` / 类型为 `languages.ProviderResult<languages.CompletionList>` 的返回值
+     */
     provideCompletionItems(model: editor.ITextModel, _position: _Position, _context: languages.CompletionContext, _token: CancellationToken): languages.ProviderResult<languages.CompletionList> {
         let document = new TextDocument(model)
         let position = TypeConverters.Position.to(_position)
@@ -192,7 +244,7 @@ class MdCompletionItemProvider implements languages.CompletionItemProvider {
             return new Promise((res, _) => {
                 const toc = buildToc(document);
 
-                const headingCompletions: languages.CompletionItem[] = toc.reduce((prev: languages.CompletionItem[], curr: any) => {
+                const headingCompletions: languages.CompletionItem[] = toc.reduce((prev: languages.CompletionItem[], curr: { text? }) => {
                     let item = newCompletionItem('#' + slugify(curr.text), languages.CompletionItemKind.Reference);
 
                     let label = typeof item.label === 'string' ? item.label : item.label.label;

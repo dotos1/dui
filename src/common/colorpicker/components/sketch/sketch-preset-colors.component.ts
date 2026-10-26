@@ -1,8 +1,17 @@
+/**
+ * @fileoverview Module `src/common/colorpicker/components/sketch/sketch-preset-colors.component.ts` providing sketch preset colors component definitions and implementation.
+ * @zh 模块文件 `src/common/colorpicker/components/sketch/sketch-preset-colors.component.ts`，提供sketchpreset颜色列表组件相关的定义与实现。
+ */
+
 import {
   ChangeDetectionStrategy,  Component,  EventEmitter,  Input,  Output,
 } from '@angular/core';
 import { Shape } from '@dotos/dui/common/colorpicker/common';
 
+/**
+ * Angular component `SketchPresetColorsComponent` (selector: 'color-sketch-preset-colors') providing sketch preset colors component presentation and interaction in `src/common/colorpicker/components/sketch`.
+ * @zh Angular 组件 `SketchPresetColorsComponent`（selector: 'color-sketch-preset-colors'），提供SketchPreset颜色列表组件的视图渲染与交互逻辑（位于 `src/common/colorpicker/components/sketch`）。
+ */
 @Component({
   selector: 'color-sketch-preset-colors',
   template: `
@@ -47,13 +56,29 @@ import { Shape } from '@dotos/dui/common/colorpicker/common';
  * @zh 显示在 {@link SketchComponent} 主控件下方的一排预设色块。
  */
 export class SketchPresetColorsComponent {
-  /** @zh 预设颜色列表，每项可以是颜色字符串或 `Shape` 对象。 */
-  @Input() colors: any[] =[];
-  /** @zh 色块被点击时发出。 */
-  @Output() onClick = new EventEmitter<any>();
-  /** @zh 鼠标悬停在色块上时发出。 */
-  @Output() onSwatchHover = new EventEmitter<any>();
-  /** @zh 每个色块的内联样式。 */
+  /**
+   * Input property `colors` (`any[]`) configuring colors (default: `[]`).
+   * @zh 预设颜色列表，每项可以是颜色字符串或 `Shape` 对象。
+   * @zh 预设颜色列表，每项可以是颜色字符串或 `Shape` 对象。
+   */
+  @Input() colors =[];
+  /**
+   * Output event emitter `onClick` (`EventEmitter`) firing when on click occurs.
+   * @zh 色块被点击时发出。
+   * @zh 色块被点击时发出。
+   */
+  @Output() onClick = new EventEmitter();
+  /**
+   * Output event emitter `onSwatchHover` (`EventEmitter`) firing when on swatch hover occurs.
+   * @zh 鼠标悬停在色块上时发出。
+   * @zh 鼠标悬停在色块上时发出。
+   */
+  @Output() onSwatchHover = new EventEmitter();
+  /**
+   * Property `swatchStyle` (`any`) storing swatch style.
+   * @zh 每个色块的内联样式。
+   * @zh 每个色块的内联样式。
+   */
   swatchStyle = {
     borderRadius: '3px',
     boxShadow: 'inset 0 0 0 1px rgba(0,0,0,.15)',

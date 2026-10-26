@@ -1,38 +1,66 @@
 <ng-container *ngIf="manifest$ | async as manifest">
+  <div class="nav-tree__search">
+    <mat-icon class="nav-tree__search-icon">search</mat-icon>
+    <input
+      type="text"
+      class="nav-tree__search-input"
+      placeholder="搜索分类或模块..."
+      [value]="searchQuery"
+      (input)="onSearchInput($event)" />
+    <button
+      *ngIf="searchQuery"
+      type="button"
+      class="nav-tree__search-clear"
+      (click)="clearSearch()"
+      aria-label="Clear search">
+      <mat-icon>close</mat-icon>
+    </button>
+  </div>
+
   <div class="nav-tree__home">
     <a routerLink="/components" routerLinkActive="nav-tree__link--active" [routerLinkActiveOptions]="{exact: true}">
       组件总览
     </a>
   </div>
 
-  <mat-accordion multi="true" *ngIf="manifest.categories.length; else emptyState">
-    <mat-expansion-panel *ngFor="let category of manifest.categories" class="nav-tree__panel">
-      <mat-expansion-panel-header [matTooltip]="categoryTagline(category.id)" matTooltipPosition="right">
-        <mat-panel-title>
-          <mat-icon class="nav-tree__panel-icon">{{ categoryIcon(category.id) }}</mat-icon>
-          {{ category.id }}
-        </mat-panel-title>
-        <mat-panel-description>{{ category.moduleCount }}</mat-panel-description>
-      </mat-expansion-panel-header>
+  <ng-container *ngIf="filterCategories(manifest.categories) as categories">
+    <mat-accordion multi="true" *ngIf="categories.length; else emptyState">
+      <mat-expansion-panel
+        *ngFor="let category of categories"
+        class="nav-tree__panel"
+        [expanded]="!!searchQuery.trim()">
+        <mat-expansion-panel-header [matTooltip]="categoryTagline(category.id)" matTooltipPosition="right">
+          <mat-panel-title>
+            <mat-icon class="nav-tree__panel-icon">{{ categoryIcon(category.id) }}</mat-icon>
+            {{ category.id }}
+          </mat-panel-title>
+          <mat-panel-description>{{ category.moduleCount }}</mat-panel-description>
+        </mat-expansion-panel-header>
 
-      <a *ngIf="category.moduleCount === 0"
-         [routerLink]="['/components', category.id]"
-         routerLinkActive="nav-tree__link--active"
-         class="nav-tree__link nav-tree__link--muted">
-        （无可导入模块，仅说明文档）
-      </a>
+        <a *ngIf="category.moduleCount === 0"
+           [routerLink]="['/components', category.id]"
+           routerLinkActive="nav-tree__link--active"
+           class="nav-tree__link nav-tree__link--muted">
+          （无可导入模块，仅说明文档）
+        </a>
 
-      <a *ngFor="let module of category.modules"
-         [routerLink]="['/components', category.id, module.id, 'overview']"
-         routerLinkActive="nav-tree__link--active"
-         class="nav-tree__link">
-        {{ module.id }}
-        <span class="nav-tree__badge" *ngIf="module.isFlagship">示例</span>
-      </a>
-    </mat-expansion-panel>
-  </mat-accordion>
+        <a *ngFor="let module of category.modules"
+           [routerLink]="['/components', category.id, module.id, 'overview']"
+           routerLinkActive="nav-tree__link--active"
+           class="nav-tree__link">
+          {{ module.id }}
+          <span class="nav-tree__badge" *ngIf="module.isFlagship">示例</span>
+        </a>
+      </mat-expansion-panel>
+    </mat-accordion>
+  </ng-container>
 
   <ng-template #emptyState>
-    <p class="nav-tree__empty">尚未生成文档数据。请运行 <code>npm run docs:generate</code>。</p>
+    <p class="nav-tree__empty" *ngIf="searchQuery.trim(); else notGenerated">
+      未找到与 <code>{{ searchQuery }}</code> 匹配的分类或模块。
+    </p>
+    <ng-template #notGenerated>
+      <p class="nav-tree__empty">尚未生成文档数据。请运行 <code>npm run docs:generate</code>。</p>
+    </ng-template>
   </ng-template>
 </ng-container>

@@ -1,19 +1,44 @@
+/**
+ * @fileoverview Module `src/container/gridster/gridsterRenderer.service.ts` providing gridster renderer service definitions and implementation.
+ * @zh 模块文件 `src/container/gridster/gridsterRenderer.service.ts`，提供网格拖拽布局渲染器服务相关的定义与实现。
+ */
+
 import { Injectable, Renderer2 } from '@angular/core';
 import { GridsterComponentInterface } from './gridster.interface';
 import { DirTypes, GridType } from './gridsterConfig.interface';
 import { GridsterItem } from './gridsterItem.interface';
 
+/**
+ * Injectable Angular service `GridsterRenderer` managing gridster renderer state and operations in `src/container/gridster`.
+ * @zh 可注入的 Angular 服务 `GridsterRenderer`，管理 `src/container/gridster` 中的网格拖拽布局渲染器状态与业务操作。
+ */
 @Injectable()
 export class GridsterRenderer {
 
+  /**
+   * Creates an instance of `GridsterRenderer` and initializes its dependencies and internal state.
+   * @zh 创建 `GridsterRenderer` 实例，并初始化其依赖项与内部状态。
+   * @param gridster - Injected or initial gridster (`GridsterComponentInterface`) / 注入或传入的网格拖拽布局（`GridsterComponentInterface`）
+   */
   constructor(private gridster: GridsterComponentInterface) {
   }
 
+  /**
+   * Executes `destroy` to handle destroy.
+   * @zh 执行 `destroy`，用于销毁。
+   */
   destroy(): void {
     delete this.gridster;
   }
 
-  updateItem(el: any, item: GridsterItem, renderer: Renderer2) {
+  /**
+   * Executes `updateItem` to handle update item.
+   * @zh 执行 `updateItem`，用于更新条目。
+   * @param el - el parameter (`any`) / DOM元素参数（`any`）
+   * @param item - item parameter (`GridsterItem`) / 条目参数（`GridsterItem`）
+   * @param renderer - renderer parameter (`Renderer2`) / 渲染器参数（`Renderer2`）
+   */
+  updateItem(el, item: GridsterItem, renderer: Renderer2) {
     if (this.gridster.mobile) {
       this.clearCellPosition(renderer, el);
       if (this.gridster.$options.keepFixedHeightInMobile) {
@@ -62,6 +87,10 @@ export class GridsterRenderer {
     }
   }
 
+  /**
+   * Executes `updateGridster` to handle update gridster.
+   * @zh 执行 `updateGridster`，用于更新网格拖拽布局。
+   */
   updateGridster() {
     let addClass = '';
     let removeClass1 = '';
@@ -119,6 +148,11 @@ export class GridsterRenderer {
     this.gridster.renderer.removeClass(this.gridster.el, removeClass3);
   }
 
+  /**
+   * Executes `getGridColumnStyle` to handle get grid column style.
+   * @zh 执行 `getGridColumnStyle`，用于获取网格表格列样式。
+   * @param i - i parameter (`number`) / i参数（`number`）
+   */
   getGridColumnStyle(i: number) {
     return {
       ...this.getLeftPosition(this.gridster.curColWidth * i),
@@ -127,6 +161,11 @@ export class GridsterRenderer {
     };
   }
 
+  /**
+   * Executes `getGridRowStyle` to handle get grid row style.
+   * @zh 执行 `getGridRowStyle`，用于获取网格表格行样式。
+   * @param i - i parameter (`number`) / i参数（`number`）
+   */
   getGridRowStyle(i: number) {
     return {
       ...this.getTopPosition(this.gridster.curRowHeight * i),
@@ -135,6 +174,12 @@ export class GridsterRenderer {
     };
   }
 
+  /**
+   * Executes `getLeftPosition` to handle get left position.
+   * @zh 执行 `getLeftPosition`，用于获取左侧位置位置。
+   * @param d - d parameter (`number`) / d参数（`number`）
+   * @returns Result of type `{ left?: string, transform?: string }` / 类型为 `{ left?: string, transform?: string }` 的返回值
+   */
   getLeftPosition(d: number): { left?: string, transform?: string } {
     const dPosition = this.gridster.$options.dirType === DirTypes.RTL ? -d : d;
     if (this.gridster.$options.useTransformPositioning) {
@@ -148,6 +193,12 @@ export class GridsterRenderer {
     }
   }
 
+  /**
+   * Executes `getTopPosition` to handle get top position.
+   * @zh 执行 `getTopPosition`，用于获取顶部位置位置。
+   * @param d - d parameter (`number`) / d参数（`number`）
+   * @returns Result of type `{ top?: string, transform?: string }` / 类型为 `{ top?: string, transform?: string }` 的返回值
+   */
   getTopPosition(d: number): { top?: string, transform?: string } {
     if (this.gridster.$options.useTransformPositioning) {
       return {
@@ -160,7 +211,13 @@ export class GridsterRenderer {
     }
   }
 
-  clearCellPosition(renderer: Renderer2, el: any): void {
+  /**
+   * Executes `clearCellPosition` to handle clear cell position.
+   * @zh 执行 `clearCellPosition`，用于清空单元格位置。
+   * @param renderer - renderer parameter (`Renderer2`) / 渲染器参数（`Renderer2`）
+   * @param el - el parameter (`any`) / DOM元素参数（`any`）
+   */
+  clearCellPosition(renderer: Renderer2, el): void {
     if (this.gridster.$options.useTransformPositioning) {
       renderer.setStyle(el, 'transform', '');
     } else {
@@ -169,7 +226,15 @@ export class GridsterRenderer {
     }
   }
 
-  setCellPosition(renderer: Renderer2, el: any, x: number, y: number): void {
+  /**
+   * Executes `setCellPosition` to handle set cell position.
+   * @zh 执行 `setCellPosition`，用于集合单元格位置。
+   * @param renderer - renderer parameter (`Renderer2`) / 渲染器参数（`Renderer2`）
+   * @param el - el parameter (`any`) / DOM元素参数（`any`）
+   * @param x - x parameter (`number`) / X坐标参数（`number`）
+   * @param y - y parameter (`number`) / Y坐标参数（`number`）
+   */
+  setCellPosition(renderer: Renderer2, el, x: number, y: number): void {
     const xPosition = this.gridster.$options.dirType === DirTypes.RTL ? -x : x;
     if (this.gridster.$options.useTransformPositioning) {
       const transform = 'translate3d(' + xPosition + 'px, ' + y + 'px, 0)';
@@ -180,6 +245,11 @@ export class GridsterRenderer {
     }
   }
 
+  /**
+   * Executes `getLeftMargin` to handle get left margin.
+   * @zh 执行 `getLeftMargin`，用于获取左侧位置外边距。
+   * @returns Result of type `number` / 类型为 `number` 的返回值
+   */
   getLeftMargin(): number {
     if (this.gridster.$options.outerMargin) {
       if (this.gridster.$options.outerMarginLeft !== null) {
@@ -192,6 +262,11 @@ export class GridsterRenderer {
     }
   }
 
+  /**
+   * Executes `getTopMargin` to handle get top margin.
+   * @zh 执行 `getTopMargin`，用于获取顶部位置外边距。
+   * @returns Result of type `number` / 类型为 `number` 的返回值
+   */
   getTopMargin(): number {
     if (this.gridster.$options.outerMargin) {
       if (this.gridster.$options.outerMarginTop !== null) {

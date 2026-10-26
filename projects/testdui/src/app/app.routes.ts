@@ -1,6 +1,15 @@
+/**
+ * @fileoverview Module `projects/testdui/src/app/app.routes.ts` providing app routes definitions and implementation.
+ * @zh 模块文件 `projects/testdui/src/app/app.routes.ts`，提供approutes相关的定义与实现。
+ */
+
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
+/**
+ * Constant/variable `routes` defining routes in `projects/testdui/src/app`.
+ * @zh 常量/变量 `routes`，定义 `projects/testdui/src/app` 中的routes。
+ */
 export const routes: Routes = [
   {
     path: 'color',
@@ -19,6 +28,10 @@ export const routes: Routes = [
     loadChildren: () => import('./home/home.module').then(m => m.HomeModule),
   },
 ];
+/**
+ * Angular module `AppRoutingModule` declaring and exporting app routing module components, directives, pipes, and providers.
+ * @zh Angular 模块 `AppRoutingModule`，声明并导出AppRouting模块相关的组件、指令、管道与服务提供者。
+ */
 @NgModule({
     imports: [RouterModule.forRoot(routes)],
     exports: [RouterModule]

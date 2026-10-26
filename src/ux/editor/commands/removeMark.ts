@@ -1,7 +1,16 @@
+/**
+ * @fileoverview Module `src/ux/editor/commands/removeMark.ts` providing remove mark definitions and implementation.
+ * @zh 模块文件 `src/ux/editor/commands/removeMark.ts`，提供移除标记相关的定义与实现。
+ */
+
 import { MarkType } from 'prosemirror-model';
 import { EditorState, TextSelection, Transaction, type Command } from 'prosemirror-state';
 import { markApplies } from '../helpers/markApplies';
 
+/**
+ * Constant/variable `removeMark` defining remove mark in `src/ux/editor/commands`.
+ * @zh 常量/变量 `removeMark`，定义 `src/ux/editor/commands` 中的移除标记。
+ */
 export const removeMark = (type: MarkType): Command => {
   return (state: EditorState, dispatch?: (tr: Transaction) => void): boolean => {
     const { tr, selection, storedMarks, doc } = state;

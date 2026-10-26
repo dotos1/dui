@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Module `src/common/animations/headshake/headshake.animation.ts` providing headshake animation definitions and implementation.
+ * @zh 模块文件 `src/common/animations/headshake/headshake.animation.ts`，提供headshake动画相关的定义与实现。
+ */
+
 import {
   trigger,
   state,
@@ -11,6 +16,10 @@ import {
   group,
 } from '@angular/animations';
 
+/**
+ * Angular animation trigger `HeadshakeAnimation` defining state transitions for headshake animation.
+ * @zh Angular 动画触发器 `HeadshakeAnimation`，定义Headshake动画的状态过渡动画。
+ */
 export const HeadshakeAnimation: AnimationTriggerMetadata = trigger('duiHeadshake', [
   state(
     '0',

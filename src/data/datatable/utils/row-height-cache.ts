@@ -1,10 +1,25 @@
+/**
+ * @fileoverview Module `src/data/datatable/utils/row-height-cache.ts` providing row height cache definitions and implementation.
+ * @zh 模块文件 `src/data/datatable/utils/row-height-cache.ts`，提供行高度缓存相关的定义与实现。
+ */
 
+
+/**
+ * Class `RowHeightCache` encapsulating row height cache data structures and logic in `src/data/datatable/utils`.
+ * @zh 类 `RowHeightCache`，封装 `src/data/datatable/utils` 中的行高度缓存数据结构与处理逻辑。
+ */
 export class RowHeightCache {
 
+  /**
+   * Property `treeArray` (`number[]`) storing tree array (default: `[]`).
+   * @zh 属性 `treeArray`（类型：`number[]`），用于存储或配置树形控件数组（默认值：`[]`）。
+   */
   private treeArray: number[] = [];
 
   /**
    * Clear the Tree array.
+
+   * @zh 执行 `clearCache`，用于清空缓存。
    */
   clearCache(): void {
     this.treeArray = [];
@@ -16,8 +31,10 @@ export class RowHeightCache {
    *  rows The array of rows which contain the expanded status.
    *  rowHeight The row height.
    *  detailRowHeight The detail row height.
+
+   * @zh 执行 `initCache`，用于初始化缓存。
    */
-  initCache(details: any): void {
+  initCache(details): void {
     const { rows, rowHeight, detailRowHeight, externalVirtual, rowCount, rowIndexes, rowExpansions } = details;
     const isFn = typeof rowHeight === 'function';
     const isDetailFn = typeof detailRowHeight === 'function';
@@ -66,6 +83,8 @@ export class RowHeightCache {
   /**
    * Given the ScrollY position i.e. sum, provide the rowIndex
    * that is present in the current view port.  Below handles edge cases.
+
+   * @zh 执行 `getRowIndex`，用于获取行索引。
    */
   getRowIndex(scrollY: number): number {
     if (scrollY === 0) return 0;
@@ -75,6 +94,8 @@ export class RowHeightCache {
   /**
    * When a row is expanded or rowHeight is changed, update the height.  This can
    * be utilized in future when Angular Data table supports dynamic row heights.
+
+   * @zh 执行 `update`，用于更新。
    */
   update(atRowIndex: number, byRowHeight: number): void {
     if (!this.treeArray.length) {
@@ -93,6 +114,8 @@ export class RowHeightCache {
 
   /**
    * Range Sum query from 1 to the rowIndex
+
+   * @zh 执行 `query`，用于查询。
    */
   query(atIndex: number): number {
     if (!this.treeArray.length) {
@@ -112,6 +135,8 @@ export class RowHeightCache {
 
   /**
    * Find the total height between 2 row indexes
+
+   * @zh 执行 `queryBetween`，用于查询之间。
    */
   queryBetween(atIndexA: number, atIndexB: number): number {
     return this.query(atIndexB) - this.query(atIndexA - 1);
@@ -120,6 +145,8 @@ export class RowHeightCache {
   /**
    * Given the ScrollY position i.e. sum, provide the rowIndex
    * that is present in the current view port.
+
+   * @zh 执行 `calcRowIndex`，用于计算行索引。
    */
   private calcRowIndex(sum: number): number {
     if (!this.treeArray.length) return 0;

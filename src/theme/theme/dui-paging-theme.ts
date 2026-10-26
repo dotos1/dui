@@ -1,7 +1,18 @@
+/**
+ * @fileoverview Module `src/theme/theme/dui-paging-theme.ts` providing dui paging theme definitions and implementation.
+ * @zh 模块文件 `src/theme/theme/dui-paging-theme.ts`，提供DUI页面主题相关的定义与实现。
+ */
+
 import { Theme } from '../interfaces/theme';
 import { matColor } from '../mat-color';
 import { matFontSize } from '../utils/index';
 
+/**
+ * Executes `duiPagingTheme` to handle dui paging theme.
+ * @zh 执行 `duiPagingTheme`，用于DUI页面主题。
+ * @param theme - theme parameter (`Theme`) / 主题参数（`Theme`）
+ * @returns Result of type `Object` / 类型为 `Object` 的返回值
+ */
 export function duiPagingTheme(theme: Theme): Object {
   const foregroundText: string = matColor(theme.foreground, 'secondary-text');
 

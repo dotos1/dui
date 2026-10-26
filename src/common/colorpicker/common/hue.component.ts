@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Module `src/common/colorpicker/common/hue.component.ts` providing hue component definitions and implementation.
+ * @zh 模块文件 `src/common/colorpicker/common/hue.component.ts`，提供色相组件相关的定义与实现。
+ */
+
 import { CommonModule } from '@angular/common';
 import {  ChangeDetectionStrategy,  Component,  EventEmitter,  Input,  NgModule,  OnChanges,  Output,
 } from '@angular/core';
@@ -5,6 +10,10 @@ import {  ChangeDetectionStrategy,  Component,  EventEmitter,  Input,  NgModule,
 import { CoordinatesModule } from './coordinates.directive';
 import { HSLA, HSLAsource } from './helpers/color.interfaces';
 
+/**
+ * Angular component `HueComponent` (selector: 'color-hue') providing hue component presentation and interaction in `src/common/colorpicker/common`.
+ * @zh Angular 组件 `HueComponent`（selector: 'color-hue'），提供色相组件的视图渲染与交互逻辑（位于 `src/common/colorpicker/common`）。
+ */
 @Component({
   selector: 'color-hue',
   template: `
@@ -59,25 +68,64 @@ import { HSLA, HSLAsource } from './helpers/color.interfaces';
  * @zh `color-*` 颜色选择器样式变体使用的色相通道滑块。
  */
 export class HueComponent implements OnChanges {
-  /** @zh 当前颜色的 HSL 表示。 */
+  /**
+   * @zh 当前颜色的 HSL 表示。
+   * @zh 当前颜色的 HSL 表示。
+   */
   @Input() hsl: HSLA;
-  /** @zh 滑块手柄的内联样式。 */
+  /**
+   * Input property `pointer` (`{ [key: string]: string }`) configuring pointer.
+   * @zh 滑块手柄的内联样式。
+   * @zh 滑块手柄的内联样式。
+   */
   @Input() pointer: { [key: string]: string };
-  /** @zh 滑动条的圆角半径。 */
+  /**
+   * Input property `radius` (`number`) configuring radius.
+   * @zh 滑动条的圆角半径。
+   * @zh 滑动条的圆角半径。
+   */
   @Input() radius: number;
-  /** @zh 滑动条的阴影样式。 */
+  /**
+   * Input property `shadow` (`string`) configuring shadow.
+   * @zh 滑动条的阴影样式。
+   * @zh 滑动条的阴影样式。
+   */
   @Input() shadow: string;
-  /** @zh 是否隐藏滑块手柄。 */
+  /**
+   * Input property `hidePointer` (`boolean`) configuring hide pointer (default: `false`).
+   * @zh 是否隐藏滑块手柄。
+   * @zh 是否隐藏滑块手柄。
+   */
   @Input() hidePointer = false;
-  /** @zh 滑动条方向：水平或垂直。 */
+  /**
+   * Input property `direction` (`'horizontal' | 'vertical'`) configuring direction (default: `'horizontal'`).
+   * @zh 滑动条方向：水平或垂直。
+   * @zh 滑动条方向：水平或垂直。
+   */
   @Input() direction: 'horizontal' | 'vertical' = 'horizontal';
-  /** @zh 色相值变化时发出。 */
+  /**
+   * Output event emitter `onChange` (`EventEmitter`) firing when on change occurs.
+   * @zh 色相值变化时发出。
+   * @zh 色相值变化时发出。
+   */
   @Output() onChange = new EventEmitter<{ data: HSLAsource; $event: Event }>();
-  /** @zh 滑块手柄的水平位置。 */
+  /**
+   * Property `left` (`string`) storing left (default: `'0px'`).
+   * @zh 滑块手柄的水平位置。
+   * @zh 滑块手柄的水平位置。
+   */
   left = '0px';
-  /** @zh 滑块手柄的垂直位置。 */
+  /**
+   * Property `top` (`string`) storing top (default: `''`).
+   * @zh 滑块手柄的垂直位置。
+   * @zh 滑块手柄的垂直位置。
+   */
   top = '';
 
+  /**
+   * Angular lifecycle hook invoked when data-bound input properties change.
+   * @zh Angular 生命周期钩子：当数据绑定的输入属性发生变更时调用。
+   */
   ngOnChanges() {
     if (this.direction === 'horizontal') {
       this.left = `${this.hsl.h * 100 / 360}%`;
@@ -139,6 +187,10 @@ export class HueComponent implements OnChanges {
   }
 }
 
+/**
+ * Angular module `HueModule` declaring and exporting hue module components, directives, pipes, and providers.
+ * @zh Angular 模块 `HueModule`，声明并导出色相模块相关的组件、指令、管道与服务提供者。
+ */
 @NgModule({
   declarations: [HueComponent],
   exports: [HueComponent],

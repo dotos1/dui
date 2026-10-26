@@ -1,7 +1,17 @@
+/**
+ * @fileoverview Module `src/data/datatable/utils/math.ts` providing math definitions and implementation.
+ * @zh 模块文件 `src/data/datatable/utils/math.ts`，提供math相关的定义与实现。
+ */
+
 import { columnsByPin, columnsTotalWidth } from './column';
 
 
-export function getTotalFlexGrow(columns: any[]) {
+/**
+ * Executes `getTotalFlexGrow` to handle get total flex grow.
+ * @zh 执行 `getTotalFlexGrow`，用于获取总计FlexGrow。
+ * @param columns - columns parameter (`any[]`) / 列集合参数（`any[]`）
+ */
+export function getTotalFlexGrow(columns) {
   let totalFlexGrow = 0;
 
   for (const c of columns) {
@@ -12,7 +22,13 @@ export function getTotalFlexGrow(columns: any[]) {
 }
 
 
-export function adjustColumnWidths(allColumns: any, expectedWidth: any) {
+/**
+ * Executes `adjustColumnWidths` to handle adjust column widths.
+ * @zh 执行 `adjustColumnWidths`，用于adjust列宽度。
+ * @param allColumns - all columns parameter (`any`) / 全部列集合参数（`any`）
+ * @param expectedWidth - expected width parameter (`any`) / expected宽度参数（`any`）
+ */
+export function adjustColumnWidths(allColumns, expectedWidth) {
   const columnsWidth = columnsTotalWidth(allColumns);
   const totalFlexGrow = getTotalFlexGrow(allColumns);
   const colsByGroup = columnsByPin(allColumns);
@@ -23,8 +39,10 @@ export function adjustColumnWidths(allColumns: any, expectedWidth: any) {
 
 /**
  * Resizes columns based on the flexGrow property, while respecting manually set widths
+
+ * @zh 执行 `scaleColumns`，用于缩放列集合。
  */
-function scaleColumns(colsByGroup: any, maxWidth: any, totalFlexGrow: any) {
+function scaleColumns(colsByGroup, maxWidth, totalFlexGrow) {
   // calculate total width and flexgrow points for coulumns that can be resized
   for (const attr in colsByGroup) {
     for (const column of colsByGroup[attr]) {
@@ -81,9 +99,11 @@ function scaleColumns(colsByGroup: any, maxWidth: any, totalFlexGrow: any) {
  *
  *  - If the grid starts off small but then becomes greater than the size ( + / - )
  *    the width should use the original width; not the newly proportioned widths.
+
+ * @zh 执行 `forceFillColumnWidths`，用于force填充列宽度。
  */
 export function forceFillColumnWidths(
-  allColumns: any[],
+  allColumns,
   expectedWidth: number,
   startIdx: number,
   allowBleed: boolean,
@@ -103,7 +123,7 @@ export function forceFillColumnWidths(
   let exceedsWindow = false;
   let contentWidth = getContentWidth(allColumns, defaultColWidth);
   let remainingWidth = expectedWidth - contentWidth;
-  const columnsProcessed: any[] = [];
+  const columnsProcessed = [];
   const remainingWidthLimit = 1; // when to stop
 
   // This loop takes care of the
@@ -139,8 +159,10 @@ export function forceFillColumnWidths(
 
 /**
  * Remove the processed columns from the current active columns.
+
+ * @zh 执行 `removeProcessedColumns`，用于移除已处理列集合。
  */
-function removeProcessedColumns(columnsToResize: any[], columnsProcessed: any[]) {
+function removeProcessedColumns(columnsToResize, columnsProcessed) {
   for (const column of columnsProcessed) {
     const index = columnsToResize.indexOf(column);
     columnsToResize.splice(index, 1);
@@ -149,8 +171,10 @@ function removeProcessedColumns(columnsToResize: any[], columnsProcessed: any[])
 
 /**
  * Gets the width of the columns
+
+ * @zh 执行 `getContentWidth`，用于获取内容宽度。
  */
-function getContentWidth(allColumns: any, defaultColWidth: number = 300): number {
+function getContentWidth(allColumns, defaultColWidth: number = 300): number {
   let contentWidth = 0;
 
   for (const column of allColumns) {

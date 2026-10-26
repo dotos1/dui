@@ -1,5 +1,21 @@
+/**
+ * @fileoverview Module `src/theme/utils/rules-operations.ts` providing rules operations definitions and implementation.
+ * @zh 模块文件 `src/theme/utils/rules-operations.ts`，提供规则列表operations相关的定义与实现。
+ */
+
+/**
+ * Constant/variable `unitsRegExp` defining units reg exp in `src/theme/utils`.
+ * @zh 常量/变量 `unitsRegExp`，定义 `src/theme/utils` 中的unitsRegExp。
+ */
 const unitsRegExp: RegExp = /(\d|\.|-)+/g;
 
+/**
+ * Executes `multiplyRule` to handle multiply rule.
+ * @zh 执行 `multiplyRule`，用于multiply规则。
+ * @param rule - rule parameter (`number | string`) / 规则参数（`number | string`）
+ * @param multiplier - multiplier parameter (`number`) / multiplier参数（`number`）
+ * @returns Result of type `number | string` / 类型为 `number | string` 的返回值
+ */
 export function multiplyRule(rule: number | string, multiplier: number): number | string {
     if (typeof rule === 'string') {
         const value: number = parseFloat(rule);
@@ -12,6 +28,13 @@ export function multiplyRule(rule: number | string, multiplier: number): number 
     return (rule as number) * multiplier;
 }
 
+/**
+ * Executes `divideRule` to handle divide rule.
+ * @zh 执行 `divideRule`，用于divide规则。
+ * @param rule - rule parameter (`number | string`) / 规则参数（`number | string`）
+ * @param divide - divide parameter (`number`) / divide参数（`number`）
+ * @returns Result of type `number | string` / 类型为 `number | string` 的返回值
+ */
 export function divideRule(rule: number | string, divide: number): number | string {
     if (typeof rule === 'string') {
         const value: number = parseFloat(rule);
@@ -24,6 +47,13 @@ export function divideRule(rule: number | string, divide: number): number | stri
     return (rule as number) / divide;
 }
 
+/**
+ * Executes `addRule` to handle add rule.
+ * @zh 执行 `addRule`，用于添加规则。
+ * @param rule - rule parameter (`number | string`) / 规则参数（`number | string`）
+ * @param add - add parameter (`number | string`) / 添加参数（`number | string`）
+ * @returns Result of type `number | string` / 类型为 `number | string` 的返回值
+ */
 export function addRule(rule: number | string, add: number | string): number | string {
     if (typeof rule === 'string' && typeof add === 'string') {
         const value: number = parseFloat(rule);
@@ -51,6 +81,13 @@ export function addRule(rule: number | string, add: number | string): number | s
     return (rule as number) + (add as number);
 }
 
+/**
+ * Executes `subtractRule` to handle subtract rule.
+ * @zh 执行 `subtractRule`，用于subtract规则。
+ * @param rule - rule parameter (`number | string`) / 规则参数（`number | string`）
+ * @param subtract - subtract parameter (`number | string`) / subtract参数（`number | string`）
+ * @returns Result of type `number | string` / 类型为 `number | string` 的返回值
+ */
 export function subtractRule(rule: number | string, subtract: number | string): number | string {
     if (typeof rule === 'string' && typeof subtract === 'string') {
         const value: number = parseFloat(rule);
@@ -80,6 +117,12 @@ export function subtractRule(rule: number | string, subtract: number | string): 
     return (rule as number) - (subtract as number) ;
 }
 
+/**
+ * Executes `roundRule` to handle round rule.
+ * @zh 执行 `roundRule`，用于四舍五入规则。
+ * @param rule - rule parameter (`number | string`) / 规则参数（`number | string`）
+ * @returns Result of type `string` / 类型为 `string` 的返回值
+ */
 export function roundRule(rule: number | string): string {
     if (typeof rule === 'string') {
         const value: number = parseFloat(rule);
@@ -94,6 +137,12 @@ export function roundRule(rule: number | string): string {
     return round(rule as number);
 }
 
+/**
+ * Executes `round` to handle round.
+ * @zh 执行 `round`，用于四舍五入。
+ * @param raw - raw parameter (`number`) / 原始参数（`number`）
+ * @returns Result of type `string` / 类型为 `string` 的返回值
+ */
 function round(raw: number): string {
     const value: string = parseFloat(Number(raw).toFixed(5)).toString();
     if (value.length > 1 && value[0] === '0') {

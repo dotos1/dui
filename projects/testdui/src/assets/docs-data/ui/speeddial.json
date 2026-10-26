@@ -4,8 +4,8 @@
     {
       "name": "AnimationMode",
       "kind": "type",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Type alias `AnimationMode` representing animation mode (`'fling' | 'scale'`).",
+      "summaryZh": "类型别名 `AnimationMode`，表示动画模式（`'fling' | 'scale'`）。",
       "sourceFile": "src/ui/speeddial/speed-dial.ts",
       "inputs": [],
       "outputs": [],
@@ -15,8 +15,8 @@
     {
       "name": "Direction",
       "kind": "type",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Type alias `Direction` representing direction (`'up' | 'down' | 'left' | 'right'`).",
+      "summaryZh": "类型别名 `Direction`，表示方向（`'up' | 'down' | 'left' | 'right'`）。",
       "sourceFile": "src/ui/speeddial/speed-dial.ts",
       "inputs": [],
       "outputs": [],
@@ -27,97 +27,97 @@
       "name": "ExtSpeedDialComponent",
       "kind": "component",
       "selector": "speeddial",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular component `ExtSpeedDialComponent` (selector: 'speeddial') providing ext speed dial component presentation and interaction in `src/ui/speeddial`.",
+      "summaryZh": "Angular 组件 `ExtSpeedDialComponent`（selector: 'speeddial'），提供Ext速度Dial组件的视图渲染与交互逻辑（位于 `src/ui/speeddial`）。",
       "sourceFile": "src/ui/speeddial/speeddial.component.ts",
       "inputs": [
         {
           "name": "config",
           "type": "any",
           "default": "{}",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `config` (`any`) configuring config (default: `{}`).",
+          "descriptionZh": "输入属性 `config`（类型：`any`），用于配置配置（默认值：`{}`）。"
         },
         {
           "name": "icon",
           "type": "string",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `icon` (`string`) configuring icon.",
+          "descriptionZh": "输入属性 `icon`（类型：`string`），用于配置图标。"
         },
         {
           "name": "title",
           "type": "string",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `title` (`string`) configuring title.",
+          "descriptionZh": "输入属性 `title`（类型：`string`），用于配置标题。"
         },
         {
           "name": "direction",
           "type": "Direction",
           "default": "'up'",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `direction` (`Direction`) configuring direction (default: `'up'`).",
+          "descriptionZh": "输入属性 `direction`（类型：`Direction`），用于配置方向（默认值：`'up'`）。"
         },
         {
           "name": "color",
           "type": "string",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `color` (`string`) configuring color.",
+          "descriptionZh": "输入属性 `color`（类型：`string`），用于配置颜色。"
         },
         {
           "name": "disabled",
           "type": "boolean",
           "default": "false",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `disabled` (`boolean`) configuring disabled (default: `false`).",
+          "descriptionZh": "输入属性 `disabled`（类型：`boolean`），用于配置已禁用（默认值：`false`）。"
         },
         {
           "name": "spin",
           "type": "any",
           "default": "false",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `spin` (`boolean`) configuring spin (default: `false`).",
+          "descriptionZh": "输入属性 `spin`（类型：`boolean`），用于配置spin（默认值：`false`）。"
         },
         {
           "name": "type",
           "type": "any",
           "default": "'mat-fab'",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `type` (`string`) configuring type (default: `'mat-fab'`).",
+          "descriptionZh": "输入属性 `type`（类型：`string`），用于配置类型（默认值：`'mat-fab'`）。"
         },
         {
           "name": "animationMode",
           "type": "AnimationMode",
           "default": "'fling'",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `animationMode` (`AnimationMode`) configuring animation mode (default: `'fling'`).",
+          "descriptionZh": "输入属性 `animationMode`（类型：`AnimationMode`），用于配置动画模式（默认值：`'fling'`）。"
         },
         {
           "name": "items",
           "type": "any",
           "default": "[]",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `items` (`any[]`) configuring items (default: `[]`).",
+          "descriptionZh": "输入属性 `items`（类型：`any[]`），用于配置条目列表（默认值：`[]`）。"
         },
         {
           "name": "disableRipple",
           "type": "boolean",
           "default": "false",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `disableRipple` (`boolean`) configuring disable ripple (default: `false`).",
+          "descriptionZh": "输入属性 `disableRipple`（类型：`boolean`），用于配置禁用Ripple（默认值：`false`）。"
         },
         {
           "name": "toolTip",
           "type": "string",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `toolTip` (`string`) configuring tool tip.",
+          "descriptionZh": "输入属性 `toolTip`（类型：`string`），用于配置tool提示。"
         }
       ],
       "outputs": [
         {
           "name": "events",
           "type": "Subject<any>",
-          "description": null,
-          "descriptionZh": null
+          "description": "Output event emitter `events` (`Subject<any>`) firing when events occurs.",
+          "descriptionZh": "输出事件 `events`（类型：`Subject<any>`），当触发事件集合时向外发出事件。"
         }
       ],
       "methods": [
@@ -130,63 +130,63 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `init` to handle init.",
+          "descriptionZh": "执行 `init`，用于初始化。"
         }
       ],
       "properties": [
         {
           "name": "state",
           "type": "BehaviorSubject<any>",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `state` (`BehaviorSubject<any>`) storing state.",
+          "descriptionZh": "属性 `state`（类型：`BehaviorSubject<any>`），用于存储或配置状态。"
         },
         {
           "name": "style",
           "type": "any",
           "default": "{ color: 'rgba(255,255,255,0.84)' }",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `style` (`any`) storing style (default: `{ color: 'rgba(255,255,255,0.84)' }`).",
+          "descriptionZh": "属性 `style`（类型：`any`），用于存储或配置样式（默认值：`{ color: 'rgba(255,255,255,0.84)' }`）。"
         },
         {
           "name": "open",
           "type": "any",
           "default": "false",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `open` (`boolean`) storing open (default: `false`).",
+          "descriptionZh": "属性 `open`（类型：`boolean`），用于存储或配置打开（默认值：`false`）。"
         },
         {
           "name": "fixed",
           "type": "boolean",
-          "description": null,
-          "descriptionZh": null
+          "description": "Gets the current fixed (`fixed: boolean`).",
+          "descriptionZh": "获取当前固定（`fixed: boolean`）。"
         },
         {
           "name": "fixed",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Sets the fixed (`fixed`).",
+          "descriptionZh": "设置固定（`fixed`）。"
         },
         {
           "name": "isFab",
           "type": "boolean",
           "default": "false",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `isFab` (`boolean`) storing is fab (default: `false`).",
+          "descriptionZh": "属性 `isFab`（类型：`boolean`），用于存储或配置是否为Fab（默认值：`false`）。"
         },
         {
           "name": "iconType",
           "type": "string",
           "default": "''",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `iconType` (`string`) storing icon type (default: `''`).",
+          "descriptionZh": "属性 `iconType`（类型：`string`），用于存储或配置图标类型（默认值：`''`）。"
         },
         {
           "name": "svgIcon",
           "type": "string",
           "default": "''",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `svgIcon` (`string`) storing svg icon (default: `''`).",
+          "descriptionZh": "属性 `svgIcon`（类型：`string`），用于存储或配置SVG矢量图图标（默认值：`''`）。"
         }
       ]
     },
@@ -194,57 +194,57 @@
       "name": "FabButtonComponent",
       "kind": "component",
       "selector": "fabbutton",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular component `FabButtonComponent` (selector: 'fabbutton') providing fab button component presentation and interaction in `src/ui/speeddial`.",
+      "summaryZh": "Angular 组件 `FabButtonComponent`（selector: 'fabbutton'），提供Fab按钮组件的视图渲染与交互逻辑（位于 `src/ui/speeddial`）。",
       "sourceFile": "src/ui/speeddial/fab.button.ts",
       "inputs": [
         {
           "name": "config",
           "type": "any",
           "default": "{}",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `config` (`any`) configuring config (default: `{}`).",
+          "descriptionZh": "输入属性 `config`（类型：`any`），用于配置配置（默认值：`{}`）。"
         },
         {
           "name": "type",
           "type": "any",
           "default": "'mat-fab'",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `type` (`string`) configuring type (default: `'mat-fab'`).",
+          "descriptionZh": "输入属性 `type`（类型：`string`），用于配置类型（默认值：`'mat-fab'`）。"
         },
         {
           "name": "text",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `text` (`any`) configuring text.",
+          "descriptionZh": "输入属性 `text`（类型：`any`），用于配置文本。"
         },
         {
           "name": "disableRipple",
           "type": "boolean",
           "default": "false",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `disableRipple` (`boolean`) configuring disable ripple (default: `false`).",
+          "descriptionZh": "输入属性 `disableRipple`（类型：`boolean`），用于配置禁用Ripple（默认值：`false`）。"
         },
         {
           "name": "color",
           "type": "string",
           "default": "''",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `color` (`string`) configuring color (default: `''`).",
+          "descriptionZh": "输入属性 `color`（类型：`string`），用于配置颜色（默认值：`''`）。"
         },
         {
           "name": "icon",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `icon` (`any`) configuring icon.",
+          "descriptionZh": "输入属性 `icon`（类型：`any`），用于配置图标。"
         }
       ],
       "outputs": [
         {
           "name": "click",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Output event emitter `click` (`EventEmitter`) firing when click occurs.",
+          "descriptionZh": "输出事件 `click`（类型：`EventEmitter`），当触发点击时向外发出事件。"
         }
       ],
       "methods": [
@@ -257,15 +257,15 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `init` to handle init.",
+          "descriptionZh": "执行 `init`，用于初始化。"
         },
         {
           "name": "hasIcon",
           "params": [],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `hasIcon` to handle has icon.",
+          "descriptionZh": "执行 `hasIcon`，用于是否包含图标。"
         },
         {
           "name": "setHandler",
@@ -276,8 +276,8 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `setHandler` to handle set handler.",
+          "descriptionZh": "执行 `setHandler`，用于集合处理器。"
         },
         {
           "name": "setIcon",
@@ -288,8 +288,8 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `setIcon` to handle set icon.",
+          "descriptionZh": "执行 `setIcon`，用于集合图标。"
         },
         {
           "name": "onClick",
@@ -300,36 +300,36 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `onClick` to handle on click.",
+          "descriptionZh": "执行 `onClick`，用于当点击。"
         }
       ],
       "properties": [
         {
           "name": "matTooltip",
           "type": "MatTooltip",
-          "description": null,
-          "descriptionZh": null
+          "description": "Template/content query reference `matTooltip` (`@ViewChild`) targeting mat tooltip.",
+          "descriptionZh": "模板/内容视图查询引用 `matTooltip`（`@ViewChild`），指向Material悬浮提示。"
         },
         {
           "name": "handler",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `handler` (`any`) storing handler.",
+          "descriptionZh": "属性 `handler`（类型：`any`），用于存储或配置处理器。"
         },
         {
           "name": "style",
           "type": "any",
           "default": "{ color: 'rgba(255,255,255,0.84)' }",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `style` (`any`) storing style (default: `{ color: 'rgba(255,255,255,0.84)' }`).",
+          "descriptionZh": "属性 `style`（类型：`any`），用于存储或配置样式（默认值：`{ color: 'rgba(255,255,255,0.84)' }`）。"
         },
         {
           "name": "items",
           "type": "Array<any>",
           "default": "[]",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `items` (`Array<any>`) storing items (default: `[]`).",
+          "descriptionZh": "属性 `items`（类型：`Array<any>`），用于存储或配置条目列表（默认值：`[]`）。"
         }
       ]
     },
@@ -337,8 +337,8 @@
       "name": "SpeedDialActionsComponent",
       "kind": "component",
       "selector": "speed-dial-actions",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular component `SpeedDialActionsComponent` (selector: 'speed-dial-actions') providing speed dial actions component presentation and interaction in `src/ui/speeddial`.",
+      "summaryZh": "Angular 组件 `SpeedDialActionsComponent`（selector: 'speed-dial-actions'），提供速度Dial动作列表组件的视图渲染与交互逻辑（位于 `src/ui/speeddial`）。",
       "sourceFile": "src/ui/speeddial/speed-dial.ts",
       "inputs": [],
       "outputs": [],
@@ -347,15 +347,15 @@
           "name": "show",
           "params": [],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `show` to handle show.",
+          "descriptionZh": "执行 `show`，用于显示。"
         },
         {
           "name": "hide",
           "params": [],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `hide` to handle hide.",
+          "descriptionZh": "执行 `hide`，用于隐藏。"
         }
       ],
       "properties": [
@@ -364,7 +364,7 @@
           "type": "any",
           "default": "false",
           "description": "Whether the min-fab button exist in DOM",
-          "descriptionZh": null
+          "descriptionZh": "属性 `miniFabVisible`（类型：`boolean`），用于存储或配置miniFab可见（默认值：`false`）。"
         }
       ]
     },
@@ -372,48 +372,48 @@
       "name": "SpeedDialComponent",
       "kind": "component",
       "selector": "speed-dial",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular component `SpeedDialComponent` (selector: 'speed-dial') providing speed dial component presentation and interaction in `src/ui/speeddial`.",
+      "summaryZh": "Angular 组件 `SpeedDialComponent`（selector: 'speed-dial'），提供速度Dial组件的视图渲染与交互逻辑（位于 `src/ui/speeddial`）。",
       "sourceFile": "src/ui/speeddial/speed-dial.ts",
       "inputs": [
         {
           "name": "type",
           "type": "any",
           "default": "\"mat-fab\"",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `type` (`string`) configuring type (default: `\"mat-fab\"`).",
+          "descriptionZh": "输入属性 `type`（类型：`string`），用于配置类型（默认值：`\"mat-fab\"`）。"
         },
         {
           "name": "fixed",
           "type": "boolean",
           "description": "Whether this speed dial is fixed on screen (user cannot change it by clicking)",
-          "descriptionZh": null
+          "descriptionZh": "输入属性 `fixed`（类型：`boolean`）的读取器，返回当前固定。"
         },
         {
           "name": "open",
           "type": "boolean",
           "description": "Whether this speed dial is opened",
-          "descriptionZh": null
+          "descriptionZh": "输入属性 `open`（类型：`boolean`）的读取器，返回当前打开。"
         },
         {
           "name": "direction",
           "type": "Direction",
           "description": "The direction of the speed dial. Can be 'up', 'down', 'left' or 'right'",
-          "descriptionZh": null
+          "descriptionZh": "输入属性 `direction`（类型：`Direction`）的读取器，返回当前方向。"
         },
         {
           "name": "animationMode",
           "type": "AnimationMode",
           "description": "The animation mode to open the speed dial. Can be 'fling' or 'scale'",
-          "descriptionZh": null
+          "descriptionZh": "输入属性 `animationMode`（类型：`AnimationMode`）的读取器，返回当前动画模式。"
         }
       ],
       "outputs": [
         {
           "name": "openChange",
           "type": "boolean",
-          "description": null,
-          "descriptionZh": null
+          "description": "Output event emitter `openChange` (`EventEmitter<boolean>`) firing when open change occurs.",
+          "descriptionZh": "输出事件 `openChange`（类型：`EventEmitter<boolean>`），当触发打开变更时向外发出事件。"
         }
       ],
       "methods": [
@@ -422,48 +422,48 @@
           "params": [],
           "returnType": "void",
           "description": "Toggle the open state of this speed dial",
-          "descriptionZh": null
+          "descriptionZh": "执行 `toggle`，用于开关。"
         },
         {
           "name": "setActionsVisibility",
           "params": [],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `setActionsVisibility` to handle set actions visibility.",
+          "descriptionZh": "执行 `setActionsVisibility`，用于集合动作列表Visibility。"
         }
       ],
       "properties": [
         {
           "name": "fixed",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Sets the fixed (`fixed`).",
+          "descriptionZh": "设置固定（`fixed`）。"
         },
         {
           "name": "open",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Sets the open (`open`).",
+          "descriptionZh": "设置打开（`open`）。"
         },
         {
           "name": "direction",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Sets the direction (`direction`).",
+          "descriptionZh": "设置方向（`direction`）。"
         },
         {
           "name": "animationMode",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Sets the animation mode (`animationMode`).",
+          "descriptionZh": "设置动画模式（`animationMode`）。"
         }
       ]
     },
     {
       "name": "SpeedDialModule",
       "kind": "module",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular module `SpeedDialModule` declaring and exporting speed dial module components, directives, pipes, and providers.",
+      "summaryZh": "Angular 模块 `SpeedDialModule`，声明并导出速度Dial模块相关的组件、指令、管道与服务提供者。",
       "sourceFile": "src/ui/speeddial/speeddial.module.ts",
       "inputs": [],
       "outputs": [],
@@ -473,8 +473,8 @@
           "name": "entryComponents",
           "type": "any",
           "default": "[\n    SpeedDialActionsComponent,\n    SpeedDialComponent,\n    SpeedDialTriggerComponent,\n    ExtSpeedDialComponent,\n    FabButtonComponent\n  ]",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `entryComponents` (`any[]`) storing entry components.",
+          "descriptionZh": "属性 `entryComponents`（类型：`any[]`），用于存储或配置条目组件列表。"
         }
       ]
     },
@@ -482,30 +482,30 @@
       "name": "SpeedDialTriggerComponent",
       "kind": "component",
       "selector": "speed-dial-trigger",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular component `SpeedDialTriggerComponent` (selector: 'speed-dial-trigger') providing speed dial trigger component presentation and interaction in `src/ui/speeddial`.",
+      "summaryZh": "Angular 组件 `SpeedDialTriggerComponent`（selector: 'speed-dial-trigger'），提供速度Dial触发组件的视图渲染与交互逻辑（位于 `src/ui/speeddial`）。",
       "sourceFile": "src/ui/speeddial/speed-dial-trigger.ts",
       "inputs": [
         {
           "name": "disabled",
           "type": "boolean",
           "default": "false",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `disabled` (`boolean`) configuring disabled (default: `false`).",
+          "descriptionZh": "输入属性 `disabled`（类型：`boolean`），用于配置已禁用（默认值：`false`）。"
         },
         {
           "name": "spin",
           "type": "any",
           "default": "false",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `spin` (`boolean`) configuring spin (default: `false`).",
+          "descriptionZh": "输入属性 `spin`（类型：`boolean`），用于配置spin（默认值：`false`）。"
         },
         {
           "name": "type",
           "type": "any",
           "default": "\"mat-fab\"",
-          "description": null,
-          "descriptionZh": null
+          "description": "Input property `type` (`string`) configuring type (default: `\"mat-fab\"`).",
+          "descriptionZh": "输入属性 `type`（类型：`string`），用于配置类型（默认值：`\"mat-fab\"`）。"
         }
       ],
       "outputs": [],
@@ -514,8 +514,8 @@
         {
           "name": "sp",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Host-bound getter `sp` (`class.eco-spin`) computing sp.",
+          "descriptionZh": "宿主绑定读取器 `sp`（绑定至 `class.eco-spin`），计算并返回sp。"
         }
       ]
     }

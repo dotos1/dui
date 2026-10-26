@@ -4,8 +4,8 @@
     {
       "name": "defaultBound",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `defaultBound` defining default bound in `src/core/position`.",
+      "summaryZh": "常量/变量 `defaultBound`，定义 `src/core/position` 中的默认已绑定。",
       "sourceFile": "src/core/position/position.store.ts",
       "inputs": [],
       "outputs": [],
@@ -15,8 +15,8 @@
     {
       "name": "defaultGrid",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `defaultGrid` defining default grid in `src/core/position`.",
+      "summaryZh": "常量/变量 `defaultGrid`，定义 `src/core/position` 中的默认网格表格。",
       "sourceFile": "src/core/position/position.store.ts",
       "inputs": [],
       "outputs": [],
@@ -26,85 +26,320 @@
     {
       "name": "IPoint",
       "kind": "interface",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Interface `IPoint` defining the contract and properties for i point.",
+      "summaryZh": "接口 `IPoint`，定义I坐标点的数据结构契约与属性规范。",
       "sourceFile": "src/core/position/position.common.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
-      "properties": []
+      "properties": [
+        {
+          "name": "x",
+          "type": "number",
+          "description": "Property `x` (`number`) storing x.",
+          "descriptionZh": "属性 `x`（类型：`number`），用于存储或配置X坐标。"
+        },
+        {
+          "name": "y",
+          "type": "number",
+          "description": "Property `y` (`number`) storing y.",
+          "descriptionZh": "属性 `y`（类型：`number`），用于存储或配置Y坐标。"
+        }
+      ]
     },
     {
       "name": "IPosionOptions",
       "kind": "interface",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Interface `IPosionOptions` defining the contract and properties for i posion options.",
+      "summaryZh": "接口 `IPosionOptions`，定义IPosion配置选项的数据结构契约与属性规范。",
       "sourceFile": "src/core/position/position.common.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
-      "properties": []
+      "properties": [
+        {
+          "name": "minSize",
+          "type": "ISize",
+          "description": "Property `minSize` (`ISize`) storing min size.",
+          "descriptionZh": "属性 `minSize`（类型：`ISize`），用于存储或配置最小值尺寸。"
+        },
+        {
+          "name": "maxSize",
+          "type": "ISize",
+          "description": "Property `maxSize` (`ISize`) storing max size.",
+          "descriptionZh": "属性 `maxSize`（类型：`ISize`），用于存储或配置最大值尺寸。"
+        },
+        {
+          "name": "grid",
+          "type": "ISize",
+          "description": "Property `grid` (`ISize`) storing grid.",
+          "descriptionZh": "属性 `grid`（类型：`ISize`），用于存储或配置网格表格。"
+        },
+        {
+          "name": "directions",
+          "type": "string[]",
+          "description": "Property `directions` (`string[]`) storing directions.",
+          "descriptionZh": "属性 `directions`（类型：`string[]`），用于存储或配置方向。"
+        },
+        {
+          "name": "resizable",
+          "type": "boolean",
+          "description": "Property `resizable` (`boolean`) storing resizable.",
+          "descriptionZh": "属性 `resizable`（类型：`boolean`），用于存储或配置是否可调尺寸。"
+        },
+        {
+          "name": "bound",
+          "type": "IRectangle",
+          "description": "Property `bound` (`IRectangle`) storing bound.",
+          "descriptionZh": "属性 `bound`（类型：`IRectangle`），用于存储或配置已绑定。"
+        },
+        {
+          "name": "ratio",
+          "type": "number",
+          "description": "Property `ratio` (`number`) storing ratio.",
+          "descriptionZh": "属性 `ratio`（类型：`number`），用于存储或配置比例。"
+        }
+      ]
     },
     {
       "name": "IPositionEvent",
       "kind": "interface",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Interface `IPositionEvent` defining the contract and properties for i position event.",
+      "summaryZh": "接口 `IPositionEvent`，定义I位置事件的数据结构契约与属性规范。",
       "sourceFile": "src/core/position/position.common.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
-      "properties": []
+      "properties": [
+        {
+          "name": "size",
+          "type": "ISize",
+          "description": "Property `size` (`ISize`) storing size.",
+          "descriptionZh": "属性 `size`（类型：`ISize`），用于存储或配置尺寸。"
+        },
+        {
+          "name": "position",
+          "type": "IPoint",
+          "description": "Property `position` (`IPoint`) storing position.",
+          "descriptionZh": "属性 `position`（类型：`IPoint`），用于存储或配置位置。"
+        },
+        {
+          "name": "direction",
+          "type": "string",
+          "description": "Property `direction` (`string`) storing direction.",
+          "descriptionZh": "属性 `direction`（类型：`string`），用于存储或配置方向。"
+        }
+      ]
     },
     {
       "name": "IPositionState",
       "kind": "interface",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Interface `IPositionState` defining the contract and properties for i position state.",
+      "summaryZh": "接口 `IPositionState`，定义I位置状态的数据结构契约与属性规范。",
       "sourceFile": "src/core/position/position.common.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
-      "properties": []
+      "properties": [
+        {
+          "name": "currentSize",
+          "type": "ISize",
+          "description": "Property `currentSize` (`ISize`) storing current size.",
+          "descriptionZh": "属性 `currentSize`（类型：`ISize`），用于存储或配置当前尺寸。"
+        },
+        {
+          "name": "startSize",
+          "type": "ISize",
+          "description": "Property `startSize` (`ISize`) storing start size.",
+          "descriptionZh": "属性 `startSize`（类型：`ISize`），用于存储或配置开始尺寸。"
+        },
+        {
+          "name": "currentPosition",
+          "type": "IPoint",
+          "description": "Property `currentPosition` (`IPoint`) storing current position.",
+          "descriptionZh": "属性 `currentPosition`（类型：`IPoint`），用于存储或配置当前位置。"
+        },
+        {
+          "name": "startPosition",
+          "type": "IPoint",
+          "description": "Property `startPosition` (`IPoint`) storing start position.",
+          "descriptionZh": "属性 `startPosition`（类型：`IPoint`），用于存储或配置开始位置。"
+        },
+        {
+          "name": "direction",
+          "type": "string",
+          "description": "Property `direction` (`string`) storing direction.",
+          "descriptionZh": "属性 `direction`（类型：`string`），用于存储或配置方向。"
+        },
+        {
+          "name": "isResizing",
+          "type": "boolean",
+          "description": "Property `isResizing` (`boolean`) storing is resizing.",
+          "descriptionZh": "属性 `isResizing`（类型：`boolean`），用于存储或配置是否为调整尺寸中。"
+        },
+        {
+          "name": "isMoving",
+          "type": "boolean",
+          "description": "Property `isMoving` (`boolean`) storing is moving.",
+          "descriptionZh": "属性 `isMoving`（类型：`boolean`），用于存储或配置是否为移动。"
+        }
+      ]
     },
     {
       "name": "IRectangle",
       "kind": "interface",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Interface `IRectangle` defining the contract and properties for i rectangle.",
+      "summaryZh": "接口 `IRectangle`，定义I矩形的数据结构契约与属性规范。",
       "sourceFile": "src/core/position/position.common.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
-      "properties": []
+      "properties": [
+        {
+          "name": "x",
+          "type": "number",
+          "description": "Property `x` (`number`) storing x.",
+          "descriptionZh": "属性 `x`（类型：`number`），用于存储或配置X坐标。"
+        },
+        {
+          "name": "y",
+          "type": "number",
+          "description": "Property `y` (`number`) storing y.",
+          "descriptionZh": "属性 `y`（类型：`number`），用于存储或配置Y坐标。"
+        },
+        {
+          "name": "width",
+          "type": "number",
+          "description": "Property `width` (`number`) storing width.",
+          "descriptionZh": "属性 `width`（类型：`number`），用于存储或配置宽度。"
+        },
+        {
+          "name": "height",
+          "type": "number",
+          "description": "Property `height` (`number`) storing height.",
+          "descriptionZh": "属性 `height`（类型：`number`），用于存储或配置高度。"
+        }
+      ]
     },
     {
       "name": "IResizable",
       "kind": "interface",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Interface `IResizable` defining the contract and properties for i resizable.",
+      "summaryZh": "接口 `IResizable`，定义I是否可调尺寸的数据结构契约与属性规范。",
       "sourceFile": "src/core/position/position.common.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
-      "properties": []
+      "properties": [
+        {
+          "name": "width",
+          "type": "number",
+          "description": "Property `width` (`number`) storing width.",
+          "descriptionZh": "属性 `width`（类型：`number`），用于存储或配置宽度。"
+        },
+        {
+          "name": "height",
+          "type": "number",
+          "description": "Property `height` (`number`) storing height.",
+          "descriptionZh": "属性 `height`（类型：`number`），用于存储或配置高度。"
+        },
+        {
+          "name": "x",
+          "type": "number",
+          "description": "Property `x` (`number`) storing x.",
+          "descriptionZh": "属性 `x`（类型：`number`），用于存储或配置X坐标。"
+        },
+        {
+          "name": "y",
+          "type": "number",
+          "description": "Property `y` (`number`) storing y.",
+          "descriptionZh": "属性 `y`（类型：`number`），用于存储或配置Y坐标。"
+        },
+        {
+          "name": "maxWidth",
+          "type": "number",
+          "description": "Property `maxWidth` (`number`) storing max width.",
+          "descriptionZh": "属性 `maxWidth`（类型：`number`），用于存储或配置最大值宽度。"
+        },
+        {
+          "name": "minWidth",
+          "type": "number",
+          "description": "Property `minWidth` (`number`) storing min width.",
+          "descriptionZh": "属性 `minWidth`（类型：`number`），用于存储或配置最小值宽度。"
+        },
+        {
+          "name": "maxHeight",
+          "type": "number",
+          "description": "Property `maxHeight` (`number`) storing max height.",
+          "descriptionZh": "属性 `maxHeight`（类型：`number`），用于存储或配置最大值高度。"
+        },
+        {
+          "name": "minHeight",
+          "type": "number",
+          "description": "Property `minHeight` (`number`) storing min height.",
+          "descriptionZh": "属性 `minHeight`（类型：`number`），用于存储或配置最小值高度。"
+        },
+        {
+          "name": "resizable",
+          "type": "boolean",
+          "description": "Property `resizable` (`boolean`) storing resizable.",
+          "descriptionZh": "属性 `resizable`（类型：`boolean`），用于存储或配置是否可调尺寸。"
+        },
+        {
+          "name": "directions",
+          "type": "string[]",
+          "description": "Property `directions` (`string[]`) storing directions.",
+          "descriptionZh": "属性 `directions`（类型：`string[]`），用于存储或配置方向。"
+        },
+        {
+          "name": "grid",
+          "type": "ISize",
+          "description": "Property `grid` (`ISize`) storing grid.",
+          "descriptionZh": "属性 `grid`（类型：`ISize`），用于存储或配置网格表格。"
+        },
+        {
+          "name": "bound",
+          "type": "IRectangle",
+          "description": "Property `bound` (`IRectangle`) storing bound.",
+          "descriptionZh": "属性 `bound`（类型：`IRectangle`），用于存储或配置已绑定。"
+        },
+        {
+          "name": "ratio",
+          "type": "number",
+          "description": "Property `ratio` (`number`) storing ratio.",
+          "descriptionZh": "属性 `ratio`（类型：`number`），用于存储或配置比例。"
+        }
+      ]
     },
     {
       "name": "ISize",
       "kind": "interface",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Interface `ISize` defining the contract and properties for i size.",
+      "summaryZh": "接口 `ISize`，定义I尺寸的数据结构契约与属性规范。",
       "sourceFile": "src/core/position/position.common.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
-      "properties": []
+      "properties": [
+        {
+          "name": "width",
+          "type": "number",
+          "description": "Property `width` (`number`) storing width.",
+          "descriptionZh": "属性 `width`（类型：`number`），用于存储或配置宽度。"
+        },
+        {
+          "name": "height",
+          "type": "number",
+          "description": "Property `height` (`number`) storing height.",
+          "descriptionZh": "属性 `height`（类型：`number`），用于存储或配置高度。"
+        }
+      ]
     },
     {
       "name": "MOUSE_DOWN",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `MOUSE_DOWN` defining mouse down in `src/core/position`.",
+      "summaryZh": "常量/变量 `MOUSE_DOWN`，定义 `src/core/position` 中的鼠标向下。",
       "sourceFile": "src/core/position/position.actions.ts",
       "inputs": [],
       "outputs": [],
@@ -114,8 +349,8 @@
     {
       "name": "MOVETO",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `MOVETO` defining moveto in `src/core/position`.",
+      "summaryZh": "常量/变量 `MOVETO`，定义 `src/core/position` 中的MOVETO。",
       "sourceFile": "src/core/position/position.actions.ts",
       "inputs": [],
       "outputs": [],
@@ -125,8 +360,8 @@
     {
       "name": "PICKUP",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `PICKUP` defining pickup in `src/core/position`.",
+      "summaryZh": "常量/变量 `PICKUP`，定义 `src/core/position` 中的PICKUP。",
       "sourceFile": "src/core/position/position.actions.ts",
       "inputs": [],
       "outputs": [],
@@ -136,8 +371,8 @@
     {
       "name": "PositionStore",
       "kind": "service",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Injectable Angular service `PositionStore` managing position store state and operations in `src/core/position`.",
+      "summaryZh": "可注入的 Angular 服务 `PositionStore`，管理 `src/core/position` 中的位置状态仓库状态与业务操作。",
       "sourceFile": "src/core/position/position.store.ts",
       "inputs": [],
       "outputs": [],
@@ -151,8 +386,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `addReducer` to handle add reducer.",
+          "descriptionZh": "执行 `addReducer`，用于添加归约器。"
         },
         {
           "name": "emitAction",
@@ -167,8 +402,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `emitAction` to handle emit action.",
+          "descriptionZh": "执行 `emitAction`，用于发出动作。"
         }
       ],
       "properties": [
@@ -176,16 +411,16 @@
           "name": "state",
           "type": "IPositionState",
           "default": "{\n    currentSize: { width: 0, height: 0 },\n    startSize: { width: 0, height: 0 },\n    currentPosition: { x: 0, y: 0 },\n    startPosition: { x: 0, y: 0 },\n    isResizing: false,\n    isMoving: false,\n    direction: null\n  }",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `state` (`IPositionState`) storing state.",
+          "descriptionZh": "属性 `state`（类型：`IPositionState`），用于存储或配置状态。"
         }
       ]
     },
     {
       "name": "PUTBACK",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `PUTBACK` defining putback in `src/core/position`.",
+      "summaryZh": "常量/变量 `PUTBACK`，定义 `src/core/position` 中的PUTBACK。",
       "sourceFile": "src/core/position/position.actions.ts",
       "inputs": [],
       "outputs": [],
@@ -195,8 +430,8 @@
     {
       "name": "RESIZE",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `RESIZE` defining resize in `src/core/position`.",
+      "summaryZh": "常量/变量 `RESIZE`，定义 `src/core/position` 中的调整尺寸。",
       "sourceFile": "src/core/position/position.actions.ts",
       "inputs": [],
       "outputs": [],
@@ -206,8 +441,8 @@
     {
       "name": "RESIZE_INIT",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `RESIZE_INIT` defining resize init in `src/core/position`.",
+      "summaryZh": "常量/变量 `RESIZE_INIT`，定义 `src/core/position` 中的调整尺寸初始化。",
       "sourceFile": "src/core/position/position.actions.ts",
       "inputs": [],
       "outputs": [],
@@ -217,8 +452,8 @@
     {
       "name": "RESIZE_STOP",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `RESIZE_STOP` defining resize stop in `src/core/position`.",
+      "summaryZh": "常量/变量 `RESIZE_STOP`，定义 `src/core/position` 中的调整尺寸停止。",
       "sourceFile": "src/core/position/position.actions.ts",
       "inputs": [],
       "outputs": [],
@@ -228,8 +463,8 @@
     {
       "name": "resizeReducer",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `resizeReducer` defining resize reducer in `src/core/position`.",
+      "summaryZh": "常量/变量 `resizeReducer`，定义 `src/core/position` 中的调整尺寸归约器。",
       "sourceFile": "src/core/position/position.reducer.ts",
       "inputs": [],
       "outputs": [],

@@ -1,36 +1,127 @@
+/**
+ * @fileoverview Module `src/common/dialogs/resizable-draggable-dialog/resizable-draggable-dialog.ts` providing resizable draggable dialog definitions and implementation.
+ * @zh 模块文件 `src/common/dialogs/resizable-draggable-dialog/resizable-draggable-dialog.ts`，提供是否可调尺寸是否可拖拽对话框相关的定义与实现。
+ */
+
 import { DragRef, Point } from '@angular/cdk/drag-drop';
 import { Renderer2 } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
 import { Subscription, fromEvent } from 'rxjs';
 import {  merge } from 'rxjs';
+/**
+ * Enumeration `corners` defining supported corners constants.
+ * @zh 枚举 `corners`，定义支持的corners常量集合。
+ */
 enum corners {
+  /**
+   * Enum member `corners.topRight` = 'topRight' representing top right.
+   * @zh 枚举项 `corners.topRight` = 'topRight'，表示顶部位置右侧位置。
+   */
   topRight = 'topRight',
+  /**
+   * Enum member `corners.bottomRight` = 'bottomRight' representing bottom right.
+   * @zh 枚举项 `corners.bottomRight` = 'bottomRight'，表示底部位置右侧位置。
+   */
   bottomRight = 'bottomRight',
+  /**
+   * Enum member `corners.bottomLeft` = 'bottomLeft' representing bottom left.
+   * @zh 枚举项 `corners.bottomLeft` = 'bottomLeft'，表示底部位置左侧位置。
+   */
   bottomLeft = 'bottomLeft',
+  /**
+   * Enum member `corners.topLeft` = 'topLeft' representing top left.
+   * @zh 枚举项 `corners.topLeft` = 'topLeft'，表示顶部位置左侧位置。
+   */
   topLeft = 'topLeft',
 }
+/**
+ * Enumeration `cursors` defining supported cursors constants.
+ * @zh 枚举 `cursors`，定义支持的光标常量集合。
+ */
 enum cursors {
+  /**
+   * Enum member `cursors.nesw` = 'nesw-resize' representing nesw.
+   * @zh 枚举项 `cursors.nesw` = 'nesw-resize'，表示nesw。
+   */
   nesw = 'nesw-resize',
+  /**
+   * Enum member `cursors.nwse` = 'nwse-resize' representing nwse.
+   * @zh 枚举项 `cursors.nwse` = 'nwse-resize'，表示nwse。
+   */
   nwse = 'nwse-resize',
 }
+/**
+ * Enumeration `verticalAlignment` defining supported vertical alignment constants.
+ * @zh 枚举 `verticalAlignment`，定义支持的垂直Alignment常量集合。
+ */
 enum verticalAlignment {
+  /**
+   * Enum member `verticalAlignment.top` = 'top' representing top.
+   * @zh 枚举项 `verticalAlignment.top` = 'top'，表示顶部位置。
+   */
   top = 'top',
+  /**
+   * Enum member `verticalAlignment.bottom` = 'bottom' representing bottom.
+   * @zh 枚举项 `verticalAlignment.bottom` = 'bottom'，表示底部位置。
+   */
   bottom = 'bottom',
 }
+/**
+ * Enumeration `horizontalAlignment` defining supported horizontal alignment constants.
+ * @zh 枚举 `horizontalAlignment`，定义支持的水平Alignment常量集合。
+ */
 enum horizontalAlignment {
+  /**
+   * Enum member `horizontalAlignment.right` = 'right' representing right.
+   * @zh 枚举项 `horizontalAlignment.right` = 'right'，表示右侧位置。
+   */
   right = 'right',
+  /**
+   * Enum member `horizontalAlignment.left` = 'left' representing left.
+   * @zh 枚举项 `horizontalAlignment.left` = 'left'，表示左侧位置。
+   */
   left = 'left',
 }
 
+/**
+ * Constant/variable `cornerWidth` defining corner width in `src/common/dialogs/resizable-draggable-dialog`.
+ * @zh 常量/变量 `cornerWidth`，定义 `src/common/dialogs/resizable-draggable-dialog` 中的corner宽度。
+ */
 const cornerWidth = '16px';
+/**
+ * Constant/variable `offset` defining offset in `src/common/dialogs/resizable-draggable-dialog`.
+ * @zh 常量/变量 `offset`，定义 `src/common/dialogs/resizable-draggable-dialog` 中的偏移量。
+ */
 const offset = '0px';
+/**
+ * Constant/variable `minWidth` defining min width in `src/common/dialogs/resizable-draggable-dialog`.
+ * @zh 常量/变量 `minWidth`，定义 `src/common/dialogs/resizable-draggable-dialog` 中的最小值宽度。
+ */
 const minWidth = 200;
+/**
+ * Constant/variable `minHeight` defining min height in `src/common/dialogs/resizable-draggable-dialog`.
+ * @zh 常量/变量 `minHeight`，定义 `src/common/dialogs/resizable-draggable-dialog` 中的最小值高度。
+ */
 const minHeight = 200;
 
+/**
+ * Executes `getPixels` to handle get pixels.
+ * @zh 执行 `getPixels`，用于获取像素。
+ * @param sizeString - size string parameter (`string`) / 尺寸字符串参数（`string`）
+ * @returns Result of type `number` / 类型为 `number` 的返回值
+ */
 function getPixels(sizeString: string): number {
   return parseFloat((sizeString || '').replace('px', ''));
 }
 
+/**
+ * Executes `clamp` to handle clamp.
+ * @zh 执行 `clamp`，用于限制范围。
+ * @param min - min parameter (`number`) / 最小值参数（`number`）
+ * @param num - num parameter (`number`) / 数值参数（`number`）
+ * @param max - max parameter (`number`) / 最大值参数（`number`）
+ * @returns Result of type `number` / 类型为 `number` 的返回值
+ */
 function clamp(min: number, num: number, max: number): number {
   return Math.min(Math.max(num, min), max);
 }
@@ -43,24 +134,48 @@ function clamp(min: number, num: number, max: number): number {
  * 供需要同时支持拖拽和缩放的场景内部使用。
  */
 export class ResizableDraggableDialog {
+  /**
+   * Property `cornerElements` (`HTMLElement[]`) storing corner elements (default: `[]`).
+   * @zh 属性 `cornerElements`（类型：`HTMLElement[]`），用于存储或配置corner元素列表（默认值：`[]`）。
+   */
   cornerElements: HTMLElement[] = [];
+  /**
+   * Property `pointerDownSubs` (`Subscription[]`) storing pointer down subs (default: `[]`).
+   * @zh 属性 `pointerDownSubs`（类型：`Subscription[]`），用于存储或配置指针向下子（默认值：`[]`）。
+   */
   pointerDownSubs: Subscription[] = [];
 
+  /**
+   * Creates an instance of `ResizableDraggableDialog` and initializes its dependencies and internal state.
+   * @zh 创建 `ResizableDraggableDialog` 实例，并初始化其依赖项与内部状态。
+   * @param _document - Injected or initial document (`any`) / 注入或传入的文档对象（`any`）
+   * @param _renderer2 - Injected or initial renderer2 (`Renderer2`) / 注入或传入的renderer2（`Renderer2`）
+   * @param _dialogRef - Injected or initial dialog ref (`MatDialogRef<any>`) / 注入或传入的对话框引用（`MatDialogRef<any>`）
+   * @param _dragRef - Injected or initial drag ref (`DragRef`) / 注入或传入的拖拽引用（`DragRef`）
+   */
   constructor(
-    private _document: any,
+    private _document,
     private _renderer2: Renderer2,
-    private _dialogRef: MatDialogRef<any>,
+    private _dialogRef: MatDialogRef<unknown>,
     private _dragRef: DragRef
   ) {
     this._initialPositionReset();
     this._attachCorners();
   }
 
+  /**
+   * Executes `attach` to handle attach.
+   * @zh 执行 `attach`，用于挂载。
+   */
   public attach(): void {
     this.detach();
     this._attachCorners();
   }
 
+  /**
+   * Executes `detach` to handle detach.
+   * @zh 执行 `detach`，用于卸载。
+   */
   public detach(): void {
     this.pointerDownSubs.forEach((sub: Subscription) => sub.unsubscribe());
     this.pointerDownSubs = [];
@@ -70,16 +185,31 @@ export class ResizableDraggableDialog {
     this.cornerElements = [];
   }
 
+  /**
+   * Executes `_getDialogWrapper` to handle get dialog wrapper.
+   * @zh 执行 `_getDialogWrapper`，用于获取对话框包装器。
+   * @returns Result of type `HTMLElement | null` / 类型为 `HTMLElement | null` 的返回值
+   */
   private _getDialogWrapper(): HTMLElement | null {
     return (
       <HTMLElement>this._document.getElementById(this._dialogRef.id) || {}
     ).parentElement;
   }
 
+  /**
+   * Executes `_getViewportDimensions` to handle get viewport dimensions.
+   * @zh 执行 `_getViewportDimensions`，用于获取视口维度列表。
+   * @returns Result of type `ClientRect | undefined` / 类型为 `ClientRect | undefined` 的返回值
+   */
   private _getViewportDimensions(): ClientRect | undefined {
     return this._getDialogWrapper()?.parentElement?.getBoundingClientRect();
   }
 
+  /**
+   * Executes `_getDialogWrapperDimensions` to handle get dialog wrapper dimensions.
+   * @zh 执行 `_getDialogWrapperDimensions`，用于获取对话框包装器维度列表。
+   * @returns Result of type `{ width: number; height: number }` / 类型为 `{ width: number; height: number }` 的返回值
+   */
   private _getDialogWrapperDimensions(): { width: number; height: number } {
     const wrapper = this._getDialogWrapper();
     if (!wrapper) {
@@ -92,6 +222,10 @@ export class ResizableDraggableDialog {
     };
   }
 
+  /**
+   * Executes `_initialPositionReset` to handle initial position reset.
+   * @zh 执行 `_initialPositionReset`，用于初始位置重置。
+   */
   private _initialPositionReset(): void {
     const viewportWidth = this._getViewportDimensions()?.right ?? 0;
     const viewportHeight = this._getViewportDimensions()?.bottom ?? 0;
@@ -127,6 +261,10 @@ export class ResizableDraggableDialog {
     this._dragRef.setFreeDragPosition({ x, y });
   }
 
+  /**
+   * Executes `_attachCorners` to handle attach corners.
+   * @zh 执行 `_attachCorners`，用于挂载Corners。
+   */
   private _attachCorners(): void {
     Object.values(corners).forEach((corner: corners) => {
       const element: HTMLElement = this._renderer2.createElement('div');
@@ -188,6 +326,12 @@ export class ResizableDraggableDialog {
     });
   }
 
+  /**
+   * Executes `_handleMouseDown` to handle handle mouse down.
+   * @zh 执行 `_handleMouseDown`，用于连接手柄鼠标向下。
+   * @param event - event parameter (`PointerEvent`) / 事件参数（`PointerEvent`）
+   * @param corner - corner parameter (`corners`) / corner参数（`corners`）
+   */
   private _handleMouseDown(event: PointerEvent, corner: corners): void {
     this._renderer2.setStyle(
       <HTMLElement>this._document.body,

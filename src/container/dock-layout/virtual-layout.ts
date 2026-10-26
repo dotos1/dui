@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Module `src/container/dock-layout/virtual-layout.ts` providing virtual layout definitions and implementation.
+ * @zh 模块文件 `src/container/dock-layout/virtual-layout.ts`，提供虚拟滚动布局相关的定义与实现。
+ */
+
 import { TranslateService } from '@dotos/dui/translator';
 import { LayoutConfig } from './config/config';
 import { ResolvedComponentItemConfig, ResolvedLayoutConfig, ResolvedPopoutLayoutConfig } from './config/resolved-config';
@@ -8,34 +13,90 @@ import { LayoutManager } from './layout-manager';
 import { DomConstants } from './utils/dom-constants';
 
 
-/** @public */
+/**
+ * Class `VirtualLayout` encapsulating virtual layout data structures and logic in `src/container/dock-layout`.
+ * @public
+ * @zh 类 `VirtualLayout`，封装 `src/container/dock-layout` 中的虚拟滚动布局数据结构与处理逻辑。
+ */
 export class VirtualLayout extends LayoutManager {
 
+    /**
+     * Property `getComponentEvent` (`VirtualLayout.GetComponentEventHandler | undefined`) storing get component event.
+     * @zh 属性 `getComponentEvent`（类型：`VirtualLayout.GetComponentEventHandler | undefined`），用于存储或配置获取组件事件。
+     */
     getComponentEvent: VirtualLayout.GetComponentEventHandler | undefined;
 
+    /**
+     * Property `releaseComponentEvent` (`VirtualLayout.ReleaseComponentEventHandler | undefined`) storing release component event.
+     * @zh 属性 `releaseComponentEvent`（类型：`VirtualLayout.ReleaseComponentEventHandler | undefined`），用于存储或配置release组件事件。
+     */
     releaseComponentEvent: VirtualLayout.ReleaseComponentEventHandler | undefined;
 
+    /**
+     * Property `bindComponentEvent` (`VirtualLayout.BindComponentEventHandler | undefined`) storing bind component event.
+     * @zh 属性 `bindComponentEvent`（类型：`VirtualLayout.BindComponentEventHandler | undefined`），用于存储或配置绑定组件事件。
+     */
     bindComponentEvent: VirtualLayout.BindComponentEventHandler | undefined;
+    /**
+     * Property `unbindComponentEvent` (`VirtualLayout.UnbindComponentEventHandler | undefined`) storing unbind component event.
+     * @zh 属性 `unbindComponentEvent`（类型：`VirtualLayout.UnbindComponentEventHandler | undefined`），用于存储或配置解绑组件事件。
+     */
     unbindComponentEvent: VirtualLayout.UnbindComponentEventHandler | undefined;
 
 
+    /**
+     * Property `_bindComponentEventHanlderPassedInConstructor` (`boolean`) storing bind component event hanlder passed in constructor (default: `false`).
+     * @zh 属性 `_bindComponentEventHanlderPassedInConstructor`（类型：`boolean`），用于存储或配置绑定组件事件Hanlder已传递在Constructor（默认值：`false`）。
+     */
     private _bindComponentEventHanlderPassedInConstructor = false;
 
+    /**
+     * Property `_creationTimeoutPassed` (`boolean`) storing creation timeout passed (default: `false`).
+     * @zh 属性 `_creationTimeoutPassed`（类型：`boolean`），用于存储或配置creation延时器已传递（默认值：`false`）。
+     */
     private _creationTimeoutPassed = false; 
 
+    /**
+     * Creates an instance of `VirtualLayout` and initializes its dependencies and internal state.
+     * @zh 创建 `VirtualLayout` 实例，并初始化其依赖项与内部状态。
+     * @param translator - Injected or initial translator (`TranslateService`) / 注入或传入的翻译器（`TranslateService`）
+     * @param container - Injected or initial container (`HTMLElement`) / 注入或传入的容器（`HTMLElement`）
+     * @param bindComponentEventHandler - Injected or initial bind component event handler (`VirtualLayout.BindComponentEventHandler`) / 注入或传入的绑定组件事件处理器（`VirtualLayout.BindComponentEventHandler`）
+     * @param unbindComponentEventHandler - Injected or initial unbind component event handler (`VirtualLayout.UnbindComponentEventHandler`) / 注入或传入的解绑组件事件处理器（`VirtualLayout.UnbindComponentEventHandler`）
+     */
     constructor(
         translator:TranslateService,
         container?: HTMLElement,
         bindComponentEventHandler?: VirtualLayout.BindComponentEventHandler,
         unbindComponentEventHandler?: VirtualLayout.UnbindComponentEventHandler,
     );
+    /**
+     * Creates an instance of `VirtualLayout` and initializes its dependencies and internal state.
+     * @zh 创建 `VirtualLayout` 实例，并初始化其依赖项与内部状态。
+     * @param translator - Injected or initial translator (`any`) / 注入或传入的翻译器（`any`）
+     * @param config - Injected or initial config (`LayoutConfig`) / 注入或传入的配置（`LayoutConfig`）
+     * @param container - Injected or initial container (`HTMLElement`) / 注入或传入的容器（`HTMLElement`）
+     */
     constructor(translator,config: LayoutConfig, container?: HTMLElement);
+    /**
+     * Creates an instance of `VirtualLayout` and initializes its dependencies and internal state.
+     * @zh 创建 `VirtualLayout` 实例，并初始化其依赖项与内部状态。
+     * @param translator - Injected or initial translator (`TranslateService`) / 注入或传入的翻译器（`TranslateService`）
+     * @param configOrOptionalContainer - Injected or initial config or optional container (`LayoutConfig | HTMLElement | undefined`) / 注入或传入的配置Or可选容器（`LayoutConfig | HTMLElement | undefined`）
+     * @param containerOrBindComponentEventH... - Injected or initial container or bind component event h (`HTMLElement | VirtualLayout.BindComponentEventHandler | unde...`) / 注入或传入的容器Or绑定组件事件H（`HTMLElement | VirtualLayout.BindComponentEventHandler | unde...`）
+     * @param unbindComponentEventHandler - Injected or initial unbind component event handler (`VirtualLayout.UnbindComponentEventHandler | undefined`) / 注入或传入的解绑组件事件处理器（`VirtualLayout.UnbindComponentEventHandler | undefined`）
+     * @param skipInit - Injected or initial skip init (`true`) / 注入或传入的skip初始化（`true`）
+     */
     constructor( translator:TranslateService,configOrOptionalContainer: LayoutConfig | HTMLElement | undefined,
         containerOrBindComponentEventHandler: HTMLElement | VirtualLayout.BindComponentEventHandler | undefined,
         unbindComponentEventHandler: VirtualLayout.UnbindComponentEventHandler | undefined,
         skipInit: true,
     );
-    /** @internal */
+    /**
+     * Creates an instance of `VirtualLayout` and initializes its dependencies and internal state.
+     * @internal
+     * @zh 创建 `VirtualLayout` 实例，并初始化其依赖项与内部状态。
+     */
     constructor( translator:TranslateService,configOrOptionalContainer: LayoutConfig | HTMLElement | undefined,
         containerOrBindComponentEventHandler?: HTMLElement | VirtualLayout.BindComponentEventHandler,
         unbindComponentEventHandler?: VirtualLayout.UnbindComponentEventHandler,
@@ -80,6 +141,10 @@ export class VirtualLayout extends LayoutManager {
         }
     }
 
+    /**
+     * Executes `destroy` to handle destroy.
+     * @zh 执行 `destroy`，用于销毁。
+     */
     override destroy(): void {
         this.bindComponentEvent = undefined;
         this.unbindComponentEvent = undefined;
@@ -88,6 +153,10 @@ export class VirtualLayout extends LayoutManager {
     }
 
 
+    /**
+     * Executes `init` to handle init.
+     * @zh 执行 `init`，用于初始化。
+     */
     override init(): void {
 
         /**
@@ -117,6 +186,10 @@ export class VirtualLayout extends LayoutManager {
         super.init();
     }
 
+    /**
+     * Executes `clearHtmlAndAdjustStylesForSubWindow` to handle clear html and adjust styles for sub window.
+     * @zh 执行 `clearHtmlAndAdjustStylesForSubWindow`，用于清空HTML内容AndAdjust样式集合用于子窗口。
+     */
     clearHtmlAndAdjustStylesForSubWindow(): void {
         const headElement = document.head;
 
@@ -142,6 +215,11 @@ export class VirtualLayout extends LayoutManager {
         // eslint-disable-next-line @typescript-eslint/no-unused-vars
         const x = document.body.offsetHeight;
     }
+    /**
+     * Executes `checkAddDefaultPopinButton` to handle check add default popin button.
+     * @zh 执行 `checkAddDefaultPopinButton`，用于检查添加默认Popin按钮。
+     * @returns Result of type `boolean` / 类型为 `boolean` 的返回值
+     */
     checkAddDefaultPopinButton(): boolean {
         if (this.layoutConfig.settings.popInOnClose) {
             return false;
@@ -161,7 +239,11 @@ export class VirtualLayout extends LayoutManager {
         }
     }
 
-    /** @internal */
+    /**
+     * Executes `bindComponent` to handle bind component.
+     * @internal
+     * @zh 执行 `bindComponent`，用于绑定组件。
+     */
     override bindComponent( translator:TranslateService,container: ComponentContainer, itemConfig: ResolvedComponentItemConfig): ComponentContainer.BindableComponent {
         if (this.bindComponentEvent !== undefined) {
             const bindableComponent = this.bindComponentEvent(container, itemConfig);
@@ -180,7 +262,11 @@ export class VirtualLayout extends LayoutManager {
         }
     }
 
-    /** @internal */
+    /**
+     * Executes `unbindComponent` to handle unbind component.
+     * @internal
+     * @zh 执行 `unbindComponent`，用于解绑组件。
+     */
     override unbindComponent(container: ComponentContainer, virtual: boolean, component: ComponentContainer.Component | undefined): void {
         if (this.unbindComponentEvent !== undefined) {
             this.unbindComponentEvent(container);
@@ -200,26 +286,52 @@ export class VirtualLayout extends LayoutManager {
 /** @public */
 export namespace VirtualLayout {
  
+    /**
+     * Type alias `GetComponentEventHandler` representing get component event handler (`(this: void, container: ComponentContainer, itemConfig: ResolvedCompon...`).
+     * @zh 类型别名 `GetComponentEventHandler`，表示获取组件事件处理器（`(this: void, container: ComponentContainer, itemConfig: ResolvedCompon...`）。
+     */
     export type GetComponentEventHandler =
         (this: void, container: ComponentContainer, itemConfig: ResolvedComponentItemConfig) => ComponentContainer.Component;
 
+    /**
+     * Type alias `ReleaseComponentEventHandler` representing release component event handler (`(this: void, container: ComponentContainer, component: ComponentContai...`).
+     * @zh 类型别名 `ReleaseComponentEventHandler`，表示Release组件事件处理器（`(this: void, container: ComponentContainer, component: ComponentContai...`）。
+     */
     export type ReleaseComponentEventHandler =
         (this: void, container: ComponentContainer, component: ComponentContainer.Component) => void;
 
+    /**
+     * Type alias `BindComponentEventHandler` representing bind component event handler (`(this: void, container: ComponentContainer, itemConfig: ResolvedCompon...`).
+     * @zh 类型别名 `BindComponentEventHandler`，表示绑定组件事件处理器（`(this: void, container: ComponentContainer, itemConfig: ResolvedCompon...`）。
+     */
     export type BindComponentEventHandler =
         (this: void, container: ComponentContainer, itemConfig: ResolvedComponentItemConfig) => ComponentContainer.BindableComponent;
+    /**
+     * Type alias `UnbindComponentEventHandler` representing unbind component event handler (`(this: void, container: ComponentContainer) => void`).
+     * @zh 类型别名 `UnbindComponentEventHandler`，表示解绑组件事件处理器（`(this: void, container: ComponentContainer) => void`）。
+     */
     export type UnbindComponentEventHandler =
         (this: void, container: ComponentContainer) => void;
 
+    /**
+     * Type alias `BeforeVirtualRectingEvent` representing before virtual recting event (`(this: void) => void`).
+     * @zh 类型别名 `BeforeVirtualRectingEvent`，表示之前虚拟滚动矩形事件（`(this: void) => void`）。
+     */
     export type BeforeVirtualRectingEvent = (this: void) => void;
 
     /** @internal
      * Veriable to hold the state whether we already checked if we are running in a sub window.
      * Fixes popout and creation of nested dock-layouts.
+
+     * @zh 常量/变量 `subWindowChecked`，定义 `src/container/dock-layout` 中的子窗口已勾选。
      */
     let subWindowChecked = false;
 
-    /** @internal */
+    /**
+     * Executes `createLayoutManagerConstructorParameters` to handle create layout manager constructor parameters.
+     * @internal
+     * @zh 执行 `createLayoutManagerConstructorParameters`，用于创建布局管理器Constructor参数列表。
+     */
     export function createLayoutManagerConstructorParameters(configOrOptionalContainer: LayoutConfig | HTMLElement | undefined,
         containerOrBindComponentEventHandler?: HTMLElement |  VirtualLayout.BindComponentEventHandler):
         LayoutManager.ConstructorParameters

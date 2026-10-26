@@ -4,8 +4,8 @@
     {
       "name": "MonacoMarkdownExtension",
       "kind": "class",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Class `MonacoMarkdownExtension` encapsulating monaco markdown extension data structures and logic in `src/ux/markdown-editor`.",
+      "summaryZh": "类 `MonacoMarkdownExtension`，封装 `src/ux/markdown-editor` 中的Monaco编辑器Markdown文档Extension数据结构与处理逻辑。",
       "sourceFile": "src/ux/markdown-editor/index.ts",
       "inputs": [],
       "outputs": [],
@@ -19,8 +19,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `activate` to handle activate.",
+          "descriptionZh": "执行 `activate`，用于激活。"
         }
       ],
       "properties": []

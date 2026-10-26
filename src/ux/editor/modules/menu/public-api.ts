@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Module `src/ux/editor/modules/menu/public-api.ts` providing public api definitions and implementation.
+ * @zh 模块文件 `src/ux/editor/modules/menu/public-api.ts`，提供publicAPI接口相关的定义与实现。
+ */
+
 export { MenuComponent } from './menu.component';
 export { EditorMenuModule } from './menu.module';
 export { MenuService } from './menu.service';

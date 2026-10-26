@@ -4,19 +4,38 @@
     {
       "name": "Action",
       "kind": "enum",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Enumeration `Action` defining supported action constants.",
+      "summaryZh": "枚举 `Action`，定义支持的动作常量集合。",
       "sourceFile": "src/common/dragselect/models.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
-      "properties": []
+      "properties": [
+        {
+          "name": "Add",
+          "type": "enum-member",
+          "description": "Enum member `Action.Add` representing add.",
+          "descriptionZh": "枚举项 `Action.Add`，表示添加。"
+        },
+        {
+          "name": "Delete",
+          "type": "enum-member",
+          "description": "Enum member `Action.Delete` representing delete.",
+          "descriptionZh": "枚举项 `Action.Delete`，表示删除。"
+        },
+        {
+          "name": "None",
+          "type": "enum-member",
+          "description": "Enum member `Action.None` representing none.",
+          "descriptionZh": "枚举项 `Action.None`，表示无。"
+        }
+      ]
     },
     {
       "name": "boxIntersects",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `boxIntersects` defining box intersects in `src/common/dragselect`.",
+      "summaryZh": "常量/变量 `boxIntersects`，定义 `src/common/dragselect` 中的盒子容器Intersects。",
       "sourceFile": "src/common/dragselect/utils.ts",
       "inputs": [],
       "outputs": [],
@@ -26,8 +45,8 @@
     {
       "name": "calculateBoundingClientRect",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `calculateBoundingClientRect` defining calculate bounding client rect in `src/common/dragselect`.",
+      "summaryZh": "常量/变量 `calculateBoundingClientRect`，定义 `src/common/dragselect` 中的计算包围边界Client矩形。",
       "sourceFile": "src/common/dragselect/utils.ts",
       "inputs": [],
       "outputs": [],
@@ -37,8 +56,8 @@
     {
       "name": "clearSelection",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `clearSelection` defining clear selection in `src/common/dragselect`.",
+      "summaryZh": "常量/变量 `clearSelection`，定义 `src/common/dragselect` 中的清空Selection。",
       "sourceFile": "src/common/dragselect/utils.ts",
       "inputs": [],
       "outputs": [],
@@ -48,8 +67,8 @@
     {
       "name": "CONFIG",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular dependency-injection token `CONFIG` for providing config.",
+      "summaryZh": "Angular 依赖注入令牌 `CONFIG`，用于提供与注入配置。",
       "sourceFile": "src/common/dragselect/tokens.ts",
       "inputs": [],
       "outputs": [],
@@ -59,19 +78,32 @@
     {
       "name": "CONFIG_FACTORY",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Executes `CONFIG_FACTORY` to handle config factory.",
+      "summaryZh": "执行 `CONFIG_FACTORY`，用于配置工厂。",
       "sourceFile": "src/common/dragselect/drag-to-select.module.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "CONFIG_FACTORY",
+          "params": [
+            {
+              "name": "config",
+              "type": "Partial<DragToSelectConfig>"
+            }
+          ],
+          "returnType": "any",
+          "description": "Executes `CONFIG_FACTORY` to handle config factory.",
+          "descriptionZh": "执行 `CONFIG_FACTORY`，用于配置工厂。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "cursorWithinElement",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `cursorWithinElement` defining cursor within element in `src/common/dragselect`.",
+      "summaryZh": "常量/变量 `cursorWithinElement`，定义 `src/common/dragselect` 中的光标Within元素。",
       "sourceFile": "src/common/dragselect/utils.ts",
       "inputs": [],
       "outputs": [],
@@ -81,8 +113,8 @@
     {
       "name": "DEFAULT_CONFIG",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `DEFAULT_CONFIG` defining default config in `src/common/dragselect`.",
+      "summaryZh": "常量/变量 `DEFAULT_CONFIG`，定义 `src/common/dragselect` 中的默认配置。",
       "sourceFile": "src/common/dragselect/config.ts",
       "inputs": [],
       "outputs": [],
@@ -92,8 +124,8 @@
     {
       "name": "DragToSelectModule",
       "kind": "module",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular module `DragToSelectModule` declaring and exporting drag to select module components, directives, pipes, and providers.",
+      "summaryZh": "Angular 模块 `DragToSelectModule`，声明并导出拖拽转换为下拉选择模块相关的组件、指令、管道与服务提供者。",
       "sourceFile": "src/common/dragselect/drag-to-select.module.ts",
       "inputs": [],
       "outputs": [],
@@ -107,8 +139,8 @@
             }
           ],
           "returnType": "ModuleWithProviders<DragToSelectModule>",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `forRoot` to handle for root.",
+          "descriptionZh": "执行 `forRoot`，用于用于根节点。"
         }
       ],
       "properties": []
@@ -116,8 +148,8 @@
     {
       "name": "getMousePosition",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `getMousePosition` defining get mouse position in `src/common/dragselect`.",
+      "summaryZh": "常量/变量 `getMousePosition`，定义 `src/common/dragselect` 中的获取鼠标位置。",
       "sourceFile": "src/common/dragselect/utils.ts",
       "inputs": [],
       "outputs": [],
@@ -127,8 +159,8 @@
     {
       "name": "getRelativeMousePosition",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `getRelativeMousePosition` defining get relative mouse position in `src/common/dragselect`.",
+      "summaryZh": "常量/变量 `getRelativeMousePosition`，定义 `src/common/dragselect` 中的获取Relative鼠标位置。",
       "sourceFile": "src/common/dragselect/utils.ts",
       "inputs": [],
       "outputs": [],
@@ -138,8 +170,8 @@
     {
       "name": "hasMinimumSize",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `hasMinimumSize` defining has minimum size in `src/common/dragselect`.",
+      "summaryZh": "常量/变量 `hasMinimumSize`，定义 `src/common/dragselect` 中的是否包含Minimum尺寸。",
       "sourceFile": "src/common/dragselect/utils.ts",
       "inputs": [],
       "outputs": [],
@@ -149,8 +181,8 @@
     {
       "name": "inBoundingBox",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `inBoundingBox` defining in bounding box in `src/common/dragselect`.",
+      "summaryZh": "常量/变量 `inBoundingBox`，定义 `src/common/dragselect` 中的在包围边界盒子容器。",
       "sourceFile": "src/common/dragselect/utils.ts",
       "inputs": [],
       "outputs": [],
@@ -160,19 +192,32 @@
     {
       "name": "MousePosition",
       "kind": "interface",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Interface `MousePosition` defining the contract and properties for mouse position.",
+      "summaryZh": "接口 `MousePosition`，定义鼠标位置的数据结构契约与属性规范。",
       "sourceFile": "src/common/dragselect/models.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
-      "properties": []
+      "properties": [
+        {
+          "name": "x",
+          "type": "number",
+          "description": "Property `x` (`number`) storing x.",
+          "descriptionZh": "属性 `x`（类型：`number`），用于存储或配置X坐标。"
+        },
+        {
+          "name": "y",
+          "type": "number",
+          "description": "Property `y` (`number`) storing y.",
+          "descriptionZh": "属性 `y`（类型：`number`），用于存储或配置Y坐标。"
+        }
+      ]
     },
     {
       "name": "PredicateFn",
       "kind": "type",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Type alias `PredicateFn` representing predicate fn (`(item: T) => boolean`).",
+      "summaryZh": "类型别名 `PredicateFn`，表示Predicate函数（`(item: T) => boolean`）。",
       "sourceFile": "src/common/dragselect/models.ts",
       "inputs": [],
       "outputs": [],
@@ -182,13 +227,44 @@
     {
       "name": "SelectBox",
       "kind": "interface",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Interface `SelectBox` defining the contract and properties for select box.",
+      "summaryZh": "接口 `SelectBox`，定义下拉选择盒子容器的数据结构契约与属性规范。",
       "sourceFile": "src/common/dragselect/models.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
-      "properties": []
+      "properties": [
+        {
+          "name": "top",
+          "type": "T",
+          "description": "Property `top` (`T`) storing top.",
+          "descriptionZh": "属性 `top`（类型：`T`），用于存储或配置顶部位置。"
+        },
+        {
+          "name": "left",
+          "type": "T",
+          "description": "Property `left` (`T`) storing left.",
+          "descriptionZh": "属性 `left`（类型：`T`），用于存储或配置左侧位置。"
+        },
+        {
+          "name": "width",
+          "type": "T",
+          "description": "Property `width` (`T`) storing width.",
+          "descriptionZh": "属性 `width`（类型：`T`），用于存储或配置宽度。"
+        },
+        {
+          "name": "height",
+          "type": "T",
+          "description": "Property `height` (`T`) storing height.",
+          "descriptionZh": "属性 `height`（类型：`T`），用于存储或配置高度。"
+        },
+        {
+          "name": "opacity",
+          "type": "number",
+          "description": "Property `opacity` (`number`) storing opacity.",
+          "descriptionZh": "属性 `opacity`（类型：`number`），用于存储或配置不透明度。"
+        }
+      ]
     },
     {
       "name": "SelectContainerComponent",
@@ -215,28 +291,28 @@
           "name": "disabled",
           "type": "any",
           "default": "false",
-          "description": null,
+          "description": "Input property `disabled` (`boolean`) configuring disabled (default: `false`).",
           "descriptionZh": "是否禁用整个选择容器（拖拽和点击均不生效）。"
         },
         {
           "name": "disableDrag",
           "type": "any",
           "default": "false",
-          "description": null,
+          "description": "Input property `disableDrag` (`boolean`) configuring disable drag (default: `false`).",
           "descriptionZh": "是否禁用拖拽绘制选框（点击选择仍可用）。"
         },
         {
           "name": "selectOnClick",
           "type": "any",
           "default": "true",
-          "description": null,
+          "description": "Input property `selectOnClick` (`boolean`) configuring select on click (default: `true`).",
           "descriptionZh": "是否允许通过单击选中条目。默认为 `true`。"
         },
         {
           "name": "dragOverItems",
           "type": "any",
           "default": "true",
-          "description": null,
+          "description": "Input property `dragOverItems` (`boolean`) configuring drag over items (default: `true`).",
           "descriptionZh": "拖拽选框是否需要覆盖条目才能选中它们（而不仅仅是相交）。默认为 `true`。"
         },
         {
@@ -250,21 +326,21 @@
           "name": "selectMode",
           "type": "any",
           "default": "false",
-          "description": null,
+          "description": "Input property `selectMode` (`boolean`) configuring select mode (default: `false`).",
           "descriptionZh": "是否进入\"选择模式\"（悬停/拖过即切换选中状态，而非常规拖框选择）。"
         },
         {
           "name": "selectWithShortcut",
           "type": "any",
           "default": "false",
-          "description": null,
+          "description": "Input property `selectWithShortcut` (`boolean`) configuring select with shortcut (default: `false`).",
           "descriptionZh": "是否要求配合快捷键才能选择（禁用纯点击/拖拽选择）。"
         },
         {
           "name": "custom",
           "type": "any",
           "default": "false",
-          "description": null,
+          "description": "Input property `custom` (`boolean`) configuring custom (default: `false`).",
           "descriptionZh": "是否启用自定义选择逻辑（跳过内置的选框绘制样式类）。"
         }
       ],
@@ -272,37 +348,37 @@
         {
           "name": "selectedItemsChange",
           "type": "any",
-          "description": null,
+          "description": "Output event emitter `selectedItemsChange` (`EventEmitter`) firing when selected items change occurs.",
           "descriptionZh": "当前选中项集合发生变化时发出（用于配合 `selectedItems` 双向绑定）。"
         },
         {
           "name": "select",
           "type": "any",
-          "description": null,
+          "description": "Output event emitter `select` (`EventEmitter`) firing when select occurs.",
           "descriptionZh": "当前选中项集合发生变化时发出。"
         },
         {
           "name": "itemSelected",
           "type": "any",
-          "description": null,
+          "description": "Output event emitter `itemSelected` (`EventEmitter`) firing when item selected occurs.",
           "descriptionZh": "单个条目被选中时发出该条目的值。"
         },
         {
           "name": "itemDeselected",
           "type": "any",
-          "description": null,
+          "description": "Output event emitter `itemDeselected` (`EventEmitter`) firing when item deselected occurs.",
           "descriptionZh": "单个条目被取消选中时发出该条目的值。"
         },
         {
           "name": "selectionStarted",
           "type": "any",
-          "description": null,
+          "description": "Output event emitter `selectionStarted` (`EventEmitter`) firing when selection started occurs.",
           "descriptionZh": "一次框选/选择操作开始时发出。"
         },
         {
           "name": "selectionEnded",
           "type": "any",
-          "description": null,
+          "description": "Output event emitter `selectionEnded` (`EventEmitter`) firing when selection ended occurs.",
           "descriptionZh": "一次框选/选择操作结束时发出最终选中的条目集合。"
         }
       ],
@@ -393,13 +469,13 @@
         {
           "name": "host",
           "type": "SelectContainerHost",
-          "description": null,
+          "description": "Property `host` (`SelectContainerHost`) storing host.",
           "descriptionZh": "宿主原生元素及其边界信息。"
         },
         {
           "name": "selectBoxStyles$",
           "type": "Observable<SelectBox<string>>",
-          "description": null,
+          "description": "Property `selectBoxStyles$` (`Observable<SelectBox<string>>`) storing select box styles.",
           "descriptionZh": "内部使用，绑定到选框元素的样式流。"
         },
         {
@@ -412,7 +488,7 @@
           "name": "hostClass",
           "type": "any",
           "default": "true",
-          "description": null,
+          "description": "Host binding `hostClass` bound to host attribute/property `class.dts-select-container` for host class.",
           "descriptionZh": "内部使用，始终为 `true`，用于绑定 `dts-select-container` 宿主类名。"
         }
       ]
@@ -420,13 +496,20 @@
     {
       "name": "SelectContainerHost",
       "kind": "interface",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Interface `SelectContainerHost` defining the contract and properties for select container host.",
+      "summaryZh": "接口 `SelectContainerHost`，定义下拉选择容器宿主的数据结构契约与属性规范。",
       "sourceFile": "src/common/dragselect/models.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
-      "properties": []
+      "properties": [
+        {
+          "name": "boundingClientRect",
+          "type": "BoundingBox",
+          "description": "Property `boundingClientRect` (`BoundingBox`) storing bounding client rect.",
+          "descriptionZh": "属性 `boundingClientRect`（类型：`BoundingBox`），用于存储或配置包围边界Client矩形。"
+        }
+      ]
     },
     {
       "name": "SelectItemDirective",
@@ -446,7 +529,7 @@
           "name": "dtsDisabled",
           "type": "any",
           "default": "false",
-          "description": null,
+          "description": "Input property `dtsDisabled` (`boolean`) configuring dts disabled (default: `false`).",
           "descriptionZh": "是否禁用该条目的选择（禁用时它不参与选择容器的框选/点击逻辑）。"
         }
       ],
@@ -486,14 +569,14 @@
           "name": "rangeStart",
           "type": "any",
           "default": "false",
-          "description": null,
+          "description": "Host binding `rangeStart` bound to host attribute/property `class.dts-range-start` for range start.",
           "descriptionZh": "该条目当前是否作为范围选择的起点。"
         },
         {
           "name": "hostClass",
           "type": "any",
           "default": "true",
-          "description": null,
+          "description": "Host binding `hostClass` bound to host attribute/property `class.dts-select-item` for host class.",
           "descriptionZh": "内部使用，始终为 `true`，用于绑定 `dts-select-item` 宿主类名。"
         },
         {
@@ -597,30 +680,56 @@
     {
       "name": "UpdateAction",
       "kind": "interface",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Interface `UpdateAction` defining the contract and properties for update action.",
+      "summaryZh": "接口 `UpdateAction`，定义更新动作的数据结构契约与属性规范。",
       "sourceFile": "src/common/dragselect/models.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
-      "properties": []
+      "properties": [
+        {
+          "name": "type",
+          "type": "UpdateActions",
+          "description": "Property `type` (`UpdateActions`) storing type.",
+          "descriptionZh": "属性 `type`（类型：`UpdateActions`），用于存储或配置类型。"
+        },
+        {
+          "name": "item",
+          "type": "SelectItemDirective",
+          "description": "Property `item` (`SelectItemDirective`) storing item.",
+          "descriptionZh": "属性 `item`（类型：`SelectItemDirective`），用于存储或配置条目。"
+        }
+      ]
     },
     {
       "name": "UpdateActions",
       "kind": "enum",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Enumeration `UpdateActions` defining supported update actions constants.",
+      "summaryZh": "枚举 `UpdateActions`，定义支持的更新动作列表常量集合。",
       "sourceFile": "src/common/dragselect/models.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
-      "properties": []
+      "properties": [
+        {
+          "name": "Add",
+          "type": "enum-member",
+          "description": "Enum member `UpdateActions.Add` representing add.",
+          "descriptionZh": "枚举项 `UpdateActions.Add`，表示添加。"
+        },
+        {
+          "name": "Remove",
+          "type": "enum-member",
+          "description": "Enum member `UpdateActions.Remove` representing remove.",
+          "descriptionZh": "枚举项 `UpdateActions.Remove`，表示移除。"
+        }
+      ]
     },
     {
       "name": "USER_CONFIG",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular dependency-injection token `USER_CONFIG` for providing user config.",
+      "summaryZh": "Angular 依赖注入令牌 `USER_CONFIG`，用于提供与注入用户配置。",
       "sourceFile": "src/common/dragselect/tokens.ts",
       "inputs": [],
       "outputs": [],

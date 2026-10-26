@@ -1,16 +1,41 @@
+/**
+ * @fileoverview Module `src/core/color/tinycolor.ts` providing tinycolor definitions and implementation.
+ * @zh 模块文件 `src/core/color/tinycolor.ts`，提供tinycolor相关的定义与实现。
+ */
+
 import { rgbaToHex, rgbToHex, rgbToHsl, rgbToHsv } from './conversion';
 import { names } from './css-color-names';
 import { inputToRGB } from './format-input';
 import { HSL, HSLA, HSV, HSVA, RGB, RGBA, Numberify } from './interfaces';
 import { bound01, boundAlpha, clamp01 } from './util';
 
+/**
+ * Interface `TinyColorOptions` defining the contract and properties for tiny color options.
+ * @zh 接口 `TinyColorOptions`，定义Tiny颜色配置选项的数据结构契约与属性规范。
+ */
 export interface TinyColorOptions {
+  /**
+   * Property `format` (`string`) storing format.
+   * @zh 属性 `format`（类型：`string`），用于存储或配置格式化。
+   */
   format: string;
+  /**
+   * Property `gradientType` (`string`) storing gradient type.
+   * @zh 属性 `gradientType`（类型：`string`），用于存储或配置渐变类型。
+   */
   gradientType: string;
 }
 
+/**
+ * Type alias `ColorInput` representing color input (`string | RGB | RGBA | HSL | HSLA | HSV | HSVA | TinyColor`).
+ * @zh 类型别名 `ColorInput`，表示颜色输入属性（`string | RGB | RGBA | HSL | HSLA | HSV | HSVA | TinyColor`）。
+ */
 export type ColorInput = string | RGB | RGBA | HSL | HSLA | HSV | HSVA | TinyColor;
 
+/**
+ * Type alias `ColorFormats` representing color formats (`| 'rgb' | 'prgb' | 'hex' | 'hex3' | 'hex4' | 'hex6' | 'hex8' | 'name'...`).
+ * @zh 类型别名 `ColorFormats`，表示颜色格式列表（`| 'rgb' | 'prgb' | 'hex' | 'hex3' | 'hex4' | 'hex6' | 'hex8' | 'name'...`）。
+ */
 export type ColorFormats =
   | 'rgb'
   | 'prgb'
@@ -23,33 +48,71 @@ export type ColorFormats =
   | 'hsl'
   | 'hsv';
 
+/**
+ * Class `TinyColor` encapsulating tiny color data structures and logic in `src/core/color`.
+ * @zh 类 `TinyColor`，封装 `src/core/color` 中的Tiny颜色数据结构与处理逻辑。
+ */
 export class TinyColor {
-  /** red */
+  /**
+   * red
+   * @zh 属性 `r`（类型：`number`），用于存储或配置r。
+   */
   r!: number;
 
-  /** green */
+  /**
+   * green
+   * @zh 属性 `g`（类型：`number`），用于存储或配置g。
+   */
   g!: number;
 
-  /** blue */
+  /**
+   * blue
+   * @zh 属性 `b`（类型：`number`），用于存储或配置b。
+   */
   b!: number;
 
-  /** alpha */
+  /**
+   * alpha
+   * @zh 属性 `a`（类型：`number`），用于存储或配置a。
+   */
   a!: number;
 
-  /** the format used to create the tinycolor instance */
+  /**
+   * the format used to create the tinycolor instance
+   * @zh 属性 `format`（类型：`ColorFormats`），用于存储或配置格式化。
+   */
   format!: ColorFormats;
 
-  /** input passed into the constructer used to create the tinycolor instance */
+  /**
+   * input passed into the constructer used to create the tinycolor instance
+   * @zh 属性 `originalInput`（类型：`ColorInput`），用于存储或配置原始输入属性。
+   */
   originalInput!: ColorInput;
 
-  /** the color was successfully parsed */
+  /**
+   * the color was successfully parsed
+   * @zh 属性 `isValid`（类型：`boolean`），用于存储或配置是否为有效。
+   */
   isValid!: boolean;
 
+  /**
+   * Property `gradientType` (`string`) storing gradient type.
+   * @zh 属性 `gradientType`（类型：`string`），用于存储或配置渐变类型。
+   */
   gradientType?: string;
 
-  /** rounded alpha */
+  /**
+   * rounded alpha
+   * @zh 属性 `roundA`（类型：`number`），用于存储或配置四舍五入A。
+   */
   roundA!: number;
 
+  /**
+   * Creates an instance of `TinyColor` and initializes its dependencies and internal state.
+   * @zh 创建 `TinyColor` 实例，并初始化其依赖项与内部状态。
+   * @param color - Injected or initial color (`ColorInput`) / 注入或传入的颜色（`ColorInput`）
+   * @param opts - Injected or initial opts (`Partial<TinyColorOptions>`) / 注入或传入的选项列表（`Partial<TinyColorOptions>`）
+   */
   constructor(color: ColorInput = '', opts: Partial<TinyColorOptions> = {}) {
     // If input is already a tinycolor, return itself
     if (color instanceof TinyColor) {
@@ -82,16 +145,28 @@ export class TinyColor {
     this.isValid = rgb.ok;
   }
 
+  /**
+   * Executes `isDark` to handle is dark.
+   * @zh 执行 `isDark`，用于是否为深色。
+   * @returns Result of type `boolean` / 类型为 `boolean` 的返回值
+   */
   isDark(): boolean {
     return this.getBrightness() < 128;
   }
 
+  /**
+   * Executes `isLight` to handle is light.
+   * @zh 执行 `isLight`，用于是否为浅色。
+   * @returns Result of type `boolean` / 类型为 `boolean` 的返回值
+   */
   isLight(): boolean {
     return !this.isDark();
   }
 
   /**
    * Returns the perceived brightness of the color, from 0-255.
+
+   * @zh 执行 `getBrightness`，用于获取明度。
    */
   getBrightness(): number {
     // http://www.w3.org/TR/AERT#color-contrast
@@ -101,6 +176,8 @@ export class TinyColor {
 
   /**
    * Returns the perceived luminance of a color, from 0-1.
+
+   * @zh 执行 `getLuminance`，用于获取Luminance。
    */
   getLuminance(): number {
     // http://www.w3.org/TR/2008/REC-WCAG20-20081211/#relativeluminancedef
@@ -135,6 +212,8 @@ export class TinyColor {
 
   /**
    * Returns the alpha value of a color, from 0-1.
+
+   * @zh 执行 `getAlpha`，用于获取透明度。
    */
   getAlpha(): number {
     return this.a;
@@ -144,6 +223,8 @@ export class TinyColor {
    * Sets the alpha value on the current color.
    *
    * @param alpha - The new alpha value. The accepted range is 0-1.
+
+   * @zh 执行 `setAlpha`，用于集合透明度。
    */
   setAlpha(alpha?: string | number): TinyColor {
     this.a = boundAlpha(alpha);
@@ -153,6 +234,8 @@ export class TinyColor {
 
   /**
    * Returns the object as a HSVA object.
+
+   * @zh 执行 `toHsv`，用于转换为HSV颜色。
    */
   toHsv(): Numberify<HSVA> {
     const hsv = rgbToHsv(this.r, this.g, this.b);
@@ -162,6 +245,8 @@ export class TinyColor {
   /**
    * Returns the hsva values interpolated into a string with the following format:
    * "hsva(xxx, xxx, xxx, xx)".
+
+   * @zh 执行 `toHsvString`，用于转换为HSV颜色字符串。
    */
   toHsvString(): string {
     const hsv = rgbToHsv(this.r, this.g, this.b);
@@ -173,6 +258,8 @@ export class TinyColor {
 
   /**
    * Returns the object as a HSLA object.
+
+   * @zh 执行 `toHsl`，用于转换为HSL颜色。
    */
   toHsl(): Numberify<HSLA> {
     const hsl = rgbToHsl(this.r, this.g, this.b);
@@ -182,6 +269,8 @@ export class TinyColor {
   /**
    * Returns the hsla values interpolated into a string with the following format:
    * "hsla(xxx, xxx, xxx, xx)".
+
+   * @zh 执行 `toHslString`，用于转换为HSL颜色字符串。
    */
   toHslString(): string {
     const hsl = rgbToHsl(this.r, this.g, this.b);
@@ -194,6 +283,8 @@ export class TinyColor {
   /**
    * Returns the hex value of the color.
    * @param allow3Char will shorten hex value to 3 char if possible
+
+   * @zh 执行 `toHex`，用于转换为十六进制颜色。
    */
   toHex(allow3Char = false): string {
       return rgbToHex(this.r, this.g, this.b, allow3Char);
@@ -202,15 +293,30 @@ export class TinyColor {
   /**
    * Returns the hex value of the color -with a # appened.
    * @param allow3Char will shorten hex value to 3 char if possible
+
+   * @zh 执行 `toHexString`，用于转换为十六进制颜色字符串。
    */
   toHexString(allow3Char = false): string {
     return '#' + this.toHex(allow3Char);
   }
 
+  /**
+   * Executes `toHexStr` to handle to hex str.
+   * @zh 执行 `toHexStr`，用于转换为十六进制颜色字符串。
+   * @param backgroundColor - background color parameter (`any`) / 背景颜色参数（`any`）
+   * @returns Result of type `string` / 类型为 `string` 的返回值
+   */
   toHexStr(backgroundColor): string {
     return '#' + this.toAlphaHex(backgroundColor);
   }
 
+  /**
+   * Executes `toAlphaHex` to handle to alpha hex.
+   * @zh 执行 `toAlphaHex`，用于转换为透明度十六进制颜色。
+   * @param backgroundColor - background color parameter (`any`) / 背景颜色参数（`any`）
+   * @param allow3Char - allow3 char parameter (`any`) / allow3字符参数（`any`）
+   * @returns Result of type `string` / 类型为 `string` 的返回值
+   */
   toAlphaHex(backgroundColor,allow3Char = false): string {
       let r=((1 - this.a) * backgroundColor.r) + (this.a * this.r);
       let g=((1 - this.a) * backgroundColor.g) + (this.a * this.g);
@@ -221,6 +327,8 @@ export class TinyColor {
   /**
    * Returns the hex 8 value of the color.
    * @param allow4Char will shorten hex value to 4 char if possible
+
+   * @zh 执行 `toHex8`，用于转换为Hex8。
    */
   toHex8(allow4Char = false): string {
     return rgbaToHex(this.r, this.g, this.b, this.a, allow4Char);
@@ -229,6 +337,8 @@ export class TinyColor {
   /**
    * Returns the hex 8 value of the color -with a # appened.
    * @param allow4Char will shorten hex value to 4 char if possible
+
+   * @zh 执行 `toHex8String`，用于转换为Hex8字符串。
    */
   toHex8String(allow4Char = false): string {
     return '#' + this.toHex8(allow4Char);
@@ -236,6 +346,8 @@ export class TinyColor {
 
   /**
    * Returns the object as a RGBA object.
+
+   * @zh 执行 `toRgb`，用于转换为RGB颜色。
    */
   toRgb(): Numberify<RGBA> {
     return {
@@ -246,6 +358,11 @@ export class TinyColor {
     };
   }
 
+  /**
+   * Executes `toRgbString` to handle to rgb string.
+   * @zh 执行 `toRgbString`，用于转换为RGB颜色字符串。
+   * @returns Result of type `string` / 类型为 `string` 的返回值
+   */
   toRgbString(): string {
     const r = Math.round(this.r);
     const g = Math.round(this.g);
@@ -255,6 +372,8 @@ export class TinyColor {
 
   /**
    * Returns the object as a RGBA object.
+
+   * @zh 执行 `toPercentageRgb`，用于转换为PercentageRGB颜色。
    */
   toPercentageRgb(): RGBA {
     const fmt = (x: number): string => `${Math.round(bound01(x, 255) * 100)}%`;
@@ -268,6 +387,8 @@ export class TinyColor {
 
   /**
    * Returns the RGBA relative values interpolated into a string
+
+   * @zh 执行 `toPercentageRgbString`，用于转换为PercentageRGB颜色字符串。
    */
   toPercentageRgbString(): string {
     const rnd = (x: number): number => Math.round(bound01(x, 255) * 100);
@@ -278,6 +399,8 @@ export class TinyColor {
 
   /**
    * The 'real' name of the color -if there is one.
+
+   * @zh 执行 `toName`，用于转换为名称。
    */
   toName(): string | false {
     if (this.a === 0) {
@@ -302,6 +425,8 @@ export class TinyColor {
    * String representation of the color.
    *
    * @param format - The format to be used when displaying the string representation.
+
+   * @zh 执行 `toString`，用于转换为字符串。
    */
   toString(format?: ColorFormats): string | false {
     const formatSet = format;
@@ -361,6 +486,11 @@ export class TinyColor {
     return formattedString || this.toHexString();
   }
 
+  /**
+   * Executes `clone` to handle clone.
+   * @zh 执行 `clone`，用于克隆。
+   * @returns Result of type `TinyColor` / 类型为 `TinyColor` 的返回值
+   */
   clone(): TinyColor {
     return new TinyColor(this.toString() as string);
   }
@@ -368,6 +498,8 @@ export class TinyColor {
   /**
    * Lighten the color a given amount. Providing 100 will always return white.
    * @param amount - valid between 1-100
+
+   * @zh 执行 `lighten`，用于lighten。
    */
   lighten(amount = 10): TinyColor {
     const hsl = this.toHsl();
@@ -379,6 +511,8 @@ export class TinyColor {
   /**
    * Brighten the color a given amount, from 0 to 100.
    * @param amount - valid between 1-100
+
+   * @zh 执行 `brighten`，用于brighten。
    */
   brighten(amount = 10): TinyColor {
     const rgb = this.toRgb();
@@ -392,6 +526,8 @@ export class TinyColor {
    * Darken the color a given amount, from 0 to 100.
    * Providing 100 will always return black.
    * @param amount - valid between 1-100
+
+   * @zh 执行 `darken`，用于darken。
    */
   darken(amount = 10): TinyColor {
     const hsl = this.toHsl();
@@ -404,6 +540,8 @@ export class TinyColor {
    * Mix the color with pure white, from 0 to 100.
    * Providing 0 will do nothing, providing 100 will always return white.
    * @param amount - valid between 1-100
+
+   * @zh 执行 `tint`，用于tint。
    */
   tint(amount = 10): TinyColor {
     return this.mix('white', amount);
@@ -413,6 +551,8 @@ export class TinyColor {
    * Mix the color with pure black, from 0 to 100.
    * Providing 0 will do nothing, providing 100 will always return black.
    * @param amount - valid between 1-100
+
+   * @zh 执行 `shade`，用于shade。
    */
   shade(amount = 10): TinyColor {
     return this.mix('black', amount);
@@ -422,6 +562,8 @@ export class TinyColor {
    * Desaturate the color a given amount, from 0 to 100.
    * Providing 100 will is the same as calling greyscale
    * @param amount - valid between 1-100
+
+   * @zh 执行 `desaturate`，用于desaturate。
    */
   desaturate(amount = 10): TinyColor {
     const hsl = this.toHsl();
@@ -433,6 +575,8 @@ export class TinyColor {
   /**
    * Saturate the color a given amount, from 0 to 100.
    * @param amount - valid between 1-100
+
+   * @zh 执行 `saturate`，用于saturate。
    */
   saturate(amount = 10): TinyColor {
     const hsl = this.toHsl();
@@ -444,6 +588,8 @@ export class TinyColor {
   /**
    * Completely desaturates a color into greyscale.
    * Same as calling `desaturate(100)`
+
+   * @zh 执行 `greyscale`，用于greyscale。
    */
   greyscale(): TinyColor {
     return this.desaturate(100);
@@ -452,6 +598,8 @@ export class TinyColor {
   /**
    * Spin takes a positive or negative amount within [-360, 360] indicating the change of hue.
    * Values outside of this range will be wrapped into this range.
+
+   * @zh 执行 `spin`，用于spin。
    */
   spin(amount: number): TinyColor {
     const hsl = this.toHsl();
@@ -463,6 +611,8 @@ export class TinyColor {
   /**
    * Mix the current color a given amount with another color, from 0 to 100.
    * 0 means no mixing (return current color).
+
+   * @zh 执行 `mix`，用于mix。
    */
   mix(color: ColorInput, amount = 50): TinyColor {
     const rgb1 = this.toRgb();
@@ -479,6 +629,13 @@ export class TinyColor {
     return new TinyColor(rgba);
   }
 
+  /**
+   * Executes `analogous` to handle analogous.
+   * @zh 执行 `analogous`，用于analogous。
+   * @param results - results parameter (`any`) / 结果参数（`any`）
+   * @param slices - slices parameter (`any`) / 截取参数（`any`）
+   * @returns Result of type `TinyColor[]` / 类型为 `TinyColor[]` 的返回值
+   */
   analogous(results = 6, slices = 30): TinyColor[] {
     const hsl = this.toHsl();
     const part = 360 / slices;
@@ -493,12 +650,23 @@ export class TinyColor {
   }
 
 
+  /**
+   * Executes `complement` to handle complement.
+   * @zh 执行 `complement`，用于complement。
+   * @returns Result of type `TinyColor` / 类型为 `TinyColor` 的返回值
+   */
   complement(): TinyColor {
     const hsl = this.toHsl();
     hsl.h = (hsl.h + 180) % 360;
     return new TinyColor(hsl);
   }
 
+  /**
+   * Executes `monochromatic` to handle monochromatic.
+   * @zh 执行 `monochromatic`，用于monochromatic。
+   * @param results - results parameter (`any`) / 结果参数（`any`）
+   * @returns Result of type `TinyColor[]` / 类型为 `TinyColor[]` 的返回值
+   */
   monochromatic(results = 6): TinyColor[] {
     const hsv = this.toHsv();
     const { h } = hsv;
@@ -515,6 +683,11 @@ export class TinyColor {
     return res;
   }
 
+  /**
+   * Executes `splitcomplement` to handle splitcomplement.
+   * @zh 执行 `splitcomplement`，用于splitcomplement。
+   * @returns Result of type `TinyColor[]` / 类型为 `TinyColor[]` 的返回值
+   */
   splitcomplement(): TinyColor[] {
     const hsl = this.toHsl();
     const { h } = hsl;
@@ -525,10 +698,20 @@ export class TinyColor {
     ];
   }
 
+  /**
+   * Executes `triad` to handle triad.
+   * @zh 执行 `triad`，用于triad。
+   * @returns Result of type `TinyColor[]` / 类型为 `TinyColor[]` 的返回值
+   */
   triad(): TinyColor[] {
     return this.polyad(3);
   }
 
+  /**
+   * Executes `tetrad` to handle tetrad.
+   * @zh 执行 `tetrad`，用于tetrad。
+   * @returns Result of type `TinyColor[]` / 类型为 `TinyColor[]` 的返回值
+   */
   tetrad(): TinyColor[] {
     return this.polyad(4);
   }
@@ -536,6 +719,8 @@ export class TinyColor {
   /**
    * Get polyad colors, like (for 1, 2, 3, 4, 5, 6, 7, 8, etc...)
    * monad, dyad, triad, tetrad, pentad, hexad, heptad, octad, etc...
+
+   * @zh 执行 `polyad`，用于polyad。
    */
   polyad(n: number): TinyColor[] {
     const hsl = this.toHsl();
@@ -552,6 +737,8 @@ export class TinyColor {
 
   /**
    * compare color vs current color
+
+   * @zh 执行 `equals`，用于相等比较。
    */
   equals(color?: ColorInput): boolean {
     return this.toRgbString() === new TinyColor(color).toRgbString();
@@ -559,6 +746,13 @@ export class TinyColor {
 }
 
 // kept for backwards compatability with v1
+/**
+ * Executes `tinycolor` to handle tinycolor.
+ * @zh 执行 `tinycolor`，用于tinycolor。
+ * @param color - color parameter (`ColorInput`) / 颜色参数（`ColorInput`）
+ * @param opts - opts parameter (`Partial<TinyColorOptions>`) / 选项列表参数（`Partial<TinyColorOptions>`）
+ * @returns Result of type `TinyColor` / 类型为 `TinyColor` 的返回值
+ */
 export function tinycolor(color: ColorInput = '', opts: Partial<TinyColorOptions> = {}): TinyColor {
   return new TinyColor(color, opts);
 }

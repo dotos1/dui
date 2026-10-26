@@ -1,9 +1,18 @@
+/**
+ * @fileoverview Module `src/common/colorpicker/common/swatch.component.ts` providing swatch component definitions and implementation.
+ * @zh 模块文件 `src/common/colorpicker/common/swatch.component.ts`，提供swatch组件相关的定义与实现。
+ */
+
 import { CommonModule } from '@angular/common';
 import {  ChangeDetectionStrategy,  Component,  EventEmitter,  Input,  NgModule,  OnInit,  Output,
 } from '@angular/core';
 import { TranslateModule } from '@dotos/dui/translator';
 import { CheckboardModule } from './checkboard.component';
 
+/**
+ * Angular component `SwatchComponent` (selector: 'color-swatch') providing swatch component presentation and interaction in `src/common/colorpicker/common`.
+ * @zh Angular 组件 `SwatchComponent`（selector: 'color-swatch'），提供Swatch组件的视图渲染与交互逻辑（位于 `src/common/colorpicker/common`）。
+ */
 @Component({
   selector: 'color-swatch',
   template: `
@@ -34,25 +43,65 @@ import { CheckboardModule } from './checkboard.component';
  * @zh 单个可点击的颜色色块，用于在 `color-*` 颜色选择器样式变体中构建预设色块网格。
  */
 export class SwatchComponent implements OnInit {
-  /** @zh 该色块代表的颜色值。 */
+  /**
+   * Input property `color` (`any`) configuring color.
+   * @zh 该色块代表的颜色值。
+   * @zh 该色块代表的颜色值。
+   */
   @Input() color;
-  /** @zh 应用到色块上的内联样式。 */
+  /**
+   * Input property `style` (`{ [key: string]: string }`) configuring style (default: `{}`).
+   * @zh 应用到色块上的内联样式。
+   * @zh 应用到色块上的内联样式。
+   */
   @Input() style: { [key: string]: string } = {};
-  /** @zh 获得焦点时叠加的内联样式。 */
+  /**
+   * Input property `focusStyle` (`{ [key: string]: string }`) configuring focus style (default: `{}`).
+   * @zh 获得焦点时叠加的内联样式。
+   * @zh 获得焦点时叠加的内联样式。
+   */
   @Input() focusStyle: { [key: string]: string } = {};
-  /** @zh 是否强制以聚焦样式渲染。 */
+  /**
+   * Input property `focus` (`boolean`) configuring focus.
+   * @zh 是否强制以聚焦样式渲染。
+   * @zh 是否强制以聚焦样式渲染。
+   */
   @Input() focus: boolean;
-  /** @zh 色块被点击/回车确认时发出。 */
+  /**
+   * Output event emitter `onClick` (`EventEmitter`) firing when on click occurs.
+   * @zh 色块被点击/回车确认时发出。
+   * @zh 色块被点击/回车确认时发出。
+   */
   @Output() onClick = new EventEmitter<{ hex: string; $event: Event }>();
-  /** @zh 鼠标悬停在色块上时发出。 */
+  /**
+   * Output event emitter `onHover` (`EventEmitter`) firing when on hover occurs.
+   * @zh 鼠标悬停在色块上时发出。
+   * @zh 鼠标悬停在色块上时发出。
+   */
   @Output() onHover = new EventEmitter<{ hex: string; $event: Event }>();
-  /** @zh 色块的基础样式。 */
+  /**
+   * Property `divStyles` (`{ [key: string]: string }`) storing div styles (default: `{}`).
+   * @zh 色块的基础样式。
+   * @zh 色块的基础样式。
+   */
   divStyles: { [key: string]: string } = {};
-  /** @zh 色块的聚焦样式（基础样式与 `focusStyle` 合并后的结果）。 */
+  /**
+   * Property `focusStyles` (`{ [key: string]: string }`) storing focus styles (default: `{}`).
+   * @zh 色块的聚焦样式（基础样式与 `focusStyle` 合并后的结果）。
+   * @zh 色块的聚焦样式（基础样式与 `focusStyle` 合并后的结果）。
+   */
   focusStyles: { [key: string]: string } = {};
-  /** @zh 色块当前是否处于聚焦状态。 */
+  /**
+   * Property `inFocus` (`boolean`) storing in focus (default: `false`).
+   * @zh 色块当前是否处于聚焦状态。
+   * @zh 色块当前是否处于聚焦状态。
+   */
   inFocus = false;
 
+  /**
+   * Angular lifecycle hook invoked once after component or directive inputs are initialized.
+   * @zh Angular 生命周期钩子：在组件或指令的输入属性初始化完成后调用一次。
+   */
   ngOnInit() {
     this.divStyles = {
       background: this.color,
@@ -105,6 +154,10 @@ export class SwatchComponent implements OnInit {
   }
 }
 
+/**
+ * Angular module `SwatchModule` declaring and exporting swatch module components, directives, pipes, and providers.
+ * @zh Angular 模块 `SwatchModule`，声明并导出Swatch模块相关的组件、指令、管道与服务提供者。
+ */
 @NgModule({
   declarations: [SwatchComponent],
   exports: [SwatchComponent],

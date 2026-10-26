@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Module `src/form/date/datefield.component.spec.ts` providing datefield component spec definitions and implementation.
+ * @zh 模块文件 `src/form/date/datefield.component.spec.ts`，提供datefield组件spec相关的定义与实现。
+ */
+
 import { EventEmitter } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { DateFieldComponent } from './datefield.component';

@@ -4,8 +4,8 @@
     {
       "name": "_FileDropMixinBase",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Constant/variable `_FileDropMixinBase` defining file drop mixin base in `src/common/fileupload`.",
+      "summaryZh": "常量/变量 `_FileDropMixinBase`，定义 `src/common/fileupload` 中的文件放置Mixin基础。",
       "sourceFile": "src/common/fileupload/file-drop.directive.ts",
       "inputs": [],
       "outputs": [],
@@ -15,19 +15,32 @@
     {
       "name": "createImageFromDataUrl",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Executes `createImageFromDataUrl` to handle create image from data url.",
+      "summaryZh": "执行 `createImageFromDataUrl`，用于创建图像从数据链接地址。",
       "sourceFile": "src/common/fileupload/utils.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "createImageFromDataUrl",
+          "params": [
+            {
+              "name": "dataURL",
+              "type": "string"
+            }
+          ],
+          "returnType": "any",
+          "description": "Executes `createImageFromDataUrl` to handle create image from data url.",
+          "descriptionZh": "执行 `createImageFromDataUrl`，用于创建图像从数据链接地址。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "FileDropBase",
       "kind": "class",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Class `FileDropBase` encapsulating file drop base data structures and logic in `src/common/fileupload`.",
+      "summaryZh": "类 `FileDropBase`，封装 `src/common/fileupload` 中的文件放置基础数据结构与处理逻辑。",
       "sourceFile": "src/common/fileupload/file-drop.directive.ts",
       "inputs": [],
       "outputs": [],
@@ -51,7 +64,7 @@
         {
           "name": "multiple",
           "type": "boolean",
-          "description": null,
+          "description": "Input setter `multiple` updating multiple.",
           "descriptionZh": "是否允许一次放置多个文件。"
         }
       ],
@@ -65,7 +78,7 @@
         {
           "name": "onFileDrop",
           "type": "File[]",
-          "description": null,
+          "description": "Output event emitter `onFileDrop` (`EventEmitter<File[]>`) firing when on file drop occurs.",
           "descriptionZh": "文件被放置后发出，携带放下的文件列表。"
         }
       ],
@@ -137,13 +150,13 @@
         {
           "name": "multipleBinding",
           "type": "string",
-          "description": null,
+          "description": "Host-bound getter `multipleBinding` (`attr.multiple`) computing multiple binding.",
           "descriptionZh": "内部使用，绑定宿主的原生 `multiple` 属性。"
         },
         {
           "name": "disabledBinding",
           "type": "string",
-          "description": null,
+          "description": "Host-bound getter `disabledBinding` (`attr.disabled`) computing disabled binding.",
           "descriptionZh": "内部使用，绑定宿主的原生 `disabled` 属性。"
         }
       ]
@@ -161,29 +174,29 @@
           "name": "upload",
           "params": [],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `upload` to handle upload.",
+          "descriptionZh": "执行 `upload`，用于上传。"
         },
         {
           "name": "cancel",
           "params": [],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `cancel` to handle cancel.",
+          "descriptionZh": "执行 `cancel`，用于取消。"
         },
         {
           "name": "remove",
           "params": [],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `remove` to handle remove.",
+          "descriptionZh": "执行 `remove`，用于移除。"
         },
         {
           "name": "onBeforeUpload",
           "params": [],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `onBeforeUpload` to handle on before upload.",
+          "descriptionZh": "执行 `onBeforeUpload`，用于当之前上传。"
         },
         {
           "name": "onBuildForm",
@@ -194,8 +207,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `onBuildForm` to handle on build form.",
+          "descriptionZh": "执行 `onBuildForm`，用于当构建表单。"
         },
         {
           "name": "onProgress",
@@ -206,8 +219,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `onProgress` to handle on progress.",
+          "descriptionZh": "执行 `onProgress`，用于当进度条。"
         },
         {
           "name": "onSuccess",
@@ -226,8 +239,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `onSuccess` to handle on success.",
+          "descriptionZh": "执行 `onSuccess`，用于当成功。"
         },
         {
           "name": "onError",
@@ -246,8 +259,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `onError` to handle on error.",
+          "descriptionZh": "执行 `onError`，用于当错误。"
         },
         {
           "name": "onCancel",
@@ -266,8 +279,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `onCancel` to handle on cancel.",
+          "descriptionZh": "执行 `onCancel`，用于当取消。"
         },
         {
           "name": "onComplete",
@@ -286,120 +299,120 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `onComplete` to handle on complete.",
+          "descriptionZh": "执行 `onComplete`，用于当完成。"
         }
       ],
       "properties": [
         {
           "name": "file",
           "type": "FileLikeObject",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `file` (`FileLikeObject`) storing file.",
+          "descriptionZh": "属性 `file`（类型：`FileLikeObject`），用于存储或配置文件。"
         },
         {
           "name": "alias",
           "type": "string",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `alias` (`string`) storing alias.",
+          "descriptionZh": "属性 `alias`（类型：`string`），用于存储或配置alias。"
         },
         {
           "name": "url",
           "type": "string",
           "default": "'/'",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `url` (`string`) storing url (default: `'/'`).",
+          "descriptionZh": "属性 `url`（类型：`string`），用于存储或配置链接地址（默认值：`'/'`）。"
         },
         {
           "name": "method",
           "type": "string",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `method` (`string`) storing method.",
+          "descriptionZh": "属性 `method`（类型：`string`），用于存储或配置方法。"
         },
         {
           "name": "headers",
           "type": "any",
           "default": "[]",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `headers` (`any`) storing headers (default: `[]`).",
+          "descriptionZh": "属性 `headers`（类型：`any`），用于存储或配置请求头（默认值：`[]`）。"
         },
         {
           "name": "withCredentials",
           "type": "boolean",
           "default": "true",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `withCredentials` (`boolean`) storing with credentials (default: `true`).",
+          "descriptionZh": "属性 `withCredentials`（类型：`boolean`），用于存储或配置带有Credentials（默认值：`true`）。"
         },
         {
           "name": "formData",
           "type": "any",
           "default": "[]",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `formData` (`any`) storing form data (default: `[]`).",
+          "descriptionZh": "属性 `formData`（类型：`any`），用于存储或配置表单数据（默认值：`[]`）。"
         },
         {
           "name": "isReady",
           "type": "boolean",
           "default": "false",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `isReady` (`boolean`) storing is ready (default: `false`).",
+          "descriptionZh": "属性 `isReady`（类型：`boolean`），用于存储或配置是否为就绪（默认值：`false`）。"
         },
         {
           "name": "isUploading",
           "type": "boolean",
           "default": "false",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `isUploading` (`boolean`) storing is uploading (default: `false`).",
+          "descriptionZh": "属性 `isUploading`（类型：`boolean`），用于存储或配置是否为上传（默认值：`false`）。"
         },
         {
           "name": "isUploaded",
           "type": "boolean",
           "default": "false",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `isUploaded` (`boolean`) storing is uploaded (default: `false`).",
+          "descriptionZh": "属性 `isUploaded`（类型：`boolean`），用于存储或配置是否为已上传（默认值：`false`）。"
         },
         {
           "name": "isSuccess",
           "type": "boolean",
           "default": "false",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `isSuccess` (`boolean`) storing is success (default: `false`).",
+          "descriptionZh": "属性 `isSuccess`（类型：`boolean`），用于存储或配置是否为成功（默认值：`false`）。"
         },
         {
           "name": "isCancel",
           "type": "boolean",
           "default": "false",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `isCancel` (`boolean`) storing is cancel (default: `false`).",
+          "descriptionZh": "属性 `isCancel`（类型：`boolean`），用于存储或配置是否为取消（默认值：`false`）。"
         },
         {
           "name": "isError",
           "type": "boolean",
           "default": "false",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `isError` (`boolean`) storing is error (default: `false`).",
+          "descriptionZh": "属性 `isError`（类型：`boolean`），用于存储或配置是否为错误（默认值：`false`）。"
         },
         {
           "name": "progress",
           "type": "number",
           "default": "0",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `progress` (`number`) storing progress (default: `0`).",
+          "descriptionZh": "属性 `progress`（类型：`number`），用于存储或配置进度条（默认值：`0`）。"
         },
         {
           "name": "index",
           "type": "number",
           "default": "void 0",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `index` (`number`) storing index (default: `void 0`).",
+          "descriptionZh": "属性 `index`（类型：`number`），用于存储或配置索引（默认值：`void 0`）。"
         }
       ]
     },
     {
       "name": "FileLikeObject",
       "kind": "class",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Class `FileLikeObject` encapsulating file like object data structures and logic in `src/common/fileupload`.",
+      "summaryZh": "类 `FileLikeObject`，封装 `src/common/fileupload` 中的文件Like对象数据结构与处理逻辑。",
       "sourceFile": "src/common/fileupload/file-like-object.ts",
       "inputs": [],
       "outputs": [],
@@ -408,32 +421,32 @@
         {
           "name": "lastModifiedDate",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `lastModifiedDate` (`any`) storing last modified date.",
+          "descriptionZh": "属性 `lastModifiedDate`（类型：`any`），用于存储或配置末尾Modified日期。"
         },
         {
           "name": "size",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `size` (`any`) storing size.",
+          "descriptionZh": "属性 `size`（类型：`any`），用于存储或配置尺寸。"
         },
         {
           "name": "type",
           "type": "string",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `type` (`string`) storing type.",
+          "descriptionZh": "属性 `type`（类型：`string`），用于存储或配置类型。"
         },
         {
           "name": "name",
           "type": "string",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `name` (`string`) storing name.",
+          "descriptionZh": "属性 `name`（类型：`string`），用于存储或配置名称。"
         },
         {
           "name": "rawFile",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `rawFile` (`any`) storing raw file.",
+          "descriptionZh": "属性 `rawFile`（类型：`any`），用于存储或配置原始文件。"
         }
       ]
     },
@@ -454,7 +467,7 @@
         {
           "name": "multiple",
           "type": "boolean",
-          "description": null,
+          "description": "Input setter `multiple` updating multiple.",
           "descriptionZh": "是否允许一次选择多个文件。"
         }
       ],
@@ -462,7 +475,7 @@
         {
           "name": "onFileSelected",
           "type": "File[] | FileList | File",
-          "description": null,
+          "description": "Output event emitter `onFileSelected` (`EventEmitter<File[] | FileList | File>`) firing when on file selected occurs.",
           "descriptionZh": "文件选择完成后发出。"
         },
         {
@@ -511,7 +524,7 @@
         {
           "name": "multipleBinding",
           "type": "string",
-          "description": null,
+          "description": "Host-bound getter `multipleBinding` (`attr.multiple`) computing multiple binding.",
           "descriptionZh": "内部使用，绑定宿主的原生 `multiple` 属性。"
         },
         {
@@ -540,8 +553,8 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `setOptions` to handle set options.",
+          "descriptionZh": "执行 `setOptions`，用于集合配置选项。"
         },
         {
           "name": "addToQueue",
@@ -560,8 +573,8 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `addToQueue` to handle add to queue.",
+          "descriptionZh": "执行 `addToQueue`，用于添加转换为队列。"
         },
         {
           "name": "removeFromQueue",
@@ -572,15 +585,15 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `removeFromQueue` to handle remove from queue.",
+          "descriptionZh": "执行 `removeFromQueue`，用于移除从队列。"
         },
         {
           "name": "clearQueue",
           "params": [],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `clearQueue` to handle clear queue.",
+          "descriptionZh": "执行 `clearQueue`，用于清空队列。"
         },
         {
           "name": "uploadItem",
@@ -591,8 +604,8 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `uploadItem` to handle upload item.",
+          "descriptionZh": "执行 `uploadItem`，用于上传条目。"
         },
         {
           "name": "cancelItem",
@@ -603,22 +616,22 @@
             }
           ],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `cancelItem` to handle cancel item.",
+          "descriptionZh": "执行 `cancelItem`，用于取消条目。"
         },
         {
           "name": "uploadAll",
           "params": [],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `uploadAll` to handle upload all.",
+          "descriptionZh": "执行 `uploadAll`，用于上传全部。"
         },
         {
           "name": "cancelAll",
           "params": [],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `cancelAll` to handle cancel all.",
+          "descriptionZh": "执行 `cancelAll`，用于取消全部。"
         },
         {
           "name": "isFile",
@@ -629,8 +642,8 @@
             }
           ],
           "returnType": "boolean",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `isFile` to handle is file.",
+          "descriptionZh": "执行 `isFile`，用于是否为文件。"
         },
         {
           "name": "isFileLikeObject",
@@ -641,8 +654,8 @@
             }
           ],
           "returnType": "boolean",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `isFileLikeObject` to handle is file like object.",
+          "descriptionZh": "执行 `isFileLikeObject`，用于是否为文件Like对象。"
         },
         {
           "name": "getIndexOfItem",
@@ -653,29 +666,29 @@
             }
           ],
           "returnType": "number",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `getIndexOfItem` to handle get index of item.",
+          "descriptionZh": "执行 `getIndexOfItem`，用于获取索引的条目。"
         },
         {
           "name": "getNotUploadedItems",
           "params": [],
           "returnType": "any[]",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `getNotUploadedItems` to handle get not uploaded items.",
+          "descriptionZh": "执行 `getNotUploadedItems`，用于获取Not已上传条目列表。"
         },
         {
           "name": "getReadyItems",
           "params": [],
           "returnType": "any[]",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `getReadyItems` to handle get ready items.",
+          "descriptionZh": "执行 `getReadyItems`，用于获取就绪条目列表。"
         },
         {
           "name": "destroy",
           "params": [],
           "returnType": "void",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `destroy` to handle destroy.",
+          "descriptionZh": "执行 `destroy`，用于销毁。"
         },
         {
           "name": "onAfterAddingAll",
@@ -686,8 +699,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `onAfterAddingAll` to handle on after adding all.",
+          "descriptionZh": "执行 `onAfterAddingAll`，用于当之后添加全部。"
         },
         {
           "name": "onBuildItemForm",
@@ -702,8 +715,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `onBuildItemForm` to handle on build item form.",
+          "descriptionZh": "执行 `onBuildItemForm`，用于当构建条目表单。"
         },
         {
           "name": "onAfterAddingFile",
@@ -714,8 +727,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `onAfterAddingFile` to handle on after adding file.",
+          "descriptionZh": "执行 `onAfterAddingFile`，用于当之后添加文件。"
         },
         {
           "name": "onWhenAddingFileFailed",
@@ -734,8 +747,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `onWhenAddingFileFailed` to handle on when adding file failed.",
+          "descriptionZh": "执行 `onWhenAddingFileFailed`，用于当When添加文件失败。"
         },
         {
           "name": "onBeforeUploadItem",
@@ -746,8 +759,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `onBeforeUploadItem` to handle on before upload item.",
+          "descriptionZh": "执行 `onBeforeUploadItem`，用于当之前上传条目。"
         },
         {
           "name": "onProgressItem",
@@ -762,8 +775,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `onProgressItem` to handle on progress item.",
+          "descriptionZh": "执行 `onProgressItem`，用于当进度条条目。"
         },
         {
           "name": "onProgressAll",
@@ -774,8 +787,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `onProgressAll` to handle on progress all.",
+          "descriptionZh": "执行 `onProgressAll`，用于当进度条全部。"
         },
         {
           "name": "onSuccessItem",
@@ -798,8 +811,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `onSuccessItem` to handle on success item.",
+          "descriptionZh": "执行 `onSuccessItem`，用于当成功条目。"
         },
         {
           "name": "onErrorItem",
@@ -822,8 +835,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `onErrorItem` to handle on error item.",
+          "descriptionZh": "执行 `onErrorItem`，用于当错误条目。"
         },
         {
           "name": "onCancelItem",
@@ -846,8 +859,8 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `onCancelItem` to handle on cancel item.",
+          "descriptionZh": "执行 `onCancelItem`，用于当取消条目。"
         },
         {
           "name": "onCompleteItem",
@@ -870,88 +883,209 @@
             }
           ],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `onCompleteItem` to handle on complete item.",
+          "descriptionZh": "执行 `onCompleteItem`，用于当完成条目。"
         },
         {
           "name": "onCompleteAll",
           "params": [],
           "returnType": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `onCompleteAll` to handle on complete all.",
+          "descriptionZh": "执行 `onCompleteAll`，用于当完成全部。"
         }
       ],
       "properties": [
         {
           "name": "authToken",
           "type": "string",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `authToken` (`string`) storing auth token.",
+          "descriptionZh": "属性 `authToken`（类型：`string`），用于存储或配置认证令牌。"
         },
         {
           "name": "isUploading",
           "type": "boolean",
           "default": "false",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `isUploading` (`boolean`) storing is uploading (default: `false`).",
+          "descriptionZh": "属性 `isUploading`（类型：`boolean`），用于存储或配置是否为上传（默认值：`false`）。"
         },
         {
           "name": "queue",
           "type": "FileItem[]",
           "default": "[]",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `queue` (`FileItem[]`) storing queue (default: `[]`).",
+          "descriptionZh": "属性 `queue`（类型：`FileItem[]`），用于存储或配置队列（默认值：`[]`）。"
         },
         {
           "name": "progress",
           "type": "number",
           "default": "0",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `progress` (`number`) storing progress (default: `0`).",
+          "descriptionZh": "属性 `progress`（类型：`number`），用于存储或配置进度条（默认值：`0`）。"
         },
         {
           "name": "autoUpload",
           "type": "any",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `autoUpload` (`any`) storing auto upload.",
+          "descriptionZh": "属性 `autoUpload`（类型：`any`），用于存储或配置自动上传。"
         },
         {
           "name": "authTokenHeader",
           "type": "string",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `authTokenHeader` (`string`) storing auth token header.",
+          "descriptionZh": "属性 `authTokenHeader`（类型：`string`），用于存储或配置认证令牌表头。"
         },
         {
           "name": "uploaderResponse",
           "type": "EventEmitter<any>",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `uploaderResponse` (`EventEmitter<any>`) storing uploader response.",
+          "descriptionZh": "属性 `uploaderResponse`（类型：`EventEmitter<any>`），用于存储或配置上传器响应。"
         },
         {
           "name": "options",
           "type": "FileUploaderOptions",
           "default": "{\n    autoUpload: false,\n    isHTML5: true,\n    filters: [],\n    removeAfterUpload: false,\n    disableMultipart: false,\n    formatDataFunction: (item: FileItem) => item._file,\n    formatDataFunctionIsAsync: false\n  }",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `options` (`FileUploaderOptions`) storing options.",
+          "descriptionZh": "属性 `options`（类型：`FileUploaderOptions`），用于存储或配置配置选项。"
         }
       ]
     },
     {
       "name": "FileUploaderOptions",
       "kind": "interface",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Interface `FileUploaderOptions` defining the contract and properties for file uploader options.",
+      "summaryZh": "接口 `FileUploaderOptions`，定义文件上传器配置选项的数据结构契约与属性规范。",
       "sourceFile": "src/common/fileupload/file-uploader.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
-      "properties": []
+      "properties": [
+        {
+          "name": "allowedMimeType",
+          "type": "string[]",
+          "description": "Property `allowedMimeType` (`string[]`) storing allowed mime type.",
+          "descriptionZh": "属性 `allowedMimeType`（类型：`string[]`），用于存储或配置允许的MIME类型类型。"
+        },
+        {
+          "name": "allowedFileType",
+          "type": "string[]",
+          "description": "Property `allowedFileType` (`string[]`) storing allowed file type.",
+          "descriptionZh": "属性 `allowedFileType`（类型：`string[]`），用于存储或配置允许的文件类型。"
+        },
+        {
+          "name": "autoUpload",
+          "type": "boolean",
+          "description": "Property `autoUpload` (`boolean`) storing auto upload.",
+          "descriptionZh": "属性 `autoUpload`（类型：`boolean`），用于存储或配置自动上传。"
+        },
+        {
+          "name": "resize",
+          "type": "ResizeOptions",
+          "description": "Property `resize` (`ResizeOptions`) storing resize.",
+          "descriptionZh": "属性 `resize`（类型：`ResizeOptions`），用于存储或配置调整尺寸。"
+        },
+        {
+          "name": "isHTML5",
+          "type": "boolean",
+          "description": "Property `isHTML5` (`boolean`) storing is html5.",
+          "descriptionZh": "属性 `isHTML5`（类型：`boolean`），用于存储或配置是否为HTML5。"
+        },
+        {
+          "name": "filters",
+          "type": "FilterFunction[]",
+          "description": "Property `filters` (`FilterFunction[]`) storing filters.",
+          "descriptionZh": "属性 `filters`（类型：`FilterFunction[]`），用于存储或配置过滤器列表。"
+        },
+        {
+          "name": "headers",
+          "type": "Headers[]",
+          "description": "Property `headers` (`Headers[]`) storing headers.",
+          "descriptionZh": "属性 `headers`（类型：`Headers[]`），用于存储或配置请求头。"
+        },
+        {
+          "name": "method",
+          "type": "string",
+          "description": "Property `method` (`string`) storing method.",
+          "descriptionZh": "属性 `method`（类型：`string`），用于存储或配置方法。"
+        },
+        {
+          "name": "authToken",
+          "type": "string",
+          "description": "Property `authToken` (`string`) storing auth token.",
+          "descriptionZh": "属性 `authToken`（类型：`string`），用于存储或配置认证令牌。"
+        },
+        {
+          "name": "maxFileSize",
+          "type": "number",
+          "description": "Property `maxFileSize` (`number`) storing max file size.",
+          "descriptionZh": "属性 `maxFileSize`（类型：`number`），用于存储或配置最大值文件尺寸。"
+        },
+        {
+          "name": "queueLimit",
+          "type": "number",
+          "description": "Property `queueLimit` (`number`) storing queue limit.",
+          "descriptionZh": "属性 `queueLimit`（类型：`number`），用于存储或配置队列限制。"
+        },
+        {
+          "name": "removeAfterUpload",
+          "type": "boolean",
+          "description": "Property `removeAfterUpload` (`boolean`) storing remove after upload.",
+          "descriptionZh": "属性 `removeAfterUpload`（类型：`boolean`），用于存储或配置移除之后上传。"
+        },
+        {
+          "name": "url",
+          "type": "string",
+          "description": "Property `url` (`string`) storing url.",
+          "descriptionZh": "属性 `url`（类型：`string`），用于存储或配置链接地址。"
+        },
+        {
+          "name": "disableMultipart",
+          "type": "boolean",
+          "description": "Property `disableMultipart` (`boolean`) storing disable multipart.",
+          "descriptionZh": "属性 `disableMultipart`（类型：`boolean`），用于存储或配置禁用Multipart。"
+        },
+        {
+          "name": "itemAlias",
+          "type": "string",
+          "description": "Property `itemAlias` (`string`) storing item alias.",
+          "descriptionZh": "属性 `itemAlias`（类型：`string`），用于存储或配置条目Alias。"
+        },
+        {
+          "name": "authTokenHeader",
+          "type": "string",
+          "description": "Property `authTokenHeader` (`string`) storing auth token header.",
+          "descriptionZh": "属性 `authTokenHeader`（类型：`string`），用于存储或配置认证令牌表头。"
+        },
+        {
+          "name": "additionalParameter",
+          "type": "{ [key: string]: any }",
+          "description": "Property `additionalParameter` (`{ [key: string]: any }`) storing additional parameter.",
+          "descriptionZh": "属性 `additionalParameter`（类型：`{ [key: string]: any }`），用于存储或配置additional参数。"
+        },
+        {
+          "name": "parametersBeforeFiles",
+          "type": "boolean",
+          "description": "Property `parametersBeforeFiles` (`boolean`) storing parameters before files.",
+          "descriptionZh": "属性 `parametersBeforeFiles`（类型：`boolean`），用于存储或配置参数列表之前文件列表。"
+        },
+        {
+          "name": "formatDataFunction",
+          "type": "Function",
+          "description": "Property `formatDataFunction` (`Function`) storing format data function.",
+          "descriptionZh": "属性 `formatDataFunction`（类型：`Function`），用于存储或配置格式化数据函数。"
+        },
+        {
+          "name": "formatDataFunctionIsAsync",
+          "type": "boolean",
+          "description": "Property `formatDataFunctionIsAsync` (`boolean`) storing format data function is async.",
+          "descriptionZh": "属性 `formatDataFunctionIsAsync`（类型：`boolean`），用于存储或配置格式化数据函数是否为Async。"
+        }
+      ]
     },
     {
       "name": "FileUploadModule",
       "kind": "module",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular module `FileUploadModule` declaring and exporting file upload module components, directives, pipes, and providers.",
+      "summaryZh": "Angular 模块 `FileUploadModule`，声明并导出文件上传模块相关的组件、指令、管道与服务提供者。",
       "sourceFile": "src/common/fileupload/file-upload.module.ts",
       "inputs": [],
       "outputs": [],
@@ -961,8 +1095,8 @@
     {
       "name": "FilterFunction",
       "kind": "type",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Type alias `FilterFunction` representing filter function (`{ name: string, fn: (item?: FileLikeObject, options?: FileUploaderOpti...`).",
+      "summaryZh": "类型别名 `FilterFunction`，表示过滤函数（`{ name: string, fn: (item?: FileLikeObject, options?: FileUploaderOpti...`）。",
       "sourceFile": "src/common/fileupload/file-uploader.ts",
       "inputs": [],
       "outputs": [],
@@ -972,30 +1106,56 @@
     {
       "name": "getImageTypeFromDataUrl",
       "kind": "function",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Executes `getImageTypeFromDataUrl` to handle get image type from data url.",
+      "summaryZh": "执行 `getImageTypeFromDataUrl`，用于获取图像类型从数据链接地址。",
       "sourceFile": "src/common/fileupload/utils.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "getImageTypeFromDataUrl",
+          "params": [
+            {
+              "name": "dataURL",
+              "type": "string"
+            }
+          ],
+          "returnType": "string",
+          "description": "Executes `getImageTypeFromDataUrl` to handle get image type from data url.",
+          "descriptionZh": "执行 `getImageTypeFromDataUrl`，用于获取图像类型从数据链接地址。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "Headers",
       "kind": "interface",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Interface `Headers` defining the contract and properties for headers.",
+      "summaryZh": "接口 `Headers`，定义请求头的数据结构契约与属性规范。",
       "sourceFile": "src/common/fileupload/file-uploader.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
-      "properties": []
+      "properties": [
+        {
+          "name": "name",
+          "type": "string",
+          "description": "Property `name` (`string`) storing name.",
+          "descriptionZh": "属性 `name`（类型：`string`），用于存储或配置名称。"
+        },
+        {
+          "name": "value",
+          "type": "string",
+          "description": "Property `value` (`string`) storing value.",
+          "descriptionZh": "属性 `value`（类型：`string`），用于存储或配置值。"
+        }
+      ]
     },
     {
       "name": "IMAGE_FILE_PROCESSOR",
       "kind": "constant",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular dependency-injection token `IMAGE_FILE_PROCESSOR` for providing image file processor.",
+      "summaryZh": "Angular 依赖注入令牌 `IMAGE_FILE_PROCESSOR`，用于提供与注入图像文件处理器。",
       "sourceFile": "src/common/fileupload/file-select.directive.ts",
       "inputs": [],
       "outputs": [],
@@ -1005,30 +1165,74 @@
     {
       "name": "ImageFileProcessor",
       "kind": "interface",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Interface `ImageFileProcessor` defining the contract and properties for image file processor.",
+      "summaryZh": "接口 `ImageFileProcessor`，定义图像文件处理器的数据结构契约与属性规范。",
       "sourceFile": "src/common/fileupload/file-uploader.ts",
       "inputs": [],
       "outputs": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "process",
+          "params": [
+            {
+              "name": "dateURL",
+              "type": "string"
+            }
+          ],
+          "returnType": "Promise<string>",
+          "description": "Executes `process` to handle process.",
+          "descriptionZh": "执行 `process`，用于处理。"
+        }
+      ],
       "properties": []
     },
     {
       "name": "ImageResult",
       "kind": "interface",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Interface `ImageResult` defining the contract and properties for image result.",
+      "summaryZh": "接口 `ImageResult`，定义图像结果的数据结构契约与属性规范。",
       "sourceFile": "src/common/fileupload/file-uploader.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
-      "properties": []
+      "properties": [
+        {
+          "name": "file",
+          "type": "File",
+          "description": "Property `file` (`File`) storing file.",
+          "descriptionZh": "属性 `file`（类型：`File`），用于存储或配置文件。"
+        },
+        {
+          "name": "url",
+          "type": "string",
+          "description": "Property `url` (`string`) storing url.",
+          "descriptionZh": "属性 `url`（类型：`string`），用于存储或配置链接地址。"
+        },
+        {
+          "name": "dataURL",
+          "type": "string",
+          "description": "Property `dataURL` (`string`) storing data url.",
+          "descriptionZh": "属性 `dataURL`（类型：`string`），用于存储或配置数据链接地址。"
+        },
+        {
+          "name": "error",
+          "type": "any",
+          "description": "Property `error` (`any`) storing error.",
+          "descriptionZh": "属性 `error`（类型：`any`），用于存储或配置错误。"
+        },
+        {
+          "name": "resized",
+          "type": "{ dataURL: string; type: string; }",
+          "description": "Property `resized` (`{ dataURL: string; type: string; }`) storing resized.",
+          "descriptionZh": "属性 `resized`（类型：`{ dataURL: string; type: string; }`），用于存储或配置已调整尺寸。"
+        }
+      ]
     },
     {
       "name": "ParsedResponseHeaders",
       "kind": "type",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Type alias `ParsedResponseHeaders` representing parsed response headers (`{ [headerFieldName: string]: string }`).",
+      "summaryZh": "类型别名 `ParsedResponseHeaders`，表示已解析响应请求头（`{ [headerFieldName: string]: string }`）。",
       "sourceFile": "src/common/fileupload/file-uploader.ts",
       "inputs": [],
       "outputs": [],
@@ -1038,13 +1242,38 @@
     {
       "name": "ResizeOptions",
       "kind": "interface",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Interface `ResizeOptions` defining the contract and properties for resize options.",
+      "summaryZh": "接口 `ResizeOptions`，定义调整尺寸配置选项的数据结构契约与属性规范。",
       "sourceFile": "src/common/fileupload/file-uploader.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
-      "properties": []
+      "properties": [
+        {
+          "name": "maxHeight",
+          "type": "number",
+          "description": "Property `maxHeight` (`number`) storing max height.",
+          "descriptionZh": "属性 `maxHeight`（类型：`number`），用于存储或配置最大值高度。"
+        },
+        {
+          "name": "maxWidth",
+          "type": "number",
+          "description": "Property `maxWidth` (`number`) storing max width.",
+          "descriptionZh": "属性 `maxWidth`（类型：`number`），用于存储或配置最大值宽度。"
+        },
+        {
+          "name": "quality",
+          "type": "number",
+          "description": "Property `quality` (`number`) storing quality.",
+          "descriptionZh": "属性 `quality`（类型：`number`），用于存储或配置quality。"
+        },
+        {
+          "name": "type",
+          "type": "string",
+          "description": "Property `type` (`string`) storing type.",
+          "descriptionZh": "属性 `type`（类型：`string`），用于存储或配置类型。"
+        }
+      ]
     }
   ],
   "suggestedUsageSnippet": "import { FileUploadModule } from '@dotos/dui/common/fileupload';"

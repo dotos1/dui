@@ -1,17 +1,45 @@
+/**
+ * @fileoverview Module `src/core/auth/jwt-helper.service.spec.ts` providing jwt helper service spec definitions and implementation.
+ * @zh 模块文件 `src/core/auth/jwt-helper.service.spec.ts`，提供jwt辅助工具服务spec相关的定义与实现。
+ */
+
 import { JwtHelperService } from './jwt-helper.service';
 
-/** 用给定 payload 拼一个结构合法的 JWT（签名部分未使用，填占位符即可）。 */
+/**
+ * 用给定 payload 拼一个结构合法的 JWT（签名部分未使用，填占位符即可）。
+ * @zh 用给定 payload 拼一个结构合法的 JWT（签名部分未使用，填占位符即可）。
+ */
 function makeToken(payload: object): string {
   const base64url = (obj: object) =>
     btoa(JSON.stringify(obj)).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
   return `${base64url({ alg: 'none' })}.${base64url(payload)}.signature`;
 }
 
+/**
+ * Class `FakeStorage` encapsulating fake storage data structures and logic in `src/core/auth`.
+ * @zh 类 `FakeStorage`，封装 `src/core/auth` 中的Fake存储数据结构与处理逻辑。
+ */
 class FakeStorage {
+  /**
+   * Property `store` (`Record<string, string>`) storing store (default: `{}`).
+   * @zh 属性 `store`（类型：`Record<string, string>`），用于存储或配置状态仓库（默认值：`{}`）。
+   */
   private store: Record<string, string> = {};
+  /**
+   * Executes `get` to handle get.
+   * @zh 执行 `get`，用于获取。
+   * @param key - key parameter (`string`) / 键参数（`string`）
+   * @returns Result of type `string` / 类型为 `string` 的返回值
+   */
   get(key: string): string {
     return this.store[key];
   }
+  /**
+   * Executes `set` to handle set.
+   * @zh 执行 `set`，用于集合。
+   * @param key - key parameter (`string`) / 键参数（`string`）
+   * @param value - value parameter (`string`) / 值参数（`string`）
+   */
   set(key: string, value: string): void {
     this.store[key] = value;
   }

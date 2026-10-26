@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Module `src/util/pipes/custom-html.pipe.spec.ts` providing custom html pipe spec definitions and implementation.
+ * @zh 模块文件 `src/util/pipes/custom-html.pipe.spec.ts`，提供自定义HTML内容管道spec相关的定义与实现。
+ */
+
 import { TestBed } from '@angular/core/testing';
 import { DomSanitizer } from '@angular/platform-browser';
 import { SanitizeHtmlPipe } from './custom-html.pipe';

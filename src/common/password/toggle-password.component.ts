@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Module `src/common/password/toggle-password.component.ts` providing toggle password component definitions and implementation.
+ * @zh 模块文件 `src/common/password/toggle-password.component.ts`，提供开关密码组件相关的定义与实现。
+ */
+
 
 import { AfterViewInit, Component, ElementRef } from '@angular/core';
 
@@ -25,8 +30,17 @@ export class TogglePasswordComponent implements AfterViewInit {
    */
   hideToggle = false;
 
+  /**
+   * Property `input` (`HTMLInputElement`) storing input (default: `null`).
+   * @zh 属性 `input`（类型：`HTMLInputElement`），用于存储或配置输入属性（默认值：`null`）。
+   */
   private input: HTMLInputElement = null;
 
+  /**
+   * Creates an instance of `TogglePasswordComponent` and initializes its dependencies and internal state.
+   * @zh 创建 `TogglePasswordComponent` 实例，并初始化其依赖项与内部状态。
+   * @param hostElement - Injected or initial host element (`ElementRef`) / 注入或传入的宿主元素（`ElementRef`）
+   */
   constructor(private hostElement: ElementRef) { }
 
   /**
@@ -39,6 +53,10 @@ export class TogglePasswordComponent implements AfterViewInit {
     this.input.type = this.showPassword ? 'text' : 'password';
   }
 
+  /**
+   * Angular lifecycle hook invoked once after the component's view and child views are initialized.
+   * @zh Angular 生命周期钩子：在组件视图及其子视图初始化完成后调用一次。
+   */
   ngAfterViewInit() {
     this.input = this.hostElement.nativeElement.closest('mat-form-field').querySelector('input[type="password"]');
     if (this.input === null) {

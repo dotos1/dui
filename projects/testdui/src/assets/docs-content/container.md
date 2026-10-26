@@ -1,9 +1,30 @@
 ## 概述
 
-`container` 提供搭建应用整体或局部布局骨架所需的容器型组件：面板与标签页（Panel/TabPanel）、手风琴（Accordion）、卡片（Card）、可拖拽网格布局（Gridster）、抽屉式信息面板（InfoDrawer），以及两个独立的重量级布局系统——可拖拽分栏布局 `container/layout`、以及 IDE 风格的窗口停靠系统 `container/dock-layout`（基于 golden-layout 移植）。
+`container`（`@dotos/dui/container*`）提供搭建企业级中后台与低代码工作台整体或局部布局骨架所需的容器型组件，包含常规面板与标签页容器（`@dotos/dui/container`）、可拖拽分割面板布局（`@dotos/dui/container/layout`）以及 IDE 级多窗口停靠布局系统（`@dotos/dui/container/dock-layout`）。
 
-## 何时使用
+## 核心模块与职责
 
-- 需要标签页/面板/手风琴等常规布局容器：直接使用根入口 `@dotos/dui/container`。
-- 需要可调整大小的分栏布局：使用 `@dotos/dui/container/layout`。
-- 需要类似 VS Code 的可拖拽停靠窗口系统：使用 `@dotos/dui/container/dock-layout`（体积较大，按需引入）。
+| 二级入口 | 核心导出 | 职责说明 |
+| --- | --- | --- |
+| `@dotos/dui/container` | `PanelModule`, `DuiTabsModule`, `AccordionModule`, `CardModule`, `GridsterModule`, `InfoDrawerModule` | 面板、多标签页（`tabpanel`）、手风琴、卡片、响应式网格拖拽布局与右侧属性抽屉 |
+| `@dotos/dui/container/layout` | `DuiLayoutModule`, `LayoutComponent`, `SplitAreaDirective` | 水平/垂直可拖拽分割布局（`<dui-layout>` + `<dui-split-area>`），支持百分比与像素模式 |
+| `@dotos/dui/container/dock-layout` | `DockLayoutModule`, `DockLayoutComponent`, `GoldenLayout` | 类 VS Code 的多标签拖拽、拆分、浮动与持久化停靠窗口引擎 |
+
+## 架构与设计模式
+
+- **动态组件注册机制**：`container` 与 `container/layout` 在模块初始化时通过 `Dui.registerComponentFactory()` 注册动态面板，使低代码引擎可通过 JSON `xtype: 'panel' | 'tabpanel'` 直接实例化布局树。
+- **重量级模块物理隔离**：`dock-layout` 作为独立二级入口存在，避免普通业务页面引入基础面板时连带打包复杂停靠算法。
+
+## 典型用法与最佳实践
+
+```html
+<!-- 可拖拽水平分割布局 (@dotos/dui/container/layout) -->
+<dui-layout direction="horizontal" style="height: 360px;">
+  <dui-split-area [size]="25" [minSize]="15">
+    左侧导航树
+  </dui-split-area>
+  <dui-split-area [size]="75">
+    右侧主工作区
+  </dui-split-area>
+</dui-layout>
+```

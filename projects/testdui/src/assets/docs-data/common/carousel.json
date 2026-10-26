@@ -4,13 +4,98 @@
     {
       "name": "MatCarousel",
       "kind": "interface",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Interface `MatCarousel` defining the contract and properties for mat carousel.",
+      "summaryZh": "接口 `MatCarousel`，定义MaterialCarousel的数据结构契约与属性规范。",
       "sourceFile": "src/common/carousel/carousel.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
-      "properties": []
+      "properties": [
+        {
+          "name": "timings",
+          "type": "string",
+          "description": "Property `timings` (`string`) storing timings.",
+          "descriptionZh": "属性 `timings`（类型：`string`），用于存储或配置timings。"
+        },
+        {
+          "name": "autoplay",
+          "type": "boolean",
+          "description": "Property `autoplay` (`boolean`) storing autoplay.",
+          "descriptionZh": "属性 `autoplay`（类型：`boolean`），用于存储或配置autoplay。"
+        },
+        {
+          "name": "interval",
+          "type": "number",
+          "description": "Property `interval` (`number`) storing interval.",
+          "descriptionZh": "属性 `interval`（类型：`number`），用于存储或配置间隔定时器。"
+        },
+        {
+          "name": "loop",
+          "type": "boolean",
+          "description": "Property `loop` (`boolean`) storing loop.",
+          "descriptionZh": "属性 `loop`（类型：`boolean`），用于存储或配置loop。"
+        },
+        {
+          "name": "hideArrows",
+          "type": "boolean",
+          "description": "Property `hideArrows` (`boolean`) storing hide arrows.",
+          "descriptionZh": "属性 `hideArrows`（类型：`boolean`），用于存储或配置隐藏箭头。"
+        },
+        {
+          "name": "hideIndicators",
+          "type": "boolean",
+          "description": "Property `hideIndicators` (`boolean`) storing hide indicators.",
+          "descriptionZh": "属性 `hideIndicators`（类型：`boolean`），用于存储或配置隐藏指示器。"
+        },
+        {
+          "name": "color",
+          "type": "ThemePalette",
+          "description": "Property `color` (`ThemePalette`) storing color.",
+          "descriptionZh": "属性 `color`（类型：`ThemePalette`），用于存储或配置颜色。"
+        },
+        {
+          "name": "maxWidth",
+          "type": "string",
+          "description": "Property `maxWidth` (`string`) storing max width.",
+          "descriptionZh": "属性 `maxWidth`（类型：`string`），用于存储或配置最大值宽度。"
+        },
+        {
+          "name": "proportion",
+          "type": "number",
+          "description": "Property `proportion` (`number`) storing proportion.",
+          "descriptionZh": "属性 `proportion`（类型：`number`），用于存储或配置proportion。"
+        },
+        {
+          "name": "slides",
+          "type": "number",
+          "description": "Property `slides` (`number`) storing slides.",
+          "descriptionZh": "属性 `slides`（类型：`number`），用于存储或配置slides。"
+        },
+        {
+          "name": "svgIconOverrides",
+          "type": "SvgIconOverrides",
+          "description": "Property `svgIconOverrides` (`SvgIconOverrides`) storing svg icon overrides.",
+          "descriptionZh": "属性 `svgIconOverrides`（类型：`SvgIconOverrides`），用于存储或配置SVG矢量图图标Overrides。"
+        },
+        {
+          "name": "useKeyboard",
+          "type": "boolean",
+          "description": "Property `useKeyboard` (`boolean`) storing use keyboard.",
+          "descriptionZh": "属性 `useKeyboard`（类型：`boolean`），用于存储或配置使用键盘。"
+        },
+        {
+          "name": "useMouseWheel",
+          "type": "boolean",
+          "description": "Property `useMouseWheel` (`boolean`) storing use mouse wheel.",
+          "descriptionZh": "属性 `useMouseWheel`（类型：`boolean`），用于存储或配置使用鼠标滚轮。"
+        },
+        {
+          "name": "orientation",
+          "type": "Orientation",
+          "description": "Property `orientation` (`Orientation`) storing orientation.",
+          "descriptionZh": "属性 `orientation`（类型：`Orientation`），用于存储或配置方向。"
+        }
+      ]
     },
     {
       "name": "MatCarouselComponent",
@@ -24,7 +109,7 @@
           "name": "timings",
           "type": "any",
           "default": "'250ms ease-in'",
-          "description": null,
+          "description": "Input property `timings` (`string`) configuring timings (default: `'250ms ease-in'`).",
           "descriptionZh": "切换幻灯片时的过渡动画时长/缓动函数。"
         },
         {
@@ -55,14 +140,14 @@
           "name": "hideArrows",
           "type": "any",
           "default": "true",
-          "description": null,
+          "description": "Input property `hideArrows` (`boolean`) configuring hide arrows (default: `true`).",
           "descriptionZh": "是否隐藏左右箭头。"
         },
         {
           "name": "hideIndicators",
           "type": "any",
           "default": "true",
-          "description": null,
+          "description": "Input property `hideIndicators` (`boolean`) configuring hide indicators (default: `true`).",
           "descriptionZh": "是否隐藏底部指示点。"
         },
         {
@@ -82,21 +167,21 @@
           "name": "maintainAspectRatio",
           "type": "any",
           "default": "true",
-          "description": null,
+          "description": "Input property `maintainAspectRatio` (`boolean`) configuring maintain aspect ratio (default: `true`).",
           "descriptionZh": "是否保持幻灯片宽高比。"
         },
         {
           "name": "proportion",
           "type": "any",
           "default": "25",
-          "description": null,
+          "description": "Input property `proportion` (`number`) configuring proportion (default: `25`).",
           "descriptionZh": "保持宽高比时使用的高度占宽度的百分比。"
         },
         {
           "name": "slideHeight",
           "type": "any",
           "default": "'100%'",
-          "description": null,
+          "description": "Input property `slideHeight` (`string`) configuring slide height (default: `'100%'`).",
           "descriptionZh": "幻灯片高度（`maintainAspectRatio` 为 `false` 时使用）。"
         },
         {
@@ -109,14 +194,14 @@
           "name": "useKeyboard",
           "type": "any",
           "default": "false",
-          "description": null,
+          "description": "Input property `useKeyboard` (`boolean`) configuring use keyboard (default: `false`).",
           "descriptionZh": "是否启用左右方向键导航。"
         },
         {
           "name": "useMouseWheel",
           "type": "any",
           "default": "false",
-          "description": null,
+          "description": "Input property `useMouseWheel` (`boolean`) configuring use mouse wheel (default: `false`).",
           "descriptionZh": "是否启用鼠标滚轮切换幻灯片。"
         },
         {
@@ -292,8 +377,8 @@
     {
       "name": "MatCarouselHammerConfig",
       "kind": "class",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Class `MatCarouselHammerConfig` encapsulating mat carousel hammer config data structures and logic in `src/common/carousel`.",
+      "summaryZh": "类 `MatCarouselHammerConfig`，封装 `src/common/carousel` 中的MaterialCarouselHammer配置数据结构与处理逻辑。",
       "sourceFile": "src/common/carousel/carousel.module.ts",
       "inputs": [],
       "outputs": [],
@@ -303,16 +388,16 @@
           "name": "overrides",
           "type": "any",
           "default": "{\n    pinch: { enable: false },\n    rotate: { enable: false }\n  }",
-          "description": null,
-          "descriptionZh": null
+          "description": "Property `overrides` (`any`) storing overrides.",
+          "descriptionZh": "属性 `overrides`（类型：`any`），用于存储或配置overrides。"
         }
       ]
     },
     {
       "name": "MatCarouselModule",
       "kind": "module",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Angular module `MatCarouselModule` declaring and exporting mat carousel module components, directives, pipes, and providers.",
+      "summaryZh": "Angular 模块 `MatCarouselModule`，声明并导出MaterialCarousel模块相关的组件、指令、管道与服务提供者。",
       "sourceFile": "src/common/carousel/carousel.module.ts",
       "inputs": [],
       "outputs": [],
@@ -321,8 +406,8 @@
           "name": "forRoot",
           "params": [],
           "returnType": "ModuleWithProviders<MatCarouselModule>",
-          "description": null,
-          "descriptionZh": null
+          "description": "Executes `forRoot` to handle for root.",
+          "descriptionZh": "执行 `forRoot`，用于用于根节点。"
         }
       ],
       "properties": []
@@ -330,13 +415,38 @@
     {
       "name": "MatCarouselSlide",
       "kind": "interface",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Interface `MatCarouselSlide` defining the contract and properties for mat carousel slide.",
+      "summaryZh": "接口 `MatCarouselSlide`，定义MaterialCarouselSlide的数据结构契约与属性规范。",
       "sourceFile": "src/common/carousel/carousel-slide/carousel-slide.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
-      "properties": []
+      "properties": [
+        {
+          "name": "image",
+          "type": "SafeStyle",
+          "description": "Property `image` (`SafeStyle`) storing image.",
+          "descriptionZh": "属性 `image`（类型：`SafeStyle`），用于存储或配置图像。"
+        },
+        {
+          "name": "overlayColor",
+          "type": "string",
+          "description": "Property `overlayColor` (`string`) storing overlay color.",
+          "descriptionZh": "属性 `overlayColor`（类型：`string`），用于存储或配置浮层颜色。"
+        },
+        {
+          "name": "hideOverlay",
+          "type": "boolean",
+          "description": "Property `hideOverlay` (`boolean`) storing hide overlay.",
+          "descriptionZh": "属性 `hideOverlay`（类型：`boolean`），用于存储或配置隐藏浮层。"
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "description": "Property `disabled` (`boolean`) storing disabled.",
+          "descriptionZh": "属性 `disabled`（类型：`boolean`），用于存储或配置已禁用。"
+        }
+      ]
     },
     {
       "name": "MatCarouselSlideComponent",
@@ -356,21 +466,21 @@
           "name": "overlayColor",
           "type": "any",
           "default": "'#00000040'",
-          "description": null,
+          "description": "Input property `overlayColor` (`string`) configuring overlay color (default: `'#00000040'`).",
           "descriptionZh": "悬浮遮罩的颜色。"
         },
         {
           "name": "hideOverlay",
           "type": "any",
           "default": "false",
-          "description": null,
+          "description": "Input property `hideOverlay` (`boolean`) configuring hide overlay (default: `false`).",
           "descriptionZh": "隐藏悬浮遮罩。"
         },
         {
           "name": "disabled",
           "type": "any",
           "default": "false",
-          "description": null,
+          "description": "Input property `disabled` (`boolean`) configuring disabled (default: `false`).",
           "descriptionZh": "禁用该幻灯片（跳过键盘导航）。"
         }
       ],
@@ -380,7 +490,7 @@
         {
           "name": "templateRef",
           "type": "TemplateRef<any>",
-          "description": null,
+          "description": "Template/content query reference `templateRef` (`@ViewChild`) targeting template ref.",
           "descriptionZh": "该幻灯片投影内容的模板引用。"
         }
       ]
@@ -388,8 +498,8 @@
     {
       "name": "Orientation",
       "kind": "type",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Type alias `Orientation` representing orientation (`'ltr' | 'rtl'`).",
+      "summaryZh": "类型别名 `Orientation`，表示方向（`'ltr' | 'rtl'`）。",
       "sourceFile": "src/common/carousel/carousel.ts",
       "inputs": [],
       "outputs": [],
@@ -399,13 +509,26 @@
     {
       "name": "SvgIconOverrides",
       "kind": "interface",
-      "summary": null,
-      "summaryZh": null,
+      "summary": "Interface `SvgIconOverrides` defining the contract and properties for svg icon overrides.",
+      "summaryZh": "接口 `SvgIconOverrides`，定义SVG矢量图图标Overrides的数据结构契约与属性规范。",
       "sourceFile": "src/common/carousel/carousel.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
-      "properties": []
+      "properties": [
+        {
+          "name": "arrowBack",
+          "type": "string",
+          "description": "Property `arrowBack` (`string`) storing arrow back.",
+          "descriptionZh": "属性 `arrowBack`（类型：`string`），用于存储或配置箭头返回。"
+        },
+        {
+          "name": "arrowForward",
+          "type": "string",
+          "description": "Property `arrowForward` (`string`) storing arrow forward.",
+          "descriptionZh": "属性 `arrowForward`（类型：`string`），用于存储或配置箭头向前。"
+        }
+      ]
     }
   ],
   "suggestedUsageSnippet": "import { MatCarouselComponent, MatCarouselModule } from '@dotos/dui/common/carousel';\n\n<mat-carousel [timings]=\"...\" [svgIconOverrides]=\"...\" [autoplay]=\"...\" (change)=\"...\"></mat-carousel>"

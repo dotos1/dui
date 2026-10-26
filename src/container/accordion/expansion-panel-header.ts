@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Module `src/container/accordion/expansion-panel-header.ts` providing expansion panel header definitions and implementation.
+ * @zh 模块文件 `src/container/accordion/expansion-panel-header.ts`，提供展开面板面板表头相关的定义与实现。
+ */
+
 
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { FocusMonitor } from '@angular/cdk/a11y';
@@ -18,6 +23,10 @@ import { merge } from 'rxjs';
 import { Subscription } from 'rxjs';
 import { EXPANSION_PANEL_ANIMATION_TIMING, ExpansionPanel } from './expansion-panel';
 
+/**
+ * Angular component `ExpansionPanelHeader` (selector: 'expansion-panel-header') providing expansion panel header presentation and interaction in `src/container/accordion`.
+ * @zh Angular 组件 `ExpansionPanelHeader`（selector: 'expansion-panel-header'），提供展开面板面板表头的视图渲染与交互逻辑（位于 `src/container/accordion`）。
+ */
 @Component({
   selector: 'expansion-panel-header',
   styleUrls: ['./expansion-panel-header.scss'],
@@ -67,8 +76,20 @@ import { EXPANSION_PANEL_ANIMATION_TIMING, ExpansionPanel } from './expansion-pa
   ],
 })
 export class ExpansionPanelHeader implements OnDestroy {
+  /**
+   * Property `_parentChangeSubscription` (`any`) storing parent change subscription (default: `Subscription.EMPTY`).
+   * @zh 属性 `_parentChangeSubscription`（类型：`any`），用于存储或配置父级变更订阅对象（默认值：`Subscription.EMPTY`）。
+   */
   private _parentChangeSubscription = Subscription.EMPTY;
 
+  /**
+   * Creates an instance of `ExpansionPanelHeader` and initializes its dependencies and internal state.
+   * @zh 创建 `ExpansionPanelHeader` 实例，并初始化其依赖项与内部状态。
+   * @param panel - Injected or initial panel (`ExpansionPanel`) / 注入或传入的面板（`ExpansionPanel`）
+   * @param _element - Injected or initial element (`ElementRef`) / 注入或传入的元素（`ElementRef`）
+   * @param _focusMonitor - Injected or initial focus monitor (`FocusMonitor`) / 注入或传入的聚焦Monitor（`FocusMonitor`）
+   * @param _changeDetectorRef - Injected or initial change detector ref (`ChangeDetectorRef`) / 注入或传入的变更检测器引用（`ChangeDetectorRef`）
+   */
   constructor(
     @Host() public panel: ExpansionPanel,
     private _element: ElementRef,
@@ -80,47 +101,71 @@ export class ExpansionPanelHeader implements OnDestroy {
     this._parentChangeSubscription = merge(
       panel.opened,
       panel.closed,
-      panel._inputChanges.pipe(filter((changes:any) => !!(changes.hideToggle || changes.disabled)))
+      panel._inputChanges.pipe(filter((changes:{ hideToggle?; disabled? }) => !!(changes.hideToggle || changes.disabled)))
     )
       .subscribe(() => this._changeDetectorRef.markForCheck());
 
     _focusMonitor.monitor(_element.nativeElement, false);
   }
 
-  /** Height of the header while the panel is expanded. */
+  /**
+   * Height of the header while the panel is expanded.
+   * @zh 输入属性 `expandedHeight`（类型：`string`），用于配置已展开高度。
+   */
   @Input() expandedHeight: string;
 
-  /** Height of the header while the panel is collapsed. */
+  /**
+   * Height of the header while the panel is collapsed.
+   * @zh 输入属性 `collapsedHeight`（类型：`string`），用于配置已折叠高度。
+   */
   @Input() collapsedHeight: string;
 
-  /** Toggles the expanded state of the panel. */
+  /**
+   * Toggles the expanded state of the panel.
+   * @zh 执行 `_toggle`，用于开关。
+   */
   _toggle(): void {
     if (!this.panel.disabled) {
       this.panel.toggle();
     }
   }
 
-  /** Gets whether the panel is expanded. */
+  /**
+   * Gets whether the panel is expanded.
+   * @zh 执行 `_isExpanded`，用于是否为已展开。
+   */
   _isExpanded(): boolean {
     return this.panel.expanded;
   }
 
-  /** Gets the expanded state string of the panel. */
+  /**
+   * Gets the expanded state string of the panel.
+   * @zh 执行 `_getExpandedState`，用于获取已展开状态。
+   */
   _getExpandedState(): string {
     return this.panel._getExpandedState();
   }
 
-  /** Gets the panel id. */
+  /**
+   * Gets the panel id.
+   * @zh 执行 `_getPanelId`，用于获取面板唯一标识。
+   */
   _getPanelId(): string {
     return this.panel.id;
   }
 
-  /** Gets whether the expand indicator should be shown. */
+  /**
+   * Gets whether the expand indicator should be shown.
+   * @zh 执行 `_showToggle`，用于显示开关。
+   */
   _showToggle(): boolean {
     return !this.panel.hideToggle && !this.panel.disabled;
   }
 
-  /** Handle keyup event calling to toggle() if appropriate. */
+  /**
+   * Handle keyup event calling to toggle() if appropriate.
+   * @zh 执行 `_keyup`，用于按键抬起。
+   */
   _keyup(event: KeyboardEvent) {
     switch (event.keyCode) {
       case SPACE:
@@ -133,6 +178,10 @@ export class ExpansionPanelHeader implements OnDestroy {
     }
   }
 
+  /**
+   * Angular lifecycle hook invoked just before the component, directive, or service is destroyed to release subscriptions and resources.
+   * @zh Angular 生命周期钩子：在组件、指令或服务销毁前调用，用于释放订阅与清理资源。
+   */
   ngOnDestroy() {
     this._parentChangeSubscription.unsubscribe();
     this._focusMonitor.stopMonitoring(this._element.nativeElement);
@@ -143,6 +192,8 @@ export class ExpansionPanelHeader implements OnDestroy {
  * <panel-description> directive.
  *
  * This direction is to be used inside of the ExpansionPanelHeader component.
+
+ * @zh Angular 指令 `ExpansionPanelDescription`（selector: 'panel-description'），为宿主 DOM 元素附加展开面板面板描述行为。
  */
 @Directive({
   selector: 'panel-description',
@@ -156,6 +207,8 @@ export class ExpansionPanelDescription { }
  * <panel-title> directive.
  *
  * This direction is to be used inside of the ExpansionPanelHeader component.
+
+ * @zh Angular 指令 `ExpansionPanelTitle`（selector: 'panel-title'），为宿主 DOM 元素附加展开面板面板标题行为。
  */
 @Directive({
   selector: 'panel-title',

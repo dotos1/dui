@@ -1,5 +1,14 @@
+/**
+ * @fileoverview Module `src/util/jpeg/decoder.ts` providing decoder definitions and implementation.
+ * @zh 模块文件 `src/util/jpeg/decoder.ts`，提供decoder相关的定义与实现。
+ */
+
 import * as Buffer from 'buffer';
 
+/**
+ * Constant/variable `JpegImage` defining jpeg image in `src/util/jpeg`.
+ * @zh 常量/变量 `JpegImage`，定义 `src/util/jpeg` 中的Jpeg图像。
+ */
 let  JpegImage = (function jpegImage() {
   "use strict";
   let  dctZigZag = new Int32Array([
@@ -502,7 +511,7 @@ let  JpegImage = (function jpegImage() {
 
   constructor.prototype = {
     load: function load(path) {
-      let  xhr:any = new XMLHttpRequest();
+      let xhr: XMLHttpRequest & { mozResponseArrayBuffer?: ArrayBuffer } = new XMLHttpRequest();
       xhr.open("GET", path, true);
       xhr.responseType = "arraybuffer";
       xhr.onload = (function() {
@@ -956,6 +965,12 @@ let  JpegImage = (function jpegImage() {
   return constructor;
 })();
 
+/**
+ * Executes `decode` to handle decode.
+ * @zh 执行 `decode`，用于解码。
+ * @param jpegData - jpeg data parameter (`any`) / jpeg数据参数（`any`）
+ * @param opts - opts parameter (`any`) / 选项列表参数（`any`）
+ */
 export function decode(jpegData, opts?) {
   let  defaultOpts = {
     useTArray: false,
