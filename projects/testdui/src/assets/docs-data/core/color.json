@@ -603,10 +603,10 @@
           "params": [
             {
               "name": "color",
-              "type": "string | RGB | RGBA | HSL | HSLA | HSV | HSVA | any"
+              "type": "any"
             }
           ],
-          "returnType": "{ ok: boolean; format: any; r: number; g: number; b: number; a: number; }",
+          "returnType": "{ ok: boolean; format; r: number; g: number; b: number; a: number; }",
           "description": "Given a string or object, convert that input to RGB\n\nPossible string inputs:\n```\n\"red\"\n\"#f00\" or \"f00\"\n\"#ff0000\" or \"ff0000\"\n\"#ff000000\" or \"ff000000\"\n\"rgb 255 0 0\" or \"rgb (255, 0, 0)\"\n\"rgb 1.0 0 0\" or \"rgb (1, 0, 0)\"\n\"rgba (255, 0, 0, 1)\" or \"rgba 255, 0, 0, 1\"\n\"rgba (1.0, 0, 0, 1)\" or \"rgba 1.0, 0, 0, 1\"\n\"hsl(0, 100%, 50%)\" or \"hsl 0 100% 50%\"\n\"hsla(0, 100%, 50%, 1)\" or \"hsla 0 100% 50%, 1\"\n\"hsv(0, 100%, 100%)\" or \"hsv 0 100% 100%\"\n```",
           "descriptionZh": "执行 `inputToRGB`，用于输入属性转换为RGB颜色。"
         }

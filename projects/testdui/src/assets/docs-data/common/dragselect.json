@@ -521,7 +521,7 @@
       "inputs": [
         {
           "name": "dtsSelectItem",
-          "type": "any | undefined",
+          "type": "any",
           "description": "The value reported for this item when selected/deselected; defaults to the directive\ninstance itself if not provided.",
           "descriptionZh": "该条目被选中/取消选中时上报的值；未提供时默认为指令实例本身。"
         },
@@ -581,7 +581,7 @@
         },
         {
           "name": "value",
-          "type": "SelectItemDirective | any",
+          "type": "any",
           "description": "The effective value used to represent this item (`dtsSelectItem` if provided, else the\ndirective instance itself).",
           "descriptionZh": "用于代表该条目的有效值（若提供了 `dtsSelectItem` 则为其值，否则为指令实例本身）。"
         },

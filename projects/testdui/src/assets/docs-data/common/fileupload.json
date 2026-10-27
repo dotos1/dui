@@ -672,14 +672,14 @@
         {
           "name": "getNotUploadedItems",
           "params": [],
-          "returnType": "any[]",
+          "returnType": "any",
           "description": "Executes `getNotUploadedItems` to handle get not uploaded items.",
           "descriptionZh": "执行 `getNotUploadedItems`，用于获取Not已上传条目列表。"
         },
         {
           "name": "getReadyItems",
           "params": [],
-          "returnType": "any[]",
+          "returnType": "any",
           "description": "Executes `getReadyItems` to handle get ready items.",
           "descriptionZh": "执行 `getReadyItems`，用于获取就绪条目列表。"
         },
@@ -936,7 +936,7 @@
         },
         {
           "name": "uploaderResponse",
-          "type": "EventEmitter<any>",
+          "type": "any",
           "description": "Property `uploaderResponse` (`EventEmitter<any>`) storing uploader response.",
           "descriptionZh": "属性 `uploaderResponse`（类型：`EventEmitter<any>`），用于存储或配置上传器响应。"
         },
@@ -1057,7 +1057,7 @@
         },
         {
           "name": "additionalParameter",
-          "type": "{ [key: string]: any }",
+          "type": "{ [key: string]: unknown }",
           "description": "Property `additionalParameter` (`{ [key: string]: any }`) storing additional parameter.",
           "descriptionZh": "属性 `additionalParameter`（类型：`{ [key: string]: any }`），用于存储或配置additional参数。"
         },

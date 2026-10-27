@@ -11,7 +11,7 @@
       "inputs": [
         {
           "name": "config",
-          "type": "any",
+          "type": "{ parentType?; title?; disabled?; style?; iconCls?; color?; items?; tooltip?; [key: string]: unknown }",
           "default": "{}",
           "description": "Input property `config` (`any`) configuring config (default: `{}`).",
           "descriptionZh": "输入属性 `config`（类型：`any`），用于配置配置（默认值：`{}`）。"

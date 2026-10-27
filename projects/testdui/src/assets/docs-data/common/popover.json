@@ -331,7 +331,7 @@
         },
         {
           "name": "templateRef",
-          "type": "TemplateRef<any>",
+          "type": "TemplateRef<unknown>",
           "description": "Template/content query reference `templateRef` (`@ViewChild`) targeting template ref.",
           "descriptionZh": "弹出层内容的模板引用。"
         }
@@ -540,7 +540,7 @@
         },
         {
           "name": "templateRef",
-          "type": "TemplateRef<any>",
+          "type": "TemplateRef<unknown>",
           "description": "Property `templateRef` (`TemplateRef<any>`) storing template ref.",
           "descriptionZh": "属性 `templateRef`（类型：`TemplateRef<any>`），用于存储或配置模板引用。"
         },

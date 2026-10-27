@@ -398,7 +398,7 @@
             },
             {
               "name": "params",
-              "type": "any[]"
+              "type": "any"
             }
           ],
           "returnType": "any",

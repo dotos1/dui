@@ -84,7 +84,7 @@
         },
         {
           "name": "automaticLayout",
-          "type": "any",
+          "type": "boolean | string",
           "description": "Input setter `automaticLayout` updating automatic layout.",
           "descriptionZh": "输入属性 `automaticLayout` 的设置器，用于更新automatic布局。"
         },
@@ -166,7 +166,7 @@
         {
           "name": "propagateChange",
           "type": "any",
-          "default": "(_: any) => {}",
+          "default": "(_) => {}",
           "description": "Property `propagateChange` (`any`) storing propagate change (default: `(_: any) => {}`).",
           "descriptionZh": "属性 `propagateChange`（类型：`any`），用于存储或配置propagate变更（默认值：`(_: any) => {}`）。"
         },

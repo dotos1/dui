@@ -367,7 +367,7 @@
           "params": [
             {
               "name": "objs",
-              "type": "Object | any[]"
+              "type": "any"
             }
           ],
           "returnType": "any",
@@ -653,7 +653,7 @@
               "type": "any"
             }
           ],
-          "returnType": "Array<any>",
+          "returnType": "any",
           "description": "Executes `getRange` to handle get range.",
           "descriptionZh": "执行 `getRange`，用于获取范围。"
         },
@@ -677,7 +677,7 @@
               "type": "boolean"
             }
           ],
-          "returnType": "MixedCollection<any>",
+          "returnType": "any",
           "description": "Executes `filter` to handle filter.",
           "descriptionZh": "执行 `filter`，用于过滤。"
         },
@@ -693,7 +693,7 @@
               "type": "any"
             }
           ],
-          "returnType": "MixedCollection<any>",
+          "returnType": "any",
           "description": "Executes `filterBy` to handle filter by.",
           "descriptionZh": "执行 `filterBy`，用于过滤按。"
         },
@@ -772,7 +772,7 @@
         {
           "name": "clone",
           "params": [],
-          "returnType": "MixedCollection<any>",
+          "returnType": "any",
           "description": "Executes `clone` to handle clone.",
           "descriptionZh": "执行 `clone`，用于克隆。"
         }
@@ -808,7 +808,7 @@
         },
         {
           "name": "itemsSubject",
-          "type": "BehaviorSubject<Array<any>>",
+          "type": "any",
           "default": "new BehaviorSubject([])",
           "description": "Property `itemsSubject` (`BehaviorSubject<Array<any>>`) storing items subject (default: `new BehaviorSubject([])`).",
           "descriptionZh": "属性 `itemsSubject`（类型：`BehaviorSubject<Array<any>>`），用于存储或配置条目列表主题流（默认值：`new BehaviorSubject([])`）。"

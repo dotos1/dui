@@ -951,7 +951,7 @@
               "type": "PipesConfig[]"
             }
           ],
-          "returnType": "ModuleWithProviders<any>",
+          "returnType": "any",
           "description": "Executes `forRoot` to handle for root.",
           "descriptionZh": "执行 `forRoot`，用于用于根节点。"
         }
@@ -1335,10 +1335,10 @@
           "params": [
             {
               "name": "asts",
-              "type": "any[]"
+              "type": "any"
             }
           ],
-          "returnType": "any[]",
+          "returnType": "any",
           "description": "Executes `visitAll` to handle visit all.",
           "descriptionZh": "执行 `visitAll`，用于访问全部。"
         },

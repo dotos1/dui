@@ -1,10 +1,13 @@
 <div class="docs-home">
-  <h1 class="docs-home__title">DUI 组件文档</h1>
-  <p class="docs-home__lead">
-    &#64;dotos/dui 是一个 Angular 组件库，按功能划分为 15 个分类、96 个可独立引入的子模块。
-    左侧导航按分类列出全部模块；每个模块都有完整的 API 参考（Inputs / Outputs / 方法 / 属性），
-    常用组件另附可交互示例。
-  </p>
+  <section class="docs-home__hero">
+    <div class="docs-home__badge">DOTOS DESIGN SYSTEM · 100% INTERACTIVE</div>
+    <h1 class="docs-home__title">DUI 企业级组件与架构文档中心</h1>
+    <p class="docs-home__lead">
+      &#64;dotos/dui 是面向云原生与工业数字孪生工作台的 Angular 组件库，按职责划分为
+      <strong>15 个核心领域分类、102 个可独立按需引入的二级入口模块</strong>。
+      全部 102 个模块均配备完整的双语 API 参考与<strong>实时可交互示例演练台 (Interactive Studio)</strong>。
+    </p>
+  </section>
 
   <div class="docs-home__grid" *ngIf="manifest$ | async as manifest">
     <mat-card class="docs-home__card" *ngFor="let category of manifest.categories"
@@ -12,7 +15,7 @@
       <mat-card-header>
         <mat-icon mat-card-avatar class="docs-home__card-icon">{{ categoryIcon(category.id) }}</mat-icon>
         <mat-card-title>{{ category.id }}</mat-card-title>
-        <mat-card-subtitle>{{ category.moduleCount }} 个模块</mat-card-subtitle>
+        <mat-card-subtitle>{{ category.moduleCount }} 个子模块 · 100% 可交互</mat-card-subtitle>
       </mat-card-header>
       <mat-card-content>
         <p class="docs-home__card-tagline">{{ categoryTagline(category.id) }}</p>

@@ -447,7 +447,7 @@
               "type": "boolean"
             }
           ],
-          "returnType": "StyleSheet<any>",
+          "returnType": "StyleSheet<string>",
           "description": "Executes `createMaterialCoreStyles` to handle create material core styles.",
           "descriptionZh": "执行 `createMaterialCoreStyles`，用于创建Material核心样式集合。"
         }
@@ -479,7 +479,7 @@
               "type": "boolean"
             }
           ],
-          "returnType": "StyleSheet<any>",
+          "returnType": "StyleSheet<string>",
           "description": "Executes `createMaterialThemeStyles` to handle create material theme styles.",
           "descriptionZh": "执行 `createMaterialThemeStyles`，用于创建Material主题样式集合。"
         }
@@ -654,6 +654,12 @@
           "type": "boolean",
           "description": "Property `isDesktop` (`boolean`) storing is desktop.",
           "descriptionZh": "属性 `isDesktop`（类型：`boolean`），用于存储或配置是否为Desktop。"
+        },
+        {
+          "name": "customScrollbars",
+          "type": "boolean",
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "theme",
@@ -3740,7 +3746,7 @@
           "params": [
             {
               "name": "themeFn",
-              "type": "any"
+              "type": "(theme: Theme) => unknown"
             }
           ],
           "returnType": "void",
@@ -3756,7 +3762,7 @@
             },
             {
               "name": "themeFn",
-              "type": "any"
+              "type": "(theme: Theme) => unknown"
             },
             {
               "name": "dynamicThemeStyles",
@@ -3772,7 +3778,7 @@
           "params": [
             {
               "name": "themeFn",
-              "type": "any"
+              "type": "(theme: Theme) => unknown"
             },
             {
               "name": "theme",
@@ -3788,7 +3794,7 @@
           "params": [
             {
               "name": "config",
-              "type": "any"
+              "type": "DotosConfig"
             }
           ],
           "returnType": "any",
@@ -3857,7 +3863,7 @@
         },
         {
           "name": "dotosConfig",
-          "type": "any",
+          "type": "DotosConfig",
           "description": "Property `dotosConfig` (`any`) storing dotos config.",
           "descriptionZh": "属性 `dotosConfig`（类型：`any`），用于存储或配置DotOS配置。"
         }

@@ -268,6 +268,66 @@ function main(): void {
     }
   }
 
+  if (!filter) {
+    const resourceCategories: Array<{ category: string; importPath: string; exports: ApiExport[]; snippet: string }> = [
+      {
+        category: 'i18n',
+        importPath: '@dotos/dui/i18n',
+        exports: [
+          {
+            name: 'DUI_LOCALE_BUNDLES',
+            kind: 'constant',
+            summary: '12 built-in locale dictionary bundles (zh_CN, zh_TW, en_US, ja_JP, ko_KR, fr_FR, de_DE, es_419, pt_BR, ru_RU, id_ID, ar_SA) for @dotos/dui.',
+            summaryZh: '@dotos/dui 内置 12 语种国际化字典资源包（zh_CN、zh_TW、en_US、ja_JP、ko_KR、fr_FR、de_DE、es_419、pt_BR、ru_RU、id_ID、ar_SA）。',
+            inputs: [],
+            outputs: [],
+            methods: [],
+            properties: [],
+            sourceFile: 'src/i18n/dui/zh_CN.json',
+          },
+        ],
+        snippet: `import { TranslationService } from '@dotos/dui/translator';\n\n// Switch active locale across all DUI components:\ntranslationService.use('zh_CN');`,
+      },
+      {
+        category: 'theming',
+        importPath: '@dotos/dui/theming',
+        exports: [
+          {
+            name: 'dui-platform-theme',
+            kind: 'function',
+            summary: 'SCSS theme architecture providing Material MDC palette tokens, dark/light mode CSS variables, and typography rules.',
+            summaryZh: '@dotos/dui 平台级 SCSS 主题系统，提供 Material MDC 调色板令牌、深浅色 CSS 变量与排版规范。',
+            inputs: [],
+            outputs: [],
+            methods: [],
+            properties: [],
+            sourceFile: 'src/theming/platform.scss',
+          },
+        ],
+        snippet: `@use '@dotos/dui/theming/platform.scss';\n@import '@dotos/dui/theming/dui/colors';`,
+      },
+    ];
+    for (const rc of resourceCategories) {
+      const cat = manifestCategories.get(rc.category);
+      if (cat && cat.moduleCount === 0) {
+        const outDir = path.join(OUT_ROOT, rc.category);
+        fs.mkdirSync(outDir, { recursive: true });
+        fs.writeFileSync(
+          path.join(outDir, 'index.json'),
+          JSON.stringify({ importPath: rc.importPath, exports: rc.exports, suggestedUsageSnippet: rc.snippet }, null, 2)
+        );
+        cat.moduleCount = 1;
+        cat.modules.push({
+          id: 'index',
+          importPath: rc.importPath,
+          dataFile: `docs-data/${rc.category}/index.json`,
+          exportedClassCount: rc.exports.length,
+          isFlagship: isFlagshipModule(rc.category, 'index'),
+        });
+      }
+    }
+  }
+
   for (const category of manifestCategories.values()) {
     category.modules.sort((a, b) => a.id.localeCompare(b.id));
   }

@@ -33,14 +33,14 @@
           "params": [
             {
               "name": "req",
-              "type": "HttpRequest<any>"
+              "type": "HttpRequest<unknown>"
             },
             {
               "name": "next",
               "type": "HttpHandler"
             }
           ],
-          "returnType": "Observable<HttpEvent<any>>",
+          "returnType": "Observable<HttpEvent<unknown>>",
           "description": "Executes `intercept` to handle intercept.",
           "descriptionZh": "执行 `intercept`，用于intercept。"
         }
@@ -61,14 +61,14 @@
           "params": [
             {
               "name": "req",
-              "type": "HttpRequest<any>"
+              "type": "HttpRequest<unknown>"
             },
             {
               "name": "next",
               "type": "HttpHandler"
             }
           ],
-          "returnType": "Observable<HttpEvent<any>>",
+          "returnType": "Observable<HttpEvent<unknown>>",
           "description": "Executes `intercept` to handle intercept.",
           "descriptionZh": "执行 `intercept`，用于intercept。"
         }
@@ -89,14 +89,14 @@
           "params": [
             {
               "name": "req",
-              "type": "HttpRequest<any>"
+              "type": "HttpRequest<unknown>"
             },
             {
               "name": "next",
               "type": "HttpHandler"
             }
           ],
-          "returnType": "Observable<HttpEvent<any>>",
+          "returnType": "Observable<HttpEvent<unknown>>",
           "description": "Executes `intercept` to handle intercept.",
           "descriptionZh": "执行 `intercept`，用于intercept。"
         }
@@ -144,7 +144,7 @@
         },
         {
           "name": "entryComponent",
-          "type": "any",
+          "type": "unknown",
           "default": "null",
           "description": "Input property `entryComponent` (`any`) configuring entry component (default: `null`).",
           "descriptionZh": "输入属性 `entryComponent`（类型：`any`），用于配置条目组件（默认值：`null`）。"
@@ -244,14 +244,14 @@
           "params": [
             {
               "name": "req",
-              "type": "HttpRequest<any>"
+              "type": "HttpRequest<unknown>"
             },
             {
               "name": "next",
               "type": "HttpHandler"
             }
           ],
-          "returnType": "Observable<HttpEvent<any>>",
+          "returnType": "Observable<HttpEvent<unknown>>",
           "description": "Executes `intercept` to handle intercept.",
           "descriptionZh": "执行 `intercept`，用于intercept。"
         }
@@ -272,14 +272,14 @@
           "params": [
             {
               "name": "req",
-              "type": "HttpRequest<any>"
+              "type": "HttpRequest<unknown>"
             },
             {
               "name": "next",
               "type": "HttpHandler"
             }
           ],
-          "returnType": "Observable<HttpEvent<any>>",
+          "returnType": "Observable<HttpEvent<unknown>>",
           "description": "Executes `intercept` to handle intercept.",
           "descriptionZh": "执行 `intercept`，用于intercept。"
         }
@@ -300,14 +300,14 @@
           "params": [
             {
               "name": "req",
-              "type": "HttpRequest<any>"
+              "type": "HttpRequest<unknown>"
             },
             {
               "name": "next",
               "type": "HttpHandler"
             }
           ],
-          "returnType": "Observable<HttpEvent<any>>",
+          "returnType": "Observable<HttpEvent<unknown>>",
           "description": "Executes `intercept` to handle intercept.",
           "descriptionZh": "执行 `intercept`，用于intercept。"
         }
@@ -376,14 +376,14 @@
           "params": [
             {
               "name": "req",
-              "type": "HttpRequest<any>"
+              "type": "HttpRequest<unknown>"
             },
             {
               "name": "next",
               "type": "HttpHandler"
             }
           ],
-          "returnType": "Observable<HttpEvent<any>>",
+          "returnType": "Observable<HttpEvent<unknown>>",
           "description": "Executes `intercept` to handle intercept.",
           "descriptionZh": "执行 `intercept`，用于intercept。"
         }

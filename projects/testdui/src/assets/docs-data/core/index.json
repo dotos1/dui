@@ -380,19 +380,19 @@
         },
         {
           "name": "hideExpression",
-          "type": "boolean | string | ((model: any, formState: any) => boolean)",
+          "type": "any",
           "description": "Property `hideExpression` (`boolean | string | ((model: any, formState: any) => boolean)`) storing hide expression.",
           "descriptionZh": "属性 `hideExpression`（类型：`boolean | string | ((model: any, formState: any) => boolean)`），用于存储或配置隐藏表达式。"
         },
         {
           "name": "disableExpression",
-          "type": "boolean | string | ((model: any, formState: any) => boolean)",
+          "type": "any",
           "description": "Property `disableExpression` (`boolean | string | ((model: any, formState: any) => boolean)`) storing disable expression.",
           "descriptionZh": "属性 `disableExpression`（类型：`boolean | string | ((model: any, formState: any) => boolean)`），用于存储或配置禁用表达式。"
         },
         {
           "name": "expressionProperties",
-          "type": "{ [property: string]: string | ((model: any, formState: any) => boolean) } | any",
+          "type": "any",
           "description": "Property `expressionProperties` (`{ [property: string]: string | ((model: any, formState: any) => boolea...`) storing expression properties.",
           "descriptionZh": "属性 `expressionProperties`（类型：`{ [property: string]: string | ((model: any, formState: any) => boolea...`），用于存储或配置表达式属性列表。"
         },

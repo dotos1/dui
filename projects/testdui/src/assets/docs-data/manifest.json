@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-25T08:46:12.732Z",
+  "generatedAt": "2026-10-27T01:37:02.598Z",
   "categories": [
     {
       "id": "base",
@@ -11,7 +11,7 @@
           "importPath": "@dotos/dui/base",
           "dataFile": "docs-data/base/index.json",
           "exportedClassCount": 33,
-          "isFlagship": false
+          "isFlagship": true
         }
       ]
     },
@@ -25,14 +25,14 @@
           "importPath": "@dotos/dui/common/animations",
           "dataFile": "docs-data/common/animations.json",
           "exportedClassCount": 14,
-          "isFlagship": false
+          "isFlagship": true
         },
         {
           "id": "backdrop",
           "importPath": "@dotos/dui/common/backdrop",
           "dataFile": "docs-data/common/backdrop.json",
           "exportedClassCount": 2,
-          "isFlagship": false
+          "isFlagship": true
         },
         {
           "id": "breadcrumbs",
@@ -46,21 +46,21 @@
           "importPath": "@dotos/dui/common/carousel",
           "dataFile": "docs-data/common/carousel.json",
           "exportedClassCount": 8,
-          "isFlagship": false
+          "isFlagship": true
         },
         {
           "id": "clickout",
           "importPath": "@dotos/dui/common/clickout",
           "dataFile": "docs-data/common/clickout.json",
           "exportedClassCount": 2,
-          "isFlagship": false
+          "isFlagship": true
         },
         {
           "id": "clipboard",
           "importPath": "@dotos/dui/common/clipboard",
           "dataFile": "docs-data/common/clipboard.json",
           "exportedClassCount": 5,
-          "isFlagship": false
+          "isFlagship": true
         },
         {
           "id": "collapsible",
@@ -74,14 +74,14 @@
           "importPath": "@dotos/dui/common/colorpicker/common",
           "dataFile": "docs-data/common/colorpicker--common.json",
           "exportedClassCount": 38,
-          "isFlagship": false
+          "isFlagship": true
         },
         {
           "id": "colorpicker--components",
           "importPath": "@dotos/dui/common/colorpicker/components",
           "dataFile": "docs-data/common/colorpicker--components.json",
           "exportedClassCount": 31,
-          "isFlagship": false
+          "isFlagship": true
         },
         {
           "id": "dialogs",
@@ -95,70 +95,70 @@
           "importPath": "@dotos/dui/common/directives",
           "dataFile": "docs-data/common/directives.json",
           "exportedClassCount": 2,
-          "isFlagship": false
+          "isFlagship": true
         },
         {
           "id": "dnd",
           "importPath": "@dotos/dui/common/dnd",
           "dataFile": "docs-data/common/dnd.json",
           "exportedClassCount": 32,
-          "isFlagship": false
+          "isFlagship": true
         },
         {
           "id": "dragselect",
           "importPath": "@dotos/dui/common/dragselect",
           "dataFile": "docs-data/common/dragselect.json",
           "exportedClassCount": 23,
-          "isFlagship": false
+          "isFlagship": true
         },
         {
           "id": "dynamic",
           "importPath": "@dotos/dui/common/dynamic",
           "dataFile": "docs-data/common/dynamic.json",
           "exportedClassCount": 2,
-          "isFlagship": false
+          "isFlagship": true
         },
         {
           "id": "fileupload",
           "importPath": "@dotos/dui/common/fileupload",
           "dataFile": "docs-data/common/fileupload.json",
           "exportedClassCount": 18,
-          "isFlagship": false
+          "isFlagship": true
         },
         {
           "id": "icon",
           "importPath": "@dotos/dui/common/icon",
           "dataFile": "docs-data/common/icon.json",
           "exportedClassCount": 7,
-          "isFlagship": false
+          "isFlagship": true
         },
         {
           "id": "icon-sprite",
           "importPath": "@dotos/dui/common/icon-sprite",
           "dataFile": "docs-data/common/icon-sprite.json",
           "exportedClassCount": 5,
-          "isFlagship": false
+          "isFlagship": true
         },
         {
           "id": "iframe",
           "importPath": "@dotos/dui/common/iframe",
           "dataFile": "docs-data/common/iframe.json",
           "exportedClassCount": 3,
-          "isFlagship": false
+          "isFlagship": true
         },
         {
           "id": "inline-svg",
           "importPath": "@dotos/dui/common/inline-svg",
           "dataFile": "docs-data/common/inline-svg.json",
           "exportedClassCount": 12,
-          "isFlagship": false
+          "isFlagship": true
         },
         {
           "id": "keyboard",
           "importPath": "@dotos/dui/common/keyboard",
           "dataFile": "docs-data/common/keyboard.json",
           "exportedClassCount": 33,
-          "isFlagship": false
+          "isFlagship": true
         },
         {
           "id": "loading",
@@ -172,77 +172,77 @@
           "importPath": "@dotos/dui/common/matcolorpicker",
           "dataFile": "docs-data/common/matcolorpicker.json",
           "exportedClassCount": 3,
-          "isFlagship": false
+          "isFlagship": true
         },
         {
           "id": "media",
           "importPath": "@dotos/dui/common/media",
           "dataFile": "docs-data/common/media.json",
           "exportedClassCount": 3,
-          "isFlagship": false
+          "isFlagship": true
         },
         {
           "id": "message",
           "importPath": "@dotos/dui/common/message",
           "dataFile": "docs-data/common/message.json",
           "exportedClassCount": 3,
-          "isFlagship": false
+          "isFlagship": true
         },
         {
           "id": "notifications",
           "importPath": "@dotos/dui/common/notifications",
           "dataFile": "docs-data/common/notifications.json",
           "exportedClassCount": 5,
-          "isFlagship": false
+          "isFlagship": true
         },
         {
           "id": "password",
           "importPath": "@dotos/dui/common/password",
           "dataFile": "docs-data/common/password.json",
           "exportedClassCount": 2,
-          "isFlagship": false
+          "isFlagship": true
         },
         {
           "id": "perfect-scrollbar",
           "importPath": "@dotos/dui/common/perfect-scrollbar",
           "dataFile": "docs-data/common/perfect-scrollbar.json",
           "exportedClassCount": 9,
-          "isFlagship": false
+          "isFlagship": true
         },
         {
           "id": "popover",
           "importPath": "@dotos/dui/common/popover",
           "dataFile": "docs-data/common/popover.json",
           "exportedClassCount": 8,
-          "isFlagship": false
+          "isFlagship": true
         },
         {
           "id": "print",
           "importPath": "@dotos/dui/common/print",
           "dataFile": "docs-data/common/print.json",
           "exportedClassCount": 3,
-          "isFlagship": false
+          "isFlagship": true
         },
         {
           "id": "resize-element",
           "importPath": "@dotos/dui/common/resize-element",
           "dataFile": "docs-data/common/resize-element.json",
           "exportedClassCount": 6,
-          "isFlagship": false
+          "isFlagship": true
         },
         {
           "id": "screenfull",
           "importPath": "@dotos/dui/common/screenfull",
           "dataFile": "docs-data/common/screenfull.json",
           "exportedClassCount": 1,
-          "isFlagship": false
+          "isFlagship": true
         },
         {
           "id": "scrollbar",
           "importPath": "@dotos/dui/common/scrollbar",
           "dataFile": "docs-data/common/scrollbar.json",
           "exportedClassCount": 19,
-          "isFlagship": false
+          "isFlagship": true
         },
         {
           "id": "search-box",
@@ -256,14 +256,14 @@
           "importPath": "@dotos/dui/common/stop-propagation",
           "dataFile": "docs-data/common/stop-propagation.json",
           "exportedClassCount": 3,
-          "isFlagship": false
+          "isFlagship": true
         },
         {
           "id": "svg",
           "importPath": "@dotos/dui/common/svg",
           "dataFile": "docs-data/common/svg.json",
           "exportedClassCount": 11,
-          "isFlagship": false
+          "isFlagship": true
         },
         {
           "id": "toastr",
@@ -277,7 +277,7 @@
           "importPath": "@dotos/dui/common/trigger",
           "dataFile": "docs-data/common/trigger.json",
           "exportedClassCount": 1,
-          "isFlagship": false
+          "isFlagship": true
         }
       ]
     },
@@ -319,140 +319,140 @@
           "importPath": "@dotos/dui/core/angular2parse",
           "dataFile": "docs-data/core/angular2parse.json",
           "exportedClassCount": 127,
-          "isFlagship": false
+          "isFlagship": true
         },
         {
           "id": "animation",
           "importPath": "@dotos/dui/core/animation",
           "dataFile": "docs-data/core/animation.json",
           "exportedClassCount": 2,
-          "isFlagship": false
+          "isFlagship": true
         },
         {
           "id": "auth",
           "importPath": "@dotos/dui/core/auth",
           "dataFile": "docs-data/core/auth.json",
           "exportedClassCount": 19,
-          "isFlagship": false
+          "isFlagship": true
         },
         {
           "id": "auth--lock",
           "importPath": "@dotos/dui/core/auth/lock",
           "dataFile": "docs-data/core/auth--lock.json",
           "exportedClassCount": 3,
-          "isFlagship": false
+          "isFlagship": true
         },
         {
           "id": "behaviors",
           "importPath": "@dotos/dui/core/behaviors",
           "dataFile": "docs-data/core/behaviors.json",
           "exportedClassCount": 7,
-          "isFlagship": false
+          "isFlagship": true
         },
         {
           "id": "cache",
           "importPath": "@dotos/dui/core/cache",
           "dataFile": "docs-data/core/cache.json",
           "exportedClassCount": 3,
-          "isFlagship": false
+          "isFlagship": true
         },
         {
           "id": "color",
           "importPath": "@dotos/dui/core/color",
           "dataFile": "docs-data/core/color.json",
           "exportedClassCount": 53,
-          "isFlagship": false
+          "isFlagship": true
         },
         {
           "id": "config",
           "importPath": "@dotos/dui/core/config",
           "dataFile": "docs-data/core/config.json",
           "exportedClassCount": 15,
-          "isFlagship": false
+          "isFlagship": true
         },
         {
           "id": "cookie",
           "importPath": "@dotos/dui/core/cookie",
           "dataFile": "docs-data/core/cookie.json",
           "exportedClassCount": 3,
-          "isFlagship": false
+          "isFlagship": true
         },
         {
           "id": "crypt",
           "importPath": "@dotos/dui/core/crypt",
           "dataFile": "docs-data/core/crypt.json",
           "exportedClassCount": 4,
-          "isFlagship": false
+          "isFlagship": true
         },
         {
           "id": "decorators",
           "importPath": "@dotos/dui/core/decorators",
           "dataFile": "docs-data/core/decorators.json",
           "exportedClassCount": 6,
-          "isFlagship": false
+          "isFlagship": true
         },
         {
           "id": "dynamic",
           "importPath": "@dotos/dui/core/dynamic",
           "dataFile": "docs-data/core/dynamic.json",
           "exportedClassCount": 3,
-          "isFlagship": false
+          "isFlagship": true
         },
         {
           "id": "form",
           "importPath": "@dotos/dui/core/form",
           "dataFile": "docs-data/core/form.json",
           "exportedClassCount": 43,
-          "isFlagship": false
+          "isFlagship": true
         },
         {
           "id": "index",
           "importPath": "@dotos/dui/core",
           "dataFile": "docs-data/core/index.json",
           "exportedClassCount": 23,
-          "isFlagship": false
+          "isFlagship": true
         },
         {
           "id": "media",
           "importPath": "@dotos/dui/core/media",
           "dataFile": "docs-data/core/media.json",
           "exportedClassCount": 4,
-          "isFlagship": false
+          "isFlagship": true
         },
         {
           "id": "meta",
           "importPath": "@dotos/dui/core/meta",
           "dataFile": "docs-data/core/meta.json",
           "exportedClassCount": 8,
-          "isFlagship": false
+          "isFlagship": true
         },
         {
           "id": "mobx",
           "importPath": "@dotos/dui/core/mobx",
           "dataFile": "docs-data/core/mobx.json",
           "exportedClassCount": 7,
-          "isFlagship": false
+          "isFlagship": true
         },
         {
           "id": "position",
           "importPath": "@dotos/dui/core/position",
           "dataFile": "docs-data/core/position.json",
           "exportedClassCount": 18,
-          "isFlagship": false
+          "isFlagship": true
         },
         {
           "id": "services",
           "importPath": "@dotos/dui/core/services",
           "dataFile": "docs-data/core/services.json",
           "exportedClassCount": 14,
-          "isFlagship": false
+          "isFlagship": true
         },
         {
           "id": "storage",
           "importPath": "@dotos/dui/core/storage",
           "dataFile": "docs-data/core/storage.json",
           "exportedClassCount": 5,
-          "isFlagship": false
+          "isFlagship": true
         }
       ]
     },
@@ -494,35 +494,35 @@
           "importPath": "@dotos/dui/form/card",
           "dataFile": "docs-data/form/card.json",
           "exportedClassCount": 2,
-          "isFlagship": false
+          "isFlagship": true
         },
         {
           "id": "date",
           "importPath": "@dotos/dui/form/date",
           "dataFile": "docs-data/form/date.json",
           "exportedClassCount": 2,
-          "isFlagship": false
+          "isFlagship": true
         },
         {
           "id": "date--adapter",
           "importPath": "@dotos/dui/form/date/adapter",
           "dataFile": "docs-data/form/date--adapter.json",
           "exportedClassCount": 7,
-          "isFlagship": false
+          "isFlagship": true
         },
         {
           "id": "date--moment",
           "importPath": "@dotos/dui/form/date/moment",
           "dataFile": "docs-data/form/date--moment.json",
           "exportedClassCount": 5,
-          "isFlagship": false
+          "isFlagship": true
         },
         {
           "id": "date--picker",
           "importPath": "@dotos/dui/form/date/picker",
           "dataFile": "docs-data/form/date--picker.json",
           "exportedClassCount": 31,
-          "isFlagship": false
+          "isFlagship": true
         },
         {
           "id": "index",
@@ -536,22 +536,30 @@
           "importPath": "@dotos/dui/form/range",
           "dataFile": "docs-data/form/range.json",
           "exportedClassCount": 6,
-          "isFlagship": false
+          "isFlagship": true
         },
         {
           "id": "toggle-select",
           "importPath": "@dotos/dui/form/toggle-select",
           "dataFile": "docs-data/form/toggle-select.json",
           "exportedClassCount": 8,
-          "isFlagship": false
+          "isFlagship": true
         }
       ]
     },
     {
       "id": "i18n",
       "importPath": "@dotos/dui/i18n",
-      "moduleCount": 0,
-      "modules": []
+      "moduleCount": 1,
+      "modules": [
+        {
+          "id": "index",
+          "importPath": "@dotos/dui/i18n",
+          "dataFile": "docs-data/i18n/index.json",
+          "exportedClassCount": 1,
+          "isFlagship": true
+        }
+      ]
     },
     {
       "id": "net",
@@ -563,7 +571,7 @@
           "importPath": "@dotos/dui/net",
           "dataFile": "docs-data/net/index.json",
           "exportedClassCount": 14,
-          "isFlagship": false
+          "isFlagship": true
         }
       ]
     },
@@ -584,8 +592,16 @@
     {
       "id": "theming",
       "importPath": "@dotos/dui/theming",
-      "moduleCount": 0,
-      "modules": []
+      "moduleCount": 1,
+      "modules": [
+        {
+          "id": "index",
+          "importPath": "@dotos/dui/theming",
+          "dataFile": "docs-data/theming/index.json",
+          "exportedClassCount": 1,
+          "isFlagship": true
+        }
+      ]
     },
     {
       "id": "translator",
@@ -632,7 +648,7 @@
           "importPath": "@dotos/dui/ui/color-button",
           "dataFile": "docs-data/ui/color-button.json",
           "exportedClassCount": 2,
-          "isFlagship": false
+          "isFlagship": true
         },
         {
           "id": "context-menu",
@@ -660,7 +676,7 @@
           "importPath": "@dotos/dui/ui/toolbar",
           "dataFile": "docs-data/ui/toolbar.json",
           "exportedClassCount": 7,
-          "isFlagship": false
+          "isFlagship": true
         },
         {
           "id": "topbar",
@@ -681,21 +697,21 @@
           "importPath": "@dotos/dui/util",
           "dataFile": "docs-data/util/index.json",
           "exportedClassCount": 24,
-          "isFlagship": false
+          "isFlagship": true
         },
         {
           "id": "jpeg",
           "importPath": "@dotos/dui/util/jpeg",
           "dataFile": "docs-data/util/jpeg.json",
           "exportedClassCount": 2,
-          "isFlagship": false
+          "isFlagship": true
         },
         {
           "id": "pipes",
           "importPath": "@dotos/dui/util/pipes",
           "dataFile": "docs-data/util/pipes.json",
           "exportedClassCount": 20,
-          "isFlagship": false
+          "isFlagship": true
         }
       ]
     },
@@ -709,7 +725,7 @@
           "importPath": "@dotos/dui/ux/avatar",
           "dataFile": "docs-data/ux/avatar.json",
           "exportedClassCount": 6,
-          "isFlagship": false
+          "isFlagship": true
         },
         {
           "id": "command-palette",
@@ -737,35 +753,35 @@
           "importPath": "@dotos/dui/ux/iconpicker",
           "dataFile": "docs-data/ux/iconpicker.json",
           "exportedClassCount": 4,
-          "isFlagship": false
+          "isFlagship": true
         },
         {
           "id": "index",
           "importPath": "@dotos/dui/ux",
           "dataFile": "docs-data/ux/index.json",
           "exportedClassCount": 7,
-          "isFlagship": false
+          "isFlagship": true
         },
         {
           "id": "jsonEditor",
           "importPath": "@dotos/dui/ux/jsonEditor",
           "dataFile": "docs-data/ux/jsonEditor.json",
           "exportedClassCount": 2,
-          "isFlagship": false
+          "isFlagship": true
         },
         {
           "id": "line-style",
           "importPath": "@dotos/dui/ux/line-style",
           "dataFile": "docs-data/ux/line-style.json",
           "exportedClassCount": 4,
-          "isFlagship": false
+          "isFlagship": true
         },
         {
           "id": "link-preview",
           "importPath": "@dotos/dui/ux/link-preview",
           "dataFile": "docs-data/ux/link-preview.json",
           "exportedClassCount": 5,
-          "isFlagship": false
+          "isFlagship": true
         },
         {
           "id": "markdown",
@@ -779,7 +795,7 @@
           "importPath": "@dotos/dui/ux/markdown-editor",
           "dataFile": "docs-data/ux/markdown-editor.json",
           "exportedClassCount": 1,
-          "isFlagship": false
+          "isFlagship": true
         },
         {
           "id": "monaco-editor",
@@ -793,14 +809,14 @@
           "importPath": "@dotos/dui/ux/multi-window",
           "dataFile": "docs-data/ux/multi-window.json",
           "exportedClassCount": 16,
-          "isFlagship": false
+          "isFlagship": true
         },
         {
           "id": "query-builder",
           "importPath": "@dotos/dui/ux/query-builder",
           "dataFile": "docs-data/ux/query-builder.json",
           "exportedClassCount": 32,
-          "isFlagship": false
+          "isFlagship": true
         },
         {
           "id": "terminal",
@@ -814,7 +830,7 @@
           "importPath": "@dotos/dui/ux/windows",
           "dataFile": "docs-data/ux/windows.json",
           "exportedClassCount": 98,
-          "isFlagship": false
+          "isFlagship": true
         }
       ]
     }

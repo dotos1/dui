@@ -489,7 +489,7 @@
       "properties": [
         {
           "name": "templateRef",
-          "type": "TemplateRef<any>",
+          "type": "TemplateRef<unknown>",
           "description": "Template/content query reference `templateRef` (`@ViewChild`) targeting template ref.",
           "descriptionZh": "该幻灯片投影内容的模板引用。"
         }

@@ -808,7 +808,7 @@
               "type": "string"
             }
           ],
-          "returnType": "Observable<any>",
+          "returnType": "any",
           "description": "Executes `getTranslation` to handle get translation.",
           "descriptionZh": "执行 `getTranslation`，用于获取翻译文本。"
         }
@@ -879,7 +879,7 @@
               "type": "string"
             }
           ],
-          "returnType": "Observable<any>",
+          "returnType": "any",
           "description": "Executes `getTranslation` to handle get translation.",
           "descriptionZh": "执行 `getTranslation`，用于获取翻译文本。"
         }
@@ -963,7 +963,7 @@
               "type": "string"
             }
           ],
-          "returnType": "Array<Observable<any>>",
+          "returnType": "any",
           "description": "Executes `getComponentToFetch` to handle get component to fetch.",
           "descriptionZh": "执行 `getComponentToFetch`，用于获取组件转换为获取。"
         },
@@ -1015,7 +1015,7 @@
               "type": "string"
             }
           ],
-          "returnType": "Observable<any>",
+          "returnType": "any",
           "description": "Executes `getTranslation` to handle get translation.",
           "descriptionZh": "执行 `getTranslation`，用于获取翻译文本。"
         }
@@ -1201,7 +1201,7 @@
             },
             {
               "name": "args",
-              "type": "any[]"
+              "type": "any"
             }
           ],
           "returnType": "any",
@@ -1225,7 +1225,7 @@
         },
         {
           "name": "lastParams",
-          "type": "any[]",
+          "type": "any",
           "description": "Property `lastParams` (`any[]`) storing last params.",
           "descriptionZh": "属性 `lastParams`（类型：`any[]`），用于存储或配置末尾参数集合。"
         },
@@ -1285,7 +1285,7 @@
               "type": "string"
             }
           ],
-          "returnType": "Observable<any>",
+          "returnType": "any",
           "description": "Changes the lang currently used",
           "descriptionZh": "执行 `use`，用于使用。"
         },
@@ -1297,7 +1297,7 @@
               "type": "string"
             }
           ],
-          "returnType": "Observable<any>",
+          "returnType": "any",
           "description": "Gets an object of translations for a given language with the current loader\nand passes it through the compiler",
           "descriptionZh": "执行 `getTranslation`，用于获取翻译文本。"
         },
@@ -1372,7 +1372,7 @@
               "type": "Object"
             }
           ],
-          "returnType": "Observable<string | any>",
+          "returnType": "any",
           "description": "Gets the translated value of a key (or an array of keys)",
           "descriptionZh": "执行 `get`，用于获取。"
         },
@@ -1388,7 +1388,7 @@
               "type": "Object"
             }
           ],
-          "returnType": "Observable<string | any>",
+          "returnType": "any",
           "description": "Executes `getStreamOnTranslationChange` to handle get stream on translation change.",
           "descriptionZh": "执行 `getStreamOnTranslationChange`，用于获取流当翻译文本变更。"
         },
@@ -1404,7 +1404,7 @@
               "type": "Object"
             }
           ],
-          "returnType": "Observable<string | any>",
+          "returnType": "any",
           "description": "Returns a stream of translated values of a key (or an array of keys) which updates\nwhenever the language changes.",
           "descriptionZh": "执行 `stream`，用于流。"
         },
@@ -1420,7 +1420,7 @@
               "type": "Object"
             }
           ],
-          "returnType": "string | any",
+          "returnType": "any",
           "description": "Executes `instant` to handle instant.",
           "descriptionZh": "执行 `instant`，用于即时。"
         },
@@ -1452,7 +1452,7 @@
               "type": "string"
             }
           ],
-          "returnType": "Observable<any>",
+          "returnType": "any",
           "description": "Executes `reloadLang` to handle reload lang.",
           "descriptionZh": "执行 `reloadLang`，用于重新加载语言。"
         },
@@ -1549,7 +1549,7 @@
       "properties": [
         {
           "name": "loadingTranslations",
-          "type": "Observable<any>",
+          "type": "any",
           "description": "Property `loadingTranslations` (`Observable<any>`) storing loading translations.",
           "descriptionZh": "属性 `loadingTranslations`（类型：`Observable<any>`），用于存储或配置加载中翻译文本。"
         },
@@ -1858,7 +1858,7 @@
               "type": "string"
             }
           ],
-          "returnType": "Observable<any>",
+          "returnType": "any",
           "description": "Sets the target language for translations.",
           "descriptionZh": "执行 `use`，用于使用。"
         },
@@ -1874,7 +1874,7 @@
               "type": "Object"
             }
           ],
-          "returnType": "Observable<string | any>",
+          "returnType": "any",
           "description": "Gets the translation for the supplied key.",
           "descriptionZh": "执行 `get`，用于获取。"
         },
@@ -1890,7 +1890,7 @@
               "type": "Object"
             }
           ],
-          "returnType": "string | any",
+          "returnType": "any",
           "description": "Directly returns the translation for the supplied key.",
           "descriptionZh": "执行 `instant`，用于即时。"
         }

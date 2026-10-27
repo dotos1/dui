@@ -151,7 +151,7 @@
         },
         {
           "name": "setSVGAttributes",
-          "type": "{ [key: string]: any }",
+          "type": "{ [key: string]: unknown }",
           "description": null,
           "descriptionZh": "加载完成后设置到 SVG 根元素上的属性键值对。"
         },
@@ -386,7 +386,7 @@
             },
             {
               "name": "attrs",
-              "type": "{ [key: string]: any }"
+              "type": "{ [key: string]: unknown }"
             }
           ],
           "returnType": "void",
@@ -421,7 +421,7 @@
               "type": "boolean"
             }
           ],
-          "returnType": "Observable<any>",
+          "returnType": "any",
           "description": "Fetches (or returns the cached/in-flight) raw image resource text at the given URL.",
           "descriptionZh": "获取（或返回缓存/正在进行中）给定 URL 处的原始图像资源文本。"
         },

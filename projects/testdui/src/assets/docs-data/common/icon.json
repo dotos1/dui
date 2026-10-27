@@ -26,7 +26,7 @@
               "type": "number"
             }
           ],
-          "returnType": "Promise<any>",
+          "returnType": "any",
           "description": "Loads a custom web font (via the `FontFace` API) by name/URL/weight, skipping if already loaded.",
           "descriptionZh": "通过 `FontFace` API 按名称/URL/字重加载自定义 Web 字体，若已加载过则跳过。"
         }
@@ -208,7 +208,7 @@
               "type": "string"
             }
           ],
-          "returnType": "Observable<any>",
+          "returnType": "any",
           "description": "Fetches the list of SVG icons available under the given server-side directory/path.",
           "descriptionZh": "获取给定服务端目录/路径下可用的 SVG 图标列表。"
         },
@@ -224,7 +224,7 @@
               "type": "string"
             }
           ],
-          "returnType": "Observable<any>",
+          "returnType": "any",
           "description": "Fetches the list of custom icons available under the given server-side directory/path.",
           "descriptionZh": "获取给定服务端目录/路径下可用的自定义图标列表。"
         },
@@ -240,7 +240,7 @@
               "type": "string"
             }
           ],
-          "returnType": "Observable<any>",
+          "returnType": "any",
           "description": "Fetches the list of font icons available under the given server-side directory/path.",
           "descriptionZh": "获取给定服务端目录/路径下可用的字体图标列表。"
         }

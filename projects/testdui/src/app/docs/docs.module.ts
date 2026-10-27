@@ -25,6 +25,7 @@ import { CategoryPageComponent } from './pages/category-page/category-page.compo
 import { ModuleShellComponent } from './pages/module-shell/module-shell.component';
 import { ModuleOverviewPageComponent } from './pages/module-overview-page/module-overview-page.component';
 import { ApiReferencePageComponent } from './pages/api-reference-page/api-reference-page.component';
+import { ModuleExamplePageComponent } from './pages/module-example-page/module-example-page.component';
 
 /**
  * Angular module `DocsModule` declaring and exporting docs module components, directives, pipes, and providers.
@@ -39,6 +40,7 @@ import { ApiReferencePageComponent } from './pages/api-reference-page/api-refere
     ModuleShellComponent,
     ModuleOverviewPageComponent,
     ApiReferencePageComponent,
+    ModuleExamplePageComponent,
   ],
   imports: [
     CommonModule,

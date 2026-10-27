@@ -167,14 +167,14 @@
         {
           "name": "trackByGroupTitle",
           "type": "any",
-          "default": "(_index: number, group: CommandItemGroup): any => group ? group.title : _index",
+          "default": "(_index: number, group: CommandItemGroup) => group ? group.title : _index",
           "description": "搜索时每次按键都会重建 groups，trackBy 让未变化的分组/条目保留原 DOM。",
           "descriptionZh": "搜索时每次按键都会重建 groups，trackBy 让未变化的分组/条目保留原 DOM。"
         },
         {
           "name": "trackByItemText",
           "type": "any",
-          "default": "(_index: number, item: any): any => item ? item.text : _index",
+          "default": "(_index: number, item: { text? }) => item ? item.text : _index",
           "description": "Property `trackByItemText` (`any`) storing track by item text.",
           "descriptionZh": "属性 `trackByItemText`（类型：`any`），用于存储或配置track按条目文本。"
         }

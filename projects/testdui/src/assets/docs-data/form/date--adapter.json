@@ -593,13 +593,13 @@
       "properties": [
         {
           "name": "parse",
-          "type": "{ dateInput?: any; monthInput?: any; timeInput?: any; datetimeInput?: any; }",
+          "type": "{ dateInput?; monthInput?; timeInput?; datetimeInput?; }",
           "description": "Property `parse` (`{ dateInput?: any; monthInput?: any; timeInput?: any; datetimeInput?:...`) storing parse.",
           "descriptionZh": "属性 `parse`（类型：`{ dateInput?: any; monthInput?: any; timeInput?: any; datetimeInput?:...`），用于存储或配置解析。"
         },
         {
           "name": "display",
-          "type": "{ dateInput: any; monthInput: any; timeInput: any; datetimeInput: any; monthYearLabel: any; dateA11yLabel: any; monthYearA11yLabel: any; popupHeaderDateLabel: any; }",
+          "type": "{ dateInput; monthInput; timeInput; datetimeInput; monthYearLabel; dateA11yLabel; monthYearA11yLabel; popupHeaderDateLabel; }",
           "description": "Property `display` (`{ dateInput: any; monthInput: any; timeInput: any; datetimeInput: any;...`) storing display.",
           "descriptionZh": "属性 `display`（类型：`{ dateInput: any; monthInput: any; timeInput: any; datetimeInput: any;...`），用于存储或配置display。"
         }

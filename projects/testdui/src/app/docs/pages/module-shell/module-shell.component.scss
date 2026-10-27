@@ -1,9 +1,40 @@
+.module-shell__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 16px 22px;
+  margin-bottom: 12px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, rgba(2, 132, 199, 0.08) 0%, rgba(99, 102, 241, 0.08) 100%);
+  border: 1px solid rgba(2, 132, 199, 0.22);
+}
+
+.module-shell__eyebrow {
+  display: block;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #0284c7;
+  margin-bottom: 4px;
+}
+
 .module-shell__title {
-  font-size: 24px;
-  font-weight: 500;
-  font-family: monospace;
-  margin: 0 0 8px;
+  font-size: 22px;
+  font-weight: 700;
+  font-family: 'JetBrains Mono', Consolas, monospace;
+  margin: 0;
   word-break: break-all;
+}
+
+.module-shell__count-badge {
+  padding: 5px 12px;
+  border-radius: 999px;
+  background: #0284c7;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 600;
 }
 
 .module-shell__tabs {

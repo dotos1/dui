@@ -1446,7 +1446,7 @@
       "inputs": [
         {
           "name": "colors",
-          "type": "any[]",
+          "type": "any",
           "default": "[]",
           "description": "Input property `colors` (`any[]`) configuring colors (default: `[]`).",
           "descriptionZh": "预设颜色列表，每项可以是颜色字符串或 `Shape` 对象。"
