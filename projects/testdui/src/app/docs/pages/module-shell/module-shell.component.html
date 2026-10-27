@@ -1,13 +1,19 @@
 <ng-container *ngIf="module$ | async as module">
-  <h1 class="module-shell__title">{{ module.importPath }}</h1>
+  <div class="module-shell__header">
+    <div>
+      <span class="module-shell__eyebrow">MODULE ENTRY POINT · 二级模块入口</span>
+      <h1 class="module-shell__title">{{ module.importPath }}</h1>
+    </div>
+    <span class="module-shell__count-badge">{{ module.exportedClassCount }} 个导出符号</span>
+  </div>
 
   <nav mat-tab-nav-bar [tabPanel]="tabPanel" class="module-shell__tabs">
-    <a mat-tab-link routerLink="overview" routerLinkActive #ov="routerLinkActive" [active]="ov.isActive">概览</a>
-    <a mat-tab-link routerLink="api" routerLinkActive #ap="routerLinkActive" [active]="ap.isActive">API 参考</a>
+    <a mat-tab-link routerLink="overview" routerLinkActive #ov="routerLinkActive" [active]="ov.isActive">概览 (Overview)</a>
+    <a mat-tab-link routerLink="api" routerLinkActive #ap="routerLinkActive" [active]="ap.isActive">API 参考 ({{ module.exportedClassCount }})</a>
     <a mat-tab-link
        *ngIf="module.isFlagship"
        [routerLink]="['/components', (categoryId$ | async), (moduleId$ | async), 'examples']"
-       routerLinkActive #ex="routerLinkActive" [active]="ex.isActive">示例</a>
+       routerLinkActive #ex="routerLinkActive" [active]="ex.isActive">可交互示例 (Examples)</a>
   </nav>
 
   <mat-tab-nav-panel #tabPanel class="module-shell__panel">

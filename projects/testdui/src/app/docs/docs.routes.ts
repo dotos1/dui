@@ -11,6 +11,7 @@ import { CategoryPageComponent } from './pages/category-page/category-page.compo
 import { ModuleShellComponent } from './pages/module-shell/module-shell.component';
 import { ModuleOverviewPageComponent } from './pages/module-overview-page/module-overview-page.component';
 import { ApiReferencePageComponent } from './pages/api-reference-page/api-reference-page.component';
+import { ModuleExamplePageComponent } from './pages/module-example-page/module-example-page.component';
 
 /**
  * 每加一个 flagship 组件的可交互示例，就在这里补一条 loadChildren 路由，
@@ -67,6 +68,7 @@ export const docsRoutes: Routes = [
           { path: '', redirectTo: 'overview', pathMatch: 'full' },
           { path: 'overview', component: ModuleOverviewPageComponent },
           { path: 'api', component: ApiReferencePageComponent },
+          { path: 'examples', component: ModuleExamplePageComponent },
         ],
       },
     ],

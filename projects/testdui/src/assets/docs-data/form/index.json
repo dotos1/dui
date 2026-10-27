@@ -187,14 +187,14 @@
       "properties": [
         {
           "name": "selectData",
-          "type": "Array<any>",
+          "type": "any",
           "default": "[]",
           "description": "Property `selectData` (`Array<any>`) storing select data (default: `[]`).",
           "descriptionZh": "属性 `selectData`（类型：`Array<any>`），用于存储或配置下拉选择数据（默认值：`[]`）。"
         },
         {
           "name": "filteredData",
-          "type": "Observable<Array<any>>",
+          "type": "any",
           "description": "Property `filteredData` (`Observable<Array<any>>`) storing filtered data.",
           "descriptionZh": "属性 `filteredData`（类型：`Observable<Array<any>>`），用于存储或配置已过滤数据。"
         },
@@ -208,7 +208,7 @@
         {
           "name": "filter",
           "type": "any",
-          "default": "(filter: string): Array<any> => {\n    this.filterString = filter;\n    this.selectData=[];\n    if(this.field.options==undefined){\n      return [];\n    }\n    let opts = this.field.options.map(o => ({ ...o, selected: false }));\n    if (filter && filter.length > 0) {\n      const selectedValues = String(filter).split(',').map(s => s.trim());\n      opts.forEach(option => {\n        let seleted = selectedValues.includes(String(option.value));\n        option[\"selected\"] = seleted;\n        if (seleted) {\n          this.selectData.push(option);\n        }\n      });\n\n      return opts;\n    } else {\n      return opts.slice();\n    }\n  }",
+          "default": "(filter: string) => {\n    this.filterString = filter;\n    this.selectData=[];\n    if(this.field.options==undefined){\n      return [];\n    }\n    let opts = this.field.options.map(o => ({ ...o, selected: false }));\n    if (filter && filter.length > 0) {\n      const selectedValues = String(filter).split(',').map(s => s.trim());\n      opts.forEach(option => {\n        let seleted = selectedValues.includes(String(option.value));\n        option[\"selected\"] = seleted;\n        if (seleted) {\n          this.selectData.push(option);\n        }\n      });\n\n      return opts;\n    } else {\n      return opts.slice();\n    }\n  }",
           "description": "Property `filter` (`any`) storing filter.",
           "descriptionZh": "属性 `filter`（类型：`any`），用于存储或配置过滤。"
         },
@@ -222,28 +222,28 @@
         {
           "name": "optionClicked",
           "type": "any",
-          "default": "(event: Event, data: any): void => {\n    event.stopPropagation();\n    this.toggleSelection(data);\n  }",
+          "default": "(event: Event, data): void => {\n    event.stopPropagation();\n    this.toggleSelection(data);\n  }",
           "description": "Property `optionClicked` (`any`) storing option clicked.",
           "descriptionZh": "属性 `optionClicked`（类型：`any`），用于存储或配置选项点击。"
         },
         {
           "name": "toggleSelection",
           "type": "any",
-          "default": "(data: any): void => {\n    data.selected = !data.selected;\n    if (data.selected === true) {\n      this.selectData.push(data);\n    } else {\n      const i = this.selectData.findIndex(val =>val.value === data.value);\n      this.selectData.splice(i, 1);\n    }\n    this.emitAdjustedData();\n  }",
+          "default": "(data): void => {\n    data.selected = !data.selected;\n    if (data.selected === true) {\n      this.selectData.push(data);\n    } else {\n      const i = this.selectData.findIndex(val =>val.value === data.value);\n      this.selectData.splice(i, 1);\n    }\n    this.emitAdjustedData();\n  }",
           "description": "Property `toggleSelection` (`any`) storing toggle selection.",
           "descriptionZh": "属性 `toggleSelection`（类型：`any`），用于存储或配置开关Selection。"
         },
         {
           "name": "emitAdjustedData",
           "type": "any",
-          "default": "(): void => {\n    const results: Array<string> = []\n    this.selectData.forEach((data: any) => {\n      results.push(data.value);\n    });\n\n    this.formControl.setValue(results.join(','));\n\n    this.result.emit({ key: this.field.name, data: results.join(',') });\n  }",
+          "default": "(): void => {\n    const results: Array<string> = []\n    this.selectData.forEach((data: { value? }) => {\n      results.push(data.value);\n    });\n\n    this.formControl.setValue(results.join(','));\n\n    this.result.emit({ key: this.field.name, data: results.join(',') });\n  }",
           "description": "Property `emitAdjustedData` (`any`) storing emit adjusted data.",
           "descriptionZh": "属性 `emitAdjustedData`（类型：`any`），用于存储或配置发出Adjusted数据。"
         },
         {
           "name": "removeChip",
           "type": "any",
-          "default": "(data: any): void => {\n    this.toggleSelection(data);\n  }",
+          "default": "(data): void => {\n    this.toggleSelection(data);\n  }",
           "description": "Property `removeChip` (`any`) storing remove chip.",
           "descriptionZh": "属性 `removeChip`（类型：`any`），用于存储或配置移除纸片标签。"
         }
@@ -681,7 +681,7 @@
       "inputs": [
         {
           "name": "field",
-          "type": "F | any",
+          "type": "any",
           "description": "Input setter `field` updating field.",
           "descriptionZh": "输入属性 `field` 的设置器，用于更新字段。"
         }
@@ -1099,7 +1099,7 @@
           "params": [
             {
               "name": "options",
-              "type": "any[]"
+              "type": "any"
             }
           ],
           "returnType": "any",
@@ -1111,7 +1111,7 @@
           "params": [
             {
               "name": "options",
-              "type": "any[]"
+              "type": "any"
             }
           ],
           "returnType": "any",
@@ -1619,7 +1619,7 @@
       "inputs": [
         {
           "name": "config",
-          "type": "any",
+          "type": "{ items? }",
           "default": "{}",
           "description": "Input property `config` (`any`) configuring config (default: `{}`).",
           "descriptionZh": "输入属性 `config`（类型：`any`），用于配置配置（默认值：`{}`）。"
@@ -1707,7 +1707,7 @@
           "params": [
             {
               "name": "{ name, value, field }",
-              "type": "{ name: string, value: any, field: FieldConfig }|any"
+              "type": "any"
             }
           ],
           "returnType": "any",
@@ -1729,7 +1729,7 @@
               "type": "any"
             }
           ],
-          "returnType": "Promise<any>",
+          "returnType": "any",
           "description": "Executes `submit` to handle submit.",
           "descriptionZh": "执行 `submit`，用于提交。"
         },
@@ -1741,7 +1741,7 @@
               "type": "any"
             }
           ],
-          "returnType": "Promise<any>",
+          "returnType": "any",
           "description": "Executes `load` to handle load.",
           "descriptionZh": "执行 `load`，用于加载。"
         },
@@ -1757,7 +1757,7 @@
               "type": "any"
             }
           ],
-          "returnType": "Promise<any>",
+          "returnType": "any",
           "description": "Executes `doAction` to handle do action.",
           "descriptionZh": "执行 `doAction`，用于do动作。"
         },
@@ -1785,7 +1785,7 @@
           "params": [
             {
               "name": "values",
-              "type": "Array<any> | any"
+              "type": "any"
             }
           ],
           "returnType": "void",
@@ -2527,7 +2527,7 @@
         {
           "name": "run",
           "params": [],
-          "returnType": "Promise<any>",
+          "returnType": "any",
           "description": "Executes `run` to handle run.",
           "descriptionZh": "执行 `run`，用于运行。"
         },
@@ -2629,7 +2629,7 @@
       "properties": [
         {
           "name": "onTouched",
-          "type": "() => any",
+          "type": "{ () }",
           "default": "() => { }",
           "description": "onTouch function registered via registerOnTouch (ControlValueAccessor).",
           "descriptionZh": "属性 `onTouched`（类型：`() => any`），用于存储或配置当是否已触碰（默认值：`() => { }`）。"
@@ -2738,13 +2738,13 @@
       "properties": [
         {
           "name": "matPrefix",
-          "type": "TemplateRef<any>",
+          "type": "TemplateRef<unknown>",
           "description": "Template/content query reference `matPrefix` (`@ViewChild`) targeting mat prefix.",
           "descriptionZh": "模板/内容视图查询引用 `matPrefix`（`@ViewChild`），指向Material前缀。"
         },
         {
           "name": "matSuffix",
-          "type": "TemplateRef<any>",
+          "type": "TemplateRef<unknown>",
           "description": "Template/content query reference `matSuffix` (`@ViewChild`) targeting mat suffix.",
           "descriptionZh": "模板/内容视图查询引用 `matSuffix`（`@ViewChild`），指向Material后缀。"
         },
@@ -3604,7 +3604,7 @@
         {
           "name": "run",
           "params": [],
-          "returnType": "Promise<any>",
+          "returnType": "any",
           "description": "Executes `run` to handle run.",
           "descriptionZh": "执行 `run`，用于运行。"
         },

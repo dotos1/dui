@@ -1,0 +1,604 @@
+<div class="studio">
+  <!-- 1. High-Impact Gradient Hero Banner -->
+  <section class="studio__hero">
+    <div class="studio__hero-glow"></div>
+    <div class="studio__hero-top">
+      <div class="studio__status-pill">
+        <span class="studio__status-dot"></span>
+        <span>LIVE INTERACTIVE STUDIO · 实时可交互演练台</span>
+      </div>
+      <div class="studio__mode-badge">
+        <mat-icon class="studio__mode-icon">auto_awesome</mat-icon>
+        <span>Mode: {{ preset.mode }}</span>
+      </div>
+    </div>
+
+    <h2 class="studio__title">{{ preset.title }}</h2>
+    <p class="studio__subtitle">{{ preset.subtitle }}</p>
+
+    <div class="studio__hero-bar">
+      <div class="studio__import-pill" (click)="copyTextToClipboard('import { ... } from \'' + (api?.importPath || ('@dotos/dui/' + categoryId + '/' + moduleId)) + '\';')">
+        <mat-icon class="studio__import-icon">terminal</mat-icon>
+        <code>import &#123; {{ selectedExport?.name || '...' }} &#125; from '{{ api?.importPath || ('@dotos/dui/' + categoryId + '/' + moduleId) }}';</code>
+        <span class="studio__copy-tag">{{ copiedBanner ? '已复制!' : '点击复制' }}</span>
+      </div>
+
+      <div class="studio__metrics" *ngIf="api">
+        <div class="studio__metric">
+          <span class="studio__metric-val">{{ api.exports.length }}</span>
+          <span class="studio__metric-lbl">导出符号总数</span>
+        </div>
+        <div class="studio__metric">
+          <span class="studio__metric-val">{{ countExportsByGroup('ui') }}</span>
+          <span class="studio__metric-lbl">组件 / 指令 / 模块</span>
+        </div>
+        <div class="studio__metric">
+          <span class="studio__metric-val">{{ countExportsByGroup('logic') }}</span>
+          <span class="studio__metric-lbl">服务 / 管道 / 类</span>
+        </div>
+        <div class="studio__metric">
+          <span class="studio__metric-val">{{ countExportsByGroup('types') }}</span>
+          <span class="studio__metric-lbl">接口 / 常量 / 枚举</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Quick Action Preset Bar -->
+    <div class="studio__quick-actions" *ngIf="preset.actions.length">
+      <span class="studio__quick-label">快捷交互预设：</span>
+      <button
+        type="button"
+        class="studio__action-btn"
+        *ngFor="let act of preset.actions"
+        (click)="runScenarioAction(act)">
+        <mat-icon class="studio__action-icon">bolt</mat-icon>
+        <span>{{ act.label }}</span>
+      </button>
+    </div>
+  </section>
+
+  <!-- 2. Split-Screen Interactive Studio (Stage Left + Control Deck Right) -->
+  <div class="studio__workspace">
+    <!-- Left Column: Live Visual Component Stage -->
+    <div class="studio__stage-card">
+      <div class="studio__stage-header">
+        <div class="studio__stage-dots">
+          <span class="studio__dot studio__dot--red"></span>
+          <span class="studio__dot studio__dot--amber"></span>
+          <span class="studio__dot studio__dot--green"></span>
+          <span class="studio__stage-title">实时交互预览画布 (Interactive Stage)</span>
+        </div>
+        <div class="studio__canvas-switcher">
+          <button
+            type="button"
+            class="studio__canvas-btn"
+            [class.studio__canvas-btn--active]="canvasTheme === 'blueprint'"
+            (click)="setCanvasTheme('blueprint')">
+            蓝图网格
+          </button>
+          <button
+            type="button"
+            class="studio__canvas-btn"
+            [class.studio__canvas-btn--active]="canvasTheme === 'light'"
+            (click)="setCanvasTheme('light')">
+            浅色画布
+          </button>
+          <button
+            type="button"
+            class="studio__canvas-btn"
+            [class.studio__canvas-btn--active]="canvasTheme === 'dark'"
+            (click)="setCanvasTheme('dark')">
+            深色沉浸
+          </button>
+        </div>
+      </div>
+
+      <!-- Stage Canvas Body -->
+      <div
+        class="studio__canvas"
+        [class.studio__canvas--light]="canvasTheme === 'light'"
+        [class.studio__canvas--dark]="canvasTheme === 'dark'"
+        [class.studio__canvas--blueprint]="canvasTheme === 'blueprint'"
+        [ngSwitch]="preset.mode">
+
+        <!-- MODE 1: COLOR PICKER & PALETTE STUDIO -->
+        <div *ngSwitchCase="'color'" class="demo-color">
+          <div class="demo-color__preview">
+            <div
+              class="demo-color__orb"
+              [style.background]="selectedColor"
+              [style.opacity]="numericValue / 100"
+              [style.box-shadow]="'0 16px 40px ' + selectedColor + '66'">
+              <span class="demo-color__orb-hex">{{ selectedColor }}</span>
+              <span class="demo-color__orb-alpha">Alpha {{ numericValue }}%</span>
+            </div>
+            <div class="demo-color__details">
+              <div class="demo-color__badge-row">
+                <span class="demo-color__chip" [style.background]="selectedColor" style="color:#fff">
+                  主色按钮预览
+                </span>
+                <span class="demo-color__chip demo-color__chip--outline" [style.border-color]="selectedColor" [style.color]="selectedColor">
+                  {{ selectedOption }}
+                </span>
+              </div>
+              <p class="demo-color__desc">
+                当前选中色值：<code>{{ selectedColor }}</code> · 空间：<code>{{ selectedOption }}</code> · 棋盘格对比：<code>{{ booleanToggle ? '开启' : '关闭' }}</code>
+              </p>
+              <div class="demo-color__swatches">
+                <button
+                  type="button"
+                  *ngFor="let hex of colorPalette"
+                  class="demo-color__swatch"
+                  [class.demo-color__swatch--active]="selectedColor.toLowerCase() === hex.toLowerCase()"
+                  [style.background]="hex"
+                  (click)="pickSwatch(hex)"
+                  [attr.aria-label]="hex">
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- MODE 2: ANIMATION & MOTION STAGE -->
+        <div *ngSwitchCase="'animation'" class="demo-anim">
+          <div
+            class="demo-anim__box"
+            [class.demo-anim__box--pulse]="animationPulse"
+            [class.demo-anim__box--loop]="booleanToggle"
+            [style.transition-duration.ms]="numericValue">
+            <mat-icon class="demo-anim__icon">motion_photos_on</mat-icon>
+            <div class="demo-anim__name">{{ selectedOption }}</div>
+            <div class="demo-anim__text">{{ primaryText }}</div>
+            <div class="demo-anim__meta">
+              <span>时长: {{ numericValue }}ms</span>
+              <span>·</span>
+              <span>循环态: {{ booleanToggle ? 'Active' : 'Single' }}</span>
+            </div>
+          </div>
+          <button type="button" class="demo-anim__trigger-btn" (click)="triggerAnimationPulse()">
+            <mat-icon>play_circle</mat-icon>
+            <span>立即重播动画 ({{ selectedOption }})</span>
+          </button>
+        </div>
+
+        <!-- MODE 3: CAROUSEL SHOWCASE -->
+        <div *ngSwitchCase="'carousel'" class="demo-carousel">
+          <div
+            class="demo-carousel__slide"
+            [style.background]="carouselSlides[carouselIndex].gradient">
+            <div class="demo-carousel__badge">
+              <mat-icon>{{ carouselSlides[carouselIndex].icon }}</mat-icon>
+              <span>{{ carouselSlides[carouselIndex].metric }} · 间隔 {{ numericValue }}ms</span>
+            </div>
+            <h3 class="demo-carousel__title">{{ carouselSlides[carouselIndex].title }}</h3>
+            <p class="demo-carousel__sub">{{ carouselSlides[carouselIndex].subtitle }}</p>
+            <div class="demo-carousel__custom-note">当前覆盖标题：{{ primaryText }}</div>
+            <div class="demo-carousel__controls">
+              <button type="button" class="demo-carousel__nav" (click)="prevSlide()">
+                <mat-icon>chevron_left</mat-icon>
+              </button>
+              <div class="demo-carousel__dots">
+                <button
+                  type="button"
+                  *ngFor="let s of carouselSlides; let idx = index"
+                  class="demo-carousel__dot"
+                  [class.demo-carousel__dot--active]="idx === carouselIndex"
+                  (click)="goToSlide(idx)">
+                </button>
+              </div>
+              <button type="button" class="demo-carousel__nav" (click)="nextSlide()">
+                <mat-icon>chevron_right</mat-icon>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- MODE 4: OVERLAY / POPOVER / NOTIFICATIONS / MESSAGE / BACKDROP -->
+        <div *ngSwitchCase="'overlay'" class="demo-overlay">
+          <div class="demo-overlay__card" [class.demo-overlay__card--dimmed]="moduleId === 'backdrop' && booleanToggle">
+            <div class="demo-overlay__top">
+              <div class="demo-overlay__bell-wrap">
+                <mat-icon class="demo-overlay__bell">notifications_active</mat-icon>
+                <span class="demo-overlay__badge" *ngIf="numericValue > 0">
+                  {{ booleanToggle && numericValue > 99 ? '99+' : numericValue }}
+                </span>
+              </div>
+              <div class="demo-overlay__heading">
+                <strong>{{ primaryText }}</strong>
+                <span>方位/模式：{{ selectedOption }} · 参数值：{{ numericValue }}</span>
+              </div>
+            </div>
+
+            <div class="demo-overlay__banner" [attr.data-severity]="selectedOption">
+              <mat-icon>info</mat-icon>
+              <div>
+                <div><strong>实时浮层与通知反馈预览 ({{ moduleId }})</strong></div>
+                <div>当前开关状态：{{ booleanToggle ? '已激活 (Active / Open)' : '已收起 (Closed / Idle)' }}</div>
+              </div>
+            </div>
+
+            <div class="demo-overlay__popover" *ngIf="booleanToggle">
+              <div class="demo-overlay__popover-arrow"></div>
+              <div class="demo-overlay__popover-content">
+                <mat-icon>tips_and_updates</mat-icon>
+                <span>浮动层 / 气泡卡片已展开 (对齐策略: {{ selectedOption }})</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- MODE 5: DND / DRAGSELECT / RESIZE / SCROLLBAR / POSITION -->
+        <div *ngSwitchCase="'dnd-layout'" class="demo-dnd">
+          <div class="demo-dnd__hud">
+            <span>已选中卡片: <strong>{{ selectedGridCount() }} / {{ gridItems.length }}</strong></span>
+            <span>尺寸/步长参数: <strong>{{ numericValue }}px</strong></span>
+            <span>策略: <strong>{{ selectedOption }}</strong></span>
+          </div>
+          <div class="demo-dnd__grid" [style.max-width.px]="numericValue > 220 ? numericValue + 160 : 520">
+            <div
+              *ngFor="let item of gridItems"
+              class="demo-dnd__card"
+              [class.demo-dnd__card--selected]="item.selected"
+              [class.demo-dnd__card--target]="item.zone === 'target'"
+              (click)="toggleGridItem(item, false)">
+              <div class="demo-dnd__card-head">
+                <span class="demo-dnd__card-id">{{ item.id }}</span>
+                <span class="demo-dnd__zone-tag">{{ item.zone === 'source' ? '源拖放区' : '目标区' }}</span>
+              </div>
+              <div class="demo-dnd__card-name">{{ item.name }}</div>
+              <button
+                type="button"
+                class="demo-dnd__transfer-btn"
+                (click)="$event.stopPropagation(); toggleGridItem(item, true)">
+                <mat-icon>swap_horiz</mat-icon>
+                <span>跨区投递</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- MODE 6: ICON / SVG / INLINE-SVG / LINE-STYLE -->
+        <div *ngSwitchCase="'icon-svg'" class="demo-svg">
+          <div class="demo-svg__stage">
+            <div class="demo-svg__icon-showcase">
+              <div
+                class="demo-svg__icon-Ring"
+                [style.width.px]="numericValue + 36"
+                [style.height.px]="numericValue + 36"
+                [style.color]="booleanToggle ? '#0284c7' : '#475569'">
+                <mat-icon [style.font-size.px]="numericValue" [style.width.px]="numericValue" [style.height.px]="numericValue">
+                  {{ preset.options.includes(selectedOption) && !selectedOption.includes(' ') ? selectedOption : 'Auto_awesome' }}
+                </mat-icon>
+              </div>
+              <div class="demo-svg__label">{{ primaryText }} ({{ numericValue }}px)</div>
+            </div>
+
+            <svg class="demo-svg__vector" viewBox="0 0 280 120">
+              <defs>
+                <linearGradient id="duiSvgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#0284c7" />
+                  <stop offset="100%" stop-color="#6366f1" />
+                </linearGradient>
+              </defs>
+              <circle
+                cx="65"
+                cy="60"
+                [attr.r]="numericValue > 52 ? 48 : numericValue"
+                fill="url(#duiSvgGrad)"
+                fill-opacity="0.22"
+                stroke="#0284c7"
+                stroke-width="2.5" />
+              <path
+                d="M 130 85 Q 170 20, 205 60 T 265 35"
+                fill="none"
+                stroke="#6366f1"
+                [attr.stroke-width]="numericValue > 12 ? 4 : numericValue"
+                [attr.stroke-dasharray]="lineDashArray()"
+                stroke-linecap="round" />
+            </svg>
+          </div>
+        </div>
+
+        <!-- MODE 7: INPUT UTILITY (CLIPBOARD / PASSWORD / FILEUPLOAD / KEYBOARD / MEDIA / IFRAME) -->
+        <div *ngSwitchCase="'input-utility'" class="demo-util-input">
+          <div class="demo-util-input__box">
+            <div class="demo-util-input__row">
+              <mat-icon class="demo-util-input__lead-icon">verified_user</mat-icon>
+              <input
+                type="text"
+                class="demo-util-input__field"
+                [type]="moduleId === 'password' && !booleanToggle ? 'password' : 'text'"
+                [value]="primaryText"
+                (input)="onPrimaryTextInput($event)" />
+              <button
+                type="button"
+                class="demo-util-input__btn"
+                (click)="copyTextToClipboard(primaryText)">
+                <mat-icon>{{ copiedBanner ? 'check' : 'content_copy' }}</mat-icon>
+                <span>{{ copiedBanner ? '已复制' : '复制/执行' }}</span>
+              </button>
+            </div>
+
+            <div class="demo-util-input__files" *ngIf="moduleId === 'fileupload'">
+              <div class="demo-util-input__file" *ngFor="let f of uploadedFiles">
+                <mat-icon>description</mat-icon>
+                <span class="demo-util-input__file-name">{{ f.name }}</span>
+                <span class="demo-util-input__file-size">{{ f.sizeKb }} KB</span>
+                <span class="demo-util-input__file-ok">{{ f.progress }}%</span>
+              </div>
+            </div>
+
+            <div class="demo-util-input__meta">
+              <span>当前策略: <code>{{ selectedOption }}</code></span>
+              <span>参数阈值: <code>{{ numericValue }}</code></span>
+              <span>状态开关: <code>{{ booleanToggle ? 'Enabled' : 'Disabled' }}</code></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- MODE 8: CORE INFRASTRUCTURE / AUTH / CACHE / STORAGE / NET / MOBX / PARSE -->
+        <div *ngSwitchCase="'core-service'" class="demo-core">
+          <div class="demo-core__header">
+            <div>
+              <strong>运行时状态表与管道沙箱 ({{ api?.importPath }})</strong>
+              <div class="demo-core__sub">Base64 摘要: <code>{{ toBase64Preview(primaryText).slice(0, 28) }}...</code></div>
+            </div>
+            <button type="button" class="demo-core__add-btn" (click)="upsertKvEntry()">
+              <mat-icon>add_circle</mat-icon>
+              <span>写入状态条目</span>
+            </button>
+          </div>
+          <table class="demo-core__table">
+            <thead>
+              <tr>
+                <th>键名 / 通道 (Key)</th>
+                <th>当前值 (Payload)</th>
+                <th>生命周期 / 策略</th>
+                <th>操作</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let row of kvEntries">
+                <td><code>{{ row.key }}</code></td>
+                <td><code>{{ row.value }}</code></td>
+                <td>{{ row.ttl }}</td>
+                <td>
+                  <button type="button" class="demo-core__del-btn" (click)="removeKvEntry(row.key)">移除</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- MODE 9: FORM CONTROLS (CARD / DATE / PICKER / RANGE / TOGGLE-SELECT) -->
+        <div *ngSwitchCase="'form-control'" class="demo-form">
+          <div class="demo-form__card">
+            <div class="demo-form__card-head">
+              <mat-icon>dynamic_form</mat-icon>
+              <div>
+                <div class="demo-form__card-title">{{ primaryText }}</div>
+                <div class="demo-form__card-sub">激活格式 / 分段：{{ selectedOption }}</div>
+              </div>
+            </div>
+
+            <div class="demo-form__segments">
+              <button
+                type="button"
+                *ngFor="let opt of preset.options"
+                class="demo-form__seg-btn"
+                [class.demo-form__seg-btn--active]="selectedOption === opt"
+                (click)="selectOption(opt)">
+                {{ opt }}
+              </button>
+            </div>
+
+            <div class="demo-form__range-bar">
+              <div class="demo-form__range-labels">
+                <span>区间下界: <strong>{{ rangeBegin }}</strong></span>
+                <span>当前主值 / 上界: <strong>{{ numericValue }}</strong></span>
+              </div>
+              <div class="demo-form__track">
+                <div
+                  class="demo-form__track-fill"
+                  [style.width.%]="((numericValue - preset.numericMin) / (preset.numericMax - preset.numericMin || 1)) * 100">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- MODE 10: UI TOOLBAR -->
+        <div *ngSwitchCase="'toolbar'" class="demo-toolbar">
+          <div class="demo-toolbar__bar" [attr.data-theme]="selectedOption">
+            <mat-icon class="demo-toolbar__logo">construction</mat-icon>
+            <strong class="demo-toolbar__title">{{ primaryText }}</strong>
+            <span class="demo-toolbar__divider"></span>
+            <button type="button" class="demo-toolbar__btn" (click)="runScenarioAction(preset.actions[0] || {id:'t1',label:'保存',payload:'save'})">
+              <mat-icon>save</mat-icon>
+              <span>保存</span>
+            </button>
+            <button type="button" class="demo-toolbar__btn" (click)="toggleBoolean()">
+              <mat-icon>tune</mat-icon>
+              <span>校准</span>
+            </button>
+            <span class="demo-toolbar__fill" *ngIf="booleanToggle"></span>
+            <span class="demo-toolbar__tag">间距 {{ numericValue }}px</span>
+          </div>
+        </div>
+
+        <!-- MODE 11: PIPE & CODEC TRANSFORMER (UTIL / PIPES / JPEG) -->
+        <div *ngSwitchCase="'pipe-codec'" class="demo-pipes">
+          <div class="demo-pipes__grid">
+            <div class="demo-pipes__card">
+              <span class="demo-pipes__name">bytes 容量换算管道</span>
+              <code class="demo-pipes__in">{{ numericValue }} | bytes</code>
+              <strong class="demo-pipes__out">{{ formatBytes(numericValue) }}</strong>
+            </div>
+            <div class="demo-pipes__card">
+              <span class="demo-pipes__name">camelCaseToDash 连字符管道</span>
+              <code class="demo-pipes__in">'{{ primaryText.slice(0, 24) }}' | camelCaseToDash</code>
+              <strong class="demo-pipes__out">{{ toKebabCase(primaryText) }}</strong>
+            </div>
+            <div class="demo-pipes__card">
+              <span class="demo-pipes__name">Base64 / 图像质量编码预览</span>
+              <code class="demo-pipes__in">Quality: {{ numericValue }} · Mode: {{ selectedOption }}</code>
+              <strong class="demo-pipes__out">{{ toBase64Preview(primaryText).slice(0, 24) }}...</strong>
+            </div>
+          </div>
+        </div>
+
+        <!-- MODE 12: UX HEAVYWEIGHT WIDGETS (AVATAR / QUERY-BUILDER / WINDOWS / JSON-EDITOR / LINK-PREVIEW) -->
+        <div *ngSwitchDefault class="demo-ux">
+          <div class="demo-ux__top">
+            <div
+              class="demo-ux__avatar"
+              [style.width.px]="numericValue > 36 ? numericValue : 52"
+              [style.height.px]="numericValue > 36 ? numericValue : 52"
+              [style.border-radius]="booleanToggle ? '50%' : '12px'"
+              [style.background]="selectedColor">
+              {{ avatarInitials(primaryText) }}
+            </div>
+            <div class="demo-ux__info">
+              <div class="demo-ux__title">{{ primaryText }}</div>
+              <div class="demo-ux__meta">模式：{{ selectedOption }} · 尺寸/偏移：{{ numericValue }}</div>
+            </div>
+            <button type="button" class="demo-ux__add-btn" (click)="addQueryRule()">
+              <mat-icon>add</mat-icon>
+              <span>新增条件规则</span>
+            </button>
+          </div>
+
+          <div class="demo-ux__rules">
+            <div class="demo-ux__rule" *ngFor="let r of queryRules; let i = index">
+              <span class="demo-ux__rule-badge">{{ i === 0 ? 'WHERE' : (selectedOption.startsWith('OR') ? 'OR' : 'AND') }}</span>
+              <code>{{ r.field }}</code>
+              <span class="demo-ux__rule-op">{{ r.operator }}</span>
+              <strong class="demo-ux__rule-val">'{{ r.value }}'</strong>
+              <button type="button" class="demo-ux__rule-del" (click)="removeQueryRule(i)">×</button>
+            </div>
+          </div>
+
+          <div class="demo-ux__sql">
+            <code>{{ generatedQuerySql() }}</code>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Column: Parameter Control Deck & Symbol Switcher -->
+    <div class="studio__controls-card">
+      <div class="studio__panel-title">
+        <mat-icon>tune</mat-icon>
+        <span>实时参数控制台 (Live Parameter Deck)</span>
+      </div>
+
+      <!-- Exported Symbol Switcher -->
+      <div class="studio__control-group" *ngIf="api && api.exports.length">
+        <label class="studio__label">当前检视导出符号 ({{ api.exports.length }} 个)：</label>
+        <div class="studio__symbol-chips">
+          <button
+            type="button"
+            *ngFor="let item of api.exports.slice(0, 12)"
+            class="studio__symbol-chip"
+            [class.studio__symbol-chip--active]="selectedExport?.name === item.name"
+            (click)="selectExport(item)">
+            <span class="studio__symbol-kind">{{ item.kind.slice(0, 3) }}</span>
+            <span>{{ item.name }}</span>
+          </button>
+        </div>
+        <p class="studio__symbol-desc" *ngIf="selectedExport">
+          {{ summaryOf(selectedExport) }}
+        </p>
+      </div>
+
+      <!-- Primary Text Control -->
+      <div class="studio__control-group">
+        <label class="studio__label">{{ preset.primaryLabel }}</label>
+        <input
+          type="text"
+          class="studio__text-input"
+          [value]="primaryText"
+          (input)="onPrimaryTextInput($event)" />
+      </div>
+
+      <!-- Numeric Slider Control -->
+      <div class="studio__control-group">
+        <div class="studio__label-row">
+          <label class="studio__label">{{ preset.numericLabel }}</label>
+          <span class="studio__value-badge">{{ numericValue }}</span>
+        </div>
+        <input
+          type="range"
+          class="studio__range-input"
+          [min]="preset.numericMin"
+          [max]="preset.numericMax"
+          [value]="numericValue"
+          (input)="onNumericInput($event)" />
+      </div>
+
+      <!-- Option Pills Control -->
+      <div class="studio__control-group" *ngIf="preset.options.length">
+        <label class="studio__label">{{ preset.optionLabel }}</label>
+        <div class="studio__option-pills">
+          <button
+            type="button"
+            *ngFor="let opt of preset.options"
+            class="studio__option-pill"
+            [class.studio__option-pill--active]="selectedOption === opt"
+            (click)="selectOption(opt)">
+            {{ opt }}
+          </button>
+        </div>
+      </div>
+
+      <!-- Boolean Switch Control -->
+      <div class="studio__control-group">
+        <label class="studio__toggle-row" (click)="toggleBoolean()">
+          <span class="studio__toggle-switch" [class.studio__toggle-switch--on]="booleanToggle">
+            <span class="studio__toggle-knob"></span>
+          </span>
+          <span class="studio__toggle-text">{{ preset.toggleLabel }}</span>
+        </label>
+      </div>
+
+      <!-- Live Event & State Inspector Console -->
+      <div class="studio__console">
+        <div class="studio__console-head">
+          <span>
+            <mat-icon class="studio__console-icon">terminal</mat-icon>
+            实时事件与状态流 (Event Inspector)
+          </span>
+          <button type="button" class="studio__console-clear" (click)="clearLogs()">清空</button>
+        </div>
+        <div class="studio__console-body">
+          <div class="studio__log-row" *ngFor="let log of eventLogs">
+            <span class="studio__log-time">{{ log.time }}</span>
+            <span class="studio__log-tag" [attr.data-type]="log.type">{{ log.type }}</span>
+            <span class="studio__log-label">{{ log.label }}</span>
+            <code class="studio__log-payload">{{ log.payload }}</code>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. Bottom Panel: Dynamic Real-Time Code Generator -->
+  <section class="studio__code-card">
+    <div class="studio__code-header">
+      <div>
+        <h3 class="studio__code-title">
+          <mat-icon>code</mat-icon>
+          <span>实时生成的 TypeScript / HTML 集成代码 (随上方参数动态同步)</span>
+        </h3>
+        <p class="studio__code-sub">
+          当前目标符号：<code>{{ selectedExport?.name || moduleId }}</code> · 导入路径：<code>{{ api?.importPath }}</code>
+        </p>
+      </div>
+    </div>
+    <dui-highlight
+      [content]="dynamicUsageCode"
+      [codeLang]="'typescript'"
+      [copyCodeToClipboard]="true">
+    </dui-highlight>
+  </section>
+</div>

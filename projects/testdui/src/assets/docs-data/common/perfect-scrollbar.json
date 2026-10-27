@@ -169,7 +169,7 @@
       "properties": [
         {
           "name": "states",
-          "type": "any",
+          "type": "{ left?; right?; top?; bottom? }",
           "default": "{}",
           "description": "Property `states` (`any`) storing states (default: `{}`).",
           "descriptionZh": "记录当前是否处于左/右/上/下边缘状态，驱动指示条显示。"

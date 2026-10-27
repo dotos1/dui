@@ -1683,7 +1683,7 @@
         },
         {
           "name": "customMenuRef",
-          "type": "TemplateRef<any> | null",
+          "type": "any",
           "default": "null",
           "description": "Input property `customMenuRef` (`TemplateRef<any> | null`) configuring custom menu ref (default: `null`).",
           "descriptionZh": "输入属性 `customMenuRef`（类型：`TemplateRef<any> | null`），用于配置自定义菜单引用（默认值：`null`）。"
@@ -1793,7 +1793,7 @@
           "params": [
             {
               "name": "c",
-              "type": "TemplateRef<any>"
+              "type": "TemplateRef<unknown>"
             }
           ],
           "returnType": "void",
@@ -1810,8 +1810,8 @@
         },
         {
           "name": "customMenuRefChange",
-          "type": "Subject<TemplateRef<any>>",
-          "default": "new Subject<TemplateRef<any>>()",
+          "type": "any",
+          "default": "new Subject<TemplateRef<unknown>>()",
           "description": "Property `customMenuRefChange` (`Subject<TemplateRef<any>>`) storing custom menu ref change (default: `new Subject<TemplateRef<any>>()`).",
           "descriptionZh": "属性 `customMenuRefChange`（类型：`Subject<TemplateRef<any>>`），用于存储或配置自定义菜单引用变更（默认值：`new Subject<TemplateRef<any>>()`）。"
         }

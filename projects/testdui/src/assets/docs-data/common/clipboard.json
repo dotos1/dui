@@ -236,7 +236,7 @@
         },
         {
           "name": "style",
-          "type": "{[key: string]: any}",
+          "type": "{[key: string]: unknown}",
           "default": "{}",
           "description": "Inline style object applied to the button.",
           "descriptionZh": "应用到按钮上的内联样式对象。"

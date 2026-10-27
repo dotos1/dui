@@ -98,7 +98,7 @@
         },
         {
           "name": "doCheck",
-          "type": "(item?: any) => void",
+          "type": "(item?) => void",
           "description": "Property `doCheck` (`(item?: any) => void`) storing do check.",
           "descriptionZh": "属性 `doCheck`（类型：`(item?: any) => void`），用于存储或配置do检查。"
         }
@@ -655,19 +655,19 @@
         },
         {
           "name": "hideExpression",
-          "type": "boolean | string | ((model: any, formState: any) => boolean)",
+          "type": "any",
           "description": "Property `hideExpression` (`boolean | string | ((model: any, formState: any) => boolean)`) storing hide expression.",
           "descriptionZh": "属性 `hideExpression`（类型：`boolean | string | ((model: any, formState: any) => boolean)`），用于存储或配置隐藏表达式。"
         },
         {
           "name": "disableExpression",
-          "type": "boolean | string | ((model: any, formState: any) => boolean)",
+          "type": "any",
           "description": "Property `disableExpression` (`boolean | string | ((model: any, formState: any) => boolean)`) storing disable expression.",
           "descriptionZh": "属性 `disableExpression`（类型：`boolean | string | ((model: any, formState: any) => boolean)`），用于存储或配置禁用表达式。"
         },
         {
           "name": "expressionProperties",
-          "type": "{ [property: string]: string | ((model: any, formState: any) => boolean) } | any",
+          "type": "any",
           "description": "Property `expressionProperties` (`{ [property: string]: string | ((model: any, formState: any) => boolea...`) storing expression properties.",
           "descriptionZh": "属性 `expressionProperties`（类型：`{ [property: string]: string | ((model: any, formState: any) => boolea...`），用于存储或配置表达式属性列表。"
         },
@@ -685,7 +685,7 @@
         },
         {
           "name": "handler",
-          "type": "(item?: any) => void",
+          "type": "(item?) => void",
           "description": "Property `handler` (`(item?: any) => void`) storing handler.",
           "descriptionZh": "属性 `handler`（类型：`(item?: any) => void`），用于存储或配置处理器。"
         },
@@ -697,13 +697,13 @@
         },
         {
           "name": "onValueChange",
-          "type": "(newValue: any, oldValue: any) => void",
+          "type": "(newValue, oldValue) => void",
           "description": "Property `onValueChange` (`(newValue: any, oldValue: any) => void`) storing on value change.",
           "descriptionZh": "属性 `onValueChange`（类型：`(newValue: any, oldValue: any) => void`），用于存储或配置当值变更。"
         },
         {
           "name": "doCheck",
-          "type": "(item?: any) => void",
+          "type": "(item?) => void",
           "description": "Property `doCheck` (`(item?: any) => void`) storing do check.",
           "descriptionZh": "属性 `doCheck`（类型：`(item?: any) => void`），用于存储或配置do检查。"
         }

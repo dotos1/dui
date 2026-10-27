@@ -91,13 +91,13 @@
       "properties": [
         {
           "name": "observable",
-          "type": "Observable<any>",
+          "type": "any",
           "description": "Property `observable` (`Observable<any>`) storing observable.",
           "descriptionZh": "属性 `observable`（类型：`Observable<any>`），用于存储或配置可观察流。"
         },
         {
           "name": "componentRef",
-          "type": "ComponentRef<any>",
+          "type": "any",
           "description": "Property `componentRef` (`ComponentRef<any>`) storing component ref.",
           "descriptionZh": "属性 `componentRef`（类型：`ComponentRef<any>`），用于存储或配置组件引用。"
         },
@@ -115,7 +115,7 @@
         },
         {
           "name": "subject",
-          "type": "Subject<any>",
+          "type": "any",
           "description": "Property `subject` (`Subject<any>`) storing subject.",
           "descriptionZh": "属性 `subject`（类型：`Subject<any>`），用于存储或配置主题流。"
         },
@@ -303,7 +303,7 @@
         },
         {
           "name": "content",
-          "type": "TemplatePortal<any>",
+          "type": "any",
           "description": "Content injected into loading component.",
           "descriptionZh": "属性 `content`（类型：`TemplatePortal<any>`），用于存储或配置内容。"
         },

@@ -251,7 +251,7 @@
         },
         {
           "name": "validator",
-          "type": "(rule: Rule, parent: RuleSet) => any | null",
+          "type": "(rule: Rule, parent: RuleSet) => unknown | null",
           "description": "Property `validator` (`(rule: Rule, parent: RuleSet) => any | null`) storing validator.",
           "descriptionZh": "属性 `validator`（类型：`(rule: Rule, parent: RuleSet) => any | null`），用于存储或配置校验器。"
         }
@@ -388,7 +388,7 @@
       "properties": [
         {
           "name": "onChange",
-          "type": "(a:any) => void",
+          "type": "(a) => void",
           "description": "Property `onChange` (`(a:any) => void`) storing on change.",
           "descriptionZh": "属性 `onChange`（类型：`(a:any) => void`），用于存储或配置当变更。"
         },
@@ -668,7 +668,7 @@
         },
         {
           "name": "data",
-          "type": "RuleSet | any",
+          "type": "RuleSet",
           "default": "{ condition: 'and', rules: [] }",
           "description": "Input property `data` (`RuleSet | any`) configuring data (default: `{ condition: 'and', rules: [] }`).",
           "descriptionZh": "输入属性 `data`（类型：`RuleSet | any`），用于配置数据（默认值：`{ condition: 'and', rules: [] }`）。"
@@ -821,7 +821,7 @@
               "type": "Rule"
             }
           ],
-          "returnType": "TemplateRef<any>",
+          "returnType": "TemplateRef<unknown>",
           "description": "Executes `findTemplateForRule` to handle find template for rule.",
           "descriptionZh": "执行 `findTemplateForRule`，用于查找模板用于规则。"
         },
@@ -1113,56 +1113,56 @@
         {
           "name": "getOperatorTemplate",
           "params": [],
-          "returnType": "TemplateRef<any>",
+          "returnType": "TemplateRef<unknown>",
           "description": "Executes `getOperatorTemplate` to handle get operator template.",
           "descriptionZh": "执行 `getOperatorTemplate`，用于获取操作符模板。"
         },
         {
           "name": "getFieldTemplate",
           "params": [],
-          "returnType": "TemplateRef<any>",
+          "returnType": "TemplateRef<unknown>",
           "description": "Executes `getFieldTemplate` to handle get field template.",
           "descriptionZh": "执行 `getFieldTemplate`，用于获取字段模板。"
         },
         {
           "name": "getEntityTemplate",
           "params": [],
-          "returnType": "TemplateRef<any>",
+          "returnType": "TemplateRef<unknown>",
           "description": "Executes `getEntityTemplate` to handle get entity template.",
           "descriptionZh": "执行 `getEntityTemplate`，用于获取实体模板。"
         },
         {
           "name": "getArrowIconTemplate",
           "params": [],
-          "returnType": "TemplateRef<any>",
+          "returnType": "TemplateRef<unknown>",
           "description": "Executes `getArrowIconTemplate` to handle get arrow icon template.",
           "descriptionZh": "执行 `getArrowIconTemplate`，用于获取箭头图标模板。"
         },
         {
           "name": "getButtonGroupTemplate",
           "params": [],
-          "returnType": "TemplateRef<any>",
+          "returnType": "TemplateRef<unknown>",
           "description": "Executes `getButtonGroupTemplate` to handle get button group template.",
           "descriptionZh": "执行 `getButtonGroupTemplate`，用于获取按钮分组模板。"
         },
         {
           "name": "getSwitchGroupTemplate",
           "params": [],
-          "returnType": "TemplateRef<any>",
+          "returnType": "TemplateRef<unknown>",
           "description": "Executes `getSwitchGroupTemplate` to handle get switch group template.",
           "descriptionZh": "执行 `getSwitchGroupTemplate`，用于获取切换开关分组模板。"
         },
         {
           "name": "getRemoveButtonTemplate",
           "params": [],
-          "returnType": "TemplateRef<any>",
+          "returnType": "TemplateRef<unknown>",
           "description": "Executes `getRemoveButtonTemplate` to handle get remove button template.",
           "descriptionZh": "执行 `getRemoveButtonTemplate`，用于获取移除按钮模板。"
         },
         {
           "name": "getEmptyWarningTemplate",
           "params": [],
-          "returnType": "TemplateRef<any>",
+          "returnType": "TemplateRef<unknown>",
           "description": "Executes `getEmptyWarningTemplate` to handle get empty warning template.",
           "descriptionZh": "执行 `getEmptyWarningTemplate`，用于获取空警告模板。"
         },
@@ -1308,7 +1308,7 @@
         },
         {
           "name": "onTouchedCallback",
-          "type": "() => any",
+          "type": "{ () }",
           "description": "Property `onTouchedCallback` (`() => any`) storing on touched callback.",
           "descriptionZh": "属性 `onTouchedCallback`（类型：`() => any`），用于存储或配置当是否已触碰回调函数。"
         },
@@ -1459,13 +1459,13 @@
         },
         {
           "name": "coerceValueForOperator",
-          "type": "(operator: string, value: any, rule: Rule) => any",
+          "type": "{ (operator: string, value, rule: Rule) }",
           "description": "Property `coerceValueForOperator` (`(operator: string, value: any, rule: Rule) => any`) storing coerce value for operator.",
           "descriptionZh": "属性 `coerceValueForOperator`（类型：`(operator: string, value: any, rule: Rule) => any`），用于存储或配置coerce值用于操作符。"
         },
         {
           "name": "calculateFieldChangeValue",
-          "type": "(currentField: Field, nextField: Field, currentValue: any) => any",
+          "type": "{ (currentField: Field, nextField: Field, currentValue) }",
           "description": "Property `calculateFieldChangeValue` (`(currentField: Field, nextField: Field, currentValue: any) => any`) storing calculate field change value.",
           "descriptionZh": "属性 `calculateFieldChangeValue`（类型：`(currentField: Field, nextField: Field, currentValue: any) => any`），用于存储或配置计算字段变更值。"
         }

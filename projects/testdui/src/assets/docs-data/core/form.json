@@ -442,7 +442,7 @@
         },
         {
           "name": "validation",
-          "type": "{ messages?: { [messageProperties: string]: ValidationMessageOption['message']; }; show?: boolean; [additionalProperties: string]: any; }",
+          "type": "{ messages?: { [messageProperties: string]: ValidationMessageOption['message']; }; show?: boolean; [additionalProperties: string]: unknown; }",
           "description": "An object with a few useful properties\n- `validation.messages`: A map of message names that will be displayed when the field has errors.\n- `validation.show`: A boolean you as the developer can set to force displaying errors whatever the state of field. This is useful when you're trying to call the user's attention to some fields for some reason.",
           "descriptionZh": "属性 `validation`（类型：`{ messages?: { [messageProperties: string]: ValidationMessageOption['m...`），用于存储或配置校验。"
         },
@@ -478,13 +478,13 @@
         },
         {
           "name": "hideExpression",
-          "type": "boolean | string | ((model: any, formState: any, field?: FieldConfig) => boolean)",
+          "type": "any",
           "description": "Conditionally hiding Field based on values from other Fields",
           "descriptionZh": "属性 `hideExpression`（类型：`boolean | string | ((model: any, formState: any, field?: FieldConfig)...`），用于存储或配置隐藏表达式。"
         },
         {
           "name": "expressionProperties",
-          "type": "{ [property: string]: string | ((model: any, formState: any, field?: FieldConfig) => any) | Observable<any>; }",
+          "type": "{ [property: string]: string | ({ (model, formState, field?: FieldConfig) }) | Observable<unknown>; }",
           "description": "An object where the name is a property to be set on the main field config and the value is an expression used to assign that property.",
           "descriptionZh": "属性 `expressionProperties`（类型：`{ [property: string]: string | ((model: any, formState: any, field?: F...`），用于存储或配置表达式属性列表。"
         },
@@ -532,7 +532,7 @@
         },
         {
           "name": "parsers",
-          "type": "((value: any) => any)[]",
+          "type": "any",
           "description": "Array of functions to execute, as a pipeline, whenever the model updates, usually via user input.",
           "descriptionZh": "属性 `parsers`（类型：`((value: any) => any)[]`），用于存储或配置解析器。"
         },
@@ -622,7 +622,7 @@
         },
         {
           "name": "options",
-          "type": "any[] | Observable<any[]>",
+          "type": "any",
           "description": "选项，主要用于Select等",
           "descriptionZh": "选项，主要用于Select等"
         },
@@ -1009,7 +1009,7 @@
       "inputs": [
         {
           "name": "field",
-          "type": "F | any",
+          "type": "any",
           "description": "Input setter `field` updating field.",
           "descriptionZh": "输入属性 `field` 的设置器，用于更新字段。"
         },
@@ -1050,7 +1050,7 @@
       "properties": [
         {
           "name": "defaultOptions",
-          "type": "F",
+          "type": "any",
           "description": "Property `defaultOptions` (`F`) storing default options.",
           "descriptionZh": "属性 `defaultOptions`（类型：`F`），用于存储或配置默认配置选项。"
         },
@@ -1592,7 +1592,7 @@
         },
         {
           "name": "resetModel",
-          "type": "(model?: any) => void",
+          "type": "(model?) => void",
           "description": "Property `resetModel` (`(model?: any) => void`) storing reset model.",
           "descriptionZh": "属性 `resetModel`（类型：`(model?: any) => void`），用于存储或配置重置模型。"
         },
@@ -1805,7 +1805,7 @@
           "params": [
             {
               "name": "field",
-              "type": "{ name?: string | string[], fieldGroup?: any, fieldArray?: any }"
+              "type": "{ name?: string | string[], fieldGroup?, fieldArray? }"
             }
           ],
           "returnType": "(string | number)[]",
@@ -1929,7 +1929,7 @@
           "params": [
             {
               "name": "o",
-              "type": "IObserveTarget<T>"
+              "type": "any"
             },
             {
               "name": "paths",
@@ -2021,7 +2021,7 @@
             },
             {
               "name": "args",
-              "type": "any[]"
+              "type": "any"
             }
           ],
           "returnType": "any",
@@ -2051,7 +2051,7 @@
       "properties": [
         {
           "name": "errorMessage$",
-          "type": "Observable<any>",
+          "type": "any",
           "description": "Property `errorMessage$` (`Observable<any>`) storing error message.",
           "descriptionZh": "属性 `errorMessage$`（类型：`Observable<any>`），用于存储或配置错误消息。"
         },

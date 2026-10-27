@@ -850,7 +850,7 @@
               "type": "boolean"
             }
           ],
-          "returnType": "Array<any>",
+          "returnType": "any",
           "description": "Executes `removeAll` to handle remove all.",
           "descriptionZh": "执行 `removeAll`，用于移除全部。"
         },
@@ -917,7 +917,7 @@
             },
             {
               "name": "args",
-              "type": "Array<any>"
+              "type": "any"
             }
           ],
           "returnType": "Container",
@@ -948,7 +948,7 @@
               "type": "boolean"
             }
           ],
-          "returnType": "Array<any>",
+          "returnType": "any",
           "description": "Executes `findByType` to handle find by type.",
           "descriptionZh": "执行 `findByType`，用于查找按类型。"
         },
@@ -964,7 +964,7 @@
               "type": "string"
             }
           ],
-          "returnType": "Array<any>",
+          "returnType": "any",
           "description": "Executes `find` to handle find.",
           "descriptionZh": "执行 `find`，用于查找。"
         },
@@ -980,7 +980,7 @@
               "type": "any"
             }
           ],
-          "returnType": "Array<any>",
+          "returnType": "any",
           "description": "Executes `findBy` to handle find by.",
           "descriptionZh": "执行 `findBy`，用于查找按。"
         },
@@ -1304,28 +1304,28 @@
         {
           "name": "getButtons",
           "params": [],
-          "returnType": "Array<any>",
+          "returnType": "any",
           "description": "Returns the {@link Dui.ui.Toolbar toolbar} from the footer (<code>{@link  #fbar}</code>) section of the panel.\n The toolbar",
           "descriptionZh": "执行 `getButtons`，用于获取按钮。"
         },
         {
           "name": "getLtButtons",
           "params": [],
-          "returnType": "Array<any>",
+          "returnType": "any",
           "description": "Executes `getLtButtons` to handle get lt buttons.",
           "descriptionZh": "执行 `getLtButtons`，用于获取Lt按钮。"
         },
         {
           "name": "getRtButtons",
           "params": [],
-          "returnType": "Array<any>",
+          "returnType": "any",
           "description": "Executes `getRtButtons` to handle get rt buttons.",
           "descriptionZh": "执行 `getRtButtons`，用于获取Rt按钮。"
         },
         {
           "name": "getFabButtons",
           "params": [],
-          "returnType": "Array<any>",
+          "returnType": "any",
           "description": "Executes `getFabButtons` to handle get fab buttons.",
           "descriptionZh": "执行 `getFabButtons`，用于获取Fab按钮。"
         },
@@ -1426,7 +1426,7 @@
         },
         {
           "name": "buttons",
-          "type": "Array<any>",
+          "type": "any",
           "default": "[]",
           "description": "Property `buttons` (`Array<any>`) storing buttons (default: `[]`).",
           "descriptionZh": "属性 `buttons`（类型：`Array<any>`），用于存储或配置按钮（默认值：`[]`）。"
@@ -1447,13 +1447,13 @@
         },
         {
           "name": "ltbar",
-          "type": "Array<any>",
+          "type": "any",
           "description": "Property `ltbar` (`Array<any>`) storing ltbar.",
           "descriptionZh": "属性 `ltbar`（类型：`Array<any>`），用于存储或配置ltbar。"
         },
         {
           "name": "rtbar",
-          "type": "any[]",
+          "type": "any",
           "description": "Property `rtbar` (`any[]`) storing rtbar.",
           "descriptionZh": "属性 `rtbar`（类型：`any[]`），用于存储或配置rtbar。"
         },
@@ -1851,7 +1851,7 @@
         },
         {
           "name": "buttons",
-          "type": "Array<any>",
+          "type": "any",
           "description": "Property `buttons` (`Array<any>`) storing buttons.",
           "descriptionZh": "属性 `buttons`（类型：`Array<any>`），用于存储或配置按钮。"
         },
@@ -3987,7 +3987,7 @@
       "properties": [
         {
           "name": "content",
-          "type": "TemplateRef<any>",
+          "type": "TemplateRef<unknown>",
           "description": "Template/content query reference `content` (`@ViewChild`) targeting content.",
           "descriptionZh": "模板/内容视图查询引用 `content`（`@ViewChild`），指向内容。"
         }
@@ -4976,7 +4976,7 @@
         },
         {
           "name": "tabs",
-          "type": "any[]",
+          "type": "any",
           "default": "[]",
           "description": "Property `tabs` (`any[]`) storing tabs (default: `[]`).",
           "descriptionZh": "属性 `tabs`（类型：`any[]`），用于存储或配置选项卡组（默认值：`[]`）。"

@@ -46,7 +46,7 @@
         },
         {
           "name": "componentRef",
-          "type": "ComponentRef<any>",
+          "type": "any",
           "description": "Reference to the dynamically created component instance.",
           "descriptionZh": "动态创建的组件实例的引用。"
         }

@@ -61,7 +61,7 @@
         },
         {
           "name": "onAction",
-          "type": "Observable<any>",
+          "type": "any",
           "description": "available for your use in custom toast",
           "descriptionZh": "属性 `onAction`（类型：`Observable<any>`），用于存储或配置当动作。"
         }
@@ -81,7 +81,7 @@
           "params": [
             {
               "name": "portal",
-              "type": "ComponentPortal<any>"
+              "type": "any"
             },
             {
               "name": "newestOnTop",
@@ -418,7 +418,7 @@
         },
         {
           "name": "toastComponent",
-          "type": "ComponentType<any>",
+          "type": "any",
           "description": "Angular toast component to be shown\ndefault: Toast",
           "descriptionZh": "属性 `toastComponent`（类型：`ComponentType<any>`），用于存储或配置toast组件。"
         },
@@ -474,7 +474,7 @@
               "type": "number | MatSnackBarConfig"
             }
           ],
-          "returnType": "MatSnackBarRef<any>",
+          "returnType": "any",
           "description": "Shows a translated message in a Material snack bar (auto-dismissing).",
           "descriptionZh": "在 Material snack bar 中显示一条已翻译的消息（自动消失）。"
         },
@@ -494,7 +494,7 @@
               "type": "number | MatSnackBarConfig"
             }
           ],
-          "returnType": "MatSnackBarRef<any>",
+          "returnType": "any",
           "description": "Shows a translated message with an action button in a Material snack bar.",
           "descriptionZh": "在 Material snack bar 中显示一条带操作按钮的已翻译消息。"
         },
@@ -517,7 +517,7 @@
               "type": "string"
             }
           ],
-          "returnType": "MatSnackBarRef<any>",
+          "returnType": "any",
           "description": "Shows a translated error-styled snack bar message.",
           "descriptionZh": "显示一条错误样式的已翻译 snack bar 消息。"
         },
@@ -533,7 +533,7 @@
               "type": "string"
             }
           ],
-          "returnType": "MatSnackBarRef<any>",
+          "returnType": "any",
           "description": "Shows a translated info-styled snack bar message.",
           "descriptionZh": "显示一条提示样式的已翻译 snack bar 消息。"
         },
@@ -549,7 +549,7 @@
               "type": "string"
             }
           ],
-          "returnType": "MatSnackBarRef<any>",
+          "returnType": "any",
           "description": "Shows a translated warning-styled snack bar message.",
           "descriptionZh": "显示一条警告样式的已翻译 snack bar 消息。"
         }
@@ -648,14 +648,14 @@
           "params": [
             {
               "name": "portal",
-              "type": "ComponentPortal<any>"
+              "type": "any"
             },
             {
               "name": "newestOnTop",
               "type": "boolean"
             }
           ],
-          "returnType": "ComponentRef<any>",
+          "returnType": "any",
           "description": "Executes `attach` to handle attach.",
           "descriptionZh": "执行 `attach`，用于挂载。"
         },
@@ -755,7 +755,7 @@
           "params": [
             {
               "name": "func",
-              "type": "() => any"
+              "type": "{ () }"
             },
             {
               "name": "timeout",
@@ -771,7 +771,7 @@
           "params": [
             {
               "name": "func",
-              "type": "() => any"
+              "type": "{ () }"
             },
             {
               "name": "timeout",
@@ -1116,14 +1116,14 @@
         {
           "name": "manualClosed",
           "params": [],
-          "returnType": "Observable<any>",
+          "returnType": "any",
           "description": "Executes `manualClosed` to handle manual closed.",
           "descriptionZh": "执行 `manualClosed`，用于手动是否关闭。"
         },
         {
           "name": "timeoutReset",
           "params": [],
-          "returnType": "Observable<any>",
+          "returnType": "any",
           "description": "Executes `timeoutReset` to handle timeout reset.",
           "descriptionZh": "执行 `timeoutReset`，用于延时器重置。"
         },
@@ -1144,7 +1144,7 @@
         {
           "name": "afterClosed",
           "params": [],
-          "returnType": "Observable<any>",
+          "returnType": "any",
           "description": "Executes `afterClosed` to handle after closed.",
           "descriptionZh": "执行 `afterClosed`，用于之后是否关闭。"
         },
@@ -1165,7 +1165,7 @@
         {
           "name": "afterActivate",
           "params": [],
-          "returnType": "Observable<any>",
+          "returnType": "any",
           "description": "Gets an observable that is notified when the toast has started opening.",
           "descriptionZh": "执行 `afterActivate`，用于之后激活。"
         },
@@ -1433,7 +1433,7 @@
         },
         {
           "name": "toasts",
-          "type": "ActiveToast<any>[]",
+          "type": "any",
           "default": "[]",
           "description": "Property `toasts` (`ActiveToast<any>[]`) storing toasts (default: `[]`).",
           "descriptionZh": "当前已加入队列/展示中的全部提示。"

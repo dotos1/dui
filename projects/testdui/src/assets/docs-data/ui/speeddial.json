@@ -115,7 +115,7 @@
       "outputs": [
         {
           "name": "events",
-          "type": "Subject<any>",
+          "type": "any",
           "description": "Output event emitter `events` (`Subject<any>`) firing when events occurs.",
           "descriptionZh": "输出事件 `events`（类型：`Subject<any>`），当触发事件集合时向外发出事件。"
         }
@@ -137,7 +137,7 @@
       "properties": [
         {
           "name": "state",
-          "type": "BehaviorSubject<any>",
+          "type": "any",
           "description": "Property `state` (`BehaviorSubject<any>`) storing state.",
           "descriptionZh": "属性 `state`（类型：`BehaviorSubject<any>`），用于存储或配置状态。"
         },
@@ -326,7 +326,7 @@
         },
         {
           "name": "items",
-          "type": "Array<any>",
+          "type": "any",
           "default": "[]",
           "description": "Property `items` (`Array<any>`) storing items (default: `[]`).",
           "descriptionZh": "属性 `items`（类型：`Array<any>`），用于存储或配置条目列表（默认值：`[]`）。"

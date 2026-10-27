@@ -84,7 +84,7 @@
           "params": [
             {
               "name": "portal",
-              "type": "Portal<any>"
+              "type": "any"
             }
           ],
           "returnType": "any",
@@ -576,7 +576,7 @@
         },
         {
           "name": "template",
-          "type": "TemplateRef<any>",
+          "type": "TemplateRef<unknown>",
           "description": null,
           "descriptionZh": "面板内容的模板引用，通过 portal 挂载到 `document.body`。"
         },
@@ -907,7 +907,7 @@
           "params": [
             {
               "name": "portal",
-              "type": "Portal<any>"
+              "type": "any"
             }
           ],
           "returnType": "any",
@@ -963,7 +963,7 @@
           "params": [
             {
               "name": "command",
-              "type": "(arg: any) => unknown"
+              "type": "(arg) => unknown"
             },
             {
               "name": "arg",

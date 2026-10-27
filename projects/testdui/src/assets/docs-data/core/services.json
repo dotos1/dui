@@ -289,7 +289,7 @@
             },
             {
               "name": "optionalParams",
-              "type": "any[]"
+              "type": "any"
             }
           ],
           "returnType": "any",
@@ -305,7 +305,7 @@
             },
             {
               "name": "optionalParams",
-              "type": "any[]"
+              "type": "any"
             }
           ],
           "returnType": "any",
@@ -321,7 +321,7 @@
             },
             {
               "name": "optionalParams",
-              "type": "any[]"
+              "type": "any"
             }
           ],
           "returnType": "any",
@@ -337,7 +337,7 @@
             },
             {
               "name": "optionalParams",
-              "type": "any[]"
+              "type": "any"
             }
           ],
           "returnType": "any",
@@ -353,7 +353,7 @@
             },
             {
               "name": "optionalParams",
-              "type": "any[]"
+              "type": "any"
             }
           ],
           "returnType": "any",
@@ -369,7 +369,7 @@
             },
             {
               "name": "optionalParams",
-              "type": "any[]"
+              "type": "any"
             }
           ],
           "returnType": "any",
@@ -389,7 +389,7 @@
             },
             {
               "name": "optionalParams",
-              "type": "any[]"
+              "type": "any"
             }
           ],
           "returnType": "any",
@@ -405,7 +405,7 @@
             },
             {
               "name": "optionalParams",
-              "type": "any[]"
+              "type": "any"
             }
           ],
           "returnType": "any",
@@ -463,7 +463,7 @@
         },
         {
           "name": "onMessage",
-          "type": "Subject<any>",
+          "type": "any",
           "description": "Property `onMessage` (`Subject<any>`) storing on message.",
           "descriptionZh": "属性 `onMessage`（类型：`Subject<any>`），用于存储或配置当消息。"
         }
@@ -486,7 +486,7 @@
               "type": "string[]"
             }
           ],
-          "returnType": "Promise<any>",
+          "returnType": "any",
           "description": "Executes `load` to handle load.",
           "descriptionZh": "执行 `load`，用于加载。"
         }

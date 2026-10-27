@@ -444,7 +444,7 @@
         },
         {
           "name": "titleBarCustomContent",
-          "type": "Type<any>",
+          "type": "Type<unknown>",
           "description": "The component for the title bar with content which will be rendered instead of default content",
           "descriptionZh": "属性 `titleBarCustomContent`（类型：`Type<any>`），用于存储或配置标题条自定义内容。"
         },
@@ -624,7 +624,7 @@
         },
         {
           "name": "items",
-          "type": "any[]",
+          "type": "any",
           "description": "Property `items` (`any[]`) storing items.",
           "descriptionZh": "属性 `items`（类型：`any[]`），用于存储或配置条目列表。"
         },
@@ -714,7 +714,7 @@
         },
         {
           "name": "moduleRef",
-          "type": "NgModuleRef<any>",
+          "type": "any",
           "description": "Property `moduleRef` (`NgModuleRef<any>`) storing module ref.",
           "descriptionZh": "属性 `moduleRef`（类型：`NgModuleRef<any>`），用于存储或配置模块引用。"
         }
@@ -873,7 +873,7 @@
         },
         {
           "name": "afterClosed$",
-          "type": "Observable<any>",
+          "type": "any",
           "description": "Emits value when the dynamic window closed",
           "descriptionZh": "属性 `afterClosed$`（类型：`Observable<any>`），用于存储或配置之后是否关闭。"
         },
@@ -947,7 +947,7 @@
           "params": [
             {
               "name": "component",
-              "type": "Type<any>"
+              "type": "Type<unknown>"
             },
             {
               "name": "config",
@@ -1422,7 +1422,7 @@
               "type": "TypedPropertyDescriptor<T>"
             }
           ],
-          "returnType": "any",
+          "returnType": "TypedPropertyDescriptor<T>",
           "description": "Executes `ɵCacheableReturnInstance` to handle ɵcacheable return instance.",
           "descriptionZh": "执行 `ɵCacheableReturnInstance`，用于ɵCacheableReturn实例。"
         }
@@ -2064,7 +2064,7 @@
         },
         {
           "name": "titleBarCustomContent",
-          "type": "Type<any>",
+          "type": "Type<unknown>",
           "description": "Property `titleBarCustomContent` (`Type<any>`) storing title bar custom content.",
           "descriptionZh": "属性 `titleBarCustomContent`（类型：`Type<any>`），用于存储或配置标题条自定义内容。"
         },
@@ -2495,7 +2495,7 @@
       "properties": [
         {
           "name": "component",
-          "type": "Type<any>",
+          "type": "Type<unknown>",
           "description": "Property `component` (`Type<any>`) storing component.",
           "descriptionZh": "属性 `component`（类型：`Type<any>`），用于存储或配置组件。"
         },
@@ -2804,7 +2804,7 @@
         },
         {
           "name": "afterClosed$",
-          "type": "Observable<any>",
+          "type": "any",
           "description": "Gets the current after closed (`afterClosed$: Observable<any>`).",
           "descriptionZh": "获取当前之后是否关闭（`afterClosed$: Observable<any>`）。"
         },

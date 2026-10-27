@@ -15,14 +15,14 @@
           "params": [
             {
               "name": "req",
-              "type": "HttpRequest<any>"
+              "type": "HttpRequest<unknown>"
             },
             {
               "name": "next",
               "type": "HttpHandler"
             }
           ],
-          "returnType": "Observable<HttpEvent<any>>",
+          "returnType": "Observable<HttpEvent<unknown>>",
           "description": "Executes `intercept` to handle intercept.",
           "descriptionZh": "执行 `intercept`，用于intercept。"
         }
@@ -122,7 +122,7 @@
         },
         {
           "name": "keysChanged",
-          "type": "{ key: string; newValue: any; oldValue: any; }[]",
+          "type": "{ key: string; newValue: unknown; oldValue: unknown; }[]",
           "description": "Property `keysChanged` (`{ key: string; newValue: any; oldValue: any; }[]`) storing keys changed.",
           "descriptionZh": "属性 `keysChanged`（类型：`{ key: string; newValue: any; oldValue: any; }[]`），用于存储或配置键列表已变更。"
         }
@@ -146,19 +146,19 @@
         },
         {
           "name": "value",
-          "type": "any",
+          "type": "unknown",
           "description": "Property `value` (`any`) storing value.",
           "descriptionZh": "属性 `value`（类型：`any`），用于存储或配置值。"
         },
         {
           "name": "oldValue",
-          "type": "any",
+          "type": "unknown",
           "description": "Property `oldValue` (`any`) storing old value.",
           "descriptionZh": "属性 `oldValue`（类型：`any`），用于存储或配置旧值。"
         },
         {
           "name": "newValue",
-          "type": "any",
+          "type": "unknown",
           "description": "Property `newValue` (`any`) storing new value.",
           "descriptionZh": "属性 `newValue`（类型：`any`），用于存储或配置新值。"
         }
@@ -211,11 +211,11 @@
           "params": [
             {
               "name": "obj1",
-              "type": "any[]"
+              "type": "any"
             },
             {
               "name": "obj2",
-              "type": "any[]"
+              "type": "any"
             },
             {
               "name": "ignoreKeys",
@@ -630,7 +630,7 @@
               "type": "any"
             }
           ],
-          "returnType": "(defaultCase?: any) => (key: any) => any",
+          "returnType": "any",
           "description": "Executes `switchCase` to handle switch case.",
           "descriptionZh": "执行 `switchCase`，用于切换开关Case。"
         }
@@ -674,7 +674,7 @@
             },
             {
               "name": "scope",
-              "type": "any"
+              "type": "unknown"
             }
           ],
           "returnType": "any",

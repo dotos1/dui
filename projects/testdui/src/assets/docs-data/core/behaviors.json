@@ -81,19 +81,19 @@
         },
         {
           "name": "valueChanges",
-          "type": "Observable<any>",
+          "type": "any",
           "description": "Property `valueChanges` (`Observable<any>`) storing value changes.",
           "descriptionZh": "属性 `valueChanges`（类型：`Observable<any>`），用于存储或配置值变更集合。"
         },
         {
           "name": "onChange",
-          "type": "(_: any) => any",
+          "type": "{ (_) }",
           "description": "Property `onChange` (`(_: any) => any`) storing on change.",
           "descriptionZh": "属性 `onChange`（类型：`(_: any) => any`），用于存储或配置当变更。"
         },
         {
           "name": "onTouched",
-          "type": "() => any",
+          "type": "{ () }",
           "description": "Property `onTouched` (`() => any`) storing on touched.",
           "descriptionZh": "属性 `onTouched`（类型：`() => any`），用于存储或配置当是否已触碰。"
         }

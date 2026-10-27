@@ -390,7 +390,7 @@
         {
           "name": "propagateChange",
           "type": "any",
-          "default": "(_: any) => {}",
+          "default": "(_) => {}",
           "description": "Property `propagateChange` (`any`) storing propagate change (default: `(_: any) => {}`).",
           "descriptionZh": "属性 `propagateChange`（类型：`any`），用于存储或配置propagate变更（默认值：`(_: any) => {}`）。"
         },
@@ -516,13 +516,13 @@
         },
         {
           "name": "requireConfig",
-          "type": "{ [key: string]: any; }",
+          "type": "{ [key: string]: unknown; }",
           "description": "Property `requireConfig` (`{ [key: string]: any; }`) storing require config.",
           "descriptionZh": "属性 `requireConfig`（类型：`{ [key: string]: any; }`），用于存储或配置require配置。"
         },
         {
           "name": "defaultOptions",
-          "type": "{ [key: string]: any; }",
+          "type": "{ [key: string]: unknown; }",
           "description": "Property `defaultOptions` (`{ [key: string]: any; }`) storing default options.",
           "descriptionZh": "属性 `defaultOptions`（类型：`{ [key: string]: any; }`），用于存储或配置默认配置选项。"
         },

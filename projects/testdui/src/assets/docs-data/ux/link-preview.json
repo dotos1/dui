@@ -71,7 +71,7 @@
         },
         {
           "name": "getApiEndpoint$",
-          "type": "(requestUrl: string) => Observable<any>",
+          "type": "(requestUrl: string) => Observable<unknown>",
           "description": "Method that does the API request, provide as class member arrow function from parent",
           "descriptionZh": "输入属性 `getApiEndpoint$`（类型：`(requestUrl: string) => Observable<any>`），用于配置获取API接口Endpoint。"
         },

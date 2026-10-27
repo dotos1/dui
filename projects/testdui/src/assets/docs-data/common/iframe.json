@@ -150,7 +150,7 @@
         },
         {
           "name": "$styling",
-          "type": "Observable<any>",
+          "type": "any",
           "description": "Property `$styling` (`Observable<any>`) storing styling.",
           "descriptionZh": "内部使用，根据内容高度变化推导出的样式流，用于自动调整高度。"
         },

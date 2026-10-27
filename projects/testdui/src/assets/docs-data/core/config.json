@@ -315,7 +315,7 @@
               "type": "string"
             }
           ],
-          "returnType": "Observable<any>",
+          "returnType": "any",
           "description": "Executes `select` to handle select.",
           "descriptionZh": "执行 `select`，用于下拉选择。"
         },
@@ -404,25 +404,25 @@
         },
         {
           "name": "onLoadSubject",
-          "type": "Subject<any>",
+          "type": "any",
           "description": "Property `onLoadSubject` (`Subject<any>`) storing on load subject.",
           "descriptionZh": "属性 `onLoadSubject`（类型：`Subject<any>`），用于存储或配置当加载主题流。"
         },
         {
           "name": "onLoad",
-          "type": "Observable<any>",
+          "type": "any",
           "description": "Property `onLoad` (`Observable<any>`) storing on load.",
           "descriptionZh": "属性 `onLoad`（类型：`Observable<any>`），用于存储或配置当加载。"
         },
         {
           "name": "onErrorSubject",
-          "type": "Subject<any>",
+          "type": "any",
           "description": "Property `onErrorSubject` (`Subject<any>`) storing on error subject.",
           "descriptionZh": "属性 `onErrorSubject`（类型：`Subject<any>`），用于存储或配置当错误主题流。"
         },
         {
           "name": "onError",
-          "type": "Observable<any>",
+          "type": "any",
           "description": "Property `onError` (`Observable<any>`) storing on error.",
           "descriptionZh": "属性 `onError`（类型：`Observable<any>`），用于存储或配置当错误。"
         }
@@ -463,7 +463,7 @@
         },
         {
           "name": "duiFeatureElse",
-          "type": "TemplateRef<any>",
+          "type": "TemplateRef<unknown>",
           "description": "Input setter `duiFeatureElse` updating dui feature else.\n关掉时改渲染这个模板。不给就什么都不渲染。",
           "descriptionZh": "关掉时改渲染这个模板。不给就什么都不渲染。"
         }

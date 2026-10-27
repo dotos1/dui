@@ -221,7 +221,7 @@
         {
           "name": "click",
           "type": "any",
-          "default": "new EventEmitter<any>()",
+          "default": "new EventEmitter()",
           "description": "Property `click` (`EventEmitter`) storing click (default: `new EventEmitter<any>()`).",
           "descriptionZh": "属性 `click`（类型：`EventEmitter`），用于存储或配置点击（默认值：`new EventEmitter<any>()`）。"
         },
@@ -653,7 +653,7 @@
         },
         {
           "name": "items",
-          "type": "Array<any>",
+          "type": "any",
           "default": "[]",
           "description": "Property `items` (`Array<any>`) storing items (default: `[]`).",
           "descriptionZh": "属性 `items`（类型：`Array<any>`），用于存储或配置条目列表（默认值：`[]`）。"

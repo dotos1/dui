@@ -212,7 +212,7 @@
           "params": [
             {
               "name": "cols",
-              "type": "any[]"
+              "type": "any"
             }
           ],
           "returnType": "any",
@@ -288,7 +288,7 @@
           "params": [
             {
               "name": "columns",
-              "type": "any[]"
+              "type": "any"
             },
             {
               "name": "prop",
@@ -386,7 +386,7 @@
         },
         {
           "name": "sorts",
-          "type": "any[]",
+          "type": "any",
           "description": "Input setter `sorts` updating sorts.",
           "descriptionZh": "输入属性 `sorts` 的设置器，用于更新排序集合。"
         },
@@ -506,7 +506,7 @@
           "params": [
             {
               "name": "sorts",
-              "type": "any[]"
+              "type": "any"
             }
           ],
           "returnType": "any",
@@ -600,7 +600,7 @@
         },
         {
           "name": "sorts",
-          "type": "any[]",
+          "type": "any",
           "description": "Gets the current sorts (`sorts: any[]`).",
           "descriptionZh": "获取当前排序集合（`sorts: any[]`）。"
         },
@@ -689,7 +689,7 @@
         {
           "name": "cellContext",
           "type": "any",
-          "default": "{\n    onCheckboxChangeFn: this.onCheckboxChangeFn,\n    activateFn: this.activateFn,\n    row: this.row,\n    group: this.group,\n    value: this.value,\n    column: this.column,\n    rowHeight: this.rowHeight,\n    isSelected: this.isSelected,\n    rowIndex: this.rowIndex,\n    treeStatus: this.treeStatus,\n    onTreeAction: this.onTreeAction.bind(this)\n  }",
+          "default": "{\n    onCheckboxChangeFn: this.onCheckboxChangeFn,\n    activateFn: this.activateFn,\n    row: this.row,\n    group: this.group,\n    value: this.value,\n    column: this.column,\n    rowHeight: this.rowHeight,\n    isSelected: this.isSelected,\n    rowIndex: this.rowIndex,\n    treeStatus: this.treeStatus,\n    expanded: this.expanded,\n    onTreeAction: this.onTreeAction.bind(this)\n  }",
           "description": "Property `cellContext` (`any`) storing cell context.",
           "descriptionZh": "属性 `cellContext`（类型：`any`），用于存储或配置单元格上下文。"
         }
@@ -729,7 +729,7 @@
         },
         {
           "name": "rowHeight",
-          "type": "number | 'auto' | ((row?: any) => number)",
+          "type": "any",
           "description": "Input property `rowHeight` (`number | 'auto' | ((row?: any) => number)`) configuring row height.",
           "descriptionZh": "输入属性 `rowHeight`（类型：`number | 'auto' | ((row?: any) => number)`），用于配置行高度。"
         },
@@ -753,7 +753,7 @@
         },
         {
           "name": "selected",
-          "type": "any[]",
+          "type": "any",
           "default": "[]",
           "description": "Input property `selected` (`any[]`) configuring selected (default: `[]`).",
           "descriptionZh": "输入属性 `selected`（类型：`any[]`），用于配置已选中（默认值：`[]`）。"
@@ -863,13 +863,13 @@
         },
         {
           "name": "rows",
-          "type": "any[]",
+          "type": "any",
           "description": "Input setter `rows` updating rows.",
           "descriptionZh": "输入属性 `rows` 的设置器，用于更新行列表。"
         },
         {
           "name": "columns",
-          "type": "any[]",
+          "type": "any",
           "description": "Input setter `columns` updating columns.",
           "descriptionZh": "输入属性 `columns` 的设置器，用于更新列集合。"
         },
@@ -1143,7 +1143,7 @@
             },
             {
               "name": "expanded",
-              "type": "any[]"
+              "type": "any"
             }
           ],
           "returnType": "number",
@@ -1184,13 +1184,13 @@
         },
         {
           "name": "rows",
-          "type": "any[]",
+          "type": "any",
           "description": "Gets the current rows (`rows: any[]`).",
           "descriptionZh": "获取当前行列表（`rows: any[]`）。"
         },
         {
           "name": "columns",
-          "type": "any[]",
+          "type": "any",
           "description": "Gets the current columns (`columns: any[]`).",
           "descriptionZh": "获取当前列集合（`columns: any[]`）。"
         },
@@ -1245,7 +1245,7 @@
         },
         {
           "name": "temp",
-          "type": "any[]",
+          "type": "any",
           "default": "[]",
           "description": "Property `temp` (`any[]`) storing temp (default: `[]`).",
           "descriptionZh": "属性 `temp`（类型：`any[]`），用于存储或配置临时（默认值：`[]`）。"
@@ -1259,7 +1259,7 @@
         },
         {
           "name": "indexes",
-          "type": "any",
+          "type": "{ first?: number; last?: number }",
           "default": "{}",
           "description": "Property `indexes` (`any`) storing indexes (default: `{}`).",
           "descriptionZh": "属性 `indexes`（类型：`any`），用于存储或配置索引列表（默认值：`{}`）。"
@@ -1298,7 +1298,7 @@
         },
         {
           "name": "rowExpansions",
-          "type": "any[]",
+          "type": "any",
           "default": "[]",
           "description": "Property `rowExpansions` (`any[]`) storing row expansions (default: `[]`).",
           "descriptionZh": "属性 `rowExpansions`（类型：`any[]`），用于存储或配置行展开面板（默认值：`[]`）。"
@@ -1306,7 +1306,7 @@
         {
           "name": "getDetailRowHeight",
           "type": "any",
-          "default": "(row?: any, index?: any): number => {\n    if (!this.rowDetail) {\n      return 0;\n    }\n    const rowHeight = this.rowDetail.rowHeight;\n    return typeof rowHeight === 'function' ? rowHeight(row, index) : (rowHeight as number);\n  }",
+          "default": "(row?, index?): number => {\n    if (!this.rowDetail) {\n      return 0;\n    }\n    const rowHeight = this.rowDetail.rowHeight;\n    return typeof rowHeight === 'function' ? rowHeight(row, index) : (rowHeight as number);\n  }",
           "description": "Get the height of the detail row.",
           "descriptionZh": "属性 `getDetailRowHeight`（类型：`any`），用于存储或配置获取详情行高度。"
         }
@@ -1322,7 +1322,7 @@
       "inputs": [
         {
           "name": "columns",
-          "type": "any[]",
+          "type": "any",
           "description": "Input setter `columns` updating columns.",
           "descriptionZh": "输入属性 `columns` 的设置器，用于更新列集合。"
         },
@@ -1536,7 +1536,7 @@
           "params": [
             {
               "name": "val",
-              "type": "any[]"
+              "type": "any"
             }
           ],
           "returnType": "void",
@@ -1554,7 +1554,7 @@
       "properties": [
         {
           "name": "columns",
-          "type": "any[]",
+          "type": "any",
           "description": "Gets the current columns (`columns: any[]`).",
           "descriptionZh": "获取当前列集合（`columns: any[]`）。"
         },
@@ -1801,14 +1801,14 @@
         {
           "name": "getSelected",
           "params": [],
-          "returnType": "any[]",
+          "returnType": "any",
           "description": "Executes `getSelected` to handle get selected.",
           "descriptionZh": "执行 `getSelected`，用于获取已选中。"
         },
         {
           "name": "getSelectedIds",
           "params": [],
-          "returnType": "any[]",
+          "returnType": "any",
           "description": "Executes `getSelectedIds` to handle get selected ids.",
           "descriptionZh": "执行 `getSelectedIds`，用于获取已选中标识列表。"
         }
@@ -1848,7 +1848,7 @@
         },
         {
           "name": "rowData",
-          "type": "any[]",
+          "type": "any",
           "description": "Gets the current row data (`rowData: any[]`).",
           "descriptionZh": "获取当前行数据（`rowData: any[]`）。"
         },
@@ -2025,13 +2025,13 @@
         },
         {
           "name": "headerClass",
-          "type": "string | ((data: any) => string | any)",
+          "type": "any",
           "description": "Input property `headerClass` (`string | ((data: any) => string | any)`) configuring header class.",
           "descriptionZh": "输入属性 `headerClass`（类型：`string | ((data: any) => string | any)`），用于配置表头类名。"
         },
         {
           "name": "cellClass",
-          "type": "string | ((data: any) => string | any)",
+          "type": "any",
           "description": "Input property `cellClass` (`string | ((data: any) => string | any)`) configuring cell class.",
           "descriptionZh": "输入属性 `cellClass`（类型：`string | ((data: any) => string | any)`），用于配置单元格类名。"
         },
@@ -2049,34 +2049,34 @@
         },
         {
           "name": "summaryFunc",
-          "type": "(cells: any[]) => any",
+          "type": "{ (cells) }",
           "description": "Input property `summaryFunc` (`(cells: any[]) => any`) configuring summary func.",
           "descriptionZh": "输入属性 `summaryFunc`（类型：`(cells: any[]) => any`），用于配置汇总Func。"
         },
         {
           "name": "summaryTemplate",
-          "type": "TemplateRef<any>",
+          "type": "TemplateRef<unknown>",
           "description": "Input property `summaryTemplate` (`TemplateRef<any>`) configuring summary template.",
           "descriptionZh": "输入属性 `summaryTemplate`（类型：`TemplateRef<any>`），用于配置汇总模板。"
         },
         {
           "name": "_cellTemplateInput",
           "alias": "cellTemplate",
-          "type": "TemplateRef<any>",
+          "type": "TemplateRef<unknown>",
           "description": "Input property `cellTemplate` (`TemplateRef<any>`) configuring cell template input.",
           "descriptionZh": "输入属性 `cellTemplate`（类型：`TemplateRef<any>`），用于配置单元格模板输入属性。"
         },
         {
           "name": "_headerTemplateInput",
           "alias": "headerTemplate",
-          "type": "TemplateRef<any>",
+          "type": "TemplateRef<unknown>",
           "description": "Input property `headerTemplate` (`TemplateRef<any>`) configuring header template input.",
           "descriptionZh": "输入属性 `headerTemplate`（类型：`TemplateRef<any>`），用于配置表头模板输入属性。"
         },
         {
           "name": "_treeToggleTemplateInput",
           "alias": "treeToggleTemplate",
-          "type": "TemplateRef<any>",
+          "type": "TemplateRef<unknown>",
           "description": "Input property `treeToggleTemplate` (`TemplateRef<any>`) configuring tree toggle template input.",
           "descriptionZh": "输入属性 `treeToggleTemplate`（类型：`TemplateRef<any>`），用于配置树形控件开关模板输入属性。"
         }
@@ -2086,19 +2086,19 @@
       "properties": [
         {
           "name": "cellTemplate",
-          "type": "TemplateRef<any>",
+          "type": "TemplateRef<unknown>",
           "description": "Gets the current cell template (`cellTemplate: TemplateRef<any>`).",
           "descriptionZh": "获取当前单元格模板（`cellTemplate: TemplateRef<any>`）。"
         },
         {
           "name": "headerTemplate",
-          "type": "TemplateRef<any>",
+          "type": "TemplateRef<unknown>",
           "description": "Gets the current header template (`headerTemplate: TemplateRef<any>`).",
           "descriptionZh": "获取当前表头模板（`headerTemplate: TemplateRef<any>`）。"
         },
         {
           "name": "treeToggleTemplate",
-          "type": "TemplateRef<any>",
+          "type": "TemplateRef<unknown>",
           "description": "Gets the current tree toggle template (`treeToggleTemplate: TemplateRef<any>`).",
           "descriptionZh": "获取当前树形控件开关模板（`treeToggleTemplate: TemplateRef<any>`）。"
         }
@@ -2157,7 +2157,7 @@
         },
         {
           "name": "groupedRows",
-          "type": "any[]",
+          "type": "any",
           "description": "This attribute allows the user to set a grouped array in the following format:\n [\n   {groupid=1} [\n     {id=1 name=\"test1\"},\n     {id=2 name=\"test2\"},\n     {id=3 name=\"test3\"}\n   ]},\n   {groupid=2>[\n     {id=4 name=\"test4\"},\n     {id=5 name=\"test5\"},\n     {id=6 name=\"test6\"}\n   ]}\n ]",
           "descriptionZh": "输入属性 `groupedRows`（类型：`any[]`），用于配置已分组行列表。"
         },
@@ -2169,7 +2169,7 @@
         },
         {
           "name": "selected",
-          "type": "any[]",
+          "type": "any",
           "default": "[]",
           "description": "List of row objects that should be\nrepresented as selected in the grid.\nDefault value: `[]`",
           "descriptionZh": "输入属性 `selected`（类型：`any[]`），用于配置已选中（默认值：`[]`）。"
@@ -2190,7 +2190,7 @@
         },
         {
           "name": "rowHeight",
-          "type": "number | 'auto' | ((row?: any) => number)",
+          "type": "number | 'auto' | ((row?) => number)",
           "default": "30",
           "description": "The row height; which is necessary\nto calculate the height for the lazy rendering.",
           "descriptionZh": "输入属性 `rowHeight`（类型：`number | 'auto' | ((row?: any) => number)`），用于配置行高度（默认值：`30`）。"
@@ -2284,7 +2284,7 @@
         },
         {
           "name": "sorts",
-          "type": "any[]",
+          "type": "any",
           "default": "[]",
           "description": "Array of sorted columns by property and type.\nDefault value: `[]`",
           "descriptionZh": "输入属性 `sorts`（类型：`any[]`），用于配置排序集合（默认值：`[]`）。"
@@ -2305,8 +2305,8 @@
         },
         {
           "name": "rowIdentity",
-          "type": "(x: any) => any",
-          "default": "((x: any) => x)",
+          "type": "{ (x) }",
+          "default": "((x) => x)",
           "description": "This will be used when displaying or selecting rows.\nwhen tracking/comparing them, we'll use the value of this fn,\n\n(`fn(x) === fn(y)` instead of `x === y`)",
           "descriptionZh": "输入属性 `rowIdentity`（类型：`(x: any) => any`），用于配置行Identity（默认值：`((x: any) => x)`）。"
         },
@@ -2324,7 +2324,7 @@
         },
         {
           "name": "displayCheck",
-          "type": "(row: any, column?: any, value?: any) => boolean|boolean",
+          "type": "(row, column?, value?) => boolean|boolean",
           "description": "A function you can use to check whether you want\nto show the checkbox for a particular row based on a criteria. Example:\n\n   (row, column, value) => {\n     return row.name !== 'Ethel Price';\n   }",
           "descriptionZh": "输入属性 `displayCheck`（类型：`(row: any, column?: any, value?: any) => boolean|boolean`），用于配置display检查。"
         },
@@ -2519,7 +2519,7 @@
           "params": [
             {
               "name": "columns",
-              "type": "any[]"
+              "type": "any"
             },
             {
               "name": "forceIdx",
@@ -2530,7 +2530,7 @@
               "type": "boolean"
             }
           ],
-          "returnType": "any[] | undefined",
+          "returnType": "any",
           "description": "Executes `recalculateColumns` to handle recalculate columns.",
           "descriptionZh": "执行 `recalculateColumns`，用于recalculate列集合。"
         },
@@ -2589,7 +2589,7 @@
           "params": [
             {
               "name": "val",
-              "type": "any[]"
+              "type": "any"
             }
           ],
           "returnType": "number",
@@ -2601,7 +2601,7 @@
           "params": [
             {
               "name": "val",
-              "type": "any[]"
+              "type": "any"
             }
           ],
           "returnType": "number",
@@ -3025,7 +3025,7 @@
         {
           "name": "_templateInput",
           "alias": "template",
-          "type": "TemplateRef<any>",
+          "type": "TemplateRef<unknown>",
           "description": "Input property `template` (`TemplateRef<any>`) configuring template input.",
           "descriptionZh": "输入属性 `template`（类型：`TemplateRef<any>`），用于配置模板输入属性。"
         }
@@ -3035,7 +3035,7 @@
       "properties": [
         {
           "name": "template",
-          "type": "TemplateRef<any>",
+          "type": "TemplateRef<unknown>",
           "description": "Gets the current template (`template: TemplateRef<any>`).",
           "descriptionZh": "获取当前模板（`template: TemplateRef<any>`）。"
         }
@@ -3063,7 +3063,7 @@
       "inputs": [
         {
           "name": "rowHeight",
-          "type": "number | ((group?: any, index?: number) => number)",
+          "type": "any",
           "default": "0",
           "description": "Input property `rowHeight` (`number | ((group?: any, index?: number) => number)`) configuring row height (default: `0`).",
           "descriptionZh": "输入属性 `rowHeight`（类型：`number | ((group?: any, index?: number) => number)`），用于配置行高度（默认值：`0`）。"
@@ -3071,7 +3071,7 @@
         {
           "name": "_templateInput",
           "alias": "template",
-          "type": "TemplateRef<any>",
+          "type": "TemplateRef<unknown>",
           "description": "Input property `template` (`TemplateRef<any>`) configuring template input.",
           "descriptionZh": "输入属性 `template`（类型：`TemplateRef<any>`），用于配置模板输入属性。"
         }
@@ -3115,7 +3115,7 @@
       "properties": [
         {
           "name": "template",
-          "type": "TemplateRef<any>",
+          "type": "TemplateRef<unknown>",
           "description": "Gets the current template (`template: TemplateRef<any>`).",
           "descriptionZh": "获取当前模板（`template: TemplateRef<any>`）。"
         }
@@ -3209,7 +3209,7 @@
         },
         {
           "name": "sorts",
-          "type": "any[]",
+          "type": "any",
           "description": "Input setter `sorts` updating sorts.",
           "descriptionZh": "输入属性 `sorts` 的设置器，用于更新排序集合。"
         }
@@ -3252,7 +3252,7 @@
           "params": [
             {
               "name": "sorts",
-              "type": "any[]"
+              "type": "any"
             }
           ],
           "returnType": "any",
@@ -3300,7 +3300,7 @@
         },
         {
           "name": "sorts",
-          "type": "any[]",
+          "type": "any",
           "description": "Gets the current sorts (`sorts: any[]`).",
           "descriptionZh": "获取当前排序集合（`sorts: any[]`）。"
         },
@@ -3422,7 +3422,7 @@
         },
         {
           "name": "sorts",
-          "type": "any[]",
+          "type": "any",
           "description": "Input property `sorts` (`any[]`) configuring sorts.",
           "descriptionZh": "输入属性 `sorts`（类型：`any[]`），用于配置排序集合。"
         },
@@ -3471,7 +3471,7 @@
         },
         {
           "name": "columns",
-          "type": "any[]",
+          "type": "any",
           "description": "Input setter `columns` updating columns.",
           "descriptionZh": "输入属性 `columns` 的设置器，用于更新列集合。"
         },
@@ -3520,7 +3520,7 @@
           "params": [
             {
               "name": "{ event, model }",
-              "type": "{ event: any; model: any }"
+              "type": "{ event; model }"
             }
           ],
           "returnType": "any",
@@ -3532,7 +3532,7 @@
           "params": [
             {
               "name": "{ event, model }",
-              "type": "{ event: any; model: any }"
+              "type": "{ event; model }"
             }
           ],
           "returnType": "any",
@@ -3651,7 +3651,7 @@
               "type": "number"
             }
           ],
-          "returnType": "any[]",
+          "returnType": "any",
           "description": "Executes `calcNewSorts` to handle calc new sorts.",
           "descriptionZh": "执行 `calcNewSorts`，用于计算新排序集合。"
         },
@@ -3702,7 +3702,7 @@
         },
         {
           "name": "columns",
-          "type": "any[]",
+          "type": "any",
           "description": "Gets the current columns (`columns: any[]`).",
           "descriptionZh": "获取当前列集合（`columns: any[]`）。"
         },
@@ -3756,7 +3756,7 @@
       "inputs": [
         {
           "name": "rowHeight",
-          "type": "number | ((row?: any, index?: number) => number)",
+          "type": "any",
           "default": "0",
           "description": "Input property `rowHeight` (`number | ((row?: any, index?: number) => number)`) configuring row height (default: `0`).",
           "descriptionZh": "输入属性 `rowHeight`（类型：`number | ((row?: any, index?: number) => number)`），用于配置行高度（默认值：`0`）。"
@@ -3764,7 +3764,7 @@
         {
           "name": "_templateInput",
           "alias": "template",
-          "type": "TemplateRef<any>",
+          "type": "TemplateRef<unknown>",
           "description": "Input property `template` (`TemplateRef<any>`) configuring template input.",
           "descriptionZh": "输入属性 `template`（类型：`TemplateRef<any>`），用于配置模板输入属性。"
         }
@@ -3808,7 +3808,7 @@
       "properties": [
         {
           "name": "template",
-          "type": "TemplateRef<any>",
+          "type": "TemplateRef<unknown>",
           "description": "Gets the current template (`template: TemplateRef<any>`).",
           "descriptionZh": "获取当前模板（`template: TemplateRef<any>`）。"
         }
@@ -3958,13 +3958,13 @@
       "inputs": [
         {
           "name": "rows",
-          "type": "any[]",
+          "type": "any",
           "description": "Input property `rows` (`any[]`) configuring rows.",
           "descriptionZh": "输入属性 `rows`（类型：`any[]`），用于配置行列表。"
         },
         {
           "name": "selected",
-          "type": "any[]",
+          "type": "any",
           "description": "Input property `selected` (`any[]`) configuring selected.",
           "descriptionZh": "输入属性 `selected`（类型：`any[]`），用于配置已选中。"
         },
@@ -4133,7 +4133,7 @@
             },
             {
               "name": "selected",
-              "type": "any[]"
+              "type": "any"
             }
           ],
           "returnType": "number",
@@ -4160,7 +4160,7 @@
       "inputs": [
         {
           "name": "rows",
-          "type": "any[]",
+          "type": "any",
           "description": "Input property `rows` (`any[]`) configuring rows.",
           "descriptionZh": "输入属性 `rows`（类型：`any[]`），用于配置行列表。"
         },
@@ -4501,7 +4501,7 @@
           "params": [
             {
               "name": "allColumns",
-              "type": "any[]"
+              "type": "any"
             },
             {
               "name": "expectedWidth",
@@ -4555,7 +4555,7 @@
               "type": "TableColumnProp"
             }
           ],
-          "returnType": "any",
+          "returnType": "ValueGetter",
           "description": "Returns the appropriate getter function for this kind of prop.\nIf prop == null, returns the emptyStringGetter.",
           "descriptionZh": "执行 `getterForProp`，用于getter用于属性。"
         }
@@ -4576,7 +4576,7 @@
           "params": [
             {
               "name": "columns",
-              "type": "any[]"
+              "type": "any"
             }
           ],
           "returnType": "any",
@@ -4624,7 +4624,7 @@
           "params": [
             {
               "name": "rows",
-              "type": "any[]"
+              "type": "any"
             },
             {
               "name": "from",
@@ -4635,7 +4635,7 @@
               "type": "OptionalValueGetter"
             }
           ],
-          "returnType": "any[]",
+          "returnType": "any",
           "description": "This functions rearrange items by their parents\nAlso sets the level value to each of the items\n\nNote: Expecting each item has a property called parentId\nNote: This algorithm will fail if a list has two or more items with same ID\nNOTE: This algorithm will fail if there is a deadlock of relationship\n\nFor example,\n\nInput\n\nid -> parent\n1  -> 0\n2  -> 0\n3  -> 1\n4  -> 1\n5  -> 2\n7  -> 8\n6  -> 3\n\n\nOutput\nid -> level\n1      -> 0\n--3    -> 1\n----6  -> 2\n--4    -> 1\n2      -> 0\n--5    -> 1\n7     -> 8",
           "descriptionZh": "执行 `groupRowsByParents`，用于分组行列表按父级。"
         }
@@ -4780,13 +4780,13 @@
       "properties": [
         {
           "name": "summaryFunc",
-          "type": "(cells: any[]) => any",
+          "type": "{ (cells) }",
           "description": "Property `summaryFunc` (`(cells: any[]) => any`) storing summary func.",
           "descriptionZh": "属性 `summaryFunc`（类型：`(cells: any[]) => any`），用于存储或配置汇总Func。"
         },
         {
           "name": "summaryTemplate",
-          "type": "TemplateRef<any>",
+          "type": "TemplateRef<unknown>",
           "description": "Property `summaryTemplate` (`TemplateRef<any>`) storing summary template.",
           "descriptionZh": "属性 `summaryTemplate`（类型：`TemplateRef<any>`），用于存储或配置汇总模板。"
         },
@@ -4828,7 +4828,7 @@
         },
         {
           "name": "groupedRows",
-          "type": "any[]",
+          "type": "any",
           "description": "Property `groupedRows` (`any[]`) storing grouped rows.",
           "descriptionZh": "属性 `groupedRows`（类型：`any[]`），用于存储或配置已分组行列表。"
         },
@@ -4840,7 +4840,7 @@
         },
         {
           "name": "selected",
-          "type": "any[]",
+          "type": "any",
           "description": "List of row objects that should be\nrepresented as selected in the grid.\nDefault value: `[]`",
           "descriptionZh": "属性 `selected`（类型：`any[]`），用于存储或配置已选中。"
         },
@@ -4936,7 +4936,7 @@
         },
         {
           "name": "sorts",
-          "type": "any[]",
+          "type": "any",
           "description": "Array of sorted columns by property and type.\nDefault value: `[]`",
           "descriptionZh": "属性 `sorts`（类型：`any[]`），用于存储或配置排序集合。"
         },
@@ -4966,7 +4966,7 @@
         },
         {
           "name": "displayCheck",
-          "type": "(row: any, column?: any, value?: any) => boolean",
+          "type": "(row, column?, value?) => boolean",
           "description": "A function you can use to check whether you want\nto show the checkbox for a particular row based on a criteria. Example:\n\n   (row, column, value) => {\n     return row.name !== 'Ethel Price';\n   }",
           "descriptionZh": "属性 `displayCheck`（类型：`(row: any, column?: any, value?: any) => boolean`），用于存储或配置display检查。"
         },
@@ -5362,7 +5362,7 @@
           "params": [
             {
               "name": "row",
-              "type": "any[]"
+              "type": "any"
             },
             {
               "name": "index",
@@ -5966,7 +5966,7 @@
           "params": [
             {
               "name": "selected",
-              "type": "any[]"
+              "type": "any"
             },
             {
               "name": "row",
@@ -5998,11 +5998,11 @@
           "params": [
             {
               "name": "selected",
-              "type": "any[]"
+              "type": "any"
             },
             {
               "name": "rows",
-              "type": "any[]"
+              "type": "any"
             },
             {
               "name": "index",
@@ -6017,7 +6017,7 @@
               "type": "any"
             }
           ],
-          "returnType": "any[]",
+          "returnType": "any",
           "description": "Executes `selectRowsBetween` to handle select rows between.",
           "descriptionZh": "执行 `selectRowsBetween`，用于下拉选择行列表之间。"
         }
@@ -6140,18 +6140,18 @@
           "params": [
             {
               "name": "rows",
-              "type": "any[]"
+              "type": "any"
             },
             {
               "name": "columns",
-              "type": "any[]"
+              "type": "any"
             },
             {
               "name": "dirs",
               "type": "SortPropDir[]"
             }
           ],
-          "returnType": "any[]",
+          "returnType": "any",
           "description": "creates a shallow copy of the `rows` input and returns the sorted copy. this function\ndoes not sort the `rows` argument in place",
           "descriptionZh": "执行 `sortRows`，用于排序行列表。"
         }
@@ -6322,13 +6322,13 @@
         },
         {
           "name": "cellClass",
-          "type": "string | ((data: any) => string | any)",
+          "type": "any",
           "description": "CSS Classes for the cell",
           "descriptionZh": "属性 `cellClass`（类型：`string | ((data: any) => string | any)`），用于存储或配置单元格类名。"
         },
         {
           "name": "headerClass",
-          "type": "string | ((data: any) => string | any)",
+          "type": "any",
           "description": "CSS classes for the header",
           "descriptionZh": "属性 `headerClass`（类型：`string | ((data: any) => string | any)`），用于存储或配置表头类名。"
         },
@@ -6352,7 +6352,7 @@
         },
         {
           "name": "summaryFunc",
-          "type": "(cells: any[]) => any",
+          "type": "{ (cells) }",
           "description": "Summary function",
           "descriptionZh": "属性 `summaryFunc`（类型：`(cells: any[]) => any`），用于存储或配置汇总Func。"
         },
@@ -6376,7 +6376,7 @@
         },
         {
           "name": "format",
-          "type": "(value: any) => any",
+          "type": "{ (value) }",
           "description": "Format\n {Function}",
           "descriptionZh": "属性 `format`（类型：`(value: any) => any`），用于存储或配置格式化。"
         },
@@ -6482,7 +6482,7 @@
               "type": "DataTableColumnDirective[]"
             }
           ],
-          "returnType": "any[]",
+          "returnType": "any",
           "description": "Translates templates definitions to objects",
           "descriptionZh": "执行 `translateTemplates`，用于翻译模板。"
         }

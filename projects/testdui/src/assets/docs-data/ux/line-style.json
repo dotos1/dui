@@ -11,7 +11,7 @@
       "inputs": [
         {
           "name": "field",
-          "type": "F | any",
+          "type": "any",
           "description": "Input setter `field` updating field.",
           "descriptionZh": "输入属性 `field` 的设置器，用于更新字段。"
         }
@@ -140,7 +140,7 @@
       "inputs": [
         {
           "name": "field",
-          "type": "F | any",
+          "type": "any",
           "description": "Input setter `field` updating field.",
           "descriptionZh": "输入属性 `field` 的设置器，用于更新字段。"
         }

@@ -473,7 +473,7 @@
       "inputs": [
         {
           "name": "property",
-          "type": "CardViewDateItemModel|any",
+          "type": "any",
           "description": "Input property `property` (`CardViewDateItemModel|any`) configuring property.",
           "descriptionZh": "输入属性 `property`（类型：`CardViewDateItemModel|any`），用于配置属性。"
         },
@@ -564,7 +564,7 @@
       "properties": [
         {
           "name": "datepicker",
-          "type": "MatDatetimepicker<any>",
+          "type": "any",
           "description": "Template/content query reference `datepicker` (`@ViewChild`) targeting datepicker.",
           "descriptionZh": "模板/内容视图查询引用 `datepicker`（`@ViewChild`），指向日期选择器。"
         },
@@ -1752,7 +1752,7 @@
         },
         {
           "name": "params",
-          "type": "any[]",
+          "type": "any",
           "description": "Property `params` (`any[]`) storing params.",
           "descriptionZh": "属性 `params`（类型：`any[]`），用于存储或配置参数集合。"
         }

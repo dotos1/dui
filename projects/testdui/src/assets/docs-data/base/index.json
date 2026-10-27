@@ -387,7 +387,7 @@
             },
             {
               "name": "components",
-              "type": "Type<any>[]"
+              "type": "Type<unknown>[]"
             }
           ],
           "returnType": "any",
@@ -414,7 +414,7 @@
               "type": "string"
             }
           ],
-          "returnType": "ComponentFactory<any>",
+          "returnType": "ComponentFactory<unknown>",
           "description": "Executes `getComponentFactory` to handle get component factory.",
           "descriptionZh": "执行 `getComponentFactory`，用于获取组件工厂。"
         },
@@ -554,7 +554,7 @@
             },
             {
               "name": "args",
-              "type": "any[]"
+              "type": "any"
             }
           ],
           "returnType": "any",
@@ -586,14 +586,14 @@
           "params": [
             {
               "name": "obj1",
-              "type": "any"
+              "type": "unknown"
             },
             {
               "name": "obj2",
-              "type": "any"
+              "type": "unknown"
             }
           ],
-          "returnType": "any",
+          "returnType": "boolean",
           "description": "Executes `objAndSameType` to handle obj and same type.",
           "descriptionZh": "执行 `objAndSameType`，用于对象And相同类型。"
         },
@@ -666,11 +666,11 @@
             },
             {
               "name": "thisArg",
-              "type": "any"
+              "type": "unknown"
             },
             {
               "name": "argVal",
-              "type": "any[]"
+              "type": "unknown[]"
             }
           ],
           "returnType": "any",
@@ -877,7 +877,7 @@
               "type": "any"
             }
           ],
-          "returnType": "any",
+          "returnType": "boolean",
           "description": "Executes `searchInString` to handle search in string.",
           "descriptionZh": "执行 `searchInString`，用于搜索在字符串。"
         }

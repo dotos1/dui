@@ -142,7 +142,7 @@
         },
         {
           "name": "getChildren",
-          "type": "(node: TreeNode) => any",
+          "type": "{ (node: TreeNode) }",
           "description": "Function for loading a node's children.\nThe function receives a TreeNode, and returns a value or a promise that resolves to the node's children.\n\nThis function will be called whenever a node is expanded, the `hasChildren` (`options.hasChildrenField`)\nfield is true, and the `children` field is empty.\nThe result will be loaded into the node's children attribute.\n\nExample:\n```\n options = {\n getChildren: (node:TreeNode) => {\n return request('/api/children/' + node.id);\n }\n }\n```",
           "descriptionZh": "属性 `getChildren`（类型：`(node: TreeNode) => any`），用于存储或配置获取子级列表。"
         },
@@ -226,7 +226,7 @@
         },
         {
           "name": "getNodeClone",
-          "type": "(node: TreeNode) => any",
+          "type": "{ (node: TreeNode) }",
           "description": "Function to clone a node.\nReceives a TreeNode object, and returns a node object (only the data).\nThis callback will be called when copying a node inside the tree,\nby either calling copyNode, or by dragging and holding the ctrl key\n\nFor example:\n```\n  options: ITreeOptions = {\n    getNodeClone: (node) => ({\n      ...node.data,\n      id: uuid.v4(),\n      name: `copy of ${node.data.name}`\n    })\n  };\n```\n\n**Default Value: clone the node using Object.assign, and remove 'id' property**",
           "descriptionZh": "属性 `getNodeClone`（类型：`(node: TreeNode) => any`），用于存储或配置获取节点克隆。"
         },
@@ -361,7 +361,7 @@
       "inputs": [
         {
           "name": "template",
-          "type": "TemplateRef<any>",
+          "type": "TemplateRef<unknown>",
           "description": "Input property `template` (`TemplateRef<any>`) configuring template.",
           "descriptionZh": "输入属性 `template`（类型：`TemplateRef<any>`），用于配置模板。"
         },
@@ -449,7 +449,7 @@
       "inputs": [
         {
           "name": "nodes",
-          "type": "any[]",
+          "type": "any",
           "description": "Input setter `nodes` updating nodes.",
           "descriptionZh": "输入属性 `nodes` 的设置器，用于更新节点列表。"
         },
@@ -782,25 +782,25 @@
       "properties": [
         {
           "name": "loadingTemplate",
-          "type": "TemplateRef<any>",
+          "type": "TemplateRef<unknown>",
           "description": "Template/content query reference `loadingTemplate` (`@ContentChild`) targeting loading template.",
           "descriptionZh": "模板/内容视图查询引用 `loadingTemplate`（`@ContentChild`），指向加载中模板。"
         },
         {
           "name": "treeNodeTemplate",
-          "type": "TemplateRef<any>",
+          "type": "TemplateRef<unknown>",
           "description": "Template/content query reference `treeNodeTemplate` (`@ContentChild`) targeting tree node template.",
           "descriptionZh": "模板/内容视图查询引用 `treeNodeTemplate`（`@ContentChild`），指向树形控件节点模板。"
         },
         {
           "name": "treeNodeWrapperTemplate",
-          "type": "TemplateRef<any>",
+          "type": "TemplateRef<unknown>",
           "description": "Template/content query reference `treeNodeWrapperTemplate` (`@ContentChild`) targeting tree node wrapper template.",
           "descriptionZh": "模板/内容视图查询引用 `treeNodeWrapperTemplate`（`@ContentChild`），指向树形控件节点包装器模板。"
         },
         {
           "name": "treeNodeFullTemplate",
-          "type": "TemplateRef<any>",
+          "type": "TemplateRef<unknown>",
           "description": "Template/content query reference `treeNodeFullTemplate` (`@ContentChild`) targeting tree node full template.",
           "descriptionZh": "模板/内容视图查询引用 `treeNodeFullTemplate`（`@ContentChild`），指向树形控件节点完整模板。"
         },
@@ -1055,7 +1055,7 @@
           "params": [
             {
               "name": "view",
-              "type": "EmbeddedViewRef<any>"
+              "type": "any"
             }
           ],
           "returnType": "any",
@@ -1201,7 +1201,7 @@
           "params": [
             {
               "name": "path",
-              "type": "any[]"
+              "type": "any"
             },
             {
               "name": "startNode",
@@ -1319,7 +1319,7 @@
           "params": [
             {
               "name": "{ nodes, options = null, events = null }",
-              "type": "{ nodes?: any, options?: any, events?: any }"
+              "type": "{ nodes?, options?, events? }"
             }
           ],
           "returnType": "any",
@@ -1658,7 +1658,7 @@
         },
         {
           "name": "nodes",
-          "type": "any[]",
+          "type": "any",
           "description": "Property `nodes` (`any[]`) storing nodes.",
           "descriptionZh": "属性 `nodes`（类型：`any[]`），用于存储或配置节点列表。"
         },
@@ -2107,7 +2107,7 @@
           "params": [
             {
               "name": "fn",
-              "type": "(node: ITreeNode) => any"
+              "type": "{ (node: ITreeNode) }"
             }
           ],
           "returnType": "any",
@@ -2119,7 +2119,7 @@
           "params": [
             {
               "name": "fn",
-              "type": "(node: ITreeNode) => any"
+              "type": "{ (node: ITreeNode) }"
             }
           ],
           "returnType": "any",
@@ -2815,7 +2815,7 @@
         },
         {
           "name": "template",
-          "type": "TemplateRef<any>",
+          "type": "TemplateRef<unknown>",
           "description": "Input property `template` (`TemplateRef<any>`) configuring template.",
           "descriptionZh": "输入属性 `template`（类型：`TemplateRef<any>`），用于配置模板。"
         }
