@@ -24,8 +24,9 @@ export interface DuiSystemSettings {
   logLevel?: string | number;
   cryptType?: string;
   DOTOS_GEO_TILE_URL?: string;
+  /** 后端下发时有布尔也有字符串 */
   openRegister?: boolean | string;
-  jsDebug?: boolean;
+  jsDebug?: boolean | string;
   [key: string]: unknown;
 }
 
@@ -58,7 +59,7 @@ export interface DuiSeoSettings {
 /** 语种配置 */
 export interface DuiI18nSettings {
   defaultLanguage?: string;
-  availableLanguages?: unknown[];
+  availableLanguages?: Array<{ code: string; name: string; [key: string]: unknown }>;
   [key: string]: unknown;
 }
 
@@ -80,5 +81,8 @@ export interface DuiSettings {
   i18n?: DuiI18nSettings;
   security?: { lockScreenMinutes?: number | string; [key: string]: unknown };
   features?: DuiFeatureSettings;
+  /** 主平台地址；'self' 表示本机 */
+  master?: string;
+  twoFactorAuth?: { providers?: Array<{ providerType?: string; [key: string]: unknown }>; [key: string]: unknown };
   [key: string]: unknown;
 }
