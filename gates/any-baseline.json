@@ -1,7 +1,7 @@
 {
   "version": 2,
   "metric": "checker：写出的 any 类型节点 + 隐式 any 声明 + 推断 any 返回值；空对象 = 推断为 {} 的声明；绕过断言 = as unknown as / as any as / as never",
-  "any": 4673,
+  "any": 4676,
   "emptyObj": 0,
   "cast": 57,
   "files": {
@@ -591,6 +591,11 @@
       "cast": 0
     },
     "src/container/accordion/expansion-panel.ts": {
+      "any": 3,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/container/card/card.component.ts": {
       "any": 3,
       "emptyObj": 0,
       "cast": 0
