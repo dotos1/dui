@@ -5,10 +5,55 @@
 
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ComponentFactoryResolver, Injector, Input, OnChanges, SimpleChanges, ViewChild, ViewContainerRef, ViewEncapsulation } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
-import { ComponentBase, Dui } from '@dotos/dui/core';
+import { ComponentBase, Dui, DuiConfig, DuiStyle } from '@dotos/dui/core';
+import { PageEvent } from '@angular/material/paginator';
 import { TranslateService } from '@dotos/dui/translator';
 import {concat,isUndefined,isString}  from 'lodash-es';
 import { Container } from '../container.main';
+
+/** 卡片按钮：配置对象（带 xtype），或 '-' / ' ' / '->' / 文本 这类简写 */
+export type DuiCardButton = DuiConfig | string;
+
+/** 卡片底部分页条（由使用方挂到 card.pageBar 上） */
+export interface DuiCardPageBar {
+  page: number;
+  total: number;
+  doLoad(event: PageEvent): void;
+  [key: string]: unknown;
+}
+
+/** 卡片搜索面板配置 */
+export interface DuiCardSearchFacet {
+  filters?: DuiConfig[];
+  [key: string]: unknown;
+}
+
+/** 卡片运行期状态（使用方自定义字段走索引签名） */
+export interface DuiCardState {
+  /** 卡片内是否有选中项 */
+  selected?: boolean;
+  [key: string]: unknown;
+}
+
+/** 卡片配置 */
+export interface DuiCardConfig extends DuiConfig {
+  subtitle?: string;
+  buttons?: DuiCardButton[];
+  buttonAlign?: string;
+  ltbar?: DuiCardButton[];
+  rtbar?: DuiCardButton[];
+  fbar?: DuiCardButton | DuiCardButton[];
+  bbar?: DuiConfig | DuiCardButton[];
+  fabLocation?: 'top' | 'bottom' | string;
+  searchFacet?: DuiCardSearchFacet;
+  cardStyle?: DuiStyle;
+  contenStyle?: DuiStyle;
+  autoHeight?: boolean;
+  fxLayout?: string;
+  /** 单击 / 双击卡片项时打开的目标（应用自定义） */
+  clickTarget?: string;
+  doubleClickTarget?: string;
+}
 
 /**
  * Angular component `DuiCardComponent` (selector: 'card') providing dui card component presentation and interaction in `src/container/card`.
@@ -39,7 +84,7 @@ export class DuiCardComponent extends Container implements OnChanges{
    * Input property `config` (`any`) configuring config (default: `{}`).
    * @zh 输入属性 `config`（类型：`any`），用于配置配置（默认值：`{}`）。
    */
-  @Input() config = {};
+  @Input() config: DuiCardConfig = {};
 
 
   /**
@@ -113,14 +158,14 @@ export class DuiCardComponent extends Container implements OnChanges{
    * Property `buttons` (`Array<any>`) storing buttons (default: `[]`).
    * @zh 属性 `buttons`（类型：`Array<any>`），用于存储或配置按钮（默认值：`[]`）。
    */
-  public buttons = [];
+  public buttons: DuiCardButton[] = [];
 
 
   /**
    * Property `actionButtons` (`Array<any>`) storing action buttons (default: `[]`).
    * @zh 属性 `actionButtons`（类型：`Array<any>`），用于存储或配置动作按钮（默认值：`[]`）。
    */
-  private actionButtons = [];
+  private actionButtons: ComponentBase[] = [];
 
 
   /**
@@ -141,45 +186,45 @@ export class DuiCardComponent extends Container implements OnChanges{
    * Property `ltbar` (`Array<any>`) storing ltbar.
    * @zh 属性 `ltbar`（类型：`Array<any>`），用于存储或配置ltbar。
    */
-  public ltbar;
+  public ltbar: DuiCardButton[];
 
   /**
    * Property `ltButtons` (`Array<any>`) storing lt buttons (default: `[]`).
    * @zh 属性 `ltButtons`（类型：`Array<any>`），用于存储或配置lt按钮（默认值：`[]`）。
    */
-  private ltButtons = [];
+  private ltButtons: ComponentBase[] = [];
 
 
   /**
    * Property `rtbar` (`any[]`) storing rtbar.
    * @zh 属性 `rtbar`（类型：`any[]`），用于存储或配置rtbar。
    */
-  public rtbar;
+  public rtbar: DuiCardButton[];
 
   /**
    * Property `rtButtons` (`any[]`) storing rt buttons (default: `[]`).
    * @zh 属性 `rtButtons`（类型：`any[]`），用于存储或配置rt按钮（默认值：`[]`）。
    */
-  private rtButtons = [];
+  private rtButtons: ComponentBase[] = [];
 
 
   /**
    * Property `bbar` (`any`) storing bbar.
    * @zh 属性 `bbar`（类型：`any`），用于存储或配置bbar。
    */
-  public bbar;
+  public bbar: DuiConfig | DuiCardButton[];
 
   /**
    * Property `fbar` (`any`) storing fbar.
    * @zh 属性 `fbar`（类型：`any`），用于存储或配置fbar。
    */
-  public fbar;
+  public fbar: DuiCardButton | DuiCardButton[];
 
   /**
    * Property `fButtons` (`Array<any>`) storing f buttons (default: `[]`).
    * @zh 属性 `fButtons`（类型：`Array<any>`），用于存储或配置f按钮（默认值：`[]`）。
    */
-  private fButtons = [];
+  private fButtons: ComponentBase[] = [];
 
 
   /**
@@ -193,7 +238,7 @@ export class DuiCardComponent extends Container implements OnChanges{
    * Property `bottomToolbar` (`any`) storing bottom toolbar.
    * @zh 属性 `bottomToolbar`（类型：`any`），用于存储或配置底部位置工具栏。
    */
-  public bottomToolbar;
+  public bottomToolbar: ComponentBase;
 
   /**
    * Property `fxLayout` (`string`) storing fx layout (default: `'row'`).
@@ -205,19 +250,19 @@ export class DuiCardComponent extends Container implements OnChanges{
    * Property `style` (`any`) storing style.
    * @zh 属性 `style`（类型：`any`），用于存储或配置样式。
    */
-  public override style = { overflow: 'auto', width: '100%', height: '100%' };
+  public override style: DuiStyle = { overflow: 'auto', width: '100%', height: '100%' };
 
   /**
    * Property `contenStyle` (`any`) storing conten style (default: `{"padding":"8px"}`).
    * @zh 属性 `contenStyle`（类型：`any`），用于存储或配置conten样式（默认值：`{"padding":"8px"}`）。
    */
-  public contenStyle={"padding":"8px"};
+  public contenStyle: DuiStyle = { padding: '8px' };
 
   /**
    * Property `cardStyle` (`any`) storing card style (default: `{}`).
    * @zh 属性 `cardStyle`（类型：`any`），用于存储或配置卡片样式（默认值：`{}`）。
    */
-  public cardStyle = {};
+  public cardStyle: DuiStyle = {};
 
   /**
    * Template/content query reference `viewContainer` (`@ViewChild`) targeting view container.
@@ -265,20 +310,20 @@ export class DuiCardComponent extends Container implements OnChanges{
    * Property `searchFacet` (`any`) storing search facet.
    * @zh 属性 `searchFacet`（类型：`any`），用于存储或配置搜索分面。
    */
-  public searchFacet;
+  public searchFacet: DuiCardSearchFacet;
 
   /**
    * Property `_state` (`any`) storing state (default: `{}`).
    * @zh 属性 `_state`（类型：`any`），用于存储或配置状态（默认值：`{}`）。
    */
-  public _state = {};
+  public _state: DuiCardState = {};
 
   /**
    * Sets the state (`state`).
    * @zh 设置状态（`state`）。
    * @param state - New state value (`any`) / 新的状态值（`any`）
    */
-  public set state(state) {
+  public set state(state: DuiCardState) {
     this._state = state;
     if (this.detectRef) {
       this.detectRef.detectChanges();
@@ -289,7 +334,7 @@ export class DuiCardComponent extends Container implements OnChanges{
    * Gets the current state (`state: any`).
    * @zh 获取当前状态（`state: any`）。
    */
-  public get state() {
+  public get state(): DuiCardState {
     return this._state;
   }
 
@@ -297,7 +342,7 @@ export class DuiCardComponent extends Container implements OnChanges{
    * Property `pageBar` (`any`) storing page bar.
    * @zh 属性 `pageBar`（类型：`any`），用于存储或配置页面条。
    */
-  public pageBar;
+  public pageBar: DuiCardPageBar;
 
   /**
    * Creates an instance of `DuiCardComponent` and initializes its dependencies and internal state.
@@ -333,7 +378,7 @@ export class DuiCardComponent extends Container implements OnChanges{
    * @zh 执行 `init`，用于初始化。
    * @param config - config parameter (`any`) / 配置参数（`any`）
    */
-  override init(config) {
+  override init(config?: DuiCardConfig): void {
     this.buttons=[];
     this.ltButtons=[];
     this.rtButtons=[];
@@ -357,10 +402,8 @@ export class DuiCardComponent extends Container implements OnChanges{
     if (this.fbar) {
       this._createFbar(this.fbar);
     }
-    const items = this.items;
-    if (items&& this.xtype === 'card') {
-      delete this.items;
-      this.add(items);
+    if (this.items && this.xtype === 'card') {
+      this.addConfiguredItems();
     }
   }
 
@@ -377,7 +420,7 @@ export class DuiCardComponent extends Container implements OnChanges{
    * Executes `getPagebar` to handle get pagebar.
    * @zh 执行 `getPagebar`，用于获取Pagebar。
    */
-  getPagebar() {
+  getPagebar(): MatPaginator {
     return this.pagebar;
   }
 
@@ -403,35 +446,36 @@ export class DuiCardComponent extends Container implements OnChanges{
    * @zh 执行 `lookupButton`，用于查找表按钮。
    * @param c - c parameter (`any`) / c参数（`any`）
    */
-  lookupButton(c) {
-    if (isString(c)) {
-      if (c === '-') {
+  lookupButton(button: DuiCardButton): ComponentBase {
+    let c: ComponentBase;
+    if (isString(button)) {
+      if (button === '-') {
         c = this.createComponent({
           xtype: 'divider',
           vertical: true
         });
       } else {
-        if (c === ' ') {
+        if (button === ' ') {
           c = this.createComponent({
             xtype: 'tbspacer',
             width: 2
           });
         } else {
-          if (c === '->') {
+          if (button === '->') {
             c = this.createComponent({
               xtype: 'tbfill'
             });
           } else {
             c = this.createComponent({
               xtype: 'tbtext',
-              text: c
+              text: button
             });
           }
         }
       }
       this.applyDefaults(c);
     } else {
-      c = this.createComponent(c);
+      c = this.createComponent(button);
     }
     return c;
   }
@@ -443,13 +487,14 @@ export class DuiCardComponent extends Container implements OnChanges{
    * @param buttons - buttons parameter (`Array<any>`) / 按钮参数（`Array<any>`）
    * @param options - options parameter (`any`) / 配置选项参数（`any`）
    */
-  protected _addButtons(buttons, options?): void {
+  protected _addButtons(buttons: DuiCardButton[], options?: DuiConfig): void {
     if(this.actionbar){
       this.actionbar.clear()
     } ;
     for (let i = 0; i < buttons.length; i++) {
-      if(buttons[i].xtype){
-        this.addButton(buttons[i], options);
+      const b = buttons[i];
+      if (typeof b !== 'string' && b.xtype) {
+        this.addButton(b, options);
       }
     }
   }
@@ -460,7 +505,7 @@ export class DuiCardComponent extends Container implements OnChanges{
    * @param config - config parameter (`any`) / 配置参数（`any`）
    * @param options - options parameter (`any`) / 配置选项参数（`any`）
    */
-  addButton(config, options?): void {
+  addButton(config: DuiConfig, options?: DuiConfig): void {
     Dui.apply(config, options);
     this._addButton(this.actionbar, this.actionButtons, config);
   }
@@ -472,7 +517,7 @@ export class DuiCardComponent extends Container implements OnChanges{
    * @param buttons - buttons parameter (`Array<any>`) / 按钮参数（`Array<any>`）
    * @param config - config parameter (`any`) / 配置参数（`any`）
    */
-  private _addButton(container: ViewContainerRef, buttons, config): void {
+  private _addButton(container: ViewContainerRef, buttons: ComponentBase[], config: DuiCardButton): void {
     const component: ComponentBase = this.lookupButton(config);
     component.ownerCt = this;
     const index = buttons.length;
@@ -488,11 +533,12 @@ export class DuiCardComponent extends Container implements OnChanges{
    * @param buttons - buttons parameter (`Array<any>`) / 按钮参数（`Array<any>`）
    * @param options - options parameter (`any`) / 配置选项参数（`any`）
    */
-  protected _createTopLeftToolbar(buttons, options?): void {
+  protected _createTopLeftToolbar(buttons: DuiCardButton[], options?: DuiConfig): void {
     if(this.lefttopbar) this.lefttopbar.clear();
     for (let i = 0; i < buttons.length; i++) {
-      if(buttons[i].xtype){
-      this.addLeftTopButton(buttons[i], options);
+      const b = buttons[i];
+      if (typeof b !== 'string' && b.xtype) {
+      this.addLeftTopButton(b, options);
       }
     }
   }
@@ -503,7 +549,7 @@ export class DuiCardComponent extends Container implements OnChanges{
    * @param config - config parameter (`any`) / 配置参数（`any`）
    * @param options - options parameter (`any`) / 配置选项参数（`any`）
    */
-  public addLeftTopButton(config, options?): void {
+  public addLeftTopButton(config: DuiConfig, options?: DuiConfig): void {
     Dui.apply(config, options);
     this._addButton(this.lefttopbar, this.ltButtons, config);
   }
@@ -514,11 +560,12 @@ export class DuiCardComponent extends Container implements OnChanges{
    * @param buttons - buttons parameter (`Array<any>`) / 按钮参数（`Array<any>`）
    * @param options - options parameter (`any`) / 配置选项参数（`any`）
    */
-  protected _createTopRightToolbar(buttons, options?): void {
+  protected _createTopRightToolbar(buttons: DuiCardButton[], options?: DuiConfig): void {
     if(this.righttopbar) this.righttopbar.clear();
     for (let i = 0; i < buttons.length; i++) {
-      if(buttons[i].xtype){
-      this.addRightTopButton(buttons[i], options);
+      const b = buttons[i];
+      if (typeof b !== 'string' && b.xtype) {
+      this.addRightTopButton(b, options);
       }
     }
   }
@@ -529,7 +576,7 @@ export class DuiCardComponent extends Container implements OnChanges{
    * @param config - config parameter (`any`) / 配置参数（`any`）
    * @param options - options parameter (`any`) / 配置选项参数（`any`）
    */
-  public addRightTopButton(config, options?): void {
+  public addRightTopButton(config: DuiConfig, options?: DuiConfig): void {
     Dui.apply(config, options);
 
     this._addButton(this.righttopbar, this.rtButtons, config);
@@ -541,13 +588,14 @@ export class DuiCardComponent extends Container implements OnChanges{
    * @param config - config parameter (`any`) / 配置参数（`any`）
    * @param options - options parameter (`any`) / 配置选项参数（`any`）
    */
-  _createFbar(config, options?): void {
+  _createFbar(config: DuiCardButton | DuiCardButton[], options?: DuiConfig): void {
     if(this.righbottomfab) this.righbottomfab.clear();
     if(this.rightopfab) this.rightopfab.clear();
     if (Array.isArray(config)) {
       for (let i = 0; i < config.length; i++) {
-        if(config[i].xtype){
-        this.addFabButton(config[i], options);
+        const b = config[i];
+        if (typeof b !== 'string' && b.xtype) {
+        this.addFabButton(b, options);
         }
       }
       // if (config.length == 1) {
@@ -562,7 +610,7 @@ export class DuiCardComponent extends Container implements OnChanges{
       //   };
       //   this.addFabButton(conf, options);
       // }
-    } else {
+    } else if (typeof config !== 'string') {
       this.addFabButton(config, options);
     }
   }
@@ -573,7 +621,7 @@ export class DuiCardComponent extends Container implements OnChanges{
    * @param config - config parameter (`any`) / 配置参数（`any`）
    * @param options - options parameter (`any`) / 配置选项参数（`any`）
    */
-  public addFabButton(config, options?): void {
+  public addFabButton(config: DuiConfig, options?: DuiConfig): void {
     Dui.apply(config, options);
     let location = this.righbottomfab;
     if (this.fabLocation === 'top') {
@@ -588,7 +636,7 @@ export class DuiCardComponent extends Container implements OnChanges{
 
    * @zh 执行 `getButtons`，用于获取按钮。
    */
-  getButtons() {
+  getButtons(): ComponentBase[] {
     return this.actionButtons;
   }
 
@@ -598,7 +646,7 @@ export class DuiCardComponent extends Container implements OnChanges{
    * @zh 执行 `getLtButtons`，用于获取Lt按钮。
    * @returns Result of type `Array<any>` / 类型为 `Array<any>` 的返回值
    */
-  getLtButtons() {
+  getLtButtons(): ComponentBase[] {
     return this.ltButtons;
   }
 
@@ -608,7 +656,7 @@ export class DuiCardComponent extends Container implements OnChanges{
    * @zh 执行 `getRtButtons`，用于获取Rt按钮。
    * @returns Result of type `Array<any>` / 类型为 `Array<any>` 的返回值
    */
-  getRtButtons() {
+  getRtButtons(): ComponentBase[] {
     return this.rtButtons;
   }
 
@@ -618,7 +666,7 @@ export class DuiCardComponent extends Container implements OnChanges{
    * @zh 执行 `getFabButtons`，用于获取Fab按钮。
    * @returns Result of type `Array<any>` / 类型为 `Array<any>` 的返回值
    */
-  getFabButtons() {
+  getFabButtons(): ComponentBase[] {
     return this.fButtons;
   }
 
@@ -640,7 +688,7 @@ export class DuiCardComponent extends Container implements OnChanges{
    * @param buttons - buttons parameter (`any`) / 按钮参数（`any`）
    * @returns Result of type `Array<ComponentBase>` / 类型为 `Array<ComponentBase>` 的返回值
    */
-  getButtonMenus(buttons?): Array<ComponentBase> {
+  getButtonMenus(buttons?: ComponentBase[]): Array<ComponentBase> {
     if (isUndefined(buttons)) {
       buttons = concat(this.ltButtons, this.rtButtons, this.actionButtons, this.fButtons);
     }

@@ -20,6 +20,7 @@
 
 export * from './base';
 export * from './duibase';
+export * from './dui-config';
 export * from './dom';
 export * from './observer';
 export * from './util';

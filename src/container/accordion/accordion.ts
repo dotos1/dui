@@ -174,10 +174,6 @@ export class Accordion extends AbstractPanel implements OnChanges{
     if (this.viewContainer) {
       this.viewContainer.clear();
     }
-    let items = this.items;
-    if (items) {
-      delete this.items;
-      this.add(items);
-    }
+    this.addConfiguredItems();
   }
 }

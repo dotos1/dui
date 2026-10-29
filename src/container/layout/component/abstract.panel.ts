@@ -4,6 +4,7 @@
  */
 
 
+import { ComponentBase } from '@dotos/dui/core';
 import { ChangeDetectorRef, ComponentFactoryResolver, Directive, ElementRef, Injector, Input, NgZone, OnChanges, OnDestroy, OnInit, Renderer2, SimpleChanges } from '@angular/core';
 import { Container } from '@dotos/dui/container';
 import {isArray,each}  from 'lodash-es';
@@ -246,11 +247,7 @@ export class AbstractPanel extends Container implements OnChanges,OnInit,OnDestr
     if (this.viewContainer) {
       this.viewContainer.clear();
     }
-    const items = this.items;
-    if (items) {
-      delete this.items;
-      this.add(items);
-    }
+    this.addConfiguredItems();
   }
 
   /**
@@ -365,33 +362,6 @@ export class AbstractPanel extends Container implements OnChanges,OnInit,OnDestr
     this.split.expandArea(this)
   }
 
-  /**
-   * Executes `add` to handle add.
-   * @zh 执行 `add`，用于添加。
-   * @param comp - comp parameter (`any`) / 组件参数（`any`）
-   * @returns Result of type `any` / 类型为 `any` 的返回值
-   */
-  override add(comp) {
-    this.initItems();
-    const args = arguments.length > 1;
-    if (args || isArray(comp)) {
-      const result = [];
-      each(args ? arguments : comp,
-        (c) => {
-          result.push(this.add(c));
-        });
-      return result;
-    }
-    if (comp.reference) {
-      const index = this.items.length;
-      this._addItem(comp, index);
-    } else {
-      const component = this.lookupComponent(this.applyDefaults(comp));
-      const index = this.items.length;
-      this._addItem(component, index);
-      return component;
-    }
-  }
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   /**
    * Executes `remove` to handle remove.
@@ -400,7 +370,7 @@ export class AbstractPanel extends Container implements OnChanges,OnInit,OnDestr
    * @param ad - ad parameter (`boolean`) / ad参数（`boolean`）
    * @returns Result of type `any` / 类型为 `any` 的返回值
    */
-  override remove(c, ad?: boolean) {
+  override remove(c: ComponentBase | string | number, ad?: boolean): ComponentBase {
     const comp = super.remove(c, false);
     if (comp) {
       const index = this.viewContainer.indexOf(comp.reference.hostView);
@@ -415,7 +385,7 @@ export class AbstractPanel extends Container implements OnChanges,OnInit,OnDestr
    * @param comp - comp parameter (`any`) / 组件参数（`any`）
    * @param index - index parameter (`any`) / 索引参数（`any`）
    */
-  protected _addItem(comp, index) {
+  protected override _addItem(comp: ComponentBase, index: number): void {
     this.items.add(comp);
     if (comp.onAdded) {
       comp.onAdded(this, index);

@@ -9,7 +9,7 @@ import { AbstractControlOptions, FormArray, FormControl, FormGroup } from '@angu
 import { DuiBase } from '@dotos/dui/base';
 import { FieldConfigCache, FieldType, ValueChangeEvent, assignModelValue2, clone, defineHiddenProp, findControl, getFieldValue, registerControl } from '@dotos/dui/core/form';
 import { Subject } from 'rxjs';
-import { ComponentBase } from './component.base';
+import { ComponentBase, DuiPlugin } from './component.base';
 
 // @dynamic
 /**
@@ -295,10 +295,11 @@ export class Dui extends DuiBase{
    * @param defaultType - default type parameter (`string`) / 默认类型参数（`string`）
    * @returns Result of type `ComponentBase` / 类型为 `ComponentBase` 的返回值
    */
-  static createPlugin(config, defaultType?: string): ComponentBase {
-    const PluginCls = Dui.pluginsCache.get(config.ptype || defaultType) as { new (c?): ComponentBase; init? } & ComponentBase;
+  static createPlugin(config: { ptype?: string }, defaultType?: string): DuiPlugin {
+    const PluginCls = Dui.pluginsCache.get(config.ptype || defaultType) as (new (c?: object) => DuiPlugin) & Partial<DuiPlugin>;
     if (PluginCls.init) {
-      return PluginCls;
+      // 已注册的是单例插件对象（带 init），直接用
+      return PluginCls as Partial<DuiPlugin> as DuiPlugin;
     } else {
       return new PluginCls(config);
     }
