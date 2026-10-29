@@ -950,7 +950,7 @@ export class FileUploader {
    * @returns Result of type `ParsedResponseHeaders` / 类型为 `ParsedResponseHeaders` 的返回值
    */
   protected _parseHeaders(headers: string): ParsedResponseHeaders {
-    const parsed = {};
+    const parsed: ParsedResponseHeaders = {};
     let key;
     let val;
     let i;

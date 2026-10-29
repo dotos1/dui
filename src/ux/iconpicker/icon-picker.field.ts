@@ -4,6 +4,7 @@
  */
 
 
+import { DuiStyle } from '@dotos/dui/base';
 import { Directionality } from '@angular/cdk/bidi';
 import { coerceBooleanProperty } from '@angular/cdk/coercion';
 import { Overlay } from '@angular/cdk/overlay';
@@ -202,7 +203,7 @@ export class IconPickerField extends AbstractTrigger implements OnInit {
    * Property `fontStyle` (`any`) storing font style (default: `{}`).
    * @zh 属性 `fontStyle`（类型：`any`），用于存储或配置字体样式（默认值：`{}`）。
    */
-  public fontStyle={};
+  public fontStyle: DuiStyle = {};
 
   /**
    * Creates an instance of `IconPickerField` and initializes its dependencies and internal state.

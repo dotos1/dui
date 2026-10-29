@@ -15,7 +15,7 @@ export class LinkPreviewCacheService {
     * Holds the current cache state (RAM cache)
     * @zh 属性 `cache`（类型：`any`），用于存储或配置缓存（默认值：`{}`）。
     */
-   private cache = {};
+   private cache: Record<string, unknown> = {};
 
    /**
     * localStorage cache key

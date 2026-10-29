@@ -7,6 +7,12 @@
  * Class `ObjectUtils` encapsulating object utils data structures and logic in `src/base`.
  * @zh 类 `ObjectUtils`，封装 `src/base` 中的对象工具集数据结构与处理逻辑。
  */
+/** 任意键值对象 */
+type Dict = Record<string, unknown>;
+
+/** 把对象视作键值表读写（这些工具函数本来就按任意键访问） */
+const asDict = (o: object): Dict => o as Dict;
+
 export class ObjectUtils {
 
   /**
@@ -16,18 +22,19 @@ export class ObjectUtils {
    * @param key - key parameter (`string`) / 键参数（`string`）
    * @returns Result of type `any` / 类型为 `any` 的返回值
    */
-  static getValue(target, key: string) {
+  static getValue(source: unknown, key: string): unknown {
 
-    if (!target) {
+    if (!source) {
       return undefined;
     }
 
+    let target: unknown = source;
     const keys = key.split('.');
     key = '';
 
     do {
       key += keys.shift();
-      const value = target[key];
+      const value = asDict(target as object)[key];
       if (value !== undefined && (typeof value === 'object' || !keys.length)) {
         target = value;
         key = '';
@@ -57,23 +64,25 @@ export class ObjectUtils {
    * @param objects - objects parameter (`any`) / 对象参数（`any`）
    * @returns Result of type `any` / 类型为 `any` 的返回值
    */
-  static merge(...objects) {
-    const result = {};
+  static merge(...objects: unknown[]): Dict {
+    const result: Dict = {};
 
     objects.forEach((source) => {
       if (!source || typeof source !== 'object') {
         return;
       }
-      Object.keys(source).forEach((prop) => {
+      const src = asDict(source);
+      Object.keys(src).forEach((prop) => {
         if (ObjectUtils.isUnsafeKey(prop)) {
           return;
         }
-        if (Object.prototype.hasOwnProperty.call(result, prop) && Array.isArray(result[prop])) {
-          result[prop] = result[prop].concat(source[prop]);
+        const existing = result[prop];
+        if (Object.prototype.hasOwnProperty.call(result, prop) && Array.isArray(existing)) {
+          result[prop] = existing.concat(src[prop]);
         } else if (Object.prototype.hasOwnProperty.call(result, prop) && result[prop] && typeof result[prop] === 'object') {
-          result[prop] = ObjectUtils.merge(result[prop], source[prop]);
+          result[prop] = ObjectUtils.merge(result[prop], src[prop]);
         } else {
-          result[prop] = source[prop];
+          result[prop] = src[prop];
         }
       });
     });
@@ -87,17 +96,17 @@ export class ObjectUtils {
    * @param key - key parameter (`string`) / 键参数（`string`）
    * @returns Result of type `any` / 类型为 `any` 的返回值
    */
-  static resolve(obj: object, key: string) {
+  static resolve(obj: object, key: string): unknown {
     const keysArray = key
       .replace(/\[/g, '.')
       .replace(/\]/g, '')
       .split('.');
-    let current = obj;
+    let current: unknown = obj;
     while (keysArray.length) {
       if (typeof current !== 'object') {
         return undefined;
       }
-      current = current[keysArray.shift()];
+      current = asDict(current)[keysArray.shift()];
     }
 
     return current;
@@ -108,7 +117,7 @@ export class ObjectUtils {
    * @zh 执行 `isObject`，用于是否为对象。
    * @param item - item parameter (`object`) / 条目参数（`object`）
    */
-  static isObject(item: object) {
+  static isObject(item: unknown): item is object {
     return (
       item &&
       typeof item === 'object' &&
@@ -130,24 +139,27 @@ export class ObjectUtils {
     target: object,
     source: object,
     ignoreUndefined = false
-  ) {
-    const output = Object.assign({}, target);
+  ): Dict {
+    const output: Dict = Object.assign({}, asDict(target));
     if (ObjectUtils.isObject(target) && ObjectUtils.isObject(source)) {
-      Object.keys(source)
-        .filter(key => !ObjectUtils.isUnsafeKey(key) && (!ignoreUndefined || source[key] !== undefined))
+      const src = asDict(source);
+      const tgt = asDict(target);
+      Object.keys(src)
+        .filter(key => !ObjectUtils.isUnsafeKey(key) && (!ignoreUndefined || src[key] !== undefined))
         .forEach(key => {
-          if (ObjectUtils.isObject(source[key])) {
+          const value = src[key];
+          if (ObjectUtils.isObject(value)) {
             if (!Object.prototype.hasOwnProperty.call(target, key)) {
-              Object.assign(output, { [key]: source[key] });
+              Object.assign(output, { [key]: value });
             } else {
               output[key] = ObjectUtils.mergeDeep(
-                target[key],
-                source[key],
+                tgt[key] as object,
+                value,
                 ignoreUndefined
               );
             }
           } else {
-            Object.assign(output, { [key]: source[key] });
+            Object.assign(output, { [key]: value });
           }
         });
     }
@@ -160,16 +172,18 @@ export class ObjectUtils {
    * @param obj - obj parameter (`object`) / 对象参数（`object`）
    * @returns Result of type `any` / 类型为 `any` 的返回值
    */
-  static removeUndefined(obj: object) {
-    const output = {};
+  static removeUndefined(obj: unknown): unknown {
+    const output: Dict = {};
     if (ObjectUtils.isObject(obj)) {
-      Object.keys(obj)
-        .filter(key => obj[key] !== undefined)
+      const src = asDict(obj);
+      Object.keys(src)
+        .filter(key => src[key] !== undefined)
         .forEach(key => {
-          if (ObjectUtils.isObject(obj[key]) || Array.isArray(obj[key])) {
-            output[key] = ObjectUtils.removeUndefined(obj[key]);
+          const value = src[key];
+          if (ObjectUtils.isObject(value) || Array.isArray(value)) {
+            output[key] = ObjectUtils.removeUndefined(value);
           } else {
-            output[key] = obj[key];
+            output[key] = value;
           }
         });
 
@@ -177,7 +191,7 @@ export class ObjectUtils {
     }
 
     if (Array.isArray(obj)) {
-      return obj.map(o => ObjectUtils.removeUndefined(o));
+      return obj.map((o: unknown) => ObjectUtils.removeUndefined(o));
     }
 
     return obj;
@@ -189,11 +203,15 @@ export class ObjectUtils {
    * @param src - src parameter (`any`) / 源路径参数（`any`）
    * @returns Result of type `any` / 类型为 `any` 的返回值
    */
-  static copyDeep(src) {
-    const target = Array.isArray(src) ? [] : {};
-    for (const prop in src) {
-      if (src.hasOwnProperty(prop)) {
-        const value = src[prop];
+  static copyDeep<T>(src: T): T {
+    if (Array.isArray(src)) {
+      return src.map((value: unknown) => (value && typeof value === 'object' ? this.copyDeep(value) : value)) as T;
+    }
+    const target: Dict = {};
+    const source = asDict(src as object);
+    for (const prop in source) {
+      if (Object.prototype.hasOwnProperty.call(source, prop)) {
+        const value = source[prop];
         if (value && typeof value === 'object') {
           target[prop] = this.copyDeep(value);
         } else {
@@ -201,7 +219,7 @@ export class ObjectUtils {
         }
       }
     }
-    return target;
+    return target as T;
   }
 
   /**
@@ -210,16 +228,18 @@ export class ObjectUtils {
    * @param obj - obj parameter (`object`) / 对象参数（`object`）
    * @returns Result of type `any` / 类型为 `any` 的返回值
    */
-  static removeNull(obj: object) {
-    const output = {};
+  static removeNull(obj: unknown): unknown {
+    const output: Dict = {};
     if (ObjectUtils.isObject(obj)) {
-      Object.keys(obj)
-        .filter(key => obj[key] !== null)
+      const src = asDict(obj);
+      Object.keys(src)
+        .filter(key => src[key] !== null)
         .forEach(key => {
-          if (ObjectUtils.isObject(obj[key]) || Array.isArray(obj[key])) {
-            output[key] = ObjectUtils.removeNull(obj[key]);
+          const value = src[key];
+          if (ObjectUtils.isObject(value) || Array.isArray(value)) {
+            output[key] = ObjectUtils.removeNull(value);
           } else {
-            output[key] = obj[key];
+            output[key] = value;
           }
         });
 
@@ -227,7 +247,7 @@ export class ObjectUtils {
     }
 
     if (Array.isArray(obj)) {
-      return obj.map(o => ObjectUtils.removeNull(o));
+      return obj.map((o: unknown) => ObjectUtils.removeNull(o));
     }
 
     return obj;
@@ -241,7 +261,9 @@ export class ObjectUtils {
    * @param direction - direction parameter (`any`) / 方向参数（`any`）
    * @param nullFirst - null first parameter (`any`) / 空值首个参数（`any`）
    */
-  static naturalCompare(a, b, direction = 'asc', nullFirst = false) {
+  static naturalCompare(left: unknown, right: unknown, direction = 'asc', nullFirst = false): number {
+    let a = left;
+    let b = right;
     if (direction === 'desc') {
       b = [a, (a = b)][0];
     }
@@ -259,17 +281,20 @@ export class ObjectUtils {
       return nullFirst ? -1 : 1;
     }
 
-    const ax = [];
-    const bx = [];
-    a = '' + a;
-    b = '' + b;
+    // 拆成 [数字段, 非数字段] 的序列逐段比较；数字段为空时记 Infinity
+    const ax: Array<[number, string]> = [];
+    const bx: Array<[number, string]> = [];
+    const sa = '' + a;
+    const sb = '' + b;
 
-    a.replace(/(\d+)|(\D+)/g, (_, $1, $2) => {
-      ax.push([$1 || Infinity, $2 || '']);
+    sa.replace(/(\d+)|(\D+)/g, (_: string, $1: string, $2: string) => {
+      ax.push([$1 ? Number($1) : Infinity, $2 || '']);
+      return _;
     });
 
-    b.replace(/(\d+)|(\D+)/g, (_, $1, $2) => {
-      bx.push([$1 || Infinity, $2 || '']);
+    sb.replace(/(\d+)|(\D+)/g, (_: string, $1: string, $2: string) => {
+      bx.push([$1 ? Number($1) : Infinity, $2 || '']);
+      return _;
     });
 
     while (ax.length && bx.length) {
@@ -306,7 +331,7 @@ export class ObjectUtils {
     }
 
     for (const prop of obj1Props) {
-      if (obj1[prop] !== obj2[prop]) {
+      if (asDict(obj1)[prop] !== asDict(obj2)[prop]) {
         return false;
       }
     }
@@ -325,8 +350,8 @@ export class ObjectUtils {
   static removeKeys(obj: object, keys: string[]): object {
     const newObj = Object.keys(obj)
       .filter(key => keys.indexOf(key) < 0)
-      .reduce((_obj, key) => {
-        _obj[key] = obj[key];
+      .reduce((_obj: Dict, key) => {
+        _obj[key] = asDict(obj)[key];
         return _obj;
       }, {});
 

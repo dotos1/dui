@@ -114,7 +114,7 @@ export class ExtCodeEditorComponent implements OnInit, AfterViewInit, OnDestroy,
    * Property `_editorOptions` (`any`) storing editor options (default: `{}`).
    * @zh 属性 `_editorOptions`（类型：`any`），用于存储或配置编辑器配置选项（默认值：`{}`）。
    */
-  private _editorOptions = {};
+  private _editorOptions: Record<string, unknown> = {};
 
   /**
    * Template/content query reference `_editorContainer` (`@ViewChild`) targeting editor container.

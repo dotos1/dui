@@ -19,7 +19,7 @@ export class ShareParamService {
    * Property `data` (`any`) storing data (default: `{}`).
    * @zh 属性 `data`（类型：`any`），用于存储或配置数据（默认值：`{}`）。
    */
-  data={};
+  data: Record<string, unknown> = {};
 
   /**
    * Creates an instance of `ShareParamService` and initializes its dependencies and internal state.

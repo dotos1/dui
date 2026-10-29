@@ -4,7 +4,7 @@
  */
 
 import { MarkType, NodeType, Schema } from 'prosemirror-model';
-import { Plugin } from 'prosemirror-state';
+import { Command, Plugin } from 'prosemirror-state';
 import { keymap } from 'prosemirror-keymap';
 import { toggleMark, baseKeymap, chainCommands, exitCode } from 'prosemirror-commands';
 import { splitListItem, liftListItem, sinkListItem } from 'prosemirror-schema-list';
@@ -172,7 +172,7 @@ const buildInputRules = (schema: Schema): Plugin => {
  * @zh 常量/变量 `getKeyboardShortcuts`，定义 `src/ux/editor` 中的获取键盘快捷键列表。
  */
 export const getKeyboardShortcuts = (schema: Schema, options: ShortcutOptions) => {
-  const historyKeyMap = {};
+  const historyKeyMap: { [key: string]: Command } = {};
 
   historyKeyMap['Mod-z'] = undo;
   if (isMacOs) {

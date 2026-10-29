@@ -678,7 +678,7 @@ export class TreeModel implements ITreeModel, OnDestroy {
    * @param nodeIds - node ids parameter (`any`) / 节点标识列表参数（`any`）
    */
   @action setHiddenNodeIds(nodeIds) {
-    const newHidden = {};
+    const newHidden: { [id: string]: boolean } = {};
     nodeIds.forEach(id => newHidden[id] = true);
     this.hiddenNodeIds = newHidden;
   }
@@ -723,7 +723,7 @@ export class TreeModel implements ITreeModel, OnDestroy {
       return;
     }
 
-    const ids = {};
+    const ids: { [id: string]: boolean } = {};
     this.roots.forEach((node) => this._filterNode(ids, node, filterFn, autoShow));
     this.hiddenNodeIds = ids;
     this.fireEvent({ eventName: TREE_EVENTS.changeFilter });

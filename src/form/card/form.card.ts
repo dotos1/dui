@@ -3,6 +3,7 @@
  * @zh 模块文件 `src/form/card/form.card.ts`，提供表单卡片相关的定义与实现。
  */
 
+import { DuiConfig } from '@dotos/dui/base';
 import {
   Component, Input, ViewChild, ChangeDetectionStrategy,
   SimpleChanges, ChangeDetectorRef, ComponentFactoryResolver, Injector, OnInit, OnChanges
@@ -31,7 +32,7 @@ export class FormCard extends DuiCardComponent implements OnInit,OnChanges {
    * Input property `config` (`any`) configuring config (default: `{}`).
    * @zh 输入属性 `config`（类型：`any`），用于配置配置（默认值：`{}`）。
    */
-  @Input() override config = {};
+  @Input() override config: DuiConfig = {};
 
 
   /**

@@ -9,7 +9,7 @@ import {
 } from '@angular/core';
 import { coerceBooleanProperty } from '@angular/cdk/coercion';
 import { NgModel } from '@angular/forms';
-import { FileUploader, ResizeOptions, ImageFileProcessor, ImageResult } from './file-uploader';
+import { FileUploader, ResizeOptions, ImageFileProcessor, ImageResult, FilterFunction } from './file-uploader';
 import { fileToDataURL, getImageTypeFromDataUrl, resizeImage } from './utils';
 
 /**
@@ -145,7 +145,7 @@ export class FileSelectDirective implements OnChanges{
       const value: File[] | FileList | File = this._multiple ? (files.length > 1 ? fileList : files[0]) : files[0];
       this.model ? this.model.update.emit(value) : this.onFileSelected.emit(value);
     }
-    this.uploader?.addToQueue(files, options, filters as never);
+    this.uploader?.addToQueue(files, options, filters);
     if (this.isEmptyAfterSelection()) {
       this.element.nativeElement.value = '';
     }
@@ -204,8 +204,9 @@ export class FileSelectDirective implements OnChanges{
    * Returns the filter functions applied when queuing selected files (none by default).
    * @zh 返回加入选中的文件时应用的过滤函数（默认为空）。
    */
-  public getFilters() {
-    return {};
+  /** 文件过滤器：返回 undefined 表示用 uploader.options.filters（原来返回 {}，效果相同） */
+  public getFilters(): FilterFunction[] | string | undefined {
+    return undefined;
   }
 
   /**

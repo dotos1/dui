@@ -3,6 +3,7 @@
  * @zh 模块文件 `src/data/datatable/row/row-wrapper.component.ts`，提供行包装器组件相关的定义与实现。
  */
 
+import { DuiStyle } from '@dotos/dui/base';
 import {
   Component, Input, Output, EventEmitter, HostListener, DoCheck,
   ChangeDetectionStrategy, KeyValueDiffer, ChangeDetectorRef, KeyValueDiffers
@@ -51,7 +52,7 @@ export class DataTableRowWrapperComponent implements DoCheck {
    * Input property `row` (`any`) configuring row (default: `{}`).
    * @zh 输入属性 `row`（类型：`any`），用于配置行（默认值：`{}`）。
    */
-  @Input() row={};
+  @Input() row: Record<string, unknown> = {};
   /**
    * Input property `groupedRows` (`any`) configuring grouped rows.
    * @zh 输入属性 `groupedRows`（类型：`any`），用于配置已分组行列表。
@@ -177,7 +178,7 @@ export class DataTableRowWrapperComponent implements DoCheck {
    * @returns Result of type `any` / 类型为 `any` 的返回值
    */
   getGroupHeaderStyle() {
-    const styles = {};
+    const styles: DuiStyle = {};
 
     styles['transform'] = 'translate3d(' + this.offsetX + 'px, 0px, 0px)';
     styles['backface-visibility'] = 'hidden';

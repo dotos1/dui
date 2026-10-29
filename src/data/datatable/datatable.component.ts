@@ -3,6 +3,7 @@
  * @zh 模块文件 `src/data/datatable/datatable.component.ts`，提供数据表格组件相关的定义与实现。
  */
 
+import { DuiConfig } from '@dotos/dui/base';
 import {
   Component, Input, Output, ElementRef, EventEmitter, ViewChild,
   HostListener, ContentChildren, OnInit, QueryList, AfterViewInit,
@@ -52,7 +53,7 @@ export class DatatableComponent implements OnInit, DoCheck,AfterContentInit,OnDe
    * Input property `config` (`any`) configuring config (default: `{}`).
    * @zh 输入属性 `config`（类型：`any`），用于配置配置（默认值：`{}`）。
    */
-  @Input() config = {};
+  @Input() config: DuiConfig = {};
   /**
    * Template for the target marker of drag target columns.
 

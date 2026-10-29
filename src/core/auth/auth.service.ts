@@ -3,6 +3,7 @@
  * @zh 模块文件 `src/core/auth/auth.service.ts`，提供认证服务相关的定义与实现。
  */
 
+import { LogoutResult } from './logout-result';
 import { Injectable } from '@angular/core';
 import { HttpClient,  HttpParams } from '@angular/common/http';
 import { Observable, ReplaySubject, Subject, throwError } from 'rxjs';
@@ -64,10 +65,10 @@ export class AuthService {
    */
   onLogin = new Subject();
   /**
-   * Property `onLogout` (`Subject<any>`) storing on logout (default: `new Subject<any>()`).
-   * @zh 属性 `onLogout`（类型：`Subject<any>`），用于存储或配置当Logout（默认值：`new Subject<any>()`）。
+   * Property `onLogout` (`Subject<LogoutResult>`) storing on logout (default: `new Subject<any>()`).
+   * @zh 属性 `onLogout`（类型：`Subject<LogoutResult>`），用于存储或配置当Logout（默认值：`new Subject<any>()`）。
    */
-  onLogout = new Subject();
+  onLogout = new Subject<LogoutResult>();
 
   /**
    * Property `_redirectUrl` (`string`) storing redirect url.
@@ -363,7 +364,7 @@ export class AuthService {
    * Executes `logout` to handle logout.
    * @zh 执行 `logout`，用于logout。
    */
-  logout() {
+  logout(): Promise<void> {
     return this._logout().then((response) => {
       this.onLogout.next(response);
     });
@@ -373,7 +374,7 @@ export class AuthService {
    * @zh 执行 `_logout`，用于logout。
    * @returns Result of type `Promise<any>` / 类型为 `Promise<any>` 的返回值
    */
-  _logout() {
+  _logout(): Promise<LogoutResult> {
     this.username = null;
 
     if (this.isOauth()) {

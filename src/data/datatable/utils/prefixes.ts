@@ -9,7 +9,7 @@ import { camelCase } from './camel-case';
  * Constant/variable `cache` defining cache in `src/data/datatable/utils`.
  * @zh 常量/变量 `cache`，定义 `src/data/datatable/utils` 中的缓存。
  */
-const cache = {};
+const cache: Record<string, string> = {};
 /**
  * Constant/variable `testStyle` defining test style in `src/data/datatable/utils`.
  * @zh 常量/变量 `testStyle`，定义 `src/data/datatable/utils` 中的测试样式。

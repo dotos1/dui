@@ -17,7 +17,30 @@ import { MatMenuTrigger } from '@angular/material/menu';
 import { MatTooltip } from '@angular/material/tooltip';
 import {isString}  from 'lodash-es';
 
-import { ComponentBase } from '@dotos/dui/core';
+import { ComponentBase, DuiConfig, DuiStyle } from '@dotos/dui/core';
+
+/** 按钮下拉 / 子菜单项（'-' 表示分隔线） */
+export interface DuiButtonMenuItem extends DuiConfig {
+  /** 下拉按钮（dropdown）里的选项值 */
+  value?: string;
+  /** 分隔线等特殊项 */
+  type?: string;
+  /** 下拉模式下指回所属按钮 */
+  parentItem?: ComponentBase;
+}
+
+/** 按钮配置 */
+export interface DuiButtonConfig extends DuiConfig {
+  /** 放在哪里：工具栏（缺省）或菜单里 */
+  parentType?: 'toolbar' | 'menu' | string;
+  color?: string;
+  disableRipple?: boolean;
+  iconPosition?: 'before' | 'after' | string;
+  /** 菜单里显示的快捷键提示 */
+  shortcut?: string;
+  children?: Array<DuiButtonMenuItem | string>;
+  dropdown?: boolean;
+}
 
 /**
  * Class `ButtonBase` encapsulating button base data structures and logic in `src/ui/button`.
@@ -35,13 +58,14 @@ export class ButtonBase extends ComponentBase {
     * Property `config` (`any`) storing config (default: `{}`).
     * @zh 属性 `config`（类型：`any`），用于存储或配置配置（默认值：`{}`）。
     */
-   config = {};
+   config: DuiButtonConfig = {};
 
    /**
     * Property `data` (`any`) storing data.
     * @zh 属性 `data`（类型：`any`），用于存储或配置数据。
     */
-   data;
+   /** 点击时传给 handler 的数据（缺省传按钮自身） */
+   data: unknown;
 
    /**
     * Property `ownerCt` (`any`) storing owner ct.
@@ -65,7 +89,7 @@ export class ButtonBase extends ComponentBase {
    * Gets the current items (`items: any`).
    * @zh 获取当前条目列表（`items: any`）。
    */
-  public get items(){
+  public get items(): Array<DuiButtonMenuItem | string> {
     return this._items;
   }
 
@@ -74,7 +98,7 @@ export class ButtonBase extends ComponentBase {
    * @zh 设置条目列表（`items`）。
    * @param items - New items value (`any`) / 新的条目列表值（`any`）
    */
-  public set items(items){
+  public set items(items: Array<DuiButtonMenuItem | string>) {
     this.processItems(items);
      this._items=items;
      this.changeDetectorRef.detectChanges();
@@ -84,37 +108,37 @@ export class ButtonBase extends ComponentBase {
    * Property `_items` (`Array<any>`) storing items (default: `[]`).
    * @zh 属性 `_items`（类型：`Array<any>`），用于存储或配置条目列表（默认值：`[]`）。
    */
-  public _items = [];
+  public _items: Array<DuiButtonMenuItem | string> = [];
 
   /**
    * Property `flex` (`any`) storing flex.
    * @zh 属性 `flex`（类型：`any`），用于存储或配置flex。
    */
-  public flex;
+  public flex: number | string;
 
   /**
    * Property `title` (`any`) storing title.
    * @zh 属性 `title`（类型：`any`），用于存储或配置标题。
    */
-  public title;
+  public title: string;
 
   /**
    * Property `text` (`any`) storing text.
    * @zh 属性 `text`（类型：`any`），用于存储或配置文本。
    */
-  public text;
+  public text: string;
 
   /**
    * Property `value` (`any`) storing value.
    * @zh 属性 `value`（类型：`any`），用于存储或配置值。
    */
-  public value;
+  public value: string;
 
   /**
    * Property `default` (`any`) storing default.
    * @zh 属性 `default`（类型：`any`），用于存储或配置默认。
    */
-  public default;
+  public default: string;
 
   /**
    * Property `disableRipple` (`boolean`) storing disable ripple (default: `false`).
@@ -132,13 +156,13 @@ export class ButtonBase extends ComponentBase {
    * Property `toolTip` (`any`) storing tool tip.
    * @zh 属性 `toolTip`（类型：`any`），用于存储或配置tool提示。
    */
-  public toolTip;
+  public toolTip: string;
 
   /**
    * Property `icon` (`any`) storing icon.
    * @zh 属性 `icon`（类型：`any`），用于存储或配置图标。
    */
-  public icon;
+  public icon: string;
 
   /**
    * Property `iconType` (`string`) storing icon type (default: `"FONT"`).
@@ -156,14 +180,14 @@ export class ButtonBase extends ComponentBase {
    * Property `handler` (`any`) storing handler.
    * @zh 属性 `handler`（类型：`any`），用于存储或配置处理器。
    */
-  public handler;
+  public handler: Function;
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   /**
    * Property `change` (`any`) storing change (default: `(value)=>{}`).
    * @zh 属性 `change`（类型：`any`），用于存储或配置变更（默认值：`(value)=>{}`）。
    */
-  public change=(value)=>{};
+  public change = (value: unknown): void => {};
 
   /**
    * Property `tabIndex` (`number`) storing tab index (default: `0`).
@@ -175,13 +199,13 @@ export class ButtonBase extends ComponentBase {
    * Property `menu` (`any`) storing menu.
    * @zh 属性 `menu`（类型：`any`），用于存储或配置菜单。
    */
-  public menu;
+  public menu: unknown;
 
   /**
    * Property `style` (`any`) storing style.
    * @zh 属性 `style`（类型：`any`），用于存储或配置样式。
    */
-  public override style;
+  public override style: DuiStyle;
 
   /**
    * Property `checked` (`boolean`) storing checked (default: `false`).
@@ -235,7 +259,7 @@ export class ButtonBase extends ComponentBase {
    * Executes `getEl` to handle get el.
    * @zh 执行 `getEl`，用于获取DOM元素。
    */
-  getEl() {
+  getEl(): HTMLElement {
     return this._element.nativeElement;
   }
 
@@ -244,7 +268,7 @@ export class ButtonBase extends ComponentBase {
    * @zh 执行 `init`，用于初始化。
    * @param config - config parameter (`any`) / 配置参数（`any`）
    */
-  override init(config) {
+  override init(config?: DuiButtonConfig): void {
     super.init(config);
     this.config=config;
     if (config && config.children) {
@@ -263,22 +287,26 @@ export class ButtonBase extends ComponentBase {
    * @zh 执行 `processItems`，用于处理条目列表。
    * @param items - items parameter (`any`) / 条目列表参数（`any`）
    */
-  processItems(items){
+  processItems(items: Array<DuiButtonMenuItem | string>): void {
     for (let i = 0; i < items.length; i++) {
       if (isString(items[i]) && items[i] === '-') {
         items[i] = { type: 'divider' };
       }
-      if (!items[i].xtype) {
-        items[i].xtype = 'menuitem';
+      const item = items[i];
+      if (isString(item)) {
+        continue;
+      }
+      if (!item.xtype) {
+        item.xtype = 'menuitem';
       }
       if(this.dropdown){
-        if (items[i].value==this.value&&items[i].text!=undefined) {
-          this.title=this.text=items[i].text?items[i].text:items[i].title;
+        if (item.value==this.value&&item.text!=undefined) {
+          this.title=this.text=item.text?item.text:item.title;
        }
-       if (items[i].value==this.value&&items[i].icon!=undefined) {
-           this.icon=items[i].icon;
+       if (item.value==this.value&&item.icon!=undefined) {
+           this.icon=item.icon;
        }
-       items[i].parentItem=this;
+       item.parentItem=this;
       }
     }
   }
@@ -303,7 +331,7 @@ export class ButtonBase extends ComponentBase {
    * @param value - value parameter (`any`) / 值参数（`any`）
    * @param e - e parameter (`any`) / e参数（`any`）
    */
-  public onValueChange(value,e?){
+  public onValueChange(value: unknown, e?: unknown): void {
     this.setValue(value);
     setTimeout(() => {
       if (this.change) {
@@ -339,7 +367,7 @@ export class ButtonBase extends ComponentBase {
    * Executes `hasIcon` to handle has icon.
    * @zh 执行 `hasIcon`，用于是否包含图标。
    */
-  public hasIcon() {
+  public hasIcon(): boolean {
     return this.icon != undefined;
   }
 
@@ -376,7 +404,7 @@ export class ButtonBase extends ComponentBase {
    * @zh 执行 `getValue`，用于获取值。
    * @returns Result of type `any` / 类型为 `any` 的返回值
    */
-  getValue() {
+  getValue(): string {
     return this.value;
   }
   /**
@@ -384,29 +412,32 @@ export class ButtonBase extends ComponentBase {
    * @zh 执行 `setValue`，用于集合值。
    * @param v - v parameter (`any`) / v参数（`any`）
    */
-  setValue(v): void {
+  setValue(value: unknown): void {
     if(this.dropdown){
-      if(v==null||v==undefined){
-          for (let i = 0; i < this.items.length; i++) {
-            if (this.items[i].value==this.default) {
-              this.title=this.text=this.items[i].text?this.items[i].text:this.items[i].title;
-              this.value=this.items[i].value;
-              this.icon=this.items[i].icon;
+      // 下拉项（字符串项只有分隔线 '-'，没有 value）
+      const items = this.items.filter((item): item is DuiButtonMenuItem => !isString(item));
+      if(value==null||value==undefined){
+          for (let i = 0; i < items.length; i++) {
+            if (items[i].value==this.default) {
+              this.title=this.text=items[i].text?items[i].text:items[i].title;
+              this.value=items[i].value;
+              this.icon=items[i].icon;
           }
         }
-      }else if(isString(v)){
-        this.value=v;
+      }else if(isString(value)){
+        this.value=value;
         let  inItem=false;
-        for (let i = 0; i < this.items.length; i++) {
-            if (this.items[i].value==v) {
-              this.title=this.text=this.items[i].text?this.items[i].text:this.items[i].title;
-              this.icon=this.items[i].icon;
+        for (let i = 0; i < items.length; i++) {
+            if (items[i].value==value) {
+              this.title=this.text=items[i].text?items[i].text:items[i].title;
+              this.icon=items[i].icon;
               inItem=true;
            }
         }
         if(!inItem)   this.title=this.text=   this.value;
 
       }else{
+        const v = value as DuiButtonMenuItem;
         if(v.text){
           this.title=this.text=v.text?v.text:v.title;
         }
@@ -425,7 +456,7 @@ export class ButtonBase extends ComponentBase {
    * @zh 执行 `onClick`，用于当点击。
    * @param e - e parameter (`any`) / e参数（`any`）
    */
-  onClick(e) {
+  onClick(e?: Event): void {
     if (e) {
       e.preventDefault();
       if (this.matTooltip&&this.matTooltip.message!='') {
@@ -466,7 +497,7 @@ export class ButtonBase extends ComponentBase {
    * @zh 执行 `onDisableChange`，用于当禁用变更。
    * @param disabled - disabled parameter (`any`) / 已禁用参数（`any`）
    */
-  onDisableChange(disabled) {
+  onDisableChange(disabled: boolean): void {
     this.disabled = disabled;
   }
 }

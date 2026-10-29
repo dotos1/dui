@@ -3,6 +3,7 @@
  * @zh 模块文件 `src/ui/button/toggle-button.component.ts`，提供开关按钮组件相关的定义与实现。
  */
 
+import { DuiConfig } from '@dotos/dui/base';
 import {
     ChangeDetectionStrategy,
     ChangeDetectorRef,
@@ -40,7 +41,7 @@ export class ToggleButtonComponent extends ComponentBase implements OnInit,DoChe
    * Input property `config` (`any`) configuring config (default: `{}`).
    * @zh 输入属性 `config`（类型：`any`），用于配置配置（默认值：`{}`）。
    */
-  @Input() config = {};
+  @Input() config: DuiConfig = {};
 
   /**
    * Input property `data` (`any`) configuring data.

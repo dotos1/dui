@@ -145,7 +145,7 @@ function get_declaration_fallback($custom_prop) {
  * @param $gss - gss parameter (`any`) / gss参数（`any`）
  * @param $important - important parameter (`any`) / important参数（`any`）
  */
-export function declaration($property, $custom_prop= null, $gss= {}, $important= false) {
+export function declaration($property, $custom_prop= null, $gss: Record<string, string> = {}, $important= false) {
     if($property) {
       let $value= null;
       let $fallback_value= null;
@@ -192,10 +192,10 @@ export function css_declaration(
     $property,
     $value,
     $fallback_value= null,
-    $gss={},
+    $gss: Record<string, string> = {},
     $important= false
   ) {
-    let rv={};
+    let rv: Record<string, string> = {};
     if ($value != null) {
       let $important_rule= $important? ' !important': '';
       if($fallback_value) {

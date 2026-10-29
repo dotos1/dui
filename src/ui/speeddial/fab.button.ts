@@ -3,6 +3,7 @@
  * @zh 模块文件 `src/ui/speeddial/fab.button.ts`，提供fab按钮相关的定义与实现。
  */
 
+import { DuiConfig } from '@dotos/dui/base';
 import {
     ChangeDetectionStrategy,
     ChangeDetectorRef,
@@ -47,7 +48,7 @@ export class FabButtonComponent extends ComponentBase implements OnChanges,DoChe
    * Input property `config` (`any`) configuring config (default: `{}`).
    * @zh 输入属性 `config`（类型：`any`），用于配置配置（默认值：`{}`）。
    */
-  @Input() config = {};
+  @Input() config: DuiConfig = {};
 
   /**
    * Input property `type` (`string`) configuring type (default: `'mat-fab'`).

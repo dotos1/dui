@@ -88,7 +88,7 @@ export class Dui extends DuiBase{
    * @returns Result of type `any` / 类型为 `any` 的返回值
    */
   public static getParam(path: string) {
-    let params = {};
+    let params: Record<string, unknown> = {};
     if (path.indexOf('?') !== -1) {
       let paramString = path.substring(path.indexOf('?') + 1, path.length);
       let p = paramString.split('&');

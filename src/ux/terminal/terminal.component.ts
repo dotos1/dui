@@ -3,6 +3,7 @@
  * @zh 模块文件 `src/ux/terminal/terminal.component.ts`，提供终端组件相关的定义与实现。
  */
 
+import { DuiStyle } from '@dotos/dui/base';
 import { Component,  ViewChild, ElementRef, Input, Output, EventEmitter, OnDestroy, AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, OnChanges, Renderer2, SimpleChanges, ViewEncapsulation } from '@angular/core';
 import { ITerminalOptions, Terminal } from 'xterm';
 import { FitAddon } from 'xterm-addon-fit';
@@ -264,7 +265,7 @@ export class TerminalComponent implements  OnChanges, AfterViewInit, NgTerminal,
    * Property `_stylesInput` (`any`) storing styles input (default: `{}`).
    * @zh 属性 `_stylesInput`（类型：`any`），用于存储或配置样式集合输入属性（默认值：`{}`）。
    */
-  _stylesInput = {};
+  _stylesInput: DuiStyle = {};
 
   /**
    * Executes `setMinWidth` to handle set min width.

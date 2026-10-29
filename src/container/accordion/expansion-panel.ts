@@ -4,6 +4,7 @@
  */
 
 
+import { DuiConfig } from '@dotos/dui/base';
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { coerceBooleanProperty } from '@angular/cdk/coercion';
 import { UniqueSelectionDispatcher } from '@angular/cdk/collections';
@@ -61,7 +62,7 @@ export class ExpansionPanelBase extends Container implements OnChanges,OnDestroy
    * Input property `config` (`any`) configuring config (default: `{}`).
    * @zh 输入属性 `config`（类型：`any`），用于配置配置（默认值：`{}`）。
    */
-  @Input() config = {};
+  @Input() config: DuiConfig = {};
 
   /**
    * Property `xtype` (`string`) storing xtype (default: `'expansion-panel'`).

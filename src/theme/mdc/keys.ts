@@ -8,17 +8,17 @@ import { declaration,is_custom_prop,create_varname,create,set_fallback } from '.
  * Constant/variable `$_store` defining store in `src/theme/mdc`.
  * @zh 常量/变量 `$_store`，定义 `src/theme/mdc` 中的状态仓库。
  */
-const $_store={};
+const $_store: Record<string, unknown> = {};
 /**
  * Constant/variable `$_options` defining options in `src/theme/mdc`.
  * @zh 常量/变量 `$_options`，定义 `src/theme/mdc` 中的配置选项。
  */
-const $_options={};
+const $_options: Record<string, unknown> = {};
 /**
  * Constant/variable `$_links` defining links in `src/theme/mdc`.
  * @zh 常量/变量 `$_links`，定义 `src/theme/mdc` 中的链接。
  */
-const $_links={};
+const $_links: Record<string, unknown> = {};
 
 /**
  * Executes `_is_map` to handle is map.
@@ -129,7 +129,7 @@ function combine(...$parts) {
  * @returns Result of type `Object` / 类型为 `Object` 的返回值
  */
 function create_theme_properties($theme, $prefix= null) : Object{
-    let $theme_with_props={};
+    let $theme_with_props: Record<string, unknown> = {};
     Object.keys($theme).forEach($name => {
         let $value = $theme[$name];
         if($value != null) {
@@ -162,7 +162,7 @@ function create_theme_properties($theme, $prefix= null) : Object{
  */
 export function declare_custom_properties($theme, $prefix= null) : Object{
     $theme= create_theme_properties($theme, $prefix);
-    let rv={};
+    let rv: Record<string, unknown> = {};
     Object.keys($theme).forEach($key => {
         let $value = $theme[$key];
 

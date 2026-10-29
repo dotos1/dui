@@ -106,7 +106,7 @@ function getComponentFromTemplate(template: string) {
      * Input property `data` (`any`) configuring data (default: `{}`).
      * @zh 输入属性 `data`（类型：`any`），用于配置数据（默认值：`{}`）。
      */
-    @Input() data = {};
+    @Input() data: Record<string, unknown> = {};
   }
 
   // inputs 要显式写：@Input() 装饰器的元数据只在开发模式下由 ɵsetClassMetadata 补上，生产构建里运行时编译的组件

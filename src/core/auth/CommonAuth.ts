@@ -4,6 +4,7 @@
  */
 
 
+import { LogoutResult } from './logout-result';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { ConfigService } from  '@dotos/dui/core/config';
 
@@ -189,14 +190,14 @@ export class CommonAuth  {
    * @zh 执行 `logout`，用于logout。
    * @returns Result of type `Promise<any>` / 类型为 `Promise<any>` 的返回值
    */
-  logout() {
+  logout(): Promise<LogoutResult> {
         this.saveUsername('');
         let headers:HttpHeaders=new HttpHeaders({
           'Content-Type': 'application/json',
           responseType: 'json'
         });
-        let promise = new Promise((resolve, reject) => {
-          this.http.get(
+        let promise = new Promise<LogoutResult>((resolve, reject) => {
+          this.http.get<LogoutResult>(
                 this.loader.backend.logoutApi,
                 {
                   withCredentials: true,

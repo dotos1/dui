@@ -48,7 +48,8 @@ export class ScriptLoaderService {
      * Property `scripts` (`any`) storing scripts (default: `{}`).
      * @zh 属性 `scripts`（类型：`any`），用于存储或配置scripts（默认值：`{}`）。
      */
-    private scripts = {};
+    /** 脚本名 → { 地址, 是否已加载 } */
+    private scripts: Record<string, { src: string; loaded: boolean }> = {};
     /**
      * Property `pathMappings` (`Record<string, string>`) storing path mappings (default: `{}`).
      * @zh 属性 `pathMappings`（类型：`Record<string, string>`），用于存储或配置路径映射（默认值：`{}`）。
@@ -61,7 +62,7 @@ export class ScriptLoaderService {
      * @param http - Injected or initial http (`HttpClient`) / 注入或传入的HTTP（`HttpClient`）
      */
     constructor(private http: HttpClient) {
-        ScriptStore.forEach((script: { name?; src? }) => {
+        ScriptStore.forEach((script: { name?: string; src?: string }) => {
             this.scripts[script.name] = {
                 loaded: false,
                 src: script.src

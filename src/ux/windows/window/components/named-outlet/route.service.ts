@@ -63,7 +63,7 @@ export class RouteService {
    * @param params - params parameter (`any`) / 参数集合参数（`any`）
    */
   navigate(url: string[],name:string,params?): void {
-    const outlets = {};
+    const outlets: Record<string, unknown> = {};
     outlets[name] = url;
 
     this.router.events

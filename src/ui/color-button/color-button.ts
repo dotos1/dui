@@ -7,7 +7,7 @@ import {  ChangeDetectorRef, Component,  ComponentFactoryResolver,  DoCheck,  El
 import { Router } from '@angular/router';
 import { MatMenuTrigger } from '@angular/material/menu';
 import { ColorEvent } from '@dotos/dui/common/colorpicker/common';
-import { ButtonBase } from '@dotos/dui/ui/button';
+import { ButtonBase, DuiButtonConfig } from '@dotos/dui/ui/button';
 import { MatTooltip } from '@angular/material/tooltip';
 
 
@@ -29,7 +29,7 @@ export class ColorPickerButton extends ButtonBase implements OnInit,DoCheck {
    * Input property `config` (`any`) configuring config (default: `{}`).
    * @zh 输入属性 `config`（类型：`any`），用于配置配置（默认值：`{}`）。
    */
-  @Input() override config: { parentType?; title?; disabled?; style?; iconCls?; color?; items?; tooltip?; [key: string]: unknown } = {};
+  @Input() override config: DuiButtonConfig = {};
 
   /**
    * Template/content query reference `matTooltip` (`@ViewChild`) targeting mat tooltip.
