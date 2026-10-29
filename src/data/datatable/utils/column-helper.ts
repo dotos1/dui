@@ -85,8 +85,8 @@ export function setColumnDefaults(columns: TableColumn[]) {
 /**
  * Executes `isNullOrUndefined` to handle is null or undefined.
  * @zh 执行 `isNullOrUndefined`，用于是否为空值Or未定义。
- * @param value - value parameter (`T | null | undefined`) / 值参数（`T | null | undefined`）
- * @returns Result of type `value is null | undefined` / 类型为 `value is null | undefined` 的返回值
+ * @param value - value parameter (`T`) / 值参数（`T`）
+ * @returns Result of type `boolean` / 类型为 `boolean` 的返回值
  */
 export function isNullOrUndefined<T>(value: T | null | undefined): value is null | undefined {
   return value === null || value === undefined;

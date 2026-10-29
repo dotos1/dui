@@ -53,13 +53,13 @@ export class ImageViewComponent implements OnDestroy {
   @Input() view: EditorView;
 
   /**
-   * Output event emitter `imageResize` (`EventEmitter`) firing when image resize occurs.
-   * @zh 输出事件 `imageResize`（类型：`EventEmitter`），当触发图像调整尺寸时向外发出事件。
+   * Output event emitter `imageResize` (`EventEmitter<any>`) firing when image resize occurs.
+   * @zh 输出事件 `imageResize`（类型：`EventEmitter<any>`），当触发图像调整尺寸时向外发出事件。
    */
   @Output() imageResize = new EventEmitter();
 
   /**
-   * Template/content query reference `imgEl` (`@ViewChild`) targeting img el.
+   * Template/content query reference `imgEl` (`ElementRef<any>`) targeting img el.
    * @zh 模板/内容视图查询引用 `imgEl`（`@ViewChild`），指向图片DOM元素。
    */
   @ViewChild('imgEl', { static: true }) imgEl: ElementRef;

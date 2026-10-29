@@ -296,23 +296,23 @@ export interface GridsterConfig {
    */
   outerMargin?: boolean;
   /**
-   * Property `outerMarginTop` (`number | null`) storing outer margin top.
-   * @zh 属性 `outerMarginTop`（类型：`number | null`），用于存储或配置外部外边距顶部位置。
+   * Property `outerMarginTop` (`number`) storing outer margin top.
+   * @zh 属性 `outerMarginTop`（类型：`number`），用于存储或配置外部外边距顶部位置。
    */
   outerMarginTop?: number | null;
   /**
-   * Property `outerMarginRight` (`number | null`) storing outer margin right.
-   * @zh 属性 `outerMarginRight`（类型：`number | null`），用于存储或配置外部外边距右侧位置。
+   * Property `outerMarginRight` (`number`) storing outer margin right.
+   * @zh 属性 `outerMarginRight`（类型：`number`），用于存储或配置外部外边距右侧位置。
    */
   outerMarginRight?: number | null;
   /**
-   * Property `outerMarginBottom` (`number | null`) storing outer margin bottom.
-   * @zh 属性 `outerMarginBottom`（类型：`number | null`），用于存储或配置外部外边距底部位置。
+   * Property `outerMarginBottom` (`number`) storing outer margin bottom.
+   * @zh 属性 `outerMarginBottom`（类型：`number`），用于存储或配置外部外边距底部位置。
    */
   outerMarginBottom?: number | null;
   /**
-   * Property `outerMarginLeft` (`number | null`) storing outer margin left.
-   * @zh 属性 `outerMarginLeft`（类型：`number | null`），用于存储或配置外部外边距左侧位置。
+   * Property `outerMarginLeft` (`number`) storing outer margin left.
+   * @zh 属性 `outerMarginLeft`（类型：`number`），用于存储或配置外部外边距左侧位置。
    */
   outerMarginLeft?: number | null;
   /**
@@ -321,8 +321,8 @@ export interface GridsterConfig {
    */
   useTransformPositioning?: boolean;
   /**
-   * Property `scrollSensitivity` (`number | null`) storing scroll sensitivity.
-   * @zh 属性 `scrollSensitivity`（类型：`number | null`），用于存储或配置滚动Sensitivity。
+   * Property `scrollSensitivity` (`number`) storing scroll sensitivity.
+   * @zh 属性 `scrollSensitivity`（类型：`number`），用于存储或配置滚动Sensitivity。
    */
   scrollSensitivity?: number | null;
   /**
@@ -346,23 +346,23 @@ export interface GridsterConfig {
    */
   gridSizeChangedCallback?: (gridster: GridsterComponentInterface) => void;
   /**
-   * Property `itemChangeCallback` (`(item: GridsterItem, itemComponent: GridsterItemComponentInterface) =>...`) storing item change callback.
-   * @zh 属性 `itemChangeCallback`（类型：`(item: GridsterItem, itemComponent: GridsterItemComponentInterface) =>...`），用于存储或配置条目变更回调函数。
+   * Property `itemChangeCallback` (`(item: GridsterItem, itemComponent: GridsterItemComponentInterface) => void`) storing item change callback.
+   * @zh 属性 `itemChangeCallback`（类型：`(item: GridsterItem, itemComponent: GridsterItemComponentInterface) => void`），用于存储或配置条目变更回调函数。
    */
   itemChangeCallback?: (item: GridsterItem, itemComponent: GridsterItemComponentInterface) => void;
   /**
-   * Property `itemResizeCallback` (`(item: GridsterItem, itemComponent: GridsterItemComponentInterface) =>...`) storing item resize callback.
-   * @zh 属性 `itemResizeCallback`（类型：`(item: GridsterItem, itemComponent: GridsterItemComponentInterface) =>...`），用于存储或配置条目调整尺寸回调函数。
+   * Property `itemResizeCallback` (`(item: GridsterItem, itemComponent: GridsterItemComponentInterface) => void`) storing item resize callback.
+   * @zh 属性 `itemResizeCallback`（类型：`(item: GridsterItem, itemComponent: GridsterItemComponentInterface) => void`），用于存储或配置条目调整尺寸回调函数。
    */
   itemResizeCallback?: (item: GridsterItem, itemComponent: GridsterItemComponentInterface) => void;
   /**
-   * Property `itemInitCallback` (`(item: GridsterItem, itemComponent: GridsterItemComponentInterface) =>...`) storing item init callback.
-   * @zh 属性 `itemInitCallback`（类型：`(item: GridsterItem, itemComponent: GridsterItemComponentInterface) =>...`），用于存储或配置条目初始化回调函数。
+   * Property `itemInitCallback` (`(item: GridsterItem, itemComponent: GridsterItemComponentInterface) => void`) storing item init callback.
+   * @zh 属性 `itemInitCallback`（类型：`(item: GridsterItem, itemComponent: GridsterItemComponentInterface) => void`），用于存储或配置条目初始化回调函数。
    */
   itemInitCallback?: (item: GridsterItem, itemComponent: GridsterItemComponentInterface) => void;
   /**
-   * Property `itemRemovedCallback` (`(item: GridsterItem, itemComponent: GridsterItemComponentInterface) =>...`) storing item removed callback.
-   * @zh 属性 `itemRemovedCallback`（类型：`(item: GridsterItem, itemComponent: GridsterItemComponentInterface) =>...`），用于存储或配置条目已移除回调函数。
+   * Property `itemRemovedCallback` (`(item: GridsterItem, itemComponent: GridsterItemComponentInterface) => void`) storing item removed callback.
+   * @zh 属性 `itemRemovedCallback`（类型：`(item: GridsterItem, itemComponent: GridsterItemComponentInterface) => void`），用于存储或配置条目已移除回调函数。
    */
   itemRemovedCallback?: (item: GridsterItem, itemComponent: GridsterItemComponentInterface) => void;
   /**
@@ -516,8 +516,8 @@ export interface GridsterConfig {
    */
   dirType?: dirTypes;
   /**
-   * Property `api` (`{ resize?: () => void, optionsChanged?: () => void, getNextPossiblePos...`) storing api.
-   * @zh 属性 `api`（类型：`{ resize?: () => void, optionsChanged?: () => void, getNextPossiblePos...`），用于存储或配置API接口。
+   * Property `api` (`{…}`) storing api.
+   * @zh 属性 `api`（类型：`{…}`），用于存储或配置API接口。
    */
   api?: {
     resize?: () => void,
@@ -541,13 +541,13 @@ export interface DragBase {
    */
   enabled?: boolean;
   /**
-   * Property `stop` (`(item: GridsterItem, itemComponent: GridsterItemComponentInterface, ev...`) storing stop.
-   * @zh 属性 `stop`（类型：`(item: GridsterItem, itemComponent: GridsterItemComponentInterface, ev...`），用于存储或配置停止。
+   * Property `stop` (`(item: GridsterItem, itemComponent: GridsterItemComponentInterface, event: MouseEvent) => Promise<unknown> | void`) storing stop.
+   * @zh 属性 `stop`（类型：`(item: GridsterItem, itemComponent: GridsterItemComponentInterface, event: MouseEvent) => Promise<unknown> | void`），用于存储或配置停止。
    */
   stop?: (item: GridsterItem, itemComponent: GridsterItemComponentInterface, event: MouseEvent) => Promise<unknown> | void;
   /**
-   * Property `start` (`(item: GridsterItem, itemComponent: GridsterItemComponentInterface, ev...`) storing start.
-   * @zh 属性 `start`（类型：`(item: GridsterItem, itemComponent: GridsterItemComponentInterface, ev...`），用于存储或配置开始。
+   * Property `start` (`(item: GridsterItem, itemComponent: GridsterItemComponentInterface, event: MouseEvent) => void`) storing start.
+   * @zh 属性 `start`（类型：`(item: GridsterItem, itemComponent: GridsterItemComponentInterface, event: MouseEvent) => void`），用于存储或配置开始。
    */
   start?: (item: GridsterItem, itemComponent: GridsterItemComponentInterface, event: MouseEvent) => void;
   /**
@@ -583,8 +583,8 @@ export interface Draggable extends DragBase {
    */
   dropOverItems?: boolean;
   /**
-   * Property `dropOverItemsCallback` (`(source: GridsterItem, target: GridsterItem, grid?: GridsterComponentI...`) storing drop over items callback.
-   * @zh 属性 `dropOverItemsCallback`（类型：`(source: GridsterItem, target: GridsterItem, grid?: GridsterComponentI...`），用于存储或配置放置越过条目列表回调函数。
+   * Property `dropOverItemsCallback` (`(source: GridsterItem, target: GridsterItem, grid?: GridsterComponentInterface) => void`) storing drop over items callback.
+   * @zh 属性 `dropOverItemsCallback`（类型：`(source: GridsterItem, target: GridsterItem, grid?: GridsterComponentInterface) => void`），用于存储或配置放置越过条目列表回调函数。
    */
   dropOverItemsCallback?: (source: GridsterItem, target: GridsterItem, grid?: GridsterComponentInterface) => void;
 }
@@ -595,8 +595,8 @@ export interface Draggable extends DragBase {
  */
 export interface Resizable extends DragBase {
   /**
-   * Property `handles` (`{ s: boolean, e: boolean, n: boolean, w: boolean, se: boolean, ne: boo...`) storing handles.
-   * @zh 属性 `handles`（类型：`{ s: boolean, e: boolean, n: boolean, w: boolean, se: boolean, ne: boo...`），用于存储或配置手柄列表。
+   * Property `handles` (`{…}`) storing handles.
+   * @zh 属性 `handles`（类型：`{…}`），用于存储或配置手柄列表。
    */
   handles?: {
     s: boolean,

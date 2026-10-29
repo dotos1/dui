@@ -64,28 +64,28 @@ export class ɵDynamicWindowComponent
     implements OnInit, AfterViewInit,OnDestroy {
 
       /**
-       * Template/content query reference `viewRef` (`@ViewChild`) targeting view ref.
+       * Template/content query reference `viewRef` (`ViewContainerRef`) targeting view ref.
        * @zh 模板/内容视图查询引用 `viewRef`（`@ViewChild`），指向视图引用。
        */
       @ViewChild('container', { static: false, read: ViewContainerRef })
       public viewRef: ViewContainerRef;
 
     /**
-     * Template/content query reference `contentViewRef` (`@ViewChild`) targeting content view ref.
+     * Template/content query reference `contentViewRef` (`ViewContainerRef`) targeting content view ref.
      * @zh 模板/内容视图查询引用 `contentViewRef`（`@ViewChild`），指向内容视图引用。
      */
     @ViewChild('content', { read: ViewContainerRef, static: true })
     private readonly contentViewRef: ViewContainerRef;
 
     /**
-     * Template/content query reference `draggableDirective` (`@ViewChild`) targeting draggable directive.
+     * Template/content query reference `draggableDirective` (`DraggableDirective`) targeting draggable directive.
      * @zh 模板/内容视图查询引用 `draggableDirective`（`@ViewChild`），指向是否可拖拽指令。
      */
     @ViewChild(DraggableDirective, { static: true })
     private readonly draggableDirective: DraggableDirective;
 
     /**
-     * Template/content query reference `resizableDirective` (`@ViewChild`) targeting resizable directive.
+     * Template/content query reference `resizableDirective` (`ResizableDirective`) targeting resizable directive.
      * @zh 模板/内容视图查询引用 `resizableDirective`（`@ViewChild`），指向是否可调尺寸指令。
      */
     @ViewChild(ResizableDirective, { static: true })
@@ -98,8 +98,8 @@ export class ɵDynamicWindowComponent
     outlet;
 
     /**
-     * Property `moduleRef` (`NgModuleRef<any>`) storing module ref.
-     * @zh 属性 `moduleRef`（类型：`NgModuleRef<any>`），用于存储或配置模块引用。
+     * Property `moduleRef` (`any`) storing module ref.
+     * @zh 属性 `moduleRef`（类型：`any`），用于存储或配置模块引用。
      */
     private moduleRef;
 
@@ -302,7 +302,7 @@ export class ɵDynamicWindowComponent
     /**
      * Executes `initChildComponent` to handle init child component.
      * @zh 执行 `initChildComponent`，用于初始化子级组件。
-     * @param componentType - component type parameter (`Type<any>`) / 组件类型参数（`Type<any>`）
+     * @param componentType - component type parameter (`Type<unknown>`) / 组件类型参数（`Type<unknown>`）
      */
     private initChildComponent(componentType: Type<unknown>): void {
         const factory = this.componentFactoryResolver.resolveComponentFactory(componentType);

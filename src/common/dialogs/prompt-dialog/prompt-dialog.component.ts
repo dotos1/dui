@@ -71,22 +71,22 @@ export class PromptDialogComponent implements AfterViewInit, OnDestroy {
   @ViewChild('input', { static: true }) _input!: ElementRef<HTMLInputElement>;
 
   /**
-   * Template/content query reference `_closeBtn` (`@ViewChild`) targeting close btn.
+   * Template/content query reference `_closeBtn` (`ElementRef<HTMLButtonElement>`) targeting close btn.
    * @zh 模板/内容视图查询引用 `_closeBtn`（`@ViewChild`），指向关闭按钮。
    */
   @ViewChild('closeBtn', { static: true, read: ElementRef })
   _closeBtn!: ElementRef<HTMLButtonElement>;
 
   /**
-   * Template/content query reference `_acceptBtn` (`@ViewChild`) targeting accept btn.
+   * Template/content query reference `_acceptBtn` (`ElementRef<HTMLButtonElement>`) targeting accept btn.
    * @zh 模板/内容视图查询引用 `_acceptBtn`（`@ViewChild`），指向accept按钮。
    */
   @ViewChild('acceptBtn', { static: true, read: ElementRef })
   _acceptBtn!: ElementRef<HTMLButtonElement>;
 
   /**
-   * Property `_destroy$` (`Subject`) storing destroy (default: `new Subject<void>()`).
-   * @zh 属性 `_destroy$`（类型：`Subject`），用于存储或配置销毁（默认值：`new Subject<void>()`）。
+   * Property `_destroy$` (`Subject<void>`) storing destroy (default: `new Subject<void>()`).
+   * @zh 属性 `_destroy$`（类型：`Subject<void>`），用于存储或配置销毁（默认值：`new Subject<void>()`）。
    */
   private _destroy$ = new Subject<void>();
 
@@ -174,7 +174,7 @@ export class PromptDialogComponent implements AfterViewInit, OnDestroy {
   dataType: string = 'text';
 
   /**
-   * Property `formControl` (`FormControl`) storing form control (default: `new FormControl()`).
+   * Property `formControl` (`FormControl<any>`) storing form control (default: `new FormControl()`).
    * @zh 绑定输入框值的表单控件。
    * @zh 绑定输入框值的表单控件。
    */
@@ -185,7 +185,7 @@ export class PromptDialogComponent implements AfterViewInit, OnDestroy {
    * @zh 创建 `PromptDialogComponent` 实例，并初始化其依赖项与内部状态。
    * @param _ngZone - Injected or initial ng zone (`NgZone`) / 注入或传入的Angular区域(NgZone)（`NgZone`）
    * @param themeService - Injected or initial theme service (`ThemeService`) / 注入或传入的主题服务（`ThemeService`）
-   * @param _dialogRef - Injected or initial dialog ref (`MatDialogRef<PromptDialogComponent>`) / 注入或传入的对话框引用（`MatDialogRef<PromptDialogComponent>`）
+   * @param _dialogRef - Injected or initial dialog ref (`MatDialogRef<PromptDialogComponent, any>`) / 注入或传入的对话框引用（`MatDialogRef<PromptDialogComponent, any>`）
    */
   constructor(
     private _ngZone: NgZone,

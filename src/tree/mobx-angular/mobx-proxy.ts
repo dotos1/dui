@@ -11,7 +11,7 @@ import { observable as mobxObservable } from 'mobx';
 /**
  * Executes `actionInternal` to handle action internal.
  * @zh 执行 `actionInternal`，用于动作内部。
- * @param args - args parameter (`any`) / 参数列表参数（`any`）
+ * @param args - args parameter (`any[]`) / 参数列表参数（`any[]`）
  */
 export function actionInternal(...args) {
   return (mobxAction as unknown)(...args);
@@ -28,7 +28,7 @@ export const action: typeof mobxAction = Object.assign(
 /**
  * Executes `computedInternal` to handle computed internal.
  * @zh 执行 `computedInternal`，用于计算属性内部。
- * @param args - args parameter (`any`) / 参数列表参数（`any`）
+ * @param args - args parameter (`any[]`) / 参数列表参数（`any[]`）
  */
 function computedInternal(...args) {
   return (mobxComputed as unknown)(...args);
@@ -45,7 +45,7 @@ export const computed: typeof mobxComputed = Object.assign(
 /**
  * Executes `observableInternal` to handle observable internal.
  * @zh 执行 `observableInternal`，用于可观察流内部。
- * @param args - args parameter (`any`) / 参数列表参数（`any`）
+ * @param args - args parameter (`any[]`) / 参数列表参数（`any[]`）
  */
 function observableInternal(...args) {
   return (mobxObservable as unknown)(...args);

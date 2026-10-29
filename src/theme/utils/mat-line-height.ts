@@ -10,7 +10,7 @@ import { TypographyConfig } from '../interfaces/typography-config';
  * @zh 执行 `matLineHeight`，用于Material线段高度。
  * @param config - config parameter (`TypographyConfig`) / 配置参数（`TypographyConfig`）
  * @param level - level parameter (`string`) / 层级参数（`string`）
- * @returns Result of type `number | string` / 类型为 `number | string` 的返回值
+ * @returns Result of type `string | number` / 类型为 `string | number` 的返回值
  */
 export function matLineHeight(config: TypographyConfig, level: string): number | string {
     return config[level]['line-height'];

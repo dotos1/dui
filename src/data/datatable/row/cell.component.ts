@@ -35,7 +35,7 @@ export class DataTableBodyCellComponent implements DoCheck, OnDestroy {
   /**
    * Input setter `displayCheck` updating display check.
    * @zh 输入属性 `displayCheck` 的设置器，用于更新display检查。
-   * @param f - New display check value (`any`) / 新的display检查值（`any`）
+   * @param f - New display check value (`boolean | Function`) / 新的display检查值（`boolean | Function`）
    */
   @Input() set  displayCheck(f){
     this._displayCheck= f;
@@ -66,8 +66,8 @@ export class DataTableBodyCellComponent implements DoCheck, OnDestroy {
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   /**
-   * Property `_displayCheck` (`Function|boolean`) storing display check.
-   * @zh 属性 `_displayCheck`（类型：`Function|boolean`），用于存储或配置display检查。
+   * Property `_displayCheck` (`boolean | Function`) storing display check.
+   * @zh 属性 `_displayCheck`（类型：`boolean | Function`），用于存储或配置display检查。
    */
   _displayCheck:Function|boolean= (row, column?: TableColumn, value?)=>{return false};
   /**
@@ -211,7 +211,7 @@ export class DataTableBodyCellComponent implements DoCheck, OnDestroy {
   /**
    * Input setter `sorts` updating sorts.
    * @zh 输入属性 `sorts` 的设置器，用于更新排序集合。
-   * @param val - New sorts value (`any[]`) / 新的排序集合值（`any[]`）
+   * @param val - New sorts value (`any`) / 新的排序集合值（`any`）
    */
   @Input() set sorts(val) {
     this._sorts = val;
@@ -263,14 +263,14 @@ export class DataTableBodyCellComponent implements DoCheck, OnDestroy {
   @Output() treeAction = new EventEmitter();
 
   /**
-   * Template/content query reference `cellTemplate` (`@ViewChild`) targeting cell template.
+   * Template/content query reference `cellTemplate` (`ViewContainerRef`) targeting cell template.
    * @zh 模板/内容视图查询引用 `cellTemplate`（`@ViewChild`），指向单元格模板。
    */
   @ViewChild('cellTemplate', { read: ViewContainerRef, static: true })
   cellTemplate: ViewContainerRef;
 
   /**
-   * Host-bound getter `columnCssClasses` (`class`) computing column css classes.
+   * Host-bound getter `columnCssClasses` (`string`) computing column css classes.
    * @zh 宿主绑定读取器 `columnCssClasses`（绑定至 `class`），计算并返回列CSS样式类名集合。
    */
   @HostBinding('class')
@@ -317,7 +317,7 @@ export class DataTableBodyCellComponent implements DoCheck, OnDestroy {
   }
 
   /**
-   * Host-bound getter `width` (`style.width.px`) computing width.
+   * Host-bound getter `width` (`number`) computing width.
    * @zh 宿主绑定读取器 `width`（绑定至 `style.width.px`），计算并返回宽度。
    */
   @HostBinding('style.width.px')
@@ -326,7 +326,7 @@ export class DataTableBodyCellComponent implements DoCheck, OnDestroy {
   }
 
   /**
-   * Host-bound getter `minWidth` (`style.minWidth.px`) computing min width.
+   * Host-bound getter `minWidth` (`number`) computing min width.
    * @zh 宿主绑定读取器 `minWidth`（绑定至 `style.minWidth.px`），计算并返回最小值宽度。
    */
   @HostBinding('style.minWidth.px')
@@ -335,7 +335,7 @@ export class DataTableBodyCellComponent implements DoCheck, OnDestroy {
   }
 
   /**
-   * Host-bound getter `maxWidth` (`style.maxWidth.px`) computing max width.
+   * Host-bound getter `maxWidth` (`number`) computing max width.
    * @zh 宿主绑定读取器 `maxWidth`（绑定至 `style.maxWidth.px`），计算并返回最大值宽度。
    */
   @HostBinding('style.maxWidth.px')
@@ -344,7 +344,7 @@ export class DataTableBodyCellComponent implements DoCheck, OnDestroy {
   }
 
   /**
-   * Host-bound getter `height` (`style.height`) computing height.
+   * Host-bound getter `height` (`string | number`) computing height.
    * @zh 宿主绑定读取器 `height`（绑定至 `style.height`），计算并返回高度。
    */
   @HostBinding('style.height')
@@ -388,8 +388,8 @@ export class DataTableBodyCellComponent implements DoCheck, OnDestroy {
   activateFn = this.activate.emit.bind(this.activate);
 
   /**
-   * Property `cellContext` (`any`) storing cell context.
-   * @zh 属性 `cellContext`（类型：`any`），用于存储或配置单元格上下文。
+   * Property `cellContext` (`{…}`) storing cell context.
+   * @zh 属性 `cellContext`（类型：`{…}`），用于存储或配置单元格上下文。
    */
   cellContext = {
     onCheckboxChangeFn: this.onCheckboxChangeFn,
@@ -412,8 +412,8 @@ export class DataTableBodyCellComponent implements DoCheck, OnDestroy {
    */
   private _isSelected: boolean;
   /**
-   * Property `_sorts` (`any[]`) storing sorts.
-   * @zh 属性 `_sorts`（类型：`any[]`），用于存储或配置排序集合。
+   * Property `_sorts` (`any`) storing sorts.
+   * @zh 属性 `_sorts`（类型：`any`），用于存储或配置排序集合。
    */
   private _sorts;
   /**
@@ -460,7 +460,7 @@ export class DataTableBodyCellComponent implements DoCheck, OnDestroy {
   /**
    * Creates an instance of `DataTableBodyCellComponent` and initializes its dependencies and internal state.
    * @zh 创建 `DataTableBodyCellComponent` 实例，并初始化其依赖项与内部状态。
-   * @param element - Injected or initial element (`ElementRef`) / 注入或传入的元素（`ElementRef`）
+   * @param element - Injected or initial element (`ElementRef<any>`) / 注入或传入的元素（`ElementRef<any>`）
    * @param cd - Injected or initial cd (`ChangeDetectorRef`) / 注入或传入的cd（`ChangeDetectorRef`）
    */
   constructor(element: ElementRef, private cd: ChangeDetectorRef) {
@@ -625,7 +625,7 @@ export class DataTableBodyCellComponent implements DoCheck, OnDestroy {
   /**
    * Executes `calcSortDir` to handle calc sort dir.
    * @zh 执行 `calcSortDir`，用于计算排序目录。
-   * @param sorts - sorts parameter (`any[]`) / 排序集合参数（`any[]`）
+   * @param sorts - sorts parameter (`any`) / 排序集合参数（`any`）
    * @returns Result of type `any` / 类型为 `any` 的返回值
    */
   calcSortDir(sorts) {

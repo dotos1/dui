@@ -47,8 +47,8 @@ export class BreadcrumbsComponent
    */
   private _separatorIcon = 'chevron_right';
   /**
-   * Property `_destroy$` (`Subject`) storing destroy (default: `new Subject<void>()`).
-   * @zh 属性 `_destroy$`（类型：`Subject`），用于存储或配置销毁（默认值：`new Subject<void>()`）。
+   * Property `_destroy$` (`Subject<void>`) storing destroy (default: `new Subject<void>()`).
+   * @zh 属性 `_destroy$`（类型：`Subject<void>`），用于存储或配置销毁（默认值：`new Subject<void>()`）。
    */
   private _destroy$ = new Subject<void>();
 
@@ -60,7 +60,7 @@ export class BreadcrumbsComponent
   @HostBinding('class.dui-breadcrumbs') tdBreadCrumbsClass = true;
 
   /**
-   * Template/content query reference `_breadcrumbs` (`@ContentChildren`) targeting breadcrumbs.
+   * Template/content query reference `_breadcrumbs` (`QueryList<BreadcrumbComponent>`) targeting breadcrumbs.
    * @zh 模板/内容视图查询引用 `_breadcrumbs`（`@ContentChildren`），指向面包屑导航。
    */
   @ContentChildren(BreadcrumbComponent, { descendants: true })
@@ -91,7 +91,7 @@ export class BreadcrumbsComponent
   /**
    * Creates an instance of `BreadcrumbsComponent` and initializes its dependencies and internal state.
    * @zh 创建 `BreadcrumbsComponent` 实例，并初始化其依赖项与内部状态。
-   * @param _elementRef - Injected or initial element ref (`ElementRef`) / 注入或传入的元素引用（`ElementRef`）
+   * @param _elementRef - Injected or initial element ref (`ElementRef<any>`) / 注入或传入的元素引用（`ElementRef<any>`）
    * @param _changeDetectorRef - Injected or initial change detector ref (`ChangeDetectorRef`) / 注入或传入的变更检测器引用（`ChangeDetectorRef`）
    */
   constructor(

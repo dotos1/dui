@@ -71,13 +71,13 @@ export class FixedToParentDirective implements OnChanges, OnInit, AfterViewInit,
      */
     private readonly intervalChecker = new ɵIntervalCheckerHelper();
     /**
-     * Property `destroyed$` (`Subject`) storing destroyed (default: `new Subject<boolean>()`).
-     * @zh 属性 `destroyed$`（类型：`Subject`），用于存储或配置已销毁（默认值：`new Subject<boolean>()`）。
+     * Property `destroyed$` (`Subject<boolean>`) storing destroyed (default: `new Subject<boolean>()`).
+     * @zh 属性 `destroyed$`（类型：`Subject<boolean>`），用于存储或配置已销毁（默认值：`new Subject<boolean>()`）。
      */
     private readonly destroyed$ = new Subject<boolean>();
     /**
-     * Property `isEnabled$` (`BehaviorSubject`) storing is enabled (default: `new BehaviorSubject<boolean>(true)`).
-     * @zh 属性 `isEnabled$`（类型：`BehaviorSubject`），用于存储或配置是否为已启用（默认值：`new BehaviorSubject<boolean>(true)`）。
+     * Property `isEnabled$` (`BehaviorSubject<boolean>`) storing is enabled (default: `new BehaviorSubject<boolean>(true)`).
+     * @zh 属性 `isEnabled$`（类型：`BehaviorSubject<boolean>`），用于存储或配置是否为已启用（默认值：`new BehaviorSubject<boolean>(true)`）。
      */
     private readonly isEnabled$ = new BehaviorSubject<boolean>(true);
 
@@ -164,7 +164,7 @@ export class FixedToParentDirective implements OnChanges, OnInit, AfterViewInit,
 
     /**
      * Executes `adjustCoordinates` to handle adjust coordinates.
-     * @zh 执行 `adjustCoordinates`，用于adjust坐标。
+     * @zh 执行 `adjustCoordinates`，用于调整坐标。
      */
     private adjustCoordinates(): void {
         if (this._config.isEnabled) {

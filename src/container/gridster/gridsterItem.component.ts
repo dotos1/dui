@@ -99,7 +99,7 @@ export class GridsterItemComponent implements OnInit, OnDestroy, GridsterItemCom
   init: boolean;
 
   /**
-   * Host-bound getter `zIndex` (`style.z-index`) computing z index.
+   * Host-bound getter `zIndex` (`number`) computing z index.
    * @zh 宿主绑定读取器 `zIndex`（绑定至 `style.z-index`），计算并返回Z坐标索引。
    */
   @HostBinding('style.z-index')
@@ -110,7 +110,7 @@ export class GridsterItemComponent implements OnInit, OnDestroy, GridsterItemCom
   /**
    * Creates an instance of `GridsterItemComponent` and initializes its dependencies and internal state.
    * @zh 创建 `GridsterItemComponent` 实例，并初始化其依赖项与内部状态。
-   * @param el - Injected or initial el (`ElementRef`) / 注入或传入的DOM元素（`ElementRef`）
+   * @param el - Injected or initial el (`ElementRef<any>`) / 注入或传入的DOM元素（`ElementRef<any>`）
    * @param gridster - Injected or initial gridster (`GridsterComponent`) / 注入或传入的网格拖拽布局（`GridsterComponent`）
    * @param renderer - Injected or initial renderer (`Renderer2`) / 注入或传入的渲染器（`Renderer2`）
    * @param zone - Injected or initial zone (`NgZone`) / 注入或传入的区域(NgZone)（`NgZone`）

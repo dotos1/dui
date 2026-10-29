@@ -1267,8 +1267,8 @@ class SimpleExpressionChecker implements AstVisitor {
     /**
      * Executes `visitAll` to handle visit all.
      * @zh 执行 `visitAll`，用于访问全部。
-     * @param asts - asts parameter (`any[]`) / 抽象语法树参数（`any[]`）
-     * @returns Result of type `any[]` / 类型为 `any[]` 的返回值
+     * @param asts - asts parameter (`any`) / 抽象语法树参数（`any`）
+     * @returns Result of type `any` / 类型为 `any` 的返回值
      */
     visitAll(asts) { return asts.map(node => node.visit(this)); }
 

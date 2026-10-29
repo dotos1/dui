@@ -57,7 +57,7 @@ export class ScrollViewComponent extends ɵOsBaseComponent {
     public isHorizontalScrollHiding: boolean = false;
 
     /**
-     * Host-bound getter `_hostOverflowX` (`style.overflow-x`) computing host overflow x.
+     * Host-bound getter `_hostOverflowX` (`string`) computing host overflow x.
      * @zh 宿主绑定读取器 `_hostOverflowX`（绑定至 `style.overflow-x`），计算并返回宿主OverflowX坐标。
      */
     @HostBinding('style.overflow-x')
@@ -69,7 +69,7 @@ export class ScrollViewComponent extends ɵOsBaseComponent {
     }
 
     /**
-     * Host-bound getter `_hostOverflowY` (`style.overflow-y`) computing host overflow y.
+     * Host-bound getter `_hostOverflowY` (`string`) computing host overflow y.
      * @zh 宿主绑定读取器 `_hostOverflowY`（绑定至 `style.overflow-y`），计算并返回宿主OverflowY坐标。
      */
     @HostBinding('style.overflow-y')

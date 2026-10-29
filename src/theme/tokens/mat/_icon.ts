@@ -50,7 +50,7 @@ export function get_density_tokens($theme) {
 
 /**
  * Executes `private_get_icon_color_tokens` to handle private get icon color tokens.
- * @zh 执行 `private_get_icon_color_tokens`，用于private获取图标颜色设计令牌。
+ * @zh 执行 `private_get_icon_color_tokens`，用于内部获取图标颜色设计令牌。
  * @param $color - color parameter (`any`) / 颜色参数（`any`）
  */
 export function private_get_icon_color_tokens($color) {

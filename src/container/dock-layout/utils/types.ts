@@ -212,7 +212,7 @@ export namespace JsonValue {
      * Executes `isJson` to handle is json.
      * @zh 执行 `isJson`，用于是否为JSON。
      * @param value - value parameter (`JsonValue`) / 值参数（`JsonValue`）
-     * @returns Result of type `value is Json` / 类型为 `value is Json` 的返回值
+     * @returns Result of type `boolean` / 类型为 `boolean` 的返回值
      */
     export function isJson(value: JsonValue): value is Json {
         return isJsonObject(value);
@@ -223,7 +223,7 @@ export namespace JsonValue {
      * Executes `isJsonObject` to handle is json object.
      * @zh 执行 `isJsonObject`，用于是否为JSON对象。
      * @param value - value parameter (`JsonValue`) / 值参数（`JsonValue`）
-     * @returns Result of type `value is Json | object` / 类型为 `value is Json | object` 的返回值
+     * @returns Result of type `boolean` / 类型为 `boolean` 的返回值
      */
     export function isJsonObject(value: JsonValue): value is Json | object {
         return !Array.isArray(value) && value !== null && typeof value === 'object';
@@ -331,7 +331,7 @@ export enum SizeUnitEnum {
 export namespace SizeUnitEnum {
     /**
      * Executes `tryParse` to handle try parse.
-     * @zh 执行 `tryParse`，用于try解析。
+     * @zh 执行 `tryParse`，用于尝试解析。
      * @param value - value parameter (`string`) / 值参数（`string`）
      */
     export function tryParse(value: string) {

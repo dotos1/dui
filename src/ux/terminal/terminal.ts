@@ -31,7 +31,7 @@ interface TerminalWrapper{
      * It is an alias of onKey() that is recommended instead of using it.
      * A observable to emit keys and keyboard event when a user typed on the div for the xterm
 
-     * @zh 属性 `keyEventInput`（类型：`Observable<{key: string; domEvent: KeyboardEvent;}>`），用于存储或配置键事件输入属性。
+     * @zh 属性 `keyEventInput`（类型：`Observable<{ key: string; domEvent: KeyboardEvent; }>`），用于存储或配置键事件输入属性。
      */
     readonly keyEventInput: Observable<{key: string; domEvent: KeyboardEvent;}>
     /**
@@ -52,7 +52,7 @@ interface TerminalWrapper{
     /**
      * Executes `setXtermOptions` to handle set xterm options.
      * @zh 执行 `setXtermOptions`，用于集合Xterm配置选项。
-     * @param options - options parameter (`ITerminalOptions | {theme?: any}`) / 配置选项参数（`ITerminalOptions | {theme?: any}`）
+     * @param options - options parameter (`any`) / 配置选项参数（`any`）
      */
     setXtermOptions(options): void;
     /**

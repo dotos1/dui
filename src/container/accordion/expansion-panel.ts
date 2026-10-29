@@ -4,6 +4,7 @@
  */
 
 
+import { DuiConfig } from '@dotos/dui/base';
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { coerceBooleanProperty } from '@angular/cdk/coercion';
 import { UniqueSelectionDispatcher } from '@angular/cdk/collections';
@@ -58,10 +59,10 @@ let nextId = 0;
 })
 export class ExpansionPanelBase extends Container implements OnChanges,OnDestroy{
   /**
-   * Input property `config` (`any`) configuring config (default: `{}`).
-   * @zh 输入属性 `config`（类型：`any`），用于配置配置（默认值：`{}`）。
+   * Input property `config` (`DuiConfig`) configuring config (default: `{}`).
+   * @zh 输入属性 `config`（类型：`DuiConfig`），用于配置配置（默认值：`{}`）。
    */
-  @Input() config = {};
+  @Input() config: DuiConfig = {};
 
   /**
    * Property `xtype` (`string`) storing xtype (default: `'expansion-panel'`).
@@ -70,7 +71,7 @@ export class ExpansionPanelBase extends Container implements OnChanges,OnDestroy
   public override xtype: string = 'expansion-panel';
 
   /**
-   * Template/content query reference `viewContainer` (`@ViewChild`) targeting view container.
+   * Template/content query reference `viewContainer` (`ViewContainerRef`) targeting view container.
    * @zh 模板/内容视图查询引用 `viewContainer`（`@ViewChild`），指向视图容器。
    */
   //@ts-ignore
@@ -94,8 +95,8 @@ export class ExpansionPanelBase extends Container implements OnChanges,OnDestroy
   @Input() description: string;
 
   /**
-   * Property `buttons` (`Array<any>`) storing buttons.
-   * @zh 属性 `buttons`（类型：`Array<any>`），用于存储或配置按钮。
+   * Property `buttons` (`any`) storing buttons.
+   * @zh 属性 `buttons`（类型：`any`），用于存储或配置按钮。
    */
   public buttons;
 
@@ -144,11 +145,7 @@ export class ExpansionPanelBase extends Container implements OnChanges,OnDestroy
     if (this.viewContainer) {
       this.viewContainer.clear();
     }
-    let items = this.items;
-    if (items) {
-      delete this.items;
-      this.add(items);
-    }
+    this.addConfiguredItems();
     this._accordion = this.ownerCt;
     this._removeUniqueSelectionListener =
       this._expansionDispatcher.listen((id: string, accordionId: string) => {
@@ -172,35 +169,35 @@ export class ExpansionPanelBase extends Container implements OnChanges,OnDestroy
 
   /**
    * Event emitted every time the AccordionItem is closed.
-   * @zh 输出事件 `closed`（类型：`EventEmitter`），当触发是否关闭时向外发出事件。
+   * @zh 输出事件 `closed`（类型：`EventEmitter<void>`），当触发是否关闭时向外发出事件。
    */
   @Output() closed = new EventEmitter<void>();
   /**
    * Event emitted every time the AccordionItem is opened.
-   * @zh 输出事件 `opened`（类型：`EventEmitter`），当触发是否展开时向外发出事件。
+   * @zh 输出事件 `opened`（类型：`EventEmitter<void>`），当触发是否展开时向外发出事件。
    */
   @Output() opened = new EventEmitter<void>();
   /**
    * Event emitted when the AccordionItem is destroyed.
-   * @zh 输出事件 `destroyed`（类型：`EventEmitter`），当触发已销毁时向外发出事件。
+   * @zh 输出事件 `destroyed`（类型：`EventEmitter<void>`），当触发已销毁时向外发出事件。
    */
   @Output() destroyed = new EventEmitter<void>();
   /**
    * The unique AccordionItem id.
-   * @zh 属性 `id`（类型：`any`），用于存储或配置唯一标识（默认值：`'cdk-accordion-child-${nextId++}'`）。
+   * @zh 属性 `id`（类型：`string`），用于存储或配置唯一标识（默认值：`'cdk-accordion-child-${nextId++}'`）。
    */
   override readonly id = `cdk-accordion-child-${nextId++}`;
 
   /**
    * Whether the AccordionItem is expanded.
-   * @zh 输入属性 `expanded`（类型：`any`）的读取器，返回当前已展开。
+   * @zh 输入属性 `expanded`（类型：`boolean`）的读取器，返回当前已展开。
    */
   @Input()
   get expanded() { return this._expanded; }
   /**
    * Sets the expanded (`expanded`).
    * @zh 设置已展开（`expanded`）。
-   * @param expanded - New expanded value (`any`) / 新的已展开值（`any`）
+   * @param expanded - New expanded value (`boolean`) / 新的已展开值（`boolean`）
    */
   set expanded(expanded) {
     expanded = coerceBooleanProperty(expanded);
@@ -358,7 +355,7 @@ export class ExpansionPanel extends _ExpansionPanelMixinBase
 
   /**
    * Stream that emits for changes in `@Input` properties.
-   * @zh 属性 `_inputChanges`（类型：`Subject`），用于存储或配置输入属性变更集合（默认值：`new Subject<SimpleChanges>()`）。
+   * @zh 属性 `_inputChanges`（类型：`Subject<SimpleChanges>`），用于存储或配置输入属性变更集合（默认值：`new Subject<SimpleChanges>()`）。
    */
   _inputChanges = new Subject<SimpleChanges>();
 

@@ -30,8 +30,8 @@ export class ɵDynamicWindowConfigModel<D = unknown, T = unknown> implements Dyn
      */
     public type?: T;
     /**
-     * Property `titleBarCustomContent` (`Type<any>`) storing title bar custom content.
-     * @zh 属性 `titleBarCustomContent`（类型：`Type<any>`），用于存储或配置标题条自定义内容。
+     * Property `titleBarCustomContent` (`Type<unknown>`) storing title bar custom content.
+     * @zh 属性 `titleBarCustomContent`（类型：`Type<unknown>`），用于存储或配置标题条自定义内容。
      */
     public titleBarCustomContent?: Type<unknown>;
     /**
@@ -140,8 +140,8 @@ export class ɵDynamicWindowConfigModel<D = unknown, T = unknown> implements Dyn
      */
     public style?: object;
     /**
-     * Property `styleClass` (`string | string[] | object`) storing style class.
-     * @zh 属性 `styleClass`（类型：`string | string[] | object`），用于存储或配置样式类名。
+     * Property `styleClass` (`string | object | string[]`) storing style class.
+     * @zh 属性 `styleClass`（类型：`string | object | string[]`），用于存储或配置样式类名。
      */
     public styleClass?: string | string[] | object;
     /**
@@ -150,8 +150,8 @@ export class ɵDynamicWindowConfigModel<D = unknown, T = unknown> implements Dyn
      */
     public titleBarStyle: object;
     /**
-     * Property `titleBarStyleClass` (`string | string[] | object`) storing title bar style class.
-     * @zh 属性 `titleBarStyleClass`（类型：`string | string[] | object`），用于存储或配置标题条样式类名。
+     * Property `titleBarStyleClass` (`string | object | string[]`) storing title bar style class.
+     * @zh 属性 `titleBarStyleClass`（类型：`string | object | string[]`），用于存储或配置标题条样式类名。
      */
     public titleBarStyleClass: string | string[] | object;
     /**
@@ -160,8 +160,8 @@ export class ɵDynamicWindowConfigModel<D = unknown, T = unknown> implements Dyn
      */
     public scrollViewStyle?: object;
     /**
-     * Property `scrollViewStyleClass` (`string | string[] | object`) storing scroll view style class.
-     * @zh 属性 `scrollViewStyleClass`（类型：`string | string[] | object`），用于存储或配置滚动视图样式类名。
+     * Property `scrollViewStyleClass` (`string | object | string[]`) storing scroll view style class.
+     * @zh 属性 `scrollViewStyleClass`（类型：`string | object | string[]`），用于存储或配置滚动视图样式类名。
      */
     public scrollViewStyleClass?: string | string[] | object;
     /**
@@ -178,7 +178,7 @@ export class ɵDynamicWindowConfigModel<D = unknown, T = unknown> implements Dyn
     /**
      * Creates an instance of `ɵDynamicWindowConfigModel` and initializes its dependencies and internal state.
      * @zh 创建 `ɵDynamicWindowConfigModel` 实例，并初始化其依赖项与内部状态。
-     * @param params - Injected or initial params (`DynamicWindowConfig`) / 注入或传入的参数集合（`DynamicWindowConfig`）
+     * @param params - Injected or initial params (`DynamicWindowConfig<unknown, unknown>`) / 注入或传入的参数集合（`DynamicWindowConfig<unknown, unknown>`）
      */
     constructor(params: DynamicWindowConfig = {}) {
         Object.assign(this, params);
@@ -189,7 +189,7 @@ export class ɵDynamicWindowConfigModel<D = unknown, T = unknown> implements Dyn
     /**
      * Executes `initWidth` to handle init width.
      * @zh 执行 `initWidth`，用于初始化宽度。
-     * @param params - params parameter (`DynamicWindowConfig`) / 参数集合参数（`DynamicWindowConfig`）
+     * @param params - params parameter (`DynamicWindowConfig<unknown, unknown>`) / 参数集合参数（`DynamicWindowConfig<unknown, unknown>`）
      */
     private initWidth(params: DynamicWindowConfig): void {
         if (params.minWidth && !params.width) {
@@ -200,7 +200,7 @@ export class ɵDynamicWindowConfigModel<D = unknown, T = unknown> implements Dyn
     /**
      * Executes `initHeight` to handle init height.
      * @zh 执行 `initHeight`，用于初始化高度。
-     * @param params - params parameter (`DynamicWindowConfig`) / 参数集合参数（`DynamicWindowConfig`）
+     * @param params - params parameter (`DynamicWindowConfig<unknown, unknown>`) / 参数集合参数（`DynamicWindowConfig<unknown, unknown>`）
      */
     private initHeight(params: DynamicWindowConfig): void {
         if (params.minHeight && !params.height) {

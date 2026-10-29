@@ -60,19 +60,19 @@ import { DragRef } from '@angular/cdk/drag-drop';
 })
 export class TriggerField extends AbstractTrigger implements AfterViewInit {
   /**
-   * Template/content query reference `_mapInput` (`@ViewChild`) targeting map input.
+   * Template/content query reference `_mapInput` (`MatInput`) targeting map input.
    * @zh 模板/内容视图查询引用 `_mapInput`（`@ViewChild`），指向映射表输入属性。
    */
   @ViewChild(MatInput, { static: true }) _mapInput: MatInput;
   /**
-   * Template/content query reference `input` (`@ViewChild`) targeting input.
+   * Template/content query reference `input` (`ElementRef<any>`) targeting input.
    * @zh 模板/内容视图查询引用 `input`（`@ViewChild`），指向输入属性。
    */
   @ViewChild('input') input: ElementRef;
 
   /**
-   * Property `content` (`ComponentType<any>`) storing content.
-   * @zh 属性 `content`（类型：`ComponentType<any>`），用于存储或配置内容。
+   * Property `content` (`any`) storing content.
+   * @zh 属性 `content`（类型：`any`），用于存储或配置内容。
    */
   private content;
 
@@ -83,8 +83,8 @@ export class TriggerField extends AbstractTrigger implements AfterViewInit {
   _onChange: (value) => void = () => {};
 
   /**
-   * Property `_onTouched` (`any`) storing on touched (default: `() => {}`).
-   * @zh 属性 `_onTouched`（类型：`any`），用于存储或配置当是否已触碰（默认值：`() => {}`）。
+   * Property `_onTouched` (`() => void`) storing on touched (default: `() => {}`).
+   * @zh 属性 `_onTouched`（类型：`() => void`），用于存储或配置当是否已触碰（默认值：`() => {}`）。
    */
   _onTouched = () => {};
 
@@ -141,7 +141,7 @@ export class TriggerField extends AbstractTrigger implements AfterViewInit {
   /**
    * Creates an instance of `TriggerField` and initializes its dependencies and internal state.
    * @zh 创建 `TriggerField` 实例，并初始化其依赖项与内部状态。
-   * @param _elementRef - Injected or initial element ref (`ElementRef`) / 注入或传入的元素引用（`ElementRef`）
+   * @param _elementRef - Injected or initial element ref (`ElementRef<any>`) / 注入或传入的元素引用（`ElementRef<any>`）
    * @param _dialogService - Injected or initial dialog service (`DialogService`) / 注入或传入的对话框服务（`DialogService`）
    * @param _overlay - Injected or initial overlay (`Overlay`) / 注入或传入的浮层（`Overlay`）
    * @param _ngZone - Injected or initial ng zone (`NgZone`) / 注入或传入的Angular区域(NgZone)（`NgZone`）
@@ -220,7 +220,7 @@ export class TriggerField extends AbstractTrigger implements AfterViewInit {
 
   /**
    * Executes `coerceStringProperty` to handle coerce string property.
-   * @zh 执行 `coerceStringProperty`，用于coerce字符串属性。
+   * @zh 执行 `coerceStringProperty`，用于强制转换字符串属性。
    * @param value - value parameter (`any`) / 值参数（`any`）
    * @returns Result of type `string` / 类型为 `string` 的返回值
    */

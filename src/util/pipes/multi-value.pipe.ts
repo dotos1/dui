@@ -23,7 +23,7 @@ export class MultiValuePipe implements PipeTransform {
     /**
      * Executes `transform` to handle transform.
      * @zh 执行 `transform`，用于转换。
-     * @param values - values parameter (`string | string []`) / 值列表参数（`string | string []`）
+     * @param values - values parameter (`string | string[]`) / 值列表参数（`string | string[]`）
      * @param valueSeparator - value separator parameter (`string`) / 值Separator参数（`string`）
      * @returns Result of type `string` / 类型为 `string` 的返回值
      */

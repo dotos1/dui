@@ -16,8 +16,8 @@ import { DragStrategyByAxisProperties } from './by-axis-properties-drag.strategy
  */
 export class ɵDragStrategyByAxisPropertiesImpl extends ɵBaseDragStrategyImpl {
     /**
-     * Property `type` (`any`) storing type (default: `ɵDragStrategyEnum.ByAxisProperties`).
-     * @zh 属性 `type`（类型：`any`），用于存储或配置类型（默认值：`ɵDragStrategyEnum.ByAxisProperties`）。
+     * Property `type` (`ɵDragStrategyEnum.ByAxisProperties`) storing type (default: `ɵDragStrategyEnum.ByAxisProperties`).
+     * @zh 属性 `type`（类型：`ɵDragStrategyEnum.ByAxisProperties`），用于存储或配置类型（默认值：`ɵDragStrategyEnum.ByAxisProperties`）。
      */
     public override readonly  type = ɵDragStrategyEnum.ByAxisProperties;
 

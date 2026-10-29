@@ -47,7 +47,7 @@ import { ColorWrap } from '@dotos/dui/common/colorpicker/common';
  */
 export class ColorSliderComponent extends ColorWrap {
   /**
-   * Input property `pointer` (`{ [key: string]: string }`) configuring pointer.
+   * Input property `pointer` (`{ [key: string]: string; }`) configuring pointer.
    * @zh 滑块手柄的内联样式。
    * @zh 滑块手柄的内联样式。
    */

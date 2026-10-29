@@ -28,7 +28,7 @@ export class DecimalNumberModel {
     /**
      * Creates an instance of `DecimalNumberModel` and initializes its dependencies and internal state.
      * @zh 创建 `DecimalNumberModel` 实例，并初始化其依赖项与内部状态。
-     * @param obj - Injected or initial obj (`any`) / 注入或传入的对象（`any`）
+     * @param obj - Injected or initial obj (`Partial<DecimalNumberModel>`) / 注入或传入的对象（`Partial<DecimalNumberModel>`）
      */
     constructor(obj?: Partial<DecimalNumberModel>) {
         if (obj) {

@@ -221,7 +221,7 @@ export interface TableColumn {
    *
    * @memberOf TableColumn
 
-   * @zh 属性 `cellClass`（类型：`string | ((data: any) => string | any)`），用于存储或配置单元格类名。
+   * @zh 属性 `cellClass`（类型：`any`），用于存储或配置单元格类名。
    */
   cellClass?;
 
@@ -231,7 +231,7 @@ export interface TableColumn {
    *
    * @memberOf TableColumn
 
-   * @zh 属性 `headerClass`（类型：`string | ((data: any) => string | any)`），用于存储或配置表头类名。
+   * @zh 属性 `headerClass`（类型：`any`），用于存储或配置表头类名。
    */
   headerClass?;
 
@@ -267,7 +267,7 @@ export interface TableColumn {
    *
    * @memberOf TableColumn
 
-   * @zh 属性 `summaryFunc`（类型：`(cells: any[]) => any`），用于存储或配置汇总Func。
+   * @zh 属性 `summaryFunc`（类型：`(cells: any) => any`），用于存储或配置汇总Func。
    */
   summaryFunc?: { (cells) };
 

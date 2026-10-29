@@ -35,7 +35,7 @@ const jss = create({ plugins: [jssPluginGlobal(), jssPluginNested()] });
  * @param typographyConfig - typography config parameter (`TypographyConfig`) / 排版配置参数（`TypographyConfig`）
  * @param override - override parameter (`Object`) / override参数（`Object`）
  * @param dynamic - dynamic parameter (`boolean`) / 动态参数（`boolean`）
- * @returns Result of type `StyleSheet<any>` / 类型为 `StyleSheet<any>` 的返回值
+ * @returns Result of type `StyleSheet<string>` / 类型为 `StyleSheet<string>` 的返回值
  */
 export function createMaterialCoreStyles(typographyConfig: TypographyConfig = null, override: Object = {}, dynamic: boolean = false): StyleSheet<string> {
   const styles = {
@@ -52,7 +52,7 @@ export function createMaterialCoreStyles(typographyConfig: TypographyConfig = nu
  * @param theme - theme parameter (`Theme`) / 主题参数（`Theme`）
  * @param override - override parameter (`Object`) / override参数（`Object`）
  * @param dynamic - dynamic parameter (`boolean`) / 动态参数（`boolean`）
- * @returns Result of type `StyleSheet<any>` / 类型为 `StyleSheet<any>` 的返回值
+ * @returns Result of type `StyleSheet<string>` / 类型为 `StyleSheet<string>` 的返回值
  */
 export function createMaterialThemeStyles(theme: Theme, override: Object = {}, dynamic: boolean = false): StyleSheet<string> {
 
@@ -115,26 +115,26 @@ export class ThemeService {
    */
   private theme: Theme;
   /**
-   * Property `dotosConfig` (`any`) storing dotos config.
-   * @zh 属性 `dotosConfig`（类型：`any`），用于存储或配置DotOS配置。
+   * Property `dotosConfig` (`DotosConfig`) storing dotos config.
+   * @zh 属性 `dotosConfig`（类型：`DotosConfig`），用于存储或配置DotOS配置。
    */
   dotosConfig: DotosConfig;
 
   /**
-   * Property `_coreStyleSheet` (`StyleSheet<any>`) storing core style sheet.
-   * @zh 属性 `_coreStyleSheet`（类型：`StyleSheet<any>`），用于存储或配置核心样式Sheet。
+   * Property `_coreStyleSheet` (`StyleSheet<string>`) storing core style sheet.
+   * @zh 属性 `_coreStyleSheet`（类型：`StyleSheet<string>`），用于存储或配置核心样式Sheet。
    */
   private _coreStyleSheet?: StyleSheet<string>;
   /**
-   * Property `_materialThemeStyleSheet` (`StyleSheet<any>`) storing material theme style sheet.
-   * @zh 属性 `_materialThemeStyleSheet`（类型：`StyleSheet<any>`），用于存储或配置material主题样式Sheet。
+   * Property `_materialThemeStyleSheet` (`StyleSheet<string>`) storing material theme style sheet.
+   * @zh 属性 `_materialThemeStyleSheet`（类型：`StyleSheet<string>`），用于存储或配置material主题样式Sheet。
    */
   private _materialThemeStyleSheet?: StyleSheet<string>;
   // 每个 themeFn 对应一张样式表：同一个组件重复 loadTheme 时才替换，
   // 不同组件的样式表必须共存，否则后加载的会把先加载的卸载掉。
   /**
-   * Property `_loadedThemeStyleSheets` (`Map<any, StyleSheet<any>>`) storing loaded theme style sheets (default: `new Map()`).
-   * @zh 属性 `_loadedThemeStyleSheets`（类型：`Map<any, StyleSheet<any>>`），用于存储或配置已加载主题样式Sheets（默认值：`new Map()`）。
+   * Property `_loadedThemeStyleSheets` (`Map<(theme: Theme) => unknown, StyleSheet<string>>`) storing loaded theme style sheets (default: `new Map()`).
+   * @zh 属性 `_loadedThemeStyleSheets`（类型：`Map<(theme: Theme) => unknown, StyleSheet<string>>`），用于存储或配置已加载主题样式Sheets（默认值：`new Map()`）。
    */
   private _loadedThemeStyleSheets: Map<(theme: Theme) => unknown, StyleSheet<string>> = new Map();
 
@@ -207,7 +207,7 @@ export class ThemeService {
   /**
    * Executes `isUsableConfig` to handle is usable config.
    * @zh 执行 `isUsableConfig`，用于是否为Usable配置。
-   * @param config - config parameter (`any`) / 配置参数（`any`）
+   * @param config - config parameter (`DotosConfig`) / 配置参数（`DotosConfig`）
    * @returns Result of type `boolean` / 类型为 `boolean` 的返回值
    */
   private isUsableConfig(config: DotosConfig): boolean {
@@ -274,7 +274,7 @@ export class ThemeService {
   /**
    * Executes `loadTheme` to handle load theme.
    * @zh 执行 `loadTheme`，用于加载主题。
-   * @param themeFn - theme fn parameter (`any`) / 主题函数参数（`any`）
+   * @param themeFn - theme fn parameter (`(theme: Theme) => unknown`) / 主题函数参数（`(theme: Theme) => unknown`）
    */
   loadTheme(themeFn: (theme: Theme) => unknown): void {
     // loadTheme 可能先于任何 setTheme/changeTheme 被调用（例如应用启动阶段就打开了对话框
@@ -294,7 +294,7 @@ export class ThemeService {
   /**
    * Executes `removeStyleSheet` to handle remove style sheet.
    * @zh 执行 `removeStyleSheet`，用于移除样式Sheet。
-   * @param styleSheet - style sheet parameter (`StyleSheet<any>`) / 样式Sheet参数（`StyleSheet<any>`）
+   * @param styleSheet - style sheet parameter (`StyleSheet<string>`) / 样式Sheet参数（`StyleSheet<string>`）
    */
   private removeStyleSheet(styleSheet?: StyleSheet<string>) {
     if (styleSheet) {
@@ -305,7 +305,7 @@ export class ThemeService {
    * Executes `createThemeStyles` to handle create theme styles.
    * @zh 执行 `createThemeStyles`，用于创建主题样式集合。
    * @param theme - theme parameter (`any`) / 主题参数（`any`）
-   * @param themeFn - theme fn parameter (`any`) / 主题函数参数（`any`）
+   * @param themeFn - theme fn parameter (`(theme: Theme) => unknown`) / 主题函数参数（`(theme: Theme) => unknown`）
    * @param dynamicThemeStyles - dynamic theme styles parameter (`any`) / 动态主题样式集合参数（`any`）
    */
   createThemeStyles(theme, themeFn: (theme: Theme) => unknown, dynamicThemeStyles) {
@@ -321,7 +321,7 @@ export class ThemeService {
   /**
    * Executes `getThemeStyle` to handle get theme style.
    * @zh 执行 `getThemeStyle`，用于获取主题样式。
-   * @param themeFn - theme fn parameter (`any`) / 主题函数参数（`any`）
+   * @param themeFn - theme fn parameter (`(theme: Theme) => unknown`) / 主题函数参数（`(theme: Theme) => unknown`）
    * @param theme - theme parameter (`Theme`) / 主题参数（`Theme`）
    * @returns Result of type `Object` / 类型为 `Object` 的返回值
    */
@@ -333,7 +333,7 @@ export class ThemeService {
   /**
    * Executes `changeThemeWithConfig` to handle change theme with config.
    * @zh 执行 `changeThemeWithConfig`，用于变更主题带有配置。
-   * @param config - config parameter (`any`) / 配置参数（`any`）
+   * @param config - config parameter (`DotosConfig`) / 配置参数（`DotosConfig`）
    */
   changeThemeWithConfig(config: DotosConfig){
     let type = config.theme.type;

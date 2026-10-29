@@ -52,8 +52,8 @@ export interface UpdateAction {
  */
 export interface ObservableProxy<T> {
   /**
-   * Property `proxy$` (`Observable<any>`) storing proxy.
-   * @zh 属性 `proxy$`（类型：`Observable<any>`），用于存储或配置proxy。
+   * Property `proxy$` (`any`) storing proxy.
+   * @zh 属性 `proxy$`（类型：`any`），用于存储或配置proxy。
    */
   proxy$;
   /**

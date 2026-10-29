@@ -54,13 +54,13 @@ export class ClickOutsideDirective implements OnInit, OnChanges, OnDestroy {
   @Output() clickOutside: EventEmitter<Event> = new EventEmitter<Event>();
 
   /**
-   * Property `_nodesExcluded` (`Array<HTMLElement>`) storing nodes excluded (default: `[]`).
-   * @zh 属性 `_nodesExcluded`（类型：`Array<HTMLElement>`），用于存储或配置节点列表Excluded（默认值：`[]`）。
+   * Property `_nodesExcluded` (`HTMLElement[]`) storing nodes excluded (default: `[]`).
+   * @zh 属性 `_nodesExcluded`（类型：`HTMLElement[]`），用于存储或配置节点列表Excluded（默认值：`[]`）。
    */
   private _nodesExcluded: Array<HTMLElement> = [];
   /**
-   * Property `_events` (`Array<string>`) storing events (default: `['click']`).
-   * @zh 属性 `_events`（类型：`Array<string>`），用于存储或配置事件集合（默认值：`['click']`）。
+   * Property `_events` (`string[]`) storing events (default: `['click']`).
+   * @zh 属性 `_events`（类型：`string[]`），用于存储或配置事件集合（默认值：`['click']`）。
    */
   private _events: Array<string> = ['click'];
   /**
@@ -72,7 +72,7 @@ export class ClickOutsideDirective implements OnInit, OnChanges, OnDestroy {
   /**
    * Creates an instance of `ClickOutsideDirective` and initializes its dependencies and internal state.
    * @zh 创建 `ClickOutsideDirective` 实例，并初始化其依赖项与内部状态。
-   * @param _el - Injected or initial el (`ElementRef`) / 注入或传入的DOM元素（`ElementRef`）
+   * @param _el - Injected or initial el (`ElementRef<any>`) / 注入或传入的DOM元素（`ElementRef<any>`）
    * @param platformId - Injected or initial platform id (`Object`) / 注入或传入的platform唯一标识（`Object`）
    */
   constructor(private _el: ElementRef,

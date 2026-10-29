@@ -32,7 +32,7 @@ export interface RangeValue {
  * Executes `isRangeValue` to handle is range value.
  * @zh 执行 `isRangeValue`，用于是否为范围值。
  * @param value - value parameter (`any`) / 值参数（`any`）
- * @returns Result of type `value is RangeValue` / 类型为 `value is RangeValue` 的返回值
+ * @returns Result of type `boolean` / 类型为 `boolean` 的返回值
  */
 export function isRangeValue(value): value is RangeValue {
   return value != null && typeof value === 'object' && ('from' in value || 'to' in value);
@@ -52,20 +52,20 @@ export function isRangeValue(value): value is RangeValue {
 export abstract class RangeField extends MatField implements OnInit, OnDestroy {
 
   /**
-   * Property `fromControl` (`FormControl`) storing from control (default: `new FormControl()`).
-   * @zh 属性 `fromControl`（类型：`FormControl`），用于存储或配置从表单控件（默认值：`new FormControl()`）。
+   * Property `fromControl` (`FormControl<any>`) storing from control (default: `new FormControl()`).
+   * @zh 属性 `fromControl`（类型：`FormControl<any>`），用于存储或配置从表单控件（默认值：`new FormControl()`）。
    */
   fromControl = new FormControl();
 
   /**
-   * Property `toControl` (`FormControl`) storing to control (default: `new FormControl()`).
-   * @zh 属性 `toControl`（类型：`FormControl`），用于存储或配置转换为表单控件（默认值：`new FormControl()`）。
+   * Property `toControl` (`FormControl<any>`) storing to control (default: `new FormControl()`).
+   * @zh 属性 `toControl`（类型：`FormControl<any>`），用于存储或配置转换为表单控件（默认值：`new FormControl()`）。
    */
   toControl = new FormControl();
 
   /**
-   * Property `destroy$` (`Subject`) storing destroy (default: `new Subject<void>()`).
-   * @zh 属性 `destroy$`（类型：`Subject`），用于存储或配置销毁（默认值：`new Subject<void>()`）。
+   * Property `destroy$` (`Subject<void>`) storing destroy (default: `new Subject<void>()`).
+   * @zh 属性 `destroy$`（类型：`Subject<void>`），用于存储或配置销毁（默认值：`new Subject<void>()`）。
    */
   protected destroy$ = new Subject<void>();
 

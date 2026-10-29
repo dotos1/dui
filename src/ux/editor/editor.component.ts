@@ -48,7 +48,7 @@ export class EditorComponent implements ControlValueAccessor, OnInit, OnChanges,
   ) { }
 
   /**
-   * Template/content query reference `uxEditor` (`@ViewChild`) targeting ux editor.
+   * Template/content query reference `uxEditor` (`ElementRef<any>`) targeting ux editor.
    * @zh 模板/内容视图查询引用 `uxEditor`（`@ViewChild`），指向交互体验编辑器。
    */
   @ViewChild('uxEditor', { static: true }) private uxEditor: ElementRef;
@@ -59,8 +59,8 @@ export class EditorComponent implements ControlValueAccessor, OnInit, OnChanges,
    */
   @Input() editor: Editor;
   /**
-   * Input property `outputFormat` (`'doc' | 'html'`) configuring output format.
-   * @zh 输入属性 `outputFormat`（类型：`'doc' | 'html'`），用于配置输出事件格式化。
+   * Input property `outputFormat` (`"html" | "doc"`) configuring output format.
+   * @zh 输入属性 `outputFormat`（类型：`"html" | "doc"`），用于配置输出事件格式化。
    */
   @Input() outputFormat: 'doc' | 'html';
   /**
@@ -70,13 +70,13 @@ export class EditorComponent implements ControlValueAccessor, OnInit, OnChanges,
   @Input() placeholder = 'Type Here...';
 
   /**
-   * Output event emitter `focusOut` (`EventEmitter`) firing when focus out occurs.
-   * @zh 输出事件 `focusOut`（类型：`EventEmitter`），当触发聚焦输出时向外发出事件。
+   * Output event emitter `focusOut` (`EventEmitter<void>`) firing when focus out occurs.
+   * @zh 输出事件 `focusOut`（类型：`EventEmitter<void>`），当触发聚焦输出时向外发出事件。
    */
   @Output() focusOut = new EventEmitter<void>();
   /**
-   * Output event emitter `focusIn` (`EventEmitter`) firing when focus in occurs.
-   * @zh 输出事件 `focusIn`（类型：`EventEmitter`），当触发聚焦在时向外发出事件。
+   * Output event emitter `focusIn` (`EventEmitter<void>`) firing when focus in occurs.
+   * @zh 输出事件 `focusIn`（类型：`EventEmitter<void>`），当触发聚焦在时向外发出事件。
    */
   @Output() focusIn = new EventEmitter<void>();
 
@@ -86,8 +86,8 @@ export class EditorComponent implements ControlValueAccessor, OnInit, OnChanges,
    */
   private unsubscribe: Subject<void> = new Subject();
   /**
-   * Property `onChange` (`(value: Record<string, any> | string) => void`) storing on change (default: `() => { }`).
-   * @zh 属性 `onChange`（类型：`(value: Record<string, any> | string) => void`），用于存储或配置当变更（默认值：`() => { }`）。
+   * Property `onChange` (`(value: any) => void`) storing on change (default: `() => { }`).
+   * @zh 属性 `onChange`（类型：`(value: any) => void`），用于存储或配置当变更（默认值：`() => { }`）。
    */
   private onChange: (value) => void = () => { /** */ };
   /**
@@ -99,7 +99,7 @@ export class EditorComponent implements ControlValueAccessor, OnInit, OnChanges,
   /**
    * Writes a new value from the Angular form model into the view (`ControlValueAccessor`).
    * @zh 将 Angular 表单模型中的新值写入视图（`ControlValueAccessor` 接口实现）。
-   * @param value - value parameter (`Record<string, any> | string | null`) / 值参数（`Record<string, any> | string | null`）
+   * @param value - value parameter (`any`) / 值参数（`any`）
    */
   writeValue(value): void {
     if (!this.outputFormat && typeof value === 'string') {
@@ -139,7 +139,7 @@ export class EditorComponent implements ControlValueAccessor, OnInit, OnChanges,
   /**
    * Executes `handleChange` to handle handle change.
    * @zh 执行 `handleChange`，用于连接手柄变更。
-   * @param jsonDoc - json doc parameter (`Record<string, any>`) / JSON文档参数（`Record<string, any>`）
+   * @param jsonDoc - json doc parameter (`any`) / JSON文档参数（`any`）
    */
   private handleChange(jsonDoc): void {
     if (this.outputFormat === 'html') {

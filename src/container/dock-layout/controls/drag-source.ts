@@ -23,9 +23,9 @@ import { DragProxy } from './drag-proxy';
  */
 export class DragSource {
     /**
-     * Property `_dragListener` (`DragListener | null`) storing drag listener.
+     * Property `_dragListener` (`DragListener`) storing drag listener.
      * @internal
-     * @zh 属性 `_dragListener`（类型：`DragListener | null`），用于存储或配置拖拽监听器。
+     * @zh 属性 `_dragListener`（类型：`DragListener`），用于存储或配置拖拽监听器。
      */
     private _dragListener: DragListener | null;
     /**

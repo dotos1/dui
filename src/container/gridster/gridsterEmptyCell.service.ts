@@ -16,38 +16,38 @@ import {GridsterComponentInterface} from './gridster.interface';
 @Injectable()
 export class GridsterEmptyCell {
   /**
-   * Property `initialItem` (`GridsterItem | null`) storing initial item.
-   * @zh 属性 `initialItem`（类型：`GridsterItem | null`），用于存储或配置初始条目。
+   * Property `initialItem` (`GridsterItem`) storing initial item.
+   * @zh 属性 `initialItem`（类型：`GridsterItem`），用于存储或配置初始条目。
    */
   initialItem: GridsterItem | null;
   /**
-   * Property `emptyCellClick` (`Function | null`) storing empty cell click.
-   * @zh 属性 `emptyCellClick`（类型：`Function | null`），用于存储或配置空单元格点击。
+   * Property `emptyCellClick` (`Function`) storing empty cell click.
+   * @zh 属性 `emptyCellClick`（类型：`Function`），用于存储或配置空单元格点击。
    */
   emptyCellClick: Function | null;
   /**
-   * Property `emptyCellClickTouch` (`Function | null`) storing empty cell click touch.
-   * @zh 属性 `emptyCellClickTouch`（类型：`Function | null`），用于存储或配置空单元格点击触摸。
+   * Property `emptyCellClickTouch` (`Function`) storing empty cell click touch.
+   * @zh 属性 `emptyCellClickTouch`（类型：`Function`），用于存储或配置空单元格点击触摸。
    */
   emptyCellClickTouch: Function | null;
   /**
-   * Property `emptyCellContextMenu` (`Function | null`) storing empty cell context menu.
-   * @zh 属性 `emptyCellContextMenu`（类型：`Function | null`），用于存储或配置空单元格上下文菜单。
+   * Property `emptyCellContextMenu` (`Function`) storing empty cell context menu.
+   * @zh 属性 `emptyCellContextMenu`（类型：`Function`），用于存储或配置空单元格上下文菜单。
    */
   emptyCellContextMenu: Function | null;
   /**
-   * Property `emptyCellDrop` (`Function | null`) storing empty cell drop.
-   * @zh 属性 `emptyCellDrop`（类型：`Function | null`），用于存储或配置空单元格放置。
+   * Property `emptyCellDrop` (`Function`) storing empty cell drop.
+   * @zh 属性 `emptyCellDrop`（类型：`Function`），用于存储或配置空单元格放置。
    */
   emptyCellDrop: Function | null;
   /**
-   * Property `emptyCellDrag` (`Function | null`) storing empty cell drag.
-   * @zh 属性 `emptyCellDrag`（类型：`Function | null`），用于存储或配置空单元格拖拽。
+   * Property `emptyCellDrag` (`Function`) storing empty cell drag.
+   * @zh 属性 `emptyCellDrag`（类型：`Function`），用于存储或配置空单元格拖拽。
    */
   emptyCellDrag: Function | null;
   /**
-   * Property `emptyCellDragTouch` (`Function | null`) storing empty cell drag touch.
-   * @zh 属性 `emptyCellDragTouch`（类型：`Function | null`），用于存储或配置空单元格拖拽触摸。
+   * Property `emptyCellDragTouch` (`Function`) storing empty cell drag touch.
+   * @zh 属性 `emptyCellDragTouch`（类型：`Function`），用于存储或配置空单元格拖拽触摸。
    */
   emptyCellDragTouch: Function | null;
   /**
@@ -71,13 +71,13 @@ export class GridsterEmptyCell {
    */
   emptyCellUpTouch: Function;
   /**
-   * Property `emptyCellMove` (`Function | null`) storing empty cell move.
-   * @zh 属性 `emptyCellMove`（类型：`Function | null`），用于存储或配置空单元格移动。
+   * Property `emptyCellMove` (`Function`) storing empty cell move.
+   * @zh 属性 `emptyCellMove`（类型：`Function`），用于存储或配置空单元格移动。
    */
   emptyCellMove: Function | null;
   /**
-   * Property `emptyCellExit` (`Function | null`) storing empty cell exit.
-   * @zh 属性 `emptyCellExit`（类型：`Function | null`），用于存储或配置空单元格Exit。
+   * Property `emptyCellExit` (`Function`) storing empty cell exit.
+   * @zh 属性 `emptyCellExit`（类型：`Function`），用于存储或配置空单元格Exit。
    */
   emptyCellExit: Function | null;
 
@@ -305,8 +305,8 @@ export class GridsterEmptyCell {
    * Executes `getValidItemFromEvent` to handle get valid item from event.
    * @zh 执行 `getValidItemFromEvent`，用于获取有效条目从事件。
    * @param e - e parameter (`any`) / e参数（`any`）
-   * @param oldItem - old item parameter (`GridsterItem | null`) / 旧条目参数（`GridsterItem | null`）
-   * @returns Result of type `GridsterItem | undefined` / 类型为 `GridsterItem | undefined` 的返回值
+   * @param oldItem - old item parameter (`GridsterItem`) / 旧条目参数（`GridsterItem`）
+   * @returns Result of type `GridsterItem` / 类型为 `GridsterItem` 的返回值
    */
   getValidItemFromEvent(e, oldItem?: GridsterItem | null): GridsterItem | undefined {
     e.preventDefault();

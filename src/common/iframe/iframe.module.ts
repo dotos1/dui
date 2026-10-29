@@ -20,8 +20,8 @@ import { Dui } from '@dotos/dui/core';
 })
 export class IFrameModule {
   /**
-   * Property `entryComponents` (`any[]`) storing entry components (default: `[IframeComponent]`).
-   * @zh 属性 `entryComponents`（类型：`any[]`），用于存储或配置条目组件列表（默认值：`[IframeComponent]`）。
+   * Property `entryComponents` (`(typeof IframeComponent)[]`) storing entry components (default: `[IframeComponent]`).
+   * @zh 属性 `entryComponents`（类型：`(typeof IframeComponent)[]`），用于存储或配置条目组件列表（默认值：`[IframeComponent]`）。
    */
   entryComponents = [IframeComponent];
   /**

@@ -315,7 +315,8 @@
     "VALIDATORS": {
       "FLOAT_VALIDATION_ERROR": "使用数字格式",
       "INT_VALIDATION_ERROR": "使用整数格式"
-    }
+    },
+    "NONE": "无"
   },
   "METADATA": {
     "BASIC": {
@@ -336,6 +337,7 @@
       "SAVE": "保存",
       "CANCEL": "取消",
       "TOGGLE": "切换值",
+      "CLEAR": "清除",
       "COPY_TO_CLIPBOARD": "复制到剪贴板"
     },
     "ERRORS": {
@@ -388,8 +390,8 @@
       }
     },
     "TAB": {
-      "CS": "Content Services",
-      "PS": "Process Services"
+      "CS": "内容服务",
+      "PS": "流程服务"
     }
   },
   "ERROR_CONTENT": {
@@ -658,7 +660,12 @@
       "ARIA-LABEL": "搜索按钮"
     },
     "INPUT": {
-      "ARIA-LABEL": "搜索输入"
+      "ARIA-LABEL": "搜索输入",
+      "PLACEHOLDER": "搜索",
+      "FILES": "文件",
+      "FOLDERS": "文件夹",
+      "LIBRARIES": "文件库",
+      "HINT": "搜索内容至少需要 2 个字母或数字。"
     },
     "RESULTS": {
       "SUMMARY": "已找到 {{numResults}} 个 {{searchTerm}} 的结果",
@@ -811,6 +818,34 @@
       "THIS_MONTH": "本月",
       "LAST_6_MONTHS": "最近 6 个月",
       "THIS_YEAR": "今年"
+    },
+    "SEARCH_HEADER": {
+      "TITLE": "筛选",
+      "TYPE": "类型",
+      "FILTER_BY": "按{{ category }}筛选",
+      "CLEAR": "清除",
+      "APPLY": "应用",
+      "FILTERS": {
+        "NAME": {
+          "TITLE": "名称",
+          "PLACEHOLDER": "输入名称"
+        },
+        "TYPE": {
+          "TITLE": "选择类型",
+          "FOLDER": "文件夹",
+          "DOCUMENT": "文档"
+        },
+        "SIZE": {
+          "TITLE": "内容大小（范围）",
+          "SMALL": "小",
+          "MEDIUM": "中",
+          "LARGE": "大",
+          "HUGE": "超大"
+        },
+        "DATE": {
+          "TITLE": "创建日期（范围）"
+        }
+      }
     }
   },
   "PERMISSION": {
@@ -1057,6 +1092,120 @@
         "VERSIONS": "版本",
         "COMMENTS": "注释"
       }
+    },
+    "BROWSE": {
+      "PERSONAL": {
+        "TITLE": "个人文件",
+        "SIDENAV_LINK": {
+          "LABEL": "个人文件",
+          "TOOLTIP": "查看个人文件"
+        }
+      },
+      "LIBRARIES": {
+        "TITLE": "文件库",
+        "DESCRIPTION": "访问文件库",
+        "SIDENAV_LINK": {
+          "LABEL": "文件库",
+          "TOOLTIP": "文件库"
+        },
+        "EMPTY_STATE": {
+          "FILE_LIBRARIES": {
+            "TITLE": "你还没有加入任何文件库",
+            "TEXT": "加入文件库后即可上传、查看和共享文件。"
+          },
+          "FAVORITE_LIBRARIES": {
+            "TITLE": "没有收藏的文件库",
+            "TEXT": "收藏文件库，以后可以快速找到。"
+          }
+        },
+        "MENU": {
+          "MY_LIBRARIES": {
+            "TITLE": "我的文件库",
+            "SIDENAV_LINK": {
+              "LABEL": "我的文件库",
+              "TOOLTIP": "访问我的文件库"
+            }
+          },
+          "FAVORITE_LIBRARIES": {
+            "TITLE": "收藏的文件库",
+            "SIDENAV_LINK": {
+              "LABEL": "收藏的文件库",
+              "TOOLTIP": "访问收藏的文件库"
+            }
+          }
+        }
+      },
+      "SHARED": {
+        "TITLE": "共享文件",
+        "SIDENAV_LINK": {
+          "LABEL": "共享",
+          "TOOLTIP": "查看已共享的文件"
+        },
+        "EMPTY_STATE": {
+          "TITLE": "没有共享的文件或文件夹",
+          "TEXT": "通过「共享」操作共享的内容会显示在这里。"
+        }
+      },
+      "RECENT": {
+        "TITLE": "最近的文件",
+        "SIDENAV_LINK": {
+          "LABEL": "最近的文件",
+          "TOOLTIP": "查看最近编辑的文件"
+        },
+        "EMPTY_STATE": {
+          "TITLE": "没有最近的文件",
+          "TEXT": "最近 30 天内上传或编辑过的内容会显示在这里。"
+        }
+      },
+      "FAVORITES": {
+        "TITLE": "收藏",
+        "SIDENAV_LINK": {
+          "LABEL": "收藏",
+          "TOOLTIP": "查看收藏的文件和文件夹"
+        },
+        "EMPTY_STATE": {
+          "TITLE": "没有收藏的文件或文件夹",
+          "TEXT": "收藏内容，以后可以快速找到。"
+        }
+      },
+      "TRASHCAN": {
+        "TITLE": "回收站",
+        "SIDENAV_LINK": {
+          "LABEL": "回收站",
+          "TOOLTIP": "查看回收站里已删除的文件"
+        },
+        "EMPTY_STATE": {
+          "TITLE": "回收站是空的",
+          "FIRST_TEXT": "删除的内容会移到回收站。",
+          "SECOND_TEXT": "清空回收站将永久删除其中的内容。"
+        }
+      },
+      "ABOUT": {
+        "TITLE": "关于"
+      },
+      "SEARCH": {
+        "TITLE": "搜索结果",
+        "FOUND_RESULTS": "找到 {{ number }} 条结果",
+        "FOUND_ONE_RESULT": "找到 {{ number }} 条结果",
+        "CUSTOM_ROW": {
+          "MODIFIED": "修改时间",
+          "BY_USER": "由 {{ user }}",
+          "LOCATION": "位置",
+          "SIZE": "大小"
+        },
+        "UNKNOWN_LOCATION": "未知",
+        "NO_RESULTS": "没有搜索到结果",
+        "TOGGLE_SEARCH_FILTER": "显示 / 隐藏搜索筛选",
+        "ERRORS": {
+          "500": "处理搜索请求时出错 [500]",
+          "GENERIC": "处理搜索请求时出错"
+        }
+      },
+      "SEARCH_LIBRARIES": {
+        "TITLE": "找到的文件库……",
+        "FOUND_RESULTS": "{{ number }} 条结果",
+        "FOUND_ONE_RESULT": "{{ number }} 条结果"
+      }
     }
   },
   "NODE_FROM_TEMPLATE": {
@@ -1157,7 +1306,8 @@
       "TITLE_TOO_LONG": "对标题使用 256 个字符或更少字符",
       "ILLEGAL_CHARACTERS": "仅使用数字和字母",
       "ONLY_SPACES": "文档库名称不能只包含空格",
-      "LIBRARY_UPDATE_ERROR": "更新库属性时发生错误"
+      "LIBRARY_UPDATE_ERROR": "更新库属性时发生错误",
+      "TITLE_TOO_SHORT": "标题至少需要 2 个字符"
     },
     "SUCCESS": {
       "LIBRARY_UPDATED": "已更新库属性"
@@ -1262,6 +1412,209 @@
     "FILE_TYPE": {
       "BOOKS-24PX": "文件库",
       "BASELINE-LOCK-24PX": "已锁定文件"
+    },
+    "EMPTY": {
+      "HEADER": "列表为空",
+      "DRAG-AND-DROP": {
+        "TITLE": "拖放",
+        "SUBTITLE": "以上传文件"
+      }
+    },
+    "CONTENT-ACTIONS": {
+      "TOOLTIP": "内容操作"
+    },
+    "ACCESSIBILITY": {
+      "SELECT_ALL": "全选",
+      "SELECT_FILE": "选择文件"
+    }
+  },
+  "HEADER": {
+    "LOGO_ARIA": "公司标志"
+  },
+  "LOGIN": {
+    "LOGO": "Alfresco",
+    "LABEL": {
+      "LOGIN": "登录",
+      "USERNAME": "用户名",
+      "PASSWORD": "密码",
+      "REMEMBER": "记住我"
+    },
+    "MESSAGES": {
+      "USERNAME-REQUIRED": "必填",
+      "USERNAME-MIN": "用户名至少需要 {{ minLength }} 个字符。",
+      "PASSWORD-REQUIRED": "请输入密码后登录",
+      "LOGIN-ERROR-CREDENTIALS": "用户名或密码不正确",
+      "LOGIN-ERROR-PROVIDERS": "未配置认证提供方",
+      "LOGIN-ERROR-CORS": "跨域（CORS）异常，请检查服务器配置",
+      "LOGIN-ERROR-CSRF": "CSRF 异常，请在 login.component 中设置 [disableCsrf]=\"true\"",
+      "LOGIN-ECM-LICENSE": "Alfresco 内容服务仓库处于只读模式",
+      "SSO-WRONG-CONFIGURATION": "无法连接单点登录（SSO）认证服务器"
+    },
+    "BUTTON": {
+      "LOGIN": "登录",
+      "CHECKING": "正在验证",
+      "WELCOME": "欢迎",
+      "SSO": "单点登录"
+    },
+    "ACTION": {
+      "HELP": "需要帮助？",
+      "REGISTER": "注册"
+    },
+    "DIALOG": {
+      "CANCEL": "取消",
+      "CHOOSE": "选择"
+    }
+  },
+  "EXT_VIEWER": {
+    "ACTIONS": {
+      "BACK": "返回",
+      "OPEN_WITH": "打开方式",
+      "DOWNLOAD": "下载",
+      "PRINT": "打印",
+      "SHARE": "共享",
+      "MORE_ACTIONS": "更多操作",
+      "INFO": "查看详情",
+      "FULLSCREEN": "进入全屏",
+      "CLOSE": "关闭",
+      "NEXT_FILE": "下一个文件",
+      "PREV_FILE": "上一个文件"
+    },
+    "ARIA": {
+      "PREVIOUS_PAGE": "上一页",
+      "NEXT_PAGE": "下一页",
+      "ZOOM_IN": "放大",
+      "ZOOM_OUT": "缩小",
+      "FIT_PAGE": "适合页面",
+      "ROTATE_LEFT": "向左旋转",
+      "ROTATE_RIGHT": "向右旋转",
+      "RESET": "重置"
+    },
+    "PAGE_LABEL": {
+      "SHOWING": "显示",
+      "OF": "/"
+    },
+    "LOADING": "正在加载",
+    "UNKNOWN_FORMAT": "无法预览：格式未知。",
+    "SIDEBAR": {
+      "THUMBNAILS": {
+        "PAGE": "第 {{ pageNum }} 页"
+      },
+      "METADATA": {
+        "MORE_INFORMATION": "更多信息",
+        "LESS_INFORMATION": "收起信息"
+      }
+    },
+    "PDF_DIALOG": {
+      "SUBMIT": "提交",
+      "CLOSE": "关闭",
+      "PLACEHOLDER": "密码",
+      "ERROR": "密码错误"
+    }
+  },
+  "ABOUT": {
+    "SERVER_SETTINGS": {
+      "TITLE": "服务器设置",
+      "DESCRIPTION": "以下取值来自 AppConfigService",
+      "CONTENT_SERVICE_HOST": "Alfresco 内容服务地址：{{ value }}",
+      "PROCESS_SERVICE_HOST": "Alfresco 流程服务地址：{{ value }}"
+    },
+    "VERSIONS": {
+      "TITLE": "产品版本",
+      "CONTENT_SERVICE": "ECM",
+      "PROCESS_SERVICE": "BPM",
+      "LABELS": {
+        "EDITION": "版本类型",
+        "VERSION": "版本",
+        "LICENSE": "许可证",
+        "STATUS": "状态",
+        "MODULES": "模块"
+      }
+    },
+    "SOURCE_CODE": {
+      "TITLE": "源代码",
+      "DESCRIPTION": "当前运行的项目基于以下提交："
+    },
+    "PACKAGES": {
+      "TITLE": "依赖包",
+      "DESCRIPTION": "当前项目使用以下 ADF 库："
+    },
+    "TABLE_HEADERS": {
+      "MODULES": {
+        "ID": "编号",
+        "TITLE": "标题",
+        "DESCRIPTION": "描述",
+        "INSTALL_DATE": "安装日期",
+        "INSTALL_STATE": "安装状态",
+        "VERSION_MIN": "最低版本",
+        "VERSION_MAX": "最高版本"
+      },
+      "STATUS": {
+        "READ_ONLY": "只读",
+        "AUDIT_ENABLED": "是否启用审计",
+        "QUICK_SHARE_ENABLED": "是否启用快速共享",
+        "THUMBNAIL_ENABLED": "缩略图生成"
+      },
+      "LICENSE": {
+        "ISSUES_AT": "签发时间",
+        "EXPIRES_AT": "到期时间",
+        "REMAINING_DAYS": "剩余天数",
+        "HOLDER": "持有人",
+        "MODE": "模式",
+        "CLUSTER_ENABLED": "是否启用集群",
+        "CRYPTODOC_ENABLED": "是否启用文档加密"
+      }
+    }
+  },
+  "CLIPBOARD": {
+    "CLICK_TO_COPY": "点击复制",
+    "SUCCESS_COPY": "已复制到剪贴板"
+  },
+  "EXT_VERSION_LIST": {
+    "ACTIONS": {
+      "RESTORE": "恢复",
+      "DELETE": "删除",
+      "DOWNLOAD": "下载",
+      "UPLOAD": {
+        "TITLE": "上传新版本",
+        "TOOLTIP": "上传新版本",
+        "MAJOR": "大改动（2.0）",
+        "MINOR": "小改动（1.1）",
+        "COMMENT": "填写备注",
+        "ADD": "添加新版本",
+        "CANCEL": "取消"
+      }
+    },
+    "CONFIRM_DELETE": {
+      "TITLE": "删除版本",
+      "MESSAGE": "删除的文件版本无法恢复。是否继续？",
+      "YES_LABEL": "是",
+      "NO_LABEL": "否"
+    }
+  },
+  "EXT_FILE_UPLOAD": {
+    "BUTTON": {
+      "MINIMIZE": "最小化",
+      "MAXIMIZE": "最大化",
+      "CLOSE": "关闭",
+      "CANCEL_ALL": "取消全部上传",
+      "CANCEL_FILE": "取消上传",
+      "REMOVE_FILE": "移除已上传的文件"
+    },
+    "STATUS": {
+      "FILE_CANCELED_STATUS": "已取消"
+    },
+    "CONFIRMATION": {
+      "BUTTON": {
+        "CANCEL": "是",
+        "CONTINUE": "否"
+      },
+      "MESSAGE": {
+        "TITLE": "取消上传",
+        "TEXT": "停止上传，并移除已经上传的文件。"
+      }
+    },
+    "ARIA-LABEL": {
+      "VERSION": "文件版本"
     }
   },
   "ACTIONS": {

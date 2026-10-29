@@ -31,7 +31,7 @@ import { Dui } from '@dotos/dui/core';
 })
 export class DynamicExtensionComponent implements OnChanges, OnDestroy {
   /**
-   * Template/content query reference `content` (`@ViewChild`) targeting content.
+   * Template/content query reference `content` (`ViewContainerRef`) targeting content.
    * @zh 承载动态创建组件的视图容器。
    * @zh 承载动态创建组件的视图容器。
    */
@@ -157,7 +157,7 @@ export class DynamicExtensionComponent implements OnChanges, OnDestroy {
    * Executes `proxy` to handle proxy.
    * @zh 执行 `proxy`，用于proxy。
    * @param lifecycleMethod - lifecycle method parameter (`any`) / lifecycle方法参数（`any`）
-   * @param args - args parameter (`any`) / 参数列表参数（`any`）
+   * @param args - args parameter (`any[]`) / 参数列表参数（`any[]`）
    */
   private proxy(lifecycleMethod, ...args) {
     if (this.componentCreated() && this.lifecycleHookIsImplemented(lifecycleMethod)) {

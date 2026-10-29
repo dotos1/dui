@@ -50,8 +50,8 @@ import { NumberRangeFieldComponent } from './numberrange.field';
 })
 export class RangeFieldModule {
   /**
-   * Property `entryComponents` (`any[]`) storing entry components.
-   * @zh 属性 `entryComponents`（类型：`any[]`），用于存储或配置条目组件列表。
+   * Property `entryComponents` (`(typeof DateRangeFieldComponent | typeof NumberRangeFieldComponent)[]`) storing entry components.
+   * @zh 属性 `entryComponents`（类型：`(typeof DateRangeFieldComponent | typeof NumberRangeFieldComponent)[]`），用于存储或配置条目组件列表。
    */
   entryComponents = [DateRangeFieldComponent, NumberRangeFieldComponent];
   /**

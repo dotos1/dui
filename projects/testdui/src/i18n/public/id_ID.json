@@ -1,7 +1,7 @@
 {
   "Assets": {
     "FONT": {
-      "default": "Default",
+      "default": "Bawaan",
       "environmental": "Lingkungan",
       "geology": "Geologi",
       "oil-gas": "Minyak dan gas",
@@ -47,7 +47,7 @@
     "FEATURE_4_DESC": "Kerangka kerja multibahasa berbasis TranslateService/TranslationService, dilengkapi paket bahasa Mandarin dan Inggris secara bawaan, serta dapat diperluas per modul dengan folder terjemahan tambahan.",
     "FEATURE_5_TITLE": "Penyorotan kode yang seragam",
     "FEATURE_5_DESC": "Semua contoh kode dan cuplikan penggunaan dirender melalui komponen dui-highlight, dengan penyorotan sintaks dan salin sekali klik — pengalaman membaca yang konsisten dengan material.angular.dev.",
-    "FEATURE_6_TITLE": "TypeScript-first",
+    "FEATURE_6_TITLE": "Mengutamakan TypeScript",
     "FEATURE_6_DESC": "Dikembangkan dalam mode strict, dipadukan dengan pengemasan multi-entry-point Angular CLI, sehingga editor mendapatkan petunjuk tipe dan pelengkapan otomatis secara penuh.",
     "REASON_1_TITLE": "Siap pakai, kurangi membangun ulang dari nol",
     "REASON_1_DESC": "Mulai dari validasi formulir, pemilih warna, hingga komponen berat seperti Monaco, terminal, dan diagram alur — semuanya tersedia, menghemat biaya evaluasi dan perakitan pustaka pihak ketiga secara mandiri.",
@@ -71,7 +71,7 @@
     "TAB2": "2. Impor modul",
     "TAB3": "3. Gunakan komponen",
     "TAB4": "4. Internasionalisasi & Tema",
-    "TAB5": "5. Architecture & Dev Guide",
+    "TAB5": "5. Arsitektur & Panduan Pengembangan",
     "STEP1_H1": "Instal paket",
     "STEP1_H2": "Instal peer dependencies",
     "STEP1_P2": "DUI dibangun di atas Angular Material dan CDK, pastikan proyek Anda telah menginstal dependensi berikut:",
@@ -87,11 +87,11 @@
     "STEP4_P1": "DUI dilengkapi dengan framework multibahasa berbasis TranslationService, secara default menyediakan zh_CN / en_US:",
     "STEP4_H2": "Ganti tema saat runtime",
     "STEP4_P2": "Melalui ThemeService, Anda dapat mengubah warna utama, warna aksen, warna peringatan, dan mode terang/gelap secara dinamis saat runtime, tanpa perlu membangun ulang:",
-    "STEP5_H1": "Secondary Entry-Point Packaging Rules",
-    "STEP5_P1": "DUI uses ng-packagr secondary entry points. Each feature folder contains its own ng-package.json, index.ts, and public-api.ts. Always import across entry points via @dotos/dui/<category>/<module> rather than deep relative paths:",
-    "STEP5_H2": "RxJS Subscription Lifecycle & OnPush Performance",
-    "STEP5_P2": "Always clean up long-lived Observable subscriptions in ngOnDestroy using takeUntil(this.destroy$) to prevent memory leaks, and prefer ChangeDetectionStrategy.OnPush for high-frequency components:",
-    "STEP5_H3": "Bilingual JSDoc (@zh) & Automated Docs Generation",
-    "STEP5_P3": "Document all exported classes, interfaces, enums, functions, and public members with English JSDoc plus an @zh Chinese tag, then run npm run docs:generate to update the documentation portal:"
+    "STEP5_H1": "Aturan Pengemasan Titik Masuk Sekunder",
+    "STEP5_P1": "DUI memakai titik masuk sekunder ng-packagr. Setiap folder fitur berisi ng-package.json, index.ts, dan public-api.ts sendiri. Selalu impor antar titik masuk melalui @dotos/dui/<category>/<module>, bukan jalur relatif yang dalam:",
+    "STEP5_H2": "Siklus Hidup Langganan RxJS & Performa OnPush",
+    "STEP5_P2": "Selalu bersihkan langganan Observable yang berumur panjang di ngOnDestroy dengan takeUntil(this.destroy$) untuk mencegah kebocoran memori, dan utamakan ChangeDetectionStrategy.OnPush untuk komponen berfrekuensi tinggi:",
+    "STEP5_H3": "JSDoc Dwibahasa (@zh) & Pembuatan Dokumen Otomatis",
+    "STEP5_P3": "Dokumentasikan semua kelas, antarmuka, enum, fungsi, dan anggota publik yang diekspor dengan JSDoc berbahasa Inggris plus tag @zh berbahasa Tionghoa, lalu jalankan npm run docs:generate untuk memperbarui portal dokumentasi:"
   }
 }

@@ -1,6 +1,6 @@
 /**
  * @fileoverview Module `src/core/cache/mixed.collection.ts` providing mixed collection definitions and implementation.
- * @zh 模块文件 `src/core/cache/mixed.collection.ts`，提供mixed集合相关的定义与实现。
+ * @zh 模块文件 `src/core/cache/mixed.collection.ts`：既能按下标、又能按键取元素的有序集合（ExtJS MixedCollection 的移植）。
  */
 
 
@@ -8,51 +8,32 @@ import { DuiBase } from '@dotos/dui/base';
 import { BehaviorSubject } from 'rxjs';
 import { EventEmitter } from 'events';
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-/**
- * Class `MixedCollection` encapsulating mixed collection data structures and logic in `src/core/cache`.
- * @zh 类 `MixedCollection`，封装 `src/core/cache` 中的Mixed集合数据结构与处理逻辑。
- */
-export class MixedCollection<T>  extends EventEmitter{
-  /**
-   * Property `items` (`any`) storing items (default: `[]`).
-   * @zh 属性 `items`（类型：`any`），用于存储或配置条目列表（默认值：`[]`）。
-   */
-  items = [];
-  /**
-   * Property `map` (`any`) storing map (default: `{}`).
-   * @zh 属性 `map`（类型：`any`），用于存储或配置映射表（默认值：`{}`）。
-   */
-  map = {};
-  /**
-   * Property `keys` (`any`) storing keys (default: `[]`).
-   * @zh 属性 `keys`（类型：`any`），用于存储或配置键列表（默认值：`[]`）。
-   */
-  keys = [];
-  /**
-   * Property `length` (`any`) storing length (default: `0`).
-   * @zh 属性 `length`（类型：`any`），用于存储或配置长度（默认值：`0`）。
-   */
-  length = 0;
-  /**
-   * Property `itemsSubject` (`BehaviorSubject<Array<any>>`) storing items subject (default: `new BehaviorSubject([])`).
-   * @zh 属性 `itemsSubject`（类型：`BehaviorSubject<Array<any>>`），用于存储或配置条目列表主题流（默认值：`new BehaviorSubject([])`）。
-   */
-  itemsSubject=new BehaviorSubject([]);
+/** 集合元素的键 */
+export type CollectionKey = string | number;
 
-  /**
-   * Property `allowFunctions` (`boolean`) storing allow functions (default: `false`).
-   * @zh 属性 `allowFunctions`（类型：`boolean`），用于存储或配置允许函数（默认值：`false`）。
-   */
+/** 取键函数：默认取元素的 `id` */
+export type CollectionKeyFn<T> = (o: T) => CollectionKey;
+
+/**
+ * 有序集合：保留插入顺序，同时维护「键 → 元素」映射。
+ * @zh 类 `MixedCollection`，元素类型为 `T`。
+ */
+export class MixedCollection<T> extends EventEmitter {
+  /** 元素（按顺序） */
+  items: T[] = [];
+  /** 键 → 元素 */
+  map: { [key: string]: T } = {};
+  /** 与 items 一一对应的键 */
+  keys: CollectionKey[] = [];
+  /** 元素个数 */
+  length = 0;
+  /** 元素变化时推送当前 items */
+  itemsSubject = new BehaviorSubject<T[]>([]);
+
+  /** 是否允许函数作为元素 */
   public allowFunctions = false;
 
-  /**
-   * Creates an instance of `MixedCollection` and initializes its dependencies and internal state.
-   * @zh 创建 `MixedCollection` 实例，并初始化其依赖项与内部状态。
-   * @param allowFunctions - Injected or initial allow functions (`any`) / 注入或传入的允许函数（`any`）
-   * @param keyFn - Injected or initial key fn (`any`) / 注入或传入的键函数（`any`）
-   */
-  constructor(allowFunctions?, keyFn?) {
+  constructor(allowFunctions?: boolean, keyFn?: CollectionKeyFn<T>) {
     super();
     this.allowFunctions = allowFunctions === true;
     if (keyFn) {
@@ -60,21 +41,21 @@ export class MixedCollection<T>  extends EventEmitter{
     }
   }
 
-
-  /**
-   * Executes `add` to handle add.
-   * @zh 执行 `add`，用于添加。
-   * @param key - key parameter (`any`) / 键参数（`any`）
-   * @param o - o parameter (`Object`) / o参数（`Object`）
-   * @returns Result of type `Object` / 类型为 `Object` 的返回值
-   */
-  add(key, o?: Object): Object {
+  /** 添加元素：只传元素时用 getKey 取键 */
+  add(o: T): T;
+  add(key: CollectionKey, o: T): T;
+  add(keyOrItem: CollectionKey | T, item?: T): T {
+    let key: CollectionKey;
+    let o: T;
     if (arguments.length == 1) {
-      o = arguments[0];
+      o = keyOrItem as T;
       key = this.getKey(o);
+    } else {
+      key = keyOrItem as CollectionKey;
+      o = item;
     }
     if (typeof key != 'undefined' && key !== null) {
-      let old = this.map[key];
+      const old = this.map[key];
       if (typeof old != 'undefined') {
         return this.replace(key, o);
       }
@@ -87,67 +68,54 @@ export class MixedCollection<T>  extends EventEmitter{
     return o;
   }
 
-  /**
-   * Executes `getKey` to handle get key.
-   * @zh 执行 `getKey`，用于获取键。
-   * @param o - o parameter (`any`) / o参数（`any`）
-   * @returns Result of type `any` / 类型为 `any` 的返回值
-   */
-  getKey(o) {
-    return o.id;
+  /** 取元素的键，默认是 `id`；构造时可传 keyFn 覆盖 */
+  getKey(o: T): CollectionKey {
+    return (o as { id?: CollectionKey }).id;
   }
 
-  /**
-   * Executes `replace` to handle replace.
-   * @zh 执行 `replace`，用于替换。
-   * @param key - key parameter (`string`) / 键参数（`string`）
-   * @param o - o parameter (`any`) / o参数（`any`）
-   * @returns Result of type `Object` / 类型为 `Object` 的返回值
-   */
-  replace(key: string, o): Object {
+  /** 替换同键元素；键不存在时等同 add */
+  replace(o: T): T;
+  replace(key: CollectionKey, o: T): T;
+  replace(keyOrItem: CollectionKey | T, item?: T): T {
+    let key: CollectionKey;
+    let o: T;
     if (arguments.length == 1) {
-      o = arguments[0];
+      o = keyOrItem as T;
       key = this.getKey(o);
+    } else {
+      key = keyOrItem as CollectionKey;
+      o = item;
     }
-    let old = this.map[key];
+    const old = this.map[key];
     if (typeof key == 'undefined' || key === null || typeof old == 'undefined') {
       return this.add(key, o);
     }
-    let index = this.indexOfKey(key);
+    const index = this.indexOfKey(key);
     this.items[index] = o;
     this.itemsSubject.next(this.items);
     this.map[key] = o;
     return o;
   }
 
-  /**
-   * Executes `addAll` to handle add all.
-   * @zh 执行 `addAll`，用于添加全部。
-   * @param objs - objs parameter (`Object | any[]`) / 对象参数（`Object | any[]`）
-   */
-  addAll(objs) {
+  /** 批量添加：数组按 getKey 取键；对象按属性名作键 */
+  addAll(objs: T[] | { [key: string]: T }): void {
     if (Array.isArray(objs) && objs.length > 0) {
-      let args = arguments.length > 1 ? arguments : objs;
-      for (let i = 0, len = args.length; i < len; i++) {
-        this.add(args[i]);
+      for (let i = 0, len = objs.length; i < len; i++) {
+        this.add(objs[i]);
       }
     } else {
-      for (let key in objs) {
-        if (this.allowFunctions || typeof objs[key] != 'function') {
-          this.add(key, objs[key]);
+      for (const key in objs) {
+        const value = (objs as { [key: string]: T })[key];
+        if (this.allowFunctions || typeof value != 'function') {
+          this.add(key, value);
         }
       }
     }
   }
 
-  /**
-   * Executes `each` to handle each.
-   * @zh 执行 `each`，用于每个。
-   * @param fn - fn parameter (`Function`) / 函数参数（`Function`）
-   * @param scope - scope parameter (`any`) / scope参数（`any`）
-   */
-  each(fn: Function, scope?) {
-    let items = [].concat(this.items);
+  /** 逐个调用 fn(item, index, length)；fn 返回 false 时停止 */
+  each(fn: (item: T, index: number, length: number) => unknown, scope?: object): void {
+    const items = [...this.items];
     for (let i = 0, len = items.length; i < len; i++) {
       if (fn.call(scope || items[i], items[i], i, len) === false) {
         break;
@@ -156,27 +124,16 @@ export class MixedCollection<T>  extends EventEmitter{
     this.itemsSubject.next(this.items);
   }
 
-  /**
-   * Executes `eachKey` to handle each key.
-   * @zh 执行 `eachKey`，用于每个键。
-   * @param fn - fn parameter (`Function`) / 函数参数（`Function`）
-   * @param scope - scope parameter (`Object`) / scope参数（`Object`）
-   */
-  eachKey(fn: Function, scope: Object) {
+  /** 逐个调用 fn(key, item, index, length) */
+  eachKey(fn: (key: CollectionKey, item: T, index: number, length: number) => unknown, scope?: object): void {
     for (let i = 0, len = this.keys.length; i < len; i++) {
       fn.call(scope || window, this.keys[i], this.items[i], i, len);
     }
     this.itemsSubject.next(this.items);
   }
 
-  /**
-   * Executes `find` to handle find.
-   * @zh 执行 `find`，用于查找。
-   * @param fn - fn parameter (`Function`) / 函数参数（`Function`）
-   * @param scope - scope parameter (`Object`) / scope参数（`Object`）
-   * @returns Result of type `Object` / 类型为 `Object` 的返回值
-   */
-  find(fn: Function, scope: Object): Object {
+  /** 返回第一个让 fn(item, key) 为真的元素，没有则 null */
+  find(fn: (item: T, key: CollectionKey) => unknown, scope?: object): T | null {
     for (let i = 0, len = this.items.length; i < len; i++) {
       if (fn.call(scope || window, this.items[i], this.keys[i])) {
         return this.items[i];
@@ -185,18 +142,18 @@ export class MixedCollection<T>  extends EventEmitter{
     return null;
   }
 
-  /**
-   * Executes `insert` to handle insert.
-   * @zh 执行 `insert`，用于插入。
-   * @param index - index parameter (`number`) / 索引参数（`number`）
-   * @param key - key parameter (`string`) / 键参数（`string`）
-   * @param o - o parameter (`Object`) / o参数（`Object`）
-   * @returns Result of type `Object` / 类型为 `Object` 的返回值
-   */
-  insert(index: number, key: string, o: Object): Object {
+  /** 在指定位置插入；只传 (index, item) 时用 getKey 取键 */
+  insert(index: number, o: T): T;
+  insert(index: number, key: CollectionKey, o: T): T;
+  insert(index: number, keyOrItem: CollectionKey | T, item?: T): T {
+    let key: CollectionKey;
+    let o: T;
     if (arguments.length == 2) {
-      o = arguments[1];
+      o = keyOrItem as T;
       key = this.getKey(o);
+    } else {
+      key = keyOrItem as CollectionKey;
+      o = item;
     }
     if (this.containsKey(key)) {
       this.removeKey(key);
@@ -214,29 +171,19 @@ export class MixedCollection<T>  extends EventEmitter{
     return o;
   }
 
-  /**
-   * Executes `remove` to handle remove.
-   * @zh 执行 `remove`，用于移除。
-   * @param o - o parameter (`Object`) / o参数（`Object`）
-   * @returns Result of type `Object` / 类型为 `Object` 的返回值
-   */
-  remove(o: Object): Object {
+  /** 移除元素；不在集合里时返回 false */
+  remove(o: T): T | false {
     return this.removeAt(this.indexOf(o));
   }
 
-  /**
-   * Executes `removeAt` to handle remove at.
-   * @zh 执行 `removeAt`，用于移除位于。
-   * @param index - index parameter (`number`) / 索引参数（`number`）
-   * @returns Result of type `Object` / 类型为 `Object` 的返回值
-   */
-  removeAt(index: number): Object {
+  /** 按下标移除；下标越界时返回 false */
+  removeAt(index: number): T | false {
     if (index < this.length && index >= 0) {
       this.length--;
-      let o = this.items[index];
+      const o = this.items[index];
       this.items.splice(index, 1);
       this.itemsSubject.next(this.items);
-      let key = this.keys[index];
+      const key = this.keys[index];
       if (typeof key != 'undefined') {
         delete this.map[key];
       }
@@ -246,196 +193,113 @@ export class MixedCollection<T>  extends EventEmitter{
     return false;
   }
 
-  /**
-   * Executes `pop` to handle pop.
-   * @zh 执行 `pop`，用于弹出。
-   */
-  pop() {
+  /** 移除并返回最后一个元素 */
+  pop(): T | false {
     return this.removeAt(this.length - 1);
   }
 
-  /**
-   * Executes `removeKey` to handle remove key.
-   * @zh 执行 `removeKey`，用于移除键。
-   * @param key - key parameter (`string`) / 键参数（`string`）
-   * @returns Result of type `Object` / 类型为 `Object` 的返回值
-   */
-  removeKey(key: string): Object {
+  /** 按键移除 */
+  removeKey(key: CollectionKey): T | false {
     return this.removeAt(this.indexOfKey(key));
   }
 
-  /**
-   * Executes `getCount` to handle get count.
-   * @zh 执行 `getCount`，用于获取计数。
-   * @returns Result of type `number` / 类型为 `number` 的返回值
-   */
   getCount(): number {
     return this.length;
   }
 
-  /**
-   * Executes `indexOf` to handle index of.
-   * @zh 执行 `indexOf`，用于索引的。
-   * @param o - o parameter (`Object`) / o参数（`Object`）
-   * @returns Result of type `number` / 类型为 `number` 的返回值
-   */
-  indexOf(o: Object): number {
+  indexOf(o: T): number {
     return this.items.indexOf(o);
   }
 
-  /**
-   * Executes `indexOfKey` to handle index of key.
-   * @zh 执行 `indexOfKey`，用于索引的键。
-   * @param key - key parameter (`string`) / 键参数（`string`）
-   * @returns Result of type `number` / 类型为 `number` 的返回值
-   */
-  indexOfKey(key: string): number {
+  indexOfKey(key: CollectionKey): number {
     return this.keys.indexOf(key);
   }
 
-  /**
-   * Executes `get` to handle get.
-   * @zh 执行 `get`，用于获取。
-   * @param key - key parameter (`number | string`) / 键参数（`number | string`）
-   * @returns Result of type `Object` / 类型为 `Object` 的返回值
-   */
-  get(key: number | string): Object {
-    let mk = this.map[key], item = mk !== undefined ? mk : typeof key == 'number' ? this.items[key] : undefined;
+  /** 先按键找，找不到且 key 是数字时按下标取；函数元素在不允许时返回 null */
+  get(key: CollectionKey): T | null {
+    const mk = this.map[key];
+    const item = mk !== undefined ? mk : typeof key == 'number' ? this.items[key] : undefined;
     return typeof item != 'function' || this.allowFunctions ? item : null;
   }
 
-  /**
-   * Executes `itemAt` to handle item at.
-   * @zh 执行 `itemAt`，用于条目位于。
-   * @param index - index parameter (`number`) / 索引参数（`number`）
-   * @returns Result of type `Object` / 类型为 `Object` 的返回值
-   */
-  itemAt(index: number): Object {
+  itemAt(index: number): T {
     return this.items[index];
   }
 
-  /**
-   * Executes `key` to handle key.
-   * @zh 执行 `key`，用于键。
-   * @param key - key parameter (`number | string`) / 键参数（`number | string`）
-   * @returns Result of type `Object` / 类型为 `Object` 的返回值
-   */
-  key(key: number | string): Object {
+  key(key: CollectionKey): T {
     return this.map[key];
   }
 
-  /**
-   * Executes `contains` to handle contains.
-   * @zh 执行 `contains`，用于contains。
-   * @param o - o parameter (`Object`) / o参数（`Object`）
-   * @returns Result of type `boolean` / 类型为 `boolean` 的返回值
-   */
-  contains(o: Object): boolean {
+  contains(o: T): boolean {
     return this.indexOf(o) != -1;
   }
 
-  /**
-   * Executes `containsKey` to handle contains key.
-   * @zh 执行 `containsKey`，用于contains键。
-   * @param key - key parameter (`string`) / 键参数（`string`）
-   * @returns Result of type `boolean` / 类型为 `boolean` 的返回值
-   */
-  containsKey(key: string): boolean {
+  containsKey(key: CollectionKey): boolean {
     return typeof this.map[key] != 'undefined';
   }
 
-  /**
-   * Executes `clear` to handle clear.
-   * @zh 执行 `clear`，用于清空。
-   */
-  clear() {
+  clear(): void {
     this.length = 0;
     this.items = [];
     this.keys = [];
     this.map = {};
   }
 
-  /**
-   * Executes `first` to handle first.
-   * @zh 执行 `first`，用于首个。
-   * @returns Result of type `Object` / 类型为 `Object` 的返回值
-   */
-  first(): Object {
+  first(): T {
     return this.items[0];
   }
 
-  /**
-   * Executes `last` to handle last.
-   * @zh 执行 `last`，用于末尾。
-   * @returns Result of type `Object` / 类型为 `Object` 的返回值
-   */
-  last(): Object {
+  last(): T {
     return this.items[this.length - 1];
   }
 
-  /**
-   * Executes `_sort` to handle sort.
-   * @zh 执行 `_sort`，用于排序。
-   * @param property - property parameter (`string`) / 属性参数（`string`）
-   * @param dir - dir parameter (`string`) / 目录参数（`string`）
-   * @param fn - fn parameter (`Function`) / 函数参数（`Function`）
-   */
-  _sort(property: string, dir: string, fn: Function) {
-    let i, len, dsc = String(dir).toUpperCase() == 'DESC' ? -1 : 1,
-      c = [], keys = this.keys, items = this.items;
-    fn = fn ||
-      function (a, b) {
-        return a - b;
-      };
+  _sort(property: 'key' | 'value', dir: string, fn?: (a: unknown, b: unknown) => number): void {
+    const dsc = String(dir).toUpperCase() == 'DESC' ? -1 : 1;
+    const keys = this.keys;
+    const items = this.items;
+    const compare = fn || ((a: unknown, b: unknown) => (a as number) - (b as number));
+    const c: Array<{ key: CollectionKey; value: T; index: number }> = [];
 
-    for (i = 0, len = items.length; i < len; i++) {
+    for (let i = 0, len = items.length; i < len; i++) {
       c[c.length] = { key: keys[i], value: items[i], index: i };
     }
 
     //sort the temporary array
-    c.sort(
-      function (a, b) {
-        let v = fn(a[property], b[property]) * dsc;
-        if (v === 0) {
-          v = a.index < b.index ? -1 : 1;
-        }
-        return v;
-      });
+    c.sort(function (a, b) {
+      let v = compare(a[property], b[property]) * dsc;
+      if (v === 0) {
+        v = a.index < b.index ? -1 : 1;
+      }
+      return v;
+    });
 
-    for (i = 0, len = c.length; i < len; i++) {
+    for (let i = 0, len = c.length; i < len; i++) {
       items[i] = c[i].value;
       keys[i] = c[i].key;
     }
   }
 
-  /**
-   * Executes `sort` to handle sort.
-   * @zh 执行 `sort`，用于排序。
-   * @param dir - dir parameter (`any`) / 目录参数（`any`）
-   * @param fn - fn parameter (`Function`) / 函数参数（`Function`）
-   */
-  sort(dir, fn: Function) {
-    this._sort('value', dir, fn);
+  sort(dir: string, fn?: (a: T, b: T) => number): void {
+    this._sort('value', dir, fn as (a: unknown, b: unknown) => number);
   }
 
-  /**
-   * Executes `reorder` to handle reorder.
-   * @zh 执行 `reorder`，用于重排。
-   * @param mapping - mapping parameter (`Object`) / 映射参数（`Object`）
-   */
-  reorder(mapping: Object) {
-    let items = this.items, index = 0, length = items.length, order = [], remaining = [], oldIndex;
+  /** 按 {旧位置: 新位置} 重排 */
+  reorder(mapping: { [oldIndex: number]: number }): void {
+    const items = this.items;
+    const length = items.length;
+    const order: T[] = [];
+    const remaining: T[] = [];
 
     //object of {oldPosition: newPosition} reversed to {newPosition: oldPosition}
-    for (oldIndex in mapping) {
+    for (const oldIndex in mapping) {
       order[mapping[oldIndex]] = items[oldIndex];
     }
-    for (index = 0; index < length; index++) {
+    for (let index = 0; index < length; index++) {
       if (mapping[index] == undefined) {
         remaining.push(items[index]);
       }
     }
-    for (index = 0; index < length; index++) {
+    for (let index = 0; index < length; index++) {
       if (order[index] == undefined) {
         order[index] = remaining.shift();
       }
@@ -444,78 +308,57 @@ export class MixedCollection<T>  extends EventEmitter{
     this.addAll(order);
   }
 
-  /**
-   * Executes `keySort` to handle key sort.
-   * @zh 执行 `keySort`，用于键排序。
-   * @param dir - dir parameter (`any`) / 目录参数（`any`）
-   * @param fn - fn parameter (`Function`) / 函数参数（`Function`）
-   */
-  keySort(dir, fn: Function) {
-    this._sort('key', dir, fn ||
-      function (a, b) {
-        let v1 = String(a).toUpperCase(), v2 = String(b).toUpperCase();
-        return v1 > v2 ? 1 : v1 < v2 ? -1 : 0;
-      });
+  keySort(dir: string, fn?: (a: CollectionKey, b: CollectionKey) => number): void {
+    this._sort(
+      'key',
+      dir,
+      (fn as (a: unknown, b: unknown) => number) ||
+        function (a: unknown, b: unknown) {
+          const v1 = String(a).toUpperCase(),
+            v2 = String(b).toUpperCase();
+          return v1 > v2 ? 1 : v1 < v2 ? -1 : 0;
+        }
+    );
   }
 
-  /**
-   * Executes `getRange` to handle get range.
-   * @zh 执行 `getRange`，用于获取范围。
-   * @param start - start parameter (`any`) / 开始参数（`any`）
-   * @param end - end parameter (`any`) / 结束参数（`any`）
-   * @returns Result of type `Array<any>` / 类型为 `Array<any>` 的返回值
-   */
-  getRange(start, end) {
-    let items = this.items;
+  /** 取 [start, end] 区间的元素（end 默认最后一个；start > end 时倒序） */
+  getRange(start?: number, end?: number): T[] {
+    const items = this.items;
     if (items.length < 1) {
       return [];
     }
     start = start || 0;
     end = Math.min(typeof end == 'undefined' ? this.length - 1 : end, this.length - 1);
-    let i, r = [];
+    const r: T[] = [];
     if (start <= end) {
-      for (i = start; i <= end; i++) {
+      for (let i = start; i <= end; i++) {
         r[r.length] = items[i];
       }
     } else {
-      for (i = start; i >= end; i--) {
+      for (let i = start; i >= end; i--) {
         r[r.length] = items[i];
       }
     }
     return r;
   }
 
-  /**
-   * Executes `filter` to handle filter.
-   * @zh 执行 `filter`，用于过滤。
-   * @param property - property parameter (`string`) / 属性参数（`string`）
-   * @param value - value parameter (`any`) / 值参数（`any`）
-   * @param anyMatch - any match parameter (`boolean`) / 任意匹配参数（`boolean`）
-   * @param caseSensitive - case sensitive parameter (`boolean`) / caseSensitive参数（`boolean`）
-   * @returns Result of type `MixedCollection<any>` / 类型为 `MixedCollection<any>` 的返回值
-   */
-  filter(property: string, value, anyMatch: boolean, caseSensitive: boolean) {
+  /** 按属性值过滤，返回新集合 */
+  filter(property: string, value: string | RegExp, anyMatch: boolean, caseSensitive: boolean): MixedCollection<T> {
     if (DuiBase.isEmpty(value, false)) {
       return this.clone();
     }
-    value = this.createValueMatcher(value, anyMatch, caseSensitive);
-    return this.filterBy(
-      function (o) {
-        return o && value.test(o[property]);
-      });
+    const matcher = this.createValueMatcher(value, anyMatch, caseSensitive);
+    return this.filterBy(function (o: T) {
+      return o && matcher.test(String((o as Record<string, unknown>)[property]));
+    });
   }
 
-  /**
-   * Executes `filterBy` to handle filter by.
-   * @zh 执行 `filterBy`，用于过滤按。
-   * @param fn - fn parameter (`Function`) / 函数参数（`Function`）
-   * @param scope - scope parameter (`any`) / scope参数（`any`）
-   * @returns Result of type `MixedCollection<any>` / 类型为 `MixedCollection<any>` 的返回值
-   */
-  filterBy(fn: Function, scope?) {
-    let r = new MixedCollection();
+  /** 按 fn(item, key) 过滤，返回新集合 */
+  filterBy(fn: (item: T, key: CollectionKey) => unknown, scope?: object): MixedCollection<T> {
+    const r = new MixedCollection<T>();
     r.getKey = this.getKey;
-    let k = this.keys, it = this.items;
+    const k = this.keys,
+      it = this.items;
     for (let i = 0, len = it.length; i < len; i++) {
       if (fn.call(scope || this, it[i], k[i])) {
         r.add(k[i], it[i]);
@@ -524,37 +367,23 @@ export class MixedCollection<T>  extends EventEmitter{
     return r;
   }
 
-  /**
-   * Executes `findIndex` to handle find index.
-   * @zh 执行 `findIndex`，用于查找索引。
-   * @param property - property parameter (`string`) / 属性参数（`string`）
-   * @param value - value parameter (`any`) / 值参数（`any`）
-   * @param start - start parameter (`number`) / 开始参数（`number`）
-   * @param anyMatch - any match parameter (`boolean`) / 任意匹配参数（`boolean`）
-   * @param caseSensitive - case sensitive parameter (`boolean`) / caseSensitive参数（`boolean`）
-   * @returns Result of type `number` / 类型为 `number` 的返回值
-   */
-  findIndex(property: string, value, start: number, anyMatch: boolean, caseSensitive: boolean): number {
+  findIndex(property: string, value: string | RegExp, start: number, anyMatch: boolean, caseSensitive: boolean): number {
     if (DuiBase.isEmpty(value, false)) {
       return -1;
     }
-    value = this.createValueMatcher(value, anyMatch, caseSensitive);
+    const matcher = this.createValueMatcher(value, anyMatch, caseSensitive);
     return this.findIndexBy(
-      function (o) {
-        return o && value.test(o[property]);
-      }, null, start);
+      function (o: T) {
+        return o && matcher.test(String((o as Record<string, unknown>)[property]));
+      },
+      null,
+      start
+    );
   }
 
-  /**
-   * Executes `findIndexBy` to handle find index by.
-   * @zh 执行 `findIndexBy`，用于查找索引按。
-   * @param fn - fn parameter (`Function`) / 函数参数（`Function`）
-   * @param scope - scope parameter (`Object`) / scope参数（`Object`）
-   * @param start - start parameter (`number`) / 开始参数（`number`）
-   * @returns Result of type `number` / 类型为 `number` 的返回值
-   */
-  findIndexBy(fn: Function, scope: Object, start: number): number {
-    let k = this.keys, it = this.items;
+  findIndexBy(fn: (item: T, key: CollectionKey) => unknown, scope: object, start: number): number {
+    const k = this.keys,
+      it = this.items;
     for (let i = start || 0, len = it.length; i < len; i++) {
       if (fn.call(scope || this, it[i], k[i])) {
         return i;
@@ -563,39 +392,29 @@ export class MixedCollection<T>  extends EventEmitter{
     return -1;
   }
 
-  /**
-   * Executes `createValueMatcher` to handle create value matcher.
-   * @zh 执行 `createValueMatcher`，用于创建值匹配器。
-   * @param value - value parameter (`any`) / 值参数（`any`）
-   * @param anyMatch - any match parameter (`boolean`) / 任意匹配参数（`boolean`）
-   * @param caseSensitive - case sensitive parameter (`boolean`) / caseSensitive参数（`boolean`）
-   * @param exactMatch - exact match parameter (`boolean`) / exact匹配参数（`boolean`）
-   */
-  createValueMatcher(value, anyMatch: boolean, caseSensitive: boolean, exactMatch?: boolean) {
-    if (!value.exec) {
-      let er = DuiBase.escapeRe;
-      value = String(value);
-      if (anyMatch === true) {
-        value = er(value);
-      } else {
-        value = '^' + er(value);
-        if (exactMatch === true) {
-          value += '$';
-        }
-      }
-      value = new RegExp(value, caseSensitive ? '' : 'i');
+  /** 字符串转成匹配用的正则；已经是正则则原样返回 */
+  createValueMatcher(value: string | RegExp, anyMatch: boolean, caseSensitive: boolean, exactMatch?: boolean): RegExp {
+    if (value instanceof RegExp) {
+      return value;
     }
-    return value;
+    const er = DuiBase.escapeRe;
+    let pattern = String(value);
+    if (anyMatch === true) {
+      pattern = er(pattern);
+    } else {
+      pattern = '^' + er(pattern);
+      if (exactMatch === true) {
+        pattern += '$';
+      }
+    }
+    return new RegExp(pattern, caseSensitive ? '' : 'i');
   }
 
-  /**
-   * Executes `clone` to handle clone.
-   * @zh 执行 `clone`，用于克隆。
-   * @returns Result of type `MixedCollection<any>` / 类型为 `MixedCollection<any>` 的返回值
-   */
-  clone() {
-    let r = new MixedCollection();
-    let k = this.keys, it = this.items;
+  /** 浅拷贝成新集合 */
+  clone(): MixedCollection<T> {
+    const r = new MixedCollection<T>();
+    const k = this.keys,
+      it = this.items;
     for (let i = 0, len = it.length; i < len; i++) {
       r.add(k[i], it[i]);
     }

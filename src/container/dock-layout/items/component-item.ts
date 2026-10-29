@@ -28,9 +28,9 @@ export class ComponentItem extends ContentItem {
      */
     private _reorderEnabled: boolean;
     /**
-     * Property `_headerConfig` (`ResolvedHeaderedItemConfig.Header | undefined`) storing header config.
+     * Property `_headerConfig` (`ResolvedHeaderedItemConfig.Header`) storing header config.
      * @internal
-     * @zh 属性 `_headerConfig`（类型：`ResolvedHeaderedItemConfig.Header | undefined`），用于存储或配置表头配置。
+     * @zh 属性 `_headerConfig`（类型：`ResolvedHeaderedItemConfig.Header`），用于存储或配置表头配置。
      */
     private _headerConfig: ResolvedHeaderedItemConfig.Header | undefined;
     /**
@@ -238,7 +238,7 @@ export class ComponentItem extends ContentItem {
     /**
      * Executes `exitDragMode` to handle exit drag mode.
      * @internal
-     * @zh 执行 `exitDragMode`，用于exit拖拽模式。
+     * @zh 执行 `exitDragMode`，用于退出拖拽模式。
      */
     exitDragMode(): void {
         this._container.exitDragMode();
@@ -256,7 +256,7 @@ export class ComponentItem extends ContentItem {
     /**
      * Executes `exitStackMaximised` to handle exit stack maximised.
      * @internal
-     * @zh 执行 `exitStackMaximised`，用于exit栈最大化。
+     * @zh 执行 `exitStackMaximised`，用于退出栈最大化。
      */
     exitStackMaximised(): void {
         this._container.exitStackMaximised();
@@ -362,7 +362,7 @@ export class ComponentItem extends ContentItem {
     /**
      * Executes `blur` to handle blur.
      * @zh 执行 `blur`，用于失焦。
-     * @param suppressEvent - suppress event parameter (`any`) / suppress事件参数（`any`）
+     * @param suppressEvent - suppress event parameter (`boolean`) / suppress事件参数（`boolean`）
      */
     blur(suppressEvent = false): void {
         if (this._focused) {

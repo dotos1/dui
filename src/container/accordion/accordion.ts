@@ -4,6 +4,7 @@
  */
 
 
+import { DuiConfig } from '@dotos/dui/base';
 import { Component, SimpleChanges, Input, ViewChild, ViewContainerRef, ComponentFactoryResolver, Injector, ChangeDetectorRef, ElementRef, Renderer2, OnChanges } from '@angular/core';
 import { coerceBooleanProperty } from '@angular/cdk/coercion';
 import { Dui } from '@dotos/dui/core';
@@ -42,7 +43,7 @@ export class Accordion extends AbstractPanel implements OnChanges{
 
   /**
    * A readonly id value to use for unique selection coordination.
-   * @zh 属性 `id`（类型：`any`），用于存储或配置唯一标识（默认值：`'cdk-accordion-${nextId++}'`）。
+   * @zh 属性 `id`（类型：`string`），用于存储或配置唯一标识（默认值：`'cdk-accordion-${nextId++}'`）。
    */
   override readonly id = `cdk-accordion-${nextId++}`;
 
@@ -88,10 +89,10 @@ export class Accordion extends AbstractPanel implements OnChanges{
   @Input() displayMode: AccordionDisplayMode = 'default';
 
   /**
-   * Input property `config` (`any`) configuring config (default: `{}`).
-   * @zh 输入属性 `config`（类型：`any`），用于配置配置（默认值：`{}`）。
+   * Input property `config` (`DuiConfig`) configuring config (default: `{}`).
+   * @zh 输入属性 `config`（类型：`DuiConfig`），用于配置配置（默认值：`{}`）。
    */
-  @Input() override config = {};
+  @Input() override config: DuiConfig = {};
 
   /**
    * Property `xtype` (`string`) storing xtype (default: `'accordion'`).
@@ -100,22 +101,22 @@ export class Accordion extends AbstractPanel implements OnChanges{
   public override xtype: string = 'accordion';
 
 /**
- * Template/content query reference `viewContainer` (`@ViewChild`) targeting view container.
+ * Template/content query reference `viewContainer` (`ViewContainerRef`) targeting view container.
  * @zh 模板/内容视图查询引用 `viewContainer`（`@ViewChild`），指向视图容器。
  */
 //@ts-ignore
   @ViewChild('expansiongroup', { read: ViewContainerRef }) public override viewContainer: ViewContainerRef;
 
   /**
-   * Property `_fxLayout` (`'row' | 'column'`) storing fx layout (default: `'column'`).
-   * @zh 属性 `_fxLayout`（类型：`'row' | 'column'`），用于存储或配置fx布局（默认值：`'column'`）。
+   * Property `_fxLayout` (`"column" | "row"`) storing fx layout (default: `'column'`).
+   * @zh 属性 `_fxLayout`（类型：`"column" | "row"`），用于存储或配置fx布局（默认值：`'column'`）。
    */
   public override _fxLayout: 'row' | 'column' = 'column';
 
   /**
    * Input setter `fxLayout` updating fx layout.
    * @zh 输入属性 `fxLayout` 的设置器，用于更新fx布局。
-   * @param v - New fx layout value (`'row' | 'column'`) / 新的fx布局值（`'row' | 'column'`）
+   * @param v - New fx layout value (`"column" | "row"`) / 新的fx布局值（`"column" | "row"`）
    */
   @Input() override set fxLayout(v: 'row' | 'column') {
     v = (v === 'row') ? 'row' : 'column';
@@ -133,7 +134,7 @@ export class Accordion extends AbstractPanel implements OnChanges{
   /**
    * Creates an instance of `Accordion` and initializes its dependencies and internal state.
    * @zh 创建 `Accordion` 实例，并初始化其依赖项与内部状态。
-   * @param _element - Injected or initial element (`ElementRef`) / 注入或传入的元素（`ElementRef`）
+   * @param _element - Injected or initial element (`ElementRef<any>`) / 注入或传入的元素（`ElementRef<any>`）
    * @param renderer - Injected or initial renderer (`Renderer2`) / 注入或传入的渲染器（`Renderer2`）
    * @param resolver - Injected or initial resolver (`ComponentFactoryResolver`) / 注入或传入的解析器（`ComponentFactoryResolver`）
    * @param injector - Injected or initial injector (`Injector`) / 注入或传入的注入器（`Injector`）
@@ -174,10 +175,6 @@ export class Accordion extends AbstractPanel implements OnChanges{
     if (this.viewContainer) {
       this.viewContainer.clear();
     }
-    let items = this.items;
-    if (items) {
-      delete this.items;
-      this.add(items);
-    }
+    this.addConfiguredItems();
   }
 }

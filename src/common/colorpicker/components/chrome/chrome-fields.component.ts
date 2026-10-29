@@ -174,7 +174,7 @@ export class ChromeFieldsComponent implements OnInit {
    */
   @Input() hex: string;
   /**
-   * Output event emitter `onChange` (`EventEmitter`) firing when on change occurs.
+   * Output event emitter `onChange` (`EventEmitter<any>`) firing when on change occurs.
    * @zh 字段值变化时发出。
    * @zh 字段值变化时发出。
    */
@@ -186,7 +186,7 @@ export class ChromeFieldsComponent implements OnInit {
    */
   view = '';
   /**
-   * Property `input` (`{ [key: string]: string }`) storing input.
+   * Property `input` (`{ [key: string]: string; }`) storing input.
    * @zh 输入框的内联样式。
    * @zh 输入框的内联样式。
    */
@@ -201,7 +201,7 @@ export class ChromeFieldsComponent implements OnInit {
     'text-align': 'center',
   };
   /**
-   * Property `label` (`{ [key: string]: string }`) storing label.
+   * Property `label` (`{ [key: string]: string; }`) storing label.
    * @zh 标签的内联样式。
    * @zh 标签的内联样式。
    */

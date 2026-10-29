@@ -13,23 +13,23 @@ import { convertToPercentage } from './util';
  */
 export interface RatioInput {
   /**
-   * Property `r` (`number | string`) storing r.
-   * @zh 属性 `r`（类型：`number | string`），用于存储或配置r。
+   * Property `r` (`string | number`) storing r.
+   * @zh 属性 `r`（类型：`string | number`），用于存储或配置r。
    */
   r: number | string;
   /**
-   * Property `g` (`number | string`) storing g.
-   * @zh 属性 `g`（类型：`number | string`），用于存储或配置g。
+   * Property `g` (`string | number`) storing g.
+   * @zh 属性 `g`（类型：`string | number`），用于存储或配置g。
    */
   g: number | string;
   /**
-   * Property `b` (`number | string`) storing b.
-   * @zh 属性 `b`（类型：`number | string`），用于存储或配置b。
+   * Property `b` (`string | number`) storing b.
+   * @zh 属性 `b`（类型：`string | number`），用于存储或配置b。
    */
   b: number | string;
   /**
-   * Property `a` (`number | string`) storing a.
-   * @zh 属性 `a`（类型：`number | string`），用于存储或配置a。
+   * Property `a` (`string | number`) storing a.
+   * @zh 属性 `a`（类型：`string | number`），用于存储或配置a。
    */
   a?: number | string;
 }

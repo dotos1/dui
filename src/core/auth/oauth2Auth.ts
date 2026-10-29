@@ -57,8 +57,8 @@ export class Oauth2Auth  {
      */
     token: string;
     /**
-     * Property `discovery` (`any`) storing discovery (default: `{}`).
-     * @zh 属性 `discovery`（类型：`any`），用于存储或配置discovery（默认值：`{}`）。
+     * Property `discovery` (`{ loginUrl?: any; logoutUrl?: any; tokenEndpoint?: any; }`) storing discovery (default: `{}`).
+     * @zh 属性 `discovery`（类型：`{ loginUrl?: any; logoutUrl?: any; tokenEndpoint?: any; }`），用于存储或配置discovery（默认值：`{}`）。
      */
     discovery: { loginUrl?; logoutUrl?; tokenEndpoint? } = {};
 
@@ -90,8 +90,8 @@ export class Oauth2Auth  {
 
 
     /**
-     * Property `subject` (`Subject<any>`) storing subject (default: `new Subject<any>()`).
-     * @zh 属性 `subject`（类型：`Subject<any>`），用于存储或配置主题流（默认值：`new Subject<any>()`）。
+     * Property `subject` (`Subject<unknown>`) storing subject (default: `new Subject<any>()`).
+     * @zh 属性 `subject`（类型：`Subject<unknown>`），用于存储或配置主题流（默认值：`new Subject<any>()`）。
      */
     subject = new Subject();
 
@@ -206,7 +206,7 @@ export class Oauth2Auth  {
      * @param oauth2 - oauth2 parameter (`any`) / oauth2参数（`any`）
      * @param nonceKey - nonce key parameter (`string`) / nonce键参数（`string`）
      * @param externalHash - external hash parameter (`any`) / 外部Hash参数（`any`）
-     * @returns Result of type `any` / 类型为 `any` 的返回值
+     * @returns Result of type `void` / 类型为 `void` 的返回值
      */
     checkFragment(oauth2,nonceKey?: string, externalHash?) {
         this.hashFragmentParams = this.getHashFragmentParams(externalHash);
@@ -293,7 +293,7 @@ export class Oauth2Auth  {
      * @zh 执行 `processJWTToken`，用于处理JWT令牌。
      * @param jwt - jwt parameter (`any`) / jwt参数（`any`）
      * @param nonceKey - nonce key parameter (`string`) / nonce键参数（`string`）
-     * @returns Result of type `any` / 类型为 `any` 的返回值
+     * @returns Result of type `{ idToken: any; payload: any; header: any; }` / 类型为 `{ idToken: any; payload: any; header: any; }` 的返回值
      */
     processJWTToken(jwt, nonceKey: string) {
         if (jwt) {
@@ -424,8 +424,8 @@ export class Oauth2Auth  {
     // few ms between this check and the request actually reaching the server -- doesn't
     // let an about-to-expire token through as "valid".
     /**
-     * Property `ACCESS_TOKEN_EXPIRY_BUFFER_MS` (`number`) storing access token expiry buffer ms (default: `30000`).
-     * @zh 属性 `ACCESS_TOKEN_EXPIRY_BUFFER_MS`（类型：`number`），用于存储或配置ACCESS令牌EXPIRY缓冲区毫秒（默认值：`30000`）。
+     * Property `ACCESS_TOKEN_EXPIRY_BUFFER_MS` (`30000`) storing access token expiry buffer ms (default: `30000`).
+     * @zh 属性 `ACCESS_TOKEN_EXPIRY_BUFFER_MS`（类型：`30000`），用于存储或配置ACCESS令牌EXPIRY缓冲区毫秒（默认值：`30000`）。
      */
     private static readonly ACCESS_TOKEN_EXPIRY_BUFFER_MS = 30000;
 
@@ -616,7 +616,7 @@ export class Oauth2Auth  {
      * Executes `parseQueryString` to handle parse query string.
      * @zh 执行 `parseQueryString`，用于解析查询字符串。
      * @param queryString - query string parameter (`string`) / 查询字符串参数（`string`）
-     * @returns Result of type `any` / 类型为 `any` 的返回值
+     * @returns Result of type `{ [key: string]: Object; }` / 类型为 `{ [key: string]: Object; }` 的返回值
      */
     parseQueryString(queryString: string) {
         const data: { [key: string]: Object } = {};
@@ -724,10 +724,10 @@ export class Oauth2Auth  {
 
     /**
      * Executes `login` to handle login.
-     * @zh 执行 `login`，用于login。
+     * @zh 执行 `login`，用于登录。
      * @param username - username parameter (`string`) / 用户名参数（`string`）
      * @param password - password parameter (`string`) / 密码参数（`string`）
-     * @returns Result of type `Promise<any>` / 类型为 `Promise<any>` 的返回值
+     * @returns Result of type `Promise<unknown>` / 类型为 `Promise<unknown>` 的返回值
      */
     login(username: string, password: string) {
       let oauth2 =this.config.getSettings('oauth2');
@@ -791,15 +791,15 @@ export class Oauth2Auth  {
         // this.refreshTokenIntervalPolling.unref();
     }
   /**
-   * Property `refreshTokenPromise` (`Promise<any>`) storing refresh token promise (default: `null`).
-   * @zh 属性 `refreshTokenPromise`（类型：`Promise<any>`），用于存储或配置刷新令牌Promise（默认值：`null`）。
+   * Property `refreshTokenPromise` (`any`) storing refresh token promise (default: `null`).
+   * @zh 属性 `refreshTokenPromise`（类型：`any`），用于存储或配置刷新令牌Promise（默认值：`null`）。
    */
   private refreshTokenPromise = null;
 
   /**
    * Executes `refreshToken` to handle refresh token.
    * @zh 执行 `refreshToken`，用于刷新令牌。
-   * @returns Result of type `Promise<any>` / 类型为 `Promise<any>` 的返回值
+   * @returns Result of type `any` / 类型为 `any` 的返回值
    */
   refreshToken() {
 

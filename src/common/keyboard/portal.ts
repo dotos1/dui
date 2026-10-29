@@ -29,8 +29,8 @@ export interface ComponentType<T> {
  */
 export abstract class Portal<T> {
     /**
-     * Property `_attachedHost` (`PortalOutlet | null`) storing attached host.
-     * @zh 属性 `_attachedHost`（类型：`PortalOutlet | null`），用于存储或配置已附加宿主。
+     * Property `_attachedHost` (`PortalOutlet`) storing attached host.
+     * @zh 属性 `_attachedHost`（类型：`PortalOutlet`），用于存储或配置已附加宿主。
      */
     private _attachedHost: PortalOutlet | null;
 
@@ -105,13 +105,13 @@ export class ComponentPortal<T> extends Portal<ComponentRef<T>> {
      * This is different from where the component *renders*, which is determined by the PortalOutlet.
      * The origin is necessary when the host is outside of the Angular application context.
 
-     * @zh 属性 `viewContainerRef`（类型：`ViewContainerRef | null`），用于存储或配置视图容器引用。
+     * @zh 属性 `viewContainerRef`（类型：`ViewContainerRef`），用于存储或配置视图容器引用。
      */
     viewContainerRef?: ViewContainerRef | null;
 
     /**
      * [Optional] Injector used for the instantiation of the component.
-     * @zh 属性 `injector`（类型：`Injector | null`），用于存储或配置注入器。
+     * @zh 属性 `injector`（类型：`Injector`），用于存储或配置注入器。
      */
     injector?: Injector | null;
 
@@ -119,7 +119,7 @@ export class ComponentPortal<T> extends Portal<ComponentRef<T>> {
      * Alternate `ComponentFactoryResolver` to use when resolving the associated component.
      * Defaults to using the resolver from the outlet that the portal is attached to.
 
-     * @zh 属性 `componentFactoryResolver`（类型：`ComponentFactoryResolver | null`），用于存储或配置组件工厂解析器。
+     * @zh 属性 `componentFactoryResolver`（类型：`ComponentFactoryResolver`），用于存储或配置组件工厂解析器。
      */
     componentFactoryResolver?: ComponentFactoryResolver | null;
 
@@ -127,9 +127,9 @@ export class ComponentPortal<T> extends Portal<ComponentRef<T>> {
      * Creates an instance of `ComponentPortal` and initializes its dependencies and internal state.
      * @zh 创建 `ComponentPortal` 实例，并初始化其依赖项与内部状态。
      * @param component - Injected or initial component (`ComponentType<T>`) / 注入或传入的组件（`ComponentType<T>`）
-     * @param viewContainerRef - Injected or initial view container ref (`ViewContainerRef | null`) / 注入或传入的视图容器引用（`ViewContainerRef | null`）
-     * @param injector - Injected or initial injector (`Injector | null`) / 注入或传入的注入器（`Injector | null`）
-     * @param componentFactoryResolver - Injected or initial component factory resolver (`ComponentFactoryResolver | null`) / 注入或传入的组件工厂解析器（`ComponentFactoryResolver | null`）
+     * @param viewContainerRef - Injected or initial view container ref (`ViewContainerRef`) / 注入或传入的视图容器引用（`ViewContainerRef`）
+     * @param injector - Injected or initial injector (`Injector`) / 注入或传入的注入器（`Injector`）
+     * @param componentFactoryResolver - Injected or initial component factory resolver (`ComponentFactoryResolver`) / 注入或传入的组件工厂解析器（`ComponentFactoryResolver`）
      */
     constructor(
         component: ComponentType<T>,
@@ -164,7 +164,7 @@ export class TemplatePortal<C = unknown> extends Portal<C> {
 
     /**
      * Contextual data to be passed in to the embedded view.
-     * @zh 属性 `context`（类型：`C | undefined`），用于存储或配置上下文。
+     * @zh 属性 `context`（类型：`C`），用于存储或配置上下文。
      */
     context: C | undefined;
 
@@ -256,13 +256,13 @@ export interface PortalOutlet {
 export abstract class BasePortalOutlet implements PortalOutlet {
     /**
      * The portal currently attached to the host.
-     * @zh 属性 `_attachedPortal`（类型：`Portal<any> | null`），用于存储或配置已附加传送门容器。
+     * @zh 属性 `_attachedPortal`（类型：`any`），用于存储或配置已附加传送门容器。
      */
     protected _attachedPortal;
 
     /**
      * A function that will permanently dispose this host.
-     * @zh 属性 `_disposeFn`（类型：`(() => void) | null`），用于存储或配置释放函数。
+     * @zh 属性 `_disposeFn`（类型：`() => void`），用于存储或配置释放函数。
      */
     private _disposeFn: (() => void) | null;
 

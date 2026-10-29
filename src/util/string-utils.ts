@@ -28,7 +28,7 @@ export class StringUtils {
    * @zh 执行 `diff`，用于diff。
    * @param s1 - s1 parameter (`string`) / s1参数（`string`）
    * @param s2 - s2 parameter (`string`) / s2参数（`string`）
-   * @param p - p parameter (`any`) / p参数（`any`）
+   * @param p - p parameter (`number`) / p参数（`number`）
    * @returns Result of type `string` / 类型为 `string` 的返回值
    */
   static diff(s1: string, s2: string, p = 4): string {

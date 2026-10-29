@@ -135,16 +135,16 @@ export class ControlsComponent {
 
 
   /**
-   * Property `setSolid` (`any`) storing set solid.
-   * @zh 属性 `setSolid`（类型：`any`），用于存储或配置集合Solid。
+   * Property `setSolid` (`() => void`) storing set solid.
+   * @zh 属性 `setSolid`（类型：`() => void`），用于存储或配置集合Solid。
    */
   public setSolid = () => {
     this.conext .onChange(this.solidColor)
   }
 
    /**
-    * Property `setGradient` (`any`) storing set gradient.
-    * @zh 属性 `setGradient`（类型：`any`），用于存储或配置集合渐变。
+    * Property `setGradient` (`() => void`) storing set gradient.
+    * @zh 属性 `setGradient`（类型：`() => void`），用于存储或配置集合渐变。
     */
    setGradient = () => {
     this.conext. onChange(this. gradientColor)

@@ -57,7 +57,7 @@ export function createSymbolSvg(
  * Executes `removeAttributes` to handle remove attributes.
  * @zh 执行 `removeAttributes`，用于移除属性列表。
  * @param element - element parameter (`Element`) / 元素参数（`Element`）
- * @param attrs - attrs parameter (`Array<string>`) / 属性集合参数（`Array<string>`）
+ * @param attrs - attrs parameter (`string[]`) / 属性集合参数（`string[]`）
  */
 export function removeAttributes(element: Element, attrs: Array<string>): void {
   for (let i = 0; i < attrs.length; i++) {
@@ -76,7 +76,7 @@ export function removeAttributes(element: Element, attrs: Array<string>): void {
  * Executes `setAttributes` to handle set attributes.
  * @zh 执行 `setAttributes`，用于集合属性列表。
  * @param element - element parameter (`any`) / 元素参数（`any`）
- * @param attrs - attrs parameter (`{ [key: string]: any }`) / 属性集合参数（`{ [key: string]: any }`）
+ * @param attrs - attrs parameter (`{ [key: string]: unknown; }`) / 属性集合参数（`{ [key: string]: unknown; }`）
  */
 export function setAttributes(element, attrs: { [key: string]: unknown }): void {
   for (const attr in attrs) {

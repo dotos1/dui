@@ -75,7 +75,7 @@ export class DataTableFooterComponent {
 
 
   /**
-   * Template/content query reference `paging` (`@ViewChild`) targeting paging.
+   * Template/content query reference `paging` (`DuiPagingBarComponent`) targeting paging.
    * @zh 模板/内容视图查询引用 `paging`（`@ViewChild`），指向页面。
    */
   @ViewChild(DuiPagingBarComponent)

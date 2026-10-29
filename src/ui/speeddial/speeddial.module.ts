@@ -58,8 +58,8 @@ import { SpeedDialTriggerComponent } from './speed-dial-trigger';
 })
 export class SpeedDialModule {
   /**
-   * Property `entryComponents` (`any[]`) storing entry components.
-   * @zh 属性 `entryComponents`（类型：`any[]`），用于存储或配置条目组件列表。
+   * Property `entryComponents` (`(typeof SpeedDialActionsComponent | typeof SpeedDialComponent | typeof SpeedDialTriggerComponent | typeof ExtSpeedDialComponent | typeof FabButtonComponent)[]`) storing entry components.
+   * @zh 属性 `entryComponents`（类型：`(typeof SpeedDialActionsComponent | typeof SpeedDialComponent | typeof SpeedDialTriggerComponent | typeof ExtSpeedDialComponent | typeof FabButtonComponent)[]`），用于存储或配置条目组件列表。
    */
   entryComponents = [
     SpeedDialActionsComponent,

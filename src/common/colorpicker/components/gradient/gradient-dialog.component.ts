@@ -33,7 +33,7 @@ import {GradientComponent} from './gradient.component'
 })
 export class GradientDialogComponent  {
   /**
-   * Template/content query reference `sc` (`@ViewChild`) targeting sc.
+   * Template/content query reference `sc` (`GradientComponent`) targeting sc.
    * @zh 模板/内容视图查询引用 `sc`（`@ViewChild`），指向sc。
    */
   @ViewChild(GradientComponent) sc:GradientComponent;
@@ -63,7 +63,7 @@ export class GradientDialogComponent  {
   /**
    * Creates an instance of `GradientDialogComponent` and initializes its dependencies and internal state.
    * @zh 创建 `GradientDialogComponent` 实例，并初始化其依赖项与内部状态。
-   * @param _dialogRef - Injected or initial dialog ref (`MatDialogRef<GradientDialogComponent>`) / 注入或传入的对话框引用（`MatDialogRef<GradientDialogComponent>`）
+   * @param _dialogRef - Injected or initial dialog ref (`MatDialogRef<GradientDialogComponent, any>`) / 注入或传入的对话框引用（`MatDialogRef<GradientDialogComponent, any>`）
    */
   constructor(public _dialogRef: MatDialogRef<GradientDialogComponent>) { }
 

@@ -67,8 +67,8 @@ import { MatIconModule } from '@angular/material/icon';
 })
 export class ColorGradientModule {
   /**
-   * Property `entryComponents` (`any[]`) storing entry components.
-   * @zh 属性 `entryComponents`（类型：`any[]`），用于存储或配置条目组件列表。
+   * Property `entryComponents` (`(typeof GradientComponent | typeof GradientFieldsComponent)[]`) storing entry components.
+   * @zh 属性 `entryComponents`（类型：`(typeof GradientComponent | typeof GradientFieldsComponent)[]`），用于存储或配置条目组件列表。
    */
   entryComponents = [
     GradientComponent,

@@ -32,8 +32,8 @@ export class FormGroup extends FieldType {
     };
   }
   /**
-   * Property `defaultOptions` (`any`) storing default options (default: `{ defaultValue: {}, }`).
-   * @zh 属性 `defaultOptions`（类型：`any`），用于存储或配置默认配置选项（默认值：`{ defaultValue: {}, }`）。
+   * Property `defaultOptions` (`{ defaultValue: {}; }`) storing default options (default: `{ defaultValue: {}, }`).
+   * @zh 属性 `defaultOptions`（类型：`{ defaultValue: {}; }`），用于存储或配置默认配置选项（默认值：`{ defaultValue: {}, }`）。
    */
   override defaultOptions = {
     defaultValue: {},

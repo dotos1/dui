@@ -102,13 +102,13 @@ export class FocusOriginMonitor implements OnDestroy {
 
   /**
    * Weak map of elements being monitored to their info.
-   * @zh 属性 `_elementInfo`（类型：`WeakMap`），用于存储或配置元素信息。
+   * @zh 属性 `_elementInfo`（类型：`WeakMap<Element, MonitoredElementInfo>`），用于存储或配置元素信息。
    */
   private _elementInfo = new WeakMap<Element, MonitoredElementInfo>();
 
   /**
    * Unlisten functions for the document/window level listeners registered by this instance.
-   * @zh 属性 `_documentEventsUnlisten`（类型：`Array<() => void>`），用于存储或配置文档对象事件集合取消监听（默认值：`[]`）。
+   * @zh 属性 `_documentEventsUnlisten`（类型：`(() => void)[]`），用于存储或配置文档对象事件集合取消监听（默认值：`[]`）。
    */
   private _documentEventsUnlisten: Array<() => void> = [];
 
@@ -409,15 +409,15 @@ export class FocusOriginMonitor implements OnDestroy {
 })
 export class CdkMonitorFocus implements OnDestroy {
   /**
-   * Output event emitter `cdkFocusChange` (`EventEmitter`) firing when cdk focus change occurs.
-   * @zh 输出事件 `cdkFocusChange`（类型：`EventEmitter`），当触发CDK工具聚焦变更时向外发出事件。
+   * Output event emitter `cdkFocusChange` (`EventEmitter<FocusOrigin>`) firing when cdk focus change occurs.
+   * @zh 输出事件 `cdkFocusChange`（类型：`EventEmitter<FocusOrigin>`），当触发CDK工具聚焦变更时向外发出事件。
    */
   @Output() cdkFocusChange = new EventEmitter<FocusOrigin>();
 
   /**
    * Creates an instance of `CdkMonitorFocus` and initializes its dependencies and internal state.
    * @zh 创建 `CdkMonitorFocus` 实例，并初始化其依赖项与内部状态。
-   * @param _elementRef - Injected or initial element ref (`ElementRef`) / 注入或传入的元素引用（`ElementRef`）
+   * @param _elementRef - Injected or initial element ref (`ElementRef<any>`) / 注入或传入的元素引用（`ElementRef<any>`）
    * @param _focusOriginMonitor - Injected or initial focus origin monitor (`FocusOriginMonitor`) / 注入或传入的聚焦OriginMonitor（`FocusOriginMonitor`）
    * @param renderer - Injected or initial renderer (`Renderer2`) / 注入或传入的渲染器（`Renderer2`）
    */

@@ -14,8 +14,8 @@ import { FieldConfig, FormOptions } from './field.config';
  */
 export interface FieldConfigCache extends FieldConfig {
   /**
-   * Property `form` (`FormGroup | FormArray`) storing form.
-   * @zh 属性 `form`（类型：`FormGroup | FormArray`），用于存储或配置表单。
+   * Property `form` (`FormGroup<any> | FormArray<any>`) storing form.
+   * @zh 属性 `form`（类型：`FormGroup<any> | FormArray<any>`），用于存储或配置表单。
    */
   form?: FormGroup | FormArray;
   /**
@@ -24,8 +24,8 @@ export interface FieldConfigCache extends FieldConfig {
    */
   model?;
   /**
-   * Property `formControl` (`AbstractControl`) storing form control.
-   * @zh 属性 `formControl`（类型：`AbstractControl`），用于存储或配置表单表单控件。
+   * Property `formControl` (`AbstractControl<any, any>`) storing form control.
+   * @zh 属性 `formControl`（类型：`AbstractControl<any, any>`），用于存储或配置表单表单控件。
    */
   formControl?: AbstractControl;
   /**
@@ -39,8 +39,8 @@ export interface FieldConfigCache extends FieldConfig {
    */
   option?: FormOptionsCache;
   /**
-   * Property `_expressions` (`{ [property: string]: (ingoreCache: boolean) => boolean }`) storing expressions.
-   * @zh 属性 `_expressions`（类型：`{ [property: string]: (ingoreCache: boolean) => boolean }`），用于存储或配置表达式。
+   * Property `_expressions` (`{ [property: string]: (ingoreCache: boolean) => boolean; }`) storing expressions.
+   * @zh 属性 `_expressions`（类型：`{ [property: string]: (ingoreCache: boolean) => boolean; }`），用于存储或配置表达式。
    */
   _expressions?: { [property: string]: (ingoreCache: boolean) => boolean };
   /**
@@ -59,13 +59,13 @@ export interface FieldConfigCache extends FieldConfig {
    */
   _asyncValidators?: AsyncValidatorFn[];
   /**
-   * Property `_componentRefs` (`ComponentRef<FieldType>[]`) storing component refs.
-   * @zh 属性 `_componentRefs`（类型：`ComponentRef<FieldType>[]`），用于存储或配置组件引用。
+   * Property `_componentRefs` (`ComponentRef<FieldType<FieldConfig>>[]`) storing component refs.
+   * @zh 属性 `_componentRefs`（类型：`ComponentRef<FieldType<FieldConfig>>[]`），用于存储或配置组件引用。
    */
   _componentRefs?: ComponentRef<FieldType>[];
   /**
-   * Property `_keyPath` (`{ key: FieldConfig['name']; path: string[]; }`) storing key path.
-   * @zh 属性 `_keyPath`（类型：`{ key: FieldConfig['name']; path: string[]; }`），用于存储或配置键路径。
+   * Property `_keyPath` (`{ key: FieldConfig["name"]; path: string[]; }`) storing key path.
+   * @zh 属性 `_keyPath`（类型：`{ key: FieldConfig["name"]; path: string[]; }`），用于存储或配置键路径。
    */
   _keyPath?: {
     key: FieldConfig['name'];

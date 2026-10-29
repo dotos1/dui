@@ -49,7 +49,7 @@ import { CONTEXT_MENU_DIRECTION } from './direction.token';
 export class ContextMenuComponent extends MenuBase implements OnInit,OnDestroy,DoCheck, AfterViewInit {
 
   /**
-   * Template/content query reference `extendMenus` (`@ViewChildren`) targeting extend menus.
+   * Template/content query reference `extendMenus` (`QueryList<MenuDirective>`) targeting extend menus.
    * @zh 模板/内容视图查询引用 `extendMenus`（`@ViewChildren`），指向extend菜单。
    */
   @ViewChildren(MenuDirective) extendMenus: QueryList<MenuDirective>;
@@ -70,7 +70,7 @@ export class ContextMenuComponent extends MenuBase implements OnInit,OnDestroy,D
   /**
    * Input setter `children` updating children.
    * @zh 输入属性 `children` 的设置器，用于更新子级列表。
-   * @param c - New children value (`any`) / 新的子级列表值（`any`）
+   * @param c - New children value (`MenuModel[]`) / 新的子级列表值（`MenuModel[]`）
    */
   @Input() override set children(c){
     this._children=c;
@@ -84,7 +84,7 @@ export class ContextMenuComponent extends MenuBase implements OnInit,OnDestroy,D
   }
 
   /**
-   * Template/content query reference `menuTrigger` (`@ViewChild`) targeting menu trigger.
+   * Template/content query reference `menuTrigger` (`MatMenuTrigger`) targeting menu trigger.
    * @zh 模板/内容视图查询引用 `menuTrigger`（`@ViewChild`），指向菜单触发。
    */
   @ViewChild(MatMenuTrigger,{static:false})
@@ -223,9 +223,9 @@ export class ContextMenuComponent extends MenuBase implements OnInit,OnDestroy,D
 
   /**
    * Executes `trackById` to handle track by id.
-   * @zh 执行 `trackById`，用于track按唯一标识。
+   * @zh 执行 `trackById`，用于跟踪按唯一标识。
    * @param _ - _ parameter (`number`) / _参数（`number`）
-   * @param obj - obj parameter (`{ id: string }`) / 对象参数（`{ id: string }`）
+   * @param obj - obj parameter (`{ id: string; }`) / 对象参数（`{ id: string; }`）
    */
   trackById(_: number, obj: { id: string }) {
     return obj.id;

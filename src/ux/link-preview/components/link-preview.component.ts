@@ -50,7 +50,7 @@ export class LinkPreviewComponent implements OnChanges, OnDestroy {
 
   /**
    * Method that does the API request, provide as class member arrow function from parent
-   * @zh 输入属性 `getApiEndpoint$`（类型：`(requestUrl: string) => Observable<any>`），用于配置获取API接口Endpoint。
+   * @zh 输入属性 `getApiEndpoint$`（类型：`(requestUrl: string) => Observable<unknown>`），用于配置获取API接口Endpoint。
    */
   @Input()
   public getApiEndpoint$: (requestUrl: string) => Observable<unknown>;
@@ -114,7 +114,7 @@ export class LinkPreviewComponent implements OnChanges, OnDestroy {
 
   /**
    * number: max age the data cache of a link preview should be used
-   * @zh 输入属性 `maxCacheAgeMs`（类型：`any`），用于配置最大值缓存Age毫秒（默认值：`1000 * 60 * 60 * 24 * 7`）。
+   * @zh 输入属性 `maxCacheAgeMs`（类型：`number`），用于配置最大值缓存Age毫秒（默认值：`1000 * 60 * 60 * 24 * 7`）。
    */
   @Input()
   public maxCacheAgeMs = 1000 * 60 * 60 * 24 * 7; // 7 days
@@ -139,14 +139,14 @@ export class LinkPreviewComponent implements OnChanges, OnDestroy {
    * HtmlLinkTarget: where the HTML link should be opened on click.
    * Only has an effect if [useHtmlLinkDefaultClickEvent]="true"
 
-   * @zh 输入属性 `htmlLinkTarget`（类型：`HtmlLinkTarget`），用于配置HTML内容链接目标（默认值：`'_blank'`）。
+   * @zh 输入属性 `htmlLinkTarget`（类型：`string`），用于配置HTML内容链接目标（默认值：`'_blank'`）。
    */
   @Input()
   public htmlLinkTarget: HtmlLinkTarget = '_blank';
 
   /**
    * Event emitter: on click to handle the click event, emits the clicked URL
-   * @zh 输出事件 `previewClicked`（类型：`EventEmitter`），当触发预览点击时向外发出事件。
+   * @zh 输出事件 `previewClicked`（类型：`EventEmitter<string>`），当触发预览点击时向外发出事件。
    */
   @Output()
   public previewClicked = new EventEmitter<string>();

@@ -3,6 +3,7 @@
  * @zh 模块文件 `src/ui/button/toggle-button.component.ts`，提供开关按钮组件相关的定义与实现。
  */
 
+import { DuiConfig } from '@dotos/dui/base';
 import {
     ChangeDetectionStrategy,
     ChangeDetectorRef,
@@ -37,10 +38,10 @@ import {isFunction,isObjectLike}  from 'lodash-es';
 })
 export class ToggleButtonComponent extends ComponentBase implements OnInit,DoCheck,OnChanges {
   /**
-   * Input property `config` (`any`) configuring config (default: `{}`).
-   * @zh 输入属性 `config`（类型：`any`），用于配置配置（默认值：`{}`）。
+   * Input property `config` (`DuiConfig`) configuring config (default: `{}`).
+   * @zh 输入属性 `config`（类型：`DuiConfig`），用于配置配置（默认值：`{}`）。
    */
-  @Input() config = {};
+  @Input() config: DuiConfig = {};
 
   /**
    * Input property `data` (`any`) configuring data.
@@ -49,15 +50,15 @@ export class ToggleButtonComponent extends ComponentBase implements OnInit,DoChe
   @Input() data;
 
   /**
-   * Template/content query reference `childMenu` (`@ViewChild`) targeting child menu.
+   * Template/content query reference `childMenu` (`any`) targeting child menu.
    * @zh 模板/内容视图查询引用 `childMenu`（`@ViewChild`），指向子级菜单。
    */
   @ViewChild('childMenu', { static: true }) public childMenu;
 
 
   /**
-   * Property `items` (`Array<any>`) storing items (default: `[]`).
-   * @zh 属性 `items`（类型：`Array<any>`），用于存储或配置条目列表（默认值：`[]`）。
+   * Property `items` (`any[]`) storing items (default: `[]`).
+   * @zh 属性 `items`（类型：`any[]`），用于存储或配置条目列表（默认值：`[]`）。
    */
   public items = [];
 
@@ -141,8 +142,8 @@ export class ToggleButtonComponent extends ComponentBase implements OnInit,DoChe
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   /**
-   * Property `change` (`any`) storing change (default: `(e) => { }`).
-   * @zh 属性 `change`（类型：`any`），用于存储或配置变更（默认值：`(e) => { }`）。
+   * Property `change` (`(e: any) => void`) storing change (default: `(e) => { }`).
+   * @zh 属性 `change`（类型：`(e: any) => void`），用于存储或配置变更（默认值：`(e) => { }`）。
    */
   public change = (e) => { };
 

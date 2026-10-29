@@ -16,7 +16,7 @@ export class CamelCaseToDashPipe implements PipeTransform {
      * Executes `transform` to handle transform.
      * @zh 执行 `transform`，用于转换。
      * @param value - value parameter (`string`) / 值参数（`string`）
-     * @param args - args parameter (`any[]`) / 参数列表参数（`any[]`）
+     * @param args - args parameter (`unknown[]`) / 参数列表参数（`unknown[]`）
      * @returns Result of type `string` / 类型为 `string` 的返回值
      */
     transform(value: string, args: unknown[] = []): string {

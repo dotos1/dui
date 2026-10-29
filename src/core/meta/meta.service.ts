@@ -51,7 +51,7 @@ export class MetaService {
    * Executes `setTitle` to handle set title.
    * @zh 执行 `setTitle`，用于集合标题。
    * @param title - title parameter (`string`) / 标题参数（`string`）
-   * @param override - override parameter (`any`) / override参数（`any`）
+   * @param override - override parameter (`boolean`) / override参数（`boolean`）
    */
   setTitle(title: string, override = false): void {
     const title$ = title

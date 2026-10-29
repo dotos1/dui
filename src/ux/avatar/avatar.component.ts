@@ -41,7 +41,7 @@ type Style = Partial<CSSStyleDeclaration>;
 export class AvatarComponent implements OnChanges, OnDestroy {
 
   /**
-   * Template/content query reference `imgElement` (`@ViewChild`) targeting img element.
+   * Template/content query reference `imgElement` (`ElementRef<any>`) targeting img element.
    * @zh 模板/内容视图查询引用 `imgElement`（`@ViewChild`），指向图片元素。
    */
   @ViewChild('imageAvatar',{static:false}) imgElement: ElementRef;
@@ -65,8 +65,8 @@ export class AvatarComponent implements OnChanges, OnDestroy {
   @Input()
   public textSizeRatio = 3;
   /**
-   * Input property `bgColor` (`string | undefined`) configuring bg color.
-   * @zh 输入属性 `bgColor`（类型：`string | undefined`），用于配置背景颜色。
+   * Input property `bgColor` (`string`) configuring bg color.
+   * @zh 输入属性 `bgColor`（类型：`string`），用于配置背景颜色。
    */
   @Input()
   public bgColor: string | undefined;
@@ -77,14 +77,14 @@ export class AvatarComponent implements OnChanges, OnDestroy {
   @Input()
   public fgColor = '#FFF';
   /**
-   * Input property `borderColor` (`string | undefined`) configuring border color.
-   * @zh 输入属性 `borderColor`（类型：`string | undefined`），用于配置边框颜色。
+   * Input property `borderColor` (`string`) configuring border color.
+   * @zh 输入属性 `borderColor`（类型：`string`），用于配置边框颜色。
    */
   @Input()
   public borderColor: string | undefined;
   /**
-   * Input property `style` (`Style`) configuring style (default: `{}`).
-   * @zh 输入属性 `style`（类型：`Style`），用于配置样式（默认值：`{}`）。
+   * Input property `style` (`Partial<CSSStyleDeclaration>`) configuring style (default: `{}`).
+   * @zh 输入属性 `style`（类型：`Partial<CSSStyleDeclaration>`），用于配置样式（默认值：`{}`）。
    */
   @Input()
   public style: Style = {};
@@ -98,7 +98,7 @@ export class AvatarComponent implements OnChanges, OnDestroy {
   /**
    * Input setter `value` updating value.
    * @zh 输入属性 `value` 的设置器，用于更新值。
-   * @param v - New value value (`any`) / 新的值值（`any`）
+   * @param v - New value value (`IAVatar`) / 新的值值（`IAVatar`）
    */
   @Input()
   public set value(v){
@@ -150,18 +150,18 @@ export class AvatarComponent implements OnChanges, OnDestroy {
    */
   public avatarSrc: string | SafeUrl = null;
   /**
-   * Property `avatarText` (`string | null`) storing avatar text (default: `null`).
-   * @zh 属性 `avatarText`（类型：`string | null`），用于存储或配置头像文本（默认值：`null`）。
+   * Property `avatarText` (`string`) storing avatar text (default: `null`).
+   * @zh 属性 `avatarText`（类型：`string`），用于存储或配置头像文本（默认值：`null`）。
    */
   public avatarText: string | null = null;
   /**
-   * Property `avatarStyle` (`Style`) storing avatar style (default: `{}`).
-   * @zh 属性 `avatarStyle`（类型：`Style`），用于存储或配置头像样式（默认值：`{}`）。
+   * Property `avatarStyle` (`Partial<CSSStyleDeclaration>`) storing avatar style (default: `{}`).
+   * @zh 属性 `avatarStyle`（类型：`Partial<CSSStyleDeclaration>`），用于存储或配置头像样式（默认值：`{}`）。
    */
   public avatarStyle: Style = {};
   /**
-   * Property `hostStyle` (`Style`) storing host style (default: `{}`).
-   * @zh 属性 `hostStyle`（类型：`Style`），用于存储或配置宿主样式（默认值：`{}`）。
+   * Property `hostStyle` (`Partial<CSSStyleDeclaration>`) storing host style (default: `{}`).
+   * @zh 属性 `hostStyle`（类型：`Partial<CSSStyleDeclaration>`），用于存储或配置宿主样式（默认值：`{}`）。
    */
   public hostStyle: Style = {};
   /**
@@ -274,7 +274,7 @@ export class AvatarComponent implements OnChanges, OnDestroy {
    * Executes `getInitialsStyle` to handle get initials style.
    * @zh 执行 `getInitialsStyle`，用于获取初始样式。
    * @param avatarValue - avatar value parameter (`string`) / 头像值参数（`string`）
-   * @returns Result of type `Style` / 类型为 `Style` 的返回值
+   * @returns Result of type `Partial<CSSStyleDeclaration>` / 类型为 `Partial<CSSStyleDeclaration>` 的返回值
    */
   private getInitialsStyle(avatarValue: string): Style {
     return {
@@ -300,7 +300,7 @@ export class AvatarComponent implements OnChanges, OnDestroy {
   /**
    * Executes `getImageStyle` to handle get image style.
    * @zh 执行 `getImageStyle`，用于获取图像样式。
-   * @returns Result of type `Style` / 类型为 `Style` 的返回值
+   * @returns Result of type `Partial<CSSStyleDeclaration>` / 类型为 `Partial<CSSStyleDeclaration>` 的返回值
    */
   private getImageStyle(): Style {
     return {

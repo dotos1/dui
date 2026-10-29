@@ -316,7 +316,7 @@
       "FLOAT_VALIDATION_ERROR": "Usar un formato numérico",
       "INT_VALIDATION_ERROR": "Usar un formato de número entero"
     },
-    "NONE": "None"
+    "NONE": "Ninguno"
   },
   "METADATA": {
     "BASIC": {
@@ -390,8 +390,8 @@
       }
     },
     "TAB": {
-      "CS": "Content Services",
-      "PS": "Process Services"
+      "CS": "Servicios de contenido",
+      "PS": "Servicios de procesos"
     }
   },
   "ERROR_CONTENT": {
@@ -565,7 +565,7 @@
     },
     "FAIL": {
       "NODE": {
-        "NO_PERMISSION": "You do not have permission to perform this operation"
+        "NO_PERMISSION": "No tiene permiso para realizar esta operación"
       }
     }
   },
@@ -637,15 +637,15 @@
     "ARIA-LABEL": {
       "ERROR": "Error de carga",
       "VERSION": "Versión del archivo",
-      "CANCEL_ALL": "Cancel all uploads",
-      "CANCEL_FILE": "Cancel file upload",
-      "CANCEL_FILE_UPLOAD": "Cancel uploading this file",
+      "CANCEL_ALL": "Cancelar todas las cargas",
+      "CANCEL_FILE": "Cancelar la carga del archivo",
+      "CANCEL_FILE_UPLOAD": "Cancelar la carga de este archivo",
       "CONFIRMATION": {
-        "CANCEL": "Confirm cancel upload",
-        "CONTINUE": "Continue upload"
+        "CANCEL": "Confirmar la cancelación de la carga",
+        "CONTINUE": "Continuar la carga"
       },
-      "DIALOG": "File upload dialog",
-      "DIALOG_CLOSE": "Close upload dialog",
+      "DIALOG": "Diálogo de carga de archivos",
+      "DIALOG_CLOSE": "Cerrar el diálogo de carga",
       "REMOVE_FILE": "Quitar archivo cargado",
       "UPLOAD_FILE_ERROR": "Error al cargar el archivo"
     }
@@ -1335,16 +1335,16 @@
       "NONE": "Ninguno"
     },
     "FILE_DIALOG": {
-      "ALLOW_OTHERS_CHECKBOX": "Allow other users to modify this file",
+      "ALLOW_OTHERS_CHECKBOX": "Permitir que otros usuarios modifiquen este archivo",
       "CANCEL_BUTTON": {
         "LABEL": "Cancelar"
       },
       "FILE_LOCK": "Bloquear archivo",
-      "FILE_LOCK_CHECKBOX": "Lock this file to prevent others from editing",
+      "FILE_LOCK_CHECKBOX": "Bloquear este archivo para que otros no puedan editarlo",
       "SAVE_BUTTON": {
         "LABEL": "Guardar"
       },
-      "TIME_LOCK_CHECKBOX": "Set lock expiration time"
+      "TIME_LOCK_CHECKBOX": "Establecer la hora de vencimiento del bloqueo"
     }
   },
   "VIEWER": {

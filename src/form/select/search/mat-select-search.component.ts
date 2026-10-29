@@ -164,7 +164,7 @@ export class MatSelectSearchComponent implements OnInit, OnDestroy, ControlValue
 
   /**
    * Define the position of the tooltip on the toggle-all checkbox.
-   * @zh 输入属性 `toggleAllCheckboxTooltipPosition`（类型：`'left' | 'right' | 'above' | 'below' | 'before' | 'after'`），用于配置开关全部复选框悬浮提示位置（默认值：`'below'`）。
+   * @zh 输入属性 `toggleAllCheckboxTooltipPosition`（类型：`"left" | "right" | "above" | "below" | "before" | "after"`），用于配置开关全部复选框悬浮提示位置（默认值：`'below'`）。
    */
   @Input() toggleAllCheckboxTooltipPosition: 'left' | 'right' | 'above' | 'below' | 'before' | 'after' = 'below';
 
@@ -184,35 +184,35 @@ export class MatSelectSearchComponent implements OnInit, OnDestroy, ControlValue
 
 
   /**
-   * Output event emitter `toggleAll` (`EventEmitter`) firing when toggle all occurs.
-   * @zh 输出事件 `toggleAll`（类型：`EventEmitter`），当触发开关全部时向外发出事件。
+   * Output event emitter `toggleAll` (`EventEmitter<boolean>`) firing when toggle all occurs.
+   * @zh 输出事件 `toggleAll`（类型：`EventEmitter<boolean>`），当触发开关全部时向外发出事件。
    */
   @Output() toggleAll = new EventEmitter<boolean>();
 
 
   /**
-   * Template/content query reference `searchSelectInput` (`@ViewChild`) targeting search select input.
+   * Template/content query reference `searchSelectInput` (`ElementRef<any>`) targeting search select input.
    * @zh 模板/内容视图查询引用 `searchSelectInput`（`@ViewChild`），指向搜索下拉选择输入属性。
    */
   @ViewChild('searchSelectInput', { read: ElementRef, static: true }) searchSelectInput: ElementRef;
 
 
   /**
-   * Template/content query reference `innerSelectSearch` (`@ViewChild`) targeting inner select search.
+   * Template/content query reference `innerSelectSearch` (`ElementRef<any>`) targeting inner select search.
    * @zh 模板/内容视图查询引用 `innerSelectSearch`（`@ViewChild`），指向内部下拉选择搜索。
    */
   @ViewChild('innerSelectSearch', { read: ElementRef, static: true }) innerSelectSearch: ElementRef;
 
 
   /**
-   * Template/content query reference `clearIcon` (`@ContentChild`) targeting clear icon.
+   * Template/content query reference `clearIcon` (`MatSelectSearchClearDirective`) targeting clear icon.
    * @zh 模板/内容视图查询引用 `clearIcon`（`@ContentChild`），指向清空图标。
    */
   @ContentChild(MatSelectSearchClearDirective) clearIcon: MatSelectSearchClearDirective;
 
 
   /**
-   * Template/content query reference `noEntriesFound` (`@ContentChild`) targeting no entries found.
+   * Template/content query reference `noEntriesFound` (`MatSelectNoEntriesFoundDirective`) targeting no entries found.
    * @zh 模板/内容视图查询引用 `noEntriesFound`（`@ContentChild`），指向no条目集合Found。
    */
   @ContentChild(MatSelectNoEntriesFoundDirective) noEntriesFound: MatSelectNoEntriesFoundDirective;
@@ -256,14 +256,14 @@ export class MatSelectSearchComponent implements OnInit, OnDestroy, ControlValue
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   /**
-   * Property `_options$` (`BehaviorSubject<QueryList<MatOption>>`) storing options.
-   * @zh 属性 `_options$`（类型：`BehaviorSubject<QueryList<MatOption>>`），用于存储或配置配置选项。
+   * Property `_options$` (`BehaviorSubject<QueryList<MatOption<any>>>`) storing options.
+   * @zh 属性 `_options$`（类型：`BehaviorSubject<QueryList<MatOption<any>>>`），用于存储或配置配置选项。
    */
   public _options$: BehaviorSubject<QueryList<MatOption>> = new BehaviorSubject<QueryList<MatOption>>(null);
 
   /**
-   * Property `optionsList$` (`Observable<MatOption[] | null>`) storing options list.
-   * @zh 属性 `optionsList$`（类型：`Observable<MatOption[] | null>`），用于存储或配置配置选项列表。
+   * Property `optionsList$` (`Observable<MatOption<any>[]>`) storing options list.
+   * @zh 属性 `optionsList$`（类型：`Observable<MatOption<any>[]>`），用于存储或配置配置选项列表。
    */
   private optionsList$: Observable<MatOption[] | null> = this._options$.pipe(
     switchMap(_options => _options ?
@@ -284,8 +284,8 @@ export class MatSelectSearchComponent implements OnInit, OnDestroy, ControlValue
 
 
   /**
-   * Property `previousSelectedValues` (`any[]`) storing previous selected values.
-   * @zh 属性 `previousSelectedValues`（类型：`any[]`），用于存储或配置上一个已选中值列表。
+   * Property `previousSelectedValues` (`any`) storing previous selected values.
+   * @zh 属性 `previousSelectedValues`（类型：`any`），用于存储或配置上一个已选中值列表。
    */
   private previousSelectedValues;
 
@@ -310,8 +310,8 @@ export class MatSelectSearchComponent implements OnInit, OnDestroy, ControlValue
 
 
   /**
-   * Property `_onDestroy` (`Subject`) storing on destroy (default: `new Subject<void>()`).
-   * @zh 属性 `_onDestroy`（类型：`Subject`），用于存储或配置当销毁（默认值：`new Subject<void>()`）。
+   * Property `_onDestroy` (`Subject<void>`) storing on destroy (default: `new Subject<void>()`).
+   * @zh 属性 `_onDestroy`（类型：`Subject<void>`），用于存储或配置当销毁（默认值：`new Subject<void>()`）。
    */
   private _onDestroy = new Subject<void>();
 
@@ -329,9 +329,9 @@ export class MatSelectSearchComponent implements OnInit, OnDestroy, ControlValue
    * @param changeDetectorRef - Injected or initial change detector ref (`ChangeDetectorRef`) / 注入或传入的变更检测器引用（`ChangeDetectorRef`）
    * @param _viewportRuler - Injected or initial viewport ruler (`ViewportRuler`) / 注入或传入的视口Ruler（`ViewportRuler`）
    * @param themeService - Injected or initial theme service (`ThemeService`) / 注入或传入的主题服务（`ThemeService`）
-   * @param matOption - Injected or initial mat option (`MatOption`) / 注入或传入的Material选项（`MatOption`）
+   * @param matOption - Injected or initial mat option (`MatOption<any>`) / 注入或传入的Material选项（`MatOption<any>`）
    * @param matFormField - Injected or initial mat form field (`MatFormField`) / 注入或传入的Material表单字段（`MatFormField`）
-   * @param defaultOptions - Injected or initial default options (`MatSelectSearchOptions`) / 注入或传入的默认配置选项（`MatSelectSearchOptions`）
+   * @param defaultOptions - Injected or initial default options (`Readonly<Partial<Pick<MatSelectSearchComponent, "ariaLabel" | "clearSearchInput" | "closeIcon" | "closeSvgIcon" | "disableInitialFocus" | "disableScrollToActiveOnOptionsChanged" | "enableClearOnEscapePressed" | "noEntriesFoundLabel" | "placeholderLabel" | "preventHomeEndKeyPropagation" | "searching">>>`) / 注入或传入的默认配置选项（`Readonly<Partial<Pick<MatSelectSearchComponent, "ariaLabel" | "clearSearchInput" | "closeIcon" | "closeSvgIcon" | "disableInitialFocus" | "disableScrollToActiveOnOptionsChanged" | "enableClearOnEscapePressed" | "noEntriesFoundLabel" | "placeholderLabel" | "preventHomeEndKeyPropagation" | "searching">>>`）
    */
   constructor(
     @Inject(MatSelect) public matSelect: MatSelect,
@@ -348,7 +348,7 @@ export class MatSelectSearchComponent implements OnInit, OnDestroy, ControlValue
   /**
    * Executes `applyDefaultOptions` to handle apply default options.
    * @zh 执行 `applyDefaultOptions`，用于应用默认配置选项。
-   * @param defaultOptions - default options parameter (`MatSelectSearchOptions`) / 默认配置选项参数（`MatSelectSearchOptions`）
+   * @param defaultOptions - default options parameter (`Readonly<Partial<Pick<MatSelectSearchComponent, "ariaLabel" | "clearSearchInput" | "closeIcon" | "closeSvgIcon" | "disableInitialFocus" | "disableScrollToActiveOnOptionsChanged" | "enableClearOnEscapePressed" | "noEntriesFoundLabel" | "placeholderLabel" | "preventHomeEndKeyPropagation" | "searching">>>`) / 默认配置选项参数（`Readonly<Partial<Pick<MatSelectSearchComponent, "ariaLabel" | "clearSearchInput" | "closeIcon" | "closeSvgIcon" | "disableInitialFocus" | "disableScrollToActiveOnOptionsChanged" | "enableClearOnEscapePressed" | "noEntriesFoundLabel" | "placeholderLabel" | "preventHomeEndKeyPropagation" | "searching">>>`）
    */
   private applyDefaultOptions(defaultOptions?: MatSelectSearchOptions) {
     if (!defaultOptions) {

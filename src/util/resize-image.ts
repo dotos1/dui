@@ -512,7 +512,7 @@ function validateWithOpt(img: File, opt: Options): Result<undefined, string> {
 /**
  * Executes `validateResult` to handle validate result.
  * @zh 执行 `validateResult`，用于校验结果。
- * @param errors - errors parameter (`Array<string>`) / 错误列表参数（`Array<string>`）
+ * @param errors - errors parameter (`string[]`) / 错误列表参数（`string[]`）
  * @returns Result of type `Result<undefined, string>` / 类型为 `Result<undefined, string>` 的返回值
  */
 function validateResult(errors: Array<string>): Result<undefined, string> {
@@ -529,7 +529,7 @@ function validateResult(errors: Array<string>): Result<undefined, string> {
  * Executes `checkOptions` to handle check options.
  * @zh 执行 `checkOptions`，用于检查配置选项。
  * @param opt - opt parameter (`Options`) / 选项参数（`Options`）
- * @param errors - errors parameter (`Array<string>`) / 错误列表参数（`Array<string>`）
+ * @param errors - errors parameter (`string[]`) / 错误列表参数（`string[]`）
  */
 function checkOptions(opt: Options, errors: Array<string>): void {
     if (opt.width === undefined && opt.height === undefined) {
@@ -543,7 +543,7 @@ function checkOptions(opt: Options, errors: Array<string>): void {
  * Executes `checkImageType` to handle check image type.
  * @zh 执行 `checkImageType`，用于检查图像类型。
  * @param img - img parameter (`File`) / 图片参数（`File`）
- * @param errors - errors parameter (`Array<string>`) / 错误列表参数（`Array<string>`）
+ * @param errors - errors parameter (`string[]`) / 错误列表参数（`string[]`）
  */
 function checkImageType(img: File, errors: Array<string>): void {
     if (!img.type.startsWith('image/')) {
@@ -554,8 +554,8 @@ function checkImageType(img: File, errors: Array<string>): void {
 /**
  * Executes `checkQuality` to handle check quality.
  * @zh 执行 `checkQuality`，用于检查Quality。
- * @param quality - quality parameter (`number | undefined`) / quality参数（`number | undefined`）
- * @param errors - errors parameter (`Array<string>`) / 错误列表参数（`Array<string>`）
+ * @param quality - quality parameter (`number`) / quality参数（`number`）
+ * @param errors - errors parameter (`string[]`) / 错误列表参数（`string[]`）
  */
 function checkQuality(quality: number | undefined, errors: Array<string>): void {
     if (quality !== undefined && (quality < 0.1 || quality > 1.0)) {

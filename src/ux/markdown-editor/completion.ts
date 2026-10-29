@@ -70,8 +70,8 @@ function newCompletionItem(text: string, kind: languages.CompletionItemKind): la
  */
 class MdCompletionItemProvider implements languages.CompletionItemProvider {
     /**
-     * Property `triggerCharacters` (`any[]`) storing trigger characters (default: `['(', '\\', '/', '[', '#']`).
-     * @zh 属性 `triggerCharacters`（类型：`any[]`），用于存储或配置触发字符（默认值：`['(', '\\', '/', '[', '#']`）。
+     * Property `triggerCharacters` (`string[]`) storing trigger characters (default: `['(', '\\', '/', '[', '#']`).
+     * @zh 属性 `triggerCharacters`（类型：`string[]`），用于存储或配置触发字符（默认值：`['(', '\\', '/', '[', '#']`）。
      */
     triggerCharacters = ['(', '\\', '/', '[', '#']
     // Suffixes explained:

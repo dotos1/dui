@@ -89,19 +89,19 @@ export class SliderSwatchesComponent {
    */
   @Input() hsl: HSL;
   /**
-   * Output event emitter `onClick` (`EventEmitter`) firing when on click occurs.
+   * Output event emitter `onClick` (`EventEmitter<any>`) firing when on click occurs.
    * @zh 某个色块被点击时发出。
    * @zh 某个色块被点击时发出。
    */
   @Output() onClick = new EventEmitter();
   /**
-   * Output event emitter `onSwatchHover` (`EventEmitter`) firing when on swatch hover occurs.
+   * Output event emitter `onSwatchHover` (`EventEmitter<any>`) firing when on swatch hover occurs.
    * @zh 鼠标悬停在某个色块上时发出。
    * @zh 鼠标悬停在某个色块上时发出。
    */
   @Output() onSwatchHover = new EventEmitter();
   /**
-   * Property `swatchStyle` (`{ [key: string]: string }`) storing swatch style.
+   * Property `swatchStyle` (`{ [key: string]: string; }`) storing swatch style.
    * @zh 色块的内联样式。
    * @zh 色块的内联样式。
    */

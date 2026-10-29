@@ -14,18 +14,18 @@ export type Numberify<T> = {
  */
 export interface RGB {
   /**
-   * Property `r` (`number | string`) storing r.
-   * @zh 属性 `r`（类型：`number | string`），用于存储或配置r。
+   * Property `r` (`string | number`) storing r.
+   * @zh 属性 `r`（类型：`string | number`），用于存储或配置r。
    */
   r: number | string;
   /**
-   * Property `g` (`number | string`) storing g.
-   * @zh 属性 `g`（类型：`number | string`），用于存储或配置g。
+   * Property `g` (`string | number`) storing g.
+   * @zh 属性 `g`（类型：`string | number`），用于存储或配置g。
    */
   g: number | string;
   /**
-   * Property `b` (`number | string`) storing b.
-   * @zh 属性 `b`（类型：`number | string`），用于存储或配置b。
+   * Property `b` (`string | number`) storing b.
+   * @zh 属性 `b`（类型：`string | number`），用于存储或配置b。
    */
   b: number | string;
 }
@@ -51,18 +51,18 @@ export interface RGBA extends RGB {
  */
 export interface HSL {
   /**
-   * Property `h` (`number | string`) storing h.
-   * @zh 属性 `h`（类型：`number | string`），用于存储或配置h。
+   * Property `h` (`string | number`) storing h.
+   * @zh 属性 `h`（类型：`string | number`），用于存储或配置h。
    */
   h: number | string;
   /**
-   * Property `s` (`number | string`) storing s.
-   * @zh 属性 `s`（类型：`number | string`），用于存储或配置s。
+   * Property `s` (`string | number`) storing s.
+   * @zh 属性 `s`（类型：`string | number`），用于存储或配置s。
    */
   s: number | string;
   /**
-   * Property `l` (`number | string`) storing l.
-   * @zh 属性 `l`（类型：`number | string`），用于存储或配置l。
+   * Property `l` (`string | number`) storing l.
+   * @zh 属性 `l`（类型：`string | number`），用于存储或配置l。
    */
   l: number | string;
 }
@@ -88,18 +88,18 @@ export interface HSLA extends HSL {
  */
 export interface HSV {
   /**
-   * Property `h` (`number | string`) storing h.
-   * @zh 属性 `h`（类型：`number | string`），用于存储或配置h。
+   * Property `h` (`string | number`) storing h.
+   * @zh 属性 `h`（类型：`string | number`），用于存储或配置h。
    */
   h: number | string;
   /**
-   * Property `s` (`number | string`) storing s.
-   * @zh 属性 `s`（类型：`number | string`），用于存储或配置s。
+   * Property `s` (`string | number`) storing s.
+   * @zh 属性 `s`（类型：`string | number`），用于存储或配置s。
    */
   s: number | string;
   /**
-   * Property `v` (`number | string`) storing v.
-   * @zh 属性 `v`（类型：`number | string`），用于存储或配置v。
+   * Property `v` (`string | number`) storing v.
+   * @zh 属性 `v`（类型：`string | number`），用于存储或配置v。
    */
   v: number | string;
 }

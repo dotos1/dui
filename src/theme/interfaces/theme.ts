@@ -29,8 +29,8 @@ export interface Theme {
      */
     readonly warn: Palette;
     /**
-     * Property `type` (`'light'|'dark'|'darkblue'`) storing type.
-     * @zh 属性 `type`（类型：`'light'|'dark'|'darkblue'`），用于存储或配置类型。
+     * Property `type` (`"dark" | "light" | "darkblue"`) storing type.
+     * @zh 属性 `type`（类型：`"dark" | "light" | "darkblue"`），用于存储或配置类型。
      */
     readonly type: 'light'|'dark'|'darkblue';
     /**

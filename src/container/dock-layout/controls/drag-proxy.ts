@@ -23,13 +23,13 @@ import {
  */
 export class DragProxy extends EventEmitter {
     /**
-     * Property `_area` (`ContentItem.Area | null`) storing area (default: `null`).
-     * @zh 属性 `_area`（类型：`ContentItem.Area | null`），用于存储或配置区域（默认值：`null`）。
+     * Property `_area` (`ContentItem.Area`) storing area (default: `null`).
+     * @zh 属性 `_area`（类型：`ContentItem.Area`），用于存储或配置区域（默认值：`null`）。
      */
     private _area: ContentItem.Area | null = null;
     /**
-     * Property `_lastValidArea` (`ContentItem.Area | null`) storing last valid area (default: `null`).
-     * @zh 属性 `_lastValidArea`（类型：`ContentItem.Area | null`），用于存储或配置末尾有效区域（默认值：`null`）。
+     * Property `_lastValidArea` (`ContentItem.Area`) storing last valid area (default: `null`).
+     * @zh 属性 `_lastValidArea`（类型：`ContentItem.Area`），用于存储或配置末尾有效区域（默认值：`null`）。
      */
     private _lastValidArea: ContentItem.Area | null = null;
     /**

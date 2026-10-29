@@ -4,6 +4,7 @@
  */
 
 
+import { DuiStyle } from '@dotos/dui/base';
 import { Directionality } from '@angular/cdk/bidi';
 import { coerceBooleanProperty } from '@angular/cdk/coercion';
 import { Overlay } from '@angular/cdk/overlay';
@@ -69,19 +70,19 @@ export const DATEFIELD_VALIDATORS = {
 export class IconPickerField extends AbstractTrigger implements OnInit {
 
   /**
-   * Template/content query reference `_mapInput` (`@ViewChild`) targeting map input.
+   * Template/content query reference `_mapInput` (`MatInput`) targeting map input.
    * @zh 模板/内容视图查询引用 `_mapInput`（`@ViewChild`），指向映射表输入属性。
    */
   @ViewChild(MatInput) _mapInput: MatInput;
   /**
-   * Template/content query reference `input` (`@ViewChild`) targeting input.
+   * Template/content query reference `input` (`ElementRef<any>`) targeting input.
    * @zh 模板/内容视图查询引用 `input`（`@ViewChild`），指向输入属性。
    */
   @ViewChild('input') input: ElementRef;
 
   /**
-   * Property `mode` (`'auto' | 'portrait' | 'landscape'`) storing mode (default: `'auto'`).
-   * @zh 属性 `mode`（类型：`'auto' | 'portrait' | 'landscape'`），用于存储或配置模式（默认值：`'auto'`）。
+   * Property `mode` (`"auto" | "portrait" | "landscape"`) storing mode (default: `'auto'`).
+   * @zh 属性 `mode`（类型：`"auto" | "portrait" | "landscape"`），用于存储或配置模式（默认值：`'auto'`）。
    */
   public mode: 'auto' | 'portrait' | 'landscape' = 'auto';
 
@@ -93,8 +94,8 @@ export class IconPickerField extends AbstractTrigger implements OnInit {
   _onChange: (value) => void = () => { };
 
   /**
-   * Property `_onTouched` (`any`) storing on touched (default: `() => { }`).
-   * @zh 属性 `_onTouched`（类型：`any`），用于存储或配置当是否已触碰（默认值：`() => { }`）。
+   * Property `_onTouched` (`() => void`) storing on touched (default: `() => { }`).
+   * @zh 属性 `_onTouched`（类型：`() => void`），用于存储或配置当是否已触碰（默认值：`() => { }`）。
    */
   _onTouched = () => { };
 
@@ -125,7 +126,7 @@ export class IconPickerField extends AbstractTrigger implements OnInit {
   /**
    * Sets the value (`value`).
    * @zh 设置值（`value`）。
-   * @param val - New value value (`any`) / 新的值值（`any`）
+   * @param val - New value value (`string`) / 新的值值（`string`）
    */
   override set value(val) {
 
@@ -199,15 +200,15 @@ export class IconPickerField extends AbstractTrigger implements OnInit {
   protected maskRe;
 
   /**
-   * Property `fontStyle` (`any`) storing font style (default: `{}`).
-   * @zh 属性 `fontStyle`（类型：`any`），用于存储或配置字体样式（默认值：`{}`）。
+   * Property `fontStyle` (`DuiStyle`) storing font style (default: `{}`).
+   * @zh 属性 `fontStyle`（类型：`DuiStyle`），用于存储或配置字体样式（默认值：`{}`）。
    */
-  public fontStyle={};
+  public fontStyle: DuiStyle = {};
 
   /**
    * Creates an instance of `IconPickerField` and initializes its dependencies and internal state.
    * @zh 创建 `IconPickerField` 实例，并初始化其依赖项与内部状态。
-   * @param _element - Injected or initial element (`ElementRef`) / 注入或传入的元素（`ElementRef`）
+   * @param _element - Injected or initial element (`ElementRef<any>`) / 注入或传入的元素（`ElementRef<any>`）
    * @param _dialogService - Injected or initial dialog service (`DialogService`) / 注入或传入的对话框服务（`DialogService`）
    * @param _overlay - Injected or initial overlay (`Overlay`) / 注入或传入的浮层（`Overlay`）
    * @param _ngZone - Injected or initial ng zone (`NgZone`) / 注入或传入的Angular区域(NgZone)（`NgZone`）
@@ -291,7 +292,7 @@ export class IconPickerField extends AbstractTrigger implements OnInit {
   }
   /**
    * Executes `coerceStringProperty` to handle coerce string property.
-   * @zh 执行 `coerceStringProperty`，用于coerce字符串属性。
+   * @zh 执行 `coerceStringProperty`，用于强制转换字符串属性。
    * @param value - value parameter (`any`) / 值参数（`any`）
    * @returns Result of type `string` / 类型为 `string` 的返回值
    */

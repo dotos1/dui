@@ -90,8 +90,8 @@ export class DataTableHeaderComponent implements OnDestroy {
   }
 
   /**
-   * Input property `sorts` (`any[]`) configuring sorts.
-   * @zh 输入属性 `sorts`（类型：`any[]`），用于配置排序集合。
+   * Input property `sorts` (`any`) configuring sorts.
+   * @zh 输入属性 `sorts`（类型：`any`），用于配置排序集合。
    */
   @Input() sorts;
   /**
@@ -134,7 +134,7 @@ export class DataTableHeaderComponent implements OnDestroy {
   /**
    * Input setter `headerHeight` updating header height.
    * @zh 输入属性 `headerHeight` 的设置器，用于更新表头高度。
-   * @param val - New header height value (`any`) / 新的表头高度值（`any`）
+   * @param val - New header height value (`string`) / 新的表头高度值（`string`）
    */
   @HostBinding('style.height')
   @Input()
@@ -157,7 +157,7 @@ export class DataTableHeaderComponent implements OnDestroy {
   /**
    * Input setter `columns` updating columns.
    * @zh 输入属性 `columns` 的设置器，用于更新列集合。
-   * @param val - New columns value (`any[]`) / 新的列集合值（`any[]`）
+   * @param val - New columns value (`any`) / 新的列集合值（`any`）
    */
   @Input() set columns(val) {
     this._columns = val;
@@ -216,8 +216,8 @@ export class DataTableHeaderComponent implements OnDestroy {
    */
   @Output() select = new EventEmitter();
   /**
-   * Output event emitter `columnContextmenu` (`EventEmitter`) firing when column contextmenu occurs.
-   * @zh 输出事件 `columnContextmenu`（类型：`EventEmitter`），当触发列Contextmenu时向外发出事件。
+   * Output event emitter `columnContextmenu` (`EventEmitter<{ event: MouseEvent; column: any; }>`) firing when column contextmenu occurs.
+   * @zh 输出事件 `columnContextmenu`（类型：`EventEmitter<{ event: MouseEvent; column: any; }>`），当触发列Contextmenu时向外发出事件。
    */
   @Output() columnContextmenu = new EventEmitter<{ event: MouseEvent; column }>(false);
 
@@ -227,8 +227,8 @@ export class DataTableHeaderComponent implements OnDestroy {
    */
   _columnsByPin;
   /**
-   * Property `columnGroupWidths` (`any`) storing column group widths (default: `{ total: 100 }`).
-   * @zh 属性 `columnGroupWidths`（类型：`any`），用于存储或配置列分组宽度（默认值：`{ total: 100 }`）。
+   * Property `columnGroupWidths` (`{ total: number; }`) storing column group widths (default: `{ total: 100 }`).
+   * @zh 属性 `columnGroupWidths`（类型：`{ total: number; }`），用于存储或配置列分组宽度（默认值：`{ total: 100 }`）。
    */
   columnGroupWidths = {
     total: 100
@@ -244,8 +244,8 @@ export class DataTableHeaderComponent implements OnDestroy {
    */
   _offsetX: number;
   /**
-   * Property `_columns` (`any[]`) storing columns.
-   * @zh 属性 `_columns`（类型：`any[]`），用于存储或配置列集合。
+   * Property `_columns` (`any`) storing columns.
+   * @zh 属性 `_columns`（类型：`any`），用于存储或配置列集合。
    */
   _columns;
   /**
@@ -254,8 +254,8 @@ export class DataTableHeaderComponent implements OnDestroy {
    */
   _headerHeight: string;
   /**
-   * Property `_styleByGroup` (`{ [prop: string]: {} }`) storing style by group (default: `{ left: {}, center: {}, right: {} }`).
-   * @zh 属性 `_styleByGroup`（类型：`{ [prop: string]: {} }`），用于存储或配置样式按分组（默认值：`{ left: {}, center: {}, right: {} }`）。
+   * Property `_styleByGroup` (`{ [prop: string]: {}; }`) storing style by group (default: `{ left: {}, center: {}, right: {} }`).
+   * @zh 属性 `_styleByGroup`（类型：`{ [prop: string]: {}; }`），用于存储或配置样式按分组（默认值：`{ left: {}, center: {}, right: {} }`）。
    */
   _styleByGroup: { [prop: string]: {} } = {
     left: {},
@@ -324,7 +324,7 @@ export class DataTableHeaderComponent implements OnDestroy {
   }
 
   /**
-   * Host-bound getter `headerWidth` (`style.width`) computing header width.
+   * Host-bound getter `headerWidth` (`string`) computing header width.
    * @zh 宿主绑定读取器 `headerWidth`（绑定至 `style.width`），计算并返回表头宽度。
    */
   @HostBinding('style.width')
@@ -337,7 +337,7 @@ export class DataTableHeaderComponent implements OnDestroy {
 
   /**
    * Executes `trackByGroups` to handle track by groups.
-   * @zh 执行 `trackByGroups`，用于track按分组。
+   * @zh 执行 `trackByGroups`，用于跟踪按分组。
    * @param index - index parameter (`number`) / 索引参数（`number`）
    * @param colGroup - col group parameter (`any`) / 列分组参数（`any`）
    * @returns Result of type `any` / 类型为 `any` 的返回值
@@ -462,7 +462,7 @@ export class DataTableHeaderComponent implements OnDestroy {
    * @param column - column parameter (`any`) / 列参数（`any`）
    * @param prevValue - prev value parameter (`number`) / 前一个值参数（`number`）
    * @param newValue - new value parameter (`number`) / 新值参数（`number`）
-   * @returns Result of type `any[]` / 类型为 `any[]` 的返回值
+   * @returns Result of type `any` / 类型为 `any` 的返回值
    */
   calcNewSorts(column, prevValue: number, newValue: number) {
     let idx = 0;
@@ -511,7 +511,7 @@ export class DataTableHeaderComponent implements OnDestroy {
    * Executes `calcStylesByGroup` to handle calc styles by group.
    * @zh 执行 `calcStylesByGroup`，用于计算样式集合按分组。
    * @param group - group parameter (`string`) / 分组参数（`string`）
-   * @returns Result of type `any` / 类型为 `any` 的返回值
+   * @returns Result of type `{ width: string; }` / 类型为 `{ width: string; }` 的返回值
    */
   calcStylesByGroup(group: string) {
     const widths = this.columnGroupWidths;

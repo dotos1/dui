@@ -84,7 +84,7 @@ export class CardViewItemDispatcherComponent implements OnChanges {
   multiValueSeparator: string = DEFAULT_SEPARATOR;
 
   /**
-   * Template/content query reference `content` (`@ViewChild`) targeting content.
+   * Template/content query reference `content` (`CardViewContentProxyDirective`) targeting content.
    * @zh 模板/内容视图查询引用 `content`（`@ViewChild`），指向内容。
    */
   @ViewChild(CardViewContentProxyDirective, { static: true })
@@ -180,7 +180,7 @@ export class CardViewItemDispatcherComponent implements OnChanges {
    * Executes `proxy` to handle proxy.
    * @zh 执行 `proxy`，用于proxy。
    * @param methodName - method name parameter (`any`) / 方法名称参数（`any`）
-   * @param args - args parameter (`any`) / 参数列表参数（`any`）
+   * @param args - args parameter (`any[]`) / 参数列表参数（`any[]`）
    */
   private proxy(methodName, ...args) {
     if (this.componentReference.instance[methodName]) {

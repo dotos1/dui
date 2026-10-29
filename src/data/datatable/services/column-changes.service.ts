@@ -16,8 +16,8 @@ import { Observable, Subject } from 'rxjs';
 })
 export class ColumnChangesService {
   /**
-   * Property `columnInputChanges` (`Subject`) storing column input changes (default: `new Subject<void>()`).
-   * @zh 属性 `columnInputChanges`（类型：`Subject`），用于存储或配置列输入属性变更集合（默认值：`new Subject<void>()`）。
+   * Property `columnInputChanges` (`Subject<void>`) storing column input changes (default: `new Subject<void>()`).
+   * @zh 属性 `columnInputChanges`（类型：`Subject<void>`），用于存储或配置列输入属性变更集合（默认值：`new Subject<void>()`）。
    */
   private columnInputChanges = new Subject<void>();
 

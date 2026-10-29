@@ -113,8 +113,8 @@ export interface ValidatorOption {
    */
   validation: FieldValidatorFn;
   /**
-   * Property `options` (`{ [id: string]: any }`) storing options.
-   * @zh 属性 `options`（类型：`{ [id: string]: any }`），用于存储或配置配置选项。
+   * Property `options` (`{ [id: string]: unknown; }`) storing options.
+   * @zh 属性 `options`（类型：`{ [id: string]: unknown; }`），用于存储或配置配置选项。
    */
   options?: { [id: string]: unknown };
 }
@@ -147,8 +147,8 @@ export interface ValidationMessageOption {
    */
   name: string;
   /**
-   * Property `message` (`string | ((error: any, field: FieldConfig) => string | Observable<stri...`) storing message.
-   * @zh 属性 `message`（类型：`string | ((error: any, field: FieldConfig) => string | Observable<stri...`），用于存储或配置消息。
+   * Property `message` (`any`) storing message.
+   * @zh 属性 `message`（类型：`any`），用于存储或配置消息。
    */
   message;
 }
@@ -184,8 +184,8 @@ export interface ConfigOption {
    */
   validationMessages?: ValidationMessageOption[];
   /**
-   * Property `extras` (`{ immutable?: boolean; showError?: (field: FieldType) => boolean; chec...`) storing extras.
-   * @zh 属性 `extras`（类型：`{ immutable?: boolean; showError?: (field: FieldType) => boolean; chec...`），用于存储或配置extras。
+   * Property `extras` (`{…}`) storing extras.
+   * @zh 属性 `extras`（类型：`{…}`），用于存储或配置extras。
    */
   extras?: {
     immutable?: boolean;

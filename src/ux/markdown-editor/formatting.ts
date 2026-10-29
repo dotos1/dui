@@ -19,7 +19,7 @@ import {Position, Selection, Range, WorkspaceEdit} from "./extHostTypes";
  * @param keybindings - keybindings parameter (`number[]`) / keybindings参数（`number[]`）
  * @param label - label parameter (`string`) / 标签参数（`string`）
  * @param context - context parameter (`string`) / 上下文参数（`string`）
- * @param contextMenuGroupId - context menu group id parameter (`any`) / 上下文菜单分组唯一标识参数（`any`）
+ * @param contextMenuGroupId - context menu group id parameter (`string`) / 上下文菜单分组唯一标识参数（`string`）
  */
 export function addKeybinding(editor: TextEditor, name: String, fun: CallableFunction, keybindings: number[], label?: string, context?: string, contextMenuGroupId = "markdown.extension.editing") {
     editor.addAction({

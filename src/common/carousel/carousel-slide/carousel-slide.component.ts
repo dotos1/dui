@@ -50,7 +50,7 @@ export class MatCarouselSlideComponent
   @Input() public disabled = false;
 
   /**
-   * Template/content query reference `templateRef` (`@ViewChild`) targeting template ref.
+   * Template/content query reference `templateRef` (`TemplateRef<unknown>`) targeting template ref.
    * @zh 该幻灯片投影内容的模板引用。
    * @zh 该幻灯片投影内容的模板引用。
    */

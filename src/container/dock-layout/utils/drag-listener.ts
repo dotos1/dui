@@ -13,8 +13,8 @@ import { EventEmitter } from './event-emitter';
  */
 export class DragListener extends EventEmitter {
     /**
-     * Property `_timeout` (`ReturnType<typeof setTimeout> | undefined`) storing timeout.
-     * @zh 属性 `_timeout`（类型：`ReturnType<typeof setTimeout> | undefined`），用于存储或配置延时器。
+     * Property `_timeout` (`number`) storing timeout.
+     * @zh 属性 `_timeout`（类型：`number`），用于存储或配置延时器。
      */
     private _timeout: ReturnType<typeof setTimeout> | undefined;
     /**
@@ -74,18 +74,18 @@ export class DragListener extends EventEmitter {
     private _pointerTracking = false;
 
     /**
-     * Property `_pointerDownEventListener` (`any`) storing pointer down event listener.
-     * @zh 属性 `_pointerDownEventListener`（类型：`any`），用于存储或配置指针向下事件监听器。
+     * Property `_pointerDownEventListener` (`(ev: PointerEvent) => void`) storing pointer down event listener.
+     * @zh 属性 `_pointerDownEventListener`（类型：`(ev: PointerEvent) => void`），用于存储或配置指针向下事件监听器。
      */
     private _pointerDownEventListener = (ev: PointerEvent) => this.onPointerDown(ev);
     /**
-     * Property `_pointerMoveEventListener` (`any`) storing pointer move event listener.
-     * @zh 属性 `_pointerMoveEventListener`（类型：`any`），用于存储或配置指针移动事件监听器。
+     * Property `_pointerMoveEventListener` (`(ev: PointerEvent) => void`) storing pointer move event listener.
+     * @zh 属性 `_pointerMoveEventListener`（类型：`(ev: PointerEvent) => void`），用于存储或配置指针移动事件监听器。
      */
     private _pointerMoveEventListener = (ev: PointerEvent) => this.onPointerMove(ev);
     /**
-     * Property `_pointerUpEventListener` (`any`) storing pointer up event listener.
-     * @zh 属性 `_pointerUpEventListener`（类型：`any`），用于存储或配置指针向上事件监听器。
+     * Property `_pointerUpEventListener` (`(ev: PointerEvent) => void`) storing pointer up event listener.
+     * @zh 属性 `_pointerUpEventListener`（类型：`(ev: PointerEvent) => void`），用于存储或配置指针向上事件监听器。
      */
     private _pointerUpEventListener = (ev: PointerEvent) => this.onPointerUp(ev);
 

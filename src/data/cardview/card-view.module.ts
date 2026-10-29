@@ -85,8 +85,8 @@ import {
 })
 export class CardViewModule {
   /**
-   * Property `entryComponents` (`any[]`) storing entry components.
-   * @zh 属性 `entryComponents`（类型：`any[]`），用于存储或配置条目组件列表。
+   * Property `entryComponents` (`(typeof CardViewBoolItemComponent | typeof CardViewDateItemComponent | typeof CardViewMapItemComponent | typeof CardViewTextItemComponent | typeof CardViewSelectItemComponent | typeof CardViewKeyValuePairsItemComponent | typeof CardViewArrayItemComponent)[]`) storing entry components.
+   * @zh 属性 `entryComponents`（类型：`(typeof CardViewBoolItemComponent | typeof CardViewDateItemComponent | typeof CardViewMapItemComponent | typeof CardViewTextItemComponent | typeof CardViewSelectItemComponent | typeof CardViewKeyValuePairsItemComponent | typeof CardViewArrayItemComponent)[]`），用于存储或配置条目组件列表。
    */
   entryComponents = [    CardViewBoolItemComponent,
     CardViewDateItemComponent,

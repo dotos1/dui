@@ -56,7 +56,7 @@ const _dndState:DndState = {
  * @zh 执行 `startDrag`，用于开始拖拽。
  * @param event - event parameter (`DragEvent`) / 事件参数（`DragEvent`）
  * @param effectAllowed - effect allowed parameter (`EffectAllowed`) / 副作用允许的参数（`EffectAllowed`）
- * @param type - type parameter (`string | undefined`) / 类型参数（`string | undefined`）
+ * @param type - type parameter (`string`) / 类型参数（`string`）
  */
 export function startDrag( event:DragEvent, effectAllowed:EffectAllowed, type:string | undefined ) {
 
@@ -105,7 +105,7 @@ export function setDropEffect( event:DragEvent, dropEffect:DropEffect ) {
  * Executes `getDropEffect` to handle get drop effect.
  * @zh 执行 `getDropEffect`，用于获取放置副作用。
  * @param event - event parameter (`DragEvent`) / 事件参数（`DragEvent`）
- * @param effectAllowed - effect allowed parameter (`EffectAllowed | DropEffect`) / 副作用允许的参数（`EffectAllowed | DropEffect`）
+ * @param effectAllowed - effect allowed parameter (`"link" | "none" | "copy" | "all" | "move" | "copyMove" | "copyLink" | "linkMove" | "uninitialized"`) / 副作用允许的参数（`"link" | "none" | "copy" | "all" | "move" | "copyMove" | "copyLink" | "linkMove" | "uninitialized"`）
  * @returns Result of type `DropEffect` / 类型为 `DropEffect` 的返回值
  */
 export function getDropEffect( event:DragEvent, effectAllowed?:EffectAllowed | DropEffect ):DropEffect {
@@ -145,7 +145,7 @@ export function getDropEffect( event:DragEvent, effectAllowed?:EffectAllowed | D
  * Executes `getDndType` to handle get dnd type.
  * @zh 执行 `getDndType`，用于获取拖放类型。
  * @param event - event parameter (`DragEvent`) / 事件参数（`DragEvent`）
- * @returns Result of type `string | undefined` / 类型为 `string | undefined` 的返回值
+ * @returns Result of type `string` / 类型为 `string` 的返回值
  */
 export function getDndType( event:DragEvent ):string | undefined {
 

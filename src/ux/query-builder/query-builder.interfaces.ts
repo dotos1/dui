@@ -15,8 +15,8 @@ export interface RuleSet {
    */
   condition: string;
   /**
-   * Property `rules` (`Array<RuleSet | Rule>`) storing rules.
-   * @zh 属性 `rules`（类型：`Array<RuleSet | Rule>`），用于存储或配置规则列表。
+   * Property `rules` (`(RuleSet | Rule)[]`) storing rules.
+   * @zh 属性 `rules`（类型：`(RuleSet | Rule)[]`），用于存储或配置规则列表。
    */
   rules: Array<RuleSet | Rule>;
   /**
@@ -134,8 +134,8 @@ export interface Field {
    */
   entity?: string;
   /**
-   * Property `validator` (`(rule: Rule, parent: RuleSet) => any | null`) storing validator.
-   * @zh 属性 `validator`（类型：`(rule: Rule, parent: RuleSet) => any | null`），用于存储或配置校验器。
+   * Property `validator` (`(rule: Rule, parent: RuleSet) => unknown | null`) storing validator.
+   * @zh 属性 `validator`（类型：`(rule: Rule, parent: RuleSet) => unknown | null`），用于存储或配置校验器。
    */
   validator?: (rule: Rule, parent: RuleSet) => unknown | null;
 }
@@ -547,8 +547,8 @@ export interface FieldContext {
  */
 export interface OperatorContext {
   /**
-   * Property `onChange` (`(a:any) => void`) storing on change.
-   * @zh 属性 `onChange`（类型：`(a:any) => void`），用于存储或配置当变更。
+   * Property `onChange` (`(a: any) => void`) storing on change.
+   * @zh 属性 `onChange`（类型：`(a: any) => void`），用于存储或配置当变更。
    */
   onChange: (a) => void;
   /**

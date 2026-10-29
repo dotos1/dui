@@ -24,7 +24,7 @@ export class SafeurlPipe implements PipeTransform {
    * @zh 执行 `transform`，用于转换。
    * @param value - value parameter (`any`) / 值参数（`any`）
    * @param type - type parameter (`string`) / 类型参数（`string`）
-   * @returns Result of type `SafeHtml | SafeStyle | SafeScript | SafeUrl | SafeResourceUr...` / 类型为 `SafeHtml | SafeStyle | SafeScript | SafeUrl | SafeResourceUr...` 的返回值
+   * @returns Result of type `SafeStyle | SafeResourceUrl | SafeHtml | SafeUrl | SafeScript` / 类型为 `SafeStyle | SafeResourceUrl | SafeHtml | SafeUrl | SafeScript` 的返回值
    */
   public transform(value, type: string): SafeHtml | SafeStyle | SafeScript | SafeUrl | SafeResourceUrl {
     switch (type) {

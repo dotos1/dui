@@ -141,7 +141,7 @@ export class TreeNodeCollectionComponent implements OnInit, OnDestroy {
 
   /**
    * Executes `trackNode` to handle track node.
-   * @zh 执行 `trackNode`，用于track节点。
+   * @zh 执行 `trackNode`，用于跟踪节点。
    * @param index - index parameter (`any`) / 索引参数（`any`）
    * @param node - node parameter (`any`) / 节点参数（`any`）
    */

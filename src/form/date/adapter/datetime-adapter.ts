@@ -14,7 +14,7 @@ export abstract class DatetimeAdapter<D> extends DateAdapter<D> {
   /**
    * Creates an instance of `DatetimeAdapter` and initializes its dependencies and internal state.
    * @zh 创建 `DatetimeAdapter` 实例，并初始化其依赖项与内部状态。
-   * @param _delegate - Injected or initial delegate (`DateAdapter<D>`) / 注入或传入的delegate（`DateAdapter<D>`）
+   * @param _delegate - Injected or initial delegate (`DateAdapter<D, any>`) / 注入或传入的delegate（`DateAdapter<D, any>`）
    */
   constructor(protected _delegate: DateAdapter<D>) {
     super();
@@ -101,7 +101,7 @@ export abstract class DatetimeAdapter<D> extends DateAdapter<D> {
    * Executes `getValidDateOrNull` to handle get valid date or null.
    * @zh 执行 `getValidDateOrNull`，用于获取有效日期Or空值。
    * @param obj - obj parameter (`any`) / 对象参数（`any`）
-   * @returns Result of type `D | null` / 类型为 `D | null` 的返回值
+   * @returns Result of type `D` / 类型为 `D` 的返回值
    */
   override getValidDateOrNull(obj): D | null {
     return (this.isDateInstance(obj) && this.isValid(obj)) ? obj : null;
@@ -124,8 +124,8 @@ export abstract class DatetimeAdapter<D> extends DateAdapter<D> {
   /**
    * Executes `sameDatetime` to handle same datetime.
    * @zh 执行 `sameDatetime`，用于相同日期时间。
-   * @param first - first parameter (`D | null`) / 首个参数（`D | null`）
-   * @param second - second parameter (`D | null`) / 秒参数（`D | null`）
+   * @param first - first parameter (`D`) / 首个参数（`D`）
+   * @param second - second parameter (`D`) / 秒参数（`D`）
    * @returns Result of type `boolean` / 类型为 `boolean` 的返回值
    */
   sameDatetime(first: D | null, second: D | null): boolean {
@@ -183,8 +183,8 @@ export abstract class DatetimeAdapter<D> extends DateAdapter<D> {
   /**
    * Executes `sameMonthAndYear` to handle same month and year.
    * @zh 执行 `sameMonthAndYear`，用于相同月And年。
-   * @param first - first parameter (`D | null`) / 首个参数（`D | null`）
-   * @param second - second parameter (`D | null`) / 秒参数（`D | null`）
+   * @param first - first parameter (`D`) / 首个参数（`D`）
+   * @param second - second parameter (`D`) / 秒参数（`D`）
    * @returns Result of type `boolean` / 类型为 `boolean` 的返回值
    */
   sameMonthAndYear(first: D | null, second: D | null): boolean {
@@ -368,7 +368,7 @@ export abstract class DatetimeAdapter<D> extends DateAdapter<D> {
    * @zh 执行 `parse`，用于解析。
    * @param value - value parameter (`any`) / 值参数（`any`）
    * @param parseFormat - parse format parameter (`any`) / 解析格式化参数（`any`）
-   * @returns Result of type `D | null` / 类型为 `D | null` 的返回值
+   * @returns Result of type `D` / 类型为 `D` 的返回值
    */
   parse(value, parseFormat): D | null {
     return this._delegate.parse(value, parseFormat);
@@ -428,8 +428,8 @@ export abstract class DatetimeAdapter<D> extends DateAdapter<D> {
    * Executes `clampDate` to handle clamp date.
    * @zh 执行 `clampDate`，用于限制范围日期。
    * @param date - date parameter (`D`) / 日期参数（`D`）
-   * @param min - min parameter (`D | null`) / 最小值参数（`D | null`）
-   * @param max - max parameter (`D | null`) / 最大值参数（`D | null`）
+   * @param min - min parameter (`D`) / 最小值参数（`D`）
+   * @param max - max parameter (`D`) / 最大值参数（`D`）
    * @returns Result of type `D` / 类型为 `D` 的返回值
    */
   override clampDate(date: D, min?: D | null, max?: D | null): D {

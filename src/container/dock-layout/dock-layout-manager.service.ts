@@ -131,7 +131,7 @@ export class DockLayoutManagerService {
    * @zh 执行 `addComponent`，用于添加组件。
    * @param comp - comp parameter (`any`) / 组件参数（`any`）
    * @param containerId - container id parameter (`string`) / 容器唯一标识参数（`string`）
-   * @returns Result of type `ngComponentInstance` / 类型为 `ngComponentInstance` 的返回值
+   * @returns Result of type `unknown` / 类型为 `unknown` 的返回值
    */
   addComponent(comp,containerId?:string): ngComponentInstance {
     if (!this._dockLayout) {

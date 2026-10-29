@@ -12,13 +12,13 @@ import { LocalStorageService } from '@dotos/dui/core/storage';
 @Injectable()
 export class GoogleColorService {
  /**
-  * Property `customcolors` (`any`) storing customcolors (default: `['#cf1717' ]`).
-  * @zh 属性 `customcolors`（类型：`any`），用于存储或配置customcolors（默认值：`['#cf1717' ]`）。
+  * Property `customcolors` (`string[]`) storing customcolors (default: `['#cf1717' ]`).
+  * @zh 属性 `customcolors`（类型：`string[]`），用于存储或配置customcolors（默认值：`['#cf1717' ]`）。
   */
  public customcolors = ['#cf1717' ];
  /**
-  * Property `version` (`any`) storing version (default: `0`).
-  * @zh 属性 `version`（类型：`any`），用于存储或配置version（默认值：`0`）。
+  * Property `version` (`number`) storing version (default: `0`).
+  * @zh 属性 `version`（类型：`number`），用于存储或配置version（默认值：`0`）。
   */
  public version =0;
  /**

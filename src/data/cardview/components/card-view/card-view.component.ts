@@ -77,10 +77,10 @@ export class CardViewComponent {
 
   /**
    * Executes `trackByProperty` to handle track by property.
-   * @zh 执行 `trackByProperty`，用于track按属性。
+   * @zh 执行 `trackByProperty`，用于跟踪按属性。
    * @param index - index parameter (`number`) / 索引参数（`number`）
    * @param property - property parameter (`CardViewItem`) / 属性参数（`CardViewItem`）
-   * @returns Result of type `any` / 类型为 `any` 的返回值
+   * @returns Result of type `string | number` / 类型为 `string | number` 的返回值
    */
   trackByProperty(index: number, property: CardViewItem) {
     return property ? property.key : index;

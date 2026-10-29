@@ -46,27 +46,27 @@ export class DockLayoutHostComponent implements OnInit,OnDestroy {
    */
   private _dockLayout: DockLayout;
   /**
-   * Property `_containerMap` (`Map`) storing container map.
-   * @zh 属性 `_containerMap`（类型：`Map`），用于存储或配置容器映射表。
+   * Property `_containerMap` (`Map<ComponentContainer, ComponentRef<unknown>>`) storing container map.
+   * @zh 属性 `_containerMap`（类型：`Map<ComponentContainer, ComponentRef<unknown>>`），用于存储或配置容器映射表。
    */
   private _containerMap = new Map<ComponentContainer, ComponentRef<unknown>>();
   /**
-   * Property `_windowResizeListener` (`any`) storing window resize listener (default: `() => this.handleWindowResizeEvent()`).
-   * @zh 属性 `_windowResizeListener`（类型：`any`），用于存储或配置窗口调整尺寸监听器（默认值：`() => this.handleWindowResizeEvent()`）。
+   * Property `_windowResizeListener` (`() => void`) storing window resize listener (default: `() => this.handleWindowResizeEvent()`).
+   * @zh 属性 `_windowResizeListener`（类型：`() => void`），用于存储或配置窗口调整尺寸监听器（默认值：`() => this.handleWindowResizeEvent()`）。
    */
   private _windowResizeListener = () => this.handleWindowResizeEvent();
 
   /**
-   * Output event emitter `layoutChanged` (`EventEmitter`) firing when layout changed occurs.
-   * @zh 输出事件 `layoutChanged`（类型：`EventEmitter`），当触发布局已变更时向外发出事件。
+   * Output event emitter `layoutChanged` (`EventEmitter<void>`) firing when layout changed occurs.
+   * @zh 输出事件 `layoutChanged`（类型：`EventEmitter<void>`），当触发布局已变更时向外发出事件。
    */
   @Output()
   layoutChanged = new EventEmitter<void>();
 
 
   /**
-   * Output event emitter `activeStackChanged` (`EventEmitter`) firing when active stack changed occurs.
-   * @zh 输出事件 `activeStackChanged`（类型：`EventEmitter`），当触发激活栈已变更时向外发出事件。
+   * Output event emitter `activeStackChanged` (`EventEmitter<any>`) firing when active stack changed occurs.
+   * @zh 输出事件 `activeStackChanged`（类型：`EventEmitter<any>`），当触发激活栈已变更时向外发出事件。
    */
   @Output()
   activeStackChanged = new EventEmitter();

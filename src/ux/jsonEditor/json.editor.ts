@@ -51,7 +51,7 @@ import { EditorComponent } from '@dotos/dui/ux/monaco-editor';
 export class JsonEditor {
 
   /**
-   * Template/content query reference `monacoEditor` (`@ViewChild`) targeting monaco editor.
+   * Template/content query reference `monacoEditor` (`EditorComponent`) targeting monaco editor.
    * @zh 模板/内容视图查询引用 `monacoEditor`（`@ViewChild`），指向Monaco编辑器编辑器。
    */
   @ViewChild(EditorComponent)
@@ -70,8 +70,8 @@ export class JsonEditor {
   parent;
 
   /**
-   * Property `editorOptions` (`any`) storing editor options.
-   * @zh 属性 `editorOptions`（类型：`any`），用于存储或配置编辑器配置选项。
+   * Property `editorOptions` (`{…}`) storing editor options.
+   * @zh 属性 `editorOptions`（类型：`{…}`），用于存储或配置编辑器配置选项。
    */
   editorOptions = {
     language: "json",
@@ -88,8 +88,8 @@ export class JsonEditor {
     }
   };
   /**
-   * Property `buttons` (`Array<any>`) storing buttons.
-   * @zh 属性 `buttons`（类型：`Array<any>`），用于存储或配置按钮。
+   * Property `buttons` (`({…})[]`) storing buttons.
+   * @zh 属性 `buttons`（类型：`({…})[]`），用于存储或配置按钮。
    */
   private buttons = [
     {
@@ -115,8 +115,8 @@ export class JsonEditor {
   ];
 
   /**
-   * Property `cardConfig` (`any`) storing card config.
-   * @zh 属性 `cardConfig`（类型：`any`），用于存储或配置卡片配置。
+   * Property `cardConfig` (`{…}`) storing card config.
+   * @zh 属性 `cardConfig`（类型：`{…}`），用于存储或配置卡片配置。
    */
   cardConfig = {
     xtype: 'card',
@@ -130,7 +130,7 @@ export class JsonEditor {
    * @param _changeDetectorRef - Injected or initial change detector ref (`ChangeDetectorRef`) / 注入或传入的变更检测器引用（`ChangeDetectorRef`）
    * @param toastr - Injected or initial toastr (`ToastrService`) / 注入或传入的轻提示（`ToastrService`）
    * @param data - Injected or initial data (`any`) / 注入或传入的数据（`any`）
-   * @param dialogRef - Injected or initial dialog ref (`MatDialogRef<JsonEditor>`) / 注入或传入的对话框引用（`MatDialogRef<JsonEditor>`）
+   * @param dialogRef - Injected or initial dialog ref (`MatDialogRef<JsonEditor, any>`) / 注入或传入的对话框引用（`MatDialogRef<JsonEditor, any>`）
    * @param _apiBase - Injected or initial api base (`string`) / 注入或传入的API接口基础（`string`）
    */
   constructor(

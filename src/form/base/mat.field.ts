@@ -18,12 +18,12 @@ import { Subject } from 'rxjs';
 @Directive()
 export abstract class MatField<F extends FieldConfig = FieldConfig> extends CoreFieldType<F> implements OnInit, AfterViewInit, OnDestroy, MatFormFieldControl<unknown>  {
   /**
-   * Template/content query reference `matPrefix` (`@ViewChild`) targeting mat prefix.
+   * Template/content query reference `matPrefix` (`TemplateRef<unknown>`) targeting mat prefix.
    * @zh 模板/内容视图查询引用 `matPrefix`（`@ViewChild`），指向Material前缀。
    */
   @ViewChild('matPrefix', { static: true }) matPrefix!: TemplateRef<unknown>;
   /**
-   * Template/content query reference `matSuffix` (`@ViewChild`) targeting mat suffix.
+   * Template/content query reference `matSuffix` (`TemplateRef<unknown>`) targeting mat suffix.
    * @zh 模板/内容视图查询引用 `matSuffix`（`@ViewChild`），指向Material后缀。
    */
   @ViewChild('matSuffix', { static: true }) matSuffix!: TemplateRef<unknown>;
@@ -36,7 +36,7 @@ export abstract class MatField<F extends FieldConfig = FieldConfig> extends Core
   /**
    * Sets the form field control (`formFieldControl`).
    * @zh 设置表单字段表单控件（`formFieldControl`）。
-   * @param control - New form field control value (`MatFormFieldControl<any>`) / 新的表单字段表单控件值（`MatFormFieldControl<any>`）
+   * @param control - New form field control value (`MatFormFieldControl<unknown>`) / 新的表单字段表单控件值（`MatFormFieldControl<unknown>`）
    */
   set formFieldControl(control: MatFormFieldControl<unknown>) {
     this._control = control;
@@ -46,8 +46,8 @@ export abstract class MatField<F extends FieldConfig = FieldConfig> extends Core
   }
 
   /**
-   * Property `_control` (`MatFormFieldControl<any>`) storing control.
-   * @zh 属性 `_control`（类型：`MatFormFieldControl<any>`），用于存储或配置表单控件。
+   * Property `_control` (`MatFormFieldControl<unknown>`) storing control.
+   * @zh 属性 `_control`（类型：`MatFormFieldControl<unknown>`），用于存储或配置表单控件。
    */
   private _control!: MatFormFieldControl<unknown>;
   /**
@@ -56,8 +56,8 @@ export abstract class MatField<F extends FieldConfig = FieldConfig> extends Core
    */
   errorStateMatcher = new ExtErrorStateMatcher(this);
   /**
-   * Property `stateChanges` (`Subject`) storing state changes (default: `new Subject<void>()`).
-   * @zh 属性 `stateChanges`（类型：`Subject`），用于存储或配置状态变更集合（默认值：`new Subject<void>()`）。
+   * Property `stateChanges` (`Subject<void>`) storing state changes (default: `new Subject<void>()`).
+   * @zh 属性 `stateChanges`（类型：`Subject<void>`），用于存储或配置状态变更集合（默认值：`new Subject<void>()`）。
    */
   stateChanges = new Subject<void>();
   /**

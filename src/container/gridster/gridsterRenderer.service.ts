@@ -178,7 +178,7 @@ export class GridsterRenderer {
    * Executes `getLeftPosition` to handle get left position.
    * @zh 执行 `getLeftPosition`，用于获取左侧位置位置。
    * @param d - d parameter (`number`) / d参数（`number`）
-   * @returns Result of type `{ left?: string, transform?: string }` / 类型为 `{ left?: string, transform?: string }` 的返回值
+   * @returns Result of type `{ left?: string; transform?: string; }` / 类型为 `{ left?: string; transform?: string; }` 的返回值
    */
   getLeftPosition(d: number): { left?: string, transform?: string } {
     const dPosition = this.gridster.$options.dirType === DirTypes.RTL ? -d : d;
@@ -197,7 +197,7 @@ export class GridsterRenderer {
    * Executes `getTopPosition` to handle get top position.
    * @zh 执行 `getTopPosition`，用于获取顶部位置位置。
    * @param d - d parameter (`number`) / d参数（`number`）
-   * @returns Result of type `{ top?: string, transform?: string }` / 类型为 `{ top?: string, transform?: string }` 的返回值
+   * @returns Result of type `{ top?: string; transform?: string; }` / 类型为 `{ top?: string; transform?: string; }` 的返回值
    */
   getTopPosition(d: number): { top?: string, transform?: string } {
     if (this.gridster.$options.useTransformPositioning) {

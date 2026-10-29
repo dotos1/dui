@@ -71,7 +71,7 @@
     "TAB2": "2. استيراد الوحدات",
     "TAB3": "3. استخدام المكونات",
     "TAB4": "4. التدويل والسمات",
-    "TAB5": "5. Architecture & Dev Guide",
+    "TAB5": "5. البنية ودليل التطوير",
     "STEP1_H1": "تثبيت الحزمة",
     "STEP1_H2": "تثبيت peer dependencies",
     "STEP1_P2": "يعتمد DUI على Angular Material وCDK، لذا تأكد من تثبيت التبعيات التالية في مشروعك:",
@@ -87,11 +87,11 @@
     "STEP4_P1": "يأتي DUI مزودًا بإطار عمل متعدد اللغات مبني على TranslationService، يوفر افتراضيًا لغتي zh_CN وen_US:",
     "STEP4_H2": "تبديل السمات أثناء التشغيل",
     "STEP4_P2": "من خلال ThemeService يمكنك تغيير اللون الأساسي واللون الثانوي ولون التحذير ووضع الإضاءة/الظلام ديناميكيًا أثناء التشغيل، دون الحاجة لإعادة البناء:",
-    "STEP5_H1": "Secondary Entry-Point Packaging Rules",
-    "STEP5_P1": "DUI uses ng-packagr secondary entry points. Each feature folder contains its own ng-package.json, index.ts, and public-api.ts. Always import across entry points via @dotos/dui/<category>/<module> rather than deep relative paths:",
-    "STEP5_H2": "RxJS Subscription Lifecycle & OnPush Performance",
-    "STEP5_P2": "Always clean up long-lived Observable subscriptions in ngOnDestroy using takeUntil(this.destroy$) to prevent memory leaks, and prefer ChangeDetectionStrategy.OnPush for high-frequency components:",
-    "STEP5_H3": "Bilingual JSDoc (@zh) & Automated Docs Generation",
-    "STEP5_P3": "Document all exported classes, interfaces, enums, functions, and public members with English JSDoc plus an @zh Chinese tag, then run npm run docs:generate to update the documentation portal:"
+    "STEP5_H1": "قواعد تحزيم نقاط الدخول الثانوية",
+    "STEP5_P1": "يستخدم DUI نقاط الدخول الثانوية في ng-packagr. يحتوي كل مجلد ميزة على ng-package.json و index.ts و public-api.ts خاصة به. استورد دائمًا عبر نقاط الدخول باستخدام ‎@dotos/dui/<category>/<module>‎ بدلًا من المسارات النسبية العميقة:",
+    "STEP5_H2": "دورة حياة اشتراكات RxJS وأداء OnPush",
+    "STEP5_P2": "نظّف دائمًا اشتراكات Observable طويلة العمر في ngOnDestroy باستخدام takeUntil(this.destroy$)‎ لتجنب تسرب الذاكرة، وفضّل ChangeDetectionStrategy.OnPush للمكونات عالية التحديث:",
+    "STEP5_H3": "JSDoc ثنائي اللغة (@zh) وتوليد المستندات تلقائيًا",
+    "STEP5_P3": "وثّق جميع الأصناف والواجهات والتعدادات والدوال والأعضاء العامة المصدَّرة بـ JSDoc إنجليزي مع وسم ‎@zh‎ صيني، ثم شغّل npm run docs:generate لتحديث بوابة المستندات:"
   }
 }

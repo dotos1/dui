@@ -46,8 +46,8 @@ import { ButtonComponent } from './button.component';
 })
 export class ButtonModule {
   /**
-   * Property `entryComponents` (`any[]`) storing entry components (default: `[ MatDivider, ButtonComponent,]`).
-   * @zh 属性 `entryComponents`（类型：`any[]`），用于存储或配置条目组件列表（默认值：`[ MatDivider, ButtonComponent,]`）。
+   * Property `entryComponents` (`(typeof MatDivider | typeof ButtonComponent)[]`) storing entry components (default: `[ MatDivider, ButtonComponent,]`).
+   * @zh 属性 `entryComponents`（类型：`(typeof MatDivider | typeof ButtonComponent)[]`），用于存储或配置条目组件列表（默认值：`[ MatDivider, ButtonComponent,]`）。
    */
   entryComponents = [
      MatDivider,

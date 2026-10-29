@@ -154,7 +154,7 @@ export function setElementDisplayVisibility(element: HTMLElement, visible: boole
 /**
  * Executes `ensureElementPositionAbsolute` to handle ensure element position absolute.
  * @internal
- * @zh 执行 `ensureElementPositionAbsolute`，用于ensure元素位置Absolute。
+ * @zh 执行 `ensureElementPositionAbsolute`，用于确保元素位置Absolute。
  */
 export function ensureElementPositionAbsolute(element: HTMLElement): void {
     const absolutePosition = 'absolute';

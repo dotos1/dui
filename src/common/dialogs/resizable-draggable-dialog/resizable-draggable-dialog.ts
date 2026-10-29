@@ -150,8 +150,8 @@ export class ResizableDraggableDialog {
    * @zh 创建 `ResizableDraggableDialog` 实例，并初始化其依赖项与内部状态。
    * @param _document - Injected or initial document (`any`) / 注入或传入的文档对象（`any`）
    * @param _renderer2 - Injected or initial renderer2 (`Renderer2`) / 注入或传入的renderer2（`Renderer2`）
-   * @param _dialogRef - Injected or initial dialog ref (`MatDialogRef<any>`) / 注入或传入的对话框引用（`MatDialogRef<any>`）
-   * @param _dragRef - Injected or initial drag ref (`DragRef`) / 注入或传入的拖拽引用（`DragRef`）
+   * @param _dialogRef - Injected or initial dialog ref (`MatDialogRef<unknown, any>`) / 注入或传入的对话框引用（`MatDialogRef<unknown, any>`）
+   * @param _dragRef - Injected or initial drag ref (`DragRef<any>`) / 注入或传入的拖拽引用（`DragRef<any>`）
    */
   constructor(
     private _document,
@@ -188,7 +188,7 @@ export class ResizableDraggableDialog {
   /**
    * Executes `_getDialogWrapper` to handle get dialog wrapper.
    * @zh 执行 `_getDialogWrapper`，用于获取对话框包装器。
-   * @returns Result of type `HTMLElement | null` / 类型为 `HTMLElement | null` 的返回值
+   * @returns Result of type `HTMLElement` / 类型为 `HTMLElement` 的返回值
    */
   private _getDialogWrapper(): HTMLElement | null {
     return (
@@ -199,7 +199,7 @@ export class ResizableDraggableDialog {
   /**
    * Executes `_getViewportDimensions` to handle get viewport dimensions.
    * @zh 执行 `_getViewportDimensions`，用于获取视口维度列表。
-   * @returns Result of type `ClientRect | undefined` / 类型为 `ClientRect | undefined` 的返回值
+   * @returns Result of type `ClientRect` / 类型为 `ClientRect` 的返回值
    */
   private _getViewportDimensions(): ClientRect | undefined {
     return this._getDialogWrapper()?.parentElement?.getBoundingClientRect();
@@ -208,7 +208,7 @@ export class ResizableDraggableDialog {
   /**
    * Executes `_getDialogWrapperDimensions` to handle get dialog wrapper dimensions.
    * @zh 执行 `_getDialogWrapperDimensions`，用于获取对话框包装器维度列表。
-   * @returns Result of type `{ width: number; height: number }` / 类型为 `{ width: number; height: number }` 的返回值
+   * @returns Result of type `{ width: number; height: number; }` / 类型为 `{ width: number; height: number; }` 的返回值
    */
   private _getDialogWrapperDimensions(): { width: number; height: number } {
     const wrapper = this._getDialogWrapper();

@@ -1,4 +1,2884 @@
 {
-  "total": 0,
-  "files": {}
+  "version": 2,
+  "metric": "checker：写出的 any 类型节点 + 隐式 any 声明 + 推断 any 返回值；空对象 = 推断为 {} 的声明；绕过断言 = as unknown as / as any as / as never",
+  "any": 4676,
+  "emptyObj": 0,
+  "cast": 57,
+  "files": {
+    "src/base/base.ts": {
+      "any": 0,
+      "emptyObj": 0,
+      "cast": 1
+    },
+    "src/base/dom.ts": {
+      "any": 0,
+      "emptyObj": 0,
+      "cast": 1
+    },
+    "src/base/observer.ts": {
+      "any": 0,
+      "emptyObj": 0,
+      "cast": 1
+    },
+    "src/base/sanitize-dom.ts": {
+      "any": 0,
+      "emptyObj": 0,
+      "cast": 1
+    },
+    "src/common/carousel/carousel.component.ts": {
+      "any": 5,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/common/clickout/click-outside.directive.ts": {
+      "any": 4,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/common/clipboard/clipboard.directive.ts": {
+      "any": 1,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/common/clipboard/clipboard.service.ts": {
+      "any": 7,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/common/clipboard/copy-button.component.ts": {
+      "any": 1,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/common/colorpicker/common/alpha.component.ts": {
+      "any": 2,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/common/colorpicker/common/color-wrap.component.ts": {
+      "any": 11,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/common/colorpicker/common/coordinates.directive.ts": {
+      "any": 4,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/common/colorpicker/common/editable-input.component.ts": {
+      "any": 3,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/common/colorpicker/common/helpers/color.ts": {
+      "any": 4,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/common/colorpicker/common/hue.component.ts": {
+      "any": 3,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/common/colorpicker/common/shade.component.ts": {
+      "any": 2,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/common/colorpicker/common/swatch.component.ts": {
+      "any": 5,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/common/colorpicker/components/chrome/chrome-fields.component.ts": {
+      "any": 3,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/common/colorpicker/components/circle/circle.component.ts": {
+      "any": 1,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/common/colorpicker/components/google/google-color.services.ts": {
+      "any": 1,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/common/colorpicker/components/google/google.component.ts": {
+      "any": 2,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/common/colorpicker/components/gradient/components/controls.component.ts": {
+      "any": 5,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/common/colorpicker/components/gradient/components/eye-dropper.component.ts": {
+      "any": 16,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/common/colorpicker/components/gradient/components/gradient-bar-handle.component.ts": {
+      "any": 6,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/common/colorpicker/components/gradient/components/gradient-bar.component.ts": {
+      "any": 6,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/common/colorpicker/components/gradient/components/gradient-controls.component.ts": {
+      "any": 4,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/common/colorpicker/components/gradient/components/gradient-hue.component.ts": {
+      "any": 6,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/common/colorpicker/components/gradient/components/gradient-opacity.component.ts": {
+      "any": 7,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/common/colorpicker/components/gradient/components/gradient-presets.component.ts": {
+      "any": 2,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/common/colorpicker/components/gradient/components/gradient-square.component.ts": {
+      "any": 11,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/common/colorpicker/components/gradient/gradient-fields.component.ts": {
+      "any": 1,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/common/colorpicker/components/gradient/hooks/color-picker.ts": {
+      "any": 18,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/common/colorpicker/components/gradient/hooks/context.service.ts": {
+      "any": 19,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/common/colorpicker/components/gradient/hooks/paint-hue.service.ts": {
+      "any": 14,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/common/colorpicker/components/gradient/utils/formatters.ts": {
+      "any": 2,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/common/colorpicker/components/gradient/utils/gradientParser.ts": {
+      "any": 52,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/common/colorpicker/components/gradient/utils/utils.ts": {
+      "any": 21,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/common/colorpicker/components/sketch/sketch-fields.component.ts": {
+      "any": 1,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/common/colorpicker/components/slider/slider-swatch.component.ts": {
+      "any": 1,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/common/dialogs/resizable-draggable-dialog/resizable-draggable-dialog.ts": {
+      "any": 1,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/common/dialogs/services/dialog.service.ts": {
+      "any": 1,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/common/dnd/dnd-draggable.directive.ts": {
+      "any": 1,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/common/dnd/dnd-dropzone.directive.ts": {
+      "any": 3,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/common/dnd/dnd-utils.ts": {
+      "any": 2,
+      "emptyObj": 0,
+      "cast": 1
+    },
+    "src/common/dragselect/models.ts": {
+      "any": 1,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/common/dragselect/select-container.component.ts": {
+      "any": 15,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/common/dragselect/select-item.directive.ts": {
+      "any": 3,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/common/dragselect/shortcut.service.ts": {
+      "any": 10,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/common/dragselect/utils.ts": {
+      "any": 1,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/common/dynamic/dynamic.component.ts": {
+      "any": 4,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/common/fileupload/file-drop.directive.ts": {
+      "any": 12,
+      "emptyObj": 0,
+      "cast": 2
+    },
+    "src/common/fileupload/file-item.ts": {
+      "any": 3,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/common/fileupload/file-like-object.ts": {
+      "any": 6,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/common/fileupload/file-select.directive.ts": {
+      "any": 1,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/common/fileupload/file-uploader.ts": {
+      "any": 39,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/common/icon/font-loader.service.ts": {
+      "any": 4,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/common/icon/icon.component.ts": {
+      "any": 4,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/common/icon/icon.ts": {
+      "any": 1,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/common/iframe/components/iframe.component.ts": {
+      "any": 9,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/common/inline-svg/inline-svg.directive.ts": {
+      "any": 2,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/common/inline-svg/svg-cache.service.ts": {
+      "any": 4,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/common/inline-svg/svg-util.ts": {
+      "any": 3,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/common/keyboard/dom-portal-outlet.ts": {
+      "any": 3,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/common/keyboard/keyboard-shortcut.component.ts": {
+      "any": 1,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/common/keyboard/keyboard-shortcuts-help-item.component.ts": {
+      "any": 1,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/common/keyboard/keyboard-shortcuts-help.component.ts": {
+      "any": 8,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/common/keyboard/keyboard-shortcuts.component.ts": {
+      "any": 1,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/common/keyboard/keyboard-shortcuts.directive.ts": {
+      "any": 2,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/common/keyboard/keyboard-shortcuts.interfaces.ts": {
+      "any": 1,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/common/keyboard/keyboard-shortcuts.plugin.ts": {
+      "any": 6,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/common/keyboard/keyboard-shortcuts.service.ts": {
+      "any": 41,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/common/keyboard/portal.ts": {
+      "any": 5,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/common/keyboard/public-api.ts": {
+      "any": 12,
+      "emptyObj": 0,
+      "cast": 5
+    },
+    "src/common/keyboard/utils.ts": {
+      "any": 25,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/common/loading/directives/loading.directive.ts": {
+      "any": 3,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/common/loading/loading.component.ts": {
+      "any": 1,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/common/matcolorpicker/color-picker.component.ts": {
+      "any": 14,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/common/media/directives/media-toggle.directive.ts": {
+      "any": 2,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/common/perfect-scrollbar/perfect-scrollbar.component.ts": {
+      "any": 7,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/common/perfect-scrollbar/perfect-scrollbar.directive.ts": {
+      "any": 9,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/common/perfect-scrollbar/perfect-scrollbar.interfaces.ts": {
+      "any": 0,
+      "emptyObj": 0,
+      "cast": 1
+    },
+    "src/common/popover/popover-interfaces.ts": {
+      "any": 1,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/common/popover/popover-trigger.ts": {
+      "any": 4,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/common/print/print.directive.ts": {
+      "any": 3,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/common/print/print.service.ts": {
+      "any": 10,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/common/resize-element/resizable.directive.ts": {
+      "any": 5,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/common/resize-element/resize-handle.directive.ts": {
+      "any": 1,
+      "emptyObj": 0,
+      "cast": 1
+    },
+    "src/common/resize-element/util/is-touch-device.ts": {
+      "any": 0,
+      "emptyObj": 0,
+      "cast": 1
+    },
+    "src/common/screenfull/screenfull.service.ts": {
+      "any": 10,
+      "emptyObj": 0,
+      "cast": 1
+    },
+    "src/common/scrollbar/smooth-scroll/bezier-easing.ts": {
+      "any": 3,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/common/scrollbar/utils/common.ts": {
+      "any": 1,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/common/search-box/search-box.component.ts": {
+      "any": 9,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/common/stop-propagation/stop-drop-propagation.directive.ts": {
+      "any": 1,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/common/stop-propagation/stop-propagation.directive.ts": {
+      "any": 1,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/common/svg/components/svg-container.component.ts": {
+      "any": 1,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/common/svg/directives/svg-circle.directive.ts": {
+      "any": 4,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/common/svg/directives/svg-ellipse.directive.ts": {
+      "any": 4,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/common/svg/directives/svg-image.directive.ts": {
+      "any": 4,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/common/svg/directives/svg-line.directive.ts": {
+      "any": 4,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/common/svg/directives/svg-path.directive.ts": {
+      "any": 4,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/common/svg/directives/svg-polygon.directive.ts": {
+      "any": 4,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/common/svg/directives/svg-polyline.directive.ts": {
+      "any": 4,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/common/svg/directives/svg-rect.directive.ts": {
+      "any": 4,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/common/svg/directives/svg-text.directive.ts": {
+      "any": 4,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/common/toastr/overlay/overlay-container.ts": {
+      "any": 2,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/common/toastr/overlay/overlay-ref.ts": {
+      "any": 1,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/common/toastr/portal/dom-portal-host.ts": {
+      "any": 1,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/common/toastr/portal/portal.ts": {
+      "any": 2,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/common/toastr/toastr/notification.service.ts": {
+      "any": 2,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/common/toastr/toastr/toast-injector.ts": {
+      "any": 2,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/common/toastr/toastr/toast-noanimation.component.ts": {
+      "any": 3,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/common/toastr/toastr/toast.component.ts": {
+      "any": 6,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/common/toastr/toastr/toastr-config.ts": {
+      "any": 3,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/common/toastr/toastr/toastr.service.ts": {
+      "any": 24,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/common/trigger/trigger.model.ts": {
+      "any": 2,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/container/accordion/accordion.ts": {
+      "any": 1,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/container/accordion/expansion-panel-header.ts": {
+      "any": 2,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/container/accordion/expansion-panel.ts": {
+      "any": 3,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/container/card/card.component.ts": {
+      "any": 3,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/container/container.main.ts": {
+      "any": 2,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/container/dock-layout/config/config.ts": {
+      "any": 2,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/container/dock-layout/config/resolved-config.ts": {
+      "any": 3,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/container/dock-layout/container/component-container.ts": {
+      "any": 3,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/container/dock-layout/controls/browser-popout.ts": {
+      "any": 1,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/container/dock-layout/controls/splitter.ts": {
+      "any": 1,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/container/dock-layout/dock-layout-component.service.ts": {
+      "any": 2,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/container/dock-layout/dock-layout-host.component.ts": {
+      "any": 5,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/container/dock-layout/dock-layout-manager.service.ts": {
+      "any": 7,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/container/dock-layout/dock-layout.ts": {
+      "any": 1,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/container/dock-layout/items/content-item.ts": {
+      "any": 2,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/container/dock-layout/items/ground-item.ts": {
+      "any": 1,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/container/dock-layout/items/stack.ts": {
+      "any": 7,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/container/dock-layout/layout-manager.ts": {
+      "any": 4,
+      "emptyObj": 0,
+      "cast": 1
+    },
+    "src/container/dock-layout/utils/event-hub.ts": {
+      "any": 1,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/container/dock-layout/utils/utils.ts": {
+      "any": 1,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/container/dock-layout/virtual-layout.ts": {
+      "any": 2,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/container/gridster/gridster.component.ts": {
+      "any": 15,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/container/gridster/gridster.interface.ts": {
+      "any": 1,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/container/gridster/gridsterCompact.service.ts": {
+      "any": 1,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/container/gridster/gridsterDraggable.service.ts": {
+      "any": 9,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/container/gridster/gridsterEmptyCell.service.ts": {
+      "any": 9,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/container/gridster/gridsterItem.component.ts": {
+      "any": 1,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/container/gridster/gridsterItemComponent.interface.ts": {
+      "any": 1,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/container/gridster/gridsterPreview.component.ts": {
+      "any": 1,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/container/gridster/gridsterPush.service.ts": {
+      "any": 4,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/container/gridster/gridsterPushResize.service.ts": {
+      "any": 4,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/container/gridster/gridsterRenderer.service.ts": {
+      "any": 3,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/container/gridster/gridsterResizable.service.ts": {
+      "any": 16,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/container/gridster/gridsterScroll.service.ts": {
+      "any": 14,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/container/gridster/gridsterSwap.service.ts": {
+      "any": 1,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/container/gridster/gridsterUtils.service.ts": {
+      "any": 14,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/container/layout/component/abstract.panel.ts": {
+      "any": 4,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/container/layout/component/layout.component.ts": {
+      "any": 7,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/container/layout/utils.ts": {
+      "any": 2,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/container/panel/abstract.panel.ts": {
+      "any": 9,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/container/panel/panel.component.ts": {
+      "any": 6,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/container/panel/split.component.ts": {
+      "any": 1,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/container/resizable/resizable.component.ts": {
+      "any": 5,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/container/tabpanel/tabpanel.component.ts": {
+      "any": 17,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/core/angular2parse/angular/compiler/assertions.ts": {
+      "any": 2,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/core/angular2parse/angular/compiler/ast.ts": {
+      "any": 155,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/core/angular2parse/angular/compiler/parser.ts": {
+      "any": 32,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/core/angular2parse/angular/facade/lang.ts": {
+      "any": 19,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/core/angular2parse/parse.ts": {
+      "any": 6,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/core/angular2parse/util/binary-operations.ts": {
+      "any": 33,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/core/angular2parse/util/lang.ts": {
+      "any": 2,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/core/angular2parse/visitors/parse-visitor-compiler.ts": {
+      "any": 22,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/core/angular2parse/visitors/parse-visitor-resolver.ts": {
+      "any": 54,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/core/auth/CommonAuth.ts": {
+      "any": 5,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/core/auth/auth-guard-sso-role.service.ts": {
+      "any": 4,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/core/auth/auth-guard.service.ts": {
+      "any": 1,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/core/auth/auth.loader.ts": {
+      "any": 5,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/core/auth/auth.module.ts": {
+      "any": 1,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/core/auth/auth.service.ts": {
+      "any": 13,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/core/auth/authenticated.guard.ts": {
+      "any": 1,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/core/auth/jwt-helper.service.ts": {
+      "any": 6,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/core/auth/lock/lockscreen.dialog.ts": {
+      "any": 13,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/core/auth/model/basicAuth.ts": {
+      "any": 2,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/core/auth/model/redirection.model.ts": {
+      "any": 1,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/core/auth/oauth2Auth.ts": {
+      "any": 43,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/core/auth/token-target.ts": {
+      "any": 1,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/core/behaviors/control-value-accesor.mixin.ts": {
+      "any": 13,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/core/cache/base-obejct.ts": {
+      "any": 21,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/core/cache/collection.ts": {
+      "any": 26,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/core/color/conversion.ts": {
+      "any": 3,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/core/color/format-input.ts": {
+      "any": 2,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/core/color/from-ratio.ts": {
+      "any": 1,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/core/color/matColors.ts": {
+      "any": 9,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/core/color/solver.ts": {
+      "any": 45,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/core/color/tinycolor.ts": {
+      "any": 5,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/core/color/util.ts": {
+      "any": 2,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/core/component.base.ts": {
+      "any": 1,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/core/config/config.loader.ts": {
+      "any": 2,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/core/config/config.module.ts": {
+      "any": 1,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/core/config/config.service.ts": {
+      "any": 2,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/core/config/feature.service.ts": {
+      "any": 1,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/core/config/http-loader/config.http-loader.ts": {
+      "any": 1,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/core/config/merge-loader/config.merge-loader.ts": {
+      "any": 6,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/core/crypt/base64.ts": {
+      "any": 4,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/core/crypt/hash.ts": {
+      "any": 4,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/core/crypt/md5.ts": {
+      "any": 52,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/core/crypt/sha1.ts": {
+      "any": 6,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/core/decorators/coercion.ts": {
+      "any": 20,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/core/decorators/enumerable.ts": {
+      "any": 1,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/core/dui.ts": {
+      "any": 51,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/core/dynamic/dynamic.component.ts": {
+      "any": 2,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/core/dynamic/safeurl.pipe.ts": {
+      "any": 1,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/core/form/error-state-matcher.ts": {
+      "any": 1,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/core/form/extensions/core/core.ts": {
+      "any": 3,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/core/form/extensions/field-expression/field-expression.ts": {
+      "any": 12,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/core/form/extensions/field-expression/utils.ts": {
+      "any": 3,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/core/form/extensions/field-form/field-form.ts": {
+      "any": 2,
+      "emptyObj": 0,
+      "cast": 1
+    },
+    "src/core/form/extensions/field-form/utils.ts": {
+      "any": 6,
+      "emptyObj": 0,
+      "cast": 1
+    },
+    "src/core/form/extensions/field-validation/field-validation.ts": {
+      "any": 15,
+      "emptyObj": 0,
+      "cast": 1
+    },
+    "src/core/form/form.ext.ts": {
+      "any": 7,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/core/form/models/config.ts": {
+      "any": 3,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/core/form/models/field-config.cache.ts": {
+      "any": 2,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/core/form/models/field.config.ts": {
+      "any": 18,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/core/form/services/form.builder.ts": {
+      "any": 1,
+      "emptyObj": 0,
+      "cast": 1
+    },
+    "src/core/form/services/form.config.ts": {
+      "any": 4,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/core/form/template/field-array.type.ts": {
+      "any": 11,
+      "emptyObj": 0,
+      "cast": 1
+    },
+    "src/core/form/template/field-template.type.ts": {
+      "any": 1,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/core/form/template/field.type.ts": {
+      "any": 10,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/core/form/template/form.validation-message.ts": {
+      "any": 3,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/core/form/utils.ts": {
+      "any": 53,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/core/meta/meta.guard.ts": {
+      "any": 1,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/core/meta/meta.service.ts": {
+      "any": 6,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/core/meta/util.ts": {
+      "any": 2,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/core/mobx/directives/mobx-autorun.directive.ts": {
+      "any": 6,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/core/mobx/directives/mobx-reaction.directive.ts": {
+      "any": 3,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/core/mobx/mobx-angular.ts": {
+      "any": 3,
+      "emptyObj": 0,
+      "cast": 3
+    },
+    "src/core/models/console.ts": {
+      "any": 5,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/core/models/window.ts": {
+      "any": 2,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/core/position/position.store.ts": {
+      "any": 4,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/core/position/position.utils.ts": {
+      "any": 1,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/core/reflect/Reflect.ts": {
+      "any": 152,
+      "emptyObj": 0,
+      "cast": 4
+    },
+    "src/core/services/dynamic-component-mapper.service.ts": {
+      "any": 2,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/core/services/log.service.ts": {
+      "any": 11,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/core/services/script-loader.service.ts": {
+      "any": 2,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/core/services/share-param.service.ts": {
+      "any": 3,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/core/storage/local-storage-events.interface.ts": {
+      "any": 1,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/core/storage/local-storage.service.ts": {
+      "any": 2,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/core/style/focus-origin-monitor.ts": {
+      "any": 3,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/data/cardview/components/card-view-arrayitem/card-view-arrayitem.component.ts": {
+      "any": 4,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/data/cardview/components/card-view-boolitem/card-view-boolitem.component.ts": {
+      "any": 2,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/data/cardview/components/card-view-dateitem/card-view-dateitem.component.ts": {
+      "any": 6,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/data/cardview/components/card-view-item-dispatcher/card-view-item-dispatcher.component.ts": {
+      "any": 4,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/data/cardview/components/card-view-keyvaluepairsitem/card-view-keyvaluepairsitem.component.ts": {
+      "any": 1,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/data/cardview/components/card-view-selectitem/card-view-selectitem.component.ts": {
+      "any": 1,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/data/cardview/components/card-view-textitem/card-view-textitem.component.ts": {
+      "any": 1,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/data/cardview/interfaces/card-view-boolitem-properties.interface.ts": {
+      "any": 1,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/data/cardview/interfaces/card-view-item-properties.interface.ts": {
+      "any": 5,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/data/cardview/interfaces/card-view-item-validator.interface.ts": {
+      "any": 1,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/data/cardview/interfaces/card-view-item.interface.ts": {
+      "any": 3,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/data/cardview/interfaces/card-view-textitem-pipe-property.interface.ts": {
+      "any": 1,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/data/cardview/interfaces/card-view-textitem-properties.interface.ts": {
+      "any": 1,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/data/cardview/models/card-view-baseitem.model.ts": {
+      "any": 6,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/data/cardview/models/card-view-dateitem.model.ts": {
+      "any": 1,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/data/cardview/models/card-view-keyvaluepairs.model.ts": {
+      "any": 1,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/data/cardview/models/card-view-mapitem.model.ts": {
+      "any": 1,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/data/cardview/models/card-view-textitem.model.ts": {
+      "any": 5,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/data/cardview/services/card-view-update.service.ts": {
+      "any": 5,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/data/cardview/validators/card-view-item-float.validator.ts": {
+      "any": 1,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/data/cardview/validators/card-view-item-int.validator.ts": {
+      "any": 2,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/data/datatable/body/body.component.ts": {
+      "any": 53,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/data/datatable/body/scroller.component.ts": {
+      "any": 4,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/data/datatable/body/selection.component.ts": {
+      "any": 19,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/data/datatable/body/summary/summary-row.component.ts": {
+      "any": 15,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/data/datatable/columns/column.directive.ts": {
+      "any": 7,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/data/datatable/datatable.card.ts": {
+      "any": 19,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/data/datatable/datatable.component.ts": {
+      "any": 38,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/data/datatable/directives/draggable.directive.ts": {
+      "any": 4,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/data/datatable/directives/long-press.directive.ts": {
+      "any": 2,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/data/datatable/directives/orderable.directive.ts": {
+      "any": 13,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/data/datatable/directives/visibility.directive.ts": {
+      "any": 2,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/data/datatable/events.ts": {
+      "any": 1,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/data/datatable/footer/footer.component.ts": {
+      "any": 1,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/data/datatable/header/group-header.directive.ts": {
+      "any": 1,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/data/datatable/header/header-cell.component.ts": {
+      "any": 13,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/data/datatable/header/header.component.ts": {
+      "any": 35,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/data/datatable/row/cell.component.ts": {
+      "any": 30,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/data/datatable/row/row-detail.directive.ts": {
+      "any": 1,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/data/datatable/row/row-wrapper.component.ts": {
+      "any": 5,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/data/datatable/row/row.component.ts": {
+      "any": 21,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/data/datatable/services/scrollbar-helper.service.ts": {
+      "any": 5,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/data/datatable/types/table-column.type.ts": {
+      "any": 9,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/data/datatable/types/table.type.ts": {
+      "any": 10,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/data/datatable/utils/camel-case.ts": {
+      "any": 3,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/data/datatable/utils/column-helper.ts": {
+      "any": 4,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/data/datatable/utils/column-prop-getters.ts": {
+      "any": 10,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/data/datatable/utils/column.ts": {
+      "any": 16,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/data/datatable/utils/elm-from-point.ts": {
+      "any": 3,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/data/datatable/utils/facade/browser.ts": {
+      "any": 3,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/data/datatable/utils/math.ts": {
+      "any": 23,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/data/datatable/utils/prefixes.ts": {
+      "any": 2,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/data/datatable/utils/row-height-cache.ts": {
+      "any": 7,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/data/datatable/utils/selection.ts": {
+      "any": 10,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/data/datatable/utils/sort.ts": {
+      "any": 16,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/data/datatable/utils/throttle.ts": {
+      "any": 10,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/data/datatable/utils/translate.ts": {
+      "any": 1,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/data/datatable/utils/tree.ts": {
+      "any": 18,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/data/datatable/utils/visibility-observer.ts": {
+      "any": 5,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/form/action/action.service.ts": {
+      "any": 18,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/form/action/load.service.ts": {
+      "any": 6,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/form/action/submit.service.ts": {
+      "any": 4,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/form/array-input/array-input.component.ts": {
+      "any": 13,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/form/base/mat.field.ts": {
+      "any": 9,
+      "emptyObj": 0,
+      "cast": 2
+    },
+    "src/form/base/select-option-props.ts": {
+      "any": 14,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/form/base/select-options.pipe.ts": {
+      "any": 14,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/form/card/form.card.ts": {
+      "any": 2,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/form/checkboxgroup/checkboxgroup.component.ts": {
+      "any": 6,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/form/checkboxgroup/checkboxgroup.exp.ts": {
+      "any": 5,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/form/colorpicker/color-picker.content.ts": {
+      "any": 20,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/form/colorpicker/color-picker.field.ts": {
+      "any": 9,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/form/components/field.component.ts": {
+      "any": 8,
+      "emptyObj": 0,
+      "cast": 1
+    },
+    "src/form/components/form.attributes.ts": {
+      "any": 13,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/form/components/form.component.ts": {
+      "any": 68,
+      "emptyObj": 0,
+      "cast": 1
+    },
+    "src/form/components/form.group.ts": {
+      "any": 1,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/form/date/adapter/datetime-adapter.ts": {
+      "any": 7,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/form/date/adapter/datetime-formats.ts": {
+      "any": 12,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/form/date/datefield.component.ts": {
+      "any": 12,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/form/date/moment/moment-datetime-adapter.ts": {
+      "any": 1,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/form/date/picker/clock.ts": {
+      "any": 13,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/form/date/picker/datetimepicker-input.ts": {
+      "any": 5,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/form/date/picker/datetimepicker.ts": {
+      "any": 3,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/form/date/picker/multi-year-view.ts": {
+      "any": 1,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/form/daterangepicker/daterangepicker.component.ts": {
+      "any": 8,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/form/daterangepicker/daterangepicker.config.ts": {
+      "any": 1,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/form/daterangepicker/daterangepicker.directive.ts": {
+      "any": 11,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/form/daterangepicker/locale.service.ts": {
+      "any": 1,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/form/field/numberfield.component.ts": {
+      "any": 11,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/form/field/options.service.ts": {
+      "any": 9,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/form/field/textfield.component.ts": {
+      "any": 22,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/form/label/label-field.ts": {
+      "any": 3,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/form/radiogroup/radiogroup.component.ts": {
+      "any": 2,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/form/rang-slider/range-slider.field.ts": {
+      "any": 1,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/form/range/daterange.field.ts": {
+      "any": 7,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/form/range/numberrange.field.ts": {
+      "any": 3,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/form/range/range.field.ts": {
+      "any": 13,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/form/select/options.service.ts": {
+      "any": 10,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/form/select/search/mat-select-search.component.ts": {
+      "any": 11,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/form/select/select.field.ts": {
+      "any": 36,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/form/slide-toggle/slide-toggle.component.ts": {
+      "any": 1,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/form/toggle-select/toggle-header.component.ts": {
+      "any": 5,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/form/toggle-select/toggle-select.component.ts": {
+      "any": 6,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/form/trigger/abstract.trigger.ts": {
+      "any": 16,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/form/trigger/trigger.field.ts": {
+      "any": 7,
+      "emptyObj": 0,
+      "cast": 1
+    },
+    "src/form/wrapper/editor-field.ts": {
+      "any": 10,
+      "emptyObj": 0,
+      "cast": 1
+    },
+    "src/form/wrapper/field-wrapper.ts": {
+      "any": 6,
+      "emptyObj": 0,
+      "cast": 1
+    },
+    "src/form/wrapper/fieldset.ts": {
+      "any": 5,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/form/wrapper/form-field.ts": {
+      "any": 11,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/form/wrapper/form.section.ts": {
+      "any": 2,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/form/wrapper/label-field.ts": {
+      "any": 7,
+      "emptyObj": 0,
+      "cast": 1
+    },
+    "src/form/wrapper/repeat-section.type.ts": {
+      "any": 7,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/net/angular2-websocket.ts": {
+      "any": 24,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/theme/config/config.module.ts": {
+      "any": 1,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/theme/config/config.service.ts": {
+      "any": 5,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/theme/core/focus.ts": {
+      "any": 1,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/theme/mat-color.ts": {
+      "any": 2,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/theme/mdc/_palette.ts": {
+      "any": 2,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/theme/mdc/_sass-utils.ts": {
+      "any": 4,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/theme/mdc/_typography-getters.ts": {
+      "any": 25,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/theme/mdc/custom-properties.ts": {
+      "any": 30,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/theme/mdc/elevation-theme.ts": {
+      "any": 5,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/theme/mdc/inspection.ts": {
+      "any": 23,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/theme/mdc/keys.ts": {
+      "any": 15,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/theme/mdc/theme-utils.ts": {
+      "any": 25,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/theme/mdc/theming.ts": {
+      "any": 5,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/theme/mdc/token-utils.ts": {
+      "any": 11,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/theme/theme.service.ts": {
+      "any": 7,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/theme/theme/mat-button-theme.ts": {
+      "any": 8,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/theme/theme/mat-datepicker-theme.ts": {
+      "any": 2,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/theme/theme/mat-fab-theme.ts": {
+      "any": 4,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/theme/theme/mat-icon-button-theme.ts": {
+      "any": 4,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/theme/theme/mat-icon-theme.ts": {
+      "any": 2,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/theme/theme/mat-list-theme.ts": {
+      "any": 1,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/theme/theme/mat-select-theme.ts": {
+      "any": 1,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/theme/theme/mat-tabs-theme.ts": {
+      "any": 4,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/theme/theme/mat-toolbar-theme.ts": {
+      "any": 2,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/theme/tokens/mat/_autocomplete.ts": {
+      "any": 3,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/theme/tokens/mat/_badge.ts": {
+      "any": 4,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/theme/tokens/mat/_bottom-sheet.ts": {
+      "any": 3,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/theme/tokens/mat/_card.ts": {
+      "any": 4,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/theme/tokens/mat/_checkbox.ts": {
+      "any": 4,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/theme/tokens/mat/_chip.ts": {
+      "any": 5,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/theme/tokens/mat/_datepicker.ts": {
+      "any": 14,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/theme/tokens/mat/_dialog.ts": {
+      "any": 3,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/theme/tokens/mat/_divider.ts": {
+      "any": 3,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/theme/tokens/mat/_expansion.ts": {
+      "any": 4,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/theme/tokens/mat/_fab-small.ts": {
+      "any": 9,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/theme/tokens/mat/_fab.ts": {
+      "any": 9,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/theme/tokens/mat/_filled-button.ts": {
+      "any": 8,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/theme/tokens/mat/_form-field.ts": {
+      "any": 7,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/theme/tokens/mat/_full-pseudo-checkbox.ts": {
+      "any": 3,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/theme/tokens/mat/_grid-list.ts": {
+      "any": 3,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/theme/tokens/mat/_icon-button.ts": {
+      "any": 6,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/theme/tokens/mat/_icon.ts": {
+      "any": 4,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/theme/tokens/mat/_legacy-button-toggle.ts": {
+      "any": 3,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/theme/tokens/mat/_list.ts": {
+      "any": 3,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/theme/tokens/mat/_menu.ts": {
+      "any": 4,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/theme/tokens/mat/_minimal-pseudo-checkbox.ts": {
+      "any": 3,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/theme/tokens/mat/_optgroup.ts": {
+      "any": 3,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/theme/tokens/mat/_option.ts": {
+      "any": 4,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/theme/tokens/mat/_outlined-button.ts": {
+      "any": 6,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/theme/tokens/mat/_paginator.ts": {
+      "any": 5,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/theme/tokens/mat/_protected-button.ts": {
+      "any": 8,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/theme/tokens/mat/_radio.ts": {
+      "any": 4,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/theme/tokens/mat/_ripple.ts": {
+      "any": 3,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/theme/tokens/mat/_select.ts": {
+      "any": 4,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/theme/tokens/mat/_sidenav.ts": {
+      "any": 3,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/theme/tokens/mat/_slider.ts": {
+      "any": 5,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/theme/tokens/mat/_snack-bar.ts": {
+      "any": 3,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/theme/tokens/mat/_sort.ts": {
+      "any": 4,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/theme/tokens/mat/_standard-button-toggle.ts": {
+      "any": 4,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/theme/tokens/mat/_stepper.ts": {
+      "any": 6,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/theme/tokens/mat/_switch.ts": {
+      "any": 3,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/theme/tokens/mat/_tab-header-with-background.ts": {
+      "any": 3,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/theme/tokens/mat/_tab-header.ts": {
+      "any": 3,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/theme/tokens/mat/_table.ts": {
+      "any": 9,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/theme/tokens/mat/_text-button.ts": {
+      "any": 6,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/theme/tokens/mat/_toolbar.ts": {
+      "any": 6,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/theme/tokens/mat/_tree.ts": {
+      "any": 4,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/theme/tokens/mdc/_checkbox.ts": {
+      "any": 5,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/theme/tokens/mdc/_chip.ts": {
+      "any": 7,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/theme/tokens/mdc/_circular-progress.ts": {
+      "any": 3,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/theme/tokens/mdc/_dialog.ts": {
+      "any": 3,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/theme/tokens/mdc/_elevated-card.ts": {
+      "any": 3,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/theme/tokens/mdc/_extended-fab.ts": {
+      "any": 3,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/theme/tokens/mdc/_fab-small.ts": {
+      "any": 5,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/theme/tokens/mdc/_fab.ts": {
+      "any": 5,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/theme/tokens/mdc/_filled-button.ts": {
+      "any": 6,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/theme/tokens/mdc/_filled-text-field.ts": {
+      "any": 9,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/theme/tokens/mdc/_form-field.ts": {
+      "any": 3,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/theme/tokens/mdc/_icon-button.ts": {
+      "any": 6,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/theme/tokens/mdc/_linear-progress.ts": {
+      "any": 3,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/theme/tokens/mdc/_list.ts": {
+      "any": 4,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/theme/tokens/mdc/_outlined-button.ts": {
+      "any": 6,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/theme/tokens/mdc/_outlined-card.ts": {
+      "any": 3,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/theme/tokens/mdc/_outlined-text-field.ts": {
+      "any": 5,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/theme/tokens/mdc/_plain-tooltip.ts": {
+      "any": 3,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/theme/tokens/mdc/_protected-button.ts": {
+      "any": 6,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/theme/tokens/mdc/_radio.ts": {
+      "any": 5,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/theme/tokens/mdc/_slider.ts": {
+      "any": 5,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/theme/tokens/mdc/_snack-bar.ts": {
+      "any": 3,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/theme/tokens/mdc/_switch.ts": {
+      "any": 6,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/theme/tokens/mdc/_tab-indicator.ts": {
+      "any": 3,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/theme/tokens/mdc/_tab.ts": {
+      "any": 4,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/theme/tokens/mdc/_text-button.ts": {
+      "any": 7,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/theme/utils/elevation.ts": {
+      "any": 22,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/translator/component.model.ts": {
+      "any": 1,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/translator/intl.ts": {
+      "any": 0,
+      "emptyObj": 0,
+      "cast": 1
+    },
+    "src/translator/lazy.ts": {
+      "any": 4,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/translator/missing-translation-handler.ts": {
+      "any": 1,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/translator/t.ts": {
+      "any": 1,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/translator/translate-loader.service.ts": {
+      "any": 8,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/translator/translate.compiler.ts": {
+      "any": 4,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/translator/translate.directive.ts": {
+      "any": 10,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/translator/translate.loader.ts": {
+      "any": 1,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/translator/translate.parser.ts": {
+      "any": 11,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/translator/translate.pipe.ts": {
+      "any": 3,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/translator/translate.service.ts": {
+      "any": 33,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/translator/translation.service.ts": {
+      "any": 3,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/translator/util.ts": {
+      "any": 10,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/tree/components/tree-node-checkbox.component.ts": {
+      "any": 1,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/tree/components/tree-node-children.component.ts": {
+      "any": 2,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/tree/components/tree-node-collection.component.ts": {
+      "any": 18,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/tree/components/tree-node-content.component.ts": {
+      "any": 2,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/tree/components/tree-node-drop-slot.component.ts": {
+      "any": 3,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/tree/components/tree-node-expander.component.ts": {
+      "any": 2,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/tree/components/tree-node-wrapper.component.ts": {
+      "any": 9,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/tree/components/tree-node.component.ts": {
+      "any": 2,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/tree/components/tree-viewport.component.ts": {
+      "any": 4,
+      "emptyObj": 0,
+      "cast": 1
+    },
+    "src/tree/components/tree.component.ts": {
+      "any": 51,
+      "emptyObj": 0,
+      "cast": 2
+    },
+    "src/tree/defs/api.ts": {
+      "any": 49,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/tree/directives/tree-animate-open.directive.ts": {
+      "any": 5,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/tree/directives/tree-drag.directive.ts": {
+      "any": 4,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/tree/directives/tree-drop.directive.ts": {
+      "any": 11,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/tree/mobx-angular/mobx-proxy.ts": {
+      "any": 3,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/tree/mobx-angular/tree-mobx-autorun.directive.ts": {
+      "any": 6,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/tree/models/tree-dragged-element.model.ts": {
+      "any": 3,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/tree/models/tree-node.model.ts": {
+      "any": 53,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/tree/models/tree-options.model.ts": {
+      "any": 25,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/tree/models/tree-virtual-scroll.model.ts": {
+      "any": 34,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/tree/models/tree.model.ts": {
+      "any": 95,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/ui/button/button.base.ts": {
+      "any": 1,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/ui/button/button.component.ts": {
+      "any": 5,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/ui/button/toggle-button.component.ts": {
+      "any": 20,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/ui/color-button/color-button.ts": {
+      "any": 3,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/ui/context-menu/context-menu-item.component.ts": {
+      "any": 2,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/ui/context-menu/context-menu.component.ts": {
+      "any": 4,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/ui/context-menu/interfaces.ts": {
+      "any": 2,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/ui/menu/menu-bar.component.ts": {
+      "any": 4,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/ui/menu/menu-base.ts": {
+      "any": 4,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/ui/menu/menu-item.component.ts": {
+      "any": 7,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/ui/menu/menu-model.ts": {
+      "any": 13,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/ui/speeddial/fab.button.ts": {
+      "any": 5,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/ui/speeddial/speed-dial.ts": {
+      "any": 7,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/ui/speeddial/speeddial.component.ts": {
+      "any": 3,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/ui/toolbar/toolbar.component.ts": {
+      "any": 25,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/util/base64.ts": {
+      "any": 4,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/util/change.ts": {
+      "any": 13,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/util/func.util.ts": {
+      "any": 10,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/util/jpeg/decoder.ts": {
+      "any": 161,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/util/jpeg/encoder.ts": {
+      "any": 70,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/util/pipes/bytes.pipe.ts": {
+      "any": 1,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/util/pipes/clone.pipe.ts": {
+      "any": 4,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/util/pipes/decimal-number.pipe.ts": {
+      "any": 1,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/util/pipes/digits.pipe.ts": {
+      "any": 1,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/util/pipes/filter.pipe.ts": {
+      "any": 1,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/util/pipes/getById.pipe.ts": {
+      "any": 4,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/util/pipes/keys.pipe.ts": {
+      "any": 1,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/util/pipes/localized-date.pipe.ts": {
+      "any": 1,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/util/pipes/time-ago.pipe.ts": {
+      "any": 2,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/util/pipes/time-difference.pipe.ts": {
+      "any": 2,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/util/strenum.ts": {
+      "any": 2,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/util/string-utils.ts": {
+      "any": 15,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/util/watcher.ts": {
+      "any": 2,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/ux/code-editor/code-editor.component.ts": {
+      "any": 20,
+      "emptyObj": 0,
+      "cast": 4
+    },
+    "src/ux/command-palette/content/command-palette-content.component.ts": {
+      "any": 2,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/ux/command-palette/header/command-palette-header.component.ts": {
+      "any": 2,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/ux/editor/Editor.ts": {
+      "any": 1,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/ux/editor/commands/FormatClear.ts": {
+      "any": 0,
+      "emptyObj": 0,
+      "cast": 1
+    },
+    "src/ux/editor/commands/TextColor.ts": {
+      "any": 1,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/ux/editor/components/image-view/image-view.component.ts": {
+      "any": 2,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/ux/editor/editor.component.ts": {
+      "any": 4,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/ux/editor/icons/index.ts": {
+      "any": 1,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/ux/editor/modules/menu/floating-menu/floating-menu.component.ts": {
+      "any": 1,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/ux/editor/modules/menu/link/link.component.ts": {
+      "any": 1,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/ux/editor/modules/menu/menu.component.ts": {
+      "any": 1,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/ux/editor/parsers.ts": {
+      "any": 4,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/ux/editor/plugins/editable.ts": {
+      "any": 1,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/ux/editor/plugins/image-resize.ts": {
+      "any": 3,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/ux/editor/plugins/placeholder.ts": {
+      "any": 1,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/ux/editor/schema/marks.ts": {
+      "any": 2,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/ux/editor/utils/toStyleString.ts": {
+      "any": 1,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/ux/editor/validators.ts": {
+      "any": 2,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/ux/iconpicker/icon-picker.component.ts": {
+      "any": 40,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/ux/iconpicker/icon-picker.field.ts": {
+      "any": 12,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/ux/iconpicker/text.directive.ts": {
+      "any": 1,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/ux/jsonEditor/json.editor.ts": {
+      "any": 3,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/ux/line-style/linesize.ts": {
+      "any": 14,
+      "emptyObj": 0,
+      "cast": 1
+    },
+    "src/ux/line-style/linestyle.ts": {
+      "any": 17,
+      "emptyObj": 0,
+      "cast": 1
+    },
+    "src/ux/link-preview/components/link-preview.component.ts": {
+      "any": 2,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/ux/link-preview/services/link-preview-cache.service.ts": {
+      "any": 3,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/ux/markdown-editor/completion.ts": {
+      "any": 5,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/ux/markdown-editor/errors.ts": {
+      "any": 21,
+      "emptyObj": 0,
+      "cast": 2
+    },
+    "src/ux/markdown-editor/extHostTypes.ts": {
+      "any": 7,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/ux/markdown-editor/listEditing.ts": {
+      "any": 12,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/ux/markdown-editor/tableFormatter.ts": {
+      "any": 6,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/ux/markdown-editor/toc.ts": {
+      "any": 2,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/ux/markdown-editor/util.ts": {
+      "any": 4,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/ux/markdown-editor/wordHelper.ts": {
+      "any": 1,
+      "emptyObj": 0,
+      "cast": 1
+    },
+    "src/ux/markdown/markdown.component.ts": {
+      "any": 1,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/ux/monaco-editor/base-editor.ts": {
+      "any": 11,
+      "emptyObj": 0,
+      "cast": 5
+    },
+    "src/ux/monaco-editor/diff-editor.component.ts": {
+      "any": 8,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/ux/monaco-editor/editor.component.ts": {
+      "any": 31,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/ux/monaco-editor/types.ts": {
+      "any": 1,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/ux/multi-window/providers/multi-window.service.ts": {
+      "any": 6,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/ux/multi-window/providers/storage.service.ts": {
+      "any": 3,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/ux/multi-window/types/message.type.ts": {
+      "any": 2,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/ux/query-builder/query-builder.component.ts": {
+      "any": 16,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/ux/query-builder/query-builder.interfaces.ts": {
+      "any": 8,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/ux/terminal/terminal.component.ts": {
+      "any": 10,
+      "emptyObj": 0,
+      "cast": 1
+    },
+    "src/ux/terminal/terminal.ts": {
+      "any": 3,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/ux/windows/core/decorators/cacheable-return-instance.decorator.ts": {
+      "any": 2,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/ux/windows/core/decorators/when-view-init.decorator.ts": {
+      "any": 2,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/ux/windows/core/helpers/methods.helper.ts": {
+      "any": 2,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/ux/windows/drag-and-drop/directives/draggable.directive.ts": {
+      "any": 3,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/ux/windows/resizer/directives/resizable.directive.ts": {
+      "any": 3,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/ux/windows/window/classes/dynamic-window-injector.ts": {
+      "any": 3,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/ux/windows/window/components/dynamic-window/base-dynamic-window.component.ts": {
+      "any": 1,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/ux/windows/window/components/dynamic-window/dynamic-window.component.ts": {
+      "any": 3,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/ux/windows/window/components/named-outlet/route.service.ts": {
+      "any": 7,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/ux/windows/window/interfaces/config.interface.ts": {
+      "any": 5,
+      "emptyObj": 0,
+      "cast": 0
+    },
+    "src/ux/windows/window/interfaces/window-ref.interface.ts": {
+      "any": 1,
+      "emptyObj": 0,
+      "cast": 0
+    }
+  }
 }

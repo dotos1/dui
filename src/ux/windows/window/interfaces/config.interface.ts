@@ -42,7 +42,7 @@ export interface DynamicWindowConfig<D = unknown, T = unknown> {
     type?: T;
     /**
      * The component for the title bar with content which will be rendered instead of default content
-     * @zh 属性 `titleBarCustomContent`（类型：`Type<any>`），用于存储或配置标题条自定义内容。
+     * @zh 属性 `titleBarCustomContent`（类型：`Type<unknown>`），用于存储或配置标题条自定义内容。
      */
     titleBarCustomContent?: Type<unknown>;
     /**
@@ -157,7 +157,7 @@ export interface DynamicWindowConfig<D = unknown, T = unknown> {
     style?: object;
     /**
      * Classlist for the dynamic window
-     * @zh 属性 `styleClass`（类型：`string | string[] | object`），用于存储或配置样式类名。
+     * @zh 属性 `styleClass`（类型：`string | object | string[]`），用于存储或配置样式类名。
      */
     styleClass?: string | string[] | object;
     /**
@@ -167,7 +167,7 @@ export interface DynamicWindowConfig<D = unknown, T = unknown> {
     titleBarStyle?: object;
     /**
      * Classlist for the title bar of the dynamic window
-     * @zh 属性 `titleBarStyleClass`（类型：`string | string[] | object`），用于存储或配置标题条样式类名。
+     * @zh 属性 `titleBarStyleClass`（类型：`string | object | string[]`），用于存储或配置标题条样式类名。
      */
     titleBarStyleClass?: string | string[] | object;
     /**
@@ -177,7 +177,7 @@ export interface DynamicWindowConfig<D = unknown, T = unknown> {
     scrollViewStyle?: object;
     /**
      * Classlist for scroll view component of the window
-     * @zh 属性 `scrollViewStyleClass`（类型：`string | string[] | object`），用于存储或配置滚动视图样式类名。
+     * @zh 属性 `scrollViewStyleClass`（类型：`string | object | string[]`），用于存储或配置滚动视图样式类名。
      */
     scrollViewStyleClass?: string | string[] | object;
     /**
@@ -192,8 +192,8 @@ export interface DynamicWindowConfig<D = unknown, T = unknown> {
     resizerConfig?: ResizerConfig;
 
     /**
-     * Property `items` (`any[]`) storing items.
-     * @zh 属性 `items`（类型：`any[]`），用于存储或配置条目列表。
+     * Property `items` (`any`) storing items.
+     * @zh 属性 `items`（类型：`any`），用于存储或配置条目列表。
      */
     items?;
 
@@ -282,8 +282,8 @@ export interface DynamicWindowConfig<D = unknown, T = unknown> {
     iconClass?:string;
 
     /**
-     * Property `moduleRef` (`NgModuleRef<any>`) storing module ref.
-     * @zh 属性 `moduleRef`（类型：`NgModuleRef<any>`），用于存储或配置模块引用。
+     * Property `moduleRef` (`any`) storing module ref.
+     * @zh 属性 `moduleRef`（类型：`any`），用于存储或配置模块引用。
      */
     moduleRef?;
 }

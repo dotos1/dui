@@ -26,7 +26,7 @@ export class IconSpriteDirective implements OnInit {
    * Creates an instance of `IconSpriteDirective` and initializes its dependencies and internal state.
    * @zh 创建 `IconSpriteDirective` 实例，并初始化其依赖项与内部状态。
    * @param renderer - Injected or initial renderer (`Renderer2`) / 注入或传入的渲染器（`Renderer2`）
-   * @param el - Injected or initial el (`ElementRef`) / 注入或传入的DOM元素（`ElementRef`）
+   * @param el - Injected or initial el (`ElementRef<any>`) / 注入或传入的DOM元素（`ElementRef<any>`）
    */
   constructor(
     public renderer: Renderer2,

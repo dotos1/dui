@@ -21,25 +21,25 @@ import { DomConstants } from './utils/dom-constants';
 export class VirtualLayout extends LayoutManager {
 
     /**
-     * Property `getComponentEvent` (`VirtualLayout.GetComponentEventHandler | undefined`) storing get component event.
-     * @zh 属性 `getComponentEvent`（类型：`VirtualLayout.GetComponentEventHandler | undefined`），用于存储或配置获取组件事件。
+     * Property `getComponentEvent` (`VirtualLayout.GetComponentEventHandler`) storing get component event.
+     * @zh 属性 `getComponentEvent`（类型：`VirtualLayout.GetComponentEventHandler`），用于存储或配置获取组件事件。
      */
     getComponentEvent: VirtualLayout.GetComponentEventHandler | undefined;
 
     /**
-     * Property `releaseComponentEvent` (`VirtualLayout.ReleaseComponentEventHandler | undefined`) storing release component event.
-     * @zh 属性 `releaseComponentEvent`（类型：`VirtualLayout.ReleaseComponentEventHandler | undefined`），用于存储或配置release组件事件。
+     * Property `releaseComponentEvent` (`VirtualLayout.ReleaseComponentEventHandler`) storing release component event.
+     * @zh 属性 `releaseComponentEvent`（类型：`VirtualLayout.ReleaseComponentEventHandler`），用于存储或配置release组件事件。
      */
     releaseComponentEvent: VirtualLayout.ReleaseComponentEventHandler | undefined;
 
     /**
-     * Property `bindComponentEvent` (`VirtualLayout.BindComponentEventHandler | undefined`) storing bind component event.
-     * @zh 属性 `bindComponentEvent`（类型：`VirtualLayout.BindComponentEventHandler | undefined`），用于存储或配置绑定组件事件。
+     * Property `bindComponentEvent` (`VirtualLayout.BindComponentEventHandler`) storing bind component event.
+     * @zh 属性 `bindComponentEvent`（类型：`VirtualLayout.BindComponentEventHandler`），用于存储或配置绑定组件事件。
      */
     bindComponentEvent: VirtualLayout.BindComponentEventHandler | undefined;
     /**
-     * Property `unbindComponentEvent` (`VirtualLayout.UnbindComponentEventHandler | undefined`) storing unbind component event.
-     * @zh 属性 `unbindComponentEvent`（类型：`VirtualLayout.UnbindComponentEventHandler | undefined`），用于存储或配置解绑组件事件。
+     * Property `unbindComponentEvent` (`VirtualLayout.UnbindComponentEventHandler`) storing unbind component event.
+     * @zh 属性 `unbindComponentEvent`（类型：`VirtualLayout.UnbindComponentEventHandler`），用于存储或配置解绑组件事件。
      */
     unbindComponentEvent: VirtualLayout.UnbindComponentEventHandler | undefined;
 
@@ -82,9 +82,9 @@ export class VirtualLayout extends LayoutManager {
      * Creates an instance of `VirtualLayout` and initializes its dependencies and internal state.
      * @zh 创建 `VirtualLayout` 实例，并初始化其依赖项与内部状态。
      * @param translator - Injected or initial translator (`TranslateService`) / 注入或传入的翻译器（`TranslateService`）
-     * @param configOrOptionalContainer - Injected or initial config or optional container (`LayoutConfig | HTMLElement | undefined`) / 注入或传入的配置Or可选容器（`LayoutConfig | HTMLElement | undefined`）
+     * @param configOrOptionalContainer - Injected or initial config or optional container (`HTMLElement | LayoutConfig`) / 注入或传入的配置Or可选容器（`HTMLElement | LayoutConfig`）
      * @param containerOrBindComponentEventH... - Injected or initial container or bind component event h (`HTMLElement | VirtualLayout.BindComponentEventHandler | unde...`) / 注入或传入的容器Or绑定组件事件H（`HTMLElement | VirtualLayout.BindComponentEventHandler | unde...`）
-     * @param unbindComponentEventHandler - Injected or initial unbind component event handler (`VirtualLayout.UnbindComponentEventHandler | undefined`) / 注入或传入的解绑组件事件处理器（`VirtualLayout.UnbindComponentEventHandler | undefined`）
+     * @param unbindComponentEventHandler - Injected or initial unbind component event handler (`VirtualLayout.UnbindComponentEventHandler`) / 注入或传入的解绑组件事件处理器（`VirtualLayout.UnbindComponentEventHandler`）
      * @param skipInit - Injected or initial skip init (`true`) / 注入或传入的skip初始化（`true`）
      */
     constructor( translator:TranslateService,configOrOptionalContainer: LayoutConfig | HTMLElement | undefined,

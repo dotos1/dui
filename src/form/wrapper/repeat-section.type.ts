@@ -31,7 +31,7 @@ export class RepeatTypeComponent extends FieldArrayType {
   public change(val) { };
 
   /**
-   * Template/content query reference `addButton` (`@ViewChild`) targeting add button.
+   * Template/content query reference `addButton` (`ButtonComponent`) targeting add button.
    * @zh 模板/内容视图查询引用 `addButton`（`@ViewChild`），指向添加按钮。
    */
   @ViewChild(ButtonComponent) addButton: ButtonComponent;

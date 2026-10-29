@@ -14,15 +14,15 @@ import { Injectable } from "@angular/core";
 @Injectable()
 export class WindowService implements Window {
   /**
-   * Property `navigator` (`any`) storing navigator (default: `{}`).
-   * @zh 属性 `navigator`（类型：`any`），用于存储或配置navigator（默认值：`{}`）。
+   * Property `navigator` (`Record<string, unknown>`) storing navigator (default: `{}`).
+   * @zh 属性 `navigator`（类型：`Record<string, unknown>`），用于存储或配置navigator（默认值：`{}`）。
    */
-  navigator = {};
+  navigator: Record<string, unknown> = {};
   /**
-   * Property `location` (`any`) storing location (default: `{}`).
-   * @zh 属性 `location`（类型：`any`），用于存储或配置location（默认值：`{}`）。
+   * Property `location` (`Record<string, unknown>`) storing location (default: `{}`).
+   * @zh 属性 `location`（类型：`Record<string, unknown>`），用于存储或配置location（默认值：`{}`）。
    */
-  location = {};
+  location: Record<string, unknown> = {};
 
   /**
    * Executes `alert` to handle alert.

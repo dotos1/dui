@@ -58,23 +58,23 @@ export type LocalsKeys = keyof typeof defaults;
  */
 class Locals {
   /**
-   * Property `locals` (`any`) storing locals (default: `defaults`).
-   * @zh 属性 `locals`（类型：`any`），用于存储或配置本地（默认值：`defaults`）。
+   * Property `locals` (`Record<string, string>`) storing locals (default: `defaults`).
+   * @zh 属性 `locals`（类型：`Record<string, string>`），用于存储或配置本地（默认值：`defaults`）。
    */
   locals = defaults;
 
   /**
    * Creates an instance of `Locals` and initializes its dependencies and internal state.
    * @zh 创建 `Locals` 实例，并初始化其依赖项与内部状态。
-   * @param newLocals - Injected or initial new locals (`Partial<Record<LocalsKeys, string>>`) / 注入或传入的新本地（`Partial<Record<LocalsKeys, string>>`）
+   * @param newLocals - Injected or initial new locals (`Partial<Record<string, string>>`) / 注入或传入的新本地（`Partial<Record<string, string>>`）
    */
   constructor(newLocals: Partial<Record<LocalsKeys, string>> = {}) {
     this.locals = { ...defaults, ...newLocals };
   }
 
   /**
-   * Property `get` (`any`) storing get.
-   * @zh 属性 `get`（类型：`any`），用于存储或配置获取。
+   * Property `get` (`(key: string) => string`) storing get.
+   * @zh 属性 `get`（类型：`(key: string) => string`），用于存储或配置获取。
    */
   get = (key: string):string => {
     return this.locals[key] ?? '';

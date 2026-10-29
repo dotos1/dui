@@ -36,8 +36,8 @@ export interface GridsterItem {
    */
   layerIndex?: number;
   /**
-   * Property `initCallback` (`(item: GridsterItem, itemComponent: GridsterItemComponentInterface) =>...`) storing init callback.
-   * @zh 属性 `initCallback`（类型：`(item: GridsterItem, itemComponent: GridsterItemComponentInterface) =>...`），用于存储或配置初始化回调函数。
+   * Property `initCallback` (`(item: GridsterItem, itemComponent: GridsterItemComponentInterface) => void`) storing init callback.
+   * @zh 属性 `initCallback`（类型：`(item: GridsterItem, itemComponent: GridsterItemComponentInterface) => void`），用于存储或配置初始化回调函数。
    */
   initCallback?: (item: GridsterItem, itemComponent: GridsterItemComponentInterface) => void;
   /**

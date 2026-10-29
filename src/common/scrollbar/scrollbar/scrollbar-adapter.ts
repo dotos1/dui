@@ -27,41 +27,41 @@ export abstract class ScrollbarAdapter {
   trackSize: WritableSignal<number> = signal(0);
 
   /**
-   * Property `rectOffsetProperty` (`'left' | 'top'`) storing rect offset property.
-   * @zh 属性 `rectOffsetProperty`（类型：`'left' | 'top'`），用于存储或配置矩形偏移量属性。
+   * Property `rectOffsetProperty` (`"top" | "left"`) storing rect offset property.
+   * @zh 属性 `rectOffsetProperty`（类型：`"top" | "left"`），用于存储或配置矩形偏移量属性。
    */
   abstract readonly rectOffsetProperty: 'left' | 'top';
 
   /**
-   * Property `rectSizeProperty` (`'width' | 'height'`) storing rect size property.
-   * @zh 属性 `rectSizeProperty`（类型：`'width' | 'height'`），用于存储或配置矩形尺寸属性。
+   * Property `rectSizeProperty` (`"height" | "width"`) storing rect size property.
+   * @zh 属性 `rectSizeProperty`（类型：`"height" | "width"`），用于存储或配置矩形尺寸属性。
    */
   abstract readonly rectSizeProperty: 'width' | 'height';
 
   /**
-   * Property `sizeProperty` (`'offsetWidth' | 'offsetHeight'`) storing size property.
-   * @zh 属性 `sizeProperty`（类型：`'offsetWidth' | 'offsetHeight'`），用于存储或配置尺寸属性。
+   * Property `sizeProperty` (`"offsetWidth" | "offsetHeight"`) storing size property.
+   * @zh 属性 `sizeProperty`（类型：`"offsetWidth" | "offsetHeight"`），用于存储或配置尺寸属性。
    */
   abstract readonly sizeProperty: 'offsetWidth' | 'offsetHeight';
 
   // Returns either 'clientX' or 'clientY' coordinate of the pointer relative to the viewport
   /**
-   * Property `clientProperty` (`'clientX' | 'clientY'`) storing client property.
-   * @zh 属性 `clientProperty`（类型：`'clientX' | 'clientY'`），用于存储或配置client属性。
+   * Property `clientProperty` (`"clientX" | "clientY"`) storing client property.
+   * @zh 属性 `clientProperty`（类型：`"clientX" | "clientY"`），用于存储或配置client属性。
    */
   abstract readonly clientProperty: 'clientX' | 'clientY';
 
   // Returns either 'offsetX' or 'offsetY' coordinate of the pointer relative to the edge of the element
   /**
-   * Property `offsetProperty` (`'offsetX' | 'offsetY'`) storing offset property.
-   * @zh 属性 `offsetProperty`（类型：`'offsetX' | 'offsetY'`），用于存储或配置偏移量属性。
+   * Property `offsetProperty` (`"offsetX" | "offsetY"`) storing offset property.
+   * @zh 属性 `offsetProperty`（类型：`"offsetX" | "offsetY"`），用于存储或配置偏移量属性。
    */
   abstract readonly offsetProperty: 'offsetX' | 'offsetY'
 
   // Return axis
   /**
-   * Property `axis` (`'x' | 'y'`) storing axis.
-   * @zh 属性 `axis`（类型：`'x' | 'y'`），用于存储或配置坐标轴。
+   * Property `axis` (`"x" | "y"`) storing axis.
+   * @zh 属性 `axis`（类型：`"x" | "y"`），用于存储或配置坐标轴。
    */
   abstract readonly axis: 'x' | 'y';
 

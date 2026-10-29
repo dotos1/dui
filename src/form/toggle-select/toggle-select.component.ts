@@ -30,7 +30,7 @@ import { coerceBoolean } from '@dotos/dui/core/decorators';
 export class ToggleSelectComponent extends _ToggleBase implements ControlValueAccessor {
 
   /**
-   * Host-bound getter `maxWidth` (`style.maxWidth`) computing max width.
+   * Host-bound getter `maxWidth` (`string`) computing max width.
    * @zh 宿主绑定读取器 `maxWidth`（绑定至 `style.maxWidth`），计算并返回最大值宽度。
    */
   @HostBinding('style.maxWidth')

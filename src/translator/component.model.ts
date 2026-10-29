@@ -20,8 +20,8 @@ export class ComponentTranslationModel {
      */
     path: string;
     /**
-     * Property `json` (`string []`) storing json.
-     * @zh 属性 `json`（类型：`string []`），用于存储或配置JSON。
+     * Property `json` (`string[]`) storing json.
+     * @zh 属性 `json`（类型：`string[]`），用于存储或配置JSON。
      */
     json: string [];
 

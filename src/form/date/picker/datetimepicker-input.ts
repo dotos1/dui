@@ -57,7 +57,7 @@ export const MAT_DATETIMEPICKER_VALIDATORS = {
 export class MatDatetimepickerInputEvent<D> {
   /**
    * The new value for the target datepicker input.
-   * @zh 属性 `value`（类型：`D | null`），用于存储或配置值。
+   * @zh 属性 `value`（类型：`D`），用于存储或配置值。
    */
   value: D | null;
 
@@ -111,32 +111,32 @@ export class MatDatetimepickerInput<D> implements AfterContentInit, ControlValue
   _dateFilter: (date: D | null, type: MatDatetimepickerFilterType) => boolean;
   /**
    * Emits when a `change` event is fired on this `<input>`.
-   * @zh 输出事件 `dateChange`（类型：`EventEmitter`），当触发日期变更时向外发出事件。
+   * @zh 输出事件 `dateChange`（类型：`EventEmitter<MatDatetimepickerInputEvent<D>>`），当触发日期变更时向外发出事件。
    */
   @Output() dateChange = new EventEmitter<MatDatetimepickerInputEvent<D>>();
   /**
    * Emits when an `input` event is fired on this `<input>`.
-   * @zh 输出事件 `dateInput`（类型：`EventEmitter`），当触发日期输入属性时向外发出事件。
+   * @zh 输出事件 `dateInput`（类型：`EventEmitter<MatDatetimepickerInputEvent<D>>`），当触发日期输入属性时向外发出事件。
    */
   @Output() dateInput = new EventEmitter<MatDatetimepickerInputEvent<D>>();
   /**
    * Emits when the value changes (either due to user input or programmatic change).
-   * @zh 属性 `_valueChange`（类型：`EventEmitter`），用于存储或配置值变更（默认值：`new EventEmitter<D | null>()`）。
+   * @zh 属性 `_valueChange`（类型：`EventEmitter<D>`），用于存储或配置值变更（默认值：`new EventEmitter<D | null>()`）。
    */
   _valueChange = new EventEmitter<D | null>();
   /**
    * Emits when the disabled state has changed
-   * @zh 属性 `_disabledChange`（类型：`EventEmitter`），用于存储或配置已禁用变更（默认值：`new EventEmitter<boolean>()`）。
+   * @zh 属性 `_disabledChange`（类型：`EventEmitter<boolean>`），用于存储或配置已禁用变更（默认值：`new EventEmitter<boolean>()`）。
    */
   _disabledChange = new EventEmitter<boolean>();
   /**
-   * Property `_datepickerSubscription` (`any`) storing datepicker subscription (default: `Subscription.EMPTY`).
-   * @zh 属性 `_datepickerSubscription`（类型：`any`），用于存储或配置日期选择器订阅对象（默认值：`Subscription.EMPTY`）。
+   * Property `_datepickerSubscription` (`Subscription`) storing datepicker subscription (default: `Subscription.EMPTY`).
+   * @zh 属性 `_datepickerSubscription`（类型：`Subscription`），用于存储或配置日期选择器订阅对象（默认值：`Subscription.EMPTY`）。
    */
   private _datepickerSubscription = Subscription.EMPTY;
   /**
-   * Property `_localeSubscription` (`any`) storing locale subscription (default: `Subscription.EMPTY`).
-   * @zh 属性 `_localeSubscription`（类型：`any`），用于存储或配置语言区域订阅对象（默认值：`Subscription.EMPTY`）。
+   * Property `_localeSubscription` (`Subscription`) storing locale subscription (default: `Subscription.EMPTY`).
+   * @zh 属性 `_localeSubscription`（类型：`Subscription`），用于存储或配置语言区域订阅对象（默认值：`Subscription.EMPTY`）。
    */
   private _localeSubscription = Subscription.EMPTY;
   /**
@@ -148,7 +148,7 @@ export class MatDatetimepickerInput<D> implements AfterContentInit, ControlValue
   /**
    * Creates an instance of `MatDatetimepickerInput` and initializes its dependencies and internal state.
    * @zh 创建 `MatDatetimepickerInput` 实例，并初始化其依赖项与内部状态。
-   * @param _elementRef - Injected or initial element ref (`ElementRef`) / 注入或传入的元素引用（`ElementRef`）
+   * @param _elementRef - Injected or initial element ref (`ElementRef<any>`) / 注入或传入的元素引用（`ElementRef<any>`）
    * @param _dateAdapter - Injected or initial date adapter (`DatetimeAdapter<D>`) / 注入或传入的日期适配器（`DatetimeAdapter<D>`）
    * @param _dateFormats - Injected or initial date formats (`MatDatetimeFormats`) / 注入或传入的日期格式列表（`MatDatetimeFormats`）
    * @param _formField - Injected or initial form field (`MatFormField`) / 注入或传入的表单字段（`MatFormField`）
@@ -182,7 +182,7 @@ export class MatDatetimepickerInput<D> implements AfterContentInit, ControlValue
   /**
    * Input setter `matDatepickerFilter` updating mat datepicker filter.
    * @zh 输入属性 `matDatepickerFilter` 的设置器，用于更新Material日期选择器过滤。
-   * @param filter - New mat datepicker filter value (`(date: D | null, type: MatDatetimepickerFilterType) => boole...`) / 新的Material日期选择器过滤值（`(date: D | null, type: MatDatetimepickerFilterType) => boole...`）
+   * @param filter - New mat datepicker filter value (`(date: D | null, type: MatDatetimepickerFilterType) => boolean`) / 新的Material日期选择器过滤值（`(date: D | null, type: MatDatetimepickerFilterType) => boolean`）
    */
   @Input() set matDatepickerFilter(filter: (date: D | null, type: MatDatetimepickerFilterType) => boolean) {
     this._dateFilter = filter;
@@ -190,14 +190,14 @@ export class MatDatetimepickerInput<D> implements AfterContentInit, ControlValue
   }
 
   /**
-   * Property `_value` (`D | null`) storing value.
-   * @zh 属性 `_value`（类型：`D | null`），用于存储或配置值。
+   * Property `_value` (`D`) storing value.
+   * @zh 属性 `_value`（类型：`D`），用于存储或配置值。
    */
   private _value: D | null;
 
   /**
    * The value of the input.
-   * @zh 输入属性 `value`（类型：`D | null`）的读取器，返回当前值。
+   * @zh 输入属性 `value`（类型：`D`）的读取器，返回当前值。
    */
   @Input()
   get value(): D | null {
@@ -207,7 +207,7 @@ export class MatDatetimepickerInput<D> implements AfterContentInit, ControlValue
   /**
    * Sets the value (`value`).
    * @zh 设置值（`value`）。
-   * @param value - New value value (`D | null`) / 新的值值（`D | null`）
+   * @param value - New value value (`D`) / 新的值值（`D`）
    */
   set value(value: D | null) {
     value = this._dateAdapter.deserialize(value);
@@ -226,14 +226,14 @@ export class MatDatetimepickerInput<D> implements AfterContentInit, ControlValue
   }
 
   /**
-   * Property `_min` (`D | null`) storing min.
-   * @zh 属性 `_min`（类型：`D | null`），用于存储或配置最小值。
+   * Property `_min` (`D`) storing min.
+   * @zh 属性 `_min`（类型：`D`），用于存储或配置最小值。
    */
   private _min: D | null;
 
   /**
    * The minimum valid date.
-   * @zh 输入属性 `min`（类型：`D | null`）的读取器，返回当前最小值。
+   * @zh 输入属性 `min`（类型：`D`）的读取器，返回当前最小值。
    */
   @Input()
   get min(): D | null {
@@ -243,7 +243,7 @@ export class MatDatetimepickerInput<D> implements AfterContentInit, ControlValue
   /**
    * Sets the min (`min`).
    * @zh 设置最小值（`min`）。
-   * @param value - New min value (`D | null`) / 新的最小值值（`D | null`）
+   * @param value - New min value (`D`) / 新的最小值值（`D`）
    */
   set min(value: D | null) {
     this._min = this._dateAdapter.getValidDateOrNull(this._dateAdapter.deserialize(value));
@@ -251,14 +251,14 @@ export class MatDatetimepickerInput<D> implements AfterContentInit, ControlValue
   }
 
   /**
-   * Property `_max` (`D | null`) storing max.
-   * @zh 属性 `_max`（类型：`D | null`），用于存储或配置最大值。
+   * Property `_max` (`D`) storing max.
+   * @zh 属性 `_max`（类型：`D`），用于存储或配置最大值。
    */
   private _max: D | null;
 
   /**
    * The maximum valid date.
-   * @zh 输入属性 `max`（类型：`D | null`）的读取器，返回当前最大值。
+   * @zh 输入属性 `max`（类型：`D`）的读取器，返回当前最大值。
    */
   @Input()
   get max(): D | null {
@@ -268,7 +268,7 @@ export class MatDatetimepickerInput<D> implements AfterContentInit, ControlValue
   /**
    * Sets the max (`max`).
    * @zh 设置最大值（`max`）。
-   * @param value - New max value (`D | null`) / 新的最大值值（`D | null`）
+   * @param value - New max value (`D`) / 新的最大值值（`D`）
    */
   set max(value: D | null) {
     this._max = this._dateAdapter.getValidDateOrNull(this._dateAdapter.deserialize(value));
@@ -283,7 +283,7 @@ export class MatDatetimepickerInput<D> implements AfterContentInit, ControlValue
 
   /**
    * Whether the datepicker-input is disabled.
-   * @zh 输入属性 `disabled`（类型：`any`）的读取器，返回当前已禁用。
+   * @zh 输入属性 `disabled`（类型：`boolean`）的读取器，返回当前已禁用。
    */
   @Input()
   get disabled() {
@@ -293,7 +293,7 @@ export class MatDatetimepickerInput<D> implements AfterContentInit, ControlValue
   /**
    * Sets the disabled (`disabled`).
    * @zh 设置已禁用（`disabled`）。
-   * @param value - New disabled value (`any`) / 新的已禁用值（`any`）
+   * @param value - New disabled value (`boolean`) / 新的已禁用值（`boolean`）
    */
   set disabled(value) {
     const newValue = coerceBooleanProperty(value);
@@ -305,8 +305,8 @@ export class MatDatetimepickerInput<D> implements AfterContentInit, ControlValue
   }
 
   /**
-   * Property `_onTouched` (`any`) storing on touched (default: `() => { }`).
-   * @zh 属性 `_onTouched`（类型：`any`），用于存储或配置当是否已触碰（默认值：`() => { }`）。
+   * Property `_onTouched` (`() => void`) storing on touched (default: `() => { }`).
+   * @zh 属性 `_onTouched`（类型：`() => void`），用于存储或配置当是否已触碰（默认值：`() => { }`）。
    */
   _onTouched = () => {
   }
@@ -351,8 +351,8 @@ export class MatDatetimepickerInput<D> implements AfterContentInit, ControlValue
   /**
    * Executes `validate` to handle validate.
    * @zh 执行 `validate`，用于校验。
-   * @param c - c parameter (`AbstractControl`) / c参数（`AbstractControl`）
-   * @returns Result of type `ValidationErrors | null` / 类型为 `ValidationErrors | null` 的返回值
+   * @param c - c parameter (`AbstractControl<any, any>`) / c参数（`AbstractControl<any, any>`）
+   * @returns Result of type `ValidationErrors` / 类型为 `ValidationErrors` 的返回值
    */
   validate(c: AbstractControl): ValidationErrors | null {
     return this._validator ? this._validator(c) : null;
@@ -522,8 +522,8 @@ export class MatDatetimepickerInput<D> implements AfterContentInit, ControlValue
   }
 
   /**
-   * Property `_validatorOnChange` (`any`) storing validator on change (default: `() => { }`).
-   * @zh 属性 `_validatorOnChange`（类型：`any`），用于存储或配置校验器当变更（默认值：`() => { }`）。
+   * Property `_validatorOnChange` (`() => void`) storing validator on change (default: `() => { }`).
+   * @zh 属性 `_validatorOnChange`（类型：`() => void`），用于存储或配置校验器当变更（默认值：`() => { }`）。
    */
   private _validatorOnChange = () => {
   }
@@ -571,7 +571,7 @@ export class MatDatetimepickerInput<D> implements AfterContentInit, ControlValue
 
   /**
    * The combined form control validator for this input.
-   * @zh 属性 `_validator`（类型：`ValidatorFn | null`），用于存储或配置校验器。
+   * @zh 属性 `_validator`（类型：`ValidatorFn`），用于存储或配置校验器。
    */
   private _validator: ValidatorFn | null =
     Validators.compose(

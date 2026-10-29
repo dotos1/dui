@@ -69,8 +69,8 @@ export class LocalStorageService {
      */
     private prefix: string = 'ls';
     /**
-     * Property `storageType` (`'sessionStorage' | 'localStorage'`) storing storage type (default: `'localStorage'`).
-     * @zh 属性 `storageType`（类型：`'sessionStorage' | 'localStorage'`），用于存储或配置存储类型（默认值：`'localStorage'`）。
+     * Property `storageType` (`"sessionStorage" | "localStorage"`) storing storage type (default: `'localStorage'`).
+     * @zh 属性 `storageType`（类型：`"sessionStorage" | "localStorage"`），用于存储或配置存储类型（默认值：`'localStorage'`）。
      */
     private storageType: 'sessionStorage' | 'localStorage' = 'localStorage';
     /**
@@ -234,7 +234,7 @@ export class LocalStorageService {
     /**
      * Executes `keys` to handle keys.
      * @zh 执行 `keys`，用于键列表。
-     * @returns Result of type `Array<string>` / 类型为 `Array<string>` 的返回值
+     * @returns Result of type `string[]` / 类型为 `string[]` 的返回值
      */
     public keys (): Array<string> {
         if (!this.isSupported) {
@@ -277,7 +277,7 @@ export class LocalStorageService {
     /**
      * Executes `remove` to handle remove.
      * @zh 执行 `remove`，用于移除。
-     * @param keys - keys parameter (`Array<string>`) / 键列表参数（`Array<string>`）
+     * @param keys - keys parameter (`string[]`) / 键列表参数（`string[]`）
      * @returns Result of type `boolean` / 类型为 `boolean` 的返回值
      */
     public remove (...keys: Array<string>): boolean {
@@ -392,7 +392,7 @@ export class LocalStorageService {
     /**
      * Executes `setStorageType` to handle set storage type.
      * @zh 执行 `setStorageType`，用于集合存储类型。
-     * @param storageType - storage type parameter (`'sessionStorage' | 'localStorage'`) / 存储类型参数（`'sessionStorage' | 'localStorage'`）
+     * @param storageType - storage type parameter (`"sessionStorage" | "localStorage"`) / 存储类型参数（`"sessionStorage" | "localStorage"`）
      */
     private setStorageType (storageType: 'sessionStorage' | 'localStorage'): void {
         this.storageType = storageType;

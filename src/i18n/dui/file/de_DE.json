@@ -390,8 +390,8 @@
       }
     },
     "TAB": {
-      "CS": "Content Services",
-      "PS": "Process Services"
+      "CS": "Inhaltsdienste",
+      "PS": "Prozessdienste"
     }
   },
   "ERROR_CONTENT": {
@@ -565,7 +565,7 @@
     },
     "FAIL": {
       "NODE": {
-        "NO_PERMISSION": "You do not have permission to perform this operation"
+        "NO_PERMISSION": "Sie haben keine Berechtigung für diesen Vorgang"
       }
     }
   },
@@ -637,15 +637,15 @@
     "ARIA-LABEL": {
       "ERROR": "Fehler beim Hochladen",
       "VERSION": "Dateiversion",
-      "CANCEL_ALL": "Cancel all uploads",
-      "CANCEL_FILE": "Cancel file upload",
-      "CANCEL_FILE_UPLOAD": "Cancel uploading this file",
+      "CANCEL_ALL": "Alle Uploads abbrechen",
+      "CANCEL_FILE": "Datei-Upload abbrechen",
+      "CANCEL_FILE_UPLOAD": "Upload dieser Datei abbrechen",
       "CONFIRMATION": {
-        "CANCEL": "Confirm cancel upload",
-        "CONTINUE": "Continue upload"
+        "CANCEL": "Abbruch des Uploads bestätigen",
+        "CONTINUE": "Upload fortsetzen"
       },
-      "DIALOG": "File upload dialog",
-      "DIALOG_CLOSE": "Close upload dialog",
+      "DIALOG": "Dialog für Datei-Upload",
+      "DIALOG_CLOSE": "Upload-Dialog schließen",
       "REMOVE_FILE": "Hochgeladene Datei entfernen",
       "UPLOAD_FILE_ERROR": "Fehler beim Datei-Upload"
     }
@@ -1335,16 +1335,16 @@
       "NONE": "Keine"
     },
     "FILE_DIALOG": {
-      "ALLOW_OTHERS_CHECKBOX": "Allow other users to modify this file",
+      "ALLOW_OTHERS_CHECKBOX": "Anderen Benutzern das Bearbeiten dieser Datei erlauben",
       "CANCEL_BUTTON": {
         "LABEL": "Abbrechen"
       },
       "FILE_LOCK": "Datei sperren",
-      "FILE_LOCK_CHECKBOX": "Lock this file to prevent others from editing",
+      "FILE_LOCK_CHECKBOX": "Datei sperren, damit andere sie nicht bearbeiten können",
       "SAVE_BUTTON": {
         "LABEL": "Speichern"
       },
-      "TIME_LOCK_CHECKBOX": "Set lock expiration time"
+      "TIME_LOCK_CHECKBOX": "Ablaufzeit der Sperre festlegen"
     }
   },
   "VIEWER": {

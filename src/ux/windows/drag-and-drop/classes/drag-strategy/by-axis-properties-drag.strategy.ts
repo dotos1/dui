@@ -14,9 +14,9 @@ import { ɵDragStrategyEnum } from '../../enums';
  */
 export class DragStrategyByAxisProperties {
     /**
-     * Property `type` (`any`) storing type (default: `ɵDragStrategyEnum.ByAxisProperties`).
+     * Property `type` (`ɵDragStrategyEnum.ByAxisProperties`) storing type (default: `ɵDragStrategyEnum.ByAxisProperties`).
      * @internal
-     * @zh 属性 `type`（类型：`any`），用于存储或配置类型（默认值：`ɵDragStrategyEnum.ByAxisProperties`）。
+     * @zh 属性 `type`（类型：`ɵDragStrategyEnum.ByAxisProperties`），用于存储或配置类型（默认值：`ɵDragStrategyEnum.ByAxisProperties`）。
      */
     public readonly type = ɵDragStrategyEnum.ByAxisProperties;
 
@@ -35,7 +35,7 @@ export class DragStrategyByAxisProperties {
     /**
      * Creates an instance of `DragStrategyByAxisProperties` and initializes its dependencies and internal state.
      * @zh 创建 `DragStrategyByAxisProperties` 实例，并初始化其依赖项与内部状态。
-     * @param params - Injected or initial params (`ɵInvertedKeysOfType<DragStrategyByAxisProperties, ɵDragStrat...`) / 注入或传入的参数集合（`ɵInvertedKeysOfType<DragStrategyByAxisProperties, ɵDragStrat...`）
+     * @param params - Injected or initial params (`ɵInvertedKeysOfType<DragStrategyByAxisProperties, ɵDragStrategyEnum>`) / 注入或传入的参数集合（`ɵInvertedKeysOfType<DragStrategyByAxisProperties, ɵDragStrategyEnum>`）
      */
     constructor(params?: ɵInvertedKeysOfType<DragStrategyByAxisProperties, ɵDragStrategyEnum>) {
         Object.assign(this, params);

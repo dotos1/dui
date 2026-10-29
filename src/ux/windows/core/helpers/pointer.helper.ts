@@ -71,7 +71,7 @@ export abstract class ɵPointerHelper {
      * Executes `isPointerEvent` to handle is pointer event.
      * @zh 执行 `isPointerEvent`，用于是否为指针事件。
      * @param event - event parameter (`Event`) / 事件参数（`Event`）
-     * @returns Result of type `event is PointerEvent` / 类型为 `event is PointerEvent` 的返回值
+     * @returns Result of type `boolean` / 类型为 `boolean` 的返回值
      */
     public static isPointerEvent(event: Event): event is PointerEvent {
         const mouseEvent = event as PointerEvent;
@@ -83,7 +83,7 @@ export abstract class ɵPointerHelper {
      * Executes `isTouchEvent` to handle is touch event.
      * @zh 执行 `isTouchEvent`，用于是否为触摸事件。
      * @param event - event parameter (`Event`) / 事件参数（`Event`）
-     * @returns Result of type `event is TouchEvent` / 类型为 `event is TouchEvent` 的返回值
+     * @returns Result of type `boolean` / 类型为 `boolean` 的返回值
      */
     public static isTouchEvent(event: Event): event is TouchEvent {
         const touchEvent = event as TouchEvent;

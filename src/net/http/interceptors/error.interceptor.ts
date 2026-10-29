@@ -34,10 +34,10 @@ export class ErrorInterceptor implements HttpInterceptor {
   ) { }
   /**
    * Executes `intercept` to handle intercept.
-   * @zh 执行 `intercept`，用于intercept。
-   * @param req - req parameter (`HttpRequest<any>`) / 请求参数（`HttpRequest<any>`）
+   * @zh 执行 `intercept`，用于拦截。
+   * @param req - req parameter (`HttpRequest<unknown>`) / 请求参数（`HttpRequest<unknown>`）
    * @param next - next parameter (`HttpHandler`) / 下一个参数（`HttpHandler`）
-   * @returns Result of type `Observable<HttpEvent<any>>` / 类型为 `Observable<HttpEvent<any>>` 的返回值
+   * @returns Result of type `Observable<HttpEvent<unknown>>` / 类型为 `Observable<HttpEvent<unknown>>` 的返回值
    */
   intercept(
     req: HttpRequest<unknown>,

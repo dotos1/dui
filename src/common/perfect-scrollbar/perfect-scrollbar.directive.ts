@@ -51,37 +51,37 @@ import {
 })
 export class PerfectScrollbarDirective implements OnInit, OnDestroy, DoCheck, OnChanges {
     /**
-     * Property `instance` (`PerfectScrollbar | null`) storing instance (default: `null`).
-     * @zh 属性 `instance`（类型：`PerfectScrollbar | null`），用于存储或配置实例（默认值：`null`）。
+     * Property `instance` (`PerfectScrollbar`) storing instance (default: `null`).
+     * @zh 属性 `instance`（类型：`PerfectScrollbar`），用于存储或配置实例（默认值：`null`）。
      */
     private instance: PerfectScrollbar | null = null;
 
     /**
-     * Property `ro` (`ResizeObserver | null`) storing ro (default: `null`).
-     * @zh 属性 `ro`（类型：`ResizeObserver | null`），用于存储或配置ro（默认值：`null`）。
+     * Property `ro` (`ResizeObserver`) storing ro (default: `null`).
+     * @zh 属性 `ro`（类型：`ResizeObserver`），用于存储或配置ro（默认值：`null`）。
      */
     private ro: ResizeObserver | null = null;
 
     /**
-     * Property `timeout` (`number | null`) storing timeout (default: `null`).
-     * @zh 属性 `timeout`（类型：`number | null`），用于存储或配置延时器（默认值：`null`）。
+     * Property `timeout` (`number`) storing timeout (default: `null`).
+     * @zh 属性 `timeout`（类型：`number`），用于存储或配置延时器（默认值：`null`）。
      */
     private timeout: number | null = null;
     /**
-     * Property `animation` (`number | null`) storing animation (default: `null`).
-     * @zh 属性 `animation`（类型：`number | null`），用于存储或配置动画（默认值：`null`）。
+     * Property `animation` (`number`) storing animation (default: `null`).
+     * @zh 属性 `animation`（类型：`number`），用于存储或配置动画（默认值：`null`）。
      */
     private animation: number | null = null;
 
     /**
-     * Property `configDiff` (`KeyValueDiffer<string, any> | null`) storing config diff (default: `null`).
-     * @zh 属性 `configDiff`（类型：`KeyValueDiffer<string, any> | null`），用于存储或配置配置Diff（默认值：`null`）。
+     * Property `configDiff` (`any`) storing config diff (default: `null`).
+     * @zh 属性 `configDiff`（类型：`any`），用于存储或配置配置Diff（默认值：`null`）。
      */
     private configDiff = null;
 
     /**
-     * Property `ngDestroy` (`Subject`) storing ng destroy (default: `new Subject<void>()`).
-     * @zh 属性 `ngDestroy`（类型：`Subject`），用于存储或配置Angular销毁（默认值：`new Subject<void>()`）。
+     * Property `ngDestroy` (`Subject<void>`) storing ng destroy (default: `new Subject<void>()`).
+     * @zh 属性 `ngDestroy`（类型：`Subject<void>`），用于存储或配置Angular销毁（默认值：`new Subject<void>()`）。
      */
     private ngDestroy = new Subject<void>();
 
@@ -98,63 +98,63 @@ export class PerfectScrollbarDirective implements OnInit, OnDestroy, DoCheck, On
     @Input('perfectScrollbar') config?: PerfectScrollbarConfigInterface;
 
     /**
-     * Output event emitter `psScrollY` (`EventEmitter`) firing when ps scroll y occurs.
+     * Output event emitter `psScrollY` (`EventEmitter<any>`) firing when ps scroll y occurs.
      * @zh 垂直滚动时发出。
      * @zh 垂直滚动时发出。
      */
     @Output() psScrollY = new EventEmitter();
     /**
-     * Output event emitter `psScrollX` (`EventEmitter`) firing when ps scroll x occurs.
+     * Output event emitter `psScrollX` (`EventEmitter<any>`) firing when ps scroll x occurs.
      * @zh 水平滚动时发出。
      * @zh 水平滚动时发出。
      */
     @Output() psScrollX = new EventEmitter();
 
     /**
-     * Output event emitter `psScrollUp` (`EventEmitter`) firing when ps scroll up occurs.
+     * Output event emitter `psScrollUp` (`EventEmitter<any>`) firing when ps scroll up occurs.
      * @zh 向上滚动时发出。
      * @zh 向上滚动时发出。
      */
     @Output() psScrollUp = new EventEmitter();
     /**
-     * Output event emitter `psScrollDown` (`EventEmitter`) firing when ps scroll down occurs.
+     * Output event emitter `psScrollDown` (`EventEmitter<any>`) firing when ps scroll down occurs.
      * @zh 向下滚动时发出。
      * @zh 向下滚动时发出。
      */
     @Output() psScrollDown = new EventEmitter();
     /**
-     * Output event emitter `psScrollLeft` (`EventEmitter`) firing when ps scroll left occurs.
+     * Output event emitter `psScrollLeft` (`EventEmitter<any>`) firing when ps scroll left occurs.
      * @zh 向左滚动时发出。
      * @zh 向左滚动时发出。
      */
     @Output() psScrollLeft = new EventEmitter();
     /**
-     * Output event emitter `psScrollRight` (`EventEmitter`) firing when ps scroll right occurs.
+     * Output event emitter `psScrollRight` (`EventEmitter<any>`) firing when ps scroll right occurs.
      * @zh 向右滚动时发出。
      * @zh 向右滚动时发出。
      */
     @Output() psScrollRight = new EventEmitter();
 
     /**
-     * Output event emitter `psYReachEnd` (`EventEmitter`) firing when ps y reach end occurs.
+     * Output event emitter `psYReachEnd` (`EventEmitter<any>`) firing when ps y reach end occurs.
      * @zh 垂直方向滚动到底部时发出。
      * @zh 垂直方向滚动到底部时发出。
      */
     @Output() psYReachEnd = new EventEmitter();
     /**
-     * Output event emitter `psYReachStart` (`EventEmitter`) firing when ps y reach start occurs.
+     * Output event emitter `psYReachStart` (`EventEmitter<any>`) firing when ps y reach start occurs.
      * @zh 垂直方向滚动到顶部时发出。
      * @zh 垂直方向滚动到顶部时发出。
      */
     @Output() psYReachStart = new EventEmitter();
     /**
-     * Output event emitter `psXReachEnd` (`EventEmitter`) firing when ps x reach end occurs.
+     * Output event emitter `psXReachEnd` (`EventEmitter<any>`) firing when ps x reach end occurs.
      * @zh 水平方向滚动到右侧末端时发出。
      * @zh 水平方向滚动到右侧末端时发出。
      */
     @Output() psXReachEnd = new EventEmitter();
     /**
-     * Output event emitter `psXReachStart` (`EventEmitter`) firing when ps x reach start occurs.
+     * Output event emitter `psXReachStart` (`EventEmitter<any>`) firing when ps x reach start occurs.
      * @zh 水平方向滚动到左侧起始位置时发出。
      * @zh 水平方向滚动到左侧起始位置时发出。
      */
@@ -165,7 +165,7 @@ export class PerfectScrollbarDirective implements OnInit, OnDestroy, DoCheck, On
      * @zh 创建 `PerfectScrollbarDirective` 实例，并初始化其依赖项与内部状态。
      * @param zone - Injected or initial zone (`NgZone`) / 注入或传入的区域(NgZone)（`NgZone`）
      * @param differs - Injected or initial differs (`KeyValueDiffers`) / 注入或传入的differs（`KeyValueDiffers`）
-     * @param elementRef - Injected or initial element ref (`ElementRef`) / 注入或传入的元素引用（`ElementRef`）
+     * @param elementRef - Injected or initial element ref (`ElementRef<any>`) / 注入或传入的元素引用（`ElementRef<any>`）
      * @param platformId - Injected or initial platform id (`Object`) / 注入或传入的platform唯一标识（`Object`）
      * @param defaults - Injected or initial defaults (`PerfectScrollbarConfigInterface`) / 注入或传入的默认值集合（`PerfectScrollbarConfigInterface`）
      */

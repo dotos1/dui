@@ -53,26 +53,26 @@ import { DOCUMENT } from '@angular/common';
 export class PopoverTrigger implements AfterViewInit, OnDestroy {
 
   /**
-   * Property `popoverOpened` (`Subject`) storing popover opened (default: `new Subject<void>()`).
+   * Property `popoverOpened` (`Subject<void>`) storing popover opened (default: `new Subject<void>()`).
    * @zh 弹出层打开时发出。
    * @zh 弹出层打开时发出。
    */
   popoverOpened = new Subject<void>();
   /**
-   * Property `popoverClosed` (`Subject`) storing popover closed (default: `new Subject<void>()`).
+   * Property `popoverClosed` (`Subject<void>`) storing popover closed (default: `new Subject<void>()`).
    * @zh 弹出层关闭时发出。
    * @zh 弹出层关闭时发出。
    */
   popoverClosed = new Subject<void>();
 
   /**
-   * Property `_portal` (`TemplatePortal<any>`) storing portal.
-   * @zh 属性 `_portal`（类型：`TemplatePortal<any>`），用于存储或配置传送门容器。
+   * Property `_portal` (`any`) storing portal.
+   * @zh 属性 `_portal`（类型：`any`），用于存储或配置传送门容器。
    */
   private _portal;
   /**
-   * Property `_overlayRef` (`OverlayRef | null`) storing overlay ref (default: `null`).
-   * @zh 属性 `_overlayRef`（类型：`OverlayRef | null`），用于存储或配置浮层引用（默认值：`null`）。
+   * Property `_overlayRef` (`OverlayRef`) storing overlay ref (default: `null`).
+   * @zh 属性 `_overlayRef`（类型：`OverlayRef`），用于存储或配置浮层引用（默认值：`null`）。
    */
   private _overlayRef: OverlayRef | null = null;
   /**
@@ -119,8 +119,8 @@ export class PopoverTrigger implements AfterViewInit, OnDestroy {
   private _openedByMouse = false;
 
   /**
-   * Property `_onDestroy` (`Subject`) storing on destroy (default: `new Subject<void>()`).
-   * @zh 属性 `_onDestroy`（类型：`Subject`），用于存储或配置当销毁（默认值：`new Subject<void>()`）。
+   * Property `_onDestroy` (`Subject<void>`) storing on destroy (default: `new Subject<void>()`).
+   * @zh 属性 `_onDestroy`（类型：`Subject<void>`），用于存储或配置当销毁（默认值：`new Subject<void>()`）。
    */
   private _onDestroy = new Subject<void>();
 
@@ -235,14 +235,14 @@ export class PopoverTrigger implements AfterViewInit, OnDestroy {
   @Input('showPopOver') showPopOver: boolean=true;
 
   /**
-   * Output event emitter `opened` (`EventEmitter`) firing when opened occurs.
+   * Output event emitter `opened` (`EventEmitter<void>`) firing when opened occurs.
    * @zh 弹出层打开时发出。
    * @zh 弹出层打开时发出。
    */
   @Output() opened = new EventEmitter<void>();
 
   /**
-   * Output event emitter `closed` (`EventEmitter`) firing when closed occurs.
+   * Output event emitter `closed` (`EventEmitter<void>`) firing when closed occurs.
    * @zh 弹出层关闭时发出。
    * @zh 弹出层关闭时发出。
    */
@@ -254,7 +254,7 @@ export class PopoverTrigger implements AfterViewInit, OnDestroy {
    * @zh 创建 `PopoverTrigger` 实例，并初始化其依赖项与内部状态。
    * @param renderer - Injected or initial renderer (`Renderer2`) / 注入或传入的渲染器（`Renderer2`）
    * @param _overlay - Injected or initial overlay (`Overlay`) / 注入或传入的浮层（`Overlay`）
-   * @param _elementRef - Injected or initial element ref (`ElementRef`) / 注入或传入的元素引用（`ElementRef`）
+   * @param _elementRef - Injected or initial element ref (`ElementRef<any>`) / 注入或传入的元素引用（`ElementRef<any>`）
    * @param viewContainerRef - Injected or initial view container ref (`ViewContainerRef`) / 注入或传入的视图容器引用（`ViewContainerRef`）
    * @param _dir - Injected or initial dir (`Directionality`) / 注入或传入的目录（`Directionality`）
    * @param _changeDetectorRef - Injected or initial change detector ref (`ChangeDetectorRef`) / 注入或传入的变更检测器引用（`ChangeDetectorRef`）
@@ -764,7 +764,7 @@ export class PopoverTrigger implements AfterViewInit, OnDestroy {
 
   /**
    * Executes `_cleanUpSubscriptions` to handle clean up subscriptions.
-   * @zh 执行 `_cleanUpSubscriptions`，用于clean向上订阅集合。
+   * @zh 执行 `_cleanUpSubscriptions`，用于清理向上订阅集合。
    */
   private _cleanUpSubscriptions(): void {
       if (this._backdropSubscription) {

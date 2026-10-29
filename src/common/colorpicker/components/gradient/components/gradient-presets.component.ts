@@ -59,7 +59,7 @@ export class GradientPresetsComponent  {
   /**
    * Executes `getPresets` to handle get presets.
    * @zh 执行 `getPresets`，用于获取Presets。
-   * @returns Result of type `any` / 类型为 `any` 的返回值
+   * @returns Result of type `any[]` / 类型为 `any[]` 的返回值
    */
   public getPresets (){
     if (this. presets?.length > 0) {

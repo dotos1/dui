@@ -17,7 +17,7 @@ export abstract class TranslateParser {
    * @param expr
    * @param params
 
-   * @zh 执行 `interpolate`，用于interpolate。
+   * @zh 执行 `interpolate`，用于插值。
    */
   abstract interpolate(expr: string | Function, params?): string;
 
@@ -46,7 +46,7 @@ export class TranslateDefaultParser extends TranslateParser {
 
   /**
    * Executes `interpolate` to handle interpolate.
-   * @zh 执行 `interpolate`，用于interpolate。
+   * @zh 执行 `interpolate`，用于插值。
    * @param expr - expr parameter (`string | Function`) / expr参数（`string | Function`）
    * @param params - params parameter (`any`) / 参数集合参数（`any`）
    * @returns Result of type `string` / 类型为 `string` 的返回值
@@ -93,7 +93,7 @@ export class TranslateDefaultParser extends TranslateParser {
 
   /**
    * Executes `interpolateFunction` to handle interpolate function.
-   * @zh 执行 `interpolateFunction`，用于interpolate函数。
+   * @zh 执行 `interpolateFunction`，用于插值函数。
    * @param fn - fn parameter (`Function`) / 函数参数（`Function`）
    * @param params - params parameter (`any`) / 参数集合参数（`any`）
    */
@@ -103,7 +103,7 @@ export class TranslateDefaultParser extends TranslateParser {
 
   /**
    * Executes `interpolateString` to handle interpolate string.
-   * @zh 执行 `interpolateString`，用于interpolate字符串。
+   * @zh 执行 `interpolateString`，用于插值字符串。
    * @param expr - expr parameter (`string`) / expr参数（`string`）
    * @param params - params parameter (`any`) / 参数集合参数（`any`）
    */

@@ -42,13 +42,13 @@ export class GradientFieldsComponent {
    */
   @Input() disableAlpha = false;
   /**
-   * Output event emitter `onChange` (`EventEmitter`) firing when on change occurs.
-   * @zh 输出事件 `onChange`（类型：`EventEmitter`），当触发当变更时向外发出事件。
+   * Output event emitter `onChange` (`EventEmitter<any>`) firing when on change occurs.
+   * @zh 输出事件 `onChange`（类型：`EventEmitter<any>`），当触发当变更时向外发出事件。
    */
   @Output() onChange = new EventEmitter();
   /**
-   * Property `input` (`{ [key: string]: string }`) storing input.
-   * @zh 属性 `input`（类型：`{ [key: string]: string }`），用于存储或配置输入属性。
+   * Property `input` (`{ [key: string]: string; }`) storing input.
+   * @zh 属性 `input`（类型：`{ [key: string]: string; }`），用于存储或配置输入属性。
    */
   input: { [key: string]: string } = {
     width: '100%',
@@ -59,8 +59,8 @@ export class GradientFieldsComponent {
     fontSize: '11px',
   };
   /**
-   * Property `label` (`{ [key: string]: string }`) storing label.
-   * @zh 属性 `label`（类型：`{ [key: string]: string }`），用于存储或配置标签。
+   * Property `label` (`{ [key: string]: string; }`) storing label.
+   * @zh 属性 `label`（类型：`{ [key: string]: string; }`），用于存储或配置标签。
    */
   label: { [key: string]: string } = {
     display: 'block',

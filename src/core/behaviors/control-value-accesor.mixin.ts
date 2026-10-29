@@ -34,8 +34,8 @@ export interface IControlValueAccessor extends ControlValueAccessor {
    */
   value;
   /**
-   * Property `valueChanges` (`Observable<any>`) storing value changes.
-   * @zh 属性 `valueChanges`（类型：`Observable<any>`），用于存储或配置值变更集合。
+   * Property `valueChanges` (`any`) storing value changes.
+   * @zh 属性 `valueChanges`（类型：`any`），用于存储或配置值变更集合。
    */
   valueChanges;
   /**
@@ -64,7 +64,7 @@ export interface IHasChangeDetectorRef {
 
 /**
  * Mixin to augment a component with ngModel support.
- * @zh 执行 `mixinControlValueAccessor`，用于mixin表单控件值访问器。
+ * @zh 执行 `mixinControlValueAccessor`，用于混入表单控件值访问器。
  */
 export function mixinControlValueAccessor<
   T extends Constructor<IHasChangeDetectorRef>

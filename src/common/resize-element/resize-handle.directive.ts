@@ -41,8 +41,8 @@ export class ResizeHandleDirective implements OnInit, OnDestroy {
   @Input() resizableContainer: ResizableDirective;
 
   /**
-   * Property `eventListeners` (`{ touchmove?: () => void; mousemove?: () => void; [key: string]: (() =...`) storing event listeners (default: `{}`).
-   * @zh 属性 `eventListeners`（类型：`{ touchmove?: () => void; mousemove?: () => void; [key: string]: (() =...`），用于存储或配置事件监听器列表（默认值：`{}`）。
+   * Property `eventListeners` (`{ [key: string]: () => void; touchmove?: () => void; mousemove?: () => void; }`) storing event listeners (default: `{}`).
+   * @zh 属性 `eventListeners`（类型：`{ [key: string]: () => void; touchmove?: () => void; mousemove?: () => void; }`），用于存储或配置事件监听器列表（默认值：`{}`）。
    */
   private eventListeners: {
     touchmove?: () => void;
@@ -51,8 +51,8 @@ export class ResizeHandleDirective implements OnInit, OnDestroy {
   } = {};
 
   /**
-   * Property `destroy$` (`Subject`) storing destroy (default: `new Subject<void>()`).
-   * @zh 属性 `destroy$`（类型：`Subject`），用于存储或配置销毁（默认值：`new Subject<void>()`）。
+   * Property `destroy$` (`Subject<void>`) storing destroy (default: `new Subject<void>()`).
+   * @zh 属性 `destroy$`（类型：`Subject<void>`），用于存储或配置销毁（默认值：`new Subject<void>()`）。
    */
   private destroy$ = new Subject<void>();
 
@@ -60,7 +60,7 @@ export class ResizeHandleDirective implements OnInit, OnDestroy {
    * Creates an instance of `ResizeHandleDirective` and initializes its dependencies and internal state.
    * @zh 创建 `ResizeHandleDirective` 实例，并初始化其依赖项与内部状态。
    * @param renderer - Injected or initial renderer (`Renderer2`) / 注入或传入的渲染器（`Renderer2`）
-   * @param element - Injected or initial element (`ElementRef`) / 注入或传入的元素（`ElementRef`）
+   * @param element - Injected or initial element (`ElementRef<any>`) / 注入或传入的元素（`ElementRef<any>`）
    * @param zone - Injected or initial zone (`NgZone`) / 注入或传入的区域(NgZone)（`NgZone`）
    * @param resizableDirective - Injected or initial resizable directive (`ResizableDirective`) / 注入或传入的是否可调尺寸指令（`ResizableDirective`）
    */

@@ -86,8 +86,8 @@ interface KeyState {
 @Injectable()
 export class ShortcutService {
   /**
-   * Property `_shortcuts` (`{ [key: string]: string[][] }`) storing shortcuts (default: `{}`).
-   * @zh 属性 `_shortcuts`（类型：`{ [key: string]: string[][] }`），用于存储或配置快捷键列表（默认值：`{}`）。
+   * Property `_shortcuts` (`{ [key: string]: string[][]; }`) storing shortcuts (default: `{}`).
+   * @zh 属性 `_shortcuts`（类型：`{ [key: string]: string[][]; }`），用于存储或配置快捷键列表（默认值：`{}`）。
    */
   private _shortcuts: { [key: string]: string[][] } = {};
 
@@ -187,10 +187,10 @@ export class ShortcutService {
   /**
    * Executes `_createShortcutsFromConfig` to handle create shortcuts from config.
    * @zh 执行 `_createShortcutsFromConfig`，用于创建快捷键列表从配置。
-   * @param shortcuts - shortcuts parameter (`{ [key: string]: string }`) / 快捷键列表参数（`{ [key: string]: string }`）
+   * @param shortcuts - shortcuts parameter (`{ [key: string]: string; }`) / 快捷键列表参数（`{ [key: string]: string; }`）
    */
   private _createShortcutsFromConfig(shortcuts: { [key: string]: string }) {
-    const shortcutMap = {};
+    const shortcutMap: { [key: string]: string[][] } = {};
 
     for (const [key, shortcutsForCommand] of Object.entries(shortcuts)) {
       if (!this._isSupportedShortcut(key)) {
@@ -231,7 +231,7 @@ export class ShortcutService {
    * Executes `_substituteKey` to handle substitute key.
    * @zh 执行 `_substituteKey`，用于substitute键。
    * @param shortcut - shortcut parameter (`string`) / 快捷键参数（`string`）
-   * @param combo - combo parameter (`Array<string>`) / combo参数（`Array<string>`）
+   * @param combo - combo parameter (`string[]`) / combo参数（`string[]`）
    * @param substituteKey - substitute key parameter (`string`) / substitute键参数（`string`）
    */
   private _substituteKey(shortcut: string, combo: Array<string>, substituteKey: string) {
@@ -287,7 +287,7 @@ export class ShortcutService {
   /**
    * Executes `_isSupportedCombo` to handle is supported combo.
    * @zh 执行 `_isSupportedCombo`，用于是否为SupportedCombo。
-   * @param combo - combo parameter (`Array<string>`) / combo参数（`Array<string>`）
+   * @param combo - combo parameter (`string[]`) / combo参数（`string[]`）
    */
   private _isSupportedCombo(combo: Array<string>) {
     let unsupportedKey = null;

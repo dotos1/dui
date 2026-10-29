@@ -29,8 +29,8 @@ import {GridsterPreviewComponent} from './gridsterPreview.component';
 })
 export class GridsterModule {
   /**
-   * Property `entryComponents` (`any[]`) storing entry components.
-   * @zh 属性 `entryComponents`（类型：`any[]`），用于存储或配置条目组件列表。
+   * Property `entryComponents` (`(typeof GridsterComponent | typeof GridsterItemComponent)[]`) storing entry components.
+   * @zh 属性 `entryComponents`（类型：`(typeof GridsterComponent | typeof GridsterItemComponent)[]`），用于存储或配置条目组件列表。
    */
   entryComponents = [GridsterComponent, GridsterItemComponent];
   /**

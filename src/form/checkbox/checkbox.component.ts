@@ -23,14 +23,14 @@ import { TranslateService } from '@dotos/dui/translator';
 export class CheckboxField extends MatField implements AfterViewInit,OnDestroy {
 
   /**
-   * Template/content query reference `checkbox` (`@ViewChild`) targeting checkbox.
+   * Template/content query reference `checkbox` (`MatCheckbox`) targeting checkbox.
    * @zh 模板/内容视图查询引用 `checkbox`（`@ViewChild`），指向复选框。
    */
   @ViewChild(MatCheckbox, { static: true }) checkbox!: MatCheckbox;
 
   /**
-   * Property `defaultOptions` (`any`) storing default options.
-   * @zh 属性 `defaultOptions`（类型：`any`），用于存储或配置默认配置选项。
+   * Property `defaultOptions` (`{…}`) storing default options.
+   * @zh 属性 `defaultOptions`（类型：`{…}`），用于存储或配置默认配置选项。
    */
   override defaultOptions = {
     hideFieldUnderline: true,

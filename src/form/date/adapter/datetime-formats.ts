@@ -11,8 +11,8 @@ import {InjectionToken} from "@angular/core";
  */
 export interface MatDatetimeFormats {
   /**
-   * Property `parse` (`{ dateInput?: any; monthInput?: any; timeInput?: any; datetimeInput?:...`) storing parse.
-   * @zh 属性 `parse`（类型：`{ dateInput?: any; monthInput?: any; timeInput?: any; datetimeInput?:...`），用于存储或配置解析。
+   * Property `parse` (`{ dateInput?: any; monthInput?: any; timeInput?: any; datetimeInput?: any; }`) storing parse.
+   * @zh 属性 `parse`（类型：`{ dateInput?: any; monthInput?: any; timeInput?: any; datetimeInput?: any; }`），用于存储或配置解析。
    */
   parse: {
     dateInput?;
@@ -21,8 +21,8 @@ export interface MatDatetimeFormats {
     datetimeInput?;
   };
   /**
-   * Property `display` (`{ dateInput: any; monthInput: any; timeInput: any; datetimeInput: any;...`) storing display.
-   * @zh 属性 `display`（类型：`{ dateInput: any; monthInput: any; timeInput: any; datetimeInput: any;...`），用于存储或配置display。
+   * Property `display` (`{…}`) storing display.
+   * @zh 属性 `display`（类型：`{…}`），用于存储或配置display。
    */
   display: {
     dateInput;

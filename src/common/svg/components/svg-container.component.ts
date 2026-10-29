@@ -104,14 +104,14 @@ export class SvgContainerComponent implements AfterViewInit, OnChanges {
   @Input() public viewBox: number[] = []; // Viewbox of the container, must be an array consisting of 4 integers [x, y, width, height].
 
   /**
-   * Output event emitter `clickEvent` (`EventEmitter<{ x: number, y: number }>`) firing when click event occurs.
-   * @zh 输出事件 `clickEvent`（类型：`EventEmitter<{ x: number, y: number }>`），当触发点击事件时向外发出事件。
+   * Output event emitter `clickEvent` (`EventEmitter<{ x: number; y: number; }>`) firing when click event occurs.
+   * @zh 输出事件 `clickEvent`（类型：`EventEmitter<{ x: number; y: number; }>`），当触发点击事件时向外发出事件。
    */
   @Output() public clickEvent: EventEmitter<{ x: number, y: number }>
     = new EventEmitter(); // Event handler for retrieving coordinates at clicked position
   /**
-   * Output event emitter `doubleClickEvent` (`EventEmitter<{ x: number, y: number }>`) firing when double click event occurs.
-   * @zh 输出事件 `doubleClickEvent`（类型：`EventEmitter<{ x: number, y: number }>`），当触发双倍点击事件时向外发出事件。
+   * Output event emitter `doubleClickEvent` (`EventEmitter<{ x: number; y: number; }>`) firing when double click event occurs.
+   * @zh 输出事件 `doubleClickEvent`（类型：`EventEmitter<{ x: number; y: number; }>`），当触发双倍点击事件时向外发出事件。
    */
   @Output() public doubleClickEvent: EventEmitter<{ x: number, y: number }>
     = new EventEmitter(); // Event handler for retrieving coordinates at position where you double-click.
@@ -126,8 +126,8 @@ export class SvgContainerComponent implements AfterViewInit, OnChanges {
    */
   @Output() public mouseOutEvent: EventEmitter<MouseEvent> = new EventEmitter(); // Event handler when the mouse exits the container.
   /**
-   * Output event emitter `mouseMoveEvent` (`EventEmitter<{ x: number, y: number }>`) firing when mouse move event occurs.
-   * @zh 输出事件 `mouseMoveEvent`（类型：`EventEmitter<{ x: number, y: number }>`），当触发鼠标移动事件时向外发出事件。
+   * Output event emitter `mouseMoveEvent` (`EventEmitter<{ x: number; y: number; }>`) firing when mouse move event occurs.
+   * @zh 输出事件 `mouseMoveEvent`（类型：`EventEmitter<{ x: number; y: number; }>`），当触发鼠标移动事件时向外发出事件。
    */
   @Output() public mouseMoveEvent: EventEmitter<{ x: number, y: number }> = new EventEmitter();
     // Event handler when the mouse is being moved on the container.
@@ -195,7 +195,7 @@ export class SvgContainerComponent implements AfterViewInit, OnChanges {
   }
   /**
    * Executes `adjustPointPosition` to handle adjust point position.
-   * @zh 执行 `adjustPointPosition`，用于adjust坐标点位置。
+   * @zh 执行 `adjustPointPosition`，用于调整坐标点位置。
    * @param event - event parameter (`MouseEvent`) / 事件参数（`MouseEvent`）
    */
   adjustPointPosition(event: MouseEvent): void {
@@ -210,7 +210,7 @@ export class SvgContainerComponent implements AfterViewInit, OnChanges {
   }
   /**
    * Executes `adjustMouseMovePosition` to handle adjust mouse move position.
-   * @zh 执行 `adjustMouseMovePosition`，用于adjust鼠标移动位置。
+   * @zh 执行 `adjustMouseMovePosition`，用于调整鼠标移动位置。
    * @param event - event parameter (`MouseEvent`) / 事件参数（`MouseEvent`）
    */
   adjustMouseMovePosition(event: MouseEvent): void {

@@ -26,14 +26,14 @@ import { FieldWrapper } from '@dotos/dui/core/form';
 })
 export class LabelWrapperField extends FieldWrapper<FieldConfig> implements  OnDestroy, MatFormFieldControl<unknown> {
   /**
-   * Template/content query reference `fieldComponent` (`@ViewChild`) targeting field component.
+   * Template/content query reference `fieldComponent` (`ViewContainerRef`) targeting field component.
    * @zh 模板/内容视图查询引用 `fieldComponent`（`@ViewChild`），指向字段组件。
    */
   @ViewChild('fieldComponent', { read: ViewContainerRef }) declare fieldComponent: ViewContainerRef;
 
   /**
-   * Property `stateChanges` (`Subject`) storing state changes (default: `new Subject<void>()`).
-   * @zh 属性 `stateChanges`（类型：`Subject`），用于存储或配置状态变更集合（默认值：`new Subject<void>()`）。
+   * Property `stateChanges` (`Subject<void>`) storing state changes (default: `new Subject<void>()`).
+   * @zh 属性 `stateChanges`（类型：`Subject<void>`），用于存储或配置状态变更集合（默认值：`new Subject<void>()`）。
    */
   stateChanges = new Subject<void>();
   /**
@@ -74,7 +74,7 @@ export class LabelWrapperField extends FieldWrapper<FieldConfig> implements  OnD
   /**
    * Creates an instance of `LabelWrapperField` and initializes its dependencies and internal state.
    * @zh 创建 `LabelWrapperField` 实例，并初始化其依赖项与内部状态。
-   * @param _elementRef - Injected or initial element ref (`ElementRef`) / 注入或传入的元素引用（`ElementRef`）
+   * @param _elementRef - Injected or initial element ref (`ElementRef<any>`) / 注入或传入的元素引用（`ElementRef<any>`）
    * @param renderer - Injected or initial renderer (`Renderer2`) / 注入或传入的渲染器（`Renderer2`）
    * @param _platform - Injected or initial platform (`Platform`) / 注入或传入的platform（`Platform`）
    * @param _changeDetector - Injected or initial change detector (`ChangeDetectorRef`) / 注入或传入的变更检测器（`ChangeDetectorRef`）

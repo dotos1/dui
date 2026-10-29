@@ -42,8 +42,8 @@ export class Parse {
    */
   private _parser: Parser = new Parser(new Lexer());
   /**
-   * Property `_pipesCache` (`Map<string, any>`) storing pipes cache (default: `new Map<string, any>()`).
-   * @zh 属性 `_pipesCache`（类型：`Map<string, any>`），用于存储或配置管道缓存（默认值：`new Map<string, any>()`）。
+   * Property `_pipesCache` (`Map<string, unknown>`) storing pipes cache (default: `new Map<string, any>()`).
+   * @zh 属性 `_pipesCache`（类型：`Map<string, unknown>`），用于存储或配置管道缓存（默认值：`new Map<string, any>()`）。
    */
   private _pipesCache = new Map<string, unknown>();
   /**
@@ -73,7 +73,7 @@ export class Parse {
 
   /**
    * Executes `eval` to handle eval.
-   * @zh 执行 `eval`，用于eval。
+   * @zh 执行 `eval`，用于求值。
    * @param expression - expression parameter (`string`) / 表达式参数（`string`）
    * @returns Result of type `Function` / 类型为 `Function` 的返回值
    */

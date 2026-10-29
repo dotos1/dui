@@ -116,7 +116,7 @@ export class BubbleComponent implements OnInit, OnDestroy {
 
   /**
    * Executes `trackByIndex` to handle track by index.
-   * @zh 执行 `trackByIndex`，用于track按索引。
+   * @zh 执行 `trackByIndex`，用于跟踪按索引。
    * @param index - index parameter (`number`) / 索引参数（`number`）
    * @returns Result of type `number` / 类型为 `number` 的返回值
    */

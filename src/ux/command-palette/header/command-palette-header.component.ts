@@ -33,7 +33,7 @@ import { FormControl } from '@angular/forms';
 export class CommandPaletteHeaderComponent implements OnInit, AfterViewInit, OnDestroy {
 
   /**
-   * Template/content query reference `input` (`@ViewChild`) targeting input.
+   * Template/content query reference `input` (`ElementRef<HTMLInputElement>`) targeting input.
    * @zh 模板/内容视图查询引用 `input`（`@ViewChild`），指向输入属性。
    */
   @ViewChild('input')
@@ -68,8 +68,8 @@ export class CommandPaletteHeaderComponent implements OnInit, AfterViewInit, OnD
   readonly keyEnterPressed$: EventEmitter<void> = new EventEmitter<void>();
 
   /**
-   * Property `inputControl` (`FormControl`) storing input control (default: `new FormControl('')`).
-   * @zh 属性 `inputControl`（类型：`FormControl`），用于存储或配置输入属性表单控件（默认值：`new FormControl('')`）。
+   * Property `inputControl` (`FormControl<any>`) storing input control (default: `new FormControl('')`).
+   * @zh 属性 `inputControl`（类型：`FormControl<any>`），用于存储或配置输入属性表单控件（默认值：`new FormControl('')`）。
    */
   readonly inputControl: FormControl = new FormControl('');
   /**
@@ -165,7 +165,7 @@ export class CommandPaletteHeaderComponent implements OnInit, AfterViewInit, OnD
 
   /**
    * Executes `observeSearchedValue` to handle observe searched value.
-   * @zh 执行 `observeSearchedValue`，用于observe已搜索值。
+   * @zh 执行 `observeSearchedValue`，用于观察已搜索值。
    */
   private observeSearchedValue(): void {
     this.inputControl

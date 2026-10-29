@@ -94,7 +94,7 @@ export class MatDatetimepickerCalendarBody {
 
   /**
    * Emits when a new value is selected.
-   * @zh 输出事件 `selectedValueChange`（类型：`EventEmitter`），当触发已选中值变更时向外发出事件。
+   * @zh 输出事件 `selectedValueChange`（类型：`EventEmitter<number>`），当触发已选中值变更时向外发出事件。
    */
   @Output() selectedValueChange = new EventEmitter<number>();
 

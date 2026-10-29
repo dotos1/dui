@@ -41,7 +41,7 @@ export class Submit extends FormAction {
   /**
    * Executes `run` to handle run.
    * @zh 执行 `run`，用于运行。
-   * @returns Result of type `Promise<any>` / 类型为 `Promise<any>` 的返回值
+   * @returns Result of type `Promise<unknown>` / 类型为 `Promise<unknown>` 的返回值
    */
   public override run()  {
     const o = this.options;

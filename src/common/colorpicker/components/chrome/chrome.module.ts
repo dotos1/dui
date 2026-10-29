@@ -32,8 +32,8 @@ import { ChromeComponent } from './chrome.component';
 })
 export class ColorChromeModule {
   /**
-   * Property `entryComponents` (`any[]`) storing entry components.
-   * @zh 属性 `entryComponents`（类型：`any[]`），用于存储或配置条目组件列表。
+   * Property `entryComponents` (`(typeof ChromeComponent | typeof ChromeFieldsComponent)[]`) storing entry components.
+   * @zh 属性 `entryComponents`（类型：`(typeof ChromeComponent | typeof ChromeFieldsComponent)[]`），用于存储或配置条目组件列表。
    */
   entryComponents = [ChromeComponent,
     ChromeFieldsComponent];

@@ -87,7 +87,7 @@ export class TreeAnimateOpenDirective implements OnDestroy {
    * Creates an instance of `TreeAnimateOpenDirective` and initializes its dependencies and internal state.
    * @zh 创建 `TreeAnimateOpenDirective` 实例，并初始化其依赖项与内部状态。
    * @param renderer - Injected or initial renderer (`Renderer2`) / 注入或传入的渲染器（`Renderer2`）
-   * @param templateRef - Injected or initial template ref (`TemplateRef<any>`) / 注入或传入的模板引用（`TemplateRef<any>`）
+   * @param templateRef - Injected or initial template ref (`TemplateRef<unknown>`) / 注入或传入的模板引用（`TemplateRef<unknown>`）
    * @param viewContainerRef - Injected or initial view container ref (`ViewContainerRef`) / 注入或传入的视图容器引用（`ViewContainerRef`）
    * @param ngZone - Injected or initial ng zone (`NgZone`) / 注入或传入的Angular区域(NgZone)（`NgZone`）
    */

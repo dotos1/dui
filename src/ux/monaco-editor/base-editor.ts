@@ -81,13 +81,13 @@ export abstract class BaseEditor implements OnInit,AfterViewInit, OnDestroy {
   }
 
   /**
-   * Template/content query reference `_editorContainer` (`@ViewChild`) targeting editor container.
+   * Template/content query reference `_editorContainer` (`ElementRef<any>`) targeting editor container.
    * @zh 模板/内容视图查询引用 `_editorContainer`（`@ViewChild`），指向编辑器容器。
    */
   @ViewChild('editorContainer', { static: true }) _editorContainer: ElementRef;
   /**
-   * Output event emitter `onInit` (`EventEmitter`) firing when on init occurs.
-   * @zh 输出事件 `onInit`（类型：`EventEmitter`），当触发当初始化时向外发出事件。
+   * Output event emitter `onInit` (`EventEmitter<any>`) firing when on init occurs.
+   * @zh 输出事件 `onInit`（类型：`EventEmitter<any>`），当触发当初始化时向外发出事件。
    */
   @Output() onInit = new EventEmitter();
   /**

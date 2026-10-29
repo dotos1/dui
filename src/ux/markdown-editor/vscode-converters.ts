@@ -107,15 +107,15 @@ export namespace Range {
     /**
      * Executes `from` to handle from.
      * @zh 执行 `from`，用于从。
-     * @param range - range parameter (`RangeLike | undefined`) / 范围参数（`RangeLike | undefined`）
-     * @returns Result of type `_Range | undefined` / 类型为 `_Range | undefined` 的返回值
+     * @param range - range parameter (`RangeLike`) / 范围参数（`RangeLike`）
+     * @returns Result of type `_Range` / 类型为 `_Range` 的返回值
      */
     export function from(range: RangeLike | undefined): _Range | undefined;
     /**
      * Executes `from` to handle from.
      * @zh 执行 `from`，用于从。
-     * @param range - range parameter (`RangeLike | undefined`) / 范围参数（`RangeLike | undefined`）
-     * @returns Result of type `_Range | undefined` / 类型为 `_Range | undefined` 的返回值
+     * @param range - range parameter (`RangeLike`) / 范围参数（`RangeLike`）
+     * @returns Result of type `_Range` / 类型为 `_Range` 的返回值
      */
     export function from(range: RangeLike | undefined): _Range | undefined {
         if (!range) {
@@ -147,15 +147,15 @@ export namespace Range {
     /**
      * Executes `to` to handle to.
      * @zh 执行 `to`，用于转换为。
-     * @param range - range parameter (`IRange | undefined`) / 范围参数（`IRange | undefined`）
-     * @returns Result of type `vscode.Range | undefined` / 类型为 `vscode.Range | undefined` 的返回值
+     * @param range - range parameter (`IRange`) / 范围参数（`IRange`）
+     * @returns Result of type `vscode.Range` / 类型为 `vscode.Range` 的返回值
      */
     export function to(range: IRange | undefined): vscode.Range | undefined;
     /**
      * Executes `to` to handle to.
      * @zh 执行 `to`，用于转换为。
-     * @param range - range parameter (`IRange | undefined`) / 范围参数（`IRange | undefined`）
-     * @returns Result of type `vscode.Range | undefined` / 类型为 `vscode.Range | undefined` 的返回值
+     * @param range - range parameter (`IRange`) / 范围参数（`IRange`）
+     * @returns Result of type `vscode.Range` / 类型为 `vscode.Range` 的返回值
      */
     export function to(range: IRange | undefined): vscode.Range | undefined {
         if (!range) {
@@ -193,7 +193,7 @@ export namespace EndOfLine {
      * Executes `from` to handle from.
      * @zh 执行 `from`，用于从。
      * @param eol - eol parameter (`vscode.EndOfLine`) / eol参数（`vscode.EndOfLine`）
-     * @returns Result of type `editor.EndOfLineSequence | undefined` / 类型为 `editor.EndOfLineSequence | undefined` 的返回值
+     * @returns Result of type `editor.EndOfLineSequence` / 类型为 `editor.EndOfLineSequence` 的返回值
      */
     export function from(eol: vscode.EndOfLine): editor.EndOfLineSequence | undefined {
         if (eol === vscode.EndOfLine.CRLF) {
@@ -208,7 +208,7 @@ export namespace EndOfLine {
      * Executes `to` to handle to.
      * @zh 执行 `to`，用于转换为。
      * @param eol - eol parameter (`editor.EndOfLineSequence`) / eol参数（`editor.EndOfLineSequence`）
-     * @returns Result of type `vscode.EndOfLine | undefined` / 类型为 `vscode.EndOfLine | undefined` 的返回值
+     * @returns Result of type `vscode.EndOfLine` / 类型为 `vscode.EndOfLine` 的返回值
      */
     export function to(eol: editor.EndOfLineSequence): vscode.EndOfLine | undefined {
         if (eol === editor.EndOfLineSequence.CRLF) {

@@ -101,7 +101,7 @@ export class DecimalNumberPipe implements PipeTransform, OnDestroy {
    * @param value - value parameter (`any`) / 值参数（`any`）
    * @param digitsInfo - digits info parameter (`DecimalNumberModel`) / 数字位信息参数（`DecimalNumberModel`）
    * @param locale - locale parameter (`string`) / 语言区域参数（`string`）
-   * @returns Result of type `any` / 类型为 `any` 的返回值
+   * @returns Result of type `string` / 类型为 `string` 的返回值
    */
   transform(value, digitsInfo?: DecimalNumberModel, locale?: string) {
     const actualMinIntegerDigits: number =

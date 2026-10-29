@@ -5,7 +5,7 @@
 
 /**
  * Executes `evalStringExpression` to handle eval string expression.
- * @zh 执行 `evalStringExpression`，用于eval字符串表达式。
+ * @zh 执行 `evalStringExpression`，用于求值字符串表达式。
  * @param expression - expression parameter (`string`) / 表达式参数（`string`）
  * @param argNames - arg names parameter (`string[]`) / 参数名称列表参数（`string[]`）
  */
@@ -20,10 +20,10 @@ export function evalStringExpression(expression: string, argNames: string[]) {
 
 /**
  * Executes `evalExpression` to handle eval expression.
- * @zh 执行 `evalExpression`，用于eval表达式。
- * @param expression - expression parameter (`string | Function | boolean`) / 表达式参数（`string | Function | boolean`）
+ * @zh 执行 `evalExpression`，用于求值表达式。
+ * @param expression - expression parameter (`string | boolean | Function`) / 表达式参数（`string | boolean | Function`）
  * @param thisArg - this arg parameter (`any`) / this参数参数（`any`）
- * @param argVal - arg val parameter (`any[]`) / 参数值参数（`any[]`）
+ * @param argVal - arg val parameter (`any`) / 参数值参数（`any`）
  * @returns Result of type `any` / 类型为 `any` 的返回值
  */
 export function evalExpression(expression: string | Function | boolean, thisArg, argVal) {

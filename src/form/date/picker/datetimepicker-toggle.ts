@@ -43,8 +43,8 @@ export class MatDatetimepickerToggle<D> implements AfterContentInit, OnChanges, 
     // tslint:disable-next-line:no-input-rename
   @Input("for") datetimepicker: MatDatetimepicker<D>;
   /**
-   * Property `_stateChanges` (`any`) storing state changes (default: `Subscription.EMPTY`).
-   * @zh 属性 `_stateChanges`（类型：`any`），用于存储或配置状态变更集合（默认值：`Subscription.EMPTY`）。
+   * Property `_stateChanges` (`Subscription`) storing state changes (default: `Subscription.EMPTY`).
+   * @zh 属性 `_stateChanges`（类型：`Subscription`），用于存储或配置状态变更集合（默认值：`Subscription.EMPTY`）。
    */
   private _stateChanges = Subscription.EMPTY;
 
@@ -122,7 +122,7 @@ export class MatDatetimepickerToggle<D> implements AfterContentInit, OnChanges, 
 
   /**
    * Executes `_watchStateChanges` to handle watch state changes.
-   * @zh 执行 `_watchStateChanges`，用于watch状态变更集合。
+   * @zh 执行 `_watchStateChanges`，用于监听状态变更集合。
    */
   private _watchStateChanges() {
     const datepickerDisabled = this.datetimepicker ? this.datetimepicker._disabledChange : observableOf();

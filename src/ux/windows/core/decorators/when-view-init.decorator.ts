@@ -9,7 +9,7 @@ import { ɵOsBaseViewComponent } from '../classes';
  * Executes `ɵWhenViewInit` to handle ɵwhen view init.
  * @zh 执行 `ɵWhenViewInit`，用于ɵWhen视图初始化。
  * @param defaultValue - default value parameter (`any`) / 默认值参数（`any`）
- * @returns Result of type `any` / 类型为 `any` 的返回值
+ * @returns Result of type `(baseView: ɵOsBaseViewComponent, methodName: string, {…}: TypedPropertyDescriptor<T>) => TypedPropertyDescriptor<T>` / 类型为 `(baseView: ɵOsBaseViewComponent, methodName: string, {…}: TypedPropertyDescriptor<T>) => TypedPropertyDescriptor<T>` 的返回值
  */
 export function ɵWhenViewInit<T>(defaultValue = null) {
     return function(
@@ -33,7 +33,7 @@ export function ɵWhenViewInit<T>(defaultValue = null) {
  * @param enumerable - enumerable parameter (`boolean`) / enumerable参数（`boolean`）
  * @param defaultValue - default value parameter (`any`) / 默认值参数（`any`）
  * @param originalMethod - original method parameter (`Function`) / 原始方法参数（`Function`）
- * @returns Result of type `any` / 类型为 `any` 的返回值
+ * @returns Result of type `{ enumerable: boolean; get(): T; }` / 类型为 `{ enumerable: boolean; get(): T; }` 的返回值
  */
 function patchMethod<T>(enumerable: boolean, defaultValue, originalMethod: Function) {
     return {

@@ -45,7 +45,7 @@ export class NativeDatetimeAdapter extends DatetimeAdapter<Date> {
    * Creates an instance of `NativeDatetimeAdapter` and initializes its dependencies and internal state.
    * @zh 创建 `NativeDatetimeAdapter` 实例，并初始化其依赖项与内部状态。
    * @param matDateLocale - Injected or initial mat date locale (`string`) / 注入或传入的Material日期语言区域（`string`）
-   * @param _delegate - Injected or initial delegate (`DateAdapter<Date>`) / 注入或传入的delegate（`DateAdapter<Date>`）
+   * @param _delegate - Injected or initial delegate (`DateAdapter<Date, any>`) / 注入或传入的delegate（`DateAdapter<Date, any>`）
    */
   constructor(@Optional() @Inject(MAT_DATE_LOCALE) matDateLocale: string, _delegate: DateAdapter<Date>) {
     super(_delegate);

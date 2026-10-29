@@ -28,7 +28,7 @@ const $_today_fade_amount= 0.2;
 
 /**
  * Executes `private_get_range_background_color` to handle private get range background color.
- * @zh 执行 `private_get_range_background_color`，用于private获取范围背景颜色。
+ * @zh 执行 `private_get_range_background_color`，用于内部获取范围背景颜色。
  * @param $color - color parameter (`any`) / 颜色参数（`any`）
  */
 export function private_get_range_background_color($color) {
@@ -37,7 +37,7 @@ export function private_get_range_background_color($color) {
 
 /**
  * Executes `private_get_default_overlap_selected_color` to handle private get default overlap selected color.
- * @zh 执行 `private_get_default_overlap_selected_color`，用于private获取默认overlap已选中颜色。
+ * @zh 执行 `private_get_default_overlap_selected_color`，用于内部获取默认overlap已选中颜色。
  * @param $overlap_color - overlap color parameter (`any`) / overlap颜色参数（`any`）
  */
 function private_get_default_overlap_selected_color($overlap_color) {
@@ -154,7 +154,7 @@ export function get_typography_tokens($theme) {
 
 /**
  * Executes `private_get_calendar_color_palette_color_tokens` to handle private get calendar color palette color tokens.
- * @zh 执行 `private_get_calendar_color_palette_color_tokens`，用于private获取日历颜色调色板颜色设计令牌。
+ * @zh 执行 `private_get_calendar_color_palette_color_tokens`，用于内部获取日历颜色调色板颜色设计令牌。
  * @param $theme - theme parameter (`any`) / 主题参数（`any`）
  * @param $palette_name - palette name parameter (`any`) / 调色板名称参数（`any`）
  */
@@ -183,7 +183,7 @@ export function private_get_calendar_color_palette_color_tokens($theme, $palette
 
 /**
  * Executes `private_get_toggle_color_palette_color_tokens` to handle private get toggle color palette color tokens.
- * @zh 执行 `private_get_toggle_color_palette_color_tokens`，用于private获取开关颜色调色板颜色设计令牌。
+ * @zh 执行 `private_get_toggle_color_palette_color_tokens`，用于内部获取开关颜色调色板颜色设计令牌。
  * @param $theme - theme parameter (`any`) / 主题参数（`any`）
  * @param $palette_name - palette name parameter (`any`) / 调色板名称参数（`any`）
  */
@@ -196,8 +196,8 @@ export function private_get_toggle_color_palette_color_tokens($theme, $palette_n
  * Executes `get_range_color_tokens` to handle get range color tokens.
  * @zh 执行 `get_range_color_tokens`，用于获取范围颜色设计令牌。
  * @param $range_color - range color parameter (`any`) / 范围颜色参数（`any`）
- * @param $comparison_color - comparison color parameter (`any`) / comparison颜色参数（`any`）
- * @param $overlap_color - overlap color parameter (`any`) / overlap颜色参数（`any`）
+ * @param $comparison_color - comparison color parameter (`string`) / comparison颜色参数（`string`）
+ * @param $overlap_color - overlap color parameter (`string`) / overlap颜色参数（`string`）
  * @param $overlap_selected_color - overlap selected color parameter (`any`) / overlap已选中颜色参数（`any`）
  */
 export function get_range_color_tokens(

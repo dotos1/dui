@@ -74,7 +74,7 @@ export class HueComponent implements OnChanges {
    */
   @Input() hsl: HSLA;
   /**
-   * Input property `pointer` (`{ [key: string]: string }`) configuring pointer.
+   * Input property `pointer` (`{ [key: string]: string; }`) configuring pointer.
    * @zh 滑块手柄的内联样式。
    * @zh 滑块手柄的内联样式。
    */
@@ -98,13 +98,13 @@ export class HueComponent implements OnChanges {
    */
   @Input() hidePointer = false;
   /**
-   * Input property `direction` (`'horizontal' | 'vertical'`) configuring direction (default: `'horizontal'`).
+   * Input property `direction` (`"horizontal" | "vertical"`) configuring direction (default: `'horizontal'`).
    * @zh 滑动条方向：水平或垂直。
    * @zh 滑动条方向：水平或垂直。
    */
   @Input() direction: 'horizontal' | 'vertical' = 'horizontal';
   /**
-   * Output event emitter `onChange` (`EventEmitter`) firing when on change occurs.
+   * Output event emitter `onChange` (`EventEmitter<{ data: HSLAsource; $event: Event; }>`) firing when on change occurs.
    * @zh 色相值变化时发出。
    * @zh 色相值变化时发出。
    */

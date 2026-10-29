@@ -71,7 +71,7 @@
     "TAB2": "2. Importer les modules",
     "TAB3": "3. Utiliser les composants",
     "TAB4": "4. Internationalisation et thèmes",
-    "TAB5": "5. Architecture & Dev Guide",
+    "TAB5": "5. Architecture et guide de développement",
     "STEP1_H1": "Installer le package",
     "STEP1_H2": "Installer les peer dependencies",
     "STEP1_P2": "DUI est basé sur Angular Material et le CDK, assurez-vous que votre projet dispose des dépendances suivantes installées :",
@@ -87,11 +87,11 @@
     "STEP4_P1": "DUI intègre un cadre multilingue basé sur TranslationService, fournissant par défaut zh_CN / en_US :",
     "STEP4_H2": "Changer de thème à l'exécution",
     "STEP4_P2": "ThemeService permet de modifier dynamiquement la couleur principale, la couleur secondaire, la couleur d'alerte et le mode clair/sombre à l'exécution, sans reconstruction :",
-    "STEP5_H1": "Secondary Entry-Point Packaging Rules",
-    "STEP5_P1": "DUI uses ng-packagr secondary entry points. Each feature folder contains its own ng-package.json, index.ts, and public-api.ts. Always import across entry points via @dotos/dui/<category>/<module> rather than deep relative paths:",
-    "STEP5_H2": "RxJS Subscription Lifecycle & OnPush Performance",
-    "STEP5_P2": "Always clean up long-lived Observable subscriptions in ngOnDestroy using takeUntil(this.destroy$) to prevent memory leaks, and prefer ChangeDetectionStrategy.OnPush for high-frequency components:",
-    "STEP5_H3": "Bilingual JSDoc (@zh) & Automated Docs Generation",
-    "STEP5_P3": "Document all exported classes, interfaces, enums, functions, and public members with English JSDoc plus an @zh Chinese tag, then run npm run docs:generate to update the documentation portal:"
+    "STEP5_H1": "Règles d'empaquetage des points d'entrée secondaires",
+    "STEP5_P1": "DUI utilise les points d'entrée secondaires de ng-packagr. Chaque dossier de fonctionnalité contient ses propres ng-package.json, index.ts et public-api.ts. Importez toujours d'un point d'entrée à l'autre via @dotos/dui/<category>/<module> plutôt que par des chemins relatifs profonds :",
+    "STEP5_H2": "Cycle de vie des abonnements RxJS et performances OnPush",
+    "STEP5_P2": "Nettoyez toujours les abonnements Observable de longue durée dans ngOnDestroy avec takeUntil(this.destroy$) pour éviter les fuites de mémoire, et préférez ChangeDetectionStrategy.OnPush pour les composants très sollicités :",
+    "STEP5_H3": "JSDoc bilingue (@zh) et génération automatique de la documentation",
+    "STEP5_P3": "Documentez toutes les classes, interfaces, énumérations, fonctions et membres publics exportés avec un JSDoc en anglais et une balise @zh en chinois, puis exécutez npm run docs:generate pour mettre à jour le portail de documentation :"
   }
 }

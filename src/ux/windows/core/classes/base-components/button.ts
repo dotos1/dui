@@ -81,7 +81,7 @@ export abstract class ɵOsBaseButtonComponent extends ɵOsBaseComponent {
     public osBlur: Observable<FocusEvent> = this.createEvent('blur');
 
     /**
-     * Host-bound getter `_hostTabIndexAttr` (`attr.tabindex`) computing host tab index attr.
+     * Host-bound getter `_hostTabIndexAttr` (`number`) computing host tab index attr.
      * @internal
      * @zh 宿主绑定读取器 `_hostTabIndexAttr`（绑定至 `attr.tabindex`），计算并返回宿主选项卡索引特性。
      */

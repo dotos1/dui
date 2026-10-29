@@ -34,8 +34,8 @@ export abstract class ɵBaseDynamicWindowComponent
     extends ɵOsBaseViewComponent
     implements OnDestroy {
     /**
-     * Input property `childComponentType` (`Type<any>`) configuring child component type.
-     * @zh 输入属性 `childComponentType`（类型：`Type<any>`），用于配置子级组件类型。
+     * Input property `childComponentType` (`Type<unknown>`) configuring child component type.
+     * @zh 输入属性 `childComponentType`（类型：`Type<unknown>`），用于配置子级组件类型。
      */
     @Input()
     public childComponentType: Type<unknown>;
@@ -220,8 +220,8 @@ export abstract class ɵBaseDynamicWindowComponent
     }
 
     /**
-     * Property `config` (`DynamicWindowConfig`) storing config.
-     * @zh 属性 `config`（类型：`DynamicWindowConfig`），用于存储或配置配置。
+     * Property `config` (`DynamicWindowConfig<unknown, unknown>`) storing config.
+     * @zh 属性 `config`（类型：`DynamicWindowConfig<unknown, unknown>`），用于存储或配置配置。
      */
     public config: DynamicWindowConfig;
 
@@ -269,8 +269,8 @@ export abstract class ɵBaseDynamicWindowComponent
     protected readonly alwaysOnTopBaseZIndex: number = 5000;
 
     /**
-     * Property `childComponentRef` (`ComponentRef<any>`) storing child component ref.
-     * @zh 属性 `childComponentRef`（类型：`ComponentRef<any>`），用于存储或配置子级组件引用。
+     * Property `childComponentRef` (`any`) storing child component ref.
+     * @zh 属性 `childComponentRef`（类型：`any`），用于存储或配置子级组件引用。
      */
     protected childComponentRef;
     /**

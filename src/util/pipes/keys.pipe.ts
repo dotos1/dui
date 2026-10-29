@@ -16,7 +16,7 @@ export class KeysPipe implements PipeTransform {
      * Executes `transform` to handle transform.
      * @zh 执行 `transform`，用于转换。
      * @param value - value parameter (`any`) / 值参数（`any`）
-     * @returns Result of type `any` / 类型为 `any` 的返回值
+     * @returns Result of type `{ key: string; value: unknown; }[]` / 类型为 `{ key: string; value: unknown; }[]` 的返回值
      */
     transform(value) {
         const keys: { key: string; value: unknown }[] = [];

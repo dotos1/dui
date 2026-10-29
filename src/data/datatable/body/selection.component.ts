@@ -19,8 +19,8 @@ export interface Model {
    */
   type: string;
   /**
-   * Property `event` (`MouseEvent | KeyboardEvent`) storing event.
-   * @zh 属性 `event`（类型：`MouseEvent | KeyboardEvent`），用于存储或配置事件。
+   * Property `event` (`KeyboardEvent | MouseEvent`) storing event.
+   * @zh 属性 `event`（类型：`KeyboardEvent | MouseEvent`），用于存储或配置事件。
    */
   event: MouseEvent | KeyboardEvent;
   /**
@@ -58,13 +58,13 @@ export interface Model {
 })
 export class DataTableSelectionComponent {
   /**
-   * Input property `rows` (`any[]`) configuring rows.
-   * @zh 输入属性 `rows`（类型：`any[]`），用于配置行列表。
+   * Input property `rows` (`any`) configuring rows.
+   * @zh 输入属性 `rows`（类型：`any`），用于配置行列表。
    */
   @Input() rows;
   /**
-   * Input property `selected` (`any[]`) configuring selected.
-   * @zh 输入属性 `selected`（类型：`any[]`），用于配置已选中。
+   * Input property `selected` (`any`) configuring selected.
+   * @zh 输入属性 `selected`（类型：`any`），用于配置已选中。
    */
   @Input() selected;
   /**
@@ -205,7 +205,7 @@ export class DataTableSelectionComponent {
    * @zh 执行 `getPrevNextRow`，用于获取前一个下一个行。
    * @param rowElement - row element parameter (`any`) / 行元素参数（`any`）
    * @param keyCode - key code parameter (`number`) / 键编码参数（`number`）
-   * @returns Result of type `any` / 类型为 `any` 的返回值
+   * @returns Result of type `HTMLElement` / 类型为 `HTMLElement` 的返回值
    */
   getPrevNextRow(rowElement, keyCode: number) {
     const parentElement = rowElement.parentElement;
@@ -265,7 +265,7 @@ export class DataTableSelectionComponent {
    * Executes `getRowSelectedIdx` to handle get row selected idx.
    * @zh 执行 `getRowSelectedIdx`，用于获取行已选中索引。
    * @param row - row parameter (`any`) / 行参数（`any`）
-   * @param selected - selected parameter (`any[]`) / 已选中参数（`any[]`）
+   * @param selected - selected parameter (`any`) / 已选中参数（`any`）
    * @returns Result of type `number` / 类型为 `number` 的返回值
    */
   getRowSelectedIdx(row, selected): number {

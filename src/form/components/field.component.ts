@@ -56,14 +56,14 @@ export class FieldComponent implements OnInit, OnChanges,  AfterContentInit, Aft
   @Input() field: FieldConfig;
 
   /**
-   * Template/content query reference `containerRef` (`@ViewChild`) targeting container ref.
+   * Template/content query reference `containerRef` (`ViewContainerRef`) targeting container ref.
    * @zh 模板/内容视图查询引用 `containerRef`（`@ViewChild`），指向容器引用。
    */
   @ViewChild('container', { read: ViewContainerRef, static: true }) containerRef: ViewContainerRef;
 
   /**
-   * Property `hostObservers` (`ReturnType<typeof observe>[]`) storing host observers (default: `[]`).
-   * @zh 属性 `hostObservers`（类型：`ReturnType<typeof observe>[]`），用于存储或配置宿主观察者（默认值：`[]`）。
+   * Property `hostObservers` (`IObserver<unknown>[]`) storing host observers (default: `[]`).
+   * @zh 属性 `hostObservers`（类型：`IObserver<unknown>[]`），用于存储或配置宿主观察者（默认值：`[]`）。
    */
   private hostObservers: ReturnType<typeof observe>[] = [];
 
@@ -80,8 +80,8 @@ export class FieldComponent implements OnInit, OnChanges,  AfterContentInit, Aft
   private hooksObservers: Function[] = [];
 
   /**
-   * Property `valueChangesUnsubscribe` (`any`) storing value changes unsubscribe (default: `() => {}`).
-   * @zh 属性 `valueChangesUnsubscribe`（类型：`any`），用于存储或配置值变更集合取消订阅（默认值：`() => {}`）。
+   * Property `valueChangesUnsubscribe` (`() => void`) storing value changes unsubscribe (default: `() => {}`).
+   * @zh 属性 `valueChangesUnsubscribe`（类型：`() => void`），用于存储或配置值变更集合取消订阅（默认值：`() => {}`）。
    */
   valueChangesUnsubscribe = () => {};
 
@@ -92,7 +92,7 @@ export class FieldComponent implements OnInit, OnChanges,  AfterContentInit, Aft
    * @param renderer - Injected or initial renderer (`Renderer2`) / 注入或传入的渲染器（`Renderer2`）
    * @param changeDetector - Injected or initial change detector (`ChangeDetectorRef`) / 注入或传入的变更检测器（`ChangeDetectorRef`）
    * @param resolver - Injected or initial resolver (`ComponentFactoryResolver`) / 注入或传入的解析器（`ComponentFactoryResolver`）
-   * @param elementRef - Injected or initial element ref (`ElementRef`) / 注入或传入的元素引用（`ElementRef`）
+   * @param elementRef - Injected or initial element ref (`ElementRef<any>`) / 注入或传入的元素引用（`ElementRef<any>`）
    */
   constructor(
     private formConfig: FormConfig,

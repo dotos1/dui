@@ -16,9 +16,9 @@ export class FilterPipe implements PipeTransform {
   /**
    * Executes `transform` to handle transform.
    * @zh 执行 `transform`，用于转换。
-   * @param mainArr - main arr parameter (`any[]`) / 主Arr参数（`any[]`）
+   * @param mainArr - main arr parameter (`any`) / 主Arr参数（`any`）
    * @param searchText - search text parameter (`string`) / 搜索文本参数（`string`）
-   * @returns Result of type `any` / 类型为 `any` 的返回值
+   * @returns Result of type `unknown[]` / 类型为 `unknown[]` 的返回值
    */
   transform(mainArr, searchText: string) {
     return Dui.filterArrayByString(mainArr, searchText);

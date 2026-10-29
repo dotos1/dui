@@ -79,8 +79,8 @@ export function pointDeltaEquals(lhs: IPoint, rhs: IPoint, deltaPx: number) {
  * Executes `getKeyboardEndpoint` to handle get keyboard endpoint.
  * @zh 执行 `getKeyboardEndpoint`，用于获取键盘Endpoint。
  * @param event - event parameter (`KeyboardEvent`) / 事件参数（`KeyboardEvent`）
- * @param direction - direction parameter (`'horizontal' | 'vertical'`) / 方向参数（`'horizontal' | 'vertical'`）
- * @returns Result of type `IPoint | null` / 类型为 `IPoint | null` 的返回值
+ * @param direction - direction parameter (`"horizontal" | "vertical"`) / 方向参数（`"horizontal" | "vertical"`）
+ * @returns Result of type `IPoint` / 类型为 `IPoint` 的返回值
  */
 export function getKeyboardEndpoint(
   event: KeyboardEvent,
@@ -154,8 +154,8 @@ export function getKeyboardEndpoint(
 /**
  * Executes `getElementPixelSize` to handle get element pixel size.
  * @zh 执行 `getElementPixelSize`，用于获取元素像素尺寸。
- * @param elRef - el ref parameter (`ElementRef`) / DOM元素引用参数（`ElementRef`）
- * @param direction - direction parameter (`'horizontal' | 'vertical'`) / 方向参数（`'horizontal' | 'vertical'`）
+ * @param elRef - el ref parameter (`ElementRef<any>`) / DOM元素引用参数（`ElementRef<any>`）
+ * @param direction - direction parameter (`"horizontal" | "vertical"`) / 方向参数（`"horizontal" | "vertical"`）
  * @returns Result of type `number` / 类型为 `number` 的返回值
  */
 export function getElementPixelSize(
@@ -194,8 +194,8 @@ export function getInputPositiveNumber<T>(v, defaultValue: T): number | T {
 /**
  * Executes `isUserSizesValid` to handle is user sizes valid.
  * @zh 执行 `isUserSizesValid`，用于是否为用户尺寸列表有效。
- * @param unit - unit parameter (`'percent' | 'pixel'`) / unit参数（`'percent' | 'pixel'`）
- * @param sizes - sizes parameter (`Array<number | null>`) / 尺寸列表参数（`Array<number | null>`）
+ * @param unit - unit parameter (`"percent" | "pixel"`) / unit参数（`"percent" | "pixel"`）
+ * @param sizes - sizes parameter (`number[]`) / 尺寸列表参数（`number[]`）
  * @returns Result of type `boolean` / 类型为 `boolean` 的返回值
  */
 export function isUserSizesValid(
@@ -219,7 +219,7 @@ export function isUserSizesValid(
  * Executes `getAreaMinSize` to handle get area min size.
  * @zh 执行 `getAreaMinSize`，用于获取区域最小值尺寸。
  * @param a - a parameter (`IArea`) / a参数（`IArea`）
- * @returns Result of type `null | number` / 类型为 `null | number` 的返回值
+ * @returns Result of type `number` / 类型为 `number` 的返回值
  */
 export function getAreaMinSize(a: IArea): null | number {
   if (a.size === null) {
@@ -245,7 +245,7 @@ export function getAreaMinSize(a: IArea): null | number {
  * Executes `getAreaMaxSize` to handle get area max size.
  * @zh 执行 `getAreaMaxSize`，用于获取区域最大值尺寸。
  * @param a - a parameter (`IArea`) / a参数（`IArea`）
- * @returns Result of type `null | number` / 类型为 `null | number` 的返回值
+ * @returns Result of type `number` / 类型为 `number` 的返回值
  */
 export function getAreaMaxSize(a: IArea): null | number {
   if (a.size === null) {
@@ -270,8 +270,8 @@ export function getAreaMaxSize(a: IArea): null | number {
 /**
  * Executes `getGutterSideAbsorptionCapacity` to handle get gutter side absorption capacity.
  * @zh 执行 `getGutterSideAbsorptionCapacity`，用于获取分隔槽SideAbsorptionCapacity。
- * @param unit - unit parameter (`'percent' | 'pixel'`) / unit参数（`'percent' | 'pixel'`）
- * @param sideAreas - side areas parameter (`Array<IAreaSnapshot>`) / side区域集合参数（`Array<IAreaSnapshot>`）
+ * @param unit - unit parameter (`"percent" | "pixel"`) / unit参数（`"percent" | "pixel"`）
+ * @param sideAreas - side areas parameter (`IAreaSnapshot[]`) / side区域集合参数（`IAreaSnapshot[]`）
  * @param pixels - pixels parameter (`number`) / 像素参数（`number`）
  * @param allAreasSizePixel - all areas size pixel parameter (`number`) / 全部区域集合尺寸像素参数（`number`）
  * @returns Result of type `ISplitSideAbsorptionCapacity` / 类型为 `ISplitSideAbsorptionCapacity` 的返回值
@@ -301,7 +301,7 @@ export function getGutterSideAbsorptionCapacity(
 /**
  * Executes `getAreaAbsorptionCapacity` to handle get area absorption capacity.
  * @zh 执行 `getAreaAbsorptionCapacity`，用于获取区域AbsorptionCapacity。
- * @param unit - unit parameter (`'percent' | 'pixel'`) / unit参数（`'percent' | 'pixel'`）
+ * @param unit - unit parameter (`"percent" | "pixel"`) / unit参数（`"percent" | "pixel"`）
  * @param areaSnapshot - area snapshot parameter (`IAreaSnapshot`) / 区域Snapshot参数（`IAreaSnapshot`）
  * @param pixels - pixels parameter (`number`) / 像素参数（`number`）
  * @param allAreasSizePixel - all areas size pixel parameter (`number`) / 全部区域集合尺寸像素参数（`number`）
@@ -502,7 +502,7 @@ function getAreaAbsorptionCapacityPixel(
 /**
  * Executes `updateAreaSize` to handle update area size.
  * @zh 执行 `updateAreaSize`，用于更新区域尺寸。
- * @param unit - unit parameter (`'percent' | 'pixel'`) / unit参数（`'percent' | 'pixel'`）
+ * @param unit - unit parameter (`"percent" | "pixel"`) / unit参数（`"percent" | "pixel"`）
  * @param item - item parameter (`IAreaAbsorptionCapacity`) / 条目参数（`IAreaAbsorptionCapacity`）
  */
 export function updateAreaSize(

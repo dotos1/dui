@@ -109,8 +109,8 @@ export class LogService {
   _currentLogLevel;
 
   /**
-   * Property `onMessage` (`Subject<any>`) storing on message.
-   * @zh 属性 `onMessage`（类型：`Subject<any>`），用于存储或配置当消息。
+   * Property `onMessage` (`any`) storing on message.
+   * @zh 属性 `onMessage`（类型：`any`），用于存储或配置当消息。
    */
   onMessage;
 
