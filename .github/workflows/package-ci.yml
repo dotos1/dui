@@ -56,6 +56,15 @@ jobs:
       - name: Install Dependencies
         run: yarn install --prefer-offline || yarn install
 
+      - name: 类型检查门（G-TSC，103 个入口点）
+        run: npm run gate:tsc
+
+      - name: any 棘轮门自检（G-ANY，checker 计数的区分力）
+        run: npm run gate:any:selftest
+
+      - name: any 棘轮门（G-ANY，真实 any 与空对象类型只许降）
+        run: npm run gate:any
+
       - name: Build Package
         run: npm run package
 
