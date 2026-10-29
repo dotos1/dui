@@ -313,17 +313,21 @@ export class DuiCardComponent extends Container implements OnChanges{
   public searchFacet: DuiCardSearchFacet;
 
   /**
-   * Property `_state` (`DuiCardState`) storing state (default: `{}`).
-   * @zh 属性 `_state`（类型：`DuiCardState`），用于存储或配置状态（默认值：`{}`）。
+   * Property `_state` (`any`) storing state (default: `{}`).
+   * @zh 属性 `_state`（类型：`any`），用于存储或配置状态（默认值：`{}`）。
    */
-  public _state: DuiCardState = {};
+  // 卡片状态：列表类卡片当对象用（state.selected），表单卡片当模式字符串用（'edit' / 'create'），
+  // 也有子类直接放组件实例。形状由子类决定，库里给不出统一类型，显式保留 any（G-ANY 计数在内）。
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  public _state: any = {};
 
   /**
    * Sets the state (`state`).
    * @zh 设置状态（`state`）。
-   * @param state - New state value (`DuiCardState`) / 新的状态值（`DuiCardState`）
+   * @param state - New state value (`any`) / 新的状态值（`any`）
    */
-  public set state(state: DuiCardState) {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  public set state(state: any) {
     this._state = state;
     if (this.detectRef) {
       this.detectRef.detectChanges();
@@ -334,7 +338,8 @@ export class DuiCardComponent extends Container implements OnChanges{
    * Gets the current state (`state: any`).
    * @zh 获取当前状态（`state: any`）。
    */
-  public get state(): DuiCardState {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  public get state(): any {
     return this._state;
   }
 
