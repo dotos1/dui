@@ -127,15 +127,16 @@ export class ConfigService {
   public onLoad: Observable<DuiSettings>;
 
   /**
-   * Property `onErrorSubject` (`Subject<unknown>`) storing on error subject.
-   * @zh 属性 `onErrorSubject`（类型：`Subject<unknown>`），用于存储或配置当错误主题流。
+   * Property `onErrorSubject` (`Subject<{ [key: string]: unknown; status?: number; }>`) storing on error subject.
+   * @zh 属性 `onErrorSubject`（类型：`Subject<{ [key: string]: unknown; status?: number; }>`），用于存储或配置当错误主题流。
    */
-  public onErrorSubject: Subject<unknown>;
+  /** 配置加载失败：多为 HttpErrorResponse（带 status） */
+  public onErrorSubject: Subject<{ status?: number; [key: string]: unknown }>;
   /**
-   * Property `onError` (`Observable<unknown>`) storing on error.
-   * @zh 属性 `onError`（类型：`Observable<unknown>`），用于存储或配置当错误。
+   * Property `onError` (`Observable<{ [key: string]: unknown; status?: number; }>`) storing on error.
+   * @zh 属性 `onError`（类型：`Observable<{ [key: string]: unknown; status?: number; }>`），用于存储或配置当错误。
    */
-  public onError: Observable<unknown>;
+  public onError: Observable<{ status?: number; [key: string]: unknown }>;
 
   /**
    * Creates an instance of `ConfigService` and initializes its dependencies and internal state.
@@ -148,7 +149,7 @@ export class ConfigService {
     public loader: ConfigLoader) {
     this.onLoadSubject = new Subject<DuiSettings>();
     this.onLoad = this.onLoadSubject.asObservable();
-    this.onErrorSubject = new Subject<unknown>();
+    this.onErrorSubject = new Subject<{ status?: number; [key: string]: unknown }>();
     this.onError = this.onErrorSubject.asObservable();
   }
   /**
