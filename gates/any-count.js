@@ -13,6 +13,8 @@
  *     2. 没写类型注解、checker 推断为 any 的声明：参数、属性、变量
  *        （隐式 any，含 `const x = JSON.parse(s)` 这类）；catch 变量除外
  *     3. 没写返回类型、推断返回 any 的函数 / 方法 / 箭头函数 / getter
+ *   绕过断言计数：
+ *     `x as unknown as T`、`x as any as T`、`x as never` —— 等价于 any 的双重断言，同样只许降。
  *   空对象计数：
  *     没写类型注解、被推断成空对象字面量 `{}` 的属性 / 变量 / 参数（`config = {}`），
  *     下游访问任何字段都会编译报错，等同于把类型问题推给使用方。
@@ -99,11 +101,12 @@ function isPassThroughTypeNode(node) {
 }
 
 /**
- * 统计一个源文件。返回 { any, emptyObj, sites }，sites 为 [行号, 类别, 片段]。
+ * 统计一个源文件。返回 { any, emptyObj, cast, sites }，sites 为 [行号, 类别, 片段]。
  */
 function countFile(checker, sf, collectSites) {
   let any = 0;
   let emptyObj = 0;
+  let cast = 0;
   const sites = [];
   const hit = (node, kind) => {
     if (!collectSites) return;
@@ -114,6 +117,18 @@ function countFile(checker, sf, collectSites) {
   const visit = (node) => {
     // JSDoc 不算
     if (node.kind >= ts.SyntaxKind.FirstJSDocNode && node.kind <= ts.SyntaxKind.LastJSDocNode) return;
+
+    // 0. 绕过断言：as unknown as T / as any as T / as never
+    if (ts.isAsExpression(node) || ts.isTypeAssertionExpression(node)) {
+      const inner = ts.skipParentheses(node.expression);
+      const viaTop =
+        (ts.isAsExpression(inner) || ts.isTypeAssertionExpression(inner)) &&
+        (inner.type.kind === ts.SyntaxKind.UnknownKeyword || inner.type.kind === ts.SyntaxKind.AnyKeyword);
+      if (viaTop || node.type.kind === ts.SyntaxKind.NeverKeyword) {
+        cast++;
+        hit(node, 'cast');
+      }
+    }
 
     // 1. 写出来的类型节点
     if (ts.isTypeNode(node) && !isPassThroughTypeNode(node)) {
@@ -173,7 +188,7 @@ function countFile(checker, sf, collectSites) {
     ts.forEachChild(node, visit);
   };
   ts.forEachChild(sf, visit);
-  return { any, emptyObj, sites };
+  return { any, emptyObj, cast, sites };
 }
 
 // ---------------------------------------------------------------- 建 Program ----
@@ -205,11 +220,11 @@ function scanAll(collectSites) {
     if (sf.isDeclarationFile || !inScope(sf.fileName)) continue;
     const r = countFile(checker, sf, collectSites);
     const rel = path.relative(ROOT, sf.fileName).split(path.sep).join('/');
-    if (r.any || r.emptyObj) files[rel] = { any: r.any, emptyObj: r.emptyObj };
+    if (r.any || r.emptyObj || r.cast) files[rel] = { any: r.any, emptyObj: r.emptyObj, cast: r.cast };
     if (collectSites && r.sites.length) sites[rel] = r.sites;
   }
   const sum = (k) => Object.values(files).reduce((a, f) => a + f[k], 0);
-  return { files, sites, any: sum('any'), emptyObj: sum('emptyObj') };
+  return { files, sites, any: sum('any'), emptyObj: sum('emptyObj'), cast: sum('cast') };
 }
 
 // ---------------------------------------------------------------- 自检 ----
@@ -236,7 +251,7 @@ function countSnippet(src) {
 }
 
 function selftest() {
-  // [说明, 源码, 期望 any, 期望 emptyObj]
+  // [说明, 源码, 期望 any, 期望 emptyObj, 期望绕过断言]
   const cases = [
     ['显式 any 注解', 'let a: any = 1;', 1, 0],
     ['as any', 'declare const y: number; (y as any).toFixed();', 1, 0],
@@ -252,12 +267,15 @@ function selftest() {
     ['unknown 与具体类型不计', 'let u: unknown; let n = 1; export function g(s: string): string { return s; }', 0, 0],
     ['带字段的配置不计', 'export class D { config: { title?: string } = {}; cfg = { a: 1 }; }', 0, 0],
     ['catch 变量不计', 'try { /* */ } catch (e) { /* */ }', 0, 0],
+    ['as unknown as 双重断言', 'declare const o: object; const n = o as unknown as number;', 0, 0, 1],
+    ['as never', 'declare const o: object; const n: number = o as never;', 0, 0, 1],
+    ['单次 as 收窄不计', 'declare const u: unknown; const n = u as number;', 0, 0, 0],
   ];
   let fails = 0;
-  for (const [desc, src, wantAny, wantEmpty] of cases) {
+  for (const [desc, src, wantAny, wantEmpty, wantCast = 0] of cases) {
     const r = countSnippet(src);
-    const ok = r.any === wantAny && r.emptyObj === wantEmpty;
-    console.log(`${ok ? '✓' : '✗'} ${desc}（any ${r.any}/${wantAny}，空对象 ${r.emptyObj}/${wantEmpty}）`);
+    const ok = r.any === wantAny && r.emptyObj === wantEmpty && r.cast === wantCast;
+    console.log(`${ok ? '✓' : '✗'} ${desc}（any ${r.any}/${wantAny}，空对象 ${r.emptyObj}/${wantEmpty}，绕过断言 ${r.cast}/${wantCast}）`);
     if (!ok) fails++;
   }
   return fails === 0;
@@ -270,15 +288,23 @@ function readBaseline() {
   return JSON.parse(fs.readFileSync(BASELINE_FILE, 'utf8'));
 }
 
+const METRICS = [
+  ['any', 'any'],
+  ['emptyObj', '空对象'],
+  ['cast', '绕过断言'],
+];
+
 function compare(cur, base) {
   const problems = [];
   for (const [f, c] of Object.entries(cur.files)) {
-    const b = base.files[f] || { any: 0, emptyObj: 0 };
-    if (c.any > b.any) problems.push(`${f}：any ${c.any} > 基线 ${b.any}`);
-    if (c.emptyObj > b.emptyObj) problems.push(`${f}：空对象 ${c.emptyObj} > 基线 ${b.emptyObj}`);
+    const b = base.files[f] || {};
+    for (const [k, label] of METRICS) {
+      if ((c[k] || 0) > (b[k] || 0)) problems.push(`${f}：${label} ${c[k]} > 基线 ${b[k] || 0}`);
+    }
   }
-  if (cur.any > base.any) problems.push(`合计 any ${cur.any} > 基线 ${base.any}`);
-  if (cur.emptyObj > base.emptyObj) problems.push(`合计空对象 ${cur.emptyObj} > 基线 ${base.emptyObj}`);
+  for (const [k, label] of METRICS) {
+    if ((cur[k] || 0) > (base[k] || 0)) problems.push(`合计${label} ${cur[k]} > 基线 ${base[k] || 0}`);
+  }
   return problems;
 }
 
@@ -287,9 +313,10 @@ function writeBaseline(cur) {
   for (const f of Object.keys(cur.files).sort()) sorted[f] = cur.files[f];
   const out = {
     version: BASELINE_VERSION,
-    metric: 'checker：写出的 any 类型节点 + 隐式 any 声明 + 推断 any 返回值；空对象 = 推断为 {} 的声明',
+    metric: 'checker：写出的 any 类型节点 + 隐式 any 声明 + 推断 any 返回值；空对象 = 推断为 {} 的声明；绕过断言 = as unknown as / as any as / as never',
     any: cur.any,
     emptyObj: cur.emptyObj,
+    cast: cur.cast,
     files: sorted,
   };
   fs.writeFileSync(BASELINE_FILE, JSON.stringify(out, null, 2) + '\n');
@@ -321,23 +348,23 @@ if (mode === '--file') {
   }
   const r = countFile(program.getTypeChecker(), sf, true);
   r.sites.forEach(([l, k, s]) => console.log(`${String(l).padStart(5)}  ${k.padEnd(16)} ${s}`));
-  console.log(`any ${r.any}，空对象 ${r.emptyObj}`);
+  console.log(`any ${r.any}，空对象 ${r.emptyObj}，绕过断言 ${r.cast}`);
   process.exit(0);
 }
 
 const cur = scanAll(mode === '--list' || mode === '--sites');
 
 if (mode === '--sites') {
-  // 逐处列出全部命中，可用第二个参数按类别过滤（any / any-alias / implicit / implicit-return / empty-object）
+  // 逐处列出全部命中，可用第二个参数按类别过滤（any / any-alias / implicit / implicit-return / empty-object / cast）
   const kind = args[1];
   for (const [f, list] of Object.entries(cur.sites)) {
     for (const [l, k, s] of list) if (!kind || k === kind) console.log(`${f}:${l}\t${k}\t${s}`);
   }
 } else if (mode === '--list') {
   Object.entries(cur.files)
-    .sort((a, b) => b[1].any + b[1].emptyObj - (a[1].any + a[1].emptyObj))
-    .forEach(([f, c]) => console.log(`${String(c.any).padStart(5)} ${String(c.emptyObj).padStart(4)}  ${f}`));
-  console.log(`合计 any ${cur.any}，空对象 ${cur.emptyObj}，${Object.keys(cur.files).length} 个文件（列：any 空对象 文件）`);
+    .sort((a, b) => b[1].any + b[1].emptyObj + b[1].cast - (a[1].any + a[1].emptyObj + a[1].cast))
+    .forEach(([f, c]) => console.log(`${String(c.any).padStart(5)} ${String(c.emptyObj).padStart(4)} ${String(c.cast).padStart(4)}  ${f}`));
+  console.log(`合计 any ${cur.any}，空对象 ${cur.emptyObj}，绕过断言 ${cur.cast}，${Object.keys(cur.files).length} 个文件（列：any 空对象 绕过断言 文件）`);
 } else if (mode === '--freeze') {
   const base = readBaseline();
   const init = args.includes('--init');
@@ -353,7 +380,7 @@ if (mode === '--sites') {
     process.exit(2);
   }
   writeBaseline(cur);
-  console.log(`已冻结基线 gates/any-baseline.json：any ${cur.any}，空对象 ${cur.emptyObj}，${Object.keys(cur.files).length} 个文件`);
+  console.log(`已冻结基线 gates/any-baseline.json：any ${cur.any}，空对象 ${cur.emptyObj}，绕过断言 ${cur.cast}，${Object.keys(cur.files).length} 个文件`);
 } else if (mode === '--check') {
   const base = readBaseline();
   if (!base || base.version !== BASELINE_VERSION) {
@@ -367,11 +394,11 @@ if (mode === '--sites') {
     console.log('  新代码请写出具体类型；`--file <路径>` 可列出某文件的每一处。');
     process.exit(1);
   }
-  const down = cur.any < base.any || cur.emptyObj < base.emptyObj;
+  const down = METRICS.some(([k]) => (cur[k] || 0) < (base[k] || 0));
   console.log(
-    `✓ G-ANY 通过：any ${cur.any} / 基线 ${base.any}，空对象 ${cur.emptyObj} / 基线 ${base.emptyObj}` +
+    `✓ G-ANY 通过：any ${cur.any} / 基线 ${base.any}，空对象 ${cur.emptyObj} / 基线 ${base.emptyObj}，绕过断言 ${cur.cast} / 基线 ${base.cast || 0}` +
       (down ? '（已下降，请 npm run gate:any:freeze 收紧基线）' : '')
   );
 } else {
-  console.log(`${CONFIG.name}：any ${cur.any}，空对象 ${cur.emptyObj}，${Object.keys(cur.files).length} 个文件（--list 查看）`);
+  console.log(`${CONFIG.name}：any ${cur.any}，空对象 ${cur.emptyObj}，绕过断言 ${cur.cast}，${Object.keys(cur.files).length} 个文件（--list 查看）`);
 }
