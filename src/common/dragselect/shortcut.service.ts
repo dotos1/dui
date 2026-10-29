@@ -190,7 +190,7 @@ export class ShortcutService {
    * @param shortcuts - shortcuts parameter (`{ [key: string]: string }`) / 快捷键列表参数（`{ [key: string]: string }`）
    */
   private _createShortcutsFromConfig(shortcuts: { [key: string]: string }) {
-    const shortcutMap = {};
+    const shortcutMap: { [key: string]: string[][] } = {};
 
     for (const [key, shortcutsForCommand] of Object.entries(shortcuts)) {
       if (!this._isSupportedShortcut(key)) {

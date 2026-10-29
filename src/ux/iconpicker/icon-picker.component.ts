@@ -3,6 +3,7 @@
  * @zh 模块文件 `src/ux/iconpicker/icon-picker.component.ts`，提供图标选择器组件相关的定义与实现。
  */
 
+import { DuiStyle } from '@dotos/dui/base';
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, Inject, OnDestroy, OnInit, Renderer2, ViewChild, ViewEncapsulation } from '@angular/core';
 
 import { ESCAPE } from '@angular/cdk/keycodes';
@@ -152,7 +153,7 @@ export class IconPickerComponent implements TriggerPopup, OnInit, OnDestroy {
    * Property `style` (`any`) storing style (default: `{}`).
    * @zh 属性 `style`（类型：`any`），用于存储或配置样式（默认值：`{}`）。
    */
-  public style={};
+  public style: DuiStyle = {};
 
   /**
    * 图标网格可达数千项，trackBy 避免每次筛选/切换目录时整片重建 DOM。
@@ -471,7 +472,7 @@ export class IconPickerComponent implements TriggerPopup, OnInit, OnDestroy {
    * @param icon - icon parameter (`Icon`) / 图标参数（`Icon`）
    */
   selectIcon(icon: Icon) {
-    let val = {};
+    let val: Record<string, unknown> = {};
     val['type'] = 'FONT';
     val['value'] = 'FONT:' + icon.id;
     val['text'] = icon.id;
@@ -485,7 +486,7 @@ export class IconPickerComponent implements TriggerPopup, OnInit, OnDestroy {
    * @param icon - icon parameter (`any`) / 图标参数（`any`）
    */
   selectCustomIcon(icon) {
-    let val = {};
+    let val: Record<string, unknown> = {};
     if(icon.svg!=''){
       val['type'] = 'SVG';
       val['value'] = 'SVG:' + icon.meta_name+ ':' + icon.url;
@@ -506,7 +507,7 @@ export class IconPickerComponent implements TriggerPopup, OnInit, OnDestroy {
    * @param icon - icon parameter (`SVGIcon`) / 图标参数（`SVGIcon`）
    */
   selectSVGIcon(icon: SVGIcon) {
-    let val = {};
+    let val: Record<string, unknown> = {};
     val['type'] = 'SVG';
     val['value'] = 'SVG:' + icon.name + ':' + icon.url;
     val['text'] = icon.name;
@@ -522,7 +523,7 @@ export class IconPickerComponent implements TriggerPopup, OnInit, OnDestroy {
    * @param icon - icon parameter (`any`) / 图标参数（`any`）
    */
   selectFontIcon(icon){
-    let val = {};
+    let val: Record<string, unknown> = {};
     val['type'] = 'EXTRA';
     let id=this.toHex(icon.id.charCodeAt(0));
     val['value'] = 'EXTRA:' + icon.name + ':'+ id + ':' + icon.url;

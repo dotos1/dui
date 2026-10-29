@@ -201,7 +201,7 @@ export class TranslateLoaderService implements TranslateLoader {
    * @returns Result of type `any` / 类型为 `any` 的返回值
    */
   getFullTranslationJSON(lang: string) {
-    let result = {};
+    let result: Record<string, unknown> = {};
     this.providers
       .slice(0)
       .sort((a, b) => {

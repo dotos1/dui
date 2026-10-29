@@ -188,7 +188,7 @@ export class ScreenfullService {
 
     let i = 0;
     const l = fnMap.length;
-    const ret = {};
+    const ret: Record<string, unknown> = {};
     for (; i < l; i++) {
       val = fnMap[i];
       if (val && val[1] in document) {

@@ -17,5 +17,5 @@ export class EditorServiceConfig {
    * Property `locals` (`any`) storing locals (default: `{}`).
    * @zh 属性 `locals`（类型：`any`），用于存储或配置本地（默认值：`{}`）。
    */
-  public locals = {};
+  public locals: Record<string, string> = {};
 }

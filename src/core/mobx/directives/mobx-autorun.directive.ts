@@ -17,7 +17,7 @@ export class MobxAutorunDirective implements OnInit, OnDestroy {
    * Property `templateBindings` (`any`) storing template bindings (default: `{}`).
    * @zh 属性 `templateBindings`（类型：`any`），用于存储或配置模板Bindings（默认值：`{}`）。
    */
-  protected templateBindings = {};
+  protected templateBindings: Record<string, unknown> = {};
   /**
    * Property `dispose` (`any`) storing dispose.
    * @zh 属性 `dispose`（类型：`any`），用于存储或配置释放。

@@ -124,7 +124,7 @@ export class ColorPickerField<F extends FieldConfig = FieldConfig> extends Abstr
    * Property `params` (`any`) storing params (default: `{}`).
    * @zh 属性 `params`（类型：`any`），用于存储或配置参数集合（默认值：`{}`）。
    */
-  public params = {};
+  public params: Record<string, unknown> = {};
 
   /**
    * Property `label` (`string`) storing label (default: `''`).
@@ -274,7 +274,7 @@ export class ColorPickerField<F extends FieldConfig = FieldConfig> extends Abstr
    */
   override open(): void {
     super.beforeOpen();
-    let params = {};
+    let params: Record<string, unknown> = {};
     params['value'] = this.value;
     if (!this._portal) {
       if (this.colorType === 'material') {

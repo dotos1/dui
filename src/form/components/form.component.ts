@@ -136,7 +136,7 @@ export class FormComponent implements DoCheck, OnChanges, OnDestroy {
    * Property `_modelChangeValue` (`any`) storing model change value (default: `{}`).
    * @zh 属性 `_modelChangeValue`（类型：`any`），用于存储或配置模型变更值（默认值：`{}`）。
    */
-  private _modelChangeValue = {};
+  private _modelChangeValue: Record<string, unknown> = {};
   /**
    * Property `valueChangesUnsubscribe` (`any`) storing value changes unsubscribe (default: `() => {}`).
    * @zh 属性 `valueChangesUnsubscribe`（类型：`any`），用于存储或配置值变更集合取消订阅（默认值：`() => {}`）。
@@ -696,7 +696,7 @@ export class FormComponent implements DoCheck, OnChanges, OnDestroy {
    * @param v - New value value (`any`) / 新的值值（`any`）
    */
   set value(v) {
-    let val = {};
+    let val: Record<string, unknown> = {};
     if(this.config.items){
       each(this.config.items, (field) => {
         delete field.inputValue

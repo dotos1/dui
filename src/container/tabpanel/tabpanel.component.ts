@@ -5,6 +5,7 @@
 
 /* eslint-disable @typescript-eslint/no-unused-vars */
 
+import { DuiConfig } from '@dotos/dui/base';
 import {
     ChangeDetectionStrategy,
     ChangeDetectorRef,
@@ -46,7 +47,7 @@ export class TabPanel extends AbstractPanel implements OnChanges, OnDestroy {
    * Input property `config` (`any`) configuring config (default: `{}`).
    * @zh 输入属性 `config`（类型：`any`），用于配置配置（默认值：`{}`）。
    */
-  @Input() override config = {};
+  @Input() override config: DuiConfig = {};
 
   /**
    * Property `xtype` (`string`) storing xtype (default: `'tabpanel'`).

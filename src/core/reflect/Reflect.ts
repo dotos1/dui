@@ -2084,7 +2084,7 @@ namespace Reflect {
      * @returns Result of type `MapConstructor` / 类型为 `MapConstructor` 的返回值
      */
     function CreateMapPolyfill(): MapConstructor {
-        const cacheSentinel = {};
+        const cacheSentinel: object = {};
         const arraySentinel = [];
 
         class MapIterator<K, V, R extends (K | V | [K, V])> implements IterableIterator<R> {
@@ -2183,7 +2183,7 @@ namespace Reflect {
         return class Map<K, V> {
             private _keys: K[] = [];
             private _values: (V | undefined)[] = [];
-            private _cacheKey = cacheSentinel;
+            private _cacheKey: unknown = cacheSentinel;
             private _cacheIndex = -2;
             get size() { return this._keys.length; }
             has(key: K): boolean { return this._find(key, /*insert*/ false) >= 0; }

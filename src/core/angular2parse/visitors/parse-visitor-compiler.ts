@@ -161,7 +161,7 @@ export class ParseVisitorCompiler extends RecursiveAstVisitor {
      * @returns Result of type `any` / 类型为 `any` 的返回值
      */
     override visitLiteralMap(ast: LiteralMap) {
-        const result = {};
+        const result: Record<string, unknown> = {};
         const keys = ast.keys;
         const values = this.visitAll(ast.values);
 

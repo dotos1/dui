@@ -4,6 +4,7 @@
  */
 
 
+import { DuiConfig } from '@dotos/dui/base';
 import { ComponentBase } from '@dotos/dui/core';
 import { ChangeDetectorRef, ComponentFactoryResolver, Directive, ElementRef, Injector, Input, NgZone, OnChanges, OnDestroy, OnInit, Renderer2, SimpleChanges } from '@angular/core';
 import { Container } from '@dotos/dui/container';
@@ -23,7 +24,7 @@ export class AbstractPanel extends Container implements OnChanges,OnInit,OnDestr
    * Input property `config` (`any`) configuring config (default: `{}`).
    * @zh 输入属性 `config`（类型：`any`），用于配置配置（默认值：`{}`）。
    */
-  @Input() config = {};
+  @Input() config: DuiConfig = {};
 
   /**
    * Property `el` (`any`) storing el.

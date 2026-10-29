@@ -8,7 +8,7 @@ import { HostBinding, Renderer2 } from '@angular/core';
 import { coerceBooleanProperty } from '@angular/cdk/coercion';
 import { CanDisable, mixinDisabled } from '@angular/material/core';
 
-import { FileUploader, FileUploaderOptions } from './file-uploader';
+import { FileUploader, FileUploaderOptions, FilterFunction } from './file-uploader';
 
 /**
  * Class `FileDropBase` encapsulating file drop base data structures and logic in `src/common/fileupload`.
@@ -115,8 +115,9 @@ export class FileDropDirective extends _FileDropMixinBase implements CanDisable 
    * Returns the filter functions applied when queuing dropped files (none by default).
    * @zh 返回加入放置的文件时应用的过滤函数（默认为空）。
    */
-  public getFilters() {
-    return {};
+  /** 文件过滤器：返回 undefined 表示用 uploader.options.filters（原来返回 {}，效果相同） */
+  public getFilters(): FilterFunction[] | string | undefined {
+    return undefined;
   }
 
   /**
@@ -133,7 +134,7 @@ export class FileDropDirective extends _FileDropMixinBase implements CanDisable 
       const options = this.getOptions();
       const filters = this.getFilters();
       this._preventAndStop(event);
-      this.uploader.addToQueue(transfer.files, options, filters as never);
+      this.uploader.addToQueue(transfer.files, options, filters);
       this.fileOver.emit(false);
       this.onFileDrop.emit(transfer.files);
     }

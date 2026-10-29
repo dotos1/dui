@@ -4,6 +4,7 @@
  */
 
 
+import { DuiConfig } from '@dotos/dui/base';
 import {
   ChangeDetectionStrategy, ChangeDetectorRef,
   Component,
@@ -53,7 +54,7 @@ export class ExtSpeedDialComponent extends ComponentBase implements OnInit,OnCha
    * Input property `config` (`any`) configuring config (default: `{}`).
    * @zh 输入属性 `config`（类型：`any`），用于配置配置（默认值：`{}`）。
    */
-  @Input() config = {};
+  @Input() config: DuiConfig = {};
   /**
    * Input property `icon` (`string`) configuring icon.
    * @zh 输入属性 `icon`（类型：`string`），用于配置图标。

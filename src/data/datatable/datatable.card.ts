@@ -3,6 +3,7 @@
  * @zh 模块文件 `src/data/datatable/datatable.card.ts`，提供数据表格卡片相关的定义与实现。
  */
 
+import { DuiConfig } from '@dotos/dui/base';
 import {
   Component, Input, ViewChild, ChangeDetectionStrategy,
   SimpleChanges, ChangeDetectorRef, ComponentFactoryResolver, Injector, OnChanges,
@@ -44,7 +45,7 @@ export class DatatableCardComponent extends DuiCardComponent implements OnChange
    * Input property `config` (`any`) configuring config (default: `{}`).
    * @zh 输入属性 `config`（类型：`any`），用于配置配置（默认值：`{}`）。
    */
-  @Input() override config = {};
+  @Input() override config: DuiConfig = {};
 
   /**
    * Property `columns` (`TableColumn[]`) storing columns.
@@ -116,7 +117,8 @@ export class DatatableCardComponent extends DuiCardComponent implements OnChange
    * Property `baseParams` (`any`) storing base params (default: `{}`).
    * @zh 属性 `baseParams`（类型：`any`），用于存储或配置基础参数集合（默认值：`{}`）。
    */
-  baseParams = {};
+  /** 数据请求的基础参数（作 HttpParams 发出） */
+  baseParams: { [param: string]: string | number | boolean | ReadonlyArray<string | number | boolean> } = {};
 
   /**
    * Property `start` (`number`) storing start (default: `0`).
@@ -230,7 +232,7 @@ export class DatatableCardComponent extends DuiCardComponent implements OnChange
    * @param data - data parameter (`any`) / 数据参数（`any`）
    */
   public loadData(data): void {
-    let val = {};
+    let val: Record<string, unknown> = {};
     if (typeof (data) == "object") {
       if (Array.isArray(data)) {
         val[this.datasource.totalCount] = data.length;

@@ -3,6 +3,7 @@
  * @zh 模块文件 `src/ui/toolbar/toolbar.component.ts`，提供工具栏组件相关的定义与实现。
  */
 
+import { DuiConfig, DuiStyle } from '@dotos/dui/base';
 import { Platform } from '@angular/cdk/platform';
 import { AfterContentInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, ComponentFactoryResolver, ElementRef, HostListener, Injector, Input, OnChanges, Renderer2, SimpleChanges, ViewChild, ViewContainerRef } from '@angular/core';
 import { Container, ContainerItem } from '@dotos/dui/container';
@@ -26,7 +27,7 @@ export class DuiToolbarComponent extends Container implements OnChanges, AfterCo
    * Input property `config` (`any`) configuring config (default: `{}`).
    * @zh 输入属性 `config`（类型：`any`），用于配置配置（默认值：`{}`）。
    */
-  @Input() config = {};
+  @Input() config: DuiConfig = {};
 
   /**
    * Input property `height` (`number`) configuring height (default: `40`).
@@ -487,7 +488,7 @@ export class Separator extends MenuItem {
    * Property `style` (`any`) storing style (default: `{}`).
    * @zh 属性 `style`（类型：`any`），用于存储或配置样式（默认值：`{}`）。
    */
-  public override style = {};
+  public override style: DuiStyle = {};
   /**
    * Creates an instance of `Separator` and initializes its dependencies and internal state.
    * @zh 创建 `Separator` 实例，并初始化其依赖项与内部状态。

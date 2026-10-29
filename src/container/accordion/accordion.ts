@@ -4,6 +4,7 @@
  */
 
 
+import { DuiConfig } from '@dotos/dui/base';
 import { Component, SimpleChanges, Input, ViewChild, ViewContainerRef, ComponentFactoryResolver, Injector, ChangeDetectorRef, ElementRef, Renderer2, OnChanges } from '@angular/core';
 import { coerceBooleanProperty } from '@angular/cdk/coercion';
 import { Dui } from '@dotos/dui/core';
@@ -91,7 +92,7 @@ export class Accordion extends AbstractPanel implements OnChanges{
    * Input property `config` (`any`) configuring config (default: `{}`).
    * @zh 输入属性 `config`（类型：`any`），用于配置配置（默认值：`{}`）。
    */
-  @Input() override config = {};
+  @Input() override config: DuiConfig = {};
 
   /**
    * Property `xtype` (`string`) storing xtype (default: `'accordion'`).

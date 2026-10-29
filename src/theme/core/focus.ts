@@ -10,7 +10,7 @@
  */
 export function structuralStyling(prefix){
     const key1='.'+prefix+'-focus-indicator';
-    let val={}
+    let val: Record<string, unknown> = {}
     val['.'+prefix+'-focus-indicator']= {
         position: 'relative',
         '&::before' :{

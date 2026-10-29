@@ -11,6 +11,7 @@ import { map, distinctUntilChanged } from 'rxjs/operators';
 import { DuiBase } from '@dotos/dui/base';
 import { getValue } from '@dotos/dui/base';
 import { LocalStorageService } from '@dotos/dui/core/storage';
+import { DuiSettings } from './settings';
 
 /**
  * Enumeration `AppConfigValues` defining supported app config values constants.
@@ -111,29 +112,30 @@ export class ConfigService {
    * Property `config` (`any`) storing config (default: `{}`).
    * @zh 属性 `config`（类型：`any`），用于存储或配置配置（默认值：`{}`）。
    */
-  public config={};
+  /** 应用配置（settings.json 加载结果）：顶层键 → 值 */
+  public config: DuiSettings = {};
 
   /**
    * Property `onLoadSubject` (`Subject<any>`) storing on load subject.
    * @zh 属性 `onLoadSubject`（类型：`Subject<any>`），用于存储或配置当加载主题流。
    */
-  public onLoadSubject;
+  public onLoadSubject: Subject<DuiSettings>;
   /**
    * Property `onLoad` (`Observable<any>`) storing on load.
    * @zh 属性 `onLoad`（类型：`Observable<any>`），用于存储或配置当加载。
    */
-  public onLoad;
+  public onLoad: Observable<DuiSettings>;
 
   /**
    * Property `onErrorSubject` (`Subject<any>`) storing on error subject.
    * @zh 属性 `onErrorSubject`（类型：`Subject<any>`），用于存储或配置当错误主题流。
    */
-  public onErrorSubject;
+  public onErrorSubject: Subject<unknown>;
   /**
    * Property `onError` (`Observable<any>`) storing on error.
    * @zh 属性 `onError`（类型：`Observable<any>`），用于存储或配置当错误。
    */
-  public onError;
+  public onError: Observable<unknown>;
 
   /**
    * Creates an instance of `ConfigService` and initializes its dependencies and internal state.
@@ -144,9 +146,9 @@ export class ConfigService {
   constructor(
     protected localStore: LocalStorageService,
     public loader: ConfigLoader) {
-    this.onLoadSubject = new Subject();
+    this.onLoadSubject = new Subject<DuiSettings>();
     this.onLoad = this.onLoadSubject.asObservable();
-    this.onErrorSubject = new Subject();
+    this.onErrorSubject = new Subject<unknown>();
     this.onError = this.onErrorSubject.asObservable();
   }
   /**
@@ -269,16 +271,22 @@ export class ConfigService {
    * @param defaultValue - default value parameter (`any`) / 默认值参数（`any`）
    * @returns Result of type `any` / 类型为 `any` 的返回值
    */
-  getSettings(key?: string | Array<string>, defaultValue?) {
+  /**
+   * 读配置：顶层键直接给出 DuiSettings 里的类型；点分路径（'seo.defaultPageTitle'）或数组路径
+   * 返回调用方声明的类型 T（默认 unknown，由调用方收窄）。不传 key 返回整个配置。
+   */
+  getSettings(): DuiSettings;
+  getSettings<K extends keyof DuiSettings & string>(key: K, defaultValue?: DuiSettings[K]): DuiSettings[K];
+  getSettings<T = unknown>(key: string | Array<string>, defaultValue?: T): T;
+  getSettings(key?: string | Array<string>, defaultValue?: unknown): unknown {
 
     if (!key || (Array.isArray(key) && !key[0]))
       return this.config;
 
-    if (!Array.isArray(key))
-      key = key.split('.');
+    const path = Array.isArray(key) ? key : key.split('.');
 
-    let result = key
-      .reduce((acc, current: string) => acc && acc[current], this.config);
+    let result = path
+      .reduce((acc: unknown, current: string) => (acc ? (acc as Record<string, unknown>)[current] : acc), this.config as unknown);
 
     if (result === undefined) {
       result = defaultValue;
@@ -293,7 +301,7 @@ export class ConfigService {
    * @param key - key parameter (`string`) / 键参数（`string`）
    * @param value - value parameter (`any`) / 值参数（`any`）
    */
-  setSetting(key: string , value): void {
+  setSetting(key: string, value: unknown): void {
     this.config[key]=value;
   }
 }

@@ -62,7 +62,7 @@ export function optionalGetterForProp(prop: TableColumnProp): OptionalValueGette
  */
 export function groupRowsByParents(rows, from?: OptionalValueGetter, to?: OptionalValueGetter) {
   if (from && to) {
-    const nodeById = {};
+    const nodeById: Record<string, TreeNode> = {};
     const l = rows.length;
     let node: TreeNode | null = null;
 

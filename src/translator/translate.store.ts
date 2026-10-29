@@ -30,7 +30,7 @@ export class TranslateStore {
 
    * @zh 属性 `translations`（类型：`any`），用于存储或配置翻译文本（默认值：`{}`）。
    */
-  public translations = {};
+  public translations: Record<string, Object> = {};
 
   /**
    * an array of langs

@@ -3,6 +3,7 @@
  * @zh 模块文件 `src/common/iframe/components/iframe.component.ts`，提供iframe组件相关的定义与实现。
  */
 
+import { DuiConfig } from '@dotos/dui/base';
 import {
   AfterViewInit,
   ChangeDetectorRef,
@@ -81,7 +82,7 @@ export class IframeComponent implements OnInit, OnChanges,AfterViewInit, OnDestr
    * Bulk-applies arbitrary properties onto this component (via `Dui.apply`) whenever it changes.
    * @zh 每当变化时，通过 `Dui.apply` 将任意属性批量应用到本组件上。
    */
-  @Input() config = {};
+  @Input() config: DuiConfig = {};
 
   /**
    * The native `<iframe scrolling>` attribute value.

@@ -3,6 +3,7 @@
  * @zh 模块文件 `src/container/layout/component/layout.component.ts`，提供布局组件相关的定义与实现。
  */
 
+import { DuiConfig } from '@dotos/dui/base';
 import { ComponentBase } from '@dotos/dui/core';
 import {
     AfterViewInit,
@@ -98,7 +99,7 @@ export class LayoutComponent
    * Input property `config` (`any`) configuring config (default: `{}`).
    * @zh 输入属性 `config`（类型：`any`），用于配置配置（默认值：`{}`）。
    */
-  @Input() config = {};
+  @Input() config: DuiConfig = {};
 
   /**
    * Property `el` (`any`) storing el.

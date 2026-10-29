@@ -51,7 +51,7 @@ export class FormAttributes implements OnChanges, DoCheck, OnDestroy {
    * Property `uiAttributesCache` (`any`) storing ui attributes cache (default: `{}`).
    * @zh 属性 `uiAttributesCache`（类型：`any`），用于存储或配置界面属性列表缓存（默认值：`{}`）。
    */
-  private uiAttributesCache = {};
+  private uiAttributesCache: Record<string, unknown> = {};
   /**
    * Property `uiAttributes` (`any[]`) storing ui attributes.
    * @zh 属性 `uiAttributes`（类型：`any[]`），用于存储或配置界面属性列表。

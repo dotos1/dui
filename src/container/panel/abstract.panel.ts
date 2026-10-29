@@ -4,6 +4,7 @@
  */
 
 
+import { DuiConfig } from '@dotos/dui/base';
 import { ComponentBase } from '@dotos/dui/core';
 import { AfterViewInit, ChangeDetectorRef, ComponentFactoryResolver, Directive, ElementRef, HostBinding, Injector, Input, OnDestroy, Renderer2, ViewChild, ViewContainerRef } from '@angular/core';
 import {isObjectLike,isArray,each}  from 'lodash-es';
@@ -22,7 +23,7 @@ export class AbstractPanel extends Container implements AfterViewInit,OnDestroy{
    * Input property `config` (`any`) configuring config (default: `{}`).
    * @zh 输入属性 `config`（类型：`any`），用于配置配置（默认值：`{}`）。
    */
-  @Input() config = {};
+  @Input() config: DuiConfig = {};
 
   /**
    * Property `state` (`string`) storing state (default: `'none'`).

@@ -284,7 +284,7 @@ export class ColorPickerContent implements TriggerPopup {
     this.updateSelectedColor();
 
     if (this.host) {
-      let val = {};
+      let val: Record<string, unknown> = {};
       val['value'] = this.selectedColor.bg;
       val['text'] = this.selectedColor.bg;
       this.host._selectAndClose(val);

@@ -27,7 +27,7 @@ import {
 import { MatMenuTrigger } from '@angular/material/menu';
 import { MatTooltip } from '@angular/material/tooltip';
 
-import { ButtonBase } from './button.base';
+import { ButtonBase, DuiButtonConfig } from './button.base';
 
 
 /**
@@ -57,7 +57,7 @@ export class ButtonComponent extends ButtonBase implements OnChanges,DoCheck {
    * Input property `config` (`any`) configuring config (default: `{}`).
    * @zh 输入属性 `config`（类型：`any`），用于配置配置（默认值：`{}`）。
    */
-  @Input() override config = {};
+  @Input() override config: DuiButtonConfig = {};
 
   /**
    * Input property `data` (`any`) configuring data.

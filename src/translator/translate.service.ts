@@ -158,12 +158,14 @@ export class TranslateService {
    * Property `_translations` (`any`) storing translations (default: `{}`).
    * @zh 属性 `_translations`（类型：`any`），用于存储或配置翻译文本（默认值：`{}`）。
    */
-  private _translations = {};
+  /** 语种 → 翻译表 */
+  private _translations: Record<string, Object> = {};
   /**
    * Property `_translationRequests` (`any`) storing translation requests (default: `{}`).
    * @zh 属性 `_translationRequests`（类型：`any`），用于存储或配置翻译文本请求（默认值：`{}`）。
    */
-  private _translationRequests = {};
+  /** 语种 → 进行中的加载请求 */
+  private _translationRequests: Record<string, Observable<Object>> = {};
 
   /**
    * Gets the current on translation change (`onTranslationChange: EventEmitter<TranslationChangeEvent>`).
@@ -486,7 +488,7 @@ export class TranslateService {
     let res: string | Observable<string>;
 
     if (key instanceof Array) {
-      let result = {},
+      let result: Record<string, unknown> = {},
         observables: boolean = false;
       for (let k of key) {
         result[k] = this.getParsedResult(translations, k, interpolateParams);
@@ -498,7 +500,7 @@ export class TranslateService {
         const sources = key.map(k => isObservable(result[k]) ? result[k] : of(result[k] as string));
         return forkJoin(sources).pipe(
           map((arr: Array<string>) => {
-            let obj = {};
+            let obj: Record<string, unknown> = {};
             arr.forEach((value: string, index: number) => {
               obj[key[index]] = value;
             });
@@ -617,7 +619,7 @@ export class TranslateService {
     let res = this.getParsedResult(this.translations[this.currentLang], key, interpolateParams);
     if (isObservable(res)) {
       if (key instanceof Array) {
-        let obj = {};
+        let obj: Record<string, unknown> = {};
         key.forEach((value: string, index: number) => {
           obj[key[index]] = key[index];
         });

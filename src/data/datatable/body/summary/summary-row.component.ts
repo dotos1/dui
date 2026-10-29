@@ -111,7 +111,7 @@ export class DataTableSummaryRowComponent implements OnChanges {
    * Property `summaryRow` (`any`) storing summary row (default: `{}`).
    * @zh 属性 `summaryRow`（类型：`any`），用于存储或配置汇总行（默认值：`{}`）。
    */
-  summaryRow = {};
+  summaryRow: Record<string, unknown> = {};
 
   /**
    * Angular lifecycle hook invoked when data-bound input properties change.
