@@ -85,10 +85,11 @@ export class Dui extends DuiBase{
    * Executes `getParam` to handle get param.
    * @zh 执行 `getParam`，用于获取参数。
    * @param path - path parameter (`string`) / 路径参数（`string`）
-   * @returns Result of type `Record<string, unknown>` / 类型为 `Record<string, unknown>` 的返回值
+   * @returns Result of type `Record<string, string>` / 类型为 `Record<string, string>` 的返回值
    */
-  public static getParam(path: string) {
-    let params: Record<string, unknown> = {};
+  /** 解析 url 查询串：键 → 值（都是字符串，未解码） */
+  public static getParam(path: string): Record<string, string> {
+    let params: Record<string, string> = {};
     if (path.indexOf('?') !== -1) {
       let paramString = path.substring(path.indexOf('?') + 1, path.length);
       let p = paramString.split('&');
