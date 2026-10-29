@@ -6,7 +6,8 @@
 
 import { EMPTY, from as fromObservable, merge, Observable, onErrorResumeNext, throwError } from 'rxjs';
 import { filter, isEmpty, mergeMap, reduce, share } from 'rxjs/operators';
-import { mergeWith as _mergeWith } from 'lodash/fp';
+// lodash-es：已发布的 ESM 包里不能有 'lodash/fp' 这种目录导入（Node 22 ESM 解析不了）
+import { mergeWith as _mergeWith } from 'lodash-es';
 import { ConfigLoader, ConfigStaticLoader } from '../config.loader';
 
 /**
@@ -27,12 +28,13 @@ const errorIfEmpty = (source) => {
  * Constant/variable `mergeWith` defining merge with in `src/core/config/merge-loader`.
  * @zh 常量/变量 `mergeWith`，定义 `src/core/config/merge-loader` 中的合并带有。
  */
-const mergeWith = (object) => (source) => {
-  return _mergeWith((objValue, srcValue) => {
+// 与原来 lodash/fp 的 mergeWith 等价：不改动入参，深合并到新对象；数组整体替换不逐项合并
+const mergeWith = (object: object) => (source: object): object => {
+  return _mergeWith({}, object, source, (objValue: unknown, srcValue: unknown) => {
     if (Array.isArray(objValue))
       return srcValue;
     return undefined;
-  })(object)(source);
+  });
 };
 
 /**
@@ -107,7 +109,7 @@ export class ConfigMergeLoader implements ConfigLoader {
     return new Promise((resolve, reject) => {
       merge(mergedSettings, errorIfEmpty(mergedSettings))
         .pipe(
-          reduce((merged, current) => mergeWith(merged)(current), {} as never)
+          reduce((merged: object, current: unknown) => mergeWith(merged)(current as object), {})
         )
         .subscribe((res) => resolve(res), () => reject('Loaders unreachable!'));
     });
