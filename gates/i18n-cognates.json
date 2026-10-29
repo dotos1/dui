@@ -1,0 +1,9 @@
+{
+  "//": "各语种里与英文原文同形、本身就是正确译法的词（逐条人工确认过；不是用来压问题的豁免表，新增条目须说明理由）",
+  "de_DE": ["Code", "Dashboard", "Information", "Link", "Name", "Status", "Filter", "Version", "Edition", "Drag & Drop", "Token", "Bytes"],
+  "fr_FR": ["Code", "Information", "Notifications", "Description", "Orientation", "Menu", "Message", "navigation", "texture", "Version", "Type", "Document", "Modules", "Mode", "Page {{number}}", "Page {{ pageNum }}"],
+  "es_419": ["chat", "Error", "hotel", "laptop", "mouse", "panorama", "panorama horizontal", "panorama vertical", "radio", "router", "smartphone", "spa", "No", "Token", "Bytes"],
+  "pt_BR": ["Link", "chat", "hotel", "mouse", "panorama", "panorama horizontal", "panorama vertical", "smartphone", "spa", "Menu", "Backspace", "Loop", "scanner", "Slides", "tablet", "Status", "Token", "Bytes"],
+  "id_ID": ["chat", "Menu", "airplay", "album", "android", "Backspace", "bluetooth", "domain", "folder", "Folder", "File", "Input", "Label", "Loop", "web", "Status", "Filter", "Mode", "Token"],
+  "ru_RU": ["Backspace"]
+}

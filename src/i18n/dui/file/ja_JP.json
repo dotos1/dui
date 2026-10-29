@@ -1,5 +1,5 @@
 {
-  "SAVE": "Save",
+  "SAVE": "保存",
   "COMPLETE": "完了",
   "CANCEL": "キャンセル",
   "CLAIM": "申請",
@@ -230,7 +230,7 @@
     "FILE_LOCK_CHECKBOX": "ファイルをロック",
     "TIME_LOCK_CHECKBOX": "ロック時間",
     "SAVE_BUTTON": {
-      "LABEL": "Save"
+      "LABEL": "保存"
     },
     "CANCEL_BUTTON": {
       "LABEL": "キャンセル"
@@ -334,7 +334,7 @@
     },
     "ACTIONS": {
       "EDIT": "編集",
-      "SAVE": "Save",
+      "SAVE": "保存",
       "CANCEL": "キャンセル",
       "TOGGLE": "値を切り替え",
       "COPY_TO_CLIPBOARD": "クリップボードにコピーしました",
@@ -390,8 +390,8 @@
       }
     },
     "TAB": {
-      "CS": "Content Services",
-      "PS": "Process Services"
+      "CS": "コンテンツサービス",
+      "PS": "プロセスサービス"
     }
   },
   "ERROR_CONTENT": {
@@ -565,7 +565,7 @@
     },
     "FAIL": {
       "NODE": {
-        "NO_PERMISSION": "You do not have permission to perform this operation"
+        "NO_PERMISSION": "この操作を実行する権限がありません"
       }
     }
   },
@@ -637,15 +637,15 @@
     "ARIA-LABEL": {
       "ERROR": "アップロードエラー",
       "VERSION": "ファイルバージョン",
-      "CANCEL_ALL": "Cancel all uploads",
-      "CANCEL_FILE": "Cancel file upload",
-      "CANCEL_FILE_UPLOAD": "Cancel uploading this file",
+      "CANCEL_ALL": "すべてのアップロードをキャンセル",
+      "CANCEL_FILE": "ファイルのアップロードをキャンセル",
+      "CANCEL_FILE_UPLOAD": "このファイルのアップロードをキャンセル",
       "CONFIRMATION": {
-        "CANCEL": "Confirm cancel upload",
-        "CONTINUE": "Continue upload"
+        "CANCEL": "アップロードのキャンセルを確認",
+        "CONTINUE": "アップロードを続行"
       },
-      "DIALOG": "File upload dialog",
-      "DIALOG_CLOSE": "Close upload dialog",
+      "DIALOG": "ファイルアップロードのダイアログ",
+      "DIALOG_CLOSE": "アップロードダイアログを閉じる",
       "REMOVE_FILE": "アップロード済みファイルを削除",
       "UPLOAD_FILE_ERROR": "ファイルアップロードエラー"
     }
@@ -1321,7 +1321,7 @@
   "CORE": {
     "METADATA": {
       "ACTIONS": {
-        "SAVE": "Save",
+        "SAVE": "保存",
         "CANCEL": "キャンセル"
       }
     },
@@ -1335,16 +1335,16 @@
       "NONE": "なし"
     },
     "FILE_DIALOG": {
-      "ALLOW_OTHERS_CHECKBOX": "Allow other users to modify this file",
+      "ALLOW_OTHERS_CHECKBOX": "他のユーザーにこのファイルの変更を許可する",
       "CANCEL_BUTTON": {
         "LABEL": "キャンセル"
       },
       "FILE_LOCK": "ファイルをロック",
-      "FILE_LOCK_CHECKBOX": "Lock this file to prevent others from editing",
+      "FILE_LOCK_CHECKBOX": "このファイルをロックして他のユーザーの編集を防ぐ",
       "SAVE_BUTTON": {
-        "LABEL": "Save"
+        "LABEL": "保存"
       },
-      "TIME_LOCK_CHECKBOX": "Set lock expiration time"
+      "TIME_LOCK_CHECKBOX": "ロックの有効期限を設定"
     }
   },
   "VIEWER": {
@@ -1370,7 +1370,7 @@
       "ROTATE": "回転",
       "CROP": "クリップ",
       "CANCEL": "キャンセル",
-      "SAVE": "Save",
+      "SAVE": "保存",
       "FIT_PAGE": "ページに合わせる",
       "FIT_WIDTH": "幅に合わせる",
       "FIT_HEIGHT": "高さに合わせる",
@@ -1518,8 +1518,8 @@
     "SERVER_SETTINGS": {
       "TITLE": "サーバー設定",
       "DESCRIPTION": "以下の値はAppConfigServiceから取得されています",
-      "CONTENT_SERVICE_HOST": "Alfresco Content Services URL: {{ value }}",
-      "PROCESS_SERVICE_HOST": "Alfresco Process Services URL: {{ value }}"
+      "CONTENT_SERVICE_HOST": "Alfresco コンテンツサービスの URL：{{ value }}",
+      "PROCESS_SERVICE_HOST": "Alfresco プロセスサービスの URL：{{ value }}"
     },
     "VERSIONS": {
       "TITLE": "製品バージョン",

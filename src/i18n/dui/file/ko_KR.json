@@ -390,8 +390,8 @@
       }
     },
     "TAB": {
-      "CS": "Content Services",
-      "PS": "Process Services"
+      "CS": "콘텐츠 서비스",
+      "PS": "프로세스 서비스"
     }
   },
   "ERROR_CONTENT": {
@@ -565,7 +565,7 @@
     },
     "FAIL": {
       "NODE": {
-        "NO_PERMISSION": "You do not have permission to perform this operation"
+        "NO_PERMISSION": "이 작업을 수행할 권한이 없습니다"
       }
     }
   },
@@ -637,15 +637,15 @@
     "ARIA-LABEL": {
       "ERROR": "업로드 오류",
       "VERSION": "파일 버전",
-      "CANCEL_ALL": "Cancel all uploads",
-      "CANCEL_FILE": "Cancel file upload",
-      "CANCEL_FILE_UPLOAD": "Cancel uploading this file",
+      "CANCEL_ALL": "모든 업로드 취소",
+      "CANCEL_FILE": "파일 업로드 취소",
+      "CANCEL_FILE_UPLOAD": "이 파일 업로드 취소",
       "CONFIRMATION": {
-        "CANCEL": "Confirm cancel upload",
-        "CONTINUE": "Continue upload"
+        "CANCEL": "업로드 취소 확인",
+        "CONTINUE": "업로드 계속"
       },
-      "DIALOG": "File upload dialog",
-      "DIALOG_CLOSE": "Close upload dialog",
+      "DIALOG": "파일 업로드 대화상자",
+      "DIALOG_CLOSE": "업로드 대화상자 닫기",
       "REMOVE_FILE": "업로드된 파일 제거",
       "UPLOAD_FILE_ERROR": "파일 업로드 오류"
     }
@@ -1335,16 +1335,16 @@
       "NONE": "없음"
     },
     "FILE_DIALOG": {
-      "ALLOW_OTHERS_CHECKBOX": "Allow other users to modify this file",
+      "ALLOW_OTHERS_CHECKBOX": "다른 사용자가 이 파일을 수정하도록 허용",
       "CANCEL_BUTTON": {
         "LABEL": "취소"
       },
       "FILE_LOCK": "파일 잠금",
-      "FILE_LOCK_CHECKBOX": "Lock this file to prevent others from editing",
+      "FILE_LOCK_CHECKBOX": "다른 사람이 편집하지 못하도록 이 파일 잠금",
       "SAVE_BUTTON": {
         "LABEL": "저장"
       },
-      "TIME_LOCK_CHECKBOX": "Set lock expiration time"
+      "TIME_LOCK_CHECKBOX": "잠금 만료 시간 설정"
     }
   },
   "VIEWER": {
@@ -1518,8 +1518,8 @@
     "SERVER_SETTINGS": {
       "TITLE": "서버 설정",
       "DESCRIPTION": "아래 값은 AppConfigService에서 가져온 것입니다",
-      "CONTENT_SERVICE_HOST": "Alfresco Content Services URL: {{ value }}",
-      "PROCESS_SERVICE_HOST": "Alfresco Process Services URL: {{ value }}"
+      "CONTENT_SERVICE_HOST": "Alfresco 콘텐츠 서비스 URL: {{ value }}",
+      "PROCESS_SERVICE_HOST": "Alfresco 프로세스 서비스 URL: {{ value }}"
     },
     "VERSIONS": {
       "TITLE": "제품 버전",
@@ -1581,7 +1581,7 @@
         "TITLE": "새 버전 업로드",
         "TOOLTIP": "새 버전 업로드",
         "MAJOR": "주요 변경 사항(2.0)",
-        "MINOR": "minor changes (1.1)",
+        "MINOR": "사소한 변경 (1.1)",
         "COMMENT": "댓글 남기기",
         "ADD": "새 버전 추가",
         "CANCEL": "취소"

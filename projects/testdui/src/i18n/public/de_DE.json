@@ -47,7 +47,7 @@
     "FEATURE_4_DESC": "Ein auf TranslateService/TranslationService basierendes Mehrsprachen-Framework mit integrierten Sprachpaketen für Chinesisch und Englisch, erweiterbar pro Modul um zusätzliche Übersetzungsordner.",
     "FEATURE_5_TITLE": "Einheitliche Codehervorhebung",
     "FEATURE_5_DESC": "Alle Beispielcodes und Nutzungsausschnitte werden über die Komponente dui-highlight gerendert, mit Syntaxhervorhebung und Ein-Klick-Kopieren – ein Leseerlebnis wie bei material.angular.dev.",
-    "FEATURE_6_TITLE": "TypeScript-first",
+    "FEATURE_6_TITLE": "TypeScript zuerst",
     "FEATURE_6_DESC": "Entwickelt im Strict-Modus mit Angular CLI Multi-Entry-Point-Packaging, was Editoren vollständige Typhinweise und Autovervollständigung ermöglicht.",
     "REASON_1_TITLE": "Sofort einsatzbereit, weniger doppelte Arbeit",
     "REASON_1_DESC": "Von Formularvalidierung und Farbwählern bis hin zu umfangreichen Komponenten wie Monaco, Terminal und Flussdiagrammen ist alles vorhanden – das erspart die Kosten für die eigene Auswahl und Integration von Drittanbieter-Bibliotheken.",
@@ -71,7 +71,7 @@
     "TAB2": "2. Module importieren",
     "TAB3": "3. Komponenten verwenden",
     "TAB4": "4. Internationalisierung & Theming",
-    "TAB5": "5. Architecture & Dev Guide",
+    "TAB5": "5. Architektur & Entwicklerleitfaden",
     "STEP1_H1": "Paket installieren",
     "STEP1_H2": "Peer Dependencies installieren",
     "STEP1_P2": "DUI basiert auf Angular Material und dem CDK. Stellen Sie sicher, dass folgende Abhängigkeiten in Ihrem Projekt installiert sind:",
@@ -87,11 +87,11 @@
     "STEP4_P1": "DUI enthält ein mehrsprachiges Framework auf Basis von TranslationService, das standardmäßig zh_CN / en_US bereitstellt:",
     "STEP4_H2": "Themes zur Laufzeit wechseln",
     "STEP4_P2": "Mit ThemeService können Sie Primär-, Akzent- und Warnfarbe sowie den Hell-/Dunkelmodus zur Laufzeit dynamisch ändern, ohne einen Neubuild:",
-    "STEP5_H1": "Secondary Entry-Point Packaging Rules",
-    "STEP5_P1": "DUI uses ng-packagr secondary entry points. Each feature folder contains its own ng-package.json, index.ts, and public-api.ts. Always import across entry points via @dotos/dui/<category>/<module> rather than deep relative paths:",
-    "STEP5_H2": "RxJS Subscription Lifecycle & OnPush Performance",
-    "STEP5_P2": "Always clean up long-lived Observable subscriptions in ngOnDestroy using takeUntil(this.destroy$) to prevent memory leaks, and prefer ChangeDetectionStrategy.OnPush for high-frequency components:",
-    "STEP5_H3": "Bilingual JSDoc (@zh) & Automated Docs Generation",
-    "STEP5_P3": "Document all exported classes, interfaces, enums, functions, and public members with English JSDoc plus an @zh Chinese tag, then run npm run docs:generate to update the documentation portal:"
+    "STEP5_H1": "Paketierungsregeln für sekundäre Einstiegspunkte",
+    "STEP5_P1": "DUI verwendet sekundäre Einstiegspunkte von ng-packagr. Jeder Feature-Ordner enthält eine eigene ng-package.json, index.ts und public-api.ts. Importieren Sie über Einstiegspunkte hinweg immer über @dotos/dui/<category>/<module> statt über tiefe relative Pfade:",
+    "STEP5_H2": "Lebenszyklus von RxJS-Abonnements & OnPush-Performance",
+    "STEP5_P2": "Räumen Sie langlebige Observable-Abonnements in ngOnDestroy immer mit takeUntil(this.destroy$) auf, um Speicherlecks zu vermeiden, und bevorzugen Sie ChangeDetectionStrategy.OnPush für häufig aktualisierte Komponenten:",
+    "STEP5_H3": "Zweisprachiges JSDoc (@zh) & automatische Doku-Generierung",
+    "STEP5_P3": "Dokumentieren Sie alle exportierten Klassen, Interfaces, Enums, Funktionen und öffentlichen Member mit englischem JSDoc plus einem chinesischen @zh-Tag und führen Sie dann npm run docs:generate aus, um das Dokumentationsportal zu aktualisieren:"
   }
 }

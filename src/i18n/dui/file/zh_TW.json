@@ -316,7 +316,7 @@
       "FLOAT_VALIDATION_ERROR": "使用數字格式",
       "INT_VALIDATION_ERROR": "使用整數格式"
     },
-    "NONE": "None"
+    "NONE": "無"
   },
   "METADATA": {
     "BASIC": {
@@ -338,7 +338,7 @@
       "CANCEL": "取消",
       "TOGGLE": "切換值",
       "COPY_TO_CLIPBOARD": "複製到剪貼簿",
-      "CLEAR": "Clear"
+      "CLEAR": "清除"
     },
     "ERRORS": {
       "GENERIC": "更新屬性時出錯",
@@ -390,8 +390,8 @@
       }
     },
     "TAB": {
-      "CS": "Content Services",
-      "PS": "Process Services"
+      "CS": "內容服務",
+      "PS": "流程服務"
     }
   },
   "ERROR_CONTENT": {
@@ -661,11 +661,11 @@
     },
     "INPUT": {
       "ARIA-LABEL": "搜尋輸入",
-      "PLACEHOLDER": "Search",
-      "FILES": "Files",
-      "FOLDERS": "Folders",
-      "LIBRARIES": "Libraries",
-      "HINT": "Search input must have at least 2 alphanumeric characters."
+      "PLACEHOLDER": "搜尋",
+      "FILES": "檔案",
+      "FOLDERS": "資料夾",
+      "LIBRARIES": "文件庫",
+      "HINT": "搜尋內容至少需要 2 個字母或數字。"
     },
     "RESULTS": {
       "SUMMARY": "已找到 {{numResults}} 個 {{searchTerm}} 的結果",
@@ -820,30 +820,30 @@
       "THIS_YEAR": "今年"
     },
     "SEARCH_HEADER": {
-      "TITLE": "Filter",
-      "TYPE": "Type",
-      "FILTER_BY": "Filter by {{ category }}",
-      "CLEAR": "Clear",
-      "APPLY": "Apply",
+      "TITLE": "篩選",
+      "TYPE": "類型",
+      "FILTER_BY": "依{{ category }}篩選",
+      "CLEAR": "清除",
+      "APPLY": "套用",
       "FILTERS": {
         "NAME": {
-          "TITLE": "Name",
-          "PLACEHOLDER": "Enter the name"
+          "TITLE": "名稱",
+          "PLACEHOLDER": "輸入名稱"
         },
         "TYPE": {
-          "TITLE": "Check type",
-          "FOLDER": "Folder",
-          "DOCUMENT": "Document"
+          "TITLE": "選擇類型",
+          "FOLDER": "資料夾",
+          "DOCUMENT": "文件"
         },
         "SIZE": {
-          "TITLE": "Content Size (range)",
-          "SMALL": "Small",
-          "MEDIUM": "Medium",
-          "LARGE": "Large",
-          "HUGE": "Huge"
+          "TITLE": "內容大小（範圍）",
+          "SMALL": "小",
+          "MEDIUM": "中",
+          "LARGE": "大",
+          "HUGE": "超大"
         },
         "DATE": {
-          "TITLE": "Created Date (range)"
+          "TITLE": "建立日期（範圍）"
         }
       }
     }
@@ -1095,116 +1095,116 @@
     },
     "BROWSE": {
       "PERSONAL": {
-        "TITLE": "Personal Files",
+        "TITLE": "個人檔案",
         "SIDENAV_LINK": {
-          "LABEL": "Personal Files",
-          "TOOLTIP": "View your Personal Files"
+          "LABEL": "個人檔案",
+          "TOOLTIP": "檢視個人檔案"
         }
       },
       "LIBRARIES": {
-        "TITLE": "File Libraries",
-        "DESCRIPTION": "Access File Libraries",
+        "TITLE": "文件庫",
+        "DESCRIPTION": "存取文件庫",
         "SIDENAV_LINK": {
-          "LABEL": "File Libraries",
-          "TOOLTIP": "File Libraries"
+          "LABEL": "文件庫",
+          "TOOLTIP": "文件庫"
         },
         "EMPTY_STATE": {
           "FILE_LIBRARIES": {
-            "TITLE": "You aren't a member of any File Libraries yet",
-            "TEXT": "Join libraries to upload, view, and share files."
+            "TITLE": "你尚未加入任何文件庫",
+            "TEXT": "加入文件庫後即可上傳、檢視和共用檔案。"
           },
           "FAVORITE_LIBRARIES": {
-            "TITLE": "No Favorite Libraries",
-            "TEXT": "Favorite a library that you want to find easily later."
+            "TITLE": "沒有收藏的文件庫",
+            "TEXT": "收藏文件庫，之後可以快速找到。"
           }
         },
         "MENU": {
           "MY_LIBRARIES": {
-            "TITLE": "My Libraries",
+            "TITLE": "我的文件庫",
             "SIDENAV_LINK": {
-              "LABEL": "My Libraries",
-              "TOOLTIP": "Access my libraries"
+              "LABEL": "我的文件庫",
+              "TOOLTIP": "存取我的文件庫"
             }
           },
           "FAVORITE_LIBRARIES": {
-            "TITLE": "Favorite Libraries",
+            "TITLE": "收藏的文件庫",
             "SIDENAV_LINK": {
-              "LABEL": "Favorite Libraries",
-              "TOOLTIP": "Access my favorite libraries"
+              "LABEL": "收藏的文件庫",
+              "TOOLTIP": "存取收藏的文件庫"
             }
           }
         }
       },
       "SHARED": {
-        "TITLE": "Shared Files",
+        "TITLE": "共用檔案",
         "SIDENAV_LINK": {
-          "LABEL": "Shared",
-          "TOOLTIP": "View files that have been shared"
+          "LABEL": "共用",
+          "TOOLTIP": "檢視已共用的檔案"
         },
         "EMPTY_STATE": {
-          "TITLE": "No shared files or folders",
-          "TEXT": "Items you share using the Share option are shown here."
+          "TITLE": "沒有共用的檔案或資料夾",
+          "TEXT": "透過「共用」操作共用的內容會顯示在這裡。"
         }
       },
       "RECENT": {
-        "TITLE": "Recent Files",
+        "TITLE": "最近的檔案",
         "SIDENAV_LINK": {
-          "LABEL": "Recent Files",
-          "TOOLTIP": "View files you recently edited"
+          "LABEL": "最近的檔案",
+          "TOOLTIP": "檢視最近編輯的檔案"
         },
         "EMPTY_STATE": {
-          "TITLE": "No recent files",
-          "TEXT": "Items you uploaded or edited in the last 30 days are shown here."
+          "TITLE": "沒有最近的檔案",
+          "TEXT": "最近 30 天內上傳或編輯過的內容會顯示在這裡。"
         }
       },
       "FAVORITES": {
-        "TITLE": "Favorites",
+        "TITLE": "收藏",
         "SIDENAV_LINK": {
-          "LABEL": "Favorites",
-          "TOOLTIP": "View your favorite files and folders"
+          "LABEL": "收藏",
+          "TOOLTIP": "檢視收藏的檔案和資料夾"
         },
         "EMPTY_STATE": {
-          "TITLE": "No favorite files or folders",
-          "TEXT": "Favorite items that you want to easily find later."
+          "TITLE": "沒有收藏的檔案或資料夾",
+          "TEXT": "收藏內容，之後可以快速找到。"
         }
       },
       "TRASHCAN": {
-        "TITLE": "Trash",
+        "TITLE": "資源回收筒",
         "SIDENAV_LINK": {
-          "LABEL": "Trash",
-          "TOOLTIP": "View deleted files in the trash"
+          "LABEL": "資源回收筒",
+          "TOOLTIP": "檢視資源回收筒中已刪除的檔案"
         },
         "EMPTY_STATE": {
-          "TITLE": "Trash is empty",
-          "FIRST_TEXT": "Items you delete are moved to the Trash.",
-          "SECOND_TEXT": "Empty Trash to permanently delete items."
+          "TITLE": "資源回收筒是空的",
+          "FIRST_TEXT": "刪除的內容會移到資源回收筒。",
+          "SECOND_TEXT": "清空資源回收筒將永久刪除其中的內容。"
         }
       },
       "ABOUT": {
-        "TITLE": "About"
+        "TITLE": "關於"
       },
       "SEARCH": {
-        "TITLE": "Search Results",
-        "FOUND_RESULTS": "{{ number }} results found",
-        "FOUND_ONE_RESULT": "{{ number }} result found",
+        "TITLE": "搜尋結果",
+        "FOUND_RESULTS": "找到 {{ number }} 筆結果",
+        "FOUND_ONE_RESULT": "找到 {{ number }} 筆結果",
         "CUSTOM_ROW": {
-          "MODIFIED": "Modified",
-          "BY_USER": "by {{ user }}",
-          "LOCATION": "Location",
-          "SIZE": "Size"
+          "MODIFIED": "修改時間",
+          "BY_USER": "由 {{ user }}",
+          "LOCATION": "位置",
+          "SIZE": "大小"
         },
-        "UNKNOWN_LOCATION": "Unknown",
-        "NO_RESULTS": "Your search returned 0 results",
-        "TOGGLE_SEARCH_FILTER": "Toggle search filter",
+        "UNKNOWN_LOCATION": "未知",
+        "NO_RESULTS": "沒有搜尋到結果",
+        "TOGGLE_SEARCH_FILTER": "顯示 / 隱藏搜尋篩選",
         "ERRORS": {
-          "500": "There was an error processing the search query [500]",
-          "GENERIC": "There was an error processing the search query"
+          "500": "處理搜尋請求時發生錯誤 [500]",
+          "GENERIC": "處理搜尋請求時發生錯誤"
         }
       },
       "SEARCH_LIBRARIES": {
-        "TITLE": "Libraries found...",
-        "FOUND_RESULTS": "{{ number }} results",
-        "FOUND_ONE_RESULT": "{{ number }} result"
+        "TITLE": "找到的文件庫……",
+        "FOUND_RESULTS": "{{ number }} 筆結果",
+        "FOUND_ONE_RESULT": "{{ number }} 筆結果"
       }
     }
   },
@@ -1307,7 +1307,7 @@
       "ILLEGAL_CHARACTERS": "僅使用數字和字母",
       "ONLY_SPACES": "文件庫名稱不能只包含空格",
       "LIBRARY_UPDATE_ERROR": "更新庫屬性時發生錯誤",
-      "TITLE_TOO_SHORT": "Title must be at least 2 characters long"
+      "TITLE_TOO_SHORT": "標題至少需要 2 個字元"
     },
     "SUCCESS": {
       "LIBRARY_UPDATED": "已更新庫屬性"
@@ -1414,210 +1414,210 @@
       "BASELINE-LOCK-24PX": "已鎖定檔案"
     },
     "EMPTY": {
-      "HEADER": "This list is empty",
+      "HEADER": "清單為空",
       "DRAG-AND-DROP": {
-        "TITLE": "Drag and drop",
-        "SUBTITLE": "to upload files"
+        "TITLE": "拖放",
+        "SUBTITLE": "以上傳檔案"
       }
     },
     "CONTENT-ACTIONS": {
-      "TOOLTIP": "Content actions"
+      "TOOLTIP": "內容操作"
     },
     "ACCESSIBILITY": {
-      "SELECT_ALL": "Select all",
-      "SELECT_FILE": "Select file"
+      "SELECT_ALL": "全選",
+      "SELECT_FILE": "選擇檔案"
     }
   },
   "ACTIONS": {
     "EDIT": "編輯"
   },
   "HEADER": {
-    "LOGO_ARIA": "Company Logo"
+    "LOGO_ARIA": "公司標誌"
   },
   "LOGIN": {
     "LOGO": "Alfresco",
     "LABEL": {
-      "LOGIN": "Sign in",
-      "USERNAME": "Username",
-      "PASSWORD": "Password",
-      "REMEMBER": "Remember me"
+      "LOGIN": "登入",
+      "USERNAME": "使用者名稱",
+      "PASSWORD": "密碼",
+      "REMEMBER": "記住我"
     },
     "MESSAGES": {
-      "USERNAME-REQUIRED": "Required",
-      "USERNAME-MIN": "Your username needs to be at least {{ minLength }} characters.",
-      "PASSWORD-REQUIRED": "Enter your password to sign in",
-      "LOGIN-ERROR-CREDENTIALS": "You've entered an unknown username or password",
-      "LOGIN-ERROR-PROVIDERS": "Providers cannot be undefined",
-      "LOGIN-ERROR-CORS": "CORS exception, check your server configuration",
-      "LOGIN-ERROR-CSRF": "CSRF exception, set [disableCsrf]=\"true\" in login.component",
-      "LOGIN-ECM-LICENSE": "Alfresco Content Services repository is in read-only mode",
-      "SSO-WRONG-CONFIGURATION": "SSO Authentication server unreachable"
+      "USERNAME-REQUIRED": "必填",
+      "USERNAME-MIN": "使用者名稱至少需要 {{ minLength }} 個字元。",
+      "PASSWORD-REQUIRED": "請輸入密碼後登入",
+      "LOGIN-ERROR-CREDENTIALS": "使用者名稱或密碼不正確",
+      "LOGIN-ERROR-PROVIDERS": "未設定驗證提供者",
+      "LOGIN-ERROR-CORS": "跨來源（CORS）例外，請檢查伺服器設定",
+      "LOGIN-ERROR-CSRF": "CSRF 例外，請在 login.component 中設定 [disableCsrf]=\"true\"",
+      "LOGIN-ECM-LICENSE": "Alfresco 內容服務儲存庫處於唯讀模式",
+      "SSO-WRONG-CONFIGURATION": "無法連線單一登入（SSO）驗證伺服器"
     },
     "BUTTON": {
-      "LOGIN": "SIGN IN",
-      "CHECKING": "CHECKING",
-      "WELCOME": "WELCOME",
-      "SSO": "SIGN IN SSO"
+      "LOGIN": "登入",
+      "CHECKING": "驗證中",
+      "WELCOME": "歡迎",
+      "SSO": "單一登入"
     },
     "ACTION": {
-      "HELP": "NEED HELP?",
-      "REGISTER": "REGISTER"
+      "HELP": "需要協助？",
+      "REGISTER": "註冊"
     },
     "DIALOG": {
-      "CANCEL": "Cancel",
-      "CHOOSE": "Choose"
+      "CANCEL": "取消",
+      "CHOOSE": "選擇"
     }
   },
   "EXT_VIEWER": {
     "ACTIONS": {
-      "BACK": "Back",
-      "OPEN_WITH": "Open with",
-      "DOWNLOAD": "Download",
-      "PRINT": "Print",
-      "SHARE": "Share",
-      "MORE_ACTIONS": "More actions",
-      "INFO": "View details",
-      "FULLSCREEN": "Activate full-screen mode",
-      "CLOSE": "Close",
-      "NEXT_FILE": "Next File",
-      "PREV_FILE": "Previous File"
+      "BACK": "返回",
+      "OPEN_WITH": "開啟方式",
+      "DOWNLOAD": "下載",
+      "PRINT": "列印",
+      "SHARE": "共用",
+      "MORE_ACTIONS": "更多操作",
+      "INFO": "檢視詳細資料",
+      "FULLSCREEN": "進入全螢幕",
+      "CLOSE": "關閉",
+      "NEXT_FILE": "下一個檔案",
+      "PREV_FILE": "上一個檔案"
     },
     "ARIA": {
-      "PREVIOUS_PAGE": "Previous page",
-      "NEXT_PAGE": "Next page",
-      "ZOOM_IN": "Zoom in",
-      "ZOOM_OUT": "Zoom out",
-      "FIT_PAGE": "Fit page",
-      "ROTATE_LEFT": "Rotate left",
-      "ROTATE_RIGHT": "Rotate right",
-      "RESET": "Reset"
+      "PREVIOUS_PAGE": "上一頁",
+      "NEXT_PAGE": "下一頁",
+      "ZOOM_IN": "放大",
+      "ZOOM_OUT": "縮小",
+      "FIT_PAGE": "符合頁面",
+      "ROTATE_LEFT": "向左旋轉",
+      "ROTATE_RIGHT": "向右旋轉",
+      "RESET": "重設"
     },
     "PAGE_LABEL": {
-      "SHOWING": "Showing",
-      "OF": "of"
+      "SHOWING": "顯示",
+      "OF": "/"
     },
-    "LOADING": "Loading",
-    "UNKNOWN_FORMAT": "Couldn't load preview. Unknown format.",
+    "LOADING": "載入中",
+    "UNKNOWN_FORMAT": "無法預覽：格式未知。",
     "SIDEBAR": {
       "THUMBNAILS": {
-        "PAGE": "Page {{ pageNum }}"
+        "PAGE": "第 {{ pageNum }} 頁"
       },
       "METADATA": {
-        "MORE_INFORMATION": "More information",
-        "LESS_INFORMATION": "Less information"
+        "MORE_INFORMATION": "更多資訊",
+        "LESS_INFORMATION": "收合資訊"
       }
     },
     "PDF_DIALOG": {
-      "SUBMIT": "Submit",
-      "CLOSE": "Close",
-      "PLACEHOLDER": "Password",
-      "ERROR": "Password is wrong"
+      "SUBMIT": "提交",
+      "CLOSE": "關閉",
+      "PLACEHOLDER": "密碼",
+      "ERROR": "密碼錯誤"
     }
   },
   "ABOUT": {
     "SERVER_SETTINGS": {
-      "TITLE": "Server settings",
-      "DESCRIPTION": "The values below are taken from the AppConfigService",
-      "CONTENT_SERVICE_HOST": "Alfresco Content Services URL: {{ value }}",
-      "PROCESS_SERVICE_HOST": "Alfresco Process Services URL: {{ value }}"
+      "TITLE": "伺服器設定",
+      "DESCRIPTION": "以下取值來自 AppConfigService",
+      "CONTENT_SERVICE_HOST": "Alfresco 內容服務位址：{{ value }}",
+      "PROCESS_SERVICE_HOST": "Alfresco 流程服務位址：{{ value }}"
     },
     "VERSIONS": {
-      "TITLE": "Product Versions",
+      "TITLE": "產品版本",
       "CONTENT_SERVICE": "ECM",
       "PROCESS_SERVICE": "BPM",
       "LABELS": {
-        "EDITION": "Edition",
-        "VERSION": "Version",
-        "LICENSE": "License",
-        "STATUS": "Status",
-        "MODULES": "Modules"
+        "EDITION": "版本類型",
+        "VERSION": "版本",
+        "LICENSE": "授權",
+        "STATUS": "狀態",
+        "MODULES": "模組"
       }
     },
     "SOURCE_CODE": {
-      "TITLE": "Source code",
-      "DESCRIPTION": "You are running the project based on the following commit:"
+      "TITLE": "原始碼",
+      "DESCRIPTION": "目前執行的專案基於以下提交："
     },
     "PACKAGES": {
-      "TITLE": "Packages",
-      "DESCRIPTION": "Current project is using the following ADF libraries:"
+      "TITLE": "相依套件",
+      "DESCRIPTION": "目前專案使用以下 ADF 函式庫："
     },
     "TABLE_HEADERS": {
       "MODULES": {
         "ID": "ID",
-        "TITLE": "Title",
-        "DESCRIPTION": "Description",
-        "INSTALL_DATE": "Install Date",
-        "INSTALL_STATE": "Install State",
-        "VERSION_MIN": "Version Minor",
-        "VERSION_MAX": "Version Max"
+        "TITLE": "標題",
+        "DESCRIPTION": "描述",
+        "INSTALL_DATE": "安裝日期",
+        "INSTALL_STATE": "安裝狀態",
+        "VERSION_MIN": "最低版本",
+        "VERSION_MAX": "最高版本"
       },
       "STATUS": {
-        "READ_ONLY": "ReadOnly",
-        "AUDIT_ENABLED": "Is Audit Enabled",
-        "QUICK_SHARE_ENABLED": "Is Quick Shared Enabled",
-        "THUMBNAIL_ENABLED": "Thumbnail Generation"
+        "READ_ONLY": "唯讀",
+        "AUDIT_ENABLED": "是否啟用稽核",
+        "QUICK_SHARE_ENABLED": "是否啟用快速共用",
+        "THUMBNAIL_ENABLED": "縮圖產生"
       },
       "LICENSE": {
-        "ISSUES_AT": "Issued At",
-        "EXPIRES_AT": "Expires At",
-        "REMAINING_DAYS": "Remaining Days",
-        "HOLDER": "Holder",
-        "MODE": "Mode",
-        "CLUSTER_ENABLED": "Is Cluster Enabled",
-        "CRYPTODOC_ENABLED": "Is Cryptodoc Enabled"
+        "ISSUES_AT": "簽發時間",
+        "EXPIRES_AT": "到期時間",
+        "REMAINING_DAYS": "剩餘天數",
+        "HOLDER": "持有人",
+        "MODE": "模式",
+        "CLUSTER_ENABLED": "是否啟用叢集",
+        "CRYPTODOC_ENABLED": "是否啟用文件加密"
       }
     }
   },
   "CLIPBOARD": {
-    "CLICK_TO_COPY": "Click to copy",
-    "SUCCESS_COPY": "Text copied to clipboard"
+    "CLICK_TO_COPY": "點擊複製",
+    "SUCCESS_COPY": "已複製到剪貼簿"
   },
   "EXT_VERSION_LIST": {
     "ACTIONS": {
-      "RESTORE": "Restore",
-      "DELETE": "Delete",
-      "DOWNLOAD": "Download",
+      "RESTORE": "還原",
+      "DELETE": "刪除",
+      "DOWNLOAD": "下載",
       "UPLOAD": {
-        "TITLE": "Upload new version",
-        "TOOLTIP": "Upload new version",
-        "MAJOR": "major changes (2.0)",
-        "MINOR": "minor changes (1.1)",
-        "COMMENT": "Leave a comment",
-        "ADD": "Add New Version",
-        "CANCEL": "Cancel"
+        "TITLE": "上傳新版本",
+        "TOOLTIP": "上傳新版本",
+        "MAJOR": "重大變更（2.0）",
+        "MINOR": "小幅變更（1.1）",
+        "COMMENT": "填寫備註",
+        "ADD": "新增新版本",
+        "CANCEL": "取消"
       }
     },
     "CONFIRM_DELETE": {
-      "TITLE": "Delete version",
-      "MESSAGE": "Deleted file versions cannot be restored. Continue?",
-      "YES_LABEL": "Yes",
-      "NO_LABEL": "No"
+      "TITLE": "刪除版本",
+      "MESSAGE": "刪除的檔案版本無法還原。是否繼續？",
+      "YES_LABEL": "是",
+      "NO_LABEL": "否"
     }
   },
   "EXT_FILE_UPLOAD": {
     "BUTTON": {
-      "MINIMIZE": "Minimize",
-      "MAXIMIZE": "Maximize",
-      "CLOSE": "Close",
-      "CANCEL_ALL": "Cancel uploads",
-      "CANCEL_FILE": "Cancel upload",
-      "REMOVE_FILE": "Remove uploaded file"
+      "MINIMIZE": "最小化",
+      "MAXIMIZE": "最大化",
+      "CLOSE": "關閉",
+      "CANCEL_ALL": "取消全部上傳",
+      "CANCEL_FILE": "取消上傳",
+      "REMOVE_FILE": "移除已上傳的檔案"
     },
     "STATUS": {
-      "FILE_CANCELED_STATUS": "Canceled"
+      "FILE_CANCELED_STATUS": "已取消"
     },
     "CONFIRMATION": {
       "BUTTON": {
-        "CANCEL": "Yes",
-        "CONTINUE": "No"
+        "CANCEL": "是",
+        "CONTINUE": "否"
       },
       "MESSAGE": {
-        "TITLE": "Cancel Upload",
-        "TEXT": "Stop uploading and remove files already uploaded."
+        "TITLE": "取消上傳",
+        "TEXT": "停止上傳，並移除已上傳的檔案。"
       }
     },
     "ARIA-LABEL": {
-      "VERSION": "File version"
+      "VERSION": "檔案版本"
     }
   }
 }
