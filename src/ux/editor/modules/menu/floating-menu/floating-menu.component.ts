@@ -54,7 +54,7 @@ export class FloatingMenuComponent implements OnInit, OnDestroy {
   constructor(public el: ElementRef<HTMLElement>) { }
 
   /**
-   * Host-bound getter `display` (`style`) computing display.
+   * Host-bound getter `display` (`Partial<CSSStyleDeclaration>`) computing display.
    * @zh 宿主绑定读取器 `display`（绑定至 `style`），计算并返回display。
    */
   @HostBinding('style') get display(): Partial<CSSStyleDeclaration> {

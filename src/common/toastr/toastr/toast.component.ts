@@ -69,7 +69,7 @@ import { ToastrService } from './toastr.service';
 })
 export class Toast<ConfigPayload = unknown> implements OnDestroy {
   /**
-   * Property `message` (`string | null`) storing message.
+   * Property `message` (`string`) storing message.
    * @zh 提示消息的正文文本。
    * @zh 提示消息的正文文本。
    */
@@ -99,7 +99,7 @@ export class Toast<ConfigPayload = unknown> implements OnDestroy {
    */
   originalTimeout: number;
   /**
-   * Property `width` (`any`) storing width (default: `signal(-1)`).
+   * Property `width` (`WritableSignal<number>`) storing width (default: `signal(-1)`).
    * @zh 进度条当前宽度百分比。
    * @zh 进度条当前宽度百分比。
    */
@@ -111,7 +111,7 @@ export class Toast<ConfigPayload = unknown> implements OnDestroy {
   @HostBinding('class') toastClasses = '';
 
   /**
-   * Property `state` (`WritableSignal<{ value: 'inactive' | 'active' | 'removed'; params: { e...`) storing state.
+   * Property `state` (`WritableSignal<{…}>`) storing state.
    * @zh 内部使用，驱动进入/激活/移除动画的状态信号。
    * @zh 内部使用，驱动进入/激活/移除动画的状态信号。
    */
@@ -121,7 +121,7 @@ export class Toast<ConfigPayload = unknown> implements OnDestroy {
   }>;
 
   /**
-   * Host-bound getter `_state` (`@flyInOut`) computing state.
+   * Host-bound getter `_state` (`{…}`) computing state.
    * @zh 内部使用，绑定 `flyInOut` 动画触发器。
    * @zh 内部使用，绑定 `flyInOut` 动画触发器。
    */
@@ -182,7 +182,7 @@ export class Toast<ConfigPayload = unknown> implements OnDestroy {
    * @zh 创建 `Toast` 实例，并初始化其依赖项与内部状态。
    * @param toastrService - Injected or initial toastr service (`ToastrService`) / 注入或传入的轻提示服务（`ToastrService`）
    * @param injector - Injected or initial injector (`Injector`) / 注入或传入的注入器（`Injector`）
-   * @param toastPackage - Injected or initial toast package (`ToastPackage`) / 注入或传入的toastPackage（`ToastPackage`）
+   * @param toastPackage - Injected or initial toast package (`ToastPackage<unknown>`) / 注入或传入的toastPackage（`ToastPackage<unknown>`）
    * @param ngZone - Injected or initial ng zone (`NgZone`) / 注入或传入的Angular区域(NgZone)（`NgZone`）
    */
   constructor(

@@ -28,13 +28,13 @@ export function readability(color1: ColorInput, color2: ColorInput): number {
  */
 export interface WCAG2Parms {
   /**
-   * Property `level` (`'AA' | 'AAA'`) storing level.
-   * @zh 属性 `level`（类型：`'AA' | 'AAA'`），用于存储或配置层级。
+   * Property `level` (`"AA" | "AAA"`) storing level.
+   * @zh 属性 `level`（类型：`"AA" | "AAA"`），用于存储或配置层级。
    */
   level?: 'AA' | 'AAA';
   /**
-   * Property `size` (`'large' | 'small'`) storing size.
-   * @zh 属性 `size`（类型：`'large' | 'small'`），用于存储或配置尺寸。
+   * Property `size` (`"small" | "large"`) storing size.
+   * @zh 属性 `size`（类型：`"small" | "large"`），用于存储或配置尺寸。
    */
   size?: 'large' | 'small';
 }

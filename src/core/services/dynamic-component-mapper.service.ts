@@ -10,7 +10,7 @@ import { Type } from '@angular/core';
  * Executes `getType` to handle get type.
  * @zh 执行 `getType`，用于获取类型。
  * @param type - type parameter (`any`) / 类型参数（`any`）
- * @returns Result of type `any` / 类型为 `any` 的返回值
+ * @returns Result of type `() => any` / 类型为 `() => any` 的返回值
  */
 export function getType(type) {
     return () => type;
@@ -58,8 +58,8 @@ export abstract class DynamicComponentMapper {
      */
     protected defaultValue: Type<{}> = undefined;
     /**
-     * Property `types` (`{ [key: string]: DynamicComponentResolveFunction }`) storing types (default: `{}`).
-     * @zh 属性 `types`（类型：`{ [key: string]: DynamicComponentResolveFunction }`），用于存储或配置类型列表（默认值：`{}`）。
+     * Property `types` (`{ [key: string]: DynamicComponentResolveFunction; }`) storing types (default: `{}`).
+     * @zh 属性 `types`（类型：`{ [key: string]: DynamicComponentResolveFunction; }`），用于存储或配置类型列表（默认值：`{}`）。
      */
     protected types: { [key: string]: DynamicComponentResolveFunction } = {};
 

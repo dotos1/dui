@@ -38,8 +38,8 @@ export class CardViewDateItemComponent implements OnInit, OnDestroy {
 
 
   /**
-   * Input property `property` (`CardViewDateItemModel|any`) configuring property.
-   * @zh 输入属性 `property`（类型：`CardViewDateItemModel|any`），用于配置属性。
+   * Input property `property` (`any`) configuring property.
+   * @zh 输入属性 `property`（类型：`any`），用于配置属性。
    */
   @Input()
   property;
@@ -66,15 +66,15 @@ export class CardViewDateItemComponent implements OnInit, OnDestroy {
   displayClearAction: boolean = true;
 
   /**
-   * Template/content query reference `datepicker` (`@ViewChild`) targeting datepicker.
+   * Template/content query reference `datepicker` (`any`) targeting datepicker.
    * @zh 模板/内容视图查询引用 `datepicker`（`@ViewChild`），指向日期选择器。
    */
   @ViewChild('datetimePicker')
   public datepicker;
 
   /**
-   * Property `valueDate` (`Moment`) storing value date.
-   * @zh 属性 `valueDate`（类型：`Moment`），用于存储或配置值日期。
+   * Property `valueDate` (`moment.Moment`) storing value date.
+   * @zh 属性 `valueDate`（类型：`moment.Moment`），用于存储或配置值日期。
    */
   valueDate: Moment;
   /**
@@ -84,8 +84,8 @@ export class CardViewDateItemComponent implements OnInit, OnDestroy {
   dateFormat: string;
 
   /**
-   * Property `onDestroy$` (`Subject`) storing on destroy (default: `new Subject<boolean>()`).
-   * @zh 属性 `onDestroy$`（类型：`Subject`），用于存储或配置当销毁（默认值：`new Subject<boolean>()`）。
+   * Property `onDestroy$` (`Subject<boolean>`) storing on destroy (default: `new Subject<boolean>()`).
+   * @zh 属性 `onDestroy$`（类型：`Subject<boolean>`），用于存储或配置当销毁（默认值：`new Subject<boolean>()`）。
    */
   private onDestroy$ = new Subject<boolean>();
 
@@ -94,7 +94,7 @@ export class CardViewDateItemComponent implements OnInit, OnDestroy {
    * Creates an instance of `CardViewDateItemComponent` and initializes its dependencies and internal state.
    * @zh 创建 `CardViewDateItemComponent` 实例，并初始化其依赖项与内部状态。
    * @param cardViewUpdateService - Injected or initial card view update service (`CardViewUpdateService`) / 注入或传入的卡片视图更新服务（`CardViewUpdateService`）
-   * @param dateAdapter - Injected or initial date adapter (`DateAdapter<Moment>`) / 注入或传入的日期适配器（`DateAdapter<Moment>`）
+   * @param dateAdapter - Injected or initial date adapter (`DateAdapter<moment.Moment, any>`) / 注入或传入的日期适配器（`DateAdapter<moment.Moment, any>`）
    * @param appConfig - Injected or initial app config (`ConfigService`) / 注入或传入的app配置（`ConfigService`）
    * @param clipboardService - Injected or initial clipboard service (`ClipboardService`) / 注入或传入的clipboard服务（`ClipboardService`）
    * @param translateService - Injected or initial translate service (`TranslationService`) / 注入或传入的翻译服务（`TranslationService`）

@@ -101,7 +101,7 @@ export class NotificationService {
    * @param message - message parameter (`string`) / 消息参数（`string`）
    * @param panelClass - panel class parameter (`string`) / 面板类名参数（`string`）
    * @param action - action parameter (`string`) / 动作参数（`string`）
-   * @returns Result of type `MatSnackBarRef<any>` / 类型为 `MatSnackBarRef<any>` 的返回值
+   * @returns Result of type `MatSnackBarRef<TextOnlySnackBar>` / 类型为 `MatSnackBarRef<TextOnlySnackBar>` 的返回值
    */
   protected showMessage(message: string, panelClass: string, action?: string) {
     let translateService: TranslateService=this.injector.get(TranslateService);

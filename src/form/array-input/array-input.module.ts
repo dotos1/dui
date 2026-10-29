@@ -51,8 +51,8 @@ import { CommonFieldModule } from '../field';
 })
 export class ArrayInputModule {
   /**
-   * Property `entryComponents` (`any[]`) storing entry components (default: `[ ArrayInputComponent]`).
-   * @zh 属性 `entryComponents`（类型：`any[]`），用于存储或配置条目组件列表（默认值：`[ ArrayInputComponent]`）。
+   * Property `entryComponents` (`(typeof ArrayInputComponent)[]`) storing entry components (default: `[ ArrayInputComponent]`).
+   * @zh 属性 `entryComponents`（类型：`(typeof ArrayInputComponent)[]`），用于存储或配置条目组件列表（默认值：`[ ArrayInputComponent]`）。
    */
   entryComponents = [
     ArrayInputComponent];

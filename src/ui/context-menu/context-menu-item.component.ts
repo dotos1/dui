@@ -82,9 +82,9 @@ export class ContextMenuItemComponent extends MenuBase implements OnInit,DoCheck
 
   /**
    * Executes `trackById` to handle track by id.
-   * @zh 执行 `trackById`，用于track按唯一标识。
+   * @zh 执行 `trackById`，用于跟踪按唯一标识。
    * @param _ - _ parameter (`number`) / _参数（`number`）
-   * @param obj - obj parameter (`{ id: string }`) / 对象参数（`{ id: string }`）
+   * @param obj - obj parameter (`{ id: string; }`) / 对象参数（`{ id: string; }`）
    */
   trackById(_: number, obj: { id: string }) {
     return obj.id;

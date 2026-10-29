@@ -47,7 +47,7 @@ export interface FieldConfig {
    * - `validation.messages`: A map of message names that will be displayed when the field has errors.
    * - `validation.show`: A boolean you as the developer can set to force displaying errors whatever the state of field. This is useful when you're trying to call the user's attention to some fields for some reason.
 
-   * @zh 属性 `validation`（类型：`{ messages?: { [messageProperties: string]: ValidationMessageOption['m...`），用于存储或配置校验。
+   * @zh 属性 `validation`（类型：`{…}`），用于存储或配置校验。
    */
   validation?: {
     messages?: {
@@ -97,14 +97,14 @@ export interface FieldConfig {
   /**
    * Conditionally hiding Field based on values from other Fields
 
-   * @zh 属性 `hideExpression`（类型：`boolean | string | ((model: any, formState: any, field?: FieldConfig)...`），用于存储或配置隐藏表达式。
+   * @zh 属性 `hideExpression`（类型：`any`），用于存储或配置隐藏表达式。
    */
   hideExpression?;
 
   /**
    * An object where the name is a property to be set on the main field config and the value is an expression used to assign that property.
 
-   * @zh 属性 `expressionProperties`（类型：`{ [property: string]: string | ((model: any, formState: any, field?: F...`），用于存储或配置表达式属性列表。
+   * @zh 属性 `expressionProperties`（类型：`{…}`），用于存储或配置表达式属性列表。
    */
   expressionProperties?: {
     [property: string]: string | ({ (model, formState, field?: FieldConfig) }) | Observable<unknown>;
@@ -150,7 +150,7 @@ export interface FieldConfig {
    * - `debounce`: integer value which contains the debounce model update value in milliseconds. A value of 0 triggers an immediate update.
    * - `updateOn`: string event value that instructs when the control should be updated
 
-   * @zh 属性 `modelOptions`（类型：`{ debounce?: { default: number; }; updateOn?: 'change' | 'blur' | 'sub...`），用于存储或配置模型配置选项。
+   * @zh 属性 `modelOptions`（类型：`{ debounce?: { default: number; }; updateOn?: "change" | "blur" | "submit"; }`），用于存储或配置模型配置选项。
    */
   modelOptions?: {
     debounce?: {
@@ -172,7 +172,7 @@ export interface FieldConfig {
   /**
    * Array of functions to execute, as a pipeline, whenever the model updates, usually via user input.
 
-   * @zh 属性 `parsers`（类型：`((value: any) => any)[]`），用于存储或配置解析器。
+   * @zh 属性 `parsers`（类型：`any`），用于存储或配置解析器。
    */
   parsers?;
 
@@ -200,7 +200,7 @@ export interface FieldConfig {
   /**
    * The parent form.
 
-   * @zh 属性 `form`（类型：`FormGroup | FormArray`），用于存储或配置表单。
+   * @zh 属性 `form`（类型：`FormGroup<any> | FormArray<any>`），用于存储或配置表单。
    */
   readonly form?: FormGroup | FormArray;
 
@@ -208,7 +208,7 @@ export interface FieldConfig {
    * This is the [FormControl](https://angular.io/api/forms/FormControl) for the field.
    * It provides you more control like running validators, calculating status, and resetting state.
 
-   * @zh 属性 `formControl`（类型：`AbstractControl`），用于存储或配置表单表单控件。
+   * @zh 属性 `formControl`（类型：`AbstractControl<any, any>`），用于存储或配置表单表单控件。
    */
   readonly formControl?: AbstractControl;
 
@@ -336,7 +336,7 @@ export interface FieldConfig {
    */
   step?: number;
   /**
-   * Property `attributes` (`{ [names: string]: string | number }`) storing attributes.
+   * Property `attributes` (`{ [names: string]: string | number; }`) storing attributes.
    * 扩展属性，用于上述未定义的个性化设置
 
    * @zh 扩展属性，用于上述未定义的个性化设置
@@ -466,8 +466,8 @@ export interface FieldConfig {
   objectValue?: boolean;
 
   /**
-   * Property `dataSource` (`{ url?: string; method?: string; pageble?: boolean; pageSize?: number;...`) storing data source.
-   * @zh 属性 `dataSource`（类型：`{ url?: string; method?: string; pageble?: boolean; pageSize?: number;...`），用于存储或配置数据源。
+   * Property `dataSource` (`{ url?: string; method?: string; pageble?: boolean; pageSize?: number; }`) storing data source.
+   * @zh 属性 `dataSource`（类型：`{ url?: string; method?: string; pageble?: boolean; pageSize?: number; }`），用于存储或配置数据源。
    */
   dataSource?: {
     url?: string;
@@ -588,8 +588,8 @@ export interface FormOptions {
    */
   detectChanges?: (field: FieldConfig) => void;
   /**
-   * Property `parentForm` (`FormGroupDirective | null`) storing parent form.
-   * @zh 属性 `parentForm`（类型：`FormGroupDirective | null`），用于存储或配置父级表单。
+   * Property `parentForm` (`FormGroupDirective`) storing parent form.
+   * @zh 属性 `parentForm`（类型：`FormGroupDirective`），用于存储或配置父级表单。
    */
   parentForm?: FormGroupDirective | null;
 }

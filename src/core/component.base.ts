@@ -5,7 +5,7 @@
 
 
 import { AfterContentChecked, AfterContentInit, AfterViewChecked, AfterViewInit, ChangeDetectorRef, ComponentRef, Directive, DoCheck, HostBinding, Input, OnChanges, OnDestroy, OnInit, SimpleChanges } from '@angular/core';
-import { Base } from '@dotos/dui/base';
+import { Base, DuiCompiledExpression, DuiConfig, DuiExpression, DuiListeners, DuiPluginConfig, DuiStyle } from '@dotos/dui/base';
 import {isFunction,isObjectLike,isString}  from 'lodash-es';
 import { Dui } from './dui';
 
@@ -13,6 +13,12 @@ import { Dui } from './dui';
  * Angular directive `ComponentBase` attaching component base behavior to host DOM elements.
  * @zh Angular 指令 `ComponentBase`，为宿主 DOM 元素附加组件基础行为。
  */
+/** 已实例化的插件：初始化时拿到宿主组件 */
+export interface DuiPlugin {
+  init(host: ComponentBase): void;
+  ptype?: string;
+}
+
 @Directive()
 export class ComponentBase extends Base<HTMLElement> implements OnInit,DoCheck, OnChanges,OnDestroy, AfterViewChecked, AfterViewInit, AfterContentInit, AfterContentChecked {
 
@@ -26,20 +32,23 @@ export class ComponentBase extends Base<HTMLElement> implements OnInit,DoCheck, 
    * Input property `ownerCt` (`any`) configuring owner ct.
    * @zh 输入属性 `ownerCt`（类型：`any`），用于配置所属者Ct。
    */
-  @Input() public ownerCt;
+  // 所属容器。应用会在容器链上挂任意业务字段（ownerCt.ownerCt.param、frameIndex……），
+  // 库里给不出静态形状，这里显式保留 any（G-ANY 计数在内）。
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  @Input() public ownerCt: any;
 
   /**
-   * Input property `disabled` (`any`) configuring disabled (default: `false`).
-   * @zh 输入属性 `disabled`（类型：`any`），用于配置已禁用（默认值：`false`）。
+   * Input property `disabled` (`boolean`) configuring disabled (default: `false`).
+   * @zh 输入属性 `disabled`（类型：`boolean`），用于配置已禁用（默认值：`false`）。
    */
   @Input()  public disabled = false;
 
 
   /**
-   * Property `id` (`any`) storing id.
-   * @zh 属性 `id`（类型：`any`），用于存储或配置唯一标识。
+   * Property `id` (`string`) storing id.
+   * @zh 属性 `id`（类型：`string`），用于存储或配置唯一标识。
    */
-  public id;
+  public id: string;
 
   /**
    * Property `xtype` (`string`) storing xtype (default: `'component'`).
@@ -61,10 +70,10 @@ export class ComponentBase extends Base<HTMLElement> implements OnInit,DoCheck, 
   public _hidden = false;
 
   /**
-   * Property `plugins` (`any`) storing plugins.
-   * @zh 属性 `plugins`（类型：`any`），用于存储或配置plugins。
+   * Property `plugins` (`DuiPluginConfig | DuiPluginConfig[] | DuiPlugin | DuiPlugin[]`) storing plugins.
+   * @zh 属性 `plugins`（类型：`DuiPluginConfig | DuiPluginConfig[] | DuiPlugin | DuiPlugin[]`），用于存储或配置plugins。
    */
-  public plugins;
+  public plugins: DuiPluginConfig | DuiPluginConfig[] | DuiPlugin | DuiPlugin[];
 
   /**
    * Property `inited` (`boolean`) storing inited (default: `false`).
@@ -79,41 +88,42 @@ export class ComponentBase extends Base<HTMLElement> implements OnInit,DoCheck, 
   public ref = '';
 
   /**
-   * Property `style` (`any`) storing style.
-   * @zh 属性 `style`（类型：`any`），用于存储或配置样式。
+   * Property `style` (`DuiStyle`) storing style.
+   * @zh 属性 `style`（类型：`DuiStyle`），用于存储或配置样式。
    */
-  public style;
+  public style: DuiStyle;
 
   /**
-   * Property `listeners` (`any`) storing listeners.
-   * @zh 属性 `listeners`（类型：`any`），用于存储或配置监听器列表。
+   * Property `listeners` (`DuiListeners`) storing listeners.
+   * @zh 属性 `listeners`（类型：`DuiListeners`），用于存储或配置监听器列表。
    */
-  protected listeners;
+  protected listeners: DuiListeners;
 
 
   /**
-   * Property `hideExpression` (`boolean | string | ((model: any, formState: any) => boolean)`) storing hide expression.
-   * @zh 属性 `hideExpression`（类型：`boolean | string | ((model: any, formState: any) => boolean)`），用于存储或配置隐藏表达式。
+   * Property `hideExpression` (`DuiExpression`) storing hide expression.
+   * @zh 属性 `hideExpression`（类型：`DuiExpression`），用于存储或配置隐藏表达式。
    */
-  hideExpression?;
+  hideExpression?: DuiExpression;
 
   /**
-   * Property `disableExpression` (`boolean | string | ((model: any, formState: any) => boolean)`) storing disable expression.
-   * @zh 属性 `disableExpression`（类型：`boolean | string | ((model: any, formState: any) => boolean)`），用于存储或配置禁用表达式。
+   * Property `disableExpression` (`DuiExpression`) storing disable expression.
+   * @zh 属性 `disableExpression`（类型：`DuiExpression`），用于存储或配置禁用表达式。
    */
-  disableExpression?;
+  disableExpression?: DuiExpression;
 
   /**
-   * Property `expressionProperties` (`{ [property: string]: string | ((model: any, formState: any) => boolea...`) storing expression properties.
-   * @zh 属性 `expressionProperties`（类型：`{ [property: string]: string | ((model: any, formState: any) => boolea...`），用于存储或配置表达式属性列表。
+   * Property `expressionProperties` (`{ [propertyPath: string]: DuiCompiledExpression; }`) storing expression properties.
+   * @zh 属性 `expressionProperties`（类型：`{ [propertyPath: string]: DuiCompiledExpression; }`），用于存储或配置表达式属性列表。
    */
-  expressionProperties?;
+  /** 初始化（initFieldExpression）后的表达式属性：每项都已编译 */
+  expressionProperties?: { [propertyPath: string]: DuiCompiledExpression };
 
   /**
    * Gets the current hidden (`hidden: any`).
    * @zh 获取当前隐藏（`hidden: any`）。
    */
-  get hidden() {
+  get hidden(): boolean {
     return this._hidden;
   }
   /**
@@ -249,14 +259,15 @@ export class ComponentBase extends Base<HTMLElement> implements OnInit,DoCheck, 
   /**
    * Executes `initFieldExpression` to handle init field expression.
    * @zh 执行 `initFieldExpression`，用于初始化字段表达式。
-   * @param config - config parameter (`any`) / 配置参数（`any`）
+   * @param config - config parameter (`DuiConfig`) / 配置参数（`DuiConfig`）
    */
-  public initFieldExpression(config) {
+  public initFieldExpression(config: DuiConfig): void {
     if (config.expressionProperties) {
       for (const key in config.expressionProperties) {
-        if (typeof config.expressionProperties[key] === 'string' || isFunction(config.expressionProperties[key])) {
+        const raw = config.expressionProperties[key];
+        if (typeof raw === 'string' || typeof raw === 'function') {
           config.expressionProperties[key] = {
-            expression: isFunction(config.expressionProperties[key]) ? config.expressionProperties[key] : Dui.evalStringExpression(config.expressionProperties[key], ['comp', 'owner']),
+            expression: typeof raw === 'function' ? raw : Dui.evalStringExpression(raw, ['comp', 'owner']),
             expressionValueSetter: Dui.evalExpressionValueSetter(key, ['expressionValue', 'comp', 'owner']),
           };
         }
@@ -357,9 +368,9 @@ export class ComponentBase extends Base<HTMLElement> implements OnInit,DoCheck, 
   /**
    * Executes `init` to handle init.
    * @zh 执行 `init`，用于初始化。
-   * @param config - config parameter (`any`) / 配置参数（`any`）
+   * @param config - config parameter (`DuiConfig`) / 配置参数（`DuiConfig`）
    */
-  init(config) {
+  init(config?: DuiConfig): void {
     config = config || {};
     this.initFieldExpression(config);
     Dui.apply(this, config);
@@ -375,7 +386,7 @@ export class ComponentBase extends Base<HTMLElement> implements OnInit,DoCheck, 
       }
     }
     if (this.inited) {
-      if (config.listeners && config.listeners.onInit != undefined) {
+      if (config.listeners && config.listeners['onInit'] != undefined) {
         this.trigger('onInit', this);
         this.trigger('afterViewInit', this);
         this.trigger('afterContentInit', this);
@@ -390,10 +401,9 @@ export class ComponentBase extends Base<HTMLElement> implements OnInit,DoCheck, 
    */
   initComponent() {
     if (this.listeners) {
-      let e, oe;
-      for (e in this.listeners) {
-        oe = this.listeners[e];
-        this.addEventListener(e, oe.fn || oe);
+      for (const e in this.listeners) {
+        const oe = this.listeners[e];
+        this.addEventListener(e, typeof oe === 'function' ? oe : oe.fn);
       }
       delete this.listeners;
     }
@@ -401,18 +411,19 @@ export class ComponentBase extends Base<HTMLElement> implements OnInit,DoCheck, 
   /**
    * Executes `initPlugin` to handle init plugin.
    * @zh 执行 `initPlugin`，用于初始化Plugin。
-   * @param p - p parameter (`any`) / p参数（`any`）
+   * @param p - p parameter (`DuiPluginConfig | DuiPlugin`) / p参数（`DuiPluginConfig | DuiPlugin`）
    */
-  initPlugin(p) {
-    if (p.ptype && !isFunction(p.init)) {
-      p = Dui.createPlugin(p);
+  initPlugin(p: DuiPluginConfig | DuiPlugin): DuiPlugin {
+    let plugin: DuiPlugin;
+    if (typeof p === 'string') {
+      plugin = Dui.createPlugin({ ptype: p });
+    } else if (p.ptype && !isFunction(p.init)) {
+      plugin = Dui.createPlugin(p);
     } else {
-      if (isString(p)) {
-        p = Dui.createPlugin({ ptype: p });
-      }
+      plugin = p as DuiPlugin;
     }
-    p.init(this);
-    return p;
+    plugin.init(this);
+    return plugin;
   }
   /**
    * Executes `on` to handle on.
@@ -426,7 +437,7 @@ export class ComponentBase extends Base<HTMLElement> implements OnInit,DoCheck, 
 
   /**
    * Executes `off` to handle off.
-   * @zh 执行 `off`，用于off。
+   * @zh 执行 `off`，用于取消监听。
    * @param eventName - event name parameter (`string`) / 事件名称参数（`string`）
    * @param handler - handler parameter (`Function`) / 处理器参数（`Function`）
    */
@@ -438,10 +449,10 @@ export class ComponentBase extends Base<HTMLElement> implements OnInit,DoCheck, 
   /**
    * Executes `onAdded` to handle on added.
    * @zh 执行 `onAdded`，用于当已添加。
-   * @param container - container parameter (`any`) / 容器参数（`any`）
-   * @param pos - pos parameter (`any`) / 位置参数（`any`）
+   * @param container - container parameter (`ComponentBase`) / 容器参数（`ComponentBase`）
+   * @param pos - pos parameter (`number`) / 位置参数（`number`）
    */
-  onAdded(container, pos) {
+  onAdded(container: ComponentBase, pos?: number): void {
     this.ownerCt = container;
   }
 
@@ -465,11 +476,18 @@ export class ComponentBase extends Base<HTMLElement> implements OnInit,DoCheck, 
   /**
    * Executes `isXType` to handle is x type.
    * @zh 执行 `isXType`，用于是否为X坐标类型。
-   * @param comp - comp parameter (`any`) / 组件参数（`any`）
+   * @param comp - comp parameter (`string | Function | { xtype?: string; }`) / 组件参数（`string | Function | { xtype?: string; }`）
    * @param shallow - shallow parameter (`boolean`) / shallow参数（`boolean`）
    */
-  isXType(comp, shallow: boolean) {
-    let xtype = typeof comp === 'string' ? comp : (isFunction(comp) ? comp['xtype'] : (isObjectLike(comp) ? (comp.xtype || comp.constructor?.xtype) : undefined));
+  isXType(comp: string | Function | { xtype?: string }, shallow: boolean): boolean {
+    type XTyped = { xtype?: string };
+    const xtype: string | undefined = typeof comp === 'string'
+      ? comp
+      : isFunction(comp)
+        ? (comp as XTyped).xtype
+        : isObjectLike(comp)
+          ? ((comp as XTyped).xtype || (comp.constructor as XTyped | undefined)?.xtype)
+          : undefined;
     return !shallow ? ('/' + this.getXTypes() + '/').indexOf('/' + xtype + '/') !== -1 : this.xtype === xtype;
   }
 
@@ -477,12 +495,12 @@ export class ComponentBase extends Base<HTMLElement> implements OnInit,DoCheck, 
    * Executes `getXTypes` to handle get x types.
    * @zh 执行 `getXTypes`，用于获取X坐标类型列表。
    */
-  getXTypes() {
-    const tc = this.constructor as Function & { xtypes?: string; xtype?: string; superclass?; xtypeChain?: string[] };
+  getXTypes(): string {
+    const tc = this.constructor as Function & { xtypes?: string; xtype?: string; superclass?: ComponentBase; xtypeChain?: string[] };
     if (!tc.xtypes) {
       const c = [];
       // eslint-disable-next-line @typescript-eslint/no-this-alias
-      let sc: { constructor: Function & { xtype?: string; superclass? } } = this as never;
+      let sc: { constructor: Function & { xtype?: string; superclass?: ComponentBase } } = this;
       while (sc && sc.constructor.xtype) {
         c.unshift(sc.constructor.xtype);
         sc = sc.constructor.superclass;
@@ -498,8 +516,8 @@ export class ComponentBase extends Base<HTMLElement> implements OnInit,DoCheck, 
    * @zh 执行 `findParentBy`，用于查找父级按。
    * @param fn - fn parameter (`Function`) / 函数参数（`Function`）
    */
-  findParentBy(fn: Function) {
-    let p;
+  findParentBy(fn: Function): ComponentBase | null {
+    let p: ComponentBase;
     for (p = this.ownerCt; (p != null) && !fn(p, this); p = p.ownerCt) { }
     return p || null;
   }
@@ -507,12 +525,12 @@ export class ComponentBase extends Base<HTMLElement> implements OnInit,DoCheck, 
   /**
    * Executes `findParentByType` to handle find parent by type.
    * @zh 执行 `findParentByType`，用于查找父级按类型。
-   * @param xtype - xtype parameter (`string | ComponentBase | Object`) / 扩展类型参数（`string | ComponentBase | Object`）
+   * @param xtype - xtype parameter (`string | Object | ComponentBase`) / 扩展类型参数（`string | Object | ComponentBase`）
    * @param shallow - shallow parameter (`boolean`) / shallow参数（`boolean`）
    */
-  findParentByType(xtype: string | ComponentBase | Object, shallow: boolean) {
+  findParentByType(xtype: string | ComponentBase | Object, shallow: boolean): ComponentBase | null {
     return this.findParentBy(
-      function (c) {
+      function (c: ComponentBase) {
         return c.isXType(xtype, shallow);
       });
   }
@@ -520,11 +538,11 @@ export class ComponentBase extends Base<HTMLElement> implements OnInit,DoCheck, 
   /**
    * Executes `nextSibling` to handle next sibling.
    * @zh 执行 `nextSibling`，用于下一个兄弟节点。
-   * @returns Result of type `any` / 类型为 `any` 的返回值
+   * @returns Result of type `ComponentBase` / 类型为 `ComponentBase` 的返回值
    */
-  nextSibling() {
+  nextSibling(): ComponentBase | null {
     if (this.ownerCt) {
-      const index = this.ownerCt.items.indexOf(this);
+      const index: number = this.ownerCt.items.indexOf(this);
       if (index !== -1 && index + 1 < this.ownerCt.items.getCount()) {
         return this.ownerCt.items.itemAt(index + 1);
       }
@@ -535,11 +553,11 @@ export class ComponentBase extends Base<HTMLElement> implements OnInit,DoCheck, 
   /**
    * Executes `previousSibling` to handle previous sibling.
    * @zh 执行 `previousSibling`，用于上一个兄弟节点。
-   * @returns Result of type `any` / 类型为 `any` 的返回值
+   * @returns Result of type `ComponentBase` / 类型为 `ComponentBase` 的返回值
    */
-  previousSibling() {
+  previousSibling(): ComponentBase | null {
     if (this.ownerCt) {
-      const index = this.ownerCt.items.indexOf(this);
+      const index: number = this.ownerCt.items.indexOf(this);
       if (index > 0) {
         return this.ownerCt.items.itemAt(index - 1);
       }

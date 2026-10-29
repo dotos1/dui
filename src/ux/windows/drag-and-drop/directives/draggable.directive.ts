@@ -134,8 +134,8 @@ export class DraggableDirective implements OnChanges, AfterViewInit, OnDestroy {
      */
     private _config = new ɵDraggerConfigModel();
     /**
-     * Property `_whenViewInit$` (`ReplaySubject`) storing when view init (default: `new ReplaySubject()`).
-     * @zh 属性 `_whenViewInit$`（类型：`ReplaySubject`），用于存储或配置when视图初始化（默认值：`new ReplaySubject()`）。
+     * Property `_whenViewInit$` (`ReplaySubject<unknown>`) storing when view init (default: `new ReplaySubject()`).
+     * @zh 属性 `_whenViewInit$`（类型：`ReplaySubject<unknown>`），用于存储或配置when视图初始化（默认值：`new ReplaySubject()`）。
      */
     private _whenViewInit$ = new ReplaySubject();
 
@@ -257,8 +257,8 @@ export class DraggableDirective implements OnChanges, AfterViewInit, OnDestroy {
     }
 
     /**
-     * Property `onPointerDown` (`any`) storing on pointer down.
-     * @zh 属性 `onPointerDown`（类型：`any`），用于存储或配置当指针向下。
+     * Property `onPointerDown` (`(event: any) => void`) storing on pointer down.
+     * @zh 属性 `onPointerDown`（类型：`(event: any) => void`），用于存储或配置当指针向下。
      */
     private readonly onPointerDown = (event): void => {
         if (!this.isDragAllowed(event)) {
@@ -278,8 +278,8 @@ export class DraggableDirective implements OnChanges, AfterViewInit, OnDestroy {
     };
 
     /**
-     * Property `onPointerMove` (`any`) storing on pointer move.
-     * @zh 属性 `onPointerMove`（类型：`any`），用于存储或配置当指针移动。
+     * Property `onPointerMove` (`(event: any) => void`) storing on pointer move.
+     * @zh 属性 `onPointerMove`（类型：`(event: any) => void`），用于存储或配置当指针移动。
      */
     private readonly onPointerMove = (event): void => {
         const dragInfo = this.getDragInfo(event);
@@ -296,8 +296,8 @@ export class DraggableDirective implements OnChanges, AfterViewInit, OnDestroy {
     };
 
     /**
-     * Property `onPointerUp` (`any`) storing on pointer up.
-     * @zh 属性 `onPointerUp`（类型：`any`），用于存储或配置当指针向上。
+     * Property `onPointerUp` (`(event: any) => void`) storing on pointer up.
+     * @zh 属性 `onPointerUp`（类型：`(event: any) => void`），用于存储或配置当指针向上。
      */
     private readonly onPointerUp = (event): void => {
         event.preventDefault();

@@ -25,28 +25,28 @@ export class ToastRef<T> {
   private duplicatesCount = 0;
 
   /**
-   * Property `_afterClosed` (`Subject`) storing after closed (default: `new Subject<void>()`).
-   * @zh 属性 `_afterClosed`（类型：`Subject`），用于存储或配置之后是否关闭（默认值：`new Subject<void>()`）。
+   * Property `_afterClosed` (`Subject<void>`) storing after closed (default: `new Subject<void>()`).
+   * @zh 属性 `_afterClosed`（类型：`Subject<void>`），用于存储或配置之后是否关闭（默认值：`new Subject<void>()`）。
    */
   private _afterClosed = new Subject<void>();
   /**
-   * Property `_activate` (`Subject`) storing activate (default: `new Subject<void>()`).
-   * @zh 属性 `_activate`（类型：`Subject`），用于存储或配置激活（默认值：`new Subject<void>()`）。
+   * Property `_activate` (`Subject<void>`) storing activate (default: `new Subject<void>()`).
+   * @zh 属性 `_activate`（类型：`Subject<void>`），用于存储或配置激活（默认值：`new Subject<void>()`）。
    */
   private _activate = new Subject<void>();
   /**
-   * Property `_manualClose` (`Subject`) storing manual close (default: `new Subject<void>()`).
-   * @zh 属性 `_manualClose`（类型：`Subject`），用于存储或配置手动关闭（默认值：`new Subject<void>()`）。
+   * Property `_manualClose` (`Subject<void>`) storing manual close (default: `new Subject<void>()`).
+   * @zh 属性 `_manualClose`（类型：`Subject<void>`），用于存储或配置手动关闭（默认值：`new Subject<void>()`）。
    */
   private _manualClose = new Subject<void>();
   /**
-   * Property `_resetTimeout` (`Subject`) storing reset timeout (default: `new Subject<void>()`).
-   * @zh 属性 `_resetTimeout`（类型：`Subject`），用于存储或配置重置延时器（默认值：`new Subject<void>()`）。
+   * Property `_resetTimeout` (`Subject<void>`) storing reset timeout (default: `new Subject<void>()`).
+   * @zh 属性 `_resetTimeout`（类型：`Subject<void>`），用于存储或配置重置延时器（默认值：`new Subject<void>()`）。
    */
   private _resetTimeout = new Subject<void>();
   /**
-   * Property `_countDuplicate` (`Subject`) storing count duplicate (default: `new Subject<number>()`).
-   * @zh 属性 `_countDuplicate`（类型：`Subject`），用于存储或配置计数Duplicate（默认值：`new Subject<number>()`）。
+   * Property `_countDuplicate` (`Subject<number>`) storing count duplicate (default: `new Subject<number>()`).
+   * @zh 属性 `_countDuplicate`（类型：`Subject<number>`），用于存储或配置计数Duplicate（默认值：`new Subject<number>()`）。
    */
   private _countDuplicate = new Subject<number>();
 
@@ -69,7 +69,7 @@ export class ToastRef<T> {
   /**
    * Executes `manualClosed` to handle manual closed.
    * @zh 执行 `manualClosed`，用于手动是否关闭。
-   * @returns Result of type `Observable<any>` / 类型为 `Observable<any>` 的返回值
+   * @returns Result of type `Observable<void>` / 类型为 `Observable<void>` 的返回值
    */
   manualClosed() {
     return this._manualClose.asObservable();
@@ -78,7 +78,7 @@ export class ToastRef<T> {
   /**
    * Executes `timeoutReset` to handle timeout reset.
    * @zh 执行 `timeoutReset`，用于延时器重置。
-   * @returns Result of type `Observable<any>` / 类型为 `Observable<any>` 的返回值
+   * @returns Result of type `Observable<void>` / 类型为 `Observable<void>` 的返回值
    */
   timeoutReset() {
     return this._resetTimeout.asObservable();
@@ -111,7 +111,7 @@ export class ToastRef<T> {
   /**
    * Executes `afterClosed` to handle after closed.
    * @zh 执行 `afterClosed`，用于之后是否关闭。
-   * @returns Result of type `Observable<any>` / 类型为 `Observable<any>` 的返回值
+   * @returns Result of type `Observable<void>` / 类型为 `Observable<void>` 的返回值
    */
   afterClosed() {
     return this._afterClosed.asObservable();

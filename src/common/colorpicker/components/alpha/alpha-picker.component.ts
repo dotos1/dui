@@ -60,13 +60,13 @@ export class AlphaPickerComponent extends ColorWrap implements OnChanges {
   @Input() height: string | number = 16;
 
   /**
-   * Input property `direction` (`'horizontal' | 'vertical'`) configuring direction (default: `'horizontal'`).
+   * Input property `direction` (`"horizontal" | "vertical"`) configuring direction (default: `'horizontal'`).
    * @zh 滑动条方向：水平或垂直。
    * @zh 滑动条方向：水平或垂直。
    */
   @Input() direction: 'horizontal' | 'vertical' = 'horizontal';
   /**
-   * Property `pointer` (`{ [key: string]: string }`) storing pointer.
+   * Property `pointer` (`{ [key: string]: string; }`) storing pointer.
    * @zh 滑块手柄的内联样式。
    * @zh 滑块手柄的内联样式。
    */

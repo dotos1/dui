@@ -47,7 +47,7 @@ import { fromEvent, Subscription } from 'rxjs';
  */
 export class EditableInputComponent implements OnInit, OnChanges, OnDestroy {
   /**
-   * Input property `style` (`{ wrap?: { [key: string]: string }; input: { [key: string]: string };...`) configuring style.
+   * Input property `style` (`{…}`) configuring style.
    * @zh 包裹层/输入框/标签各自的内联样式。
    * @zh 包裹层/输入框/标签各自的内联样式。
    */
@@ -93,7 +93,7 @@ export class EditableInputComponent implements OnInit, OnChanges, OnDestroy {
    */
   @Input() placeholder = '';
   /**
-   * Output event emitter `onChange` (`EventEmitter`) firing when on change occurs.
+   * Output event emitter `onChange` (`EventEmitter<any>`) firing when on change occurs.
    * @zh 字段值变化时发出。
    * @zh 字段值变化时发出。
    */
@@ -111,19 +111,19 @@ export class EditableInputComponent implements OnInit, OnChanges, OnDestroy {
    */
   blurValue: string;
   /**
-   * Property `wrapStyle` (`{ [key: string]: string }`) storing wrap style.
+   * Property `wrapStyle` (`{ [key: string]: string; }`) storing wrap style.
    * @zh 包裹层的内联样式。
    * @zh 包裹层的内联样式。
    */
   wrapStyle: { [key: string]: string };
   /**
-   * Property `inputStyle` (`{ [key: string]: string }`) storing input style.
+   * Property `inputStyle` (`{ [key: string]: string; }`) storing input style.
    * @zh 输入框的内联样式。
    * @zh 输入框的内联样式。
    */
   inputStyle: { [key: string]: string };
   /**
-   * Property `labelStyle` (`{ [key: string]: string }`) storing label style.
+   * Property `labelStyle` (`{ [key: string]: string; }`) storing label style.
    * @zh 标签的内联样式。
    * @zh 标签的内联样式。
    */

@@ -76,7 +76,7 @@ export class SvgPolylineDirective implements AfterViewChecked, OnChanges, OnDest
    * Creates an instance of `SvgPolylineDirective` and initializes its dependencies and internal state.
    * @zh 创建 `SvgPolylineDirective` 实例，并初始化其依赖项与内部状态。
    * @param _svgContainer - Injected or initial svg container (`SvgContainerComponent`) / 注入或传入的SVG矢量图容器（`SvgContainerComponent`）
-   * @param _elRef - Injected or initial el ref (`ElementRef`) / 注入或传入的DOM元素引用（`ElementRef`）
+   * @param _elRef - Injected or initial el ref (`ElementRef<any>`) / 注入或传入的DOM元素引用（`ElementRef<any>`）
    */
   constructor(
     private _svgContainer: SvgContainerComponent,

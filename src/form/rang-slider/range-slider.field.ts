@@ -26,7 +26,7 @@ import { Subject, takeUntil, merge  } from 'rxjs';
 })
 export class RangeSliderFieldComponent extends MatField {
   /**
-   * Template/content query reference `rangeSlider` (`@ViewChild`) targeting range slider.
+   * Template/content query reference `rangeSlider` (`MatSliderRangeThumb`) targeting range slider.
    * @zh 模板/内容视图查询引用 `rangeSlider`（`@ViewChild`），指向范围滑块。
    */
   @ViewChild(forwardRef(() => MatSliderRangeThumb ),{static: true})
@@ -34,19 +34,19 @@ export class RangeSliderFieldComponent extends MatField {
 
 
   /**
-   * Property `startCtrl` (`FormControl`) storing start ctrl (default: `new FormControl(20)`).
-   * @zh 属性 `startCtrl`（类型：`FormControl`），用于存储或配置开始Ctrl（默认值：`new FormControl(20)`）。
+   * Property `startCtrl` (`FormControl<number>`) storing start ctrl (default: `new FormControl(20)`).
+   * @zh 属性 `startCtrl`（类型：`FormControl<number>`），用于存储或配置开始Ctrl（默认值：`new FormControl(20)`）。
    */
   startCtrl = new FormControl(20);
   /**
-   * Property `endCtrl` (`FormControl`) storing end ctrl (default: `new FormControl(80)`).
-   * @zh 属性 `endCtrl`（类型：`FormControl`），用于存储或配置结束Ctrl（默认值：`new FormControl(80)`）。
+   * Property `endCtrl` (`FormControl<number>`) storing end ctrl (default: `new FormControl(80)`).
+   * @zh 属性 `endCtrl`（类型：`FormControl<number>`），用于存储或配置结束Ctrl（默认值：`new FormControl(80)`）。
    */
   endCtrl = new FormControl(80);
 
   /**
-   * Property `destroy$` (`Subject`) storing destroy (default: `new Subject<void>()`).
-   * @zh 属性 `destroy$`（类型：`Subject`），用于存储或配置销毁（默认值：`new Subject<void>()`）。
+   * Property `destroy$` (`Subject<void>`) storing destroy (default: `new Subject<void>()`).
+   * @zh 属性 `destroy$`（类型：`Subject<void>`），用于存储或配置销毁（默认值：`new Subject<void>()`）。
    */
   private destroy$ = new Subject<void>();
 
@@ -89,8 +89,8 @@ export class RangeSliderFieldComponent extends MatField {
   }
 
   /**
-   * Property `defaultOptions` (`any`) storing default options.
-   * @zh 属性 `defaultOptions`（类型：`any`），用于存储或配置默认配置选项。
+   * Property `defaultOptions` (`{ hideFieldUnderline: boolean; floatLabel: string; }`) storing default options.
+   * @zh 属性 `defaultOptions`（类型：`{ hideFieldUnderline: boolean; floatLabel: string; }`），用于存储或配置默认配置选项。
    */
   override defaultOptions = {
     hideFieldUnderline: true,

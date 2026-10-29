@@ -129,9 +129,9 @@
       }
     },
     "TRASHCAN": {
-      "TITLE": "Recycle bin",
+      "TITLE": "Tempat sampah",
       "SIDENAV_LINK": {
-        "LABEL": "Recycle bin",
+        "LABEL": "Tempat sampah",
         "TOOLTIP": "Lihat file yang dihapus di Sampah"
       },
       "EMPTY_STATE": {
@@ -259,7 +259,7 @@
   },
   "FOLDER_DIALOG": {
     "CREATE_FOLDER_TITLE": "Folder baru",
-    "EDIT_FOLDER_TITLE": "Edit folder",
+    "EDIT_FOLDER_TITLE": "Ubah folder",
     "EDIT_FILE_TITLE": "Edit nama file",
     "FOLDER_NAME": {
       "LABEL": "Nama",
@@ -333,7 +333,7 @@
       "MODIFIED_DATE": "Tanggal diubah"
     },
     "ACTIONS": {
-      "EDIT": "Edit",
+      "EDIT": "Ubah",
       "SAVE": "Simpan",
       "CANCEL": "Batal",
       "TOGGLE": "Alihkan nilai",
@@ -386,12 +386,12 @@
         "JOB_TITLE": "Jabatan"
       },
       "BPM": {
-        "TENANT": "Tenant"
+        "TENANT": "Penyewa"
       }
     },
     "TAB": {
-      "CS": "Content Services",
-      "PS": "Process Services"
+      "CS": "Layanan Konten",
+      "PS": "Layanan Proses"
     }
   },
   "ERROR_CONTENT": {
@@ -491,7 +491,7 @@
   "NO_PERMISSION": "Anda tidak memiliki izin untuk melihat file atau folder ini.",
   "LAYOUT": {
     "CREATED": "Dibuat",
-    "THUMBNAIL": "Thumbnail",
+    "THUMBNAIL": "Gambar mini",
     "NAME": "Nama",
     "LOCATION": "Lokasi",
     "SIZE": "Ukuran",
@@ -565,7 +565,7 @@
     },
     "FAIL": {
       "NODE": {
-        "NO_PERMISSION": "You do not have permission to perform this operation"
+        "NO_PERMISSION": "Anda tidak memiliki izin untuk melakukan operasi ini"
       }
     }
   },
@@ -637,15 +637,15 @@
     "ARIA-LABEL": {
       "ERROR": "Kesalahan Unggah",
       "VERSION": "Versi file",
-      "CANCEL_ALL": "Cancel all uploads",
-      "CANCEL_FILE": "Cancel file upload",
-      "CANCEL_FILE_UPLOAD": "Cancel uploading this file",
+      "CANCEL_ALL": "Batalkan semua unggahan",
+      "CANCEL_FILE": "Batalkan unggahan file",
+      "CANCEL_FILE_UPLOAD": "Batalkan unggahan file ini",
       "CONFIRMATION": {
-        "CANCEL": "Confirm cancel upload",
-        "CONTINUE": "Continue upload"
+        "CANCEL": "Konfirmasi pembatalan unggahan",
+        "CONTINUE": "Lanjutkan unggahan"
       },
-      "DIALOG": "File upload dialog",
-      "DIALOG_CLOSE": "Close upload dialog",
+      "DIALOG": "Dialog unggah file",
+      "DIALOG_CLOSE": "Tutup dialog unggah",
       "REMOVE_FILE": "Hapus file yang diunggah",
       "UPLOAD_FILE_ERROR": "Kesalahan Unggah File"
     }
@@ -930,7 +930,7 @@
     },
     "ACTIONS": {
       "VIEW": "Lihat",
-      "EDIT": "Edit",
+      "EDIT": "Ubah",
       "DOWNLOAD": "Unduh",
       "COPY": "Salin",
       "MOVE": "Pindahkan",
@@ -944,7 +944,7 @@
       "ADD_FAVORITE": "Tambah Favorit",
       "REMOVE_FAVORITE": "Hapus Favorit",
       "UNSHARE": "Batalkan Berbagi",
-      "DETAILS": "Info",
+      "DETAILS": "Detail",
       "VERSIONS": "Kelola Versi",
       "UPLOAD_VIEW_FILE": "Unggah File untuk Dilihat",
       "UPLOAD_VERSION": "Unggah Versi Baru",
@@ -956,7 +956,7 @@
       "JOIN": "Gabung",
       "CANCEL_JOIN": "Batalkan Permintaan Bergabung",
       "LEAVE": "Keluar dari Pustaka",
-      "EDIT_OFFLINE": "Edit Offline",
+      "EDIT_OFFLINE": "Ubah secara luring",
       "EDIT_OFFLINE_CANCEL": "Batalkan pengeditan"
     },
     "DIALOGS": {
@@ -1280,7 +1280,7 @@
       "CREATE_TITLE": "Buat Pustaka",
       "CREATE": "Buat",
       "UPDATE": "Perbarui",
-      "EDIT": "Edit",
+      "EDIT": "Ubah",
       "CANCEL": "Batal",
       "FORM": {
         "DESCRIPTION": "Deskripsi",
@@ -1335,16 +1335,16 @@
       "NONE": "Tidak ada"
     },
     "FILE_DIALOG": {
-      "ALLOW_OTHERS_CHECKBOX": "Allow other users to modify this file",
+      "ALLOW_OTHERS_CHECKBOX": "Izinkan pengguna lain mengubah file ini",
       "CANCEL_BUTTON": {
         "LABEL": "Batal"
       },
       "FILE_LOCK": "Kunci file",
-      "FILE_LOCK_CHECKBOX": "Lock this file to prevent others from editing",
+      "FILE_LOCK_CHECKBOX": "Kunci file ini agar orang lain tidak dapat mengeditnya",
       "SAVE_BUTTON": {
         "LABEL": "Simpan"
       },
-      "TIME_LOCK_CHECKBOX": "Set lock expiration time"
+      "TIME_LOCK_CHECKBOX": "Atur waktu kedaluwarsa kunci"
     }
   },
   "VIEWER": {
@@ -1356,7 +1356,7 @@
       "PRINT": "Cetak",
       "SHARE": "Bagikan",
       "MORE_ACTIONS": "Operasi lainnya",
-      "INFO": "Info",
+      "INFO": "Detail",
       "FULLSCREEN": "Aktifkan mode layar penuh",
       "CLOSE": "Tutup",
       "NEXT_FILE": "File Berikutnya",
@@ -1429,7 +1429,7 @@
     }
   },
   "ACTIONS": {
-    "EDIT": "Edit"
+    "EDIT": "Ubah"
   },
   "HEADER": {
     "LOGO_ARIA": "Logo Perusahaan"

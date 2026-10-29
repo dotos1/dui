@@ -88,8 +88,8 @@ const DIALOGS_ENTRY_COMPONENTS = [
 })
 export class DialogsModule {
   /**
-   * Property `entryComponents` (`any`) storing entry components (default: `DIALOGS_ENTRY_COMPONENTS`).
-   * @zh 属性 `entryComponents`（类型：`any`），用于存储或配置条目组件列表（默认值：`DIALOGS_ENTRY_COMPONENTS`）。
+   * Property `entryComponents` (`(typeof AlertDialogComponent | typeof ConfirmDialogComponent | typeof PromptDialogComponent)[]`) storing entry components (default: `DIALOGS_ENTRY_COMPONENTS`).
+   * @zh 属性 `entryComponents`（类型：`(typeof AlertDialogComponent | typeof ConfirmDialogComponent | typeof PromptDialogComponent)[]`），用于存储或配置条目组件列表（默认值：`DIALOGS_ENTRY_COMPONENTS`）。
    */
   entryComponents = DIALOGS_ENTRY_COMPONENTS;
   /**

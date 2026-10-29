@@ -17,8 +17,8 @@ export class TransitionIndicator {
      */
     private _element: HTMLElement;
     /**
-     * Property `_toElement` (`HTMLElement | null`) storing to element.
-     * @zh 属性 `_toElement`（类型：`HTMLElement | null`），用于存储或配置转换为元素。
+     * Property `_toElement` (`HTMLElement`) storing to element.
+     * @zh 属性 `_toElement`（类型：`HTMLElement`），用于存储或配置转换为元素。
      */
     private _toElement: HTMLElement | null;
     /**
@@ -32,8 +32,8 @@ export class TransitionIndicator {
      */
     private _totalAnimationDuration: number;
     /**
-     * Property `_animationStartTime` (`number | null`) storing animation start time.
-     * @zh 属性 `_animationStartTime`（类型：`number | null`），用于存储或配置动画开始时间。
+     * Property `_animationStartTime` (`number`) storing animation start time.
+     * @zh 属性 `_animationStartTime`（类型：`number`），用于存储或配置动画开始时间。
      */
     private _animationStartTime: number | null;
 

@@ -5,7 +5,7 @@
 
 /**
  * Executes `compileToJSON` to handle compile to json.
- * @zh 执行 `compileToJSON`，用于compile转换为JSON。
+ * @zh 执行 `compileToJSON`，用于编译转换为JSON。
  * @param json - json parameter (`any`) / JSON参数（`any`）
  */
 export function compileToJSON(json) {

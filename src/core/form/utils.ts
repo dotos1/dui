@@ -24,7 +24,7 @@ function isUnsafeKey(key): boolean {
  * @zh 执行 `getFieldId`，用于获取字段唯一标识。
  * @param formId - form id parameter (`string`) / 表单唯一标识参数（`string`）
  * @param field - field parameter (`FieldConfig`) / 字段参数（`FieldConfig`）
- * @param index - index parameter (`string|number`) / 索引参数（`string|number`）
+ * @param index - index parameter (`string | number`) / 索引参数（`string | number`）
  */
 export function getFieldId(formId: string, field: FieldConfig, index: string|number) {
   if (field.id) {
@@ -128,7 +128,7 @@ export function assignModelValue(model, paths: string[], value) {
 /**
  * Executes `getKeyPath2` to handle get key path2.
  * @zh 执行 `getKeyPath2`，用于获取键Path2。
- * @param field - field parameter (`{ name?: string | string[], fieldGroup?: any, fieldArray?: a...`) / 字段参数（`{ name?: string | string[], fieldGroup?: any, fieldArray?: a...`）
+ * @param field - field parameter (`{ name?: string | string[]; fieldGroup?: any; fieldArray?: any; }`) / 字段参数（`{ name?: string | string[]; fieldGroup?: any; fieldArray?: any; }`）
  * @returns Result of type `(string | number)[]` / 类型为 `(string | number)[]` 的返回值
  */
 export function getKeyPath2(field: { name?:  string  | string[], fieldGroup?, fieldArray? }): (string | number)[] {
@@ -337,7 +337,7 @@ export function isObject(x) {
  * Executes `isPromise` to handle is promise.
  * @zh 执行 `isPromise`，用于是否为Promise。
  * @param obj - obj parameter (`any`) / 对象参数（`any`）
- * @returns Result of type `obj is Promise<any>` / 类型为 `obj is Promise<any>` 的返回值
+ * @returns Result of type `boolean` / 类型为 `boolean` 的返回值
  */
 export function isPromise(obj) {
   return !!obj && typeof obj.then === 'function';
@@ -398,7 +398,7 @@ export function clone(value) {
 
 /**
  * Executes `defineHiddenProp` to handle define hidden prop.
- * @zh 执行 `defineHiddenProp`，用于define隐藏属性。
+ * @zh 执行 `defineHiddenProp`，用于定义隐藏属性。
  * @param field - field parameter (`any`) / 字段参数（`any`）
  * @param prop - prop parameter (`string`) / 属性参数（`string`）
  * @param defaultValue - default value parameter (`any`) / 默认值参数（`any`）
@@ -486,8 +486,8 @@ export function observeDeep({ source, paths, target, setFn }) {
 
 /**
  * Executes `observe` to handle observe.
- * @zh 执行 `observe`，用于observe。
- * @param o - o parameter (`IObserveTarget<T>`) / o参数（`IObserveTarget<T>`）
+ * @zh 执行 `observe`，用于观察。
+ * @param o - o parameter (`any`) / o参数（`any`）
  * @param paths - paths parameter (`string[]`) / 路径参数（`string[]`）
  * @param setFn - set fn parameter (`IObserveFn<T>`) / 集合函数参数（`IObserveFn<T>`）
  * @returns Result of type `IObserver<T>` / 类型为 `IObserver<T>` 的返回值

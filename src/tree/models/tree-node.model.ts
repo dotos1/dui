@@ -405,7 +405,7 @@ export class TreeNode implements ITreeNode {
    * Executes `_findAdjacentSibling` to handle find adjacent sibling.
    * @zh 执行 `_findAdjacentSibling`，用于查找Adjacent兄弟节点。
    * @param steps - steps parameter (`any`) / 步骤参数（`any`）
-   * @param skipHidden - skip hidden parameter (`any`) / skip隐藏参数（`any`）
+   * @param skipHidden - skip hidden parameter (`boolean`) / skip隐藏参数（`boolean`）
    */
   _findAdjacentSibling(steps, skipHidden = false) {
     const siblings = this._getParentsChildren(skipHidden);
@@ -416,7 +416,7 @@ export class TreeNode implements ITreeNode {
   /**
    * Executes `findNextSibling` to handle find next sibling.
    * @zh 执行 `findNextSibling`，用于查找下一个兄弟节点。
-   * @param skipHidden - skip hidden parameter (`any`) / skip隐藏参数（`any`）
+   * @param skipHidden - skip hidden parameter (`boolean`) / skip隐藏参数（`boolean`）
    */
   findNextSibling(skipHidden = false) {
     return this._findAdjacentSibling(+1, skipHidden);
@@ -425,7 +425,7 @@ export class TreeNode implements ITreeNode {
   /**
    * Executes `findPreviousSibling` to handle find previous sibling.
    * @zh 执行 `findPreviousSibling`，用于查找上一个兄弟节点。
-   * @param skipHidden - skip hidden parameter (`any`) / skip隐藏参数（`any`）
+   * @param skipHidden - skip hidden parameter (`boolean`) / skip隐藏参数（`boolean`）
    */
   findPreviousSibling(skipHidden = false) {
     return this._findAdjacentSibling(-1, skipHidden);
@@ -469,7 +469,7 @@ export class TreeNode implements ITreeNode {
   /**
    * Executes `getFirstChild` to handle get first child.
    * @zh 执行 `getFirstChild`，用于获取首个子级。
-   * @param skipHidden - skip hidden parameter (`any`) / skip隐藏参数（`any`）
+   * @param skipHidden - skip hidden parameter (`boolean`) / skip隐藏参数（`boolean`）
    */
   getFirstChild(skipHidden = false) {
     const children = skipHidden ? this.visibleChildren : this.children;
@@ -479,7 +479,7 @@ export class TreeNode implements ITreeNode {
   /**
    * Executes `getLastChild` to handle get last child.
    * @zh 执行 `getLastChild`，用于获取末尾子级。
-   * @param skipHidden - skip hidden parameter (`any`) / skip隐藏参数（`any`）
+   * @param skipHidden - skip hidden parameter (`boolean`) / skip隐藏参数（`boolean`）
    */
   getLastChild(skipHidden = false) {
     const children = skipHidden ? this.visibleChildren : this.children;
@@ -489,8 +489,8 @@ export class TreeNode implements ITreeNode {
   /**
    * Executes `findNextNode` to handle find next node.
    * @zh 执行 `findNextNode`，用于查找下一个节点。
-   * @param goInside - go inside parameter (`any`) / go内部参数（`any`）
-   * @param skipHidden - skip hidden parameter (`any`) / skip隐藏参数（`any`）
+   * @param goInside - go inside parameter (`boolean`) / go内部参数（`boolean`）
+   * @param skipHidden - skip hidden parameter (`boolean`) / skip隐藏参数（`boolean`）
    */
   findNextNode(goInside = true, skipHidden = false) {
     return goInside && this.isExpanded && this.getFirstChild(skipHidden) ||
@@ -501,7 +501,7 @@ export class TreeNode implements ITreeNode {
   /**
    * Executes `findPreviousNode` to handle find previous node.
    * @zh 执行 `findPreviousNode`，用于查找上一个节点。
-   * @param skipHidden - skip hidden parameter (`any`) / skip隐藏参数（`any`）
+   * @param skipHidden - skip hidden parameter (`boolean`) / skip隐藏参数（`boolean`）
    */
   findPreviousNode(skipHidden = false) {
     const previousSibling = this.findPreviousSibling(skipHidden);
@@ -514,7 +514,7 @@ export class TreeNode implements ITreeNode {
   /**
    * Executes `_getLastOpenDescendant` to handle get last open descendant.
    * @zh 执行 `_getLastOpenDescendant`，用于获取末尾打开后代节点。
-   * @param skipHidden - skip hidden parameter (`any`) / skip隐藏参数（`any`）
+   * @param skipHidden - skip hidden parameter (`boolean`) / skip隐藏参数（`boolean`）
    */
   _getLastOpenDescendant(skipHidden = false) {
     const lastChild = this.getLastChild(skipHidden);
@@ -526,8 +526,8 @@ export class TreeNode implements ITreeNode {
   /**
    * Executes `_getParentsChildren` to handle get parents children.
    * @zh 执行 `_getParentsChildren`，用于获取父级子级列表。
-   * @param skipHidden - skip hidden parameter (`any`) / skip隐藏参数（`any`）
-   * @returns Result of type `any[]` / 类型为 `any[]` 的返回值
+   * @param skipHidden - skip hidden parameter (`boolean`) / skip隐藏参数（`boolean`）
+   * @returns Result of type `TreeNode[]` / 类型为 `TreeNode[]` 的返回值
    */
   private _getParentsChildren(skipHidden = false) {
     const children = this.parent &&
@@ -581,7 +581,7 @@ export class TreeNode implements ITreeNode {
   /**
    * Executes `getIndexInParent` to handle get index in parent.
    * @zh 执行 `getIndexInParent`，用于获取索引在父级。
-   * @param skipHidden - skip hidden parameter (`any`) / skip隐藏参数（`any`）
+   * @param skipHidden - skip hidden parameter (`boolean`) / skip隐藏参数（`boolean`）
    */
   getIndexInParent(skipHidden = false) {
     return this._getParentsChildren(skipHidden).indexOf(this);
@@ -629,16 +629,16 @@ export class TreeNode implements ITreeNode {
   }
 
   /**
-   * Property `allowDrop` (`any`) storing allow drop.
-   * @zh 属性 `allowDrop`（类型：`any`），用于存储或配置允许放置。
+   * Property `allowDrop` (`(element: any, $event?: any) => boolean`) storing allow drop.
+   * @zh 属性 `allowDrop`（类型：`(element: any, $event?: any) => boolean`），用于存储或配置允许放置。
    */
   allowDrop = (element, $event?) => {
     return this.options.allowDrop(element, { parent: this, index: 0 }, $event);
   }
 
   /**
-   * Property `allowDragoverStyling` (`any`) storing allow dragover styling.
-   * @zh 属性 `allowDragoverStyling`（类型：`any`），用于存储或配置允许Dragover样式。
+   * Property `allowDragoverStyling` (`() => boolean`) storing allow dragover styling.
+   * @zh 属性 `allowDragoverStyling`（类型：`() => boolean`），用于存储或配置允许Dragover样式。
    */
   allowDragoverStyling = () => {
     return this.options.allowDragoverStyling;
@@ -708,7 +708,7 @@ export class TreeNode implements ITreeNode {
   /**
    * Executes `expand` to handle expand.
    * @zh 执行 `expand`，用于展开。
-   * @param silent - silent parameter (`any`) / silent参数（`any`）
+   * @param silent - silent parameter (`boolean`) / silent参数（`boolean`）
    */
   expand(silent = false) {
     if (!this.isExpanded) {
@@ -720,7 +720,7 @@ export class TreeNode implements ITreeNode {
   /**
    * Executes `collapse` to handle collapse.
    * @zh 执行 `collapse`，用于折叠。
-   * @param silent - silent parameter (`any`) / silent参数（`any`）
+   * @param silent - silent parameter (`boolean`) / silent参数（`boolean`）
    */
   collapse(silent = false) {
     if (this.isExpanded) {
@@ -731,7 +731,7 @@ export class TreeNode implements ITreeNode {
 
   /**
    * Executes `doForAll` to handle do for all.
-   * @zh 执行 `doForAll`，用于do用于全部。
+   * @zh 执行 `doForAll`，用于执行用于全部。
    * @param fn - fn parameter (`(node: ITreeNode) => any`) / 函数参数（`(node: ITreeNode) => any`）
    */
   doForAll(fn: { (node: ITreeNode) }) {
@@ -744,7 +744,7 @@ export class TreeNode implements ITreeNode {
 
   /**
    * Executes `doForAncestors` to handle do for ancestors.
-   * @zh 执行 `doForAncestors`，用于do用于祖先节点。
+   * @zh 执行 `doForAncestors`，用于执行用于祖先节点。
    * @param fn - fn parameter (`(node: ITreeNode) => any`) / 函数参数（`(node: ITreeNode) => any`）
    */
   doForAncestors(fn: { (node: ITreeNode) }) {
@@ -781,7 +781,7 @@ export class TreeNode implements ITreeNode {
 
   /**
    * Executes `ensureVisible` to handle ensure visible.
-   * @zh 执行 `ensureVisible`，用于ensure可见。
+   * @zh 执行 `ensureVisible`，用于确保可见。
    */
   ensureVisible() {
     if (this.realParent) {
@@ -855,7 +855,7 @@ export class TreeNode implements ITreeNode {
    * Executes `setIsActive` to handle set is active.
    * @zh 执行 `setIsActive`，用于集合是否为激活。
    * @param value - value parameter (`any`) / 值参数（`any`）
-   * @param multi - multi parameter (`any`) / 多参数（`any`）
+   * @param multi - multi parameter (`boolean`) / 多参数（`boolean`）
    */
   setIsActive(value, multi = false) {
     this.treeModel.setActiveNode(this, value, multi);
@@ -910,7 +910,7 @@ export class TreeNode implements ITreeNode {
   /**
    * Executes `toggleActivated` to handle toggle activated.
    * @zh 执行 `toggleActivated`，用于开关已激活。
-   * @param multi - multi parameter (`any`) / 多参数（`any`）
+   * @param multi - multi parameter (`boolean`) / 多参数（`boolean`）
    */
   toggleActivated(multi = false) {
     this.setIsActive(!this.isActive, multi);
@@ -920,7 +920,7 @@ export class TreeNode implements ITreeNode {
   /**
    * Executes `setActiveAndVisible` to handle set active and visible.
    * @zh 执行 `setActiveAndVisible`，用于集合激活And可见。
-   * @param multi - multi parameter (`any`) / 多参数（`any`）
+   * @param multi - multi parameter (`boolean`) / 多参数（`boolean`）
    */
   setActiveAndVisible(multi = false) {
     this.setIsActive(true, multi).ensureVisible();
@@ -931,7 +931,7 @@ export class TreeNode implements ITreeNode {
   /**
    * Executes `scrollIntoView` to handle scroll into view.
    * @zh 执行 `scrollIntoView`，用于滚动进入视图。
-   * @param force - force parameter (`any`) / force参数（`any`）
+   * @param force - force parameter (`boolean`) / force参数（`boolean`）
    */
   scrollIntoView(force = false) {
     this.treeModel.virtualScroll.scrollIntoView(this, force);
@@ -940,7 +940,7 @@ export class TreeNode implements ITreeNode {
   /**
    * Executes `focus` to handle focus.
    * @zh 执行 `focus`，用于聚焦。
-   * @param scroll - scroll parameter (`any`) / 滚动参数（`any`）
+   * @param scroll - scroll parameter (`boolean`) / 滚动参数（`boolean`）
    */
   focus(scroll = true) {
     const previousNode = this.treeModel.getFocusedNode();

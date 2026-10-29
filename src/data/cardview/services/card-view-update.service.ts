@@ -62,18 +62,18 @@ export function transformKeyToObject(key: string, value): Object {
 export class CardViewUpdateService {
 
   /**
-   * Property `itemUpdated$` (`Subject`) storing item updated (default: `new Subject<UpdateNotification>()`).
-   * @zh 属性 `itemUpdated$`（类型：`Subject`），用于存储或配置条目已更新（默认值：`new Subject<UpdateNotification>()`）。
+   * Property `itemUpdated$` (`Subject<UpdateNotification>`) storing item updated (default: `new Subject<UpdateNotification>()`).
+   * @zh 属性 `itemUpdated$`（类型：`Subject<UpdateNotification>`），用于存储或配置条目已更新（默认值：`new Subject<UpdateNotification>()`）。
    */
   itemUpdated$ = new Subject<UpdateNotification>();
   /**
-   * Property `itemClicked$` (`Subject`) storing item clicked (default: `new Subject<ClickNotification>()`).
-   * @zh 属性 `itemClicked$`（类型：`Subject`），用于存储或配置条目点击（默认值：`new Subject<ClickNotification>()`）。
+   * Property `itemClicked$` (`Subject<ClickNotification>`) storing item clicked (default: `new Subject<ClickNotification>()`).
+   * @zh 属性 `itemClicked$`（类型：`Subject<ClickNotification>`），用于存储或配置条目点击（默认值：`new Subject<ClickNotification>()`）。
    */
   itemClicked$ = new Subject<ClickNotification>();
   /**
-   * Property `updateItem$` (`Subject`) storing update item (default: `new Subject<CardViewBaseItemModel>()`).
-   * @zh 属性 `updateItem$`（类型：`Subject`），用于存储或配置更新条目（默认值：`new Subject<CardViewBaseItemModel>()`）。
+   * Property `updateItem$` (`Subject<CardViewBaseItemModel>`) storing update item (default: `new Subject<CardViewBaseItemModel>()`).
+   * @zh 属性 `updateItem$`（类型：`Subject<CardViewBaseItemModel>`），用于存储或配置更新条目（默认值：`new Subject<CardViewBaseItemModel>()`）。
    */
   updateItem$ = new Subject<CardViewBaseItemModel>();
 

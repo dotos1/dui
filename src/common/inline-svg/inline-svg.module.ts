@@ -20,8 +20,8 @@ import { InlineSVGDirective } from './inline-svg.directive';
 })
 export class InlineSVGModule {
   /**
-   * Property `entryComponents` (`any[]`) storing entry components (default: `[InlineSVGComponent]`).
-   * @zh 属性 `entryComponents`（类型：`any[]`），用于存储或配置条目组件列表（默认值：`[InlineSVGComponent]`）。
+   * Property `entryComponents` (`(typeof InlineSVGComponent)[]`) storing entry components (default: `[InlineSVGComponent]`).
+   * @zh 属性 `entryComponents`（类型：`(typeof InlineSVGComponent)[]`），用于存储或配置条目组件列表（默认值：`[InlineSVGComponent]`）。
    */
   entryComponents = [InlineSVGComponent];
   /**

@@ -103,8 +103,8 @@ export class GradientBarComponent implements OnInit,OnDestroy {
   }
 
   /**
-   * Property `addPoint` (`any`) storing add point.
-   * @zh 属性 `addPoint`（类型：`any`），用于存储或配置添加坐标点。
+   * Property `addPoint` (`(e: any) => void`) storing add point.
+   * @zh 属性 `addPoint`（类型：`(e: any) => void`），用于存储或配置添加坐标点。
    */
   public  addPoint = (e) => {
     const left = getHandleValue(e)
@@ -116,16 +116,16 @@ export class GradientBarComponent implements OnInit,OnDestroy {
   }
 
    /**
-    * Property `stopDragging` (`any`) storing stop dragging (default: `() => { this. setDragging(false) }`).
-    * @zh 属性 `stopDragging`（类型：`any`），用于存储或配置停止拖拽中（默认值：`() => { this. setDragging(false) }`）。
+    * Property `stopDragging` (`() => void`) storing stop dragging (default: `() => { this. setDragging(false) }`).
+    * @zh 属性 `stopDragging`（类型：`() => void`），用于存储或配置停止拖拽中（默认值：`() => { this. setDragging(false) }`）。
     */
    stopDragging = () => {
      this. setDragging(false)
   }
 
    /**
-    * Property `handleDown` (`any`) storing handle down.
-    * @zh 属性 `handleDown`（类型：`any`），用于存储或配置连接手柄向下。
+    * Property `handleDown` (`(e: any) => void`) storing handle down.
+    * @zh 属性 `handleDown`（类型：`(e: any) => void`），用于存储或配置连接手柄向下。
     */
    handleDown = (e) => {
     if (!this. dragging) {
@@ -135,8 +135,8 @@ export class GradientBarComponent implements OnInit,OnDestroy {
   }
 
    /**
-    * Property `handleMove` (`any`) storing handle move.
-    * @zh 属性 `handleMove`（类型：`any`），用于存储或配置连接手柄移动。
+    * Property `handleMove` (`(e: any) => void`) storing handle move.
+    * @zh 属性 `handleMove`（类型：`(e: any) => void`），用于存储或配置连接手柄移动。
     */
    handleMove = (e) => {
     if (this. dragging) {
@@ -145,8 +145,8 @@ export class GradientBarComponent implements OnInit,OnDestroy {
   }
 
    /**
-    * Property `handleKeyboard` (`any`) storing handle keyboard.
-    * @zh 属性 `handleKeyboard`（类型：`any`），用于存储或配置连接手柄键盘。
+    * Property `handleKeyboard` (`(e: any) => void`) storing handle keyboard.
+    * @zh 属性 `handleKeyboard`（类型：`(e: any) => void`），用于存储或配置连接手柄键盘。
     */
    handleKeyboard = (e) => {
     if (  this.conext.isGradient) {
@@ -158,8 +158,8 @@ export class GradientBarComponent implements OnInit,OnDestroy {
     }
   }
    /**
-    * Property `handleUp` (`any`) storing handle up (default: `() => { this. stopDragging() }`).
-    * @zh 属性 `handleUp`（类型：`any`），用于存储或配置连接手柄向上（默认值：`() => { this. stopDragging() }`）。
+    * Property `handleUp` (`() => void`) storing handle up (default: `() => { this. stopDragging() }`).
+    * @zh 属性 `handleUp`（类型：`() => void`），用于存储或配置连接手柄向上（默认值：`() => { this. stopDragging() }`）。
     */
    handleUp = () => {
     this. stopDragging()

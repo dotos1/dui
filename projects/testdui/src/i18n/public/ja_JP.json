@@ -71,7 +71,7 @@
     "TAB2": "2. モジュールのインポート",
     "TAB3": "3. コンポーネントの使用",
     "TAB4": "4. 国際化とテーマ",
-    "TAB5": "5. Architecture & Dev Guide",
+    "TAB5": "5. アーキテクチャと開発ガイド",
     "STEP1_H1": "パッケージをインストール",
     "STEP1_H2": "peer dependencies をインストール",
     "STEP1_P2": "DUI は Angular Material と CDK をベースに構築されています。プロジェクトに以下の依存関係がインストールされていることを確認してください：",
@@ -87,11 +87,11 @@
     "STEP4_P1": "DUI には TranslationService をベースにした多言語フレームワークが組み込まれており、デフォルトで zh_CN / en_US の2言語を提供します：",
     "STEP4_H2": "実行時にテーマを切り替える",
     "STEP4_P2": "ThemeService を使用すると、再ビルドすることなく、実行時にプライマリカラー、アクセントカラー、警告色、ライト/ダークモードを動的に変更できます：",
-    "STEP5_H1": "Secondary Entry-Point Packaging Rules",
-    "STEP5_P1": "DUI uses ng-packagr secondary entry points. Each feature folder contains its own ng-package.json, index.ts, and public-api.ts. Always import across entry points via @dotos/dui/<category>/<module> rather than deep relative paths:",
-    "STEP5_H2": "RxJS Subscription Lifecycle & OnPush Performance",
-    "STEP5_P2": "Always clean up long-lived Observable subscriptions in ngOnDestroy using takeUntil(this.destroy$) to prevent memory leaks, and prefer ChangeDetectionStrategy.OnPush for high-frequency components:",
-    "STEP5_H3": "Bilingual JSDoc (@zh) & Automated Docs Generation",
-    "STEP5_P3": "Document all exported classes, interfaces, enums, functions, and public members with English JSDoc plus an @zh Chinese tag, then run npm run docs:generate to update the documentation portal:"
+    "STEP5_H1": "セカンダリエントリポイントのパッケージ規則",
+    "STEP5_P1": "DUI は ng-packagr のセカンダリエントリポイントを使います。各機能フォルダーには専用の ng-package.json、index.ts、public-api.ts があります。エントリポイントをまたぐインポートは、深い相対パスではなく必ず @dotos/dui/<category>/<module> を使ってください：",
+    "STEP5_H2": "RxJS 購読のライフサイクルと OnPush のパフォーマンス",
+    "STEP5_P2": "長期間の Observable 購読は ngOnDestroy で takeUntil(this.destroy$) を使って必ず解除し、メモリリークを防いでください。更新頻度の高いコンポーネントには ChangeDetectionStrategy.OnPush を推奨します：",
+    "STEP5_H3": "バイリンガル JSDoc（@zh）とドキュメントの自動生成",
+    "STEP5_P3": "エクスポートするすべてのクラス、インターフェース、列挙型、関数、公開メンバーに英語の JSDoc と中国語の @zh タグを書き、npm run docs:generate を実行してドキュメントポータルを更新してください："
   }
 }

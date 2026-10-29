@@ -58,8 +58,8 @@ export class CardViewSelectItemComponent implements OnChanges,OnDestroy {
 
 
   /**
-   * Property `destroy$` (`Subject`) storing destroy (default: `new Subject<boolean>()`).
-   * @zh 属性 `destroy$`（类型：`Subject`），用于存储或配置销毁（默认值：`new Subject<boolean>()`）。
+   * Property `destroy$` (`Subject<boolean>`) storing destroy (default: `new Subject<boolean>()`).
+   * @zh 属性 `destroy$`（类型：`Subject<boolean>`），用于存储或配置销毁（默认值：`new Subject<boolean>()`）。
    */
   protected destroy$ = new Subject<boolean>();
 
@@ -138,10 +138,10 @@ export class CardViewSelectItemComponent implements OnChanges,OnDestroy {
 
   /**
    * Executes `trackByOption` to handle track by option.
-   * @zh 执行 `trackByOption`，用于track按选项。
+   * @zh 执行 `trackByOption`，用于跟踪按选项。
    * @param index - index parameter (`number`) / 索引参数（`number`）
    * @param option - option parameter (`CardViewSelectItemOption<string>`) / 选项参数（`CardViewSelectItemOption<string>`）
-   * @returns Result of type `any` / 类型为 `any` 的返回值
+   * @returns Result of type `string | number` / 类型为 `string | number` 的返回值
    */
   trackByOption(index: number, option: CardViewSelectItemOption<string>) {
     return option ? option.key : index;

@@ -27,8 +27,8 @@ export class NamedOutletDirective implements OnInit,OnDestroy {
    */
   @Input() public name!: string;
   /**
-   * Output event emitter `initialized` (`EventEmitter`) firing when initialized occurs.
-   * @zh 输出事件 `initialized`（类型：`EventEmitter`），当触发已初始化时向外发出事件。
+   * Output event emitter `initialized` (`EventEmitter<boolean>`) firing when initialized occurs.
+   * @zh 输出事件 `initialized`（类型：`EventEmitter<boolean>`），当触发已初始化时向外发出事件。
    */
   @Output() public initialized = new EventEmitter<boolean>();
 

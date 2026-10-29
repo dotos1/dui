@@ -70,7 +70,7 @@ export class CopyCodeButtonComponent {
   }
 
   /**
-   * Template/content query reference `tooltip` (`@ViewChild`) targeting tooltip.
+   * Template/content query reference `tooltip` (`MatTooltip`) targeting tooltip.
    * @zh 模板/内容视图查询引用 `tooltip`（`@ViewChild`），指向悬浮提示。
    */
   @ViewChild('tooltip') tooltip: MatTooltip;

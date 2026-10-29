@@ -62,7 +62,7 @@ export class SketchDialogComponent  {
   /**
    * Creates an instance of `SketchDialogComponent` and initializes its dependencies and internal state.
    * @zh 创建 `SketchDialogComponent` 实例，并初始化其依赖项与内部状态。
-   * @param _dialogRef - Injected or initial dialog ref (`MatDialogRef<SketchDialogComponent>`) / 注入或传入的对话框引用（`MatDialogRef<SketchDialogComponent>`）
+   * @param _dialogRef - Injected or initial dialog ref (`MatDialogRef<SketchDialogComponent, any>`) / 注入或传入的对话框引用（`MatDialogRef<SketchDialogComponent, any>`）
    */
   constructor(public _dialogRef: MatDialogRef<SketchDialogComponent>) { }
 

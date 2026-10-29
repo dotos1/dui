@@ -88,8 +88,8 @@ export class GradientOpacityComponent implements OnInit,OnDestroy {
   }
 
   /**
-   * Property `stopDragging` (`any`) storing stop dragging.
-   * @zh 属性 `stopDragging`（类型：`any`），用于存储或配置停止拖拽中。
+   * Property `stopDragging` (`() => void`) storing stop dragging.
+   * @zh 属性 `stopDragging`（类型：`() => void`），用于存储或配置停止拖拽中。
    */
   public stopDragging = () => {
     // 挂在 window 的 mouseup 上,页面任何地方松开鼠标都会进来;没绑 [setDragging]

@@ -21,8 +21,8 @@ import { MatField } from '../base/mat.field';
 export class HiddenFieldComponent extends MatField {
 
   /**
-   * Property `input` (`ElementRef`) storing input.
-   * @zh 属性 `input`（类型：`ElementRef`），用于存储或配置输入属性。
+   * Property `input` (`ElementRef<any>`) storing input.
+   * @zh 属性 `input`（类型：`ElementRef<any>`），用于存储或配置输入属性。
    */
   input: ElementRef;
 

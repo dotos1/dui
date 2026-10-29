@@ -95,7 +95,7 @@ export function shallowValueGetter(obj, fieldName: string) {
 /**
  * Returns a deep object given a string. zoo['animal.type']
 
- * @zh 执行 `deepValueGetter`，用于deep值Getter。
+ * @zh 执行 `deepValueGetter`，用于深度值Getter。
  */
 export function deepValueGetter(obj, path: string) {
   if (obj == null) {

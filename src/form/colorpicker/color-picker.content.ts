@@ -72,8 +72,8 @@ export class ColorPickerContent implements TriggerPopup {
 
   // Color changed
   /**
-   * Output event emitter `colorChanged` (`EventEmitter<any>`) firing when color changed occurs.
-   * @zh 输出事件 `colorChanged`（类型：`EventEmitter<any>`），当触发颜色已变更时向外发出事件。
+   * Output event emitter `colorChanged` (`any`) firing when color changed occurs.
+   * @zh 输出事件 `colorChanged`（类型：`any`），当触发颜色已变更时向外发出事件。
    */
   @Output()
   colorChanged;
@@ -284,7 +284,7 @@ export class ColorPickerContent implements TriggerPopup {
     this.updateSelectedColor();
 
     if (this.host) {
-      let val = {};
+      let val: Record<string, unknown> = {};
       val['value'] = this.selectedColor.bg;
       val['text'] = this.selectedColor.bg;
       this.host._selectAndClose(val);
@@ -349,7 +349,7 @@ export class ColorPickerContent implements TriggerPopup {
    *
    * param event
 
-   * @zh 执行 `goToPalettesView`，用于go转换为调色板视图。
+   * @zh 执行 `goToPalettesView`，用于跳转到转换为调色板视图。
    */
   goToPalettesView(event): void {
     // Stop propagation

@@ -49,7 +49,7 @@ export class ɵDynamicWindowInjector implements Injector {
      * @zh 执行 `get`，用于获取。
      * @param token - token parameter (`Type<T> | InjectionToken<T>`) / 令牌参数（`Type<T> | InjectionToken<T>`）
      * @param notFoundValue - not found value parameter (`T`) / notFound值参数（`T`）
-     * @param flags - flags parameter (`InjectFlags | InjectOptions`) / flags参数（`InjectFlags | InjectOptions`）
+     * @param flags - flags parameter (`InjectOptions | InjectFlags`) / flags参数（`InjectOptions | InjectFlags`）
      * @returns Result of type `T` / 类型为 `T` 的返回值
      */
     public get<T>(

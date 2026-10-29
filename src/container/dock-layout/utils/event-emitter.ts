@@ -20,9 +20,9 @@ export class EventEmitter {
      */
     private _allEventSubscriptions: EventEmitter.UnknownCallback[] = [];
     /**
-     * Property `_subscriptionsMap` (`Map`) storing subscriptions map.
+     * Property `_subscriptionsMap` (`Map<string, EventEmitter.UnknownCallback[]>`) storing subscriptions map.
      * @internal
-     * @zh 属性 `_subscriptionsMap`（类型：`Map`），用于存储或配置订阅集合映射表。
+     * @zh 属性 `_subscriptionsMap`（类型：`Map<string, EventEmitter.UnknownCallback[]>`），用于存储或配置订阅集合映射表。
      */
     private _subscriptionsMap = new Map<string, EventEmitter.UnknownCallback[]>();
 
@@ -114,7 +114,7 @@ export class EventEmitter {
 
     /**
      * Executes `off` to handle off.
-     * @zh 执行 `off`，用于off。
+     * @zh 执行 `off`，用于取消监听。
      * @param eventName - event name parameter (`K`) / 事件名称参数（`K`）
      * @param callback - callback parameter (`EventEmitter.Callback<K>`) / 回调函数参数（`EventEmitter.Callback<K>`）
      */
@@ -125,14 +125,14 @@ export class EventEmitter {
     /**
      * Alias for off
 
-     * @zh 属性 `unbind`（类型：`any`），用于存储或配置解绑（默认值：`this.removeEventListener`）。
+     * @zh 属性 `unbind`（类型：`<K extends keyof EventEmitter.EventParamsMap>(eventName: K, callback: EventEmitter.Callback<K>) => void`），用于存储或配置解绑（默认值：`this.removeEventListener`）。
      */
     unbind = this.removeEventListener;
 
     /**
      * Alias for emit
 
-     * @zh 属性 `trigger`（类型：`any`），用于存储或配置触发（默认值：`this.emit`）。
+     * @zh 属性 `trigger`（类型：`<K extends keyof EventEmitter.EventParamsMap>(eventName: K, ...args: EventEmitter.EventParamsMap[K]) => void`），用于存储或配置触发（默认值：`this.emit`）。
      */
     trigger = this.emit;
 

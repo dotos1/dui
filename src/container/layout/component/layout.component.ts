@@ -3,6 +3,8 @@
  * @zh 模块文件 `src/container/layout/component/layout.component.ts`，提供布局组件相关的定义与实现。
  */
 
+import { DuiConfig } from '@dotos/dui/base';
+import { ComponentBase } from '@dotos/dui/core';
 import {
     AfterViewInit,
     ChangeDetectionStrategy,
@@ -94,10 +96,10 @@ export class LayoutComponent
   implements AfterViewInit, OnDestroy
 {
   /**
-   * Input property `config` (`any`) configuring config (default: `{}`).
-   * @zh 输入属性 `config`（类型：`any`），用于配置配置（默认值：`{}`）。
+   * Input property `config` (`DuiConfig`) configuring config (default: `{}`).
+   * @zh 输入属性 `config`（类型：`DuiConfig`），用于配置配置（默认值：`{}`）。
    */
-  @Input() config = {};
+  @Input() config: DuiConfig = {};
 
   /**
    * Property `el` (`any`) storing el.
@@ -122,7 +124,7 @@ export class LayoutComponent
   /**
    * Input setter `direction` updating direction.
    * @zh 输入属性 `direction` 的设置器，用于更新方向。
-   * @param v - New direction value (`'horizontal' | 'vertical'`) / 新的方向值（`'horizontal' | 'vertical'`）
+   * @param v - New direction value (`"horizontal" | "vertical"`) / 新的方向值（`"horizontal" | "vertical"`）
    */
   @Input() set direction(v: 'horizontal' | 'vertical') {
     this._direction = v === 'vertical' ? 'vertical' : 'horizontal';
@@ -145,7 +147,7 @@ export class LayoutComponent
   /**
    * Input setter `unit` updating unit.
    * @zh 输入属性 `unit` 的设置器，用于更新unit。
-   * @param v - New unit value (`'percent' | 'pixel'`) / 新的unit值（`'percent' | 'pixel'`）
+   * @param v - New unit value (`"percent" | "pixel"`) / 新的unit值（`"percent" | "pixel"`）
    */
   @Input() set unit(v: 'percent' | 'pixel') {
     this._unit = v === 'pixel' ? 'pixel' : 'percent';
@@ -168,7 +170,7 @@ export class LayoutComponent
   /**
    * Input setter `gutterSize` updating gutter size.
    * @zh 输入属性 `gutterSize` 的设置器，用于更新分隔槽尺寸。
-   * @param v - New gutter size value (`number | null`) / 新的分隔槽尺寸值（`number | null`）
+   * @param v - New gutter size value (`number`) / 新的分隔槽尺寸值（`number`）
    */
   @Input() set gutterSize(v: number | null) {
     this._gutterSize = getInputPositiveNumber(v, 11);
@@ -264,7 +266,7 @@ export class LayoutComponent
   /**
    * Input setter `dir` updating dir.
    * @zh 输入属性 `dir` 的设置器，用于更新目录。
-   * @param v - New dir value (`'ltr' | 'rtl'`) / 新的目录值（`'ltr' | 'rtl'`）
+   * @param v - New dir value (`"ltr" | "rtl"`) / 新的目录值（`"ltr" | "rtl"`）
    */
   @Input() set dir(v: 'ltr' | 'rtl') {
     this._dir = v === 'rtl' ? 'rtl' : 'ltr';
@@ -312,7 +314,7 @@ export class LayoutComponent
    * Creates an instance of `LayoutComponent` and initializes its dependencies and internal state.
    * @zh 创建 `LayoutComponent` 实例，并初始化其依赖项与内部状态。
    * @param ngZone - Injected or initial ng zone (`NgZone`) / 注入或传入的Angular区域(NgZone)（`NgZone`）
-   * @param elRef - Injected or initial el ref (`ElementRef`) / 注入或传入的DOM元素引用（`ElementRef`）
+   * @param elRef - Injected or initial el ref (`ElementRef<any>`) / 注入或传入的DOM元素引用（`ElementRef<any>`）
    * @param cdRef - Injected or initial cd ref (`ChangeDetectorRef`) / 注入或传入的cd引用（`ChangeDetectorRef`）
    * @param renderer - Injected or initial renderer (`Renderer2`) / 注入或传入的渲染器（`Renderer2`）
    * @param resolver - Injected or initial resolver (`ComponentFactoryResolver`) / 注入或传入的解析器（`ComponentFactoryResolver`）
@@ -334,20 +336,20 @@ export class LayoutComponent
     this.direction = this._direction;
   }
   /**
-   * Property `_direction` (`'horizontal' | 'vertical'`) storing direction (default: `'horizontal'`).
-   * @zh 属性 `_direction`（类型：`'horizontal' | 'vertical'`），用于存储或配置方向（默认值：`'horizontal'`）。
+   * Property `_direction` (`"horizontal" | "vertical"`) storing direction (default: `'horizontal'`).
+   * @zh 属性 `_direction`（类型：`"horizontal" | "vertical"`），用于存储或配置方向（默认值：`'horizontal'`）。
    */
   private _direction: 'horizontal' | 'vertical' = 'horizontal';
 
   /**
-   * Property `_unit` (`'percent' | 'pixel'`) storing unit (default: `'percent'`).
-   * @zh 属性 `_unit`（类型：`'percent' | 'pixel'`），用于存储或配置unit（默认值：`'percent'`）。
+   * Property `_unit` (`"percent" | "pixel"`) storing unit (default: `'percent'`).
+   * @zh 属性 `_unit`（类型：`"percent" | "pixel"`），用于存储或配置unit（默认值：`'percent'`）。
    */
   private _unit: 'percent' | 'pixel' = 'percent';
 
   /**
-   * Property `_gutterSize` (`number | null`) storing gutter size (default: `9`).
-   * @zh 属性 `_gutterSize`（类型：`number | null`），用于存储或配置分隔槽尺寸（默认值：`9`）。
+   * Property `_gutterSize` (`number`) storing gutter size (default: `9`).
+   * @zh 属性 `_gutterSize`（类型：`number`），用于存储或配置分隔槽尺寸（默认值：`9`）。
    */
   private _gutterSize: number | null = 9;
 
@@ -370,8 +372,8 @@ export class LayoutComponent
   private _useTransition = false;
 
   /**
-   * Property `_dir` (`'ltr' | 'rtl'`) storing dir (default: `'ltr'`).
-   * @zh 属性 `_dir`（类型：`'ltr' | 'rtl'`），用于存储或配置目录（默认值：`'ltr'`）。
+   * Property `_dir` (`"ltr" | "rtl"`) storing dir (default: `'ltr'`).
+   * @zh 属性 `_dir`（类型：`"ltr" | "rtl"`），用于存储或配置目录（默认值：`'ltr'`）。
    */
   private _dir: 'ltr' | 'rtl' = 'ltr';
 
@@ -382,23 +384,23 @@ export class LayoutComponent
   private _gutterDblClickDuration = 0;
 
   /**
-   * Output event emitter `dragStart` (`EventEmitter`) firing when drag start occurs.
-   * @zh 输出事件 `dragStart`（类型：`EventEmitter`），当触发拖拽开始时向外发出事件。
+   * Output event emitter `dragStart` (`EventEmitter<IOutputData>`) firing when drag start occurs.
+   * @zh 输出事件 `dragStart`（类型：`EventEmitter<IOutputData>`），当触发拖拽开始时向外发出事件。
    */
   @Output() dragStart = new EventEmitter<IOutputData>(false);
   /**
-   * Output event emitter `dragEnd` (`EventEmitter`) firing when drag end occurs.
-   * @zh 输出事件 `dragEnd`（类型：`EventEmitter`），当触发拖拽结束时向外发出事件。
+   * Output event emitter `dragEnd` (`EventEmitter<IOutputData>`) firing when drag end occurs.
+   * @zh 输出事件 `dragEnd`（类型：`EventEmitter<IOutputData>`），当触发拖拽结束时向外发出事件。
    */
   @Output() dragEnd = new EventEmitter<IOutputData>(false);
   /**
-   * Output event emitter `gutterClick` (`EventEmitter`) firing when gutter click occurs.
-   * @zh 输出事件 `gutterClick`（类型：`EventEmitter`），当触发分隔槽点击时向外发出事件。
+   * Output event emitter `gutterClick` (`EventEmitter<IOutputData>`) firing when gutter click occurs.
+   * @zh 输出事件 `gutterClick`（类型：`EventEmitter<IOutputData>`），当触发分隔槽点击时向外发出事件。
    */
   @Output() gutterClick = new EventEmitter<IOutputData>(false);
   /**
-   * Output event emitter `gutterDblClick` (`EventEmitter`) firing when gutter dbl click occurs.
-   * @zh 输出事件 `gutterDblClick`（类型：`EventEmitter`），当触发分隔槽Dbl点击时向外发出事件。
+   * Output event emitter `gutterDblClick` (`EventEmitter<IOutputData>`) firing when gutter dbl click occurs.
+   * @zh 输出事件 `gutterDblClick`（类型：`EventEmitter<IOutputData>`），当触发分隔槽Dbl点击时向外发出事件。
    */
   @Output() gutterDblClick = new EventEmitter<IOutputData>(false);
 
@@ -436,39 +438,39 @@ export class LayoutComponent
    */
   private isWaitingInitialMove = false;
   /**
-   * Property `dragListeners` (`Array<Function>`) storing drag listeners (default: `[]`).
-   * @zh 属性 `dragListeners`（类型：`Array<Function>`），用于存储或配置拖拽监听器列表（默认值：`[]`）。
+   * Property `dragListeners` (`Function[]`) storing drag listeners (default: `[]`).
+   * @zh 属性 `dragListeners`（类型：`Function[]`），用于存储或配置拖拽监听器列表（默认值：`[]`）。
    */
   private dragListeners: Array<Function> = [];
   /**
-   * Property `snapshot` (`ISplitSnapshot | null`) storing snapshot (default: `null`).
-   * @zh 属性 `snapshot`（类型：`ISplitSnapshot | null`），用于存储或配置snapshot（默认值：`null`）。
+   * Property `snapshot` (`ISplitSnapshot`) storing snapshot (default: `null`).
+   * @zh 属性 `snapshot`（类型：`ISplitSnapshot`），用于存储或配置snapshot（默认值：`null`）。
    */
   private snapshot: ISplitSnapshot | null = null;
   /**
-   * Property `startPoint` (`IPoint | null`) storing start point (default: `null`).
-   * @zh 属性 `startPoint`（类型：`IPoint | null`），用于存储或配置开始坐标点（默认值：`null`）。
+   * Property `startPoint` (`IPoint`) storing start point (default: `null`).
+   * @zh 属性 `startPoint`（类型：`IPoint`），用于存储或配置开始坐标点（默认值：`null`）。
    */
   private startPoint: IPoint | null = null;
   /**
-   * Property `endPoint` (`IPoint | null`) storing end point (default: `null`).
-   * @zh 属性 `endPoint`（类型：`IPoint | null`），用于存储或配置结束坐标点（默认值：`null`）。
+   * Property `endPoint` (`IPoint`) storing end point (default: `null`).
+   * @zh 属性 `endPoint`（类型：`IPoint`），用于存储或配置结束坐标点（默认值：`null`）。
    */
   private endPoint: IPoint | null = null;
 
   /**
-   * Property `displayedAreas` (`Array<IArea>`) storing displayed areas (default: `[]`).
-   * @zh 属性 `displayedAreas`（类型：`Array<IArea>`），用于存储或配置已展示区域集合（默认值：`[]`）。
+   * Property `displayedAreas` (`IArea[]`) storing displayed areas (default: `[]`).
+   * @zh 属性 `displayedAreas`（类型：`IArea[]`），用于存储或配置已展示区域集合（默认值：`[]`）。
    */
   public readonly displayedAreas: Array<IArea> = [];
   /**
-   * Property `hiddenAreas` (`Array<IArea>`) storing hidden areas (default: `[]`).
-   * @zh 属性 `hiddenAreas`（类型：`Array<IArea>`），用于存储或配置隐藏区域集合（默认值：`[]`）。
+   * Property `hiddenAreas` (`IArea[]`) storing hidden areas (default: `[]`).
+   * @zh 属性 `hiddenAreas`（类型：`IArea[]`），用于存储或配置隐藏区域集合（默认值：`[]`）。
    */
   private readonly hiddenAreas: Array<IArea> = [];
 
   /**
-   * Template/content query reference `gutterEls` (`@ViewChildren`) targeting gutter els.
+   * Template/content query reference `gutterEls` (`QueryList<ElementRef<any>>`) targeting gutter els.
    * @zh 模板/内容视图查询引用 `gutterEls`（`@ViewChildren`），指向分隔槽DOM元素。
    */
   @ViewChildren('gutterEls') private gutterEls: QueryList<ElementRef>;
@@ -485,8 +487,8 @@ export class LayoutComponent
   private gutterElsSub?;
 
   /**
-   * Property `_clickTimeout` (`number | null`) storing click timeout (default: `null`).
-   * @zh 属性 `_clickTimeout`（类型：`number | null`），用于存储或配置点击延时器（默认值：`null`）。
+   * Property `_clickTimeout` (`number`) storing click timeout (default: `null`).
+   * @zh 属性 `_clickTimeout`（类型：`number`），用于存储或配置点击延时器（默认值：`null`）。
    */
   _clickTimeout: number | null = null;
 
@@ -1248,7 +1250,7 @@ export class LayoutComponent
   /**
    * Executes `notify` to handle notify.
    * @zh 执行 `notify`，用于通知。
-   * @param type - type parameter (`'start' | 'progress' | 'end' | 'click' | 'dblclick' | 'trans...`) / 类型参数（`'start' | 'progress' | 'end' | 'click' | 'dblclick' | 'trans...`）
+   * @param type - type parameter (`"progress" | "click" | "dblclick" | "end" | "start" | "transitionEnd"`) / 类型参数（`"progress" | "click" | "dblclick" | "end" | "start" | "transitionEnd"`）
    * @param gutterNum - gutter num parameter (`number`) / 分隔槽数值参数（`number`）
    */
   public notify(
@@ -1296,7 +1298,7 @@ export class LayoutComponent
    * @zh 执行 `collapseArea`，用于折叠区域。
    * @param comp - comp parameter (`SplitAreaDirective | DuiPanelComponent`) / 组件参数（`SplitAreaDirective | DuiPanelComponent`）
    * @param newSize - new size parameter (`number`) / 新尺寸参数（`number`）
-   * @param gutter - gutter parameter (`'left' | 'right'`) / 分隔槽参数（`'left' | 'right'`）
+   * @param gutter - gutter parameter (`"left" | "right"`) / 分隔槽参数（`"left" | "right"`）
    */
   public collapseArea(
     comp: SplitAreaDirective | DuiPanelComponent,
@@ -1353,7 +1355,7 @@ export class LayoutComponent
   /**
    * Executes `getAriaAreaSizeText` to handle get aria area size text.
    * @zh 执行 `getAriaAreaSizeText`，用于获取Aria区域尺寸文本。
-   * @param size - size parameter (`number | null`) / 尺寸参数（`number | null`）
+   * @param size - size parameter (`number`) / 尺寸参数（`number`）
    * @returns Result of type `string` / 类型为 `string` 的返回值
    */
   public getAriaAreaSizeText(size: number | null): string {
@@ -1362,41 +1364,15 @@ export class LayoutComponent
     }
     return size.toFixed(0) + ' ' + this.unit;
   }
-  /**
-   * Executes `add` to handle add.
-   * @zh 执行 `add`，用于添加。
-   * @param comp - comp parameter (`any`) / 组件参数（`any`）
-   * @returns Result of type `any` / 类型为 `any` 的返回值
-   */
-  override add(comp) {
-    this.initItems();
-    const args = arguments.length > 1;
-    if (args || isArray(comp)) {
-      const result = [];
-      each(args ? arguments : comp, (c) => {
-        result.push(this.add(c));
-      });
-      return result;
-    }
-    if (comp.reference) {
-      const index = this.items.length;
-      this._addItem(comp, index);
-    } else {
-      const component = this.lookupComponent(this.applyDefaults(comp));
-      const index = this.items.length;
-      this._addItem(component, index);
-      return component;
-    }
-  }
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   /**
    * Executes `remove` to handle remove.
    * @zh 执行 `remove`，用于移除。
-   * @param c - c parameter (`any`) / c参数（`any`）
+   * @param c - c parameter (`string | number | ComponentBase`) / c参数（`string | number | ComponentBase`）
    * @param ad - ad parameter (`boolean`) / ad参数（`boolean`）
-   * @returns Result of type `any` / 类型为 `any` 的返回值
+   * @returns Result of type `ComponentBase` / 类型为 `ComponentBase` 的返回值
    */
-  override remove(c, ad?: boolean) {
+  override remove(c: ComponentBase | string | number, ad?: boolean): ComponentBase {
     const comp = super.remove(c, false);
     if (comp) {
       const index = this.viewContainer.indexOf(comp.reference.hostView);
@@ -1408,10 +1384,10 @@ export class LayoutComponent
   /**
    * Executes `_addItem` to handle add item.
    * @zh 执行 `_addItem`，用于添加条目。
-   * @param comp - comp parameter (`any`) / 组件参数（`any`）
-   * @param index - index parameter (`any`) / 索引参数（`any`）
+   * @param comp - comp parameter (`ComponentBase`) / 组件参数（`ComponentBase`）
+   * @param index - index parameter (`number`) / 索引参数（`number`）
    */
-  protected _addItem(comp, index) {
+  protected override _addItem(comp: ComponentBase, index: number): void {
     this.items.add(comp);
     if (comp.onAdded) {
       comp.onAdded(this, index);
@@ -1423,7 +1399,7 @@ export class LayoutComponent
 
   /**
    * Executes `havePanel` to handle have panel.
-   * @zh 执行 `havePanel`，用于have面板。
+   * @zh 执行 `havePanel`，用于具有面板。
    * @param comp - comp parameter (`any`) / 组件参数（`any`）
    * @returns Result of type `boolean` / 类型为 `boolean` 的返回值
    */

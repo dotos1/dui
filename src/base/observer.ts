@@ -53,8 +53,8 @@ export interface BoundOptions {
  */
 export class Observer {
   /**
-   * Property `boundedEvents` (`{ [key: string]: BoundOptions[] } | undefined`) storing bounded events (default: `{}`).
-   * @zh 属性 `boundedEvents`（类型：`{ [key: string]: BoundOptions[] } | undefined`），用于存储或配置已已绑定事件集合（默认值：`{}`）。
+   * Property `boundedEvents` (`{ [key: string]: BoundOptions[]; }`) storing bounded events (default: `{}`).
+   * @zh 属性 `boundedEvents`（类型：`{ [key: string]: BoundOptions[]; }`），用于存储或配置已已绑定事件集合（默认值：`{}`）。
    */
   private boundedEvents: { [key: string]: BoundOptions[] } | undefined = {};
   /**

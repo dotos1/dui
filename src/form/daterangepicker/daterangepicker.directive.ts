@@ -160,22 +160,22 @@ export class DaterangepickerDirective implements OnInit, OnChanges, DoCheck, OnD
   showDropdowns: boolean;
 
   /**
-   * Input property `isInvalidDate` (`(Dayjs) => boolean`) configuring is invalid date.
-   * @zh 输入属性 `isInvalidDate`（类型：`(Dayjs) => boolean`），用于配置是否为无效日期。
+   * Input property `isInvalidDate` (`(Dayjs: any) => boolean`) configuring is invalid date.
+   * @zh 输入属性 `isInvalidDate`（类型：`(Dayjs: any) => boolean`），用于配置是否为无效日期。
    */
   @Input()
   isInvalidDate: (Dayjs) => boolean;
 
   /**
-   * Input property `isCustomDate` (`(Dayjs) => string | boolean`) configuring is custom date.
-   * @zh 输入属性 `isCustomDate`（类型：`(Dayjs) => string | boolean`），用于配置是否为自定义日期。
+   * Input property `isCustomDate` (`(Dayjs: any) => string | boolean`) configuring is custom date.
+   * @zh 输入属性 `isCustomDate`（类型：`(Dayjs: any) => string | boolean`），用于配置是否为自定义日期。
    */
   @Input()
   isCustomDate: (Dayjs) => string | boolean;
 
   /**
-   * Input property `isTooltipDate` (`(Dayjs) => string | boolean | null`) configuring is tooltip date.
-   * @zh 输入属性 `isTooltipDate`（类型：`(Dayjs) => string | boolean | null`），用于配置是否为悬浮提示日期。
+   * Input property `isTooltipDate` (`(Dayjs: any) => string | boolean | null`) configuring is tooltip date.
+   * @zh 输入属性 `isTooltipDate`（类型：`(Dayjs: any) => string | boolean | null`），用于配置是否为悬浮提示日期。
    */
   @Input()
   isTooltipDate: (Dayjs) => string | boolean | null;
@@ -344,23 +344,23 @@ export class DaterangepickerDirective implements OnInit, OnChanges, DoCheck, OnD
    */
   private startKeyHolder: string;
   /**
-   * Property `notForChangesProperty` (`Array<string>`) storing not for changes property.
-   * @zh 属性 `notForChangesProperty`（类型：`Array<string>`），用于存储或配置not用于变更集合属性。
+   * Property `notForChangesProperty` (`string[]`) storing not for changes property.
+   * @zh 属性 `notForChangesProperty`（类型：`string[]`），用于存储或配置not用于变更集合属性。
    */
   private notForChangesProperty: Array<string> = ['locale', 'endKey', 'startKey', 'initialDates'];
   /**
-   * Property `onChangeFn` (`any`) storing on change fn (default: `Function.prototype`).
-   * @zh 属性 `onChangeFn`（类型：`any`），用于存储或配置当变更函数（默认值：`Function.prototype`）。
+   * Property `onChangeFn` (`Function`) storing on change fn (default: `Function.prototype`).
+   * @zh 属性 `onChangeFn`（类型：`Function`），用于存储或配置当变更函数（默认值：`Function.prototype`）。
    */
   private onChangeFn = Function.prototype;
   /**
-   * Property `onTouched` (`any`) storing on touched (default: `Function.prototype`).
-   * @zh 属性 `onTouched`（类型：`any`），用于存储或配置当是否已触碰（默认值：`Function.prototype`）。
+   * Property `onTouched` (`Function`) storing on touched (default: `Function.prototype`).
+   * @zh 属性 `onTouched`（类型：`Function`），用于存储或配置当是否已触碰（默认值：`Function.prototype`）。
    */
   private onTouched = Function.prototype;
   /**
-   * Property `validatorChange` (`any`) storing validator change (default: `Function.prototype`).
-   * @zh 属性 `validatorChange`（类型：`any`），用于存储或配置校验器变更（默认值：`Function.prototype`）。
+   * Property `validatorChange` (`Function`) storing validator change (default: `Function.prototype`).
+   * @zh 属性 `validatorChange`（类型：`Function`），用于存储或配置校验器变更（默认值：`Function.prototype`）。
    */
   private validatorChange = Function.prototype;
   /**
@@ -369,13 +369,13 @@ export class DaterangepickerDirective implements OnInit, OnChanges, DoCheck, OnD
    */
   private disabledHolder: boolean;
   /**
-   * Property `valueHolder` (`TimePeriod | null`) storing value holder.
-   * @zh 属性 `valueHolder`（类型：`TimePeriod | null`），用于存储或配置值Holder。
+   * Property `valueHolder` (`TimePeriod`) storing value holder.
+   * @zh 属性 `valueHolder`（类型：`TimePeriod`），用于存储或配置值Holder。
    */
   private valueHolder: TimePeriod | null;
   /**
-   * Property `localeDiffer` (`KeyValueDiffer<string, any>`) storing locale differ.
-   * @zh 属性 `localeDiffer`（类型：`KeyValueDiffer<string, any>`），用于存储或配置语言区域Differ。
+   * Property `localeDiffer` (`any`) storing locale differ.
+   * @zh 属性 `localeDiffer`（类型：`any`），用于存储或配置语言区域Differ。
    */
   private localeDiffer;
   /**
@@ -399,11 +399,11 @@ export class DaterangepickerDirective implements OnInit, OnChanges, DoCheck, OnD
    * @zh 创建 `DaterangepickerDirective` 实例，并初始化其依赖项与内部状态。
    * @param viewContainerRef - Injected or initial view container ref (`ViewContainerRef`) / 注入或传入的视图容器引用（`ViewContainerRef`）
    * @param ref - Injected or initial ref (`ChangeDetectorRef`) / 注入或传入的引用（`ChangeDetectorRef`）
-   * @param el - Injected or initial el (`ElementRef`) / 注入或传入的DOM元素（`ElementRef`）
+   * @param el - Injected or initial el (`ElementRef<any>`) / 注入或传入的DOM元素（`ElementRef<any>`）
    * @param renderer - Injected or initial renderer (`Renderer2`) / 注入或传入的渲染器（`Renderer2`）
    * @param differs - Injected or initial differs (`KeyValueDiffers`) / 注入或传入的differs（`KeyValueDiffers`）
    * @param localeHolderService - Injected or initial locale holder service (`LocaleService`) / 注入或传入的语言区域Holder服务（`LocaleService`）
-   * @param elementRef - Injected or initial element ref (`ElementRef`) / 注入或传入的元素引用（`ElementRef`）
+   * @param elementRef - Injected or initial element ref (`ElementRef<any>`) / 注入或传入的元素引用（`ElementRef<any>`）
    */
   constructor(
     public viewContainerRef: ViewContainerRef,
@@ -427,7 +427,7 @@ export class DaterangepickerDirective implements OnInit, OnChanges, DoCheck, OnD
   }
 
   /**
-   * Host-bound getter `disabled` (`disabled`) computing disabled.
+   * Host-bound getter `disabled` (`boolean`) computing disabled.
    * @zh 宿主绑定读取器 `disabled`（绑定至 `disabled`），计算并返回已禁用。
    */
   @HostBinding('disabled') get disabled(): boolean {
@@ -490,7 +490,7 @@ export class DaterangepickerDirective implements OnInit, OnChanges, DoCheck, OnD
   /**
    * Sets the value (`value`).
    * @zh 设置值（`value`）。
-   * @param val - New value value (`TimePeriod | null`) / 新的值值（`TimePeriod | null`）
+   * @param val - New value value (`TimePeriod`) / 新的值值（`TimePeriod`）
    */
   set value(val: TimePeriod | null) {
     this.valueHolder = val;

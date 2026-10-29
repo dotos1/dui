@@ -3,9 +3,10 @@
  * @zh 模块文件 `src/ui/toolbar/toolbar.component.ts`，提供工具栏组件相关的定义与实现。
  */
 
+import { DuiConfig, DuiStyle } from '@dotos/dui/base';
 import { Platform } from '@angular/cdk/platform';
 import { AfterContentInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, ComponentFactoryResolver, ElementRef, HostListener, Injector, Input, OnChanges, Renderer2, SimpleChanges, ViewChild, ViewContainerRef } from '@angular/core';
-import { Container } from '@dotos/dui/container';
+import { Container, ContainerItem } from '@dotos/dui/container';
 import { ComponentBase, Dui } from '@dotos/dui/core';
 import { isArray, isObjectLike, isString } from 'lodash-es';
 
@@ -23,10 +24,10 @@ import { isArray, isObjectLike, isString } from 'lodash-es';
 export class DuiToolbarComponent extends Container implements OnChanges, AfterContentInit {
 
   /**
-   * Input property `config` (`any`) configuring config (default: `{}`).
-   * @zh 输入属性 `config`（类型：`any`），用于配置配置（默认值：`{}`）。
+   * Input property `config` (`DuiConfig`) configuring config (default: `{}`).
+   * @zh 输入属性 `config`（类型：`DuiConfig`），用于配置配置（默认值：`{}`）。
    */
-  @Input() config = {};
+  @Input() config: DuiConfig = {};
 
   /**
    * Input property `height` (`number`) configuring height (default: `40`).
@@ -74,7 +75,7 @@ export class DuiToolbarComponent extends Container implements OnChanges, AfterCo
   public vertical: boolean = false;
 
   /**
-   * Template/content query reference `viewContainer` (`@ViewChild`) targeting view container.
+   * Template/content query reference `viewContainer` (`ViewContainerRef`) targeting view container.
    * @zh 模板/内容视图查询引用 `viewContainer`（`@ViewChild`），指向视图容器。
    */
   @ViewChild('toolbar', { read: ViewContainerRef, static: true }) public override viewContainer: ViewContainerRef;
@@ -92,7 +93,7 @@ export class DuiToolbarComponent extends Container implements OnChanges, AfterCo
   /**
    * Creates an instance of `DuiToolbarComponent` and initializes its dependencies and internal state.
    * @zh 创建 `DuiToolbarComponent` 实例，并初始化其依赖项与内部状态。
-   * @param _element - Injected or initial element (`ElementRef`) / 注入或传入的元素（`ElementRef`）
+   * @param _element - Injected or initial element (`ElementRef<any>`) / 注入或传入的元素（`ElementRef<any>`）
    * @param renderer - Injected or initial renderer (`Renderer2`) / 注入或传入的渲染器（`Renderer2`）
    * @param _platform - Injected or initial platform (`Platform`) / 注入或传入的platform（`Platform`）
    * @param resolver - Injected or initial resolver (`ComponentFactoryResolver`) / 注入或传入的解析器（`ComponentFactoryResolver`）
@@ -145,11 +146,7 @@ export class DuiToolbarComponent extends Container implements OnChanges, AfterCo
     if (this.viewContainer) {
       this.viewContainer.clear();
     }
-    let items = this.items;
-    if (items) {
-      delete this.items;
-      this.add(items);
-    }
+    this.addConfiguredItems();
   }
 
   /**
@@ -232,7 +229,7 @@ export class DuiToolbarComponent extends Container implements OnChanges, AfterCo
       xtype: 'separator',
       vertical: true
     });
-    return this.add(comp);
+    return this.add(comp) as MenuItem;
   }
 
   /**
@@ -245,7 +242,7 @@ export class DuiToolbarComponent extends Container implements OnChanges, AfterCo
       xtype: 'spacer',
       width: 2
     });
-    return this.add(comp);
+    return this.add(comp) as Spacer;
   }
 
   /**
@@ -270,14 +267,14 @@ export class DuiToolbarComponent extends Container implements OnChanges, AfterCo
       xtype: 'tbtext',
       text: text
     });
-    return this.add(comp);
+    return this.add(comp) as MenuItem;
   }
 
   /**
    * Executes `addButton` to handle add button.
    * @zh 执行 `addButton`，用于添加按钮。
    * @param config - config parameter (`any`) / 配置参数（`any`）
-   * @returns Result of type `any` / 类型为 `any` 的返回值
+   * @returns Result of type `any[] | ComponentBase` / 类型为 `any[] | ComponentBase` 的返回值
    */
   addButton(config) {
     if (isArray(config)) {
@@ -298,17 +295,17 @@ export class DuiToolbarComponent extends Container implements OnChanges, AfterCo
    * @returns Result of type `MenuItem` / 类型为 `MenuItem` 的返回值
    */
   addItem(item: MenuItem): MenuItem {
-    return this.add(item);
+    return this.add(item) as MenuItem;
   }
 
   /**
    * Executes `addField` to handle add field.
    * @zh 执行 `addField`，用于添加字段。
-   * @param field - field parameter (`any`) / 字段参数（`any`）
+   * @param field - field parameter (`ContainerItem`) / 字段参数（`ContainerItem`）
    * @returns Result of type `MenuItem` / 类型为 `MenuItem` 的返回值
    */
-  addField(field): MenuItem {
-    return this.add(field);
+  addField(field: ContainerItem): MenuItem {
+    return this.add(field) as MenuItem;
   }
 
   /**
@@ -316,7 +313,7 @@ export class DuiToolbarComponent extends Container implements OnChanges, AfterCo
    * @zh 执行 `insertButton`，用于插入按钮。
    * @param index - index parameter (`number`) / 索引参数（`number`）
    * @param item - item parameter (`any`) / 条目参数（`any`）
-   * @returns Result of type `any` / 类型为 `any` 的返回值
+   * @returns Result of type `any[] | ComponentBase` / 类型为 `any[] | ComponentBase` 的返回值
    */
   insertButton(index: number, item) {
     if (isArray(item)) {
@@ -332,7 +329,7 @@ export class DuiToolbarComponent extends Container implements OnChanges, AfterCo
   // private
   /**
    * Executes `constructButton` to handle construct button.
-   * @zh 执行 `constructButton`，用于construct按钮。
+   * @zh 执行 `constructButton`，用于构造按钮。
    * @param item - item parameter (`any`) / 条目参数（`any`）
    */
   constructButton(item) {
@@ -347,12 +344,12 @@ export class DuiToolbarComponent extends Container implements OnChanges, AfterCo
   /**
    * Executes `onAdd` to handle on add.
    * @zh 执行 `onAdd`，用于当添加。
-   * @param c - c parameter (`any`) / c参数（`any`）
+   * @param c - c parameter (`ComponentBase`) / c参数（`ComponentBase`）
    */
-  override onAdd(c) {
+  override onAdd(c: ComponentBase): void {
     super.onAdd(c);
     if (this.disabled) {
-      c.disable();
+      c.disable = true;
     }
   }
 
@@ -374,12 +371,10 @@ export class DuiToolbarComponent extends Container implements OnChanges, AfterCo
    * Executes `onDisable` to handle on disable.
    * @zh 执行 `onDisable`，用于当禁用。
    */
-  onDisable() {
+  onDisable(): void {
     this.items.each(
-      function (item) {
-        if (item.disable) {
-          item.disable();
-        }
+      function (item: ComponentBase) {
+        item.disable = true;
       });
   }
 
@@ -388,12 +383,10 @@ export class DuiToolbarComponent extends Container implements OnChanges, AfterCo
    * Executes `onEnable` to handle on enable.
    * @zh 执行 `onEnable`，用于当启用。
    */
-  onEnable() {
+  onEnable(): void {
     this.items.each(
-      function (item) {
-        if (item.enable) {
-          item.enable();
-        }
+      function (item: ComponentBase) {
+        item.disable = false;
       });
   }
 
@@ -492,10 +485,10 @@ export class Separator extends MenuItem {
    */
   vertical: boolean = true;
   /**
-   * Property `style` (`any`) storing style (default: `{}`).
-   * @zh 属性 `style`（类型：`any`），用于存储或配置样式（默认值：`{}`）。
+   * Property `style` (`DuiStyle`) storing style (default: `{}`).
+   * @zh 属性 `style`（类型：`DuiStyle`），用于存储或配置样式（默认值：`{}`）。
    */
-  public override style = {};
+  public override style: DuiStyle = {};
   /**
    * Creates an instance of `Separator` and initializes its dependencies and internal state.
    * @zh 创建 `Separator` 实例，并初始化其依赖项与内部状态。
@@ -619,7 +612,7 @@ export class TextItem extends MenuItem {
   /**
    * Creates an instance of `TextItem` and initializes its dependencies and internal state.
    * @zh 创建 `TextItem` 实例，并初始化其依赖项与内部状态。
-   * @param _element - Injected or initial element (`ElementRef`) / 注入或传入的元素（`ElementRef`）
+   * @param _element - Injected or initial element (`ElementRef<any>`) / 注入或传入的元素（`ElementRef<any>`）
    * @param detectRef - Injected or initial detect ref (`ChangeDetectorRef`) / 注入或传入的检测引用（`ChangeDetectorRef`）
    */
   constructor(private _element: ElementRef, public override detectRef: ChangeDetectorRef) {

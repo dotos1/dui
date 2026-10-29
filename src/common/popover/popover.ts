@@ -173,7 +173,7 @@ export class Popover implements PopoverPanel, OnDestroy {
 
   /**
    * Emits the current animation state whenever it changes.
-   * @zh 属性 `_onAnimationStateChange`（类型：`EventEmitter`），用于存储或配置当动画状态变更（默认值：`new EventEmitter<AnimationEvent>()`）。
+   * @zh 属性 `_onAnimationStateChange`（类型：`EventEmitter<AnimationEvent>`），用于存储或配置当动画状态变更（默认值：`new EventEmitter<AnimationEvent>()`）。
    */
   _onAnimationStateChange = new EventEmitter<AnimationEvent>();
 
@@ -378,12 +378,12 @@ export class Popover implements PopoverPanel, OnDestroy {
 
   /**
    * Event emitted when the popover is closed.
-   * @zh 输出事件 `close`（类型：`EventEmitter`），当触发关闭时向外发出事件。
+   * @zh 输出事件 `close`（类型：`EventEmitter<void>`），当触发关闭时向外发出事件。
    */
   @Output() close = new EventEmitter<void>();
 
   /**
-   * Template/content query reference `templateRef` (`@ViewChild`) targeting template ref.
+   * Template/content query reference `templateRef` (`TemplateRef<unknown>`) targeting template ref.
    * @zh 弹出层内容的模板引用。
    * @zh 弹出层内容的模板引用。
    */
@@ -392,7 +392,7 @@ export class Popover implements PopoverPanel, OnDestroy {
   /**
    * Creates an instance of `Popover` and initializes its dependencies and internal state.
    * @zh 创建 `Popover` 实例，并初始化其依赖项与内部状态。
-   * @param _elementRef - Injected or initial element ref (`ElementRef`) / 注入或传入的元素引用（`ElementRef`）
+   * @param _elementRef - Injected or initial element ref (`ElementRef<any>`) / 注入或传入的元素引用（`ElementRef<any>`）
    * @param zone - Injected or initial zone (`NgZone`) / 注入或传入的区域(NgZone)（`NgZone`）
    */
   constructor(private _elementRef: ElementRef, public zone: NgZone) {

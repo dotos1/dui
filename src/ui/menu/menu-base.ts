@@ -18,7 +18,7 @@ export abstract class MenuBase implements DoCheck{
   /**
    * Input setter `children` updating children.
    * @zh 输入属性 `children` 的设置器，用于更新子级列表。
-   * @param c - New children value (`any`) / 新的子级列表值（`any`）
+   * @param c - New children value (`MenuModel[]`) / 新的子级列表值（`MenuModel[]`）
    */
   @Input() set children(c) {
     this._children = c;
@@ -112,7 +112,7 @@ export abstract class MenuBase implements DoCheck{
 
   /**
    * Executes `doCheck` to handle do check.
-   * @zh 执行 `doCheck`，用于do检查。
+   * @zh 执行 `doCheck`，用于执行检查。
    */
   public doCheck() {
     

@@ -51,8 +51,8 @@ export class FormSection<F extends FieldConfig = FieldConfig> extends FieldType<
   public layout = 'row';
 
   /**
-   * Property `defaultOptions` (`any`) storing default options (default: `{ defaultValue: [], }`).
-   * @zh 属性 `defaultOptions`（类型：`any`），用于存储或配置默认配置选项（默认值：`{ defaultValue: [], }`）。
+   * Property `defaultOptions` (`{ defaultValue: any[]; }`) storing default options (default: `{ defaultValue: [], }`).
+   * @zh 属性 `defaultOptions`（类型：`{ defaultValue: any[]; }`），用于存储或配置默认配置选项（默认值：`{ defaultValue: [], }`）。
    */
   override defaultOptions = {
     defaultValue: [],
@@ -60,7 +60,7 @@ export class FormSection<F extends FieldConfig = FieldConfig> extends FieldType<
   /**
    * Creates an instance of `FormSection` and initializes its dependencies and internal state.
    * @zh 创建 `FormSection` 实例，并初始化其依赖项与内部状态。
-   * @param el - Injected or initial el (`ElementRef`) / 注入或传入的DOM元素（`ElementRef`）
+   * @param el - Injected or initial el (`ElementRef<any>`) / 注入或传入的DOM元素（`ElementRef<any>`）
    * @param builder - Injected or initial builder (`FormBuilder`) / 注入或传入的构建器（`FormBuilder`）
    */
   constructor(private el: ElementRef, @Inject(FORM_CONFIG) @Optional() builder?: FormBuilder) {

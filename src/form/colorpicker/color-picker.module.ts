@@ -68,8 +68,8 @@ import { TranslateModule } from '@dotos/dui/translator';
 })
 export class ColorFieldModule {
   /**
-   * Property `entryComponents` (`any[]`) storing entry components.
-   * @zh 属性 `entryComponents`（类型：`any[]`），用于存储或配置条目组件列表。
+   * Property `entryComponents` (`(typeof ColorPickerField | typeof ColorPickerContent)[]`) storing entry components.
+   * @zh 属性 `entryComponents`（类型：`(typeof ColorPickerField | typeof ColorPickerContent)[]`），用于存储或配置条目组件列表。
    */
   entryComponents = [
     ColorPickerContent,

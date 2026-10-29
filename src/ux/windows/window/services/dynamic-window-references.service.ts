@@ -39,8 +39,8 @@ export class ɵDynamicWindowReferencesService implements OnDestroy {
     }
 
     /**
-     * Property `destroyed$` (`Subject`) storing destroyed (default: `new Subject()`).
-     * @zh 属性 `destroyed$`（类型：`Subject`），用于存储或配置已销毁（默认值：`new Subject()`）。
+     * Property `destroyed$` (`Subject<unknown>`) storing destroyed (default: `new Subject()`).
+     * @zh 属性 `destroyed$`（类型：`Subject<unknown>`），用于存储或配置已销毁（默认值：`new Subject()`）。
      */
     private destroyed$ = new Subject();
 
@@ -72,7 +72,7 @@ export class ɵDynamicWindowReferencesService implements OnDestroy {
      * Executes `register` to handle register.
      * @zh 执行 `register`，用于注册。
      * @param windowRef - window ref parameter (`ɵDynamicWindowRefModel`) / 窗口引用参数（`ɵDynamicWindowRefModel`）
-     * @param config - config parameter (`IDynamicWindowConfig`) / 配置参数（`IDynamicWindowConfig`）
+     * @param config - config parameter (`IDynamicWindowConfig<unknown, unknown>`) / 配置参数（`IDynamicWindowConfig<unknown, unknown>`）
      */
     public register(windowRef: ɵDynamicWindowRefModel, config: IDynamicWindowConfig): void {
         windowRef.init(new ɵDynamicWindowConfigModel(config));

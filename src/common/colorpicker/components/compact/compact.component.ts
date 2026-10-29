@@ -70,7 +70,7 @@ import { TriggerPopup } from '@dotos/dui/common/trigger';
 export class CompactComponent extends ColorWrap implements TriggerPopup {
   /**
    * Color squares to display
-   * @zh 输入属性 `colors`（类型：`any[]`），用于配置颜色列表。
+   * @zh 输入属性 `colors`（类型：`string[]`），用于配置颜色列表。
    */
   @Input() colors = [
     '#4D4D4D',

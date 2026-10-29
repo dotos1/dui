@@ -100,7 +100,7 @@ export class GithubComponent extends ColorWrap implements TriggerPopup {
   @Input() width: string | number = 212;
   /**
    * Color squares to display
-   * @zh 输入属性 `colors`（类型：`any[]`），用于配置颜色列表。
+   * @zh 输入属性 `colors`（类型：`string[]`），用于配置颜色列表。
    */
   @Input() colors = [
     '#B80000',
@@ -121,7 +121,7 @@ export class GithubComponent extends ColorWrap implements TriggerPopup {
     '#D4C4FB',
   ];
   /**
-   * Input property `triangle` (`'hide' | 'top-left' | 'top-right' | 'bottom-right'`) configuring triangle (default: `'top-left'`).
+   * Input property `triangle` (`"hide" | "top-left" | "top-right" | "bottom-right"`) configuring triangle (default: `'top-left'`).
    * @zh 指示三角形的方向，或 `'hide'` 隐藏它。
    * @zh 指示三角形的方向，或 `'hide'` 隐藏它。
    */

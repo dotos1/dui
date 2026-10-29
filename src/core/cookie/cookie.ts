@@ -20,8 +20,8 @@ export class Cookie {
        */
       public value: string;
       /**
-       * Property `expires` (`string|Date`) storing expires.
-       * @zh 属性 `expires`（类型：`string|Date`），用于存储或配置expires。
+       * Property `expires` (`string | Date`) storing expires.
+       * @zh 属性 `expires`（类型：`string | Date`），用于存储或配置expires。
        */
       public expires?: string|Date;
       /**

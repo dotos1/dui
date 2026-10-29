@@ -43,9 +43,9 @@ export class InlineSVGComponent implements AfterViewInit, OnChanges {
   @Input() prepend: boolean;
 
   /**
-   * Property `_el` (`ElementRef`) storing el.
+   * Property `_el` (`ElementRef<any>`) storing el.
    * @internal
-   * @zh 属性 `_el`（类型：`ElementRef`），用于存储或配置DOM元素。
+   * @zh 属性 `_el`（类型：`ElementRef<any>`），用于存储或配置DOM元素。
    */
   _el: ElementRef;
 
@@ -53,7 +53,7 @@ export class InlineSVGComponent implements AfterViewInit, OnChanges {
    * Creates an instance of `InlineSVGComponent` and initializes its dependencies and internal state.
    * @zh 创建 `InlineSVGComponent` 实例，并初始化其依赖项与内部状态。
    * @param _inlineSVGService - Injected or initial inline svg service (`InlineSVGService`) / 注入或传入的inlineSVG矢量图服务（`InlineSVGService`）
-   * @param el - Injected or initial el (`ElementRef`) / 注入或传入的DOM元素（`ElementRef`）
+   * @param el - Injected or initial el (`ElementRef<any>`) / 注入或传入的DOM元素（`ElementRef<any>`）
    */
   constructor(private _inlineSVGService: InlineSVGService, el: ElementRef) {
     this._el = el;

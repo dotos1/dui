@@ -52,23 +52,23 @@ interface Options {
    */
   inputRules?: boolean;
   /**
-   * Property `schema` (`Schema`) storing schema.
-   * @zh 属性 `schema`（类型：`Schema`），用于存储或配置结构定义。
+   * Property `schema` (`Schema<any, any>`) storing schema.
+   * @zh 属性 `schema`（类型：`Schema<any, any>`），用于存储或配置结构定义。
    */
   schema?: Schema;
   /**
-   * Property `plugins` (`Plugin[]`) storing plugins.
-   * @zh 属性 `plugins`（类型：`Plugin[]`），用于存储或配置plugins。
+   * Property `plugins` (`Plugin<any>[]`) storing plugins.
+   * @zh 属性 `plugins`（类型：`Plugin<any>[]`），用于存储或配置plugins。
    */
   plugins?: Plugin[];
   /**
-   * Property `nodeViews` (`EditorProps['nodeViews']`) storing node views.
-   * @zh 属性 `nodeViews`（类型：`EditorProps['nodeViews']`），用于存储或配置节点视图。
+   * Property `nodeViews` (`{ [node: string]: NodeViewConstructor; }`) storing node views.
+   * @zh 属性 `nodeViews`（类型：`{ [node: string]: NodeViewConstructor; }`），用于存储或配置节点视图。
    */
   nodeViews?: EditorProps['nodeViews'];
   /**
-   * Property `attributes` (`EditorProps['attributes']`) storing attributes.
-   * @zh 属性 `attributes`（类型：`EditorProps['attributes']`），用于存储或配置属性列表。
+   * Property `attributes` (`{…})`) storing attributes.
+   * @zh 属性 `attributes`（类型：`{…})`），用于存储或配置属性列表。
    */
   attributes?: EditorProps['attributes'];
   /**
@@ -77,8 +77,8 @@ interface Options {
    */
   features?: EditorFeatures;
   /**
-   * Property `handleScrollToSelection` (`EditorProps['handleScrollToSelection']`) storing handle scroll to selection.
-   * @zh 属性 `handleScrollToSelection`（类型：`EditorProps['handleScrollToSelection']`），用于存储或配置连接手柄滚动转换为Selection。
+   * Property `handleScrollToSelection` (`(this: any, view: EditorView) => boolean`) storing handle scroll to selection.
+   * @zh 属性 `handleScrollToSelection`（类型：`(this: any, view: EditorView) => boolean`），用于存储或配置连接手柄滚动转换为Selection。
    */
   handleScrollToSelection?: EditorProps['handleScrollToSelection'];
   /**
@@ -159,13 +159,13 @@ export class Editor {
   }
 
   /**
-   * Property `valueChangesSubject` (`Subject`) storing value changes subject (default: `new Subject<JSONDoc>()`).
-   * @zh 属性 `valueChangesSubject`（类型：`Subject`），用于存储或配置值变更集合主题流（默认值：`new Subject<JSONDoc>()`）。
+   * Property `valueChangesSubject` (`Subject<JSONDoc>`) storing value changes subject (default: `new Subject<JSONDoc>()`).
+   * @zh 属性 `valueChangesSubject`（类型：`Subject<JSONDoc>`），用于存储或配置值变更集合主题流（默认值：`new Subject<JSONDoc>()`）。
    */
   private valueChangesSubject = new Subject<JSONDoc>();
   /**
-   * Property `updateSubject` (`Subject`) storing update subject (default: `new Subject<EditorView>()`).
-   * @zh 属性 `updateSubject`（类型：`Subject`），用于存储或配置更新主题流（默认值：`new Subject<EditorView>()`）。
+   * Property `updateSubject` (`Subject<EditorView>`) storing update subject (default: `new Subject<EditorView>()`).
+   * @zh 属性 `updateSubject`（类型：`Subject<EditorView>`），用于存储或配置更新主题流（默认值：`new Subject<EditorView>()`）。
    */
   private updateSubject = new Subject<EditorView>();
 
@@ -301,7 +301,7 @@ export class Editor {
   /**
    * Executes `registerPlugin` to handle register plugin.
    * @zh 执行 `registerPlugin`，用于注册Plugin。
-   * @param plugin - plugin parameter (`Plugin`) / plugin参数（`Plugin`）
+   * @param plugin - plugin parameter (`Plugin<any>`) / plugin参数（`Plugin<any>`）
    */
   registerPlugin(plugin: Plugin): void {
     const { state } = this.view;

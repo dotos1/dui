@@ -51,7 +51,7 @@ export class ConfirmDialogComponent {
   /**
    * Creates an instance of `ConfirmDialogComponent` and initializes its dependencies and internal state.
    * @zh 创建 `ConfirmDialogComponent` 实例，并初始化其依赖项与内部状态。
-   * @param _dialogRef - Injected or initial dialog ref (`MatDialogRef<ConfirmDialogComponent>`) / 注入或传入的对话框引用（`MatDialogRef<ConfirmDialogComponent>`）
+   * @param _dialogRef - Injected or initial dialog ref (`MatDialogRef<ConfirmDialogComponent, any>`) / 注入或传入的对话框引用（`MatDialogRef<ConfirmDialogComponent, any>`）
    */
   constructor(private _dialogRef: MatDialogRef<ConfirmDialogComponent>) {}
 

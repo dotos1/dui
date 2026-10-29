@@ -130,8 +130,8 @@ const ambientMap: Map<number, string> = new Map([
  * Executes `elevation_box_shadow` to handle elevation box shadow.
  * @zh 执行 `elevation_box_shadow`，用于层级阴影盒子容器阴影。
  * @param $z_value - z value parameter (`any`) / Z坐标值参数（`any`）
- * @param $color - color parameter (`any`) / 颜色参数（`any`）
- * @param $opacity_boost - opacity boost parameter (`any`) / 不透明度boost参数（`any`）
+ * @param $color - color parameter (`string`) / 颜色参数（`string`）
+ * @param $opacity_boost - opacity boost parameter (`number`) / 不透明度boost参数（`number`）
  */
 export function elevation_box_shadow(
     $z_value,
@@ -158,7 +158,7 @@ export function elevation_box_shadow(
    * @zh 执行 `_box_shadow`，用于盒子容器阴影。
    * @param $level - level parameter (`any`) / 层级参数（`any`）
    * @param $color - color parameter (`any`) / 颜色参数（`any`）
-   * @param $opacity_boost - opacity boost parameter (`any`) / 不透明度boost参数（`any`）
+   * @param $opacity_boost - opacity boost parameter (`number`) / 不透明度boost参数（`number`）
    */
   function _box_shadow($level, $color, $opacity_boost= 0) {
     // $color: prop-value($color);

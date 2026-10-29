@@ -143,7 +143,7 @@ export class DuiPagingBarComponent {
    * total pages. This token should be preserved when overriding this string if showing the
    * total page count is desired.
 
-   * @zh 属性 `afterPageText`（类型：`'of {0}'`），用于存储或配置之后页面文本。
+   * @zh 属性 `afterPageText`（类型：`"of {0}"`），用于存储或配置之后页面文本。
    */
   public afterPageText: 'of {0}';
 
@@ -401,7 +401,7 @@ export class DuiPagingBarComponent {
   /**
    * Refresh the current page, has the same effect as clicking the 'refresh' button.
 
-   * @zh 执行 `doRefresh`，用于do刷新。
+   * @zh 执行 `doRefresh`，用于执行刷新。
    */
   public doRefresh() {
     this.navigateToPage(this._page);

@@ -9,6 +9,9 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { Dui } from '@dotos/dui/core';
+// 工具栏里不带 xtype 的按钮缺省按 'dui-button' 创建（constructButton），
+// 所以按钮工厂必须随工具栏模块一起注册，否则会抛 "dui-button not exits in factory"
+import { ButtonModule } from '@dotos/dui/ui/button';
 import { DuiToolbarComponent, Spacer, Fill, TextItem, Separator } from './toolbar.component';
 
 /**
@@ -20,7 +23,8 @@ import { DuiToolbarComponent, Spacer, Fill, TextItem, Separator } from './toolba
     CommonModule,
     MatMenuModule,
     MatDividerModule,
-    MatToolbarModule
+    MatToolbarModule,
+    ButtonModule
   ],
   declarations: [
     Separator,
@@ -39,8 +43,8 @@ import { DuiToolbarComponent, Spacer, Fill, TextItem, Separator } from './toolba
 })
 export class DuiToolbarModule {
   /**
-   * Property `entryComponents` (`any[]`) storing entry components.
-   * @zh 属性 `entryComponents`（类型：`any[]`），用于存储或配置条目组件列表。
+   * Property `entryComponents` (`(typeof Spacer | typeof DuiToolbarComponent | typeof Separator | typeof TextItem)[]`) storing entry components.
+   * @zh 属性 `entryComponents`（类型：`(typeof Spacer | typeof DuiToolbarComponent | typeof Separator | typeof TextItem)[]`），用于存储或配置条目组件列表。
    */
   entryComponents = [
       DuiToolbarComponent,

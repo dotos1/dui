@@ -41,7 +41,7 @@ export class GroundItem extends ComponentParentableItem {
      * @zh 创建 `GroundItem` 实例，并初始化其依赖项与内部状态。
      * @param translator - Injected or initial translator (`TranslateService`) / 注入或传入的翻译器（`TranslateService`）
      * @param layoutManager - Injected or initial layout manager (`LayoutManager`) / 注入或传入的布局管理器（`LayoutManager`）
-     * @param rootItemConfig - Injected or initial root item config (`ResolvedRootItemConfig | undefined`) / 注入或传入的根节点条目配置（`ResolvedRootItemConfig | undefined`）
+     * @param rootItemConfig - Injected or initial root item config (`ResolvedRootItemConfig`) / 注入或传入的根节点条目配置（`ResolvedRootItemConfig`）
      * @param containerElement - Injected or initial container element (`HTMLElement`) / 注入或传入的容器元素（`HTMLElement`）
      */
     constructor(private translator:TranslateService,layoutManager: LayoutManager, rootItemConfig: ResolvedRootItemConfig | undefined, containerElement: HTMLElement) {
@@ -286,7 +286,7 @@ export class GroundItem extends ComponentParentableItem {
 
     /**
      * Executes `highlightDropZone` to handle highlight drop zone.
-     * @zh 执行 `highlightDropZone`，用于highlight放置区域(NgZone)。
+     * @zh 执行 `highlightDropZone`，用于高亮放置区域(NgZone)。
      * @param x - x parameter (`number`) / X坐标参数（`number`）
      * @param y - y parameter (`number`) / Y坐标参数（`number`）
      * @param area - area parameter (`AreaLinkedRect`) / 区域参数（`AreaLinkedRect`）
@@ -462,7 +462,7 @@ export class GroundItem extends ComponentParentableItem {
 
     /**
      * Executes `deepGetAllContentItems` to handle deep get all content items.
-     * @zh 执行 `deepGetAllContentItems`，用于deep获取全部内容条目列表。
+     * @zh 执行 `deepGetAllContentItems`，用于深度获取全部内容条目列表。
      * @param content - content parameter (`readonly ContentItem[]`) / 内容参数（`readonly ContentItem[]`）
      * @param result - result parameter (`ContentItem[]`) / 结果参数（`ContentItem[]`）
      */
@@ -476,10 +476,10 @@ export class GroundItem extends ComponentParentableItem {
 
     /**
      * Executes `deepFilterContentItems` to handle deep filter content items.
-     * @zh 执行 `deepFilterContentItems`，用于deep过滤内容条目列表。
+     * @zh 执行 `deepFilterContentItems`，用于深度过滤内容条目列表。
      * @param content - content parameter (`readonly ContentItem[]`) / 内容参数（`readonly ContentItem[]`）
      * @param result - result parameter (`ContentItem[]`) / 结果参数（`ContentItem[]`）
-     * @param checkAcceptFtn - check accept ftn parameter (`((this: void, item: ContentItem) => boolean)`) / 检查AcceptFtn参数（`((this: void, item: ContentItem) => boolean)`）
+     * @param checkAcceptFtn - check accept ftn parameter (`(this: void, item: ContentItem) => boolean`) / 检查AcceptFtn参数（`(this: void, item: ContentItem) => boolean`）
      */
     private deepFilterContentItems(content: readonly ContentItem[], result: ContentItem[],
         checkAcceptFtn: ((this: void, item: ContentItem) => boolean)
@@ -503,8 +503,8 @@ export namespace GroundItem {
      */
     export interface Area extends ContentItem.Area {
         /**
-         * Property `side` (`keyof typeof Area.Side`) storing side.
-         * @zh 属性 `side`（类型：`keyof typeof Area.Side`），用于存储或配置side。
+         * Property `side` (`"y2" | "x2" | "y1" | "x1"`) storing side.
+         * @zh 属性 `side`（类型：`"y2" | "x2" | "y1" | "x1"`），用于存储或配置side。
          */
         side: keyof typeof Area.Side;
     }

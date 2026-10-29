@@ -56,8 +56,8 @@ import { MenuDirective } from './menu-item.directive';
 })
 export class MenuModule {
   /**
-   * Property `entryComponents` (`any[]`) storing entry components.
-   * @zh 属性 `entryComponents`（类型：`any[]`），用于存储或配置条目组件列表。
+   * Property `entryComponents` (`(typeof MatDivider | typeof MenuBarComponent | typeof MenuItemComponent)[]`) storing entry components.
+   * @zh 属性 `entryComponents`（类型：`(typeof MatDivider | typeof MenuBarComponent | typeof MenuItemComponent)[]`），用于存储或配置条目组件列表。
    */
   entryComponents = [
      MatDivider,

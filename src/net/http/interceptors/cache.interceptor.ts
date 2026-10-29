@@ -23,27 +23,27 @@ import { tap } from "rxjs/operators";
 })
 export class CacheInterceptor implements HttpInterceptor {
   /**
-   * Property `cache` (`Map`) storing cache.
-   * @zh 属性 `cache`（类型：`Map`），用于存储或配置缓存。
+   * Property `cache` (`Map<string, { response: HttpResponse<unknown>; expiry: number; }>`) storing cache.
+   * @zh 属性 `cache`（类型：`Map<string, { response: HttpResponse<unknown>; expiry: number; }>`），用于存储或配置缓存。
    */
   private cache = new Map<string, { response: HttpResponse<unknown>; expiry: number }>();
   /**
-   * Property `maxEntries` (`number`) storing max entries (default: `200`).
-   * @zh 属性 `maxEntries`（类型：`number`），用于存储或配置最大值条目集合（默认值：`200`）。
+   * Property `maxEntries` (`200`) storing max entries (default: `200`).
+   * @zh 属性 `maxEntries`（类型：`200`），用于存储或配置最大值条目集合（默认值：`200`）。
    */
   private readonly maxEntries = 200;
   /**
-   * Property `ttlMs` (`any`) storing ttl ms (default: `5 * 60 * 1000`).
-   * @zh 属性 `ttlMs`（类型：`any`），用于存储或配置ttl毫秒（默认值：`5 * 60 * 1000`）。
+   * Property `ttlMs` (`number`) storing ttl ms (default: `5 * 60 * 1000`).
+   * @zh 属性 `ttlMs`（类型：`number`），用于存储或配置ttl毫秒（默认值：`5 * 60 * 1000`）。
    */
   private readonly ttlMs = 5 * 60 * 1000;
 
   /**
    * Executes `intercept` to handle intercept.
-   * @zh 执行 `intercept`，用于intercept。
-   * @param req - req parameter (`HttpRequest<any>`) / 请求参数（`HttpRequest<any>`）
+   * @zh 执行 `intercept`，用于拦截。
+   * @param req - req parameter (`HttpRequest<unknown>`) / 请求参数（`HttpRequest<unknown>`）
    * @param next - next parameter (`HttpHandler`) / 下一个参数（`HttpHandler`）
-   * @returns Result of type `Observable<HttpEvent<any>>` / 类型为 `Observable<HttpEvent<any>>` 的返回值
+   * @returns Result of type `Observable<HttpEvent<unknown>>` / 类型为 `Observable<HttpEvent<unknown>>` 的返回值
    */
   intercept(
     req: HttpRequest<unknown>,
@@ -70,7 +70,7 @@ export class CacheInterceptor implements HttpInterceptor {
    * Executes `getFromCache` to handle get from cache.
    * @zh 执行 `getFromCache`，用于获取从缓存。
    * @param url - url parameter (`string`) / 链接地址参数（`string`）
-   * @returns Result of type `any` / 类型为 `any` 的返回值
+   * @returns Result of type `HttpResponse<unknown>` / 类型为 `HttpResponse<unknown>` 的返回值
    */
   private getFromCache(url: string): HttpResponse<unknown> | undefined {
     const entry = this.cache.get(url);
@@ -88,7 +88,7 @@ export class CacheInterceptor implements HttpInterceptor {
    * Executes `setInCache` to handle set in cache.
    * @zh 执行 `setInCache`，用于集合在缓存。
    * @param url - url parameter (`string`) / 链接地址参数（`string`）
-   * @param response - response parameter (`any`) / 响应参数（`any`）
+   * @param response - response parameter (`HttpResponse<unknown>`) / 响应参数（`HttpResponse<unknown>`）
    */
   private setInCache(url: string, response: HttpResponse<unknown>): void {
     if (this.cache.size >= this.maxEntries) {

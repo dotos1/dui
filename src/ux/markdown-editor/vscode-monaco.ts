@@ -35,7 +35,7 @@ const _modeId2WordDefinition = new Map<string, RegExp>();
  * Executes `setWordDefinitionFor` to handle set word definition for.
  * @zh 执行 `setWordDefinitionFor`，用于集合WordDefinition用于。
  * @param modeId - mode id parameter (`string`) / 模式唯一标识参数（`string`）
- * @param wordDefinition - word definition parameter (`RegExp | undefined`) / wordDefinition参数（`RegExp | undefined`）
+ * @param wordDefinition - word definition parameter (`RegExp`) / wordDefinition参数（`RegExp`）
  */
 export function setWordDefinitionFor(modeId: string, wordDefinition: RegExp | undefined): void {
     _modeId2WordDefinition.set(modeId, wordDefinition);
@@ -45,7 +45,7 @@ export function setWordDefinitionFor(modeId: string, wordDefinition: RegExp | un
  * Executes `getWordDefinitionFor` to handle get word definition for.
  * @zh 执行 `getWordDefinitionFor`，用于获取WordDefinition用于。
  * @param modeId - mode id parameter (`string`) / 模式唯一标识参数（`string`）
- * @returns Result of type `RegExp | undefined` / 类型为 `RegExp | undefined` 的返回值
+ * @returns Result of type `RegExp` / 类型为 `RegExp` 的返回值
  */
 export function getWordDefinitionFor(modeId: string): RegExp | undefined {
     return _modeId2WordDefinition.get(modeId);
@@ -339,7 +339,7 @@ export class TextDocument {
      * @zh 执行 `getWordRangeAtPosition`，用于获取Word范围位于位置。
      * @param _position - position parameter (`Position`) / 位置参数（`Position`）
      * @param regexp - regexp parameter (`RegExp`) / regexp参数（`RegExp`）
-     * @returns Result of type `Range | undefined` / 类型为 `Range | undefined` 的返回值
+     * @returns Result of type `Range` / 类型为 `Range` 的返回值
      */
     getWordRangeAtPosition(_position: Position, regexp?: RegExp): Range | undefined {
         const position = this.validatePosition(_position);
@@ -593,7 +593,7 @@ export class TextEditor {
     /**
      * Executes `addAction` to handle add action.
      * @zh 执行 `addAction`，用于添加动作。
-     * @param param - param parameter (`{ contextMenuOrder: number; keybindingContext: string; run(e...`) / 参数参数（`{ contextMenuOrder: number; keybindingContext: string; run(e...`）
+     * @param param - param parameter (`{…}`) / 参数参数（`{…}`）
      */
     addAction(param: { contextMenuOrder: number; keybindingContext: string; run(editor: editor.ICodeEditor): (void | Promise<void>); id: string; label: string; precondition: string; contextMenuGroupId: string; keybindings: number[] }) {
         this.editor.addAction(param)
@@ -671,8 +671,8 @@ export interface ITextEditOperation {
      */
     range: Range;
     /**
-     * Property `text` (`string | null`) storing text.
-     * @zh 属性 `text`（类型：`string | null`），用于存储或配置文本。
+     * Property `text` (`string`) storing text.
+     * @zh 属性 `text`（类型：`string`），用于存储或配置文本。
      */
     text: string | null;
     /**
@@ -698,8 +698,8 @@ export interface IEditData {
      */
     edits: ITextEditOperation[];
     /**
-     * Property `setEndOfLine` (`EndOfLine | undefined`) storing set end of line.
-     * @zh 属性 `setEndOfLine`（类型：`EndOfLine | undefined`），用于存储或配置集合结束的线段。
+     * Property `setEndOfLine` (`EndOfLine`) storing set end of line.
+     * @zh 属性 `setEndOfLine`（类型：`EndOfLine`），用于存储或配置集合结束的线段。
      */
     setEndOfLine: EndOfLine | undefined;
     /**
@@ -745,8 +745,8 @@ export class TextEditorEdit {
      */
     private _collectedEdits: ITextEditOperation[] = [];
     /**
-     * Property `_setEndOfLine` (`EndOfLine | undefined`) storing set end of line (default: `undefined`).
-     * @zh 属性 `_setEndOfLine`（类型：`EndOfLine | undefined`），用于存储或配置集合结束的线段（默认值：`undefined`）。
+     * Property `_setEndOfLine` (`EndOfLine`) storing set end of line (default: `undefined`).
+     * @zh 属性 `_setEndOfLine`（类型：`EndOfLine`），用于存储或配置集合结束的线段（默认值：`undefined`）。
      */
     private _setEndOfLine: EndOfLine | undefined = undefined;
     /**
@@ -848,7 +848,7 @@ export class TextEditorEdit {
      * Executes `_pushEdit` to handle push edit.
      * @zh 执行 `_pushEdit`，用于推入编辑。
      * @param range - range parameter (`Range`) / 范围参数（`Range`）
-     * @param text - text parameter (`string | null`) / 文本参数（`string | null`）
+     * @param text - text parameter (`string`) / 文本参数（`string`）
      * @param forceMoveMarkers - force move markers parameter (`boolean`) / force移动标记点参数（`boolean`）
      */
     private _pushEdit(range: Range, text: string | null, forceMoveMarkers: boolean): void {

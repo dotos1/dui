@@ -14,8 +14,8 @@ export class ChangeUtils {
   /**
    * Executes `findChanges` to handle find changes.
    * @zh 执行 `findChanges`，用于查找变更集合。
-   * @param obj1 - obj1 parameter (`any[]`) / obj1参数（`any[]`）
-   * @param obj2 - obj2 parameter (`any[]`) / obj2参数（`any[]`）
+   * @param obj1 - obj1 parameter (`any`) / obj1参数（`any`）
+   * @param obj2 - obj2 parameter (`any`) / obj2参数（`any`）
    * @param ignoreKeys - ignore keys parameter (`string[]`) / 忽略键列表参数（`string[]`）
    * @returns Result of type `GroupingChanges` / 类型为 `GroupingChanges` 的返回值
    */
@@ -94,7 +94,7 @@ export class ChangeUtils {
    * @param fromItem - from item parameter (`any`) / 从条目参数（`any`）
    * @param toItem - to item parameter (`any`) / 转换为条目参数（`any`）
    * @param baseKey - base key parameter (`any`) / 基础键参数（`any`）
-   * @param ignoreKeys - ignore keys parameter (`any`) / 忽略键列表参数（`any`）
+   * @param ignoreKeys - ignore keys parameter (`any[]`) / 忽略键列表参数（`any[]`）
    */
   private static compareObject(fromItem, toItem, baseKey?, ignoreKeys = []) {
     const keys = new Set([

@@ -108,7 +108,7 @@ class Link {
    * Executes `isActive` to handle is active.
    * @zh 执行 `isActive`，用于是否为激活。
    * @param state - state parameter (`EditorState`) / 状态参数（`EditorState`）
-   * @param options - options parameter (`any`) / 配置选项参数（`any`）
+   * @param options - options parameter (`{ strict: boolean; }`) / 配置选项参数（`{ strict: boolean; }`）
    * @returns Result of type `boolean` / 类型为 `boolean` 的返回值
    */
   isActive(state: EditorState, options = defaultOptions): boolean {

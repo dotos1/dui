@@ -56,6 +56,24 @@ jobs:
       - name: Install Dependencies
         run: yarn install --prefer-offline || yarn install
 
+      - name: 类型检查门（G-TSC，103 个入口点）
+        run: npm run gate:tsc
+
+      - name: 语种包门（G-I18N，键集合一致、非英语不照抄英文）
+        run: npm run gate:i18n
+
+      - name: JSDoc 类型说明与代码一致（复核 F6）
+        run: npm run gate:jsdoc
+
+      - name: ESM 导入门（G-ESM，禁止 CommonJS lodash / lodash/fp 目录导入）
+        run: npm run gate:esm
+
+      - name: any 棘轮门自检（G-ANY，checker 计数的区分力）
+        run: npm run gate:any:selftest
+
+      - name: any 棘轮门（G-ANY，真实 any 与空对象类型只许降）
+        run: npm run gate:any
+
       - name: Build Package
         run: npm run package
 

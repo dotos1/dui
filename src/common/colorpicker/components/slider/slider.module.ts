@@ -26,8 +26,8 @@ import { ColorSliderComponent } from './slider.component';
 })
 export class ColorSliderModule {
   /**
-   * Property `entryComponents` (`any[]`) storing entry components.
-   * @zh 属性 `entryComponents`（类型：`any[]`），用于存储或配置条目组件列表。
+   * Property `entryComponents` (`(typeof ColorSliderComponent | typeof SliderSwatchComponent | typeof SliderSwatchesComponent)[]`) storing entry components.
+   * @zh 属性 `entryComponents`（类型：`(typeof ColorSliderComponent | typeof SliderSwatchComponent | typeof SliderSwatchesComponent)[]`），用于存储或配置条目组件列表。
    */
   entryComponents = [
      ColorSliderComponent,

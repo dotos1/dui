@@ -75,8 +75,8 @@ export class CommandPaletteContentComponent implements OnChanges, OnInit, AfterV
    */
   trackByGroupTitle = (_index: number, group: CommandItemGroup) => group ? group.title : _index;
   /**
-   * Property `trackByItemText` (`any`) storing track by item text.
-   * @zh 属性 `trackByItemText`（类型：`any`），用于存储或配置track按条目文本。
+   * Property `trackByItemText` (`(_index: number, item: { text?: any; }) => any`) storing track by item text.
+   * @zh 属性 `trackByItemText`（类型：`(_index: number, item: { text?: any; }) => any`），用于存储或配置track按条目文本。
    */
   trackByItemText = (_index: number, item: { text? }) => item ? item.text : _index;
 
@@ -94,7 +94,7 @@ export class CommandPaletteContentComponent implements OnChanges, OnInit, AfterV
   /**
    * Creates an instance of `CommandPaletteContentComponent` and initializes its dependencies and internal state.
    * @zh 创建 `CommandPaletteContentComponent` 实例，并初始化其依赖项与内部状态。
-   * @param elementRef - Injected or initial element ref (`ElementRef`) / 注入或传入的元素引用（`ElementRef`）
+   * @param elementRef - Injected or initial element ref (`ElementRef<any>`) / 注入或传入的元素引用（`ElementRef<any>`）
    * @param document - Injected or initial document (`Document`) / 注入或传入的文档对象（`Document`）
    */
   constructor(

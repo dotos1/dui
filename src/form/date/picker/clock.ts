@@ -54,8 +54,8 @@ export type MatClockView = "hour" | "minute";
 export class MatDatetimepickerClock<D> implements AfterContentInit {
 
   /**
-   * Output event emitter `_userSelection` (`EventEmitter`) firing when user selection occurs.
-   * @zh 输出事件 `_userSelection`（类型：`EventEmitter`），当触发用户Selection时向外发出事件。
+   * Output event emitter `_userSelection` (`EventEmitter<void>`) firing when user selection occurs.
+   * @zh 输出事件 `_userSelection`（类型：`EventEmitter<void>`），当触发用户Selection时向外发出事件。
    */
   @Output() _userSelection = new EventEmitter<void>();
   /**
@@ -75,22 +75,22 @@ export class MatDatetimepickerClock<D> implements AfterContentInit {
   @Input() twelvehour: boolean = false;
   /**
    * Emits when the currently selected date changes.
-   * @zh 输出事件 `selectedChange`（类型：`EventEmitter`），当触发已选中变更时向外发出事件。
+   * @zh 输出事件 `selectedChange`（类型：`EventEmitter<D>`），当触发已选中变更时向外发出事件。
    */
   @Output() selectedChange = new EventEmitter<D>();
   /**
-   * Output event emitter `activeDateChange` (`EventEmitter`) firing when active date change occurs.
-   * @zh 输出事件 `activeDateChange`（类型：`EventEmitter`），当触发激活日期变更时向外发出事件。
+   * Output event emitter `activeDateChange` (`EventEmitter<D>`) firing when active date change occurs.
+   * @zh 输出事件 `activeDateChange`（类型：`EventEmitter<D>`），当触发激活日期变更时向外发出事件。
    */
   @Output() activeDateChange = new EventEmitter<D>();
   /**
    * Hours and Minutes representing the clock view.
-   * @zh 属性 `_hours`（类型：`Array<any>`），用于存储或配置小时数（默认值：`[]`）。
+   * @zh 属性 `_hours`（类型：`any[]`），用于存储或配置小时数（默认值：`[]`）。
    */
   _hours = [];
   /**
-   * Property `_minutes` (`Array<any>`) storing minutes (default: `[]`).
-   * @zh 属性 `_minutes`（类型：`Array<any>`），用于存储或配置分钟数（默认值：`[]`）。
+   * Property `_minutes` (`any[]`) storing minutes (default: `[]`).
+   * @zh 属性 `_minutes`（类型：`any[]`），用于存储或配置分钟数（默认值：`[]`）。
    */
   _minutes = [];
   /**
@@ -127,7 +127,7 @@ export class MatDatetimepickerClock<D> implements AfterContentInit {
   /**
    * Creates an instance of `MatDatetimepickerClock` and initializes its dependencies and internal state.
    * @zh 创建 `MatDatetimepickerClock` 实例，并初始化其依赖项与内部状态。
-   * @param _element - Injected or initial element (`ElementRef`) / 注入或传入的元素（`ElementRef`）
+   * @param _element - Injected or initial element (`ElementRef<any>`) / 注入或传入的元素（`ElementRef<any>`）
    * @param _adapter - Injected or initial adapter (`DatetimeAdapter<D>`) / 注入或传入的适配器（`DatetimeAdapter<D>`）
    */
   constructor(private _element: ElementRef,
@@ -170,14 +170,14 @@ export class MatDatetimepickerClock<D> implements AfterContentInit {
   }
 
   /**
-   * Property `_selected` (`D | null`) storing selected.
-   * @zh 属性 `_selected`（类型：`D | null`），用于存储或配置已选中。
+   * Property `_selected` (`D`) storing selected.
+   * @zh 属性 `_selected`（类型：`D`），用于存储或配置已选中。
    */
   private _selected: D | null;
 
   /**
    * The currently selected date.
-   * @zh 输入属性 `selected`（类型：`D | null`）的读取器，返回当前已选中。
+   * @zh 输入属性 `selected`（类型：`D`）的读取器，返回当前已选中。
    */
   @Input()
   get selected(): D | null {
@@ -187,7 +187,7 @@ export class MatDatetimepickerClock<D> implements AfterContentInit {
   /**
    * Sets the selected (`selected`).
    * @zh 设置已选中（`selected`）。
-   * @param value - New selected value (`D | null`) / 新的已选中值（`D | null`）
+   * @param value - New selected value (`D`) / 新的已选中值（`D`）
    */
   set selected(value: D | null) {
     this._selected = this._adapter.getValidDateOrNull(this._adapter.deserialize(value));
@@ -197,14 +197,14 @@ export class MatDatetimepickerClock<D> implements AfterContentInit {
   }
 
   /**
-   * Property `_minDate` (`D | null`) storing min date.
-   * @zh 属性 `_minDate`（类型：`D | null`），用于存储或配置最小值日期。
+   * Property `_minDate` (`D`) storing min date.
+   * @zh 属性 `_minDate`（类型：`D`），用于存储或配置最小值日期。
    */
   private _minDate: D | null;
 
   /**
    * The minimum selectable date.
-   * @zh 输入属性 `minDate`（类型：`D | null`）的读取器，返回当前最小值日期。
+   * @zh 输入属性 `minDate`（类型：`D`）的读取器，返回当前最小值日期。
    */
   @Input()
   get minDate(): D | null {
@@ -214,21 +214,21 @@ export class MatDatetimepickerClock<D> implements AfterContentInit {
   /**
    * Sets the min date (`minDate`).
    * @zh 设置最小值日期（`minDate`）。
-   * @param value - New min date value (`D | null`) / 新的最小值日期值（`D | null`）
+   * @param value - New min date value (`D`) / 新的最小值日期值（`D`）
    */
   set minDate(value: D | null) {
     this._minDate = this._adapter.getValidDateOrNull(this._adapter.deserialize(value));
   }
 
   /**
-   * Property `_maxDate` (`D | null`) storing max date.
-   * @zh 属性 `_maxDate`（类型：`D | null`），用于存储或配置最大值日期。
+   * Property `_maxDate` (`D`) storing max date.
+   * @zh 属性 `_maxDate`（类型：`D`），用于存储或配置最大值日期。
    */
   private _maxDate: D | null;
 
   /**
    * The maximum selectable date.
-   * @zh 输入属性 `maxDate`（类型：`D | null`）的读取器，返回当前最大值日期。
+   * @zh 输入属性 `maxDate`（类型：`D`）的读取器，返回当前最大值日期。
    */
   @Input()
   get maxDate(): D | null {
@@ -238,7 +238,7 @@ export class MatDatetimepickerClock<D> implements AfterContentInit {
   /**
    * Sets the max date (`maxDate`).
    * @zh 设置最大值日期（`maxDate`）。
-   * @param value - New max date value (`D | null`) / 新的最大值日期值（`D | null`）
+   * @param value - New max date value (`D`) / 新的最大值日期值（`D`）
    */
   set maxDate(value: D | null) {
     this._maxDate = this._adapter.getValidDateOrNull(this._adapter.deserialize(value));

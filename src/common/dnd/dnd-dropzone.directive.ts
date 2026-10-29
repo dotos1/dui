@@ -82,7 +82,7 @@ export class DndPlaceholderRefDirective {
   /**
    * Creates an instance of `DndPlaceholderRefDirective` and initializes its dependencies and internal state.
    * @zh 创建 `DndPlaceholderRefDirective` 实例，并初始化其依赖项与内部状态。
-   * @param elementRef - Injected or initial element ref (`ElementRef`) / 注入或传入的元素引用（`ElementRef`）
+   * @param elementRef - Injected or initial element ref (`ElementRef<any>`) / 注入或传入的元素引用（`ElementRef<any>`）
    */
   constructor( public readonly elementRef:ElementRef ) {
   }
@@ -174,7 +174,7 @@ export class DndDropzoneDirective implements AfterViewInit, OnDestroy {
 
 
   /**
-   * Template/content query reference `dndPlaceholderRef` (`@ContentChild`) targeting dnd placeholder ref.
+   * Template/content query reference `dndPlaceholderRef` (`DndPlaceholderRefDirective`) targeting dnd placeholder ref.
    * @zh 内部使用，投影进来的可选占位符元素引用。
    * @zh 内部使用，投影进来的可选占位符元素引用。
    */
@@ -182,8 +182,8 @@ export class DndDropzoneDirective implements AfterViewInit, OnDestroy {
   private readonly dndPlaceholderRef?:DndPlaceholderRefDirective;
 
   /**
-   * Property `placeholder` (`Element | null`) storing placeholder (default: `null`).
-   * @zh 属性 `placeholder`（类型：`Element | null`），用于存储或配置占位提示（默认值：`null`）。
+   * Property `placeholder` (`Element`) storing placeholder (default: `null`).
+   * @zh 属性 `placeholder`（类型：`Element`），用于存储或配置占位提示（默认值：`null`）。
    */
   private placeholder:Element | null = null;
 
@@ -194,18 +194,18 @@ export class DndDropzoneDirective implements AfterViewInit, OnDestroy {
   private disabled:boolean = false;
 
   /**
-   * Property `dragEnterEventHandler` (`( event:DragEvent ) => void`) storing drag enter event handler.
-   * @zh 属性 `dragEnterEventHandler`（类型：`( event:DragEvent ) => void`），用于存储或配置拖拽进入事件处理器。
+   * Property `dragEnterEventHandler` (`(event: DragEvent) => void`) storing drag enter event handler.
+   * @zh 属性 `dragEnterEventHandler`（类型：`(event: DragEvent) => void`），用于存储或配置拖拽进入事件处理器。
    */
   private readonly dragEnterEventHandler:( event:DragEvent ) => void = ( event:DragEvent ) => this.onDragEnter( event );
   /**
-   * Property `dragOverEventHandler` (`( event:DragEvent ) => void`) storing drag over event handler.
-   * @zh 属性 `dragOverEventHandler`（类型：`( event:DragEvent ) => void`），用于存储或配置拖拽越过事件处理器。
+   * Property `dragOverEventHandler` (`(event: DragEvent) => void`) storing drag over event handler.
+   * @zh 属性 `dragOverEventHandler`（类型：`(event: DragEvent) => void`），用于存储或配置拖拽越过事件处理器。
    */
   private readonly dragOverEventHandler:( event:DragEvent ) => void = ( event:DragEvent ) => this.onDragOver( event );
   /**
-   * Property `dragLeaveEventHandler` (`( event:DragEvent ) => void`) storing drag leave event handler.
-   * @zh 属性 `dragLeaveEventHandler`（类型：`( event:DragEvent ) => void`），用于存储或配置拖拽离开事件处理器。
+   * Property `dragLeaveEventHandler` (`(event: DragEvent) => void`) storing drag leave event handler.
+   * @zh 属性 `dragLeaveEventHandler`（类型：`(event: DragEvent) => void`），用于存储或配置拖拽离开事件处理器。
    */
   private readonly dragLeaveEventHandler:( event:DragEvent ) => void = ( event:DragEvent ) => this.onDragLeave( event );
 
@@ -241,7 +241,7 @@ export class DndDropzoneDirective implements AfterViewInit, OnDestroy {
    * Creates an instance of `DndDropzoneDirective` and initializes its dependencies and internal state.
    * @zh 创建 `DndDropzoneDirective` 实例，并初始化其依赖项与内部状态。
    * @param ngZone - Injected or initial ng zone (`NgZone`) / 注入或传入的Angular区域(NgZone)（`NgZone`）
-   * @param elementRef - Injected or initial element ref (`ElementRef`) / 注入或传入的元素引用（`ElementRef`）
+   * @param elementRef - Injected or initial element ref (`ElementRef<any>`) / 注入或传入的元素引用（`ElementRef<any>`）
    * @param renderer - Injected or initial renderer (`Renderer2`) / 注入或传入的渲染器（`Renderer2`）
    */
   constructor( private ngZone:NgZone,
@@ -467,8 +467,8 @@ export class DndDropzoneDirective implements AfterViewInit, OnDestroy {
 
   /**
    * Executes `tryGetPlaceholder` to handle try get placeholder.
-   * @zh 执行 `tryGetPlaceholder`，用于try获取占位提示。
-   * @returns Result of type `Element | null` / 类型为 `Element | null` 的返回值
+   * @zh 执行 `tryGetPlaceholder`，用于尝试获取占位提示。
+   * @returns Result of type `Element` / 类型为 `Element` 的返回值
    */
   private tryGetPlaceholder():Element | null {
 
@@ -542,7 +542,7 @@ export class DndDropzoneDirective implements AfterViewInit, OnDestroy {
   /**
    * Executes `getPlaceholderIndex` to handle get placeholder index.
    * @zh 执行 `getPlaceholderIndex`，用于获取占位提示索引。
-   * @returns Result of type `number | undefined` / 类型为 `number | undefined` 的返回值
+   * @returns Result of type `number` / 类型为 `number` 的返回值
    */
   private getPlaceholderIndex():number | undefined {
 

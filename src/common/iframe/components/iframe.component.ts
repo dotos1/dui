@@ -3,6 +3,7 @@
  * @zh 模块文件 `src/common/iframe/components/iframe.component.ts`，提供iframe组件相关的定义与实现。
  */
 
+import { DuiConfig } from '@dotos/dui/base';
 import {
   AfterViewInit,
   ChangeDetectorRef,
@@ -71,7 +72,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 })
 export class IframeComponent implements OnInit, OnChanges,AfterViewInit, OnDestroy {
   /**
-   * Template/content query reference `iframe` (`@ViewChild`) targeting iframe.
+   * Template/content query reference `iframe` (`ElementRef<any>`) targeting iframe.
    * @zh 底层原生 `<iframe>` 元素的引用。
    * @zh 底层原生 `<iframe>` 元素的引用。
    */
@@ -81,7 +82,7 @@ export class IframeComponent implements OnInit, OnChanges,AfterViewInit, OnDestr
    * Bulk-applies arbitrary properties onto this component (via `Dui.apply`) whenever it changes.
    * @zh 每当变化时，通过 `Dui.apply` 将任意属性批量应用到本组件上。
    */
-  @Input() config = {};
+  @Input() config: DuiConfig = {};
 
   /**
    * The native `<iframe scrolling>` attribute value.
@@ -200,7 +201,7 @@ export class IframeComponent implements OnInit, OnChanges,AfterViewInit, OnDestr
    */
   $loading: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(true);
   /**
-   * Property `$styling` (`Observable<any>`) storing styling.
+   * Property `$styling` (`any`) storing styling.
    * @zh 内部使用，根据内容高度变化推导出的样式流，用于自动调整高度。
    * @zh 内部使用，根据内容高度变化推导出的样式流，用于自动调整高度。
    */
@@ -227,17 +228,17 @@ export class IframeComponent implements OnInit, OnChanges,AfterViewInit, OnDestr
    */
   elementResizeDetector: elementResizeDetectorMaker.Erd;
   /**
-   * Property `eventListeners` (`Array<any>`) storing event listeners (default: `[]`).
-   * @zh 属性 `eventListeners`（类型：`Array<any>`），用于存储或配置事件监听器列表（默认值：`[]`）。
+   * Property `eventListeners` (`any[]`) storing event listeners (default: `[]`).
+   * @zh 属性 `eventListeners`（类型：`any[]`），用于存储或配置事件监听器列表（默认值：`[]`）。
    */
   private eventListeners = [];
   /**
-   * Property `$unsubscribe` (`Subject`) storing unsubscribe (default: `new Subject()`).
-   * @zh 属性 `$unsubscribe`（类型：`Subject`），用于存储或配置取消订阅（默认值：`new Subject()`）。
+   * Property `$unsubscribe` (`Subject<unknown>`) storing unsubscribe (default: `new Subject()`).
+   * @zh 属性 `$unsubscribe`（类型：`Subject<unknown>`），用于存储或配置取消订阅（默认值：`new Subject()`）。
    */
   private $unsubscribe = new Subject();
   /**
-   * Template/content query reference `elementRef` (`@ViewChild`) targeting element ref.
+   * Template/content query reference `elementRef` (`ElementRef<any>`) targeting element ref.
    * @zh 底层原生 `<iframe>` 元素的引用（内部使用，与 `iframe` 指向同一元素）。
    * @zh 底层原生 `<iframe>` 元素的引用（内部使用，与 `iframe` 指向同一元素）。
    */
@@ -258,8 +259,8 @@ export class IframeComponent implements OnInit, OnChanges,AfterViewInit, OnDestr
    */
   private $bodyHeight: Subject<number> = new Subject<number>();
   /**
-   * Property `_styleUrls` (`Array<string>`) storing style urls.
-   * @zh 属性 `_styleUrls`（类型：`Array<string>`），用于存储或配置样式链接列表。
+   * Property `_styleUrls` (`string[]`) storing style urls.
+   * @zh 属性 `_styleUrls`（类型：`string[]`），用于存储或配置样式链接列表。
    */
   private _styleUrls: Array<string>;
   /**

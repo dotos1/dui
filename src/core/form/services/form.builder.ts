@@ -34,7 +34,7 @@ export class FormBuilder {
   /**
    * Executes `buildForm` to handle build form.
    * @zh 执行 `buildForm`，用于构建表单。
-   * @param form - form parameter (`FormGroup | FormArray`) / 表单参数（`FormGroup | FormArray`）
+   * @param form - form parameter (`FormGroup<any> | FormArray<any>`) / 表单参数（`FormGroup<any> | FormArray<any>`）
    * @param fieldGroup - field group parameter (`FieldConfig[]`) / 字段分组参数（`FieldConfig[]`）
    * @param model - model parameter (`any`) / 模型参数（`any`）
    * @param option - option parameter (`FormOptions`) / 选项参数（`FormOptions`）

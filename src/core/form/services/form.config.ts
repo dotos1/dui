@@ -30,28 +30,28 @@ export const FORM_CONFIG = new InjectionToken<FormConfig>('FORM_CONFIG');
 @Injectable({ providedIn: 'root' })
 export class FormConfig {
   /**
-   * Property `types` (`{ [name: string]: TypeOption }`) storing types (default: `{}`).
-   * @zh 属性 `types`（类型：`{ [name: string]: TypeOption }`），用于存储或配置类型列表（默认值：`{}`）。
+   * Property `types` (`{ [name: string]: TypeOption; }`) storing types (default: `{}`).
+   * @zh 属性 `types`（类型：`{ [name: string]: TypeOption; }`），用于存储或配置类型列表（默认值：`{}`）。
    */
   types: { [name: string]: TypeOption } = {};
   /**
-   * Property `validators` (`{ [name: string]: ValidatorOption }`) storing validators (default: `{}`).
-   * @zh 属性 `validators`（类型：`{ [name: string]: ValidatorOption }`），用于存储或配置校验器列表（默认值：`{}`）。
+   * Property `validators` (`{ [name: string]: ValidatorOption; }`) storing validators (default: `{}`).
+   * @zh 属性 `validators`（类型：`{ [name: string]: ValidatorOption; }`），用于存储或配置校验器列表（默认值：`{}`）。
    */
   validators: { [name: string]: ValidatorOption } = {};
   /**
-   * Property `wrappers` (`{ [name: string]: WrapperOption }`) storing wrappers (default: `{}`).
-   * @zh 属性 `wrappers`（类型：`{ [name: string]: WrapperOption }`），用于存储或配置包装器列表（默认值：`{}`）。
+   * Property `wrappers` (`{ [name: string]: WrapperOption; }`) storing wrappers (default: `{}`).
+   * @zh 属性 `wrappers`（类型：`{ [name: string]: WrapperOption; }`），用于存储或配置包装器列表（默认值：`{}`）。
    */
   wrappers: { [name: string]: WrapperOption } = {};
   /**
-   * Property `messages` (`{ [name: string]: ValidationMessageOption['message'] }`) storing messages (default: `{}`).
-   * @zh 属性 `messages`（类型：`{ [name: string]: ValidationMessageOption['message'] }`），用于存储或配置消息列表（默认值：`{}`）。
+   * Property `messages` (`{ [name: string]: any; }`) storing messages (default: `{}`).
+   * @zh 属性 `messages`（类型：`{ [name: string]: any; }`），用于存储或配置消息列表（默认值：`{}`）。
    */
   messages: { [name: string]: ValidationMessageOption['message'] } = {};
   /**
-   * Property `extras` (`ConfigOption['extras']`) storing extras.
-   * @zh 属性 `extras`（类型：`ConfigOption['extras']`），用于存储或配置extras。
+   * Property `extras` (`{…}`) storing extras.
+   * @zh 属性 `extras`（类型：`{…}`），用于存储或配置extras。
    */
   extras: ConfigOption['extras'] = {
     checkExpressionOn: 'changeDetectionCheck',
@@ -67,8 +67,8 @@ export class FormConfig {
     },
   };
   /**
-   * Property `extensions` (`{ [name: string]: FormExtension }`) storing extensions (default: `{}`).
-   * @zh 属性 `extensions`（类型：`{ [name: string]: FormExtension }`），用于存储或配置extensions（默认值：`{}`）。
+   * Property `extensions` (`{ [name: string]: FormExtension; }`) storing extensions (default: `{}`).
+   * @zh 属性 `extensions`（类型：`{ [name: string]: FormExtension; }`），用于存储或配置extensions（默认值：`{}`）。
    */
   extensions: { [name: string]: FormExtension } = {};
 
@@ -144,7 +144,7 @@ export class FormConfig {
    * Executes `getMergedField` to handle get merged field.
    * @zh 执行 `getMergedField`，用于获取已合并字段。
    * @param field - field parameter (`FieldConfig`) / 字段参数（`FieldConfig`）
-   * @returns Result of type `any` / 类型为 `any` 的返回值
+   * @returns Result of type `void` / 类型为 `void` 的返回值
    */
   getMergedField(field: FieldConfig = {}) {
     const type = this.getType(field.xtype);
@@ -272,7 +272,7 @@ export class FormConfig {
    * Executes `addValidatorMessage` to handle add validator message.
    * @zh 执行 `addValidatorMessage`，用于添加校验器消息。
    * @param name - name parameter (`string`) / 名称参数（`string`）
-   * @param message - message parameter (`ValidationMessageOption['message']`) / 消息参数（`ValidationMessageOption['message']`）
+   * @param message - message parameter (`any`) / 消息参数（`any`）
    */
   addValidatorMessage(name: string, message: ValidationMessageOption['message']) {
     this.messages[name] = message;

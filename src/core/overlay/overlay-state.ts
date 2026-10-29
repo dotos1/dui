@@ -44,25 +44,25 @@ export class OverlayState {
 
   /**
    * The width of the overlay panel. If a number is provided, pixel units are assumed.
-   * @zh 属性 `width`（类型：`number | string`），用于存储或配置宽度。
+   * @zh 属性 `width`（类型：`string | number`），用于存储或配置宽度。
    */
   width: number | string;
 
   /**
    * The height of the overlay panel. If a number is provided, pixel units are assumed.
-   * @zh 属性 `height`（类型：`number | string`），用于存储或配置高度。
+   * @zh 属性 `height`（类型：`string | number`），用于存储或配置高度。
    */
   height: number | string;
 
   /**
    * The min-width of the overlay panel. If a number is provided, pixel units are assumed.
-   * @zh 属性 `minWidth`（类型：`number | string`），用于存储或配置最小值宽度。
+   * @zh 属性 `minWidth`（类型：`string | number`），用于存储或配置最小值宽度。
    */
   minWidth: number | string;
 
   /**
    * The min-height of the overlay panel. If a number is provided, pixel units are assumed.
-   * @zh 属性 `minHeight`（类型：`number | string`），用于存储或配置最小值高度。
+   * @zh 属性 `minHeight`（类型：`string | number`），用于存储或配置最小值高度。
    */
   minHeight: number | string;
 

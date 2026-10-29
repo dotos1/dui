@@ -48,8 +48,8 @@ import { DateFieldComponent } from './datefield.component';
 })
 export class DateFieldModule {
   /**
-   * Property `entryComponents` (`any[]`) storing entry components (default: `[DateFieldComponent]`).
-   * @zh 属性 `entryComponents`（类型：`any[]`），用于存储或配置条目组件列表（默认值：`[DateFieldComponent]`）。
+   * Property `entryComponents` (`(typeof DateFieldComponent)[]`) storing entry components (default: `[DateFieldComponent]`).
+   * @zh 属性 `entryComponents`（类型：`(typeof DateFieldComponent)[]`），用于存储或配置条目组件列表（默认值：`[DateFieldComponent]`）。
    */
   entryComponents = [DateFieldComponent];
   /**

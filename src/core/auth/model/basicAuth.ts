@@ -62,8 +62,8 @@ export interface Backend {
    */
   loginUrl:string,
   /**
-   * Property `params` (`Array<{ key: string; value: string; }>`) storing params.
-   * @zh 属性 `params`（类型：`Array<{ key: string; value: string; }>`），用于存储或配置参数集合。
+   * Property `params` (`{ key: string; value: string; }[]`) storing params.
+   * @zh 属性 `params`（类型：`{ key: string; value: string; }[]`），用于存储或配置参数集合。
    */
   params: Array<{
     key: string;
@@ -91,8 +91,8 @@ export interface AuthSettings {
    */
   storageKey: string;
   /**
-   * Property `loginRoute` (`Array<any>`) storing login route.
-   * @zh 属性 `loginRoute`（类型：`Array<any>`），用于存储或配置loginRoute。
+   * Property `loginRoute` (`any`) storing login route.
+   * @zh 属性 `loginRoute`（类型：`any`），用于存储或配置loginRoute。
    */
   loginRoute;
   /**

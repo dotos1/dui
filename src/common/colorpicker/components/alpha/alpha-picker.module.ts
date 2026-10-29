@@ -20,8 +20,8 @@ import { AlphaPickerComponent } from './alpha-picker.component';
 })
 export class ColorAlphaModule {
   /**
-   * Property `entryComponents` (`any[]`) storing entry components (default: `[AlphaPickerComponent]`).
-   * @zh 属性 `entryComponents`（类型：`any[]`），用于存储或配置条目组件列表（默认值：`[AlphaPickerComponent]`）。
+   * Property `entryComponents` (`(typeof AlphaPickerComponent)[]`) storing entry components (default: `[AlphaPickerComponent]`).
+   * @zh 属性 `entryComponents`（类型：`(typeof AlphaPickerComponent)[]`），用于存储或配置条目组件列表（默认值：`[AlphaPickerComponent]`）。
    */
   entryComponents = [AlphaPickerComponent];
   /**

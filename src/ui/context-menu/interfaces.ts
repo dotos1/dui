@@ -34,8 +34,8 @@ export interface ContextmenuOverlayConfig {
    */
   data?;
   /**
-   * Property `children` (`any[]`) storing children.
-   * @zh 属性 `children`（类型：`any[]`），用于存储或配置子级列表。
+   * Property `children` (`any`) storing children.
+   * @zh 属性 `children`（类型：`any`），用于存储或配置子级列表。
    */
   children;
 }

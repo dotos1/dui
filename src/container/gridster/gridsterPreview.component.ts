@@ -35,7 +35,7 @@ export class GridsterPreviewComponent implements OnDestroy {
   /**
    * Creates an instance of `GridsterPreviewComponent` and initializes its dependencies and internal state.
    * @zh 创建 `GridsterPreviewComponent` 实例，并初始化其依赖项与内部状态。
-   * @param el - Injected or initial el (`ElementRef`) / 注入或传入的DOM元素（`ElementRef`）
+   * @param el - Injected or initial el (`ElementRef<any>`) / 注入或传入的DOM元素（`ElementRef<any>`）
    * @param gridster - Injected or initial gridster (`GridsterComponent`) / 注入或传入的网格拖拽布局（`GridsterComponent`）
    * @param renderer - Injected or initial renderer (`Renderer2`) / 注入或传入的渲染器（`Renderer2`）
    */

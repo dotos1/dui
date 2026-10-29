@@ -31,7 +31,7 @@ export class AuthenticatedGuard  {
   /**
    * Executes `canActivate` to handle can activate.
    * @zh 执行 `canActivate`，用于是否可以激活。
-   * @returns Result of type `Observable<boolean> | boolean` / 类型为 `Observable<boolean> | boolean` 的返回值
+   * @returns Result of type `boolean | Observable<boolean>` / 类型为 `boolean | Observable<boolean>` 的返回值
    */
   canActivate(): Observable<boolean> | boolean {
     return this.authService.getAuthenticated().pipe(

@@ -72,7 +72,7 @@ export class CheckboardComponent implements OnInit {
    */
   @Input() borderRadius: string;
   /**
-   * Property `gridStyles` (`{ [key: string]: string }`) storing grid styles.
+   * Property `gridStyles` (`{ [key: string]: string; }`) storing grid styles.
    * @zh 根据输入计算出的棋盘格背景样式。
    * @zh 根据输入计算出的棋盘格背景样式。
    */

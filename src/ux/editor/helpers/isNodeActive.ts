@@ -4,7 +4,7 @@
  */
 
 import { EditorState } from 'prosemirror-state';
-import { NodeType, ResolvedPos } from 'prosemirror-model';
+import { NodeType, ResolvedPos, Attrs } from 'prosemirror-model';
 
 /**
  * Constant/variable `findNodeType` defining find node type in `src/ux/editor/helpers`.
@@ -23,7 +23,7 @@ const findNodeType = (type: NodeType, $from: ResolvedPos): NodeType | null => {
  * Constant/variable `isNodeActive` defining is node active in `src/ux/editor/helpers`.
  * @zh 常量/变量 `isNodeActive`，定义 `src/ux/editor/helpers` 中的是否为节点激活。
  */
-export const isNodeActive = (state: EditorState, type: NodeType, attrs = {}): boolean => {
+export const isNodeActive = (state: EditorState, type: NodeType, attrs: Attrs = {}): boolean => {
   const { selection } = state;
   const { $from, to } = selection;
   const node: NodeType | null = findNodeType(type, $from);

@@ -36,9 +36,9 @@ export class RowOrColumn extends ContentItem {
      */
     private readonly _childElementContainer: HTMLElement;
     /**
-     * Property `_configType` (`'row' | 'column'`) storing config type.
+     * Property `_configType` (`"column" | "row"`) storing config type.
      * @internal
-     * @zh 属性 `_configType`（类型：`'row' | 'column'`），用于存储或配置配置类型。
+     * @zh 属性 `_configType`（类型：`"column" | "row"`），用于存储或配置配置类型。
      */
     private readonly _configType: 'row' | 'column';
     /**
@@ -72,21 +72,21 @@ export class RowOrColumn extends ContentItem {
      */
     private readonly _splitter: Splitter[] = [];
     /**
-     * Property `_splitterPosition` (`number | null`) storing splitter position.
+     * Property `_splitterPosition` (`number`) storing splitter position.
      * @internal
-     * @zh 属性 `_splitterPosition`（类型：`number | null`），用于存储或配置分割条位置。
+     * @zh 属性 `_splitterPosition`（类型：`number`），用于存储或配置分割条位置。
      */
     private _splitterPosition: number | null;
     /**
-     * Property `_splitterMinPosition` (`number | null`) storing splitter min position.
+     * Property `_splitterMinPosition` (`number`) storing splitter min position.
      * @internal
-     * @zh 属性 `_splitterMinPosition`（类型：`number | null`），用于存储或配置分割条最小值位置。
+     * @zh 属性 `_splitterMinPosition`（类型：`number`），用于存储或配置分割条最小值位置。
      */
     private _splitterMinPosition: number | null;
     /**
-     * Property `_splitterMaxPosition` (`number | null`) storing splitter max position.
+     * Property `_splitterMaxPosition` (`number`) storing splitter max position.
      * @internal
-     * @zh 属性 `_splitterMaxPosition`（类型：`number | null`），用于存储或配置分割条最大值位置。
+     * @zh 属性 `_splitterMaxPosition`（类型：`number`），用于存储或配置分割条最大值位置。
      */
     private _splitterMaxPosition: number | null;
 
@@ -165,7 +165,7 @@ export class RowOrColumn extends ContentItem {
     /**
      * Executes `newItem` to handle new item.
      * @zh 执行 `newItem`，用于新条目。
-     * @param itemConfig - item config parameter (`RowOrColumnItemConfig | StackItemConfig | ComponentItemConfi...`) / 条目配置参数（`RowOrColumnItemConfig | StackItemConfig | ComponentItemConfi...`）
+     * @param itemConfig - item config parameter (`ComponentItemConfig | StackItemConfig | RowOrColumnItemConfig`) / 条目配置参数（`ComponentItemConfig | StackItemConfig | RowOrColumnItemConfig`）
      * @param index - index parameter (`number`) / 索引参数（`number`）
      * @returns Result of type `ContentItem` / 类型为 `ContentItem` 的返回值
      */
@@ -184,7 +184,7 @@ export class RowOrColumn extends ContentItem {
     /**
      * Executes `addItem` to handle add item.
      * @zh 执行 `addItem`，用于添加条目。
-     * @param itemConfig - item config parameter (`RowOrColumnItemConfig | StackItemConfig | ComponentItemConfi...`) / 条目配置参数（`RowOrColumnItemConfig | StackItemConfig | ComponentItemConfi...`）
+     * @param itemConfig - item config parameter (`ComponentItemConfig | StackItemConfig | RowOrColumnItemConfig`) / 条目配置参数（`ComponentItemConfig | StackItemConfig | RowOrColumnItemConfig`）
      * @param index - index parameter (`number`) / 索引参数（`number`）
      * @returns Result of type `number` / 类型为 `number` 的返回值
      */

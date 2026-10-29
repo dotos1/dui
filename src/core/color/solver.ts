@@ -59,7 +59,7 @@ export class Color {
   /**
    * Executes `hueRotate` to handle hue rotate.
    * @zh 执行 `hueRotate`，用于色相旋转。
-   * @param angle - angle parameter (`any`) / 角度参数（`any`）
+   * @param angle - angle parameter (`number`) / 角度参数（`number`）
    */
   hueRotate(angle = 0) {
     angle = angle / 180 * Math.PI;
@@ -82,7 +82,7 @@ export class Color {
   /**
    * Executes `grayscale` to handle grayscale.
    * @zh 执行 `grayscale`，用于grayscale。
-   * @param value - value parameter (`any`) / 值参数（`any`）
+   * @param value - value parameter (`number`) / 值参数（`number`）
    */
   grayscale(value = 1) {
     this.multiply([
@@ -101,7 +101,7 @@ export class Color {
   /**
    * Executes `sepia` to handle sepia.
    * @zh 执行 `sepia`，用于sepia。
-   * @param value - value parameter (`any`) / 值参数（`any`）
+   * @param value - value parameter (`number`) / 值参数（`number`）
    */
   sepia(value = 1) {
     this.multiply([
@@ -120,7 +120,7 @@ export class Color {
   /**
    * Executes `saturate` to handle saturate.
    * @zh 执行 `saturate`，用于saturate。
-   * @param value - value parameter (`any`) / 值参数（`any`）
+   * @param value - value parameter (`number`) / 值参数（`number`）
    */
   saturate(value = 1) {
     this.multiply([
@@ -153,7 +153,7 @@ export class Color {
   /**
    * Executes `brightness` to handle brightness.
    * @zh 执行 `brightness`，用于明度。
-   * @param value - value parameter (`any`) / 值参数（`any`）
+   * @param value - value parameter (`number`) / 值参数（`number`）
    */
   brightness(value = 1) {
     this.linear(value);
@@ -161,7 +161,7 @@ export class Color {
   /**
    * Executes `contrast` to handle contrast.
    * @zh 执行 `contrast`，用于对比度。
-   * @param value - value parameter (`any`) / 值参数（`any`）
+   * @param value - value parameter (`number`) / 值参数（`number`）
    */
   contrast(value = 1) {
     this.linear(value, -(0.5 * value) + 0.5);
@@ -170,8 +170,8 @@ export class Color {
   /**
    * Executes `linear` to handle linear.
    * @zh 执行 `linear`，用于linear。
-   * @param slope - slope parameter (`any`) / slope参数（`any`）
-   * @param intercept - intercept parameter (`any`) / intercept参数（`any`）
+   * @param slope - slope parameter (`number`) / slope参数（`number`）
+   * @param intercept - intercept parameter (`number`) / intercept参数（`number`）
    */
   linear(slope = 1, intercept = 0) {
     this.r = this.clamp(this.r * slope + intercept * 255);
@@ -182,7 +182,7 @@ export class Color {
   /**
    * Executes `invert` to handle invert.
    * @zh 执行 `invert`，用于invert。
-   * @param value - value parameter (`any`) / 值参数（`any`）
+   * @param value - value parameter (`number`) / 值参数（`number`）
    */
   invert(value = 1) {
     this.r = this.clamp((value + this.r / 255 * (1 - 2 * value)) * 255);

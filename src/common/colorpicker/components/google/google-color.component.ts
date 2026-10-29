@@ -37,19 +37,19 @@ export class GoogColorComponent implements OnChanges {
    */
   @Input() active: boolean;
   /**
-   * Output event emitter `onClick` (`EventEmitter`) firing when on click occurs.
+   * Output event emitter `onClick` (`EventEmitter<any>`) firing when on click occurs.
    * @zh 色块被点击时发出。
    * @zh 色块被点击时发出。
    */
   @Output() onClick = new EventEmitter();
   /**
-   * Output event emitter `onSwatchHover` (`EventEmitter`) firing when on swatch hover occurs.
+   * Output event emitter `onSwatchHover` (`EventEmitter<any>`) firing when on swatch hover occurs.
    * @zh 鼠标悬停在色块上时发出。
    * @zh 鼠标悬停在色块上时发出。
    */
   @Output() onSwatchHover = new EventEmitter();
   /**
-   * Property `swatchStyle` (`{ [key: string]: string }`) storing swatch style.
+   * Property `swatchStyle` (`{ [key: string]: string; }`) storing swatch style.
    * @zh 色块的基础内联样式。
    * @zh 色块的基础内联样式。
    */
@@ -63,13 +63,13 @@ export class GoogColorComponent implements OnChanges {
     cursor: 'pointer',
   };
   /**
-   * Property `swatchFocus` (`{ [key: string]: string }`) storing swatch focus (default: `{}`).
+   * Property `swatchFocus` (`{ [key: string]: string; }`) storing swatch focus (default: `{}`).
    * @zh 聚焦时叠加的内联样式。
    * @zh 聚焦时叠加的内联样式。
    */
   swatchFocus: { [key: string]: string } = {};
   /**
-   * Property `getContrastingColor` (`any`) storing get contrasting color (default: `getContrastingColor`).
+   * Property `getContrastingColor` (`(data: any) => "#fff" | "rgba(0,0,0,0.4)" | "#000"`) storing get contrasting color (default: `getContrastingColor`).
    * @zh 根据背景色计算对比色的工具函数。
    * @zh 根据背景色计算对比色的工具函数。
    */

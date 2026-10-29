@@ -28,14 +28,14 @@ export class TranslateStore {
   /**
    * a list of translations per lang
 
-   * @zh 属性 `translations`（类型：`any`），用于存储或配置翻译文本（默认值：`{}`）。
+   * @zh 属性 `translations`（类型：`Record<string, Object>`），用于存储或配置翻译文本（默认值：`{}`）。
    */
-  public translations = {};
+  public translations: Record<string, Object> = {};
 
   /**
    * an array of langs
 
-   * @zh 属性 `langs`（类型：`Array<string>`），用于存储或配置语言（默认值：`[]`）。
+   * @zh 属性 `langs`（类型：`string[]`），用于存储或配置语言（默认值：`[]`）。
    */
   public langs: Array<string> = [];
 

@@ -86,12 +86,12 @@ export const DATEFIELD_VALIDATORS = {
 export class ColorPickerField<F extends FieldConfig = FieldConfig> extends AbstractTrigger {
 
   /**
-   * Template/content query reference `_mapInput` (`@ViewChild`) targeting map input.
+   * Template/content query reference `_mapInput` (`MatInput`) targeting map input.
    * @zh 模板/内容视图查询引用 `_mapInput`（`@ViewChild`），指向映射表输入属性。
    */
   @ViewChild(MatInput, { static: true }) _mapInput: MatInput;
   /**
-   * Template/content query reference `input` (`@ViewChild`) targeting input.
+   * Template/content query reference `input` (`ElementRef<any>`) targeting input.
    * @zh 模板/内容视图查询引用 `input`（`@ViewChild`），指向输入属性。
    */
   @ViewChild('input') input: ElementRef;
@@ -99,7 +99,7 @@ export class ColorPickerField<F extends FieldConfig = FieldConfig> extends Abstr
   /**
    * Input setter `field` updating field.
    * @zh 输入属性 `field` 的设置器，用于更新字段。
-   * @param f - New field value (`F | any`) / 新的字段值（`F | any`）
+   * @param f - New field value (`any`) / 新的字段值（`any`）
    */
   @Input()
   override set field(f) {
@@ -115,16 +115,16 @@ export class ColorPickerField<F extends FieldConfig = FieldConfig> extends Abstr
   override get field() { return this._field || {}; }
 
   /**
-   * Property `colorType` (`'sketch' | 'chrome' | 'compact' | 'github' | 'material'`) storing color type (default: `'sketch'`).
-   * @zh 属性 `colorType`（类型：`'sketch' | 'chrome' | 'compact' | 'github' | 'material'`），用于存储或配置颜色类型（默认值：`'sketch'`）。
+   * Property `colorType` (`"compact" | "sketch" | "chrome" | "github" | "material"`) storing color type (default: `'sketch'`).
+   * @zh 属性 `colorType`（类型：`"compact" | "sketch" | "chrome" | "github" | "material"`），用于存储或配置颜色类型（默认值：`'sketch'`）。
    */
   public colorType: 'sketch' | 'chrome' | 'compact' | 'github' | 'material' = 'sketch';
 
   /**
-   * Property `params` (`any`) storing params (default: `{}`).
-   * @zh 属性 `params`（类型：`any`），用于存储或配置参数集合（默认值：`{}`）。
+   * Property `params` (`Record<string, unknown>`) storing params (default: `{}`).
+   * @zh 属性 `params`（类型：`Record<string, unknown>`），用于存储或配置参数集合（默认值：`{}`）。
    */
-  public params = {};
+  public params: Record<string, unknown> = {};
 
   /**
    * Property `label` (`string`) storing label (default: `''`).
@@ -139,8 +139,8 @@ export class ColorPickerField<F extends FieldConfig = FieldConfig> extends Abstr
   _onChange: (value) => void = () => { };
 
   /**
-   * Property `_onTouched` (`any`) storing on touched (default: `() => { }`).
-   * @zh 属性 `_onTouched`（类型：`any`），用于存储或配置当是否已触碰（默认值：`() => { }`）。
+   * Property `_onTouched` (`() => void`) storing on touched (default: `() => { }`).
+   * @zh 属性 `_onTouched`（类型：`() => void`），用于存储或配置当是否已触碰（默认值：`() => { }`）。
    */
   _onTouched = () => { };
 
@@ -205,7 +205,7 @@ export class ColorPickerField<F extends FieldConfig = FieldConfig> extends Abstr
   /**
    * Creates an instance of `ColorPickerField` and initializes its dependencies and internal state.
    * @zh 创建 `ColorPickerField` 实例，并初始化其依赖项与内部状态。
-   * @param _elementRef - Injected or initial element ref (`ElementRef`) / 注入或传入的元素引用（`ElementRef`）
+   * @param _elementRef - Injected or initial element ref (`ElementRef<any>`) / 注入或传入的元素引用（`ElementRef<any>`）
    * @param _dialogService - Injected or initial dialog service (`DialogService`) / 注入或传入的对话框服务（`DialogService`）
    * @param _overlay - Injected or initial overlay (`Overlay`) / 注入或传入的浮层（`Overlay`）
    * @param _ngZone - Injected or initial ng zone (`NgZone`) / 注入或传入的Angular区域(NgZone)（`NgZone`）
@@ -245,7 +245,7 @@ export class ColorPickerField<F extends FieldConfig = FieldConfig> extends Abstr
 
   /**
    * Executes `coerceStringProperty` to handle coerce string property.
-   * @zh 执行 `coerceStringProperty`，用于coerce字符串属性。
+   * @zh 执行 `coerceStringProperty`，用于强制转换字符串属性。
    * @param value - value parameter (`any`) / 值参数（`any`）
    * @returns Result of type `string` / 类型为 `string` 的返回值
    */
@@ -274,7 +274,7 @@ export class ColorPickerField<F extends FieldConfig = FieldConfig> extends Abstr
    */
   override open(): void {
     super.beforeOpen();
-    let params = {};
+    let params: Record<string, unknown> = {};
     params['value'] = this.value;
     if (!this._portal) {
       if (this.colorType === 'material') {

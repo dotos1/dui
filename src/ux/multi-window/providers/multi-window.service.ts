@@ -56,15 +56,15 @@ export class MultiWindowService {
   private knownWindows: KnownAppWindow[] = [];
 
   /**
-   * Property `messageTracker` (`{ [key: string]: Subject<string> }`) storing message tracker (default: `{}`).
-   * @zh 属性 `messageTracker`（类型：`{ [key: string]: Subject<string> }`），用于存储或配置消息Tracker（默认值：`{}`）。
+   * Property `messageTracker` (`{ [key: string]: Subject<string>; }`) storing message tracker (default: `{}`).
+   * @zh 属性 `messageTracker`（类型：`{ [key: string]: Subject<string>; }`），用于存储或配置消息Tracker（默认值：`{}`）。
    */
   private messageTracker: { [key: string]: Subject<string> } = {};
 
 
   /**
-   * Property `outboxCache` (`{ [key: string]: Message }`) storing outbox cache (default: `{}`).
-   * @zh 属性 `outboxCache`（类型：`{ [key: string]: Message }`），用于存储或配置outbox缓存（默认值：`{}`）。
+   * Property `outboxCache` (`{ [key: string]: Message; }`) storing outbox cache (default: `{}`).
+   * @zh 属性 `outboxCache`（类型：`{ [key: string]: Message; }`），用于存储或配置outbox缓存（默认值：`{}`）。
    */
   private outboxCache: { [key: string]: Message } = {};
 
@@ -91,7 +91,7 @@ export class MultiWindowService {
 
   /**
    * Executes `tryMatchWindowKey` to handle try match window key.
-   * @zh 执行 `tryMatchWindowKey`，用于try匹配窗口键。
+   * @zh 执行 `tryMatchWindowKey`，用于尝试匹配窗口键。
    * @param source - source parameter (`string`) / 源参数（`string`）
    * @returns Result of type `string` / 类型为 `string` 的返回值
    */
@@ -301,7 +301,7 @@ export class MultiWindowService {
   /**
    * Executes `newWindow` to handle new window.
    * @zh 执行 `newWindow`，用于新窗口。
-   * @returns Result of type `{ windowId: string, urlString: string, created: Observable<s...` / 类型为 `{ windowId: string, urlString: string, created: Observable<s...` 的返回值
+   * @returns Result of type `{ windowId: string; urlString: string; created: Observable<string>; }` / 类型为 `{ windowId: string; urlString: string; created: Observable<string>; }` 的返回值
    */
   public newWindow(): { windowId: string, urlString: string, created: Observable<string> } {
     if (this.location === null) {
@@ -425,8 +425,8 @@ export class MultiWindowService {
   }
 
   /**
-   * Property `heartbeat` (`any`) storing heartbeat.
-   * @zh 属性 `heartbeat`（类型：`any`），用于存储或配置heartbeat。
+   * Property `heartbeat` (`() => void`) storing heartbeat.
+   * @zh 属性 `heartbeat`（类型：`() => void`），用于存储或配置heartbeat。
    */
   private heartbeat = () => {
     const now = new Date().getTime();
@@ -532,8 +532,8 @@ export class MultiWindowService {
   }
 
   /**
-   * Property `scanForWindows` (`any`) storing scan for windows.
-   * @zh 属性 `scanForWindows`（类型：`any`），用于存储或配置scan用于多窗口。
+   * Property `scanForWindows` (`() => void`) storing scan for windows.
+   * @zh 属性 `scanForWindows`（类型：`() => void`），用于存储或配置scan用于多窗口。
    */
   private scanForWindows = () => {
     this.knownWindows = this.storageService.getLocalObjects<WindowData>(

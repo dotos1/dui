@@ -31,13 +31,7 @@ export class AvatarConfigService {
    * @returns Result of type `string[]` / 类型为 `string[]` 的返回值
    */
   public getAvatarColors(defaultColors: string[]): string[] {
-    return (
-      // @gate-ignore-next-line duplicate-boolean-op
-      (this.userConfig &&
-        this.userConfig.colors &&
-        this.userConfig.colors.length &&
-        this.userConfig.colors) ||
-      defaultColors
-    );
+    const colors = this.userConfig?.colors;
+    return colors?.length ? colors : defaultColors;
   }
 }

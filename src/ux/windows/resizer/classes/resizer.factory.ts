@@ -23,8 +23,8 @@ import { ɵTopRightResizer } from './top-right-resizer';
 @Injectable()
 export class ɵResizerFactory {
     /**
-     * Property `resizers` (`any[]`) storing resizers.
-     * @zh 属性 `resizers`（类型：`any[]`），用于存储或配置尺寸调整器。
+     * Property `resizers` (`(typeof ɵTopResizer)[]`) storing resizers.
+     * @zh 属性 `resizers`（类型：`(typeof ɵTopResizer)[]`），用于存储或配置尺寸调整器。
      */
     private readonly resizers = [
         ɵTopLeftResizer,

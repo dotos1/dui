@@ -6,9 +6,9 @@
 /**
  * Executes `matTypographyFontShorthand` to handle mat typography font shorthand.
  * @zh 执行 `matTypographyFontShorthand`，用于Material排版字体Shorthand。
- * @param fontSize - font size parameter (`number | string`) / 字体尺寸参数（`number | string`）
- * @param fontWeight - font weight parameter (`number | string`) / 字体权重/字重参数（`number | string`）
- * @param lineHeight - line height parameter (`number | string`) / 线段高度参数（`number | string`）
+ * @param fontSize - font size parameter (`string | number`) / 字体尺寸参数（`string | number`）
+ * @param fontWeight - font weight parameter (`string | number`) / 字体权重/字重参数（`string | number`）
+ * @param lineHeight - line height parameter (`string | number`) / 线段高度参数（`string | number`）
  * @param fontFamily - font family parameter (`string`) / 字体Family参数（`string`）
  * @returns Result of type `Object` / 类型为 `Object` 的返回值
  */

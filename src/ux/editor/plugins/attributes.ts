@@ -9,7 +9,7 @@ import { Plugin, PluginKey } from 'prosemirror-state';
  * Constant/variable `attributesPlugin` defining attributes plugin in `src/ux/editor/plugins`.
  * @zh 常量/变量 `attributesPlugin`，定义 `src/ux/editor/plugins` 中的属性列表Plugin。
  */
-const attributesPlugin = (attributes = {}): Plugin => {
+const attributesPlugin = (attributes: { [name: string]: string } = {}): Plugin => {
   return new Plugin({
     key: new PluginKey('attributes'),
     props: {

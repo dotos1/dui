@@ -72,7 +72,7 @@ export class DraggableDirective implements OnDestroy, OnChanges {
   /**
    * Creates an instance of `DraggableDirective` and initializes its dependencies and internal state.
    * @zh 创建 `DraggableDirective` 实例，并初始化其依赖项与内部状态。
-   * @param element - Injected or initial element (`ElementRef`) / 注入或传入的元素（`ElementRef`）
+   * @param element - Injected or initial element (`ElementRef<any>`) / 注入或传入的元素（`ElementRef<any>`）
    */
   constructor(element: ElementRef) {
     this.element = element.nativeElement;
@@ -154,7 +154,7 @@ export class DraggableDirective implements OnDestroy, OnChanges {
    * Executes `move` to handle move.
    * @zh 执行 `move`，用于移动。
    * @param event - event parameter (`any`) / 事件参数（`any`）
-   * @param mouseDownPos - mouse down pos parameter (`{ x: number; y: number }`) / 鼠标向下位置参数（`{ x: number; y: number }`）
+   * @param mouseDownPos - mouse down pos parameter (`{ x: number; y: number; }`) / 鼠标向下位置参数（`{ x: number; y: number; }`）
    */
   move(event, mouseDownPos: { x: number; y: number }): void {
     if (!this.isDragging) return;

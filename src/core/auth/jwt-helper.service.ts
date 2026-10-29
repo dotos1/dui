@@ -202,7 +202,7 @@ export class JwtHelperService {
     /**
      * Executes `hasRealmRoles` to handle has realm roles.
      * @zh 执行 `hasRealmRoles`，用于是否包含Realm角色。
-     * @param rolesToCheck - roles to check parameter (`string []`) / 角色转换为检查参数（`string []`）
+     * @param rolesToCheck - roles to check parameter (`string[]`) / 角色转换为检查参数（`string[]`）
      * @returns Result of type `boolean` / 类型为 `boolean` 的返回值
      */
     hasRealmRoles(rolesToCheck: string []): boolean {
@@ -215,7 +215,7 @@ export class JwtHelperService {
      * Executes `hasRealmRolesForClientRole` to handle has realm roles for client role.
      * @zh 执行 `hasRealmRolesForClientRole`，用于是否包含Realm角色用于Client角色。
      * @param clientName - client name parameter (`string`) / client名称参数（`string`）
-     * @param rolesToCheck - roles to check parameter (`string []`) / 角色转换为检查参数（`string []`）
+     * @param rolesToCheck - roles to check parameter (`string[]`) / 角色转换为检查参数（`string[]`）
      * @returns Result of type `boolean` / 类型为 `boolean` 的返回值
      */
     hasRealmRolesForClientRole(clientName: string, rolesToCheck: string []): boolean {

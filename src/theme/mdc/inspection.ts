@@ -8,7 +8,7 @@ import * as typography from './_typography-getters';
 import * as theming from './theming';
 /**
  * Executes `private_is_theme_object` to handle private is theme object.
- * @zh 执行 `private_is_theme_object`，用于private是否为主题对象。
+ * @zh 执行 `private_is_theme_object`，用于内部是否为主题对象。
  * @param $value - value parameter (`any`) / 值参数（`any`）
  */
 function private_is_theme_object($value) {
@@ -38,7 +38,7 @@ function get_color_config($theme, $default= null) {
  * @zh 执行 `get_theme_color`，用于获取主题颜色。
  * @param $theme - theme parameter (`any`) / 主题参数（`any`）
  * @param $palette_name - palette name parameter (`any`) / 调色板名称参数（`any`）
- * @param $args - args parameter (`any`) / 参数列表参数（`any`）
+ * @param $args - args parameter (`any[]`) / 参数列表参数（`any[]`）
  */
 export function get_theme_color($theme, $palette_name, ...$args) {
     let $colors= get_color_config($theme);

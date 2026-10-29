@@ -52,7 +52,7 @@ export class ShadeSliderComponent extends ColorWrap implements OnChanges {
    */
   @Input() height: string | number = 16;
   /**
-   * Property `pointer` (`{ [key: string]: string }`) storing pointer.
+   * Property `pointer` (`{ [key: string]: string; }`) storing pointer.
    * @zh 滑块手柄的内联样式。
    * @zh 滑块手柄的内联样式。
    */

@@ -18,7 +18,7 @@ import {
  * Executes `unregisterControl` to handle unregister control.
  * @zh 执行 `unregisterControl`，用于注销表单控件。
  * @param field - field parameter (`FieldConfig`) / 字段参数（`FieldConfig`）
- * @param emitEvent - emit event parameter (`any`) / 发出事件参数（`any`）
+ * @param emitEvent - emit event parameter (`boolean`) / 发出事件参数（`boolean`）
  */
 export function unregisterControl(field: FieldConfig, emitEvent = false) {
   const form = field.formControl.parent as FormArray | FormGroup;
@@ -46,7 +46,7 @@ export function unregisterControl(field: FieldConfig, emitEvent = false) {
  * Executes `findControl` to handle find control.
  * @zh 执行 `findControl`，用于查找表单控件。
  * @param field - field parameter (`FieldConfig`) / 字段参数（`FieldConfig`）
- * @returns Result of type `AbstractControl` / 类型为 `AbstractControl` 的返回值
+ * @returns Result of type `AbstractControl<any, any>` / 类型为 `AbstractControl<any, any>` 的返回值
  */
 export function findControl(field: FieldConfig): AbstractControl {
   if (field.formControl) {
@@ -69,7 +69,7 @@ export function findControl(field: FieldConfig): AbstractControl {
  * @zh 执行 `registerControl`，用于注册表单控件。
  * @param field - field parameter (`FieldConfigCache`) / 字段参数（`FieldConfigCache`）
  * @param control - control parameter (`any`) / 表单控件参数（`any`）
- * @param emitEvent - emit event parameter (`any`) / 发出事件参数（`any`）
+ * @param emitEvent - emit event parameter (`boolean`) / 发出事件参数（`boolean`）
  */
 export function registerControl(field: FieldConfigCache, control?, emitEvent = false) {
   control = control || field.formControl;
@@ -115,7 +115,7 @@ export function registerControl(field: FieldConfigCache, control?, emitEvent = f
 /**
  * Executes `updateValidity` to handle update validity.
  * @zh 执行 `updateValidity`，用于更新Validity。
- * @param c - c parameter (`AbstractControl`) / c参数（`AbstractControl`）
+ * @param c - c parameter (`AbstractControl<any, any>`) / c参数（`AbstractControl<any, any>`）
  */
 export function updateValidity(c: AbstractControl) {
   const status = c.status;
@@ -127,8 +127,8 @@ export function updateValidity(c: AbstractControl) {
 /**
  * Executes `updateControl` to handle update control.
  * @zh 执行 `updateControl`，用于更新表单控件。
- * @param form - form parameter (`FormGroup | FormArray`) / 表单参数（`FormGroup | FormArray`）
- * @param opts - opts parameter (`{ emitEvent: boolean }`) / 选项列表参数（`{ emitEvent: boolean }`）
+ * @param form - form parameter (`FormGroup<any> | FormArray<any>`) / 表单参数（`FormGroup<any> | FormArray<any>`）
+ * @param opts - opts parameter (`{ emitEvent: boolean; }`) / 选项列表参数（`{ emitEvent: boolean; }`）
  * @param action - action parameter (`Function`) / 动作参数（`Function`）
  */
 function updateControl(form: FormGroup | FormArray, opts: { emitEvent: boolean }, action: Function) {
@@ -153,7 +153,7 @@ function updateControl(form: FormGroup | FormArray, opts: { emitEvent: boolean }
 /**
  * Executes `clearControl` to handle clear control.
  * @zh 执行 `clearControl`，用于清空表单控件。
- * @param form - form parameter (`AbstractControl`) / 表单参数（`AbstractControl`）
+ * @param form - form parameter (`AbstractControl<any, any>`) / 表单参数（`AbstractControl<any, any>`）
  */
 export function clearControl(form: AbstractControl) {
   form['_fields'] && delete form['_fields'];

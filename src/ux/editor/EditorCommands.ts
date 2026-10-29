@@ -73,8 +73,8 @@ export default class EditorCommands {
   }
 
   /**
-   * Property `applyTrx` (`any`) storing apply trx.
-   * @zh 属性 `applyTrx`（类型：`any`），用于存储或配置应用Trx。
+   * Property `applyTrx` (`(tr?: Transaction) => void`) storing apply trx.
+   * @zh 属性 `applyTrx`（类型：`(tr?: Transaction) => void`），用于存储或配置应用Trx。
    */
   private applyTrx = (tr?: Transaction) => {
     this.state = this.state.apply(tr ?? this.tr);
@@ -83,8 +83,8 @@ export default class EditorCommands {
   };
 
   /**
-   * Property `dispatch` (`any`) storing dispatch.
-   * @zh 属性 `dispatch`（类型：`any`），用于存储或配置派发。
+   * Property `dispatch` (`(tr: Transaction) => void`) storing dispatch.
+   * @zh 属性 `dispatch`（类型：`(tr: Transaction) => void`），用于存储或配置派发。
    */
   private dispatch = (tr: Transaction): void => {
     this.applyTrx(tr);

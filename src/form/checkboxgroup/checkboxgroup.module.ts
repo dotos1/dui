@@ -39,8 +39,8 @@ import { TranslateModule } from '@dotos/dui/translator';
 })
 export class CheckboxGroupModule {
   /**
-   * Property `entryComponents` (`any[]`) storing entry components (default: `[CheckboxGroupField]`).
-   * @zh 属性 `entryComponents`（类型：`any[]`），用于存储或配置条目组件列表（默认值：`[CheckboxGroupField]`）。
+   * Property `entryComponents` (`(typeof CheckboxGroupField)[]`) storing entry components (default: `[CheckboxGroupField]`).
+   * @zh 属性 `entryComponents`（类型：`(typeof CheckboxGroupField)[]`），用于存储或配置条目组件列表（默认值：`[CheckboxGroupField]`）。
    */
   entryComponents = [CheckboxGroupField];
   /**

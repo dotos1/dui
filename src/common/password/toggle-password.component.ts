@@ -39,7 +39,7 @@ export class TogglePasswordComponent implements AfterViewInit {
   /**
    * Creates an instance of `TogglePasswordComponent` and initializes its dependencies and internal state.
    * @zh 创建 `TogglePasswordComponent` 实例，并初始化其依赖项与内部状态。
-   * @param hostElement - Injected or initial host element (`ElementRef`) / 注入或传入的宿主元素（`ElementRef`）
+   * @param hostElement - Injected or initial host element (`ElementRef<any>`) / 注入或传入的宿主元素（`ElementRef<any>`）
    */
   constructor(private hostElement: ElementRef) { }
 

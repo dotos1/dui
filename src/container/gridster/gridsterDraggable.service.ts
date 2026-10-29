@@ -29,8 +29,8 @@ export class GridsterDraggable {
    */
   gridster: GridsterComponentInterface;
   /**
-   * Property `lastMouse` (`{ clientX: number, clientY: number }`) storing last mouse.
-   * @zh 属性 `lastMouse`（类型：`{ clientX: number, clientY: number }`），用于存储或配置末尾鼠标。
+   * Property `lastMouse` (`{ clientX: number; clientY: number; }`) storing last mouse.
+   * @zh 属性 `lastMouse`（类型：`{ clientX: number; clientY: number; }`），用于存储或配置末尾鼠标。
    */
   lastMouse: {
     clientX: number,
@@ -182,13 +182,13 @@ export class GridsterDraggable {
    */
   swap: GridsterSwap;
   /**
-   * Property `path` (`Array<{ x: number, y: number }>`) storing path.
-   * @zh 属性 `path`（类型：`Array<{ x: number, y: number }>`），用于存储或配置路径。
+   * Property `path` (`{ x: number; y: number; }[]`) storing path.
+   * @zh 属性 `path`（类型：`{ x: number; y: number; }[]`），用于存储或配置路径。
    */
   path: Array<{ x: number, y: number }>;
   /**
-   * Property `collision` (`GridsterItemComponentInterface | boolean`) storing collision (default: `false`).
-   * @zh 属性 `collision`（类型：`GridsterItemComponentInterface | boolean`），用于存储或配置collision（默认值：`false`）。
+   * Property `collision` (`boolean | GridsterItemComponentInterface`) storing collision (default: `false`).
+   * @zh 属性 `collision`（类型：`boolean | GridsterItemComponentInterface`），用于存储或配置collision（默认值：`false`）。
    */
   collision: GridsterItemComponentInterface | boolean = false;
 

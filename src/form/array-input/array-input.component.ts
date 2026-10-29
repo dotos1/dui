@@ -29,19 +29,19 @@ import { TextFieldComponent } from '../field';
 export class ArrayInputComponent extends TextFieldComponent implements OnInit {
 
   /**
-   * Output event emitter `result` (`EventEmitter`) firing when result occurs.
-   * @zh 输出事件 `result`（类型：`EventEmitter`），当触发结果时向外发出事件。
+   * Output event emitter `result` (`EventEmitter<{ key: string; data: string; }>`) firing when result occurs.
+   * @zh 输出事件 `result`（类型：`EventEmitter<{ key: string; data: string; }>`），当触发结果时向外发出事件。
    */
   @Output() result = new EventEmitter<{ key: string, data: string }>();
 
   /**
-   * Property `selectData` (`Array<any>`) storing select data (default: `[]`).
-   * @zh 属性 `selectData`（类型：`Array<any>`），用于存储或配置下拉选择数据（默认值：`[]`）。
+   * Property `selectData` (`any[]`) storing select data (default: `[]`).
+   * @zh 属性 `selectData`（类型：`any[]`），用于存储或配置下拉选择数据（默认值：`[]`）。
    */
   selectData = [];
   /**
-   * Property `filteredData` (`Observable<Array<any>>`) storing filtered data.
-   * @zh 属性 `filteredData`（类型：`Observable<Array<any>>`），用于存储或配置已过滤数据。
+   * Property `filteredData` (`any`) storing filtered data.
+   * @zh 属性 `filteredData`（类型：`any`），用于存储或配置已过滤数据。
    */
   filteredData;
   /**
@@ -70,8 +70,8 @@ export class ArrayInputComponent extends TextFieldComponent implements OnInit {
   }
 
   /**
-   * Property `filter` (`any`) storing filter.
-   * @zh 属性 `filter`（类型：`any`），用于存储或配置过滤。
+   * Property `filter` (`(filter: string) => any`) storing filter.
+   * @zh 属性 `filter`（类型：`(filter: string) => any`），用于存储或配置过滤。
    */
   filter = (filter: string) => {
     this.filterString = filter;
@@ -106,14 +106,14 @@ export class ArrayInputComponent extends TextFieldComponent implements OnInit {
   }
 
   /**
-   * Property `displayFn` (`any`) storing display fn (default: `(): string => ''`).
-   * @zh 属性 `displayFn`（类型：`any`），用于存储或配置display函数（默认值：`(): string => ''`）。
+   * Property `displayFn` (`() => string`) storing display fn (default: `(): string => ''`).
+   * @zh 属性 `displayFn`（类型：`() => string`），用于存储或配置display函数（默认值：`(): string => ''`）。
    */
   displayFn = (): string => '';
 
   /**
-   * Property `optionClicked` (`any`) storing option clicked.
-   * @zh 属性 `optionClicked`（类型：`any`），用于存储或配置选项点击。
+   * Property `optionClicked` (`(event: Event, data: any) => void`) storing option clicked.
+   * @zh 属性 `optionClicked`（类型：`(event: Event, data: any) => void`），用于存储或配置选项点击。
    */
   optionClicked = (event: Event, data): void => {
     event.stopPropagation();
@@ -121,8 +121,8 @@ export class ArrayInputComponent extends TextFieldComponent implements OnInit {
   };
 
   /**
-   * Property `toggleSelection` (`any`) storing toggle selection.
-   * @zh 属性 `toggleSelection`（类型：`any`），用于存储或配置开关Selection。
+   * Property `toggleSelection` (`(data: any) => void`) storing toggle selection.
+   * @zh 属性 `toggleSelection`（类型：`(data: any) => void`），用于存储或配置开关Selection。
    */
   toggleSelection = (data): void => {
     data.selected = !data.selected;
@@ -136,8 +136,8 @@ export class ArrayInputComponent extends TextFieldComponent implements OnInit {
   };
 
   /**
-   * Property `emitAdjustedData` (`any`) storing emit adjusted data.
-   * @zh 属性 `emitAdjustedData`（类型：`any`），用于存储或配置发出Adjusted数据。
+   * Property `emitAdjustedData` (`() => void`) storing emit adjusted data.
+   * @zh 属性 `emitAdjustedData`（类型：`() => void`），用于存储或配置发出Adjusted数据。
    */
   emitAdjustedData = (): void => {
     const results: Array<string> = []
@@ -151,8 +151,8 @@ export class ArrayInputComponent extends TextFieldComponent implements OnInit {
   };
 
   /**
-   * Property `removeChip` (`any`) storing remove chip.
-   * @zh 属性 `removeChip`（类型：`any`），用于存储或配置移除纸片标签。
+   * Property `removeChip` (`(data: any) => void`) storing remove chip.
+   * @zh 属性 `removeChip`（类型：`(data: any) => void`），用于存储或配置移除纸片标签。
    */
   removeChip = (data): void => {
     this.toggleSelection(data);

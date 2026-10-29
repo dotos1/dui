@@ -31,7 +31,7 @@ export interface ICanDisableRipple {
 
 /**
  * Mixin to augment a component or directive with a `disabled` property.
- * @zh 执行 `mixinDisableRipple`，用于mixin禁用Ripple。
+ * @zh 执行 `mixinDisableRipple`，用于混入禁用Ripple。
  */
 export function mixinDisableRipple<
   T extends Constructor<Record<string, unknown>>

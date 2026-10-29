@@ -129,7 +129,7 @@ export class BreadcrumbComponent implements AfterViewInit {
 
 
   /**
-   * Host-bound getter `displayBinding` (`style.display`) computing display binding.
+   * Host-bound getter `displayBinding` (`string`) computing display binding.
    * @zh 内部使用，绑定宿主的 `display` 样式，隐藏时设置为 `'none'`。
    * @zh 内部使用，绑定宿主的 `display` 样式，隐藏时设置为 `'none'`。
    */
@@ -141,7 +141,7 @@ export class BreadcrumbComponent implements AfterViewInit {
   /**
    * Creates an instance of `BreadcrumbComponent` and initializes its dependencies and internal state.
    * @zh 创建 `BreadcrumbComponent` 实例，并初始化其依赖项与内部状态。
-   * @param _elementRef - Injected or initial element ref (`ElementRef`) / 注入或传入的元素引用（`ElementRef`）
+   * @param _elementRef - Injected or initial element ref (`ElementRef<any>`) / 注入或传入的元素引用（`ElementRef<any>`）
    * @param _changeDetectorRef - Injected or initial change detector ref (`ChangeDetectorRef`) / 注入或传入的变更检测器引用（`ChangeDetectorRef`）
    */
   constructor(

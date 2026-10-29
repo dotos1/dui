@@ -13,7 +13,7 @@ import {Injectable} from "@angular/core";
 export abstract class TranslateCompiler {
   /**
    * Executes `compile` to handle compile.
-   * @zh 执行 `compile`，用于compile。
+   * @zh 执行 `compile`，用于编译。
    * @param value - value parameter (`string`) / 值参数（`string`）
    * @param lang - lang parameter (`string`) / 语言参数（`string`）
    * @returns Result of type `string | Function` / 类型为 `string | Function` 的返回值
@@ -21,7 +21,7 @@ export abstract class TranslateCompiler {
   abstract compile(value: string, lang: string): string | Function;
   /**
    * Executes `compileTranslations` to handle compile translations.
-   * @zh 执行 `compileTranslations`，用于compile翻译文本。
+   * @zh 执行 `compileTranslations`，用于编译翻译文本。
    * @param translations - translations parameter (`any`) / 翻译文本参数（`any`）
    * @param lang - lang parameter (`string`) / 语言参数（`string`）
    * @returns Result of type `any` / 类型为 `any` 的返回值
@@ -38,7 +38,7 @@ export abstract class TranslateCompiler {
 export class TranslateFakeCompiler extends TranslateCompiler {
   /**
    * Executes `compile` to handle compile.
-   * @zh 执行 `compile`，用于compile。
+   * @zh 执行 `compile`，用于编译。
    * @param value - value parameter (`string`) / 值参数（`string`）
    * @param lang - lang parameter (`string`) / 语言参数（`string`）
    * @returns Result of type `string | Function` / 类型为 `string | Function` 的返回值
@@ -49,7 +49,7 @@ export class TranslateFakeCompiler extends TranslateCompiler {
 
   /**
    * Executes `compileTranslations` to handle compile translations.
-   * @zh 执行 `compileTranslations`，用于compile翻译文本。
+   * @zh 执行 `compileTranslations`，用于编译翻译文本。
    * @param translations - translations parameter (`any`) / 翻译文本参数（`any`）
    * @param lang - lang parameter (`string`) / 语言参数（`string`）
    * @returns Result of type `any` / 类型为 `any` 的返回值

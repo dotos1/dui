@@ -3,6 +3,7 @@
  * @zh 模块文件 `src/data/datatable/row/row-wrapper.component.ts`，提供行包装器组件相关的定义与实现。
  */
 
+import { DuiStyle } from '@dotos/dui/base';
 import {
   Component, Input, Output, EventEmitter, HostListener, DoCheck,
   ChangeDetectionStrategy, KeyValueDiffer, ChangeDetectorRef, KeyValueDiffers
@@ -48,18 +49,18 @@ export class DataTableRowWrapperComponent implements DoCheck {
    */
   @Input() detailRowHeight;
   /**
-   * Input property `row` (`any`) configuring row (default: `{}`).
-   * @zh 输入属性 `row`（类型：`any`），用于配置行（默认值：`{}`）。
+   * Input property `row` (`Record<string, unknown>`) configuring row (default: `{}`).
+   * @zh 输入属性 `row`（类型：`Record<string, unknown>`），用于配置行（默认值：`{}`）。
    */
-  @Input() row={};
+  @Input() row: Record<string, unknown> = {};
   /**
    * Input property `groupedRows` (`any`) configuring grouped rows.
    * @zh 输入属性 `groupedRows`（类型：`any`），用于配置已分组行列表。
    */
   @Input() groupedRows;
   /**
-   * Output event emitter `rowContextmenu` (`EventEmitter`) firing when row contextmenu occurs.
-   * @zh 输出事件 `rowContextmenu`（类型：`EventEmitter`），当触发行Contextmenu时向外发出事件。
+   * Output event emitter `rowContextmenu` (`EventEmitter<{ event: MouseEvent; row: any; }>`) firing when row contextmenu occurs.
+   * @zh 输出事件 `rowContextmenu`（类型：`EventEmitter<{ event: MouseEvent; row: any; }>`），当触发行Contextmenu时向外发出事件。
    */
   @Output() rowContextmenu = new EventEmitter<{ event: MouseEvent; row }>(false);
 
@@ -104,8 +105,8 @@ export class DataTableRowWrapperComponent implements DoCheck {
   }
 
   /**
-   * Property `groupContext` (`any`) storing group context.
-   * @zh 属性 `groupContext`（类型：`any`），用于存储或配置分组上下文。
+   * Property `groupContext` (`{ group: Record<string, unknown>; expanded: boolean; rowIndex: number; }`) storing group context.
+   * @zh 属性 `groupContext`（类型：`{ group: Record<string, unknown>; expanded: boolean; rowIndex: number; }`），用于存储或配置分组上下文。
    */
   groupContext = {
     group: this.row,
@@ -114,8 +115,8 @@ export class DataTableRowWrapperComponent implements DoCheck {
   };
 
   /**
-   * Property `rowContext` (`any`) storing row context.
-   * @zh 属性 `rowContext`（类型：`any`），用于存储或配置行上下文。
+   * Property `rowContext` (`{ row: Record<string, unknown>; expanded: boolean; rowIndex: number; }`) storing row context.
+   * @zh 属性 `rowContext`（类型：`{ row: Record<string, unknown>; expanded: boolean; rowIndex: number; }`），用于存储或配置行上下文。
    */
   rowContext = {
     row: this.row,
@@ -174,10 +175,10 @@ export class DataTableRowWrapperComponent implements DoCheck {
   /**
    * Executes `getGroupHeaderStyle` to handle get group header style.
    * @zh 执行 `getGroupHeaderStyle`，用于获取分组表头样式。
-   * @returns Result of type `any` / 类型为 `any` 的返回值
+   * @returns Result of type `DuiStyle` / 类型为 `DuiStyle` 的返回值
    */
   getGroupHeaderStyle() {
-    const styles = {};
+    const styles: DuiStyle = {};
 
     styles['transform'] = 'translate3d(' + this.offsetX + 'px, 0px, 0px)';
     styles['backface-visibility'] = 'hidden';

@@ -41,8 +41,8 @@ export const defaultCulture = 'en-US';
  */
 export interface AngularEventEmitter {
   /**
-   * Property `subscribe` (`(generatorOrNext?: unknown, error?: unknown, complete?: unknown) => un...`) storing subscribe.
-   * @zh 属性 `subscribe`（类型：`(generatorOrNext?: unknown, error?: unknown, complete?: unknown) => un...`），用于存储或配置订阅。
+   * Property `subscribe` (`(generatorOrNext?: unknown, error?: unknown, complete?: unknown) => unknown`) storing subscribe.
+   * @zh 属性 `subscribe`（类型：`(generatorOrNext?: unknown, error?: unknown, complete?: unknown) => unknown`），用于存储或配置订阅。
    */
   subscribe?: (generatorOrNext?: unknown, error?: unknown, complete?: unknown) => unknown;
 }
@@ -92,7 +92,7 @@ export class Base<ElementType extends HTMLElement> {
    * Creates an instance of `Base` and initializes its dependencies and internal state.
    * @zh 创建 `Base` 实例，并初始化其依赖项与内部状态。
    * @param options - Injected or initial options (`Object`) / 注入或传入的配置选项（`Object`）
-   * @param element - Injected or initial element (`ElementType | string`) / 注入或传入的元素（`ElementType | string`）
+   * @param element - Injected or initial element (`string | ElementType`) / 注入或传入的元素（`string | ElementType`）
    */
   constructor(options?: Object, element?: ElementType | string) {
     this.modelObserver = new Observer(this);
@@ -148,7 +148,7 @@ export class Base<ElementType extends HTMLElement> {
 
   /**
    * Executes `off` to handle off.
-   * @zh 执行 `off`，用于off。
+   * @zh 执行 `off`，用于取消监听。
    * @param eventName - event name parameter (`string`) / 事件名称参数（`string`）
    * @param handler - handler parameter (`Function`) / 处理器参数（`Function`）
    */

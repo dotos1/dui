@@ -10,5 +10,6 @@ export * from './rtl/index';
 export * from './style/index';
 export * from './WindowRef';
 export { Dui } from './dui';
-export { ComponentBase } from './component.base';
+export { ComponentBase, DuiPlugin } from './component.base';
+export type { DuiConfig, DuiStyle, DuiListeners, DuiListener, DuiExpression, DuiExpressionProperties, DuiCompiledExpression, DuiPluginConfig } from '@dotos/dui/base';
 export { WindowService } from './window.service';

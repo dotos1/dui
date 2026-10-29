@@ -21,8 +21,8 @@ import { ShadeSliderComponent } from './shade-picker.component';
 })
 export class ColorShadeModule {
   /**
-   * Property `entryComponents` (`any[]`) storing entry components (default: `[ShadeSliderComponent]`).
-   * @zh 属性 `entryComponents`（类型：`any[]`），用于存储或配置条目组件列表（默认值：`[ShadeSliderComponent]`）。
+   * Property `entryComponents` (`(typeof ShadeSliderComponent)[]`) storing entry components (default: `[ShadeSliderComponent]`).
+   * @zh 属性 `entryComponents`（类型：`(typeof ShadeSliderComponent)[]`），用于存储或配置条目组件列表（默认值：`[ShadeSliderComponent]`）。
    */
   entryComponents = [ShadeSliderComponent];
   /**

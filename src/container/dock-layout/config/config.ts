@@ -353,7 +353,7 @@ export namespace ItemConfig {
    * Executes `isGround` to handle is ground.
    * @zh 执行 `isGround`，用于是否为Ground。
    * @param config - config parameter (`ItemConfig`) / 配置参数（`ItemConfig`）
-   * @returns Result of type `config is ItemConfig` / 类型为 `config is ItemConfig` 的返回值
+   * @returns Result of type `boolean` / 类型为 `boolean` 的返回值
    */
   export function isGround(config: ItemConfig): config is ItemConfig {
     return config.type === ItemType.ground;
@@ -362,7 +362,7 @@ export namespace ItemConfig {
    * Executes `isRow` to handle is row.
    * @zh 执行 `isRow`，用于是否为行。
    * @param config - config parameter (`ItemConfig`) / 配置参数（`ItemConfig`）
-   * @returns Result of type `config is ItemConfig` / 类型为 `config is ItemConfig` 的返回值
+   * @returns Result of type `boolean` / 类型为 `boolean` 的返回值
    */
   export function isRow(config: ItemConfig): config is ItemConfig {
     return config.type === ItemType.row;
@@ -371,7 +371,7 @@ export namespace ItemConfig {
    * Executes `isColumn` to handle is column.
    * @zh 执行 `isColumn`，用于是否为列。
    * @param config - config parameter (`ItemConfig`) / 配置参数（`ItemConfig`）
-   * @returns Result of type `config is ItemConfig` / 类型为 `config is ItemConfig` 的返回值
+   * @returns Result of type `boolean` / 类型为 `boolean` 的返回值
    */
   export function isColumn(config: ItemConfig): config is ItemConfig {
     return config.type === ItemType.column;
@@ -380,7 +380,7 @@ export namespace ItemConfig {
    * Executes `isStack` to handle is stack.
    * @zh 执行 `isStack`，用于是否为栈。
    * @param config - config parameter (`ItemConfig`) / 配置参数（`ItemConfig`）
-   * @returns Result of type `config is ItemConfig` / 类型为 `config is ItemConfig` 的返回值
+   * @returns Result of type `boolean` / 类型为 `boolean` 的返回值
    */
   export function isStack(config: ItemConfig): config is ItemConfig {
     return config.type === ItemType.stack;
@@ -389,7 +389,7 @@ export namespace ItemConfig {
    * Executes `isComponent` to handle is component.
    * @zh 执行 `isComponent`，用于是否为组件。
    * @param config - config parameter (`ItemConfig`) / 配置参数（`ItemConfig`）
-   * @returns Result of type `config is ComponentItemConfig` / 类型为 `config is ComponentItemConfig` 的返回值
+   * @returns Result of type `boolean` / 类型为 `boolean` 的返回值
    */
   export function isComponent(
     config: ItemConfig
@@ -441,18 +441,18 @@ export namespace HeaderedItemConfig {
      */
     show?: false | Side;
     /**
-     * Property `popout` (`false | string`) storing popout.
-     * @zh 属性 `popout`（类型：`false | string`），用于存储或配置弹出窗口。
+     * Property `popout` (`string | false`) storing popout.
+     * @zh 属性 `popout`（类型：`string | false`），用于存储或配置弹出窗口。
      */
     popout?: false | string;
     /**
-     * Property `dock` (`false | string`) storing dock.
-     * @zh 属性 `dock`（类型：`false | string`），用于存储或配置停靠面板。
+     * Property `dock` (`string | false`) storing dock.
+     * @zh 属性 `dock`（类型：`string | false`），用于存储或配置停靠面板。
      */
     dock?: false | string;
     /**
-     * Property `maximise` (`false | string`) storing maximise.
-     * @zh 属性 `maximise`（类型：`false | string`），用于存储或配置最大化。
+     * Property `maximise` (`string | false`) storing maximise.
+     * @zh 属性 `maximise`（类型：`string | false`），用于存储或配置最大化。
      */
     maximise?: false | string;
     /**
@@ -466,8 +466,8 @@ export namespace HeaderedItemConfig {
      */
     minimise?: string;
     /**
-     * Property `tabDropdown` (`false | string`) storing tab dropdown.
-     * @zh 属性 `tabDropdown`（类型：`false | string`），用于存储或配置选项卡下拉框。
+     * Property `tabDropdown` (`string | false`) storing tab dropdown.
+     * @zh 属性 `tabDropdown`（类型：`string | false`），用于存储或配置选项卡下拉框。
      */
     tabDropdown?: false | string;
   }
@@ -476,9 +476,9 @@ export namespace HeaderedItemConfig {
     /**
      * Executes `resolve` to handle resolve.
      * @zh 执行 `resolve`，用于解析。
-     * @param header - header parameter (`Header | undefined`) / 表头参数（`Header | undefined`）
-     * @param hasHeaders - has headers parameter (`boolean | undefined`) / 是否包含请求头参数（`boolean | undefined`）
-     * @returns Result of type `ResolvedHeaderedItemConfig.Header | undefined` / 类型为 `ResolvedHeaderedItemConfig.Header | undefined` 的返回值
+     * @param header - header parameter (`Header`) / 表头参数（`Header`）
+     * @param hasHeaders - has headers parameter (`boolean`) / 是否包含请求头参数（`boolean`）
+     * @returns Result of type `ResolvedHeaderedItemConfig.Header` / 类型为 `ResolvedHeaderedItemConfig.Header` 的返回值
      */
     export function resolve(
       header: Header | undefined,
@@ -556,8 +556,8 @@ export namespace HeaderedItemConfig {
  */
 export interface StackItemConfig extends HeaderedItemConfig {
   /**
-   * Property `type` (`'stack'`) storing type.
-   * @zh 属性 `type`（类型：`'stack'`），用于存储或配置类型。
+   * Property `type` (`"stack"`) storing type.
+   * @zh 属性 `type`（类型：`"stack"`），用于存储或配置类型。
    */
   type: 'stack';
   /**
@@ -704,8 +704,8 @@ export namespace StackItemConfig {
  */
 export interface ComponentItemConfig extends HeaderedItemConfig {
   /**
-   * Property `type` (`'component'`) storing type.
-   * @zh 属性 `type`（类型：`'component'`），用于存储或配置类型。
+   * Property `type` (`"component"`) storing type.
+   * @zh 属性 `type`（类型：`"component"`），用于存储或配置类型。
    */
   type: 'component';
   /**
@@ -876,13 +876,13 @@ export namespace ComponentItemConfig {
  */
 export interface RowOrColumnItemConfig extends ItemConfig {
   /**
-   * Property `type` (`'row' | 'column'`) storing type.
-   * @zh 属性 `type`（类型：`'row' | 'column'`），用于存储或配置类型。
+   * Property `type` (`"column" | "row"`) storing type.
+   * @zh 属性 `type`（类型：`"column" | "row"`），用于存储或配置类型。
    */
   type: 'row' | 'column';
   /**
-   * Property `content` (`(RowOrColumnItemConfig | StackItemConfig | ComponentItemConfig)[]`) storing content.
-   * @zh 属性 `content`（类型：`(RowOrColumnItemConfig | StackItemConfig | ComponentItemConfig)[]`），用于存储或配置内容。
+   * Property `content` (`(ComponentItemConfig | StackItemConfig | RowOrColumnItemConfig)[]`) storing content.
+   * @zh 属性 `content`（类型：`(ComponentItemConfig | StackItemConfig | RowOrColumnItemConfig)[]`），用于存储或配置内容。
    */
   content: (RowOrColumnItemConfig | StackItemConfig | ComponentItemConfig)[];
 }
@@ -902,7 +902,7 @@ export namespace RowOrColumnItemConfig {
    * Executes `isChildItemConfig` to handle is child item config.
    * @zh 执行 `isChildItemConfig`，用于是否为子级条目配置。
    * @param itemConfig - item config parameter (`ItemConfig`) / 条目配置参数（`ItemConfig`）
-   * @returns Result of type `itemConfig is ChildItemConfig` / 类型为 `itemConfig is ChildItemConfig` 的返回值
+   * @returns Result of type `boolean` / 类型为 `boolean` 的返回值
    */
   export function isChildItemConfig(
     itemConfig: ItemConfig
@@ -1124,7 +1124,7 @@ export namespace RootItemConfig {
    * Executes `isRootItemConfig` to handle is root item config.
    * @zh 执行 `isRootItemConfig`，用于是否为根节点条目配置。
    * @param itemConfig - item config parameter (`ItemConfig`) / 条目配置参数（`ItemConfig`）
-   * @returns Result of type `itemConfig is RootItemConfig` / 类型为 `itemConfig is RootItemConfig` 的返回值
+   * @returns Result of type `boolean` / 类型为 `boolean` 的返回值
    */
   export function isRootItemConfig(
     itemConfig: ItemConfig
@@ -1200,13 +1200,13 @@ export namespace RootItemConfig {
  */
 export interface LayoutConfig {
   /**
-   * Property `root` (`RootItemConfig | undefined`) storing root.
-   * @zh 属性 `root`（类型：`RootItemConfig | undefined`），用于存储或配置根节点。
+   * Property `root` (`RootItemConfig`) storing root.
+   * @zh 属性 `root`（类型：`RootItemConfig`），用于存储或配置根节点。
    */
   root: RootItemConfig | undefined;
   /**
    * @deprecated Use {@link (LayoutConfig:interface).root}
-   * @zh 属性 `content`（类型：`(RowOrColumnItemConfig | StackItemConfig | ComponentItemConfig)[]`），用于存储或配置内容。
+   * @zh 属性 `content`（类型：`(ComponentItemConfig | StackItemConfig | RowOrColumnItemConfig)[]`），用于存储或配置内容。
    */
   content?: (RowOrColumnItemConfig | StackItemConfig | ComponentItemConfig)[];
   /**
@@ -1368,7 +1368,7 @@ export namespace LayoutConfig {
     /**
      * Executes `resolve` to handle resolve.
      * @zh 执行 `resolve`，用于解析。
-     * @param settings - settings parameter (`Settings | undefined`) / 设置项参数（`Settings | undefined`）
+     * @param settings - settings parameter (`Settings`) / 设置项参数（`Settings`）
      * @returns Result of type `ResolvedLayoutConfig.Settings` / 类型为 `ResolvedLayoutConfig.Settings` 的返回值
      */
     export function resolve(
@@ -1662,7 +1662,7 @@ export namespace LayoutConfig {
      * The tooltip text that appears when hovering over the popout icon or false if popout button not displayed.
      * Default: 'open in new window'
 
-     * @zh 属性 `popout`（类型：`false | string`），用于存储或配置弹出窗口。
+     * @zh 属性 `popout`（类型：`string | false`），用于存储或配置弹出窗口。
      */
     popout?: false | string;
     /**
@@ -1674,15 +1674,15 @@ export namespace LayoutConfig {
     popin?: string;
 
     /**
-     * Property `maximise` (`false | string`) storing maximise.
-     * @zh 属性 `maximise`（类型：`false | string`），用于存储或配置最大化。
+     * Property `maximise` (`string | false`) storing maximise.
+     * @zh 属性 `maximise`（类型：`string | false`），用于存储或配置最大化。
      */
     maximise?: false | string;
     /**
      * The tooltip text that appears when hovering over the close icon.
      * Default: 'close'
 
-     * @zh 属性 `close`（类型：`false | string`），用于存储或配置关闭。
+     * @zh 属性 `close`（类型：`string | false`），用于存储或配置关闭。
      */
     close?: false | string;
     /**
@@ -1696,7 +1696,7 @@ export namespace LayoutConfig {
      *
      * Default: 'additional tabs'
 
-     * @zh 属性 `tabDropdown`（类型：`false | string`），用于存储或配置选项卡下拉框。
+     * @zh 属性 `tabDropdown`（类型：`string | false`），用于存储或配置选项卡下拉框。
      */
     tabDropdown?: false | string;
   }
@@ -1765,7 +1765,7 @@ export namespace LayoutConfig {
    * Executes `isPopout` to handle is popout.
    * @zh 执行 `isPopout`，用于是否为弹出窗口。
    * @param config - config parameter (`LayoutConfig`) / 配置参数（`LayoutConfig`）
-   * @returns Result of type `config is PopoutLayoutConfig` / 类型为 `config is PopoutLayoutConfig` 的返回值
+   * @returns Result of type `boolean` / 类型为 `boolean` 的返回值
    */
   export function isPopout(config: LayoutConfig): config is PopoutLayoutConfig {
     return (
@@ -1832,7 +1832,7 @@ export namespace LayoutConfig {
    * Executes `isResolved` to handle is resolved.
    * @zh 执行 `isResolved`，用于是否为已解析。
    * @param configOrResolvedConfig - config or resolved config parameter (`ResolvedLayoutConfig | LayoutConfig`) / 配置Or已解析配置参数（`ResolvedLayoutConfig | LayoutConfig`）
-   * @returns Result of type `configOrResolvedConfig is ResolvedLayoutConfig` / 类型为 `configOrResolvedConfig is ResolvedLayoutConfig` 的返回值
+   * @returns Result of type `boolean` / 类型为 `boolean` 的返回值
    */
   export function isResolved(
     configOrResolvedConfig: ResolvedLayoutConfig | LayoutConfig
@@ -1872,23 +1872,23 @@ export interface PopoutLayoutConfig extends LayoutConfig {
   /** The id of the element the item will be appended to on popIn
    * If null, append to topmost layout element
 
-   * @zh 属性 `parentId`（类型：`string | null | undefined`），用于存储或配置父级唯一标识。
+   * @zh 属性 `parentId`（类型：`string`），用于存储或配置父级唯一标识。
    */
   parentId: string | null | undefined;
   /** The position of this element within its parent
    * If null, position is last
 
-   * @zh 属性 `indexInParent`（类型：`number | null | undefined`），用于存储或配置索引在父级。
+   * @zh 属性 `indexInParent`（类型：`number`），用于存储或配置索引在父级。
    */
   indexInParent: number | null | undefined;
   /**
    * @deprecated use {@link (PopoutLayoutConfig:interface).window}
-   * @zh 属性 `dimensions`（类型：`PopoutLayoutConfig.Dimensions | undefined`），用于存储或配置维度列表。
+   * @zh 属性 `dimensions`（类型：`PopoutLayoutConfig.Dimensions`），用于存储或配置维度列表。
    */
   dimensions: PopoutLayoutConfig.Dimensions | undefined; // for backwards compatibility
   /**
-   * Property `window` (`PopoutLayoutConfig.Window | undefined`) storing window.
-   * @zh 属性 `window`（类型：`PopoutLayoutConfig.Window | undefined`），用于存储或配置窗口。
+   * Property `window` (`PopoutLayoutConfig.Window`) storing window.
+   * @zh 属性 `window`（类型：`PopoutLayoutConfig.Window`），用于存储或配置窗口。
    */
   window: PopoutLayoutConfig.Window | undefined;
 }
@@ -1903,22 +1903,22 @@ export namespace PopoutLayoutConfig {
   export interface Dimensions extends LayoutConfig.Dimensions {
     /**
      * @deprecated use {@link (PopoutLayoutConfig:namespace).(Window:interface).width}
-     * @zh 属性 `width`（类型：`number | null`），用于存储或配置宽度。
+     * @zh 属性 `width`（类型：`number`），用于存储或配置宽度。
      */
     width?: number | null;
     /**
      * @deprecated use {@link (PopoutLayoutConfig:namespace).(Window:interface).height}
-     * @zh 属性 `height`（类型：`number | null`），用于存储或配置高度。
+     * @zh 属性 `height`（类型：`number`），用于存储或配置高度。
      */
     height?: number | null;
     /**
      * @deprecated use {@link (PopoutLayoutConfig:namespace).(Window:interface).left}
-     * @zh 属性 `left`（类型：`number | null`），用于存储或配置左侧位置。
+     * @zh 属性 `left`（类型：`number`），用于存储或配置左侧位置。
      */
     left?: number | null;
     /**
      * @deprecated use {@link (PopoutLayoutConfig:namespace).(Window:interface).top}
-     * @zh 属性 `top`（类型：`number | null`），用于存储或配置顶部位置。
+     * @zh 属性 `top`（类型：`number`），用于存储或配置顶部位置。
      */
     top?: number | null;
   }
@@ -2114,8 +2114,8 @@ export interface SizeWithUnit {
  */
 export interface UndefinableSizeWithUnit {
   /**
-   * Property `size` (`number | undefined`) storing size.
-   * @zh 属性 `size`（类型：`number | undefined`），用于存储或配置尺寸。
+   * Property `size` (`number`) storing size.
+   * @zh 属性 `size`（类型：`number`），用于存储或配置尺寸。
    */
   size: number | undefined;
   /**

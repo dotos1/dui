@@ -4,6 +4,7 @@
  */
 
 
+import { DuiConfig } from '@dotos/dui/base';
 import {
   ChangeDetectionStrategy, ChangeDetectorRef,
   Component,
@@ -38,22 +39,22 @@ import { AnimationMode, Direction } from './speed-dial';
 export class ExtSpeedDialComponent extends ComponentBase implements OnInit,OnChanges,DoCheck {
 
   /**
-   * Property `state` (`BehaviorSubject<any>`) storing state.
-   * @zh 属性 `state`（类型：`BehaviorSubject<any>`），用于存储或配置状态。
+   * Property `state` (`any`) storing state.
+   * @zh 属性 `state`（类型：`any`），用于存储或配置状态。
    */
   public state;
 
   /**
-   * Template/content query reference `_container` (`@ViewChild`) targeting container.
+   * Template/content query reference `_container` (`ViewContainerRef`) targeting container.
    * @zh 模板/内容视图查询引用 `_container`（`@ViewChild`），指向容器。
    */
   @ViewChild('container', { read: ViewContainerRef, static: true }) public _container: ViewContainerRef;
 
   /**
-   * Input property `config` (`any`) configuring config (default: `{}`).
-   * @zh 输入属性 `config`（类型：`any`），用于配置配置（默认值：`{}`）。
+   * Input property `config` (`DuiConfig`) configuring config (default: `{}`).
+   * @zh 输入属性 `config`（类型：`DuiConfig`），用于配置配置（默认值：`{}`）。
    */
-  @Input() config = {};
+  @Input() config: DuiConfig = {};
   /**
    * Input property `icon` (`string`) configuring icon.
    * @zh 输入属性 `icon`（类型：`string`），用于配置图标。
@@ -72,8 +73,8 @@ export class ExtSpeedDialComponent extends ComponentBase implements OnInit,OnCha
   @Input() direction:Direction ='up';
 
   /**
-   * Output event emitter `events` (`Subject<any>`) firing when events occurs.
-   * @zh 输出事件 `events`（类型：`Subject<any>`），当触发事件集合时向外发出事件。
+   * Output event emitter `events` (`Subject<unknown>`) firing when events occurs.
+   * @zh 输出事件 `events`（类型：`Subject<unknown>`），当触发事件集合时向外发出事件。
    */
   @Output() events = new Subject();
   /**
@@ -118,8 +119,8 @@ export class ExtSpeedDialComponent extends ComponentBase implements OnInit,OnCha
   @Input() toolTip: string;
 
   /**
-   * Property `style` (`any`) storing style (default: `{ color: 'rgba(255,255,255,0.84)' }`).
-   * @zh 属性 `style`（类型：`any`），用于存储或配置样式（默认值：`{ color: 'rgba(255,255,255,0.84)' }`）。
+   * Property `style` (`{ color: string; }`) storing style (default: `{ color: 'rgba(255,255,255,0.84)' }`).
+   * @zh 属性 `style`（类型：`{ color: string; }`），用于存储或配置样式（默认值：`{ color: 'rgba(255,255,255,0.84)' }`）。
    */
   public override style = { color: 'rgba(255,255,255,0.84)' };
 
@@ -182,7 +183,7 @@ export class ExtSpeedDialComponent extends ComponentBase implements OnInit,OnCha
   /**
    * Creates an instance of `ExtSpeedDialComponent` and initializes its dependencies and internal state.
    * @zh 创建 `ExtSpeedDialComponent` 实例，并初始化其依赖项与内部状态。
-   * @param elementref - Injected or initial elementref (`ElementRef`) / 注入或传入的elementref（`ElementRef`）
+   * @param elementref - Injected or initial elementref (`ElementRef<any>`) / 注入或传入的elementref（`ElementRef<any>`）
    * @param resolver - Injected or initial resolver (`ComponentFactoryResolver`) / 注入或传入的解析器（`ComponentFactoryResolver`）
    * @param injector - Injected or initial injector (`Injector`) / 注入或传入的注入器（`Injector`）
    * @param detectRef - Injected or initial detect ref (`ChangeDetectorRef`) / 注入或传入的检测引用（`ChangeDetectorRef`）

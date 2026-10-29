@@ -390,8 +390,8 @@
       }
     },
     "TAB": {
-      "CS": "Content Services",
-      "PS": "Process Services"
+      "CS": "Службы контента",
+      "PS": "Службы процессов"
     }
   },
   "ERROR_CONTENT": {
@@ -565,7 +565,7 @@
     },
     "FAIL": {
       "NODE": {
-        "NO_PERMISSION": "You do not have permission to perform this operation"
+        "NO_PERMISSION": "У вас нет прав на выполнение этой операции"
       }
     }
   },
@@ -637,15 +637,15 @@
     "ARIA-LABEL": {
       "ERROR": "Ошибка загрузки",
       "VERSION": "Версия файла",
-      "CANCEL_ALL": "Cancel all uploads",
-      "CANCEL_FILE": "Cancel file upload",
-      "CANCEL_FILE_UPLOAD": "Cancel uploading this file",
+      "CANCEL_ALL": "Отменить все загрузки",
+      "CANCEL_FILE": "Отменить загрузку файла",
+      "CANCEL_FILE_UPLOAD": "Отменить загрузку этого файла",
       "CONFIRMATION": {
-        "CANCEL": "Confirm cancel upload",
-        "CONTINUE": "Continue upload"
+        "CANCEL": "Подтвердить отмену загрузки",
+        "CONTINUE": "Продолжить загрузку"
       },
-      "DIALOG": "File upload dialog",
-      "DIALOG_CLOSE": "Close upload dialog",
+      "DIALOG": "Окно загрузки файлов",
+      "DIALOG_CLOSE": "Закрыть окно загрузки",
       "REMOVE_FILE": "Удалить загруженный файл",
       "UPLOAD_FILE_ERROR": "Ошибка загрузки файла"
     }
@@ -1335,16 +1335,16 @@
       "NONE": "Нет"
     },
     "FILE_DIALOG": {
-      "ALLOW_OTHERS_CHECKBOX": "Allow other users to modify this file",
+      "ALLOW_OTHERS_CHECKBOX": "Разрешить другим пользователям изменять этот файл",
       "CANCEL_BUTTON": {
         "LABEL": "Отмена"
       },
       "FILE_LOCK": "Заблокировать файл",
-      "FILE_LOCK_CHECKBOX": "Lock this file to prevent others from editing",
+      "FILE_LOCK_CHECKBOX": "Заблокировать файл, чтобы другие не могли его редактировать",
       "SAVE_BUTTON": {
         "LABEL": "Сохранить"
       },
-      "TIME_LOCK_CHECKBOX": "Set lock expiration time"
+      "TIME_LOCK_CHECKBOX": "Задать время окончания блокировки"
     }
   },
   "VIEWER": {

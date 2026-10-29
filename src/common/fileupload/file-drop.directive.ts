@@ -8,7 +8,7 @@ import { HostBinding, Renderer2 } from '@angular/core';
 import { coerceBooleanProperty } from '@angular/cdk/coercion';
 import { CanDisable, mixinDisabled } from '@angular/material/core';
 
-import { FileUploader, FileUploaderOptions } from './file-uploader';
+import { FileUploader, FileUploaderOptions, FilterFunction } from './file-uploader';
 
 /**
  * Class `FileDropBase` encapsulating file drop base data structures and logic in `src/common/fileupload`.
@@ -49,8 +49,8 @@ export class FileDropDirective extends _FileDropMixinBase implements CanDisable 
   @Output() public onFileDrop: EventEmitter<File[]> = new EventEmitter<File[]>();
 
   /**
-   * Property `element` (`ElementRef`) storing element.
-   * @zh 属性 `element`（类型：`ElementRef`），用于存储或配置元素。
+   * Property `element` (`ElementRef<any>`) storing element.
+   * @zh 属性 `element`（类型：`ElementRef<any>`），用于存储或配置元素。
    */
   protected element: ElementRef;
 
@@ -58,7 +58,7 @@ export class FileDropDirective extends _FileDropMixinBase implements CanDisable 
    * Creates an instance of `FileDropDirective` and initializes its dependencies and internal state.
    * @zh 创建 `FileDropDirective` 实例，并初始化其依赖项与内部状态。
    * @param _renderer - Injected or initial renderer (`Renderer2`) / 注入或传入的渲染器（`Renderer2`）
-   * @param element - Injected or initial element (`ElementRef`) / 注入或传入的元素（`ElementRef`）
+   * @param element - Injected or initial element (`ElementRef<any>`) / 注入或传入的元素（`ElementRef<any>`）
    */
   public constructor(private _renderer: Renderer2, element: ElementRef) {
     super();
@@ -83,7 +83,7 @@ export class FileDropDirective extends _FileDropMixinBase implements CanDisable 
 
 
   /**
-   * Host-bound getter `multipleBinding` (`attr.multiple`) computing multiple binding.
+   * Host-bound getter `multipleBinding` (`string`) computing multiple binding.
    * @zh 内部使用，绑定宿主的原生 `multiple` 属性。
    * @zh 内部使用，绑定宿主的原生 `multiple` 属性。
    */
@@ -93,7 +93,7 @@ export class FileDropDirective extends _FileDropMixinBase implements CanDisable 
   }
 
   /**
-   * Host-bound getter `disabledBinding` (`attr.disabled`) computing disabled binding.
+   * Host-bound getter `disabledBinding` (`string`) computing disabled binding.
    * @zh 内部使用，绑定宿主的原生 `disabled` 属性。
    * @zh 内部使用，绑定宿主的原生 `disabled` 属性。
    */
@@ -115,8 +115,9 @@ export class FileDropDirective extends _FileDropMixinBase implements CanDisable 
    * Returns the filter functions applied when queuing dropped files (none by default).
    * @zh 返回加入放置的文件时应用的过滤函数（默认为空）。
    */
-  public getFilters() {
-    return {};
+  /** 文件过滤器：返回 undefined 表示用 uploader.options.filters（原来返回 {}，效果相同） */
+  public getFilters(): FilterFunction[] | string | undefined {
+    return undefined;
   }
 
   /**
@@ -133,7 +134,7 @@ export class FileDropDirective extends _FileDropMixinBase implements CanDisable 
       const options = this.getOptions();
       const filters = this.getFilters();
       this._preventAndStop(event);
-      this.uploader.addToQueue(transfer.files, options, filters as never);
+      this.uploader.addToQueue(transfer.files, options, filters);
       this.fileOver.emit(false);
       this.onFileDrop.emit(transfer.files);
     }
@@ -202,7 +203,7 @@ export class FileDropDirective extends _FileDropMixinBase implements CanDisable 
    * Executes `_preventAndStop` to handle prevent and stop.
    * @zh 执行 `_preventAndStop`，用于阻止默认And停止。
    * @param event - event parameter (`any`) / 事件参数（`any`）
-   * @returns Result of type `any` / 类型为 `any` 的返回值
+   * @returns Result of type `void` / 类型为 `void` 的返回值
    */
   protected _preventAndStop(event) {
     event.preventDefault();
@@ -211,7 +212,7 @@ export class FileDropDirective extends _FileDropMixinBase implements CanDisable 
 
   /**
    * Executes `_haveFiles` to handle have files.
-   * @zh 执行 `_haveFiles`，用于have文件列表。
+   * @zh 执行 `_haveFiles`，用于具有文件列表。
    * @param types - types parameter (`any`) / 类型列表参数（`any`）
    * @returns Result of type `any` / 类型为 `any` 的返回值
    */

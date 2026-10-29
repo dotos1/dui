@@ -9,7 +9,7 @@ import { AbstractControlOptions, FormArray, FormControl, FormGroup } from '@angu
 import { DuiBase } from '@dotos/dui/base';
 import { FieldConfigCache, FieldType, ValueChangeEvent, assignModelValue2, clone, defineHiddenProp, findControl, getFieldValue, registerControl } from '@dotos/dui/core/form';
 import { Subject } from 'rxjs';
-import { ComponentBase } from './component.base';
+import { ComponentBase, DuiPlugin } from './component.base';
 
 // @dynamic
 /**
@@ -19,8 +19,8 @@ import { ComponentBase } from './component.base';
 export class Dui extends DuiBase{
 
   /**
-   * Property `navigator` (`any`) storing navigator (default: `navigator`).
-   * @zh 属性 `navigator`（类型：`any`），用于存储或配置navigator（默认值：`navigator`）。
+   * Property `navigator` (`Navigator`) storing navigator (default: `navigator`).
+   * @zh 属性 `navigator`（类型：`Navigator`），用于存储或配置navigator（默认值：`navigator`）。
    */
   public static navigator = navigator;
 
@@ -31,20 +31,20 @@ export class Dui extends DuiBase{
   public static idSeed = 0;
 
   /**
-   * Property `DOC` (`any`) storing doc (default: `document`).
-   * @zh 属性 `DOC`（类型：`any`），用于存储或配置文档（默认值：`document`）。
+   * Property `DOC` (`Document`) storing doc (default: `document`).
+   * @zh 属性 `DOC`（类型：`Document`），用于存储或配置文档（默认值：`document`）。
    */
   public static DOC = document;
 
   /**
-   * Property `pluginsCache` (`Map<string, any>`) storing plugins cache (default: `new Map<string, any>()`).
-   * @zh 属性 `pluginsCache`（类型：`Map<string, any>`），用于存储或配置plugins缓存（默认值：`new Map<string, any>()`）。
+   * Property `pluginsCache` (`Map<string, unknown>`) storing plugins cache (default: `new Map<string, any>()`).
+   * @zh 属性 `pluginsCache`（类型：`Map<string, unknown>`），用于存储或配置plugins缓存（默认值：`new Map<string, any>()`）。
    */
   private static pluginsCache = new Map<string, unknown>();
 
   /**
-   * Property `UID_PROPERTY_` (`any`) storing uid property (default: `'dui_' + ((Math.random() * 1e9) >>> 0)`).
-   * @zh 属性 `UID_PROPERTY_`（类型：`any`），用于存储或配置UID属性（默认值：`'dui_' + ((Math.random() * 1e9) >>> 0)`）。
+   * Property `UID_PROPERTY_` (`string`) storing uid property (default: `'dui_' + ((Math.random() * 1e9) >>> 0)`).
+   * @zh 属性 `UID_PROPERTY_`（类型：`string`），用于存储或配置UID属性（默认值：`'dui_' + ((Math.random() * 1e9) >>> 0)`）。
    */
   public static UID_PROPERTY_ = 'dui_' + ((Math.random() * 1e9) >>> 0);
 
@@ -56,14 +56,14 @@ export class Dui extends DuiBase{
   public static uidCounter_ = 0;
 
   /**
-   * Property `getHashCode` (`any`) storing get hash code (default: `Dui.getUid`).
-   * @zh 属性 `getHashCode`（类型：`any`），用于存储或配置获取Hash编码（默认值：`Dui.getUid`）。
+   * Property `getHashCode` (`(obj: any) => any`) storing get hash code (default: `Dui.getUid`).
+   * @zh 属性 `getHashCode`（类型：`(obj: any) => any`），用于存储或配置获取Hash编码（默认值：`Dui.getUid`）。
    */
   public static getHashCode = Dui.getUid;
 
   /**
-   * Property `removeHashCode` (`any`) storing remove hash code (default: `Dui.removeUid`).
-   * @zh 属性 `removeHashCode`（类型：`any`），用于存储或配置移除Hash编码（默认值：`Dui.removeUid`）。
+   * Property `removeHashCode` (`(obj: any) => void`) storing remove hash code (default: `Dui.removeUid`).
+   * @zh 属性 `removeHashCode`（类型：`(obj: any) => void`），用于存储或配置移除Hash编码（默认值：`Dui.removeUid`）。
    */
   public static removeHashCode = Dui.removeUid;
 
@@ -85,10 +85,11 @@ export class Dui extends DuiBase{
    * Executes `getParam` to handle get param.
    * @zh 执行 `getParam`，用于获取参数。
    * @param path - path parameter (`string`) / 路径参数（`string`）
-   * @returns Result of type `any` / 类型为 `any` 的返回值
+   * @returns Result of type `Record<string, string>` / 类型为 `Record<string, string>` 的返回值
    */
-  public static getParam(path: string) {
-    let params = {};
+  /** 解析 url 查询串：键 → 值（都是字符串，未解码） */
+  public static getParam(path: string): Record<string, string> {
+    let params: Record<string, string> = {};
     if (path.indexOf('?') !== -1) {
       let paramString = path.substring(path.indexOf('?') + 1, path.length);
       let p = paramString.split('&');
@@ -291,14 +292,15 @@ export class Dui extends DuiBase{
   /**
    * Executes `createPlugin` to handle create plugin.
    * @zh 执行 `createPlugin`，用于创建Plugin。
-   * @param config - config parameter (`any`) / 配置参数（`any`）
+   * @param config - config parameter (`{ ptype?: string; }`) / 配置参数（`{ ptype?: string; }`）
    * @param defaultType - default type parameter (`string`) / 默认类型参数（`string`）
-   * @returns Result of type `ComponentBase` / 类型为 `ComponentBase` 的返回值
+   * @returns Result of type `DuiPlugin` / 类型为 `DuiPlugin` 的返回值
    */
-  static createPlugin(config, defaultType?: string): ComponentBase {
-    const PluginCls = Dui.pluginsCache.get(config.ptype || defaultType) as { new (c?): ComponentBase; init? } & ComponentBase;
+  static createPlugin(config: { ptype?: string }, defaultType?: string): DuiPlugin {
+    const PluginCls = Dui.pluginsCache.get(config.ptype || defaultType) as (new (c?: object) => DuiPlugin) & Partial<DuiPlugin>;
     if (PluginCls.init) {
-      return PluginCls;
+      // 已注册的是单例插件对象（带 init），直接用
+      return PluginCls as Partial<DuiPlugin> as DuiPlugin;
     } else {
       return new PluginCls(config);
     }
@@ -442,7 +444,7 @@ export class Dui extends DuiBase{
   /**
    * Executes `removeFieldControl` to handle remove field control.
    * @zh 执行 `removeFieldControl`，用于移除字段表单控件。
-   * @param form - form parameter (`FormArray | FormGroup`) / 表单参数（`FormArray | FormGroup`）
+   * @param form - form parameter (`FormGroup<any> | FormArray<any>`) / 表单参数（`FormGroup<any> | FormArray<any>`）
    * @param key - key parameter (`string | number`) / 键参数（`string | number`）
    */
   public static removeFieldControl(form: FormArray | FormGroup, key: string | number) {

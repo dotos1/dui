@@ -31,8 +31,8 @@ export class PendingRequestsInterceptor implements HttpInterceptor {
      */
     private _pendingRequests = 0;
     /**
-     * Property `_pendingRequestsStatus$` (`ReplaySubject`) storing pending requests status (default: `new ReplaySubject<boolean>(1)`).
-     * @zh 属性 `_pendingRequestsStatus$`（类型：`ReplaySubject`），用于存储或配置等待中请求状态（默认值：`new ReplaySubject<boolean>(1)`）。
+     * Property `_pendingRequestsStatus$` (`ReplaySubject<boolean>`) storing pending requests status (default: `new ReplaySubject<boolean>(1)`).
+     * @zh 属性 `_pendingRequestsStatus$`（类型：`ReplaySubject<boolean>`），用于存储或配置等待中请求状态（默认值：`new ReplaySubject<boolean>(1)`）。
      */
     private _pendingRequestsStatus$ = new ReplaySubject<boolean>(1);
     /**
@@ -122,7 +122,7 @@ export class PendingRequestsInterceptor implements HttpInterceptor {
     /**
      * Executes `shouldBypassMethod` to handle should bypass method.
      * @zh 执行 `shouldBypassMethod`，用于是否应当Bypass方法。
-     * @param req - req parameter (`HttpRequest<any>`) / 请求参数（`HttpRequest<any>`）
+     * @param req - req parameter (`HttpRequest<unknown>`) / 请求参数（`HttpRequest<unknown>`）
      * @returns Result of type `boolean` / 类型为 `boolean` 的返回值
      */
     private shouldBypassMethod(req: HttpRequest<unknown>): boolean {
@@ -134,7 +134,7 @@ export class PendingRequestsInterceptor implements HttpInterceptor {
     /**
      * Executes `shouldBypassHeader` to handle should bypass header.
      * @zh 执行 `shouldBypassHeader`，用于是否应当Bypass表头。
-     * @param req - req parameter (`HttpRequest<any>`) / 请求参数（`HttpRequest<any>`）
+     * @param req - req parameter (`HttpRequest<unknown>`) / 请求参数（`HttpRequest<unknown>`）
      * @returns Result of type `boolean` / 类型为 `boolean` 的返回值
      */
     private shouldBypassHeader(req: HttpRequest<unknown>): boolean {
@@ -146,7 +146,7 @@ export class PendingRequestsInterceptor implements HttpInterceptor {
     /**
      * Executes `shouldBypass` to handle should bypass.
      * @zh 执行 `shouldBypass`，用于是否应当Bypass。
-     * @param req - req parameter (`HttpRequest<any>`) / 请求参数（`HttpRequest<any>`）
+     * @param req - req parameter (`HttpRequest<unknown>`) / 请求参数（`HttpRequest<unknown>`）
      * @returns Result of type `boolean` / 类型为 `boolean` 的返回值
      */
     private shouldBypass(req: HttpRequest<unknown>): boolean {
@@ -158,10 +158,10 @@ export class PendingRequestsInterceptor implements HttpInterceptor {
 
     /**
      * Executes `intercept` to handle intercept.
-     * @zh 执行 `intercept`，用于intercept。
-     * @param req - req parameter (`HttpRequest<any>`) / 请求参数（`HttpRequest<any>`）
+     * @zh 执行 `intercept`，用于拦截。
+     * @param req - req parameter (`HttpRequest<unknown>`) / 请求参数（`HttpRequest<unknown>`）
      * @param next - next parameter (`HttpHandler`) / 下一个参数（`HttpHandler`）
-     * @returns Result of type `Observable<HttpEvent<any>>` / 类型为 `Observable<HttpEvent<any>>` 的返回值
+     * @returns Result of type `Observable<HttpEvent<unknown>>` / 类型为 `Observable<HttpEvent<unknown>>` 的返回值
      */
     public intercept(req: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
         const shouldBypass = this.shouldBypass(req);

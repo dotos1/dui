@@ -18,8 +18,8 @@ import { getInputboolean, getInputPositiveNumber } from '../utils'
 })
 export class SplitAreaDirective implements OnInit, OnDestroy {
   /**
-   * Property `_order` (`number | null`) storing order (default: `null`).
-   * @zh 属性 `_order`（类型：`number | null`），用于存储或配置顺序（默认值：`null`）。
+   * Property `_order` (`number`) storing order (default: `null`).
+   * @zh 属性 `_order`（类型：`number`），用于存储或配置顺序（默认值：`null`）。
    */
   private _order: number | null = null;
 
@@ -49,7 +49,7 @@ export class SplitAreaDirective implements OnInit, OnDestroy {
   /**
    * Input setter `order` updating order.
    * @zh 输入属性 `order` 的设置器，用于更新顺序。
-   * @param v - New order value (`number | null`) / 新的顺序值（`number | null`）
+   * @param v - New order value (`number`) / 新的顺序值（`number`）
    */
   @Input() set order(v: number | null) {
     this._order = getInputPositiveNumber(v, null)
@@ -65,15 +65,15 @@ export class SplitAreaDirective implements OnInit, OnDestroy {
   }
 
   /**
-   * Property `_size` (`number | null`) storing size (default: `null`).
-   * @zh 属性 `_size`（类型：`number | null`），用于存储或配置尺寸（默认值：`null`）。
+   * Property `_size` (`number`) storing size (default: `null`).
+   * @zh 属性 `_size`（类型：`number`），用于存储或配置尺寸（默认值：`null`）。
    */
   private _size: number | null = null
 
   /**
    * Input setter `size` updating size.
    * @zh 输入属性 `size` 的设置器，用于更新尺寸。
-   * @param v - New size value (`number | null`) / 新的尺寸值（`number | null`）
+   * @param v - New size value (`number`) / 新的尺寸值（`number`）
    */
   @Input() set size(v: number | null) {
     this._size = getInputPositiveNumber(v, null)
@@ -89,15 +89,15 @@ export class SplitAreaDirective implements OnInit, OnDestroy {
   }
 
   /**
-   * Property `_minSize` (`number | null`) storing min size (default: `null`).
-   * @zh 属性 `_minSize`（类型：`number | null`），用于存储或配置最小值尺寸（默认值：`null`）。
+   * Property `_minSize` (`number`) storing min size (default: `null`).
+   * @zh 属性 `_minSize`（类型：`number`），用于存储或配置最小值尺寸（默认值：`null`）。
    */
   private _minSize: number | null = null
 
   /**
    * Input setter `minSize` updating min size.
    * @zh 输入属性 `minSize` 的设置器，用于更新最小值尺寸。
-   * @param v - New min size value (`number | null`) / 新的最小值尺寸值（`number | null`）
+   * @param v - New min size value (`number`) / 新的最小值尺寸值（`number`）
    */
   @Input() set minSize(v: number | null) {
     this._minSize = getInputPositiveNumber(v, null)
@@ -113,15 +113,15 @@ export class SplitAreaDirective implements OnInit, OnDestroy {
   }
 
   /**
-   * Property `_maxSize` (`number | null`) storing max size (default: `null`).
-   * @zh 属性 `_maxSize`（类型：`number | null`），用于存储或配置最大值尺寸（默认值：`null`）。
+   * Property `_maxSize` (`number`) storing max size (default: `null`).
+   * @zh 属性 `_maxSize`（类型：`number`），用于存储或配置最大值尺寸（默认值：`null`）。
    */
   private _maxSize: number | null = null
 
   /**
    * Input setter `maxSize` updating max size.
    * @zh 输入属性 `maxSize` 的设置器，用于更新最大值尺寸。
-   * @param v - New max size value (`number | null`) / 新的最大值尺寸值（`number | null`）
+   * @param v - New max size value (`number`) / 新的最大值尺寸值（`number`）
    */
   @Input() set maxSize(v: number | null) {
     this._maxSize = getInputPositiveNumber(v, null)
@@ -197,8 +197,8 @@ export class SplitAreaDirective implements OnInit, OnDestroy {
    */
   private transitionListener: Function
   /**
-   * Property `lockListeners` (`Array<Function>`) storing lock listeners (default: `[]`).
-   * @zh 属性 `lockListeners`（类型：`Array<Function>`），用于存储或配置锁定监听器列表（默认值：`[]`）。
+   * Property `lockListeners` (`Function[]`) storing lock listeners (default: `[]`).
+   * @zh 属性 `lockListeners`（类型：`Function[]`），用于存储或配置锁定监听器列表（默认值：`[]`）。
    */
   private readonly lockListeners: Array<Function> = []
 
@@ -206,7 +206,7 @@ export class SplitAreaDirective implements OnInit, OnDestroy {
    * Creates an instance of `SplitAreaDirective` and initializes its dependencies and internal state.
    * @zh 创建 `SplitAreaDirective` 实例，并初始化其依赖项与内部状态。
    * @param ngZone - Injected or initial ng zone (`NgZone`) / 注入或传入的Angular区域(NgZone)（`NgZone`）
-   * @param elRef - Injected or initial el ref (`ElementRef`) / 注入或传入的DOM元素引用（`ElementRef`）
+   * @param elRef - Injected or initial el ref (`ElementRef<any>`) / 注入或传入的DOM元素引用（`ElementRef<any>`）
    * @param renderer - Injected or initial renderer (`Renderer2`) / 注入或传入的渲染器（`Renderer2`）
    * @param split - Injected or initial split (`LayoutComponent`) / 注入或传入的分割面板（`LayoutComponent`）
    */
@@ -316,8 +316,8 @@ export class SplitAreaDirective implements OnInit, OnDestroy {
   /**
    * Executes `collapse` to handle collapse.
    * @zh 执行 `collapse`，用于折叠。
-   * @param newSize - new size parameter (`any`) / 新尺寸参数（`any`）
-   * @param gutter - gutter parameter (`'left' | 'right'`) / 分隔槽参数（`'left' | 'right'`）
+   * @param newSize - new size parameter (`number`) / 新尺寸参数（`number`）
+   * @param gutter - gutter parameter (`"left" | "right"`) / 分隔槽参数（`"left" | "right"`）
    */
   public collapse(newSize = 0, gutter: 'left' | 'right' = 'right'): void {
     this.split.collapseArea(this, newSize, gutter)

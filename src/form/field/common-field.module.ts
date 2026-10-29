@@ -63,8 +63,8 @@ import { OptionsService } from './options.service';
 })
 export class CommonFieldModule {
   /**
-   * Property `entryComponents` (`any[]`) storing entry components.
-   * @zh 属性 `entryComponents`（类型：`any[]`），用于存储或配置条目组件列表。
+   * Property `entryComponents` (`(typeof TextFieldComponent | typeof HiddenFieldComponent | typeof NumberFieldComponent)[]`) storing entry components.
+   * @zh 属性 `entryComponents`（类型：`(typeof TextFieldComponent | typeof HiddenFieldComponent | typeof NumberFieldComponent)[]`），用于存储或配置条目组件列表。
    */
   entryComponents = [
     TextFieldComponent,

@@ -8,7 +8,7 @@ import {Injectable} from '@angular/core';
 /**
  * Executes `_window` to handle window.
  * @zh 执行 `_window`，用于窗口。
- * @returns Result of type `any` / 类型为 `any` 的返回值
+ * @returns Result of type `Window & typeof globalThis` / 类型为 `Window & typeof globalThis` 的返回值
  */
 function _window() {
   return window;

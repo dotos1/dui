@@ -30,8 +30,8 @@ export class CardViewArrayItemComponent  implements OnDestroy{
 
 
   /**
-   * Property `destroy$` (`Subject`) storing destroy (default: `new Subject<boolean>()`).
-   * @zh 属性 `destroy$`（类型：`Subject`），用于存储或配置销毁（默认值：`new Subject<boolean>()`）。
+   * Property `destroy$` (`Subject<boolean>`) storing destroy (default: `new Subject<boolean>()`).
+   * @zh 属性 `destroy$`（类型：`Subject<boolean>`），用于存储或配置销毁（默认值：`new Subject<boolean>()`）。
    */
   protected destroy$ = new Subject<boolean>();
 
@@ -112,7 +112,7 @@ export class CardViewArrayItemComponent  implements OnDestroy{
 
   /**
    * Executes `trackByItem` to handle track by item.
-   * @zh 执行 `trackByItem`，用于track按条目。
+   * @zh 执行 `trackByItem`，用于跟踪按条目。
    * @param index - index parameter (`number`) / 索引参数（`number`）
    * @param item - item parameter (`any`) / 条目参数（`any`）
    * @returns Result of type `any` / 类型为 `any` 的返回值

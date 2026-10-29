@@ -99,8 +99,8 @@ export interface ITable {
 
 
   /**
-   * Property `groupedRows` (`any[]`) storing grouped rows.
-   * @zh 属性 `groupedRows`（类型：`any[]`），用于存储或配置已分组行列表。
+   * Property `groupedRows` (`any`) storing grouped rows.
+   * @zh 属性 `groupedRows`（类型：`any`），用于存储或配置已分组行列表。
    */
   groupedRows;
 
@@ -116,7 +116,7 @@ export interface ITable {
    * represented as selected in the grid.
    * Default value: `[]`
 
-   * @zh 属性 `selected`（类型：`any[]`），用于存储或配置已选中。
+   * @zh 属性 `selected`（类型：`any`），用于存储或配置已选中。
    */
   selected;
 
@@ -186,7 +186,7 @@ export interface ITable {
    * The page size to be shown.
    * Default value: `undefined`
 
-   * @zh 属性 `limit`（类型：`number | undefined`），用于存储或配置限制。
+   * @zh 属性 `limit`（类型：`number`），用于存储或配置限制。
    */
   limit: number | undefined;
 
@@ -251,7 +251,7 @@ export interface ITable {
    * Array of sorted columns by property and type.
    * Default value: `[]`
 
-   * @zh 属性 `sorts`（类型：`any[]`），用于存储或配置排序集合。
+   * @zh 属性 `sorts`（类型：`any`），用于存储或配置排序集合。
    */
   sorts? ;
 

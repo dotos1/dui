@@ -37,8 +37,8 @@ export class FormTemplateType extends FieldType {
   }
 
   /**
-   * Property `innerHtml` (`any`) storing inner html (default: `{ content: null, template: null }`).
-   * @zh 属性 `innerHtml`（类型：`any`），用于存储或配置内部HTML内容（默认值：`{ content: null, template: null }`）。
+   * Property `innerHtml` (`{ content: any; template: any; }`) storing inner html (default: `{ content: null, template: null }`).
+   * @zh 属性 `innerHtml`（类型：`{ content: any; template: any; }`），用于存储或配置内部HTML内容（默认值：`{ content: null, template: null }`）。
    */
   private innerHtml = { content: null, template: null };
   /**

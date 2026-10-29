@@ -44,7 +44,7 @@ export class TitleBarButtonComponent extends ɵOsBaseButtonComponent implements 
 
     /**
      * Classlist for the icon
-     * @zh 输入属性 `iconStyleClass`（类型：`string | string[] | object`），用于配置图标样式类名。
+     * @zh 输入属性 `iconStyleClass`（类型：`string | object | string[]`），用于配置图标样式类名。
      */
     @Input()
     public iconStyleClass: string | string[] | object;

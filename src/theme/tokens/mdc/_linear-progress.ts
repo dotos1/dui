@@ -34,7 +34,7 @@ export function get_unthemable_tokens() {
  * Executes `get_color_tokens` to handle get color tokens.
  * @zh 执行 `get_color_tokens`，用于获取颜色设计令牌。
  * @param $theme - theme parameter (`any`) / 主题参数（`any`）
- * @param $palette_name - palette name parameter (`any`) / 调色板名称参数（`any`）
+ * @param $palette_name - palette name parameter (`string`) / 调色板名称参数（`string`）
  */
 export function get_color_tokens($theme, $palette_name= 'primary') {
   let $palette_color= inspection.get_theme_color($theme, $palette_name);

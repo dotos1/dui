@@ -36,8 +36,8 @@ export interface ILoadingConfig {
    */
   mode?: LoadingMode;
   /**
-   * Property `color` (`'primary' | 'accent' | 'warn'`) storing color.
-   * @zh 属性 `color`（类型：`'primary' | 'accent' | 'warn'`），用于存储或配置颜色。
+   * Property `color` (`"primary" | "accent" | "warn"`) storing color.
+   * @zh 属性 `color`（类型：`"primary" | "accent" | "warn"`），用于存储或配置颜色。
    */
   color?: 'primary' | 'accent' | 'warn';
 }
@@ -63,8 +63,8 @@ export class LoadingConfig implements ILoadingConfig {
    */
   mode?: LoadingMode;
   /**
-   * Property `color` (`'primary' | 'accent' | 'warn'`) storing color.
-   * @zh 属性 `color`（类型：`'primary' | 'accent' | 'warn'`），用于存储或配置颜色。
+   * Property `color` (`"primary" | "accent" | "warn"`) storing color.
+   * @zh 属性 `color`（类型：`"primary" | "accent" | "warn"`），用于存储或配置颜色。
    */
   color?: 'primary' | 'accent' | 'warn';
 
@@ -130,13 +130,13 @@ export class LoadingDirectiveConfig
 @Injectable()
 export class LoadingService {
   /**
-   * Property `_context` (`{ [key: string]: ILoadingRef }`) storing context (default: `{}`).
-   * @zh 属性 `_context`（类型：`{ [key: string]: ILoadingRef }`），用于存储或配置上下文（默认值：`{}`）。
+   * Property `_context` (`{ [key: string]: ILoadingRef; }`) storing context (default: `{}`).
+   * @zh 属性 `_context`（类型：`{ [key: string]: ILoadingRef; }`），用于存储或配置上下文（默认值：`{}`）。
    */
   private _context: { [key: string]: ILoadingRef } = {};
   /**
-   * Property `_timeouts` (`{ [key: string]: any }`) storing timeouts (default: `{}`).
-   * @zh 属性 `_timeouts`（类型：`{ [key: string]: any }`），用于存储或配置延时器（默认值：`{}`）。
+   * Property `_timeouts` (`{ [key: string]: unknown; }`) storing timeouts (default: `{}`).
+   * @zh 属性 `_timeouts`（类型：`{ [key: string]: unknown; }`），用于存储或配置延时器（默认值：`{}`）。
    */
   private _timeouts: { [key: string]: unknown } = {};
 
@@ -217,7 +217,8 @@ export class LoadingService {
       if (this._context[name].contentRef) {
         this._context[name].contentRef?.destroy();
       }
-      this._context[name].subject.unsubscribe(); // @gate-ignore shared-stream-unsub
+      // complete 而不是 unsubscribe：通知订阅方流已结束，随后删除上下文
+      this._context[name].subject.complete();
       if (this._context[name].componentRef) {
         this._context[name].componentRef?.destroy();
       }

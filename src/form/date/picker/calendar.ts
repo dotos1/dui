@@ -61,8 +61,8 @@ export type MatCalendarView = "clock" | "month" | "year" | "multi-year";
 export class MatDatetimepickerCalendar<D> implements AfterContentInit, OnDestroy {
 
   /**
-   * Output event emitter `_userSelection` (`EventEmitter`) firing when user selection occurs.
-   * @zh 输出事件 `_userSelection`（类型：`EventEmitter`），当触发用户Selection时向外发出事件。
+   * Output event emitter `_userSelection` (`EventEmitter<void>`) firing when user selection occurs.
+   * @zh 输出事件 `_userSelection`（类型：`EventEmitter<void>`），当触发用户Selection时向外发出事件。
    */
   @Output() _userSelection = new EventEmitter<void>();
   /**
@@ -169,7 +169,7 @@ export class MatDatetimepickerCalendar<D> implements AfterContentInit, OnDestroy
   /**
    * Creates an instance of `MatDatetimepickerCalendar` and initializes its dependencies and internal state.
    * @zh 创建 `MatDatetimepickerCalendar` 实例，并初始化其依赖项与内部状态。
-   * @param _elementRef - Injected or initial element ref (`ElementRef`) / 注入或传入的元素引用（`ElementRef`）
+   * @param _elementRef - Injected or initial element ref (`ElementRef<any>`) / 注入或传入的元素引用（`ElementRef<any>`）
    * @param _intl - Injected or initial intl (`MatDatepickerIntl`) / 注入或传入的intl（`MatDatepickerIntl`）
    * @param _ngZone - Injected or initial ng zone (`NgZone`) / 注入或传入的Angular区域(NgZone)（`NgZone`）
    * @param _adapter - Injected or initial adapter (`DatetimeAdapter<D>`) / 注入或传入的适配器（`DatetimeAdapter<D>`）
@@ -221,14 +221,14 @@ export class MatDatetimepickerCalendar<D> implements AfterContentInit, OnDestroy
   }
 
   /**
-   * Property `_startAt` (`D | null`) storing start at.
-   * @zh 属性 `_startAt`（类型：`D | null`），用于存储或配置开始位于。
+   * Property `_startAt` (`D`) storing start at.
+   * @zh 属性 `_startAt`（类型：`D`），用于存储或配置开始位于。
    */
   private _startAt: D | null;
 
   /**
    * A date representing the period (month or year) to start the calendar in.
-   * @zh 输入属性 `startAt`（类型：`D | null`）的读取器，返回当前开始位于。
+   * @zh 输入属性 `startAt`（类型：`D`）的读取器，返回当前开始位于。
    */
   @Input()
   get startAt(): D | null {
@@ -238,21 +238,21 @@ export class MatDatetimepickerCalendar<D> implements AfterContentInit, OnDestroy
   /**
    * Sets the start at (`startAt`).
    * @zh 设置开始位于（`startAt`）。
-   * @param value - New start at value (`D | null`) / 新的开始位于值（`D | null`）
+   * @param value - New start at value (`D`) / 新的开始位于值（`D`）
    */
   set startAt(value: D | null) {
     this._startAt = this._adapter.getValidDateOrNull(value);
   }
 
   /**
-   * Property `_selected` (`D | null`) storing selected.
-   * @zh 属性 `_selected`（类型：`D | null`），用于存储或配置已选中。
+   * Property `_selected` (`D`) storing selected.
+   * @zh 属性 `_selected`（类型：`D`），用于存储或配置已选中。
    */
   private _selected: D | null;
 
   /**
    * The currently selected date.
-   * @zh 输入属性 `selected`（类型：`D | null`）的读取器，返回当前已选中。
+   * @zh 输入属性 `selected`（类型：`D`）的读取器，返回当前已选中。
    */
   @Input()
   get selected(): D | null {
@@ -262,21 +262,21 @@ export class MatDatetimepickerCalendar<D> implements AfterContentInit, OnDestroy
   /**
    * Sets the selected (`selected`).
    * @zh 设置已选中（`selected`）。
-   * @param value - New selected value (`D | null`) / 新的已选中值（`D | null`）
+   * @param value - New selected value (`D`) / 新的已选中值（`D`）
    */
   set selected(value: D | null) {
     this._selected = this._adapter.getValidDateOrNull(value);
   }
 
   /**
-   * Property `_minDate` (`D | null`) storing min date.
-   * @zh 属性 `_minDate`（类型：`D | null`），用于存储或配置最小值日期。
+   * Property `_minDate` (`D`) storing min date.
+   * @zh 属性 `_minDate`（类型：`D`），用于存储或配置最小值日期。
    */
   private _minDate: D | null;
 
   /**
    * The minimum selectable date.
-   * @zh 输入属性 `minDate`（类型：`D | null`）的读取器，返回当前最小值日期。
+   * @zh 输入属性 `minDate`（类型：`D`）的读取器，返回当前最小值日期。
    */
   @Input()
   get minDate(): D | null {
@@ -286,21 +286,21 @@ export class MatDatetimepickerCalendar<D> implements AfterContentInit, OnDestroy
   /**
    * Sets the min date (`minDate`).
    * @zh 设置最小值日期（`minDate`）。
-   * @param value - New min date value (`D | null`) / 新的最小值日期值（`D | null`）
+   * @param value - New min date value (`D`) / 新的最小值日期值（`D`）
    */
   set minDate(value: D | null) {
     this._minDate = this._adapter.getValidDateOrNull(value);
   }
 
   /**
-   * Property `_maxDate` (`D | null`) storing max date.
-   * @zh 属性 `_maxDate`（类型：`D | null`），用于存储或配置最大值日期。
+   * Property `_maxDate` (`D`) storing max date.
+   * @zh 属性 `_maxDate`（类型：`D`），用于存储或配置最大值日期。
    */
   private _maxDate: D | null;
 
   /**
    * The maximum selectable date.
-   * @zh 输入属性 `maxDate`（类型：`D | null`）的读取器，返回当前最大值日期。
+   * @zh 输入属性 `maxDate`（类型：`D`）的读取器，返回当前最大值日期。
    */
   @Input()
   get maxDate(): D | null {
@@ -310,7 +310,7 @@ export class MatDatetimepickerCalendar<D> implements AfterContentInit, OnDestroy
   /**
    * Sets the max date (`maxDate`).
    * @zh 设置最大值日期（`maxDate`）。
-   * @param value - New max date value (`D | null`) / 新的最大值日期值（`D | null`）
+   * @param value - New max date value (`D`) / 新的最大值日期值（`D`）
    */
   set maxDate(value: D | null) {
     this._maxDate = this._adapter.getValidDateOrNull(value);
@@ -473,7 +473,7 @@ export class MatDatetimepickerCalendar<D> implements AfterContentInit, OnDestroy
 
   /**
    * Date filter for the month and year views.
-   * @zh 属性 `_dateFilterForViews`（类型：`any`），用于存储或配置日期过滤用于视图。
+   * @zh 属性 `_dateFilterForViews`（类型：`(date: D) => boolean`），用于存储或配置日期过滤用于视图。
    */
   _dateFilterForViews = (date: D) => {
     return !!date &&

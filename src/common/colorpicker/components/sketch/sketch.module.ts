@@ -51,8 +51,8 @@ import { TranslateModule } from '@dotos/dui/translator';
 })
 export class ColorSketchModule {
   /**
-   * Property `entryComponents` (`any[]`) storing entry components.
-   * @zh 属性 `entryComponents`（类型：`any[]`），用于存储或配置条目组件列表。
+   * Property `entryComponents` (`(typeof SketchComponent | typeof SketchFieldsComponent | typeof SketchPresetColorsComponent)[]`) storing entry components.
+   * @zh 属性 `entryComponents`（类型：`(typeof SketchComponent | typeof SketchFieldsComponent | typeof SketchPresetColorsComponent)[]`），用于存储或配置条目组件列表。
    */
   entryComponents = [
      SketchComponent,

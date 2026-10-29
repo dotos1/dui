@@ -63,7 +63,7 @@ export class RouteService {
    * @param params - params parameter (`any`) / 参数集合参数（`any`）
    */
   navigate(url: string[],name:string,params?): void {
-    const outlets = {};
+    const outlets: Record<string, unknown> = {};
     outlets[name] = url;
 
     this.router.events
@@ -136,7 +136,7 @@ export class RouteService {
    * Executes `getActiveRouterOutletByName` to handle get active router outlet by name.
    * @zh 执行 `getActiveRouterOutletByName`，用于获取激活RouterOutlet按名称。
    * @param name - name parameter (`string`) / 名称参数（`string`）
-   * @returns Result of type `RouterOutlet | undefined` / 类型为 `RouterOutlet | undefined` 的返回值
+   * @returns Result of type `RouterOutlet` / 类型为 `RouterOutlet` 的返回值
    */
   getActiveRouterOutletByName(name: string): RouterOutlet | undefined {
     return this.routerOutletMap.get(name);

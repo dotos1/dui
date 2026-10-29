@@ -29,8 +29,8 @@ import {
 export class TreeNodeExpanderComponent implements OnInit, OnDestroy {
   //同 TreeNodeChildrenComponent：模板在 treeMobxAutorun 里，换实例必须走 observable
   /**
-   * Getter for input property `node` (`any`) returning node.
-   * @zh 输入属性 `node`（类型：`any`）的读取器，返回当前节点。
+   * Getter for input property `node` (`TreeNode`) returning node.
+   * @zh 输入属性 `node`（类型：`TreeNode`）的读取器，返回当前节点。
    */
   @Input()
   get node() {
@@ -39,7 +39,7 @@ export class TreeNodeExpanderComponent implements OnInit, OnDestroy {
   /**
    * Sets the node (`node`).
    * @zh 设置节点（`node`）。
-   * @param node - New node value (`any`) / 新的节点值（`any`）
+   * @param node - New node value (`TreeNode`) / 新的节点值（`TreeNode`）
    */
   set node(node) {
     this.setNode(node);
@@ -68,7 +68,7 @@ export class TreeNodeExpanderComponent implements OnInit, OnDestroy {
   /**
    * Creates an instance of `TreeNodeExpanderComponent` and initializes its dependencies and internal state.
    * @zh 创建 `TreeNodeExpanderComponent` 实例，并初始化其依赖项与内部状态。
-   * @param el - Injected or initial el (`ElementRef`) / 注入或传入的DOM元素（`ElementRef`）
+   * @param el - Injected or initial el (`ElementRef<any>`) / 注入或传入的DOM元素（`ElementRef<any>`）
    * @param ngZone - Injected or initial ng zone (`NgZone`) / 注入或传入的Angular区域(NgZone)（`NgZone`）
    */
   constructor(

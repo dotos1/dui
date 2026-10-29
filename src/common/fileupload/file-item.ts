@@ -38,8 +38,8 @@ export class FileItem {
    */
   public method: string;
   /**
-   * Property `headers` (`any`) storing headers (default: `[]`).
-   * @zh 属性 `headers`（类型：`any`），用于存储或配置请求头（默认值：`[]`）。
+   * Property `headers` (`any[]`) storing headers (default: `[]`).
+   * @zh 属性 `headers`（类型：`any[]`），用于存储或配置请求头（默认值：`[]`）。
    */
   public headers = [];
   /**
@@ -48,8 +48,8 @@ export class FileItem {
    */
   public withCredentials: boolean = true;
   /**
-   * Property `formData` (`any`) storing form data (default: `[]`).
-   * @zh 属性 `formData`（类型：`any`），用于存储或配置表单数据（默认值：`[]`）。
+   * Property `formData` (`any[]`) storing form data (default: `[]`).
+   * @zh 属性 `formData`（类型：`any[]`），用于存储或配置表单数据（默认值：`[]`）。
    */
   public formData = [];
   /**
@@ -180,7 +180,7 @@ export class FileItem {
    * Executes `onBuildForm` to handle on build form.
    * @zh 执行 `onBuildForm`，用于当构建表单。
    * @param form - form parameter (`any`) / 表单参数（`any`）
-   * @returns Result of type `any` / 类型为 `any` 的返回值
+   * @returns Result of type `{ form: any; }` / 类型为 `{ form: any; }` 的返回值
    */
   public onBuildForm(form) {
     return { form };
@@ -190,7 +190,7 @@ export class FileItem {
    * Executes `onProgress` to handle on progress.
    * @zh 执行 `onProgress`，用于当进度条。
    * @param progress - progress parameter (`number`) / 进度条参数（`number`）
-   * @returns Result of type `any` / 类型为 `any` 的返回值
+   * @returns Result of type `{ progress: number; }` / 类型为 `{ progress: number; }` 的返回值
    */
   public onProgress(progress: number) {
     return { progress };
@@ -202,7 +202,7 @@ export class FileItem {
    * @param response - response parameter (`string`) / 响应参数（`string`）
    * @param status - status parameter (`number`) / 状态参数（`number`）
    * @param headers - headers parameter (`ParsedResponseHeaders`) / 请求头参数（`ParsedResponseHeaders`）
-   * @returns Result of type `any` / 类型为 `any` 的返回值
+   * @returns Result of type `{ response: string; status: number; headers: ParsedResponseHeaders; }` / 类型为 `{ response: string; status: number; headers: ParsedResponseHeaders; }` 的返回值
    */
   public onSuccess(response: string, status: number, headers: ParsedResponseHeaders) {
     return { response, status, headers };
@@ -214,7 +214,7 @@ export class FileItem {
    * @param response - response parameter (`string`) / 响应参数（`string`）
    * @param status - status parameter (`number`) / 状态参数（`number`）
    * @param headers - headers parameter (`ParsedResponseHeaders`) / 请求头参数（`ParsedResponseHeaders`）
-   * @returns Result of type `any` / 类型为 `any` 的返回值
+   * @returns Result of type `{ response: string; status: number; headers: ParsedResponseHeaders; }` / 类型为 `{ response: string; status: number; headers: ParsedResponseHeaders; }` 的返回值
    */
   public onError(response: string, status: number, headers: ParsedResponseHeaders) {
     return { response, status, headers };
@@ -226,7 +226,7 @@ export class FileItem {
    * @param response - response parameter (`string`) / 响应参数（`string`）
    * @param status - status parameter (`number`) / 状态参数（`number`）
    * @param headers - headers parameter (`ParsedResponseHeaders`) / 请求头参数（`ParsedResponseHeaders`）
-   * @returns Result of type `any` / 类型为 `any` 的返回值
+   * @returns Result of type `{ response: string; status: number; headers: ParsedResponseHeaders; }` / 类型为 `{ response: string; status: number; headers: ParsedResponseHeaders; }` 的返回值
    */
   public onCancel(response: string, status: number, headers: ParsedResponseHeaders) {
     return { response, status, headers };
@@ -238,7 +238,7 @@ export class FileItem {
    * @param response - response parameter (`string`) / 响应参数（`string`）
    * @param status - status parameter (`number`) / 状态参数（`number`）
    * @param headers - headers parameter (`ParsedResponseHeaders`) / 请求头参数（`ParsedResponseHeaders`）
-   * @returns Result of type `any` / 类型为 `any` 的返回值
+   * @returns Result of type `{ response: string; status: number; headers: ParsedResponseHeaders; }` / 类型为 `{ response: string; status: number; headers: ParsedResponseHeaders; }` 的返回值
    */
   public onComplete(response: string, status: number, headers: ParsedResponseHeaders) {
     return { response, status, headers };

@@ -117,14 +117,14 @@ export class SelectContainerComponent implements AfterViewInit, OnDestroy, After
   selectBoxClasses$: Observable<{ [key: string]: boolean }>;
 
   /**
-   * Template/content query reference `$selectBox` (`@ViewChild`) targeting select box.
+   * Template/content query reference `$selectBox` (`ElementRef<any>`) targeting select box.
    * @zh 模板/内容视图查询引用 `$selectBox`（`@ViewChild`），指向下拉选择盒子容器。
    */
   @ViewChild('selectBox', { static: true })
   private $selectBox: ElementRef;
 
   /**
-   * Template/content query reference `$selectableItems` (`@ContentChildren`) targeting selectable items.
+   * Template/content query reference `$selectableItems` (`QueryList<SelectItemDirective>`) targeting selectable items.
    * @zh 模板/内容视图查询引用 `$selectableItems`（`@ContentChildren`），指向是否可选中条目列表。
    */
   @ContentChildren(SelectItemDirective, { descendants: true })
@@ -198,66 +198,66 @@ export class SelectContainerComponent implements AfterViewInit, OnDestroy, After
   @HostBinding('class.dts-select-container')
   readonly hostClass = true;
   /**
-   * Output event emitter `selectedItemsChange` (`EventEmitter`) firing when selected items change occurs.
+   * Output event emitter `selectedItemsChange` (`EventEmitter<any>`) firing when selected items change occurs.
    * @zh 当前选中项集合发生变化时发出（用于配合 `selectedItems` 双向绑定）。
    * @zh 当前选中项集合发生变化时发出（用于配合 `selectedItems` 双向绑定）。
    */
   @Output() selectedItemsChange = new EventEmitter();
   /**
-   * Output event emitter `select` (`EventEmitter`) firing when select occurs.
+   * Output event emitter `select` (`EventEmitter<any>`) firing when select occurs.
    * @zh 当前选中项集合发生变化时发出。
    * @zh 当前选中项集合发生变化时发出。
    */
   @Output() select = new EventEmitter();
   /**
-   * Output event emitter `itemSelected` (`EventEmitter`) firing when item selected occurs.
+   * Output event emitter `itemSelected` (`EventEmitter<any>`) firing when item selected occurs.
    * @zh 单个条目被选中时发出该条目的值。
    * @zh 单个条目被选中时发出该条目的值。
    */
   @Output() itemSelected = new EventEmitter();
   /**
-   * Output event emitter `itemDeselected` (`EventEmitter`) firing when item deselected occurs.
+   * Output event emitter `itemDeselected` (`EventEmitter<any>`) firing when item deselected occurs.
    * @zh 单个条目被取消选中时发出该条目的值。
    * @zh 单个条目被取消选中时发出该条目的值。
    */
   @Output() itemDeselected = new EventEmitter();
   /**
-   * Output event emitter `selectionStarted` (`EventEmitter`) firing when selection started occurs.
+   * Output event emitter `selectionStarted` (`EventEmitter<void>`) firing when selection started occurs.
    * @zh 一次框选/选择操作开始时发出。
    * @zh 一次框选/选择操作开始时发出。
    */
   @Output() selectionStarted = new EventEmitter<void>();
   /**
-   * Output event emitter `selectionEnded` (`EventEmitter`) firing when selection ended occurs.
+   * Output event emitter `selectionEnded` (`EventEmitter<unknown[]>`) firing when selection ended occurs.
    * @zh 一次框选/选择操作结束时发出最终选中的条目集合。
    * @zh 一次框选/选择操作结束时发出最终选中的条目集合。
    */
   @Output() selectionEnded = new EventEmitter<Array<unknown>>();
 
   /**
-   * Property `_tmpItems` (`Map`) storing tmp items (default: `new Map<SelectItemDirective, Action>()`).
-   * @zh 属性 `_tmpItems`（类型：`Map`），用于存储或配置临时条目列表（默认值：`new Map<SelectItemDirective, Action>()`）。
+   * Property `_tmpItems` (`Map<SelectItemDirective, Action>`) storing tmp items (default: `new Map<SelectItemDirective, Action>()`).
+   * @zh 属性 `_tmpItems`（类型：`Map<SelectItemDirective, Action>`），用于存储或配置临时条目列表（默认值：`new Map<SelectItemDirective, Action>()`）。
    */
   private _tmpItems = new Map<SelectItemDirective, Action>();
 
   /**
-   * Property `_selectedItems$` (`BehaviorSubject`) storing selected items (default: `new BehaviorSubject<Array<any>>([])`).
-   * @zh 属性 `_selectedItems$`（类型：`BehaviorSubject`），用于存储或配置已选中条目列表（默认值：`new BehaviorSubject<Array<any>>([])`）。
+   * Property `_selectedItems$` (`BehaviorSubject<unknown[]>`) storing selected items (default: `new BehaviorSubject<Array<any>>([])`).
+   * @zh 属性 `_selectedItems$`（类型：`BehaviorSubject<unknown[]>`），用于存储或配置已选中条目列表（默认值：`new BehaviorSubject<Array<any>>([])`）。
    */
   private _selectedItems$ = new BehaviorSubject<Array<unknown>>([]);
   /**
-   * Property `_selectableItems` (`Array<SelectItemDirective>`) storing selectable items (default: `[]`).
-   * @zh 属性 `_selectableItems`（类型：`Array<SelectItemDirective>`），用于存储或配置是否可选中条目列表（默认值：`[]`）。
+   * Property `_selectableItems` (`SelectItemDirective[]`) storing selectable items (default: `[]`).
+   * @zh 属性 `_selectableItems`（类型：`SelectItemDirective[]`），用于存储或配置是否可选中条目列表（默认值：`[]`）。
    */
   private _selectableItems: Array<SelectItemDirective> = [];
   /**
-   * Property `updateItems$` (`Subject`) storing update items (default: `new Subject<UpdateAction>()`).
-   * @zh 属性 `updateItems$`（类型：`Subject`），用于存储或配置更新条目列表（默认值：`new Subject<UpdateAction>()`）。
+   * Property `updateItems$` (`Subject<UpdateAction>`) storing update items (default: `new Subject<UpdateAction>()`).
+   * @zh 属性 `updateItems$`（类型：`Subject<UpdateAction>`），用于存储或配置更新条目列表（默认值：`new Subject<UpdateAction>()`）。
    */
   private updateItems$ = new Subject<UpdateAction>();
   /**
-   * Property `destroy$` (`Subject`) storing destroy (default: `new Subject<void>()`).
-   * @zh 属性 `destroy$`（类型：`Subject`），用于存储或配置销毁（默认值：`new Subject<void>()`）。
+   * Property `destroy$` (`Subject<void>`) storing destroy (default: `new Subject<void>()`).
+   * @zh 属性 `destroy$`（类型：`Subject<void>`），用于存储或配置销毁（默认值：`new Subject<void>()`）。
    */
   private destroy$ = new Subject<void>();
 
@@ -267,8 +267,8 @@ export class SelectContainerComponent implements AfterViewInit, OnDestroy, After
    */
   private _lastRange: [number, number] = [-1, -1];
   /**
-   * Property `_lastStartIndex` (`number | undefined`) storing last start index (default: `undefined`).
-   * @zh 属性 `_lastStartIndex`（类型：`number | undefined`），用于存储或配置末尾开始索引（默认值：`undefined`）。
+   * Property `_lastStartIndex` (`number`) storing last start index (default: `undefined`).
+   * @zh 属性 `_lastStartIndex`（类型：`number`），用于存储或配置末尾开始索引（默认值：`undefined`）。
    */
   private _lastStartIndex: number | undefined = undefined;
   /**
@@ -288,7 +288,7 @@ export class SelectContainerComponent implements AfterViewInit, OnDestroy, After
    * @param platformId - Injected or initial platform id (`Object`) / 注入或传入的platform唯一标识（`Object`）
    * @param shortcuts - Injected or initial shortcuts (`ShortcutService`) / 注入或传入的快捷键列表（`ShortcutService`）
    * @param keyboardEvents - Injected or initial keyboard events (`KeyboardEventsService`) / 注入或传入的键盘事件集合（`KeyboardEventsService`）
-   * @param hostElementRef - Injected or initial host element ref (`ElementRef`) / 注入或传入的宿主元素引用（`ElementRef`）
+   * @param hostElementRef - Injected or initial host element ref (`ElementRef<any>`) / 注入或传入的宿主元素引用（`ElementRef<any>`）
    * @param renderer - Injected or initial renderer (`Renderer2`) / 注入或传入的渲染器（`Renderer2`）
    * @param ngZone - Injected or initial ng zone (`NgZone`) / 注入或传入的Angular区域(NgZone)（`NgZone`）
    */
@@ -542,7 +542,7 @@ export class SelectContainerComponent implements AfterViewInit, OnDestroy, After
 
   /**
    * Executes `_observeSelectableItems` to handle observe selectable items.
-   * @zh 执行 `_observeSelectableItems`，用于observe是否可选中条目列表。
+   * @zh 执行 `_observeSelectableItems`，用于观察是否可选中条目列表。
    */
   private _observeSelectableItems() {
     // Listen for updates and either select or deselect an item
@@ -591,7 +591,7 @@ export class SelectContainerComponent implements AfterViewInit, OnDestroy, After
 
   /**
    * Executes `_observeBoundingRectChanges` to handle observe bounding rect changes.
-   * @zh 执行 `_observeBoundingRectChanges`，用于observe包围边界矩形变更集合。
+   * @zh 执行 `_observeBoundingRectChanges`，用于观察包围边界矩形变更集合。
    */
   private _observeBoundingRectChanges() {
     this.ngZone.runOutsideAngular(() => {
@@ -872,7 +872,7 @@ export class SelectContainerComponent implements AfterViewInit, OnDestroy, After
 
   /**
    * Executes `_flushItems` to handle flush items.
-   * @zh 执行 `_flushItems`，用于flush条目列表。
+   * @zh 执行 `_flushItems`，用于刷新条目列表。
    */
   private _flushItems() {
     this._tmpItems.forEach((action, item) => {
@@ -892,7 +892,7 @@ export class SelectContainerComponent implements AfterViewInit, OnDestroy, After
    * Executes `_addItem` to handle add item.
    * @zh 执行 `_addItem`，用于添加条目。
    * @param item - item parameter (`SelectItemDirective`) / 条目参数（`SelectItemDirective`）
-   * @param selectedItems - selected items parameter (`Array<any>`) / 已选中条目列表参数（`Array<any>`）
+   * @param selectedItems - selected items parameter (`any`) / 已选中条目列表参数（`any`）
    */
   private _addItem(item: SelectItemDirective, selectedItems) {
     let success = false;
@@ -911,7 +911,7 @@ export class SelectContainerComponent implements AfterViewInit, OnDestroy, After
    * Executes `_removeItem` to handle remove item.
    * @zh 执行 `_removeItem`，用于移除条目。
    * @param item - item parameter (`SelectItemDirective`) / 条目参数（`SelectItemDirective`）
-   * @param selectedItems - selected items parameter (`Array<any>`) / 已选中条目列表参数（`Array<any>`）
+   * @param selectedItems - selected items parameter (`any`) / 已选中条目列表参数（`any`）
    */
   private _removeItem(item: SelectItemDirective, selectedItems) {
     let success = false;
@@ -971,7 +971,7 @@ export class SelectContainerComponent implements AfterViewInit, OnDestroy, After
    * Executes `_hasItem` to handle has item.
    * @zh 执行 `_hasItem`，用于是否包含条目。
    * @param item - item parameter (`SelectItemDirective`) / 条目参数（`SelectItemDirective`）
-   * @param selectedItems - selected items parameter (`Array<any>`) / 已选中条目列表参数（`Array<any>`）
+   * @param selectedItems - selected items parameter (`any`) / 已选中条目列表参数（`any`）
    */
   private _hasItem(item: SelectItemDirective, selectedItems) {
     return selectedItems.includes(item.value);
@@ -1010,7 +1010,7 @@ export class SelectContainerComponent implements AfterViewInit, OnDestroy, After
   /**
    * Executes `_getLastRangeSelection` to handle get last range selection.
    * @zh 执行 `_getLastRangeSelection`，用于获取末尾范围Selection。
-   * @returns Result of type `SelectItemDirective | null` / 类型为 `SelectItemDirective | null` 的返回值
+   * @returns Result of type `SelectItemDirective` / 类型为 `SelectItemDirective` 的返回值
    */
   private _getLastRangeSelection(): SelectItemDirective | null {
     if (this._lastStartIndex >= 0) {

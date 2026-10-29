@@ -51,8 +51,8 @@ import { DuiCardComponent } from './card.component';
 })
 export class CardModule {
   /**
-   * Property `entryComponents` (`any[]`) storing entry components (default: `[DuiCardComponent]`).
-   * @zh 属性 `entryComponents`（类型：`any[]`），用于存储或配置条目组件列表（默认值：`[DuiCardComponent]`）。
+   * Property `entryComponents` (`(typeof DuiCardComponent)[]`) storing entry components (default: `[DuiCardComponent]`).
+   * @zh 属性 `entryComponents`（类型：`(typeof DuiCardComponent)[]`），用于存储或配置条目组件列表（默认值：`[DuiCardComponent]`）。
    */
   entryComponents = [DuiCardComponent];
   /**

@@ -33,8 +33,8 @@ export class ɵWindowReferencesState {
     }
 
     /**
-     * Property `_data$` (`BehaviorSubject`) storing data.
-     * @zh 属性 `_data$`（类型：`BehaviorSubject`），用于存储或配置数据。
+     * Property `_data$` (`BehaviorSubject<ɵDynamicWindowRefModel[]>`) storing data.
+     * @zh 属性 `_data$`（类型：`BehaviorSubject<ɵDynamicWindowRefModel[]>`），用于存储或配置数据。
      */
     private readonly _data$ = new BehaviorSubject<ɵDynamicWindowRefModel[]>([]);
 

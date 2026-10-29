@@ -29,9 +29,9 @@ import { ContentItem } from './content-item';
  */
 export class Stack extends ComponentParentableItem {
     /**
-     * Property `_headerConfig` (`ResolvedHeaderedItemConfig.Header | undefined`) storing header config.
+     * Property `_headerConfig` (`ResolvedHeaderedItemConfig.Header`) storing header config.
      * @internal
-     * @zh 属性 `_headerConfig`（类型：`ResolvedHeaderedItemConfig.Header | undefined`），用于存储或配置表头配置。
+     * @zh 属性 `_headerConfig`（类型：`ResolvedHeaderedItemConfig.Header`），用于存储或配置表头配置。
      */
     private readonly _headerConfig: ResolvedHeaderedItemConfig.Header | undefined;
     /**
@@ -53,9 +53,9 @@ export class Stack extends ComponentParentableItem {
      */
     private readonly _maximisedEnabled: boolean;
     /**
-     * Property `_activeComponentItem` (`ComponentItem | undefined`) storing active component item.
+     * Property `_activeComponentItem` (`ComponentItem`) storing active component item.
      * @internal
-     * @zh 属性 `_activeComponentItem`（类型：`ComponentItem | undefined`），用于存储或配置激活组件条目。
+     * @zh 属性 `_activeComponentItem`（类型：`ComponentItem`），用于存储或配置激活组件条目。
      */
     private _activeComponentItem: ComponentItem | undefined;
     /**
@@ -96,21 +96,21 @@ export class Stack extends ComponentParentableItem {
     private _initialActiveItemIndex: number;
 
     /**
-     * Property `_resizeListener` (`any`) storing resize listener (default: `() => this.handleResize()`).
+     * Property `_resizeListener` (`() => void`) storing resize listener (default: `() => this.handleResize()`).
      * @internal
-     * @zh 属性 `_resizeListener`（类型：`any`），用于存储或配置调整尺寸监听器（默认值：`() => this.handleResize()`）。
+     * @zh 属性 `_resizeListener`（类型：`() => void`），用于存储或配置调整尺寸监听器（默认值：`() => this.handleResize()`）。
      */
     private _resizeListener = () => this.handleResize();
     /**
-     * Property `_maximisedListener` (`any`) storing maximised listener (default: `() => this.handleMaximised()`).
+     * Property `_maximisedListener` (`() => void`) storing maximised listener (default: `() => this.handleMaximised()`).
      * @internal
-     * @zh 属性 `_maximisedListener`（类型：`any`），用于存储或配置最大化监听器（默认值：`() => this.handleMaximised()`）。
+     * @zh 属性 `_maximisedListener`（类型：`() => void`），用于存储或配置最大化监听器（默认值：`() => this.handleMaximised()`）。
      */
     private _maximisedListener = () => this.handleMaximised();
     /**
-     * Property `_minimisedListener` (`any`) storing minimised listener (default: `() => this.handleMinimised()`).
+     * Property `_minimisedListener` (`() => void`) storing minimised listener (default: `() => this.handleMinimised()`).
      * @internal
-     * @zh 属性 `_minimisedListener`（类型：`any`），用于存储或配置最小化监听器（默认值：`() => this.handleMinimised()`）。
+     * @zh 属性 `_minimisedListener`（类型：`() => void`），用于存储或配置最小化监听器（默认值：`() => this.handleMinimised()`）。
      */
     private _minimisedListener = () => this.handleMinimised();
 
@@ -324,7 +324,7 @@ export class Stack extends ComponentParentableItem {
      * @zh 执行 `setActiveComponentItem`，用于集合激活组件条目。
      * @param componentItem - component item parameter (`ComponentItem`) / 组件条目参数（`ComponentItem`）
      * @param focus - focus parameter (`boolean`) / 聚焦参数（`boolean`）
-     * @param suppressFocusEvent - suppress focus event parameter (`any`) / suppress聚焦事件参数（`any`）
+     * @param suppressFocusEvent - suppress focus event parameter (`boolean`) / suppress聚焦事件参数（`boolean`）
      */
     setActiveComponentItem(componentItem: ComponentItem, focus: boolean, suppressFocusEvent = false): void {
         if (this._activeComponentItem !== componentItem) {
@@ -365,7 +365,7 @@ export class Stack extends ComponentParentableItem {
     /**
      * Executes `getActiveComponentItem` to handle get active component item.
      * @zh 执行 `getActiveComponentItem`，用于获取激活组件条目。
-     * @returns Result of type `ComponentItem | undefined` / 类型为 `ComponentItem | undefined` 的返回值
+     * @returns Result of type `ComponentItem` / 类型为 `ComponentItem` 的返回值
      */
     getActiveComponentItem(): ComponentItem | undefined {
         return this._activeComponentItem;
@@ -470,7 +470,7 @@ export class Stack extends ComponentParentableItem {
      * @zh 执行 `addChild`，用于添加子级。
      * @param contentItem - content item parameter (`ContentItem`) / 内容条目参数（`ContentItem`）
      * @param index - index parameter (`number`) / 索引参数（`number`）
-     * @param focus - focus parameter (`any`) / 聚焦参数（`any`）
+     * @param focus - focus parameter (`boolean`) / 聚焦参数（`boolean`）
      * @returns Result of type `number` / 类型为 `number` 的返回值
      */
     override addChild(contentItem: ContentItem, index?: number, focus = false): number {
@@ -748,7 +748,7 @@ export class Stack extends ComponentParentableItem {
 
     /**
      * Executes `highlightDropZone` to handle highlight drop zone.
-     * @zh 执行 `highlightDropZone`，用于highlight放置区域(NgZone)。
+     * @zh 执行 `highlightDropZone`，用于高亮放置区域(NgZone)。
      * @param x - x parameter (`number`) / X坐标参数（`number`）
      * @param y - y parameter (`number`) / Y坐标参数（`number`）
      */
@@ -938,7 +938,7 @@ export class Stack extends ComponentParentableItem {
     /**
      * Executes `highlightHeaderDropZone` to handle highlight header drop zone.
      * @internal
-     * @zh 执行 `highlightHeaderDropZone`，用于highlight表头放置区域(NgZone)。
+     * @zh 执行 `highlightHeaderDropZone`，用于高亮表头放置区域(NgZone)。
      */
     private highlightHeaderDropZone(x: number): void {
         const visibleTabsLength = this._header.lastVisibleTabIndex + 1;
@@ -1083,7 +1083,7 @@ export class Stack extends ComponentParentableItem {
     /**
      * Executes `highlightBodyDropZone` to handle highlight body drop zone.
      * @internal
-     * @zh 执行 `highlightBodyDropZone`，用于highlight主体放置区域(NgZone)。
+     * @zh 执行 `highlightBodyDropZone`，用于高亮主体放置区域(NgZone)。
      */
     private highlightBodyDropZone(segment: Stack.Segment): void {
         if (this._contentAreaDimensions === undefined) {
@@ -1148,8 +1148,8 @@ export class Stack extends ComponentParentableItem {
     }
 
     /**
-     * Property `contentClickEventListener` (`any`) storing content click event listener.
-     * @zh 属性 `contentClickEventListener`（类型：`any`），用于存储或配置内容点击事件监听器。
+     * Property `contentClickEventListener` (`(ev: MouseEvent) => void`) storing content click event listener.
+     * @zh 属性 `contentClickEventListener`（类型：`(ev: MouseEvent) => void`），用于存储或配置内容点击事件监听器。
      */
     contentClickEventListener=(ev: MouseEvent)=> {
         const eventName = EventEmitter.contentClickEventName;

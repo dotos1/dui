@@ -36,8 +36,8 @@ function range<T>(length: number, valueFunction: (index: number) => T): T[] {
 export class MomentDatetimeAdapter extends DatetimeAdapter<Moment> {
 
   /**
-   * Property `_localeData` (`{ firstDayOfWeek: number, longMonths: string[], shortMonths: string[],...`) storing locale data.
-   * @zh 属性 `_localeData`（类型：`{ firstDayOfWeek: number, longMonths: string[], shortMonths: string[],...`），用于存储或配置语言区域数据。
+   * Property `_localeData` (`{…}`) storing locale data.
+   * @zh 属性 `_localeData`（类型：`{…}`），用于存储或配置语言区域数据。
    */
   private _localeData: {
     firstDayOfWeek: number,
@@ -62,7 +62,7 @@ export class MomentDatetimeAdapter extends DatetimeAdapter<Moment> {
    * @zh 创建 `MomentDatetimeAdapter` 实例，并初始化其依赖项与内部状态。
    * @param matDateLocale - Injected or initial mat date locale (`string`) / 注入或传入的Material日期语言区域（`string`）
    * @param matMomentAdapterOptions - Injected or initial mat moment adapter options (`MatMomentDateAdapterOptions`) / 注入或传入的MaterialMoment适配器配置选项（`MatMomentDateAdapterOptions`）
-   * @param _delegate - Injected or initial delegate (`DateAdapter<Moment>`) / 注入或传入的delegate（`DateAdapter<Moment>`）
+   * @param _delegate - Injected or initial delegate (`DateAdapter<moment.Moment, any>`) / 注入或传入的delegate（`DateAdapter<moment.Moment, any>`）
    */
   constructor(@Optional() @Inject(MAT_DATE_LOCALE) matDateLocale: string,
               @Optional() @Inject(MAT_MOMENT_DATE_ADAPTER_OPTIONS) matMomentAdapterOptions: MatMomentDateAdapterOptions,
@@ -96,7 +96,7 @@ export class MomentDatetimeAdapter extends DatetimeAdapter<Moment> {
   /**
    * Executes `getHour` to handle get hour.
    * @zh 执行 `getHour`，用于获取小时。
-   * @param date - date parameter (`Moment`) / 日期参数（`Moment`）
+   * @param date - date parameter (`moment.Moment`) / 日期参数（`moment.Moment`）
    * @returns Result of type `number` / 类型为 `number` 的返回值
    */
   getHour(date: Moment): number {
@@ -106,7 +106,7 @@ export class MomentDatetimeAdapter extends DatetimeAdapter<Moment> {
   /**
    * Executes `getMinute` to handle get minute.
    * @zh 执行 `getMinute`，用于获取分钟。
-   * @param date - date parameter (`Moment`) / 日期参数（`Moment`）
+   * @param date - date parameter (`moment.Moment`) / 日期参数（`moment.Moment`）
    * @returns Result of type `number` / 类型为 `number` 的返回值
    */
   getMinute(date: Moment): number {
@@ -116,8 +116,8 @@ export class MomentDatetimeAdapter extends DatetimeAdapter<Moment> {
   /**
    * Executes `isInNextMonth` to handle is in next month.
    * @zh 执行 `isInNextMonth`，用于是否为在下一个月。
-   * @param startDate - start date parameter (`Moment`) / 开始日期参数（`Moment`）
-   * @param endDate - end date parameter (`Moment`) / 结束日期参数（`Moment`）
+   * @param startDate - start date parameter (`moment.Moment`) / 开始日期参数（`moment.Moment`）
+   * @param endDate - end date parameter (`moment.Moment`) / 结束日期参数（`moment.Moment`）
    * @returns Result of type `boolean` / 类型为 `boolean` 的返回值
    */
   isInNextMonth(startDate: Moment, endDate: Moment): boolean {
@@ -133,7 +133,7 @@ export class MomentDatetimeAdapter extends DatetimeAdapter<Moment> {
    * @param date - date parameter (`number`) / 日期参数（`number`）
    * @param hour - hour parameter (`number`) / 小时参数（`number`）
    * @param minute - minute parameter (`number`) / 分钟参数（`number`）
-   * @returns Result of type `Moment` / 类型为 `Moment` 的返回值
+   * @returns Result of type `moment.Moment` / 类型为 `moment.Moment` 的返回值
    */
   createDatetime(year: number, month: number, date: number, hour: number, minute: number): Moment {
     // Check for invalid month and date (except upper bound on date which we have to check after
@@ -171,8 +171,8 @@ export class MomentDatetimeAdapter extends DatetimeAdapter<Moment> {
   /**
    * Executes `getFirstDateOfMonth` to handle get first date of month.
    * @zh 执行 `getFirstDateOfMonth`，用于获取首个日期的月。
-   * @param date - date parameter (`Moment`) / 日期参数（`Moment`）
-   * @returns Result of type `Moment` / 类型为 `Moment` 的返回值
+   * @param date - date parameter (`moment.Moment`) / 日期参数（`moment.Moment`）
+   * @returns Result of type `moment.Moment` / 类型为 `moment.Moment` 的返回值
    */
   getFirstDateOfMonth(date: Moment): Moment {
     return super.clone(date).startOf("month");
@@ -199,9 +199,9 @@ export class MomentDatetimeAdapter extends DatetimeAdapter<Moment> {
   /**
    * Executes `addCalendarHours` to handle add calendar hours.
    * @zh 执行 `addCalendarHours`，用于添加日历小时数。
-   * @param date - date parameter (`Moment`) / 日期参数（`Moment`）
+   * @param date - date parameter (`moment.Moment`) / 日期参数（`moment.Moment`）
    * @param hours - hours parameter (`number`) / 小时数参数（`number`）
-   * @returns Result of type `Moment` / 类型为 `Moment` 的返回值
+   * @returns Result of type `moment.Moment` / 类型为 `moment.Moment` 的返回值
    */
   addCalendarHours(date: Moment, hours: number): Moment {
     return super.clone(date).add({hours});
@@ -210,9 +210,9 @@ export class MomentDatetimeAdapter extends DatetimeAdapter<Moment> {
   /**
    * Executes `addCalendarMinutes` to handle add calendar minutes.
    * @zh 执行 `addCalendarMinutes`，用于添加日历分钟数。
-   * @param date - date parameter (`Moment`) / 日期参数（`Moment`）
+   * @param date - date parameter (`moment.Moment`) / 日期参数（`moment.Moment`）
    * @param minutes - minutes parameter (`number`) / 分钟数参数（`number`）
-   * @returns Result of type `Moment` / 类型为 `Moment` 的返回值
+   * @returns Result of type `moment.Moment` / 类型为 `moment.Moment` 的返回值
    */
   addCalendarMinutes(date: Moment, minutes: number): Moment {
     return super.clone(date).add({minutes});
@@ -222,7 +222,7 @@ export class MomentDatetimeAdapter extends DatetimeAdapter<Moment> {
    * Executes `deserialize` to handle deserialize.
    * @zh 执行 `deserialize`，用于反序列化。
    * @param value - value parameter (`any`) / 值参数（`any`）
-   * @returns Result of type `Moment | null` / 类型为 `Moment | null` 的返回值
+   * @returns Result of type `moment.Moment` / 类型为 `moment.Moment` 的返回值
    */
   override deserialize(value): Moment | null {
     return this._delegate.deserialize(value);
@@ -231,7 +231,7 @@ export class MomentDatetimeAdapter extends DatetimeAdapter<Moment> {
   /**
    * Executes `getDateInNextMonth` to handle get date in next month.
    * @zh 执行 `getDateInNextMonth`，用于获取日期在下一个月。
-   * @param date - date parameter (`Moment`) / 日期参数（`Moment`）
+   * @param date - date parameter (`moment.Moment`) / 日期参数（`moment.Moment`）
    */
   private getDateInNextMonth(date: Moment) {
     return super.clone(date).date(1).add({month: 1});

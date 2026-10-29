@@ -49,8 +49,8 @@ const EXT_LOADING_ENTRY_COMPONENTS = [
 })
 export class LoadingModule {
   /**
-   * Property `entryComponents` (`any`) storing entry components (default: `EXT_LOADING_ENTRY_COMPONENTS`).
-   * @zh 属性 `entryComponents`（类型：`any`），用于存储或配置条目组件列表（默认值：`EXT_LOADING_ENTRY_COMPONENTS`）。
+   * Property `entryComponents` (`(typeof LoadingComponent)[]`) storing entry components (default: `EXT_LOADING_ENTRY_COMPONENTS`).
+   * @zh 属性 `entryComponents`（类型：`(typeof LoadingComponent)[]`），用于存储或配置条目组件列表（默认值：`EXT_LOADING_ENTRY_COMPONENTS`）。
    */
   entryComponents = EXT_LOADING_ENTRY_COMPONENTS;
   /**

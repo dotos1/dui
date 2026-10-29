@@ -57,8 +57,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 export class ToggleSelectModule {
   /**
-   * Property `entryComponents` (`any[]`) storing entry components (default: `[ToggleSelectComponent]`).
-   * @zh 属性 `entryComponents`（类型：`any[]`），用于存储或配置条目组件列表（默认值：`[ToggleSelectComponent]`）。
+   * Property `entryComponents` (`(typeof ToggleSelectComponent)[]`) storing entry components (default: `[ToggleSelectComponent]`).
+   * @zh 属性 `entryComponents`（类型：`(typeof ToggleSelectComponent)[]`），用于存储或配置条目组件列表（默认值：`[ToggleSelectComponent]`）。
    */
   entryComponents = [ToggleSelectComponent];
   /**

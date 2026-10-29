@@ -81,7 +81,7 @@ function mimeTypeIsCustom( mimeType:string ) {
  * Executes `getWellKnownMimeType` to handle get well known mime type.
  * @zh 执行 `getWellKnownMimeType`，用于获取WellKnownMIME类型类型。
  * @param event - event parameter (`DragEvent`) / 事件参数（`DragEvent`）
- * @returns Result of type `string | null` / 类型为 `string | null` 的返回值
+ * @returns Result of type `string` / 类型为 `string` 的返回值
  */
 export function getWellKnownMimeType( event:DragEvent ):string | null {
 
@@ -186,7 +186,7 @@ export function getDropData( event:DragEvent, dragIsExternal:boolean ):DragDropD
  * Executes `filterEffects` to handle filter effects.
  * @zh 执行 `filterEffects`，用于过滤副作用。
  * @param effects - effects parameter (`DropEffect[]`) / 副作用参数（`DropEffect[]`）
- * @param allowed - allowed parameter (`EffectAllowed | DropEffect`) / 允许的参数（`EffectAllowed | DropEffect`）
+ * @param allowed - allowed parameter (`"link" | "none" | "copy" | "all" | "move" | "copyMove" | "copyLink" | "linkMove" | "uninitialized"`) / 允许的参数（`"link" | "none" | "copy" | "all" | "move" | "copyMove" | "copyLink" | "linkMove" | "uninitialized"`）
  * @returns Result of type `DropEffect[]` / 类型为 `DropEffect[]` 的返回值
  */
 export function filterEffects( effects:DropEffect[], allowed:EffectAllowed | DropEffect ):DropEffect[] {
@@ -208,7 +208,7 @@ export function filterEffects( effects:DropEffect[], allowed:EffectAllowed | Dro
  * @zh 执行 `getDirectChildElement`，用于获取Direct子级元素。
  * @param parentElement - parent element parameter (`Element`) / 父级元素参数（`Element`）
  * @param childElement - child element parameter (`Element`) / 子级元素参数（`Element`）
- * @returns Result of type `Element | null` / 类型为 `Element | null` 的返回值
+ * @returns Result of type `Element` / 类型为 `Element` 的返回值
  */
 export function getDirectChildElement( parentElement:Element, childElement:Element ):Element | null {
 
@@ -254,7 +254,7 @@ export function shouldPositionPlaceholderBeforeElement( event:DragEvent, element
  * @zh 执行 `calculateDragImageOffset`，用于计算拖拽图像偏移量。
  * @param event - event parameter (`DragEvent`) / 事件参数（`DragEvent`）
  * @param dragImage - drag image parameter (`Element`) / 拖拽图像参数（`Element`）
- * @returns Result of type `{ x:number, y:number }` / 类型为 `{ x:number, y:number }` 的返回值
+ * @returns Result of type `{ x: number; y: number; }` / 类型为 `{ x: number; y: number; }` 的返回值
  */
 export function calculateDragImageOffset( event:DragEvent, dragImage:Element ):{ x:number, y:number } {
 

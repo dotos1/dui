@@ -38,7 +38,7 @@ export class DndDragImageRefDirective {
    * Creates an instance of `DndDragImageRefDirective` and initializes its dependencies and internal state.
    * @zh 创建 `DndDragImageRefDirective` 实例，并初始化其依赖项与内部状态。
    * @param parent - Injected or initial parent (`DndDraggableDirective`) / 注入或传入的父级（`DndDraggableDirective`）
-   * @param elementRef - Injected or initial element ref (`ElementRef`) / 注入或传入的元素引用（`ElementRef`）
+   * @param elementRef - Injected or initial element ref (`ElementRef<any>`) / 注入或传入的元素引用（`ElementRef<any>`）
    */
   constructor(@Inject(forwardRef(() => DndDraggableDirective)) parent: DndDraggableDirective, elementRef:ElementRef ) {
     parent.registerDragImage( elementRef );
@@ -170,14 +170,14 @@ export class DndDraggableDirective implements AfterViewInit, OnDestroy {
   private dndHandle?:DndHandleDirective;
 
   /**
-   * Property `dndDragImageElementRef` (`ElementRef`) storing dnd drag image element ref.
-   * @zh 属性 `dndDragImageElementRef`（类型：`ElementRef`），用于存储或配置拖放拖拽图像元素引用。
+   * Property `dndDragImageElementRef` (`ElementRef<any>`) storing dnd drag image element ref.
+   * @zh 属性 `dndDragImageElementRef`（类型：`ElementRef<any>`），用于存储或配置拖放拖拽图像元素引用。
    */
   private dndDragImageElementRef?:ElementRef;
 
   /**
-   * Property `dragImage` (`Element | undefined`) storing drag image.
-   * @zh 属性 `dragImage`（类型：`Element | undefined`），用于存储或配置拖拽图像。
+   * Property `dragImage` (`Element`) storing drag image.
+   * @zh 属性 `dragImage`（类型：`Element`），用于存储或配置拖拽图像。
    */
   private dragImage:Element | undefined;
 
@@ -188,8 +188,8 @@ export class DndDraggableDirective implements AfterViewInit, OnDestroy {
   private isDragStarted:boolean = false;
 
   /**
-   * Property `dragEventHandler` (`( event:DragEvent ) => void`) storing drag event handler.
-   * @zh 属性 `dragEventHandler`（类型：`( event:DragEvent ) => void`），用于存储或配置拖拽事件处理器。
+   * Property `dragEventHandler` (`(event: DragEvent) => void`) storing drag event handler.
+   * @zh 属性 `dragEventHandler`（类型：`(event: DragEvent) => void`），用于存储或配置拖拽事件处理器。
    */
   private readonly dragEventHandler:( event:DragEvent ) => void = ( event:DragEvent ) => this.onDrag( event );
 
@@ -221,7 +221,7 @@ export class DndDraggableDirective implements AfterViewInit, OnDestroy {
   /**
    * Creates an instance of `DndDraggableDirective` and initializes its dependencies and internal state.
    * @zh 创建 `DndDraggableDirective` 实例，并初始化其依赖项与内部状态。
-   * @param elementRef - Injected or initial element ref (`ElementRef`) / 注入或传入的元素引用（`ElementRef`）
+   * @param elementRef - Injected or initial element ref (`ElementRef<any>`) / 注入或传入的元素引用（`ElementRef<any>`）
    * @param renderer - Injected or initial renderer (`Renderer2`) / 注入或传入的渲染器（`Renderer2`）
    * @param ngZone - Injected or initial ng zone (`NgZone`) / 注入或传入的Angular区域(NgZone)（`NgZone`）
    */

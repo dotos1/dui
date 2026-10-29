@@ -25,8 +25,8 @@ export interface MenuModel {
    */
   type?: string;   // 'menu' | 'custom' | 'divider'|'checkbox'|'radio';
   /**
-   * Property `value` (`boolean|string`) storing value.
-   * @zh 属性 `value`（类型：`boolean|string`），用于存储或配置值。
+   * Property `value` (`string | boolean`) storing value.
+   * @zh 属性 `value`（类型：`string | boolean`），用于存储或配置值。
    */
   value?: boolean|string;
   /**
@@ -180,18 +180,18 @@ export interface MenuModel {
    */
   shortcut?: string ;
   /**
-   * Property `hideExpression` (`boolean | string | ((model: any, formState: any) => boolean)`) storing hide expression.
-   * @zh 属性 `hideExpression`（类型：`boolean | string | ((model: any, formState: any) => boolean)`），用于存储或配置隐藏表达式。
+   * Property `hideExpression` (`any`) storing hide expression.
+   * @zh 属性 `hideExpression`（类型：`any`），用于存储或配置隐藏表达式。
    */
   hideExpression?;
   /**
-   * Property `disableExpression` (`boolean | string | ((model: any, formState: any) => boolean)`) storing disable expression.
-   * @zh 属性 `disableExpression`（类型：`boolean | string | ((model: any, formState: any) => boolean)`），用于存储或配置禁用表达式。
+   * Property `disableExpression` (`any`) storing disable expression.
+   * @zh 属性 `disableExpression`（类型：`any`），用于存储或配置禁用表达式。
    */
   disableExpression?;
   /**
-   * Property `expressionProperties` (`{ [property: string]: string | ((model: any, formState: any) => boolea...`) storing expression properties.
-   * @zh 属性 `expressionProperties`（类型：`{ [property: string]: string | ((model: any, formState: any) => boolea...`），用于存储或配置表达式属性列表。
+   * Property `expressionProperties` (`any`) storing expression properties.
+   * @zh 属性 `expressionProperties`（类型：`any`），用于存储或配置表达式属性列表。
    */
   expressionProperties?;
   /**
@@ -205,8 +205,8 @@ export interface MenuModel {
     fg?: string;
   };
   /**
-   * Property `children` (`Array<MenuModel>`) storing children.
-   * @zh 属性 `children`（类型：`Array<MenuModel>`），用于存储或配置子级列表。
+   * Property `children` (`MenuModel[]`) storing children.
+   * @zh 属性 `children`（类型：`MenuModel[]`），用于存储或配置子级列表。
    */
   children?: Array<MenuModel>;
   /**

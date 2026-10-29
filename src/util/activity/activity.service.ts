@@ -16,8 +16,8 @@ import { uuid } from '../uuid';
 })
 export class ActivityService {
   /**
-   * Property `counter$` (`BehaviorSubject`) storing counter (default: `new BehaviorSubject<number>(0)`).
-   * @zh 属性 `counter$`（类型：`BehaviorSubject`），用于存储或配置计数器（默认值：`new BehaviorSubject<number>(0)`）。
+   * Property `counter$` (`BehaviorSubject<number>`) storing counter (default: `new BehaviorSubject<number>(0)`).
+   * @zh 属性 `counter$`（类型：`BehaviorSubject<number>`），用于存储或配置计数器（默认值：`new BehaviorSubject<number>(0)`）。
    */
   public counter$ = new BehaviorSubject<number>(0);
 

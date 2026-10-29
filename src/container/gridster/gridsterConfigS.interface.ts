@@ -143,23 +143,23 @@ export interface GridsterConfigS {
    */
   outerMargin: boolean;
   /**
-   * Property `outerMarginTop` (`number | null`) storing outer margin top.
-   * @zh 属性 `outerMarginTop`（类型：`number | null`），用于存储或配置外部外边距顶部位置。
+   * Property `outerMarginTop` (`number`) storing outer margin top.
+   * @zh 属性 `outerMarginTop`（类型：`number`），用于存储或配置外部外边距顶部位置。
    */
   outerMarginTop: number | null;
   /**
-   * Property `outerMarginRight` (`number | null`) storing outer margin right.
-   * @zh 属性 `outerMarginRight`（类型：`number | null`），用于存储或配置外部外边距右侧位置。
+   * Property `outerMarginRight` (`number`) storing outer margin right.
+   * @zh 属性 `outerMarginRight`（类型：`number`），用于存储或配置外部外边距右侧位置。
    */
   outerMarginRight: number | null;
   /**
-   * Property `outerMarginBottom` (`number | null`) storing outer margin bottom.
-   * @zh 属性 `outerMarginBottom`（类型：`number | null`），用于存储或配置外部外边距底部位置。
+   * Property `outerMarginBottom` (`number`) storing outer margin bottom.
+   * @zh 属性 `outerMarginBottom`（类型：`number`），用于存储或配置外部外边距底部位置。
    */
   outerMarginBottom: number | null;
   /**
-   * Property `outerMarginLeft` (`number | null`) storing outer margin left.
-   * @zh 属性 `outerMarginLeft`（类型：`number | null`），用于存储或配置外部外边距左侧位置。
+   * Property `outerMarginLeft` (`number`) storing outer margin left.
+   * @zh 属性 `outerMarginLeft`（类型：`number`），用于存储或配置外部外边距左侧位置。
    */
   outerMarginLeft: number | null;
   /**
@@ -303,8 +303,8 @@ export interface GridsterConfigS {
    */
   dirType: dirTypes;
   /**
-   * Property `api` (`{ resize: () => void, optionsChanged: () => void, getNextPossiblePosit...`) storing api.
-   * @zh 属性 `api`（类型：`{ resize: () => void, optionsChanged: () => void, getNextPossiblePosit...`），用于存储或配置API接口。
+   * Property `api` (`{…}`) storing api.
+   * @zh 属性 `api`（类型：`{…}`），用于存储或配置API接口。
    */
   api: {
     resize: () => void,
@@ -362,8 +362,8 @@ export interface Draggable extends DragBase {
    */
   dropOverItems: boolean;
   /**
-   * Property `dropOverItemsCallback` (`(source: GridsterItem, target: GridsterItem, grid?: GridsterComponentI...`) storing drop over items callback.
-   * @zh 属性 `dropOverItemsCallback`（类型：`(source: GridsterItem, target: GridsterItem, grid?: GridsterComponentI...`），用于存储或配置放置越过条目列表回调函数。
+   * Property `dropOverItemsCallback` (`(source: GridsterItem, target: GridsterItem, grid?: GridsterComponentInterface) => void`) storing drop over items callback.
+   * @zh 属性 `dropOverItemsCallback`（类型：`(source: GridsterItem, target: GridsterItem, grid?: GridsterComponentInterface) => void`），用于存储或配置放置越过条目列表回调函数。
    */
   dropOverItemsCallback: (source: GridsterItem, target: GridsterItem, grid?: GridsterComponentInterface) => void;
 }
@@ -374,8 +374,8 @@ export interface Draggable extends DragBase {
  */
 export interface Resizable extends DragBase {
   /**
-   * Property `handles` (`{ s: boolean, e: boolean, n: boolean, w: boolean, se: boolean, ne: boo...`) storing handles.
-   * @zh 属性 `handles`（类型：`{ s: boolean, e: boolean, n: boolean, w: boolean, se: boolean, ne: boo...`），用于存储或配置手柄列表。
+   * Property `handles` (`{…}`) storing handles.
+   * @zh 属性 `handles`（类型：`{…}`），用于存储或配置手柄列表。
    */
   handles: {
     s: boolean,

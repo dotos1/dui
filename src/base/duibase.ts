@@ -15,8 +15,8 @@ import { isBlankString, isNullOrUndefined } from '../base';
 export class DuiBase {
 
   /**
-   * Property `componentFactoryMap` (`Map<string, ComponentFactory<any>>`) storing component factory map.
-   * @zh 属性 `componentFactoryMap`（类型：`Map<string, ComponentFactory<any>>`），用于存储或配置组件工厂映射表。
+   * Property `componentFactoryMap` (`Map<string, ComponentFactory<unknown>>`) storing component factory map.
+   * @zh 属性 `componentFactoryMap`（类型：`Map<string, ComponentFactory<unknown>>`），用于存储或配置组件工厂映射表。
    */
   private static componentFactoryMap: Map<string, ComponentFactory<unknown>>=  new Map<string, ComponentFactory<unknown>>();
 
@@ -24,7 +24,7 @@ export class DuiBase {
    * Executes `registerComponentFactory` to handle register component factory.
    * @zh 执行 `registerComponentFactory`，用于注册组件工厂。
    * @param componentFactoryResolver - component factory resolver parameter (`ComponentFactoryResolver`) / 组件工厂解析器参数（`ComponentFactoryResolver`）
-   * @param components - components parameter (`Type<any>[]`) / 组件列表参数（`Type<any>[]`）
+   * @param components - components parameter (`Type<unknown>[]`) / 组件列表参数（`Type<unknown>[]`）
    */
   static registerComponentFactory(
     componentFactoryResolver: ComponentFactoryResolver, 
@@ -51,7 +51,7 @@ export class DuiBase {
    * Executes `getComponentFactory` to handle get component factory.
    * @zh 执行 `getComponentFactory`，用于获取组件工厂。
    * @param selector - selector parameter (`string`) / 选择器参数（`string`）
-   * @returns Result of type `ComponentFactory<any>` / 类型为 `ComponentFactory<any>` 的返回值
+   * @returns Result of type `ComponentFactory<unknown>` / 类型为 `ComponentFactory<unknown>` 的返回值
    */
   static getComponentFactory(selector: string): ComponentFactory<unknown> {
     return DuiBase.componentFactoryMap.get(selector);
@@ -67,10 +67,10 @@ export class DuiBase {
   /**
    * Executes `toggleInArray` to handle toggle in array.
    * @zh 执行 `toggleInArray`，用于开关在数组。
-   * @param item - item parameter (`any`) / 条目参数（`any`）
-   * @param array - array parameter (`any`) / 数组参数（`any`）
+   * @param item - item parameter (`T`) / 条目参数（`T`）
+   * @param array - array parameter (`T[]`) / 数组参数（`T[]`）
    */
-  public static toggleInArray(item, array): void {
+  public static toggleInArray<T>(item: T, array: T[]): void {
     if (array.indexOf(item) === -1) {
       array.push(item);
     } else {
@@ -81,10 +81,10 @@ export class DuiBase {
   /**
    * Executes `handleize` to handle handleize.
    * @zh 执行 `handleize`，用于handleize。
-   * @param text - text parameter (`any`) / 文本参数（`any`）
+   * @param text - text parameter (`string | number`) / 文本参数（`string | number`）
    * @returns Result of type `string` / 类型为 `string` 的返回值
    */
-  public static handleize(text): string {
+  public static handleize(text: string | number): string {
     return text.toString().toLowerCase()
       .replace(/\s+/g, '-')           // Replace spaces with -
       .replace(/[^\w\-]+/g, '')       // Remove all non-word chars
@@ -106,11 +106,11 @@ export class DuiBase {
   /**
    * Executes `apply` to handle apply.
    * @zh 执行 `apply`，用于应用。
-   * @param o - o parameter (`any`) / o参数（`any`）
-   * @param c - c parameter (`any`) / c参数（`any`）
-   * @param defaults - defaults parameter (`any`) / 默认值集合参数（`any`）
+   * @param o - o parameter (`T`) / o参数（`T`）
+   * @param c - c parameter (`C`) / c参数（`C`）
+   * @param defaults - defaults parameter (`object`) / 默认值集合参数（`object`）
    */
-  public static apply(o, c, defaults?) {
+  public static apply<T extends object, C extends object>(o: T, c: C, defaults?: object): T & C {
     if (defaults) {
       DuiBase.apply(o, defaults);
     }
@@ -120,44 +120,44 @@ export class DuiBase {
           continue;
         }
         try {
-          o[p] = c[p];
+          (o as Record<string, unknown>)[p] = c[p];
         } catch (error) {
           console.error(error + ':' + p);
         }
       }
     }
-    return o;
+    return o as T & C;
   }
 
   /**
    * Executes `applyIf` to handle apply if.
    * @zh 执行 `applyIf`，用于应用If。
-   * @param o - o parameter (`any`) / o参数（`any`）
-   * @param c - c parameter (`any`) / c参数（`any`）
+   * @param o - o parameter (`T`) / o参数（`T`）
+   * @param c - c parameter (`C`) / c参数（`C`）
    */
-  public static applyIf(o, c) {
+  public static applyIf<T extends object, C extends object>(o: T, c: C): T & C {
     if (o) {
       for (const p in c) {
         if (DuiBase.isUnsafeKey(p)) {
           continue;
         }
-        if (isUndefined(o[p])) {
-          o[p] = c[p];
+        if (isUndefined((o as Record<string, unknown>)[p])) {
+          (o as Record<string, unknown>)[p] = c[p];
         }
       }
     }
-    return o;
+    return o as T & C;
   }
 
   /**
    * Executes `override` to handle override.
    * @zh 执行 `override`，用于override。
-   * @param origclass - origclass parameter (`any`) / origclass参数（`any`）
-   * @param overrides - overrides parameter (`any`) / overrides参数（`any`）
+   * @param origclass - origclass parameter (`Function`) / origclass参数（`Function`）
+   * @param overrides - overrides parameter (`object`) / overrides参数（`object`）
    */
-  public static override(origclass, overrides) {
+  public static override(origclass: Function, overrides: object): void {
     if (overrides) {
-      const p = origclass.prototype;
+      const p: Record<string, unknown> = origclass.prototype;
       DuiBase.apply(p, overrides);
       if (overrides.hasOwnProperty('toString')) {
         p.toString = overrides.toString;
@@ -198,7 +198,7 @@ export class DuiBase {
    * @param controlKey - control key parameter (`string`) / 表单控件键参数（`string`）
    * @param actualKey - actual key parameter (`string`) / actual键参数（`string`）
    */
-  public static getKey(controlKey: string, actualKey: string) {
+  public static getKey(controlKey: string, actualKey: string): string {
     return actualKey ? actualKey + '.' + controlKey : controlKey;
   }
 
@@ -206,10 +206,12 @@ export class DuiBase {
    * Executes `reverseDeepMerge` to handle reverse deep merge.
    * @zh 执行 `reverseDeepMerge`，用于反向Deep合并。
    * @param dest - dest parameter (`any`) / 目标路径参数（`any`）
-   * @param args - args parameter (`any[]`) / 参数列表参数（`any[]`）
+   * @param args - args parameter (`object[]`) / 参数列表参数（`object[]`）
    */
-  public static reverseDeepMerge(dest, ...args) {
-    args.forEach(src => {
+  public static reverseDeepMerge<T extends object>(target: T, ...args: object[]): T {
+    const dest = target as Record<string, unknown>;
+    args.forEach((source) => {
+      const src = source as Record<string, unknown>;
       for (const srcArg in src) {
         if (DuiBase.isUnsafeKey(srcArg)) {
           continue;
@@ -221,28 +223,28 @@ export class DuiBase {
             dest[srcArg] = clone(src[srcArg]);
           }
         } else if (DuiBase.objAndSameType(dest[srcArg], src[srcArg])) {
-          DuiBase.reverseDeepMerge(dest[srcArg], src[srcArg]);
+          DuiBase.reverseDeepMerge(dest[srcArg] as object, src[srcArg] as object);
         }
       }
     });
-    return dest;
+    return target;
   }
   /**
    * Executes `defineHiddenProp` to handle define hidden prop.
-   * @zh 执行 `defineHiddenProp`，用于define隐藏属性。
-   * @param field - field parameter (`any`) / 字段参数（`any`）
-   * @param prop - prop parameter (`any`) / 属性参数（`any`）
-   * @param defaultValue - default value parameter (`any`) / 默认值参数（`any`）
+   * @zh 执行 `defineHiddenProp`，用于定义隐藏属性。
+   * @param field - field parameter (`object`) / 字段参数（`object`）
+   * @param prop - prop parameter (`string`) / 属性参数（`string`）
+   * @param defaultValue - default value parameter (`unknown`) / 默认值参数（`unknown`）
    */
-  public static defineHiddenProp(field, prop, defaultValue) {
+  public static defineHiddenProp(field: object, prop: string, defaultValue: unknown): void {
     Object.defineProperty(field, prop, { enumerable: false, writable: true, configurable: true });
-    field[prop] = defaultValue;
+    (field as Record<string, unknown>)[prop] = defaultValue;
   }
   /**
    * Executes `objAndSameType` to handle obj and same type.
    * @zh 执行 `objAndSameType`，用于对象And相同类型。
-   * @param obj1 - obj1 parameter (`any`) / obj1参数（`any`）
-   * @param obj2 - obj2 parameter (`any`) / obj2参数（`any`）
+   * @param obj1 - obj1 parameter (`unknown`) / obj1参数（`unknown`）
+   * @param obj2 - obj2 parameter (`unknown`) / obj2参数（`unknown`）
    */
   public static objAndSameType(obj1: unknown, obj2: unknown): boolean {
     return isObjectLike(obj1) && isObjectLike(obj2)
@@ -254,17 +256,17 @@ export class DuiBase {
    * @zh 执行 `stringIsInteger`，用于字符串是否为Integer。
    * @param str - str parameter (`string`) / 字符串参数（`string`）
    */
-  public static stringIsInteger(str: string) {
+  public static stringIsInteger(str: string): boolean {
     return (!isUndefined(str) && !isNull(str)) && /^\d+$/.test(str);
   }
 
   /**
    * Executes `evalFunctionExpression` to handle eval function expression.
-   * @zh 执行 `evalFunctionExpression`，用于eval函数表达式。
+   * @zh 执行 `evalFunctionExpression`，用于求值函数表达式。
    * @param expression - expression parameter (`string`) / 表达式参数（`string`）
    * @param argNames - arg names parameter (`string[]`) / 参数名称列表参数（`string[]`）
    */
-  public static evalFunctionExpression(expression: string, argNames: string[]) {
+  public static evalFunctionExpression(expression: string, argNames: string[]): Function | undefined {
     try {
       return Function(...argNames, `${expression}`);
     } catch (error) {
@@ -275,11 +277,11 @@ export class DuiBase {
 
   /**
    * Executes `evalStringExpression` to handle eval string expression.
-   * @zh 执行 `evalStringExpression`，用于eval字符串表达式。
+   * @zh 执行 `evalStringExpression`，用于求值字符串表达式。
    * @param expression - expression parameter (`string`) / 表达式参数（`string`）
    * @param argNames - arg names parameter (`string[]`) / 参数名称列表参数（`string[]`）
    */
-  public static evalStringExpression(expression: string, argNames: string[]) {
+  public static evalStringExpression(expression: string, argNames: string[]): Function | undefined {
 
     try {
       return Function(...argNames, `return ${expression};`);
@@ -291,11 +293,11 @@ export class DuiBase {
 
   /**
    * Executes `evalExpressionValueSetter` to handle eval expression value setter.
-   * @zh 执行 `evalExpressionValueSetter`，用于eval表达式值Setter。
+   * @zh 执行 `evalExpressionValueSetter`，用于求值表达式值Setter。
    * @param expression - expression parameter (`string`) / 表达式参数（`string`）
    * @param argNames - arg names parameter (`string[]`) / 参数名称列表参数（`string[]`）
    */
-  public static evalExpressionValueSetter(expression: string, argNames: string[]) {
+  public static evalExpressionValueSetter(expression: string, argNames: string[]): (...args: unknown[]) => void {
     if (/(?:^|\.|\[['"`]?)(?:__proto__|constructor|prototype)\b/.test(expression)) {
       return () => {};
     }
@@ -308,13 +310,13 @@ export class DuiBase {
   }
   /**
    * Executes `evalExpression` to handle eval expression.
-   * @zh 执行 `evalExpression`，用于eval表达式。
-   * @param expression - expression parameter (`string | Function | boolean`) / 表达式参数（`string | Function | boolean`）
-   * @param thisArg - this arg parameter (`any`) / this参数参数（`any`）
-   * @param argVal - arg val parameter (`any[]`) / 参数值参数（`any[]`）
-   * @returns Result of type `any` / 类型为 `any` 的返回值
+   * @zh 执行 `evalExpression`，用于求值表达式。
+   * @param expression - expression parameter (`string | boolean | Function`) / 表达式参数（`string | boolean | Function`）
+   * @param thisArg - this arg parameter (`unknown`) / this参数参数（`unknown`）
+   * @param argVal - arg val parameter (`unknown[]`) / 参数值参数（`unknown[]`）
+   * @returns Result of type `unknown` / 类型为 `unknown` 的返回值
    */
-  public static evalExpression(expression: string | Function | boolean, thisArg: unknown, argVal: unknown[]) {
+  public static evalExpression(expression: string | Function | boolean, thisArg: unknown, argVal: unknown[]): unknown {
     if (expression instanceof Function) {
       return expression.apply(thisArg, argVal);
     } else {
@@ -325,17 +327,15 @@ export class DuiBase {
   /**
    * Executes `copyTo` to handle copy to.
    * @zh 执行 `copyTo`，用于复制转换为。
-   * @param dest - dest parameter (`any`) / 目标路径参数（`any`）
-   * @param source - source parameter (`any`) / 源参数（`any`）
-   * @param names - names parameter (`any`) / 名称列表参数（`any`）
+   * @param dest - dest parameter (`T`) / 目标路径参数（`T`）
+   * @param source - source parameter (`object`) / 源参数（`object`）
+   * @param names - names parameter (`string | string[]`) / 名称列表参数（`string | string[]`）
    */
-  public static copyTo(dest, source, names) {
-    if (typeof names == 'string') {
-      names = names.split(/[,;\s]/);
-    }
-    each(names, (name) => {
+  public static copyTo<T extends object>(dest: T, source: object, names: string | string[]): T {
+    const list = typeof names == 'string' ? names.split(/[,;\s]/) : names;
+    each(list, (name: string) => {
       if (source.hasOwnProperty(name)) {
-        dest[name] = source[name];
+        (dest as Record<string, unknown>)[name] = (source as Record<string, unknown>)[name];
       }
     });
     return dest;
@@ -343,14 +343,14 @@ export class DuiBase {
   /**
    * Executes `isEmpty` to handle is empty.
    * @zh 执行 `isEmpty`，用于是否为空。
-   * @param v - v parameter (`any`) / v参数（`any`）
-   * @param allowBlank - allow blank parameter (`any`) / 允许Blank参数（`any`）
+   * @param v - v parameter (`unknown`) / v参数（`unknown`）
+   * @param allowBlank - allow blank parameter (`boolean`) / 允许Blank参数（`boolean`）
    */
-  public static isEmpty(v, allowBlank?) {
+  public static isEmpty(v: unknown, allowBlank?: boolean): boolean {
     if (isObjectLike(v)) {
       let empty = true;
-      for (const i in v) {
-        if (v[i]) {
+      for (const i in v as object) {
+        if ((v as Record<string, unknown>)[i]) {
           empty = false;
         }
       }
@@ -366,9 +366,9 @@ export class DuiBase {
   /**
    * Executes `escapeRe` to handle escape re.
    * @zh 执行 `escapeRe`，用于escapeRe。
-   * @param s - s parameter (`any`) / s参数（`any`）
+   * @param s - s parameter (`string`) / s参数（`string`）
    */
-  public static escapeRe(s) {
+  public static escapeRe(s: string): string {
     return s.replace(/([-.*+?^${}()|[\]\/\\])/g, '\\$1');
   }
 
@@ -376,47 +376,43 @@ export class DuiBase {
   /**
    * Executes `destroy` to handle destroy.
    * @zh 执行 `destroy`，用于销毁。
-   * @param args - args parameter (`any`) / 参数列表参数（`any`）
+   * @param args - args parameter (`unknown[]`) / 参数列表参数（`unknown[]`）
    */
-  static destroy(...args) {
-    each(arguments, (arg) => {
-      if (arg) {
-        if (isArray(arg)) {
-          // eslint-disable-next-line prefer-spread
-          this.destroy.apply(this, arg);
-        } else if (typeof arg.destroy === 'function') {
-          arg.destroy();
-        } else if (arg.dom) {
-          arg.remove();
-        }
+  static destroy(...args: unknown[]): void {
+    each(args, (arg: unknown) => {
+      if (!arg) {
+        return;
+      }
+      if (Array.isArray(arg)) {
+        this.destroy(...arg);
+        return;
+      }
+      const target = arg as { destroy?: () => void; dom?: unknown; remove?: () => void };
+      if (typeof target.destroy === 'function') {
+        target.destroy();
+      } else if (target.dom) {
+        target.remove?.();
       }
     });
   }
-  /**
-   * Executes `intercept` to handle intercept.
-   * @zh 执行 `intercept`，用于intercept。
-   * @param o - o parameter (`any`) / o参数（`any`）
-   * @param name - name parameter (`any`) / 名称参数（`any`）
-   * @param fn - fn parameter (`any`) / 函数参数（`any`）
-   * @param scope - scope parameter (`any`) / scope参数（`any`）
-   */
-  public static intercept(o, name, fn, scope?) {
-    o[name] = o[name].createInterceptor(fn, scope);
+  public static intercept(o: object, name: string, fn: Function, scope?: object): void {
+    const target = o as Record<string, { createInterceptor: (fn: Function, scope?: object) => unknown }>;
+    target[name] = target[name].createInterceptor(fn, scope) as typeof target[string];
   }
 
 
   /**
    * Executes `callback` to handle callback.
    * @zh 执行 `callback`，用于回调函数。
-   * @param cb - cb parameter (`any`) / cb参数（`any`）
-   * @param scope - scope parameter (`any`) / scope参数（`any`）
-   * @param args - args parameter (`any`) / 参数列表参数（`any`）
-   * @param delay - delay parameter (`any`) / 延迟参数（`any`）
+   * @param cb - cb parameter (`unknown`) / cb参数（`unknown`）
+   * @param scope - scope parameter (`object`) / scope参数（`object`）
+   * @param args - args parameter (`unknown[]`) / 参数列表参数（`unknown[]`）
+   * @param delay - delay parameter (`number`) / 延迟参数（`number`）
    */
-  public static callback(cb, scope, args, delay?) {
+  public static callback(cb: unknown, scope: object, args?: unknown[], delay?: number): void {
     if (typeof cb === 'function') {
       if (delay) {
-        cb.defer(delay, scope, args || []);
+        (cb as Function & { defer: (delay: number, scope: object, args: unknown[]) => void }).defer(delay, scope, args || []);
       } else {
         cb.apply(scope, args || []);
       }
@@ -428,35 +424,35 @@ export class DuiBase {
   /**
    * Executes `format` to handle format.
    * @zh 执行 `format`，用于格式化。
-   * @param var_args - var args parameter (`any`) / var参数列表参数（`any`）
+   * @param var_args - var args parameter (`unknown[]`) / var参数列表参数（`unknown[]`）
    */
-  public static format(...var_args) {
-    const format = DuiBase.toArray(arguments)[0];
-    const args = DuiBase.toArray(arguments, 1);
-    return format.replace(/\{(\d+)\}/g, function (m, i) {
-      return args[i];
+  public static format(...var_args: unknown[]): string {
+    const format = String(var_args[0]);
+    const args = var_args.slice(1);
+    return format.replace(/\{(\d+)\}/g, function (m: string, i: string) {
+      return String(args[Number(i)]);
     });
   }
 
   /**
    * Executes `toArray` to handle to array.
    * @zh 执行 `toArray`，用于转换为数组。
-   * @param a - a parameter (`any`) / a参数（`any`）
-   * @param i - i parameter (`any`) / i参数（`any`）
-   * @param j - j parameter (`any`) / j参数（`any`）
+   * @param a - a parameter (`ArrayLike<T>`) / a参数（`ArrayLike<T>`）
+   * @param i - i parameter (`number`) / i参数（`number`）
+   * @param j - j parameter (`number`) / j参数（`number`）
    */
-  public static toArray(a, i?, j?) {
+  public static toArray<T>(a: ArrayLike<T>, i?: number, j?: number): T[] {
     return Array.prototype.slice.call(a, i || 0, j || a.length);
   }
 
   /**
    * Executes `filterArrayByString` to handle filter array by string.
    * @zh 执行 `filterArrayByString`，用于过滤数组按字符串。
-   * @param mainArr - main arr parameter (`any`) / 主Arr参数（`any`）
-   * @param searchText - search text parameter (`any`) / 搜索文本参数（`any`）
-   * @returns Result of type `any` / 类型为 `any` 的返回值
+   * @param mainArr - main arr parameter (`T[]`) / 主Arr参数（`T[]`）
+   * @param searchText - search text parameter (`string`) / 搜索文本参数（`string`）
+   * @returns Result of type `T[]` / 类型为 `T[]` 的返回值
    */
-  public static filterArrayByString(mainArr, searchText) {
+  public static filterArrayByString<T>(mainArr: T[], searchText: string): T[] {
     if (searchText === '') {
       return mainArr;
     }
@@ -471,17 +467,17 @@ export class DuiBase {
   /**
    * Executes `searchInObj` to handle search in obj.
    * @zh 执行 `searchInObj`，用于搜索在对象。
-   * @param itemObj - item obj parameter (`any`) / 条目对象参数（`any`）
-   * @param searchText - search text parameter (`any`) / 搜索文本参数（`any`）
+   * @param itemObj - item obj parameter (`unknown`) / 条目对象参数（`unknown`）
+   * @param searchText - search text parameter (`string`) / 搜索文本参数（`string`）
    * @returns Result of type `boolean` / 类型为 `boolean` 的返回值
    */
-  public static searchInObj(itemObj, searchText): boolean {
-    for (const prop in itemObj) {
-      if (!itemObj.hasOwnProperty(prop)) {
+  public static searchInObj(itemObj: unknown, searchText: string): boolean {
+    for (const prop in itemObj as object) {
+      if (!Object.prototype.hasOwnProperty.call(itemObj, prop)) {
         continue;
       }
 
-      const value = itemObj[prop];
+      const value: unknown = (itemObj as Record<string, unknown>)[prop];
 
       if (typeof value === 'string') {
         if (this.searchInString(value, searchText)) {
@@ -511,7 +507,7 @@ export class DuiBase {
 
    * @zh 执行 `searchInArray`，用于搜索在数组。
    */
-  public static searchInArray(arr, searchText): boolean {
+  public static searchInArray(arr: unknown[], searchText: string): boolean {
     for (const value of arr) {
       if (typeof value === 'string') {
         if (this.searchInString(value, searchText)) {
@@ -530,11 +526,11 @@ export class DuiBase {
   /**
    * Executes `searchInString` to handle search in string.
    * @zh 执行 `searchInString`，用于搜索在字符串。
-   * @param value - value parameter (`any`) / 值参数（`any`）
-   * @param searchText - search text parameter (`any`) / 搜索文本参数（`any`）
-   * @returns Result of type `any` / 类型为 `any` 的返回值
+   * @param value - value parameter (`string`) / 值参数（`string`）
+   * @param searchText - search text parameter (`string`) / 搜索文本参数（`string`）
+   * @returns Result of type `boolean` / 类型为 `boolean` 的返回值
    */
-  public static searchInString(value, searchText): boolean {
+  public static searchInString(value: string, searchText: string): boolean {
     return value.toLowerCase().includes(searchText);
   }
 }

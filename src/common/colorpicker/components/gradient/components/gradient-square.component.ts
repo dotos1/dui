@@ -35,7 +35,7 @@ import { ContextService, PickerContextProps } from '../hooks/context.service';
 export class GradientSquareComponent implements OnInit, OnDestroy {
 
   /**
-   * Template/content query reference `canvasElm` (`@ViewChild`) targeting canvas elm.
+   * Template/content query reference `canvasElm` (`ElementRef<HTMLElement>`) targeting canvas elm.
    * @zh 模板/内容视图查询引用 `canvasElm`（`@ViewChild`），指向画布Elm。
    */
   @ViewChild('paintSquare', { static: true })   private canvasElm: ElementRef<HTMLElement>;
@@ -57,13 +57,13 @@ export class GradientSquareComponent implements OnInit, OnDestroy {
   @Input()  public  setDragging?;
 
   /**
-   * Property `dragPos` (`any`) storing drag pos (default: `{}`).
-   * @zh 属性 `dragPos`（类型：`any`），用于存储或配置拖拽位置（默认值：`{}`）。
+   * Property `dragPos` (`{ x?: any; }`) storing drag pos (default: `{}`).
+   * @zh 属性 `dragPos`（类型：`{ x?: any; }`），用于存储或配置拖拽位置（默认值：`{}`）。
    */
   public dragPos:{ x? }={};
   /**
-   * Property `setDragPos` (`any`) storing set drag pos (default: `(pos: any) => { this.dragPos = pos; }`).
-   * @zh 属性 `setDragPos`（类型：`any`），用于存储或配置集合拖拽位置（默认值：`(pos: any) => { this.dragPos = pos; }`）。
+   * Property `setDragPos` (`(pos: any) => void`) storing set drag pos (default: `(pos: any) => { this.dragPos = pos; }`).
+   * @zh 属性 `setDragPos`（类型：`(pos: any) => void`），用于存储或配置集合拖拽位置（默认值：`(pos: any) => { this.dragPos = pos; }`）。
    */
   public setDragPos = (pos) => {
     this.dragPos = pos;
@@ -120,8 +120,8 @@ export class GradientSquareComponent implements OnInit, OnDestroy {
   }
 
   /**
-   * Property `handleUp` (`any`) storing handle up (default: `() => { this.stopDragging() }`).
-   * @zh 属性 `handleUp`（类型：`any`），用于存储或配置连接手柄向上（默认值：`() => { this.stopDragging() }`）。
+   * Property `handleUp` (`() => void`) storing handle up (default: `() => { this.stopDragging() }`).
+   * @zh 属性 `handleUp`（类型：`() => void`），用于存储或配置连接手柄向上（默认值：`() => { this.stopDragging() }`）。
    */
   private readonly handleUp = () => {
     this.stopDragging()
@@ -156,16 +156,16 @@ export class GradientSquareComponent implements OnInit, OnDestroy {
   }
 
   /**
-   * Property `stopDragging` (`any`) storing stop dragging (default: `() => { this. setDragging(false) }`).
-   * @zh 属性 `stopDragging`（类型：`any`），用于存储或配置停止拖拽中（默认值：`() => { this. setDragging(false) }`）。
+   * Property `stopDragging` (`() => void`) storing stop dragging (default: `() => { this. setDragging(false) }`).
+   * @zh 属性 `stopDragging`（类型：`() => void`），用于存储或配置停止拖拽中（默认值：`() => { this. setDragging(false) }`）。
    */
   public stopDragging = () => {
   this. setDragging(false)
   }
 
   /**
-   * Property `handleMove` (`any`) storing handle move.
-   * @zh 属性 `handleMove`（类型：`any`），用于存储或配置连接手柄移动。
+   * Property `handleMove` (`(e: any) => void`) storing handle move.
+   * @zh 属性 `handleMove`（类型：`(e: any) => void`），用于存储或配置连接手柄移动。
    */
   public  handleMove = (e) => {
     if (this. dragging) {

@@ -347,7 +347,7 @@ class _Scanner {
 
     /**
      * Executes `scanToken` to handle scan token.
-     * @zh 执行 `scanToken`，用于scan令牌。
+     * @zh 执行 `scanToken`，用于扫描令牌。
      * @returns Result of type `Token` / 类型为 `Token` 的返回值
      */
     scanToken(): Token {
@@ -426,7 +426,7 @@ class _Scanner {
 
     /**
      * Executes `scanCharacter` to handle scan character.
-     * @zh 执行 `scanCharacter`，用于scan字符。
+     * @zh 执行 `scanCharacter`，用于扫描字符。
      * @param start - start parameter (`number`) / 开始参数（`number`）
      * @param code - code parameter (`number`) / 编码参数（`number`）
      * @returns Result of type `Token` / 类型为 `Token` 的返回值
@@ -439,7 +439,7 @@ class _Scanner {
 
     /**
      * Executes `scanOperator` to handle scan operator.
-     * @zh 执行 `scanOperator`，用于scan操作符。
+     * @zh 执行 `scanOperator`，用于扫描操作符。
      * @param start - start parameter (`number`) / 开始参数（`number`）
      * @param str - str parameter (`string`) / 字符串参数（`string`）
      * @returns Result of type `Token` / 类型为 `Token` 的返回值
@@ -494,7 +494,7 @@ class _Scanner {
 
     /**
      * Executes `scanNumber` to handle scan number.
-     * @zh 执行 `scanNumber`，用于scan数字。
+     * @zh 执行 `scanNumber`，用于扫描数字。
      * @param start - start parameter (`number`) / 开始参数（`number`）
      * @returns Result of type `Token` / 类型为 `Token` 的返回值
      */
@@ -523,7 +523,7 @@ class _Scanner {
 
     /**
      * Executes `scanString` to handle scan string.
-     * @zh 执行 `scanString`，用于scan字符串。
+     * @zh 执行 `scanString`，用于扫描字符串。
      * @returns Result of type `Token` / 类型为 `Token` 的返回值
      */
     scanString(): Token {

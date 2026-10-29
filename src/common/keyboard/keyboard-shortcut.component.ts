@@ -82,7 +82,7 @@ export class KeyboardShortcutComponent implements AfterViewInit, OnDestroy {
     @Input() throttleTime: number;
 
     /**
-     * Output event emitter `fire` (`EventEmitter`) firing when fire occurs.
+     * Output event emitter `fire` (`EventEmitter<any>`) firing when fire occurs.
      * @zh 快捷键被触发时发出。
      * @zh 快捷键被触发时发出。
      */

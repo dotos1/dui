@@ -75,8 +75,8 @@ class Icon {
   /**
    * Executes `get` to handle get.
    * @zh 执行 `get`，用于获取。
-   * @param name - name parameter (`keyof typeof icons`) / 名称参数（`keyof typeof icons`）
-   * @param fill - fill parameter (`any`) / 填充参数（`any`）
+   * @param name - name parameter (`string`) / 名称参数（`string`）
+   * @param fill - fill parameter (`string`) / 填充参数（`string`）
    * @returns Result of type `string` / 类型为 `string` 的返回值
    */
   static get(name: string, fill = DEFAULT_ICON_FILL): string {

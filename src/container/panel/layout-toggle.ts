@@ -78,7 +78,7 @@ export abstract class LayoutToggle extends _DuiLayoutToggleMixinBase implements 
    * @zh 创建 `LayoutToggle` 实例，并初始化其依赖项与内部状态。
    * @param _panel - Injected or initial panel (`ILayoutTogglable`) / 注入或传入的面板（`ILayoutTogglable`）
    * @param _renderer - Injected or initial renderer (`Renderer2`) / 注入或传入的渲染器（`Renderer2`）
-   * @param _elementRef - Injected or initial element ref (`ElementRef`) / 注入或传入的元素引用（`ElementRef`）
+   * @param _elementRef - Injected or initial element ref (`ElementRef<any>`) / 注入或传入的元素引用（`ElementRef<any>`）
    */
   constructor(protected _panel: ILayoutTogglable,
     private _renderer: Renderer2,

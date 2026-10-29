@@ -49,15 +49,15 @@ interface MatFormFieldConfig extends FieldConfig {
 export class ExtFieldWrapper extends FieldWrapper<MatFormFieldConfig> implements OnInit, OnDestroy, MatFormFieldControl<unknown>, AfterContentChecked {
 
   /**
-   * Template/content query reference `fieldComponent` (`@ViewChild`) targeting field component.
+   * Template/content query reference `fieldComponent` (`ViewContainerRef`) targeting field component.
    * @zh 模板/内容视图查询引用 `fieldComponent`（`@ViewChild`），指向字段组件。
    */
   @ViewChild('fieldComponent', { read: ViewContainerRef }) declare fieldComponent: ViewContainerRef;
 
 
   /**
-   * Property `stateChanges` (`Subject`) storing state changes (default: `new Subject<void>()`).
-   * @zh 属性 `stateChanges`（类型：`Subject`），用于存储或配置状态变更集合（默认值：`new Subject<void>()`）。
+   * Property `stateChanges` (`Subject<void>`) storing state changes (default: `new Subject<void>()`).
+   * @zh 属性 `stateChanges`（类型：`Subject<void>`），用于存储或配置状态变更集合（默认值：`new Subject<void>()`）。
    */
   stateChanges = new Subject<void>();
   /**

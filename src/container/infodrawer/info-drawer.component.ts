@@ -32,7 +32,7 @@ export class InfoDrawerTabComponent {
   icon: string = null;
 
   /**
-   * Template/content query reference `content` (`@ViewChild`) targeting content.
+   * Template/content query reference `content` (`TemplateRef<unknown>`) targeting content.
    * @zh 模板/内容视图查询引用 `content`（`@ViewChild`），指向内容。
    */
   @ViewChild(TemplateRef)
@@ -56,7 +56,7 @@ export class InfoDrawerTabComponent {
 export class InfoDrawerComponent {
   /**
    * The title of the info drawer (string or translation key).
-   * @zh 输入属性 `title`（类型：`string | null`），用于配置标题（默认值：`null`）。
+   * @zh 输入属性 `title`（类型：`string`），用于配置标题（默认值：`null`）。
    */
   @Input()
   title: string | null = null;
@@ -84,7 +84,7 @@ export class InfoDrawerComponent {
   onClose: EventEmitter<void> = new EventEmitter<void>();
 
   /**
-   * Template/content query reference `contentBlocks` (`@ContentChildren`) targeting content blocks.
+   * Template/content query reference `contentBlocks` (`QueryList<InfoDrawerTabComponent>`) targeting content blocks.
    * @zh 模板/内容视图查询引用 `contentBlocks`（`@ContentChildren`），指向内容块列表。
    */
   @ContentChildren(InfoDrawerTabComponent)

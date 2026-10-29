@@ -150,8 +150,8 @@ export class GridsterUtils {
   /**
    * Executes `compareItems` to handle compare items.
    * @zh 执行 `compareItems`，用于比较条目列表。
-   * @param a - a parameter (`{ x: number, y: number }`) / a参数（`{ x: number, y: number }`）
-   * @param b - b parameter (`{ x: number, y: number }`) / b参数（`{ x: number, y: number }`）
+   * @param a - a parameter (`{ x: number; y: number; }`) / a参数（`{ x: number; y: number; }`）
+   * @param b - b parameter (`{ x: number; y: number; }`) / b参数（`{ x: number; y: number; }`）
    * @returns Result of type `number` / 类型为 `number` 的返回值
    */
   static compareItems(a: { x: number, y: number }, b: { x: number, y: number }): number {

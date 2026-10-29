@@ -31,7 +31,7 @@ export interface ICanDisable {
 
 /**
  * Mixin to augment a component or directive with a `disabled` property.
- * @zh 执行 `mixinDisabled`，用于mixin已禁用。
+ * @zh 执行 `mixinDisabled`，用于混入已禁用。
  */
 export function mixinDisabled<T extends Constructor<object>>(
   base: T

@@ -5,6 +5,7 @@
 
 /* eslint-disable @typescript-eslint/no-unused-vars */
 
+import { DuiConfig } from '@dotos/dui/base';
 import {
     ChangeDetectionStrategy,
     ChangeDetectorRef,
@@ -21,8 +22,11 @@ import {
     ViewEncapsulation,
 } from '@angular/core';
 import { MatTabChangeEvent, MatTabHeaderPosition } from '@angular/material/tabs';
-import { isArray, each } from 'lodash-es';
 import { AbstractPanel } from '../panel/abstract.panel';
+import { ComponentBase } from '@dotos/dui/core';
+import { ContainerItem } from '../container.main';
+
+const isRenderedItem = (c: ContainerItem): c is ComponentBase => !!(c as ComponentBase).reference;
 import { PanelComponent } from '../panel/panel.component';
 
 /**
@@ -40,10 +44,10 @@ import { PanelComponent } from '../panel/panel.component';
 export class TabPanel extends AbstractPanel implements OnChanges, OnDestroy {
 
   /**
-   * Input property `config` (`any`) configuring config (default: `{}`).
-   * @zh 输入属性 `config`（类型：`any`），用于配置配置（默认值：`{}`）。
+   * Input property `config` (`DuiConfig`) configuring config (default: `{}`).
+   * @zh 输入属性 `config`（类型：`DuiConfig`），用于配置配置（默认值：`{}`）。
    */
-  @Input() override config = {};
+  @Input() override config: DuiConfig = {};
 
   /**
    * Property `xtype` (`string`) storing xtype (default: `'tabpanel'`).
@@ -89,7 +93,7 @@ export class TabPanel extends AbstractPanel implements OnChanges, OnDestroy {
   public noload: boolean = false;
 
   /**
-   * Template/content query reference `_tabContainer` (`@ViewChildren`) targeting tab container.
+   * Template/content query reference `_tabContainer` (`QueryList<ViewContainerRef>`) targeting tab container.
    * @zh 模板/内容视图查询引用 `_tabContainer`（`@ViewChildren`），指向选项卡容器。
    */
   @ViewChildren('tabpanel', { read: ViewContainerRef }) public _tabContainer: QueryList<ViewContainerRef>;
@@ -97,7 +101,7 @@ export class TabPanel extends AbstractPanel implements OnChanges, OnDestroy {
   /**
    * Creates an instance of `TabPanel` and initializes its dependencies and internal state.
    * @zh 创建 `TabPanel` 实例，并初始化其依赖项与内部状态。
-   * @param _element - Injected or initial element (`ElementRef`) / 注入或传入的元素（`ElementRef`）
+   * @param _element - Injected or initial element (`ElementRef<any>`) / 注入或传入的元素（`ElementRef<any>`）
    * @param renderer - Injected or initial renderer (`Renderer2`) / 注入或传入的渲染器（`Renderer2`）
    * @param resolver - Injected or initial resolver (`ComponentFactoryResolver`) / 注入或传入的解析器（`ComponentFactoryResolver`）
    * @param injector - Injected or initial injector (`Injector`) / 注入或传入的注入器（`Injector`）
@@ -144,45 +148,23 @@ export class TabPanel extends AbstractPanel implements OnChanges, OnDestroy {
     super.ngOnDestroy();
   }
 
-  /**
-   * Executes `add` to handle add.
-   * @zh 执行 `add`，用于添加。
-   * @param comp - comp parameter (`any`) / 组件参数（`any`）
-   * @returns Result of type `any` / 类型为 `any` 的返回值
-   */
-  override add(comp) {
-    this.initItems();
-    const args = arguments.length > 1;
-    if (args || isArray(comp)) {
-      const result = [];
-      each(args ? arguments : comp,
-        (c) => {
-          result.push(this.add(c));
-        });
-      return result;
-    }
-    if (comp.reference) {
-      const index = this.items.length;
-      let tabArray = this._tabContainer.toArray();
-      this.items.add(comp);
-      tabArray[index].insert(comp.reference.hostView);
-      this.trigger('add', { panel: this, component: comp, index: index });
-    } else {
-      const component = this.lookupComponent(this.applyDefaults(comp));
-      const index = this.items.length;
-      let tabArray = this._tabContainer.toArray();
-      this.items.add(component);
-      tabArray[index].insert(component.reference.hostView);
-      this.trigger('add', { panel: this, component: comp, index: index });
-      return component;
-    }
-  }
 
   /**
    * Executes `onAdd` to handle on add.
    * @zh 执行 `onAdd`，用于当添加。
    * @param c - c parameter (`any`) / c参数（`any`）
    */
+  /** 标签页：子组件插到对应标签的视图容器里，不走 Container 的 onAdded/onAdd 流程（沿用原行为） */
+  protected override addOne(comp: ContainerItem): ComponentBase {
+    const component = isRenderedItem(comp) ? comp : this.lookupComponent(this.applyDefaults(comp));
+    const index = this.items.length;
+    const tabArray = this._tabContainer.toArray();
+    this.items.add(component);
+    tabArray[index].insert(component.reference.hostView);
+    this.trigger('add', { panel: this, component: comp, index: index });
+    return component;
+  }
+
   override onAdd(c) {
     super.onAdd(c);
     this.tabs.push({ title: c.title ?? c.titile, disable: c.disable });
@@ -192,10 +174,10 @@ export class TabPanel extends AbstractPanel implements OnChanges, OnDestroy {
   /**
    * Executes `onBeforeAdd` to handle on before add.
    * @zh 执行 `onBeforeAdd`，用于当之前添加。
-   * @param item - item parameter (`any`) / 条目参数（`any`）
+   * @param item - item parameter (`ComponentBase`) / 条目参数（`ComponentBase`）
    */
-  override onBeforeAdd(item) {
-    super.onBeforeAdd(arguments);
+  override onBeforeAdd(item: ComponentBase): boolean {
+    super.onBeforeAdd(item);
     return true;
   }
 
@@ -261,11 +243,11 @@ export class TabPanel extends AbstractPanel implements OnChanges, OnDestroy {
   /**
    * Executes `getItem` to handle get item.
    * @zh 执行 `getItem`，用于获取条目。
-   * @param item - item parameter (`any`) / 条目参数（`any`）
+   * @param item - item parameter (`string | number | ComponentBase`) / 条目参数（`string | number | ComponentBase`）
    * @returns Result of type `PanelComponent` / 类型为 `PanelComponent` 的返回值
    */
-  getItem(item): PanelComponent {
-    return this.getComponent(item);
+  getItem(item: ComponentBase | string | number): PanelComponent {
+    return this.getComponent(item) as PanelComponent;
   }
 
 

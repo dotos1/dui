@@ -32,7 +32,7 @@ import { OptionsService } from './options.service';
 export class TextFieldComponent extends MatField implements OnInit, AfterViewInit, OnDestroy {
 
   /**
-   * Template/content query reference `autocompleteTrigger` (`@ViewChild`) targeting autocomplete trigger.
+   * Template/content query reference `autocompleteTrigger` (`MatAutocompleteTrigger`) targeting autocomplete trigger.
    * @zh 模板/内容视图查询引用 `autocompleteTrigger`（`@ViewChild`），指向自动补全触发。
    */
   @ViewChild('autoCompleteInput', { read: MatAutocompleteTrigger })
@@ -79,8 +79,8 @@ export class TextFieldComponent extends MatField implements OnInit, AfterViewIni
   public searching: boolean = false;
 
   /**
-   * Property `_onDestroy` (`Subject`) storing on destroy (default: `new Subject<void>()`).
-   * @zh 属性 `_onDestroy`（类型：`Subject`），用于存储或配置当销毁（默认值：`new Subject<void>()`）。
+   * Property `_onDestroy` (`Subject<void>`) storing on destroy (default: `new Subject<void>()`).
+   * @zh 属性 `_onDestroy`（类型：`Subject<void>`），用于存储或配置当销毁（默认值：`new Subject<void>()`）。
    */
   protected _onDestroy = new Subject<void>();
 
@@ -95,7 +95,7 @@ export class TextFieldComponent extends MatField implements OnInit, AfterViewIni
   /**
    * Creates an instance of `TextFieldComponent` and initializes its dependencies and internal state.
    * @zh 创建 `TextFieldComponent` 实例，并初始化其依赖项与内部状态。
-   * @param _elementRef - Injected or initial element ref (`ElementRef`) / 注入或传入的元素引用（`ElementRef`）
+   * @param _elementRef - Injected or initial element ref (`ElementRef<any>`) / 注入或传入的元素引用（`ElementRef<any>`）
    * @param translate - Injected or initial translate (`TranslateService`) / 注入或传入的翻译（`TranslateService`）
    * @param optionService - Injected or initial option service (`OptionsService`) / 注入或传入的选项服务（`OptionsService`）
    * @param changeDetector - Injected or initial change detector (`ChangeDetectorRef`) / 注入或传入的变更检测器（`ChangeDetectorRef`）
@@ -277,7 +277,7 @@ export class TextFieldComponent extends MatField implements OnInit, AfterViewIni
 
   /**
    * Executes `trackByOption` to handle track by option.
-   * @zh 执行 `trackByOption`，用于track按选项。
+   * @zh 执行 `trackByOption`，用于跟踪按选项。
    * @param index - index parameter (`number`) / 索引参数（`number`）
    * @param option - option parameter (`any`) / 选项参数（`any`）
    */

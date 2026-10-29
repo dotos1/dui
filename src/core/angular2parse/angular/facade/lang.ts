@@ -10,23 +10,23 @@
  */
 export interface BrowserNodeGlobal {
     /**
-     * Property `Object` (`typeof Object`) storing object.
-     * @zh 属性 `Object`（类型：`typeof Object`），用于存储或配置对象。
+     * Property `Object` (`ObjectConstructor`) storing object.
+     * @zh 属性 `Object`（类型：`ObjectConstructor`），用于存储或配置对象。
      */
     Object: typeof Object;
     /**
-     * Property `Array` (`typeof Array`) storing array.
-     * @zh 属性 `Array`（类型：`typeof Array`），用于存储或配置数组。
+     * Property `Array` (`ArrayConstructor`) storing array.
+     * @zh 属性 `Array`（类型：`ArrayConstructor`），用于存储或配置数组。
      */
     Array: typeof Array;
     /**
-     * Property `Map` (`typeof Map`) storing map.
-     * @zh 属性 `Map`（类型：`typeof Map`），用于存储或配置映射表。
+     * Property `Map` (`MapConstructor`) storing map.
+     * @zh 属性 `Map`（类型：`MapConstructor`），用于存储或配置映射表。
      */
     Map: typeof Map;
     /**
-     * Property `Set` (`typeof Set`) storing set.
-     * @zh 属性 `Set`（类型：`typeof Set`），用于存储或配置集合。
+     * Property `Set` (`SetConstructor`) storing set.
+     * @zh 属性 `Set`（类型：`SetConstructor`），用于存储或配置集合。
      */
     Set: typeof Set;
     /**
@@ -40,8 +40,8 @@ export interface BrowserNodeGlobal {
      */
     RegExp: RegExpConstructor;
     /**
-     * Property `JSON` (`typeof JSON`) storing json.
-     * @zh 属性 `JSON`（类型：`typeof JSON`），用于存储或配置JSON。
+     * Property `JSON` (`JSON`) storing json.
+     * @zh 属性 `JSON`（类型：`JSON`），用于存储或配置JSON。
      */
     JSON: typeof JSON;
     /**
@@ -76,8 +76,8 @@ export interface BrowserNodeGlobal {
      */
     getAllAngularRootElements: Function;
     /**
-     * Property `frameworkStabilizers` (`Array<Function>`) storing framework stabilizers.
-     * @zh 属性 `frameworkStabilizers`（类型：`Array<Function>`），用于存储或配置frameworkStabilizers。
+     * Property `frameworkStabilizers` (`Function[]`) storing framework stabilizers.
+     * @zh 属性 `frameworkStabilizers`（类型：`Function[]`），用于存储或配置frameworkStabilizers。
      */
     frameworkStabilizers: Array<Function>;
     /**
@@ -234,7 +234,7 @@ export function isJsObject(o): boolean {
 /**
  * Executes `print` to handle print.
  * @zh 执行 `print`，用于打印。
- * @param obj - obj parameter (`Error | Object`) / 对象参数（`Error | Object`）
+ * @param obj - obj parameter (`Object | Error`) / 对象参数（`Object | Error`）
  */
 export function print(obj: Error | Object) {
     // tslint:disable-next-line:no-console
@@ -244,7 +244,7 @@ export function print(obj: Error | Object) {
 /**
  * Executes `warn` to handle warn.
  * @zh 执行 `warn`，用于警告色。
- * @param obj - obj parameter (`Error | Object`) / 对象参数（`Error | Object`）
+ * @param obj - obj parameter (`Object | Error`) / 对象参数（`Object | Error`）
  */
 export function warn(obj: Error | Object) {
     console.warn(obj);

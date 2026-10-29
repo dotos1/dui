@@ -37,8 +37,8 @@ export class SecurePipe implements PipeTransform, OnDestroy {
      */
     private lastResult?: Observable<SafeUrl>;
     /**
-     * Property `destroy$` (`Subject`) storing destroy (default: `new Subject<void>()`).
-     * @zh 属性 `destroy$`（类型：`Subject`），用于存储或配置销毁（默认值：`new Subject<void>()`）。
+     * Property `destroy$` (`Subject<void>`) storing destroy (default: `new Subject<void>()`).
+     * @zh 属性 `destroy$`（类型：`Subject<void>`），用于存储或配置销毁（默认值：`new Subject<void>()`）。
      */
     private destroy$ = new Subject<void>();
 

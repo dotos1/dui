@@ -21,8 +21,8 @@ import { Dui } from '@dotos/dui/core'
 })
 export class DuiLayoutModule {
   /**
-   * Property `dynamicComponents` (`any[]`) storing dynamic components (default: `[LayoutComponent,DuiPanelComponent]`).
-   * @zh 属性 `dynamicComponents`（类型：`any[]`），用于存储或配置动态组件列表（默认值：`[LayoutComponent,DuiPanelComponent]`）。
+   * Property `dynamicComponents` (`(typeof LayoutComponent | typeof DuiPanelComponent)[]`) storing dynamic components (default: `[LayoutComponent,DuiPanelComponent]`).
+   * @zh 属性 `dynamicComponents`（类型：`(typeof LayoutComponent | typeof DuiPanelComponent)[]`），用于存储或配置动态组件列表（默认值：`[LayoutComponent,DuiPanelComponent]`）。
    */
   dynamicComponents = [LayoutComponent,DuiPanelComponent];
   /**

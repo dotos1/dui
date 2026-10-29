@@ -17,13 +17,13 @@ export class HeaderButton {
      */
     private _element: HTMLElement;
     /**
-     * Property `_clickEventListener` (`any`) storing click event listener (default: `(ev: MouseEvent) => this.onClick(ev)`).
-     * @zh 属性 `_clickEventListener`（类型：`any`），用于存储或配置点击事件监听器（默认值：`(ev: MouseEvent) => this.onClick(ev)`）。
+     * Property `_clickEventListener` (`(ev: MouseEvent) => void`) storing click event listener (default: `(ev: MouseEvent) => this.onClick(ev)`).
+     * @zh 属性 `_clickEventListener`（类型：`(ev: MouseEvent) => void`），用于存储或配置点击事件监听器（默认值：`(ev: MouseEvent) => this.onClick(ev)`）。
      */
     private _clickEventListener = (ev: MouseEvent) => this.onClick(ev);
     /**
-     * Property `_touchStartEventListener` (`any`) storing touch start event listener.
-     * @zh 属性 `_touchStartEventListener`（类型：`any`），用于存储或配置触摸开始事件监听器。
+     * Property `_touchStartEventListener` (`(ev: TouchEvent) => void`) storing touch start event listener.
+     * @zh 属性 `_touchStartEventListener`（类型：`(ev: TouchEvent) => void`），用于存储或配置触摸开始事件监听器。
      */
     private _touchStartEventListener = (ev: TouchEvent) => this.onTouchStart(ev);
 

@@ -88,7 +88,7 @@ function removeAll(root: ParentNode, selector: string) {
 
 /**
  * Executes `cleanAttributes` to handle clean attributes.
- * @zh 执行 `cleanAttributes`，用于clean属性列表。
+ * @zh 执行 `cleanAttributes`，用于清理属性列表。
  * @param el - el parameter (`Element`) / DOM元素参数（`Element`）
  */
 function cleanAttributes(el: Element) {

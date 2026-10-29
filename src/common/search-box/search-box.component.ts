@@ -3,6 +3,7 @@
  * @zh 模块文件 `src/common/search-box/search-box.component.ts`，提供搜索盒子容器组件相关的定义与实现。
  */
 
+import { DuiConfig } from '@dotos/dui/base';
 import {
   Component,
   ViewChild,
@@ -94,7 +95,7 @@ export class SearchBoxComponent implements ControlValueAccessor {
    */
   private _searchVisible = false;
   /**
-   * Template/content query reference `_searchInput` (`@ViewChild`) targeting search input.
+   * Template/content query reference `_searchInput` (`SearchInputComponent`) targeting search input.
    * @zh 模板/内容视图查询引用 `_searchInput`（`@ViewChild`），指向搜索输入属性。
    */
   @ViewChild(SearchInputComponent, { static: true })
@@ -113,7 +114,7 @@ export class SearchBoxComponent implements ControlValueAccessor {
    * start with the input expanded.
    * @zh 通过 {@link Dui.apply} 应用的配置对象；可设置 `hasDefault`/`defaultGrp` 使输入框初始为展开状态。
    */
-  @Input() config = {};
+  @Input() config: DuiConfig = {};
 
   /**
    * Input property `backIcon` (`string`) configuring back icon (default: `'search'`).

@@ -19,7 +19,7 @@ export function removeLeadingHash(str: string): string {
 /**
  * Executes `removeTrailingHash` to handle remove trailing hash.
  * @zh 执行 `removeTrailingHash`，用于移除TrailingHash。
- * @param str - str parameter (`string | null`) / 字符串参数（`string | null`）
+ * @param str - str parameter (`string`) / 字符串参数（`string`）
  * @returns Result of type `string` / 类型为 `string` 的返回值
  */
 export function removeTrailingHash(str: string | null): string {

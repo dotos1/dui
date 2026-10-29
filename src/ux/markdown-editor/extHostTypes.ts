@@ -13,7 +13,7 @@ import {Uri} from "monaco-editor";
 /**
  * Executes `values` to handle values.
  * @zh 执行 `values`，用于值列表。
- * @param forEachable - for eachable parameter (`{ forEach(callback: (value: V, ...more: any[]) => any): void...`) / 用于Eachable参数（`{ forEach(callback: (value: V, ...more: any[]) => any): void...`）
+ * @param forEachable - for eachable parameter (`{ forEach(callback: { (value: V, ...more: any): any; }): void; }`) / 用于Eachable参数（`{ forEach(callback: { (value: V, ...more: any): any; }): void; }`）
  * @returns Result of type `V[]` / 类型为 `V[]` 的返回值
  */
 export function values<V>(forEachable: { forEach(callback: { (value: V, ...more) }): void }): V[] {
@@ -72,7 +72,7 @@ export class Position {
      * Executes `isPosition` to handle is position.
      * @zh 执行 `isPosition`，用于是否为位置。
      * @param other - other parameter (`any`) / 其他参数（`any`）
-     * @returns Result of type `other is Position` / 类型为 `other is Position` 的返回值
+     * @returns Result of type `boolean` / 类型为 `boolean` 的返回值
      */
     static isPosition(other): other is Position {
         if (!other) {
@@ -236,7 +236,7 @@ export class Position {
     /**
      * Executes `translate` to handle translate.
      * @zh 执行 `translate`，用于翻译。
-     * @param lineDeltaOrChange - line delta or change parameter (`number | undefined | { lineDelta?: number; characterDelta?:...`) / 线段增量Or变更参数（`number | undefined | { lineDelta?: number; characterDelta?:...`）
+     * @param lineDeltaOrChange - line delta or change parameter (`number | { lineDelta?: number; characterDelta?: number; }`) / 线段增量Or变更参数（`number | { lineDelta?: number; characterDelta?: number; }`）
      * @param characterDelta - character delta parameter (`number`) / 字符增量参数（`number`）
      * @returns Result of type `Position` / 类型为 `Position` 的返回值
      */
@@ -280,7 +280,7 @@ export class Position {
     /**
      * Executes `with` to handle with.
      * @zh 执行 `with`，用于带有。
-     * @param lineOrChange - line or change parameter (`number | undefined | { line?: number; character?: number; }`) / 线段Or变更参数（`number | undefined | { line?: number; character?: number; }`）
+     * @param lineOrChange - line or change parameter (`number | { line?: number; character?: number; }`) / 线段Or变更参数（`number | { line?: number; character?: number; }`）
      * @param character - character parameter (`number`) / 字符参数（`number`）
      * @returns Result of type `Position` / 类型为 `Position` 的返回值
      */
@@ -311,7 +311,7 @@ export class Position {
     /**
      * Executes `toJSON` to handle to json.
      * @zh 执行 `toJSON`，用于转换为JSON。
-     * @returns Result of type `any` / 类型为 `any` 的返回值
+     * @returns Result of type `{ line: number; character: number; }` / 类型为 `{ line: number; character: number; }` 的返回值
      */
     toJSON() {
         return { line: this.line, character: this.character };
@@ -454,7 +454,7 @@ export class Range {
      * Executes `intersection` to handle intersection.
      * @zh 执行 `intersection`，用于intersection。
      * @param other - other parameter (`Range`) / 其他参数（`Range`）
-     * @returns Result of type `Range | undefined` / 类型为 `Range | undefined` 的返回值
+     * @returns Result of type `Range` / 类型为 `Range` 的返回值
      */
     intersection(other: Range): Range | undefined {
         const start = Position.Max(other.start, this._start);
@@ -504,7 +504,7 @@ export class Range {
     /**
      * Executes `with` to handle with.
      * @zh 执行 `with`，用于带有。
-     * @param change - change parameter (`{ start?: Position, end?: Position }`) / 变更参数（`{ start?: Position, end?: Position }`）
+     * @param change - change parameter (`{ start?: Position; end?: Position; }`) / 变更参数（`{ start?: Position; end?: Position; }`）
      * @returns Result of type `Range` / 类型为 `Range` 的返回值
      */
     with(change: { start?: Position, end?: Position }): Range;
@@ -519,7 +519,7 @@ export class Range {
     /**
      * Executes `with` to handle with.
      * @zh 执行 `with`，用于带有。
-     * @param startOrChange - start or change parameter (`Position | undefined | { start?: Position, end?: Position }`) / 开始Or变更参数（`Position | undefined | { start?: Position, end?: Position }`）
+     * @param startOrChange - start or change parameter (`Position | { start?: Position; end?: Position; }`) / 开始Or变更参数（`Position | { start?: Position; end?: Position; }`）
      * @param end - end parameter (`Position`) / 结束参数（`Position`）
      * @returns Result of type `Range` / 类型为 `Range` 的返回值
      */
@@ -550,7 +550,7 @@ export class Range {
     /**
      * Executes `toJSON` to handle to json.
      * @zh 执行 `toJSON`，用于转换为JSON。
-     * @returns Result of type `any` / 类型为 `any` 的返回值
+     * @returns Result of type `object` / 类型为 `object` 的返回值
      */
     toJSON(): object {
         return [this.start, this.end];
@@ -567,7 +567,7 @@ export class Selection extends Range {
      * Executes `isSelection` to handle is selection.
      * @zh 执行 `isSelection`，用于是否为Selection。
      * @param thing - thing parameter (`any`) / thing参数（`any`）
-     * @returns Result of type `thing is Selection` / 类型为 `thing is Selection` 的返回值
+     * @returns Result of type `boolean` / 类型为 `boolean` 的返回值
      */
     static isSelection(thing): thing is Selection {
         if (thing instanceof Selection) {
@@ -705,7 +705,7 @@ export class TextEdit {
      * Executes `isTextEdit` to handle is text edit.
      * @zh 执行 `isTextEdit`，用于是否为文本编辑。
      * @param thing - thing parameter (`any`) / thing参数（`any`）
-     * @returns Result of type `thing is TextEdit` / 类型为 `thing is TextEdit` 的返回值
+     * @returns Result of type `boolean` / 类型为 `boolean` 的返回值
      */
     static isTextEdit(thing): thing is TextEdit {
         if (thing instanceof TextEdit) {
@@ -768,8 +768,8 @@ export class TextEdit {
      */
     protected _range: Range;
     /**
-     * Property `_newText` (`string | null`) storing new text.
-     * @zh 属性 `_newText`（类型：`string | null`），用于存储或配置新文本。
+     * Property `_newText` (`string`) storing new text.
+     * @zh 属性 `_newText`（类型：`string`），用于存储或配置新文本。
      */
     protected _newText: string | null;
     /**
@@ -842,7 +842,7 @@ export class TextEdit {
      * Creates an instance of `TextEdit` and initializes its dependencies and internal state.
      * @zh 创建 `TextEdit` 实例，并初始化其依赖项与内部状态。
      * @param range - Injected or initial range (`Range`) / 注入或传入的范围（`Range`）
-     * @param newText - Injected or initial new text (`string | null`) / 注入或传入的新文本（`string | null`）
+     * @param newText - Injected or initial new text (`string`) / 注入或传入的新文本（`string`）
      */
     constructor(range: Range, newText: string | null) {
         this.range = range;
@@ -852,7 +852,7 @@ export class TextEdit {
     /**
      * Executes `toJSON` to handle to json.
      * @zh 执行 `toJSON`，用于转换为JSON。
-     * @returns Result of type `any` / 类型为 `any` 的返回值
+     * @returns Result of type `{ range: Range; newText: string; newEol: EndOfLine; }` / 类型为 `{ range: Range; newText: string; newEol: EndOfLine; }` 的返回值
      */
     toJSON() {
         return {
@@ -947,8 +947,8 @@ export interface IFileTextEdit {
 export class WorkspaceEdit {
 
     /**
-     * Property `_edits` (`Array`) storing edits.
-     * @zh 属性 `_edits`（类型：`Array`），用于存储或配置编辑。
+     * Property `_edits` (`(IFileOperation | IFileTextEdit)[]`) storing edits.
+     * @zh 属性 `_edits`（类型：`(IFileOperation | IFileTextEdit)[]`），用于存储或配置编辑。
      */
     private _edits = new Array<IFileOperation | IFileTextEdit>();
 
@@ -957,7 +957,7 @@ export class WorkspaceEdit {
      * @zh 执行 `renameFile`，用于rename文件。
      * @param from - from parameter (`Uri`) / 从参数（`Uri`）
      * @param to - to parameter (`Uri`) / 转换为参数（`Uri`）
-     * @param options - options parameter (`{ overwrite?: boolean, ignoreIfExists?: boolean }`) / 配置选项参数（`{ overwrite?: boolean, ignoreIfExists?: boolean }`）
+     * @param options - options parameter (`{ overwrite?: boolean; ignoreIfExists?: boolean; }`) / 配置选项参数（`{ overwrite?: boolean; ignoreIfExists?: boolean; }`）
      */
     renameFile(from: Uri, to: Uri, options?: { overwrite?: boolean, ignoreIfExists?: boolean }): void {
         this._edits.push({ _type: 1, from, to, options });
@@ -967,7 +967,7 @@ export class WorkspaceEdit {
      * Executes `createFile` to handle create file.
      * @zh 执行 `createFile`，用于创建文件。
      * @param uri - uri parameter (`Uri`) / 资源标识参数（`Uri`）
-     * @param options - options parameter (`{ overwrite?: boolean, ignoreIfExists?: boolean }`) / 配置选项参数（`{ overwrite?: boolean, ignoreIfExists?: boolean }`）
+     * @param options - options parameter (`{ overwrite?: boolean; ignoreIfExists?: boolean; }`) / 配置选项参数（`{ overwrite?: boolean; ignoreIfExists?: boolean; }`）
      */
     createFile(uri: Uri, options?: { overwrite?: boolean, ignoreIfExists?: boolean }): void {
         this._edits.push({ _type: 1, from: undefined, to: uri, options });
@@ -977,7 +977,7 @@ export class WorkspaceEdit {
      * Executes `deleteFile` to handle delete file.
      * @zh 执行 `deleteFile`，用于删除文件。
      * @param uri - uri parameter (`Uri`) / 资源标识参数（`Uri`）
-     * @param options - options parameter (`{ recursive?: boolean, ignoreIfNotExists?: boolean }`) / 配置选项参数（`{ recursive?: boolean, ignoreIfNotExists?: boolean }`）
+     * @param options - options parameter (`{ recursive?: boolean; ignoreIfNotExists?: boolean; }`) / 配置选项参数（`{ recursive?: boolean; ignoreIfNotExists?: boolean; }`）
      */
     deleteFile(uri: Uri, options?: { recursive?: boolean, ignoreIfNotExists?: boolean }): void {
         this._edits.push({ _type: 1, from: uri, to: undefined, options });
@@ -1120,7 +1120,7 @@ export class WorkspaceEdit {
     /**
      * Executes `toJSON` to handle to json.
      * @zh 执行 `toJSON`，用于转换为JSON。
-     * @returns Result of type `any` / 类型为 `any` 的返回值
+     * @returns Result of type `[Uri, TextEdit[]][]` / 类型为 `[Uri, TextEdit[]][]` 的返回值
      */
     toJSON() {
         return this.entries();
@@ -1187,7 +1187,7 @@ export class SnippetString {
      * Executes `isSnippetString` to handle is snippet string.
      * @zh 执行 `isSnippetString`，用于是否为Snippet字符串。
      * @param thing - thing parameter (`any`) / thing参数（`any`）
-     * @returns Result of type `thing is SnippetString` / 类型为 `thing is SnippetString` 的返回值
+     * @returns Result of type `boolean` / 类型为 `boolean` 的返回值
      */
     static isSnippetString(thing): thing is SnippetString {
         if (thing instanceof SnippetString) {
@@ -1256,7 +1256,7 @@ export class SnippetString {
     /**
      * Executes `appendPlaceholder` to handle append placeholder.
      * @zh 执行 `appendPlaceholder`，用于追加占位提示。
-     * @param value - value parameter (`string | ((snippet: SnippetString) => any)`) / 值参数（`string | ((snippet: SnippetString) => any)`）
+     * @param value - value parameter (`any`) / 值参数（`any`）
      * @param number - number parameter (`number`) / 数字参数（`number`）
      * @returns Result of type `SnippetString` / 类型为 `SnippetString` 的返回值
      */
@@ -1285,7 +1285,7 @@ export class SnippetString {
      * Executes `appendVariable` to handle append variable.
      * @zh 执行 `appendVariable`，用于追加Variable。
      * @param name - name parameter (`string`) / 名称参数（`string`）
-     * @param defaultValue - default value parameter (`string | ((snippet: SnippetString) => any)`) / 默认值参数（`string | ((snippet: SnippetString) => any)`）
+     * @param defaultValue - default value parameter (`any`) / 默认值参数（`any`）
      * @returns Result of type `SnippetString` / 类型为 `SnippetString` 的返回值
      */
     appendVariable(name: string, defaultValue?): SnippetString {

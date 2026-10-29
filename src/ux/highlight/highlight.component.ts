@@ -101,19 +101,19 @@ export class HighlightComponent implements AfterViewInit {
   @Output() contentReady: EventEmitter<void> = new EventEmitter<void>();
 
   /**
-   * Template/content query reference `highlightComp` (`@ViewChild`) targeting highlight comp.
+   * Template/content query reference `highlightComp` (`ElementRef<any>`) targeting highlight comp.
    * @zh 模板/内容视图查询引用 `highlightComp`（`@ViewChild`），指向highlight组件。
    */
   @ViewChild('highlightComponent') highlightComp: ElementRef;
 
   /**
-   * Template/content query reference `copyComp` (`@ViewChild`) targeting copy comp.
+   * Template/content query reference `copyComp` (`ElementRef<any>`) targeting copy comp.
    * @zh 模板/内容视图查询引用 `copyComp`（`@ViewChild`），指向复制组件。
    */
   @ViewChild('copyComponent') copyComp: ElementRef;
 
   /**
-   * Template/content query reference `tooltip` (`@ViewChild`) targeting tooltip.
+   * Template/content query reference `tooltip` (`MatTooltip`) targeting tooltip.
    * @zh 模板/内容视图查询引用 `tooltip`（`@ViewChild`），指向悬浮提示。
    */
   @ViewChild('tooltip') tooltip: MatTooltip;
@@ -122,7 +122,7 @@ export class HighlightComponent implements AfterViewInit {
    * Creates an instance of `HighlightComponent` and initializes its dependencies and internal state.
    * @zh 创建 `HighlightComponent` 实例，并初始化其依赖项与内部状态。
    * @param _renderer - Injected or initial renderer (`Renderer2`) / 注入或传入的渲染器（`Renderer2`）
-   * @param _elementRef - Injected or initial element ref (`ElementRef`) / 注入或传入的元素引用（`ElementRef`）
+   * @param _elementRef - Injected or initial element ref (`ElementRef<any>`) / 注入或传入的元素引用（`ElementRef<any>`）
    * @param _domSanitizer - Injected or initial dom sanitizer (`DomSanitizer`) / 注入或传入的DOM节点安全清理器（`DomSanitizer`）
    * @param cdr - Injected or initial cdr (`ChangeDetectorRef`) / 注入或传入的cdr（`ChangeDetectorRef`）
    */

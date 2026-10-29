@@ -167,7 +167,7 @@ export function queryParams(data: Record<string, unknown>): string {
 
 /**
  * Executes `throwError` to handle throw error.
- * @zh 执行 `throwError`，用于throw错误。
+ * @zh 执行 `throwError`，用于抛出错误。
  * @param message - message parameter (`string`) / 消息参数（`string`）
  * @returns Result of type `never` / 类型为 `never` 的返回值
  */

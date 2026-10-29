@@ -41,8 +41,8 @@ export const DEFAULT_WORD_REGEXP = createWordRegExp();
 
 /**
  * Executes `ensureValidWordDefinition` to handle ensure valid word definition.
- * @zh 执行 `ensureValidWordDefinition`，用于ensure有效WordDefinition。
- * @param wordDefinition - word definition parameter (`RegExp | null`) / wordDefinition参数（`RegExp | null`）
+ * @zh 执行 `ensureValidWordDefinition`，用于确保有效WordDefinition。
+ * @param wordDefinition - word definition parameter (`RegExp`) / wordDefinition参数（`RegExp`）
  * @returns Result of type `RegExp` / 类型为 `RegExp` 的返回值
  */
 export function ensureValidWordDefinition(wordDefinition?: RegExp | null): RegExp {
@@ -78,7 +78,7 @@ export function ensureValidWordDefinition(wordDefinition?: RegExp | null): RegEx
  * @param wordDefinition - word definition parameter (`RegExp`) / wordDefinition参数（`RegExp`）
  * @param text - text parameter (`string`) / 文本参数（`string`）
  * @param textOffset - text offset parameter (`number`) / 文本偏移量参数（`number`）
- * @returns Result of type `editor.IWordAtPosition | null` / 类型为 `editor.IWordAtPosition | null` 的返回值
+ * @returns Result of type `editor.IWordAtPosition` / 类型为 `editor.IWordAtPosition` 的返回值
  */
 function getWordAtPosFast(column: number, wordDefinition: RegExp, text: string, textOffset: number): editor.IWordAtPosition | null {
 	// find whitespace enclosed text around column and match from there
@@ -110,7 +110,7 @@ function getWordAtPosFast(column: number, wordDefinition: RegExp, text: string, 
  * @param wordDefinition - word definition parameter (`RegExp`) / wordDefinition参数（`RegExp`）
  * @param text - text parameter (`string`) / 文本参数（`string`）
  * @param textOffset - text offset parameter (`number`) / 文本偏移量参数（`number`）
- * @returns Result of type `editor.IWordAtPosition | null` / 类型为 `editor.IWordAtPosition | null` 的返回值
+ * @returns Result of type `editor.IWordAtPosition` / 类型为 `editor.IWordAtPosition` 的返回值
  */
 function getWordAtPosSlow(column: number, wordDefinition: RegExp, text: string, textOffset: number): editor.IWordAtPosition | null {
 
@@ -144,7 +144,7 @@ function getWordAtPosSlow(column: number, wordDefinition: RegExp, text: string, 
  * @param wordDefinition - word definition parameter (`RegExp`) / wordDefinition参数（`RegExp`）
  * @param text - text parameter (`string`) / 文本参数（`string`）
  * @param textOffset - text offset parameter (`number`) / 文本偏移量参数（`number`）
- * @returns Result of type `editor.IWordAtPosition | null` / 类型为 `editor.IWordAtPosition | null` 的返回值
+ * @returns Result of type `editor.IWordAtPosition` / 类型为 `editor.IWordAtPosition` 的返回值
  */
 export function getWordAtText(column: number, wordDefinition: RegExp, text: string, textOffset: number): editor.IWordAtPosition | null {
 

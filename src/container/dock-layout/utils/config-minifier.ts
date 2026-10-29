@@ -163,7 +163,7 @@ export namespace ConfigMinifier {
 
     /**
      * Executes `minifyKey` to handle minify key.
-     * @zh 执行 `minifyKey`，用于minify键。
+     * @zh 执行 `minifyKey`，用于压缩键。
      * @param value - value parameter (`string`) / 值参数（`string`）
      */
     function minifyKey(value: string) {
@@ -193,7 +193,7 @@ export namespace ConfigMinifier {
 
     /**
      * Executes `unminifyKey` to handle unminify key.
-     * @zh 执行 `unminifyKey`，用于unminify键。
+     * @zh 执行 `unminifyKey`，用于展开压缩的键。
      * @param key - key parameter (`string`) / 键参数（`string`）
      */
     function unminifyKey(key: string) {
@@ -221,7 +221,7 @@ export namespace ConfigMinifier {
 
     /**
      * Executes `minifyValue` to handle minify value.
-     * @zh 执行 `minifyValue`，用于minify值。
+     * @zh 执行 `minifyValue`，用于压缩值。
      * @param value - value parameter (`unknown`) / 值参数（`unknown`）
      */
     function minifyValue(value: unknown) {
@@ -251,7 +251,7 @@ export namespace ConfigMinifier {
 
     /**
      * Executes `unminifyValue` to handle unminify value.
-     * @zh 执行 `unminifyValue`，用于unminify值。
+     * @zh 执行 `unminifyValue`，用于展开压缩的值。
      * @param value - value parameter (`unknown`) / 值参数（`unknown`）
      */
     function unminifyValue(value: unknown) {

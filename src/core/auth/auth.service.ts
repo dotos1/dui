@@ -3,6 +3,7 @@
  * @zh 模块文件 `src/core/auth/auth.service.ts`，提供认证服务相关的定义与实现。
  */
 
+import { LogoutResult } from './logout-result';
 import { Injectable } from '@angular/core';
 import { HttpClient,  HttpParams } from '@angular/common/http';
 import { Observable, ReplaySubject, Subject, throwError } from 'rxjs';
@@ -59,15 +60,15 @@ export class AuthService {
   private redirectUrl: RedirectionModel = null;
 
   /**
-   * Property `onLogin` (`Subject<any>`) storing on login (default: `new Subject<any>()`).
-   * @zh 属性 `onLogin`（类型：`Subject<any>`），用于存储或配置当Login（默认值：`new Subject<any>()`）。
+   * Property `onLogin` (`Subject<unknown>`) storing on login (default: `new Subject<any>()`).
+   * @zh 属性 `onLogin`（类型：`Subject<unknown>`），用于存储或配置当Login（默认值：`new Subject<any>()`）。
    */
   onLogin = new Subject();
   /**
-   * Property `onLogout` (`Subject<any>`) storing on logout (default: `new Subject<any>()`).
-   * @zh 属性 `onLogout`（类型：`Subject<any>`），用于存储或配置当Logout（默认值：`new Subject<any>()`）。
+   * Property `onLogout` (`Subject<LogoutResult>`) storing on logout (default: `new Subject<any>()`).
+   * @zh 属性 `onLogout`（类型：`Subject<LogoutResult>`），用于存储或配置当Logout（默认值：`new Subject<any>()`）。
    */
-  onLogout = new Subject();
+  onLogout = new Subject<LogoutResult>();
 
   /**
    * Property `_redirectUrl` (`string`) storing redirect url.
@@ -189,7 +190,7 @@ export class AuthService {
   /**
    * Executes `getAuthenticated` to handle get authenticated.
    * @zh 执行 `getAuthenticated`，用于获取Authenticated。
-   * @returns Result of type `Observable<any>` / 类型为 `Observable<any>` 的返回值
+   * @returns Result of type `Observable<Object>` / 类型为 `Observable<Object>` 的返回值
    */
   getAuthenticated() {
     return this.http.get(this.loader.backend.endpoint, { withCredentials: true });
@@ -198,7 +199,7 @@ export class AuthService {
   /**
    * Executes `getRegistered` to handle get registered.
    * @zh 执行 `getRegistered`，用于获取已注册。
-   * @returns Result of type `Observable<any>` / 类型为 `Observable<any>` 的返回值
+   * @returns Result of type `Observable<Object>` / 类型为 `Observable<Object>` 的返回值
    */
   getRegistered() {
     return this.http.get(this.loader.backend.registerUrl, { withCredentials: true });
@@ -235,7 +236,7 @@ export class AuthService {
 
   /**
    * Executes `login` to handle login.
-   * @zh 执行 `login`，用于login。
+   * @zh 执行 `login`，用于登录。
    * @param username - username parameter (`string`) / 用户名参数（`string`）
    * @param password - password parameter (`string`) / 密码参数（`string`）
    * @param ticket - ticket parameter (`string`) / ticket参数（`string`）
@@ -290,11 +291,11 @@ export class AuthService {
   }
   /**
    * Executes `_login` to handle login.
-   * @zh 执行 `_login`，用于login。
+   * @zh 执行 `_login`，用于登录。
    * @param username - username parameter (`string`) / 用户名参数（`string`）
    * @param password - password parameter (`string`) / 密码参数（`string`）
    * @param ticket - ticket parameter (`string`) / ticket参数（`string`）
-   * @returns Result of type `Promise<any>` / 类型为 `Promise<any>` 的返回值
+   * @returns Result of type `Promise<unknown>` / 类型为 `Promise<unknown>` 的返回值
    */
   private _login(username: string, password: string, ticket: string) {
     if (!this.isCredentialValid(username) || !this.isCredentialValid(password)) {
@@ -339,7 +340,7 @@ export class AuthService {
   /**
    * Executes `implicitLogin` to handle implicit login.
    * @zh 执行 `implicitLogin`，用于implicitLogin。
-   * @returns Result of type `Promise<any>` / 类型为 `Promise<any>` 的返回值
+   * @returns Result of type `Promise<unknown>` / 类型为 `Promise<unknown>` 的返回值
    */
   implicitLogin() {
     if (!this.isOauth()) {
@@ -353,7 +354,7 @@ export class AuthService {
    * Executes `loginTicket` to handle login ticket.
    * @zh 执行 `loginTicket`，用于loginTicket。
    * @param ticket - ticket parameter (`string`) / ticket参数（`string`）
-   * @returns Result of type `Promise<any>` / 类型为 `Promise<any>` 的返回值
+   * @returns Result of type `Promise<unknown>` / 类型为 `Promise<unknown>` 的返回值
    */
   loginTicket(ticket: string) {
     this.config.setSetting('ticket', ticket);
@@ -363,7 +364,7 @@ export class AuthService {
    * Executes `logout` to handle logout.
    * @zh 执行 `logout`，用于logout。
    */
-  logout() {
+  logout(): Promise<void> {
     return this._logout().then((response) => {
       this.onLogout.next(response);
     });
@@ -371,9 +372,9 @@ export class AuthService {
   /**
    * Executes `_logout` to handle logout.
    * @zh 执行 `_logout`，用于logout。
-   * @returns Result of type `Promise<any>` / 类型为 `Promise<any>` 的返回值
+   * @returns Result of type `Promise<LogoutResult>` / 类型为 `Promise<LogoutResult>` 的返回值
    */
-  _logout() {
+  _logout(): Promise<LogoutResult> {
     this.username = null;
 
     if (this.isOauth()) {
@@ -546,7 +547,7 @@ export class AuthService {
    * Executes `handleError` to handle handle error.
    * @zh 执行 `handleError`，用于连接手柄错误。
    * @param error - error parameter (`any`) / 错误参数（`any`）
-   * @returns Result of type `Observable<any>` / 类型为 `Observable<any>` 的返回值
+   * @returns Result of type `Observable<never>` / 类型为 `Observable<never>` 的返回值
    */
   handleError(error) {
     this.logService.error('Error when logging in', error);

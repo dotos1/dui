@@ -78,15 +78,15 @@ export class TreeDropDirective implements AfterViewInit, OnDestroy {
    */
   private readonly dragLeaveEventHandler: (ev: DragEvent) => void;
   /**
-   * Property `unlisteners` (`Array<() => void>`) storing unlisteners (default: `[]`).
-   * @zh 属性 `unlisteners`（类型：`Array<() => void>`），用于存储或配置unlisteners（默认值：`[]`）。
+   * Property `unlisteners` (`(() => void)[]`) storing unlisteners (default: `[]`).
+   * @zh 属性 `unlisteners`（类型：`(() => void)[]`），用于存储或配置unlisteners（默认值：`[]`）。
    */
   private unlisteners: Array<() => void> = [];
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   /**
-   * Property `_allowDrop` (`any`) storing allow drop (default: `(element, $event) => true`).
-   * @zh 属性 `_allowDrop`（类型：`any`），用于存储或配置允许放置（默认值：`(element, $event) => true`）。
+   * Property `_allowDrop` (`(element: any, $event: any) => boolean`) storing allow drop (default: `(element, $event) => true`).
+   * @zh 属性 `_allowDrop`（类型：`(element: any, $event: any) => boolean`），用于存储或配置允许放置（默认值：`(element, $event) => true`）。
    */
   private _allowDrop = (element, $event) => true;
 
@@ -115,7 +115,7 @@ export class TreeDropDirective implements AfterViewInit, OnDestroy {
   /**
    * Creates an instance of `TreeDropDirective` and initializes its dependencies and internal state.
    * @zh 创建 `TreeDropDirective` 实例，并初始化其依赖项与内部状态。
-   * @param el - Injected or initial el (`ElementRef`) / 注入或传入的DOM元素（`ElementRef`）
+   * @param el - Injected or initial el (`ElementRef<any>`) / 注入或传入的DOM元素（`ElementRef<any>`）
    * @param renderer - Injected or initial renderer (`Renderer2`) / 注入或传入的渲染器（`Renderer2`）
    * @param treeDraggedElement - Injected or initial tree dragged element (`TreeDraggedElement`) / 注入或传入的树形控件Dragged元素（`TreeDraggedElement`）
    * @param ngZone - Injected or initial ng zone (`NgZone`) / 注入或传入的Angular区域(NgZone)（`NgZone`）

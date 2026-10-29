@@ -37,12 +37,12 @@ export interface DynamicWindowRef {
     isActive$: Observable<boolean>;
     /**
      * Configuration object for the dynamic window
-     * @zh 属性 `config$`（类型：`Observable<DynamicWindowConfig>`），用于存储或配置配置。
+     * @zh 属性 `config$`（类型：`Observable<DynamicWindowConfig<unknown, unknown>>`），用于存储或配置配置。
      */
     config$: Observable<DynamicWindowConfig>;
     /**
      * Emits value when the dynamic window closed
-     * @zh 属性 `afterClosed$`（类型：`Observable<any>`），用于存储或配置之后是否关闭。
+     * @zh 属性 `afterClosed$`（类型：`any`），用于存储或配置之后是否关闭。
      */
     afterClosed$;
 
@@ -68,7 +68,7 @@ export interface DynamicWindowRef {
     isActive: boolean;
     /**
      * Configuration object for the dynamic window
-     * @zh 属性 `config`（类型：`DynamicWindowConfig`），用于存储或配置配置。
+     * @zh 属性 `config`（类型：`DynamicWindowConfig<unknown, unknown>`），用于存储或配置配置。
      */
     config: DynamicWindowConfig;
     /**
@@ -124,12 +124,12 @@ export interface DynamicWindowRef {
     toggleVisibility(): void;
     /**
      * Maximizes the dynamic window at full-screen mode
-     * @zh 执行 `goFullscreen`，用于go全屏。
+     * @zh 执行 `goFullscreen`，用于跳转到全屏。
      */
     goFullscreen(): void;
     /**
      * Minimizes the dynamic window at windowed mode
-     * @zh 执行 `goWindowed`，用于go已窗口。
+     * @zh 执行 `goWindowed`，用于跳转到已窗口。
      */
     goWindowed(): void;
     /**

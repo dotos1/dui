@@ -6,7 +6,8 @@
 
 import { EMPTY, from as fromObservable, merge, Observable, onErrorResumeNext, throwError } from 'rxjs';
 import { filter, isEmpty, mergeMap, reduce, share } from 'rxjs/operators';
-import { mergeWith as _mergeWith } from 'lodash/fp';
+// lodash-es：已发布的 ESM 包里不能有 'lodash/fp' 这种目录导入（Node 22 ESM 解析不了）
+import { mergeWith as _mergeWith } from 'lodash-es';
 import { ConfigLoader, ConfigStaticLoader } from '../config.loader';
 
 /**
@@ -27,12 +28,13 @@ const errorIfEmpty = (source) => {
  * Constant/variable `mergeWith` defining merge with in `src/core/config/merge-loader`.
  * @zh 常量/变量 `mergeWith`，定义 `src/core/config/merge-loader` 中的合并带有。
  */
-const mergeWith = (object) => (source) => {
-  return _mergeWith((objValue, srcValue) => {
+// 与原来 lodash/fp 的 mergeWith 等价：不改动入参，深合并到新对象；数组整体替换不逐项合并
+const mergeWith = (object: object) => (source: object): object => {
+  return _mergeWith({}, object, source, (objValue: unknown, srcValue: unknown) => {
     if (Array.isArray(objValue))
       return srcValue;
     return undefined;
-  })(object)(source);
+  });
 };
 
 /**
@@ -57,7 +59,7 @@ export class ConfigMergeLoader implements ConfigLoader {
   /**
    * Creates an instance of `ConfigMergeLoader` and initializes its dependencies and internal state.
    * @zh 创建 `ConfigMergeLoader` 实例，并初始化其依赖项与内部状态。
-   * @param loaders - Injected or initial loaders (`Array<ConfigLoader>`) / 注入或传入的加载器（`Array<ConfigLoader>`）
+   * @param loaders - Injected or initial loaders (`ConfigLoader[]`) / 注入或传入的加载器（`ConfigLoader[]`）
    */
   constructor(private readonly loaders: Array<ConfigLoader> = []) {
   }
@@ -65,7 +67,7 @@ export class ConfigMergeLoader implements ConfigLoader {
   /**
    * Executes `loadSettings` to handle load settings.
    * @zh 执行 `loadSettings`，用于加载设置项。
-   * @returns Result of type `any` / 类型为 `any` 的返回值
+   * @returns Result of type `Promise<any>` / 类型为 `Promise<any>` 的返回值
    */
   loadSettings() {
     if (this.nextLoader)
@@ -80,7 +82,7 @@ export class ConfigMergeLoader implements ConfigLoader {
    * Executes `next` to handle next.
    * @zh 执行 `next`，用于下一个。
    * @param loader - loader parameter (`Function`) / 加载器参数（`Function`）
-   * @returns Result of type `any` / 类型为 `any` 的返回值
+   * @returns Result of type `this` / 类型为 `this` 的返回值
    */
   next(loader: Function) {
     this.nextLoader = loader;
@@ -91,7 +93,7 @@ export class ConfigMergeLoader implements ConfigLoader {
   /**
    * Executes `mergeParallel` to handle merge parallel.
    * @zh 执行 `mergeParallel`，用于合并Parallel。
-   * @returns Result of type `Promise<any>` / 类型为 `Promise<any>` 的返回值
+   * @returns Result of type `Promise<unknown>` / 类型为 `Promise<unknown>` 的返回值
    */
   private mergeParallel() {
     const loaders: Array<ConfigLoader> = [new ConfigStaticLoader(), ...this.loaders];
@@ -107,7 +109,7 @@ export class ConfigMergeLoader implements ConfigLoader {
     return new Promise((resolve, reject) => {
       merge(mergedSettings, errorIfEmpty(mergedSettings))
         .pipe(
-          reduce((merged, current) => mergeWith(merged)(current), {} as never)
+          reduce((merged: object, current: unknown) => mergeWith(merged)(current as object), {})
         )
         .subscribe((res) => resolve(res), () => reject('Loaders unreachable!'));
     });

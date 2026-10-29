@@ -9,7 +9,7 @@ import { columnsByPin, columnsTotalWidth } from './column';
 /**
  * Executes `getTotalFlexGrow` to handle get total flex grow.
  * @zh 执行 `getTotalFlexGrow`，用于获取总计FlexGrow。
- * @param columns - columns parameter (`any[]`) / 列集合参数（`any[]`）
+ * @param columns - columns parameter (`any`) / 列集合参数（`any`）
  */
 export function getTotalFlexGrow(columns) {
   let totalFlexGrow = 0;
@@ -24,7 +24,7 @@ export function getTotalFlexGrow(columns) {
 
 /**
  * Executes `adjustColumnWidths` to handle adjust column widths.
- * @zh 执行 `adjustColumnWidths`，用于adjust列宽度。
+ * @zh 执行 `adjustColumnWidths`，用于调整列宽度。
  * @param allColumns - all columns parameter (`any`) / 全部列集合参数（`any`）
  * @param expectedWidth - expected width parameter (`any`) / expected宽度参数（`any`）
  */
@@ -55,7 +55,7 @@ function scaleColumns(colsByGroup, maxWidth, totalFlexGrow) {
     }
   }
 
-  const hasMinWidth = {};
+  const hasMinWidth: Record<string, unknown> = {};
   let remainingWidth = maxWidth;
 
   // resize columns until no width is left to be distributed

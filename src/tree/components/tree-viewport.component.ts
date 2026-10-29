@@ -47,7 +47,7 @@ export class TreeViewportComponent implements AfterViewInit, OnInit, OnDestroy {
   /**
    * Creates an instance of `TreeViewportComponent` and initializes its dependencies and internal state.
    * @zh 创建 `TreeViewportComponent` 实例，并初始化其依赖项与内部状态。
-   * @param elementRef - Injected or initial element ref (`ElementRef`) / 注入或传入的元素引用（`ElementRef`）
+   * @param elementRef - Injected or initial element ref (`ElementRef<any>`) / 注入或传入的元素引用（`ElementRef<any>`）
    * @param virtualScroll - Injected or initial virtual scroll (`TreeVirtualScroll`) / 注入或传入的虚拟滚动滚动（`TreeVirtualScroll`）
    * @param cdr - Injected or initial cdr (`ChangeDetectorRef`) / 注入或传入的cdr（`ChangeDetectorRef`）
    * @param ngZone - Injected or initial ng zone (`NgZone`) / 注入或传入的Angular区域(NgZone)（`NgZone`）
@@ -130,8 +130,8 @@ export class TreeViewportComponent implements AfterViewInit, OnInit, OnDestroy {
 
 
   /**
-   * Property `setViewport` (`any`) storing set viewport.
-   * @zh 属性 `setViewport`（类型：`any`），用于存储或配置集合视口。
+   * Property `setViewport` (`() => void`) storing set viewport.
+   * @zh 属性 `setViewport`（类型：`() => void`），用于存储或配置集合视口。
    */
   setViewport = this.throttle(() => {
     this.virtualScroll.setViewport(this.elementRef.nativeElement);

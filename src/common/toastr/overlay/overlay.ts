@@ -19,23 +19,23 @@ import { OverlayRef } from './overlay-ref';
 @Injectable({ providedIn: 'root' })
 export class Overlay {
   /**
-   * Property `_overlayContainer` (`any`) storing overlay container (default: `inject(OverlayContainer)`).
-   * @zh 属性 `_overlayContainer`（类型：`any`），用于存储或配置浮层容器（默认值：`inject(OverlayContainer)`）。
+   * Property `_overlayContainer` (`OverlayContainer`) storing overlay container (default: `inject(OverlayContainer)`).
+   * @zh 属性 `_overlayContainer`（类型：`OverlayContainer`），用于存储或配置浮层容器（默认值：`inject(OverlayContainer)`）。
    */
   private _overlayContainer = inject(OverlayContainer);
   /**
-   * Property `_componentFactoryResolver` (`any`) storing component factory resolver (default: `inject(ComponentFactoryResolver)`).
-   * @zh 属性 `_componentFactoryResolver`（类型：`any`），用于存储或配置组件工厂解析器（默认值：`inject(ComponentFactoryResolver)`）。
+   * Property `_componentFactoryResolver` (`ComponentFactoryResolver`) storing component factory resolver (default: `inject(ComponentFactoryResolver)`).
+   * @zh 属性 `_componentFactoryResolver`（类型：`ComponentFactoryResolver`），用于存储或配置组件工厂解析器（默认值：`inject(ComponentFactoryResolver)`）。
    */
   private _componentFactoryResolver = inject(ComponentFactoryResolver);
   /**
-   * Property `_appRef` (`any`) storing app ref (default: `inject(ApplicationRef)`).
-   * @zh 属性 `_appRef`（类型：`any`），用于存储或配置app引用（默认值：`inject(ApplicationRef)`）。
+   * Property `_appRef` (`ApplicationRef`) storing app ref (default: `inject(ApplicationRef)`).
+   * @zh 属性 `_appRef`（类型：`ApplicationRef`），用于存储或配置app引用（默认值：`inject(ApplicationRef)`）。
    */
   private _appRef = inject(ApplicationRef);
   /**
-   * Property `_document` (`any`) storing document (default: `inject(DOCUMENT)`).
-   * @zh 属性 `_document`（类型：`any`），用于存储或配置文档对象（默认值：`inject(DOCUMENT)`）。
+   * Property `_document` (`Document`) storing document (default: `inject(DOCUMENT)`).
+   * @zh 属性 `_document`（类型：`Document`），用于存储或配置文档对象（默认值：`inject(DOCUMENT)`）。
    */
   private _document = inject(DOCUMENT);
 

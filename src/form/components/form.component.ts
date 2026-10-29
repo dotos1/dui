@@ -42,15 +42,15 @@ import { FormAction, Load, Submit } from '../action/index';
 export class FormComponent implements DoCheck, OnChanges, OnDestroy {
 
   /**
-   * Input property `config` (`any`) configuring config (default: `{}`).
-   * @zh 输入属性 `config`（类型：`any`），用于配置配置（默认值：`{}`）。
+   * Input property `config` (`{ items?: any; }`) configuring config (default: `{}`).
+   * @zh 输入属性 `config`（类型：`{ items?: any; }`），用于配置配置（默认值：`{}`）。
    */
   @Input() config: { items? } = {};
 
   /**
    * Input setter `form` updating form.
    * @zh 输入属性 `form` 的设置器，用于更新表单。
-   * @param form - New form value (`FormGroup | FormArray`) / 新的表单值（`FormGroup | FormArray`）
+   * @param form - New form value (`FormGroup<any> | FormArray<any>`) / 新的表单值（`FormGroup<any> | FormArray<any>`）
    */
   @Input()
   set form(form: FormGroup | FormArray) {
@@ -116,14 +116,14 @@ export class FormComponent implements DoCheck, OnChanges, OnDestroy {
   }
 
   /**
-   * Output event emitter `modelChange` (`EventEmitter`) firing when model change occurs.
-   * @zh 输出事件 `modelChange`（类型：`EventEmitter`），当触发模型变更时向外发出事件。
+   * Output event emitter `modelChange` (`EventEmitter<any>`) firing when model change occurs.
+   * @zh 输出事件 `modelChange`（类型：`EventEmitter<any>`），当触发模型变更时向外发出事件。
    */
   @Output() modelChange = new EventEmitter();
 
   /**
-   * Output event emitter `formInit` (`EventEmitter`) firing when form init occurs.
-   * @zh 输出事件 `formInit`（类型：`EventEmitter`），当触发表单初始化时向外发出事件。
+   * Output event emitter `formInit` (`EventEmitter<any>`) firing when form init occurs.
+   * @zh 输出事件 `formInit`（类型：`EventEmitter<any>`），当触发表单初始化时向外发出事件。
    */
   @Output() formInit = new EventEmitter();
 
@@ -133,13 +133,13 @@ export class FormComponent implements DoCheck, OnChanges, OnDestroy {
    */
   private field: FieldConfigCache = {};
   /**
-   * Property `_modelChangeValue` (`any`) storing model change value (default: `{}`).
-   * @zh 属性 `_modelChangeValue`（类型：`any`），用于存储或配置模型变更值（默认值：`{}`）。
+   * Property `_modelChangeValue` (`Record<string, unknown>`) storing model change value (default: `{}`).
+   * @zh 属性 `_modelChangeValue`（类型：`Record<string, unknown>`），用于存储或配置模型变更值（默认值：`{}`）。
    */
-  private _modelChangeValue = {};
+  private _modelChangeValue: Record<string, unknown> = {};
   /**
-   * Property `valueChangesUnsubscribe` (`any`) storing value changes unsubscribe (default: `() => {}`).
-   * @zh 属性 `valueChangesUnsubscribe`（类型：`any`），用于存储或配置值变更集合取消订阅（默认值：`() => {}`）。
+   * Property `valueChangesUnsubscribe` (`() => void`) storing value changes unsubscribe (default: `() => {}`).
+   * @zh 属性 `valueChangesUnsubscribe`（类型：`() => void`），用于存储或配置值变更集合取消订阅（默认值：`() => {}`）。
    */
   private valueChangesUnsubscribe = () => {};
 
@@ -354,7 +354,7 @@ export class FormComponent implements DoCheck, OnChanges, OnDestroy {
    * Executes `submit` to handle submit.
    * @zh 执行 `submit`，用于提交。
    * @param option - option parameter (`any`) / 选项参数（`any`）
-   * @returns Result of type `Promise<any>` / 类型为 `Promise<any>` 的返回值
+   * @returns Result of type `any` / 类型为 `any` 的返回值
    */
   submit(option) {
     option = option || {};
@@ -370,7 +370,7 @@ export class FormComponent implements DoCheck, OnChanges, OnDestroy {
    * Executes `load` to handle load.
    * @zh 执行 `load`，用于加载。
    * @param option - option parameter (`any`) / 选项参数（`any`）
-   * @returns Result of type `Promise<any>` / 类型为 `Promise<any>` 的返回值
+   * @returns Result of type `any` / 类型为 `any` 的返回值
    */
   load(option)  {
     const loadAction = 'load';
@@ -379,10 +379,10 @@ export class FormComponent implements DoCheck, OnChanges, OnDestroy {
 
   /**
    * Executes `doAction` to handle do action.
-   * @zh 执行 `doAction`，用于do动作。
+   * @zh 执行 `doAction`，用于执行动作。
    * @param action - action parameter (`any`) / 动作参数（`any`）
    * @param option - option parameter (`any`) / 选项参数（`any`）
-   * @returns Result of type `Promise<any>` / 类型为 `Promise<any>` 的返回值
+   * @returns Result of type `any` / 类型为 `any` 的返回值
    */
   doAction(action, option)  {
     if (isString(action)) {
@@ -423,7 +423,7 @@ export class FormComponent implements DoCheck, OnChanges, OnDestroy {
   /**
    * Executes `getValues` to handle get values.
    * @zh 执行 `getValues`，用于获取值列表。
-   * @returns Result of type `any` / 类型为 `any` 的返回值
+   * @returns Result of type `HttpParams | FormData` / 类型为 `HttpParams | FormData` 的返回值
    */
   getValues() {
     let body = this.fileUpload ? new FormData() : new HttpParams();
@@ -477,7 +477,7 @@ export class FormComponent implements DoCheck, OnChanges, OnDestroy {
   /**
    * Executes `setValues` to handle set values.
    * @zh 执行 `setValues`，用于集合值列表。
-   * @param values - values parameter (`Array<any> | any`) / 值列表参数（`Array<any> | any`）
+   * @param values - values parameter (`any`) / 值列表参数（`any`）
    */
   setValues(values): void {
     if (this.config == undefined || this.config.items == undefined) {
@@ -573,7 +573,7 @@ export class FormComponent implements DoCheck, OnChanges, OnDestroy {
    * Executes `getFieldValue` to handle get field value.
    * @zh 执行 `getFieldValue`，用于获取字段值。
    * @param key - key parameter (`string`) / 键参数（`string`）
-   * @returns Result of type `any` / 类型为 `any` 的返回值
+   * @returns Result of type `FormDataEntryValue` / 类型为 `FormDataEntryValue` 的返回值
    */
   getFieldValue(key: string) {
     return this.getValues().get(key);
@@ -696,7 +696,7 @@ export class FormComponent implements DoCheck, OnChanges, OnDestroy {
    * @param v - New value value (`any`) / 新的值值（`any`）
    */
   set value(v) {
-    let val = {};
+    let val: Record<string, unknown> = {};
     if(this.config.items){
       each(this.config.items, (field) => {
         delete field.inputValue
@@ -802,7 +802,7 @@ export class FormComponent implements DoCheck, OnChanges, OnDestroy {
    * Executes `getComponent` to handle get component.
    * @zh 执行 `getComponent`，用于获取组件。
    * @param name - name parameter (`string`) / 名称参数（`string`）
-   * @returns Result of type `any` / 类型为 `any` 的返回值
+   * @returns Result of type `TypeOption` / 类型为 `TypeOption` 的返回值
    */
   getComponent(name: string) {
     return this.formConfig.getType(name);

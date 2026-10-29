@@ -152,8 +152,8 @@ import { Dui } from '@dotos/dui/core';
 })
 export class DatatableModule {
   /**
-   * Property `entryComponents` (`any[]`) storing entry components (default: `[DatatableCardComponent]`).
-   * @zh 属性 `entryComponents`（类型：`any[]`），用于存储或配置条目组件列表（默认值：`[DatatableCardComponent]`）。
+   * Property `entryComponents` (`(typeof DatatableCardComponent)[]`) storing entry components (default: `[DatatableCardComponent]`).
+   * @zh 属性 `entryComponents`（类型：`(typeof DatatableCardComponent)[]`），用于存储或配置条目组件列表（默认值：`[DatatableCardComponent]`）。
    */
   entryComponents = [DatatableCardComponent];
   /**
