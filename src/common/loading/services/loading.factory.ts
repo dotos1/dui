@@ -50,15 +50,15 @@ export interface IInternalLoadingOptions extends ILoadingConfig {
  */
 export interface ILoadingRef {
   /**
-   * Property `observable` (`Observable<any>`) storing observable.
-   * @zh 属性 `observable`（类型：`Observable<any>`），用于存储或配置可观察流。
+   * Property `observable` (`Observable<number>`) storing observable.
+   * @zh 属性 `observable`（类型：`Observable<number>`），用于存储或配置可观察流。
    */
-  observable;
+  observable: Observable<number>;
   /**
-   * Property `componentRef` (`ComponentRef<any>`) storing component ref.
-   * @zh 属性 `componentRef`（类型：`ComponentRef<any>`），用于存储或配置组件引用。
+   * Property `componentRef` (`ComponentRef<LoadingComponent>`) storing component ref.
+   * @zh 属性 `componentRef`（类型：`ComponentRef<LoadingComponent>`），用于存储或配置组件引用。
    */
-  componentRef?;
+  componentRef?: ComponentRef<LoadingComponent>;
   /**
    * Property `overlayRef` (`OverlayRef`) storing overlay ref.
    * @zh 属性 `overlayRef`（类型：`OverlayRef`），用于存储或配置浮层引用。
@@ -70,10 +70,10 @@ export interface ILoadingRef {
    */
   contentRef?: EmbeddedViewRef<object>;
   /**
-   * Property `subject` (`Subject<any>`) storing subject.
-   * @zh 属性 `subject`（类型：`Subject<any>`），用于存储或配置主题流。
+   * Property `subject` (`Subject<number>`) storing subject.
+   * @zh 属性 `subject`（类型：`Subject<number>`），用于存储或配置主题流。
    */
-  subject;
+  subject: Subject<number>;
   /**
    * Property `times` (`number`) storing times.
    * @zh 属性 `times`（类型：`number`），用于存储或配置时间。
@@ -282,7 +282,7 @@ export class LoadingFactory {
    * @returns Result of type `ILoadingRef` / 类型为 `ILoadingRef` 的返回值
    */
   private _initializeContext(): ILoadingRef {
-    const subject = new Subject();
+    const subject = new Subject<number>();
     return {
       observable: subject.asObservable(),
       subject,

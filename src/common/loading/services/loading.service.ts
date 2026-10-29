@@ -217,7 +217,8 @@ export class LoadingService {
       if (this._context[name].contentRef) {
         this._context[name].contentRef?.destroy();
       }
-      this._context[name].subject.unsubscribe(); // @gate-ignore shared-stream-unsub
+      // complete 而不是 unsubscribe：通知订阅方流已结束，随后删除上下文
+      this._context[name].subject.complete();
       if (this._context[name].componentRef) {
         this._context[name].componentRef?.destroy();
       }
