@@ -71,7 +71,7 @@
     "TAB2": "2. 모듈 가져오기",
     "TAB3": "3. 컴포넌트 사용",
     "TAB4": "4. 국제화 & 테마",
-    "TAB5": "5. Architecture & Dev Guide",
+    "TAB5": "5. 아키텍처 및 개발 가이드",
     "STEP1_H1": "패키지 설치",
     "STEP1_H2": "peer dependencies 설치",
     "STEP1_P2": "DUI는 Angular Material과 CDK를 기반으로 빌드되었습니다. 프로젝트에 다음 종속성이 설치되어 있는지 확인하세요:",
@@ -87,11 +87,11 @@
     "STEP4_P1": "DUI에는 TranslationService 기반의 다국어 프레임워크가 내장되어 있으며, 기본적으로 zh_CN / en_US 두 언어를 제공합니다:",
     "STEP4_H2": "런타임에 테마 전환",
     "STEP4_P2": "ThemeService를 통해 재빌드 없이 런타임에 기본색, 보조색, 경고색과 명/암 모드를 동적으로 변경할 수 있습니다:",
-    "STEP5_H1": "Secondary Entry-Point Packaging Rules",
-    "STEP5_P1": "DUI uses ng-packagr secondary entry points. Each feature folder contains its own ng-package.json, index.ts, and public-api.ts. Always import across entry points via @dotos/dui/<category>/<module> rather than deep relative paths:",
-    "STEP5_H2": "RxJS Subscription Lifecycle & OnPush Performance",
-    "STEP5_P2": "Always clean up long-lived Observable subscriptions in ngOnDestroy using takeUntil(this.destroy$) to prevent memory leaks, and prefer ChangeDetectionStrategy.OnPush for high-frequency components:",
-    "STEP5_H3": "Bilingual JSDoc (@zh) & Automated Docs Generation",
-    "STEP5_P3": "Document all exported classes, interfaces, enums, functions, and public members with English JSDoc plus an @zh Chinese tag, then run npm run docs:generate to update the documentation portal:"
+    "STEP5_H1": "보조 진입점 패키징 규칙",
+    "STEP5_P1": "DUI는 ng-packagr의 보조 진입점을 사용합니다. 각 기능 폴더에는 자체 ng-package.json, index.ts, public-api.ts가 있습니다. 진입점 간 가져오기는 깊은 상대 경로 대신 항상 @dotos/dui/<category>/<module>을 사용하세요:",
+    "STEP5_H2": "RxJS 구독 수명 주기와 OnPush 성능",
+    "STEP5_P2": "메모리 누수를 막으려면 수명이 긴 Observable 구독을 ngOnDestroy에서 takeUntil(this.destroy$)로 항상 정리하고, 갱신이 잦은 컴포넌트에는 ChangeDetectionStrategy.OnPush를 사용하세요:",
+    "STEP5_H3": "이중 언어 JSDoc(@zh)과 문서 자동 생성",
+    "STEP5_P3": "내보내는 모든 클래스, 인터페이스, 열거형, 함수, 공개 멤버에 영어 JSDoc과 중국어 @zh 태그를 작성한 뒤 npm run docs:generate를 실행해 문서 포털을 갱신하세요:"
   }
 }

@@ -390,8 +390,8 @@
       }
     },
     "TAB": {
-      "CS": "Content Services",
-      "PS": "Process Services"
+      "CS": "خدمات المحتوى",
+      "PS": "خدمات العمليات"
     }
   },
   "ERROR_CONTENT": {
@@ -565,7 +565,7 @@
     },
     "FAIL": {
       "NODE": {
-        "NO_PERMISSION": "You do not have permission to perform this operation"
+        "NO_PERMISSION": "ليس لديك إذن لتنفيذ هذه العملية"
       }
     }
   },
@@ -637,15 +637,15 @@
     "ARIA-LABEL": {
       "ERROR": "خطأ في الرفع",
       "VERSION": "إصدار الملف",
-      "CANCEL_ALL": "Cancel all uploads",
-      "CANCEL_FILE": "Cancel file upload",
-      "CANCEL_FILE_UPLOAD": "Cancel uploading this file",
+      "CANCEL_ALL": "إلغاء كل عمليات الرفع",
+      "CANCEL_FILE": "إلغاء رفع الملف",
+      "CANCEL_FILE_UPLOAD": "إلغاء رفع هذا الملف",
       "CONFIRMATION": {
-        "CANCEL": "Confirm cancel upload",
-        "CONTINUE": "Continue upload"
+        "CANCEL": "تأكيد إلغاء الرفع",
+        "CONTINUE": "متابعة الرفع"
       },
-      "DIALOG": "File upload dialog",
-      "DIALOG_CLOSE": "Close upload dialog",
+      "DIALOG": "مربع حوار رفع الملفات",
+      "DIALOG_CLOSE": "إغلاق مربع حوار الرفع",
       "REMOVE_FILE": "إزالة الملف الذي تم تحميله",
       "UPLOAD_FILE_ERROR": "خطأ في تحميل الملف"
     }
@@ -1335,16 +1335,16 @@
       "NONE": "بدون"
     },
     "FILE_DIALOG": {
-      "ALLOW_OTHERS_CHECKBOX": "Allow other users to modify this file",
+      "ALLOW_OTHERS_CHECKBOX": "السماح للمستخدمين الآخرين بتعديل هذا الملف",
       "CANCEL_BUTTON": {
         "LABEL": "إلغاء"
       },
       "FILE_LOCK": "قفل الملف",
-      "FILE_LOCK_CHECKBOX": "Lock this file to prevent others from editing",
+      "FILE_LOCK_CHECKBOX": "قفل هذا الملف لمنع الآخرين من تحريره",
       "SAVE_BUTTON": {
         "LABEL": "حفظ"
       },
-      "TIME_LOCK_CHECKBOX": "Set lock expiration time"
+      "TIME_LOCK_CHECKBOX": "تعيين وقت انتهاء القفل"
     }
   },
   "VIEWER": {

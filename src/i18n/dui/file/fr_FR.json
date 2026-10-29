@@ -316,7 +316,7 @@
       "FLOAT_VALIDATION_ERROR": "Utiliser un format numérique",
       "INT_VALIDATION_ERROR": "Utiliser un format entier"
     },
-    "NONE": "None"
+    "NONE": "Aucun"
   },
   "METADATA": {
     "BASIC": {
@@ -390,8 +390,8 @@
       }
     },
     "TAB": {
-      "CS": "Content Services",
-      "PS": "Process Services"
+      "CS": "Services de contenu",
+      "PS": "Services de processus"
     }
   },
   "ERROR_CONTENT": {
@@ -565,7 +565,7 @@
     },
     "FAIL": {
       "NODE": {
-        "NO_PERMISSION": "You do not have permission to perform this operation"
+        "NO_PERMISSION": "Vous n'avez pas l'autorisation d'effectuer cette opération"
       }
     }
   },
@@ -637,15 +637,15 @@
     "ARIA-LABEL": {
       "ERROR": "Erreur de téléversement",
       "VERSION": "Version du fichier",
-      "CANCEL_ALL": "Cancel all uploads",
-      "CANCEL_FILE": "Cancel file upload",
-      "CANCEL_FILE_UPLOAD": "Cancel uploading this file",
+      "CANCEL_ALL": "Annuler tous les envois",
+      "CANCEL_FILE": "Annuler l'envoi du fichier",
+      "CANCEL_FILE_UPLOAD": "Annuler l'envoi de ce fichier",
       "CONFIRMATION": {
-        "CANCEL": "Confirm cancel upload",
-        "CONTINUE": "Continue upload"
+        "CANCEL": "Confirmer l'annulation de l'envoi",
+        "CONTINUE": "Continuer l'envoi"
       },
-      "DIALOG": "File upload dialog",
-      "DIALOG_CLOSE": "Close upload dialog",
+      "DIALOG": "Boîte de dialogue d'envoi de fichiers",
+      "DIALOG_CLOSE": "Fermer la boîte de dialogue d'envoi",
       "REMOVE_FILE": "Supprimer le fichier téléversé",
       "UPLOAD_FILE_ERROR": "Erreur de téléchargement du fichier"
     }
@@ -1335,16 +1335,16 @@
       "NONE": "Aucun"
     },
     "FILE_DIALOG": {
-      "ALLOW_OTHERS_CHECKBOX": "Allow other users to modify this file",
+      "ALLOW_OTHERS_CHECKBOX": "Autoriser d'autres utilisateurs à modifier ce fichier",
       "CANCEL_BUTTON": {
         "LABEL": "Annuler"
       },
       "FILE_LOCK": "Verrouiller le fichier",
-      "FILE_LOCK_CHECKBOX": "Lock this file to prevent others from editing",
+      "FILE_LOCK_CHECKBOX": "Verrouiller ce fichier pour empêcher les autres de le modifier",
       "SAVE_BUTTON": {
         "LABEL": "Enregistrer"
       },
-      "TIME_LOCK_CHECKBOX": "Set lock expiration time"
+      "TIME_LOCK_CHECKBOX": "Définir l'heure d'expiration du verrou"
     }
   },
   "VIEWER": {
@@ -1538,7 +1538,7 @@
       "DESCRIPTION": "Vous exécutez le projet basé sur le commit suivant :"
     },
     "PACKAGES": {
-      "TITLE": "Packages",
+      "TITLE": "Paquets",
       "DESCRIPTION": "Le projet actuel utilise les bibliothèques ADF suivantes :"
     },
     "TABLE_HEADERS": {
