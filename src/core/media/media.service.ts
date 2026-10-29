@@ -17,13 +17,13 @@ import { Media, MediaOrientation } from './media.enum';
 })
 export class MediaService implements OnDestroy {
   /**
-   * Property `media$` (`BehaviorSubject`) storing media (default: `new BehaviorSubject<Media>(undefined)`).
-   * @zh 属性 `media$`（类型：`BehaviorSubject`），用于存储或配置媒体（默认值：`new BehaviorSubject<Media>(undefined)`）。
+   * Property `media$` (`BehaviorSubject<Media>`) storing media (default: `new BehaviorSubject<Media>(undefined)`).
+   * @zh 属性 `media$`（类型：`BehaviorSubject<Media>`），用于存储或配置媒体（默认值：`new BehaviorSubject<Media>(undefined)`）。
    */
   public media$ = new BehaviorSubject<Media>(undefined);
   /**
-   * Property `orientation$` (`BehaviorSubject`) storing orientation.
-   * @zh 属性 `orientation$`（类型：`BehaviorSubject`），用于存储或配置方向。
+   * Property `orientation$` (`BehaviorSubject<MediaOrientation>`) storing orientation.
+   * @zh 属性 `orientation$`（类型：`BehaviorSubject<MediaOrientation>`），用于存储或配置方向。
    */
   public orientation$ = new BehaviorSubject<MediaOrientation>(undefined);
   /**

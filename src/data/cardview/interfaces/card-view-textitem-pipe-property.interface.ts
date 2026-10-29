@@ -18,8 +18,8 @@ export interface CardViewTextItemPipeProperty {
    */
   pipe: PipeTransform;
   /**
-   * Property `params` (`any[]`) storing params.
-   * @zh 属性 `params`（类型：`any[]`），用于存储或配置参数集合。
+   * Property `params` (`any`) storing params.
+   * @zh 属性 `params`（类型：`any`），用于存储或配置参数集合。
    */
   params?;
 }

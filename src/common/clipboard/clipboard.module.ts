@@ -48,8 +48,8 @@ import { MatIconModule } from '@angular/material/icon';
 })
 export class ClipboardModule {
   /**
-   * Property `entryComponents` (`any[]`) storing entry components (default: `[ClipboardComponent]`).
-   * @zh 属性 `entryComponents`（类型：`any[]`），用于存储或配置条目组件列表（默认值：`[ClipboardComponent]`）。
+   * Property `entryComponents` (`(typeof ClipboardComponent)[]`) storing entry components (default: `[ClipboardComponent]`).
+   * @zh 属性 `entryComponents`（类型：`(typeof ClipboardComponent)[]`），用于存储或配置条目组件列表（默认值：`[ClipboardComponent]`）。
    */
   entryComponents = [ClipboardComponent];
   /**

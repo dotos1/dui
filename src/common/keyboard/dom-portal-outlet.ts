@@ -103,7 +103,7 @@ export class DomPortalOutlet extends BasePortalOutlet {
     /**
      * Executes `_getComponentRootNode` to handle get component root node.
      * @zh 执行 `_getComponentRootNode`，用于获取组件根节点节点。
-     * @param componentRef - component ref parameter (`ComponentRef<any>`) / 组件引用参数（`ComponentRef<any>`）
+     * @param componentRef - component ref parameter (`any`) / 组件引用参数（`any`）
      * @returns Result of type `HTMLElement` / 类型为 `HTMLElement` 的返回值
      */
     private _getComponentRootNode(componentRef): HTMLElement {

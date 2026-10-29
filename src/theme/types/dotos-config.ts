@@ -15,8 +15,8 @@ export interface DotosConfig {
     isDesktop?: boolean;
     customScrollbars?: boolean;
     /**
-     * Property `theme` (`{ type: 'light'|'dark'|'darkblue'; primary: string; accent: string; wa...`) storing theme.
-     * @zh 属性 `theme`（类型：`{ type: 'light'|'dark'|'darkblue'; primary: string; accent: string; wa...`），用于存储或配置主题。
+     * Property `theme` (`{…}`) storing theme.
+     * @zh 属性 `theme`（类型：`{…}`），用于存储或配置主题。
      */
     theme?: {
         type: 'light'|'dark'|'darkblue';
@@ -31,8 +31,8 @@ export interface DotosConfig {
      */
     wallpaper?: string;
     /**
-     * Property `layout` (`{ pagemodel: string; style: string; width: 'fullwidth' | 'boxed'; fold...`) storing layout.
-     * @zh 属性 `layout`（类型：`{ pagemodel: string; style: string; width: 'fullwidth' | 'boxed'; fold...`），用于存储或配置布局。
+     * Property `layout` (`{…}`) storing layout.
+     * @zh 属性 `layout`（类型：`{…}`），用于存储或配置布局。
      */
     layout: {
         pagemodel: string;

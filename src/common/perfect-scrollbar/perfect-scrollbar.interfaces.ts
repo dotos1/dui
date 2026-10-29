@@ -60,21 +60,21 @@ export class Geometry {
  */
 export class Position {
     /**
-     * Property `x` (`number | 'start' | 'end'`) storing x.
-     * @zh 属性 `x`（类型：`number | 'start' | 'end'`），用于存储或配置X坐标。
+     * Property `x` (`number | "end" | "start"`) storing x.
+     * @zh 属性 `x`（类型：`number | "end" | "start"`），用于存储或配置X坐标。
      */
     public x: number | 'start' | 'end';
     /**
-     * Property `y` (`number | 'start' | 'end'`) storing y.
-     * @zh 属性 `y`（类型：`number | 'start' | 'end'`），用于存储或配置Y坐标。
+     * Property `y` (`number | "end" | "start"`) storing y.
+     * @zh 属性 `y`（类型：`number | "end" | "start"`），用于存储或配置Y坐标。
      */
     public y: number | 'start' | 'end';
 
     /**
      * Creates an instance of `Position` and initializes its dependencies and internal state.
      * @zh 创建 `Position` 实例，并初始化其依赖项与内部状态。
-     * @param x - Injected or initial x (`number | 'start' | 'end'`) / 注入或传入的X坐标（`number | 'start' | 'end'`）
-     * @param y - Injected or initial y (`number | 'start' | 'end'`) / 注入或传入的Y坐标（`number | 'start' | 'end'`）
+     * @param x - Injected or initial x (`number | "end" | "start"`) / 注入或传入的X坐标（`number | "end" | "start"`）
+     * @param y - Injected or initial y (`number | "end" | "start"`) / 注入或传入的Y坐标（`number | "end" | "start"`）
      */
     constructor(x: number | 'start' | 'end', y: number | 'start' | 'end') {
         this.x = x;

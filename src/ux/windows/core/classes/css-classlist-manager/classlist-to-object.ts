@@ -9,7 +9,7 @@ import { ɵRawObject } from '../../types';
     /**
      * Executes `transform` to handle transform.
      * @zh 执行 `transform`，用于转换。
-     * @param classList - class list parameter (`string | string[] | object`) / 类名列表参数（`string | string[] | object`）
+     * @param classList - class list parameter (`string | object | string[]`) / 类名列表参数（`string | object | string[]`）
      * @returns Result of type `object` / 类型为 `object` 的返回值
      */
     export function transform(classList: string | string[] | object): object {

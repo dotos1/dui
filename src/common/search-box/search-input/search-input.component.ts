@@ -108,13 +108,13 @@ export class SearchInputComponent
   implements IControlValueAccessor, OnInit, OnDestroy
 {
   /**
-   * Template/content query reference `_input` (`@ViewChild`) targeting input.
+   * Template/content query reference `_input` (`MatInput`) targeting input.
    * @zh 模板/内容视图查询引用 `_input`（`@ViewChild`），指向输入属性。
    */
   @ViewChild(MatInput, { static: true }) _input?: MatInput;
 
   /**
-   * Template/content query reference `_searchElement` (`@ViewChild`) targeting search element.
+   * Template/content query reference `_searchElement` (`ElementRef<HTMLInputElement>`) targeting search element.
    * @zh 模板/内容视图查询引用 `_searchElement`（`@ViewChild`），指向搜索元素。
    */
   @ViewChild('searchElement', { static: true, read: ElementRef })
@@ -202,8 +202,8 @@ export class SearchInputComponent
   }
 
   /**
-   * Property `_destroy$` (`Subject`) storing destroy (default: `new Subject<void>()`).
-   * @zh 属性 `_destroy$`（类型：`Subject`），用于存储或配置销毁（默认值：`new Subject<void>()`）。
+   * Property `_destroy$` (`Subject<void>`) storing destroy (default: `new Subject<void>()`).
+   * @zh 属性 `_destroy$`（类型：`Subject<void>`），用于存储或配置销毁（默认值：`new Subject<void>()`）。
    */
   private _destroy$ = new Subject<void>();
 

@@ -52,7 +52,7 @@ export class AlphaComponent implements OnChanges {
    */
   @Input() rgb: RGBA;
   /**
-   * Input property `pointer` (`{ [key: string]: string }`) configuring pointer.
+   * Input property `pointer` (`{ [key: string]: string; }`) configuring pointer.
    * @zh 滑块手柄的内联样式。
    * @zh 滑块手柄的内联样式。
    */
@@ -64,13 +64,13 @@ export class AlphaComponent implements OnChanges {
    */
   @Input() shadow: string;
   /**
-   * Input property `radius` (`string|number`) configuring radius.
+   * Input property `radius` (`string | number`) configuring radius.
    * @zh 滑动条的圆角半径。
    * @zh 滑动条的圆角半径。
    */
   @Input() radius: string|number;
   /**
-   * Input property `direction` (`'horizontal' | 'vertical'`) configuring direction (default: `'horizontal'`).
+   * Input property `direction` (`"horizontal" | "vertical"`) configuring direction (default: `'horizontal'`).
    * @zh 滑动条方向：水平或垂直。
    * @zh 滑动条方向：水平或垂直。
    */
@@ -81,7 +81,7 @@ export class AlphaComponent implements OnChanges {
    */
   @Output() onChange = new EventEmitter();
   /**
-   * Property `gradient` (`{ [key: string]: string }`) storing gradient.
+   * Property `gradient` (`{ [key: string]: string; }`) storing gradient.
    * @zh 根据当前颜色计算出的渐变背景样式。
    * @zh 根据当前颜色计算出的渐变背景样式。
    */

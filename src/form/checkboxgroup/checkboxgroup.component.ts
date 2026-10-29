@@ -24,14 +24,14 @@ import { MatField } from '../base/mat.field';
 export class CheckboxGroupField extends MatField implements AfterViewInit {
 
   /**
-   * Template/content query reference `checkboxes` (`@ViewChildren`) targeting checkboxes.
+   * Template/content query reference `checkboxes` (`QueryList<MatCheckbox>`) targeting checkboxes.
    * @zh 模板/内容视图查询引用 `checkboxes`（`@ViewChildren`），指向复选框。
    */
   @ViewChildren(MatCheckbox) checkboxes!: QueryList<MatCheckbox>;
 
   /**
-   * Property `defaultOptions` (`any`) storing default options.
-   * @zh 属性 `defaultOptions`（类型：`any`），用于存储或配置默认配置选项。
+   * Property `defaultOptions` (`{…}`) storing default options.
+   * @zh 属性 `defaultOptions`（类型：`{…}`），用于存储或配置默认配置选项。
    */
   override defaultOptions = {
     hideFieldUnderline: true,
@@ -123,7 +123,7 @@ export class CheckboxGroupField extends MatField implements AfterViewInit {
 
   /**
    * Executes `trackByOption` to handle track by option.
-   * @zh 执行 `trackByOption`，用于track按选项。
+   * @zh 执行 `trackByOption`，用于跟踪按选项。
    * @param index - index parameter (`number`) / 索引参数（`number`）
    * @param option - option parameter (`any`) / 选项参数（`any`）
    */

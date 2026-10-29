@@ -98,8 +98,8 @@ class ImageRezieView implements NodeView {
   /**
    * Executes `computeChanges` to handle compute changes.
    * @zh 执行 `computeChanges`，用于计算变更集合。
-   * @param prevAttrs - prev attrs parameter (`Record<string, any>`) / 前一个属性集合参数（`Record<string, any>`）
-   * @param newAttrs - new attrs parameter (`Record<string, any>`) / 新属性集合参数（`Record<string, any>`）
+   * @param prevAttrs - prev attrs parameter (`any`) / 前一个属性集合参数（`any`）
+   * @param newAttrs - new attrs parameter (`any`) / 新属性集合参数（`any`）
    * @returns Result of type `boolean` / 类型为 `boolean` 的返回值
    */
   private computeChanges(prevAttrs, newAttrs): boolean {
@@ -109,7 +109,7 @@ class ImageRezieView implements NodeView {
   /**
    * Executes `setNodeAttributes` to handle set node attributes.
    * @zh 执行 `setNodeAttributes`，用于集合节点属性列表。
-   * @param attrs - attrs parameter (`Record<string, any>`) / 属性集合参数（`Record<string, any>`）
+   * @param attrs - attrs parameter (`any`) / 属性集合参数（`any`）
    */
   private setNodeAttributes(attrs): void {
     this.imageComponentRef.instance.src = attrs['src'];
@@ -119,8 +119,8 @@ class ImageRezieView implements NodeView {
   }
 
   /**
-   * Property `handleResize` (`any`) storing handle resize.
-   * @zh 属性 `handleResize`（类型：`any`），用于存储或配置连接手柄调整尺寸。
+   * Property `handleResize` (`() => void`) storing handle resize.
+   * @zh 属性 `handleResize`（类型：`() => void`），用于存储或配置连接手柄调整尺寸。
    */
   handleResize = (): void => {
     if (this.updating) {

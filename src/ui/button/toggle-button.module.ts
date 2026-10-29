@@ -40,8 +40,8 @@ import { ToggleButtonComponent } from './toggle-button.component';
 })
 export class ToggleButtonModule {
   /**
-   * Property `entryComponents` (`any[]`) storing entry components (default: `[ToggleButtonComponent]`).
-   * @zh 属性 `entryComponents`（类型：`any[]`），用于存储或配置条目组件列表（默认值：`[ToggleButtonComponent]`）。
+   * Property `entryComponents` (`(typeof ToggleButtonComponent)[]`) storing entry components (default: `[ToggleButtonComponent]`).
+   * @zh 属性 `entryComponents`（类型：`(typeof ToggleButtonComponent)[]`），用于存储或配置条目组件列表（默认值：`[ToggleButtonComponent]`）。
    */
   entryComponents = [ToggleButtonComponent];
   /**

@@ -20,8 +20,8 @@ import { HuePickerComponent } from './hue-picker.component';
 })
 export class ColorHueModule {
   /**
-   * Property `entryComponents` (`any[]`) storing entry components (default: `[HuePickerComponent]`).
-   * @zh 属性 `entryComponents`（类型：`any[]`），用于存储或配置条目组件列表（默认值：`[HuePickerComponent]`）。
+   * Property `entryComponents` (`(typeof HuePickerComponent)[]`) storing entry components (default: `[HuePickerComponent]`).
+   * @zh 属性 `entryComponents`（类型：`(typeof HuePickerComponent)[]`），用于存储或配置条目组件列表（默认值：`[HuePickerComponent]`）。
    */
   entryComponents = [HuePickerComponent];
   /**

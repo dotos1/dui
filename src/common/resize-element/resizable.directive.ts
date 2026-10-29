@@ -117,7 +117,7 @@ function getNewBoundingRectangle(
 /**
  * Executes `getElementRect` to handle get element rect.
  * @zh 执行 `getElementRect`，用于获取元素矩形。
- * @param element - element parameter (`ElementRef`) / 元素参数（`ElementRef`）
+ * @param element - element parameter (`ElementRef<any>`) / 元素参数（`ElementRef<any>`）
  * @param ghostElementPositioning - ghost element positioning parameter (`string`) / ghost元素位置参数（`string`）
  * @returns Result of type `BoundingRectangle` / 类型为 `BoundingRectangle` 的返回值
  */
@@ -348,7 +348,7 @@ export class ResizableDirective implements OnInit, OnDestroy {
   /**
    * Define the positioning of the ghost element (can be fixed or absolute)
 
-   * @zh 输入属性 `ghostElementPositioning`（类型：`'fixed' | 'absolute'`），用于配置ghost元素位置（默认值：`'fixed'`）。
+   * @zh 输入属性 `ghostElementPositioning`（类型：`"fixed" | "absolute"`），用于配置ghost元素位置（默认值：`'fixed'`）。
    */
   @Input() ghostElementPositioning: 'fixed' | 'absolute' = 'fixed';
 
@@ -369,21 +369,21 @@ export class ResizableDirective implements OnInit, OnDestroy {
   /**
    * Called when the mouse is pressed and a resize event is about to begin. `$event` is a `ResizeEvent` object.
 
-   * @zh 输出事件 `resizeStart`（类型：`EventEmitter`），当触发调整尺寸开始时向外发出事件。
+   * @zh 输出事件 `resizeStart`（类型：`EventEmitter<ResizeEvent>`），当触发调整尺寸开始时向外发出事件。
    */
   @Output() resizeStart = new EventEmitter<ResizeEvent>();
 
   /**
    * Called as the mouse is dragged after a resize event has begun. `$event` is a `ResizeEvent` object.
 
-   * @zh 输出事件 `resizing`（类型：`EventEmitter`），当触发调整尺寸中时向外发出事件。
+   * @zh 输出事件 `resizing`（类型：`EventEmitter<ResizeEvent>`），当触发调整尺寸中时向外发出事件。
    */
   @Output() resizing = new EventEmitter<ResizeEvent>();
 
   /**
    * Called after the mouse is released after a resize event. `$event` is a `ResizeEvent` object.
 
-   * @zh 输出事件 `resizeEnd`（类型：`EventEmitter`），当触发调整尺寸结束时向外发出事件。
+   * @zh 输出事件 `resizeEnd`（类型：`EventEmitter<ResizeEvent>`），当触发调整尺寸结束时向外发出事件。
    */
   @Output() resizeEnd = new EventEmitter<ResizeEvent>();
 
@@ -425,8 +425,8 @@ export class ResizableDirective implements OnInit, OnDestroy {
   private pointerEventListeners: PointerEventListeners;
 
   /**
-   * Property `destroy$` (`Subject`) storing destroy (default: `new Subject<void>()`).
-   * @zh 属性 `destroy$`（类型：`Subject`），用于存储或配置销毁（默认值：`new Subject<void>()`）。
+   * Property `destroy$` (`Subject<void>`) storing destroy (default: `new Subject<void>()`).
+   * @zh 属性 `destroy$`（类型：`Subject<void>`），用于存储或配置销毁（默认值：`new Subject<void>()`）。
    */
   private destroy$ = new Subject<void>();
 
@@ -834,7 +834,7 @@ export class ResizableDirective implements OnInit, OnDestroy {
   /**
    * Executes `setElementClass` to handle set element class.
    * @zh 执行 `setElementClass`，用于集合元素类名。
-   * @param elm - elm parameter (`ElementRef`) / elm参数（`ElementRef`）
+   * @param elm - elm parameter (`ElementRef<any>`) / elm参数（`ElementRef<any>`）
    * @param name - name parameter (`string`) / 名称参数（`string`）
    * @param add - add parameter (`boolean`) / 添加参数（`boolean`）
    */

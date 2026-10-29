@@ -115,8 +115,8 @@ declare const window: Window;
 })
 export class TranslateService {
   /**
-   * Property `loadingTranslations` (`Observable<any>`) storing loading translations.
-   * @zh 属性 `loadingTranslations`（类型：`Observable<any>`），用于存储或配置加载中翻译文本。
+   * Property `loadingTranslations` (`any`) storing loading translations.
+   * @zh 属性 `loadingTranslations`（类型：`any`），用于存储或配置加载中翻译文本。
    */
   public loadingTranslations;
   /**
@@ -150,19 +150,19 @@ export class TranslateService {
    */
   private _currentLang: string;
   /**
-   * Property `_langs` (`Array<string>`) storing langs (default: `[]`).
-   * @zh 属性 `_langs`（类型：`Array<string>`），用于存储或配置语言（默认值：`[]`）。
+   * Property `_langs` (`string[]`) storing langs (default: `[]`).
+   * @zh 属性 `_langs`（类型：`string[]`），用于存储或配置语言（默认值：`[]`）。
    */
   private _langs: Array<string> = [];
   /**
-   * Property `_translations` (`any`) storing translations (default: `{}`).
-   * @zh 属性 `_translations`（类型：`any`），用于存储或配置翻译文本（默认值：`{}`）。
+   * Property `_translations` (`Record<string, Object>`) storing translations (default: `{}`).
+   * @zh 属性 `_translations`（类型：`Record<string, Object>`），用于存储或配置翻译文本（默认值：`{}`）。
    */
   /** 语种 → 翻译表 */
   private _translations: Record<string, Object> = {};
   /**
-   * Property `_translationRequests` (`any`) storing translation requests (default: `{}`).
-   * @zh 属性 `_translationRequests`（类型：`any`），用于存储或配置翻译文本请求（默认值：`{}`）。
+   * Property `_translationRequests` (`Record<string, Observable<Object>>`) storing translation requests (default: `{}`).
+   * @zh 属性 `_translationRequests`（类型：`Record<string, Observable<Object>>`），用于存储或配置翻译文本请求（默认值：`{}`）。
    */
   /** 语种 → 进行中的加载请求 */
   private _translationRequests: Record<string, Observable<Object>> = {};
@@ -270,7 +270,7 @@ export class TranslateService {
   /**
    * Sets the translations (`translations`).
    * @zh 设置翻译文本（`translations`）。
-   * @param translations - New translations value (`any`) / 新的翻译文本值（`any`）
+   * @param translations - New translations value (`Record<string, Object>`) / 新的翻译文本值（`Record<string, Object>`）
    */
   set translations(translations) {
     if (this.isolate) {
@@ -450,7 +450,7 @@ export class TranslateService {
   /**
    * Executes `getLangs` to handle get langs.
    * @zh 执行 `getLangs`，用于获取语言。
-   * @returns Result of type `Array<string>` / 类型为 `Array<string>` 的返回值
+   * @returns Result of type `string[]` / 类型为 `string[]` 的返回值
    */
   public getLangs(): Array<string> {
     return this.langs;
@@ -460,7 +460,7 @@ export class TranslateService {
   /**
    * Executes `addLangs` to handle add langs.
    * @zh 执行 `addLangs`，用于添加语言。
-   * @param langs - langs parameter (`Array<string>`) / 语言参数（`Array<string>`）
+   * @param langs - langs parameter (`string[]`) / 语言参数（`string[]`）
    */
   public addLangs(langs: Array<string>): void {
     langs.forEach((lang: string) => {
@@ -558,9 +558,9 @@ export class TranslateService {
   /**
    * Executes `getStreamOnTranslationChange` to handle get stream on translation change.
    * @zh 执行 `getStreamOnTranslationChange`，用于获取流当翻译文本变更。
-   * @param key - key parameter (`string | Array<string>`) / 键参数（`string | Array<string>`）
+   * @param key - key parameter (`string | string[]`) / 键参数（`string | string[]`）
    * @param interpolateParams - interpolate params parameter (`Object`) / interpolate参数集合参数（`Object`）
-   * @returns Result of type `Observable<string | any>` / 类型为 `Observable<string | any>` 的返回值
+   * @returns Result of type `Observable<unknown>` / 类型为 `Observable<unknown>` 的返回值
    */
   public getStreamOnTranslationChange(key: string | Array<string>, interpolateParams?: Object) {
     if (!isDefined(key) || !key.length) {
@@ -606,9 +606,9 @@ export class TranslateService {
   /**
    * Executes `instant` to handle instant.
    * @zh 执行 `instant`，用于即时。
-   * @param key - key parameter (`string | Array<string>`) / 键参数（`string | Array<string>`）
+   * @param key - key parameter (`string | string[]`) / 键参数（`string | string[]`）
    * @param interpolateParams - interpolate params parameter (`Object`) / interpolate参数集合参数（`Object`）
-   * @returns Result of type `string | any` / 类型为 `string | any` 的返回值
+   * @returns Result of type `any` / 类型为 `any` 的返回值
    */
   public instant(key: string | Array<string>, interpolateParams?: Object) {
     if (!isDefined(key) || !key.length) {
@@ -672,7 +672,7 @@ export class TranslateService {
    * Executes `reloadLang` to handle reload lang.
    * @zh 执行 `reloadLang`，用于重新加载语言。
    * @param lang - lang parameter (`string`) / 语言参数（`string`）
-   * @returns Result of type `Observable<any>` / 类型为 `Observable<any>` 的返回值
+   * @returns Result of type `any` / 类型为 `any` 的返回值
    */
   public reloadLang(lang: string) {
     this.resetLang(lang);

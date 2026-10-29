@@ -19,7 +19,7 @@ export function safe_color_change($color, alpha) {
    * Executes `map_set` to handle map set.
    * @zh 执行 `map_set`，用于映射表集合。
    * @param $map - map parameter (`any`) / 映射表参数（`any`）
-   * @param $args - args parameter (`any`) / 参数列表参数（`any`）
+   * @param $args - args parameter (`any[]`) / 参数列表参数（`any[]`）
    */
   export function map_set($map, ...$args) {
     let $first =$args[0];

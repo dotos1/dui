@@ -23,8 +23,8 @@ import { TreeNode } from '../models/tree-node.model';
 export class TreeNodeCheckboxComponent {
   //同 TreeNodeChildrenComponent：模板在 mobxAutorun 里，换实例必须走 observable
   /**
-   * Getter for input property `node` (`any`) returning node.
-   * @zh 输入属性 `node`（类型：`any`）的读取器，返回当前节点。
+   * Getter for input property `node` (`TreeNode`) returning node.
+   * @zh 输入属性 `node`（类型：`TreeNode`）的读取器，返回当前节点。
    */
   @Input()
   get node() {
@@ -33,7 +33,7 @@ export class TreeNodeCheckboxComponent {
   /**
    * Sets the node (`node`).
    * @zh 设置节点（`node`）。
-   * @param node - New node value (`any`) / 新的节点值（`any`）
+   * @param node - New node value (`TreeNode`) / 新的节点值（`TreeNode`）
    */
   set node(node) {
     this.setNode(node);

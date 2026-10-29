@@ -52,8 +52,8 @@ import { ContextMenuService } from './context-menu.service';
 })
 export class ContextMenuModule {
   /**
-   * Property `entryComponents` (`any[]`) storing entry components (default: `[ContextMenuComponent]`).
-   * @zh 属性 `entryComponents`（类型：`any[]`），用于存储或配置条目组件列表（默认值：`[ContextMenuComponent]`）。
+   * Property `entryComponents` (`(typeof ContextMenuComponent)[]`) storing entry components (default: `[ContextMenuComponent]`).
+   * @zh 属性 `entryComponents`（类型：`(typeof ContextMenuComponent)[]`），用于存储或配置条目组件列表（默认值：`[ContextMenuComponent]`）。
    */
   entryComponents = [ContextMenuComponent];
   /**

@@ -25,13 +25,13 @@ import { SpinnerVisibilityService } from '../services/spinner-visibility.service
 export class HttpLoaderComponent implements OnDestroy, OnInit {
 
   /**
-   * Property `_isVisible$` (`BehaviorSubject`) storing is visible (default: `new BehaviorSubject<boolean>(false)`).
-   * @zh 属性 `_isVisible$`（类型：`BehaviorSubject`），用于存储或配置是否为可见（默认值：`new BehaviorSubject<boolean>(false)`）。
+   * Property `_isVisible$` (`BehaviorSubject<boolean>`) storing is visible (default: `new BehaviorSubject<boolean>(false)`).
+   * @zh 属性 `_isVisible$`（类型：`BehaviorSubject<boolean>`），用于存储或配置是否为可见（默认值：`new BehaviorSubject<boolean>(false)`）。
    */
   private _isVisible$ = new BehaviorSubject<boolean>(false);
   /**
-   * Property `_isVisibleObservable$` (`any`) storing is visible observable (default: `this._isVisible$.asObservable()`).
-   * @zh 属性 `_isVisibleObservable$`（类型：`any`），用于存储或配置是否为可见可观察流（默认值：`this._isVisible$.asObservable()`）。
+   * Property `_isVisibleObservable$` (`Observable<boolean>`) storing is visible observable (default: `this._isVisible$.asObservable()`).
+   * @zh 属性 `_isVisibleObservable$`（类型：`Observable<boolean>`），用于存储或配置是否为可见可观察流（默认值：`this._isVisible$.asObservable()`）。
    */
   private readonly _isVisibleObservable$ = this._isVisible$.asObservable();
   /**
@@ -45,8 +45,8 @@ export class HttpLoaderComponent implements OnDestroy, OnInit {
    */
   private subscriptions: Subscription;
   /**
-   * Property `visibleUntil` (`any`) storing visible until (default: `Date.now()`).
-   * @zh 属性 `visibleUntil`（类型：`any`），用于存储或配置可见直到（默认值：`Date.now()`）。
+   * Property `visibleUntil` (`number`) storing visible until (default: `Date.now()`).
+   * @zh 属性 `visibleUntil`（类型：`number`），用于存储或配置可见直到（默认值：`Date.now()`）。
    */
   private visibleUntil = Date.now();
 
@@ -66,8 +66,8 @@ export class HttpLoaderComponent implements OnDestroy, OnInit {
    */
   @Input() public debounceDelay = 0;
   /**
-   * Input property `entryComponent` (`any`) configuring entry component (default: `null`).
-   * @zh 输入属性 `entryComponent`（类型：`any`），用于配置条目组件（默认值：`null`）。
+   * Input property `entryComponent` (`unknown`) configuring entry component (default: `null`).
+   * @zh 输入属性 `entryComponent`（类型：`unknown`），用于配置条目组件（默认值：`null`）。
    */
   @Input() public entryComponent: unknown = null;
   /**

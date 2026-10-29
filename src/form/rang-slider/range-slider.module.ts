@@ -40,8 +40,8 @@ import { FlexLayoutModule } from 'ngx-flexible-layout';
 })
 export class RangeSliderModule {
   /**
-   * Property `entryComponents` (`any[]`) storing entry components (default: `[RangeSliderFieldComponent]`).
-   * @zh 属性 `entryComponents`（类型：`any[]`），用于存储或配置条目组件列表（默认值：`[RangeSliderFieldComponent]`）。
+   * Property `entryComponents` (`(typeof RangeSliderFieldComponent)[]`) storing entry components (default: `[RangeSliderFieldComponent]`).
+   * @zh 属性 `entryComponents`（类型：`(typeof RangeSliderFieldComponent)[]`），用于存储或配置条目组件列表（默认值：`[RangeSliderFieldComponent]`）。
    */
   entryComponents = [RangeSliderFieldComponent];
   /**

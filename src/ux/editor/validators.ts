@@ -54,7 +54,7 @@ export class Validators {
   /**
    * Executes `required` to handle required.
    * @zh 执行 `required`，用于必填。
-   * @param userSchema - user schema parameter (`Schema`) / 用户结构定义参数（`Schema`）
+   * @param userSchema - user schema parameter (`Schema<any, any>`) / 用户结构定义参数（`Schema<any, any>`）
    * @returns Result of type `ValidatorFn` / 类型为 `ValidatorFn` 的返回值
    */
   static required(userSchema?: Schema): ValidatorFn {
@@ -78,7 +78,7 @@ export class Validators {
    * Executes `maxLength` to handle max length.
    * @zh 执行 `maxLength`，用于最大值长度。
    * @param maxLength - max length parameter (`number`) / 最大值长度参数（`number`）
-   * @param userSchema - user schema parameter (`Schema`) / 用户结构定义参数（`Schema`）
+   * @param userSchema - user schema parameter (`Schema<any, any>`) / 用户结构定义参数（`Schema<any, any>`）
    * @returns Result of type `ValidatorFn` / 类型为 `ValidatorFn` 的返回值
    */
   static maxLength(maxLength: number, userSchema?: Schema): ValidatorFn {
@@ -105,7 +105,7 @@ export class Validators {
    * Executes `minLength` to handle min length.
    * @zh 执行 `minLength`，用于最小值长度。
    * @param minLength - min length parameter (`number`) / 最小值长度参数（`number`）
-   * @param userSchema - user schema parameter (`Schema`) / 用户结构定义参数（`Schema`）
+   * @param userSchema - user schema parameter (`Schema<any, any>`) / 用户结构定义参数（`Schema<any, any>`）
    * @returns Result of type `ValidatorFn` / 类型为 `ValidatorFn` 的返回值
    */
   static minLength(minLength: number, userSchema?: Schema): ValidatorFn {

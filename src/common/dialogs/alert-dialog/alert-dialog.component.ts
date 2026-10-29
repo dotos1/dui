@@ -40,7 +40,7 @@ export class AlertDialogComponent {
   /**
    * Creates an instance of `AlertDialogComponent` and initializes its dependencies and internal state.
    * @zh 创建 `AlertDialogComponent` 实例，并初始化其依赖项与内部状态。
-   * @param _dialogRef - Injected or initial dialog ref (`MatDialogRef<AlertDialogComponent>`) / 注入或传入的对话框引用（`MatDialogRef<AlertDialogComponent>`）
+   * @param _dialogRef - Injected or initial dialog ref (`MatDialogRef<AlertDialogComponent, any>`) / 注入或传入的对话框引用（`MatDialogRef<AlertDialogComponent, any>`）
    */
   constructor(private _dialogRef: MatDialogRef<AlertDialogComponent>) {}
 

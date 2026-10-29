@@ -12,9 +12,9 @@ const unitsRegExp: RegExp = /(\d|\.|-)+/g;
 /**
  * Executes `multiplyRule` to handle multiply rule.
  * @zh 执行 `multiplyRule`，用于multiply规则。
- * @param rule - rule parameter (`number | string`) / 规则参数（`number | string`）
+ * @param rule - rule parameter (`string | number`) / 规则参数（`string | number`）
  * @param multiplier - multiplier parameter (`number`) / multiplier参数（`number`）
- * @returns Result of type `number | string` / 类型为 `number | string` 的返回值
+ * @returns Result of type `string | number` / 类型为 `string | number` 的返回值
  */
 export function multiplyRule(rule: number | string, multiplier: number): number | string {
     if (typeof rule === 'string') {
@@ -31,9 +31,9 @@ export function multiplyRule(rule: number | string, multiplier: number): number 
 /**
  * Executes `divideRule` to handle divide rule.
  * @zh 执行 `divideRule`，用于divide规则。
- * @param rule - rule parameter (`number | string`) / 规则参数（`number | string`）
+ * @param rule - rule parameter (`string | number`) / 规则参数（`string | number`）
  * @param divide - divide parameter (`number`) / divide参数（`number`）
- * @returns Result of type `number | string` / 类型为 `number | string` 的返回值
+ * @returns Result of type `string | number` / 类型为 `string | number` 的返回值
  */
 export function divideRule(rule: number | string, divide: number): number | string {
     if (typeof rule === 'string') {
@@ -50,9 +50,9 @@ export function divideRule(rule: number | string, divide: number): number | stri
 /**
  * Executes `addRule` to handle add rule.
  * @zh 执行 `addRule`，用于添加规则。
- * @param rule - rule parameter (`number | string`) / 规则参数（`number | string`）
- * @param add - add parameter (`number | string`) / 添加参数（`number | string`）
- * @returns Result of type `number | string` / 类型为 `number | string` 的返回值
+ * @param rule - rule parameter (`string | number`) / 规则参数（`string | number`）
+ * @param add - add parameter (`string | number`) / 添加参数（`string | number`）
+ * @returns Result of type `string | number` / 类型为 `string | number` 的返回值
  */
 export function addRule(rule: number | string, add: number | string): number | string {
     if (typeof rule === 'string' && typeof add === 'string') {
@@ -84,9 +84,9 @@ export function addRule(rule: number | string, add: number | string): number | s
 /**
  * Executes `subtractRule` to handle subtract rule.
  * @zh 执行 `subtractRule`，用于subtract规则。
- * @param rule - rule parameter (`number | string`) / 规则参数（`number | string`）
- * @param subtract - subtract parameter (`number | string`) / subtract参数（`number | string`）
- * @returns Result of type `number | string` / 类型为 `number | string` 的返回值
+ * @param rule - rule parameter (`string | number`) / 规则参数（`string | number`）
+ * @param subtract - subtract parameter (`string | number`) / subtract参数（`string | number`）
+ * @returns Result of type `string | number` / 类型为 `string | number` 的返回值
  */
 export function subtractRule(rule: number | string, subtract: number | string): number | string {
     if (typeof rule === 'string' && typeof subtract === 'string') {
@@ -120,7 +120,7 @@ export function subtractRule(rule: number | string, subtract: number | string): 
 /**
  * Executes `roundRule` to handle round rule.
  * @zh 执行 `roundRule`，用于四舍五入规则。
- * @param rule - rule parameter (`number | string`) / 规则参数（`number | string`）
+ * @param rule - rule parameter (`string | number`) / 规则参数（`string | number`）
  * @returns Result of type `string` / 类型为 `string` 的返回值
  */
 export function roundRule(rule: number | string): string {

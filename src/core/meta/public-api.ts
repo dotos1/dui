@@ -36,7 +36,7 @@ export class MetaModule {
   /**
    * Executes `forRoot` to handle for root.
    * @zh 执行 `forRoot`，用于用于根节点。
-   * @param configuredProvider - configured provider parameter (`any`) / configured提供者参数（`any`）
+   * @param configuredProvider - configured provider parameter (`{ provide: typeof MetaLoader; useFactory: () => MetaLoader; }`) / configured提供者参数（`{ provide: typeof MetaLoader; useFactory: () => MetaLoader; }`）
    * @returns Result of type `ModuleWithProviders<MetaModule>` / 类型为 `ModuleWithProviders<MetaModule>` 的返回值
    */
   static forRoot(configuredProvider = {

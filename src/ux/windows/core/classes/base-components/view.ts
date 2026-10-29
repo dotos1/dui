@@ -47,13 +47,13 @@ export abstract class ɵOsBaseViewComponent implements AfterViewInit, OnDestroy 
      */
     private _isViewInit: boolean;
     /**
-     * Property `_viewDestroyed$` (`Subject`) storing view destroyed (default: `new Subject<boolean>()`).
-     * @zh 属性 `_viewDestroyed$`（类型：`Subject`），用于存储或配置视图已销毁（默认值：`new Subject<boolean>()`）。
+     * Property `_viewDestroyed$` (`Subject<boolean>`) storing view destroyed (default: `new Subject<boolean>()`).
+     * @zh 属性 `_viewDestroyed$`（类型：`Subject<boolean>`），用于存储或配置视图已销毁（默认值：`new Subject<boolean>()`）。
      */
     private _viewDestroyed$ = new Subject<boolean>();
     /**
-     * Property `_whenViewInit$` (`ReplaySubject`) storing when view init (default: `new ReplaySubject<boolean>()`).
-     * @zh 属性 `_whenViewInit$`（类型：`ReplaySubject`），用于存储或配置when视图初始化（默认值：`new ReplaySubject<boolean>()`）。
+     * Property `_whenViewInit$` (`ReplaySubject<boolean>`) storing when view init (default: `new ReplaySubject<boolean>()`).
+     * @zh 属性 `_whenViewInit$`（类型：`ReplaySubject<boolean>`），用于存储或配置when视图初始化（默认值：`new ReplaySubject<boolean>()`）。
      */
     private _whenViewInit$ = new ReplaySubject<boolean>();
 

@@ -50,38 +50,38 @@ import { ScrollbarManager } from '../utils/scrollbar-manager';
 export class ScrollbarY extends ScrollbarAdapter {
 
   /**
-   * Property `rectOffsetProperty` (`'left' | 'top'`) storing rect offset property (default: `'top'`).
-   * @zh 属性 `rectOffsetProperty`（类型：`'left' | 'top'`），用于存储或配置矩形偏移量属性（默认值：`'top'`）。
+   * Property `rectOffsetProperty` (`"top" | "left"`) storing rect offset property (default: `'top'`).
+   * @zh 属性 `rectOffsetProperty`（类型：`"top" | "left"`），用于存储或配置矩形偏移量属性（默认值：`'top'`）。
    */
   readonly rectOffsetProperty: 'left' | 'top' = 'top';
 
   /**
-   * Property `rectSizeProperty` (`'width' | 'height'`) storing rect size property (default: `'height'`).
-   * @zh 属性 `rectSizeProperty`（类型：`'width' | 'height'`），用于存储或配置矩形尺寸属性（默认值：`'height'`）。
+   * Property `rectSizeProperty` (`"height" | "width"`) storing rect size property (default: `'height'`).
+   * @zh 属性 `rectSizeProperty`（类型：`"height" | "width"`），用于存储或配置矩形尺寸属性（默认值：`'height'`）。
    */
   readonly rectSizeProperty: 'width' | 'height' = 'height';
 
   /**
-   * Property `sizeProperty` (`'offsetWidth' | 'offsetHeight'`) storing size property (default: `'offsetHeight'`).
-   * @zh 属性 `sizeProperty`（类型：`'offsetWidth' | 'offsetHeight'`），用于存储或配置尺寸属性（默认值：`'offsetHeight'`）。
+   * Property `sizeProperty` (`"offsetWidth" | "offsetHeight"`) storing size property (default: `'offsetHeight'`).
+   * @zh 属性 `sizeProperty`（类型：`"offsetWidth" | "offsetHeight"`），用于存储或配置尺寸属性（默认值：`'offsetHeight'`）。
    */
   readonly sizeProperty: 'offsetWidth' | 'offsetHeight' = 'offsetHeight';
 
   /**
-   * Property `clientProperty` (`'clientX' | 'clientY'`) storing client property (default: `'clientY'`).
-   * @zh 属性 `clientProperty`（类型：`'clientX' | 'clientY'`），用于存储或配置client属性（默认值：`'clientY'`）。
+   * Property `clientProperty` (`"clientX" | "clientY"`) storing client property (default: `'clientY'`).
+   * @zh 属性 `clientProperty`（类型：`"clientX" | "clientY"`），用于存储或配置client属性（默认值：`'clientY'`）。
    */
   readonly clientProperty: 'clientX' | 'clientY' = 'clientY';
 
   /**
-   * Property `offsetProperty` (`'offsetX' | 'offsetY'`) storing offset property (default: `'offsetY'`).
-   * @zh 属性 `offsetProperty`（类型：`'offsetX' | 'offsetY'`），用于存储或配置偏移量属性（默认值：`'offsetY'`）。
+   * Property `offsetProperty` (`"offsetX" | "offsetY"`) storing offset property (default: `'offsetY'`).
+   * @zh 属性 `offsetProperty`（类型：`"offsetX" | "offsetY"`），用于存储或配置偏移量属性（默认值：`'offsetY'`）。
    */
   readonly offsetProperty: 'offsetX' | 'offsetY' = 'offsetY';
 
   /**
-   * Property `axis` (`'x' | 'y'`) storing axis (default: `'y'`).
-   * @zh 属性 `axis`（类型：`'x' | 'y'`），用于存储或配置坐标轴（默认值：`'y'`）。
+   * Property `axis` (`"x" | "y"`) storing axis (default: `'y'`).
+   * @zh 属性 `axis`（类型：`"x" | "y"`），用于存储或配置坐标轴（默认值：`'y'`）。
    */
   readonly axis: 'x' | 'y' = 'y';
 
@@ -168,38 +168,38 @@ export class ScrollbarX extends ScrollbarAdapter {
   readonly manager: ScrollbarManager = inject(ScrollbarManager);
 
   /**
-   * Property `rectOffsetProperty` (`'left' | 'top'`) storing rect offset property (default: `'left'`).
-   * @zh 属性 `rectOffsetProperty`（类型：`'left' | 'top'`），用于存储或配置矩形偏移量属性（默认值：`'left'`）。
+   * Property `rectOffsetProperty` (`"top" | "left"`) storing rect offset property (default: `'left'`).
+   * @zh 属性 `rectOffsetProperty`（类型：`"top" | "left"`），用于存储或配置矩形偏移量属性（默认值：`'left'`）。
    */
   readonly rectOffsetProperty: 'left' | 'top' = 'left';
 
   /**
-   * Property `rectSizeProperty` (`'width' | 'height'`) storing rect size property (default: `'width'`).
-   * @zh 属性 `rectSizeProperty`（类型：`'width' | 'height'`），用于存储或配置矩形尺寸属性（默认值：`'width'`）。
+   * Property `rectSizeProperty` (`"height" | "width"`) storing rect size property (default: `'width'`).
+   * @zh 属性 `rectSizeProperty`（类型：`"height" | "width"`），用于存储或配置矩形尺寸属性（默认值：`'width'`）。
    */
   readonly rectSizeProperty: 'width' | 'height' = 'width';
 
   /**
-   * Property `sizeProperty` (`'offsetWidth' | 'offsetHeight'`) storing size property (default: `'offsetWidth'`).
-   * @zh 属性 `sizeProperty`（类型：`'offsetWidth' | 'offsetHeight'`），用于存储或配置尺寸属性（默认值：`'offsetWidth'`）。
+   * Property `sizeProperty` (`"offsetWidth" | "offsetHeight"`) storing size property (default: `'offsetWidth'`).
+   * @zh 属性 `sizeProperty`（类型：`"offsetWidth" | "offsetHeight"`），用于存储或配置尺寸属性（默认值：`'offsetWidth'`）。
    */
   readonly sizeProperty: 'offsetWidth' | 'offsetHeight' = 'offsetWidth';
 
   /**
-   * Property `clientProperty` (`'clientX' | 'clientY'`) storing client property (default: `'clientX'`).
-   * @zh 属性 `clientProperty`（类型：`'clientX' | 'clientY'`），用于存储或配置client属性（默认值：`'clientX'`）。
+   * Property `clientProperty` (`"clientX" | "clientY"`) storing client property (default: `'clientX'`).
+   * @zh 属性 `clientProperty`（类型：`"clientX" | "clientY"`），用于存储或配置client属性（默认值：`'clientX'`）。
    */
   readonly clientProperty: 'clientX' | 'clientY' = 'clientX';
 
   /**
-   * Property `offsetProperty` (`'offsetX' | 'offsetY'`) storing offset property (default: `'offsetX'`).
-   * @zh 属性 `offsetProperty`（类型：`'offsetX' | 'offsetY'`），用于存储或配置偏移量属性（默认值：`'offsetX'`）。
+   * Property `offsetProperty` (`"offsetX" | "offsetY"`) storing offset property (default: `'offsetX'`).
+   * @zh 属性 `offsetProperty`（类型：`"offsetX" | "offsetY"`），用于存储或配置偏移量属性（默认值：`'offsetX'`）。
    */
   readonly offsetProperty: 'offsetX' | 'offsetY' = 'offsetX';
 
   /**
-   * Property `axis` (`'x' | 'y'`) storing axis (default: `'x'`).
-   * @zh 属性 `axis`（类型：`'x' | 'y'`），用于存储或配置坐标轴（默认值：`'x'`）。
+   * Property `axis` (`"x" | "y"`) storing axis (default: `'x'`).
+   * @zh 属性 `axis`（类型：`"x" | "y"`），用于存储或配置坐标轴（默认值：`'x'`）。
    */
   readonly axis: 'x' | 'y' = 'x';
 

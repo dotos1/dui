@@ -53,7 +53,7 @@ export abstract class AuthGuardBase  {
    * @zh 执行 `checkLogin`，用于检查Login。
    * @param activeRoute - active route parameter (`ActivatedRouteSnapshot`) / 激活Route参数（`ActivatedRouteSnapshot`）
    * @param redirectUrl - redirect url parameter (`string`) / 重定向链接地址参数（`string`）
-   * @returns Result of type `Observable<boolean | UrlTree> | Promise<boolean | UrlTree> |...` / 类型为 `Observable<boolean | UrlTree> | Promise<boolean | UrlTree> |...` 的返回值
+   * @returns Result of type `boolean | UrlTree | Observable<boolean | UrlTree> | Promise<boolean | UrlTree>` / 类型为 `boolean | UrlTree | Observable<boolean | UrlTree> | Promise<boolean | UrlTree>` 的返回值
    */
   abstract checkLogin(
     activeRoute: ActivatedRouteSnapshot,
@@ -65,7 +65,7 @@ export abstract class AuthGuardBase  {
    * @zh 执行 `canActivate`，用于是否可以激活。
    * @param route - route parameter (`ActivatedRouteSnapshot`) / route参数（`ActivatedRouteSnapshot`）
    * @param state - state parameter (`RouterStateSnapshot`) / 状态参数（`RouterStateSnapshot`）
-   * @returns Result of type `Observable<boolean | UrlTree> | Promise<boolean | UrlTree> |...` / 类型为 `Observable<boolean | UrlTree> | Promise<boolean | UrlTree> |...` 的返回值
+   * @returns Result of type `boolean | UrlTree | Observable<boolean | UrlTree> | Promise<boolean | UrlTree>` / 类型为 `boolean | UrlTree | Observable<boolean | UrlTree> | Promise<boolean | UrlTree>` 的返回值
    */
   canActivate(
     route: ActivatedRouteSnapshot,
@@ -82,7 +82,7 @@ export abstract class AuthGuardBase  {
    * @zh 执行 `canActivateChild`，用于是否可以激活子级。
    * @param route - route parameter (`ActivatedRouteSnapshot`) / route参数（`ActivatedRouteSnapshot`）
    * @param state - state parameter (`RouterStateSnapshot`) / 状态参数（`RouterStateSnapshot`）
-   * @returns Result of type `Observable<boolean | UrlTree> | Promise<boolean | UrlTree> |...` / 类型为 `Observable<boolean | UrlTree> | Promise<boolean | UrlTree> |...` 的返回值
+   * @returns Result of type `boolean | UrlTree | Observable<boolean | UrlTree> | Promise<boolean | UrlTree>` / 类型为 `boolean | UrlTree | Observable<boolean | UrlTree> | Promise<boolean | UrlTree>` 的返回值
    */
   canActivateChild(
     route: ActivatedRouteSnapshot,

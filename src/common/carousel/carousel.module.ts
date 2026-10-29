@@ -20,8 +20,8 @@ import {
  */
 export class MatCarouselHammerConfig extends HammerGestureConfig {
   /**
-   * Property `overrides` (`any`) storing overrides.
-   * @zh 属性 `overrides`（类型：`any`），用于存储或配置overrides。
+   * Property `overrides` (`{ pinch: { enable: boolean; }; rotate: { enable: boolean; }; }`) storing overrides.
+   * @zh 属性 `overrides`（类型：`{ pinch: { enable: boolean; }; rotate: { enable: boolean; }; }`），用于存储或配置overrides。
    */
   override overrides = {
     pinch: { enable: false },

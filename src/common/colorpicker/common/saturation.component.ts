@@ -90,19 +90,19 @@ export class SaturationComponent implements OnChanges {
    */
   @Input() radius: number;
   /**
-   * Input property `pointer` (`{ [key: string]: string }`) configuring pointer.
+   * Input property `pointer` (`{ [key: string]: string; }`) configuring pointer.
    * @zh 指示器手柄的内联样式。
    * @zh 指示器手柄的内联样式。
    */
   @Input() pointer: { [key: string]: string };
   /**
-   * Input property `circle` (`{ [key: string]: string }`) configuring circle.
+   * Input property `circle` (`{ [key: string]: string; }`) configuring circle.
    * @zh 指示器圆点的内联样式。
    * @zh 指示器圆点的内联样式。
    */
   @Input() circle: { [key: string]: string };
   /**
-   * Output event emitter `onChange` (`EventEmitter`) firing when on change occurs.
+   * Output event emitter `onChange` (`EventEmitter<{ data: HSVAsource; $event: Event; }>`) firing when on change occurs.
    * @zh 饱和度/明度变化时发出。
    * @zh 饱和度/明度变化时发出。
    */

@@ -57,13 +57,13 @@ export class LineSizeSelector<F extends FieldConfig = FieldConfig> extends MatFi
   public inputValue:string = '1';
 
   /**
-   * Template/content query reference `lineCavases` (`@ViewChildren`) targeting line cavases.
+   * Template/content query reference `lineCavases` (`QueryList<ElementRef<any>>`) targeting line cavases.
    * @zh 模板/内容视图查询引用 `lineCavases`（`@ViewChildren`），指向线段Cavases。
    */
   @ViewChildren('linesize') lineCavases: QueryList<ElementRef>;
 
   /**
-   * Template/content query reference `lineSizeTriggerEl` (`@ViewChild`) targeting line size trigger el.
+   * Template/content query reference `lineSizeTriggerEl` (`ElementRef<any>`) targeting line size trigger el.
    * @zh 模板/内容视图查询引用 `lineSizeTriggerEl`（`@ViewChild`），指向线段尺寸触发DOM元素。
    */
   @ViewChild('lineSizeTrigger')
@@ -79,7 +79,7 @@ export class LineSizeSelector<F extends FieldConfig = FieldConfig> extends MatFi
   /**
    * Input setter `field` updating field.
    * @zh 输入属性 `field` 的设置器，用于更新字段。
-   * @param f - New field value (`F | any`) / 新的字段值（`F | any`）
+   * @param f - New field value (`any`) / 新的字段值（`any`）
    */
   @Input()
   override set field(f) {
@@ -122,8 +122,8 @@ export class LineSizeSelector<F extends FieldConfig = FieldConfig> extends MatFi
     return this._field || {};
  }
   /**
-   * Property `onDestroy$` (`Subject`) storing on destroy (default: `new Subject<void>()`).
-   * @zh 属性 `onDestroy$`（类型：`Subject`），用于存储或配置当销毁（默认值：`new Subject<void>()`）。
+   * Property `onDestroy$` (`Subject<void>`) storing on destroy (default: `new Subject<void>()`).
+   * @zh 属性 `onDestroy$`（类型：`Subject<void>`），用于存储或配置当销毁（默认值：`new Subject<void>()`）。
    */
   private onDestroy$ = new Subject<void>();
   /**
@@ -132,8 +132,8 @@ export class LineSizeSelector<F extends FieldConfig = FieldConfig> extends MatFi
    */
   private lineColor = 'rgba(0, 0, 0, 1.0)';
   /**
-   * Property `sizeOptions` (`any[]`) storing size options (default: `[...PRE_DEFINED_THEMES]`).
-   * @zh 属性 `sizeOptions`（类型：`any[]`），用于存储或配置尺寸配置选项（默认值：`[...PRE_DEFINED_THEMES]`）。
+   * Property `sizeOptions` (`{ value: string; }[]`) storing size options (default: `[...PRE_DEFINED_THEMES]`).
+   * @zh 属性 `sizeOptions`（类型：`{ value: string; }[]`），用于存储或配置尺寸配置选项（默认值：`[...PRE_DEFINED_THEMES]`）。
    */
   public sizeOptions = [...PRE_DEFINED_THEMES];
 
@@ -142,7 +142,7 @@ export class LineSizeSelector<F extends FieldConfig = FieldConfig> extends MatFi
    * @zh 创建 `LineSizeSelector` 实例，并初始化其依赖项与内部状态。
    * @param dotosConfigService - Injected or initial dotos config service (`DotosConfigService`) / 注入或传入的DotOS配置服务（`DotosConfigService`）
    * @param translate - Injected or initial translate (`TranslateService`) / 注入或传入的翻译（`TranslateService`）
-   * @param _element - Injected or initial element (`ElementRef`) / 注入或传入的元素（`ElementRef`）
+   * @param _element - Injected or initial element (`ElementRef<any>`) / 注入或传入的元素（`ElementRef<any>`）
    * @param renderer - Injected or initial renderer (`Renderer2`) / 注入或传入的渲染器（`Renderer2`）
    * @param router - Injected or initial router (`Router`) / 注入或传入的router（`Router`）
    * @param themeService - Injected or initial theme service (`ThemeService`) / 注入或传入的主题服务（`ThemeService`）

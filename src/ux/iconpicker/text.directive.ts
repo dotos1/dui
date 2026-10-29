@@ -17,8 +17,8 @@ import { Directive, EventEmitter, Input, Output } from '@angular/core';
 })
 export class TextDirective {
   /**
-   * Output event emitter `newValue` (`EventEmitter`) firing when new value occurs.
-   * @zh 输出事件 `newValue`（类型：`EventEmitter`），当触发新值时向外发出事件。
+   * Output event emitter `newValue` (`EventEmitter<any>`) firing when new value occurs.
+   * @zh 输出事件 `newValue`（类型：`EventEmitter<any>`），当触发新值时向外发出事件。
    */
   @Output('newValue') newValue = new EventEmitter();
   /**

@@ -59,8 +59,8 @@ export class GridsterComponent implements OnInit, OnChanges, OnDestroy, Gridster
    */
   calculateLayoutDebounce: () => void;
   /**
-   * Property `movingItem` (`GridsterItem | null`) storing moving item.
-   * @zh 属性 `movingItem`（类型：`GridsterItem | null`），用于存储或配置移动条目。
+   * Property `movingItem` (`GridsterItem`) storing moving item.
+   * @zh 属性 `movingItem`（类型：`GridsterItem`），用于存储或配置移动条目。
    */
   movingItem: GridsterItem | null;
   /**
@@ -94,8 +94,8 @@ export class GridsterComponent implements OnInit, OnChanges, OnDestroy, Gridster
    */
   curHeight: number;
   /**
-   * Property `grid` (`Array<GridsterItemComponentInterface>`) storing grid.
-   * @zh 属性 `grid`（类型：`Array<GridsterItemComponentInterface>`），用于存储或配置网格表格。
+   * Property `grid` (`GridsterItemComponentInterface[]`) storing grid.
+   * @zh 属性 `grid`（类型：`GridsterItemComponentInterface[]`），用于存储或配置网格表格。
    */
   grid: Array<GridsterItemComponentInterface>;
   /**
@@ -129,8 +129,8 @@ export class GridsterComponent implements OnInit, OnChanges, OnDestroy, Gridster
    */
   gridRows = [];
   /**
-   * Property `windowResize` (`(() => void) | null`) storing window resize.
-   * @zh 属性 `windowResize`（类型：`(() => void) | null`），用于存储或配置窗口调整尺寸。
+   * Property `windowResize` (`() => void`) storing window resize.
+   * @zh 属性 `windowResize`（类型：`() => void`），用于存储或配置窗口调整尺寸。
    */
   windowResize: (() => void) | null;
   /**
@@ -157,7 +157,7 @@ export class GridsterComponent implements OnInit, OnChanges, OnDestroy, Gridster
   /**
    * Creates an instance of `GridsterComponent` and initializes its dependencies and internal state.
    * @zh 创建 `GridsterComponent` 实例，并初始化其依赖项与内部状态。
-   * @param el - Injected or initial el (`ElementRef`) / 注入或传入的DOM元素（`ElementRef`）
+   * @param el - Injected or initial el (`ElementRef<any>`) / 注入或传入的DOM元素（`ElementRef<any>`）
    * @param renderer - Injected or initial renderer (`Renderer2`) / 注入或传入的渲染器（`Renderer2`）
    * @param cdRef - Injected or initial cd ref (`ChangeDetectorRef`) / 注入或传入的cd引用（`ChangeDetectorRef`）
    * @param zone - Injected or initial zone (`NgZone`) / 注入或传入的区域(NgZone)（`NgZone`）
@@ -550,7 +550,7 @@ export class GridsterComponent implements OnInit, OnChanges, OnDestroy, Gridster
    * Executes `checkCollision` to handle check collision.
    * @zh 执行 `checkCollision`，用于检查Collision。
    * @param item - item parameter (`GridsterItem`) / 条目参数（`GridsterItem`）
-   * @returns Result of type `GridsterItemComponentInterface | boolean` / 类型为 `GridsterItemComponentInterface | boolean` 的返回值
+   * @returns Result of type `boolean | GridsterItemComponentInterface` / 类型为 `boolean | GridsterItemComponentInterface` 的返回值
    */
   checkCollision(item: GridsterItem): GridsterItemComponentInterface | boolean {
     let collision: GridsterItemComponentInterface | boolean = false;
@@ -597,7 +597,7 @@ export class GridsterComponent implements OnInit, OnChanges, OnDestroy, Gridster
    * Executes `findItemWithItem` to handle find item with item.
    * @zh 执行 `findItemWithItem`，用于查找条目带有条目。
    * @param item - item parameter (`GridsterItem`) / 条目参数（`GridsterItem`）
-   * @returns Result of type `GridsterItemComponentInterface | boolean` / 类型为 `GridsterItemComponentInterface | boolean` 的返回值
+   * @returns Result of type `boolean | GridsterItemComponentInterface` / 类型为 `boolean | GridsterItemComponentInterface` 的返回值
    */
   findItemWithItem(item: GridsterItem): GridsterItemComponentInterface | boolean {
     let widgetsIndex: number = this.grid.length - 1;
@@ -615,7 +615,7 @@ export class GridsterComponent implements OnInit, OnChanges, OnDestroy, Gridster
    * Executes `findItemsWithItem` to handle find items with item.
    * @zh 执行 `findItemsWithItem`，用于查找条目列表带有条目。
    * @param item - item parameter (`GridsterItem`) / 条目参数（`GridsterItem`）
-   * @returns Result of type `Array<GridsterItemComponentInterface>` / 类型为 `Array<GridsterItemComponentInterface>` 的返回值
+   * @returns Result of type `GridsterItemComponentInterface[]` / 类型为 `GridsterItemComponentInterface[]` 的返回值
    */
   findItemsWithItem(item: GridsterItem): Array<GridsterItemComponentInterface> {
     const a: Array<GridsterItemComponentInterface> = [];
@@ -654,7 +654,7 @@ export class GridsterComponent implements OnInit, OnChanges, OnDestroy, Gridster
    * Executes `getNextPossiblePosition` to handle get next possible position.
    * @zh 执行 `getNextPossiblePosition`，用于获取下一个Possible位置。
    * @param newItem - new item parameter (`GridsterItem`) / 新条目参数（`GridsterItem`）
-   * @param startingFrom - starting from parameter (`{ y?: number, x?: number }`) / 开始从参数（`{ y?: number, x?: number }`）
+   * @param startingFrom - starting from parameter (`{ y?: number; x?: number; }`) / 开始从参数（`{ y?: number; x?: number; }`）
    * @returns Result of type `boolean` / 类型为 `boolean` 的返回值
    */
   getNextPossiblePosition(newItem: GridsterItem, startingFrom: { y?: number, x?: number } = {}): boolean {
@@ -807,7 +807,7 @@ export class GridsterComponent implements OnInit, OnChanges, OnDestroy, Gridster
    * Executes `checkCollisionForSwaping` to handle check collision for swaping.
    * @zh 执行 `checkCollisionForSwaping`，用于检查Collision用于Swaping。
    * @param item - item parameter (`GridsterItem`) / 条目参数（`GridsterItem`）
-   * @returns Result of type `GridsterItemComponentInterface | boolean` / 类型为 `GridsterItemComponentInterface | boolean` 的返回值
+   * @returns Result of type `boolean | GridsterItemComponentInterface` / 类型为 `boolean | GridsterItemComponentInterface` 的返回值
    */
   checkCollisionForSwaping(item: GridsterItem): GridsterItemComponentInterface | boolean {
     let collision: GridsterItemComponentInterface | boolean = false;
@@ -831,7 +831,7 @@ export class GridsterComponent implements OnInit, OnChanges, OnDestroy, Gridster
    * Executes `findItemWithItemForSwaping` to handle find item with item for swaping.
    * @zh 执行 `findItemWithItemForSwaping`，用于查找条目带有条目用于Swaping。
    * @param item - item parameter (`GridsterItem`) / 条目参数（`GridsterItem`）
-   * @returns Result of type `GridsterItemComponentInterface | boolean` / 类型为 `GridsterItemComponentInterface | boolean` 的返回值
+   * @returns Result of type `boolean | GridsterItemComponentInterface` / 类型为 `boolean | GridsterItemComponentInterface` 的返回值
    */
   findItemWithItemForSwaping(item: GridsterItem): GridsterItemComponentInterface | boolean {
     let widgetsIndex: number = this.grid.length - 1;

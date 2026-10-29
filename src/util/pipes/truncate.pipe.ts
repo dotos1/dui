@@ -17,7 +17,7 @@ export class TruncatePipe implements PipeTransform {
   /**
    * Executes `transform` to handle transform.
    * @zh 执行 `transform`，用于转换。
-   * @param text - text parameter (`any`) / 文本参数（`any`）
+   * @param text - text parameter (`unknown`) / 文本参数（`unknown`）
    * @param length - length parameter (`number`) / 长度参数（`number`）
    * @returns Result of type `string` / 类型为 `string` 的返回值
    */

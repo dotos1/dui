@@ -1,6 +1,6 @@
 /**
  * Creates a deep clone of an element.
- * @zh 执行 `deepCloneNode`，用于deep克隆节点。
+ * @zh 执行 `deepCloneNode`，用于深度克隆节点。
  */
 export function deepCloneNode(node: HTMLElement): HTMLElement {
   const clone = node.cloneNode(true) as HTMLElement;
@@ -31,7 +31,7 @@ export function deepCloneNode(node: HTMLElement): HTMLElement {
 
 /**
  * Matches elements between an element and its clone and allows for their data to be cloned.
- * @zh 执行 `transferData`，用于transfer数据。
+ * @zh 执行 `transferData`，用于转移数据。
  */
 function transferData<T extends Element>(
   selector: string,
@@ -59,7 +59,7 @@ let cloneUniqueId = 0;
 
 /**
  * Transfers the data of one input element to another.
- * @zh 执行 `transferInputData`，用于transfer输入属性数据。
+ * @zh 执行 `transferInputData`，用于转移输入属性数据。
  */
 function transferInputData(
   source: Element & { value: string },
@@ -80,7 +80,7 @@ function transferInputData(
 
 /**
  * Transfers the data of one canvas element to another.
- * @zh 执行 `transferCanvasData`，用于transfer画布数据。
+ * @zh 执行 `transferCanvasData`，用于转移画布数据。
  */
 function transferCanvasData(
   source: HTMLCanvasElement,

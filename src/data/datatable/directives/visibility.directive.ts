@@ -35,7 +35,7 @@ export class VisibilityDirective implements OnInit, OnDestroy {
   /**
    * Creates an instance of `VisibilityDirective` and initializes its dependencies and internal state.
    * @zh 创建 `VisibilityDirective` 实例，并初始化其依赖项与内部状态。
-   * @param element - Injected or initial element (`ElementRef`) / 注入或传入的元素（`ElementRef`）
+   * @param element - Injected or initial element (`ElementRef<any>`) / 注入或传入的元素（`ElementRef<any>`）
    * @param zone - Injected or initial zone (`NgZone`) / 注入或传入的区域(NgZone)（`NgZone`）
    */
   constructor(private element: ElementRef, private zone: NgZone) {}

@@ -55,8 +55,8 @@ import { Dui } from '@dotos/dui/core';
 })
 export class PanelModule {
   /**
-   * Property `dynamicComponents` (`any[]`) storing dynamic components (default: `[SplitComponent,PanelComponent]`).
-   * @zh 属性 `dynamicComponents`（类型：`any[]`），用于存储或配置动态组件列表（默认值：`[SplitComponent,PanelComponent]`）。
+   * Property `dynamicComponents` (`(typeof PanelComponent | typeof SplitComponent)[]`) storing dynamic components (default: `[SplitComponent,PanelComponent]`).
+   * @zh 属性 `dynamicComponents`（类型：`(typeof PanelComponent | typeof SplitComponent)[]`），用于存储或配置动态组件列表（默认值：`[SplitComponent,PanelComponent]`）。
    */
   dynamicComponents = [SplitComponent,PanelComponent];
   /**

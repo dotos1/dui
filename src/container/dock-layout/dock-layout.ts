@@ -20,9 +20,9 @@ import { VirtualLayout } from './virtual-layout';
  */
 export class DockLayout extends VirtualLayout {
     /**
-     * Property `_componentTypesMap` (`Map`) storing component types map.
+     * Property `_componentTypesMap` (`Map<string, DockLayout.ComponentInstantiator>`) storing component types map.
      * @internal
-     * @zh 属性 `_componentTypesMap`（类型：`Map`），用于存储或配置组件类型列表映射表。
+     * @zh 属性 `_componentTypesMap`（类型：`Map<string, DockLayout.ComponentInstantiator>`），用于存储或配置组件类型列表映射表。
      */
     private _componentTypesMap = new Map<string, DockLayout.ComponentInstantiator>();
     /**
@@ -33,15 +33,15 @@ export class DockLayout extends VirtualLayout {
     private _getComponentConstructorFtn: DockLayout.GetComponentConstructorCallback;
 
     /**
-     * Property `_registeredComponentMap` (`Map`) storing registered component map.
+     * Property `_registeredComponentMap` (`Map<ComponentContainer, unknown>`) storing registered component map.
      * @internal
-     * @zh 属性 `_registeredComponentMap`（类型：`Map`），用于存储或配置已注册组件映射表。
+     * @zh 属性 `_registeredComponentMap`（类型：`Map<ComponentContainer, unknown>`），用于存储或配置已注册组件映射表。
      */
     private _registeredComponentMap = new Map<ComponentContainer, ComponentContainer.Component>();
     /**
-     * Property `_virtuableComponentMap` (`Map`) storing virtuable component map.
+     * Property `_virtuableComponentMap` (`Map<ComponentContainer, DockLayout.VirtuableComponent>`) storing virtuable component map.
      * @internal
-     * @zh 属性 `_virtuableComponentMap`（类型：`Map`），用于存储或配置virtuable组件映射表。
+     * @zh 属性 `_virtuableComponentMap`（类型：`Map<ComponentContainer, DockLayout.VirtuableComponent>`），用于存储或配置virtuable组件映射表。
      */
     private _virtuableComponentMap = new Map<ComponentContainer, DockLayout.VirtuableComponent>();
     /**
@@ -52,25 +52,25 @@ export class DockLayout extends VirtualLayout {
     private _dockLayoutBoundingClientRect: DOMRect;
 
     /**
-     * Property `_containerVirtualRectingRequiredEventListener` (`any`) storing container virtual recting required event listener.
+     * Property `_containerVirtualRectingRequiredEventListener` (`(container: ComponentContainer, width: number, height: number) => void`) storing container virtual recting required event listener.
      * @internal
-     * @zh 属性 `_containerVirtualRectingRequiredEventListener`（类型：`any`），用于存储或配置容器虚拟滚动矩形必填事件监听器。
+     * @zh 属性 `_containerVirtualRectingRequiredEventListener`（类型：`(container: ComponentContainer, width: number, height: number) => void`），用于存储或配置容器虚拟滚动矩形必填事件监听器。
      */
     private _containerVirtualRectingRequiredEventListener =
         (container: ComponentContainer, width: number, height: number) => 
         this.handleContainerVirtualRectingRequiredEvent(this.translator,container, width, height);
     /**
-     * Property `_containerVirtualVisibilityChangeRequiredEventListener` (`any`) storing container virtual visibility change required event listener.
+     * Property `_containerVirtualVisibilityChangeRequiredEventListener` (`(container: ComponentContainer, visible: boolean) => void`) storing container virtual visibility change required event listener.
      * @internal
-     * @zh 属性 `_containerVirtualVisibilityChangeRequiredEventListener`（类型：`any`），用于存储或配置容器虚拟滚动Visibility变更必填事件监听器。
+     * @zh 属性 `_containerVirtualVisibilityChangeRequiredEventListener`（类型：`(container: ComponentContainer, visible: boolean) => void`），用于存储或配置容器虚拟滚动Visibility变更必填事件监听器。
      */
     private _containerVirtualVisibilityChangeRequiredEventListener =
         (container: ComponentContainer, visible: boolean) =>
          this.handleContainerVirtualVisibilityChangeRequiredEvent(this.translator,container, visible);
     /**
-     * Property `_containerVirtualZIndexChangeRequiredEventListener` (`any`) storing container virtual z index change required event listener.
+     * Property `_containerVirtualZIndexChangeRequiredEventListener` (`(container: ComponentContainer, logicalZIndex: LogicalZIndex, defaultZIndex: string) => void`) storing container virtual z index change required event listener.
      * @internal
-     * @zh 属性 `_containerVirtualZIndexChangeRequiredEventListener`（类型：`any`），用于存储或配置容器虚拟滚动Z坐标索引变更必填事件监听器。
+     * @zh 属性 `_containerVirtualZIndexChangeRequiredEventListener`（类型：`(container: ComponentContainer, logicalZIndex: LogicalZIndex, defaultZIndex: string) => void`），用于存储或配置容器虚拟滚动Z坐标索引变更必填事件监听器。
      */
     private _containerVirtualZIndexChangeRequiredEventListener =
         (container: ComponentContainer, logicalZIndex: LogicalZIndex, defaultZIndex: string) =>
@@ -122,7 +122,7 @@ export class DockLayout extends VirtualLayout {
      * @param translator - translator parameter (`TranslateService`) / 翻译器参数（`TranslateService`）
      * @param name - name parameter (`string`) / 名称参数（`string`）
      * @param componentConstructorOrFactoryF... - component constructor or factory f parameter (`DockLayout.ComponentConstructor | DockLayout.ComponentFactor...`) / 组件ConstructorOr工厂F参数（`DockLayout.ComponentConstructor | DockLayout.ComponentFactor...`）
-     * @param virtual - virtual parameter (`any`) / 虚拟滚动参数（`any`）
+     * @param virtual - virtual parameter (`boolean`) / 虚拟滚动参数（`boolean`）
      */
     registerComponent(
         translator:TranslateService,
@@ -149,7 +149,7 @@ export class DockLayout extends VirtualLayout {
      * @param translator - translator parameter (`TranslateService`) / 翻译器参数（`TranslateService`）
      * @param typeName - type name parameter (`string`) / 类型名称参数（`string`）
      * @param componentConstructor - component constructor parameter (`DockLayout.ComponentConstructor`) / 组件Constructor参数（`DockLayout.ComponentConstructor`）
-     * @param virtual - virtual parameter (`any`) / 虚拟滚动参数（`any`）
+     * @param virtual - virtual parameter (`boolean`) / 虚拟滚动参数（`boolean`）
      */
     registerComponentConstructor( translator:TranslateService,typeName: string, componentConstructor: DockLayout.ComponentConstructor, virtual = false): void {
         if (typeof componentConstructor !== 'function') {
@@ -180,7 +180,7 @@ export class DockLayout extends VirtualLayout {
      * @param translator - translator parameter (`TranslateService`) / 翻译器参数（`TranslateService`）
      * @param typeName - type name parameter (`string`) / 类型名称参数（`string`）
      * @param componentFactoryFunction - component factory function parameter (`DockLayout.ComponentFactoryFunction`) / 组件工厂函数参数（`DockLayout.ComponentFactoryFunction`）
-     * @param virtual - virtual parameter (`any`) / 虚拟滚动参数（`any`）
+     * @param virtual - virtual parameter (`boolean`) / 虚拟滚动参数（`boolean`）
      */
     registerComponentFactoryFunction(translator:TranslateService,typeName: string, componentFactoryFunction: DockLayout.ComponentFactoryFunction, virtual = false): void {
         if (typeof componentFactoryFunction !== 'function') {
@@ -245,7 +245,7 @@ export class DockLayout extends VirtualLayout {
      * Executes `getComponentInstantiator` to handle get component instantiator.
      * @zh 执行 `getComponentInstantiator`，用于获取组件Instantiator。
      * @param config - config parameter (`ResolvedComponentItemConfig`) / 配置参数（`ResolvedComponentItemConfig`）
-     * @returns Result of type `DockLayout.ComponentInstantiator | undefined` / 类型为 `DockLayout.ComponentInstantiator | undefined` 的返回值
+     * @returns Result of type `DockLayout.ComponentInstantiator` / 类型为 `DockLayout.ComponentInstantiator` 的返回值
      */
     getComponentInstantiator(config: ResolvedComponentItemConfig): DockLayout.ComponentInstantiator | undefined {
         let instantiator: DockLayout.ComponentInstantiator | undefined;
@@ -486,13 +486,13 @@ export namespace DockLayout {
      */
     export interface ComponentInstantiator {
         /**
-         * Property `constructor` (`ComponentConstructor | undefined`) storing constructor.
-         * @zh 属性 `constructor`（类型：`ComponentConstructor | undefined`），用于存储或配置constructor。
+         * Property `constructor` (`ComponentConstructor`) storing constructor.
+         * @zh 属性 `constructor`（类型：`ComponentConstructor`），用于存储或配置constructor。
          */
         constructor: ComponentConstructor | undefined;
         /**
-         * Property `factoryFunction` (`ComponentFactoryFunction | undefined`) storing factory function.
-         * @zh 属性 `factoryFunction`（类型：`ComponentFactoryFunction | undefined`），用于存储或配置工厂函数。
+         * Property `factoryFunction` (`ComponentFactoryFunction`) storing factory function.
+         * @zh 属性 `factoryFunction`（类型：`ComponentFactoryFunction`），用于存储或配置工厂函数。
          */
         factoryFunction: ComponentFactoryFunction | undefined;
         /**

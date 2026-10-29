@@ -732,14 +732,14 @@ const matPresetColors = [
  */
 export class MatColors {
   /**
-   * Property `all` (`any`) storing all (default: `matColors`).
-   * @zh 属性 `all`（类型：`any`），用于存储或配置全部（默认值：`matColors`）。
+   * Property `all` (`{…}`) storing all (default: `matColors`).
+   * @zh 属性 `all`（类型：`{…}`），用于存储或配置全部（默认值：`matColors`）。
    */
   public static all = matColors;
 
   /**
-   * Property `presets` (`any`) storing presets (default: `matPresetColors`).
-   * @zh 属性 `presets`（类型：`any`），用于存储或配置presets（默认值：`matPresetColors`）。
+   * Property `presets` (`string[]`) storing presets (default: `matPresetColors`).
+   * @zh 属性 `presets`（类型：`string[]`），用于存储或配置presets（默认值：`matPresetColors`）。
    */
   public static presets = matPresetColors;
 

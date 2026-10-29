@@ -160,7 +160,7 @@ export class Chain extends AST {
      * Creates an instance of `Chain` and initializes its dependencies and internal state.
      * @zh 创建 `Chain` 实例，并初始化其依赖项与内部状态。
      * @param span - Injected or initial span (`ParseSpan`) / 注入或传入的span（`ParseSpan`）
-     * @param expressions - Injected or initial expressions (`any[]`) / 注入或传入的表达式（`any[]`）
+     * @param expressions - Injected or initial expressions (`any`) / 注入或传入的表达式（`any`）
      */
     constructor(span: ParseSpan, public expressions) { super(span); }
     /**
@@ -341,7 +341,7 @@ export class BindingPipe extends AST {
      * @param span - Injected or initial span (`ParseSpan`) / 注入或传入的span（`ParseSpan`）
      * @param exp - Injected or initial exp (`AST`) / 注入或传入的exp（`AST`）
      * @param name - Injected or initial name (`string`) / 注入或传入的名称（`string`）
-     * @param args - Injected or initial args (`any[]`) / 注入或传入的参数列表（`any[]`）
+     * @param args - Injected or initial args (`any`) / 注入或传入的参数列表（`any`）
      */
     constructor(span: ParseSpan, public exp: AST, public name: string, public args) {
         super(span);
@@ -389,7 +389,7 @@ export class LiteralArray extends AST {
      * Creates an instance of `LiteralArray` and initializes its dependencies and internal state.
      * @zh 创建 `LiteralArray` 实例，并初始化其依赖项与内部状态。
      * @param span - Injected or initial span (`ParseSpan`) / 注入或传入的span（`ParseSpan`）
-     * @param expressions - Injected or initial expressions (`any[]`) / 注入或传入的表达式（`any[]`）
+     * @param expressions - Injected or initial expressions (`any`) / 注入或传入的表达式（`any`）
      */
     constructor(span: ParseSpan, public expressions) { super(span); }
     /**
@@ -413,8 +413,8 @@ export class LiteralMap extends AST {
      * Creates an instance of `LiteralMap` and initializes its dependencies and internal state.
      * @zh 创建 `LiteralMap` 实例，并初始化其依赖项与内部状态。
      * @param span - Injected or initial span (`ParseSpan`) / 注入或传入的span（`ParseSpan`）
-     * @param keys - Injected or initial keys (`any[]`) / 注入或传入的键列表（`any[]`）
-     * @param values - Injected or initial values (`any[]`) / 注入或传入的值列表（`any[]`）
+     * @param keys - Injected or initial keys (`any`) / 注入或传入的键列表（`any`）
+     * @param values - Injected or initial values (`any`) / 注入或传入的值列表（`any`）
      */
     constructor(span: ParseSpan, public keys, public values) { super(span); }
     /**
@@ -438,8 +438,8 @@ export class Interpolation extends AST {
      * Creates an instance of `Interpolation` and initializes its dependencies and internal state.
      * @zh 创建 `Interpolation` 实例，并初始化其依赖项与内部状态。
      * @param span - Injected or initial span (`ParseSpan`) / 注入或传入的span（`ParseSpan`）
-     * @param strings - Injected or initial strings (`any[]`) / 注入或传入的字符串（`any[]`）
-     * @param expressions - Injected or initial expressions (`any[]`) / 注入或传入的表达式（`any[]`）
+     * @param strings - Injected or initial strings (`any`) / 注入或传入的字符串（`any`）
+     * @param expressions - Injected or initial expressions (`any`) / 注入或传入的表达式（`any`）
      */
     constructor(span: ParseSpan, public strings, public expressions) { super(span); }
     /**
@@ -517,7 +517,7 @@ export class MethodCall extends AST {
      * @param span - Injected or initial span (`ParseSpan`) / 注入或传入的span（`ParseSpan`）
      * @param receiver - Injected or initial receiver (`AST`) / 注入或传入的receiver（`AST`）
      * @param name - Injected or initial name (`string`) / 注入或传入的名称（`string`）
-     * @param args - Injected or initial args (`any[]`) / 注入或传入的参数列表（`any[]`）
+     * @param args - Injected or initial args (`any`) / 注入或传入的参数列表（`any`）
      */
     constructor(span: ParseSpan, public receiver: AST, public name: string, public args) {
         super(span);
@@ -545,7 +545,7 @@ export class SafeMethodCall extends AST {
      * @param span - Injected or initial span (`ParseSpan`) / 注入或传入的span（`ParseSpan`）
      * @param receiver - Injected or initial receiver (`AST`) / 注入或传入的receiver（`AST`）
      * @param name - Injected or initial name (`string`) / 注入或传入的名称（`string`）
-     * @param args - Injected or initial args (`any[]`) / 注入或传入的参数列表（`any[]`）
+     * @param args - Injected or initial args (`any`) / 注入或传入的参数列表（`any`）
      */
     constructor(span: ParseSpan, public receiver: AST, public name: string, public args) {
         super(span);
@@ -572,7 +572,7 @@ export class FunctionCall extends AST {
      * @zh 创建 `FunctionCall` 实例，并初始化其依赖项与内部状态。
      * @param span - Injected or initial span (`ParseSpan`) / 注入或传入的span（`ParseSpan`）
      * @param target - Injected or initial target (`AST`) / 注入或传入的目标（`AST`）
-     * @param args - Injected or initial args (`any[]`) / 注入或传入的参数列表（`any[]`）
+     * @param args - Injected or initial args (`any`) / 注入或传入的参数列表（`any`）
      */
     constructor(span: ParseSpan, public target: AST, public args) { super(span); }
     /**
@@ -1214,7 +1214,7 @@ export class AstTransformer implements AstVisitor {
     /**
      * Executes `visitAll` to handle visit all.
      * @zh 执行 `visitAll`，用于访问全部。
-     * @param asts - asts parameter (`any[]`) / 抽象语法树参数（`any[]`）
+     * @param asts - asts parameter (`any`) / 抽象语法树参数（`any`）
      * @returns Result of type `any[]` / 类型为 `any[]` 的返回值
      */
     visitAll(asts) {

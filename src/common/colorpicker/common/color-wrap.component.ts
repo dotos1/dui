@@ -62,19 +62,19 @@ export class ColorWrap implements OnInit, OnChanges, OnDestroy {
     a: 1,
   };
   /**
-   * Output event emitter `onChange` (`EventEmitter`) firing when on change occurs.
+   * Output event emitter `onChange` (`EventEmitter<ColorEvent>`) firing when on change occurs.
    * @zh 颜色变化时发出（防抖前）。
    * @zh 颜色变化时发出（防抖前）。
    */
   @Output() onChange = new EventEmitter<ColorEvent>();
   /**
-   * Output event emitter `onChangeComplete` (`EventEmitter`) firing when on change complete occurs.
+   * Output event emitter `onChangeComplete` (`EventEmitter<ColorEvent>`) firing when on change complete occurs.
    * @zh 颜色变化完成后发出（对 `onChange` 做了防抖）。
    * @zh 颜色变化完成后发出（对 `onChange` 做了防抖）。
    */
   @Output() onChangeComplete = new EventEmitter<ColorEvent>();
   /**
-   * Output event emitter `onSwatchHover` (`EventEmitter`) firing when on swatch hover occurs.
+   * Output event emitter `onSwatchHover` (`EventEmitter<ColorEvent>`) firing when on swatch hover occurs.
    * @zh 悬停在色块上时发出。
    * @zh 悬停在色块上时发出。
    */

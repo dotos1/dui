@@ -96,7 +96,7 @@ export function classList(element: Element, addClasses: string[], removeClasses:
  * Executes `attributes` to handle attributes.
  * @zh 执行 `attributes`，用于属性列表。
  * @param element - element parameter (`Element | Node`) / 元素参数（`Element | Node`）
- * @param attrs - attrs parameter (`{ [key: string]: string }`) / 属性集合参数（`{ [key: string]: string }`）
+ * @param attrs - attrs parameter (`{ [key: string]: string; }`) / 属性集合参数（`{ [key: string]: string; }`）
  * @returns Result of type `Element` / 类型为 `Element` 的返回值
  */
 export function attributes(element: Element | Node, attrs: { [key: string]: string }): Element {

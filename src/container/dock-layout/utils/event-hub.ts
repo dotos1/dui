@@ -45,9 +45,9 @@ declare global {
 export class EventHub extends EventEmitter {
 
     /**
-     * Property `_childEventListener` (`any`) storing child event listener.
+     * Property `_childEventListener` (`(childEvent: CustomEvent<EventHub.ChildEventDetail>) => void`) storing child event listener.
      * @internal
-     * @zh 属性 `_childEventListener`（类型：`any`），用于存储或配置子级事件监听器。
+     * @zh 属性 `_childEventListener`（类型：`(childEvent: CustomEvent<EventHub.ChildEventDetail>) => void`），用于存储或配置子级事件监听器。
      */
     private _childEventListener = (childEvent: CustomEvent<EventHub.ChildEventDetail>) => this.onEventFromChild(childEvent);
 
@@ -138,7 +138,7 @@ export class EventHub extends EventEmitter {
      * it on the parent's DOM window
      * @internal
 
-     * @zh 执行 `propagateToParent`，用于propagate转换为父级。
+     * @zh 执行 `propagateToParent`，用于传播转换为父级。
      */
     private propagateToParent(eventName: string, args: unknown[]) {
         const detail: EventHub.ChildEventDetail = {
@@ -166,7 +166,7 @@ export class EventHub extends EventEmitter {
      * Propagate events to the whole subtree under this event hub.
      * @internal
 
-     * @zh 执行 `propagateToThisAndSubtree`，用于propagate转换为ThisAndSubtree。
+     * @zh 执行 `propagateToThisAndSubtree`，用于传播转换为ThisAndSubtree。
      */
     private propagateToThisAndSubtree(eventName: string, args: unknown[]) {
         this.emitUnknown(eventName, ...args);

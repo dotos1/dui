@@ -31,16 +31,16 @@ export class GridsterResizable {
    */
   gridster: GridsterComponentInterface;
   /**
-   * Property `lastMouse` (`{ clientX: number, clientY: number }`) storing last mouse.
-   * @zh 属性 `lastMouse`（类型：`{ clientX: number, clientY: number }`），用于存储或配置末尾鼠标。
+   * Property `lastMouse` (`{ clientX: number; clientY: number; }`) storing last mouse.
+   * @zh 属性 `lastMouse`（类型：`{ clientX: number; clientY: number; }`），用于存储或配置末尾鼠标。
    */
   lastMouse: {
     clientX: number,
     clientY: number
   };
   /**
-   * Property `itemBackup` (`Array<number>`) storing item backup.
-   * @zh 属性 `itemBackup`（类型：`Array<number>`），用于存储或配置条目Backup。
+   * Property `itemBackup` (`number[]`) storing item backup.
+   * @zh 属性 `itemBackup`（类型：`number[]`），用于存储或配置条目Backup。
    */
   itemBackup: Array<number>;
   /**

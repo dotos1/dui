@@ -32,8 +32,8 @@ export abstract class ɵOsBaseComponent
     extends ɵOsBaseViewComponent
     implements AfterViewInit {
     /**
-     * Property `_targetInternalElement$` (`BehaviorSubject`) storing target internal element (default: `new BehaviorSubject<HTMLElement>(null)`).
-     * @zh 属性 `_targetInternalElement$`（类型：`BehaviorSubject`），用于存储或配置目标内部元素（默认值：`new BehaviorSubject<HTMLElement>(null)`）。
+     * Property `_targetInternalElement$` (`BehaviorSubject<HTMLElement>`) storing target internal element (default: `new BehaviorSubject<HTMLElement>(null)`).
+     * @zh 属性 `_targetInternalElement$`（类型：`BehaviorSubject<HTMLElement>`），用于存储或配置目标内部元素（默认值：`new BehaviorSubject<HTMLElement>(null)`）。
      */
     private _targetInternalElement$ = new BehaviorSubject<HTMLElement>(null);
 
@@ -47,7 +47,7 @@ export abstract class ɵOsBaseComponent
 
     /**
      * Target internal element classList
-     * @zh 输入属性 `styleClass`（类型：`string | string[] | object`），用于配置样式类名。
+     * @zh 输入属性 `styleClass`（类型：`string | object | string[]`），用于配置样式类名。
      */
     @Input()
     @HostBinding('class')

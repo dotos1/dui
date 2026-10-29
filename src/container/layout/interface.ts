@@ -29,8 +29,8 @@ export interface IPoint {
  */
 export interface IArea {
   /**
-   * Property `component` (`SplitAreaDirective|DuiPanelComponent`) storing component.
-   * @zh 属性 `component`（类型：`SplitAreaDirective|DuiPanelComponent`），用于存储或配置组件。
+   * Property `component` (`SplitAreaDirective | DuiPanelComponent`) storing component.
+   * @zh 属性 `component`（类型：`SplitAreaDirective | DuiPanelComponent`），用于存储或配置组件。
    */
   component: SplitAreaDirective|DuiPanelComponent
   /**
@@ -39,23 +39,23 @@ export interface IArea {
    */
   order: number
   /**
-   * Property `size` (`number | null`) storing size.
-   * @zh 属性 `size`（类型：`number | null`），用于存储或配置尺寸。
+   * Property `size` (`number`) storing size.
+   * @zh 属性 `size`（类型：`number`），用于存储或配置尺寸。
    */
   size: number | null
   /**
-   * Property `minSize` (`number | null`) storing min size.
-   * @zh 属性 `minSize`（类型：`number | null`），用于存储或配置最小值尺寸。
+   * Property `minSize` (`number`) storing min size.
+   * @zh 属性 `minSize`（类型：`number`），用于存储或配置最小值尺寸。
    */
   minSize: number | null
   /**
-   * Property `maxSize` (`number | null`) storing max size.
-   * @zh 属性 `maxSize`（类型：`number | null`），用于存储或配置最大值尺寸。
+   * Property `maxSize` (`number`) storing max size.
+   * @zh 属性 `maxSize`（类型：`number`），用于存储或配置最大值尺寸。
    */
   maxSize: number | null
   /**
-   * Property `sizeBeforeCollapse` (`number | null`) storing size before collapse.
-   * @zh 属性 `sizeBeforeCollapse`（类型：`number | null`），用于存储或配置尺寸之前折叠。
+   * Property `sizeBeforeCollapse` (`number`) storing size before collapse.
+   * @zh 属性 `sizeBeforeCollapse`（类型：`number`），用于存储或配置尺寸之前折叠。
    */
   sizeBeforeCollapse: number | null
   /**
@@ -93,13 +93,13 @@ export interface ISplitSnapshot {
    */
   lastSteppedOffset: number
   /**
-   * Property `areasBeforeGutter` (`Array<IAreaSnapshot>`) storing areas before gutter.
-   * @zh 属性 `areasBeforeGutter`（类型：`Array<IAreaSnapshot>`），用于存储或配置区域集合之前分隔槽。
+   * Property `areasBeforeGutter` (`IAreaSnapshot[]`) storing areas before gutter.
+   * @zh 属性 `areasBeforeGutter`（类型：`IAreaSnapshot[]`），用于存储或配置区域集合之前分隔槽。
    */
   areasBeforeGutter: Array<IAreaSnapshot>
   /**
-   * Property `areasAfterGutter` (`Array<IAreaSnapshot>`) storing areas after gutter.
-   * @zh 属性 `areasAfterGutter`（类型：`Array<IAreaSnapshot>`），用于存储或配置区域集合之后分隔槽。
+   * Property `areasAfterGutter` (`IAreaSnapshot[]`) storing areas after gutter.
+   * @zh 属性 `areasAfterGutter`（类型：`IAreaSnapshot[]`），用于存储或配置区域集合之后分隔槽。
    */
   areasAfterGutter: Array<IAreaSnapshot>
 }
@@ -137,8 +137,8 @@ export interface ISplitSideAbsorptionCapacity {
    */
   remain: number
   /**
-   * Property `list` (`Array<IAreaAbsorptionCapacity>`) storing list.
-   * @zh 属性 `list`（类型：`Array<IAreaAbsorptionCapacity>`），用于存储或配置列表。
+   * Property `list` (`IAreaAbsorptionCapacity[]`) storing list.
+   * @zh 属性 `list`（类型：`IAreaAbsorptionCapacity[]`），用于存储或配置列表。
    */
   list: Array<IAreaAbsorptionCapacity>
 }

@@ -37,7 +37,7 @@ export class Dir {
 
   /**
    * Event emitted when the direction changes.
-   * @zh 输出事件 `dirChange`（类型：`EventEmitter`），当触发目录变更时向外发出事件。
+   * @zh 输出事件 `dirChange`（类型：`EventEmitter<void>`），当触发目录变更时向外发出事件。
    */
   @Output() dirChange = new EventEmitter<void>();
 

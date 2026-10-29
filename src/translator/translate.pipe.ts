@@ -33,8 +33,8 @@ export class TranslatePipe implements PipeTransform, OnDestroy {
    */
   lastKey: string;
   /**
-   * Property `lastParams` (`any[]`) storing last params.
-   * @zh 属性 `lastParams`（类型：`any[]`），用于存储或配置末尾参数集合。
+   * Property `lastParams` (`any`) storing last params.
+   * @zh 属性 `lastParams`（类型：`any`），用于存储或配置末尾参数集合。
    */
   lastParams;
   /**
@@ -95,7 +95,7 @@ export class TranslatePipe implements PipeTransform, OnDestroy {
    * @zh 执行 `transform`，用于转换。
    * @param query - query parameter (`string`) / 查询参数（`string`）
    * @param args - args parameter (`any[]`) / 参数列表参数（`any[]`）
-   * @returns Result of type `any` / 类型为 `any` 的返回值
+   * @returns Result of type `string` / 类型为 `string` 的返回值
    */
   transform(query: string, ...args) {
     if (!query || !query.length) {

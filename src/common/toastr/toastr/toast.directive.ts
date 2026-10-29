@@ -18,7 +18,7 @@ export class ToastContainerDirective {
   /**
    * Creates an instance of `ToastContainerDirective` and initializes its dependencies and internal state.
    * @zh 创建 `ToastContainerDirective` 实例，并初始化其依赖项与内部状态。
-   * @param el - Injected or initial el (`ElementRef`) / 注入或传入的DOM元素（`ElementRef`）
+   * @param el - Injected or initial el (`ElementRef<any>`) / 注入或传入的DOM元素（`ElementRef<any>`）
    */
   constructor(private el: ElementRef) { }
   /**

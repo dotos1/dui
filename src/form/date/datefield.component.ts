@@ -57,7 +57,7 @@ export const MAT_DATETIMEPICKER_VALIDATORS = {
 export class MatDatetimepickerInputEvent<D> {
   /**
    * The new value for the target datepicker input.
-   * @zh 属性 `value`（类型：`D | null`），用于存储或配置值。
+   * @zh 属性 `value`（类型：`D`），用于存储或配置值。
    */
   value: D | null;
   /**
@@ -137,7 +137,7 @@ export class MatDatetimepickerInputEvent<D> {
 export class DateFieldComponent<D> extends MatField implements AfterContentInit, OnChanges, ControlValueAccessor, OnDestroy, Validator {
 
   /**
-   * Template/content query reference `datetimepicker` (`@ViewChild`) targeting datetimepicker.
+   * Template/content query reference `datetimepicker` (`MatDatetimepicker<D>`) targeting datetimepicker.
    * @zh 模板/内容视图查询引用 `datetimepicker`（`@ViewChild`），指向日期时间选择器。
    */
   @ViewChild(MatDatetimepicker, { static: false }) datetimepicker: MatDatetimepicker<D>;
@@ -146,7 +146,7 @@ export class DateFieldComponent<D> extends MatField implements AfterContentInit,
   /**
    * Input setter `matDatepickerFilter` updating mat datepicker filter.
    * @zh 输入属性 `matDatepickerFilter` 的设置器，用于更新Material日期选择器过滤。
-   * @param filter - New mat datepicker filter value (`(date: D | null, type: MatDatetimepickerFilterType) => boole...`) / 新的Material日期选择器过滤值（`(date: D | null, type: MatDatetimepickerFilterType) => boole...`）
+   * @param filter - New mat datepicker filter value (`(date: D | null, type: MatDatetimepickerFilterType) => boolean`) / 新的Material日期选择器过滤值（`(date: D | null, type: MatDatetimepickerFilterType) => boolean`）
    */
   @Input() set matDatepickerFilter(filter: (date: D | null, type: MatDatetimepickerFilterType) => boolean) {
     this._dateFilter = filter;
@@ -161,7 +161,7 @@ export class DateFieldComponent<D> extends MatField implements AfterContentInit,
 
   /**
    * The minimum valid date.
-   * @zh 输入属性 `min`（类型：`D | null`）的读取器，返回当前最小值。
+   * @zh 输入属性 `min`（类型：`D`）的读取器，返回当前最小值。
    */
   @Input()
   get min(): D | null {
@@ -170,21 +170,21 @@ export class DateFieldComponent<D> extends MatField implements AfterContentInit,
   /**
    * Sets the min (`min`).
    * @zh 设置最小值（`min`）。
-   * @param value - New min value (`D | null`) / 新的最小值值（`D | null`）
+   * @param value - New min value (`D`) / 新的最小值值（`D`）
    */
   set min(value: D | null) {
     this._min = this._dateAdapter.getValidDateOrNull(this._dateAdapter.deserialize(value));
     this._validatorOnChange();
   }
   /**
-   * Property `_min` (`D | null`) storing min.
-   * @zh 属性 `_min`（类型：`D | null`），用于存储或配置最小值。
+   * Property `_min` (`D`) storing min.
+   * @zh 属性 `_min`（类型：`D`），用于存储或配置最小值。
    */
   private _min: D | null;
 
   /**
-   * Getter for input property `max` (`D | null`) returning max.
-   * @zh 输入属性 `max`（类型：`D | null`）的读取器，返回当前最大值。
+   * Getter for input property `max` (`D`) returning max.
+   * @zh 输入属性 `max`（类型：`D`）的读取器，返回当前最大值。
    */
   @Input()
   get max(): D | null {
@@ -193,15 +193,15 @@ export class DateFieldComponent<D> extends MatField implements AfterContentInit,
   /**
    * Sets the max (`max`).
    * @zh 设置最大值（`max`）。
-   * @param value - New max value (`D | null`) / 新的最大值值（`D | null`）
+   * @param value - New max value (`D`) / 新的最大值值（`D`）
    */
   set max(value: D | null) {
     this._max = this._dateAdapter.getValidDateOrNull(this._dateAdapter.deserialize(value));
     this._validatorOnChange();
   }
   /**
-   * Property `_max` (`D | null`) storing max.
-   * @zh 属性 `_max`（类型：`D | null`），用于存储或配置最大值。
+   * Property `_max` (`D`) storing max.
+   * @zh 属性 `_max`（类型：`D`），用于存储或配置最大值。
    */
   private _max: D | null;
 
@@ -233,19 +233,19 @@ export class DateFieldComponent<D> extends MatField implements AfterContentInit,
 
   /**
    * Emits when a `change` event is fired on this `<input>`.
-   * @zh 输出事件 `dateChange`（类型：`EventEmitter`），当触发日期变更时向外发出事件。
+   * @zh 输出事件 `dateChange`（类型：`EventEmitter<MatDatetimepickerInputEvent<D>>`），当触发日期变更时向外发出事件。
    */
   @Output() dateChange = new EventEmitter<MatDatetimepickerInputEvent<D>>();
 
   /**
    * Emits when an `input` event is fired on this `<input>`.
-   * @zh 输出事件 `dateInput`（类型：`EventEmitter`），当触发日期输入属性时向外发出事件。
+   * @zh 输出事件 `dateInput`（类型：`EventEmitter<MatDatetimepickerInputEvent<D>>`），当触发日期输入属性时向外发出事件。
    */
   @Output() dateInput = new EventEmitter<MatDatetimepickerInputEvent<D>>();
 
   /**
-   * Property `_stateChanges` (`any`) storing state changes (default: `Subscription.EMPTY`).
-   * @zh 属性 `_stateChanges`（类型：`any`），用于存储或配置状态变更集合（默认值：`Subscription.EMPTY`）。
+   * Property `_stateChanges` (`Subscription`) storing state changes (default: `Subscription.EMPTY`).
+   * @zh 属性 `_stateChanges`（类型：`Subscription`），用于存储或配置状态变更集合（默认值：`Subscription.EMPTY`）。
    */
   private _stateChanges = Subscription.EMPTY;
 
@@ -258,25 +258,25 @@ export class DateFieldComponent<D> extends MatField implements AfterContentInit,
 
   /**
    * Emits when the value changes (either due to user input or programmatic change).
-   * @zh 属性 `_valueChange`（类型：`EventEmitter`），用于存储或配置值变更（默认值：`new EventEmitter<D | null>()`）。
+   * @zh 属性 `_valueChange`（类型：`EventEmitter<D>`），用于存储或配置值变更（默认值：`new EventEmitter<D | null>()`）。
    */
   _valueChange = new EventEmitter<D | null>();
 
   /**
    * Emits when the disabled state has changed
-   * @zh 属性 `_disabledChange`（类型：`EventEmitter`），用于存储或配置已禁用变更（默认值：`new EventEmitter<boolean>()`）。
+   * @zh 属性 `_disabledChange`（类型：`EventEmitter<boolean>`），用于存储或配置已禁用变更（默认值：`new EventEmitter<boolean>()`）。
    */
   _disabledChange = new EventEmitter<boolean>();
 
   /**
-   * Property `_datepickerSubscription` (`any`) storing datepicker subscription (default: `Subscription.EMPTY`).
-   * @zh 属性 `_datepickerSubscription`（类型：`any`），用于存储或配置日期选择器订阅对象（默认值：`Subscription.EMPTY`）。
+   * Property `_datepickerSubscription` (`Subscription`) storing datepicker subscription (default: `Subscription.EMPTY`).
+   * @zh 属性 `_datepickerSubscription`（类型：`Subscription`），用于存储或配置日期选择器订阅对象（默认值：`Subscription.EMPTY`）。
    */
   private _datepickerSubscription = Subscription.EMPTY;
 
   /**
-   * Property `_localeSubscription` (`any`) storing locale subscription (default: `Subscription.EMPTY`).
-   * @zh 属性 `_localeSubscription`（类型：`any`），用于存储或配置语言区域订阅对象（默认值：`Subscription.EMPTY`）。
+   * Property `_localeSubscription` (`Subscription`) storing locale subscription (default: `Subscription.EMPTY`).
+   * @zh 属性 `_localeSubscription`（类型：`Subscription`），用于存储或配置语言区域订阅对象（默认值：`Subscription.EMPTY`）。
    */
   private _localeSubscription = Subscription.EMPTY;
 
@@ -425,7 +425,7 @@ export class DateFieldComponent<D> extends MatField implements AfterContentInit,
 
   /**
    * Executes `_watchStateChanges` to handle watch state changes.
-   * @zh 执行 `_watchStateChanges`，用于watch状态变更集合。
+   * @zh 执行 `_watchStateChanges`，用于监听状态变更集合。
    */
   private _watchStateChanges() {
     const datepickerDisabled = this.datetimepicker ? this.datetimepicker._disabledChange : observableOf();
@@ -494,8 +494,8 @@ export class DateFieldComponent<D> extends MatField implements AfterContentInit,
 
 
   /**
-   * Property `_onTouched` (`any`) storing on touched (default: `() => { }`).
-   * @zh 属性 `_onTouched`（类型：`any`），用于存储或配置当是否已触碰（默认值：`() => { }`）。
+   * Property `_onTouched` (`() => void`) storing on touched (default: `() => { }`).
+   * @zh 属性 `_onTouched`（类型：`() => void`），用于存储或配置当是否已触碰（默认值：`() => { }`）。
    */
   _onTouched = () => {
   }
@@ -508,8 +508,8 @@ export class DateFieldComponent<D> extends MatField implements AfterContentInit,
   }
 
   /**
-   * Property `_validatorOnChange` (`any`) storing validator on change (default: `() => { }`).
-   * @zh 属性 `_validatorOnChange`（类型：`any`），用于存储或配置校验器当变更（默认值：`() => { }`）。
+   * Property `_validatorOnChange` (`() => void`) storing validator on change (default: `() => { }`).
+   * @zh 属性 `_validatorOnChange`（类型：`() => void`），用于存储或配置校验器当变更（默认值：`() => { }`）。
    */
   private _validatorOnChange = () => {
   }
@@ -557,7 +557,7 @@ export class DateFieldComponent<D> extends MatField implements AfterContentInit,
 
   /**
    * The combined form control validator for this input.
-   * @zh 属性 `_validator`（类型：`ValidatorFn | null`），用于存储或配置校验器。
+   * @zh 属性 `_validator`（类型：`ValidatorFn`），用于存储或配置校验器。
    */
   private _validator: ValidatorFn | null =
     Validators.compose(
@@ -583,8 +583,8 @@ export class DateFieldComponent<D> extends MatField implements AfterContentInit,
   /**
    * Executes `validate` to handle validate.
    * @zh 执行 `validate`，用于校验。
-   * @param c - c parameter (`AbstractControl`) / c参数（`AbstractControl`）
-   * @returns Result of type `ValidationErrors | null` / 类型为 `ValidationErrors | null` 的返回值
+   * @param c - c parameter (`AbstractControl<any, any>`) / c参数（`AbstractControl<any, any>`）
+   * @returns Result of type `ValidationErrors` / 类型为 `ValidationErrors` 的返回值
    */
   validate(c: AbstractControl): ValidationErrors | null {
     return this._validator ? this._validator(c) : null;

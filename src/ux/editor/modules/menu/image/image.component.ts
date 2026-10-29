@@ -44,8 +44,8 @@ export class ImageComponent implements OnInit, OnDestroy {
   private updateSubscription: Subscription;
 
   /**
-   * Property `form` (`FormGroup`) storing form.
-   * @zh 属性 `form`（类型：`FormGroup`），用于存储或配置表单。
+   * Property `form` (`FormGroup<{…}>`) storing form.
+   * @zh 属性 `form`（类型：`FormGroup<{…}>`），用于存储或配置表单。
    */
   form = new FormGroup({
     src: new FormControl('', [
@@ -65,7 +65,7 @@ export class ImageComponent implements OnInit, OnDestroy {
   /**
    * Creates an instance of `ImageComponent` and initializes its dependencies and internal state.
    * @zh 创建 `ImageComponent` 实例，并初始化其依赖项与内部状态。
-   * @param el - Injected or initial el (`ElementRef`) / 注入或传入的DOM元素（`ElementRef`）
+   * @param el - Injected or initial el (`ElementRef<any>`) / 注入或传入的DOM元素（`ElementRef<any>`）
    * @param uxeService - Injected or initial uxe service (`EditorService`) / 注入或传入的uxe服务（`EditorService`）
    * @param menuService - Injected or initial menu service (`MenuService`) / 注入或传入的菜单服务（`MenuService`）
    */
@@ -161,8 +161,8 @@ export class ImageComponent implements OnInit, OnDestroy {
   }
 
   /**
-   * Property `update` (`any`) storing update.
-   * @zh 属性 `update`（类型：`any`），用于存储或配置更新。
+   * Property `update` (`(view: EditorView) => void`) storing update.
+   * @zh 属性 `update`（类型：`(view: EditorView) => void`），用于存储或配置更新。
    */
   private update = (view: EditorView) => {
     const { state } = view;

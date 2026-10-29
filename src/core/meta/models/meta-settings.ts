@@ -44,7 +44,7 @@ export interface MetaSettings {
   /**
    * represents a dictionary of default meta tags and their values
 
-   * @zh 属性 `defaults`（类型：`{ title?: string; description?: string; keywords?: string; [key: strin...`），用于存储或配置默认值集合。
+   * @zh 属性 `defaults`（类型：`{…}`），用于存储或配置默认值集合。
    */
   defaults?: {
     /**

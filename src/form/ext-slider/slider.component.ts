@@ -23,15 +23,15 @@ import { MatSliderThumb  } from '@angular/material/slider';
 export class SliderFieldComponent extends MatField {
 
   /**
-   * Template/content query reference `slider` (`@ViewChild`) targeting slider.
+   * Template/content query reference `slider` (`MatSliderThumb`) targeting slider.
    * @zh 模板/内容视图查询引用 `slider`（`@ViewChild`），指向滑块。
    */
   @ViewChild(forwardRef(() => MatSliderThumb ),{static: true})
   private slider: MatSliderThumb ;
 
   /**
-   * Property `defaultOptions` (`any`) storing default options.
-   * @zh 属性 `defaultOptions`（类型：`any`），用于存储或配置默认配置选项。
+   * Property `defaultOptions` (`{ hideFieldUnderline: boolean; floatLabel: string; }`) storing default options.
+   * @zh 属性 `defaultOptions`（类型：`{ hideFieldUnderline: boolean; floatLabel: string; }`），用于存储或配置默认配置选项。
    */
   override defaultOptions = {
     hideFieldUnderline: true,

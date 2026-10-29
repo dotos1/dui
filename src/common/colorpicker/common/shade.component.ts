@@ -38,7 +38,7 @@ export class ShadeComponent implements OnChanges {
    */
   @Input() rgb: RGBA;
   /**
-   * Input property `pointer` (`{ [key: string]: string }`) configuring pointer.
+   * Input property `pointer` (`{ [key: string]: string; }`) configuring pointer.
    * @zh 滑块手柄的内联样式。
    * @zh 滑块手柄的内联样式。
    */
@@ -56,13 +56,13 @@ export class ShadeComponent implements OnChanges {
    */
   @Input() radius: string;
   /**
-   * Output event emitter `onChange` (`EventEmitter`) firing when on change occurs.
+   * Output event emitter `onChange` (`EventEmitter<any>`) firing when on change occurs.
    * @zh 明暗值变化时发出。
    * @zh 明暗值变化时发出。
    */
   @Output() onChange = new EventEmitter();
   /**
-   * Property `gradient` (`{ [key: string]: string }`) storing gradient.
+   * Property `gradient` (`{ [key: string]: string; }`) storing gradient.
    * @zh 根据当前色相计算出的渐变背景样式。
    * @zh 根据当前色相计算出的渐变背景样式。
    */

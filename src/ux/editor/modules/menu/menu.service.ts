@@ -22,15 +22,15 @@ export class MenuService {
    */
   editor: Editor;
   /**
-   * Property `customMenuRefChange` (`Subject<TemplateRef<any>>`) storing custom menu ref change (default: `new Subject<TemplateRef<any>>()`).
-   * @zh 属性 `customMenuRefChange`（类型：`Subject<TemplateRef<any>>`），用于存储或配置自定义菜单引用变更（默认值：`new Subject<TemplateRef<any>>()`）。
+   * Property `customMenuRefChange` (`Subject<TemplateRef<unknown>>`) storing custom menu ref change (default: `new Subject<TemplateRef<any>>()`).
+   * @zh 属性 `customMenuRefChange`（类型：`Subject<TemplateRef<unknown>>`），用于存储或配置自定义菜单引用变更（默认值：`new Subject<TemplateRef<any>>()`）。
    */
   customMenuRefChange = new Subject<TemplateRef<unknown>>();
 
   /**
    * Executes `setCustomMenuRef` to handle set custom menu ref.
    * @zh 执行 `setCustomMenuRef`，用于集合自定义菜单引用。
-   * @param c - c parameter (`TemplateRef<any>`) / c参数（`TemplateRef<any>`）
+   * @param c - c parameter (`TemplateRef<unknown>`) / c参数（`TemplateRef<unknown>`）
    */
   setCustomMenuRef(c: TemplateRef<unknown>): void {
     this.customMenuRefChange.next(c);

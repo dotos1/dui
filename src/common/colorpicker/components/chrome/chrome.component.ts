@@ -130,7 +130,7 @@ export class ChromeComponent extends ColorWrap implements TriggerPopup {
    */
   @Input() disableAlpha = false;
   /**
-   * Property `circle` (`{ [key: string]: string }`) storing circle.
+   * Property `circle` (`{ [key: string]: string; }`) storing circle.
    * @zh 饱和度面板指示圆点的内联样式。
    * @zh 饱和度面板指示圆点的内联样式。
    */
@@ -142,7 +142,7 @@ export class ChromeComponent extends ColorWrap implements TriggerPopup {
     transform: 'translate(-6px, -8px)',
   };
   /**
-   * Property `pointer` (`{ [key: string]: string }`) storing pointer.
+   * Property `pointer` (`{ [key: string]: string; }`) storing pointer.
    * @zh 色相/透明度滑块手柄的内联样式。
    * @zh 色相/透明度滑块手柄的内联样式。
    */

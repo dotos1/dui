@@ -117,15 +117,15 @@ export class Header extends EventEmitter {
     private readonly _tabControlOffset: number;
 
     /**
-     * Property `_clickListener` (`any`) storing click listener (default: `(ev: MouseEvent) => this.onClick(ev)`).
+     * Property `_clickListener` (`(ev: MouseEvent) => void`) storing click listener (default: `(ev: MouseEvent) => this.onClick(ev)`).
      * @internal
-     * @zh 属性 `_clickListener`（类型：`any`），用于存储或配置点击监听器（默认值：`(ev: MouseEvent) => this.onClick(ev)`）。
+     * @zh 属性 `_clickListener`（类型：`(ev: MouseEvent) => void`），用于存储或配置点击监听器（默认值：`(ev: MouseEvent) => this.onClick(ev)`）。
      */
     private readonly _clickListener = (ev: MouseEvent) => this.onClick(ev);
     /**
-     * Property `_touchStartListener` (`any`) storing touch start listener.
+     * Property `_touchStartListener` (`(ev: TouchEvent) => void`) storing touch start listener.
      * @internal
-     * @zh 属性 `_touchStartListener`（类型：`any`），用于存储或配置触摸开始监听器。
+     * @zh 属性 `_touchStartListener`（类型：`(ev: TouchEvent) => void`），用于存储或配置触摸开始监听器。
      */
     private readonly _touchStartListener = (ev: TouchEvent) => this.onTouchStart(ev);
     /**
@@ -160,15 +160,15 @@ export class Header extends EventEmitter {
      */
     private _leftRightSided: boolean;
     /**
-     * Property `_closeButton` (`HeaderButton | null`) storing close button (default: `null`).
+     * Property `_closeButton` (`HeaderButton`) storing close button (default: `null`).
      * @internal
-     * @zh 属性 `_closeButton`（类型：`HeaderButton | null`），用于存储或配置关闭按钮（默认值：`null`）。
+     * @zh 属性 `_closeButton`（类型：`HeaderButton`），用于存储或配置关闭按钮（默认值：`null`）。
      */
     private readonly _closeButton: HeaderButton | null = null;
     /**
-     * Property `_popoutButton` (`HeaderButton | null`) storing popout button (default: `null`).
+     * Property `_popoutButton` (`HeaderButton`) storing popout button (default: `null`).
      * @internal
-     * @zh 属性 `_popoutButton`（类型：`HeaderButton | null`），用于存储或配置弹出窗口按钮（默认值：`null`）。
+     * @zh 属性 `_popoutButton`（类型：`HeaderButton`），用于存储或配置弹出窗口按钮（默认值：`null`）。
      */
     private readonly _popoutButton: HeaderButton | null = null;
     /**
@@ -178,9 +178,9 @@ export class Header extends EventEmitter {
      */
     private readonly _tabDropdownButton: HeaderButton;
     /**
-     * Property `_maximiseButton` (`HeaderButton | undefined`) storing maximise button.
+     * Property `_maximiseButton` (`HeaderButton`) storing maximise button.
      * @internal
-     * @zh 属性 `_maximiseButton`（类型：`HeaderButton | undefined`），用于存储或配置最大化按钮。
+     * @zh 属性 `_maximiseButton`（类型：`HeaderButton`），用于存储或配置最大化按钮。
      */
     private readonly _maximiseButton: HeaderButton | undefined;
     // /** @internal */

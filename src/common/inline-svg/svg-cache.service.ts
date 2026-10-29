@@ -31,13 +31,13 @@ export class SVGCacheService {
   private static _inProgressReqs: Map<string, Observable<SVGElement>>;
 
   /**
-   * Property `_imageCache` (`Map<string, any>`) storing image cache.
-   * @zh 属性 `_imageCache`（类型：`Map<string, any>`），用于存储或配置图像缓存。
+   * Property `_imageCache` (`any`) storing image cache.
+   * @zh 属性 `_imageCache`（类型：`any`），用于存储或配置图像缓存。
    */
   private static _imageCache;
   /**
-   * Property `_imageInProgressReqs` (`Map<string, Observable<any>>`) storing image in progress reqs.
-   * @zh 属性 `_imageInProgressReqs`（类型：`Map<string, Observable<any>>`），用于存储或配置图像在进度条请求。
+   * Property `_imageInProgressReqs` (`any`) storing image in progress reqs.
+   * @zh 属性 `_imageInProgressReqs`（类型：`any`），用于存储或配置图像在进度条请求。
    */
   private static _imageInProgressReqs;
 
@@ -194,7 +194,7 @@ export class SVGCacheService {
    * Executes `_svgElementFromString` to handle svg element from string.
    * @zh 执行 `_svgElementFromString`，用于SVG矢量图元素从字符串。
    * @param str - str parameter (`string`) / 字符串参数（`string`）
-   * @returns Result of type `SVGElement | never` / 类型为 `SVGElement | never` 的返回值
+   * @returns Result of type `SVGElement` / 类型为 `SVGElement` 的返回值
    */
   private _svgElementFromString(str: string): SVGElement | never {
     // 先解析、净化,再进活文档(b8c5e5c 复核)。那次提交是先 div.innerHTML = str

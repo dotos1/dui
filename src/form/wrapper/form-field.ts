@@ -31,13 +31,13 @@ import { Subject, Subscription } from 'rxjs';
  */
 interface MatFieldConfig extends FieldConfig {
   /**
-   * Property `_matPrefix` (`TemplateRef<any>`) storing mat prefix.
-   * @zh 属性 `_matPrefix`（类型：`TemplateRef<any>`），用于存储或配置Material前缀。
+   * Property `_matPrefix` (`TemplateRef<unknown>`) storing mat prefix.
+   * @zh 属性 `_matPrefix`（类型：`TemplateRef<unknown>`），用于存储或配置Material前缀。
    */
   _matPrefix: TemplateRef<unknown>;
   /**
-   * Property `_matSuffix` (`TemplateRef<any>`) storing mat suffix.
-   * @zh 属性 `_matSuffix`（类型：`TemplateRef<any>`），用于存储或配置Material后缀。
+   * Property `_matSuffix` (`TemplateRef<unknown>`) storing mat suffix.
+   * @zh 属性 `_matSuffix`（类型：`TemplateRef<unknown>`），用于存储或配置Material后缀。
    */
   _matSuffix: TemplateRef<unknown>;
   /**
@@ -68,20 +68,20 @@ interface MatFieldConfig extends FieldConfig {
 })
 export class WrapperFormField extends FieldWrapper<MatFieldConfig> implements OnInit, OnDestroy, AfterViewInit, AfterContentChecked {
   /**
-   * Template/content query reference `fieldComponent` (`@ViewChild`) targeting field component.
+   * Template/content query reference `fieldComponent` (`ViewContainerRef`) targeting field component.
    * @zh 模板/内容视图查询引用 `fieldComponent`（`@ViewChild`），指向字段组件。
    */
   @ViewChild('fieldComponent', { read: ViewContainerRef, static: true }) declare fieldComponent: ViewContainerRef;
   /**
-   * Template/content query reference `formField` (`@ViewChild`) targeting form field.
+   * Template/content query reference `formField` (`MatFormField`) targeting form field.
    * @zh 模板/内容视图查询引用 `formField`（`@ViewChild`），指向表单字段。
    */
   @ViewChild(MatFormField, { static: true }) formField!: MatFormField;
 
 
   /**
-   * Property `stateChanges` (`Subject`) storing state changes (default: `new Subject<void>()`).
-   * @zh 属性 `stateChanges`（类型：`Subject`），用于存储或配置状态变更集合（默认值：`new Subject<void>()`）。
+   * Property `stateChanges` (`Subject<void>`) storing state changes (default: `new Subject<void>()`).
+   * @zh 属性 `stateChanges`（类型：`Subject<void>`），用于存储或配置状态变更集合（默认值：`new Subject<void>()`）。
    */
   stateChanges = new Subject<void>();
   /**
@@ -100,13 +100,13 @@ export class WrapperFormField extends FieldWrapper<MatFieldConfig> implements On
    */
   private focusSubscription?: Subscription;
   /**
-   * Property `observers` (`Array<{ unsubscribe: Function }>`) storing observers (default: `[]`).
-   * @zh 属性 `observers`（类型：`Array<{ unsubscribe: Function }>`），用于存储或配置观察者（默认值：`[]`）。
+   * Property `observers` (`{ unsubscribe: Function; }[]`) storing observers (default: `[]`).
+   * @zh 属性 `observers`（类型：`{ unsubscribe: Function; }[]`），用于存储或配置观察者（默认值：`[]`）。
    */
   private observers: Array<{ unsubscribe: Function }> = [];
   /**
-   * Property `unlisteners` (`Array<() => void>`) storing unlisteners (default: `[]`).
-   * @zh 属性 `unlisteners`（类型：`Array<() => void>`），用于存储或配置unlisteners（默认值：`[]`）。
+   * Property `unlisteners` (`(() => void)[]`) storing unlisteners (default: `[]`).
+   * @zh 属性 `unlisteners`（类型：`(() => void)[]`），用于存储或配置unlisteners（默认值：`[]`）。
    */
   private unlisteners: Array<() => void> = [];
 
@@ -148,7 +148,7 @@ export class WrapperFormField extends FieldWrapper<MatFieldConfig> implements On
    * Creates an instance of `WrapperFormField` and initializes its dependencies and internal state.
    * @zh 创建 `WrapperFormField` 实例，并初始化其依赖项与内部状态。
    * @param renderer - Injected or initial renderer (`Renderer2`) / 注入或传入的渲染器（`Renderer2`）
-   * @param elementRef - Injected or initial element ref (`ElementRef`) / 注入或传入的元素引用（`ElementRef`）
+   * @param elementRef - Injected or initial element ref (`ElementRef<any>`) / 注入或传入的元素引用（`ElementRef<any>`）
    * @param _platform - Injected or initial platform (`Platform`) / 注入或传入的platform（`Platform`）
    * @param focusMonitor - Injected or initial focus monitor (`FocusMonitor`) / 注入或传入的聚焦Monitor（`FocusMonitor`）
    * @param themeService - Injected or initial theme service (`ThemeService`) / 注入或传入的主题服务（`ThemeService`）

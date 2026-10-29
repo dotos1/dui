@@ -18,6 +18,8 @@
     "gate:any:sites": "node gates/any-count.js --sites",
     "gate:tsc": "node gates/tsc-check.js",
     "gate:i18n": "node gates/i18n-check.js --selftest && node gates/i18n-check.js",
+    "docs:sync-types": "node tools/jsdoc-sync-types.js && node tools/jsdoc-zh-phrasing.js",
+    "gate:jsdoc": "node tools/jsdoc-sync-types.js --check && node tools/jsdoc-zh-phrasing.js --check",
     "gate:esm": "node gates/esm-import-check.js --selftest && node gates/esm-import-check.js",
     "prebuild": "npm --no-git-tag-version version patch && cd src  && npm --no-git-tag-version version patch",
     "npm_pack": "cd dist/dui && npm pack",

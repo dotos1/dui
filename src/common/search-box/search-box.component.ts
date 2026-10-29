@@ -95,7 +95,7 @@ export class SearchBoxComponent implements ControlValueAccessor {
    */
   private _searchVisible = false;
   /**
-   * Template/content query reference `_searchInput` (`@ViewChild`) targeting search input.
+   * Template/content query reference `_searchInput` (`SearchInputComponent`) targeting search input.
    * @zh 模板/内容视图查询引用 `_searchInput`（`@ViewChild`），指向搜索输入属性。
    */
   @ViewChild(SearchInputComponent, { static: true })

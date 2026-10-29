@@ -36,8 +36,8 @@ export interface Change {
    */
   type: ChangeType;
   /**
-   * Property `keysChanged` (`{ key: string; newValue: any; oldValue: any; }[]`) storing keys changed.
-   * @zh 属性 `keysChanged`（类型：`{ key: string; newValue: any; oldValue: any; }[]`），用于存储或配置键列表已变更。
+   * Property `keysChanged` (`{ key: string; newValue: unknown; oldValue: unknown; }[]`) storing keys changed.
+   * @zh 属性 `keysChanged`（类型：`{ key: string; newValue: unknown; oldValue: unknown; }[]`），用于存储或配置键列表已变更。
    */
   keysChanged?: {
     key: string;
@@ -79,18 +79,18 @@ export interface ChangeItem {
    */
   change: Change;
   /**
-   * Property `value` (`any`) storing value.
-   * @zh 属性 `value`（类型：`any`），用于存储或配置值。
+   * Property `value` (`unknown`) storing value.
+   * @zh 属性 `value`（类型：`unknown`），用于存储或配置值。
    */
   value: unknown;
   /**
-   * Property `oldValue` (`any`) storing old value.
-   * @zh 属性 `oldValue`（类型：`any`），用于存储或配置旧值。
+   * Property `oldValue` (`unknown`) storing old value.
+   * @zh 属性 `oldValue`（类型：`unknown`），用于存储或配置旧值。
    */
   oldValue?: unknown;
   /**
-   * Property `newValue` (`any`) storing new value.
-   * @zh 属性 `newValue`（类型：`any`），用于存储或配置新值。
+   * Property `newValue` (`unknown`) storing new value.
+   * @zh 属性 `newValue`（类型：`unknown`），用于存储或配置新值。
    */
   newValue?: unknown;
 }

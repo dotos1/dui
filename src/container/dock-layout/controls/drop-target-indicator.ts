@@ -44,7 +44,7 @@ export class DropTargetIndicator {
 
     /**
      * Executes `highlightArea` to handle highlight area.
-     * @zh 执行 `highlightArea`，用于highlight区域。
+     * @zh 执行 `highlightArea`，用于高亮区域。
      * @param area - area parameter (`AreaLinkedRect`) / 区域参数（`AreaLinkedRect`）
      * @param margin - margin parameter (`number`) / 外边距参数（`number`）
      */

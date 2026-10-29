@@ -63,8 +63,8 @@ import { MatSelectSearchModule } from './search/mat-select-search.module';
 })
 export class SelectFieldModule {
   /**
-   * Property `entryComponents` (`any[]`) storing entry components (default: `[ FieldSelect]`).
-   * @zh 属性 `entryComponents`（类型：`any[]`），用于存储或配置条目组件列表（默认值：`[ FieldSelect]`）。
+   * Property `entryComponents` (`(typeof FieldSelect)[]`) storing entry components (default: `[ FieldSelect]`).
+   * @zh 属性 `entryComponents`（类型：`(typeof FieldSelect)[]`），用于存储或配置条目组件列表（默认值：`[ FieldSelect]`）。
    */
   entryComponents = [ FieldSelect];
   /**

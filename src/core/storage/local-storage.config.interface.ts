@@ -22,8 +22,8 @@ export interface ILocalStorageServiceConfig {
      */
     prefix?: string;
     /**
-     * Property `storageType` (`'sessionStorage' | 'localStorage'`) storing storage type.
-     * @zh 属性 `storageType`（类型：`'sessionStorage' | 'localStorage'`），用于存储或配置存储类型。
+     * Property `storageType` (`"sessionStorage" | "localStorage"`) storing storage type.
+     * @zh 属性 `storageType`（类型：`"sessionStorage" | "localStorage"`），用于存储或配置存储类型。
      */
     storageType?: 'sessionStorage' | 'localStorage';
 }

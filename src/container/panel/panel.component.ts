@@ -31,8 +31,8 @@ import { ILayoutTogglable } from './layout-toggle';
 
 export class PanelComponent extends AbstractPanel implements ILayoutTogglable,OnChanges,OnInit,AfterViewInit,OnDestroy {
   /**
-   * Input property `config` (`any`) configuring config (default: `{}`).
-   * @zh 输入属性 `config`（类型：`any`），用于配置配置（默认值：`{}`）。
+   * Input property `config` (`DuiConfig`) configuring config (default: `{}`).
+   * @zh 输入属性 `config`（类型：`DuiConfig`），用于配置配置（默认值：`{}`）。
    */
   @Input() override config: DuiConfig = {};
 
@@ -45,7 +45,7 @@ export class PanelComponent extends AbstractPanel implements ILayoutTogglable,On
   /**
    * Input setter `children` updating children.
    * @zh 输入属性 `children` 的设置器，用于更新子级列表。
-   * @param v - New children value (`Array<PanelComponent>`) / 新的子级列表值（`Array<PanelComponent>`）
+   * @param v - New children value (`PanelComponent[]`) / 新的子级列表值（`PanelComponent[]`）
    */
   @Input()
   public set children(v: Array<PanelComponent>) {
@@ -62,38 +62,38 @@ export class PanelComponent extends AbstractPanel implements ILayoutTogglable,On
   public override xtype: string = 'panel';
 
   /**
-   * Output event emitter `dragStart` (`EventEmitter`) firing when drag start occurs.
-   * @zh 输出事件 `dragStart`（类型：`EventEmitter`），当触发拖拽开始时向外发出事件。
+   * Output event emitter `dragStart` (`EventEmitter<{ gutterNum: number; sizes: number[]; }>`) firing when drag start occurs.
+   * @zh 输出事件 `dragStart`（类型：`EventEmitter<{ gutterNum: number; sizes: number[]; }>`），当触发拖拽开始时向外发出事件。
    */
   @Output() dragStart = new EventEmitter<{ gutterNum: number, sizes: number[] }>(false);
 
   /**
-   * Output event emitter `dragProgress` (`EventEmitter`) firing when drag progress occurs.
-   * @zh 输出事件 `dragProgress`（类型：`EventEmitter`），当触发拖拽进度条时向外发出事件。
+   * Output event emitter `dragProgress` (`EventEmitter<{ gutterNum: number; sizes: number[]; }>`) firing when drag progress occurs.
+   * @zh 输出事件 `dragProgress`（类型：`EventEmitter<{ gutterNum: number; sizes: number[]; }>`），当触发拖拽进度条时向外发出事件。
    */
   @Output() dragProgress = new EventEmitter<{ gutterNum: number, sizes: number[] }>(false);
 
   /**
-   * Output event emitter `dragEnd` (`EventEmitter`) firing when drag end occurs.
-   * @zh 输出事件 `dragEnd`（类型：`EventEmitter`），当触发拖拽结束时向外发出事件。
+   * Output event emitter `dragEnd` (`EventEmitter<{ gutterNum: number; sizes: number[]; }>`) firing when drag end occurs.
+   * @zh 输出事件 `dragEnd`（类型：`EventEmitter<{ gutterNum: number; sizes: number[]; }>`），当触发拖拽结束时向外发出事件。
    */
   @Output() dragEnd = new EventEmitter<{ gutterNum: number, sizes: number[] }>(false);
 
   /**
-   * Output event emitter `gutterClick` (`EventEmitter`) firing when gutter click occurs.
-   * @zh 输出事件 `gutterClick`（类型：`EventEmitter`），当触发分隔槽点击时向外发出事件。
+   * Output event emitter `gutterClick` (`EventEmitter<{ gutterNum: number; sizes: number[]; }>`) firing when gutter click occurs.
+   * @zh 输出事件 `gutterClick`（类型：`EventEmitter<{ gutterNum: number; sizes: number[]; }>`），当触发分隔槽点击时向外发出事件。
    */
   @Output() gutterClick = new EventEmitter<{ gutterNum: number, sizes: number[] }>(false);
 
   /**
-   * Property `transitionEndInternal` (`Subject`) storing transition end internal (default: `new Subject<number[]>()`).
-   * @zh 属性 `transitionEndInternal`（类型：`Subject`），用于存储或配置过渡动画结束内部（默认值：`new Subject<number[]>()`）。
+   * Property `transitionEndInternal` (`Subject<number[]>`) storing transition end internal (default: `new Subject<number[]>()`).
+   * @zh 属性 `transitionEndInternal`（类型：`Subject<number[]>`），用于存储或配置过渡动画结束内部（默认值：`new Subject<number[]>()`）。
    */
   private transitionEndInternal = new Subject<number[]>();
 
   /**
-   * Output event emitter `transitionEnd` (`any`) firing when transition end occurs.
-   * @zh 输出事件 `transitionEnd`（类型：`any`），当触发过渡动画结束时向外发出事件。
+   * Output event emitter `transitionEnd` (`Observable<number[]>`) firing when transition end occurs.
+   * @zh 输出事件 `transitionEnd`（类型：`Observable<number[]>`），当触发过渡动画结束时向外发出事件。
    */
   @Output() transitionEnd = (<Observable<number[]>>this.transitionEndInternal.asObservable()).pipe(debounceTime(20));
 
@@ -120,15 +120,15 @@ export class PanelComponent extends AbstractPanel implements ILayoutTogglable,On
   }
 
   /**
-   * Property `_fxLayout` (`'row' | 'column'`) storing fx layout (default: `'row'`).
-   * @zh 属性 `_fxLayout`（类型：`'row' | 'column'`），用于存储或配置fx布局（默认值：`'row'`）。
+   * Property `_fxLayout` (`"column" | "row"`) storing fx layout (default: `'row'`).
+   * @zh 属性 `_fxLayout`（类型：`"column" | "row"`），用于存储或配置fx布局（默认值：`'row'`）。
    */
   public override _fxLayout: 'row' | 'column' = 'row';
 
   /**
    * Input setter `fxLayout` updating fx layout.
    * @zh 输入属性 `fxLayout` 的设置器，用于更新fx布局。
-   * @param v - New fx layout value (`'row' | 'column'`) / 新的fx布局值（`'row' | 'column'`）
+   * @param v - New fx layout value (`"column" | "row"`) / 新的fx布局值（`"column" | "row"`）
    */
   @Input() override set fxLayout(v: 'row' | 'column') {
     v = (v === 'row') ? 'row' : 'column';
@@ -221,8 +221,8 @@ export class PanelComponent extends AbstractPanel implements ILayoutTogglable,On
   public hasOutlet: boolean = false;
 
   /**
-   * Property `dragStartValues` (`any`) storing drag start values.
-   * @zh 属性 `dragStartValues`（类型：`any`），用于存储或配置拖拽开始值列表。
+   * Property `dragStartValues` (`{…}`) storing drag start values.
+   * @zh 属性 `dragStartValues`（类型：`{…}`），用于存储或配置拖拽开始值列表。
    */
   private readonly dragStartValues = {
     sizePixelContainer: 0,
@@ -270,7 +270,7 @@ export class PanelComponent extends AbstractPanel implements ILayoutTogglable,On
   /**
    * Creates an instance of `PanelComponent` and initializes its dependencies and internal state.
    * @zh 创建 `PanelComponent` 实例，并初始化其依赖项与内部状态。
-   * @param _element - Injected or initial element (`ElementRef`) / 注入或传入的元素（`ElementRef`）
+   * @param _element - Injected or initial element (`ElementRef<any>`) / 注入或传入的元素（`ElementRef<any>`）
    * @param renderer - Injected or initial renderer (`Renderer2`) / 注入或传入的渲染器（`Renderer2`）
    * @param resolver - Injected or initial resolver (`ComponentFactoryResolver`) / 注入或传入的解析器（`ComponentFactoryResolver`）
    * @param injector - Injected or initial injector (`Injector`) / 注入或传入的注入器（`Injector`）
@@ -440,7 +440,7 @@ export class PanelComponent extends AbstractPanel implements ILayoutTogglable,On
 
   /**
    * Executes `doLayout` to handle do layout.
-   * @zh 执行 `doLayout`，用于do布局。
+   * @zh 执行 `doLayout`，用于执行布局。
    * @param resetOrders - reset orders parameter (`boolean`) / 重置顺序参数（`boolean`）
    * @param resetSizes - reset sizes parameter (`boolean`) / 重置尺寸列表参数（`boolean`）
    */
@@ -693,7 +693,7 @@ export class PanelComponent extends AbstractPanel implements ILayoutTogglable,On
   /**
    * Executes `notify` to handle notify.
    * @zh 执行 `notify`，用于通知。
-   * @param type - type parameter (`'start' | 'progress' | 'end' | 'click' | 'transitionEnd'`) / 类型参数（`'start' | 'progress' | 'end' | 'click' | 'transitionEnd'`）
+   * @param type - type parameter (`"progress" | "click" | "end" | "start" | "transitionEnd"`) / 类型参数（`"progress" | "click" | "end" | "start" | "transitionEnd"`）
    */
   public notify(type: 'start' | 'progress' | 'end' | 'click' | 'transitionEnd'): void {
     const areasSize: number[] = this.displayedAreas.map(a => a.size * 100);

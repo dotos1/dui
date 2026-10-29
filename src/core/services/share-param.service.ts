@@ -16,8 +16,8 @@ import { Injectable} from '@angular/core';
 export class ShareParamService {
 
   /**
-   * Property `data` (`any`) storing data (default: `{}`).
-   * @zh 属性 `data`（类型：`any`），用于存储或配置数据（默认值：`{}`）。
+   * Property `data` (`Record<string, unknown>`) storing data (default: `{}`).
+   * @zh 属性 `data`（类型：`Record<string, unknown>`），用于存储或配置数据（默认值：`{}`）。
    */
   data: Record<string, unknown> = {};
 
@@ -31,7 +31,7 @@ export class ShareParamService {
      * Executes `get` to handle get.
      * @zh 执行 `get`，用于获取。
      * @param name - name parameter (`any`) / 名称参数（`any`）
-     * @returns Result of type `any` / 类型为 `any` 的返回值
+     * @returns Result of type `unknown` / 类型为 `unknown` 的返回值
      */
     get(name) {
         return this.data[name];
@@ -50,7 +50,7 @@ export class ShareParamService {
     /**
      * Executes `clear` to handle clear.
      * @zh 执行 `clear`，用于清空。
-     * @returns Result of type `any` / 类型为 `any` 的返回值
+     * @returns Result of type `void` / 类型为 `void` 的返回值
      */
     clear() {
         this.data = {};

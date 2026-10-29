@@ -53,14 +53,14 @@ export class IconPickerComponent implements TriggerPopup, OnInit, OnDestroy {
   private _unsubscribeAll: Subject<void>;
 
   /**
-   * Property `iconType` (`any`) storing icon type (default: `IconType`).
-   * @zh 属性 `iconType`（类型：`any`），用于存储或配置图标类型（默认值：`IconType`）。
+   * Property `iconType` (`typeof IconType`) storing icon type (default: `IconType`).
+   * @zh 属性 `iconType`（类型：`typeof IconType`），用于存储或配置图标类型（默认值：`IconType`）。
    */
   public iconType = IconType;
 
   /**
-   * Property `iconPack` (`any[]`) storing icon pack (default: `['material', 'font', 'svg']`).
-   * @zh 属性 `iconPack`（类型：`any[]`），用于存储或配置图标Pack（默认值：`['material', 'font', 'svg']`）。
+   * Property `iconPack` (`string[]`) storing icon pack (default: `['material', 'font', 'svg']`).
+   * @zh 属性 `iconPack`（类型：`string[]`），用于存储或配置图标Pack（默认值：`['material', 'font', 'svg']`）。
    */
   public iconPack = ['material', 'font', 'svg'];
 
@@ -71,26 +71,26 @@ export class IconPickerComponent implements TriggerPopup, OnInit, OnDestroy {
   public currentIconPack = 'material';
 
   /**
-   * Template/content query reference `dialogElement` (`@ViewChild`) targeting dialog element.
+   * Template/content query reference `dialogElement` (`any`) targeting dialog element.
    * @zh 模板/内容视图查询引用 `dialogElement`（`@ViewChild`），指向对话框元素。
    */
   @ViewChild('dialogPopup') dialogElement;
 
   /**
-   * Property `dirs` (`any`) storing dirs (default: `[]`).
-   * @zh 属性 `dirs`（类型：`any`），用于存储或配置目录（默认值：`[]`）。
+   * Property `dirs` (`any[]`) storing dirs (default: `[]`).
+   * @zh 属性 `dirs`（类型：`any[]`），用于存储或配置目录（默认值：`[]`）。
    */
   dirs = [];
 
   /**
-   * Property `categories` (`any`) storing categories (default: `[]`).
-   * @zh 属性 `categories`（类型：`any`），用于存储或配置分类（默认值：`[]`）。
+   * Property `categories` (`any[]`) storing categories (default: `[]`).
+   * @zh 属性 `categories`（类型：`any[]`），用于存储或配置分类（默认值：`[]`）。
    */
   categories = [];
 
   /**
-   * Property `fontdirs` (`any`) storing fontdirs (default: `[]`).
-   * @zh 属性 `fontdirs`（类型：`any`），用于存储或配置fontdirs（默认值：`[]`）。
+   * Property `fontdirs` (`any[]`) storing fontdirs (default: `[]`).
+   * @zh 属性 `fontdirs`（类型：`any[]`），用于存储或配置fontdirs（默认值：`[]`）。
    */
   fontdirs = [];
 
@@ -150,8 +150,8 @@ export class IconPickerComponent implements TriggerPopup, OnInit, OnDestroy {
   selectCategory='';
 
   /**
-   * Property `style` (`any`) storing style (default: `{}`).
-   * @zh 属性 `style`（类型：`any`），用于存储或配置样式（默认值：`{}`）。
+   * Property `style` (`DuiStyle`) storing style (default: `{}`).
+   * @zh 属性 `style`（类型：`DuiStyle`），用于存储或配置样式（默认值：`{}`）。
    */
   public style: DuiStyle = {};
 
@@ -161,35 +161,35 @@ export class IconPickerComponent implements TriggerPopup, OnInit, OnDestroy {
    */
   trackByIconId = (_index: number, icon: { id? }) => icon ? icon.id : _index;
   /**
-   * Property `trackByIconName` (`any`) storing track by icon name.
-   * @zh 属性 `trackByIconName`（类型：`any`），用于存储或配置track按图标名称。
+   * Property `trackByIconName` (`(_index: number, icon: { name?: any; }) => any`) storing track by icon name.
+   * @zh 属性 `trackByIconName`（类型：`(_index: number, icon: { name?: any; }) => any`），用于存储或配置track按图标名称。
    */
   trackByIconName = (_index: number, icon: { name? }) => icon ? icon.name : _index;
   /**
-   * Property `trackByMetaName` (`any`) storing track by meta name.
-   * @zh 属性 `trackByMetaName`（类型：`any`），用于存储或配置track按元数据名称。
+   * Property `trackByMetaName` (`(_index: number, icon: { meta_name?: any; }) => any`) storing track by meta name.
+   * @zh 属性 `trackByMetaName`（类型：`(_index: number, icon: { meta_name?: any; }) => any`），用于存储或配置track按元数据名称。
    */
   trackByMetaName = (_index: number, icon: { meta_name? }) => icon ? icon.meta_name : _index;
   /**
-   * Property `trackByDirPath` (`any`) storing track by dir path.
-   * @zh 属性 `trackByDirPath`（类型：`any`），用于存储或配置track按目录路径。
+   * Property `trackByDirPath` (`(_index: number, dir: { path?: any; }) => any`) storing track by dir path.
+   * @zh 属性 `trackByDirPath`（类型：`(_index: number, dir: { path?: any; }) => any`），用于存储或配置track按目录路径。
    */
   trackByDirPath = (_index: number, dir: { path? }) => dir ? dir.path : _index;
   /**
-   * Property `trackByCategoryValue` (`any`) storing track by category value.
-   * @zh 属性 `trackByCategoryValue`（类型：`any`），用于存储或配置track按分类值。
+   * Property `trackByCategoryValue` (`(_index: number, category: { value?: any; }) => any`) storing track by category value.
+   * @zh 属性 `trackByCategoryValue`（类型：`(_index: number, category: { value?: any; }) => any`），用于存储或配置track按分类值。
    */
   trackByCategoryValue = (_index: number, category: { value? }) => category ? category.value : _index;
   /**
-   * Property `trackByIdentity` (`any`) storing track by identity.
-   * @zh 属性 `trackByIdentity`（类型：`any`），用于存储或配置track按Identity。
+   * Property `trackByIdentity` (`(_index: number, item: any) => any`) storing track by identity.
+   * @zh 属性 `trackByIdentity`（类型：`(_index: number, item: any) => any`），用于存储或配置track按Identity。
    */
   trackByIdentity = (_index: number, item) => item;
 
   /**
    * Creates an instance of `IconPickerComponent` and initializes its dependencies and internal state.
    * @zh 创建 `IconPickerComponent` 实例，并初始化其依赖项与内部状态。
-   * @param _element - Injected or initial element (`ElementRef`) / 注入或传入的元素（`ElementRef`）
+   * @param _element - Injected or initial element (`ElementRef<any>`) / 注入或传入的元素（`ElementRef<any>`）
    * @param renderer - Injected or initial renderer (`Renderer2`) / 注入或传入的渲染器（`Renderer2`）
    * @param _changeDetectorRef - Injected or initial change detector ref (`ChangeDetectorRef`) / 注入或传入的变更检测器引用（`ChangeDetectorRef`）
    * @param http - Injected or initial http (`HttpClient`) / 注入或传入的HTTP（`HttpClient`）

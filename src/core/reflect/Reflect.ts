@@ -48,7 +48,7 @@ namespace Reflect {
         next(value?): IteratorResult<T>;
         /**
          * Executes `throw` to handle throw.
-         * @zh 执行 `throw`，用于throw。
+         * @zh 执行 `throw`，用于抛出。
          * @param value - value parameter (`any`) / 值参数（`any`）
          * @returns Result of type `IteratorResult<T>` / 类型为 `IteratorResult<T>` 的返回值
          */
@@ -160,8 +160,8 @@ namespace Reflect {
         new(): Map<unknown, unknown>;
         new <K, V>(): Map<K, V>;
         /**
-         * Property `prototype` (`Map<any, any>`) storing prototype.
-         * @zh 属性 `prototype`（类型：`Map<any, any>`），用于存储或配置prototype。
+         * Property `prototype` (`any`) storing prototype.
+         * @zh 属性 `prototype`（类型：`any`），用于存储或配置prototype。
          */
         prototype;
     }
@@ -230,8 +230,8 @@ namespace Reflect {
         new(): Set<unknown>;
         new <T>(): Set<T>;
         /**
-         * Property `prototype` (`Set<any>`) storing prototype.
-         * @zh 属性 `prototype`（类型：`Set<any>`），用于存储或配置prototype。
+         * Property `prototype` (`any`) storing prototype.
+         * @zh 属性 `prototype`（类型：`any`），用于存储或配置prototype。
          */
         prototype;
     }
@@ -285,8 +285,8 @@ namespace Reflect {
         new(): WeakMap<unknown, unknown>;
         new <K, V>(): WeakMap<K, V>;
         /**
-         * Property `prototype` (`WeakMap<any, any>`) storing prototype.
-         * @zh 属性 `prototype`（类型：`WeakMap<any, any>`），用于存储或配置prototype。
+         * Property `prototype` (`any`) storing prototype.
+         * @zh 属性 `prototype`（类型：`any`），用于存储或配置prototype。
          */
         prototype;
     }
@@ -455,7 +455,7 @@ namespace Reflect {
       *     Example = Reflect.decorate(decoratorsArray, Example);
       *
 
-     * @zh 执行 `decorate`，用于decorate。
+     * @zh 执行 `decorate`，用于装饰。
      */
     export function decorate(decorators: ClassDecorator[], target: Function): Function;
 
@@ -494,7 +494,7 @@ namespace Reflect {
       *             Object.getOwnPropertyDescriptor(Example.prototype, "method")));
       *
 
-     * @zh 执行 `decorate`，用于decorate。
+     * @zh 执行 `decorate`，用于装饰。
      */
     export function decorate(decorators: (PropertyDecorator | MethodDecorator)[], target, propertyKey: string | symbol, attributes?: PropertyDescriptor | null): PropertyDescriptor | undefined;
 
@@ -533,7 +533,7 @@ namespace Reflect {
       *             Object.getOwnPropertyDescriptor(Example.prototype, "method")));
       *
 
-     * @zh 执行 `decorate`，用于decorate。
+     * @zh 执行 `decorate`，用于装饰。
      */
     export function decorate(decorators: (PropertyDecorator | MethodDecorator)[], target, propertyKey: string | symbol, attributes: PropertyDescriptor): PropertyDescriptor;
 
@@ -576,7 +576,7 @@ namespace Reflect {
       *             Object.getOwnPropertyDescriptor(Example.prototype, "method")));
       *
 
-     * @zh 执行 `decorate`，用于decorate。
+     * @zh 执行 `decorate`，用于装饰。
      */
     export function decorate(decorators: (ClassDecorator | MemberDecorator)[], target, propertyKey?: string | symbol, attributes?: PropertyDescriptor | null): PropertyDescriptor | Function | undefined {
         if (!IsUndefined(propertyKey)) {
@@ -673,7 +673,7 @@ namespace Reflect {
       *     }
       *
 
-     * @zh 执行 `defineMetadata`，用于define元数据。
+     * @zh 执行 `defineMetadata`，用于定义元数据。
      */
     export function defineMetadata(metadataKey, metadataValue, target): void;
 
@@ -712,7 +712,7 @@ namespace Reflect {
       *     }
       *
 
-     * @zh 执行 `defineMetadata`，用于define元数据。
+     * @zh 执行 `defineMetadata`，用于定义元数据。
      */
     export function defineMetadata(metadataKey, metadataValue, target, propertyKey: string | symbol): void;
 
@@ -755,7 +755,7 @@ namespace Reflect {
       *     }
       *
 
-     * @zh 执行 `defineMetadata`，用于define元数据。
+     * @zh 执行 `defineMetadata`，用于定义元数据。
      */
     export function defineMetadata(metadataKey, metadataValue, target, propertyKey?: string | symbol): void {
         if (!IsObject(target)) { throw new TypeError(); }
@@ -1469,8 +1469,8 @@ namespace Reflect {
      * @param decorators - decorators parameter (`MemberDecorator[]`) / decorators参数（`MemberDecorator[]`）
      * @param target - target parameter (`any`) / 目标参数（`any`）
      * @param propertyKey - property key parameter (`string | symbol`) / 属性键参数（`string | symbol`）
-     * @param descriptor - descriptor parameter (`PropertyDescriptor | undefined`) / descriptor参数（`PropertyDescriptor | undefined`）
-     * @returns Result of type `PropertyDescriptor | undefined` / 类型为 `PropertyDescriptor | undefined` 的返回值
+     * @param descriptor - descriptor parameter (`PropertyDescriptor`) / descriptor参数（`PropertyDescriptor`）
+     * @returns Result of type `PropertyDescriptor` / 类型为 `PropertyDescriptor` 的返回值
      */
     function DecorateProperty(decorators: MemberDecorator[], target, propertyKey: string | symbol, descriptor: PropertyDescriptor | undefined): PropertyDescriptor | undefined {
         for (let i = decorators.length - 1; i >= 0; --i) {
@@ -1490,27 +1490,27 @@ namespace Reflect {
      * Executes `GetOrCreateMetadataMap` to handle get or create metadata map.
      * @zh 执行 `GetOrCreateMetadataMap`，用于获取Or创建元数据映射表。
      * @param O - o parameter (`any`) / O参数（`any`）
-     * @param P - p parameter (`string | symbol | undefined`) / P参数（`string | symbol | undefined`）
+     * @param P - p parameter (`string | symbol`) / P参数（`string | symbol`）
      * @param Create - create parameter (`true`) / 创建参数（`true`）
-     * @returns Result of type `Map<any, any>` / 类型为 `Map<any, any>` 的返回值
+     * @returns Result of type `any` / 类型为 `any` 的返回值
      */
     function GetOrCreateMetadataMap(O, P: string | symbol | undefined, Create: true);
     /**
      * Executes `GetOrCreateMetadataMap` to handle get or create metadata map.
      * @zh 执行 `GetOrCreateMetadataMap`，用于获取Or创建元数据映射表。
      * @param O - o parameter (`any`) / O参数（`any`）
-     * @param P - p parameter (`string | symbol | undefined`) / P参数（`string | symbol | undefined`）
+     * @param P - p parameter (`string | symbol`) / P参数（`string | symbol`）
      * @param Create - create parameter (`false`) / 创建参数（`false`）
-     * @returns Result of type `Map<any, any> | undefined` / 类型为 `Map<any, any> | undefined` 的返回值
+     * @returns Result of type `any` / 类型为 `any` 的返回值
      */
     function GetOrCreateMetadataMap(O, P: string | symbol | undefined, Create: false);
     /**
      * Executes `GetOrCreateMetadataMap` to handle get or create metadata map.
      * @zh 执行 `GetOrCreateMetadataMap`，用于获取Or创建元数据映射表。
      * @param O - o parameter (`any`) / O参数（`any`）
-     * @param P - p parameter (`string | symbol | undefined`) / P参数（`string | symbol | undefined`）
+     * @param P - p parameter (`string | symbol`) / P参数（`string | symbol`）
      * @param Create - create parameter (`boolean`) / 创建参数（`boolean`）
-     * @returns Result of type `Map<any, any> | undefined` / 类型为 `Map<any, any> | undefined` 的返回值
+     * @returns Result of type `Map<unknown, unknown>` / 类型为 `Map<unknown, unknown>` 的返回值
      */
     function GetOrCreateMetadataMap(O, P: string | symbol | undefined, Create: boolean) {
         let targetMetadata = Metadata.get(O);
@@ -1535,7 +1535,7 @@ namespace Reflect {
      * @zh 执行 `OrdinaryHasMetadata`，用于Ordinary是否包含元数据。
      * @param MetadataKey - metadata key parameter (`any`) / 元数据键参数（`any`）
      * @param O - o parameter (`any`) / O参数（`any`）
-     * @param P - p parameter (`string | symbol | undefined`) / P参数（`string | symbol | undefined`）
+     * @param P - p parameter (`string | symbol`) / P参数（`string | symbol`）
      * @returns Result of type `boolean` / 类型为 `boolean` 的返回值
      */
     function OrdinaryHasMetadata(MetadataKey, O, P: string | symbol | undefined): boolean {
@@ -1553,7 +1553,7 @@ namespace Reflect {
      * @zh 执行 `OrdinaryHasOwnMetadata`，用于Ordinary是否包含Own元数据。
      * @param MetadataKey - metadata key parameter (`any`) / 元数据键参数（`any`）
      * @param O - o parameter (`any`) / O参数（`any`）
-     * @param P - p parameter (`string | symbol | undefined`) / P参数（`string | symbol | undefined`）
+     * @param P - p parameter (`string | symbol`) / P参数（`string | symbol`）
      * @returns Result of type `boolean` / 类型为 `boolean` 的返回值
      */
     function OrdinaryHasOwnMetadata(MetadataKey, O, P: string | symbol | undefined): boolean {
@@ -1569,7 +1569,7 @@ namespace Reflect {
      * @zh 执行 `OrdinaryGetMetadata`，用于Ordinary获取元数据。
      * @param MetadataKey - metadata key parameter (`any`) / 元数据键参数（`any`）
      * @param O - o parameter (`any`) / O参数（`any`）
-     * @param P - p parameter (`string | symbol | undefined`) / P参数（`string | symbol | undefined`）
+     * @param P - p parameter (`string | symbol`) / P参数（`string | symbol`）
      * @returns Result of type `any` / 类型为 `any` 的返回值
      */
     function OrdinaryGetMetadata(MetadataKey, O, P: string | symbol | undefined) {
@@ -1587,7 +1587,7 @@ namespace Reflect {
      * @zh 执行 `OrdinaryGetOwnMetadata`，用于Ordinary获取Own元数据。
      * @param MetadataKey - metadata key parameter (`any`) / 元数据键参数（`any`）
      * @param O - o parameter (`any`) / O参数（`any`）
-     * @param P - p parameter (`string | symbol | undefined`) / P参数（`string | symbol | undefined`）
+     * @param P - p parameter (`string | symbol`) / P参数（`string | symbol`）
      * @returns Result of type `any` / 类型为 `any` 的返回值
      */
     function OrdinaryGetOwnMetadata(MetadataKey, O, P: string | symbol | undefined) {
@@ -1604,7 +1604,7 @@ namespace Reflect {
      * @param MetadataKey - metadata key parameter (`any`) / 元数据键参数（`any`）
      * @param MetadataValue - metadata value parameter (`any`) / 元数据值参数（`any`）
      * @param O - o parameter (`any`) / O参数（`any`）
-     * @param P - p parameter (`string | symbol | undefined`) / P参数（`string | symbol | undefined`）
+     * @param P - p parameter (`string | symbol`) / P参数（`string | symbol`）
      */
     function OrdinaryDefineOwnMetadata(MetadataKey, MetadataValue, O, P: string | symbol | undefined): void {
         const metadataMap = GetOrCreateMetadataMap(O, P, /*Create*/ true);
@@ -1617,8 +1617,8 @@ namespace Reflect {
      * Executes `OrdinaryMetadataKeys` to handle ordinary metadata keys.
      * @zh 执行 `OrdinaryMetadataKeys`，用于Ordinary元数据键列表。
      * @param O - o parameter (`any`) / O参数（`any`）
-     * @param P - p parameter (`string | symbol | undefined`) / P参数（`string | symbol | undefined`）
-     * @returns Result of type `any[]` / 类型为 `any[]` 的返回值
+     * @param P - p parameter (`string | symbol`) / P参数（`string | symbol`）
+     * @returns Result of type `any` / 类型为 `any` 的返回值
      */
     function OrdinaryMetadataKeys(O, P: string | symbol | undefined) {
         const ownKeys = OrdinaryOwnMetadataKeys(O, P);
@@ -1652,7 +1652,7 @@ namespace Reflect {
      * Executes `OrdinaryOwnMetadataKeys` to handle ordinary own metadata keys.
      * @zh 执行 `OrdinaryOwnMetadataKeys`，用于OrdinaryOwn元数据键列表。
      * @param O - o parameter (`any`) / O参数（`any`）
-     * @param P - p parameter (`string | symbol | undefined`) / P参数（`string | symbol | undefined`）
+     * @param P - p parameter (`string | symbol`) / P参数（`string | symbol`）
      * @returns Result of type `any[]` / 类型为 `any[]` 的返回值
      */
     function OrdinaryOwnMetadataKeys(O, P: string | symbol | undefined) {
@@ -1755,7 +1755,7 @@ namespace Reflect {
      * Executes `IsUndefined` to handle is undefined.
      * @zh 执行 `IsUndefined`，用于是否为未定义。
      * @param x - x parameter (`any`) / X坐标参数（`any`）
-     * @returns Result of type `x is undefined` / 类型为 `x is undefined` 的返回值
+     * @returns Result of type `boolean` / 类型为 `boolean` 的返回值
      */
     function IsUndefined(x): x is undefined {
         return x === undefined;
@@ -1767,7 +1767,7 @@ namespace Reflect {
      * Executes `IsNull` to handle is null.
      * @zh 执行 `IsNull`，用于是否为空值。
      * @param x - x parameter (`any`) / X坐标参数（`any`）
-     * @returns Result of type `x is null` / 类型为 `x is null` 的返回值
+     * @returns Result of type `boolean` / 类型为 `boolean` 的返回值
      */
     function IsNull(x): x is null {
         return x === null;
@@ -1779,7 +1779,7 @@ namespace Reflect {
      * Executes `IsSymbol` to handle is symbol.
      * @zh 执行 `IsSymbol`，用于是否为Symbol。
      * @param x - x parameter (`any`) / X坐标参数（`any`）
-     * @returns Result of type `x is symbol` / 类型为 `x is symbol` 的返回值
+     * @returns Result of type `boolean` / 类型为 `boolean` 的返回值
      */
     function IsSymbol(x): x is symbol {
         return typeof x === 'symbol';
@@ -1790,8 +1790,8 @@ namespace Reflect {
     /**
      * Executes `IsObject` to handle is object.
      * @zh 执行 `IsObject`，用于是否为对象。
-     * @param x - x parameter (`T | undefined | null | boolean | string | symbol | number`) / X坐标参数（`T | undefined | null | boolean | string | symbol | number`）
-     * @returns Result of type `x is T` / 类型为 `x is T` 的返回值
+     * @param x - x parameter (`string | number | boolean | symbol | T`) / X坐标参数（`string | number | boolean | symbol | T`）
+     * @returns Result of type `boolean` / 类型为 `boolean` 的返回值
      */
     function IsObject<T>(x: T | undefined | null | boolean | string | symbol | number): x is T {
         return typeof x === 'object' ? x !== null : typeof x === 'function';
@@ -1807,7 +1807,7 @@ namespace Reflect {
      * @zh 执行 `ToPrimitive`，用于转换为Primitive。
      * @param input - input parameter (`any`) / 输入属性参数（`any`）
      * @param PreferredType - preferred type parameter (`Tag`) / Preferred类型参数（`Tag`）
-     * @returns Result of type `undefined | null | boolean | string | symbol | number` / 类型为 `undefined | null | boolean | string | symbol | number` 的返回值
+     * @returns Result of type `string | number | boolean | symbol` / 类型为 `string | number | boolean | symbol` 的返回值
      */
     function ToPrimitive(input, PreferredType?: Tag): undefined | null | boolean | string | symbol | number {
         switch (Type(input)) {
@@ -1834,8 +1834,8 @@ namespace Reflect {
      * Executes `OrdinaryToPrimitive` to handle ordinary to primitive.
      * @zh 执行 `OrdinaryToPrimitive`，用于Ordinary转换为Primitive。
      * @param O - o parameter (`any`) / O参数（`any`）
-     * @param hint - hint parameter (`'string' | 'number'`) / 提示信息参数（`'string' | 'number'`）
-     * @returns Result of type `undefined | null | boolean | string | symbol | number` / 类型为 `undefined | null | boolean | string | symbol | number` 的返回值
+     * @param hint - hint parameter (`"string" | "number"`) / 提示信息参数（`"string" | "number"`）
+     * @returns Result of type `string | number | boolean | symbol` / 类型为 `string | number | boolean | symbol` 的返回值
      */
     function OrdinaryToPrimitive(O, hint: 'string' | 'number'): undefined | null | boolean | string | symbol | number {
         if (hint === 'string') {
@@ -1911,7 +1911,7 @@ namespace Reflect {
      * Executes `IsArray` to handle is array.
      * @zh 执行 `IsArray`，用于是否为数组。
      * @param argument - argument parameter (`any`) / argument参数（`any`）
-     * @returns Result of type `argument is any[]` / 类型为 `argument is any[]` 的返回值
+     * @returns Result of type `boolean` / 类型为 `boolean` 的返回值
      */
     function IsArray(argument) {
         return Array.isArray
@@ -1927,7 +1927,7 @@ namespace Reflect {
      * Executes `IsCallable` to handle is callable.
      * @zh 执行 `IsCallable`，用于是否为Callable。
      * @param argument - argument parameter (`any`) / argument参数（`any`）
-     * @returns Result of type `argument is Function` / 类型为 `argument is Function` 的返回值
+     * @returns Result of type `boolean` / 类型为 `boolean` 的返回值
      */
     function IsCallable(argument): argument is Function {
         // NOTE: This is an approximation as we cannot check for [[Call]] internal method.
@@ -1940,7 +1940,7 @@ namespace Reflect {
      * Executes `IsConstructor` to handle is constructor.
      * @zh 执行 `IsConstructor`，用于是否为Constructor。
      * @param argument - argument parameter (`any`) / argument参数（`any`）
-     * @returns Result of type `argument is Function` / 类型为 `argument is Function` 的返回值
+     * @returns Result of type `boolean` / 类型为 `boolean` 的返回值
      */
     function IsConstructor(argument): argument is Function {
         // NOTE: This is an approximation as we cannot check for [[Construct]] internal method.
@@ -1953,7 +1953,7 @@ namespace Reflect {
      * Executes `IsPropertyKey` to handle is property key.
      * @zh 执行 `IsPropertyKey`，用于是否为属性键。
      * @param argument - argument parameter (`any`) / argument参数（`any`）
-     * @returns Result of type `argument is string | symbol` / 类型为 `argument is string | symbol` 的返回值
+     * @returns Result of type `boolean` / 类型为 `boolean` 的返回值
      */
     function IsPropertyKey(argument): argument is string | symbol {
         switch (Type(argument)) {
@@ -1973,7 +1973,7 @@ namespace Reflect {
      * @zh 执行 `GetMethod`，用于获取方法。
      * @param V - v parameter (`any`) / V参数（`any`）
      * @param P - p parameter (`any`) / P参数（`any`）
-     * @returns Result of type `Function | undefined` / 类型为 `Function | undefined` 的返回值
+     * @returns Result of type `Function` / 类型为 `Function` 的返回值
      */
     function GetMethod(V, P): Function | undefined {
         const func = V[P];
@@ -2017,7 +2017,7 @@ namespace Reflect {
      * Executes `IteratorStep` to handle iterator step.
      * @zh 执行 `IteratorStep`，用于Iterator步骤。
      * @param iterator - iterator parameter (`Iterator<T>`) / iterator参数（`Iterator<T>`）
-     * @returns Result of type `IteratorResult<T> | false` / 类型为 `IteratorResult<T> | false` 的返回值
+     * @returns Result of type `false | IteratorResult<T>` / 类型为 `false | IteratorResult<T>` 的返回值
      */
     function IteratorStep<T>(iterator: Iterator<T>): IteratorResult<T> | false {
         const result = iterator.next();
@@ -2152,7 +2152,7 @@ namespace Reflect {
             }
             /**
              * Executes `throw` to handle throw.
-             * @zh 执行 `throw`，用于throw。
+             * @zh 执行 `throw`，用于抛出。
              * @param error - error parameter (`any`) / 错误参数（`any`）
              * @returns Result of type `IteratorResult<R>` / 类型为 `IteratorResult<R>` 的返回值
              */

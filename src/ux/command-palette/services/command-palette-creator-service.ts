@@ -15,8 +15,8 @@ import { CommandPaletteComponent } from '../command-palette.component';
 export class CommandPaletteCreatorService {
 
   /**
-   * Property `componentRef` (`ComponentRef<CommandPaletteComponent> | undefined`) storing component ref.
-   * @zh 属性 `componentRef`（类型：`ComponentRef<CommandPaletteComponent> | undefined`），用于存储或配置组件引用。
+   * Property `componentRef` (`ComponentRef<CommandPaletteComponent>`) storing component ref.
+   * @zh 属性 `componentRef`（类型：`ComponentRef<CommandPaletteComponent>`），用于存储或配置组件引用。
    */
   private componentRef: ComponentRef<CommandPaletteComponent> | undefined;
 

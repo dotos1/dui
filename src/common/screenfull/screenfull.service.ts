@@ -34,8 +34,8 @@ export class ScreenfullService {
    */
   private fn;
   /**
-   * Property `eventNameMap` (`{ change: () => {}; error: () => {} }`) storing event name map.
-   * @zh 属性 `eventNameMap`（类型：`{ change: () => {}; error: () => {} }`），用于存储或配置事件名称映射表。
+   * Property `eventNameMap` (`{ change: () => {}; error: () => {}; }`) storing event name map.
+   * @zh 属性 `eventNameMap`（类型：`{ change: () => {}; error: () => {}; }`），用于存储或配置事件名称映射表。
    */
   private eventNameMap: { change: () => {}; error: () => {} };
 
@@ -90,7 +90,7 @@ export class ScreenfullService {
 
   /**
    * Executes `exit` to handle exit.
-   * @zh 执行 `exit`，用于exit。
+   * @zh 执行 `exit`，用于退出。
    */
   private exit() {
     return new Promise((resolve) => {
@@ -109,7 +109,7 @@ export class ScreenfullService {
 
   /**
    * Executes `off` to handle off.
-   * @zh 执行 `off`，用于off。
+   * @zh 执行 `off`，用于取消监听。
    * @param event - event parameter (`any`) / 事件参数（`any`）
    * @param callback - callback parameter (`any`) / 回调函数参数（`any`）
    */

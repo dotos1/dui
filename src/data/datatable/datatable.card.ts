@@ -35,15 +35,15 @@ import { SelectionType } from './types';
 
 export class DatatableCardComponent extends DuiCardComponent implements OnChanges{
   /**
-   * Template/content query reference `view` (`@ViewChild`) targeting view.
+   * Template/content query reference `view` (`DatatableComponent`) targeting view.
    * @zh 模板/内容视图查询引用 `view`（`@ViewChild`），指向视图。
    */
   @ViewChild(DatatableComponent)
   view: DatatableComponent;
 
   /**
-   * Input property `config` (`any`) configuring config (default: `{}`).
-   * @zh 输入属性 `config`（类型：`any`），用于配置配置（默认值：`{}`）。
+   * Input property `config` (`DuiConfig`) configuring config (default: `{}`).
+   * @zh 输入属性 `config`（类型：`DuiConfig`），用于配置配置（默认值：`{}`）。
    */
   @Input() override config: DuiConfig = {};
 
@@ -96,14 +96,14 @@ export class DatatableCardComponent extends DuiCardComponent implements OnChange
   }
 
   /**
-   * Property `_rowData` (`any[]`) storing row data.
-   * @zh 属性 `_rowData`（类型：`any[]`），用于存储或配置行数据。
+   * Property `_rowData` (`any`) storing row data.
+   * @zh 属性 `_rowData`（类型：`any`），用于存储或配置行数据。
    */
   _rowData;
 
   /**
-   * Property `selectionType` (`any`) storing selection type (default: `SelectionType.single`).
-   * @zh 属性 `selectionType`（类型：`any`），用于存储或配置selection类型（默认值：`SelectionType.single`）。
+   * Property `selectionType` (`SelectionType`) storing selection type (default: `SelectionType.single`).
+   * @zh 属性 `selectionType`（类型：`SelectionType`），用于存储或配置selection类型（默认值：`SelectionType.single`）。
    */
   selectionType =SelectionType.single;
 
@@ -114,8 +114,8 @@ export class DatatableCardComponent extends DuiCardComponent implements OnChange
   loadingIndicator: boolean = false;
 
   /**
-   * Property `baseParams` (`any`) storing base params (default: `{}`).
-   * @zh 属性 `baseParams`（类型：`any`），用于存储或配置基础参数集合（默认值：`{}`）。
+   * Property `baseParams` (`{…}`) storing base params (default: `{}`).
+   * @zh 属性 `baseParams`（类型：`{…}`），用于存储或配置基础参数集合（默认值：`{}`）。
    */
   /** 数据请求的基础参数（作 HttpParams 发出） */
   baseParams: { [param: string]: string | number | boolean | ReadonlyArray<string | number | boolean> } = {};
@@ -143,8 +143,8 @@ export class DatatableCardComponent extends DuiCardComponent implements OnChange
   private dir = "";
 
   /**
-   * Property `displayCheck` (`any`) storing display check (default: `true`).
-   * @zh 属性 `displayCheck`（类型：`any`），用于存储或配置display检查（默认值：`true`）。
+   * Property `displayCheck` (`boolean`) storing display check (default: `true`).
+   * @zh 属性 `displayCheck`（类型：`boolean`），用于存储或配置display检查（默认值：`true`）。
    */
   public displayCheck = true;
   /**
@@ -154,8 +154,8 @@ export class DatatableCardComponent extends DuiCardComponent implements OnChange
   public totalCount=20;
 
   /**
-   * Property `_destroy$` (`Subject`) storing destroy (default: `new Subject<void>()`).
-   * @zh 属性 `_destroy$`（类型：`Subject`），用于存储或配置销毁（默认值：`new Subject<void>()`）。
+   * Property `_destroy$` (`Subject<void>`) storing destroy (default: `new Subject<void>()`).
+   * @zh 属性 `_destroy$`（类型：`Subject<void>`），用于存储或配置销毁（默认值：`new Subject<void>()`）。
    */
   private _destroy$ = new Subject<void>();
 

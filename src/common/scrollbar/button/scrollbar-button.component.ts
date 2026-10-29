@@ -77,13 +77,13 @@ const horizontalScrollStepFunc: Record<'ltr' | 'rtl', Record<'forward' | 'backwa
 export class ScrollbarButton extends PointerEventsAdapter {
 
   /**
-   * Property `scrollbarButton` (`InputSignal<'top' | 'bottom' | 'start' | 'end'>`) storing scrollbar button (default: `input.required()`).
-   * @zh 属性 `scrollbarButton`（类型：`InputSignal<'top' | 'bottom' | 'start' | 'end'>`），用于存储或配置滚动条按钮（默认值：`input.required()`）。
+   * Property `scrollbarButton` (`InputSignal<"top" | "bottom" | "end" | "start">`) storing scrollbar button (default: `input.required()`).
+   * @zh 属性 `scrollbarButton`（类型：`InputSignal<"top" | "bottom" | "end" | "start">`），用于存储或配置滚动条按钮（默认值：`input.required()`）。
    */
   scrollbarButton: InputSignal<'top' | 'bottom' | 'start' | 'end'> = input.required();
   /**
-   * Property `scrollDirection` (`InputSignal<'forward' | 'backward'>`) storing scroll direction (default: `input.required()`).
-   * @zh 属性 `scrollDirection`（类型：`InputSignal<'forward' | 'backward'>`），用于存储或配置滚动方向（默认值：`input.required()`）。
+   * Property `scrollDirection` (`InputSignal<"forward" | "backward">`) storing scroll direction (default: `input.required()`).
+   * @zh 属性 `scrollDirection`（类型：`InputSignal<"forward" | "backward">`），用于存储或配置滚动方向（默认值：`input.required()`）。
    */
   scrollDirection: InputSignal<'forward' | 'backward'> = input.required();
 

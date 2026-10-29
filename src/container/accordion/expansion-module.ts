@@ -61,8 +61,8 @@ import { TranslateModule } from '@dotos/dui/translator';
 })
 export class ExpansionModule {
   /**
-   * Property `entryComponents` (`any[]`) storing entry components (default: `[ Accordion, ExpansionPanel,]`).
-   * @zh 属性 `entryComponents`（类型：`any[]`），用于存储或配置条目组件列表（默认值：`[ Accordion, ExpansionPanel,]`）。
+   * Property `entryComponents` (`(typeof ExpansionPanel | typeof Accordion)[]`) storing entry components (default: `[ Accordion, ExpansionPanel,]`).
+   * @zh 属性 `entryComponents`（类型：`(typeof ExpansionPanel | typeof Accordion)[]`），用于存储或配置条目组件列表（默认值：`[ Accordion, ExpansionPanel,]`）。
    */
   entryComponents = [
     Accordion,

@@ -121,15 +121,15 @@ class TreeNode {
    */
   public parent;
   /**
-   * Property `children` (`any[]`) storing children.
-   * @zh 属性 `children`（类型：`any[]`），用于存储或配置子级列表。
+   * Property `children` (`any`) storing children.
+   * @zh 属性 `children`（类型：`any`），用于存储或配置子级列表。
    */
   public children;
 
   /**
    * Creates an instance of `TreeNode` and initializes its dependencies and internal state.
    * @zh 创建 `TreeNode` 实例，并初始化其依赖项与内部状态。
-   * @param row - Injected or initial row (`any | null`) / 注入或传入的行（`any | null`）
+   * @param row - Injected or initial row (`any`) / 注入或传入的行（`any`）
    */
   constructor(row = null) {
     if (!row) {

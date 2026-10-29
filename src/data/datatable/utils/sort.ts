@@ -13,7 +13,7 @@ import { getterForProp } from './column-prop-getters';
  * @zh 执行 `nextSortDir`，用于下一个排序目录。
  * @param sortType - sort type parameter (`SortType`) / 排序类型参数（`SortType`）
  * @param current - current parameter (`SortDirection`) / 当前参数（`SortDirection`）
- * @returns Result of type `SortDirection | undefined` / 类型为 `SortDirection | undefined` 的返回值
+ * @returns Result of type `SortDirection` / 类型为 `SortDirection` 的返回值
  */
 export function nextSortDir(sortType: SortType, current: SortDirection): SortDirection | undefined {
   if (sortType === SortType.single) {

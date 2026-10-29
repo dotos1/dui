@@ -14,8 +14,8 @@ import { DatatableRowDetailTemplateDirective } from './row-detail-template.direc
 export class DatatableRowDetailDirective {
 
   /**
-   * Input property `rowHeight` (`number | ((row?: any, index?: number) => number)`) configuring row height (default: `0`).
-   * @zh 输入属性 `rowHeight`（类型：`number | ((row?: any, index?: number) => number)`），用于配置行高度（默认值：`0`）。
+   * Input property `rowHeight` (`number`) configuring row height (default: `0`).
+   * @zh 输入属性 `rowHeight`（类型：`number`），用于配置行高度（默认值：`0`）。
    */
   @Input() rowHeight = 0;
 
@@ -27,7 +27,7 @@ export class DatatableRowDetailDirective {
   _templateInput: TemplateRef<unknown>;
 
   /**
-   * Template/content query reference `_templateQuery` (`@ContentChild`) targeting template query.
+   * Template/content query reference `_templateQuery` (`TemplateRef<unknown>`) targeting template query.
    * @zh 模板/内容视图查询引用 `_templateQuery`（`@ContentChild`），指向模板查询。
    */
   @ContentChild(DatatableRowDetailTemplateDirective, { read: TemplateRef, static: true })

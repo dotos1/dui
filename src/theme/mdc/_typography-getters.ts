@@ -82,12 +82,12 @@ export function font_family($config, $level= null) {
 
 /**
  * Executes `define_typography_level` to handle define typography level.
- * @zh 执行 `define_typography_level`，用于define排版层级。
+ * @zh 执行 `define_typography_level`，用于定义排版层级。
  * @param $font_size - font size parameter (`any`) / 字体尺寸参数（`any`）
  * @param $line_height - line height parameter (`any`) / 线段高度参数（`any`）
- * @param $font_weight - font weight parameter (`any`) / 字体权重/字重参数（`any`）
+ * @param $font_weight - font weight parameter (`number`) / 字体权重/字重参数（`number`）
  * @param $font_family - font family parameter (`any`) / 字体family参数（`any`）
- * @param $letter_spacing - letter spacing parameter (`any`) / letter间距参数（`any`）
+ * @param $letter_spacing - letter spacing parameter (`string`) / letter间距参数（`string`）
  */
 function define_typography_level(
     $font_size,
@@ -106,9 +106,9 @@ function define_typography_level(
   }
 /**
  * Executes `private_typography_to_2018_config` to handle private typography to 2018 config.
- * @zh 执行 `private_typography_to_2018_config`，用于private排版转换为2018配置。
+ * @zh 执行 `private_typography_to_2018_config`，用于内部排版转换为2018配置。
  * @param $config - config parameter (`any`) / 配置参数（`any`）
- * @param $force - force parameter (`any`) / force参数（`any`）
+ * @param $force - force parameter (`boolean`) / force参数（`boolean`）
  */
 export function private_typography_to_2018_config($config, $force= false) {
     if($config == null ){

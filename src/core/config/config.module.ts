@@ -40,7 +40,7 @@ export const CONFIG_FORROOT_GUARD = new InjectionToken('CONFIG_FORROOT_GUARD');
  * Executes `provideForRootGuard` to handle provide for root guard.
  * @zh 执行 `provideForRootGuard`，用于提供用于根节点路由守卫。
  * @param config - config parameter (`ConfigService`) / 配置参数（`ConfigService`）
- * @returns Result of type `any` / 类型为 `any` 的返回值
+ * @returns Result of type `string` / 类型为 `string` 的返回值
  */
 export function provideForRootGuard(config?: ConfigService) {
   if (config) {
@@ -64,7 +64,7 @@ export class ConfigModule {
   /**
    * Executes `forRoot` to handle for root.
    * @zh 执行 `forRoot`，用于用于根节点。
-   * @param configuredProvider - configured provider parameter (`any`) / configured提供者参数（`any`）
+   * @param configuredProvider - configured provider parameter (`{ provide: typeof ConfigLoader; useFactory: () => ConfigStaticLoader; }`) / configured提供者参数（`{ provide: typeof ConfigLoader; useFactory: () => ConfigStaticLoader; }`）
    * @returns Result of type `ModuleWithProviders<ConfigModule>` / 类型为 `ModuleWithProviders<ConfigModule>` 的返回值
    */
   static forRoot(

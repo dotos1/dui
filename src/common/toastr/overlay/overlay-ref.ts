@@ -22,9 +22,9 @@ export class OverlayRef {
   /**
    * Executes `attach` to handle attach.
    * @zh 执行 `attach`，用于挂载。
-   * @param portal - portal parameter (`ComponentPortal<any>`) / 传送门容器参数（`ComponentPortal<any>`）
+   * @param portal - portal parameter (`any`) / 传送门容器参数（`any`）
    * @param newestOnTop - newest on top parameter (`boolean`) / newest当顶部位置参数（`boolean`）
-   * @returns Result of type `ComponentRef<any>` / 类型为 `ComponentRef<any>` 的返回值
+   * @returns Result of type `ComponentRef<unknown>` / 类型为 `ComponentRef<unknown>` 的返回值
    */
   attach(
     portal,

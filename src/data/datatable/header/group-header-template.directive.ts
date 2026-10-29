@@ -16,7 +16,7 @@ export class DatatableGroupHeaderTemplateDirective {
   /**
    * Creates an instance of `DatatableGroupHeaderTemplateDirective` and initializes its dependencies and internal state.
    * @zh 创建 `DatatableGroupHeaderTemplateDirective` 实例，并初始化其依赖项与内部状态。
-   * @param template - Injected or initial template (`TemplateRef<any>`) / 注入或传入的模板（`TemplateRef<any>`）
+   * @param template - Injected or initial template (`TemplateRef<unknown>`) / 注入或传入的模板（`TemplateRef<unknown>`）
    */
   constructor(public template: TemplateRef<unknown>) { }
 }

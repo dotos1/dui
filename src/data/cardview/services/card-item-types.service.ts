@@ -28,8 +28,8 @@ export class CardItemTypeService extends DynamicComponentMapper {
   protected override defaultValue: Type<{}> = CardViewTextItemComponent;
 
   /**
-   * Property `types` (`{ [key: string]: DynamicComponentResolveFunction }`) storing types.
-   * @zh 属性 `types`（类型：`{ [key: string]: DynamicComponentResolveFunction }`），用于存储或配置类型列表。
+   * Property `types` (`{ [key: string]: DynamicComponentResolveFunction; }`) storing types.
+   * @zh 属性 `types`（类型：`{ [key: string]: DynamicComponentResolveFunction; }`），用于存储或配置类型列表。
    */
   protected override types: { [key: string]: DynamicComponentResolveFunction } = {
     'text': DynamicComponentResolver.fromType(CardViewTextItemComponent),

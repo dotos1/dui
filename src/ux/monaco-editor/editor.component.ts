@@ -52,20 +52,20 @@ export class EditorComponent extends BaseEditor implements ControlValueAccessor 
    */
   private _createdModel;
   /**
-   * Template/content query reference `_statusbar` (`@ViewChild`) targeting statusbar.
+   * Template/content query reference `_statusbar` (`ElementRef<any>`) targeting statusbar.
    * @zh 模板/内容视图查询引用 `_statusbar`（`@ViewChild`），指向statusbar。
    */
   @ViewChild('statusbar', { static: true }) _statusbar: ElementRef;
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   /**
-   * Property `propagateChange` (`any`) storing propagate change (default: `(_: any) => {}`).
-   * @zh 属性 `propagateChange`（类型：`any`），用于存储或配置propagate变更（默认值：`(_: any) => {}`）。
+   * Property `propagateChange` (`(_: any) => void`) storing propagate change (default: `(_: any) => {}`).
+   * @zh 属性 `propagateChange`（类型：`(_: any) => void`），用于存储或配置propagate变更（默认值：`(_: any) => {}`）。
    */
   propagateChange = (_) => {};
   /**
-   * Property `onTouched` (`any`) storing on touched (default: `() => {}`).
-   * @zh 属性 `onTouched`（类型：`any`），用于存储或配置当是否已触碰（默认值：`() => {}`）。
+   * Property `onTouched` (`() => void`) storing on touched (default: `() => {}`).
+   * @zh 属性 `onTouched`（类型：`() => void`），用于存储或配置当是否已触碰（默认值：`() => {}`）。
    */
   onTouched = () => {};
 
@@ -394,7 +394,7 @@ export class EditorComponent extends BaseEditor implements ControlValueAccessor 
    * Executes `getLine` to handle get line.
    * @zh 执行 `getLine`，用于获取线段。
    * @param line - line parameter (`number`) / 线段参数（`number`）
-   * @returns Result of type `string | undefined` / 类型为 `string | undefined` 的返回值
+   * @returns Result of type `string` / 类型为 `string` 的返回值
    */
   getLine(line: number): string | undefined {
     return this.monacoModel.getLineContent(line + 1);
@@ -416,7 +416,7 @@ export class EditorComponent extends BaseEditor implements ControlValueAccessor 
    * Executes `getPositionAt` to handle get position at.
    * @zh 执行 `getPositionAt`，用于获取位置位于。
    * @param offset - offset parameter (`number`) / 偏移量参数（`number`）
-   * @returns Result of type `any` / 类型为 `any` 的返回值
+   * @returns Result of type `{ line: number; column: number; }` / 类型为 `{ line: number; column: number; }` 的返回值
    */
   getPositionAt(offset: number) {
     return this.toPosition(this.monacoModel.getPositionAt(offset));
@@ -449,7 +449,7 @@ export class EditorComponent extends BaseEditor implements ControlValueAccessor 
   }
   /**
    * Executes `goToLine` to handle go to line.
-   * @zh 执行 `goToLine`，用于go转换为线段。
+   * @zh 执行 `goToLine`，用于跳转到转换为线段。
    */
   goToLine(){
     this.editor.focus(); 
@@ -520,7 +520,7 @@ export class EditorComponent extends BaseEditor implements ControlValueAccessor 
   /**
    * Executes `getHostNode` to handle get host node.
    * @zh 执行 `getHostNode`，用于获取宿主节点。
-   * @returns Result of type `HTMLElement | undefined` / 类型为 `HTMLElement | undefined` 的返回值
+   * @returns Result of type `HTMLElement` / 类型为 `HTMLElement` 的返回值
    */
   public getHostNode(): HTMLElement | undefined {
     const domNode = this._editor.getDomNode();
@@ -582,7 +582,7 @@ export class EditorComponent extends BaseEditor implements ControlValueAccessor 
    * Executes `boxSizing` to handle box sizing.
    * @zh 执行 `boxSizing`，用于盒子容器尺寸。
    * @param element - element parameter (`Element`) / 元素参数（`Element`）
-   * @returns Result of type `any` / 类型为 `any` 的返回值
+   * @returns Result of type `{…}` / 类型为 `{…}` 的返回值
    */
   protected boxSizing(element: Element) {
     let style = window.getComputedStyle(element);
@@ -614,7 +614,7 @@ export class EditorComponent extends BaseEditor implements ControlValueAccessor 
    * Executes `computeLayoutSize` to handle compute layout size.
    * @zh 执行 `computeLayoutSize`，用于计算布局尺寸。
    * @param hostNode - host node parameter (`HTMLElement`) / 宿主节点参数（`HTMLElement`）
-   * @param dimension - dimension parameter (`monaco.editor.IDimension | null`) / 维度参数（`monaco.editor.IDimension | null`）
+   * @param dimension - dimension parameter (`monaco.editor.IDimension`) / 维度参数（`monaco.editor.IDimension`）
    * @returns Result of type `monaco.editor.IDimension` / 类型为 `monaco.editor.IDimension` 的返回值
    */
   public computeLayoutSize(
@@ -642,7 +642,7 @@ export class EditorComponent extends BaseEditor implements ControlValueAccessor 
   /**
    * Executes `resize` to handle resize.
    * @zh 执行 `resize`，用于调整尺寸。
-   * @param dimension - dimension parameter (`monaco.editor.IDimension | null`) / 维度参数（`monaco.editor.IDimension | null`）
+   * @param dimension - dimension parameter (`monaco.editor.IDimension`) / 维度参数（`monaco.editor.IDimension`）
    */
   public resize(dimension: monaco.editor.IDimension | null): void {
     const hostNode = this.getHostNode();
@@ -671,7 +671,7 @@ export class EditorComponent extends BaseEditor implements ControlValueAccessor 
    * Executes `toPosition` to handle to position.
    * @zh 执行 `toPosition`，用于转换为位置。
    * @param position - position parameter (`monaco.Position`) / 位置参数（`monaco.Position`）
-   * @returns Result of type `any` / 类型为 `any` 的返回值
+   * @returns Result of type `{ line: number; column: number; }` / 类型为 `{ line: number; column: number; }` 的返回值
    */
   private toPosition(position: monaco.Position) {
     return {

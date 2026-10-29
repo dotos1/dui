@@ -36,7 +36,7 @@ export class FieldValidationExtension implements FormExtension {
    * Executes `initFieldValidation` to handle init field validation.
    * @zh 执行 `initFieldValidation`，用于初始化字段校验。
    * @param field - field parameter (`FieldConfigCache`) / 字段参数（`FieldConfigCache`）
-   * @param type - type parameter (`'validators' | 'asyncValidators'`) / 类型参数（`'validators' | 'asyncValidators'`）
+   * @param type - type parameter (`"validators" | "asyncValidators"`) / 类型参数（`"validators" | "asyncValidators"`）
    */
   private initFieldValidation(field: FieldConfigCache, type: 'validators' | 'asyncValidators') {
     const validators: ValidatorFn[] = [];

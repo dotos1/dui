@@ -15,8 +15,8 @@ import { ɵDragStrategyEnum } from '../../enums';
 export class DragStrategyByTranslate3d {
 
     /**
-     * Property `type` (`any`) storing type (default: `ɵDragStrategyEnum.ByTranslate3d`).
-     * @zh 属性 `type`（类型：`any`），用于存储或配置类型（默认值：`ɵDragStrategyEnum.ByTranslate3d`）。
+     * Property `type` (`ɵDragStrategyEnum.ByTranslate3d`) storing type (default: `ɵDragStrategyEnum.ByTranslate3d`).
+     * @zh 属性 `type`（类型：`ɵDragStrategyEnum.ByTranslate3d`），用于存储或配置类型（默认值：`ɵDragStrategyEnum.ByTranslate3d`）。
      */
     public readonly type = ɵDragStrategyEnum.ByTranslate3d;
 
@@ -35,7 +35,7 @@ export class DragStrategyByTranslate3d {
     /**
      * Creates an instance of `DragStrategyByTranslate3d` and initializes its dependencies and internal state.
      * @zh 创建 `DragStrategyByTranslate3d` 实例，并初始化其依赖项与内部状态。
-     * @param params - Injected or initial params (`ɵInvertedKeysOfType<DragStrategyByTranslate3d, ɵDragStrategy...`) / 注入或传入的参数集合（`ɵInvertedKeysOfType<DragStrategyByTranslate3d, ɵDragStrategy...`）
+     * @param params - Injected or initial params (`ɵInvertedKeysOfType<DragStrategyByTranslate3d, ɵDragStrategyEnum>`) / 注入或传入的参数集合（`ɵInvertedKeysOfType<DragStrategyByTranslate3d, ɵDragStrategyEnum>`）
      */
     constructor(params?: ɵInvertedKeysOfType<DragStrategyByTranslate3d, ɵDragStrategyEnum>) {
         Object.assign(this, params);

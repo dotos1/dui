@@ -20,7 +20,7 @@ export class PopoverTarget {
   /**
    * Creates an instance of `PopoverTarget` and initializes its dependencies and internal state.
    * @zh 创建 `PopoverTarget` 实例，并初始化其依赖项与内部状态。
-   * @param _elementRef - Injected or initial element ref (`ElementRef`) / 注入或传入的元素引用（`ElementRef`）
+   * @param _elementRef - Injected or initial element ref (`ElementRef<any>`) / 注入或传入的元素引用（`ElementRef<any>`）
    */
   constructor(public _elementRef: ElementRef) { }
 }

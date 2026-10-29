@@ -14,8 +14,8 @@ import { ɵBaseResizer } from './base-resizer';
  */
 export class ɵTopResizer extends ɵBaseResizer {
     /**
-     * Property `id` (`any`) storing id (default: `ResizerEnum.Top`).
-     * @zh 属性 `id`（类型：`any`），用于存储或配置唯一标识（默认值：`ResizerEnum.Top`）。
+     * Property `id` (`ResizerEnum`) storing id (default: `ResizerEnum.Top`).
+     * @zh 属性 `id`（类型：`ResizerEnum`），用于存储或配置唯一标识（默认值：`ResizerEnum.Top`）。
      */
     public static override id = ResizerEnum.Top;
 

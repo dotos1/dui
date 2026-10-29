@@ -17,7 +17,7 @@ export abstract class TranslateLoader {
    * @zh 执行 `getTranslation`，用于获取翻译文本。
    * @param lang - lang parameter (`string`) / 语言参数（`string`）
    * @param dir - dir parameter (`string`) / 目录参数（`string`）
-   * @returns Result of type `Observable<any>` / 类型为 `Observable<any>` 的返回值
+   * @returns Result of type `any` / 类型为 `any` 的返回值
    */
   abstract getTranslation(lang: string , dir?: string);
 }
@@ -34,7 +34,7 @@ export class TranslateFakeLoader extends TranslateLoader {
    * @zh 执行 `getTranslation`，用于获取翻译文本。
    * @param lang - lang parameter (`string`) / 语言参数（`string`）
    * @param dir - dir parameter (`string`) / 目录参数（`string`）
-   * @returns Result of type `Observable<any>` / 类型为 `Observable<any>` 的返回值
+   * @returns Result of type `Observable<{}>` / 类型为 `Observable<{}>` 的返回值
    */
   getTranslation(lang: string , dir?: string) {
     return of({});

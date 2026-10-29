@@ -90,8 +90,8 @@ export type Toolbar = Array<ToolbarItem[]>;
  */
 export interface EditorConfig {
   /**
-   * Property `locals` (`Partial<Record<LocalsKeys, string>>`) storing locals.
-   * @zh 属性 `locals`（类型：`Partial<Record<LocalsKeys, string>>`），用于存储或配置本地。
+   * Property `locals` (`Partial<Record<string, string>>`) storing locals.
+   * @zh 属性 `locals`（类型：`Partial<Record<string, string>>`），用于存储或配置本地。
    */
   locals?: Partial<Record<LocalsKeys, string>>;
 }

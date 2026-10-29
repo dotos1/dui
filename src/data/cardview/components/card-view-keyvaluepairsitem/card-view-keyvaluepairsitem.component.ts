@@ -45,15 +45,15 @@ export class CardViewKeyValuePairsItemComponent  implements OnChanges,OnDestroy 
    */
   values: CardViewKeyValuePairsItemType[];
   /**
-   * Property `matTableValues` (`MatTableDataSource<CardViewKeyValuePairsItemType>`) storing mat table values.
-   * @zh 属性 `matTableValues`（类型：`MatTableDataSource<CardViewKeyValuePairsItemType>`），用于存储或配置Material表格值列表。
+   * Property `matTableValues` (`MatTableDataSource<CardViewKeyValuePairsItemType, MatPaginator>`) storing mat table values.
+   * @zh 属性 `matTableValues`（类型：`MatTableDataSource<CardViewKeyValuePairsItemType, MatPaginator>`），用于存储或配置Material表格值列表。
    */
   matTableValues: MatTableDataSource<CardViewKeyValuePairsItemType>;
 
 
   /**
-   * Property `destroy$` (`Subject`) storing destroy (default: `new Subject<boolean>()`).
-   * @zh 属性 `destroy$`（类型：`Subject`），用于存储或配置销毁（默认值：`new Subject<boolean>()`）。
+   * Property `destroy$` (`Subject<boolean>`) storing destroy (default: `new Subject<boolean>()`).
+   * @zh 属性 `destroy$`（类型：`Subject<boolean>`），用于存储或配置销毁（默认值：`new Subject<boolean>()`）。
    */
   protected destroy$ = new Subject<boolean>();
 
@@ -145,7 +145,7 @@ export class CardViewKeyValuePairsItemComponent  implements OnChanges,OnDestroy 
 
   /**
    * Executes `trackByIndex` to handle track by index.
-   * @zh 执行 `trackByIndex`，用于track按索引。
+   * @zh 执行 `trackByIndex`，用于跟踪按索引。
    * @param index - index parameter (`number`) / 索引参数（`number`）
    * @returns Result of type `number` / 类型为 `number` 的返回值
    */

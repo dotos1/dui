@@ -58,7 +58,7 @@ import { TranslateModule } from '@dotos/dui/translator';
 })
 export class ToastNoAnimation implements OnDestroy {
   /**
-   * Property `message` (`string | null`) storing message.
+   * Property `message` (`string`) storing message.
    * @zh 提示消息的正文文本。
    * @zh 提示消息的正文文本。
    */
@@ -70,7 +70,7 @@ export class ToastNoAnimation implements OnDestroy {
    */
   title?: string;
   /**
-   * Property `options` (`IndividualConfig`) storing options.
+   * Property `options` (`IndividualConfig<unknown>`) storing options.
    * @zh 该提示的解析后配置项。
    * @zh 该提示的解析后配置项。
    */
@@ -89,7 +89,7 @@ export class ToastNoAnimation implements OnDestroy {
   originalTimeout: number;
   /**
    * width of progress bar
-   * @zh 属性 `width`（类型：`any`），用于存储或配置宽度（默认值：`signal(-1)`）。
+   * @zh 属性 `width`（类型：`WritableSignal<number>`），用于存储或配置宽度（默认值：`signal(-1)`）。
    */
   width = signal(-1);
   /**
@@ -113,7 +113,7 @@ export class ToastNoAnimation implements OnDestroy {
 
   /**
    * controls animation
-   * @zh 属性 `state`（类型：`any`），用于存储或配置状态（默认值：`signal('inactive')`）。
+   * @zh 属性 `state`（类型：`WritableSignal<string>`），用于存储或配置状态（默认值：`signal('inactive')`）。
    */
   state = signal('inactive');
   /**
@@ -156,7 +156,7 @@ export class ToastNoAnimation implements OnDestroy {
    * Creates an instance of `ToastNoAnimation` and initializes its dependencies and internal state.
    * @zh 创建 `ToastNoAnimation` 实例，并初始化其依赖项与内部状态。
    * @param toastrService - Injected or initial toastr service (`ToastrService`) / 注入或传入的轻提示服务（`ToastrService`）
-   * @param toastPackage - Injected or initial toast package (`ToastPackage`) / 注入或传入的toastPackage（`ToastPackage`）
+   * @param toastPackage - Injected or initial toast package (`ToastPackage<unknown>`) / 注入或传入的toastPackage（`ToastPackage<unknown>`）
    * @param appRef - Injected or initial app ref (`ApplicationRef`) / 注入或传入的app引用（`ApplicationRef`）
    */
   constructor(

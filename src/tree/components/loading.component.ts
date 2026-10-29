@@ -20,8 +20,8 @@ import { TreeNode } from '../models/tree-node.model';
 })
 export class LoadingComponent {
   /**
-   * Input property `template` (`TemplateRef<any>`) configuring template.
-   * @zh 输入属性 `template`（类型：`TemplateRef<any>`），用于配置模板。
+   * Input property `template` (`TemplateRef<unknown>`) configuring template.
+   * @zh 输入属性 `template`（类型：`TemplateRef<unknown>`），用于配置模板。
    */
   @Input() template: TemplateRef<unknown>;
   /**

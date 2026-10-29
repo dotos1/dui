@@ -42,8 +42,8 @@ export const MAT_CHECK_GROUP_CONTROL_VALUE_ACCESSOR = {
 export class MatCheckChange {
 
   /**
-   * Property `source` (`Array<MatCheckbox> | null`) storing source.
-   * @zh 属性 `source`（类型：`Array<MatCheckbox> | null`），用于存储或配置源。
+   * Property `source` (`MatCheckbox[]`) storing source.
+   * @zh 属性 `source`（类型：`MatCheckbox[]`），用于存储或配置源。
    */
   source: Array<MatCheckbox> | null;
 
@@ -89,7 +89,7 @@ export class MatCheckGroup extends MatField implements AfterContentInit, Control
    * radio button, this value persists to be applied in case a new radio button is added with a
    * matching value.
 
-   * @zh 属性 `_value`（类型：`Array<string>`），用于存储或配置值（默认值：`null`）。
+   * @zh 属性 `_value`（类型：`string[]`），用于存储或配置值（默认值：`null`）。
    */
   private _value: Array<string> = null;
 
@@ -101,7 +101,7 @@ export class MatCheckGroup extends MatField implements AfterContentInit, Control
 
   /**
    * The currently selected radio button. Should match value.
-   * @zh 属性 `_selected`（类型：`Array<MatCheckbox> | null`），用于存储或配置已选中（默认值：`null`）。
+   * @zh 属性 `_selected`（类型：`MatCheckbox[]`），用于存储或配置已选中（默认值：`null`）。
    */
   private _selected: Array<MatCheckbox> | null = null;
 
@@ -113,7 +113,7 @@ export class MatCheckGroup extends MatField implements AfterContentInit, Control
 
   /**
    * Whether the labels should appear after or before the radio-buttons. Defaults to 'after'
-   * @zh 属性 `_labelPosition`（类型：`'before' | 'after'`），用于存储或配置标签位置（默认值：`'after'`）。
+   * @zh 属性 `_labelPosition`（类型：`"before" | "after"`），用于存储或配置标签位置（默认值：`'after'`）。
    */
   private _labelPosition: 'before' | 'after' = 'after';
 
@@ -178,7 +178,7 @@ export class MatCheckGroup extends MatField implements AfterContentInit, Control
    * Alignment of the radio-buttons relative to their labels. Can be 'before' or 'after'.
    * @deprecated
 
-   * @zh 输入属性 `align`（类型：`'start' | 'end'`）的读取器，返回当前对齐。
+   * @zh 输入属性 `align`（类型：`"end" | "start"`）的读取器，返回当前对齐。
    */
   @Input()
   get align(): 'start' | 'end' {
@@ -187,7 +187,7 @@ export class MatCheckGroup extends MatField implements AfterContentInit, Control
   /**
    * Sets the align (`align`).
    * @zh 设置对齐（`align`）。
-   * @param v - New align value (`any`) / 新的对齐值（`any`）
+   * @param v - New align value (`"end" | "start"`) / 新的对齐值（`"end" | "start"`）
    */
   set align(v) {
     this.labelPosition = (v === 'start') ? 'after' : 'before';
@@ -196,7 +196,7 @@ export class MatCheckGroup extends MatField implements AfterContentInit, Control
 
   /**
    * Whether the labels should appear after or before the radio-buttons. Defaults to 'after'
-   * @zh 输入属性 `labelPosition`（类型：`any`）的读取器，返回当前标签位置。
+   * @zh 输入属性 `labelPosition`（类型：`"before" | "after"`）的读取器，返回当前标签位置。
    */
   @Input()
   get labelPosition() {
@@ -205,7 +205,7 @@ export class MatCheckGroup extends MatField implements AfterContentInit, Control
   /**
    * Sets the label position (`labelPosition`).
    * @zh 设置标签位置（`labelPosition`）。
-   * @param v - New label position value (`any`) / 新的标签位置值（`any`）
+   * @param v - New label position value (`"before" | "after"`) / 新的标签位置值（`"before" | "after"`）
    */
   set labelPosition(v) {
     this._labelPosition = (v === 'before') ? 'before' : 'after';
@@ -214,14 +214,14 @@ export class MatCheckGroup extends MatField implements AfterContentInit, Control
 
   /**
    * Value of the radio button.
-   * @zh 输入属性 `value`（类型：`Array<string>`）的读取器，返回当前值。
+   * @zh 输入属性 `value`（类型：`string[]`）的读取器，返回当前值。
    */
   @Input()
   override get value(): Array<string> { return this._value; }
   /**
    * Sets the value (`value`).
    * @zh 设置值（`value`）。
-   * @param newValue - New value value (`Array<string>`) / 新的值值（`Array<string>`）
+   * @param newValue - New value value (`string[]`) / 新的值值（`string[]`）
    */
   override set value(newValue: Array<string>) {
     if (this._value !== newValue) {
@@ -240,7 +240,7 @@ export class MatCheckGroup extends MatField implements AfterContentInit, Control
   /**
    * Sets the disabled (`disabled`).
    * @zh 设置已禁用（`disabled`）。
-   * @param value - New disabled value (`any`) / 新的已禁用值（`any`）
+   * @param value - New disabled value (`boolean`) / 新的已禁用值（`boolean`）
    */
   override set disabled(value) {
     this._disabled =  coerceBooleanProperty (value);
@@ -265,14 +265,14 @@ export class MatCheckGroup extends MatField implements AfterContentInit, Control
 
   /**
    * Whether the radio button is selected.
-   * @zh 输入属性 `selected`（类型：`any`）的读取器，返回当前已选中。
+   * @zh 输入属性 `selected`（类型：`MatCheckbox[]`）的读取器，返回当前已选中。
    */
   @Input()
   get selected() { return this._selected; }
   /**
    * Sets the selected (`selected`).
    * @zh 设置已选中（`selected`）。
-   * @param selected - New selected value (`Array<MatCheckbox> | null`) / 新的已选中值（`Array<MatCheckbox> | null`）
+   * @param selected - New selected value (`MatCheckbox[]`) / 新的已选中值（`MatCheckbox[]`）
    */
   set selected(selected: Array<MatCheckbox> | null) {
     this._selected = selected;
@@ -451,7 +451,7 @@ export interface CanDisable {
 
 /**
  * Mixin to augment a directive with a `disabled` property.
- * @zh 执行 `mixinDisabled`，用于mixin已禁用。
+ * @zh 执行 `mixinDisabled`，用于混入已禁用。
  */
 export function mixinDisabled<T extends Constructor<{}>>(base: T): Constructor<CanDisable> & T {
   return class extends base {

@@ -127,7 +127,7 @@ export class SketchComponent extends ColorWrap implements TriggerPopup {
   @Input() disableAlpha = false;
   /**
    * Hex strings for default colors at bottom of picker
-   * @zh 输入属性 `presetColors`（类型：`any[]`），用于配置preset颜色列表。
+   * @zh 输入属性 `presetColors`（类型：`string[]`），用于配置preset颜色列表。
    */
   @Input() presetColors = [
     '#D0021B',

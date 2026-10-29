@@ -32,8 +32,8 @@ import { LabelField } from './label-field';
 })
 export class LabelFieldModule {
   /**
-   * Property `entryComponents` (`any[]`) storing entry components (default: `[ LabelField ]`).
-   * @zh 属性 `entryComponents`（类型：`any[]`），用于存储或配置条目组件列表（默认值：`[ LabelField ]`）。
+   * Property `entryComponents` (`(typeof LabelField)[]`) storing entry components (default: `[ LabelField ]`).
+   * @zh 属性 `entryComponents`（类型：`(typeof LabelField)[]`），用于存储或配置条目组件列表（默认值：`[ LabelField ]`）。
    */
   entryComponents = [
     LabelField

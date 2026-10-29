@@ -105,7 +105,7 @@ export class ComponentPortal<T> {
 export abstract class BasePortalHost {
   /**
    * The portal currently attached to the host.
-   * @zh 属性 `_attachedPortal`（类型：`ComponentPortal<any>`），用于存储或配置已附加传送门容器。
+   * @zh 属性 `_attachedPortal`（类型：`any`），用于存储或配置已附加传送门容器。
    */
   private _attachedPortal?;
 
@@ -118,7 +118,7 @@ export abstract class BasePortalHost {
   /**
    * Executes `attach` to handle attach.
    * @zh 执行 `attach`，用于挂载。
-   * @param portal - portal parameter (`ComponentPortal<any>`) / 传送门容器参数（`ComponentPortal<any>`）
+   * @param portal - portal parameter (`any`) / 传送门容器参数（`any`）
    * @param newestOnTop - newest on top parameter (`boolean`) / newest当顶部位置参数（`boolean`）
    */
   attach(portal, newestOnTop: boolean) {

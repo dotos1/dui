@@ -202,7 +202,7 @@ export class TreeVirtualScroll {
    * @zh 执行 `scrollIntoView`，用于滚动进入视图。
    * @param node - node parameter (`any`) / 节点参数（`any`）
    * @param force - force parameter (`any`) / force参数（`any`）
-   * @param scrollToMiddle - scroll to middle parameter (`any`) / 滚动转换为中间参数（`any`）
+   * @param scrollToMiddle - scroll to middle parameter (`boolean`) / 滚动转换为中间参数（`boolean`）
    */
   @action scrollIntoView(node, force, scrollToMiddle = true) {
      if (!this.isEnabled()) {
@@ -298,7 +298,7 @@ export class TreeVirtualScroll {
  * @zh 执行 `binarySearch`，用于binary搜索。
  * @param nodes - nodes parameter (`any`) / 节点列表参数（`any`）
  * @param condition - condition parameter (`any`) / 条件参数（`any`）
- * @param firstIndex - first index parameter (`any`) / 首个索引参数（`any`）
+ * @param firstIndex - first index parameter (`number`) / 首个索引参数（`number`）
  */
 function binarySearch(nodes, condition, firstIndex = 0) {
   let index = firstIndex;

@@ -45,21 +45,21 @@ export class GradientBarHandleComponent {
    */
   @Input()  setInFocus: (arg0: string | null) => void;
   /**
-   * Input property `context` (`any`) configuring context (default: `{}`).
-   * @zh 输入属性 `context`（类型：`any`），用于配置上下文（默认值：`{}`）。
+   * Input property `context` (`{…}`) configuring context (default: `{}`).
+   * @zh 输入属性 `context`（类型：`{…}`），用于配置上下文（默认值：`{}`）。
    */
   @Input()  context:{ selectedColor?; squareWidth?; colors?; createGradientStr? }={};
   // colors, selectedColor, squareWidth, classes, createGradientStr
   
    /**
-    * Property `isSelected` (`any`) storing is selected (default: `this.context.selectedColor ===this.i`).
-    * @zh 属性 `isSelected`（类型：`any`），用于存储或配置是否为已选中（默认值：`this.context.selectedColor ===this.i`）。
+    * Property `isSelected` (`boolean`) storing is selected (default: `this.context.selectedColor ===this.i`).
+    * @zh 属性 `isSelected`（类型：`boolean`），用于存储或配置是否为已选中（默认值：`this.context.selectedColor ===this.i`）。
     */
    public isSelected =this.context.selectedColor ===this.i;
 
    /**
-    * Property `leftMultiplyer` (`any`) storing left multiplyer (default: `(this.context.squareWidth - 18) / 100`).
-    * @zh 属性 `leftMultiplyer`（类型：`any`），用于存储或配置左侧位置Multiplyer（默认值：`(this.context.squareWidth - 18) / 100`）。
+    * Property `leftMultiplyer` (`number`) storing left multiplyer (default: `(this.context.squareWidth - 18) / 100`).
+    * @zh 属性 `leftMultiplyer`（类型：`number`），用于存储或配置左侧位置Multiplyer（默认值：`(this.context.squareWidth - 18) / 100`）。
     */
    public leftMultiplyer = (this.context.squareWidth - 18) / 100;
 
@@ -74,8 +74,8 @@ export class GradientBarHandleComponent {
    }
     
    /**
-    * Property `setSelectedColor` (`any`) storing set selected color.
-    * @zh 属性 `setSelectedColor`（类型：`any`），用于存储或配置集合已选中颜色。
+    * Property `setSelectedColor` (`(index: number) => void`) storing set selected color.
+    * @zh 属性 `setSelectedColor`（类型：`(index: number) => void`），用于存储或配置集合已选中颜色。
     */
    public setSelectedColor = (index: number) => {
         const newGradStr =this.context. colors?.map((cc: GradientProps, i: number) => ({
@@ -86,8 +86,8 @@ export class GradientBarHandleComponent {
       }
     
       /**
-       * Property `handleDown` (`any`) storing handle down.
-       * @zh 属性 `handleDown`（类型：`any`），用于存储或配置连接手柄向下。
+       * Property `handleDown` (`(e: { stopPropagation?: any; }) => void`) storing handle down.
+       * @zh 属性 `handleDown`（类型：`(e: { stopPropagation?: any; }) => void`），用于存储或配置连接手柄向下。
        */
       public handleDown = (e: { stopPropagation? }) => {
         e.stopPropagation()
@@ -96,8 +96,8 @@ export class GradientBarHandleComponent {
       }
     
      /**
-      * Property `handleFocus` (`any`) storing handle focus.
-      * @zh 属性 `handleFocus`（类型：`any`），用于存储或配置连接手柄聚焦。
+      * Property `handleFocus` (`() => void`) storing handle focus.
+      * @zh 属性 `handleFocus`（类型：`() => void`），用于存储或配置连接手柄聚焦。
       */
      public handleFocus = () => {
         // setInFocus('gpoint')
@@ -105,8 +105,8 @@ export class GradientBarHandleComponent {
       }
     
       /**
-       * Property `handleBlur` (`any`) storing handle blur (default: `() => { }`).
-       * @zh 属性 `handleBlur`（类型：`any`），用于存储或配置连接手柄失焦（默认值：`() => { }`）。
+       * Property `handleBlur` (`() => void`) storing handle blur (default: `() => { }`).
+       * @zh 属性 `handleBlur`（类型：`() => void`），用于存储或配置连接手柄失焦（默认值：`() => { }`）。
        */
       public handleBlur = () => {
         // setInFocus(null)

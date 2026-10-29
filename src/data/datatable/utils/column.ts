@@ -7,7 +7,7 @@
 /**
  * Executes `columnsByPin` to handle columns by pin.
  * @zh 执行 `columnsByPin`，用于列集合按Pin。
- * @param cols - cols parameter (`any[]`) / 列列表参数（`any[]`）
+ * @param cols - cols parameter (`any`) / 列列表参数（`any`）
  */
 export function columnsByPin(cols) {
   const ret: { left; center; right } = {

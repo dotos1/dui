@@ -90,8 +90,8 @@ export interface IConfirmConfig extends IDialogConfig {
  */
 export interface IPromptConfig extends IConfirmConfig {
   /**
-   * Property `value` (`string|number`) storing value.
-   * @zh 属性 `value`（类型：`string|number`），用于存储或配置值。
+   * Property `value` (`string | number`) storing value.
+   * @zh 属性 `value`（类型：`string | number`），用于存储或配置值。
    */
   value?: string|number;
   /**
@@ -184,8 +184,8 @@ export interface IDraggableConfig<T> {
    */
   component: ComponentType<T>;
   /**
-   * Property `config` (`MatDialogConfig`) storing config.
-   * @zh 属性 `config`（类型：`MatDialogConfig`），用于存储或配置配置。
+   * Property `config` (`MatDialogConfig<any>`) storing config.
+   * @zh 属性 `config`（类型：`MatDialogConfig<any>`），用于存储或配置配置。
    */
   config?: MatDialogConfig;
   /**
@@ -213,13 +213,13 @@ export interface IDraggableConfig<T> {
  */
 export interface IDraggableRefs<T> {
   /**
-   * Property `matDialogRef` (`MatDialogRef<T>`) storing mat dialog ref.
-   * @zh 属性 `matDialogRef`（类型：`MatDialogRef<T>`），用于存储或配置Material对话框引用。
+   * Property `matDialogRef` (`MatDialogRef<T, any>`) storing mat dialog ref.
+   * @zh 属性 `matDialogRef`（类型：`MatDialogRef<T, any>`），用于存储或配置Material对话框引用。
    */
   matDialogRef: MatDialogRef<T>;
   /**
-   * Property `dragRefSubject` (`Subject<DragRef>`) storing drag ref subject.
-   * @zh 属性 `dragRefSubject`（类型：`Subject<DragRef>`），用于存储或配置拖拽引用主题流。
+   * Property `dragRefSubject` (`Subject<DragRef<any>>`) storing drag ref subject.
+   * @zh 属性 `dragRefSubject`（类型：`Subject<DragRef<any>>`），用于存储或配置拖拽引用主题流。
    */
   dragRefSubject: Subject<DragRef>;
 }
@@ -254,8 +254,8 @@ export class DialogService {
    */
   private _renderer2: Renderer2;
   /**
-   * Property `_componentMap` (`Map<string,any>`) storing component map (default: `new Map()`).
-   * @zh 属性 `_componentMap`（类型：`Map<string,any>`），用于存储或配置组件映射表（默认值：`new Map()`）。
+   * Property `_componentMap` (`Map<any, any>`) storing component map (default: `new Map()`).
+   * @zh 属性 `_componentMap`（类型：`Map<any, any>`），用于存储或配置组件映射表（默认值：`new Map()`）。
    */
   private _componentMap=new Map();
 
@@ -517,7 +517,7 @@ export class DialogService {
    * Executes `_createConfig` to handle create config.
    * @zh 执行 `_createConfig`，用于创建配置。
    * @param config - config parameter (`IDialogConfig`) / 配置参数（`IDialogConfig`）
-   * @returns Result of type `MatDialogConfig` / 类型为 `MatDialogConfig` 的返回值
+   * @returns Result of type `MatDialogConfig<any>` / 类型为 `MatDialogConfig<any>` 的返回值
    */
   private _createConfig(config: IDialogConfig): MatDialogConfig {
     const dialogConfig: MatDialogConfig = new MatDialogConfig();

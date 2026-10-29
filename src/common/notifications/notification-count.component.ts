@@ -104,7 +104,7 @@ export class NotificationCountComponent implements AfterContentInit {
    * color?: "primary" | "accent" | "warn"
    * Sets the theme color of the notification tip. Defaults to "warn"
 
-   * @zh 输入属性 `color`（类型：`'primary' | 'accent' | 'warn'`），用于配置颜色（默认值：`'warn'`）。
+   * @zh 输入属性 `color`（类型：`"primary" | "accent" | "warn"`），用于配置颜色（默认值：`'warn'`）。
    */
   @Input() color: 'primary' | 'accent' | 'warn' = 'warn';
 
@@ -169,7 +169,7 @@ export class NotificationCountComponent implements AfterContentInit {
   }
 
   /**
-   * Host-bound getter `hideHost` (`class.dui-notification-hidden`) computing hide host.
+   * Host-bound getter `hideHost` (`boolean`) computing hide host.
    * @zh 内部使用，当通知提示不显示且无投影内容时隐藏宿主元素。
    * @zh 内部使用，当通知提示不显示且无投影内容时隐藏宿主元素。
    */

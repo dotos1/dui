@@ -43,8 +43,8 @@ import { DuiToolbarComponent, Spacer, Fill, TextItem, Separator } from './toolba
 })
 export class DuiToolbarModule {
   /**
-   * Property `entryComponents` (`any[]`) storing entry components.
-   * @zh 属性 `entryComponents`（类型：`any[]`），用于存储或配置条目组件列表。
+   * Property `entryComponents` (`(typeof Spacer | typeof DuiToolbarComponent | typeof Separator | typeof TextItem)[]`) storing entry components.
+   * @zh 属性 `entryComponents`（类型：`(typeof Spacer | typeof DuiToolbarComponent | typeof Separator | typeof TextItem)[]`），用于存储或配置条目组件列表。
    */
   entryComponents = [
       DuiToolbarComponent,

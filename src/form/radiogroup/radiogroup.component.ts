@@ -25,13 +25,13 @@ import { observe } from '@dotos/dui/core/form';
 export class RadioGroupField extends MatField implements AfterViewInit,OnDestroy{
 
   /**
-   * Template/content query reference `radioGroup` (`@ViewChild`) targeting radio group.
+   * Template/content query reference `radioGroup` (`MatRadioGroup`) targeting radio group.
    * @zh 模板/内容视图查询引用 `radioGroup`（`@ViewChild`），指向单选框分组。
    */
   @ViewChild(MatRadioGroup, { static: true }) radioGroup!: MatRadioGroup;
   /**
-   * Property `defaultOptions` (`any`) storing default options.
-   * @zh 属性 `defaultOptions`（类型：`any`），用于存储或配置默认配置选项。
+   * Property `defaultOptions` (`{…}`) storing default options.
+   * @zh 属性 `defaultOptions`（类型：`{…}`），用于存储或配置默认配置选项。
    */
   override defaultOptions = {
     hideFieldUnderline: true,
@@ -48,8 +48,8 @@ export class RadioGroupField extends MatField implements AfterViewInit,OnDestroy
   public readOnly = false;
 
   /**
-   * Property `focusObserver` (`ReturnType<typeof observe>`) storing focus observer.
-   * @zh 属性 `focusObserver`（类型：`ReturnType<typeof observe>`），用于存储或配置聚焦观察者。
+   * Property `focusObserver` (`IObserver<unknown>`) storing focus observer.
+   * @zh 属性 `focusObserver`（类型：`IObserver<unknown>`），用于存储或配置聚焦观察者。
    */
   private focusObserver!: ReturnType<typeof observe>;
 
@@ -106,7 +106,7 @@ export class RadioGroupField extends MatField implements AfterViewInit,OnDestroy
 
   /**
    * Executes `trackByOption` to handle track by option.
-   * @zh 执行 `trackByOption`，用于track按选项。
+   * @zh 执行 `trackByOption`，用于跟踪按选项。
    * @param index - index parameter (`number`) / 索引参数（`number`）
    * @param option - option parameter (`any`) / 选项参数（`any`）
    */

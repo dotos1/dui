@@ -243,14 +243,14 @@ export class MatCarouselComponent
     MatCarouselSlideComponent
   >;
   /**
-   * Template/content query reference `carouselContainer` (`@ViewChild`) targeting carousel container.
+   * Template/content query reference `carouselContainer` (`ElementRef<HTMLDivElement>`) targeting carousel container.
    * @zh 模板/内容视图查询引用 `carouselContainer`（`@ViewChild`），指向carousel容器。
    */
   @ViewChild('carouselContainer') private carouselContainer: ElementRef<
     HTMLDivElement
   >;
   /**
-   * Template/content query reference `carouselList` (`@ViewChild`) targeting carousel list.
+   * Template/content query reference `carouselList` (`ElementRef<HTMLElement>`) targeting carousel list.
    * @zh 模板/内容视图查询引用 `carouselList`（`@ViewChild`），指向carousel列表。
    */
   @ViewChild('carouselList') private carouselList: ElementRef<HTMLElement>;
@@ -266,19 +266,19 @@ export class MatCarouselComponent
    */
   private _autoplay = true;
   /**
-   * Property `autoplay$` (`Subject`) storing autoplay (default: `new Subject<boolean>()`).
-   * @zh 属性 `autoplay$`（类型：`Subject`），用于存储或配置autoplay（默认值：`new Subject<boolean>()`）。
+   * Property `autoplay$` (`Subject<boolean>`) storing autoplay (default: `new Subject<boolean>()`).
+   * @zh 属性 `autoplay$`（类型：`Subject<boolean>`），用于存储或配置autoplay（默认值：`new Subject<boolean>()`）。
    */
   private autoplay$ = new Subject<boolean>();
 
   /**
-   * Property `interval$` (`BehaviorSubject`) storing interval (default: `new BehaviorSubject<number>(5000)`).
-   * @zh 属性 `interval$`（类型：`BehaviorSubject`），用于存储或配置间隔定时器（默认值：`new BehaviorSubject<number>(5000)`）。
+   * Property `interval$` (`BehaviorSubject<number>`) storing interval (default: `new BehaviorSubject<number>(5000)`).
+   * @zh 属性 `interval$`（类型：`BehaviorSubject<number>`），用于存储或配置间隔定时器（默认值：`new BehaviorSubject<number>(5000)`）。
    */
   private interval$ = new BehaviorSubject<number>(5000);
   /**
-   * Property `slides$` (`BehaviorSubject`) storing slides (default: `new BehaviorSubject<number>(null)`).
-   * @zh 属性 `slides$`（类型：`BehaviorSubject`），用于存储或配置slides（默认值：`new BehaviorSubject<number>(null)`）。
+   * Property `slides$` (`BehaviorSubject<number>`) storing slides (default: `new BehaviorSubject<number>(null)`).
+   * @zh 属性 `slides$`（类型：`BehaviorSubject<number>`），用于存储或配置slides（默认值：`new BehaviorSubject<number>(null)`）。
    */
   private slides$ = new BehaviorSubject<number>(null);
 
@@ -288,8 +288,8 @@ export class MatCarouselComponent
    */
   private _maxWidth = 'auto';
   /**
-   * Property `maxWidth$` (`Subject`) storing max width (default: `new Subject<number>()`).
-   * @zh 属性 `maxWidth$`（类型：`Subject`），用于存储或配置最大值宽度（默认值：`new Subject<number>()`）。
+   * Property `maxWidth$` (`Subject<number>`) storing max width (default: `new Subject<number>()`).
+   * @zh 属性 `maxWidth$`（类型：`Subject<number>`），用于存储或配置最大值宽度（默认值：`new Subject<number>()`）。
    */
   private maxWidth$ = new Subject<number>();
 
@@ -299,8 +299,8 @@ export class MatCarouselComponent
    */
   private _loop = true;
   /**
-   * Property `loop$` (`Subject`) storing loop (default: `new Subject<boolean>()`).
-   * @zh 属性 `loop$`（类型：`Subject`），用于存储或配置loop（默认值：`new Subject<boolean>()`）。
+   * Property `loop$` (`Subject<boolean>`) storing loop (default: `new Subject<boolean>()`).
+   * @zh 属性 `loop$`（类型：`Subject<boolean>`），用于存储或配置loop（默认值：`new Subject<boolean>()`）。
    */
   private loop$ = new Subject<boolean>();
 
@@ -310,8 +310,8 @@ export class MatCarouselComponent
    */
   private _orientation: Orientation = 'ltr';
   /**
-   * Property `orientation$` (`Subject`) storing orientation (default: `new Subject<Orientation>()`).
-   * @zh 属性 `orientation$`（类型：`Subject`），用于存储或配置方向（默认值：`new Subject<Orientation>()`）。
+   * Property `orientation$` (`Subject<Orientation>`) storing orientation (default: `new Subject<Orientation>()`).
+   * @zh 属性 `orientation$`（类型：`Subject<Orientation>`），用于存储或配置方向（默认值：`new Subject<Orientation>()`）。
    */
   private orientation$ = new Subject<Orientation>();
 
@@ -321,14 +321,14 @@ export class MatCarouselComponent
    */
   private timer$: Observable<number>;
   /**
-   * Property `timerStop$` (`Subject`) storing timer stop (default: `new Subject<void>()`).
-   * @zh 属性 `timerStop$`（类型：`Subject`），用于存储或配置定时器停止（默认值：`new Subject<void>()`）。
+   * Property `timerStop$` (`Subject<void>`) storing timer stop (default: `new Subject<void>()`).
+   * @zh 属性 `timerStop$`（类型：`Subject<void>`），用于存储或配置定时器停止（默认值：`new Subject<void>()`）。
    */
   private timerStop$ = new Subject<void>();
 
   /**
-   * Property `destroy$` (`Subject`) storing destroy (default: `new Subject<void>()`).
-   * @zh 属性 `destroy$`（类型：`Subject`），用于存储或配置销毁（默认值：`new Subject<void>()`）。
+   * Property `destroy$` (`Subject<void>`) storing destroy (default: `new Subject<void>()`).
+   * @zh 属性 `destroy$`（类型：`Subject<void>`），用于存储或配置销毁（默认值：`new Subject<void>()`）。
    */
   private destroy$ = new Subject<void>();
   /**

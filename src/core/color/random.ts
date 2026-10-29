@@ -18,8 +18,8 @@ export interface RandomOptions {
    */
   seed?: number;
   /**
-   * Property `hue` (`| number | string | 'red' | 'orange' | 'yellow' | 'green' | 'blue' | '...`) storing hue.
-   * @zh 属性 `hue`（类型：`| number | string | 'red' | 'orange' | 'yellow' | 'green' | 'blue' | '...`），用于存储或配置色相。
+   * Property `hue` (`string | number`) storing hue.
+   * @zh 属性 `hue`（类型：`string | number`），用于存储或配置色相。
    */
   hue?:
   | number
@@ -33,8 +33,8 @@ export interface RandomOptions {
   | 'pink'
   | 'monochrome';
   /**
-   * Property `luminosity` (`'random' | 'bright' | 'dark' | 'light'`) storing luminosity.
-   * @zh 属性 `luminosity`（类型：`'random' | 'bright' | 'dark' | 'light'`），用于存储或配置luminosity。
+   * Property `luminosity` (`"random" | "bright" | "dark" | "light"`) storing luminosity.
+   * @zh 属性 `luminosity`（类型：`"random" | "bright" | "dark" | "light"`），用于存储或配置luminosity。
    */
   luminosity?: 'random' | 'bright' | 'dark' | 'light';
   /**
@@ -50,8 +50,8 @@ export interface RandomOptions {
  */
 export interface RandomCountOptions extends RandomOptions {
   /**
-   * Property `count` (`number | null`) storing count.
-   * @zh 属性 `count`（类型：`number | null`），用于存储或配置计数。
+   * Property `count` (`number`) storing count.
+   * @zh 属性 `count`（类型：`number`），用于存储或配置计数。
    */
   count?: number | null;
 }
@@ -120,7 +120,7 @@ export function random(options: RandomOptions | RandomCountOptions = {}): TinyCo
 /**
  * Executes `pickHue` to handle pick hue.
  * @zh 执行 `pickHue`，用于pick色相。
- * @param hue - hue parameter (`number | string | undefined`) / 色相参数（`number | string | undefined`）
+ * @param hue - hue parameter (`string | number`) / 色相参数（`string | number`）
  * @param seed - seed parameter (`number`) / seed参数（`number`）
  * @returns Result of type `number` / 类型为 `number` 的返回值
  */
@@ -236,7 +236,7 @@ function getMinimumBrightness(H: number, S: number): number {
 /**
  * Executes `getHueRange` to handle get hue range.
  * @zh 执行 `getHueRange`，用于获取色相范围。
- * @param colorInput - color input parameter (`number | string`) / 颜色输入属性参数（`number | string`）
+ * @param colorInput - color input parameter (`string | number`) / 颜色输入属性参数（`string | number`）
  * @returns Result of type `[number, number]` / 类型为 `[number, number]` 的返回值
  */
 function getHueRange(colorInput?: number | string): [number, number] {
@@ -268,7 +268,7 @@ function getHueRange(colorInput?: number | string): [number, number] {
  * Executes `getColorInfo` to handle get color info.
  * @zh 执行 `getColorInfo`，用于获取颜色信息。
  * @param hue - hue parameter (`number`) / 色相参数（`number`）
- * @returns Result of type `{ name: string; hueRange: [number, number] | null; lowerBoun...` / 类型为 `{ name: string; hueRange: [number, number] | null; lowerBoun...` 的返回值
+ * @returns Result of type `{…}` / 类型为 `{…}` 的返回值
  */
 function getColorInfo(hue: number): {
   name: string;
@@ -314,9 +314,9 @@ function randomWithin(range: [number, number], seed?: number): number {
 
 /**
  * Executes `defineColor` to handle define color.
- * @zh 执行 `defineColor`，用于define颜色。
+ * @zh 执行 `defineColor`，用于定义颜色。
  * @param bound - bound parameter (`ColorBound`) / 已绑定参数（`ColorBound`）
- * @returns Result of type `{ name: string; hueRange: [number, number] | null; lowerBoun...` / 类型为 `{ name: string; hueRange: [number, number] | null; lowerBoun...` 的返回值
+ * @returns Result of type `{…}` / 类型为 `{…}` 的返回值
  */
 function defineColor(bound: ColorBound): {
   name: string;
@@ -352,13 +352,13 @@ export interface ColorBound {
    */
   name: string;
   /**
-   * Property `hueRange` (`[number, number] | null`) storing hue range.
-   * @zh 属性 `hueRange`（类型：`[number, number] | null`），用于存储或配置色相范围。
+   * Property `hueRange` (`[number, number]`) storing hue range.
+   * @zh 属性 `hueRange`（类型：`[number, number]`），用于存储或配置色相范围。
    */
   hueRange: [number, number] | null;
   /**
-   * Property `lowerBounds` (`Array<[number, number]>`) storing lower bounds.
-   * @zh 属性 `lowerBounds`（类型：`Array<[number, number]>`），用于存储或配置下限边界框。
+   * Property `lowerBounds` (`[number, number][]`) storing lower bounds.
+   * @zh 属性 `lowerBounds`（类型：`[number, number][]`），用于存储或配置下限边界框。
    */
   lowerBounds: Array<[number, number]>;
 }

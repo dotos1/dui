@@ -73,7 +73,7 @@ export class FileLikeObject {
   /**
    * Executes `_createFromObject` to handle create from object.
    * @zh 执行 `_createFromObject`，用于创建从对象。
-   * @param object - object parameter (`{ size: number, type: string, name: string }`) / 对象参数（`{ size: number, type: string, name: string }`）
+   * @param object - object parameter (`{ size: number; type: string; name: string; }`) / 对象参数（`{ size: number; type: string; name: string; }`）
    */
   public _createFromObject(object: { size: number, type: string, name: string }): void {
     this.size = object.size;

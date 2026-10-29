@@ -29,14 +29,14 @@ import { TranslateService } from '@dotos/dui/translator';
 export class FormCard extends DuiCardComponent implements OnInit,OnChanges {
 
   /**
-   * Input property `config` (`any`) configuring config (default: `{}`).
-   * @zh 输入属性 `config`（类型：`any`），用于配置配置（默认值：`{}`）。
+   * Input property `config` (`DuiConfig`) configuring config (default: `{}`).
+   * @zh 输入属性 `config`（类型：`DuiConfig`），用于配置配置（默认值：`{}`）。
    */
   @Input() override config: DuiConfig = {};
 
 
   /**
-   * Template/content query reference `formComponent` (`@ViewChild`) targeting form component.
+   * Template/content query reference `formComponent` (`FormComponent`) targeting form component.
    * @zh 模板/内容视图查询引用 `formComponent`（`@ViewChild`），指向表单组件。
    */
   @ViewChild(FormComponent, { static: true })

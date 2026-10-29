@@ -272,14 +272,14 @@ export class KeyboardShortcutsHelpComponent implements OnInit, OnDestroy, OnChan
     @ViewChild(TemplateRef) template: TemplateRef<unknown>;
 
     /**
-     * Property `shortcuts` (`Record<"label", { key: string[]; label: string; description: string }[...`) storing shortcuts.
+     * Property `shortcuts` (`Record<"label", { key: string[]; label: string; description: string; }[]>`) storing shortcuts.
      * @zh 按标签分组后的已注册快捷键。
      * @zh 按标签分组后的已注册快捷键。
      */
     shortcuts: Record<"label", { key: string[]; label: string; description: string }[]>;
 
     /**
-     * Property `showing$` (`BehaviorSubject`) storing showing (default: `new BehaviorSubject(false)`).
+     * Property `showing$` (`BehaviorSubject<boolean>`) storing showing (default: `new BehaviorSubject(false)`).
      * @zh 帮助面板当前是否正在显示。
      * @zh 帮助面板当前是否正在显示。
      */
@@ -304,7 +304,7 @@ export class KeyboardShortcutsHelpComponent implements OnInit, OnDestroy, OnChan
      * @param componentFactoryResolver - Injected or initial component factory resolver (`ComponentFactoryResolver`) / 注入或传入的组件工厂解析器（`ComponentFactoryResolver`）
      * @param appRef - Injected or initial app ref (`ApplicationRef`) / 注入或传入的app引用（`ApplicationRef`）
      * @param keyboard - Injected or initial keyboard (`KeyboardShortcutsService`) / 注入或传入的键盘（`KeyboardShortcutsService`）
-     * @param element - Injected or initial element (`ElementRef`) / 注入或传入的元素（`ElementRef`）
+     * @param element - Injected or initial element (`ElementRef<any>`) / 注入或传入的元素（`ElementRef<any>`）
      * @param keyboardHelp - Injected or initial keyboard help (`KeyboardShortcutsHelpService`) / 注入或传入的键盘Help（`KeyboardShortcutsHelpService`）
      * @param viewContainer - Injected or initial view container (`ViewContainerRef`) / 注入或传入的视图容器（`ViewContainerRef`）
      * @param injector - Injected or initial injector (`Injector`) / 注入或传入的注入器（`Injector`）

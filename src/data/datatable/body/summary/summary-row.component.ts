@@ -11,13 +11,13 @@ import { Component, Input, OnChanges, PipeTransform, TemplateRef } from '@angula
  */
 export interface ISummaryColumn {
   /**
-   * Property `summaryFunc` (`(cells: any[]) => any`) storing summary func.
-   * @zh 属性 `summaryFunc`（类型：`(cells: any[]) => any`），用于存储或配置汇总Func。
+   * Property `summaryFunc` (`(cells: any) => any`) storing summary func.
+   * @zh 属性 `summaryFunc`（类型：`(cells: any) => any`），用于存储或配置汇总Func。
    */
   summaryFunc?: { (cells) };
   /**
-   * Property `summaryTemplate` (`TemplateRef<any>`) storing summary template.
-   * @zh 属性 `summaryTemplate`（类型：`TemplateRef<any>`），用于存储或配置汇总模板。
+   * Property `summaryTemplate` (`TemplateRef<unknown>`) storing summary template.
+   * @zh 属性 `summaryTemplate`（类型：`TemplateRef<unknown>`），用于存储或配置汇总模板。
    */
   summaryTemplate?: TemplateRef<unknown>;
 
@@ -36,7 +36,7 @@ export interface ISummaryColumn {
 /**
  * Executes `defaultSumFunc` to handle default sum func.
  * @zh 执行 `defaultSumFunc`，用于默认求和Func。
- * @param cells - cells parameter (`any[]`) / 单元格集合参数（`any[]`）
+ * @param cells - cells parameter (`any`) / 单元格集合参数（`any`）
  * @returns Result of type `any` / 类型为 `any` 的返回值
  */
 function defaultSumFunc(cells) {
@@ -56,7 +56,7 @@ function defaultSumFunc(cells) {
 /**
  * Executes `noopSumFunc` to handle noop sum func.
  * @zh 执行 `noopSumFunc`，用于noop求和Func。
- * @param cells - cells parameter (`any[]`) / 单元格集合参数（`any[]`）
+ * @param cells - cells parameter (`any`) / 单元格集合参数（`any`）
  */
 function noopSumFunc(cells): void {
   return null;
@@ -76,8 +76,8 @@ function noopSumFunc(cells): void {
 
 export class DataTableSummaryRowComponent implements OnChanges {
   /**
-   * Input property `rows` (`any[]`) configuring rows.
-   * @zh 输入属性 `rows`（类型：`any[]`），用于配置行列表。
+   * Input property `rows` (`any`) configuring rows.
+   * @zh 输入属性 `rows`（类型：`any`），用于配置行列表。
    */
   @Input() rows;
   /**
@@ -108,8 +108,8 @@ export class DataTableSummaryRowComponent implements OnChanges {
    */
   _internalColumns: ISummaryColumn[];
   /**
-   * Property `summaryRow` (`any`) storing summary row (default: `{}`).
-   * @zh 属性 `summaryRow`（类型：`any`），用于存储或配置汇总行（默认值：`{}`）。
+   * Property `summaryRow` (`Record<string, unknown>`) storing summary row (default: `{}`).
+   * @zh 属性 `summaryRow`（类型：`Record<string, unknown>`），用于存储或配置汇总行（默认值：`{}`）。
    */
   summaryRow: Record<string, unknown> = {};
 
@@ -159,7 +159,7 @@ export class DataTableSummaryRowComponent implements OnChanges {
    * Executes `getSummaryFunction` to handle get summary function.
    * @zh 执行 `getSummaryFunction`，用于获取汇总函数。
    * @param column - column parameter (`ISummaryColumn`) / 列参数（`ISummaryColumn`）
-   * @returns Result of type `(a: any[]) => any` / 类型为 `(a: any[]) => any` 的返回值
+   * @returns Result of type `(a: any) => any` / 类型为 `(a: any) => any` 的返回值
    */
   private getSummaryFunction(column: ISummaryColumn): { (a) } {
     if (column.summaryFunc === undefined) {

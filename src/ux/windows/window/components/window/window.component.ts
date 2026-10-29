@@ -47,7 +47,7 @@ export class WindowComponent extends ɵOsBaseComponent {
 
     /**
      * Classlist for scroll view component of the window
-     * @zh 输入属性 `scrollViewStyleClass`（类型：`string | string[] | object`），用于配置滚动视图样式类名。
+     * @zh 输入属性 `scrollViewStyleClass`（类型：`string | object | string[]`），用于配置滚动视图样式类名。
      */
     @Input()
     public scrollViewStyleClass: string | string[] | object;

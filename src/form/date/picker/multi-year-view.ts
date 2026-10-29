@@ -54,8 +54,8 @@ export const yearsPerRow = 4;
 export class MatDatetimepickerMultiYearView<D> implements AfterContentInit {
 
   /**
-   * Output event emitter `_userSelection` (`EventEmitter`) firing when user selection occurs.
-   * @zh 输出事件 `_userSelection`（类型：`EventEmitter`），当触发用户Selection时向外发出事件。
+   * Output event emitter `_userSelection` (`EventEmitter<void>`) firing when user selection occurs.
+   * @zh 输出事件 `_userSelection`（类型：`EventEmitter<void>`），当触发用户Selection时向外发出事件。
    */
   @Output() _userSelection = new EventEmitter<void>();
 
@@ -71,7 +71,7 @@ export class MatDatetimepickerMultiYearView<D> implements AfterContentInit {
   @Input() dateFilter: (date: D) => boolean;
   /**
    * Emits when a new month is selected.
-   * @zh 输出事件 `selectedChange`（类型：`EventEmitter`），当触发已选中变更时向外发出事件。
+   * @zh 输出事件 `selectedChange`（类型：`EventEmitter<D>`），当触发已选中变更时向外发出事件。
    */
   @Output() selectedChange = new EventEmitter<D>();
   /**
@@ -93,7 +93,7 @@ export class MatDatetimepickerMultiYearView<D> implements AfterContentInit {
    * The year in this range that the selected Date falls on.
    * Null if the selected Date is in a different range.
 
-   * @zh 属性 `_selectedYear`（类型：`number | null`），用于存储或配置已选中年。
+   * @zh 属性 `_selectedYear`（类型：`number`），用于存储或配置已选中年。
    */
   _selectedYear: number | null;
   /**
@@ -176,14 +176,14 @@ export class MatDatetimepickerMultiYearView<D> implements AfterContentInit {
   }
 
   /**
-   * Property `_minDate` (`D | null`) storing min date.
-   * @zh 属性 `_minDate`（类型：`D | null`），用于存储或配置最小值日期。
+   * Property `_minDate` (`D`) storing min date.
+   * @zh 属性 `_minDate`（类型：`D`），用于存储或配置最小值日期。
    */
   private _minDate: D | null;
 
   /**
    * The minimum selectable date.
-   * @zh 输入属性 `minDate`（类型：`D | null`）的读取器，返回当前最小值日期。
+   * @zh 输入属性 `minDate`（类型：`D`）的读取器，返回当前最小值日期。
    */
   @Input()
   get minDate(): D | null {
@@ -193,21 +193,21 @@ export class MatDatetimepickerMultiYearView<D> implements AfterContentInit {
   /**
    * Sets the min date (`minDate`).
    * @zh 设置最小值日期（`minDate`）。
-   * @param value - New min date value (`D | null`) / 新的最小值日期值（`D | null`）
+   * @param value - New min date value (`D`) / 新的最小值日期值（`D`）
    */
   set minDate(value: D | null) {
     this._minDate = this._getValidDateOrNull(this._adapter.deserialize(value));
   }
 
   /**
-   * Property `_maxDate` (`D | null`) storing max date.
-   * @zh 属性 `_maxDate`（类型：`D | null`），用于存储或配置最大值日期。
+   * Property `_maxDate` (`D`) storing max date.
+   * @zh 属性 `_maxDate`（类型：`D`），用于存储或配置最大值日期。
    */
   private _maxDate: D | null;
 
   /**
    * The maximum selectable date.
-   * @zh 输入属性 `maxDate`（类型：`D | null`）的读取器，返回当前最大值日期。
+   * @zh 输入属性 `maxDate`（类型：`D`）的读取器，返回当前最大值日期。
    */
   @Input()
   get maxDate(): D | null {
@@ -217,7 +217,7 @@ export class MatDatetimepickerMultiYearView<D> implements AfterContentInit {
   /**
    * Sets the max date (`maxDate`).
    * @zh 设置最大值日期（`maxDate`）。
-   * @param value - New max date value (`D | null`) / 新的最大值日期值（`D | null`）
+   * @param value - New max date value (`D`) / 新的最大值日期值（`D`）
    */
   set maxDate(value: D | null) {
     this._maxDate = this._getValidDateOrNull(this._adapter.deserialize(value));
@@ -373,8 +373,8 @@ export class MatDatetimepickerMultiYearView<D> implements AfterContentInit {
  * @param dateAdapter - date adapter parameter (`DatetimeAdapter<D>`) / 日期适配器参数（`DatetimeAdapter<D>`）
  * @param date1 - date1 parameter (`D`) / date1参数（`D`）
  * @param date2 - date2 parameter (`D`) / date2参数（`D`）
- * @param minDate - min date parameter (`D | null`) / 最小值日期参数（`D | null`）
- * @param maxDate - max date parameter (`D | null`) / 最大值日期参数（`D | null`）
+ * @param minDate - min date parameter (`D`) / 最小值日期参数（`D`）
+ * @param maxDate - max date parameter (`D`) / 最大值日期参数（`D`）
  * @returns Result of type `boolean` / 类型为 `boolean` 的返回值
  */
 export function isSameMultiYearView<D>(

@@ -29,10 +29,10 @@ export class AuthInterceptor implements HttpInterceptor {
 
     /**
      * Executes `intercept` to handle intercept.
-     * @zh 执行 `intercept`，用于intercept。
-     * @param request - request parameter (`HttpRequest<any>`) / 请求参数（`HttpRequest<any>`）
+     * @zh 执行 `intercept`，用于拦截。
+     * @param request - request parameter (`HttpRequest<unknown>`) / 请求参数（`HttpRequest<unknown>`）
      * @param next - next parameter (`HttpHandler`) / 下一个参数（`HttpHandler`）
-     * @returns Result of type `Observable<HttpEvent<any>>` / 类型为 `Observable<HttpEvent<any>>` 的返回值
+     * @returns Result of type `Observable<HttpEvent<unknown>>` / 类型为 `Observable<HttpEvent<unknown>>` 的返回值
      */
     intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
         const token: string =  this.storageService.get('access_token'); 

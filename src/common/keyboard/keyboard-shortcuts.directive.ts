@@ -61,7 +61,7 @@ export class KeyboardShortcutsDirective implements OnDestroy, OnChanges {
      * Creates an instance of `KeyboardShortcutsDirective` and initializes its dependencies and internal state.
      * @zh 创建 `KeyboardShortcutsDirective` 实例，并初始化其依赖项与内部状态。
      * @param keyboard - Injected or initial keyboard (`KeyboardShortcutsService`) / 注入或传入的键盘（`KeyboardShortcutsService`）
-     * @param el - Injected or initial el (`ElementRef`) / 注入或传入的DOM元素（`ElementRef`）
+     * @param el - Injected or initial el (`ElementRef<any>`) / 注入或传入的DOM元素（`ElementRef<any>`）
      */
     constructor(private keyboard: KeyboardShortcutsService, private el: ElementRef) {
     }

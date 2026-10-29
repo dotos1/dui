@@ -132,7 +132,7 @@ export class InlineSVGDirective implements OnInit, OnChanges, OnDestroy {
   /**
    * Creates an instance of `InlineSVGDirective` and initializes its dependencies and internal state.
    * @zh 创建 `InlineSVGDirective` 实例，并初始化其依赖项与内部状态。
-   * @param _el - Injected or initial el (`ElementRef`) / 注入或传入的DOM元素（`ElementRef`）
+   * @param _el - Injected or initial el (`ElementRef<any>`) / 注入或传入的DOM元素（`ElementRef<any>`）
    * @param _viewContainerRef - Injected or initial view container ref (`ViewContainerRef`) / 注入或传入的视图容器引用（`ViewContainerRef`）
    * @param _resolver - Injected or initial resolver (`ComponentFactoryResolver`) / 注入或传入的解析器（`ComponentFactoryResolver`）
    * @param _svgCache - Injected or initial svg cache (`SVGCacheService`) / 注入或传入的SVG矢量图缓存（`SVGCacheService`）

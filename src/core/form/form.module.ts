@@ -27,8 +27,8 @@ import { TranslateModule } from '@dotos/dui/translator';
 })
 export class AbstractFormModule {
   /**
-   * Property `entryComponents` (`any[]`) storing entry components (default: `[FormTemplateType,ValidationMessage]`).
-   * @zh 属性 `entryComponents`（类型：`any[]`），用于存储或配置条目组件列表（默认值：`[FormTemplateType,ValidationMessage]`）。
+   * Property `entryComponents` (`(typeof FormTemplateType | typeof ValidationMessage)[]`) storing entry components (default: `[FormTemplateType,ValidationMessage]`).
+   * @zh 属性 `entryComponents`（类型：`(typeof FormTemplateType | typeof ValidationMessage)[]`），用于存储或配置条目组件列表（默认值：`[FormTemplateType,ValidationMessage]`）。
    */
   entryComponents = [FormTemplateType,ValidationMessage];
   /**

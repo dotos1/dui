@@ -314,7 +314,7 @@ export class TinyColor {
    * Executes `toAlphaHex` to handle to alpha hex.
    * @zh 执行 `toAlphaHex`，用于转换为透明度十六进制颜色。
    * @param backgroundColor - background color parameter (`any`) / 背景颜色参数（`any`）
-   * @param allow3Char - allow3 char parameter (`any`) / allow3字符参数（`any`）
+   * @param allow3Char - allow3 char parameter (`boolean`) / allow3字符参数（`boolean`）
    * @returns Result of type `string` / 类型为 `string` 的返回值
    */
   toAlphaHex(backgroundColor,allow3Char = false): string {
@@ -632,8 +632,8 @@ export class TinyColor {
   /**
    * Executes `analogous` to handle analogous.
    * @zh 执行 `analogous`，用于analogous。
-   * @param results - results parameter (`any`) / 结果参数（`any`）
-   * @param slices - slices parameter (`any`) / 截取参数（`any`）
+   * @param results - results parameter (`number`) / 结果参数（`number`）
+   * @param slices - slices parameter (`number`) / 截取参数（`number`）
    * @returns Result of type `TinyColor[]` / 类型为 `TinyColor[]` 的返回值
    */
   analogous(results = 6, slices = 30): TinyColor[] {
@@ -664,7 +664,7 @@ export class TinyColor {
   /**
    * Executes `monochromatic` to handle monochromatic.
    * @zh 执行 `monochromatic`，用于monochromatic。
-   * @param results - results parameter (`any`) / 结果参数（`any`）
+   * @param results - results parameter (`number`) / 结果参数（`number`）
    * @returns Result of type `TinyColor[]` / 类型为 `TinyColor[]` 的返回值
    */
   monochromatic(results = 6): TinyColor[] {

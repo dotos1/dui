@@ -393,13 +393,13 @@ export interface ITreeOptions {
   /**
    * define the expand align to left or right
 
-   * @zh 属性 `expanderAlign`（类型：`'left' | 'right'`），用于存储或配置展开器对齐。
+   * @zh 属性 `expanderAlign`（类型：`"left" | "right"`），用于存储或配置展开器对齐。
    */
   expanderAlign?: 'left' | 'right';
 
   /**
-   * Property `dropZones` (`Array<string>`) storing drop zones.
-   * @zh 属性 `dropZones`（类型：`Array<string>`），用于存储或配置放置区域(NgZone)。
+   * Property `dropZones` (`string[]`) storing drop zones.
+   * @zh 属性 `dropZones`（类型：`string[]`），用于存储或配置放置区域(NgZone)。
    */
   dropZones?: Array<string>;
 
@@ -645,7 +645,7 @@ export interface ITreeNode {
   /**
    * Expands all ancestors of the node
 
-   * @zh 执行 `ensureVisible`，用于ensure可见。
+   * @zh 执行 `ensureVisible`，用于确保可见。
    */
   ensureVisible();
   /**
@@ -700,7 +700,7 @@ export interface ITreeNode {
    * Invokes a method for every node under this one - depth first
    * param fn  a function that receives the node
 
-   * @zh 执行 `doForAll`，用于do用于全部。
+   * @zh 执行 `doForAll`，用于执行用于全部。
    */
   doForAll(fn: { (node: ITreeNode) });
   /**
@@ -827,7 +827,7 @@ export interface ITreeModel {
   /**
    * Executes `getNodeByPath` to handle get node by path.
    * @zh 执行 `getNodeByPath`，用于获取节点按路径。
-   * @param path - path parameter (`any[]`) / 路径参数（`any[]`）
+   * @param path - path parameter (`any`) / 路径参数（`any`）
    * @param startNode - start node parameter (`ITreeNode`) / 开始节点参数（`ITreeNode`）
    * @returns Result of type `ITreeNode` / 类型为 `ITreeNode` 的返回值
    */
@@ -916,7 +916,7 @@ export interface ITreeModel {
    * Invokes a method for every node of the tree - depth first
    * param fn  a function that receives the node
 
-   * @zh 执行 `doForAll`，用于do用于全部。
+   * @zh 执行 `doForAll`，用于执行用于全部。
    */
   doForAll(fn: { (node: ITreeNode) });
   /**

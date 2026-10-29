@@ -54,7 +54,7 @@ export class LocalizedDatePipe implements PipeTransform {
    * @param value - value parameter (`any`) / 值参数（`any`）
    * @param format - format parameter (`string`) / 格式化参数（`string`）
    * @param locale - locale parameter (`string`) / 语言区域参数（`string`）
-   * @returns Result of type `any` / 类型为 `any` 的返回值
+   * @returns Result of type `string` / 类型为 `string` 的返回值
    */
   transform(value, format?: string, locale?: string) {
     const actualFormat = format || this.defaultFormat;

@@ -34,7 +34,7 @@ export class SpeedDialTriggerComponent {
   @Input() disabled: boolean = false;
 
   /**
-   * Host-bound getter `sp` (`class.eco-spin`) computing sp.
+   * Host-bound getter `sp` (`boolean`) computing sp.
    * @zh 宿主绑定读取器 `sp`（绑定至 `class.eco-spin`），计算并返回sp。
    */
   @HostBinding('class.eco-spin') get sp() {

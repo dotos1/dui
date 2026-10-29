@@ -83,7 +83,7 @@ export class MatDatetimepickerContent<D> implements AfterContentInit {
   datetimepicker: MatDatetimepicker<D>;
 
   /**
-   * Template/content query reference `_calendar` (`@ViewChild`) targeting calendar.
+   * Template/content query reference `_calendar` (`MatDatetimepickerCalendar<D>`) targeting calendar.
    * @zh 模板/内容视图查询引用 `_calendar`（`@ViewChild`），指向日历。
    */
   @ViewChild(MatDatetimepickerCalendar, {static: true}) _calendar: MatDatetimepickerCalendar<D>;
@@ -191,7 +191,7 @@ export class MatDatetimepicker<D> implements OnDestroy {
    * Emits new selected date when selected date changes.
    * @deprecated Switch to the `dateChange` and `dateInput` binding on the input element.
 
-   * @zh 输出事件 `selectedChanged`（类型：`EventEmitter`），当触发已选中已变更时向外发出事件。
+   * @zh 输出事件 `selectedChanged`（类型：`EventEmitter<D>`），当触发已选中已变更时向外发出事件。
    */
   @Output() selectedChanged = new EventEmitter<D>();
   /**
@@ -223,7 +223,7 @@ export class MatDatetimepicker<D> implements OnDestroy {
   opened = false;
   /**
    * The id for the datepicker calendar.
-   * @zh 属性 `id`（类型：`any`），用于存储或配置唯一标识。
+   * @zh 属性 `id`（类型：`string`），用于存储或配置唯一标识。
    */
   id = `mat-datetimepicker-${datetimepickerUid++}`;
   /**
@@ -233,12 +233,12 @@ export class MatDatetimepicker<D> implements OnDestroy {
   _datepickerInput: MatDatetimepickerInput<D>;
   /**
    * Emits when the datepicker is disabled.
-   * @zh 属性 `_disabledChange`（类型：`Subject`），用于存储或配置已禁用变更（默认值：`new Subject<boolean>()`）。
+   * @zh 属性 `_disabledChange`（类型：`Subject<boolean>`），用于存储或配置已禁用变更（默认值：`new Subject<boolean>()`）。
    */
   _disabledChange = new Subject<boolean>();
   /**
-   * Property `_validSelected` (`D | null`) storing valid selected (default: `null`).
-   * @zh 属性 `_validSelected`（类型：`D | null`），用于存储或配置有效已选中（默认值：`null`）。
+   * Property `_validSelected` (`D`) storing valid selected (default: `null`).
+   * @zh 属性 `_validSelected`（类型：`D`），用于存储或配置有效已选中（默认值：`null`）。
    */
   private _validSelected: D | null = null;
   /**
@@ -248,7 +248,7 @@ export class MatDatetimepicker<D> implements OnDestroy {
   private _popupRef: OverlayRef;
   /**
    * A reference to the dialog when the calendar is opened as a dialog.
-   * @zh 属性 `_dialogRef`（类型：`MatDialogRef<any> | null`），用于存储或配置对话框引用。
+   * @zh 属性 `_dialogRef`（类型：`any`），用于存储或配置对话框引用。
    */
   private _dialogRef;
   /**
@@ -258,12 +258,12 @@ export class MatDatetimepicker<D> implements OnDestroy {
   private _calendarPortal: ComponentPortal<MatDatetimepickerContent<D>>;
   /**
    * The element that was focused before the datepicker was opened.
-   * @zh 属性 `_focusedElementBeforeOpen`（类型：`HTMLElement | null`），用于存储或配置已聚焦元素之前打开（默认值：`null`）。
+   * @zh 属性 `_focusedElementBeforeOpen`（类型：`HTMLElement`），用于存储或配置已聚焦元素之前打开（默认值：`null`）。
    */
   private _focusedElementBeforeOpen: HTMLElement | null = null;
   /**
-   * Property `_inputSubscription` (`any`) storing input subscription (default: `Subscription.EMPTY`).
-   * @zh 属性 `_inputSubscription`（类型：`any`），用于存储或配置输入属性订阅对象（默认值：`Subscription.EMPTY`）。
+   * Property `_inputSubscription` (`Subscription`) storing input subscription (default: `Subscription.EMPTY`).
+   * @zh 属性 `_inputSubscription`（类型：`Subscription`），用于存储或配置输入属性订阅对象（默认值：`Subscription.EMPTY`）。
    */
   private _inputSubscription = Subscription.EMPTY;
 
@@ -292,14 +292,14 @@ export class MatDatetimepicker<D> implements OnDestroy {
   }
 
   /**
-   * Property `_startAt` (`D | null`) storing start at.
-   * @zh 属性 `_startAt`（类型：`D | null`），用于存储或配置开始位于。
+   * Property `_startAt` (`D`) storing start at.
+   * @zh 属性 `_startAt`（类型：`D`），用于存储或配置开始位于。
    */
   private _startAt: D | null;
 
   /**
    * The date to open the calendar to initially.
-   * @zh 输入属性 `startAt`（类型：`D | null`）的读取器，返回当前开始位于。
+   * @zh 输入属性 `startAt`（类型：`D`）的读取器，返回当前开始位于。
    */
   @Input()
   get startAt(): D | null {
@@ -311,7 +311,7 @@ export class MatDatetimepicker<D> implements OnDestroy {
   /**
    * Sets the start at (`startAt`).
    * @zh 设置开始位于（`startAt`）。
-   * @param date - New start at value (`D | null`) / 新的开始位于值（`D | null`）
+   * @param date - New start at value (`D`) / 新的开始位于值（`D`）
    */
   set startAt(date: D | null) {
     this._startAt = this._dateAdapter.getValidDateOrNull(date);
@@ -348,8 +348,8 @@ export class MatDatetimepicker<D> implements OnDestroy {
   private _type: MatDatetimepickerType = "date";
 
   /**
-   * Getter for input property `type` (`any`) returning type.
-   * @zh 输入属性 `type`（类型：`any`）的读取器，返回当前类型。
+   * Getter for input property `type` (`MatDatetimepickerType`) returning type.
+   * @zh 输入属性 `type`（类型：`MatDatetimepickerType`）的读取器，返回当前类型。
    */
   @Input()
   get type() {
@@ -432,7 +432,7 @@ export class MatDatetimepicker<D> implements OnDestroy {
   /**
    * Sets the selected (`_selected`).
    * @zh 设置已选中（`_selected`）。
-   * @param value - New selected value (`D | null`) / 新的已选中值（`D | null`）
+   * @param value - New selected value (`D`) / 新的已选中值（`D`）
    */
   set _selected(value: D | null) {
     this._validSelected = value;

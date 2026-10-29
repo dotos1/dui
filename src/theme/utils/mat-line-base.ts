@@ -6,7 +6,7 @@
 /**
  * Executes `matLineBase` to handle mat line base.
  * @zh 执行 `matLineBase`，用于Material线段基础。
- * @param secondaryFontSize - secondary font size parameter (`number | string`) / secondary字体尺寸参数（`number | string`）
+ * @param secondaryFontSize - secondary font size parameter (`string | number`) / secondary字体尺寸参数（`string | number`）
  * @returns Result of type `Object` / 类型为 `Object` 的返回值
  */
 export function matLineBase(secondaryFontSize: number | string): Object {

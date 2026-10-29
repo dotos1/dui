@@ -32,7 +32,7 @@ export class CookieStorage {
 	 * Executes `getCookie` to handle get cookie.
 	 * @zh 执行 `getCookie`，用于获取Cookie。
 	 * @param cookieKey - cookie key parameter (`string`) / Cookie键参数（`string`）
-	 * @returns Result of type `Cookie | undefined` / 类型为 `Cookie | undefined` 的返回值
+	 * @returns Result of type `Cookie` / 类型为 `Cookie` 的返回值
 	 */
 	public static getCookie(cookieKey: string): Cookie | undefined {
           const cookies: Cookie[] = CookieStorage.getCookies();

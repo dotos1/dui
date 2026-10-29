@@ -266,7 +266,7 @@ export class MarkdownComponent
    * Creates an instance of `MarkdownComponent` and initializes its dependencies and internal state.
    * @zh 创建 `MarkdownComponent` 实例，并初始化其依赖项与内部状态。
    * @param _renderer - Injected or initial renderer (`Renderer2`) / 注入或传入的渲染器（`Renderer2`）
-   * @param _elementRef - Injected or initial element ref (`ElementRef`) / 注入或传入的元素引用（`ElementRef`）
+   * @param _elementRef - Injected or initial element ref (`ElementRef<any>`) / 注入或传入的元素引用（`ElementRef<any>`）
    * @param _domSanitizer - Injected or initial dom sanitizer (`DomSanitizer`) / 注入或传入的DOM节点安全清理器（`DomSanitizer`）
    * @param _ngZone - Injected or initial ng zone (`NgZone`) / 注入或传入的Angular区域(NgZone)（`NgZone`）
    */
@@ -349,7 +349,7 @@ export class MarkdownComponent
   /**
    * Executes `_loadContent` to handle load content.
    * @zh 执行 `_loadContent`，用于加载内容。
-   * @param markdown - markdown parameter (`string | null`) / Markdown文档参数（`string | null`）
+   * @param markdown - markdown parameter (`string`) / Markdown文档参数（`string`）
    */
   private _loadContent(markdown: string | null): void {
     if (markdown && markdown.trim().length > 0) {

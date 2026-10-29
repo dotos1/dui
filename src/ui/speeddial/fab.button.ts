@@ -39,14 +39,14 @@ import {isString}  from 'lodash-es';
 export class FabButtonComponent extends ComponentBase implements OnChanges,DoCheck{
 
   /**
-   * Template/content query reference `matTooltip` (`@ViewChild`) targeting mat tooltip.
+   * Template/content query reference `matTooltip` (`MatTooltip`) targeting mat tooltip.
    * @zh 模板/内容视图查询引用 `matTooltip`（`@ViewChild`），指向Material悬浮提示。
    */
   @ViewChild(MatTooltip)  matTooltip: MatTooltip;
 
   /**
-   * Input property `config` (`any`) configuring config (default: `{}`).
-   * @zh 输入属性 `config`（类型：`any`），用于配置配置（默认值：`{}`）。
+   * Input property `config` (`DuiConfig`) configuring config (default: `{}`).
+   * @zh 输入属性 `config`（类型：`DuiConfig`），用于配置配置（默认值：`{}`）。
    */
   @Input() config: DuiConfig = {};
 
@@ -81,8 +81,8 @@ export class FabButtonComponent extends ComponentBase implements OnChanges,DoChe
   @Input()  public icon;
 
   /**
-   * Output event emitter `click` (`EventEmitter`) firing when click occurs.
-   * @zh 输出事件 `click`（类型：`EventEmitter`），当触发点击时向外发出事件。
+   * Output event emitter `click` (`EventEmitter<any>`) firing when click occurs.
+   * @zh 输出事件 `click`（类型：`EventEmitter<any>`），当触发点击时向外发出事件。
    */
   @Output() click = new EventEmitter();
 
@@ -93,8 +93,8 @@ export class FabButtonComponent extends ComponentBase implements OnChanges,DoChe
   public handler;
 
   /**
-   * Property `style` (`any`) storing style (default: `{ color: 'rgba(255,255,255,0.84)' }`).
-   * @zh 属性 `style`（类型：`any`），用于存储或配置样式（默认值：`{ color: 'rgba(255,255,255,0.84)' }`）。
+   * Property `style` (`{ color: string; }`) storing style (default: `{ color: 'rgba(255,255,255,0.84)' }`).
+   * @zh 属性 `style`（类型：`{ color: string; }`），用于存储或配置样式（默认值：`{ color: 'rgba(255,255,255,0.84)' }`）。
    */
   public override style = { color: 'rgba(255,255,255,0.84)' };
 
@@ -105,8 +105,8 @@ export class FabButtonComponent extends ComponentBase implements OnChanges,DoChe
   private rendered: boolean = false;
 
   /**
-   * Property `items` (`Array<any>`) storing items (default: `[]`).
-   * @zh 属性 `items`（类型：`Array<any>`），用于存储或配置条目列表（默认值：`[]`）。
+   * Property `items` (`any[]`) storing items (default: `[]`).
+   * @zh 属性 `items`（类型：`any[]`），用于存储或配置条目列表（默认值：`[]`）。
    */
   public items = [];
 

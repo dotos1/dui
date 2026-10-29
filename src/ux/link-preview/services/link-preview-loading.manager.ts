@@ -18,7 +18,7 @@ export class LinkPreviewLoadingManager {
 
    /**
     * Observable to retrieve if has pending jobs
-    * @zh 属性 `hasPendingJobs$`（类型：`BehaviorSubject`），用于存储或配置是否包含等待中Jobs（默认值：`new BehaviorSubject(false)`）。
+    * @zh 属性 `hasPendingJobs$`（类型：`BehaviorSubject<boolean>`），用于存储或配置是否包含等待中Jobs（默认值：`new BehaviorSubject(false)`）。
     */
    public hasPendingJobs$ = new BehaviorSubject(false);
 

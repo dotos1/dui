@@ -40,8 +40,8 @@ export const SELECT_ITEM_INSTANCE = Symbol();
 })
 export class SelectItemDirective implements OnInit, DoCheck {
   /**
-   * Property `_boundingClientRect` (`BoundingBox | undefined`) storing bounding client rect.
-   * @zh 属性 `_boundingClientRect`（类型：`BoundingBox | undefined`），用于存储或配置包围边界Client矩形。
+   * Property `_boundingClientRect` (`BoundingBox`) storing bounding client rect.
+   * @zh 属性 `_boundingClientRect`（类型：`BoundingBox`），用于存储或配置包围边界Client矩形。
    */
   private _boundingClientRect: BoundingBox | undefined;
 
@@ -95,7 +95,7 @@ export class SelectItemDirective implements OnInit, DoCheck {
    * @zh 创建 `SelectItemDirective` 实例，并初始化其依赖项与内部状态。
    * @param config - Injected or initial config (`DragToSelectConfig`) / 注入或传入的配置（`DragToSelectConfig`）
    * @param platformId - Injected or initial platform id (`Object`) / 注入或传入的platform唯一标识（`Object`）
-   * @param host - Injected or initial host (`ElementRef`) / 注入或传入的宿主（`ElementRef`）
+   * @param host - Injected or initial host (`ElementRef<any>`) / 注入或传入的宿主（`ElementRef<any>`）
    * @param renderer - Injected or initial renderer (`Renderer2`) / 注入或传入的渲染器（`Renderer2`）
    */
   constructor(

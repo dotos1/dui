@@ -31,7 +31,7 @@ export class DuiLayoutToggleDirective extends LayoutToggle {
    * @zh 创建 `DuiLayoutToggleDirective` 实例，并初始化其依赖项与内部状态。
    * @param panel - Injected or initial panel (`PanelComponent`) / 注入或传入的面板（`PanelComponent`）
    * @param renderer - Injected or initial renderer (`Renderer2`) / 注入或传入的渲染器（`Renderer2`）
-   * @param elementRef - Injected or initial element ref (`ElementRef`) / 注入或传入的元素引用（`ElementRef`）
+   * @param elementRef - Injected or initial element ref (`ElementRef<any>`) / 注入或传入的元素引用（`ElementRef<any>`）
    */
   constructor(@Inject(forwardRef(() => PanelComponent)) panel: PanelComponent,
     renderer: Renderer2,
@@ -72,7 +72,7 @@ export class DuiLayoutCloseDirective extends LayoutToggle {
    * @zh 创建 `DuiLayoutCloseDirective` 实例，并初始化其依赖项与内部状态。
    * @param panel - Injected or initial panel (`PanelComponent`) / 注入或传入的面板（`PanelComponent`）
    * @param renderer - Injected or initial renderer (`Renderer2`) / 注入或传入的渲染器（`Renderer2`）
-   * @param elementRef - Injected or initial element ref (`ElementRef`) / 注入或传入的元素引用（`ElementRef`）
+   * @param elementRef - Injected or initial element ref (`ElementRef<any>`) / 注入或传入的元素引用（`ElementRef<any>`）
    */
   constructor(@Inject(forwardRef(() => PanelComponent)) panel: PanelComponent,
     renderer: Renderer2,
@@ -113,7 +113,7 @@ export class DuiLayoutOpenDirective extends LayoutToggle {
    * @zh 创建 `DuiLayoutOpenDirective` 实例，并初始化其依赖项与内部状态。
    * @param panel - Injected or initial panel (`PanelComponent`) / 注入或传入的面板（`PanelComponent`）
    * @param renderer - Injected or initial renderer (`Renderer2`) / 注入或传入的渲染器（`Renderer2`）
-   * @param elementRef - Injected or initial element ref (`ElementRef`) / 注入或传入的元素引用（`ElementRef`）
+   * @param elementRef - Injected or initial element ref (`ElementRef<any>`) / 注入或传入的元素引用（`ElementRef<any>`）
    */
   constructor(@Inject(forwardRef(() => PanelComponent)) panel: PanelComponent,
     renderer: Renderer2,

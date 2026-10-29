@@ -45,8 +45,8 @@ declare const document;
 export class ScriptLoaderService {
 
     /**
-     * Property `scripts` (`any`) storing scripts (default: `{}`).
-     * @zh 属性 `scripts`（类型：`any`），用于存储或配置scripts（默认值：`{}`）。
+     * Property `scripts` (`Record<string, { src: string; loaded: boolean; }>`) storing scripts (default: `{}`).
+     * @zh 属性 `scripts`（类型：`Record<string, { src: string; loaded: boolean; }>`），用于存储或配置scripts（默认值：`{}`）。
      */
     /** 脚本名 → { 地址, 是否已加载 } */
     private scripts: Record<string, { src: string; loaded: boolean }> = {};
@@ -74,7 +74,7 @@ export class ScriptLoaderService {
      * Executes `load` to handle load.
      * @zh 执行 `load`，用于加载。
      * @param scripts - scripts parameter (`string[]`) / scripts参数（`string[]`）
-     * @returns Result of type `Promise<any>` / 类型为 `Promise<any>` 的返回值
+     * @returns Result of type `Promise<void> | Promise<unknown[]>` / 类型为 `Promise<void> | Promise<unknown[]>` 的返回值
      */
     load(...scripts: string[]) {
         if (scripts && scripts.length) {

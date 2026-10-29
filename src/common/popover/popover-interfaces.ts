@@ -98,8 +98,8 @@ export interface PopoverPanel {
      */
     setCurrentStyles: () => void;
     /**
-     * Property `templateRef` (`TemplateRef<any>`) storing template ref.
-     * @zh 属性 `templateRef`（类型：`TemplateRef<any>`），用于存储或配置模板引用。
+     * Property `templateRef` (`TemplateRef<unknown>`) storing template ref.
+     * @zh 属性 `templateRef`（类型：`TemplateRef<unknown>`），用于存储或配置模板引用。
      */
     templateRef: TemplateRef<unknown>;
     /**
@@ -192,8 +192,8 @@ export interface PopoverConfig {
  */
 export interface PopoverTargetInterface {
     /**
-     * Property `_elementRef` (`ElementRef`) storing element ref.
-     * @zh 属性 `_elementRef`（类型：`ElementRef`），用于存储或配置元素引用。
+     * Property `_elementRef` (`ElementRef<any>`) storing element ref.
+     * @zh 属性 `_elementRef`（类型：`ElementRef<any>`），用于存储或配置元素引用。
      */
     _elementRef: ElementRef;
 }

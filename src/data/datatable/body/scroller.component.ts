@@ -103,7 +103,7 @@ export class ScrollerComponent implements OnInit, OnDestroy {
    * Creates an instance of `ScrollerComponent` and initializes its dependencies and internal state.
    * @zh 创建 `ScrollerComponent` 实例，并初始化其依赖项与内部状态。
    * @param ngZone - Injected or initial ng zone (`NgZone`) / 注入或传入的Angular区域(NgZone)（`NgZone`）
-   * @param element - Injected or initial element (`ElementRef`) / 注入或传入的元素（`ElementRef`）
+   * @param element - Injected or initial element (`ElementRef<any>`) / 注入或传入的元素（`ElementRef<any>`）
    * @param renderer - Injected or initial renderer (`Renderer2`) / 注入或传入的渲染器（`Renderer2`）
    */
   constructor(private ngZone: NgZone, element: ElementRef, private renderer: Renderer2) {

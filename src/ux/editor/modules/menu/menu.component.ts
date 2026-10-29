@@ -185,13 +185,13 @@ export class MenuComponent implements OnInit {
    */
   @Input() editor: Editor;
   /**
-   * Input property `customMenuRef` (`TemplateRef<any> | null`) configuring custom menu ref (default: `null`).
-   * @zh 输入属性 `customMenuRef`（类型：`TemplateRef<any> | null`），用于配置自定义菜单引用（默认值：`null`）。
+   * Input property `customMenuRef` (`any`) configuring custom menu ref (default: `null`).
+   * @zh 输入属性 `customMenuRef`（类型：`any`），用于配置自定义菜单引用（默认值：`null`）。
    */
   @Input() customMenuRef = null;
   /**
-   * Input property `dropdownPlacement` (`'top' | 'bottom'`) configuring dropdown placement (default: `'bottom'`).
-   * @zh 输入属性 `dropdownPlacement`（类型：`'top' | 'bottom'`），用于配置下拉框Placement（默认值：`'bottom'`）。
+   * Input property `dropdownPlacement` (`"top" | "bottom"`) configuring dropdown placement (default: `'bottom'`).
+   * @zh 输入属性 `dropdownPlacement`（类型：`"top" | "bottom"`），用于配置下拉框Placement（默认值：`'bottom'`）。
    */
   @Input() dropdownPlacement: 'top' | 'bottom' = 'bottom';
 
@@ -224,18 +224,18 @@ export class MenuComponent implements OnInit {
   ];
 
   /**
-   * Property `iconContainerClass` (`any[]`) storing icon container class.
-   * @zh 属性 `iconContainerClass`（类型：`any[]`），用于存储或配置图标容器类名。
+   * Property `iconContainerClass` (`string[]`) storing icon container class.
+   * @zh 属性 `iconContainerClass`（类型：`string[]`），用于存储或配置图标容器类名。
    */
   iconContainerClass = ['Editor__MenuItem', 'Editor__MenuItem--Icon'];
   /**
-   * Property `dropdownContainerClass` (`any[]`) storing dropdown container class (default: `['Editor__Dropdown']`).
-   * @zh 属性 `dropdownContainerClass`（类型：`any[]`），用于存储或配置下拉框容器类名（默认值：`['Editor__Dropdown']`）。
+   * Property `dropdownContainerClass` (`string[]`) storing dropdown container class (default: `['Editor__Dropdown']`).
+   * @zh 属性 `dropdownContainerClass`（类型：`string[]`），用于存储或配置下拉框容器类名（默认值：`['Editor__Dropdown']`）。
    */
   dropdownContainerClass = ['Editor__Dropdown'];
   /**
-   * Property `seperatorClass` (`any[]`) storing seperator class (default: `['Editor__Seperator']`).
-   * @zh 属性 `seperatorClass`（类型：`any[]`），用于存储或配置seperator类名（默认值：`['Editor__Seperator']`）。
+   * Property `seperatorClass` (`string[]`) storing seperator class (default: `['Editor__Seperator']`).
+   * @zh 属性 `seperatorClass`（类型：`string[]`），用于存储或配置seperator类名（默认值：`['Editor__Seperator']`）。
    */
   seperatorClass = ['Editor__Seperator'];
 
@@ -269,7 +269,7 @@ export class MenuComponent implements OnInit {
 
   /**
    * Executes `trackByIndex` to handle track by index.
-   * @zh 执行 `trackByIndex`，用于track按索引。
+   * @zh 执行 `trackByIndex`，用于跟踪按索引。
    * @param index - index parameter (`number`) / 索引参数（`number`）
    * @returns Result of type `number` / 类型为 `number` 的返回值
    */

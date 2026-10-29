@@ -40,7 +40,7 @@ export class ParseVisitorResolver extends RecursiveAstVisitor {
     /**
      * Creates an instance of `ParseVisitorResolver` and initializes its dependencies and internal state.
      * @zh 创建 `ParseVisitorResolver` 实例，并初始化其依赖项与内部状态。
-     * @param pipes - Injected or initial pipes (`Map<string, any>`) / 注入或传入的管道（`Map<string, any>`）
+     * @param pipes - Injected or initial pipes (`any`) / 注入或传入的管道（`any`）
      */
     constructor(private pipes) {
         super();
@@ -69,7 +69,7 @@ export class ParseVisitorResolver extends RecursiveAstVisitor {
      * @zh 执行 `visitChain`，用于访问Chain。
      * @param ast - ast parameter (`Chain`) / 抽象语法树参数（`Chain`）
      * @param context - context parameter (`any`) / 上下文参数（`any`）
-     * @returns Result of type `any` / 类型为 `any` 的返回值
+     * @returns Result of type `any[]` / 类型为 `any[]` 的返回值
      */
     override visitChain(ast: Chain, context) {
         return this.visitAll(ast.expressions, context);
@@ -193,7 +193,7 @@ export class ParseVisitorResolver extends RecursiveAstVisitor {
      * @zh 执行 `visitLiteralArray`，用于访问Literal数组。
      * @param ast - ast parameter (`LiteralArray`) / 抽象语法树参数（`LiteralArray`）
      * @param context - context parameter (`any`) / 上下文参数（`any`）
-     * @returns Result of type `any` / 类型为 `any` 的返回值
+     * @returns Result of type `any[]` / 类型为 `any[]` 的返回值
      */
     override visitLiteralArray(ast: LiteralArray, context) {
         return this.visitAll(ast.expressions, context);
@@ -204,7 +204,7 @@ export class ParseVisitorResolver extends RecursiveAstVisitor {
      * @zh 执行 `visitLiteralMap`，用于访问Literal映射表。
      * @param ast - ast parameter (`LiteralMap`) / 抽象语法树参数（`LiteralMap`）
      * @param context - context parameter (`any`) / 上下文参数（`any`）
-     * @returns Result of type `any` / 类型为 `any` 的返回值
+     * @returns Result of type `Record<string, unknown>` / 类型为 `Record<string, unknown>` 的返回值
      */
     override visitLiteralMap(ast: LiteralMap, context) {
         const result: Record<string, unknown> = {};
@@ -345,7 +345,7 @@ export class ParseVisitorResolver extends RecursiveAstVisitor {
      * @zh 执行 `visitAll`，用于访问全部。
      * @param asts - asts parameter (`AST[]`) / 抽象语法树参数（`AST[]`）
      * @param context - context parameter (`any`) / 上下文参数（`any`）
-     * @returns Result of type `any` / 类型为 `any` 的返回值
+     * @returns Result of type `any[]` / 类型为 `any[]` 的返回值
      */
     override visitAll(asts: AST[], context) {
         return asts.map(ast => ast.visit(this, context));
@@ -356,7 +356,7 @@ export class ParseVisitorResolver extends RecursiveAstVisitor {
      * @zh 执行 `visitQuote`，用于访问Quote。
      * @param ast - ast parameter (`Quote`) / 抽象语法树参数（`Quote`）
      * @param context - context parameter (`any`) / 上下文参数（`any`）
-     * @returns Result of type `any` / 类型为 `any` 的返回值
+     * @returns Result of type `void` / 类型为 `void` 的返回值
      */
     override visitQuote(ast: Quote, context) {
         throw new Error(`Parse ERROR: on visitQuote, quote expression not allowed.`);
