@@ -24,8 +24,8 @@ import { TreeNode } from '../defs/api';
 
 export class TreeNodeComponent {
   /**
-   * Getter for input property `node` (`any`) returning node.
-   * @zh 输入属性 `node`（类型：`any`）的读取器，返回当前节点。
+   * Getter for input property `node` (`unknown`) returning node.
+   * @zh 输入属性 `node`（类型：`unknown`）的读取器，返回当前节点。
    */
   @Input()
   get node() {
@@ -34,7 +34,7 @@ export class TreeNodeComponent {
   /**
    * Sets the node (`node`).
    * @zh 设置节点（`node`）。
-   * @param node - New node value (`any`) / 新的节点值（`any`）
+   * @param node - New node value (`unknown`) / 新的节点值（`unknown`）
    */
   set node(node) {
     this.setNode(node);
@@ -49,8 +49,8 @@ export class TreeNodeComponent {
   }
 
   /**
-   * Property `_node` (`TreeNode`) storing node.
-   * @zh 属性 `_node`（类型：`TreeNode`），用于存储或配置节点。
+   * Property `_node` (`unknown`) storing node.
+   * @zh 属性 `_node`（类型：`unknown`），用于存储或配置节点。
    */
   @observable _node: TreeNode;
   /**

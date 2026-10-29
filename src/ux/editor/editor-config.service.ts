@@ -14,8 +14,8 @@ import { Injectable } from '@angular/core';
 })
 export class EditorServiceConfig {
   /**
-   * Property `locals` (`any`) storing locals (default: `{}`).
-   * @zh 属性 `locals`（类型：`any`），用于存储或配置本地（默认值：`{}`）。
+   * Property `locals` (`Record<string, string>`) storing locals (default: `{}`).
+   * @zh 属性 `locals`（类型：`Record<string, string>`），用于存储或配置本地（默认值：`{}`）。
    */
   public locals: Record<string, string> = {};
 }

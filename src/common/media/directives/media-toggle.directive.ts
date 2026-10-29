@@ -35,13 +35,13 @@ export class MediaToggleDirective implements OnInit, OnDestroy {
    */
   private _matches: boolean = false;
   /**
-   * Property `_attributes` (`{[key: string]: string}`) storing attributes (default: `{}`).
-   * @zh 属性 `_attributes`（类型：`{[key: string]: string}`），用于存储或配置属性列表（默认值：`{}`）。
+   * Property `_attributes` (`{ [key: string]: string; }`) storing attributes (default: `{}`).
+   * @zh 属性 `_attributes`（类型：`{ [key: string]: string; }`），用于存储或配置属性列表（默认值：`{}`）。
    */
   private _attributes: {[key: string]: string} = {};
   /**
-   * Property `_styles` (`{[key: string]: string}`) storing styles (default: `{}`).
-   * @zh 属性 `_styles`（类型：`{[key: string]: string}`），用于存储或配置样式集合（默认值：`{}`）。
+   * Property `_styles` (`{ [key: string]: string; }`) storing styles (default: `{}`).
+   * @zh 属性 `_styles`（类型：`{ [key: string]: string; }`），用于存储或配置样式集合（默认值：`{}`）。
    */
   private _styles: {[key: string]: string} = {};
   /**
@@ -102,7 +102,7 @@ export class MediaToggleDirective implements OnInit, OnDestroy {
    * Creates an instance of `MediaToggleDirective` and initializes its dependencies and internal state.
    * @zh 创建 `MediaToggleDirective` 实例，并初始化其依赖项与内部状态。
    * @param _renderer - Injected or initial renderer (`Renderer2`) / 注入或传入的渲染器（`Renderer2`）
-   * @param _elementRef - Injected or initial element ref (`ElementRef`) / 注入或传入的元素引用（`ElementRef`）
+   * @param _elementRef - Injected or initial element ref (`ElementRef<any>`) / 注入或传入的元素引用（`ElementRef<any>`）
    * @param _mediaService - Injected or initial media service (`MediaService`) / 注入或传入的媒体服务（`MediaService`）
    */
   constructor(private _renderer: Renderer2, private _elementRef: ElementRef, private _mediaService: MediaService) { }

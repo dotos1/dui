@@ -106,8 +106,8 @@ export class CardViewTextItemComponent  implements OnChanges,OnDestroy {
 
 
   /**
-   * Property `destroy$` (`Subject`) storing destroy (default: `new Subject<boolean>()`).
-   * @zh 属性 `destroy$`（类型：`Subject`），用于存储或配置销毁（默认值：`new Subject<boolean>()`）。
+   * Property `destroy$` (`Subject<boolean>`) storing destroy (default: `new Subject<boolean>()`).
+   * @zh 属性 `destroy$`（类型：`Subject<boolean>`），用于存储或配置销毁（默认值：`new Subject<boolean>()`）。
    */
   protected destroy$ = new Subject<boolean>();
 

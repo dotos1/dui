@@ -36,7 +36,7 @@ import { GoogleColorService } from './google-color.services';
  */
 export class GoogColorPickerComponent extends ColorWrap implements TriggerPopup,AfterViewChecked {
   /**
-   * Property `customcolors` (`any[]`) storing customcolors (default: `[ '#cf1717' ]`).
+   * Property `customcolors` (`string[]`) storing customcolors (default: `[ '#cf1717' ]`).
    * @zh 用户添加的自定义颜色列表。
    * @zh 用户添加的自定义颜色列表。
    */
@@ -44,7 +44,7 @@ export class GoogColorPickerComponent extends ColorWrap implements TriggerPopup,
     '#cf1717'
   ]
   /**
-   * Input property `colors` (`any[]`) configuring colors.
+   * Input property `colors` (`string[][]`) configuring colors.
    * @zh 固定调色板颜色列表，每项为 `[十六进制值, 中文名称]`。
    * @zh 固定调色板颜色列表，每项为 `[十六进制值, 中文名称]`。
    */

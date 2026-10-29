@@ -21,8 +21,8 @@ import { autorun } from 'mobx';
 @Directive({ selector: '[treeMobxAutorun]' })
 export class TreeMobxAutorunDirective implements OnInit, OnDestroy {
   /**
-   * Property `templateBindings` (`any`) storing template bindings (default: `{}`).
-   * @zh 属性 `templateBindings`（类型：`any`），用于存储或配置模板Bindings（默认值：`{}`）。
+   * Property `templateBindings` (`Record<string, unknown>`) storing template bindings (default: `{}`).
+   * @zh 属性 `templateBindings`（类型：`Record<string, unknown>`），用于存储或配置模板Bindings（默认值：`{}`）。
    */
   protected templateBindings: Record<string, unknown> = {};
   /**
@@ -31,8 +31,8 @@ export class TreeMobxAutorunDirective implements OnInit, OnDestroy {
    */
   protected dispose;
   /**
-   * Property `view` (`EmbeddedViewRef<any>`) storing view.
-   * @zh 属性 `view`（类型：`EmbeddedViewRef<any>`），用于存储或配置视图。
+   * Property `view` (`any`) storing view.
+   * @zh 属性 `view`（类型：`any`），用于存储或配置视图。
    */
   protected view;
   /**
@@ -44,7 +44,7 @@ export class TreeMobxAutorunDirective implements OnInit, OnDestroy {
   /**
    * Creates an instance of `TreeMobxAutorunDirective` and initializes its dependencies and internal state.
    * @zh 创建 `TreeMobxAutorunDirective` 实例，并初始化其依赖项与内部状态。
-   * @param templateRef - Injected or initial template ref (`TemplateRef<any>`) / 注入或传入的模板引用（`TemplateRef<any>`）
+   * @param templateRef - Injected or initial template ref (`TemplateRef<unknown>`) / 注入或传入的模板引用（`TemplateRef<unknown>`）
    * @param viewContainer - Injected or initial view container (`ViewContainerRef`) / 注入或传入的视图容器（`ViewContainerRef`）
    */
   constructor(
@@ -80,7 +80,7 @@ export class TreeMobxAutorunDirective implements OnInit, OnDestroy {
   /**
    * Executes `autoDetect` to handle auto detect.
    * @zh 执行 `autoDetect`，用于自动检测。
-   * @param view - view parameter (`EmbeddedViewRef<any>`) / 视图参数（`EmbeddedViewRef<any>`）
+   * @param view - view parameter (`any`) / 视图参数（`any`）
    */
   autoDetect(view) {
     this.dispose = autorun(() => view.detectChanges());

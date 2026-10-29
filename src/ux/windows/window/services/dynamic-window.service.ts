@@ -31,8 +31,8 @@ import { ɵDynamicWindowReferencesService } from './dynamic-window-references.se
 export class DynamicWindowService {
 
    /**
-    * Property `windowSet` (`Map<string,ɵDynamicWindowRefModel>`) storing window set.
-    * @zh 属性 `windowSet`（类型：`Map<string,ɵDynamicWindowRefModel>`），用于存储或配置窗口集合。
+    * Property `windowSet` (`Map<string, ɵDynamicWindowRefModel>`) storing window set.
+    * @zh 属性 `windowSet`（类型：`Map<string, ɵDynamicWindowRefModel>`），用于存储或配置窗口集合。
     */
    public windowSet:Map<string,ɵDynamicWindowRefModel>=new  Map<string,ɵDynamicWindowRefModel>();
 
@@ -83,7 +83,7 @@ export class DynamicWindowService {
     /**
      * Executes `openWindow` to handle open window.
      * @zh 执行 `openWindow`，用于打开窗口。
-     * @param config - config parameter (`DynamicWindowConfig`) / 配置参数（`DynamicWindowConfig`）
+     * @param config - config parameter (`DynamicWindowConfig<unknown, unknown>`) / 配置参数（`DynamicWindowConfig<unknown, unknown>`）
      * @returns Result of type `DynamicWindowRef` / 类型为 `DynamicWindowRef` 的返回值
      */
     public openWindow(config: DynamicWindowConfig = {}): DynamicWindowRef {

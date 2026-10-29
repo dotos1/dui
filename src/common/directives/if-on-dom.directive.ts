@@ -27,8 +27,8 @@ export class DuiIfOnDomDirective implements AfterContentChecked
     /**
      * Creates an instance of `DuiIfOnDomDirective` and initializes its dependencies and internal state.
      * @zh 创建 `DuiIfOnDomDirective` 实例，并初始化其依赖项与内部状态。
-     * @param _elementRef - Injected or initial element ref (`ElementRef`) / 注入或传入的元素引用（`ElementRef`）
-     * @param _templateRef - Injected or initial template ref (`TemplateRef<any>`) / 注入或传入的模板引用（`TemplateRef<any>`）
+     * @param _elementRef - Injected or initial element ref (`ElementRef<any>`) / 注入或传入的元素引用（`ElementRef<any>`）
+     * @param _templateRef - Injected or initial template ref (`TemplateRef<unknown>`) / 注入或传入的模板引用（`TemplateRef<unknown>`）
      * @param _viewContainerRef - Injected or initial view container ref (`ViewContainerRef`) / 注入或传入的视图容器引用（`ViewContainerRef`）
      */
     constructor(

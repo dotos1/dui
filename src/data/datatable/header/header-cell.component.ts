@@ -68,7 +68,7 @@ export class DataTableHeaderCellComponent {
   /**
    * Input setter `allRowsSelected` updating all rows selected.
    * @zh 输入属性 `allRowsSelected` 的设置器，用于更新全部行列表已选中。
-   * @param value - New all rows selected value (`any`) / 新的全部行列表已选中值（`any`）
+   * @param value - New all rows selected value (`boolean`) / 新的全部行列表已选中值（`boolean`）
    */
   @Input() set allRowsSelected(value) {
     this._allRowsSelected = value;
@@ -91,7 +91,7 @@ export class DataTableHeaderCellComponent {
   /**
    * Input setter `partialRowsSelected` updating partial rows selected.
    * @zh 输入属性 `partialRowsSelected` 的设置器，用于更新partial行列表已选中。
-   * @param value - New partial rows selected value (`any`) / 新的partial行列表已选中值（`any`）
+   * @param value - New partial rows selected value (`boolean`) / 新的partial行列表已选中值（`boolean`）
    */
   @Input() set partialRowsSelected(value) {
     this._partialRowsSelected = value;
@@ -140,7 +140,7 @@ export class DataTableHeaderCellComponent {
   /**
    * Input setter `sorts` updating sorts.
    * @zh 输入属性 `sorts` 的设置器，用于更新排序集合。
-   * @param val - New sorts value (`any[]`) / 新的排序集合值（`any[]`）
+   * @param val - New sorts value (`any`) / 新的排序集合值（`any`）
    */
   @Input() set sorts(val) {
     this._sorts = val;
@@ -169,13 +169,13 @@ export class DataTableHeaderCellComponent {
    */
   @Output() select = new EventEmitter();
   /**
-   * Output event emitter `columnContextmenu` (`EventEmitter`) firing when column contextmenu occurs.
-   * @zh 输出事件 `columnContextmenu`（类型：`EventEmitter`），当触发列Contextmenu时向外发出事件。
+   * Output event emitter `columnContextmenu` (`EventEmitter<{ event: MouseEvent; column: any; }>`) firing when column contextmenu occurs.
+   * @zh 输出事件 `columnContextmenu`（类型：`EventEmitter<{ event: MouseEvent; column: any; }>`），当触发列Contextmenu时向外发出事件。
    */
   @Output() columnContextmenu = new EventEmitter<{ event: MouseEvent; column }>(false);
 
   /**
-   * Host-bound getter `columnCssClasses` (`class`) computing column css classes.
+   * Host-bound getter `columnCssClasses` (`string`) computing column css classes.
    * @zh 宿主绑定读取器 `columnCssClasses`（绑定至 `class`），计算并返回列CSS样式类名集合。
    */
   @HostBinding('class')
@@ -212,7 +212,7 @@ export class DataTableHeaderCellComponent {
   }
 
   /**
-   * Host-bound getter `name` (`attr.title`) computing name.
+   * Host-bound getter `name` (`string`) computing name.
    * @zh 宿主绑定读取器 `name`（绑定至 `attr.title`），计算并返回名称。
    */
   @HostBinding('attr.title')
@@ -222,7 +222,7 @@ export class DataTableHeaderCellComponent {
   }
 
   /**
-   * Host-bound getter `minWidth` (`style.minWidth.px`) computing min width.
+   * Host-bound getter `minWidth` (`number`) computing min width.
    * @zh 宿主绑定读取器 `minWidth`（绑定至 `style.minWidth.px`），计算并返回最小值宽度。
    */
   @HostBinding('style.minWidth.px')
@@ -231,7 +231,7 @@ export class DataTableHeaderCellComponent {
   }
 
   /**
-   * Host-bound getter `maxWidth` (`style.maxWidth.px`) computing max width.
+   * Host-bound getter `maxWidth` (`number`) computing max width.
    * @zh 宿主绑定读取器 `maxWidth`（绑定至 `style.maxWidth.px`），计算并返回最大值宽度。
    */
   @HostBinding('style.maxWidth.px')
@@ -240,7 +240,7 @@ export class DataTableHeaderCellComponent {
   }
 
   /**
-   * Host-bound getter `width` (`style.width.px`) computing width.
+   * Host-bound getter `width` (`number`) computing width.
    * @zh 宿主绑定读取器 `width`（绑定至 `style.width.px`），计算并返回宽度。
    */
   @HostBinding('style.width.px')
@@ -280,8 +280,8 @@ export class DataTableHeaderCellComponent {
   selectFn = this.select.emit.bind(this.select);
 
   /**
-   * Property `cellContext` (`any`) storing cell context.
-   * @zh 属性 `cellContext`（类型：`any`），用于存储或配置单元格上下文。
+   * Property `cellContext` (`{…}`) storing cell context.
+   * @zh 属性 `cellContext`（类型：`{…}`），用于存储或配置单元格上下文。
    */
   cellContext = {
     column: this.column,
@@ -298,8 +298,8 @@ export class DataTableHeaderCellComponent {
    */
   private _column: TableColumn;
   /**
-   * Property `_sorts` (`any[]`) storing sorts.
-   * @zh 属性 `_sorts`（类型：`any[]`），用于存储或配置排序集合。
+   * Property `_sorts` (`any`) storing sorts.
+   * @zh 属性 `_sorts`（类型：`any`），用于存储或配置排序集合。
    */
   private _sorts;
 
@@ -323,7 +323,7 @@ export class DataTableHeaderCellComponent {
   /**
    * Executes `calcSortDir` to handle calc sort dir.
    * @zh 执行 `calcSortDir`，用于计算排序目录。
-   * @param sorts - sorts parameter (`any[]`) / 排序集合参数（`any[]`）
+   * @param sorts - sorts parameter (`any`) / 排序集合参数（`any`）
    * @returns Result of type `any` / 类型为 `any` 的返回值
    */
   calcSortDir(sorts) {

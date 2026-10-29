@@ -75,7 +75,7 @@ export class TranslateDirective implements AfterViewChecked, OnDestroy {
    * Creates an instance of `TranslateDirective` and initializes its dependencies and internal state.
    * @zh 创建 `TranslateDirective` 实例，并初始化其依赖项与内部状态。
    * @param translateService - Injected or initial translate service (`TranslateService`) / 注入或传入的翻译服务（`TranslateService`）
-   * @param element - Injected or initial element (`ElementRef`) / 注入或传入的元素（`ElementRef`）
+   * @param element - Injected or initial element (`ElementRef<any>`) / 注入或传入的元素（`ElementRef<any>`）
    * @param _ref - Injected or initial ref (`ChangeDetectorRef`) / 注入或传入的引用（`ChangeDetectorRef`）
    */
   constructor(private translateService: TranslateService, private element: ElementRef, private _ref: ChangeDetectorRef) {
@@ -115,7 +115,7 @@ export class TranslateDirective implements AfterViewChecked, OnDestroy {
   /**
    * Executes `checkNodes` to handle check nodes.
    * @zh 执行 `checkNodes`，用于检查节点列表。
-   * @param forceUpdate - force update parameter (`any`) / force更新参数（`any`）
+   * @param forceUpdate - force update parameter (`boolean`) / force更新参数（`boolean`）
    * @param translations - translations parameter (`any`) / 翻译文本参数（`any`）
    */
   checkNodes(forceUpdate = false, translations?) {

@@ -23,7 +23,7 @@ class ListItem implements ToggleCommand {
   /**
    * Creates an instance of `ListItem` and initializes its dependencies and internal state.
    * @zh 创建 `ListItem` 实例，并初始化其依赖项与内部状态。
-   * @param isBulletList - Injected or initial is bullet list (`any`) / 注入或传入的是否为Bullet列表（`any`）
+   * @param isBulletList - Injected or initial is bullet list (`boolean`) / 注入或传入的是否为Bullet列表（`boolean`）
    */
   constructor(isBulletList = false) {
     this.isBulletList = isBulletList;
@@ -32,7 +32,7 @@ class ListItem implements ToggleCommand {
   /**
    * Executes `getType` to handle get type.
    * @zh 执行 `getType`，用于获取类型。
-   * @param schema - schema parameter (`Schema`) / 结构定义参数（`Schema`）
+   * @param schema - schema parameter (`Schema<any, any>`) / 结构定义参数（`Schema<any, any>`）
    * @returns Result of type `NodeType` / 类型为 `NodeType` 的返回值
    */
   getType(schema: Schema): NodeType {

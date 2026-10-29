@@ -33,7 +33,7 @@ export class FileSelectDirective implements OnChanges{
   @Input() public uploader: FileUploader;
 
   /**
-   * Output event emitter `onFileSelected` (`EventEmitter<File[] | FileList | File>`) firing when on file selected occurs.
+   * Output event emitter `onFileSelected` (`EventEmitter<File | File[] | FileList>`) firing when on file selected occurs.
    * @zh 文件选择完成后发出。
    * @zh 文件选择完成后发出。
    */
@@ -47,8 +47,8 @@ export class FileSelectDirective implements OnChanges{
 
 
   /**
-   * Property `element` (`ElementRef`) storing element.
-   * @zh 属性 `element`（类型：`ElementRef`），用于存储或配置元素。
+   * Property `element` (`ElementRef<any>`) storing element.
+   * @zh 属性 `element`（类型：`ElementRef<any>`），用于存储或配置元素。
    */
   protected element: ElementRef;
 
@@ -69,7 +69,7 @@ export class FileSelectDirective implements OnChanges{
   }
 
   /**
-   * Host-bound getter `multipleBinding` (`attr.multiple`) computing multiple binding.
+   * Host-bound getter `multipleBinding` (`string`) computing multiple binding.
    * @zh 内部使用，绑定宿主的原生 `multiple` 属性。
    * @zh 内部使用，绑定宿主的原生 `multiple` 属性。
    */
@@ -96,7 +96,7 @@ export class FileSelectDirective implements OnChanges{
   /**
    * Creates an instance of `FileSelectDirective` and initializes its dependencies and internal state.
    * @zh 创建 `FileSelectDirective` 实例，并初始化其依赖项与内部状态。
-   * @param element - Injected or initial element (`ElementRef`) / 注入或传入的元素（`ElementRef`）
+   * @param element - Injected or initial element (`ElementRef<any>`) / 注入或传入的元素（`ElementRef<any>`）
    * @param model - Injected or initial model (`NgModel`) / 注入或传入的模型（`NgModel`）
    * @param imageFileProcessors - Injected or initial image file processors (`ImageFileProcessor[]`) / 注入或传入的图像文件Processors（`ImageFileProcessor[]`）
    */
@@ -181,7 +181,7 @@ export class FileSelectDirective implements OnChanges{
    * @zh 执行 `resize`，用于调整尺寸。
    * @param dataURL - data url parameter (`string`) / 数据链接地址参数（`string`）
    * @param options - options parameter (`ResizeOptions`) / 配置选项参数（`ResizeOptions`）
-   * @returns Result of type `Promise<{ dataURL: string, type: string }>` / 类型为 `Promise<{ dataURL: string, type: string }>` 的返回值
+   * @returns Result of type `Promise<{ dataURL: string; type: string; }>` / 类型为 `Promise<{ dataURL: string; type: string; }>` 的返回值
    */
   private async resize(dataURL: string, options: ResizeOptions): Promise<{ dataURL: string, type: string }> {
     if (!options) return null;

@@ -22,8 +22,8 @@ export class ExtErrorStateMatcher implements ErrorStateMatcher {
   /**
    * Executes `isErrorState` to handle is error state.
    * @zh 执行 `isErrorState`，用于是否为错误状态。
-   * @param control - control parameter (`FormControl | null`) / 表单控件参数（`FormControl | null`）
-   * @param form - form parameter (`FormGroupDirective | NgForm | null`) / 表单参数（`FormGroupDirective | NgForm | null`）
+   * @param control - control parameter (`FormControl<any>`) / 表单控件参数（`FormControl<any>`）
+   * @param form - form parameter (`FormGroupDirective | NgForm`) / 表单参数（`FormGroupDirective | NgForm`）
    * @returns Result of type `boolean` / 类型为 `boolean` 的返回值
    */
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {

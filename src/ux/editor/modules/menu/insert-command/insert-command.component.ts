@@ -87,8 +87,8 @@ export class InsertCommandComponent implements OnInit, OnDestroy {
   }
 
   /**
-   * Property `update` (`any`) storing update.
-   * @zh 属性 `update`（类型：`any`），用于存储或配置更新。
+   * Property `update` (`(view: EditorView) => void`) storing update.
+   * @zh 属性 `update`（类型：`(view: EditorView) => void`），用于存储或配置更新。
    */
   update = (view: EditorView): void => {
     const { state } = view;

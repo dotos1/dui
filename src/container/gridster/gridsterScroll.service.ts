@@ -133,7 +133,7 @@ export function scroll(gridster: GridsterComponentInterface, left: number, top: 
  * @param sign - sign parameter (`number`) / sign参数（`number`）
  * @param calculateItemPosition - calculate item position parameter (`Function`) / 计算条目位置参数（`Function`）
  * @param lastMouse - last mouse parameter (`any`) / 末尾鼠标参数（`any`）
- * @returns Result of type `any` / 类型为 `any` 的返回值
+ * @returns Result of type `number` / 类型为 `number` 的返回值
  */
 function startVertical(sign: number, calculateItemPosition: Function, lastMouse) {
   let clientY = lastMouse.clientY;
@@ -153,7 +153,7 @@ function startVertical(sign: number, calculateItemPosition: Function, lastMouse)
  * @param sign - sign parameter (`number`) / sign参数（`number`）
  * @param calculateItemPosition - calculate item position parameter (`Function`) / 计算条目位置参数（`Function`）
  * @param lastMouse - last mouse parameter (`any`) / 末尾鼠标参数（`any`）
- * @returns Result of type `any` / 类型为 `any` 的返回值
+ * @returns Result of type `number` / 类型为 `number` 的返回值
  */
 function startHorizontal(sign: number, calculateItemPosition: Function, lastMouse) {
   let clientX = lastMouse.clientX;

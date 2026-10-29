@@ -33,8 +33,8 @@ import { Dui } from '@dotos/dui/core';
 })
 export class SliderFieldModule {
   /**
-   * Property `entryComponents` (`any[]`) storing entry components (default: `[SliderFieldComponent]`).
-   * @zh 属性 `entryComponents`（类型：`any[]`），用于存储或配置条目组件列表（默认值：`[SliderFieldComponent]`）。
+   * Property `entryComponents` (`(typeof SliderFieldComponent)[]`) storing entry components (default: `[SliderFieldComponent]`).
+   * @zh 属性 `entryComponents`（类型：`(typeof SliderFieldComponent)[]`），用于存储或配置条目组件列表（默认值：`[SliderFieldComponent]`）。
    */
   entryComponents = [SliderFieldComponent];
   /**

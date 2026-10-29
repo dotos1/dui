@@ -17,13 +17,13 @@ import { PendingRequestsInterceptor } from './pending-requests-interceptor.servi
 })
 export class SpinnerVisibilityService {
   /**
-   * Property `_visibility$` (`ReplaySubject`) storing visibility (default: `new ReplaySubject<boolean>(1)`).
-   * @zh 属性 `_visibility$`（类型：`ReplaySubject`），用于存储或配置visibility（默认值：`new ReplaySubject<boolean>(1)`）。
+   * Property `_visibility$` (`ReplaySubject<boolean>`) storing visibility (default: `new ReplaySubject<boolean>(1)`).
+   * @zh 属性 `_visibility$`（类型：`ReplaySubject<boolean>`），用于存储或配置visibility（默认值：`new ReplaySubject<boolean>(1)`）。
    */
   private _visibility$ = new ReplaySubject<boolean>(1);
   /**
-   * Property `_visibilityObservable$` (`any`) storing visibility observable (default: `this._visibility$.asObservable()`).
-   * @zh 属性 `_visibilityObservable$`（类型：`any`），用于存储或配置visibility可观察流（默认值：`this._visibility$.asObservable()`）。
+   * Property `_visibilityObservable$` (`Observable<boolean>`) storing visibility observable (default: `this._visibility$.asObservable()`).
+   * @zh 属性 `_visibilityObservable$`（类型：`Observable<boolean>`），用于存储或配置visibility可观察流（默认值：`this._visibility$.asObservable()`）。
    */
   private readonly _visibilityObservable$ = this._visibility$.asObservable();
 

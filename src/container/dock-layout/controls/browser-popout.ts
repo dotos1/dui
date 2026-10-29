@@ -28,9 +28,9 @@ import { deepExtend, getErrorMessage, getUniqueId } from '../utils/utils';
 
 export class BrowserPopout extends EventEmitter {
     /**
-     * Property `_popoutWindow` (`Window | null`) storing popout window.
+     * Property `_popoutWindow` (`Window`) storing popout window.
      * @internal
-     * @zh 属性 `_popoutWindow`（类型：`Window | null`），用于存储或配置弹出窗口窗口。
+     * @zh 属性 `_popoutWindow`（类型：`Window`），用于存储或配置弹出窗口窗口。
      */
     private _popoutWindow: Window | null;
     /**
@@ -40,9 +40,9 @@ export class BrowserPopout extends EventEmitter {
      */
     private _isInitialised;
     /**
-     * Property `_checkReadyInterval` (`ReturnType<typeof setTimeout> | undefined`) storing check ready interval.
+     * Property `_checkReadyInterval` (`number`) storing check ready interval.
      * @internal
-     * @zh 属性 `_checkReadyInterval`（类型：`ReturnType<typeof setTimeout> | undefined`），用于存储或配置检查就绪间隔定时器。
+     * @zh 属性 `_checkReadyInterval`（类型：`number`），用于存储或配置检查就绪间隔定时器。
      */
     private _checkReadyInterval: ReturnType<typeof setTimeout> | undefined;
 

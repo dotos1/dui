@@ -17,18 +17,18 @@ import { ɵDynamicWindowRefModel } from '../classes';
 })
 export class ɵDynamicWindowsDefaultCoordinatesService {
     /**
-     * Property `base` (`number`) storing base (default: `96`).
-     * @zh 属性 `base`（类型：`number`），用于存储或配置基础（默认值：`96`）。
+     * Property `base` (`96`) storing base (default: `96`).
+     * @zh 属性 `base`（类型：`96`），用于存储或配置基础（默认值：`96`）。
      */
     private readonly base = 96;
     /**
-     * Property `multiplier` (`number`) storing multiplier (default: `32`).
-     * @zh 属性 `multiplier`（类型：`number`），用于存储或配置multiplier（默认值：`32`）。
+     * Property `multiplier` (`32`) storing multiplier (default: `32`).
+     * @zh 属性 `multiplier`（类型：`32`），用于存储或配置multiplier（默认值：`32`）。
      */
     private readonly multiplier = 32;
     /**
-     * Property `maxAmountOfWindows` (`number`) storing max amount of windows (default: `8`).
-     * @zh 属性 `maxAmountOfWindows`（类型：`number`），用于存储或配置最大值Amount的多窗口（默认值：`8`）。
+     * Property `maxAmountOfWindows` (`8`) storing max amount of windows (default: `8`).
+     * @zh 属性 `maxAmountOfWindows`（类型：`8`），用于存储或配置最大值Amount的多窗口（默认值：`8`）。
      */
     private readonly maxAmountOfWindows = 8;
     /**

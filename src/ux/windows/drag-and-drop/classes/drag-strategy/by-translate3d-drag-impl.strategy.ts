@@ -17,8 +17,8 @@ import { DragStrategyByTranslate3d } from './by-translate3d-drag.strategy';
  */
 export class ɵDragStrategyByTranslate3dImpl extends ɵBaseDragStrategyImpl {
     /**
-     * Property `type` (`any`) storing type (default: `ɵDragStrategyEnum.ByTranslate3d`).
-     * @zh 属性 `type`（类型：`any`），用于存储或配置类型（默认值：`ɵDragStrategyEnum.ByTranslate3d`）。
+     * Property `type` (`ɵDragStrategyEnum.ByTranslate3d`) storing type (default: `ɵDragStrategyEnum.ByTranslate3d`).
+     * @zh 属性 `type`（类型：`ɵDragStrategyEnum.ByTranslate3d`），用于存储或配置类型（默认值：`ɵDragStrategyEnum.ByTranslate3d`）。
      */
     public override readonly type = ɵDragStrategyEnum.ByTranslate3d;
 

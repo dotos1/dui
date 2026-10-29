@@ -36,7 +36,7 @@ function get_varname($custom_prop) {
  * Executes `get_fallback` to handle get fallback.
  * @zh 执行 `get_fallback`，用于获取fallback。
  * @param $custom_prop - custom prop parameter (`any`) / 自定义属性参数（`any`）
- * @param $shallow - shallow parameter (`any`) / shallow参数（`any`）
+ * @param $shallow - shallow parameter (`boolean`) / shallow参数（`boolean`）
  */
 function get_fallback($custom_prop, $shallow= false) {
     let $fallback= $custom_prop['fallback'];
@@ -73,7 +73,7 @@ export function create($varname, $fallback= null) {
  * @zh 执行 `set_fallback`，用于集合fallback。
  * @param $custom_prop - custom prop parameter (`any`) / 自定义属性参数（`any`）
  * @param $new_fallback - new fallback parameter (`any`) / 新fallback参数（`any`）
- * @param $shallow - shallow parameter (`any`) / shallow参数（`any`）
+ * @param $shallow - shallow parameter (`boolean`) / shallow参数（`boolean`）
  */
 export function set_fallback($custom_prop, $new_fallback, $shallow= false) {
     let $varname= get_varname($custom_prop);
@@ -142,8 +142,8 @@ function get_declaration_fallback($custom_prop) {
  * @zh 执行 `declaration`，用于declaration。
  * @param $property - property parameter (`any`) / 属性参数（`any`）
  * @param $custom_prop - custom prop parameter (`any`) / 自定义属性参数（`any`）
- * @param $gss - gss parameter (`any`) / gss参数（`any`）
- * @param $important - important parameter (`any`) / important参数（`any`）
+ * @param $gss - gss parameter (`Record<string, string>`) / gss参数（`Record<string, string>`）
+ * @param $important - important parameter (`boolean`) / important参数（`boolean`）
  */
 export function declaration($property, $custom_prop= null, $gss: Record<string, string> = {}, $important= false) {
     if($property) {
@@ -185,8 +185,8 @@ export function declaration($property, $custom_prop= null, $gss: Record<string, 
  * @param $property - property parameter (`any`) / 属性参数（`any`）
  * @param $value - value parameter (`any`) / 值参数（`any`）
  * @param $fallback_value - fallback value parameter (`any`) / fallback值参数（`any`）
- * @param $gss - gss parameter (`any`) / gss参数（`any`）
- * @param $important - important parameter (`any`) / important参数（`any`）
+ * @param $gss - gss parameter (`Record<string, string>`) / gss参数（`Record<string, string>`）
+ * @param $important - important parameter (`boolean`) / important参数（`boolean`）
  */
 export function css_declaration(
     $property,

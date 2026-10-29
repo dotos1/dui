@@ -21,15 +21,15 @@ import { MatSlideToggle } from '@angular/material/slide-toggle';
 export class SliderToggleField extends MatField implements AfterViewInit {
 
   /**
-   * Template/content query reference `slideToggle` (`@ViewChild`) targeting slide toggle.
+   * Template/content query reference `slideToggle` (`MatSlideToggle`) targeting slide toggle.
    * @zh 模板/内容视图查询引用 `slideToggle`（`@ViewChild`），指向slide开关。
    */
   @ViewChild(forwardRef(() => MatSlideToggle), { static: true })
   private slideToggle: MatSlideToggle;
 
   /**
-   * Property `defaultOptions` (`any`) storing default options.
-   * @zh 属性 `defaultOptions`（类型：`any`），用于存储或配置默认配置选项。
+   * Property `defaultOptions` (`{…}`) storing default options.
+   * @zh 属性 `defaultOptions`（类型：`{…}`），用于存储或配置默认配置选项。
    */
   override defaultOptions = {
     hideFieldUnderline: true,

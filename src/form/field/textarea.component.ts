@@ -24,8 +24,8 @@ import { MAT_INPUT_VALUE_ACCESSOR } from '@angular/material/input';
 })
 export class TextAreaComponent extends TextFieldComponent {
   /**
-   * Property `defaultOptions` (`any`) storing default options (default: `{ cols: 1, rows: 3, }`).
-   * @zh 属性 `defaultOptions`（类型：`any`），用于存储或配置默认配置选项（默认值：`{ cols: 1, rows: 3, }`）。
+   * Property `defaultOptions` (`{ cols: number; rows: number; }`) storing default options (default: `{ cols: 1, rows: 3, }`).
+   * @zh 属性 `defaultOptions`（类型：`{ cols: number; rows: number; }`），用于存储或配置默认配置选项（默认值：`{ cols: 1, rows: 3, }`）。
    */
   override defaultOptions = {
     cols: 1,

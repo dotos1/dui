@@ -46,8 +46,8 @@ import { JsonEditor } from './json.editor';
 })
 export class JsonEditorModule {
   /**
-   * Property `entryComponents` (`any[]`) storing entry components (default: `[JsonEditor]`).
-   * @zh 属性 `entryComponents`（类型：`any[]`），用于存储或配置条目组件列表（默认值：`[JsonEditor]`）。
+   * Property `entryComponents` (`(typeof JsonEditor)[]`) storing entry components (default: `[JsonEditor]`).
+   * @zh 属性 `entryComponents`（类型：`(typeof JsonEditor)[]`），用于存储或配置条目组件列表（默认值：`[JsonEditor]`）。
    */
   entryComponents = [JsonEditor];
   /**

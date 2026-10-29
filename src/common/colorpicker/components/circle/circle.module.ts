@@ -22,8 +22,8 @@ import { Dui } from '@dotos/dui/core';
 })
 export class ColorCircleModule {
   /**
-   * Property `entryComponents` (`any[]`) storing entry components.
-   * @zh 属性 `entryComponents`（类型：`any[]`），用于存储或配置条目组件列表。
+   * Property `entryComponents` (`(typeof CircleComponent | typeof CircleSwatchComponent)[]`) storing entry components.
+   * @zh 属性 `entryComponents`（类型：`(typeof CircleComponent | typeof CircleSwatchComponent)[]`），用于存储或配置条目组件列表。
    */
   entryComponents = [ CircleComponent, CircleSwatchComponent];
   /**

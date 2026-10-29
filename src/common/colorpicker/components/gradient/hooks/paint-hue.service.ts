@@ -82,8 +82,8 @@ export class PaintHueService {
   }
 
   /**
-   * Property `paintSat` (`any`) storing paint sat.
-   * @zh 属性 `paintSat`（类型：`any`），用于存储或配置绘制Sat。
+   * Property `paintSat` (`(canvas: { current?: any; }, h: number, l: number, squareWidth: number) => void`) storing paint sat.
+   * @zh 属性 `paintSat`（类型：`(canvas: { current?: any; }, h: number, l: number, squareWidth: number) => void`），用于存储或配置绘制Sat。
    */
   public paintSat = (
     canvas: { current? },

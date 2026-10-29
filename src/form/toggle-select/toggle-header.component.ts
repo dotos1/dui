@@ -106,7 +106,7 @@ export class ToggleOption {
 export abstract class _ToggleBase implements AfterContentInit, OnDestroy {
 
   /**
-   * Template/content query reference `toggleOptions` (`@ContentChildren`) targeting toggle options.
+   * Template/content query reference `toggleOptions` (`QueryList<ToggleOption>`) targeting toggle options.
    * @zh 模板/内容视图查询引用 `toggleOptions`（`@ContentChildren`），指向开关配置选项。
    */
   @ContentChildren(ToggleOption) toggleOptions: QueryList<ToggleOption>;
@@ -119,8 +119,8 @@ export abstract class _ToggleBase implements AfterContentInit, OnDestroy {
   options: ToggleHeaderOption[] = [];
 
   /**
-   * Property `_destroyed` (`Subject`) storing destroyed (default: `new Subject<void>()`).
-   * @zh 属性 `_destroyed`（类型：`Subject`），用于存储或配置已销毁（默认值：`new Subject<void>()`）。
+   * Property `_destroyed` (`Subject<void>`) storing destroyed (default: `new Subject<void>()`).
+   * @zh 属性 `_destroyed`（类型：`Subject<void>`），用于存储或配置已销毁（默认值：`new Subject<void>()`）。
    */
   protected _destroyed = new Subject<void>();
 
@@ -183,21 +183,21 @@ export class ToggleHeaderComponent extends _ToggleBase implements OnInit, AfterV
   AfterContentChecked, AfterViewChecked, OnDestroy {
 
   /**
-   * Template/content query reference `toggleGroup` (`@ViewChild`) targeting toggle group.
+   * Template/content query reference `toggleGroup` (`ElementRef<HTMLElement>`) targeting toggle group.
    * @zh 模板/内容视图查询引用 `toggleGroup`（`@ViewChild`），指向开关分组。
    */
   @ViewChild('toggleGroup', {static: false})
   toggleGroup: ElementRef<HTMLElement>;
 
   /**
-   * Template/content query reference `buttonToggleGroup` (`@ViewChild`) targeting button toggle group.
+   * Template/content query reference `buttonToggleGroup` (`MatButtonToggleGroup`) targeting button toggle group.
    * @zh 模板/内容视图查询引用 `buttonToggleGroup`（`@ViewChild`），指向按钮开关分组。
    */
   @ViewChild(MatButtonToggleGroup, {static: false})
   buttonToggleGroup: MatButtonToggleGroup;
 
   /**
-   * Template/content query reference `toggleGroupContainer` (`@ViewChild`) targeting toggle group container.
+   * Template/content query reference `toggleGroupContainer` (`ElementRef<HTMLElement>`) targeting toggle group container.
    * @zh 模板/内容视图查询引用 `toggleGroupContainer`（`@ViewChild`），指向开关分组容器。
    */
   @ViewChild('toggleGroupContainer', {static: false})
@@ -267,8 +267,8 @@ export class ToggleHeaderComponent extends _ToggleBase implements OnInit, AfterV
   value;
 
   /**
-   * Output event emitter `valueChange` (`EventEmitter`) firing when value change occurs.
-   * @zh 输出事件 `valueChange`（类型：`EventEmitter`），当触发值变更时向外发出事件。
+   * Output event emitter `valueChange` (`EventEmitter<any>`) firing when value change occurs.
+   * @zh 输出事件 `valueChange`（类型：`EventEmitter<any>`），当触发值变更时向外发出事件。
    */
   @Output()
   valueChange = new EventEmitter();
@@ -373,14 +373,14 @@ export class ToggleHeaderComponent extends _ToggleBase implements OnInit, AfterV
    */
   private isMdLgValue: boolean;
   /**
-   * Property `useSelectSubject` (`BehaviorSubject`) storing use select subject (default: `new BehaviorSubject(false)`).
-   * @zh 属性 `useSelectSubject`（类型：`BehaviorSubject`），用于存储或配置使用下拉选择主题流（默认值：`new BehaviorSubject(false)`）。
+   * Property `useSelectSubject` (`BehaviorSubject<boolean>`) storing use select subject (default: `new BehaviorSubject(false)`).
+   * @zh 属性 `useSelectSubject`（类型：`BehaviorSubject<boolean>`），用于存储或配置使用下拉选择主题流（默认值：`new BehaviorSubject(false)`）。
    */
   private useSelectSubject = new BehaviorSubject(false);
 
   /**
-   * Property `useSelect$` (`any`) storing use select.
-   * @zh 属性 `useSelect$`（类型：`any`），用于存储或配置使用下拉选择。
+   * Property `useSelect$` (`Observable<boolean>`) storing use select.
+   * @zh 属性 `useSelect$`（类型：`Observable<boolean>`），用于存储或配置使用下拉选择。
    */
   useSelect$ = this.useSelectSubject.asObservable().pipe(distinctUntilChanged());
 
@@ -504,7 +504,7 @@ export class ToggleHeaderComponent extends _ToggleBase implements OnInit, AfterV
 
   /**
    * Executes `trackByHeaderOption` to handle track by header option.
-   * @zh 执行 `trackByHeaderOption`，用于track按表头选项。
+   * @zh 执行 `trackByHeaderOption`，用于跟踪按表头选项。
    * @param index - index parameter (`number`) / 索引参数（`number`）
    * @param option - option parameter (`ToggleHeaderOption`) / 选项参数（`ToggleHeaderOption`）
    */

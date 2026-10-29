@@ -26,8 +26,8 @@ export interface ResolvedItemConfig {
      */
     readonly content: readonly ResolvedItemConfig[];
     /**
-     * Property `size` (`number|any`) storing size.
-     * @zh 属性 `size`（类型：`number|any`），用于存储或配置尺寸。
+     * Property `size` (`any`) storing size.
+     * @zh 属性 `size`（类型：`any`），用于存储或配置尺寸。
      */
     readonly size;
     /**
@@ -36,8 +36,8 @@ export interface ResolvedItemConfig {
      */
     readonly sizeUnit: SizeUnitEnum;
     /**
-     * Property `minSize` (`number | undefined`) storing min size.
-     * @zh 属性 `minSize`（类型：`number | undefined`），用于存储或配置最小值尺寸。
+     * Property `minSize` (`number`) storing min size.
+     * @zh 属性 `minSize`（类型：`number`），用于存储或配置最小值尺寸。
      */
     readonly minSize: number | undefined;
     /**
@@ -127,7 +127,7 @@ export namespace ResolvedItemConfig {
      * Executes `isComponentItem` to handle is component item.
      * @zh 执行 `isComponentItem`，用于是否为组件条目。
      * @param itemConfig - item config parameter (`ResolvedItemConfig`) / 条目配置参数（`ResolvedItemConfig`）
-     * @returns Result of type `itemConfig is ResolvedComponentItemConfig` / 类型为 `itemConfig is ResolvedComponentItemConfig` 的返回值
+     * @returns Result of type `boolean` / 类型为 `boolean` 的返回值
      */
     export function isComponentItem(itemConfig: ResolvedItemConfig): itemConfig is ResolvedComponentItemConfig {
         return itemConfig.type === ItemType.component;
@@ -137,7 +137,7 @@ export namespace ResolvedItemConfig {
      * Executes `isStackItem` to handle is stack item.
      * @zh 执行 `isStackItem`，用于是否为栈条目。
      * @param itemConfig - item config parameter (`ResolvedItemConfig`) / 条目配置参数（`ResolvedItemConfig`）
-     * @returns Result of type `itemConfig is ResolvedStackItemConfig` / 类型为 `itemConfig is ResolvedStackItemConfig` 的返回值
+     * @returns Result of type `boolean` / 类型为 `boolean` 的返回值
      */
     export function isStackItem(itemConfig: ResolvedItemConfig): itemConfig is ResolvedStackItemConfig {
         return itemConfig.type === ItemType.stack;
@@ -161,8 +161,8 @@ export namespace ResolvedItemConfig {
  */
 export interface ResolvedHeaderedItemConfig extends ResolvedItemConfig {
     /**
-     * Property `header` (`ResolvedHeaderedItemConfig.Header | undefined`) storing header.
-     * @zh 属性 `header`（类型：`ResolvedHeaderedItemConfig.Header | undefined`），用于存储或配置表头。
+     * Property `header` (`ResolvedHeaderedItemConfig.Header`) storing header.
+     * @zh 属性 `header`（类型：`ResolvedHeaderedItemConfig.Header`），用于存储或配置表头。
      */
     header: ResolvedHeaderedItemConfig.Header | undefined; // undefined means get header settings from LayoutConfig
     /**
@@ -187,33 +187,33 @@ export namespace ResolvedHeaderedItemConfig {
     export interface Header {
         // undefined means get property value from LayoutConfig
         /**
-         * Property `show` (`false | Side | undefined`) storing show.
-         * @zh 属性 `show`（类型：`false | Side | undefined`），用于存储或配置显示。
+         * Property `show` (`false | Side`) storing show.
+         * @zh 属性 `show`（类型：`false | Side`），用于存储或配置显示。
          */
         readonly show: false | Side | undefined;
         /**
-         * Property `popout` (`false | string | undefined`) storing popout.
-         * @zh 属性 `popout`（类型：`false | string | undefined`），用于存储或配置弹出窗口。
+         * Property `popout` (`string | false`) storing popout.
+         * @zh 属性 `popout`（类型：`string | false`），用于存储或配置弹出窗口。
          */
         readonly popout: false | string | undefined;
         /**
-         * Property `maximise` (`false | string | undefined`) storing maximise.
-         * @zh 属性 `maximise`（类型：`false | string | undefined`），用于存储或配置最大化。
+         * Property `maximise` (`string | false`) storing maximise.
+         * @zh 属性 `maximise`（类型：`string | false`），用于存储或配置最大化。
          */
         readonly maximise: false | string | undefined;
         /**
-         * Property `close` (`string | undefined`) storing close.
-         * @zh 属性 `close`（类型：`string | undefined`），用于存储或配置关闭。
+         * Property `close` (`string`) storing close.
+         * @zh 属性 `close`（类型：`string`），用于存储或配置关闭。
          */
         readonly close: string | undefined;
         /**
-         * Property `minimise` (`string | undefined`) storing minimise.
-         * @zh 属性 `minimise`（类型：`string | undefined`），用于存储或配置minimise。
+         * Property `minimise` (`string`) storing minimise.
+         * @zh 属性 `minimise`（类型：`string`），用于存储或配置minimise。
          */
         readonly minimise: string | undefined;
         /**
-         * Property `tabDropdown` (`false | string | undefined`) storing tab dropdown.
-         * @zh 属性 `tabDropdown`（类型：`false | string | undefined`），用于存储或配置选项卡下拉框。
+         * Property `tabDropdown` (`string | false`) storing tab dropdown.
+         * @zh 属性 `tabDropdown`（类型：`string | false`），用于存储或配置选项卡下拉框。
          */
         readonly tabDropdown: false | string | undefined;
     }
@@ -222,9 +222,9 @@ export namespace ResolvedHeaderedItemConfig {
         /**
          * Executes `createCopy` to handle create copy.
          * @zh 执行 `createCopy`，用于创建复制。
-         * @param original - original parameter (`Header | undefined`) / 原始参数（`Header | undefined`）
+         * @param original - original parameter (`Header`) / 原始参数（`Header`）
          * @param show - show parameter (`false | Side`) / 显示参数（`false | Side`）
-         * @returns Result of type `Header | undefined` / 类型为 `Header | undefined` 的返回值
+         * @returns Result of type `Header` / 类型为 `Header` 的返回值
          */
         export function createCopy(original: Header | undefined, show?: false | Side): Header | undefined {
             if (original === undefined) {
@@ -250,8 +250,8 @@ export namespace ResolvedHeaderedItemConfig {
  */
 export interface ResolvedStackItemConfig extends ResolvedHeaderedItemConfig {
     /**
-     * Property `type` (`'stack'`) storing type.
-     * @zh 属性 `type`（类型：`'stack'`），用于存储或配置类型。
+     * Property `type` (`"stack"`) storing type.
+     * @zh 属性 `type`（类型：`"stack"`），用于存储或配置类型。
      */
     readonly type: 'stack';
     /**
@@ -261,7 +261,7 @@ export interface ResolvedStackItemConfig extends ResolvedHeaderedItemConfig {
     readonly content: ResolvedComponentItemConfig[];
     /**
      * The index of the active item in the Stack.  Only undefined if the Stack is empty.
-     * @zh 属性 `activeItemIndex`（类型：`number | undefined`），用于存储或配置激活条目索引。
+     * @zh 属性 `activeItemIndex`（类型：`number`），用于存储或配置激活条目索引。
      */
     readonly activeItemIndex: number | undefined;
 }
@@ -344,8 +344,8 @@ export namespace ResolvedStackItemConfig {
 export interface ResolvedComponentItemConfig extends ResolvedHeaderedItemConfig {
     // see ComponentItemConfig for comments
     /**
-     * Property `type` (`'component'`) storing type.
-     * @zh 属性 `type`（类型：`'component'`），用于存储或配置类型。
+     * Property `type` (`"component"`) storing type.
+     * @zh 属性 `type`（类型：`"component"`），用于存储或配置类型。
      */
     readonly type: 'component';
     /**
@@ -387,7 +387,7 @@ export namespace ResolvedComponentItemConfig {
      * Executes `resolveComponentTypeName` to handle resolve component type name.
      * @zh 执行 `resolveComponentTypeName`，用于解析组件类型名称。
      * @param itemConfig - item config parameter (`ResolvedComponentItemConfig`) / 条目配置参数（`ResolvedComponentItemConfig`）
-     * @returns Result of type `string | undefined` / 类型为 `string | undefined` 的返回值
+     * @returns Result of type `string` / 类型为 `string` 的返回值
      */
     export function resolveComponentTypeName(itemConfig: ResolvedComponentItemConfig): string | undefined {
         const componentType = itemConfig.componentType;
@@ -429,7 +429,7 @@ export namespace ResolvedComponentItemConfig {
      * @zh 执行 `createDefault`，用于创建默认。
      * @param componentType - component type parameter (`JsonValue`) / 组件类型参数（`JsonValue`）
      * @param componentState - component state parameter (`JsonValue`) / 组件状态参数（`JsonValue`）
-     * @param title - title parameter (`any`) / 标题参数（`any`）
+     * @param title - title parameter (`string`) / 标题参数（`string`）
      * @returns Result of type `ResolvedComponentItemConfig` / 类型为 `ResolvedComponentItemConfig` 的返回值
      */
     export function createDefault(componentType: JsonValue = '', componentState?: JsonValue, title = ''): ResolvedComponentItemConfig {
@@ -470,14 +470,14 @@ export namespace ResolvedComponentItemConfig {
  */
 export interface ResolvedRowOrColumnItemConfig extends ResolvedItemConfig {
     /**
-     * Property `type` (`'row' | 'column'`) storing type.
-     * @zh 属性 `type`（类型：`'row' | 'column'`），用于存储或配置类型。
+     * Property `type` (`"column" | "row"`) storing type.
+     * @zh 属性 `type`（类型：`"column" | "row"`），用于存储或配置类型。
      */
     readonly type: 'row' | 'column';
     /** Note that RowOrColumn ResolvedItemConfig contents, can contain ComponentItem itemConfigs.  However
      * when ContentItems are created, these ComponentItem itemConfigs will create a Stack with a child ComponentItem.
 
-     * @zh 属性 `content`（类型：`readonly (ResolvedRowOrColumnItemConfig | ResolvedStackItemConfig | Re...`），用于存储或配置内容。
+     * @zh 属性 `content`（类型：`readonly (ResolvedComponentItemConfig | ResolvedStackItemConfig | ResolvedRowOrColumnItemConfig)[]`），用于存储或配置内容。
      */
     readonly content: readonly (ResolvedRowOrColumnItemConfig | ResolvedStackItemConfig | ResolvedComponentItemConfig)[];
 }
@@ -494,7 +494,7 @@ export namespace ResolvedRowOrColumnItemConfig {
      * Executes `isChildItemConfig` to handle is child item config.
      * @zh 执行 `isChildItemConfig`，用于是否为子级条目配置。
      * @param itemConfig - item config parameter (`ResolvedItemConfig`) / 条目配置参数（`ResolvedItemConfig`）
-     * @returns Result of type `itemConfig is ChildItemConfig` / 类型为 `itemConfig is ChildItemConfig` 的返回值
+     * @returns Result of type `boolean` / 类型为 `boolean` 的返回值
      */
     export function isChildItemConfig(itemConfig: ResolvedItemConfig): itemConfig is ChildItemConfig {
         switch (itemConfig.type) {
@@ -549,7 +549,7 @@ export namespace ResolvedRowOrColumnItemConfig {
     /**
      * Executes `createDefault` to handle create default.
      * @zh 执行 `createDefault`，用于创建默认。
-     * @param type - type parameter (`'row' | 'column'`) / 类型参数（`'row' | 'column'`）
+     * @param type - type parameter (`"column" | "row"`) / 类型参数（`"column" | "row"`）
      * @returns Result of type `ResolvedRowOrColumnItemConfig` / 类型为 `ResolvedRowOrColumnItemConfig` 的返回值
      */
     export function createDefault(type: 'row' | 'column'): ResolvedRowOrColumnItemConfig {
@@ -594,7 +594,7 @@ export namespace ResolvedRootItemConfig {
      * Executes `isRootItemConfig` to handle is root item config.
      * @zh 执行 `isRootItemConfig`，用于是否为根节点条目配置。
      * @param itemConfig - item config parameter (`ResolvedItemConfig`) / 条目配置参数（`ResolvedItemConfig`）
-     * @returns Result of type `itemConfig is ResolvedRootItemConfig` / 类型为 `itemConfig is ResolvedRootItemConfig` 的返回值
+     * @returns Result of type `boolean` / 类型为 `boolean` 的返回值
      */
     export function isRootItemConfig(itemConfig: ResolvedItemConfig): itemConfig is ResolvedRootItemConfig {
         switch (itemConfig.type) {
@@ -618,8 +618,8 @@ export namespace ResolvedRootItemConfig {
  */
 export interface ResolvedGroundItemConfig extends ResolvedItemConfig {
     /**
-     * Property `type` (`'ground'`) storing type.
-     * @zh 属性 `type`（类型：`'ground'`），用于存储或配置类型。
+     * Property `type` (`"ground"`) storing type.
+     * @zh 属性 `type`（类型：`"ground"`），用于存储或配置类型。
      */
     readonly type: 'ground';
     /**
@@ -643,8 +643,8 @@ export interface ResolvedGroundItemConfig extends ResolvedItemConfig {
      */
     readonly minSizeUnit: SizeUnitEnum.Pixel,
     /**
-     * Property `id` (`''`) storing id.
-     * @zh 属性 `id`（类型：`''`），用于存储或配置唯一标识。
+     * Property `id` (`""`) storing id.
+     * @zh 属性 `id`（类型：`""`），用于存储或配置唯一标识。
      */
     readonly id: '',
     /**
@@ -653,8 +653,8 @@ export interface ResolvedGroundItemConfig extends ResolvedItemConfig {
      */
     readonly isClosable: false,
     /**
-     * Property `title` (`''`) storing title.
-     * @zh 属性 `title`（类型：`''`），用于存储或配置标题。
+     * Property `title` (`""`) storing title.
+     * @zh 属性 `title`（类型：`""`），用于存储或配置标题。
      */
     readonly title: '',
     /**
@@ -669,7 +669,7 @@ export namespace ResolvedGroundItemConfig {
     /**
      * Executes `create` to handle create.
      * @zh 执行 `create`，用于创建。
-     * @param rootItemConfig - root item config parameter (`ResolvedRootItemConfig | undefined`) / 根节点条目配置参数（`ResolvedRootItemConfig | undefined`）
+     * @param rootItemConfig - root item config parameter (`ResolvedRootItemConfig`) / 根节点条目配置参数（`ResolvedRootItemConfig`）
      * @returns Result of type `ResolvedGroundItemConfig` / 类型为 `ResolvedGroundItemConfig` 的返回值
      */
     export function create(rootItemConfig: ResolvedRootItemConfig | undefined):ResolvedGroundItemConfig {
@@ -696,8 +696,8 @@ export namespace ResolvedGroundItemConfig {
  */
 export interface ResolvedLayoutConfig {
     /**
-     * Property `root` (`ResolvedRootItemConfig | undefined`) storing root.
-     * @zh 属性 `root`（类型：`ResolvedRootItemConfig | undefined`），用于存储或配置根节点。
+     * Property `root` (`ResolvedRootItemConfig`) storing root.
+     * @zh 属性 `root`（类型：`ResolvedRootItemConfig`），用于存储或配置根节点。
      */
     readonly root: ResolvedRootItemConfig | undefined;
     /**
@@ -929,8 +929,8 @@ export namespace ResolvedLayoutConfig {
          */
         readonly show: false | Side;
         /**
-         * Property `popout` (`false | string`) storing popout.
-         * @zh 属性 `popout`（类型：`false | string`），用于存储或配置弹出窗口。
+         * Property `popout` (`string | false`) storing popout.
+         * @zh 属性 `popout`（类型：`string | false`），用于存储或配置弹出窗口。
          */
         readonly popout: false | string;
         /**
@@ -939,8 +939,8 @@ export namespace ResolvedLayoutConfig {
          */
         readonly dock: string;
         /**
-         * Property `maximise` (`false | string`) storing maximise.
-         * @zh 属性 `maximise`（类型：`false | string`），用于存储或配置最大化。
+         * Property `maximise` (`string | false`) storing maximise.
+         * @zh 属性 `maximise`（类型：`string | false`），用于存储或配置最大化。
          */
         readonly maximise: false | string;
         /**
@@ -949,13 +949,13 @@ export namespace ResolvedLayoutConfig {
          */
         readonly minimise: string;
         /**
-         * Property `close` (`false | string`) storing close.
-         * @zh 属性 `close`（类型：`false | string`），用于存储或配置关闭。
+         * Property `close` (`string | false`) storing close.
+         * @zh 属性 `close`（类型：`string | false`），用于存储或配置关闭。
          */
         readonly close: false | string;
         /**
-         * Property `tabDropdown` (`false | string`) storing tab dropdown.
-         * @zh 属性 `tabDropdown`（类型：`false | string`），用于存储或配置选项卡下拉框。
+         * Property `tabDropdown` (`string | false`) storing tab dropdown.
+         * @zh 属性 `tabDropdown`（类型：`string | false`），用于存储或配置选项卡下拉框。
          */
         readonly tabDropdown: false | string;
     }
@@ -998,7 +998,7 @@ export namespace ResolvedLayoutConfig {
      * Executes `isPopout` to handle is popout.
      * @zh 执行 `isPopout`，用于是否为弹出窗口。
      * @param config - config parameter (`ResolvedLayoutConfig`) / 配置参数（`ResolvedLayoutConfig`）
-     * @returns Result of type `config is ResolvedPopoutLayoutConfig` / 类型为 `config is ResolvedPopoutLayoutConfig` 的返回值
+     * @returns Result of type `boolean` / 类型为 `boolean` 的返回值
      */
     export function isPopout(config: ResolvedLayoutConfig): config is ResolvedPopoutLayoutConfig {
         return 'parentId' in config;
@@ -1063,7 +1063,7 @@ export namespace ResolvedLayoutConfig {
      * replaces its keys and values recursively with
      * one letter counterparts
 
-     * @zh 执行 `minifyConfig`，用于minify配置。
+     * @zh 执行 `minifyConfig`，用于压缩配置。
      */
     export function minifyConfig(layoutConfig: ResolvedLayoutConfig): ResolvedLayoutConfig {
         return ConfigMinifier.translateObject(layoutConfig, true) as ResolvedLayoutConfig;
@@ -1072,7 +1072,7 @@ export namespace ResolvedLayoutConfig {
 
     /**
      * Executes `unminifyConfig` to handle unminify config.
-     * @zh 执行 `unminifyConfig`，用于unminify配置。
+     * @zh 执行 `unminifyConfig`，用于展开压缩的配置。
      * @param minifiedConfig - minified config parameter (`ResolvedLayoutConfig`) / minified配置参数（`ResolvedLayoutConfig`）
      * @returns Result of type `ResolvedLayoutConfig` / 类型为 `ResolvedLayoutConfig` 的返回值
      */
@@ -1088,13 +1088,13 @@ export namespace ResolvedLayoutConfig {
  */
 export interface ResolvedPopoutLayoutConfig extends ResolvedLayoutConfig {
     /**
-     * Property `parentId` (`string | null`) storing parent id.
-     * @zh 属性 `parentId`（类型：`string | null`），用于存储或配置父级唯一标识。
+     * Property `parentId` (`string`) storing parent id.
+     * @zh 属性 `parentId`（类型：`string`），用于存储或配置父级唯一标识。
      */
     readonly parentId: string | null;
     /**
-     * Property `indexInParent` (`number | null`) storing index in parent.
-     * @zh 属性 `indexInParent`（类型：`number | null`），用于存储或配置索引在父级。
+     * Property `indexInParent` (`number`) storing index in parent.
+     * @zh 属性 `indexInParent`（类型：`number`），用于存储或配置索引在父级。
      */
     readonly indexInParent: number | null;
     /**
@@ -1112,23 +1112,23 @@ export namespace ResolvedPopoutLayoutConfig {
      */
     export interface Window {
         /**
-         * Property `width` (`number | null`) storing width.
-         * @zh 属性 `width`（类型：`number | null`），用于存储或配置宽度。
+         * Property `width` (`number`) storing width.
+         * @zh 属性 `width`（类型：`number`），用于存储或配置宽度。
          */
         readonly width: number | null,
         /**
-         * Property `height` (`number | null`) storing height.
-         * @zh 属性 `height`（类型：`number | null`），用于存储或配置高度。
+         * Property `height` (`number`) storing height.
+         * @zh 属性 `height`（类型：`number`），用于存储或配置高度。
          */
         readonly height: number | null,
         /**
-         * Property `left` (`number | null`) storing left.
-         * @zh 属性 `left`（类型：`number | null`），用于存储或配置左侧位置。
+         * Property `left` (`number`) storing left.
+         * @zh 属性 `left`（类型：`number`），用于存储或配置左侧位置。
          */
         readonly left: number | null,
         /**
-         * Property `top` (`number | null`) storing top.
-         * @zh 属性 `top`（类型：`number | null`），用于存储或配置顶部位置。
+         * Property `top` (`number`) storing top.
+         * @zh 属性 `top`（类型：`number`），用于存储或配置顶部位置。
          */
         readonly top: number | null,
     }

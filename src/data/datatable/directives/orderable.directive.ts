@@ -29,7 +29,7 @@ export class OrderableDirective implements AfterContentInit, OnDestroy {
   @Output() targetChanged = new EventEmitter();
 
   /**
-   * Template/content query reference `draggables` (`@ContentChildren`) targeting draggables.
+   * Template/content query reference `draggables` (`QueryList<DraggableDirective>`) targeting draggables.
    * @zh 模板/内容视图查询引用 `draggables`（`@ContentChildren`），指向是否可拖拽。
    */
   @ContentChildren(DraggableDirective, { descendants: true })
@@ -51,8 +51,8 @@ export class OrderableDirective implements AfterContentInit, OnDestroy {
    */
   lastDraggingIndex: number;
   /**
-   * Property `draggableSubscriptions` (`Map`) storing draggable subscriptions.
-   * @zh 属性 `draggableSubscriptions`（类型：`Map`），用于存储或配置是否可拖拽订阅集合。
+   * Property `draggableSubscriptions` (`Map<DraggableDirective, Subscription>`) storing draggable subscriptions.
+   * @zh 属性 `draggableSubscriptions`（类型：`Map<DraggableDirective, Subscription>`），用于存储或配置是否可拖拽订阅集合。
    */
   private draggableSubscriptions = new Map<DraggableDirective, Subscription>();
   /**
@@ -203,7 +203,7 @@ export class OrderableDirective implements AfterContentInit, OnDestroy {
    * @zh 执行 `isTarget`，用于是否为目标。
    * @param model - model parameter (`any`) / 模型参数（`any`）
    * @param event - event parameter (`any`) / 事件参数（`any`）
-   * @returns Result of type `any` / 类型为 `any` 的返回值
+   * @returns Result of type `{ pos: any; i: number; }` / 类型为 `{ pos: any; i: number; }` 的返回值
    */
   isTarget(model, event) {
     let i = 0;
@@ -231,7 +231,7 @@ export class OrderableDirective implements AfterContentInit, OnDestroy {
   /**
    * Executes `createMapDiffs` to handle create map diffs.
    * @zh 执行 `createMapDiffs`，用于创建映射表Diffs。
-   * @returns Result of type `{ [key: string]: DraggableDirective }` / 类型为 `{ [key: string]: DraggableDirective }` 的返回值
+   * @returns Result of type `{ [key: string]: DraggableDirective; }` / 类型为 `{ [key: string]: DraggableDirective; }` 的返回值
    */
   private createMapDiffs(): { [key: string]: DraggableDirective } {
     return this.draggables.toArray().reduce((acc, curr) => {

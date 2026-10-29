@@ -60,13 +60,13 @@ export class FeatureDirective implements OnInit, OnDestroy {
   private _key: string;
 
   /**
-   * Property `_else` (`TemplateRef<any>`) storing else.
-   * @zh 属性 `_else`（类型：`TemplateRef<any>`），用于存储或配置else。
+   * Property `_else` (`TemplateRef<unknown>`) storing else.
+   * @zh 属性 `_else`（类型：`TemplateRef<unknown>`），用于存储或配置else。
    */
   private _else: TemplateRef<unknown>;
 
   /**
-   * Property `shown` (`'main' | 'else' | 'none'`) storing shown (default: `'none'`).
+   * Property `shown` (`"main" | "none" | "else"`) storing shown (default: `'none'`).
    * 当前渲染的是哪一个,避免每次变更都拆了重建
    * @zh 当前渲染的是哪一个,避免每次变更都拆了重建
    */
@@ -81,7 +81,7 @@ export class FeatureDirective implements OnInit, OnDestroy {
   /**
    * Creates an instance of `FeatureDirective` and initializes its dependencies and internal state.
    * @zh 创建 `FeatureDirective` 实例，并初始化其依赖项与内部状态。
-   * @param tpl - Injected or initial tpl (`TemplateRef<any>`) / 注入或传入的tpl（`TemplateRef<any>`）
+   * @param tpl - Injected or initial tpl (`TemplateRef<unknown>`) / 注入或传入的tpl（`TemplateRef<unknown>`）
    * @param vcr - Injected or initial vcr (`ViewContainerRef`) / 注入或传入的vcr（`ViewContainerRef`）
    * @param features - Injected or initial features (`FeatureService`) / 注入或传入的features（`FeatureService`）
    */

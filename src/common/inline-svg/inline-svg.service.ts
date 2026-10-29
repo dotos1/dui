@@ -23,8 +23,8 @@ export class InlineSVGService {
    */
   private _renderer: Renderer2;
   /**
-   * Property `_ranScripts` (`{ [url: string]: boolean }`) storing ran scripts (default: `{}`).
-   * @zh 属性 `_ranScripts`（类型：`{ [url: string]: boolean }`），用于存储或配置ranScripts（默认值：`{}`）。
+   * Property `_ranScripts` (`{ [url: string]: boolean; }`) storing ran scripts (default: `{}`).
+   * @zh 属性 `_ranScripts`（类型：`{ [url: string]: boolean; }`），用于存储或配置ranScripts（默认值：`{}`）。
    */
   private _ranScripts: { [url: string]: boolean } = {};
 

@@ -55,14 +55,14 @@ export class ButtonBase extends ComponentBase {
    matTooltip: MatTooltip;
 
    /**
-    * Property `config` (`any`) storing config (default: `{}`).
-    * @zh 属性 `config`（类型：`any`），用于存储或配置配置（默认值：`{}`）。
+    * Property `config` (`DuiButtonConfig`) storing config (default: `{}`).
+    * @zh 属性 `config`（类型：`DuiButtonConfig`），用于存储或配置配置（默认值：`{}`）。
     */
    config: DuiButtonConfig = {};
 
    /**
-    * Property `data` (`any`) storing data.
-    * @zh 属性 `data`（类型：`any`），用于存储或配置数据。
+    * Property `data` (`unknown`) storing data.
+    * @zh 属性 `data`（类型：`unknown`），用于存储或配置数据。
     */
    /** 点击时传给 handler 的数据（缺省传按钮自身） */
    data: unknown;
@@ -74,8 +74,8 @@ export class ButtonBase extends ComponentBase {
    override ownerCt;
 
    /**
-    * Property `click` (`EventEmitter`) storing click (default: `new EventEmitter<any>()`).
-    * @zh 属性 `click`（类型：`EventEmitter`），用于存储或配置点击（默认值：`new EventEmitter<any>()`）。
+    * Property `click` (`EventEmitter<any>`) storing click (default: `new EventEmitter<any>()`).
+    * @zh 属性 `click`（类型：`EventEmitter<any>`），用于存储或配置点击（默认值：`new EventEmitter<any>()`）。
     */
    click = new EventEmitter();
 
@@ -96,7 +96,7 @@ export class ButtonBase extends ComponentBase {
   /**
    * Sets the items (`items`).
    * @zh 设置条目列表（`items`）。
-   * @param items - New items value (`any`) / 新的条目列表值（`any`）
+   * @param items - New items value (`(string | DuiButtonMenuItem)[]`) / 新的条目列表值（`(string | DuiButtonMenuItem)[]`）
    */
   public set items(items: Array<DuiButtonMenuItem | string>) {
     this.processItems(items);
@@ -105,38 +105,38 @@ export class ButtonBase extends ComponentBase {
   }
 
   /**
-   * Property `_items` (`Array<any>`) storing items (default: `[]`).
-   * @zh 属性 `_items`（类型：`Array<any>`），用于存储或配置条目列表（默认值：`[]`）。
+   * Property `_items` (`(string | DuiButtonMenuItem)[]`) storing items (default: `[]`).
+   * @zh 属性 `_items`（类型：`(string | DuiButtonMenuItem)[]`），用于存储或配置条目列表（默认值：`[]`）。
    */
   public _items: Array<DuiButtonMenuItem | string> = [];
 
   /**
-   * Property `flex` (`any`) storing flex.
-   * @zh 属性 `flex`（类型：`any`），用于存储或配置flex。
+   * Property `flex` (`string | number`) storing flex.
+   * @zh 属性 `flex`（类型：`string | number`），用于存储或配置flex。
    */
   public flex: number | string;
 
   /**
-   * Property `title` (`any`) storing title.
-   * @zh 属性 `title`（类型：`any`），用于存储或配置标题。
+   * Property `title` (`string`) storing title.
+   * @zh 属性 `title`（类型：`string`），用于存储或配置标题。
    */
   public title: string;
 
   /**
-   * Property `text` (`any`) storing text.
-   * @zh 属性 `text`（类型：`any`），用于存储或配置文本。
+   * Property `text` (`string`) storing text.
+   * @zh 属性 `text`（类型：`string`），用于存储或配置文本。
    */
   public text: string;
 
   /**
-   * Property `value` (`any`) storing value.
-   * @zh 属性 `value`（类型：`any`），用于存储或配置值。
+   * Property `value` (`string`) storing value.
+   * @zh 属性 `value`（类型：`string`），用于存储或配置值。
    */
   public value: string;
 
   /**
-   * Property `default` (`any`) storing default.
-   * @zh 属性 `default`（类型：`any`），用于存储或配置默认。
+   * Property `default` (`string`) storing default.
+   * @zh 属性 `default`（类型：`string`），用于存储或配置默认。
    */
   public default: string;
 
@@ -153,14 +153,14 @@ export class ButtonBase extends ComponentBase {
   public color: string = '';
 
   /**
-   * Property `toolTip` (`any`) storing tool tip.
-   * @zh 属性 `toolTip`（类型：`any`），用于存储或配置tool提示。
+   * Property `toolTip` (`string`) storing tool tip.
+   * @zh 属性 `toolTip`（类型：`string`），用于存储或配置tool提示。
    */
   public toolTip: string;
 
   /**
-   * Property `icon` (`any`) storing icon.
-   * @zh 属性 `icon`（类型：`any`），用于存储或配置图标。
+   * Property `icon` (`string`) storing icon.
+   * @zh 属性 `icon`（类型：`string`），用于存储或配置图标。
    */
   public icon: string;
 
@@ -177,15 +177,15 @@ export class ButtonBase extends ComponentBase {
   public svgIcon = "";
 
   /**
-   * Property `handler` (`any`) storing handler.
-   * @zh 属性 `handler`（类型：`any`），用于存储或配置处理器。
+   * Property `handler` (`Function`) storing handler.
+   * @zh 属性 `handler`（类型：`Function`），用于存储或配置处理器。
    */
   public handler: Function;
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   /**
-   * Property `change` (`any`) storing change (default: `(value)=>{}`).
-   * @zh 属性 `change`（类型：`any`），用于存储或配置变更（默认值：`(value)=>{}`）。
+   * Property `change` (`(value: unknown) => void`) storing change (default: `(value)=>{}`).
+   * @zh 属性 `change`（类型：`(value: unknown) => void`），用于存储或配置变更（默认值：`(value)=>{}`）。
    */
   public change = (value: unknown): void => {};
 
@@ -196,14 +196,14 @@ export class ButtonBase extends ComponentBase {
   public tabIndex: number = 0;
 
   /**
-   * Property `menu` (`any`) storing menu.
-   * @zh 属性 `menu`（类型：`any`），用于存储或配置菜单。
+   * Property `menu` (`unknown`) storing menu.
+   * @zh 属性 `menu`（类型：`unknown`），用于存储或配置菜单。
    */
   public menu: unknown;
 
   /**
-   * Property `style` (`any`) storing style.
-   * @zh 属性 `style`（类型：`any`），用于存储或配置样式。
+   * Property `style` (`DuiStyle`) storing style.
+   * @zh 属性 `style`（类型：`DuiStyle`），用于存储或配置样式。
    */
   public override style: DuiStyle;
 
@@ -240,7 +240,7 @@ export class ButtonBase extends ComponentBase {
   /**
    * Creates an instance of `ButtonBase` and initializes its dependencies and internal state.
    * @zh 创建 `ButtonBase` 实例，并初始化其依赖项与内部状态。
-   * @param _element - Injected or initial element (`ElementRef`) / 注入或传入的元素（`ElementRef`）
+   * @param _element - Injected or initial element (`ElementRef<any>`) / 注入或传入的元素（`ElementRef<any>`）
    * @param renderer - Injected or initial renderer (`Renderer2`) / 注入或传入的渲染器（`Renderer2`）
    * @param changeDetectorRef - Injected or initial change detector ref (`ChangeDetectorRef`) / 注入或传入的变更检测器引用（`ChangeDetectorRef`）
    * @param resolver - Injected or initial resolver (`ComponentFactoryResolver`) / 注入或传入的解析器（`ComponentFactoryResolver`）
@@ -266,7 +266,7 @@ export class ButtonBase extends ComponentBase {
   /**
    * Executes `init` to handle init.
    * @zh 执行 `init`，用于初始化。
-   * @param config - config parameter (`any`) / 配置参数（`any`）
+   * @param config - config parameter (`DuiButtonConfig`) / 配置参数（`DuiButtonConfig`）
    */
   override init(config?: DuiButtonConfig): void {
     super.init(config);
@@ -285,7 +285,7 @@ export class ButtonBase extends ComponentBase {
   /**
    * Executes `processItems` to handle process items.
    * @zh 执行 `processItems`，用于处理条目列表。
-   * @param items - items parameter (`any`) / 条目列表参数（`any`）
+   * @param items - items parameter (`(string | DuiButtonMenuItem)[]`) / 条目列表参数（`(string | DuiButtonMenuItem)[]`）
    */
   processItems(items: Array<DuiButtonMenuItem | string>): void {
     for (let i = 0; i < items.length; i++) {
@@ -328,8 +328,8 @@ export class ButtonBase extends ComponentBase {
   /**
    * Executes `onValueChange` to handle on value change.
    * @zh 执行 `onValueChange`，用于当值变更。
-   * @param value - value parameter (`any`) / 值参数（`any`）
-   * @param e - e parameter (`any`) / e参数（`any`）
+   * @param value - value parameter (`unknown`) / 值参数（`unknown`）
+   * @param e - e parameter (`unknown`) / e参数（`unknown`）
    */
   public onValueChange(value: unknown, e?: unknown): void {
     this.setValue(value);
@@ -402,7 +402,7 @@ export class ButtonBase extends ComponentBase {
   /**
    * Executes `getValue` to handle get value.
    * @zh 执行 `getValue`，用于获取值。
-   * @returns Result of type `any` / 类型为 `any` 的返回值
+   * @returns Result of type `string` / 类型为 `string` 的返回值
    */
   getValue(): string {
     return this.value;
@@ -454,7 +454,7 @@ export class ButtonBase extends ComponentBase {
   /**
    * Executes `onClick` to handle on click.
    * @zh 执行 `onClick`，用于当点击。
-   * @param e - e parameter (`any`) / e参数（`any`）
+   * @param e - e parameter (`Event`) / e参数（`Event`）
    */
   onClick(e?: Event): void {
     if (e) {
@@ -495,7 +495,7 @@ export class ButtonBase extends ComponentBase {
   /**
    * Executes `onDisableChange` to handle on disable change.
    * @zh 执行 `onDisableChange`，用于当禁用变更。
-   * @param disabled - disabled parameter (`any`) / 已禁用参数（`any`）
+   * @param disabled - disabled parameter (`boolean`) / 已禁用参数（`boolean`）
    */
   onDisableChange(disabled: boolean): void {
     this.disabled = disabled;

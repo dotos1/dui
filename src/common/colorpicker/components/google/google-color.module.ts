@@ -32,8 +32,8 @@ import { GoogleColorService } from './google-color.services';
 })
 export class GoogColorModule {
   /**
-   * Property `entryComponents` (`any[]`) storing entry components.
-   * @zh 属性 `entryComponents`（类型：`any[]`），用于存储或配置条目组件列表。
+   * Property `entryComponents` (`(typeof GoogColorPickerComponent | typeof GoogColorComponent)[]`) storing entry components.
+   * @zh 属性 `entryComponents`（类型：`(typeof GoogColorPickerComponent | typeof GoogColorComponent)[]`），用于存储或配置条目组件列表。
    */
   entryComponents = [
     GoogColorPickerComponent,

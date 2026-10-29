@@ -16,7 +16,7 @@ import { distinctUntilChanged } from 'rxjs/operators';
 @Directive({ selector: '[ngx-color-coordinates]' })
 export class CoordinatesDirective implements OnInit, OnDestroy {
   /**
-   * Output event emitter `coordinatesChange` (`Subject`) firing when coordinates change occurs.
+   * Output event emitter `coordinatesChange` (`Subject<{…}>`) firing when coordinates change occurs.
    * @zh 拖拽/点击坐标（相对宿主元素）变化时发出。
    * @zh 拖拽/点击坐标（相对宿主元素）变化时发出。
    */
@@ -31,8 +31,8 @@ export class CoordinatesDirective implements OnInit, OnDestroy {
     $event;
   }>();
   /**
-   * Property `mousechange` (`Subject`) storing mousechange.
-   * @zh 属性 `mousechange`（类型：`Subject`），用于存储或配置mousechange。
+   * Property `mousechange` (`Subject<{ x: number; y: number; $event: any; isTouch: boolean; }>`) storing mousechange.
+   * @zh 属性 `mousechange`（类型：`Subject<{ x: number; y: number; $event: any; isTouch: boolean; }>`），用于存储或配置mousechange。
    */
   private mousechange = new Subject<{
     x: number;
@@ -97,7 +97,7 @@ export class CoordinatesDirective implements OnInit, OnDestroy {
   /**
    * Creates an instance of `CoordinatesDirective` and initializes its dependencies and internal state.
    * @zh 创建 `CoordinatesDirective` 实例，并初始化其依赖项与内部状态。
-   * @param el - Injected or initial el (`ElementRef`) / 注入或传入的DOM元素（`ElementRef`）
+   * @param el - Injected or initial el (`ElementRef<any>`) / 注入或传入的DOM元素（`ElementRef<any>`）
    */
   constructor(private el: ElementRef) {}
 

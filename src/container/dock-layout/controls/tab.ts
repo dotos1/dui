@@ -29,16 +29,16 @@ export class Tab {
      */
     private readonly _titleElement: HTMLSpanElement;
     /**
-     * Property `_closeElement` (`HTMLDivElement | undefined`) storing close element.
+     * Property `_closeElement` (`HTMLDivElement`) storing close element.
      * @internal
-     * @zh 属性 `_closeElement`（类型：`HTMLDivElement | undefined`），用于存储或配置关闭元素。
+     * @zh 属性 `_closeElement`（类型：`HTMLDivElement`），用于存储或配置关闭元素。
      */
     private readonly _closeElement: HTMLDivElement | undefined;
 
     /**
-     * Property `_dragListener` (`DragListener | undefined`) storing drag listener.
+     * Property `_dragListener` (`DragListener`) storing drag listener.
      * @internal
-     * @zh 属性 `_dragListener`（类型：`DragListener | undefined`），用于存储或配置拖拽监听器。
+     * @zh 属性 `_dragListener`（类型：`DragListener`），用于存储或配置拖拽监听器。
      */
     private _dragListener: DragListener | undefined;
     /**
@@ -49,47 +49,47 @@ export class Tab {
     private _isActive = false;
 
     /**
-     * Property `_tabClickListener` (`any`) storing tab click listener.
+     * Property `_tabClickListener` (`(ev: MouseEvent) => void`) storing tab click listener.
      * @internal
-     * @zh 属性 `_tabClickListener`（类型：`any`），用于存储或配置选项卡点击监听器。
+     * @zh 属性 `_tabClickListener`（类型：`(ev: MouseEvent) => void`），用于存储或配置选项卡点击监听器。
      */
     private readonly _tabClickListener = (ev: MouseEvent) => this.onTabClickDown(ev);
     /**
-     * Property `_tabTouchStartListener` (`any`) storing tab touch start listener.
+     * Property `_tabTouchStartListener` (`(ev: TouchEvent) => void`) storing tab touch start listener.
      * @internal
-     * @zh 属性 `_tabTouchStartListener`（类型：`any`），用于存储或配置选项卡触摸开始监听器。
+     * @zh 属性 `_tabTouchStartListener`（类型：`(ev: TouchEvent) => void`），用于存储或配置选项卡触摸开始监听器。
      */
     private readonly _tabTouchStartListener = (ev: TouchEvent) => this.onTabTouchStart(ev);
     /**
-     * Property `_closeClickListener` (`any`) storing close click listener (default: `() => this.onCloseClick()`).
+     * Property `_closeClickListener` (`() => void`) storing close click listener (default: `() => this.onCloseClick()`).
      * @internal
-     * @zh 属性 `_closeClickListener`（类型：`any`），用于存储或配置关闭点击监听器（默认值：`() => this.onCloseClick()`）。
+     * @zh 属性 `_closeClickListener`（类型：`() => void`），用于存储或配置关闭点击监听器（默认值：`() => this.onCloseClick()`）。
      */
     private readonly _closeClickListener = () => this.onCloseClick();
     /**
-     * Property `_closeTouchStartListener` (`any`) storing close touch start listener (default: `() => this.onCloseTouchStart()`).
+     * Property `_closeTouchStartListener` (`() => void`) storing close touch start listener (default: `() => this.onCloseTouchStart()`).
      * @internal
-     * @zh 属性 `_closeTouchStartListener`（类型：`any`），用于存储或配置关闭触摸开始监听器（默认值：`() => this.onCloseTouchStart()`）。
+     * @zh 属性 `_closeTouchStartListener`（类型：`() => void`），用于存储或配置关闭触摸开始监听器（默认值：`() => this.onCloseTouchStart()`）。
      */
     private readonly _closeTouchStartListener = () => this.onCloseTouchStart();
     // /** @internal */
     // private readonly _closeMouseDownListener = () => this.onCloseMousedown();
     /**
-     * Property `_dragStartListener` (`any`) storing drag start listener.
+     * Property `_dragStartListener` (`(x: number, y: number) => void`) storing drag start listener.
      * @internal
-     * @zh 属性 `_dragStartListener`（类型：`any`），用于存储或配置拖拽开始监听器。
+     * @zh 属性 `_dragStartListener`（类型：`(x: number, y: number) => void`），用于存储或配置拖拽开始监听器。
      */
     private readonly _dragStartListener = (x: number, y: number) => this.onDragStart(x, y);
     /**
-     * Property `_contentItemDestroyListener` (`any`) storing content item destroy listener (default: `() => this.onContentItemDestroy()`).
+     * Property `_contentItemDestroyListener` (`() => void`) storing content item destroy listener (default: `() => this.onContentItemDestroy()`).
      * @internal
-     * @zh 属性 `_contentItemDestroyListener`（类型：`any`），用于存储或配置内容条目销毁监听器（默认值：`() => this.onContentItemDestroy()`）。
+     * @zh 属性 `_contentItemDestroyListener`（类型：`() => void`），用于存储或配置内容条目销毁监听器（默认值：`() => this.onContentItemDestroy()`）。
      */
     private readonly _contentItemDestroyListener = () => this.onContentItemDestroy();
     /**
-     * Property `_tabTitleChangedListener` (`any`) storing tab title changed listener (default: `(title: string) => this.setTitle(title)`).
+     * Property `_tabTitleChangedListener` (`(title: string) => void`) storing tab title changed listener (default: `(title: string) => this.setTitle(title)`).
      * @internal
-     * @zh 属性 `_tabTitleChangedListener`（类型：`any`），用于存储或配置选项卡标题已变更监听器（默认值：`(title: string) => this.setTitle(title)`）。
+     * @zh 属性 `_tabTitleChangedListener`（类型：`(title: string) => void`），用于存储或配置选项卡标题已变更监听器（默认值：`(title: string) => this.setTitle(title)`）。
      */
     private readonly _tabTitleChangedListener = (title: string) => this.setTitle(title)
 

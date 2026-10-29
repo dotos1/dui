@@ -57,8 +57,8 @@ import { MatInputModule } from '@angular/material/input';
 })
 export class LineStyleModule {
   /**
-   * Property `entryComponents` (`any[]`) storing entry components (default: `[ LineStyleSelector, LineSizeSelector ]`).
-   * @zh 属性 `entryComponents`（类型：`any[]`），用于存储或配置条目组件列表（默认值：`[ LineStyleSelector, LineSizeSelector ]`）。
+   * Property `entryComponents` (`(typeof LineStyleSelector | typeof LineSizeSelector)[]`) storing entry components (default: `[ LineStyleSelector, LineSizeSelector ]`).
+   * @zh 属性 `entryComponents`（类型：`(typeof LineStyleSelector | typeof LineSizeSelector)[]`），用于存储或配置条目组件列表（默认值：`[ LineStyleSelector, LineSizeSelector ]`）。
    */
   entryComponents = [
     LineStyleSelector,

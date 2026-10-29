@@ -64,7 +64,7 @@ export class SpeedDialActionsComponent implements AfterContentInit {
   private _parent: SpeedDialComponent;
 
   /**
-   * Template/content query reference `_buttons` (`@ContentChildren`) targeting buttons.
+   * Template/content query reference `_buttons` (`QueryList<MatMiniFabButton>`) targeting buttons.
    * @zh 模板/内容视图查询引用 `_buttons`（`@ContentChildren`），指向按钮。
    */
   @ContentChildren(MatMiniFabButton) _buttons: QueryList<MatMiniFabButton>;
@@ -80,14 +80,14 @@ export class SpeedDialActionsComponent implements AfterContentInit {
   /**
    * The timeout ID for the callback to show the mini-fab buttons
 
-   * @zh 属性 `showMiniFabAnimation`（类型：`ReturnType<typeof setTimeout>`），用于存储或配置显示MiniFab动画。
+   * @zh 属性 `showMiniFabAnimation`（类型：`number`），用于存储或配置显示MiniFab动画。
    */
   private showMiniFabAnimation: ReturnType<typeof setTimeout>;
 
 
   /**
-   * Property `hideMiniFab` (`Subscription | null`) storing hide mini fab.
-   * @zh 属性 `hideMiniFab`（类型：`Subscription | null`），用于存储或配置隐藏MiniFab。
+   * Property `hideMiniFab` (`Subscription`) storing hide mini fab.
+   * @zh 属性 `hideMiniFab`（类型：`Subscription`），用于存储或配置隐藏MiniFab。
    */
   private hideMiniFab: Subscription | null;
 
@@ -277,8 +277,8 @@ export class SpeedDialComponent implements OnDestroy, AfterContentInit {
      */
     private _fixed = false;
     /**
-     * Property `_documentClickUnlistener` (`(() => void) | null`) storing document click unlistener (default: `null`).
-     * @zh 属性 `_documentClickUnlistener`（类型：`(() => void) | null`），用于存储或配置文档对象点击取消监听器（默认值：`null`）。
+     * Property `_documentClickUnlistener` (`() => void`) storing document click unlistener (default: `null`).
+     * @zh 属性 `_documentClickUnlistener`（类型：`() => void`），用于存储或配置文档对象点击取消监听器（默认值：`null`）。
      */
     private _documentClickUnlistener: (() => void) | null = null;
 
@@ -394,7 +394,7 @@ export class SpeedDialComponent implements OnDestroy, AfterContentInit {
     @Output() openChange: EventEmitter<boolean> = new EventEmitter<boolean>();
 
     /**
-     * Template/content query reference `_childActions` (`@ContentChild`) targeting child actions.
+     * Template/content query reference `_childActions` (`SpeedDialActionsComponent`) targeting child actions.
      * @zh 模板/内容视图查询引用 `_childActions`（`@ContentChild`），指向子级动作列表。
      */
     @ContentChild(SpeedDialActionsComponent) _childActions: SpeedDialActionsComponent;
@@ -402,7 +402,7 @@ export class SpeedDialComponent implements OnDestroy, AfterContentInit {
     /**
      * Creates an instance of `SpeedDialComponent` and initializes its dependencies and internal state.
      * @zh 创建 `SpeedDialComponent` 实例，并初始化其依赖项与内部状态。
-     * @param elementRef - Injected or initial element ref (`ElementRef`) / 注入或传入的元素引用（`ElementRef`）
+     * @param elementRef - Injected or initial element ref (`ElementRef<any>`) / 注入或传入的元素引用（`ElementRef<any>`）
      * @param renderer - Injected or initial renderer (`Renderer2`) / 注入或传入的渲染器（`Renderer2`）
      * @param document - Injected or initial document (`any`) / 注入或传入的文档对象（`any`）
      */

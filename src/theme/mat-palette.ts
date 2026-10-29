@@ -9,10 +9,10 @@ import { Palette } from './interfaces';
  * Executes `matPalette` to handle mat palette.
  * @zh 执行 `matPalette`，用于Material调色板。
  * @param basePalette - base palette parameter (`Palette`) / 基础调色板参数（`Palette`）
- * @param defaultColor - default color parameter (`number | string`) / 默认颜色参数（`number | string`）
- * @param lighter - lighter parameter (`number | string`) / 浅色器参数（`number | string`）
- * @param darker - darker parameter (`number | string`) / 深色器参数（`number | string`）
- * @param text - text parameter (`any`) / 文本参数（`any`）
+ * @param defaultColor - default color parameter (`string | number`) / 默认颜色参数（`string | number`）
+ * @param lighter - lighter parameter (`string | number`) / 浅色器参数（`string | number`）
+ * @param darker - darker parameter (`string | number`) / 深色器参数（`string | number`）
+ * @param text - text parameter (`string | number`) / 文本参数（`string | number`）
  * @returns Result of type `Palette` / 类型为 `Palette` 的返回值
  */
 export function matPalette(basePalette: Palette, defaultColor: number | string = 500, lighter: number | string = 100, darker: number | string = 700,text= defaultColor): Palette {
@@ -39,7 +39,7 @@ export function matPalette(basePalette: Palette, defaultColor: number | string =
  * Executes `matContrast` to handle mat contrast.
  * @zh 执行 `matContrast`，用于Material对比度。
  * @param palette - palette parameter (`Palette`) / 调色板参数（`Palette`）
- * @param hue - hue parameter (`number | string`) / 色相参数（`number | string`）
+ * @param hue - hue parameter (`string | number`) / 色相参数（`string | number`）
  * @returns Result of type `string` / 类型为 `string` 的返回值
  */
 function matContrast(palette: Palette, hue: number | string): string {

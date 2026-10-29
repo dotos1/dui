@@ -32,20 +32,20 @@ export class ResizableComponent implements OnInit, OnChanges, AfterViewInit, OnD
 
   // Resize start event.
   /**
-   * Output event emitter `resizeStart` (`EventEmitter`) firing when resize start occurs.
-   * @zh 输出事件 `resizeStart`（类型：`EventEmitter`），当触发调整尺寸开始时向外发出事件。
+   * Output event emitter `resizeStart` (`EventEmitter<IPositionEvent>`) firing when resize start occurs.
+   * @zh 输出事件 `resizeStart`（类型：`EventEmitter<IPositionEvent>`），当触发调整尺寸开始时向外发出事件。
    */
   @Output() resizeStart = new EventEmitter<IPositionEvent>();
   // Resizing event.
   /**
-   * Output event emitter `resizing` (`EventEmitter`) firing when resizing occurs.
-   * @zh 输出事件 `resizing`（类型：`EventEmitter`），当触发调整尺寸中时向外发出事件。
+   * Output event emitter `resizing` (`EventEmitter<IPositionEvent>`) firing when resizing occurs.
+   * @zh 输出事件 `resizing`（类型：`EventEmitter<IPositionEvent>`），当触发调整尺寸中时向外发出事件。
    */
   @Output() resizing = new EventEmitter<IPositionEvent>();
   // Resize end event.
   /**
-   * Output event emitter `resizeEnd` (`EventEmitter`) firing when resize end occurs.
-   * @zh 输出事件 `resizeEnd`（类型：`EventEmitter`），当触发调整尺寸结束时向外发出事件。
+   * Output event emitter `resizeEnd` (`EventEmitter<IPositionEvent>`) firing when resize end occurs.
+   * @zh 输出事件 `resizeEnd`（类型：`EventEmitter<IPositionEvent>`），当触发调整尺寸结束时向外发出事件。
    */
   @Output() resizeEnd = new EventEmitter<IPositionEvent>();
   // Width of the element.
@@ -81,8 +81,8 @@ export class ResizableComponent implements OnInit, OnChanges, AfterViewInit, OnD
   public y: number;
   // Maximum width.
   /**
-   * Property `maxWidth` (`any`) storing max width (default: `Infinity`).
-   * @zh 属性 `maxWidth`（类型：`any`），用于存储或配置最大值宽度（默认值：`Infinity`）。
+   * Property `maxWidth` (`number`) storing max width (default: `Infinity`).
+   * @zh 属性 `maxWidth`（类型：`number`），用于存储或配置最大值宽度（默认值：`Infinity`）。
    */
   public maxWidth = Infinity;
   // Minimum width.
@@ -93,8 +93,8 @@ export class ResizableComponent implements OnInit, OnChanges, AfterViewInit, OnD
   public minWidth = 0;
   // Maximum height.
   /**
-   * Property `maxHeight` (`any`) storing max height (default: `Infinity`).
-   * @zh 属性 `maxHeight`（类型：`any`），用于存储或配置最大值高度（默认值：`Infinity`）。
+   * Property `maxHeight` (`number`) storing max height (default: `Infinity`).
+   * @zh 属性 `maxHeight`（类型：`number`），用于存储或配置最大值高度（默认值：`Infinity`）。
    */
   public maxHeight = Infinity;
   // Minimum height.
@@ -135,15 +135,15 @@ export class ResizableComponent implements OnInit, OnChanges, AfterViewInit, OnD
   public ratio: number = null;
 
   /**
-   * Property `_unlistenFns` (`Array<() => void>`) storing unlisten fns (default: `[]`).
-   * @zh 属性 `_unlistenFns`（类型：`Array<() => void>`），用于存储或配置取消监听函数（默认值：`[]`）。
+   * Property `_unlistenFns` (`(() => void)[]`) storing unlisten fns (default: `[]`).
+   * @zh 属性 `_unlistenFns`（类型：`(() => void)[]`），用于存储或配置取消监听函数（默认值：`[]`）。
    */
   private _unlistenFns: Array<() => void> = [];
 
   /**
    * Creates an instance of `ResizableComponent` and initializes its dependencies and internal state.
    * @zh 创建 `ResizableComponent` 实例，并初始化其依赖项与内部状态。
-   * @param _el - Injected or initial el (`ElementRef`) / 注入或传入的DOM元素（`ElementRef`）
+   * @param _el - Injected or initial el (`ElementRef<any>`) / 注入或传入的DOM元素（`ElementRef<any>`）
    * @param _store - Injected or initial store (`PositionStore`) / 注入或传入的状态仓库（`PositionStore`）
    * @param _renderer - Injected or initial renderer (`Renderer2`) / 注入或传入的渲染器（`Renderer2`）
    * @param detectRef - Injected or initial detect ref (`ChangeDetectorRef`) / 注入或传入的检测引用（`ChangeDetectorRef`）

@@ -40,13 +40,13 @@ export class TerminalComponent implements  OnChanges, AfterViewInit, NgTerminal,
    */
   private keyInputSubject: Subject<string> = new Subject<string>();
   /**
-   * Property `keyEventSubject` (`Subject`) storing key event subject.
-   * @zh 属性 `keyEventSubject`（类型：`Subject`），用于存储或配置键事件主题流。
+   * Property `keyEventSubject` (`Subject<{ key: string; domEvent: KeyboardEvent; }>`) storing key event subject.
+   * @zh 属性 `keyEventSubject`（类型：`Subject<{ key: string; domEvent: KeyboardEvent; }>`），用于存储或配置键事件主题流。
    */
   private keyEventSubject = new Subject<{ key: string; domEvent: KeyboardEvent; }>();
   /**
-   * Property `requestRenderFromAPI` (`Subject`) storing request render from api.
-   * @zh 属性 `requestRenderFromAPI`（类型：`Subject`），用于存储或配置请求渲染从API接口。
+   * Property `requestRenderFromAPI` (`Subject<{…}>`) storing request render from api.
+   * @zh 属性 `requestRenderFromAPI`（类型：`Subject<{…}>`），用于存储或配置请求渲染从API接口。
    */
   private requestRenderFromAPI = new Subject<{
     rowChanged?: boolean, columnChanged?: boolean
@@ -55,8 +55,8 @@ export class TerminalComponent implements  OnChanges, AfterViewInit, NgTerminal,
     , whenTerminalDimensionIsOverOuterDiv?: { width: string, height: string }
   }>();
   /**
-   * Property `allLogsSubject` (`Subject`) storing all logs subject.
-   * @zh 属性 `allLogsSubject`（类型：`Subject`），用于存储或配置全部日志主题流。
+   * Property `allLogsSubject` (`Subject<{…}>`) storing all logs subject.
+   * @zh 属性 `allLogsSubject`（类型：`Subject<{…}>`），用于存储或配置全部日志主题流。
    */
   private allLogsSubject = new Subject<{
     rowChanged: boolean
@@ -92,8 +92,8 @@ export class TerminalComponent implements  OnChanges, AfterViewInit, NgTerminal,
    */
   private resizableObservers: ResizeObserver[] = [];
   /**
-   * Property `h` (`any`) storing h.
-   * @zh 属性 `h`（类型：`any`），用于存储或配置h。
+   * Property `h` (`number`) storing h.
+   * @zh 属性 `h`（类型：`number`），用于存储或配置h。
    */
   private h = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
   /**
@@ -107,8 +107,8 @@ export class TerminalComponent implements  OnChanges, AfterViewInit, NgTerminal,
    */
   private dataSourceSubscription: Subscription;
   /**
-   * Property `paddingSize` (`number`) storing padding size (default: `5`).
-   * @zh 属性 `paddingSize`（类型：`number`），用于存储或配置内边距尺寸（默认值：`5`）。
+   * Property `paddingSize` (`5`) storing padding size (default: `5`).
+   * @zh 属性 `paddingSize`（类型：`5`），用于存储或配置内边距尺寸（默认值：`5`）。
    */
   private readonly paddingSize = 5;
   /**
@@ -135,7 +135,7 @@ export class TerminalComponent implements  OnChanges, AfterViewInit, NgTerminal,
   /**
    * Input setter `_dataSource` updating data source.
    * @zh 输入属性 `_dataSource` 的设置器，用于更新数据源。
-   * @param ds - New data source value (`any`) / 新的数据源值（`any`）
+   * @param ds - New data source value (`Observable<string>`) / 新的数据源值（`Observable<string>`）
    */
   @Input('dataSource')
   set _dataSource(ds) {
@@ -244,14 +244,14 @@ export class TerminalComponent implements  OnChanges, AfterViewInit, NgTerminal,
   _theme;
 
   /**
-   * Property `_xtermOptions` (`ITerminalOptions & { theme?: any}`) storing xterm options.
-   * @zh 属性 `_xtermOptions`（类型：`ITerminalOptions & { theme?: any}`），用于存储或配置xterm配置选项。
+   * Property `_xtermOptions` (`any`) storing xterm options.
+   * @zh 属性 `_xtermOptions`（类型：`any`），用于存储或配置xterm配置选项。
    */
   _xtermOptions?;
 
   /**
-   * Property `lastDraggedPosition` (`{ width: string, height: string }`) storing last dragged position.
-   * @zh 属性 `lastDraggedPosition`（类型：`{ width: string, height: string }`），用于存储或配置末尾Dragged位置。
+   * Property `lastDraggedPosition` (`{ width: string; height: string; }`) storing last dragged position.
+   * @zh 属性 `lastDraggedPosition`（类型：`{ width: string; height: string; }`），用于存储或配置末尾Dragged位置。
    */
   lastDraggedPosition: { width: string, height: string };
 
@@ -262,8 +262,8 @@ export class TerminalComponent implements  OnChanges, AfterViewInit, NgTerminal,
   _draggableInput?: boolean = false;
 
   /**
-   * Property `_stylesInput` (`any`) storing styles input (default: `{}`).
-   * @zh 属性 `_stylesInput`（类型：`any`），用于存储或配置样式集合输入属性（默认值：`{}`）。
+   * Property `_stylesInput` (`DuiStyle`) storing styles input (default: `{}`).
+   * @zh 属性 `_stylesInput`（类型：`DuiStyle`），用于存储或配置样式集合输入属性（默认值：`{}`）。
    */
   _stylesInput: DuiStyle = {};
 
@@ -299,7 +299,7 @@ export class TerminalComponent implements  OnChanges, AfterViewInit, NgTerminal,
   /**
    * Executes `setXtermOptions` to handle set xterm options.
    * @zh 执行 `setXtermOptions`，用于集合Xterm配置选项。
-   * @param options - options parameter (`ITerminalOptions & { theme?: any }`) / 配置选项参数（`ITerminalOptions & { theme?: any }`）
+   * @param options - options parameter (`any`) / 配置选项参数（`any`）
    */
   setXtermOptions(options): void {
     this._xtermOptions = options;
@@ -342,14 +342,14 @@ export class TerminalComponent implements  OnChanges, AfterViewInit, NgTerminal,
     }
   }
   /**
-   * Template/content query reference `terminalOuter` (`@ViewChild`) targeting terminal outer.
+   * Template/content query reference `terminalOuter` (`ElementRef<any>`) targeting terminal outer.
    * @zh 模板/内容视图查询引用 `terminalOuter`（`@ViewChild`），指向终端外部。
    */
   @ViewChild('terminal', { static: true })
   terminalOuter: ElementRef;
 
   /**
-   * Template/content query reference `resizeBox` (`@ViewChild`) targeting resize box.
+   * Template/content query reference `resizeBox` (`ElementRef<any>`) targeting resize box.
    * @zh 模板/内容视图查询引用 `resizeBox`（`@ViewChild`），指向调整尺寸盒子容器。
    */
   @ViewChild('resizeBox', { static: true })
@@ -369,7 +369,7 @@ export class TerminalComponent implements  OnChanges, AfterViewInit, NgTerminal,
   /**
    * Executes `pushToWaitingQueue` to handle push to waiting queue.
    * @zh 执行 `pushToWaitingQueue`，用于推入转换为Waiting队列。
-   * @param item - item parameter (`{ rowChanged: boolean , columnChanged: boolean , dragged?: {...`) / 条目参数（`{ rowChanged: boolean , columnChanged: boolean , dragged?: {...`）
+   * @param item - item parameter (`{…}`) / 条目参数（`{…}`）
    */
   private pushToWaitingQueue(item: {
     rowChanged: boolean
@@ -403,15 +403,15 @@ export class TerminalComponent implements  OnChanges, AfterViewInit, NgTerminal,
   }
 
   /**
-   * Property `interval` (`ReturnType<typeof setInterval>`) storing interval.
-   * @zh 属性 `interval`（类型：`ReturnType<typeof setInterval>`），用于存储或配置间隔定时器。
+   * Property `interval` (`number`) storing interval.
+   * @zh 属性 `interval`（类型：`number`），用于存储或配置间隔定时器。
    */
   interval: ReturnType<typeof setInterval>;
 
 
   /**
-   * Property `releaseNextOne` (`any`) storing release next one.
-   * @zh 属性 `releaseNextOne`（类型：`any`），用于存储或配置release下一个One。
+   * Property `releaseNextOne` (`() => void`) storing release next one.
+   * @zh 属性 `releaseNextOne`（类型：`() => void`），用于存储或配置release下一个One。
    */
   private releaseNextOne = () => {
     if (!this.interval) {
@@ -423,8 +423,8 @@ export class TerminalComponent implements  OnChanges, AfterViewInit, NgTerminal,
   }
 
   /**
-   * Property `waitingQueue` (`{ rowChanged: boolean , columnChanged: boolean , dragged?: { draggedWi...`) storing waiting queue (default: `[]`).
-   * @zh 属性 `waitingQueue`（类型：`{ rowChanged: boolean , columnChanged: boolean , dragged?: { draggedWi...`），用于存储或配置waiting队列（默认值：`[]`）。
+   * Property `waitingQueue` (`{…}[]`) storing waiting queue (default: `[]`).
+   * @zh 属性 `waitingQueue`（类型：`{…}[]`），用于存储或配置waiting队列（默认值：`[]`）。
    */
   private waitingQueue: {
     rowChanged: boolean
@@ -439,7 +439,7 @@ export class TerminalComponent implements  OnChanges, AfterViewInit, NgTerminal,
    * @zh 创建 `TerminalComponent` 实例，并初始化其依赖项与内部状态。
    * @param renderer - Injected or initial renderer (`Renderer2`) / 注入或传入的渲染器（`Renderer2`）
    * @param ref - Injected or initial ref (`ChangeDetectorRef`) / 注入或传入的引用（`ChangeDetectorRef`）
-   * @param hostRef - Injected or initial host ref (`ElementRef`) / 注入或传入的宿主引用（`ElementRef`）
+   * @param hostRef - Injected or initial host ref (`ElementRef<any>`) / 注入或传入的宿主引用（`ElementRef<any>`）
    */
   constructor(private renderer: Renderer2, private ref: ChangeDetectorRef, private hostRef: ElementRef) {
     this.requestRenderSubscription = this.requestRenderFromAPI.subscribe(change => {
@@ -560,7 +560,7 @@ export class TerminalComponent implements  OnChanges, AfterViewInit, NgTerminal,
   /**
    * Executes `coordinateOuterAndTerminal` to handle coordinate outer and terminal.
    * @zh 执行 `coordinateOuterAndTerminal`，用于坐标外部And终端。
-   * @param changeList - change list parameter (`{ rowChanged: boolean , columnChanged: boolean , dragged?: {...`) / 变更列表参数（`{ rowChanged: boolean , columnChanged: boolean , dragged?: {...`）
+   * @param changeList - change list parameter (`{…}`) / 变更列表参数（`{…}`）
    */
   private coordinateOuterAndTerminal(changeList: {
     rowChanged: boolean
@@ -635,7 +635,7 @@ export class TerminalComponent implements  OnChanges, AfterViewInit, NgTerminal,
 
   /**
    * Executes `observeTerminalDimension` to handle observe terminal dimension.
-   * @zh 执行 `observeTerminalDimension`，用于observe终端维度。
+   * @zh 执行 `observeTerminalDimension`，用于观察终端维度。
    */
   observeTerminalDimension() {
     let viewport: HTMLDivElement | undefined = this.terminalOuter.nativeElement.querySelector('.xterm-viewport');
@@ -670,7 +670,7 @@ export class TerminalComponent implements  OnChanges, AfterViewInit, NgTerminal,
 
   /**
    * Executes `observeHostDimension` to handle observe host dimension.
-   * @zh 执行 `observeHostDimension`，用于observe宿主维度。
+   * @zh 执行 `observeHostDimension`，用于观察宿主维度。
    */
   observeHostDimension() {
     let hostElement: HTMLDivElement | undefined = this.hostRef.nativeElement;

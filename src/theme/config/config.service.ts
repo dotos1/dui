@@ -27,13 +27,13 @@ export const DOTOS_CONFIG = new InjectionToken('dotosConfig');
 })
 export class DotosConfigService {
   /**
-   * Property `_configSubject` (`BehaviorSubject<any>`) storing config subject.
-   * @zh 属性 `_configSubject`（类型：`BehaviorSubject<any>`），用于存储或配置配置主题流。
+   * Property `_configSubject` (`BehaviorSubject<DotosConfig>`) storing config subject.
+   * @zh 属性 `_configSubject`（类型：`BehaviorSubject<DotosConfig>`），用于存储或配置配置主题流。
    */
   private _configSubject: BehaviorSubject<DotosConfig>;
   /**
-   * Property `_defaultConfig` (`any`) storing default config.
-   * @zh 属性 `_defaultConfig`（类型：`any`），用于存储或配置默认配置。
+   * Property `_defaultConfig` (`DotosConfig`) storing default config.
+   * @zh 属性 `_defaultConfig`（类型：`DotosConfig`），用于存储或配置默认配置。
    */
   private readonly _defaultConfig: DotosConfig;
 
@@ -120,7 +120,7 @@ export class DotosConfigService {
    * @zh 执行 `setValue`，用于集合值。
    * @param key - key parameter (`any`) / 键参数（`any`）
    * @param value - value parameter (`any`) / 值参数（`any`）
-   * @param opts - opts parameter (`any`) / 选项列表参数（`any`）
+   * @param opts - opts parameter (`{ emitEvent: boolean; }`) / 选项列表参数（`{ emitEvent: boolean; }`）
    */
   setValue(key, value, opts = { emitEvent: true }) {
     let config = this._configSubject.getValue();

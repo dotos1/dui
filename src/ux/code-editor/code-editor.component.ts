@@ -111,13 +111,13 @@ export class ExtCodeEditorComponent implements OnInit, AfterViewInit, OnDestroy,
    */
   private _automaticLayout: boolean = false;
   /**
-   * Property `_editorOptions` (`any`) storing editor options (default: `{}`).
-   * @zh 属性 `_editorOptions`（类型：`any`），用于存储或配置编辑器配置选项（默认值：`{}`）。
+   * Property `_editorOptions` (`Record<string, unknown>`) storing editor options (default: `{}`).
+   * @zh 属性 `_editorOptions`（类型：`Record<string, unknown>`），用于存储或配置编辑器配置选项（默认值：`{}`）。
    */
   private _editorOptions: Record<string, unknown> = {};
 
   /**
-   * Template/content query reference `_editorContainer` (`@ViewChild`) targeting editor container.
+   * Template/content query reference `_editorContainer` (`ElementRef<any>`) targeting editor container.
    * @zh 模板/内容视图查询引用 `_editorContainer`（`@ViewChild`），指向编辑器容器。
    */
   @ViewChild('editorContainer') _editorContainer: ElementRef;
@@ -164,13 +164,13 @@ export class ExtCodeEditorComponent implements OnInit, AfterViewInit, OnDestroy,
   /* tslint:disable-next-line */
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   /**
-   * Property `propagateChange` (`any`) storing propagate change (default: `(_: any) => {}`).
-   * @zh 属性 `propagateChange`（类型：`any`），用于存储或配置propagate变更（默认值：`(_: any) => {}`）。
+   * Property `propagateChange` (`(_: any) => void`) storing propagate change (default: `(_: any) => {}`).
+   * @zh 属性 `propagateChange`（类型：`(_: any) => void`），用于存储或配置propagate变更（默认值：`(_: any) => {}`）。
    */
   propagateChange = (_) => {};
   /**
-   * Property `onTouched` (`any`) storing on touched (default: `() => noop`).
-   * @zh 属性 `onTouched`（类型：`any`），用于存储或配置当是否已触碰（默认值：`() => noop`）。
+   * Property `onTouched` (`() => () => void`) storing on touched (default: `() => noop`).
+   * @zh 属性 `onTouched`（类型：`() => () => void`），用于存储或配置当是否已触碰（默认值：`() => noop`）。
    */
   onTouched = () => noop;
 
@@ -246,8 +246,8 @@ export class ExtCodeEditorComponent implements OnInit, AfterViewInit, OnDestroy,
    */
   private _destroyed: boolean = false;
   /**
-   * Property `_registeredDisposables` (`Array<{ dispose: () => void }>`) storing registered disposables (default: `[]`).
-   * @zh 属性 `_registeredDisposables`（类型：`Array<{ dispose: () => void }>`），用于存储或配置已注册Disposables（默认值：`[]`）。
+   * Property `_registeredDisposables` (`{ dispose: () => void; }[]`) storing registered disposables (default: `[]`).
+   * @zh 属性 `_registeredDisposables`（类型：`{ dispose: () => void; }[]`），用于存储或配置已注册Disposables（默认值：`[]`）。
    */
   private _registeredDisposables: Array<{ dispose: () => void }> = [];
   /**
@@ -435,7 +435,7 @@ export class ExtCodeEditorComponent implements OnInit, AfterViewInit, OnDestroy,
   /**
    * Input setter `automaticLayout` updating automatic layout.
    * @zh 输入属性 `automaticLayout` 的设置器，用于更新automatic布局。
-   * @param automaticLayout - New automatic layout value (`any`) / 新的automatic布局值（`any`）
+   * @param automaticLayout - New automatic layout value (`string | boolean`) / 新的automatic布局值（`string | boolean`）
    */
   @Input('automaticLayout')
   set automaticLayout(automaticLayout: boolean | string) {
@@ -576,8 +576,8 @@ export class ExtCodeEditorComponent implements OnInit, AfterViewInit, OnDestroy,
   }
 
   /**
-   * Property `_onWindowResize` (`any`) storing on window resize (default: `(): void => { this._editor?.layout(); }`).
-   * @zh 属性 `_onWindowResize`（类型：`any`），用于存储或配置当窗口调整尺寸（默认值：`(): void => { this._editor?.layout(); }`）。
+   * Property `_onWindowResize` (`() => void`) storing on window resize (default: `(): void => { this._editor?.layout(); }`).
+   * @zh 属性 `_onWindowResize`（类型：`() => void`），用于存储或配置当窗口调整尺寸（默认值：`(): void => { this._editor?.layout(); }`）。
    */
   private readonly _onWindowResize = (): void => {
     this._editor?.layout();

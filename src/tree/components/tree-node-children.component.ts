@@ -27,8 +27,8 @@ export class TreeNodeChildrenComponent {
   // （id 不变），普通 @Input 换实例不产生 mobx 通知，autorun 会一直盯着旧实例，
   // 新实例后到的 children 就再也刷不出来——表现为节点永远转圈。
   /**
-   * Getter for input property `node` (`any`) returning node.
-   * @zh 输入属性 `node`（类型：`any`）的读取器，返回当前节点。
+   * Getter for input property `node` (`TreeNode`) returning node.
+   * @zh 输入属性 `node`（类型：`TreeNode`）的读取器，返回当前节点。
    */
   @Input()
   get node() {
@@ -37,7 +37,7 @@ export class TreeNodeChildrenComponent {
   /**
    * Sets the node (`node`).
    * @zh 设置节点（`node`）。
-   * @param node - New node value (`any`) / 新的节点值（`any`）
+   * @param node - New node value (`TreeNode`) / 新的节点值（`TreeNode`）
    */
   set node(node) {
     this.setNode(node);

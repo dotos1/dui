@@ -36,8 +36,8 @@ export class Container extends ComponentBase {
 
 
   /**
-   * Property `layout` (`any`) storing layout.
-   * @zh 属性 `layout`（类型：`any`），用于存储或配置布局。
+   * Property `layout` (`string | DuiConfig`) storing layout.
+   * @zh 属性 `layout`（类型：`string | DuiConfig`），用于存储或配置布局。
    */
   public layout: string | DuiConfig;
 
@@ -60,8 +60,8 @@ export class Container extends ComponentBase {
   public autoDestroy: boolean = true;
 
   /**
-   * Property `defaults` (`any`) storing defaults.
-   * @zh 属性 `defaults`（类型：`any`），用于存储或配置默认值集合。
+   * Property `defaults` (`DuiConfig | ((this: Container, item: ContainerItem) => DuiConfig)`) storing defaults.
+   * @zh 属性 `defaults`（类型：`DuiConfig | ((this: Container, item: ContainerItem) => DuiConfig)`），用于存储或配置默认值集合。
    */
   /** 子项缺省配置：对象，或按子项返回配置的函数 */
   public defaults: DuiConfig | ((this: Container, item: ContainerItem) => DuiConfig);
@@ -73,8 +73,8 @@ export class Container extends ComponentBase {
   public viewContainer: ViewContainerRef;
 
   /**
-   * Property `form` (`FormGroup`) storing form.
-   * @zh 属性 `form`（类型：`FormGroup`），用于存储或配置表单。
+   * Property `form` (`FormGroup<any>`) storing form.
+   * @zh 属性 `form`（类型：`FormGroup<any>`），用于存储或配置表单。
    */
   public form: FormGroup;
 
@@ -97,7 +97,7 @@ export class Container extends ComponentBase {
   /**
    * Executes `init` to handle init.
    * @zh 执行 `init`，用于初始化。
-   * @param config - config parameter (`any`) / 配置参数（`any`）
+   * @param config - config parameter (`DuiConfig`) / 配置参数（`DuiConfig`）
    */
   override init(config?: DuiConfig): void {
     super.init(config);
@@ -135,7 +135,7 @@ export class Container extends ComponentBase {
   /**
    * Executes `getComponentId` to handle get component id.
    * @zh 执行 `getComponentId`，用于获取组件唯一标识。
-   * @param comp - comp parameter (`any`) / 组件参数（`any`）
+   * @param comp - comp parameter (`ComponentBase`) / 组件参数（`ComponentBase`）
    */
   getComponentId(comp: ComponentBase): string {
     return comp.id;
@@ -145,8 +145,8 @@ export class Container extends ComponentBase {
   /**
    * Executes `add` to handle add.
    * @zh 执行 `add`，用于添加。
-   * @param comp - comp parameter (`any`) / 组件参数（`any`）
-   * @returns Result of type `any` / 类型为 `any` 的返回值
+   * @param comp - comp parameter (`ContainerItem`) / 组件参数（`ContainerItem`）
+   * @returns Result of type `ComponentBase` / 类型为 `ComponentBase` 的返回值
    */
   add(comp: ContainerItem): ComponentBase;
   add(comps: ContainerItem[]): ComponentBase[];
@@ -200,7 +200,7 @@ export class Container extends ComponentBase {
   /**
    * Executes `onAdd` to handle on add.
    * @zh 执行 `onAdd`，用于当添加。
-   * @param c - c parameter (`any`) / c参数（`any`）
+   * @param c - c parameter (`ComponentBase`) / c参数（`ComponentBase`）
    */
   onAdd(c: ComponentBase): void {
   }
@@ -211,8 +211,8 @@ export class Container extends ComponentBase {
   /**
    * Executes `onAdded` to handle on added.
    * @zh 执行 `onAdded`，用于当已添加。
-   * @param container - container parameter (`any`) / 容器参数（`any`）
-   * @param pos - pos parameter (`any`) / 位置参数（`any`）
+   * @param container - container parameter (`ComponentBase`) / 容器参数（`ComponentBase`）
+   * @param pos - pos parameter (`number`) / 位置参数（`number`）
    */
   override onAdded(container: ComponentBase, pos?: number): void {
     this.ownerCt = container;
@@ -257,7 +257,7 @@ export class Container extends ComponentBase {
   /**
    * Executes `applyDefaults` to handle apply defaults.
    * @zh 执行 `applyDefaults`，用于应用默认值集合。
-   * @param c - c parameter (`any`) / c参数（`any`）
+   * @param c - c parameter (`C`) / c参数（`C`）
    */
   applyDefaults<C extends ContainerItem>(c: C): C {
     const defaults = this.defaults;
@@ -272,7 +272,7 @@ export class Container extends ComponentBase {
   /**
    * Executes `onBeforeAdd` to handle on before add.
    * @zh 执行 `onBeforeAdd`，用于当之前添加。
-   * @param item - item parameter (`any`) / 条目参数（`any`）
+   * @param item - item parameter (`ComponentBase`) / 条目参数（`ComponentBase`）
    */
   onBeforeAdd(item: ComponentBase): boolean {
     if (item.ownerCt) {
@@ -284,7 +284,7 @@ export class Container extends ComponentBase {
   /**
    * Executes `remove` to handle remove.
    * @zh 执行 `remove`，用于移除。
-   * @param comp - comp parameter (`any`) / 组件参数（`any`）
+   * @param comp - comp parameter (`string | number | ComponentBase`) / 组件参数（`string | number | ComponentBase`）
    * @param autoDestroy - auto destroy parameter (`boolean`) / 自动销毁参数（`boolean`）
    * @returns Result of type `ComponentBase` / 类型为 `ComponentBase` 的返回值
    */
@@ -298,15 +298,15 @@ export class Container extends ComponentBase {
   /**
    * Executes `onRemove` to handle on remove.
    * @zh 执行 `onRemove`，用于当移除。
-   * @param c - c parameter (`any`) / c参数（`any`）
+   * @param c - c parameter (`ComponentBase`) / c参数（`ComponentBase`）
    */
   public onRemove(c?: ComponentBase): void { }
 
   /**
    * Executes `doRemove` to handle do remove.
-   * @zh 执行 `doRemove`，用于do移除。
-   * @param c - c parameter (`any`) / c参数（`any`）
-   * @param autoDestroy - auto destroy parameter (`any`) / 自动销毁参数（`any`）
+   * @zh 执行 `doRemove`，用于执行移除。
+   * @param c - c parameter (`ComponentBase`) / c参数（`ComponentBase`）
+   * @param autoDestroy - auto destroy parameter (`boolean`) / 自动销毁参数（`boolean`）
    */
   doRemove(c: ComponentBase, autoDestroy?: boolean): void {
     this.items.remove(c);
@@ -320,7 +320,7 @@ export class Container extends ComponentBase {
    * Executes `removeAll` to handle remove all.
    * @zh 执行 `removeAll`，用于移除全部。
    * @param autoDestroy - auto destroy parameter (`boolean`) / 自动销毁参数（`boolean`）
-   * @returns Result of type `Array<any>` / 类型为 `Array<any>` 的返回值
+   * @returns Result of type `ComponentBase[]` / 类型为 `ComponentBase[]` 的返回值
    */
   removeAll(autoDestroy?: boolean): ComponentBase[] {
     this.initItems();
@@ -342,8 +342,8 @@ export class Container extends ComponentBase {
   /**
    * Executes `getComponent` to handle get component.
    * @zh 执行 `getComponent`，用于获取组件。
-   * @param comp - comp parameter (`any`) / 组件参数（`any`）
-   * @returns Result of type `any` / 类型为 `any` 的返回值
+   * @param comp - comp parameter (`string | number | ComponentBase`) / 组件参数（`string | number | ComponentBase`）
+   * @returns Result of type `ComponentBase` / 类型为 `ComponentBase` 的返回值
    */
   getComponent(comp: ComponentBase | string | number): ComponentBase | undefined {
     const key = isObjectLike(comp) ? (comp as ComponentBase).id : (comp as string | number);
@@ -358,7 +358,7 @@ export class Container extends ComponentBase {
   /**
    * Executes `lookupComponent` to handle lookup component.
    * @zh 执行 `lookupComponent`，用于查找表组件。
-   * @param comp - comp parameter (`any`) / 组件参数（`any`）
+   * @param comp - comp parameter (`ContainerItem`) / 组件参数（`ContainerItem`）
    */
   lookupComponent(comp: ContainerItem): ComponentBase {
     // 已创建的组件实例（ExtJS 里带 events）直接用；配置对象则创建
@@ -372,7 +372,7 @@ export class Container extends ComponentBase {
   /**
    * Executes `createComponent` to handle create component.
    * @zh 执行 `createComponent`，用于创建组件。
-   * @param config - config parameter (`any`) / 配置参数（`any`）
+   * @param config - config parameter (`DuiConfig | ComponentBase`) / 配置参数（`DuiConfig | ComponentBase`）
    */
   createComponent(config: DuiConfig | ComponentBase): ComponentBase {
     if (isRendered(config) || (config as DuiConfig).render) {
@@ -393,7 +393,7 @@ export class Container extends ComponentBase {
   /**
    * Executes `getLayout` to handle get layout.
    * @zh 执行 `getLayout`，用于获取布局。
-   * @returns Result of type `any` / 类型为 `any` 的返回值
+   * @returns Result of type `string | DuiConfig` / 类型为 `string | DuiConfig` 的返回值
    */
   getLayout(): string | DuiConfig {
     return this.layout;
@@ -421,7 +421,7 @@ export class Container extends ComponentBase {
    * @zh 执行 `cascade`，用于cascade。
    * @param fn - fn parameter (`Function`) / 函数参数（`Function`）
    * @param scope - scope parameter (`Object`) / scope参数（`Object`）
-   * @param args - args parameter (`Array<any>`) / 参数列表参数（`Array<any>`）
+   * @param args - args parameter (`unknown[]`) / 参数列表参数（`unknown[]`）
    * @returns Result of type `Container` / 类型为 `Container` 的返回值
    */
   cascade(fn: Function, scope?: Object, args?: unknown[]): Container {
@@ -445,7 +445,7 @@ export class Container extends ComponentBase {
    * Executes `findById` to handle find by id.
    * @zh 执行 `findById`，用于查找按唯一标识。
    * @param id - id parameter (`string`) / 唯一标识参数（`string`）
-   * @returns Result of type `any` / 类型为 `any` 的返回值
+   * @returns Result of type `ComponentBase` / 类型为 `ComponentBase` 的返回值
    */
   findById(id: string): ComponentBase | null {
     let m: ComponentBase = null;
@@ -468,7 +468,7 @@ export class Container extends ComponentBase {
    * @zh 执行 `findByType`，用于查找按类型。
    * @param xtype - xtype parameter (`string | Object`) / 扩展类型参数（`string | Object`）
    * @param shallow - shallow parameter (`boolean`) / shallow参数（`boolean`）
-   * @returns Result of type `Array<any>` / 类型为 `Array<any>` 的返回值
+   * @returns Result of type `ComponentBase[]` / 类型为 `ComponentBase[]` 的返回值
    */
   findByType(xtype: string | Object, shallow: boolean): ComponentBase[] {
     return this.findBy(
@@ -482,7 +482,7 @@ export class Container extends ComponentBase {
    * @zh 执行 `find`，用于查找。
    * @param prop - prop parameter (`string`) / 属性参数（`string`）
    * @param value - value parameter (`string`) / 值参数（`string`）
-   * @returns Result of type `Array<any>` / 类型为 `Array<any>` 的返回值
+   * @returns Result of type `ComponentBase[]` / 类型为 `ComponentBase[]` 的返回值
    */
   find(prop: string, value: string): ComponentBase[] {
     return this.findBy(
@@ -495,8 +495,8 @@ export class Container extends ComponentBase {
    * Executes `findBy` to handle find by.
    * @zh 执行 `findBy`，用于查找按。
    * @param fn - fn parameter (`Function`) / 函数参数（`Function`）
-   * @param scope - scope parameter (`any`) / scope参数（`any`）
-   * @returns Result of type `Array<any>` / 类型为 `Array<any>` 的返回值
+   * @param scope - scope parameter (`object`) / scope参数（`object`）
+   * @returns Result of type `ComponentBase[]` / 类型为 `ComponentBase[]` 的返回值
    */
   findBy(fn: Function, scope?: object): ComponentBase[] {
     // eslint-disable-next-line @typescript-eslint/no-this-alias

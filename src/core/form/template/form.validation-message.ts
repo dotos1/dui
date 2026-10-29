@@ -31,8 +31,8 @@ export class ValidationMessage implements OnChanges {
    */
   @Input() field: FieldConfig;
   /**
-   * Property `errorMessage$` (`Observable<any>`) storing error message.
-   * @zh 属性 `errorMessage$`（类型：`Observable<any>`），用于存储或配置错误消息。
+   * Property `errorMessage$` (`any`) storing error message.
+   * @zh 属性 `errorMessage$`（类型：`any`），用于存储或配置错误消息。
    */
   errorMessage$;
 

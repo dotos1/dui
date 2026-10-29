@@ -78,13 +78,13 @@ export class KeyboardShortcutsService implements OnDestroy {
     private throttleTime = 0;
 
     /**
-     * Property `_pressed` (`Subject`) storing pressed (default: `new Subject<ShortcutEventOutput>()`).
-     * @zh 属性 `_pressed`（类型：`Subject`），用于存储或配置按下（默认值：`new Subject<ShortcutEventOutput>()`）。
+     * Property `_pressed` (`Subject<ShortcutEventOutput>`) storing pressed (default: `new Subject<ShortcutEventOutput>()`).
+     * @zh 属性 `_pressed`（类型：`Subject<ShortcutEventOutput>`），用于存储或配置按下（默认值：`new Subject<ShortcutEventOutput>()`）。
      */
     private _pressed = new Subject<ShortcutEventOutput>();
 
     /**
-     * Property `pressed$` (`any`) storing pressed (default: `this._pressed.asObservable()`).
+     * Property `pressed$` (`Observable<ShortcutEventOutput>`) storing pressed (default: `this._pressed.asObservable()`).
      * @zh 每当任意已注册快捷键被触发时发出事件（含触发的按键与原生事件）。
      * @zh 每当任意已注册快捷键被触发时发出事件（含触发的按键与原生事件）。
      */
@@ -97,18 +97,18 @@ export class KeyboardShortcutsService implements OnDestroy {
     private disabled = false;
 
     /**
-     * Property `TIMEOUT_SEQUENCE` (`number`) storing timeout sequence (default: `1000`).
-     * @zh 属性 `TIMEOUT_SEQUENCE`（类型：`number`），用于存储或配置延时器SEQUENCE（默认值：`1000`）。
+     * Property `TIMEOUT_SEQUENCE` (`1000`) storing timeout sequence (default: `1000`).
+     * @zh 属性 `TIMEOUT_SEQUENCE`（类型：`1000`），用于存储或配置延时器SEQUENCE（默认值：`1000`）。
      */
     private static readonly TIMEOUT_SEQUENCE = 1000;
 
     /**
-     * Property `_shortcutsSub` (`BehaviorSubject`) storing shortcuts sub.
-     * @zh 属性 `_shortcutsSub`（类型：`BehaviorSubject`），用于存储或配置快捷键列表子。
+     * Property `_shortcutsSub` (`BehaviorSubject<ParsedShortcut[]>`) storing shortcuts sub.
+     * @zh 属性 `_shortcutsSub`（类型：`BehaviorSubject<ParsedShortcut[]>`），用于存储或配置快捷键列表子。
      */
     private _shortcutsSub = new BehaviorSubject<ParsedShortcut[]>([]);
     /**
-     * Property `shortcuts$` (`any`) storing shortcuts.
+     * Property `shortcuts$` (`Observable<ParsedShortcut[]>`) storing shortcuts.
      * @zh 发出当前已注册的（非空）快捷键列表，随注册/注销更新。
      * @zh 发出当前已注册的（非空）快捷键列表，随注册/注销更新。
      */
@@ -119,15 +119,15 @@ export class KeyboardShortcutsService implements OnDestroy {
     } ));
 
     /**
-     * Property `_ignored` (`any[]`) storing ignored.
-     * @zh 属性 `_ignored`（类型：`any[]`），用于存储或配置已忽略。
+     * Property `_ignored` (`AllowIn[]`) storing ignored.
+     * @zh 属性 `_ignored`（类型：`AllowIn[]`），用于存储或配置已忽略。
      */
     private _ignored = [AllowIn.Input, AllowIn.Textarea, AllowIn.Select, AllowIn.ContentEditable];
 
 
     /**
-     * Property `isAllowed` (`any`) storing is allowed.
-     * @zh 属性 `isAllowed`（类型：`any`），用于存储或配置是否为允许的。
+     * Property `isAllowed` (`(shortcut: ParsedShortcut) => boolean`) storing is allowed.
+     * @zh 属性 `isAllowed`（类型：`(shortcut: ParsedShortcut) => boolean`），用于存储或配置是否为允许的。
      */
     private isAllowed = (shortcut: ParsedShortcut) => {
         const target = shortcut.event.target as HTMLElement;
@@ -150,8 +150,8 @@ export class KeyboardShortcutsService implements OnDestroy {
 
 
     /**
-     * Property `mapEvent` (`any`) storing map event.
-     * @zh 属性 `mapEvent`（类型：`any`），用于存储或配置映射表事件。
+     * Property `mapEvent` (`(event: any) => ParsedShortcut`) storing map event.
+     * @zh 属性 `mapEvent`（类型：`(event: any) => ParsedShortcut`），用于存储或配置映射表事件。
      */
     private mapEvent = (event) => {
         return this._shortcuts
@@ -185,8 +185,8 @@ export class KeyboardShortcutsService implements OnDestroy {
     private keydown$: Observable<KeyboardEvent> = fromEvent(this.document, "keydown");
 
     /**
-     * Property `ignore$` (`any`) storing ignore.
-     * @zh 属性 `ignore$`（类型：`any`），用于存储或配置忽略。
+     * Property `ignore$` (`Observable<{ preventDefault?: any; stopPropagation?: any; }>`) storing ignore.
+     * @zh 属性 `ignore$`（类型：`Observable<{ preventDefault?: any; stopPropagation?: any; }>`），用于存储或配置忽略。
      */
     private ignore$ = this.pressed$.pipe(
         filter((e) => e.event.defaultPrevented),
@@ -199,21 +199,21 @@ export class KeyboardShortcutsService implements OnDestroy {
     );
 
     /**
-     * Property `clicks$` (`any`) storing clicks.
-     * @zh 属性 `clicks$`（类型：`any`），用于存储或配置点击。
+     * Property `clicks$` (`Observable<unknown>`) storing clicks.
+     * @zh 属性 `clicks$`（类型：`Observable<unknown>`），用于存储或配置点击。
      */
     private clicks$ = fromEvent(this.document, "click", { capture: true });
 
     /**
-     * Property `keyup$` (`any`) storing keyup (default: `fromEvent(this.document, "keyup")`).
-     * @zh 属性 `keyup$`（类型：`any`），用于存储或配置按键抬起（默认值：`fromEvent(this.document, "keyup")`）。
+     * Property `keyup$` (`Observable<unknown>`) storing keyup (default: `fromEvent(this.document, "keyup")`).
+     * @zh 属性 `keyup$`（类型：`Observable<unknown>`），用于存储或配置按键抬起（默认值：`fromEvent(this.document, "keyup")`）。
      */
     private keyup$ = fromEvent(this.document, "keyup");
 
 
     /**
-     * Property `keydownCombo$` (`any`) storing keydown combo.
-     * @zh 属性 `keydownCombo$`（类型：`any`），用于存储或配置按键按下Combo。
+     * Property `keydownCombo$` (`Observable<unknown>`) storing keydown combo.
+     * @zh 属性 `keydownCombo$`（类型：`Observable<unknown>`），用于存储或配置按键按下Combo。
      */
     private keydownCombo$ = this.keydown$.pipe(
         filter(() => !this.disabled),
@@ -242,22 +242,22 @@ export class KeyboardShortcutsService implements OnDestroy {
 
 
     /**
-     * Property `timer$` (`Subject`) storing timer (default: `new Subject()`).
-     * @zh 属性 `timer$`（类型：`Subject`），用于存储或配置定时器（默认值：`new Subject()`）。
+     * Property `timer$` (`Subject<unknown>`) storing timer (default: `new Subject()`).
+     * @zh 属性 `timer$`（类型：`Subject<unknown>`），用于存储或配置定时器（默认值：`new Subject()`）。
      */
     private timer$ = new Subject();
    
     /**
-     * Property `resetCounter$` (`any`) storing reset counter.
-     * @zh 属性 `resetCounter$`（类型：`any`），用于存储或配置重置计数器。
+     * Property `resetCounter$` (`Observable<0>`) storing reset counter.
+     * @zh 属性 `resetCounter$`（类型：`Observable<0>`），用于存储或配置重置计数器。
      */
     private resetCounter$ = this.timer$
         .asObservable()
         .pipe(switchMap(() => timer(KeyboardShortcutsService.TIMEOUT_SEQUENCE)));
 
     /**
-     * Property `keydownSequence$` (`any`) storing keydown sequence.
-     * @zh 属性 `keydownSequence$`（类型：`any`），用于存储或配置按键按下Sequence。
+     * Property `keydownSequence$` (`Observable<unknown>`) storing keydown sequence.
+     * @zh 属性 `keydownSequence$`（类型：`Observable<unknown>`），用于存储或配置按键按下Sequence。
      */
     private keydownSequence$ = this.keydown$.pipe(
         map((event) => ({
@@ -508,8 +508,8 @@ export class KeyboardShortcutsService implements OnDestroy {
     }
 
     /**
-     * Property `getKeys` (`any`) storing get keys.
-     * @zh 属性 `getKeys`（类型：`any`），用于存储或配置获取键列表。
+     * Property `getKeys` (`(keys: string[]) => ((event: any) => boolean)[]`) storing get keys.
+     * @zh 属性 `getKeys`（类型：`(keys: string[]) => ((event: any) => boolean)[]`），用于存储或配置获取键列表。
      */
     private getKeys = (keys: string[]) => {
         return keys

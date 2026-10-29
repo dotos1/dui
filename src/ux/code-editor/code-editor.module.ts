@@ -26,8 +26,8 @@ import { Dui } from '@dotos/dui/core';
 })
 export class CodeEditorModule {
   /**
-   * Property `entryComponents` (`any[]`) storing entry components (default: `[ExtCodeEditorComponent]`).
-   * @zh 属性 `entryComponents`（类型：`any[]`），用于存储或配置条目组件列表（默认值：`[ExtCodeEditorComponent]`）。
+   * Property `entryComponents` (`(typeof ExtCodeEditorComponent)[]`) storing entry components (default: `[ExtCodeEditorComponent]`).
+   * @zh 属性 `entryComponents`（类型：`(typeof ExtCodeEditorComponent)[]`），用于存储或配置条目组件列表（默认值：`[ExtCodeEditorComponent]`）。
    */
   entryComponents = [ExtCodeEditorComponent];
   /**

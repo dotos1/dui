@@ -131,7 +131,7 @@ export interface IndividualConfig<ConfigPayload = unknown> {
    * Angular toast component to be shown
    * default: Toast
 
-   * @zh 属性 `toastComponent`（类型：`ComponentType<any>`），用于存储或配置toast组件。
+   * @zh 属性 `toastComponent`（类型：`any`），用于存储或配置toast组件。
    */
   toastComponent?;
   /**
@@ -249,13 +249,13 @@ export interface GlobalConfig extends IndividualConfig {
  */
 export class ToastPackage<ConfigPayload = unknown> {
   /**
-   * Property `_onTap` (`Subject`) storing on tap (default: `new Subject<void>()`).
-   * @zh 属性 `_onTap`（类型：`Subject`），用于存储或配置当Tap（默认值：`new Subject<void>()`）。
+   * Property `_onTap` (`Subject<void>`) storing on tap (default: `new Subject<void>()`).
+   * @zh 属性 `_onTap`（类型：`Subject<void>`），用于存储或配置当Tap（默认值：`new Subject<void>()`）。
    */
   private _onTap = new Subject<void>();
   /**
-   * Property `_onAction` (`Subject`) storing on action (default: `new Subject<any>()`).
-   * @zh 属性 `_onAction`（类型：`Subject`），用于存储或配置当动作（默认值：`new Subject<any>()`）。
+   * Property `_onAction` (`Subject<void>`) storing on action (default: `new Subject<any>()`).
+   * @zh 属性 `_onAction`（类型：`Subject<void>`），用于存储或配置当动作（默认值：`new Subject<any>()`）。
    */
   private _onAction = new Subject<void>();
 
@@ -264,10 +264,10 @@ export class ToastPackage<ConfigPayload = unknown> {
    * @zh 创建 `ToastPackage` 实例，并初始化其依赖项与内部状态。
    * @param toastId - Injected or initial toast id (`number`) / 注入或传入的toast唯一标识（`number`）
    * @param config - Injected or initial config (`IndividualConfig<ConfigPayload>`) / 注入或传入的配置（`IndividualConfig<ConfigPayload>`）
-   * @param message - Injected or initial message (`string | null | undefined`) / 注入或传入的消息（`string | null | undefined`）
-   * @param title - Injected or initial title (`string | undefined`) / 注入或传入的标题（`string | undefined`）
+   * @param message - Injected or initial message (`string`) / 注入或传入的消息（`string`）
+   * @param title - Injected or initial title (`string`) / 注入或传入的标题（`string`）
    * @param toastType - Injected or initial toast type (`string`) / 注入或传入的toast类型（`string`）
-   * @param toastRef - Injected or initial toast ref (`ToastRef<any>`) / 注入或传入的toast引用（`ToastRef<any>`）
+   * @param toastRef - Injected or initial toast ref (`any`) / 注入或传入的toast引用（`any`）
    */
   constructor(
     public toastId: number,

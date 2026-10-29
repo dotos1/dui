@@ -35,23 +35,23 @@ export class GridsterPush {
    */
   public fromWest: string;
   /**
-   * Property `pushedItems` (`Array<GridsterItemComponentInterface>`) storing pushed items.
-   * @zh 属性 `pushedItems`（类型：`Array<GridsterItemComponentInterface>`），用于存储或配置已推入条目列表。
+   * Property `pushedItems` (`GridsterItemComponentInterface[]`) storing pushed items.
+   * @zh 属性 `pushedItems`（类型：`GridsterItemComponentInterface[]`），用于存储或配置已推入条目列表。
    */
   private pushedItems: Array<GridsterItemComponentInterface>;
   /**
-   * Property `pushedItemsTemp` (`Array<GridsterItemComponentInterface>`) storing pushed items temp.
-   * @zh 属性 `pushedItemsTemp`（类型：`Array<GridsterItemComponentInterface>`），用于存储或配置已推入条目列表临时。
+   * Property `pushedItemsTemp` (`GridsterItemComponentInterface[]`) storing pushed items temp.
+   * @zh 属性 `pushedItemsTemp`（类型：`GridsterItemComponentInterface[]`），用于存储或配置已推入条目列表临时。
    */
   private pushedItemsTemp: Array<GridsterItemComponentInterface>;
   /**
-   * Property `pushedItemsTempPath` (`Array<Array<{ x: number, y: number }>>`) storing pushed items temp path.
-   * @zh 属性 `pushedItemsTempPath`（类型：`Array<Array<{ x: number, y: number }>>`），用于存储或配置已推入条目列表临时路径。
+   * Property `pushedItemsTempPath` (`{ x: number; y: number; }[][]`) storing pushed items temp path.
+   * @zh 属性 `pushedItemsTempPath`（类型：`{ x: number; y: number; }[][]`），用于存储或配置已推入条目列表临时路径。
    */
   private pushedItemsTempPath: Array<Array<{ x: number, y: number }>>;
   /**
-   * Property `pushedItemsPath` (`Array<Array<{ x: number, y: number }>>`) storing pushed items path.
-   * @zh 属性 `pushedItemsPath`（类型：`Array<Array<{ x: number, y: number }>>`），用于存储或配置已推入条目列表路径。
+   * Property `pushedItemsPath` (`{ x: number; y: number; }[][]`) storing pushed items path.
+   * @zh 属性 `pushedItemsPath`（类型：`{ x: number; y: number; }[][]`），用于存储或配置已推入条目列表路径。
    */
   private pushedItemsPath: Array<Array<{ x: number, y: number }>>;
   /**
@@ -65,13 +65,13 @@ export class GridsterPush {
    */
   private gridster: GridsterComponentInterface;
   /**
-   * Property `pushedItemsOrder` (`Array<GridsterItemComponentInterface>`) storing pushed items order.
-   * @zh 属性 `pushedItemsOrder`（类型：`Array<GridsterItemComponentInterface>`），用于存储或配置已推入条目列表顺序。
+   * Property `pushedItemsOrder` (`GridsterItemComponentInterface[]`) storing pushed items order.
+   * @zh 属性 `pushedItemsOrder`（类型：`GridsterItemComponentInterface[]`），用于存储或配置已推入条目列表顺序。
    */
   private pushedItemsOrder: Array<GridsterItemComponentInterface>;
   /**
-   * Property `tryPattern` (`{ fromEast: Array<Function>, fromWest: Array<Function>, fromNorth: Arr...`) storing try pattern.
-   * @zh 属性 `tryPattern`（类型：`{ fromEast: Array<Function>, fromWest: Array<Function>, fromNorth: Arr...`），用于存储或配置try模式/图案。
+   * Property `tryPattern` (`{…}`) storing try pattern.
+   * @zh 属性 `tryPattern`（类型：`{…}`），用于存储或配置try模式/图案。
    */
   private tryPattern: {
     fromEast: Array<Function>,
@@ -212,7 +212,7 @@ export class GridsterPush {
 
   /**
    * Executes `cleanTempIds` to handle clean temp ids.
-   * @zh 执行 `cleanTempIds`，用于clean临时标识列表。
+   * @zh 执行 `cleanTempIds`，用于清理临时标识列表。
    */
   private cleanTempIds(){
     const allItemsWithIds = this.gridster.grid.filter((el:GridsterItemComponentInterface) => el['id']);

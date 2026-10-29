@@ -39,7 +39,7 @@ import { MenuModel } from './menu-model';
 export class MenuItemComponent extends MenuBase implements OnInit,DoCheck,AfterViewInit {
 
   /**
-   * Template/content query reference `extendMenus` (`@ViewChildren`) targeting extend menus.
+   * Template/content query reference `extendMenus` (`QueryList<MenuDirective>`) targeting extend menus.
    * @zh 模板/内容视图查询引用 `extendMenus`（`@ViewChildren`），指向extend菜单。
    */
   @ViewChildren(MenuDirective) extendMenus: QueryList<MenuDirective>;
@@ -47,7 +47,7 @@ export class MenuItemComponent extends MenuBase implements OnInit,DoCheck,AfterV
   /**
    * Input setter `children` updating children.
    * @zh 输入属性 `children` 的设置器，用于更新子级列表。
-   * @param c - New children value (`any`) / 新的子级列表值（`any`）
+   * @param c - New children value (`MenuModel[]`) / 新的子级列表值（`MenuModel[]`）
    */
   @Input() override set children(c){
     this._children=c;
@@ -74,7 +74,7 @@ export class MenuItemComponent extends MenuBase implements OnInit,DoCheck,AfterV
   @Input() value;
 
   /**
-   * Template/content query reference `childMenu` (`@ViewChild`) targeting child menu.
+   * Template/content query reference `childMenu` (`MatMenu`) targeting child menu.
    * @zh 模板/内容视图查询引用 `childMenu`（`@ViewChild`），指向子级菜单。
    */
   @ViewChild('childMenu', { static: true }) public childMenu: MatMenu;
@@ -185,7 +185,7 @@ export class MenuItemComponent extends MenuBase implements OnInit,DoCheck,AfterV
   /**
    * Input setter `panelClass` updating panel class.
    * @zh 输入属性 `panelClass` 的设置器，用于更新面板类名。
-   * @param panelClass - New panel class value (`any`) / 新的面板类名值（`any`）
+   * @param panelClass - New panel class value (`string`) / 新的面板类名值（`string`）
    */
   @Input()
   set panelClass(panelClass) {

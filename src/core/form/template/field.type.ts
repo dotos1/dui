@@ -15,15 +15,15 @@ import {FieldConfig } from '../models/field.config';
 export abstract class FieldType<F extends FieldConfig = FieldConfig> {
 
   /**
-   * Property `defaultOptions` (`F`) storing default options.
-   * @zh 属性 `defaultOptions`（类型：`F`），用于存储或配置默认配置选项。
+   * Property `defaultOptions` (`any`) storing default options.
+   * @zh 属性 `defaultOptions`（类型：`any`），用于存储或配置默认配置选项。
    */
   defaultOptions?;
 
   /**
    * Input setter `field` updating field.
    * @zh 输入属性 `field` 的设置器，用于更新字段。
-   * @param f - New field value (`F | any`) / 新的字段值（`F | any`）
+   * @param f - New field value (`any`) / 新的字段值（`any`）
    */
   @Input()
   set field (f) {
@@ -37,8 +37,8 @@ export abstract class FieldType<F extends FieldConfig = FieldConfig> {
     return this._field || {};
   }
   /**
-   * Property `_field` (`F`) storing field.
-   * @zh 属性 `_field`（类型：`F`），用于存储或配置字段。
+   * Property `_field` (`any`) storing field.
+   * @zh 属性 `_field`（类型：`any`），用于存储或配置字段。
    */
   protected _field;
 
@@ -58,8 +58,8 @@ export abstract class FieldType<F extends FieldConfig = FieldConfig> {
   get model() { return this.field.model; }
 
   /**
-   * Getter for input property `form` (`any`) returning form.
-   * @zh 输入属性 `form`（类型：`any`）的读取器，返回当前表单。
+   * Getter for input property `form` (`FormGroup<any>`) returning form.
+   * @zh 输入属性 `form`（类型：`FormGroup<any>`）的读取器，返回当前表单。
    */
   @Input()
   get form() { return <FormGroup> this.field.parent.formControl; }

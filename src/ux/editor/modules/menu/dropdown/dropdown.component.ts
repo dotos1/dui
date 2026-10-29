@@ -59,8 +59,8 @@ export class DropdownComponent implements OnInit, OnDestroy {
    */
   disabledItems: string[] = [];
   /**
-   * Property `activeItem` (`string | null`) storing active item.
-   * @zh 属性 `activeItem`（类型：`string | null`），用于存储或配置激活条目。
+   * Property `activeItem` (`string`) storing active item.
+   * @zh 属性 `activeItem`（类型：`string`），用于存储或配置激活条目。
    */
   activeItem: string | null;
 
@@ -69,7 +69,7 @@ export class DropdownComponent implements OnInit, OnDestroy {
    * @zh 创建 `DropdownComponent` 实例，并初始化其依赖项与内部状态。
    * @param uxeService - Injected or initial uxe service (`EditorService`) / 注入或传入的uxe服务（`EditorService`）
    * @param menuService - Injected or initial menu service (`MenuService`) / 注入或传入的菜单服务（`MenuService`）
-   * @param el - Injected or initial el (`ElementRef`) / 注入或传入的DOM元素（`ElementRef`）
+   * @param el - Injected or initial el (`ElementRef<any>`) / 注入或传入的DOM元素（`ElementRef<any>`）
    */
   constructor(
     private uxeService: EditorService,
@@ -126,7 +126,7 @@ export class DropdownComponent implements OnInit, OnDestroy {
 
   /**
    * Executes `trackByIndex` to handle track by index.
-   * @zh 执行 `trackByIndex`，用于track按索引。
+   * @zh 执行 `trackByIndex`，用于跟踪按索引。
    * @param index - index parameter (`number`) / 索引参数（`number`）
    * @returns Result of type `number` / 类型为 `number` 的返回值
    */
@@ -155,8 +155,8 @@ export class DropdownComponent implements OnInit, OnDestroy {
   }
 
   /**
-   * Property `update` (`any`) storing update.
-   * @zh 属性 `update`（类型：`any`），用于存储或配置更新。
+   * Property `update` (`(view: EditorView) => void`) storing update.
+   * @zh 属性 `update`（类型：`(view: EditorView) => void`），用于存储或配置更新。
    */
   private update = (view: EditorView) => {
     const { state } = view;

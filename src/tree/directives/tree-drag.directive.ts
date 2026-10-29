@@ -35,7 +35,7 @@ export class TreeDragDirective implements AfterViewInit, DoCheck, OnDestroy {
   /**
    * Creates an instance of `TreeDragDirective` and initializes its dependencies and internal state.
    * @zh 创建 `TreeDragDirective` 实例，并初始化其依赖项与内部状态。
-   * @param el - Injected or initial el (`ElementRef`) / 注入或传入的DOM元素（`ElementRef`）
+   * @param el - Injected or initial el (`ElementRef<any>`) / 注入或传入的DOM元素（`ElementRef<any>`）
    * @param renderer - Injected or initial renderer (`Renderer2`) / 注入或传入的渲染器（`Renderer2`）
    * @param treeDraggedElement - Injected or initial tree dragged element (`TreeDraggedElement`) / 注入或传入的树形控件Dragged元素（`TreeDraggedElement`）
    * @param ngZone - Injected or initial ng zone (`NgZone`) / 注入或传入的Angular区域(NgZone)（`NgZone`）

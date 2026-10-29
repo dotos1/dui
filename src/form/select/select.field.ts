@@ -73,20 +73,20 @@ export class SelectOption {
 export class FieldSelect extends MatField implements OnInit,OnDestroy {
 
   /**
-   * Template/content query reference `matSelect` (`@ViewChild`) targeting mat select.
+   * Template/content query reference `matSelect` (`MatSelect`) targeting mat select.
    * @zh 模板/内容视图查询引用 `matSelect`（`@ViewChild`），指向Material下拉选择。
    */
   @ViewChild(MatSelect, { static: true }) matSelect!: MatSelect;
   /**
-   * Template/content query reference `matSearch` (`@ViewChild`) targeting mat search.
+   * Template/content query reference `matSearch` (`MatSelectSearchComponent`) targeting mat search.
    * @zh 模板/内容视图查询引用 `matSearch`（`@ViewChild`），指向Material搜索。
    */
   @ViewChild(MatSelectSearchComponent, { static: true }) matSearch: MatSelectSearchComponent;
 
     
   /**
-   * Property `defaultOptions` (`any`) storing default options (default: `{ options: [] }`).
-   * @zh 属性 `defaultOptions`（类型：`any`），用于存储或配置默认配置选项（默认值：`{ options: [] }`）。
+   * Property `defaultOptions` (`{ options: any[]; }`) storing default options (default: `{ options: [] }`).
+   * @zh 属性 `defaultOptions`（类型：`{ options: any[]; }`），用于存储或配置默认配置选项（默认值：`{ options: [] }`）。
    */
   override defaultOptions = {
     options: []
@@ -123,14 +123,14 @@ export class FieldSelect extends MatField implements OnInit,OnDestroy {
   public searching: boolean = false;
 
   /**
-   * Property `_onDestroy` (`Subject`) storing on destroy (default: `new Subject<void>()`).
-   * @zh 属性 `_onDestroy`（类型：`Subject`），用于存储或配置当销毁（默认值：`new Subject<void>()`）。
+   * Property `_onDestroy` (`Subject<void>`) storing on destroy (default: `new Subject<void>()`).
+   * @zh 属性 `_onDestroy`（类型：`Subject<void>`），用于存储或配置当销毁（默认值：`new Subject<void>()`）。
    */
   protected _onDestroy = new Subject<void>();
 
   /**
-   * Property `selectAllValue` (`{ options: any; value: any[] }`) storing select all value.
-   * @zh 属性 `selectAllValue`（类型：`{ options: any; value: any[] }`），用于存储或配置下拉选择全部值。
+   * Property `selectAllValue` (`{ options: any; value: any; }`) storing select all value.
+   * @zh 属性 `selectAllValue`（类型：`{ options: any; value: any; }`），用于存储或配置下拉选择全部值。
    */
   private selectAllValue!: { options; value };
 
@@ -154,8 +154,8 @@ export class FieldSelect extends MatField implements OnInit,OnDestroy {
   // 搜索结果上;当前值若不在结果里,mat-select 找不到对应 option,显示变成空白。
   // 关面板时从这份缓存恢复,不再多发一次请求。params 变了缓存就作废。
   /**
-   * Property `_fullOptions` (`any[]`) storing full options (default: `null`).
-   * @zh 属性 `_fullOptions`（类型：`any[]`），用于存储或配置完整配置选项（默认值：`null`）。
+   * Property `_fullOptions` (`any`) storing full options (default: `null`).
+   * @zh 属性 `_fullOptions`（类型：`any`），用于存储或配置完整配置选项（默认值：`null`）。
    */
   private _fullOptions = null;
   /**
@@ -422,8 +422,8 @@ export class FieldSelect extends MatField implements OnInit,OnDestroy {
   /**
    * Executes `getSelectAllState` to handle get select all state.
    * @zh 执行 `getSelectAllState`，用于获取下拉选择全部状态。
-   * @param options - options parameter (`any[]`) / 配置选项参数（`any[]`）
-   * @returns Result of type `any` / 类型为 `any` 的返回值
+   * @param options - options parameter (`any`) / 配置选项参数（`any`）
+   * @returns Result of type `"" | "indeterminate" | "checked"` / 类型为 `"" | "indeterminate" | "checked"` 的返回值
    */
   getSelectAllState(options) {
     if (this.empty || this.value.length === 0) {
@@ -437,7 +437,7 @@ export class FieldSelect extends MatField implements OnInit,OnDestroy {
   /**
    * Executes `toggleSelectAll` to handle toggle select all.
    * @zh 执行 `toggleSelectAll`，用于开关下拉选择全部。
-   * @param options - options parameter (`any[]`) / 配置选项参数（`any[]`）
+   * @param options - options parameter (`any`) / 配置选项参数（`any`）
    */
   toggleSelectAll(options) {
     const selectAllValue = this.getSelectAllValue(options);
@@ -483,7 +483,7 @@ export class FieldSelect extends MatField implements OnInit,OnDestroy {
 
   /**
    * Executes `trackByOption` to handle track by option.
-   * @zh 执行 `trackByOption`，用于track按选项。
+   * @zh 执行 `trackByOption`，用于跟踪按选项。
    * @param index - index parameter (`number`) / 索引参数（`number`）
    * @param item - item parameter (`any`) / 条目参数（`any`）
    */
@@ -508,7 +508,7 @@ export class FieldSelect extends MatField implements OnInit,OnDestroy {
   /**
    * Executes `getSelectAllValue` to handle get select all value.
    * @zh 执行 `getSelectAllValue`，用于获取下拉选择全部值。
-   * @param options - options parameter (`any[]`) / 配置选项参数（`any[]`）
+   * @param options - options parameter (`any`) / 配置选项参数（`any`）
    */
   private getSelectAllValue(options) {
     if (!this.selectAllValue || options !== this.selectAllValue.options) {

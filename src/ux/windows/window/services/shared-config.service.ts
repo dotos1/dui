@@ -35,8 +35,8 @@ export class DynamicWindowSharedConfigService {
     }
 
     /**
-     * Property `_data$` (`BehaviorSubject`) storing data.
-     * @zh 属性 `_data$`（类型：`BehaviorSubject`），用于存储或配置数据。
+     * Property `_data$` (`BehaviorSubject<DynamicWindowConfig<unknown, unknown>>`) storing data.
+     * @zh 属性 `_data$`（类型：`BehaviorSubject<DynamicWindowConfig<unknown, unknown>>`），用于存储或配置数据。
      */
     private readonly _data$ = new BehaviorSubject<DynamicWindowConfig>(
         new ɵDynamicWindowConfigModel({

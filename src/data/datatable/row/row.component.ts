@@ -27,7 +27,7 @@ export class DataTableBodyRowComponent implements DoCheck {
   /**
    * Input setter `columns` updating columns.
    * @zh 输入属性 `columns` 的设置器，用于更新列集合。
-   * @param val - New columns value (`any[]`) / 新的列集合值（`any[]`）
+   * @param val - New columns value (`any`) / 新的列集合值（`any`）
    */
   @Input() set columns(val) {
     this._columns = val;
@@ -132,7 +132,7 @@ export class DataTableBodyRowComponent implements DoCheck {
   }
 
   /**
-   * Host-bound getter `cssClass` (`class`) computing css class.
+   * Host-bound getter `cssClass` (`string`) computing css class.
    * @zh 宿主绑定读取器 `cssClass`（绑定至 `class`），计算并返回CSS样式类名。
    */
   @HostBinding('class')
@@ -174,7 +174,7 @@ export class DataTableBodyRowComponent implements DoCheck {
   rowHeight: number;
 
   /**
-   * Host-bound getter `columnsTotalWidths` (`style.width`) computing columns total widths.
+   * Host-bound getter `columnsTotalWidths` (`string`) computing columns total widths.
    * @zh 宿主绑定读取器 `columnsTotalWidths`（绑定至 `style.width`），计算并返回列集合总计宽度。
    */
   @HostBinding('style.width')
@@ -214,8 +214,8 @@ export class DataTableBodyRowComponent implements DoCheck {
    */
   _offsetX: number;
   /**
-   * Property `_columns` (`any[]`) storing columns.
-   * @zh 属性 `_columns`（类型：`any[]`），用于存储或配置列集合。
+   * Property `_columns` (`any`) storing columns.
+   * @zh 属性 `_columns`（类型：`any`），用于存储或配置列集合。
    */
   _columns;
   /**
@@ -224,8 +224,8 @@ export class DataTableBodyRowComponent implements DoCheck {
    */
   _innerWidth: number;
   /**
-   * Property `_groupStyles` (`{ [prop: string]: {} }`) storing group styles (default: `{ left: {}, center: {}, right: {} }`).
-   * @zh 属性 `_groupStyles`（类型：`{ [prop: string]: {} }`），用于存储或配置分组样式集合（默认值：`{ left: {}, center: {}, right: {} }`）。
+   * Property `_groupStyles` (`{ [prop: string]: {}; }`) storing group styles (default: `{ left: {}, center: {}, right: {} }`).
+   * @zh 属性 `_groupStyles`（类型：`{ [prop: string]: {}; }`），用于存储或配置分组样式集合（默认值：`{ left: {}, center: {}, right: {} }`）。
    */
   _groupStyles: { [prop: string]: {} } = {
     left: {},
@@ -245,7 +245,7 @@ export class DataTableBodyRowComponent implements DoCheck {
    * @param differs - Injected or initial differs (`KeyValueDiffers`) / 注入或传入的differs（`KeyValueDiffers`）
    * @param scrollbarHelper - Injected or initial scrollbar helper (`ScrollbarHelper`) / 注入或传入的滚动条辅助工具（`ScrollbarHelper`）
    * @param cd - Injected or initial cd (`ChangeDetectorRef`) / 注入或传入的cd（`ChangeDetectorRef`）
-   * @param element - Injected or initial element (`ElementRef`) / 注入或传入的元素（`ElementRef`）
+   * @param element - Injected or initial element (`ElementRef<any>`) / 注入或传入的元素（`ElementRef<any>`）
    */
   constructor(
     private differs: KeyValueDiffers,
@@ -269,7 +269,7 @@ export class DataTableBodyRowComponent implements DoCheck {
 
   /**
    * Executes `trackByGroups` to handle track by groups.
-   * @zh 执行 `trackByGroups`，用于track按分组。
+   * @zh 执行 `trackByGroups`，用于跟踪按分组。
    * @param index - index parameter (`number`) / 索引参数（`number`）
    * @param colGroup - col group parameter (`any`) / 列分组参数（`any`）
    * @returns Result of type `any` / 类型为 `any` 的返回值
@@ -415,8 +415,8 @@ export class DataTableBodyRowComponent implements DoCheck {
 
   /**
    * Executes `recalculateColumns` to handle recalculate columns.
-   * @zh 执行 `recalculateColumns`，用于recalculate列集合。
-   * @param val - val parameter (`any[]`) / 值参数（`any[]`）
+   * @zh 执行 `recalculateColumns`，用于重新计算列集合。
+   * @param val - val parameter (`any`) / 值参数（`any`）
    */
   recalculateColumns(val = this.columns): void {
     this._columns = val;

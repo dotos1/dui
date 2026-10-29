@@ -173,7 +173,7 @@ export interface ShortcutEventOutput {
     /**
      * The registered key that was triggered
 
-     * @zh 属性 `key`（类型：`string[] | string`），用于存储或配置键。
+     * @zh 属性 `key`（类型：`string | string[]`），用于存储或配置键。
      */
     key: string[] | string;
 }

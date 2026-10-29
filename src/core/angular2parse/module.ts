@@ -16,7 +16,7 @@ export class Angular2ParseModule {
    * Executes `forRoot` to handle for root.
    * @zh 执行 `forRoot`，用于用于根节点。
    * @param pipesConfigMap - pipes config map parameter (`PipesConfig[]`) / 管道配置映射表参数（`PipesConfig[]`）
-   * @returns Result of type `ModuleWithProviders<any>` / 类型为 `ModuleWithProviders<any>` 的返回值
+   * @returns Result of type `{…}` / 类型为 `{…}` 的返回值
    */
   static forRoot(pipesConfigMap: PipesConfig[]) {
     return {

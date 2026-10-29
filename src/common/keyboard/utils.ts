@@ -7,7 +7,7 @@
  * Executes `isFunction` to handle is function.
  * @zh 执行 `isFunction`，用于是否为函数。
  * @param x - x parameter (`any`) / X坐标参数（`any`）
- * @returns Result of type `x is () => void` / 类型为 `x is () => void` 的返回值
+ * @returns Result of type `boolean` / 类型为 `boolean` 的返回值
  */
 export function isFunction(x): x is () => void {
     return typeof x === 'function';

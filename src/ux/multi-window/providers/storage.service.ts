@@ -126,7 +126,7 @@ export class WStorageService {
    * Executes `getLocalObject` to handle get local object.
    * @zh 执行 `getLocalObject`，用于获取本地对象。
    * @param key - key parameter (`string`) / 键参数（`string`）
-   * @returns Result of type `T | null` / 类型为 `T | null` 的返回值
+   * @returns Result of type `T` / 类型为 `T` 的返回值
    */
   public getLocalObject<T>(key: string): T | null {
     return this.getObject<T>(this.localStorage, key);
@@ -136,7 +136,7 @@ export class WStorageService {
    * Executes `getLocalObjects` to handle get local objects.
    * @zh 执行 `getLocalObjects`，用于获取本地对象。
    * @param keys - keys parameter (`string[]`) / 键列表参数（`string[]`）
-   * @returns Result of type `(T | null)[]` / 类型为 `(T | null)[]` 的返回值
+   * @returns Result of type `T[]` / 类型为 `T[]` 的返回值
    */
   public getLocalObjects<T>(keys: string[]): (T | null)[] {
     return this.getObjects<T>(this.localStorage, keys);
@@ -146,7 +146,7 @@ export class WStorageService {
    * Executes `getLocalItem` to handle get local item.
    * @zh 执行 `getLocalItem`，用于获取本地条目。
    * @param key - key parameter (`string`) / 键参数（`string`）
-   * @returns Result of type `string | null` / 类型为 `string | null` 的返回值
+   * @returns Result of type `string` / 类型为 `string` 的返回值
    */
   public getLocalItem(key: string): string | null {
     return this.getItem(this.localStorage, key);
@@ -156,7 +156,7 @@ export class WStorageService {
    * Executes `getSessionObject` to handle get session object.
    * @zh 执行 `getSessionObject`，用于获取会话对象。
    * @param key - key parameter (`string`) / 键参数（`string`）
-   * @returns Result of type `T | null` / 类型为 `T | null` 的返回值
+   * @returns Result of type `T` / 类型为 `T` 的返回值
    */
   public getSessionObject<T>(key: string): T | null {
     return this.getObject<T>(this.sessionStorage, key);
@@ -166,7 +166,7 @@ export class WStorageService {
    * Executes `getSessionObjects` to handle get session objects.
    * @zh 执行 `getSessionObjects`，用于获取会话对象。
    * @param keys - keys parameter (`string[]`) / 键列表参数（`string[]`）
-   * @returns Result of type `(T | null)[]` / 类型为 `(T | null)[]` 的返回值
+   * @returns Result of type `T[]` / 类型为 `T[]` 的返回值
    */
   public getSessionObjects<T>(keys: string[]): (T | null)[] {
     return this.getObjects<T>(this.sessionStorage, keys);
@@ -176,7 +176,7 @@ export class WStorageService {
    * Executes `getSessionItem` to handle get session item.
    * @zh 执行 `getSessionItem`，用于获取会话条目。
    * @param key - key parameter (`string`) / 键参数（`string`）
-   * @returns Result of type `string | null` / 类型为 `string | null` 的返回值
+   * @returns Result of type `string` / 类型为 `string` 的返回值
    */
   public getSessionItem(key: string): string | null {
     return this.getItem(this.sessionStorage, key);
@@ -187,7 +187,7 @@ export class WStorageService {
    * @zh 执行 `getObjects`，用于获取对象。
    * @param storage - storage parameter (`Storage`) / 存储参数（`Storage`）
    * @param keys - keys parameter (`string[]`) / 键列表参数（`string[]`）
-   * @returns Result of type `(T | null)[]` / 类型为 `(T | null)[]` 的返回值
+   * @returns Result of type `T[]` / 类型为 `T[]` 的返回值
    */
   public getObjects<T>(storage: Storage, keys: string[]): (T | null)[] {
     return keys.map(key => this.getObject<T>(storage, key));
@@ -198,7 +198,7 @@ export class WStorageService {
    * @zh 执行 `getObject`，用于获取对象。
    * @param storage - storage parameter (`Storage`) / 存储参数（`Storage`）
    * @param key - key parameter (`string`) / 键参数（`string`）
-   * @returns Result of type `T | null` / 类型为 `T | null` 的返回值
+   * @returns Result of type `T` / 类型为 `T` 的返回值
    */
   private getObject<T>(storage: Storage, key: string): T | null {
     const jsonString = this.getItem(storage, key);
@@ -217,7 +217,7 @@ export class WStorageService {
    * @zh 执行 `getItem`，用于获取条目。
    * @param storage - storage parameter (`Storage`) / 存储参数（`Storage`）
    * @param key - key parameter (`string`) / 键参数（`string`）
-   * @returns Result of type `string | null` / 类型为 `string | null` 的返回值
+   * @returns Result of type `string` / 类型为 `string` 的返回值
    */
   private getItem(storage: Storage, key: string): string | null {
     return storage.getItem(key) || null;

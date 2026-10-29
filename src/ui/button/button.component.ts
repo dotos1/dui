@@ -48,14 +48,14 @@ import { ButtonBase, DuiButtonConfig } from './button.base';
 export class ButtonComponent extends ButtonBase implements OnChanges,DoCheck {
 
    /**
-    * Template/content query reference `matTooltip` (`@ViewChild`) targeting mat tooltip.
+    * Template/content query reference `matTooltip` (`MatTooltip`) targeting mat tooltip.
     * @zh 模板/内容视图查询引用 `matTooltip`（`@ViewChild`），指向Material悬浮提示。
     */
    @ViewChild(MatTooltip)  declare matTooltip: MatTooltip;
 
   /**
-   * Input property `config` (`any`) configuring config (default: `{}`).
-   * @zh 输入属性 `config`（类型：`any`），用于配置配置（默认值：`{}`）。
+   * Input property `config` (`DuiButtonConfig`) configuring config (default: `{}`).
+   * @zh 输入属性 `config`（类型：`DuiButtonConfig`），用于配置配置（默认值：`{}`）。
    */
   @Input() override config: DuiButtonConfig = {};
 
@@ -84,8 +84,8 @@ export class ButtonComponent extends ButtonBase implements OnChanges,DoCheck {
   @Input()  hasMenu=false;
   
   /**
-   * Output event emitter `click` (`EventEmitter`) firing when click occurs.
-   * @zh 输出事件 `click`（类型：`EventEmitter`），当触发点击时向外发出事件。
+   * Output event emitter `click` (`EventEmitter<any>`) firing when click occurs.
+   * @zh 输出事件 `click`（类型：`EventEmitter<any>`），当触发点击时向外发出事件。
    */
   @Output() override click = new EventEmitter();
 
@@ -102,13 +102,13 @@ export class ButtonComponent extends ButtonBase implements OnChanges,DoCheck {
   public onlyIcon=false;
 
   /**
-   * Template/content query reference `_container` (`@ViewChild`) targeting container.
+   * Template/content query reference `_container` (`ViewContainerRef`) targeting container.
    * @zh 模板/内容视图查询引用 `_container`（`@ViewChild`），指向容器。
    */
   @ViewChild('container', { read: ViewContainerRef }) public declare _container: ViewContainerRef;
 
   /**
-   * Template/content query reference `triggers` (`@ViewChildren`) targeting triggers.
+   * Template/content query reference `triggers` (`QueryList<MatMenuTrigger>`) targeting triggers.
    * @zh 模板/内容视图查询引用 `triggers`（`@ViewChildren`），指向触发。
    */
   @ViewChildren(MatMenuTrigger) declare triggers: QueryList<MatMenuTrigger>;
@@ -116,7 +116,7 @@ export class ButtonComponent extends ButtonBase implements OnChanges,DoCheck {
   /**
    * Creates an instance of `ButtonComponent` and initializes its dependencies and internal state.
    * @zh 创建 `ButtonComponent` 实例，并初始化其依赖项与内部状态。
-   * @param _element - Injected or initial element (`ElementRef`) / 注入或传入的元素（`ElementRef`）
+   * @param _element - Injected or initial element (`ElementRef<any>`) / 注入或传入的元素（`ElementRef<any>`）
    * @param renderer - Injected or initial renderer (`Renderer2`) / 注入或传入的渲染器（`Renderer2`）
    * @param changeDetectorRef - Injected or initial change detector ref (`ChangeDetectorRef`) / 注入或传入的变更检测器引用（`ChangeDetectorRef`）
    * @param resolver - Injected or initial resolver (`ComponentFactoryResolver`) / 注入或传入的解析器（`ComponentFactoryResolver`）

@@ -144,7 +144,7 @@ export class FieldFormExtension implements FormExtension {
    * Executes `mergeValidators` to handle merge validators.
    * @zh 执行 `mergeValidators`，用于合并校验器列表。
    * @param field - field parameter (`FieldConfigCache`) / 字段参数（`FieldConfigCache`）
-   * @param type - type parameter (`'_validators' | '_asyncValidators'`) / 类型参数（`'_validators' | '_asyncValidators'`）
+   * @param type - type parameter (`"_validators" | "_asyncValidators"`) / 类型参数（`"_validators" | "_asyncValidators"`）
    * @returns Result of type `T[]` / 类型为 `T[]` 的返回值
    */
   private mergeValidators<T>(field: FieldConfigCache, type: '_validators' | '_asyncValidators'): T[] {

@@ -49,8 +49,8 @@ export class DataTableBodyComponent implements OnInit, OnDestroy {
    */
   @Input() externalPaging: boolean;
   /**
-   * Input property `rowHeight` (`number | 'auto' | ((row?: any) => number)`) configuring row height.
-   * @zh 输入属性 `rowHeight`（类型：`number | 'auto' | ((row?: any) => number)`），用于配置行高度。
+   * Input property `rowHeight` (`any`) configuring row height.
+   * @zh 输入属性 `rowHeight`（类型：`any`），用于配置行高度。
    */
   @Input() rowHeight;
   /**
@@ -175,7 +175,7 @@ export class DataTableBodyComponent implements OnInit, OnDestroy {
   /**
    * Input setter `rows` updating rows.
    * @zh 输入属性 `rows` 的设置器，用于更新行列表。
-   * @param val - New rows value (`any[]`) / 新的行列表值（`any[]`）
+   * @param val - New rows value (`any`) / 新的行列表值（`any`）
    */
   @Input() set rows(val) {
     this._rows = val;
@@ -193,7 +193,7 @@ export class DataTableBodyComponent implements OnInit, OnDestroy {
   /**
    * Input setter `columns` updating columns.
    * @zh 输入属性 `columns` 的设置器，用于更新列集合。
-   * @param val - New columns value (`any[]`) / 新的列集合值（`any[]`）
+   * @param val - New columns value (`any`) / 新的列集合值（`any`）
    */
   @Input() set columns(val) {
     this._columns = val;
@@ -247,7 +247,7 @@ export class DataTableBodyComponent implements OnInit, OnDestroy {
   }
 
   /**
-   * Host-bound getter `bodyWidth` (`style.width`) computing body width.
+   * Host-bound getter `bodyWidth` (`string`) computing body width.
    * @zh 宿主绑定读取器 `bodyWidth`（绑定至 `style.width`），计算并返回主体宽度。
    */
   @HostBinding('style.width')
@@ -310,8 +310,8 @@ export class DataTableBodyComponent implements OnInit, OnDestroy {
    */
   @Output() detailToggle = new EventEmitter();
   /**
-   * Output event emitter `rowContextmenu` (`EventEmitter`) firing when row contextmenu occurs.
-   * @zh 输出事件 `rowContextmenu`（类型：`EventEmitter`），当触发行Contextmenu时向外发出事件。
+   * Output event emitter `rowContextmenu` (`EventEmitter<{ event: MouseEvent; row: any; }>`) firing when row contextmenu occurs.
+   * @zh 输出事件 `rowContextmenu`（类型：`EventEmitter<{ event: MouseEvent; row: any; }>`），当触发行Contextmenu时向外发出事件。
    */
   @Output() rowContextmenu = new EventEmitter<{ event: MouseEvent; row }>(false);
   /**
@@ -321,7 +321,7 @@ export class DataTableBodyComponent implements OnInit, OnDestroy {
   @Output() treeAction = new EventEmitter();
 
   /**
-   * Template/content query reference `scroller` (`@ViewChild`) targeting scroller.
+   * Template/content query reference `scroller` (`ScrollerComponent`) targeting scroller.
    * @zh 模板/内容视图查询引用 `scroller`（`@ViewChild`），指向滚动容器。
    */
   @ViewChild(ScrollerComponent) scroller: ScrollerComponent;
@@ -366,8 +366,8 @@ export class DataTableBodyComponent implements OnInit, OnDestroy {
    */
   offsetY = 0;
   /**
-   * Property `indexes` (`any`) storing indexes (default: `{}`).
-   * @zh 属性 `indexes`（类型：`any`），用于存储或配置索引列表（默认值：`{}`）。
+   * Property `indexes` (`{ first?: number; last?: number; }`) storing indexes (default: `{}`).
+   * @zh 属性 `indexes`（类型：`{ first?: number; last?: number; }`），用于存储或配置索引列表（默认值：`{}`）。
    */
   indexes: { first?: number; last?: number } = {};
   /**
@@ -391,8 +391,8 @@ export class DataTableBodyComponent implements OnInit, OnDestroy {
    */
   listener = new Subscription();
   /**
-   * Property `rowIndexes` (`any`) storing row indexes (default: `new Map()`).
-   * @zh 属性 `rowIndexes`（类型：`any`），用于存储或配置行索引列表（默认值：`new Map()`）。
+   * Property `rowIndexes` (`Map<any, any>`) storing row indexes (default: `new Map()`).
+   * @zh 属性 `rowIndexes`（类型：`Map<any, any>`），用于存储或配置行索引列表（默认值：`new Map()`）。
    */
   rowIndexes = new Map();
   /**
@@ -402,8 +402,8 @@ export class DataTableBodyComponent implements OnInit, OnDestroy {
   rowExpansions = [];
 
   /**
-   * Property `_rows` (`any[]`) storing rows.
-   * @zh 属性 `_rows`（类型：`any[]`），用于存储或配置行列表。
+   * Property `_rows` (`any`) storing rows.
+   * @zh 属性 `_rows`（类型：`any`），用于存储或配置行列表。
    */
   _rows;
   /**
@@ -412,8 +412,8 @@ export class DataTableBodyComponent implements OnInit, OnDestroy {
    */
   _bodyHeight;
   /**
-   * Property `_columns` (`any[]`) storing columns.
-   * @zh 属性 `_columns`（类型：`any[]`），用于存储或配置列集合。
+   * Property `_columns` (`any`) storing columns.
+   * @zh 属性 `_columns`（类型：`any`），用于存储或配置列集合。
    */
   _columns;
   /**
@@ -673,7 +673,7 @@ export class DataTableBodyComponent implements OnInit, OnDestroy {
   /**
    * Get the height of the detail row.
 
-   * @zh 属性 `getDetailRowHeight`（类型：`any`），用于存储或配置获取详情行高度。
+   * @zh 属性 `getDetailRowHeight`（类型：`(row?: any, index?: any) => number`），用于存储或配置获取详情行高度。
    */
   getDetailRowHeight = (row?, index?): number => {
     if (!this.rowDetail) {
@@ -988,7 +988,7 @@ export class DataTableBodyComponent implements OnInit, OnDestroy {
    * Executes `getRowExpandedIdx` to handle get row expanded idx.
    * @zh 执行 `getRowExpandedIdx`，用于获取行已展开索引。
    * @param row - row parameter (`any`) / 行参数（`any`）
-   * @param expanded - expanded parameter (`any[]`) / 已展开参数（`any[]`）
+   * @param expanded - expanded parameter (`any`) / 已展开参数（`any`）
    * @returns Result of type `number` / 类型为 `number` 的返回值
    */
   getRowExpandedIdx(row, expanded): number {

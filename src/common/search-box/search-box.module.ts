@@ -33,8 +33,8 @@ import { Dui } from '@dotos/dui/core';
 })
 export class SearchBoxModule {
   /**
-   * Property `entryComponents` (`any[]`) storing entry components (default: `[ SearchBoxComponent ]`).
-   * @zh 属性 `entryComponents`（类型：`any[]`），用于存储或配置条目组件列表（默认值：`[ SearchBoxComponent ]`）。
+   * Property `entryComponents` (`(typeof SearchBoxComponent)[]`) storing entry components (default: `[ SearchBoxComponent ]`).
+   * @zh 属性 `entryComponents`（类型：`(typeof SearchBoxComponent)[]`），用于存储或配置条目组件列表（默认值：`[ SearchBoxComponent ]`）。
    */
   entryComponents = [
     SearchBoxComponent

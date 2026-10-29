@@ -73,8 +73,8 @@ export interface DateRange {
    */
   label: string;
   /**
-   * Property `dates` (`[Dayjs, Dayjs]`) storing dates.
-   * @zh 属性 `dates`（类型：`[Dayjs, Dayjs]`），用于存储或配置日期。
+   * Property `dates` (`[dayjs.Dayjs, dayjs.Dayjs]`) storing dates.
+   * @zh 属性 `dates`（类型：`[dayjs.Dayjs, dayjs.Dayjs]`），用于存储或配置日期。
    */
   dates: [Dayjs, Dayjs];
 }
@@ -90,13 +90,13 @@ export interface ChosenDate {
    */
   chosenLabel: string;
   /**
-   * Property `startDate` (`Dayjs`) storing start date.
-   * @zh 属性 `startDate`（类型：`Dayjs`），用于存储或配置开始日期。
+   * Property `startDate` (`dayjs.Dayjs`) storing start date.
+   * @zh 属性 `startDate`（类型：`dayjs.Dayjs`），用于存储或配置开始日期。
    */
   startDate: Dayjs;
   /**
-   * Property `endDate` (`Dayjs`) storing end date.
-   * @zh 属性 `endDate`（类型：`Dayjs`），用于存储或配置结束日期。
+   * Property `endDate` (`dayjs.Dayjs`) storing end date.
+   * @zh 属性 `endDate`（类型：`dayjs.Dayjs`），用于存储或配置结束日期。
    */
   endDate: Dayjs;
 }
@@ -109,13 +109,13 @@ export interface TimePeriod {
   [index: string]: Dayjs;
 
   /**
-   * Property `startDate` (`Dayjs`) storing start date.
-   * @zh 属性 `startDate`（类型：`Dayjs`），用于存储或配置开始日期。
+   * Property `startDate` (`dayjs.Dayjs`) storing start date.
+   * @zh 属性 `startDate`（类型：`dayjs.Dayjs`），用于存储或配置开始日期。
    */
   startDate: Dayjs;
   /**
-   * Property `endDate` (`Dayjs`) storing end date.
-   * @zh 属性 `endDate`（类型：`Dayjs`），用于存储或配置结束日期。
+   * Property `endDate` (`dayjs.Dayjs`) storing end date.
+   * @zh 属性 `endDate`（类型：`dayjs.Dayjs`），用于存储或配置结束日期。
    */
   endDate: Dayjs;
 }
@@ -126,8 +126,8 @@ export interface TimePeriod {
  */
 export interface StartDate {
   /**
-   * Property `startDate` (`Dayjs`) storing start date.
-   * @zh 属性 `startDate`（类型：`Dayjs`），用于存储或配置开始日期。
+   * Property `startDate` (`dayjs.Dayjs`) storing start date.
+   * @zh 属性 `startDate`（类型：`dayjs.Dayjs`），用于存储或配置开始日期。
    */
   startDate: Dayjs;
 }
@@ -138,8 +138,8 @@ export interface StartDate {
  */
 export interface EndDate {
   /**
-   * Property `endDate` (`Dayjs`) storing end date.
-   * @zh 属性 `endDate`（类型：`Dayjs`），用于存储或配置结束日期。
+   * Property `endDate` (`dayjs.Dayjs`) storing end date.
+   * @zh 属性 `endDate`（类型：`dayjs.Dayjs`），用于存储或配置结束日期。
    */
   endDate: Dayjs;
 }
@@ -220,8 +220,8 @@ interface TimePickerVariables {
    */
   ampmModel?: string;
   /**
-   * Property `selected` (`Dayjs`) storing selected.
-   * @zh 属性 `selected`（类型：`Dayjs`），用于存储或配置已选中。
+   * Property `selected` (`dayjs.Dayjs`) storing selected.
+   * @zh 属性 `selected`（类型：`dayjs.Dayjs`），用于存储或配置已选中。
    */
   selected: Dayjs;
 }
@@ -325,8 +325,8 @@ interface CalendarVariables {
    */
   calCols: number[];
   /**
-   * Property `calendar` (`CalendarArrayWithProps<Dayjs[]>`) storing calendar.
-   * @zh 属性 `calendar`（类型：`CalendarArrayWithProps<Dayjs[]>`），用于存储或配置日历。
+   * Property `calendar` (`CalendarArrayWithProps<dayjs.Dayjs[]>`) storing calendar.
+   * @zh 属性 `calendar`（类型：`CalendarArrayWithProps<dayjs.Dayjs[]>`），用于存储或配置日历。
    */
   calendar: CalendarArrayWithProps<Dayjs[]>;
   /**
@@ -425,13 +425,13 @@ interface CalendarVariableHolder {
  */
 interface VisibleCalendar {
   /**
-   * Property `month` (`Dayjs`) storing month.
-   * @zh 属性 `month`（类型：`Dayjs`），用于存储或配置月。
+   * Property `month` (`dayjs.Dayjs`) storing month.
+   * @zh 属性 `month`（类型：`dayjs.Dayjs`），用于存储或配置月。
    */
   month: Dayjs;
   /**
-   * Property `calendar` (`CalendarArrayWithProps<Dayjs[]>`) storing calendar.
-   * @zh 属性 `calendar`（类型：`CalendarArrayWithProps<Dayjs[]>`），用于存储或配置日历。
+   * Property `calendar` (`CalendarArrayWithProps<dayjs.Dayjs[]>`) storing calendar.
+   * @zh 属性 `calendar`（类型：`CalendarArrayWithProps<dayjs.Dayjs[]>`），用于存储或配置日历。
    */
   calendar: CalendarArrayWithProps<Dayjs[]>;
 }
@@ -455,22 +455,22 @@ interface VisibleCalendar {
 })
 export class DaterangepickerComponent implements OnInit, OnChanges {
   /**
-   * Input property `initialDates` (`[string | Dayjs, string | Dayjs]`) configuring initial dates (default: `null`).
-   * @zh 输入属性 `initialDates`（类型：`[string | Dayjs, string | Dayjs]`），用于配置初始日期（默认值：`null`）。
+   * Input property `initialDates` (`[string | dayjs.Dayjs, string | dayjs.Dayjs]`) configuring initial dates (default: `null`).
+   * @zh 输入属性 `initialDates`（类型：`[string | dayjs.Dayjs, string | dayjs.Dayjs]`），用于配置初始日期（默认值：`null`）。
    */
   @Input()
   initialDates: [string | Dayjs, string | Dayjs] = null;
 
   /**
-   * Input property `startDate` (`any`) configuring start date (default: `dayjs().utc(true).startOf('day')`).
-   * @zh 输入属性 `startDate`（类型：`any`），用于配置开始日期（默认值：`dayjs().utc(true).startOf('day')`）。
+   * Input property `startDate` (`dayjs.Dayjs`) configuring start date (default: `dayjs().utc(true).startOf('day')`).
+   * @zh 输入属性 `startDate`（类型：`dayjs.Dayjs`），用于配置开始日期（默认值：`dayjs().utc(true).startOf('day')`）。
    */
   @Input()
   startDate = dayjs().utc(true).startOf('day');
 
   /**
-   * Input property `endDate` (`any`) configuring end date (default: `dayjs().utc(true).endOf('day')`).
-   * @zh 输入属性 `endDate`（类型：`any`），用于配置结束日期（默认值：`dayjs().utc(true).endOf('day')`）。
+   * Input property `endDate` (`dayjs.Dayjs`) configuring end date (default: `dayjs().utc(true).endOf('day')`).
+   * @zh 输入属性 `endDate`（类型：`dayjs.Dayjs`），用于配置结束日期（默认值：`dayjs().utc(true).endOf('day')`）。
    */
   @Input()
   endDate = dayjs().utc(true).endOf('day');
@@ -718,7 +718,7 @@ export class DaterangepickerComponent implements OnInit, OnChanges {
    */
   @Output() clearClicked: EventEmitter<void>;
   /**
-   * Template/content query reference `pickerContainer` (`@ViewChild`) targeting picker container.
+   * Template/content query reference `pickerContainer` (`ElementRef<any>`) targeting picker container.
    * @zh 模板/内容视图查询引用 `pickerContainer`（`@ViewChild`），指向选择器容器。
    */
   @ViewChild('pickerContainer', { static: true }) pickerContainer: ElementRef;
@@ -741,21 +741,21 @@ export class DaterangepickerComponent implements OnInit, OnChanges {
    */
   public timepickerVariables: TimePickerVariablesHolder = {};
   /**
-   * Property `daterangepicker` (`{ start: FormControl; end: FormControl }`) storing daterangepicker.
-   * @zh 属性 `daterangepicker`（类型：`{ start: FormControl; end: FormControl }`），用于存储或配置daterangepicker。
+   * Property `daterangepicker` (`{ start: FormControl; end: FormControl; }`) storing daterangepicker.
+   * @zh 属性 `daterangepicker`（类型：`{ start: FormControl; end: FormControl; }`），用于存储或配置daterangepicker。
    */
   daterangepicker: { start: FormControl; end: FormControl } = { start: new FormControl(), end: new FormControl() };
 
   /**
-   * Property `applyBtn` (`{ disabled: boolean }`) storing apply btn (default: `{ disabled: false }`).
-   * @zh 属性 `applyBtn`（类型：`{ disabled: boolean }`），用于存储或配置应用按钮（默认值：`{ disabled: false }`）。
+   * Property `applyBtn` (`{ disabled: boolean; }`) storing apply btn (default: `{ disabled: false }`).
+   * @zh 属性 `applyBtn`（类型：`{ disabled: boolean; }`），用于存储或配置应用按钮（默认值：`{ disabled: false }`）。
    */
   public applyBtn: { disabled: boolean } = { disabled: false };
 
   // used in template for compile time support of enum values.
   /**
-   * Property `sideEnum` (`any`) storing side enum (default: `SideEnum`).
-   * @zh 属性 `sideEnum`（类型：`any`），用于存储或配置sideEnum（默认值：`SideEnum`）。
+   * Property `sideEnum` (`typeof SideEnum`) storing side enum (default: `SideEnum`).
+   * @zh 属性 `sideEnum`（类型：`typeof SideEnum`），用于存储或配置sideEnum（默认值：`SideEnum`）。
    */
   public sideEnum = SideEnum;
   /**
@@ -765,8 +765,8 @@ export class DaterangepickerComponent implements OnInit, OnChanges {
   public chosenRange: string;
 
   /**
-   * Property `rangesArray` (`Array<string>`) storing ranges array (default: `[]`).
-   * @zh 属性 `rangesArray`（类型：`Array<string>`），用于存储或配置范围列表数组（默认值：`[]`）。
+   * Property `rangesArray` (`string[]`) storing ranges array (default: `[]`).
+   * @zh 属性 `rangesArray`（类型：`string[]`），用于存储或配置范围列表数组（默认值：`[]`）。
    */
   public rangesArray: Array<string> = [];
   // some state information
@@ -830,15 +830,15 @@ export class DaterangepickerComponent implements OnInit, OnChanges {
    */
   protected rangesHolder: DateRanges = {};
   /**
-   * Property `cachedVersion` (`{ start: Dayjs; end: Dayjs }`) storing cached version (default: `{ start: null, end: null }`).
-   * @zh 属性 `cachedVersion`（类型：`{ start: Dayjs; end: Dayjs }`），用于存储或配置已缓存Version（默认值：`{ start: null, end: null }`）。
+   * Property `cachedVersion` (`{ start: Dayjs; end: Dayjs; }`) storing cached version (default: `{ start: null, end: null }`).
+   * @zh 属性 `cachedVersion`（类型：`{ start: Dayjs; end: Dayjs; }`），用于存储或配置已缓存Version（默认值：`{ start: null, end: null }`）。
    */
   private cachedVersion: { start: Dayjs; end: Dayjs } = { start: null, end: null };
 
   /**
    * Creates an instance of `DaterangepickerComponent` and initializes its dependencies and internal state.
    * @zh 创建 `DaterangepickerComponent` 实例，并初始化其依赖项与内部状态。
-   * @param el - Injected or initial el (`ElementRef`) / 注入或传入的DOM元素（`ElementRef`）
+   * @param el - Injected or initial el (`ElementRef<any>`) / 注入或传入的DOM元素（`ElementRef<any>`）
    * @param ref - Injected or initial ref (`ChangeDetectorRef`) / 注入或传入的引用（`ChangeDetectorRef`）
    * @param localeHolderService - Injected or initial locale holder service (`LocaleService`) / 注入或传入的语言区域Holder服务（`LocaleService`）
    */
@@ -864,7 +864,7 @@ export class DaterangepickerComponent implements OnInit, OnChanges {
   /**
    * Input setter `minDate` updating min date.
    * @zh 输入属性 `minDate` 的设置器，用于更新最小值日期。
-   * @param value - New min date value (`dayjs.Dayjs | string`) / 新的最小值日期值（`dayjs.Dayjs | string`）
+   * @param value - New min date value (`string | dayjs.Dayjs`) / 新的最小值日期值（`string | dayjs.Dayjs`）
    */
   @Input()
   set minDate(value: dayjs.Dayjs | string) {
@@ -938,7 +938,7 @@ export class DaterangepickerComponent implements OnInit, OnChanges {
   /**
    * Input setter `maxDate` updating max date.
    * @zh 输入属性 `maxDate` 的设置器，用于更新最大值日期。
-   * @param value - New max date value (`dayjs.Dayjs | string`) / 新的最大值日期值（`dayjs.Dayjs | string`）
+   * @param value - New max date value (`string | dayjs.Dayjs`) / 新的最大值日期值（`string | dayjs.Dayjs`）
    */
   @Input()
   set maxDate(value: dayjs.Dayjs | string) {
@@ -954,7 +954,7 @@ export class DaterangepickerComponent implements OnInit, OnChanges {
   /**
    * Executes `isInvalidDate` to handle is invalid date.
    * @zh 执行 `isInvalidDate`，用于是否为无效日期。
-   * @param date - date parameter (`Dayjs`) / 日期参数（`Dayjs`）
+   * @param date - date parameter (`dayjs.Dayjs`) / 日期参数（`dayjs.Dayjs`）
    * @returns Result of type `boolean` / 类型为 `boolean` 的返回值
    */
   @Input()
@@ -967,7 +967,7 @@ export class DaterangepickerComponent implements OnInit, OnChanges {
   /**
    * Executes `isCustomDate` to handle is custom date.
    * @zh 执行 `isCustomDate`，用于是否为自定义日期。
-   * @param date - date parameter (`Dayjs`) / 日期参数（`Dayjs`）
+   * @param date - date parameter (`dayjs.Dayjs`) / 日期参数（`dayjs.Dayjs`）
    * @returns Result of type `boolean` / 类型为 `boolean` 的返回值
    */
   @Input()
@@ -980,8 +980,8 @@ export class DaterangepickerComponent implements OnInit, OnChanges {
   /**
    * Executes `isTooltipDate` to handle is tooltip date.
    * @zh 执行 `isTooltipDate`，用于是否为悬浮提示日期。
-   * @param date - date parameter (`Dayjs`) / 日期参数（`Dayjs`）
-   * @returns Result of type `string | boolean | null` / 类型为 `string | boolean | null` 的返回值
+   * @param date - date parameter (`dayjs.Dayjs`) / 日期参数（`dayjs.Dayjs`）
+   * @returns Result of type `string | boolean` / 类型为 `string | boolean` 的返回值
    */
   @Input()
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -1004,7 +1004,7 @@ export class DaterangepickerComponent implements OnInit, OnChanges {
   /**
    * Angular lifecycle hook invoked when data-bound input properties change.
    * @zh Angular 生命周期钩子：当数据绑定的输入属性发生变更时调用。
-   * @param changes - changes parameter (`SimpleChanges|any`) / 变更集合参数（`SimpleChanges|any`）
+   * @param changes - changes parameter (`any`) / 变更集合参数（`any`）
    */
   ngOnChanges(changes): void {
     if ((changes.startDate || changes.endDate) && this.inline) {
@@ -1404,7 +1404,7 @@ export class DaterangepickerComponent implements OnInit, OnChanges {
   /**
    * Executes `setStartDate` to handle set start date.
    * @zh 执行 `setStartDate`，用于集合开始日期。
-   * @param startDate - start date parameter (`string | Dayjs`) / 开始日期参数（`string | Dayjs`）
+   * @param startDate - start date parameter (`string | dayjs.Dayjs`) / 开始日期参数（`string | dayjs.Dayjs`）
    */
   setStartDate(startDate: string | Dayjs): void {
     if (typeof startDate === 'string') {
@@ -1448,7 +1448,7 @@ export class DaterangepickerComponent implements OnInit, OnChanges {
   /**
    * Executes `setEndDate` to handle set end date.
    * @zh 执行 `setEndDate`，用于集合结束日期。
-   * @param endDate - end date parameter (`string | Dayjs`) / 结束日期参数（`string | Dayjs`）
+   * @param endDate - end date parameter (`string | dayjs.Dayjs`) / 结束日期参数（`string | dayjs.Dayjs`）
    */
   setEndDate(endDate: string | Dayjs): void {
     if (typeof endDate === 'string') {
@@ -1873,7 +1873,7 @@ export class DaterangepickerComponent implements OnInit, OnChanges {
    *
    * @param side left or right calendar
 
-   * @zh 属性 `clickNext`（类型：`any`），用于存储或配置点击下一个。
+   * @zh 属性 `clickNext`（类型：`(side: SideEnum) => void`），用于存储或配置点击下一个。
    */
   clickNext = (side: SideEnum) => {
     if (side === SideEnum.left) {

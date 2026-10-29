@@ -59,7 +59,7 @@ export class ConfigMergeLoader implements ConfigLoader {
   /**
    * Creates an instance of `ConfigMergeLoader` and initializes its dependencies and internal state.
    * @zh 创建 `ConfigMergeLoader` 实例，并初始化其依赖项与内部状态。
-   * @param loaders - Injected or initial loaders (`Array<ConfigLoader>`) / 注入或传入的加载器（`Array<ConfigLoader>`）
+   * @param loaders - Injected or initial loaders (`ConfigLoader[]`) / 注入或传入的加载器（`ConfigLoader[]`）
    */
   constructor(private readonly loaders: Array<ConfigLoader> = []) {
   }
@@ -67,7 +67,7 @@ export class ConfigMergeLoader implements ConfigLoader {
   /**
    * Executes `loadSettings` to handle load settings.
    * @zh 执行 `loadSettings`，用于加载设置项。
-   * @returns Result of type `any` / 类型为 `any` 的返回值
+   * @returns Result of type `Promise<any>` / 类型为 `Promise<any>` 的返回值
    */
   loadSettings() {
     if (this.nextLoader)
@@ -82,7 +82,7 @@ export class ConfigMergeLoader implements ConfigLoader {
    * Executes `next` to handle next.
    * @zh 执行 `next`，用于下一个。
    * @param loader - loader parameter (`Function`) / 加载器参数（`Function`）
-   * @returns Result of type `any` / 类型为 `any` 的返回值
+   * @returns Result of type `this` / 类型为 `this` 的返回值
    */
   next(loader: Function) {
     this.nextLoader = loader;
@@ -93,7 +93,7 @@ export class ConfigMergeLoader implements ConfigLoader {
   /**
    * Executes `mergeParallel` to handle merge parallel.
    * @zh 执行 `mergeParallel`，用于合并Parallel。
-   * @returns Result of type `Promise<any>` / 类型为 `Promise<any>` 的返回值
+   * @returns Result of type `Promise<unknown>` / 类型为 `Promise<unknown>` 的返回值
    */
   private mergeParallel() {
     const loaders: Array<ConfigLoader> = [new ConfigStaticLoader(), ...this.loaders];

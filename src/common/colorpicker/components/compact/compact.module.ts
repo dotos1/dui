@@ -27,8 +27,8 @@ import { CompactComponent } from './compact.component';
 })
 export class ColorCompactModule {
   /**
-   * Property `entryComponents` (`any[]`) storing entry components.
-   * @zh 属性 `entryComponents`（类型：`any[]`），用于存储或配置条目组件列表。
+   * Property `entryComponents` (`(typeof CompactComponent | typeof CompactColorComponent | typeof CompactFieldsComponent)[]`) storing entry components.
+   * @zh 属性 `entryComponents`（类型：`(typeof CompactComponent | typeof CompactColorComponent | typeof CompactFieldsComponent)[]`），用于存储或配置条目组件列表。
    */
   entryComponents = [
       CompactComponent,

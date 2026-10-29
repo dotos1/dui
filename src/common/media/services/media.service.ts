@@ -33,13 +33,13 @@ export class MediaService {
    */
   private _queryMap: Map<string, string> = new Map<string, string>();
   /**
-   * Property `_querySources` (`{ [key: string]: BehaviorSubject<boolean>}`) storing query sources (default: `{}`).
-   * @zh 属性 `_querySources`（类型：`{ [key: string]: BehaviorSubject<boolean>}`），用于存储或配置查询源（默认值：`{}`）。
+   * Property `_querySources` (`{ [key: string]: BehaviorSubject<boolean>; }`) storing query sources (default: `{}`).
+   * @zh 属性 `_querySources`（类型：`{ [key: string]: BehaviorSubject<boolean>; }`），用于存储或配置查询源（默认值：`{}`）。
    */
   private _querySources: { [key: string]: BehaviorSubject<boolean>} = {};
   /**
-   * Property `_queryObservables` (`{[key: string]: Observable<boolean>}`) storing query observables (default: `{}`).
-   * @zh 属性 `_queryObservables`（类型：`{[key: string]: Observable<boolean>}`），用于存储或配置查询可观察流（默认值：`{}`）。
+   * Property `_queryObservables` (`{ [key: string]: Observable<boolean>; }`) storing query observables (default: `{}`).
+   * @zh 属性 `_queryObservables`（类型：`{ [key: string]: Observable<boolean>; }`），用于存储或配置查询可观察流（默认值：`{}`）。
    */
   private _queryObservables: {[key: string]: Observable<boolean>} = {};
 

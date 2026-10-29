@@ -75,14 +75,14 @@ export class FeatureService {
   static unknownStage: FeatureStage = 'preview';
 
   /**
-   * Property `declared` (`Map`) storing declared (default: `new Map<string, FeatureStage>()`).
-   * @zh 属性 `declared`（类型：`Map`），用于存储或配置已声明（默认值：`new Map<string, FeatureStage>()`）。
+   * Property `declared` (`Map<string, FeatureStage>`) storing declared (default: `new Map<string, FeatureStage>()`).
+   * @zh 属性 `declared`（类型：`Map<string, FeatureStage>`），用于存储或配置已声明（默认值：`new Map<string, FeatureStage>()`）。
    */
   private declared = new Map<string, FeatureStage>();
 
   /**
-   * Property `changedSubject` (`BehaviorSubject`) storing changed subject (default: `new BehaviorSubject<void>(undefined)`).
-   * @zh 属性 `changedSubject`（类型：`BehaviorSubject`），用于存储或配置已变更主题流（默认值：`new BehaviorSubject<void>(undefined)`）。
+   * Property `changedSubject` (`BehaviorSubject<void>`) storing changed subject (default: `new BehaviorSubject<void>(undefined)`).
+   * @zh 属性 `changedSubject`（类型：`BehaviorSubject<void>`），用于存储或配置已变更主题流（默认值：`new BehaviorSubject<void>(undefined)`）。
    */
   private changedSubject = new BehaviorSubject<void>(undefined);
 
@@ -182,7 +182,7 @@ export class FeatureService {
   /**
    * Executes `overrides` to handle overrides.
    * @zh 执行 `overrides`，用于overrides。
-   * @returns Result of type `Record<string, any>` / 类型为 `Record<string, any>` 的返回值
+   * @returns Result of type `unknown` / 类型为 `unknown` 的返回值
    */
   private overrides() {
     return this.config.getSettings('features.overrides') ?? {};

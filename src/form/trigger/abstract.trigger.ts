@@ -101,8 +101,8 @@ export class AbstractTrigger extends MatField implements OnInit,OnDestroy,DoChec
 
 
   /**
-   * Property `_validatorOnChange` (`any`) storing validator on change (default: `() => { }`).
-   * @zh 属性 `_validatorOnChange`（类型：`any`），用于存储或配置校验器当变更（默认值：`() => { }`）。
+   * Property `_validatorOnChange` (`() => void`) storing validator on change (default: `() => { }`).
+   * @zh 属性 `_validatorOnChange`（类型：`() => void`），用于存储或配置校验器当变更（默认值：`() => { }`）。
    */
   _validatorOnChange = () => { };
 
@@ -126,7 +126,7 @@ export class AbstractTrigger extends MatField implements OnInit,OnDestroy,DoChec
   /**
    * Sets the required (`required`).
    * @zh 设置必填（`required`）。
-   * @param value - New required value (`any`) / 新的必填值（`any`）
+   * @param value - New required value (`boolean`) / 新的必填值（`boolean`）
    */
   override set required(value) { this._required =  coerceBooleanProperty (value); }
   /**
@@ -137,8 +137,8 @@ export class AbstractTrigger extends MatField implements OnInit,OnDestroy,DoChec
 
 
   /**
-   * Output event emitter `selectedChanged` (`EventEmitter`) firing when selected changed occurs.
-   * @zh 输出事件 `selectedChanged`（类型：`EventEmitter`），当触发已选中已变更时向外发出事件。
+   * Output event emitter `selectedChanged` (`EventEmitter<any>`) firing when selected changed occurs.
+   * @zh 输出事件 `selectedChanged`（类型：`EventEmitter<any>`），当触发已选中已变更时向外发出事件。
    */
   @Output() selectedChanged = new EventEmitter();
 
@@ -179,14 +179,14 @@ export class AbstractTrigger extends MatField implements OnInit,OnDestroy,DoChec
   /**
    * Sets the selected (`_selected`).
    * @zh 设置已选中（`_selected`）。
-   * @param value - New selected value (`any | null`) / 新的已选中值（`any | null`）
+   * @param value - New selected value (`any`) / 新的已选中值（`any`）
    */
   set _selected(value) {
     this._validSelected = value;
   }
   /**
-   * Property `_validSelected` (`any | null`) storing valid selected (default: `null`).
-   * @zh 属性 `_validSelected`（类型：`any | null`），用于存储或配置有效已选中（默认值：`null`）。
+   * Property `_validSelected` (`any`) storing valid selected (default: `null`).
+   * @zh 属性 `_validSelected`（类型：`any`），用于存储或配置有效已选中（默认值：`null`）。
    */
   private _validSelected = null;
 
@@ -216,7 +216,7 @@ export class AbstractTrigger extends MatField implements OnInit,OnDestroy,DoChec
 
   /**
    * A reference to the dialog when the calendar is opened as a dialog.
-   * @zh 属性 `_dialogRef`（类型：`MatDialogRef<TriggerPopup> | null`），用于存储或配置对话框引用。
+   * @zh 属性 `_dialogRef`（类型：`MatDialogRef<TriggerPopup, any>`），用于存储或配置对话框引用。
    */
   protected _dialogRef: MatDialogRef<TriggerPopup> | null;
 
@@ -228,20 +228,20 @@ export class AbstractTrigger extends MatField implements OnInit,OnDestroy,DoChec
 
   /**
    * The element that was focused before the datepicker was opened.
-   * @zh 属性 `_focusedElementBeforeOpen`（类型：`HTMLElement | null`），用于存储或配置已聚焦元素之前打开（默认值：`null`）。
+   * @zh 属性 `_focusedElementBeforeOpen`（类型：`HTMLElement`），用于存储或配置已聚焦元素之前打开（默认值：`null`）。
    */
   protected _focusedElementBeforeOpen: HTMLElement | null = null;
 
   /**
-   * Property `_onDestroy` (`Subject`) storing on destroy (default: `new Subject<void>()`).
-   * @zh 属性 `_onDestroy`（类型：`Subject`），用于存储或配置当销毁（默认值：`new Subject<void>()`）。
+   * Property `_onDestroy` (`Subject<void>`) storing on destroy (default: `new Subject<void>()`).
+   * @zh 属性 `_onDestroy`（类型：`Subject<void>`），用于存储或配置当销毁（默认值：`new Subject<void>()`）。
    */
   private readonly _onDestroy = new Subject<void>();
 
   /**
    * Creates an instance of `AbstractTrigger` and initializes its dependencies and internal state.
    * @zh 创建 `AbstractTrigger` 实例，并初始化其依赖项与内部状态。
-   * @param _elementRef - Injected or initial element ref (`ElementRef`) / 注入或传入的元素引用（`ElementRef`）
+   * @param _elementRef - Injected or initial element ref (`ElementRef<any>`) / 注入或传入的元素引用（`ElementRef<any>`）
    * @param _dialogService - Injected or initial dialog service (`DialogService`) / 注入或传入的对话框服务（`DialogService`）
    * @param _overlay - Injected or initial overlay (`Overlay`) / 注入或传入的浮层（`Overlay`）
    * @param _ngZone - Injected or initial ng zone (`NgZone`) / 注入或传入的Angular区域(NgZone)（`NgZone`）
@@ -561,7 +561,7 @@ export class AbstractTrigger extends MatField implements OnInit,OnDestroy,DoChec
   /**
    * Executes `getConnectedOverlayOrigin` to handle get connected overlay origin.
    * @zh 执行 `getConnectedOverlayOrigin`，用于获取已连接浮层Origin。
-   * @returns Result of type `ElementRef` / 类型为 `ElementRef` 的返回值
+   * @returns Result of type `ElementRef<any>` / 类型为 `ElementRef<any>` 的返回值
    */
   getConnectedOverlayOrigin(): ElementRef {
     return this._elementRef;

@@ -92,8 +92,8 @@ export const MATERIAL_FORMLY_CONFIG: ConfigOption = {
 })
 export class FormWrapperModule {
   /**
-   * Property `entryComponents` (`any`) storing entry components (default: `FIELD_TYPE_COMPONENTS`).
-   * @zh 属性 `entryComponents`（类型：`any`），用于存储或配置条目组件列表（默认值：`FIELD_TYPE_COMPONENTS`）。
+   * Property `entryComponents` (`(typeof FormSection | typeof ExtFieldWrapper | typeof WrapperFormField | typeof LabelWrapperField | typeof Fieldset | typeof WrapperEditorField | typeof RepeatTypeComponent | typeof RowEditorComponent)[]`) storing entry components (default: `FIELD_TYPE_COMPONENTS`).
+   * @zh 属性 `entryComponents`（类型：`(typeof FormSection | typeof ExtFieldWrapper | typeof WrapperFormField | typeof LabelWrapperField | typeof Fieldset | typeof WrapperEditorField | typeof RepeatTypeComponent | typeof RowEditorComponent)[]`），用于存储或配置条目组件列表（默认值：`FIELD_TYPE_COMPONENTS`）。
    */
   entryComponents = FIELD_TYPE_COMPONENTS;
   /**

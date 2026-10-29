@@ -13,7 +13,7 @@ import { ɵIsObjectsWithSameData } from '../helpers';
  * @param baseView - base view parameter (`ɵOsBaseViewComponent`) / 基础视图参数（`ɵOsBaseViewComponent`）
  * @param methodName - method name parameter (`string`) / 方法名称参数（`string`）
  * @param options - { get, enumerable, value } parameter (`TypedPropertyDescriptor<T>`) / {get,enumerable,值}参数（`TypedPropertyDescriptor<T>`）
- * @returns Result of type `any` / 类型为 `any` 的返回值
+ * @returns Result of type `TypedPropertyDescriptor<T>` / 类型为 `TypedPropertyDescriptor<T>` 的返回值
  */
 export function ɵCacheableReturnInstance<T>(
     baseView: ɵOsBaseViewComponent,
@@ -34,7 +34,7 @@ export function ɵCacheableReturnInstance<T>(
  * @param enumerable - enumerable parameter (`boolean`) / enumerable参数（`boolean`）
  * @param methodName - method name parameter (`string`) / 方法名称参数（`string`）
  * @param originalMethod - original method parameter (`Function`) / 原始方法参数（`Function`）
- * @returns Result of type `any` / 类型为 `any` 的返回值
+ * @returns Result of type `TypedPropertyDescriptor<T>` / 类型为 `TypedPropertyDescriptor<T>` 的返回值
  */
 function patchMethod<T>(enumerable: boolean, methodName: string, originalMethod: Function): TypedPropertyDescriptor<T> {
     return {

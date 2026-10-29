@@ -146,44 +146,44 @@ export class ɵDynamicWindowRefModel implements DynamicWindowRef {
     }
 
     /**
-     * Property `_config$` (`BehaviorSubject`) storing config.
-     * @zh 属性 `_config$`（类型：`BehaviorSubject`），用于存储或配置配置。
+     * Property `_config$` (`BehaviorSubject<DynamicWindowConfig<unknown, unknown>>`) storing config.
+     * @zh 属性 `_config$`（类型：`BehaviorSubject<DynamicWindowConfig<unknown, unknown>>`），用于存储或配置配置。
      */
     private readonly _config$ = new BehaviorSubject<DynamicWindowConfig>({});
     /**
-     * Property `_isHidden$` (`BehaviorSubject`) storing is hidden (default: `new BehaviorSubject<boolean>(false)`).
-     * @zh 属性 `_isHidden$`（类型：`BehaviorSubject`），用于存储或配置是否为隐藏（默认值：`new BehaviorSubject<boolean>(false)`）。
+     * Property `_isHidden$` (`BehaviorSubject<boolean>`) storing is hidden (default: `new BehaviorSubject<boolean>(false)`).
+     * @zh 属性 `_isHidden$`（类型：`BehaviorSubject<boolean>`），用于存储或配置是否为隐藏（默认值：`new BehaviorSubject<boolean>(false)`）。
      */
     private readonly _isHidden$ = new BehaviorSubject<boolean>(false);
     /**
-     * Property `_isFullscreen$` (`BehaviorSubject`) storing is fullscreen (default: `new BehaviorSubject<boolean>(false)`).
-     * @zh 属性 `_isFullscreen$`（类型：`BehaviorSubject`），用于存储或配置是否为全屏（默认值：`new BehaviorSubject<boolean>(false)`）。
+     * Property `_isFullscreen$` (`BehaviorSubject<boolean>`) storing is fullscreen (default: `new BehaviorSubject<boolean>(false)`).
+     * @zh 属性 `_isFullscreen$`（类型：`BehaviorSubject<boolean>`），用于存储或配置是否为全屏（默认值：`new BehaviorSubject<boolean>(false)`）。
      */
     private readonly _isFullscreen$ = new BehaviorSubject<boolean>(false);
     /**
-     * Property `_isActive$` (`BehaviorSubject`) storing is active (default: `new BehaviorSubject<boolean>(true)`).
-     * @zh 属性 `_isActive$`（类型：`BehaviorSubject`），用于存储或配置是否为激活（默认值：`new BehaviorSubject<boolean>(true)`）。
+     * Property `_isActive$` (`BehaviorSubject<boolean>`) storing is active (default: `new BehaviorSubject<boolean>(true)`).
+     * @zh 属性 `_isActive$`（类型：`BehaviorSubject<boolean>`），用于存储或配置是否为激活（默认值：`new BehaviorSubject<boolean>(true)`）。
      */
     private readonly _isActive$ = new BehaviorSubject<boolean>(true);
     /**
-     * Property `_orderIndex$` (`BehaviorSubject`) storing order index (default: `new BehaviorSubject<number>(0)`).
-     * @zh 属性 `_orderIndex$`（类型：`BehaviorSubject`），用于存储或配置顺序索引（默认值：`new BehaviorSubject<number>(0)`）。
+     * Property `_orderIndex$` (`BehaviorSubject<number>`) storing order index (default: `new BehaviorSubject<number>(0)`).
+     * @zh 属性 `_orderIndex$`（类型：`BehaviorSubject<number>`），用于存储或配置顺序索引（默认值：`new BehaviorSubject<number>(0)`）。
      */
     private readonly _orderIndex$ = new BehaviorSubject<number>(0);
     /**
-     * Property `_beforeHidden$` (`Subject`) storing before hidden (default: `new Subject<unknown>()`).
-     * @zh 属性 `_beforeHidden$`（类型：`Subject`），用于存储或配置之前隐藏（默认值：`new Subject<unknown>()`）。
+     * Property `_beforeHidden$` (`Subject<unknown>`) storing before hidden (default: `new Subject<unknown>()`).
+     * @zh 属性 `_beforeHidden$`（类型：`Subject<unknown>`），用于存储或配置之前隐藏（默认值：`new Subject<unknown>()`）。
      */
     private readonly _beforeHidden$ = new Subject<unknown>();
     /**
-     * Property `_afterClosed$` (`Subject`) storing after closed (default: `new Subject<unknown>()`).
-     * @zh 属性 `_afterClosed$`（类型：`Subject`），用于存储或配置之后是否关闭（默认值：`new Subject<unknown>()`）。
+     * Property `_afterClosed$` (`Subject<unknown>`) storing after closed (default: `new Subject<unknown>()`).
+     * @zh 属性 `_afterClosed$`（类型：`Subject<unknown>`），用于存储或配置之后是否关闭（默认值：`new Subject<unknown>()`）。
      */
     private readonly _afterClosed$ = new Subject<unknown>();
 
     /**
-     * Property `_id` (`any`) storing id (default: `ɵIdGenerator.generate()`).
-     * @zh 属性 `_id`（类型：`any`），用于存储或配置唯一标识（默认值：`ɵIdGenerator.generate()`）。
+     * Property `_id` (`string`) storing id (default: `ɵIdGenerator.generate()`).
+     * @zh 属性 `_id`（类型：`string`），用于存储或配置唯一标识（默认值：`ɵIdGenerator.generate()`）。
      */
     private readonly _id = ɵIdGenerator.generate();
     /**
@@ -210,7 +210,7 @@ export class ɵDynamicWindowRefModel implements DynamicWindowRef {
     /**
      * Executes `init` to handle init.
      * @zh 执行 `init`，用于初始化。
-     * @param config - config parameter (`DynamicWindowConfig`) / 配置参数（`DynamicWindowConfig`）
+     * @param config - config parameter (`DynamicWindowConfig<unknown, unknown>`) / 配置参数（`DynamicWindowConfig<unknown, unknown>`）
      */
     public init(config: DynamicWindowConfig): void {
         this.updateConfig(config);
@@ -221,7 +221,7 @@ export class ɵDynamicWindowRefModel implements DynamicWindowRef {
     /**
      * Executes `updateConfig` to handle update config.
      * @zh 执行 `updateConfig`，用于更新配置。
-     * @param config - config parameter (`DynamicWindowConfig`) / 配置参数（`DynamicWindowConfig`）
+     * @param config - config parameter (`DynamicWindowConfig<unknown, unknown>`) / 配置参数（`DynamicWindowConfig<unknown, unknown>`）
      */
     public updateConfig(config: DynamicWindowConfig): void {
         this._config$.next({ ...this.config, ...config });
@@ -269,7 +269,7 @@ export class ɵDynamicWindowRefModel implements DynamicWindowRef {
 
     /**
      * Executes `goFullscreen` to handle go fullscreen.
-     * @zh 执行 `goFullscreen`，用于go全屏。
+     * @zh 执行 `goFullscreen`，用于跳转到全屏。
      */
     public goFullscreen(): void {
         if (!this.isFullscreen) {
@@ -279,7 +279,7 @@ export class ɵDynamicWindowRefModel implements DynamicWindowRef {
 
     /**
      * Executes `goWindowed` to handle go windowed.
-     * @zh 执行 `goWindowed`，用于go已窗口。
+     * @zh 执行 `goWindowed`，用于跳转到已窗口。
      */
     public goWindowed(): void {
         if (this.isFullscreen) {

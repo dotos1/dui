@@ -15,8 +15,8 @@ import {GridsterComponentInterface} from './gridster.interface';
 @Injectable()
 export class GridsterSwap {
   /**
-   * Property `swapedItem` (`GridsterItemComponentInterface | undefined`) storing swaped item.
-   * @zh 属性 `swapedItem`（类型：`GridsterItemComponentInterface | undefined`），用于存储或配置swaped条目。
+   * Property `swapedItem` (`GridsterItemComponentInterface`) storing swaped item.
+   * @zh 属性 `swapedItem`（类型：`GridsterItemComponentInterface`），用于存储或配置swaped条目。
    */
   private swapedItem: GridsterItemComponentInterface | undefined;
   /**

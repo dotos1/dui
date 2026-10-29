@@ -220,8 +220,8 @@ export interface FileUploaderOptions {
    */
   authTokenHeader?: string;
   /**
-   * Property `additionalParameter` (`{ [key: string]: any }`) storing additional parameter.
-   * @zh 属性 `additionalParameter`（类型：`{ [key: string]: any }`），用于存储或配置additional参数。
+   * Property `additionalParameter` (`{ [key: string]: unknown; }`) storing additional parameter.
+   * @zh 属性 `additionalParameter`（类型：`{ [key: string]: unknown; }`），用于存储或配置additional参数。
    */
   additionalParameter?: { [key: string]: unknown };
   /**
@@ -285,8 +285,8 @@ export class FileUploader {
    */
   public authTokenHeader: string;
   /**
-   * Property `uploaderResponse` (`EventEmitter<any>`) storing uploader response.
-   * @zh 属性 `uploaderResponse`（类型：`EventEmitter<any>`），用于存储或配置上传器响应。
+   * Property `uploaderResponse` (`any`) storing uploader response.
+   * @zh 属性 `uploaderResponse`（类型：`any`），用于存储或配置上传器响应。
    */
   public uploaderResponse;
 
@@ -355,7 +355,7 @@ export class FileUploader {
    * @zh 执行 `addToQueue`，用于添加转换为队列。
    * @param files - files parameter (`File[]`) / 文件列表参数（`File[]`）
    * @param options - options parameter (`FileUploaderOptions`) / 配置选项参数（`FileUploaderOptions`）
-   * @param filters - filters parameter (`FilterFunction[] | string`) / 过滤器列表参数（`FilterFunction[] | string`）
+   * @param filters - filters parameter (`string | FilterFunction[]`) / 过滤器列表参数（`string | FilterFunction[]`）
    */
   public addToQueue(files: File[] , options?: FileUploaderOptions, filters?: FilterFunction[] | string): void {
     const list: File[] = [];
@@ -510,7 +510,7 @@ export class FileUploader {
   /**
    * Executes `getNotUploadedItems` to handle get not uploaded items.
    * @zh 执行 `getNotUploadedItems`，用于获取Not已上传条目列表。
-   * @returns Result of type `any[]` / 类型为 `any[]` 的返回值
+   * @returns Result of type `FileItem[]` / 类型为 `FileItem[]` 的返回值
    */
   public getNotUploadedItems() {
     return this.queue.filter((item: FileItem) => !item.isUploaded);
@@ -519,7 +519,7 @@ export class FileUploader {
   /**
    * Executes `getReadyItems` to handle get ready items.
    * @zh 执行 `getReadyItems`，用于获取就绪条目列表。
-   * @returns Result of type `any[]` / 类型为 `any[]` 的返回值
+   * @returns Result of type `FileItem[]` / 类型为 `FileItem[]` 的返回值
    */
   public getReadyItems() {
     return this.queue
@@ -539,7 +539,7 @@ export class FileUploader {
    * Executes `onAfterAddingAll` to handle on after adding all.
    * @zh 执行 `onAfterAddingAll`，用于当之后添加全部。
    * @param fileItems - file items parameter (`any`) / 文件条目列表参数（`any`）
-   * @returns Result of type `any` / 类型为 `any` 的返回值
+   * @returns Result of type `{ fileItems: any; }` / 类型为 `{ fileItems: any; }` 的返回值
    */
   public onAfterAddingAll(fileItems) {
     return { fileItems };
@@ -550,7 +550,7 @@ export class FileUploader {
    * @zh 执行 `onBuildItemForm`，用于当构建条目表单。
    * @param fileItem - file item parameter (`FileItem`) / 文件条目参数（`FileItem`）
    * @param form - form parameter (`any`) / 表单参数（`any`）
-   * @returns Result of type `any` / 类型为 `any` 的返回值
+   * @returns Result of type `{ fileItem: FileItem; form: any; }` / 类型为 `{ fileItem: FileItem; form: any; }` 的返回值
    */
   public onBuildItemForm(fileItem: FileItem, form) {
     return { fileItem, form };
@@ -560,7 +560,7 @@ export class FileUploader {
    * Executes `onAfterAddingFile` to handle on after adding file.
    * @zh 执行 `onAfterAddingFile`，用于当之后添加文件。
    * @param fileItem - file item parameter (`FileItem`) / 文件条目参数（`FileItem`）
-   * @returns Result of type `any` / 类型为 `any` 的返回值
+   * @returns Result of type `{ fileItem: FileItem; }` / 类型为 `{ fileItem: FileItem; }` 的返回值
    */
   public onAfterAddingFile(fileItem: FileItem) {
     return { fileItem };
@@ -572,7 +572,7 @@ export class FileUploader {
    * @param item - item parameter (`FileLikeObject`) / 条目参数（`FileLikeObject`）
    * @param filter - filter parameter (`any`) / 过滤参数（`any`）
    * @param options - options parameter (`any`) / 配置选项参数（`any`）
-   * @returns Result of type `any` / 类型为 `any` 的返回值
+   * @returns Result of type `{ item: FileLikeObject; filter: any; options: any; }` / 类型为 `{ item: FileLikeObject; filter: any; options: any; }` 的返回值
    */
   public onWhenAddingFileFailed(item: FileLikeObject, filter, options) {
     return { item, filter, options };
@@ -582,7 +582,7 @@ export class FileUploader {
    * Executes `onBeforeUploadItem` to handle on before upload item.
    * @zh 执行 `onBeforeUploadItem`，用于当之前上传条目。
    * @param fileItem - file item parameter (`FileItem`) / 文件条目参数（`FileItem`）
-   * @returns Result of type `any` / 类型为 `any` 的返回值
+   * @returns Result of type `{ fileItem: FileItem; }` / 类型为 `{ fileItem: FileItem; }` 的返回值
    */
   public onBeforeUploadItem(fileItem: FileItem) {
     return { fileItem };
@@ -593,7 +593,7 @@ export class FileUploader {
    * @zh 执行 `onProgressItem`，用于当进度条条目。
    * @param fileItem - file item parameter (`FileItem`) / 文件条目参数（`FileItem`）
    * @param progress - progress parameter (`any`) / 进度条参数（`any`）
-   * @returns Result of type `any` / 类型为 `any` 的返回值
+   * @returns Result of type `{ fileItem: FileItem; progress: any; }` / 类型为 `{ fileItem: FileItem; progress: any; }` 的返回值
    */
   public onProgressItem(fileItem: FileItem, progress) {
     return { fileItem, progress };
@@ -603,7 +603,7 @@ export class FileUploader {
    * Executes `onProgressAll` to handle on progress all.
    * @zh 执行 `onProgressAll`，用于当进度条全部。
    * @param progress - progress parameter (`any`) / 进度条参数（`any`）
-   * @returns Result of type `any` / 类型为 `any` 的返回值
+   * @returns Result of type `{ progress: any; }` / 类型为 `{ progress: any; }` 的返回值
    */
   public onProgressAll(progress) {
     return { progress };
@@ -616,7 +616,7 @@ export class FileUploader {
    * @param response - response parameter (`string`) / 响应参数（`string`）
    * @param status - status parameter (`number`) / 状态参数（`number`）
    * @param headers - headers parameter (`ParsedResponseHeaders`) / 请求头参数（`ParsedResponseHeaders`）
-   * @returns Result of type `any` / 类型为 `any` 的返回值
+   * @returns Result of type `{…}` / 类型为 `{…}` 的返回值
    */
   public onSuccessItem(item: FileItem, response: string, status: number, headers: ParsedResponseHeaders) {
     return { item, response, status, headers };
@@ -629,7 +629,7 @@ export class FileUploader {
    * @param response - response parameter (`string`) / 响应参数（`string`）
    * @param status - status parameter (`number`) / 状态参数（`number`）
    * @param headers - headers parameter (`ParsedResponseHeaders`) / 请求头参数（`ParsedResponseHeaders`）
-   * @returns Result of type `any` / 类型为 `any` 的返回值
+   * @returns Result of type `{…}` / 类型为 `{…}` 的返回值
    */
   public onErrorItem(item: FileItem, response: string, status: number, headers: ParsedResponseHeaders) {
     return { item, response, status, headers };
@@ -642,7 +642,7 @@ export class FileUploader {
    * @param response - response parameter (`string`) / 响应参数（`string`）
    * @param status - status parameter (`number`) / 状态参数（`number`）
    * @param headers - headers parameter (`ParsedResponseHeaders`) / 请求头参数（`ParsedResponseHeaders`）
-   * @returns Result of type `any` / 类型为 `any` 的返回值
+   * @returns Result of type `{…}` / 类型为 `{…}` 的返回值
    */
   public onCancelItem(item: FileItem, response: string, status: number, headers: ParsedResponseHeaders) {
     return { item, response, status, headers };
@@ -655,7 +655,7 @@ export class FileUploader {
    * @param response - response parameter (`string`) / 响应参数（`string`）
    * @param status - status parameter (`number`) / 状态参数（`number`）
    * @param headers - headers parameter (`ParsedResponseHeaders`) / 请求头参数（`ParsedResponseHeaders`）
-   * @returns Result of type `any` / 类型为 `any` 的返回值
+   * @returns Result of type `{…}` / 类型为 `{…}` 的返回值
    */
   public onCompleteItem(item: FileItem, response: string, status: number, headers: ParsedResponseHeaders) {
     return { item, response, status, headers };
@@ -741,7 +741,7 @@ export class FileUploader {
    * Executes `_headersGetter` to handle headers getter.
    * @zh 执行 `_headersGetter`，用于请求头Getter。
    * @param parsedHeaders - parsed headers parameter (`ParsedResponseHeaders`) / 已解析请求头参数（`ParsedResponseHeaders`）
-   * @returns Result of type `any` / 类型为 `any` 的返回值
+   * @returns Result of type `(name: any) => string | ParsedResponseHeaders` / 类型为 `(name: any) => string | ParsedResponseHeaders` 的返回值
    */
   protected _headersGetter(parsedHeaders: ParsedResponseHeaders) {
     return (name) => {
@@ -756,7 +756,7 @@ export class FileUploader {
    * Executes `_xhrTransport` to handle xhr transport.
    * @zh 执行 `_xhrTransport`，用于xhrTransport。
    * @param item - item parameter (`FileItem`) / 条目参数（`FileItem`）
-   * @returns Result of type `any` / 类型为 `any` 的返回值
+   * @returns Result of type `void` / 类型为 `void` 的返回值
    */
   protected _xhrTransport(item: FileItem) {
 
@@ -869,7 +869,7 @@ export class FileUploader {
   /**
    * Executes `_getFilters` to handle get filters.
    * @zh 执行 `_getFilters`，用于获取过滤器列表。
-   * @param filters - filters parameter (`FilterFunction[] | string`) / 过滤器列表参数（`FilterFunction[] | string`）
+   * @param filters - filters parameter (`string | FilterFunction[]`) / 过滤器列表参数（`string | FilterFunction[]`）
    * @returns Result of type `FilterFunction[]` / 类型为 `FilterFunction[]` 的返回值
    */
   protected _getFilters(filters: FilterFunction[] | string): FilterFunction[] {

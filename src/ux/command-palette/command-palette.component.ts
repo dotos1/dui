@@ -49,8 +49,8 @@ export class CommandPaletteComponent implements OnInit, OnDestroy {
   private allFilteredItems: CommandItem[] = [];
 
   /**
-   * Property `fuseOptions` (`any`) storing fuse options (default: `{ keys: ['text'], threshold: 0.4 }`).
-   * @zh 属性 `fuseOptions`（类型：`any`），用于存储或配置fuse配置选项（默认值：`{ keys: ['text'], threshold: 0.4 }`）。
+   * Property `fuseOptions` (`{ keys: string[]; threshold: number; }`) storing fuse options (default: `{ keys: ['text'], threshold: 0.4 }`).
+   * @zh 属性 `fuseOptions`（类型：`{ keys: string[]; threshold: number; }`），用于存储或配置fuse配置选项（默认值：`{ keys: ['text'], threshold: 0.4 }`）。
    */
   private readonly fuseOptions = { keys: ['text'], threshold: 0.4 };
   /**
@@ -175,7 +175,7 @@ export class CommandPaletteComponent implements OnInit, OnDestroy {
 
   /**
    * Executes `observeGroups` to handle observe groups.
-   * @zh 执行 `observeGroups`，用于observe分组。
+   * @zh 执行 `observeGroups`，用于观察分组。
    */
   private observeGroups(): void {
     this.commandPaletteGroupStorageService

@@ -137,8 +137,8 @@ export class QueryBuilderComponent implements OnChanges, ControlValueAccessor, V
     inputControlSize: 'q-control-size'
   };
   /**
-   * Property `defaultOperatorMap` (`{ [key: string]: string[] }`) storing default operator map.
-   * @zh 属性 `defaultOperatorMap`（类型：`{ [key: string]: string[] }`），用于存储或配置默认操作符映射表。
+   * Property `defaultOperatorMap` (`{ [key: string]: string[]; }`) storing default operator map.
+   * @zh 属性 `defaultOperatorMap`（类型：`{ [key: string]: string[]; }`），用于存储或配置默认操作符映射表。
    */
   public defaultOperatorMap: { [key: string]: string[] } = {
     string: ['=', '!=', 'contains', 'like'],
@@ -154,8 +154,8 @@ export class QueryBuilderComponent implements OnChanges, ControlValueAccessor, V
    */
   @Input() disabled: boolean;
   /**
-   * Input property `data` (`RuleSet | any`) configuring data (default: `{ condition: 'and', rules: [] }`).
-   * @zh 输入属性 `data`（类型：`RuleSet | any`），用于配置数据（默认值：`{ condition: 'and', rules: [] }`）。
+   * Input property `data` (`RuleSet`) configuring data (default: `{ condition: 'and', rules: [] }`).
+   * @zh 输入属性 `data`（类型：`RuleSet`），用于配置数据（默认值：`{ condition: 'and', rules: [] }`）。
    */
   @Input() data: RuleSet = { condition: 'and', rules: [] };
 
@@ -192,8 +192,8 @@ export class QueryBuilderComponent implements OnChanges, ControlValueAccessor, V
    */
   @Input() classNames: QueryBuilderClassNames;
   /**
-   * Input property `operatorMap` (`{ [key: string]: string[] }`) configuring operator map.
-   * @zh 输入属性 `operatorMap`（类型：`{ [key: string]: string[] }`），用于配置操作符映射表。
+   * Input property `operatorMap` (`{ [key: string]: string[]; }`) configuring operator map.
+   * @zh 输入属性 `operatorMap`（类型：`{ [key: string]: string[]; }`），用于配置操作符映射表。
    */
   @Input() operatorMap: { [key: string]: string[] };
   /**
@@ -268,53 +268,53 @@ export class QueryBuilderComponent implements OnChanges, ControlValueAccessor, V
   @Input() persistValueOnFieldChange: boolean = false;
 
   /**
-   * Template/content query reference `treeContainer` (`@ViewChild`) targeting tree container.
+   * Template/content query reference `treeContainer` (`ElementRef<any>`) targeting tree container.
    * @zh 模板/内容视图查询引用 `treeContainer`（`@ViewChild`），指向树形控件容器。
    */
   @ViewChild('treeContainer', { static: true }) treeContainer: ElementRef;
 
   /**
-   * Template/content query reference `buttonGroupTemplate` (`@ContentChild`) targeting button group template.
+   * Template/content query reference `buttonGroupTemplate` (`QueryButtonGroupDirective`) targeting button group template.
    * @zh 模板/内容视图查询引用 `buttonGroupTemplate`（`@ContentChild`），指向按钮分组模板。
    */
   @ContentChild(QueryButtonGroupDirective) buttonGroupTemplate: QueryButtonGroupDirective;
   /**
-   * Template/content query reference `switchGroupTemplate` (`@ContentChild`) targeting switch group template.
+   * Template/content query reference `switchGroupTemplate` (`QuerySwitchGroupDirective`) targeting switch group template.
    * @zh 模板/内容视图查询引用 `switchGroupTemplate`（`@ContentChild`），指向切换开关分组模板。
    */
   @ContentChild(QuerySwitchGroupDirective) switchGroupTemplate: QuerySwitchGroupDirective;
   /**
-   * Template/content query reference `fieldTemplate` (`@ContentChild`) targeting field template.
+   * Template/content query reference `fieldTemplate` (`QueryFieldDirective`) targeting field template.
    * @zh 模板/内容视图查询引用 `fieldTemplate`（`@ContentChild`），指向字段模板。
    */
   @ContentChild(QueryFieldDirective) fieldTemplate: QueryFieldDirective;
   /**
-   * Template/content query reference `entityTemplate` (`@ContentChild`) targeting entity template.
+   * Template/content query reference `entityTemplate` (`QueryEntityDirective`) targeting entity template.
    * @zh 模板/内容视图查询引用 `entityTemplate`（`@ContentChild`），指向实体模板。
    */
   @ContentChild(QueryEntityDirective) entityTemplate: QueryEntityDirective;
   /**
-   * Template/content query reference `operatorTemplate` (`@ContentChild`) targeting operator template.
+   * Template/content query reference `operatorTemplate` (`QueryOperatorDirective`) targeting operator template.
    * @zh 模板/内容视图查询引用 `operatorTemplate`（`@ContentChild`），指向操作符模板。
    */
   @ContentChild(QueryOperatorDirective) operatorTemplate: QueryOperatorDirective;
   /**
-   * Template/content query reference `removeButtonTemplate` (`@ContentChild`) targeting remove button template.
+   * Template/content query reference `removeButtonTemplate` (`QueryRemoveButtonDirective`) targeting remove button template.
    * @zh 模板/内容视图查询引用 `removeButtonTemplate`（`@ContentChild`），指向移除按钮模板。
    */
   @ContentChild(QueryRemoveButtonDirective) removeButtonTemplate: QueryRemoveButtonDirective;
   /**
-   * Template/content query reference `emptyWarningTemplate` (`@ContentChild`) targeting empty warning template.
+   * Template/content query reference `emptyWarningTemplate` (`QueryEmptyWarningDirective`) targeting empty warning template.
    * @zh 模板/内容视图查询引用 `emptyWarningTemplate`（`@ContentChild`），指向空警告模板。
    */
   @ContentChild(QueryEmptyWarningDirective) emptyWarningTemplate: QueryEmptyWarningDirective;
   /**
-   * Template/content query reference `inputTemplates` (`@ContentChildren`) targeting input templates.
+   * Template/content query reference `inputTemplates` (`QueryList<QueryInputDirective>`) targeting input templates.
    * @zh 模板/内容视图查询引用 `inputTemplates`（`@ContentChildren`），指向输入属性模板。
    */
   @ContentChildren(QueryInputDirective) inputTemplates: QueryList<QueryInputDirective>;
   /**
-   * Template/content query reference `arrowIconTemplate` (`@ContentChild`) targeting arrow icon template.
+   * Template/content query reference `arrowIconTemplate` (`QueryArrowIconDirective`) targeting arrow icon template.
    * @zh 模板/内容视图查询引用 `arrowIconTemplate`（`@ContentChild`），指向箭头图标模板。
    */
   @ContentChild(QueryArrowIconDirective) arrowIconTemplate: QueryArrowIconDirective;
@@ -337,33 +337,33 @@ export class QueryBuilderComponent implements OnChanges, ControlValueAccessor, V
    */
   private defaultEmptyList = [];
   /**
-   * Property `operatorsCache` (`{ [key: string]: string[] }`) storing operators cache.
-   * @zh 属性 `operatorsCache`（类型：`{ [key: string]: string[] }`），用于存储或配置操作符缓存。
+   * Property `operatorsCache` (`{ [key: string]: string[]; }`) storing operators cache.
+   * @zh 属性 `operatorsCache`（类型：`{ [key: string]: string[]; }`），用于存储或配置操作符缓存。
    */
   private operatorsCache: { [key: string]: string[] };
   /**
-   * Property `inputContextCache` (`Map`) storing input context cache (default: `new Map<Rule, InputContext>()`).
-   * @zh 属性 `inputContextCache`（类型：`Map`），用于存储或配置输入属性上下文缓存（默认值：`new Map<Rule, InputContext>()`）。
+   * Property `inputContextCache` (`Map<Rule, InputContext>`) storing input context cache (default: `new Map<Rule, InputContext>()`).
+   * @zh 属性 `inputContextCache`（类型：`Map<Rule, InputContext>`），用于存储或配置输入属性上下文缓存（默认值：`new Map<Rule, InputContext>()`）。
    */
   private inputContextCache = new Map<Rule, InputContext>();
   /**
-   * Property `operatorContextCache` (`Map`) storing operator context cache (default: `new Map<Rule, OperatorContext>()`).
-   * @zh 属性 `operatorContextCache`（类型：`Map`），用于存储或配置操作符上下文缓存（默认值：`new Map<Rule, OperatorContext>()`）。
+   * Property `operatorContextCache` (`Map<Rule, OperatorContext>`) storing operator context cache (default: `new Map<Rule, OperatorContext>()`).
+   * @zh 属性 `operatorContextCache`（类型：`Map<Rule, OperatorContext>`），用于存储或配置操作符上下文缓存（默认值：`new Map<Rule, OperatorContext>()`）。
    */
   private operatorContextCache = new Map<Rule, OperatorContext>();
   /**
-   * Property `fieldContextCache` (`Map`) storing field context cache (default: `new Map<Rule, FieldContext>()`).
-   * @zh 属性 `fieldContextCache`（类型：`Map`），用于存储或配置字段上下文缓存（默认值：`new Map<Rule, FieldContext>()`）。
+   * Property `fieldContextCache` (`Map<Rule, FieldContext>`) storing field context cache (default: `new Map<Rule, FieldContext>()`).
+   * @zh 属性 `fieldContextCache`（类型：`Map<Rule, FieldContext>`），用于存储或配置字段上下文缓存（默认值：`new Map<Rule, FieldContext>()`）。
    */
   private fieldContextCache = new Map<Rule, FieldContext>();
   /**
-   * Property `entityContextCache` (`Map`) storing entity context cache (default: `new Map<Rule, EntityContext>()`).
-   * @zh 属性 `entityContextCache`（类型：`Map`），用于存储或配置实体上下文缓存（默认值：`new Map<Rule, EntityContext>()`）。
+   * Property `entityContextCache` (`Map<Rule, EntityContext>`) storing entity context cache (default: `new Map<Rule, EntityContext>()`).
+   * @zh 属性 `entityContextCache`（类型：`Map<Rule, EntityContext>`），用于存储或配置实体上下文缓存（默认值：`new Map<Rule, EntityContext>()`）。
    */
   private entityContextCache = new Map<Rule, EntityContext>();
   /**
-   * Property `removeButtonContextCache` (`Map`) storing remove button context cache (default: `new Map<Rule, RemoveButtonContext>()`).
-   * @zh 属性 `removeButtonContextCache`（类型：`Map`），用于存储或配置移除按钮上下文缓存（默认值：`new Map<Rule, RemoveButtonContext>()`）。
+   * Property `removeButtonContextCache` (`Map<Rule, RemoveButtonContext>`) storing remove button context cache (default: `new Map<Rule, RemoveButtonContext>()`).
+   * @zh 属性 `removeButtonContextCache`（类型：`Map<Rule, RemoveButtonContext>`），用于存储或配置移除按钮上下文缓存（默认值：`new Map<Rule, RemoveButtonContext>()`）。
    */
   private removeButtonContextCache = new Map<Rule, RemoveButtonContext>();
   /**
@@ -420,8 +420,8 @@ export class QueryBuilderComponent implements OnChanges, ControlValueAccessor, V
   /**
    * Executes `validate` to handle validate.
    * @zh 执行 `validate`，用于校验。
-   * @param control - control parameter (`AbstractControl`) / 表单控件参数（`AbstractControl`）
-   * @returns Result of type `ValidationErrors | null` / 类型为 `ValidationErrors | null` 的返回值
+   * @param control - control parameter (`AbstractControl<any, any>`) / 表单控件参数（`AbstractControl<any, any>`）
+   * @returns Result of type `ValidationErrors` / 类型为 `ValidationErrors` 的返回值
    */
   validate(control: AbstractControl): ValidationErrors | null {
     const errors: { [key: string]: unknown } = {};
@@ -500,8 +500,8 @@ export class QueryBuilderComponent implements OnChanges, ControlValueAccessor, V
   // ----------END----------
 
   /**
-   * Property `getDisabledState` (`any`) storing get disabled state.
-   * @zh 属性 `getDisabledState`（类型：`any`），用于存储或配置获取已禁用状态。
+   * Property `getDisabledState` (`() => boolean`) storing get disabled state.
+   * @zh 属性 `getDisabledState`（类型：`() => boolean`），用于存储或配置获取已禁用状态。
    */
   getDisabledState = (): boolean => {
     return this.disabled;
@@ -511,7 +511,7 @@ export class QueryBuilderComponent implements OnChanges, ControlValueAccessor, V
    * Executes `findTemplateForRule` to handle find template for rule.
    * @zh 执行 `findTemplateForRule`，用于查找模板用于规则。
    * @param rule - rule parameter (`Rule`) / 规则参数（`Rule`）
-   * @returns Result of type `TemplateRef<any>` / 类型为 `TemplateRef<any>` 的返回值
+   * @returns Result of type `TemplateRef<unknown>` / 类型为 `TemplateRef<unknown>` 的返回值
    */
   findTemplateForRule(rule: Rule): TemplateRef<unknown> {
     const type = this.getInputType(rule.field, rule.operator);
@@ -642,7 +642,7 @@ export class QueryBuilderComponent implements OnChanges, ControlValueAccessor, V
   /**
    * Executes `getClassNames` to handle get class names.
    * @zh 执行 `getClassNames`，用于获取类名名称列表。
-   * @param args - args parameter (`any`) / 参数列表参数（`any`）
+   * @param args - args parameter (`any[]`) / 参数列表参数（`any[]`）
    * @returns Result of type `string` / 类型为 `string` 的返回值
    */
   getClassNames(...args): string {
@@ -863,7 +863,7 @@ export class QueryBuilderComponent implements OnChanges, ControlValueAccessor, V
 
   /**
    * Executes `coerceValueForOperator` to handle coerce value for operator.
-   * @zh 执行 `coerceValueForOperator`，用于coerce值用于操作符。
+   * @zh 执行 `coerceValueForOperator`，用于强制转换值用于操作符。
    * @param operator - operator parameter (`string`) / 操作符参数（`string`）
    * @param value - value parameter (`any`) / 值参数（`any`）
    * @param rule - rule parameter (`Rule`) / 规则参数（`Rule`）
@@ -981,7 +981,7 @@ export class QueryBuilderComponent implements OnChanges, ControlValueAccessor, V
   /**
    * Executes `getOperatorTemplate` to handle get operator template.
    * @zh 执行 `getOperatorTemplate`，用于获取操作符模板。
-   * @returns Result of type `TemplateRef<any>` / 类型为 `TemplateRef<any>` 的返回值
+   * @returns Result of type `TemplateRef<unknown>` / 类型为 `TemplateRef<unknown>` 的返回值
    */
   getOperatorTemplate(): TemplateRef<unknown> {
     const t = this.parentOperatorTemplate || this.operatorTemplate;
@@ -991,7 +991,7 @@ export class QueryBuilderComponent implements OnChanges, ControlValueAccessor, V
   /**
    * Executes `getFieldTemplate` to handle get field template.
    * @zh 执行 `getFieldTemplate`，用于获取字段模板。
-   * @returns Result of type `TemplateRef<any>` / 类型为 `TemplateRef<any>` 的返回值
+   * @returns Result of type `TemplateRef<unknown>` / 类型为 `TemplateRef<unknown>` 的返回值
    */
   getFieldTemplate(): TemplateRef<unknown> {
     const t = this.parentFieldTemplate || this.fieldTemplate;
@@ -1001,7 +1001,7 @@ export class QueryBuilderComponent implements OnChanges, ControlValueAccessor, V
   /**
    * Executes `getEntityTemplate` to handle get entity template.
    * @zh 执行 `getEntityTemplate`，用于获取实体模板。
-   * @returns Result of type `TemplateRef<any>` / 类型为 `TemplateRef<any>` 的返回值
+   * @returns Result of type `TemplateRef<unknown>` / 类型为 `TemplateRef<unknown>` 的返回值
    */
   getEntityTemplate(): TemplateRef<unknown> {
     const t = this.parentEntityTemplate || this.entityTemplate;
@@ -1011,7 +1011,7 @@ export class QueryBuilderComponent implements OnChanges, ControlValueAccessor, V
   /**
    * Executes `getArrowIconTemplate` to handle get arrow icon template.
    * @zh 执行 `getArrowIconTemplate`，用于获取箭头图标模板。
-   * @returns Result of type `TemplateRef<any>` / 类型为 `TemplateRef<any>` 的返回值
+   * @returns Result of type `TemplateRef<unknown>` / 类型为 `TemplateRef<unknown>` 的返回值
    */
   getArrowIconTemplate(): TemplateRef<unknown> {
     const t = this.parentArrowIconTemplate || this.arrowIconTemplate;
@@ -1021,7 +1021,7 @@ export class QueryBuilderComponent implements OnChanges, ControlValueAccessor, V
   /**
    * Executes `getButtonGroupTemplate` to handle get button group template.
    * @zh 执行 `getButtonGroupTemplate`，用于获取按钮分组模板。
-   * @returns Result of type `TemplateRef<any>` / 类型为 `TemplateRef<any>` 的返回值
+   * @returns Result of type `TemplateRef<unknown>` / 类型为 `TemplateRef<unknown>` 的返回值
    */
   getButtonGroupTemplate(): TemplateRef<unknown> {
     const t = this.parentButtonGroupTemplate || this.buttonGroupTemplate;
@@ -1031,7 +1031,7 @@ export class QueryBuilderComponent implements OnChanges, ControlValueAccessor, V
   /**
    * Executes `getSwitchGroupTemplate` to handle get switch group template.
    * @zh 执行 `getSwitchGroupTemplate`，用于获取切换开关分组模板。
-   * @returns Result of type `TemplateRef<any>` / 类型为 `TemplateRef<any>` 的返回值
+   * @returns Result of type `TemplateRef<unknown>` / 类型为 `TemplateRef<unknown>` 的返回值
    */
   getSwitchGroupTemplate(): TemplateRef<unknown> {
     const t = this.parentSwitchGroupTemplate || this.switchGroupTemplate;
@@ -1041,7 +1041,7 @@ export class QueryBuilderComponent implements OnChanges, ControlValueAccessor, V
   /**
    * Executes `getRemoveButtonTemplate` to handle get remove button template.
    * @zh 执行 `getRemoveButtonTemplate`，用于获取移除按钮模板。
-   * @returns Result of type `TemplateRef<any>` / 类型为 `TemplateRef<any>` 的返回值
+   * @returns Result of type `TemplateRef<unknown>` / 类型为 `TemplateRef<unknown>` 的返回值
    */
   getRemoveButtonTemplate(): TemplateRef<unknown> {
     const t = this.parentRemoveButtonTemplate || this.removeButtonTemplate;
@@ -1051,7 +1051,7 @@ export class QueryBuilderComponent implements OnChanges, ControlValueAccessor, V
   /**
    * Executes `getEmptyWarningTemplate` to handle get empty warning template.
    * @zh 执行 `getEmptyWarningTemplate`，用于获取空警告模板。
-   * @returns Result of type `TemplateRef<any>` / 类型为 `TemplateRef<any>` 的返回值
+   * @returns Result of type `TemplateRef<unknown>` / 类型为 `TemplateRef<unknown>` 的返回值
    */
   getEmptyWarningTemplate(): TemplateRef<unknown> {
     const t = this.parentEmptyWarningTemplate || this.emptyWarningTemplate;
@@ -1282,7 +1282,7 @@ export class QueryBuilderComponent implements OnChanges, ControlValueAccessor, V
    * Executes `validateRulesInRuleset` to handle validate rules in ruleset.
    * @zh 执行 `validateRulesInRuleset`，用于校验规则列表在Ruleset。
    * @param ruleset - ruleset parameter (`RuleSet`) / ruleset参数（`RuleSet`）
-   * @param errorStore - error store parameter (`any[]`) / 错误状态仓库参数（`any[]`）
+   * @param errorStore - error store parameter (`any`) / 错误状态仓库参数（`any`）
    */
   private validateRulesInRuleset(ruleset: RuleSet, errorStore) {
     if (ruleset && ruleset.rules && ruleset.rules.length > 0) {

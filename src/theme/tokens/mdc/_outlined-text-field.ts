@@ -72,7 +72,7 @@ export function get_color_tokens($theme) {
 
 /**
  * Executes `private_get_color_palette_color_tokens` to handle private get color palette color tokens.
- * @zh 执行 `private_get_color_palette_color_tokens`，用于private获取颜色调色板颜色设计令牌。
+ * @zh 执行 `private_get_color_palette_color_tokens`，用于内部获取颜色调色板颜色设计令牌。
  * @param $theme - theme parameter (`any`) / 主题参数（`any`）
  * @param $palette_name - palette name parameter (`any`) / 调色板名称参数（`any`）
  */

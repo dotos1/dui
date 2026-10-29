@@ -51,7 +51,7 @@ import {
 })
 export class PerfectScrollbarComponent implements OnInit, OnDestroy, DoCheck {
     /**
-     * Property `states` (`any`) storing states (default: `{}`).
+     * Property `states` (`{ left?: any; right?: any; top?: any; bottom?: any; }`) storing states (default: `{}`).
      * @zh 记录当前是否处于左/右/上/下边缘状态，驱动指示条显示。
      * @zh 记录当前是否处于左/右/上/下边缘状态，驱动指示条显示。
      */
@@ -122,20 +122,20 @@ export class PerfectScrollbarComponent implements OnInit, OnDestroy, DoCheck {
     private allowPropagationY: boolean = false;
 
     /**
-     * Property `stateTimeout` (`number | null`) storing state timeout (default: `null`).
-     * @zh 属性 `stateTimeout`（类型：`number | null`），用于存储或配置状态延时器（默认值：`null`）。
+     * Property `stateTimeout` (`number`) storing state timeout (default: `null`).
+     * @zh 属性 `stateTimeout`（类型：`number`），用于存储或配置状态延时器（默认值：`null`）。
      */
     private stateTimeout: number | null = null;
 
     /**
-     * Property `ngDestroy` (`Subject`) storing ng destroy (default: `new Subject<void>()`).
-     * @zh 属性 `ngDestroy`（类型：`Subject`），用于存储或配置Angular销毁（默认值：`new Subject<void>()`）。
+     * Property `ngDestroy` (`Subject<void>`) storing ng destroy (default: `new Subject<void>()`).
+     * @zh 属性 `ngDestroy`（类型：`Subject<void>`），用于存储或配置Angular销毁（默认值：`new Subject<void>()`）。
      */
     private readonly ngDestroy = new Subject<void>();
 
     /**
-     * Property `stateUpdate` (`Subject`) storing state update (default: `new Subject<string>()`).
-     * @zh 属性 `stateUpdate`（类型：`Subject`），用于存储或配置状态更新（默认值：`new Subject<string>()`）。
+     * Property `stateUpdate` (`Subject<string>`) storing state update (default: `new Subject<string>()`).
+     * @zh 属性 `stateUpdate`（类型：`Subject<string>`），用于存储或配置状态更新（默认值：`new Subject<string>()`）。
      */
     private readonly stateUpdate = new Subject<string>();
 
@@ -177,63 +177,63 @@ export class PerfectScrollbarComponent implements OnInit, OnDestroy, DoCheck {
     @Input() config?: PerfectScrollbarConfigInterface;
 
     /**
-     * Output event emitter `psScrollY` (`EventEmitter`) firing when ps scroll y occurs.
+     * Output event emitter `psScrollY` (`EventEmitter<any>`) firing when ps scroll y occurs.
      * @zh 垂直滚动时发出。
      * @zh 垂直滚动时发出。
      */
     @Output() psScrollY = new EventEmitter();
     /**
-     * Output event emitter `psScrollX` (`EventEmitter`) firing when ps scroll x occurs.
+     * Output event emitter `psScrollX` (`EventEmitter<any>`) firing when ps scroll x occurs.
      * @zh 水平滚动时发出。
      * @zh 水平滚动时发出。
      */
     @Output() psScrollX = new EventEmitter();
 
     /**
-     * Output event emitter `psScrollUp` (`EventEmitter`) firing when ps scroll up occurs.
+     * Output event emitter `psScrollUp` (`EventEmitter<any>`) firing when ps scroll up occurs.
      * @zh 向上滚动时发出。
      * @zh 向上滚动时发出。
      */
     @Output() psScrollUp = new EventEmitter();
     /**
-     * Output event emitter `psScrollDown` (`EventEmitter`) firing when ps scroll down occurs.
+     * Output event emitter `psScrollDown` (`EventEmitter<any>`) firing when ps scroll down occurs.
      * @zh 向下滚动时发出。
      * @zh 向下滚动时发出。
      */
     @Output() psScrollDown = new EventEmitter();
     /**
-     * Output event emitter `psScrollLeft` (`EventEmitter`) firing when ps scroll left occurs.
+     * Output event emitter `psScrollLeft` (`EventEmitter<any>`) firing when ps scroll left occurs.
      * @zh 向左滚动时发出。
      * @zh 向左滚动时发出。
      */
     @Output() psScrollLeft = new EventEmitter();
     /**
-     * Output event emitter `psScrollRight` (`EventEmitter`) firing when ps scroll right occurs.
+     * Output event emitter `psScrollRight` (`EventEmitter<any>`) firing when ps scroll right occurs.
      * @zh 向右滚动时发出。
      * @zh 向右滚动时发出。
      */
     @Output() psScrollRight = new EventEmitter();
 
     /**
-     * Output event emitter `psYReachEnd` (`EventEmitter`) firing when ps y reach end occurs.
+     * Output event emitter `psYReachEnd` (`EventEmitter<any>`) firing when ps y reach end occurs.
      * @zh 垂直方向滚动到底部时发出。
      * @zh 垂直方向滚动到底部时发出。
      */
     @Output() psYReachEnd = new EventEmitter();
     /**
-     * Output event emitter `psYReachStart` (`EventEmitter`) firing when ps y reach start occurs.
+     * Output event emitter `psYReachStart` (`EventEmitter<any>`) firing when ps y reach start occurs.
      * @zh 垂直方向滚动到顶部时发出。
      * @zh 垂直方向滚动到顶部时发出。
      */
     @Output() psYReachStart = new EventEmitter();
     /**
-     * Output event emitter `psXReachEnd` (`EventEmitter`) firing when ps x reach end occurs.
+     * Output event emitter `psXReachEnd` (`EventEmitter<any>`) firing when ps x reach end occurs.
      * @zh 水平方向滚动到右侧末端时发出。
      * @zh 水平方向滚动到右侧末端时发出。
      */
     @Output() psXReachEnd = new EventEmitter();
     /**
-     * Output event emitter `psXReachStart` (`EventEmitter`) firing when ps x reach start occurs.
+     * Output event emitter `psXReachStart` (`EventEmitter<any>`) firing when ps x reach start occurs.
      * @zh 水平方向滚动到左侧起始位置时发出。
      * @zh 水平方向滚动到左侧起始位置时发出。
      */

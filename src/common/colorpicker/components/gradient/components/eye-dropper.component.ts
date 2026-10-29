@@ -58,8 +58,8 @@ export class EyeDropperComponent  {
 
 
   /**
-   * Property `style1` (`any`) storing style1.
-   * @zh 属性 `style1`（类型：`any`），用于存储或配置style1。
+   * Property `style1` (`{ fill: string; stroke: any; strokeWidth: string; }`) storing style1.
+   * @zh 属性 `style1`（类型：`{ fill: string; stroke: any; strokeWidth: string; }`），用于存储或配置style1。
    */
   public style1 = {
     fill: 'none',
@@ -68,8 +68,8 @@ export class EyeDropperComponent  {
   }
 
   /**
-   * Property `style2` (`any`) storing style2.
-   * @zh 属性 `style2`（类型：`any`），用于存储或配置style2。
+   * Property `style2` (`{ fill: any; stroke: any; strokeWidth: string; }`) storing style2.
+   * @zh 属性 `style2`（类型：`{ fill: any; stroke: any; strokeWidth: string; }`），用于存储或配置style2。
    */
   public style2 = {
     fill: this.color,

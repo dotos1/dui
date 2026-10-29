@@ -77,8 +77,8 @@ import { EXPANSION_PANEL_ANIMATION_TIMING, ExpansionPanel } from './expansion-pa
 })
 export class ExpansionPanelHeader implements OnDestroy {
   /**
-   * Property `_parentChangeSubscription` (`any`) storing parent change subscription (default: `Subscription.EMPTY`).
-   * @zh 属性 `_parentChangeSubscription`（类型：`any`），用于存储或配置父级变更订阅对象（默认值：`Subscription.EMPTY`）。
+   * Property `_parentChangeSubscription` (`Subscription`) storing parent change subscription (default: `Subscription.EMPTY`).
+   * @zh 属性 `_parentChangeSubscription`（类型：`Subscription`），用于存储或配置父级变更订阅对象（默认值：`Subscription.EMPTY`）。
    */
   private _parentChangeSubscription = Subscription.EMPTY;
 
@@ -86,7 +86,7 @@ export class ExpansionPanelHeader implements OnDestroy {
    * Creates an instance of `ExpansionPanelHeader` and initializes its dependencies and internal state.
    * @zh 创建 `ExpansionPanelHeader` 实例，并初始化其依赖项与内部状态。
    * @param panel - Injected or initial panel (`ExpansionPanel`) / 注入或传入的面板（`ExpansionPanel`）
-   * @param _element - Injected or initial element (`ElementRef`) / 注入或传入的元素（`ElementRef`）
+   * @param _element - Injected or initial element (`ElementRef<any>`) / 注入或传入的元素（`ElementRef<any>`）
    * @param _focusMonitor - Injected or initial focus monitor (`FocusMonitor`) / 注入或传入的聚焦Monitor（`FocusMonitor`）
    * @param _changeDetectorRef - Injected or initial change detector ref (`ChangeDetectorRef`) / 注入或传入的变更检测器引用（`ChangeDetectorRef`）
    */

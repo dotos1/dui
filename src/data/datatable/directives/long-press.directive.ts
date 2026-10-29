@@ -82,7 +82,7 @@ export class LongPressDirective implements OnDestroy {
   subscription: Subscription;
 
   /**
-   * Host-bound getter `press` (`class.press`) computing press.
+   * Host-bound getter `press` (`boolean`) computing press.
    * @zh 宿主绑定读取器 `press`（绑定至 `class.press`），计算并返回press。
    */
   @HostBinding('class.press')
@@ -91,7 +91,7 @@ export class LongPressDirective implements OnDestroy {
   }
 
   /**
-   * Host-bound getter `isLongPress` (`class.longpress`) computing is long press.
+   * Host-bound getter `isLongPress` (`boolean`) computing is long press.
    * @zh 宿主绑定读取器 `isLongPress`（绑定至 `class.longpress`），计算并返回是否为LongPress。
    */
   @HostBinding('class.longpress')

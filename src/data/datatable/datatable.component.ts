@@ -50,8 +50,8 @@ import { throttleable } from './utils/throttle';
 export class DatatableComponent implements OnInit, DoCheck,AfterContentInit,OnDestroy,OnChanges, AfterViewInit {
 
   /**
-   * Input property `config` (`any`) configuring config (default: `{}`).
-   * @zh 输入属性 `config`（类型：`any`），用于配置配置（默认值：`{}`）。
+   * Input property `config` (`DuiConfig`) configuring config (default: `{}`).
+   * @zh 输入属性 `config`（类型：`DuiConfig`），用于配置配置（默认值：`{}`）。
    */
   @Input() config: DuiConfig = {};
   /**
@@ -141,7 +141,7 @@ export class DatatableComponent implements OnInit, DoCheck,AfterContentInit,OnDe
    *    ]}
    *  ]
 
-   * @zh 输入属性 `groupedRows`（类型：`any[]`），用于配置已分组行列表。
+   * @zh 输入属性 `groupedRows`（类型：`any`），用于配置已分组行列表。
    */
   @Input() groupedRows;
 
@@ -195,7 +195,7 @@ export class DatatableComponent implements OnInit, DoCheck,AfterContentInit,OnDe
    * The row height; which is necessary
    * to calculate the height for the lazy rendering.
 
-   * @zh 输入属性 `rowHeight`（类型：`number | 'auto' | ((row?: any) => number)`），用于配置行高度（默认值：`30`）。
+   * @zh 输入属性 `rowHeight`（类型：`number | "auto" | ((row?: any) => number)`），用于配置行高度（默认值：`30`）。
    */
   @Input() rowHeight: number | 'auto' | ((row?) => number) = 30;
 
@@ -211,7 +211,7 @@ export class DatatableComponent implements OnInit, DoCheck,AfterContentInit,OnDe
    * The minimum header height in pixels.
    * Pass a falsey for no header
 
-   * @zh 输入属性 `headerHeight`（类型：`any`），用于配置表头高度（默认值：`30`）。
+   * @zh 输入属性 `headerHeight`（类型：`number`），用于配置表头高度（默认值：`30`）。
    */
   @Input() headerHeight = 30;
 
@@ -356,7 +356,7 @@ export class DatatableComponent implements OnInit, DoCheck,AfterContentInit,OnDe
   /**
    * Css class overrides
 
-   * @zh 输入属性 `cssClasses`（类型：`any`），用于配置CSS样式类名集合。
+   * @zh 输入属性 `cssClasses`（类型：`{ sortAscending: string; sortDescending: string; }`），用于配置CSS样式类名集合。
    */
   @Input() cssClasses = {
     sortAscending: 'datatable-icon-up',
@@ -370,7 +370,7 @@ export class DatatableComponent implements OnInit, DoCheck,AfterContentInit,OnDe
    * totalMessage     [default] = 'total'
    * selectedMessage  [default] = 'selected'
 
-   * @zh 输入属性 `messages`（类型：`any`），用于配置消息列表。
+   * @zh 输入属性 `messages`（类型：`{ emptyMessage: any; totalMessage: any; selectedMessage: any; }`），用于配置消息列表。
    */
   @Input() messages = {
     // Message to show when array is presented
@@ -424,7 +424,7 @@ export class DatatableComponent implements OnInit, DoCheck,AfterContentInit,OnDe
    *      return row.name !== 'Ethel Price';
    *    }
 
-   * @zh 输入属性 `displayCheck`（类型：`(row: any, column?: any, value?: any) => boolean|boolean`），用于配置display检查。
+   * @zh 输入属性 `displayCheck`（类型：`(row: any, column?: any, value?: any) => boolean | boolean`），用于配置display检查。
    */
   @Input() displayCheck: (row, column?, value?) => boolean|boolean;
 
@@ -557,7 +557,7 @@ export class DatatableComponent implements OnInit, DoCheck,AfterContentInit,OnDe
    * type indicates whether the header or the body was clicked.
    * content contains either the column or the row that was clicked.
 
-   * @zh 输出事件 `tableContextmenu`（类型：`EventEmitter`），当触发表格Contextmenu时向外发出事件。
+   * @zh 输出事件 `tableContextmenu`（类型：`EventEmitter<{ event: MouseEvent; type: ContextmenuType; content: any; }>`），当触发表格Contextmenu时向外发出事件。
    */
   @Output() tableContextmenu = new EventEmitter<{ event: MouseEvent; type: ContextmenuType; content }>(false);
 
@@ -812,13 +812,13 @@ export class DatatableComponent implements OnInit, DoCheck,AfterContentInit,OnDe
   rowDiffer: KeyValueDiffer<{}, {}>;
 
   /**
-   * Property `_offsetX` (`BehaviorSubject`) storing offset x (default: `new BehaviorSubject(0)`).
-   * @zh 属性 `_offsetX`（类型：`BehaviorSubject`），用于存储或配置偏移量X坐标（默认值：`new BehaviorSubject(0)`）。
+   * Property `_offsetX` (`BehaviorSubject<number>`) storing offset x (default: `new BehaviorSubject(0)`).
+   * @zh 属性 `_offsetX`（类型：`BehaviorSubject<number>`），用于存储或配置偏移量X坐标（默认值：`new BehaviorSubject(0)`）。
    */
   _offsetX = new BehaviorSubject(0);
   /**
-   * Property `_limit` (`number | undefined`) storing limit.
-   * @zh 属性 `_limit`（类型：`number | undefined`），用于存储或配置限制。
+   * Property `_limit` (`number`) storing limit.
+   * @zh 属性 `_limit`（类型：`number`），用于存储或配置限制。
    */
   _limit: number | undefined;
   /**
@@ -832,8 +832,8 @@ export class DatatableComponent implements OnInit, DoCheck,AfterContentInit,OnDe
    */
   _offset: number = 0;
   /**
-   * Property `_rows` (`any[]`) storing rows.
-   * @zh 属性 `_rows`（类型：`any[]`），用于存储或配置行列表。
+   * Property `_rows` (`any`) storing rows.
+   * @zh 属性 `_rows`（类型：`any`），用于存储或配置行列表。
    */
   _rows;
   /**
@@ -842,8 +842,8 @@ export class DatatableComponent implements OnInit, DoCheck,AfterContentInit,OnDe
    */
   _groupRowsBy: string;
   /**
-   * Property `_internalRows` (`any[]`) storing internal rows.
-   * @zh 属性 `_internalRows`（类型：`any[]`），用于存储或配置内部行列表。
+   * Property `_internalRows` (`any`) storing internal rows.
+   * @zh 属性 `_internalRows`（类型：`any`），用于存储或配置内部行列表。
    */
   _internalRows;
   /**
@@ -879,7 +879,7 @@ export class DatatableComponent implements OnInit, DoCheck,AfterContentInit,OnDe
    * @param scrollbarHelper - Injected or initial scrollbar helper (`ScrollbarHelper`) / 注入或传入的滚动条辅助工具（`ScrollbarHelper`）
    * @param dimensionsHelper - Injected or initial dimensions helper (`DimensionsHelper`) / 注入或传入的维度列表辅助工具（`DimensionsHelper`）
    * @param cd - Injected or initial cd (`ChangeDetectorRef`) / 注入或传入的cd（`ChangeDetectorRef`）
-   * @param elementRef - Injected or initial element ref (`ElementRef`) / 注入或传入的元素引用（`ElementRef`）
+   * @param elementRef - Injected or initial element ref (`ElementRef<any>`) / 注入或传入的元素引用（`ElementRef<any>`）
    * @param differs - Injected or initial differs (`KeyValueDiffers`) / 注入或传入的differs（`KeyValueDiffers`）
    * @param http - Injected or initial http (`HttpClient`) / 注入或传入的HTTP（`HttpClient`）
    * @param columnChangesService - Injected or initial column changes service (`ColumnChangesService`) / 注入或传入的列变更集合服务（`ColumnChangesService`）
@@ -1062,7 +1062,7 @@ export class DatatableComponent implements OnInit, DoCheck,AfterContentInit,OnDe
    *
    * Also can be manually invoked or upon window resize.
 
-   * @zh 执行 `recalculate`，用于recalculate。
+   * @zh 执行 `recalculate`，用于重新计算。
    */
   recalculate(): void {
     this.recalculateDims();
@@ -1072,7 +1072,7 @@ export class DatatableComponent implements OnInit, DoCheck,AfterContentInit,OnDe
 
   /**
    * Executes `recalculate1` to handle recalculate1.
-   * @zh 执行 `recalculate1`，用于recalculate1。
+   * @zh 执行 `recalculate1`，用于重新计算1。
    */
   recalculate1(): void {
     setTimeout(() => {
@@ -1106,11 +1106,11 @@ export class DatatableComponent implements OnInit, DoCheck,AfterContentInit,OnDe
 
   /**
    * Executes `recalculateColumns` to handle recalculate columns.
-   * @zh 执行 `recalculateColumns`，用于recalculate列集合。
-   * @param columns - columns parameter (`any[]`) / 列集合参数（`any[]`）
+   * @zh 执行 `recalculateColumns`，用于重新计算列集合。
+   * @param columns - columns parameter (`TableColumn[]`) / 列集合参数（`TableColumn[]`）
    * @param forceIdx - force idx parameter (`number`) / force索引参数（`number`）
    * @param allowBleed - allow bleed parameter (`boolean`) / 允许Bleed参数（`boolean`）
-   * @returns Result of type `any[] | undefined` / 类型为 `any[] | undefined` 的返回值
+   * @returns Result of type `TableColumn[]` / 类型为 `TableColumn[]` 的返回值
    */
   recalculateColumns(
     columns = this._internalColumns,
@@ -1157,7 +1157,7 @@ export class DatatableComponent implements OnInit, DoCheck,AfterContentInit,OnDe
   /**
    * Recalculates the pages after a update.
 
-   * @zh 执行 `recalculatePages`，用于recalculate页面列表。
+   * @zh 执行 `recalculatePages`，用于重新计算页面列表。
    */
   recalculatePages(): void {
     this.pageSize = this.calcPageSize();

@@ -36,7 +36,7 @@ export class DatatableFooterDirective {
   _templateInput: TemplateRef<unknown>;
 
   /**
-   * Template/content query reference `_templateQuery` (`@ContentChild`) targeting template query.
+   * Template/content query reference `_templateQuery` (`TemplateRef<unknown>`) targeting template query.
    * @zh 模板/内容视图查询引用 `_templateQuery`（`@ContentChild`），指向模板查询。
    */
   @ContentChild(DataTableFooterTemplateDirective, { read: TemplateRef })

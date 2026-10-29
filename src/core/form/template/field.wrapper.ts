@@ -14,7 +14,7 @@ import { FieldConfig } from '../models/field.config';
 @Directive()
 export abstract class FieldWrapper<F extends FieldConfig = FieldConfig> extends FieldType<F> {
   /**
-   * Template/content query reference `fieldComponent` (`@ViewChild`) targeting field component.
+   * Template/content query reference `fieldComponent` (`ViewContainerRef`) targeting field component.
    * @zh 模板/内容视图查询引用 `fieldComponent`（`@ViewChild`），指向字段组件。
    */
   @ViewChild('fieldComponent', { read: ViewContainerRef }) fieldComponent: ViewContainerRef;

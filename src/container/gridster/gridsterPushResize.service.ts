@@ -36,13 +36,13 @@ export class GridsterPushResize {
    */
   public fromWest: string;
   /**
-   * Property `pushedItems` (`Array<GridsterItemComponentInterface>`) storing pushed items.
-   * @zh 属性 `pushedItems`（类型：`Array<GridsterItemComponentInterface>`），用于存储或配置已推入条目列表。
+   * Property `pushedItems` (`GridsterItemComponentInterface[]`) storing pushed items.
+   * @zh 属性 `pushedItems`（类型：`GridsterItemComponentInterface[]`），用于存储或配置已推入条目列表。
    */
   private pushedItems: Array<GridsterItemComponentInterface>;
   /**
-   * Property `pushedItemsPath` (`Array<Array<GridsterItem>>`) storing pushed items path.
-   * @zh 属性 `pushedItemsPath`（类型：`Array<Array<GridsterItem>>`），用于存储或配置已推入条目列表路径。
+   * Property `pushedItemsPath` (`GridsterItem[][]`) storing pushed items path.
+   * @zh 属性 `pushedItemsPath`（类型：`GridsterItem[][]`），用于存储或配置已推入条目列表路径。
    */
   private pushedItemsPath: Array<Array<GridsterItem>>;
   /**
@@ -56,8 +56,8 @@ export class GridsterPushResize {
    */
   private gridster: GridsterComponentInterface;
   /**
-   * Property `tryPattern` (`{ fromEast: Function, fromWest: Function, fromNorth: Function, fromSou...`) storing try pattern.
-   * @zh 属性 `tryPattern`（类型：`{ fromEast: Function, fromWest: Function, fromNorth: Function, fromSou...`），用于存储或配置try模式/图案。
+   * Property `tryPattern` (`{…}`) storing try pattern.
+   * @zh 属性 `tryPattern`（类型：`{…}`），用于存储或配置try模式/图案。
    */
   private tryPattern: {
     fromEast: Function,

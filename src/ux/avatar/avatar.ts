@@ -17,7 +17,7 @@ export class Avatar implements IAVatar {
    * @zh 创建 `Avatar` 实例，并初始化其依赖项与内部状态。
    * @param id - Injected or initial id (`string`) / 注入或传入的唯一标识（`string`）
    * @param name - Injected or initial name (`string`) / 注入或传入的名称（`string`）
-   * @param src - Injected or initial src (`string|SafeUrl`) / 注入或传入的源路径（`string|SafeUrl`）
+   * @param src - Injected or initial src (`string | SafeUrl`) / 注入或传入的源路径（`string | SafeUrl`）
    */
   constructor(
     public id: string,
@@ -57,7 +57,7 @@ export class Avatar implements IAVatar {
 
   /**
    * Executes `constructInitials` to handle construct initials.
-   * @zh 执行 `constructInitials`，用于construct初始。
+   * @zh 执行 `constructInitials`，用于构造初始。
    * @param elements - elements parameter (`string[]`) / 元素列表参数（`string[]`）
    * @returns Result of type `string` / 类型为 `string` 的返回值
    */

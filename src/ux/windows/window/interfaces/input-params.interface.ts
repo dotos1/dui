@@ -13,8 +13,8 @@ import { ɵDynamicWindowRefModel } from '../classes';
  */
 export interface ɵDynamicWindowInputParams {
     /**
-     * Property `component` (`Type<any>`) storing component.
-     * @zh 属性 `component`（类型：`Type<any>`），用于存储或配置组件。
+     * Property `component` (`Type<unknown>`) storing component.
+     * @zh 属性 `component`（类型：`Type<unknown>`），用于存储或配置组件。
      */
     component: Type<unknown>;
     /**

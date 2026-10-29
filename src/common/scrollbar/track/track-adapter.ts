@@ -43,8 +43,8 @@ export abstract class TrackAdapter extends PointerEventsAdapter {
 
   // The direction of scroll when the track area is clicked
   /**
-   * Property `scrollDirection` (`'forward' | 'backward'`) storing scroll direction.
-   * @zh 属性 `scrollDirection`（类型：`'forward' | 'backward'`），用于存储或配置滚动方向。
+   * Property `scrollDirection` (`"forward" | "backward"`) storing scroll direction.
+   * @zh 属性 `scrollDirection`（类型：`"forward" | "backward"`），用于存储或配置滚动方向。
    */
   protected scrollDirection: 'forward' | 'backward';
 
@@ -93,7 +93,7 @@ export abstract class TrackAdapter extends PointerEventsAdapter {
    * Executes `getScrollDirection` to handle get scroll direction.
    * @zh 执行 `getScrollDirection`，用于获取滚动方向。
    * @param position - position parameter (`number`) / 位置参数（`number`）
-   * @returns Result of type `'forward' | 'backward'` / 类型为 `'forward' | 'backward'` 的返回值
+   * @returns Result of type `"forward" | "backward"` / 类型为 `"forward" | "backward"` 的返回值
    */
   protected abstract getScrollDirection(position: number): 'forward' | 'backward';
 

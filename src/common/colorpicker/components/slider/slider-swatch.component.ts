@@ -83,7 +83,7 @@ export class SliderSwatchComponent implements OnChanges {
    */
   @Input() last = false;
   /**
-   * Output event emitter `onClick` (`EventEmitter`) firing when on click occurs.
+   * Output event emitter `onClick` (`EventEmitter<any>`) firing when on click occurs.
    * @zh 色块被点击时发出。
    * @zh 色块被点击时发出。
    */

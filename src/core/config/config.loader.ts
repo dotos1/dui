@@ -32,7 +32,7 @@ export class ConfigStaticLoader implements ConfigLoader {
   /**
    * Executes `loadSettings` to handle load settings.
    * @zh 执行 `loadSettings`，用于加载设置项。
-   * @returns Result of type `any` / 类型为 `any` 的返回值
+   * @returns Result of type `Promise<any>` / 类型为 `Promise<any>` 的返回值
    */
   loadSettings() {
     return Promise.resolve(this.providedSettings);

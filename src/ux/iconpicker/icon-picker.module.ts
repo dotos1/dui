@@ -69,8 +69,8 @@ import { MatButtonModule } from '@angular/material/button';
 })
 export class IconPickerModule {
   /**
-   * Property `entryComponents` (`any[]`) storing entry components (default: `[ IconPickerField, IconPickerComponent]`).
-   * @zh 属性 `entryComponents`（类型：`any[]`），用于存储或配置条目组件列表（默认值：`[ IconPickerField, IconPickerComponent]`）。
+   * Property `entryComponents` (`(typeof IconPickerField | typeof IconPickerComponent)[]`) storing entry components (default: `[ IconPickerField, IconPickerComponent]`).
+   * @zh 属性 `entryComponents`（类型：`(typeof IconPickerField | typeof IconPickerComponent)[]`），用于存储或配置条目组件列表（默认值：`[ IconPickerField, IconPickerComponent]`）。
    */
   entryComponents = [
     IconPickerField,

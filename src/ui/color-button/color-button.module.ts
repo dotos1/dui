@@ -48,8 +48,8 @@ import { GoogColorModule } from '@dotos/dui/common/colorpicker/components';
 })
 export class ColorPickerButtonModule {
   /**
-   * Property `entryComponents` (`any[]`) storing entry components (default: `[ ColorPickerButton, ]`).
-   * @zh 属性 `entryComponents`（类型：`any[]`），用于存储或配置条目组件列表（默认值：`[ ColorPickerButton, ]`）。
+   * Property `entryComponents` (`(typeof ColorPickerButton)[]`) storing entry components (default: `[ ColorPickerButton, ]`).
+   * @zh 属性 `entryComponents`（类型：`(typeof ColorPickerButton)[]`），用于存储或配置条目组件列表（默认值：`[ ColorPickerButton, ]`）。
    */
   entryComponents = [
     ColorPickerButton,

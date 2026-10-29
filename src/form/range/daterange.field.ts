@@ -63,7 +63,7 @@ export class DateRangeFieldComponent<D> extends RangeField implements AfterViewI
   /**
    * Creates an instance of `DateRangeFieldComponent` and initializes its dependencies and internal state.
    * @zh 创建 `DateRangeFieldComponent` 实例，并初始化其依赖项与内部状态。
-   * @param _dateAdapter - Injected or initial date adapter (`DateAdapter<D>`) / 注入或传入的日期适配器（`DateAdapter<D>`）
+   * @param _dateAdapter - Injected or initial date adapter (`DateAdapter<D, any>`) / 注入或传入的日期适配器（`DateAdapter<D, any>`）
    * @param _dateFormats - Injected or initial date formats (`MatDateFormats`) / 注入或传入的日期格式列表（`MatDateFormats`）
    * @param _changeDetectorRef - Injected or initial change detector ref (`ChangeDetectorRef`) / 注入或传入的变更检测器引用（`ChangeDetectorRef`）
    * @param translate - Injected or initial translate (`TranslateService`) / 注入或传入的翻译（`TranslateService`）

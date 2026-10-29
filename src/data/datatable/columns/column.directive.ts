@@ -101,13 +101,13 @@ export class DataTableColumnDirective implements OnChanges {
    */
   @Input() headerCheckboxable: boolean;
   /**
-   * Input property `headerClass` (`string | ((data: any) => string | any)`) configuring header class.
-   * @zh 输入属性 `headerClass`（类型：`string | ((data: any) => string | any)`），用于配置表头类名。
+   * Input property `headerClass` (`any`) configuring header class.
+   * @zh 输入属性 `headerClass`（类型：`any`），用于配置表头类名。
    */
   @Input() headerClass;
   /**
-   * Input property `cellClass` (`string | ((data: any) => string | any)`) configuring cell class.
-   * @zh 输入属性 `cellClass`（类型：`string | ((data: any) => string | any)`），用于配置单元格类名。
+   * Input property `cellClass` (`any`) configuring cell class.
+   * @zh 输入属性 `cellClass`（类型：`any`），用于配置单元格类名。
    */
   @Input() cellClass;
   /**
@@ -121,13 +121,13 @@ export class DataTableColumnDirective implements OnChanges {
    */
   @Input() treeLevelIndent: number;
   /**
-   * Input property `summaryFunc` (`(cells: any[]) => any`) configuring summary func.
-   * @zh 输入属性 `summaryFunc`（类型：`(cells: any[]) => any`），用于配置汇总Func。
+   * Input property `summaryFunc` (`(cells: any) => any`) configuring summary func.
+   * @zh 输入属性 `summaryFunc`（类型：`(cells: any) => any`），用于配置汇总Func。
    */
   @Input() summaryFunc: { (cells) };
   /**
-   * Input property `summaryTemplate` (`TemplateRef<any>`) configuring summary template.
-   * @zh 输入属性 `summaryTemplate`（类型：`TemplateRef<any>`），用于配置汇总模板。
+   * Input property `summaryTemplate` (`TemplateRef<unknown>`) configuring summary template.
+   * @zh 输入属性 `summaryTemplate`（类型：`TemplateRef<unknown>`），用于配置汇总模板。
    */
   @Input() summaryTemplate: TemplateRef<unknown>;
 
@@ -139,7 +139,7 @@ export class DataTableColumnDirective implements OnChanges {
   _cellTemplateInput: TemplateRef<unknown>;
 
   /**
-   * Template/content query reference `_cellTemplateQuery` (`@ContentChild`) targeting cell template query.
+   * Template/content query reference `_cellTemplateQuery` (`TemplateRef<unknown>`) targeting cell template query.
    * @zh 模板/内容视图查询引用 `_cellTemplateQuery`（`@ContentChild`），指向单元格模板查询。
    */
   @ContentChild(DataTableColumnCellDirective, { read: TemplateRef, static: true })
@@ -161,7 +161,7 @@ export class DataTableColumnDirective implements OnChanges {
   _headerTemplateInput: TemplateRef<unknown>;
 
   /**
-   * Template/content query reference `_headerTemplateQuery` (`@ContentChild`) targeting header template query.
+   * Template/content query reference `_headerTemplateQuery` (`TemplateRef<unknown>`) targeting header template query.
    * @zh 模板/内容视图查询引用 `_headerTemplateQuery`（`@ContentChild`），指向表头模板查询。
    */
   @ContentChild(DataTableColumnHeaderDirective, { read: TemplateRef, static: true })
@@ -183,7 +183,7 @@ export class DataTableColumnDirective implements OnChanges {
   _treeToggleTemplateInput: TemplateRef<unknown>;
 
   /**
-   * Template/content query reference `_treeToggleTemplateQuery` (`@ContentChild`) targeting tree toggle template query.
+   * Template/content query reference `_treeToggleTemplateQuery` (`TemplateRef<unknown>`) targeting tree toggle template query.
    * @zh 模板/内容视图查询引用 `_treeToggleTemplateQuery`（`@ContentChild`），指向树形控件开关模板查询。
    */
   @ContentChild(DataTableColumnCellTreeToggle, { read: TemplateRef, static: true })

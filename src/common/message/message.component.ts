@@ -76,13 +76,13 @@ export class MessageComponent implements AfterViewInit {
   private _initialized = false;
 
   /**
-   * Template/content query reference `_childElement` (`@ViewChild`) targeting child element.
+   * Template/content query reference `_childElement` (`MessageContainerDirective`) targeting child element.
    * @zh 模板/内容视图查询引用 `_childElement`（`@ViewChild`），指向子级元素。
    */
   @ViewChild(MessageContainerDirective, { static: true })
   _childElement?: MessageContainerDirective;
   /**
-   * Template/content query reference `_template` (`@ViewChild`) targeting template.
+   * Template/content query reference `_template` (`TemplateRef<unknown>`) targeting template.
    * @zh 模板/内容视图查询引用 `_template`（`@ViewChild`），指向模板。
    */
   @ViewChild(TemplateRef) _template!: TemplateRef<unknown>;
@@ -209,7 +209,7 @@ export class MessageComponent implements AfterViewInit {
    * @zh 创建 `MessageComponent` 实例，并初始化其依赖项与内部状态。
    * @param _renderer - Injected or initial renderer (`Renderer2`) / 注入或传入的渲染器（`Renderer2`）
    * @param _changeDetectorRef - Injected or initial change detector ref (`ChangeDetectorRef`) / 注入或传入的变更检测器引用（`ChangeDetectorRef`）
-   * @param _elementRef - Injected or initial element ref (`ElementRef`) / 注入或传入的元素引用（`ElementRef`）
+   * @param _elementRef - Injected or initial element ref (`ElementRef<any>`) / 注入或传入的元素引用（`ElementRef<any>`）
    */
   constructor(
     private _renderer: Renderer2,

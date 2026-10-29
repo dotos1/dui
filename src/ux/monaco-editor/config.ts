@@ -22,13 +22,13 @@ export interface MonacoEditorConfig {
    */
   baseUrl?: string;
   /**
-   * Property `requireConfig` (`{ [key: string]: any; }`) storing require config.
-   * @zh 属性 `requireConfig`（类型：`{ [key: string]: any; }`），用于存储或配置require配置。
+   * Property `requireConfig` (`{ [key: string]: unknown; }`) storing require config.
+   * @zh 属性 `requireConfig`（类型：`{ [key: string]: unknown; }`），用于存储或配置require配置。
    */
   requireConfig?: { [key: string]: unknown; };
   /**
-   * Property `defaultOptions` (`{ [key: string]: any; }`) storing default options.
-   * @zh 属性 `defaultOptions`（类型：`{ [key: string]: any; }`），用于存储或配置默认配置选项。
+   * Property `defaultOptions` (`{ [key: string]: unknown; }`) storing default options.
+   * @zh 属性 `defaultOptions`（类型：`{ [key: string]: unknown; }`），用于存储或配置默认配置选项。
    */
   defaultOptions?: { [key: string]: unknown; };
   /**

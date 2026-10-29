@@ -91,7 +91,7 @@ export class StatusDialogComponent {
   /**
    * Creates an instance of `StatusDialogComponent` and initializes its dependencies and internal state.
    * @zh 创建 `StatusDialogComponent` 实例，并初始化其依赖项与内部状态。
-   * @param _dialogRef - Injected or initial dialog ref (`MatDialogRef<StatusDialogComponent>`) / 注入或传入的对话框引用（`MatDialogRef<StatusDialogComponent>`）
+   * @param _dialogRef - Injected or initial dialog ref (`MatDialogRef<StatusDialogComponent, any>`) / 注入或传入的对话框引用（`MatDialogRef<StatusDialogComponent, any>`）
    */
   constructor(private _dialogRef: MatDialogRef<StatusDialogComponent>) {}
 

@@ -43,8 +43,8 @@ export const USER_STATUS_CODES = {
 })
 export class LockscreenDialog implements OnInit,OnDestroy {
   /**
-   * Property `lockForm` (`FormGroup`) storing lock form.
-   * @zh 属性 `lockForm`（类型：`FormGroup`），用于存储或配置锁定表单。
+   * Property `lockForm` (`FormGroup<any>`) storing lock form.
+   * @zh 属性 `lockForm`（类型：`FormGroup<any>`），用于存储或配置锁定表单。
    */
   lockForm: FormGroup;
 
@@ -142,7 +142,7 @@ export class LockscreenDialog implements OnInit,OnDestroy {
    * @param themeService - Injected or initial theme service (`ThemeService`) / 注入或传入的主题服务（`ThemeService`）
    * @param changeDetectionRef - Injected or initial change detection ref (`ChangeDetectorRef`) / 注入或传入的变更变更检测引用（`ChangeDetectorRef`）
    * @param localStore - Injected or initial local store (`LocalStorageService`) / 注入或传入的本地状态仓库（`LocalStorageService`）
-   * @param dialogRef - Injected or initial dialog ref (`MatDialogRef<LockscreenDialog>`) / 注入或传入的对话框引用（`MatDialogRef<LockscreenDialog>`）
+   * @param dialogRef - Injected or initial dialog ref (`MatDialogRef<LockscreenDialog, any>`) / 注入或传入的对话框引用（`MatDialogRef<LockscreenDialog, any>`）
    * @param data - Injected or initial data (`any`) / 注入或传入的数据（`any`）
    * @param translateService - Injected or initial translate service (`TranslationService`) / 注入或传入的翻译服务（`TranslationService`）
    */

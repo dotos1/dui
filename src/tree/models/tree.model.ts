@@ -32,13 +32,13 @@ export class TreeModel implements ITreeModel, OnDestroy {
    */
   options: TreeOptions = new TreeOptions();
   /**
-   * Property `nodes` (`any[]`) storing nodes.
-   * @zh 属性 `nodes`（类型：`any[]`），用于存储或配置节点列表。
+   * Property `nodes` (`any`) storing nodes.
+   * @zh 属性 `nodes`（类型：`any`），用于存储或配置节点列表。
    */
   nodes;
   /**
-   * Property `eventNames` (`any`) storing event names (default: `Object.keys(TREE_EVENTS)`).
-   * @zh 属性 `eventNames`（类型：`any`），用于存储或配置事件名称列表（默认值：`Object.keys(TREE_EVENTS)`）。
+   * Property `eventNames` (`string[]`) storing event names (default: `Object.keys(TREE_EVENTS)`).
+   * @zh 属性 `eventNames`（类型：`string[]`），用于存储或配置事件名称列表（默认值：`Object.keys(TREE_EVENTS)`）。
    */
   eventNames = Object.keys(TREE_EVENTS);
   /**
@@ -89,8 +89,8 @@ export class TreeModel implements ITreeModel, OnDestroy {
    */
   public firstUpdate = true;
   /**
-   * Property `events` (`any`) storing events (default: `{}`).
-   * @zh 属性 `events`（类型：`any`），用于存储或配置事件集合（默认值：`{}`）。
+   * Property `events` (`{ event?: any; }`) storing events (default: `{}`).
+   * @zh 属性 `events`（类型：`{ event?: any; }`），用于存储或配置事件集合（默认值：`{}`）。
    */
   private events: { event? } = {};
   /**
@@ -99,8 +99,8 @@ export class TreeModel implements ITreeModel, OnDestroy {
    */
   private subscriptions: Subscription[] =[];
   /**
-   * Property `mobxDisposers` (`Array<() => void>`) storing mobx disposers (default: `[]`).
-   * @zh 属性 `mobxDisposers`（类型：`Array<() => void>`），用于存储或配置mobxDisposers（默认值：`[]`）。
+   * Property `mobxDisposers` (`(() => void)[]`) storing mobx disposers (default: `[]`).
+   * @zh 属性 `mobxDisposers`（类型：`(() => void)[]`），用于存储或配置mobxDisposers（默认值：`[]`）。
    */
   private mobxDisposers: Array<() => void> = [];
 
@@ -112,8 +112,8 @@ export class TreeModel implements ITreeModel, OnDestroy {
   
   // ✨ 核心优化：新增 O(1) 复杂度的节点注册表缓存
   /**
-   * Property `nodeRegistry` (`Map`) storing node registry (default: `new Map<string, TreeNode>()`).
-   * @zh 属性 `nodeRegistry`（类型：`Map`），用于存储或配置节点Registry（默认值：`new Map<string, TreeNode>()`）。
+   * Property `nodeRegistry` (`Map<string, TreeNode>`) storing node registry (default: `new Map<string, TreeNode>()`).
+   * @zh 属性 `nodeRegistry`（类型：`Map<string, TreeNode>`），用于存储或配置节点Registry（默认值：`new Map<string, TreeNode>()`）。
    */
   public nodeRegistry = new Map<string, TreeNode>();
 
@@ -205,7 +205,7 @@ export class TreeModel implements ITreeModel, OnDestroy {
   /**
    * Executes `getFirstRoot` to handle get first root.
    * @zh 执行 `getFirstRoot`，用于获取首个根节点。
-   * @param skipHidden - skip hidden parameter (`any`) / skip隐藏参数（`any`）
+   * @param skipHidden - skip hidden parameter (`boolean`) / skip隐藏参数（`boolean`）
    */
   getFirstRoot(skipHidden = false) {
     return first(skipHidden ? this.getVisibleRoots() : this.roots);
@@ -214,7 +214,7 @@ export class TreeModel implements ITreeModel, OnDestroy {
   /**
    * Executes `getLastRoot` to handle get last root.
    * @zh 执行 `getLastRoot`，用于获取末尾根节点。
-   * @param skipHidden - skip hidden parameter (`any`) / skip隐藏参数（`any`）
+   * @param skipHidden - skip hidden parameter (`boolean`) / skip隐藏参数（`boolean`）
    */
   getLastRoot(skipHidden = false) {
     return last(skipHidden ? this.getVisibleRoots() : this.roots);
@@ -304,7 +304,7 @@ export class TreeModel implements ITreeModel, OnDestroy {
   /**
    * Executes `getNodePath` to handle get node path.
    * @zh 执行 `getNodePath`，用于获取节点路径。
-   * @returns Result of type `Array<TreeNode>` / 类型为 `Array<TreeNode>` 的返回值
+   * @returns Result of type `TreeNode[]` / 类型为 `TreeNode[]` 的返回值
    */
   getNodePath(): Array<TreeNode> {
     let currentNode = this.getFocusedNode();
@@ -323,7 +323,7 @@ export class TreeModel implements ITreeModel, OnDestroy {
   /**
    * Executes `getNodeByPath` to handle get node by path.
    * @zh 执行 `getNodeByPath`，用于获取节点按路径。
-   * @param path - path parameter (`any[]`) / 路径参数（`any[]`）
+   * @param path - path parameter (`any`) / 路径参数（`any`）
    * @param startNode - start node parameter (`any`) / 开始节点参数（`any`）
    * @returns Result of type `TreeNode` / 类型为 `TreeNode` 的返回值
    */
@@ -514,7 +514,7 @@ export class TreeModel implements ITreeModel, OnDestroy {
 
   /**
    * Executes `doForAll` to handle do for all.
-   * @zh 执行 `doForAll`，用于do用于全部。
+   * @zh 执行 `doForAll`，用于执行用于全部。
    * @param fn - fn parameter (`any`) / 函数参数（`any`）
    */
   @action doForAll(fn) {
@@ -575,7 +575,7 @@ export class TreeModel implements ITreeModel, OnDestroy {
    * @zh 执行 `setActiveNode`，用于集合激活节点。
    * @param node - node parameter (`any`) / 节点参数（`any`）
    * @param value - value parameter (`any`) / 值参数（`any`）
-   * @param multi - multi parameter (`any`) / 多参数（`any`）
+   * @param multi - multi parameter (`boolean`) / 多参数（`boolean`）
    */
   @action setActiveNode(node, value, multi = false) {
     if (multi) {
@@ -704,7 +704,7 @@ export class TreeModel implements ITreeModel, OnDestroy {
    * Executes `filterNodes` to handle filter nodes.
    * @zh 执行 `filterNodes`，用于过滤节点列表。
    * @param filter - filter parameter (`any`) / 过滤参数（`any`）
-   * @param autoShow - auto show parameter (`any`) / 自动显示参数（`any`）
+   * @param autoShow - auto show parameter (`boolean`) / 自动显示参数（`boolean`）
    */
   @action filterNodes(filter, autoShow = true) {
     let filterFn;

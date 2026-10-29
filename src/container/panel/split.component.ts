@@ -30,15 +30,15 @@ export class SplitComponent {
   }
 
   /**
-   * Property `_fxLayout` (`'row' | 'column'`) storing fx layout.
-   * @zh 属性 `_fxLayout`（类型：`'row' | 'column'`），用于存储或配置fx布局。
+   * Property `_fxLayout` (`"column" | "row"`) storing fx layout.
+   * @zh 属性 `_fxLayout`（类型：`"column" | "row"`），用于存储或配置fx布局。
    */
   private _fxLayout: 'row' | 'column';
 
   /**
    * Input setter `direction` updating direction.
    * @zh 输入属性 `direction` 的设置器，用于更新方向。
-   * @param v - New direction value (`'row' | 'column'`) / 新的方向值（`'row' | 'column'`）
+   * @param v - New direction value (`"column" | "row"`) / 新的方向值（`"column" | "row"`）
    */
   @Input() set direction(v: 'row' | 'column') {
     this._fxLayout = v;
@@ -117,7 +117,7 @@ export class SplitComponent {
   /**
    * Creates an instance of `SplitComponent` and initializes its dependencies and internal state.
    * @zh 创建 `SplitComponent` 实例，并初始化其依赖项与内部状态。
-   * @param elRef - Injected or initial el ref (`ElementRef`) / 注入或传入的DOM元素引用（`ElementRef`）
+   * @param elRef - Injected or initial el ref (`ElementRef<any>`) / 注入或传入的DOM元素引用（`ElementRef<any>`）
    * @param renderer - Injected or initial renderer (`Renderer2`) / 注入或传入的渲染器（`Renderer2`）
    */
   constructor(private elRef: ElementRef,
@@ -163,7 +163,7 @@ export class SplitComponent {
   /**
    * Executes `getCSS` to handle get css.
    * @zh 执行 `getCSS`，用于获取CSS样式。
-   * @param state - state parameter (`'disabled' | 'row' | 'column'`) / 状态参数（`'disabled' | 'row' | 'column'`）
+   * @param state - state parameter (`"disabled" | "column" | "row"`) / 状态参数（`"disabled" | "column" | "row"`）
    * @returns Result of type `string` / 类型为 `string` 的返回值
    */
   private getCSS(state: 'disabled' | 'row' | 'column'): string {
@@ -179,7 +179,7 @@ export class SplitComponent {
   /**
    * Executes `getCursor` to handle get cursor.
    * @zh 执行 `getCursor`，用于获取光标。
-   * @param state - state parameter (`'disabled' | 'row' | 'column'`) / 状态参数（`'disabled' | 'row' | 'column'`）
+   * @param state - state parameter (`"disabled" | "column" | "row"`) / 状态参数（`"disabled" | "column" | "row"`）
    * @returns Result of type `string` / 类型为 `string` 的返回值
    */
   private getCursor(state: 'disabled' | 'row' | 'column'): string {

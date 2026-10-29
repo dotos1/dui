@@ -8,7 +8,7 @@
  * @zh 执行 `clamp_density`，用于限制范围密度。
  * @param $density_scale - density scale parameter (`any`) / 密度缩放参数（`any`）
  * @param $min - min parameter (`any`) / 最小值参数（`any`）
- * @param $max - max parameter (`any`) / 最大值参数（`any`）
+ * @param $max - max parameter (`number`) / 最大值参数（`number`）
  */
 export function clamp_density($density_scale, $min, $max= 0) {
     if($density_scale == "minimum") {
@@ -33,7 +33,7 @@ export function clamp_density($density_scale, $min, $max= 0) {
  * Executes `get_density_config` to handle get density config.
  * @zh 执行 `get_density_config`，用于获取密度配置。
  * @param $theme_or_config - theme or config parameter (`any`) / 主题or配置参数（`any`）
- * @param $default - default parameter (`any`) / 默认参数（`any`）
+ * @param $default - default parameter (`number`) / 默认参数（`number`）
  */
 export function get_density_config($theme_or_config, $default= -2) {
     return $theme_or_config["density"]!=undefined? $theme_or_config["density"]: $default;

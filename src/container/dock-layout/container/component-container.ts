@@ -52,15 +52,15 @@ export class ComponentContainer extends EventEmitter {
      */
     private _isClosable;
     /**
-     * Property `_initialState` (`JsonValue | undefined`) storing initial state.
+     * Property `_initialState` (`JsonValue`) storing initial state.
      * @internal
-     * @zh 属性 `_initialState`（类型：`JsonValue | undefined`），用于存储或配置初始状态。
+     * @zh 属性 `_initialState`（类型：`JsonValue`），用于存储或配置初始状态。
      */
     private _initialState: JsonValue | undefined;
     /**
-     * Property `_state` (`JsonValue | undefined`) storing state.
+     * Property `_state` (`JsonValue`) storing state.
      * @internal
-     * @zh 属性 `_state`（类型：`JsonValue | undefined`），用于存储或配置状态。
+     * @zh 属性 `_state`（类型：`JsonValue`），用于存储或配置状态。
      */
     private _state: JsonValue | undefined;
     /**
@@ -95,23 +95,23 @@ export class ComponentContainer extends EventEmitter {
     private _logicalZIndex: LogicalZIndex;
 
     /**
-     * Property `stateRequestEvent` (`ComponentContainer.StateRequestEventHandler | undefined`) storing state request event.
-     * @zh 属性 `stateRequestEvent`（类型：`ComponentContainer.StateRequestEventHandler | undefined`），用于存储或配置状态请求事件。
+     * Property `stateRequestEvent` (`ComponentContainer.StateRequestEventHandler`) storing state request event.
+     * @zh 属性 `stateRequestEvent`（类型：`ComponentContainer.StateRequestEventHandler`），用于存储或配置状态请求事件。
      */
     stateRequestEvent: ComponentContainer.StateRequestEventHandler | undefined;
     /**
-     * Property `virtualRectingRequiredEvent` (`ComponentContainer.VirtualRectingRequiredEvent | undefined`) storing virtual recting required event.
-     * @zh 属性 `virtualRectingRequiredEvent`（类型：`ComponentContainer.VirtualRectingRequiredEvent | undefined`），用于存储或配置虚拟滚动矩形必填事件。
+     * Property `virtualRectingRequiredEvent` (`ComponentContainer.VirtualRectingRequiredEvent`) storing virtual recting required event.
+     * @zh 属性 `virtualRectingRequiredEvent`（类型：`ComponentContainer.VirtualRectingRequiredEvent`），用于存储或配置虚拟滚动矩形必填事件。
      */
     virtualRectingRequiredEvent: ComponentContainer.VirtualRectingRequiredEvent | undefined;
     /**
-     * Property `virtualVisibilityChangeRequiredEvent` (`ComponentContainer.VirtualVisibilityChangeRequiredEvent | undefined`) storing virtual visibility change required event.
-     * @zh 属性 `virtualVisibilityChangeRequiredEvent`（类型：`ComponentContainer.VirtualVisibilityChangeRequiredEvent | undefined`），用于存储或配置虚拟滚动Visibility变更必填事件。
+     * Property `virtualVisibilityChangeRequiredEvent` (`ComponentContainer.VirtualVisibilityChangeRequiredEvent`) storing virtual visibility change required event.
+     * @zh 属性 `virtualVisibilityChangeRequiredEvent`（类型：`ComponentContainer.VirtualVisibilityChangeRequiredEvent`），用于存储或配置虚拟滚动Visibility变更必填事件。
      */
     virtualVisibilityChangeRequiredEvent: ComponentContainer.VirtualVisibilityChangeRequiredEvent | undefined;
     /**
-     * Property `virtualZIndexChangeRequiredEvent` (`ComponentContainer.VirtualZIndexChangeRequiredEvent | undefined`) storing virtual z index change required event.
-     * @zh 属性 `virtualZIndexChangeRequiredEvent`（类型：`ComponentContainer.VirtualZIndexChangeRequiredEvent | undefined`），用于存储或配置虚拟滚动Z坐标索引变更必填事件。
+     * Property `virtualZIndexChangeRequiredEvent` (`ComponentContainer.VirtualZIndexChangeRequiredEvent`) storing virtual z index change required event.
+     * @zh 属性 `virtualZIndexChangeRequiredEvent`（类型：`ComponentContainer.VirtualZIndexChangeRequiredEvent`），用于存储或配置虚拟滚动Z坐标索引变更必填事件。
      */
     virtualZIndexChangeRequiredEvent: ComponentContainer.VirtualZIndexChangeRequiredEvent | undefined;
 
@@ -276,7 +276,7 @@ export class ComponentContainer extends EventEmitter {
     /**
      * Executes `focus` to handle focus.
      * @zh 执行 `focus`，用于聚焦。
-     * @param suppressEvent - suppress event parameter (`any`) / suppress事件参数（`any`）
+     * @param suppressEvent - suppress event parameter (`boolean`) / suppress事件参数（`boolean`）
      */
     focus(suppressEvent = false): void {
         this._focusEvent(suppressEvent);
@@ -285,7 +285,7 @@ export class ComponentContainer extends EventEmitter {
     /**
      * Executes `blur` to handle blur.
      * @zh 执行 `blur`，用于失焦。
-     * @param suppressEvent - suppress event parameter (`any`) / suppress事件参数（`any`）
+     * @param suppressEvent - suppress event parameter (`boolean`) / suppress事件参数（`boolean`）
      */
     blur(suppressEvent = false): void {
         this._blurEvent(suppressEvent);
@@ -397,7 +397,7 @@ export class ComponentContainer extends EventEmitter {
     /**
      * Executes `getState` to handle get state.
      * @zh 执行 `getState`，用于获取状态。
-     * @returns Result of type `JsonValue | undefined` / 类型为 `JsonValue | undefined` 的返回值
+     * @returns Result of type `JsonValue` / 类型为 `JsonValue` 的返回值
      */
     getState(): JsonValue | undefined {
         return this._state;
@@ -522,7 +522,7 @@ export class ComponentContainer extends EventEmitter {
     /**
      * Executes `exitDragMode` to handle exit drag mode.
      * @internal
-     * @zh 执行 `exitDragMode`，用于exit拖拽模式。
+     * @zh 执行 `exitDragMode`，用于退出拖拽模式。
      */
     exitDragMode(): void {
         this.setBaseLogicalZIndex();
@@ -541,7 +541,7 @@ export class ComponentContainer extends EventEmitter {
     /**
      * Executes `exitStackMaximised` to handle exit stack maximised.
      * @internal
-     * @zh 执行 `exitStackMaximised`，用于exit栈最大化。
+     * @zh 执行 `exitStackMaximised`，用于退出栈最大化。
      */
     exitStackMaximised(): void {
         this.setBaseLogicalZIndex();
@@ -707,8 +707,8 @@ export namespace ComponentContainer {
      */
     export interface BindableComponent {
         /**
-         * Property `component` (`Component`) storing component.
-         * @zh 属性 `component`（类型：`Component`），用于存储或配置组件。
+         * Property `component` (`unknown`) storing component.
+         * @zh 属性 `component`（类型：`unknown`），用于存储或配置组件。
          */
         component: Component;
         /**

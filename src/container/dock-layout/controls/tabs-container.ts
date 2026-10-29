@@ -35,8 +35,8 @@ export class TabsContainer {
      */
     private readonly _element: HTMLElement;
     /**
-     * Property `_lastVisibleTabIndex` (`any`) storing last visible tab index (default: `-1`).
-     * @zh 属性 `_lastVisibleTabIndex`（类型：`any`），用于存储或配置末尾可见选项卡索引（默认值：`-1`）。
+     * Property `_lastVisibleTabIndex` (`number`) storing last visible tab index (default: `-1`).
+     * @zh 属性 `_lastVisibleTabIndex`（类型：`number`），用于存储或配置末尾可见选项卡索引（默认值：`-1`）。
      */
     private _lastVisibleTabIndex = -1;
     /**
@@ -221,10 +221,10 @@ export class TabsContainer {
 
     /**
      * Executes `tryUpdateTabSizes` to handle try update tab sizes.
-     * @zh 执行 `tryUpdateTabSizes`，用于try更新选项卡尺寸列表。
+     * @zh 执行 `tryUpdateTabSizes`，用于尝试更新选项卡尺寸列表。
      * @param dropdownActive - dropdown active parameter (`boolean`) / 下拉框激活参数（`boolean`）
      * @param availableWidth - available width parameter (`number`) / available宽度参数（`number`）
-     * @param activeComponentItem - active component item parameter (`ComponentItem | undefined`) / 激活组件条目参数（`ComponentItem | undefined`）
+     * @param activeComponentItem - active component item parameter (`ComponentItem`) / 激活组件条目参数（`ComponentItem`）
      * @returns Result of type `boolean` / 类型为 `boolean` 的返回值
      */
     tryUpdateTabSizes(dropdownActive: boolean, availableWidth: number, activeComponentItem: ComponentItem | undefined): boolean {

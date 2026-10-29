@@ -29,8 +29,8 @@ import { Dui } from '@dotos/dui/core';
 })
 export class HttpLoaderModule {
   /**
-   * Property `entryComponents` (`any[]`) storing entry components (default: `[MatSpinner]`).
-   * @zh 属性 `entryComponents`（类型：`any[]`），用于存储或配置条目组件列表（默认值：`[MatSpinner]`）。
+   * Property `entryComponents` (`(typeof MatProgressSpinner)[]`) storing entry components (default: `[MatSpinner]`).
+   * @zh 属性 `entryComponents`（类型：`(typeof MatProgressSpinner)[]`），用于存储或配置条目组件列表（默认值：`[MatSpinner]`）。
    */
   entryComponents = [MatSpinner];
   /**

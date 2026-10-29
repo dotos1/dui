@@ -18,18 +18,18 @@ import { finalize } from 'rxjs/operators';
 })
 export class ɵGlobalEvents {
     /**
-     * Property `documentEventMap` (`Map`) storing document event map (default: `new Map<string, Subject<Event>>()`).
-     * @zh 属性 `documentEventMap`（类型：`Map`），用于存储或配置文档对象事件映射表（默认值：`new Map<string, Subject<Event>>()`）。
+     * Property `documentEventMap` (`Map<string, Subject<Event>>`) storing document event map (default: `new Map<string, Subject<Event>>()`).
+     * @zh 属性 `documentEventMap`（类型：`Map<string, Subject<Event>>`），用于存储或配置文档对象事件映射表（默认值：`new Map<string, Subject<Event>>()`）。
      */
     private documentEventMap = new Map<string, Subject<Event>>();
     /**
-     * Property `documentEventListeners` (`Map`) storing document event listeners (default: `new Map<string, EventListener>()`).
-     * @zh 属性 `documentEventListeners`（类型：`Map`），用于存储或配置文档对象事件监听器列表（默认值：`new Map<string, EventListener>()`）。
+     * Property `documentEventListeners` (`Map<string, EventListener>`) storing document event listeners (default: `new Map<string, EventListener>()`).
+     * @zh 属性 `documentEventListeners`（类型：`Map<string, EventListener>`），用于存储或配置文档对象事件监听器列表（默认值：`new Map<string, EventListener>()`）。
      */
     private documentEventListeners = new Map<string, EventListener>();
     /**
-     * Property `documentEventRefCounts` (`Map`) storing document event ref counts (default: `new Map<string, number>()`).
-     * @zh 属性 `documentEventRefCounts`（类型：`Map`），用于存储或配置文档对象事件引用计数（默认值：`new Map<string, number>()`）。
+     * Property `documentEventRefCounts` (`Map<string, number>`) storing document event ref counts (default: `new Map<string, number>()`).
+     * @zh 属性 `documentEventRefCounts`（类型：`Map<string, number>`），用于存储或配置文档对象事件引用计数（默认值：`new Map<string, number>()`）。
      */
     private documentEventRefCounts = new Map<string, number>();
 

@@ -48,13 +48,13 @@ export class FormAttributes implements OnChanges, DoCheck, OnDestroy {
    */
   private document: Document;
   /**
-   * Property `uiAttributesCache` (`any`) storing ui attributes cache (default: `{}`).
-   * @zh 属性 `uiAttributesCache`（类型：`any`），用于存储或配置界面属性列表缓存（默认值：`{}`）。
+   * Property `uiAttributesCache` (`Record<string, unknown>`) storing ui attributes cache (default: `{}`).
+   * @zh 属性 `uiAttributesCache`（类型：`Record<string, unknown>`），用于存储或配置界面属性列表缓存（默认值：`{}`）。
    */
   private uiAttributesCache: Record<string, unknown> = {};
   /**
-   * Property `uiAttributes` (`any[]`) storing ui attributes.
-   * @zh 属性 `uiAttributes`（类型：`any[]`），用于存储或配置界面属性列表。
+   * Property `uiAttributes` (`string[]`) storing ui attributes.
+   * @zh 属性 `uiAttributes`（类型：`string[]`），用于存储或配置界面属性列表。
    */
   private uiAttributes = [
     ...FORM_VALIDATORS,
@@ -70,14 +70,14 @@ export class FormAttributes implements OnChanges, DoCheck, OnDestroy {
    */
   private focusObserver: IObserver<boolean>;
   /**
-   * Property `attributesObserver` (`IObserver<any>`) storing attributes observer.
-   * @zh 属性 `attributesObserver`（类型：`IObserver<any>`），用于存储或配置属性列表观察者。
+   * Property `attributesObserver` (`any`) storing attributes observer.
+   * @zh 属性 `attributesObserver`（类型：`any`），用于存储或配置属性列表观察者。
    */
   private attributesObserver;
 
   /**
-   * Property `uiEvents` (`any`) storing ui events.
-   * @zh 属性 `uiEvents`（类型：`any`），用于存储或配置界面事件集合。
+   * Property `uiEvents` (`{ listeners: any[]; events: string[]; }`) storing ui events.
+   * @zh 属性 `uiEvents`（类型：`{ listeners: any[]; events: string[]; }`），用于存储或配置界面事件集合。
    */
   private uiEvents = {
     listeners: [],
@@ -101,7 +101,7 @@ export class FormAttributes implements OnChanges, DoCheck, OnDestroy {
    * Creates an instance of `FormAttributes` and initializes its dependencies and internal state.
    * @zh 创建 `FormAttributes` 实例，并初始化其依赖项与内部状态。
    * @param renderer - Injected or initial renderer (`Renderer2`) / 注入或传入的渲染器（`Renderer2`）
-   * @param elementRef - Injected or initial element ref (`ElementRef`) / 注入或传入的元素引用（`ElementRef`）
+   * @param elementRef - Injected or initial element ref (`ElementRef<any>`) / 注入或传入的元素引用（`ElementRef<any>`）
    * @param _document - Injected or initial document (`any`) / 注入或传入的文档对象（`any`）
    */
   constructor(

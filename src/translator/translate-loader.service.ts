@@ -42,8 +42,8 @@ export class TranslateLoaderService implements TranslateLoader {
    */
   private defaultLang: string = 'en_US';
   /**
-   * Property `retriedOnce` (`Set`) storing retried once (default: `new Set<string>()`).
-   * @zh 属性 `retriedOnce`（类型：`Set`），用于存储或配置retriedOnce（默认值：`new Set<string>()`）。
+   * Property `retriedOnce` (`Set<string>`) storing retried once (default: `new Set<string>()`).
+   * @zh 属性 `retriedOnce`（类型：`Set<string>`），用于存储或配置retriedOnce（默认值：`new Set<string>()`）。
    */
   private retriedOnce = new Set<string>();
 
@@ -151,7 +151,7 @@ export class TranslateLoaderService implements TranslateLoader {
    * Executes `getComponentToFetch` to handle get component to fetch.
    * @zh 执行 `getComponentToFetch`，用于获取组件转换为获取。
    * @param lang - lang parameter (`string`) / 语言参数（`string`）
-   * @returns Result of type `Array<Observable<any>>` / 类型为 `Array<Observable<any>>` 的返回值
+   * @returns Result of type `any[]` / 类型为 `any[]` 的返回值
    */
   getComponentToFetch(lang: string) {
     const observableBatch = [];
@@ -198,7 +198,7 @@ export class TranslateLoaderService implements TranslateLoader {
    * Executes `getFullTranslationJSON` to handle get full translation json.
    * @zh 执行 `getFullTranslationJSON`，用于获取完整翻译文本JSON。
    * @param lang - lang parameter (`string`) / 语言参数（`string`）
-   * @returns Result of type `any` / 类型为 `any` 的返回值
+   * @returns Result of type `Record<string, unknown>` / 类型为 `Record<string, unknown>` 的返回值
    */
   getFullTranslationJSON(lang: string) {
     let result: Record<string, unknown> = {};
@@ -226,7 +226,7 @@ export class TranslateLoaderService implements TranslateLoader {
    * Executes `getTranslation` to handle get translation.
    * @zh 执行 `getTranslation`，用于获取翻译文本。
    * @param lang - lang parameter (`string`) / 语言参数（`string`）
-   * @returns Result of type `Observable<any>` / 类型为 `Observable<any>` 的返回值
+   * @returns Result of type `Observable<unknown>` / 类型为 `Observable<unknown>` 的返回值
    */
   getTranslation(lang: string) {
     let hasFailures = false;

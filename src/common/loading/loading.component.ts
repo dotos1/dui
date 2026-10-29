@@ -142,7 +142,7 @@ export class LoadingComponent implements DoCheck {
   /**
    * Content injected into loading component.
 
-   * @zh 属性 `content`（类型：`TemplatePortal<any>`），用于存储或配置内容。
+   * @zh 属性 `content`（类型：`any`），用于存储或配置内容。
    */
   content;
 
@@ -204,14 +204,14 @@ export class LoadingComponent implements DoCheck {
    * color: primary' | 'accent' | 'warn'
    * Sets theme color of [DuiLoadingComponent] rendered.
 
-   * @zh 属性 `color`（类型：`'primary' | 'accent' | 'warn'`），用于存储或配置颜色（默认值：`'primary'`）。
+   * @zh 属性 `color`（类型：`"primary" | "accent" | "warn"`），用于存储或配置颜色（默认值：`'primary'`）。
    */
   color: 'primary' | 'accent' | 'warn' = 'primary';
 
   /**
    * Creates an instance of `LoadingComponent` and initializes its dependencies and internal state.
    * @zh 创建 `LoadingComponent` 实例，并初始化其依赖项与内部状态。
-   * @param _elementRef - Injected or initial element ref (`ElementRef`) / 注入或传入的元素引用（`ElementRef`）
+   * @param _elementRef - Injected or initial element ref (`ElementRef<any>`) / 注入或传入的元素引用（`ElementRef<any>`）
    * @param _changeDetectorRef - Injected or initial change detector ref (`ChangeDetectorRef`) / 注入或传入的变更检测器引用（`ChangeDetectorRef`）
    */
   constructor(

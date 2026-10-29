@@ -40,7 +40,7 @@ export class HighlightTransformService {
      * @param wrapperClass CSS class used to provide highlighting style
      * @returns New text along with boolean value to indicate whether anything was highlighted
 
-     * @zh 执行 `highlight`，用于highlight。
+     * @zh 执行 `highlight`，用于高亮。
      */
     public highlight(text: string, search: string, wrapperClass: string = 'dui-highlight'): HighlightTransformResult {
         if (!search || !text) {

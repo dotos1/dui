@@ -23,8 +23,8 @@ export abstract class GridsterComponentInterface {
    */
   $options: GridsterConfigS;
   /**
-   * Property `grid` (`Array<GridsterItemComponentInterface>`) storing grid.
-   * @zh 属性 `grid`（类型：`Array<GridsterItemComponentInterface>`），用于存储或配置网格表格。
+   * Property `grid` (`GridsterItemComponentInterface[]`) storing grid.
+   * @zh 属性 `grid`（类型：`GridsterItemComponentInterface[]`），用于存储或配置网格表格。
    */
   grid: Array<GridsterItemComponentInterface>;
   /**
@@ -43,8 +43,8 @@ export abstract class GridsterComponentInterface {
    */
   positionXToPixels: (x: number) => number;
   /**
-   * Property `pixelsToPositionX` (`(x: number, roundingMethod: (x: number) => number, noLimit?: boolean)...`) storing pixels to position x.
-   * @zh 属性 `pixelsToPositionX`（类型：`(x: number, roundingMethod: (x: number) => number, noLimit?: boolean)...`），用于存储或配置像素转换为位置X坐标。
+   * Property `pixelsToPositionX` (`(x: number, roundingMethod: (x: number) => number, noLimit?: boolean) => number`) storing pixels to position x.
+   * @zh 属性 `pixelsToPositionX`（类型：`(x: number, roundingMethod: (x: number) => number, noLimit?: boolean) => number`），用于存储或配置像素转换为位置X坐标。
    */
   pixelsToPositionX: (x: number, roundingMethod: (x: number) => number, noLimit?: boolean) => number;
   /**
@@ -53,8 +53,8 @@ export abstract class GridsterComponentInterface {
    */
   positionYToPixels: (y: number) => number;
   /**
-   * Property `pixelsToPositionY` (`(y: number, roundingMethod: (x: number) => number, noLimit?: boolean)...`) storing pixels to position y.
-   * @zh 属性 `pixelsToPositionY`（类型：`(y: number, roundingMethod: (x: number) => number, noLimit?: boolean)...`），用于存储或配置像素转换为位置Y坐标。
+   * Property `pixelsToPositionY` (`(y: number, roundingMethod: (x: number) => number, noLimit?: boolean) => number`) storing pixels to position y.
+   * @zh 属性 `pixelsToPositionY`（类型：`(y: number, roundingMethod: (x: number) => number, noLimit?: boolean) => number`），用于存储或配置像素转换为位置Y坐标。
    */
   pixelsToPositionY: (y: number, roundingMethod: (x: number) => number, noLimit?: boolean) => number;
   /**
@@ -113,8 +113,8 @@ export abstract class GridsterComponentInterface {
    */
   updateGrid: () => void;
   /**
-   * Property `movingItem` (`GridsterItem | null`) storing moving item.
-   * @zh 属性 `movingItem`（类型：`GridsterItem | null`），用于存储或配置移动条目。
+   * Property `movingItem` (`GridsterItem`) storing moving item.
+   * @zh 属性 `movingItem`（类型：`GridsterItem`），用于存储或配置移动条目。
    */
   movingItem: GridsterItem | null;
   /**
@@ -168,13 +168,13 @@ export abstract class GridsterComponentInterface {
    */
   curRowHeight: number;
   /**
-   * Property `windowResize` (`(() => void) | null`) storing window resize.
-   * @zh 属性 `windowResize`（类型：`(() => void) | null`），用于存储或配置窗口调整尺寸。
+   * Property `windowResize` (`() => void`) storing window resize.
+   * @zh 属性 `windowResize`（类型：`() => void`），用于存储或配置窗口调整尺寸。
    */
   windowResize: (() => void) | null;
   /**
-   * Property `setGridDimensions` (`(() => void)`) storing set grid dimensions.
-   * @zh 属性 `setGridDimensions`（类型：`(() => void)`），用于存储或配置集合网格表格维度列表。
+   * Property `setGridDimensions` (`() => void`) storing set grid dimensions.
+   * @zh 属性 `setGridDimensions`（类型：`() => void`），用于存储或配置集合网格表格维度列表。
    */
   setGridDimensions: (() => void);
   /**
@@ -198,13 +198,13 @@ export abstract class GridsterComponentInterface {
    */
   zone: NgZone;
   /**
-   * Property `gridRows` (`Array<number>`) storing grid rows.
-   * @zh 属性 `gridRows`（类型：`Array<number>`），用于存储或配置网格表格行列表。
+   * Property `gridRows` (`number[]`) storing grid rows.
+   * @zh 属性 `gridRows`（类型：`number[]`），用于存储或配置网格表格行列表。
    */
   gridRows: Array<number>;
   /**
-   * Property `gridColumns` (`Array<number>`) storing grid columns.
-   * @zh 属性 `gridColumns`（类型：`Array<number>`），用于存储或配置网格表格列集合。
+   * Property `gridColumns` (`number[]`) storing grid columns.
+   * @zh 属性 `gridColumns`（类型：`number[]`），用于存储或配置网格表格列集合。
    */
   gridColumns: Array<number>;
 }

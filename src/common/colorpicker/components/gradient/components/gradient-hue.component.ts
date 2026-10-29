@@ -24,7 +24,7 @@ import { getHandleValue } from '../utils/utils'
 export class GradientHueComponent implements OnInit,OnDestroy {
 
   /**
-   * Template/content query reference `barRef` (`@ViewChild`) targeting bar ref.
+   * Template/content query reference `barRef` (`ElementRef<HTMLElement>`) targeting bar ref.
    * @zh 模板/内容视图查询引用 `barRef`（`@ViewChild`），指向条引用。
    */
   @ViewChild('paintSquare', { static: true })   private barRef: ElementRef<HTMLElement>;
@@ -79,8 +79,8 @@ export class GradientHueComponent implements OnInit,OnDestroy {
   }
 
   /**
-   * Property `stopDragging` (`any`) storing stop dragging.
-   * @zh 属性 `stopDragging`（类型：`any`），用于存储或配置停止拖拽中。
+   * Property `stopDragging` (`() => void`) storing stop dragging.
+   * @zh 属性 `stopDragging`（类型：`() => void`），用于存储或配置停止拖拽中。
    */
   public stopDragging = () => {
     // 挂在 window 的 mouseup 上,页面任何地方松开鼠标都会进来;没绑 [setDragging]
@@ -99,8 +99,8 @@ export class GradientHueComponent implements OnInit,OnDestroy {
   }
 
   /**
-   * Property `handleHue` (`any`) storing handle hue.
-   * @zh 属性 `handleHue`（类型：`any`），用于存储或配置连接手柄色相。
+   * Property `handleHue` (`(e: any) => void`) storing handle hue.
+   * @zh 属性 `handleHue`（类型：`(e: any) => void`），用于存储或配置连接手柄色相。
    */
   public handleHue = (e) => {
     const newHue = getHandleValue(e) * 3.6
@@ -111,8 +111,8 @@ export class GradientHueComponent implements OnInit,OnDestroy {
   }
 
   /**
-   * Property `handleMove` (`any`) storing handle move.
-   * @zh 属性 `handleMove`（类型：`any`），用于存储或配置连接手柄移动。
+   * Property `handleMove` (`(e: any) => void`) storing handle move.
+   * @zh 属性 `handleMove`（类型：`(e: any) => void`），用于存储或配置连接手柄移动。
    */
   public handleMove = (e) => {
     if (this.dragging) {
@@ -121,8 +121,8 @@ export class GradientHueComponent implements OnInit,OnDestroy {
   }
 
   /**
-   * Property `handleClick` (`any`) storing handle click.
-   * @zh 属性 `handleClick`（类型：`any`），用于存储或配置连接手柄点击。
+   * Property `handleClick` (`(e: any) => void`) storing handle click.
+   * @zh 属性 `handleClick`（类型：`(e: any) => void`），用于存储或配置连接手柄点击。
    */
   public handleClick = (e) => {
     if (!this .dragging) {

@@ -89,7 +89,7 @@ export class CompactFieldsComponent {
    */
   @Input() rgb: RGBA;
   /**
-   * Output event emitter `onChange` (`EventEmitter`) firing when on change occurs.
+   * Output event emitter `onChange` (`EventEmitter<any>`) firing when on change occurs.
    * @zh 字段值变化时发出。
    * @zh 字段值变化时发出。
    */
@@ -97,7 +97,7 @@ export class CompactFieldsComponent {
 
 
   /**
-   * Property `HEXWrap` (`{ [key: string]: string }`) storing hex wrap.
+   * Property `HEXWrap` (`{ [key: string]: string; }`) storing hex wrap.
    * @zh 十六进制字段包裹层的内联样式。
    * @zh 十六进制字段包裹层的内联样式。
    */
@@ -108,7 +108,7 @@ export class CompactFieldsComponent {
     position: 'relative',
   };
   /**
-   * Property `HEXinput` (`{ [key: string]: string }`) storing he xinput.
+   * Property `HEXinput` (`{ [key: string]: string; }`) storing he xinput.
    * @zh 十六进制字段输入框的内联样式。
    * @zh 十六进制字段输入框的内联样式。
    */
@@ -124,7 +124,7 @@ export class CompactFieldsComponent {
     height: '16px',
   };
   /**
-   * Property `HEXlabel` (`{ [key: string]: string }`) storing he xlabel (default: `{ display: 'none', }`).
+   * Property `HEXlabel` (`{ [key: string]: string; }`) storing he xlabel (default: `{ display: 'none', }`).
    * @zh 十六进制字段标签的内联样式（默认隐藏）。
    * @zh 十六进制字段标签的内联样式（默认隐藏）。
    */

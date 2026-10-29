@@ -38,8 +38,8 @@ export class AvatarService {
   public avatarColors: string[] = defaultColors;
 
   /**
-   * Property `failedSources` (`Map`) storing failed sources (default: `new Map<string, IAVatar>()`).
-   * @zh 属性 `failedSources`（类型：`Map`），用于存储或配置失败源（默认值：`new Map<string, IAVatar>()`）。
+   * Property `failedSources` (`Map<string, IAVatar>`) storing failed sources (default: `new Map<string, IAVatar>()`).
+   * @zh 属性 `failedSources`（类型：`Map<string, IAVatar>`），用于存储或配置失败源（默认值：`new Map<string, IAVatar>()`）。
    */
   private readonly failedSources = new Map<string, IAVatar>();
 

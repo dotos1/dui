@@ -79,8 +79,8 @@ const defaultActionMapping: IActionMapping = {
  */
 export interface IActionMapping {
   /**
-   * Property `mouse` (`{ click?: IActionHandler, dblClick?: IActionHandler, contextMenu?: IAc...`) storing mouse.
-   * @zh 属性 `mouse`（类型：`{ click?: IActionHandler, dblClick?: IActionHandler, contextMenu?: IAc...`），用于存储或配置鼠标。
+   * Property `mouse` (`{…}`) storing mouse.
+   * @zh 属性 `mouse`（类型：`{…}`），用于存储或配置鼠标。
    */
   mouse?: {
     click?: IActionHandler,
@@ -99,8 +99,8 @@ export interface IActionMapping {
     mouseOut?: IActionHandler
   };
   /**
-   * Property `keys` (`{ [key: number]: IActionHandler }`) storing keys.
-   * @zh 属性 `keys`（类型：`{ [key: number]: IActionHandler }`），用于存储或配置键列表。
+   * Property `keys` (`{ [key: number]: IActionHandler; }`) storing keys.
+   * @zh 属性 `keys`（类型：`{ [key: number]: IActionHandler; }`），用于存储或配置键列表。
    */
   keys?: {
     [key: number]: IActionHandler
@@ -221,7 +221,7 @@ export class TreeOptions {
   /**
    * Sets the get children (`getChildren`).
    * @zh 设置获取子级列表（`getChildren`）。
-   * @param func - New get children value (`any`) / 新的获取子级列表值（`any`）
+   * @param func - New get children value (`(node: TreeNode) => any`) / 新的获取子级列表值（`(node: TreeNode) => any`）
    */
   set getChildren(func) { this.options.getChildren = func }
 

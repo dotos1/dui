@@ -40,14 +40,14 @@ export class DynamicComponent implements OnInit, OnDestroy {
   template: string;
 
   /**
-   * Property `viewRef` (`any`) storing view ref (default: `inject(ViewContainerRef)`).
-   * @zh 属性 `viewRef`（类型：`any`），用于存储或配置视图引用（默认值：`inject(ViewContainerRef)`）。
+   * Property `viewRef` (`ViewContainerRef`) storing view ref (default: `inject(ViewContainerRef)`).
+   * @zh 属性 `viewRef`（类型：`ViewContainerRef`），用于存储或配置视图引用（默认值：`inject(ViewContainerRef)`）。
    */
   viewRef = inject(ViewContainerRef);
 
   /**
-   * Property `componentRef` (`ComponentRef<any>`) storing component ref.
-   * @zh 属性 `componentRef`（类型：`ComponentRef<any>`），用于存储或配置组件引用。
+   * Property `componentRef` (`any`) storing component ref.
+   * @zh 属性 `componentRef`（类型：`any`），用于存储或配置组件引用。
    */
   private componentRef?;
 
@@ -103,8 +103,8 @@ function getComponentFromTemplate(template: string) {
   })
   class CustomComponent {
     /**
-     * Input property `data` (`any`) configuring data (default: `{}`).
-     * @zh 输入属性 `data`（类型：`any`），用于配置数据（默认值：`{}`）。
+     * Input property `data` (`Record<string, unknown>`) configuring data (default: `{}`).
+     * @zh 输入属性 `data`（类型：`Record<string, unknown>`），用于配置数据（默认值：`{}`）。
      */
     @Input() data: Record<string, unknown> = {};
   }

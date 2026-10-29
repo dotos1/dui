@@ -22,7 +22,7 @@ export class MobxReactionDirective extends MobxAutorunDirective {
   /**
    * Creates an instance of `MobxReactionDirective` and initializes its dependencies and internal state.
    * @zh 创建 `MobxReactionDirective` 实例，并初始化其依赖项与内部状态。
-   * @param templateRef - Injected or initial template ref (`TemplateRef<any>`) / 注入或传入的模板引用（`TemplateRef<any>`）
+   * @param templateRef - Injected or initial template ref (`TemplateRef<unknown>`) / 注入或传入的模板引用（`TemplateRef<unknown>`）
    * @param viewContainer - Injected or initial view container (`ViewContainerRef`) / 注入或传入的视图容器（`ViewContainerRef`）
    * @param renderer - Injected or initial renderer (`Renderer2`) / 注入或传入的渲染器（`Renderer2`）
    */

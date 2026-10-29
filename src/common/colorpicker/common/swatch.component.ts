@@ -50,13 +50,13 @@ export class SwatchComponent implements OnInit {
    */
   @Input() color;
   /**
-   * Input property `style` (`{ [key: string]: string }`) configuring style (default: `{}`).
+   * Input property `style` (`{ [key: string]: string; }`) configuring style (default: `{}`).
    * @zh 应用到色块上的内联样式。
    * @zh 应用到色块上的内联样式。
    */
   @Input() style: { [key: string]: string } = {};
   /**
-   * Input property `focusStyle` (`{ [key: string]: string }`) configuring focus style (default: `{}`).
+   * Input property `focusStyle` (`{ [key: string]: string; }`) configuring focus style (default: `{}`).
    * @zh 获得焦点时叠加的内联样式。
    * @zh 获得焦点时叠加的内联样式。
    */
@@ -68,25 +68,25 @@ export class SwatchComponent implements OnInit {
    */
   @Input() focus: boolean;
   /**
-   * Output event emitter `onClick` (`EventEmitter`) firing when on click occurs.
+   * Output event emitter `onClick` (`EventEmitter<{ hex: string; $event: Event; }>`) firing when on click occurs.
    * @zh 色块被点击/回车确认时发出。
    * @zh 色块被点击/回车确认时发出。
    */
   @Output() onClick = new EventEmitter<{ hex: string; $event: Event }>();
   /**
-   * Output event emitter `onHover` (`EventEmitter`) firing when on hover occurs.
+   * Output event emitter `onHover` (`EventEmitter<{ hex: string; $event: Event; }>`) firing when on hover occurs.
    * @zh 鼠标悬停在色块上时发出。
    * @zh 鼠标悬停在色块上时发出。
    */
   @Output() onHover = new EventEmitter<{ hex: string; $event: Event }>();
   /**
-   * Property `divStyles` (`{ [key: string]: string }`) storing div styles (default: `{}`).
+   * Property `divStyles` (`{ [key: string]: string; }`) storing div styles (default: `{}`).
    * @zh 色块的基础样式。
    * @zh 色块的基础样式。
    */
   divStyles: { [key: string]: string } = {};
   /**
-   * Property `focusStyles` (`{ [key: string]: string }`) storing focus styles (default: `{}`).
+   * Property `focusStyles` (`{ [key: string]: string; }`) storing focus styles (default: `{}`).
    * @zh 色块的聚焦样式（基础样式与 `focusStyle` 合并后的结果）。
    * @zh 色块的聚焦样式（基础样式与 `focusStyle` 合并后的结果）。
    */

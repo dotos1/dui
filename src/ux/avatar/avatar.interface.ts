@@ -23,14 +23,14 @@ export interface IAVatar {
   name:string;
 
   /**
-   * Property `src` (`string|SafeUrl`) storing src.
-   * @zh 属性 `src`（类型：`string|SafeUrl`），用于存储或配置源路径。
+   * Property `src` (`string | SafeUrl`) storing src.
+   * @zh 属性 `src`（类型：`string | SafeUrl`），用于存储或配置源路径。
    */
   src?:string|SafeUrl;
 
   /**
-   * Property `avatar` (`string|SafeUrl`) storing avatar.
-   * @zh 属性 `avatar`（类型：`string|SafeUrl`），用于存储或配置头像。
+   * Property `avatar` (`string | SafeUrl`) storing avatar.
+   * @zh 属性 `avatar`（类型：`string | SafeUrl`），用于存储或配置头像。
    */
   avatar?:string|SafeUrl;
 

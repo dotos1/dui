@@ -58,13 +58,13 @@ export class LineStyleSelector<F extends FieldConfig = FieldConfig>
   implements OnInit, OnDestroy, AfterViewInit
 {
   /**
-   * Template/content query reference `lineCavases` (`@ViewChildren`) targeting line cavases.
+   * Template/content query reference `lineCavases` (`QueryList<ElementRef<any>>`) targeting line cavases.
    * @zh 模板/内容视图查询引用 `lineCavases`（`@ViewChildren`），指向线段Cavases。
    */
   @ViewChildren('linestyle') lineCavases: QueryList<ElementRef>;
 
   /**
-   * Template/content query reference `lineStyleTriggerEl` (`@ViewChild`) targeting line style trigger el.
+   * Template/content query reference `lineStyleTriggerEl` (`ElementRef<any>`) targeting line style trigger el.
    * @zh 模板/内容视图查询引用 `lineStyleTriggerEl`（`@ViewChild`），指向线段样式触发DOM元素。
    */
   @ViewChild('lineStyleTrigger')
@@ -72,8 +72,8 @@ export class LineStyleSelector<F extends FieldConfig = FieldConfig>
   
 
   /**
-   * Property `styleOptions` (`any`) storing style options (default: `PRE_DEFINED_THEMES`).
-   * @zh 属性 `styleOptions`（类型：`any`），用于存储或配置样式配置选项（默认值：`PRE_DEFINED_THEMES`）。
+   * Property `styleOptions` (`{ value: string; }[]`) storing style options (default: `PRE_DEFINED_THEMES`).
+   * @zh 属性 `styleOptions`（类型：`{ value: string; }[]`），用于存储或配置样式配置选项（默认值：`PRE_DEFINED_THEMES`）。
    */
   public styleOptions = PRE_DEFINED_THEMES;
 
@@ -92,7 +92,7 @@ export class LineStyleSelector<F extends FieldConfig = FieldConfig>
   /**
    * Input setter `field` updating field.
    * @zh 输入属性 `field` 的设置器，用于更新字段。
-   * @param f - New field value (`F | any`) / 新的字段值（`F | any`）
+   * @param f - New field value (`any`) / 新的字段值（`any`）
    */
   @Input()
   override set field(f) {
@@ -132,8 +132,8 @@ export class LineStyleSelector<F extends FieldConfig = FieldConfig>
     return this._field || {};
   }
   /**
-   * Property `onDestroy$` (`Subject`) storing on destroy (default: `new Subject<void>()`).
-   * @zh 属性 `onDestroy$`（类型：`Subject`），用于存储或配置当销毁（默认值：`new Subject<void>()`）。
+   * Property `onDestroy$` (`Subject<void>`) storing on destroy (default: `new Subject<void>()`).
+   * @zh 属性 `onDestroy$`（类型：`Subject<void>`），用于存储或配置当销毁（默认值：`new Subject<void>()`）。
    */
   private onDestroy$ = new Subject<void>();
   /**

@@ -42,7 +42,7 @@ export const AUTH_FORROOT_GUARD = new InjectionToken('AUTH_FORROOT_GUARD');
  * Executes `provideAuthForRootGuard` to handle provide auth for root guard.
  * @zh 执行 `provideAuthForRootGuard`，用于提供认证用于根节点路由守卫。
  * @param auth - auth parameter (`AuthService`) / 认证参数（`AuthService`）
- * @returns Result of type `any` / 类型为 `any` 的返回值
+ * @returns Result of type `boolean` / 类型为 `boolean` 的返回值
  */
 export function provideAuthForRootGuard(auth: AuthService) {
   if (auth) {
@@ -85,7 +85,7 @@ export class AuthModule {
   /**
    * Executes `forRoot` to handle for root.
    * @zh 执行 `forRoot`，用于用于根节点。
-   * @param configuredProvider - configured provider parameter (`any`) / configured提供者参数（`any`）
+   * @param configuredProvider - configured provider parameter (`{ provide: typeof AuthLoader; useFactory: () => AuthLoader; }`) / configured提供者参数（`{ provide: typeof AuthLoader; useFactory: () => AuthLoader; }`）
    * @returns Result of type `ModuleWithProviders<AuthModule>` / 类型为 `ModuleWithProviders<AuthModule>` 的返回值
    */
   static forRoot(configuredProvider = {

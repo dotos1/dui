@@ -80,7 +80,7 @@ export class ɵDynamicWindowRefOrderingService {
     /**
      * Executes `getHighestOpened` to handle get highest opened.
      * @zh 执行 `getHighestOpened`，用于获取Highest是否展开。
-     * @returns Result of type `ɵDynamicWindowRefModel | null` / 类型为 `ɵDynamicWindowRefModel | null` 的返回值
+     * @returns Result of type `ɵDynamicWindowRefModel` / 类型为 `ɵDynamicWindowRefModel` 的返回值
      */
     public getHighestOpened(): ɵDynamicWindowRefModel | null {
         let index = (this.windowOrderIds.length - 1);

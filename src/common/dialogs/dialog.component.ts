@@ -64,28 +64,28 @@ export class duiDialogStatusDirective {}
 })
 export class duiDialogComponent implements AfterContentInit ,OnInit,OnDestroy{
   /**
-   * Template/content query reference `dialogTitle` (`@ContentChildren`) targeting dialog title.
+   * Template/content query reference `dialogTitle` (`QueryList<duiDialogTitleDirective>`) targeting dialog title.
    * @zh 投影进来的标题区域（`duiDialogTitle`），最多允许一个。
    * @zh 投影进来的标题区域（`duiDialogTitle`），最多允许一个。
    */
   @ContentChildren(duiDialogTitleDirective, { descendants: true })
   dialogTitle!: QueryList<duiDialogTitleDirective>;
   /**
-   * Template/content query reference `dialogContent` (`@ContentChildren`) targeting dialog content.
+   * Template/content query reference `dialogContent` (`QueryList<duiDialogContentDirective>`) targeting dialog content.
    * @zh 投影进来的内容区域（`duiDialogContent`），最多允许一个。
    * @zh 投影进来的内容区域（`duiDialogContent`），最多允许一个。
    */
   @ContentChildren(duiDialogContentDirective, { descendants: true })
   dialogContent!: QueryList<duiDialogContentDirective>;
   /**
-   * Template/content query reference `dialogActions` (`@ContentChildren`) targeting dialog actions.
+   * Template/content query reference `dialogActions` (`QueryList<duiDialogActionsDirective>`) targeting dialog actions.
    * @zh 投影进来的操作按钮区域（`duiDialogActions`），最多允许一个。
    * @zh 投影进来的操作按钮区域（`duiDialogActions`），最多允许一个。
    */
   @ContentChildren(duiDialogActionsDirective, { descendants: true })
   dialogActions!: QueryList<duiDialogActionsDirective>;
   /**
-   * Template/content query reference `dialogStatus` (`@ContentChildren`) targeting dialog status.
+   * Template/content query reference `dialogStatus` (`QueryList<duiDialogStatusDirective>`) targeting dialog status.
    * @zh 投影进来的状态提示区域（`duiDialogStatus`），最多允许一个。
    * @zh 投影进来的状态提示区域（`duiDialogStatus`），最多允许一个。
    */

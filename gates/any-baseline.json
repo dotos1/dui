@@ -1,9 +1,9 @@
 {
   "version": 2,
   "metric": "checker：写出的 any 类型节点 + 隐式 any 声明 + 推断 any 返回值；空对象 = 推断为 {} 的声明；绕过断言 = as unknown as / as any as / as never",
-  "any": 5073,
-  "emptyObj": 96,
-  "cast": 61,
+  "any": 4673,
+  "emptyObj": 0,
+  "cast": 57,
   "files": {
     "src/base/base.ts": {
       "any": 0,
@@ -14,16 +14,6 @@
       "any": 0,
       "emptyObj": 0,
       "cast": 1
-    },
-    "src/base/duibase.ts": {
-      "any": 60,
-      "emptyObj": 0,
-      "cast": 0
-    },
-    "src/base/object-utils.ts": {
-      "any": 24,
-      "emptyObj": 5,
-      "cast": 0
     },
     "src/base/observer.ts": {
       "any": 0,
@@ -252,7 +242,7 @@
     },
     "src/common/dragselect/shortcut.service.ts": {
       "any": 10,
-      "emptyObj": 1,
+      "emptyObj": 0,
       "cast": 0
     },
     "src/common/dragselect/utils.ts": {
@@ -267,8 +257,8 @@
     },
     "src/common/fileupload/file-drop.directive.ts": {
       "any": 12,
-      "emptyObj": 1,
-      "cast": 3
+      "emptyObj": 0,
+      "cast": 2
     },
     "src/common/fileupload/file-item.ts": {
       "any": 3,
@@ -282,12 +272,12 @@
     },
     "src/common/fileupload/file-select.directive.ts": {
       "any": 1,
-      "emptyObj": 1,
-      "cast": 1
+      "emptyObj": 0,
+      "cast": 0
     },
     "src/common/fileupload/file-uploader.ts": {
       "any": 39,
-      "emptyObj": 1,
+      "emptyObj": 0,
       "cast": 0
     },
     "src/common/icon/font-loader.service.ts": {
@@ -307,7 +297,7 @@
     },
     "src/common/iframe/components/iframe.component.ts": {
       "any": 9,
-      "emptyObj": 1,
+      "emptyObj": 0,
       "cast": 0
     },
     "src/common/inline-svg/inline-svg.directive.ts": {
@@ -395,11 +385,6 @@
       "emptyObj": 0,
       "cast": 0
     },
-    "src/common/loading/services/loading.factory.ts": {
-      "any": 3,
-      "emptyObj": 0,
-      "cast": 0
-    },
     "src/common/matcolorpicker/color-picker.component.ts": {
       "any": 14,
       "emptyObj": 0,
@@ -462,7 +447,7 @@
     },
     "src/common/screenfull/screenfull.service.ts": {
       "any": 10,
-      "emptyObj": 1,
+      "emptyObj": 0,
       "cast": 1
     },
     "src/common/scrollbar/smooth-scroll/bezier-easing.ts": {
@@ -477,7 +462,7 @@
     },
     "src/common/search-box/search-box.component.ts": {
       "any": 9,
-      "emptyObj": 1,
+      "emptyObj": 0,
       "cast": 0
     },
     "src/common/stop-propagation/stop-drop-propagation.directive.ts": {
@@ -596,8 +581,8 @@
       "cast": 0
     },
     "src/container/accordion/accordion.ts": {
-      "any": 2,
-      "emptyObj": 1,
+      "any": 1,
+      "emptyObj": 0,
       "cast": 0
     },
     "src/container/accordion/expansion-panel-header.ts": {
@@ -606,18 +591,13 @@
       "cast": 0
     },
     "src/container/accordion/expansion-panel.ts": {
-      "any": 4,
-      "emptyObj": 1,
-      "cast": 0
-    },
-    "src/container/card/card.component.ts": {
-      "any": 32,
-      "emptyObj": 3,
+      "any": 3,
+      "emptyObj": 0,
       "cast": 0
     },
     "src/container/container.main.ts": {
-      "any": 50,
-      "emptyObj": 1,
+      "any": 2,
+      "emptyObj": 0,
       "cast": 0
     },
     "src/container/dock-layout/config/config.ts": {
@@ -776,13 +756,13 @@
       "cast": 0
     },
     "src/container/layout/component/abstract.panel.ts": {
-      "any": 14,
-      "emptyObj": 1,
+      "any": 4,
+      "emptyObj": 0,
       "cast": 0
     },
     "src/container/layout/component/layout.component.ts": {
-      "any": 16,
-      "emptyObj": 1,
+      "any": 7,
+      "emptyObj": 0,
       "cast": 0
     },
     "src/container/layout/utils.ts": {
@@ -791,13 +771,13 @@
       "cast": 0
     },
     "src/container/panel/abstract.panel.ts": {
-      "any": 20,
-      "emptyObj": 1,
+      "any": 9,
+      "emptyObj": 0,
       "cast": 0
     },
     "src/container/panel/panel.component.ts": {
-      "any": 7,
-      "emptyObj": 1,
+      "any": 6,
+      "emptyObj": 0,
       "cast": 0
     },
     "src/container/panel/split.component.ts": {
@@ -811,8 +791,8 @@
       "cast": 0
     },
     "src/container/tabpanel/tabpanel.component.ts": {
-      "any": 29,
-      "emptyObj": 1,
+      "any": 17,
+      "emptyObj": 0,
       "cast": 0
     },
     "src/core/angular2parse/angular/compiler/assertions.ts": {
@@ -852,12 +832,12 @@
     },
     "src/core/angular2parse/visitors/parse-visitor-compiler.ts": {
       "any": 22,
-      "emptyObj": 1,
+      "emptyObj": 0,
       "cast": 0
     },
     "src/core/angular2parse/visitors/parse-visitor-resolver.ts": {
       "any": 54,
-      "emptyObj": 1,
+      "emptyObj": 0,
       "cast": 0
     },
     "src/core/auth/CommonAuth.ts": {
@@ -886,7 +866,7 @@
       "cast": 0
     },
     "src/core/auth/auth.service.ts": {
-      "any": 14,
+      "any": 13,
       "emptyObj": 0,
       "cast": 0
     },
@@ -916,12 +896,12 @@
       "cast": 0
     },
     "src/core/auth/oauth2Auth.ts": {
-      "any": 53,
+      "any": 43,
       "emptyObj": 0,
       "cast": 0
     },
     "src/core/auth/token-target.ts": {
-      "any": 4,
+      "any": 1,
       "emptyObj": 0,
       "cast": 0
     },
@@ -938,11 +918,6 @@
     "src/core/cache/collection.ts": {
       "any": 26,
       "emptyObj": 0,
-      "cast": 0
-    },
-    "src/core/cache/mixed.collection.ts": {
-      "any": 37,
-      "emptyObj": 1,
       "cast": 0
     },
     "src/core/color/conversion.ts": {
@@ -981,9 +956,9 @@
       "cast": 0
     },
     "src/core/component.base.ts": {
-      "any": 31,
+      "any": 1,
       "emptyObj": 0,
-      "cast": 1
+      "cast": 0
     },
     "src/core/config/config.loader.ts": {
       "any": 2,
@@ -995,18 +970,13 @@
       "emptyObj": 0,
       "cast": 0
     },
-    "src/core/config/config.pipe.ts": {
-      "any": 1,
+    "src/core/config/config.service.ts": {
+      "any": 2,
       "emptyObj": 0,
       "cast": 0
     },
-    "src/core/config/config.service.ts": {
-      "any": 13,
-      "emptyObj": 1,
-      "cast": 0
-    },
     "src/core/config/feature.service.ts": {
-      "any": 4,
+      "any": 1,
       "emptyObj": 0,
       "cast": 0
     },
@@ -1016,16 +986,11 @@
       "cast": 0
     },
     "src/core/config/merge-loader/config.merge-loader.ts": {
-      "any": 14,
-      "emptyObj": 0,
-      "cast": 1
-    },
-    "src/core/crypt/base64.ts": {
-      "any": 4,
+      "any": 6,
       "emptyObj": 0,
       "cast": 0
     },
-    "src/core/crypt/crypt.ts": {
+    "src/core/crypt/base64.ts": {
       "any": 4,
       "emptyObj": 0,
       "cast": 0
@@ -1056,13 +1021,13 @@
       "cast": 0
     },
     "src/core/dui.ts": {
-      "any": 54,
-      "emptyObj": 1,
+      "any": 51,
+      "emptyObj": 0,
       "cast": 0
     },
     "src/core/dynamic/dynamic.component.ts": {
       "any": 2,
-      "emptyObj": 1,
+      "emptyObj": 0,
       "cast": 0
     },
     "src/core/dynamic/safeurl.pipe.ts": {
@@ -1177,7 +1142,7 @@
     },
     "src/core/mobx/directives/mobx-autorun.directive.ts": {
       "any": 6,
-      "emptyObj": 1,
+      "emptyObj": 0,
       "cast": 0
     },
     "src/core/mobx/directives/mobx-reaction.directive.ts": {
@@ -1212,7 +1177,7 @@
     },
     "src/core/reflect/Reflect.ts": {
       "any": 152,
-      "emptyObj": 2,
+      "emptyObj": 0,
       "cast": 4
     },
     "src/core/services/dynamic-component-mapper.service.ts": {
@@ -1226,13 +1191,13 @@
       "cast": 0
     },
     "src/core/services/script-loader.service.ts": {
-      "any": 5,
-      "emptyObj": 1,
+      "any": 2,
+      "emptyObj": 0,
       "cast": 0
     },
     "src/core/services/share-param.service.ts": {
-      "any": 4,
-      "emptyObj": 1,
+      "any": 3,
+      "emptyObj": 0,
       "cast": 0
     },
     "src/core/storage/local-storage-events.interface.ts": {
@@ -1248,11 +1213,6 @@
     "src/core/style/focus-origin-monitor.ts": {
       "any": 3,
       "emptyObj": 0,
-      "cast": 0
-    },
-    "src/core/window.service.ts": {
-      "any": 0,
-      "emptyObj": 2,
       "cast": 0
     },
     "src/data/cardview/components/card-view-arrayitem/card-view-arrayitem.component.ts": {
@@ -1377,7 +1337,7 @@
     },
     "src/data/datatable/body/summary/summary-row.component.ts": {
       "any": 15,
-      "emptyObj": 1,
+      "emptyObj": 0,
       "cast": 0
     },
     "src/data/datatable/columns/column.directive.ts": {
@@ -1387,12 +1347,12 @@
     },
     "src/data/datatable/datatable.card.ts": {
       "any": 19,
-      "emptyObj": 3,
+      "emptyObj": 0,
       "cast": 0
     },
     "src/data/datatable/datatable.component.ts": {
       "any": 38,
-      "emptyObj": 1,
+      "emptyObj": 0,
       "cast": 0
     },
     "src/data/datatable/directives/draggable.directive.ts": {
@@ -1452,7 +1412,7 @@
     },
     "src/data/datatable/row/row-wrapper.component.ts": {
       "any": 5,
-      "emptyObj": 2,
+      "emptyObj": 0,
       "cast": 0
     },
     "src/data/datatable/row/row.component.ts": {
@@ -1507,12 +1467,12 @@
     },
     "src/data/datatable/utils/math.ts": {
       "any": 23,
-      "emptyObj": 1,
+      "emptyObj": 0,
       "cast": 0
     },
     "src/data/datatable/utils/prefixes.ts": {
-      "any": 3,
-      "emptyObj": 1,
+      "any": 2,
+      "emptyObj": 0,
       "cast": 0
     },
     "src/data/datatable/utils/row-height-cache.ts": {
@@ -1536,13 +1496,13 @@
       "cast": 0
     },
     "src/data/datatable/utils/translate.ts": {
-      "any": 3,
+      "any": 1,
       "emptyObj": 0,
       "cast": 0
     },
     "src/data/datatable/utils/tree.ts": {
       "any": 18,
-      "emptyObj": 1,
+      "emptyObj": 0,
       "cast": 0
     },
     "src/data/datatable/utils/visibility-observer.ts": {
@@ -1587,7 +1547,7 @@
     },
     "src/form/card/form.card.ts": {
       "any": 2,
-      "emptyObj": 1,
+      "emptyObj": 0,
       "cast": 0
     },
     "src/form/checkboxgroup/checkboxgroup.component.ts": {
@@ -1601,13 +1561,13 @@
       "cast": 0
     },
     "src/form/colorpicker/color-picker.content.ts": {
-      "any": 22,
-      "emptyObj": 1,
+      "any": 20,
+      "emptyObj": 0,
       "cast": 0
     },
     "src/form/colorpicker/color-picker.field.ts": {
       "any": 9,
-      "emptyObj": 2,
+      "emptyObj": 0,
       "cast": 0
     },
     "src/form/components/field.component.ts": {
@@ -1617,12 +1577,12 @@
     },
     "src/form/components/form.attributes.ts": {
       "any": 13,
-      "emptyObj": 1,
+      "emptyObj": 0,
       "cast": 0
     },
     "src/form/components/form.component.ts": {
-      "any": 70,
-      "emptyObj": 2,
+      "any": 68,
+      "emptyObj": 0,
       "cast": 1
     },
     "src/form/components/form.group.ts": {
@@ -1821,13 +1781,13 @@
       "cast": 0
     },
     "src/theme/config/config.service.ts": {
-      "any": 6,
+      "any": 5,
       "emptyObj": 0,
       "cast": 0
     },
     "src/theme/core/focus.ts": {
       "any": 1,
-      "emptyObj": 1,
+      "emptyObj": 0,
       "cast": 0
     },
     "src/theme/mat-color.ts": {
@@ -1852,7 +1812,7 @@
     },
     "src/theme/mdc/custom-properties.ts": {
       "any": 30,
-      "emptyObj": 3,
+      "emptyObj": 0,
       "cast": 0
     },
     "src/theme/mdc/elevation-theme.ts": {
@@ -1866,8 +1826,8 @@
       "cast": 0
     },
     "src/theme/mdc/keys.ts": {
-      "any": 18,
-      "emptyObj": 5,
+      "any": 15,
+      "emptyObj": 0,
       "cast": 0
     },
     "src/theme/mdc/theme-utils.ts": {
@@ -2312,7 +2272,7 @@
     },
     "src/translator/translate-loader.service.ts": {
       "any": 8,
-      "emptyObj": 3,
+      "emptyObj": 0,
       "cast": 0
     },
     "src/translator/translate.compiler.ts": {
@@ -2342,12 +2302,7 @@
     },
     "src/translator/translate.service.ts": {
       "any": 33,
-      "emptyObj": 5,
-      "cast": 0
-    },
-    "src/translator/translate.store.ts": {
-      "any": 0,
-      "emptyObj": 1,
+      "emptyObj": 0,
       "cast": 0
     },
     "src/translator/translation.service.ts": {
@@ -2406,7 +2361,7 @@
       "cast": 1
     },
     "src/tree/components/tree.component.ts": {
-      "any": 52,
+      "any": 51,
       "emptyObj": 0,
       "cast": 2
     },
@@ -2437,7 +2392,7 @@
     },
     "src/tree/mobx-angular/tree-mobx-autorun.directive.ts": {
       "any": 6,
-      "emptyObj": 1,
+      "emptyObj": 0,
       "cast": 0
     },
     "src/tree/models/tree-dragged-element.model.ts": {
@@ -2446,7 +2401,7 @@
       "cast": 0
     },
     "src/tree/models/tree-node.model.ts": {
-      "any": 60,
+      "any": 53,
       "emptyObj": 0,
       "cast": 0
     },
@@ -2461,27 +2416,27 @@
       "cast": 0
     },
     "src/tree/models/tree.model.ts": {
-      "any": 104,
-      "emptyObj": 2,
+      "any": 95,
+      "emptyObj": 0,
       "cast": 0
     },
     "src/ui/button/button.base.ts": {
-      "any": 22,
-      "emptyObj": 1,
+      "any": 1,
+      "emptyObj": 0,
       "cast": 0
     },
     "src/ui/button/button.component.ts": {
       "any": 5,
-      "emptyObj": 1,
+      "emptyObj": 0,
       "cast": 0
     },
     "src/ui/button/toggle-button.component.ts": {
-      "any": 21,
-      "emptyObj": 1,
+      "any": 20,
+      "emptyObj": 0,
       "cast": 0
     },
     "src/ui/color-button/color-button.ts": {
-      "any": 11,
+      "any": 3,
       "emptyObj": 0,
       "cast": 0
     },
@@ -2506,7 +2461,7 @@
       "cast": 0
     },
     "src/ui/menu/menu-base.ts": {
-      "any": 5,
+      "any": 4,
       "emptyObj": 0,
       "cast": 0
     },
@@ -2522,7 +2477,7 @@
     },
     "src/ui/speeddial/fab.button.ts": {
       "any": 5,
-      "emptyObj": 1,
+      "emptyObj": 0,
       "cast": 0
     },
     "src/ui/speeddial/speed-dial.ts": {
@@ -2532,12 +2487,12 @@
     },
     "src/ui/speeddial/speeddial.component.ts": {
       "any": 3,
-      "emptyObj": 1,
+      "emptyObj": 0,
       "cast": 0
     },
     "src/ui/toolbar/toolbar.component.ts": {
-      "any": 38,
-      "emptyObj": 2,
+      "any": 25,
+      "emptyObj": 0,
       "cast": 0
     },
     "src/util/base64.ts": {
@@ -2586,7 +2541,7 @@
       "cast": 0
     },
     "src/util/pipes/filter.pipe.ts": {
-      "any": 2,
+      "any": 1,
       "emptyObj": 0,
       "cast": 0
     },
@@ -2632,7 +2587,7 @@
     },
     "src/ux/code-editor/code-editor.component.ts": {
       "any": 20,
-      "emptyObj": 1,
+      "emptyObj": 0,
       "cast": 4
     },
     "src/ux/command-palette/content/command-palette-content.component.ts": {
@@ -2660,34 +2615,14 @@
       "emptyObj": 0,
       "cast": 0
     },
-    "src/ux/editor/commands/applyMark.ts": {
-      "any": 0,
-      "emptyObj": 1,
-      "cast": 0
-    },
     "src/ux/editor/components/image-view/image-view.component.ts": {
       "any": 2,
       "emptyObj": 0,
       "cast": 0
     },
-    "src/ux/editor/defaultPlugins.ts": {
-      "any": 0,
-      "emptyObj": 1,
-      "cast": 0
-    },
-    "src/ux/editor/editor-config.service.ts": {
-      "any": 0,
-      "emptyObj": 1,
-      "cast": 0
-    },
     "src/ux/editor/editor.component.ts": {
       "any": 4,
       "emptyObj": 0,
-      "cast": 0
-    },
-    "src/ux/editor/helpers/isNodeActive.ts": {
-      "any": 0,
-      "emptyObj": 1,
       "cast": 0
     },
     "src/ux/editor/icons/index.ts": {
@@ -2713,11 +2648,6 @@
     "src/ux/editor/parsers.ts": {
       "any": 4,
       "emptyObj": 0,
-      "cast": 0
-    },
-    "src/ux/editor/plugins/attributes.ts": {
-      "any": 0,
-      "emptyObj": 1,
       "cast": 0
     },
     "src/ux/editor/plugins/editable.ts": {
@@ -2752,12 +2682,12 @@
     },
     "src/ux/iconpicker/icon-picker.component.ts": {
       "any": 40,
-      "emptyObj": 5,
+      "emptyObj": 0,
       "cast": 0
     },
     "src/ux/iconpicker/icon-picker.field.ts": {
       "any": 12,
-      "emptyObj": 1,
+      "emptyObj": 0,
       "cast": 0
     },
     "src/ux/iconpicker/text.directive.ts": {
@@ -2787,7 +2717,7 @@
     },
     "src/ux/link-preview/services/link-preview-cache.service.ts": {
       "any": 3,
-      "emptyObj": 1,
+      "emptyObj": 0,
       "cast": 0
     },
     "src/ux/markdown-editor/completion.ts": {
@@ -2882,7 +2812,7 @@
     },
     "src/ux/terminal/terminal.component.ts": {
       "any": 10,
-      "emptyObj": 1,
+      "emptyObj": 0,
       "cast": 1
     },
     "src/ux/terminal/terminal.ts": {
@@ -2932,7 +2862,7 @@
     },
     "src/ux/windows/window/components/named-outlet/route.service.ts": {
       "any": 7,
-      "emptyObj": 1,
+      "emptyObj": 0,
       "cast": 0
     },
     "src/ux/windows/window/interfaces/config.interface.ts": {

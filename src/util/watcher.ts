@@ -39,8 +39,8 @@ export enum SubjectStatus {
  */
 export abstract class Watcher {
   /**
-   * Property `status$` (`Subject`) storing status (default: `new Subject<SubjectStatus>()`).
-   * @zh 属性 `status$`（类型：`Subject`），用于存储或配置状态（默认值：`new Subject<SubjectStatus>()`）。
+   * Property `status$` (`Subject<SubjectStatus>`) storing status (default: `new Subject<SubjectStatus>()`).
+   * @zh 属性 `status$`（类型：`Subject<SubjectStatus>`），用于存储或配置状态（默认值：`new Subject<SubjectStatus>()`）。
    */
   public status$ = new Subject<SubjectStatus>();
   /**
@@ -73,7 +73,7 @@ export abstract class Watcher {
 
   /**
    * Executes `watch` to handle watch.
-   * @zh 执行 `watch`，用于watch。
+   * @zh 执行 `watch`，用于监听。
    */
   protected abstract watch();
 
@@ -88,7 +88,7 @@ export abstract class Watcher {
    * Executes `subscribe` to handle subscribe.
    * @zh 执行 `subscribe`，用于订阅。
    * @param callback - callback parameter (`Function`) / 回调函数参数（`Function`）
-   * @param scope - scope parameter (`any`) / scope参数（`any`）
+   * @param scope - scope parameter (`unknown`) / scope参数（`unknown`）
    */
   subscribe(callback: Function, scope?: unknown) {
     this.watch();

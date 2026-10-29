@@ -89,7 +89,7 @@ export class CommonAuth  {
     /**
      * Executes `validateTicket` to handle validate ticket.
      * @zh 执行 `validateTicket`，用于校验Ticket。
-     * @returns Result of type `Promise<any>` / 类型为 `Promise<any>` 的返回值
+     * @returns Result of type `Promise<unknown>` / 类型为 `Promise<unknown>` 的返回值
      */
     validateTicket() {
       this.setTicket(this.config.getSettings('ticket'));
@@ -107,7 +107,7 @@ export class CommonAuth  {
   /**
    * Executes `_validateTicket` to handle validate ticket.
    * @zh 执行 `_validateTicket`，用于校验Ticket。
-   * @returns Result of type `Promise<any>` / 类型为 `Promise<any>` 的返回值
+   * @returns Result of type `Promise<Object>` / 类型为 `Promise<Object>` 的返回值
    */
   _validateTicket() {
       let headers:HttpHeaders=new HttpHeaders({
@@ -122,11 +122,11 @@ export class CommonAuth  {
 
     /**
      * Executes `login` to handle login.
-     * @zh 执行 `login`，用于login。
+     * @zh 执行 `login`，用于登录。
      * @param username - username parameter (`string`) / 用户名参数（`string`）
      * @param password - password parameter (`string`) / 密码参数（`string`）
      * @param ticket - ticket parameter (`string`) / ticket参数（`string`）
-     * @returns Result of type `Promise<any>` / 类型为 `Promise<any>` 的返回值
+     * @returns Result of type `Promise<unknown>` / 类型为 `Promise<unknown>` 的返回值
      */
     login(username: string, password: string, ticket: string) {
         this.authentications.basicAuth.username = username;
@@ -188,7 +188,7 @@ export class CommonAuth  {
   /**
    * Executes `logout` to handle logout.
    * @zh 执行 `logout`，用于logout。
-   * @returns Result of type `Promise<any>` / 类型为 `Promise<any>` 的返回值
+   * @returns Result of type `Promise<LogoutResult>` / 类型为 `Promise<LogoutResult>` 的返回值
    */
   logout(): Promise<LogoutResult> {
         this.saveUsername('');
@@ -265,7 +265,7 @@ export class CommonAuth  {
     /**
      * Executes `getAuthentication` to handle get authentication.
      * @zh 执行 `getAuthentication`，用于获取身份认证。
-     * @returns Result of type `any` / 类型为 `any` 的返回值
+     * @returns Result of type `Authentication` / 类型为 `Authentication` 的返回值
      */
     getAuthentication() {
         return  this.authentications;

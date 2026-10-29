@@ -69,7 +69,7 @@ export interface ActiveToast<C> {
   onTap: Observable<void>;
   /**
    * available for your use in custom toast
-   * @zh 属性 `onAction`（类型：`Observable<any>`），用于存储或配置当动作。
+   * @zh 属性 `onAction`（类型：`any`），用于存储或配置当动作。
    */
   onAction;
 }
@@ -94,7 +94,7 @@ export class ToastrService {
    */
   currentlyActive = 0;
   /**
-   * Property `toasts` (`ActiveToast<any>[]`) storing toasts (default: `[]`).
+   * Property `toasts` (`any[]`) storing toasts (default: `[]`).
    * @zh 当前已加入队列/展示中的全部提示。
    * @zh 当前已加入队列/展示中的全部提示。
    */
@@ -106,7 +106,7 @@ export class ToastrService {
    */
   overlayContainer?: ToastContainerDirective;
   /**
-   * Property `previousToastMessage` (`string | undefined`) storing previous toast message.
+   * Property `previousToastMessage` (`string`) storing previous toast message.
    * @zh 上一条展示的提示消息文本（用于去重判断）。
    * @zh 上一条展示的提示消息文本（用于去重判断）。
    */

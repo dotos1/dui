@@ -62,6 +62,9 @@ jobs:
       - name: 语种包门（G-I18N，键集合一致、非英语不照抄英文）
         run: npm run gate:i18n
 
+      - name: JSDoc 类型说明与代码一致（复核 F6）
+        run: npm run gate:jsdoc
+
       - name: ESM 导入门（G-ESM，禁止 CommonJS lodash / lodash/fp 目录导入）
         run: npm run gate:esm
 

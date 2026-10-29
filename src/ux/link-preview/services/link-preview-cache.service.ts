@@ -13,7 +13,7 @@ import { Injectable } from '@angular/core';
 export class LinkPreviewCacheService {
    /**
     * Holds the current cache state (RAM cache)
-    * @zh 属性 `cache`（类型：`any`），用于存储或配置缓存（默认值：`{}`）。
+    * @zh 属性 `cache`（类型：`Record<string, unknown>`），用于存储或配置缓存（默认值：`{}`）。
     */
    private cache: Record<string, unknown> = {};
 

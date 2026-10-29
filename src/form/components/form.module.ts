@@ -74,8 +74,8 @@ export function defaultFormConfig(formConfig: FormConfig): ConfigOption {
 })
 export class FormModule {
   /**
-   * Property `entryComponents` (`any[]`) storing entry components.
-   * @zh 属性 `entryComponents`（类型：`any[]`），用于存储或配置条目组件列表。
+   * Property `entryComponents` (`(typeof FormComponent | typeof FormGroup | typeof FieldComponent)[]`) storing entry components.
+   * @zh 属性 `entryComponents`（类型：`(typeof FormComponent | typeof FormGroup | typeof FieldComponent)[]`），用于存储或配置条目组件列表。
    */
   entryComponents = [
     FormComponent,

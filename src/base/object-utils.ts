@@ -20,7 +20,7 @@ export class ObjectUtils {
    * @zh 执行 `getValue`，用于获取值。
    * @param target - target parameter (`any`) / 目标参数（`any`）
    * @param key - key parameter (`string`) / 键参数（`string`）
-   * @returns Result of type `any` / 类型为 `any` 的返回值
+   * @returns Result of type `unknown` / 类型为 `unknown` 的返回值
    */
   static getValue(source: unknown, key: string): unknown {
 
@@ -61,8 +61,8 @@ export class ObjectUtils {
   /**
    * Executes `merge` to handle merge.
    * @zh 执行 `merge`，用于合并。
-   * @param objects - objects parameter (`any`) / 对象参数（`any`）
-   * @returns Result of type `any` / 类型为 `any` 的返回值
+   * @param objects - objects parameter (`unknown[]`) / 对象参数（`unknown[]`）
+   * @returns Result of type `Dict` / 类型为 `Dict` 的返回值
    */
   static merge(...objects: unknown[]): Dict {
     const result: Dict = {};
@@ -94,7 +94,7 @@ export class ObjectUtils {
    * @zh 执行 `resolve`，用于解析。
    * @param obj - obj parameter (`object`) / 对象参数（`object`）
    * @param key - key parameter (`string`) / 键参数（`string`）
-   * @returns Result of type `any` / 类型为 `any` 的返回值
+   * @returns Result of type `unknown` / 类型为 `unknown` 的返回值
    */
   static resolve(obj: object, key: string): unknown {
     const keysArray = key
@@ -115,7 +115,7 @@ export class ObjectUtils {
   /**
    * Executes `isObject` to handle is object.
    * @zh 执行 `isObject`，用于是否为对象。
-   * @param item - item parameter (`object`) / 条目参数（`object`）
+   * @param item - item parameter (`unknown`) / 条目参数（`unknown`）
    */
   static isObject(item: unknown): item is object {
     return (
@@ -132,8 +132,8 @@ export class ObjectUtils {
    * @zh 执行 `mergeDeep`，用于合并Deep。
    * @param target - target parameter (`object`) / 目标参数（`object`）
    * @param source - source parameter (`object`) / 源参数（`object`）
-   * @param ignoreUndefined - ignore undefined parameter (`any`) / 忽略未定义参数（`any`）
-   * @returns Result of type `any` / 类型为 `any` 的返回值
+   * @param ignoreUndefined - ignore undefined parameter (`boolean`) / 忽略未定义参数（`boolean`）
+   * @returns Result of type `Dict` / 类型为 `Dict` 的返回值
    */
   static mergeDeep(
     target: object,
@@ -169,8 +169,8 @@ export class ObjectUtils {
   /**
    * Executes `removeUndefined` to handle remove undefined.
    * @zh 执行 `removeUndefined`，用于移除未定义。
-   * @param obj - obj parameter (`object`) / 对象参数（`object`）
-   * @returns Result of type `any` / 类型为 `any` 的返回值
+   * @param obj - obj parameter (`unknown`) / 对象参数（`unknown`）
+   * @returns Result of type `unknown` / 类型为 `unknown` 的返回值
    */
   static removeUndefined(obj: unknown): unknown {
     const output: Dict = {};
@@ -200,8 +200,8 @@ export class ObjectUtils {
   /**
    * Executes `copyDeep` to handle copy deep.
    * @zh 执行 `copyDeep`，用于复制Deep。
-   * @param src - src parameter (`any`) / 源路径参数（`any`）
-   * @returns Result of type `any` / 类型为 `any` 的返回值
+   * @param src - src parameter (`T`) / 源路径参数（`T`）
+   * @returns Result of type `T` / 类型为 `T` 的返回值
    */
   static copyDeep<T>(src: T): T {
     if (Array.isArray(src)) {
@@ -225,8 +225,8 @@ export class ObjectUtils {
   /**
    * Executes `removeNull` to handle remove null.
    * @zh 执行 `removeNull`，用于移除空值。
-   * @param obj - obj parameter (`object`) / 对象参数（`object`）
-   * @returns Result of type `any` / 类型为 `any` 的返回值
+   * @param obj - obj parameter (`unknown`) / 对象参数（`unknown`）
+   * @returns Result of type `unknown` / 类型为 `unknown` 的返回值
    */
   static removeNull(obj: unknown): unknown {
     const output: Dict = {};
@@ -258,8 +258,8 @@ export class ObjectUtils {
    * @zh 执行 `naturalCompare`，用于natural比较。
    * @param a - a parameter (`any`) / a参数（`any`）
    * @param b - b parameter (`any`) / b参数（`any`）
-   * @param direction - direction parameter (`any`) / 方向参数（`any`）
-   * @param nullFirst - null first parameter (`any`) / 空值首个参数（`any`）
+   * @param direction - direction parameter (`string`) / 方向参数（`string`）
+   * @param nullFirst - null first parameter (`boolean`) / 空值首个参数（`boolean`）
    */
   static naturalCompare(left: unknown, right: unknown, direction = 'asc', nullFirst = false): number {
     let a = left;

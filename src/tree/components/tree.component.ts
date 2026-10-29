@@ -84,27 +84,27 @@ export class TreeComponent implements OnChanges {
 
 
   /**
-   * Template/content query reference `loadingTemplate` (`@ContentChild`) targeting loading template.
+   * Template/content query reference `loadingTemplate` (`TemplateRef<unknown>`) targeting loading template.
    * @zh 模板/内容视图查询引用 `loadingTemplate`（`@ContentChild`），指向加载中模板。
    */
   @ContentChild('loadingTemplate', { static: false }) loadingTemplate: TemplateRef<unknown>;
   /**
-   * Template/content query reference `treeNodeTemplate` (`@ContentChild`) targeting tree node template.
+   * Template/content query reference `treeNodeTemplate` (`TemplateRef<unknown>`) targeting tree node template.
    * @zh 模板/内容视图查询引用 `treeNodeTemplate`（`@ContentChild`），指向树形控件节点模板。
    */
   @ContentChild('treeNodeTemplate', { static: false }) treeNodeTemplate: TemplateRef<unknown>;
   /**
-   * Template/content query reference `treeNodeWrapperTemplate` (`@ContentChild`) targeting tree node wrapper template.
+   * Template/content query reference `treeNodeWrapperTemplate` (`TemplateRef<unknown>`) targeting tree node wrapper template.
    * @zh 模板/内容视图查询引用 `treeNodeWrapperTemplate`（`@ContentChild`），指向树形控件节点包装器模板。
    */
   @ContentChild('treeNodeWrapperTemplate', { static: false }) treeNodeWrapperTemplate: TemplateRef<unknown>;
   /**
-   * Template/content query reference `treeNodeFullTemplate` (`@ContentChild`) targeting tree node full template.
+   * Template/content query reference `treeNodeFullTemplate` (`TemplateRef<unknown>`) targeting tree node full template.
    * @zh 模板/内容视图查询引用 `treeNodeFullTemplate`（`@ContentChild`），指向树形控件节点完整模板。
    */
   @ContentChild('treeNodeFullTemplate', { static: false }) treeNodeFullTemplate: TemplateRef<unknown>;
   /**
-   * Template/content query reference `viewportComponent` (`@ViewChild`) targeting viewport component.
+   * Template/content query reference `viewportComponent` (`TreeViewportComponent`) targeting viewport component.
    * @zh 模板/内容视图查询引用 `viewportComponent`（`@ViewChild`），指向视口组件。
    */
   @ViewChild('viewport', { static: true }) viewportComponent: TreeViewportComponent;
@@ -113,7 +113,7 @@ export class TreeComponent implements OnChanges {
   /**
    * Input setter `nodes` updating nodes.
    * @zh 输入属性 `nodes` 的设置器，用于更新节点列表。
-   * @param nodes - New nodes value (`any[]`) / 新的节点列表值（`any[]`）
+   * @param nodes - New nodes value (`any`) / 新的节点列表值（`any`）
    */
   @Input() set nodes(nodes) {
 
@@ -257,7 +257,7 @@ export class TreeComponent implements OnChanges {
    * @param http - Injected or initial http (`HttpClient`) / 注入或传入的HTTP（`HttpClient`）
    * @param translator - Injected or initial translator (`TranslateService`) / 注入或传入的翻译器（`TranslateService`）
    * @param ngZone - Injected or initial ng zone (`NgZone`) / 注入或传入的Angular区域(NgZone)（`NgZone`）
-   * @param el - Injected or initial el (`ElementRef`) / 注入或传入的DOM元素（`ElementRef`）
+   * @param el - Injected or initial el (`ElementRef<any>`) / 注入或传入的DOM元素（`ElementRef<any>`）
    * @param _changeDetectorRef - Injected or initial change detector ref (`ChangeDetectorRef`) / 注入或传入的变更检测器引用（`ChangeDetectorRef`）
    */
   constructor(

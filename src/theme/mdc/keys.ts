@@ -31,7 +31,7 @@ function _is_map($map) {
 /**
  * Executes `is_key` to handle is key.
  * @zh 执行 `is_key`，用于是否为键。
- * @param $key - key parameter (`any`) / 键参数（`any`）
+ * @param $key - key parameter (`any[]`) / 键参数（`any[]`）
  */
 function is_key(...$key) {
     let $ckey= combine($key);
@@ -40,7 +40,7 @@ function is_key(...$key) {
 /**
  * Executes `combine` to handle combine.
  * @zh 执行 `combine`，用于组合。
- * @param $parts - parts parameter (`any`) / parts参数（`any`）
+ * @param $parts - parts parameter (`any[]`) / parts参数（`any[]`）
  */
 function combine(...$parts) {
     let $key= '';
@@ -75,7 +75,7 @@ function combine(...$parts) {
   /**
    * Executes `resolve` to handle resolve.
    * @zh 执行 `resolve`，用于解析。
-   * @param $key - key parameter (`any`) / 键参数（`any`）
+   * @param $key - key parameter (`any[]`) / 键参数（`any[]`）
    */
   function resolve(...$key) {
     let $ckey= combine($key);
@@ -107,7 +107,7 @@ function combine(...$parts) {
    * Executes `map_set` to handle map set.
    * @zh 执行 `map_set`，用于映射表集合。
    * @param $map - map parameter (`any`) / 映射表参数（`any`）
-   * @param $args - args parameter (`any`) / 参数列表参数（`any`）
+   * @param $args - args parameter (`any[]`) / 参数列表参数（`any[]`）
    */
   export function map_set($map, ...$args) {
     let $first =$args[0];

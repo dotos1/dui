@@ -88,9 +88,9 @@ export abstract class ContentItem extends EventEmitter {
      */
     sizeUnit: SizeUnitEnum;
     /**
-     * Property `minSize` (`number | undefined`) storing min size.
+     * Property `minSize` (`number`) storing min size.
      * @internal
-     * @zh 属性 `minSize`（类型：`number | undefined`），用于存储或配置最小值尺寸。
+     * @zh 属性 `minSize`（类型：`number`），用于存储或配置最小值尺寸。
      */
     minSize: number | undefined;
     /**
@@ -178,7 +178,7 @@ export abstract class ContentItem extends EventEmitter {
      * Executes `isStack` to handle is stack.
      * @zh 执行 `isStack`，用于是否为栈。
      * @param item - item parameter (`ContentItem`) / 条目参数（`ContentItem`）
-     * @returns Result of type `item is Stack` / 类型为 `item is Stack` 的返回值
+     * @returns Result of type `boolean` / 类型为 `boolean` 的返回值
      */
     static isStack(item: ContentItem): item is Stack {
         return item.isStack;
@@ -188,7 +188,7 @@ export abstract class ContentItem extends EventEmitter {
      * Executes `isComponentItem` to handle is component item.
      * @zh 执行 `isComponentItem`，用于是否为组件条目。
      * @param item - item parameter (`ContentItem`) / 条目参数（`ContentItem`）
-     * @returns Result of type `item is ComponentItem` / 类型为 `item is ComponentItem` 的返回值
+     * @returns Result of type `boolean` / 类型为 `boolean` 的返回值
      */
     static isComponentItem(item: ContentItem): item is ComponentItem {
         return item.isComponent;
@@ -198,7 +198,7 @@ export abstract class ContentItem extends EventEmitter {
      * Executes `isComponentParentableItem` to handle is component parentable item.
      * @zh 执行 `isComponentParentableItem`，用于是否为组件Parentable条目。
      * @param item - item parameter (`ContentItem`) / 条目参数（`ContentItem`）
-     * @returns Result of type `item is ComponentParentableItem` / 类型为 `item is ComponentParentableItem` 的返回值
+     * @returns Result of type `boolean` / 类型为 `boolean` 的返回值
      */
     static isComponentParentableItem(item: ContentItem): item is ComponentParentableItem {
         return item.isStack || item.isGround;
@@ -436,7 +436,7 @@ export abstract class ContentItem extends EventEmitter {
     /**
      * Executes `highlightDropZone` to handle highlight drop zone.
      * @internal
-     * @zh 执行 `highlightDropZone`，用于highlight放置区域(NgZone)。
+     * @zh 执行 `highlightDropZone`，用于高亮放置区域(NgZone)。
      */
     highlightDropZone(x: number, y: number, area: AreaLinkedRect): void {
         const dropTargetIndicator = this.layoutManager.dropTargetIndicator;
@@ -613,7 +613,7 @@ export abstract class ContentItem extends EventEmitter {
      * @param event -
      * @internal
 
-     * @zh 执行 `propagateEvent`，用于propagate事件。
+     * @zh 执行 `propagateEvent`，用于传播事件。
      */
     private propagateEvent(name: string, args: unknown[]) {
         if (args.length === 1) {
@@ -693,7 +693,7 @@ export abstract class ContentItem extends EventEmitter {
      * @param name - The name of the event
      * @internal
 
-     * @zh 执行 `propagateEventToLayoutManager`，用于propagate事件转换为布局管理器。
+     * @zh 执行 `propagateEventToLayoutManager`，用于传播事件转换为布局管理器。
      */
     private propagateEventToLayoutManager(name: string, event: EventEmitter.BubblingEvent) {
         this._pendingEventPropagations[name] = false;

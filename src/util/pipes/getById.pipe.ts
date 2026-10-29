@@ -18,7 +18,7 @@ export class GetByIdPipe implements PipeTransform {
     /**
      * Executes `transform` to handle transform.
      * @zh 执行 `transform`，用于转换。
-     * @param value - value parameter (`any[]`) / 值参数（`any[]`）
+     * @param value - value parameter (`any`) / 值参数（`any`）
      * @param id - id parameter (`number`) / 唯一标识参数（`number`）
      * @param property - property parameter (`string`) / 属性参数（`string`）
      * @returns Result of type `any` / 类型为 `any` 的返回值

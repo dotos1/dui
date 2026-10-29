@@ -51,8 +51,8 @@ export class MatDatetimepickerMonthView<D> implements AfterContentInit {
   @Input() type: MatDatetimepickerType = "date";
 
   /**
-   * Output event emitter `_userSelection` (`EventEmitter`) firing when user selection occurs.
-   * @zh 输出事件 `_userSelection`（类型：`EventEmitter`），当触发用户Selection时向外发出事件。
+   * Output event emitter `_userSelection` (`EventEmitter<void>`) firing when user selection occurs.
+   * @zh 输出事件 `_userSelection`（类型：`EventEmitter<void>`），当触发用户Selection时向外发出事件。
    */
   @Output() _userSelection = new EventEmitter<void>();
   /**
@@ -62,7 +62,7 @@ export class MatDatetimepickerMonthView<D> implements AfterContentInit {
   @Input() dateFilter: (date: D) => boolean;
   /**
    * Emits when a new date is selected.
-   * @zh 输出事件 `selectedChange`（类型：`EventEmitter`），当触发已选中变更时向外发出事件。
+   * @zh 输出事件 `selectedChange`（类型：`EventEmitter<D>`），当触发已选中变更时向外发出事件。
    */
   @Output() selectedChange = new EventEmitter<D>();
   /**
@@ -89,7 +89,7 @@ export class MatDatetimepickerMonthView<D> implements AfterContentInit {
   _todayDate: number;
   /**
    * The names of the weekdays.
-   * @zh 属性 `_weekdays`（类型：`{ long: string, narrow: string }[]`），用于存储或配置weekdays。
+   * @zh 属性 `_weekdays`（类型：`{ long: string; narrow: string; }[]`），用于存储或配置weekdays。
    */
   _weekdays: { long: string, narrow: string }[];
   /**

@@ -20,7 +20,7 @@ export class SearchIconPipe implements PipeTransform {
    * @zh 执行 `transform`，用于转换。
    * @param value - value parameter (`Icon[]`) / 值参数（`Icon[]`）
    * @param search - search parameter (`string`) / 搜索参数（`string`）
-   * @returns Result of type `any` / 类型为 `any` 的返回值
+   * @returns Result of type `Icon[]` / 类型为 `Icon[]` 的返回值
    */
   transform(value: Icon[], search: string) {
     if (!search) {
@@ -47,7 +47,7 @@ export class SearchIconPipe implements PipeTransform {
   }
   /**
    * Executes `clean` to handle clean.
-   * @zh 执行 `clean`，用于clean。
+   * @zh 执行 `clean`，用于清理。
    * @param value - value parameter (`string`) / 值参数（`string`）
    * @returns Result of type `string` / 类型为 `string` 的返回值
    */

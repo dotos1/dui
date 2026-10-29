@@ -47,7 +47,7 @@ export class PrintService {
    */
   @Input() printCSS: string[];
   /**
-   * Output event emitter `printComplete` (`EventEmitter<any>`) firing when print complete occurs.
+   * Output event emitter `printComplete` (`any`) firing when print complete occurs.
    * @zh 打印流程完成时发出。
    * @zh 打印流程完成时发出。
    */

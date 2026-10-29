@@ -109,31 +109,31 @@ export enum AppConfigValues {
 })
 export class ConfigService {
   /**
-   * Property `config` (`any`) storing config (default: `{}`).
-   * @zh 属性 `config`（类型：`any`），用于存储或配置配置（默认值：`{}`）。
+   * Property `config` (`DuiSettings`) storing config (default: `{}`).
+   * @zh 属性 `config`（类型：`DuiSettings`），用于存储或配置配置（默认值：`{}`）。
    */
   /** 应用配置（settings.json 加载结果）：顶层键 → 值 */
   public config: DuiSettings = {};
 
   /**
-   * Property `onLoadSubject` (`Subject<any>`) storing on load subject.
-   * @zh 属性 `onLoadSubject`（类型：`Subject<any>`），用于存储或配置当加载主题流。
+   * Property `onLoadSubject` (`Subject<DuiSettings>`) storing on load subject.
+   * @zh 属性 `onLoadSubject`（类型：`Subject<DuiSettings>`），用于存储或配置当加载主题流。
    */
   public onLoadSubject: Subject<DuiSettings>;
   /**
-   * Property `onLoad` (`Observable<any>`) storing on load.
-   * @zh 属性 `onLoad`（类型：`Observable<any>`），用于存储或配置当加载。
+   * Property `onLoad` (`Observable<DuiSettings>`) storing on load.
+   * @zh 属性 `onLoad`（类型：`Observable<DuiSettings>`），用于存储或配置当加载。
    */
   public onLoad: Observable<DuiSettings>;
 
   /**
-   * Property `onErrorSubject` (`Subject<any>`) storing on error subject.
-   * @zh 属性 `onErrorSubject`（类型：`Subject<any>`），用于存储或配置当错误主题流。
+   * Property `onErrorSubject` (`Subject<unknown>`) storing on error subject.
+   * @zh 属性 `onErrorSubject`（类型：`Subject<unknown>`），用于存储或配置当错误主题流。
    */
   public onErrorSubject: Subject<unknown>;
   /**
-   * Property `onError` (`Observable<any>`) storing on error.
-   * @zh 属性 `onError`（类型：`Observable<any>`），用于存储或配置当错误。
+   * Property `onError` (`Observable<unknown>`) storing on error.
+   * @zh 属性 `onError`（类型：`Observable<unknown>`），用于存储或配置当错误。
    */
   public onError: Observable<unknown>;
 
@@ -187,7 +187,7 @@ export class ConfigService {
    * Executes `select` to handle select.
    * @zh 执行 `select`，用于下拉选择。
    * @param property - property parameter (`string`) / 属性参数（`string`）
-   * @returns Result of type `Observable<any>` / 类型为 `Observable<any>` 的返回值
+   * @returns Result of type `Observable<unknown>` / 类型为 `Observable<unknown>` 的返回值
    */
   select(property: string) {
     return this.onLoadSubject
@@ -269,7 +269,7 @@ export class ConfigService {
    * @zh 执行 `getSettings`，用于获取设置项。
    * @param key - key parameter (`string | Array<string>`) / 键参数（`string | Array<string>`）
    * @param defaultValue - default value parameter (`any`) / 默认值参数（`any`）
-   * @returns Result of type `any` / 类型为 `any` 的返回值
+   * @returns Result of type `DuiSettings` / 类型为 `DuiSettings` 的返回值
    */
   /**
    * 读配置：顶层键直接给出 DuiSettings 里的类型；点分路径（'seo.defaultPageTitle'）或数组路径
@@ -299,7 +299,7 @@ export class ConfigService {
    * Executes `setSetting` to handle set setting.
    * @zh 执行 `setSetting`，用于集合设置。
    * @param key - key parameter (`string`) / 键参数（`string`）
-   * @param value - value parameter (`any`) / 值参数（`any`）
+   * @param value - value parameter (`unknown`) / 值参数（`unknown`）
    */
   setSetting(key: string, value: unknown): void {
     this.config[key]=value;

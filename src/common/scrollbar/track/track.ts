@@ -33,8 +33,8 @@ export class TrackXDirective extends TrackAdapter {
   getCurrPosition: () => number;
 
   /**
-   * Property `getScrollDirection` (`(position: number) => 'forward' | 'backward'`) storing get scroll direction.
-   * @zh 属性 `getScrollDirection`（类型：`(position: number) => 'forward' | 'backward'`），用于存储或配置获取滚动方向。
+   * Property `getScrollDirection` (`(position: number) => "forward" | "backward"`) storing get scroll direction.
+   * @zh 属性 `getScrollDirection`（类型：`(position: number) => "forward" | "backward"`），用于存储或配置获取滚动方向。
    */
   getScrollDirection: (position: number) => 'forward' | 'backward';
 
@@ -125,7 +125,7 @@ export class TrackYDirective extends TrackAdapter {
    * Executes `getScrollDirection` to handle get scroll direction.
    * @zh 执行 `getScrollDirection`，用于获取滚动方向。
    * @param position - position parameter (`number`) / 位置参数（`number`）
-   * @returns Result of type `'forward' | 'backward'` / 类型为 `'forward' | 'backward'` 的返回值
+   * @returns Result of type `"forward" | "backward"` / 类型为 `"forward" | "backward"` 的返回值
    */
   protected getScrollDirection(position: number): 'forward' | 'backward' {
     return position > this.getCurrPosition() ? 'forward' : 'backward';

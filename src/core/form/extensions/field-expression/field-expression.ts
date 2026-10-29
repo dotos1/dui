@@ -178,7 +178,7 @@ export class FieldExpressionExtension implements FormExtension {
    * Executes `checkExpressions` to handle check expressions.
    * @zh 执行 `checkExpressions`，用于检查表达式。
    * @param field - field parameter (`FieldConfigCache`) / 字段参数（`FieldConfigCache`）
-   * @param ignoreCache - ignore cache parameter (`any`) / 忽略缓存参数（`any`）
+   * @param ignoreCache - ignore cache parameter (`boolean`) / 忽略缓存参数（`boolean`）
    */
   private checkExpressions(field: FieldConfigCache, ignoreCache = false) {
     if (!field) {

@@ -20,8 +20,8 @@ export class AbstractPanel extends Container implements AfterViewInit,OnDestroy{
 
 
   /**
-   * Input property `config` (`any`) configuring config (default: `{}`).
-   * @zh 输入属性 `config`（类型：`any`），用于配置配置（默认值：`{}`）。
+   * Input property `config` (`DuiConfig`) configuring config (default: `{}`).
+   * @zh 输入属性 `config`（类型：`DuiConfig`），用于配置配置（默认值：`{}`）。
    */
   @Input() config: DuiConfig = {};
 
@@ -85,20 +85,20 @@ export class AbstractPanel extends Container implements AfterViewInit,OnDestroy{
   public overflowY: string = "auto";
 
   /**
-   * Template/content query reference `viewContainer` (`@ViewChild`) targeting view container.
+   * Template/content query reference `viewContainer` (`ViewContainerRef`) targeting view container.
    * @zh 模板/内容视图查询引用 `viewContainer`（`@ViewChild`），指向视图容器。
    */
   @ViewChild('panel', { read: ViewContainerRef }) public override viewContainer: ViewContainerRef;
 
   /**
-   * Host-bound getter `cssFlexdirection` (`style.flex-direction`) computing css flexdirection.
+   * Host-bound getter `cssFlexdirection` (`"column" | "row"`) computing css flexdirection.
    * @zh 宿主绑定读取器 `cssFlexdirection`（绑定至 `style.flex-direction`），计算并返回CSS样式Flexdirection。
    */
   @HostBinding('style.flex-direction') get cssFlexdirection() {
     return (this.fxLayout === 'row') ? 'row' : 'column';
   }
   /**
-   * Host-bound getter `cssMinwidth` (`style.min-width`) computing css minwidth.
+   * Host-bound getter `cssMinwidth` (`string`) computing css minwidth.
    * @zh 宿主绑定读取器 `cssMinwidth`（绑定至 `style.min-width`），计算并返回CSS样式Minwidth。
    */
   @HostBinding('style.min-width') get cssMinwidth() {
@@ -106,14 +106,14 @@ export class AbstractPanel extends Container implements AfterViewInit,OnDestroy{
   }
 
   /**
-   * Host-bound getter `cssMinheight` (`style.min-height`) computing css minheight.
+   * Host-bound getter `cssMinheight` (`string`) computing css minheight.
    * @zh 宿主绑定读取器 `cssMinheight`（绑定至 `style.min-height`），计算并返回CSS样式Minheight。
    */
   @HostBinding('style.min-height') get cssMinheight() {
     return (this.fxLayout === 'column') ? `${this._getNbGutters() * this.gutterSize}px` : null;
   }
   /**
-   * Host-bound getter `cssWidth` (`style.width`) computing css width.
+   * Host-bound getter `cssWidth` (`string`) computing css width.
    * @zh 宿主绑定读取器 `cssWidth`（绑定至 `style.width`），计算并返回CSS样式宽度。
    */
   @HostBinding('style.width') get cssWidth() {
@@ -127,7 +127,7 @@ export class AbstractPanel extends Container implements AfterViewInit,OnDestroy{
   }
 
   /**
-   * Host-bound getter `cssHeight` (`style.height`) computing css height.
+   * Host-bound getter `cssHeight` (`string`) computing css height.
    * @zh 宿主绑定读取器 `cssHeight`（绑定至 `style.height`），计算并返回CSS样式高度。
    */
   @HostBinding('style.height') get cssHeight() {
@@ -141,7 +141,7 @@ export class AbstractPanel extends Container implements AfterViewInit,OnDestroy{
   }
 
   /**
-   * Host-bound getter `cssOverflowX` (`style.overflow-x`) computing css overflow x.
+   * Host-bound getter `cssOverflowX` (`string`) computing css overflow x.
    * @zh 宿主绑定读取器 `cssOverflowX`（绑定至 `style.overflow-x`），计算并返回CSS样式OverflowX坐标。
    */
   @HostBinding('style.overflow-x') get cssOverflowX() {
@@ -149,7 +149,7 @@ export class AbstractPanel extends Container implements AfterViewInit,OnDestroy{
   }
 
   /**
-   * Host-bound getter `cssOverflowY` (`style.overflow-y`) computing css overflow y.
+   * Host-bound getter `cssOverflowY` (`string`) computing css overflow y.
    * @zh 宿主绑定读取器 `cssOverflowY`（绑定至 `style.overflow-y`），计算并返回CSS样式OverflowY坐标。
    */
   @HostBinding('style.overflow-y') get cssOverflowY() {
@@ -192,15 +192,15 @@ export class AbstractPanel extends Container implements AfterViewInit,OnDestroy{
    @Input()   override disabled: boolean = false;
 
   /**
-   * Property `_width` (`number | null`) storing width (default: `null`).
-   * @zh 属性 `_width`（类型：`number | null`），用于存储或配置宽度（默认值：`null`）。
+   * Property `_width` (`number`) storing width (default: `null`).
+   * @zh 属性 `_width`（类型：`number`），用于存储或配置宽度（默认值：`null`）。
    */
   private _width: number | null = null;
 
   /**
    * Input setter `width` updating width.
    * @zh 输入属性 `width` 的设置器，用于更新宽度。
-   * @param v - New width value (`any`) / 新的宽度值（`any`）
+   * @param v - New width value (`number`) / 新的宽度值（`number`）
    */
   @Input() set width(v) {
     v = Number(v);
@@ -240,15 +240,15 @@ export class AbstractPanel extends Container implements AfterViewInit,OnDestroy{
   }
 
   /**
-   * Property `_order` (`number | null`) storing order (default: `null`).
-   * @zh 属性 `_order`（类型：`number | null`），用于存储或配置顺序（默认值：`null`）。
+   * Property `_order` (`number`) storing order (default: `null`).
+   * @zh 属性 `_order`（类型：`number`），用于存储或配置顺序（默认值：`null`）。
    */
   private _order: number | null = null;
 
   /**
    * Input setter `order` updating order.
    * @zh 输入属性 `order` 的设置器，用于更新顺序。
-   * @param v - New order value (`number | null`) / 新的顺序值（`number | null`）
+   * @param v - New order value (`number`) / 新的顺序值（`number`）
    */
   @Input() set order(v: number | null) {
     v = Number(v);
@@ -268,15 +268,15 @@ export class AbstractPanel extends Container implements AfterViewInit,OnDestroy{
 
 
   /**
-   * Property `_size` (`number | null`) storing size (default: `null`).
-   * @zh 属性 `_size`（类型：`number | null`），用于存储或配置尺寸（默认值：`null`）。
+   * Property `_size` (`number`) storing size (default: `null`).
+   * @zh 属性 `_size`（类型：`number`），用于存储或配置尺寸（默认值：`null`）。
    */
   private _size: number | null = null;
 
   /**
    * Input setter `size` updating size.
    * @zh 输入属性 `size` 的设置器，用于更新尺寸。
-   * @param v - New size value (`number | null`) / 新的尺寸值（`number | null`）
+   * @param v - New size value (`number`) / 新的尺寸值（`number`）
    */
   @Input() set size(v: number | null) {
     v = Number(v);
@@ -405,15 +405,15 @@ export class AbstractPanel extends Container implements AfterViewInit,OnDestroy{
   }
 
   /**
-   * Property `_dir` (`'ltr' | 'rtl'`) storing dir (default: `'ltr'`).
-   * @zh 属性 `_dir`（类型：`'ltr' | 'rtl'`），用于存储或配置目录（默认值：`'ltr'`）。
+   * Property `_dir` (`"ltr" | "rtl"`) storing dir (default: `'ltr'`).
+   * @zh 属性 `_dir`（类型：`"ltr" | "rtl"`），用于存储或配置目录（默认值：`'ltr'`）。
    */
   private _dir: 'ltr' | 'rtl' = 'ltr';
 
   /**
    * Input setter `dir` updating dir.
    * @zh 输入属性 `dir` 的设置器，用于更新目录。
-   * @param v - New dir value (`'ltr' | 'rtl'`) / 新的目录值（`'ltr' | 'rtl'`）
+   * @param v - New dir value (`"ltr" | "rtl"`) / 新的目录值（`"ltr" | "rtl"`）
    */
   @Input() set dir(v: 'ltr' | 'rtl') {
     v = (v === 'rtl') ? 'rtl' : 'ltr';
@@ -429,15 +429,15 @@ export class AbstractPanel extends Container implements AfterViewInit,OnDestroy{
   }
 
   /**
-   * Property `_fxLayout` (`'row' | 'column'`) storing fx layout (default: `'row'`).
-   * @zh 属性 `_fxLayout`（类型：`'row' | 'column'`），用于存储或配置fx布局（默认值：`'row'`）。
+   * Property `_fxLayout` (`"column" | "row"`) storing fx layout (default: `'row'`).
+   * @zh 属性 `_fxLayout`（类型：`"column" | "row"`），用于存储或配置fx布局（默认值：`'row'`）。
    */
   public _fxLayout: 'row' | 'column' = 'row';
 
   /**
    * Input setter `fxLayout` updating fx layout.
    * @zh 输入属性 `fxLayout` 的设置器，用于更新fx布局。
-   * @param v - New fx layout value (`'row' | 'column'`) / 新的fx布局值（`'row' | 'column'`）
+   * @param v - New fx layout value (`"column" | "row"`) / 新的fx布局值（`"column" | "row"`）
    */
   @Input() set fxLayout(v: 'row' | 'column') {
     v = (v === 'row') ? 'row' : 'column';
@@ -510,7 +510,7 @@ export class AbstractPanel extends Container implements AfterViewInit,OnDestroy{
   /**
    * Creates an instance of `AbstractPanel` and initializes its dependencies and internal state.
    * @zh 创建 `AbstractPanel` 实例，并初始化其依赖项与内部状态。
-   * @param _element - Injected or initial element (`ElementRef`) / 注入或传入的元素（`ElementRef`）
+   * @param _element - Injected or initial element (`ElementRef<any>`) / 注入或传入的元素（`ElementRef<any>`）
    * @param renderer - Injected or initial renderer (`Renderer2`) / 注入或传入的渲染器（`Renderer2`）
    * @param resolver - Injected or initial resolver (`ComponentFactoryResolver`) / 注入或传入的解析器（`ComponentFactoryResolver`）
    * @param injector - Injected or initial injector (`Injector`) / 注入或传入的注入器（`Injector`）
@@ -624,7 +624,7 @@ export class AbstractPanel extends Container implements AfterViewInit,OnDestroy{
    * @zh 执行 `setStyleVisibleAndDir`，用于集合样式可见And目录。
    * @param isVisible - is visible parameter (`boolean`) / 是否为可见参数（`boolean`）
    * @param isDragging - is dragging parameter (`boolean`) / 是否为拖拽中参数（`boolean`）
-   * @param direction - direction parameter (`'row' | 'column'`) / 方向参数（`'row' | 'column'`）
+   * @param direction - direction parameter (`"column" | "row"`) / 方向参数（`"column" | "row"`）
    */
   public setStyleVisibleAndDir(isVisible: boolean, isDragging: boolean, direction: 'row' | 'column'): void {
     if (isVisible === false) {
@@ -688,7 +688,7 @@ export class AbstractPanel extends Container implements AfterViewInit,OnDestroy{
   /**
    * Executes `getSizePixel` to handle get size pixel.
    * @zh 执行 `getSizePixel`，用于获取尺寸像素。
-   * @param prop - prop parameter (`'offsetWidth' | 'offsetHeight'`) / 属性参数（`'offsetWidth' | 'offsetHeight'`）
+   * @param prop - prop parameter (`"offsetWidth" | "offsetHeight"`) / 属性参数（`"offsetWidth" | "offsetHeight"`）
    * @returns Result of type `number` / 类型为 `number` 的返回值
    */
   public getSizePixel(prop: 'offsetWidth' | 'offsetHeight'): number {
@@ -708,7 +708,7 @@ export class AbstractPanel extends Container implements AfterViewInit,OnDestroy{
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   /**
    * Executes `doLayout` to handle do layout.
-   * @zh 执行 `doLayout`，用于do布局。
+   * @zh 执行 `doLayout`，用于执行布局。
    * @param shallow - shallow parameter (`boolean`) / shallow参数（`boolean`）
    * @param force - force parameter (`boolean`) / force参数（`boolean`）
    */
@@ -720,9 +720,9 @@ export class AbstractPanel extends Container implements AfterViewInit,OnDestroy{
   /**
    * Executes `remove` to handle remove.
    * @zh 执行 `remove`，用于移除。
-   * @param c - c parameter (`any`) / c参数（`any`）
+   * @param c - c parameter (`string | number | ComponentBase`) / c参数（`string | number | ComponentBase`）
    * @param ad - ad parameter (`boolean`) / ad参数（`boolean`）
-   * @returns Result of type `any` / 类型为 `any` 的返回值
+   * @returns Result of type `ComponentBase` / 类型为 `ComponentBase` 的返回值
    */
   override remove(c: ComponentBase | string | number, ad?: boolean): ComponentBase {
     const comp = super.remove(c, false);
@@ -736,8 +736,8 @@ export class AbstractPanel extends Container implements AfterViewInit,OnDestroy{
   /**
    * Executes `_addItem` to handle add item.
    * @zh 执行 `_addItem`，用于添加条目。
-   * @param comp - comp parameter (`any`) / 组件参数（`any`）
-   * @param index - index parameter (`any`) / 索引参数（`any`）
+   * @param comp - comp parameter (`ComponentBase`) / 组件参数（`ComponentBase`）
+   * @param index - index parameter (`number`) / 索引参数（`number`）
    */
   protected override _addItem(comp: ComponentBase, index: number): void {
     this.items.add(comp);
@@ -751,7 +751,7 @@ export class AbstractPanel extends Container implements AfterViewInit,OnDestroy{
 
   /**
    * Executes `havePanel` to handle have panel.
-   * @zh 执行 `havePanel`，用于have面板。
+   * @zh 执行 `havePanel`，用于具有面板。
    * @param comp - comp parameter (`any`) / 组件参数（`any`）
    * @returns Result of type `boolean` / 类型为 `boolean` 的返回值
    */

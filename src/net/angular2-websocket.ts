@@ -13,8 +13,8 @@ import { Observable, Subject } from 'rxjs';
 export class $WebSocket {
 
   /**
-   * Property `Helpers` (`any`) storing helpers.
-   * @zh 属性 `Helpers`（类型：`any`），用于存储或配置辅助工具。
+   * Property `Helpers` (`typeof (Anonymous class)`) storing helpers.
+   * @zh 属性 `Helpers`（类型：`typeof (Anonymous class)`），用于存储或配置辅助工具。
    */
   private static Helpers = class {
     static isPresent(obj: unknown): boolean {
@@ -65,8 +65,8 @@ export class $WebSocket {
    */
   private onCloseCallbacks = [];
   /**
-   * Property `readyStateConstants` (`any`) storing ready state constants.
-   * @zh 属性 `readyStateConstants`（类型：`any`），用于存储或配置就绪状态Constants。
+   * Property `readyStateConstants` (`{…}`) storing ready state constants.
+   * @zh 属性 `readyStateConstants`（类型：`{…}`），用于存储或配置就绪状态Constants。
    */
   private readyStateConstants = {
     'UNINITIALIZED': -1,
@@ -82,8 +82,8 @@ export class $WebSocket {
    */
   private normalCloseCode = 1000;
   /**
-   * Property `reconnectableStatusCodes` (`any[]`) storing reconnectable status codes (default: `[4000]`).
-   * @zh 属性 `reconnectableStatusCodes`（类型：`any[]`），用于存储或配置reconnectable状态编码（默认值：`[4000]`）。
+   * Property `reconnectableStatusCodes` (`number[]`) storing reconnectable status codes (default: `[4000]`).
+   * @zh 属性 `reconnectableStatusCodes`（类型：`number[]`），用于存储或配置reconnectable状态编码（默认值：`[4000]`）。
    */
   private reconnectableStatusCodes = [4000];
   /**
@@ -92,13 +92,13 @@ export class $WebSocket {
    */
   private socket: WebSocket;
   /**
-   * Property `dataStream` (`Subject<any>`) storing data stream.
-   * @zh 属性 `dataStream`（类型：`Subject<any>`），用于存储或配置数据流。
+   * Property `dataStream` (`Subject<MessageEvent<any>>`) storing data stream.
+   * @zh 属性 `dataStream`（类型：`Subject<MessageEvent<any>>`），用于存储或配置数据流。
    */
   private dataStream: Subject<MessageEvent>;
   /**
-   * Property `errorMessages` (`Subject<any>`) storing error messages.
-   * @zh 属性 `errorMessages`（类型：`Subject<any>`），用于存储或配置错误消息列表。
+   * Property `errorMessages` (`Subject<Event>`) storing error messages.
+   * @zh 属性 `errorMessages`（类型：`Subject<Event>`），用于存储或配置错误消息列表。
    */
   private errorMessages: Subject<Event>;
   /**
@@ -107,8 +107,8 @@ export class $WebSocket {
    */
   private internalConnectionState: number;
   /**
-   * Property `reconnectTimeoutId` (`any`) storing reconnect timeout id.
-   * @zh 属性 `reconnectTimeoutId`（类型：`any`），用于存储或配置重连延时器唯一标识。
+   * Property `reconnectTimeoutId` (`number`) storing reconnect timeout id.
+   * @zh 属性 `reconnectTimeoutId`（类型：`number`），用于存储或配置重连延时器唯一标识。
    */
   private reconnectTimeoutId: ReturnType<typeof setTimeout>;
 
@@ -116,7 +116,7 @@ export class $WebSocket {
    * Creates an instance of `$WebSocket` and initializes its dependencies and internal state.
    * @zh 创建 `$WebSocket` 实例，并初始化其依赖项与内部状态。
    * @param url - Injected or initial url (`string`) / 注入或传入的链接地址（`string`）
-   * @param protocols - Injected or initial protocols (`Array<string>`) / 注入或传入的protocols（`Array<string>`）
+   * @param protocols - Injected or initial protocols (`string[]`) / 注入或传入的protocols（`string[]`）
    * @param config - Injected or initial config (`WebSocketConfig`) / 注入或传入的配置（`WebSocketConfig`）
    * @param binaryType - Injected or initial binary type (`BinaryType`) / 注入或传入的binary类型（`BinaryType`）
    */
@@ -138,7 +138,7 @@ export class $WebSocket {
   /**
    * Executes `connect` to handle connect.
    * @zh 执行 `connect`，用于连接。
-   * @param force - force parameter (`any`) / force参数（`any`）
+   * @param force - force parameter (`boolean`) / force参数（`boolean`）
    */
   connect(force = false) {
 
@@ -175,7 +175,7 @@ export class $WebSocket {
   /**
    * Executes `getErrorStream` to handle get error stream.
    * @zh 执行 `getErrorStream`，用于获取错误流。
-   * @returns Result of type `Subject<any>` / 类型为 `Subject<any>` 的返回值
+   * @returns Result of type `Subject<Event>` / 类型为 `Subject<Event>` 的返回值
    */
   getErrorStream(): Subject<Event> {
     return this.errorMessages;
@@ -187,7 +187,7 @@ export class $WebSocket {
    * param data
    *  {boolean}
 
-   * @zh 执行 `send4Direct`，用于send4Direct。
+   * @zh 执行 `send4Direct`，用于发送4Direct。
    */
   send4Direct(data, binary?: boolean): boolean {
     if (this.getReadyState() !== this.readyStateConstants.OPEN
@@ -210,7 +210,7 @@ export class $WebSocket {
    * param data
    *  {Promise<any>}
 
-   * @zh 执行 `send4Promise`，用于send4Promise。
+   * @zh 执行 `send4Promise`，用于发送4Promise。
    */
   send4Promise(data, binary?: boolean): Promise<unknown> {
     return new Promise(
@@ -231,7 +231,7 @@ export class $WebSocket {
    * param data
    *  {Observable<any>}
 
-   * @zh 执行 `send4Observable`，用于send4可观察流。
+   * @zh 执行 `send4Observable`，用于发送4可观察流。
    */
   send4Observable(data, binary?: boolean): Observable<unknown> {
     return Observable.create((observer) => {
@@ -285,7 +285,7 @@ export class $WebSocket {
   /**
    * Executes `getDataStream` to handle get data stream.
    * @zh 执行 `getDataStream`，用于获取数据流。
-   * @returns Result of type `Subject<any>` / 类型为 `Subject<any>` 的返回值
+   * @returns Result of type `Subject<MessageEvent<any>>` / 类型为 `Subject<MessageEvent<any>>` 的返回值
    */
   getDataStream(): Subject<MessageEvent> {
     return this.dataStream;
@@ -365,7 +365,7 @@ export class $WebSocket {
 
   /**
    * Executes `offOpen` to handle off open.
-   * @zh 执行 `offOpen`，用于off打开。
+   * @zh 执行 `offOpen`，用于取消监听打开。
    * @param cb - cb parameter (`any`) / cb参数（`any`）
    */
   offOpen(cb) {
@@ -388,7 +388,7 @@ export class $WebSocket {
 
   /**
    * Executes `offClose` to handle off close.
-   * @zh 执行 `offClose`，用于off关闭。
+   * @zh 执行 `offClose`，用于取消监听关闭。
    * @param cb - cb parameter (`any`) / cb参数（`any`）
    */
   offClose(cb) {
@@ -411,7 +411,7 @@ export class $WebSocket {
 
   /**
    * Executes `offError` to handle off error.
-   * @zh 执行 `offError`，用于off错误。
+   * @zh 执行 `offError`，用于取消监听错误。
    * @param cb - cb parameter (`any`) / cb参数（`any`）
    */
   offError(cb) {
@@ -443,7 +443,7 @@ export class $WebSocket {
 
   /**
    * Executes `offMessage` to handle off message.
-   * @zh 执行 `offMessage`，用于off消息。
+   * @zh 执行 `offMessage`，用于取消监听消息。
    * @param callback - callback parameter (`any`) / 回调函数参数（`any`）
    */
   offMessage(callback) {
@@ -457,7 +457,7 @@ export class $WebSocket {
   /**
    * Executes `onMessageHandler` to handle on message handler.
    * @zh 执行 `onMessageHandler`，用于当消息处理器。
-   * @param message - message parameter (`MessageEvent`) / 消息参数（`MessageEvent`）
+   * @param message - message parameter (`MessageEvent<any>`) / 消息参数（`MessageEvent<any>`）
    */
   onMessageHandler(message: MessageEvent) {
     let currentCallback;
