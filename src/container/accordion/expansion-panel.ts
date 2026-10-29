@@ -144,11 +144,7 @@ export class ExpansionPanelBase extends Container implements OnChanges,OnDestroy
     if (this.viewContainer) {
       this.viewContainer.clear();
     }
-    let items = this.items;
-    if (items) {
-      delete this.items;
-      this.add(items);
-    }
+    this.addConfiguredItems();
     this._accordion = this.ownerCt;
     this._removeUniqueSelectionListener =
       this._expansionDispatcher.listen((id: string, accordionId: string) => {

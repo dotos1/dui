@@ -21,8 +21,11 @@ import {
     ViewEncapsulation,
 } from '@angular/core';
 import { MatTabChangeEvent, MatTabHeaderPosition } from '@angular/material/tabs';
-import { isArray, each } from 'lodash-es';
 import { AbstractPanel } from '../panel/abstract.panel';
+import { ComponentBase } from '@dotos/dui/core';
+import { ContainerItem } from '../container.main';
+
+const isRenderedItem = (c: ContainerItem): c is ComponentBase => !!(c as ComponentBase).reference;
 import { PanelComponent } from '../panel/panel.component';
 
 /**
@@ -144,45 +147,23 @@ export class TabPanel extends AbstractPanel implements OnChanges, OnDestroy {
     super.ngOnDestroy();
   }
 
-  /**
-   * Executes `add` to handle add.
-   * @zh 执行 `add`，用于添加。
-   * @param comp - comp parameter (`any`) / 组件参数（`any`）
-   * @returns Result of type `any` / 类型为 `any` 的返回值
-   */
-  override add(comp) {
-    this.initItems();
-    const args = arguments.length > 1;
-    if (args || isArray(comp)) {
-      const result = [];
-      each(args ? arguments : comp,
-        (c) => {
-          result.push(this.add(c));
-        });
-      return result;
-    }
-    if (comp.reference) {
-      const index = this.items.length;
-      let tabArray = this._tabContainer.toArray();
-      this.items.add(comp);
-      tabArray[index].insert(comp.reference.hostView);
-      this.trigger('add', { panel: this, component: comp, index: index });
-    } else {
-      const component = this.lookupComponent(this.applyDefaults(comp));
-      const index = this.items.length;
-      let tabArray = this._tabContainer.toArray();
-      this.items.add(component);
-      tabArray[index].insert(component.reference.hostView);
-      this.trigger('add', { panel: this, component: comp, index: index });
-      return component;
-    }
-  }
 
   /**
    * Executes `onAdd` to handle on add.
    * @zh 执行 `onAdd`，用于当添加。
    * @param c - c parameter (`any`) / c参数（`any`）
    */
+  /** 标签页：子组件插到对应标签的视图容器里，不走 Container 的 onAdded/onAdd 流程（沿用原行为） */
+  protected override addOne(comp: ContainerItem): ComponentBase {
+    const component = isRenderedItem(comp) ? comp : this.lookupComponent(this.applyDefaults(comp));
+    const index = this.items.length;
+    const tabArray = this._tabContainer.toArray();
+    this.items.add(component);
+    tabArray[index].insert(component.reference.hostView);
+    this.trigger('add', { panel: this, component: comp, index: index });
+    return component;
+  }
+
   override onAdd(c) {
     super.onAdd(c);
     this.tabs.push({ title: c.title ?? c.titile, disable: c.disable });
@@ -194,8 +175,8 @@ export class TabPanel extends AbstractPanel implements OnChanges, OnDestroy {
    * @zh 执行 `onBeforeAdd`，用于当之前添加。
    * @param item - item parameter (`any`) / 条目参数（`any`）
    */
-  override onBeforeAdd(item) {
-    super.onBeforeAdd(arguments);
+  override onBeforeAdd(item: ComponentBase): boolean {
+    super.onBeforeAdd(item);
     return true;
   }
 
@@ -264,8 +245,8 @@ export class TabPanel extends AbstractPanel implements OnChanges, OnDestroy {
    * @param item - item parameter (`any`) / 条目参数（`any`）
    * @returns Result of type `PanelComponent` / 类型为 `PanelComponent` 的返回值
    */
-  getItem(item): PanelComponent {
-    return this.getComponent(item);
+  getItem(item: ComponentBase | string | number): PanelComponent {
+    return this.getComponent(item) as PanelComponent;
   }
 
 

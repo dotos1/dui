@@ -5,7 +5,7 @@
 
 import { Platform } from '@angular/cdk/platform';
 import { AfterContentInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, ComponentFactoryResolver, ElementRef, HostListener, Injector, Input, OnChanges, Renderer2, SimpleChanges, ViewChild, ViewContainerRef } from '@angular/core';
-import { Container } from '@dotos/dui/container';
+import { Container, ContainerItem } from '@dotos/dui/container';
 import { ComponentBase, Dui } from '@dotos/dui/core';
 import { isArray, isObjectLike, isString } from 'lodash-es';
 
@@ -145,11 +145,7 @@ export class DuiToolbarComponent extends Container implements OnChanges, AfterCo
     if (this.viewContainer) {
       this.viewContainer.clear();
     }
-    let items = this.items;
-    if (items) {
-      delete this.items;
-      this.add(items);
-    }
+    this.addConfiguredItems();
   }
 
   /**
@@ -232,7 +228,7 @@ export class DuiToolbarComponent extends Container implements OnChanges, AfterCo
       xtype: 'separator',
       vertical: true
     });
-    return this.add(comp);
+    return this.add(comp) as MenuItem;
   }
 
   /**
@@ -245,7 +241,7 @@ export class DuiToolbarComponent extends Container implements OnChanges, AfterCo
       xtype: 'spacer',
       width: 2
     });
-    return this.add(comp);
+    return this.add(comp) as Spacer;
   }
 
   /**
@@ -270,7 +266,7 @@ export class DuiToolbarComponent extends Container implements OnChanges, AfterCo
       xtype: 'tbtext',
       text: text
     });
-    return this.add(comp);
+    return this.add(comp) as MenuItem;
   }
 
   /**
@@ -298,7 +294,7 @@ export class DuiToolbarComponent extends Container implements OnChanges, AfterCo
    * @returns Result of type `MenuItem` / 类型为 `MenuItem` 的返回值
    */
   addItem(item: MenuItem): MenuItem {
-    return this.add(item);
+    return this.add(item) as MenuItem;
   }
 
   /**
@@ -307,8 +303,8 @@ export class DuiToolbarComponent extends Container implements OnChanges, AfterCo
    * @param field - field parameter (`any`) / 字段参数（`any`）
    * @returns Result of type `MenuItem` / 类型为 `MenuItem` 的返回值
    */
-  addField(field): MenuItem {
-    return this.add(field);
+  addField(field: ContainerItem): MenuItem {
+    return this.add(field) as MenuItem;
   }
 
   /**
@@ -349,10 +345,10 @@ export class DuiToolbarComponent extends Container implements OnChanges, AfterCo
    * @zh 执行 `onAdd`，用于当添加。
    * @param c - c parameter (`any`) / c参数（`any`）
    */
-  override onAdd(c) {
+  override onAdd(c: ComponentBase): void {
     super.onAdd(c);
     if (this.disabled) {
-      c.disable();
+      c.disable = true;
     }
   }
 
@@ -374,12 +370,10 @@ export class DuiToolbarComponent extends Container implements OnChanges, AfterCo
    * Executes `onDisable` to handle on disable.
    * @zh 执行 `onDisable`，用于当禁用。
    */
-  onDisable() {
+  onDisable(): void {
     this.items.each(
-      function (item) {
-        if (item.disable) {
-          item.disable();
-        }
+      function (item: ComponentBase) {
+        item.disable = true;
       });
   }
 
@@ -388,12 +382,10 @@ export class DuiToolbarComponent extends Container implements OnChanges, AfterCo
    * Executes `onEnable` to handle on enable.
    * @zh 执行 `onEnable`，用于当启用。
    */
-  onEnable() {
+  onEnable(): void {
     this.items.each(
-      function (item) {
-        if (item.enable) {
-          item.enable();
-        }
+      function (item: ComponentBase) {
+        item.disable = false;
       });
   }
 
