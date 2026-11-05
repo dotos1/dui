@@ -9,7 +9,15 @@
 <mat-select [id]="id" [formControl]="formControl" [formAttributes]="field"  [placeholder]="field.placeholder |translate"
   [tabindex]="field.tabindex || 0"  [compareWith]="field.compareWith || compareWith" [multiple]="field.multiple"
   (selectionChange)="change($event)" [errorStateMatcher]="errorStateMatcher" [aria-labelledby]="_getAriaLabelledby()"
-  [disableOptionCentering]="field.disableOptionCentering" (openedChange)="openedChanged($event)">
+  [disableOptionCentering]="field.disableOptionCentering" (openedChange)="openedChanged($event)"
+  [panelClass]="phone ? 'dui-phone-select-panel' : ''">
+
+  <div *ngIf="phone" class="dui-phone-select-head">
+    <button mat-icon-button type="button" class="dui-phone-select-close" [attr.aria-label]="'CORE.CLOSE' | translate" (click)="matSelect.close()">
+      <mat-icon>close</mat-icon>
+    </button>
+    <span>{{ field.label | translate }}</span>
+  </div>
 
   <ng-container>
     <mat-option *ngIf="field.hasSearch">
@@ -36,7 +44,7 @@
 </mat-select> 
 
 <ng-template #matSuffix>
-  <button *ngIf="(field.required===undefined|| field.required===false)&&value" mat-icon-button type="button" (click)="clear()">
+  <button *ngIf="(field.required===undefined|| field.required===false)&&value" mat-icon-button type="button" [attr.aria-label]="'CORE.CLOSE' | translate" (click)="clear()">
     <mat-icon (click)="clear()">close</mat-icon>
   </button>
 </ng-template>
