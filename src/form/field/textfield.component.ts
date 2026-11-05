@@ -5,7 +5,7 @@
 
 import { AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { MatAutocompleteTrigger } from '@angular/material/autocomplete';
-import { isObject } from '@dotos/dui/base';
+import { isObject, phoneSelectableOptions } from '@dotos/dui/base';
 import { Dui } from '@dotos/dui/core';
 import { TranslateService } from '@dotos/dui/translator';
 import { isEmpty, isObjectLike } from 'lodash-es';
@@ -157,7 +157,8 @@ export class TextFieldComponent extends MatField implements OnInit, AfterViewIni
             // newer one that already arrived. Compare against the params object we
             // actually sent for the request we're still waiting on instead.
             if (serviceData && this._lastRequestParams === serviceData.params) {
-              this.filteredOptions = of(serviceData.options === null ? [] : serviceData.options);
+              // 手机类：去掉「新建并编辑」「更多」（见 phoneSelectableOptions）；桌面原样
+              this.filteredOptions = of(phoneSelectableOptions(serviceData.options === null ? [] : serviceData.options, (o) => (o !== null && typeof o === 'object' ? (o as Record<string, unknown>)['value'] : o)));
               this.changeDetector.detectChanges();
               this.isLoading = false;
               this.searching = false;
