@@ -3,6 +3,9 @@
  * @zh 模块文件 `src/tree/tree.module.ts`，提供树形控件模块相关的定义与实现。
  */
 
+import { MatButtonModule } from '@angular/material/button';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
@@ -86,6 +89,9 @@ import { TreeModel } from './models/tree.model';
     MatTooltipModule,
     MatIconModule,
     MatCheckboxModule,
+    MatButtonModule,
+    MatFormFieldModule,
+    MatInputModule,
     TranslateModule,
     IconModule,
     MatProgressSpinnerModule,
