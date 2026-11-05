@@ -1,6 +1,6 @@
 <div fxLayout="row wrap" fxLayoutAlign="start center">
   <ng-template let-item ngFor [ngForOf]="field.fieldGroup">
-    <div *ngIf="item.xtype!=='hidden-field'" class="pad-xs" [fxFlex]="item.flex ? item.flex : 100"
+    <div *ngIf="item.xtype!=='hidden-field'" class="pad-xs" [fxFlex]="flexOf(item)"
       [ngStyle]="getStyle(item)">
       <dui-field *ngIf="item.xtype!=='hidden-field'" hide-deprecation [field]="item" [ngClass]="item.className">
       </dui-field>
