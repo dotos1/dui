@@ -58,3 +58,27 @@ export function guardPhoneBack(close: () => void): PhoneBackGuard {
     },
   };
 }
+
+/**
+ * 服务端随远程下拉选项一起下发的「新建并编辑」「更多」（值是 WidgetInput / WidgetLinkInput / WidgetList，见 bap CascadeSelect、BoxSelect）：
+ * 选中后要弹桌面的新建窗口 / 列表窗口，手机没有这两个页面（施工图 M2-15：做成全屏页之前不显示）。
+ * 不过滤时，手机上一点就把字段清空，非必填字段保存写空（2026-11-05 终审必修 3）。
+ * @zh 手机不显示的下拉哨兵选项值。桌面不调用。
+ */
+export const PHONE_DESKTOP_ONLY_OPTION_VALUES: ReadonlySet<string> = new Set(['WidgetInput', 'WidgetLinkInput', 'WidgetList']);
+
+/**
+ * On a phone, drops the server's "new and edit" / "more" sentinel options; desktop returns the list unchanged (same reference).
+ * @zh 手机类下去掉「新建并编辑」「更多」哨兵选项；桌面原样返回同一数组。
+ * @param list - 选项数组
+ * @param valueOf - 取选项值（按字段的 valueProp）
+ */
+export function phoneSelectableOptions<T>(list: T[] | null | undefined, valueOf: (o: T) => unknown): T[] | null | undefined {
+  if (!Array.isArray(list) || !isPhoneTerminal()) {
+    return list;
+  }
+  return list.filter((o) => {
+    const v = valueOf(o);
+    return !(typeof v === 'string' && PHONE_DESKTOP_ONLY_OPTION_VALUES.has(v));
+  });
+}

@@ -9,7 +9,7 @@ import { FormControl } from '@angular/forms';
 import { Subject, timer } from 'rxjs';
 import { debounce, filter, tap, takeUntil, takeWhile } from 'rxjs/operators';
 
-import { PhoneBackGuard, guardPhoneBack, isPhoneTerminal } from '@dotos/dui/base';
+import { PhoneBackGuard, guardPhoneBack, isPhoneTerminal, phoneSelectableOptions } from '@dotos/dui/base';
 import { TranslateService } from '@dotos/dui/translator';
 import { SelectOptionsService } from './options.service';
 import { MatField } from '../base/mat.field';
@@ -255,13 +255,15 @@ export class FieldSelect extends MatField implements OnInit,OnDestroy {
         // still waiting on instead.
         if (serviceData && this._lastRequestParams === serviceData.params) {
           this._lastLoadedParams = { ...this._lastRequestParams };
+          // 手机类：去掉「新建并编辑」「更多」（要弹桌面窗口，手机没有；见 phoneSelectableOptions）。桌面原样
+          const loaded = this.selectable(serviceData.options === null ? [] : serviceData.options);
           if (!serviceData.error && !serviceData.params?.['$filter']) {
             const { $filter, ...base } = serviceData.params as { $filter? };
-            this._fullOptions = serviceData.options === null ? [] : serviceData.options;
+            this._fullOptions = loaded;
             this._fullOptionsParams = base;
             this._searched = false;
           }
-          this.options = this.field.options = serviceData.options === null ? [] : serviceData.options;
+          this.options = this.field.options = loaded;
           if (!this.field.hasSearch) {
             this.hasSearch();
           }
@@ -348,6 +350,9 @@ export class FieldSelect extends MatField implements OnInit,OnDestroy {
    */
   override init() {
     super.init();
+    if (this.phone) {
+      this.field.options = this.selectable(this.field.options);
+    }
     this.options = this.field.options;
     if (this.field.remote == undefined || !this.field.remote) {
       this.hasSearch();
@@ -363,6 +368,14 @@ export class FieldSelect extends MatField implements OnInit,OnDestroy {
     } else {
       this.field.hasSearch = false;
     }
+  }
+
+  /**
+   * Options the user can pick: on a phone drops the server's desktop-only sentinels; desktop returns the same array.
+   * @zh 可选的选项：手机类去掉桌面专用的哨兵项，桌面原样返回。
+   */
+  private selectable(list) {
+    return phoneSelectableOptions(list, (o) => getOptionValue(o, this.field));
   }
 
   /**

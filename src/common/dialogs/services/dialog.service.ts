@@ -265,6 +265,8 @@ export function phoneDialogConfig<D>(config?: MatDialogConfig<D>): MatDialogConf
     position: undefined,
     // 返回键由 guardPhoneDialog 接管（嵌套的选择页关闭时会 history.back，不能连带把弹窗关掉）
     closeOnNavigation: false,
+    // 全屏页打开时不把焦点给第一个字段：手机上那会立刻弹键盘或日期选择（2026-11-05 明细行编辑层一打开就弹日历，挡住确定按钮）。调用方指定了就用调用方的
+    autoFocus: config?.autoFocus ?? 'dialog',
     panelClass: (Array.isArray(panel) ? panel : panel ? [panel] : []).concat('dui-phone-dialog'),
   };
 }
