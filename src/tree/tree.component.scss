@@ -123,3 +123,11 @@ tree-node-checkbox {
 ::ng-deep .mat-mdc-form-field-subscript-wrapper {
   height: 0  !important;
 }
+/* 手机下钻（html.is-phone 才渲染，桌面没有这些元素） */
+.dui-phone-tree { display: flex; flex-direction: column; height: 100%; min-height: 0; }
+.dui-phone-tree-head { display: flex; align-items: center; gap: 8px; min-height: 48px; padding-inline: 4px 8px; font-weight: 500; }
+.dui-phone-tree-path { flex: 1; min-width: 0; overflow-wrap: anywhere; }
+.dui-phone-tree-search { margin: 0 12px 8px; }
+.dui-phone-tree-list { flex: 1; min-height: 0; overflow-y: auto; }
+.dui-phone-tree-row { display: flex; align-items: center; gap: 4px; min-height: 48px; padding-inline: 4px 12px; border-block-end: 1px solid var(--mat-divider-color, rgba(128, 128, 128, .2)); }
+.dui-phone-tree-main { flex: 1; min-width: 0; min-height: 44px; justify-content: flex-start; text-align: start; height: auto; }

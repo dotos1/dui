@@ -6,14 +6,14 @@
         [timeInterval]="field.timeInterval"
         [type]="field.type"
         [disabled]="field.readonly"
-        [touchUi]="field.touchUi"
-        [mode]="field.mode?field.mode:'landscape'"
+        [touchUi]="field.touchUi ?? phone"
+        [mode]="field.mode?field.mode:(phone?'portrait':'landscape')"
         (selectedChanged)=change($event)>
     </mat-datetimepicker>
     <input  matInput flex
       [id]="id"
       [type]="'text'"
-      [readonly]="field.readonly"
+      [readonly]="field.readonly || phone"
       [placeholder]="field.placeholder|translate"
       [errorStateMatcher]="errorStateMatcher"
       [matDatetimepicker]="datetimePicker"
@@ -29,7 +29,7 @@
       matTooltipPosition='below'
     >
     <ng-template #matPrefix>
-      <button mat-icon-button type="button" [attr.aria-label]="_intl.openCalendarLabel"
+      <button *ngIf="!phone" mat-icon-button type="button" [attr.aria-label]="_intl.openCalendarLabel"
         [disabled]="disabled"   matDatetimepicker="datetimePicker" >
         <mat-icon *ngIf="field.type==='date'||field.type==='month'" style="padding-inline-end: 30px"  >today</mat-icon>
         <mat-icon *ngIf="field.type==='time'||field.type==='datetime'" style="padding-inline-end: 30px"  >schedule</mat-icon>

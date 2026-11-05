@@ -18,8 +18,11 @@ import {
     TemplateRef,
     ViewChild,
      ElementRef ,
-    ViewEncapsulation
+    ViewEncapsulation,
+    inject
 } from '@angular/core';
+import { MatDialogRef } from '@angular/material/dialog';
+import { isPhoneTerminal } from '@dotos/dui/base';
 import { LocalStorageService } from '@dotos/dui/core/storage';
 import { TranslateService } from '@dotos/dui/translator';
 import { includes, pick}  from 'lodash-es';
@@ -108,6 +111,26 @@ export class TreeComponent implements OnChanges {
    * @zh 模板/内容视图查询引用 `viewportComponent`（`@ViewChild`），指向视口组件。
    */
   @ViewChild('viewport', { static: true }) viewportComponent: TreeViewportComponent;
+
+  /**
+   * Whether the terminal is a phone: the tree renders as a drill-down list instead of a tree control.
+   * @zh 是否手机类：不渲染树控件，逐级下钻（施工图 M2-14）。桌面为 false，模板与原来一致。
+   */
+  readonly phone = isPhoneTerminal();
+
+  /**
+   * Drill-down path on a phone.
+   * @zh 手机下钻路径。
+   */
+  phoneStack: TreeNode[] = [];
+
+  /**
+   * Search term on a phone.
+   * @zh 手机搜索词。
+   */
+  phoneTerm = '';
+
+  private readonly _phoneDialogRef = inject<MatDialogRef<unknown>>(MatDialogRef, { optional: true });
 
   // Will be handled in ngOnChanges
   /**
@@ -574,6 +597,95 @@ setActiveNodeLabel(label: string) {
           startNode.loadNodeChildren().then(() => this.loadPath(paths));
         break;
       }
+    }
+  }
+
+  /**
+   * Nodes at the current level on a phone, or matching loaded nodes while searching.
+   * @zh 手机当前层的节点；有搜索词时是已加载节点里匹配的。
+   */
+  phoneNodes(): TreeNode[] {
+    const top = this.phoneStack[this.phoneStack.length - 1];
+    const level = (top ? top.children : this.treeModel.roots) ?? [];
+    const term = this.phoneTerm.trim().toLowerCase();
+    if (!term) {
+      return level;
+    }
+    const out: TreeNode[] = [];
+    const walk = (list: TreeNode[]) => list.forEach((n) => {
+      if (String(n.displayField).toLowerCase().includes(term)) {
+        out.push(n);
+      }
+      if (n.children) {
+        walk(n.children);
+      }
+    });
+    walk(level);
+    return out;
+  }
+
+  /**
+   * Path hint on a phone.
+   * @zh 手机路径提示。
+   */
+  phonePath(): string {
+    return this.phoneStack.map((n): string => String(n.displayField)).join(' / ');
+  }
+
+  /**
+   * A node with children can also be a value (e.g. a department): shows a pick button.
+   * @zh 有下级的节点也可以取值（如部门）时显示「确定」。
+   */
+  phoneSelectable(n: TreeNode): boolean {
+    return !this.treeModel.options.useCheckbox && !!n.data?.allowSelect;
+  }
+
+  /**
+   * Tap a row: drill in when it has children, otherwise behave like a click on the node.
+   * @zh 点行：有下级就下钻（按需加载子节点），否则等同点击节点（取值走原来的动作映射）。
+   */
+  phoneTap(n: TreeNode, event: Event): void {
+    if (!n.hasChildren) {
+      this.phonePick(n, event);
+      return;
+    }
+    const go = () => {
+      this.phoneStack = [...this.phoneStack, n];
+      this.phoneTerm = '';
+      this._changeDetectorRef.markForCheck();
+    };
+    if (n.children) {
+      go();
+    } else {
+      void n.loadNodeChildren().then(go);
+    }
+  }
+
+  /**
+   * Take a node as the value (same action mapping as the desktop tree).
+   * @zh 取节点为值（走与桌面树相同的动作映射）。
+   */
+  phonePick(n: TreeNode, event: Event): void {
+    n.mouseAction('click', event);
+  }
+
+  /**
+   * Multi-select on a phone (same checkbox action as the desktop tree).
+   * @zh 手机多选（走与桌面树相同的勾选动作）。
+   */
+  phoneCheck(n: TreeNode, event: { checked: boolean }): void {
+    n.mouseAction('checkboxClick', event);
+  }
+
+  /**
+   * Back one level, or close the dialog at the top level.
+   * @zh 回上一层；已在顶层时关闭弹窗。
+   */
+  phoneBack(): void {
+    if (this.phoneStack.length) {
+      this.phoneStack = this.phoneStack.slice(0, -1);
+    } else {
+      this._phoneDialogRef?.close();
     }
   }
 

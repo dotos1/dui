@@ -20,6 +20,7 @@ import {
   ViewEncapsulation
 } from '@angular/core';
 import { MatFormField, MatFormFieldControl } from '@angular/material/form-field';
+import { isPhoneTerminal } from '@dotos/dui/base';
 import { FieldConfig, FieldWrapper, defineHiddenProp, observe } from '@dotos/dui/core/form';
 import { ThemeService } from '@dotos/dui/theme';
 // import { MDCTextField } from '@material/textfield';
@@ -62,6 +63,51 @@ interface MatFieldConfig extends FieldConfig {
         .mat-mdc-select-trigger{
           padding-left: 8px;
         }
+        /* 手机类专属，桌面不匹配。选择弹层铺满全屏（施工图 M2-15） */
+        html.is-phone .cdk-overlay-pane:has(> .dui-phone-select-panel),
+        html.is-phone .cdk-overlay-pane:has(> div > .dui-phone-select-panel) {
+          position: fixed !important;
+          inset: 0 !important;
+          width: 100vw !important;
+          min-width: 100vw !important;
+          max-width: 100vw !important;
+          height: 100dvh !important;
+          transform: none !important;
+        }
+        html.is-phone .dui-phone-select-panel.mat-mdc-select-panel {
+          width: 100vw !important;
+          max-width: 100vw !important;
+          max-height: 100dvh !important;
+          height: 100dvh !important;
+          border-radius: 0;
+        }
+        html.is-phone .dui-phone-select-panel .mat-mdc-option { min-height: 48px; }
+        html.is-phone .dui-phone-select-head {
+          position: sticky; top: 0; z-index: 2; display: flex; align-items: center; gap: 8px;
+          min-height: 48px; padding-inline: 4px 16px;
+          background: var(--mat-select-panel-background-color, var(--mat-app-background-color, #fff));
+          border-block-end: 1px solid var(--mat-divider-color, rgba(128,128,128,.3));
+          font-weight: 500;
+        }
+        /* 选择弹层的搜索框吸顶，紧贴标题条 */
+        html.is-phone .dui-phone-select-panel .mat-select-search-inner { top: 48px !important; }
+        /* 手机全屏弹窗里的内容撑满（调用方组件里写死的像素宽高不生效） */
+        html.is-phone .dui-phone-dialog .mat-mdc-dialog-surface { padding: 0 !important; border-radius: 0; }
+        html.is-phone .dui-phone-dialog .mat-mdc-dialog-surface > * { width: 100% !important; height: 100% !important; }
+        /* 输入框字号不小于 16px，避免 iOS 聚焦时整页放大；触摸目标不低于 44px */
+        html.is-phone dui-field input.mat-mdc-input-element,
+        html.is-phone dui-field textarea.mat-mdc-input-element,
+        html.is-phone dui-field .mat-mdc-select { font-size: 16px; }
+        html.is-phone dui-field .mat-mdc-form-field { width: 100%; }
+        /* 控件本身不低于 44px（不只外框）：标签在上，控件占满下面 */
+        html.is-phone dui-field .mat-mdc-form-field-infix { min-height: 62px; padding-top: 18px !important; padding-bottom: 0 !important; }
+        html.is-phone dui-field input.mat-mdc-input-element { min-height: 44px; box-sizing: border-box; }
+        html.is-phone dui-field textarea.mat-mdc-input-element { min-height: 88px; box-sizing: border-box; }
+        html.is-phone dui-field .mat-mdc-select { display: flex; align-items: center; min-height: 44px; }
+        html.is-phone dui-field .mat-mdc-select-trigger { flex: 1; min-height: 44px; }
+        html.is-phone dui-field .mat-mdc-form-field-subscript-wrapper { position: static; }
+        html.is-phone dui-field .mat-mdc-form-field-error-wrapper,
+        html.is-phone dui-field .mat-mdc-form-field-hint-wrapper { position: static; }
   `],
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: { hostID: 'mat-form-field-wrapper' + Math.random().toString(36).substring(2, 15) }
@@ -138,6 +184,14 @@ export class WrapperFormField extends FieldWrapper<MatFieldConfig> implements On
    * Gets the current padding style (`paddingStyle: any`).
    * @zh 获取当前内边距样式（`paddingStyle: any`）。
    */
+  /**
+   * Label float mode: on a phone the label always sits above the control.
+   * @zh 标签浮动方式：手机类下标签固定在控件上方（标签上置），桌面用配置值。
+   */
+  public get floatLabel(): 'auto' | 'always' {
+    return this.field.floatLabel || (isPhoneTerminal() ? 'always' : 'auto');
+  }
+
   public get paddingStyle(){
     return {
       'padding-left':this.field.prefix ? '32px' : '8px'

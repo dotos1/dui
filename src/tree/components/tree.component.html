@@ -1,10 +1,10 @@
-<tree-viewport #viewport>
+<tree-viewport #viewport [style.display]="phone ? 'none' : null">
   <div
     class="angular-tree-component"
     [class.node-dragging]="treeDraggedElement.isDragging()"
     [class.angular-tree-component-rtl]="treeModel.options.rtl">
     <tree-node-collection
-      *ngIf="treeModel.roots"
+      *ngIf="treeModel.roots && !phone"
       [nodes]="treeModel.roots"
       [treeModel]="treeModel"
       [templates]="{
@@ -16,9 +16,31 @@
     </tree-node-collection>
     <tree-node-drop-slot
       class="empty-tree-drop-slot"
-      *ngIf="treeModel.isEmptyTree()"
+      *ngIf="treeModel.isEmptyTree() && !phone"
       [dropIndex]="0"
       [node]="treeModel.virtualRoot">
     </tree-node-drop-slot>
   </div>
 </tree-viewport>
+
+<!-- 手机不用树控件（施工图 M2-14 / M2-15）：同一棵树逐级下钻，顶部搜索和路径提示。桌面不渲染 -->
+<div *ngIf="phone" class="dui-phone-tree" data-testid="tree-phone">
+  <div class="dui-phone-tree-head">
+    <button mat-icon-button type="button" class="dui-phone-tree-back" data-testid="tree-back" (click)="phoneBack()"><mat-icon>{{ phoneStack.length ? 'arrow_back' : 'close' }}</mat-icon></button>
+    <span class="dui-phone-tree-path" data-testid="tree-path">{{ phonePath() }}</span>
+  </div>
+  <mat-form-field class="dui-phone-tree-search" subscriptSizing="dynamic">
+    <input matInput type="search" enterkeyhint="search" autocomplete="off" data-testid="tree-search" [value]="phoneTerm" (input)="phoneTerm = $any($event.target).value" />
+    <mat-icon matSuffix>search</mat-icon>
+  </mat-form-field>
+  <div class="dui-phone-tree-list" role="list">
+    <div *ngFor="let n of phoneNodes()" class="dui-phone-tree-row" role="listitem" data-testid="tree-row">
+      <mat-checkbox *ngIf="treeModel.options.useCheckbox" [checked]="n.isActive" (change)="phoneCheck(n, $event)"></mat-checkbox>
+      <button mat-button type="button" class="dui-phone-tree-main" (click)="phoneTap(n, $event)">
+        <span>{{ n.displayField }}</span>
+      </button>
+      <button *ngIf="n.hasChildren && phoneSelectable(n)" mat-stroked-button type="button" class="dui-phone-tree-pick" data-testid="tree-pick" (click)="phonePick(n, $event)">{{ 'CORE.OK' | translate }}</button>
+      <mat-icon *ngIf="n.hasChildren" aria-hidden="true">chevron_right</mat-icon>
+    </div>
+  </div>
+</div>
