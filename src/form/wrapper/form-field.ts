@@ -99,6 +99,12 @@ interface MatFieldConfig extends FieldConfig {
         html.is-phone dui-field textarea.mat-mdc-input-element,
         html.is-phone dui-field .mat-mdc-select { font-size: 16px; }
         html.is-phone dui-field .mat-mdc-form-field { width: 100%; }
+        /* 控件本身不低于 44px（不只外框）：标签在上，控件占满下面 */
+        html.is-phone dui-field .mat-mdc-form-field-infix { min-height: 62px; padding-top: 18px !important; padding-bottom: 0 !important; }
+        html.is-phone dui-field input.mat-mdc-input-element { min-height: 44px; box-sizing: border-box; }
+        html.is-phone dui-field textarea.mat-mdc-input-element { min-height: 88px; box-sizing: border-box; }
+        html.is-phone dui-field .mat-mdc-select { display: flex; align-items: center; min-height: 44px; }
+        html.is-phone dui-field .mat-mdc-select-trigger { flex: 1; min-height: 44px; }
         html.is-phone dui-field .mat-mdc-form-field-subscript-wrapper { position: static; }
         html.is-phone dui-field .mat-mdc-form-field-error-wrapper,
         html.is-phone dui-field .mat-mdc-form-field-hint-wrapper { position: static; }

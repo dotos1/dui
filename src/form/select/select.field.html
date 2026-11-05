@@ -44,7 +44,7 @@
 </mat-select> 
 
 <ng-template #matSuffix>
-  <button *ngIf="(field.required===undefined|| field.required===false)&&value" mat-icon-button type="button" (click)="clear()">
+  <button *ngIf="(field.required===undefined|| field.required===false)&&value" mat-icon-button type="button" [attr.aria-label]="'CORE.CLOSE' | translate" (click)="clear()">
     <mat-icon (click)="clear()">close</mat-icon>
   </button>
 </ng-template>
