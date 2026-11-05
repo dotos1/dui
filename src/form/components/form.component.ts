@@ -22,10 +22,14 @@ import {isString,isDate,isObjectLike,each,isBoolean,forEach,remove}  from 'lodas
 import moment from 'moment';
 import { filter, switchMap, take } from 'rxjs/operators';
 
+import { isPhoneTerminal } from '@dotos/dui/base';
 import { Dui } from '@dotos/dui/core';
 import { FieldConfig, FieldConfigCache, FormBuilder, FormConfig, FormOptions, assignModelValue, clearControl, clone, getKeyPath, isUndefined } from '@dotos/dui/core/form';
 import { FormAction, Load, Submit } from '../action/index';
 
+
+/** 手机长表单每批渲染的字段数 */
+const PHONE_RENDER_BATCH = 30;
 
 /**
  * Angular component `FormComponent` (selector: 'dui-form') providing form component presentation and interaction in `src/form/components`.
@@ -229,6 +233,9 @@ export class FormComponent implements DoCheck, OnChanges, OnDestroy {
    * @zh Angular 生命周期钩子：在组件、指令或服务销毁前调用，用于释放订阅与清理资源。
    */
   ngOnDestroy() {
+    if (this._phoneBatchTimer !== null) {
+      clearTimeout(this._phoneBatchTimer);
+    }
     this.valueChangesUnsubscribe();
   }
 
@@ -310,6 +317,54 @@ export class FormComponent implements DoCheck, OnChanges, OnDestroy {
    * @zh 执行 `getStyle`，用于获取样式。
    * @param field - field parameter (`any`) / 字段参数（`any`）
    */
+  /**
+   * Fields to render. Desktop renders all. On a phone long forms render in batches so the first paint stays fast;
+   * controls and validators exist for every field regardless (built by FormBuilder).
+   * @zh 要渲染的字段。桌面全部渲染；手机长表单分批渲染（字段控件和校验器在构建时已全部建好，不受影响）。
+   */
+  public get renderItems(): FieldConfig[] {
+    const all = this.items;
+    if (!all || !isPhoneTerminal() || all.length <= this._phoneRenderLimit) {
+      return all;
+    }
+    this._schedulePhoneBatch();
+    return all.slice(0, this._phoneRenderLimit);
+  }
+
+  /** 手机分批渲染：当前渲染上限 */
+  private _phoneRenderLimit = PHONE_RENDER_BATCH;
+  private _phoneBatchTimer: ReturnType<typeof setTimeout> | null = null;
+
+  private _schedulePhoneBatch(): void {
+    if (this._phoneBatchTimer !== null) {
+      return;
+    }
+    this.ngZone.runOutsideAngular(() => {
+      this._phoneBatchTimer = setTimeout(() => {
+        this._phoneBatchTimer = null;
+        this._phoneRenderLimit += PHONE_RENDER_BATCH;
+        this.ngZone.run(() => this.detectRef.markForCheck());
+      }, 50);
+    });
+  }
+
+  /**
+   * Render all fields now (e.g. to reveal the first validation error on a phone).
+   * @zh 立即渲染全部字段（如手机校验失败要定位到第一个错误）。
+   */
+  public renderAll(): void {
+    this._phoneRenderLimit = Number.MAX_SAFE_INTEGER;
+    this.detectRef.markForCheck();
+  }
+
+  /**
+   * Flex basis of a field: the backend value on desktop, always 100 (single column) on a phone.
+   * @zh 字段的 flex：桌面用后端下发值；手机类下固定 100（单列），后端值不变。
+   */
+  public flexOf(item: FieldConfig): number | string {
+    return isPhoneTerminal() ? 100 : (item.flex ? item.flex : 100);
+  }
+
   public getStyle(field) {
     return {
       'display': field.hidden ? "none" : ""
@@ -495,9 +550,10 @@ export class FormComponent implements DoCheck, OnChanges, OnDestroy {
       if ( isObjectLike(model)) {
         if(model.text != null && model.value !== undefined){
           if (field.xtype == 'select-field') {
-            let opts = [];
-            opts.push(model);
-            field.options = opts;
+            // 手机：静态选项不要被当前值覆盖（否则编辑时只剩一个选项，改不了）。桌面保持原行为，见 progress。
+            if (field.remote == true || !isPhoneTerminal()) {
+              field.options = [model];
+            }
             if(field.remote == true){
               field['loaded'] = false;
             }

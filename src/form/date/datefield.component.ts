@@ -3,6 +3,7 @@
  * @zh 模块文件 `src/form/date/datefield.component.ts`，提供datefield组件相关的定义与实现。
  */
 
+import { isPhoneTerminal } from '@dotos/dui/base';
 import {
   Component, ViewChild, ChangeDetectionStrategy, ViewEncapsulation, Input, SimpleChanges,
   ChangeDetectorRef, AfterContentInit, OnChanges, OnDestroy,  EventEmitter,
@@ -135,6 +136,12 @@ export class MatDatetimepickerInputEvent<D> {
 })
 
 export class DateFieldComponent<D> extends MatField implements AfterContentInit, OnChanges, ControlValueAccessor, OnDestroy, Validator {
+  /**
+   * Whether the terminal is a phone: picker opens as a touch dialog, input does not raise the keyboard.
+   * @zh 是否手机类：日期选择走全屏触摸弹窗，输入框不弹键盘。
+   */
+  readonly phone = isPhoneTerminal();
+
 
   /**
    * Template/content query reference `datetimepicker` (`@ViewChild`) targeting datetimepicker.

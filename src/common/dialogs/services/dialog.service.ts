@@ -17,6 +17,7 @@ import { PromptDialogComponent } from '../prompt-dialog/prompt-dialog.component'
 import { DragDrop, DragRef } from '@angular/cdk/drag-drop';
 import { DOCUMENT } from '@angular/common';
 import { Subject } from 'rxjs';
+import { guardPhoneBack, isPhoneTerminal } from '@dotos/dui/base';
 import {
   StatusDialogStates,
   StatusDialogComponent,
@@ -246,6 +247,36 @@ export interface IDraggableRefs<T> {
  * <b>注意这不代表可以不 import `DialogsModule`</b> —— 内置对话框组件是在那个
  * NgModule 的构造函数里注册进 Dui 组件工厂的，少了它对话框仍然打不开。
  */
+/**
+ * On a phone a dialog is a full-screen page; caller sizes are ignored. Desktop config passes through untouched.
+ * @zh 手机类下弹窗一律全屏（调用方写死的宽高不生效），桌面原样返回（施工图 M2-13）。
+ */
+export function phoneDialogConfig<D>(config?: MatDialogConfig<D>): MatDialogConfig<D> | undefined {
+  if (!isPhoneTerminal()) {
+    return config;
+  }
+  const panel = config?.panelClass;
+  return {
+    ...config,
+    width: '100vw',
+    maxWidth: '100vw',
+    height: '100dvh',
+    maxHeight: '100dvh',
+    position: undefined,
+    // 返回键由 guardPhoneDialog 接管（嵌套的选择页关闭时会 history.back，不能连带把弹窗关掉）
+    closeOnNavigation: false,
+    panelClass: (Array.isArray(panel) ? panel : panel ? [panel] : []).concat('dui-phone-dialog'),
+  };
+}
+
+function guardPhoneDialog(ref: MatDialogRef<unknown, unknown>): void {
+  if (!isPhoneTerminal()) {
+    return;
+  }
+  const guard = guardPhoneBack(() => ref.close());
+  ref.afterClosed().subscribe(() => guard.release());
+}
+
 @Injectable({ providedIn: 'root' })
 export class DialogService {
   /**
@@ -285,7 +316,8 @@ export class DialogService {
     component: ComponentType<T>,
     config?: MatDialogConfig
   ): MatDialogRef<T> {
-    let matDialogRef= this._dialogService.open(component, config);
+    let matDialogRef= this._dialogService.open(component, phoneDialogConfig(config));
+    guardPhoneDialog(matDialogRef);
     this._componentMap.set(matDialogRef.id,matDialogRef.componentInstance);
     matDialogRef.afterClosed().subscribe(()=>{
       this._componentMap.delete(matDialogRef.id);
@@ -447,10 +479,12 @@ export class DialogService {
     dragHandleSelectors,
     draggableClass,
   }: IDraggableConfig<T>): IDraggableRefs<T> {
+    const phone = isPhoneTerminal();
     const matDialogRef: MatDialogRef<T, unknown> = this._dialogService.open(
       component,
-      config
+      phoneDialogConfig(config)
     );
+    guardPhoneDialog(matDialogRef);
     this._componentMap.set(matDialogRef.id,matDialogRef.componentInstance);
     const dragRefSubject: Subject<DragRef> = new Subject<DragRef>();
     let draggableElement: DragRef;
@@ -471,7 +505,8 @@ export class DialogService {
         this._document.getElementById(matDialogRef.id)
       );
 
-      if (!dialogElement) {
+      // 手机全屏，不可拖动（施工图 M2-13）
+      if (!dialogElement || phone) {
         return;
       }
 

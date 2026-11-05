@@ -9,6 +9,7 @@ import { FormControl } from '@angular/forms';
 import { Subject, timer } from 'rxjs';
 import { debounce, filter, tap, takeUntil, takeWhile } from 'rxjs/operators';
 
+import { PhoneBackGuard, guardPhoneBack, isPhoneTerminal } from '@dotos/dui/base';
 import { TranslateService } from '@dotos/dui/translator';
 import { SelectOptionsService } from './options.service';
 import { MatField } from '../base/mat.field';
@@ -77,6 +78,15 @@ export class FieldSelect extends MatField implements OnInit,OnDestroy {
    * @zh 模板/内容视图查询引用 `matSelect`（`@ViewChild`），指向Material下拉选择。
    */
   @ViewChild(MatSelect, { static: true }) matSelect!: MatSelect;
+
+  /**
+   * Whether the terminal is a phone: the panel becomes a full-screen page with a close bar.
+   * @zh 是否手机类：选择面板变全屏页并带关闭条（施工图 M2-15）。桌面为 false，模板与原来一致。
+   */
+  readonly phone = isPhoneTerminal();
+
+  /** 手机下面板打开期间的返回键守卫 */
+  private _backGuard?: PhoneBackGuard;
   /**
    * Template/content query reference `matSearch` (`@ViewChild`) targeting mat search.
    * @zh 模板/内容视图查询引用 `matSearch`（`@ViewChild`），指向Material搜索。
@@ -356,11 +366,28 @@ export class FieldSelect extends MatField implements OnInit,OnDestroy {
   }
 
   /**
+   * On a phone, the system back key closes the panel instead of leaving the page.
+   * @zh 手机下让系统返回键关闭面板而不是退出页面，已填内容不丢。
+   */
+  private guardBack(opened: boolean) {
+    if (!this.phone) {
+      return;
+    }
+    if (opened) {
+      this._backGuard = guardPhoneBack(() => this.matSelect?.close());
+    } else {
+      this._backGuard?.release();
+      this._backGuard = undefined;
+    }
+  }
+
+  /**
    * Executes `openedChanged` to handle opened changed.
    * @zh 执行 `openedChanged`，用于是否展开已变更。
    * @param opened - opened parameter (`boolean`) / 是否展开参数（`boolean`）
    */
   openedChanged(opened: boolean) {
+    this.guardBack(opened);
     if (opened) {
       this.openChanged(true);
     } else {

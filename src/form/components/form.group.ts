@@ -4,7 +4,8 @@
  */
 
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { FieldType } from '@dotos/dui/core/form';
+import { isPhoneTerminal } from '@dotos/dui/base';
+import { FieldConfig, FieldType } from '@dotos/dui/core/form';
 
 /**
  * Angular component `FormGroup` (selector: 'form-group') providing form group presentation and interaction in `src/form/components`.
@@ -26,6 +27,14 @@ export class FormGroup extends FieldType {
    * @zh 执行 `getStyle`，用于获取样式。
    * @param field - field parameter (`any`) / 字段参数（`any`）
    */
+  /**
+   * Flex basis of a field: the backend value on desktop, always 100 (single column) on a phone.
+   * @zh 字段的 flex：桌面用后端下发值；手机类下固定 100（单列），后端值不变。
+   */
+  public flexOf(item: FieldConfig): number | string {
+    return isPhoneTerminal() ? 100 : (item.flex ? item.flex : 100);
+  }
+
   public getStyle(field) {
     return {
       'display': field.hidden ? "none" : ""
