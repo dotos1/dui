@@ -374,6 +374,51 @@ export class FieldSelect extends MatField implements OnInit,OnDestroy {
    * Options the user can pick: on a phone drops the server's desktop-only sentinels; desktop returns the same array.
    * @zh 可选的选项：手机类去掉桌面专用的哨兵项，桌面原样返回。
    */
+  /**
+   * Gets the echo option shown when the field is disabled/readonly and the current value matches none of the loaded options.
+   * @zh 停用 / 只读态下，当前值对不上任何已加载选项时，补一个只放服务端回显文字（`field.inputValue`）的选项，避免显示空白；其它情况返回 null（启用态行为不变）。
+   * @returns the echo option or null / 回显选项，没有则为 null
+   */
+  get fallbackOption(): { value: unknown; text: string } | null {
+    const f = this.field;
+    if (!(this.formControl?.disabled || f.disabled || f.readonly) || f.multiple) {
+      return null;
+    }
+    const v = this.formControl?.value;
+    const text = f.inputValue;
+    if (v === undefined || v === null || v === '' || text === undefined || text === null || text === '') {
+      return null;
+    }
+    const opts = Array.isArray(f.options) ? f.options : [];
+    if (opts.some((o) => getOptionValue(o, f) === v)) {
+      return null;
+    }
+    const cached = this._echo;
+    if (cached && cached.value === v && cached.text === String(text)) {
+      return cached;
+    }
+    return (this._echo = { value: v, text: String(text) });
+  }
+  private _echo: { value: unknown; text: string } | null = null;
+
+  /**
+   * Gets the server-echoed text (`field.inputValue`) to show in the trigger while the field is disabled/readonly and has a value; empty otherwise (enabled behavior unchanged).
+   * @zh 停用 / 只读态且有值时，触发器显示的服务端回显文字（`field.inputValue`）；其它情况为空串（启用态行为不变）。
+   * @returns echo text or empty string / 回显文字，没有则为空串
+   */
+  get echoText(): string {
+    const f = this.field;
+    if (!(this.formControl?.disabled || f.disabled || f.readonly) || f.multiple) {
+      return '';
+    }
+    const v = this.formControl?.value;
+    const t = f.inputValue;
+    if (v === undefined || v === null || v === '' || t === undefined || t === null || t === '') {
+      return '';
+    }
+    return String(t);
+  }
+
   private selectable(list) {
     return phoneSelectableOptions(list, (o) => getOptionValue(o, this.field));
   }

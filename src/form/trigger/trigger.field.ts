@@ -47,7 +47,6 @@ import { DragRef } from '@angular/cdk/drag-drop';
   templateUrl: 'trigger.field.html',
   styleUrls: ['trigger.scss'],
   host: {
-    role: 'trigger',
     '[class.trigger-field-disabled]': 'disabled',
     '[class.trigger-field-opened]': 'opened',
     '[attr.aria-label]': 'label',
