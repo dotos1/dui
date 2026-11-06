@@ -105,6 +105,17 @@ interface MatFieldConfig extends FieldConfig {
         html.is-phone dui-field textarea.mat-mdc-input-element { min-height: 88px; box-sizing: border-box; }
         html.is-phone dui-field .mat-mdc-select { display: flex; align-items: center; min-height: 44px; }
         html.is-phone dui-field .mat-mdc-select-trigger { flex: 1; min-height: 44px; }
+        /* 选择类控件（复选、单选、开关）整行可点、触摸目标不低于 44px（M2-15）：标签占满行宽，点标签等于点控件 */
+        html.is-phone dui-field .mat-mdc-checkbox,
+        html.is-phone dui-field .mat-mdc-radio-button,
+        html.is-phone dui-field .mat-mdc-slide-toggle { display: flex; align-items: center; width: 100%; min-height: 44px; }
+        html.is-phone dui-field .mat-mdc-checkbox .mdc-form-field,
+        html.is-phone dui-field .mat-mdc-radio-button .mdc-form-field,
+        html.is-phone dui-field .mat-mdc-slide-toggle .mdc-form-field { width: 100%; min-height: 44px; }
+        html.is-phone dui-field .mat-mdc-checkbox .mdc-form-field > label,
+        html.is-phone dui-field .mat-mdc-radio-button .mdc-form-field > label,
+        html.is-phone dui-field .mat-mdc-slide-toggle .mdc-form-field > label { flex: 1; min-height: 44px; display: flex; align-items: center; cursor: pointer; }
+        html.is-phone dui-field .mat-mdc-slider { min-height: 44px; }
         html.is-phone dui-field .mat-mdc-form-field-subscript-wrapper { position: static; }
         html.is-phone dui-field .mat-mdc-form-field-error-wrapper,
         html.is-phone dui-field .mat-mdc-form-field-hint-wrapper { position: static; }
