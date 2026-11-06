@@ -19,12 +19,17 @@
     <span>{{ field.label | translate }}</span>
   </div>
 
+  <!-- 停用 / 只读态：显示服务端回显的文字。已选项的文字要等选项渲染（翻译管道异步）才有，首次渲染时停用的下拉显示空白（实测：首个表单的停用下拉全空，再开别的表单才正常） -->
+  <mat-select-trigger *ngIf="echoText">{{ echoText }}</mat-select-trigger>
+
   <ng-container>
     <mat-option *ngIf="field.hasSearch">
       <mat-select-search [formControl]="selectSearchControl" [searching]="searching"  >
       </mat-select-search>
     </mat-option>
     <mat-option *ngIf="field.hasBlankOption" value=""></mat-option>
+    <!-- 停用 / 只读态：远程选项只在展开时才取，已选值对不上任何选项时 mat-select 显示空白；这里补一个只放服务端回显文字的选项（停用态展不开，不会出现在面板里） -->
+    <mat-option *ngIf="fallbackOption as fb" class="dui-select-echo" [value]="fb.value">{{ fb.text }}</mat-option>
     <ng-container *ngIf="field.options | selectOptionsPipe:field | async as selectOptions">
     <ng-container *ngIf="field.multiple && field.selectAllOption" [ngTemplateOutlet]="selectAll"
       [ngTemplateOutletContext]="{ selectOptions: selectOptions }">
