@@ -67,30 +67,30 @@ export class TranslationService {
     translate.setDefaultLang(this.defaultLang);
     this.customLoader.setDefaultLang(this.defaultLang);
 
+    // 先定下 userLang，再注册 TRANSLATION_PROVIDER：addTranslationFolder 靠 userLang 决定加载哪种语言，
+    // 之前顺序反了，userLang 还是空就走 loadTranslation(zh_CN)，加载完 `translate.use('zh_CN')` 把全局语言切回中文
+    // （手机端非中文进 /m/detail、/m/form 被拉回中文的根因之一，M5-7）。
+    let localCookie = CookieStorage.getCookie('localex');
+
+    if (localCookie && localCookie.value) {
+      this.userLang = localCookie.value;
+    } else {
+      const browserCultureLang = this.translate.getBrowserCultureLang();
+      if (browserCultureLang == 'zh') {
+        this.userLang = 'zh_CN';
+      } else if (browserCultureLang == 'en') {
+        this.userLang = 'en_US';
+      } else {
+        this.userLang = browserCultureLang ? browserCultureLang.replace('-', '_') : this.defaultLang;
+      }
+    }
+
     if (providers && providers.length > 0) {
       for (const provider of providers) {
         this.addTranslationFolder(provider.name, provider.source);
       }
     }
-    let localCookie = CookieStorage.getCookie('localex');
-
-
-    if (localCookie && localCookie.value) {
-      this.userLang = localCookie.value;
-      this.use(this.userLang);
-    } else {
-      const browserCultureLang = this.translate.getBrowserCultureLang();
-      if(browserCultureLang=='zh'){
-         this.userLang = 'zh_CN';
-         this.use(this.userLang);
-      }else if(browserCultureLang=='en'){
-         this.userLang = 'en_US';
-         this.use(this.userLang);
-      }else{
-        this.userLang = browserCultureLang ? browserCultureLang.replace('-', '_') : this.defaultLang;
-        this.use(this.userLang);
-      }
-    }
+    this.use(this.userLang);
   }
 
 
