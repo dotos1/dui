@@ -191,8 +191,17 @@ export class LockscreenDialog implements OnInit,OnDestroy {
       }
       
     let userCookie = CookieStorage.getCookie('user_name');
-    if (userCookie && userCookie.value) {
-      this.userName =userCookie.value;
+    let resolvedUserName = this.sanitizeUserName(userCookie ? userCookie.value : '');
+    if (!resolvedUserName) {
+      resolvedUserName = this.sanitizeUserName(this.authService.getUsername())
+        || this.sanitizeUserName((this.localStore.get('imlogin') as any)?.username)
+        || this.sanitizeUserName(this.localStore.get('USERNAME') as string);
+    }
+    if (resolvedUserName) {
+      this.userName = resolvedUserName;
+      if (!userCookie || userCookie.value !== resolvedUserName) {
+        CookieStorage.addCookie({ key: 'user_name', value: resolvedUserName });
+      }
       if (this. system) {
          let domain =this. system.domain;
         this.user = this.userName+"@"+domain;
@@ -206,6 +215,21 @@ export class LockscreenDialog implements OnInit,OnDestroy {
     } else {
       this._router.navigate(['/login']);
     }
+  }
+
+  private sanitizeUserName(raw: any): string {
+    if (typeof raw !== 'string') {
+      return '';
+    }
+    let val = raw.trim();
+    while (val.length >= 2 && val.startsWith('"') && val.endsWith('"')) {
+      val = val.substring(1, val.length - 1).trim();
+    }
+    const atIdx = val.indexOf('@');
+    if (atIdx !== -1) {
+      val = val.substring(0, atIdx).trim();
+    }
+    return val;
   }
 
   /**

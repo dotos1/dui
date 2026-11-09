@@ -57,10 +57,19 @@ export class CookieSerializer {
 		if (cookieString.charAt(cookieString.length - 1) === ';') {
 			cookieString = cookieString.substring(0, cookieString.length - 1);
 		}
-		const cookieKeyValue: string[] = cookieString.split('=');
+		const eqIdx: number = cookieString.indexOf('=');
 		const resultCookie: Cookie = new Cookie();
-		resultCookie.key = cookieKeyValue[0];
-		resultCookie.value = cookieKeyValue[1];
+		if (eqIdx === -1) {
+			resultCookie.key = cookieString;
+			resultCookie.value = '';
+			return resultCookie;
+		}
+		resultCookie.key = cookieString.substring(0, eqIdx);
+		let rawValue: string = cookieString.substring(eqIdx + 1);
+		while (rawValue.length >= 2 && rawValue.startsWith('"') && rawValue.endsWith('"')) {
+			rawValue = rawValue.substring(1, rawValue.length - 1);
+		}
+		resultCookie.value = rawValue;
 		return resultCookie;
 	}
 
