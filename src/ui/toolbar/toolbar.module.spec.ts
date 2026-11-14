@@ -1,5 +1,4 @@
 import { TestBed } from '@angular/core/testing';
-import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { DuiBase } from '@dotos/dui/base';
 import { DuiToolbarModule } from './toolbar.module';
 
@@ -10,7 +9,7 @@ import { DuiToolbarModule } from './toolbar.module';
 describe('DuiToolbarModule 注册按钮工厂', () => {
   it('只导入 DuiToolbarModule 时 dui-button 工厂已注册', () => {
     DuiBase['componentFactoryMap'].delete('dui-button');
-    TestBed.configureTestingModule({ imports: [NoopAnimationsModule, DuiToolbarModule] });
+    TestBed.configureTestingModule({ imports: [DuiToolbarModule] });
     TestBed.inject(DuiToolbarModule);
     expect(DuiBase.getComponentFactory('dui-button')).toBeTruthy();
   });

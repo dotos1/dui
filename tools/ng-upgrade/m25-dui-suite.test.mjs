@@ -236,9 +236,10 @@ test('(d) dist/dui 构建产物包含 standalone、schema 二级入口及 llms.t
   assert.ok(fs.existsSync(distDir), 'dist/dui 构建目录必须存在（请先执行 npm run build-dui）');
 
   const pkgJson = JSON.parse(fs.readFileSync(path.join(distDir, 'package.json'), 'utf8'));
-  assert.equal(pkgJson.version, '8.0.0-next.1');
+  assert.equal(pkgJson.version, '8.0.0-next.2');
   assert.ok(pkgJson.exports['./standalone'], 'dist/dui/package.json exports 必须包含 ./standalone');
   assert.ok(pkgJson.exports['./schema'], 'dist/dui/package.json exports 必须包含 ./schema');
+  assert.ok(pkgJson.exports['./micro-app'], 'dist/dui/package.json exports 必须包含 ./micro-app');
 
   const requiredPaths = [
     'llms.txt',
@@ -253,6 +254,9 @@ test('(d) dist/dui 构建产物包含 standalone、schema 二级入口及 llms.t
     'schema/package.json',
     'types/dotos-dui-schema.d.ts',
     'fesm2022/dotos-dui-schema.mjs',
+    'micro-app/package.json',
+    'types/dotos-dui-micro-app.d.ts',
+    'fesm2022/dotos-dui-micro-app.mjs',
   ];
 
   for (const rel of requiredPaths) {

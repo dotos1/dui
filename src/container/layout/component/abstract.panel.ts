@@ -36,7 +36,7 @@ export class AbstractPanel extends Container implements OnChanges,OnInit,OnDestr
    * Property `style` (`any`) storing style.
    * @zh 属性 `style`（类型：`any`），用于存储或配置样式。
    */
-  public override style;
+  declare public style;
 
   /**
    * Property `_order` (`number`) storing order (default: `null`).

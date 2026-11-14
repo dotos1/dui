@@ -5,6 +5,7 @@
 
 import {Injectable} from '@angular/core';
 import {KeyboardShortcutsService} from './keyboard-shortcuts.service';
+import {Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
 
 
@@ -20,26 +21,27 @@ import {map} from 'rxjs/operators';
 export class KeyboardShortcutsHelpService {
 
     /**
+     * Emits the list of registered shortcuts that have both a `label` and `description`.
+     * @zh 发出同时具有 `label` 和 `description` 的已注册快捷键列表。
+     */
+    public shortcuts$: Observable<{ key: string[]; label: string; description: string }[]>;
+
+    /**
      * Creates an instance of `KeyboardShortcutsHelpService` and initializes its dependencies and internal state.
      * @zh 创建 `KeyboardShortcutsHelpService` 实例，并初始化其依赖项与内部状态。
      * @param keyboard - Injected or initial keyboard (`KeyboardShortcutsService`) / 注入或传入的键盘（`KeyboardShortcutsService`）
      */
     constructor(private keyboard: KeyboardShortcutsService) {
+        this.shortcuts$ = this.keyboard.shortcuts$.pipe(
+            map(shortcuts =>
+                shortcuts
+                    .filter(shortcut => Boolean(shortcut.label) && Boolean(shortcut.description))
+                    .map(({key, label, description}) => ({
+                        key,
+                        label,
+                        description
+                    }))
+            )
+        );
     }
-
-    /**
-     * Emits the list of registered shortcuts that have both a `label` and `description`.
-     * @zh 发出同时具有 `label` 和 `description` 的已注册快捷键列表。
-     */
-    public shortcuts$ = this.keyboard.shortcuts$.pipe(
-        map(shortcuts =>
-            shortcuts
-                .filter(shortcut => Boolean(shortcut.label) && Boolean(shortcut.description))
-                .map(({key, label, description}) => ({
-                    key,
-                    label,
-                    description
-                }))
-        )
-    );
 }

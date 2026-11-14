@@ -26,7 +26,7 @@ export class ɵDragStrategyByTranslate3dImpl extends ɵBaseDragStrategyImpl {
      * Property `config` (`DragStrategyByTranslate3d`) storing config.
      * @zh 属性 `config`（类型：`DragStrategyByTranslate3d`），用于存储或配置配置。
      */
-    protected override config: DragStrategyByTranslate3d;
+    declare protected config: DragStrategyByTranslate3d;
 
     /**
      * Property `initialX` (`number`) storing initial x.

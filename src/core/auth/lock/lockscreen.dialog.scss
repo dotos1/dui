@@ -1,3 +1,14 @@
+@keyframes duiLockFormEnter {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 100px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
 lock-dialog {
   display: flex;
   flex-direction: column;
@@ -20,6 +31,7 @@ lock-dialog {
         /* 使用 M3 / DUI 表面容器令牌实现亮/暗/工业深蓝主题自适应 */
         background: var(--dui-surface-container, var(--mat-sys-surface-container));
         color: var(--dui-on-surface, var(--mat-sys-on-surface));
+        animation: duiLockFormEnter 300ms cubic-bezier(0, 0, 0.2, 1);
 
         .lock-form-header {
           display: flex;

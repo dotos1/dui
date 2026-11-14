@@ -31,6 +31,7 @@
 | IDE / SCADA Split Workspace | `@dotos/dui/standalone` | `DuiSplitDockComponent` (`<dui-standalone-split-dock>`) | Native CSS Grid horizontal/vertical dock, `collapsed = model<boolean>(false)` |
 | Asset / BOM Hierarchy | `@dotos/dui/standalone` | `DuiTreeViewComponent` (`<dui-standalone-tree>`) | Zero-MobX Signal tree, WAI-ARIA `tree`/`treeitem`, Up/Down/Left/Right/Home/End |
 | Data Entry & Config Forms | `@dotos/dui/standalone` | `DuiSchemaFormComponent` (`<dui-standalone-form>`) | Zero-`any` CSS Grid form driven by `DuiFormSchema`, built-in validation |
+| Multi-Framework Micro-Frontend Island | `@dotos/dui/micro-app` / `@dotos/dui/standalone` | `DuiMicroAppComponent` (`<dui-micro-app>`) | Bridges React 18/19, Vue 3, cross-major Angular (`esm-mount`, `native-federation`, `webpack-mf`), M3 CSS token sync & `DuiMicroAppEventBus` |
 | Schema Validation & MCP Self-Healing | `@dotos/dui/schema` | `validateDuiFormSchema(input)` | Draft 2020-12 `DUI_FORM_JSON_SCHEMA` + structured `Finding[]` with `hint` |
 
 ---
@@ -188,6 +189,39 @@ class DuiSchemaFormComponent {
   readonly submitted: OutputEmitterRef<Record<string, DuiFormPrimitiveValue>>;
   resetForm(): void;
   handleSubmit(event?: Event): boolean;
+}
+```
+
+### 3.8 `DuiMicroAppComponent` (`<dui-micro-app>`) + `@dotos/dui/micro-app`
+```ts
+export type DuiMicroAppProtocol = 'esm-mount' | 'native-federation' | 'webpack-mf';
+
+export interface DuiMicroAppContext {
+  readonly hostVersion: string;
+  readonly themeTokens: Record<string, string>;
+  readonly colorScheme: 'light' | 'dark' | 'darkblue';
+  readonly density: 'compact' | 'normal' | 'loose';
+  readonly authToken: string | null;
+  readonly locale: string;
+  readonly props: Record<string, unknown>;
+  readonly eventBus: DuiMicroAppEventBus;
+}
+
+class DuiMicroAppEventBus {
+  emit<TPayload = unknown>(topic: string, payload: TPayload): void;
+  on<TPayload = unknown>(topic: string, handler: (payload: TPayload) => void): () => void;
+  clear(): void;
+}
+
+class DuiMicroAppComponent {
+  readonly remote: InputSignal<DuiMicroAppRemoteDescriptor>; // input.required
+  readonly props: InputSignal<Record<string, unknown>>;      // default: {}
+  readonly authToken: InputSignal<string | null>;            // default: null
+  readonly locale: InputSignal<string>;                      // default: 'zh_CN'
+  readonly useShadowDom: InputSignal<boolean>;               // default: false
+  readonly mounted: OutputEmitterRef<void>;
+  readonly loadError: OutputEmitterRef<unknown>;
+  readonly microEvent: OutputEmitterRef<{ topic: string; payload: unknown }>;
 }
 ```
 

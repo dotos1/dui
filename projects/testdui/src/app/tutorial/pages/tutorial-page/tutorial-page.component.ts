@@ -30,21 +30,19 @@ yarn add @dotos/dui`;
    * Property `peerDepsSnippet` (`string`) storing peer deps snippet.
    * @zh 属性 `peerDepsSnippet`（类型：`string`），用于存储或配置peerDepsSnippet。
    */
-  readonly peerDepsSnippet = `npm install @angular/animations @angular/cdk @angular/material`;
+  readonly peerDepsSnippet = `npm install @angular/cdk @angular/material`;
 
   /**
    * Property `appModuleSnippet` (`string`) storing app module snippet.
    * @zh 属性 `appModuleSnippet`（类型：`string`），用于存储或配置app模块Snippet。
    */
   readonly appModuleSnippet = `import { BrowserModule } from '@angular/platform-browser';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TranslateModule } from '@dotos/dui/translator';
 import { DotosConfigModule, dotosConfig } from '@dotos/dui/theme';
 
 @NgModule({
   imports: [
     BrowserModule,
-    BrowserAnimationsModule,
     TranslateModule.forRoot(),
     DotosConfigModule.forRoot(dotosConfig),
   ],

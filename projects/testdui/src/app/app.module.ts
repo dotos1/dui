@@ -7,7 +7,6 @@ import { Overlay, ScrollStrategy } from '@angular/cdk/overlay';
 import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { Injector, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
@@ -38,7 +37,6 @@ import { AppRoutingModule } from './app.routes';
     ],
     imports: [
       AppRoutingModule,
-      BrowserAnimationsModule,
       BrowserModule,
       MatButtonModule,
       MatIconModule,

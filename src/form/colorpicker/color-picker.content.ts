@@ -5,7 +5,6 @@
 
 import { ESCAPE } from '@angular/cdk/keycodes';
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output, ViewEncapsulation } from '@angular/core';
-import { duiAnimations } from '@dotos/dui/common/animations';
 import { TriggerPopup } from '@dotos/dui/common/trigger';
 import { MatColors } from '@dotos/dui/core/color';
 import {forIn}  from 'lodash-es';
@@ -23,7 +22,6 @@ import {forIn}  from 'lodash-es';
     '(keydown)': '_handleKeydown($event)',
     hostID: 'color-picker-content' + Math.random().toString(36).substring(2, 15),
   },
-  animations: duiAnimations,
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
   standalone: false,

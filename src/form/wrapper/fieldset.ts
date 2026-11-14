@@ -4,7 +4,6 @@
  */
 
 import { Component, Input, Output, EventEmitter, ElementRef, ChangeDetectionStrategy } from '@angular/core';
-import { trigger, state, style, transition, animate } from '@angular/animations';
 
 /**
  * Angular component `Fieldset` (selector: 'dui-fieldset') providing fieldset presentation and interaction in `src/form/wrapper`.
@@ -19,27 +18,17 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
                 {{legend|translate}}
                 <ng-content select="p-header"></ng-content>
             </legend>
-            <div class="dui-fieldset-content-wrapper" [@fieldsetContent]="collapsed ? 'hidden' : 'visible'"
+            <div class="dui-fieldset-content-wrapper"
+                        [style.height]="collapsed ? '0px' : null"
+                        [style.overflow]="(collapsed || animating) ? 'hidden' : null"
                         [ngClass]="{'dui-fieldset-content-wrapper-overflown': collapsed||animating}"
-                         (@fieldsetContent.done)="onToggleDone($event)">
+                        (transitionend)="onToggleDone($event)">
                 <div class="dui-fieldset-content">
                     <ng-content></ng-content>
                 </div>
             </div>
         </fieldset>
     `,
-  animations: [
-    trigger('fieldsetContent', [
-      state('hidden', style({
-        height: '0px'
-      })),
-      state('visible', style({
-        height: '*'
-      })),
-      transition('visible => hidden', animate('400ms cubic-bezier(0.86, 0, 0.07, 1)')),
-      transition('hidden => visible', animate('400ms cubic-bezier(0.86, 0, 0.07, 1)'))
-    ])
-  ],
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: {
     hostID: 'dui-fieldset' + Math.random().toString(36).substring(2, 15),
@@ -124,6 +113,7 @@ export class Fieldset {
       }
 
       this.onAfterToggle.emit({ originalEvent: event, collapsed: this.collapsed });
+      queueMicrotask(() => this.onToggleDone(event));
     }
   }
   // eslint-disable-next-line @typescript-eslint/no-unused-vars

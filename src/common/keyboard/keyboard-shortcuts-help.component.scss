@@ -10,12 +10,33 @@
   justify-content: center;
 }
 
+@keyframes duiHelpModalEnter {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes duiHelpOverlayEnter {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 .help-modal {
   z-index: 2000;
   min-width: 420px;
   max-height: calc(100% - 100px);
   overflow: auto;
   padding: 20px;
+  animation: duiHelpModalEnter 0.33s cubic-bezier(0, 0, 0.3, 1);
 }
 
 .item-group-label {
@@ -45,4 +66,5 @@
   pointer-events: auto;
   -webkit-tap-highlight-color: transparent;
   opacity: 1;
+  animation: duiHelpOverlayEnter 0.3s cubic-bezier(0, 0, 0.3, 1);
 }

@@ -29,9 +29,9 @@
     mat-icon-button
     class="search-input-clear"
     type="button"
-    [@searchState]="
-      searchElement.value ? 'show' : isRTL ? 'hide-left' : 'hide-right'
-    "
+    [class.search-clear-show]="!!searchElement.value"
+    [class.search-clear-hide-left]="!searchElement.value && isRTL"
+    [class.search-clear-hide-right]="!searchElement.value && !isRTL"
     (click)="clearSearch()"
   >
     <mat-icon>{{ clearIcon }}</mat-icon>

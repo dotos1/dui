@@ -5,7 +5,7 @@ import { DuiToolbarComponent } from '@dotos/dui/ui/toolbar';
 import { Container } from './container.main';
 
 function fakeDetectRef(): ChangeDetectorRef {
-  return jasmine.createSpyObj<ChangeDetectorRef>('ChangeDetectorRef', ['detectChanges', 'markForCheck', 'detach', 'checkNoChanges', 'reattach']);
+  return jasmine.createSpyObj<ChangeDetectorRef>('ChangeDetectorRef', ['detectChanges', 'markForCheck', 'detach', 'reattach']);
 }
 
 function makeContainer(): Container {

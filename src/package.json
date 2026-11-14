@@ -1,6 +1,6 @@
 {
   "name": "@dotos/dui",
-  "version": "8.0.0-next.1",
+  "version": "8.0.0-next.2",
   "license": "UNLICENSED",
   "description": "DUI components based on Angular",
   "keywords": [
@@ -25,7 +25,6 @@
     "buffer": "^6.0.3"
   },
   "peerDependencies": {
-    "@angular/animations": "^22.0.0",
     "@angular/common": "^22.0.0",
     "@angular/core": "^22.0.0",
     "@angular/forms": "^22.0.0"

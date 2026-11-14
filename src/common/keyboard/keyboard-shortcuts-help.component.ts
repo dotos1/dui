@@ -17,7 +17,6 @@ import {
     ViewChild,
     ViewContainerRef
 } from "@angular/core";
-import { animate, style, transition, trigger } from "@angular/animations";
 import { BehaviorSubject, SubscriptionLike } from "rxjs";
 import { distinctUntilChanged, map } from "rxjs/operators";
 
@@ -125,34 +124,6 @@ const enableScroll = () => {
     selector: "keyboard-shortcuts-help",
     templateUrl: "./keyboard-shortcuts-help.component.html",
     styleUrls: ["./keyboard-shortcuts-help.component.scss"],
-    animations: [
-        trigger("enterAnimation", [
-            transition(":enter", [
-                style({ transform: "translateX(-100%)", opacity: 0 }),
-                animate(
-                    "0.33s cubic-bezier(0,0,0.3,1)",
-                    style({ transform: "translateX(0)", opacity: 1 })
-                )
-            ]),
-            transition(":leave", [
-                style({ transform: "translateX(0)", opacity: 1 }),
-                animate(
-                    "0.23s cubic-bezier(0,0,0.3,1)",
-                    style({ transform: "translateX(-100%)", opacity: 0 })
-                )
-            ])
-        ]),
-        trigger("overlayAnimation", [
-            transition(":enter", [
-                style({ opacity: 0 }),
-                animate("1s cubic-bezier(0,0,0.3,1)", style({ opacity: 1 }))
-            ]),
-            transition(":leave", [
-                style({ opacity: 1 }),
-                animate("1s cubic-bezier(0,0,0.3,1)", style({ opacity: 0 }))
-            ])
-        ])
-    ],
     standalone: false
 })
 export class KeyboardShortcutsHelpComponent implements OnInit, OnDestroy, OnChanges {

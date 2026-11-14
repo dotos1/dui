@@ -23,7 +23,7 @@ export class Load extends FormAction {
    * Property `failureType` (`any`) storing failure type.
    * @zh 属性 `failureType`（类型：`any`），用于存储或配置failure类型。
    */
-  override failureType;
+  declare failureType;
   /**
    * Property `type` (`string`) storing type (default: `'load'`).
    * @zh 属性 `type`（类型：`string`），用于存储或配置类型（默认值：`'load'`）。

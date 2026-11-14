@@ -29,3 +29,20 @@ export {
 export {
   DuiSchemaFormComponent,
 } from './schema-form.component';
+export {
+  DUI_MICRO_APP_CUSTOM_EVENT,
+  DUI_MICRO_APP_HOST_VERSION,
+  DuiMicroAppColorScheme,
+  DuiMicroAppComponent,
+  DuiMicroAppContext,
+  DuiMicroAppDensity,
+  DuiMicroAppEsmDescriptor,
+  DuiMicroAppEventBus,
+  DuiMicroAppEventPayload,
+  DuiMicroAppLifecycleModule,
+  DuiMicroAppModule,
+  DuiMicroAppNativeFederationDescriptor,
+  DuiMicroAppProtocol,
+  DuiMicroAppRemoteDescriptor,
+  DuiMicroAppWebpackMfDescriptor,
+} from '@dotos/dui/micro-app';

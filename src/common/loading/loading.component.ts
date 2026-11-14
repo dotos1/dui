@@ -12,7 +12,6 @@ import {
   ViewEncapsulation,
 } from '@angular/core';
 import { TemplatePortal } from '@angular/cdk/portal';
-import { FadeInOutAnimation } from '@dotos/dui/common/animations';
 
 /**
  * Enumeration `LoadingType` defining supported loading type constants.
@@ -105,7 +104,6 @@ export const TD_CIRCLE_DIAMETER = 40;
   templateUrl: './loading.component.html',
   encapsulation: ViewEncapsulation.None,
   changeDetection:ChangeDetectionStrategy.Default,
-  animations: [FadeInOutAnimation],
   host: {
     hostID: 'dui-loading' + Math.random().toString(36).substring(2, 15),
   },

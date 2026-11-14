@@ -72,7 +72,7 @@ export class ButtonBase extends ComponentBase {
     * Property `ownerCt` (`any`) storing owner ct.
     * @zh 属性 `ownerCt`（类型：`any`），用于存储或配置所属者Ct。
     */
-   override ownerCt;
+   declare ownerCt;
 
    /**
     * Property `click` (`EventEmitter<any>`) storing click (default: `new EventEmitter<any>()`).
@@ -206,7 +206,7 @@ export class ButtonBase extends ComponentBase {
    * Property `style` (`DuiStyle`) storing style.
    * @zh 属性 `style`（类型：`DuiStyle`），用于存储或配置样式。
    */
-  public override style: DuiStyle;
+  declare public style: DuiStyle;
 
   /**
    * Property `checked` (`boolean`) storing checked (default: `false`).
