@@ -3,7 +3,7 @@
  * @zh 模块文件 `src/data/paging/paging-bar.component.ts`，提供页面条组件相关的定义与实现。
  */
 
-import { Component, Input, Output, EventEmitter, Optional, ComponentFactoryResolver, Injector } from '@angular/core';
+import { Component, Input, Output, EventEmitter, Optional, Injector } from '@angular/core';
 import { ChangeDetectionStrategy } from '@angular/core'
 import { coerceNumberProperty } from '@angular/cdk/coercion';
 import { Dir } from '@angular/cdk/bidi';
@@ -309,7 +309,6 @@ export class DuiPagingBarComponent {
    * @param _dir - Injected or initial dir (`Dir`) / 注入或传入的目录（`Dir`）
    */
   constructor(
-    public resolver: ComponentFactoryResolver,
     public injector: Injector,
     public media: MediaService,
     @Optional() private _dir: Dir) {

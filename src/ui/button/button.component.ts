@@ -7,7 +7,6 @@ import {
   ChangeDetectionStrategy,
   ChangeDetectorRef,
   Component,
-  ComponentFactoryResolver,
   DoCheck,
   ElementRef,
   EventEmitter,
@@ -126,9 +125,8 @@ export class ButtonComponent extends ButtonBase implements OnChanges,DoCheck {
     public override _element: ElementRef,
     public override renderer: Renderer2,
     public override changeDetectorRef: ChangeDetectorRef,
-    public override resolver: ComponentFactoryResolver,
     public override injector: Injector,) {
-    super(_element,renderer,changeDetectorRef,resolver,injector);
+    super(_element, renderer, changeDetectorRef, injector);
   }
 
   /**

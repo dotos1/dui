@@ -3,7 +3,7 @@
  * @zh 模块文件 `src/form/checkboxgroup/checkboxgroup.module.ts`，提供checkboxgroup模块相关的定义与实现。
  */
 
-import { ComponentFactoryResolver, NgModule } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -48,7 +48,7 @@ export class CheckboxGroupModule {
    * @zh 创建 `CheckboxGroupModule` 实例，并初始化其依赖项与内部状态。
    * @param componentFactoryResolver - Injected or initial component factory resolver (`ComponentFactoryResolver`) / 注入或传入的组件工厂解析器（`ComponentFactoryResolver`）
    */
-  constructor(componentFactoryResolver: ComponentFactoryResolver) {
-    Dui.registerComponentFactory(componentFactoryResolver,this.entryComponents);
+  constructor() {
+    Dui.registerComponentFactory(this.entryComponents);
   }
  }

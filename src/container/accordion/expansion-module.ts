@@ -4,7 +4,7 @@
  */
 
 import { CommonModule } from '@angular/common';
-import { ComponentFactoryResolver, NgModule } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDividerModule } from '@angular/material/divider';
 import { CdkAccordionModule } from '@angular/cdk/accordion';
@@ -72,7 +72,7 @@ export class ExpansionModule {
    * @zh 创建 `ExpansionModule` 实例，并初始化其依赖项与内部状态。
    * @param componentFactoryResolver - Injected or initial component factory resolver (`ComponentFactoryResolver`) / 注入或传入的组件工厂解析器（`ComponentFactoryResolver`）
    */
-  constructor(componentFactoryResolver: ComponentFactoryResolver) {
-    Dui.registerComponentFactory(componentFactoryResolver,this.entryComponents);
+  constructor() {
+    Dui.registerComponentFactory(this.entryComponents);
   }
 }

@@ -10,7 +10,6 @@ import {
     ChangeDetectionStrategy,
     ChangeDetectorRef,
     Component,
-    ComponentFactoryResolver,
     ElementRef,
     Injector,
     Input,
@@ -110,10 +109,9 @@ export class TabPanel extends AbstractPanel implements OnChanges, OnDestroy {
   constructor(
     protected override _element: ElementRef,
     protected override renderer: Renderer2,
-    public override resolver: ComponentFactoryResolver,
     public override injector: Injector,
     public override detectRef: ChangeDetectorRef) {
-    super(_element, renderer, resolver, injector, detectRef);
+    super(_element, renderer, injector, detectRef);
     this.el = this._element.nativeElement;
   }
 

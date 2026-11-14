@@ -3,7 +3,7 @@
  * @zh 模块文件 `src/container/container.main.ts`，提供容器主相关的定义与实现。
  */
 
-import { ChangeDetectorRef, ComponentFactoryResolver, Injector, ViewContainerRef } from '@angular/core';
+import { ChangeDetectorRef, Injector, ViewContainerRef } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { ComponentBase, Dui, DuiConfig } from '@dotos/dui/core';
 import { MixedCollection } from '@dotos/dui/core/cache';
@@ -79,18 +79,32 @@ export class Container extends ComponentBase {
   public form: FormGroup;
 
   /**
-   * Creates an instance of `Container` and initializes its dependencies and internal state.
-   * @zh 创建 `Container` 实例，并初始化其依赖项与内部状态。
-   * @param resolver - Injected or initial resolver (`ComponentFactoryResolver`) / 注入或传入的解析器（`ComponentFactoryResolver`）
-   * @param injector - Injected or initial injector (`Injector`) / 注入或传入的注入器（`Injector`）
-   * @param detectRef - Injected or initial detect ref (`ChangeDetectorRef`) / 注入或传入的检测引用（`ChangeDetectorRef`）
+   * Legacy compatibility placeholder for component factory resolver.
+   * @zh 属性 `resolver`（类型：`unknown`），历史兼容占位字段。
    */
+  public resolver?: unknown;
+
+  /**
+   * Property `injector` (`Injector`) storing injector.
+   * @zh 属性 `injector`（类型：`Injector`），用于存储或配置注入器。
+   */
+  public injector: Injector;
+
+  constructor(injector: Injector, detectRef: ChangeDetectorRef);
+  constructor(legacyResolver: unknown, injector: Injector, detectRef: ChangeDetectorRef);
   constructor(
-    public resolver: ComponentFactoryResolver,
-    public injector: Injector,
-    public override detectRef: ChangeDetectorRef) {
-    super(detectRef);
-    //  this.el = _elementRef.nativeElement;
+    arg0: Injector | unknown,
+    arg1: ChangeDetectorRef | Injector,
+    arg2?: ChangeDetectorRef) {
+    const resolvedDetectRef: ChangeDetectorRef = (arg2 !== undefined ? arg2 : arg1) as ChangeDetectorRef;
+    super(resolvedDetectRef);
+    this.detectRef = resolvedDetectRef;
+    if (arg2 !== undefined) {
+      this.resolver = arg0;
+      this.injector = arg1 as Injector;
+    } else {
+      this.injector = arg0 as Injector;
+    }
   }
 
   // private

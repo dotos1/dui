@@ -7,7 +7,7 @@
 import {
   Component,
   ViewEncapsulation,
-  ComponentFactoryResolver, Injector,
+  Injector,
   OnDestroy,
   HostListener,
   ViewChild,
@@ -128,13 +128,12 @@ export class ContextMenuComponent extends MenuBase implements OnInit,OnDestroy,D
    */
   constructor(
     protected override router: Router,
-    protected override resolver: ComponentFactoryResolver,
     protected override injector: Injector,
     public override changeDetectorRef: ChangeDetectorRef,
     private contextMenuOverlayRef: ContextMenuOverlayRef,
     @Inject(CONTEXT_MENU_DIRECTION) public direction: Directionality
   ) {
-    super(router,changeDetectorRef, resolver, injector);
+    super(router, changeDetectorRef, injector);
   }
 
   /**

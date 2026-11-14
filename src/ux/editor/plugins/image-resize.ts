@@ -3,7 +3,7 @@
  * @zh 模块文件 `src/ux/editor/plugins/image-resize.ts`，提供图像调整尺寸相关的定义与实现。
  */
 
-import { ApplicationRef, ComponentFactoryResolver, ComponentRef, Injector } from '@angular/core';
+import { ApplicationRef, createComponent, ComponentRef, Injector } from '@angular/core';
 import { Node as ProseMirrorNode } from 'prosemirror-model';
 import { NodeSelection, Plugin, PluginKey } from 'prosemirror-state';
 import { EditorView, NodeView } from 'prosemirror-view';
@@ -68,19 +68,15 @@ class ImageRezieView implements NodeView {
    * @param injector - Injected or initial injector (`Injector`) / 注入或传入的注入器（`Injector`）
    */
   constructor(node: ProseMirrorNode, view: EditorView, getPos: () => number, injector: Injector) {
-    const componentFactoryResolver = injector.get(ComponentFactoryResolver);
     this.applicationRef = injector.get(ApplicationRef);
 
     // Create the component and wire it up with the element
-    const factory = componentFactoryResolver.resolveComponentFactory(ImageViewComponent);
-
-    this.imageComponentRef = factory.create(injector, []);
+    this.imageComponentRef = createComponent(ImageViewComponent, {
+      environmentInjector: this.applicationRef.injector,
+      elementInjector: injector,
+    });
     // Attach to the view so that the change detector knows to run
     this.applicationRef.attachView(this.imageComponentRef.hostView);
-
-    // Possible alternate for deprecated ComponentFactoryResolver
-    // const viewContainerRef = injector.get(ViewContainerRef);
-    // this.imageComponentRef = viewContainerRef.createComponent(ImageViewComponent, { injector });
 
     this.setNodeAttributes(node.attrs);
     this.imageComponentRef.instance.view = view;

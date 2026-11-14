@@ -5,7 +5,7 @@
 
 import { DuiConfig, DuiStyle } from '@dotos/dui/base';
 import { Platform } from '@angular/cdk/platform';
-import { AfterContentInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, ComponentFactoryResolver, ElementRef, HostListener, Injector, Input, OnChanges, Renderer2, SimpleChanges, ViewChild, ViewContainerRef } from '@angular/core';
+import { AfterContentInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, HostListener, Injector, Input, OnChanges, Renderer2, SimpleChanges, ViewChild, ViewContainerRef } from '@angular/core';
 import { Container, ContainerItem } from '@dotos/dui/container';
 import { ComponentBase, Dui } from '@dotos/dui/core';
 import { isArray, isObjectLike, isString } from 'lodash-es';
@@ -103,10 +103,9 @@ export class DuiToolbarComponent extends Container implements OnChanges, AfterCo
   constructor(public _element: ElementRef,
     protected renderer: Renderer2,
     public _platform: Platform,
-    public override resolver: ComponentFactoryResolver,
     public override injector: Injector,
     public override detectRef: ChangeDetectorRef,) {
-    super(resolver, injector, detectRef);
+    super(injector, detectRef);
   }
 
   /**

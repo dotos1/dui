@@ -6,7 +6,7 @@
 
 import { DuiConfig } from '@dotos/dui/base';
 import { ComponentBase } from '@dotos/dui/core';
-import { ChangeDetectorRef, ComponentFactoryResolver, Directive, ElementRef, Injector, Input, NgZone, OnChanges, OnDestroy, OnInit, Renderer2, SimpleChanges } from '@angular/core';
+import { ChangeDetectorRef, Directive, ElementRef, Injector, Input, NgZone, OnChanges, OnDestroy, OnInit, Renderer2, SimpleChanges } from '@angular/core';
 import { Container } from '@dotos/dui/container';
 import {isArray,each}  from 'lodash-es';
 import { getInputPositiveNumber, getInputboolean } from '../utils';
@@ -214,13 +214,12 @@ export class AbstractPanel extends Container implements OnChanges,OnInit,OnDestr
   constructor(
     public elRef: ElementRef,
     public renderer: Renderer2,
-    public override resolver: ComponentFactoryResolver,
     public override injector: Injector,
     public override detectRef: ChangeDetectorRef,
     private ngZone: NgZone,
     private split: LayoutComponent,
   ) {
-    super(resolver, injector, detectRef);
+    super(injector, detectRef);
     this.el = this.elRef.nativeElement;
     this.renderer.addClass(this.elRef.nativeElement, 'dui-split-area')
   }

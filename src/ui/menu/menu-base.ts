@@ -3,7 +3,7 @@
  * @zh 模块文件 `src/ui/menu/menu-base.ts`，提供菜单基础相关的定义与实现。
  */
 
-import { ChangeDetectorRef, ComponentFactoryResolver, DoCheck, Injectable, Injector, Input } from '@angular/core';
+import { ChangeDetectorRef, DoCheck, Injectable, Injector, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { ComponentBase, Dui } from '@dotos/dui/core';
 import {isFunction,isObjectLike}  from 'lodash-es';
@@ -56,10 +56,15 @@ export abstract class MenuBase implements DoCheck{
    * @param resolver - Injected or initial resolver (`ComponentFactoryResolver`) / 注入或传入的解析器（`ComponentFactoryResolver`）
    * @param injector - Injected or initial injector (`Injector`) / 注入或传入的注入器（`Injector`）
    */
+  /**
+   * Legacy compatibility placeholder for component factory resolver.
+   * @zh 属性 `resolver`（类型：`unknown`），历史兼容占位字段。
+   */
+  protected resolver?: unknown;
+
   constructor(
     protected router: Router,
     public changeDetectorRef: ChangeDetectorRef,
-    protected resolver: ComponentFactoryResolver,
     protected injector: Injector) {
   }
 

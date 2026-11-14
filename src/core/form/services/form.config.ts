@@ -3,7 +3,7 @@
  * @zh 模块文件 `src/core/form/services/form.config.ts`，提供表单配置相关的定义与实现。
  */
 
-import { Injectable, InjectionToken, ComponentRef } from '@angular/core';
+import { createComponent, EnvironmentInjector, Injectable, InjectionToken, ComponentRef } from '@angular/core';
 import { DuiBase } from '@dotos/dui/base';
 import { FieldType } from '../template/field.type';
 import { reverseDeepMerge , defineHiddenProp} from './../utils';
@@ -191,11 +191,14 @@ export class FormConfig {
       return type['_componentRef'];
     }
 
-    const { _resolver, _injector } = field.option;
-    if (!_resolver || !_injector) {
+    const { _injector } = field.option;
+    if (!_injector) {
       return null;
     }
-    const componentRef = _resolver.resolveComponentFactory<FieldType>(type.component).create(_injector);
+    const componentRef = createComponent<FieldType>(type.component, {
+      environmentInjector: _injector.get(EnvironmentInjector),
+      elementInjector: _injector,
+    });
     defineHiddenProp(type, '_componentRef', componentRef);
     componentRef.destroy();
     return type['_componentRef'];

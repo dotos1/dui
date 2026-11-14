@@ -9,8 +9,8 @@ import {ObserversModule} from '@angular/cdk/observers';
 import {PortalModule} from '@angular/cdk/portal';
 import {ScrollingModule} from '@angular/cdk/scrolling';
 import {CommonModule} from '@angular/common';
-import {ComponentFactoryResolver, NgModule} from '@angular/core';
-import {MatCommonModule, MatRippleModule } from '@angular/material/core';
+import {NgModule} from '@angular/core';
+import {MatRippleModule} from '@angular/material/core';
 import {MatTabsModule} from '@angular/material/tabs';
 import {TabPanel} from './tabpanel.component';
 import { FlexLayoutModule } from 'ngx-flexible-layout';
@@ -24,7 +24,6 @@ import { TranslateModule } from '@dotos/dui/translator';
 @NgModule({
   imports: [
     CommonModule,
-    MatCommonModule,
     PortalModule,
     TranslateModule,
     MatRippleModule,
@@ -49,9 +48,8 @@ export class DuiTabsModule {
   /**
    * Creates an instance of `DuiTabsModule` and initializes its dependencies and internal state.
    * @zh 创建 `DuiTabsModule` 实例，并初始化其依赖项与内部状态。
-   * @param componentFactoryResolver - Injected or initial component factory resolver (`ComponentFactoryResolver`) / 注入或传入的组件工厂解析器（`ComponentFactoryResolver`）
    */
-  constructor(componentFactoryResolver: ComponentFactoryResolver) {
-    Dui.registerComponentFactory(componentFactoryResolver,this.entryComponents);
+  constructor() {
+    Dui.registerComponentFactory(this.entryComponents);
   }
 }

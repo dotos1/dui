@@ -4,7 +4,7 @@
  */
 
 import { Input, HostListener, Renderer2, ElementRef, AfterViewInit, OnDestroy, Directive } from '@angular/core';
-import { CanDisable, mixinDisabled } from '@angular/material/core';
+import { ICanDisable, mixinDisabled } from '@dotos/dui/core/behaviors';
 
 import { Subscription } from 'rxjs';
 
@@ -39,7 +39,7 @@ export const _DuiLayoutToggleMixinBase = mixinDisabled(LayoutToggleBase);
  * @zh Angular 指令 `LayoutToggle`，为宿主 DOM 元素附加布局开关行为。
  */
 @Directive()
-export abstract class LayoutToggle extends _DuiLayoutToggleMixinBase implements AfterViewInit, OnDestroy, CanDisable {
+export abstract class LayoutToggle extends _DuiLayoutToggleMixinBase implements AfterViewInit, OnDestroy, ICanDisable {
 
   /**
    * Property `_toggleSubs` (`Subscription`) storing toggle subs.

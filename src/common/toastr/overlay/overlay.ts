@@ -4,7 +4,7 @@
  */
 
 import { DOCUMENT } from '@angular/common';
-import { ApplicationRef, ComponentFactoryResolver, inject, Injectable } from '@angular/core';
+import { ApplicationRef, inject, Injectable } from '@angular/core';
 
 import { DomPortalHost } from '../portal/dom-portal-host';
 import { ToastContainerDirective } from '../toastr/toast.directive';
@@ -23,11 +23,6 @@ export class Overlay {
    * @zh 属性 `_overlayContainer`（类型：`OverlayContainer`），用于存储或配置浮层容器（默认值：`inject(OverlayContainer)`）。
    */
   private _overlayContainer = inject(OverlayContainer);
-  /**
-   * Property `_componentFactoryResolver` (`ComponentFactoryResolver`) storing component factory resolver (default: `inject(ComponentFactoryResolver)`).
-   * @zh 属性 `_componentFactoryResolver`（类型：`ComponentFactoryResolver`），用于存储或配置组件工厂解析器（默认值：`inject(ComponentFactoryResolver)`）。
-   */
-  private _componentFactoryResolver = inject(ComponentFactoryResolver);
   /**
    * Property `_appRef` (`ApplicationRef`) storing app ref (default: `inject(ApplicationRef)`).
    * @zh 属性 `_appRef`（类型：`ApplicationRef`），用于存储或配置app引用（默认值：`inject(ApplicationRef)`）。
@@ -112,7 +107,7 @@ export class Overlay {
    * @returns Result of type `DomPortalHost` / 类型为 `DomPortalHost` 的返回值
    */
   private _createPortalHost(pane: HTMLElement): DomPortalHost {
-    return new DomPortalHost(pane, this._componentFactoryResolver, this._appRef);
+    return new DomPortalHost(pane, this._appRef);
   }
 
 

@@ -4,7 +4,8 @@
  */
 
 import {
-  ComponentFactoryResolver,
+  createComponent,
+  EnvironmentInjector,
   Injectable,
   Injector,
   StaticProvider,
@@ -24,10 +25,10 @@ export class DockLayoutComponentService {
   /**
    * Creates an instance of `DockLayoutComponentService` and initializes its dependencies and internal state.
    * @zh 创建 `DockLayoutComponentService` 实例，并初始化其依赖项与内部状态。
-   * @param _componentFactoryResolver - Injected or initial component factory resolver (`ComponentFactoryResolver`) / 注入或传入的组件工厂解析器（`ComponentFactoryResolver`）
+   * @param _envInjector - Injected or initial environment injector (`EnvironmentInjector`) / 注入或传入的环境注入器（`EnvironmentInjector`）
    */
   constructor(
-    private _componentFactoryResolver: ComponentFactoryResolver
+    private _envInjector: EnvironmentInjector
   ) {}
 
   /**
@@ -51,12 +52,12 @@ export class DockLayoutComponentService {
         };
         const injector = Injector.create({
           providers: [provider],
+          parent: this._envInjector,
         });
-        const componentFactoryRef =
-          this._componentFactoryResolver.resolveComponentFactory(
-            component
-          );
-        return componentFactoryRef.create(injector);
+        return createComponent(component, {
+          environmentInjector: this._envInjector,
+          elementInjector: injector,
+        });
       }
     }
   }

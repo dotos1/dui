@@ -3,7 +3,7 @@
  * @zh 模块文件 `src/common/search-box/search-box.module.ts`，提供搜索盒子容器模块相关的定义与实现。
  */
 
-import { ComponentFactoryResolver, NgModule } from '@angular/core';
+import { NgModule } from '@angular/core';
 
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -44,7 +44,7 @@ export class SearchBoxModule {
    * @zh 创建 `SearchBoxModule` 实例，并初始化其依赖项与内部状态。
    * @param componentFactoryResolver - Injected or initial component factory resolver (`ComponentFactoryResolver`) / 注入或传入的组件工厂解析器（`ComponentFactoryResolver`）
    */
-  constructor(componentFactoryResolver: ComponentFactoryResolver) {
-    Dui.registerComponentFactory(componentFactoryResolver,this.entryComponents);
+  constructor() {
+    Dui.registerComponentFactory(this.entryComponents);
   }
 }

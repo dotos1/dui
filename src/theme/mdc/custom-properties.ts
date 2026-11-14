@@ -180,6 +180,58 @@ export function declaration($property, $custom_prop= null, $gss: Record<string, 
     return null;
   }
 /**
+ * Angular Material 18 -> 22 CSS 自定义属性双写映射前缀表。
+ * @zh 常量/变量 `M18_TO_M22_PREFIX_RULES`，定义 Material 18 到 22 的 CSS 自定义属性前缀映射规则。
+ */
+const M18_TO_M22_PREFIX_RULES: ReadonlyArray<readonly [string, string]> = [
+    ['--mat-tab-header-with-background-', '--mat-tab-'],
+    ['--mat-secondary-navigation-tab-', '--mat-tab-'],
+    ['--mat-minimal-pseudo-checkbox-', '--mat-pseudo-checkbox-minimal-'],
+    ['--mat-standard-button-toggle-', '--mat-button-toggle-'],
+    ['--mat-mdc-focus-indicator-', '--mat-focus-indicator-'],
+    ['--mat-legacy-button-toggle-', '--mat-button-toggle-legacy-'],
+    ['--mat-full-pseudo-checkbox-', '--mat-pseudo-checkbox-full-'],
+    ['--mat-outlined-text-field-', '--mat-form-field-outlined-'],
+    ['--mat-circular-progress-', '--mat-progress-spinner-'],
+    ['--mat-filled-text-field-', '--mat-form-field-filled-'],
+    ['--mat-protected-button-', '--mat-button-protected-'],
+    ['--mat-linear-progress-', '--mat-progress-bar-'],
+    ['--mat-outlined-button-', '--mat-button-outlined-'],
+    ['--mat-elevated-card-', '--mat-card-elevated-'],
+    ['--mat-filled-button-', '--mat-button-filled-'],
+    ['--mat-outlined-card-', '--mat-card-outlined-'],
+    ['--mat-plain-tooltip-', '--mat-tooltip-'],
+    ['--mat-tab-indicator-', '--mat-tab-'],
+    ['--mat-extended-fab-', '--mat-fab-extended-'],
+    ['--mat-tonal-button-', '--mat-button-tonal-'],
+    ['--mat-text-button-', '--mat-button-text-'],
+    ['--mat-tab-header-', '--mat-tab-'],
+    ['--mat-snackbar-', '--mat-snack-bar-'],
+    ['--mat-switch-', '--mat-slide-toggle-'],
+    ['--mat-app-', '--mat-sys-'],
+];
+
+/**
+ * Executes `mapMaterial18To22Token` to map Material 18 CSS custom property names to Material 22.
+ * @zh 执行 `mapMaterial18To22Token`，将 Material 18 的 CSS 自定义属性映射为 Material 22 对应名称。
+ * @param prop - prop parameter (`string`) / 属性名参数（`string`）
+ * @returns Result of type `string` / 类型为 `string` 的返回值
+ */
+export function mapMaterial18To22Token(prop: string): string {
+    if (!prop.startsWith('--')) {
+        return prop;
+    }
+    let mapped: string = prop.startsWith('--mdc-') ? `--mat-${prop.slice(6)}` : prop;
+    for (const [oldPrefix, newPrefix] of M18_TO_M22_PREFIX_RULES) {
+        if (mapped.startsWith(oldPrefix)) {
+            mapped = newPrefix + mapped.slice(oldPrefix.length);
+            break;
+        }
+    }
+    return mapped;
+}
+
+/**
  * Executes `css_declaration` to handle css declaration.
  * @zh 执行 `css_declaration`，用于CSS样式declaration。
  * @param $property - property parameter (`any`) / 属性参数（`any`）
@@ -203,6 +255,12 @@ export function css_declaration(
       }
   
       rv[$property]= $value+$important_rule;
+      if (typeof $property === 'string' && $property.startsWith('--')) {
+        const mapped: string = mapMaterial18To22Token($property);
+        if (mapped !== $property) {
+          rv[mapped] = rv[$property];
+        }
+      }
     }
     return rv;
   }

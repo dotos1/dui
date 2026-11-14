@@ -8,7 +8,6 @@ import {
   ChangeDetectionStrategy,
   ChangeDetectorRef,
   Component,
-  ComponentFactoryResolver,
   DoCheck,
   Injector,
   Input,
@@ -217,9 +216,8 @@ export class MenuItemComponent extends MenuBase implements OnInit,DoCheck,AfterV
   constructor(
     protected _changeDetectorRef: ChangeDetectorRef,
     protected override router: Router,
-    protected override resolver: ComponentFactoryResolver,
     protected override injector: Injector) {
-    super(router,_changeDetectorRef, resolver, injector);
+    super(router, _changeDetectorRef, injector);
   }
 
   /**

@@ -5,7 +5,8 @@
 
 import {
   Injectable,
-  ComponentFactoryResolver,
+  createComponent,
+  EnvironmentInjector,
   Provider,
   SkipSelf,
   Optional,
@@ -104,7 +105,6 @@ export class LoadingFactory {
    * @param _injector - Injected or initial injector (`Injector`) / 注入或传入的注入器（`Injector`）
    */
   constructor(
-    private _componentFactoryResolver: ComponentFactoryResolver,
     private _overlay: Overlay,
     private _injector: Injector
   ) {}
@@ -269,9 +269,10 @@ export class LoadingFactory {
    */
   private _createComponent(options: IInternalLoadingOptions): ILoadingRef {
     const compRef: ILoadingRef = this._initializeContext();
-    compRef.componentRef = this._componentFactoryResolver
-      .resolveComponentFactory(LoadingComponent)
-      .create(this._injector);
+    compRef.componentRef = createComponent(LoadingComponent, {
+      environmentInjector: this._injector.get(EnvironmentInjector),
+      elementInjector: this._injector,
+    });
     this._mapOptions(options, compRef.componentRef.instance);
     return compRef;
   }
@@ -331,12 +332,11 @@ export class LoadingFactory {
  */
 export function LOADING_FACTORY_PROVIDER_FACTORY(
   parent: LoadingFactory,
-  componentFactoryResolver: ComponentFactoryResolver,
   overlay: Overlay,
   injector: Injector
 ): LoadingFactory {
   return (
-    parent || new LoadingFactory(componentFactoryResolver, overlay, injector)
+    parent || new LoadingFactory(overlay, injector)
   );
 }
 
@@ -349,7 +349,6 @@ export const LOADING_FACTORY_PROVIDER: Provider = {
   provide: LoadingFactory,
   deps: [
     [new Optional(), new SkipSelf(), LoadingFactory],
-    ComponentFactoryResolver,
     Overlay,
     Injector,
   ],

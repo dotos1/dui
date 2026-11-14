@@ -7,7 +7,6 @@
 import {
   Component,
   Input,
-  ComponentFactoryResolver,
   ViewChild,
   ViewContainerRef,
   OnDestroy,
@@ -76,9 +75,8 @@ export class DynamicExtensionComponent implements OnChanges, OnDestroy {
   /**
    * Creates an instance of `DynamicExtensionComponent` and initializes its dependencies and internal state.
    * @zh 创建 `DynamicExtensionComponent` 实例，并初始化其依赖项与内部状态。
-   * @param componentFactoryResolver - Injected or initial component factory resolver (`ComponentFactoryResolver`) / 注入或传入的组件工厂解析器（`ComponentFactoryResolver`）
    */
-  constructor( private componentFactoryResolver: ComponentFactoryResolver) { }
+  constructor() { }
 
   /**
    * Angular lifecycle hook invoked when data-bound input properties change.
@@ -122,11 +120,8 @@ export class DynamicExtensionComponent implements OnChanges, OnDestroy {
     const factory = Dui.getComponentFactory(this.xtype);
     if (factory) {
       const component = factory.componentType;
-      const componentFactory = this.componentFactoryResolver.resolveComponentFactory(component);
-      if (componentFactory) {
-        this.content.clear();
-        this.componentRef = this.content.createComponent(componentFactory, 0);
-      }
+      this.content.clear();
+      this.componentRef = this.content.createComponent(component, { index: 0 });
     } else {
       throw new Error(this.xtype + ' not exits in factory');
     }

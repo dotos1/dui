@@ -493,10 +493,102 @@ export class MatCarouselComponent
   }
 
   /**
+   * Property `pointerStartX` (`number`) storing pointer start X coordinate.
+   * @zh 属性 `pointerStartX`（类型：`number`），记录指针按下时的起始横向坐标。
+   */
+  private pointerStartX: number = 0;
+
+  /**
+   * Property `pointerStartY` (`number`) storing pointer start Y coordinate.
+   * @zh 属性 `pointerStartY`（类型：`number`），记录指针按下时的起始纵向坐标。
+   */
+  private pointerStartY: number = 0;
+
+  /**
+   * Property `pointerStartTime` (`number`) storing pointer start timestamp.
+   * @zh 属性 `pointerStartTime`（类型：`number`），记录指针按下时的时间戳。
+   */
+  private pointerStartTime: number = 0;
+
+  /**
+   * Property `isPointerDragging` (`boolean`) storing active pointer drag state.
+   * @zh 属性 `isPointerDragging`（类型：`boolean`），标记当前是否处于拖拽滑动状态。
+   */
+  private isPointerDragging: boolean = false;
+
+  /**
+   * Handles pointer down on a slide to start native pointer pan tracking.
+   * @zh 处理幻灯片上的指针按下事件以启动原生滑动追踪。
+   * @param event - event parameter (`PointerEvent`) / 指针事件参数（`PointerEvent`）
+   * @param slideElem - slide elem parameter (`HTMLElement`) / 幻灯片元素参数（`HTMLElement`）
+   */
+  public onPointerDown(event: PointerEvent, slideElem: HTMLElement): void {
+    if (event.pointerType === 'mouse' && event.button !== 0) {
+      return;
+    }
+    this.isPointerDragging = true;
+    this.pointerStartX = event.clientX;
+    this.pointerStartY = event.clientY;
+    this.pointerStartTime = Date.now();
+    if (typeof slideElem.setPointerCapture === 'function') {
+      try {
+        slideElem.setPointerCapture(event.pointerId);
+      } catch {
+        // 忽略合成事件下无活动指针捕获的异常
+      }
+    }
+  }
+
+  /**
+   * Handles pointer move on a slide and delegates horizontal pan translation.
+   * @zh 处理幻灯片上的指针移动事件并委托横向平移计算。
+   * @param event - event parameter (`PointerEvent`) / 指针事件参数（`PointerEvent`）
+   * @param slideElem - slide elem parameter (`HTMLElement`) / 幻灯片元素参数（`HTMLElement`）
+   */
+  public onPointerMove(event: PointerEvent, slideElem: HTMLElement): void {
+    if (!this.isPointerDragging) {
+      return;
+    }
+    const deltaX: number = event.clientX - this.pointerStartX;
+    const deltaY: number = event.clientY - this.pointerStartY;
+    const elapsed: number = Math.max(1, Date.now() - this.pointerStartTime);
+    this.onPan(
+      {
+        deltaX,
+        velocityX: deltaX / elapsed,
+        velocityY: deltaY / elapsed,
+      },
+      slideElem
+    );
+  }
+
+  /**
+   * Handles pointer up/cancel on a slide to finalize native pointer swipe.
+   * @zh 处理幻灯片上的指针抬起或取消事件以完成切换判定。
+   * @param event - event parameter (`PointerEvent`) / 指针事件参数（`PointerEvent`）
+   * @param slideElem - slide elem parameter (`HTMLElement`) / 幻灯片元素参数（`HTMLElement`）
+   */
+  public onPointerUp(event: PointerEvent, slideElem: HTMLElement): void {
+    if (!this.isPointerDragging) {
+      return;
+    }
+    this.isPointerDragging = false;
+    if (typeof slideElem.releasePointerCapture === 'function') {
+      try {
+        slideElem.releasePointerCapture(event.pointerId);
+      } catch {
+        // 忽略未捕获指针时的释放异常
+      }
+    }
+    const deltaX: number = event.clientX - this.pointerStartX;
+    this.onPanEnd({ deltaX }, slideElem);
+  }
+
+  /**
    * Handles an in-progress pan/swipe gesture, translating the slide list to follow the pointer.
    * @zh 处理正在进行中的滑动/拖拽手势，使幻灯片列表跟随指针平移。
    */
-  public onPan(event, slideElem: HTMLElement): void {
+  public onPan(event: { deltaX: number; velocityX: number; velocityY: number }, slideElem: HTMLElement): void {
     // https://github.com/angular/angular/issues/10541#issuecomment-346539242
     // if y velocity is greater, it's a panup/pandown, so ignore.
     if (Math.abs(event.velocityY) > Math.abs(event.velocityX)) {
@@ -520,7 +612,7 @@ export class MatCarouselComponent
    * how far the pointer moved.
    * @zh 处理滑动/拖拽手势结束：根据指针移动距离前进到下一张或还原到当前幻灯片。
    */
-  public onPanEnd(event, slideElem: HTMLElement): void {
+  public onPanEnd(event: { deltaX: number }, slideElem: HTMLElement): void {
     this.renderer.removeStyle(slideElem, 'cursor');
 
     if (

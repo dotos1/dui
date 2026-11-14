@@ -3,7 +3,7 @@
  * @zh 模块文件 `src/ux/windows/window/components/named-outlet/named-outlet.directive.ts`，提供已名称outlet指令相关的定义与实现。
  */
 
-import { ChangeDetectorRef, ComponentFactoryResolver, Directive, EventEmitter, Input,  OnDestroy,  OnInit, Output, ViewContainerRef } from '@angular/core';
+import { ChangeDetectorRef, Directive, EventEmitter, Input, OnDestroy, OnInit, Output, ViewContainerRef } from '@angular/core';
 import { ChildrenOutletContexts,  Router, RouterOutlet } from '@angular/router';
 import { RouteService } from './route.service';
 
@@ -45,7 +45,6 @@ export class NamedOutletDirective implements OnInit,OnDestroy {
   constructor(
     private parentContexts: ChildrenOutletContexts,
     private location: ViewContainerRef,
-    private resolver: ComponentFactoryResolver,
     private changeDetector: ChangeDetectorRef,
     protected router: Router,
     private route: RouteService
@@ -56,7 +55,7 @@ export class NamedOutletDirective implements OnInit,OnDestroy {
    * @zh Angular 生命周期钩子：在组件或指令的输入属性初始化完成后调用一次。
    */
   ngOnInit(): void {
-    this.outlet = this.route.createRouterOutlet(this.parentContexts, this.location, this.resolver, this.name, this.changeDetector);
+    this.outlet = this.route.createRouterOutlet(this.parentContexts, this.location, undefined, this.name, this.changeDetector);
     this.outlet.ngOnInit();
     this.initialized.next(true);
   }

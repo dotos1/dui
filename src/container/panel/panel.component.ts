@@ -5,7 +5,7 @@
 
 
 import { DuiConfig } from '@dotos/dui/base';
-import { AfterViewInit, ChangeDetectorRef, Component, ComponentFactoryResolver, ElementRef, EventEmitter, Injector, Input, OnChanges, OnDestroy, OnInit, Output, Renderer2, SimpleChanges } from '@angular/core';
+import { AfterViewInit, ChangeDetectorRef, Component, ElementRef, EventEmitter, Injector, Input, OnChanges, OnDestroy, OnInit, Output, Renderer2, SimpleChanges } from '@angular/core';
 import {forEach}  from 'lodash-es';
 import { Observable, Subject } from 'rxjs';
 import { debounceTime } from 'rxjs/operators';
@@ -279,10 +279,9 @@ export class PanelComponent extends AbstractPanel implements ILayoutTogglable,On
   constructor(
     protected override _element: ElementRef,
     protected override renderer: Renderer2,
-    public override resolver: ComponentFactoryResolver,
     public override injector: Injector,
     public override detectRef: ChangeDetectorRef) {
-    super(_element, renderer, resolver, injector, detectRef);
+    super(_element, renderer, injector, detectRef);
     this.el = this._element.nativeElement;
   }
 
