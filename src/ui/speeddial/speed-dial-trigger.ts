@@ -17,7 +17,8 @@ import { SpeedDialComponent } from './speed-dial';
         <ng-content *ngIf="type==='mat-mini-fab'" select="[mat-mini-fab]"></ng-content>`,
   host: {
     hostID: 'speed-dial-trigger' + Math.random().toString(36).substring(2, 15)
-  }
+  },
+  standalone: false
 })
 export class SpeedDialTriggerComponent {
 

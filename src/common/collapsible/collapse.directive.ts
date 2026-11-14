@@ -11,7 +11,8 @@ import {  Directive,  Input,  Output,  EventEmitter,  HostListener,  ElementRef,
  * @zh 点击宿主元素时，切换目标元素上的 `dui-collapsed` 类。内部用于 {@link CollapsibleComponent} 的箭头图标，也可独立使用。
  */
 @Directive({
-  selector: '[duiCollapse]'
+  selector: '[duiCollapse]',
+  standalone: false
 })
 export class CollapseDirective {
   /**

@@ -25,7 +25,8 @@ import { ILayoutTogglable } from './layout-toggle';
   host: {
     '[style.flex]': 'flex',
     hostID: 'dui-panel' + Math.random().toString(36).substring(2, 15),
-  }
+  },
+  standalone: false
 })
 
 

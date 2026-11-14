@@ -31,6 +31,7 @@ type FrameName = string;
   selector: 'link-preview',
   templateUrl: './link-preview.component.html',
   styleUrls: ['./link-preview.component.scss'],
+  standalone: false,
   
 })
 export class LinkPreviewComponent implements OnChanges, OnDestroy {

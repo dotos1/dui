@@ -121,7 +121,8 @@ interface MatFieldConfig extends FieldConfig {
         html.is-phone dui-field .mat-mdc-form-field-hint-wrapper { position: static; }
   `],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  host: { hostID: 'mat-form-field-wrapper' + Math.random().toString(36).substring(2, 15) }
+  host: { hostID: 'mat-form-field-wrapper' + Math.random().toString(36).substring(2, 15) },
+  standalone: false
 })
 export class WrapperFormField extends FieldWrapper<MatFieldConfig> implements OnInit, OnDestroy, AfterViewInit, AfterContentChecked {
   /**

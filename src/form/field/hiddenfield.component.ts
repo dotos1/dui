@@ -16,7 +16,8 @@ import { MatField } from '../base/mat.field';
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: {
     hostID: 'hidden-field' + Math.random().toString(36).substring(2, 15)
-  }
+  },
+  standalone: false
 })
 export class HiddenFieldComponent extends MatField {
 

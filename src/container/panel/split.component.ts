@@ -16,7 +16,8 @@ import { Component, Input, ElementRef, Renderer2 } from '@angular/core';
   template: '<span class="Resizer"></span>',
   host: {
     hostID: 'dui-split-gutter' + Math.random().toString(36).substring(2, 15),
-  }
+  },
+  standalone: false
 })
 export class SplitComponent {
 

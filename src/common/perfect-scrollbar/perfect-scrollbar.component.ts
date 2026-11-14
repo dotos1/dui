@@ -48,6 +48,7 @@ import {
         './perfect-scrollbar.component.scss',
     ],
     encapsulation: ViewEncapsulation.None,
+    standalone: false,
 })
 export class PerfectScrollbarComponent implements OnInit, OnDestroy, DoCheck {
     /**

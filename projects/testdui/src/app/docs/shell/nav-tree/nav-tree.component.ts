@@ -18,6 +18,7 @@ import { getCategoryMeta } from '../../models/category-meta';
   selector: 'app-nav-tree',
   templateUrl: './nav-tree.component.html',
   styleUrls: ['./nav-tree.component.scss'],
+  standalone: false,
 })
 export class NavTreeComponent {
   /**

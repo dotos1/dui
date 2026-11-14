@@ -23,6 +23,7 @@ import { EditorService } from '../../../editor.service';
   selector: 'ux-bubble',
   templateUrl: './bubble.component.html',
   styleUrls: ['./bubble.component.scss'],
+  standalone: false,
   
 })
 export class BubbleComponent implements OnInit, OnDestroy {

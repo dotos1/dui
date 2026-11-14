@@ -32,6 +32,7 @@ import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
   styleUrls: ['./breadcrumbs.component.scss'],
   templateUrl: './breadcrumbs.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: false,
 })
 export class BreadcrumbsComponent
   implements OnInit, AfterContentInit, OnDestroy

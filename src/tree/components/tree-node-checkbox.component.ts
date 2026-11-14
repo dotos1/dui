@@ -18,7 +18,8 @@ import { TreeNode } from '../models/tree-node.model';
     changeDetection: ChangeDetectionStrategy.OnPush, 
   host: {
     hostID: 'tree-node-checkbox' + Math.random().toString(36).substring(2, 15)
-  }
+  },
+  standalone: false
 })
 export class TreeNodeCheckboxComponent {
   //同 TreeNodeChildrenComponent：模板在 mobxAutorun 里，换实例必须走 observable

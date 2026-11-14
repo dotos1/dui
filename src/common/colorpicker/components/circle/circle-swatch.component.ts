@@ -38,7 +38,8 @@ import { uuid } from '@dotos/dui/util';
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
   preserveWhitespaces: false,
-   host: { 'hostID': 'circle-swatch-' + uuid() }
+   host: { 'hostID': 'circle-swatch-' + uuid() },
+  standalone: false
 })
 /**
  * A single round color swatch used by {@link CircleComponent}'s palette grid.

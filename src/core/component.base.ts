@@ -19,7 +19,7 @@ export interface DuiPlugin {
   ptype?: string;
 }
 
-@Directive()
+@Directive({ standalone: false })
 export class ComponentBase extends Base<HTMLElement> implements OnInit,DoCheck, OnChanges,OnDestroy, AfterViewChecked, AfterViewInit, AfterContentInit, AfterContentChecked {
 
   /**

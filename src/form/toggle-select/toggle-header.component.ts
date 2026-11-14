@@ -69,6 +69,7 @@ export type ScrollDirection = 'after' | 'before';
   {
     // eslint-disable-next-line @angular-eslint/directive-selector
     selector: 'toggle-option',
+    standalone: false,
   }
 )
 // eslint-disable-next-line @angular-eslint/directive-class-suffix
@@ -102,7 +103,7 @@ export class ToggleOption {
  * Angular directive `_ToggleBase` attaching toggle base behavior to host DOM elements.
  * @zh Angular 指令 `_ToggleBase`，为宿主 DOM 元素附加开关基础行为。
  */
-@Directive()
+@Directive({ standalone: false })
 export abstract class _ToggleBase implements AfterContentInit, OnDestroy {
 
   /**
@@ -177,7 +178,8 @@ export abstract class _ToggleBase implements AfterContentInit, OnDestroy {
 @Component({
   selector: 'toggle-header',
   templateUrl: './toggle-header.component.html',
-  styleUrls: ['./toggle-header.component.scss']
+  styleUrls: ['./toggle-header.component.scss'],
+  standalone: false
 })
 export class ToggleHeaderComponent extends _ToggleBase implements OnInit, AfterViewInit, AfterContentInit,
   AfterContentChecked, AfterViewChecked, OnDestroy {

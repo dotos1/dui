@@ -15,7 +15,8 @@ import { CardViewItem } from '../../interfaces';
 @Component({
   selector: 'dui-card-view',
   templateUrl: './card-view.component.html',
-  styleUrls: ['./card-view.component.scss']
+  styleUrls: ['./card-view.component.scss'],
+  standalone: false
 })
 export class CardViewComponent {
   /**

@@ -19,7 +19,8 @@ import { Subscription } from 'rxjs';
 @Injectable()
 @Pipe({
   name: 'translate',
-  pure: false // required to update the value when the promise is resolved
+  pure: false,
+  standalone: false // required to update the value when the promise is resolved
 })
 export class TranslatePipe implements PipeTransform, OnDestroy {
   /**

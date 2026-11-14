@@ -18,6 +18,7 @@ import { FieldArrayType, FormBuilder, FormConfig } from '@dotos/dui/core/form';
   host: { 
     hostID: 'row-editor' + Math.random().toString(36).substring(2, 15),
   },
+  standalone: false,
 })
 export class RowEditorComponent extends FieldArrayType {
 

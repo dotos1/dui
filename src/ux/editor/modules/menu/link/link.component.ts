@@ -22,6 +22,7 @@ import { Link as LinkCommand } from '../MenuCommands';
 @Component({
   selector: 'ux-link',
   templateUrl: './link.component.html',
+  standalone: false,
   
 })
 

@@ -25,7 +25,8 @@ import { ɵCommonCssClassEnum } from '../../../core/enums/common-css-class.enum'
         'class': 'dui-title-bar'
     },
     encapsulation: ViewEncapsulation.None,
-    changeDetection: ChangeDetectionStrategy.OnPush
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class TitleBarComponent extends ɵOsBaseComponent {
     /**

@@ -17,7 +17,8 @@ import { getContrastingColor } from '@dotos/dui/common/colorpicker/common';
   styleUrls: ['./google-color.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   preserveWhitespaces: false,
-  host: { 'hostID': 'goog-color-' + Math.random().toString(36).substring(2, 15) }
+  host: { 'hostID': 'goog-color-' + Math.random().toString(36).substring(2, 15) },
+  standalone: false
 })
 /**
  * A single square color swatch used by {@link GoogColorPickerComponent}'s palette grid.

@@ -64,6 +64,7 @@ export const DATEFIELD_VALIDATORS = {
     
   },
   encapsulation: ViewEncapsulation.None,
+  standalone: false,
 })
 
 

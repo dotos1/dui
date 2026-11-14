@@ -13,7 +13,8 @@ import { SvgContainerComponent } from '../components/svg-container.component';
  * @zh Angular 指令 `SvgPathDirective`（selector: 'svg-path'），为宿主 DOM 元素附加SVG矢量图路径指令行为。
  */
 @Directive({
-  selector: 'svg-path'
+  selector: 'svg-path',
+  standalone: false
 })
 export class SvgPathDirective implements AfterViewChecked, OnChanges, OnDestroy {
   /**

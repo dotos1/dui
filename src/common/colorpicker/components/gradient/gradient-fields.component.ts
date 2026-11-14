@@ -18,6 +18,7 @@ import { TinyColor } from '@dotos/dui/core/color';
   styleUrls: ['./gradient-fields.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   preserveWhitespaces: false,
+  standalone: false,
   
 })
 export class GradientFieldsComponent {

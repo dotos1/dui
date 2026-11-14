@@ -20,6 +20,7 @@ import { TinyColor } from '@dotos/dui/core/color';
   styleUrls: ['./shade.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   preserveWhitespaces: false,
+  standalone: false,
   
 })
 /**

@@ -15,7 +15,8 @@ import {KeyboardShortcutsService} from './keyboard-shortcuts.service';
  * （`ngKeyboardShortcuts`），输入变化时会重新注册，并可通过 `disabled` 开关。
  */
 @Directive({
-    selector: '[KeyboardShortcuts]'
+    selector: '[KeyboardShortcuts]',
+    standalone: false
 })
 export class KeyboardShortcutsDirective implements OnDestroy, OnChanges {
 

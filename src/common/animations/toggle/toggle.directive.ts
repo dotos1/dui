@@ -15,6 +15,7 @@ import { animate, AnimationBuilder, AnimationPlayer, AUTO_STYLE, style, animatio
  */
 @Directive({
   selector: '[duiToggle]',
+  standalone: false,
 })
 export class ToggleDirective {
 

@@ -37,7 +37,8 @@ import { ColorWrap, toState } from '@dotos/dui/common/colorpicker/common';
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
   preserveWhitespaces: false,
-  host: { 'hostID': 'alpha-picker-' + Math.random().toString(36).substring(2, 15) }
+  host: { 'hostID': 'alpha-picker-' + Math.random().toString(36).substring(2, 15) },
+  standalone: false
 })
 /**
  * Standalone alpha (opacity) slider picker.

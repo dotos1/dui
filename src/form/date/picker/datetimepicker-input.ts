@@ -95,7 +95,8 @@ export class MatDatetimepickerInputEvent<D> {
     "(blur)": "_onBlur()",
     "(keydown)": "_onKeydown($event)"
   },
-  exportAs: "matDatepickerInput"
+  exportAs: "matDatepickerInput",
+  standalone: false
 })
 export class MatDatetimepickerInput<D> implements AfterContentInit, ControlValueAccessor, OnDestroy,
   Validator {

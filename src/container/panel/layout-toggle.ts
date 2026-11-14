@@ -38,7 +38,7 @@ export const _DuiLayoutToggleMixinBase = mixinDisabled(LayoutToggleBase);
  * Angular directive `LayoutToggle` attaching layout toggle behavior to host DOM elements.
  * @zh Angular 指令 `LayoutToggle`，为宿主 DOM 元素附加布局开关行为。
  */
-@Directive()
+@Directive({ standalone: false })
 export abstract class LayoutToggle extends _DuiLayoutToggleMixinBase implements AfterViewInit, OnDestroy, ICanDisable {
 
   /**

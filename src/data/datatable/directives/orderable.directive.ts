@@ -15,7 +15,7 @@ import { DOCUMENT } from "@angular/common";
  * Angular directive `OrderableDirective` (selector: '[orderable]') attaching orderable directive behavior to host DOM elements.
  * @zh Angular 指令 `OrderableDirective`（selector: '[orderable]'），为宿主 DOM 元素附加Orderable指令行为。
  */
-@Directive({ selector: '[orderable]' })
+@Directive({ selector: '[orderable]', standalone: false })
 export class OrderableDirective implements AfterContentInit, OnDestroy {
   /**
    * Output event emitter `reorder` (`EventEmitter<any>`) firing when reorder occurs.

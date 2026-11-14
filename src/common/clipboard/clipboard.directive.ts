@@ -16,7 +16,8 @@ import { ClipboardComponent } from './clipboard.component';
  */
 @Directive({
   selector: '[dui-clipboard]',
-  exportAs: 'duiClipboard'
+  exportAs: 'duiClipboard',
+  standalone: false
 })
 export class ClipboardDirective {
 

@@ -44,7 +44,8 @@ import { LocaleService } from './locale.service';
       useExisting: forwardRef(() => DaterangepickerDirective),
       multi: true
     }
-  ]
+  ],
+  standalone: false
 })
 // eslint-disable-next-line @angular-eslint/no-conflicting-lifecycle
 export class DaterangepickerDirective implements OnInit, OnChanges, DoCheck, OnDestroy {

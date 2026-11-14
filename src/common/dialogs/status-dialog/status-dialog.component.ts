@@ -39,6 +39,7 @@ export type StatusDialogDetailsLabels = {
   selector: 'dui-status-dialog',
   templateUrl: './status-dialog.component.html',
   styleUrls: ['./status-dialog.component.scss'],
+  standalone: false,
 
 })
 export class StatusDialogComponent {

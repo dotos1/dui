@@ -15,6 +15,7 @@ import { MatDialogRef } from '@angular/material/dialog';
   selector: 'dui-alert-dialog',
   templateUrl: './alert-dialog.component.html',
   styleUrls: ['./alert-dialog.component.scss'],
+  standalone: false,
 
 })
 export class AlertDialogComponent {

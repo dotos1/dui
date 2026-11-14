@@ -68,7 +68,8 @@ export interface DuiCardConfig extends DuiConfig {
   host: {
     style: 'flex:1;',
     hostID: 'dui-card' + Math.random().toString(36).substring(2, 15),
-  }
+  },
+  standalone: false
 })
 export class DuiCardComponent extends Container implements OnChanges{
 

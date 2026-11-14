@@ -13,7 +13,8 @@ import { Component, ViewEncapsulation } from '@angular/core';
   selector: 'global-style',
   templateUrl: './global-style.component.html',
   styleUrls: ['./xterm.scss'],
-  encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.None,
+  standalone: false
 })
 export class GlobalStyleComponent {
 

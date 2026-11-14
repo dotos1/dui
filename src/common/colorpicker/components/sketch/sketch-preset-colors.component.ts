@@ -50,6 +50,7 @@ import { Shape } from '@dotos/dui/common/colorpicker/common';
   host: {
     'hostID': 'sketch-preset-colors-' + Math.random().toString(36).substring(2, 15),
   },
+  standalone: false,
 })
 /**
  * A row of preset color swatches shown beneath {@link SketchComponent}'s main controls.

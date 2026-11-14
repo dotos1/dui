@@ -15,7 +15,7 @@ import { IArea } from './interface/IArea';
  * Angular directive `AbstractPanel` attaching abstract panel behavior to host DOM elements.
  * @zh Angular 指令 `AbstractPanel`，为宿主 DOM 元素附加Abstract面板行为。
  */
-@Directive()
+@Directive({ standalone: false })
 export class AbstractPanel extends Container implements AfterViewInit,OnDestroy{
 
 

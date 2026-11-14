@@ -35,6 +35,7 @@ import { CheckboardModule } from './checkboard.component';
     </div>
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: false,
   
 })
 /**

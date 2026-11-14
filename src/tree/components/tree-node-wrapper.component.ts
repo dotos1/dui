@@ -28,7 +28,8 @@ import { TreeNode } from '../models/tree-node.model';
   changeDetection: ChangeDetectionStrategy.OnPush, 
   host: {
     hostID: 'tree-node-wrapper' + Math.random().toString(36).substring(2, 15) 
-  }
+  },
+  standalone: false
 })
 export class TreeNodeWrapperComponent implements OnInit, OnDestroy {
   //同 TreeNodeChildrenComponent：模板在 treeMobxAutorun 里，换实例必须走 observable

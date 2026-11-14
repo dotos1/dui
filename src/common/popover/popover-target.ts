@@ -13,7 +13,8 @@ import { Directive, ElementRef } from '@angular/core';
  */
 @Directive({
   selector: 'popover-target, [popoverTarget]',
-  exportAs: 'popoverTarget'
+  exportAs: 'popoverTarget',
+  standalone: false
 })
 
 export class PopoverTarget {

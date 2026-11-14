@@ -48,6 +48,7 @@ import {
 @Directive({
     selector: '[perfectScrollbar]',
     exportAs: 'ngxPerfectScrollbar',
+    standalone: false,
 })
 export class PerfectScrollbarDirective implements OnInit, OnDestroy, DoCheck, OnChanges {
     /**

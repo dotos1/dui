@@ -22,6 +22,7 @@ import { CommandPaletteCreatorService } from './services/command-palette-creator
   styleUrls: ['./command-palette.component.scss'],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: false,
   
 })
 export class CommandPaletteComponent implements OnInit, OnDestroy {

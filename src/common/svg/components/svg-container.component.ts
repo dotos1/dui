@@ -15,7 +15,8 @@ import { SVG, Container, Pattern, Rect } from '@svgdotjs/svg.js';
 @Component({
   selector: 'svg-container',
   templateUrl: 'svg-container.component.html',
-  styleUrls: ['./svg-container.component.scss']
+  styleUrls: ['./svg-container.component.scss'],
+  standalone: false
 })
 export class SvgContainerComponent implements AfterViewInit, OnChanges {
   /**

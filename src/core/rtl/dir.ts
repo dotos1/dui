@@ -26,7 +26,8 @@ export type LayoutDirection = 'ltr' | 'rtl';
 @Directive({
   selector: '[dir]',
   // TODO(hansl): maybe `$implicit` isn't the best option here, but for now that's the best we got.
-  exportAs: '$implicit'
+  exportAs: '$implicit',
+  standalone: false
 })
 export class Dir {
   /**

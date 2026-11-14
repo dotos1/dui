@@ -313,6 +313,7 @@ export const MOUSE_MOVE_THROTTLE_MS: number = 50;
 @Directive({
   selector: '[duiResizable]',
   exportAs: 'duiResizable',
+  standalone: false,
 })
 export class ResizableDirective implements OnInit, OnDestroy {
   /**

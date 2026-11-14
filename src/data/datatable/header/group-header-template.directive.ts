@@ -10,7 +10,8 @@ import { Directive, TemplateRef } from '@angular/core';
  * @zh Angular 指令 `DatatableGroupHeaderTemplateDirective`（selector: '[dui-datatable-group-header-template]'），为宿主 DOM 元素附加数据表格分组表头模板指令行为。
  */
 @Directive({
-  selector: '[dui-datatable-group-header-template]'
+  selector: '[dui-datatable-group-header-template]',
+  standalone: false
 })
 export class DatatableGroupHeaderTemplateDirective {
   /**

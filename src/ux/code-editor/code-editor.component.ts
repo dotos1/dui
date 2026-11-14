@@ -56,6 +56,7 @@ declare const require;
     useExisting: forwardRef(() => ExtCodeEditorComponent),
     multi: true,
   }],
+  standalone: false,
   
 })
 export class ExtCodeEditorComponent implements OnInit, AfterViewInit, OnDestroy, ControlValueAccessor {

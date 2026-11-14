@@ -28,7 +28,7 @@ import { FeatureService } from './feature.service';
 
  * @zh Angular 指令 `FeatureDirective`（selector: '[duiFeature]'），为宿主 DOM 元素附加Feature指令行为。
  */
-@Directive({ selector: '[duiFeature]' })
+@Directive({ selector: '[duiFeature]', standalone: false })
 export class FeatureDirective implements OnInit, OnDestroy {
 
   /**

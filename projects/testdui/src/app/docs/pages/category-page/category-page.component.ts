@@ -20,6 +20,7 @@ import { getCategoryMeta } from '../../models/category-meta';
   selector: 'app-category-page',
   templateUrl: './category-page.component.html',
   styleUrls: ['./category-page.component.scss'],
+  standalone: false,
 })
 export class CategoryPageComponent {
   /**

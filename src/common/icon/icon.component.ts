@@ -32,7 +32,8 @@ import { FontLoaderService } from './font-loader.service';
   encapsulation: ViewEncapsulation.None,
   host: {
     hostID: 'dui-icon' + Math.random().toString(36).substring(2, 15)
-  }
+  },
+  standalone: false
 })
 export class IconComponent {
   /**

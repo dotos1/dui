@@ -92,6 +92,7 @@ import { TinyColor } from '@dotos/dui/core/color';
   host: {
     'hostID': 'sketch-fields-' + Math.random().toString(36).substring(2, 15),
   },
+  standalone: false,
 })
 /**
  * Editable hex/rgb/alpha input fields used by {@link SketchComponent}.

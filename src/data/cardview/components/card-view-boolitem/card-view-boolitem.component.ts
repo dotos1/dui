@@ -17,7 +17,8 @@ import { CardViewUpdateService } from '../../services';
  */
 @Component({
   selector: 'dui-card-view-boolitem',
-  templateUrl: './card-view-boolitem.component.html'
+  templateUrl: './card-view-boolitem.component.html',
+  standalone: false
 })
 
 export class CardViewBoolItemComponent implements OnDestroy {

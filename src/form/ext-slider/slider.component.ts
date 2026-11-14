@@ -19,6 +19,7 @@ import { MatSliderThumb  } from '@angular/material/slider';
     hostID: 'slider-field' + Math.random().toString(36).substring(2, 15),
   },
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: false,
 })
 export class SliderFieldComponent extends MatField {
 

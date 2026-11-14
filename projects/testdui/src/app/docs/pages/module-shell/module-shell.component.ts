@@ -20,6 +20,7 @@ import { DocsManifestModule } from '../../models/docs-manifest.model';
   selector: 'app-module-shell',
   templateUrl: './module-shell.component.html',
   styleUrls: ['./module-shell.component.scss'],
+  standalone: false,
 })
 export class ModuleShellComponent {
   /**

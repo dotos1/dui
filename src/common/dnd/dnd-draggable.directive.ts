@@ -30,7 +30,8 @@ import { EffectAllowed } from "./dnd-types";
  * 取代浏览器默认的拖拽幽灵图。
  */
 @Directive( {
-  selector: "[dndDragImageRef]"
+  selector: "[dndDragImageRef]",
+  standalone: false
 } )
 export class DndDragImageRefDirective {
 
@@ -53,7 +54,8 @@ export class DndDragImageRefDirective {
  * 会发出开始/拖拽中/结束事件，以及最终的放置效果（复制/移动/链接/取消）。
  */
 @Directive( {
-  selector: "[dndDraggable]"
+  selector: "[dndDraggable]",
+  standalone: false
 } )
 export class DndDraggableDirective implements AfterViewInit, OnDestroy {
 

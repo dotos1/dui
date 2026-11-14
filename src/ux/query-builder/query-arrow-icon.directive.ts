@@ -9,7 +9,7 @@ import { Directive, TemplateRef } from '@angular/core';
  * Angular directive `QueryArrowIconDirective` (selector: '[queryArrowIcon]') attaching query arrow icon directive behavior to host DOM elements.
  * @zh Angular 指令 `QueryArrowIconDirective`（selector: '[queryArrowIcon]'），为宿主 DOM 元素附加查询箭头图标指令行为。
  */
-@Directive({selector: '[queryArrowIcon]'})
+@Directive({selector: '[queryArrowIcon]', standalone: false})
 export class QueryArrowIconDirective {
   /**
    * Creates an instance of `QueryArrowIconDirective` and initializes its dependencies and internal state.

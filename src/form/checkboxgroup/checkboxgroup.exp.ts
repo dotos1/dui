@@ -80,6 +80,7 @@ export const _MatCheckGroupMixinBase = mixinDisabled(MatCheckGroupBase);
     
   },
   inputs: ['disabled'],
+  standalone: false,
 
 })
 export class MatCheckGroup extends MatField implements AfterContentInit, ControlValueAccessor, CanDisable {

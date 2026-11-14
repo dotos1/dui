@@ -20,7 +20,8 @@ import { AppendToBodyConfig } from '../classes';
  * @zh Angular 指令 `AppendToBodyDirective`（selector: '[osAppendToBody]'），为宿主 DOM 元素附加追加转换为主体指令行为。
  */
 @Directive({
-    selector: '[osAppendToBody]'
+    selector: '[osAppendToBody]',
+    standalone: false
 })
 export class AppendToBodyDirective implements AfterViewInit, OnDestroy, OnChanges {
     /**

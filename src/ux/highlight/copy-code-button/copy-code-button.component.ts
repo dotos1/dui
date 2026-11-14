@@ -29,6 +29,7 @@ export interface ICopyCodeTooltips {
 @Component({
   selector: 'copy-code-button',
   templateUrl: './copy-code-button.component.html',
+  standalone: false,
   
 })
 export class CopyCodeButtonComponent {

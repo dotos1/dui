@@ -15,6 +15,7 @@ import { getInputboolean, getInputPositiveNumber } from '../utils'
 @Directive({
   selector: 'dui-split-area, [dui-split-area]',
   exportAs: 'asSplitArea',
+  standalone: false,
 })
 export class SplitAreaDirective implements OnInit, OnDestroy {
   /**

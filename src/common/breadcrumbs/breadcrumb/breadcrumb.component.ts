@@ -21,6 +21,7 @@ import {
   styleUrls: ['./breadcrumb.component.scss'],
   templateUrl: './breadcrumb.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: false,
 })
 export class BreadcrumbComponent implements AfterViewInit {
   /**

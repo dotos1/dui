@@ -9,7 +9,7 @@ import { Directive, TemplateRef } from '@angular/core';
  * Angular directive `QueryEmptyWarningDirective` (selector: '[queryEmptyWarning]') attaching query empty warning directive behavior to host DOM elements.
  * @zh Angular 指令 `QueryEmptyWarningDirective`（selector: '[queryEmptyWarning]'），为宿主 DOM 元素附加查询空警告指令行为。
  */
-@Directive({selector: '[queryEmptyWarning]'})
+@Directive({selector: '[queryEmptyWarning]', standalone: false})
 export class QueryEmptyWarningDirective {
   /**
    * Creates an instance of `QueryEmptyWarningDirective` and initializes its dependencies and internal state.

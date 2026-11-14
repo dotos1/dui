@@ -13,5 +13,6 @@ import { Component } from '@angular/core';
   selector: 'app-docs-shell',
   templateUrl: './docs-shell.component.html',
   styleUrls: ['./docs-shell.component.scss'],
+  standalone: false,
 })
 export class DocsShellComponent {}
