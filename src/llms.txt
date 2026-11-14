@@ -1,0 +1,40 @@
+# @dotos/dui v8 (Angular 22 Zoneless + Signals + M3 Design System)
+
+> Enterprise-grade Angular 22 UI Foundation Library (`@dotos/dui@8.0.0-next.1`).
+> 面向欧美与全球大型企业客户的下一代高密度工业/企业级 Angular 22 UI 底座库。
+
+## Quick Architecture Rules / 核心架构准则
+
+1. **100% Standalone + Signals + OnPush + Zoneless** for all new features and AI-generated components (`@dotos/dui/standalone` & `@dotos/dui/schema`).
+2. **Bootstrap**: Register `provideDuiZoneless()` from `@dotos/dui/standalone` in `bootstrapApplication(AppComponent, { providers: [provideDuiZoneless()] })`.
+3. **Zero `any` Schema Driven Forms**: Validate every declarative form config with `validateDuiFormSchema(raw)` from `@dotos/dui/schema` before rendering `<dui-standalone-form>`.
+4. **Pure CSS Grid / Flexbox + M3 Tokens**: Style components with `--dui-*` and `--mat-sys-*` CSS custom properties across `light`, `dark`, and `darkblue` industrial themes.
+
+## Five Strict Anti-Pattern Bans / 五大反模式禁令
+
+1. **NO `NgModule` or `standalone: false` in new components** — 严禁在新组件中编写 `NgModule` 或声明 `standalone: false`。
+2. **NO `Zone.js` assumptions** — 严禁假设 `Zone.js` 存在（禁止依赖 `NgZone.onMicrotaskEmpty` 或未绑定 Signal 的异步脏检查）。
+3. **NO `::ng-deep` or `.mdc-*` selectors** — 严禁编写 `::ng-deep` 穿透选择器或耦合 Material 内部私有类名 `.mdc-*`。
+4. **NO `fxLayout` / `fxFlex`** — 严禁使用 `ngx-flexible-layout` 指令，统一采用原生 CSS Grid / Flexbox。
+5. **NO `any` or double-cast (`as unknown as T`)** — 严禁使用 `any` 类型或绕过类型检查的双重断言。
+
+## Component Selection Matrix / 组件选型矩阵
+
+| Scenario / 业务场景 | Entry Point / 入口 | Selector / 选择器 | Symbol / 导出符号 |
+| --- | --- | --- | --- |
+| Primary/Tonal/Danger Action / 按钮交互 | `@dotos/dui/standalone` | `<dui-standalone-button>` | `DuiButtonComponent` |
+| Surface Container & KPI Panel / 卡片面板 | `@dotos/dui/standalone` | `<dui-standalone-card>` | `DuiCardComponent` |
+| WAI-ARIA Keyboard Tabs / 多视图标签页 | `@dotos/dui/standalone` | `<dui-standalone-tabs>` | `DuiTabsComponent` |
+| Enterprise Split Dock Workspace / 高密度停靠分栏 | `@dotos/dui/standalone` | `<dui-standalone-split-dock>` | `DuiSplitDockComponent` |
+| WAI-ARIA Signal Tree Navigation / 零 MobX 层级树 | `@dotos/dui/standalone` | `<dui-standalone-tree>` | `DuiTreeViewComponent` |
+| Zero-`any` Schema Form / 声明式企业表单 | `@dotos/dui/standalone` + `@dotos/dui/schema` | `<dui-standalone-form>` | `DuiSchemaFormComponent`, `validateDuiFormSchema` |
+| Zoneless App Bootstrap / 无 Zone 启动器 | `@dotos/dui/standalone` | — | `provideDuiZoneless()` |
+
+## Packaged AI Resources / 随包内置 AI 资源
+
+- Full API & Token Reference: [`llms-full.txt`](./llms-full.txt)
+- Golden Single-File Examples:
+  - [`examples/zoneless-Form.example.ts`](./examples/zoneless-Form.example.ts)
+  - [`examples/zoneless-tree-dock.example.ts`](./examples/zoneless-tree-dock.example.ts)
+  - [`examples/zoneless-tabs-card.example.ts`](./examples/zoneless-tabs-card.example.ts)
+- Agent Skill Specification: [`skills/dotos-ui-builder/SKILL.md`](./skills/dotos-ui-builder/SKILL.md)

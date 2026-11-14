@@ -1,8 +1,8 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
+    "rootDir": ".",
     "skipLibCheck": true,
-    "baseUrl": "./",
     "outDir": "./dist/out-tsc",
     "strict": false,
 
@@ -12,7 +12,9 @@
       ],
       "@dotos/dui/*": [
         "./src/*"
-      ]
+      ],
+      "src/*": ["./src/*"],
+      "projects/*": ["./projects/*"]
     },
     "noImplicitOverride": true,
     "noPropertyAccessFromIndexSignature": true,
@@ -32,13 +34,13 @@
     "lib": [
       "ES2022",
       "dom"
-    ],
+    ]
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
     "strictInjectionParameters": false,
     "strictInputAccessModifiers": true,
     "strictTemplates": false,
-    "typeCheckHostBindings": false,
+    "typeCheckHostBindings": false
   }
 }

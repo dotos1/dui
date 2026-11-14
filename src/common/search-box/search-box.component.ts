@@ -31,7 +31,6 @@ import { Subject, noop} from 'rxjs';
 import {  takeUntil } from 'rxjs/operators';
 import { Dui } from '@dotos/dui/core';
 import { ActivatedRoute } from '@angular/router';
-import { dotosSearchBoxTheme } from './search-box.theme';
 import { DotosConfigService, ThemeService } from '@dotos/dui/theme';
 
 /**
@@ -312,11 +311,6 @@ export class SearchBoxComponent implements ControlValueAccessor {
           this._searchVisible=true;
         }
       });
-    this._dotosConfigService.config
-    .pipe(takeUntil(this._unsubscribeAll))
-    .subscribe(() => {
-      this._themeService.loadTheme(dotosSearchBoxTheme);
-    });  
 
   }
   /**

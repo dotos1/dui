@@ -14,7 +14,6 @@ import { MONACO_EDITOR_CONFIG, MonacoEditorConfig } from './config';
 import { EditorModel } from './types';
 import { TranslateService } from '@dotos/dui/translator';
 import { DotosConfigService, ThemeService } from '@dotos/dui/theme';
-import { EditorTheme } from './editor.theme';
 
 // declare const monaco: any;
 
@@ -189,7 +188,6 @@ export class EditorComponent extends BaseEditor implements ControlValueAccessor 
       .pipe(takeUntil(this._unsubscribeAll))
       .subscribe((config) => {
         this.setTheme(config);
-        this.themeService.loadTheme(EditorTheme);
       });
   }
 

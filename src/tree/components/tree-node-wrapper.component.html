@@ -1,39 +1,47 @@
-<ng-container *treeMobxAutorun="{dontDetach: true}">
-
-<div *ngIf="!templates.treeNodeWrapperTemplate" 
-     cdkDropList 
-     class="node-wrapper" 
-     fxLayout="row" 
-     fxLayoutAlign="start center" 
-     [class.node-wrapper-active]="node.isActive"[class.node-wrapper-focused]="node.isFocused" 
-     matTooltip={{node.toolTip}}   
-     matTooltipPosition='below' 
-     [style.padding-left]="node.getNodePadding()">
-     
-  <tree-node-expander *ngIf="!node.options.expanderAlign||node.options.expanderAlign==='left'" [node]="node">
-  </tree-node-expander>
-  
-  <tree-node-checkbox *ngIf="node.options.useCheckbox&&node.checkable" [node]="node"></tree-node-checkbox>
-
-  <div  class="node-content-wrapper"
-    [class.node-content-wrapper-active]="node.isActive"[class.node-content-wrapper-focused]="node.isFocused"
-    (treeDrop)="node.onDrop($event)"
-    (treeDropDragOver)="node.mouseAction('dragOver', $event)"
-    (treeDropDragLeave)="node.mouseAction('dragLeave', $event)"
-    (treeDropDragEnter)="node.mouseAction('dragEnter', $event)"
-    [treeAllowDrop]="node.allowDrop"[allowDragoverStyling]="node.allowDragoverStyling()"
-    [treeDrag]="node"
-    [treeDragEnabled]="node.allowDrag()"
-   fxFlex>
-    <tree-node-content [node]="node" [index]="index" [template]="templates.treeNodeTemplate">
-    </tree-node-content>
-    <tree-node-expander *ngIf="node.options.expanderAlign&&node.options.expanderAlign==='right'" [node]="node">
+<ng-container *ngIf="node">
+  <div
+    *ngIf="!templates?.treeNodeWrapperTemplate"
+    cdkDropList
+    class="node-wrapper"
+    [class.node-wrapper-active]="node.isActive"
+    [class.node-wrapper-focused]="node.isFocused"
+    [matTooltip]="node.toolTip || ''"
+    matTooltipPosition="below"
+    [style.padding-left]="node.getNodePadding()">
+    <tree-node-expander
+      *ngIf="!node.options.expanderAlign || node.options.expanderAlign === 'left'"
+      [node]="node">
     </tree-node-expander>
-  </div>
-</div>
 
-<ng-container [ngTemplateOutlet]="templates.treeNodeWrapperTemplate"
-  [ngTemplateOutletContext]="{ $implicit: node, node: node, index: index, templates: templates }">
-</ng-container>
-  
+    <tree-node-checkbox
+      *ngIf="node.options.useCheckbox && node.checkable"
+      [node]="node">
+    </tree-node-checkbox>
+
+    <div
+      class="node-content-wrapper"
+      [class.node-content-wrapper-active]="node.isActive"
+      [class.node-content-wrapper-focused]="node.isFocused"
+      (treeDrop)="node.onDrop($event)"
+      (treeDropDragOver)="node.mouseAction('dragOver', $event)"
+      (treeDropDragLeave)="node.mouseAction('dragLeave', $event)"
+      (treeDropDragEnter)="node.mouseAction('dragEnter', $event)"
+      [treeAllowDrop]="node.allowDrop"
+      [allowDragoverStyling]="node.allowDragoverStyling()"
+      [treeDrag]="node"
+      [treeDragEnabled]="node.allowDrag()">
+      <tree-node-content [node]="node" [index]="index" [template]="templates?.treeNodeTemplate">
+      </tree-node-content>
+      <tree-node-expander
+        *ngIf="node.options.expanderAlign && node.options.expanderAlign === 'right'"
+        [node]="node">
+      </tree-node-expander>
+    </div>
+  </div>
+
+  <ng-container
+    *ngIf="templates?.treeNodeWrapperTemplate"
+    [ngTemplateOutlet]="templates.treeNodeWrapperTemplate"
+    [ngTemplateOutletContext]="{ $implicit: node, node: node, index: index, templates: templates }">
+  </ng-container>
 </ng-container>

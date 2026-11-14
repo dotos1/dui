@@ -15,7 +15,6 @@ import { AuthService } from '@dotos/dui/core/auth';
 import { ThemeService } from '@dotos/dui/theme';
 import {  take, takeUntil } from 'rxjs/operators';
 import { DotosConfigService } from '@dotos/dui/theme';
-import { LockTheme } from './lockscreen.theme';
 import { LocalStorageService } from '@dotos/dui/core/storage';
 
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
@@ -183,7 +182,6 @@ export class LockscreenDialog implements OnInit,OnDestroy {
       .pipe(takeUntil(this._unsubscribeAll))
       .subscribe((config) => {
         this.themeService.changeThemeWithConfig(config);
-        this.themeService.loadTheme(LockTheme);
         this.changeDetectionRef.detectChanges();
       });
       let values=this.localStore.get('dotosConfig');

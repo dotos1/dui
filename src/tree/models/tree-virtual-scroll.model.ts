@@ -1,170 +1,207 @@
 /**
- * @fileoverview Module `src/tree/models/tree-virtual-scroll.model.ts` providing tree virtual scroll model definitions and implementation.
- * @zh 模块文件 `src/tree/models/tree-virtual-scroll.model.ts`，提供树形控件虚拟滚动滚动模型相关的定义与实现。
+ * @fileoverview Module `src/tree/models/tree-virtual-scroll.model.ts` providing Signal-driven virtual scroll state and viewport calculations for trees.
+ * @zh 模块文件 `src/tree/models/tree-virtual-scroll.model.ts`，提供基于原生 Angular Signal 的树形虚拟滚动状态管理与视口节点计算逻辑（零 MobX 依赖）。
  */
 
-import { Injectable } from '@angular/core';
-import { observable, computed, action, autorun, reaction } from 'mobx';
-import { TreeModel } from './tree.model';
+import { computed, Injectable, signal } from '@angular/core';
 import { TREE_EVENTS } from '../constants/events';
+import { TreeNode } from './tree-node.model';
+import { TreeModel } from './tree.model';
 
 /**
- * Constant/variable `Y_OFFSET` defining y offset in `src/tree/models`.
- * @zh 常量/变量 `Y_OFFSET`，定义 `src/tree/models` 中的Y坐标偏移量。
+ * Constant/variable `Y_OFFSET` defining extra buffer pixels outside viewport in `src/tree/models`.
+ * @zh 常量/变量 `Y_OFFSET`，定义视口上下两侧额外预渲染的缓冲像素高度。
  */
-const Y_OFFSET = 300; // Extra pixels outside the viewport, in each direction, to render nodes in
+const Y_OFFSET = 300;
 /**
- * Constant/variable `Y_EPSILON` defining y epsilon in `src/tree/models`.
- * @zh 常量/变量 `Y_EPSILON`，定义 `src/tree/models` 中的Y坐标EPSILON。
+ * Constant/variable `Y_EPSILON` defining minimum scroll delta to recalculate viewport nodes in `src/tree/models`.
+ * @zh 常量/变量 `Y_EPSILON`，定义触发视口可见节点重算的最小纵向滚动步进像素。
  */
-const Y_EPSILON = 50; // Minimum pixel change required to recalculate the rendered nodes
+const Y_EPSILON = 50;
 
 /**
- * Injectable Angular service `TreeVirtualScroll` managing tree virtual scroll state and operations in `src/tree/models`.
- * @zh 可注入的 Angular 服务 `TreeVirtualScroll`，管理 `src/tree/models` 中的树形控件虚拟滚动滚动状态与业务操作。
+ * Injectable Angular service `TreeVirtualScroll` managing Signal-based tree virtual scroll state and operations in `src/tree/models`.
+ * @zh 可注入的 Angular 服务 `TreeVirtualScroll`，基于原生 Signal 管理 `src/tree/models` 中的树形控件虚拟滚动状态与节点位置计算。
  */
 @Injectable()
 export class TreeVirtualScroll {
-  /**
-   * Property `_dispose` (`any`) storing dispose.
-   * @zh 属性 `_dispose`（类型：`any`），用于存储或配置释放。
-   */
-  private _dispose;
+  // 清理回调列表（替代原 MobX reaction disposer）
+  private _dispose: Array<() => void> = [];
+  // 底层私有 WritableSignal 状态（护栏 A：对外保留同名 get/set 访问器）
+  private readonly _yBlocksSig = signal<number>(0);
+  private readonly _xSig = signal<number>(0);
+  private readonly _viewportHeightSig = signal<number | null>(null);
+  private readonly _totalHeightSig = signal<number>(0);
+  private readonly _yComputed = computed<number>(() => this._yBlocksSig() * Y_EPSILON);
+  private readonly _totalHeightComputed = computed<number>(() =>
+    this.treeModel && this.treeModel.virtualRoot ? this._totalHeightSig() : 0,
+  );
 
   /**
-   * Property `yBlocks` (`number`) storing y blocks (default: `0`).
-   * @zh 属性 `yBlocks`（类型：`number`），用于存储或配置Y坐标块列表（默认值：`0`）。
+   * Property `viewport` (`HTMLElement`) storing mounted viewport DOM element (default: `null`).
+   * @zh 属性 `viewport`（类型：`HTMLElement`），存储当前挂载的视口 DOM 元素（默认值：`null`）。
    */
-  @observable yBlocks = 0;
-  /**
-   * Property `x` (`number`) storing x (default: `0`).
-   * @zh 属性 `x`（类型：`number`），用于存储或配置X坐标（默认值：`0`）。
-   */
-  @observable x = 0;
-  /**
-   * Property `viewportHeight` (`any`) storing viewport height (default: `null`).
-   * @zh 属性 `viewportHeight`（类型：`any`），用于存储或配置视口高度（默认值：`null`）。
-   */
-  @observable viewportHeight = null;
-    /**
-     * Property `_totalHeight` (`number`) storing total height (default: `0`).
-     * @zh 属性 `_totalHeight`（类型：`number`），用于存储或配置总计高度（默认值：`0`）。
-     */
-    @observable _totalHeight = 0; 
-  /**
-   * Property `viewport` (`any`) storing viewport (default: `null`).
-   * @zh 属性 `viewport`（类型：`any`），用于存储或配置视口（默认值：`null`）。
-   */
-  viewport = null;
+  viewport: HTMLElement | null = null;
 
   /**
-   * Gets the current y (`y: any`).
-   * @zh 获取当前Y坐标（`y: any`）。
+   * Gets the current `yBlocks` (`number`).
+   * @zh 获取当前纵向滚动分块索引（`number`）。
    */
-  @computed get y() {
-    return this.yBlocks * Y_EPSILON;
+  get yBlocks(): number {
+    return this._yBlocksSig();
   }
 
   /**
-   * Gets the current total height (`totalHeight: any`).
-   * @zh 获取当前总计高度（`totalHeight: any`）。
+   * Sets the `yBlocks` (`yBlocks`).
+   * @zh 设置纵向滚动分块索引（`yBlocks`）。
+   * @param value - New yBlocks value (`number`) / 新的分块索引值（`number`）
    */
-  @computed get totalHeight() {
-     return this.treeModel.virtualRoot ? this._totalHeight : 0;
+  set yBlocks(value: number) {
+    this._yBlocksSig.set(value);
+  }
+
+  /**
+   * Gets the current `x` (`number`).
+   * @zh 获取当前横向滚动偏移（`number`）。
+   */
+  get x(): number {
+    return this._xSig();
+  }
+
+  /**
+   * Sets the `x` (`x`).
+   * @zh 设置横向滚动偏移（`x`）。
+   * @param value - New x value (`number`) / 新的横向偏移值（`number`）
+   */
+  set x(value: number) {
+    this._xSig.set(value);
+  }
+
+  /**
+   * Gets the current `viewportHeight` (`number`).
+   * @zh 获取当前视口高度（`number | null`）。
+   */
+  get viewportHeight(): number | null {
+    return this._viewportHeightSig();
+  }
+
+  /**
+   * Sets the `viewportHeight` (`viewportHeight`).
+   * @zh 设置视口高度（`viewportHeight`）。
+   * @param value - New viewportHeight value (`number`) / 新的视口高度值（`number`）
+   */
+  set viewportHeight(value: number | null) {
+    this._viewportHeightSig.set(value);
+  }
+
+  /**
+   * Gets the current `_totalHeight` (`number`).
+   * @zh 获取内部记录的总高度（`number`）。
+   */
+  get _totalHeight(): number {
+    return this._totalHeightSig();
+  }
+
+  /**
+   * Sets the `_totalHeight` (`_totalHeight`).
+   * @zh 设置内部记录的总高度（`_totalHeight`）。
+   * @param value - New _totalHeight value (`number`) / 新的内部总高度值（`number`）
+   */
+  set _totalHeight(value: number) {
+    this._totalHeightSig.set(value);
+  }
+
+  /**
+   * Gets the current `y` (`number`).
+   * @zh 获取当前纵向滚动像素位置（`number`）。
+   */
+  get y(): number {
+    return this._yComputed();
+  }
+
+  /**
+   * Gets the current `totalHeight` (`number`).
+   * @zh 获取当前树内容总高度（`number`）。
+   */
+  get totalHeight(): number {
+    return this._totalHeightComputed();
   }
 
   /**
    * Creates an instance of `TreeVirtualScroll` and initializes its dependencies and internal state.
-   * @zh 创建 `TreeVirtualScroll` 实例，并初始化其依赖项与内部状态。
+   * @zh 创建 `TreeVirtualScroll` 实例，并将其挂载至所属 `TreeModel`。
    * @param treeModel - Injected or initial tree model (`TreeModel`) / 注入或传入的树形控件模型（`TreeModel`）
    */
   constructor(private treeModel: TreeModel) {
     treeModel.virtualScroll = this;
-    this._dispose = [autorun(() => this.fixScroll())];
+    this.fixScroll();
   }
 
   /**
-   * Executes `fireEvent` to handle fire event.
-   * @zh 执行 `fireEvent`，用于触发事件。
-   * @param event - event parameter (`any`) / 事件参数（`any`）
+   * Executes `fireEvent` to forward tree events to `TreeModel`.
+   * @zh 执行 `fireEvent`，向 `TreeModel` 派发树事件。
+   * @param event - event parameter (`Record<string, unknown>`) / 事件参数（`Record<string, unknown>`）
    */
-  fireEvent(event) {
+  fireEvent(event: Record<string, unknown>): void {
     this.treeModel.fireEvent(event);
   }
 
   /**
-   * Executes `init` to handle init.
-   * @zh 执行 `init`，用于初始化。
+   * Executes `init` to initialize layout recalculation subscriptions without MobX.
+   * @zh 执行 `init`，初始化虚拟滚动位置重算订阅（零 MobX 依赖）。
    */
-  init() {
-    const fn = this.recalcPositions.bind(this);
-
+  init(): void {
+    const fn = (): void => {
+      this.recalcPositions();
+    };
     fn();
-    this._dispose = [
-      ...this._dispose,
-      reaction(() => this.treeModel.roots, fn),
-      reaction(() => this.treeModel.expandedNodeIds, fn),
-      reaction(() => this.treeModel.hiddenNodeIds, fn)
-    ];
-    this.treeModel.subscribe(TREE_EVENTS.loadNodeChildren, fn);
+    const offLayout = this.treeModel.subscribeToLayout(fn);
+    this._dispose.push(offLayout);
+    if (this.treeModel.hasEvent(TREE_EVENTS.loadNodeChildren)) {
+      const sub = this.treeModel.subscribe(TREE_EVENTS.loadNodeChildren, fn);
+      if (sub && typeof sub.unsubscribe === 'function') {
+        this._dispose.push(() => sub.unsubscribe());
+      }
+    }
   }
 
   /**
-   * Executes `isEnabled` to handle is enabled.
-   * @zh 执行 `isEnabled`，用于是否为已启用。
+   * Executes `isEnabled` to check whether virtual scroll is enabled in options.
+   * @zh 执行 `isEnabled`，检查当前树配置是否启用了虚拟滚动。
+   * @returns Result of type `boolean` / 类型为 `boolean` 的返回值
    */
-  isEnabled() {
-    return this.treeModel.options.useVirtualScroll;
+  isEnabled(): boolean {
+    return Boolean(this.treeModel.options.useVirtualScroll);
+  }
+
+  private _setYBlocks(value: number): void {
+    this._yBlocksSig.set(value);
   }
 
   /**
-   * Executes `_setYBlocks` to handle set y blocks.
-   * @zh 执行 `_setYBlocks`，用于集合Y坐标块列表。
-   * @param value - value parameter (`any`) / 值参数（`any`）
+   * Executes `recalcPositions` to recompute node positions and total height.
+   * @zh 执行 `recalcPositions`，重算所有可见节点的纵向偏移与总高度。
    */
-  @action private _setYBlocks(value) {
-    this.yBlocks = value;
-  }
-
-  /**
-   * Executes `recalcPositions` to handle recalc positions.
-   * @zh 执行 `recalcPositions`，用于recalc位置。
-   */
-  @action recalcPositions() {
-     if (
-      !this.treeModel || 
-      !this.treeModel.virtualRoot || 
-      !this.treeModel.virtualRoot.visibleChildren
-    ) {
-      return; 
+  recalcPositions(): void {
+    if (!this.treeModel || !this.treeModel.virtualRoot || !this.treeModel.virtualRoot.visibleChildren) {
+      return;
     }
     const newHeight = this._getPositionAfter(this.treeModel.getVisibleRoots(), 0);
     this.treeModel.virtualRoot.height = newHeight;
-    this._totalHeight = newHeight;
+    this._totalHeightSig.set(newHeight);
+    this.fixScroll();
   }
 
-  /**
-   * Executes `_getPositionAfter` to handle get position after.
-   * @zh 执行 `_getPositionAfter`，用于获取位置之后。
-   * @param nodes - nodes parameter (`any`) / 节点列表参数（`any`）
-   * @param startPos - start pos parameter (`any`) / 开始位置参数（`any`）
-   */
-  private _getPositionAfter(nodes, startPos) {
+  private _getPositionAfter(nodes: TreeNode[], startPos: number): number {
     let position = startPos;
-    nodes.forEach((node) => {
+    nodes.forEach((node: TreeNode) => {
       node.position = position;
       position = this._getPositionAfterNode(node, position);
     });
     return position;
   }
 
-  /**
-   * Executes `_getPositionAfterNode` to handle get position after node.
-   * @zh 执行 `_getPositionAfterNode`，用于获取位置之后节点。
-   * @param node - node parameter (`any`) / 节点参数（`any`）
-   * @param startPos - start pos parameter (`any`) / 开始位置参数（`any`）
-   */
-  private _getPositionAfterNode(node, startPos) {
+  private _getPositionAfterNode(node: TreeNode, startPos: number): number {
     let position = node.getSelfHeight() + startPos;
     if (node.children && node.isExpanded) {
       position = this._getPositionAfter(node.visibleChildren, position);
@@ -173,107 +210,111 @@ export class TreeVirtualScroll {
     return position;
   }
 
-
   /**
-   * Executes `clear` to handle clear.
-   * @zh 执行 `clear`，用于清空。
+   * Executes `clear` to release layout subscriptions.
+   * @zh 执行 `clear`，清理虚拟滚动监听器。
    */
-  clear() {
-    this._dispose.forEach((d) => d());
+  clear(): void {
+    this._dispose.forEach((d: () => void) => d());
+    this._dispose = [];
   }
 
   /**
-   * Executes `setViewport` to handle set viewport.
-   * @zh 执行 `setViewport`，用于集合视口。
-   * @param viewport - viewport parameter (`any`) / 视口参数（`any`）
+   * Executes `setViewport` to sync scroll offsets and viewport dimensions from DOM.
+   * @zh 执行 `setViewport`，从视口 DOM 元素同步滚动偏移与可视区域高度。
+   * @param viewport - viewport parameter (`HTMLElement`) / 视口元素参数（`HTMLElement`）
    */
-  @action setViewport(viewport) {
-  const currentHeight = viewport.clientHeight || (viewport.getBoundingClientRect ? viewport.getBoundingClientRect().height : 0);
-    Object.assign(this, {
-      viewport,
-      x: viewport.scrollLeft,
-      yBlocks: Math.round(viewport.scrollTop / Y_EPSILON),
-      viewportHeight: currentHeight
-    });
+  setViewport(viewport: HTMLElement | null): void {
+    if (!viewport) {
+      return;
+    }
+    const currentHeight =
+      viewport.clientHeight || (typeof viewport.getBoundingClientRect === 'function' ? viewport.getBoundingClientRect().height : 0);
+    this.viewport = viewport;
+    this._xSig.set(viewport.scrollLeft || 0);
+    this._yBlocksSig.set(Math.round((viewport.scrollTop || 0) / Y_EPSILON));
+    this._viewportHeightSig.set(currentHeight);
+    this.fixScroll();
   }
 
   /**
-   * Executes `scrollIntoView` to handle scroll into view.
-   * @zh 执行 `scrollIntoView`，用于滚动进入视图。
-   * @param node - node parameter (`any`) / 节点参数（`any`）
-   * @param force - force parameter (`any`) / force参数（`any`）
-   * @param scrollToMiddle - scroll to middle parameter (`boolean`) / 滚动转换为中间参数（`boolean`）
+   * Executes `scrollIntoView` to scroll a target tree node into the visible area.
+   * @zh 执行 `scrollIntoView`，将指定树节点平滑定位至可视区域内。
+   * @param node - node parameter (`TreeNode`) / 目标节点参数（`TreeNode`）
+   * @param force - force parameter (`boolean`) / 是否强制滚动参数（`boolean`）
+   * @param scrollToMiddle - scroll to middle parameter (`boolean`) / 是否居中对齐参数（`boolean`）
    */
-  @action scrollIntoView(node, force, scrollToMiddle = true) {
-     if (!this.isEnabled()) {
-      return; 
+  scrollIntoView(node: TreeNode, force: boolean, scrollToMiddle = true): void {
+    if (!this.isEnabled()) {
+      return;
     }
 
- if (node.options.scrollContainer) {
+    if (node.options.scrollContainer && this.viewport) {
       const scrollContainer = node.options.scrollContainer;
       const scrollContainerHeight = scrollContainer.getBoundingClientRect().height;
       const scrollContainerTop = scrollContainer.getBoundingClientRect().top;
       const nodeTop = this.viewport.getBoundingClientRect().top + node.position - scrollContainerTop;
 
-      if (force || // force scroll to node
-        nodeTop < scrollContainer.scrollTop || // node is above scroll container
-        nodeTop + node.getSelfHeight() > scrollContainer.scrollTop + scrollContainerHeight) { // node is below container
-        scrollContainer.scrollTop = scrollToMiddle ?
-          nodeTop - scrollContainerHeight / 2 : // scroll to middle
-          nodeTop; // scroll to start
+      if (
+        force ||
+        nodeTop < scrollContainer.scrollTop ||
+        nodeTop + node.getSelfHeight() > scrollContainer.scrollTop + scrollContainerHeight
+      ) {
+        scrollContainer.scrollTop = scrollToMiddle ? nodeTop - scrollContainerHeight / 2 : nodeTop;
       }
     } else {
-      if (force || // force scroll to node
-        node.position < this.y || // node is above viewport
-        node.position + node.getSelfHeight() > this.y + this.viewportHeight) { // node is below viewport
+      const vpHeight = this.viewportHeight ?? 0;
+      if (force || node.position < this.y || node.position + node.getSelfHeight() > this.y + vpHeight) {
         if (this.viewport) {
-          this.viewport.scrollTop = scrollToMiddle ?
-          node.position - this.viewportHeight / 2 : // scroll to middle
-          node.position; // scroll to start
-
-            this._setYBlocks(Math.floor(this.viewport.scrollTop / Y_EPSILON));
+          this.viewport.scrollTop = scrollToMiddle ? node.position - vpHeight / 2 : node.position;
+          this._setYBlocks(Math.floor(this.viewport.scrollTop / Y_EPSILON));
         }
       }
     }
   }
 
   /**
-   * Executes `getViewportNodes` to handle get viewport nodes.
-   * @zh 执行 `getViewportNodes`，用于获取视口节点列表。
-   * @param nodes - nodes parameter (`any`) / 节点列表参数（`any`）
+   * Executes `getViewportNodes` to return the visible slice of nodes for the current scroll window.
+   * @zh 执行 `getViewportNodes`，根据当前 Signal 视口参数返回需要渲染的节点切片。
+   * @param nodes - nodes parameter (`TreeNode[]`) / 待裁剪节点数组参数（`TreeNode[]`）
+   * @returns Result of type `TreeNode[]` / 类型为 `TreeNode[]` 的返回值
    */
-  getViewportNodes(nodes) {
+  getViewportNodes(nodes: TreeNode[] | null | undefined): TreeNode[] {
+    if (!nodes) {
+      return [];
+    }
 
-    if (!nodes) { return []; }
+    const visibleNodes = nodes.filter((node: TreeNode) => !node.isHidden);
 
-    const visibleNodes = nodes.filter((node) => !node.isHidden);
+    if (!this.isEnabled()) {
+      return visibleNodes;
+    }
 
-    if (!this.isEnabled()) { return visibleNodes; }
+    const vpHeight = this.viewportHeight;
+    if (!vpHeight || !visibleNodes.length) {
+      return [];
+    }
 
-    if (!this.viewportHeight || !visibleNodes.length) { return []; }
+    // 异步加载子节点时尚未完成高度与位置重算，等待 recalcPositions 完成后再推入视口
+    const lastVisibleNode = visibleNodes[visibleNodes.length - 1];
+    if (!lastVisibleNode.height && lastVisibleNode.position === 0) {
+      return [];
+    }
 
-        // When loading children async this method is called before their height and position is calculated.
-    // In that case firstIndex === 0 and lastIndex === visibleNodes.length - 1 (e.g. 1000),
-    // which means that it loops through every visibleNodes item and push them into viewportNodes array.
-    // We can prevent nodes from being pushed to the array and wait for the appropriate calculations to take place
-    const lastVisibleNode = visibleNodes.slice(-1)[0]
-    if (!lastVisibleNode.height && lastVisibleNode.position === 0) return [];
-
-    // Search for first node in the viewport using binary search
-    // Look for first node that starts after the beginning of the viewport (with buffer)
-    // Or that ends after the beginning of the viewport
-    const firstIndex = binarySearch(visibleNodes, (node) => {
-      return (node.position + Y_OFFSET > this.y) ||
-        (node.position + node.height > this.y);
+    const currentY = this.y;
+    const firstIndex = binarySearch(visibleNodes, (node: TreeNode) => {
+      return node.position + Y_OFFSET > currentY || node.position + node.height > currentY;
     });
 
-    // Search for last node in the viewport using binary search
-    // Look for first node that starts after the end of the viewport (with buffer)
-    const lastIndex = binarySearch(visibleNodes, (node) => {
-      return node.position - Y_OFFSET > this.y + this.viewportHeight;
-    }, firstIndex);
+    const lastIndex = binarySearch(
+      visibleNodes,
+      (node: TreeNode) => {
+        return node.position - Y_OFFSET > currentY + vpHeight;
+      },
+      firstIndex,
+    );
 
-    const viewportNodes = [];
+    const viewportNodes: TreeNode[] = [];
     for (let i = firstIndex; i <= lastIndex; i++) {
       viewportNodes.push(visibleNodes[i]);
     }
@@ -282,25 +323,23 @@ export class TreeVirtualScroll {
   }
 
   /**
-   * Executes `fixScroll` to handle fix scroll.
-   * @zh 执行 `fixScroll`，用于fix滚动。
+   * Executes `fixScroll` to clamp vertical block position within valid bounds.
+   * @zh 执行 `fixScroll`，将纵向滚动块位置约束在有效高度范围内。
    */
-  fixScroll() {
-    const maxY = Math.max(0, this.totalHeight - this.viewportHeight);
+  fixScroll(): void {
+    const vpHeight = this.viewportHeight ?? 0;
+    const maxY = Math.max(0, this.totalHeight - vpHeight);
 
-    if (this.y < 0) { this._setYBlocks(0); }
-    if (this.y > maxY) { this._setYBlocks(maxY / Y_EPSILON); }
+    if (this.y < 0) {
+      this._setYBlocks(0);
+    }
+    if (this.y > maxY) {
+      this._setYBlocks(maxY / Y_EPSILON);
+    }
   }
 }
 
-/**
- * Executes `binarySearch` to handle binary search.
- * @zh 执行 `binarySearch`，用于binary搜索。
- * @param nodes - nodes parameter (`any`) / 节点列表参数（`any`）
- * @param condition - condition parameter (`any`) / 条件参数（`any`）
- * @param firstIndex - first index parameter (`number`) / 首个索引参数（`number`）
- */
-function binarySearch(nodes, condition, firstIndex = 0) {
+function binarySearch(nodes: TreeNode[], condition: (node: TreeNode) => boolean, firstIndex = 0): number {
   let index = firstIndex;
   let toIndex = nodes.length - 1;
 
@@ -309,12 +348,10 @@ function binarySearch(nodes, condition, firstIndex = 0) {
 
     if (condition(nodes[midIndex])) {
       toIndex = midIndex;
-    }  else {
-      if (index === midIndex) {
-         index = toIndex; 
-        } else { 
-          index = midIndex;
-         }
+    } else if (index === midIndex) {
+      index = toIndex;
+    } else {
+      index = midIndex;
     }
   }
   return index;

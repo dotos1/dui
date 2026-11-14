@@ -4,7 +4,7 @@
  */
 
 import { CommonModule } from '@angular/common';
-import { ComponentFactoryResolver, Component, NgModule, AfterViewInit, ViewChild } from '@angular/core';
+import { Component, NgModule, AfterViewInit, ViewChild } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { Dui } from '@dotos/dui/core';
 import { DockLayoutModule, DockLayoutHostComponent } from '@dotos/dui/container/dock-layout';
@@ -109,9 +109,8 @@ export class DockLayoutExampleModule {
   /**
    * Creates an instance of `DockLayoutExampleModule` and initializes its dependencies and internal state.
    * @zh 创建 `DockLayoutExampleModule` 实例，并初始化其依赖项与内部状态。
-   * @param componentFactoryResolver - Injected or initial component factory resolver (`ComponentFactoryResolver`) / 注入或传入的组件工厂解析器（`ComponentFactoryResolver`）
    */
-  constructor(componentFactoryResolver: ComponentFactoryResolver) {
-    Dui.registerComponentFactory(componentFactoryResolver, this.entryComponents);
+  constructor() {
+    Dui.registerComponentFactory(this.entryComponents);
   }
 }

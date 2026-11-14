@@ -5,7 +5,11 @@
   },
   "assets": [
     "./theming",
-    "./i18n"
+    "./i18n",
+    "./llms.txt",
+    "./llms-full.txt",
+    "./examples",
+    "./skills"
   ],
   "allowedNonPeerDependencies": [
     "@material/material-color-utilities",

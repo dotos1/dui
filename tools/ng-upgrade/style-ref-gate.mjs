@@ -1,14 +1,12 @@
 #!/usr/bin/env node
 /**
- * Angular Material 18 <-> 22 样式引用双兼容门禁（style-ref-gate.mjs）
+ * Angular Material 22 样式门禁（style-ref-gate.mjs · M2-3 正式收口版）
  *
  * 检查项：
- * 1. 扫描仓库内 .scss / .css / .ts / .html 中引用的所有 `--mdc-*` / `--mat-*` CSS 变量；
- * 2. 若命中在 Angular Material 22 中已移除/改名的 18 变量（依据 ng22-material-baseline.json），
- *    校验同一文件内是否已双写对应的 Angular Material 22 新变量（如 `var(--mat-new, var(--mdc-old))`
- *    或自定义属性新旧双声明），未双写则报错退出；
- * 3. 扫描 .scss / .css 选择器中引用的 Material 22 已移除内部类名（如 `.mdc-icon-button`、
- *    `.mat-mdc-focus-indicator`），校验同一文件对应行/块是否已双写 22 兼容类名。
+ * - Angular < 22：保持双兼容检查（命中 18 移除变量需双写 22 变量）；
+ * - Angular >= 22（M2-3 正式收口）：
+ *   1. 严禁残留 Material 18 已移除的 `--mdc-*` / `--mat-app-*` 旧变量（含阶段 0 双写兜底分支）；
+ *   2. 严禁在样式选择器中直接覆盖 `.mdc-*` 内部私有类名（守护 M3 组件封装边界）。
  */
 import fs from 'node:fs';
 import path from 'node:path';
@@ -17,7 +15,13 @@ import { mapMaterial18To22Token, MATERIAL_18_TO_22_CLASSES } from './ng22-token-
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const baseline = JSON.parse(fs.readFileSync(path.join(__dirname, 'ng22-material-baseline.json'), 'utf8'));
-const removedVars = new Set(baseline.removedVars18To22);
+const removedVars = new Set([
+  ...baseline.removedVars18To22,
+  '--mdc-theme-primary',
+  '--mdc-theme-error',
+  '--mdc-dialog-container-elevation-shadow',
+  '--mdc-checkbox-state-layer-size',
+]);
 const v22Vars = new Set(baseline.v22Vars);
 const removedClasses = new Set(baseline.removedClasses18To22);
 
@@ -30,6 +34,22 @@ for (let i = 0; i < args.length; i++) {
   } else if (args[i] === '--allowlist' && args[i + 1]) {
     allowlistFile = path.resolve(args[++i]);
   }
+}
+
+let isNg22Plus = false;
+const pkgPath = path.join(repoDir, 'package.json');
+if (fs.existsSync(pkgPath)) {
+  const pkg = JSON.parse(fs.readFileSync(pkgPath, 'utf8'));
+  const allDeps = { ...(pkg.dependencies || {}), ...(pkg.devDependencies || {}), ...(pkg.peerDependencies || {}) };
+  const m = String(allDeps['@angular/core'] || '').match(/(\d+)/);
+  if (m && Number(m[1]) >= 22) isNg22Plus = true;
+}
+
+let mdcClassMaxCount = 0;
+const mdcBaselinePath = path.join(repoDir, 'tools/ng-upgrade/mdc-class-baseline.json');
+if (fs.existsSync(mdcBaselinePath)) {
+  const parsedMdc = JSON.parse(fs.readFileSync(mdcBaselinePath, 'utf8'));
+  if (typeof parsedMdc.maxCount === 'number') mdcClassMaxCount = parsedMdc.maxCount;
 }
 
 let allowSet = new Set();
@@ -81,12 +101,13 @@ function walkFiles(dir) {
 
 const violations = [];
 const files = walkFiles(repoDir);
+let mdcClassHits = 0;
+const mdcClassSamples = [];
 
 for (const file of files) {
   const rel = path.relative(repoDir, file).replace(/\\/g, '/');
   if (allowSet.has(rel)) continue;
   if (rel.startsWith('tools/') || rel.startsWith('projects/testdui/src/assets/')) continue;
-  // dui runtime theme token tables are handled centrally via custom-properties.ts dual-emit
   if (rel.startsWith('src/theme/')) continue;
 
   const raw = fs.readFileSync(file, 'utf8');
@@ -96,33 +117,52 @@ for (const file of files) {
   lines.forEach((line, idx) => {
     for (const m of line.matchAll(/--(?:mat|mdc|cdk)-[a-z0-9-]+/g)) {
       const tok = m[0];
-      if (!removedVars.has(tok)) continue;
+      if (!removedVars.has(tok) || tok === '--mat-app-' || tok === '--mat-mdc-') continue;
       const mapped = mapMaterial18To22Token(tok);
-      if (!v22Vars.has(mapped) || mapped === tok) continue;
-      // Check nearby context (current line +/- 3 lines) for dual-written v22 token
-      const windowText = lines.slice(Math.max(0, idx - 3), Math.min(lines.length, idx + 4)).join('\n');
-      if (!windowText.includes(mapped)) {
-        violations.push(`${rel}:${idx + 1} -> Material 18 变量 [${tok}] 在 22 已移除，需在同一规则块双写 [${mapped}]`);
+      if (isNg22Plus) {
+        if (tok.startsWith('--mdc-') || (v22Vars.has(mapped) && mapped !== tok)) {
+          violations.push(`${rel}:${idx + 1} -> M2-3 严禁残留已废弃 Material 18 变量 [${tok}]（请清理为纯 v22 令牌 [${mapped}]）`);
+        }
+      } else {
+        if (!v22Vars.has(mapped) || mapped === tok) continue;
+        const windowText = lines.slice(Math.max(0, idx - 3), Math.min(lines.length, idx + 4)).join('\n');
+        if (!windowText.includes(mapped)) {
+          violations.push(`${rel}:${idx + 1} -> Material 18 变量 [${tok}] 在 22 已移除，需在同一规则块双写 [${mapped}]`);
+        }
       }
     }
 
     if (file.endsWith('.scss') || file.endsWith('.css')) {
       for (const m of line.matchAll(/\.(?:mat|mdc|cdk)-[a-zA-Z0-9_-]+/g)) {
         const cls = m[0].slice(1);
-        if (!removedClasses.has(cls)) continue;
-        const replacement = MATERIAL_18_TO_22_CLASSES[cls];
-        if (!replacement) continue;
-        const windowText = lines.slice(Math.max(0, idx - 2), Math.min(lines.length, idx + 3)).join('\n');
-        if (!windowText.includes(replacement)) {
-          violations.push(`${rel}:${idx + 1} -> Material 18 内部类名 [.${cls}] 在 22 已移除，需双写 [.${replacement}]`);
+        if (isNg22Plus && cls.startsWith('mdc-')) {
+          if (removedClasses.has(cls)) {
+            violations.push(`${rel}:${idx + 1} -> M2-3 严禁使用 Material 22 已移除的内部类选择器 [.${cls}]`);
+          } else {
+            mdcClassHits++;
+            if (mdcClassSamples.length < 15) mdcClassSamples.push(`${rel}:${idx + 1} (.${cls})`);
+          }
+        } else if (removedClasses.has(cls)) {
+          const replacement = MATERIAL_18_TO_22_CLASSES[cls];
+          if (!replacement) continue;
+          const windowText = lines.slice(Math.max(0, idx - 2), Math.min(lines.length, idx + 3)).join('\n');
+          if (!windowText.includes(replacement)) {
+            violations.push(`${rel}:${idx + 1} -> Material 18 内部类名 [.${cls}] 在 22 已移除，需双写 [.${replacement}]`);
+          }
         }
       }
     }
   });
 }
 
+if (isNg22Plus && mdcClassHits > mdcClassMaxCount) {
+  violations.push(
+    `[no-mdc-class] 检测到 ${mdcClassHits} 处直接 .mdc-* 内部类覆盖，超出基线上限 (${mdcClassMaxCount})：${mdcClassSamples.join('; ')}`,
+  );
+}
+
 if (violations.length > 0) {
-  console.error(`✗ style-ref-gate 失败（共 ${violations.length} 处未双写的 Material 22 失效样式引用，仓库：${repoDir}）：`);
+  console.error(`✗ style-ref-gate 失败（共 ${violations.length} 处违规，Ng22=${isNg22Plus}，仓库：${repoDir}）：`);
   for (const v of violations.slice(0, 60)) {
     console.error(`  - ${v}`);
   }
@@ -132,4 +172,4 @@ if (violations.length > 0) {
   process.exit(1);
 }
 
-console.log(`✓ style-ref-gate 通过（扫描 ${files.length} 个样式/源码文件，仓库：${path.basename(repoDir)}）`);
+console.log(`✓ style-ref-gate 通过（扫描 ${files.length} 个样式/源码文件，Ng22=${isNg22Plus}，仓库：${path.basename(repoDir)}）`);
