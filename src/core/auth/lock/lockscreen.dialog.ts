@@ -194,7 +194,7 @@ export class LockscreenDialog implements OnInit,OnDestroy {
     let resolvedUserName = this.sanitizeUserName(userCookie ? userCookie.value : '');
     if (!resolvedUserName) {
       resolvedUserName = this.sanitizeUserName(this.authService.getUsername())
-        || this.sanitizeUserName((this.localStore.get('imlogin') as any)?.username)
+        || this.sanitizeUserName((this.localStore.get('imlogin') as { username?: string } | null)?.username)
         || this.sanitizeUserName(this.localStore.get('USERNAME') as string);
     }
     if (resolvedUserName) {
@@ -217,7 +217,7 @@ export class LockscreenDialog implements OnInit,OnDestroy {
     }
   }
 
-  private sanitizeUserName(raw: any): string {
+  private sanitizeUserName(raw: unknown): string {
     if (typeof raw !== 'string') {
       return '';
     }

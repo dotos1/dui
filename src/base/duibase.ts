@@ -3,9 +3,36 @@
  * @zh 模块文件 `src/base/duibase.ts`，提供duibase相关的定义与实现。
  */
 
-import { ComponentFactory, ComponentFactoryResolver, Type } from '@angular/core';
+import { reflectComponentType, Type } from '@angular/core';
 import { clone, each, isArray, isFunction, isNull, isObjectLike, isUndefined } from 'lodash-es';
 import { isBlankString, isNullOrUndefined } from '../base';
+
+/**
+ * Interface `DuiComponentDescriptor` defining metadata for a registered DUI dynamic component.
+ * @zh 接口 `DuiComponentDescriptor`，定义已注册的 DUI 动态组件元数据契约与属性规范。
+ */
+export interface DuiComponentDescriptor<T = unknown> {
+  /**
+   * Property `selector` (`string`) storing selector.
+   * @zh 属性 `selector`（类型：`string`），用于存储或配置组件选择器。
+   */
+  selector: string;
+  /**
+   * Property `componentType` (`Type<T>`) storing component type.
+   * @zh 属性 `componentType`（类型：`Type<T>`），用于存储或配置组件类型。
+   */
+  componentType: Type<T>;
+  /**
+   * Property `inputs` (`readonly { propName: string; templateName: string; }[]`) storing inputs.
+   * @zh 属性 `inputs`（类型：`readonly { propName: string; templateName: string; }[]`），用于存储或配置输入属性列表。
+   */
+  inputs: ReadonlyArray<{ propName: string; templateName: string }>;
+  /**
+   * Property `outputs` (`readonly { propName: string; templateName: string; }[]`) storing outputs.
+   * @zh 属性 `outputs`（类型：`readonly { propName: string; templateName: string; }[]`），用于存储或配置输出事件列表。
+   */
+  outputs: ReadonlyArray<{ propName: string; templateName: string }>;
+}
 
 // @dynamic
 /**
@@ -15,24 +42,46 @@ import { isBlankString, isNullOrUndefined } from '../base';
 export class DuiBase {
 
   /**
-   * Property `componentFactoryMap` (`Map<string, ComponentFactory<unknown>>`) storing component factory map.
-   * @zh 属性 `componentFactoryMap`（类型：`Map<string, ComponentFactory<unknown>>`），用于存储或配置组件工厂映射表。
+   * Property `componentFactoryMap` (`Map<string, DuiComponentDescriptor<unknown>>`) storing component factory map.
+   * @zh 属性 `componentFactoryMap`（类型：`Map<string, DuiComponentDescriptor<unknown>>`），用于存储或配置组件元数据映射表。
    */
-  private static componentFactoryMap: Map<string, ComponentFactory<unknown>>=  new Map<string, ComponentFactory<unknown>>();
+  private static componentFactoryMap: Map<string, DuiComponentDescriptor<unknown>> = new Map<string, DuiComponentDescriptor<unknown>>();
 
   /**
-   * Executes `registerComponentFactory` to handle register component factory.
-   * @zh 执行 `registerComponentFactory`，用于注册组件工厂。
-   * @param componentFactoryResolver - component factory resolver parameter (`ComponentFactoryResolver`) / 组件工厂解析器参数（`ComponentFactoryResolver`）
-   * @param components - components parameter (`Type<unknown>[]`) / 组件列表参数（`Type<unknown>[]`）
+   * Executes `registerComponentFactory` to register dynamic component metadata.
+   * @zh 执行 `registerComponentFactory`，用于注册动态组件元数据（兼容旧版双参数调用与新版单参数调用）。
+   * @param arg0 - components or legacy resolver (`Type<unknown>[] | unknown`) / 组件列表或历史兼容占位的解析器（`Type<unknown>[] | unknown`）
+   * @param arg1 - components parameter (`Type<unknown>[]`) / 组件列表参数（`Type<unknown>[]`）
    */
+  static registerComponentFactory(components: Type<unknown>[]): void;
+  static registerComponentFactory(legacyResolver: unknown, components: Type<unknown>[]): void;
   static registerComponentFactory(
-    componentFactoryResolver: ComponentFactoryResolver, 
-    components:Type<unknown>[]) {
-    if ( Array.isArray(components) && components.length > 0) {
-      components.forEach(compType => {
-        const componentFactory= componentFactoryResolver.resolveComponentFactory(compType);
-        DuiBase.componentFactoryMap.set(componentFactory.selector,componentFactory);
+    arg0: Type<unknown>[] | unknown,
+    arg1?: Type<unknown>[],
+  ): void {
+    const components: Type<unknown>[] | undefined = Array.isArray(arg0)
+      ? (arg0 as Type<unknown>[])
+      : arg1;
+    if (Array.isArray(components) && components.length > 0) {
+      components.forEach((compType: Type<unknown>) => {
+        const mirror = reflectComponentType(compType);
+        if (mirror) {
+          const descriptor: DuiComponentDescriptor<unknown> = {
+            selector: mirror.selector,
+            componentType: compType,
+            inputs: mirror.inputs,
+            outputs: mirror.outputs,
+          };
+          DuiBase.componentFactoryMap.set(mirror.selector, descriptor);
+          if (mirror.selector.includes(',')) {
+            mirror.selector.split(',').forEach((part: string) => {
+              const trimmed = part.trim();
+              if (trimmed && !DuiBase.componentFactoryMap.has(trimmed)) {
+                DuiBase.componentFactoryMap.set(trimmed, descriptor);
+              }
+            });
+          }
+        }
       });
     }
   }
@@ -49,12 +98,22 @@ export class DuiBase {
 
   /**
    * Executes `getComponentFactory` to handle get component factory.
-   * @zh 执行 `getComponentFactory`，用于获取组件工厂。
+   * @zh 执行 `getComponentFactory`，用于获取已注册组件描述元数据。
    * @param selector - selector parameter (`string`) / 选择器参数（`string`）
-   * @returns Result of type `ComponentFactory<unknown>` / 类型为 `ComponentFactory<unknown>` 的返回值
+   * @returns Result of type `DuiComponentDescriptor<unknown>` / 类型为 `DuiComponentDescriptor<unknown>` 的返回值
    */
-  static getComponentFactory(selector: string): ComponentFactory<unknown> {
+  static getComponentFactory(selector: string): DuiComponentDescriptor<unknown> | undefined {
     return DuiBase.componentFactoryMap.get(selector);
+  }
+
+  /**
+   * Executes `getComponentType` to retrieve a registered component class by selector.
+   * @zh 执行 `getComponentType`，根据选择器获取已注册的组件类型。
+   * @param selector - selector parameter (`string`) / 选择器参数（`string`）
+   * @returns Result of type `Type<unknown>` / 类型为 `Type<unknown>` 的返回值
+   */
+  static getComponentType(selector: string): Type<unknown> | undefined {
+    return DuiBase.componentFactoryMap.get(selector)?.componentType;
   }
 
 
@@ -169,7 +228,7 @@ export class DuiBase {
    * @zh 执行 `getFieldByType`，用于获取字段按类型。
    * @param type - type parameter (`string`) / 类型参数（`string`）
    */
-  public static getFieldByType(type: string) {
+  public static getFieldByType(type: string): Type<unknown> {
     const factory = DuiBase.getComponentFactory(type);
     if (factory) {
       return factory.componentType;
@@ -183,7 +242,7 @@ export class DuiBase {
    * @zh 执行 `getCmp`，用于获取Cmp。
    * @param id - id parameter (`string`) / 唯一标识参数（`string`）
    */
-  public static getCmp(id: string) {
+  public static getCmp(id: string): Type<unknown> {
     const factory = DuiBase.getComponentFactory(id);
     if (factory) {
       return factory.componentType;

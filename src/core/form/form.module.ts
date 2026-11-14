@@ -3,7 +3,7 @@
  * @zh 模块文件 `src/core/form/form.module.ts`，提供表单模块相关的定义与实现。
  */
 
-import { ComponentFactoryResolver, NgModule } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ValidationMessage } from './template/form.validation-message';
 import { FormTemplateType } from './template/field-template.type';
@@ -36,7 +36,7 @@ export class AbstractFormModule {
    * @zh 创建 `AbstractFormModule` 实例，并初始化其依赖项与内部状态。
    * @param componentFactoryResolver - Injected or initial component factory resolver (`ComponentFactoryResolver`) / 注入或传入的组件工厂解析器（`ComponentFactoryResolver`）
    */
-  constructor(componentFactoryResolver: ComponentFactoryResolver) {
-    DuiBase.registerComponentFactory(componentFactoryResolver,this.entryComponents);
+  constructor() {
+    DuiBase.registerComponentFactory(this.entryComponents);
   }
  }

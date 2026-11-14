@@ -5,7 +5,7 @@
 
 
 import { DuiConfig } from '@dotos/dui/base';
-import { Component, SimpleChanges, Input, ViewChild, ViewContainerRef, ComponentFactoryResolver, Injector, ChangeDetectorRef, ElementRef, Renderer2, OnChanges } from '@angular/core';
+import { Component, SimpleChanges, Input, ViewChild, ViewContainerRef, Injector, ChangeDetectorRef, ElementRef, Renderer2, OnChanges } from '@angular/core';
 import { coerceBooleanProperty } from '@angular/cdk/coercion';
 import { Dui } from '@dotos/dui/core';
 import { AbstractPanel } from '../panel/abstract.panel';
@@ -143,10 +143,9 @@ export class Accordion extends AbstractPanel implements OnChanges{
   constructor(
     protected override _element: ElementRef,
     protected override renderer: Renderer2,
-    public override resolver: ComponentFactoryResolver,
     public override injector: Injector,
     public override detectRef: ChangeDetectorRef) {
-    super(_element, renderer, resolver, injector, detectRef);
+    super(_element, renderer, injector, detectRef);
   }
 
   /**

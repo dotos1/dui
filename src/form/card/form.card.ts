@@ -6,7 +6,7 @@
 import { DuiConfig } from '@dotos/dui/base';
 import {
   Component, Input, ViewChild, ChangeDetectionStrategy,
-  SimpleChanges, ChangeDetectorRef, ComponentFactoryResolver, Injector, OnInit, OnChanges
+  SimpleChanges, ChangeDetectorRef, Injector, OnInit, OnChanges
 } from '@angular/core';
 import { DuiCardComponent } from '@dotos/dui/container';
 import { FormComponent } from '@dotos/dui/form';
@@ -64,11 +64,10 @@ export class FormCard extends DuiCardComponent implements OnInit,OnChanges {
    * @param translateService - Injected or initial translate service (`TranslateService`) / 注入或传入的翻译服务（`TranslateService`）
    */
   constructor(
-    public override resolver: ComponentFactoryResolver,
     public override injector: Injector,
     protected _changeDetectorRef: ChangeDetectorRef,
     public override translateService: TranslateService) {
-    super(resolver, injector, _changeDetectorRef, translateService);
+    super(injector, _changeDetectorRef, translateService);
   }
 
   /**

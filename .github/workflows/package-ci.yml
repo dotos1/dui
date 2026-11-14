@@ -74,6 +74,12 @@ jobs:
       - name: any 棘轮门（G-ANY，真实 any 与空对象类型只许降）
         run: npm run gate:any
 
+      - name: Angular 22 双兼容符号与配置门（ng22-compat-gate）
+        run: npm run gate:ng22-compat
+
+      - name: Angular Material 22 样式引用门（style-ref-gate）
+        run: npm run gate:style-ref
+
       - name: Build Package
         run: npm run package
 

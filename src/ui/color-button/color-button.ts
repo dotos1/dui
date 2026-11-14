@@ -3,7 +3,7 @@
  * @zh 模块文件 `src/ui/color-button/color-button.ts`，提供颜色按钮相关的定义与实现。
  */
 
-import {  ChangeDetectorRef, Component,  ComponentFactoryResolver,  DoCheck,  ElementRef, EventEmitter, HostBinding, Injector, Input, OnInit, Output, QueryList, Renderer2, SimpleChanges, ViewChild, ViewChildren, ViewContainerRef, ViewEncapsulation } from '@angular/core';
+import { ChangeDetectorRef, Component, DoCheck, ElementRef, EventEmitter, HostBinding, Injector, Input, OnInit, Output, QueryList, Renderer2, SimpleChanges, ViewChild, ViewChildren, ViewContainerRef, ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
 import { MatMenuTrigger } from '@angular/material/menu';
 import { ColorEvent } from '@dotos/dui/common/colorpicker/common';
@@ -133,10 +133,9 @@ export class ColorPickerButton extends ButtonBase implements OnInit,DoCheck {
     public override renderer: Renderer2,
     public router: Router,
     public _changeDetectorRef: ChangeDetectorRef,
-    public override resolver: ComponentFactoryResolver,
     public override injector: Injector,
   ) {
-    super(_element,renderer,_changeDetectorRef,resolver,injector);
+    super(_element, renderer, _changeDetectorRef, injector);
   }
   /**
    * Angular lifecycle hook invoked during every change-detection run for custom change detection.

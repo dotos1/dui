@@ -8,7 +8,6 @@ import {
     ChangeDetectionStrategy,
     ChangeDetectorRef,
     Component,
-    ComponentFactoryResolver,
     DoCheck,
     Injector,
     Input,
@@ -158,7 +157,6 @@ export class ToggleButtonComponent extends ComponentBase implements OnInit,DoChe
    */
   constructor(
     protected _changeDetectorRef: ChangeDetectorRef,
-    public resolver: ComponentFactoryResolver,
     private matIconRegistry: MatIconRegistry,
     private domSanitizer: DomSanitizer,
     public injector: Injector, ) {

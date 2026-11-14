@@ -3,8 +3,7 @@
  * @zh 模块文件 `src/container/layout/layout.module.ts`，提供布局模块相关的定义与实现。
  */
 
-import { NgModule,  ComponentFactoryResolver } from '@angular/core'
-import { CommonModule } from '@angular/common'
+import { NgModule } from '@angular/core';import { CommonModule } from '@angular/common'
 import { LayoutComponent } from './component/layout.component'
 import { SplitAreaDirective } from './directive/split-area.directive'
 import { DuiPanelComponent } from './component/panel.component'
@@ -30,7 +29,7 @@ export class DuiLayoutModule {
    * @zh 创建 `DuiLayoutModule` 实例，并初始化其依赖项与内部状态。
    * @param componentFactoryResolver - Injected or initial component factory resolver (`ComponentFactoryResolver`) / 注入或传入的组件工厂解析器（`ComponentFactoryResolver`）
    */
-  constructor(componentFactoryResolver: ComponentFactoryResolver) {
-    Dui.registerComponentFactory(componentFactoryResolver,this.dynamicComponents);
+  constructor() {
+    Dui.registerComponentFactory(this.dynamicComponents);
   }
 }

@@ -6,7 +6,6 @@
 
 import {
   Component,
-  ComponentFactoryResolver,
   Input,
   OnChanges,
   SimpleChange,
@@ -118,8 +117,7 @@ export class CardViewItemDispatcherComponent implements OnChanges {
    * @param cardItemTypeService - Injected or initial card item type service (`CardItemTypeService`) / 注入或传入的卡片条目类型服务（`CardItemTypeService`）
    * @param resolver - Injected or initial resolver (`ComponentFactoryResolver`) / 注入或传入的解析器（`ComponentFactoryResolver`）
    */
-  constructor(private cardItemTypeService: CardItemTypeService,
-    private resolver: ComponentFactoryResolver) {
+  constructor(private cardItemTypeService: CardItemTypeService) {
     const dynamicLifeCycleMethods = [
       'ngOnInit',
       'ngDoCheck',
@@ -163,8 +161,7 @@ export class CardViewItemDispatcherComponent implements OnChanges {
   private loadComponent() {
     const factoryClass = this.cardItemTypeService.resolveComponentType(this.property);
 
-    const factory = this.resolver.resolveComponentFactory(factoryClass);
-    this.componentReference = this.content.viewContainerRef.createComponent(factory);
+    this.componentReference = this.content.viewContainerRef.createComponent(factoryClass);
 
     this.componentReference.instance.editable = this.editable;
     this.componentReference.instance.property = this.property;

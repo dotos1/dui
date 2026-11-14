@@ -4,7 +4,7 @@
  */
 
 
-import { Component, Input, ViewEncapsulation, ComponentFactoryResolver, Injector, ChangeDetectorRef, DoCheck, OnInit } from '@angular/core';
+import { Component, Input, ViewEncapsulation, Injector, ChangeDetectorRef, DoCheck, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { MenuModel,MenuBase } from '@dotos/dui/ui/menu';
 
@@ -39,9 +39,8 @@ export class ContextMenuItemComponent extends MenuBase implements OnInit,DoCheck
   constructor(
     protected _changeDetectorRef: ChangeDetectorRef,
     protected override router: Router,
-    protected override resolver: ComponentFactoryResolver,
     protected override injector: Injector) {
-    super(router, _changeDetectorRef,resolver, injector);
+    super(router, _changeDetectorRef, injector);
   }
 
   /**

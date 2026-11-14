@@ -8,7 +8,6 @@ import {
     ChangeDetectionStrategy,
     ChangeDetectorRef,
     Component,
-    ComponentFactoryResolver,
     DoCheck,
     EventEmitter,
     Injector,
@@ -120,7 +119,6 @@ export class FabButtonComponent extends ComponentBase implements OnChanges,DoChe
    */
   constructor(
     public override detectRef: ChangeDetectorRef,
-    public resolver: ComponentFactoryResolver,
     public injector: Injector,) {
     super(detectRef);
   }

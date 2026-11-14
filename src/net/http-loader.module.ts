@@ -5,10 +5,10 @@
 
 
 import { CommonModule } from '@angular/common';
-import { ComponentFactoryResolver, ModuleWithProviders, NgModule } from '@angular/core';
+import { ModuleWithProviders, NgModule } from '@angular/core';
 import { HttpLoaderComponent } from './components/http-loader.component';
 import { PendingRequestsInterceptorProvider } from './services/pending-requests-interceptor.service';
-import { MatProgressSpinnerModule, MatSpinner } from '@angular/material/progress-spinner';
+import { MatProgressSpinner, MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { Dui } from '@dotos/dui/core';
 
 /**
@@ -29,17 +29,16 @@ import { Dui } from '@dotos/dui/core';
 })
 export class HttpLoaderModule {
   /**
-   * Property `entryComponents` (`(typeof MatProgressSpinner)[]`) storing entry components (default: `[MatSpinner]`).
-   * @zh 属性 `entryComponents`（类型：`(typeof MatProgressSpinner)[]`），用于存储或配置条目组件列表（默认值：`[MatSpinner]`）。
+   * Property `entryComponents` (`(typeof MatProgressSpinner)[]`) storing entry components (default: `[MatProgressSpinner]`).
+   * @zh 属性 `entryComponents`（类型：`(typeof MatProgressSpinner)[]`），用于存储或配置条目组件列表（默认值：`[MatProgressSpinner]`）。
    */
-  entryComponents = [MatSpinner];
+  entryComponents = [MatProgressSpinner];
   /**
    * Creates an instance of `HttpLoaderModule` and initializes its dependencies and internal state.
    * @zh 创建 `HttpLoaderModule` 实例，并初始化其依赖项与内部状态。
-   * @param componentFactoryResolver - Injected or initial component factory resolver (`ComponentFactoryResolver`) / 注入或传入的组件工厂解析器（`ComponentFactoryResolver`）
    */
-  constructor(componentFactoryResolver: ComponentFactoryResolver) {
-    Dui.registerComponentFactory(componentFactoryResolver,this.entryComponents);
+  constructor() {
+    Dui.registerComponentFactory(this.entryComponents);
   }
   /**
    * Executes `forRoot` to handle for root.
