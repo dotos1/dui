@@ -24,10 +24,10 @@ import { isArray, isObjectLike, isString } from 'lodash-es';
 export class DuiToolbarComponent extends Container implements OnChanges, AfterContentInit {
 
   /**
-   * Input property `config` (`DuiConfig`) configuring config (default: `{}`).
-   * @zh 输入属性 `config`（类型：`DuiConfig`），用于配置配置（默认值：`{}`）。
+   * Input property `config` (`DuiConfig | (string | object | DuiConfig)[]`) configuring config (default: `{}`).
+   * @zh 输入属性 `config`（类型：`DuiConfig | (string | object | DuiConfig)[]`），用于配置配置（默认值：`{}`）。
    */
-  @Input() config: DuiConfig = {};
+  @Input() config: DuiConfig | Array<DuiConfig | object | string> = {};
 
   /**
    * Input property `height` (`number`) configuring height (default: `40`).
