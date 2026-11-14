@@ -352,7 +352,7 @@ export class MatDatetimepickerInput<D> implements AfterContentInit, ControlValue
   /**
    * Executes `validate` to handle validate.
    * @zh 执行 `validate`，用于校验。
-   * @param c - c parameter (`AbstractControl<any, any>`) / c参数（`AbstractControl<any, any>`）
+   * @param c - c parameter (`AbstractControl<any, any, any>`) / c参数（`AbstractControl<any, any, any>`）
    * @returns Result of type `ValidationErrors` / 类型为 `ValidationErrors` 的返回值
    */
   validate(c: AbstractControl): ValidationErrors | null {

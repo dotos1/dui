@@ -202,7 +202,7 @@ export class MetaService {
 
       if (!isObservable(value$))
         return isPromise(value$)
-          ? observableFrom(value$)
+          ? observableFrom(value$ as Promise<string>)
           : observableOf(value$);
 
       return value$;

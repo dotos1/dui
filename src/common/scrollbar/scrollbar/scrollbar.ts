@@ -80,8 +80,8 @@ export class ScrollbarY extends ScrollbarAdapter {
   readonly offsetProperty: 'offsetX' | 'offsetY' = 'offsetY';
 
   /**
-   * Property `axis` (`"x" | "y"`) storing axis (default: `'y'`).
-   * @zh 属性 `axis`（类型：`"x" | "y"`），用于存储或配置坐标轴（默认值：`'y'`）。
+   * Property `axis` (`"y" | "x"`) storing axis (default: `'y'`).
+   * @zh 属性 `axis`（类型：`"y" | "x"`），用于存储或配置坐标轴（默认值：`'y'`）。
    */
   readonly axis: 'x' | 'y' = 'y';
 
@@ -198,8 +198,8 @@ export class ScrollbarX extends ScrollbarAdapter {
   readonly offsetProperty: 'offsetX' | 'offsetY' = 'offsetX';
 
   /**
-   * Property `axis` (`"x" | "y"`) storing axis (default: `'x'`).
-   * @zh 属性 `axis`（类型：`"x" | "y"`），用于存储或配置坐标轴（默认值：`'x'`）。
+   * Property `axis` (`"y" | "x"`) storing axis (default: `'x'`).
+   * @zh 属性 `axis`（类型：`"y" | "x"`），用于存储或配置坐标轴（默认值：`'x'`）。
    */
   readonly axis: 'x' | 'y' = 'x';
 

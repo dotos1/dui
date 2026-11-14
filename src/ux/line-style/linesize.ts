@@ -234,7 +234,7 @@ export class LineSizeSelector<F extends FieldConfig = FieldConfig> extends MatFi
   /**
    * Executes `change` to handle change.
    * @zh 执行 `change`，用于变更。
-   * @param $event - event parameter (`MatSelectChange`) / 事件参数（`MatSelectChange`）
+   * @param $event - event parameter (`MatSelectChange<any>`) / 事件参数（`MatSelectChange<any>`）
    */
   change($event: MatSelectChange) {
     this.setValue($event.value)

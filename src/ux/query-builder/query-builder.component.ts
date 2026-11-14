@@ -387,7 +387,7 @@ export class QueryBuilderComponent implements OnChanges, ControlValueAccessor, V
   /**
    * Angular lifecycle hook invoked when data-bound input properties change.
    * @zh Angular 生命周期钩子：当数据绑定的输入属性发生变更时调用。
-   * @param changes - changes parameter (`SimpleChanges`) / 变更集合参数（`SimpleChanges`）
+   * @param changes - changes parameter (`{ [propName: string]: SimpleChange<any>; }`) / 变更集合参数（`{ [propName: string]: SimpleChange<any>; }`）
    */
   ngOnChanges(changes: SimpleChanges) {
     if (changes['config']) {
@@ -421,7 +421,7 @@ export class QueryBuilderComponent implements OnChanges, ControlValueAccessor, V
   /**
    * Executes `validate` to handle validate.
    * @zh 执行 `validate`，用于校验。
-   * @param control - control parameter (`AbstractControl<any, any>`) / 表单控件参数（`AbstractControl<any, any>`）
+   * @param control - control parameter (`AbstractControl<any, any, any>`) / 表单控件参数（`AbstractControl<any, any, any>`）
    * @returns Result of type `ValidationErrors` / 类型为 `ValidationErrors` 的返回值
    */
   validate(control: AbstractControl): ValidationErrors | null {

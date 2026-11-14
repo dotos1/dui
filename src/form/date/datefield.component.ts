@@ -367,7 +367,7 @@ export class DateFieldComponent<D> extends MatField implements AfterContentInit,
   /**
    * Angular lifecycle hook invoked when data-bound input properties change.
    * @zh Angular 生命周期钩子：当数据绑定的输入属性发生变更时调用。
-   * @param changes - changes parameter (`SimpleChanges`) / 变更集合参数（`SimpleChanges`）
+   * @param changes - changes parameter (`{ [propName: string]: SimpleChange<any>; }`) / 变更集合参数（`{ [propName: string]: SimpleChange<any>; }`）
    */
   ngOnChanges(changes: SimpleChanges) {
     if (changes['datetimepicker'] || changes['datepicker']) {
@@ -591,7 +591,7 @@ export class DateFieldComponent<D> extends MatField implements AfterContentInit,
   /**
    * Executes `validate` to handle validate.
    * @zh 执行 `validate`，用于校验。
-   * @param c - c parameter (`AbstractControl<any, any>`) / c参数（`AbstractControl<any, any>`）
+   * @param c - c parameter (`AbstractControl<any, any, any>`) / c参数（`AbstractControl<any, any, any>`）
    * @returns Result of type `ValidationErrors` / 类型为 `ValidationErrors` 的返回值
    */
   validate(c: AbstractControl): ValidationErrors | null {

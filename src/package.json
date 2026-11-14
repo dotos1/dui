@@ -1,6 +1,6 @@
 {
   "name": "@dotos/dui",
-  "version": "7.4.52",
+  "version": "8.0.0-next.0",
   "license": "UNLICENSED",
   "description": "DUI components based on Angular",
   "keywords": [
@@ -20,17 +20,32 @@
     "prebuild": "npm --no-git-tag-version version patch"
   },
   "dependencies": {
-    "tslib": "^2.3.1"
+    "tslib": "^2.3.1",
+    "@material/material-color-utilities": "0.3.0",
+    "buffer": "^6.0.3"
   },
   "peerDependencies": {
-    "@angular/animations": "18.2.13",
-    "@angular/common": "18.2.13",
-    "@angular/core": "18.2.13",
-    "@angular/forms": "18.2.13"
+    "@angular/animations": "^21.2.0",
+    "@angular/common": "^21.2.0",
+    "@angular/core": "^21.2.0",
+    "@angular/forms": "^21.2.0"
   },
   "exports": {
     "./theming/styles/elevation": {
       "sass": "./theming/styles/_elevation.scss"
+    },
+    "./theming/all-theme": {
+      "sass": "./theming/_all-theme.scss"
+    },
+    "./theming/theming": {
+      "sass": "./theming/_theming.scss"
+    },
+    "./theming/platform": {
+      "sass": "./theming/platform.scss"
+    },
+    "./theming/*": {
+      "sass": "./theming/*",
+      "default": "./theming/*"
     }
   },
   "author": "北京商典信息科技有限公司 (Beijing Shangdian Information Technology Co., Ltd.)"

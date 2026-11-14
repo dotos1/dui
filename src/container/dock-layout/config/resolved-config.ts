@@ -470,8 +470,8 @@ export namespace ResolvedComponentItemConfig {
  */
 export interface ResolvedRowOrColumnItemConfig extends ResolvedItemConfig {
     /**
-     * Property `type` (`"column" | "row"`) storing type.
-     * @zh 属性 `type`（类型：`"column" | "row"`），用于存储或配置类型。
+     * Property `type` (`"row" | "column"`) storing type.
+     * @zh 属性 `type`（类型：`"row" | "column"`），用于存储或配置类型。
      */
     readonly type: 'row' | 'column';
     /** Note that RowOrColumn ResolvedItemConfig contents, can contain ComponentItem itemConfigs.  However
@@ -549,7 +549,7 @@ export namespace ResolvedRowOrColumnItemConfig {
     /**
      * Executes `createDefault` to handle create default.
      * @zh 执行 `createDefault`，用于创建默认。
-     * @param type - type parameter (`"column" | "row"`) / 类型参数（`"column" | "row"`）
+     * @param type - type parameter (`"row" | "column"`) / 类型参数（`"row" | "column"`）
      * @returns Result of type `ResolvedRowOrColumnItemConfig` / 类型为 `ResolvedRowOrColumnItemConfig` 的返回值
      */
     export function createDefault(type: 'row' | 'column'): ResolvedRowOrColumnItemConfig {

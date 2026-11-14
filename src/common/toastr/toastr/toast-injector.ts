@@ -3,7 +3,7 @@
  * @zh 模块文件 `src/common/toastr/toastr/toast-injector.ts`，提供toast注入器相关的定义与实现。
  */
 
-import { Injector, InjectFlags } from '@angular/core';
+import { Injector } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 import { OverlayRef } from '../overlay/overlay-ref';
 import { ToastPackage } from './toastr-config';

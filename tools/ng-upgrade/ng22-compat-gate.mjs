@@ -148,11 +148,30 @@ if (rootTsconfigs.length === 0) {
   }
 }
 
-// 2. Check tsconfig.spec.json if Jest 29 is present
+// 2. Check tsconfig.spec.json if Jest 29 is present & no-jss gate on Angular >= 21
+let isNg21Plus = false;
 const pkgJsonPath = path.join(repoDir, 'package.json');
 if (fs.existsSync(pkgJsonPath)) {
   const pkgObj = JSON.parse(fs.readFileSync(pkgJsonPath, 'utf8'));
-  const allDeps = { ...(pkgObj.dependencies || {}), ...(pkgObj.devDependencies || {}) };
+  const allDeps = { ...(pkgObj.dependencies || {}), ...(pkgObj.devDependencies || {}), ...(pkgObj.peerDependencies || {}) };
+  const ngCoreVer = String(allDeps['@angular/core'] || '');
+  const ngMajorMatch = ngCoreVer.match(/(\d+)/);
+  if (ngMajorMatch && Number(ngMajorMatch[1]) >= 21) {
+    isNg21Plus = true;
+  }
+  if (isNg21Plus) {
+    const pkgManifests = walkFiles(repoDir, (name) => name === 'package.json', 4);
+    for (const pm of pkgManifests) {
+      const mObj = JSON.parse(fs.readFileSync(pm, 'utf8'));
+      for (const sec of ['dependencies', 'devDependencies', 'peerDependencies']) {
+        for (const depName of Object.keys(mObj[sec] || {})) {
+          if (depName === 'jss' || depName.startsWith('jss-plugin-') || depName === '@types/jss') {
+            violations.push(`[no-jss] ${path.relative(repoDir, pm)} (${sec}) 严禁保留 JSS 依赖 "${depName}"`);
+          }
+        }
+      }
+    }
+  }
   const jestVer = String(allDeps.jest || '');
   const isJest29 = jestVer.includes('29');
   if (isJest29) {
@@ -164,6 +183,12 @@ if (fs.existsSync(pkgJsonPath)) {
       }
     }
   }
+}
+if (isNg21Plus) {
+  BANNED_PATTERNS.push({
+    name: 'jss / jss-plugin-* (Angular 21+ 严禁引入 JSS)',
+    re: /from\s*['"](?:jss|jss-plugin-[^'"]+)['"]|require\s*\(\s*['"](?:jss|jss-plugin-[^'"]+)['"]\s*\)/,
+  });
 }
 
 // 3. Check Ivy compilationMode: "partial" on library repos

@@ -138,7 +138,7 @@ export abstract class ThumbAdapter extends PointerEventsAdapter {
  * @param ScrollTimeline - scroll timeline parameter (`ScrollTimelineFunc`) / 滚动时间轴参数（`ScrollTimelineFunc`）
  * @param element - element parameter (`HTMLElement`) / 元素参数（`HTMLElement`）
  * @param source - source parameter (`HTMLElement`) / 源参数（`HTMLElement`）
- * @param axis - axis parameter (`"x" | "y"`) / 坐标轴参数（`"x" | "y"`）
+ * @param axis - axis parameter (`"y" | "x"`) / 坐标轴参数（`"y" | "x"`）
  * @returns Result of type `Animation` / 类型为 `Animation` 的返回值
  */
 function startPolyfill(ScrollTimeline: ScrollTimelineFunc, element: HTMLElement, source: HTMLElement, axis: 'x' | 'y'): Animation {

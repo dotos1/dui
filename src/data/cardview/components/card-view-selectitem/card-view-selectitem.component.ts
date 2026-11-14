@@ -121,7 +121,7 @@ export class CardViewSelectItemComponent implements OnChanges,OnDestroy {
   /**
    * Executes `onChange` to handle on change.
    * @zh 执行 `onChange`，用于当变更。
-   * @param event - event parameter (`MatSelectChange`) / 事件参数（`MatSelectChange`）
+   * @param event - event parameter (`MatSelectChange<any>`) / 事件参数（`MatSelectChange<any>`）
    */
   onChange(event: MatSelectChange): void {
     const selectedOption = event.value !== undefined ? event.value : null;

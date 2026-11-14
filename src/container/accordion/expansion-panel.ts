@@ -124,7 +124,7 @@ export class ExpansionPanelBase extends Container implements OnChanges,OnDestroy
   /**
    * Angular lifecycle hook invoked when data-bound input properties change.
    * @zh Angular 生命周期钩子：当数据绑定的输入属性发生变更时调用。
-   * @param changes - changes parameter (`SimpleChanges`) / 变更集合参数（`SimpleChanges`）
+   * @param changes - changes parameter (`{ [propName: string]: SimpleChange<any>; }`) / 变更集合参数（`{ [propName: string]: SimpleChange<any>; }`）
    */
   override ngOnChanges(changes: SimpleChanges) {
     if (changes['config']) {
@@ -354,7 +354,7 @@ export class ExpansionPanel extends _ExpansionPanelMixinBase
 
   /**
    * Stream that emits for changes in `@Input` properties.
-   * @zh 属性 `_inputChanges`（类型：`Subject<SimpleChanges>`），用于存储或配置输入属性变更集合（默认值：`new Subject<SimpleChanges>()`）。
+   * @zh 属性 `_inputChanges`（类型：`Subject<{ [propName: string]: SimpleChange<any>; }>`），用于存储或配置输入属性变更集合（默认值：`new Subject<SimpleChanges>()`）。
    */
   _inputChanges = new Subject<SimpleChanges>();
 
@@ -408,7 +408,7 @@ export class ExpansionPanel extends _ExpansionPanelMixinBase
   /**
    * Angular lifecycle hook invoked when data-bound input properties change.
    * @zh Angular 生命周期钩子：当数据绑定的输入属性发生变更时调用。
-   * @param changes - changes parameter (`SimpleChanges`) / 变更集合参数（`SimpleChanges`）
+   * @param changes - changes parameter (`{ [propName: string]: SimpleChange<any>; }`) / 变更集合参数（`{ [propName: string]: SimpleChange<any>; }`）
    */
   override ngOnChanges(changes: SimpleChanges) {
     this._inputChanges.next(changes);

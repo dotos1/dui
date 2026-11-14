@@ -60,8 +60,8 @@ export abstract class ScrollbarAdapter {
 
   // Return axis
   /**
-   * Property `axis` (`"x" | "y"`) storing axis.
-   * @zh 属性 `axis`（类型：`"x" | "y"`），用于存储或配置坐标轴。
+   * Property `axis` (`"y" | "x"`) storing axis.
+   * @zh 属性 `axis`（类型：`"y" | "x"`），用于存储或配置坐标轴。
    */
   abstract readonly axis: 'x' | 'y';
 

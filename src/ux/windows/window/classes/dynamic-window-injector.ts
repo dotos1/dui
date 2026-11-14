@@ -3,7 +3,7 @@
  * @zh 模块文件 `src/ux/windows/window/classes/dynamic-window-injector.ts`，提供动态窗口注入器相关的定义与实现。
  */
 
-import { InjectFlags, InjectOptions, InjectionToken, Injector, Type } from '@angular/core';
+import { InjectOptions, InjectionToken, Injector, Type } from '@angular/core';
 import { DYNAMIC_WINDOW_REF, IS_DYNAMIC_WINDOW_CONTEXT } from '../data';
 import { ɵDynamicWindowDiParams } from '../interfaces';
 import { ɵDynamicWindowRefModel } from './dynamic-window-ref';
@@ -49,13 +49,13 @@ export class ɵDynamicWindowInjector implements Injector {
      * @zh 执行 `get`，用于获取。
      * @param token - token parameter (`Type<T> | InjectionToken<T>`) / 令牌参数（`Type<T> | InjectionToken<T>`）
      * @param notFoundValue - not found value parameter (`T`) / notFound值参数（`T`）
-     * @param flags - flags parameter (`InjectOptions | InjectFlags`) / flags参数（`InjectOptions | InjectFlags`）
+     * @param flags - flags parameter (`InjectOptions`) / flags参数（`InjectOptions`）
      * @returns Result of type `T` / 类型为 `T` 的返回值
      */
     public get<T>(
         token: Type<T> | InjectionToken<T>,
         notFoundValue?: T,
-        flags?: InjectFlags | InjectOptions
+        flags?: InjectOptions
     ): T;
     // eslint-disable-next-line no-dupe-class-members
     /**

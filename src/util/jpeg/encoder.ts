@@ -9,9 +9,9 @@ import * as Buffer from 'buffer';
 /**
  * Executes `JPEGEncoder` to handle jpeg encoder.
  * @zh 执行 `JPEGEncoder`，用于JPEGEncoder。
- * @param quality - quality parameter (`any`) / quality参数（`any`）
+ * @param quality - quality parameter (`number`) / quality参数（`number`）
  */
-function JPEGEncoder(quality) {
+function JPEGEncoder(quality?: number) {
 	 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 	 let  fround = Math.round;
 	 let  ffloor = Math.floor;

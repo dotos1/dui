@@ -91,7 +91,7 @@ export class AbstractPanel extends Container implements AfterViewInit,OnDestroy{
   @ViewChild('panel', { read: ViewContainerRef }) public override viewContainer: ViewContainerRef;
 
   /**
-   * Host-bound getter `cssFlexdirection` (`"column" | "row"`) computing css flexdirection.
+   * Host-bound getter `cssFlexdirection` (`"row" | "column"`) computing css flexdirection.
    * @zh 宿主绑定读取器 `cssFlexdirection`（绑定至 `style.flex-direction`），计算并返回CSS样式Flexdirection。
    */
   @HostBinding('style.flex-direction') get cssFlexdirection() {
@@ -429,15 +429,15 @@ export class AbstractPanel extends Container implements AfterViewInit,OnDestroy{
   }
 
   /**
-   * Property `_fxLayout` (`"column" | "row"`) storing fx layout (default: `'row'`).
-   * @zh 属性 `_fxLayout`（类型：`"column" | "row"`），用于存储或配置fx布局（默认值：`'row'`）。
+   * Property `_fxLayout` (`"row" | "column"`) storing fx layout (default: `'row'`).
+   * @zh 属性 `_fxLayout`（类型：`"row" | "column"`），用于存储或配置fx布局（默认值：`'row'`）。
    */
   public _fxLayout: 'row' | 'column' = 'row';
 
   /**
    * Input setter `fxLayout` updating fx layout.
    * @zh 输入属性 `fxLayout` 的设置器，用于更新fx布局。
-   * @param v - New fx layout value (`"column" | "row"`) / 新的fx布局值（`"column" | "row"`）
+   * @param v - New fx layout value (`"row" | "column"`) / 新的fx布局值（`"row" | "column"`）
    */
   @Input() set fxLayout(v: 'row' | 'column') {
     v = (v === 'row') ? 'row' : 'column';
@@ -623,7 +623,7 @@ export class AbstractPanel extends Container implements AfterViewInit,OnDestroy{
    * @zh 执行 `setStyleVisibleAndDir`，用于集合样式可见And目录。
    * @param isVisible - is visible parameter (`boolean`) / 是否为可见参数（`boolean`）
    * @param isDragging - is dragging parameter (`boolean`) / 是否为拖拽中参数（`boolean`）
-   * @param direction - direction parameter (`"column" | "row"`) / 方向参数（`"column" | "row"`）
+   * @param direction - direction parameter (`"row" | "column"`) / 方向参数（`"row" | "column"`）
    */
   public setStyleVisibleAndDir(isVisible: boolean, isDragging: boolean, direction: 'row' | 'column'): void {
     if (isVisible === false) {
