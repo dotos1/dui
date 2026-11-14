@@ -876,8 +876,8 @@ export namespace ComponentItemConfig {
  */
 export interface RowOrColumnItemConfig extends ItemConfig {
   /**
-   * Property `type` (`"column" | "row"`) storing type.
-   * @zh 属性 `type`（类型：`"column" | "row"`），用于存储或配置类型。
+   * Property `type` (`"row" | "column"`) storing type.
+   * @zh 属性 `type`（类型：`"row" | "column"`），用于存储或配置类型。
    */
   type: 'row' | 'column';
   /**

@@ -330,7 +330,7 @@ export class ButtonBase extends ComponentBase {
    */
   openMenu(trigger: MatMenuTrigger, level: number) {
     this.triggers
-      .filter((x) => x['_element'].nativeElement.dataset.level >= level && x !== trigger)
+      .filter((x) => Number(x['_element'].nativeElement.dataset['level']) >= level && x !== trigger)
       .forEach(x => {
         x.closeMenu();
       });
@@ -369,7 +369,7 @@ export class ButtonBase extends ComponentBase {
    */
   closeSubMenu(level: number) {
     this.triggers
-      .filter((x) => x['_element'].nativeElement.dataset.level > level)
+      .filter((x) => Number(x['_element'].nativeElement.dataset['level']) > level)
       .forEach(x => {
         x.closeMenu();
       });

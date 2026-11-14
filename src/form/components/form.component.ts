@@ -24,7 +24,7 @@ import { filter, switchMap, take } from 'rxjs/operators';
 
 import { isPhoneTerminal } from '@dotos/dui/base';
 import { Dui } from '@dotos/dui/core';
-import { FieldConfig, FieldConfigCache, FormBuilder, FormConfig, FormOptions, assignModelValue, clearControl, clone, getKeyPath, isUndefined } from '@dotos/dui/core/form';
+import { FieldConfig, FieldConfigCache, FormBuilder, FormConfig, FormOptions, TypeOption, assignModelValue, clearControl, clone, getKeyPath, isUndefined } from '@dotos/dui/core/form';
 import { FormAction, Load, Submit } from '../action/index';
 
 
@@ -209,7 +209,7 @@ export class FormComponent implements DoCheck, OnChanges, OnDestroy {
   /**
    * Angular lifecycle hook invoked when data-bound input properties change.
    * @zh Angular 生命周期钩子：当数据绑定的输入属性发生变更时调用。
-   * @param changes - changes parameter (`SimpleChanges`) / 变更集合参数（`SimpleChanges`）
+   * @param changes - changes parameter (`{ [propName: string]: SimpleChange<any>; }`) / 变更集合参数（`{ [propName: string]: SimpleChange<any>; }`）
    */
   ngOnChanges(changes: SimpleChanges) {
     if (changes['config']) {
@@ -861,7 +861,7 @@ export class FormComponent implements DoCheck, OnChanges, OnDestroy {
    * @param name - name parameter (`string`) / 名称参数（`string`）
    * @returns Result of type `TypeOption` / 类型为 `TypeOption` 的返回值
    */
-  getComponent(name: string) {
+  getComponent(name: string): TypeOption {
     return this.formConfig.getType(name);
   }
 

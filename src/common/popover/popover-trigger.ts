@@ -365,7 +365,7 @@ export class PopoverTrigger implements AfterViewInit, OnDestroy {
    * @hidden Handles a click on the host element, toggling the popover when `triggerEvent` is `'click'`.
    * @zh 内部使用，处理宿主元素上的点击事件，当 `triggerEvent` 为 `'click'` 时切换弹出层。
    */
-  @HostListener('click', ['$event'])
+  @HostListener('click')
   onClick(): void {
     if (this.popover.triggerEvent === 'click') {
       this.togglePopover();
@@ -377,7 +377,7 @@ export class PopoverTrigger implements AfterViewInit, OnDestroy {
    * `enterDelay`) when `triggerEvent` is `'hover'`.
    * @zh 内部使用，处理指针进入宿主元素，当 `triggerEvent` 为 `'hover'` 时（延迟 `enterDelay` 后）打开弹出层。
    */
-  @HostListener('mouseenter', ['$event'])
+  @HostListener('mouseenter')
   onMouseEnter(): void {
     this._halt = false;
     if (this._mouseleaveTimer) {
@@ -399,7 +399,7 @@ export class PopoverTrigger implements AfterViewInit, OnDestroy {
    * `leaveDelay`) when `triggerEvent` is `'hover'`.
    * @zh 内部使用，处理指针离开宿主元素，当 `triggerEvent` 为 `'hover'` 时（延迟 `leaveDelay` 后）关闭弹出层。
    */
-  @HostListener('mouseleave', ['$event'])
+  @HostListener('mouseleave')
   onMouseLeave(): void {
     if (this.popover.triggerEvent === 'hover') {
       if (this._mouseoverTimer) {

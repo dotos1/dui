@@ -121,15 +121,15 @@ export class PanelComponent extends AbstractPanel implements ILayoutTogglable,On
   }
 
   /**
-   * Property `_fxLayout` (`"column" | "row"`) storing fx layout (default: `'row'`).
-   * @zh 属性 `_fxLayout`（类型：`"column" | "row"`），用于存储或配置fx布局（默认值：`'row'`）。
+   * Property `_fxLayout` (`"row" | "column"`) storing fx layout (default: `'row'`).
+   * @zh 属性 `_fxLayout`（类型：`"row" | "column"`），用于存储或配置fx布局（默认值：`'row'`）。
    */
   public override _fxLayout: 'row' | 'column' = 'row';
 
   /**
    * Input setter `fxLayout` updating fx layout.
    * @zh 输入属性 `fxLayout` 的设置器，用于更新fx布局。
-   * @param v - New fx layout value (`"column" | "row"`) / 新的fx布局值（`"column" | "row"`）
+   * @param v - New fx layout value (`"row" | "column"`) / 新的fx布局值（`"row" | "column"`）
    */
   @Input() override set fxLayout(v: 'row' | 'column') {
     v = (v === 'row') ? 'row' : 'column';
@@ -289,7 +289,7 @@ export class PanelComponent extends AbstractPanel implements ILayoutTogglable,On
   /**
    * Angular lifecycle hook invoked when data-bound input properties change.
    * @zh Angular 生命周期钩子：当数据绑定的输入属性发生变更时调用。
-   * @param changes - changes parameter (`SimpleChanges`) / 变更集合参数（`SimpleChanges`）
+   * @param changes - changes parameter (`{ [propName: string]: SimpleChange<any>; }`) / 变更集合参数（`{ [propName: string]: SimpleChange<any>; }`）
    */
   override ngOnChanges(changes: SimpleChanges) {
     if (changes['config']) {

@@ -19,12 +19,11 @@
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
     "experimentalDecorators": true,
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
     "importHelpers": true,
     "target": "ES2022",
     "module": "ES2022",
     "allowSyntheticDefaultImports": true,
-    "noImplicitUseStrict": false,
     "emitDecoratorMetadata": false,
     "sourceMap": true,
     "declaration": true,
@@ -40,5 +39,6 @@
     "strictInjectionParameters": false,
     "strictInputAccessModifiers": true,
     "strictTemplates": false,
+    "typeCheckHostBindings": false,
   }
 }
