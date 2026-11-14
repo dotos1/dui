@@ -20,10 +20,12 @@ import { ComponentBase, DuiConfig, DuiStyle } from '@dotos/dui/core';
 
 /** 按钮下拉 / 子菜单项（'-' 表示分隔线） */
 export interface DuiButtonMenuItem extends DuiConfig {
-  /** 下拉按钮（dropdown）里的选项值 */
-  value?: string;
-  /** 分隔线等特殊项 */
+  /** 下拉按钮（dropdown）选项值或复选（checkbox）菜单项状态 */
+  value?: string | number | boolean;
+  /** 分隔线、复选框等特殊项 */
   type?: string;
+  /** 嵌套子菜单项 */
+  children?: Array<DuiButtonMenuItem | string>;
   /** 下拉模式下指回所属按钮 */
   parentItem?: ComponentBase;
 }
@@ -430,7 +432,7 @@ export class ButtonBase extends ComponentBase {
           for (let i = 0; i < items.length; i++) {
             if (items[i].value==this.default) {
               this.title=this.text=items[i].text?items[i].text:items[i].title;
-              this.value=items[i].value;
+              this.value=String(items[i].value ?? '');
               this.icon=items[i].icon;
           }
         }
@@ -452,7 +454,7 @@ export class ButtonBase extends ComponentBase {
           this.title=this.text=v.text?v.text:v.title;
         }
         if(v.value){
-          this.value=v.value;
+          this.value=String(v.value);
         }
         if(v.icon){
           this.icon=v.icon;
