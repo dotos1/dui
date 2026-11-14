@@ -558,7 +558,7 @@ setActiveNodeLabel(label: string) {
         if(lastnode.children==undefined){
           let subscription = treeModel.subscribe(TREE_EVENTS.loadNodeChildren, (node) => {
             paths.splice(0,1);
-            let subject1=this.loadNodeByPath(paths,node.node);
+            let subject1=this.loadNodeByPath(paths,node['node'] as TreeNode);
             subject1.subscribe((activeNode)=>{
               subject.next(activeNode);
             });

@@ -1,21 +1,26 @@
-<ng-container *treeMobxAutorun="{dontDetach: true}">
+<ng-container *ngIf="node">
   <div
-    *ngIf="!templates.treeNodeFullTemplate"
+    *ngIf="!templates?.treeNodeFullTemplate"
+    role="treeitem"
+    [attr.aria-expanded]="node.hasChildren ? node.isExpanded : null"
+    [attr.aria-selected]="node.options.useCheckbox ? node.isSelected : node.isActive"
+    [attr.aria-level]="node.level"
+    [attr.aria-disabled]="node.data?.disabled ? 'true' : null"
+    [attr.tabindex]="node.isFocused ? 0 : -1"
     [class]="node.getClass()"
     [class.tree-node]="true"
     [class.tree-node-expanded]="node.isExpanded && node.hasChildren"
     [class.tree-node-collapsed]="node.isCollapsed && node.hasChildren"
     [class.tree-node-leaf]="node.isLeaf"
     [class.tree-node-active]="node.isActive"
-    [class.tree-node-focused]="node.isFocused"
-    >
+    [class.tree-node-focused]="node.isFocused">
     <tree-node-drop-slot *ngIf="index === 0" [dropIndex]="node.index" [node]="node.parent"></tree-node-drop-slot>
-    <tree-node-wrapper [node]="node" [index]="index" [templates]="templates"
-     ></tree-node-wrapper>
+    <tree-node-wrapper [node]="node" [index]="index" [templates]="templates"></tree-node-wrapper>
     <tree-node-children [node]="node" [templates]="templates"></tree-node-children>
     <tree-node-drop-slot [dropIndex]="node.index + 1" [node]="node.parent"></tree-node-drop-slot>
   </div>
   <ng-container
+    *ngIf="templates?.treeNodeFullTemplate"
     [ngTemplateOutlet]="templates.treeNodeFullTemplate"
     [ngTemplateOutletContext]="{ $implicit: node, node: node, index: index, templates: templates }">
   </ng-container>

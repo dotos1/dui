@@ -1,114 +1,130 @@
 /**
- * @fileoverview Module `src/tree/components/tree-node-wrapper.component.ts` providing tree node wrapper component definitions and implementation.
- * @zh 模块文件 `src/tree/components/tree-node-wrapper.component.ts`，提供树形控件节点包装器组件相关的定义与实现。
+ * @fileoverview Module `src/tree/components/tree-node-wrapper.component.ts` providing Signal-backed tree node wrapper component.
+ * @zh 模块文件 `src/tree/components/tree-node-wrapper.component.ts`，提供基于原生 Angular Signal 的树节点包裹行组件实现（零 MobX 依赖）。
  */
 
-import { 
-  Component, 
-  Input, 
-  ViewEncapsulation, 
-  ChangeDetectionStrategy, 
-  ElementRef, 
-  NgZone, 
-  OnInit, 
-  OnDestroy 
+import {
+  ChangeDetectionStrategy,
+  Component,
+  ElementRef,
+  Input,
+  NgZone,
+  OnDestroy,
+  OnInit,
+  signal,
+  ViewEncapsulation,
 } from '@angular/core';
-import { action, observable } from '@dotos/dui/core/mobx';
 import { TreeNode } from '../models/tree-node.model';
+import { TreeNodeTemplates } from '../defs/tree-node-templates';
 
 /**
- * Angular component `TreeNodeWrapperComponent` (selector: 'tree-node-wrapper') providing tree node wrapper component presentation and interaction in `src/tree/components`.
- * @zh Angular 组件 `TreeNodeWrapperComponent`（selector: 'tree-node-wrapper'），提供树形控件节点包装器组件的视图渲染与交互逻辑（位于 `src/tree/components`）。
+ * Angular component `TreeNodeWrapperComponent` (selector: 'tree-node-wrapper') providing tree node wrapper presentation and interaction in `src/tree/components`.
+ * @zh Angular 组件 `TreeNodeWrapperComponent`（selector: 'tree-node-wrapper'），提供树形控件节点包裹行渲染及鼠标动作派发。
  */
 @Component({
   selector: 'tree-node-wrapper',
   encapsulation: ViewEncapsulation.None,
-  styles:[],
+  styles: [],
   templateUrl: 'tree-node-wrapper.component.html',
-  changeDetection: ChangeDetectionStrategy.OnPush, 
+  changeDetection: ChangeDetectionStrategy.OnPush,
   host: {
-    hostID: 'tree-node-wrapper' + Math.random().toString(36).substring(2, 15) 
+    hostID: 'tree-node-wrapper' + Math.random().toString(36).substring(2, 15),
   },
-  standalone: false
+  standalone: false,
 })
 export class TreeNodeWrapperComponent implements OnInit, OnDestroy {
-  //同 TreeNodeChildrenComponent：模板在 treeMobxAutorun 里，换实例必须走 observable
+  // 私有 Signal 追踪输入节点引用
+  private readonly _nodeSig = signal<TreeNode | null>(null);
+
   /**
-   * Getter for input property `node` (`TreeNode`) returning node.
+   * Getter for input property `node` (`TreeNode`) returning current node.
    * @zh 输入属性 `node`（类型：`TreeNode`）的读取器，返回当前节点。
    */
   @Input()
-  get node() {
-    return this._node;
+  get node(): TreeNode {
+    return this._nodeSig() as TreeNode;
   }
+
   /**
-   * Sets the node (`node`).
+   * Sets the `node` (`node`).
    * @zh 设置节点（`node`）。
    * @param node - New node value (`TreeNode`) / 新的节点值（`TreeNode`）
    */
-  set node(node) {
+  set node(node: TreeNode) {
     this.setNode(node);
   }
+
   /**
-   * Executes `setNode` to handle set node.
-   * @zh 执行 `setNode`，用于集合节点。
-   * @param node - node parameter (`any`) / 节点参数（`any`）
+   * Executes `setNode` to update the node Signal.
+   * @zh 执行 `setNode`，更新内部节点 Signal。
+   * @param node - node parameter (`TreeNode`) / 节点参数（`TreeNode`）
    */
-  @action setNode(node) {
-    this._node = node;
+  setNode(node: TreeNode): void {
+    this._nodeSig.set(node);
   }
-  /**
-   * Property `_node` (`TreeNode`) storing node.
-   * @zh 属性 `_node`（类型：`TreeNode`），用于存储或配置节点。
-   */
-  @observable _node: TreeNode;
 
   /**
-   * Input property `index` (`number`) configuring index.
-   * @zh 输入属性 `index`（类型：`number`），用于配置索引。
+   * Gets `_node` (`TreeNode`) for backward compatibility.
+   * @zh 获取 `_node`（类型：`TreeNode`），保留兼容读取器。
    */
-  @Input() index: number;
-  /**
-   * Input property `templates` (`any`) configuring templates.
-   * @zh 输入属性 `templates`（类型：`any`），用于配置模板。
-   */
-  @Input() templates;
+  get _node(): TreeNode {
+    return this._nodeSig() as TreeNode;
+  }
 
   /**
-   * Property `cleanupListeners` (`(() => void)[]`) storing cleanup listeners (default: `[]`).
-   * @zh 属性 `cleanupListeners`（类型：`(() => void)[]`），用于存储或配置cleanup监听器列表（默认值：`[]`）。
+   * Sets `_node` (`_node`) for backward compatibility.
+   * @zh 设置 `_node`（`_node`），保留兼容写入器。
+   * @param value - New _node value (`TreeNode`) / 新的节点值（`TreeNode`）
    */
-  private cleanupListeners: (() => void)[] =[];
+  set _node(value: TreeNode) {
+    this._nodeSig.set(value);
+  }
+
+  /**
+   * Input property `index` (`number`) configuring sibling index.
+   * @zh 输入属性 `index`（类型：`number`），配置节点在当前集合中的索引。
+   */
+  @Input() index = 0;
+
+  /**
+   * Input property `templates` (`TreeNodeTemplates`) configuring custom node templates.
+   * @zh 输入属性 `templates`（类型：`TreeNodeTemplates`），配置树节点自定义模板集合。
+   */
+  @Input() templates!: TreeNodeTemplates;
+
+  private cleanupListeners: Array<() => void> = [];
 
   /**
    * Creates an instance of `TreeNodeWrapperComponent` and initializes its dependencies and internal state.
-   * @zh 创建 `TreeNodeWrapperComponent` 实例，并初始化其依赖项与内部状态。
-   * @param el - Injected or initial el (`ElementRef<any>`) / 注入或传入的DOM元素（`ElementRef<any>`）
-   * @param ngZone - Injected or initial ng zone (`NgZone`) / 注入或传入的Angular区域(NgZone)（`NgZone`）
+   * @zh 创建 `TreeNodeWrapperComponent` 实例，并初始化 DOM 与区域引用。
+   * @param el - Injected or initial el (`ElementRef<HTMLElement>`) / 注入或传入的宿主元素引用（`ElementRef<HTMLElement>`）
+   * @param ngZone - Injected or initial ng zone (`NgZone`) / 注入或传入的 Angular 区域（`NgZone`）
    */
   constructor(
-    private el: ElementRef,
-    private ngZone: NgZone
-  ) { }
- /**
-  * Angular lifecycle hook invoked once after component or directive inputs are initialized.
-  * @zh Angular 生命周期钩子：在组件或指令的输入属性初始化完成后调用一次。
-  */
- ngOnInit() {
+    private el: ElementRef<HTMLElement>,
+    private ngZone: NgZone,
+  ) {}
+
+  /**
+   * Angular lifecycle hook invoked once after component or directive inputs are initialized.
+   * @zh Angular 生命周期钩子：绑定行级点击、双击、右键菜单及悬停事件。
+   */
+  ngOnInit(): void {
     this.ngZone.runOutsideAngular(() => {
       const nativeEl = this.el.nativeElement;
-      const createHandler = (actionName: string, runInZone: boolean) => (event: MouseEvent) => {
+      const createHandler = (actionName: string, runInZone: boolean) => (event: MouseEvent): void => {
         const wrapper = nativeEl.querySelector('.node-content-wrapper');
         if (wrapper && wrapper.contains(event.target as Node)) {
-          if (this.node && this.node.mouseAction) {
+          const currentNode = this.node;
+          if (currentNode && currentNode.mouseAction) {
             if (runInZone) {
-                setTimeout(() => {
-                  this.ngZone.run(() => {
-                    this.node.mouseAction(actionName, event);
-                  });
-                }, 0);
+              setTimeout(() => {
+                this.ngZone.run(() => {
+                  currentNode.mouseAction(actionName, event);
+                });
+              }, 0);
             } else {
-               this.node.mouseAction(actionName, event);
+              currentNode.mouseAction(actionName, event);
             }
           }
         }
@@ -117,7 +133,6 @@ export class TreeNodeWrapperComponent implements OnInit, OnDestroy {
       const clickHandler = createHandler('click', true);
       const dblClickHandler = createHandler('dblClick', true);
       const contextMenuHandler = createHandler('contextMenu', true);
-      
       const mouseOverHandler = createHandler('mouseOver', false);
       const mouseOutHandler = createHandler('mouseOut', false);
 
@@ -127,22 +142,22 @@ export class TreeNodeWrapperComponent implements OnInit, OnDestroy {
       nativeEl.addEventListener('mouseover', mouseOverHandler);
       nativeEl.addEventListener('mouseout', mouseOutHandler);
 
-      this.cleanupListeners =[
-        () => nativeEl.removeEventListener('click', clickHandler),
-        () => nativeEl.removeEventListener('dblclick', dblClickHandler),
-        () => nativeEl.removeEventListener('contextmenu', contextMenuHandler),
-        () => nativeEl.removeEventListener('mouseover', mouseOverHandler),
-        () => nativeEl.removeEventListener('mouseout', mouseOutHandler)
+      this.cleanupListeners = [
+        (): void => nativeEl.removeEventListener('click', clickHandler),
+        (): void => nativeEl.removeEventListener('dblclick', dblClickHandler),
+        (): void => nativeEl.removeEventListener('contextmenu', contextMenuHandler),
+        (): void => nativeEl.removeEventListener('mouseover', mouseOverHandler),
+        (): void => nativeEl.removeEventListener('mouseout', mouseOutHandler),
       ];
     });
   }
 
   /**
    * Angular lifecycle hook invoked just before the component, directive, or service is destroyed to release subscriptions and resources.
-   * @zh Angular 生命周期钩子：在组件、指令或服务销毁前调用，用于释放订阅与清理资源。
+   * @zh Angular 生命周期钩子：卸载所有原生鼠标事件监听器。
    */
-  ngOnDestroy() {
-    this.cleanupListeners.forEach(cleanup => cleanup());
+  ngOnDestroy(): void {
+    this.cleanupListeners.forEach((cleanup: () => void) => cleanup());
     this.cleanupListeners = [];
   }
 }

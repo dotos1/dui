@@ -1,5 +1,16 @@
 :host {
   display: block;
+  /* 通过静态 CSS 变量自适应紧凑/常规/宽松三档密度与主题前景文字色 */
+  --mat-form-field-container-vertical-padding: 12px;
+  color: var(--dui-on-surface, var(--mat-sys-on-surface));
+}
+
+:host-context(.dui-density-normal) {
+  --mat-form-field-container-vertical-padding: 14px;
+}
+
+:host-context(.dui-density-loose) {
+  --mat-form-field-container-vertical-padding: 16px;
 }
 
 .search-box {

@@ -49,19 +49,10 @@ export class DuiBase {
 
   /**
    * Executes `registerComponentFactory` to register dynamic component metadata.
-   * @zh 执行 `registerComponentFactory`，用于注册动态组件元数据（兼容旧版双参数调用与新版单参数调用）。
-   * @param arg0 - components or legacy resolver (`Type<unknown>[] | unknown`) / 组件列表或历史兼容占位的解析器（`Type<unknown>[] | unknown`）
-   * @param arg1 - components parameter (`Type<unknown>[]`) / 组件列表参数（`Type<unknown>[]`）
+   * @zh 执行 `registerComponentFactory`，注册动态组件元数据列表。
+   * @param components - components parameter (`Type<unknown>[]`) / 组件列表参数（`Type<unknown>[]`）
    */
-  static registerComponentFactory(components: Type<unknown>[]): void;
-  static registerComponentFactory(legacyResolver: unknown, components: Type<unknown>[]): void;
-  static registerComponentFactory(
-    arg0: Type<unknown>[] | unknown,
-    arg1?: Type<unknown>[],
-  ): void {
-    const components: Type<unknown>[] | undefined = Array.isArray(arg0)
-      ? (arg0 as Type<unknown>[])
-      : arg1;
+  static registerComponentFactory(components: Type<unknown>[]): void {
     if (Array.isArray(components) && components.length > 0) {
       components.forEach((compType: Type<unknown>) => {
         const mirror = reflectComponentType(compType);
