@@ -4,7 +4,7 @@
  */
 
 import { CommonModule } from '@angular/common';
-import { ComponentFactoryResolver, NgModule } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 
 import {
@@ -63,7 +63,7 @@ export class ColorSketchModule {
    * @zh 创建 `ColorSketchModule` 实例，并初始化其依赖项与内部状态。
    * @param componentFactoryResolver - Injected or initial component factory resolver (`ComponentFactoryResolver`) / 注入或传入的组件工厂解析器（`ComponentFactoryResolver`）
    */
-  constructor(componentFactoryResolver: ComponentFactoryResolver) {
-    Dui.registerComponentFactory(componentFactoryResolver,this.entryComponents);
+  constructor() {
+    Dui.registerComponentFactory(this.entryComponents);
   }
  }

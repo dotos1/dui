@@ -6,7 +6,7 @@
 import { DuiConfig } from '@dotos/dui/base';
 import {
   Component, Input, ViewChild, ChangeDetectionStrategy,
-  SimpleChanges, ChangeDetectorRef, ComponentFactoryResolver, Injector, OnChanges,
+  SimpleChanges, ChangeDetectorRef, Injector, OnChanges,
   ViewEncapsulation
 } from '@angular/core';
 
@@ -170,11 +170,10 @@ export class DatatableCardComponent extends DuiCardComponent implements OnChange
    */
   constructor(
     protected http: HttpClient,
-    public override resolver: ComponentFactoryResolver,
     public override injector: Injector,
     public changeDetectorRef: ChangeDetectorRef,
     public override translateService: TranslateService,) {
-    super(resolver, injector, changeDetectorRef, translateService);
+    super(injector, changeDetectorRef, translateService);
   }
 
 

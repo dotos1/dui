@@ -6,7 +6,7 @@
 import { Directive, EventEmitter, ElementRef, HostListener, Input, Output } from '@angular/core';
 import { HostBinding, Renderer2 } from '@angular/core';
 import { coerceBooleanProperty } from '@angular/cdk/coercion';
-import { CanDisable, mixinDisabled } from '@angular/material/core';
+import { ICanDisable, mixinDisabled } from '@dotos/dui/core/behaviors';
 
 import { FileUploader, FileUploaderOptions, FilterFunction } from './file-uploader';
 
@@ -30,7 +30,7 @@ export const _FileDropMixinBase = mixinDisabled(FileDropBase);
   selector: '[duiFileDrop]',
   inputs: ['disabled']
 })
-export class FileDropDirective extends _FileDropMixinBase implements CanDisable {
+export class FileDropDirective extends _FileDropMixinBase implements ICanDisable {
   /**
    * The uploader instance that dropped files are queued into.
    * @zh 拖入的文件会被加入到该上传器实例的队列中。

@@ -10,7 +10,6 @@ import {
     ComponentRef,
     EmbeddedViewRef,
     Injector,
-    ComponentFactoryResolver,
 } from '@angular/core';
 
 
@@ -116,12 +115,10 @@ export class ComponentPortal<T> extends Portal<ComponentRef<T>> {
     injector?: Injector | null;
 
     /**
-     * Alternate `ComponentFactoryResolver` to use when resolving the associated component.
-     * Defaults to using the resolver from the outlet that the portal is attached to.
-
-     * @zh 属性 `componentFactoryResolver`（类型：`ComponentFactoryResolver`），用于存储或配置组件工厂解析器。
+     * Legacy compatibility placeholder for component factory resolver.
+     * @zh 属性 `componentFactoryResolver`（类型：`unknown`），历史兼容占位字段。
      */
-    componentFactoryResolver?: ComponentFactoryResolver | null;
+    componentFactoryResolver?: unknown;
 
     /**
      * Creates an instance of `ComponentPortal` and initializes its dependencies and internal state.
@@ -129,13 +126,13 @@ export class ComponentPortal<T> extends Portal<ComponentRef<T>> {
      * @param component - Injected or initial component (`ComponentType<T>`) / 注入或传入的组件（`ComponentType<T>`）
      * @param viewContainerRef - Injected or initial view container ref (`ViewContainerRef`) / 注入或传入的视图容器引用（`ViewContainerRef`）
      * @param injector - Injected or initial injector (`Injector`) / 注入或传入的注入器（`Injector`）
-     * @param componentFactoryResolver - Injected or initial component factory resolver (`ComponentFactoryResolver`) / 注入或传入的组件工厂解析器（`ComponentFactoryResolver`）
+     * @param componentFactoryResolver - Legacy resolver placeholder (`unknown`) / 历史兼容占位解析器（`unknown`）
      */
     constructor(
         component: ComponentType<T>,
         viewContainerRef?: ViewContainerRef | null,
         injector?: Injector | null,
-        componentFactoryResolver?: ComponentFactoryResolver | null) {
+        componentFactoryResolver?: unknown) {
         super();
         this.component = component;
         this.viewContainerRef = viewContainerRef;

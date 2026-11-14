@@ -3,7 +3,7 @@
  * @zh 模块文件 `src/form/array-input/array-input.module.ts`，提供数组输入属性模块相关的定义与实现。
  */
 
-import { ComponentFactoryResolver, NgModule } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
@@ -62,9 +62,8 @@ export class ArrayInputModule {
    * @param componentFactoryResolver - Injected or initial component factory resolver (`ComponentFactoryResolver`) / 注入或传入的组件工厂解析器（`ComponentFactoryResolver`）
    * @param translateService - Injected or initial translate service (`TranslationService`) / 注入或传入的翻译服务（`TranslationService`）
    */
-  constructor(componentFactoryResolver: ComponentFactoryResolver,
-    translateService: TranslationService) {
-      Dui.registerComponentFactory(componentFactoryResolver,this.entryComponents);
+  constructor(translateService: TranslationService) {
+      Dui.registerComponentFactory(this.entryComponents);
     translateService.addTranslationFolder('dui', 'i18n');
   }
 }

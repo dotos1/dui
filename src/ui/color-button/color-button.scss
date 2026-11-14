@@ -20,7 +20,8 @@
 :host ::ng-deep .mat-menu-panel {
   overflow: hidden;
 }
-:host ::ng-deep .mdc-icon-button .dui-icon .mat-icon{
+:host ::ng-deep .mdc-icon-button .dui-icon .mat-icon,
+:host ::ng-deep .mat-mdc-icon-button .dui-icon .mat-icon{
   border-bottom-style: solid;
   border-bottom-width: 3px;
   padding-bottom: 1px;
@@ -39,7 +40,8 @@
     height: 40px;
     width: 40px;
 }
-:host ::ng-deep .mat-mdc-icon-button .mat-mdc-focus-indicator{
+:host ::ng-deep .mat-mdc-icon-button .mat-mdc-focus-indicator,
+:host ::ng-deep .mat-mdc-icon-button .mat-focus-indicator{
     height: 40px;
     width: 40px;
 }

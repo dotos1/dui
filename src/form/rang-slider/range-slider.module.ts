@@ -4,11 +4,9 @@
  */
 
 import {CommonModule} from '@angular/common';
-import { ComponentFactoryResolver, NgModule} from '@angular/core';
+import { NgModule} from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { MatCommonModule} from '@angular/material/core';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { HammerModule} from '@angular/platform-browser';
 import { Dui } from '@dotos/dui/core';
 import { TranslateModule } from '@dotos/dui/translator';
 import { FormModule } from '../components';
@@ -25,9 +23,6 @@ import { FlexLayoutModule } from 'ngx-flexible-layout';
   declarations: [RangeSliderFieldComponent],
   exports: [RangeSliderFieldComponent],
   imports: [
-    CommonModule,
-    HammerModule,
-    MatCommonModule,
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
@@ -47,9 +42,8 @@ export class RangeSliderModule {
   /**
    * Creates an instance of `RangeSliderModule` and initializes its dependencies and internal state.
    * @zh 创建 `RangeSliderModule` 实例，并初始化其依赖项与内部状态。
-   * @param componentFactoryResolver - Injected or initial component factory resolver (`ComponentFactoryResolver`) / 注入或传入的组件工厂解析器（`ComponentFactoryResolver`）
    */
-  constructor(componentFactoryResolver: ComponentFactoryResolver) {
-    Dui.registerComponentFactory(componentFactoryResolver,this.entryComponents);
+  constructor() {
+    Dui.registerComponentFactory(this.entryComponents);
   }
 }

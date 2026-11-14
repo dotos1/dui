@@ -10,7 +10,6 @@ import {
   ViewChild,
   ComponentRef,
   SimpleChanges,
-  ComponentFactoryResolver,
   OnInit,
   OnChanges,
   OnDestroy,
@@ -106,7 +105,6 @@ export class FieldComponent implements OnInit, OnChanges,  AfterContentInit, Aft
     private formConfig: FormConfig,
     private renderer: Renderer2,
     public changeDetector: ChangeDetectorRef,
-    private resolver: ComponentFactoryResolver,
     private elementRef: ElementRef
   ) {
   }

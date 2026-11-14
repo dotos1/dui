@@ -3,7 +3,7 @@
  * @zh 模块文件 `src/core/form/services/form.builder.ts`，提供表单构建器相关的定义与实现。
  */
 
-import { Injectable, ComponentFactoryResolver, Injector , Optional } from '@angular/core';
+import { Injectable, Injector, Optional } from '@angular/core';
 import { FormGroup, FormArray, FormGroupDirective } from '@angular/forms';
 import { FormConfig } from './form.config';
 import {
@@ -26,7 +26,6 @@ export class FormBuilder {
    */
   constructor(
     private config: FormConfig,
-    private resolver: ComponentFactoryResolver,
     private injector: Injector,
     @Optional() private parentForm: FormGroupDirective,
   ) { }
@@ -98,10 +97,6 @@ export class FormBuilder {
     field.model = field.model || {};
     field.option = field.option || {};
     const option = field.option;
-
-    if (!option._resolver) {
-      defineHiddenProp(option, '_resolver', this.resolver);
-    }
 
     if (!option._injector) {
       defineHiddenProp(option, '_injector', this.injector);

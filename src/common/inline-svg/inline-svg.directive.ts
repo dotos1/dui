@@ -4,7 +4,7 @@
  */
 
 import {
-  ComponentFactoryResolver, ComponentRef,Directive, ElementRef,EventEmitter,Inject,
+  ComponentRef, Directive, ElementRef, EventEmitter, Inject,
   Input,OnChanges,OnDestroy,OnInit,Optional,Output,PLATFORM_ID,Renderer2,SimpleChanges, ViewContainerRef,
 } from '@angular/core';
 import { isPlatformBrowser, isPlatformServer } from '@angular/common';
@@ -144,7 +144,6 @@ export class InlineSVGDirective implements OnInit, OnChanges, OnDestroy {
   constructor(
     private _el: ElementRef,
     private _viewContainerRef: ViewContainerRef,
-    private _resolver: ComponentFactoryResolver,
     private _svgCache: SVGCacheService,
     private _renderer: Renderer2,
     private _inlineSVGService: InlineSVGService,
@@ -262,8 +261,7 @@ export class InlineSVGDirective implements OnInit, OnChanges, OnDestroy {
   private _insertEl(el: HTMLElement | SVGElement): void {
     if (this.injectComponent) {
       if (!this._svgComp) {
-        const factory = this._resolver.resolveComponentFactory(InlineSVGComponent);
-        this._svgComp = this._viewContainerRef.createComponent(factory);
+        this._svgComp = this._viewContainerRef.createComponent(InlineSVGComponent);
       }
 
       this._svgComp.instance.context = this;

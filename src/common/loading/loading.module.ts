@@ -4,7 +4,7 @@
  */
 
 
-import { ComponentFactoryResolver, Type } from '@angular/core';
+import { Type } from '@angular/core';
 import { NgModule } from '@angular/core';
 
 import { CommonModule } from '@angular/common';
@@ -58,7 +58,7 @@ export class LoadingModule {
    * @zh 创建 `LoadingModule` 实例，并初始化其依赖项与内部状态。
    * @param componentFactoryResolver - Injected or initial component factory resolver (`ComponentFactoryResolver`) / 注入或传入的组件工厂解析器（`ComponentFactoryResolver`）
    */
-  constructor(componentFactoryResolver: ComponentFactoryResolver) {
-    Dui.registerComponentFactory(componentFactoryResolver,this.entryComponents);
+  constructor() {
+    Dui.registerComponentFactory(this.entryComponents);
   }
 }

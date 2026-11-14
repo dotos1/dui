@@ -6,7 +6,7 @@
 import { DOCUMENT } from '@angular/common';
 import {
     ApplicationRef,
-    ComponentFactoryResolver,
+    createComponent,
     ComponentRef,
     EmbeddedViewRef,
     Inject,
@@ -64,7 +64,6 @@ export class DynamicWindowService {
     constructor(
         @Inject(DOCUMENT) private readonly document: Document,
         private readonly injector: Injector,
-        private readonly componentFactoryResolver: ComponentFactoryResolver,
         private readonly applicationRef: ApplicationRef,
         private readonly referencesService: ɵDynamicWindowReferencesService
     ) {}
@@ -156,9 +155,10 @@ export class DynamicWindowService {
     private createComponentRef(
         windowInjector: ɵDynamicWindowInjector
     ): ComponentRef<ɵDynamicWindowComponent> {
-        return this.componentFactoryResolver
-            .resolveComponentFactory(ɵDynamicWindowComponent)
-            .create(windowInjector);
+        return createComponent(ɵDynamicWindowComponent, {
+            environmentInjector: this.applicationRef.injector,
+            elementInjector: windowInjector,
+        });
     }
 
     /**

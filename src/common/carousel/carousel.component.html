@@ -19,10 +19,11 @@
       role="option"
       [style.padding-bottom]="maintainAspectRatio && proportion ? proportion + '%': '0px'"
       [style.height]="!maintainAspectRatio && slideHeight ? slideHeight : '0px'"
-      (panleft)="onPan($event, carouselSlide)"
-      (panright)="onPan($event, carouselSlide)"
-      (panend)="onPanEnd($event, carouselSlide)"
-      (pancancel)="onPanEnd($event, carouselSlide)"
+      style="touch-action: pan-y;"
+      (pointerdown)="onPointerDown($event, carouselSlide)"
+      (pointermove)="onPointerMove($event, carouselSlide)"
+      (pointerup)="onPointerUp($event, carouselSlide)"
+      (pointercancel)="onPointerUp($event, carouselSlide)"
     >
       <ng-container [ngTemplateOutlet]="slide.templateRef"></ng-container>
     </li>

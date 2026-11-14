@@ -4,7 +4,7 @@
  */
 
 import {
-    ComponentFactoryResolver,
+    createComponent,
     ComponentRef,
     EmbeddedViewRef,
     ApplicationRef,
@@ -20,20 +20,29 @@ import {BasePortalOutlet, ComponentPortal, TemplatePortal} from './portal';
  */
 export class DomPortalOutlet extends BasePortalOutlet {
     /**
-     * Creates an instance of `DomPortalOutlet` and initializes its dependencies and internal state.
-     * @zh 创建 `DomPortalOutlet` 实例，并初始化其依赖项与内部状态。
-     * @param outletElement - Injected or initial outlet element (`Element`) / 注入或传入的outlet元素（`Element`）
-     * @param _componentFactoryResolver - Injected or initial component factory resolver (`ComponentFactoryResolver`) / 注入或传入的组件工厂解析器（`ComponentFactoryResolver`）
-     * @param _appRef - Injected or initial app ref (`ApplicationRef`) / 注入或传入的app引用（`ApplicationRef`）
-     * @param _defaultInjector - Injected or initial default injector (`Injector`) / 注入或传入的默认注入器（`Injector`）
+     * Element into which the content is projected.
+     * @zh 属性 `outletElement`（类型：`Element`），用于存储或配置宿主元素。
      */
+    public outletElement: Element;
+    private _appRef: ApplicationRef;
+    private _defaultInjector: Injector;
+
+    constructor(outletElement: Element, _appRef: ApplicationRef, _defaultInjector: Injector);
+    constructor(outletElement: Element, _legacyResolver: unknown, _appRef: ApplicationRef, _defaultInjector: Injector);
     constructor(
-        /** Element into which the content is projected. */
-        public outletElement: Element,
-        private _componentFactoryResolver: ComponentFactoryResolver,
-        private _appRef: ApplicationRef,
-        private _defaultInjector: Injector) {
+        outletElement: Element,
+        arg1: ApplicationRef | unknown,
+        arg2: Injector | ApplicationRef,
+        arg3?: Injector) {
         super();
+        this.outletElement = outletElement;
+        if (arg3 !== undefined) {
+            this._appRef = arg2 as ApplicationRef;
+            this._defaultInjector = arg3;
+        } else {
+            this._appRef = arg1 as ApplicationRef;
+            this._defaultInjector = arg2 as Injector;
+        }
     }
 
     /**
@@ -43,19 +52,22 @@ export class DomPortalOutlet extends BasePortalOutlet {
      * @returns Result of type `ComponentRef<T>` / 类型为 `ComponentRef<T>` 的返回值
      */
     attachComponentPortal<T>(portal: ComponentPortal<T>): ComponentRef<T> {
-        const resolver = portal.componentFactoryResolver || this._componentFactoryResolver;
-        const componentFactory = resolver.resolveComponentFactory(portal.component);
         let componentRef: ComponentRef<T>;
 
         if (portal.viewContainerRef) {
             componentRef = portal.viewContainerRef.createComponent(
-                componentFactory,
-                portal.viewContainerRef.length,
-                portal.injector || portal.viewContainerRef.injector);
+                portal.component,
+                {
+                    index: portal.viewContainerRef.length,
+                    injector: portal.injector || portal.viewContainerRef.injector,
+                });
 
             this.setDisposeFn(() => componentRef.destroy());
         } else {
-            componentRef = componentFactory.create(portal.injector || this._defaultInjector);
+            componentRef = createComponent(portal.component, {
+                environmentInjector: this._appRef.injector,
+                elementInjector: portal.injector || this._defaultInjector,
+            });
             this._appRef.attachView(componentRef.hostView);
             this.setDisposeFn(() => {
                 this._appRef.detachView(componentRef.hostView);

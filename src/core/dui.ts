@@ -3,7 +3,7 @@
  * @zh 模块文件 `src/core/dui.ts`，提供DUI相关的定义与实现。
  */
 
-import { ChangeDetectorRef, ComponentRef } from '@angular/core';
+import { ChangeDetectorRef, ComponentRef, createComponent, EnvironmentInjector, Injector, Type } from '@angular/core';
 import { AbstractControlOptions, FormArray, FormControl, FormGroup } from '@angular/forms';
 
 import { DuiBase } from '@dotos/dui/base';
@@ -120,28 +120,30 @@ export class Dui extends DuiBase{
    * @zh 执行 `create`，用于创建。
    * @param config - config parameter (`any`) / 配置参数（`any`）
    * @param comp - comp parameter (`any`) / 组件参数（`any`）
-   * @returns Result of type `any` / 类型为 `any` 的返回值
+   * @returns Result of type `ComponentBase` / 类型为 `ComponentBase` 的返回值
    */
-  public static create(config, comp?) {
-    const resolver = comp.resolver;
-    const injector = comp.injector;
+  public static create(config, comp?): ComponentBase | undefined {
+    const injector: Injector = comp.injector;
     if(config.xtype){
       const factory = Dui.getComponentFactory(config.xtype);
       if (factory) {
-        const component = factory.componentType;
-        const componentFactory = resolver.resolveComponentFactory(component);
-        const componentRef = componentFactory.create(injector);
-        const comp = componentRef.instance;
-        comp.reference = componentRef;
-        comp.rendered = true;
-        if (comp.init != undefined) {
-          comp.init(config);
+        const component = factory.componentType as Type<ComponentBase & { rendered?: boolean }>;
+        const componentRef = createComponent(component, {
+          environmentInjector: injector.get(EnvironmentInjector),
+          elementInjector: injector,
+        });
+        const instance = componentRef.instance;
+        instance.reference = componentRef;
+        instance.rendered = true;
+        if (instance.init != undefined) {
+          instance.init(config);
         }
-        return comp;
+        return instance;
       } else {
         throw new Error(config.xtype + ' not exits in factory');
       }
     }
+    return undefined;
   }
   /**
    * Executes `createField` to handle create field.
@@ -149,11 +151,10 @@ export class Dui extends DuiBase{
    * @param field - field parameter (`any`) / 字段参数（`any`）
    * @param parent - parent parameter (`any`) / 父级参数（`any`）
    */
-  public static createField(field, parent?){
-    const resolver = parent.resolver;
-    const injector = parent.injector;
+  public static createField(field, parent?): ComponentBase {
+    const injector: Injector = parent.injector;
     const factory = Dui.getComponentFactory('dui-field');
-    let obj;
+    let obj: ComponentBase;
     if(field.model==undefined){
       field.model={};
     }
@@ -168,17 +169,19 @@ export class Dui extends DuiBase{
     }
     Dui.addFormControl(field);
     if (factory != undefined) {
-      const component = factory.componentType;
-      const componentFactory = resolver.resolveComponentFactory(component);
-      const componentRef = componentFactory.create(injector);
-      const comp = componentRef.instance;
-      comp.field = field;
-      comp.init();
-      comp.reference = componentRef;
-      comp.rendered = true;
+      const component = factory.componentType as Type<ComponentBase & { field?: unknown; rendered?: boolean; init: () => void }>;
+      const componentRef = createComponent(component, {
+        environmentInjector: injector.get(EnvironmentInjector),
+        elementInjector: injector,
+      });
+      const instance = componentRef.instance;
+      instance.field = field;
+      instance.init();
+      instance.reference = componentRef;
+      instance.rendered = true;
       parent.app.attachView(componentRef.hostView);
       componentRef.changeDetectorRef.detectChanges();
-      obj = comp;
+      obj = instance;
     } else {
       throw new Error('dui-field not exits in factory');
     }

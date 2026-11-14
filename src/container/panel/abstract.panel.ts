@@ -6,7 +6,7 @@
 
 import { DuiConfig } from '@dotos/dui/base';
 import { ComponentBase } from '@dotos/dui/core';
-import { AfterViewInit, ChangeDetectorRef, ComponentFactoryResolver, Directive, ElementRef, HostBinding, Injector, Input, OnDestroy, Renderer2, ViewChild, ViewContainerRef } from '@angular/core';
+import { AfterViewInit, ChangeDetectorRef, Directive, ElementRef, HostBinding, Injector, Input, OnDestroy, Renderer2, ViewChild, ViewContainerRef } from '@angular/core';
 import {isObjectLike,isArray,each}  from 'lodash-es';
 import { Container } from '../container.main';
 import { IArea } from './interface/IArea';
@@ -519,11 +519,10 @@ export class AbstractPanel extends Container implements AfterViewInit,OnDestroy{
   constructor(
     protected _element: ElementRef,
     protected renderer: Renderer2,
-    public override resolver: ComponentFactoryResolver,
     public override injector: Injector,
     public override detectRef: ChangeDetectorRef
   ) {
-    super(resolver, injector, detectRef);
+    super(injector, detectRef);
     this.el = this._element.nativeElement;
   }
 

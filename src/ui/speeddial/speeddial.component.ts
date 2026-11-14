@@ -8,7 +8,6 @@ import { DuiConfig } from '@dotos/dui/base';
 import {
   ChangeDetectionStrategy, ChangeDetectorRef,
   Component,
-  ComponentFactoryResolver,
   DoCheck,
   ElementRef,
   Injector,
@@ -190,7 +189,6 @@ export class ExtSpeedDialComponent extends ComponentBase implements OnInit,OnCha
    */
   constructor(
     public elementref: ElementRef,
-    public resolver: ComponentFactoryResolver,
     public injector: Injector,
     public override detectRef: ChangeDetectorRef) {
     super(detectRef);

@@ -8,7 +8,6 @@ import {
     ChangeDetectionStrategy,
     ChangeDetectorRef,
     Component,
-    ComponentFactoryResolver,
     ElementRef,
     Inject,
     Injector,
@@ -128,7 +127,6 @@ export class ɵDynamicWindowComponent
         @Inject(SHARED_CONFIG) private readonly sharedConfig$: Observable<DynamicWindowConfig>,
         private readonly hostRef: ElementRef<HTMLElement>,
         private readonly globalEvents: ɵGlobalEvents,
-        private readonly componentFactoryResolver: ComponentFactoryResolver,
         private readonly changeDetector: ChangeDetectorRef,
         private matIconRegistry: MatIconRegistry,
         private domSanitizer: DomSanitizer,
@@ -305,8 +303,7 @@ export class ɵDynamicWindowComponent
      * @param componentType - component type parameter (`Type<unknown>`) / 组件类型参数（`Type<unknown>`）
      */
     private initChildComponent(componentType: Type<unknown>): void {
-        const factory = this.componentFactoryResolver.resolveComponentFactory(componentType);
-        this.childComponentRef = this.contentViewRef.createComponent(factory);
+        this.childComponentRef = this.contentViewRef.createComponent(componentType);
     }
 
     /**

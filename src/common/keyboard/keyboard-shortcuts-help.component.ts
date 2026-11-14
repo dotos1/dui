@@ -6,7 +6,6 @@
 import {
     ApplicationRef,
     Component,
-    ComponentFactoryResolver,
     ElementRef,
     Injector,
     Input,
@@ -310,7 +309,6 @@ export class KeyboardShortcutsHelpComponent implements OnInit, OnDestroy, OnChan
      * @param injector - Injected or initial injector (`Injector`) / 注入或传入的注入器（`Injector`）
      */
     constructor(
-        private componentFactoryResolver: ComponentFactoryResolver,
         private appRef: ApplicationRef,
         private keyboard: KeyboardShortcutsService,
         private element: ElementRef,
@@ -320,7 +318,6 @@ export class KeyboardShortcutsHelpComponent implements OnInit, OnDestroy, OnChan
     ) {
         this.bodyPortalHost = new DomPortalOutlet(
             document.body,
-            this.componentFactoryResolver,
             this.appRef,
             this.injector
         );

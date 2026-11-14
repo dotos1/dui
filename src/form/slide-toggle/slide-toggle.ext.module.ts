@@ -3,7 +3,7 @@
  * @zh 模块文件 `src/form/slide-toggle/slide-toggle.ext.module.ts`，提供slide开关ext模块相关的定义与实现。
  */
 
-import { ComponentFactoryResolver, NgModule } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule, } from '@angular/material/form-field';
@@ -41,7 +41,7 @@ export class SliderToggleFieldModule {
    * @zh 创建 `SliderToggleFieldModule` 实例，并初始化其依赖项与内部状态。
    * @param componentFactoryResolver - Injected or initial component factory resolver (`ComponentFactoryResolver`) / 注入或传入的组件工厂解析器（`ComponentFactoryResolver`）
    */
-  constructor(componentFactoryResolver: ComponentFactoryResolver) {
-    Dui.registerComponentFactory(componentFactoryResolver,this.entryComponents);
+  constructor() {
+    Dui.registerComponentFactory(this.entryComponents);
   }
 }
